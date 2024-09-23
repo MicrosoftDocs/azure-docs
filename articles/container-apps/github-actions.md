@@ -79,7 +79,7 @@ steps:
 ```
 
 > [!IMPORTANT]
-> If you're building a container image in a separate step, make sure you use a unique tag such as the commit SHA instead of a stable tag like `latest`. For more information, see [Image tag best practices](../container-registry/container-registry-image-tag-version.md).
+> If you're building a container image in a separate step, make sure you use a unique tag such as the commit SHA instead of a stable tag like `latest`. For more information, see [Image tag best practices](/azure/container-registry/container-registry-image-tag-version).
 
 ### Authenticate with Azure Container Registry
 

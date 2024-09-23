@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/governance/machine-configuration/whats-new/migrating-from-dsc-extension.md ",
+      "redirect_url": " https://azure.microsoft.com/updates/migrate-from-linux-dsc-extension-to-the-guest-configuration-feature-of-azure-policy-by-may-1-2025/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/vpn-gateway/vpn-gateway-about-forced-tunneling.md",
       "redirect_url": "/previous-versions/azure/vpn-gateway/vpn-gateway-about-forced-tunneling",
       "redirect_document_id": false
@@ -581,99 +586,9 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-portal/admin-timeout.md",
-      "redirect_url": "/azure/azure-portal/set-preferences#change-the-directory-timeout-setting-admin",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-portal/azure-portal-change-theme-high-contrast.md",
-      "redirect_url": "/azure/azure-portal/set-preferences#choose-a-theme-or-enable-high-contrast",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-portal/azure-portal-export-delete-settings.md",
-      "redirect_url": "/azure/azure-portal/set-preferences#export-user-settings",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-portal/mobile-app/microsoft-copilot-for-azure.md",
-      "redirect_url": "/azure/azure-portal/mobile-app/microsoft-copilot-in-azure",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-portal/original-preferences.md",
-      "redirect_url": "/azure/azure-portal/set-preferences",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/azure-portal/resource-group-portal-linked-resources.md",
-      "redirect_url": "/azure/azure-portal/azure-portal-dashboards",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-portal/supportability/classic-deployment-model-quota-increase-requests.md",
-      "redirect_url": "/azure/quotas/classic-deployment-model-quota-increase-requests",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/azure-portal/supportability/how-to-use-file-uploader.md",
-      "redirect_url": "/azure/azure-portal/supportability/how-to-manage-azure-support-request#upload-files",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-portal/supportability/low-priority-quota.md",
-      "redirect_url": "/azure/quotas/spot-quota",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-portal/supportability/networking-quota-requests.md",
-      "redirect_url": "/azure/quotas/networking-quota-requests",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/azure-portal/supportability/per-vm-quota-requests.md",
-      "redirect_url": "/azure/quotas/per-vm-quota-requests",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/azure-portal/supportability/quotas-overview.md",
-      "redirect_url": "/azure/quotas/quotas-overview",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/azure-portal/supportability/regional-quota-requests.md",
-      "redirect_url": "/azure/quotas/regional-quota-requests",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/azure-portal/supportability/resource-manager-core-quotas-request.md",
-      "redirect_url": "/azure/quotas/regional-quota-requests",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-portal/supportability/sku-series-unavailable.md",
-      "redirect_url": "/troubleshoot/azure/general/region-access-request-process",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-portal/supportability/spot-quota.md",
-      "redirect_url": "/azure/quotas/spot-quota",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/azure-portal/supportability/view-quotas.md",
-      "redirect_url": "/azure/quotas/view-quotas",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/azure-portal/tutorial-azureportal-devops.md",
-      "redirect_url": "/azure/devops/pipelines/get-started-designer?toc=%2Fazure%2Fdevops%2Fuser-guide%2Ftoc.json&bc=%2Fazure%2Fdevops%2Fuser-guide%2Fbreadcrumb%2Ftoc.json&tabs=new-nav",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/azure-preview-portal-supported-browsers-devices.md",
       "redirect_url": "/azure/azure-portal/azure-portal-supported-browsers-devices",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-resource-manager/management/control-plane-metrics.md",
@@ -788,12 +703,12 @@
     {
       "source_path_from_root": "/articles/azure-supportability/how-to-create-azure-support-request.md",
       "redirect_url": "/azure/azure-portal/supportability/how-to-create-azure-support-request",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-supportability/how-to-use-file-uploader.md",
       "redirect_url": "/azure/azure-portal/supportability/how-to-use-file-uploader",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-supportability/index.yml",
@@ -1473,16 +1388,6 @@
     {
       "source_path_from_root": "/articles/cloudfoundry/use-osba-pcf-app.md",
       "redirect_url": "/azure/cloudfoundry",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/container-registry/manual-regional-move.md",
-      "redirect_url": "/azure/operational-excellence/relocation-container-registry",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/copilot/limited-access.md",
-      "redirect_url": "/azure/copilot/manage-access",
       "redirect_document_id": false
     },
     {
@@ -2606,21 +2511,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/lighthouse/concepts/azure-delegated-resource-management.md",
-      "redirect_url": "/azure/lighthouse/concepts/architecture",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/lighthouse/how-to/partner-earned-credit.md",
-      "redirect_url": "/azure/cost-management-billing/manage/link-partner-id",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/lighthouse/samples/policy-samples.md",
-      "redirect_url": "/azure/lighthouse/samples/policy-reference",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/load-balancer/tutorial-cross-region-cli.md",
       "redirect_url": "/azure/virtual-network/ip-services/tutorial-cross-region-portal",
       "redirect_document_id": false
@@ -2704,6 +2594,11 @@
       "source_path_from_root": "/articles/location-based-services/zoom-levels-and-tile-grid.md",
       "redirect_url": "/azure/azure-maps/zoom-levels-and-tile-grid",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/managed-grafana/how-to-sync-teams-with-azure-ad-groups.md",
+      "redirect_url": "how-to-sync-teams-with-entra-groups",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/media-services/azure-media-player/azure-media-player-license.md",

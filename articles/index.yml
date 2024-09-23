@@ -546,7 +546,7 @@ productDirectory:
       imageSrc: ./media/index/container-registry.svg
       azureCategories:
         - containers
-      url: container-registry/index.yml
+      url: /azure/container-registry/
     # Card
     - title: Web App for Containers
       summary: Easily deploy and run containerized web apps that scale with your business
@@ -816,7 +816,7 @@ productDirectory:
       azureCategories:
         - hybrid
         - featured
-      url: azure-arc/index.yml
+      url: /azure/azure-arc/
     # Card
     - title: Azure ExpressRoute
       summary: Dedicated private network fiber connections to Azure
@@ -1020,7 +1020,7 @@ productDirectory:
       imageSrc: ./media/index/lighthouse.svg
       azureCategories:
         - management-and-governance
-      url: lighthouse/index.yml
+      url: /azure/lighthouse/
     # Card
     - title: Azure Managed Applications
       summary: Simplify management of cloud offerings
@@ -1100,7 +1100,7 @@ productDirectory:
       imageSrc: ./media/index/azure.svg
       azureCategories:
         - management-and-governance
-      url: azure-portal/index.yml
+      url: /azure/azure-portal/
     # Card
     - title: Azure Update Manager
       summary: Centrally manage updates and compliance at scale

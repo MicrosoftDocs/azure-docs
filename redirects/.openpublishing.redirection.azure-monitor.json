@@ -731,11 +731,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-arc/kubernetes/deploy-azure-monitor-for-containers.md",
-      "redirect_url": "/azure/azure-monitor/insights/container-insights-enable-arc-enabled-clusters",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/monitoring/monitoring-container-agent-upgrade.md",
       "redirect_url": "/azure/azure-monitor/insights/container-insights-manage-agent",
       "redirect_document_id": false
