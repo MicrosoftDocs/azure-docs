@@ -6,6 +6,7 @@ ms.date: 09/23/2024
 ms.author: greglin
 ---
 **Public DNS zones**
+
 | Resource | Limit |
 | --- | --- |
 | Public DNS zones per subscription |250 <sup>1</sup> |
@@ -16,6 +17,7 @@ ms.author: greglin
 <sup>1</sup>If you need to increase these limits, contact Azure Support.
 
 **Private DNS zones**
+
 | Resource | Limit |
 | --- | --- |
 | Private DNS zones per subscription |1000|
@@ -37,6 +39,7 @@ ms.author: greglin
 | Move |20|
 
 **Private DNS zone resource records**
+
 | Operation | Limit |
 | --- | --- |
 | Create |60/min|
@@ -46,6 +49,7 @@ ms.author: greglin
 | Update |60|
 
 **Virtual network links**
+
 | Operation | Limit |
 | --- | --- |
 | Create |60/min|
@@ -55,6 +59,7 @@ ms.author: greglin
 | Update |60|
 
 **Azure-provided DNS resolver VM limits**
+
 | Resource | Limit |
 | --- | --- |
 | Number of DNS queries a virtual machine can send to Azure DNS resolver, per second |1000 <sup>1</sup> |
