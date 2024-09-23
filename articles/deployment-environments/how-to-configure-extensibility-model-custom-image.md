@@ -15,15 +15,25 @@ zone_pivot_groups: ade-extensibility-iac-framework
 
 # Configure container image to execute deployments
 
-In this article, you learn how to build custom container images to deploy your [environment definitions](configure-environment-definition.md) in Azure Deployment Environments (ADE).
+::: zone pivot="arm-bicep"
+In this article, you learn how to build custom container images to deploy your environment definitions in Azure Deployment Environments (ADE).
+::: zone-end
 
-An environment definition comprises at least two files: a template file, like *azuredeploy.json* or *main.bicep*, and a manifest file named *environment.yaml*. ADE uses containers to deploy environment definitions. 
+::: zone pivot="terraform"
+In this article, you learn how to build custom Terraform container images to deploy your environment definitions in Azure Deployment Environments (ADE). You learn how to configure a custom image to provision infrastructure using the Terraform Infrastructure-as-Code (IaC) framework.
+::: zone-end
+
+::: zone pivot="pulumi"
+In this article, you learn how to utilize [Pulumi](https://pulumi.com) for deployments in Azure Deployment Environments (ADE). You learn how to use a standard image provided by Pulumi or how to configure a custom image to provision infrastructure using the Pulumi Infrastructure-as-Code (IaC) framework.
+::: zone-end
 
 ADE supports an extensibility model that enables you to create custom images that you can use in your environment definitions. To use this extensibility model, create your own custom images and store them in a container registry like Azure Container Registry (ACR) or Docker Hub. You can then reference these images in your environment definitions to deploy your environments. 
 
-ADE supports multiple Infrastructure-as-Code (IaC) frameworks, including ARM, Bicep, Terraform, and [Pulumi](https://pulumi.com). 
+::: zone pivot="arm-bicep"
+An [environment definition](configure-environment-definition.md) comprises at least two files: a template file, like *azuredeploy.json* or *main.bicep*, and a manifest file named *environment.yaml*. ADE uses containers to deploy environment definitions. 
 
 The ADE team provides a selection of images to get you started, including a core image, and an Azure Resource Manager (ARM)-Bicep image. You can access these sample images in the [Runner-Images](https://aka.ms/deployment-environments/runner-images) folder.
+::: zone-end
 
 ## Prerequisites
 

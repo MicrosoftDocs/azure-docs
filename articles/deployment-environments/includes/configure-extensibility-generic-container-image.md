@@ -6,7 +6,7 @@ ms.service: azure-deployment-environments
 ms.custom: devx-track-azurecli
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 08/01/2024
+ms.date: 09/23/2024
 ms.topic: how-to
 #customer intent: As a developer, I want to learn how to build and utilize custom images with my environment definitions for deployment environments.
 ---
@@ -20,6 +20,8 @@ An environment definition comprises at least two files: a template file, like *a
 The ADE extensibility model enables you to create custom container images to use with your environment definitions. By using the extensibility model, you can create your own custom container images, and store them in a container registry like Azure Container Registry (ACR) or Docker Hub. You can then reference these images in your environment definitions to deploy your environments.
 
 The ADE team provides a selection of images to get you started, including a core image, and an Azure Resource Manager (ARM)/Bicep image. You can access these sample images in the [Runner-Images](https://aka.ms/deployment-environments/runner-images) folder.
+
+ADE supports multiple Infrastructure-as-Code (IaC) frameworks, including ARM, Bicep, Terraform, and [Pulumi](https://pulumi.com). 
 
 ## Prerequisites
 
