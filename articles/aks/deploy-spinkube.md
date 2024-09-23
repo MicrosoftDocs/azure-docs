@@ -11,12 +11,10 @@ ms.author: ThorstenHans
 
 [WebAssembly (Wasm)][wasm] is a binary format that is optimized for fast download and near-native execution speed. It runs in a sandbox, isolated from the host computer, provided by a Wasm runtime. By default, WebAssembly modules can't access resources on the host outside of the sandbox unless they are explicitly allowed, including sockets and environment variables. The [WebAssembly System Interface (WASI)][wasi] standard defines a set of interfaces for Wasm runtimes to provide access to WebAssembly modules to the environment and resources outside the host using a capability-based security model.
 
-[SpinKube][spinkube] is a open-source project that runs serverless Wasm workloads (Spin Apps) built with open-source [Spin][spin] in Kubernetes. In contrast to earlier Wasm runtimes for Kubernetes, Spin Apps are executed natively on the underlying Kubernetes nodes and do not rely on containers. SpinKube consists of four major components: 
+[SpinKube][spinkube] is a open-source project that runs serverless Wasm workloads (Spin Apps) built with open-source [Spin][spin] in Kubernetes. In contrast to earlier Wasm runtimes for Kubernetes, Spin Apps are executed natively on the underlying Kubernetes nodes and do not rely on containers. SpinKube consists of two top-level components: 
 
-- `containerd-shim-spin`: An implementation of [`containerd-shim`][containerd-shim] for Spin, which enables running Spin Apps on Kubernetes via [`run-wasi`][run-wasi]
-- `runtime-class-manager`: A lifecycle operator for managing and automating the lifecycle of `containerd-shims` in a Kubernetes environment (previously known as KWasm)
-- `spin-operator`: A Kubernetes operator allowing the deployment and management of Spin Apps by using custom resources
-- `kube` plugin for `spin`: A `spin` CLI plugin allowing users to scaffold Kubernetes deployment manifests for Spin Apps.
+* `spin-operator`: A Kubernetes operator allowing the deployment and management of Spin Apps by using custom resources
+* `kube` plugin for `spin`: A `spin` CLI plugin allowing users to scaffold Kubernetes deployment manifests for Spin Apps.
 
 
 ## Before you begin
