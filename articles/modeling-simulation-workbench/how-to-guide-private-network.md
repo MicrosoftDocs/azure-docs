@@ -22,7 +22,7 @@ In Azure Modeling and Simulation Workbench, you can deploy a [connector](./conce
 
 ## Create or designate a virtual network
 
-Modeling and Simulation Workbench requires a virtual network with a subnet name 'default.' If you don't have a virtual network already created, [create one before continuing.](/azure/virtual-network/quick-create-portal).
+Modeling and Simulation Workbench requires a virtual network with a subnet name 'default.' If you don't have a virtual network already created, [create one before continuing](/azure/virtual-network/quick-create-portal).
 
 ## Assign roles
 
