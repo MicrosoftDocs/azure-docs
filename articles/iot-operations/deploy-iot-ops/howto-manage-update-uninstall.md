@@ -16,6 +16,18 @@ ms.date: 09/23/2024
 
 Use the Azure CLI and Azure portal to manage, uninstall, or update Azure IoT Operations instances.
 
+## Prerequisites
+
+* An Azure IoT Operations instance deployed to a cluster. For more information, see [Deploy Azure IoT Operations](./howto-deploy-iot-operations.md).
+
+* Azure CLI installed on your development machine. This scenario requires Azure CLI version 2.64.0 or higher. Use `az --version` to check your version and `az upgrade` to update if necessary. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
+
+* The Azure IoT Operations extension for Azure CLI. Use the following command to add the extension or update it to the latest version:
+
+  ```azurecli
+  az extension add --upgrade --name azure-iot-ops
+  ```
+
 ## Manage
 
 After deployment, you can use the Azure CLI and Azure portal to view and manage your Azure IoT Operations instance.
@@ -123,13 +135,13 @@ az iot ops update --name <INSTANCE_NAME> --resource-group --tags ""
 
 The Azure CLI and Azure portal offer different options for uninstalling Azure IoT Operations.
 
-If you want to delete an entire Azure IoT Operations deployment, use the Azure CLI.
-
-If you want to delete an Azure IoT Operations instance but keep the related resources in the deployment, use the Azure portal.
+The Azure portal steps can delete an Azure IoT Operations instance, but can't affect the related resources in the deployment. If you want to delete the entire deployment, use the Azure CLI.
 
 ### [Azure CLI](#tab/cli)
 
 Use the [az iot ops delete](/cli/azure/iot/ops#az-iot-ops-delete) command to delete the entire Azure IoT Operations deployment from a cluster. The `delete` command evaluates the Azure IoT Operations related resources on the cluster and presents a tree view of the resources to be deleted. The cluster should be online when you run this command.
+
+The `delete` command streamlines the redeployment of Azure IoT Operations to the same cluster. It undoes the `create` command so that you can run `create`, `delete`, `create` again and so on without having to rerun `init`.
 
 The `delete` command removes:
 
@@ -140,7 +152,12 @@ The `delete` command removes:
 * Resources that you can configure in your Azure IoT Operations solution, like assets, MQTT broker, and dataflows.
 
 ```azurecli
-az iot ops delete --cluster <CLUSTER_NAME> --resource-group <RESOURCE_GROUP>
+az iot ops delete --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP>
+```
+
+To delete the instance and also remove the Azure IoT Operations dependencies (the output of `init`), add the flag `--include-deps`.
+
+```az iot ops delete --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> --include-deps
 ```
 
 ### [Azure portal](#tab/portal)

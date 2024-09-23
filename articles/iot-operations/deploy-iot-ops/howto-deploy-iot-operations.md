@@ -14,7 +14,9 @@ ms.date: 09/23/2024
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-Learn how to deploy Azure IoT Operations Preview to a Kubernetes cluster and then manage that Azure IoT Operations instance using the Azure CLI or Azure portal.
+Learn how to deploy Azure IoT Operations Preview to a Kubernetes cluster using the Azure CLI or Azure portal.
+
+In this article, we discuss Azure IoT Operations *deployments* and *instances*, which are two different concepts:
 
 * An Azure IoT Operations *deployment* describes all of the components and resources that enable the Azure IoT Operations scenario. These components and resources include:
   * An Azure IoT Operations instance
@@ -23,9 +25,9 @@ Learn how to deploy Azure IoT Operations Preview to a Kubernetes cluster and the
   * Resource sync rules
   * Resources that you can configure in your Azure IoT Operations solution, like assets and asset endpoints.
 
-* An Azure IoT Operations *instance* is one part of a deployment. It's the parent resource that bundles the suite of services that are defined in [What is Azure IoT Operations Preview?](../overview-iot-operations.md) like MQTT broker, dataflows, and OPC UA connector.
+* An Azure IoT Operations *instance* is the parent resource that bundles the suite of services that are defined in [What is Azure IoT Operations Preview?](../overview-iot-operations.md) like MQTT broker, dataflows, and OPC UA connector.
 
-In this article, when we talk about deploying Azure IoT Operations we mean the full set of components that make up a *deployment*. Once the deployment exists, you can view, manage, and update the *instance*.
+When we talk about deploying Azure IoT Operations we mean the full set of components that make up a *deployment*. Once the deployment exists, you can view, manage, and update the *instance*.
 
 ## Prerequisites
 
@@ -39,17 +41,17 @@ Cloud resources:
   az keyvault create --enable-rbac-authorization --name "<KEYVAULT_NAME>" --resource-group "<RESOURCE_GROUP>"
   ```
 
-* Azure access permissions:
+* Azure access permissions. For more information, see [Steps to assign an Azure role](../../role-based-access-control/role-assignments-steps.md).
 
   * At a minimum, have **Contributor** permissions in your Azure subscription.
 
-  * Creating secrets in Key Vault require s**Key Vault Secrets Officer** permissions.
+  * Creating secrets in Key Vault requires **Key Vault Secrets Officer** permissions.
 
-  * The following tasks require **Microsoft/Authorization/roleAssignments/write** permissions. You can make a custom role in Azure role-based access control or assign a [built-in role](../../role-based-access-control/built-in-roles/general.md) that grants this permission.
+  * The following tasks require **Microsoft/Authorization/roleAssignments/write** permissions.
 
     * Enabling resource sync rules on the Azure IoT Operations instance. If you don't have role assignment write permissions, you can disable this feature during deployment. This approach is discussed in more detail in the [Deploy](#deploy) section of this article.
 
-    * Creating a schema registry. If you don't have role assignment write permissions, you can request them or ask that someone with the correct permissions create a schema registry that you can refer to.
+    * Creating a schema registry.
 
   > [!TIP]
   >
@@ -61,7 +63,7 @@ Cloud resources:
 
 Development resources:
 
-* Azure CLI installed on your development machine. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli). This scenario requires Azure CLI version 2.53.0 or higher. Use `az --version` to check your version and `az upgrade` to update if necessary.
+* Azure CLI installed on your development machine. This scenario requires Azure CLI version 2.64.0 or higher. Use `az --version` to check your version and `az upgrade` to update if necessary. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
 * The Azure IoT Operations extension for Azure CLI. Use the following command to add the extension or update it to the latest version:
 
@@ -73,11 +75,9 @@ A cluster host:
 
 * An Azure Arc-enabled Kubernetes cluster with the custom location and workload identity features enabled. If you don't have one, follow the steps in [Prepare your Azure Arc-enabled Kubernetes cluster](./howto-prepare-cluster.md?tabs=wsl-ubuntu).
 
-  If you deployed Azure IoT Operations to your cluster previously, uninstall those resources before continuing. For more information, see [Update Azure IoT Operations](#update-azure-iot-operations).
+  If you deployed Azure IoT Operations to your cluster previously, uninstall those resources before continuing. For more information, see [Update Azure IoT Operations](./howto-manage-update-uninstall.md#update).
 
-  Azure IoT Operations should work on any CNCF-conformant kubernetes cluster. Currently, Microsoft only supports K3s on Ubuntu Linux and WSL, or AKS Edge Essentials on Windows.
-
-  Use the Azure IoT Operations extension for Azure CLI to verify that your cluster host is configured correctly for deployment by using the [verify-host](/cli/azure/iot/ops#az-iot-ops-verify-host) command on the cluster host:
+* Verify that your cluster host is configured correctly for deployment by using the [verify-host](/cli/azure/iot/ops#az-iot-ops-verify-host) command on the cluster host:
 
   ```azurecli
   az iot ops verify-host
@@ -91,7 +91,7 @@ The Azure portal deployment experience is a helper tool that generates a deploym
 
 ### [Azure CLI](#tab/cli)
 
-1. Sign in to Azure CLI interactively with a browser even if you already signed in before. If you don't sign in interactively, you might get an error that says *Your device is required to be managed to access your resource* when you continue to the next step to deploy Azure IoT Operations.
+1. Sign in to Azure CLI interactively with a browser even if you already signed in before.
 
    ```azurecli
    az login
@@ -109,33 +109,24 @@ The Azure portal deployment experience is a helper tool that generates a deploym
 
 Azure IoT Operations requires a schema registry on your cluster. Schema registry requires an Azure storage account so that it can synchronize schema information between cloud and edge.
 
-Run the following CLI commands in your Codespaces terminal.
-
-1. Set environment variables for the resources you create in this section.
-
-   | Placeholder | Value |
-   | ----------- | ----- |
-   | <STORAGE_ACCOUNT_NAME> | A name for your storage account. Storage account names must be between 3 and 24 characters in length and only contain numbers and lowercase letters. |
-   | <SCHEMA_REGISTRY_NAME> | A name for your schema registry. |
-   | <SCHEMA_REGISTRY_NAMESPACE> | A name for your schema registry namespace. The namespace uniquely identifies a schema registry within a tenant. |
-
-   ```azurecli
-   export STORAGE_ACCOUNT=<STORAGE_ACCOUNT_NAME>
-   export SCHEMA_REGISTRY=<SCHEMA_REGISTRY_NAME>
-   export SCHEMA_REGISTRY_NAMESPACE=<SCHEMA_REGISTRY_NAMESPACE>
-   ```
-
 1. Create a storage account with hierarchical namespace enabled.
 
    ```azurecli
-   az storage account create --name $STORAGE_ACCOUNT --location $LOCATION --resource-group $RESOURCE_GROUP --enable-hierarchical-namespace
+   az storage account create --name <STORAGE_ACCOUNT_NAME> --resource-group <RESOURCE_GROUP> --enable-hierarchical-namespace
    ```
 
-1. Create a schema registry that connects to your storage account. This command also creates a blob container called **schemas** in the storage account if one doesn't exist already.
+1. Create a schema registry that connects to your storage account.
 
    ```azurecli
-   az iot ops schema registry create --name $SCHEMA_REGISTRY --resource-group $RESOURCE_GROUP --registry-namespace $SCHEMA_REGISTRY_NAMESPACE --sa-resource-id $(az storage account show --name $STORAGE_ACCOUNT --resource-group $RESOURCE_GROUP -o tsv --query id)
+   az iot ops schema registry create --name <SCHEMA_REGISTRY> --resource-group <RESOURCE_GROUP> --registry-namespace <SCHEMA_REGISTRY_NAMESPACE> --sa-resource-id $(az storage account show --name <STORAGE_ACCOUNT_NAME> --resource-group <RESOURCE_GROUP> -o tsv --query id)
    ```
+
+   Use the optional parameters to customize your schema registry, including:
+
+   | Optional parameter | Value | Description |
+   | --------- | ----- | ----------- |
+   | `--custom-role-id` | Role definitio, ID | The schema registry needs read/write access to the storage account. Provide a custom role ID to use instead of the default **Storage Blob Data Contributor**. Format: `/subscriptions/<SUBSCRIPTION_ID>/providers/Microsoft.Authorization/roleDefinitions/<ROLE_ID>`. |
+   | `--sa-container` | string | Storage account container where schemas will be stored. If this container doesn't exist, it will be created. The default container name is **schemas**. |
 
 ### Deploy Azure IoT Operations
 
@@ -155,10 +146,10 @@ Run the following CLI commands in your Codespaces terminal.
 1. Deploy Azure IoT Operations. This command takes several minutes to complete:
 
    ```azurecli
-   az iot ops create --cluster $CLUSTER_NAME --resource-group $RESOURCE_GROUP
+   az iot ops create --cluster <CLUSTER_NAME> --resource-group <RESOURCE_GROUP>
    ```
 
-   Use the [optional parameters](/cli/azure/iot/ops#az-iot-ops-init-optional-parameters) to customize your cluster, including:
+   Use the optional parameters to customize your instance, including:
 
    | Optional parameter | Value | Description |
    | --------- | ----- | ----------- |
@@ -190,9 +181,9 @@ Azure secret requires a user-assigned managed identity with access to the Azure 
 
 1. Create a user-assigned managed identity that has access to the Azure Key Vault.
 
-```azurecli
-az identity create --name "<USER_ASSIGNED_IDENTITY_NAME>" --resource-group "<RESOURCE_GROUP>" --location "<LOCATION>" --subscription "<SUBSCRIPTION>" 
-```
+   ```azurecli
+   az identity create --name "<USER_ASSIGNED_IDENTITY_NAME>" --resource-group "<RESOURCE_GROUP>" --location "<LOCATION>" --subscription "<SUBSCRIPTION>" 
+   ```
 
 1. Configure the Azure IoT Operations instance for secret synchronization. This command:
 
@@ -310,7 +301,7 @@ az identity create --name "<USER_ASSIGNED_IDENTITY_NAME>" --resource-group "<RES
 
 While the deployment is in progress, you can watch the resources being applied to your cluster.
 
-* If your terminal supports it, `init` displays the deployment progress.
+If your terminal supports it, the `init` and `create` commands display the deployment progress.
 
   :::image type="content" source="./media/howto-deploy-iot-operations/view-deployment-terminal.png" alt-text="A screenshot that shows the progress of an Azure IoT Operations deployment in a terminal.":::
 
@@ -318,7 +309,7 @@ While the deployment is in progress, you can watch the resources being applied t
 
   :::image type="content" source="./media/howto-deploy-iot-operations/view-deployment-portal.png" alt-text="A screenshot that shows the progress of an Azure IoT Operations deployment in the Azure portal." lightbox="./media/howto-deploy-iot-operations/view-deployment-portal.png":::
 
-* Otherwise, or if you choose to disable the progress interface with `--no-progress` added to the `init` command, you can use kubectl commands to view the pods on your cluster:
+Otherwise, or if you choose to disable the progress interface with `--no-progress` added to the commands, you can use kubectl commands to view the pods on your cluster:
 
   ```bash
   kubectl get pods -n azure-iot-operations

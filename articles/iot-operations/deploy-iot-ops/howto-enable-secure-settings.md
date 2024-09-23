@@ -22,7 +22,7 @@ The end-to-end sample articles skip the secure settings configuration and instea
 
 * An Azure IoT Operations instance deployed with test settings, as in [Quickstart: Run Azure IoT Operations Preview in GitHub Codespaces](../get-started-end-to-end-sample/quickstart-deploy.md).
 
-* Azure CLI installed on your development machine. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli). This scenario requires Azure CLI version 2.53.0 or higher. Use `az --version` to check your version and `az upgrade` to update if necessary.
+* Azure CLI installed on your development machine. This scenario requires Azure CLI version 2.64.0 or higher. Use `az --version` to check your version and `az upgrade` to update if necessary. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
 * The Azure IoT Operations extension for Azure CLI. Use the following command to add the extension or update it to the latest version:
 
