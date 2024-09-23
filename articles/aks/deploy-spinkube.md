@@ -21,7 +21,12 @@ ms.author: ThorstenHans
 
 ## Before you begin
 
-You must have the latest version of Azure CLI, [`kubectl`][kubectl], [Helm][helm], and [Spin CLI][spin-cli] installed.
+You must have the following tools installed on your machine to follow this tutorial: 
+
+* Azure CLI (`az`) (version `2.64.0` or newer) 
+* [`kubectl`][kubectl] (version `1.31.0` or newer)
+* [`helm`][helm] (version `3.15.4` or newer)
+* [`spin`][spin-cli] (version `2.7.0` or newer)
 
 ## Limitations
 
