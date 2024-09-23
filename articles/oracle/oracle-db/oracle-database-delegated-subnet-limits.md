@@ -14,8 +14,9 @@ In this article, you learn about delegated subnet limits for Oracle Database@Azu
 
 Oracle Database@Azure infrastructure resources are connected to your Azure virtual network using a virtual NIC from your [delegated subnets](/azure/virtual-network/subnet-delegation-overview) (delegated to `Oracle.Database/networkAttachement`). By default, the Oracle Database@Azure service can use up to five delegated subnets. If you need more delegated subnet capacity, you can request a service limit increase.
 
-For information on viewing and increasing service limits in the OCI Console, see the following articles:
+## Service limits in the OCI Console
 
+For information on viewing and increasing service limits in the OCI Console, see the following articles:
 - [To view the tenancy's limits and usage (by region)](https://docs.oracle.com/en-us/iaas/Content/General/Concepts/servicelimits.htm#To_view_your_tenancys_limits_and_usage_by_region)
 - [Requesting a service limit increase](https://docs.oracle.com/en-us/iaas/Content/General/Concepts/servicelimits.htm#Requesti)
 

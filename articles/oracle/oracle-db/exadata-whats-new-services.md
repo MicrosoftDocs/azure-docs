@@ -12,6 +12,8 @@ ms.date: 08/01/2024
 
 Oracle Database@Azure (OracleDB@Azure) provides you with seamless integration of Oracle resources within your Microsoft Azure cloud environment.
 
+## July 2024
+
 | Month/Year | Feature | Description |
 | ---------- | ------- | ------------|
 | July 2024 | Added a Quickstart Terraform Templates and Modules section. | This section grows as the templates and modules are revised and new content is added. |

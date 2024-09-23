@@ -16,13 +16,13 @@ Provisioning Oracle Exadata Infrastructure is a time-consuming process. Provisio
 
 There are prerequisites that must be completed before you can provision Exadata Services. You need to complete the following:
 
-1. An existing Azure subscription
-1. An Azure virtual network with a subnet delegated to the Oracle Database@Azure service (`Oracle.Database/networkAttachments`)
-1. Permissions in Azure to create resources in the region, with the following conditions:
+- An existing Azure subscription
+- An Azure virtual network with a subnet delegated to the Oracle Database@Azure service (`Oracle.Database/networkAttachments`)
+- Permissions in Azure to create resources in the region, with the following conditions:
    * No policies prohibiting the creation of resources without tags, because the OracleSubscription resource is created automatically without tags during onboarding.
    * No policies enforcing naming conventions, because the OracleSubscription resource is created automatically with a default resource name.
-1. Purchase OracleDB@Azure in the Azure portal.
-1. Select your Oracle Cloud Infrastructure (OCI) account.
+- Purchase OracleDB@Azure in the Azure portal.
+- Select your Oracle Cloud Infrastructure (OCI) account.
 For more detailed documentation, including optional steps, see [Onboarding with Oracle Database@Azure](https://docs.oracle.com/iaas/Content/database-at-azure/oaaonboard.htm).
 
 >[!NOTE] 
@@ -40,7 +40,10 @@ For more detailed documentation, including optional steps, see [Onboarding with 
      >[!NOTE] 
      >The regions where the OracleDB@Azure service is available are limited.
    
-   1. Select the **Availability zone** where this Oracle Exadata Infrastructure is provisioned. NOTE: The availability zones where the OracleDB@Azure service is available are limited.
+   1. Select the **Availability zone** where this Oracle Exadata Infrastructure is provisioned. 
+    > [!NOTE]
+    > The availability zones where the OracleDB@Azure service is available are limited.
+
    1. The **Oracle Cloud account name** field is display-only. If the name isn't showing correctly, your OracleDB@Azure account setup hasn't been successfully completed.
    1. Select **Next** to continue.
 1. From the Configuration tab of the Create Oracle Exadata Infrastructure flow, enter the following information.
@@ -56,7 +59,10 @@ For more detailed documentation, including optional steps, see [Onboarding with 
    1. You can then enter up to 10 **Names** and **Email addresses** that are used as contacts for the maintenance process.
    1. Select **Next** to continue.
 1. From the **Consent** tab of the Create Oracle Exadata Infrastructure flow, you must agree to the terms of service, privacy policy, and agree to access permissions. Once accepted, select **Next** to continue.
-1. From the **Tags** tab of the Create Oracle Exadata Infrastructure flow, you define Microsoft Azure tags. NOTE: These tags aren't propagated to the Oracle Cloud Infrastructure (OCI) portal. Once you have created the tags, if any, for your environment, select **Next** to continue.
+1. From the **Tags** tab of the Create Oracle Exadata Infrastructure flow, you define Microsoft Azure tags. 
+    >[!NOTE] 
+    > These tags aren't propagated to the Oracle Cloud Infrastructure (OCI) portal. Once you have created the tags, if any, for your environment, select **Next** to continue.
+
 1. From the **Review _+ create** tab of the Create Oracle Exadata Infrastructure flow, a short validation process is run to check the values that you entered from the previous steps. If the validation fails, you must correct any errors before you can start the provisioning process.
 1. Select the **Create** button to start the provisioning flow.
 1. Return to the Oracle Exadata Infrastructure blade to monitor and manage the state of your Oracle Exadata Infrastructure environments.

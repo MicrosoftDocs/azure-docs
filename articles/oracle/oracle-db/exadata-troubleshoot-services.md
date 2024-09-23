@@ -30,7 +30,7 @@ When provisioning Exadata Services, a private DNS zone can only select zones wit
 
 ## Automatic Network Ingress Configuration
 
-You can connect a Microsoft Azure VM to an Oracle Exadata VM Cluster if both are in the same virtual network (VNet). The functionality is automatic and requires no additional changes to network security group (NSG) rules. If you need to connect an Microsoft Azure VM from a different VNet than the one where the Oracle Exadata VM Cluster was created, an additional step to configure NSG traffic rules to allow the other VNet's traffic to flow properly. As an example, if you have two (2) VNets (A and B) with VNet A serving the Microsoft Azure VM and VNet B serving the Oracle Exadata VM Cluster, you need to add VNet A's CIDR address to the NSG route table in OCI.
+You can connect a Microsoft Azure VM to an Oracle Exadata VM Cluster if both are in the same virtual network (VNet). The functionality is automatic and requires no additional changes to network security group (NSG) rules. If you need to connect a Microsoft Azure VM from a different VNet than the one where the Oracle Exadata VM Cluster was created, an additional step to configure NSG traffic rules to allow the other VNet's traffic to flow properly. As an example, if you have two (2) VNets (A and B) with VNet A serving the Microsoft Azure VM and VNet B serving the Oracle Exadata VM Cluster, you need to add VNet A's CIDR address to the NSG route table in OCI.
 
 | Direction | Source or Destination | Protocol | Details | Description |
 | --------- | --------------------- | -------- | ------- | ----------- |

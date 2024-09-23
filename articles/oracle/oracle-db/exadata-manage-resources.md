@@ -16,13 +16,13 @@ After provisioning an OracleDB@Azure resource, for example an Oracle Exadata Inf
 
 There are prerequisites that must be completed before you can provision Exadata Services. You need to complete the following:
 
-1. An existing Azure subscription
-1. An Azure VNet with a subnet delegated to the Oracle Database@Azure service (`Oracle.Database/networkAttachments`)
-1. Permissions in Azure to create resources in the region, with the following conditions:
+- An existing Azure subscription
+- An Azure VNet with a subnet delegated to the Oracle Database@Azure service (`Oracle.Database/networkAttachments`)
+- Permissions in Azure to create resources in the region, with the following conditions:
    * No policies prohibiting the creation of resources without tags, because the OracleSubscription resource is created automatically without tags during onboarding.
    * No policies enforcing naming conventions, because the OracleSubscription resource is created automatically with a default resource name.
-1. Purchase OracleDB@Azure in the Azure portal.
-1. Select your Oracle Cloud Infrastructure (OCI) account.
+- Purchase OracleDB@Azure in the Azure portal.
+- Select your Oracle Cloud Infrastructure (OCI) account.
 For more detailed documentation, including optional steps, see [Onboarding with Oracle Database@Azure](https://docs.oracle.com/iaas/Content/database-at-azure/oaaonboard.htm).
 
 ## Common Management Functions from the Microsoft Azure Blade
@@ -76,13 +76,18 @@ The following management functions are available for all resources from the Micr
 1. From the resource's overview page, select the **Settings > Virtual machines** link on the left-side menu.
 1. To start a virtual machine (VM), select the **Start** icon. The **Start virtual machine** panel opens. Select the VM to start from the **Virtual machine** drop-down list. The drop-down list only populates with any unavailable VMs. Select the **Submit** button to start that VM, or the **Cancel** button to cancel the operation.
 1. To stop a virtual machine (VM), select the **Stop** icon. The **Stop virtual machine** panel opens. Select the VM to stop from the **Virtual machine** drop-down list. The drop-down list only populates with any available VMs. NOTE: Stopping a node may disrupt ongoing back-end software operations and database availability. Select the **Submit** button to stop that VM, or the **Cancel** button to cancel the operation.
-1. To restart a virtual machine (VM), select the **Restart** icon. The **Restart virtual machine** panel opens. Select the VM to restart from the Virtual machine drop-down list. The drop-down list only populates with any available VMs. **NOTE:** Restarting shuts down the node and then starts it. For single-node systems, databases are offline while the reboot is in progress. Select the **Submit** button to restart that VM, or the **Cancel** button to cancel the operation.
+1. To restart a virtual machine (VM), select the **Restart** icon. The **Restart virtual machine** panel opens. Select the VM to restart from the Virtual machine drop-down list. The drop-down list only populates with any available VMs.
+ 
+ >[!NOTE] 
+ >Restarting shuts down the node and then starts it. For single-node systems, databases are offline while the reboot is in progress.
+
+1. Select the **Submit** button to restart that VM, or the **Cancel** button to cancel the operation.
 
 ### Access the OCI console
 1. Follow the steps to **Access the resource blade**.
 1. Select the link to the resource from the **Name** field in the table.
 1. From the resource's detail page, select the **Go to OCI** link on the **OCI Database URL** field.
-1. Login to OCI.
+1. Log in to OCI.
 1. Manage the resource from within the OCI console.
 
 ### Perform a connectivity test
@@ -97,7 +102,7 @@ The following management functions are available for all resources from the Micr
    1. **Username** - Enter **SYS**.
    1. **Password** - Enter the password used when creating the PDB.
    1. **Role** - Select **SYSDBA**.
-   1. **Save Password** - Select the box if you security rules allow. If not, you will need to enter the PDB password every time you use this connection in SQL Developer.
+   1. **Save Password** - Select the box if your security rules allow. If not, you will need to enter the PDB password every time you use this connection in SQL Developer.
    1. **Connection Type** - Select **Basic**.
    1. **Hostname** - Enter one of the host IPs from the **Connection Strings** above.
    1. **Port** - The default is 1521. You only need to change this if you have altered default port settings for the PDB.
@@ -111,7 +116,7 @@ The following management functions are available for all resources from the Micr
 1. Follow the steps to access the Oracle Exadata VM Cluster resource blade.
 1. Select the link to the resource from the **Name** field in the table.
 1. From the resource's detail page, select the **Go to OCI** link on the **OCI network security group URL** field.
-1. Login to OCI.
+1. Log in to OCI.
 1. Manage the NSG rules from within the OCI console.
 1. For additional information on NSG rules and considerations within OracleDB@Azure, see the **Automatic Network Ingress Configuration** section of [Troubleshooting and Known Issues for Exadata Services](exadata-troubleshoot-services.md).
 
