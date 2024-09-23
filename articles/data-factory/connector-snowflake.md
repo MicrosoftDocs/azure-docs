@@ -403,6 +403,27 @@ To use this feature, create an [Azure Blob storage linked service](connector-azu
 ]
 ```
 
+When performing a staged copy from Snowflake, it is crucial to set the Sink Copy Behavior to **Merge Files**. This setting ensures that all partitioned files are correctly handled and merged, preventing the issue where only the last partitioned file is copied. 
+
+**Example Configuration**
+
+```json
+{
+    "type": "Copy",
+    "source": {
+        "type": "SnowflakeSource",
+        "query": "SELECT * FROM my_table"
+    },
+    "sink": {
+        "type": "AzureBlobStorage",
+        "copyBehavior": "MergeFiles"
+    }
+}
+```
+
+>[!NOTE]
+>Failing to set the Sink Copy Behavior to **Merge Files** may result in only the last partitioned file being copied.
+
 ### Snowflake as sink
 
 Snowflake connector utilizes Snowflake’s [COPY into [table]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html) command to achieve the best performance. It supports writing data to Snowflake on Azure.
