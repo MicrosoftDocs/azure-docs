@@ -1,5 +1,5 @@
 ---
-title: Integrate Azure ExpressRoute Azure VM disaster recovery with Azure Site Recovery
+title: Integrate Azure ExpressRoute Azure virtual machine disaster recovery with Azure Site Recovery
 description: Describes how to set up disaster recovery for Azure virtual machines using Azure Site Recovery and Azure ExpressRoute
 author: ankitaduttaMSFT
 ms.service: azure-site-recovery
@@ -42,7 +42,7 @@ Before you begin, make sure you understand the following concepts:
 For best practice, and to ensure efficient Recovery Time Objectives (RTOs) for disaster recovery, we recommend you do the following when you set up Site Recovery to integrate with ExpressRoute:
 
 - Provision networking components before failover to a secondary region:
-    - When you enable replication for Azure virtual machines, Site Recovery can automatically deploy networking resources like networks, subnets, and gateways in the target Azure region, using the source network settings.
+    - When you enable replication for Azure virtual machines, Site Recovery can automatically deploy networking resources using the source network settings. For example, networks, subnets, and gateways in the target Azure region.
     - Site Recovery can't automatically set up networking resources such as VNet gateways.
     - We recommend you provision these extra networking resources before failover. A small downtime is associated with this deployment, and it can impact the overall recovery time, if you didn't account for it during deployment planning.
 - Run regular disaster recovery drills:
@@ -74,7 +74,7 @@ If you want to set up replication for Azure virtual machines in a primary site, 
 
 ## Replication example
 
-Typically enterprise deployments have workloads split across multiple Azure VNets, with a central connectivity hub for external connectivity to the internet and to on-premises sites. A hub and spoke topology is typically used together with ExpressRoute.
+In typical enterprise deployments, workloads are distributed across multiple Azure VNets with a central hub for internet and on-premises connectivity. This setup often uses a hub-and-spoke topology with ExpressRoute.
 
 ![On-premises-to-Azure with ExpressRoute before failover](./media/azure-vm-disaster-recovery-with-expressroute/site-recovery-with-expressroute-before-failover.png)
 
