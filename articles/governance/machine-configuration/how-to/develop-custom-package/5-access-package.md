@@ -48,6 +48,6 @@ By using the resource ID of a user-assigned managed identity or SAS token, you c
 - Remember to monitor the policy compliance status and make any necessary adjustments to your Machine Configuration package or policy assignment to meet your organizational requirements.
 
 <!-- Reference link definitions -->
-[01]: https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/managed-identity-best-practice-recommendations#using-user-assigned-identities-to-reduce-administration
-[02]: https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/how-to-assign-managed-identity-via-azure-policy
+[01]: https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/managed-identity-best-practice-recommendations#using-user-assigned-identities-to-reduce-administration
+[02]: https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/how-to-assign-managed-identity-via-azure-policy
 
