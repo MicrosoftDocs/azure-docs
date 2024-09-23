@@ -17,7 +17,7 @@ This article lists the permissions for the Azure resource providers in the Inter
 
 ## Microsoft.AzureSphere
 
-Azure service: [Azure Sphere](/azure-sphere/product-overview/what-is-azure-sphere?view=azure-sphere-integrated)
+Azure service: [Azure Sphere](/azure-sphere/product-overview/what-is-azure-sphere)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |

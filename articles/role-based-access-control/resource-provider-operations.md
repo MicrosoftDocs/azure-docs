@@ -159,7 +159,7 @@ Click the resource provider name in the following list to see the list of permis
 > [!div class="mx-tableFixed"]
 > | Resource provider | Description | Azure service |
 > | --- | --- | --- |
-> | [Microsoft.AzureSphere](./permissions/internet-of-things.md#microsoftazuresphere) |  | [Azure Sphere](/azure-sphere/product-overview/what-is-azure-sphere?view=azure-sphere-integrated) |
+> | [Microsoft.AzureSphere](./permissions/internet-of-things.md#microsoftazuresphere) |  | [Azure Sphere](/azure-sphere/product-overview/what-is-azure-sphere) |
 > | [Microsoft.Devices](./permissions/internet-of-things.md#microsoftdevices) | Ensure that your users are accessing your resources from devices that meet your standards for security and compliance. | [IoT Hub](/azure/iot-hub/)<br/>[IoT Hub Device Provisioning Service](/azure/iot-dps/) |
 > | [Microsoft.DeviceUpdate](./permissions/internet-of-things.md#microsoftdeviceupdate) |  | [Device Update for IoT Hub](/azure/iot-hub-device-update/) |
 > | [Microsoft.DigitalTwins](./permissions/internet-of-things.md#microsoftdigitaltwins) |  | [Azure Digital Twins](/azure/digital-twins/) |
