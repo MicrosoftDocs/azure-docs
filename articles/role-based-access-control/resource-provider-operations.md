@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 04/25/2024
+ms.date: 09/20/2024
 ms.custom: generated
 ---
 
@@ -74,7 +74,7 @@ Click the resource provider name in the following list to see the list of permis
 > | [Microsoft.ElasticSan](./permissions/storage.md#microsoftelasticsan) |  | [Azure Elastic SAN](/azure/storage/elastic-san/) |
 > | [Microsoft.NetApp](./permissions/storage.md#microsoftnetapp) | Enterprise-grade Azure file shares, powered by NetApp. | [Azure NetApp Files](/azure/azure-netapp-files/) |
 > | [Microsoft.Storage](./permissions/storage.md#microsoftstorage) | Get secure, massively scalable cloud storage for your data, apps, and workloads. | [Storage](/azure/storage/) |
-> | [Microsoft.StorageCache](./permissions/storage.md#microsoftstoragecache) | File caching for high-performance computing (HPC). | [Azure HPC Cache](/azure/hpc-cache/) |
+> | [Microsoft.StorageCache](./permissions/storage.md#microsoftstoragecache) | File caching and Lustre file system capabilities for high-performance computing (HPC). | [Azure HPC Cache](/azure/hpc-cache/)<br/>[Azure Managed Lustre](/azure/azure-managed-lustre/) |
 > | [Microsoft.StorageSync](./permissions/storage.md#microsoftstoragesync) |  | [Storage](/azure/storage/) |
 
 <a name='microsoftweb'></a>
@@ -129,7 +129,6 @@ Click the resource provider name in the following list to see the list of permis
 > | --- | --- | --- |
 > | [Microsoft.AnalysisServices](./permissions/analytics.md#microsoftanalysisservices) | Enterprise-grade analytics engine as a service. | [Azure Analysis Services](/azure/analysis-services/index) |
 > | [Microsoft.Databricks](./permissions/analytics.md#microsoftdatabricks) | Fast, easy, and collaborative Apache Spark-based analytics platform. | [Azure Databricks](/azure/databricks/) |
-> | [Microsoft.DataCatalog](./permissions/analytics.md#microsoftdatacatalog) | Get more value from your enterprise data assets. | [Data Catalog](/azure/data-catalog/) |
 > | [Microsoft.DataFactory](./permissions/analytics.md#microsoftdatafactory) | Hybrid data integration at enterprise scale, made easy. | [Data Factory](/azure/data-factory/) |
 > | [Microsoft.DataLakeAnalytics](./permissions/analytics.md#microsoftdatalakeanalytics) | Distributed analytics service that makes big data easy. | [Data Lake Analytics](/azure/data-lake-analytics/) |
 > | [Microsoft.DataLakeStore](./permissions/analytics.md#microsoftdatalakestore) | Highly scalable and cost-effective data lake solution for big data analytics. | [Azure Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction) |
@@ -148,7 +147,6 @@ Click the resource provider name in the following list to see the list of permis
 > | --- | --- | --- |
 > | [Microsoft.BotService](./permissions/ai-machine-learning.md#microsoftbotservice) | Intelligent, serverless bot service that scales on demand. | [Azure Bot Service](/azure/bot-service/) |
 > | [Microsoft.CognitiveServices](./permissions/ai-machine-learning.md#microsoftcognitiveservices) | Add smart API capabilities to enable contextual interactions. | [Cognitive Services](/azure/cognitive-services/) |
-> | [Microsoft.MachineLearning](./permissions/ai-machine-learning.md#microsoftmachinelearning) | Access and manage the predictive models that you created and deployed as web services. | [Machine Learning Studio (classic)](/azure/machine-learning/classic/) |
 > | [Microsoft.MachineLearningServices](./permissions/ai-machine-learning.md#microsoftmachinelearningservices) | Enterprise-grade machine learning service to build and deploy models faster. | [Machine Learning](/azure/machine-learning/) |
 > | [Microsoft.Search](./permissions/ai-machine-learning.md#microsoftsearch) | Leverage search services and get comprehensive results. | [Azure AI Search](/azure/search/) |
 
@@ -163,7 +161,6 @@ Click the resource provider name in the following list to see the list of permis
 > | [Microsoft.IoTCentral](./permissions/internet-of-things.md#microsoftiotcentral) | Experience the simplicity of SaaS for IoT, with no cloud expertise required. | [IoT Central](/azure/iot-central/) |
 > | [Microsoft.IoTSecurity](./permissions/internet-of-things.md#microsoftiotsecurity) |  | [IoT security](/azure/iot/iot-security-architecture) |
 > | [Microsoft.StreamAnalytics](./permissions/internet-of-things.md#microsoftstreamanalytics) | Real-time data stream processing from millions of IoT devices. | [Stream Analytics](/azure/stream-analytics/) |
-> | [Microsoft.TimeSeriesInsights](./permissions/internet-of-things.md#microsofttimeseriesinsights) | Explore and analyze time-series data from IoT devices. | [Time Series Insights](/azure/time-series-insights/) |
 
 ## Mixed reality
 
@@ -227,7 +224,6 @@ Click the resource provider name in the following list to see the list of permis
 > | [Microsoft.DevTestLab](./permissions/devops.md#microsoftdevtestlab) | Quickly create environments using reusable templates and artifacts. | [Azure Lab Services](/azure/lab-services/) |
 > | [Microsoft.LabServices](./permissions/devops.md#microsoftlabservices) | Set up labs for classrooms, trials, development and testing, and other scenarios. | [Azure Lab Services](/azure/lab-services/) |
 > | [Microsoft.LoadTestService](./permissions/devops.md#microsoftloadtestservice) |  | [Azure Load Testing](/azure/load-testing/) |
-> | [Microsoft.SecurityDevOps](./permissions/devops.md#microsoftsecuritydevops) |  | [Microsoft Defender for Cloud](/azure/defender-for-cloud/) |
 > | [Microsoft.VisualStudio](./permissions/devops.md#microsoftvisualstudio) | The powerful and flexible environment for developing applications in the cloud. | [Azure DevOps](/azure/devops/) |
 
 ## Migration
