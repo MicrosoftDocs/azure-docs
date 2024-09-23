@@ -29,7 +29,7 @@ In this tutorial, you use the Azure CLI to complete the following tasks:
 ## Set up your initial environment
 
 ### [CloudShell](#tab/cloudshell)
-Lauch from  [Azure Cloud Shell](../cloud-shell/overview.md) in the Azure Portal and install the service connector passwordless extension for the Azure CLI.
+Launch from  [Azure Cloud Shell](../cloud-shell/overview.md) in the Azure Portal and install the service connector passwordless extension for the Azure CLI.
 
 ```terminal
 az extension add --name serviceconnector-passwordless --upgrade
@@ -225,7 +225,7 @@ Having issues? Refer first to the [Troubleshooting guide](../app-service/configu
 
 ### Create a storage account and connect to it
 
-1. Use the [az webapp connection create storage-blob](/cli/azure/webapp/connection/create#az-webapp-connection-create-storage-blob) command to create an storage account and creates a service connector that does the following configuraitons:
+1. Use the [az webapp connection create storage-blob](/cli/azure/webapp/connection/create#az-webapp-connection-create-storage-blob) command to create a storage account and creates a service connector that does the following configurations:
  * Enables system-assigned managed identity on the web app
  * Adds the web app with role *Storage Blob Data Contributor* to the newly created storage account.
  * Configure the storage account network to accept access from the web app.
