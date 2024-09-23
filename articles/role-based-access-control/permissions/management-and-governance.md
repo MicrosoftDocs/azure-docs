@@ -486,6 +486,35 @@ Azure service: [Cost Management + Billing](/azure/cost-management-billing/)
 > | Microsoft.Billing/promotions/read | List or get promotions |
 > | Microsoft.Billing/validateAddress/write |  |
 
+## Microsoft.BillingBenefits
+
+Azure service: [Azure savings plans](/azure/cost-management-billing/savings-plan/savings-plan-compute-overview)
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.BillingBenefits/savingsPlanOrders/action | Update a Savings plan order |
+> | Microsoft.BillingBenefits/register/action | Registers the BillingBenefits resource provider and enables the creation of BillingBenefits resources. |
+> | Microsoft.BillingBenefits/credits/read | Read all Credits |
+> | Microsoft.BillingBenefits/credits/write | Create or update a Credit |
+> | Microsoft.BillingBenefits/credits/delete | Delete a Credit |
+> | Microsoft.BillingBenefits/credits/cancel/action | Cancel a Credit |
+> | Microsoft.BillingBenefits/credits/sources/read | Read all Sources |
+> | Microsoft.BillingBenefits/credits/sources/write | Create or update a Source |
+> | Microsoft.BillingBenefits/credits/sources/delete | Delete a Source |
+> | Microsoft.BillingBenefits/maccs/read | Read all MACCs |
+> | Microsoft.BillingBenefits/maccs/write | Create a MACC |
+> | Microsoft.BillingBenefits/maccs/delete | Delete a MACC |
+> | Microsoft.BillingBenefits/maccs/cancel/action | Cancel a MACC |
+> | Microsoft.BillingBenefits/maccs/chargeShortfall/action | Charge shortfall on MACC |
+> | Microsoft.BillingBenefits/maccs/contributors/read | Get all Contributors |
+> | Microsoft.BillingBenefits/savingsPlanOrderAliases/read | Read all savings plan order aliases |
+> | Microsoft.BillingBenefits/savingsPlanOrderAliases/write | Create a Savings plan order alias |
+> | Microsoft.BillingBenefits/savingsPlanOrders/read | Read all savings plan orders |
+> | Microsoft.BillingBenefits/savingsPlanOrders/write | Create a savings plan orders |
+> | Microsoft.BillingBenefits/savingsPlanOrders/savingsPlans/read | Read All SavingsPlans |
+> | Microsoft.BillingBenefits/savingsPlanOrders/savingsPlans/write | Patch an existing Savings plan |
+
 ## Microsoft.Blueprint
 
 Enabling quick, repeatable creation of governed environments.
@@ -618,6 +647,27 @@ Azure service: [Cost Management](/azure/cost-management-billing/)
 > | Microsoft.CostManagement/views/read | List all saved views. |
 > | Microsoft.CostManagement/views/delete | Delete saved views. |
 > | Microsoft.CostManagement/views/write | Update view. |
+
+## Microsoft.CustomerLockbox
+
+Interface for customers to review and approve or reject customer data access requests.
+
+Azure service: [Customer Lockbox for Microsoft Azure](/azure/security/fundamentals/customer-lockbox-overview)
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.CustomerLockbox/register/action | Register Provider Microsoft.CustomerLockbox |
+> | Microsoft.CustomerLockbox/operations/read | Read Lockbox Operations |
+> | Microsoft.CustomerLockbox/requests/UpdateApproval/action | Update Approval Microsoft.CustomerLockbox |
+> | Microsoft.CustomerLockbox/requests/read | Read Lockbox Request |
+> | Microsoft.CustomerLockbox/requests/activitylog/CreateLockboxRequest/action | Create Lockbox Request |
+> | Microsoft.CustomerLockbox/requests/activitylog/ApproveLockboxRequest/action | Approve Lockbox Request |
+> | Microsoft.CustomerLockbox/requests/activitylog/DenyLockboxRequest/action | Deny Lockbox Request |
+> | Microsoft.CustomerLockbox/requests/activitylog/ExpireLockboxRequest/action | Expire Lockbox Request |
+> | Microsoft.CustomerLockbox/requests/activitylog/CancelLockboxRequest/action | Cancel Lockbox Request |
+> | Microsoft.CustomerLockbox/requests/activitylog/AutoApproveLockboxRequest/action | AutoApprove Lockbox Request |
+> | Microsoft.CustomerLockbox/requests/activitylog/AutoDenyLockboxRequest/action | AutoDeny Lockbox Request |
 
 ## Microsoft.Features
 
@@ -1225,6 +1275,123 @@ Azure service: [Azure Managed Applications](/azure/azure-resource-manager/manage
 > | Microsoft.Solutions/locations/operationstatuses/read | read operationstatuses |
 > | Microsoft.Solutions/locations/operationstatuses/write | write operationstatuses |
 > | Microsoft.Solutions/operations/read | read operations |
+
+## Microsoft.Workloads
+
+Azure service: [SAP on Azure](/azure/sap/)
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.Workloads/register/action | Register the subscription for Microsoft.Workloads |
+> | Microsoft.Workloads/unregister/action | Unregister the subscription for Microsoft.Workloads |
+> | Microsoft.Workloads/connectors/read | Gets a connector resource |
+> | Microsoft.Workloads/connectors/write | Creates a connector resource |
+> | Microsoft.Workloads/connectors/delete | Deletes a connector resource and its child resources, which are the associated connection resources. All the child resources have to be deleted before deleting the connector resource. |
+> | Microsoft.Workloads/connectors/write | Updates a connector resource |
+> | Microsoft.Workloads/connectors/read | Gets all connector resources in a Resource Group. |
+> | Microsoft.Workloads/connectors/read | Gets all connector resources in a Subscription. |
+> | Microsoft.Workloads/connectors/acssBackups/read | Gets the backup connection resource of virtual instance for SAP. |
+> | Microsoft.Workloads/connectors/acssBackups/write | Creates the backup connection resource of virtual instance for SAP. |
+> | Microsoft.Workloads/connectors/acssBackups/delete | Deletes the backup connection resource of virtual instance for SAP. |
+> | Microsoft.Workloads/connectors/acssBackups/write | Updates the backup connection resource of virtual instance for SAP. <br><br>This can be used to update tags on the resource. |
+> | Microsoft.Workloads/connectors/acssBackups/read | Lists the backup connection resources of virtual instance for SAP under the given connector resource. |
+> | Microsoft.Workloads/connectors/sapVirtualInstanceMonitors/read | Gets the monitor connection resource of virtual instance for SAP. |
+> | Microsoft.Workloads/connectors/sapVirtualInstanceMonitors/write | Creates the monitor connection resource of virtual instance for SAP. |
+> | Microsoft.Workloads/connectors/sapVirtualInstanceMonitors/delete | Deletes the monitor connection resource of virtual instance for SAP. |
+> | Microsoft.Workloads/connectors/sapVirtualInstanceMonitors/write | Updates the monitor connection resource of virtual instance for SAP. <br><br>This can be used to update tags on the resource. |
+> | Microsoft.Workloads/connectors/sapVirtualInstanceMonitors/read | Lists the monitor connection resources of virtual instance for SAP under the given connector resource. |
+> | Microsoft.Workloads/insights/read | Gets properties of Workloads Insights instance for the specified subscription, resource group and instance name. |
+> | Microsoft.Workloads/insights/read | Gets a list of Workloads Insight instances in the specified subscription and resource group. The operations returns various properties of each instance. |
+> | Microsoft.Workloads/insights/read | Gets a list of Workloads Insight instances in the specified subscription. The operations returns various properties of each instance. |
+> | Microsoft.Workloads/insights/write | Creates a Workloads Insights instance for the specified subscription, resource group, and instance name. |
+> | Microsoft.Workloads/insights/delete | Deletes a Workloads Insights instance for the specified subscription, resource group and instance name. |
+> | Microsoft.Workloads/insights/write | Patches the Workload Insights instance for the specified subscription, resource group, and instance name. |
+> | Microsoft.Workloads/Locations/OperationStatuses/read | read OperationStatuses |
+> | Microsoft.Workloads/Locations/OperationStatuses/write | write OperationStatuses |
+> | Microsoft.Workloads/locations/sapVirtualInstanceMetadata/getSizingRecommendations/action | Get SAP sizing recommendations. |
+> | Microsoft.Workloads/locations/sapVirtualInstanceMetadata/getSapSupportedSku/action | Get SAP supported SKUs. |
+> | Microsoft.Workloads/locations/sapVirtualInstanceMetadata/getDiskConfigurations/action | Get SAP Disk Configurations. |
+> | Microsoft.Workloads/locations/sapVirtualInstanceMetadata/getAvailabilityZoneDetails/action | Get SAP Availability Zone Details. |
+> | Microsoft.Workloads/monitors/read | Gets a list of SAP monitors in the specified subscription. The operations returns various properties of each SAP monitor. |
+> | Microsoft.Workloads/monitors/read | Gets a list of SAP monitors in the specified resource group. |
+> | Microsoft.Workloads/monitors/read | Gets properties of a SAP monitor for the specified subscription, resource group, and resource name. |
+> | Microsoft.Workloads/monitors/write | Creates a SAP monitor for the specified subscription, resource group, and resource name. |
+> | Microsoft.Workloads/monitors/delete | Deletes a SAP monitor with the specified subscription, resource group, and monitor name. |
+> | Microsoft.Workloads/monitors/write | Patches the Tags field of a SAP monitor for the specified subscription, resource group, and monitor name. |
+> | Microsoft.Workloads/monitors/alerts/read | Gets a list of alert instances in the specified SAP monitor. The operations returns various properties of each provider instances. |
+> | Microsoft.Workloads/monitors/alerts/read | Gets properties of a alert for the specified subscription, resource group, Monitor name, and resource name. |
+> | Microsoft.Workloads/monitors/alerts/write | Creates a alert for the specified subscription, resource group, Monitor name, and resource name. |
+> | Microsoft.Workloads/monitors/alerts/delete | Deletes a alert for the specified subscription, resource group, Monitor name, and resource name. |
+> | Microsoft.Workloads/monitors/alertTemplates/read | Gets properties of an alert template for the specified subscription, resource group, SAP monitor name, and resource name. |
+> | Microsoft.Workloads/monitors/alertTemplates/read | Gets properties of a alert for the specified subscription, resource group, Monitor name, and resource name. |
+> | Microsoft.Workloads/monitors/providerInstances/read | Gets a list of provider instances in the specified SAP monitor. The operations returns various properties of each provider instances. |
+> | Microsoft.Workloads/monitors/providerInstances/read | Gets properties of a provider instance for the specified subscription, resource group, Monitor name, and resource name. |
+> | Microsoft.Workloads/monitors/providerInstances/write | Creates a provider instance for the specified subscription, resource group, Monitor name, and resource name. |
+> | Microsoft.Workloads/monitors/providerInstances/delete | Deletes a provider instance for the specified subscription, resource group, Monitor name, and resource name. |
+> | Microsoft.Workloads/monitors/sapLandscapeMonitor/read | Gets a list of properties of a SAP Landscape monitor configuration for the specified subscription, resource group, and resource name. |
+> | Microsoft.Workloads/monitors/sapLandscapeMonitor/read | Gets properties of a SAP Landscape monitor configuration for the specified subscription, resource group, and resource name. |
+> | Microsoft.Workloads/monitors/sapLandscapeMonitor/write | Creates a SAP Landscape monitor configuration for the specified subscription, resource group, and resource name. |
+> | Microsoft.Workloads/monitors/sapLandscapeMonitor/delete | Deletes a SAP Landscape monitor configuration with the specified subscription, resource group, and monitor name. |
+> | Microsoft.Workloads/Operations/read | read Operations |
+> | Microsoft.Workloads/phpWorkloads/read | Lists phpWorkload resources in a subscription |
+> | Microsoft.Workloads/phpWorkloads/read | Lists phpWorkload resources in a resource group |
+> | Microsoft.Workloads/phpWorkloads/read | Gets a phpWorkload resource |
+> | Microsoft.Workloads/phpWorkloads/write | Create or updated phpWorkloads resource |
+> | Microsoft.Workloads/phpWorkloads/delete | Delete phpWorkloads resource |
+> | Microsoft.Workloads/phpWorkloads/write | Update PHP workload resource. |
+> | Microsoft.Workloads/phpWorkloads/wordpressInstances/read | Lists WordpressInstances resources under a phpWorkload resource |
+> | Microsoft.Workloads/phpWorkloads/wordpressInstances/read | Gets a WordpressInstances resource |
+> | Microsoft.Workloads/phpWorkloads/wordpressInstances/write | Create or updated WordpressInstances resource |
+> | Microsoft.Workloads/phpWorkloads/wordpressInstances/delete | Delete WordpressInstances resource |
+> | Microsoft.Workloads/RegisteredSubscriptions/read | Reads registered subscriptions |
+> | Microsoft.Workloads/sapDiscoverySites/read | Gets a SAP Migration discovery site resource. |
+> | Microsoft.Workloads/sapDiscoverySites/write | Creates a discovery site for SAP Migration. |
+> | Microsoft.Workloads/sapDiscoverySites/delete | Deletes a SAP Migration discovery site resource and its child resources, that is the associated SAP Instances and Server Instances. |
+> | Microsoft.Workloads/sapDiscoverySites/write | SAPDiscoverySites_Update. |
+> | Microsoft.Workloads/sapDiscoverySites/read | Gets all SAP Migration discovery site resources in a Resource Group. |
+> | Microsoft.Workloads/sapDiscoverySites/read | Gets all SAP Migration discovery site resources in a Subscription. |
+> | Microsoft.Workloads/sapDiscoverySites/importEntities/action | Import a SAP Migration discovery site resource and it's child resources, that is the SAP instances and Server instances. |
+> | Microsoft.Workloads/sapDiscoverySites/sapInstances/read | Gets the SAP Instance resource. |
+> | Microsoft.Workloads/sapDiscoverySites/sapInstances/write | Creates the SAP Instance resource. <br><br>This will be used by service only. PUT operation on this resource by end user will return a Bad Request error. |
+> | Microsoft.Workloads/sapDiscoverySites/sapInstances/delete | Deletes the SAP Instance resource. <br><br>This will be used by service only. Delete operation on this resource by end user will return a Bad Request error. You can delete the parent resource, which is the SAP Migration discovery site resource, using the delete operation on it. |
+> | Microsoft.Workloads/sapDiscoverySites/sapInstances/write | Updates the SAP Instance resource. |
+> | Microsoft.Workloads/sapDiscoverySites/sapInstances/read | Lists the SAP Instance resources for the given SAP Migration discovery site resource. |
+> | Microsoft.Workloads/sapDiscoverySites/sapInstances/serverInstances/read | Gets the Server Instance resource. |
+> | Microsoft.Workloads/sapDiscoverySites/sapInstances/serverInstances/write | Creates the Server Instance resource. <br><br>This will be used by service only. PUT operation on this resource by end user will return a Bad Request error. |
+> | Microsoft.Workloads/sapDiscoverySites/sapInstances/serverInstances/delete | Deletes the Server Instance resource. <br><br>This will be used by service only. Delete operation on this resource by end user will return a Bad Request error. You can delete the parent resource, which is the SAP Migration discovery site resource, using the delete operation on it. |
+> | Microsoft.Workloads/sapDiscoverySites/sapInstances/serverInstances/write | Updates the Server Instance resource. This operation on a resource by end user will return a Bad Request error. |
+> | Microsoft.Workloads/sapDiscoverySites/sapInstances/serverInstances/read | Lists the Server Instance resources for the given SAP Instance resource. |
+> | Microsoft.Workloads/sapVirtualInstances/read | Gets an SAP Virtual Instance. |
+> | Microsoft.Workloads/sapVirtualInstances/write | Creates an SAP Virtual Instance. |
+> | Microsoft.Workloads/sapVirtualInstances/delete | Deletes an SAP Virtual Instance. |
+> | Microsoft.Workloads/sapVirtualInstances/write | Updates an SAP Virtual Instance. |
+> | Microsoft.Workloads/sapVirtualInstances/read | Gets all SAP Virtual Instances in a resource group. |
+> | Microsoft.Workloads/sapVirtualInstances/read | Gets all SAP Virtual Instances in the subscription. |
+> | Microsoft.Workloads/sapVirtualInstances/start/action | Starts the SAP System. |
+> | Microsoft.Workloads/sapVirtualInstances/stop/action | Stops the SAP System. |
+> | Microsoft.Workloads/sapVirtualInstances/applicationInstances/read | Gets the SAP Application Server Instance. |
+> | Microsoft.Workloads/sapVirtualInstances/applicationInstances/write | Puts the SAP Application Server Instance. |
+> | Microsoft.Workloads/sapVirtualInstances/applicationInstances/delete | Deletes the SAP Application Server Instance. <br><br>This operation will be used by service only. Delete by end user will return a Bad Request error. |
+> | Microsoft.Workloads/sapVirtualInstances/applicationInstances/write | Puts the SAP Application Server Instance. |
+> | Microsoft.Workloads/sapVirtualInstances/applicationInstances/read | Lists the SAP Application server Instances in an SVI. |
+> | Microsoft.Workloads/sapVirtualInstances/applicationInstances/start/action | Starts the SAP Application server Instance in an SVI. |
+> | Microsoft.Workloads/sapVirtualInstances/applicationInstances/stop/action | Stops the SAP Application server Instance in an SVI. |
+> | Microsoft.Workloads/sapVirtualInstances/centralInstances/read | Gets the SAP Central Instance. |
+> | Microsoft.Workloads/sapVirtualInstances/centralInstances/write | Puts the SAP Central Instance. <br><br>This will be used by service only. PUT by end user will return a Bad Request error. |
+> | Microsoft.Workloads/sapVirtualInstances/centralInstances/delete | Deletes the SAP Central Instance. <br><br>This will be used by service only. Delete by end user will return a Bad Request error. |
+> | Microsoft.Workloads/sapVirtualInstances/centralInstances/write | Updates the SAP Central Instance. <br><br>This can be used to update tags. |
+> | Microsoft.Workloads/sapVirtualInstances/centralInstances/read | Lists the SAP Central Instances in an SVI. |
+> | Microsoft.Workloads/sapVirtualInstances/centralInstances/start/action | Starts the SAP Central server Instance in an SVI. |
+> | Microsoft.Workloads/sapVirtualInstances/centralInstances/stop/action | Stops the SAP Central server Instance in an SVI. |
+> | Microsoft.Workloads/sapVirtualInstances/databaseInstances/read | Gets the SAP Database Instance. |
+> | Microsoft.Workloads/sapVirtualInstances/databaseInstances/write | Puts the SAP Database Instance. |
+> | Microsoft.Workloads/sapVirtualInstances/databaseInstances/delete | Deletes the SAP Database Instance. <br><br>This will be used by service only. Delete by end user will return a Bad Request error. |
+> | Microsoft.Workloads/sapVirtualInstances/databaseInstances/write | Puts the SAP Database Instance. |
+> | Microsoft.Workloads/sapVirtualInstances/databaseInstances/read | Lists the SAP Database Instances in an SVI. |
+> | Microsoft.Workloads/sapVirtualInstances/databaseInstances/start/action | Starts the database instance of the SAP system. |
+> | Microsoft.Workloads/sapVirtualInstances/databaseInstances/stop/action | Stops the database instance of the SAP system. |
+> | Microsoft.Workloads/skus/read | Gets the list of Microsoft.Workloads SKUs available for your Subscription |
 
 ## Next steps
 
