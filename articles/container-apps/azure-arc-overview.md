@@ -43,6 +43,9 @@ The following public preview limitations apply to Azure Container Apps on Azure 
 | Feature: Pull images from ACR with managed identity | Not available (depends on managed identities) |
 | Logs | Log Analytics must be configured with cluster extension; not per-application |
 
+> [!IMPORTANT]
+> If deploying onto **AKS-HCI** ensure that you have [setup HAProxy as your load balancer](/azure/aks/hybrid/configure-load-balancer)  before attempting to install the extension.
+
 ## Resources created by the Container Apps extension
 
 When the Container Apps extension is installed on the Azure Arc-enabled Kubernetes cluster, several resources are created in the specified release namespace. These resources enable your cluster to be an extension of the `Microsoft.App` resource provider to support the management and operation of your apps.
