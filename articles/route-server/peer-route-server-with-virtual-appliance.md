@@ -95,7 +95,7 @@ In this section, you create an Azure Route Server.
 
     :::image type="content" source="./media/peer-route-server-with-virtual-appliance/create-route-server.png" alt-text="Screenshot of creating a Route Server in the Azure portal." lightbox="./media/peer-route-server-with-virtual-appliance/create-route-server.png":::
 
-1. Select **Review + create** and then select **Create** after validation passes. The Route Server takes about 15 minutes to deploy.
+1. Select **Review + create** and then select **Create** after validation passes.
 
     [!INCLUDE [Deployment note](../../includes/route-server-note-creation-time.md)]
 
