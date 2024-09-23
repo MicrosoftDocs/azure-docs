@@ -74,7 +74,7 @@ ms.author: greglin
 | List |100/min|
 | Update |60/min|
 
-#### Virtual network links
+#### Virtual network links operations
 
 | Operation | Limit |
 | --- | --- |
