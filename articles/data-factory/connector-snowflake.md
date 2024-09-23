@@ -7,7 +7,8 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 07/25/2024
+ms.date: 09/23/2024
+ai-usage: ai-assisted
 ---
 
 # Copy and transform data in Snowflake using Azure Data Factory or Azure Synapse Analytics
