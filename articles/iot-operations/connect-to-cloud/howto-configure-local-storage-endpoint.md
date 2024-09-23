@@ -29,7 +29,7 @@ Use the local storage option to send data to a locally available persistent volu
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="media/howto-configure-fabric-endpoint/create-fabric-endpoint.png" alt-text="Screenshot using operations portal to create a Microsoft Fabric OneLake dataflow endpoint.":::
+:::image type="content" source="media/howto-configure-fabric-endpoint/create-fabric-endpoint.png" alt-text="Screenshot using Azure Operations portal to create a Microsoft Fabric OneLake dataflow endpoint.":::
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -55,7 +55,7 @@ Once the endpoint is created, you can use it in a dataflow by specifying the end
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="media/howto-configure-local-storage-endpoint/dataflow-mq-local-storage.png" alt-text="Screenshot using operations portal to create a dataflow with an MQTT source and local storage.":::
+:::image type="content" source="media/howto-configure-local-storage-endpoint/dataflow-mq-local-storage.png" alt-text="Screenshot using Azure Operations portal to create a dataflow with an MQTT source and local storage.":::
 
 # [Kubernetes](#tab/kubernetes)
 

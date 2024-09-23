@@ -5,7 +5,7 @@ author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 09/20/2024
+ms.date: 09/23/2024
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to configure dataflow endpoints for Azure Data Lake Storage Gen2 in Azure IoT Operations so that I can send data to Azure Data Lake Storage Gen2.
@@ -29,9 +29,19 @@ To configure a dataflow endpoint for Azure Data Lake Storage Gen2, we suggest us
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="media/howto-configure-adlsv2-endpoint/create-adls-endpoint.png" alt-text="Screenshot using operations portal to create a new ADLS V2 dataflow endpoint.":::
+:::image type="content" source="media/howto-configure-adlsv2-endpoint/create-adls-endpoint.png" alt-text="Screenshot using Azure Operations portal to create a new ADLS V2 dataflow endpoint.":::
+
+| Setting               | Description                                                                                       |
+| --------------------- | ------------------------------------------------------------------------------------------------- |
+| Name                  | The name of the dataflow endpoint                                                                 |
+| Host                  | The hostname of the Azure Data Lake Storage Gen2 endpoint in the format `<account>.blob.core.windows.net`. Replace the account placeholder with the endpoint account name. |
+| Authentication method | The method used for authentication, such as `SystemAssignedManagedIdentity` or `AccessToken`.     |
+| Service audience      | The audience for the managed identity. If you need to override the system-assigned managed identity audience, see the [System-assigned managed identity](#system-assigned-managed-identity) section. |
+
+Select **Apply** to provision the endpoint.
 
 # [Kubernetes](#tab/kubernetes)
+
 
 ### Use managed identity authentication
 
@@ -55,7 +65,7 @@ To configure a dataflow endpoint for Azure Data Lake Storage Gen2, we suggest us
           systemAssignedManagedIdentitySettings: {}
     ```
 
-If you need to override the system-assigned managed identity audience, see the [system-assigned managed identity](#system-assigned-managed-identity) section.
+If you need to override the system-assigned managed identity audience, see the [System-assigned managed identity](#system-assigned-managed-identity) section.
 
 ### Use access token authentication
 
@@ -86,7 +96,11 @@ Once the endpoint is created, you can use it in a dataflow by specifying the end
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="media/howto-configure-adlsv2-endpoint/dataflow-mq-adls.png" alt-text="Screenshot using operations portal to create a dataflow with an MQTT source and ADLS V2 destination.":::
+1. In the Azure IoT Operations Preview portal, create a new dataflow or edit an existing dataflow by selecting the **Dataflows** tab on the left. 
+1. In the editor, select the destination dataflow endpoint.
+1. Choose the Azure Data Lake Storage Gen2 endpoint that you created previously. 
+
+    :::image type="content" source="media/howto-configure-adlsv2-endpoint/dataflow-mq-adls.png" alt-text="Screenshot using Azure Operations portal to create a dataflow with an MQTT source and ADLS V2 destination.":::
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -200,7 +214,7 @@ datalakeStorageSettings:
 
 You can set advanced settings for the Azure Data Lake Storage Gen2 endpoint, such as the batching latency and message count. You can set these settings in the dataflow endpoint **Advanced** portal tab or within the dataflow endpoint custom resource.
 
-:::image type="content" source="media/howto-configure-adlsv2-endpoint/adls-advanced.png" alt-text="Screenshot using operations portal to set ADLS V2 advanced settings.":::
+:::image type="content" source="media/howto-configure-adlsv2-endpoint/adls-advanced.png" alt-text="Screenshot using Azure Operations portal to set ADLS V2 advanced settings.":::
 
 Use the `batching` settings to configure the maximum number of messages and the maximum latency before the messages are sent to the destination. This setting is useful when you want to optimize for network bandwidth and reduce the number of requests to the destination.
 

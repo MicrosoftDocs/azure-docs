@@ -31,7 +31,7 @@ To configure a dataflow endpoint for Microsoft Fabric OneLake, we suggest using 
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="media/howto-configure-fabric-endpoint/create-fabric-endpoint.png" alt-text="Screenshot using operations portal to create a Microsoft Fabric OneLake dataflow endpoint.":::
+:::image type="content" source="media/howto-configure-fabric-endpoint/create-fabric-endpoint.png" alt-text="Screenshot using Azure Operations portal to create a Microsoft Fabric OneLake dataflow endpoint.":::
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -72,7 +72,7 @@ Once the endpoint is created, you can use it in a dataflow by specifying the end
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="media/howto-configure-fabric-endpoint/dataflow-mq-fabric.png" alt-text="Screenshot using operations portal to create a dataflow with an MQTT source and Azure Data Explorer destination.":::
+:::image type="content" source="media/howto-configure-fabric-endpoint/dataflow-mq-fabric.png" alt-text="Screenshot using Azure Operations portal to create a dataflow with an MQTT source and Azure Data Explorer destination.":::
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -185,7 +185,7 @@ fabricOneLakeSettings:
 
 You can set advanced settings for the Fabric OneLake endpoint, such as the batching latency and message count. You can set these settings in the dataflow endpoint **Advanced** portal tab or within the dataflow endpoint custom resource.
 
-:::image type="content" source="media/howto-configure-fabric-endpoint/fabric-advanced.png" alt-text="Screenshot using operations portal to set Azure Data Explorer advanced settings.":::
+:::image type="content" source="media/howto-configure-fabric-endpoint/fabric-advanced.png" alt-text="Screenshot using Azure Operations portal to set Azure Data Explorer advanced settings.":::
 
 Use the `batching` settings to configure the maximum number of messages and the maximum latency before the messages are sent to the destination. This setting is useful when you want to optimize for network bandwidth and reduce the number of requests to the destination.
 

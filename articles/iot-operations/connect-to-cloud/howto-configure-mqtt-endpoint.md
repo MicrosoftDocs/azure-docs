@@ -29,7 +29,7 @@ Azure IoT Operations provides a built-in MQTT broker that you can use with dataf
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="media/default-mqtt-endpoint.png" alt-text="Screenshot using operations portal to view default MQTT dataflow endpoint.":::
+:::image type="content" source="media/default-mqtt-endpoint.png" alt-text="Screenshot using Azure Operations portal to view default MQTT dataflow endpoint.":::
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -74,7 +74,7 @@ To configure an Azure Event Grid MQTT broker endpoint, we recommend that you use
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="media/howto-configure-mqtt-endpoint/event-grid-endpoint.png" alt-text="Screenshot using operations portal to create an Azure Event Grid endpoint.":::
+:::image type="content" source="media/howto-configure-mqtt-endpoint/event-grid-endpoint.png" alt-text="Screenshot using Azure Operations portal to create an Azure Event Grid endpoint.":::
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -131,7 +131,7 @@ For other MQTT brokers, you can configure the endpoint, TLS, authentication, and
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="media/howto-configure-mqtt-endpoint/custom-mqtt-broker.png" alt-text="Screenshot using operations portal to create a custom MQTT broker endpoint.":::
+:::image type="content" source="media/howto-configure-mqtt-endpoint/custom-mqtt-broker.png" alt-text="Screenshot using Azure Operations portal to create a custom MQTT broker endpoint.":::
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -250,7 +250,7 @@ mqttSettings:
 
 You can set advanced settings for the MQTT broker dataflow endpoint such as TLS, trusted CA certificate, MQTT messaging settings, and CloudEvents. You can set these settings in the dataflow endpoint **Advanced** portal tab or within the dataflow endpoint custom resource.
 
-:::image type="content" source="media/howto-configure-mqtt-endpoint/mqtt-advanced.png" alt-text="Screenshot using operations portal to set Kafka dataflow endpoint advanced settings.":::
+:::image type="content" source="media/howto-configure-mqtt-endpoint/mqtt-advanced.png" alt-text="Screenshot using Azure Operations portal to set Kafka dataflow endpoint advanced settings.":::
 
 ### TLS
 

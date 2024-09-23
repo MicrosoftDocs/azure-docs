@@ -58,7 +58,7 @@ Create the dataflow endpoint resource with your cluster and database information
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="media/howto-configure-adx-endpoint/create-adx-endpoint.png" alt-text="Screenshot using operations portal to create an Azure Data Explorer dataflow endpoint.":::
+:::image type="content" source="media/howto-configure-adx-endpoint/create-adx-endpoint.png" alt-text="Screenshot using Azure Operations portalportal to create an Azure Data Explorer dataflow endpoint.":::
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -86,7 +86,7 @@ Once the endpoint is created, you can use it in a dataflow by specifying the end
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="media/howto-configure-adx-endpoint/dataflow-mq-adx.png" alt-text="Screenshot using operations portal to create a dataflow with an MQTT source and Azure Data Explorer destination.":::
+:::image type="content" source="media/howto-configure-adx-endpoint/dataflow-mq-adx.png" alt-text="Screenshot using Azure Operations portal to create a dataflow with an MQTT source and Azure Data Explorer destination.":::
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -167,7 +167,7 @@ dataExplorerSettings:
 
 You can set advanced settings for the Azure Data Explorer endpoint, such as the batching latency and message count. You can set these settings in the dataflow endpoint **Advanced** portal tab or within the dataflow endpoint custom resource.
 
-:::image type="content" source="media/howto-configure-adx-endpoint/adx-advanced.png" alt-text="Screenshot using operations portal to set Azure Data Explorer advanced settings.":::
+:::image type="content" source="media/howto-configure-adx-endpoint/adx-advanced.png" alt-text="Screenshot using Azure Operations portal to set Azure Data Explorer advanced settings.":::
 
 Use the `batching` settings to configure the maximum number of messages and the maximum latency before the messages are sent to the destination. This setting is useful when you want to optimize for network bandwidth and reduce the number of requests to the destination.
 

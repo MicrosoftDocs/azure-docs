@@ -53,7 +53,7 @@ Once you have dataflow endpoints, you can use them to create a dataflow. Recall 
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="media/howto-create-dataflow/create-dataflow.png" alt-text="Screenshot using operations portal to create a dataflow.":::
+:::image type="content" source="media/howto-create-dataflow/create-dataflow.png" alt-text="Screenshot using Azure Operations portal to create a dataflow.":::
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -92,13 +92,13 @@ To configure a source for the dataflow, specify the endpoint reference and data 
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="media/howto-create-dataflow/dataflow-source-mqtt.png" alt-text="Screenshot using operations portal to select MQTT source endpoint.":::
+:::image type="content" source="media/howto-create-dataflow/dataflow-source-mqtt.png" alt-text="Screenshot using Azure Operations portal to select MQTT source endpoint.":::
 
 ### Use Asset as a source
 
 You can use an [asset](../discover-manage-assets/overview-manage-assets.md) as the source for the dataflow. This is only available in the Azure IoT Operations portal.
 
-:::image type="content" source="media/howto-create-dataflow/dataflow-source-asset.png" alt-text="Screenshot using operations portal to select an asset as the source endpoint.":::
+:::image type="content" source="media/howto-create-dataflow/dataflow-source-asset.png" alt-text="Screenshot using Azure Operations portal to select an asset as the source endpoint.":::
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -124,7 +124,7 @@ If the source data has optional fields or fields with different types, specify a
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="media/howto-create-dataflow/dataflow-source-schema.png" alt-text="Screenshot using operations portal to select MQTT source endpoint with message schema.":::
+:::image type="content" source="media/howto-create-dataflow/dataflow-source-schema.png" alt-text="Screenshot using Azure Operations portal to select MQTT source endpoint with message schema.":::
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -422,7 +422,7 @@ To enable or disable a dataflow, you can use the Azure IoT Operations portal or 
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="media/howto-create-dataflow/dataflow-enable.png" alt-text="Screenshot using operations portal to disable a dataflow.":::
+:::image type="content" source="media/howto-create-dataflow/dataflow-enable.png" alt-text="Screenshot using Azure Operations portal to disable a dataflow.":::
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -445,7 +445,7 @@ To delete a dataflow, you can use the Azure IoT Operations portal or by deleting
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="media/howto-create-dataflow/delete-dataflow.png" alt-text="Screenshot using operations portal to delete a dataflow.":::
+:::image type="content" source="media/howto-create-dataflow/delete-dataflow.png" alt-text="Screenshot using Azure Operations portal to delete a dataflow.":::
 
 # [Kubernetes](#tab/kubernetes)
 

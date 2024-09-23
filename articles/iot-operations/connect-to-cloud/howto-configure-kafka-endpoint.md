@@ -38,7 +38,7 @@ To configure a dataflow endpoint for a Kafka endpoint, we suggest using the mana
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="media/howto-configure-kafka-endpoint/create-kafka-endpoint.png" alt-text="Screenshot using operations portal to create a Kafka dataflow endpoint.":::
+:::image type="content" source="media/howto-configure-kafka-endpoint/create-kafka-endpoint.png" alt-text="Screenshot using Azure Operations portal to create a Kafka dataflow endpoint.":::
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -130,7 +130,7 @@ Once the endpoint is created, you can use it in a dataflow by specifying the end
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="media/howto-configure-fabric-endpoint/dataflow-mq-fabric.png" alt-text="Screenshot using operations portal to create a dataflow with an MQTT source and Azure Data Explorer destination.":::
+:::image type="content" source="media/howto-configure-fabric-endpoint/dataflow-mq-fabric.png" alt-text="Screenshot using Azure Operations portal to create a dataflow with an MQTT source and Azure Data Explorer destination.":::
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -296,7 +296,7 @@ kafkaSettings:
 
 You can set advanced settings for the Kafka dataflow endpoint such as TLS, trusted CA certificate, Kafka messaging settings, batching, and CloudEvents. You can set these settings in the dataflow endpoint **Advanced** portal tab or within the dataflow endpoint custom resource.
 
-:::image type="content" source="media/howto-configure-kafka-endpoint/kafka-advanced.png" alt-text="Screenshot using operations portal to set Kafka dataflow endpoint advanced settings.":::
+:::image type="content" source="media/howto-configure-kafka-endpoint/kafka-advanced.png" alt-text="Screenshot using Azure Operations portal to set Kafka dataflow endpoint advanced settings.":::
 
 ### TLS settings
 
