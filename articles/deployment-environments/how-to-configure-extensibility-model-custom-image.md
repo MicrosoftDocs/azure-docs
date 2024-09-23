@@ -6,7 +6,7 @@ ms.service: azure-deployment-environments
 ms.custom: devx-track-azurecli, devx-track-bicep
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 09/22/2024
+ms.date: 09/23/2024
 ms.topic: how-to
 zone_pivot_groups: ade-extensibility-iac-framework
 
@@ -58,7 +58,7 @@ You can see the standard Bicep container image in the ADE sample repository unde
 
 For more information about how to create environment definitions that use the ADE container images to deploy your Azure resources, see [Add and configure an environment definition](configure-environment-definition.md).
 
-:::zone pivot="arm-bicep,terraform"
+::: zone pivot="arm-bicep,terraform"
 
 ## Create a custom container image
 
@@ -74,31 +74,21 @@ The ADE CLI is a tool that allows you to build custom images by using ADE base i
 
 <!-- [!INCLUDE [configure-extensibility-bicep-container-image](includes/configure-extensibility-bicep-container-image.md)] -->
 
-:::zone-end
-
-::zone-pivot="arm-bicep"
+::: zone-end
 
 To create an image configured for ADE, follow these steps:
 1. Create a custom image based on a standard image.
 1. Install desired packages.
-1. Configure operation shell scripts. 
-1. Create operation shell scripts to deploy ARM or Bicep templates. 
-:::zone-end
-
-
-:::zone pivot="terraform"
-
-To create an image configured for ADE, follow these steps:
-1. Create a custom image based on a standard image.
-1. Install desired packages.
-1. Configure operation shell scripts. 
-1. Create operation shell scripts that use the Terraform CLI.
+1. Configure operation shell scripts.
+::zone-pivot="arm-bicep" 
+1. Create operation shell scripts to deploy ARM or Bicep templates.::: zone-end ::: zone pivot="terraform"
+1. Create operation shell scripts that use the Terraform CLI.::: zone-end
 
 <!-- [!INCLUDE [configure-extensibility-terraform-container-image](includes/configure-extensibility-terraform-container-image.md)] -->
 
-:::zone-end
 
-:::zone pivot="arm-bicep,terraform"
+
+::: zone pivot="arm-bicep,terraform"
 
 **1. Create a custom image based on a standard image**
 
@@ -112,9 +102,9 @@ FROM mcr.microsoft.com/deployment-environments/runners/core:latest
 
 This statement pulls the most recently published core image, and makes it a basis for your custom image.
 
-:::zone-end
+::: zone-end
 
-:::zone-pivot="arm-bicep"
+::: zone-pivot="arm-bicep"
 
 **2. Install desired packages**
 
@@ -127,9 +117,9 @@ RUN az bicep install
 The ADE sample images are based on the Azure CLI image, and have the ADE CLI and JQ packages preinstalled. You can learn more about the [Azure CLI](/cli/azure/), and the [JQ package](https://devdocs.io/jq/).
 
 To install any more packages you need within your image, use the RUN statement.
-:::zone-end
+::: zone-end
 
-:::zone-pivot="terraform"
+::: zone-pivot="terraform"
 
 **2. Install desired packages**
 
@@ -151,7 +141,7 @@ The ADE sample images are based on the Azure CLI image, and have the ADE CLI and
 To install any more packages you need within your image, use the RUN statement.
 ::zone-end
 
-:::zone pivot="arm-bicep,terraform"
+::: zone pivot="arm-bicep,terraform"
 
 **3. Configure operation shell scripts**
 
@@ -166,9 +156,9 @@ COPY scripts/* /scripts/
 RUN find /scripts/ -type f -iname "*.sh" -exec dos2unix '{}' '+'
 RUN find /scripts/ -type f -iname "*.sh" -exec chmod +x {} \;
 ```
-:::zone-end
+::: zone-end
 
-:::zone-pivot="arm-bicep"
+::: zone-pivot="arm-bicep"
 
 **4. Create operation shell scripts to deploy ARM or Bicep templates**
 
@@ -274,9 +264,9 @@ fi
 echo "{\"outputs\": $deploymentOutput}" > $ADE_OUTPUTS
 ```
 
-:::zone-end
+::: zone-end
 
-:::zone-pivot="terraform"
+::: zone-pivot="terraform"
 
 **4. Create operation shell scripts that use the Terraform CLI**
 
@@ -349,15 +339,15 @@ tfOutputs=$(jq 'walk(if type == "object" then
 echo "{\"outputs\": $tfOutputs}" > $ADE_OUTPUTS
 ```
 
-:::zone-end
+::: zone-end
 
-:::zone pivot="pulumi"
+::: zone pivot="pulumi"
 
 Pulumi content goes here
 
 <!-- [!INCLUDE [configure-extensibility-pulumi-container-image](includes/configure-extensibility-pulumi-container-image.md)] -->
 
-:::zone-end
+::: zone-end
 
 ## Make the custom image accessible to ADE
 
