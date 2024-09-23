@@ -50,4 +50,4 @@ The following table defines limits for the pricing plans in Azure Spring Apps.
 
 ## Next steps
 
-Some default limits can be increased. For more information, see [create a support request](../../azure-portal/supportability/how-to-create-azure-support-request.md).
+Some default limits can be increased. For more information, see [create a support request](/azure/azure-portal/supportability/how-to-create-azure-support-request).

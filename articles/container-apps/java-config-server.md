@@ -289,7 +289,7 @@ If you want to customize your own `SPRING_CONFIG_IMPORT`, you can refer to the e
 
 You can also remove a binding from your application.
 
-## Unbind your container app from the Config Server for Spring Java component
+## (Optional) Unbind your container app from the Config Server for Spring Java component
 
 ### [Azure CLI](#tab/azure-cli)
   To remove a binding from a container app, use the `--unbind` option.
