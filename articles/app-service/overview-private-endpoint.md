@@ -55,10 +55,14 @@ In the Web HTTP logs of your app, you find the client source IP. This feature is
 
 ## DNS
 
-When you use private endpoint for App Service apps, the requested URL must match the name of your app. By default mywebappname.azurewebsites.net (see [note at top](#dnl-note)).
+When you use private endpoint for App Service apps, the requested URL must match the name of your app. By default ```mywebappname.azurewebsites.net```, (or ```mywebapp-<hash>.<region>.azurewebsites.net``` for web apps that use Unique Default Hostnames - see [note at top](#dnl-note)).
+
+### Default DNS Resolution
 
 By default, without private endpoint, the public name of your web app is a canonical name to the cluster.
 For example, the name resolution is:
+
+#### [Without unique default hostnames](#tab/without-unique-default-hostnames)
 
 |Name |Type |Value |
 |-----|-----|------|
@@ -66,9 +70,20 @@ For example, the name resolution is:
 |clustername.azurewebsites.windows.net|CNAME|cloudservicename.cloudapp.net|
 |cloudservicename.cloudapp.net|A|40.122.110.154| 
 
+#### [With unique default hostnames](#tab/with-unique-default-hostnames)
+
+|Name |Type |Value |
+|-----|-----|------|
+|myapp-&lt;hash&gt;.&lt;region&gt;.azurewebsites.net|CNAME|clustername.azurewebsites.windows.net|
+|clustername.azurewebsites.windows.net|CNAME|cloudservicename.&lt;region&gt;.cloudapp.net|
+|cloudservicename.&lt;region&gt;.cloudapp.net|A|40.122.110.154|
+
+### DNS Resolution with Private Endpoint
 
 When you deploy a private endpoint, we update the DNS entry to point to the canonical name mywebapp.privatelink.azurewebsites.net.
 For example, the name resolution is:
+
+#### [Without unique default hostnames](#tab/without-unique-default-hostnames)
 
 |Name |Type |Value |Remark |
 |-----|-----|------|-------|
@@ -77,28 +92,77 @@ For example, the name resolution is:
 |clustername.azurewebsites.windows.net|CNAME|cloudservicename.cloudapp.net|
 |cloudservicename.cloudapp.net|A|40.122.110.154|<--This public IP isn't your private endpoint, you receive a 403 error|
 
+#### [With unique default hostnames](#tab/with-unique-default-hostnames)
+
+|Name |Type |Value |Remark |
+|-----|-----|------|-------|
+|mywebapp-&lt;hash&gt;.&lt;region&gt;.azurewebsites.net|CNAME|mywebapp-&lt;hash&gt;.&lt;region&gt;.privatelink.azurewebsites.net|
+|mywebapp.&lt;region&gt;.privatelink.azurewebsites.net|CNAME|clustername.azurewebsites.windows.net|
+|clustername.azurewebsites.windows.net|CNAME|cloudservicename.&lt;region&gt;.cloudapp.azure.com|
+|cloudservicename.&lt;region&gt;cloudapp.net|A|40.122.110.154|<--This public IP isn't your private endpoint, you receive a 403 error|
+
+### Setting Up Private DNS
+
 You must set up a private DNS server or an Azure DNS private zone. For tests, you can modify the host entry of your test machine.
 The DNS zone that you need to create is: **privatelink.azurewebsites.net**. Register the record for your app with a A record and the private endpoint IP.
+
 For example, the name resolution is:
+
+#### [Without unique default hostnames](#tab/without-unique-default-hostnames)
 
 |Name |Type |Value |Remark |
 |-----|-----|------|-------|
 |mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|<--Azure creates this CNAME entry in Azure Public DNS to point the app address to the private endpoint address|
 |mywebapp.privatelink.azurewebsites.net|A|10.10.10.8|<--You manage this entry in your DNS system to point to your private endpoint IP address|
 
-After this DNS configuration, you can reach your app privately with the default name mywebappname.azurewebsites.net. You must use this name, because the default certificate is issued for *.azurewebsites.net.
+#### [With unique default hostnames](#tab/with-unique-default-hostnames)
 
+|Name |Type |Value |Remark |
+|-----|-----|------|-------|
+|mywebapp-&lt;hash&gt;.&lt;region&gt;.azurewebsites.net|CNAME|mywebapp-&lt;hash&gt;.&lt;region&gt;.privatelink.azurewebsites.net|<--Azure creates this CNAME entry in Azure Public DNS to point the app address to the private endpoint address|
+|mywebapp-&lt;hash&gt;.&lt;region&gt;.privatelink.azurewebsites.net|A|10.10.10.8|<--You manage this entry in your DNS system to point to your private endpoint IP address|
 
-If you need to use a custom DNS name, you must add the custom name in your app and you must validate the custom name like any custom name, using public DNS resolution. 
+After this DNS configuration, you can reach your app privately with the default name ```mywebappname.azurewebsites.net``` (or ```mywebappname-<hash>.<region>.azurewebsites.net``` for web apps configurd to use Unique Default Hostnames). You must use this name, because the default certificate is issued for *.azurewebsites.net.
+
+If you need to use a custom DNS name, you must add the custom name in your app and you must validate the custom name like any custom name, using public DNS resolution.
+
 For more information, see [custom DNS validation](./app-service-web-tutorial-custom-domain.md).
+
+### Azure Private DNS Zones
+
+If you [integrate your private endpoint](https://learn.microsoft.com/en-us/azure/private-link/private-endpoint-dns-integration#private-dns-zone-group) with an Azure Private DNS Zone the following records will be added to the zone automatically. Note that the name of the zone should be ```privatelink.azurewebsites.net``` for all web apps regardless of whether they use Unique Default Hostnames or not.
+
+#### [Without unique default hostnames](#tab/without-unique-default-hostnames)
+
+|Name |Type |Value |Remark |
+|-----|-----|------|-------|
+|mywebapp | A | PrivateEndpointIP |
+|mywebapp.scm| A | PrivateEndpointIP |
+
+#### [With unique default hostnames](#tab/with-unique-default-hostnames)
+
+|Name |Type |Value |Remark |
+|-----|-----|------|-------|
+|mywebapp-&lt;hash&gt;.&lt;region&gt; | A | PrivateEndpointIP |
+|mywebapp-&lt;hash&gt;.scm.&lt;region&gt;| A | PrivateEndpointIP |
+
+### Kudu Console and REST API
 
 For the Kudu console, or Kudu REST API (deployment with Azure DevOps self-hosted agents for example), you must create two records pointing to the private endpoint IP in your Azure DNS private zone or your custom DNS server. The first is for your app, the second is for the SCM of your app.
 
+#### [Without unique default hostnames](#tab/without-unique-default-hostnames)
+
 | Name | Type | Value |
 |-----|-----|-----|
-| mywebapp.privatelink.azurewebsites.net | A | PrivateEndpointIP | 
-| mywebapp.scm.privatelink.azurewebsites.net | A | PrivateEndpointIP | 
+| mywebapp.privatelink.azurewebsites.net | A | PrivateEndpointIP |
+| mywebapp.scm.privatelink.azurewebsites.net | A | PrivateEndpointIP |
 
+#### [With unique default hostnames](#tab/with-unique-default-hostnames)
+
+| Name | Type | Value |
+|-----|-----|-----|
+| mywebapp-&lt;hash&gt;.&lt;region&gt;.privatelink.azurewebsites.net | A | PrivateEndpointIP |
+| mywebapp-&lt;hash&gt;.scm.&lt;region&gt;.privatelink.azurewebsites.net | A | PrivateEndpointIP |
 
 ## App Service Environment v3 special consideration
 
