@@ -2,9 +2,8 @@
 title: Run the Deployment Planner for VMware disaster recovery with Azure Site Recovery
 description: This article describes how to run Azure Site Recovery Deployment Planner for VMware disaster recovery to Azure.
 author: ankitaduttaMSFT
-manager: gaggupta
 ms.service: azure-site-recovery
-ms.topic: conceptual
+ms.topic: overview
 ms.author: ankitadutta
 ms.date: 12/15/2023
 
