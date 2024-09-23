@@ -58,7 +58,7 @@ You can see the standard Bicep container image in the ADE sample repository unde
 
 For more information about how to create environment definitions that use the ADE container images to deploy your Azure resources, see [Add and configure an environment definition](configure-environment-definition.md).
 
-::: zone pivot="arm-bicep,terraform"
+::: zone pivot="arm-bicep"
 ## Create a custom container image
 
 Creating a custom container image allows you to customize your deployments to fit your requirements. You can create custom images based on the ADE standard container images.
@@ -72,20 +72,15 @@ In this example, you learn how to build a Docker image to utilize ADE deployment
 The ADE CLI is a tool that allows you to build custom images by using ADE base images. You can use the ADE CLI to customize your deployments and deletions to fit your workflow. The ADE CLI is preinstalled on the sample images. To learn more about the ADE CLI, see the [CLI Custom Runner Image reference](https://aka.ms/deployment-environments/ade-cli-reference).
 ::: zone-end
 
+::: zone-pivot="terraform"
+***Terraform intro goes here***
+::: zone-end
+
 ::: zone-pivot="pulumi"
 ***Pulumi intro goes here***
 ::: zone-end
 
-To create an image configured for ADE, follow these steps:
-1. Create a custom image based on a standard image.
-1. Install desired packages.
-1. Configure operation shell scripts.
-:::zone-pivot="arm-bicep" 
-1. Create operation shell scripts to deploy ARM or Bicep templates. 
-::: zone-end 
-::: zone pivot="terraform"
-1. Create operation shell scripts that use the Terraform CLI. 
-::: zone-end
+
 
 ## Related content
 
