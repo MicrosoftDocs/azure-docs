@@ -114,7 +114,7 @@ As you create an Azure Container Apps connected environment resource, some subsc
 
 ## Can the extension be installed on Windows nodes?
 
-No, the extension cannot be installed on Windows nodes.  The extension supports installation on **Linux** nodes **only**.
+No, the extension cannot be installed on Windows nodes. The extension supports installation on **Linux** nodes **only**.
 
 ### Can I deploy the Container Apps extension on an Arm64 based cluster?
 

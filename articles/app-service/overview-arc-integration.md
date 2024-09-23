@@ -91,7 +91,7 @@ Only Linux-based apps are supported, both code and custom containers. Windows ap
 
 ### Can the extension be installed on Windows nodes?
 
-No, the extension cannot be installed on Windows nodes.  The extension supports installation on **Linux** nodes **only**.
+No, the extension cannot be installed on Windows nodes. The extension supports installation on **Linux** nodes **only**.
 
 ### Which built-in application stacks are supported?
 
