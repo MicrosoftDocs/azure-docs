@@ -2597,7 +2597,7 @@
     },
     {
       "source_path": "articles/managed-grafana/how-to-sync-teams-with-azure-ad-groups.md",
-      "redirect_url": "managed-grafana/how-to-sync-teams-with-entra-groups",
+      "redirect_url": "how-to-sync-teams-with-entra-groups",
       "redirect_document_id": false
     },
     {
