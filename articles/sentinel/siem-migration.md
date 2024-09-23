@@ -36,10 +36,11 @@ You need the following on the target, Microsoft Sentinel:
 - The SIEM migration experience deploys analytics rules. This capability requires the **Microsoft Sentinel Contributor** role. For more information, see [Permissions in Microsoft Sentinel](roles.md). 
 - Ingest security data previously used in your source SIEM into Microsoft Sentinel. Before an analytics rule is translated and enabled, the rule's data source must be present in the Log Analytics workspace. Install and enable out-of-the-box (OOTB) data connectors in **Content hub** to match your security monitoring estate from your source SIEM. If no data connector exists, create a custom ingestion pipeline.
  
-  For more information, see the following:
+  For more information, see the following articles:
   - [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md)
   - [Custom data ingestion and transformation](data-transformation.md).
-- Create Microsoft Sentinel watchlists from your Splunk lookups in order to map the fields used in the translated analytics rules.
+
+- Create Microsoft Sentinel watchlists from your Splunk lookups so the fields used are mapped for the translated analytics rules.
 
 ## Translate Splunk detection rules
 
@@ -108,15 +109,15 @@ Once the schema mapping is complete, any manual updates are reflected in the **M
 
 ### Lookups
 
-Splunk lookups compare to Microsoft Sentinel watchlists, which are lists of curated field-value combinations to correlate with the events in your Microsoft Sentinel environment. Since Splunk lookups are defined and available outside the boundaries of SPL queries the equivalent Microsoft Sentinel watchlist must be created as a pre-requisite. Schema mapping then takes lookups automatically identified from the uploaded Splunk queries and maps them to Sentinel Watchlists.
+Splunk lookups compare to Microsoft Sentinel watchlists, which are lists of curated field-value combinations to correlate with the events in your Microsoft Sentinel environment. Since Splunk lookups are defined and available outside the boundaries of SPL queries, the equivalent Microsoft Sentinel watchlist must be created as a prerequisite. Schema mapping then takes lookups automatically identified from the uploaded Splunk queries and maps them to Sentinel Watchlists.
 
 For more information, see [Create watchlist](watchlists-create.md).
 
 :::image type="content" source="media/siem-migration/schema-mapping-lookups.png" alt-text="Screenshot showing manual mapping of Splunk lookup to Microsoft Sentinel watchlist.":::
 
-SPL queries reference lookups with the `lookup`, `inputlookup` and `outputlookup` keywords. The `outputlookup` operation writes data to a lookup and isn't supported in translation. The SIEM migration translation engine uses the `_GetWatchlist()` KQL function to map to the correct Sentinel watchlist along with other KQL functions to complete the rule logic.
+SPL queries reference lookups with the `lookup`, `inputlookup`, and `outputlookup` keywords. The `outputlookup` operation writes data to a lookup and isn't supported in translation. The SIEM migration translation engine uses the `_GetWatchlist()` KQL function to map to the correct Sentinel watchlist along with other KQL functions to complete the rule logic.
 
-When a Splunk lookup does not have a corresponding watchlist mapped, the translation engine keeps the same name for both the watchlist and its fields as the Splunk lookup and fields.
+When a Splunk lookup doesn't have a corresponding watchlist mapped, the translation engine keeps the same name for both the watchlist and its fields as the Splunk lookup and fields.
 
 ## Configure rules
 
