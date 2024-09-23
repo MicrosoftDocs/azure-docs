@@ -123,7 +123,7 @@ When no longer needed, delete the resource group and all of the resources it con
 
 ```azurecli-interactive
 # Delete the resource group and all the resources it contains. 
-az group delete --name 'myResourceGroup' --yes --no-wait
+az group delete --name 'RouteServerRG' --yes --no-wait
 ```
 
 ## Next step
