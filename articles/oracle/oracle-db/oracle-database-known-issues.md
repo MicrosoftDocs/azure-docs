@@ -19,7 +19,7 @@ In this article, you find known issues for Oracle Database@Azure.
 
 **Details**: reports the wrong number of available IPs in the subnet, causing VM cluster provisioning to fail.
 
-**Error message**:**
+**Error message**:
 ```
 Error returned by CreateCloudVmCluster operation in Database service.(400, InvalidParameter, false) Cidr block of the subnet must have at least 11 ip addresses available.
 ```

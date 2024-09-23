@@ -26,12 +26,13 @@ Oracle Database Autonomous Recovery Service@Azure (RCV) is the preferred backup 
 * Speeds recovery to regions with optimized backups eliminating the need to recover multiple incremental backups.
 * Centralizes database protection insights with a granular recovery health dashboard.
 
-### High-level Steps to Enable Autonomous Recovery Service@Azure
+### High-level steps to enable autonomous recovery Service@Azure
 1. Access the OCI console for the database you want to enable for Autonomous Recovery Service@Azure. For details on this, see Access the OCI console in [Manage autonomous database resources](oracle-database-manage-autonomous-database-resources.md).
 1. Configure or create an Autonomous Recovery Service@Azure protection policy with Store backups in the same cloud provider as the database set.
 1. Use the protection policy to Configure automated backups.
 1. When the backup completes, subscription and backup location details will appear in the database within OCI.
 
+## Next steps
 For details and additional documentation for Autonomous Recovery Service@Azure, see the following documents:
 * [Multicloud Oracle Database Backup Support](https://docs.oracle.com/en/cloud/paas/recovery-service/dbrsu/azure-multicloud-recoveryservice.html)
 * [Backup Automation and Storage in Oracle Cloud](https://docs.oracle.com/en/cloud/paas/recovery-service/dbrsu/backup-automation.html)

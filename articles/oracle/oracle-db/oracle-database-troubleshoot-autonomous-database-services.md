@@ -12,11 +12,11 @@ ms.date: 08/01/2024
 
 In this article, you learn to resolve common errors and provisioning issues in your Oracle Database@Azure environments.
 
-The issues covered in this guide do not cover general issues related to Oracle Database@Azure configuration, settings, and account setup. For more information on those topics, see [Oracle Database@Azure Overview](https://docs.oracle.com/iaas/Content/multicloud/oaaoverview.htm).
+The issues covered in this guide don't cover general issues related to Oracle Database@Azure configuration, settings, and account setup. For more information on those articles, see [Oracle Database@Azure Overview](https://docs.oracle.com/iaas/Content/multicloud/oaaoverview.htm).
 
 ## Terminations and Microsoft Azure locks
 
-Oracle advises removal of all Microsoft Azure locks to Oracle Database@Azure resources before terminating the resource. For example, if you created a Microsoft Azure private endpoint, you should remove that resource first. If you have a policy to prevent the deletion of locked resources, the Oracle Database@Azure workflow to delete the resource will fail because Oracle Database@Azure cannot delete the lock.
+Oracle advises removal of all Microsoft Azure locks to Oracle Database@Azure resources before terminating the resource. For example, if you created a Microsoft Azure private endpoint, you should remove that resource first. If you have a policy to prevent the deletion of locked resources, the Oracle Database@Azure workflow to delete the resource fails because Oracle Database@Azure can't delete the lock.
 
 ## IP Address requirement differences
 
@@ -26,5 +26,5 @@ There are IP address requirement differences between Oracle Database@Azure and O
 
 ## Private DNS zone limitation
 
-When provisioning Exadata Services, in a private DNS zone you can only select zones with four labels or less. For example, a.b.c.d is allowed, while a.b.c.d.e is not allowed.
+When provisioning Exadata Services, in a private DNS zone you can only select zones with four labels or less. For example, a.b.c.d is allowed, while a.b.c.d.e isn't allowed.
 

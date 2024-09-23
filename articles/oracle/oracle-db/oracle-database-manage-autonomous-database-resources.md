@@ -1,6 +1,6 @@
 ---
 title: Manage autonomous database resources
-description: Learn about Manage autonomous database resources.
+description: Learn about how to manage autonomous database resources.
 author: jjaygbay1
 ms.author: jacobjaygbay
 ms.topic: concept-article
@@ -12,16 +12,16 @@ ms.date: 08/01/2024
 
 After provisioning any OracleDB@Azure resource, you can use the Microsoft Azure blade for a limited set of management functions.
 
-Prerequisites
+## Prerequisites
 There are prerequisites that must be completed before you can provision Exadata Services. You need to complete the following:
 
-1. An existing Azure subscription
-1. An Azure VNet with a subnet delegated to the Oracle Database@Azure service (`Oracle.Database/networkAttachments`)
-1. Permissions in Azure to create resources in the region, with the following conditions:
+- An existing Azure subscription
+- An Azure VNet with a subnet delegated to the Oracle Database@Azure service (`Oracle.Database/networkAttachments`)
+- Permissions in Azure to create resources in the region, with the following conditions:
    * No policies prohibiting the creation of resources without tags, because the OracleSubscription resource is created automatically without tags during onboarding.
    * No policies enforcing naming conventions, because the OracleSubscription resource is created automatically with a default resource name.
-1. Purchase OracleDB@Azure in the Azure portal.
-1. Select your Oracle Cloud Infrastructure (OCI) account.
+- Purchase OracleDB@Azure in the Azure portal.
+- Select your Oracle Cloud Infrastructure (OCI) account.
 For more detailed documentation, including optional steps, see [Onboarding with Oracle Database@Azure](https://docs.oracle.com/iaas/Content/database-at-azure/oaaonboard.htm).
 
 ## Common Management Functions from the Microsoft Azure Blade
@@ -103,7 +103,7 @@ The following management functions are available for all resources from the Micr
 1. Follow the steps to **Access the resource blade**.
 1. Select the link to the resource from the **Name** field in the table.
 1. From the resource's detail page, select the **Go to OCI** link on the **OCI Database URL** field.
-1. Login to OCI.
+1. Log in to OCI.
 1. Manage the resource from within the OCI console.
 
 ### Support for OracleDB@Azure
@@ -111,7 +111,10 @@ The following management functions are available for all resources from the Micr
 1. Follow the steps to Access the OCI console.
 1. From the OCI console, there are two ways to access support resources.
    1. At the top of the page, select the Help (?) icon at the top-right of the menu bar.
-   1. On the right-side of the page, select the floating Support icon. **NOTE:** This icon can be moved by the user, and the precise horizontal location can vary from user to user.
+   1. On the right-side of the page, select the floating Support icon. 
+    >[!NOTE] 
+    > This icon can be moved by the user, and the precise horizontal location can vary from user to user.
+
 1. You have several support options from here, including documentation, requesting help via chat, visiting the Support Center, posting a question to a forum, submitting feedback, requesting a limit increase, and creating a support request.
 1. If you need to create a support request, select that option.
 1. The support request page will auto-populate with information needed by Oracle Support Services, including resource name, resource OCID, service group, service, and several other items dependent upon the specific OracleDB@Azure resource.
