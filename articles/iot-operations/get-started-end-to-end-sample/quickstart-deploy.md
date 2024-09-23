@@ -165,7 +165,7 @@ Run the following CLI commands in your Codespaces terminal.
 
 ## Deploy Azure IoT Operations Preview
 
-In this section, you use the [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init) command to configure your cluster so that it can communicate securely with your Azure IoT Operations components and key vault, then deploy Azure IoT Operations.
+In this section, you configure your cluster with the dependencies for your Azure IoT Operations components, then deploy Azure IoT Operations.
 
 Run the following CLI commands in your Codespaces terminal.
 

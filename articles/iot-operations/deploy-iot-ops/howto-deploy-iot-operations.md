@@ -5,7 +5,7 @@ author: kgremban
 ms.author: kgremban
 ms.topic: how-to
 ms.custom: ignite-2023, devx-track-azurecli
-ms.date: 08/02/2024
+ms.date: 09/23/2024
 
 #CustomerIntent: As an OT professional, I want to deploy Azure IoT Operations to a Kubernetes cluster.
 ---
@@ -97,36 +97,125 @@ The Azure portal deployment experience is a helper tool that generates a deploym
    az login
    ```
 
+   If at any point you get an error that says *Your device is required to be managed to access your resource*, run `az login` again and make sure that you sign in interactively with a browser.
+
    > [!NOTE]
    > If you're using GitHub Codespaces in a browser, `az login` returns a localhost error in the browser window after logging in. To fix, either:
    >
    > * Open the codespace in VS Code desktop, and then run `az login` in the terminal. This opens a browser window where you can log in to Azure.
    > * Or, after you get the localhost error on the browser, copy the URL from the browser and use `curl <URL>` in a new terminal tab. You should see a JSON response with the message "You have logged into Microsoft Azure!".
 
-1. Deploy Azure IoT Operations to your cluster. Use optional flags to customize the [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init) command to fit your scenario.
+### Create a storage account and schema registry
 
-   By default, the `az iot ops init` command takes the following actions, some of which require that the principal signed in to the CLI has elevated permissions:
+Azure IoT Operations requires a schema registry on your cluster. Schema registry requires an Azure storage account so that it can synchronize schema information between cloud and edge.
 
-     * Set up a service principal and app registration to give your cluster access to the key vault.
-     * Configure TLS certificates.
-     * Configure a secrets store on your cluster that connects to the key vault.
-     * Deploy the Azure IoT Operations resources.
+Run the following CLI commands in your Codespaces terminal.
+
+1. Set environment variables for the resources you create in this section.
+
+   | Placeholder | Value |
+   | ----------- | ----- |
+   | <STORAGE_ACCOUNT_NAME> | A name for your storage account. Storage account names must be between 3 and 24 characters in length and only contain numbers and lowercase letters. |
+   | <SCHEMA_REGISTRY_NAME> | A name for your schema registry. |
+   | <SCHEMA_REGISTRY_NAMESPACE> | A name for your schema registry namespace. The namespace uniquely identifies a schema registry within a tenant. |
 
    ```azurecli
-   az iot ops init --cluster <CLUSTER_NAME> --resource-group <RESOURCE_GROUP> --kv-id <KEYVAULT_SETTINGS_PROPERTIES_RESOURCE_ID>
+   export STORAGE_ACCOUNT=<STORAGE_ACCOUNT_NAME>
+   export SCHEMA_REGISTRY=<SCHEMA_REGISTRY_NAME>
+   export SCHEMA_REGISTRY_NAMESPACE=<SCHEMA_REGISTRY_NAMESPACE>
    ```
 
-   Use the [optional parameters](/cli/azure/iot/ops#az-iot-ops-init-optional-parameters) to customize your deployment, including:
+1. Create a storage account with hierarchical namespace enabled.
 
-     | Parameter | Value | Description |
-     | --------- | ----- | ----------- |
-     | `--add-insecure-listener` |  | Add an insecure 1883 port config to the default listener. *Not for production use*. |
-     | `--broker-config-file` | Path to JSON file | Provide a configuration file for the MQTT broker. For more information, see [Advanced MQTT broker config](https://github.com/Azure/azure-iot-ops-cli-extension/wiki/Advanced-Mqtt-Broker-Config) and [Configure core MQTT broker settings](../manage-mqtt-broker/howto-configure-availability-scale.md). |
-     | `--disable-rsync-rules` |  | Disable the resource sync rules on the deployment feature flag if you don't have **Microsoft.Authorization/roleAssignment/write** permissions in the resource group. |
-     | `--name` | String | Provide a name for your Azure IoT Operations instance. Otherwise, a default name is assigned. You can view the `instanceName` parameter in the command output. |
-     | `--no-progress` |  | Disables the deployment progress display in the terminal. |
-     | `--simulate-plc` |  | Include the OPC PLC simulator that ships with the OPC UA connector. |
-     | `--sp-app-id`,<br>`--sp-object-id`,<br>`--sp-secret` | Service principal app ID, service principal object ID, and service principal secret | Include all or some of these parameters to use an existing service principal, app registration, and secret instead of allowing `init` to create new ones. For more information, see [Configure service principal and Key Vault manually](howto-manage-secrets.md#configure-service-principal-and-key-vault-manually). |
+   ```azurecli
+   az storage account create --name $STORAGE_ACCOUNT --location $LOCATION --resource-group $RESOURCE_GROUP --enable-hierarchical-namespace
+   ```
+
+1. Create a schema registry that connects to your storage account. This command also creates a blob container called **schemas** in the storage account if one doesn't exist already.
+
+   ```azurecli
+   az iot ops schema registry create --name $SCHEMA_REGISTRY --resource-group $RESOURCE_GROUP --registry-namespace $SCHEMA_REGISTRY_NAMESPACE --sa-resource-id $(az storage account show --name $STORAGE_ACCOUNT --resource-group $RESOURCE_GROUP -o tsv --query id)
+   ```
+
+### Deploy Azure IoT Operations
+
+1. Prepare your cluster with the dependencies that Azure IoT Operations requires by running [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init).
+
+   ```azurecli
+   az iot ops init --cluster <CLUSTER_NAME> --resource-group <RESOURCE_GROUP> --sr-resource-id <SCHEMA_REGISTRY_RESOURCE_ID>
+   ```
+
+   Use the [optional parameters](/cli/azure/iot/ops#az-iot-ops-init-optional-parameters) to customize your cluster, including:
+
+   | Optional parameter | Value | Description |
+   | --------- | ----- | ----------- |
+   | `--no-progress` |  | Disables the deployment progress display in the terminal. |
+   | `--enable-fault-tolerance` | `false`, `true` | Enables fault tolerance for Azure Arc Container Storage. At least 3 cluster nodes are required. |
+
+1. Deploy Azure IoT Operations. This command takes several minutes to complete:
+
+   ```azurecli
+   az iot ops create --cluster $CLUSTER_NAME --resource-group $RESOURCE_GROUP
+   ```
+
+   Use the [optional parameters](/cli/azure/iot/ops#az-iot-ops-init-optional-parameters) to customize your cluster, including:
+
+   | Optional parameter | Value | Description |
+   | --------- | ----- | ----------- |
+   | `--no-progress` |  | Disables the deployment progress display in the terminal. |
+   | `--disable-rsync-rules` |  | Disable the resource sync rules on the deployment feature flag if you don't have **Microsoft.Authorization/roleAssignment/write** permissions in the resource group. |
+   | `--add-insecure-listener` |  | Add an insecure 1883 port config to the default listener. *Not for production use*. |
+   | `--broker-config-file` | Path to JSON file | Provide a configuration file for the MQTT broker. For more information, see [Advanced MQTT broker config](https://github.com/Azure/azure-iot-ops-cli-extension/wiki/Advanced-Mqtt-Broker-Config) and [Configure core MQTT broker settings](../manage-mqtt-broker/howto-configure-availability-scale.md). |
+   | `--name` | String | Provide a name for your Azure IoT Operations instance. Otherwise, a default name is assigned. You can view the `instanceName` parameter in the command output. |
+
+Once the `create` command completes successfully, you have a working Azure IoT Operations instance running on your cluster. At this point, your instance is configured for most testing and evaluation scenarios. If you want to prepare your instance for production scenarios, continue to the next section to enable secure settings.
+
+### Enable secure settings (optional)
+
+Secret management for Azure IoT Operations uses Azure Secret Store to sync the secrets from an Azure Key Vault and store them on the edge as Kubernetes secrets.  
+
+Azure secret requires a user-assigned managed identity with access to the Azure Key Vault where secrets are stored. Dataflows also requires a user-assigned managed identity to authenticate cloud connections.
+
+1. If you don't have an Azure Key Vault, create one by using the [az keyvault create](/cli/azure/keyvault#az-keyvault-create) command.
+
+   ```azurecli
+   az keyvault create --resource-group "<RESOURCE_GROUP>" --location "<LOCATION>" --name "<KEYVAULT_NAME>" --enable-rbac-authorization 
+   ```
+
+1. Give yourself **Secrets officer** permissions on the vault, so that you can create secrets:
+
+   ```azurecli
+   az role assignment create --role "Key Vault Secrets Officer" --assignee <CURRENT_USER> --scope /subscriptions/<SUBSCRIPTION>/resourcegroups/<RESOURCE_GROUP>/providers/Microsoft.KeyVault/vaults/<KEYVAULT_NAME> 
+   ```
+
+1. Create a user-assigned managed identity that has access to the Azure Key Vault.
+
+```azurecli
+az identity create --name "<USER_ASSIGNED_IDENTITY_NAME>" --resource-group "<RESOURCE_GROUP>" --location "<LOCATION>" --subscription "<SUBSCRIPTION>" 
+```
+
+1. Configure the Azure IoT Operations instance for secret synchronization. This command:
+
+   * Creates a federated identity credential using the user-assigned managed identity.
+   * Adds a role assignment to the user-assigned managed identity for access to the Azure Key Vault.
+   * Adds a minimum secret provider class associated with the Azure IoT Operations instance.
+
+   ```azurecli
+   az iot ops secretsync enable -n <CLUSTER_NAME> -g <RESOURCE_GROUP> --mi-user-assigned <USER_ASSIGNED_MI_RESOURCE_ID> --kv-resource-id <KEYVAULT_RESOURCE_ID>
+   ```
+
+1. Create a user-assigned managed identity which can be used for cloud connections. Don't use the same identity as the one used to set up secrets management.
+
+   ```azurecli
+   az identity create --name "<USER_ASSIGNED_IDENTITY_NAME>" --resource-group "<RESOURCE_GROUP>" --location "<LOCATION>" --subscription "<SUBSCRIPTION>" 
+
+   You will need to grant the identity permission to whichever cloud resource this will be used for. 
+
+1. Run the following command to assign the identity to the Azure IoT Operations instance. This command also created a federated identity credential using the OIDC issuer of the indicated connected cluster and the Azure IoT Operations service account.
+
+   ```azurecli
+   az iot ops identity assign -n <CLUSTER_NAME> -g <RESOURCE_GROUP> --mi-user-assigned <USER_ASSIGNED_MI_RESOURCE_ID>
+   ```
 
 ### [Azure portal](#tab/portal)
 
@@ -205,7 +294,7 @@ The Azure portal deployment experience is a helper tool that generates a deploym
       az extension add --upgrade --name azure-iot-ops
       ```
 
-   1. Copy and run the `az iot ops schema registry create` command.
+   1. If you chose to create a new schema registry on the previous tab, copy and run the `az iot ops schema registry create` command.
 
    1. Copy and run the `az iot ops init` command.
 
@@ -244,168 +333,6 @@ az iot ops check
 ```
 
 You can also check the configurations of topic maps, QoS, and message routes by adding the `--detail-level 2` parameter for a verbose view.
-
-## Manage Azure IoT Operations
-
-After deployment, you can use the Azure CLI and Azure portal to view and manage your Azure IoT Operations instance.
-
-### List instances
-
-#### [Azure CLI](#tab/cli)
-
-Use the `az iot ops list` command to see all of the Azure IoT Operations instances in your subscription or resource group.
-
-The basic command returns all instances in your subscription.
-
-```azurecli
-az iot ops list
-```
-
-To filter the results by resource group, add the `--resource-group` parameter.
-
-```azurecli
-az iot ops list --resource-group <RESOURCE_GROUP>
-```
-
-#### [Azure portal](#tab/portal)
-
-1. In the [Azure portal](https://portal.azure.com), search for and select **Azure IoT Operations**.
-1. Use the filters to view Azure IoT Operations instances based on subscription, resource group, and more.
-
----
-
-### View instance
-
-#### [Azure CLI](#tab/cli)
-
-Use the `az iot ops show` command to view the properties of an instance.
-
-```azurecli
-az iot ops show --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP>
-```
-
-You can also use the `az iot ops show` command to view the resources in your Azure IoT Operations deployment in the Azure CLI. Add the `--tree` flag to show a tree view of the deployment that includes the specified Azure IoT Operations instance.
-
-```azurecli
-az iot ops show --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> --tree
-```
-
-The tree view of a deployment looks like the following example:
-
-```bash
-MyCluster
-├── extensions
-│   ├── akvsecretsprovider
-│   ├── azure-iot-operations-ltwgs
-│   └── azure-iot-operations-platform-ltwgs
-└── customLocations
-    └── MyCluster-cl
-        ├── resourceSyncRules
-        └── resources
-            ├── MyCluster-ops-init-instance
-            └── MyCluster-observability
-```
-
-You can run `az iot ops check` on your cluster to assess health and configurations of individual Azure IoT Operations components. By default, the command checks MQ but you can [specify the service](/cli/azure/iot/ops#az-iot-ops-check-examples) with `--ops-service` parameter.
-
-#### [Azure portal](#tab/portal)
-
-You can view your Azure IoT Operations instance in the Azure portal.
-
-1. In the [Azure portal](https://portal.azure.com), go to the resource group that contains your Azure IoT Operations instance, or search for and select **Azure IoT Operations**.
-
-1. Select the name of your Azure IoT Operations instance.
-
-1. On the **Overview** page of your instance, the **Arc extensions** table displays the resources that were deployed to your cluster.
-
-   :::image type="content" source="../get-started-end-to-end-sample/media/quickstart-deploy/view-instance.png" alt-text="Screenshot that shows the Azure IoT Operations instance on your Arc-enabled cluster." lightbox="../get-started-end-to-end-sample/media/quickstart-deploy/view-instance.png":::
-
----
-
-### Update instance tags and description
-
-#### [Azure CLI](#tab/cli)
-
-Use the `az iot ops update` command to edit the tags and description parameters of your Azure IoT Operations instance. The values provided in the `update` command replace any existing tags or description
-
-```azurecli
-az iot ops update --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> --desc "<INSTANCE_DESCRIPTION>" --tags <TAG_NAME>=<TAG-VALUE> <TAG_NAME>=<TAG-VALUE>
-```
-
-To delete all tags on an instance, set the tags parameter to a null value. For example:
-
-```azurecli
-az iot ops update --name <INSTANCE_NAME> --resource-group --tags ""
-```
-
-#### [Azure portal](#tab/portal)
-
-1. In the [Azure portal](https://portal.azure.com), go to the resource group that contains your Azure IoT Operations instance, or search for and select **Azure IoT Operations**.
-
-1. Select the name of your Azure IoT Operations instance.
-
-1. On the **Overview** page of your instance, select **Add tags** or **edit** to modify tags on your instance.
-
----
-
-## Uninstall Azure IoT Operations
-
-The Azure CLI and Azure portal offer different options for uninstalling Azure IoT Operations.
-
-If you want to delete an entire Azure IoT Operations deployment, use the Azure CLI.
-
-If you want to delete an Azure IoT Operations instance but keep the related resources in the deployment, use the Azure portal.
-
-### [Azure CLI](#tab/cli)
-
-Use the [az iot ops delete](/cli/azure/iot/ops#az-iot-ops-delete) command to delete the entire Azure IoT Operations deployment from a cluster. The `delete` command evaluates the Azure IoT Operations related resources on the cluster and presents a tree view of the resources to be deleted. The cluster should be online when you run this command.
-
-The `delete` command removes:
-
-* The Azure IoT Operations instance
-* Arc extensions
-* Custom locations
-* Resource sync rules
-* Resources that you can configure in your Azure IoT Operations solution, like assets, MQTT broker, and dataflows.
-
-```azurecli
-az iot ops delete --cluster <CLUSTER_NAME> --resource-group <RESOURCE_GROUP>
-```
-
-### [Azure portal](#tab/portal)
-
-1. In the [Azure portal](https://portal.azure.com), go to the resource group that contains your Azure IoT Operations instance, or search for and select **Azure IoT Operations**.
-
-1. Select the name of your Azure IoT Operations instance.
-
-1. On the **Overview** page of your instance, select **Delete** your instance.
-
-1. Review the list of resources that are and aren't deleted as part of this operation, then type the name of your instance and select **Delete** to confirm.
-
-   :::image type="content" source="./media/howto-deploy-iot-operations/delete-instance.png" alt-text="A screenshot that shows deleting an Azure IoT Operations instance in the Azure portal.":::
-
----
-
-## Update Azure IoT Operations
-
-Currently, there's no support for updating an existing Azure IoT Operations deployment. Instead, uninstall and redeploy a new version of Azure IoT Operations.
-
-1. Use the [az iot ops delete](/cli/azure/iot/ops#az-iot-ops-delete) command to delete the Azure IoT Operations deployment on your cluster.
-
-   ```azurecli
-   az iot ops delete --cluster <CLUSTER_NAME> --resource-group <RESOURCE_GROUP>
-   ```
-
-1. Update the CLI extension to get the latest Azure IoT Operations version.
-
-   ```azurecli
-   az extension update --name azure-iot-ops
-   ```
-
-1. Follow the steps in this article to deploy the newest version of Azure IoT Operations to your cluster.
-
-   >[!TIP]
-   >Add the `--ensure-latest` flag to the `az iot ops init` command to check that the latest Azure IoT Operations CLI version is installed and raise an error if an upgrade is available.
 
 ## Next steps
 

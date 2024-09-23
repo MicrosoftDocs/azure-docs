@@ -236,6 +236,8 @@ To connect your cluster to Azure Arc:
    az login
    ```
 
+   If at any point you get an error that says *Your device is required to be managed to access your resource*, run `az login` again and make sure that you sign in interactively with a browser.
+
 1. Set environment variables for your Azure subscription, location, a new resource group, and the cluster name as it will show up in your resource group.
 
    For the list of currently supported Azure regions, see [Supported regions](../overview-iot-operations.md#supported-regions).
@@ -265,6 +267,8 @@ To connect your cluster to Azure Arc:
    ```azurecli
    az login
    ```
+
+   If at any point you get an error that says *Your device is required to be managed to access your resource*, run `az login` again and make sure that you sign in interactively with a browser.
 
    > [!TIP]
    > If you're using the GitHub codespace environment in a browser rather than VS Code desktop, running `az login` returns a localhost error. To fix the error, either:
