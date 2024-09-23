@@ -56,7 +56,7 @@ Current capabilities:
 
 ## Start the SIEM migration experience
 
-1. Navigate to Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Content management**, select **Content hub**.
+1. 1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Content management**  select **Content hub**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Content management** > **Content hub**.
 
 1. Select **SIEM Migration**. 
 
@@ -93,8 +93,9 @@ Current capabilities:
 
 ## Schema mapping
 
-Microsoft Sentinel Analytics require that the data type be present in the Log Analytics Workspace before a rule is enabled. Schema mapping ensures the data types and fields used in the rule logic are mapped accurately. It's also important the fields used in the query are accurate for the data type schema.
+Precisely define how Splunk sources map to Microsoft Sentinel tables with the **Schema mapping** section of the SIEM migration experience. Microsoft Sentinel Analytics require that the data type be present in the Log Analytics Workspace before a rule is enabled. So, once you match the data sources from Splunk to Microsoft Sentinel, use Schema mapping to ensure the data types and fields used in the analytics rule logic are mapped accurately.
 
+Known sources such as Splunk CIM schemas and data models are automatically mapped to ASIM schemas when applicable. Other sources used in the Splunk detection need to be manually mapped to Microsoft Sentinel or Log Analytics tables.
 
 ## Configure rules
 
