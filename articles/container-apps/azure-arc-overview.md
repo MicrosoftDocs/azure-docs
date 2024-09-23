@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 07/18/2024
+ms.date: 09/23/2024
 ms.author: cshoe
 ---
 
@@ -38,6 +38,7 @@ The following public preview limitations apply to Azure Container Apps on Azure 
 |---|---|
 | Supported Azure regions | East US, West Europe, East Asia |
 | Cluster networking requirement | Must support [LoadBalancer](https://kubernetes.io/docs/concepts/services-networking/service/#loadbalancer) service type |
+| Node OS requirement | **Linux** only. | 
 | Feature: Managed identities | [Not available](#are-managed-identities-supported) |
 | Feature: Pull images from ACR with managed identity | Not available (depends on managed identities) |
 | Logs | Log Analytics must be configured with cluster extension; not per-application |
@@ -77,6 +78,7 @@ The following table describes the role of each revision created for you:
 - [Are there any scaling limits?](#are-there-any-scaling-limits)
 - [What logs are collected?](#what-logs-are-collected)
 - [What do I do if I see a provider registration error?](#what-do-i-do-if-i-see-a-provider-registration-error)
+- [Can the extension be installed on Windows nodes?](#can-the-extension-be-installed-on-windows-nodes)
 - [Can I deploy the Container Apps extension on an Arm64 based cluster?](#can-i-deploy-the-container-apps-extension-on-an-arm64-based-cluster)
 
 ### How much does it cost?
@@ -106,6 +108,10 @@ By default, logs from system components are sent to the Azure team. Application 
 ### What do I do if I see a provider registration error?
 
 As you create an Azure Container Apps connected environment resource, some subscriptions might see the "No registered resource provider found" error. The error details might include a set of locations and API versions that are considered valid. If this error message is returned, the subscription must be re-registered with the `Microsoft.App` provider. Re-registering the provider has no effect on existing applications or APIs. To re-register, use the Azure CLI to run `az provider register --namespace Microsoft.App --wait`. Then reattempt the connected environment command.
+
+## Can the extension be installed on Windows nodes?
+
+No, the extension cannot be installed on Windows nodes.  The extension supports installation on **Linux** nodes **only**.
 
 ### Can I deploy the Container Apps extension on an Arm64 based cluster?
 
