@@ -171,7 +171,7 @@ organization by allowing or blocking these apps.
 | Fidalgo Dataplane Public | e526e72f-ffae-44a0-8dac-cf14b8bd40e2 | Used to manage dev boxes and other DevCenter resources via the DevCenter REST APIs, Azure CLI, or Dev Portal. |
 | Microsoft Developer Portal | 0140a36d-95e1-4df5-918c-ca7ccd1fafc9 | Used to sign into the developer portal web app. |
 
-The following table lists the apps used in common scenarios.
+You can allow apps based on your requirements. For example, you can allow Fidalgo Dataplane Public to allow dev box management by using the DevCenter REST APIs, Azure CLI, or Dev Portal. The following table lists the apps used in common scenarios.
 
 | App                             | Log in to and manage dev boxes in developer portal | Dev box management (create/delete/stop etc.) | Connect through browser | Connect through Remote Desktop |
 |---------------------------------|------------------------|----------------------------------------------|-------------------------|--------------------------------|
