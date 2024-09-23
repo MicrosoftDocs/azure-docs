@@ -24,7 +24,6 @@ The following articles provide specifics of the creation and management tasks as
 * [What's New in autonomous database services](oracle-database-whats-new-autonomous-database-services.md)
 * [Provision an autonomous database](oracle-database-provisioning-autonomous-database.md)
 * [Manage autonomous database resources](provision-manage-oracle-resources.md)
-* [OCI Multicloud Landing Zone for Azure](exadata-multicloud-landing-zone-azure-services.md)
 * [Terraform/OpenTofu examples for Autonomous Database services](oracle-database-examples-autonomous-database-services.md)
 * [Troubleshoot autonomous database services](oracle-database-troubleshoot-autonomous-database-services.md)
 
