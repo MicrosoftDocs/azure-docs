@@ -3,14 +3,14 @@ title: Apache Spark operations supported by Hive Warehouse Connector in Azure HD
 description: Learn about the different capabilities of Hive Warehouse Connector on Azure HDInsight.
 author: apurbasroy
 ms.author: apsinhar
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
-ms.date: 08/21/2023
+ms.date: 08/13/2023
 ---
 
 # Apache Spark operations supported by Hive Warehouse Connector in Azure HDInsight
 
-This article shows spark-based operations supported by Hive Warehouse Connector (HWC). All examples shown below will be executed through the Apache Spark shell.
+This article shows spark-based operations supported by Hive Warehouse Connector (HWC). All examples shown will be executed through the Apache Spark shell.
 
 ## Prerequisite
 
@@ -20,7 +20,7 @@ Complete the [Hive Warehouse Connector setup](./apache-hive-warehouse-connector.
 
 To start a spark-shell session, do the following steps:
 
-1. Use [ssh command](../hdinsight-hadoop-linux-use-ssh-unix.md) to connect to your Apache Spark cluster. Edit the command below by replacing CLUSTERNAME with the name of your cluster, and then enter the command:
+1. Use [ssh command](../hdinsight-hadoop-linux-use-ssh-unix.md) to connect to your Apache Spark cluster. Edit the command by replacing CLUSTERNAME with the name of your cluster, and then enter the command:
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
@@ -32,7 +32,7 @@ To start a spark-shell session, do the following steps:
     ls /usr/hdp/current/hive_warehouse_connector
     ```
 
-1. Edit the code below with the `hive-warehouse-connector-assembly` version identified above. Then execute the command to start the spark shell:
+1. Edit the code with the `hive-warehouse-connector-assembly` version identified above. Then execute the command to start the spark shell:
 
     ```bash
     spark-shell --master yarn \
@@ -40,7 +40,7 @@ To start a spark-shell session, do the following steps:
     --conf spark.security.credentials.hiveserver2.enabled=false
     ```
 
-1. After starting the spark-shell, a Hive Warehouse Connector instance can be started using the following commands:
+1. After you start the spark-shell, a Hive Warehouse Connector instance can be started using the following commands:
 
     ```scala
     import com.hortonworks.hwc.HiveWarehouseSession
@@ -91,7 +91,7 @@ Using Hive Warehouse Connector, you can use Spark streaming to write data into H
 > [!IMPORTANT]
 > Structured streaming writes are not supported in ESP enabled Spark 4.0 clusters.
 
-Follow the steps below to ingest data from a Spark stream on localhost port 9999 into a Hive table via. Hive Warehouse Connector.
+Follow the steps to ingest data from a Spark stream on localhost port 9999 into a Hive table via. Hive Warehouse Connector.
 
 1. From your open Spark shell, begin a spark stream with the following command:
 

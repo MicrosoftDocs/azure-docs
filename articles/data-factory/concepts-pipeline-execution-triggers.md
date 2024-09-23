@@ -5,7 +5,6 @@ description: This article provides information about how to execute a pipeline i
 author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
-ms.service: data-factory
 ms.subservice: orchestration
 ms.topic: conceptual
 ms.date: 01/05/2024

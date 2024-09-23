@@ -6,6 +6,7 @@ ms.subservice: change-inventory-management
 ms.custom: linux-related-content
 ms.date: 07/17/2023
 ms.topic: conceptual
+ms.service: azure-automation
 ---
 
 # Manage change tracking and inventory using Azure Monitoring Agent

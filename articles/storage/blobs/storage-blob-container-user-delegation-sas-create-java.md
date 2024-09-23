@@ -7,7 +7,7 @@ author: pauljewellmsft
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 06/12/2023
+ms.date: 08/05/2024
 ms.author: pauljewell
 ms.reviewer: dineshm
 ms.devlang: java
@@ -52,15 +52,15 @@ The following code example shows how to use the user delegation SAS created in t
 
 To learn more about creating a user delegation SAS using the Azure Blob Storage client library for Java, see the following resources.
 
+### Code samples
+
+- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobSAS.java)
+
 ### REST API operations
 
 The Azure SDK for Java contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar Java paradigms. The client library method for getting a user delegation key uses the following REST API operation:
 
 - [Get User Delegation Key](/rest/api/storageservices/get-user-delegation-key) (REST API)
-
-### Code samples
-
-- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/Java/blob-devguide/blob-devguide-blobs/src/main/java/com/blobs/devguide/blobs/BlobSAS.java)
 
 [!INCLUDE [storage-dev-guide-resources-java](../../../includes/storage-dev-guides/storage-dev-guide-resources-java.md)]
 
@@ -68,3 +68,5 @@ The Azure SDK for Java contains libraries that build on top of the Azure REST AP
 
 - [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md)
 - [Create a user delegation SAS](/rest/api/storageservices/create-user-delegation-sas)
+
+[!INCLUDE [storage-dev-guide-next-steps-java](../../../includes/storage-dev-guides/storage-dev-guide-next-steps-java.md)]

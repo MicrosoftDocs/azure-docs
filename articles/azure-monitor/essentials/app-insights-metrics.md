@@ -316,7 +316,7 @@ The metric shows how much of the total processor capacity is consumed by the pro
 
 |Unit of measure|Supported aggregations|Supported dimensions|
 |---|---|---|
-|Percentage|Average, Min, Max|Cloud role instance
+|Percentage|Average, Min, Max|Cloud role instance|
 
 ```Kusto
 performanceCounters
@@ -333,7 +333,7 @@ performanceCounters
 
 |Unit of measure|Supported aggregations|Supported dimensions|
 |---|---|---|
-|Bytes per second|Average, Min, Max|Cloud role instance
+|Bytes per second|Average, Min, Max|Cloud role instance|
 
 ```Kusto
 performanceCounters
@@ -349,7 +349,7 @@ Amount of non-shared memory that the monitored process allocated for its data.
 
 |Unit of measure|Supported aggregations|Supported dimensions|
 |---|---|---|
-|Bytes|Average, Min, Max|Cloud role instance
+|Bytes|Average, Min, Max|Cloud role instance|
 
 ```Kusto
 performanceCounters
@@ -365,7 +365,7 @@ CPU consumption by *all* processes running on the monitored server instance.
 
 |Unit of measure|Supported aggregations|Supported dimensions|
 |---|---|---|
-|Percentage|Average, Min, Max|Cloud role instance
+|Percentage|Average, Min, Max|Cloud role instance|
 
 >[!NOTE]
 > The processor time metric is not available for the applications hosted in Azure App Services. Use the  [Process CPU](#process-cpu-performancecountersprocesscpupercentage) metric to track CPU utilization of the web applications hosted in App Services.
@@ -498,4 +498,30 @@ union traces, requests, pageViews, dependencies, customEvents, availabilityResul
 | where notempty(user_AuthenticatedId)
 | summarize dcount(user_AuthenticatedId) by bin(timestamp, 1h)
 | render barchart
+```
+
+## Access all your data directly with the Application Insights REST API
+
+The Application Insights REST API enables programmatic retrieval of log-based metrics. It also features an optional parameter “ai.include-query-payload” that when added to a query string, prompts the API to return not only the timeseries data, but also the Kusto Query Language (KQL) statement used to fetch it. This parameter can be particularly beneficial for users aiming to comprehend the connection between raw events in Log Analytics and the resulting log-based metric.
+
+To access your data directly, pass the parameter “ai.include-query-payload” to the Application Insights API in a query using KQL.
+
+```Kusto
+api.applicationinsights.io/v1/apps/DEMO_APP/metrics/users/authenticated?api_key=DEMO_KEY&prefer=ai.include-query-payload
+```
+
+The following is an example of a return KQL statement for the metric "Authenticated Users.” (In this example, "users/authenticated" is the metric id.) 
+
+```Kusto
+output
+{
+    "value": {
+        "start": "2024-06-21T09:14:25.450Z",
+        "end": "2024-06-21T21:14:25.450Z",
+        "users/authenticated": {
+            "unique": 0
+        }
+    },
+    "@ai.query": "union (traces | where timestamp >= datetime(2024-06-21T09:14:25.450Z) and timestamp < datetime(2024-06-21T21:14:25.450Z)), (requests | where timestamp >= datetime(2024-06-21T09:14:25.450Z) and timestamp < datetime(2024-06-21T21:14:25.450Z)), (pageViews | where timestamp >= datetime(2024-06-21T09:14:25.450Z) and timestamp < datetime(2024-06-21T21:14:25.450Z)), (dependencies | where timestamp >= datetime(2024-06-21T09:14:25.450Z) and timestamp < datetime(2024-06-21T21:14:25.450Z)), (customEvents | where timestamp >= datetime(2024-06-21T09:14:25.450Z) and timestamp < datetime(2024-06-21T21:14:25.450Z)), (availabilityResults | where timestamp >= datetime(2024-06-21T09:14:25.450Z) and timestamp < datetime(2024-06-21T21:14:25.450Z)), (exceptions | where timestamp >= datetime(2024-06-21T09:14:25.450Z) and timestamp < datetime(2024-06-21T21:14:25.450Z)), (customMetrics | where timestamp >= datetime(2024-06-21T09:14:25.450Z) and timestamp < datetime(2024-06-21T21:14:25.450Z)), (browserTimings | where timestamp >= datetime(2024-06-21T09:14:25.450Z) and timestamp < datetime(2024-06-21T21:14:25.450Z)) | where notempty(user_AuthenticatedId) | summarize ['users/authenticated_unique'] = dcount(user_AuthenticatedId)"
+}
 ```

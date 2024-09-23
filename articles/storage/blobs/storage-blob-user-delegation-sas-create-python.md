@@ -7,7 +7,7 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 06/06/2023
+ms.date: 08/05/2024
 ms.reviewer: dineshm
 ms.devlang: python
 ms.custom: devx-track-python, devguide-python
@@ -51,15 +51,15 @@ The following code example shows how to use the user delegation SAS created in t
 
 To learn more about creating a user delegation SAS using the Azure Blob Storage client library for Python, see the following resources.
 
+### Code samples
+
+- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob_devguide_create_sas.py)
+
 ### REST API operations
 
 The Azure SDK for Python contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar Python paradigms. The client library method for getting a user delegation key uses the following REST API operations:
 
 - [Get User Delegation Key](/rest/api/storageservices/get-user-delegation-key) (REST API)
-
-### Code samples
-
-- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob_devguide_create_sas.py)
 
 [!INCLUDE [storage-dev-guide-resources-python](../../../includes/storage-dev-guides/storage-dev-guide-resources-python.md)]
 
@@ -67,3 +67,5 @@ The Azure SDK for Python contains libraries that build on top of the Azure REST 
 
 - [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md)
 - [Create a user delegation SAS](/rest/api/storageservices/create-user-delegation-sas)
+
+[!INCLUDE [storage-dev-guide-next-steps-python](../../../includes/storage-dev-guides/storage-dev-guide-next-steps-python.md)]

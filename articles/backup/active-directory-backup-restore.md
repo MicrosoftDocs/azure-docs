@@ -2,7 +2,7 @@
 title: Back up and restore Active Directory 
 description: Learn how to back up and restore Active Directory domain controllers.
 ms.topic: conceptual
-ms.date: 08/09/2023
+ms.date: 08/20/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ms.custom: engagement-fy24
@@ -18,6 +18,8 @@ This article outlines the proper procedures for backing up and restoring Active 
 > This article does not discuss restoring items from [Microsoft Entra ID](../active-directory/fundamentals/active-directory-whatis.md). For information on restoring Microsoft Entra users, see [this article](../active-directory/fundamentals/active-directory-users-restore.md).
 
 ## Best practices
+
+Before you start protection of Active Directory, check the following best practices:
 
 - Make sure at least one domain controller is backed up. If you back up more than one domain controller, make sure all the ones holding the [FSMO (Flexible Single Master Operation) roles](/windows-server/identity/ad-ds/plan/planning-operations-master-role-placement) are backed up.
 
@@ -38,13 +40,13 @@ This article outlines the proper procedures for backing up and restoring Active 
 >
 >For information about performing an authoritative restore of SYSVOL, see [this article](/windows-server/identity/ad-ds/manage/ad-forest-recovery-authoritative-recovery-sysvol).
 
-## Backing up Azure VM domain controllers
+## Back up Azure VM domain controllers
 
 If the domain controller is an Azure VM, you can back up the server using [Azure VM Backup](backup-azure-vms-introduction.md).
 
 Read about [operational considerations for virtualized domain controllers](/windows-server/identity/ad-ds/get-started/virtual-dc/virtualized-domain-controllers-hyper-v#operational-considerations-for-virtualized-domain-controllers) to ensure successful backups (and future restores) of your Azure VM domain controllers.
 
-## Backing up on-premises domain controllers
+## Back up on-premises domain controllers
 
 To back up an on-premises domain controller, you need to back up the server's System State data.
 
@@ -54,7 +56,7 @@ To back up an on-premises domain controller, you need to back up the server's Sy
 >[!NOTE]
 > Restoring on-premises domain controllers (either from system state or from VMs) to the Azure cloud is not supported. If you would like the option of failover from an on-premises Active Directory environment to Azure, consider using [Azure Site Recovery](../site-recovery/site-recovery-active-directory.md).
 
-## Restoring Active Directory
+## Restore Active Directory
 
 Active Directory data can be restored in one of two modes: **authoritative** or **nonauthoritative**. In an authoritative restore, the restored Active Directory data will override the data found on the other domain controllers in the forest.
 
@@ -65,7 +67,7 @@ During the restore, the server will be started in Directory Services Restore Mod
 >[!NOTE]
 >If the DSRM password is forgotten, you can reset it using [these instructions](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/cc754363(v=ws.11)).
 
-### Restoring Azure VM domain controllers
+### Restore Azure VM domain controllers
 
 To restore an Azure VM domain controller, see [Restore domain controller VMs](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
 
@@ -78,7 +80,7 @@ If you're restoring the last remaining domain controller in the domain, or resto
 >[!NOTE]
 > Virtualized domain controllers, from Windows 2012 onwards use [virtualization based safeguards](/windows-server/identity/ad-ds/introduction-to-active-directory-domain-services-ad-ds-virtualization-level-100#virtualization-based-safeguards). With these safeguards, Active directory understands if the VM restored is a domain controller, and performs the necessary steps to restore the Active Directory data.
 
-### Restoring on-premises domain controllers
+### Restore on-premises domain controllers
 
 To restore an on-premises domain controller, follow the directions in for restoring system state to Windows Server, using the guidance for [special considerations for system state recovery on a domain controller](backup-azure-restore-system-state.md#special-considerations-for-system-state-recovery-on-a-domain-controller).
 

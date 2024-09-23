@@ -29,8 +29,6 @@ For the reference documentation for the IoT Central REST API, see [Azure IoT Cen
 
 To learn how to create and manage jobs in the UI, see [Manage devices in bulk in your Azure IoT Central application](howto-manage-devices-in-bulk.md).
 
-[!INCLUDE [iot-central-postman-collection](../../../includes/iot-central-postman-collection.md)]
-
 ## Job payloads
 
 Many of the APIs described in this article include a definition that looks like the following JSON snippet:

@@ -52,7 +52,7 @@ The following limits apply to incidents in Microsoft Sentinel.
 | Number of characters for description  | 5,000 characters | None |
 | Number of characters per comment   | 30,000 characters  | None |
 | Number of comments per incident   | 100 comments  | None |
-| Number of tasks  | 100 tasks | None |
+| Number of tasks  | 40 tasks | None |
 | Number of incidents returned by API to *list* request | 1,000 incidents maximum | None |
 | Number of incidents per day (per workspace) | See explanation after table | Database capacity |
 

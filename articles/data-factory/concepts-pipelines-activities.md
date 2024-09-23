@@ -4,7 +4,6 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about pipelines and activities in Azure Data Factory and Azure Synapse Analytics.
 author: dcstwh
 ms.author: weetok
-ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
@@ -15,7 +14,7 @@ ms.date: 03/11/2024
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-[!INCLUDE[ML Studio (classic) retirement](../../includes/machine-learning-studio-classic-deprecation.md)] 
+[!INCLUDE[ML Studio (classic) retirement](~/reusable-content/ce-skilling/azure/includes/machine-learning-studio-classic-deprecation.md)] 
 
 This article helps you understand pipelines and activities in Azure Data Factory and Azure Synapse Analytics and use them to construct end-to-end data-driven workflows for your data movement and data processing scenarios.
 

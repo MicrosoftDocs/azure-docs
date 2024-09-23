@@ -6,7 +6,7 @@ summary: Learn how to use Azure Route Server to simplify dynamic routing between
 metadata:
   title: Azure Route Server documentation 
   description: Learn about Azure Route Server
-  ms.service: route-server 
+  ms.service: azure-route-server
   ms.topic: landing-page 
   author: halkazwini 
   ms.author: halkazwini 

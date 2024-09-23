@@ -3,7 +3,6 @@ title: Copy data in the cloud using PowerShell
 description: This PowerShell script copies data from one location in an Azure Blob Storage to another location in the same Blob Storage.
 ms.author: jianleishen
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: article
 ms.custom: devx-track-azurepowershell

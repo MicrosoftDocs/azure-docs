@@ -188,7 +188,7 @@ If you open live metrics, the SDKs switch to a higher frequency mode and send ne
 
 ## Next steps
 
-* [Monitor usage with Application Insights](./usage-overview.md)
+* [Monitor usage with Application Insights](./usage.md)
 * [Use Diagnostic Search](./transaction-search-and-diagnostics.md?tabs=transaction-search)
 * [Profiler](./profiler.md)
 * [Snapshot Debugger](./snapshot-debugger.md)

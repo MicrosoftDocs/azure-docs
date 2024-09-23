@@ -3,7 +3,7 @@ title: include file
 description: include file
 services: virtual-network-manager
 author: mbender
-ms.service: virtual-network-manager
+ms.service: azure-virtual-network-manager
 ms.topic: include
 ms.date: 05/17/2024
 ms.author: mbender-ms

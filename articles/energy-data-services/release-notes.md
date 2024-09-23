@@ -105,7 +105,7 @@ Now you can configure diagnostic settings of your Azure Data Manager for Energy 
 
 ### Monitoring and investigating actions with Audit logs
 
-Knowing who is taking what action on which item is critical in helping organizations meet regulatory compliance and record management requirements. Azure Data Manager for Energy captures audit logs for data plane APIs of OSDU services and audit events listed [here](https://community.opengroup.org/osdu/documentation/-/wikis/Releases/R3.0/GCP/GCP-Operation/Logging/Audit-Logging-Status). Learn more about [audit logging in Azure Data Manager for Energy](how-to-manage-audit-logs.md).
+Knowing who is taking what action on which item is critical in helping organizations meet regulatory compliance and record management requirements. Azure Data Manager for Energy captures audit logs for data plane APIs of OSDU services and audit events listed [here](https://community.opengroup.org/osdu/platform/deployment-and-operations/audit-and-metrics). Learn more about [audit logging in Azure Data Manager for Energy](how-to-manage-audit-logs.md).
 
 <hr width = 100%>
 

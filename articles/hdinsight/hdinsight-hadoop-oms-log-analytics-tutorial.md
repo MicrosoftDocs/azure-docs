@@ -1,7 +1,7 @@
 ---
 title: Use Azure Monitor logs to monitor Azure HDInsight clusters
 description: Learn how to use Azure Monitor logs to monitor jobs running in an HDInsight cluster.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell, references_regions, devx-track-azurecli
 ms.date: 05/10/2024
@@ -153,9 +153,15 @@ HDInsight support cluster auditing with Azure Monitor logs, by importing the fol
 * `log_gateway_audit_CL` - this table provides audit logs from cluster gateway nodes that show successful and failed sign-in attempts.
 * `log_auth_CL` - this table provides SSH logs with successful and failed sign-in attempts.
 * `log_ambari_audit_CL` - this table provides audit logs from Ambari.
-* `log_ranger_audti_CL` - this table provides audit logs from Apache Ranger on ESP clusters.
+* `ranger_audit_logs_CL` - this table provides audit logs from Apache Ranger on ESP clusters.
+
+For the log table mappings from the classic Azure Monitor integration to the new one, see [Log table mapping](monitor-hdinsight-reference.md#log-table-mapping).
+
 
 #### [Classic Azure Monitor experience](#tab/previous)
+
+> [!Important]
+> On 31 August 2024, Azure is retiring the Classic Azure Monitor experience on HDInsight.
 
 ## Prerequisites
 
@@ -303,7 +309,9 @@ HDInsight support cluster auditing with Azure Monitor logs, by importing the fol
 * `log_gateway_audit_CL` - this table provides audit logs from cluster gateway nodes that show successful and failed sign-in attempts.
 * `log_auth_CL` - this table provides SSH logs with successful and failed sign-in attempts.
 * `log_ambari_audit_CL` - this table provides audit logs from Ambari.
-* `log_ranger_audti_CL` - this table provides audit logs from Apache Ranger on ESP clusters.
+* `ranger_audit_logs_CL` - this table provides audit logs from Apache Ranger on ESP clusters.
+
+For the log table mappings from the classic Azure Monitor integration to the new one, see [Log table mapping](monitor-hdinsight-reference.md#log-table-mapping).
 
 ---
 

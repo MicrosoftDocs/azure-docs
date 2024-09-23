@@ -35,6 +35,6 @@ Users with access to the chamber can export data from the chamber via the data p
   > [!NOTE]
   > Larger files take longer to be available to download after being approved and to download using AzCopy.  Check the expiration on the download URI and request a new one if the window has expired.
 
-## Next steps
+## Related content
 
 - [License service](./concept-license-service.md)

@@ -4,7 +4,7 @@ titleSuffix: Azure Load Balancer
 description: Learn how Azure Load Balancer is used for outbound internet connectivity using Source Network Address Translation (SNAT).
 services: load-balancer
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: conceptual
 ms.custom: engagement-fy23
 ms.date: 06/26/2024

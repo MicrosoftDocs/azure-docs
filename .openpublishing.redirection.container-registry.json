@@ -109,7 +109,7 @@
         },
         {
             "source_path": "articles/container-registry/container-registry-diagnostics-audit-logs.md",
-            "redirect_url": "/azure/container-registry/monitor-service"
+            "redirect_url": "/azure/container-registry/monitor-container-registry"
         },
         {
             "source_path_from_root": "/articles/container-registry/container-registry-managed-get-started-azure-cli.md",
@@ -154,6 +154,26 @@
         {
             "source_path_from_root": "/articles/container-registry/github-action-scan.md",
             "redirect_url": "/azure/developer/github/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/container-registry/monitor-service.md",
+            "redirect_url": "/azure/container-registry/monitor-container-registry",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/container-registry/monitor-service-reference.md",
+            "redirect_url": "/azure/container-registry/monitor-container-registry-reference",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/container-registry/container-registry-auth-aks.md",
+            "redirect_url": "/azure/aks/cluster-container-registry-integration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/container-service/kubernetes/container-service-kubernetes-jenkins.md",
+            "redirect_url": "/azure/aks/jenkins-continuous-deployment",
             "redirect_document_id": false
         }
     ]

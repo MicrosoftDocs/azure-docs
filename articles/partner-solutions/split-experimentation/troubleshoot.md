@@ -66,7 +66,7 @@ If the data is more than 10 minutes old, requesting results will cause a recalcu
       :::image type="content" source="media/troubleshoot/sample-size-received.png" alt-text="Screenshot of the Azure platform showing the sample size received in the developer tools.":::
 
     - If `SampleSizeReceived` is more than 0, your Split Experimentation Workspace is receiving events but the mapping of the resources on Azure to create your experiment may not have been correctly set up.
-    - If `SampleSizeReceived` equals to 0, your Split Experimentation Workspace isn't seeing any of the data. This can be due to missing data in your storage account, implying an incorrect export rule, or incorrect permissions set up between your Split Experimentation Workspace and your storage account. Navigate to your Split Experimentation Workspace resource to review details of the linked Storage Account under "Data Source".
+    - If `SampleSizeReceived` equals to 0, your Split Experimentation Workspace isn't seeing any of the data. This can be due to missing data in your storage account, implying an incorrect export rule, or incorrect permissions set up between your Split Experimentation Workspace and your storage account. Navigate to your Split Experimentation Workspace resource to review details of the linked Storage Account under "Data Source". Verify that the Entra application that is associated with the Split Experimentation Workspace has **Storage Blob Data Reader** access on the Storage account.
 
 ### Data plane authorization errors
 

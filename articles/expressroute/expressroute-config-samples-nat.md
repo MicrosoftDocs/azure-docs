@@ -3,7 +3,7 @@ title: 'Azure ExpressRoute: Router configuration samples - NAT'
 description: This page provides router configuration samples for Cisco and Juniper routers.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: article
 ms.date: 12/28/2023
 ms.author: duau

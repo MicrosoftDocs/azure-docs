@@ -95,3 +95,11 @@ landingContent:
             url: https://learn.microsoft.com/en-us/azure/dev-box/cli-reference-subset
           - text: REST API
             url: https://aka.ms/dev-box/restapidocs
+
+   # Card
+  - title: Dev Center Quick Start Samples
+    linkLists:
+        - linkListType: sample
+          links:
+          - text: Dev Center Samples
+            url: https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.devcenter

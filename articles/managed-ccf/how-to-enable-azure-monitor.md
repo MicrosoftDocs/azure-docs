@@ -4,7 +4,7 @@ description: Learn to view the application logs in Azure Monitor
 author: msftsettiy
 ms.author: settiy
 ms.date: 09/09/2023
-ms.service: confidential-ledger
+ms.service: azure-confidential-ledger
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 ---

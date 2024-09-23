@@ -4,7 +4,7 @@ titleSuffix: Azure DNS
 description: In this tutorial, you learn how to configure an alias record to reference a resource record within the zone.
 author: greg-lindsay
 ms.author: greglin
-ms.service: dns
+ms.service: azure-dns
 services: dns
 ms.topic: tutorial
 ms.date: 11/30/2023

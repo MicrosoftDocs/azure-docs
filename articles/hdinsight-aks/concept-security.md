@@ -1,7 +1,7 @@
 ---
 title: Security in HDInsight on AKS
 description: An introduction to security with managed identity from Microsoft Entra ID in HDInsight on AKS.
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: conceptual
 ms.date: 05/11/2024
 ---
@@ -16,7 +16,7 @@ This article covers overall security architecture, and security solutions by div
 
 ## Security architecture
 
-Enterprise readiness for any software requires stringent security checks to prevent and address threats that may arise. HDInsight on AKS provides a multi-layered security model to protect you on multiple layers. The security architecture uses modern authorization methods using MSI. All the storage access is through MSI, and the database access is through username/password. The password is stored in Azure [Key Vault](../key-vault/general/basic-concepts.md), defined by the customer. This feature makes the setup robust and secure by default.
+Enterprise readiness for any software requires stringent security checks to prevent and address threats that may arise. HDInsight on AKS provides a multi-layered security model to protect you on multiple layers. The security architecture uses modern authorization methods using MSI. All the storage access is through MSI, and the database access is through username/password. The password is stored in Azure [Key Vault](/azure/key-vault/general/basic-concepts), defined by the customer. This feature makes the setup robust and secure by default.
 
 The below diagram illustrates a high-level technical architecture of security in HDInsight on AKS. 
 

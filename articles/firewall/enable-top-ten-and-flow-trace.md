@@ -3,7 +3,7 @@ title: Enable Top flows and Flow trace logs in Azure Firewall
 description: Learn how to enable the Top flows and Flow trace logs in Azure Firewall.
 services: firewall
 author: vhorne
-ms.service: firewall
+ms.service: azure-firewall
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 06/14/2024

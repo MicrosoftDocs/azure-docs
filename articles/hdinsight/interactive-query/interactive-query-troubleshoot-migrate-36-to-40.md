@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot migration of Hive from 3.6 to 4.0 - Azure HDInsight
 description: Troubleshooting guide for migration of Hive workloads from HDInsight 3.6 to 4.0
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: troubleshooting
 ms.date: 05/10/2024
 ---

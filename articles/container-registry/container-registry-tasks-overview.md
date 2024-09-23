@@ -5,7 +5,7 @@ ms.topic: article
 author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 01/24/2024
-ms.service: container-registry
+ms.service: azure-container-registry
 ---
 
 # Automate container image builds and maintenance with Azure Container Registry tasks
@@ -23,8 +23,8 @@ For example, with triggers for updates to a base image, you can automate [OS and
 > [!IMPORTANT]
 > Azure Container Registry task runs are temporarily paused from Azure free credits. This pause might affect existing task runs. If you encounter problems, open a [support case](../azure-portal/supportability/how-to-create-azure-support-request.md) for our team to provide additional guidance.
 
-> [!WARNING]
-> Any information that you provide on the command line or as part of a URI might be logged as part of Azure Container Registry diagnostic tracing. This information includes sensitive data such as credentials and GitHub personal access tokens. Exercise caution to prevent any potential security risks. Don't include sensitive details on command lines or URIs that are subject to diagnostic logging.
+>[! WARNING]
+Please be advised that any information provided on the command line or as part of a URI may be logged as part of Azure Container Registry (ACR) diagnostic tracing. This includes sensitive data such as credentials, GitHub personal access tokens, and other secure information. Exercise caution to prevent any potential security risks, it is crucial to avoid including sensitive details in command lines or URIs that are subject to diagnostic logging.
 
 ## Task scenarios
 

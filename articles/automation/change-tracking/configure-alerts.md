@@ -3,8 +3,9 @@ title: How to create alerts for Azure Automation Change Tracking and Inventory
 description: This article tells how to configure Azure alerts to notify about the status of changes detected by Change Tracking and Inventory.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 11/24/2022
+ms.date: 07/22/2024
 ms.topic: conceptual
+ms.service: azure-automation
 ---
 
 # How to create alerts for Change Tracking and Inventory

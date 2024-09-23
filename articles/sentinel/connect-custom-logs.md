@@ -9,12 +9,14 @@ ms.author: yelevin
 
 # Collect data in custom log formats to Microsoft Sentinel with the Log Analytics agent
 
+This article describes how to collect data from devices that use custom log formats to Microsoft Sentinel using the **Log Analytics agent**. To learn how to ingest custom logs **using the Azure Monitor Agent (AMA)**, see [Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel](connect-custom-logs-ama.md).
+
 Many applications log data to text files instead of standard logging services like Windows Event log or Syslog. You can use the Log Analytics agent to collect data in text files of nonstandard formats from both Windows and Linux computers. Once collected, you can either parse the data into individual fields in your queries or extract the data during collection to individual fields.
 
-This article describes how to connect your data sources to Microsoft Sentinel using custom log formats. For more information about supported data connectors that use this method, see [Data connectors reference](data-connectors-reference.md).
+For more information about supported data connectors that collect custom log formats, see [Data connectors reference](data-connectors-reference.md).
 
 > [!IMPORTANT]
-> The Log Analytics agent will be [retired on **31 August, 2024**](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). If you are using the Log Analytics agent in your Microsoft Sentinel deployment, we recommend that you start planning your migration to the AMA. For more information, see [AMA migration for Microsoft Sentinel](ama-migrate.md).
+> **The Log Analytics agent will be [retired on 31 August, 2024](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/).** If you are using the Log Analytics agent in your Microsoft Sentinel deployment, we recommend that you complete your migration to the **Azure Monitor Agent (AMA)**. For more information, see [AMA migration for Microsoft Sentinel](ama-migrate.md).
 
 Learn all about [custom logs in the Azure Monitor documentation](../azure-monitor/agents/data-sources-custom-logs.md).
 

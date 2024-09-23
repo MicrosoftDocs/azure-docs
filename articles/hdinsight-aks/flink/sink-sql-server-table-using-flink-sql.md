@@ -1,7 +1,7 @@
 ---
 title: Change Data Capture (CDC) of SQL Server using Apache Flink®
 description: Learn how to perform CDC of SQL Server using Apache Flink®
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
 ms.date: 10/27/2023
 ---

@@ -7,6 +7,7 @@ ms.author: sipa
 ms.date: 07/13/2023
 ms.topic: how-to
 ms.service: azure-maps
+ms.subservice: web-sdk
 ---
 
 # Get shape data

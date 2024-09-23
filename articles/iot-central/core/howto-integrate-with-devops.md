@@ -38,7 +38,7 @@ The scripts currently don't remove settings from the target IoT Central applicat
 You need the following prerequisites to complete the steps in this guide:
 
 - Two IoT Central applications - one for your development environment and one for your production environment. To learn more, see [Create an IoT Central application](howto-create-iot-central-application.md).
-- Two Azure Key Vaults - one for your development environment and one for your production environment. It's best practice to have a dedicated Key Vault for each environment. To learn more, see [Create an Azure Key Vault with the Azure portal](../../key-vault/general/quick-create-portal.md).
+- Two Azure Key Vaults - one for your development environment and one for your production environment. It's best practice to have a dedicated Key Vault for each environment. To learn more, see [Create an Azure Key Vault with the Azure portal](/azure/key-vault/general/quick-create-portal).
 - A GitHub account [GitHub](https://github.com/).
 - An Azure DevOps organization. To learn more, see [Create an Azure DevOps organization](/azure/devops/organizations/accounts/create-organization).
 - PowerShell 7 for Windows, Mac or Linux. [Get PowerShell](/powershell/scripting/install/installing-powershell).

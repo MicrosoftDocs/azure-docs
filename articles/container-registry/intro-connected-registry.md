@@ -2,7 +2,7 @@
 title: What is a connected registry
 description: Overview and scenarios of the connected registry feature of Azure Container Registry
 ms.author: jeburke
-ms.service: container-registry
+ms.service: azure-container-registry
 ms.topic: overview
 ms.date: 10/31/2023
 ms.custom: references_regions

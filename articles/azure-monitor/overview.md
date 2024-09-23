@@ -4,7 +4,7 @@ description: Overview of Microsoft services and functionalities that contribute 
 ms.topic: overview
 author: rboucher
 ms.author: robb
-ms.date: 02/05/2024
+ms.date: 07/15/2024
 ms.reviewer: robb
 ---
 # Azure Monitor overview
@@ -74,7 +74,7 @@ Azure Monitor collects these types of data:
 |Data Type|Description and subtypes|
 |---------|-----------|
 |App/Workloads |**App**- Application performance, health, and activity data. <br/><br/>**Workloads** - IaaS workloads such as SQL server, Oracle or SAP running on a hosted Virtual Machine.|
-|Infrastructure|**Container** - Data about containers, such as [Azure Kubernetes Service](../aks/intro-kubernetes.md), [Prometheus](./essentials/prometheus-metrics-overview.md), and the applications running inside containers.<br><br>**Operating system** - Data about the guest operating system on which your application is running.|
+|Infrastructure|**Container** - Data about containers, such as [Azure Kubernetes Service](/azure/aks/intro-kubernetes), [Prometheus](./essentials/prometheus-metrics-overview.md), and the applications running inside containers.<br><br>**Operating system** - Data about the guest operating system on which your application is running.|
 |Azure Platform|**Azure resource** - Data about the operation of an Azure resource from inside the resource, including changes. Resource Logs are one example. <br><br>**Azure subscription** - The operation and management of an Azure subscription, and data about the health and operation of Azure itself. The activity log is one example.<br><br>**Azure tenant** - Data about the operation of tenant-level Azure services, such as Microsoft Entra ID.<br> |
 |Custom Sources| Data that gets into the system using the <br/> - Azure Monitor REST API <br/> - Data Collection API |
 
@@ -236,9 +236,9 @@ Additional integrations not shown in the diagram that may be of interest.
 
 | Integration | Description |
 |----|----|
-| [Defender for the Cloud](../defender-for-cloud/defender-for-cloud-introduction.md) | Collect and analyze security events and perform threat analysis. See [Data collection in Defender for the Cloud](../defender-for-cloud/monitoring-components.md). |
+| [Defender for the Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) | Collect and analyze security events and perform threat analysis. See [Data collection in Defender for the Cloud](/azure/defender-for-cloud/monitoring-components). |
 | [Microsoft Sentinel](../sentinel/index.yml) | Connect to different sources including Office 365 and Amazon Web Services Cloud Trail. See [Connect data sources](../sentinel/connect-data-sources.md). |
-| [Microsoft Intune](/intune/) | Create a diagnostic setting to send logs to Azure Monitor. See [Send log data to storage, Event Hubs, or log analytics in Intune (preview)](/mem/intune/fundamentals/review-logs-using-azure-monitor).  |
+| [Microsoft Intune](/mem/intune/fundamentals/what-is-intune) | Create a diagnostic setting to send logs to Azure Monitor. See [Send log data to storage, Event Hubs, or log analytics in Intune (preview)](/mem/intune/fundamentals/review-logs-using-azure-monitor).  |
 | [ITSM](alerts/itsmc-overview.md) | The [IT Service Management (ITSM) Connector](./alerts/itsmc-overview.md) allows you to connect Azure and a supported ITSM product/service.   |
 
 These are just a few options. There are many more third party companies that integrate with Azure and Azure Monitor at various levels. Use your favorite search engine to locate them. 

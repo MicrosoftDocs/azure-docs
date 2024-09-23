@@ -7,7 +7,7 @@ author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 02/14/2023
 ms.topic: article
-ms.service: digital-twins
+ms.service: azure-digital-twins
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated

@@ -2,7 +2,7 @@
 title: Tutorial - Start your API inventory 
 description: In this tutorial, start the API inventory in your API center by registering APIs using the Azure portal.
 author: dlepow
-ms.service: api-center
+ms.service: azure-api-center
 ms.topic: tutorial
 ms.date: 04/19/2024
 ms.author: danlep 

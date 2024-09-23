@@ -27,9 +27,9 @@ With Azure Arc-enabled Logic Apps, you can develop and run single-tenant based l
 For more information, review the following documentation:
 
 - [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
-- [Single-tenant versus other Logic Apps environments](../logic-apps/single-tenant-overview-compare.md)
+- [Single-tenant versus multitenant in Azure Logic Apps](../logic-apps/single-tenant-overview-compare.md)
 - [Azure Arc overview](../azure-arc/overview.md)
-- [Azure Kubernetes Service overview](../aks/intro-kubernetes.md)
+- [Azure Kubernetes Service overview](/azure/aks/intro-kubernetes)
 - [What is Azure Arc-enabled Kubernetes?](../azure-arc/kubernetes/overview.md)
 - [What is Kubernetes?](https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/)
 
@@ -39,14 +39,14 @@ For more information, review the following documentation:
 
 With Azure Arc-enabled Logic Apps, you can create and deploy logic app workflows in the same way as in the single-tenant experience for Azure Logic Apps. You also gain more control and flexibility when you have logic apps running on a Kubernetes infrastructure that you operate and manage.
 
-Minor differences exist between the Azure Arc and single-tenant Logic Apps experiences for creating, designing, and deploying logic apps. When you use Azure Arc-enabled Logic Apps, the major difference is that your logic apps run in a *custom location*. This location is mapped to an Azure Arc-enabled Kubernetes cluster where you have installed and enabled the Azure App Service platform extensions bundle.
+Minor differences exist between the Azure Arc and single-tenant Azure Logic Apps experiences for creating, designing, and deploying logic apps. When you use Azure Arc-enabled Logic Apps, the major difference is that your logic apps run in a *custom location*. This location is mapped to an Azure Arc-enabled Kubernetes cluster where you have installed and enabled the Azure App Service platform extensions bundle.
 
 For example, this cluster can be Azure Kubernetes Service, bare-metal Kubernetes, or another setup. The extensions bundle enables you to run platform services such as Azure Logic Apps, Azure Functions, and Azure App Service on your Kubernetes cluster.
 
 For more information, review the following documentation:
 
-- [Single-tenant versus other Azure Logic Apps environments](../logic-apps/single-tenant-overview-compare.md)
-- [Azure Kubernetes Service overview](../aks/intro-kubernetes.md)
+- [Single-tenant versus multitenant in Azure Logic Apps](../logic-apps/single-tenant-overview-compare.md)
+- [Azure Kubernetes Service overview](/azure/aks/intro-kubernetes)
 - [What is Azure Arc-enabled Kubernetes?](../azure-arc/kubernetes/overview.md)
 - [Custom locations on Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/conceptual-custom-locations.md)
 - [App Service, Functions, and Logic Apps on Azure Arc (Preview)](../app-service/overview-arc-integration.md)
@@ -56,15 +56,15 @@ For more information, review the following documentation:
 
 ## When to use Azure Arc-enabled Logic Apps
 
-Although Kubernetes provides more control and flexibility, you also have operational overhead. If you're satisfied that the Logic Apps service meets your needs, you're encouraged to continue using this service. However, consider using Azure Arc-enabled Logic Apps when you have the following scenarios:
+Although Kubernetes provides more control and flexibility, you also have operational overhead. If you're satisfied that Azure Logic Apps meets your needs, you're encouraged to continue using this service. However, consider using Azure Arc-enabled Logic Apps when you have the following scenarios:
 
 - You already run all your apps and services on Kubernetes. You want to extend these processes and controls to all your other PaaS services.
 
-- You want to use Logic Apps as your integration platform. However, you need fine grained networking with compute control and flexibility. You don't want to use an integration service environment (ISE) or App Service Environment (ASE).
+- You want to use Azure Logic Apps as your integration platform. However, you need fine grained networking with compute control and flexibility. You don't want to use an App Service Environment (ASE).
 
 - For security reasons, you need control over where your logic apps run, for example, in your own region or in your own datacenter. 
 
-- You want to run your logic apps in multi-cloud scenarios and use the Logic Apps service as your sole integration platform for all your applications wherever they run.
+- You want to run your logic apps in multi-cloud scenarios and use Azure Logic Apps as your sole integration platform for all your applications wherever they run.
 
 <a name="compare"></a>
 
@@ -77,10 +77,10 @@ This table provides a high-level comparison between the capabilities in the curr
       **Capability**
    :::column-end:::
    :::column:::
-      **Multi-tenant Logic Apps (Consumption)**
+      **Multitenant Azure Logic Apps (Consumption)**
    :::column-end:::
    :::column:::
-      **Single-tenant Logic Apps (Standard)**
+      **Single-tenant Azure Logic Apps (Standard)**
    :::column-end:::
    :::column:::
       **Standalone containers** <br><br>**Note**: Unsupported for workflows in production environments. For fully supported containers, [create Azure Arc-enabled Logic Apps workflows](azure-arc-enabled-logic-apps-create-deploy-workflows.md) instead.
@@ -128,16 +128,16 @@ This table provides a high-level comparison between the capabilities in the curr
       Management
    :::column-end:::
    :::column:::
-      Fully managed Logic Apps experience
+      Fully managed Azure Logic Apps experience
    :::column-end:::
    :::column:::
-      Fully managed Logic Apps experience
+      Fully managed Azure Logic Apps experience
    :::column-end:::
    :::column:::
       Not managed
    :::column-end:::
    :::column:::
-      Managed Logic Apps experience with operational control at the Kubernetes level
+      Managed Azure Logic Apps experience with operational control at the Kubernetes level
    :::column-end:::
 :::row-end:::
 :::row:::

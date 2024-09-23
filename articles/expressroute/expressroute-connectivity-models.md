@@ -3,7 +3,7 @@ title: 'Azure ExpressRoute: Connectivity models'
 description: Review connectivity between the customer's network, Microsoft Azure, and Microsoft 365 services. Customers can use MPLS providers, cloud exchanges, and Ethernet.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: conceptual
 ms.date: 12/28/2023
 ms.author: duau

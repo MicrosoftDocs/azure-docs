@@ -3,7 +3,7 @@ title: Configure WAF custom rules and the Default Rule Set for Azure Front Door
 description: Learn how to configure a web application firewall (WAF) policy that consists of custom and managed rules for an existing Azure Front Door endpoint.
 services: web-application-firewall
 author: vhorne
-ms.service: web-application-firewall
+ms.service: azure-web-application-firewall
 ms.topic: article
 ms.date: 09/05/2019
 ms.author: victorh 

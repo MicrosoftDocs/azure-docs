@@ -3,7 +3,6 @@ title: Copy data from SharePoint Online List
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from SharePoint Online List to supported sink data stores by using a copy activity in an Azure Data Factory or Azure Synapse Analytics pipeline.
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
@@ -46,7 +45,7 @@ The SharePoint List Online connector uses service principal authentication to co
 
 2. Grant SharePoint Online site permission to your registered application by following the steps below. To do this, you need a site admin role.
 
-    1. Open your SharePoint Online site link.
+    1. Open your SharePoint Online site link. For example, the URL in the format `https://<your-site-url>/_layouts/15/appinv.aspx` where the placeholder `<your-site-url>` is your site.
     2. Search the application ID you registered, fill the empty fields, and click "Create".
 
         - App Domain: `contoso.com`

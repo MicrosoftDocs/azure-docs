@@ -4,7 +4,7 @@ description: Introduction to key scenarios, capabilities, and concepts of the v2
 services: api-management
 author: dlepow
  
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: concept-article
 ms.date: 07/08/2024
 ms.author: danlep

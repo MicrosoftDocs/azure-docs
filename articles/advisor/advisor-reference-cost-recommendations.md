@@ -2,8 +2,6 @@
 title: Cost recommendations
 description: Full list of available cost recommendations in Advisor.
 ms.topic: article
-author: mabrahms
-ms.author: v-mabrahms
 ms.date: 10/15/2023
 ---
 
@@ -174,6 +172,9 @@ We've analyzed the usage patterns of your virtual machine scale sets over the pa
 
 Learn more about [Virtual machine scale set - LowUsageVmss (Right-size or shutdown underutilized virtual machine scale sets)](https://aka.ms/aa_lowusagerec_vmss_learnmore).
 
+> [!TIP]  
+> If you're unsure whether you can shut down an idle resource without causing chaos, you can first restrict access to the resource. Make sure the resource's role is restricted, too. Leave the resource up for a few weeks, and if nobody has connected to it or has complained, chances are the resource can be shut down safely.
+
 ### Use Virtual Machines with Ephemeral OS Disk enabled to save cost and get better performance
 
 With Ephemeral OS Disk, You get these benefits: Save on storage cost for OS disk. Get lower read/write latency to OS disk. Faster VM Reimage operation by resetting OS (and Temporary disk) to its original state. It's preferable to use Ephemeral OS Disk for short-lived IaaS VMs or VMs with stateless workloads.
@@ -207,7 +208,7 @@ Learn more about [PostgreSQL server - OrcasPostgreSqlCpuRightSize (Right-size un
 
 Your Azure Cosmos DB free tier account currently contains resources with a total provisioned throughput exceeding 1,000 Request Units per second (RU/s). Because the free tier only covers the first 1000 RU/s of throughput provisioned across your account, any throughput beyond 1000 RU/s is billed at the regular pricing. As a result, we anticipate that you're charged for the throughput currently provisioned on your Azure Cosmos DB account.
 
-Learn more about [Azure Cosmos DB account - CosmosDBFreeTierOverage (Review the configuration of your Azure Cosmos DB free tier account)](../cosmos-db/understand-your-bill.md#azure-free-tier).
+Learn more about [Azure Cosmos DB account - CosmosDBFreeTierOverage (Review the configuration of your Azure Cosmos DB free tier account)](/azure/cosmos-db/understand-your-bill#azure-free-tier).
 
 ### Consider taking action on your idle Azure Cosmos DB containers
 
@@ -219,13 +220,13 @@ Learn more about [Azure Cosmos DB account - CosmosDBIdleContainers (Consider tak
 
 Based on your usage in the past seven days, you can save by enabling autoscale. For each hour, we compared the RU/s provisioned to the actual utilization of the RU/s (what autoscale would have scaled to) and calculated the cost savings across the time period. Autoscale helps optimize your cost by scaling down RU/s when not in use.
 
-Learn more about [Azure Cosmos DB account - CosmosDBAutoscaleRecommendations (Enable autoscale on your Azure Cosmos DB database or container)](../cosmos-db/provision-throughput-autoscale.md).
+Learn more about [Azure Cosmos DB account - CosmosDBAutoscaleRecommendations (Enable autoscale on your Azure Cosmos DB database or container)](/azure/cosmos-db/provision-throughput-autoscale).
 
 ### Configure manual throughput instead of autoscale on your Azure Cosmos DB database or container
 
 Based on your usage in the past seven days, you can save by using manual throughput instead of autoscale. Manual throughput is more cost-effective when average utilization of your max throughput (RU/s) is greater than 66% or less than or equal to 10%.
 
-Learn more about [Azure Cosmos DB account - CosmosDBMigrateToManualThroughputFromAutoscale (Configure manual throughput instead of autoscale on your Azure Cosmos DB database or container)](../cosmos-db/how-to-choose-offer.md).
+Learn more about [Azure Cosmos DB account - CosmosDBMigrateToManualThroughputFromAutoscale (Configure manual throughput instead of autoscale on your Azure Cosmos DB database or container)](/azure/cosmos-db/how-to-choose-offer).
 
 
 

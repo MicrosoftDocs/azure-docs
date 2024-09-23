@@ -9,7 +9,7 @@ ms.date: 05/29/2024
 
 # Custom image templates in Azure Virtual Desktop
 
-Custom image templates in Azure Virtual Desktop enable you to easily create a custom image that you can use when deploying session host virtual machines (VMs). Using custom images helps you to standardize the configuration of your session host VMs for your organization. Custom image templates are built on [Azure Image Builder](../virtual-machines/image-builder-overview.md) and tailored for Azure Virtual Desktop.
+Custom image templates in Azure Virtual Desktop enable you to easily create a custom image that you can use when deploying session host virtual machines (VMs). Using custom images helps you to standardize the configuration of your session host VMs for your organization. Custom image templates are built on [Azure Image Builder](/azure/virtual-machines/image-builder-overview) and tailored for Azure Virtual Desktop.
 
 ## Creation process
 
@@ -21,7 +21,7 @@ There are two parts to creating a custom image:
 
 A custom image template is a JSON file that contains your choices of source image, distribution targets, build properties, and customizations. Azure Image Builder uses this template to create a custom image, which you can use as the source image for your session hosts when creating or updating a host pool. When creating the image, Azure Image Builder also takes care of generalizing the image with sysprep.
 
-Custom images can be stored in [Azure Compute Gallery](../virtual-machines/azure-compute-gallery.md) or as a [managed image](../virtual-machines/windows/capture-image-resource.yml or both. Azure Compute Gallery allows you to manage  region replication, versioning, and sharing of custom images. See [Create a legacy managed image of a generalized VM in Azure](../virtual-machines/capture-image-resource.yml) to review limitations for managed images.
+Custom images can be stored in [Azure Compute Gallery](/azure/virtual-machines/azure-compute-gallery) or as a [managed image](../virtual-machines/windows/capture-image-resource.yml or both. Azure Compute Gallery allows you to manage  region replication, versioning, and sharing of custom images. See [Create a legacy managed image of a generalized VM in Azure](/azure/virtual-machines/capture-image-resource) to review limitations for managed images.
 
 The source image must be [supported for Azure Virtual Desktop](prerequisites.md#operating-systems-and-licenses) and can be from:
 
@@ -50,7 +50,7 @@ Here are some examples of the built-in scripts you can add to a custom image tem
 
 When the custom image is being created and distributed, Azure Image Builder uses a user-assigned managed identity. Azure Image Builder uses this managed identity to create several resources in your subscription, such as a resource group, a VM used to build the image, Key Vault, and a storage account. The VM needs internet access to download the built-in scripts or your own scripts that you added. The built-in scripts are stored in the *RDS-templates* GitHub repository at [https://github.com/Azure/RDS-Templates](https://github.com/Azure/RDS-Templates).
 
-You can choose whether you want the VM to connect to an existing virtual network and subnet, which will enable the VM to have access to other resources you may have available to that virtual network. If you don't specify an existing virtual network, a temporary virtual network, subnet, and public IP address are created for use by the VM. For more information on networking options, see [Azure VM Image Builder networking options](../virtual-machines/linux/image-builder-networking.md).
+You can choose whether you want the VM to connect to an existing virtual network and subnet, which will enable the VM to have access to other resources you may have available to that virtual network. If you don't specify an existing virtual network, a temporary virtual network, subnet, and public IP address are created for use by the VM. For more information on networking options, see [Azure VM Image Builder networking options](/azure/virtual-machines/linux/image-builder-networking).
 
 ### Resources
 

@@ -3,7 +3,7 @@ title: 'Troubleshoot Azure point-to-site connection problems'
 titleSuffix: Azure VPN Gateway
 description: Learn to troubleshoot and solve common point-to-site connection problems and other virtual private network errors and issues.
 author: chadmath
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: troubleshooting
 ms.date: 04/03/2024
 ms.author: genli

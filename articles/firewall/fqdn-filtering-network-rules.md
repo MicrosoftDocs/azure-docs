@@ -3,7 +3,7 @@ title: Azure Firewall FQDN filtering in network rules
 description: How to use Azure Firewall FQDN filtering in network rules
 services: firewall
 author: vhorne
-ms.service: firewall
+ms.service: azure-firewall
 ms.topic: article
 ms.date: 05/10/2024
 ms.author: victorh

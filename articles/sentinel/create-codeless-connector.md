@@ -52,7 +52,20 @@ Research the following components and verify support for them in the [Data Conne
 
 1. Pagination options to the data source
 
-We also recommend a tool like Postman to validate the data connector components. For more information, see [Use Postman with the Microsoft Graph API](/graph/use-postman).
+We also recommend testing your components with an API testing tool like one of the following:
+
+  - [Visual Studio Code](https://code.visualstudio.com/download) with an [extension from Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode)
+  - [PowerShell Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod)
+  - [Microsoft Edge - Network Console tool](/microsoft-edge/devtools-guide-chromium/network-console/network-console-tool)
+  - [Bruno](https://www.usebruno.com/)
+  - [curl](https://curl.se/)
+
+   > [!CAUTION]  
+   > For scenarios where you have sensitive data, such as credentials, secrets, access tokens, 
+   > API keys, and other similar information, make sure to use a tool that protects your data 
+   > with the necessary security features, works offline or locally, doesn't sync your data to 
+   > the cloud, and doesn't require that you sign in to an online account. This way, you reduce 
+   > the risk around exposing sensitive data to the public.
 
 ## Build the data connector
 
@@ -201,12 +214,16 @@ Finally, the CCP utilizes the credential objects in the data connector section.
 
 ## Create the deployment template
 
-Manually package an Azure Resource Management (ARM) template using the [example template](#example-arm-template) as your guide.
+Manually package an Azure Resource Management (ARM) template using the [example template code samples](#example-arm-template) as your guide. These code samples are divided by ARM template sections for you to splice together.
 
 In addition to the example template, published solutions available in the Microsoft Sentinel content hub use the CCP for their data connector. Review the following solutions as more examples of how to stitch the components together into an ARM template.
 
-- [Ermes Browser Security](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Ermes%20Browser%20Security/Package/mainTemplate.json)
-- [Palo Alto Prisma Cloud CWPP](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Ermes%20Browser%20Security/Package/mainTemplate.json)
+- [Ermes Browser Security](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Ermes%20Browser%20Security/Data%20Connectors/ErmesBrowserSecurityEvents_ccp)
+- [Palo Alto Prisma Cloud CWPP](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Palo%20Alto%20Prisma%20Cloud%20CWPP/Data%20Connectors/PaloAltoPrismaCloudCWPP_ccp)
+- [Sophos Endpoint Protection](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Sophos%20Endpoint%20Protection/Data%20Connectors/SophosEP_ccp)
+- [Workday](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Workday/Data%20Connectors/Workday_ccp)
+- [Atlassian Jira](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/AtlassianJiraAudit/Data%20Connectors/JiraAuditAPISentinelConnector_ccpv2)
+- [Okta Single Sign-On](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Okta%20Single%20Sign-On/Data%20Connectors/OktaNativePollerConnectorV2)
 
 ## Deploy the connector
 

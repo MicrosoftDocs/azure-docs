@@ -3,7 +3,7 @@ title: Use Postman to access the FHIR service in Azure Health Data Services
 description: Learn how to access the FHIR service in Azure Health Data Services FHIR service with Postman.
 services: healthcare-apis
 author: expekesheth
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.topic: tutorial
 ms.date: 04/16/2024
 ms.author: kesheth
@@ -200,6 +200,8 @@ Select **Send**. You should see a new patient in the JSON response.
 ## Export FHIR data
 
 After you obtain a Microsoft Entra access token, you can export FHIR data to an Azure storage account.
+
+To configure export settings and create a Data Lake Storage Gen2 account, refer to [Configure settings for export](./configure-export-data.md).
 
 Create a new `GET` request: `{{fhirurl}}/$export?_container=export`
 

@@ -76,16 +76,14 @@ Before you deploy the OVA file, verify that the file is secure:
 1. Verify the latest appliance versions and hash values:
 
     - For the Azure public cloud:
-
-        **Algorithm** | **Download** | **SHA256**
-        --- | --- | ---
-        VMware (11.9 GB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191954) | 06256F9C6FB3F011152D861DA43FFA1C5C8FF966931D5CE00F1F252D3A2F4723
+    
+      [!INCLUDE [public-cloud-vmware.md](../includes/public-cloud-vmware.md)]
 
     - For Azure Government:
 
         **Algorithm** | **Download** | **SHA256**
         --- | --- | ---
-        VMware (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | 07783A31D1E66BE963349B5553DC1F1E94C70AA149E11AC7D8914F4076480731
+        VMware (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | [!INCLUDE [security-hash-value.md](../includes/security-hash-value.md)]
 
 #### Create the appliance server
 

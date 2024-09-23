@@ -4,7 +4,7 @@ description: Understand how permissions work in Azure Chaos Studio and how you c
 author: prasha-microsoft
 ms.author: abbyweisberg
 ms.reviewer: carlsonr
-ms.service: chaos-studio
+ms.service: azure-chaos-studio
 ms.topic: conceptual
 ms.date: 05/06/2024
 ms.custom: template-concept, devx-track-arm-template
@@ -71,8 +71,8 @@ All user interactions with Chaos Studio happen through Azure Resource Manager. I
 
 * **Service-direct faults**: Most service-direct faults are executed through Azure Resource Manager and don't require any allowlisted network endpoints.
 * **Service-direct AKS Chaos Mesh faults:** Service-direct faults for Azure Kubernetes Service that use Chaos Mesh require access to the AKS cluster's Kubernetes API server. 
-    * [Learn how to limit AKS network access to a set of IP ranges here](../aks/api-server-authorized-ip-ranges.md). You can obtain Chaos Studio's IP ranges by querying the `ChaosStudio` [service tag with the Service Tag Discovery API or downloadable JSON files](../virtual-network/service-tags-overview.md).
-    * Currently, Chaos Studio can't execute Chaos Mesh faults if the AKS cluster has [local accounts disabled](../aks/manage-local-accounts-managed-azure-ad.md).
+    * [Learn how to limit AKS network access to a set of IP ranges here](/azure/aks/api-server-authorized-ip-ranges). You can obtain Chaos Studio's IP ranges by querying the `ChaosStudio` [service tag with the Service Tag Discovery API or downloadable JSON files](../virtual-network/service-tags-overview.md).
+    * Currently, Chaos Studio can't execute Chaos Mesh faults if the AKS cluster has [local accounts disabled](/azure/aks/manage-local-accounts-managed-azure-ad).
 * **Agent-based faults**: To use agent-based faults, the agent needs access to the Chaos Studio agent service. A VM or virtual machine scale set must have outbound access to the agent service endpoint for the agent to connect successfully. The agent service endpoint is `https://acs-prod-<region>.chaosagent.trafficmanager.net`. You must replace the `<region>` placeholder with the region where your VM is deployed. An example is `https://acs-prod-eastus.chaosagent.trafficmanager.net` for a VM in East US.
 * **Agent-based private networking**: The Chaos Studio agent now supports private networking. Please see [Private networking for Chaos Agent](chaos-studio-private-link-agent-service.md). 
 

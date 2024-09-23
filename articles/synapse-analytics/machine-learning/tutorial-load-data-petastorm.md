@@ -2,7 +2,7 @@
 title: 'Load data with Petastorm (deprecated)'
 description: This article provides a conceptual overview of how to load data with Petastorm.
 author: midesa
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.subservice: machine-learning
 ms.date: 05/02/2024

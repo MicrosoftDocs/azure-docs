@@ -3,7 +3,7 @@ title: Launch your first Java application in Azure Container Apps
 description: Learn how to deploy a java project in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: devx-track-extended-java
 ms.topic: quickstart
 ms.date: 05/07/2024

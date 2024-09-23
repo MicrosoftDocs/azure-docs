@@ -29,7 +29,7 @@ If you want to try blob storage events, see any of these quickstart articles:
 
 To view in-depth examples of reacting to Blob storage events by using Azure functions, see these articles:
 
-- [Tutorial: Use Azure Data Lake Storage Gen2 events to update a Databricks Delta table](data-lake-storage-events.md).
+- [Tutorial: Use Azure Data Lake Storage events to update a Databricks Delta table](data-lake-storage-events.md).
 - [Tutorial: Automate resizing uploaded images using Event Grid](../../event-grid/resize-images-on-storage-blob-upload-event.md?tabs=dotnet)
 
 > [!NOTE]

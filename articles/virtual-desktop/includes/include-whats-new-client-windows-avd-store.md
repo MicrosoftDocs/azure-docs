@@ -2,7 +2,7 @@
 ms.topic: include
 author: sipastak
 ms.author: sipastak
-ms.date: 07/10/2024 
+ms.date: 08/27/2024 
 ---
 
 ## Supported client versions
@@ -11,8 +11,49 @@ The following table lists the current versions available for the public and Insi
 
 | Release | Latest version | Download |
 |--|--|--|
-| Public | 1.2.5552 | [Microsoft Store](https://aka.ms/AVDStoreClient) |
-| Insider | 1.2.5552 | Download the public release, then [Enable Insider releases](../users/client-features-windows.md#enable-insider-releases) and check for updates. |
+| Public | 1.2.5620 | [Microsoft Store](https://aka.ms/AVDStoreClient) |
+| Insider | 1.2.5699 | Download the public release, then [Enable Insider releases](../users/client-features-windows.md#enable-insider-releases) and check for updates. |
+
+## Updates for version 1.2.5699 (Insider) 
+
+*Date published: August 27, 2024*   
+
+- Made an improvement where new session windows will not become the focused windows.
+- Fixed a bug to ensure that the screen mode id setting in the RDP file is honored.
+- Fixed an issue where Teams rendered into the wrong window when multiple Remote Desktop session windows were open. 
+
+## Updates for version 1.2.5620
+
+*Date published: August 13, 2024* 
+
+- Fixed an issue for [CVE-2024-38131 ](https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2024-38131).
+
+> [!NOTE]
+> This version replaced the Insider version 1.2.5617 and has the same release notes with the addition of the security release. 
+
+## Updates for version 1.2.5560
+
+*Date published: August 13, 2024* 
+
+- Fixed an issue for [CVE-2024-38131 ](https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2024-38131). 
+
+## Updates for version 1.2.5617 
+
+*Date published: July 23, 2024* 
+
+In this release, we made the following changes:
+
+- Stability and security improvements for printer redirections. 
+- Improved experience for SSO Lock Screen dialogs.   
+- Fixed an issue with SSO login failure. 
+- Fixed an issue causing the client to crash on disconnect. 
+
+## Updates for version 1.2.5559
+
+*Date published: July 17, 2024* 
+
+> [!NOTE]
+> This version replaced 1.2.5552 and has the same release notes. 
 
 ## Updates for version 1.2.5552
 
@@ -23,7 +64,9 @@ In this release, we made the following changes:
 - Fixed an issue where users who were connecting using [protocol launch](../uri-scheme.md) had to complete two MFA prompts.
 
 > [!NOTE]
-> This Insider release was originally version 1.2.5550, but we made this change and re-released it as 1.2.5552. This version contains all of the changes made in 1.2.5550. 
+>- This Insider release was originally version 1.2.5550, but we made a change to fix an issue with double MFA prompts and re-released as version 1.2.5552. This version contains all the changes made in 1.2.5550. 
+>- This version was released as a public version on July 2, 2024, but was replaced by version 1.2.5559 on July 17, 2024. 
+
 
 ## Updates for version 1.2.5550
 

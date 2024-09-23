@@ -4,7 +4,7 @@ metadata:
   description: In this article, learn frequently asked questions about Azure Private DNS
   services: dns
   author: greg-lindsay
-  ms.service: dns
+  ms.service: azure-dns
   ms.topic: faq
   ms.date: 11/30/2023
   ms.author: greglin

@@ -5,7 +5,7 @@ ms.topic: article
 ms.custom: devx-track-azurecli
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.service: container-registry
+ms.service: azure-container-registry
 ms.date: 10/31/2023
 ---
 
@@ -66,7 +66,7 @@ The following resources are needed for the scenario in this article:
 
 - **An Azure container registry** in your Azure subscription. If needed, create a registry using the [Azure portal](container-registry-get-started-portal.md) or the [Azure CLI](container-registry-get-started-azure-cli.md).
 - **Helm client version 3.7 or later** - Run `helm version` to find your current version. For more information on how to install and upgrade Helm, see [Installing Helm][helm-install]. If you upgrade from an earlier version of Helm 3, review the [release notes](https://github.com/helm/helm/releases).
-- **A Kubernetes cluster** where you will install a Helm chart. If needed, create an AKS cluster [using the Azure CLI](../aks/learn/quick-kubernetes-deploy-cli.md), [using Azure PowerShell](../aks/learn/quick-kubernetes-deploy-powershell.md), or [using the Azure portal](../aks/learn/quick-kubernetes-deploy-portal.md).
+- **A Kubernetes cluster** where you will install a Helm chart. If needed, create an AKS cluster [using the Azure CLI](/azure/aks/learn/quick-kubernetes-deploy-cli), [using Azure PowerShell](/azure/aks/learn/quick-kubernetes-deploy-powershell), or [using the Azure portal](/azure/aks/learn/quick-kubernetes-deploy-portal).
 - **Azure CLI version 2.0.71 or later** - Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
 ## Set up Helm client
@@ -370,7 +370,7 @@ helm repo remove $ACR_NAME
 ## Next steps
 
 * For more information on how to create and deploy Helm charts, see [Developing Helm charts][develop-helm-charts].
-* Learn more about installing applications with Helm in [Azure Kubernetes Service (AKS)](../aks/kubernetes-helm.md).
+* Learn more about installing applications with Helm in [Azure Kubernetes Service (AKS)](/azure/aks/kubernetes-helm).
 * Helm charts can be used as part of the container build process. For more information, see [Use Azure Container Registry Tasks][acr-tasks].
 
 <!-- LINKS - external -->

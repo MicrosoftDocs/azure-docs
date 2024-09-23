@@ -24,9 +24,13 @@ A summary rule lets you aggregate log data at a regular cadence and send the agg
 
 This article describes how summary rules work and how to define and view summary rules, and provides some examples of the use and benefits of summary rules.
 
+Here's a video that provides an overview of some of the benefits of summary rules:
+
+> [!VIDEO https://www.youtube.com/embed/uuZlOps42LE?cc_load_policy=1&cc_lang_pref=auto]
+
 ## How summary rules work
 
-Summary rules perform batch processing directly in your Log Analytics workspace. The summary rule aggregates chunks of data, defined by bin size, based on a KQL query, and reingests the summarized results into a custom table with an [Analytics log plan](basic-logs-configure.md) in your Log Analytics workspace. 
+Summary rules perform batch processing directly in your Log Analytics workspace. The summary rule aggregates chunks of data, defined by bin size, based on a KQL query, and reingests the summarized results into a custom table with an [Analytics log plan](logs-table-plans.md) in your Log Analytics workspace. 
 
 :::image type="content" source="media/summary-rules/ingestion-flow.png" alt-text="A diagram that shows how data is ingested into a Log Analytics workspace and is aggregated and reingested into the workspace by using a summary rule." lightbox="media/summary-rules/ingestion-flow.png":::
 
@@ -59,7 +63,7 @@ Here's the aggregated data that the summary rule sends to the destination table:
 
 :::image type="content" source="media/summary-rules/summary-rules-aggregated-logs.png" alt-text="Screenshot that aggregated data that the summary rules sends to the destination table." lightbox="media/summary-rules/summary-rules-aggregated-logs.png":::
 
-Instead of logging hundreds of similar entries within an hour, the destination table shows the count of each unique entry, as defined in the KQL query. Set the [Basic data plan](basic-logs-configure.md) on the `ContainerLogsV2` table for cheap retention of the raw data, and use the summarized data in the destination table for your analysis needs.
+Instead of logging hundreds of similar entries within an hour, the destination table shows the count of each unique entry, as defined in the KQL query. Set the [Basic data plan](logs-table-plans.md) on the `ContainerLogsV2` table for cheap retention of the raw data, and use the summarized data in the destination table for your analysis needs.
 
 ## Permissions required
 
@@ -98,22 +102,21 @@ Instead of logging hundreds of similar entries within an hour, the destination t
 
 ## Pricing model
 
-There is no additional cost for Summary rules. You only pay for the query and the ingestion of results to the destination table, based on the table plan used in query:
+There's no extra cost for Summary rules. You only pay for the query and the ingestion of results to the destination table, based on the table plan of the source table on which you run the query:
 
 | Source table plan | Query cost | Summary results ingestion cost |
 | --- | --- | --- |
 | Analytics | No cost    | Analytics ingested GB | 
-| Basic     | Scanned GB | Analytics ingested GB | 
+| Basic and Auxiliary    | Scanned GB | Analytics ingested GB | 
 
 For example, the cost calculation for an hourly rule that returns 100 records per bin is:
 
 | Source table plan | Monthly price calculation
 | --- | --- |
 | Analytics  | Ingestion price x record size x number of records x 24 hours x 30 days | 
-| Basic | Scanned GB price x scanned size + Ingestion price x record size x number of records x 24 hours x 30 days | 
+| Basic and Auxiliary | Scanned GB price x scanned size + Ingestion price x record size x number of records x 24 hours x 30 days | 
 
 For more information, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
-
 
 ## Create or update a summary rule
 
@@ -317,7 +320,7 @@ This table describes the summary rule parameters:
 | `query` | [Kusto Query Language (KQL) query](get-started-queries.md) | Defines the query to execute in the rule. You don't need to specify a time range because the `binSize` parameter determines the aggregation interval - for example, `02:00 to 03:00` if `"binSize": 60`. If you add a time filter in the query, the time rage used in the query is the intersection between the filter and the bin size. |
 | `destinationTable` | `tablename_CL` | Specifies the name of the destination custom log table. The name value must have the suffix `_CL`. Azure Monitor creates the table in the workspace, if it doesn't already exist, based on the query you set in the rule. If the table already exists in the workspace, Azure Monitor adds any new columns introduced in the query. <br><br> If the summary results include a reserved column name - such as `TimeGenerated`, `_IsBillable`, `_ResourceId`, `TenantId`, or `Type` - Azure Monitor appends the `_Original` prefix to the original fields to preserve their original values.|
 | `binDelay` (optional) | Integer (minutes) | Sets a time to delay before bin execution for late arriving data, also known as [ingestion latency](data-ingestion-time.md). The delay allows for most data to arrive and for service load distribution. The default delay is from three and a half minutes to 10% of the `binSize` value. <br><br> If you know that the data you query is typically ingested with delay, set the `binDelay` parameter with the known delay value or greater. For more information, see [Configure the aggregation timing](#configure-the-aggregation-timing).<br>In some cases, Azure Monitor might begin bin execution slightly after the set bin delay to ensure service reliability and query success.|
-| `binStartTime` (optional) | Datetime in<br>`%Y-%n-%eT%H:%M %Z` format | Specifies the date and time for the initial bin execution. The value can start at rule creation datetime minus the `binSize` value, or later and in whole hours. For example, if the datetime is `2023-12-03T12:13Z` and `binSize` is 1,440, the earliest valid `binStartTime` value is `2023-12-02T13:00Z`, and the aggregation includes data logged between 02T13:00 and 03T13:00. In this scenario, the rules start aggregating a 03T13:00 plus the default or specified delay. <br><br> The `binStartTime` parameter is useful in daily summary scenarios. Suppose you're located in the UTC-8 time zone and you create a daily rule at `2023-12-03T12:13Z`. You want the rule to complete before you start your day at 8:00 (00:00 UTC). Set the `binStartTime` parameter to `2023-12-02T22:00Z`. The first aggregation includes all data logged between 02T:06:00 and 03T:06:00 local time, and the rule runs at the same time daily. For more information, see [Configure the aggregation timing](#configure-the-aggregation-timing).<br><br> When you update rules, you can either: <br> - Use the existing `binStartTime` value or remove the `binStartTime` parameter, in which case execution continues based on the initial definition.<br> - Update the rule with a new `binStartTime` value to set a new datetime value. |
+| `binStartTime` (optional) | Datetime in<br>`%Y-%n-%eT%H:%M %Z` format | Specifies the date and time for the initial bin execution. The value can start at rule creation datetime minus the `binSize` value, or later and in whole hours. For example, if the datetime is `2023-12-03T12:13Z` and `binSize` is 1,440, the earliest valid `binStartTime` value is `2023-12-02T13:00Z`, and the aggregation includes data logged between 02T13:00 and 03T13:00. In this scenario, the rules start aggregating a 03T13:00 plus the default or specified delay. <br><br> The `binStartTime` parameter is useful in daily summary scenarios. Suppose you're in the UTC-8 time zone and you create a daily rule at `2023-12-03T12:13Z`. You want the rule to complete before you start your day at 8:00 (00:00 UTC). Set the `binStartTime` parameter to `2023-12-02T22:00Z`. The first aggregation includes all data logged between 02T:06:00 and 03T:06:00 local time, and the rule runs at the same time daily. For more information, see [Configure the aggregation timing](#configure-the-aggregation-timing).<br><br> When you update rules, you can either: <br> - Use the existing `binStartTime` value or remove the `binStartTime` parameter, in which case execution continues based on the initial definition.<br> - Update the rule with a new `binStartTime` value to set a new datetime value. |
 | `timeSelector` (optional) | `TimeGenerated` | Defines the timestamp field that Azure Monitor uses to aggregate data. For example, if you set `"binSize": 120`, you might get entries with a `TimeGenerated` value between `02:00` and `04:00`. |
 
 
@@ -486,13 +489,13 @@ If you don't need the summary results in the destination table, delete the rule 
 
 The destination table schema is defined when you create or update a summary rule. If the query in the summary rule includes operators that allow output schema expansion based on incoming data - for example, if the query uses the `arg_max(expression, *)` function - Azure Monitor doesn't add new columns to the destination table after you create or update the summary rule, and the output data that requires these columns will be dropped. To add the new fields to the destination table, [update the summary rule](#create-or-update-a-summary-rule) or [add a column to your table manually](create-custom-table.md#add-or-delete-a-custom-column).
 
-### Data for removed columns remains in workspace, subject to retention period
+### Data in removed columns remains in the workspace based on the table's retention settings
 
-When you remove columns in the query, the columns and data remain in the destination table and are subjected to the [retention period](data-retention-archive.md) defined on the table or workspace. If the removed columns aren't needed in destination table, [Update schema and remove columns](create-custom-table.md#add-or-delete-a-custom-column) accordingly. During the retention period, if you add columns with the same name, old data that hasn't reached retention policy, shows up.
+When you remove columns in the query, the columns and data remain in the destination and based on the [retention period](data-retention-configure.md) defined on the table or workspace. If you don't need the removed in destination table, [delete the columns from the table schema](create-custom-table.md#add-or-delete-a-custom-column). If you then add columns with the same name, any data that's not older that the retention period appears again.
 
 ## Related content
 
-- Learn more about [Azure Monitor Logs data plans](basic-logs-configure.md).
+- Learn more about [Azure Monitor Logs data plans](logs-table-plans.md).
 - Walk through a [tutorial on using KQL mode in Log Analytics](../logs/log-analytics-tutorial.md).
 - Access the complete [reference documentation for KQL](/azure/kusto/query/).
 

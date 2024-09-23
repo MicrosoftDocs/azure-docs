@@ -2,7 +2,7 @@
 title: Troubleshoot Azure Private Link Service connectivity problems
 description: Step-by-step guidance to diagnose private link connectivity
 author: abell
-ms.service: private-link
+ms.service: azure-private-link
 ms.topic: troubleshooting
 ms.date: 03/29/2020
 ms.author: abell

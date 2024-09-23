@@ -4,7 +4,7 @@ titleSuffix: Azure Network Watcher
 description: Learn how to inspect and analyze network data that Azure Network Watcher previously captured for packets.
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: how-to
 ms.date: 02/07/2024
 #CustomerIntent: As a network administrator, I want to inspect packets captured by Network Watcher to investigate network problems.

@@ -4,7 +4,7 @@ description: This article describes the Azure Front Door monitoring metrics.
 services: frontdoor
 author: duongau
 manager: KumudD
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 03/31/2024
 ms.author: yuajia

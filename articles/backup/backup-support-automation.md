@@ -3,7 +3,7 @@ title: Automation in Azure Backup support matrix
 description: This article summarizes automation tasks related to Azure Backup support.
 ms.date: 05/30/2024
 ms.topic: conceptual
-ms.service: backup
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ms.custom: engagement-fy24

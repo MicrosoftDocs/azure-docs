@@ -3,7 +3,7 @@ title: About Azure ExpressRoute FastPath
 description: Learn about Azure ExpressRoute FastPath to send network traffic by bypassing the gateway.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: conceptual
 ms.date: 06/25/2024
 ms.author: duau
@@ -19,7 +19,7 @@ ExpressRoute virtual network gateway is designed to exchange network routes and 
 
 ### Circuits
 
-FastPath is available on all ExpressRoute circuits. Support for virtual network peering and UDR over FastPath is now generally available and only for connections associated to ExpressRoute Direct circuits. Limited general availability (GA) support for Private Endpoint/Private Link connectivity is only available for connections associated to ExpressRoute Direct circuits. 
+FastPath is available on all ExpressRoute circuits. Support for virtual network peering and UDR over FastPath is now generally available in all regions and only for connections associated to ExpressRoute Direct circuits. Limited general availability (GA) support for Private Endpoint/Private Link connectivity is only available for connections associated to ExpressRoute Direct circuits. 
 
 ### Gateways
 
@@ -59,7 +59,7 @@ While FastPath supports most configurations, it doesn't support the following fe
 
 ## Limited General Availability (GA)
 
-FastPath support for Private Endpoint/Private Link connectivity is available for limited scenarios for 100/10Gbps ExpressRoute Direct connections. Virtual Network Peering and UDR support are available globally across all Azure regions. Private Endpoint/ Private Link connectivity is available in the following Azure regions:
+FastPath support for Private Endpoint/Private Link connectivity is available for limited scenarios for 100/10Gbps ExpressRoute Direct connections. Private Endpoint/ Private Link connectivity is available in the following Azure regions:
 - Australia East
 - East Asia
 - East US

@@ -23,11 +23,11 @@ This article shows you how you, as an administrator, can add additional owners t
 
 1. Select **Add** > **Add role assignment**.
 
-    ![Access control (IAM) page with Add role assignment menu open.](../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png)
+    ![Access control (IAM) page with Add role assignment menu open.](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-menu-generic.png)
 
 1. On the **Role** tab, select the **Reader** role.
 
-    ![Add role assignment page with Role tab selected.](../../includes/role-based-access-control/media/add-role-assignment-role-generic.png)
+    ![Add role assignment page with Role tab selected.](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-role-generic.png)
 
 1. On the **Members** tab, select the user you want to add to the Reader role.
 
@@ -42,11 +42,11 @@ This article shows you how you, as an administrator, can add additional owners t
 
 1. Select **Add** > **Add role assignment**.
 
-    ![Access control (IAM) page with Add role assignment menu open.](../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png)
+    ![Access control (IAM) page with Add role assignment menu open.](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-menu-generic.png)
 
 1. On the **Role** tab, select the **Owner** role.
 
-    ![Add role assignment page with Role tab selected.](../../includes/role-based-access-control/media/add-role-assignment-role-generic.png)
+    ![Add role assignment page with Role tab selected.](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-role-generic.png)
 
 1. On the **Members** tab, select the user you want to add to the Owner's role
 

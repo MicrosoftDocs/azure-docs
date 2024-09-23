@@ -5,7 +5,7 @@ author: expekesheth
 ms.author: kesheth
 ms.date: 06/06/2022
 ms.topic: reference
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ---
 

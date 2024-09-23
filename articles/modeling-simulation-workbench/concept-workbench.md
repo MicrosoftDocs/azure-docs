@@ -46,6 +46,6 @@ The Azure virtual network enables over-provisioned network resources with high b
 
 - Remote desktop service - As robust security is mandatory to protect IP within and outside chambers, remote desktop access needs to be secured, with custom restrictions on data transfer through the sessions. Customer IT admins can enable multifactor authentication through [Microsoft Entra ID](/azure/active-directory/) and provision role assignments to Modeling and Simulation Workbench users.
 
-## Next steps
+## Related content
 
 - [User personas](./concept-user-personas.md)

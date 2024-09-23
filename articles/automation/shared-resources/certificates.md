@@ -6,6 +6,7 @@ ms.subservice: shared-capabilities
 ms.date: 05/26/2023
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell, devx-track-python
+ms.service: azure-automation
 ---
 
 # Manage certificates in Azure Automation

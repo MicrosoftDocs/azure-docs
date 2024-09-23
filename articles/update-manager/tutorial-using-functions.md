@@ -2,7 +2,7 @@
 title: Create pre and post events using Azure Functions.
 description: In this tutorial, you learn how to create the pre and post events using Azure Functions.
 ms.service: azure-update-manager
-ms.date: 07/15/2024
+ms.date: 07/24/2024
 ms.topic: tutorial 
 author: SnehaSudhirG
 ms.author: sudhirsneha
@@ -287,5 +287,8 @@ In this tutorial, you learn how to:
 You can also use Azure Storage accounts and Event hub to store, send, and receive events. Learn more on [how to create Event hub](../event-hubs/event-hubs-create.md) and [Storage queues](../event-hubs/event-hubs-create.md).
 
 ## Next steps
-Learn about [managing multiple machines](manage-multiple-machines.md).
+- Learn more on the [overview of pre and post events in Azure Update Manager](pre-post-scripts-overview.md).
+- Learn more on [how to create pre and post events](pre-post-events-schedule-maintenance-configuration.md)
+- To learn on how to manage pre and post events or to cancel a schedule run, see [pre and post maintenance configuration events](manage-pre-post-events.md).
+- Learn more on [Create pre and post events using a webhook with Automation](manage-multiple-machines.md).
  

@@ -64,7 +64,7 @@ To configure Start VM on Connect using the Azure portal:
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-You need to make sure you have the names of the resource group and host pool you want to configure. To configure Start VM on Connect using PowerShell:
+Here's how to configure Start VM on Connect using Azure PowerShell. You need to make sure you have the names of the resource group and host pool you want to configure. Be sure to change the `<placeholder>` values for your own.
 
 [!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
 
@@ -84,7 +84,7 @@ You need to make sure you have the names of the resource group and host pool you
 
 # [Azure CLI](#tab/azure-cli)
 
-You need to make sure you have the names of the resource group and host pool you want to configure. To configure Start VM on Connect using
+Here's how to configure Start VM on Connect using Azure CLI. You need to make sure you have the names of the resource group and host pool you want to configure. Be sure to change the `<placeholder>` values for your own.
 
 [!INCLUDE [include-cloud-shell-local-cli](includes/include-cloud-shell-local-cli.md)]
 

@@ -22,6 +22,6 @@ For organizations who have an Azure network setup to manage access for their emp
 
 For those organizations who don't have an Azure network setup, or prefer to use the public network, they can configure their connector to allow access to the chamber via allowlisted Public IP addresses. The connector object allows the allowed IP list to be configured at creation time or added or removed dynamically after the connector object is created.
 
-## Next steps
+## Related content
 
 - [Data pipeline](./concept-data-pipeline.md)

@@ -4,7 +4,6 @@ description: Learn how to copy data from Mongo DB to supported sink data stores 
 titleSuffix: Azure Data Factory & Azure Synapse
 author: jianleishen
 ms.author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse

@@ -16,41 +16,41 @@ It's a new open-source standard for observability. Learn more at [OpenTelemetry]
 
 ### Why is Microsoft Azure Monitor investing in OpenTelemetry?
 
-Microsoft is among the largest contributors to OpenTelemetry.
+Microsoft is investing in OpenTelemetry for the following reasons:
 
-The key value propositions of OpenTelemetry are that it's vendor-neutral and provides consistent APIs/SDKs across languages.
-
-Over time, we believe OpenTelemetry will enable Azure Monitor customers to observe applications written in languages beyond our [supported languages](../app/app-insights-overview.md#supported-languages). It also expands the types of data you can collect through a rich set of [instrumentation libraries](https://opentelemetry.io/docs/concepts/components/#instrumentation-libraries). Furthermore, OpenTelemetry Software Development Kits (SDKs) tend to be more performant at scale than their predecessors, the Application Insights SDKs.
-
-Finally, OpenTelemetry aligns with Microsoft's strategy to [embrace open source](https://opensource.microsoft.com/).
+* It's vendor-neutral and provides consistent APIs/SDKs across languages.
+* Over time, we believe OpenTelemetry will enable Azure Monitor customers to observe applications written in languages beyond our [supported languages](../app/app-insights-overview.md#supported-languages).
+* It expands the types of data you can collect through a rich set of [instrumentation libraries](https://opentelemetry.io/docs/concepts/components/#instrumentation-libraries).
+* OpenTelemetry Software Development Kits (SDKs) tend to be more performant at scale than their predecessors, the Application Insights SDKs.
+* OpenTelemetry aligns with Microsoft's strategy to [embrace open source](https://opensource.microsoft.com/).
 
 ### What's the status of OpenTelemetry?
 
 See [OpenTelemetry Status](https://opentelemetry.io/status/).
 
-### What is the "Azure Monitor OpenTelemetry Distro"?
+### What is the Azure Monitor OpenTelemetry Distro?
 
-You can think of it as a thin wrapper that bundles together all the OpenTelemetry components for a first class experience on Azure. This wrapper is also called a [distribution](https://opentelemetry.io/docs/concepts/distributions/) in OpenTelemetry.
+You can think of it as a thin wrapper that bundles together all the OpenTelemetry components for a first-class experience on Azure. This wrapper is also called a [distribution](https://opentelemetry.io/docs/concepts/distributions/) in OpenTelemetry.
 
-### Why should I use the "Azure Monitor OpenTelemetry Distro"?
+### Why should I use the Azure Monitor OpenTelemetry Distro?
 
 There are several advantages to using the Azure Monitor OpenTelemetry Distro over native OpenTelemetry from the community:
 
-- Reduces enablement effort
-- Supported by Microsoft
-- Brings in Azure-specific features such as:
-   - Sampling compatible with classic Application Insights SDKs
-   - [Microsoft Entra authentication](../app/azure-ad-authentication.md)
-   - [Offline Storage and Automatic Retries](../app/opentelemetry-configuration.md#offline-storage-and-automatic-retries)
-   - [Statsbeat](../app/statsbeat.md)
-   - [Application Insights Standard Metrics](../app/standard-metrics.md)
-   - Detect resource metadata to autopopulate [Cloud Role Name](../app/java-standalone-config.md#cloud-role-name) and [Cloud Role Instance](../app/java-standalone-config.md#cloud-role-instance) on various Azure environments
-   - [Live Metrics](../app/live-stream.md)
+* Reduces enablement effort
+* Supported by Microsoft
+* Brings in Azure-specific features such as:
+    * Sampling compatible with classic Application Insights SDKs
+    * [Microsoft Entra authentication](../app/azure-ad-authentication.md)
+    * [Offline Storage and Automatic Retries](../app/opentelemetry-configuration.md#offline-storage-and-automatic-retries)
+    * [Statsbeat](../app/statsbeat.md)
+    * [Application Insights Standard Metrics](../app/standard-metrics.md)
+    * Detect resource metadata to autopopulate [Cloud Role Name](../app/java-standalone-config.md#cloud-role-name) and [Cloud Role Instance](../app/java-standalone-config.md#cloud-role-instance) on various Azure environments
+    * [Live Metrics](../app/live-stream.md)
 
 In the spirit of OpenTelemetry, we designed the distro to be open and extensible. For example, you can add:
 
-- An OpenTelemetry Protocol (OTLP) exporter and send to a second destination simultaneously
-- Other instrumentation libraries not included in the distro
+* An OpenTelemetry Protocol (OTLP) exporter and send to a second destination simultaneously
+* Other instrumentation libraries not included in the distro
 
 Because the Distro provides an [OpenTelemetry distribution](https://opentelemetry.io/docs/concepts/distributions/#what-is-a-distribution), the Distro supports anything supported by OpenTelemetry. For example, you can add more telemetry processors, exporters, or instrumentation libraries, if OpenTelemetry supports them.
 
@@ -82,32 +82,32 @@ For more complex Python telemetry scenarios that require advanced configuration,
 
 The following chart breaks out OpenTelemetry feature support for each language.
 
-|Feature                                                                                                                | .NET               | Node.js            | Python             | Java               |
-|-----------------------------------------------------------------------------------------------------------------------|--------------------|--------------------|--------------------|--------------------|
-| [Distributed tracing](../app/distributed-trace-data.md)                                                               | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-| [Custom metrics](../app/opentelemetry-add-modify.md#add-custom-metrics)                                               | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-| [Standard metrics](../app/standard-metrics.md)                                                                        | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-| [Fixed-rate sampling](../app/sampling.md)                                                                             | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-| [Offline storage and automatic retries](../app/opentelemetry-configuration.md#offline-storage-and-automatic-retries)  | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-| [Exception reporting](../app/asp-net-exceptions.md)                                                                   | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-| [Logs collection](../app/asp-net-trace-logs.md)                                                                       | :white_check_mark: | :warning:          | :white_check_mark: | :white_check_mark: |
-| [Custom Events](../app/usage-overview.md#custom-business-events)                                                      | :warning:          | :warning:          | :warning:          | :white_check_mark: |
-| [Microsoft Entra authentication](../app/azure-ad-authentication.md)                                                   | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-| [Live metrics](../app/live-stream.md)                                                                                 | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
-| [Live Metrics Filtering](../app/live-stream.md#select-and-filter-your-metrics)                                        | :x:                | :x:                | :x:                | :x:                |
-| Detect Resource Context for VM/VMSS and App Service                                                                   | :white_check_mark: | :x:                | :white_check_mark: | :white_check_mark: |
-| Detect Resource Context for Azure Kubernetes Service (AKS) and Functions                                              | :x:                | :x:                | :x:                | :white_check_mark: |
-| Availability Testing Events generated using the Track Availability API                                                | :x:                | :x:                | :x:                | :white_check_mark: |
-| Filter requests, dependencies, logs, and exceptions by anonymous user ID and synthetic source                         | :x:                | :x:                | :x:                | :white_check_mark: |
-| Filter dependencies, logs, and exceptions by operation name                                                           | :x:                | :x:                | :x:                | :white_check_mark: |
-| [Adaptive sampling](../app/sampling.md#adaptive-sampling)                                                             | :x:                | :x:                | :x:                | :white_check_mark: |
-| [Profiler](../profiler/profiler-overview.md)                                                                          | :white_check_mark: | :x:                | :x:                | :warning:          |
-| [Snapshot Debugger](../snapshot-debugger/snapshot-debugger.md)                                                        | :white_check_mark: | :x:                | :x:                | :x:                |
+| Feature                                                                                                              | .NET               | Node.js            | Python             | Java               |
+|----------------------------------------------------------------------------------------------------------------------|--------------------|--------------------|--------------------|--------------------|
+| [Distributed tracing](../app/distributed-trace-data.md)                                                              | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| [Custom metrics](../app/opentelemetry-add-modify.md#add-custom-metrics)                                              | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| [Standard metrics](../app/standard-metrics.md)                                                                       | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| [Fixed-rate sampling](../app/sampling.md)                                                                            | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| [Offline storage and automatic retries](../app/opentelemetry-configuration.md#offline-storage-and-automatic-retries) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| [Exception reporting](../app/asp-net-exceptions.md)                                                                  | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| [Logs collection](../app/asp-net-trace-logs.md)                                                                      | :white_check_mark: | :warning:          | :white_check_mark: | :white_check_mark: |
+| [Custom Events](../app/usage.md#track-user-interactions-with-custom-events)                                          | :warning:          | :warning:          | :warning:          | :white_check_mark: |
+| [Microsoft Entra authentication](../app/azure-ad-authentication.md)                                                  | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| [Live metrics](../app/live-stream.md)                                                                                | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark: |
+| [Live Metrics Filtering](../app/live-stream.md#select-and-filter-your-metrics)                                       | :white_check_mark: | :x:                | :x:                | :x:                |
+| Detect Resource Context for VM/VMSS and App Service                                                                  | :white_check_mark: | :x:                | :white_check_mark: | :white_check_mark: |
+| Detect Resource Context for Azure Kubernetes Service (AKS) and Functions                                             | :x:                | :x:                | :x:                | :white_check_mark: |
+| Availability Testing Events generated using the Track Availability API                                               | :x:                | :x:                | :x:                | :white_check_mark: |
+| Filter requests, dependencies, logs, and exceptions by anonymous user ID and synthetic source                        | :x:                | :x:                | :x:                | :white_check_mark: |
+| Filter dependencies, logs, and exceptions by operation name                                                          | :x:                | :x:                | :x:                | :white_check_mark: |
+| [Adaptive sampling](../app/sampling.md#adaptive-sampling)                                                            | :x:                | :x:                | :x:                | :white_check_mark: |
+| [Profiler](../profiler/profiler-overview.md)                                                                         | :x:                | :x:                | :x:                | :warning:          |
+| [Snapshot Debugger](../snapshot-debugger/snapshot-debugger.md)                                                       | :x:                | :x:                | :x:                | :x:                |
 
 **Key**
-- :white_check_mark: This feature is available to all customers with formal support.
-- :warning: This feature is available as a public preview. See [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-- :x: This feature isn't available or isn't applicable.
+* :white_check_mark: This feature is available to all customers with formal support.
+* :warning: This feature is available as a public preview. See [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+* :x: This feature isn't available or isn't applicable.
 
 ### Can OpenTelemetry be used for web browsers?
 
@@ -140,3 +140,11 @@ Some customers use the OpenTelemetry Collector as an agent alternative, even tho
 ### What's the difference between OpenCensus and OpenTelemetry?
 
 [OpenCensus](https://opencensus.io/) is the precursor to [OpenTelemetry](https://opentelemetry.io/). Microsoft helped bring together [OpenTracing](https://opentracing.io/) and OpenCensus to create OpenTelemetry, a single observability standard for the world. The current [production-recommended Python SDK](/previous-versions/azure/azure-monitor/app/opencensus-python) for Azure Monitor is based on OpenCensus. Microsoft is committed to making Azure Monitor based on OpenTelemetry.
+
+### In Grafana, why do I see `Status: 500. Can't visualize trace events using the trace visualizer`?
+
+You could be trying to visualize raw text logs rather than OpenTelemetry traces.
+
+In Application Insights, the 'Traces' table stores raw text logs for diagnostic purposes. They aid in identifying and correlating traces associated with user requests, other events, and exception reports. However, the 'Traces' table doesn't directly contribute to the end-to-end transaction view (waterfall chart) in visualization tools like Grafana.
+
+With the growing adoption of cloud-native practices, there's an evolution in telemetry collection and terminology. OpenTelemetry became a standard for collecting and instrumenting telemetry data. In this context, the term 'Traces' took on a new meaning. Rather than raw logs, 'Traces' in OpenTelemetry refer to a richer, structured form of telemetry that includes spans, which represent individual units of work. These spans are crucial for constructing detailed transaction views, enabling better monitoring and diagnostics of cloud-native applications.

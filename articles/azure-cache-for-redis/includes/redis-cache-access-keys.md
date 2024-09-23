@@ -1,9 +1,11 @@
 ---
-ms.service: cache
+
+
+
 ms.topic: include
-ms.date: 07/03/2024
-ms.author: franlanglois
-author: flang-msft
+ms.date: 08/16/2024
+
+ms.topic: include
 ---
 
 ### Retrieve host name, ports, and access keys from the Azure portal

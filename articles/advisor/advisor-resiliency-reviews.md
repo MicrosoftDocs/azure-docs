@@ -1,11 +1,9 @@
 ---
 title: Azure Advisor resiliency reviews
 description: Optimize resource resiliency with custom recommendation reviews.
-author: mabrahms
-ms.author: v-mabrahms
 ms.service: azure
 ms.topic: article
-ms.date: 03/8/2024
+ms.date: 08/22/2024
 
 ---
 
@@ -47,24 +45,7 @@ Your Microsoft account team works with you to collect information about the work
 
 To view or triage recommendations, or to manage recommendations' lifecycles, requires specific role permissions. For definitions, see [Terminology](#terminology).
 
-### Prerequisites to view and triage recommendations
-
-You can manage access to Advisor reviews using built-in roles. The [permissions](/azure/advisor/permissions) vary by role. These roles need to be configured for the subscription that was used to publish the review.
-
-| **Name** | **Description** | **Targeted Subscription** |
-|---|:---:|:---:|
-|Advisor Reviews Reader|View reviews for a workload and recommendations linked to them.| You need this role for the one subscription your account team used to publish review.|
-|Advisor Reviews Contributor|View reviews for a workload and triage recommendations linked to them.| You need this role for the one subscription your account team used to publish review.|
-
-You can manage access to Advisor personalized recommendations using the following roles. These roles need to be configured for the subscriptions included in the workload under a review.
-
-| **Name** | **Description** |
-|---|:---:|
-|Subscription Reader|View reviews for a workload and recommendations linked to them.|
-|Subscription Owner<br>Subscription Contributor|View reviews for a workload, triage recommendations linked to those reviews, manage the recommendation lifecycle.|
-|Advisor Recommendations Contributor (Assessments and Reviews)|View accepted recommendations, and manage the recommendation lifecycle.|
-
-You can find detailed instructions on how to assign a role using the Azure portal - [Assign Azure roles using the Azure portal - Azure RBAC](/azure/role-based-access-control/role-assignments-portal?tabs=delegate-condition). Additional information is available in [Steps to assign an Azure role - Azure RBAC](/azure/role-based-access-control/role-assignments-steps).
+[!INCLUDE [Reviews and personalized recommendations](./includes/advisor-permissions-review-recommendations.md)]
 
 ### Access reviews
 

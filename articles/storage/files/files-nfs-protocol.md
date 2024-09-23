@@ -4,7 +4,7 @@ description: Learn about file shares hosted in Azure Files using the Network Fil
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 06/11/2024
+ms.date: 07/10/2024
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -84,7 +84,7 @@ The status of items that appear in this table might change over time as support 
 | Root squash|  ✔️  |
 | Access same data from Windows and Linux client|  ⛔   |
 | [Identity-based authentication](storage-files-active-directory-overview.md) | ⛔ |
-| [Azure file share soft delete](storage-files-prevent-file-share-deletion.md) | ✔️ (preview) |
+| [Azure file share soft delete](storage-files-prevent-file-share-deletion.md) | ✔️ |
 | [Azure File Sync](../file-sync/file-sync-introduction.md)| ⛔ |
 | [Azure file share backups](../../backup/azure-file-share-backup-overview.md)| ⛔ |
 | [Azure file share snapshots](storage-snapshots-files.md)|  ✔️ |
@@ -96,7 +96,7 @@ The status of items that appear in this table might change over time as support 
 
 ## Regional availability
 
-[!INCLUDE [files-nfs-regional-availability](../../../includes/files-nfs-regional-availability.md)]
+[!INCLUDE [files-nfs-regional-availability](~/reusable-content/ce-skilling/azure/includes/files-nfs-regional-availability.md)]
 
 ## Performance
 

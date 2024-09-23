@@ -24,6 +24,8 @@
       href: how-to-renew-identity-validation.md
     - name: Change Pricing Tier
       href: how-to-change-sku.md
+    - name: Device Guard Signing Service Migration 
+      href: how-to-device-guard-signing-service-migration.md
   - name: Tutorials
     items:
     - name: Assign roles in Trusted Signing

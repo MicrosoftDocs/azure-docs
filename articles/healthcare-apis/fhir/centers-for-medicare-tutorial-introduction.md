@@ -2,7 +2,7 @@
 title: Tutorial - Centers for Medicare and Medicaid Services (CMS) introduction - FHIR service
 description: Introduces a series of tutorials that pertains to the Center for Medicare and Medicaid Services (CMS) Interoperability and Patient Access rule.  
 services: healthcare-apis
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: tutorial
 ms.author: kesheth

@@ -19,6 +19,7 @@ Arc resource bridge communicates outbound securely to Azure Arc over TCP port 44
 
 > [!NOTE]
 > The URLs listed here are required for Arc resource bridge only. Other Arc products (such as Arc-enabled VMware vSphere) may have additional required URLs. For details, see [Azure Arc network requirements](../network-requirements-consolidated.md#azure-arc-enabled-vmware-vsphere).
+> 
 
 ## SSL proxy configuration
 

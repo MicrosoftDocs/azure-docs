@@ -1,7 +1,7 @@
 ---
 title: Azure HDInsight SDK for Go
 description: Reference material for using Azure HDInsight SDK for Go and Apache Hadoop clusters
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: conceptual
 ms.custom: devx-track-azurecli, devx-track-go
 ms.devlang: golang

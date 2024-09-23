@@ -3,7 +3,7 @@ title: About ExpressRoute virtual network gateways
 description: Learn about virtual network gateways for ExpressRoute, their SKUs, types, and other specifications and features.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: conceptual
 ms.date: 03/18/2024
 ms.author: duau

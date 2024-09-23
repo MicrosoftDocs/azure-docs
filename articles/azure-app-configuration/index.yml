@@ -81,9 +81,9 @@ landingContent:
         - text: Code a Java Spring app
           url: quickstart-java-spring-app.md
         - text: Code a Python app
-          url: quickstart-python.md
-        - text: Azure Resource Manager deployment
-          url: quickstart-deployment-overview.md       
+          url: quickstart-python-provider.md
+        - text: Code a JavaScript app
+          url: quickstart-javascript-provider.md
         - text: Azure Container Apps
           url: quickstart-container-apps.md
       - linkListType: tutorial
@@ -113,7 +113,7 @@ landingContent:
         - text: Pull data using Azure Pipelines
           url: pull-key-value-devops-pipeline.md
         - text: Push data using GitHub Actions
-          url: concept-github-action.md
+          url: push-kv-github-action.md
         - text: Export to project configuration file
           url: integrate-ci-cd-pipeline.md
         - text: Deploy to Kubernetes using Helm

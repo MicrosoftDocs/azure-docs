@@ -5,6 +5,7 @@ services: automation
 ms.subservice: process-automation
 ms.date: 09/17/2023
 ms.topic: conceptual 
+ms.service: azure-automation
 ---
 
 # Automation Hybrid Runbook Worker overview

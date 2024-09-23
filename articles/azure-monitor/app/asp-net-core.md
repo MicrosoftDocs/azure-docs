@@ -256,7 +256,7 @@ HttpContext.Features.Get<RequestTelemetry>().Properties["myProp"] = someData
 
 ## Enable client-side telemetry for web applications
 
-The preceding steps are enough to help you start collecting server-side telemetry. If your application has client-side components, follow the next steps to start collecting [usage telemetry](./usage-overview.md) using JavaScript (Web) SDK Loader Script injection by configuration.
+The preceding steps are enough to help you start collecting server-side telemetry. If your application has client-side components, follow the next steps to start collecting [usage telemetry](./usage.md) using JavaScript (Web) SDK Loader Script injection by configuration.
 
 1. In `_ViewImports.cshtml`, add injection:
 
@@ -854,6 +854,10 @@ When you add Application Insights Telemetry to a Visual Studio ASP.NET Core temp
             }
     ```
 
+### How can I disable telemetry correlation?
+
+To disable telemetry correlation in code, see `<ExcludeComponentCorrelationHttpHeadersOnDomains>` in [Application Insights for console applications](/previous-versions/azure/azure-monitor/app/console).
+
 ## Troubleshooting
 
 See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/app-insights/asp-net-troubleshoot-no-data).
@@ -874,7 +878,7 @@ Our [Service Updates](https://azure.microsoft.com/updates/?service=application-i
 
 ## Next steps
 
-* [Explore user flows](./usage-flows.md) to understand how users move through your app.
+* [Explore user flows](./usage.md#user-flows---analyze-user-navigation-patterns) to understand how users move through your app.
 * [Configure a snapshot collection](./snapshot-debugger.md) to see the state of source code and variables at the moment an exception is thrown.
 * [Use the API](./api-custom-events-metrics.md) to send your own events and metrics for a detailed view of your app's performance and usage.
 * Use [availability tests](./availability-overview.md) to check your app constantly from around the world.

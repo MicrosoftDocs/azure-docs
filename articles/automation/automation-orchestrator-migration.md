@@ -6,6 +6,7 @@ ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual 
 ms.custom:
+ms.service: azure-automation
 ---
 # Migrate from Orchestrator to Azure Automation (Beta)
 

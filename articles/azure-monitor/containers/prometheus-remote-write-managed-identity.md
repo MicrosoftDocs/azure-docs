@@ -59,7 +59,7 @@ The node resource group of the AKS cluster contains resources that you use in ot
 
 You must get the client ID of the identity that you're going to use. Copy the client ID to use later in the process.
 
-Instead of creating your own client ID, you can use one of the identities that are created by AKS. To learn more about the identities, see [Use a managed identity in Azure Kubernetes Service](../../aks/use-managed-identity.md).
+Instead of creating your own client ID, you can use one of the identities that are created by AKS. To learn more about the identities, see [Use a managed identity in Azure Kubernetes Service](/azure/aks/use-managed-identity).
 
 This article uses the kubelet identity. The name of this identity is `<AKS-CLUSTER-NAME>-agentpool`, and it's in the node resource group of the AKS cluster.
 

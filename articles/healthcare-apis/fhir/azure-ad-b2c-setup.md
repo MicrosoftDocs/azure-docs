@@ -3,7 +3,7 @@ title: Use Azure Active Directory B2C to grant access to the FHIR service in Azu
 description: Learn how to use Azure AD B2C with the FHIR service to enable access to healthcare applications and users.
 services: healthcare-apis
 author: namalu
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: tutorial
 ms.date: 01/21/2024

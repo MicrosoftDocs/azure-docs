@@ -4,7 +4,7 @@ description: Create an experiment that uses a service-direct fault with Azure Ch
 author: prasha-microsoft
 ms.author: abbyweisberg
 ms.reviewer: prashabora
-ms.service: chaos-studio
+ms.service: azure-chaos-studio
 ms.topic: how-to
 ms.date: 11/01/2021
 ms.custom: template-how-to
@@ -19,7 +19,7 @@ You can use these same steps to set up and run an experiment for any service-dir
 ## Prerequisites
 
 - An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
-- An Azure Cosmos DB account. If you don't have an Azure Cosmos DB account, follow these steps to [create one](../cosmos-db/sql/create-cosmosdb-resources-portal.md).
+- An Azure Cosmos DB account. If you don't have an Azure Cosmos DB account, follow these steps to [create one](/azure/cosmos-db/sql/create-cosmosdb-resources-portal).
 - At least one read and one write region setup for your Azure Cosmos DB account.
 
 ## Enable Chaos Studio on your Azure Cosmos DB account

@@ -20,7 +20,7 @@ To understand the performance characteristics of an Azure NetApp Files volume, y
  
 ### VM instance sizing
 
-For best results, ensure that you are using a virtual machine (VM) instance that is appropriately sized to perform the tests. The following examples use a Standard_D32s_v3 instance. For more information about VM instance sizes, see [Sizes for Windows virtual machines in Azure](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for Windows-based VMs, and [Sizes for Linux virtual machines in Azure](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for Linux-based VMs.
+For best results, ensure that you are using a virtual machine (VM) instance that is appropriately sized to perform the tests. The following examples use a Standard_D32s_v3 instance. For more information about VM instance sizes, see [Sizes for Windows virtual machines in Azure](/azure/virtual-machines/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json) for Windows-based VMs, and [Sizes for Linux virtual machines in Azure](/azure/virtual-machines/sizes?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for Linux-based VMs.
 
 ### Azure NetApp Files volume sizing
 
@@ -44,7 +44,7 @@ The intent of SSB is to allow organizations and individuals to measure the perfo
 
 #### Installation of SSB 
 
-Follow the [Getting started](https://github.com/NetApp/SQL_Storage_Benchmark/blob/main/README.md#getting-started) section in the SSB README file to install for the platform of your choice.
+Follow the Getting started section in the SSB README file to install for the platform of your choice.
 
 ### FIO 
 

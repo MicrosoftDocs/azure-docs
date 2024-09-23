@@ -79,8 +79,6 @@ Private Link with Azure Virtual Desktop has the following limitations:
 
 - After you've changed a private endpoint to a host pool, you must restart the *Remote Desktop Agent Loader* (*RDAgentBootLoader*) service on each session host in the host pool. You also need to restart this service whenever you change a host pool's network configuration. Instead of restarting the service, you can restart each session host.
 
-- Using both Private Link and 
-
 - Using both Private Link and [RDP Shortpath for managed networks](rdp-shortpath.md?tabs=managed-networks) isn't supported, but they can work together. You can use Private Link and RDP Shortpath for managed networks at your own risk. All other RDP Shortpath options using STUN or TURN aren't supported with Private Link.
 
 - Early in the preview of Private Link with Azure Virtual Desktop, the private endpoint for the initial feed discovery (for the *global* sub-resource) shared the private DNS zone name of `privatelink.wvd.microsoft.com` with other private endpoints for workspaces and host pools. In this configuration, users are unable to establish private endpoints exclusively for host pools and workspaces. Starting September 1, 2023, sharing the private DNS zone in this configuration will no longer be supported. You need to create a new private endpoint for the *global* sub-resource to use the private DNS zone name of `privatelink-global.wvd.microsoft.com`. For the steps to do this, see [Initial feed discovery](private-link-setup.md#initial-feed-discovery).

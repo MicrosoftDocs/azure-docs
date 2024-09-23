@@ -430,7 +430,7 @@ Expressed as a string, the `TimeSpan` format is `hh:mm:ss` when `hh` is less tha
 
 ### Scale-out
 
-If a function app scales out to multiple instances, only a single instance of a timer-triggered function is run across all instances. It will not trigger again if there is an outstanding invocation is still running.
+If a function app scales out to multiple instances, only a single instance of a timer-triggered function is run across all instances. It will not trigger again if there is an outstanding invocation still running.
 
 ### Function apps sharing Storage
 

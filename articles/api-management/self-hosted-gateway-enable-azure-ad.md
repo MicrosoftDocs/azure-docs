@@ -4,7 +4,7 @@ description: Enable the Azure API Management self-hosted gateway to authenticate
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
 ms.date: 05/22/2023
 ms.author: danlep

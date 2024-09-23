@@ -5,6 +5,8 @@
   items:
   - name: What is Azure Operator Service Manager?
     href: ./azure-operator-service-manager-overview.md
+  - name: Azure Operator Service Manager Release Notes
+    href: release-notes.md
 - name: Concepts
   expanded: false
   items:
@@ -28,6 +30,11 @@
         href: concepts-cli-containerized-network-function-image-upload.md
       - name: Exposing parameters in a configuration group schema
         href: concepts-expose-parameters-configuration-group-schema.md
+  - name: Safe Upgrade Practices
+    expanded: false
+    items:
+      - name: Get Started with Safe Upgrade Practices
+        href: safe-upgrade-practices.md
 - name: Quickstarts
   expanded: false
   items:

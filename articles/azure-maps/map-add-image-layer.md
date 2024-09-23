@@ -6,6 +6,7 @@ ms.author: sipa
 ms.date: 06/06/2023
 ms.topic: how-to
 ms.service: azure-maps
+ms.subservice: web-sdk
 ---
 
 # Add an image layer to a map

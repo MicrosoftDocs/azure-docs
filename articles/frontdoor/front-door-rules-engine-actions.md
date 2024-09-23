@@ -4,9 +4,9 @@ titleSuffix: Azure Front Door
 description: This article provides a list of various actions you can do with Azure Front Door rule sets.
 services: frontdoor
 author: duongau
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: conceptual
-ms.date: 05/07/2024
+ms.date: 07/16/2024
 ms.author: duau
 zone_pivot_groups: front-door-tiers
 ---
@@ -237,6 +237,39 @@ In this example, we append the value `AdditionalValue` to the `MyRequestHeader` 
 
 ---
 
+> [!NOTE]
+> Certain Azure Front Door reserved headers can't be modified using rules engine actions, including the actions to modify request headers and response headers. The following list of reserved headers can't be modified, along with any headers prefixed with `x-ec` and `x-fd`.
+>
+> * `Accept-Ranges`
+> * `Host`
+> * `Connection`
+> * `Content-Length`
+> * `Transfer-Encoding`
+> * `TE`
+> * `Last-Modified`
+> * `Keep-Alive`
+> * `Expect`
+> * `Upgrade`
+> * `If-Modified-Since`
+> * `If-Unmodified-Since`
+> * `If-None-Match`
+> * `If-Match`
+> * `Range`
+> * `If-Range`
+> * `X-Ms-Via`
+> * `X-Ms-Force-Refresh`
+> * `X-MSEdge-Ref`
+> * `Warning`
+> * `Forwarded`
+> * `Via`
+> * `X-Forwarded-For`
+> * `X-Forwarded-Proto`
+> * `X-Forwarded-Host`
+> * `X-Azure-RequestChain`
+> * `X-Azure-FDID`
+> * `X-Azure-RequestChainv2`
+> * `X-Azure-Ref`
+
 ## <a name="ModifyResponseHeader"></a> Modify response header
 
 Use the **modify response header** action to modify headers that are present in responses before they're returned to your clients.
@@ -284,6 +317,39 @@ In this example, we delete the header with the name `X-Powered-By` from the resp
 ```
 
 ---
+
+> [!NOTE]
+> Certain Azure Front Door reserved headers can't be modified using rules engine actions, including the actions to modify request headers and response headers. The following list of reserved headers can't be modified, along with any headers prefixed with `x-ec` and `x-fd`.
+>
+> * `Accept-Ranges`
+> * `Host`
+> * `Connection`
+> * `Content-Length`
+> * `Transfer-Encoding`
+> * `TE`
+> * `Last-Modified`
+> * `Keep-Alive`
+> * `Expect`
+> * `Upgrade`
+> * `If-Modified-Since`
+> * `If-Unmodified-Since`
+> * `If-None-Match`
+> * `If-Match`
+> * `Range`
+> * `If-Range`
+> * `X-Ms-Via`
+> * `X-Ms-Force-Refresh`
+> * `X-MSEdge-Ref`
+> * `Warning`
+> * `Forwarded`
+> * `Via`
+> * `X-Forwarded-For`
+> * `X-Forwarded-Proto`
+> * `X-Forwarded-Host`
+> * `X-Azure-RequestChain`
+> * `X-Azure-FDID`
+> * `X-Azure-RequestChainv2`
+> * `X-Azure-Ref`
 
 ## <a name="UrlRedirect"></a> URL redirect
 

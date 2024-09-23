@@ -4,7 +4,6 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from Salesforce Service Cloud to supported sink data stores, or from supported source data stores to Salesforce Service Cloud, using a copy activity in a legacy Azure Data Factory or Synapse Analytics pipeline.
 ms.author: jianleishen
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse

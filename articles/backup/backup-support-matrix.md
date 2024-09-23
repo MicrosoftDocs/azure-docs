@@ -4,7 +4,7 @@ description: Provides a summary of support settings and limitations for the Azur
 ms.topic: conceptual
 ms.date: 06/18/2024
 ms.custom: references_regions, linux-related-content
-ms.service: backup
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---

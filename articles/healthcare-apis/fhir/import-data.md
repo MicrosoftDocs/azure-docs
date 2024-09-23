@@ -2,7 +2,7 @@
 title: Import data into the FHIR service in Azure Health Data Services
 description: Learn how to import data into the FHIR service for Azure Health Data Services.
 author: expekesheth  
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: how-to
 ms.date: 02/06/2024
@@ -85,7 +85,9 @@ Content-Type:application/fhir+json
 | ----------- | ----------- | ----------- | ----------- |
 | `inputFormat`| String that represents the name of the data source format. Only FHIR NDJSON files are supported. | 1..1 | `application/fhir+ndjson` |
 | `mode`| Import mode value. | 1..1 | For an initial-mode import,  use the `InitialLoad` mode value. For incremental-mode import, use the `IncrementalLoad` mode value. If you don't provide a mode value, the `IncrementalLoad` mode value is used by default. |
+| `allowNegativeVersions`|	Allows FHIR server assigning negative versions for resource records with explicit lastUpdated value and no version specified when input does not fit in contiguous space of positive versions existing in the store. | 0..1 |	To enable this feature pass true. By default it is false. |
 | `input`| Details of the input files. | 1..* | A JSON array with the three parts described in the following table. |
+
 
 | Input part name   | Description | Cardinality |  Accepted values |
 | ----------- | ----------- | ----------- | ----------- |
@@ -103,7 +105,11 @@ Content-Type:application/fhir+json
         },
         {
             "name": "mode",
-            "valueString": "<Use "InitialLoad" for initial mode import / Use "IncrementalLoad" for incremental mode import>",
+            "valueString": "<Use "InitialLoad" for initial mode import / Use "IncrementalLoad" for incremental mode import>"
+        }, 
+        {
+            "name": "allowNegativeVersions",
+            "valueBoolean": true
         },
         {
             "name": "input",
@@ -198,7 +204,7 @@ Here are the error messages that occur if the `import` operation fails, along wi
 
 #### 200 OK, but there's an error with the URL in the response
 
-**Behavior:** The `import` operation succeeds and returns `200 OK`. However, `error.url` is present in the response body. Files present at the `error.url` location contain JSON fragments similar to this example:
+The `import` operation succeeds and returns `200 OK`. However, `error.url` is present in the response body. Files present at the `error.url` location contain JSON fragments similar to this example:
 
 ```json
 {
@@ -215,73 +221,35 @@ Here are the error messages that occur if the `import` operation fails, along wi
 }
 ```
 
-**Cause:** NDJSON files contain resources with conditional references that `import` doesn't support.
+Cause: NDJSON files contain resources with conditional references that `import` doesn't support.
 
-**Solution:** Replace the conditional references to normal references in the NDJSON files.
+Solution: Replace the conditional references to normal references in the NDJSON files.
 
 #### 400 Bad Request
 
-**Behavior:** The `import` operation fails and returns `400 Bad Request`. The response body includes this content:
+The `import` operation fails and returns `400 Bad Request`. The response body contains diagnostic content
 
-```json
-{
-    "resourceType": "OperationOutcome",
-    "id": "13876ec9-3170-4525-87ec-9e165052d70d",
-    "issue": [
-        {
-            "severity": "error",
-            "code": "processing",
-            "diagnostics": "import operation failed for reason: No such host is known. (example.blob.core.windows.net:443)"
-        }
-    ]
-}
-```
+**import operation failed for reason: No such host is known. (example.blob.core.windows.net:443)**
+Solution: Verify that the link to the Azure storage is correct. Check the network and firewall settings to make sure that the FHIR server can access the storage. If your service is in a virtual network, ensure that the storage is in the same virtual network or in a virtual network peered with the FHIR service's virtual network.
 
-**Solution:** Verify that the link to the Azure storage is correct. Check the network and firewall settings to make sure that the FHIR server can access the storage. If your service is in a virtual network, ensure that the storage is in the same virtual network or in a virtual network peered with the FHIR service's virtual network.
+**SearchParameter resources cannot be processed by import**
+Solution: The import operation returns a HTTP 400 error when a search parameter resource is ingested via the import process. This change is intended to prevent search parameters from being placed in an invalid state when ingested with an import operation.
 
 #### 403 Forbidden
 
-**Behavior:** The `import` operation fails and returns `403 Forbidden`. The response body contains this content:
+The `import` operation fails and returns `403 Forbidden`. The response body contains diagnostic content
 
-```json
-{
-    "resourceType": "OperationOutcome",
-    "id": "bd545acc-af5d-42d5-82c3-280459125033",
-    "issue": [
-        {
-            "severity": "error",
-            "code": "processing",
-            "diagnostics": "import operation failed for reason: Server failed to authenticate the request. Make sure the value of Authorization header is formed correctly including the signature."
-        }
-    ]
-}
-```
-
-**Cause:** The FHIR service uses a managed identity for source storage authentication. This error indicates a missing or incorrect role assignment.
-
-**Solution:** Assign the **Storage Blob Data Contributor** role to the FHIR server. For more information, see [Assign Azure roles](../../role-based-access-control/role-assignments-portal.yml?tabs=current).
+**import operation failed for reason: Server failed to authenticate the request. Make sure the value of Authorization header is formed correctly including the signature.**
+Cause: The FHIR service uses a managed identity for source storage authentication. This error indicates a missing or incorrect role assignment.
+Solution: Assign the **Storage Blob Data Contributor** role to the FHIR server. For more information, see [Assign Azure roles](../../role-based-access-control/role-assignments-portal.yml?tabs=current).
 
 #### 500 Internal Server Error
 
-**Behavior:** The `import` operation fails and returns `500 Internal Server Error`. The response body contains this content:
+The `import` operation fails and returns `500 Internal Server Error`. The response body contains diagnostic content
 
-```json
-{
-    "resourceType": "OperationOutcome",
-    "id": "0d0f007d-9e8e-444e-89ed-7458377d7889",
-    "issue": [
-        {
-            "severity": "error",
-            "code": "processing",
-            "diagnostics": "import operation failed for reason: The database '****' has reached its size quota. Partition or delete data, drop indexes, or consult the documentation for possible resolutions."
-        }
-    ]
-}
-```
-
-**Cause:** You reached the storage limit of the FHIR service.
-
-**Solution:** Reduce the size of your data or consider Azure API for FHIR, which has a higher storage limit.
+**import operation failed for reason: The database '****' has reached its size quota. Partition or delete data, drop indexes, or consult the documentation for possible resolutions.**
+Cause: You reached the storage limit of the FHIR service.
+Solution: Reduce the size of your data or consider Azure API for FHIR, which has a higher storage limit.
 
 ## Limitations
 - The maximum number of files allowed for each `import` operation is 10,000.

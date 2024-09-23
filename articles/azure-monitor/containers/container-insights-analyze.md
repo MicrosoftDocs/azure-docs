@@ -1,16 +1,14 @@
 ---
-title: Kubernetes monitoring with Container insights | Microsoft Docs
+title: Monitor your Kubernetes cluster performance with Container insights
 description: This article describes how you can view and analyze the performance of a Kubernetes cluster with Container insights.
 ms.topic: conceptual
-ms.date: 05/17/2023
+ms.date: 08/19/2024
 ms.reviewer: viviandiec
 ---
 
 # Monitor your Kubernetes cluster performance with Container insights
 
-Use the workbooks, performance charts, and health status in Container insights to monitor the workload of Kubernetes clusters hosted on Azure Kubernetes Service (AKS), Azure Stack, or another environment.
-
-This article helps you understand the two perspectives and how Azure Monitor helps you quickly assess, investigate, and resolve detected issues.
+Use the workbooks, performance charts, and health status in Container insights to monitor the workload of Kubernetes clusters hosted on Azure Kubernetes Service (AKS), Azure Stack, or another environment. This article helps you understand how to use Azure Monitor to help you quickly assess, investigate, and resolve detected issues.
 
 
 
@@ -228,7 +226,7 @@ The icons in the status field indicate the online status of the containers.
 
 | Icon | Status |
 |--------|-------------|
-| :::image type="content" source="./media/container-insights-analyze/containers-ready-icon.png" alt-text="Ready running status icon.":::|
+| :::image type="content" source="./media/container-insights-analyze/containers-ready-icon.png" alt-text="Ready running status icon.":::| Running |
 | :::image type="content" source="./media/container-insights-analyze/containers-waiting-icon.png" alt-text="Waiting or Paused status icon."::: | Waiting or Paused|
 | :::image type="content" source="./media/container-insights-analyze/containers-grey-icon.png" alt-text="Last reported running status icon."::: | Last reported running but hasn't responded for more than 30 minutes|
 | :::image type="content" source="./media/container-insights-analyze/containers-green-icon.png" alt-text="Successful status icon."::: | Successfully stopped or failed to stop|
@@ -261,6 +259,19 @@ The information that's displayed when you view containers is described in the fo
 | Uptime | Represents the time since a container was started or rebooted. |
 | Trend Min&nbsp;%, Avg&nbsp;%, 50th&nbsp;%, 90th&nbsp;%, 95th&nbsp;%, Max&nbsp;% | Bar graph trend represents the average percentile metric percentage of the container. |
 
+### Other processes
+The *Other processes* entry in the **Node** view is intended to help you clearly understand the root cause of the high resource usage on your node. This information helps you to distinguish usage between containerized processes versus noncontainerized processes. These are noncontainerized processes that run on your node and include the following:
+          
+- Self-managed or managed Kubernetes noncontainerized processes.
+- Container run-time processes.
+- Kubelet.
+- System processes running on your node.
+- Other non-Kubernetes workloads running on node hardware or a VM.
+
+The value of *other processes* is `Total usage from CAdvisor - Usage from containerized process`. 
+
+### Status
+
 The icons in the status field indicate the online statuses of pods, as described in the following table.
 
 | Icon | Status |
@@ -275,11 +286,6 @@ The icons in the status field indicate the online statuses of pods, as described
 
 Azure Network Policy Manager includes informative Prometheus metrics that you can use to monitor and better understand your network configurations. It provides built-in visualizations in either the Azure portal or Grafana Labs. For more information, see [Monitor and visualize network configurations with Azure npm](../../virtual-network/kubernetes-network-policies.md#monitor-and-visualize-network-configurations-with-azure-npm).
 
-## Frequently asked questions
-
-This section provides answers to common questions.
-
-[!INCLUDE [container-insights-faq-what-does-other-processes-represent](../includes/container-insights-faq-what-does-other-processes-represent.md)]
 
 ## Next steps
 

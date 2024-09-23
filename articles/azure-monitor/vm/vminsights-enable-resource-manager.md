@@ -49,7 +49,7 @@ This step installs a data collection rule, named `MSVMI-{WorkspaceName}`, in the
 After you create the data collection rule, deploy:
 
 - [Azure Monitor Agent for Linux or Windows](../agents/resource-manager-agent.md#azure-monitor-agent).
-- [Dependency agent for Linux](../../virtual-machines/extensions/agent-dependency-linux.md) or [Dependency agent or Windows](../../virtual-machines/extensions/agent-dependency-windows.md) if you want to enable the Map feature. 
+- [Dependency agent for Linux](/azure/virtual-machines/extensions/agent-dependency-linux) or [Dependency agent or Windows](/azure/virtual-machines/extensions/agent-dependency-windows) if you want to enable the Map feature. 
   
 > [!NOTE]
 > If your virtual machines scale sets have an upgrade policy set to manual, VM insights will not be enabled for instances by default after installing the template. You must manually upgrade the instances.

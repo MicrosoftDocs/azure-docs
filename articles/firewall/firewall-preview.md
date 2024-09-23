@@ -3,7 +3,7 @@ title: Azure Firewall preview features
 description: Learn about Azure Firewall preview features that are currently publicly available.
 services: firewall
 author: vhorne
-ms.service: firewall
+ms.service: azure-firewall
 ms.topic: conceptual
 ms.date: 10/10/2023
 ms.author: victorh

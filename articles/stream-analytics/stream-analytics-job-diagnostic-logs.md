@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot Azure Stream Analytics using resource logs
 description: This article describes how to analyze resource logs in Azure Stream Analytics.
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: troubleshooting
 ms.date: 06/18/2020
 ---

@@ -3,7 +3,7 @@ title: 'Configure Azure VPN Client optional settings'
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure optional configuration settings for the Azure VPN Client. Settings include DNS suffixes, custom DNS servers, custom routes, and VPN client forced tunneling.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 05/15/2024
 ms.author: cherylmc

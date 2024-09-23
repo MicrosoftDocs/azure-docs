@@ -6,7 +6,7 @@ author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 10/31/2023
 ms.custom: mvc
-ms.service: container-registry
+ms.service: azure-container-registry
 ---
 
 # Tutorial: Push an updated container image to a geo-replicated container registry for regional web app deployments

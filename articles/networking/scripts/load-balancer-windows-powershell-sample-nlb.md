@@ -4,7 +4,7 @@ description: Azure PowerShell Script Sample - Load balance traffic to VMs for hi
 services: load-balancer
 author: mbender-ms
 manager: KumudD
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.devlang: powershell
 ms.topic: article
 ms.date: 05/31/2023

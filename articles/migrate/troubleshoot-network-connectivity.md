@@ -143,7 +143,7 @@ This issue can occur if the Azure account being used to register the appliance d
 
 **Steps to troubleshoot Key Vault access issues:**
 1. Make sure the Azure user account used to register the appliance has at least Contributor permissions on the subscription.
-1. Ensure that the user trying to register the appliance has access to the Key Vault and has an access policy assigned in the Key Vault>Access Policy section. [Learn more](../key-vault/general/assign-access-policy-portal.md)
+1. Ensure that the user trying to register the appliance has access to the Key Vault and has an access policy assigned in the Key Vault>Access Policy section. [Learn more](/azure/key-vault/general/assign-access-policy-portal)
 -  [Learn more](./migrate-appliance.md#appliance---vmware) about the required Azure roles and permissions.
 
 **Steps to troubleshoot connectivity issues to the Key Vault:**

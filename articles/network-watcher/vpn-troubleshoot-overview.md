@@ -4,7 +4,7 @@ titleSuffix: Azure Network Watcher
 description: Learn about Azure Network Watcher VPN troubleshoot capability and how to use it to troubleshoot VPN virtual network gateways and their connections.
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: concept-article
 ms.date: 02/22/2024
 

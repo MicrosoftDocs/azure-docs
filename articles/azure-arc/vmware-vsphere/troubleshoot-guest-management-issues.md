@@ -1,8 +1,8 @@
 ---
 title: Troubleshoot Guest Management Issues
-description: Learn about how to troubleshoot the guest management issues for Arc-enabled VMware vSphere.
+description: Learn how to troubleshoot the guest management issues for Arc-enabled VMware vSphere.
 ms.topic: reference
-ms.date: 11/06/2023
+ms.date: 08/29/2024
 ms.service: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
 ms.custom: linux-related-content
@@ -14,11 +14,13 @@ manager: jsuri
 # Troubleshoot Guest Management for Linux VMs
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
-This article provides information on how to troubleshoot and resolve the issues that can occur while you enable guest management on Arc-enabled VMware vSphere virtual machines.
+This article provides information on how to troubleshoot and resolve the issues that can occur when you enable guest management on Arc-enabled VMware vSphere virtual machines.
 
-## Troubleshoot issues while enabling Guest Management on a domain-joined Linux VM
+## Troubleshoot issues while enabling Guest Management
+
+# [Arc agent installation fails on a domain-joined Linux VM](#tab/linux)
 
 **Error message**: Enabling Guest Management on a domain-joined Linux VM fails with the error message **InvalidGuestLogin: Failed to authenticate to the system with the credentials**.
 
@@ -49,22 +51,12 @@ Default: The default set of PAM service names includes:
 
 #### References
 
-- [Invoke-VMScript to an domain joined Ubuntu VM](https://communities.vmware.com/t5/VMware-PowerCLI-Discussions/Invoke-VMScript-to-an-domain-joined-Ubuntu-VM/td-p/2257554).
+- [Invoke VMScript to a domain-joined Ubuntu VM](https://communities.vmware.com/t5/VMware-PowerCLI-Discussions/Invoke-VMScript-to-an-domain-joined-Ubuntu-VM/td-p/2257554).
 
+# [Arc agent installation fails on RHEL Linux distros](#tab/rhel)
 
-## Troubleshoot issues while enabling Guest Management on RHEL-based Linux VMs
-
-Applies to:
-
-- RedHat Linux
-- CentOS
-- Rocky Linux
-- Oracle Linux
-- SUSE Linux
-- SUSE Linux Enterprise Server
-- Alma Linux
-- Fedora
-
+**Applies to:**<br>
+:heavy_check_mark: RedHat Linux :heavy_check_mark: CentOS :heavy_check_mark: Rocky Linux :heavy_check_mark: Oracle Linux :heavy_check_mark: SUSE Linux :heavy_check_mark: SUSE Linux Enterprise Server :heavy_check_mark: Alma Linux :heavy_check_mark: Fedora
 
 **Error message**: Provisioning of the resource failed with Code: `AZCM0143`; Message: `install_linux_azcmagent.sh: installation error`.
 
@@ -72,15 +64,17 @@ Applies to:
 
 Before you enable the guest agent, follow these steps on the VM:
 
-1. Create file `vmtools_unconfined_rpm_script_kcs5347781.te` using the following:
+1. Create a file named `vmtools_unconfined_rpm_script_kcs5347781.te`, and add the following to it:
 
-     `policy_module(vmtools_unconfined_rpm_script_kcs5347781, 1.0)
+    ```
+     policy_module(vmtools_unconfined_rpm_script_kcs5347781, 1.0)
      gen_require(`
      type vmtools_unconfined_t;
      ')
      optional_policy(`
      rpm_transition_script(vmtools_unconfined_t,system_r)
-     ')`
+     ')
+     ```
 
 2. Install the package to build the policy module:
 
@@ -106,12 +100,14 @@ Upon `yum` or `rpm` executing scriptlets, the context is changed to `rpm_script_
 
 - [Executing yum/rpm commands using VMware tools facility (vmrun) fails in error when packages have scriptlets](https://access.redhat.com/solutions/5347781).
 
+---
+
 ## Next steps
 
 If you don't see your problem here or you can't resolve your issue, try one of the following channels for support:
 
 - Get answers from Azure experts through [Microsoft Q&A](/answers/topics/azure-arc.html).
 
-- Connect with [@AzureSupport](https://twitter.com/azuresupport), the official Microsoft Azure account for improving customer experience. Azure Support connects the Azure community to answers, support, and experts.
+- Connect with [@AzureSupport](https://x.com/azuresupport), the official Microsoft Azure account for improving customer experience. Azure Support connects the Azure community to answers, support, and experts.
 
 - [Open an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md).

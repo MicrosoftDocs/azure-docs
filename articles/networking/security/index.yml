@@ -7,7 +7,7 @@ brand: azure ## Used for color theming of icons and hero area
 metadata: 
   title: Azure network security documentation
   description: Azure network security services provide security for your resources in Azure. 
-  ms.service: firewall
+  ms.service: azure-firewall
   ms.topic: hub-page
   author: vhorne
   ms.author: victorh
@@ -174,3 +174,16 @@ additionalContent:
               url: /azure/architecture/solution-ideas/articles/azure-security-build-first-layer-defense
             - text: Secure and govern workloads with network-level segmentation
               url: /azure/architecture/reference-architectures/hybrid-networking/network-level-segmentation
+
+    - title: Networking services
+      items:
+        - title: Related services
+          links:
+           - text: Load balancing and Content Delivery
+             url: /azure/networking/load-balancer-content-delivery/
+           - text: Network Foundations
+             url: /azure/networking/foundations/
+           - text: Hybrid connectivity
+             url: /azure/networking/hybrid-connectivity/
+           - text: Network monitoring and management
+             url: /azure/networking/monitoring-management/

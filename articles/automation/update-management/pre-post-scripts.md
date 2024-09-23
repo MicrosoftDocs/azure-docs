@@ -6,6 +6,7 @@ ms.subservice: update-management
 ms.date: 07/15/2024
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
+ms.service: azure-automation
 ---
 
 # Manage pre-scripts and post-scripts

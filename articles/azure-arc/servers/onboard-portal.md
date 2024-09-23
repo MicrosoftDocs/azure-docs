@@ -2,7 +2,7 @@
 title: Connect hybrid machines to Azure using a deployment script
 description: In this article, you learn how to install the agent and connect machines to Azure by using Azure Arc-enabled servers using the deployment script you create in the Azure portal.
 ms.date: 10/23/2023
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: linux-related-content
 ---
 
@@ -152,7 +152,7 @@ bash ~/Install_linux_azcmagent.sh
 
 1. Change to the folder or share that you copied the script to, and execute it on the server by running the `./OnboardingScript.sh` script.
 
-If the agent fails to start after setup is finished, check the logs for detailed error information. The log directory is *var/opt/azcmagent/log*.
+If the agent fails to start after setup is finished, check the logs for detailed error information. The log directory is `/var/opt/azcmagent/log`.
 
 ## Verify the connection with Azure Arc
 

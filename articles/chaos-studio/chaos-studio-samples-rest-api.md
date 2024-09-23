@@ -7,7 +7,7 @@ ms.topic: article
 ms.date: 11/01/2021
 ms.author: abbyweisberg
 ms.reviewer: prashabora
-ms.service: chaos-studio
+ms.service: azure-chaos-studio
 ms.custom: devx-track-azurecli
 ---
 
@@ -111,6 +111,8 @@ az rest --method get --url "https://management.azure.com/{experimentId}?api-vers
 ```azurecli
 az rest --method put --url "https://management.azure.com/{experimentId}?api-version={apiVersion}" --body @{experimentName.json} 
 ```
+
+Note: if you receive an `UnsupportedMediaType` error, make sure your referenced JSON file is valid, and try other ways to reference the `.json` file. Different command-line interpreters may require different methods of file referencing. Another common syntax is `--body "@experimentName.json"`.
 
 ### Delete an experiment
 

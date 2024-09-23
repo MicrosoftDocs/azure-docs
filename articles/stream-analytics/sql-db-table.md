@@ -2,7 +2,7 @@
 title: Write to Azure SQL Database table from your Azure Stream Analytics jobs
 description: This article describes how to add a new or existing SQL DB table as output for an Azure Stream Analytics job in Azure portal.
 author: ajetasi
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 07/20/2022
 ---

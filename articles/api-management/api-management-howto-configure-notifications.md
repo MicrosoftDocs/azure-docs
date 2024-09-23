@@ -5,7 +5,7 @@ description: Learn how to configure notifications and email templates for events
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 06/02/2023
 ms.author: danlep

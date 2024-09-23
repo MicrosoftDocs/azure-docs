@@ -6,7 +6,7 @@ ms.custom: devx-track-azurecli
 author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 10/31/2023
-ms.service: container-registry
+ms.service: azure-container-registry
 ---
 
 # Connect privately to an Azure container registry using Azure Private Link
@@ -480,7 +480,7 @@ Data endpoint(s): `{REGISTRY_NAME}.{REGISTRY_LOCATION}.data.azurecr.io`
 
 For a geo-replicated registry, customer needs to configure access to the data endpoint for each regional replica.
 
-You have to update the routing configuration for the client proxy and client firewall with the data endpoints to handle the pull requests successfully. A client proxy will provide central traffic control to the [outbound requests][outbound-connection]. To handle local traffic a client proxy is not required, you can add into `noProxy` section to bypass the proxy. Learn more about [HTTP proxy doc](../aks/http-proxy.md) to integrate with AKS. 
+You have to update the routing configuration for the client proxy and client firewall with the data endpoints to handle the pull requests successfully. A client proxy will provide central traffic control to the [outbound requests][outbound-connection]. To handle local traffic a client proxy is not required, you can add into `noProxy` section to bypass the proxy. Learn more about [HTTP proxy doc](/azure/aks/http-proxy) to integrate with AKS. 
 
 Requests to token server over private endpoint connection doesn't require the data endpoint configuration.
 
@@ -494,7 +494,7 @@ Requests to token server over private endpoint connection doesn't require the da
 
 * [Troubleshoot Azure Private Endpoint connectivity problems](../private-link/troubleshoot-private-endpoint-connectivity.md).
 
-* If you need to deploy Azure Container Instances that can pull images from an ACR through a private endpoint, see [Deploy to Azure Container Instances from Azure Container Registry using a managed identity](../container-instances/using-azure-container-registry-mi.md).
+* If you need to deploy Azure Container Instances that can pull images from an ACR through a private endpoint, see [Deploy to Azure Container Instances from Azure Container Registry using a managed identity](/azure/container-instances/using-azure-container-registry-mi).
 
 <!-- LINKS - external -->
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms

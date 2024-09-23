@@ -4911,22 +4911,23 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "metadata": {
-  "parameters": {
-    "appName": {
-      "type": "string"
-    },
-    "pingURL": {
-      "type": "string"
-    },
-    "pingText": {
-      "type": "string",
-      "defaultValue": ""
-    },
-    "actionGroupId": {
-      "type": "string"
-    },
-    "location": {
-      "type": "string"
+    "parameters": {
+      "appName": {
+        "type": "string"
+      },
+      "pingURL": {
+        "type": "string"
+      },
+      "pingText": {
+        "type": "string",
+        "defaultValue": ""
+      },
+      "actionGroupId": {
+        "type": "string"
+      },
+      "location": {
+        "type": "string"
+      }
     }
   },
   "variables": {

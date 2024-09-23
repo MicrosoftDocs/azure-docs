@@ -1,7 +1,7 @@
 ---
 title: Security overview
 description: Basic security information about Azure Arc-enabled servers.
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 06/06/2024
 ---
 

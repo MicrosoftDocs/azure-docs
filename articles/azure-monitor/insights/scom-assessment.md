@@ -4,7 +4,7 @@ description: You can use the System Center Operations Manager Health Check solut
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/31/2023
+ms.date: 07/26/2024
 ms.reviewer: shijain
 
 ---

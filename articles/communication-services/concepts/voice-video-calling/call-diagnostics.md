@@ -52,7 +52,7 @@ analyze new call data.
 
 Since Call Diagnostics is an application layer on top of data for your
 Azure Communications Service Resource, you can query these call data and
-[build workbook reports on top of your data.](../../../azure-monitor/logs/data-platform-logs.md#what-can-you-do-with-azure-monitor-logs)
+[build workbook reports on top of your data.](../../../azure-monitor/logs/data-platform-logs.md#built-in-insights-and-custom-dashboards-workbooks-and-reports)
 
 You can access Call Diagnostics from any Azure Communication Services
 Resource in your Azure portal. When you open your Azure Communications

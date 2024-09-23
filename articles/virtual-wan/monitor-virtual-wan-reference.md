@@ -2,7 +2,7 @@
 title: 'Monitoring Azure Virtual WAN - Data reference'
 description: Learn about Azure Virtual WAN logs and metrics using Azure Monitor.
 author: cherylmc
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: reference
 ms.date: 02/15/2024
 ms.author: cherylmc

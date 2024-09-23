@@ -1,7 +1,7 @@
 ---
 title: Azure HDInsight Encryption in transit
 description: Learn about security features to provide encryption in transit for your Azure HDInsight cluster.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: conceptual
 ms.date: 06/15/2024
 ---

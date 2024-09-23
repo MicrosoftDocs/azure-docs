@@ -3,7 +3,7 @@ title: Long running TCP sessions with Azure Firewall
 description: There are few scenarios where Azure Firewall can potentially drop long running TCP sessions.
 services: firewall
 author: vhorne
-ms.service: firewall
+ms.service: azure-firewall
 ms.topic: article
 ms.date: 01/04/2023
 ms.author: victorh 

@@ -5,6 +5,7 @@ services: automation
 ms.subservice: process-automation
 ms.date: 07/20/2018
 ms.topic: conceptual
+ms.service: azure-automation
 ---
 
 # Use the Azure Automation graphical runbook SDK (preview)

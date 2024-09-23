@@ -6,6 +6,7 @@ ms.subservice: update-management
 ms.date: 07/15/2024
 ms.topic: conceptual
 ms.custom: mvc
+ms.service: azure-automation
 ---
 
 # Enable Update Management from the Azure portal
@@ -21,7 +22,7 @@ The number of resource groups that you can use for managing your VMs is limited 
 
 * Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Automation account](../automation-security-overview.md) to manage machines.
-* A [virtual machine](../../virtual-machines/windows/quick-create-portal.md).
+* A [virtual machine](/azure/virtual-machines/windows/quick-create-portal).
 
 ## Sign in to Azure
 

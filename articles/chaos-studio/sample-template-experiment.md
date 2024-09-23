@@ -7,7 +7,7 @@ ms.topic: sample
 ms.date: 11/10/2021
 ms.author: abbyweisberg
 ms.reviewer: prashabora
-ms.service: chaos-studio
+ms.service: azure-chaos-studio
 ms.custom: devx-track-arm-template
 ---
 

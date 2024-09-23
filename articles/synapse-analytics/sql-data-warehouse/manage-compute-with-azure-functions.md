@@ -4,7 +4,7 @@ description: How to use Azure Functions to manage the compute of your dedicated 
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.date: 04/27/2018
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 ms.custom:

@@ -6,7 +6,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: devx-track-azurecli, has-azure-ad-ps-ref
 ms.topic: conceptual
-ms.date: 11/02/2023
+ms.date: 07/17/2024
 ms.author: anfdocs
 ---
 
@@ -24,7 +24,6 @@ All [Azure NetApp Files features](whats-new.md) available on Azure public cloud 
 
 | Azure NetApp Files features | Azure public cloud availability |  Azure Government availability |
 |:--- |:--- |:--- |
-| Azure NetApp Files customer-managed keys | Generally available (GA) | No | 
 | Azure NetApp Files large volumes | Generally available (GA) | Generally available [(select regions)](large-volumes-requirements-considerations.md#supported-regions) |
 
 ## Portal access

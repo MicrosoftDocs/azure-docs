@@ -6,8 +6,8 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.custom: engagement-fy24
-ms.date: 06/20/2024
+ms.custom: engagement-fy25
+ms.date: 08/06/2024
 ---
 
 # Azure Migrate appliance: Common questions
@@ -85,7 +85,7 @@ The volume of data that's sent to Azure Migrate depends on multiple parameters. 
 Yes, for both:
 
 - Metadata is securely sent to the Azure Migrate service over the internet via HTTPS.
-- Metadata is stored in an [Azure Cosmos DB](../cosmos-db/database-encryption-at-rest.md) database and in [Azure Blob storage](../storage/common/storage-service-encryption.md) in a Microsoft subscription. The metadata is encrypted at rest for storage.
+- Metadata is stored in an [Azure Cosmos DB](/azure/cosmos-db/database-encryption-at-rest) database and in [Azure Blob storage](../storage/common/storage-service-encryption.md) in a Microsoft subscription. The metadata is encrypted at rest for storage.
 - The data for dependency analysis also is encrypted in transit (by secure HTTPS). It's stored in a Log Analytics workspace in your subscription. The data is encrypted at rest for dependency analysis.
 
 ## How does the appliance connect to vCenter Server?
@@ -219,7 +219,7 @@ For a newly created Migrate appliance, the default expiry period for the associa
 1. On the appliance VM, open an elevated privileged PowerShell Command Prompt.
 1. Navigate to the Config Manager installation folder: 
 
-    ```cd C:\’Program Files’\’Microsoft Azure Appliance Configuration Manager’\Scripts\PowerShell\AzureMigrateCertificateRotation ```
+    ```cd C:\’Program Files’\’Microsoft Azure Appliance Configuration Manager’\Scripts\PowerShell\AzureMigrateCertificateRotation```
 
 1. Execute the following script to rotate the Microsoft Entra ID app certificate and extend its validity for an additional 6 months:
 
@@ -233,4 +233,4 @@ For a newly created Migrate appliance, the default expiry period for the associa
 
 ## Next steps
 
-Read the [Azure Migrate overview](migrate-services-overview.md).
+[Learn more](migrate-appliance.md) about the Azure Migrate appliance.

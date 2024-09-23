@@ -2,7 +2,7 @@
 title: Enable VM extension using Red Hat Ansible
 description: This article describes how to deploy virtual machine extensions to Azure Arc-enabled servers running in hybrid cloud environments using Red Hat Ansible Automation.
 ms.date: 05/15/2023
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: devx-track-ansible
 ---
 

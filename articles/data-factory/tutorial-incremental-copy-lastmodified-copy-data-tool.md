@@ -3,8 +3,6 @@ title: Data tool to copy new and updated files incrementally
 description: Create an Azure data factory and then use the Copy Data tool to incrementally load new files based on LastModifiedDate.
 author: dearandyxu
 ms.author: yexu
-ms.service: data-factory
-ms.subservice: tutorials
 ms.topic: conceptual
 ms.date: 05/15/2024
 ---

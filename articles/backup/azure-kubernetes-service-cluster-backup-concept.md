@@ -2,7 +2,7 @@
 title: Azure Kubernetes Service (AKS) backup using Azure Backup prerequisites
 description: This article explains the prerequisites for Azure Kubernetes Service (AKS) backup.
 ms.topic: conceptual
-ms.service: backup
+ms.service: azure-backup
 ms.custom:
   - ignite-2023
 ms.date: 03/28/2024
@@ -67,11 +67,11 @@ To enable backup for an AKS cluster, see the following prerequisites: .
 
   >[!Note]
   >- Currently, AKS backup only supports backup of Azure Disk-based persistent volumes (enabled by CSI driver). If you're using Azure File Share and Azure Blob type persistent volumes in your AKS clusters, you can configure backups for them via the Azure Backup solutions available for [Azure File Share](azure-file-share-backup-overview.md) and [Azure Blob](blob-backup-overview.md).
-  >- In Tree, volumes aren't supported by AKS backup; only CSI driver based volumes can be backed up. You can [migrate from tree volumes to CSI driver based Persistent Volumes](../aks/csi-migrate-in-tree-volumes.md).
+  >- In Tree, volumes aren't supported by AKS backup; only CSI driver based volumes can be backed up. You can [migrate from tree volumes to CSI driver based Persistent Volumes](/azure/aks/csi-migrate-in-tree-volumes).
 
-- Before installing Backup Extension in the AKS cluster, ensure that the CSI drivers and snapshots are enabled for your cluster. If disabled, see [these steps to enable them](../aks/csi-storage-drivers.md#enable-csi-storage-drivers-on-an-existing-cluster).
+- Before installing Backup Extension in the AKS cluster, ensure that the CSI drivers and snapshots are enabled for your cluster. If disabled, see [these steps to enable them](/azure/aks/csi-storage-drivers#enable-csi-storage-drivers-on-an-existing-cluster).
 
-- Azure Backup for AKS supports AKS clusters using either a system-assigned managed identity or a user-assigned managed identity for backup operations. Although clusters using a service principal aren't supported, you can update an existing AKS cluster to use a [system-assigned managed identity](../aks/use-managed-identity.md#update-an-existing-aks-cluster-to-use-a-system-assigned-managed-identity) or a [user-assigned managed identity](../aks/use-managed-identity.md#update-an-existing-cluster-to-use-a-user-assigned-managed-identity).
+- Azure Backup for AKS supports AKS clusters using either a system-assigned managed identity or a user-assigned managed identity for backup operations. Although clusters using a service principal aren't supported, you can update an existing AKS cluster to use a [system-assigned managed identity](/azure/aks/use-managed-identity#update-an-existing-aks-cluster-to-use-a-system-assigned-managed-identity) or a [user-assigned managed identity](/azure/aks/use-managed-identity#update-an-existing-cluster-to-use-a-user-assigned-managed-identity).
 
 - The Backup Extension during installation fetches Container Images stored in Microsoft Container Registry (MCR). If you enable a firewall on the AKS cluster, the extension installation process might fail due to access issues on the Registry. Learn [how to allow MCR access from the firewall](../container-registry/container-registry-firewall-access-rules.md#configure-client-firewall-rules-for-mcr).
 

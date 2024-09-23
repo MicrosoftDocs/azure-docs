@@ -4,7 +4,7 @@ description: Read an overview of Azure Managed Grafana. This article explains wh
 #customer intent: As a developer, devops or data professional, I want to learn about Grafana so that I understand how to use Azure Managed Grafana.
 author: maud-lv 
 ms.author: malev 
-ms.service: managed-grafana 
+ms.service: azure-managed-grafana
 ms.topic: overview 
 ms.date: 04/25/2024
 --- 

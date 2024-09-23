@@ -181,7 +181,7 @@ Resource Graph Explorer also provides a clean interface for converting the resul
 With Resource Graph, you can query either the `resourcechanges`, `resourcecontainerchanges`, or `healthresourcechanges` tables to filter or sort by any of the change resource properties. The following examples query the `resourcechanges` table, but can also be applied to the `resourcecontainerchanges` or `healthresourcechanges` table.
 
 > [!NOTE]
-> Learn more about the `healthresourcechanges` data in [the Project Flash documentation.](../../../virtual-machines/flash-azure-resource-graph.md#azure-resource-graph---healthresources)
+> Learn more about the `healthresourcechanges` data in [the Project Flash documentation.](/azure/virtual-machines/flash-azure-resource-graph#azure-resource-graph---healthresources)
 
 ### Examples
 

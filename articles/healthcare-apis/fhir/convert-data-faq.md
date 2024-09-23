@@ -3,7 +3,7 @@ title: $convert-data FAQ for the FHIR service in Azure Health Data Services
 description: Get answers to frequently asked questions about the $convert-data operation.
 services: healthcare-apis
 author: msjasteppe
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.topic: faq
 ms.date: 05/13/2024
 ms.author: jasteppe
@@ -69,6 +69,12 @@ Yes. You can use the [FHIR Converter Visual Studio Code extension](https://mar
 ## After I customize a template, can I reference and store various versions?
 
 Yes. It’s possible to store and reference custom templates. For more information, see [Configure settings for $convert-data by using the Azure portal](convert-data-configuration.md).
+
+## Why are my dates being converted when transforming JSON data?
+ 
+It's possible for dates supplied within JSON data to be returned in a different format than what was supplied. During deserialization of the JSON payload strings that are identified as dates get converted into .NET DateTime objects. These objects then get converted back to strings before going through the Liquid template engine. This conversion can cause the date value to be reformatted and represented in the local timezone of the FHIR service.
+
+The coercion of strings to .NET DateTime objects can be disabled using the boolean parameter `jsonDeserializationTreatDatesAsStrings`. When set to `true`, the supplied data is treated as a string and won't be modified before being supplied to the Liquid engine.
 
 ## If I need support with troubleshooting, where can I go?
 

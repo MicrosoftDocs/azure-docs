@@ -4,7 +4,8 @@ description: This article tells how to remove Azure and non-Azure machines from 
 services: automation
 ms.subservice: change-inventory-management
 ms.topic: conceptual
-ms.date: 10/26/2021
+ms.date: 07/22/2024
+ms.service: azure-automation
 ---
 
 # Remove machines from Change Tracking and Inventory

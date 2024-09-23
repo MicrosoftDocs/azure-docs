@@ -10,6 +10,7 @@ ms.custom:
   - build-2024
 ms.author: jenhayes
 author: JnHs
+ms.collection: ce-skilling-ai-copilot
 ---
 
 # Get information about Azure Monitor metrics, logs, and alerts using Microsoft Copilot in Azure (preview)

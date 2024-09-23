@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 02/24/2023
+ms.date: 06/18/2024
 ms.author: anfdocs
 ---
 # Understand Azure NetApp Files application volume group for SAP HANA 
@@ -41,7 +41,7 @@ Application volume group for SAP HANA is supported for all regions where Azure N
 Application volume group for SAP HANA helps you simplify the deployment process and increase the storage performance for SAP HANA workloads. Some of the new features are as follows:
 
 * Use of proximity placement group (PPG) instead of manual pinning.
-    * You anchor the SAP HANA VMs using a PPG to guaranty lowest possible latency. The PPG enforces the creation of data, log, and shared volumes in the close proximity to the SAP HANA VMs. See [Best practices about Proximity Placement Groups](application-volume-group-considerations.md#best-practices-about-proximity-placement-groups) for details.
+    * You anchor the SAP HANA VMs using a PPG to guaranty lowest possible latency. The PPG enforces the creation of data, log, and shared volumes in the close proximity to the SAP HANA VMs. See [Best practices about Proximity Placement Groups](application-volume-group-considerations.md#best-practices-about-proximity-placement) for details.
 
 * Creation of separate storage endpoints (with different IP addresses) for data and log volumes.
     * This deployment method provides better performance and throughput for the SAP HANA database.
