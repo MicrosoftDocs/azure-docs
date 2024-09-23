@@ -91,7 +91,7 @@ sections:
       - question: |
           What are the usage limits for Azure DNS Private zones?
         answer: |
-          Refer to [Azure DNS limits](../azure-resource-manager/management/azure-subscription-service-limits.md##private-dns-zones) for details on the usage limits for Azure DNS private zones.
+          Refer to [Azure DNS limits](../azure-resource-manager/management/azure-subscription-service-limits.md##private-dns) for details on the usage limits for Azure DNS private zones.
           
       - question: |
           Why don’t my existing private DNS zones show up in new portal experience?

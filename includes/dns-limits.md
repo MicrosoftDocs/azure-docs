@@ -40,7 +40,9 @@ ms.author: greglin
 | List By Type | 60/min |
 | Update | 200/min |
 
-#### Private DNS zones
+#### Privatge DNS
+
+##### Private DNS zones
 
 | Resource | Limit |
 | --- | --- |
