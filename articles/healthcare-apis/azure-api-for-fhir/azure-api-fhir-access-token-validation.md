@@ -11,11 +11,11 @@ ms.author: kesheth
 ---
 # Azure API for FHIR access token validation
 
-[!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
+[!INCLUDE[retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 
-How Azure API for FHIR validates the access token will depend on implementation and configuration. In this article, we'll walk through the validation steps, which can be helpful when troubleshooting access issues.
+How Azure API for FHIR&reg; validates the access token will depend on implementation and configuration. In this article, we'll walk through the validation steps, which can be helpful when troubleshooting access issues.
 
-## Validate token has no issues with identity provider
+## Validate the token has no issues with identity provider
 
 The first step in the token validation is to verify that the token was issued by the correct identity provider and that it hasn't been modified. The FHIR server will be configured to use a specific identity provider known as the authority `Authority`. The FHIR server will retrieve information about the identity provider from the `/.well-known/openid-configuration` endpoint. When you use Microsoft Entra ID, the full URL is:
 
@@ -25,7 +25,7 @@ GET https://login.microsoftonline.com/<TENANT-ID>/.well-known/openid-configurati
 
 where `<TENANT-ID>` is the specific Microsoft Entra tenant (either a tenant ID or a domain name).
 
-Microsoft Entra ID will return a document like this one to the FHIR server.
+Microsoft Entra ID will return a document like the following to the FHIR server.
 
 ```json
 {
@@ -90,8 +90,9 @@ Microsoft Entra ID will return a document like this one to the FHIR server.
     "msgraph_host": "graph.microsoft.com",
     "rbac_url": "https://pas.windows.net"
 }
-``` 
-The important properties for the FHIR server are `jwks_uri`, which tells the server where to fetch the encryption keys needed to validate the token signature and `issuer`, which tells the server what will be in the issuer claim (`iss`) of tokens issued by this server. The FHIR server can use this to validate that it's receiving an authentic token.
+```
+
+The important properties for the FHIR server are `jwks_uri`, which tells the server where to fetch the encryption keys needed to validate the token signature, and `issuer`, which tells the server what will be in the issuer claim (`iss`) of tokens issued by this server. The FHIR server can use this to validate it's receiving an authentic token.
 
 ## Validate claims of the token
 
@@ -109,14 +110,14 @@ When you use the OSS Microsoft FHIR server for Azure, the server will validate:
 1. The token has the right `Audience` (`aud` claim).
 1. The token has a role in the `roles` claim, which is allowed access to the FHIR server.
 
-Consult details on how to [define roles on the FHIR server](https://github.com/microsoft/fhir-server/blob/master/docs/Roles.md).
+For details on how to [define roles on the FHIR server](https://github.com/microsoft/fhir-server/blob/master/docs/Roles.md).
 
 A FHIR server may also validate that an access token has the scopes (in token claim `scp`) to access the part of the FHIR API that a client is trying to access. Currently, Azure API for FHIR and the FHIR server for Azure don't validate token scopes.
 
 ## Next steps
-Now that you know how to walk through token validation, you can complete the tutorial to create a JavaScript application and read Fast Healthcare Interoperability Resources (FHIR&#174;) data.
+Now that you know how to validate tokens, you can complete the tutorial to create a JavaScript application and read Fast Healthcare Interoperability Resources (FHIR&#174;) data.
 
 >[!div class="nextstepaction"]
 >[Web application tutorial](tutorial-web-app-fhir-server.md)
 
-FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
+[!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]
