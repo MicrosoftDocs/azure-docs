@@ -49,7 +49,9 @@ In some cases, you will have to allow time for clean-up operations after a featu
 > Simply disabling change feed will not allow you to perform an upgrade. Instead, you must create an account with the hierarchical namespace feature enabled on it, and move then transfer your data into that account.
 
 > [!IMPORTANT]
-> Please be aware that you will not be able to proceed with the ADLS Gen2 Storage account upgrade if the storage account contains page blobs. It is necessary to delete all page blobs from the account before initiating the upgrade process.
+### Remove page blobs from the storage account
+
+You cannot upgrade a storage account that contains page blobs. Make sure to remove page blobs from the storage account before you perform the upgrade. 
 
 ### Ensure the segments of each blob path are named
 
