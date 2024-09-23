@@ -3,7 +3,7 @@ title: Updates and component upgrades in Azure Site Recovery
 description: Provides an overview of Azure Site Recovery service updates, MARS agent and component upgrades.
 author: ankitaduttaMSFT
 ms.service: azure-site-recovery
-ms.topic: how-to
+ms.topic: overview
 ms.author: ankitadutta
 ms.date: 08/11/2021
 ---
