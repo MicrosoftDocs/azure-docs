@@ -4,7 +4,7 @@ description: In this article, learn about common scenarios for using Azure Priva
 services: dns
 author: greg-lindsay
 ms.service: azure-dns
-ms.topic: article
+ms.topic: concept-article
 ms.date: 04/25/2023
 ms.author: greglin
 ---

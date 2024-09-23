@@ -3,12 +3,15 @@ title: Use Apache Superset with Trino on HDInsight on AKS
 description: Deploying Superset and connecting to Trino with HDInsight on AKS
 ms.service: azure-hdinsight-on-aks
 ms.topic: how-to 
-ms.date: 10/19/2023
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Deploy Apache Superset™
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 Visualization is essential to effectively explore, present, and share data. [Apache Superset](https://superset.apache.org/) allows you to run queries, visualize, and build dashboards over your data in a flexible Web UI. 
 

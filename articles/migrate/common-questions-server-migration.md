@@ -63,6 +63,9 @@ While you can create assessments for multiple regions in an Azure Migrate projec
 
 Yes, you can migrate to multiple subscriptions (same Azure tenant) in the same target region for an Azure Migrate project. You can select the target subscription while enabling replication for a machine or a set of machines. The target region is locked post first replication for agentless VMware migrations and during the replication appliance and Hyper-V provider installation for agent-based migrations and agentless Hyper-V migrations respectively.
 
+### Does Azure Migrate support Azure Resource Graph?
+Currently, Azure Migrate isn't integrated with Azure Resource Graph. It does support performing ARG-related queries.
+
 ### How is the data transmitted from on-premises environment to Azure? Is it encrypted before transmission?
 
 The Azure Migrate appliance in the agentless replication case  compresses data and encrypts before uploading. Data is transmitted over a secure communication channel over https and uses TLS 1.2 or later. Additionally, Azure Storage automatically encrypts your data when it's persisted it to the cloud (encryption-at-rest).
@@ -142,7 +145,7 @@ The Migration and modernization tool is application agnostic and works for most 
 
 ### Can I upgrade my OS while migrating?
 
-The Migration and modernization tool only supports like-for-like migrations currently. The tool doesn’t support upgrading the OS version during migration. The migrated machine will have the same OS as the source machine.
+The Migration and modernization tool now supports Windows OS upgrade during Migration. For Linux this option is currently not available. More details on [Windows OS upgrade](how-to-upgrade-windows.md).
 
 ### Do I need VMware vCenter to migrate VMware VMs?
 
@@ -150,7 +153,7 @@ To [migrate VMware VMs](server-migrate-overview.md) using VMware agent-based or 
 
 ### Can I consolidate multiple source VMs into one VM while migrating?
 
-Migration and modernization capabilities support like-for-like migrations currently. We don't support consolidating servers or upgrading the operating system as part of the migration.
+Migration and modernization capabilities support like-for-like migrations currently. We don't support consolidating servers as part of the migration.
 
 ### Will Windows Server 2008 and 2008 R2 be supported in Azure after migration?
 
