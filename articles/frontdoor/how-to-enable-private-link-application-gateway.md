@@ -217,7 +217,7 @@ Follow the steps in [Configure Azure Application Gateway Private Link](../applic
 
 ## Complete Azure Front Door setup
 
-1. Run [az afd route create](/cli/azure/afd/route#az-afd-route-create) to create a route that maps your endpoint to the origin group. This route forwards requests from the endpoint to your origin group.
+Run [az afd route create](/cli/azure/afd/route#az-afd-route-create) to create a route that maps your endpoint to the origin group. This route forwards requests from the endpoint to your origin group.
 
     ```azurecli-interactive
     az afd route create \
@@ -246,13 +246,13 @@ The following are common mistakes when configuring an Azure Application Gateway 
 
 ::: zone pivot="front-door-ps"
 
-1. Providing an incorrect Azure Application Gateway frontend IP configuration name as the value for `SharedPrivateLinkResourceGroupId`.
+3. Providing an incorrect Azure Application Gateway frontend IP configuration name as the value for `SharedPrivateLinkResourceGroupId`.
 
 ::: zone-end
 
 ::: zone pivot="front-door-cli"
 
-1. Providing an incorrect Azure Application Gateway frontend IP configuration name as the value for `private-link-sub-resource-type`.
+3. Providing an incorrect Azure Application Gateway frontend IP configuration name as the value for `private-link-sub-resource-type`.
 
 ::: zone-end
 
