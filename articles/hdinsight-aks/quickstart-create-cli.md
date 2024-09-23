@@ -4,12 +4,16 @@ description: Learn how to use Azure CLI to create an HDInsight on AKS cluster po
 ms.service: azure-hdinsight-on-aks
 ms.custom: devx-track-azurecli
 ms.topic: quickstart
-ms.date: 06/18/2024
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Quickstart: Create an HDInsight on AKS cluster pool using Azure CLI
 
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
+
 
 HDInsight on AKS introduces the concept of cluster pools and clusters, which allow you to realize the complete value of data lakehouse.
 

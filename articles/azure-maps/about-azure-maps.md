@@ -60,12 +60,6 @@ Azure Maps consists of the following services that can provide geographic contex
 
 Data is imperative for maps. Use the Data registry service to access geospatial data, used with spatial operations or image composition, previously uploaded to your [Azure Storage].  By bringing customer data closer to the Azure Maps service, you reduce latency and increase productivity. For more information, see [Data registry] in the Azure Maps REST API documentation.
 
-> [!NOTE]
->
-> **Azure Maps Data service retirement**
->
-> The Azure Maps Data service (both [v1] and [v2]) is now deprecated and will be retired on 9/16/24. To avoid service disruptions, all calls to the Data service will need to be updated to use the Azure Maps [Data registry] service by 9/16/24. For more information, see [How to create data registry].
-
 ### Geolocation service
 
 Use the Geolocation service to retrieve the two-letter country/region code for an IP address. This service can help you enhance user experience by providing customized application content based on geographic location.

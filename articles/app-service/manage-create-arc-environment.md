@@ -5,17 +5,19 @@ author: msangapu-msft
 ms.author: msangapu
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 03/24/2023
+ms.date: 09/23/2024
 ---
 # Set up an Azure Arc-enabled Kubernetes cluster to run App Service, Functions, and Logic Apps (Preview)
 
-If you have an [Azure Arc-enabled Kubernetes cluster](../azure-arc/kubernetes/overview.md), you can use it to create an [App Service enabled custom location](overview-arc-integration.md) and deploy web apps, function apps, and logic apps to it.
+If you have an [Azure Arc-enabled Kubernetes cluster](/azure/azure-arc/kubernetes/overview), you can use it to create an [App Service enabled custom location](overview-arc-integration.md) and deploy web apps, function apps, and logic apps to it.
 
 Azure Arc-enabled Kubernetes lets you make your on-premises or cloud Kubernetes cluster visible to App Service, Functions, and Logic Apps in Azure. You can create an app and deploy to it just like another Azure region.
 
 ## Prerequisites
 
 If you don't have an Azure account, [sign up today](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-app-service-extension&mktingSource=vscode-tutorial-app-service-extension) for a free account.
+
+Review the [requirements and limitations](overview-arc-integration.md) of the public preview. Of particular importance are the cluster requirements.
 
 <!-- ## Prerequisites
 
@@ -56,7 +58,7 @@ az extension add --upgrade --yes --name appservice-kube
 ## Create a connected cluster
 
 > [!NOTE]
-> This tutorial uses [Azure Kubernetes Service (AKS)](/azure/aks/) to provide concrete instructions for setting up an environment from scratch. However, for a production workload, you will likely not want to enable Azure Arc on an AKS cluster as it is already managed in Azure. The steps below will help you get started understanding the service, but for production deployments, they should be viewed as illustrative, not prescriptive. See [Quickstart: Connect an existing Kubernetes cluster to Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md) for general instructions on creating an Azure Arc-enabled Kubernetes cluster.
+> This tutorial uses [Azure Kubernetes Service (AKS)](/azure/aks/) to provide concrete instructions for setting up an environment from scratch. However, for a production workload, you will likely not want to enable Azure Arc on an AKS cluster as it is already managed in Azure. The steps will help you get started understanding the service, but for production deployments, they should be viewed as illustrative, not prescriptive. See [Quickstart: Connect an existing Kubernetes cluster to Azure Arc](/azure/azure-arc/kubernetes/quickstart-connect-cluster) for general instructions on creating an Azure Arc-enabled Kubernetes cluster.
 
 1. Create a cluster in Azure Kubernetes Service with a public IP address. Replace `<group-name>` with the resource group name you want.
 
@@ -141,7 +143,7 @@ az extension add --upgrade --yes --name appservice-kube
     
 ## Create a Log Analytics workspace
 
-While a [Log Analytic workspace](../azure-monitor/logs/quick-create-workspace.md) is not required to run App Service in Azure Arc, it's how developers can get application logs for their apps that are running in the Azure Arc-enabled Kubernetes cluster. 
+While a [Log Analytic workspace](/azure/azure-monitor/logs/quick-create-workspace) is not required to run App Service in Azure Arc, it's how developers can get application logs for their apps that are running in the Azure Arc-enabled Kubernetes cluster. 
 
 1. For simplicity, create the workspace now.
 
@@ -207,7 +209,7 @@ While a [Log Analytic workspace](../azure-monitor/logs/quick-create-workspace.md
 
 ## Install the App Service extension
 
-1. Set the following environment variables for the desired name of the [App Service extension](overview-arc-integration.md), the cluster namespace in which resources should be provisioned, and the name for the App Service Kubernetes environment. Choose a unique name for `<kube-environment-name>`, because it will be part of the domain name for app created in the App Service Kubernetes environment.
+1. Set the following environment variables for the desired name of the [App Service extension](overview-arc-integration.md), the cluster namespace in which resources should be provisioned, and the name for the App Service Kubernetes environment. Choose a unique name for `<kube-environment-name>`, because it is part of the domain name for app created in the App Service Kubernetes environment.
 
     # [bash](#tab/bash)
 
@@ -291,13 +293,13 @@ While a [Log Analytic workspace](../azure-monitor/logs/quick-create-workspace.md
     
     | Parameter | Description |
     | - | - |
-    | `Microsoft.CustomLocation.ServiceAccount` | The service account that should be created for the custom location that will be created. It is recommended that this be set to the value `default`. |
+    | `Microsoft.CustomLocation.ServiceAccount` | The service account that should be created for the custom location that is created. It is recommended that this be set to the value `default`. |
     | `appsNamespace` | The namespace to provision the app definitions and pods. **Must** match that of the extension release namespace. |
-    | `clusterName` | The name of the App Service Kubernetes environment that will be created against this extension. |
+    | `clusterName` | The name of the App Service Kubernetes environment that is created against this extension. |
     | `keda.enabled` | Whether [KEDA](https://keda.sh/) should be installed on the Kubernetes cluster. Accepts `true` or `false`. |
-    | `buildService.storageClassName` | The [name of the storage class](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#class) for the build service to store build artifacts. A value like `default` specifies a class named `default`, and not [any class that is marked as default](https://kubernetes.io/docs/tasks/administer-cluster/change-default-storage-class/).  Default is a valid storage class for AKS and AKS HCI but it may not be for other distrubtions/platforms. |
-    | `buildService.storageAccessMode` | The [access mode](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes) to use with the named storage class above. Accepts `ReadWriteOnce` or `ReadWriteMany`. |
-    | `customConfigMap` | The name of the config map that will be set by the App Service Kubernetes environment. Currently, it must be `<namespace>/kube-environment-config`, replacing `<namespace>` with the value of `appsNamespace` above. |
+    | `buildService.storageClassName` | The [name of the storage class](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#class) for the build service to store build artifacts. A value like `default` specifies a class named `default`, and not [any class that is marked as default](https://kubernetes.io/docs/tasks/administer-cluster/change-default-storage-class/). Default is a valid storage class for AKS and AKS HCI but it may not be for other distrubtions/platforms. |
+    | `buildService.storageAccessMode` | The [access mode](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes) to use with the named storage class. Accepts `ReadWriteOnce` or `ReadWriteMany`. |
+    | `customConfigMap` | The name of the config map that will be set by the App Service Kubernetes environment. Currently, it must be `<namespace>/kube-environment-config`, replacing `<namespace>` with the value of `appsNamespace`. |
     | `envoy.annotations.service.beta.kubernetes.io/azure-load-balancer-resource-group` | The name of the resource group in which the Azure Kubernetes Service cluster resides. Valid and required only when the underlying cluster is Azure Kubernetes Service.  |
     | `logProcessor.appLogs.destination` | Optional. Accepts `log-analytics` or `none`, choosing none disables platform logs. |
     | `logProcessor.appLogs.logAnalyticsConfig.customerId` | Required only when `logProcessor.appLogs.destination` is set to `log-analytics`. The base64-encoded Log analytics workspace ID. This parameter should be configured as a protected setting. |
@@ -338,7 +340,7 @@ While a [Log Analytic workspace](../azure-monitor/logs/quick-create-workspace.md
     az resource wait --ids $EXTENSION_ID --custom "properties.installState!='Pending'" --api-version "2020-07-01-preview"
     ```
 
-You can use `kubectl` to see the pods that have been created in your Kubernetes cluster:
+You can use `kubectl` to see the pods created in your Kubernetes cluster:
 
 ```bash
 kubectl get pods -n $NAMESPACE
@@ -348,7 +350,7 @@ You can learn more about these pods and their role in the system from [Pods crea
 
 ## Create a custom location
 
-The [custom location](../azure-arc/kubernetes/custom-locations.md) in Azure is used to assign the App Service Kubernetes environment.
+The [custom location](/azure/azure-arc/kubernetes/custom-locations) in Azure is used to assign the App Service Kubernetes environment.
 
 <!-- https://github.com/MicrosoftDocs/azure-docs-pr/pull/156618 -->
 
@@ -400,7 +402,7 @@ The [custom location](../azure-arc/kubernetes/custom-locations.md) in Azure is u
     
     <!-- --kubeconfig ~/.kube/config # needed for non-Azure -->
     > [!NOTE]
-    > If you experience issues creating a custom location on your cluster, you may need to [enable the custom location feature on your cluster](../azure-arc/kubernetes/custom-locations.md#enable-custom-locations-on-your-cluster).  This is required if logged into the CLI using a Service Principal or if you are logged in with a Microsoft Entra user with restricted permissions on the cluster resource.
+    > If you experience issues creating a custom location on your cluster, you may need to [enable the custom location feature on your cluster](/azure/azure-arc/kubernetes/custom-locations#enable-custom-locations-on-your-cluster).  This is required if logged into the CLI using a Service Principal or if you are logged in with a Microsoft Entra user with restricted permissions on the cluster resource.
     >
 
 3. Validate that the custom location is successfully created with the following command. The output should show the `provisioningState` property as `Succeeded`. If not, run it again after a minute.

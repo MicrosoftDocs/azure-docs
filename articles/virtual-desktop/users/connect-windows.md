@@ -5,7 +5,8 @@ ms.topic: how-to
 zone_pivot_groups: azure-virtual-desktop-windows-clients
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 09/04/2024
+ms.custom: "se-defect-target"
+ms.date: 09/23/2024
 ---
 
 # Connect to Azure Virtual Desktop with the Remote Desktop client for Windows

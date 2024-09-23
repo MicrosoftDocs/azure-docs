@@ -9,6 +9,8 @@ ms.service: azure-operator-service-manager
 ---
 
 # Get started with safe upgrade practices
+
+## Overview 
 This article introduces Azure Operator Service Manager (AOSM) safe upgrade practices (SUP). This feature set enables an end user to safely execute complex upgrades of CNF workloads hosted on Azure Operator Nexus, in compliance with partner ISSU requirements, where applicable. Look for future articles in these services to expand on SUP features and capabilities.
 
 ## Introduction
@@ -22,7 +24,7 @@ A given network service supported by Azure Operator Service Manager will be comp
 * Single Chart Test Validation - Running a helm test operation after a create or update.
 * Refactored SNS Reput - Improved methods, adds update order and cleanup check.
 
-## Overview 
+## Upgrade approach
 To update an existing Azure Operator Service Manager site network service (SNS), the Operator executes a reput update request against the deployed SNS resource. Where the SNS contains CNFs with multiple NfApps, the request is fanned out across all NfApps defined in the network function definition version (NFDV). By default, in the order, which they appear, or optionally in the order defined by UpdateDependsOn parameter.
 
 For each NfApp, the reput update request supports increasing a helm chart version, adding/removing helm values and/or adding/removing any NfApps. Timeouts can be set per NfApp, based on known allowable runtimes, but NfApps can only be processed in serial order, one after the other. The reput update implements the following processing logic:
