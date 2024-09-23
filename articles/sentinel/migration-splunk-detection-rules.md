@@ -11,7 +11,7 @@ ms.date: 09/01/2024
 
 # Migrate Splunk detection rules to Microsoft Sentinel
 
-The best way to migrate Splunk detection rules to Microsoft Sentinel is to start with the [SIEM migration experience](siem-migration.md). This article describes the manual strategies involved to identify, compare, and migrate your Splunk detection rules to Microsoft Sentinel built-in rules.
+Splunk detection rules are security information and event management (SIEM) components that compare to analytics rules in Microsoft Sentinel. This article describes the concepts to identify, compare, and migrate them to Microsoft Sentinel. The best way is to start with the [SIEM migration experience](siem-migration.md), which identifies out-of-the-box (OOTB) analytics rules to automatically translate to.
 
 If you want to migrate your Splunk Observability deployment, learn more about how to [migrate from Splunk to Azure Monitor Logs](/azure/azure-monitor/logs/migrate-splunk-to-azure-monitor-logs).
 
