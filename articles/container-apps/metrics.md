@@ -34,7 +34,7 @@ Container Apps provides these basic metrics.
 | Basic | Resiliency Ejections Aborted | Revision | Number of ejections aborted due to the max ejection % | `ResiliencyEjectionsAborted` | n/a |
 | Basic | Resiliency Request Retries | Revision | Total request retries | `ResiliencyRequestRetries` | n/a |
 | Basic | Resiliency Request Timeouts | Revision | Total requests that timed out waiting for a response | `ResiliencyRequestTimeouts` | n/a |
-| Basic | Resiliency Requests Pending Connection Pool | Revision | Total requests pending a connection pool connection | `ResiliencyRequestsPendingConnectionPool` | n/a |
+| Basic | Resiliency Requests Pending Connection Pool | Replica | Total requests pending a connection pool connection | `ResiliencyRequestsPendingConnectionPool` | n/a |
 | Basic | Total Reserved Cores | None | Total cores reserved for the container app | `TotalCoresQuotaUsed` | n/a |
 
 The metrics namespace is `microsoft.app/containerapps`.
