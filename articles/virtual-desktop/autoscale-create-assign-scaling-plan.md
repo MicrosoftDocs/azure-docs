@@ -31,14 +31,13 @@ To use scaling plans, make sure you follow these guidelines:
 
 - You must grant Azure Virtual Desktop access to manage the power state of your session host VMs. You must have the `Microsoft.Authorization/roleAssignments/write` permission on your subscriptions in order to assign the role-based access control (RBAC) role for the Azure Virtual Desktop service principal on those subscriptions. This is part of **User Access Administrator** and **Owner** built in roles.
 
-- If you want to use personal desktop autoscale with hibernation, you'll need to enable the hibernation feature for VMs in your personal host pool. FSLogix and app attach currently don't support hibernate. Don't enable hibernate if you're using FSLogix or app attach for your personal host pools. For the full list of prerequisites for hibernation, see [Prerequisites to use hibernation](../virtual-machines/hibernate-resume.md).
+- If you want to use personal desktop autoscale with hibernation, you'll need to enable the hibernation feature for VMs in your personal host pool. FSLogix and app attach currently don't support hibernate. Don't enable hibernate if you're using FSLogix or app attach for your personal host pools. For more information on using hibernation, including how hibernaiton works, limitations, and prerequisites, see [Hibernation for Azure virtual machines](/azure/virtual-machines/hibernate-resume).
 
 - If you are using PowerShell to create and assign your scaling plan, you will need module [Az.DesktopVirtualization](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/) version 4.2.0 or later. 
 
-- If you are [configuring a time limit policy using Microsoft Intune](#configure-a-time-limit-policy-using-microsoft-intune), you will need: 
-    - A Microsoft Entra ID account that is assigned the Policy and Profile manager built-in RBAC role.
-    - A group containing the devices you want to configure.
-
+- If you are [configuring a time limit policy](#configure-a-time-limit-policy), you will need: 
+    - For Intune: a Microsoft Entra ID account that is assigned the Policy and Profile manager built-in RBAC role and a group containing the devices you want to configure.
+    - For Group Policy: a domain account that has permission to create or edit Group Policy objects and a security group or organizational unit (OU) containing the devices you want to configure.
 
 ## Assign the Desktop Virtualization Power On Off Contributor role with the Azure portal
 
@@ -129,8 +128,7 @@ Now that you've assigned the *Desktop Virtualization Power On Off Contributor* r
         >
         > - Whether you’ve enabled autoscale to force users to sign out during ramp-down or not, the [capacity threshold](autoscale-glossary.md#capacity-threshold) and the [minimum percentage of hosts](autoscale-glossary.md#minimum-percentage-of-hosts) are still respected, autoscale will only shut down VMs if all existing user sessions (active and disconnected) in the host pool can be consolidated to fewer VMs without exceeding the capacity threshold.
         >
-        > - You can also configure a time limit policy that will apply to all phases to sign out all disconnected users to reduce the [used host pool capacity](autoscale-glossary.md#used-host-pool-capacity). For more information, see [Configure a time limit policy using Microsoft Intune](#configure-a-time-limit-policy-using-microsoft-intune).
-        
+        > - You can also configure a time limit policy that will apply to all phases to sign out all disconnected users to reduce the [used host pool capacity](autoscale-glossary.md#used-host-pool-capacity). For more information, see [Configure a time limit policy](#configure-a-time-limit-policy).
     
         - Likewise, **Off-peak hours** works the same way as **Peak hours**:
     
@@ -198,10 +196,7 @@ Now that you've assigned the *Desktop Virtualization Power On Off Contributor* r
 
 ### [PowerShell](#tab/powershell)
 
-Here's how to create a scaling plan using the Az.DesktopVirtualization PowerShell module. The following examples show you how to create a scaling plan and scaling plan schedule.
-
-> [!IMPORTANT]
-> In the following examples, you'll need to change the `<placeholder>` values for your own.
+Here's how to create a scaling plan using the Az.DesktopVirtualization PowerShell module. The following examples show you how to create a scaling plan and scaling plan schedule. Be sure to change the `<placeholder>` values for your own.
 
 [!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
 
@@ -324,28 +319,59 @@ Here's how to create a scaling plan using the Az.DesktopVirtualization PowerShel
 
 ---
 
-## Configure a time limit policy using Microsoft Intune
+## Configure a time limit policy
 
-You can configure a time limit policy that will sign out all disconnected users to reduce the [used host pool capacity](autoscale-glossary.md#used-host-pool-capacity). 
+You can configure a time limit policy that will sign out all disconnected users once a set time is reached to reduce the [used host pool capacity](autoscale-glossary.md#used-host-pool-capacity) using Microsoft Intune or Group Policy. Select the relevant tab for your scenario.
 
-To configure the policy using Intune, follow these steps: 
+# [Microsoft Intune](#tab/intune)
 
-1. Sign in to the [Microsoft Intune admin center](https://intune.microsoft.com/).
-2. Select **Devices** and **Configuration**. Then, select **Create** and **New policy**. 
-3. In **Profile type**, select **Settings catalog** and then **Create**. This will take you to the **Create profile** page.
-4. On the **Basics** tab, enter a name for your policy. Select **Next**.
-5. On the **Configuration settings** tab, select **Add settings**. 
-6. In the **Settings picker** pane, select **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Session Time Limits**. Then select the checkbox for **Set time limit for disconnected sessions**.
-7. The settings to enable the time limit will appear in the **Configuration settings** tab. Select your desired time limit in the drop-down menu for **End a disconnected session (Device)** and change the toggle to **Enabled** for **Set time limit for disconnected sessions**.
-8. On the **Assignments** tab, select the group containing the computers providing a remote session you want to configure, then select Next.
-9. On the **Review + create** tab, review the settings, then select **Create**.
+To configure a time limit policy using Intune: 
 
+1. Sign in to the [Microsoft Intune admin center](https://endpoint.microsoft.com/).
+
+1. [Create or edit a configuration profile](/mem/intune/configuration/administrative-templates-windows) for **Windows 10 and later** devices, with the **Session Time Limits** profile type.
+
+1. In the settings picker, browse to **Administrative templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Session Time Limits**.
+
+1. Check the box for **Set time limit for disconnected sessions**, then close the settings picker.
+
+1. Expand the **Administrative templates** category, then toggle the switch for **Set time limit for disconnected sessions** to **Enabled**, then select a time value from the drop-down list.
+
+1. Select **Next**.
+
+1. *Optional*: On the **Scope tags** tab, select a scope tag to filter the profile. For more information about scope tags, see [Use role-based access control (RBAC) and scope tags for distributed IT](/mem/intune/fundamentals/scope-tags).
+
+1. On the **Assignments** tab, select the group containing the computers providing a remote session you want to configure, then select **Next**.
+
+1. On the **Review + create** tab, review the settings, then select **Create**.
+
+1. Once the policy applies to the computers providing a remote session, restart them for the settings to take effect.
+
+# [Group Policy](#tab/group-policy)
+
+To configure a time limit policy using Group Policy:
+
+1. Open the **Group Policy Management** console on device you use to manage the Active Directory domain.
+
+1. Create or edit a policy that targets the computers providing a remote session you want to configure.
+
+1. Navigate to **Computer Configuration** > **Policies** > **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Session Time Limits**.
+
+1. Double-click the policy setting **Set time limit for disconnected sessions** to open it.
+
+1. Select **Enabled**, select a time value from the drop-down list, then select **OK**. 
+
+1. Ensure the policy is applied to the computers providing a remote session, then restart them for the settings to take effect.
+
+---
 
 ## Edit an existing scaling plan
 
+Select the relevant tab for your scenario.
+
 ### [Portal](#tab/portal)
 
-To edit an existing scaling plan:
+To edit an existing scaling plan using the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 

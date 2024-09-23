@@ -20,7 +20,7 @@ We offer the following VM sizes:
 
 | Size Family          | TEE | Description                                                                         |
 | ------------------ | ------------ | ----------------------------------------------------------------------------------- |
-| [**NCCadsH100v5-series**](../virtual-machines/sizes/gpu-accelerated/nccadsh100v5-series.md) | AMD SEV-SNP and NVIDIA H100 Tensor Core GPUs | CVM with Confidential GPU. | 
+| [**NCCadsH100v5-series**](/azure/virtual-machines/sizes/gpu-accelerated/nccadsh100v5-series) | AMD SEV-SNP and NVIDIA H100 Tensor Core GPUs | CVM with Confidential GPU. | 
 
 
 ## Azure CLI
@@ -57,7 +57,7 @@ To deploy a confidential GPU VM instance, consider a [pay-as-you-go subscription
 
 You might need to increase the cores quota in your Azure subscription from the default value. Default limits vary depending on your subscription category. Your subscription might also limit the number of cores you can deploy in certain VM size families, including the confidential VM sizes. 
 
-To request a quota increase, [open an online customer support request](../azure-portal/supportability/per-vm-quota-requests.md). 
+To request a quota increase, [open an online customer support request](/azure/azure-portal/supportability/per-vm-quota-requests). 
 
 If you have large-scale capacity needs, contact Azure Support. Azure quotas are credit limits, not capacity guarantees. You only incur charges for cores that you use.
 
@@ -79,7 +79,7 @@ OS images for confidential VMs have to meet certain security and compatibility r
 
 - Ubuntu 22.04 LTS
 
-For more information about supported and unsupported VM scenarios, see [support for generation 2 VMs on Azure](../virtual-machines/generation-2.md). 
+For more information about supported and unsupported VM scenarios, see [support for generation 2 VMs on Azure](/azure/virtual-machines/generation-2). 
 
 ### High availability and disaster recovery
 

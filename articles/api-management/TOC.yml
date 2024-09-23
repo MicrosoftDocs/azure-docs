@@ -238,7 +238,7 @@
       - name: Manage microservices deployed in AKS
         href: api-management-kubernetes.md
       - name: Integrate with Service Fabric
-        href: ../service-fabric/service-fabric-api-management-overview.md?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
+        href: /azure/service-fabric/service-fabric-api-management-overview?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
   - name: Modify APIs
     items:
     - name: Edit an API
@@ -264,7 +264,7 @@
   - name: Set or edit policies
     href: set-edit-policies.md
   - name: Author policies using Microsoft Copilot in Azure
-    href: ../copilot/author-api-management-policies.md?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
+    href: /azure/copilot/author-api-management-policies?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
   - name: Debug policies in VS Code
     href: api-management-debug-policies.md
   - name: Policy expressions
@@ -678,8 +678,10 @@
       href: breaking-changes/workspaces-breaking-changes-june-2024.md
     - name: API version retirements (June 2024)
       href: breaking-changes/api-version-retirement-sep-2023.md
-    - name: stv1 compute platform retirement (August 2024)
+    - name: stv1 compute platform retirement - Global Azure (August 2024)
       href: breaking-changes/stv1-platform-retirement-august-2024.md
+    - name: stv1 compute platform retirement - Azure Government, Azure in China (February 2025)
+      href: breaking-changes/stv1-platform-retirement-sovereign-clouds-february-2025.md 
     - name: Workspaces preview breaking changes, part 2 (March 2025)
       href: breaking-changes/workspaces-breaking-changes-march-2025.md
     - name: Git configuration retirement (March 2025)

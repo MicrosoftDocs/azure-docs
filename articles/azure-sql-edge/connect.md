@@ -3,13 +3,15 @@ title: Connect and query Azure SQL Edge
 description: Learn how to connect to and query Azure SQL Edge.
 author: rwestMSFT
 ms.author: randolphwest
-ms.date: 09/14/2023
-ms.service: sql-edge
+ms.date: 09/21/2024
+ms.service: azure-sql-edge
 ms.topic: conceptual
 ---
 # Connect and query Azure SQL Edge
 
-> [!IMPORTANT]  
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
+
+> [!NOTE]  
 > Azure SQL Edge no longer supports the ARM64 platform.
 
 In Azure SQL Edge, after you deploy a container, you can connect to the Database Engine from any of the following locations:
@@ -105,7 +107,7 @@ To connect to an instance of Azure SQL Edge by using Visual Studio Code on a Win
 
 To connect to an instance of Azure SQL Edge by using Azure Data Studio on a Windows, macOS or Linux machine, see [Azure Data Studio](/azure-data-studio/quickstart-sql-server).
 
-## Next steps
+## Related content
 
 - [Connect and query](/sql/linux/sql-server-linux-configure-docker#connect-and-query)
 - [Install SQL Server tools on Linux](/sql/linux/sql-server-linux-setup-tools)

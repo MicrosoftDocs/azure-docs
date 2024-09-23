@@ -79,7 +79,7 @@ Before downloading the SAP software, set up an Azure Storage account to store th
 
 Next, set up a virtual machine (VM) where you will download the SAP components later.
 
-1. Create an **Ubuntu 20.04** VM in Azure. For more information, see [how to create a Linux VM in the Azure portal](../../virtual-machines/linux/quick-create-portal.md).
+1. Create an **Ubuntu 20.04** VM in Azure. For more information, see [how to create a Linux VM in the Azure portal](/azure/virtual-machines/linux/quick-create-portal).
 
 1. Sign in to the VM.
 
