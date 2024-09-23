@@ -5,7 +5,9 @@ ms.topic: include
 ms.date: 09/23/2024
 ms.author: greglin
 ---
-**Public DNS zones**
+#### Public DNS
+
+##### Public DNS zones
 
 | Resource | Limit |
 | --- | --- |
@@ -14,9 +16,31 @@ ms.author: greglin
 | Records per record set in public DNS zone |20 <sup>1</sup> |
 | Number of Alias records for a single Azure resource |20|
 
-<sup>1</sup>If you need to increase these limits, contact Azure Support.
+<sup>1</sup>If you need to increase these quota limits, contact Azure Support.
 
-**Private DNS zones**
+##### Public DNS zone operations
+
+| Operation | Limit (per zone) |
+| --------- | ----- |
+| Create or Update | 40/min |
+| Delete | 40/min |
+| Get | 1000/min |
+| List | 60/min |
+| List By Resource Group | 60/min (per resource group) |
+| Update | 40/min |
+
+##### Public DNS resource record operations
+
+| Operation | Limit (per zone) |
+| --------- | ----- |
+| Create or Update | 200/min |
+| Delete | 200/min |
+| Get | 2000/min |
+| List By DNS Zone | 60/min |
+| List By Type | 60/min |
+| Update | 200/min |
+
+#### Private DNS zones
 
 | Resource | Limit |
 | --- | --- |
@@ -28,6 +52,8 @@ ms.author: greglin
 | Number of private DNS zones a virtual network can get linked to with autoregistration enabled |1|
 | Number of private DNS zones a virtual network can get linked |1000|
 
+##### Private DNS zone operations
+
 | Operation | Limit |
 | --- | --- |
 | Create |40/min|
@@ -38,7 +64,7 @@ ms.author: greglin
 | Update |20|
 | Move |20|
 
-**Private DNS zone resource records**
+##### Private DNS resource record operations
 
 | Operation | Limit |
 | --- | --- |
@@ -48,7 +74,7 @@ ms.author: greglin
 | List |100/min|
 | Update |60/min|
 
-**Virtual network links**
+#### Virtual network links
 
 | Operation | Limit |
 | --- | --- |
@@ -58,7 +84,7 @@ ms.author: greglin
 | List by virtual network |20/min|
 | Update |60/min|
 
-**Azure-provided DNS resolver VM limits**
+#### Azure-provided DNS resolver VM limits
 
 | Resource | Limit |
 | --- | --- |
@@ -67,7 +93,7 @@ ms.author: greglin
 
 <sup>1</sup>These limits are applied to every individual virtual machine and not at the virtual network level. DNS queries exceeding these limits are dropped. These limits apply to the default Azure resolver, not the DNS private resolver.
 
-<br>**DNS Private Resolver**<sup>1</sup>
+#### DNS Private Resolver<sup>1</sup>
 
 | Resource | Limit |
 | --- | --- |
