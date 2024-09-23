@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 09/23/2024
 ms.author: greglin
 ---
-### Public DNS zones
+**Public DNS zones**
 
 | Resource | Limit |
 | --- | --- |
