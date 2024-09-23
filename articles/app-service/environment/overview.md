@@ -69,7 +69,7 @@ A benefit of using an App Service Environment instead of a multitenant service i
 App Service Environment v3 differs from earlier versions in the following ways:
 
 - There are no networking dependencies on the customer's virtual network. You can secure all inbound and outbound traffic and route outbound traffic as you want.
-- You can deploy an App Service Environment v3 that's enabled for zone redundancy. You set zone redundancy only during creation and only in regions where all App Service Environment v3 dependencies are zone redundant. In this case, each App Service Plan on the App Service Environment will need to have a minimum of three instances so that they can be spread across zones. For more information, see [Migrate App Service Environment to availability zone support](../../availability-zones/migrate-app-service-environment.md).
+- You can deploy an App Service Environment v3 that's enabled for zone redundancy. You set zone redundancy only during creation and only in regions where all App Service Environment v3 dependencies are zone redundant. This is a deployment time only decision. Changing zone redundancy is not possible after it has been deployed. With zone redundant App Service Environment, each App Service Plan on the App Service Environment will need to have a minimum of three instances so that they can be spread across zones. For more information, see [Migrate App Service Environment to availability zone support](../../availability-zones/migrate-app-service-environment.md).
 - You can deploy an App Service Environment v3 on a dedicated host group. Host group deployments aren't zone redundant.
 - Scaling is much faster than with an App Service Environment v2. Although scaling still isn't immediate, as in the multitenant service, it's a lot faster.
 - Front-end scaling adjustments are no longer required. App Service Environment v3 front ends automatically scale to meet your needs and are deployed on better hosts.
@@ -165,6 +165,7 @@ App Service Environment v3 is available in the following regions:
 | Southeast Asia       | ✅                           | ✅                          |
 | Spain Central        | ✅                           | ✅**                        |
 | Sweden Central       | ✅                           | ✅                          |
+| Sweden South         | ✅                           |                             |
 | Switzerland North    | ✅                           | ✅                          |
 | Switzerland West     | ✅                           |                             |
 | UAE Central          | ✅                           |                             |
@@ -188,7 +189,6 @@ App Service Environment v3 is available in the following regions:
 | US DoD Central       | ✅                           |                             |
 | US DoD East          | ✅                           |                             |
 | US Gov Arizona       | ✅                           |                             |
-| US Gov Iowa          |                              |                             |
 | US Gov Texas         | ✅                           |                             |
 | US Gov Virginia      | ✅                           |✅                          |
 
@@ -196,14 +196,101 @@ App Service Environment v3 is available in the following regions:
 
 | Region               | Single zone support          | Availability zone support   |
 | -------------------- | :--------------------------: | :-------------------------: |
-| China East 2         |                              |                             |
+|                      | App Service Environment v3   | App Service Environment v3  |
 | China East 3         | ✅                          |                              |
-| China North 2        |                              |                             |
 | China North 3        | ✅                          | ✅                          |
 
 ### In-region data residency
 
 An App Service Environment will only store customer data including app content, settings and secrets within the region where it's deployed. All data is guaranteed to remain in the region. For more information, see [Data residency in Azure](https://azure.microsoft.com/explore/global-infrastructure/data-residency/#overview).
+
+## Pricing tiers
+
+The following sections list the regional pricing tiers (SKUs) availability for App Service Environment v3.
+
+> [!NOTE]
+> Windows Container plans currently do not support memory intensive SKUs.
+>
+ 
+### Azure Public:
+
+| Region               | Standard     | Large       | Memory intensive  |
+| -------------------- | :----------: | :---------: | :---------------: |
+|                      | I1v2-I3v2    | I4v2-I6v2   | I1mv2-I5mv2       |
+| Australia Central    | ✅          | ✅          | ✅               | 
+| Australia Central 2  | ✅          | ✅          | ✅               | 
+| Australia East       | ✅          | ✅          | ✅               | 
+| Australia Southeast  | ✅          | ✅          | ✅               | 
+| Brazil South         | ✅          | ✅          |                   | 
+| Brazil Southeast     | ✅          | ✅          | ✅               |
+| Canada Central       | ✅          | ✅          | ✅               |
+| Canada East          | ✅          | ✅          | ✅               | 
+| Central India        | ✅          | ✅          | ✅               | 
+| Central US           | ✅          | ✅ *        |                   | 
+| East Asia            | ✅          | ✅          | ✅               |
+| East US              | ✅          | ✅          |                   | 
+| East US 2            | ✅          | ✅          | ✅               |
+| France Central       | ✅          | ✅          | ✅               | 
+| France South         | ✅          | ✅          | ✅               | 
+| Germany North        | ✅          | ✅          | ✅               | 
+| Germany West Central | ✅          | ✅          | ✅               | 
+| Israel Central       | ✅          | ✅          |                   | 
+| Italy North          | ✅          | ✅          |                   | 
+| Japan East           | ✅          | ✅          | ✅               | 
+| Japan West           | ✅          | ✅          | ✅               | 
+| Jio India Central    | ✅          | ✅          |                   | 
+| Jio India West       | ✅          | ✅          |                   | 
+| Korea Central        | ✅          | ✅          |                   | 
+| Korea South          | ✅          | ✅          | ✅               |
+| Mexico Central       | ✅          | ✅          |                   | 
+| North Central US     | ✅          | ✅          | ✅               | 
+| North Europe         | ✅          | ✅          | ✅               |
+| Norway East          | ✅          | ✅          | ✅               | 
+| Norway West          | ✅          | ✅          | ✅               |
+| Poland Central       | ✅          | ✅          |                   |
+| Qatar Central        | ✅          | ✅          |                   |
+| South Africa North   | ✅          | ✅          | ✅               |
+| South Africa West    | ✅          | ✅          | ✅               | 
+| South Central US     | ✅          | ✅          | ✅               |
+| South India          | ✅          | ✅          |                   | 
+| Southeast Asia       | ✅          | ✅          | ✅               |
+| Spain Central        | ✅          | ✅          |                   | 
+| Sweden Central       | ✅          | ✅          | ✅               |
+| Sweden South         | ✅          | ✅          | ✅               |
+| Switzerland North    | ✅          | ✅          | ✅               |
+| Switzerland West     | ✅          | ✅          | ✅               | 
+| UAE Central          | ✅          | ✅          |                   | 
+| UAE North            | ✅          | ✅          | ✅               | 
+| UK South             | ✅          | ✅          | ✅               | 
+| UK West              | ✅          | ✅          | ✅               | 
+| West Central US      | ✅          | ✅ *        |                   | 
+| West Europe          | ✅          | ✅ *        |                   | 
+| West India           | ✅          | ✅          | ✅               | 
+| West US              | ✅          | ✅          |                   | 
+| West US 2            | ✅          | ✅          | ✅               | 
+| West US 3            | ✅          | ✅          | ✅               | 
+
+\* Windows Container does not support Large skus in this region.
+\** Linux does not support Memory intensive skus in this region.
+
+### Azure Government:
+
+| Region               | Standard     | Large       | Memory intensive  |
+| -------------------- | :----------: | :---------: | :---------------: |
+|                      | I1v2-I3v2    | I4v2-I6v2   | I1mv2-I5mv2       |
+| US DoD Central       | ✅          |✅ *         |                   |
+| US DoD East          | ✅          |✅ *         |                   |
+| US Gov Arizona       | ✅          |✅ *         |                   |
+| US Gov Texas         | ✅          |✅ *         |                   |
+| US Gov Virginia      | ✅          |✅ *         |                   |
+
+### Microsoft Azure operated by 21Vianet:
+
+| Region               | Standard     | Large       | Memory intensive  |
+| -------------------- | :----------: | :---------: | :---------------: |
+|                      | I1v2-I3v2    | I4v2-I6v2   | I1mv2-I5mv2       |
+| China East 3         | ✅          | ✅ *        |                   |
+| China North 3        | ✅          | ✅ *        |                   |
 
 ## Next steps
 
