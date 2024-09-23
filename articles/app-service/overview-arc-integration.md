@@ -78,7 +78,7 @@ Only one Kubernetes environment resource can be created in a custom location. In
 - [Are there any scaling limits?](#are-there-any-scaling-limits)
 - [What logs are collected?](#what-logs-are-collected)
 - [What do I do if I see a provider registration error?](#what-do-i-do-if-i-see-a-provider-registration-error)
-- [Can I deploy the Application services extension on an ARM64 based cluster?](#can-i-deploy-the-application-services-extension-on-an-arm64-based-cluster)
+- [Can I deploy the Application services extension on an Arm64 based cluster?](#can-i-deploy-the-application-services-extension-on-an-arm64-based-cluster)
 - [Which Kubernetes distributions can I deploy the extension on?](#which-kubernetes-distributions-can-i-deploy-the-extension-on)
 
 ### How much does it cost?
@@ -125,11 +125,11 @@ By default, logs from system components are sent to the Azure team. Application 
 
 ### What do I do if I see a provider registration error?
 
-When creating a Kubernetes environment resource, some subscriptions might see a "No registered resource provider found" error. The error details might include a set of locations and api versions that are considered valid. If this error message is returned, the subscription must be re-registered with the Microsoft.Web provider, an operation that has no impact on existing applications or APIs. To re-register, use the Azure CLI to run `az provider register --namespace Microsoft.Web --wait`. Then reattempt the Kubernetes environment command.
+When creating a Kubernetes environment resource, some subscriptions might see a "No registered resource provider found" error. The error details might include a set of locations and API versions that are considered valid. If this error message is returned, the subscription must be re-registered with the Microsoft.Web provider, an operation that has no impact on existing applications or APIs. To re-register, use the Azure CLI to run `az provider register --namespace Microsoft.Web --wait`. Then reattempt the Kubernetes environment command.
 
-### Can I deploy the Application services extension on an ARM64 based cluster?
+### Can I deploy the Application services extension on an Arm64 based cluster?
 
-ARM64 based clusters aren't supported at this time.  
+Arm64 based clusters aren't supported at this time.  
 
 ### Which Kubernetes distributions can I deploy the extension on?
 
