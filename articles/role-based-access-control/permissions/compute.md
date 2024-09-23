@@ -924,6 +924,95 @@ Azure service: [Virtual Machines](/azure/virtual-machines/), [Virtual Machine Sc
 > | Microsoft.Compute/virtualMachines/loginAsAdmin/action | Log in to a virtual machine with Windows administrator or Linux root user privileges |
 > | Microsoft.Compute/virtualMachines/WACloginAsAdmin/action | Lets you manage the OS of your resource via Windows Admin Center as an administrator |
 
+## Microsoft.ComputeSchedule
+
+Azure service: [Azure Virtual Desktop](/azure/virtual-desktop/overview)
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.ComputeSchedule/register/action | Register the subscription for Microsoft.ComputeSchedule |
+> | Microsoft.ComputeSchedule/unregister/action | Unregister the subscription for Microsoft.ComputeSchedule |
+> | Microsoft.ComputeSchedule/locations/virtualMachinesCancelOperations/action | virtualMachinesCancelOperations: cancelOperations for a virtual machine |
+> | Microsoft.ComputeSchedule/locations/virtualMachinesExecuteDeallocate/action | virtualMachinesExecuteDeallocate: executeDeallocate for a virtual machine |
+> | Microsoft.ComputeSchedule/locations/virtualMachinesExecuteHibernate/action | virtualMachinesExecuteHibernate: executeHibernate for a virtual machine |
+> | Microsoft.ComputeSchedule/locations/virtualMachinesExecuteStart/action | virtualMachinesExecuteStart: executeStart for a virtual machine |
+> | Microsoft.ComputeSchedule/locations/virtualMachinesGetOperationStatus/action | virtualMachinesGetOperationStatus: getOperationStatus for a virtual machine |
+> | Microsoft.ComputeSchedule/locations/virtualMachinesSubmitDeallocate/action | virtualMachinesSubmitDeallocate: submitDeallocate for a virtual machine |
+> | Microsoft.ComputeSchedule/locations/virtualMachinesSubmitHibernate/action | virtualMachinesSubmitHibernate: submitHibernate for a virtual machine |
+> | Microsoft.ComputeSchedule/locations/virtualMachinesSubmitStart/action | virtualMachinesSubmitStart: submitStart for a virtual machine |
+> | Microsoft.ComputeSchedule/Operations/read | read Operations |
+
+## microsoft.connectedvmwarevsphere
+
+Azure service: [Azure Arc-enabled VMware vSphere](/azure/azure-arc/vmware-vsphere/)
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | microsoft.connectedvmwarevsphere/unregister/action | unregister RP. |
+> | microsoft.connectedvmwarevsphere/register/action | register RP. |
+> | Microsoft.ConnectedVMwarevSphere/clusters/Read | Read clusters |
+> | Microsoft.ConnectedVMwarevSphere/clusters/Write | Writes clusters |
+> | Microsoft.ConnectedVMwarevSphere/clusters/Delete | Deletes clusters |
+> | Microsoft.ConnectedVMwarevSphere/clusters/deploy/action | Deploys on cluster |
+> | Microsoft.ConnectedVMwarevSphere/datastores/Read | Read datastores |
+> | Microsoft.ConnectedVMwarevSphere/datastores/Write | Writes datastores |
+> | Microsoft.ConnectedVMwarevSphere/datastores/Delete | Deletes datastores |
+> | Microsoft.ConnectedVMwarevSphere/datastores/AllocateSpace/action | Allocates on datastores |
+> | Microsoft.ConnectedVMwarevSphere/hosts/Read | Read hosts |
+> | Microsoft.ConnectedVMwarevSphere/hosts/Write | Writes hosts |
+> | Microsoft.ConnectedVMwarevSphere/hosts/Delete | Deletes hosts |
+> | Microsoft.ConnectedVMwarevSphere/hosts/deploy/action | Deploys on host |
+> | microsoft.connectedvmwarevsphere/locations/operationstatuses/read | Read operationstatus. |
+> | microsoft.connectedvmwarevsphere/locations/operationstatuses/write | Write operationstatus. |
+> | Microsoft.ConnectedVMwarevSphere/locations/updateCenterOperationResults/read | Reads the status of an update center operation on virtual machines |
+> | Microsoft.ConnectedVMwarevSphere/locations/upgradeExtensionsOperationResults/read | Reads the status of an upgrade extensions operation on virtual machines |
+> | microsoft.connectedvmwarevsphere/operations/read | Read operations. |
+> | Microsoft.ConnectedVMwarevSphere/resourcepools/Read | Read resourcepools |
+> | Microsoft.ConnectedVMwarevSphere/resourcepools/Write | Writes resourcepools |
+> | Microsoft.ConnectedVMwarevSphere/resourcepools/Delete | Deletes resourcepools |
+> | Microsoft.ConnectedVMwarevSphere/resourcepools/deploy/action | eploys on resource pool |
+> | microsoft.connectedvmwarevsphere/skus/read | Get skus. |
+> | Microsoft.ConnectedVMwarevSphere/vcenters/Read | Read vcenters |
+> | Microsoft.ConnectedVMwarevSphere/vcenters/Write | Writes vcenters |
+> | Microsoft.ConnectedVMwarevSphere/vcenters/Delete | Deletes vcenters |
+> | Microsoft.ConnectedVMwarevSphere/vcenters/inventoryitems/Delete | Deletes vcenter inventoryitems |
+> | Microsoft.ConnectedVMwarevSphere/vcenters/inventoryitems/Read | Read vcenter inventoryitems |
+> | Microsoft.ConnectedVMwarevSphere/vcenters/inventoryitems/Write | Writes vcenters inventoryitems |
+> | Microsoft.ConnectedVMwarevSphere/vcenters/inventoryitems/onboard/action | Project vcenters inventoryitems |
+> | Microsoft.ConnectedVMwarevSphere/virtualmachineinstances/Read | Read virtualmachineinstances |
+> | Microsoft.ConnectedVMwarevSphere/virtualmachineinstances/Write | Writes virtualmachineinstances |
+> | Microsoft.ConnectedVMwarevSphere/virtualmachineinstances/Delete | Deletes virtualmachineinstances |
+> | Microsoft.ConnectedVMwarevSphere/virtualmachines/Read | Read virtualmachines |
+> | Microsoft.ConnectedVMwarevSphere/virtualmachines/Write | Writes virtualmachines |
+> | Microsoft.ConnectedVMwarevSphere/virtualmachines/Delete | Deletes virtualmachines |
+> | Microsoft.ConnectedVMwarevSphere/virtualmachines/start/action | Start VM. |
+> | Microsoft.ConnectedVMwarevSphere/virtualmachines/restart/action | Restart VM. |
+> | Microsoft.ConnectedVMwarevSphere/virtualmachines/stop/action | Stop VM. |
+> | Microsoft.ConnectedVMwarevSphere/virtualmachines/installPatches/action | Install patches on Azure Arc VMware machines |
+> | Microsoft.ConnectedVMwarevSphere/virtualmachines/assessPatches/action | Assess patches on Azure Arc VMware machines |
+> | Microsoft.ConnectedVMwarevSphere/virtualmachines/upgradeExtensions/action | Upgrade extensions on Azure Arc VMware machines |
+> | Microsoft.ConnectedVMwarevSphere/virtualmachines/extensions/Delete | Delete extension resource |
+> | Microsoft.ConnectedVMwarevSphere/virtualmachines/extensions/Read | Gets extension resource |
+> | Microsoft.ConnectedVMwarevSphere/virtualmachines/extensions/Write | Write extension resource |
+> | Microsoft.ConnectedVMwarevSphere/virtualmachines/guestagents/Delete | Delete guestagent resource |
+> | Microsoft.ConnectedVMwarevSphere/virtualmachines/guestagents/Read | Gets guestagent resource |
+> | Microsoft.ConnectedVMwarevSphere/virtualmachines/guestagents/Write | Write guestagent resource |
+> | Microsoft.ConnectedVMwarevSphere/virtualmachines/hybridIdentityMetadata/Delete | Deletes hybridIdentityMetadata |
+> | Microsoft.ConnectedVMwarevSphere/virtualmachines/hybridIdentityMetadata/Read | Gets hybridIdentityMetadata |
+> | Microsoft.ConnectedVMwarevSphere/virtualmachines/hybridIdentityMetadata/Write | Write hybridIdentityMetadata |
+> | Microsoft.ConnectedVMwarevSphere/virtualmachinetemplates/Read | Read virtualmachinetemplates |
+> | Microsoft.ConnectedVMwarevSphere/virtualmachinetemplates/Write | Writes virtualmachinetemplates |
+> | Microsoft.ConnectedVMwarevSphere/virtualmachinetemplates/Delete | Deletes virtualmachinetemplates |
+> | Microsoft.ConnectedVMwarevSphere/virtualmachinetemplates/clone/action | Cloness virtualmachinetemplates |
+> | Microsoft.ConnectedVMwarevSphere/virtualnetworks/Read | Read virtualnetworks |
+> | Microsoft.ConnectedVMwarevSphere/virtualnetworks/Write | Writes virtualnetworks |
+> | Microsoft.ConnectedVMwarevSphere/virtualnetworks/Delete | Deletes virtualnetworks |
+> | Microsoft.ConnectedVMwarevSphere/virtualnetworks/join/action | Deletes virtualnetworks |
+> | **DataAction** | **Description** |
+> | Microsoft.ConnectedVMwarevSphere/virtualmachines/WACloginAsAdmin/action | Lets you manage the OS of your resource via Windows Admin Center as an administrator. |
+
 ## Microsoft.DesktopVirtualization
 
 The best virtual desktop experience, delivered on Azure.
