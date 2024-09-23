@@ -58,7 +58,7 @@
         href: /azure/aks/availability-zones?toc=/azure/reliability
       - name: Azure Load Balancer 
         href: migrate-load-balancer.md
-      - name: Azure Log Analytics workspaces
+      - name: Log Analytics Dedicated Cluster workspaces
         href: migrate-monitor-log-analytics.md
       - name: Azure Logic Apps
         href: /azure/logic-apps/set-up-zone-redundancy-availability-zones?tabs=standard&toc=/azure/reliability
