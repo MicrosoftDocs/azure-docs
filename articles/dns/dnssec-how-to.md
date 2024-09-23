@@ -83,17 +83,17 @@ az network dns dnssec-config show --resource-group "your-resource-group" --zone-
 Sign a zone using PowerShell:
 
 ```PowerShell
-# Ensure you are logged in to your Azure account
-az login
+# Connect to your Azure account (if not already connected)
+Connect-AzAccount
 
 # Select the appropriate subscription
-az account set --subscription "your-subscription-id"
+Select-AzSubscription -SubscriptionId "your-subscription-id"
 
 # Enable DNSSEC for the DNS zone
-az network dns dnssec-config create --resource-group "your-resource-group" --zone-name "adatum.com"
+Enable-AzDnsDnssec -ResourceGroupName "your-resource-group" -ZoneName "adatum.com"
 
 # Verify the DNSSEC configuration
-az network dns dnssec-config show --resource-group "your-resource-group" --zone-name "adatum.com"
+Get-AzDnsDnssecConfig -ResourceGroupName "your-resource-group" -ZoneName "adatum.com"
 ```
 
 ## Next steps
