@@ -34,9 +34,12 @@ You need the following from the source SIEM:
 You need the following on the target, Microsoft Sentinel:
 
 - The SIEM migration experience deploys analytics rules. This capability requires the **Microsoft Sentinel Contributor** role. For more information, see [Permissions in Microsoft Sentinel](roles.md). 
-- Ingest security data previously used in your source SIEM into Microsoft Sentinel. Install and enable out-of-the-box (OOTB) data connectors to match your security monitoring estate from your source SIEM.
-    - If the data connectors aren't installed yet, find the relevant solutions in **Content hub**. 
-    - If no data connector exists, create a custom ingestion pipeline.<br>For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md) or [Custom data ingestion and transformation](data-transformation.md).
+- Ingest security data previously used in your source SIEM into Microsoft Sentinel. Before an analytics rule is translated and enabled, the rule's data source must be present in the Log Analytics workspace. Install and enable out-of-the-box (OOTB) data connectors in **Content hub** to match your security monitoring estate from your source SIEM. If no data connector exists, create a custom ingestion pipeline.
+ 
+  For more information, see the following:
+  - [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md)
+  - [Custom data ingestion and transformation](data-transformation.md).
+- Create Microsoft Sentinel watchlists from your Splunk lookups in order to map the fields used in the translated analytics rules.
 
 ## Translate Splunk detection rules
 
@@ -56,11 +59,11 @@ Current capabilities:
 
 ## Start the SIEM migration experience
 
-1. 1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Content management**  select **Content hub**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Content management** > **Content hub**.
+1. Find the SIEM migration experience in the Microsoft Sentinel in the [Azure portal](https://portal.azure.com) or the [Defender portal](https://security.microsoft.com/), under **Content management**  > **Content hub**.
 
 1. Select **SIEM Migration**. 
 
-:::image type="content" source="media/siem-migration/siem-migration-experience.png" alt-text="Screenshot showing content hub with menu item for the SIEM migration experience.":::
+:::image type="content" source="media/siem-migration/siem-migration-experience.png" alt-text="Screenshot showing content hub from the Azure portal with the menu item for the SIEM migration experience.":::
 
 ## Upload Splunk detections
 
@@ -93,9 +96,23 @@ Current capabilities:
 
 ## Schema mapping
 
-Precisely define how Splunk sources map to Microsoft Sentinel tables with the **Schema mapping** section of the SIEM migration experience. Microsoft Sentinel Analytics require that the data type is present in the Log Analytics Workspace before a rule is enabled. So, once you match the data sources from Splunk to Microsoft Sentinel, use Schema mapping to ensure the data types and fields used in the analytics rule logic are mapped accurately.
+Once you match Splunk data source ingestion in Microsoft Sentinel, use **Schema mapping** to precisely define how the data types and fields in the analytics rule logic are mapped.
 
-Known sources such as Splunk CIM schemas and data models are automatically mapped to ASIM schemas when applicable. Other sources used in the Splunk detection need to be manually mapped to Microsoft Sentinel or Log Analytics tables.
+### Data sources
+
+Known sources such as Splunk CIM schemas and data models are automatically mapped to ASIM schemas when applicable. Other sources used in the Splunk detection must be manually mapped to Microsoft Sentinel or Log Analytics tables.
+
+:::image type="content" source="media/siem-migration/schema-mapping-data-sources.png" alt-text="Screenshot showing the Schema mapping (preview) options for data sources.":::
+
+Once the schema mapping is complete, any manual updates are reflected in the **Mapping Status** as "Manually mapped". The changes are taken into account in the next step when the rules are translated. 
+
+### Lookups
+
+Schema mapping takes lookups automatically identified from the uploaded Splunk queries and maps them to Sentinel Watchlists (created as a pre-requisite).
+
+For more information, see [Create watchlist](watchlists-create.md).
+
+:::image type="content" source="media/siem-migration/schema-mapping-lookups.png" alt-text="Screenshot showing manual mapping of Splunk lookup to Microsoft Sentinel watchlist.":::
 
 ## Configure rules
 
