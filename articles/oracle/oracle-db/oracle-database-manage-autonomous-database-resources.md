@@ -44,7 +44,7 @@ The following management functions are available for all resources from the Micr
 
 1. Follow the steps to **Access the resource blade**.
 1. Select the **+ Create** icon at the top of the blade.
-1. Follow the provisioning flow for [Provision an Autonomous Database](oracle-database-provisioning-autonomous-database.md).
+1. Follow the provisioning flow for [Provision an Autonomous Database](oracle-database-provision-autonomous-database.md).
 
 ### Refresh the blade's info
 

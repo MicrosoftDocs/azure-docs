@@ -22,7 +22,7 @@ For more information on specific Oracle Autonomous Database topics beyond their 
 The following articles provide specifics of the creation and management tasks associated with Autonomous Database services.
 
 * [What's New in autonomous database services](oracle-database-whats-new-autonomous-database-services.md)
-* [Provision an autonomous database](oracle-database-provisioning-autonomous-database.md)
+* [Provision an autonomous database](oracle-database-provision-autonomous-database.md)
 * [Manage autonomous database resources](provision-manage-oracle-resources.md)
 * [Terraform/OpenTofu examples for Autonomous Database services](oracle-database-examples-autonomous-database-services.md)
 * [Troubleshoot autonomous database services](oracle-database-troubleshoot-autonomous-database-services.md)
