@@ -36,7 +36,7 @@ This tutorial will show you how to enable Azure Container Apps on your Arc-enabl
   - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
 - Install the [Azure CLI](/cli/azure/install-azure-cli).
 - Access to a public or private container registry, such as the [Azure Container Registry](/azure/container-registry/).
-- Review the [requirements and limitations](azure-arc-overview.md) of the public preview.  Of particular importance are the cluster requirements.
+- Review the [requirements and limitations](azure-arc-overview.md) of the public preview. Of particular importance are the cluster requirements.
 
 ## Setup
 
