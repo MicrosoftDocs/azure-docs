@@ -13,8 +13,7 @@ ms.date: 09/04/2024
 ::: zone pivot="avd-store"
 
 > [!IMPORTANT]
->- The Azure Virtual Desktop store app is no longer available for download or installation. To ensure a seamless experience and avoid any disruption, users are encouraged to download the Windows App preview, which will move to general availability soon. Windows App is the gateway to securely connect to any devices or apps across Azure Virtual Desktop, Windows 365, and Microsoft Dev Box. For more information, see [What is Windows App](/windows-app/overview).
->- See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> The Azure Virtual Desktop store app is no longer available for download or installation. To ensure a seamless experience and avoid any disruption, users are encouraged to download the Windows App. Windows App is the gateway to securely connect to any devices or apps across Azure Virtual Desktop, Windows 365, and Microsoft Dev Box. For more information, see [What is Windows App](/windows-app/overview).
 
 ::: zone-end
 
