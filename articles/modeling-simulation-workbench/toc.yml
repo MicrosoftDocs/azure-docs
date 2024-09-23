@@ -55,7 +55,7 @@ items:
         href: ./how-to-guide-start-stop-restart.md
       - name: Enable copy/paste
         href: ./how-to-guide-enable-copy-paste.md
-      - name: Place a chamber into Idle mode
+      - name: Place a chamber into idle mode
         href: ./how-to-guide-chamber-idle.md
       - name: Manage VMs
         href: ./how-to-guide-chamber-vm.md

@@ -28,11 +28,11 @@ Modeling and Simulation Workbench requires a virtual network with a subnet name 
 
 Before you create a [connector](./concept-connector.md) for private IP networking via VPN or ExpressRoute, the Workbench needs a role assignment to allow it to deploy resources into your resource group. Modeling and Simulation Workbench requires the **Network Contributor** role  for the resource group in which you're hosting your virtual network.
 
-    | Setting              | Value                                       |
-    |:---------------------|:--------------------------------------------|
-    | **Role**             | **Network Contributor**                     |
-    | **Assign access to** | **User, group, or service principal**       |
-    | **Members**          | **Azure Modeling and Simulation Workbench** |
+| Setting              | Value                                       |
+|:---------------------|:--------------------------------------------|
+| **Role**             | **Network Contributor**                     |
+| **Assign access to** | **User, group, or service principal**       |
+| **Members**          | **Azure Modeling and Simulation Workbench** |
 
     [!INCLUDE [azure-hpc-workbench-alert](includes/azure-hpc-workbench-alert.md)]
 
@@ -77,7 +77,7 @@ Modeling and Simulation Workbench creates three private domain name service (DNS
 | privateLink.blob.core.windows.net | Data in pipeline endpoint             |
 | privateLink.file.core.windows.net | Data out pipeline endpoint            |
 
-## Staring, stopping, or restarting a connector
+## Starting, stopping, or restarting a connector
 
 Connectors are controllable resources that can be stopped, started, restarted as needed. Instructions on how to are included in [Start, stop, and restart chambers, connectors, and VMs](how-to-guide-start-stop-restart.md). Stopping or restarting the connector interrupts desktop services for all users of the chamber. Stopping the connector is required to [idle a chamber](how-to-guide-chamber-idle.md) to reduce consumption costs.
 
