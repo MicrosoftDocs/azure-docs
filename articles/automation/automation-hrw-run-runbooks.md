@@ -3,8 +3,8 @@ title: Run Azure Automation runbooks on a Hybrid Runbook Worker
 description: This article describes how to run runbooks on machines in your local datacenter or other cloud provider with the Hybrid Runbook Worker.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/04/2024
-ms.topic: conceptual
+ms.date: 09/09/2024
+ms.topic: how-to
 ms.custom: devx-track-azurepowershell, linux-related-content
 ms.service: azure-automation
 ---

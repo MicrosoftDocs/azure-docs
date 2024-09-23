@@ -25,10 +25,10 @@ landingContent:
             url: overview-what-is-microsoft-dev-box.md
           - text: Architecture overview
             url: concept-dev-box-architecture.md
-          - text: Microsoft Dev Box Roadmap
-            url: dev-box-roadmap.md
           - text: Microsoft Dev Box concepts
             url: concept-dev-box-concepts.md
+          - text: Microsoft Dev Box Roadmap
+            url: dev-box-roadmap.md
 
   # Card
   - title: Get started

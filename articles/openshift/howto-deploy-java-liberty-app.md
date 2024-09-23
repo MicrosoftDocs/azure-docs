@@ -230,7 +230,7 @@ Clone the sample code for this guide by using the following commands. The sample
 git clone https://github.com/Azure-Samples/open-liberty-on-aro.git
 cd open-liberty-on-aro
 export BASE_DIR=$PWD
-git checkout 20240223
+git checkout 20240920
 cd 3-integration/connect-db/mssql
 ```
 
