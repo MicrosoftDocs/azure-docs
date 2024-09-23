@@ -48,7 +48,6 @@ In some cases, you will have to allow time for clean-up operations after a featu
 > You cannot upgrade a storage account to Data Lake Storage that has **ever** had the change feed feature enabled.
 > Simply disabling change feed will not allow you to perform an upgrade. Instead, you must create an account with the hierarchical namespace feature enabled on it, and move then transfer your data into that account.
 
-> [!IMPORTANT]
 ### Remove page blobs from the storage account
 
 You cannot upgrade a storage account that contains page blobs. Make sure to remove page blobs from the storage account before you perform the upgrade. 
