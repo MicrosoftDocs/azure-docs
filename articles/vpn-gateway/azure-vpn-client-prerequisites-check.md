@@ -28,7 +28,7 @@ The **Run Prerequisites Test** feature is available in the Azure VPN Client for 
 1. Select **Run Prerequisites Test** to run the check.
 1. After the prerequisites check has completed, the **Status** shows **Complete**. Review the results. If any test items don't pass, the status indicates that and prescriptive measures are provided to help you mitigate the issue.
 
-    :::image type="content" source="./media/azure-vpn-client-prerequisites-check/error.png" alt-text="Prerequistes test status results." lightbox="./media/azure-vpn-client-prerequisites-check/error.png":::
+    :::image type="content" source="./media/azure-vpn-client-prerequisites-check/error.png" alt-text="Screenshot of prerequistes test status results." lightbox="./media/azure-vpn-client-prerequisites-check/error.png":::
 
 ## Disable automatic prerequisites checks
 
