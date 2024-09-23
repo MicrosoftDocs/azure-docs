@@ -250,7 +250,7 @@ To run your Playwright test suite in Visual Studio Code with Microsoft Playwrigh
 
 ## View test runs and results in the Playwright portal
 
-To view results and troubleshoot the test run with Microsoft Playwright Testing, 
+You can now troubleshoot the failed test cases easily in the Playwright portal, 
 
 [!INCLUDE [View test runs and results in the Playwright portal](./includes/include-playwright-portal-view-test-results.md)]
 
