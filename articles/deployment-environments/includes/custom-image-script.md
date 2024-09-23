@@ -6,7 +6,7 @@ ms.author: rosemalcolm
 ms.date: 05/23/2024
 ---
 
-Microsoft provides a quickstart script to help you get started. The script builds your image and pushes it to a specified Azure Container Registry (ACR) under the repository `ade` and the tag `latest`. 
+Microsoft provides a quickstart script to help you build your custom image and push it to a registry. The script builds your image and pushes it to a specified Azure Container Registry (ACR) under the repository `ade` and the tag `latest`. 
 
 To use the script, you must:
 
