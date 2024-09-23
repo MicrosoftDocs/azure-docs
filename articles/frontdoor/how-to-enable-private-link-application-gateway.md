@@ -219,18 +219,18 @@ Follow the steps in [Configure Azure Application Gateway Private Link](../applic
 
 Run [az afd route create](/cli/azure/afd/route#az-afd-route-create) to create a route that maps your endpoint to the origin group. This route forwards requests from the endpoint to your origin group.
 
-    ```azurecli-interactive
-    az afd route create \
-        --resource-group myResourceGroup \
-        --profile-name myFrontDoorProfile \
-        --endpoint-name myFrontDoorEndpoint \
-        --forwarding-protocol MatchRequest \
-        --route-name myRoute \
-        --https-redirect Enabled \
-        --origin-group myOriginGroup \
-        --supported-protocols Http Https \
-        --link-to-default-domain Enabled
-    ```
+```azurecli-interactive
+az afd route create \
+    --resource-group myResourceGroup \
+    --profile-name myFrontDoorProfile \
+    --endpoint-name myFrontDoorEndpoint \
+    --forwarding-protocol MatchRequest \
+    --route-name myRoute \
+    --https-redirect Enabled \
+    --origin-group myOriginGroup \
+    --supported-protocols Http Https \
+    --link-to-default-domain Enabled
+```
 
 Your Azure Front Door profile is now fully functional after completing the final step.
 
