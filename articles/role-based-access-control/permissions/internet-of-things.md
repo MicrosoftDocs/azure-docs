@@ -6,7 +6,7 @@ ms.topic: reference
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 04/25/2024
+ms.date: 09/20/2024
 ms.custom: generated
 ---
 
@@ -175,6 +175,7 @@ Azure service: [Device Update for IoT Hub](/azure/iot-hub-device-update/)
 > | Microsoft.DeviceUpdate/accounts/instances/updates/read | Performs a read operation related to updates |
 > | Microsoft.DeviceUpdate/accounts/instances/updates/write | Performs a write operation related to updates |
 > | Microsoft.DeviceUpdate/accounts/instances/updates/delete | Performs a delete operation related to updates |
+> | Microsoft.DeviceUpdate/updateAccounts/agents/requestUpdate/action | Perform all operations related to agent updating (i.e. request updates & report update results) |
 
 ## Microsoft.DigitalTwins
 
@@ -292,9 +293,7 @@ Azure service: [IoT security](/azure/iot/iot-security-architecture)
 > | Microsoft.IoTSecurity/locations/deviceGroups/read | Gets device group |
 > | Microsoft.IoTSecurity/locations/deviceGroups/alerts/read | Gets IoT Alerts |
 > | Microsoft.IoTSecurity/locations/deviceGroups/alerts/write | Updates IoT Alert properties |
-> | Microsoft.IoTSecurity/locations/deviceGroups/alerts/learn/action | Learn and close the alert |
-> | Microsoft.IoTSecurity/locations/deviceGroups/alerts/pcapAvailability/action | Get alert PCAP file aviability |
-> | Microsoft.IoTSecurity/locations/deviceGroups/alerts/pcapRequest/action | Request related PCAP file for alert |
+> | Microsoft.IoTSecurity/locations/deviceGroups/alerts/learn/write | Learn and close the alert |
 > | Microsoft.IoTSecurity/locations/deviceGroups/alerts/pcaps/write | Request related PCAP file for alert |
 > | Microsoft.IoTSecurity/locations/deviceGroups/devices/read | Get devices |
 > | Microsoft.IoTSecurity/locations/deviceGroups/devices/write | Updates device properties |
@@ -316,6 +315,8 @@ Azure service: [IoT security](/azure/iot/iot-security-architecture)
 > | Microsoft.IoTSecurity/locations/sites/sensors/triggerTiPackageUpdate/action | Triggers threat intelligence package update |
 > | Microsoft.IoTSecurity/locations/sites/sensors/downloadResetPassword/action | Downloads reset password file for IoT Sensors |
 > | Microsoft.IoTSecurity/locations/sites/sensors/updateSoftwareVersion/action | Trigger sensor update |
+> | Microsoft.IoTSecurity/locations/sites/sensors/backups/read | Gets remote backup |
+> | Microsoft.IoTSecurity/locations/sites/sensors/backups/delete | Deletes remote backup |
 > | Microsoft.IoTSecurity/onPremiseSensors/read | Gets on-premise IoT Sensors |
 > | Microsoft.IoTSecurity/onPremiseSensors/write | Creates or updates on-premise IoT Sensors |
 > | Microsoft.IoTSecurity/onPremiseSensors/delete | Deletes on-premise IoT Sensors |
@@ -389,46 +390,6 @@ Azure service: [Stream Analytics](/azure/stream-analytics/)
 > | Microsoft.StreamAnalytics/streamingjobs/transformations/Delete | Delete Stream Analytics Job Transformation |
 > | Microsoft.StreamAnalytics/streamingjobs/transformations/Read | Read Stream Analytics Job Transformation |
 > | Microsoft.StreamAnalytics/streamingjobs/transformations/Write | Write Stream Analytics Job Transformation |
-
-## Microsoft.TimeSeriesInsights
-
-Explore and analyze time-series data from IoT devices.
-
-Azure service: [Time Series Insights](/azure/time-series-insights/)
-
-> [!div class="mx-tableFixed"]
-> | Action | Description |
-> | --- | --- |
-> | Microsoft.TimeSeriesInsights/register/action | Registers the subscription for the Time Series Insights resource provider and enables the creation of Time Series Insights environments. |
-> | Microsoft.TimeSeriesInsights/environments/read | Get the properties of an environment. |
-> | Microsoft.TimeSeriesInsights/environments/write | Creates a new environment, or updates an existing environment. |
-> | Microsoft.TimeSeriesInsights/environments/delete | Deletes the environment. |
-> | Microsoft.TimeSeriesInsights/environments/accesspolicies/read | Get the properties of an access policy. |
-> | Microsoft.TimeSeriesInsights/environments/accesspolicies/write | Creates a new access policy for an environment, or updates an existing access policy. |
-> | Microsoft.TimeSeriesInsights/environments/accesspolicies/delete | Deletes the access policy. |
-> | Microsoft.TimeSeriesInsights/environments/eventsources/read | Get the properties of an event source. |
-> | Microsoft.TimeSeriesInsights/environments/eventsources/write | Creates a new event source for an environment, or updates an existing event source. |
-> | Microsoft.TimeSeriesInsights/environments/eventsources/delete | Deletes the event source. |
-> | Microsoft.TimeSeriesInsights/environments/eventsources/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting for the resource |
-> | Microsoft.TimeSeriesInsights/environments/eventsources/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for the resource |
-> | Microsoft.TimeSeriesInsights/environments/eventsources/providers/Microsoft.Insights/logDefinitions/read | Gets the available logs for the event source |
-> | Microsoft.TimeSeriesInsights/environments/eventsources/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for eventsources |
-> | Microsoft.TimeSeriesInsights/environments/privateEndpointConnectionProxies/read | Get the properties of a private endpoint connection proxy. |
-> | Microsoft.TimeSeriesInsights/environments/privateEndpointConnectionProxies/write | Creates a new private endpoint connection proxy for an environment, or updates an existing connection proxy. |
-> | Microsoft.TimeSeriesInsights/environments/privateEndpointConnectionProxies/delete | Deletes the private endpoint connection proxy. |
-> | Microsoft.TimeSeriesInsights/environments/privateEndpointConnectionProxies/validate/action | Validate the private endpoint connection proxy object before creation. |
-> | Microsoft.TimeSeriesInsights/environments/privateEndpointConnectionProxies/operationresults/read | Validate the private endpoint connection proxy operation status. |
-> | Microsoft.TimeSeriesInsights/environments/privateendpointConnections/read | Get the properties of a private endpoint connection. |
-> | Microsoft.TimeSeriesInsights/environments/privateendpointConnections/write | Creates a new private endpoint connection for an environment, or updates an existing connection. |
-> | Microsoft.TimeSeriesInsights/environments/privateendpointConnections/delete | Deletes the private endpoint connection. |
-> | Microsoft.TimeSeriesInsights/environments/providers/Microsoft.Insights/diagnosticSettings/read | Gets the diagnostic setting for the resource |
-> | Microsoft.TimeSeriesInsights/environments/providers/Microsoft.Insights/diagnosticSettings/write | Creates or updates the diagnostic setting for the resource |
-> | Microsoft.TimeSeriesInsights/environments/providers/Microsoft.Insights/logDefinitions/read | Gets the available logs for environments |
-> | Microsoft.TimeSeriesInsights/environments/providers/Microsoft.Insights/metricDefinitions/read | Gets the available metrics for environments |
-> | Microsoft.TimeSeriesInsights/environments/referencedatasets/read | Get the properties of a reference data set. |
-> | Microsoft.TimeSeriesInsights/environments/referencedatasets/write | Creates a new reference data set for an environment, or updates an existing reference data set. |
-> | Microsoft.TimeSeriesInsights/environments/referencedatasets/delete | Deletes the reference data set. |
-> | Microsoft.TimeSeriesInsights/environments/status/read | Get the status of the environment, state of its associated operations like ingress. |
 
 ## Next steps
 

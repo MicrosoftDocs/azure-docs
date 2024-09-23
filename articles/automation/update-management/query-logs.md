@@ -3,12 +3,14 @@ title: Query Azure Automation Update Management logs
 description: This article tells how to query the logs for Update Management in your Log Analytics workspace.
 services: automation
 ms.subservice: update-management
-ms.date: 07/15/2024
-ms.topic: conceptual
+ms.date: 09/15/2024
+ms.topic: how-to
 ms.service: azure-automation
 ---
 
 # Query Update Management logs
+
+[!INCLUDE [./automation-update-management-retirement-announcement.md](../includes/automation-update-management-retirement-announcement.md)]
 
 In addition to the details that are provided during Update Management deployment, you can search the logs stored in your Log Analytics workspace. To search the logs from your Automation account, select **Update management** and open the Log Analytics workspace associated with your deployment.
 
@@ -172,7 +174,7 @@ On a Windows computer, you can review the following information to verify agent 
 
 1. Open the Windows Event Log. Go to **Application and Services Logs\Operations Manager** and search for Event ID 3000 and Event ID 5002 from the source **Service Connector**. These events indicate that the computer has registered with the Log Analytics workspace and is receiving configuration.
 
-If the agent can't communicate with Azure Monitor logs and the agent is configured to communicate with the internet through a firewall or proxy server, confirm the firewall or proxy server is properly configured. To learn how to verify the firewall or proxy server is properly configured, see [Network configuration for Windows agent](../../azure-monitor/agents/agent-windows.md) or [Network configuration for Linux agent](../../azure-monitor/vm/monitor-virtual-machine.md).
+If the agent can't communicate with Azure Monitor logs and the agent is configured to communicate with the internet through a firewall or proxy server, confirm the firewall or proxy server is properly configured. To learn how to verify the firewall or proxy server is properly configured, see [Network configuration for Windows agent](/azure/azure-monitor/agents/agent-windows) or [Network configuration for Linux agent](/azure/azure-monitor/vm/monitor-virtual-machine).
 
 > [!NOTE]
 > If your Linux systems are configured to communicate with a proxy or Log Analytics Gateway and you're enabling Update Management, update the `proxy.conf` permissions to grant the omiuser group read permission on the file by using the following commands:
@@ -182,7 +184,7 @@ If the agent can't communicate with Azure Monitor logs and the agent is configur
 
 Newly added Linux agents show a status of **Updated** after an assessment has been performed. This process can take up to 6 hours.
 
-To confirm that an Operations Manager management group is communicating with Azure Monitor logs, see [Validate Operations Manager integration with Azure Monitor logs](../../azure-monitor/agents/om-agents.md#validate-operations-manager-integration-with-azure-monitor).
+To confirm that an Operations Manager management group is communicating with Azure Monitor logs, see [Validate Operations Manager integration with Azure Monitor logs](/azure/azure-monitor/agents/om-agents#validate-operations-manager-integration-with-azure-monitor).
 
 ### Single Azure VM Assessment queries (Windows)
 
@@ -387,5 +389,5 @@ Update
 
 ## Next steps
 
-* For details of Azure Monitor logs, see [Azure Monitor logs](../../azure-monitor/logs/log-query-overview.md).
+* For details of Azure Monitor logs, see [Azure Monitor logs](/azure/azure-monitor/logs/log-query-overview).
 * For help with alerts, see [Configure alerts](configure-alerts.md).

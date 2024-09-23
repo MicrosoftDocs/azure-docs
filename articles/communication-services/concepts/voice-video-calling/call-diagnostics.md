@@ -52,7 +52,7 @@ analyze new call data.
 
 Since Call Diagnostics is an application layer on top of data for your
 Azure Communications Service Resource, you can query these call data and
-[build workbook reports on top of your data.](../../../azure-monitor/logs/data-platform-logs.md#built-in-insights-and-custom-dashboards-workbooks-and-reports)
+[build workbook reports on top of your data.](/azure/azure-monitor/logs/data-platform-logs#built-in-insights-and-custom-dashboards-workbooks-and-reports)
 
 You can access Call Diagnostics from any Azure Communication Services
 Resource in your Azure portal. When you open your Azure Communications
@@ -130,7 +130,7 @@ You can view detailed call logs for each participant within a call. Call informa
 
 ## Copilot in Azure for Call Diagnostics
 
-Artificial Intelligence can help app developers across every step of the development lifecycle: designing, building, and operating. Developers with [Microsoft Copilot in Azure (preview)](../../../copilot/overview.md) can use Copilot in Azure within Call Diagnostics to understand and resolve a variety of calling issues. For example, developers can ask Copilot in Azure questions, such as:
+Artificial Intelligence can help app developers across every step of the development lifecycle: designing, building, and operating. Developers with [Microsoft Copilot in Azure (preview)](/azure/copilot/overview) can use Copilot in Azure within Call Diagnostics to understand and resolve a variety of calling issues. For example, developers can ask Copilot in Azure questions, such as:
 
 - How do I run network diagnostics in Azure Communication Services VoIP calls?
 - How can I optimize my calls for poor network conditions?
@@ -198,7 +198,7 @@ quality](https://learn.microsoft.com/azure/communication-services/concepts/voice
 - **How do I set up Call Diagnostics?**
   - Follow instructions to add diagnostic settings for your resource here [Enable logs via Diagnostic Settings in Azure Monitor.](../analytics/enable-logging.md) We recommend you initially collect all logs and then determine which logs you want to retain and for how long after you have an understanding of the capabilities in Azure Monitor. When adding your diagnostic setting you are prompted to [select logs](../analytics/enable-logging.md#adding-a-diagnostic-setting), select "**allLogs**" to collect all logs. 
 
-  - Your data volume, retention, and Call Diagnostics query usage in Log Analytics within Azure Monitor is billed through existing Azure data meters. We recommend you monitor your data usage and retention policies for cost considerations as needed. See: [Controlling costs.](../../../azure-monitor/essentials/diagnostic-settings.md#controlling-costs)
+  - Your data volume, retention, and Call Diagnostics query usage in Log Analytics within Azure Monitor is billed through existing Azure data meters. We recommend you monitor your data usage and retention policies for cost considerations as needed. See: [Controlling costs.](/azure/azure-monitor/essentials/diagnostic-settings#controlling-costs)
 
   - If you have multiple Azure Communications Services Resource IDs you must enable these settings for each resource ID and query call details for participants within their respective Azure Communications Services Resource ID. 
  
@@ -224,7 +224,7 @@ quality](https://learn.microsoft.com/azure/communication-services/concepts/voice
 
 - **How do I use Copilot in Azure (preview) in Call Diagnostics?**
 
-  - Your organization needs to manage access to [Microsoft Copilot in Azure (preview)](../../../copilot/overview.md). Once your organization has access to Copilot in Azure (preview), the Call Diagnostics interface will include the option to 'Diagnose with Copilot' in the Search, Overview, and Issues tabs. 
+  - Your organization needs to manage access to [Microsoft Copilot in Azure (preview)](/azure/copilot/overview). Once your organization has access to Copilot in Azure (preview), the Call Diagnostics interface will include the option to 'Diagnose with Copilot' in the Search, Overview, and Issues tabs. 
   - Leverage Copilot in Azure for Call Diagnostics to improve call quality by detailing problems faced during Azure Communication Services calls. Giving Copilot in Azure detailed information from Call Diagnostics will help it enhance analysis, identify issues, and identify fixes. Be aware that Copilot in Azure currently lacks programmatic access to your call details.
 
 <!-- 1. If Teams participants join a call, how will they display in Call
@@ -269,9 +269,9 @@ quality](https://learn.microsoft.com/azure/communication-services/concepts/voice
 
 - Continue to learn other quality best practices, see: [Best practices: Azure Communication Services calling SDKs](../best-practices.md)
 
--	Learn how to use the Log Analytics workspace, see: [Log Analytics Tutorial](../../../../articles/azure-monitor/logs/log-analytics-tutorial.md)
+-	Learn how to use the Log Analytics workspace, see: [Log Analytics Tutorial](/azure/azure-monitor/logs/log-analytics-tutorial)
 
--	Create your own queries in Log Analytics, see: [Get Started Queries](../../../../articles/azure-monitor/logs/get-started-queries.md)
+-	Create your own queries in Log Analytics, see: [Get Started Queries](/azure/azure-monitor/logs/get-started-queries)
 
 - Explore known call issues, see: [Known issues in the SDKs and APIs](../known-issues.md)
 

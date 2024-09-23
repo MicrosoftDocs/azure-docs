@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 04/25/2024
+ms.date: 09/20/2024
 ms.custom: generated
 ---
 
@@ -213,6 +213,7 @@ Has read access to tags and products and write access to allow: assigning APIs t
 > | [Microsoft.ApiManagement](../permissions/integration.md#microsoftapimanagement)/service/products/read | Lists a collection of products in the specified service instance. or Gets the details of the product specified by its identifier. |
 > | [Microsoft.ApiManagement](../permissions/integration.md#microsoftapimanagement)/service/products/apiLinks/* |  |
 > | [Microsoft.ApiManagement](../permissions/integration.md#microsoftapimanagement)/service/read | Read metadata for an API Management Service instance |
+> | [Microsoft.ApiManagement](../permissions/integration.md#microsoftapimanagement)/service/authorizationServers/read | Lists a collection of authorization servers defined within a service instance. or Gets the details of the authorization server without secrets. |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | **NotActions** |  |
 > | *none* |  |
@@ -239,6 +240,7 @@ Has read access to tags and products and write access to allow: assigning APIs t
         "Microsoft.ApiManagement/service/products/read",
         "Microsoft.ApiManagement/service/products/apiLinks/*",
         "Microsoft.ApiManagement/service/read",
+        "Microsoft.ApiManagement/service/authorizationServers/read",
         "Microsoft.Authorization/*/read"
       ],
       "notActions": [],
@@ -271,6 +273,7 @@ Has the same access as API Management Service Workspace API Developer as well as
 > | [Microsoft.ApiManagement](../permissions/integration.md#microsoftapimanagement)/service/groups/read | Lists a collection of groups defined within a service instance. or Gets the details of the group specified by its identifier. |
 > | [Microsoft.ApiManagement](../permissions/integration.md#microsoftapimanagement)/service/groups/users/* |  |
 > | [Microsoft.ApiManagement](../permissions/integration.md#microsoftapimanagement)/service/read | Read metadata for an API Management Service instance |
+> | [Microsoft.ApiManagement](../permissions/integration.md#microsoftapimanagement)/service/authorizationServers/read | Lists a collection of authorization servers defined within a service instance. or Gets the details of the authorization server without secrets. |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | **NotActions** |  |
 > | *none* |  |
@@ -300,6 +303,7 @@ Has the same access as API Management Service Workspace API Developer as well as
         "Microsoft.ApiManagement/service/groups/read",
         "Microsoft.ApiManagement/service/groups/users/*",
         "Microsoft.ApiManagement/service/read",
+        "Microsoft.ApiManagement/service/authorizationServers/read",
         "Microsoft.Authorization/*/read"
       ],
       "notActions": [],
@@ -331,6 +335,10 @@ Has read access to entities in the workspace and read and write access to entiti
 > | [Microsoft.ApiManagement](../permissions/integration.md#microsoftapimanagement)/service/workspaces/policyFragments/* |  |
 > | [Microsoft.ApiManagement](../permissions/integration.md#microsoftapimanagement)/service/workspaces/namedValues/* |  |
 > | [Microsoft.ApiManagement](../permissions/integration.md#microsoftapimanagement)/service/workspaces/tags/* |  |
+> | [Microsoft.ApiManagement](../permissions/integration.md#microsoftapimanagement)/service/workspaces/backends/* |  |
+> | [Microsoft.ApiManagement](../permissions/integration.md#microsoftapimanagement)/service/workspaces/certificates/* |  |
+> | [Microsoft.ApiManagement](../permissions/integration.md#microsoftapimanagement)/service/workspaces/diagnostics/* |  |
+> | [Microsoft.ApiManagement](../permissions/integration.md#microsoftapimanagement)/service/workspaces/loggers/* |  |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | **NotActions** |  |
 > | *none* |  |
@@ -359,6 +367,10 @@ Has read access to entities in the workspace and read and write access to entiti
         "Microsoft.ApiManagement/service/workspaces/policyFragments/*",
         "Microsoft.ApiManagement/service/workspaces/namedValues/*",
         "Microsoft.ApiManagement/service/workspaces/tags/*",
+        "Microsoft.ApiManagement/service/workspaces/backends/*",
+        "Microsoft.ApiManagement/service/workspaces/certificates/*",
+        "Microsoft.ApiManagement/service/workspaces/diagnostics/*",
+        "Microsoft.ApiManagement/service/workspaces/loggers/*",
         "Microsoft.Authorization/*/read"
       ],
       "notActions": [],
@@ -658,6 +670,7 @@ Allows for access to Azure API Center data plane read operations.
 > | *none* |  |
 > | **DataActions** |  |
 > | [Microsoft.ApiCenter](../permissions/integration.md#microsoftapicenter)/services/*/read |  |
+> | [Microsoft.ApiCenter](../permissions/integration.md#microsoftapicenter)/services/workspaces/apis/versions/definitions/exportSpecification/action | Exports API definition file. |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -674,7 +687,8 @@ Allows for access to Azure API Center data plane read operations.
       "actions": [],
       "notActions": [],
       "dataActions": [
-        "Microsoft.ApiCenter/services/*/read"
+        "Microsoft.ApiCenter/services/*/read",
+        "Microsoft.ApiCenter/services/workspaces/apis/versions/definitions/exportSpecification/action"
       ],
       "notDataActions": []
     }
@@ -1097,6 +1111,178 @@ Lets you manage BizTalk services, but not access to them.
     }
   ],
   "roleName": "BizTalk Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## DeID Batch Data Owner
+
+Create and manage DeID batch jobs. This role is in preview and subject to change.
+
+[Learn more](/azure/healthcare-apis/deidentification/manage-access-rbac)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.HealthDataAIServices](../permissions/integration.md#microsofthealthdataaiservices)/DeidServices/Batch/write | Creates batches |
+> | [Microsoft.HealthDataAIServices](../permissions/integration.md#microsofthealthdataaiservices)/DeidServices/Batch/delete | Deletes a batch |
+> | [Microsoft.HealthDataAIServices](../permissions/integration.md#microsofthealthdataaiservices)/DeidServices/Batch/read | Reads a batch |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Create and manage DeID batch jobs. This role is in preview and subject to change.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/8a90fa6b-6997-4a07-8a95-30633a7c97b9",
+  "name": "8a90fa6b-6997-4a07-8a95-30633a7c97b9",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.HealthDataAIServices/DeidServices/Batch/write",
+        "Microsoft.HealthDataAIServices/DeidServices/Batch/delete",
+        "Microsoft.HealthDataAIServices/DeidServices/Batch/read"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "DeID Batch Data Owner",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## DeID Batch Data Reader
+
+Read DeID batch jobs. This role is in preview and subject to change.
+
+[Learn more](/azure/healthcare-apis/deidentification/manage-access-rbac)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.HealthDataAIServices](../permissions/integration.md#microsofthealthdataaiservices)/DeidServices/Batch/read | Reads a batch |
+> | **NotDataActions** |  |
+> | [Microsoft.HealthDataAIServices](../permissions/integration.md#microsofthealthdataaiservices)/DeidServices/Batch/write | Creates batches |
+> | [Microsoft.HealthDataAIServices](../permissions/integration.md#microsofthealthdataaiservices)/DeidServices/Batch/delete | Deletes a batch |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Read DeID batch jobs. This role is in preview and subject to change.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/b73a14ee-91f5-41b7-bd81-920e12466be9",
+  "name": "b73a14ee-91f5-41b7-bd81-920e12466be9",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.HealthDataAIServices/DeidServices/Batch/read"
+      ],
+      "notDataActions": [
+        "Microsoft.HealthDataAIServices/DeidServices/Batch/write",
+        "Microsoft.HealthDataAIServices/DeidServices/Batch/delete"
+      ]
+    }
+  ],
+  "roleName": "DeID Batch Data Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## DeID Data Owner
+
+Full access to DeID data. This role is in preview and subject to change
+
+[Learn more](/azure/healthcare-apis/deidentification/manage-access-rbac)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.HealthDataAIServices](../permissions/integration.md#microsofthealthdataaiservices)/DeidServices/* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Full access to DeID data. This role is in preview and subject to change",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/78e4b983-1a0b-472e-8b7d-8d770f7c5890",
+  "name": "78e4b983-1a0b-472e-8b7d-8d770f7c5890",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.HealthDataAIServices/DeidServices/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "DeID Data Owner",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## DeID Realtime Data User
+
+Execute requests against DeID realtime endpoint. This role is in preview and subject to change.
+
+[Learn more](/azure/healthcare-apis/deidentification/manage-access-rbac)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.HealthDataAIServices](../permissions/integration.md#microsofthealthdataaiservices)/DeidServices/Realtime/action | Allows access to the realtime endpoint |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Execute requests against DeID realtime endpoint. This role is in preview and subject to change.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/bb6577c4-ea0a-40b2-8962-ea18cb8ecd4e",
+  "name": "bb6577c4-ea0a-40b2-8962-ea18cb8ecd4e",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.HealthDataAIServices/DeidServices/Realtime/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "DeID Realtime Data User",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }

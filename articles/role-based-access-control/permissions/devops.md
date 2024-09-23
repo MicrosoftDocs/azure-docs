@@ -6,7 +6,7 @@ ms.topic: reference
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 04/25/2024
+ms.date: 09/20/2024
 ms.custom: generated
 ---
 
@@ -291,81 +291,13 @@ Azure service: [Azure Load Testing](/azure/load-testing/)
 > | Microsoft.LoadTestService/loadtests/writeTest/action | Create or Update Load Tests |
 > | Microsoft.LoadTestService/loadtests/deleteTest/action | Delete Load Tests |
 > | Microsoft.LoadTestService/loadtests/readTest/action | Read Load Tests |
-
-## Microsoft.SecurityDevOps
-
-Azure service: [Microsoft Defender for Cloud](/azure/defender-for-cloud/)
-
-> [!div class="mx-tableFixed"]
-> | Action | Description |
-> | --- | --- |
-> | Microsoft.SecurityDevOps/register/action | Register the subscription for Microsoft.SecurityDevOps |
-> | Microsoft.SecurityDevOps/unregister/action | Unregister the subscription for Microsoft.SecurityDevOps |
-> | Microsoft.SecurityDevOps/azureDevOpsConnectors/read | read azureDevOpsConnectors |
-> | Microsoft.SecurityDevOps/azureDevOpsConnectors/read | read azureDevOpsConnectors |
-> | Microsoft.SecurityDevOps/azureDevOpsConnectors/write | write azureDevOpsConnectors |
-> | Microsoft.SecurityDevOps/azureDevOpsConnectors/delete | delete azureDevOpsConnectors |
-> | Microsoft.SecurityDevOps/azureDevOpsConnectors/write | write azureDevOpsConnectors |
-> | Microsoft.SecurityDevOps/azureDevOpsConnectors/configure/action | action configure |
-> | Microsoft.SecurityDevOps/azureDevOpsConnectors/read | read azureDevOpsConnectors |
-> | Microsoft.SecurityDevOps/azureDevOpsConnectors/orgs/read | read orgs |
-> | Microsoft.SecurityDevOps/azureDevOpsConnectors/orgs/write | write orgs |
-> | Microsoft.SecurityDevOps/azureDevOpsConnectors/orgs/write | write orgs |
-> | Microsoft.SecurityDevOps/azureDevOpsConnectors/orgs/read | read orgs |
-> | Microsoft.SecurityDevOps/azureDevOpsConnectors/orgs/projects/read | read projects |
-> | Microsoft.SecurityDevOps/azureDevOpsConnectors/orgs/projects/write | write projects |
-> | Microsoft.SecurityDevOps/azureDevOpsConnectors/orgs/projects/write | write projects |
-> | Microsoft.SecurityDevOps/azureDevOpsConnectors/orgs/projects/read | read projects |
-> | Microsoft.SecurityDevOps/azureDevOpsConnectors/orgs/projects/repos/read | read repos |
-> | Microsoft.SecurityDevOps/azureDevOpsConnectors/orgs/projects/repos/write | write repos |
-> | Microsoft.SecurityDevOps/azureDevOpsConnectors/orgs/projects/repos/write | write repos |
-> | Microsoft.SecurityDevOps/azureDevOpsConnectors/orgs/projects/repos/read | read repos |
-> | Microsoft.SecurityDevOps/azureDevOpsConnectors/repos/read | read repos |
-> | Microsoft.SecurityDevOps/azureDevOpsConnectors/stats/read | read stats |
-> | Microsoft.SecurityDevOps/gitHubConnectors/read | read gitHubConnectors |
-> | Microsoft.SecurityDevOps/gitHubConnectors/read | read gitHubConnectors |
-> | Microsoft.SecurityDevOps/gitHubConnectors/write | write gitHubConnectors |
-> | Microsoft.SecurityDevOps/gitHubConnectors/delete | delete gitHubConnectors |
-> | Microsoft.SecurityDevOps/gitHubConnectors/write | write gitHubConnectors |
-> | Microsoft.SecurityDevOps/gitHubConnectors/configure/action | action configure |
-> | Microsoft.SecurityDevOps/gitHubConnectors/read | read gitHubConnectors |
-> | Microsoft.SecurityDevOps/gitHubConnectors/gitHubInstallations/read | read gitHubInstallations |
-> | Microsoft.SecurityDevOps/gitHubConnectors/gitHubInstallations/read | read gitHubInstallations |
-> | Microsoft.SecurityDevOps/gitHubConnectors/gitHubInstallations/gitHubRepositories/read | read gitHubRepositories |
-> | Microsoft.SecurityDevOps/gitHubConnectors/gitHubInstallations/gitHubRepositories/read | read gitHubRepositories |
-> | Microsoft.SecurityDevOps/gitHubConnectors/owners/read | read owners |
-> | Microsoft.SecurityDevOps/gitHubConnectors/owners/read | read owners |
-> | Microsoft.SecurityDevOps/gitHubConnectors/owners/write | write owners |
-> | Microsoft.SecurityDevOps/gitHubConnectors/owners/write | write owners |
-> | Microsoft.SecurityDevOps/gitHubConnectors/owners/repos/read | read repos |
-> | Microsoft.SecurityDevOps/gitHubConnectors/owners/repos/read | read repos |
-> | Microsoft.SecurityDevOps/gitHubConnectors/owners/repos/write | write repos |
-> | Microsoft.SecurityDevOps/gitHubConnectors/owners/repos/write | write repos |
-> | Microsoft.SecurityDevOps/gitHubConnectors/repos/read | read repos |
-> | Microsoft.SecurityDevOps/gitHubConnectors/stats/read | read stats |
-> | Microsoft.SecurityDevOps/gitLabConnectors/read | read gitLabConnectors |
-> | Microsoft.SecurityDevOps/gitLabConnectors/read | read gitLabConnectors |
-> | Microsoft.SecurityDevOps/gitLabConnectors/write | write gitLabConnectors |
-> | Microsoft.SecurityDevOps/gitLabConnectors/delete | delete gitLabConnectors |
-> | Microsoft.SecurityDevOps/gitLabConnectors/write | write gitLabConnectors |
-> | Microsoft.SecurityDevOps/gitLabConnectors/configure/action | action configure |
-> | Microsoft.SecurityDevOps/gitLabConnectors/read | read gitLabConnectors |
-> | Microsoft.SecurityDevOps/gitLabConnectors/groups/read | read groups |
-> | Microsoft.SecurityDevOps/gitLabConnectors/groups/read | read groups |
-> | Microsoft.SecurityDevOps/gitLabConnectors/groups/write | write groups |
-> | Microsoft.SecurityDevOps/gitLabConnectors/groups/delete | delete groups |
-> | Microsoft.SecurityDevOps/gitLabConnectors/groups/write | write groups |
-> | Microsoft.SecurityDevOps/gitLabConnectors/groups/listSubgroups/action | action listSubgroups |
-> | Microsoft.SecurityDevOps/gitLabConnectors/groups/projects/read | read projects |
-> | Microsoft.SecurityDevOps/gitLabConnectors/groups/projects/read | read projects |
-> | Microsoft.SecurityDevOps/gitLabConnectors/groups/projects/write | write projects |
-> | Microsoft.SecurityDevOps/gitLabConnectors/groups/projects/delete | delete projects |
-> | Microsoft.SecurityDevOps/gitLabConnectors/groups/projects/write | write projects |
-> | Microsoft.SecurityDevOps/gitLabConnectors/projects/read | read projects |
-> | Microsoft.SecurityDevOps/gitLabConnectors/stats/read | read stats |
-> | Microsoft.SecurityDevOps/Locations/OperationStatuses/read | read OperationStatuses |
-> | Microsoft.SecurityDevOps/Locations/OperationStatuses/write | write OperationStatuses |
-> | Microsoft.SecurityDevOps/Operations/read | read Operations |
+> | Microsoft.LoadTestService/testProfileRuns/write | Write Test Profile Runs |
+> | Microsoft.LoadTestService/testProfileRuns/read | Read Test Profile Runs |
+> | Microsoft.LoadTestService/testProfileRuns/delete | Delete Test Profile Runs |
+> | Microsoft.LoadTestService/testProfileRuns/stop/action | Stop Test Profile Runs |
+> | Microsoft.LoadTestService/testProfiles/write | Write Test Profiles |
+> | Microsoft.LoadTestService/testProfiles/read | Read Test Profiles |
+> | Microsoft.LoadTestService/testProfiles/delete | Delete Test Profiles |
 
 ## Microsoft.VisualStudio
 
