@@ -2596,6 +2596,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/managed-grafana/how-to-sync-teams-with-azure-ad-groups.md",
+      "redirect_url": "managed-grafana/how-to-sync-teams-with-entra-groups",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/media-services/azure-media-player/azure-media-player-license.md",
       "redirect_url": "/legal/azure-media-player/azure-media-player-license",
       "redirect_document_id": false

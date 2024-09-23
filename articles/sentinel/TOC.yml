@@ -272,14 +272,10 @@
       href: data-connectors/varmour-application-controller.md
     - name: 'WireX Network Forensics Platform'
       href: data-connectors/wirex-network-forensics-platform.md
-    - name: '[Recommended] Trend Micro Apex One via AMA'
-      href: data-connectors/recommended-trend-micro-apex-one-via-ama.md
     - name: 1Password (using Azure Functions)
       href: data-connectors/1password.md
     - name: AbnormalSecurity (using Azure Functions)
       href: data-connectors/abnormalsecurity.md
-    - name: AI Vectra Stream
-      href: data-connectors/ai-vectra-stream.md
     - name: AIShield
       href: data-connectors/aishield.md
     - name: AliCloud (using Azure Functions)
@@ -366,8 +362,6 @@
       href: data-connectors/cognni.md
     - name: Cohesity (using Azure Functions)
       href: data-connectors/cohesity.md
-    - name: Common Event Format (CEF)
-      href: data-connectors/common-event-format-cef.md
     - name: Common Event Format (CEF) via AMA
       href: data-connectors/common-event-format-cef-via-ama.md
     - name: Corelight Connector Exporter
@@ -570,8 +564,6 @@
       href: data-connectors/qualys-vulnerability-management.md
     - name: Rapid7 Insight Platform Vulnerability Management Reports (using Azure Functions)
       href: data-connectors/rapid7-insight-platform-vulnerability-management-reports.md
-    - name: RSA® SecurID (Authentication Manager)
-      href: data-connectors/rsa-securid-authentication-manager.md
     - name: Rubrik Security Cloud data connector (using Azure Functions)
       href: data-connectors/rubrik-security-cloud-data-connector.md
     - name: SaaS Security
@@ -596,28 +588,14 @@
       href: data-connectors/snowflake.md
     - name: Sonrai Data Connector
       href: data-connectors/sonrai-data-connector.md
-    - name: SonicWall Firewall 
-      href: data-connectors/sonicwall-firewall.md
     - name: Sophos Cloud Optix
       href: data-connectors/sophos-cloud-optix.md
     - name: Sophos Endpoint Protection (using Azure Functions)
       href: data-connectors/sophos-endpoint-protection.md
-    - name: Sophos XG Firewall
-      href: data-connectors/sophos-xg-firewall.md
-    - name: Squid Proxy
-      href: data-connectors/squid-proxy.md
     - name: Subscription-based Microsoft Defender for Cloud (Legacy)
       href: data-connectors/subscription-based-microsoft-defender-for-cloud-legacy.md
-    - name: Symantec Endpoint Protection
-      href: data-connectors/symantec-endpoint-protection.md
     - name: Symantec Integrated Cyber Defense Exchange
       href: data-connectors/symantec-integrated-cyber-defense-exchange.md
-    - name: Symantec ProxySG
-      href: data-connectors/symantec-proxysg.md
-    - name: Symantec VIP
-      href: data-connectors/symantec-vip.md
-    - name: Syslog
-      href: data-connectors/syslog.md
     - name: Syslog via AMA
       href: data-connectors/syslog-via-ama.md
     - name: Talon Insights
@@ -640,24 +618,12 @@
       href: data-connectors/threat-intelligence-upload-indicators-api.md
     - name: Transmit Security Connector (using Azure Functions)
       href: data-connectors/transmit-security-connector.md
-    - name: Trend Micro Deep Security
-      href: data-connectors/trend-micro-deep-security.md
-    - name: Trend Micro TippingPoint
-      href: data-connectors/trend-micro-tippingpoint.md
     - name: Trend Vision One (using Azure Functions)
       href: data-connectors/trend-vision-one.md
-    - name: Ubiquiti UniFi (using Azure Functions)
-      href: data-connectors/ubiquiti-unifi.md
     - name: Vectra XDR (using Azure Functions)
       href: data-connectors/vectra-xdr.md
     - name: VMware Carbon Black Cloud (using Azure Functions)
       href: data-connectors/vmware-carbon-black-cloud.md
-    - name: VMware ESXi
-      href: data-connectors/vmware-esxi.md
-    - name: VMware vCenter
-      href: data-connectors/vmware-vcenter.md
-    - name: WatchGuard Firebox
-      href: data-connectors/watchguard-firebox.md
     - name: Windows DNS Events via AMA
       href: data-connectors/windows-dns-events-via-ama.md
     - name: Windows Firewall
@@ -670,8 +636,6 @@
       href: data-connectors/windows-security-events-via-ama.md
     - name: WithSecure Elements API (Azure Function) (using Azure Functions)
       href: data-connectors/withsecure-elements-api-azure.md
-    - name: WithSecure Elements via Connector
-      href: data-connectors/withsecure-elements-via-connector.md
     - name: Wiz
       href: data-connectors/wiz.md
     - name: Workplace from Facebook (using Azure Functions)
@@ -684,8 +648,6 @@
       href: data-connectors/zimperium-mobile-threat-defense.md
     - name: Zoom Reports (using Azure Functions)
       href: data-connectors/zoom-reports.md
-    - name: Zscaler Private Access
-      href: data-connectors/zscaler-private-access.md
   - name: Connection instructions by type
     items:
     - name: General instructions for Microsoft connectors
@@ -710,26 +672,16 @@
         href: unified-connector-cef-device.md 
       - name: Syslog - configure security device       
         href: unified-connector-syslog-device.md    
-      - name: CEF over Syslog sources (legacy)
-        href: connect-common-event-format.md
-      - name: Deploy a log forwarder (legacy)
-        href: connect-log-forwarder.md
-      - name: Syslog (raw) sources (legacy)
-        href: connect-syslog.md
     - name: Custom log sources (text files)
       items:
       - name: Collect logs from text files via AMA
         href: connect-custom-logs-ama.md
       - name: Custom logs - configure security device
         href: unified-connector-custom-device.md
-      - name: Custom log sources (legacy)
-        href: connect-custom-logs.md
     - name: DNS via AMA
       href: connect-dns-ama.md
     - name: Logstash plugin with Data Collection Rules
       href: connect-logstash-data-connection-rules.md
-    - name: Logstash plugin (legacy)
-      href: connect-logstash.md
     - name: Microsoft Sentinel Data Collector API
       href: connect-rest-api-template.md      
   - name: Connection instructions for service
@@ -764,8 +716,6 @@
     href: create-custom-connector.md
   - name: Create a codeless connector
     href: create-codeless-connector.md
-  - name: Legacy codeless connector
-    href: create-codeless-connector-legacy.md
   - name: Normalize data
     items:
     - name: ASIM overview
