@@ -83,7 +83,7 @@ The following properties are supported for a SharePoint Online List linked servi
 | connectVia          | The [Integration Runtime](concepts-integration-runtime.md) to use to connect to the data store. If not specified, the default Azure Integration Runtime is used. | No           |
 
 >[!Note]
->If you are using service principal key authentication, which is based on Azure ACS (Access Control Services), we recommend switching to the **service principal certificate authentication** due to the [ACS retirement plan](https://learn.microsoft.com/sharepoint/dev/sp-add-ins/retirement-announcement-for-azure-acs).
+>If you are using service principal key authentication, which is based on Azure ACS (Access Control Services), we recommend switching to the **service principal certificate authentication** due to the [ACS retirement plan](/sharepoint/dev/sp-add-ins/retirement-announcement-for-azure-acs).
 
 **Example 1: Using service principal key authentication**
 
