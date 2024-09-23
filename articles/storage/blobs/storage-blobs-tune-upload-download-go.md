@@ -7,7 +7,7 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.date: 09/20/2024
+ms.date: 09/23/2024
 ms.devlang: golang
 ms.custom: devx-track-go, devguide-go, devx-track-go
 ---
@@ -31,7 +31,13 @@ The following properties can be configured and tuned based on the needs of your 
 - `BlockSize`: The maximum length of a transfer in bytes when uploading a block blob in chunks. Defaults to 4 MB.
 - `Concurrency`: The maximum number of subtransfers that may be used in parallel. Defaults to 5.
 
-These options are available when uploading using the following methods: [UploadBuffer](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client.UploadBuffer), [UploadStream](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client.UploadStream), and [UploadFile](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client.UploadFile). The [Upload](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/blockblob#Client.Upload) method doesn't support these options, and uploads data in a single request.
+These configuration options are available when uploading using the following methods:
+
+- [UploadBuffer](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client.UploadBuffer)
+- [UploadStream](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client.UploadStream)
+- [UploadFile](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client.UploadFile). The 
+
+The [Upload](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/blockblob#Client.Upload) method doesn't support these options, and uploads data in a single request.
 
 > [!NOTE]
 > The client libraries use defaults for each data transfer option, if not provided. These defaults are typically performant in a data center environment, but not likely to be suitable for home consumer environments. Poorly tuned data transfer options can result in excessively long operations and even request timeouts. It's best to be proactive in testing these values, and tuning them based on the needs of your application and environment.
@@ -92,7 +98,12 @@ The following properties can be tuned based on the needs of your app:
 - `BlockSize`: The maximum chunk size used for downloading a blob. Defaults to 4 MB.
 - `Concurrency`: The maximum number of subtransfers that may be used in parallel. Defaults to 5.
 
-These options are available when downloading using the following methods: [DownloadBuffer](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client.DownloadBuffer) and [DownloadFile](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client.DownloadFile). The [DownloadStream](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client.DownloadStream) method doesn't support these options, and downloads data in a single request.
+These options are available when downloading using the following methods:
+
+- [DownloadBuffer](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client.DownloadBuffer)
+- [DownloadFile](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client.DownloadFile)
+
+The [DownloadStream](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client.DownloadStream) method doesn't support these options, and downloads data in a single request.
 
 #### Code example
 
