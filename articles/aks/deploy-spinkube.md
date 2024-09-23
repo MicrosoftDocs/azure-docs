@@ -25,6 +25,7 @@ You must have the following tools installed on your machine to follow this tutor
 * [`kubectl`][kubectl] (version `1.31.0` or newer)
 * [`helm`][helm] (version `3.15.4` or newer)
 * [`spin`][spin-cli] (version `2.7.0` or newer)
+* [Node.js](node-js) (version `21.6.2`)
 
 ## Limitations
 
@@ -271,6 +272,7 @@ kubectl delete -f https://github.com/cert-manager/cert-manager/releases/download
 [kubectl]: https://kubernetes.io/docs/tasks/tools/
 [helm]: https://helm.sh
 [spin-cli]: https://developer.fermyon.com/spin/v2/install
+[node-js]: https://nodejs.org/en
 [kwasm]: https://kwasm.sh
 [cert-manager]: https://cert-manager.io/
 [containerd-shim]: https://github.com/containerd/containerd/blob/main/core/runtime/v2/README.md#runtime-shim
