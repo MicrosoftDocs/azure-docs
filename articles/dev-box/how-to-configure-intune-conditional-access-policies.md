@@ -6,14 +6,14 @@ services: dev-box
 ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 09/18/2024
+ms.date: 09/23/2024
 ms.topic: how-to
 
 # Customer intent: As a platform engineer, I want to configure conditional access policies in Microsoft Intune so that I can control access to dev boxes.
 
 ---
 
-# Restrict access to dev boxes by using conditional access policies in Microsoft Intune
+# "Configure Conditional Access Policies for Microsoft Dev Box"
 
 Conditional access is the protection of regulated content in a system by requiring certain criteria to be met before granting access to the
 content. Conditional access policies at their simplest are if-then statements. If a user wants to access a resource, then they must
@@ -153,8 +153,7 @@ Confirm that your policy works as expected by using Report-only mode. Confirm th
 
 **Caution**
 
-Misconfiguration of a block policy can lead to organizations being locked out. You can configure [accounts for emergency access](/entra/identity/role-based-access-control/security-emergency-access) to prevent tenant-wide account lockout. In the unlikely scenario all
-administrators are locked out of your tenant, your emergency-access administrative account can be used to log into the tenant to take steps
+Misconfiguration of a block policy can lead to organizations being locked out. You can configure [accounts for emergency access](/entra/identity/role-based-access-control/security-emergency-access) to prevent tenant-wide account lockout. In the unlikely scenario all administrators are locked out of your tenant, your emergency-access administrative account can be used to log into the tenant to take steps
 to recover access.
 
 ## Apps required for Dev Box
@@ -164,21 +163,22 @@ organization by allowing or blocking these apps.
 
 | App name               | App ID                        | Description                                               |
 |------------------------|-------------------------------|-----------------------------------------------------------|
-| Windows 365            | 0af06dc6-e4b5-4f28-818e-e78e62d137a5 | Used when retrieving the list of resources for the user and when users initiate actions on their dev box like Restart. |
+| Windows 365            | 0af06dc6-e4b5-4f28-818e-e78e62d137a5 | Used when Microsoft Remote Desktop is opened, to retrieve the list of resources for the user and when users initiate actions on their dev box like Restart. |
 | Azure Virtual Desktop  | 9cdead84-a844-4324-93f2-b2e6bb768d07 | Used to authenticate to the Gateway during the connection and when the client sends diagnostic information to the service. Might also appear as Windows Virtual Desktop. |
 | Microsoft Remote Desktop | a4a365df-50f1-4397-bc59-1a1564b8bb9c | Used to authenticate users to the dev box. Only needed when you configure single sign-on in a provisioning policy. |
 | Windows Cloud Login    | 270efc09-cd0d-444b-a71f-39af4910ec45 | Used to authenticate users to the dev box. This app replaces the Microsoft Remote Desktop app. Only needed when you configure single sign-on in a provisioning policy. |
 | Windows Azure Service Management API | 797f4846-ba00-4fd7-ba43-dac1f8f63013 | Used to query for DevCenter projects where the user can create dev boxes. |
-| Fidalgo Dataplane Public | e526e72f-ffae-44a0-8dac-cf14b8bd40e2 | Required for dev box management. |
-| Microsoft Developer Portal | 0140a36d-95e1-4df5-918c-ca7ccd1fafc9 | Used to manage the Dev box portal. |
+| Fidalgo Dataplane Public | e526e72f-ffae-44a0-8dac-cf14b8bd40e2 | Used to manage dev boxes and other DevCenter resources via the DevCenter REST APIs, Azure CLI, or Dev Portal. |
+| Microsoft Developer Portal | 0140a36d-95e1-4df5-918c-ca7ccd1fafc9 | Used to sign into the developer portal web app. |
 
 The following table lists the apps used in common scenarios.
 
-| App                             | Developer portal login | Dev box management (create/delete/stop etc.) | Connect through browser | Connect through Remote Desktop |
+| App                             | Log in to and manage dev boxes in developer portal | Dev box management (create/delete/stop etc.) | Connect through browser | Connect through Remote Desktop |
 |---------------------------------|------------------------|----------------------------------------------|-------------------------|--------------------------------|
 | Microsoft Developer Portal      | <sub>:::image type="icon" source="./media/how-to-configure-intune-conditional-access-policies/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="./media/how-to-configure-intune-conditional-access-policies/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="./media/how-to-configure-intune-conditional-access-policies/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="./media/how-to-configure-intune-conditional-access-policies/no.svg" border="false":::</sub> |
+| Fidalgo Dataplane Public     | <sub>:::image type="icon" source="./media/how-to-configure-intune-conditional-access-policies/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="./media/how-to-configure-intune-conditional-access-policies/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="./media/how-to-configure-intune-conditional-access-policies/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="./media/how-to-configure-intune-conditional-access-policies/no.svg" border="false":::</sub> |
 | Windows Azure Service Management API | <sub>:::image type="icon" source="./media/how-to-configure-intune-conditional-access-policies/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="./media/how-to-configure-intune-conditional-access-policies/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="./media/how-to-configure-intune-conditional-access-policies/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="./media/how-to-configure-intune-conditional-access-policies/no.svg" border="false":::</sub> |
-| Windows 365                     | <sub>:::image type="icon" source="./media/how-to-configure-intune-conditional-access-policies/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="./media/how-to-configure-intune-conditional-access-policies/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="./media/how-to-configure-intune-conditional-access-policies/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="./media/how-to-configure-intune-conditional-access-policies/no.svg" border="false":::</sub> |
+| Windows 365                     | <sub>:::image type="icon" source="./media/how-to-configure-intune-conditional-access-policies/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="./media/how-to-configure-intune-conditional-access-policies/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="./media/how-to-configure-intune-conditional-access-policies/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="./media/how-to-configure-intune-conditional-access-policies/yes.svg" border="false":::</sub> |
 | Azure Virtual Desktop           | <sub>:::image type="icon" source="./media/how-to-configure-intune-conditional-access-policies/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="./media/how-to-configure-intune-conditional-access-policies/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="./media/how-to-configure-intune-conditional-access-policies/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="./media/how-to-configure-intune-conditional-access-policies/yes.svg" border="false":::</sub> |
 | Microsoft Remote Desktop        | <sub>:::image type="icon" source="./media/how-to-configure-intune-conditional-access-policies/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="./media/how-to-configure-intune-conditional-access-policies/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="./media/how-to-configure-intune-conditional-access-policies/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="./media/how-to-configure-intune-conditional-access-policies/yes.svg" border="false":::</sub> |
 
