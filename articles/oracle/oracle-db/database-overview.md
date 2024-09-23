@@ -39,4 +39,3 @@ Billing and payment for the service is done through Azure. Payment for Oracle Da
 - [Oracle Database@Azure support information](oracle-database-support.md)
 - [Network planning for Oracle Database@Azure](oracle-database-network-plan.md)
 - [Groups and roles for Oracle Database@Azure](oracle-database-groups-roles.md)
-- [What's New in autonomous database services](oracle-database-whats-new-autonomous-database-services.md)
