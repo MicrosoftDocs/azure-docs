@@ -1,5 +1,5 @@
 ---
-title: How to publish custom machine configuration package artifacts
+title: How to access custom machine configuration package artifacts
 description: Learn how to provide access to a machine configuration package file in Azure blob storage .
 ms.date: 08/28/2024
 ms.topic: how-to
