@@ -117,21 +117,22 @@ Follow the instructions in [Configure Azure Application Gateway Private Link](..
 
 Use the [New-AzFrontDoorCdnRoute](/powershell/module/az.cdn/new-azfrontdoorcdnroute) command to create a route that maps your endpoint to the origin group. This route forwards requests from the endpoint to your origin group.
 
-    ```azurepowershell-interactive
-    # Create a route to map the endpoint to the origin group
-    
-    $Route = New-AzFrontDoorCdnRoute `
-        -EndpointName contosofrontend `
-        -Name defaultroute `
-        -ProfileName contosoAFD `
-        -ResourceGroupName myRGFD `
-        -ForwardingProtocol MatchRequest `
-        -HttpsRedirect Enabled `
-        -LinkToDefaultDomain Enabled `
-        -OriginGroupId og `
-        -SupportedProtocol Http,Https
-    ```
-    Your Azure Front Door profile is now fully functional after completing the final step.
+```azurepowershell-interactive
+# Create a route to map the endpoint to the origin group
+
+$Route = New-AzFrontDoorCdnRoute `
+    -EndpointName contosofrontend `
+    -Name defaultroute `
+    -ProfileName contosoAFD `
+    -ResourceGroupName myRGFD `
+    -ForwardingProtocol MatchRequest `
+    -HttpsRedirect Enabled `
+    -LinkToDefaultDomain Enabled `
+    -OriginGroupId og `
+    -SupportedProtocol Http,Https
+```
+
+Your Azure Front Door profile is now fully functional after completing the final step.
 
 ::: zone-end
 
