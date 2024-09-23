@@ -76,12 +76,3 @@ To create an Oracle Exadata VM Cluster resource, select that tab first and follo
 1. Select the **Create** button to start the provisioning flow.
 1. Return to the Oracle Exadata VM Cluster blade to monitor and manage the state of your Oracle Exadata VM Cluster environments.
 
-## Next steps
-- [Onboard with Oracle Database@Azure](onboard-oracle-database.md)
-- [Provision and manage Oracle Database@Azure](provision-oracle-database.md)
-- [Oracle Database@Azure support information](oracle-database-support.md)
-- [Network planning for Oracle Database@Azure](oracle-database-network-plan.md)
-- [Groups and roles for Oracle Database@Azure](oracle-database-groups-roles.md)[Provision and manage Oracle Database@Azure](provision-oracle-database.md)
-- [Oracle Database@Azure support information](oracle-database-support.md)
-- [Network planning for Oracle Database@Azure](oracle-database-network-plan.md)
-- [Groups and roles for Oracle Database@Azure](oracle-database-groups-roles.md) 
