@@ -12,7 +12,7 @@ ms.custom: engagement-fy23
 
 # Migrating to Azure
 
-For migration, we recommend that you use the Azure Migrate service to migrate your VMs and servers to Azure, instead of using Azure Site Recovery service. Learn about [Azure Migrate](../migrate/migrate-services-overview.md).
+For migration, we recommend that you use the Azure Migrate service to migrate your virtual machines and servers to Azure, instead of using Azure Site Recovery service. Learn about [Azure Migrate](../migrate/migrate-services-overview.md).
 
 ## Why use Azure Migrate?
 
@@ -38,7 +38,7 @@ Site Recovery should be used:
  
 We recommend using Azure Migrate to migrate on-premises servers to Azure.  However, if you've already started your migration journey with Site Recovery, consider the following details:
 
-- If you're already using Azure Site Recovery to replicate your servers, you don't need to deploy a Migrate appliance. Remove the BCDR protection, and replicate with a new appliance.
+- If you're already using Azure Site Recovery to replicate your servers, you don't need to deploy a Migrate appliance. Remove the Business Continuity Disaster Recovery protection, and replicate with a new appliance.
 - However, there are benefits to conducting assessment, dependency analysis, and business case review with the Azure Migrate discovery appliance even for workloads that are already replicating.
 - There could be architecture changes required to support the workload in the long term. In this case, address the requirements while continuing to use Azure Site Recovery to replicate so that you don't lose protections.
 
