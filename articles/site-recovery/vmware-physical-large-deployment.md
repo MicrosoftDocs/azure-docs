@@ -168,7 +168,7 @@ After planning capacity and deploying the required components and infrastructure
 
 1. Sort machines into batches. You enable replication for VMs within a batch, and then move on to the next batch.
 
-    - For VMware VMs, you can use the [recommended VM batch size](site-recovery-vmware-deployment-planner-analyze-report.md#recommended-vm-batch-size-for-initial-replication) in the Deployment Planner report.
+    - For VMware VMs, you can use the [recommended VM batch size](site-recovery-vmware-deployment-planner-analyze-report.md#recommended-virtual-machine-batch-size-for-initial-replication) in the Deployment Planner report.
     - For physical machines, we recommend you identify batches based on machines that have a similar size and amount of data, and on available network throughput. The aim is to batch machines that are likely to finish their initial replication in around the same amount of time.
     
 2. If disk churn for a machine is high, or exceeds limits in  Deployment thePlanner, you can move non-critical files you don't need to replicate (such as log dumps or temp files) off the machine. For VMware VMs, you can move these files to a separate disk, and then [exclude that disk](vmware-azure-exclude-disk.md) from replication.

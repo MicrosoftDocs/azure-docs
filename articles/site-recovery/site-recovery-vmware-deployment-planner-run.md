@@ -15,7 +15,7 @@ This article is the Azure Site Recovery Deployment Planner user guide for VMware
 ## Modes of running deployment planner
 You can run the command-line tool (ASRDeploymentPlanner.exe) in any of the following three modes:
 
-1.	[Profiling](#profile-vmware-vms)
+1.	[Profiling](#profile-vmware-virtual-machines)
 2.	[Report generation](#generate-report)
 3.	[Get throughput](#get-throughput)
 
@@ -242,9 +242,9 @@ The generated Microsoft Excel report contains the following information:
 
 * [On-premises Summary](site-recovery-vmware-deployment-planner-analyze-report.md#on-premises-summary)
 * [Recommendations](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations)
-* [Virtual machine<->Storage Placement](site-recovery-vmware-deployment-planner-analyze-report.md#vm-storage-placement)
-* [Compatible VMs](site-recovery-vmware-deployment-planner-analyze-report.md#compatible-vms)
-* [Incompatible VMs](site-recovery-vmware-deployment-planner-analyze-report.md#incompatible-vms)
+* [Virtual machine<->Storage Placement](site-recovery-vmware-deployment-planner-analyze-report.md#virtual-machines-storage-placement)
+* [Compatible VMs](site-recovery-vmware-deployment-planner-analyze-report.md#compatible-virtual-machines)
+* [Incompatible VMs](site-recovery-vmware-deployment-planner-analyze-report.md#incompatible-virtual-machines)
 * [Cost Estimation](site-recovery-vmware-deployment-planner-cost-estimation.md)
 
 ![Deployment planner](media/site-recovery-vmware-deployment-planner-analyze-report/Recommendations-v2a.png)
