@@ -73,13 +73,10 @@ The ADE CLI is a tool that allows you to build custom images by using ADE base i
 ::: zone-end
 
 ::: zone-pivot="terraform"
-***Terraform intro goes here***
-::: zone-end
 
-::: zone-pivot="pulumi"
-***Pulumi intro goes here***
-::: zone-end
+[!INCLUDE [configure-extensibility-terraform-container-image](includes/configure-extensibility-terraform-container-image.md)]
 
+::: zone-end
 
 
 ## Related content

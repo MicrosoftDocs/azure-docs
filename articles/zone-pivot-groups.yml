@@ -1662,7 +1662,7 @@ groups:
   prompt: Choose an IaC framework
   pivots:
   - id: arm-bicep
-    title: ARM Bicep
+    title: ARM and Bicep
   - id: terraform
     title: Terraform
   - id: pulumi
