@@ -8,8 +8,14 @@ ms.date: 12/07/2023
 
 ## Prerequisites
 
-1. Ensure that you are using PowerShell **7.2** runbook.
+1. Ensure that you are using PowerShell **7.4** runbook.
 2. Assign permission to managed identities - You can assign permissions to the appropriate [managed identity](../../automation/automation-security-overview.md#managed-identities). The runbook can use either the Automation account system-assigned managed identity or a user-assigned managed identity. 
+
+For the script examples below (Start VM's and Stop VM's), the Virtual Machine Contributor role is required or a Custom Role with these specific permissions:
+•	Microsoft.Compute/virtualMachines/start/action
+•	Microsoft.Compute/virtualMachines/deallocate/action
+•	Microsoft.Compute/virtualMachines/restart/action
+•	Microsoft.Compute/virtualMachines/powerOff/action
 
    You can use either portal or PowerShell cmdlets to assign permissions to each identity:
   
