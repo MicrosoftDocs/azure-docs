@@ -29,7 +29,7 @@ You need the following from the source SIEM:
 **Splunk**
 - The migration experience is compatible with both Splunk Enterprise and Splunk Cloud editions.
 - A Splunk admin role is required to export all Splunk alerts. For more information, see [Splunk role-based user access](https://docs.splunk.com/Documentation/Splunk/9.1.3/Security/Aboutusersandroles).
-- Export the historical data from Splunk to the relevant tables in the Log Analytics workspace. For more information, see [Export historical data from Splunk](migration-splunk-historical-data.md)
+- Export the historical data from Splunk to the relevant tables in the Log Analytics workspace. For more information, see [Export historical data from Splunk](migration-splunk-historical-data.md).
 
 You need the following on the target, Microsoft Sentinel:
 
