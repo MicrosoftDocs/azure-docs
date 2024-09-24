@@ -77,12 +77,12 @@ Current capabilities:
    |search disabled=0 
 |search alert_threshold != ""
    |table title,search,description,cron_schedule,dispatch.earliest_time,alert.severity,alert_comparator,alert_threshold,alert.suppress.period,id
-|tojson|table _raw
-|rename _raw as alertrules|mvcombine delim=", " alertrules
-|append [| rest splunk_server=local count=0 /servicesNS/-/-/admin/macros|table title ,definition,args,iseval|tojson|table _raw |rename _raw as macros|mvcombine delim=", " macros]
-|filldown alertrules
-|tail 1
-```
+   |tojson|table _raw
+   |rename _raw as alertrules|mvcombine delim=", " alertrules
+   |append [| rest splunk_server=local count=0 /servicesNS/-/-/admin/macros|table title 
+   ,definition,args,iseval|tojson|table _raw |rename _raw as macros|mvcombine delim=", " macros]
+   |filldown alertrules
+   |tail 1
 
 1. Select the export button and choose JSON as the format. 
 
