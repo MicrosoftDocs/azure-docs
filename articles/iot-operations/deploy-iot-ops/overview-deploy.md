@@ -28,15 +28,14 @@ A deployment with only test settings enabled:
 
 If you want to deploy Azure IoT Operations with test settings, follow these articles:
 
-1. Start with [Quickstart: Run Azure IoT Operations Preview in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md).
-1. Follow the rest of the articles in the end-to-end sample to test and evaluate Azure IoT Operations.
-1. To upgrade your Azure IoT Operations instance to use secure settings, follow the steps in [Enable secure settings](./howto-enable-secure-settings.md).
+1. Start with [Quickstart: Run Azure IoT Operations Preview in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md), then follow the rest of the articles in the end-to-end sample to test and evaluate Azure IoT Operations.
+1. If you want to upgrade your Azure IoT Operations instance to use secure settings, follow the steps in [Enable secure settings](./howto-enable-secure-settings.md).
 
 ### Secure settings deployment
 
 A deployment with secure settings enabled:
 
-* Includes the steps to enable secrets and user-assignment managed identity, which are important capabilities for developing a production-ready scenario. Secrets are used whenever Azure IoT Operations components connect to a resource outside of the cluster; for example, an OPC UA server or a dataflow source or destination endpoint.
+* Includes the steps to enable secrets and user-assignment managed identity, which are important capabilities for developing a production-ready scenario. Secrets are used whenever Azure IoT Operations components connect to a resource outside of the cluster; for example, an OPC UA server or a dataflow endpoint.
 
 If you want to deploy Azure IoT Operations with secure settings, follow these articles:
 
