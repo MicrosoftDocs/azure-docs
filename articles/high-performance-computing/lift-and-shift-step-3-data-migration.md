@@ -100,7 +100,7 @@ This section outlines the steps for using Azure Data Box, AzCopy, and rsync to t
        ```
 
    > [!NOTE]
-   > For detailed information about AzCopy, visit [Get started with AzCopy](/azure/storage/common/storage-use-azcopy-v10)
+   > For detailed information about AzCopy, visit [Get started with AzCopy](/azure/storage/common/storage-use-azcopy-v10).
 
 3. **Using rsync:**
 
@@ -127,7 +127,7 @@ This section outlines the steps for using Azure Data Box, AzCopy, and rsync to t
        - `-z`: Compresses data during transfer to reduce bandwidth usage.
    
      > [!NOTE]
-     > For examples using Rsync, visit [rysnc examples](https://rsync.samba.org/examples.html)
+     > For examples using Rsync, visit [rysnc examples](https://rsync.samba.org/examples.html).
 
 ### Example data migration implementation
 

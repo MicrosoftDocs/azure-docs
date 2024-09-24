@@ -97,7 +97,7 @@ This section outlines the steps for installing and configuring Azure CycleCloud,
       - Ensure the Slurm scheduler is set up and ready for job submissions.
 
       > [!NOTE]
-      > For detailed information about Azure CycleCloud Slurm Workspace, visit this [blog post](https://techcommunity.microsoft.com/t5/azure-high-performance-computing/introducing-azure-cyclecloud-slurm-workspace-preview/ba-p/4158433)
+      > For detailed information about Azure CycleCloud Slurm Workspace, visit this [blog post](https://techcommunity.microsoft.com/t5/azure-high-performance-computing/introducing-azure-cyclecloud-slurm-workspace-preview/ba-p/4158433).
 
    - **Configure the environment:**
      - Use the CycleCloud CLI or web portal to configure the basic settings, such as cloud provider credentials, default regions, and network configurations.
