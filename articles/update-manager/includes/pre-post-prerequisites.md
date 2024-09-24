@@ -32,7 +32,7 @@ ms.date: 09/24/2024
 
     ```powershell
    New-AzRoleAssignment `
-                   -ObjectId $UAMI.PrincipalId`
+                   -ObjectId $UAMI.PrincipalId `
                    -ResourceGroupName $resourceGroup `
                    -RoleDefinitionName "Contributor"
     ```
