@@ -9,7 +9,7 @@ metadata:
   ms.topic: landing-page # Required
   author: adriankjohnson
   ms.author: adjohnso
-  ms.date: 11/20/2023
+  ms.date: 08/30/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -23,10 +23,14 @@ landingContent:
         links:
           - text: What is Azure CycleCloud?
             url: overview.md
+          - text: What is Azure CycleCloud Workspace for Slurm?
+            url: overview-ccws.md         
       - linkListType: quickstart
         links:
           - text: Install with Marketplace
             url: qs-install-marketplace.md
+          - text: Deploy Azure CycleCloud Workspace for Slurm
+            url: qs-deploy-ccws.md            
       - linkListType: tutorial
         links:
           - text: Create a Cluster
@@ -43,6 +47,8 @@ landingContent:
         links:
           - text: CycleCloud 8.6.4 is now available
             url: release-notes.md
+          - text: CycleCloud Workspace for Slurm
+            url: release-notes/ccws/2024.09.18.md
           - text: Node Health Checks are now supported
             url: how-to/healthcheck.md
           - text: CycleCloud supports Confidential VMs and Trusted Platform Launch for nodes
