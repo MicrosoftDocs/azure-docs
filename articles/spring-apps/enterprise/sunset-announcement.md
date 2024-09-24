@@ -20,23 +20,22 @@ Azure Spring Apps, including Standard consumption and dedicated, Basic, Standard
 ![image](https://github.com/user-attachments/assets/25e6548b-b6f8-437f-b8f5-7da3b674b4ae)
 
  
-
-## Migration Recommendation: 
+## Migration Recommendation
 To ensure you maintain a high performance and achieve scalability, flexibility, and cost-efficiency for your business, we recommend Azure Container Apps as the primary service for your migration of workloads running on Azure Spring Apps.
 Azure Container Apps is a fully managed serverless container service for polyglot apps and offers enhanced Java features to help you manage, monitor and troubleshoot Java apps at scale.
 Key Features of Azure Container Apps:
-•	Fully managed serverless container platform
-•	Scale to zero capability
-•	Open-source foundation & add-ons
-•	Enhanced Java support
-o	Managed Spring components support (Eureka Server, Config Server, Spring Boot Admin)
-o	Built-in JVM metrics
-o	Diagnostics for Java apps
-Learn more about Azure Container Apps at Azure Container Apps overview | Microsoft Learn.
+- Fully managed serverless container platform
+- Scale to zero capability
+- Open-source foundation & add-ons
+- [Enhanced Java support](https://learn.microsoft.com/en-us/azure/container-apps/java-overview)
+  - Managed Spring components support (Eureka Server, Config Server, Spring Boot Admin)
+  - Built-in JVM metrics
+  - Diagnostics for Java apps
+Learn more about Azure Container Apps at [Azure Container Apps overview | Microsoft Learn.](https://learn.microsoft.com/en-us/azure/container-apps/overview)
 
 ## Migration Support for Azure Spring Apps Standard consumption and dedicated Plan
 For Azure Spring Apps Standard consumption and dedicated plan, new customers will no longer be able to sign up for the service after Sep 30, 2024, while existing customers will remain operational until these plans are retired on March 31, 2025. 
-A one-click migration experience will be enabled for Azure Spring Apps Standard consumption and dedicated plan by mid-October, providing customers with a seamless transition from Azure Spring Apps to Azure Container Apps. Read this doc (https://aka.ms/DeprecatedASAConsunptionPlanFAQ) for more details.
+A one-click migration experience will be enabled for Azure Spring Apps Standard consumption and dedicated plan by mid-October, providing customers with a seamless transition from Azure Spring Apps to Azure Container Apps. Read [this doc](https://aka.ms/DeprecatedASAConsunptionPlanFAQ) for more details.
 ## Migration Support for Azure Spring Apps Basic, Standard and Enterprise Plan
 For Azure Spring Apps Basic, Standard, and Enterprise plans, new customers will no longer be able to sign up for the service after March 31st, 2025; existing customers will remain operational until the plans are phased out on March 31st, 2028.
 We encourage you to start testing out Azure Container Apps for your Java Spring workloads and get prepared for the migration when the retirement for Basic, Standard, and Enterprise plans starts in mid-March 2025. 
@@ -50,12 +49,12 @@ If customers are interested in obtaining or continuing Spring commercial support
 ### What are the migration destinations?
 We recommend Azure Container Apps as the primary service for your migration of workloads running on Azure Spring Apps.
 Azure Container Apps is a fully managed serverless container service for polyglot apps and offers enhanced Java features to help you manage, monitor and troubleshoot Java apps at scale.
-A one-click migration experience will be enabled for Azure Spring Apps Standard consumption and dedicated plan by mid-October, providing customers with a seamless transition from Azure Spring Apps to Azure Container Apps. Read this doc (https://aka.ms/DeprecatedASAConsunptionPlanFAQ) for more details.
+A one-click migration experience will be enabled for Azure Spring Apps Standard consumption and dedicated plan by mid-October, providing customers with a seamless transition from Azure Spring Apps to Azure Container Apps. Read [this doc](https://aka.ms/DeprecatedASAConsunptionPlanFAQ) for more details.
 We’re working on the migration experience from Azure Spring Apps Basic, Standard and Enterprise plans to Azure Container Apps, and the migration guidance will be available by March 2025.
 Alternative solutions for your consideration:
--	PaaS solution: Azure App Service is a fully managed platform for building, deploying, and scaling web apps, mobile app backends, and RESTful APIs. It supports multiple programming languages (such as Java and .NET), integrates with various development tools, and provides features like auto-scaling, load balancing, and security for applications. Learn more: Overview - Azure App Service | Microsoft Learn.
--	Containerized solution: Azure Kubernetes Service (AKS) is a managed container orchestration service that simplifies the deployment, management, and scaling of containerized applications using Kubernetes. It offers features like automated updates, monitoring, and scaling, enabling developers to focus on application development rather than infrastructure management. Learn more: What is Azure Kubernetes Service (AKS)? - Azure Kubernetes Service | Microsoft Learn
--	If you are currently leveraging Spring Commercial support or Tanzu component as part of Azure Spring Apps Enterprise, you will need to switch to leveraging Tanzu Platform Spring Essentials on Azure Container Apps.  Learn more: VMware Tanzu Spring | VMware Tanzu
+-	PaaS solution: Azure App Service is a fully managed platform for building, deploying, and scaling web apps, mobile app backends, and RESTful APIs. It supports multiple programming languages (such as Java and .NET), integrates with various development tools, and provides features like auto-scaling, load balancing, and security for applications. Learn more: [Overview - Azure App Service | Microsoft Learn](https://learn.microsoft.com/en-us/azure/app-service/overview).
+-	Containerized solution: Azure Kubernetes Service (AKS) is a managed container orchestration service that simplifies the deployment, management, and scaling of containerized applications using Kubernetes. It offers features like automated updates, monitoring, and scaling, enabling developers to focus on application development rather than infrastructure management. Learn more: What is Azure Kubernetes Service (AKS) - [Azure Kubernetes Service | Microsoft Learn](https://learn.microsoft.com/en-us/azure/aks/what-is-aks)
+-	If you are currently leveraging Spring Commercial support or Tanzu component as part of Azure Spring Apps Enterprise, you will need to switch to leveraging Tanzu Platform Spring Essentials on Azure Container Apps.  Learn more: [VMware Tanzu Spring | VMware Tanzu](https://tanzu.vmware.com/spring)
 
 ### What is the migration timeline? 
 Existing customers are required to migrate their Azure Spring Apps Standard consumption and dedicated workloads to Azure Container Apps by March 31, 2025. Those on Basic, Standard, and Enterprise plans are required to complete this transition by March 31, 2028. Azure Spring Apps will be entirely retired by March 31, 2028.
@@ -84,8 +83,8 @@ Azure Container Apps will be available in the same Azure regions as Azure Spring
 
 ### Are there pricing differences across Microsoft solutions?
 Azure Spring Apps operates on a consumption-based model with a basic unit where you only pay for vCPU and memory for your apps. 
-Azure Container Apps offers two pricing models: 1) a consumption model, billed based on per-second resource allocation (on VCPU and memory) and requests. 2) dedicated model with a single tenancy guarantee, access to specialized hardware, and more predictable pricing. Billing for the dedicated plan is based on the number of vCPU seconds and gibibyte (GiB) seconds allocated across Azure Container App instances  . Azure Container Apps also provides savings plan. 
-The costs for Microsoft solutions will vary based on their pricing model and optimizations that can be enabled. We recommend using the Azure Pricing Calculator, which provides details on meters, usage prices, and available savings plans to accurately assess anticipated costs.
+[Azure Container Apps](https://azure.microsoft.com/en-us/pricing/details/container-apps/) offers two pricing models: 1) a consumption model, billed based on per-second resource allocation (on VCPU and memory) and requests. 2) dedicated model with a single tenancy guarantee, access to specialized hardware, and more predictable pricing. Billing for the dedicated plan is based on the number of vCPU seconds and gibibyte (GiB) seconds allocated across Azure Container App instances  . Azure Container Apps also provides savings plan. 
+The costs for Microsoft solutions will vary based on their pricing model and optimizations that can be enabled. We recommend using the [Azure Pricing Calculator](https://azure.microsoft.com/en-us/pricing/calculator/?ef_id=_k_8d2e1450f88b14d2046272e613f0ee0b_k_&OCID=AIDcmm5edswduu_SEM__k_8d2e1450f88b14d2046272e613f0ee0b_k_&msclkid=8d2e1450f88b14d2046272e613f0ee0b), which provides details on meters, usage prices, and available savings plans to accurately assess anticipated costs.
 
 ### What is the impact for customers using Tanzu Components within Azure Spring Apps Enterprise?
 If you are interested in obtaining or continuing Spring commercial support and leveraging Tanzu Components while migrating to Azure Container Apps, the components can be downloaded and run as Jar files on top of Azure Container Apps. Please work with your Broadcom sales contact to learn more.
@@ -106,4 +105,4 @@ Below table tells the overall release timeline for whole Azure Spring Apps sunse
 | **Official retirement date after a 3-year sunset period**                               | Basic, Standard and enterprise plans    | Mar 31 2028      |
 
 ### How can I get transition help and support during migration?
-If you have any questions, you can open a support ticket through the Azure portal for technical help: create a Azure Support Request. 
+If you have any questions, you can open a support ticket through the Azure portal for technical help: create a [Azure Support Request](https://learn.microsoft.com/en-us/azure/azure-portal/supportability/how-to-create-azure-support-request). 
