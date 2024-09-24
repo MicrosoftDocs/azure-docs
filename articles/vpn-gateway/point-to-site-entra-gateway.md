@@ -80,11 +80,11 @@ The client address pool is a range of private IP addresses that you specify. The
    * **Tunnel type:** OpenVPN (SSL)
    * **Authentication type**: Microsoft Entra ID
 
-   For **Microsoft Entra ID** values, use the following guidelines for **Tenant**, **Audience**, and **Issuer** values. Replace {Microsoft ID Entra Tenant ID} with your tenant ID, taking care to remove **{}** from the examples when you replace this value.
+   For **Microsoft Entra ID** values, use the following guidelines for **Tenant**, **Audience**, and **Issuer** values. Replace {Microsoft Entra Tenant ID} with your tenant ID, taking care to remove **{}** from the examples when you replace this value.
 
    * **Tenant:** TenantID for the Microsoft Entra ID tenant. Enter the tenant ID that corresponds to your configuration. Make sure the Tenant URL doesn't have a `\` (backslash) at the end. Forward slash is permissible.
 
-      * Azure Public: `https://login.microsoftonline.com/{Microsoft ID Entra Tenant ID}`
+      * Azure Public: `https://login.microsoftonline.com/{Microsoft Entra Tenant ID}`
 
    * **Audience**: The corresponding value for the Microsoft-registered Azure VPN Client App ID. [Custom audience](point-to-site-entra-register-custom-app.md) is also supported for this field.
 
@@ -92,7 +92,7 @@ The client address pool is a range of private IP addresses that you specify. The
 
    * **Issuer**: URL of the Secure Token Service. Include a trailing slash at the end of the **Issuer** value. Otherwise, the connection might fail. Example:
 
-     * `https://sts.windows.net/{Microsoft ID Entra Tenant ID}/`
+     * `https://sts.windows.net/{Microsoft Entra Tenant ID}/`
 
 1. You don't need to click **Grant administrator consent for Azure VPN client application**. This link is only for manually registered VPN clients that use the older Audience values. It opens a page in the Azure portal.
 1. Once you finish configuring settings, click **Save** at the top of the page.
