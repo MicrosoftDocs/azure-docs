@@ -8,6 +8,7 @@ ms.topic: conceptual
 ms.date: 01/05/2024
 ms.author: abnarain 
 ms.custom: subject-rbac-steps
+ai-usage: ai-assisted
 ---
 
 # Managed identity for Azure Data Factory
@@ -33,7 +34,20 @@ Managed identity provides the below benefits:
 
 - [Store credential in Azure Key Vault](store-credentials-in-key-vault.md), in which case-managed identity is used for Azure Key Vault authentication.
 - Access data stores or computes using managed identity authentication, including Azure Blob storage, Azure Data Explorer, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database, Azure SQL Managed Instance, Azure Synapse Analytics, REST, Databricks activity, Web activity, and more. Check the connector and activity articles for details.
-- Managed identity is also used to encrypt/decrypt data and metadata using the customer-managed key stored in Azure Key Vault, providing double encryption. 
+- Managed identity is also used to encrypt/decrypt data and metadata using the customer-managed key stored in Azure Key Vault, providing double encryption.
+
+## Required Roles for Managed Identities
+
+To effectively use managed identities in Azure Data Factory, specific roles must be assigned to ensure proper access and functionality. Below are the roles required:
+
+- **System-Assigned Managed Identity**
+   - **Reader Role**: This role is necessary to read the metadata of the resources.
+   - **Contributor Role**: This role is required to manage the resources that the managed identity needs to access.
+
+- **User-Assigned Managed Identity**
+   - **Managed Identity Operator Role**: This role allows the management of the user-assigned managed identity.
+   - **Reader Role**: This role is necessary to read the metadata of the resources.
+   - **Contributor Role**: This role is required to manage the resources that the managed identity needs to access.
 
 ## System-assigned managed identity 
 
