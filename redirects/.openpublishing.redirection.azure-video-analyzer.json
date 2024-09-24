@@ -1,6 +1,21 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/index.yml",
+            "redirect_url": "/azure/azure-video-indexer/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/cloud/faq.yml",
+            "redirect_url": "/azure/azure-video-indexer/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/edge/faq.yml",
+            "redirect_url": "/azure/azure-video-indexer/",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/azure-video-analyzer/video-analyzer-docs/direct-methods.md",
             "redirect_url": "/azure/azure-video-analyzer/video-analyzer-docs/edge/direct-methods",
             "redirect_document_id": false
