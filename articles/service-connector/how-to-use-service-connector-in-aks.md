@@ -121,7 +121,7 @@ If an error happens and couldn't be mitigated by retrying when creating a servic
 
 ### Check Service Connector kubernetes extension
 
-Service Connector kubernetes extension is built on top of [Azure Arc-enabled Kubernetes cluster extensions](../azure-arc/kubernetes/extensions.md). Use the following commands to investigate if there are any errors during the extension installation or updating.
+Service Connector kubernetes extension is built on top of [Azure Arc-enabled Kubernetes cluster extensions](/azure/azure-arc/kubernetes/extensions). Use the following commands to investigate if there are any errors during the extension installation or updating.
 
 1. Install the `k8s-extension` Azure CLI extension.
 
@@ -230,7 +230,7 @@ Check the permissions on the Azure resources specified in the error message. Obt
 `The subscription is not registered to use namespace 'Microsoft.KubernetesConfiguration'`
 
 **Reason:**
-Service Connector requires the subscription to be registered for `Microsoft.KubernetesConfiguration`, which is the resource provider for [Azure Arc-enabled Kubernetes cluster extensions](../azure-arc/kubernetes/extensions.md).
+Service Connector requires the subscription to be registered for `Microsoft.KubernetesConfiguration`, which is the resource provider for [Azure Arc-enabled Kubernetes cluster extensions](/azure/azure-arc/kubernetes/extensions).
 
 **Mitigation:**
 Register the `Microsoft.KubernetesConfiguration` resource provider by running the following command. For more information on resource provider registration errors, please refer to this [tutorial](../azure-resource-manager/troubleshooting/error-register-resource-provider.md).
