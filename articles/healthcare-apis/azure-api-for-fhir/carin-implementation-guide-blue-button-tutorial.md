@@ -60,7 +60,7 @@ After testing the capabilities statement, test the [read capabilities](https://t
 
 ## Touchstone EOB query test
 
-The next test we'll review is the [EOB query test](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/CARIN/CARIN-4-BlueButton/02-EOBQuery&activeOnly=false&contentEntry=TEST_SCRIPTS). If you've already completed the read test, you have all the data loaded that you need. This test validates that you can search for specific `Patient` and `ExplanationOfBenefit` resources using various parameters.
+The next test we review is the [EOB query test](https://touchstone.aegis.net/touchstone/testdefinitions?selectedTestGrp=/FHIRSandbox/CARIN/CARIN-4-BlueButton/02-EOBQuery&activeOnly=false&contentEntry=TEST_SCRIPTS). If you've already completed the read test, you have all the data loaded that you need. This test validates that you can search for specific `Patient` and `ExplanationOfBenefit` resources using various parameters.
 
 :::image type="content" source="media/cms-tutorials/test-execution-touchstone-eob-query-test.png" alt-text="Touchstone EOB query execution results.":::
 
