@@ -1160,6 +1160,14 @@ groups:
     title: Azure portal
   - id: front-door-cli
     title: Azure CLI
+- id: front-door-dev-exp-ps-cli
+  title: Front Door Developer experience
+  prompt: "Select the developer experience:"
+  pivots:
+  - id: front-door-ps
+    title: Azure PowerShell
+  - id: front-door-cli
+    title: Azure CLI
 # Owner: wiassaf
 - id: azure-sql-deployment-option-single-elastic
   title: Azure SQL deployment option, single or elastic
