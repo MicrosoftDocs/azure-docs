@@ -27,8 +27,6 @@ The following table lists the metrics available for the Microsoft.VoiceServices/
 
 [!INCLUDE [Microsoft.VoiceServices/communicationsGateways](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-voiceservices-communicationsgateways-metrics-include.md)]
 
-Of the metrics described in the preceding table, the following are automatically collected for Azure Communications Gateway:
-
 [!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
 
 [!INCLUDE [horz-monitor-ref-metrics-dimensions](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions.md)]
