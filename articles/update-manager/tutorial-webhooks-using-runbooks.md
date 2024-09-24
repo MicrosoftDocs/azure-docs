@@ -94,7 +94,7 @@ In this tutorial, you learn how to:
             | where id has '/providers/microsoft.compute/virtualmachines/'    
             | project id, resourceId = tostring(properties.resourceId)    
             | order by id asc 
-            "@  
+        "@  
           
         Write-Output "Arg Query Used: $argQuery"    
         $allMachines = [System.Collections.ArrayList]@()    

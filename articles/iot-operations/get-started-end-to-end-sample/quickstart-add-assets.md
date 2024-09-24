@@ -99,12 +99,6 @@ To add an asset endpoint:
     kubectl get assetendpointprofile -n azure-iot-operations
     ```
 
-1. In the current release, you need to patch the asset endpoint by using the following command:
-
-    ```console
-    kubectl patch AssetEndpointProfile opc-ua-connector-0 -n azure-iot-operations --type=merge -p '{"spec":{"additionalConfiguration":"{}"}}'
-    ```
-
 ## Manage your assets
 
 After you select your instance in operations experience, you see the available list of assets on the **Assets** page. If there are no assets yet, this list is empty:

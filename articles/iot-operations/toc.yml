@@ -27,6 +27,8 @@ items:
         href: deploy-iot-ops/howto-enable-secure-settings.md
       - name: Manage secrets
         href: deploy-iot-ops/howto-manage-secrets.md
+      - name: Manage, update, or uninstall
+        href: deploy-iot-ops/howto-manage-update-uninstall.md
     - name: Discover and manage assets
       items:
       - name: Asset management overview
