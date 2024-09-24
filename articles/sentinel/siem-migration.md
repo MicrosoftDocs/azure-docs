@@ -72,7 +72,7 @@ Current capabilities:
 
 1. Run the following query: 
 
-|rest splunk_server=local count=0 /servicesNS/-/-/saved/searches
+   |rest splunk_server=local count=0 /servicesNS/-/-/saved/searches
    |search disabled=0 
 |search alert_threshold != ""
    |table title,search,description,cron_schedule,dispatch.earliest_time,alert.severity,alert_comparator,alert_threshold,alert.suppress.period,id
