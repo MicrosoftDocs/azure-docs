@@ -176,9 +176,11 @@ When a Splunk lookup doesn't have a corresponding watchlist mapped, the translat
 
     :::image type="content" source="media/siem-migration/enable-deployed-translated-rules.png" alt-text="Screenshot showing Analytics rules with deployed Splunk rules highlighted ready to be enabled.":::
 
-## Next step
+## Related content
 
 In this article, you learned how to use the SIEM migration experience. 
 
-> [!div class="nextstepaction"]
-> [Migrate Splunk detection rules](migration-splunk-detection-rules.md)
+For more information on the SIEM migration experience, see the following articles:
+- [Become a Microsoft Sentinel ninja - migration section](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/become-a-microsoft-sentinel-ninja-the-complete-level-400/ba-p/1246310#toc-hId-111398316)
+- [SIEM migration update - Microsoft Sentinel blog](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/siem-migration-update-now-migrate-with-contextual-depth-in/ba-p/4241234)
+- [SIEM migration experience generally available - Microsoft Sentinel blog](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/what-s-new-easily-migrate-to-microsoft-sentinel-with-the-new/ba-p/4100351)
