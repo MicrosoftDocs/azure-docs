@@ -1,6 +1,6 @@
 ---
-title: Terraform/OpenTofu examples for autonomous database services
-description: Learn about Terraform/OpenTofu examples for autonomous database services.
+title: Terraform/OpenTofu examples for Oracle Database@Azure services
+description: Learn about Terraform/OpenTofu examples for Oracle Database@Azure services.
 author: jjaygbay1
 ms.author: jacobjaygbay
 ms.topic: concept-article
@@ -8,7 +8,7 @@ ms.service: oracle-on-azure
 ms.date: 08/01/2024
 ---
 
-# Terraform/OpenTofu examples for autonomous database services
+# Terraform/OpenTofu examples for Oracle Database@Azure services
 
 Using HashiCorp Terraform, you can provision and manage resources for Oracle Database@Azure using the Terraform tool that enables you to provision and manage infrastructure in Oracle Cloud Infrastructure (OCI).
 
@@ -23,9 +23,7 @@ For more information on reference implementations for Terraform or OpenTofu modu
 The samples use example values for illustration purposes. You must replace them with your own settings.
 The samples use [AzAPI Dynamic Properties](https://techcommunity.microsoft.com/t5/azure-tools-blog/announcing-azapi-dynamic-properties/ba-p/4121855) instead of `JSONEncode` for more native Terraform behavior.
 
-## Oracle Autonomous Database Services
-
-### Create delegated subnet for Oracle Database@Azure
+## Create delegated subnet for Oracle Database@Azure
 
 ```resource "azurerm_resource_group" "resource_group" {
   location = "eastus"
@@ -59,7 +57,7 @@ module "avm_odbas_network" {
 }
 ```
 
-### Create an Oracle Autonomous Database
+## Create an Oracle Autonomous Database
 
 ```terraform {
   required_providers {

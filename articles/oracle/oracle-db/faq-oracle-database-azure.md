@@ -134,7 +134,7 @@ None. The OCI connection is primarily utilized for OCI control plane to manage t
 
 ### How do I achieve low latencies between my application and Database tiers?
 
-You can deploy your application and database in the same virtual network or a peered VNETs in the same region and availability zone for lowest possible latencies.
+You can deploy your application and database in the same virtual network or a peered virtual networks in the same region and availability zone for lowest possible latencies.
 
 ## Management
 In this section, we cover questions related to management for Oracle Database@Azure.

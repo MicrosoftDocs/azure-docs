@@ -1,6 +1,6 @@
 ---
-title: Manage autonomous database resources
-description: Learn about how to manage autonomous database resources.
+title: Manage autonomous database resources for Oracle Database@Azure
+description: Learn about how to manage autonomous database resources for Oracle Database@Azure.
 author: jjaygbay1
 ms.author: jacobjaygbay
 ms.topic: concept-article
@@ -8,7 +8,7 @@ ms.service: oracle-on-azure
 ms.date: 08/01/2024
 ---
 
-# Manage autonomous database resources
+# Manage autonomous database resources for Oracle Database@Azure
 
 After provisioning any OracleDB@Azure resource, you can use the Microsoft Azure blade for a limited set of management functions.
 
@@ -91,10 +91,10 @@ The following management functions are available for all resources from the Micr
    1. **Username** - Enter **SYS**.
    1. **Password** - Enter the password used when creating the PDB.
    1. **Role** - Select **SYSDBA**.
-   1. **Save Password** - Select the box if you security rules allow. If not, you will need to enter the PDB password every time you use this connection in SQL Developer.
+   1. **Save Password** - Select the box if your security rules allow. If not, you will need to enter the PDB password every time you use this connection in SQL Developer.
    1. **Connection Type** - Select **Cloud Wallet**.
    1. **Configuration File** - Select **Browse**, and select the wallet you downloaded.
-   1. Select the **Test** button. The **Status** at the bottom of the connections list, should show as **Success**. If the connection is not a success, the wallet is out of date, or the ADB is not currently running.
+   1. Select the **Test** button. The **Status** at the bottom of the connections list should show as **Success**. If the connection is not a success, the wallet is out of date, or the ADB is not currently running.
    1. Select the **Save** button.
    1. Select the **Connect** button.
 

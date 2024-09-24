@@ -11,7 +11,7 @@ ms.author: jacobjaygbay
 
 # Get started with Oracle Database@Azure
 
-In this article, you learn learn how to purchase and use Oracle Database@Azure.
+In this article, you learn about how to purchase and use Oracle Database@Azure.
 
 Oracle Database@Azure is an Oracle database service running on Oracle Cloud Infrastructure (OCI), colocated in Microsoft data centers. This ensures that the Oracle Database@Azure service has the fastest possible access to Azure resources and applications.
 

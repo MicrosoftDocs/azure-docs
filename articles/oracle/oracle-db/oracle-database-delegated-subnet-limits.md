@@ -1,5 +1,5 @@
 ---
-title: Delegated subnet limits
+title: Delegated subnet limits for Oracle Database@Azure
 description: Learn about Delegated subnet limits for Oracle Database@Azure.
 author: jjaygbay1
 ms.author: jacobjaygbay
@@ -8,7 +8,7 @@ ms.service: oracle-on-azure
 ms.date: 08/01/2024
 ---
 
-# Delegated subnet limits 
+# Delegated subnet limits for Oracle Database@Azure
 
 In this article, you learn about delegated subnet limits for Oracle Database@Azure.
 

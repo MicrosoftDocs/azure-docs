@@ -47,6 +47,8 @@ items:
       href: oracle-db/provision-autonomous-oracle-databases.md
     - name: Manage autonomous database resources
       href: oracle-db/oracle-database-manage-autonomous-database-resources.md
+    - name: Autonomous database services for Oracle Database@Azure
+      href: oracle-db/oracle-database-autonomous-database-services.md
     - name: Operations processes for Autonomous Database services
       href: oracle-db/oracle-database-processes-autonomous-database-services.md
     - name: OCI multicloud landing zone for Azure

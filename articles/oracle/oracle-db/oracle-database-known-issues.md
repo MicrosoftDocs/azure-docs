@@ -54,7 +54,7 @@ The failure occurs because the user performing the action doesn't have  permissi
 
 ### Create 'OracleSubscription' resource fails with 'deny' Policy Action during offer purchase 
 
-**Details:** When subscribing Oracle Database@Azure,  must create a Managed Resource Group (MRG) in the background to contain the `OracleSubscription` object for billing purposes. This MRG must be in the  `EastUS` region with a specific name, and without tags initially.
+**Details:** When subscribing to Oracle Database@Azure,  must create a Managed Resource Group (MRG) in the background to contain the `OracleSubscription` object for billing purposes. This MRG must be in the  `EastUS` region with a specific name, and without tags initially.
 
 Any  policy that blocks the creation of the MRG triggers the error. For example, a policy with any of the following rules could cause the buy to fail:
 
@@ -72,11 +72,11 @@ The resource write operation failed to complete successfully, because it reached
 
 1.  Identify the blocking policy by examining the **Activity log**. In the log, you might see **'deny' Policy action** operation with the "failed" status:
 
-    :::image type="content" source="media/oaa-known-issue-purchase-failure-1.png" alt-text="The image shows the Azure activity log with a 'deny' Policy action that has caused a failure for the OracleSubscriptions_Update operation.":::
+    :::image type="content" source="media/deny-known-issue-purchase-failure.png" alt-text="The image shows the Azure activity log with a 'deny' Policy action that has caused a failure for the OracleSubscriptions_Update operation.":::
 
     The following image shows the details of the **'deny' Policy action** in the Azure portal:
 
-    :::image type="content" source="media/oaa-known-issue-purchase-failure-2.png" alt-text="The image shows a JSON file with example policies, including a policy limiting the allowed locations for resource groups.":::
+    :::image type="content" source="media/example-known-issue-purchase-failure.png" alt-text="The image shows a JSON file with example policies, including a policy limiting the allowed locations for resource groups.":::
 
 
 2.  Create a time-bound policy exemption for the blocking policies before trying to buy the offer and create the **OracleSubscription** resource again. For more information, see [Azure Policy exemption structure](/azure/governance/policy/concepts/exemption-structure) in the Azure documentation.
@@ -86,11 +86,11 @@ The resource write operation failed to complete successfully, because it reached
 
     Select **Create exemption** on the Policy Assignments page in the Azure portal:
 
-    :::image type="content" source="media/oaa-known-issue-purchase-failure-3.png" alt-text="The image shows the Create exemption button in the Azure portal Policy.":::
+    :::image type="content" source="media/exemption-known-issue-purchase-failure.png" alt-text="The image shows the Create exemption button in the Azure portal policy.":::
 
 3.  On the **Create exemption** page in the Azure portal, create a policy exemption. Use the **Expiration date** field to limit the time window for the policy exemption.
 
-    :::image type="content" source="media/oaa-known-issue-purchase-failure-4.png" alt-text="The image shows the Azure portal Create exemption workflow.":::
+    :::image type="content" source="media/workflow-known-issue-purchase-failure.png" alt-text="The image shows the Azure portal Create exemption workflow.":::
 
 
 
