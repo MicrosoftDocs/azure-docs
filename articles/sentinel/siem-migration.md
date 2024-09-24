@@ -56,7 +56,7 @@ Current capabilities:
 - **Translation State** indicating how completely SPL syntax is translated to KQL at the grammatical level.
 - Support for Splunk macros translation using inline replacement macro definition within SPL queries.
 - Splunk Common Information Model (CIM) to Microsoft Sentinel's Advanced Security Information Model (ASIM) translation support.
-- Downloadable pre-migration and post-migration summary
+- Downloadable pre-migration and post-migration summary.
 
 ## Start the SIEM migration experience
 
