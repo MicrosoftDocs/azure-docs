@@ -6,10 +6,12 @@
   - name: Overview
     href: lift-and-shift-overview.md
 - name: Migration guide
+  expanded: true
   items:
   - name: Proof-of-concept migration guide
     href: lift-and-shift-proof-of-concept.md
   - name: Production-level environment migration guide
+    expanded: true
     items:
     - name: Overview
       href: lift-and-shift-production-level-overview.md
