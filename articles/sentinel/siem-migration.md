@@ -60,7 +60,7 @@ Current capabilities:
 
 ## Start the SIEM migration experience
 
-1. Find the SIEM migration experience in the Microsoft Sentinel in the [Azure portal](https://portal.azure.com) or the [Defender portal](https://security.microsoft.com/), under **Content management**  > **Content hub**.
+1. Find the SIEM migration experience in Microsoft Sentinel from the [Azure portal](https://portal.azure.com) or the [Defender portal](https://security.microsoft.com/), under **Content management**  > **Content hub**.
 
 1. Select **SIEM Migration**. 
 
@@ -96,7 +96,7 @@ Current capabilities:
 
 ## Schema mapping
 
-Once you match Splunk data source ingestion in Microsoft Sentinel, use **Schema mapping** to precisely define how the data types and fields in the analytics rule logic are mapped.
+Use **Schema mapping** to precisely define how the data types and fields in the analytics rule logic are mapped based on the extracted sources from the SPL queries to the Microsoft Sentinel tables.
 
 ### Data sources
 
@@ -104,7 +104,7 @@ Known sources such as Splunk CIM schemas and data models are automatically mappe
 
 :::image type="content" source="media/siem-migration/schema-mapping-data-sources.png" alt-text="Screenshot showing the Schema mapping (preview) options for data sources." lightbox="media/siem-migration/schema-mapping-data-sources.png":::
 
-Once the schema mapping is complete, any manual updates are reflected in the **Mapping Status** as "Manually mapped". The changes are taken into account in the next step when the rules are translated. 
+Once the schema mapping is complete, any manual updates are reflected in the **Mapping Status** as "Manually mapped". The changes are taken into account in the next step when the rules are translated. The mapping is saved per workspace, so you don't have to repeat it.
 
 ### Lookups
 
