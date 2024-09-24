@@ -54,7 +54,7 @@ Current capabilities:
 - **Schema Mapping (Preview)** creates logical links for the translated rules by mapping Splunk data sources to Microsoft Sentinel tables, and Splunk lookups to watchlists.
 - Translated query review provides error feedback with edit capability to save time in the detection rule translation process.
 - **Translation State** indicating how completely SPL syntax is translated to KQL at the grammatical level.
-- Support for Splunk macros translation using inline replacement macro definition within SPL queries
+- Support for Splunk macros translation using inline replacement macro definition within SPL queries.
 - Splunk Common Information Model (CIM) to Microsoft Sentinel's Advanced Security Information Model (ASIM) translation support.
 - Downloadable pre-migration and post-migration summary
 
