@@ -3,10 +3,8 @@ title: Manage secrets
 description: Create, update, and manage secrets that are required to give your Arc-enabled Kubernetes cluster access to Azure resources.
 author: asergaz
 ms.author: sergaz
-ms.subservice: orchestrator
 ms.topic: how-to
-ms.date: 03/21/2024
-ms.custom: ignite-2023, devx-track-azurecli
+ms.date: 09/24/2024
 
 #CustomerIntent: As an IT professional, I want to manage secrets in Azure IoT Operations, by leveraging Key Vault and Azure Secrete Store to sync the secrets down from the cloud and store them on the edge as Kubernetes secrets.
 ---
@@ -15,33 +13,28 @@ ms.custom: ignite-2023, devx-track-azurecli
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-Azure IoT Operations uses Azure Key Vault as the managed vault solution on the cloud and uses [Azure Secret Store](#TODO-ADD-LINK) to sync the secrets down from the cloud and store them on the edge as Kubernetes secrets.
+Azure IoT Operations uses Azure Key Vault as the managed vault solution on the cloud, and uses [Azure Secret Store](#TODO-ADD-LINK) to sync the secrets down from the cloud and store them on the edge as Kubernetes secrets.
 
 ## Prerequisites
 
-* An Azure IoT Operations instance deployed with secure settings.
-* If you deployed Azure IoT Operations with test settings and now want to use secrets with Azure IoT Operations, you need to first [enable secure settings](./howto-enable-secure-settings.md).
+* An Azure IoT Operations instance deployed with secure settings. If you deployed Azure IoT Operations with test settings and now want to use secrets, you need to first [enable secure settings](./howto-enable-secure-settings.md).
 
 ## Add and use secrets
 
-Azure IoT Operations has integrated with [Azure Secret Store](#TODO-ADD-LINK) to provide a seamless secret management experience.  
+Secrets management for Azure IoT Operations uses Azure Secret Store to sync the secrets from an Azure Key Vault and store them on the edge as Kubernetes secrets. When you enabled secure settings during deployment, you selected an Azure Key Vault for secret management. It is in this Key Vault where all secrets to be used within Azure IoT Operations are stored. Azure IoT Operations instances work with only one Azure Key Vault, multiple key vaults per instance isn't supported.
 
-To use secrets with AIO components, deployment in “Secure Settings” is required. In “Secure Settings” deployment, you will have selected an Azure Key Vault for secret managed. It is in this Key Vault where all secrets to be used within AIO should be placed. AIO instances works with only one Azure Key Vault, multiple Azure Key Vault per instance is not supported. 
+Once the setup secrets management steps are completed, you can start adding secrets to Azure Key Vault, and sync them to the edge to be used in Asset Endpoint Profile or Dataflow Endpoints using the [operations experience web UI](https://iotoperations.azure.com).
 
-Once the set-up steps are completed, you can now add secrets to Azure Key Vault, sync it to the edge to be used in Asset Endpoint Profile or Dataflow Endpoints using Digital Operators Experience. 
+Secrets are used in Asset Endpoint profile and Dataflow endpoints for authentication. In this section, we use Asset Endpoint profile as an example, the same can be applied to dataflow endpoints. You have the following options When using a secret from the selected key vault:
 
-Secrets are used in Asset Endpoint profile and Dataflow endpoints for authentication. In this section, we will use Asset Endpoint profile as an example, the same can be applied to dataflow endpoints. 
+1. **Create a new secret**: creates a secret reference in the Azure Key Vault and also automatically synchronizes the secret down to the edge using Azure Secret Store. Use this option if you didn't create the secret you require for this scenario in the key vault beforehand. 
 
-While using a secret from the selected key vault, there are a few options:
+1. **Add from Azure Key Vault**: synchronizes an existing secret in key vault down to the edge in Azure Key Vault that wasn't synchronized before. Selecting this option shows you the list of secret references in the selected key vault. Use this option if you created the secret in the key vault beforehand.  
 
-1. Create a new secret: This creates a secret reference in the azure key vault and also automatically synchronizes the secret down to the edge using SSC. Use this option if you haven’t already created the secret you require for this scenario in the key vault. 
-
-1. Add from Azure Key Vault: This synchronizes an existing secret in key vault down to the edge in azure key vault which has not been synchronized before. Selecting this option will show you the list of secret references in the selected key vault. Use this option if you have already created the secret in the key vault.  
-
-1. Add synced secret: This uses an existing and synchronized to the edge secret for the component. Selecting this option will show you the list of already synchronized secrets. Use this if you have previously created and synchronized the secret but have not used it in an AIO component.  
+1. **Add synced secret**: uses an existing and synchronized to the edge secret for the component. Selecting this option shows you the list of already synchronized secrets. Use this option if you previously created and synchronized the secret but didn't use it in an Azure IoT Operations component.
 
 ## Manage Synced Secrets
 
-You can use manage synced secrets for asset endpoint profiles and dataflow endpoints to view or delete synced secrets. 
+You can use Manage Synced Secrets for asset endpoint profiles and dataflow endpoints to view or delete synced secrets. 
 
-You can delete synced secrets as well, this will only delete the secret from the edge, this will not delete the secret from key vault. Before deleting synced secret, make sure all references of the secret from AIO components have been removed.
+You can delete synced secrets as well. When you delete a synced secret, it only deletes the secret from the edge, and doesn't delete the secret from key vault. Before deleting a synced secret, make sure that all references to the secret from Azure IoT Operations components are removed.

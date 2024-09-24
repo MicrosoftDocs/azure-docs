@@ -1,20 +1,19 @@
 ---
 title: Enable secure settings
 description: Enable secure settings on your Azure IoT Operations Preview deployment by configuring an Azure Key Vault and enabling workload identities.
-author: kgremban
-ms.author: kgremban
+author: asergaz
+ms.author: sergaz
 ms.topic: how-to
-ms.custom: 
-ms.date: 09/17/2024
+ms.date: 09/24/2024
 
 #CustomerIntent: I deployed Azure IoT Operations with test settings for the quickstart scenario, now I want to enable secure settings to use the full feature set.
 ---
 
-# Enable secure settings
+# Enable secure settings in Azure IoT Operations Preview deployment
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-The secure settings for Azure IoT Operations includes the setup of Secrets Management and user-assigned managed identity for cloud connections, for example, an OPC UA server, or dataflow endpoints. 
+The secure settings for Azure IoT Operations include the setup of Secrets Management and user-assigned managed identity for cloud connections, for example, an OPC UA server, or dataflow endpoints. 
 
 The test settings are easier and quicker to get you started with a deployment, but after your initial deployment you might want to start using the secure settings. This article provides instructions for enabling secure settings on an existing deployment.
 
@@ -61,7 +60,7 @@ Use the following steps to enable workload identity on an existing connected K3s
    az extension add --source <PATH_TO_WHL_FILE>
    ```
 
-1. Export environment variables and set the release tag to `0.1.15392-private`.
+1. Export environment variables, and set the release tag to `0.1.15392-private`.
 
    ```bash
    export KUBECONFIG=/etc/rancher/k3s/k3s.yaml 
@@ -309,7 +308,7 @@ Now that secret synchronization setup is complete, you can refer to [Manage Secr
 
 ## Set up user-assigned managed identity for cloud connections
 
-Some Azure IoT Operations components like dataflow endpoints use user-assigned managed identity for cloud connections. It is recommended to use a separate identity from the one used to set up Secrets Management.
+Some Azure IoT Operations components like dataflow endpoints use user-assigned managed identity for cloud connections. It's recommended to use a separate identity from the one used to set up Secrets Management.
 
 1. Create a user-assigned managed identity which can be used for cloud connections. Use the [az identity create](/cli/azure/identity#az-identity-create) command to create the user-assigned managed identity.
 
