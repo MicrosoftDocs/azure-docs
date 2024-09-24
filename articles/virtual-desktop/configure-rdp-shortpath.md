@@ -189,7 +189,7 @@ Here's how to configure RDP Shortpath in the host pool networking settings using
 
 1. Select **Host pools**, then select the host pool you want to configure.
 
-1. Select **Networking**, then select **RDP Shortpath**.
+1. Select the drop down next to **Settings** then click on Networking**, then select **RDP Shortpath**.
 
    :::image type="content" source="media/configure-rdp-shortpath/rdp-shortpath-host-pool-configuration.png" alt-text="A screenshot showing the RDP Shortpath tab of a host pool's networking properties." lightbox="media/configure-rdp-shortpath/rdp-shortpath-host-pool-configuration.png":::
 
