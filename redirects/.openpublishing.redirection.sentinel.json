@@ -1651,6 +1651,41 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/sentinel/data-connectors/ai-vectra-stream.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/ai-vectra-stream-via-legacy-agent",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/connect-common-event-format.md",
+            "redirect_url": "/previous-versions/azure/sentinel/connect-common-event-format",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/connect-custom-logs.md",
+            "redirect_url": "/previous-versions/azure/sentinel/connect-custom-logs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/connect-log-forwarder.md",
+            "redirect_url": "/previous-versions/azure/sentinel/connect-log-forwarder",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/connect-logstash.md",
+            "redirect_url": "/previous-versions/azure/sentinel/connect-logstash",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/connect-syslog.md",
+            "redirect_url": "/previous-versions/azure/sentinel/connect-syslog",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/create-codeless-connector-legacy.md",
+            "redirect_url": "/previous-versions/azure/sentinel/create-codeless-connector-legacy",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/sentinel/data-connectors/common-event-format-cef.md",
             "redirect_url": "/previous-versions/azure/sentinel/data-connectors/common-event-format-cef",
             "redirect_document_id": false

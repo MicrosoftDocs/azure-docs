@@ -58,11 +58,11 @@ To create asset endpoints, assets and subscribe to OPC UA tags and events, use t
 
 Browse to the [operations experience](https://iotoperations.azure.com) in your browser and sign in with your Microsoft Entra ID credentials.
 
-:::image type="content" source="media/quickstart-add-assets/site-list.png" alt-text="Screenshot that shows the unassigned instances node in the operations experience.":::
-
 ## Select your site
 
 A _site_ is a collection of Azure IoT Operations instances. Sites typically group instances by physical location and make it easier for OT users to locate and manage assets. Your IT administrator creates [sites and assigns Azure IoT Operations instances to them](/azure/azure-arc/site-manager/overview). Because you're working with a new deployment, there are no sites yet. You can find the cluster you created in the previous quickstart by selecting **Unassigned instances**. In the operations experience, an instance represents a cluster where you deployed Azure IoT Operations.
+
+:::image type="content" source="media/quickstart-add-assets/site-list.png" alt-text="Screenshot that shows the unassigned instances node in the operations experience.":::
 
 ## Select your instance
 

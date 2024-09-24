@@ -528,7 +528,6 @@ For more information about the codeless connector platform, see [Create a codele
 
 ## Vectra AI, Inc
 
-- [AI Vectra Stream](data-connectors/ai-vectra-stream.md)
 - [Vectra XDR (using Azure Functions)](data-connectors/vectra-xdr.md)
 
 ## VMware

@@ -22,7 +22,7 @@ The test settings are easier and quicker to get you started with a deployment, b
 
 * An Azure IoT Operations instance deployed with test settings.
 
-* Azure CLI installed on your development machine. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli). This scenario requires Azure CLI version 2.53.0 or higher. Use `az --version` to check your version and `az upgrade` to update if necessary.
+* Azure CLI installed on your development machine. This scenario requires Azure CLI version 2.64.0 or higher. Use `az --version` to check your version and `az upgrade` to update if necessary. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
 * The Azure IoT Operations extension for Azure CLI. Use the following command to add the extension or update it to the latest version:
 
@@ -35,7 +35,7 @@ The test settings are easier and quicker to get you started with a deployment, b
 A workload identity is an identity you assign to a software workload (such as an application, service, script, or container) to authenticate and access other services and resources. The workload identity feature needs to be enabled on your cluster, so that the [Azure Secret Store](#TODO-ADD-LINK) and Azure IoT Operations can access Microsoft Entra ID protected resources. To learn more, see [What are workload identities?](/entra/workload-id/workload-identities-overview).
 
 > [!NOTE]
-> This step only applies to Ubuntu + K3s clusters. The quickstart script for Azure Kuberenetes Service (AKS) Edge Essentials used in [Prepare your Azure Arc-enabled Kubernetes cluster](./howto-prepare-cluster.md) enables workload identity by default. If you have an AKS Edge Essentials cluster, continue to the next section.
+> This step only applies to Ubuntu + K3s clusters. The quickstart script for Azure Kubernetes Service (AKS) Edge Essentials used in [Prepare your Azure Arc-enabled Kubernetes cluster](./howto-prepare-cluster.md) enables workload identity by default. If you have an AKS Edge Essentials cluster, continue to the next section.
 
 If you aren't sure whether your K3s cluster already has workload identity enabled or not, run the following command to check:
 
