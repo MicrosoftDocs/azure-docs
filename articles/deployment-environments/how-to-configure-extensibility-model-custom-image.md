@@ -6,7 +6,7 @@ ms.service: azure-deployment-environments
 ms.custom: devx-track-azurecli, devx-track-bicep
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 09/23/2024
+ms.date: 09/24/2024
 ms.topic: how-to
 zone_pivot_groups: ade-extensibility-iac-framework
 
@@ -52,8 +52,8 @@ An [environment definition](configure-environment-definition.md) comprises at le
 ## Use container images with ADE
 
 You can take one of the following approaches to use container images with ADE:
-- **[Use a sample container image](#use-a-sample-container-image)** For simple scenarios, use the sample ARM-Bicep container image provided by ADE.
-- **[Create a custom container image:](#create-a-custom-container-image)** For more complex scenarios, create a custom container image that meets your specific requirements.
+- **Use a sample container image** For simple scenarios, use the sample ARM-Bicep container image provided by ADE.
+- **Create a custom container image** For more complex scenarios, create a custom container image that meets your specific requirements.
  
 Regardless of which approach you choose, you must specify the container image in your environment definition to deploy your Azure resources.
 
