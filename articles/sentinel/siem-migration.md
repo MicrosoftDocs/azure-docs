@@ -72,7 +72,6 @@ Current capabilities:
 
 1. Run the following query: 
 
-```
 |rest splunk_server=local count=0 /servicesNS/-/-/saved/searches
    |search disabled=0 
 |search alert_threshold != ""
