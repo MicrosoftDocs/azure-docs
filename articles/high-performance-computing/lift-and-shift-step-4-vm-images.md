@@ -1,44 +1,43 @@
 ---
-title: "Deployment step 4: Compute nodes - VM images component"
+title: "Deployment step 4: compute nodes - VM images component"
 description: Learn about the configuration of virtual machine (VM) images during migration deployment step four.
 author: tomvcassidy
 ms.author: tomcassidy
 ms.date: 08/30/2024
 ms.topic: how-to
-ms.service: 
-services: 
+ms.service: azure-virtual-machines
+ms.subservice: hpc
 ---
 
-# Deployment step 4: Compute nodes - VM images component
+# Deployment step 4: compute nodes - VM images component
 
 A Virtual Machine (VM) image is a snapshot of a virtual machine's operating system, software, configurations, and data stored at a specific point in time. It's a valuable asset that encapsulates most of what is required to enable virtual machines to run end-user jobs.
 
 In the context of HPC environments, VM images should have or could have support for drivers (for example, IB, GPUs), MPI libraries (for example, mpich, intel-mpi, pmix), and other HPC relevant software (for example, CUDA, NCCL, compilers, health checkers).
 
-## Define VM Image Needs
+## Define VM image needs
 
-1. **Libraries, middleware, drivers:**
+* **Libraries, middleware, drivers:**
    - Understand the major libraries (for example, MPI flavors) and, eventually, middleware (for example, Slurm/PBS/LFS) needed for the HPC applications. Drivers to support GPUs, for instance,  can also be placed in the image.
 
-2. **Utilities and Configurations:**
+* **Utilities and configurations:**
    - Small utilities (for example, healthchecks) or configurations (for example, ulimit) used by most users.
 
-## Tools and Services
+## Tools and services
 
 **Azure HPC images:**
+  - Azure HPC images are available for usage, which contains several packages relevant for HPC settings.
+  - Azure HPC images contain both Ubuntu and AlmaLinux Linux distributions.
 
-- Azure HPC images are available for usage, which contains several packages relevant for HPC settings.
-- Azure HPC images contain both Ubuntu and AlmaLinux Linux distributions.
+## Best practices for HPC images in HPC lift and shift architecture
 
-## Best Practices for HPC images in HPC Lift and Shift Architecture
-
-1. **Make use of Azure HPC images:**
+* **Make use of Azure HPC images:**
    - These images are extensively tested to run in Azure SKUs and Azure HPC systems, such as CycleCloud.
 
-2. **Custom images and other Linux distributions:**
+* **Custom images and other Linux distributions:**
    - If a custom image needs to be created, we recommend using the Azure HPC image GitHub repo as much as possible. It contains all scripts used to create the Azure HPC images.
 
-## Example Steps for Setup and Deployment
+## Example steps for setup and deployment
 
 This section provides an overview on deploying a VM using an Azure HPC image via Azure portal.
 

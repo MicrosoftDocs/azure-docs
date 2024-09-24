@@ -1,15 +1,15 @@
 ---
-title: "Deployment step 2: - Base services - Overview"
+title: "Deployment step 2: base services - overview"
 description: Learn about production-level environment migration deployment step two.
 author: tomvcassidy
 ms.author: tomcassidy
 ms.date: 08/30/2024
 ms.topic: how-to
-ms.service: 
-services: 
+ms.service: azure-virtual-machines
+ms.subservice: hpc
 ---
 
-# Deployment step 2: Base services - Overview
+# Deployment step 2: base services - overview
 
 One of the key component's users interact with in an on-premises environment is the job scheduler (for example, Slurm, PBS, and LSF). During a lift-and-shift process, users should retain the same level of interaction with these schedulers. However, the difference is that resources are no longer static; they're provisioned on-demand.
 

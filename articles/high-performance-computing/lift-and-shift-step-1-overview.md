@@ -1,15 +1,15 @@
 ---
-title: "Deployment step 1: Basic infrastructure - Overview"
+title: "Deployment step 1: basic infrastructure - overview"
 description: Learn about production-level environment migration deployment step one.
 author: tomvcassidy
 ms.author: tomcassidy
 ms.date: 08/30/2024
 ms.topic: how-to
-ms.service: 
-services: 
+ms.service: azure-virtual-machines
+ms.subservice: hpc
 ---
 
-# Deployment step 1: Basic infrastructure - Overview
+# Deployment step 1: basic infrastructure - overview
 
 The critical foundational components required to establish a landing zone in the cloud for an HPC environment are outlined here. The focus is on setting up resource groups, networking, and basic storage, which serve as the backbone of a successful HPC lift-and-shift deployment.
 
@@ -25,7 +25,7 @@ When provisioning resources in the cloud, it's important to have an understandin
 
 ## Storage
 
-In any Azure subscription, setting up basic storage is essential for managing data, applications, and resources effectively. While more advanced and HPC-specific storage configurations will be addressed separately, a solid foundation of basic storage is crucial for general resource management and initial deployment needs.
+In any Azure subscription, setting up basic storage is essential for managing data, applications, and resources effectively. While more advanced and HPC-specific storage configurations are addressed separately, a solid foundation of basic storage is crucial for general resource management and initial deployment needs.
 
 For details check the description of the following component:
 

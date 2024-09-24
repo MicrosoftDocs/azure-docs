@@ -1,15 +1,15 @@
 ---
-title: "Deployment step 2: Base services - Monitoring component"
+title: "Deployment step 2: base services - monitoring component"
 description: Learn about the configuration of monitoring during migration deployment step two.
 author: tomvcassidy
 ms.author: tomcassidy
 ms.date: 08/30/2024
 ms.topic: how-to
-ms.service: 
-services: 
+ms.service: azure-virtual-machines
+ms.subservice: hpc
 ---
 
-# Deployment step 2: Base services - Monitoring component
+# Deployment step 2: base services - monitoring component
 
 Monitoring is a crucial aspect of managing an HPC environment in the cloud, ensuring optimal performance, reliability, and security. Effective monitoring allows administrators to gain real-time insights into system performance, detect and address issues promptly, and make informed decisions to optimize resource utilization. Key metrics such as CPU and memory usage, job execution times, and network throughput provide valuable information about the health and efficiency of the infrastructure.
 
@@ -17,83 +17,86 @@ By using tools like Azure Monitor, Azure Managed Grafana, and Azure Managed Prom
 
 When migrating HPC workloads to Azure, it's important to replicate and enhance the monitoring capabilities you had on-premises. This process includes tracking the same metrics and possibly adding new ones that are relevant to the cloud environment. Using Azure-specific monitoring tools can provide deeper insights into cloud resources, which are crucial for managing and optimizing cloud infrastructure effectively. For example, in a cloud environment, a valuable new metric to track is cost, which isn't typically monitored in on-premises setups.
 
-## Define Monitoring Key Metric Needs
+## Define monitoring key metric needs
 
-- **Common HPC Metrics:**
-  - **Infrastructure Metrics:** CPU, memory usage, disk I/O, network throughput.
-  - **Application Metrics:** Job queue lengths, job failure rates, execution times.
-  - **User Metrics:** Active users, job submission rates.
-- **Cloud-Specific HPC Metrics:**
-  - **Cost Metrics:** Cost Per Resource, Monthly Cost, Budget Alerts.
-  - **Scalability Metrics:** Autoscaling Events, resource utilization.
-  - **Provisioning Metrics:** Provisioning time, provisioning success rate.
+* **Common HPC metrics:**
+  - **Infrastructure metrics:** CPU, memory usage, disk I/O, network throughput.
+  - **Application metrics:** Job queue lengths, job failure rates, execution times.
+  - **User metrics:** Active users, job submission rates.
 
-## Tools and Services
+* **Cloud-specific HPC metrics:**
+  - **Cost metrics:** Cost Per Resource, Monthly Cost, Budget Alerts.
+  - **Scalability metrics:** Autoscaling Events, resource utilization.
+  - **Provisioning metrics:** Provisioning time, provisioning success rate.
 
-- **Azure Monitor:**
+## Tools and services
+
+* **Azure Monitor:**
   - Configure Azure Monitor to collect metrics and logs from all resources.
   - Set up alerts for critical thresholds (for example, CPU usage > 80%).
   - Use Log Analytics to query and analyze logs.
-- **Azure Managed Grafana:**
+
+* **Azure Managed Grafana:**
   - Integrate Grafana with Azure Monitor for dashboard visualizations.
   - Create custom dashboards for different personas (for example, HPC administrators, business managers).
-- **Azure Managed Prometheus:**
+  - 
+* **Azure Managed Prometheus:**
   - Deploy and manage Prometheus instances in Azure.
   - Configure Prometheus to scrape metrics from your HPC nodes and applications.
   - Integrate Prometheus with Grafana for advanced dashboards.
-- **Azure Moneo:**
+  - 
+* **Azure Moneo:**
   - Configure Moneo to collect metrics across multi-GPU systems.
-  - Information regarding Moneo can be found on [github](https://github.com/Azure/Moneo)
+  - Information regarding Moneo can be found on [GitHub](https://github.com/Azure/Moneo)
 
-## Setup Health Checks
-
-- Implement automated health checks using scripts or Azure Automation.
-- Monitor health checks and trigger automated responses or alerts for issues.
-- Set up alerts in Azure Monitor to notify you when autoscaling events occur.
-
-## Best Practices
+## Best practices
 
 Implementing best practices for monitoring ensures that your HPC environment remains efficient, secure, and resilient. Here are some key best practices to follow:
 
-1. **Regularly Review and Update Monitoring Configurations:**
+* **Regularly review and update monitoring configurations:**
    - To ensure your monitoring configurations remain aligned with your infrastructure and business needs, schedule periodic reviews of them.
    - Update thresholds and alert settings based on historical data and changing performance requirements.
   
-2. **Implement Comprehensive Logging:**
+* **Implement comprehensive logging:**
    - To aggregate and analyze log data, use centralized logging solutions like Azure Log Analytics.
    - Regularly review log data to identify patterns and potential issues before they escalate.
 
-3. **Set Up Redundancy and Failover Mechanisms:**
+* **Set up redundancy and failover mechanisms:**
    - Implement redundancy for critical monitoring components to ensure continuous availability.
    - Set up failover mechanisms to automatically switch to backup systems if there's a primary system failure.
 
-4. **Automate Responses to Common Issues:**
+* **Automate responses to common issues:**
    - To create automated responses for common issues, use automation tools like Azure Automation and Logic Apps.
    - Develop runbooks and workflows that can automatically remediate known problems, such as restarting services or scaling resources.
 
-5. **Monitor Security Metrics:**
+* **Monitor security metrics:**
    - Include security-related metrics in your monitoring setup, such as unauthorized access attempts, configuration changes, and compliance status.
    - Set up alerts for critical security events to ensure prompt response and mitigation.
 
-## Example Steps for Setup and Deployment
+* **Setup health checks**
+  - Implement automated health checks using scripts or Azure Automation.
+  - Monitor health checks and trigger automated responses or alerts for issues.
+  - Set up alerts in Azure Monitor to notify you when autoscaling events occur.
+
+## Example steps for setup and deployment
 
 This section provides a comprehensive guide for setting up Azure Monitor and configuring Grafana dashboards to effectively monitor your HPC environment. It includes detailed steps for creating an Azure Monitor workspace, linking it to resources, configuring data collection, deploying Azure Managed Grafana, and setting up alerts and automated health checks.
 
-#### Setting up Azure Monitor
+### Setting up Azure Monitor
 
 1. **Navigate to Azure Monitor:**
 
    - Go to the [Azure portal](https://portal.azure.com).
    - In the left-hand navigation pane, select **Monitor**.
 
-2. **Create an Azure Monitor Workspace:**
+2. **Create an Azure Monitor workspace:**
 
    - Select on "Workspaces" under the "Monitoring" section.
    - Select "Create" to set up a new Azure Monitor workspace.
    - Provide a name, select a subscription, resource group, and location.
    - Select "Review + create" and then "Create" to deploy the workspace.
 
-3. **Link Azure Monitor Workspace to Resources:**
+3. **Link Azure Monitor workspace to resources:**
 
    - Go to the resource you want to monitor (for example, a Virtual Machine).
    - Under the "Monitoring" section, select "Diagnostics settings."
@@ -103,11 +106,10 @@ This section provides a comprehensive guide for setting up Azure Monitor and con
 
    - In the Azure Monitor section, select "Data Collection Rules" to set up and manage the rules for collecting logs and metrics from various Azure resources.
 
-> **Note:**
->
+> [!NOTE]
 > For detailed information about Azure Monitor, visit the [Azure Monitor Metrics Overview](/azure/azure-monitor/overview) page.
 
-## Configuring Grafana Dashboards
+### Configuring Grafana dashboards
 
 1. **Deploy Azure Managed Grafana:**
 
@@ -123,32 +125,29 @@ This section provides a comprehensive guide for setting up Azure Monitor and con
    - Select "Azure Monitor" from the list of available data sources.
    - Provide the necessary details such as subscription ID, tenant ID, and client ID, and authenticate using Azure credentials.
 
-3. **Create Custom Dashboards:**
+3. **Create custom dashboards:**
 
    - After the data source is added, go to "Dashboards" -> "Manage" -> "New Dashboard."
    - Use the panel editor to add visualizations (for example, graphs, charts) based on the metrics collected by Azure Monitor.
    - Customize the dashboard to display key metrics such as CPU usage, memory usage, disk I/O, network throughput, job queue lengths, and job execution times.
    - Save the dashboard and share it with relevant stakeholders.
 
-> **Note:**
->
+> [!NOTE]
 > For detailed information about Azure Managed Grafana, visit the [Azure Managed Grafana](/azure/managed-grafana/overview) page.
 
-## Configuring Prometheus
+### Configuring Prometheus
 
-1. **Deploy Azure Managed Prometheus:**
+**Deploy Azure Managed Prometheus:**
+  - Navigate to the Azure Marketplace
+  - Search for "Azure Managed Prometheus" and select "Create."
+  - Fill in the required details:
+    - Provide necessary information such as subscription, resource group, and instance details.
+  - Review the settings and select "Create" to deploy the instance.
 
-   - Navigate to the Azure Marketplace
-   - Search for "Azure Managed Prometheus" and select "Create."
-   - Fill in the required details:
-      - Provide necessary information such as subscription, resource group, and instance details.
-   - Review the settings and click "Create" to deploy the instance.
-
-> **Note:**
->
+> [!NOTE]
 > For detailed information about Azure Managed Prometheus, visit the [Azure Monitor managed service for Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview) page.
 
-## Integrate Prometheus with Grafana
+### Integrate Prometheus with Grafana
 
 1. **Add Prometheus as a data source in Grafana:**
    - In Grafana, go to "Configuration" -> "Data Sources" -> "Add data source."
@@ -158,7 +157,7 @@ This section provides a comprehensive guide for setting up Azure Monitor and con
    - Add visualizations based on metrics collected by Prometheus.
    - Customize and save the dashboard for key metrics display.
 
-## Creating Alerts
+## Creating alerts
 
 1. Navigate to Azure Monitor and select **Alerts**.
 2. Select **New alert rule** to create a new alert.
@@ -169,25 +168,25 @@ This section provides a comprehensive guide for setting up Azure Monitor and con
      - Specify actions to take when an alert is triggered, such as sending an email, triggering an Azure Function, or executing a webhook.
      - Create action groups to manage and organize these responses efficiently.
 
-## Further steps for enhanced monitoring
+### Further steps for enhanced monitoring
 
-1. **Set Up Alerts:**
+1. **Set up alerts:**
    - In Azure Monitor, go to "Alerts" -> "New alert rule."
    - Define the scope by selecting the resource you want to monitor.
    - Set conditions for the alert (for example, CPU usage > 80%).
    - Configure actions such as sending email notifications or triggering an Azure Function.
 
-2. **Implement Automated Health Checks:**
+2. **Implement automated health checks:**
    - Use Azure Automation to create and schedule runbooks that perform health checks on your HPC environment.
    - Ensure these runbooks check the status of critical services, resource availability, and system performance.
    - Set up alerts to notify administrators if any health checks fail or indicate issues.
 
-3. **Regularly Review and Update Monitoring Configurations:**
+3. **Regularly review and update monitoring configurations:**
    - Periodically review the metrics and alerts configured in Azure Monitor and Grafana.
    - Adjust thresholds, add new metrics, or modify visualizations based on changes in the HPC environment or business requirements.
    - Train staff on interpreting monitoring dashboards, responding to alerts, and using monitoring tools effectively.
 
-## Example Implementation
+### Example implementation
 
 Automated health check script:
 

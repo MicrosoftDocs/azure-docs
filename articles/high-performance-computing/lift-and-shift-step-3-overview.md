@@ -1,5 +1,5 @@
 ---
-title: "Deployment step 3: Storage - Overview"
+title: "Deployment step 3: storage - overview"
 description: Learn about production-level environment migration deployment step three.
 author: tomvcassidy
 ms.author: tomcassidy

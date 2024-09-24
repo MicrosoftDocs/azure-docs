@@ -1,15 +1,15 @@
 ---
-title: "Deployment step 5: End-user entry point - Overview"
+title: "Deployment step 5: end-user entry point - overview"
 description: Learn about production-level environment migration deployment step five.
 author: tomvcassidy
 ms.author: tomcassidy
 ms.date: 08/30/2024
 ms.topic: how-to
-ms.service: 
-services: 
+ms.service: azure-virtual-machines
+ms.subservice: hpc
 ---
 
-# Deployment step 5: End-user entry point - Overview
+# Deployment step 5: end-user entry point - overview
 
 Providing a consistent end-user entry point is crucial for ensuring a smooth transition from on-premises to the cloud in an HPC environment. Whether users access resources through an SSH sign-in node or a web portal, maintaining a familiar experience helps minimize disruptions.
 

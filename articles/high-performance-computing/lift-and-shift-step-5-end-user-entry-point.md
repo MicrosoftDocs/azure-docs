@@ -1,15 +1,15 @@
 ---
-title: "Deployment step 5: End-user entry point - End-user entry point component"
+title: "Deployment step 5: end-user entry point - end-user entry point component"
 description: Learn about the configuration of end-user entry points during migration deployment step five.
 author: tomvcassidy
 ms.author: tomcassidy
 ms.date: 08/30/2024
 ms.topic: how-to
-ms.service: 
-services: 
+ms.service: azure-virtual-machines
+ms.subservice: hpc
 ---
 
-# Deployment step 5: End-user entry point - End-user entry point component
+# Deployment step 5: end-user entry point - end-user entry point component
 
 Users access the computing environment in different ways. A common access point is through a terminal with ssh via command line interface (CLI). Other mechanisms are graphical user interface via VDI or web portals with on-demand, Jupyter lab, or r-studio. Some users may also rely on ssh via Visual Studio Code (VS Code). An end-user entry point component is key to shape the user experience accessing the HPC cloud resources, and it's highly dependent on the user workflow and application.
 
@@ -20,60 +20,57 @@ Once all the basic infrastructure is deployed, the end-user entry point would:
 - Allow end-user to request web browser-based sessions to run applications such
   as Jupyter lab or r-studio.
 
-## Define User Entry Point Needs
+## Define user entry point needs
 
-1. **SSH Access:**
-   - Enable users to sign in into the HPC environment via SSH for job submission and management.
-   - Ensure secure authentication and connection protocols are in place.
+* **SSH access:**
+  - Enable users to sign in into the HPC environment via SSH for job submission and management.
+  - Ensure secure authentication and connection protocols are in place.
 
-2. **Remote Desktop Access:**
-   - Allow users to request and establish remote desktop sessions for graphical applications.
-   - Provide VDI solutions that support various operating systems and applications.
+* **Remote desktop access:**
+  - Allow users to request and establish remote desktop sessions for graphical applications.
+  - Provide VDI solutions that support various operating systems and applications.
 
-3. **Web Browser-based Access:**
-   - Support web browser-based sessions for running applications such as Jupyter Lab or RStudio.
-   - Ensure seamless integration with the HPC environment and resource management.
+* **Web browser-based access:**
+  - Support web browser-based sessions for running applications such as Jupyter Lab or RStudio.
+  - Ensure seamless integration with the HPC environment and resource management.
 
-## Tools and Services
+## Tools and services
 
-**SSH Access:**
+* **SSH access:**
+  - Use standard SSH protocols to provide secure command-line access to HPC resources.
+  - Configure SSH keys and user permissions to ensure secure and efficient access.
 
-- Use standard SSH protocols to provide secure command-line access to HPC resources.
-- Configure SSH keys and user permissions to ensure secure and efficient access.
+* **Remote desktop access:**
+  - Utilize VDI solutions such as Windows Virtual Desktop or non-Microsoft VDI providers.
+  - Configure remote desktop protocols (RDP, VNC) and ensure compatibility with user applications.
 
-**Remote Desktop Access:**
+* **Web browser-based access:**
+  - Deploy web-based platforms like JupyterHub or RStudio Server for interactive sessions.
+  - To allow seamless access to compute resources, integrate these platforms with the HPC environment.
 
-- Utilize VDI solutions such as Windows Virtual Desktop or non-Microsoft VDI providers.
-- Configure remote desktop protocols (RDP, VNC) and ensure compatibility with user applications.
+## Best practices
 
-**Web Browser-based Access:**
+* **Secure authentication and access control:**
+  - Implement multifactor authentication (MFA) and SSH key-based authentication for secure access.
+  - Use role-based access control (RBAC) to manage user permissions and ensure compliance with security policies.
 
-- Deploy web-based platforms like JupyterHub or RStudio Server for interactive sessions.
-- To allow seamless access to compute resources, integrate these platforms with the HPC environment.
+* **Optimize user experience:**
+  - Provide clear documentation and training for users on how to access and utilize different entry points.
+  - To ensure a smooth user experience, continuously monitor and optimize the performance of access points.
 
-## Best Practices
+* **Ensure compatibility and integration:**
+  - Test and validate the compatibility of remote desktop and web-based access solutions with HPC applications.
+  - To provide seamless resource management, integrate access solutions with the existing HPC infrastructure.
 
-1. **Secure Authentication and Access Control:**
-   - Implement multifactor authentication (MFA) and SSH key-based authentication for secure access.
-   - Use role-based access control (RBAC) to manage user permissions and ensure compliance with security policies.
-
-2. **Optimize User Experience:**
-   - Provide clear documentation and training for users on how to access and utilize different entry points.
-   - To ensure a smooth user experience, continuously monitor and optimize the performance of access points.
-
-3. **Ensure Compatibility and Integration:**
-   - Test and validate the compatibility of remote desktop and web-based access solutions with HPC applications.
-   - To provide seamless resource management, integrate access solutions with the existing HPC infrastructure.
-
-4. **Scalability and Performance:**
+* **Scalability and performance:**
    - Configure access points to scale based on user demand, ensuring availability and performance during peak usage.
    - Use performance metrics to monitor and optimize the entry point infrastructure regularly.
 
-## Example Steps for Setup and Deployment
+## Example steps for setup and deployment
 
-**Setting up SSH Access:**
+**Setting up SSH access:**
 
-1. **Configure SSH Server:**
+1. **Configure SSH server:**
 
    - Install and configure an SSH server on the sign-in nodes.
    - Generate and distribute SSH keys to users and configure user permissions.
@@ -84,7 +81,7 @@ Once all the basic infrastructure is deployed, the end-user entry point would:
       sudo systemctl start ssh
       ```
 
-2. **User Authentication:**
+2. **User authentication:**
 
     - Set up SSH key-based authentication and configure the SSH server to disable password authentication for added security.
 
@@ -93,13 +90,13 @@ Once all the basic infrastructure is deployed, the end-user entry point would:
       ssh-copy-id user@hpc-login-node
       ```
 
-**Setting up Remote Desktop Access:**
+**Setting up remote desktop access:**
 
-1. **Deploy VDI Solution:**
+1. **Deploy VDI solution:**
 
     - Choose and deploy a VDI solution that fits your HPC environment (for example, Windows Virtual Desktop, VNC).
     - Configure remote desktop protocols and ensure they're compatible with user applications.
-2. **Configure Remote Desktop Access:**
+2. **Configure remote desktop access:**
 
     - Set up remote desktop services on the HPC sign-in nodes and configure user permissions.
 
@@ -109,7 +106,7 @@ Once all the basic infrastructure is deployed, the end-user entry point would:
       sudo systemctl start xrdp
       ```
 
-**Setting up Web Browser-based Access:**
+**Setting up web browser-based access:**
 
 1. **Deploy JupyterHub or RStudio Server:**
 
@@ -121,15 +118,13 @@ Once all the basic infrastructure is deployed, the end-user entry point would:
       sudo systemctl start jupyterhub
       ````
 
-2. **Integrate with HPC Resources:**
+2. **Integrate with HPC resources:**
 
     - Configure the web-based platforms to integrate with the HPC scheduler and compute resources.
 
       ```bash
       jupyterhub --no-ssl --port 8000
       ```
-
----
 
 ## Resources
 

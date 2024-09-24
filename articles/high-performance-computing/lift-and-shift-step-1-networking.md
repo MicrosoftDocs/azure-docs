@@ -1,15 +1,15 @@
 ---
-title: "Deployment step 1: Landing zone - Network access component"
+title: "Deployment step 1: basic infrastructure - network access component"
 description: Learn about the configuration of network access during migration deployment step one.
 author: tomvcassidy
 ms.author: tomcassidy
 ms.date: 08/30/2024
 ms.topic: how-to
-ms.service: 
-services: 
+ms.service: azure-virtual-machines
+ms.subservice: hpc
 ---
 
-# Deployment step 1: Landing zone - Network access component
+# Deployment step 1: basic infrastructure - network access component
 
 Mechanism to allow users access cloud environment in a secure way. It's a common practice in production environments to have resources with private IP addresses, and with rules to define how resources should be accessed.
 
@@ -18,31 +18,31 @@ This component should:
 - Allow users to access private network hosting the high performance computing (HPC) environment;
 - Refine network security rules such as source and target ports and IP addresses that can access resources.
 
-## Define Network Needs
+## Define network needs
 
-1. **Estimate cluster size for proper network setup:**
+* **Estimate cluster size for proper network setup:**
    - Different subnets have different ranges of IP addresses.
 
-2. **Security rules:**
+* **Security rules:**
    - Understand how users access the HPC environment and security rules to be in places (for example, ports and IPs open/closed).
 
-### Tools and Services
+## Tools and Services
 
-1. **Private network access:**
+* **Private network access:**
    - In Azure, the two major components to help access private network are Azure Bastion and Azure VPN Gateway.
 
-2. **Network rules:**
+* **Network rules:**
    - Another key component for network setup is Azure Network security groups, which is used to filter network traffic between Azure resources in an Azure virtual network.
 
-3. **DNS:**
+* **DNS:**
    - Azure DNS Private Resolver allows query Azure DNS private zones from an on-premises environment and vice versa without deploying VM based DNS servers.
 
-### Best Practices for Network in HPC Lift and Shift Architecture
+## Best practices for network in HPC lift and shift architecture
 
-1. **Have good understanding on cluster sizes and services to be used:**
+* **Have good understanding on cluster sizes and services to be used:**
    - Different cluster sizes require different IP ranges, and proper planning helps avoid major changes in parts of the infrastructure. Also, some services may need exclusive subnets, and having clarity on those subnets is essential.
 
-### Example Steps for Setup and Deployment
+## Example steps for setup and deployment
 
 Networking is a vast topic itself. In a production level environment, it's good practice to not use public IP addresses. So one could start by testing such functionality by provisioning a VM and using Bastion.
 
@@ -59,7 +59,7 @@ For instance
    - Select option "Deploy Bastion"
    - Once the bastion is provisioned, the VM can be access through it.
 
-#### Resources
+## Resources
 
 - VPN Gateway documentation: [product website](/azure/vpn-gateway/)
 - Azure Bastion documentation: [product website](/azure/bastion/)

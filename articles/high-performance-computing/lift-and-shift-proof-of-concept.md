@@ -5,8 +5,8 @@ author: tomvcassidy
 ms.author: tomcassidy
 ms.date: 08/30/2024
 ms.topic: how-to
-ms.service: 
-services: 
+ms.service: azure-virtual-machines
+ms.subservice: hpc
 ---
 
 # Proof-of-concept migration overview
@@ -20,7 +20,7 @@ In this article, we guide you through a proof-of-concept migration.
 
 You need an Azure subscription to provision cloud resources.
 
-## Migrating from on-premises to the cloud: Proof-of-concept (PoC)
+## Migrating from on-premises to the cloud: proof-of-concept (PoC)
 
 We recommend starting with a proof-of-concept (PoC) by provisioning a simple cluster in Azure, using Azure CycleCloud as a resource orchestrator, with one well-known scheduler, such as Slurm, PBS, or LSF. This approach allows one to start understanding Azure technology, assess the functionality of user applications, and investigate performance/costs trade-offs in comparison to the on-premises environment.
 

@@ -5,11 +5,11 @@ author: tomvcassidy
 ms.author: tomcassidy
 ms.date: 08/30/2024
 ms.topic: how-to
-ms.service: 
-services: 
+ms.service: azure-virtual-machines
+ms.subservice: hpc
 ---
 
-# End-to-end HPC lift and shift architecture
+# End-to-end HPC lift and shift architecture overview
 
 "Lift and shift" in the context of High-Performance Computing (HPC) mostly refers to the process of migrating an on-premises environment and workload to the cloud. Ideally, modifications are kept to a minimum (for example, applications, job schedulers, and their configurations should remain mostly the same). Adjustments on storage and hardware are natural to happen because resources are different from on-premises to cloud platforms. With the lift and shift approach, organizations can start benefiting from the cloud more quickly.
 
@@ -28,7 +28,7 @@ This document therefore:
 Before jumping into the architecture description, it's relevant to understand
 the different personas in this context, their needs, and expectations.
 
-## Personas and User Experience
+## Personas and user experience
 
 There are different people who need to access the HPC environment. Their activities and how they interact with the environment vary quite a bit.
 
@@ -36,36 +36,36 @@ There are different people who need to access the HPC environment. Their activit
 
 This persona represents the subject matter expert (for example, biologist, physicist, engineer, etc.) who wants to run experiments (that is, submit jobs) and analyze results. End-users interact with system administrators to fine-tune the computing environment whenever needed. They may have some experience using CLI-based tools, but some of them may rely only on web portals or graphical user interfaces via VDI to submit their jobs and interact with the generated results.
 
-**New Responsibilities in Cloud HPC Environment:**
+**New responsibilities in cloud HPC environment:**
 
 - End-user shouldn't have any new responsibilities based on the work from both the HPC Administrator and Cloud Administrator. Depending on the on-premises environment, end-users have access to a larger capacity and variety of computing resources to become more productive.
 
-### HPC Administrator
+### HPC administrator
 
 This persona represents the one who has HPC expertise and is responsible for deploying the initial computing infrastructure and adapting it according to business and end-user needs. This persona is also responsible for verifying the health of the system and performing troubleshooting. HPC administrators are comfortable accessing the architecture and its components via CLI, SDKs, and web portals. They're also the first point of contact when end-users face any challenge with the computing environment.
 
-**New Responsibilities in Cloud HPC Environment:**
+**New responsibilities in cloud HPC environment:**
 
 - Managing cloud resources and services (for example, virtual machines, storage, networking) via cloud management platforms.
 - Implementing and managing clusters and resources via new resource orchestration tools (for example, CycleCloud).
 - Optimizing application deployment by understanding infrastructure details (that is, VM types, storage, and network options).
 - Optimizing resource utilization and costs by using cloud-specific features such as autoscaling and spot instances.
 
-### Cloud Administrator
+### Cloud administrator
 
 This persona works with the HPC administrator to help deploy and maintain the computing infrastructure. This persona isn't (necessarily) an HPC expert, but a Cloud expert with deep knowledge of the overall company IT infrastructure, including network configurations/policies, user access rights, and user devices. Depending on the case, the HPC administrator and Cloud administrator may be the same person.
 
-**New Responsibilities in Cloud HPC Environment:**
+**New responsibilities in cloud HPC environment:**
 
 - Collaborating with HPC administrators to ensure seamless integration of HPC workloads with cloud infrastructure.
 - Monitoring and managing cloud infrastructure performance, security, and compliance.
 - Helping with the configuration of cloud-based networking and storage solutions to support HPC workloads.
 
-### Business Manager / Owner
+### Business manager / owner
 
 This persona represents the one who is responsible for the business, which includes taking care of budget and projects to meet organizational goals. For this persona, the accounting component of the architecture is relevant to understand costs for each project. This persona works with HPC admins and end-users to understand platform needs, including storage, network, computing resources. They also plan for future workloads.
 
-**New Responsibilities in Cloud HPC Environment:**
+**New responsibilities in cloud HPC environment:**
 
 - Analyzing detailed cost reports and usage metrics provided by cloud service providers to manage budgets and forecast expenses.
 - Making strategic decisions based on cloud resource usage and cost optimization opportunities.
@@ -81,7 +81,7 @@ There are also extensions that could be in place, such as sign-in nodes, data mo
 
 This production-level environment may have various components to be set up. Therefore, environment deployers and managers become key to automate its initial deployment and upgrade it along the way, respectively. More advanced installations can also have environment templates (or specifications) with software versions and configurations that are more optimal and tested properly. Once the environment is in production with all the required components in place, over time, adjustments may be required to meet user demands, including changes in VM types or storage options/capabilities.
 
-## Instantiating the lift and shift HPC Cloud architecture
+## Instantiating the lift and shift HPC cloud architecture
 
 Here we provide more details for each architecture component, including pointers to official Azure products, tech blogs with some best practices, git repositories, and links to non-product solutions.
 
