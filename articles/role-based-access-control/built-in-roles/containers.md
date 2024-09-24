@@ -2082,6 +2082,47 @@ Allows read/write access to most objects in a namespace. This role does not allo
 }
 ```
 
+## Connected Cluster Managed Identity CheckAccess Reader
+
+Built-in role that allows a Connected Cluster managed identity to call the checkAccess API
+
+[Learn more](/azure/azure-arc/kubernetes/azure-rbac)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Built-in role that allows a Connected Cluster managed identity to call the checkAccess API",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/65a14201-8f6c-4c28-bec4-12619c5a9aaa",
+  "name": "65a14201-8f6c-4c28-bec4-12619c5a9aaa",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Connected Cluster Managed Identity CheckAccess Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ## Kubernetes Agentless Operator
 
 Grants Microsoft Defender for Cloud access to Azure Kubernetes Services

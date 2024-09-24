@@ -15,6 +15,381 @@ ms.custom: generated
 This article lists the permissions for the Azure resource providers in the AI + machine learning category. You can use these permissions in your own [Azure custom roles](/azure/role-based-access-control/custom-roles) to provide granular access control to resources in Azure. Permission strings have the following format: `{Company}.{ProviderName}/{resourceType}/{action}`
 
 
+## Microsoft.AgFoodPlatform
+
+Azure service: [Microsoft Azure Data Manager for Agriculture](/azure/data-manager-for-agri/overview-azure-data-manager-for-agriculture)
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.AgFoodPlatform/register/action | Registers the subscription for the AgFoodPlatform Resource Provider. |
+> | Microsoft.AgFoodPlatform/unregister/action | Unregisters the subscription for the AgFoodPlatform Resource Provider. |
+> | Microsoft.AgFoodPlatform/checkNameAvailability/action | Checks that resource name is valid and is not in use. |
+> | Microsoft.AgFoodPlatform/farmBeats/read | Gets or Lists existing AgFoodPlatform FarmBeats resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/write | Creates or Updates AgFoodPlatform FarmBeats. |
+> | Microsoft.AgFoodPlatform/farmBeats/delete | Deletes an existing AgFoodPlatform FarmBeats resource. |
+> | Microsoft.AgFoodPlatform/farmBeats/dataConnectors/read | Gets or Lists existing AgFoodPlatform DataConnectors resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/dataConnectors/write | Creates or Updates AgFoodPlatform DataConnectors. |
+> | Microsoft.AgFoodPlatform/farmBeats/dataConnectors/delete | Deletes an existing AgFoodPlatform DataConnectors resource. |
+> | Microsoft.AgFoodPlatform/farmBeats/eventGridFilters/read | Gets or Lists existing AgFoodPlatform Event Grid filters resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/eventGridFilters/write | Creates or Updates AgFoodPlatform Event Grid filters. |
+> | Microsoft.AgFoodPlatform/farmBeats/eventGridFilters/delete | Deletes an existing AgFoodPlatform Event Grid filters resource. |
+> | Microsoft.AgFoodPlatform/farmBeats/extensions/read | Gets or Lists existing AgFoodPlatform Extensions resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/extensions/write | Creates or Updates AgFoodPlatform Extensions. |
+> | Microsoft.AgFoodPlatform/farmBeats/extensions/delete | Deletes an existing AgFoodPlatform Extensions resource. |
+> | Microsoft.AgFoodPlatform/farmBeats/privateEndpointConnectionProxies/read | Gets or Lists existing AgFoodPlatform Private endpoint connection proxies resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/privateEndpointConnectionProxies/write | Creates or Updates AgFoodPlatform Private endpoint connection proxies. |
+> | Microsoft.AgFoodPlatform/farmBeats/privateEndpointConnectionProxies/delete | Deletes an existing AgFoodPlatform Private endpoint connection proxies resource. |
+> | Microsoft.AgFoodPlatform/farmBeats/privateEndpointConnectionProxies/validate/action | Validates AgFoodPlatform Private endpoint connection proxy resource. |
+> | Microsoft.AgFoodPlatform/farmBeats/privateEndpointConnectionProxies/operationResults/read | Gets the result for a private endpoint connection proxy resource long running operation. |
+> | Microsoft.AgFoodPlatform/farmBeats/privateEndpointConnections/read | Gets or Lists existing AgFoodPlatform Private endpoint connections resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/privateEndpointConnections/write | Creates or Updates AgFoodPlatform Private endpoint connections. |
+> | Microsoft.AgFoodPlatform/farmBeats/privateEndpointConnections/delete | Deletes an existing AgFoodPlatform Private endpoint connections resource. |
+> | Microsoft.AgFoodPlatform/farmBeats/privateLinkResources/read | Gets or Lists existing AgFoodPlatform Private link resources resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/solutions/read | Gets or Lists existing AgFoodPlatform add-ons resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/solutions/write | Creates or Updates AgFoodPlatform add-ons. |
+> | Microsoft.AgFoodPlatform/farmBeats/solutions/delete | Deletes an existing AgFoodPlatform add-ons resource. |
+> | Microsoft.AgFoodPlatform/farmBeatsExtensionDefinitions/read | Gets or Lists existing AgFoodPlatform FarmBeatsExtensionDefinitions resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeatsSolutionDefinitions/read | Gets or Lists existing AgFoodPlatform FarmBeatsSolutionDefinitions resource(s). |
+> | Microsoft.AgFoodPlatform/locations/operationResults/read | Returns result of async operation in Microsoft AgFoodPlatform resource provider. |
+> | Microsoft.AgFoodPlatform/operations/read | List all operations in Microsoft AgFoodPlatform resource provider. |
+> | **DataAction** | **Description** |
+> | Microsoft.AgFoodPlatform/farmBeats/applicationData/list/action | List(s) existing AgFoodPlatform application operation data resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/applicationData/search/action | Searches existing AgFoodPlatform application operation data resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/boundaries/list/action | List(s) existing AgFoodPlatform boundary resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/boundaries/search/action | Searches existing AgFoodPlatform boundary resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/chemicalProducts/read | Gets or Lists existing AgFoodPlatform Chemical Products resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/chemicalProducts/write | Creates or Updates AgFoodPlatform Chemical Products. |
+> | Microsoft.AgFoodPlatform/farmBeats/chemicalProducts/list/action | Deletes an existing AgFoodPlatform Chemical Products resource. |
+> | Microsoft.AgFoodPlatform/farmBeats/chemicalProducts/delete | List(s) existing AgFoodPlatform Chemical Product resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/cropProducts/read | Gets or Lists existing AgFoodPlatform cropProducts resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/cropProducts/write | Creates or Updates AgFoodPlatform cropProducts. |
+> | Microsoft.AgFoodPlatform/farmBeats/cropProducts/delete | Deletes an existing AgFoodPlatform cropProducts resource. |
+> | Microsoft.AgFoodPlatform/farmBeats/cropProducts/list/action | List(s) existing AgFoodPlatform Crop Product. resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/crops/read | Gets or Lists existing AgFoodPlatform crops resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/crops/write | Creates or Updates AgFoodPlatform crops. |
+> | Microsoft.AgFoodPlatform/farmBeats/crops/delete | Deletes an existing AgFoodPlatform crops resource. |
+> | Microsoft.AgFoodPlatform/farmBeats/crops/list/action | List(s) existing AgFoodPlatform crop resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/cropVarieties/read | Gets or Lists existing AgFoodPlatform crop varieties resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/cropVarieties/write | Creates or Updates AgFoodPlatform crop varieties. |
+> | Microsoft.AgFoodPlatform/farmBeats/cropVarieties/delete | Deletes an existing AgFoodPlatform crop varieties resource. |
+> | Microsoft.AgFoodPlatform/farmBeats/cropVarieties/list/action | List(s) existing AgFoodPlatform crop variety resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/datasetRecords/read | Gets or Lists existing AgFoodPlatform Dataset Records resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/datasetRecords/write | Creates or Updates AgFoodPlatform Dataset Records. |
+> | Microsoft.AgFoodPlatform/farmBeats/datasetRecords/delete | Deletes an existing AgFoodPlatform Dataset Records resource. |
+> | Microsoft.AgFoodPlatform/farmBeats/datasetRecords/list/action | List(s) existing AgFoodPlatform dataset record resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/datasets/read | Gets or Lists existing AgFoodPlatform datasets resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/datasets/write | Creates or Updates AgFoodPlatform datasets. |
+> | Microsoft.AgFoodPlatform/farmBeats/datasets/delete | Deletes an existing AgFoodPlatform datasets resource. |
+> | Microsoft.AgFoodPlatform/farmBeats/datasets/list/action | List(s) existing AgFoodPlatform dataset resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/datasets/publish/action | List(s) existing AgFoodPlatform DatasetAccess resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/datasets/access/list/action | Gets or Lists existing AgFoodPlatform DatasetAccesses resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/datasets/access/grant/action | Creates or Updates AgFoodPlatform DatasetAccesses. |
+> | Microsoft.AgFoodPlatform/farmBeats/datasets/access/remove/action | Deletes an existing AgFoodPlatform DatasetAccesses resource. |
+> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/applicationDataCascadeDeleteJobs/read | Gets or Lists existing AgFoodPlatform applicationDataCascadeDeleteJobs resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/applicationDataCascadeDeleteJobs/write | Creates or Updates AgFoodPlatform applicationDataCascadeDeleteJobs. |
+> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/boundariesCascadeDeleteJobs/read | Gets or Lists existing AgFoodPlatform boundariesCascadeDeleteJobs resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/boundariesCascadeDeleteJobs/write | Creates or Updates AgFoodPlatform boundariesCascadeDeleteJobs. |
+> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/farmersCascadeDeleteJobs/read | Gets or Lists existing AgFoodPlatform farmersCascadeDeleteJobs resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/farmersCascadeDeleteJobs/write | Creates or Updates AgFoodPlatform farmersCascadeDeleteJobs. |
+> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/farmsCascadeDeleteJobs/read | Gets or Lists existing AgFoodPlatform farmsCascadeDeleteJobs resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/farmsCascadeDeleteJobs/write | Creates or Updates AgFoodPlatform farmsCascadeDeleteJobs. |
+> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/fieldsCascadeDeleteJobs/read | Gets or Lists existing AgFoodPlatform fieldsCascadeDeleteJobs resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/fieldsCascadeDeleteJobs/write | Creates or Updates AgFoodPlatform fieldsCascadeDeleteJobs. |
+> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/harvestDataCascadeDeleteJobs/read | Gets or Lists existing AgFoodPlatform harvestDataCascadeDeleteJobs resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/harvestDataCascadeDeleteJobs/write | Creates or Updates AgFoodPlatform harvestDataCascadeDeleteJobs. |
+> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/insightsCascadeDeleteJobs/read | Gets or Lists existing AgFoodPlatform insightsCascadeDeleteJobs resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/insightsCascadeDeleteJobs/write | Creates or Updates AgFoodPlatform insightsCascadeDeleteJobs. |
+> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/managementZonesCascadeDeleteJobs/read | Gets or Lists existing AgFoodPlatform managementZonesCascadeDeleteJobs resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/managementZonesCascadeDeleteJobs/write | Creates or Updates AgFoodPlatform managementZonesCascadeDeleteJobs. |
+> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/oauthProvidersCascadeDeleteJobs/read | Gets or Lists existing AgFoodPlatform oauthProvidersCascadeDeleteJobs resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/oauthProvidersCascadeDeleteJobs/write | Creates or Updates AgFoodPlatform oauthProvidersCascadeDeleteJobs. |
+> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/oauthTokensRemoveJobs/read | Gets or Lists existing AgFoodPlatform oauth tokens resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/oauthTokensRemoveJobs/write | Creates or Updates AgFoodPlatform oauth tokens. |
+> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/partiesCascadeDeleteJobs/read | Gets or Lists existing AgFoodPlatform partiesCascadeDeleteJobs resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/partiesCascadeDeleteJobs/write | Creates or Updates AgFoodPlatform partiesCascadeDeleteJobs. |
+> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/plantingDataCascadeDeleteJobs/read | Gets or Lists existing AgFoodPlatform plantingDataCascadeDeleteJobs resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/plantingDataCascadeDeleteJobs/write | Creates or Updates AgFoodPlatform plantingDataCascadeDeleteJobs. |
+> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/plantTissueAnalysesCascadeDeleteJobs/read | Gets or Lists existing AgFoodPlatform plantTissueAnalysesCascadeDeleteJobs resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/plantTissueAnalysesCascadeDeleteJobs/write | Creates or Updates AgFoodPlatform plantTissueAnalysesCascadeDeleteJobs. |
+> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/prescriptionMapsCascadeDeleteJobs/read | Gets or Lists existing AgFoodPlatform prescriptionMapsCascadeDeleteJobs resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/prescriptionMapsCascadeDeleteJobs/write | Creates or Updates AgFoodPlatform prescriptionMapsCascadeDeleteJobs. |
+> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/prescriptionsCascadeDeleteJobs/read | Gets or Lists existing AgFoodPlatform prescriptionsCascadeDeleteJobs resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/prescriptionsCascadeDeleteJobs/write | Creates or Updates AgFoodPlatform prescriptionsCascadeDeleteJobs. |
+> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/seaonalFieldsCascadeDeleteJobs/read | Gets or Lists existing AgFoodPlatform seaonalFieldsCascadeDeleteJobs resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/seaonalFieldsCascadeDeleteJobs/write | Creates or Updates AgFoodPlatform seaonalFieldsCascadeDeleteJobs. |
+> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/tillageDataCascadeDeleteJobs/read | Gets or Lists existing AgFoodPlatform tillageDataCascadeDeleteJobs resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/tillageDataCascadeDeleteJobs/write | Creates or Updates AgFoodPlatform tillageDataCascadeDeleteJobs. |
+> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/weatherDataDeletionJobs/read | Gets or Lists existing AgFoodPlatform weatherDataDeletionJobs resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/weatherDataDeletionJobs/write | Creates or Updates AgFoodPlatform weatherDataDeletionJobs. |
+> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/zonesCascadeDeleteJobs/read | Gets or Lists existing AgFoodPlatform zonesCascadeDeleteJobs resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/deletionJobs/zonesCascadeDeleteJobs/write | Creates or Updates AgFoodPlatform zonesCascadeDeleteJobs. |
+> | Microsoft.AgFoodPlatform/farmBeats/farmEquipments/read | Gets or Lists existing AgFoodPlatform Farm Equipments resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/farmEquipments/write | Creates or Updates AgFoodPlatform Farm Equipments. |
+> | Microsoft.AgFoodPlatform/farmBeats/farmEquipments/list/action | Deletes an existing AgFoodPlatform Farm Equipments resource. |
+> | Microsoft.AgFoodPlatform/farmBeats/farmEquipments/delete | List(s) existing AgFoodPlatform Farm Equipment resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/read | Gets or Lists existing AgFoodPlatform farmers resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/write | Creates or Updates AgFoodPlatform farmers. |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/delete | Deletes an existing AgFoodPlatform farmers resource. |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/list/action | List(s) existing AgFoodPlatform farmer resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/applicationData/read | Gets or Lists existing AgFoodPlatform application operations data resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/applicationData/write | Creates or Updates AgFoodPlatform application operations data. |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/applicationData/delete | Deletes an existing AgFoodPlatform application operations data resource. |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/applicationData/list/action | List(s) existing AgFoodPlatform application operation data resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/attachments/read | Gets or Lists existing AgFoodPlatform attachments resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/attachments/write | Creates or Updates AgFoodPlatform attachments. |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/attachments/delete | Deletes an existing AgFoodPlatform attachments resource. |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/attachments/list/action | List(s) existing AgFoodPlatform attachment resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/attachments/download/action | boundaries Download |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/boundaries/read | Gets or Lists existing AgFoodPlatform boundaries resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/boundaries/write | Creates or Updates AgFoodPlatform boundaries. |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/boundaries/delete | Deletes an existing AgFoodPlatform boundaries resource. |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/boundaries/list/action | List(s) existing AgFoodPlatform boundary resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/boundaries/search/action | Searches existing AgFoodPlatform boundary resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/boundaries/overlap/action | Boundary Overlap. |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/farms/read | Gets or Lists existing AgFoodPlatform farms resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/farms/write | Creates or Updates AgFoodPlatform farms. |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/farms/delete | Deletes an existing AgFoodPlatform farms resource. |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/farms/list/action | List(s) existing AgFoodPlatform farm resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/fields/read | Gets or Lists existing AgFoodPlatform fields resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/fields/write | Creates or Updates AgFoodPlatform fields. |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/fields/delete | Deletes an existing AgFoodPlatform fields resource. |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/fields/list/action | List(s) existing AgFoodPlatform field resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/harvestData/read | Gets or Lists existing AgFoodPlatform harvest operations data resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/harvestData/write | Creates or Updates AgFoodPlatform harvest operations data. |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/harvestData/delete | Deletes an existing AgFoodPlatform harvest operations data resource. |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/harvestData/list/action | List(s) existing AgFoodPlatform harvest operation data resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/models/resourceTypes/resources/insightAttachments/read | Gets or Lists existing AgFoodPlatform insight attachments resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/models/resourceTypes/resources/insightAttachments/write | Creates or Updates AgFoodPlatform insight attachments. |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/models/resourceTypes/resources/insightAttachments/delete | Deletes an existing AgFoodPlatform insight attachments resource. |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/models/resourceTypes/resources/insightAttachments/list/action | List(s) existing AgFoodPlatform insight attachment resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/models/resourceTypes/resources/insightAttachments/download/action | insights Download |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/models/resourceTypes/resources/insights/read | Gets or Lists existing AgFoodPlatform insights resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/models/resourceTypes/resources/insights/write | Creates or Updates AgFoodPlatform insights. |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/models/resourceTypes/resources/insights/delete | Deletes an existing AgFoodPlatform insights resource. |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/models/resourceTypes/resources/insights/list/action | List(s) existing AgFoodPlatform insight resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/nutrientAnalyses/read | Gets or Lists existing AgFoodPlatform nutrient analyses resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/nutrientAnalyses/write | Creates or Updates AgFoodPlatform nutrient analyses. |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/nutrientAnalyses/delete | Deletes an existing AgFoodPlatform nutrient analyses resource. |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/nutrientAnalyses/list/action | List(s) existing AgFoodPlatform nutrient analysis resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/plantingData/read | Gets or Lists existing AgFoodPlatform planting operations data resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/plantingData/write | Creates or Updates AgFoodPlatform planting operations data. |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/plantingData/delete | Deletes an existing AgFoodPlatform planting operations data resource. |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/plantingData/list/action | List(s) existing AgFoodPlatform planting operation data resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/plantTissueAnalyses/read | Gets or Lists existing AgFoodPlatform plant tissue analyses resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/plantTissueAnalyses/write | Creates or Updates AgFoodPlatform plant tissue analyses. |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/plantTissueAnalyses/delete | Deletes an existing AgFoodPlatform plant tissue analyses resource. |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/plantTissueAnalyses/list/action | List(s) existing AgFoodPlatform plant tissue analysis resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/prescriptionMaps/read | Gets or Lists existing AgFoodPlatform prescription maps resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/prescriptionMaps/write | Creates or Updates AgFoodPlatform prescription maps. |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/prescriptionMaps/delete | Deletes an existing AgFoodPlatform prescription maps resource. |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/prescriptionMaps/list/action | List(s) existing AgFoodPlatform prescription map resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/prescriptions/read | Gets or Lists existing AgFoodPlatform prescriptions resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/prescriptions/write | Creates or Updates AgFoodPlatform prescriptions. |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/prescriptions/delete | Deletes an existing AgFoodPlatform prescriptions resource. |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/prescriptions/list/action | List(s) existing AgFoodPlatform prescription resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/seasonalFields/read | Gets or Lists existing AgFoodPlatform seasonal fields resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/seasonalFields/write | Creates or Updates AgFoodPlatform seasonal fields. |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/seasonalFields/delete | Deletes an existing AgFoodPlatform seasonal fields resource. |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/seasonalFields/list/action | List(s) existing AgFoodPlatform seasonal field resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/tillageData/read | Gets or Lists existing AgFoodPlatform tillage operations data resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/tillageData/write | Creates or Updates AgFoodPlatform tillage operations data. |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/tillageData/delete | Deletes an existing AgFoodPlatform tillage operations data resource. |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/tillageData/list/action | List(s) existing AgFoodPlatform tillage operation data resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/zones/read | Gets or Lists existing AgFoodPlatform zones resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/zones/write | Creates or Updates AgFoodPlatform zones. |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/zones/delete | Deletes an existing AgFoodPlatform zones resource. |
+> | Microsoft.AgFoodPlatform/farmBeats/farmers/zones/list/action | List(s) existing AgFoodPlatform zone resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/farms/list/action | List(s) existing AgFoodPlatform farm resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/fields/list/action | List(s) existing AgFoodPlatform field resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/fields/search/action | Searches existing AgFoodPlatform field resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/harvestData/list/action | List(s) existing AgFoodPlatform harvest operation data resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/harvestData/search/action | Searches existing AgFoodPlatform harvest operation data resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/ingestionJobs/biomassModelJobs/read | Gets or Lists existing AgFoodPlatform biomassModelJobs resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/ingestionJobs/biomassModelJobs/write | Creates or Updates AgFoodPlatform biomassModelJobs. |
+> | Microsoft.AgFoodPlatform/farmBeats/ingestionJobs/farmOperationDataIngestionJobs/read | Gets or Lists existing AgFoodPlatform farmOperationDataIngestionJobs resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/ingestionJobs/farmOperationDataIngestionJobs/write | Creates or Updates AgFoodPlatform farmOperationDataIngestionJobs. |
+> | Microsoft.AgFoodPlatform/farmBeats/ingestionJobs/imageProcessingRasterizeJobs/read | Gets or Lists existing AgFoodPlatform imageProcessingRasterizeJobs resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/ingestionJobs/imageProcessingRasterizeJobs/write | Creates or Updates AgFoodPlatform imageProcessingRasterizeJobs. |
+> | Microsoft.AgFoodPlatform/farmBeats/ingestionJobs/satelliteDataIngestionJobs/read | Gets or Lists existing AgFoodPlatform satelliteDataIngestionJobs resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/ingestionJobs/satelliteDataIngestionJobs/write | Creates or Updates AgFoodPlatform satelliteDataIngestionJobs. |
+> | Microsoft.AgFoodPlatform/farmBeats/ingestionJobs/sensorPlacementModelJobs/read | Gets or Lists existing AgFoodPlatform sensorPlacementModelJobs resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/ingestionJobs/sensorPlacementModelJobs/write | Creates or Updates AgFoodPlatform sensorPlacementModelJobs. |
+> | Microsoft.AgFoodPlatform/farmBeats/ingestionJobs/soilMoistureModelJobs/read | Gets or Lists existing AgFoodPlatform soilMoistureModelJobs resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/ingestionJobs/soilMoistureModelJobs/write | Creates or Updates AgFoodPlatform soilMoistureModelJobs. |
+> | Microsoft.AgFoodPlatform/farmBeats/ingestionJobs/solutions/read | Gets or Lists existing AgFoodPlatform add-ons resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/ingestionJobs/solutions/write | Creates or Updates AgFoodPlatform add-ons. |
+> | Microsoft.AgFoodPlatform/farmBeats/ingestionJobs/solutions/cancel/action | Cancels an existing AgFoodPlatform add-on. |
+> | Microsoft.AgFoodPlatform/farmBeats/ingestionJobs/weatherDataIngestionJobs/read | Gets or Lists existing AgFoodPlatform weatherDataIngestionJobs resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/ingestionJobs/weatherDataIngestionJobs/write | Creates or Updates AgFoodPlatform weatherDataIngestionJobs. |
+> | Microsoft.AgFoodPlatform/farmBeats/nutrientAnalyses/list/action | List(s) existing AgFoodPlatform nutrient analysis resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/oauthProviders/read | Gets or Lists existing AgFoodPlatform oauth providers resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/oauthProviders/write | Creates or Updates AgFoodPlatform oauth providers. |
+> | Microsoft.AgFoodPlatform/farmBeats/oauthProviders/delete | Deletes an existing AgFoodPlatform oauth providers resource. |
+> | Microsoft.AgFoodPlatform/farmBeats/oauthProviders/list/action | List(s) existing AgFoodPlatform oauth provider resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/oauthTokens/read | Gets or Lists existing AgFoodPlatform oauth tokens resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/oauthTokens/write | Creates or Updates AgFoodPlatform oauth tokens. |
+> | Microsoft.AgFoodPlatform/farmBeats/oauthTokens/delete | Deletes an existing AgFoodPlatform oauth tokens resource. |
+> | Microsoft.AgFoodPlatform/farmBeats/oauthTokens/list/action | List(s) existing AgFoodPlatform oauth token resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/read | Gets or Lists existing AgFoodPlatform parties resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/write | Creates or Updates AgFoodPlatform parties. |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/delete | Deletes an existing AgFoodPlatform parties resource. |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/list/action | List(s) existing AgFoodPlatform Party resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/overlap/action | Searches existing AgFoodPlatform Party resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/applicationData/read | Gets or Lists existing AgFoodPlatform application operations data resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/applicationData/write | Creates or Updates AgFoodPlatform application operations data. |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/applicationData/delete | Deletes an existing AgFoodPlatform application operations data resource. |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/applicationData/list/action | List(s) existing AgFoodPlatform application operation data resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/attachments/read | Gets or Lists existing AgFoodPlatform attachments resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/attachments/write | Creates or Updates AgFoodPlatform attachments. |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/attachments/delete | Deletes an existing AgFoodPlatform attachments resource. |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/attachments/list/action | List(s) existing AgFoodPlatform attachment resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/attachments/download/action | boundaries Download |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/boundaries/read | Gets or Lists existing AgFoodPlatform boundaries resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/boundaries/write | Creates or Updates AgFoodPlatform boundaries. |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/boundaries/delete | Deletes an existing AgFoodPlatform boundaries resource. |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/boundaries/list/action | List(s) existing AgFoodPlatform boundary resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/boundaries/search/action | Searches existing AgFoodPlatform boundary resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/boundaries/overlap/action | Boundary Overlap. |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/farms/read | Gets or Lists existing AgFoodPlatform farms resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/farms/write | Creates or Updates AgFoodPlatform farms. |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/farms/delete | Deletes an existing AgFoodPlatform farms resource. |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/farms/list/action | List(s) existing AgFoodPlatform farm resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/fields/read | Gets or Lists existing AgFoodPlatform fields resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/fields/write | Creates or Updates AgFoodPlatform fields. |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/fields/delete | Deletes an existing AgFoodPlatform fields resource. |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/fields/list/action | List(s) existing AgFoodPlatform field resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/harvestData/read | Gets or Lists existing AgFoodPlatform harvest operations data resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/harvestData/write | Creates or Updates AgFoodPlatform harvest operations data. |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/harvestData/delete | Deletes an existing AgFoodPlatform harvest operations data resource. |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/harvestData/list/action | List(s) existing AgFoodPlatform harvest operation data resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/models/resourceTypes/resources/insightAttachments/read | Gets or Lists existing AgFoodPlatform insight attachments resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/models/resourceTypes/resources/insightAttachments/write | Creates or Updates AgFoodPlatform insight attachments. |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/models/resourceTypes/resources/insightAttachments/delete | Deletes an existing AgFoodPlatform insight attachments resource. |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/models/resourceTypes/resources/insightAttachments/list/action | List(s) existing AgFoodPlatform insight attachment resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/models/resourceTypes/resources/insightAttachments/download/action | insights Download |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/models/resourceTypes/resources/insights/read | Gets or Lists existing AgFoodPlatform insights resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/models/resourceTypes/resources/insights/write | Creates or Updates AgFoodPlatform insights. |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/models/resourceTypes/resources/insights/delete | Deletes an existing AgFoodPlatform insights resource. |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/models/resourceTypes/resources/insights/list/action | List(s) existing AgFoodPlatform insight resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/nutrientAnalyses/read | Gets or Lists existing AgFoodPlatform nutrient analyses resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/nutrientAnalyses/write | Creates or Updates AgFoodPlatform nutrient analyses. |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/nutrientAnalyses/delete | Deletes an existing AgFoodPlatform nutrient analyses resource. |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/nutrientAnalyses/list/action | List(s) existing AgFoodPlatform nutrient analysis resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/plantingData/read | Gets or Lists existing AgFoodPlatform planting operations data resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/plantingData/write | Creates or Updates AgFoodPlatform planting operations data. |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/plantingData/delete | Deletes an existing AgFoodPlatform planting operations data resource. |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/plantingData/list/action | List(s) existing AgFoodPlatform planting operation data resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/plantTissueAnalyses/read | Gets or Lists existing AgFoodPlatform plant tissue analyses resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/plantTissueAnalyses/write | Creates or Updates AgFoodPlatform plant tissue analyses. |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/plantTissueAnalyses/delete | Deletes an existing AgFoodPlatform plant tissue analyses resource. |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/plantTissueAnalyses/list/action | List(s) existing AgFoodPlatform plant tissue analysis resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/prescriptionMaps/read | Gets or Lists existing AgFoodPlatform prescription maps resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/prescriptionMaps/write | Creates or Updates AgFoodPlatform prescription maps. |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/prescriptionMaps/delete | Deletes an existing AgFoodPlatform prescription maps resource. |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/prescriptionMaps/list/action | List(s) existing AgFoodPlatform prescription map resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/prescriptions/read | Gets or Lists existing AgFoodPlatform prescriptions resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/prescriptions/write | Creates or Updates AgFoodPlatform prescriptions. |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/prescriptions/delete | Deletes an existing AgFoodPlatform prescriptions resource. |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/prescriptions/list/action | List(s) existing AgFoodPlatform prescription resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/seasonalFields/read | Gets or Lists existing AgFoodPlatform seasonal fields resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/seasonalFields/write | Creates or Updates AgFoodPlatform seasonal fields. |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/seasonalFields/delete | Deletes an existing AgFoodPlatform seasonal fields resource. |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/seasonalFields/list/action | List(s) existing AgFoodPlatform seasonal field resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/tillageData/read | Gets or Lists existing AgFoodPlatform tillage operations data resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/tillageData/write | Creates or Updates AgFoodPlatform tillage operations data. |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/tillageData/delete | Deletes an existing AgFoodPlatform tillage operations data resource. |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/tillageData/list/action | List(s) existing AgFoodPlatform tillage operation data resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/zones/read | Gets or Lists existing AgFoodPlatform zones resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/zones/write | Creates or Updates AgFoodPlatform zones. |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/zones/delete | Deletes an existing AgFoodPlatform zones resource. |
+> | Microsoft.AgFoodPlatform/farmBeats/parties/zones/list/action | List(s) existing AgFoodPlatform zone resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/plantingData/list/action | List(s) existing AgFoodPlatform planting operation data resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/plantingData/search/action | Searches existing AgFoodPlatform planting operation data resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/plantTissueAnalyses/list/action | List(s) existing AgFoodPlatform plant tissue analysis resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/plantTissueAnalyses/search/action | Searches existing AgFoodPlatform plant tissue analysis resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/prescriptionMaps/list/action | List(s) existing AgFoodPlatform prescription map resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/prescriptions/list/action | List(s) existing AgFoodPlatform prescription resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/prescriptions/search/action | Searches existing AgFoodPlatform prescription resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/scenes/read | Gets or Lists existing AgFoodPlatform scenes resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/scenes/write | Creates or Updates AgFoodPlatform scenes. |
+> | Microsoft.AgFoodPlatform/farmBeats/scenes/delete | Deletes an existing AgFoodPlatform scenes resource. |
+> | Microsoft.AgFoodPlatform/farmBeats/scenes/list/action | List(s) existing AgFoodPlatform scene resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/scenes/download/action | scenes Download |
+> | Microsoft.AgFoodPlatform/farmBeats/seasonalFields/list/action | List(s) existing AgFoodPlatform seasonal field resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/seasonalFields/search/action | Searches existing AgFoodPlatform seasonal field resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/seasons/read | Gets or Lists existing AgFoodPlatform seasons resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/seasons/write | Creates or Updates AgFoodPlatform seasons. |
+> | Microsoft.AgFoodPlatform/farmBeats/seasons/delete | Deletes an existing AgFoodPlatform seasons resource. |
+> | Microsoft.AgFoodPlatform/farmBeats/seasons/list/action | List(s) existing AgFoodPlatform season resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/sensorData/list/action | Gets or Lists existing AgFoodPlatform sensor data resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/sensorMappings/read | Gets or Lists existing AgFoodPlatform sensor mappings resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/sensorMappings/write | Creates or Updates AgFoodPlatform sensor mappings. |
+> | Microsoft.AgFoodPlatform/farmBeats/sensorMappings/delete | Deletes an existing AgFoodPlatform sensor mappings resource. |
+> | Microsoft.AgFoodPlatform/farmBeats/sensorMappings/list/action | List(s) existing AgFoodPlatform sensor mapping resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/sensorPartners/deviceDataModels/read | Gets or Lists existing AgFoodPlatform device data models resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/sensorPartners/deviceDataModels/write | Creates or Updates AgFoodPlatform device data models. |
+> | Microsoft.AgFoodPlatform/farmBeats/sensorPartners/deviceDataModels/delete | Deletes an existing AgFoodPlatform device data models resource. |
+> | Microsoft.AgFoodPlatform/farmBeats/sensorPartners/deviceDataModels/list/action | List(s) existing AgFoodPlatform device data model resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/sensorPartners/devices/read | Gets or Lists existing AgFoodPlatform devices resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/sensorPartners/devices/write | Creates or Updates AgFoodPlatform devices. |
+> | Microsoft.AgFoodPlatform/farmBeats/sensorPartners/devices/delete | Deletes an existing AgFoodPlatform devices resource. |
+> | Microsoft.AgFoodPlatform/farmBeats/sensorPartners/devices/list/action | List(s) existing AgFoodPlatform device resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/sensorPartners/integrations/read | Gets or Lists existing AgFoodPlatform sensor partner integrations resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/sensorPartners/integrations/write | Creates or Updates AgFoodPlatform sensor partner integrations. |
+> | Microsoft.AgFoodPlatform/farmBeats/sensorPartners/integrations/delete | Deletes an existing AgFoodPlatform sensor partner integrations resource. |
+> | Microsoft.AgFoodPlatform/farmBeats/sensorPartners/integrations/list/action | List(s) existing AgFoodPlatform sensor partner integration resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/sensorPartners/integrations/checkConsent/action | Check consent |
+> | Microsoft.AgFoodPlatform/farmBeats/sensorPartners/integrations/generateConsent/action | Generate consent |
+> | Microsoft.AgFoodPlatform/farmBeats/sensorPartners/sensorDataModels/read | Gets or Lists existing AgFoodPlatform sensor data models resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/sensorPartners/sensorDataModels/write | Creates or Updates AgFoodPlatform sensor data models. |
+> | Microsoft.AgFoodPlatform/farmBeats/sensorPartners/sensorDataModels/delete | Deletes an existing AgFoodPlatform sensor data models resource. |
+> | Microsoft.AgFoodPlatform/farmBeats/sensorPartners/sensorDataModels/list/action | List(s) existing AgFoodPlatform sensor data model resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/sensorPartners/sensors/read | Gets or Lists existing AgFoodPlatform sensors resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/sensorPartners/sensors/write | Creates or Updates AgFoodPlatform sensors. |
+> | Microsoft.AgFoodPlatform/farmBeats/sensorPartners/sensors/delete | Deletes an existing AgFoodPlatform sensors resource. |
+> | Microsoft.AgFoodPlatform/farmBeats/sensorPartners/sensors/list/action | List(s) existing AgFoodPlatform sensor resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/sensorPartners/sensors/connectionStrings/read | Gets or Lists existing AgFoodPlatform ConnnectionStrings for Sensor Partners resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/sensorPartners/sensors/connectionStrings/write | Creates or Updates AgFoodPlatform ConnnectionStrings for Sensor Partners. |
+> | Microsoft.AgFoodPlatform/farmBeats/sensorPartnerScope/deviceDataModels/read | Get or List AgFoodPlatform device data models resource(s) restricted to caller's sensor partner scope. |
+> | Microsoft.AgFoodPlatform/farmBeats/sensorPartnerScope/deviceDataModels/write | Creates or Updates AgFoodPlatform device data models restricted to caller's sensor partner scope. |
+> | Microsoft.AgFoodPlatform/farmBeats/sensorPartnerScope/deviceDataModels/delete | Deletes an existing AgFoodPlatform device data models resource restricted to caller's sensor partner scope. |
+> | Microsoft.AgFoodPlatform/farmBeats/sensorPartnerScope/deviceDataModels/list/action | Lists an existing AgFoodPlatform device data models resource restricted to caller's sensor partner scope. |
+> | Microsoft.AgFoodPlatform/farmBeats/sensorPartnerScope/devices/read | Get or List AgFoodPlatform devices resource(s) restricted to caller's sensor partner scope. |
+> | Microsoft.AgFoodPlatform/farmBeats/sensorPartnerScope/devices/write | Creates or Updates AgFoodPlatform devices restricted to caller's sensor partner scope. |
+> | Microsoft.AgFoodPlatform/farmBeats/sensorPartnerScope/devices/delete | Deletes an existing AgFoodPlatform devices resource restricted to caller's sensor partner scope. |
+> | Microsoft.AgFoodPlatform/farmBeats/sensorPartnerScope/devices/list/action | Lists an existing AgFoodPlatform devices resource restricted to caller's sensor partner scope. |
+> | Microsoft.AgFoodPlatform/farmBeats/sensorPartnerScope/sensorDataModels/read | Get or List AgFoodPlatform sensor data models resource(s) restricted to caller's sensor partner scope. |
+> | Microsoft.AgFoodPlatform/farmBeats/sensorPartnerScope/sensorDataModels/write | Creates or Updates AgFoodPlatform sensor data models restricted to caller's sensor partner scope. |
+> | Microsoft.AgFoodPlatform/farmBeats/sensorPartnerScope/sensorDataModels/delete | Deletes an existing AgFoodPlatform sensor data models resource restricted to caller's sensor partner scope. |
+> | Microsoft.AgFoodPlatform/farmBeats/sensorPartnerScope/sensorDataModels/list/action | Lists an existing AgFoodPlatform sensor data models resource restricted to caller's sensor partner scope. |
+> | Microsoft.AgFoodPlatform/farmBeats/sensorPartnerScope/sensorPartnerIntegrationConsentLinkModels/read | Get or List AgFoodPlatform sensor partner integration consent links resource(s) restricted to caller's sensor partner scope. |
+> | Microsoft.AgFoodPlatform/farmBeats/sensorPartnerScope/sensors/read | Get or List AgFoodPlatform sensors resource(s) restricted to caller's sensor partner scope. |
+> | Microsoft.AgFoodPlatform/farmBeats/sensorPartnerScope/sensors/write | Creates or Updates AgFoodPlatform sensors restricted to caller's sensor partner scope. |
+> | Microsoft.AgFoodPlatform/farmBeats/sensorPartnerScope/sensors/delete | Deletes an existing AgFoodPlatform sensors resource restricted to caller's sensor partner scope. |
+> | Microsoft.AgFoodPlatform/farmBeats/sensorPartnerScope/sensors/list/action | Lists an existing AgFoodPlatform sensors resource restricted to caller's sensor partner scope. |
+> | Microsoft.AgFoodPlatform/farmBeats/sensorPartnerScope/sensorsconnectionStrings/read | Get or List AgFoodPlatform ConnnectionString for Sensor Partners resource(s) restricted to caller's sensor partner scope. |
+> | Microsoft.AgFoodPlatform/farmBeats/sensorPartnerScope/sensorsconnectionStrings/write | Creates or Updates AgFoodPlatform ConnnectionString for Sensor Partners restricted to caller's sensor partner scope. |
+> | Microsoft.AgFoodPlatform/farmBeats/stacFeatures/read | Gets or Lists existing AgFoodPlatform stacFeatures resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/stacFeatures/search/action | Searches existing AgFoodPlatform Stac Feature resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/tillageData/list/action | List(s) existing AgFoodPlatform tillage operation data resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/tillageData/search/action | Searches existing AgFoodPlatform tillage operation data resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/weather/read | Gets or Lists existing AgFoodPlatform weather resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/weather/write | Creates or Updates AgFoodPlatform weather. |
+> | Microsoft.AgFoodPlatform/farmBeats/weather/delete | Deletes an existing AgFoodPlatform weather resource. |
+> | Microsoft.AgFoodPlatform/farmBeats/weather/list/action | List(s) existing AgFoodPlatform weather resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/zones/list/action | List(s) existing AgFoodPlatform zone resource(s). |
+> | Microsoft.AgFoodPlatform/farmBeats/zones/search/action | Searches existing AgFoodPlatform zone resource(s). |
+> | Microsoft.AgFoodPlatform/farmers/farmers/managementZones/read | Gets or Lists existing AgFoodPlatform management zones resource(s). |
+> | Microsoft.AgFoodPlatform/farmers/farmers/managementZones/write | Creates or Updates AgFoodPlatform management zones. |
+> | Microsoft.AgFoodPlatform/farmers/farmers/managementZones/delete | Deletes an existing AgFoodPlatform management zones resource. |
+> | Microsoft.AgFoodPlatform/farmers/farmers/managementZones/list/action | List(s) existing AgFoodPlatform management zone resource(s). |
+> | Microsoft.AgFoodPlatform/farmers/managementZones/list/action | List(s) existing AgFoodPlatform management zone resource(s). |
+> | Microsoft.AgFoodPlatform/farmers/parties/managementZones/read | Gets or Lists existing AgFoodPlatform management zones resource(s). |
+> | Microsoft.AgFoodPlatform/farmers/parties/managementZones/write | Creates or Updates AgFoodPlatform management zones. |
+> | Microsoft.AgFoodPlatform/farmers/parties/managementZones/delete | Deletes an existing AgFoodPlatform management zones resource. |
+> | Microsoft.AgFoodPlatform/farmers/parties/managementZones/list/action | List(s) existing AgFoodPlatform management zone resource(s). |
+
 ## Microsoft.BotService
 
 Intelligent, serverless bot service that scales on demand.
@@ -1568,6 +1943,22 @@ Azure service: [Cognitive Services](/azure/cognitive-services/)
 > | Microsoft.CognitiveServices/accounts/VideoTranslation/WebVttFiles/write | Create or update webvtt files. |
 > | Microsoft.CognitiveServices/accounts/VisualSearch/search/action | Returns a list of tags relevant to the provided image |
 > | Microsoft.CognitiveServices/accounts/WebSearch/search/action | Get web, image, news, & videos results for a given query. |
+
+## Microsoft.HealthBot
+
+Azure service: [Azure AI Health Bot](/azure/health-bot/overview)
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.HealthBot/healthBots/Action | Writes healthBots |
+> | Microsoft.HealthBot/healthBots/Read | Read healthBots |
+> | Microsoft.HealthBot/healthBots/Write | Writes healthBots |
+> | Microsoft.HealthBot/healthBots/Delete | Deletes healthBots |
+> | **DataAction** | **Description** |
+> | Microsoft.HealthBot/healthBots/Reader/Action | Sign in to the management portal, with read-only access to resources, scenarios and configuration settings except for the bot instance keys & secrets and the end-user inputs. |
+> | Microsoft.HealthBot/healthBots/Editor/Action | Sign in to the management portal, view and edit all the bot resources, scenarios and configuration settings except for the bot instance keys & secrets and the end-user inputs. Read-only access to the bot skills and channels. |
+> | Microsoft.HealthBot/healthBots/Admin/Action | Sign in to the management portal, view and edit all of the bot resources, scenarios, configuration settings, instance keys & secrets. |
 
 ## Microsoft.MachineLearningServices
 
