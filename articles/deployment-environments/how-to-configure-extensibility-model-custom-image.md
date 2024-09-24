@@ -79,7 +79,7 @@ For more information about how to create environment definitions that use the AD
 ::: zone-end
 
 ::: zone pivot="pulumi"
-## Use a sample Docker image provided by Pulumi
+## Use a sample container image provided by Pulumi
 
 The Pulumi team provides a prebuilt image to get you started, which you can see in the [Runner-Image](https://github.com/pulumi/azure-deployment-environments/tree/main/Runner-Image) folder. This image is publicly available at Pulumi's Docker Hub as [`pulumi/azure-deployment-environments`](https://hub.docker.com/repository/docker/pulumi/azure-deployment-environments), so you can use it directly from your ADE environment definitions.
 
