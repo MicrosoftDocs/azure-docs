@@ -139,7 +139,7 @@ To verify that data is flowing to the cloud, you can view your Event Hubs instan
 
 If messages are flowing to the instance, you can see the count on incoming messages on the instance **Overview** page:
 
-:::image type="content" source="media/quickstart-upload-telemetry-to-cloud/incoming-messages.png" alt-text="Screenshot that shows the Event Hub instance overview page with incoming messages.":::
+:::image type="content" source="media/quickstart-upload-telemetry-to-cloud/incoming-messages.png" alt-text="Screenshot that shows the Event Hubs instance overview page with incoming messages.":::
 
 If messages are flowing, you can use the **Data Explorer** to view the messages:
 
