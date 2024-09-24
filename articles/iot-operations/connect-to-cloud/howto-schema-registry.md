@@ -4,7 +4,7 @@ description: Learn how to install schema registry on your cluster and create mes
 author: kgremban
 ms.author: kgremban
 ms.topic: how-to
-ms.date: 08/03/2024
+ms.date: 09/23/2024
 
 #CustomerIntent: As an operator, I want to understand how I can use message schemas to filter and transform messages.
 ---
@@ -13,34 +13,29 @@ ms.date: 08/03/2024
 
 Use schema registry to store and synchronize message schemas across the cloud and edge. Dataflows and other edge services use message schemas to filter and transform messages as they're routed across your industrial edge scenario.
 
-## Create schema registry resources in Azure
+Schemas are documents that describe data to enable processing and contextualization.
 
-1. Create a storage account with hierarchical namespace enabled.
+Message schemas describe the format of a message and its contents.
 
-   ```azurecli-interactive
-   az storage account create -n <STORAGE_ACCOUNT_NAME> -g <RESOURCE_GROUP> --enable-hierarchical-namespace --sku Standard_LRS
-   ```
+## Prerequisites
 
-1. Create a schema registry resource.
-
-   ```azurecli-interactive
-   az iot ops schema registry create -n <SCHEMA_REGISTRY_NAME> --sa-resource-id <STORAGE_ACCOUNT_RESOURCE_ID> --registry-namespace <SCHEMA_REGISTRY_NAME> -g <RESOURCE_GROUP>
-   ```
-
-## Install schema registry on your cluster
-
-1. Install schema registry as part of Azure IoT Operations by using the `--sr-resource-id` parameter in the `az iot ops init` command. For example:
-
-   ```azurecli
-   az iot ops init --cluster <CLUSTER_NAME> -g <RESOURCE_GROUP> --sr-resource-id <SCHEMA_REGISTRY_RESOURCE_ID> -n <INSTANCE_NAME> --add-insecure-listener true
-   ```
-
-1. Verify that schema registry pods are running by using the `kubectl get pods` command.
-
-   ```bash
-   kubectl get pods -n azure-iot-operations
-   ```
+* An Azure IoT Operations instance deployed to a cluster along with a schema registry. For more information, see [Deployment details](../deploy-iot-ops/overview-deploy.md).
 
 ## Upload message schemas in the operations experience
 
-TODO
+The operations experience uses schemas when you define dataflow endpoints.
+
+1. Save your message schema locally as a JSON file.
+
+1. In the [operations experience](https://iotoperations.azure.com), select your site and Azure IoT Operations instance.
+
+1. Select **Dataflows** > **Create dataflow**.
+
+1. Select **Source** > **MQTT**.
+
+1. Select **Upload**.
+
+   :::image type="content" source="./media/howto-schema-registry/upload-schema.png" alt-text="Screenshot that shows uploading a message schema in the operations experience portal.":::
+
+1. Browse to your message schema JSON file and select **Open**.
+
