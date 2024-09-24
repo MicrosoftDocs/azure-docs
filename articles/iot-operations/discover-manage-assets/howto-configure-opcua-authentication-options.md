@@ -6,7 +6,7 @@ ms.author: dobett
 ms.subservice: azure-opcua-connector
 ms.topic: how-to
 ms.custom: ignite-2023
-ms.date: 05/16/2024
+ms.date: 09/16/2024
 
 # CustomerIntent: As a user in IT, operations, or development, I want to configure my OPC UA industrial edge environment with custom OPC UA user authentication options to keep it secure and work with my solution.
 ---
@@ -21,7 +21,7 @@ To learn more, see [OPC UA applications - user authentication](https://reference
 
 ## Prerequisites
 
-A deployed instance of Azure IoT Operations Preview. To deploy Azure IoT Operations for demonstration and exploration purposes, see [Quickstart: Run Azure IoT Operations Preview in Github Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md).
+A deployed instance of Azure IoT Operations Preview. To deploy Azure IoT Operations for demonstration and exploration purposes, see [Quickstart: Run Azure IoT Operations Preview in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md).
 
 ## Features supported
 
@@ -40,27 +40,49 @@ First, configure the secrets for the username and password in Azure Key Vault an
 
     To configure the username and password, run the following code:
 
+    # [Bash](#tab/bash)
+
     ```bash
     # Create username Secret in Azure Key Vault
-      az keyvault secret set \
-        --name "username" \
-        --vault-name "<your-azure-key-vault-name>" \
-        --value "<your-opc-ua-server-username>" \
-        --content-type "text/plain"
+    az keyvault secret set \
+      --name username \
+      --vault-name <your-azure-key-vault-name> \
+      --value <your-opc-ua-server-username> \
+      --content-type text/plain
 
     # Create password Secret in Azure Key Vault
-      az keyvault secret set \
-        --name "password" \
-        --vault-name "<your-azure-key-vault-name>" \
-        --value "<your-opc-ua-server-password>" \
-        --content-type "text/plain"
+    az keyvault secret set \
+      --name password \
+      --vault-name <your-azure-key-vault-name> \
+      --value <your-opc-ua-server-password> \
+      --content-type text/plain
     ```
+
+    # [PowerShell](#tab/powershell)
+
+    ```powershell
+    # Create username Secret in Azure Key Vault
+    az keyvault secret set `
+      --name username `
+      --vault-name <your-azure-key-vault-name> `
+      --value <your-opc-ua-server-username> `
+      --content-type text/plain
+
+    # Create password Secret in Azure Key Vault
+    az keyvault secret set `
+      --name password `
+      --vault-name <your-azure-key-vault-name> `
+      --value <your-opc-ua-server-password> `
+      --content-type text/plain
+    ```
+
+    ---
 
 1. Configure the `aio-opc-ua-broker-user-authentication` custom resource in the cluster. Use a Kubernetes client such as `kubectl` to configure the `username` and `password` secrets in the `SecretProviderClass` object array in the cluster.
 
     The following example shows a complete `SecretProviderClass` custom resource after you add the secrets:
 
-    ```yml
+    ```yaml
     apiVersion: secrets-store.csi.x-k8s.io/v1
     kind: SecretProviderClass
     metadata:

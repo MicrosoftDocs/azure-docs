@@ -23,11 +23,7 @@ To connect your cluster to Azure Arc:
    > * Open the codespace in VS Code desktop, and then return to the browser terminal and rerun `az login`.
    > * Or, after you get the localhost error on the browser, copy the URL from the browser and run `curl "<URL>"` in a new terminal tab. You should see a JSON response with the message "You have logged into Microsoft Azure!."
 
-1. Set the Azure subscription context for all commands:
-
-   ```azurecli
-   az account set -s $SUBSCRIPTION_ID
-   ```
+1. After signing in, Azure CLI displays all of your subscriptions and indicates your default subscription with an asterisk `*`. To continue with your default subscription, select `Enter`. Otherwise, type the number of the Azure subscription that you want to use.
 
 1. Register the required resource providers in your subscription:
 
@@ -46,19 +42,19 @@ To connect your cluster to Azure Arc:
 1. Use the [az group create](/cli/azure/group#az-group-create) command to create a resource group in your Azure subscription to store all the resources:
 
    ```azurecli
-   az group create --location $LOCATION --resource-group $RESOURCE_GROUP --subscription $SUBSCRIPTION_ID
+   az group create --location $LOCATION --resource-group $RESOURCE_GROUP
    ```
 
 1. Use the [az connectedk8s connect](/cli/azure/connectedk8s#az-connectedk8s-connect) command to Arc-enable your Kubernetes cluster and manage it as part of your Azure resource group:
 
    ```azurecli
-   az connectedk8s connect -n $CLUSTER_NAME -l $LOCATION -g $RESOURCE_GROUP --subscription $SUBSCRIPTION_ID --enable-oidc-issuer --enable-workload-identity
+   az connectedk8s connect --name $CLUSTER_NAME --location $LOCATION --resource-group $RESOURCE_GROUP --disable-auto-upgrade
    ```
 
    >[!TIP]
    >The value of `$CLUSTER_NAME` is automatically set to the name of your codespace. Replace the environment variable if you want to use a different name.
 
-1. Get the `objectId` of the Microsoft Entra ID application that the Azure Arc service uses and save it as an environment variable.
+1. Get the `objectId` of the Microsoft Entra ID application that the Azure Arc service in your tenant uses and save it as an environment variable.
 
    ```azurecli
    export OBJECT_ID=$(az ad sp show --id bc313c14-388c-4e7d-a58e-70017303ee3b --query id -o tsv)

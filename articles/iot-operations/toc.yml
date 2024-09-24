@@ -17,10 +17,14 @@ items:
         href: get-started-end-to-end-sample/quickstart-get-insights.md
     - name: Deploy Azure IoT Operations to your cluster
       items:
+      - name: Deployment overview
+        href: deploy-iot-ops/overview-deploy.md
       - name: Prepare a cluster
         href: deploy-iot-ops/howto-prepare-cluster.md
       - name: Deploy to a cluster
         href: deploy-iot-ops/howto-deploy-iot-operations.md
+      - name: Enable secure settings
+        href: deploy-iot-ops/howto-enable-secure-settings.md
       - name: Manage secrets
         href: deploy-iot-ops/howto-manage-secrets.md
     - name: Discover and manage assets
@@ -171,12 +175,8 @@ items:
         href: https://github.com/Azure/azure-iot-operations/releases
       - name: Azure IoT Operations CLI
         href: /cli/azure/iot/ops
-      - name: REST API
-        items:
-        - name: Azure IoT Data Processor
-          href: /rest/api/iotdataprocessor 
-        - name: MQTT broker
-          href: /rest/api/iotmq
+      - name: Azure IoT Operations REST API
+        href: /rest/api/iotoperations
       - name: Available metrics for observability
         items:
         - name: MQTT broker

@@ -25,7 +25,7 @@ An Azure Arc-enabled Kubernetes cluster is a prerequisite for deploying Azure Io
 
 To prepare your Azure Arc-enabled Kubernetes cluster, you need:
 
-* Hardware that meets the [system requirements](../../azure-arc/kubernetes/system-requirements.md).
+* Hardware that meets the [system requirements](/azure/azure-arc/kubernetes/system-requirements).
 
 ### [AKS Edge Essentials](#tab/aks-edge-essentials)
 
@@ -105,7 +105,7 @@ This section provides steps to prepare and Arc-enable clusters in validated envi
 
 [Azure Kubernetes Service Edge Essentials](/azure/aks/hybrid/aks-edge-overview) is an on-premises Kubernetes implementation of Azure Kubernetes Service (AKS) that automates running containerized applications at scale. AKS Edge Essentials includes a Microsoft-supported Kubernetes platform that includes a lightweight Kubernetes distribution with a small footprint and simple installation experience, making it easy for you to deploy Kubernetes on PC-class or "light" edge hardware.
 
-The [AksEdgeQuickStartForAio.ps1](https://github.com/Azure/AKS-Edge/blob/main/tools/scripts/AksEdgeQuickStart/AksEdgeQuickStartForAio.ps1) script automates the the process of creating and connecting a cluster, and is the recommended path for deploying Azure IoT Operations on AKS Edge Essentials.
+The [AksEdgeQuickStartForAio.ps1](https://github.com/Azure/AKS-Edge/blob/main/tools/scripts/AksEdgeQuickStart/AksEdgeQuickStartForAio.ps1) script automates the process of creating and connecting a cluster, and is the recommended path for deploying Azure IoT Operations on AKS Edge Essentials.
 
 1. Open an elevated PowerShell window and change the directory to a working folder.
 
@@ -113,8 +113,8 @@ The [AksEdgeQuickStartForAio.ps1](https://github.com/Azure/AKS-Edge/blob/main/to
 
    | Placeholder | Value |
    | ----------- | ----- |
-   | SUBSCRIPTION_ID | The ID of your Azure subscription. If you don't know your subscription ID, see [Find your Azure subscription](../../azure-portal/get-subscription-tenant-id.md#find-your-azure-subscription). |
-   | TENANT_ID | The ID of your Microsoft Entra tenant. If you don't know your tenant ID, see [Find your Microsoft Entra tenant](../../azure-portal/get-subscription-tenant-id.md#find-your-microsoft-entra-tenant). |
+   | SUBSCRIPTION_ID | The ID of your Azure subscription. If you don't know your subscription ID, see [Find your Azure subscription](/azure/azure-portal/get-subscription-tenant-id#find-your-azure-subscription). |
+   | TENANT_ID | The ID of your Microsoft Entra tenant. If you don't know your tenant ID, see [Find your Microsoft Entra tenant](/azure/azure-portal/get-subscription-tenant-id#find-your-microsoft-entra-tenant). |
    | RESOURCE_GROUP_NAME | The name of an existing resource group or a name for a new resource group to be created. |
    | LOCATION | An Azure region close to you. For the list of currently supported Azure regions, see [Supported regions](../overview-iot-operations.md#supported-regions). |
    | CLUSTER_NAME | A name for the new cluster to be created. |
@@ -138,11 +138,11 @@ The [AksEdgeQuickStartForAio.ps1](https://github.com/Azure/AKS-Edge/blob/main/to
 
    In the output of the `Get-AksEdgeDeploymentInfo` command, you should see that the cluster's Arc status is `Connected`.
 
-### Configure multi-node clusters for Edge Storage Accelerator
+### Configure multi-node clusters for Azure Container Storage
 
-On multi-node clusters with at least three nodes, you have the option of enabling fault tolerance for storage with [Edge Storage Accelerator (preview)](../../azure-arc/edge-storage-accelerator/overview.md) when you deploy Azure IoT Operations.
+On multi-node clusters with at least three nodes, you have the option of enabling fault tolerance for storage with [Azure Container Storage enabled by Azure Arc](/azure/azure-arc/container-storage/overview) when you deploy Azure IoT Operations.
 
-By default, Azure Kubernetes Service Edge Essentials clusters support Edge Storage Accelerator. There are no additional steps to configure AKS Edge Essential clusters for fault tolerance.
+By default, Azure Kubernetes Service Edge Essentials clusters support Azure Container Storage. There are no additional steps to configure AKS Edge Essential clusters for fault tolerance.
 
 ### [Ubuntu](#tab/ubuntu)
 
@@ -190,9 +190,9 @@ To prepare a K3s Kubernetes cluster on Ubuntu:
    sudo sysctl -p
    ```
 
-### Configure multi-node clusters for Edge Storage Accelerator
+### Configure multi-node clusters for Azure Container Storage
 
-On multi-node clusters with at least three nodes, you have the option of enabling fault tolerance for storage with [Edge Storage Accelerator (preview)](../../azure-arc/edge-storage-accelerator/overview.md) when you deploy Azure IoT Operations. If you want to enable that option, prepare your multi-node cluster with the following steps:
+On multi-node clusters with at least three nodes, you have the option of enabling fault tolerance for storage with [Azure Container Storage enabled by Azure Arc](/azure/azure-arc/container-storage/overview) when you deploy Azure IoT Operations. If you want to enable that option, prepare your multi-node cluster with the following steps:
 
 1. Install the required NVME over TCP module for your kernel using the following command:
 
@@ -201,7 +201,7 @@ On multi-node clusters with at least three nodes, you have the option of enablin
    ```
 
    > [!NOTE]
-   > The minimum supported Linux kernel version is 5.1. At this time, there are known issues with 6.4 and 6.2. For the latest information, refer to [Edge Storage Accelerator release notes](../../azure-arc/edge-storage-accelerator/release-notes.md)
+   > The minimum supported Linux kernel version is 5.1. At this time, there are known issues with 6.4 and 6.2. For the latest information, refer to [Azure Container Storage release notes](/azure/azure-arc/edge-storage-accelerator/release-notes)
 
 1. On each node in your cluster, set the number of **HugePages** to 512 using the following command:
 
@@ -218,9 +218,9 @@ On multi-node clusters with at least three nodes, you have the option of enablin
 
 [!INCLUDE [prepare-codespaces](../includes/prepare-codespaces.md)]
 
-### Configure multi-node clusters for Edge Storage Accelerator
+### Configure multi-node clusters for Azure Container Storage
 
-On multi-node clusters with at least three nodes, you have the option of enabling fault tolerance for storage with [Edge Storage Accelerator (preview)](../../azure-arc/edge-storage-accelerator/overview.md) when you deploy Azure IoT Operations.
+On multi-node clusters with at least three nodes, you have the option of enabling fault tolerance for storage with [Azure Container Storage (preview)](/azure/azure-arc/edge-storage-accelerator/overview) when you deploy Azure IoT Operations.
 
 This feature isn't recommended for Codespaces because Codespaces aren't persistent. If you want to enable fault tolerance anyways, prepare your multi-node cluster with the following steps:
 
@@ -231,7 +231,7 @@ This feature isn't recommended for Codespaces because Codespaces aren't persiste
    ```
 
    > [!NOTE]
-   > The minimum supported Linux kernel version is 5.1. At this time, there are known issues with 6.4 and 6.2. For the latest information, refer to [Edge Storage Accelerator release notes](../../azure-arc/edge-storage-accelerator/release-notes.md)
+   > The minimum supported Linux kernel version is 5.1. At this time, there are known issues with 6.4 and 6.2. For the latest information, refer to [Azure Container Storage release notes](/azure/azure-arc/edge-storage-accelerator/release-notes)
 
 1. On each node in your cluster, set the number of **HugePages** to 512 using the following command:
 
@@ -308,7 +308,7 @@ To connect your cluster to Azure Arc:
 1. Use the [az connectedk8s connect](/cli/azure/connectedk8s#az-connectedk8s-connect) command to Arc-enable your Kubernetes cluster and manage it as part of your Azure resource group:
 
    ```azurecli
-   az connectedk8s connect -n $CLUSTER_NAME -l $LOCATION -g $RESOURCE_GROUP --subscription $SUBSCRIPTION_ID --enable-oidc-issuer --enable-workload-identity
+   az connectedk8s connect -n $CLUSTER_NAME -l $LOCATION -g $RESOURCE_GROUP --subscription $SUBSCRIPTION_ID --disable-auto-upgrade
    ```
 
 1. Get the `objectId` of the Microsoft Entra ID application that the Azure Arc service uses and save it as an environment variable.
@@ -375,7 +375,7 @@ pod/metrics-agent-6588f97dc-455j8                 2/2     Running   0           
 
 ## Create sites
 
-A _site_ is a collection of Azure IoT Operations instances. Sites typically group instances by physical location and make it easier for OT users to locate and manage assets. An IT administrator creates sites and assigns Azure IoT Operations instances to them. To learn more, see [What is Azure Arc site manager (preview)?](../../azure-arc/site-manager/overview.md).
+A _site_ is a collection of Azure IoT Operations instances. Sites typically group instances by physical location and make it easier for OT users to locate and manage assets. An IT administrator creates sites and assigns Azure IoT Operations instances to them. To learn more, see [What is Azure Arc site manager (preview)?](/azure/azure-arc/site-manager/overview).
 
 ## Next steps
 
