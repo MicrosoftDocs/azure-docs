@@ -34,7 +34,7 @@ Azure API for FHIR only allows authorized users to access the FHIR API. You can 
 You may want to enable diagnostic logging as part of your setup to be able to monitor your service and have accurate reporting for compliance purposes. For details on how to set up diagnostic logging, see our [how-to-guide](enable-diagnostic-logging.md), which also provides some sample queries. 
 
 ## Use custom headers to add data to audit logs
-In the Azure API for FHIR, you may want to include additional information in the logs, which comes from the calling system. To including this information, you can use custom headers.
+In the Azure API for FHIR, you may want to include additional information in the logs, which comes from the calling system. To include this information, you can use custom headers.
 
 You can use custom headers to capture several types of information, including the following.
 
