@@ -5,7 +5,7 @@ author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-data-flows
 ms.topic: concept-article
-ms.date: 08/03/2024
+ms.date: 09/23/2024
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to use the dataflow mapping language to transform data.
@@ -187,7 +187,7 @@ In the previous example, the path consists of three segments: `Payload`, `Tag.10
     
     ```yaml
     - inputs:
-      - 'Payload.He said: "No. It's done"'
+      - 'Payload.He said: "No. It is done"'
     ```
     
     In this case, the path is split into the segments `Payload`, `He said: "No`, and `It's done"` (starting with a space).
@@ -243,12 +243,12 @@ Mapping configuration that uses wildcards:
 
 ```yaml
 - inputs:
-  - ColorProperties.*
-  output: *
+  - 'ColorProperties.*'
+  output: `*`
 
 - inputs:
-  - TextureProperties.*
-  output: *
+  - 'TextureProperties.*'
+  output: `*`
 ```
 
 Resulting JSON:
@@ -276,6 +276,7 @@ When you place a wildcard, you must follow these rules:
   * **At the beginning:** `*.path2.path3` - Here, the asterisk matches any segment that leads up to `path2.path3`.
   * **In the middle:** `path1.*.path3` - In this configuration, the asterisk matches any segment between `path1` and `path3`.
   * **At the end:** `path1.path2.*` - The asterisk at the end matches any segment that follows after `path1.path2`.
+* The path containing the asterisk must be enclosed in single quotation marks (`'`).
 
 ### Multi-input wildcards
 
@@ -302,9 +303,9 @@ Mapping configuration that uses wildcards:
 
 ```yaml
 - inputs:
-  - *.Max   # - $1
-  - *.Min   # - $2
-  output: ColorProperties.*
+  - '*.Max'   # - $1
+  - '*.Min'   # - $2
+  output: 'ColorProperties.*'
   conversion: ($1 + $2) / 2
 ```
 
@@ -359,11 +360,11 @@ Initial mapping configuration that uses wildcards:
 
 ```yaml
 - inputs:
-  - *.Max    # - $1
-  - *.Min    # - $2
-  - *.Avg    # - $3
-  - *.Mean   # - $4
-  output: ColorProperties.*
+  - '*.Max'    # - $1
+  - '*.Min'    # - $2
+  - '*.Avg'    # - $3
+  - '*.Mean'   # - $4
+  output: 'ColorProperties.*'
   expression: ($1, $2, $3, $4)
 ```
 
@@ -382,11 +383,11 @@ Corrected mapping configuration:
 
 ```yaml
 - inputs:
-  - *.Max        # - $1
-  - *.Min        # - $2
-  - *.Mid.Avg    # - $3
-  - *.Mid.Mean   # - $4
-  output: ColorProperties.*
+  - '*.Max'        # - $1
+  - '*.Min'        # - $2
+  - '*.Mid.Avg'    # - $3
+  - '*.Mid.Mean'   # - $4
+  output: 'ColorProperties.*'
   expression: ($1, $2, $3, $4)
 ```
 
@@ -398,15 +399,15 @@ When you use the previous example from multi-input wildcards, consider the follo
 
 ```yaml
 - inputs:
-  - *.Max   # - $1
-  - *.Min   # - $2
-  output: ColorProperties.*.Avg
+  - '*.Max'   # - $1
+  - '*.Min'   # - $2
+  output: 'ColorProperties.*.Avg'
   expression: ($1 + $2) / 2
 
 - inputs:
-  - *.Max   # - $1
-  - *.Min   # - $2
-  output: ColorProperties.*.Diff
+  - '*.Max'   # - $1
+  - '*.Min'   # - $2
+  output: 'ColorProperties.*.Diff'
   expression: abs($1 - $2)
 ```
 
@@ -437,9 +438,9 @@ Now, consider a scenario where a specific field needs a different calculation:
 
 ```yaml
 - inputs:
-  - *.Max   # - $1
-  - *.Min   # - $2
-  output: ColorProperties.*
+  - '*.Max'   # - $1
+  - '*.Min'   # - $2
+  output: 'ColorProperties.*'
   expression: ($1 + $2) / 2
 
 - inputs:
@@ -458,9 +459,9 @@ Consider a special case for the same fields to help decide the right action:
 
 ```yaml
 - inputs:
-  - *.Max   # - $1
-  - *.Min   # - $2
-  output: ColorProperties.*
+  - '*.Max'   # - $1
+  - '*.Min'   # - $2
+  output: 'ColorProperties.*'
   expression: ($1 + $2) / 2
 
 - inputs:
@@ -505,8 +506,8 @@ This mapping copies `BaseSalary` from the context dataset directly into the `Emp
 
 ```yaml
 - inputs:
-  - $context(position).*
-  output: Employment.*
+  - '$context(position).*'
+  output: 'Employment.*'
 ```
 
 This configuration allows for a dynamic mapping where every field within the `position` dataset is copied into the `Employment` section of the output record:
