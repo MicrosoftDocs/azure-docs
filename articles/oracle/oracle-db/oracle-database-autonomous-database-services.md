@@ -17,7 +17,7 @@ You access the OracleDB@Azure service through the Microsoft Azure portal. You cr
 There are IP address requirement differences between Oracle Database@Azure and Oracle Cloud Infrastructure (OCI).
 * Oracle Database@Azure reserves 13 IP addresses for the client subnet versus 3 for OCI requirements.
 
-For more information on specific Oracle Autonomous Database topics beyond their implementation and use within OracleDB@Azure, see [Using Oracle Autonomous Database Serverless](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/adbsb/index.html).
+For more information on specific Oracle Autonomous Database articles beyond their implementation and use within OracleDB@Azure, see [Using Oracle Autonomous Database Serverless](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/adbsb/index.html).
 
 The following articles provide specifics of the creation and management tasks associated with Autonomous Database services.
 

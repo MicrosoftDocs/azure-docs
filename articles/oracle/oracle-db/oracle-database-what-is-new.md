@@ -19,5 +19,9 @@ In this article, you find information about new features in Oracle Database@Azur
 |---------|-------------|
 | Multiple Azure subscription support | Oracle Database@Azure now supports using multiple Azure subscriptions with the service. For more information, see [Link Oracle Database@Azure to multiple Azure subscriptions](link-oracle-database-multiple-subscription.md). |
 
-
+## Next steps
+- [Provision and manage Oracle Database@Azure](provision-oracle-database.md)
+- [Oracle Database@Azure support information](oracle-database-support.md)
+- [Network planning for Oracle Database@Azure](oracle-database-network-plan.md)
+- [Groups and roles for Oracle Database@Azure](oracle-database-groups-roles.md)
 

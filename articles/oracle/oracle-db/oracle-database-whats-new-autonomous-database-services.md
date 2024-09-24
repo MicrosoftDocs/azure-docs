@@ -21,3 +21,9 @@ This is the list of product enhancements and fixes to Oracle Database@Azure (Ora
 The above table only lists the changes within the Oracle Database@Azure product specific to Autonomous Database Services. For changes to the Oracle Autonomous Database product, use the following links:
 * For current year new features added to Oracle Autonomous Database, see What's New for [Oracle Autonomous Database Serverless](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/adbsb/whats-new-adwc.html).
 * For older features added to Oracle Autonomous Database, see [Previous Feature Announcements](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/adbsb/previous-feature-announcements.html).
+
+## Next steps
+- [Provision and manage Oracle Database@Azure](provision-oracle-database.md)
+- [Oracle Database@Azure support information](oracle-database-support.md)
+- [Network planning for Oracle Database@Azure](oracle-database-network-plan.md)
+- [Groups and roles for Oracle Database@Azure](oracle-database-groups-roles.md)

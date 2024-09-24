@@ -1,6 +1,6 @@
 ---
-title: Database operations processes for Exadata services
-description: Learn about database operations processes for Exadata services.
+title: Database operations processes for autonomous recovery Service@Azure
+description: Learn about database operations processes for autonomous recovery Service@Azure.
 author: jjaygbay1
 ms.author: jacobjaygbay
 ms.topic: concept-article
@@ -12,7 +12,7 @@ ms.date: 08/01/2024
 
 There are Oracle processes that are accessible from Microsoft Azure, but are setup and maintained from the Oracle Cloud Infrastructure (OCI) console.
 
-## Oracle Database Autonomous Recovery Service@Azure
+## Oracle database Autonomous Recovery Service@Azure
 
 Oracle Database Autonomous Recovery Service@Azure (RCV) is the preferred backup solution for OracleDB@Azure resources. The key customer benefits are as follows:
 * Allows use of Microsoft Azure Consumption Commitment (MACC) to pay for your backup storage.

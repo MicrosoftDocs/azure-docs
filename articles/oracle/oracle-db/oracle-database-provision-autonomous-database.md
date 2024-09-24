@@ -1,18 +1,18 @@
 ---
-title: Provision an autonomous database
-description: Learn about how to provision an autonomous database.
+title: Provision an autonomous database serverless instance
+description: Learn about how to provision an autonomous database serverless instance.
 author: jjaygbay1
 ms.author: jacobjaygbay
 ms.topic: concept-article
 ms.service: oracle-on-azure
 ms.date: 08/01/2024
 ---
-# Provision an autonomous database
+# Provision an autonomous database serverless instance
 
 Provisioning and basic management functions for an Oracle Autonomous Database Serverless instance is done from the Oracle Autonomous Database@Azure blade. More management functions are available within the Oracle Cloud Infrastructure (OCI) portal available via the link to that Oracle Autonomous Database from the Oracle Autonomous Database@Azure blade.
 
->[!NOTE] 
-> There are prerequisites that must be completed before you can provision Exadata Services. You need to complete the following:
+## Prerequisites
+The following are prerequisites that must be completed before you can provision Exadata Services. 
 
 - An existing Azure subscription
 - An Azure virtual network with a subnet delegated to the Oracle Database@Azure service (`Oracle.Database/networkAttachments`)
