@@ -37,8 +37,8 @@ Azure Active Directory B2C [user flows and custom policies](user-flow-overview.m
 | [Sign-up and sign-in](add-sign-up-and-sign-in-policy.md) with username and password. | GA | GA | GA | GA |  |
 | [Profile editing flow](add-profile-editing-policy.md) | GA | GA | GA | GA |  |
 | [Self-Service password reset](add-password-reset-policy.md) | GA | GA | GA | GA |  |
-| [Force password reset](force-password-reset.md) | GA | GA |  | GA |  |
-| [Phone sign-up and sign-in](phone-authentication-user-flows.md) | GA | GA |  | GA |  |
+| [Force password reset](force-password-reset.md) | GA | GA | NA | GA |  |
+| [Phone sign-up and sign-in](phone-authentication-user-flows.md) | GA | GA | NA | GA |  |
 | [Smart lockout](threat-management.md) | GA | GA | NA | NA |  |
 | [Conditional Access](conditional-access-user-flow.md) | GA | GA | NA | Limited availability | Not available for SAML applications.  |
 | [Identity Protection](conditional-access-identity-protection-overview.md) | GA | GA | NA | NA |  |
