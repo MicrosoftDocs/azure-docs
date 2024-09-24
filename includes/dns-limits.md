@@ -68,7 +68,7 @@ ms.author: greglin
 
 ##### Private DNS resource record operations
 
-| Operation | Limit |
+| Operation | Limit (per zone)|
 | --- | --- |
 | Create |60/min|
 | Delete |60/min|
@@ -78,7 +78,7 @@ ms.author: greglin
 
 #### Virtual network links operations
 
-| Operation | Limit |
+| Operation | Limit (per zone) |
 | --- | --- |
 | Create |60/min|
 | Delete |40/min|

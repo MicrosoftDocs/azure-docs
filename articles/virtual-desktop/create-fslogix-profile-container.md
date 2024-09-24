@@ -186,10 +186,4 @@ This section is based on [Create a profile container for a host pool using a fil
 
 5. Go to the **Overview** tab and confirm that the FSLogix profile container is using space.
 
-6. Connect directly to any VM part of the host pool using Remote Desktop and open the **File Explorer.** Then navigate to the **Mount path**
-(in the following example, the mount path is \\\\anf-SMB-3863.gt1107.onmicrosoft.com\\anf-VOL).
-
-   Within this folder, there should be a profile VHD (or VHDX) like the one in the following example.
-
-   > [!div class="mx-imgBorder"]
-   > ![A screenshot of the contents of the folder in the mount path. Inside is a single VHD file named "Profile_ssbb."](media/mount-path-folder.png)
+6. Connect directly to any VM part of the host pool using Remote Desktop and open the **File Explorer.** Then navigate to your **Mount path**. Within this folder, there should be a profile VHD (or VHDX).
