@@ -149,7 +149,7 @@ When a Splunk lookup doesn't have a corresponding watchlist mapped, the translat
     | Out of the box | The corresponding solutions from **Content hub** that contain the matched analytics rule templates are installed. The matched rules are deployed as active analytics rules in the disabled state. <br><br>For more information, see [Manage Analytics rule templates](manage-analytics-rule-templates.md). |
     | Custom | Rules are deployed as active analytics rules in the disabled state. |
 
-1. (Optional) Choose Analytics rules and select **Export Templates** to download them as ARM templates for use in your CI/CD or custom deployment processes.
+1. (Optional) Select **Export Templates** to download all the translated rules as ARM templates for use in your CI/CD or custom deployment processes.
 
     :::image type="content" source="media/siem-migration/export-templates.png" alt-text="Screenshot showing the Review and Migrate tab highlighting the Export Templates button.":::
 
