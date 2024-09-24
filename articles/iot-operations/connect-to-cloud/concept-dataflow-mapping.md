@@ -5,7 +5,7 @@ author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-data-flows
 ms.topic: concept-article
-ms.date: 09/23/2024
+ms.date: 09/24/2024
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to use the dataflow mapping language to transform data.
@@ -190,7 +190,7 @@ In the previous example, the path consists of three segments: `Payload`, `Tag.10
       - 'Payload.He said: "No. It is done"'
     ```
     
-    In this case, the path is split into the segments `Payload`, `He said: "No`, and `It's done"` (starting with a space).
+    In this case, the path is split into the segments `Payload`, `He said: "No`, and `It is done"` (starting with a space).
     
 ### Segmentation algorithm
 
@@ -205,8 +205,8 @@ Let's consider a basic scenario to understand the use of asterisks in mappings:
 
 ```yaml
 - inputs:
-  - *
-  output: *
+  - `*`
+  output: `*`
 ```
 
 Here's how the asterisk (`*`) operates in this context:
