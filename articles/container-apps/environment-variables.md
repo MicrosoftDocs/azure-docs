@@ -163,8 +163,8 @@ The following variables are available to container apps:
 |---------------|-------------| ------------- |
 | `CONTAINER_APP_NAME` | The name of the container app. | `my-containerapp` |
 | `CONTAINER_APP_REVISION` | The name of the container app revision. | `my-containerapp--20mh1s9` |
-| `CONTAINER_APP_HOSTNAME` | The revision-specific hostname of the container app. | `my-containerapp--20mh1s9.<default_hostname>.<region>.azurecontainerapps.io` |
-| `CONTAINER_APP_ENV_DNS_SUFFIX` | The DNS suffix for the Container Apps environment. To obtain the fully qualified domain name (FQDN) of the app, append the app name to the DNS suffix in the format `$CONTAINER_APP_NAME.$CONTAINER_APP_ENV_DNS_SUFFIX`. | `<default_hostname>.<region>.azurecontainerapps.io` |
+| `CONTAINER_APP_HOSTNAME` | The revision-specific hostname of the container app. | `my-containerapp--20mh1s9.<DEFAULT_HOSTNAME>.<REGION>.azurecontainerapps.io` |
+| `CONTAINER_APP_ENV_DNS_SUFFIX` | The DNS suffix for the Container Apps environment. To obtain the fully qualified domain name (FQDN) of the app, append the app name to the DNS suffix in the format `$CONTAINER_APP_NAME.$CONTAINER_APP_ENV_DNS_SUFFIX`. | `<DEFAULT_HOSTNAME>.<REGION>.azurecontainerapps.io` |
 | `CONTAINER_APP_PORT` | The target port of the container app. | `8080` |
 | `CONTAINER_APP_REPLICA_NAME` | The name of the container app replica. | `my-containerapp--20mh1s9-86c8c4b497-zx9bq` |
 
