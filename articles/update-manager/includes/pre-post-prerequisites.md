@@ -23,18 +23,18 @@ ms.date: 09/24/2024
 
     ```powershell
    New-AzRoleAssignment `
-   					 -ObjectId $SA_PrincipalId `
-   					 -ResourceGroupName $resourceGroup `
-   					 -RoleDefinitionName "Contributor"
+                   -ObjectId $SA_PrincipalId `
+                   -ResourceGroupName $resourceGroup `
+                   -RoleDefinitionName "Contributor"
     ```        
  
     Assign a role to a user-assigned managed identity.
 
     ```powershell
    New-AzRoleAssignment `
-   					 -ObjectId $UAMI.PrincipalId`
-   					 -ResourceGroupName $resourceGroup `
-   					 -RoleDefinitionName "Contributor"
+                   -ObjectId $UAMI.PrincipalId`
+                   -ResourceGroupName $resourceGroup `
+                   -RoleDefinitionName "Contributor"
     ```
     For the system-assigned managed identity, show `ClientId` and record the value for later use.
         
