@@ -79,7 +79,7 @@ This article provides troubleshooting information to address issues you encounte
 
 **Error message**: The required setting PITR is disabled on storage account.
 
-**Recommendation**: Enable that the point-in-restore setting on the storage account. [Learn more](../storage/blobs/point-in-time-restore-manage.md?tabs=portal#enable-and-configure-point-in-time-restore).
+**Recommendation**: Enable that the point-in-time restore setting on the storage account. [Learn more](../storage/blobs/point-in-time-restore-manage.md?tabs=portal#enable-and-configure-point-in-time-restore).
 
 ### UserErrorImmutabilityPolicyConfigured
 
