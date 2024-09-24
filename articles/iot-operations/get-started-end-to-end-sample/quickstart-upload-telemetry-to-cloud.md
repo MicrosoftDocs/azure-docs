@@ -131,8 +131,22 @@ Invoke-WebRequest -Uri https://raw.githubusercontent.com/Azure-Samples/explore-i
 kubectl apply -f dataflow.yaml
 ```
 
-
 ---
+
+## Verify data is flowing
+
+To verify that data is flowing to the cloud, you can view your Event Hubs instance in the Azure portal.
+
+If messages are flowing to the instance, you can see the count on incoming messages on the instance **Overview** page:
+
+:::image type="content" source="media/quickstart-upload-telemetry-to-cloud/incoming-messages.png" alt-text="Screenshot that shows the Event Hub instance overview page with incoming messages.":::
+
+If messages are flowing, you can use the **Data Explorer** to view the messages:
+
+:::image type="content" source="media/quickstart-upload-telemetry-to-cloud/event-hubs-data-viewer.png" alt-text="Screenshot of the Event Hubs instance **Data Explorer** page.":::
+
+> [!TIP]
+> You may need to assign yourself to the **Azure Event Hubs Data Receiver** role for the Event Hubs namespace to view the messages.
 
 ## How did we solve the problem?
 
