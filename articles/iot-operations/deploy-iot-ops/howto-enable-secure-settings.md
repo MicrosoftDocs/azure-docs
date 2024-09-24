@@ -32,7 +32,7 @@ The end-to-end sample articles skip the secure settings configuration and instea
 
 ## Configure cluster for workload identity
 
-This step only applies to Ubuntu + K3s clusters. The quickstart script for Azure Kuberenetes Service (AKS) Edge Essentials used in [Prepare your Azure Arc-enabled Kubernetes cluster](./howto-prepare-cluster.md) enables workload identity by default. If you have an AKS Edge Essentials cluster, continue to the next section.
+This step only applies to Ubuntu + K3s clusters. The quickstart script for Azure Kubernetes Service (AKS) Edge Essentials used in [Prepare your Azure Arc-enabled Kubernetes cluster](./howto-prepare-cluster.md) enables workload identity by default. If you have an AKS Edge Essentials cluster, continue to the next section.
 
 If you aren't sure whether your K3s cluster already has workload identity enabled or not, run the following command to check:
 
