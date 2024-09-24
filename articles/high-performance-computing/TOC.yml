@@ -1,6 +1,7 @@
 - name: High-Performance Computing on-premises to cloud lift and shift
   href: index.yml
 - name: Get started
+  expanded: true
   items:
   - name: Overview
     href: lift-and-shift-overview.md
