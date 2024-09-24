@@ -38,7 +38,7 @@ You need the following on the target, Microsoft Sentinel:
  
   For more information, see the following articles:
   - [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md)
-  - [Custom data ingestion and transformation](data-transformation.md).
+  - [Custom data ingestion and transformation](data-transformation.md)
 
 - Create Microsoft Sentinel watchlists from your Splunk lookups so the fields used are mapped for the translated analytics rules.
 
