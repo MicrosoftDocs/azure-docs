@@ -42,10 +42,13 @@ The following table summarizes the Azure Maps services that generate transaction
 
 <sup>1</sup> The Azure Maps Data registry and Spatial services are now deprecated and will be retired on 9/30/25.
 
+> [!NOTE]
+>
+> There is no charge to use [Azure Maps Power BI visual](power-bi-visual-get-started.md) as long as you have a [Power BI subscription](/power-bi/fundamentals/service-self-service-signup-for-power-bi).
+
 > [!TIP]
 >
 > Unlike Bing Maps, Azure Maps doesn’t use [session IDs]. Instead, Azure Maps offers a number of free transactions each month as shown in [Azure Maps pricing]. For example, you get 5,000 free *Base Map Tile* transactions per month. Each transaction can include up to 15 tiles for a total of 75,000 tiles rendered for free each month.
-
 <!-- In Bing Maps, any time a synchronous Truck Routing request is made, three transactions are counted. Does this apply also to Azure Maps?-->
 
 ## Azure Maps Creator
