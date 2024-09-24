@@ -18,9 +18,9 @@ ms.custom:
 You can connect to a SQL pool in Azure Synapse with several different application protocols such as, [ADO.NET](/dotnet/framework/data/adonet?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json), [ODBC](/sql/connect/odbc/windows/microsoft-odbc-driver-for-sql-server-on-windows?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), [PHP](/sql/connect/php/overview-of-the-php-sql-driver?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true), and [JDBC](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true). Below are some examples of connections strings for each protocol.  You can also use the Azure portal to build your connection string.  
 
 > [!IMPORTANT]
-> Use Microsoft Entra authentication when possible. For more information, see [Use Microsoft Entra authentication for authentication with Synapse SQL](active-directory-authentication.md). 
+> Use Microsoft Entra authentication when possible. For more information, see [Use Microsoft Entra authentication for authentication with Synapse SQL](../sql/active-directory-authentication.md). 
 
-To build your connection string using the Azure portal, navigate to your SQL pool blade, under *Essentials* click on *Show database connection strings*.
+To build your connection string using the Azure portal, navigate to your SQL pool blade, under **Essentials** select **Show database connection strings**.
 
 ## Sample ADO.NET connection string
 

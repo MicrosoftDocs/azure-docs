@@ -19,7 +19,7 @@ ms.custom:
 Get connected to a SQL pool in Azure Synapse.
 
 > [!IMPORTANT]
-> Use Microsoft Entra authentication when possible. For more information, see [Use Microsoft Entra authentication for authentication with Synapse SQL](active-directory-authentication.md). 
+> Use Microsoft Entra authentication when possible. For more information, see [Use Microsoft Entra authentication for authentication with Synapse SQL](../sql/active-directory-authentication.md). 
 
 ## Find your server name
 
