@@ -35,7 +35,7 @@ items:
     items:
     - name: Groups and roles for Oracle Database@Azure
       href: oracle-db/oracle-database-groups-roles.md
-    - name: Plan for IP Address Space
+    - name: Plan for IP address space
       href: oracle-db/oracle-database-plan-ip.md
     - name: Delegated subnet limits
       href: oracle-db/oracle-database-delegated-subnet-limits.md      
