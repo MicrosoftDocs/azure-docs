@@ -1,12 +1,12 @@
 ---
 title: Using Azure Import/Export to transfer data to and from Azure Storage | Microsoft Docs
 description: Learn how to create import and export jobs in the Azure portal for transferring data to and from Azure Storage.
-author: alkohli
+author: stevenmatthew
 services: storage
 ms.service: azure-import-export
 ms.topic: conceptual
 ms.date: 03/31/2023
-ms.author: alkohli
+ms.author: shaas
 ---
 # What is Azure Import/Export service?
 

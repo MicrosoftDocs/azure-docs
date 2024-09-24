@@ -24,7 +24,7 @@ When you successfully set up services for the management tool but automated setu
 
 This usually means one of the following two things:
 
-- The user has owner permissions on their subscription and global admin at tenant level, but they can't sign in to Azure.
+- The user has the relevant permissions on their subscription and at the tenant level, but they can't sign in to Azure.
 - The user's account settings have multi-factor authentication enabled.
 
 To fix this:

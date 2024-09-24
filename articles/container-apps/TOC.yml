@@ -325,8 +325,6 @@
           href: user-defined-routes.md
         - name: Securing a custom VNET with an NSG
           href: firewall-integration.md
-    - name: Network proxying
-      href: network-proxy.md
     - name: Use a custom VNET
       href: vnet-custom.md
 - name: Languages and runtimes
@@ -335,6 +333,7 @@
       items:
       - name: Overview
         href: dotnet-overview.md
+        displayName: .NET overview
       - name: Deploy a .NET Aspire app
         href: /dotnet/aspire/deployment/azure/aca-deployment
       - name: Deploy and scale an ASP.NET Core app
@@ -348,7 +347,7 @@
         href: java-get-started.md
         displayName: java
       - name: Get started using IntelliJ
-        href: /azure/developer/java/toolkit-for-intellij/create-container-apps-intellij
+        href: /azure/developer/java/toolkit-for-intellij/create-container-apps-intellij?toc=/azure/container-apps/toc.json&bc=/azure/container-apps/breadcrumb/toc.json
         displayName: java
       - name: Automatic memory fitting
         href: java-memory-fit.md
@@ -384,6 +383,9 @@
           - name: Query managed component logs
             href: java-component-logs.md
             displayName: java
+          - name: Create a highly available Eureka server component cluster
+            href: java-eureka-server-highly-available.md
+            displayName: java
 - name: Billing & quotas
   items:
     - name: Billing
@@ -408,8 +410,6 @@
       href: /rest/api/containerapps/
     - name: Supported regions
       href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=container-apps
-    - name: Hardware reference
-      href: hardware.md
     - name: Management SDKs
       items:
         - name: .NET

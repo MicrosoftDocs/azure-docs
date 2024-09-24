@@ -24,7 +24,7 @@ There are four options for RDP Shortpath that provide flexibility for how you wa
 
 - **RDP Shortpath for public networks with ICE/STUN**: A *direct* UDP connection between a client device and session host using a public connection. ICE/STUN is used to discover available IP addresses and a dynamic port that can be used for a connection. The RDP Shortpath listener and an inbound port aren't required. The port range is configurable.
  
-- **RDP Shortpath for public networks via TURN**: An *indirect* UDP connection between a client device and session host using a public connection where TURN relays traffic through an intermediate server between a client and session host. An example of when you use this option is if a connection uses Symmetric NAT. A dynamic port is used for a connection; the port range is configurable. For a list of Azure regions that TURN is available, see [supported Azure regions with TURN availability](rdp-shortpath.md#turn-availability). The connection from the client device must also be within a supported location. The RDP Shortpath listener and an inbound port aren't required.
+- **RDP Shortpath for public networks via TURN**: An *indirect* UDP connection between a client device and session host using a public connection where TURN relays traffic through an intermediate server between a client and session host. An example of when you use this option is if a connection uses Symmetric NAT. A dynamic port is used for a connection; the port range is configurable. For a list of Azure regions that TURN is available, see [supported Azure regions with TURN availability](rdp-shortpath.md?tabs=public-networks#turn-availability). The connection from the client device must also be within a supported location. The RDP Shortpath listener and an inbound port aren't required.
 
 Which of the four options your client devices can use is also dependent on their network configuration. To learn more about how RDP Shortpath works, together with some example scenarios, see [RDP Shortpath](rdp-shortpath.md).
 
@@ -153,7 +153,7 @@ For session hosts, UDP is enabled by default in Windows. To check the RDP transp
    }
    ```
 
-   The output should be similar to the following output:
+   The output should be similar to the following example:
 
    ```output
    The RDP transport protocols setting hasn't been changed from its default value.
@@ -199,7 +199,7 @@ Here's how to configure RDP Shortpath in the host pool networking settings using
 
 # [Azure PowerShell](#tab/powershell)
 
-Here's how to configure RDP Shortpath in the host pool networking settings using the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module. In the following examples, you need to change the `<placeholder>` values for your own.
+Here's how to configure RDP Shortpath in the host pool networking settings using the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module. Be sure to change the `<placeholder>` values for your own.
 
 > [!TIP]
 > Be sure to use version 5.2.1 preview of the Az.DesktopVirtualization module.
@@ -217,7 +217,7 @@ Here's how to configure RDP Shortpath in the host pool networking settings using
    Get-AzWvdHostPool @parameters | FL ManagedPrivateUdp, DirectUdp, PublicUdp, RelayUdp
    ```
 
-   The output should be similar to the following output:
+   The output should be similar to the following example:
 
    ```output
    ManagedPrivateUdp : Default
@@ -310,7 +310,7 @@ Here's how to configure RDP Shortpath in the host pool networking settings using
    }
    ```
 
-   The output should be similar to the following output:
+   The output should be similar to the following example:
 
    ```output
    The default setting hasn't been changed from its default value. UDP is enabled.
@@ -476,7 +476,7 @@ The possible values are:
 
 For any other value, the connection isn't using UDP and is connected using TCP instead.
 
-The following query lets you review connection information. You can run this query in the [Log Analytics query editor](../azure-monitor/logs/log-analytics-tutorial.md#write-a-query). When you run this query, replace `user@contoso.com` with the UPN of the user you want to look up:
+The following query lets you review connection information. You can run this query in the [Log Analytics query editor](/azure/azure-monitor/logs/log-analytics-tutorial#write-a-query). When you run this query, replace `user@contoso.com` with the UPN of the user you want to look up:
 
 ```kusto
 let Events = WVDConnections | where UserName == "user@contoso.com" ;

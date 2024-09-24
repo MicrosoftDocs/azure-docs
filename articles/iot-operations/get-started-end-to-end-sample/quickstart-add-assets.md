@@ -46,7 +46,7 @@ Browse to the [operations experience](https://iotoperations.azure.com) in your b
 
 ## Select your site
 
-After you sign in, the portal displays a list of sites that you have access to. Each site is a collection of Azure IoT Operations instances where you can configure your assets. Your [IT administrator is responsible for organizing instances in to sites](../../azure-arc/site-manager/overview.md) and granting access to OT users in your organization. Because you're working with a new deployment, there are no sites yet. You can find the cluster you created in the previous quickstart by selecting **Unassigned instances**. In the portal, an instance represents a cluster where you deployed Azure IoT Operations.
+A _site_ is a collection of Azure IoT Operations instances. Sites typically group instances by physical location and make it easier for OT users to locate and manage assets. Your IT administrator creates [sites and assigns Azure IoT Operations instances to them](/azure/azure-arc/site-manager/overview). Because you're working with a new deployment, there are no sites yet. You can find the cluster you created in the previous quickstart by selecting **Unassigned instances**. In the operations experience, an instance represents a cluster where you deployed Azure IoT Operations.
 
 ## Select your instance
 
@@ -55,7 +55,7 @@ Select the instance where you deployed Azure IoT Operations in the previous quic
 :::image type="content" source="media/quickstart-add-assets/cluster-list.png" alt-text="Screenshot of Azure IoT Operations instance list.":::
 
 > [!TIP]
-> If you don't see any instances, you might not be in the right Microsoft Entra ID tenant. You can change the tenant from the top right menu in the portal.
+> If you don't see any instances, you might not be in the right Microsoft Entra ID tenant. You can change the tenant from the top right menu in the operations experience.
 
 ## Add an asset endpoint
 
@@ -156,10 +156,10 @@ Add two OPC UA tags on the **Add tags** page. To add each tag, select **Add tag 
 
 | Node ID            | Tag name    | Observability mode |
 | ------------------ | ----------- | ------------------ |
-| ns=3;s=FastUInt10  | temperature | none               |
-| ns=3;s=FastUInt100 | Tag 10      | none               |
+| ns=3;s=FastUInt10  | temperature | None               |
+| ns=3;s=FastUInt100 | Tag 10      | None               |
 
-The **Observability mode** is one of the following values: `none`, `gauge`, `counter`, `histogram`, or `log`.
+The **Observability mode** is one of the following values: `None`, `Gauge`, `Counter`, `Histogram`, or `Log`.
 
 You can select **Manage default settings** to change the default sampling interval and queue size for each tag.
 

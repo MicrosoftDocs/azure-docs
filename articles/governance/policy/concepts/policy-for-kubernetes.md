@@ -16,7 +16,7 @@ Azure Policy makes it possible to manage and report on the compliance state of y
 Azure Policy for Kubernetes supports the following cluster environments:
 
 - [Azure Kubernetes Service (AKS)](/azure/aks/what-is-aks), through **Azure Policy's **Add-on** for AKS**
-- [Azure Arc enabled Kubernetes](../../../azure-arc/kubernetes/overview.md), through **Azure Policy's **Extension** for Arc**
+- [Azure Arc enabled Kubernetes](/azure/azure-arc/kubernetes/overview), through **Azure Policy's **Extension** for Arc**
 
 > [!IMPORTANT]
 > The Azure Policy Add-on Helm model and the add-on for AKS Engine have been _deprecated_. Follow the instructions to [remove the add-ons](#remove-the-add-on).
@@ -153,7 +153,7 @@ And the following output for clusters using managed identity:
 
 This article describes how to [create](#create-azure-policy-extension), [show extension status](#show-azure-policy-extension), and [delete](#delete-azure-policy-extension) the Azure Policy for Kubernetes extension.
 
-For an overview of the extensions platform, see [Azure Arc cluster extensions](../../../azure-arc/kubernetes/conceptual-extensions.md).
+For an overview of the extensions platform, see [Azure Arc cluster extensions](/azure/azure-arc/kubernetes/conceptual-extensions).
 
 ### Prerequisites
 
@@ -162,9 +162,9 @@ If you already deployed Azure Policy for Kubernetes on an Azure Arc cluster usin
 1. Ensure your Kubernetes cluster is a supported distribution.
 
    > [!NOTE]
-   > Azure Policy for Arc extension is supported on [the following Kubernetes distributions](../../../azure-arc/kubernetes/validation-program.md).
+   > Azure Policy for Arc extension is supported on [the following Kubernetes distributions](/azure/azure-arc/kubernetes/validation-program).
 
-1. Ensure you met all the common prerequisites for Kubernetes extensions listed [here](../../../azure-arc/kubernetes/extensions.md) including [connecting your cluster to Azure Arc](../../../azure-arc/kubernetes/quickstart-connect-cluster.md?tabs=azure-cli).
+1. Ensure you met all the common prerequisites for Kubernetes extensions listed [here](/azure/azure-arc/kubernetes/extensions) including [connecting your cluster to Azure Arc](/azure/azure-arc/kubernetes/quickstart-connect-cluster?tabs=azure-cli).
 
    > [!NOTE]
    > Azure Policy extension is supported for Arc enabled Kubernetes clusters [in these regions](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc).
@@ -449,7 +449,7 @@ messages, see
 As a Kubernetes controller/container, both the _azure-policy_ and _gatekeeper_ pods keep logs in the
 Kubernetes cluster. In general, _azure-policy_ logs can be used to troubleshoot issues with policy ingestion onto the cluster and compliance reporting. The _gatekeeper-controller-manager_ pod logs can be used to troubleshoot runtime denies. The _gatekeeper-audit_ pod logs can be used to troubleshoot audits of existing resources. The logs can be exposed in the **Insights** page of the Kubernetes cluster. For
 more information, see
-[Monitor your Kubernetes cluster performance with Azure Monitor for containers](../../../azure-monitor/containers/container-insights-analyze.md).
+[Monitor your Kubernetes cluster performance with Azure Monitor for containers](/azure/azure-monitor/containers/container-insights-analyze).
 
 To view the add-on logs, use `kubectl`:
 
@@ -582,7 +582,7 @@ For more information about troubleshooting the Add-on for Kubernetes, see the
 of the Azure Policy troubleshooting article.
 
 For Azure Policy extension for Arc extension related issues, go to:
-- [Azure Arc enabled Kubernetes troubleshooting](../../../azure-arc/kubernetes/troubleshooting.md)
+- [Azure Arc enabled Kubernetes troubleshooting](/azure/azure-arc/kubernetes/troubleshooting)
 
 For Azure Policy related issues, go to:
 - [Inspect Azure Policy logs](#logging)
@@ -739,6 +739,15 @@ aligns with how the add-on was installed:
   - [Reasons for non-compliance](../how-to/determine-non-compliance.md#compliance-reasons) aren't available for the Microsoft.Kubernetes.Data [Resource Provider mode](./definition-structure.md#resource-provider-modes). Use [Component details](../how-to/determine-non-compliance.md#component-details-for-resource-provider-modes).
  - Component-level [exemptions](./exemption-structure.md) aren't supported for [Resource Provider modes](./definition-structure.md#resource-provider-modes). Parameters support is available  in Azure Policy definitions to exclude and include particular namespaces.
  - Using the `metadata.gatekeeper.sh/requires-sync-data` annotation in a constraint template to configure the [replication of data](https://open-policy-agent.github.io/gatekeeper/website/docs/sync) from your cluster into the OPA cache is currently only allowed for built-in policies. The reason is because it can dramatically increase the Gatekeeper pods resource usage if not used carefully.
+
+### Configuring the Gatekeeper Config
+Changing the Gatekeeper config is unsupported, as it contains critical security settings. Edits to the config will be reconciled.
+
+### Using data.inventory in constraint templates
+Currently, several built-in policies make use of [data replication](https://open-policy-agent.github.io/gatekeeper/website/docs/sync), which enables users to sync existing on-cluster resources to the OPA cache and reference them during evaluation of an AdmissionReview request. Data replication policies can be differentiated by the presence of `data.inventory` in the Rego, as well as the presence of the `metadata.gatekeeper.sh/requires-sync-data` annotation, which informs the Azure Policy addon what resources need to be cached for policy evaluation to work properly. (Note that this differs from standalone Gatekeeper, where this annotation is descriptive, not prescriptive.) 
+
+Data replication is currently blocked for use in custom policy definitions, because replicating resources with high instance counts can dramatically increase the Gatekeeper pods\' resource usage if not used carefully. You will see a `ConstraintTemplateInstallFailed` error when attempting to create a custom policy definition containing a constraint template with this annotation.
+> Removing the annotation may appear to mitigate the error you see, but then the policy addon will not sync any required resources for that constraint template into the cache. Thus, your policies will be evaluated against an empty `data.inventory` (assuming that no built-in is assigned that replicates the requisite resources). This will lead to misleading compliance results. As noted [previously](#configuring-the-gatekeeper-config), manually editing the config to cache the required resources is also not permitted.
 
 The following limitations apply only to the Azure Policy Add-on for AKS:
 -  [AKS Pod security policy](/azure/aks/use-pod-security-policies) and the Azure Policy Add-on for AKS can't both be enabled. For more information, see [AKS pod security limitation](/azure/aks/use-azure-policy).

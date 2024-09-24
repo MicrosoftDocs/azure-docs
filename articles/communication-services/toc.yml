@@ -54,6 +54,8 @@ items:
       href: tutorials/events-playbook.md
     - name: Contact center
       href: tutorials/contact-center.md
+    - name: Embed chat in Teams custom app
+      href: tutorials/chat-app-teams-embed.md
   - name: Privacy and compliance
     items:
     - name: Data residency and user privacy
@@ -225,6 +227,10 @@ items:
           href: quickstarts/advanced-messaging/whatsapp/download-media.md
         - name: Try Advanced Messaging Sandbox
           href: quickstarts/advanced-messaging/whatsapp/whatsapp-sandbox-quickstart.md
+    - name: Message Analysis
+      items:
+        - name: Enable Message Analysis With Azure OpenAI
+          href: quickstarts/advanced-messaging/message-analysis/message-analysis-with-azure-openai-quickstart.md
   - name: Managed Identity
     items:
     - name: Enable Managed Identity on Azure Communication Services resources
@@ -283,20 +289,9 @@ items:
       href: tutorials/building-app-start.md
     - name: Build an authentication service using Azure Functions
       href: tutorials/trusted-service-tutorial.md
-    - name: Add video calling to your Android WebView client app
-      href: quickstarts/voice-video-calling/get-started-android-webview.md
-    - name: Using Event Grid to send calling push notifications
-      href: tutorials/add-voip-push-notifications-event-grid.md
-    - name: Proxy your calling traffic
-      href: tutorials/proxy-calling-support-tutorial.md
-    - name: Survey users
-      href: tutorials/end-of-call-survey-tutorial.md
-      displayName: diagnostics, Survey, feedback, quality, reliability, users, end, call, quick
-    - name: Collecting user feedback with the mobile UI Library
-      href: tutorials/collecting-user-feedback/collecting-user-feedback.md
     - name: Add Calling and Chat SDK in an Android application
       href: quickstarts/voice-video-calling/get-started-android-calling-chat-sdk.md
-    - name: Audio quality enhancements
+    - name: Adding audio quality enhancements
       items:
         - name: Enabling audio effects
           href: tutorials/audio-quality-enhancements/add-noise-supression.md
@@ -362,7 +357,7 @@ items:
         href: how-tos/calling-sdk/closed-captions-teams-interop-how-to.md
       - name: Get local capabilities
         href: how-tos/calling-sdk/capabilities.md
-      - name: Pass contextual information
+      - name: Pass User-to-User Information (UUI) data in a header
         href: how-tos/calling-sdk/call-context.md     
     - name: Call recording
       items:
@@ -370,7 +365,7 @@ items:
         href: quickstarts/voice-video-calling/get-started-call-recording.md
       - name: Record every call in the resource
         href: how-tos/call-automation/record-every-call.md
-    - name: Editing media from the client
+    - name: Editing audio and video media from the client
       items:
       - name: Access raw audio and video
         href: quickstarts/voice-video-calling/get-started-raw-media-access.md
@@ -413,13 +408,23 @@ items:
         - name: 3. Microphone and camera setup before a call
           href: tutorials/call-readiness/call-readiness-tutorial-part-3-camera-microphone-setup.md
           displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
+    - name: Add end of call survey
+      items:
+        - name: Using the survey users API
+          href: tutorials/end-of-call-survey-tutorial.md
+          displayName: diagnostics, Survey, feedback, quality, reliability, users, end, call, quick
+        - name: Collecting user feedback with the mobile UI Library
+          href: tutorials/collecting-user-feedback/collecting-user-feedback.md
     - name: Migrating to Azure Communication Services
       items:
         - name: Migrate from Twilio Video to Azure Communication Services
           href: concepts/migrate-to-azure-communication-services.md
         - name: How to migrate from Twilio Video to Azure Communication Services
           href: tutorials/migrating-to-azure-communication-services-calling.md
-          displayName: migration, migrate, Twilio, move, shift
+          displayName: migration, migrate, Twilio, Twilio Video, move, shift
+        - name: How to migrate from Twilio Conversations Chat to Azure Communication Services
+          href: tutorials/migrating-to-azure-communication-services-chat.md
+          displayName: migration, migrate, Twilio, Twilio Conversations, move, shift
     - name: Mobile integrations
       items:
       - name: Integrate with CallKit in iOS
@@ -436,6 +441,10 @@ items:
           href: how-tos/ui-library-sdk/closed-captions.md
         - name: Configure theming
           href: how-tos/ui-library-sdk/theming.md
+        - name: Customize the button bar
+          href: how-tos/ui-library-sdk/button-injection.md
+        - name: Customize the title and subtitle
+          href: how-tos/ui-library-sdk/setup-title-subtitle.md
         - name: Disable end call confirmation
           href: how-tos/ui-library-sdk/leave-call-confirmation.md
         - name: Enable audio only mode
@@ -444,6 +453,8 @@ items:
           href: how-tos/ui-library-sdk/picture-in-picture.md
         - name: Enable skip the setup screen
           href: how-tos/ui-library-sdk/skip-setup-screen.md
+        - name: Events
+          href: how-tos/ui-library-sdk/events.md
         - name: Inject participant view data
           href: how-tos/ui-library-sdk/data-model.md
         - name: Integrate CallKit
@@ -458,6 +469,8 @@ items:
           href: how-tos/ui-library-sdk/troubleshooting.md
     - name: Events
       items:
+      - name: Using Event Grid to send calling push notifications
+        href: tutorials/add-voip-push-notifications-event-grid.md
       - name: View calling events
         href: quickstarts/voice-video-calling/handle-calling-events.md
     - name: Analytics
@@ -482,6 +495,14 @@ items:
         href: how-tos/calling-sdk/breakoutrooms.md
       - name: Together Mode
         href: how-tos/calling-sdk/together-mode.md
+    - name: Configuring to proxy traffic
+      items:
+        - name: Proxy your calling traffic
+          href: tutorials/proxy-calling-support-tutorial.md
+    - name: Build a Webview based client
+      items:
+        - name: Add audio and video calling to your WebView application
+          href: quickstarts/voice-video-calling/get-started-webview.md
   - name: Chat
     items:
     - name: Build an authentication service using Azure Functions
@@ -936,8 +957,8 @@ items:
         href: concepts/telephony/certified-session-border-controllers.md
       - name: Inbound telephony calling capabilities
         href: concepts/telephony/inbound-calling-capabilities.md
-      - name: Outbound calling with Toll-Free numbers
-        href: concepts/telephony/outbound-calling.md
+      - name: Calling with toll-free numbers
+        href: concepts/telephony/toll-free-calling.md
       - name: Known limitations
         href: concepts/telephony/known-limitations-acs-telephony.md
       - name: Troubleshooting
@@ -1088,10 +1109,12 @@ items:
           href: ../event-grid/communication-services-advanced-messaging-events.md
       - name: Templates
         href: concepts/advanced-messaging/whatsapp/template-messages.md
-      - name: Message Analysis
-        items:
-        - name: Overview
-          href: concepts/advanced-messaging/message-analysis.md
+    - name: Message Analysis
+      items:
+      - name: Overview
+        href: concepts/advanced-messaging/message-analysis/message-analysis.md
+      - name: Message Analysis Transparency FAQ
+        href: concepts/advanced-messaging/message-analysis/message-analysis-transparency-faq.md
   - name: Azure Advisor
     items:
       - name: Overview
@@ -1109,7 +1132,7 @@ items:
     - name: Troubleshooting in Azure Communication Services
       href: concepts/troubleshooting-info.md
     - name: Troubleshooting response codes
-      href: concepts/troubleshooting-codes.md
+      href: resources/troubleshooting/voice-video-calling/troubleshooting-codes.md
     - name: Voice and Video
       items:
       - name: General troubleshooting strategies
@@ -1270,6 +1293,18 @@ items:
       href: /java/api/overview/azure/resourcemanager-communication-readme
     - name: Azure Resource Manager (Python)
       href: /python/api/overview/azure/mgmt-communication-readme
+  - name: Advanced Messaging
+    items:
+    - name: Messages (Java)
+      href: /java/api/overview/azure/communication-messages-readme
+    - name: Messages (JavaScript)
+      href: /javascript/api/overview/azure/communication-messages-rest-readme
+    - name: Messages (.NET)
+      href: /dotnet/api/overview/azure/communication.messages-readme
+    - name: Messages (Python)
+      href: /python/api/overview/azure/communication-messages-readme
+    - name: Advanced Messaging (REST)
+      href: /rest/api/communication/advancedmessaging/operation-groups
   - name: Calling
     items:
     - name: Calling (JavaScript)
@@ -1372,11 +1407,6 @@ items:
       href: https://azure.github.io/azure-sdk-for-ios/AzureCommunicationUIChat
     - name: UI Library for Chat (Android)
       href: https://azure.github.io/azure-sdk-for-android/azure-communication-ui-chat/index.html
-    
-  - name: Advanced Messaging
-    items:
-    - name: Advanced Messaging (.NET)
-      href: /dotnet/api/overview/azure/communication.messages-readme
   - name: Common
     items:
     - name: Common (JavaScript)

@@ -21,11 +21,14 @@ While managed private endpoints are free, there may be charges associated with p
 > [!NOTE]
 > Managed private endpoints are currently only available in Azure Global.
 
+> [!NOTE]
+> If you're running a private data source in an AKS cluster, when the service’s `externalTrafficPolicy` is set to local, Azure Private Link Service needs to use a different subnet than the Pod’s subnet. If the same subnet is required, the service should use Cluster `externalTrafficPolicy`. See [Cloud Provider Azure](https://cloud-provider-azure.sigs.k8s.io/topics/pls-integration/#restrictions).
+
 ## Supported data sources
 
 Managed private endpoints work with Azure services that support private link. Using them, you can connect your Azure Managed Grafana workspace to the following Azure data stores over private connectivity:
 
-- Azure Cosmos DB for Mongo DB
+- Azure Cosmos DB for Mongo DB ([Only for Request Unit (RU) architecture](/azure/cosmos-db/mongodb/introduction#request-unit-ru-architecture))
 - Azure Cosmos DB for PostgreSQL
 - Azure Data Explorer
 - Azure Monitor private link scope (for example, Log Analytics workspace)

@@ -5,8 +5,8 @@ ms.service: azure-update-manager
 ms.custom: linux-related-content
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 04/03/2024
-ms.topic: conceptual
+ms.date: 09/06/2024
+ms.topic: how-to
 ---
 
 # Automate assessment at scale by using Azure Policy

@@ -73,7 +73,8 @@ To create the yaml file, use the following component definitions:
             ],
             "env": [
                 { "name": "pubSubLogLevel", "value": "Information" },
-                { "name": "stateStoreLogLevel", "value": "Information" }
+                { "name": "stateStoreLogLevel", "value": "Information" },
+                { "name": "defaultLogLevel", "value": "Warning" }
             ]
           }
     spec:

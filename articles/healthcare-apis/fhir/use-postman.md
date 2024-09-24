@@ -47,8 +47,8 @@ To access the FHIR service, you need to create or update these variables:
 |--------------|-----------------|----------|
 | **tenantid** | Azure tenant where the FHIR service is deployed | Located on the Application registration overview |
 | **subid** | Azure subscription where the FHIR service is deployed | Located on the FHIR service overview |
-| **clientid** | Application client registration ID | - |
-| **clientsecret** | Application client registration secret | - |
+| **clientid** | Application client registration ID | |
+| **clientsecret** | Application client registration secret | |
 | **fhirurl** | The FHIR service full URL (for example, `https://xxx.azurehealthcareapis.com`) | Located on the FHIR service overview |
 | **bearerToken** | Stores the Microsoft Entra access token in the script | Leave blank |
 
@@ -59,7 +59,7 @@ To access the FHIR service, you need to create or update these variables:
 
 ## Get the capability statement
 
-Enter `{{fhirurl}}/metadata` in the `GET`request, and then choose `Send`. You should see the capability statement of the FHIR service.
+Enter `{{fhirurl}}/metadata` in the `GET` request, then choose `Send`. You should see the capability statement of the FHIR service.
 
 :::image type="content" source="media/postman/postman-capability-statement.png" alt-text="Screenshot showing capability request parameters." lightbox="media/postman/postman-create-new-request.png":::
 
@@ -69,7 +69,7 @@ Enter `{{fhirurl}}/metadata` in the `GET`request, and then choose `Send`. You sh
 
 ## Get a Microsoft Entra access token
 
-Get a Microsoft Entra access token by using a service principal or a Microsoft Entra user account. Choose one of the two methods.
+Get a Microsoft Entra access token by choosing either a service principal, or a Microsoft Entra user account.
 
 ### Use a service principal with a client credential grant type
 
@@ -89,9 +89,9 @@ Create a new `POST` request:
 > [!NOTE]
 > In scenarios where the FHIR service audience parameter isn't mapped to the FHIR service endpoint URL, the resource parameter value should be mapped to the audience value on the FHIR service **Authentication** pane.
 
-3. Select the **Test** tab and enter in the text section: `pm.environment.set("bearerToken", pm.response.json().access_token);` To make the value available to the collection, use the pm.collectionVariables.set method. For more information on the set method and its scope level, see [Using variables in scripts](https://learning.postman.com/docs/sending-requests/variables/#defining-variables-in-scripts).
+3. Select the **Test** tab and enter `pm.environment.set("bearerToken", pm.response.json().access_token);` in the text section. To make the value available to the collection, use the pm.collectionVariables.set method. For more information on the set method and its scope level, see [Using variables in scripts](https://learning.postman.com/docs/sending-requests/variables/#defining-variables-in-scripts).
 4. Select **Save** to save the settings.
-5. Select **Send**. You should see a response with the Microsoft Entra access token, which is saved to the variable `bearerToken` automatically. You can then use it in all FHIR service API requests.
+5. Select **Send**. You should see a response with the Microsoft Entra access token, which is automatically saved to the variable `bearerToken`. You can then use it in all FHIR service API requests.
 
 :::image type="content" source="media/postman/postman-send-button.png" alt-text="Screenshot showing the send button." lightbox="media/postman/postman-send-button.png":::
 
@@ -101,7 +101,7 @@ You can examine the access token using online tools such as [https://jwt.ms](htt
 
 ## Use a user account with the authorization code grant type
 
-You can get the Microsoft Entra access token by using your Entra account credentials and following the listed steps.
+You can get the Microsoft Entra access token by using your Microsoft Entra account credentials and following the listed steps.
 
 1. Verify that you're a member of Microsoft Entra tenant with the required access permissions.
 
@@ -115,7 +115,7 @@ You can get the Microsoft Entra access token by using your Entra account credent
 
    :::image type="content" source="media/postman/app-registration-permissions-2.png" alt-text="Screenshot showing application registration permissions screen." lightbox="media/postman/app-registration-permissions-2.png":::
 
-1. In the Postman, select the **Authorization** tab of either a collection or a specific REST Call, select **Type** as OAuth 2.0 and under **Configure New Token** section, set these values: 
+1. In Postman, select the **Authorization** tab of either a collection or a specific REST Call, select **Type** as OAuth 2.0 and under **Configure New Token** section, set these values: 
     - **Callback URL**: `https://oauth.pstmn.io/v1/callback`
     
     - **Auth URL**: `https://login.microsoftonline.com/{{tenantid}}/oauth2/v2.0/authorize`
@@ -134,9 +134,9 @@ You can get the Microsoft Entra access token by using your Entra account credent
 
 1. Choose **Get New Access Token** at the bottom of the page.
 
-1. You're asked for User credentials for sign-in.
+1. Provide User credentials for sign-in.
 
-1. You receive the token. Choose **Use Token.**
+1. Once you receive the token, choose **Use Token.**
 
 1. Ensure the token is in the **Authorization Header** of the REST call.
 
@@ -148,7 +148,7 @@ Open Postman, select the **workspace**, **collection**, and **environment** you 
 
 :::image type="content" source="media/postman/postman-create-new-request.png" alt-text="Screenshot showing creation of new request." lightbox="media/postman/postman-create-new-request.png":::
 
-To perform health check on FHIR service, enter `{{fhirurl}}/health/check` in the GET request, and then choose **Send**. You should be able to see the `Status of FHIR service - HTTP Status` code response with 200 and OverallStatus as **Healthy** in response, which means your health check is successful.
+To perform a health check on the FHIR service, enter `{{fhirurl}}/health/check` in the GET request, and then choose **Send**. You should be able to see the `Status of FHIR service - HTTP Status` code response with 200 and OverallStatus as **Healthy** in response, which means your health check is successful.
 
 ## Get the FHIR resource
 
@@ -162,11 +162,11 @@ Select **Bearer Token** as authorization type. Enter `{{bearerToken}}` in the **
 
 After you obtain a Microsoft Entra access token, you can create or update the FHIR data. For example, you can create a new patient or update an existing patient.
  
-Create a new request, change the method to **Post**, and then enter the value in the request section.
+Create a new request, change the method to **Post**, and enter the value in the request section.
 
 `{{fhirurl}}/Patient`
 
-Select **Bearer Token** as the authorization type. Enter `{{bearerToken}}` in the **Token** section. Select the **Body** tab. Select the **raw** option and **JSON** as body text format. Copy and paste the text to the body section. 
+Select **Bearer Token** as the authorization type. Enter `{{bearerToken}}` in the **Token** section. Select the **Body** tab. Select the **raw** option and **JSON** as body text format. Copy and paste the following text to the body section. 
 
 
 ```
@@ -201,6 +201,8 @@ Select **Send**. You should see a new patient in the JSON response.
 
 After you obtain a Microsoft Entra access token, you can export FHIR data to an Azure storage account.
 
+To configure export settings and create a Data Lake Storage Gen2 account, refer to [Configure settings for export](./configure-export-data.md).
+
 Create a new `GET` request: `{{fhirurl}}/$export?_container=export`
 
 Select **Bearer Token** as authorization type. Enter `{{bearerToken}}` in the **Token** section. Select **Headers** to add two new headers:
@@ -209,7 +211,7 @@ Select **Bearer Token** as authorization type. Enter `{{bearerToken}}` in the **
 
 - **Prefer**:  `respond-async`
 
-Select **Send**. You should notice a `202 Accepted` response. Select the **Headers** tab of the response and make a note of the value in the **Content-Location**. You can use the value to query the export job status.
+Select **Send**. You should notice a `202 Accepted` response. Select the **Headers** tab of the response and make a note of the value in the **Content-Location**. You can use this value to query the export job status.
 
 :::image type="content" source="media/postman/postman-202-accepted-response.png" alt-text="Screenshot showing selection 202 accepted response." lightbox="media/postman/postman-202-accepted-response.png":::
 

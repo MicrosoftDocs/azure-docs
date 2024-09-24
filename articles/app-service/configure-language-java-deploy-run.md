@@ -467,7 +467,8 @@ You don't need to incrementally add instances (scaling out), you can add multipl
 
 <a id="jboss-eap-hardware-options"></a>
 
-JBoss EAP is only available on the Premium v3 and Isolated v2 App Service Plan types. Customers that created a JBoss EAP site on a different tier during the public preview should scale up to Premium or Isolated hardware tier to avoid unexpected behavior.
+JBoss EAP is available in the following pricing tiers: **F1**,
+**P0v3**, **P1mv3**, **P2mv3**, **P3mv3**, **P4mv3**, and **P5mv3**.
 
 ::: zone-end
 

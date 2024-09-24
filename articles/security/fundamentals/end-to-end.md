@@ -95,7 +95,7 @@ The [Microsoft cloud security benchmark](/security/benchmark/azure/introduction)
 | Service | Description |
 |------|--------|
 | [Microsoft Sentinel](../../sentinel/hunting.md) | Powerful search and query tools to hunt for security threats across your organization's data sources. |
-| [Azure&nbsp;Monitor&nbsp;logs&nbsp;and&nbsp;metrics](../../azure-monitor/overview.md) | Delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. Azure Monitor [collects and aggregates data](../../azure-monitor/data-platform.md#observability-data-in-azure-monitor) from a variety of sources into a common data platform where it can be used for analysis, visualization, and alerting. |
+| [Azure&nbsp;Monitor&nbsp;logs&nbsp;and&nbsp;metrics](/azure/azure-monitor/overview) | Delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. Azure Monitor [collects and aggregates data](/azure/azure-monitor/data-platform#observability-data-in-azure-monitor) from a variety of sources into a common data platform where it can be used for analysis, visualization, and alerting. |
 | **Identity&nbsp;&&nbsp;Access&nbsp;Management** |  |
 | [Azure&nbsp;AD&nbsp;reports&nbsp;and&nbsp;monitoring](../../active-directory/reports-monitoring/index.yml) | [Microsoft Entra reports](../../active-directory/reports-monitoring/overview-reports.md) provide a comprehensive view of activity in your environment. |
 |  | [Microsoft Entra monitoring](../../active-directory/reports-monitoring/overview-monitoring.md) lets you route your Microsoft Entra activity logs to different endpoints.|

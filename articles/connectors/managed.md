@@ -15,7 +15,7 @@ Managed connectors provide ways for you to access other services and systems whe
 
 For a smaller number of services, systems and protocols, Azure Logic Apps provides a built-in version alongside the managed version. The number and range of built-in connectors vary based on whether you create a Consumption logic app workflow that runs in multitenant Azure Logic Apps or a Standard logic app workflow that runs in single-tenant Azure Logic Apps. In most cases, the built-in version provides better performance, capabilities, pricing, and so on. In a few cases, some built-in connectors are available only in one logic app workflow type, and not the other.
 
-For example, a Standard workflow can use both managed connectors and built-in connectors for Azure Blob, Azure Cosmos DB, Azure Event Hubs, Azure Service Bus, DB2, FTP, MQ, SFTP, and SQL Server, while a Consumption workflow doesn't have the built-in versions. A Consumption workflow can use built-in connectors for Azure API Management, Azure App Services, and Batch, while a Standard workflow doesn't have these built-in connectors. For more information, review [Built-in connectors in Azure Logic Apps](built-in.md) and [Single-tenant versus multitenant and integration service environment (ISE)](../logic-apps/single-tenant-overview-compare.md).
+For example, a Standard workflow can use both managed connectors and built-in connectors for Azure Blob, Azure Cosmos DB, Azure Event Hubs, Azure Service Bus, DB2, FTP, MQ, SFTP, and SQL Server, while a Consumption workflow doesn't have the built-in versions. A Consumption workflow can use built-in connectors for Azure API Management, Azure App Services, and Batch, while a Standard workflow doesn't have these built-in connectors. For more information, review [Built-in connectors in Azure Logic Apps](built-in.md) and [Single-tenant versus multitenant in Azure Logic Apps](../logic-apps/single-tenant-overview-compare.md).
 
 This article provides a general overview about managed connectors and the way they're organized in the Consumption workflow designer versus the Standard workflow designer with examples. For technical reference information about each managed connector in Azure Logic Apps, review [Connectors reference for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors).
 
@@ -36,8 +36,6 @@ Some managed connectors also fall into the following informal groups:
 * [On-premises connectors](#on-premises-connectors) provide access to on-premises systems such as SQL Server, SharePoint Server, SAP, Oracle DB, file shares, and others.
 
 * [Integration account connectors](#integration-account-connectors) help you transform and validate XML, encode and decode flat files, and process business-to-business (B2B) messages using AS2, EDIFACT, and X12 protocols.
-
-* [Integration service environment connectors](#ise-connectors) and are designed to run specifically in an ISE and provide benefits over their non-ISE versions.
 
 <a name="standard-connectors"></a>
 
@@ -258,127 +256,6 @@ For more information, review the following documentation:
     :::column-end:::
 :::row-end:::
 
-## ISE connectors
-
-In an integration service environment (ISE), these managed connectors also have [ISE versions](introduction.md#ise-and-connectors), which have different capabilities than their multitenant versions:
-
-> [!NOTE]
->
-> Workflows that run in an ISE and their connectors, regardless where those connectors run, follow a fixed pricing plan versus the Consumption pricing plan. For more information, review [Azure Logic Apps pricing model](../logic-apps/logic-apps-pricing.md) and [Azure Logic Apps pricing details](https://azure.microsoft.com/pricing/details/logic-apps/).
-
-:::row:::
-    :::column:::
-        [![AS2 ISE icon][as2-icon]][as2-doc]
-        <br><br>[**AS2** ISE][as2-doc]
-    :::column-end:::
-    :::column:::
-        [![Azure Automation ISE icon][azure-automation-icon]][azure-automation-doc]
-        <br><br>[**Azure Automation** ISE][azure-automation-doc]
-    :::column-end:::
-    :::column:::
-        [![Azure Blob Storage ISE icon][azure-blob-storage-icon]][azure-blob-storage-doc]
-        <br><br>[**Azure Blob Storage** ISE][azure-blob-storage-doc]
-    :::column-end:::
-    :::column:::
-        [![Azure Cosmos DB ISE icon][azure-cosmos-db-icon]][azure-cosmos-db-doc]
-        <br><br>[**Azure Cosmos DB** ISE][azure-cosmos-db-doc]
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        [![Azure Event Hubs ISE icon][azure-event-hubs-icon]][azure-event-hubs-doc]
-        <br><br>[**Azure Event Hubs** ISE][azure-event-hubs-doc]
-    :::column-end:::
-    :::column:::
-        [![Azure Event Grid ISE icon][azure-event-grid-icon]][azure-event-grid-doc]
-        <br><br>[**Azure Event Grid** ISE][azure-event-grid-doc]
-    :::column-end:::
-    :::column:::
-        [![Azure Files ISE icon][azure-file-storage-icon]][azure-file-storage-doc]
-        <br><br>[**Azure Files** ISE][azure-file-storage-doc]
-    :::column-end:::
-    :::column:::
-        [![Azure Key Vault ISE icon][azure-key-vault-icon]][azure-key-vault-doc]
-        <br><br>[**Azure Key Vault** ISE][azure-key-vault-doc]
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        [![Azure Monitor Logs ISE icon][azure-monitor-logs-icon]][azure-monitor-logs-doc]
-        <br><br>[**Azure Monitor Logs** ISE][azure-monitor-logs-doc]
-    :::column-end:::
-    :::column:::
-        [![Azure Service Bus ISE icon][azure-service-bus-icon]][azure-service-bus-doc]
-        <br><br>[**Azure Service Bus** ISE][azure-service-bus-doc]
-    :::column-end:::
-    :::column:::
-        [![Azure Synapse Analytics ISE icon][azure-sql-data-warehouse-icon]][azure-sql-data-warehouse-doc]
-        <br><br>[**Azure Synapse Analytics** ISE][azure-sql-data-warehouse-doc]
-    :::column-end:::
-    :::column:::
-        [![Azure Table Storage ISE icon][azure-table-storage-icon]][azure-table-storage-doc]
-        <br><br>[**Azure Table Storage** ISE][azure-table-storage-doc]
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        [![Azure Queues ISE icon][azure-queues-icon]][azure-queues-doc]
-        <br><br>[**Azure Queues** ISE][azure-queues-doc]
-    :::column-end:::
-    :::column:::
-        [![EDIFACT ISE icon][edifact-icon]][edifact-doc]
-        <br><br>[**EDIFACT** ISE][edifact-doc]
-    :::column-end:::
-    :::column:::
-        [![File System ISE icon][file-system-icon]][file-system-doc]
-        <br><br>[**File System** ISE][file-system-doc]
-    :::column-end:::
-    :::column:::
-        [![FTP ISE icon][ftp-icon]][ftp-doc]
-        <br><br>[**FTP** ISE][ftp-doc]
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        [![IBM 3270 ISE icon][ibm-3270-icon]][ibm-3270-doc]
-        <br><br>[**IBM 3270** ISE][ibm-3270-doc]
-    :::column-end:::
-    :::column:::
-        [![IBM DB2 ISE icon][ibm-db2-icon]][ibm-db2-doc]
-        <br><br>[**IBM DB2** ISE][ibm-db2-doc]
-    :::column-end:::
-    :::column:::
-        [![IBM MQ ISE icon][ibm-mq-icon]][ibm-mq-doc]
-        <br><br>[**IBM MQ** ISE][ibm-mq-doc]
-    :::column-end:::
-    :::column:::
-        [![SAP ISE icon][sap-icon]][sap-connector-doc]
-        <br><br>[**SAP** ISE][sap-connector-doc]
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-        [![SFTP-SSH ISE icon][sftp-ssh-icon]][sftp-ssh-doc]
-        <br><br>[**SFTP-SSH** ISE][sftp-ssh-doc]
-    :::column-end:::
-    :::column:::
-        [![SMTP ISE icon][smtp-icon]][smtp-doc]
-        <br><br>[**SMTP** ISE][smtp-doc]
-    :::column-end:::
-    :::column:::
-        [![SQL Server ISE icon][sql-server-icon]][sql-server-doc]
-        <br><br>[**SQL Server** ISE][sql-server-doc]
-    :::column-end:::
-    :::column:::
-        [![X12 ISE icon][x12-icon]][x12-doc]
-        <br><br>[**X12** ISE][x12-doc]
-    :::column-end:::
-:::row-end:::
-
-For more information, see these topics:
-
-* [Access to Azure virtual network resources from Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)
-* [Azure Logic Apps pricing model](../logic-apps/logic-apps-pricing.md)
 
 ## Next steps
 

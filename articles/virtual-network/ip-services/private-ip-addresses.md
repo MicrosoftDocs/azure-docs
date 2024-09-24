@@ -67,7 +67,7 @@ To assign the network interface to a different subnet, you change the allocation
     
 ## Virtual machines
 
-One or more private IP addresses are assigned to one or more **network interfaces**. The network interfaces are assigned to a [Windows](../../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Linux](../../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machine. You can specify the allocation method as either dynamic or static for each private IP address.
+One or more private IP addresses are assigned to one or more **network interfaces**. The network interfaces are assigned to a [Windows](/azure/virtual-machines/windows/overview?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Linux](/azure/virtual-machines/linux/overview?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machine. You can specify the allocation method as either dynamic or static for each private IP address.
 
 ### Internal DNS hostname resolution (for virtual machines)
 

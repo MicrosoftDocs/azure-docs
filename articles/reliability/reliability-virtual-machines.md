@@ -213,7 +213,7 @@ VM instances go through different states, including provisioning and power state
 
 #### :::image type="icon" source="media/icon-recommendation-high.svg"::: **Use maintenance configurations for the VM**
 
-To ensure that VM updates/interruptions are done in a planned time frame, use maintenance configuration settings to schedule and manage updates. For more information on managing VM updates with maintenance configurations, see [Managing VM updates with Maintenance Configurations](../virtual-machines/maintenance-configurations.md).
+To ensure that VM updates/interruptions are done in a planned time frame, use maintenance configuration settings to schedule and manage updates. For more information on managing VM updates with maintenance configurations, see [Managing VM updates with Maintenance Configurations](/azure/virtual-machines/maintenance-configurations).
 
 
 # [Azure Resource Graph](#tab/graph)
@@ -289,7 +289,7 @@ There are several types of encryption available for your managed disks, includin
 - Encryption at host ensures that data stored on the VM host hosting your VM is encrypted at rest and flows encrypted to the Storage clusters.
 - Confidential disk encryption binds disk encryption keys to the VM’s TPM and makes the protected disk content accessible only to the VM.
 
-For more information about managed disk encryption options, see [Overview of managed disk encryption options](../virtual-machines/disk-encryption-overview.md).
+For more information about managed disk encryption options, see [Overview of managed disk encryption options](/azure/virtual-machines/disk-encryption-overview).
 
 # [Azure Resource Graph](#tab/graph)
 
@@ -387,7 +387,7 @@ Virtual machines support availability zones with three availability zones per su
 
 To learn more about availability zone readiness options, see:
 
-- See [availability options for VMs](../virtual-machines/availability.md)
+- See [availability options for VMs](/azure/virtual-machines/availability)
 - Review [availability zone service and region support](availability-zones-service-support.md)
 - [Migrate existing VMs](migrate-vm.md) to availability zones
 
@@ -398,8 +398,8 @@ To learn more about availability zone readiness options, see:
 
 - Your VM SKUs must be available across the zones in your region. To check for VM SKU availability, use one of the following methods:
 
-    - Use PowerShell to [Check VM SKU availability](../virtual-machines/windows/create-PowerShell-availability-zone.md#check-vm-sku-availability).
-    - Use the Azure CLI to [Check VM SKU availability](../virtual-machines/linux/create-cli-availability-zone.md#check-vm-sku-availability).
+    - Use PowerShell to [Check VM SKU availability](/azure/virtual-machines/windows/create-powershell-availability-zone#check-vm-sku-availability).
+    - Use the Azure CLI to [Check VM SKU availability](/azure/virtual-machines/linux/create-cli-availability-zone#check-vm-sku-availability).
     - Go to [Foundational Services](availability-zones-service-support.md#an-icon-that-signifies-this-service-is-foundational-foundational-services).
     
 
@@ -410,9 +410,9 @@ Because availability zones are physically separate and provide distinct power so
 ### Create a resource with availability zones enabled
 
 Get started by creating a virtual machine (VM) with availability zone enabled from the following deployment options below:
-- [Azure CLI](../virtual-machines/linux/create-cli-availability-zone.md)
-- [PowerShell](../virtual-machines/windows/create-powershell-availability-zone.md)
-- [Azure portal](../virtual-machines/create-portal-availability-zone.md)
+- [Azure CLI](/azure/virtual-machines/linux/create-cli-availability-zone)
+- [PowerShell](/azure/virtual-machines/windows/create-powershell-availability-zone)
+- [Azure portal](/azure/virtual-machines/create-portal-availability-zone)
 
 ### Zonal failover support
 
@@ -457,7 +457,7 @@ When you opt for availability zones isolation, you should utilize safe deploymen
 - [Azure Storage Redundancy](../storage/common/storage-redundancy.md)
 
 
-As Microsoft periodically performs planned maintenance updates, there may be rare instances when these updates require a reboot of your virtual machine to apply the required updates to the underlying infrastructure. To learn more, see [availability considerations](../virtual-machines/maintenance-and-updates.md#availability-considerations-during-scheduled-maintenance) during scheduled maintenance. 
+As Microsoft periodically performs planned maintenance updates, there may be rare instances when these updates require a reboot of your virtual machine to apply the required updates to the underlying infrastructure. To learn more, see [availability considerations](/azure/virtual-machines/maintenance-and-updates#availability-considerations-during-scheduled-maintenance) during scheduled maintenance. 
 
 Before you upgrade your next set of nodes in another zone, you should perform the following tasks:
 
@@ -474,7 +474,7 @@ To learn how to migrate a VM to availability zone support, see [Migrate Virtual 
     - [PowerShell](/azure/azure-resource-manager/management/move-resource-group-and-subscription#use-azure-powershell)
 - [Azure Resource Mover](/azure/resource-mover/tutorial-move-region-virtual-machines)
 - [Move Azure VMs to availability zones](../site-recovery/move-azure-vms-avset-azone.md)
-- [Move region maintenance configuration resources](../virtual-machines/move-region-maintenance-configuration-resources.md)
+- [Move region maintenance configuration resources](/azure/virtual-machines/move-region-maintenance-configuration-resources)
   
 ## Cross-region disaster recovery and business continuity
 
@@ -501,8 +501,8 @@ When setting up disaster recovery for virtual machines, understand what [Azure S
 - Create a Recovery Services vault
     - [Bicep](../site-recovery/quickstart-create-vault-bicep.md)
     - [ARM template](../site-recovery/quickstart-create-vault-template.md)
-- Enable disaster recovery for [Linux virtual machines](../virtual-machines/linux/tutorial-disaster-recovery.md)
-- Enable disaster recovery for [Windows virtual machines](../virtual-machines/windows/tutorial-disaster-recovery.md)
+- Enable disaster recovery for [Linux virtual machines](/azure/virtual-machines/linux/tutorial-disaster-recovery)
+- Enable disaster recovery for [Windows virtual machines](/azure/virtual-machines/windows/tutorial-disaster-recovery)
 - Fail over virtual machines to [another region](../site-recovery/azure-to-azure-tutorial-failover-failback.md)
 - Fail over virtual machines to the [primary region](../site-recovery/azure-to-azure-tutorial-failback.md#fail-back-to-the-primary-region)
 
@@ -512,13 +512,13 @@ With disaster recovery setup, Azure VMs continuously replicate to a different ta
 
 When you replicate Azure VMs using [Site Recovery](../site-recovery/site-recovery-overview.md), all the VM disks are continuously replicated to the target region asynchronously. The recovery points are created every few minutes, which grants you a Recovery Point Objective (RPO) in the order of minutes. You can conduct disaster recovery drills as many times as you want, without affecting the production application or the ongoing replication. For more information, see [Run a disaster recovery drill to Azure](../site-recovery/tutorial-dr-drill-azure.md).
 
-For more information, see [Azure VMs architectural components](../site-recovery/azure-to-azure-architecture.md#architectural-components) and [region pairing](../virtual-machines/regions.md#region-pairs).
+For more information, see [Azure VMs architectural components](../site-recovery/azure-to-azure-architecture.md#architectural-components) and [region pairing](/azure/virtual-machines/regions#region-pairs).
 
 ### Capacity and proactive disaster recovery resiliency
 
 Microsoft and its customers operate under the [Shared Responsibility Model](./availability-zones-overview.md#shared-responsibility-model). Shared responsibility means that for customer-enabled DR (customer-responsible services), you must address DR for any service they deploy and control. To ensure that recovery is proactive, you should always pre-deploy secondaries because there's no guarantee of capacity at time of impact for those who haven't preallocated.
 
-For deploying virtual machines, you can use [flexible orchestration](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-flexible-orchestration) mode on Virtual Machine Scale Sets. All VM sizes can be used with flexible orchestration mode. Flexible orchestration mode also offers high availability guarantees (up to 1000 VMs) by spreading VMs across fault domains either within a region or within an availability zone.
+For deploying virtual machines, you can use [flexible orchestration](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#scale-sets-with-flexible-orchestration) mode on Virtual Machine Scale Sets. All VM sizes can be used with flexible orchestration mode. Flexible orchestration mode also offers high availability guarantees (up to 1000 VMs) by spreading VMs across fault domains either within a region or within an availability zone.
 
 ## Next steps
 
@@ -526,6 +526,6 @@ For deploying virtual machines, you can use [flexible orchestration](../virtual-
 - [Azure to Azure disaster recovery architecture](/azure/site-recovery/azure-to-azure-architecture)
 - [Accelerated networking with Azure VM disaster recovery](/azure/site-recovery/azure-vm-disaster-recovery-with-accelerated-networking)
 - [Express Route with Azure VM disaster recovery](../site-recovery/azure-vm-disaster-recovery-with-expressroute.md)
-- [Virtual Machine Scale Sets](../virtual-machine-scale-sets/index.yml)
+- [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/)
 - [Reliability in Azure](/azure/reliability/availability-zones-overview)
 
