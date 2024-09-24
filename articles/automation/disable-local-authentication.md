@@ -28,9 +28,9 @@ Disabling local authentication doesn't take effect immediately. Allow a few minu
 > - Currently, PowerShell support for the new API version (2021-06-22) or the flag – `DisableLocalAuth` is not available. However, you can use the Rest-API with this API version to update the flag. Here is how to do it with the [`Invoke-AzRestMethod`](https://learn.microsoft.com/powershell/azure/manage-azure-resources-invoke-azrestmethod) cmdlet.
 
 ```azurepowershell-interactive
-$SubscriptionId = "9e223dbe-3399-4e19-88eb-0975f02ac87f"
-$ResourceGroupName = "yemingtemp"
-$AutomationAccountName = "yemingaa0924"
+$SubscriptionId = "your-subscription-id"
+$ResourceGroupName = "your-resource-group-name"
+$AutomationAccountName = "your-automation-account-name"
 $RequestUri = "https://management.azure.com/subscriptions/$SubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Automation/automationAccounts/$($AutomationAccountName)?api-version=2023-11-01"
 $Payload = @{
     properties = @{
