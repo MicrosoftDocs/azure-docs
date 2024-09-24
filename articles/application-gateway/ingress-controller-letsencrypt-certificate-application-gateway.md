@@ -1,6 +1,6 @@
 ---
 title: Use LetsEncrypt.org certificates with Application Gateway
-description: This article provides information on how to obtain a certificate from LetsEncrypt.org and use it on your Application Gateway for AKS clusters.
+description: This article provides information on how to obtain a certificate from LetsEncrypt.org and use it on your Application Gateway instance for AKS clusters.
 services: application-gateway
 author: greg-lindsay
 ms.service: azure-application-gateway
@@ -10,14 +10,15 @@ ms.date: 08/01/2023
 ms.author: greglin
 ---
 
-# Use certificates with LetsEncrypt.org on Application Gateway for AKS clusters
+# Use LetsEncrypt.org certificates on Application Gateway for AKS clusters
 
-This section configures your AKS to use [LetsEncrypt.org](https://letsencrypt.org/) and automatically obtain a TLS/SSL certificate for your domain. The certificate is installed on Application Gateway, which performs SSL/TLS termination for your AKS cluster. The setup described here uses the [cert-manager](https://github.com/jetstack/cert-manager) Kubernetes add-on, which automates the creation and management of certificates.
+You can configure your Azure Kubernetes Service (AKS) instance to use [LetsEncrypt.org](https://letsencrypt.org/) and automatically obtain a TLS/SSL certificate for your domain. The certificate is installed on Azure Application Gateway, which performs TLS/SSL termination for your AKS cluster.
 
-> [!TIP]
-> Also see [What is Application Gateway for Containers](for-containers/overview.md).
+The setup that this article describes uses the [cert-manager](https://github.com/jetstack/cert-manager) Kubernetes add-on, which automates the creation and management of certificates.
 
-Use the following steps to install [cert-manager](https://docs.cert-manager.io) on your existing AKS cluster.
+## Install the add-on
+
+Use the following steps to install [cert-manager](https://docs.cert-manager.io) on your existing AKS cluster:
 
 1. Helm Chart
 
@@ -61,7 +62,7 @@ Use the following steps to install [cert-manager](https://docs.cert-manager.io) 
 
     Create a `ClusterIssuer` resource. This is required by `cert-manager` to represent the `Lets Encrypt` certificate authority where the signed certificate is obtained.
 
-    Cert-manager uses the non-namespaced `ClusterIssuer` resource to issue certificates that can be consumed from multiple namespaces. `Let’s Encrypt` uses the ACME protocol to verify that you control a given domain name and to issue a certificate. More details on configuring `ClusterIssuer` properties [here](https://docs.cert-manager.io/en/latest/tasks/issuers/index.html). `ClusterIssuer` instructs `cert-manager` to issue certificates using the `Lets Encrypt` staging environment used for testing (the root certificate not present in browser/client trust stores).
+    Cert-manager uses the non-namespaced `ClusterIssuer` resource to issue certificates that can be consumed from multiple namespaces. `Let's Encrypt` uses the ACME protocol to verify that you control a given domain name and to issue a certificate. More details on configuring `ClusterIssuer` properties [here](https://docs.cert-manager.io/en/latest/tasks/issuers/index.html). `ClusterIssuer` instructs `cert-manager` to issue certificates using the `Lets Encrypt` staging environment used for testing (the root certificate not present in browser/client trust stores).
 
     The default challenge type in the following YAML is `http01`. Other challenges are documented on [letsencrypt.org - Challenge Types](https://letsencrypt.org/docs/challenge-types/)
 
@@ -81,7 +82,7 @@ Use the following steps to install [cert-manager](https://docs.cert-manager.io) 
         # Let's Encrypt uses this to contact you about expiring
         # certificates, and issues related to your account.
         email: <YOUR.EMAIL@ADDRESS>
-        # ACME server URL for Let’s Encrypt’s staging environment.
+        # ACME server URL for Let's Encrypt's staging environment.
         # The staging environment won't issue trusted certificates but is
         # used to ensure that the verification process is working properly
         # before moving to production
@@ -144,3 +145,7 @@ Use the following steps to install [cert-manager](https://docs.cert-manager.io) 
 5. Certificate Expiration and Renewal
 
     Before the `Lets Encrypt` certificate expires, `cert-manager` automatically updates the certificate in the Kubernetes secret store. At that point, Application Gateway Ingress Controller applies the updated secret referenced in the ingress resources it's using to configure the Application Gateway.
+
+## Related content
+
+- [What is Application Gateway for Containers?](for-containers/overview.md)

@@ -11,23 +11,23 @@ ms.author: greglin
 
 # Disable and re-enable the AGIC add-on for your AKS cluster
 
-The Application Gateway Ingress Controller (AGIC) deployed as an Azure Kubernetes Service (AKS) add-on allows you to enable and disable the add-on with one line in the Azure CLI.
+When you deploy the Application Gateway Ingress Controller (AGIC) as an Azure Kubernetes Service (AKS) add-on, you can enable and disable the add-on with one line in the Azure CLI.
 
-The life cycle of the Azure Application Gateway instance differs when you disable the AGIC add-on, depending on if the Application Gateway was created by the AGIC add-on, or if it was deployed separately from the AGIC add-on. You can run the same command to re-enable the AGIC add-on if you ever disable it, or to enable the AGIC add-on using an existing AKS cluster and Application Gateway.
+The life cycle of the Azure Application Gateway instance differs when you disable the AGIC add-on, depending on whether you created the Application Gateway instance by using the AGIC add-on or you deployed it separately from the add-on. You can run the same command to re-enable the AGIC add-on if you ever disable it, or to enable the AGIC add-on by using an existing AKS cluster and Application Gateway instance.
 
-## Disabling AGIC add-on with associated Application Gateway
+## Disable the AGIC add-on with an associated Application Gateway instance
 
-If the AGIC add-on automatically deployed the Application Gateway for you when you first set up everything, then disabling the AGIC add-on will by default delete the Application Gateway based on a couple criteria. There are two criteria that the AGIC add-on looks for to determine if it should delete the associated Application Gateway when you disable it:
+If the AGIC add-on automatically deployed the Application Gateway instance for you when you first set up everything, then disabling the AGIC add-on might delete the Application Gateway instance by default. The AGIC add-on considers two criteria to determine if it should delete the associated Application Gateway instance:
 
-- Is the Application Gateway that the AGIC add-on is associated with deployed in the MC_* node resource group?
-- Does the Application Gateway that the AGIC add-on is associated with have the tag "created-by: ingress-appgw"? The tag is used by AGIC to determine if the Application Gateway was deployed by the add-on or not.
+- Is the Application Gateway instance that the AGIC add-on is associated with deployed in the `MC_*` node resource group?
+- Does the Application Gateway instance that the AGIC add-on is associated with have the tag `created-by: ingress-appgw`? AGIC uses the tag to determine whether or not the add-on deployed the Application Gateway instance.
 
-If both criteria are met, then the AGIC add-on will delete the Application Gateway it created when the add-on is disabled; however, it won't delete the public IP or the subnet in which the Application Gateway was deployed with/in.
+If both criteria are met, the AGIC add-on deletes the Application Gateway instance when you disable the add-on. However, the AGIC add-on doesn't delete the public IP address or the subnet in which it deployed the Application Gateway instance.
 
-If the first criteria isn't met, then it won't matter if the Application Gateway has the "created-by: ingress-appgw" tag - disabling the add-on won't delete the Application Gateway. Likewise, if the second criteria isn't met, that is. The Application Gateway lacks that tag, then disabling the add-on won't delete the Application Gateway in the MC_* node resource group.
+If the first criterion isn't met, disabling the add-on doesn't delete the Application Gateway instance, even if the instance has the `created-by: ingress-appgw` tag. Likewise, if the second criterion isn't met (that is, the Application Gateway instance lacks that tag), disabling the add-on doesn't delete the Application Gateway instance in the `MC_*` node resource group.
 
 > [!TIP]
-> If you don't want the Application Gateway to be deleted when disabling the add-on, but it meets both criteria then remove the "created-by: ingress-appgw" tag to prevent the add-on from deleting your Application Gateway.
+> If you don't want the add-on to delete your Application Gateway instance when you disable the add-on, but the instance meets both criteria, remove the `created-by: ingress-appgw` tag.
 
 To disable the AGIC add-on, run the following command:
 
@@ -35,9 +35,9 @@ To disable the AGIC add-on, run the following command:
 az aks disable-addons -n <AKS-cluster-name> -g <AKS-resource-group-name> -a ingress-appgw 
 ```
 
-## Enable AGIC add-on on existing Application Gateway and AKS Cluster
+## Enable the AGIC add-on on an existing Application Gateway instance and AKS cluster
 
-If you ever disable the AGIC add-on and need to re-enable the add-on, or want to enable the add-on using an existing Application Gateway and AKS cluster, then run the following command:
+If you ever disable the AGIC add-on and need to re-enable it, or you want to enable the add-on by using an existing Application Gateway instance and AKS cluster, run the following command:
 
 ```azurecli-interactive
 appgwId=$(az network application-gateway show -n <application-gateway-name> -g <resource-group-name> -o tsv --query "id") 
@@ -46,5 +46,5 @@ az aks enable-addons -n <AKS-cluster-name> -g <AKS-cluster-resource-group> -a in
 
 ## Related content
 
-- For more information on how to enable the AGIC add-on using an existing Application Gateway and AKS cluster, see [AGIC add-on brownfield deployment](tutorial-ingress-controller-add-on-existing.md).
+- For more information on how to enable the AGIC add-on by using an existing Application Gateway instance and AKS cluster, see [this tutorial](tutorial-ingress-controller-add-on-existing.md).
 - For information about Application Gateway for Containers, see [What is Application Gateway for Containers?](for-containers/overview.md).
