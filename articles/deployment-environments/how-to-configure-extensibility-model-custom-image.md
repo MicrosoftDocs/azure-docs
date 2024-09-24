@@ -40,7 +40,7 @@ An [environment definition](configure-environment-definition.md) comprises at le
 ::: zone-end
 
 ::: zone pivot="pulumi"
-An [environment definition](configure-environment-definition.md) comprises at least two files: a Pulumi project file, Pulumi.yaml, and a manifest file named environment.yaml. It might also contain a user program written in your preferred programming language: C#, TypeScript, Python, etc. ADE uses containers to deploy environment definitions.
+An [environment definition](configure-environment-definition.md) comprises at least two files: a Pulumi project file, *Pulumi.yaml*, and a manifest file named *environment.yaml*. It might also contain a user program written in your preferred programming language: C#, TypeScript, Python, etc. ADE uses containers to deploy environment definitions.
 ::: zone-end
 
 ## Prerequisites
@@ -52,8 +52,8 @@ An [environment definition](configure-environment-definition.md) comprises at le
 ## Use container images with ADE
 
 You can take one of the following approaches to use container images with ADE:
-- **Use a sample container image:** For simple scenarios, use the sample ARM-Bicep container image provided by ADE.
-- **Create a custom container image:** For more complex scenarios, create a custom container image that meets your specific requirements.
+- **[Use a sample container image](#use-a-sample-container-image)** For simple scenarios, use the sample ARM-Bicep container image provided by ADE.
+- **[Create a custom container image:](#create-a-custom-container-image)** For more complex scenarios, create a custom container image that meets your specific requirements.
  
 Regardless of which approach you choose, you must specify the container image in your environment definition to deploy your Azure resources.
 
@@ -83,7 +83,7 @@ For more information about how to create environment definitions that use the AD
 
 The Pulumi team provides a prebuilt image to get you started, which you can see in the [Runner-Image](https://github.com/pulumi/azure-deployment-environments/tree/main/Runner-Image) folder. This image is publicly available at Pulumi's Docker Hub as [`pulumi/azure-deployment-environments`](https://hub.docker.com/repository/docker/pulumi/azure-deployment-environments), so you can use it directly from your ADE environment definitions.
 
-Here's a sample ```environment.yaml``` file that utilizes the prebuilt image:
+Here's a sample *environment.yaml* file that utilizes the prebuilt image:
 
 ```yaml
 name: SampleDefinition
