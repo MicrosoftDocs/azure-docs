@@ -97,7 +97,7 @@ When planning the discover phase, use the following guidance to identify your us
 - Prepare a validation process. Define test scenarios and build a test script.
 - Can you apply a methodology to prioritize use cases? You can follow a methodology such as MoSCoW to prioritize a leaner set of use cases for migration.
 
-## Next steps
+## Next step
 
 In this article, you learned how to plan and prepare for your migration. 
 
