@@ -38,11 +38,11 @@ The `validate-jwt` policy enforces existence and validity of a supported JSON we
     output-token-variable-name="name of a variable to receive a JWT object representing successfully validated token">
   <openid-config url="full URL of the configuration endpoint, for example, https://login.constoso.com/openid-configuration" />
   <issuer-signing-keys>
-    <key>Base64 encoded signing key | certificate-id="mycertificate" | n="modulus" e="exponent"</key>
+    <key id="kid-claim" certificate-id="mycertificate" n="modulus" e="exponent">Base64 encoded signing key</key>
     <!-- if there are multiple keys, then add additional key elements -->
   </issuer-signing-keys>
   <decryption-keys>
-    <key>Base64 encoded signing key | certificate-id="mycertificate" | n="modulus" e="exponent" </key>
+    <key id="kid-claim" certificate-id="mycertificate">Base64 encoded signing key</key>
     <!-- if there are multiple keys, then add additional key elements -->
   </decryption-keys>
   <audiences>
