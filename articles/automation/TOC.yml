@@ -136,6 +136,8 @@
           href: delete-account.md 
         - name: Migrate from Orchestrator to Azure Automation (Beta)
           href: automation-orchestrator-migration.md
+        - name: Context switching in Azure Automation
+          href: context-switching.md
     - name: Shared resources
       items:
         - name: Manage certificates
@@ -278,6 +280,8 @@
               href: change-tracking/overview.md
             - name: Support regions for linked Log Analytics workspace
               href: how-to/region-mappings.md
+            - name: Discover the software installed on your VMs
+              href: automation-tutorial-installed-software.md
             - name: Enable
               items:
                 - name: Enable from the Azure portal

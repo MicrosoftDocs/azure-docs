@@ -338,27 +338,23 @@ To delete an Azure file share, you can use the Azure portal, Azure PowerShell, o
 :::image type="content" source="media/storage-how-to-create-file-share/delete-file-share.png" alt-text="Screen shot of the Azure portal procedure for deleting a file share." border="true" lightbox="media/storage-how-to-create-file-share/delete-file-share.png":::
 
 # [PowerShell](#tab/azure-powershell)
-1. Log in to your Azure account. To use multi-factor authentication, you'll need to supply your Azure tenant ID.
+1. Run the following script. Replace `<ResourceGroup>`, `<StorageAccount>`, and `<FileShare>` with your information.
 
    ```azurepowershell
-   Login-AzAccount -TenantId <YourTenantID>
-   ```
-
-1. Run the following script. Replace `<YourStorageAccountName>`, `<YourStorageAccountKey>`, and `<FileShareName>` with your information. You can find your storage account key in the Azure portal by navigating to the storage account and selecting **Security + networking** > **Access keys**, or you can use the `Get-AzStorageAccountKey` cmdlet.
-
-   ```azurepowershell
-   $context = New-AzStorageContext -StorageAccountName <YourStorageAccountName> -StorageAccountKey <YourStorageAccountKey>
-   Remove-AzStorageShare -Context $context -Name "<FileShareName>"
+    Remove-AzRmStorageShare `
+            -ResourceGroupName <ResourceGroup> `
+            -StorageAccountName <StorageAccount> `
+            -Name <FileShare>
    ```
 
 # [Azure CLI](#tab/azure-cli)
-You can delete an Azure file share with the [`az storage share delete`](/cli/azure/storage/share#az-storage-share-delete) command. Replace `<yourFileShareName>` and `<yourStorageAccountName>` with your information.
+You can delete an Azure file share with the [`az storage share delete`](/cli/azure/storage/share#az-storage-share-delete) command. Replace `<ResourceGroup>`, `<StorageAccount>`, and `<FileShare>` with your information.
 
 ```azurecli
-
-az storage share delete \
-    --name <yourFileShareName> \
-    --account-name <yourStorageAccountName>
+az storage share-rm delete \
+    --resource-group <ResourceGroup> \
+    --storage-account <StorageAccount> \
+    --name <FileShare>
 ```
 
 ---

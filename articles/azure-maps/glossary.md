@@ -6,7 +6,7 @@ ms.author: aterceros
 ms.date: 09/18/2018
 ms.topic: glossary
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: general
 ---
 
 # Glossary
@@ -150,6 +150,8 @@ The following list describes common words used with the Azure Maps services.
 <a name="fuzzy-search"></a> **Fuzzy search**: A search that takes in a free form string of text that may be an address or point of interest.
 
 ## G
+
+<a name="geobias"></a> **Geobias**:  A geospatial bias to improve the ranking of results. In some methods, this can be affected by setting the longitude and latitude parameters where available. In other cases it is purely internal.
 
 <a name="geocode"></a> **Geocode**: An address or location that has been converted into a coordinate that can be used to display that location on a map.
 

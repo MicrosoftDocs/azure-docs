@@ -83,7 +83,7 @@ Authentication events reference the following entities:
 
 - **TargetUser** - The user information used to authenticate to the system. The **TargetSystem** is the primary subject of the authentication event, and the alias User aliases a **TargetUser** identified.
 - **TargetApp** - The application authenticated to.
-- **Target** - The system on which **TaregtApp*** is running.
+- **Target** - The system on which **TargetApp*** is running.
 - **Actor** - The user initiating the authentication, if different than **TargetUser**.
 - **ActingApp** - The application used by the **Actor** to perform the authentication.
 - **Src** - The system used by the **Actor** to initiate the authentication.

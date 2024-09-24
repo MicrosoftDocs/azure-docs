@@ -5,7 +5,7 @@ author: anaharris-ms
 ms.author: anaharris
 ms.topic: reliability-article
 ms.custom: subject-reliability, references_regions, resiliency-recommendations
-ms.service: cosmos-db
+ms.service: azure-cosmos-db
 ms.date: 5/06/2024 
 ---
 

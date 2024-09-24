@@ -194,7 +194,7 @@ GROUP BY data_type 
 ORDER BY data_type;
 ```
 
-Microsoft offers [SQL Server Migration Assistant (SSMA)](/sql/ssma/oracle/sql-server-migration-assistant-for-oracle-oracletosql) for Oracle to automate migration of data warehouses from legacy Oracle environments, including the mapping of data types. You can also use [Azure Database Migration Services](../../../dms/dms-overview.md) to help plan and perform a migration from environments like Oracle. Third-party vendors also offer tools and services to automate migration. If a [third-party](../../partner/data-integration.md) ETL tool is already in use in the Oracle environment, you can use that tool to implement any required data transformations. The next section explores migration of existing ETL processes.
+Microsoft offers [SQL Server Migration Assistant (SSMA)](/sql/ssma/oracle/sql-server-migration-assistant-for-oracle-oracletosql) for Oracle to automate migration of data warehouses from legacy Oracle environments, including the mapping of data types. You can also use [Azure Database Migration Services](/azure/dms/dms-overview) to help plan and perform a migration from environments like Oracle. Third-party vendors also offer tools and services to automate migration. If a [third-party](../../partner/data-integration.md) ETL tool is already in use in the Oracle environment, you can use that tool to implement any required data transformations. The next section explores migration of existing ETL processes.
 
 ## ETL migration considerations
 

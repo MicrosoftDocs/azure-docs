@@ -33,7 +33,7 @@ Verify you have access to the Cluster Manager's storage account
  
 ## Executing a run-read command
 
-The run-read command lets you run a command on the BMM that does not change anything. Some commands have more
+The run-read command lets you run a command on the BMM that doesn't change anything. Some commands have more
 than one word, or need an argument to work. These commands are made like this to separate them from the ones
 that can change things. For example, run-read-command can use `kubectl get` but not `kubectl apply`. When you
 use these commands, you have to put all the words in the “command” field. For example,
@@ -47,6 +47,9 @@ baremetal host, such as `ipmitool` and `racadm`.
 Some of the run-read commands require specific arguments be supplied to enforce read-only capabilities of the commands.
 An example of run-read commands that require specific arguments is the allowed Mellanox command `mstconfig`,
 which requires the `query` argument be provided to enforce read-only.
+
+> [!WARNING]
+> Microsoft does not provide or support any Operator Nexus API calls that expect plaintext username and/or password to be supplied. Please note any values sent will be logged and are considered exposed secrets, which should be rotated and revoked. The Microsoft documented method for securely using secrets is to store them in an Azure Key Vault, if you have specific questions or concerns please submit a request via the Azure Portal.
 
 The list below shows the commands you can use. Commands in `*italics*` cannot have `arguments`; the rest can.
 

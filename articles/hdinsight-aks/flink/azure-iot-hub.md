@@ -1,9 +1,10 @@
 ---
 title: Process real-time IoT data on Apache Flink® with Azure HDInsight on AKS
 description: How to integrate Azure IoT Hub and Apache Flink®.
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 04/04/2024
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Process real-time IoT data on Apache Flink® with Azure HDInsight on AKS

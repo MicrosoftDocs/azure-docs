@@ -14,11 +14,11 @@ You can use Azure Batch to run parallel compute workloads on both Linux and Wind
 
 ## Virtual Machine Configuration
 
-When you create a pool of compute nodes in Batch, you have two options from which to select the node size and operating system: Cloud Services Configuration and Virtual Machine Configuration. [Virtual Machine Configuration](nodes-and-pools.md#virtual-machine-configuration) pools are composed of Azure VMs, which may be created from either Linux or Windows images. When you create a pool with Virtual Machine Configuration, you specify an [available compute node size](../virtual-machines/sizes.md), the virtual machine image reference to be installed on the nodes,and the Batch node agent SKU (a program that runs on each node and provides an interface between the node and the Batch service).
+When you create a pool of compute nodes in Batch, you have two options from which to select the node size and operating system: Cloud Services Configuration and Virtual Machine Configuration. [Virtual Machine Configuration](nodes-and-pools.md#virtual-machine-configuration) pools are composed of Azure VMs, which may be created from either Linux or Windows images. When you create a pool with Virtual Machine Configuration, you specify an [available compute node size](/azure/virtual-machines/sizes), the virtual machine image reference to be installed on the nodes,and the Batch node agent SKU (a program that runs on each node and provides an interface between the node and the Batch service).
 
 ### Virtual machine image reference
 
-The Batch service uses [virtual machine scale sets](../virtual-machine-scale-sets/overview.md) to provide compute nodes in the Virtual Machine Configuration. You can specify an image from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images&page=1), or [use the Azure Compute Gallery to prepare a custom image](batch-sig-images.md).
+The Batch service uses [virtual machine scale sets](/azure/virtual-machine-scale-sets/overview) to provide compute nodes in the Virtual Machine Configuration. You can specify an image from the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute?filters=virtual-machine-images&page=1), or [use the Azure Compute Gallery to prepare a custom image](batch-sig-images.md).
 
 When you create a virtual machine image reference, you must specify the following properties:
 
@@ -30,7 +30,7 @@ When you create a virtual machine image reference, you must specify the followin
 | Version |latest |
 
 > [!TIP]
-> You can learn more about these properties and how to specify Marketplace images in [Find Linux VM images in the Azure Marketplace with the Azure CLI](../virtual-machines/linux/cli-ps-findimage.md). Note that some Marketplace images are not currently compatible with Batch.
+> You can learn more about these properties and how to specify Marketplace images in [Find Linux VM images in the Azure Marketplace with the Azure CLI](/azure/virtual-machines/linux/cli-ps-findimage). Note that some Marketplace images are not currently compatible with Batch.
 
 ### List of virtual machine images
 

@@ -10,7 +10,7 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create a management group - Portal
+  - name: Create a management group - portal
     displayName: hierarchy
     href: ./create-management-group-portal.md
   - name: Create a management group - Azure CLI

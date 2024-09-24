@@ -1,18 +1,22 @@
 ---
 title: Configure an internal load balancer (ILB) endpoint
 titleSuffix: Azure Application Gateway
-description: This article provides information on how to configure Application Gateway Standard v2 with a private frontend IP address
+description: This article provides information on how to configure Application Gateway Standard v1 with a private frontend IP address
 services: application-gateway
 author: greg-lindsay
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 02/07/2024
+ms.date: 08/09/2024
 ms.author: greglin
 ---
 
 # Configure an application gateway with an internal load balancer (ILB) endpoint
 
-Azure Application Gateway Standard v2 can be configured with an Internet-facing VIP or with an internal endpoint that isn't exposed to the Internet. An internal endpoint uses a private IP address for the frontend, which is also known as an *internal load balancer (ILB) endpoint*.
+Azure Application Gateway Standard v1 can be configured with an Internet-facing VIP or with an internal endpoint that isn't exposed to the Internet. An internal endpoint uses a private IP address for the frontend, which is also known as an *internal load balancer (ILB) endpoint*.
+
+> [!NOTE]
+> Application Gateway v1 is being retired. See the [v1 retiredment announcement](/azure/application-gateway/v1-retirement).<br>
+> To configure a v2 application gateway with a private frontend IP address, see [Private Application Gateway deployment](/azure/application-gateway/application-gateway-private-deployment).
 
 Configuring the gateway using a frontend private IP address is useful for internal line-of-business applications that aren't exposed to the Internet. It's also useful for services and tiers within a multi-tier application that are in a security boundary that isn't exposed to the Internet but:
 
@@ -20,7 +24,7 @@ Configuring the gateway using a frontend private IP address is useful for intern
 - session stickiness
 - or Transport Layer Security (TLS) termination (previously known as Secure Sockets Layer (SSL)).
 
-This article guides you through the steps to configure a Standard v2 Application Gateway with an ILB using the Azure portal.
+This article guides you through the steps to configure a Standard v1 Application Gateway with an ILB using the Azure portal.
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
@@ -38,7 +42,7 @@ In this example, you create a new virtual network. You can create a virtual netw
 2. Select **Networking** and then select **Application Gateway** in the Featured list.
 3. Enter *myAppGateway* for the name of the application gateway and *myResourceGroupAG* for the new resource group.
 4. For **Region**, select **Central US**.
-5. For **Tier**, select **Standard V2**.
+5. For **Tier**, select **Standard**.
 6. Under **Configure virtual network** select **Create new**, and then enter these values for the virtual network:
    - *myVNet* - for the name of the virtual network.
    - *10.0.0.0/16* - for the virtual network address space.
@@ -59,7 +63,7 @@ In this example, you create a new virtual network. You can create a virtual netw
 9. Select **Next:Backends**.
 10. Select **Add a backend pool**.
 11. For **Name**, type *appGatewayBackendPool*.
-12. For **Add backend pool without targets**, select **Yes**. You'll add the targets later.
+12. For **Add backend pool without targets**, select **Yes**. Targets are added later.
 13. Select **Add**.
 14. Select **Next:Configuration**.
 15. Under **Routing rules**, select **Add a routing rule**.
@@ -80,9 +84,9 @@ In this example, you create a new virtual network. You can create a virtual netw
 
 ## Add backend pool
 
-The backend pool is used to route requests to the backend servers that serve the request. The backend can be composed of NICs, virtual machine scale sets, public IP addresses, internal IP addresses, fully qualified domain names (FQDN), and multi-tenant backends like Azure App Service. In this example, you use virtual machines as the target backend. You can either use existing virtual machines or create new ones. In this example, you create two virtual machines that Azure uses as backend servers for the application gateway.
+The backend pool is used to route requests to the backend servers that serve the request. The backend can be composed of NICs, virtual machine scale sets, public IP addresses, internal IP addresses, fully qualified domain names (FQDN), and multitenant backends like Azure App Service. In this example, you use virtual machines as the target backend. You can either use existing virtual machines or create new ones. In this example, you create two virtual machines that Azure uses as backend servers for the application gateway.
 
-To do this, you:
+To do this:
 
 1. Create two new virtual machines, *myVM* and *myVM2*, used as backend servers.
 2. Install IIS on the virtual machines to verify that the application gateway was created successfully.

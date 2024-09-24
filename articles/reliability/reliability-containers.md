@@ -30,7 +30,7 @@ Azure Container Instances supports *zonal* container group deployments, meaning 
 > [!IMPORTANT]
 > This feature is currently not available for Azure portal.
 
-- Zonal container group deployments are supported in most regions where ACI is available for Linux and Windows Server 2019 container groups. For details, see [Regions and resource availability](../container-instances/container-instances-region-availability.md).
+- Zonal container group deployments are supported in most regions where ACI is available for Linux and Windows Server 2019 container groups. For details, see [Regions and resource availability](/azure/container-instances/container-instances-region-availability).
 
 * If using Azure CLI, ensure version `2.30.0` or later is installed.
 * If using PowerShell, ensure version `2.1.1-preview` or later is installed.
@@ -194,7 +194,7 @@ To create a Container Instance resource with availability zone enabled, you'll n
 4. To verify the container group deployed successfully into an availability zone, view the container group details with the [az container show][az-container-show] command:
     
     ```azurecli
-    az containershow --name acilinuxcontainergroup --resource-group myResourceGroup
+    az container show --name acilinuxpublicipcontainergroup --resource-group myResourceGroup
     ```
 
 ### Zonal failover support

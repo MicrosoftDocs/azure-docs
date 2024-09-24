@@ -7,7 +7,7 @@ ms.author: sipa
 ms.date: 3/15/2023
 ms.topic: reference
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: web-sdk
 ---
 
 # Web SDK map control release notes

@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 09/26/2023
 ---
 
-# Azure Resource Notifications overview
+# Azure Resource Notifications as an Azure Event Grid source
 Azure Resource Notifications (ARN) represent the cutting-edge unified pub/sub service catering to all Azure resources. ARN taps into a diverse range of publishers, and this wealth of data is now accessible through ARN's dedicated system topics in Azure Event Grid.
 
 Here are the key advantages:

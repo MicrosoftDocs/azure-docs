@@ -26,7 +26,7 @@ You can move a Microsoft Defender for IoT "iotsecuritysolutions" resource to a d
 
 In this section, you'll prepare to move the resource for the move by finding the resource and confirming it is in a region you wish to move from.
 
-Before transitioning the resource to the new region, we recommended using [log analytics](../../azure-monitor/logs/quick-create-workspace.md) to store alerts, and raw events.
+Before transitioning the resource to the new region, we recommended using [log analytics](/azure/azure-monitor/logs/quick-create-workspace) to store alerts, and raw events.
 
 **To find the resource you want to move**:
 

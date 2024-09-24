@@ -109,6 +109,8 @@ The current IPv6 for Azure Virtual Network release has the following limitations
 
 - Azure Firewall doesn't currently support IPv6. It can operate in a dual stack virtual network using only IPv4, but the firewall subnet must be IPv4-only.
 
+- Azure Database for PostgreSQL - Flexible Server doesn't currently support IPv6. Even if the subnet for the Postgres Flexible Server doesn't have any IPv6 addresses assigned, it cannot be deployed if there are IPv6 addresses in the VNet.
+
 ## Pricing
 
 There's no charge to use Public IPv6 Addresses or Public IPv6 Prefixes. Associated resources and bandwidth are charged at the same rates as IPv4. You can find details about pricing for [public IP addresses](https://azure.microsoft.com/pricing/details/ip-addresses/), [network bandwidth](https://azure.microsoft.com/pricing/details/bandwidth/), or [Load Balancer](https://azure.microsoft.com/pricing/details/load-balancer/).

@@ -1,11 +1,11 @@
 ---
 title: Collect and query Azure Virtual Desktop connection quality data (preview) - Azure
 description: How to set up and query the connection quality data table for Azure Virtual Desktop to diagnose connection issues.
-author: Heidilohr
+author: dknappettmsft
 ms.topic: how-to
 ms.date: 01/05/2023
-ms.author: helohr
-ms.custom: engagement-fy23
+ms.author: daknappe
+ms.custom: engagement-fy23, docs_inherited
 ---
 # Collect and query connection quality data
 
@@ -19,7 +19,7 @@ ms.custom: engagement-fy23
 To start collecting connection quality data, you need to [set up a Log Analytics workspace for use with Azure Virtual Desktop](diagnostics-log-analytics.md).
 
 >[!NOTE]
->Normal storage charges for Log Analytics will apply. Learn more at [Azure Monitor Logs pricing details](../azure-monitor/logs/cost-logs.md).
+>Normal storage charges for Log Analytics will apply. Learn more at [Azure Monitor Logs pricing details](/azure/azure-monitor/logs/cost-logs).
 
 ## Configure diagnostics settings
 
@@ -45,7 +45,7 @@ To check and modify your diagnostics settings in the Azure portal:
 
 ## Sample queries for Azure Log Analytics: network data
 
-In this section, we have a list of queries that will help you review connection quality information. You can run queries in the [Log Analytics query editor](../azure-monitor/logs/log-analytics-tutorial.md#write-a-query).
+In this section, we have a list of queries that will help you review connection quality information. You can run queries in the [Log Analytics query editor](/azure/azure-monitor/logs/log-analytics-tutorial#write-a-query).
 
 >[!NOTE]
 >For each example, replace the *userupn* variable with the UPN of the user you want to look up.

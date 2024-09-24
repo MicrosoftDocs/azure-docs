@@ -4,7 +4,7 @@ description: Learn how to use C# to create MapReduce solutions with Apache Hadoo
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp, devx-track-dotnet, devx-track-azurepowershell
-ms.date: 09/14/2023
+ms.date: 09/06/2024
 ---
 
 # Use C# with MapReduce streaming on Apache Hadoop in HDInsight
@@ -80,7 +80,7 @@ namespace mapper
 }
 ```
 
-After you create the application, build it to produce the */bin/Debug/mapper.exe* file in the project directory.
+After you create the application, build it to produce the `/bin/Debug/mapper.exe` file in the project directory.
 
 ## Create the reducer
 
@@ -133,7 +133,7 @@ namespace reducer
 }
 ```
 
-After you create the application, build it to produce the */bin/Debug/reducer.exe* file in the project directory.
+After you create the application, build it to produce the `/bin/Debug/reducer.exe` file in the project directory.
 
 ## Upload to storage
 

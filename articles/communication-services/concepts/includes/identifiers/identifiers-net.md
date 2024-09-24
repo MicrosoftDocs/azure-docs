@@ -127,11 +127,11 @@ switch (communicationIdentifier)
     case MicrosoftTeamsUserIdentifier teamsUser:
         Console.WriteLine($"Teams user: {teamsUser.UserId}");
         break;
+    case MicrosoftTeamsAppIdentifier teamsApp:
+        Console.WriteLine($"Teams app: {teamsApp.AppId}");
+        break;
     case PhoneNumberIdentifier phoneNumber:
         Console.WriteLine($"Phone number: {phoneNumber.PhoneNumber}");
-        break;
-    case MicrosoftBotIdentifier bot:
-        Console.WriteLine($"Microsoft bot: {bot.BotId}");
         break;
     case UnknownIdentifier unknown:
         Console.WriteLine($"Unknown: {unknown.Id}");

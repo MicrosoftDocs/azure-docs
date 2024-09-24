@@ -136,7 +136,7 @@ You need the Azure Route Server's peer IPs and ASN to complete the configuration
 
 3. On the **Overview** page of **myRouteServer**, make note of the **ASN** and **Peer IPs**.
 
-    :::image type="content" source="./media/quickstart-configure-route-server-portal/route-server-overview.png" alt-text="Screenshot of Route Server overview page.":::
+    :::image type="content" source="./media/quickstart-create-route-server-portal/route-server-overview.png" alt-text="Screenshot of Route Server overview page.":::
 
 ## Clean up resources
 

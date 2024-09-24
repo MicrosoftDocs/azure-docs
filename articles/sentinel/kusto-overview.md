@@ -15,7 +15,7 @@ This article introduces the basics of Kusto Query Language, covering some of the
 
 ## Background - Why Kusto Query Language?
 
-Microsoft Sentinel is built on top of the Azure Monitor service and it uses Azure Monitor’s [Log Analytics](../azure-monitor/logs/log-analytics-overview.md) workspaces to store all of its data. This data includes any of the following:
+Microsoft Sentinel is built on top of the Azure Monitor service and it uses Azure Monitor’s [Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) workspaces to store all of its data. This data includes any of the following:
 - data ingested from external sources into predefined tables using Microsoft Sentinel data connectors.
 - data ingested from external sources into user-defined custom tables, using custom-created data connectors as well as some types of out-of-the-box connectors. 
 - data created by Microsoft Sentinel itself, resulting from the analyses it creates and performs - for example, alerts, incidents, and UEBA-related information.

@@ -58,7 +58,7 @@ This section describes the most common deployment architectures for a multi-tier
 
      ![Selection to move single-instance VM deployment across tiers](media/move-vm-overview/regular-deployment.png)
 
-* **VMs in each tier deployed across availability sets**: Each VM in a tier is configured in an availability set. [Availability sets](../virtual-machines/windows/tutorial-availability-sets.md) ensure that the VMs you deploy on Azure are distributed across multiple isolated hardware nodes in a cluster. This ensures that if a hardware or software failure within Azure happens, only a subset of your VMs are affected, and your overall solution remains available and operational.
+* **VMs in each tier deployed across availability sets**: Each VM in a tier is configured in an availability set. [Availability sets](/azure/virtual-machines/windows/tutorial-availability-sets) ensure that the VMs you deploy on Azure are distributed across multiple isolated hardware nodes in a cluster. This ensures that if a hardware or software failure within Azure happens, only a subset of your VMs are affected, and your overall solution remains available and operational.
 
      ![VM deployment across availability sets](media/move-vm-overview/avset.png)
 

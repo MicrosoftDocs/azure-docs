@@ -20,7 +20,7 @@ To create an alert rule, you must have:
 
 -	Access to an Azure subscription 
 -	Permission to create resource groups and resources within the subscription
--	[Log Analytics configured](../azure-monitor/logs/quick-create-workspace.md) so it has access to the AzureActivity table
+-	[Log Analytics configured](/azure/azure-monitor/logs/quick-create-workspace) so it has access to the AzureActivity table
 
 ## Estimate costs before using Azure Monitor
 
@@ -91,7 +91,7 @@ To get notified of privileged role assignments, you create an alert rule in Azur
 
     An action group defines the actions and notifications that are executed when the alert is triggered.
 
-    When you create an action group, you must specify the resource group to put the action group within. Then, select the notifications (Email/SMS message/Push/Voice action) to invoke when the alert rule triggers. You can skip the **Actions** and **Tag** tabs. For more information, see [Create and manage action groups in the Azure portal](../azure-monitor/alerts/action-groups.md).
+    When you create an action group, you must specify the resource group to put the action group within. Then, select the notifications (Email/SMS message/Push/Voice action) to invoke when the alert rule triggers. You can skip the **Actions** and **Tag** tabs. For more information, see [Create and manage action groups in the Azure portal](/azure/azure-monitor/alerts/action-groups).
 
 1. On the **Details** tab, select the resource group to save the alert rule.
 
@@ -133,5 +133,5 @@ Follow these steps to delete the role assignment alert rule and stop additional 
 
 ## Next steps
 
-- [Create, view, and manage activity log alerts by using Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
+- [Create, view, and manage activity log alerts by using Azure Monitor](/azure/azure-monitor/alerts/alerts-activity-log)
 - [View activity logs for Azure RBAC changes](change-history-report.md)

@@ -4,7 +4,7 @@ description: Learn about the scalability and performance targets for Azure stora
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 05/13/2024
+ms.date: 08/12/2024
 ms.author: kendownie
 ---
 
@@ -49,7 +49,7 @@ Storage account scale targets apply at the storage account level. There are two 
 | Management write operations | 10 per second/1200 per hour | 10 per second/1200 per hour |
 | Management list operations | 100 per 5 minutes | 100 per 5 minutes |
 
-<sup>1</sup> With a quota increase, you can create up to 500 storage accounts with standard endpoints per region. For more information, see [Increase Azure Storage account quotas](../../quotas/storage-account-quota-requests.md).
+<sup>1</sup> With a quota increase, you can create up to 500 storage accounts with standard endpoints per region. For more information, see [Increase Azure Storage account quotas](/azure/quotas/storage-account-quota-requests).
 <sup>2</sup> General-purpose version 2 storage accounts support higher capacity limits and higher limits for ingress by request. To request an increase in account limits, contact [Azure Support](https://azure.microsoft.com/support/faq/).
 
 ### Azure file share scale targets
@@ -62,8 +62,8 @@ Azure file share scale targets apply at the file share level.
 | Provisioned size increase/decrease unit | N/A | 1 GiB |
 | Maximum size of a file share | 100 TiB | 100 TiB |
 | Maximum number of files in a file share | No limit | No limit |
-| Maximum request rate (Max IOPS) | <ul><li>20,000</li><li>1,000 or 100 requests per 100 ms, default</li></ul> | <ul><li>Baseline IOPS: 3000 + 1 IOPS per GiB, up to 102,400</li><li>IOPS bursting: Max (10,000, 3x IOPS per GiB), up to 102,400</li></ul> |
-| Throughput (ingress + egress) for a single file share (MiB/sec) | <ul><li>Up to storage account limits</li><li>Up to 60 MiB/sec, default</li></ul> | 100 + CEILING(0.04 * ProvisionedStorageGiB) + CEILING(0.06 * ProvisionedStorageGiB) |
+| Maximum request rate (Max IOPS) | 20,000 | <ul><li>Baseline IOPS: 3000 + 1 IOPS per GiB, up to 102,400</li><li>IOPS bursting: Max (10,000, 3x IOPS per GiB), up to 102,400</li></ul> |
+| Throughput (ingress + egress) for a single file share (MiB/sec) | Up to storage account limits | 100 + CEILING(0.04 * ProvisionedStorageGiB) + CEILING(0.06 * ProvisionedStorageGiB) |
 | Maximum number of share snapshots | 200 snapshots | 200 snapshots |
 | Maximum object name length<sup>3</sup> (full pathname including all directories, file names, and backslash characters) | 2,048 characters | 2,048 characters |
 | Maximum length of individual pathname component<sup>2</sup> (in the path \A\B\C\D, each letter represents a directory or file that is an individual component) | 255 characters | 255 characters |

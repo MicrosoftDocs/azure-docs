@@ -1,14 +1,17 @@
 ---
 title: Add external Hive metastore database
 description: Connecting to the HIVE metastore for Trino clusters in HDInsight on AKS
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to 
-ms.date: 02/21/2024
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Use external Hive metastore database
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 Hive metastore is used as a central repository for storing metadata about the data. This article describes how you can add a Hive metastore database to your Trino cluster with HDInsight on AKS. There are two ways:
 

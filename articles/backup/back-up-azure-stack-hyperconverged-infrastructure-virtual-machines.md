@@ -1,8 +1,8 @@
 ---
 title: Back up Azure Stack HCI virtual machines with MABS
 description: This article contains the procedures to back up and recover virtual machines using Microsoft Azure Backup Server (MABS).
-ms.topic: conceptual
-ms.date: 05/06/2024
+ms.topic: how-to
+ms.date: 09/11/2024
 ms.service: azure-backup
 ms.custom: engagement-fy24
 author: AbhishekMallick-MS
@@ -29,7 +29,7 @@ MABS can back up Azure Stack HCI virtual machines in the following scenarios:
 
 
 
-- **Arc VMs**: [Arc VMs](../azure-arc/servers/overview.md) add fabric management capabilities in addition to [Arc-enabled servers](../azure-arc/servers/overview.md). These allow *IT admins* to create, modify, delete, and assign permissions and roles to *app owners*, thereby enabling *self-service VM management*. Recovery of Arc VMs is supported in a limited capacity in Azure Stack HCI, version 23H2.
+- **Arc VMs**: [Arc VMs](/azure/azure-arc/servers/overview) add fabric management capabilities in addition to [Arc-enabled servers](/azure/azure-arc/servers/overview). These allow *IT admins* to create, modify, delete, and assign permissions and roles to *app owners*, thereby enabling *self-service VM management*. Recovery of Arc VMs is supported in a limited capacity in Azure Stack HCI, version 23H2.
 
    The following table lists the various levels of backup and restore capabilities for Azure Arc VMs:
 

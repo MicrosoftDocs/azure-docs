@@ -84,5 +84,5 @@ If you're on the Basic plan and constrained by one or more of these limits, you 
 
 ## Next steps
 
-* [Overview of autoscale in Microsoft Azure](../../azure-monitor/autoscale/autoscale-overview.md)
+* [Overview of autoscale in Microsoft Azure](/azure/azure-monitor/autoscale/autoscale-overview)
 * [Azure CLI Monitoring autoscale](/cli/azure/monitor/autoscale)

@@ -1,8 +1,8 @@
 ---
 title: Azure Event Grid SDKs
-description: Describes the SDKs for Azure Event Grid. These SDKs provide management, publishing and consumption.
+description: Describes the SDKs for Azure Event Grid. These SDKs provide management, publishing, and consumption of events in Azure Event Grid.
 ms.topic: reference
-ms.date: 07/06/2023
+ms.date: 08/22/2024
 ms.devlang: csharp
 # ms.devlang: csharp, golang, java, javascript, python
 ---
@@ -11,6 +11,9 @@ ms.devlang: csharp
 
 Event Grid provides SDKs that enable you to programmatically manage your resources and post events.
 
+> [!NOTE]
+> **Regarding TLS 1.0 / 1.1 deprecation**: For system topics, you need to take action only for the event delivery to webhook destinations. If the destination supports TLS 1.2, the event delivery happens using 1.2. If the destination doesn't support TLS 1.2, the event delivery automatically falls back to 1.0 and 1.1. Post Oct 31st 2024, event delivery using 1.0 and 1.1 won't be supported. Ensure that your webhook destinations support TLS 1.2. One easy way to check for TLS 1.2 support is to use [Qualys SSL Labs](https://www.ssllabs.com/ssltest/). If the report shows that TLS 1.2 is supported, no action is required. For more information, see the following blog post: [Retirement: Upcoming TLS changes for Azure Event Grid](https://azure.microsoft.com/updates/v2/TLS-changes-for-Azure-Event-Grid)
+
 ## Management SDKs
 
 The management SDKs enable you to create, update, and delete Event Grid topics and subscriptions. Currently, the following SDKs are available:
@@ -18,10 +21,10 @@ The management SDKs enable you to create, update, and delete Event Grid topics a
 | SDK | Package | Reference documentation |  Samples | 
 | -------- | ------- | ----------------------- | ---- | 
 | REST API | | [REST reference](/rest/api/eventgrid/controlplane-preview/ca-certificates) | |
-| .NET | [Azure.ResourceManager.EventGrid](https://www.nuget.org/packages/Azure.ResourceManager.EventGrid/). The beta package has the latest `Namespaces` API. | .NET reference: [Preview](/dotnet/api/overview/azure/resourcemanager.eventgrid-readme?view=azure-dotnet-preview&preserve-view=true), [GA](/dotnet/api/overview/azure/event-grid) | [.NET samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventgrid/Azure.ResourceManager.EventGrid/samples) |
-| Java | [azure-resourcemanager-eventgrid](https://central.sonatype.com/artifact/com.azure.resourcemanager/azure-resourcemanager-eventgrid/). The beta package has the latest `Namespaces` API. | Java reference: [Preview](/java/api/overview/azure/resourcemanager-eventgrid-readme?view=azure-java-preview&preserve-view=true), [GA](/java/api/overview/azure/event-grid) | [Java samples](https://github.com/azure/azure-sdk-for-java/tree/main/sdk/eventgrid/azure-resourcemanager-eventgrid/src/samples) |
-| JavaScript | [@azure/arm-eventgrid](https://www.npmjs.com/package/@azure/arm-eventgrid). The beta package has the latest `Namespaces` API. | JavaScript reference: [Preview](/javascript/api/overview/azure/arm-eventgrid-readme?view=azure-node-preview&preserve-view=true), [GA](/javascript/api/overview/azure/event-grid) | [JavaScript and TypeScript samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventgrid/arm-eventgrid) |
-| Python | [azure-mgmt-eventgrid](https://pypi.org/project/azure-mgmt-eventgrid/). The beta package has the latest `Namespaces` API. | Python reference: [Preview](/python/api/azure-mgmt-eventgrid/?view=azure-python-preview&preserve-view=true), [GA](/python/api/overview/azure/event-grid) | [Python samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/eventgrid/azure-mgmt-eventgrid/generated_samples)
+| .NET | [`Azure.ResourceManager.EventGrid`](https://www.nuget.org/packages/Azure.ResourceManager.EventGrid/). The package has the latest `Namespaces` API. | .NET reference: [Preview](/dotnet/api/overview/azure/resourcemanager.eventgrid-readme?view=azure-dotnet-preview&preserve-view=true), [GA](/dotnet/api/overview/azure/event-grid) | [.NET samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventgrid/Azure.ResourceManager.EventGrid/samples) |
+| Java | [`azure-resourcemanager-eventgrid`](https://central.sonatype.com/artifact/com.azure.resourcemanager/azure-resourcemanager-eventgrid/). The package has the latest `Namespaces` API. | Java reference: [Preview](/java/api/overview/azure/resourcemanager-eventgrid-readme?view=azure-java-preview&preserve-view=true), [GA](/java/api/overview/azure/event-grid) | [Java samples](https://github.com/azure/azure-sdk-for-java/tree/main/sdk/eventgrid/azure-resourcemanager-eventgrid/src/samples) |
+| JavaScript | [`@azure/arm-eventgrid`](https://www.npmjs.com/package/@azure/arm-eventgrid). The package has the latest `Namespaces` API. | JavaScript reference: [Preview](/javascript/api/overview/azure/arm-eventgrid-readme?view=azure-node-preview&preserve-view=true), [GA](/javascript/api/overview/azure/event-grid) | [JavaScript and TypeScript samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventgrid/arm-eventgrid) |
+| Python | [`azure-mgmt-eventgrid`](https://pypi.org/project/azure-mgmt-eventgrid/). The package has the latest `Namespaces` API. | Python reference: [Preview](/python/api/azure-mgmt-eventgrid/?view=azure-python-preview&preserve-view=true), [GA](/python/api/overview/azure/event-grid) | [Python samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/eventgrid/azure-mgmt-eventgrid/generated_samples)
 | Go | [Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go) | | [Go samples](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/main/sdk/resourcemanager/eventgrid) |
 
 
@@ -35,10 +38,10 @@ The data plane SDKs enable you to post events to topics by taking care of authen
 | Programming language | Package | Reference documentation |  Samples | 
 | -------------------- | ---------- | ------------------- | -------- |
 | REST API | | [REST reference](/rest/api/eventgrid/dataplane-preview/publish-cloud-events) |
-| .NET | [Azure.Messaging.EventGrid](https://www.nuget.org/packages/Azure.Messaging.EventGrid/). The beta package has the latest `Namespaces` API. | [.NET reference](/dotnet/api/overview/azure/messaging.eventgrid-readme?view=azure-dotnet-preview&preserve-view=true) | [.NET samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventgrid/Azure.Messaging.EventGrid/samples) |
-|Java | [azure-messaging-eventgrid](https://central.sonatype.com/artifact/com.azure/azure-messaging-eventgrid/). The beta package has the latest `Namespaces` API. |  [Java reference](/java/api/overview/azure/messaging-eventgrid-readme?view=azure-java-preview&preserve-view=true) | [Java samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/eventgrid/azure-messaging-eventgrid/src/samples/java) |
-| JavaScript | [@azure/eventgrid](https://www.npmjs.com/package/@azure/eventgrid). The beta package has the latest `Namespaces` API. | [JavaScript reference](/javascript/api/overview/azure/eventgrid-readme?view=azure-node-preview&preserve-view=true) | [JavaScript and TypeScript samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventgrid/eventgrid) |
-| Python | [azure-eventgrid](https://pypi.org/project/azure-eventgrid/). The beta package has the latest `Namespaces` API. | [Python reference](/python/api/overview/azure/eventgrid-readme?view=azure-python-preview&preserve-view=true) | [Python samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/eventgrid/azure-eventgrid/samples) |
+| .NET | [`Azure.Messaging.EventGrid`](https://www.nuget.org/packages/Azure.Messaging.EventGrid/). The package has the latest `Namespaces` API. | [.NET reference](/dotnet/api/overview/azure/messaging.eventgrid-readme?view=azure-dotnet-preview&preserve-view=true) | [.NET samples](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/eventgrid/Azure.Messaging.EventGrid/samples) |
+|Java | [`azure-messaging-eventgrid`](https://central.sonatype.com/artifact/com.azure/azure-messaging-eventgrid/). The package has the latest `Namespaces` API. |  [Java reference](/java/api/overview/azure/messaging-eventgrid-readme?view=azure-java-preview&preserve-view=true) | [Java samples](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/eventgrid/azure-messaging-eventgrid/src/samples/java) |
+| JavaScript | [`@azure/eventgrid`](https://www.npmjs.com/package/@azure/eventgrid). The package has the latest `Namespaces` API. | [JavaScript reference](/javascript/api/overview/azure/eventgrid-readme?view=azure-node-preview&preserve-view=true) | [JavaScript and TypeScript samples](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/eventgrid/eventgrid) |
+| Python | [`azure-eventgrid`](https://pypi.org/project/azure-eventgrid/). The package has the latest `Namespaces` API. | [Python reference](/python/api/overview/azure/eventgrid-readme?view=azure-python-preview&preserve-view=true) | [Python samples](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/eventgrid/azure-eventgrid/samples) |
 | Go | [Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go) | | |
 
 

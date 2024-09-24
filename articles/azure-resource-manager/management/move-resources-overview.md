@@ -25,7 +25,7 @@ If you actually want to upgrade your Azure subscription (such as switching from 
 - To upgrade a free trial, see [Upgrade your Free Trial or Microsoft Imagine Azure subscription to pay-as-you-go](../../cost-management-billing/manage/upgrade-azure-subscription.md).
 - To change a pay-as-you-go account, see [Change your Azure pay-as-you-go subscription to a different offer](../../cost-management-billing/manage/switch-azure-offer.md).
 
-If you can't convert the subscription, [create an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md). Select **Subscription Management** for the issue type.
+If you can't convert the subscription, [create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request). Select **Subscription Management** for the issue type.
 
 ## Move resources across regions
 

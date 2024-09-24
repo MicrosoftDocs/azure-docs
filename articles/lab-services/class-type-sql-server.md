@@ -4,8 +4,8 @@ titleSuffix: Azure Lab Services
 description: Learn how to set up a lab in Azure Lab Services to manage and develop with Azure SQL Database.
 services: lab-services
 ms.service: azure-lab-services
-author: ntrogh
-ms.author: nicktrog
+author: RoseHJM
+ms.author: rosemalcolm
 ms.topic: how-to
 ms.date: 03/03/2023
 ---

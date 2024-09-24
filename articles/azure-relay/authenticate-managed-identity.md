@@ -28,11 +28,11 @@ The following section uses a simple application that runs under a managed identi
 ## Sample app on VM accessing Relay entities
 
 1. Download the [Hybrid Connections sample console application](https://github.com/Azure/azure-relay/tree/master/samples/hybrid-connections/dotnet/rolebasedaccesscontrol) to your computer from GitHub.
-1. [Create an Azure VM](../virtual-machines/windows/quick-create-portal.md). For this sample, use a Windows 10 image. 
+1. [Create an Azure VM](/azure/virtual-machines/windows/quick-create-portal). For this sample, use a Windows 10 image. 
 1. Enable system-assigned identity or a user-assigned identity for the Azure VM. For instructions, see [Enable identity for a VM](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md). 
 1. Assign one of the Relay roles to the managed service identity at the desired scope (Relay entity, Relay namespace, resource group, subscription). For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 1. Build the console app locally on your local computer as per instructions from the [README document](https://github.com/Azure/azure-relay/tree/master/samples/hybrid-connections/dotnet/rolebasedaccesscontrol#rolebasedaccesscontrol-hybrid-connection-sample). 
-1. Copy the executable under \<your local path\>\RoleBasedAccessControl\bin\Debug folder to the VM. You can use RDP to connect to your Azure VM. For more information, see [How to connect and sign on to an Azure virtual machine running Windows](../virtual-machines/windows/connect-logon.md).
+1. Copy the executable under \<your local path\>\RoleBasedAccessControl\bin\Debug folder to the VM. You can use RDP to connect to your Azure VM. For more information, see [How to connect and sign on to an Azure virtual machine running Windows](/azure/virtual-machines/windows/connect-logon).
 1. Run RoleBasedAccessControl.exe on the Azure VM as per instructions from the [README document](https://github.com/Azure/azure-relay/tree/master/samples/hybrid-connections/dotnet/rolebasedaccesscontrol#rolebasedaccesscontrol-hybrid-connection-sample). 
 
     > [!NOTE]

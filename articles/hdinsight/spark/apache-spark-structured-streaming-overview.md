@@ -4,7 +4,7 @@ description: How to use Spark Structured Streaming applications on HDInsight Spa
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 09/14/2023
+ms.date: 09/05/2024
 ---
 
 # Overview of Apache Spark Structured Streaming
@@ -126,7 +126,7 @@ This query yields results similar to the following:
 |{u'start': u'2016-07-26T07:00:00.000Z', u'end'...	|95 |	96.980971 |	99 |
 |{u'start': u'2016-07-26T08:00:00.000Z', u'end'...	|95 |	96.965997 |	99 |  
 
-For details on the Spark Structured Stream API, along with the input data sources, operations, and output sinks it supports, see [Apache Spark Structured Streaming Programming Guide](https://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html).
+For details on the Spark Structured Stream API, along with the input data sources, operations, and output sinks it supports, see [Apache Spark Structured Streaming Programming Guide](https://spark.apache.org/docs/latest/ss-migration-guide.html).
 
 ## Checkpointing and write-ahead logs
 
@@ -143,5 +143,5 @@ The status of all applications can also be checked with a GET request against a 
 ## Next steps
 
 * [Create an Apache Spark cluster in HDInsight](../hdinsight-hadoop-create-linux-clusters-portal.md)
-* [Apache Spark Structured Streaming Programming Guide](https://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html)
+* [Apache Spark Structured Streaming Programming Guide](https://spark.apache.org/docs/latest/ss-migration-guide.html)
 * [Launch Apache Spark jobs remotely with Apache LIVY](apache-spark-livy-rest-interface.md)

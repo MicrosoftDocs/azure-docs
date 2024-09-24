@@ -2,7 +2,7 @@
 title: Troubleshoot extension-based Hybrid Runbook Worker issues in Azure Automation 
 description: This article tells how to troubleshoot and resolve issues that arise with Azure Automation extension-based Hybrid Runbook Workers.
 services: automation
-ms.date: 01/03/2024
+ms.date: 08/26/2024
 ms.topic: troubleshooting 
 ms.custom:
 ---
@@ -73,34 +73,6 @@ To help troubleshoot issues with extension-based Hybrid Runbook Workers:
     /home/hweautomation
     ```
 
-
-### Unable to update Az modules while using the Hybrid Worker
-
-#### Issue
-
-The Hybrid Runbook Worker jobs failed as it was unable to import Az modules.
-
-#### Resolution
-
-As a workaround, you can follow these steps:
-
-1. Navigate to the folder:
-   > [!TIP] 
-   > Replace `*` in the below path with the specific version that is installed if you know it.
-   ```
-   C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\*\HybridAgent
-   ```
-
-1. Edit the file with the name `Orchestrator.Sandbox.exe.config`
-
-1. Add the following lines inside the `<assemblyBinding>` tag:
-```xml
-<dependentAssembly>
-  <assemblyIdentity name="Newtonsoft.Json" publicKeyToken="30ad4fe6b2a6aeed" culture="neutral" />
-  <bindingRedirect oldVersion="0.0.0.0-13.0.0.0" newVersion="13.0.0.0" />
-</dependentAssembly>
-```
-
 ### Scenario: Runbooks go into a suspended state on a Hybrid Runbook Worker when using a custom account on a server with User Account Control (UAC) enabled
 
 #### Issue
@@ -135,7 +107,7 @@ This error can occur due to the following reasons:
 
 #### Resolution
 - Ensure that the machine exists, and Hybrid Runbook Worker extension is installed on it. The Hybrid Worker should be healthy and should give a heartbeat. Troubleshoot any network issues by checking the Microsoft-SMA event logs on the Workers in the Hybrid Runbook Worker Group that tried to run this job. 
-- You can also monitor [HybridWorkerPing](../../azure-monitor/essentials/metrics-supported.md#microsoftautomationautomationaccounts) metric that provides the number of pings from a Hybrid Worker and can help to check ping-related issues. 
+- You can also monitor [HybridWorkerPing](/azure/azure-monitor/essentials/metrics-supported#microsoftautomationautomationaccounts) metric that provides the number of pings from a Hybrid Worker and can help to check ping-related issues. 
 
 ### Scenario: Job was suspended as it exceeded the job limit for a Hybrid Worker
 
@@ -152,7 +124,7 @@ Jobs might get suspended due to any of the following reasons:
 #### Resolution
 - If the job limit for a Hybrid Worker exceeds four jobs per 30 seconds, you can add more Hybrid Workers to the Hybrid Worker group for high availability and load balancing. You can also schedule jobs so they do not exceed the limit of four jobs per 30 seconds. The processing time of the jobs queue depends on the Hybrid worker hardware profile and load. Ensure that the Hybrid Worker is healthy and gives a heartbeat. 
 - Troubleshoot any network issues by checking the Microsoft-SMA event logs on the Workers in the Hybrid Runbook Worker Group that tried to run this job. 
-- You can also monitor the [HybridWorkerPing](../../azure-monitor/essentials/metrics-supported.md#microsoftautomationautomationaccounts) metric that provides the number of pings from a Hybrid Worker and can help to check ping-related issues. 
+- You can also monitor the [HybridWorkerPing](/azure/azure-monitor/essentials/metrics-supported#microsoftautomationautomationaccounts) metric that provides the number of pings from a Hybrid Worker and can help to check ping-related issues. 
 
 ### Scenario: Hybrid Worker deployment fails with Private Link error
 
@@ -187,8 +159,8 @@ You are deploying an extension-based Hybrid Runbook Worker on a VM and it fails 
 You are deploying the extension-based Hybrid Worker on a non-Azure VM that does not have Arc connected machine agent installed on it. 
 
 ### Resolution
-Non-Azure machines must have the Arc connected machine agent installed on it, before deploying it as an extension-based Hybrid Runbook worker. To install the `AzureConnectedMachineAgent`, see [connect hybrid machines to Azure from the Azure portal](../../azure-arc/servers/onboard-portal.md)
-for Arc-enabled servers or [Manage VMware virtual machines Azure Arc](../../azure-arc/vmware-vsphere/manage-vmware-vms-in-azure.md#enable-guest-management) to enable guest management for Arc-enabled VMware VM. 
+Non-Azure machines must have the Arc connected machine agent installed on it, before deploying it as an extension-based Hybrid Runbook worker. To install the `AzureConnectedMachineAgent`, see [connect hybrid machines to Azure from the Azure portal](/azure/azure-arc/servers/onboard-portal)
+for Arc-enabled servers or [Manage VMware virtual machines Azure Arc](/azure/azure-arc/vmware-vsphere/manage-vmware-vms-in-azure#enable-guest-management) to enable guest management for Arc-enabled VMware VM. 
  
 
 ### Scenario: Hybrid Worker deployment fails due to System assigned identity not enabled
@@ -409,38 +381,6 @@ This error occurs when you attempt to use a Run As account in a runbook that run
 #### Resolution
 
 If your Hybrid Runbook Worker is an Azure VM, you can use [runbook authentication with managed identities](../automation-hrw-run-runbooks.md#runbook-auth-managed-identities) instead. This scenario simplifies authentication by allowing you to authenticate to Azure resources using the managed identity of the Azure VM instead of the Run As account. When the Hybrid Runbook Worker is an on-premises machine, you need to install the Run As account certificate on the machine. To learn how to install the certificate, see the steps to run the PowerShell runbook **Export-RunAsCertificateToHybridWorker** in [Run runbooks on a Hybrid Runbook Worker](../automation-hrw-run-runbooks.md).
-
-
-### Scenario: Set-AzStorageBlobContent fails on a Hybrid Runbook Worker 
-
-#### Issue
-
-Runbook fails when it tries to execute `Set-AzStorageBlobContent`, and you receive the following error message:
-
-`Set-AzStorageBlobContent : Failed to open file xxxxxxxxxxxxxxxx: Illegal characters in path`
-
-#### Cause
-
- This error is caused by the long file name behavior of calls to `[System.IO.Path]::GetFullPath()`, which adds UNC paths.
-
-#### Resolution
-
-As a workaround, you can create a configuration file named `OrchestratorSandbox.exe.config` with the following content:
-
-```azurecli
-<configuration>
-  <runtime>
-    <AppContextSwitchOverrides value="Switch.System.IO.UseLegacyPathHandling=false" />
-  </runtime>
-</configuration>
-```
-
-Place this file in the same folder as the executable file `OrchestratorSandbox.exe`. For example:
-> [!TIP] 
-> Replace `*` in the below path with the specific version that is installed if you know it.
-```
-%ProgramFiles%\Microsoft Monitoring Agent\Agent\AzureAutomation\*\HybridAgent
-```
 
 
 ### Scenario: Microsoft Azure VMs automatically dropped from a hybrid worker group

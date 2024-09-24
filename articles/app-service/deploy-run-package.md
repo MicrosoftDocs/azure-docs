@@ -10,6 +10,9 @@ ms.author: cephalin
 
 # Run your app in Azure App Service directly from a ZIP package
 
+> [!NOTE]
+> Run from package is not supported for Python apps. When deploying a ZIP file of your Python code, you need to set a flag to enable Azure build automation. The build automation will create the Python virtual environment for your app and install any necessary requirements and package needed. See [build automation](quickstart-python.md?tabs=flask%2Cmac-linux%2Cazure-cli%2Czip-deploy%2Cdeploy-instructions-azportal%2Cterminal-bash%2Cdeploy-instructions-zip-azcli#enable-build-automation) for more details.
+
 In [Azure App Service](overview.md), you can run your apps directly from a deployment ZIP package file. This article shows how to enable this functionality in your app.
 
 All other deployment methods in App Service have something in common: your files are deployed to *D:\home\site\wwwroot* in your app (or */home/site/wwwroot* for Linux apps). Since the same directory is used by your app at runtime, it's possible for deployment to fail because of file lock conflicts, and for the app to behave unpredictably because some of the files are not yet updated.
@@ -51,7 +54,10 @@ The command also restarts the app. Because `WEBSITE_RUN_FROM_PACKAGE` is set, Ap
 
 ## Run from external URL instead
 
-You can also run a package from an external URL, such as Azure Blob Storage. You can use the [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to upload package files to your Blob storage account. You should use a private storage container with a [Shared Access Signature (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) or [use a managed identity](#access-a-package-in-azure-blob-storage-using-a-managed-identity) to enable the App Service runtime to access the package securely. 
+You can also run a package from an external URL, such as Azure Blob Storage. You can use the [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to upload package files to your Blob storage account. You should use a private storage container with a [Shared Access Signature (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) or [use a managed identity](#access-a-package-in-azure-blob-storage-using-a-managed-identity) to enable the App Service runtime to access the package securely.
+
+> [!NOTE]
+> Currently, an existing App Service resource that runs a local package cannot be migrated to run from a remote package. You will have to create a new App Service resource configured to run from an external URL.
 
 Once you upload your file to Blob storage and have an SAS URL for the file, set the `WEBSITE_RUN_FROM_PACKAGE` app setting to the URL. The following example does it by using Azure CLI:
 

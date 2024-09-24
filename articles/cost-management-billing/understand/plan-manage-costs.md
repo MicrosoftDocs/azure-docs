@@ -104,7 +104,7 @@ For more cost-cutting features for your development and test environments, check
 
 ### Turn on and review Azure Advisor recommendations
 
-[Azure Advisor](../../advisor/advisor-overview.md) helps you reduce costs by identifying resources with low usage. Search for **Advisor** in the Azure portal:
+[Azure Advisor](/azure/advisor/advisor-overview) helps you reduce costs by identifying resources with low usage. Search for **Advisor** in the Azure portal:
 
 :::image type="content" border="true" source="./media/plan-manage-costs/advisor-button.png" alt-text="Screenshot of Azure Advisor button in the Azure portal.":::
 

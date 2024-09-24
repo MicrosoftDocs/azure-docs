@@ -484,5 +484,5 @@ The preceding output indicates that out of the three tags, 2 VMs are tagged as `
 
 ## Next steps
 
-- Learn how to [How to tag a virtual machine in Azure using az cmdlets in PowerShell](../virtual-machines/tag-powershell.md).
+- Learn how to [How to tag a virtual machine in Azure using az cmdlets in PowerShell](/azure/virtual-machines/tag-powershell).
 - Learn how to [Manage tags via AzureRM cmdlets in PowerShell](/powershell/module/azurerm.tags/?view=azurermps-6.13.0&preserve-view=true).

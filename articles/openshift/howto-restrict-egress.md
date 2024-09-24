@@ -76,4 +76,4 @@ For additional information on remote health monitoring and telemetry, see the [R
 
 ### Azure Monitor container insights
 
-ARO clusters can be monitored using the Azure Monitor container insights extension. Review the pre-requisites and instructions for [enabling the extension](../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md).
+ARO clusters can be monitored using the Azure Monitor container insights extension. Review the pre-requisites and instructions for [enabling the extension](/azure/azure-monitor/containers/container-insights-enable-arc-enabled-clusters).

@@ -102,6 +102,7 @@ The following list presents the set of features that are currently available in 
 |      | Noise suppression          | ✔️   | ✔️       | ✔️              | ✔️                 |
 |      | Automatic gain control (AGC)        | ❌   | ✔️       | ✔️              | ✔️                 |
 | Notifications <sup>4</sup>    | [Push notifications](../../how-tos/calling-sdk/push-notifications.md)          | ✔️  | ✔️       | ✔️              | ✔️                 |
+| Custom context    | Add [User-to-User (UUI)](../../how-tos/calling-sdk/call-context.md) or custom headers to a call                                                                    | ✔️   | ❌       | ❌              | ❌                 |
 
 <sup>1</sup> The capability to Mute Others is currently in public preview.
 
@@ -151,7 +152,8 @@ For example, this iframe allows both camera and microphone access:
 - Support for Android API Level 21 or Higher
 - Support for Java 7 or higher
 - Support for Android Studio 2.0
-- **Android Auto** and **IoT devices running Android** are currently not supported
+
+We highly recommend identifying and validating your scenario by visiting the supported [Android platforms](../sdk-options.md?#android-platform-support)
 
 ## iOS Calling SDK support
 

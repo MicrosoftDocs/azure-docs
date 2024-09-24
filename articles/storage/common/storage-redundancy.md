@@ -43,7 +43,7 @@ Data in an Azure Storage account is always replicated three times in the primary
 - **Zone-redundant storage (ZRS)** copies your data synchronously across three Azure availability zones in the primary region. For applications requiring high availability, Microsoft recommends using ZRS in the primary region, and also replicating to a secondary region.
 
 > [!NOTE]  
-> Microsoft recommends using ZRS in the primary region for Azure Data Lake Storage Gen2 workloads.
+> Microsoft recommends using ZRS in the primary region for Azure Data Lake Storage workloads.
 
 ### Locally redundant storage
 
@@ -110,9 +110,9 @@ For a list of regions that support zone-redundant storage (ZRS) for premium file
 
 #### Managed disks
 
-ZRS is supported for managed disks with the following [limitations](../../virtual-machines/disks-redundancy.md#limitations).
+ZRS is supported for managed disks with the following [limitations](/azure/virtual-machines/disks-redundancy#limitations).
 
-For a list of regions that support zone-redundant storage (ZRS) for managed disks, see [regional availability](../../virtual-machines/disks-redundancy.md#regional-availability).
+For a list of regions that support zone-redundant storage (ZRS) for managed disks, see [regional availability](/azure/virtual-machines/disks-redundancy#regional-availability).
 
 ## Redundancy in a secondary region
 
@@ -230,7 +230,7 @@ The following table shows the redundancy options supported by each Azure Storage
 
 <sup>1</sup> Standard file shares are supported on LRS and ZRS. Standard file shares are supported on GRS and GZRS as long as they're less than or equal to 5 TiB in size.<br/>
 <sup>2</sup> Premium file shares are supported on LRS and ZRS.<br/>
-<sup>3</sup> ZRS managed disks have certain limitations. See the [Limitations](../../virtual-machines/disks-redundancy.md#limitations) section of the redundancy options for managed disks article for details.<br/>
+<sup>3</sup> ZRS managed disks have certain limitations. See the [Limitations](/azure/virtual-machines/disks-redundancy#limitations) section of the redundancy options for managed disks article for details.<br/>
 
 ### Supported storage account types
 

@@ -6,6 +6,10 @@ ms.author: bagol
 ms.topic: how-to
 ms.date: 03/21/2024
 
+
+
+#Customer intent: As a security administrator, I want to understand the prerequisites for deploying a Microsoft Sentinel solution for SAP applications so that I can ensure a smooth and compliant deployment process.
+
 ---
 
 # Prerequisites for deploying Microsoft Sentinel solution for SAP® applications

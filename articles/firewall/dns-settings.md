@@ -89,7 +89,10 @@ For example, to use FQDNs in network rule, DNS proxy should be enabled. But if a
 DNS proxy configuration requires three steps:
 1. Enable the DNS proxy in Azure Firewall DNS settings.
 2. Optionally, configure your custom DNS server or use the provided default.
-3. Configure the Azure Firewall private IP address as a custom DNS address in your virtual network DNS server settings. This setting ensures DNS traffic is directed to Azure Firewall.
+3. Configure the Azure Firewall private IP address as a custom DNS address in your virtual network DNS server settings to direct DNS traffic to the Azure Firewall.
+   
+> [!NOTE]
+>  If you choose to use a custom DNS server, select any IP address within the virtual network, excluding those in the Azure Firewall subnet.
 
 #### [Portal](#tab/browser)
 

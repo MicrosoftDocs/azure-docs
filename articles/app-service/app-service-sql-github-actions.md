@@ -96,7 +96,7 @@ To run the create Azure resources workflow:
 
 ## Build, push, and deploy your image
 
-The build, push, and deploy workflow builds a container with the latest app changes, pushes the container to [Azure Container Registry](../container-registry/index.yml) and, updates the web application staging slot to point to the latest container pushed. The workflow containers a build and deploy job:
+The build, push, and deploy workflow builds a container with the latest app changes, pushes the container to [Azure Container Registry](/azure/container-registry/) and, updates the web application staging slot to point to the latest container pushed. The workflow containers a build and deploy job:
 
 - The build job checks out source code with the [Checkout action](https://github.com/marketplace/actions/checkout). The job then uses the [Docker login action](https://github.com/marketplace/actions/docker-login) and a custom script to authenticate with Azure Container Registry, build a container image, and deploy it to Azure Container Registry.
 - The deployment job logs into Azure with the [Azure Login action](https://github.com/marketplace/actions/azure-login) and gathers environment and Azure resource information. The job then updates Web App Settings with the [Azure App Service Settings action](https://github.com/marketplace/actions/azure-app-service-settings) and deploys to an App Service staging slot with the [Azure Web Deploy action](https://github.com/marketplace/actions/azure-webapp). Last, the job runs a custom script to update the SQL database and swaps staging slot to production.

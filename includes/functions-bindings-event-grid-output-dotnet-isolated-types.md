@@ -20,7 +20,7 @@ When you want the function to write multiple events, the Event Grid output bindi
 | --- | --- |
 | `T[]` where `T` is one of the single event types | An array containing multiple events. Each entry represents one event. |
 
-For other output scenarios, create and use types from [Azure.Messaging.EventGrid] directly.
+For other output scenarios, create and use an [EventGridPublisherClient] with other types from [Azure.Messaging.EventGrid] directly. See [Register Azure clients](../articles/azure-functions/dotnet-isolated-process-guide.md#register-azure-clients) for an example of using dependency injection to create a client type from the Azure SDK.
 
 [Azure.Messaging.EventGrid]: /dotnet/api/azure.messaging.eventgrid
-
+[EventGridPublisherClient]: /dotnet/api/azure.messaging.eventgrid.eventgridpublisherclient

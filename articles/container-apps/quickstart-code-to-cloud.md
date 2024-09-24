@@ -8,7 +8,7 @@ ms.custom:
   - devx-track-azurecli
   - ignite-2023
 ms.topic: quickstart
-ms.date: 01/27/2024
+ms.date: 09/09/2024
 ms.author: cshoe
 zone_pivot_groups: container-apps-code-to-cloud-segmemts
 ---
@@ -81,7 +81,7 @@ Extract the download and change into the *containerapps-albumapi-csharp-main/src
 
 [Download the source code](https://codeload.github.com/azure-samples/containerapps-albumapi-java/zip/refs/heads/main) to your machine.
 
-Extract the download and change into the *containerapps-albumapi-java-main/src* folder.
+Extract the download and change into the *containerapps-albumapi-java-main* folder.
 
 
 # [JavaScript](#tab/javascript)

@@ -164,9 +164,6 @@ The optional `failureThreshold` setting defines the number of attempts Container
 
 If ingress is enabled, the following default probes are automatically added to the main app container if none is defined for each type.
 
-> [!NOTE]
-> Default probes are currently not applied on workload profile environments when using the Consumption plan. This behavior may change in the future.
-
 | Probe type | Default values |
 | -- | -- |
 | Startup | Protocol: TCP<br>Port: ingress target port<br>Timeout: 3 seconds<br>Period: 1 second<br>Initial delay: 1 second<br>Success threshold: 1<br>Failure threshold: 240 |

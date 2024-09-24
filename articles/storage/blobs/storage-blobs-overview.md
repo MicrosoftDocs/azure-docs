@@ -1,7 +1,7 @@
 ---
 title: About Blob (object) storage
 titleSuffix: Azure Storage
-description: Azure Blob storage stores massive amounts of unstructured object data, such as text or binary data. Blob storage also supports Azure Data Lake Storage Gen2 for big data analytics.  
+description: Azure Blob storage stores massive amounts of unstructured object data, such as text or binary data. Blob storage also supports Azure Data Lake Storage for big data analytics.  
 services: storage
 author: akashdubey-ms
 
@@ -18,4 +18,4 @@ ms.author: akashdubey
 ## Next steps
 
 - [Introduction to Azure Blob storage](storage-blobs-introduction.md)
-- [Introduction to Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md)
+- [Introduction to Azure Data Lake Storage](../blobs/data-lake-storage-introduction.md)

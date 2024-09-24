@@ -32,18 +32,18 @@ highlightedContent:
 productDirectory:
   title: Get started
   items:
-    - title: Azure Load Balancer
-      imageSrc: ./media/load-balancer.svg
-      summary: "Manage distribution of load-balanced traffic for public and internal traffic with Azure Load Balancer."
-      url: /azure/load-balancer
     - title: Azure Application Gateway
       imageSrc: ./media/application-gateway.svg
       summary: "Optimize app delivery with Azure Application Gateway for HTTP/HTTPS traffic."
       url: /azure/application-gateway
+    - title: Azure Load Balancer
+      imageSrc: ./media/load-balancer.svg
+      summary: "Manage distribution of load-balanced traffic for public and internal traffic with Azure Load Balancer."
+      url: /azure/load-balancer
     - title: Azure Front Door
       imageSrc: ./media/front-door-cdn.svg
       summary: "Manage web application performance and global routing with Azure Front Door."
-      url: /azure/frontdoor/
+      url: /azure/frontdoor
           
 conceptualContent:
   sections:

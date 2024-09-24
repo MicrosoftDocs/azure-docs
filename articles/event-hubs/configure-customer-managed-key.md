@@ -708,7 +708,7 @@ Conditions for enabling Geo-DR and Encryption with User-Assigned Identities:
 2.	It is not possible to enable Encryption on an already paired primary, even if the secondary has a User-Assigned identity associated with the namespace.
 
 ## Set up diagnostic logs 
-Setting diagnostic logs for BYOK enabled namespaces gives you the required information about the operations. These logs can be enabled and later stream to an event hub or analyzed through log analytics or streamed to storage to perform customized analytics. To learn more about diagnostic logs, see [Overview of Azure Diagnostic logs](../azure-monitor/essentials/platform-logs-overview.md). For the schema, see [Monitor data reference](monitor-event-hubs-reference.md#customer-managed-key-user-logs-schema).
+Setting diagnostic logs for BYOK enabled namespaces gives you the required information about the operations. These logs can be enabled and later stream to an event hub or analyzed through log analytics or streamed to storage to perform customized analytics. To learn more about diagnostic logs, see [Overview of Azure Diagnostic logs](/azure/azure-monitor/essentials/platform-logs-overview). For the schema, see [Monitor data reference](monitor-event-hubs-reference.md#customer-managed-key-user-logs-schema).
 
 ## Next steps
 See the following articles:

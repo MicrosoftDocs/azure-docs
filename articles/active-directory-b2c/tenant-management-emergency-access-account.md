@@ -5,11 +5,9 @@ description: Learn how to manage emergency access accounts in Azure AD B2C tenan
 
 author: kengaderdus
 manager: CelesteDG
-
 ms.service: active-directory
-
 ms.topic: tutorial
-ms.date: 06/21/2024
+ms.date: 09/11/2024
 ms.custom: b2c-docs-improvements
 ms.reviewer: yoelh
 ms.author: kengaderdus
@@ -47,7 +45,7 @@ Create two or more emergency access accounts. These accounts should be cloud-onl
 
 Use the following steps to create an emergency access account:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as an existing Global Administrator. If you use your Microsoft Entra account, make sure you're using the directory that contains your Azure AD B2C tenant:
+1. Sign in to the [Azure portal](https://portal.azure.com) as an existing [Global Administrator](/entra/identity/role-based-access-control/permissions-reference#global-administrator). If you use your Microsoft Entra account, make sure you're using the directory that contains your Azure AD B2C tenant:
 
     1. Select the **Directories + subscriptions** icon in the portal toolbar.
     

@@ -3,7 +3,7 @@ title: environment.yaml schema
 description: Learn how to use environment.yaml to define parameters in your environment definition.
 author: RoseHJM
 ms.author: rosemalcolm
-ms.service: dev-box
+ms.service: azure-deployment-environments
 ms.topic: concept-article
 ms.date: 11/17/2023
 

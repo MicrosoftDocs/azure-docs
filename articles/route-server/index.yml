@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page 
   author: halkazwini 
   ms.author: halkazwini 
-  ms.date: 08/30/2023
+  ms.date: 09/23/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -34,14 +34,14 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Create and configure a Route Server - Portal
-            url: quickstart-configure-route-server-portal.md
-          - text: Create and configure a Route Server - PowerShell
-            url: quickstart-configure-route-server-powershell.md
-          - text: Create and configure a Route Server - CLI
-            url: quickstart-configure-route-server-cli.md
-          - text: Create and configure a Route Server - ARM
-            url: quickstart-configure-template.md
+          - text: Create a Route Server - Portal
+            url: quickstart-create-route-server-portal.md
+          - text: Create a Route Server - PowerShell
+            url: quickstart-create-route-server-powershell.md
+          - text: Create a Route Server - CLI
+            url: quickstart-create-route-server-cli.md
+          - text: Create a Route Server - ARM
+            url: quickstart-create-route-server-template.md
       - linkListType: tutorial
         links:
           - text: Create and peer Route Server with NVA

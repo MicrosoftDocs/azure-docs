@@ -27,7 +27,7 @@ This article provides an overview about custom connectors for [Consumption logic
 * [Built-in connectors in Azure Logic Apps](../connectors/built-in.md)
 * [Managed connectors in Azure Logic Apps](../connectors/managed.md)
 * [Connector overview](/connectors/connectors)
-* [Single-tenant versus multitenant and integration service environment for Azure Logic Apps](single-tenant-overview-compare.md)
+* [Single-tenant versus multitenant in Azure Logic Apps](single-tenant-overview-compare.md)
 
 <a name="custom-connector-consumption"></a>
 

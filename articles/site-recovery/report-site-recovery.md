@@ -17,7 +17,7 @@ Azure Site Recovery provides a reporting solution for Backup and Disaster Recove
 - Identifying key trends at different levels of detail. 
 
 
-Like [Azure Backup](../backup/configure-reports.md), Azure Site Recovery offers a reporting solution that uses [Azure Monitor logs](../azure-monitor/logs/log-analytics-tutorial.md) and [Azure workbooks](../azure-monitor/visualize/workbooks-overview.md). These resources help you gain insights on your estate that are protected with Site Recovery. 
+Like [Azure Backup](../backup/configure-reports.md), Azure Site Recovery offers a reporting solution that uses [Azure Monitor logs](/azure/azure-monitor/logs/log-analytics-tutorial) and [Azure workbooks](/azure/azure-monitor/visualize/workbooks-overview). These resources help you gain insights on your estate that are protected with Site Recovery. 
 
 This article shows how to set up and view Azure Site Recovery reports. 
 
@@ -35,7 +35,7 @@ To start using Azure Site Recovery reports, follow these steps:
 
 Set up one or more Log Analytics workspaces to store your Backup reporting data. The location and subscription of this Log Analytics workspace, can be different from where your vaults are located or subscribed. 
 
-To set up a Log Analytics workspace, [follow these steps](../azure-monitor/logs/quick-create-workspace.md). The data in a Log Analytics workspace is kept for 30 days by default. If you want to see data for a longer time span, change the retention period of the Log Analytics workspace. To change the retention period, see [Configure data retention and archive policies in Azure Monitor Logs](../azure-monitor/logs/data-retention-configure.md). 
+To set up a Log Analytics workspace, [follow these steps](/azure/azure-monitor/logs/quick-create-workspace). The data in a Log Analytics workspace is kept for 30 days by default. If you want to see data for a longer time span, change the retention period of the Log Analytics workspace. To change the retention period, see [Configure data retention and archive policies in Azure Monitor Logs](/azure/azure-monitor/logs/data-retention-configure). 
 
 
 ### Configure diagnostics settings for your vaults 

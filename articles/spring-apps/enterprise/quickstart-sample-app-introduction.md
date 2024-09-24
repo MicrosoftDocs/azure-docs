@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.service: azure-spring-apps
 ms.topic: quickstart
-ms.date: 10/12/2021
+ms.date: 08/28/2024
 ms.custom: devx-track-java, mode-other
 ---
 

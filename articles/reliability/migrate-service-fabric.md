@@ -79,7 +79,7 @@ Downtime for migrating Service Fabric non-managed clusters vary widely based on 
 
 ## Migration for Service Fabric managed clusters
 
-Follow steps in [Migrate Service Fabric managed cluster to zone resilient](..\service-fabric\how-to-managed-cluster-availability-zones.md#migrate-an-existing-nonzone-resilient-cluster-to-zone-resilient-preview).
+Follow steps in [Migrate Service Fabric managed cluster to zone resilient](/azure/service-fabric/how-to-managed-cluster-availability-zones#migrate-an-existing-nonzone-resilient-cluster-to-zone-resilient-preview).
 
 
 ## Migration options for Service Fabric non-managed clusters
@@ -104,7 +104,7 @@ Include the following three values in the Virtual Machine Scale Set resource:
 * The second value is the `singlePlacementGroup` property, which must be set to `true`. The scale set that's spanned across three Availability Zones can scale up to 300 VMs even with `singlePlacementGroup = true`.
 * The third value is `zoneBalance`, which ensures strict zone balancing. This value should be `true`. This ensures that the VM distributions across zones are not unbalanced, which means that when one zone goes down, the other two zones have enough VMs to keep the cluster running.
 
-  A cluster with an unbalanced VM distribution might not survive a zone-down scenario because that zone might have the majority of the VMs. Unbalanced VM distribution across zones also leads to service placement issues and infrastructure updates getting stuck. Read more about [zoneBalancing](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md#zone-balancing).
+  A cluster with an unbalanced VM distribution might not survive a zone-down scenario because that zone might have the majority of the VMs. Unbalanced VM distribution across zones also leads to service placement issues and infrastructure updates getting stuck. Read more about [zoneBalancing](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones#zone-balancing).
 
 You don't need to configure the `FaultDomain` and `UpgradeDomain` overrides.
 
@@ -191,7 +191,7 @@ To support multiple availability zones, the Service Fabric node type must be ena
 ##### Migrate to the node type with multiple Availability Zones
 
 For all migration scenarios, you need to add a new node type that supports multiple Availability Zones. An existing node type can't be migrated to support multiple zones.
-The [Scale up a Service Fabric cluster primary node type](../service-fabric/service-fabric-scale-up-primary-node-type.md) article includes detailed steps to add a new node type and the other resources required for the new node type, such as IP and load balancer resources. That article also describes how to retire the existing node type after a new node type with multiple Availability Zones is added to the cluster.
+The [Scale up a Service Fabric cluster primary node type](/azure/service-fabric/service-fabric-scale-up-primary-node-type) article includes detailed steps to add a new node type and the other resources required for the new node type, such as IP and load balancer resources. That article also describes how to retire the existing node type after a new node type with multiple Availability Zones is added to the cluster.
 
 * Migration from a node type that uses basic load balancer and IP resources: This process is already described in [a sub-section below](#how-to-migrate-your-service-fabric-non-managed-cluster-with-basic-sku-load-balancer-and-ip-resources) for the solution with one node type per Availability Zone.
 
@@ -425,6 +425,6 @@ If you run into any problems reach out to support for assistance.
 
 ## Next steps
 
-- [Scale up a Service Fabric non-managed cluster primary node type](../service-fabric/service-fabric-scale-up-primary-node-type.md)
+- [Scale up a Service Fabric non-managed cluster primary node type](/azure/service-fabric/service-fabric-scale-up-primary-node-type)
 
-- [Add, remove, or scale Service Fabric managed cluster node types](../service-fabric/how-to-managed-cluster-modify-node-type.md)
+- [Add, remove, or scale Service Fabric managed cluster node types](/azure/service-fabric/how-to-managed-cluster-modify-node-type)

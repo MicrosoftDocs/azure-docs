@@ -271,7 +271,7 @@ items:
           displayName: Resource Manager
           href: blob-event-quickstart-template.md        
       - name: Subscribe to Container Registry events
-        href: ../container-registry/container-registry-event-grid-quickstart.md?toc=/azure/event-grid/toc.json
+        href: /azure/container-registry/container-registry-event-grid-quickstart?toc=/azure/event-grid/toc.json
       - name: Subscribe to Azure Communication Services events
         href: ../communication-services/quickstarts/sms/handle-sms-events.md?toc=/azure/event-grid/toc.json
       - name: Subscribe to Azure Cache for Redis events
@@ -580,6 +580,8 @@ items:
         href: input-mappings.md
       - name: Manage topics with Event Domains
         href: how-to-event-domains.md
+      - name: Send events to webhooks hosted in private destinations
+        href: send-events-webhooks-private-destinations.md
       - name: Build your own client-side disaster recovery
         href: custom-disaster-recovery-client-side.md
       - name: Azure Monitor alerts as destination

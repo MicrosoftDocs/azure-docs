@@ -20,9 +20,11 @@ Refer to the table for details about resolution dates or possible workarounds.
 
 |Issue | Date discovered | Workaround | Date resolved |
 | :------------------------------------- | :------------ | :------------- | :------------- |
+|Changes in private link configuration at the workspace level don't propagate to the child services.|September 4,2024 9:00 am PST| To fix this issue a service reprovisioning is required. To reprovision the service, reach out to FHIR service team|--|
+|Customers accessing the FHIR Service via a private endpoint are experiencing difficulties, specifically receiving a 403 error when making API calls from within the vNet. This problem affects FHIR instances provisioned after August 19th that utilize private link.|August 22,2024 11:00 am PST|-- | September 3.2024 9:00 am PST|
 |FHIR Applications were down in EUS2 region|January 8, 2024 2 pm PST|--|January 8, 2024 4:15 pm PST|
 |API queries to FHIR service returned Internal Server error in UK south region |August 10, 2023 9:53 am PST|--|August 10, 2023 10:43 am PST|
-|FHIR resources aren't queryable by custom search parameters even after reindex is successful.| July 2023| Suggested workaround is to create support ticket to update the status of custom search parameters after reindex is successful.|--|
+
 
 ## Related content
 

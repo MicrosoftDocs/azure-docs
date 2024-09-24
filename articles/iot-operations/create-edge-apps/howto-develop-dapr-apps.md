@@ -36,7 +36,7 @@ The first step is to write an application that uses a Dapr SDK to publish/subscr
 
 After you finish writing the Dapr application, build the container:
 
-1. To package the application into a container, run the following command:
+1. Package the application into a container with the following command:
 
     ```bash
     docker build . -t my-dapr-app
@@ -50,17 +50,21 @@ After you finish writing the Dapr application, build the container:
 
 ## Deploy a Dapr application
 
-The following [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) definition contains the volumes required to deploy the application along with the required containers. This deployment utilizes the Dapr sidecar injector to automatically add the pluggable component pod.
+The following [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) definition contains volumes for SAT authentication and TLS certificate chain, and utilizes Dapr sidecar injection to automatically add the pluggable components to the Pod.
 
-The yaml contains both a ServiceAccount, used to generate SATs for authentication with MQTT broker and the Dapr application Deployment.
-
-To create the yaml file, use the following definitions:
+The following definition components might require customization to your specific application:
 
 > | Component | Description |
 > |-|-|
-> | `volumes.mqtt-client-token` | The System Authentication Token used for authenticating the Dapr pluggable components with the MQTT broker |
-> | `volumes.aio-ca-trust-bundle` | The chain of trust to validate the MQTT broker TLS cert. This defaults to the test certificate deployed with Azure IoT Operations |
-> | `containers.mq-dapr-app` | The Dapr application container you want to deploy |
+> | `template:metadata:annotations:dapr.io/inject-pluggable-components` | Allows the IoT Operations pluggable components to be [automatically injected](https://docs.dapr.io/operations/components/pluggable-components-registration/) into the pod |
+> | `template:metadata:annotations:dapr.io/app-port` | Tells Dapr which port your application is listening on. If your application us not using this feature (such as a pubsub subscription), then remove this line |
+> | `volumes:mqtt-client-token` | The System Authentication Token used for authenticating the Dapr pluggable components with the MQTT broker |
+> | `volumes:aio-ca-trust-bundle` | The chain of trust to validate the MQTT broker TLS cert. This defaults to the test certificate deployed with Azure IoT Operations |
+> | `containers:name` | A name given to your application container |
+> | `containers:image` | The application container you want to deploy |
+
+> [!CAUTION]
+> If your Dapr application is not listening for traffic from the Dapr sidecar, then remove the `dapr.io/app-port` and `dapr.io/app-protocol` [annotations](https://docs.dapr.io/reference/arguments-annotations-overview/) otherwise the Dapr sidecar will fail to initialize.
 
 1. Save the following yaml to a file named `dapr-app.yaml`:
 
@@ -76,21 +80,20 @@ To create the yaml file, use the following definitions:
     apiVersion: apps/v1
     kind: Deployment
     metadata:
-      name: mq-dapr-app
+      name: my-dapr-app
       namespace: azure-iot-operations
     spec:
-      replicas: 1
       selector:
         matchLabels:
-          app: mq-dapr-app
+          app: my-dapr-app
       template:
         metadata:
           labels:
-            app: mq-dapr-app
+            app: my-dapr-app
           annotations:
             dapr.io/enabled: "true"
             dapr.io/inject-pluggable-components: "true"
-            dapr.io/app-id: "mq-dapr-app"
+            dapr.io/app-id: "my-dapr-app"
             dapr.io/app-port: "6001"
             dapr.io/app-protocol: "grpc"
         spec:
@@ -124,23 +127,22 @@ To create the yaml file, use the following definitions:
     kubectl get pods -w
     ```
 
-    The workload pod should report all pods running after a short interval, as shown in the following example output:
+    The pod should report three containers running after a short interval, as shown in the following example output:
 
     ```output
-    pod/dapr-workload created
     NAME                          READY   STATUS              RESTARTS   AGE
     ...
-    dapr-workload                 3/3     Running             0          30s
+    my-dapr-app                   3/3     Running             0          30s
     ```
 
 ## Troubleshooting
 
-If the application doesn't start or you see the pods in `CrashLoopBackoff`, the logs for `daprd` are most helpful. The `daprd` is a container that automatically deploys with your Dapr application.
+If the application doesn't start or you see the containers in `CrashLoopBackoff` state, the log for the `daprd` container often contains useful information.
 
-Run the following command to view the logs:
+Run the following command to view the logs for the daprd component:
 
 ```bash
-kubectl logs dapr-workload daprd
+kubectl logs -l app=my-dapr-app -c daprd
 ```
 
 ## Next steps

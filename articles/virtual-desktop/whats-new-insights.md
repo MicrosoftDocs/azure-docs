@@ -229,7 +229,7 @@ In this release, we've made the following changes:
 
 In this release, we've made the following change:
 
-- We added support for [category groups](../azure-monitor/essentials/diagnostic-settings.md#resource-logs) for resource logs.
+- We added support for [category groups](/azure/azure-monitor/essentials/diagnostic-settings#resource-logs) for resource logs.
 
 ## Version 1.1.8
 

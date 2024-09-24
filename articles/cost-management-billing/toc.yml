@@ -93,12 +93,16 @@
         href: manage/spending-limit.md
       - name: Track credits for Microsoft Customer Agreement
         href: manage/mca-check-azure-credits-balance.md
+      - name: Manage a Microsoft Azure Consumption Commitment
+        href: manage/manage-consumption-commitment.md
       - name: Track your Microsoft Azure Consumption Commitment
         href: manage/track-consumption-commitment.md
       - name: Markup - China
         href: manage/markup-china.md
     - name: Administer subscriptions
       items:
+      - name: Prepare for classic administrator roles retirement
+        href: manage/classic-administrator-retire.md
       - name: Assign access to cost management data
         href: costs/assign-access-acm-data.md
       - name: Subscription states
@@ -250,7 +254,7 @@
     - name: Troubleshoot threshold billing
       href: troubleshoot-billing/troubleshoot-threshold-billing.md
     - name: Contact support
-      href: ../azure-portal/supportability/how-to-create-azure-support-request.md
+      href: /azure/azure-portal/supportability/how-to-create-azure-support-request
     - name: Create EA support request
       href: troubleshoot-billing/how-to-create-azure-support-request-ea.md
     - name: Can't create VM - Contact reseller
@@ -283,8 +287,10 @@
     href: /rest/api/cost-management/retail-prices/azure-retail-prices
 - name: Resources
   items:
-  - name: FAQ
+  - name: Cost Management + Billing FAQ
     href: cost-management-billing-faq.yml
+  - name: Discover cloud footprint FAQ
+    href: manage/discover-cloud-footprint.md
 - name: Samples
   items:
   - name: REST API

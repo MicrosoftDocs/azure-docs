@@ -189,7 +189,7 @@ Next, deploy the NFS shares in the storage account that you created. In this exa
    3. Select **NFS** as the protocol.
    4. Select **No root Squash**.  Otherwise, when you mount the shares on your VMs, you can't see the file owner or group.
 
-The SAP file systems that don't need to be mounted via NFS can also be deployed on [Azure disk storage](../../virtual-machines/disks-types.md#premium-ssds). In this example, you can deploy `/usr/sap/NW1/D02` and `/usr/sap/NW1/D03` on Azure disk storage.
+The SAP file systems that don't need to be mounted via NFS can also be deployed on [Azure disk storage](/azure/virtual-machines/disks-types#premium-ssds). In this example, you can deploy `/usr/sap/NW1/D02` and `/usr/sap/NW1/D03` on Azure disk storage.
 
 #### Important considerations for NFS on Azure Files shares
 
@@ -227,7 +227,7 @@ When you plan your deployment with NFS on Azure Files, consider the following im
    * Volume `sapnw1` (`nfs://10.27.1.5/sapnw1/usrsapNW1`)
    * Volume `trans` (`nfs://10.27.1.5/trans`)
 
-The SAP file systems that don't need to be shared can also be deployed on  [Azure disk storage](../../virtual-machines/disks-types.md#premium-ssds). For example, `/usr/sap/NW1/D02` and `/usr/sap/NW1/D03` could be deployed as Azure disk storage.  
+The SAP file systems that don't need to be shared can also be deployed on  [Azure disk storage](/azure/virtual-machines/disks-types#premium-ssds). For example, `/usr/sap/NW1/D02` and `/usr/sap/NW1/D03` could be deployed as Azure disk storage.  
 
 #### Important considerations for NFS on Azure NetApp Files
 

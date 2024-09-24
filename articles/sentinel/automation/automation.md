@@ -9,7 +9,8 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
-#customerIntent: As a SOC engineer, I want to understand how automation in Microsoft Sentinel can help my SOC team be more efficient and remediate threats quicker.
+#Customer intent: As a SOC analyst, I want to automate incident response and remediation tasks using SOAR capabilities so that I can focus on investigating advanced threats and reduce the risk of missed alerts.
+
 ---
 
 # Automation in Microsoft Sentinel: Security orchestration, automation, and response (SOAR)

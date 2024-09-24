@@ -145,4 +145,4 @@ As you can see, the HDInsight tools for Visual Studio provide an easy way to wor
 
 * For information about other ways you can work with Hadoop on HDInsight, see [Use MapReduce in Apache Hadoop on HDInsight](hdinsight-use-mapreduce.md)
 
-* For more information about the HDInsight tools for Visual Studio, see[Use Data Lake Tools for Visual Studio to connect to Azure HDInsight and run Apache Hive queries](apache-hadoop-visual-studio-tools-get-started.md)
+* For more information about the HDInsight tools for Visual Studio, see [Use Data Lake Tools for Visual Studio to connect to Azure HDInsight and run Apache Hive queries](apache-hadoop-visual-studio-tools-get-started.md)

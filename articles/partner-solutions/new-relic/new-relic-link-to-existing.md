@@ -62,7 +62,7 @@ When you use Azure Native New Relic Service in the Azure portal for linking, and
     | **Region**  | Select the Azure region where the New Relic resource should be created.|
     | **New Relic account**  | The Azure portal displays a list of existing accounts that can be linked. Select the desired account from the available options.|
 
-1. After you select an account from New Relic, the New Relic billing details appear for your reference. The user who is performing the linking action should have global administrator permissions on the New Relic account that's being linked.
+1. After you select an account from New Relic, the New Relic billing details appear for your reference. The user who is performing the linking action should have administrator permissions on the New Relic account that's being linked.
 
    :::image type="content" source="media/new-relic-link-to-existing/new-relic-form.png" alt-text="Screenshot that shows the Basics tab and New Relic account details in a red box.":::
 
@@ -72,7 +72,7 @@ When you use Azure Native New Relic Service in the Azure portal for linking, and
    > Linking requires:
    >
    > - The account and the New Relic resource reside in the same Azure region
-   > - The user who is linking the account and resource must have Global administrator permissions on the New Relic account being linked
+   > - The user who is linking the account and resource must have administrator permissions on the New Relic account being linked
    >
    > If the account that you want to link to does not appear in the dropdown list, verify that these conditions are satisfied.
 
@@ -90,7 +90,7 @@ Your next step is to configure metrics and logs on the **Metrics + Logs** tab. W
 
 :::image type="content" source="media/new-relic-link-to-existing/new-relic-metrics.png" alt-text="Screenshot that shows the tab for metrics and logs, with actions to complete.":::
 
-1. To send Azure resource logs to New Relic, select **Send Azure resource logs for all defined resources**. The types of Azure resource logs are listed in [Azure Monitor resource log categories](../../azure-monitor/essentials/resource-logs-categories.md).
+1. To send Azure resource logs to New Relic, select **Send Azure resource logs for all defined resources**. The types of Azure resource logs are listed in [Azure Monitor resource log categories](/azure/azure-monitor/essentials/resource-logs-categories).
 
 1. When the checkbox for Azure resource logs is selected, logs are forwarded for all resources by default. To filter the set of Azure resources that are sending logs to New Relic, use inclusion and exclusion rules and set the Azure resource tags:
 

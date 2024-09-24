@@ -64,7 +64,7 @@ sections:
       - question: |
           How do I monitor my event hubs?
         answer: |
-          Event Hubs emits exhaustive metrics that provide the state of your resources to [Azure Monitor](../azure-monitor/overview.md). They also let you assess the overall health of the Event Hubs service not only at the namespace level but also at the entity level. Learn about what monitoring is offered for [Azure Event Hubs](monitor-event-hubs.md).
+          Event Hubs emits exhaustive metrics that provide the state of your resources to [Azure Monitor](/azure/azure-monitor/overview). They also let you assess the overall health of the Event Hubs service not only at the namespace level but also at the entity level. Learn about what monitoring is offered for [Azure Event Hubs](monitor-event-hubs.md).
           
       - question: |
           Where does Azure Event Hubs store data?

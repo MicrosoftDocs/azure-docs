@@ -13,7 +13,7 @@ ms.subservice: data
 ---
 # Email metrics overview
 
-Azure Communication Services currently provides metrics for all Azure communication services' primitives. [Azure Metrics Explorer](../../azure-monitor/essentials/metrics-getting-started.md) can be used to plot your own charts, investigate abnormalities in your metric values, and understand your API traffic by using the metrics data that email requests emit.
+Azure Communication Services currently provides metrics for all Azure communication services' primitives. [Azure Metrics Explorer](/azure/azure-monitor/essentials/metrics-getting-started) can be used to plot your own charts, investigate abnormalities in your metric values, and understand your API traffic by using the metrics data that email requests emit.
 
 ## Where to find metrics
 
@@ -23,7 +23,7 @@ Primitives in Azure Communication Services emit metrics for API requests. These 
 
 All API request metrics contain three dimensions that you can use to filter your metrics data. These dimensions can be aggregated together using the `Count` aggregation type and support all standard Azure Aggregation time series including `Sum`, `Average`, `Min`, and `Max`.
 
-More information about supported aggregation types and time series aggregations, see  [Advanced features of Azure Metrics Explorer](../../azure-monitor/essentials/metrics-charts.md#aggregation).
+More information about supported aggregation types and time series aggregations, see  [Advanced features of Azure Metrics Explorer](/azure/azure-monitor/essentials/metrics-charts#aggregation).
 
 - **Operation** - All operations or routes that can be called on the Azure Communication Services Chat gateway.
 - **Status Code** - The status code response sent after the request.
@@ -70,4 +70,4 @@ The `Email Service User Engagement` metric is supported with HTML type emails an
 
 ## Next steps
 
-- Learn more about [Data Platform Metrics](../../azure-monitor/essentials/data-platform-metrics.md)
+- Learn more about [Data Platform Metrics](/azure/azure-monitor/essentials/data-platform-metrics)

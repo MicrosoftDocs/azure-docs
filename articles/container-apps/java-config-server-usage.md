@@ -1,5 +1,5 @@
 ---
-title: Configure settings for the Config Server for Spring component in Azure Container Apps (preview)
+title: Configure settings for the Config Server for Spring component in Azure Container Apps
 description: Learn how to configure a Config Server for Spring component for your container app.
 services: container-apps
 author: craigshoemaker
@@ -10,7 +10,7 @@ ms.date: 05/23/2024
 ms.author: cshoe
 ---
 
-# Configure settings for the Config Server for Spring component in Azure Container Apps (preview)
+# Configure settings for the Config Server for Spring component in Azure Container Apps
 
 Config Server for Spring provides a centralized location to make configuration data available to multiple applications. Use the following guidance to learn how to configure and manage your Config Server for Spring component.
 

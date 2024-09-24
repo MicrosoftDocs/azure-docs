@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.service: azure-spring-apps
 ms.topic: tutorial
-ms.date: 6/15/2023
+ms.date: 08/29/2024
 ms.custom: devx-track-java
 ---
 
@@ -107,4 +107,4 @@ Use the following steps configure an alert:
 In this article, you learned how to set up alerts and action groups for an application in Azure Spring Apps. To learn more about action groups, see:
 
 > [!div class="nextstepaction"]
-> [Action groups](../../azure-monitor/alerts/action-groups.md)
+> [Action groups](/azure/azure-monitor/alerts/action-groups)

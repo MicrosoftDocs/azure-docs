@@ -197,9 +197,9 @@ The rest of this section tests policy transformations that you set in this artic
 ### Test the rate limit (throttling)
 
 1. Select **Demo Conference API** > **Test**.
-1. Select the **GetSpeakers** operation. Select **Send** three times in a row.
+1. Select the **GetSpeakers** operation. Select **Send** four times in a row.
 
-    After sending the request three times, you get the **429 Too Many Requests** response.
+    After sending the request four times, you get the **429 Too Many Requests** response.
 
     :::image type="content" source="media/transform-api/test-throttling-new.png" alt-text="Screenshot showing Too Many Requests in the response in the portal.":::
 

@@ -4,7 +4,7 @@ description: Learn how to create and configure Enterprise Security Package clust
 services: hdinsight
 ms.service: azure-hdinsight
 ms.topic: how-to
-ms.date: 06/14/2024
+ms.date: 09/06/2024
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -85,7 +85,7 @@ In this section, you'll create the users that will have access to the HDInsight 
 
         :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0024.png" alt-text="Create a second admin user object." border="true":::
 
-1. Create a global security group.
+1. Create a security group.
 
     1. From **Active Directory Users and Computers**, right-click `HDIFabrikam.com`, and then navigate to  **New** > **Group**.
 
@@ -169,7 +169,7 @@ Create an Active Directory tenant administrator.
       :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/azure-ad-add-group-member.png" alt-text="The Microsoft Entra groups dialog box." border="true":::
 
    1. Select **User**.
-   1. Select **Global administrator**, and then **Select**.
+   1. Select **Administrator**, and then **Select**.
 
       :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/azure-ad-add-role-member.png" alt-text="The Microsoft Entra role dialog box." border="true":::
 
@@ -191,7 +191,7 @@ Create an Active Directory tenant administrator.
 
 1. Select **Use express settings**.
 
-1. On the **Connect to Microsoft Entra ID** page, enter the username and password of the global administrator for Microsoft Entra ID. Use the username `fabrikamazureadmin@hdifabrikam.com` that you created when you configured your Active Directory tenant. Then select **Next**.
+1. On the **Connect to Microsoft Entra ID** page, enter the username and password of the administrator for Microsoft Entra ID. Use the username `fabrikamazureadmin@hdifabrikam.com` that you created when you configured your Active Directory tenant. Then select **Next**.
 
    :::image type="content" source="./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0058.png" alt-text="Connect to Microsoft Entra ID." border="true":::
 

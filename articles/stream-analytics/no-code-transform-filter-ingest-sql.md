@@ -101,6 +101,8 @@ In this section, you create an Azure Stream Analytics job using the no-code edit
 
     :::image type="content" source="./media/no-code-transform-filter-ingest-sql/sql-output.png" alt-text="Screenshot that shows contents of the stocks table in the database." lightbox="./media/no-code-transform-filter-ingest-sql/sql-output.png":::
 
+[!INCLUDE [geo-replication-stream-analytics-job](./includes/geo-replication-stream-analytics-job.md)]
+
 ## Next steps
 
 Learn more about Azure Stream Analytics and how to monitor the job you've created.

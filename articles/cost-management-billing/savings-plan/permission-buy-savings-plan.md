@@ -7,7 +7,7 @@ ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: conceptual
-ms.date: 05/07/2024
+ms.date: 09/18/2024
 ms.author: banders
 ---
 
@@ -24,7 +24,7 @@ Saving plan purchasing for Enterprise Agreement customers is limited to:
 - Enterprise Agreement admins with write permissions can purchase savings plans from **Cost Management + Billing** > **Savings plan**. No subscription-specific permissions are needed.
 - Users with subscription owner or savings plan purchaser roles in at least one subscription in the enrollment account can purchase savings plans from **Home** > **Savings plan**.
 
-Enterprise Agreement customers can limit savings plan purchases to only Enterprise Agreement admins by disabling the **Add Savings Plan** option in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/BillingAccounts). To change settings, go to the **Policies** menu.
+Enterprise Agreement customers can limit savings plan purchases to only Enterprise Agreement admins by disabling the **Add Savings Plan** option in the [Azure portal](https://portal.azure.com). To change settings, go to the **Policies** menu.
 
 ### Microsoft Customer Agreement customers
 Savings plan purchasing for Microsoft Customer Agreement customers is limited to:
@@ -32,7 +32,7 @@ Savings plan purchasing for Microsoft Customer Agreement customers is limited to
 - Users with billing profile contributor permissions or higher can purchase savings plans from **Cost Management + Billing** > **Savings plan** experience. No subscription-specific permissions are needed.
 - Users with subscription owner or savings plan purchaser roles in at least one subscription in the billing profile can purchase savings plans from **Home** > **Savings plan**.
 
-Microsoft Customer Agreement customers can limit savings plan purchases to users with billing profile contributor permissions or higher by disabling the **Add Savings Plan** option in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_GTM/ModernBillingMenuBlade/BillingAccounts). Go to the **Policies** menu to change settings.
+If the **Add Savings Plan** option is disabled in the [Azure portal](https://portal.azure.com), then no user can purchase the Savings Plan. Go to the **Policies** menu to change settings to purchase the Savings Plan.
 
 ### Microsoft Partner Agreement partners
 

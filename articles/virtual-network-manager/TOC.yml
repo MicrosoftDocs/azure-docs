@@ -125,8 +125,10 @@
     items:
       - name: Create user-defined routes (UDRs)
         href: how-to-create-user-defined-route.md
-      - name: deploy hub and spoke topology with Azure Firewall
+      - name: Deploy hub and spoke topology with Azure Firewall
         href: how-to-deploy-hub-spoke-topology-with-azure-firewall.md
+      - name: Manage User-defined Routes (UDRs) across multiple hub-and-spoke topologies
+        href: how-to-manage-user-defined-routes-multiple-hub-spoke-topologies.md 
   - name: Common issues
     href: common-issues.md
 - name: Reference

@@ -2,16 +2,16 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 06/15/2022
+ms.date: 08/15/2024
 ms.custom: devdivchpfy22	
 ms.author: glenga
 ---
 ## Run the function in Azure
 
-1. Back in the **Resources** area in the side bar, expand your subscription, your new function app, and **Functions**. Right-click (Windows) or <kbd>Ctrl -</kbd> click (macOS) the `HttpExample` function and choose **Execute Function Now...**.
+1. Press <kbd>F1</kbd> to display the command palette, then search for and run the command `Azure Functions:Execute Function Now...`. If prompted, select your subscription.
 
-    :::image type="content" source="media/functions-vs-code-run-remote/execute-function-now.png" alt-text="Screenshot of executing function in Azure from Visual Studio Code.":::
+2.  Select your new function app resource and `HttpExample` as your function.
 
-2. In **Enter request body** you see the request message body value of `{ "name": "Azure" }`. Press Enter to send this request message to your function.
+3. In **Enter request body** type `{ "name": "Azure" }`, then press Enter to send this request message to your function.
 
-3. When the function executes in Azure and returns a response, a notification is raised in Visual Studio Code.
+4. When the function executes in Azure, the response is displayed in the notification area. Expand the notification to review the full response.

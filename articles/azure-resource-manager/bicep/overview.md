@@ -82,7 +82,7 @@ Bicep provides the following advantages:
 
   You can also create Bicep files in Visual Studio with the [Bicep extension for Visual Studio](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.visualstudiobicep).
 
-- **Repeatable results**: Repeatedly deploy your infrastructure throughout the development lifecycle and have confidence your resources are deployed in a consistent manner. Bicep files are idempotent, which means you can deploy the same file many times and get the same resource types in the same state. You can develop one file that represents the desired state, rather than developing lots of separate files to represent updates. For example, the following file creates a storage account. If you deploy this template and the storage account with the specified properties already exists , no changes is made.
+- **Repeatable results**: Repeatedly deploy your infrastructure throughout the development lifecycle and have confidence your resources are deployed in a consistent manner. Bicep files are idempotent, which means you can deploy the same file many times and get the same resource types in the same state. You can develop one file that represents the desired state, rather than developing lots of separate files to represent updates. For example, the following file creates a storage account. If you deploy this template and the storage account with the specified properties already exists, no changes are made.
 
   # [Bicep](#tab/bicep)
 
@@ -172,6 +172,8 @@ For a full comparison of the syntax, see [Comparing JSON and Bicep for templates
 Bicep automatically manages dependencies between resources. You can avoid setting `dependsOn` when the symbolic name of a resource is used in another resource declaration.
 
 The structure of the Bicep file is more flexible than the JSON template. You can declare parameters, variables, and outputs anywhere in the file. In JSON, you have to declare all parameters, variables, and outputs within the corresponding sections of the template.
+
+[!INCLUDE [Request ARM template support](../../../includes/template-support.md)]
 
 ## Next steps
 

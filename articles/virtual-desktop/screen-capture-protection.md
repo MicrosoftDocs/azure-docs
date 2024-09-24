@@ -91,7 +91,7 @@ To configure screen capture protection using Microsoft Intune:
 
 To configure screen capture protection using Group Policy:
 
-1. Follow the steps to make the [Administrative template for Azure Virtual Desktop](administrative-template.md) available to Group Policy.
+1. Follow the steps to make the [Administrative template for Azure Virtual Desktop](administrative-template.md) available in Group Policy.
 
 1. Open the **Group Policy Management** console on device you use to manage the Active Directory domain.
 

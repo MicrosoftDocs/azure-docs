@@ -54,7 +54,7 @@ Create a connection using a managed identity or an access key.
 ### [Managed identity](#tab/using-managed-identity)
 
 > [!IMPORTANT]
-> To use a managed identity, you must have the permission to modify [Microsoft Entra role assignment](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). Without this permission, your connection creation will fail. Ask your subscription owner to grant you this permission, or use an access key instead to create the connection.
+> To use a managed identity, you must have the permission to modify [Microsoft Entra role assignment](/entra/identity/role-based-access-control/manage-roles-portal). Without this permission, your connection creation will fail. Ask your subscription owner to grant you this permission, or use an access key instead to create the connection.
 
 1. Run the `az containerapp connection create` command to create a service connection from Container Apps to a Blob Storage with a system-assigned managed identity.
 
@@ -76,6 +76,9 @@ Create a connection using a managed identity or an access key.
 > If you don't have a Blob Storage, you can run `az containerapp connection create storage-blob --new --system-identity` to provision a new Blob Storage and directly connect it to your container app using a managed identity.
 
 ### [Access key](#tab/using-access-key)
+
+> [!WARNING]
+> Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
 
 1. Run the `az containerapp connection create` command to create a service connection between Container Apps and Azure Blob Storage using an access key.
 

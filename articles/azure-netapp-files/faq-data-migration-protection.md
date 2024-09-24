@@ -62,7 +62,7 @@ No. Azure Import/Export service does not support Azure NetApp Files currently.
 
 ## Next steps  
 
-- [How to create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md)
+- [How to create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request)
 - [Azure Data Box](../databox/index.yml)
 - [Networking FAQs](faq-networking.md)
 - [Security FAQs](faq-security.md)

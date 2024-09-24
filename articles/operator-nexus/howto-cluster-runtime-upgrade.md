@@ -17,7 +17,7 @@ This how-to guide explains the steps for installing the required Azure CLI and e
 ## Prerequisites
 
 1. The [Install Azure CLI][installation-instruction] must be installed.
-2. The `networkcloud` CLI extension is required.  If the `networkcloud` extension isn't installed, it can be installed following the steps listed [here](https://github.com/MicrosoftDocs/azure-docs-pr/blob/main/articles/operator-nexus/howto-install-cli-extensions.md).
+2. The `networkcloud` CLI extension is required. If the `networkcloud` extension isn't installed, it can be installed following the steps listed [here](https://github.com/MicrosoftDocs/azure-docs-pr/blob/main/articles/operator-nexus/howto-install-cli-extensions.md).
 3. Access to the Azure portal for the target cluster to be upgraded.
 4. You must be logged in to the same subscription as your target cluster via `az login`
 5. Target cluster must be in a running state, with all control plane nodes healthy and 80+% of compute nodes in a running and healthy state.
@@ -94,35 +94,51 @@ The output should be the target cluster's information and the cluster's detailed
 For more detailed insights on the upgrade progress, the individual BMM in each Rack can be checked for status. Example of this is provided in the reference section under [BareMetal Machine roles](./reference-near-edge-baremetal-machine-roles.md).
 
 ## Configure compute threshold parameters for runtime upgrade using cluster updateStrategy
+
 The following Azure CLI command is used to configure the compute threshold parameters for a runtime upgrade:
 
 ```azurecli
-az networkcloud cluster update --name "<clusterName>" --resource-group "<resourceGroup>" --update-strategy strategy-type="Rack" threshold-type="PercentSuccess" threshold-value="<thresholdValue>" max-unavailable=<maxNodesOffline> wait-time-minutes=<waitTimeBetweenRacks>
+az networkcloud cluster update /
+--name "<clusterName>" /
+--resource-group "<resourceGroup>" /
+--update-strategy strategy-type="Rack" threshold-type="PercentSuccess" /
+threshold-value="<thresholdValue>" max-unavailable=<maxNodesOffline> /
+wait-time-minutes=<waitTimeBetweenRacks>
 ```
 
-Required arguments:
-- strategy-type: Defines the update strategy. In this case, "Rack" means updates occur rack-by-rack. The default value is "Rack"
+Required parameters:
+- strategy-type: Defines the update strategy. In this case, "Rack" means updates occur rack-by-rack. The default value is "Rack".
 - threshold-type: Determines how the threshold should be evaluated, applied in the units defined by the strategy. The default value is "PercentSuccess".
 - threshold-value: The numeric threshold value used to evaluate an update. The default value is 80.
 
-Optional arguments:
+Optional parameters:
 - max-unavailable: The maximum number of worker nodes that can be offline, that is, upgraded rack at a time. The default value is 32767.
 - wait-time-minutes: The delay or waiting period before updating a rack. The default value is 15.
 
 An example usage of the command is as below:
+
 ```azurecli
 az networkcloud cluster update --name "cluster01" --resource-group "cluster01-rg" --update-strategy strategy-type="Rack" threshold-type="PercentSuccess" threshold-value=70 max-unavailable=16 wait-time-minutes=15
 ```
+
 Upon successful execution of the command, the updateStrategy values specified will be applied to the cluster:
-```
-  "updateStrategy": {
+
+```  
+    "updateStrategy": {
       "maxUnavailable": 16,
       "strategyType": "Rack",
       "thresholdType": "PercentSuccess",
       "thresholdValue": 70,
       "waitTimeMinutes": 15,
-    },
+    }
 ```
+
+> [!NOTE]
+> When a threshold value below 100% is set, it’s possible that any unhealthy nodes might not be upgraded, yet the “Cluster” status could still indicate that upgrade was successful. For troubleshooting issues with bare metal machines, please refer to [Troubleshoot Azure Operator Nexus server problems](troubleshoot-reboot-reimage-replace.md)
+
+## Upgrade with PauseRack strategy
+
+Starting with API version 2024-06-01-preview, runtime upgrades can be triggered using a "PauseRack" strategy. When you execute a Cluster runtime upgrade with the PauseRack" strategy, it will update one rack at a time in the Cluster and then stop, awaiting confirmation before proceeding to the next rack. All existing thresholds will continue to be respected with the "PauseRack" strategy. To carry out a Cluster runtime upgrade using the "PauseRack" strategy follow the steps outlined in [Upgrading cluster runtime with a pause rack strategy](howto-cluster-runtime-upgrade-with-pauserack-strategy.md)
 
 ## Frequently Asked Questions
 
@@ -142,7 +158,22 @@ If the rack's spec wasn't updated to the upgraded runtime version before the har
 
 ### After a runtime upgrade, the cluster shows "Failed" Provisioning State
 
-During a runtime upgrade the cluster will enter a state of `Upgrading`  In the event of a failure of the runtime upgrade, for reasons related to the resources, the cluster will go into a `Failed` provisioning state.  This state could be linked to the lifecycle of the components related to the cluster (e.g StorageAppliance) and might be necessary to diagnose the failure with Microsoft support.
+During a runtime upgrade, the cluster enters a state of `Upgrading`. In the event of a failure of the runtime upgrade, the cluster will go into a `Failed` provisioning state. Failures during upgrade may be caused by infrastructure components (e.g the Storage Appliance). In some scenarios, it may be necessary to diagnose the failure with Microsoft support.
 
+### Impact on Nexus Kubernetes tenant workloads during cluster runtime upgrade
+
+During a runtime upgrade, impacted Nexus Kubernetes Cluster nodes are cordoned and drained before the Bare Metal Hosts (BMH) are upgraded. Cordoning the Kubernetes Cluster node prevents new pods from being scheduled on it and draining the Kubernetes Cluster node allows pods that are running tenant workloads a chance to shift to another available Kubernetes Cluster node, which helps to reduce the impact on services. The draining mechanism's effectiveness is contingent on the available capacity within the Nexus Kubernetes Cluster. If the Kubernetes Cluster is nearing full capacity and lacks space for the pods to relocate, they transition into a Pending state following the draining process.
+
+Once the cordon and drain process of the tenant cluster node is completed, the upgrade of the BMH proceeds. Each tenant cluster node is allowed up to 10 minutes for the draining process to complete, after which the BMH upgrade will begin. This guarantees the BMH upgrade will make progress. BMHs are upgraded one rack at a time, and upgrades are performed in parallel within the same rack. The BMH upgrade does not wait for tenant resources to come online before continuing with the runtime upgrade of BMHs in the rack being upgraded. The benefit of this is that the maximum overall wait time for a rack upgrade is kept at 10 minutes regardless of how many nodes are available. This maximum wait time is specific to the cordon and drain procedure and is not applied to the overall upgrade procedure. Upon completion of each BMH upgrade, the Nexus Kubernetes cluster node starts, rejoins the cluster, and is uncordoned, allowing pods to be scheduled on the node once again.
+
+It's important to note that the Nexus Kubernetes cluster node won't be shut down after the cordon and drain process. The BMH is rebooted with the new image as soon as all the Nexus Kubernetes cluster nodes are cordoned and drained, after 10 minutes if the drain process isn't completed. Additionally, the cordon and drain is not initiated for power-off or restart actions of the BMH; it's exclusively activated only during a runtime upgrade.
+
+It is important to note that following the runtime upgrade, there could be instance where a Nexus Kubernetes Cluster node remains cordoned. For such scenario, you can manually uncordon the node by executing the following command
+
+```azurecli
+az networkcloud baremetalmachine list -g $mrg --subscription $sub --query "sort_by([].{name:name,kubernetesNodeName:kubernetesNodeName,location:location,readyState:readyState,provisioningState:provisioningState,detailedStatus:detailedStatus,detailedStatusMessage:detailedStatusMessage,powerState:powerState,tags:tags.Status,machineRoles:join(', ', machineRoles),cordonStatus:cordonStatus,createdAt:systemData.createdAt}, &name)" 
+--output table
+
+```
 <!-- LINKS - External -->
 [installation-instruction]: https://aka.ms/azcli

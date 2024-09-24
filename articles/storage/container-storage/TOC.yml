@@ -84,4 +84,6 @@
   items:
   - name: Pricing for Azure Container Storage
     href: https://azure.microsoft.com/pricing/details/container-storage/
+  - name: Release notes for Azure Container Storage
+    href: container-storage-release-notes.md
   

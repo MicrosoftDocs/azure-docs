@@ -85,7 +85,7 @@ The volume of data that's sent to Azure Migrate depends on multiple parameters. 
 Yes, for both:
 
 - Metadata is securely sent to the Azure Migrate service over the internet via HTTPS.
-- Metadata is stored in an [Azure Cosmos DB](../cosmos-db/database-encryption-at-rest.md) database and in [Azure Blob storage](../storage/common/storage-service-encryption.md) in a Microsoft subscription. The metadata is encrypted at rest for storage.
+- Metadata is stored in an [Azure Cosmos DB](/azure/cosmos-db/database-encryption-at-rest) database and in [Azure Blob storage](../storage/common/storage-service-encryption.md) in a Microsoft subscription. The metadata is encrypted at rest for storage.
 - The data for dependency analysis also is encrypted in transit (by secure HTTPS). It's stored in a Log Analytics workspace in your subscription. The data is encrypted at rest for dependency analysis.
 
 ## How does the appliance connect to vCenter Server?
@@ -165,9 +165,9 @@ To fix this issue, follow these steps to ensure that your appliance can validate
     
         :::image type="content" source="./media/common-questions-appliance/settings-inline.png" alt-text="Screenshot of Windows settings." lightbox="./media/common-questions-appliance/settings-expanded.png":::
 
-    1. In the certificate manager, you must see the entry for **Microsoft Root Certificate Authority 2011** and **Microsoft Code Signing PCA 2011** as shown in the following screenshots: 
+    1. In the certificate manager, you must see the entry for **Microsoft Root Certificate Authority 2011** and **Microsoft Code Signing PCA 2011**.
     
-        :::image type="content" source="./media/common-questions-appliance/certificate-1-inline.png" alt-text="Screenshot of certificate 1." lightbox="./media/common-questions-appliance/certificate-1-expanded.png":::
+        :::image type="content" source="./media/common-questions-appliance/certificate-1.png" alt-text="Screenshot of certificate 1." lightbox="./media/common-questions-appliance/certificate-1.png":::
 
         :::image type="content" source="./media/common-questions-appliance/certificate-2-inline.png" alt-text="Screenshot of certificate 2." lightbox="./media/common-questions-appliance/certificate-2-expanded.png":::
 

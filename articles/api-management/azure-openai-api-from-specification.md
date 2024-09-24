@@ -22,7 +22,7 @@ This article shows two options to import an [Azure OpenAI Service](/azure/ai-ser
 ## Prerequisites
 
 - An existing API Management instance. [Create one if you haven't already](get-started-create-service-instance.md).
-- An Azure OpenAI resource with a model deployed. For more information about model deployment, see the [resource deployment guide](../ai-services/openai/how-to/create-resource.md).
+- An Azure OpenAI resource with a model deployed. For more information about model deployment, see the [resource deployment guide](/azure/ai-services/openai/how-to/create-resource).
 
     Make a note of the ID (name) of the deployment. You'll need it when you test the imported API in API Management.
 - Permissions to grant access to the Azure OpenAI resource from the API Management instance.

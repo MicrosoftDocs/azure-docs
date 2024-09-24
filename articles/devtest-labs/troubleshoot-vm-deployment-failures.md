@@ -19,7 +19,7 @@ This article guides you through possible causes and troubleshooting steps for de
 
 VM deployment errors are captured in activity logs. In the Azure portal, you can find lab VM activity logs under **Audit logs** or **Virtual machine diagnostics** on the resource menu on the lab's VM page. (This page appears after you select the VM from the **My virtual machines** list).
           
-Sometimes, the deployment error occurs before VM deployment begins. An example is when the subscription limit for a resource that was created with the VM is exceeded. In this case, the error details are captured in the lab-level activity logs. In the Azure portal, activity logs are located at the bottom of the **Configuration and policies** settings section. For more information about activity logs in Azure, see [View activity logs to audit actions on resources](../azure-monitor/essentials/activity-log.md).
+Sometimes, the deployment error occurs before VM deployment begins. An example is when the subscription limit for a resource that was created with the VM is exceeded. In this case, the error details are captured in the lab-level activity logs. In the Azure portal, activity logs are located at the bottom of the **Configuration and policies** settings section. For more information about activity logs in Azure, see [View activity logs to audit actions on resources](/azure/azure-monitor/essentials/activity-log).
 
 ## Resolve "Parent resource not found"
 

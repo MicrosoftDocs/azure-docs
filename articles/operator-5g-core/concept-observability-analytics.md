@@ -1,8 +1,8 @@
 ---
 title: Observability and analytics in Azure Operator 5G Core Preview
 description: Learn how metrics, tracing, and logs are used for observability and analytics in Azure Operator 5G Core Preview
-author: SarahBoris
-ms.author: sboris
+author: HollyCl
+ms.author: HollyCl
 ms.service: azure-operator-5g-core
 ms.topic: concept-article #required; leave this attribute/value as-is.
 ms.date: 04/12/2024

@@ -2,7 +2,7 @@
 title: How to use SMTP to send an email with Azure Communication Services.
 titleSuffix: An Azure Communication Services quick start guide.
 description: Learn about how to use SMTP to send emails to Email Communication Services.
-author: ddouglas
+author: ddouglas-msft
 services: azure-communication-services
 ms.author: ddouglas
 ms.date: 10/18/2023

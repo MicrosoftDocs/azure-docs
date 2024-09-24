@@ -127,7 +127,7 @@ As a baseline, we recommend configuring [Network Insights](expressroute-network-
 
 #### Configure service health alerts for ExpressRoute circuit maintenance notifications 
 
-ExpressRoute uses [Azure Service Health](../service-health/overview.md) to notify you of planned and upcoming [ExpressRoute circuit maintenance](maintenance-alerts.md). With Service Health, you can view planned and past maintenance in the Azure portal along with configuring alerts and notifications that best suit your needs. In Service Health, you can see Planned & Past maintenance. You can also set alerts within Service Health to be notified of upcoming maintenance. 
+ExpressRoute uses [Azure Service Health](/azure/service-health/overview) to notify you of planned and upcoming [ExpressRoute circuit maintenance](maintenance-alerts.md). With Service Health, you can view planned and past maintenance in the Azure portal along with configuring alerts and notifications that best suit your needs. In Service Health, you can see Planned & Past maintenance. You can also set alerts within Service Health to be notified of upcoming maintenance. 
 
 #### Configure connection monitor for ExpressRoute 
 

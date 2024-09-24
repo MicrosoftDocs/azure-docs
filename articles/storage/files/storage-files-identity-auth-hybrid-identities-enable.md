@@ -4,7 +4,7 @@ description: Learn how to enable identity-based Kerberos authentication for hybr
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 05/09/2024
+ms.date: 08/19/2024
 ms.author: kendownie
 ms.custom: engagement-fy23
 recommendations: false
@@ -144,15 +144,12 @@ After enabling Microsoft Entra Kerberos authentication, you'll need to explicitl
 You can configure the API permissions from the [Azure portal](https://portal.azure.com) by following these steps:
 
 1. Open **Microsoft Entra ID**.
-2. Select **App registrations** on the left pane.
-3. Select **All Applications**.
-
-   :::image type="content" source="media/storage-files-identity-auth-hybrid-identities-enable/azure-portal-azuread-app-registrations.png" alt-text="Screenshot of the Azure portal. Microsoft Entra ID is open. App registrations is selected in the left pane. All applications is highlighted in the right pane." lightbox="media/storage-files-identity-auth-hybrid-identities-enable/azure-portal-azuread-app-registrations.png":::
-
-4. Select the application with the name matching **[Storage Account] `<your-storage-account-name>`.file.core.windows.net**.
-5. Select **API permissions** in the left pane.
-6. Select **Grant admin consent for [Directory Name]** to grant consent for the three requested API permissions (openid, profile, and User.Read) for all accounts in the directory.
-7. Select **Yes** to confirm.
+1. In the service menu, under **Manage**, select **App registrations**.
+1. Select **All Applications**.
+1. Select the application with the name matching **[Storage Account] `<your-storage-account-name>`.file.core.windows.net**.
+1. In the service menu, under **Manage**, select **API permissions**.
+1. Select **Grant admin consent for [Directory Name]** to grant consent for the three requested API permissions (openid, profile, and User.Read) for all accounts in the directory.
+1. Select **Yes** to confirm.
 
   > [!IMPORTANT]
   > If you're connecting to a storage account via a private endpoint/private link using Microsoft Entra Kerberos authentication, you'll also need to add the private link FQDN to the storage account's Microsoft Entra application. For instructions, see the entry in our [troubleshooting guide](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-authentication?toc=/azure/storage/files/toc.json#error-1326---the-username-or-password-is-incorrect-when-using-private-link).
@@ -204,9 +201,23 @@ Enable the Microsoft Entra Kerberos functionality on the client machine(s) you w
 
 Use one of the following three methods:
 
-- Configure this Intune [Policy CSP](/windows/client-management/mdm/policy-configuration-service-provider) and apply it to the client(s): [Kerberos/CloudKerberosTicketRetrievalEnabled](/windows/client-management/mdm/policy-csp-kerberos#cloudkerberosticketretrievalenabled), set to 1
-- Configure this group policy on the client(s) to "Enabled": `Administrative Templates\System\Kerberos\Allow retrieving the Azure AD Kerberos Ticket Granting Ticket during logon`
-- Set the following registry value on the client(s) by running this command from an elevated command prompt: `reg add HKLM\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Parameters /v CloudKerberosTicketRetrievalEnabled /t REG_DWORD /d 1`
+# [Intune](#tab/intune)
+
+Configure this Intune [Policy CSP](/windows/client-management/mdm/policy-configuration-service-provider) and apply it to the client(s): [Kerberos/CloudKerberosTicketRetrievalEnabled](/windows/client-management/mdm/policy-csp-kerberos#cloudkerberosticketretrievalenabled), set to 1
+
+# [Group Policy](#tab/gpo)
+
+Configure this group policy on the client(s) to "Enabled": `Administrative Templates\System\Kerberos\Allow retrieving the Azure AD Kerberos Ticket Granting Ticket during logon`
+
+# [Registry Key](#tab/regkey)
+
+Set the following registry value on the client(s) by running this command from an elevated command prompt: 
+
+```console
+reg add HKLM\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Parameters /v CloudKerberosTicketRetrievalEnabled /t REG_DWORD /d 1
+```
+
+---
 
 Changes are not instant, and require a policy refresh or a reboot to take effect.
 
@@ -219,10 +230,30 @@ If you want to enable client machines to connect to storage accounts that are co
 
 Add an entry for each storage account that uses on-premises AD DS integration. Use one of the following three methods to configure Kerberos realm mappings. Changes aren't instant, and require a policy refresh or a reboot to take effect.
 
-- Configure this Intune [Policy CSP](/windows/client-management/mdm/policy-configuration-service-provider) and apply it to the client(s): [Kerberos/HostToRealm](/windows/client-management/mdm/policy-csp-admx-kerberos#hosttorealm)
-- Configure this group policy on the client(s): `Administrative Template\System\Kerberos\Define host name-to-Kerberos realm mappings`
-- Run the `ksetup` Windows command on the client(s): `ksetup /addhosttorealmmap <hostname> <REALMNAME>`
-  - For example, `ksetup /addhosttorealmmap <your storage account name>.file.core.windows.net CONTOSO.LOCAL`
+# [Intune](#tab/intune)
+
+Configure this Intune [Policy CSP](/windows/client-management/mdm/policy-configuration-service-provider) and apply it to the client(s): [Kerberos/HostToRealm](/windows/client-management/mdm/policy-csp-admx-kerberos#hosttorealm)
+
+# [Group Policy](#tab/gpo)
+
+Configure this group policy on the client(s): `Administrative Template\System\Kerberos\Define host name-to-Kerberos realm mappings`
+
+- Set the policy to `Enabled`
+- Then, click on the `Show...` button to define the list of host name-to-realm mappings. For each storage account configured for AD DS, add an entry where:
+  - `Value` is the AD DS-enabled storage account's host name, i.e. `<your storage account name>.file.core.windows.net`
+  - `Value name` is the AD DS realm name
+
+# [Registry Key](#tab/regkey)
+
+Run the following `ksetup` Windows command on the client(s):
+
+```console
+ksetup /addhosttorealmmap <hostname> <REALMNAME>
+```
+
+For example, if your realm is `CONTOSO.LOCAL`, run `ksetup /addhosttorealmmap <your storage account name>.file.core.windows.net CONTOSO.LOCAL`
+
+---
 
 > [!IMPORTANT]
 > In Kerberos, realm names are case sensitive and upper case. Your Kerberos realm name is usually the same as your domain name, in upper-case letters.
@@ -231,19 +262,49 @@ Add an entry for each storage account that uses on-premises AD DS integration. U
 
 If you no longer want to use a client machine for Microsoft Entra Kerberos authentication, you can disable the Microsoft Entra Kerberos functionality on that machine. Use one of the following three methods, depending on how you enabled the functionality:
 
-- Configure this Intune [Policy CSP](/windows/client-management/mdm/policy-configuration-service-provider) and apply it to the client(s): [Kerberos/CloudKerberosTicketRetrievalEnabled](/windows/client-management/mdm/policy-csp-kerberos#kerberos-cloudkerberosticketretrievalenabled), set to 0
-- Configure this group policy on the client(s) to "Disabled": `Administrative Templates\System\Kerberos\Allow retrieving the Azure AD Kerberos Ticket Granting Ticket during logon`
-- Set the following registry value on the client(s) by running this command from an elevated command prompt: `reg add HKLM\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Parameters /v CloudKerberosTicketRetrievalEnabled /t REG_DWORD /d 0`
+# [Intune](#tab/intune)
+
+Configure this Intune [Policy CSP](/windows/client-management/mdm/policy-configuration-service-provider) and apply it to the client(s): [Kerberos/CloudKerberosTicketRetrievalEnabled](/windows/client-management/mdm/policy-csp-kerberos#kerberos-cloudkerberosticketretrievalenabled), set to 0
+
+# [Group Policy](#tab/gpo)
+
+Configure this group policy on the client(s) to "Disabled": `Administrative Templates\System\Kerberos\Allow retrieving the Azure AD Kerberos Ticket Granting Ticket during logon`
+
+# [Registry Key](#tab/regkey)
+
+Set the following registry value on the client(s) by running this command from an elevated command prompt: 
+
+```console
+reg add HKLM\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\Parameters /v CloudKerberosTicketRetrievalEnabled /t REG_DWORD /d 0
+```
+
+---
 
 Changes are not instant, and require a policy refresh or a reboot to take effect.
 
 If you followed the steps in [Configure coexistence with storage accounts using on-premises AD DS](#configure-coexistence-with-storage-accounts-using-on-premises-ad-ds), you can optionally remove all host name to Kerberos realm mappings from the client machine. Use one of the following three methods:
 
-- Configure this Intune [Policy CSP](/windows/client-management/mdm/policy-configuration-service-provider) and apply it to the client(s): [Kerberos/HostToRealm](/windows/client-management/mdm/policy-csp-admx-kerberos#hosttorealm)
-- Configure this group policy on the client(s): `Administrative Template\System\Kerberos\Define host name-to-Kerberos realm mappings`
-- Run the `ksetup` Windows command on the client(s): `ksetup /delhosttorealmmap <hostname> <realmname>`
-  - For example, `ksetup /delhosttorealmmap <your storage account name>.file.core.windows.net contoso.local`
-  - You can view the list of current host name to Kerberos realm mappings by inspecting the registry key `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\HostToRealm`.
+# [Intune](#tab/intune)
+
+Configure this Intune [Policy CSP](/windows/client-management/mdm/policy-configuration-service-provider) and apply it to the client(s): [Kerberos/HostToRealm](/windows/client-management/mdm/policy-csp-admx-kerberos#hosttorealm)
+
+# [Group Policy](#tab/gpo)
+
+Configure this group policy on the client(s): `Administrative Template\System\Kerberos\Define host name-to-Kerberos realm mappings`
+
+# [Registry Key](#tab/regkey)
+
+Run the following `ksetup` Windows command on the client(s):
+
+```console
+ksetup /delhosttorealmmap <hostname> <realmname>
+```
+
+For example, if your realm is `CONTOSO.LOCAL`, run `ksetup /delhosttorealmmap <your storage account name>.file.core.windows.net CONTOSO.LOCAL`
+
+You can view the list of current host name to Kerberos realm mappings by inspecting the registry key `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa\Kerberos\HostToRealm`.
+
+---
 
 Changes aren't instant, and require a policy refresh or a reboot to take effect.
 

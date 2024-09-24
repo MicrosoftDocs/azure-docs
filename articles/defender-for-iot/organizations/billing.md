@@ -19,9 +19,9 @@ As you plan your Microsoft Defender for IoT deployment, you typically want to un
 
 To evaluate Defender for IoT, start a free trial as follows:
 
-- **For OT networks**, use a trial license for 90 days. Deploy one or more Defender for IoT sensors on your network to monitor traffic, analyze data, generate alerts, learn about network risks and vulnerabilities, and more. An OT trial supports a **Large** site license for 90 days. For more information, see [Start a Microsoft Defender for IoT trial](getting-started.md).
+- **For OT networks**, use a trial license. Deploy one or more Defender for IoT sensors on your network to monitor traffic, analyze data, generate alerts, learn about network risks and vulnerabilities, and more. An OT trial supports a **Large** site license. For more information, see [Start a Microsoft Defender for IoT trial](getting-started.md).
 
-- **For Enterprise IoT networks**, use a trial, standalone license for 90 days as an add-on to Microsoft Defender for Endpoint. Trial licenses support 100 devices. For more information, see [Securing IoT devices in the enterprise](concept-enterprise.md) and [Enable Enterprise IoT security with Defender for Endpoint](eiot-defender-for-endpoint.md).
+- **For Enterprise IoT networks**, use a trial, standalone license as an add-on to Microsoft Defender for Endpoint. Trial licenses support 100 devices. For more information, see [Securing IoT devices in the enterprise](concept-enterprise.md) and [Enable Enterprise IoT security with Defender for Endpoint](eiot-defender-for-endpoint.md).
 
 ## Defender for IoT devices
 

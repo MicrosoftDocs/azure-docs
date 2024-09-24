@@ -111,7 +111,7 @@ REST API settings:
 #### Upload your files
 
 1. Store the UI folder files in your blob container.
-2. [Use Azure Storage Explorer to manage Azure managed disks](../virtual-machines/disks-use-storage-explorer-managed-disks.md) and access permissions.
+2. [Use Azure Storage Explorer to manage Azure managed disks](/azure/virtual-machines/disks-use-storage-explorer-managed-disks) and access permissions.
 
 ### Configure Azure AD B2C
 

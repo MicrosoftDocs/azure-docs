@@ -3,7 +3,7 @@ title: Register a client application in Microsoft Entra ID using CLI and REST AP
 description: This article describes how to register a client application Microsoft Entra ID using CLI and REST API.
 services: healthcare-apis
 author: chachachachami
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.topic: tutorial
 ms.date: 05/03/2022
 ms.author: chrupa

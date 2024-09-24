@@ -113,4 +113,4 @@ The following list describes some common actions you can take to recover from th
 ## Next steps
 
 - [Monitor app lifecycle events using Azure Activity log and Azure Service Health](./monitor-app-lifecycle-events.md)
-- [Azure Monitor cost and usage](../../azure-monitor/cost-usage.md)
+- [Azure Monitor cost and usage](/azure/azure-monitor/cost-usage)

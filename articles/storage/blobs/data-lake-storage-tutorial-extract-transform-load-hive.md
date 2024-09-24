@@ -27,9 +27,9 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Prerequisites
 
-- A storage account that has a hierarchical namespace (Azure Data Lake Storage Gen2) that is configured for HDInsight
+- A storage account that has a hierarchical namespace (Azure Data Lake Storage) that is configured for HDInsight
 
-  See [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md).
+  See [Use Azure Data Lake Storage with Azure HDInsight clusters](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
 - A Linux-based Hadoop cluster on HDInsight
   
@@ -49,7 +49,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Download, extract and then upload the data
 
-In this section, you download sample flight data. Then, you upload that data to your HDInsight cluster and then copy that data to your Data Lake Storage Gen2 account.
+In this section, you download sample flight data. Then, you upload that data to your HDInsight cluster and then copy that data to your Data Lake Storage account.
 
 1. Download the [On_Time_Reporting_Carrier_On_Time_Performance_1987_present_2016_1.zip](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/tutorials/On_Time_Reporting_Carrier_On_Time_Performance_1987_present_2016_1.zip) file. This file contains the flight data.
 
@@ -79,7 +79,7 @@ In this section, you download sample flight data. Then, you upload that data to 
 
    The command extracts a **.csv** file.
 
-5. Use the following command to create the Data Lake Storage Gen2 container.
+5. Use the following command to create the Data Lake Storage container.
 
    ```bash
    hadoop fs -D "fs.azure.createRemoteFileSystemDuringInitialization=true" -ls abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/
@@ -332,4 +332,4 @@ All resources used in this tutorial are preexisting. No cleanup is necessary.
 To learn more ways to work with data in HDInsight, see the following article:
 
 > [!div class="nextstepaction"]
-> [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md?toc=/azure/storage/blobs/toc.json)
+> [Use Azure Data Lake Storage with Azure HDInsight clusters](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md?toc=/azure/storage/blobs/toc.json)

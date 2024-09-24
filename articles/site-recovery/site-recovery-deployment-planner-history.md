@@ -3,7 +3,7 @@ title: Azure Site Recovery Deployment Planner Version History
 description: Known different Site Recovery Deployment Planner Versions fixes and known limitations along with their release dates.
 services: site-recovery
 author: ankitaduttaMSFT
-ms.topic: conceptual
+ms.topic: overview
 ms.service: azure-site-recovery
 ms.date: 08/07/2024
 ms.author: ankitadutta
@@ -12,7 +12,7 @@ ms.author: ankitadutta
 
 This article provides history of all versions of Azure Site Recovery Deployment Planner along with the fixes, known limitations in each and their release dates.
 
-## Version 2.53
+## Version 3.0
 
 **Release Date: June 4, 2024**
 
@@ -29,7 +29,7 @@ This article provides history of all versions of Azure Site Recovery Deployment 
 - 32TB data disk support
 
 
-## Version 3.0
+## Version 2.52
 
 **Release Date: June 4, 2020**
 

@@ -4,8 +4,8 @@ description: This article provides details on how Access Azure Update Manager op
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 08/02/2024
-ms.topic: conceptual
+ms.date: 08/27/2024
+ms.topic: overview
 ---
 
 # Access Azure Update Manager operations data using Azure Resource Graph
@@ -62,7 +62,7 @@ If the property for the resource type is `patchassessmentresults/softwarepatches
 |Value |Description |
 |------|------------|
 |`lastModifiedDateTime` |Timestamp (UTC) representing when the record was last updated.|
-|`publishedDateTime` |Timestamp representing when the specific update was made available by the OS vendor. The machine's OS update service or package manager generates the information. If your OS package manager or update service doesn't provide the detail of when an update was provided by OS vendor, the value is null.|
+|`publishedDateTime` |Timestamp representing when the specific update was made available by the OS vendor. The machine's OS update service or package manager generates the information. If your OS package manager or update service doesn't provide the detail of when an update was provided by OS vendor, the value is null. Currently this value is not available in case of Linux updates.|
 |`classifications` |Category that the specific update belongs to according to the OS vendor. The machine's OS update service or package manager generates the information. If your OS package manager or update service doesn't provide the detail of category, the value is `Others` (for Linux) or `Updates` (for Windows Server). |
 |`rebootRequired` |Value indicates if the specific update requires the OS to reboot to finish the installation. The machine's OS update service or package manager generates the information. If your OS package manager or update service doesn't require a reboot, the value is `false`.|
 |`rebootBehavior` |Behavior set in the OS update installation runs the job when configuring the update deployment if Update Manager can reboot the target machine. |

@@ -8,7 +8,7 @@ ms.author: erhopf
 
 The following limits are for the number of Azure AI services resources per Azure subscription. 
 There is a limit of only one allowed 'Free' account, per resource type, per subscription.
-Each of the Azure AI services may have other limitations, for more information, see [Azure AI services](../articles/ai-services/index.yml).
+Each of the Azure AI services may have other limitations, for more information, see [Azure AI services](/azure/ai-services/).
 
 | Type | Limit | Example |
 |------|-------|---------|

@@ -9,7 +9,9 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
-#customerIntent: As a SOC engineer who's using Standard-plan playbooks, I want to understand how to define an access restriction policy, ensure that only Microsoft Sentinel has access to my Standard logic app with my playbook workflows.
+
+#Customer intent: As a security engineer using Standard-plan playbooks, I want to define an access restriction policy for playbooks so that I can ensure only authorized services can access sensitive workflows.
+
 ---
 
 # Define an access restriction policy for Standard-plan playbooks

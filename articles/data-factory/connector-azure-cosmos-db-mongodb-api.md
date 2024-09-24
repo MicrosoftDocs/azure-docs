@@ -33,7 +33,7 @@ You can copy data from Azure Cosmos DB for MongoDB to any supported sink data st
 
 You can use the Azure Cosmos DB for MongoDB connector to:
 
-- Copy data from and to the [Azure Cosmos DB for MongoDB](../cosmos-db/mongodb-introduction.md).
+- Copy data from and to the [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb-introduction).
 - Write to Azure Cosmos DB as **insert** or **upsert**.
 - Import and export JSON documents as-is, or copy data from or to a tabular dataset. Examples include a SQL database and a CSV file. To copy documents as-is to or from JSON files or to or from another Azure Cosmos DB collection, see Import or export JSON documents.
 

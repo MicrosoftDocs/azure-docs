@@ -2,15 +2,15 @@
 title: Azure Site Recovery Deployment Planner for VMware disaster recovery 
 description: Learn about the Azure Site Recovery Deployment Planner for disaster recovery of VMware VMs to Azure.
 author: ankitaduttaMSFT
-manager: gaggupta
 ms.service: azure-site-recovery
-ms.topic: conceptual
+ms.topic: concept-article
 ms.author: ankitadutta
-ms.date: 08/07/2024
+ms.date: 08/30/2024
 ---
 
 
 # About the Azure Site Recovery Deployment Planner for VMware to Azure
+
 This article is the Azure Site Recovery Deployment Planner user guide for VMware to Azure production deployments.
 
 ## Overview
@@ -52,22 +52,22 @@ The tool provides the following details:
 
 
 >[!IMPORTANT]
->
 >Because usage is likely to increase over time, all the preceding tool calculations are performed assuming a 30 percent growth factor in workload characteristics. The calculations also use a 95th percentile value of all the profiling metrics, such as read/write IOPS and churn. Both growth factor and percentile calculation are configurable. To learn more about growth factor, see the "Growth-factor considerations" section. To learn more about percentile value, see the "Percentile value used for the calculation" section.
->
+
 
 ## Support matrix
 
 | **Category** | **VMware to Azure** |**Hyper-V to Azure**|**Azure to Azure**|**Hyper-V to secondary site**|**VMware to secondary site** |
 |--|--|--|--|--|--|
 | Supported scenarios |Yes|Yes|No|Yes*|No |
-| Supported version | vCenter Server 7.0, 6.7, 6.5, 6.0 or 5.5| Windows Server 2016, Windows Server 2012 R2 | NA |Windows Server 2016, Windows Server 2012 R2|NA |
+| Supported version | vCenter Server 8.0, 7.0, 6.7, and 6.5| Windows Server 2016, Windows Server 2012 R2 | NA |Windows Server 2016, Windows Server 2012 R2|NA |
 | Supported configuration|vCenter Server, ESXi| Hyper-V cluster, Hyper-V host|NA|Hyper-V cluster, Hyper-V host|NA |
 | Number of servers that can be profiled per running instance of Site Recovery Deployment Planner |Single (VMs belonging to one vCenter Server or one ESXi server can be profiled at a time)|Multiple (VMs across multiple hosts or host clusters can be profiled at a time)| NA |Multiple (VMs across multiple hosts or host clusters can be profiled at a time)| NA |
 
 *The tool is primarily for the Hyper-V to Azure disaster recovery scenario. For Hyper-V to secondary site disaster recovery, it can be used only to understand source-side recommendations like required network bandwidth, required free storage space on each of the source Hyper-V servers, and initial replication batching numbers and batch definitions. Ignore the Azure recommendations and costs from the report. Also, the Get Throughput operation is not applicable for the Hyper-V-to-secondary-site disaster recovery scenario.
 
 ## Prerequisites
+
 The tool has two main phases: profiling and report generation. There is also a third option to calculate throughput only. The requirements for the server from which the profiling and throughput measurement is initiated are presented in the following table.
 
 | Server requirement | Description|
@@ -77,11 +77,11 @@ The tool has two main phases: profiling and report generation. There is also a t
 | User permissions | Read-only permission for the user account that's used to access the VMware vCenter server/VMware vSphere ESXi host during profiling |
 
 > [!NOTE]
->
 >The tool can profile only VMs with VMDK and RDM disks. It can't profile VMs with iSCSI or NFS disks. Site Recovery does support iSCSI and NFS disks for VMware servers. Because the deployment planner isn't inside the guest and it profiles only by using vCenter performance counters, the tool doesn't have visibility into these disk types.
->
+
 
 ## Download and extract the deployment planner tool
+
 1. Download the latest version of [Site Recovery Deployment Planner](https://download.microsoft.com/download/6/5/d/65d39a90-c4e2-49a7-9149-af58deb8ef7d/ASRDeploymentPlanner-v3.0.zip).
 The tool is packaged in a .zip folder. The current version of the tool supports only the VMware to Azure scenario.
 
@@ -109,15 +109,16 @@ If you have a previous version of Deployment Planner, do either of the following
 
 
  >[!NOTE]
- >
  >When you start profiling with the new version, pass the same output directory path so that the tool appends profile data on the existing files. A complete set of profiled data is used to generate the report. If you pass a different output directory, new files are created and old profiled data isn't used to generate the report.
  >
  >Each new Deployment Planner version is a cumulative update of the .zip file. You don't need to copy the newest files to the previous folder. You can create and use a new folder.
 
 
 ## Version history
-The latest Site Recovery Deployment Planner tool version is 2.5.
+
+The latest Site Recovery Deployment Planner tool version is 3.0.
 See the [Site Recovery Deployment Planner version history](./site-recovery-deployment-planner-history.md) page for the fixes that are added in each update.
 
 ## Next steps
+
 [Run Site Recovery Deployment Planner](site-recovery-vmware-deployment-planner-run.md)

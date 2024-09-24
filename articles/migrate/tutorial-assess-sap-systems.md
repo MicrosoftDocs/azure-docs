@@ -6,8 +6,8 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.date: 03/19/2024
-ms.custom: 
+ms.date: 08/08/2024
+ms.custom: engagement-fy25
 
 ---
 
@@ -108,4 +108,7 @@ To review an assessment, follow these steps:
 
 > [!NOTE]
 > When you update any of the assessment settings, it triggers a new assessment, which takes a few minutes to reflect the updates.
+
+## Next steps
+Find server dependencies using [dependency mapping](concepts-dependency-visualization.md).
 

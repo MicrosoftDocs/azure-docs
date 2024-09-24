@@ -9,7 +9,9 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
-#customerIntent: As a SOC analyst, I want to understand how to use playbooks to manage complex analysis processes in Microsoft Sentinel.
+
+#Customer intent: As a security analyst, I want to automate incident management tasks using playbooks so that I can streamline and manage complex workflows efficiently.
+
 ---
 
 # Create and perform incident tasks in Microsoft Sentinel using playbooks

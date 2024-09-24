@@ -18,7 +18,7 @@ Azure Communication Services offers logging capabilities that you can use to mon
 
 ## Prerequisites
 
-Azure Communication Services provides monitoring and analytics features via [Azure Monitor Logs](../../../../azure-monitor/logs/data-platform-logs.md) and [Azure Monitor Metrics](../../../../azure-monitor/essentials/data-platform-metrics.md). Each Azure resource requires its own diagnostic setting, which defines the following criteria:
+Azure Communication Services provides monitoring and analytics features via [Azure Monitor Logs](/azure/azure-monitor/logs/data-platform-logs) and [Azure Monitor Metrics](/azure/azure-monitor/essentials/data-platform-metrics). Each Azure resource requires its own diagnostic setting, which defines the following criteria:
 
 * Categories of log and metric data sent to the destinations that the setting defines. The available categories vary by resource type.
 * One or more destinations to send the logs. Current destinations include Log Analytics workspace, Azure Event Hubs, and Azure Storage.

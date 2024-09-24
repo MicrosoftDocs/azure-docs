@@ -24,8 +24,6 @@ An **[internal (or private) load balancer](./components.md#frontend-ip-configura
 
 :::image type="content" source="media/load-balancer-overview/load-balancer.png" alt-text="Diagram depicts a load balancer directing traffic.":::
 
-*Figure: Balancing multi-tier applications by using both public and internal Load Balancer*
-
 For more information on the individual load balancer components, see [Azure Load Balancer components](./components.md).
 
 ## Why use Azure Load Balancer?
@@ -48,7 +46,7 @@ Key scenarios that you can accomplish using Azure Standard Load Balancer include
 
 - Enable support for **[load-balancing](./virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md)** of **[IPv6](../virtual-network/ip-services/ipv6-overview.md)**.
 
-- Standard load balancer provides multi-dimensional metrics through [Azure Monitor](../azure-monitor/overview.md). These metrics can be filtered, grouped, and broken out for a given dimension. They provide current and historic insights into performance and health of your service. [Insights for Azure Load Balancer](./load-balancer-insights.md) offers a preconfigured dashboard with useful visualizations for these metrics. Resource Health is also supported. Review **[Standard load balancer diagnostics](load-balancer-standard-diagnostics.md)** for more details.
+- Standard load balancer provides multi-dimensional metrics through [Azure Monitor](/azure/azure-monitor/overview). These metrics can be filtered, grouped, and broken out for a given dimension. They provide current and historic insights into performance and health of your service. [Insights for Azure Load Balancer](./load-balancer-insights.md) offers a preconfigured dashboard with useful visualizations for these metrics. Resource Health is also supported. Review **[Standard load balancer diagnostics](load-balancer-standard-diagnostics.md)** for more details.
 
 - Load balance services on **[multiple ports, multiple IP addresses, or both](./load-balancer-multivip-overview.md)**.
 

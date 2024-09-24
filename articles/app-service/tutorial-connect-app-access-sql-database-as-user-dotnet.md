@@ -3,7 +3,7 @@ title: 'Tutorial - Web app accesses SQL Database as the user'
 description: Secure database connectivity with Microsoft Entra authentication from .NET web app, using the signed-in user. Learn how to apply it to other Azure services.
 author: cephalin
 
-ms.service: app-service
+ms.service: azure-app-service
 ms.author: cephalin
 ms.devlang: csharp
 ms.custom: devx-track-azurecli, devx-track-dotnet, AppServiceConnectivity

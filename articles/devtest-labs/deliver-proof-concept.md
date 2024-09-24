@@ -168,7 +168,8 @@ The solution has the following requirements:
 ### Prerequisites 
 
 - A subscription to use for the project
-- A Microsoft Entra tenant, and a Microsoft Entra Global Administrator who can provide Microsoft Entra ID help and guidance
+- A Microsoft Entra tenant, and a platform engineer who can provide Microsoft Entra ID help and guidance
+
 - Ways for project members to collaborate, such as:
   - Azure Repos for source code and scripts
   - Microsoft Teams or SharePoint for documents

@@ -1,7 +1,7 @@
 ---
-title: The Azure Blob Filesystem driver for Azure Data Lake Storage Gen2
+title: The Azure Blob Filesystem driver for Azure Data Lake Storage
 titleSuffix: Azure Storage
-description: Learn about the Azure Blob Filesystem driver (ABFS), a dedicated Azure Storage driver for Hadoop. Access data in Azure Data Lake Storage Gen2 using this driver.
+description: Learn about the Azure Blob Filesystem driver (ABFS), a dedicated Azure Storage driver for Hadoop. Access data in Azure Data Lake Storage using this driver.
 author: normesta
 
 ms.topic: conceptual
@@ -13,7 +13,7 @@ ms.service: azure-data-lake-storage
 
 # The Azure Blob Filesystem driver (ABFS): A dedicated Azure Storage driver for Hadoop
 
-One of the primary access methods for data in Azure Data Lake Storage Gen2 is via the [Hadoop FileSystem](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/index.html). Data Lake Storage Gen2 allows users of Azure Blob Storage access to a new driver, the Azure Blob File System driver or `ABFS`. ABFS is part of Apache Hadoop and is included in many of the commercial distributions of Hadoop. By the ABFS driver, many applications and frameworks can access data in Azure Blob Storage without any code explicitly referencing Data Lake Storage Gen2.
+One of the primary access methods for data in Azure Data Lake Storage is via the [Hadoop FileSystem](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/index.html). Data Lake Storage allows users of Azure Blob Storage access to a new driver, the Azure Blob File System driver or `ABFS`. ABFS is part of Apache Hadoop and is included in many of the commercial distributions of Hadoop. By the ABFS driver, many applications and frameworks can access data in Azure Blob Storage without any code explicitly referencing Data Lake Storage.
 
 ## Prior capability: The Windows Azure Storage Blob driver
 
@@ -27,7 +27,7 @@ However, there are some functions that the driver must still perform:
 
 ### URI scheme to reference data
 
-Consistent with other file system implementations within Hadoop, the ABFS driver defines its own URI scheme so that resources (directories and files) may be distinctly addressed. The URI scheme is documented in [Use the Azure Data Lake Storage Gen2 URI](./data-lake-storage-introduction-abfs-uri.md). The structure of the URI is: `abfs[s]://file_system@account_name.dfs.core.windows.net/<path>/<path>/<file_name>`
+Consistent with other file system implementations within Hadoop, the ABFS driver defines its own URI scheme so that resources (directories and files) may be distinctly addressed. The URI scheme is documented in [Use the Azure Data Lake Storage URI](./data-lake-storage-introduction-abfs-uri.md). The structure of the URI is: `abfs[s]://file_system@account_name.dfs.core.windows.net/<path>/<path>/<file_name>`
 
 By using this URI format, standard Hadoop tools and frameworks can be used to reference these resources:
 
@@ -40,14 +40,14 @@ Internally, the ABFS driver translates the resource(s) specified in the URI to f
 
 ### Authentication
 
-The ABFS driver supports two forms of authentication so that the Hadoop application may securely access resources contained within a Data Lake Storage Gen2 capable account. Full details of the available authentication schemes are provided in the [Azure Storage security guide](security-recommendations.md). They are:
+The ABFS driver supports two forms of authentication so that the Hadoop application may securely access resources contained within a Data Lake Storage capable account. Full details of the available authentication schemes are provided in the [Azure Storage security guide](security-recommendations.md). They are:
 
 - **Shared Key:** This permits users access to ALL resources in the account. The key is encrypted and stored in Hadoop configuration.
 
 - **Microsoft Entra ID OAuth Bearer Token:** Microsoft Entra bearer tokens are acquired and refreshed by the driver using either the identity of the end user or a configured Service Principal. Using this authentication model, all access is authorized on a per-call basis using the identity associated with the supplied token and evaluated against the assigned POSIX Access Control List (ACL).
 
    > [!NOTE]
-   > Azure Data Lake Storage Gen2 supports only Azure AD v1.0 endpoints.
+   > Azure Data Lake Storage supports only Azure AD v1.0 endpoints.
 
 ### Configuration
 
@@ -62,4 +62,4 @@ The ABFS driver is fully documented in the [Official Hadoop documentation](https
 ## Next steps
 
 - [Create an Azure Databricks Cluster](./data-lake-storage-use-databricks-spark.md)
-- [Use the Azure Data Lake Storage Gen2 URI](./data-lake-storage-introduction-abfs-uri.md)
+- [Use the Azure Data Lake Storage URI](./data-lake-storage-introduction-abfs-uri.md)

@@ -1,5 +1,5 @@
 ---
-title: Upgrading Azure Blob Storage to Azure Data Lake Storage Gen2 
+title: Upgrading Azure Blob Storage to Azure Data Lake Storage 
 description: Description goes here.
 author: normesta
 ms.service: azure-blob-storage
@@ -9,9 +9,9 @@ ms.author: normesta
 
 ---
 
-# Upgrading Azure Blob Storage with Azure Data Lake Storage Gen2 capabilities
+# Upgrading Azure Blob Storage with Azure Data Lake Storage capabilities
 
-This article helps you to enable a hierarchical namespace and unlock capabilities such as file- and directory-level security and faster operations. These capabilities are widely used by big data analytics workloads and are referred to collectively as Azure Data Lake Storage Gen2. The most popular capabilities include:
+This article helps you to enable a hierarchical namespace and unlock capabilities such as file- and directory-level security and faster operations. These capabilities are widely used by big data analytics workloads and are referred to collectively as Azure Data Lake Storage. The most popular capabilities include:
 
 - Higher throughput, input/output operations per second (IOPS), and storage capacity limits.
 
@@ -21,9 +21,9 @@ This article helps you to enable a hierarchical namespace and unlock capabilitie
 
 - Security at the container, directory, and file level.
 
-To learn more about them, see [Introduction to Azure Data Lake Storage Gen2](data-lake-storage-introduction.md).
+To learn more about them, see [Introduction to Azure Data Lake Storage](data-lake-storage-introduction.md).
 
-This article helps you evaluate the impact on workloads, applications, costs, service integrations, tools, features, and documentation. Make sure to review these impacts carefully. When you are ready to upgrade an account, see this step-by-step guide: [Upgrade Azure Blob Storage with Azure Data Lake Storage Gen2 capabilities](upgrade-to-data-lake-storage-gen2-how-to.md).
+This article helps you evaluate the impact on workloads, applications, costs, service integrations, tools, features, and documentation. Make sure to review these impacts carefully. When you are ready to upgrade an account, see this step-by-step guide: [Upgrade Azure Blob Storage with Azure Data Lake Storage capabilities](upgrade-to-data-lake-storage-gen2-how-to.md).
 
 > [!IMPORTANT]
 > An upgrade is one-way. There's no way to revert your account once you've performed the upgrade. We recommend that you validate your upgrade in a nonproduction environment.
@@ -49,7 +49,7 @@ Your upgraded account will have a Data Lake storage endpoint. You can find the U
 
 You don't have to modify your existing applications and workloads to use that endpoint. [Multiprotocol access in Data Lake Storage](data-lake-storage-multi-protocol-access.md) makes it possible for you to use either the Blob service endpoint or the Data Lake storage endpoint to interact with your data. 
 
-Azure services and tools (such as AzCopy) might use the Data Lake storage endpoint to interact with the data in your storage account. Also, you'll  need to use this new endpoint for any operations that you perform by using the Data Lake Storage Gen2 [SDKs](data-lake-storage-directory-file-acl-dotnet.md), [PowerShell commands](data-lake-storage-directory-file-acl-powershell.md), or [Azure CLI commands](data-lake-storage-directory-file-acl-cli.md). 
+Azure services and tools (such as AzCopy) might use the Data Lake storage endpoint to interact with the data in your storage account. Also, you'll  need to use this new endpoint for any operations that you perform by using the Data Lake Storage [SDKs](data-lake-storage-directory-file-acl-dotnet.md), [PowerShell commands](data-lake-storage-directory-file-acl-powershell.md), or [Azure CLI commands](data-lake-storage-directory-file-acl-cli.md). 
 
 ### Directories
 
@@ -67,7 +67,7 @@ When you upload a blob, and the path that you specify includes a directory that 
 
 ### List operations
 
-A [List Blobs](/rest/api/storageservices/list-blobs) operation returns both directories and files. Each is listed separately. Directories appear in the list as zero-length blobs. In a Blob storage account that does not have a hierarchical namespace, a [List Blobs](/rest/api/storageservices/list-blobs) operation returns only blobs and not directories. If you use the Data Lake Storage Gen2 [Path - List](/rest/api/storageservices/datalakestoragegen2/path/list) operation, directories will appear as directory entries and not as zero-length blobs.
+A [List Blobs](/rest/api/storageservices/list-blobs) operation returns both directories and files. Each is listed separately. Directories appear in the list as zero-length blobs. In a Blob storage account that does not have a hierarchical namespace, a [List Blobs](/rest/api/storageservices/list-blobs) operation returns only blobs and not directories. If you use the Data Lake Storage [Path - List](/rest/api/storageservices/datalakestoragegen2/path/list) operation, directories will appear as directory entries and not as zero-length blobs.
 
 The list order is different as well. Directories and files appear in *depth-first search* order. A Blob storage account that does not have a hierarchical namespace lists blobs in *lexicographical* order. 
 
@@ -84,15 +84,15 @@ There is no cost to perform the upgrade. After you upgrade, the cost to store yo
 
 - [Block blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
-- [Azure Data Lake Storage Gen2 pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/).
+- [Azure Data Lake Storage pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/).
 
 You can also use the **Storage Accounts** option in the [Azure Pricing Calculator](https://azure.microsoft.com/pricing/calculator/) to estimate the impact of costs after an upgrade. 
 
-Aside from pricing changes, consider the cost savings associated with Data Lake Storage Gen2 capabilities. Overall total of cost of ownership typically declines because of higher throughput and optimized operations. Higher throughput enables you to transfer more data in less time. A hierarchical namespace improves the efficiency of operations.  
+Aside from pricing changes, consider the cost savings associated with Data Lake Storage capabilities. Overall total of cost of ownership typically declines because of higher throughput and optimized operations. Higher throughput enables you to transfer more data in less time. A hierarchical namespace improves the efficiency of operations.  
 
 ## Impact on service integrations
 
-While most Azure service integrations will continue to work after you've enabled these capabilities, some of them remain in preview or not yet supported. See [Azure services that support Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md) to understand the current support for Azure service integrations with Data Lake Storage Gen2.
+While most Azure service integrations will continue to work after you've enabled these capabilities, some of them remain in preview or not yet supported. See [Azure services that support Azure Data Lake Storage](data-lake-storage-supported-azure-services.md) to understand the current support for Azure service integrations with Data Lake Storage.
 
 ## Impact on tools, features, and documentation
 
@@ -102,7 +102,7 @@ After you upgrade, the way you that interact with some features will change. Thi
 
 While most of the Blob storage features will continue to work after you've enabled these capabilities, some of them remain in preview or are not yet supported. 
 
-See [Blob Storage features available in Azure Data Lake Storage Gen2](./storage-feature-support-in-storage-accounts.md) to understand the current support for Blob storage features with Data Lake Storage Gen2. 
+See [Blob Storage features available in Azure Data Lake Storage](./storage-feature-support-in-storage-accounts.md) to understand the current support for Blob storage features with Data Lake Storage. 
 
 ### Diagnostic logs
 
@@ -136,26 +136,26 @@ The following buttons don't yet appear in the Ribbon of Azure Storage Explorer:
 |--|--|
 |Copy URL|Not yet implemented|
 |Manage snapshots|Not yet implemented|
-|Undelete|Depends on Blob storage features not yet supported with Data Lake Storage Gen2 |
+|Undelete|Depends on Blob storage features not yet supported with Data Lake Storage |
 
 
 The following buttons behave differently in your new account.
 
-|Button|Blob storage behavior|Data Lake Storage Gen2 behavior|
+|Button|Blob storage behavior|Data Lake Storage behavior|
 |---|---|---|
 |Folder|Folder is virtual and disappears if you don't add files to it. |Folder exists even with no files added to it.| 
 |Rename|Results in a copy and then a delete of the source blob|Renames the same blob. Far more efficient.|
 
 ### Documentation
 
-You can find guidance for using Data Lake Storage Gen2 capabilities here: [Introduction to Azure Data Lake Storage Gen2](data-lake-storage-introduction.md). 
+You can find guidance for using Data Lake Storage capabilities here: [Introduction to Azure Data Lake Storage](data-lake-storage-introduction.md). 
 
 Nothing has changed with respect to where you find the guidance for all of the existing Blob storage features. That guidance is here: [Introduction to Azure Blob storage](storage-blobs-introduction.md). 
 
-As you move between content sets, you'll notice some slight terminology differences. For example, content featured in the Data Lake Storage Gen2 content might use the term *file* and *file system* instead of *blob* and *container*. The terms *file* and *file system* are deeply rooted in the world of big data analytics where Data Lake storage has had a long history. The content contains these terms to keep it relatable to these audiences. These terms don't describe separate *things*.
+As you move between content sets, you'll notice some slight terminology differences. For example, content featured in the Data Lake Storage content might use the term *file* and *file system* instead of *blob* and *container*. The terms *file* and *file system* are deeply rooted in the world of big data analytics where Data Lake storage has had a long history. The content contains these terms to keep it relatable to these audiences. These terms don't describe separate *things*.
 
 ## Next steps
 
-When you are ready to upgrade your storage account to include Data Lake Storage Gen2 capabilities, see this step-by-step guide. 
+When you are ready to upgrade your storage account to include Data Lake Storage capabilities, see this step-by-step guide. 
 > [!div class="nextstepaction"]
-> [Upgrade Azure Blob Storage with Azure Data Lake Storage Gen2 capabilities](upgrade-to-data-lake-storage-gen2-how-to.md)
+> [Upgrade Azure Blob Storage with Azure Data Lake Storage capabilities](upgrade-to-data-lake-storage-gen2-how-to.md)

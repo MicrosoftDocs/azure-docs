@@ -321,12 +321,12 @@ Review and apply the firewall recommendations for the following services:
 
 :::zone pivot="ase-pro-gpu"
 - [Azure Stack Edge](../databox-online/azure-stack-edge-gpu-system-requirements.md#url-patterns-for-firewall-rules)
-- [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/network-requirements.md?tabs=azure-cloud)
+- [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/network-requirements?tabs=azure-cloud)
 - [Azure Network Function Manager](../network-function-manager/requirements.md)
 :::zone-end
 :::zone pivot="ase-pro-2"
 - [Azure Stack Edge](../databox-online/azure-stack-edge-pro-2-system-requirements.md#url-patterns-for-firewall-rules)
-- [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/network-requirements.md?tabs=azure-cloud)
+- [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/network-requirements?tabs=azure-cloud)
 - [Azure Network Function Manager](../network-function-manager/requirements.md)
 :::zone-end
 

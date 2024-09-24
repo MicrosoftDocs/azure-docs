@@ -5,6 +5,10 @@ author: batamig
 ms.author: bagol
 ms.topic: concept-article
 ms.date: 08/04/2024
+
+
+#Customer intent: As a security analyst, I want to monitor and audit Microsoft Sentinel's health and activity so that I can ensure the service is functioning correctly and detect any unauthorized actions.
+
 ---
 
 # Auditing and health monitoring in Microsoft Sentinel 
@@ -66,7 +70,7 @@ To start collecting health and audit data, you need to [enable health and audit 
 |**Run queries** on the *SentinelHealth* and *SentinelAudit* data tables from the Microsoft Sentinel **Logs** page.     |  <li> [Data connectors](monitor-data-connector-health.md#run-queries-to-detect-health-drifts) <li> [Automation rules and playbooks](monitor-automation-health.md#get-the-complete-automation-picture) (join query with Azure Logic Apps diagnostics)<li> [Analytics rules](monitor-analytics-rule-integrity.md#run-queries-to-detect-health-and-integrity-issues)       |
 |**Use the auditing and health monitoring workbooks** provided in Microsoft Sentinel.     | <li> [Data connectors](monitor-data-connector-health.md#use-the-health-monitoring-workbook) <li> [Automation rules and playbooks](monitor-automation-health.md#use-the-health-monitoring-workbook) <li> [Analytics rules](monitor-analytics-rule-integrity.md#use-the-auditing-and-health-monitoring-workbook)    |
 |**Use Microsoft Sentinel's execution management tools** to monitor and optimize scheduled analytics rules' execution    |  <li> [Monitor and optimize the execution of your scheduled analytics rules](monitor-optimize-analytics-rule-execution.md)      |
-|**Export the data into various destinations**, like your Log Analytics workspace, archiving to a storage account, and more.     | <li>  [Diagnostic settings in Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)      |
+|**Export the data into various destinations**, like your Log Analytics workspace, archiving to a storage account, and more.     | <li>  [Diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings)      |
 
 
 ## Related content

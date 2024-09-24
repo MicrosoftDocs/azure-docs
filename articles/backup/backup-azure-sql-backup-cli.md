@@ -2,7 +2,7 @@
 title: Back up SQL server databases in Azure VMs using Azure Backup via CLI
 description: Learn how to use CLI to back up SQL server databases in Azure VMs in the Recovery Services vault.
 ms.topic: how-to
-ms.date: 08/11/2022
+ms.date: 09/10/2024
 ms.service: azure-backup
 ms.custom: devx-track-azurecli
 author: AbhishekMallick-MS
@@ -13,7 +13,7 @@ ms.author: v-abhmallick
 
 Azure CLI is used to create and manage Azure resources from the Command Line or through scripts. This article describes how to back up an SQL database in Azure VM and trigger on-demand backups using Azure CLI. You can also perform these actions using the [Azure portal](backup-sql-server-database-azure-vms.md).
 
-This article assumes that you already have an SQL database installed on an Azure VM. (You can also [create a VM using Azure CLI](../virtual-machines/linux/quick-create-cli.md)). 
+This article assumes that you already have an SQL database installed on an Azure VM. (You can also [create a VM using Azure CLI](/azure/virtual-machines/linux/quick-create-cli)). 
 
 In this article, you'll learn how to:
 > [!div class="checklist"]
@@ -31,7 +31,7 @@ See the [currently supported scenarios](sql-support-matrix.md) for SQL in Azure 
 
 A Recovery Services vault is a logical container that stores the backup data for each protected resource, such as Azure VMs or workloads running on Azure VMs - for example, SQL or HANA databases. When the backup job for a protected resource runs, it creates a recovery point inside the Recovery Services vault. You can then use one of these recovery points to restore data to a given point in time.
 
-Create a Recovery Services vault with the [az backup vault create](/cli/azure/backup/vault#az-backup-vault-create) command. Use the resource group and location as that of the VM you want to protect. Learn how to create a VM using Azure CLI with [this VM quickstart](../virtual-machines/linux/quick-create-cli.md).
+Create a Recovery Services vault with the [az backup vault create](/cli/azure/backup/vault#az-backup-vault-create) command. Use the resource group and location as that of the VM you want to protect. Learn how to create a [Windows VM](/azure/virtual-machines/windows/quick-create-cli) and a [Linux VM](/azure/virtual-machines/linux/quick-create-cli) using Azure CLI.  
 
 For this article, we'll use:
 

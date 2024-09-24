@@ -59,7 +59,7 @@ If you don't have an Azure subscription, [create an account](https://azure.micro
    * **Authentication type**: Select **SSH public key** if you're creating a Linux VM.
 
         > [!NOTE]
-        > You have the choice of using an SSH public key or a Password for authentication. SSH is more secure. For instructions on how to generate an SSH key, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
+        > You have the choice of using an SSH public key or a Password for authentication. SSH is more secure. For instructions on how to generate an SSH key, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](/azure/virtual-machines/linux/mac-create-ssh-keys).
 
     * **Username**: Enter the Administrator name for the VM.
 
@@ -88,7 +88,7 @@ If you don't have an Azure subscription, [create an account](https://azure.micro
 1. In the **Review + create** pane, select **Create**.
 
 > [!NOTE]
-> Proceed to the next section and continue with this tutorial if you deployed a Linux VM. If you deployed a Windows VM, [follow these steps to connect to your Windows VM](../virtual-machines/windows/connect-logon.md)
+> Proceed to the next section and continue with this tutorial if you deployed a Linux VM. If you deployed a Windows VM, [follow these steps to connect to your Windows VM](/azure/virtual-machines/windows/connect-logon)
 
 
 ## Connect to the Linux VM

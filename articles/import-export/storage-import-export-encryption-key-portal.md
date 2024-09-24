@@ -2,11 +2,11 @@
 title: Use the Azure portal to configure customer-managed keys for Import/Export service
 description: Learn how to use the Azure portal to configure customer-managed keys with Azure Key Vault for Azure Import/Export service. Customer-managed keys enable you to create, rotate, disable, and revoke access controls.
 services: storage
-author: alkohli
+author: stevenmatthew
 ms.service: azure-import-export
 ms.topic: how-to
 ms.date: 03/14/2022
-ms.author: alkohli
+ms.author: shaas
 
 ---
 

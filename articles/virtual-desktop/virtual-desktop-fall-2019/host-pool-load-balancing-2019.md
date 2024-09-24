@@ -1,10 +1,11 @@
 ---
 title: Azure Virtual Desktop (classic) host pool load-balancing - Azure
 description: Host pool load-balancing methods for an Azure Virtual Desktop environment.
-author: Heidilohr
+author: dknappettmsft
 ms.topic: conceptual
 ms.date: 03/30/2020
-ms.author: helohr
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
 # Host pool load-balancing methods in Azure Virtual Desktop (classic)
 

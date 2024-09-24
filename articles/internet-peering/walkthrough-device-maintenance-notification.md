@@ -124,7 +124,7 @@ Service Health supports forwarding rules, so you can set up your own alerts when
 
 Azure Peering Service notifications are forwarded to you based on your alert rule whenever maintenance events start, and whenever they're resolved.
 
-For more information on the notification platform of Service Health, see [Create activity log alerts on service notifications using the Azure portal](../service-health/alerts-activity-log-service-notifications-portal.md).
+For more information on the notification platform of Service Health, see [Create activity log alerts on service notifications using the Azure portal](/azure/service-health/alerts-activity-log-service-notifications-portal).
 
 ## Receive notifications for legacy peerings
 

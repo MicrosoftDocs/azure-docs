@@ -6,7 +6,7 @@ author: KarlErickson
 ms.author: xiading
 ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 6/20/2023
+ms.date: 08/29/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 
@@ -68,7 +68,7 @@ Use the following steps to provision an Azure Spring Apps service instance:
    - Choose an existing Application Insights instance or create a new Application Insights instance.
    - Enter a **Sampling rate** in the range of 0-100, or use the default value 10.
 
-   You can also enable Application Insights after you provision the Azure Spring Apps instance. For more information about Application Insights pricing, see the [Application Insights billing](../../azure-monitor/logs/cost-logs.md#application-insights-billing) section of [Azure Monitor Logs cost calculations and options](../../azure-monitor/logs/cost-logs.md).
+   You can also enable Application Insights after you provision the Azure Spring Apps instance. For more information about Application Insights pricing, see the [Application Insights billing](/azure/azure-monitor/logs/cost-logs#application-insights-billing) section of [Azure Monitor Logs cost calculations and options](/azure/azure-monitor/logs/cost-logs).
 
    > [!NOTE]
    > You'll pay for the usage of Application Insights when integrated with Azure Spring Apps.
@@ -304,7 +304,7 @@ Use the following steps to build locally:
 
 ## Use Application Insights
 
-The Azure Spring Apps Enterprise plan uses buildpack bindings to integrate [Application Insights](../../azure-monitor/app/app-insights-overview.md) with the type `ApplicationInsights` instead of In-Process Agent. For more information, see [How to configure APM integration and CA certificates](how-to-enterprise-configure-apm-integration-and-ca-certificates.md).
+The Azure Spring Apps Enterprise plan uses buildpack bindings to integrate [Application Insights](/azure/azure-monitor/app/app-insights-overview) with the type `ApplicationInsights` instead of In-Process Agent. For more information, see [How to configure APM integration and CA certificates](how-to-enterprise-configure-apm-integration-and-ca-certificates.md).
 
 The following table lists the APM providers available the plans.
 

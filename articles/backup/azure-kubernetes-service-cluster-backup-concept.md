@@ -1,11 +1,11 @@
 ---
 title: Azure Kubernetes Service (AKS) backup using Azure Backup prerequisites
 description: This article explains the prerequisites for Azure Kubernetes Service (AKS) backup.
-ms.topic: conceptual
+ms.topic: overview
 ms.service: azure-backup
 ms.custom:
   - ignite-2023
-ms.date: 03/28/2024
+ms.date: 09/09/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -73,7 +73,7 @@ To enable backup for an AKS cluster, see the following prerequisites: .
 
 - Azure Backup for AKS supports AKS clusters using either a system-assigned managed identity or a user-assigned managed identity for backup operations. Although clusters using a service principal aren't supported, you can update an existing AKS cluster to use a [system-assigned managed identity](/azure/aks/use-managed-identity#update-an-existing-aks-cluster-to-use-a-system-assigned-managed-identity) or a [user-assigned managed identity](/azure/aks/use-managed-identity#update-an-existing-cluster-to-use-a-user-assigned-managed-identity).
 
-- The Backup Extension during installation fetches Container Images stored in Microsoft Container Registry (MCR). If you enable a firewall on the AKS cluster, the extension installation process might fail due to access issues on the Registry. Learn [how to allow MCR access from the firewall](../container-registry/container-registry-firewall-access-rules.md#configure-client-firewall-rules-for-mcr).
+- The Backup Extension during installation fetches Container Images stored in Microsoft Container Registry (MCR). If you enable a firewall on the AKS cluster, the extension installation process might fail due to access issues on the Registry. Learn [how to allow MCR access from the firewall](/azure/container-registry/container-registry-firewall-access-rules#configure-client-firewall-rules-for-mcr).
 
 - In case you have the cluster in a Private Virtual Network and Firewall, apply the following FQDN/application rules: `*.microsoft.com`, `*.azure.com`, `*.core.windows.net`, `*.azmk8s.io`, `*.digicert.com`, `*.digicert.cn`, `*.geotrust.com`, `*.msocsp.com`. Learn [how to apply FQDN rules](../firewall/dns-settings.md).
 

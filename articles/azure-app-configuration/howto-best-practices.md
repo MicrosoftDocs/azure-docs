@@ -5,7 +5,7 @@ services: azure-app-configuration
 author: zhenlan
 ms.service: azure-app-configuration
 ms.topic: conceptual
-ms.date: 02/20/2024
+ms.date: 09/11/2024
 ms.author: zhenlwa
 ms.custom: "devx-track-csharp, mvc"
 ---
@@ -89,11 +89,9 @@ You can also make your App Configuration data accessible to your application as 
 
 Excessive requests to App Configuration can result in throttling or overage charges. To reduce the number of requests made:
 
-* Increase the refresh timeout, especially if your configuration values do not change frequently. Specify a new refresh timeout using the [`SetCacheExpiration` method](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.azureappconfigurationrefreshoptions.setcacheexpiration).
+* Increase the refresh interval, especially if your configuration values do not change frequently. Specify a new refresh interval using the [`SetCacheExpiration` method](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.azureappconfigurationrefreshoptions.setcacheexpiration).
 
 * Watch a single *sentinel key*, rather than watching individual keys. Refresh all configuration only if the sentinel key changes. See [Use dynamic configuration in an ASP.NET Core app](enable-dynamic-configuration-aspnet-core.md) for an example.
-
-* Use Azure Event Grid to receive notifications when configuration changes, rather than constantly polling for any changes. For more information, see [Use Event Grid for App Configuration data change notifications](./howto-app-configuration-event.md).
 
 * [Enable geo-replication](./howto-geo-replication.md) of your App Configuration store and spread your requests across multiple replicas. For example, use a different replica from each geographic region for a globally deployed application. Each App Configuration replica has its separate request quota. This setup gives you a model for scalability and enhanced resiliency against transient and regional outages.
 

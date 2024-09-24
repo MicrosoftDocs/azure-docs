@@ -296,7 +296,7 @@ You've updated your HTTP triggered function to write data to a Storage queue. No
 * [Azure Functions Python developer guide](functions-reference-python.md)  
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
-* [Examples of complete Function projects in PowerShell](/samples/browse/?products=azure-functions&languages=azurepowershell).
+* [Examples of complete Function projects in PowerShell](/samples/browse/?products=azure-functions&languages=powershell).
 
 * [Azure Functions PowerShell developer guide](functions-reference-powershell.md)
 ::: zone-end

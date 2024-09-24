@@ -3,8 +3,8 @@ title: Deploy an Azure SQL Edge container in Kubernetes - Azure SQL Edge
 description: Learn about deploying an Azure SQL Edge container in Kubernetes
 author: rwestMSFT
 ms.author: randolphwest
-ms.date: 09/14/2023
-ms.service: sql-edge
+ms.date: 09/21/2024
+ms.service: azure-sql-edge
 ms.topic: tutorial
 keywords:
   - SQL Edge
@@ -13,7 +13,9 @@ keywords:
 ---
 # Deploy an Azure SQL Edge container in Kubernetes
 
-> [!IMPORTANT]  
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
+
+> [!NOTE]  
 > Azure SQL Edge no longer supports the ARM64 platform.
 
 Azure SQL Edge can be deployed on a Kubernetes cluster both as an IoT Edge module through Azure IoT Edge running on Kubernetes, or as a standalone container pod. For the remainder of this article, we will focus on the standalone container deployment on a Kubernetes cluster. For information on deploying Azure IoT Edge on Kubernetes, see [Azure IoT Edge on Kubernetes (preview)](https://microsoft.github.io/iotedge-k8s-doc/introduction.html).
@@ -315,7 +317,7 @@ In this tutorial, you learned how to deploy Azure SQL Edge containers to a Kuber
 > * Connect with Azure SQL Edge Management Studios (SSMS)
 > * Verify failure and recovery
 
-## Next steps
+## Related content
 
 - [Introduction to Kubernetes](/azure/aks/intro-kubernetes)
 - [Machine Learning and Artificial Intelligence with ONNX in SQL Edge](onnx-overview.md).

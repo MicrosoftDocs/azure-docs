@@ -54,6 +54,8 @@ There are no other prerequisites for the Azure portal.
 
 Register a new device in your IoT hub.
 
+[!INCLUDE [iot-authentication-device-connection-string.md](../../includes/iot-authentication-device-connection-string.md)]
+
 # [Azure portal](#tab/portal)
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your IoT hub.
@@ -254,6 +256,9 @@ Create an Azure Storage account and a container within that account, which will 
 Now set up the routing for the storage account. In this section you define a new endpoint that points to the storage account you created. Then, create a route that filters for messages where the **level** property is set to **storage**, and route those to the storage endpoint.
 
 [!INCLUDE [iot-hub-include-blob-storage-format](../../includes/iot-hub-include-blob-storage-format.md)]
+
+[!INCLUDE [iot-authentication-service-connection-string.md](../../includes/iot-authentication-service-connection-string.md)]
+
 
 # [Azure portal](#tab/portal)
 

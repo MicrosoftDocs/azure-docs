@@ -6,7 +6,7 @@ ms.author: sipa
 ms.date: 07/22/2023
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: ios-sdk
 ---
 
 # Set map style in the iOS SDK (Preview)

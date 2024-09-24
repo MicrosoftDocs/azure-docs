@@ -56,7 +56,7 @@ For frequently asked questions about Azure Route Server, see [Azure Route Server
 
 ## Related content
 
-- To learn how to create and configure Azure Route Server, see [Quickstart: Create and configure Route Server using the Azure portal](quickstart-configure-route-server-powershell.md).
-- To learn how Azure Route Server works with Azure ExpressRoute and Azure VPN, see [Azure Route Server support for ExpressRoute and Azure VPN](expressroute-vpn-support.md).
+- [Quickstart: Create an Azure Route Server using the Azure portal](quickstart-create-route-server-powershell.md).
+- [Tutorial: Configure BGP peering between Azure Route Server and network virtual appliance (NVA)](peer-route-server-with-virtual-appliance.md).
 - Training module: [Introduction to Azure Route Server](/training/modules/intro-to-azure-route-server).
 - Azure Architecture Center: [Update route tables by using Azure Route Server](/azure/architecture/example-scenario/networking/manage-routing-azure-route-server).

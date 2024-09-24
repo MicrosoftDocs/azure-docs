@@ -7,6 +7,10 @@ ms.topic: feature-availability
 ms.custom: references_regions
 ms.service: microsoft-sentinel
 ms.date: 07/15/2024
+
+
+#Customer intent: As a security operations manager, I want to understand the Microsoft Sentinel's feature availability across different Azure environments so that I can effectively plan and manage our security operations.
+
 ---
 
 # Microsoft Sentinel feature support for Azure commercial/other clouds
@@ -195,4 +199,4 @@ While Microsoft Sentinel is also available in the [Microsoft Defender portal](mi
 In this article, you learned about available features in Microsoft Sentinel. 
 
 - [Learn about Microsoft Sentinel](overview.md)
-- [Plan your Microsoft Sentinel architecture](design-your-workspace-architecture.md)
+- [Design a Log Analytics workspace architecture](/azure/azure-monitor/logs/workspace-design?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json)

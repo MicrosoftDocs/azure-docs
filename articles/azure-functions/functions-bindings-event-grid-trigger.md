@@ -489,7 +489,7 @@ For explanations of the common and event-specific properties, see [Event propert
 
 ## Next steps
 
-* If you have questions, submit an issue to the team [here](https://github.com/Azure/azure-functions-eventgrid-extension/issues)
+* If you have questions, submit an issue to the team [here](https://github.com/Azure/azure-sdk-for-net/issues)
 * [Dispatch an Event Grid event](./functions-bindings-event-grid-output.md)
 
 [EventGridEvent]: /dotnet/api/microsoft.azure.eventgrid.models.eventgridevent

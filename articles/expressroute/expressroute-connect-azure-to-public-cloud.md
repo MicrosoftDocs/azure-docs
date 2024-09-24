@@ -4,7 +4,7 @@ description: Describe various ways to connect Azure to other public clouds
 services: expressroute
 author: duongau
 ms.service: azure-expressroute
-ms.topic: article
+ms.topic: concept-article
 ms.date: 06/30/2023
 ms.author: duau
 ---
@@ -62,4 +62,4 @@ See [Set up direct connection between Azure and Oracle Cloud][ER-OCI] for connec
 
 <!--Link References-->
 [ER-FAQ]: ./expressroute-faqs.md
-[ER-OCI]: ../virtual-machines/workloads/oracle/configure-azure-oci-networking.md
+[ER-OCI]: /azure/virtual-machines/workloads/oracle/configure-azure-oci-networking

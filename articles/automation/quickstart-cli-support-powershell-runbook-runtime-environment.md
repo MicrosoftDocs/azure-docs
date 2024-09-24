@@ -3,8 +3,8 @@ title: Add support for Azure CLI in PowerShell 7.2 runbooks in Runtime environme
 titleSuffix: Azure Automation
 description: This article shows how to add support for Azure CLI in PowerShell 7.2 runbooks in Runtime environment.
 services: automation
-ms.date: 01/17/2024
-ms.topic: conceptual
+ms.date: 09/15/2024
+ms.topic: quickstart
 ms.custom: references_regions, devx-track-azurecli
 ---
 

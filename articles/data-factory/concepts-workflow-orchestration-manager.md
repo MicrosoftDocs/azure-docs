@@ -17,7 +17,9 @@ ms.custom: references_regions
 > Workflow Orchestration Manager is powered by Apache Airflow.
 
 > [!NOTE]
-> This feature is in public preview. For questions or feature suggestions, please send an email to mailto:ManagedAirflow@microsoft.com with the details.
+> Apache Airflow is now accessible through Microsoft Fabric. Microsoft Fabric offers a wide range of Apache Airflow capabilities via Data Workflows. 
+> We recommend migrating your existing Workflow Orchestration Manager (Apache Airflow in ADF) based workflows to Data Workflows (Apache Airflow in Microsoft Fabric) for a broader set of features. Apache Airflow capabilities will be Genrally Available in Q1 CY2025 only in Microsoft Fabric. 
+> For new Apache Airflow projects, we strongly recommend using Apache Airflow in Microsoft Fabric. More details can be found [here](https://blog.fabric.microsoft.com/blog/introducing-data-workflows-in-microsoft-fabric?ft=All).
 
 > [!NOTE]
 > Workflow Orchestration Manager for Azure Data Factory relies on the open source Apache Airflow application. Documentation and more tutorials for Airflow can be found on the Apache Airflow [Documentation](https://airflow.apache.org/docs/) or [Community](https://airflow.apache.org/community/) pages.
@@ -60,7 +62,7 @@ Workflow Orchestration Manager in Azure Data Factory offers a range of powerful 
 * SouthEast Asia
 
 > [!NOTE]
-> By GA, all ADF regions will be supported. The Airflow environment region is defaulted to the Data Factory region and is not configurable, so ensure you use a Data Factory in the above supported region to be able to access the Workflow Orchestration Manager preview.
+> The Airflow environment region is defaulted to the Data Factory region and is not configurable, so ensure you use a Data Factory in the above supported region to be able to access the Workflow Orchestration Manager preview.
 
 ## Supported Apache Airflow versions
 

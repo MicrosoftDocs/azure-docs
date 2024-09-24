@@ -6,7 +6,7 @@ ms.topic: reference
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 04/25/2024
+ms.date: 09/20/2024
 ms.custom: generated
 ---
 
@@ -161,6 +161,7 @@ Azure service: [Azure Database Migration Service](/azure/dms/)
 > | Microsoft.DataMigration/migrationServices/delete | Delete existing Service |
 > | Microsoft.DataMigration/migrationServices/read | Retrieve details of Migration Service |
 > | Microsoft.DataMigration/migrationServices/read | Retrieve details of Migration Services in a Resource Group |
+> | Microsoft.DataMigration/migrationServices/validateIR/action |  |
 > | Microsoft.DataMigration/migrationServices/read | Retrieve all services in the Subscription |
 > | Microsoft.DataMigration/migrationServices/listMigrations/read |  |
 > | Microsoft.DataMigration/operations/read | Get all REST Operations |

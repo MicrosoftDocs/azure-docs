@@ -118,4 +118,4 @@ For more information about working with policies, see:
 + [Set or edit policies](set-edit-policies.md)
 + [Policy reference](./api-management-policies.md) for a full list of policy statements
 + [Policy snippets repo](https://github.com/Azure/api-management-policy-snippets)	
-+ [Author policies using Microsoft Copilot in Azure](../copilot/author-api-management-policies.md?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)
++ [Author policies using Microsoft Copilot in Azure](/azure/copilot/author-api-management-policies?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)

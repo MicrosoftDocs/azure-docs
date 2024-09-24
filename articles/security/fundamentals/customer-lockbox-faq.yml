@@ -31,7 +31,7 @@ sections:
         answer: |
           Role assignments must be in place before Customer Lockbox for Microsoft Azure starts to process a request. Any role assignments made after Customer Lockbox for Microsoft Azure starts to process a given request will not be recognized. Using PIM eligible assignments for the Customer Lockbox approver role requires users to activate the role before the Customer Lockbox request is initiated.
 
-  - name: Customer Lockbox Approver Role for Subscriptions (public preview)
+  - name: Customer Lockbox Approver Role for Subscriptions
     questions:
       - question: |
           Can I use the new Customer Lockbox approver role for tenant-scoped requests as well?
@@ -46,7 +46,7 @@ sections:
         answer: |
           Role assignments must be in place before Customer Lockbox starts to process a request. Any role assignments made after Customer Lockbox for Microsoft Azure starts to process a given request will not be recognized. Because of this, to use PIM eligible assignments for the Customer Lockbox approver role, users are required to activate the role before the Customer Lockbox request is initiated.
 
-  - name: Alternative email feature (public preview)
+  - name: Alternative email feature
     questions:
       - question: |
           Can I add a different user email address as an alternate email to another user's account?

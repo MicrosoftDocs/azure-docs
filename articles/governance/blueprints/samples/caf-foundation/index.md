@@ -22,7 +22,7 @@ This implementation incorporates several Azure services used to provide a secure
 
 - An [Azure Key Vault](/azure/key-vault/general/overview) instance used to host secrets
   used for the VMs deployed in the shared services environment
-- Deploy [Log Analytics](../../../../azure-monitor/overview.md) is deployed to ensure all actions
+- Deploy [Log Analytics](/azure/azure-monitor/overview) is deployed to ensure all actions
   and services log to a central location from the moment you start your secure deployment in to
   [Storage Accounts](../../../../storage/common/storage-introduction.md) for diagnostic logging
 - Deploy [Microsoft Defender for Cloud](../../../../security-center/security-center-introduction.md) (standard

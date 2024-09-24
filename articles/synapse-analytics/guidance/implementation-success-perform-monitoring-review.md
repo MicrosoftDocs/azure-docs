@@ -17,7 +17,7 @@ Monitoring is a key part of the operationalization of any Azure solution. This a
 
 Using your solution requirements and other data collected during the [assessment stage](implementation-success-assess-environment.md) and [solution development](implementation-success-evaluate-solution-development-environment-design.md), build a list of important behaviors and activities that need to be monitored in your production environment. As you build this list, identify the groups of users that will need access to monitoring information and build the procedures they can follow to respond to monitoring results.
 
-You can use [Azure Monitor](../../azure-monitor/overview.md) to provide base-level infrastructure metrics, alerts, and logs for most Azure services. Azure diagnostic logs are emitted by a resource to provide rich, frequent data about the operation of that resource. Azure Synapse can write diagnostic logs in Azure Monitor.
+You can use [Azure Monitor](/azure/azure-monitor/overview) to provide base-level infrastructure metrics, alerts, and logs for most Azure services. Azure diagnostic logs are emitted by a resource to provide rich, frequent data about the operation of that resource. Azure Synapse can write diagnostic logs in Azure Monitor.
 
 For more information, see [Use Azure Monitor with your Azure Synapse Analytics workspace](../monitor-synapse-analytics.md).
 
@@ -27,7 +27,7 @@ You can monitor a dedicated SQL pool by using Azure Monitor, alerting, dynamic m
 
 - **Alerts:** You can set up alerts that send you an email or call a webhook when a certain metric reaches a predefined threshold. For example, you can receive an alert email when the database size grows too large. For more information, see [Alerts](../monitor-synapse-analytics.md#alerts).
 - **DMVs:** You can use [DMVs](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md) to monitor workloads to help investigate query executions in SQL pools.
-- **Log Analytics:** [Log Analytics](../../azure-monitor/logs/log-analytics-tutorial.md) is a tool in the Azure portal that you can use to edit and run log queries from data collected by Azure Monitor. For more information, see [Monitor workload - Azure portal](../sql-data-warehouse/sql-data-warehouse-monitor-workload-portal.md).
+- **Log Analytics:** [Log Analytics](/azure/azure-monitor/logs/log-analytics-tutorial) is a tool in the Azure portal that you can use to edit and run log queries from data collected by Azure Monitor. For more information, see [Monitor workload - Azure portal](../sql-data-warehouse/sql-data-warehouse-monitor-workload-portal.md).
 
 ## Monitor serverless SQL pools
 

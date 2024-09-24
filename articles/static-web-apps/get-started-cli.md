@@ -5,7 +5,7 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: azure-static-web-apps
 ms.topic:  quickstart
-ms.date: 03/21/2024
+ms.date: 09/18/2024
 ms.author: cshoe
 ms.custom: mode-api, devx-track-azurecli, innovation-engine, linux-related-content
 ms.devlang: azurecli
@@ -13,7 +13,7 @@ ms.devlang: azurecli
 
 # Quickstart: Building your first static site using the Azure CLI
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://go.microsoft.com/fwlink/?linkid=2262845)
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://go.microsoft.com/fwlink/?linkid=2286315)
 
 Azure Static Web Apps publishes websites to production by building apps from a code repository.
 
@@ -160,6 +160,10 @@ Go to https://github.com/login/device and enter the code you get from GitHub to 
 ## Clean up resources (optional)
 
 If you're not going to continue to use this application, delete the resource group and the static web app using the [az group delete](/cli/azure/group#az-group-delete) command.
+
+## Related content
+
+* [Video series: Deploy websites to the cloud with Azure Static Web Apps](https://aka.ms/azure/beginnervideos/learn/swa)
 
 ## Next steps
 

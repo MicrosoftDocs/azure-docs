@@ -67,4 +67,4 @@ Before creating your request, review the details and diagnostics that you'll sen
 
 ## Next steps
 
-Learn how to [Manage an Azure support request](../azure-portal/supportability/how-to-manage-azure-support-request.md).
+Learn how to [Manage an Azure support request](/azure/azure-portal/supportability/how-to-manage-azure-support-request).

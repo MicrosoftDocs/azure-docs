@@ -1,14 +1,17 @@
 ---
 title: Use Elasticsearch with Apache Flink on HDInsight on AKS
 description: This article shows you how to use Elasticsearch along with Apache Flink on HDInsight on Azure Kubernetes Service.
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 04/09/2024
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Use Elasticsearch with Apache Flink on HDInsight on AKS
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 Apache Flink for real-time analytics can be used to build a dashboard application that visualizes the streaming data by using Elasticsearch and Kibana.
 

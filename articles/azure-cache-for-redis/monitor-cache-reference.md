@@ -6,7 +6,7 @@ ms.custom: horz-monitor
 ms.topic: reference
 author: rboucher
 ms.author: robb
-ms.service: azure-cache-redis
+
 ---
 
 # Azure Cache for Redis monitoring data reference
@@ -85,7 +85,7 @@ The following list provides details and more information about the supported Azu
 
 - Geo-replication metrics
 
-  Geo-replication metrics are affected by monthly internal maintenance operations. The Azure Cache for Redis service periodically patches all caches with the latest platform features and improvements. During these updates, each cache node is taken offline, which temporarily disables the geo-replication link. If your geo replication link is unhealthy, check to see if it was caused by a patching event on either the geo-primary or geo-secondary cache by using **Diagnose and Solve Problems**  from the Resource menu in the portal. Depending on the amount of data in the cache, the downtime from patching can take anywhere from a few minutes to an hour. If the geo-replication link is unhealthy for over an hour, [file a support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
+  Geo-replication metrics are affected by monthly internal maintenance operations. The Azure Cache for Redis service periodically patches all caches with the latest platform features and improvements. During these updates, each cache node is taken offline, which temporarily disables the geo-replication link. If your geo replication link is unhealthy, check to see if it was caused by a patching event on either the geo-primary or geo-secondary cache by using **Diagnose and Solve Problems**  from the Resource menu in the portal. Depending on the amount of data in the cache, the downtime from patching can take anywhere from a few minutes to an hour. If the geo-replication link is unhealthy for over an hour, [file a support request](/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
   The [Geo-Replication Dashboard](cache-insights-overview.md#workbooks) workbook is a simple and easy way to view all Premium-tier geo-replication metrics in the same place. This dashboard pulls together metrics that are only emitted by the geo-primary or geo-secondary, so they can be viewed simultaneously.
 
@@ -117,7 +117,7 @@ The following list provides details and more information about the supported Azu
     - In caches on the Premium tier, this metric is only emitted _from the geo-secondary_ cache instance. On the geo-primary instance, this metric has no value.
     - This metric might indicate a disconnected/unhealthy replication status for several reasons, including: monthly patching, host OS updates, network misconfiguration, or failed geo-replication link provisioning.
     - A value of 0 doesn't mean that data on the geo-replica is lost. It just means that the link between geo-primary and geo-secondary is unhealthy.
-    - If the geo-replication link is unhealthy for over an hour, [file a support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
+    - If the geo-replication link is unhealthy for over an hour, [file a support request](/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
 - Gets
   - The number of get operations from the cache during the specified reporting interval. This value is the sum of the following values from the Redis INFO all command: `cmdstat_get`, `cmdstat_hget`, `cmdstat_hgetall`, `cmdstat_hmget`, `cmdstat_mget`, `cmdstat_getbit`, and `cmdstat_getrange`, and is equivalent to the sum of cache hits and misses during the reporting interval.

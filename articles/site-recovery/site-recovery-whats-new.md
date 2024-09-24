@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.author: ankitadutta
 ms.service: azure-site-recovery
 author: ankitaduttaMSFT
-ms.date: 07/15/2024
+ms.date: 09/06/2024
 ms.custom:
   - engagement-fy23
   - linux-related-content
@@ -15,7 +15,7 @@ ms.custom:
 # What's new in Site Recovery
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 The [Azure Site Recovery](site-recovery-overview.md) service is updated and improved on an ongoing basis. To help you stay up-to-date, this article provides you with information about the latest releases, new features, and new content. This page is updated regularly.
 
@@ -27,14 +27,30 @@ For Site Recovery components, we support N-4 versions, where N is the latest rel
 
 **Update** |  **Unified Setup** | **Replication appliance / Configuration server** | **Mobility service agent** | **Site Recovery Provider** | **Recovery Services agent**
 --- | --- | --- | --- | --- | ---
+[Rollup 75](https://support.microsoft.com/topic/update-rollup-75-for-azure-site-recovery-4884b937-8976-454a-9b80-57e0200eb2ec) | 9.62.7172.1 | 9.62.7172.1  | 9.56.6879.1 | 5.24.0814.2 | 2.0.9932.0
 [Rollup 74](https://support.microsoft.com/topic/update-rollup-74-for-azure-site-recovery-584e3586-4c55-4cc2-8b1c-63038b6b4464) | 9.62.7096.1 | 9.62.7096.1 | 9.62.7096.1 | 5.24.0614.1 | 2.0.9919.0
 [Rollup 73](https://support.microsoft.com/topic/update-rollup-73-for-azure-site-recovery-d3845f1e-2454-4ae8-b058-c1fec6206698) | 9.61.7016.1 | 9.61.7016.1 | 9.61.7016.1 | 5.24.0317.5 | 2.0.9917.0 
 [Rollup 72](https://support.microsoft.com/topic/update-rollup-72-for-azure-site-recovery-kb5036010-aba602a9-8590-4afe-ac8a-599141ec99a5) | 9.60.6956.1 | NA | 9.60.6956.1 | 5.24.0117.5 | 2.0.9917.0 
 [Rollup 71](https://support.microsoft.com/topic/update-rollup-71-for-azure-site-recovery-kb5035688-4df258c7-7143-43e7-9aa5-afeef9c26e1a) | 9.59.6930.1 | NA | 9.59.6930.1 | NA | NA
 [Rollup 70](https://support.microsoft.com/topic/e94901f6-7624-4bb4-8d43-12483d2e1d50) | 9.57.6920.1 | 9.57.6911.1 / NA  | 9.57.6911.1 | 5.23.1204.5 (VMware) | 2.0.9263.0 (VMware)
-[Rollup 69](https://support.microsoft.com/topic/update-rollup-69-for-azure-site-recovery-kb5033791-a41c2400-0079-4f93-b4a4-366660d0a30d) | NA | 9.56.6879.1 / NA  | 9.56.6879.1 | 5.23.1101.10 (VMware) | 2.0.9263.0 (VMware)
 
 [Learn more](service-updates-how-to.md) about update installation and support.
+
+
+## Updates (August 2024)
+
+### Update Rollup 75
+
+Update [rollup 75](https://support.microsoft.com/topic/update-rollup-75-for-azure-site-recovery-4884b937-8976-454a-9b80-57e0200eb2ec) provides the following updates:
+
+**Update** | **Details**
+--- | ---
+**Providers and agents** | Updates to Site Recovery agents and providers as detailed in the rollup KB article.
+**Issue fixes/improvements** | Certificate renewal for VMware to Azure in Modernized Appliances.
+**Azure VM disaster recovery** | No improvements added. 
+**VMware VM/physical disaster recovery to Azure** | No improvements added. 
+
+
 
 ## Updates (July 2024)
 

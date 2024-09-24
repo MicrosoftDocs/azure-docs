@@ -125,11 +125,11 @@ if (communicationIdentifier instanceof CommunicationUserIdentifier) {
 else if (communicationIdentifier instanceof MicrosoftTeamsUserIdentifier) {
     Log.i(tag, "Teams user: " + ((MicrosoftTeamsUserIdentifier)communicationIdentifier).getUserId());
 }
+else if (communicationIdentifier instanceof  MicrosoftTeamsAppIdentifier) {
+    Log.i(tag, "Teams app: " + (( MicrosoftTeamsAppIdentifier)communicationIdentifier).getAppId());
+}
 else if (communicationIdentifier instanceof PhoneNumberIdentifier) {
     Log.i(tag, "Phone number: " + ((PhoneNumberIdentifier)communicationIdentifier).getPhoneNumber());
-}
-else if (communicationIdentifier instanceof MicrosoftBotIdentifier) {
-    Log.i(tag, "Microsoft bot: " + ((MicrosoftBotIdentifier)communicationIdentifier).getBotId());
 }
 else if (communicationIdentifier instanceof UnknownIdentifier) {
     Log.i(tag, "Unkown user: " + ((UnknownIdentifier)communicationIdentifier).getId());

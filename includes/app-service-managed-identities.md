@@ -1,6 +1,6 @@
 ---
 author: mattchenderson
-ms.service: app-service
+ms.service: azure-app-service
 ms.topic: include
 ms.date: 07/20/2024
 ms.author: mahender

@@ -229,6 +229,6 @@ Now let’s step through how we can see logs for our Azure Synapse Link connecti
 
 If you're using a database other than a SQL Server 2022 instance, see:
 
-* [Configure Azure Synapse Link for Azure Cosmos DB](../../cosmos-db/configure-synapse-link.md?context=/azure/synapse-analytics/context/context)
+* [Configure Azure Synapse Link for Azure Cosmos DB](/azure/cosmos-db/configure-synapse-link?context=/azure/synapse-analytics/context/context)
 * [Configure Azure Synapse Link for Dataverse](/powerapps/maker/data-platform/azure-synapse-link-synapse?context=/azure/synapse-analytics/context/context)
 * [Get started with Azure Synapse Link for Azure SQL Database](connect-synapse-link-sql-database.md)

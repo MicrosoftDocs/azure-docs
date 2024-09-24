@@ -56,6 +56,8 @@
           displayName: availability zones, high-availability, zone redundancy
     - name: Tier details
       href: concepts-tier-details.md
+    - name: Syncing Reference data values
+      href: concepts-reference-data-values.md
 - name: How-to guides
   items:
     - name: Administration

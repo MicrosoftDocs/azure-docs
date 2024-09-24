@@ -1,7 +1,7 @@
 ---
 title: Migrate from on-premises HDFS store to Azure Storage with Azure Data Box
 titleSuffix: Azure Storage
-description: Migrate data from an on-premises HDFS store into Azure Storage (blob storage or Data Lake Storage Gen2) by using a Data Box device.
+description: Migrate data from an on-premises HDFS store into Azure Storage (blob storage or Data Lake Storage) by using a Data Box device.
 author: normesta
 
 ms.service: azure-data-lake-storage
@@ -13,7 +13,7 @@ ms.reviewer: jamesbak
 
 # Migrate from on-premises HDFS store to Azure Storage with Azure Data Box
 
-You can migrate data from an on-premises HDFS store of your Hadoop cluster into Azure Storage (blob storage or Data Lake Storage Gen2) by using a Data Box device. You can choose from Data Box Disk, an 80-TB Data Box or a 770-TB Data Box Heavy.
+You can migrate data from an on-premises HDFS store of your Hadoop cluster into Azure Storage (blob storage or Data Lake Storage) by using a Data Box device. You can choose from Data Box Disk, an 80-TB Data Box or a 770-TB Data Box Heavy.
 
 This article helps you complete these tasks:
 
@@ -21,7 +21,7 @@ This article helps you complete these tasks:
 > - Prepare to migrate your data
 > - Copy your data to a Data Box Disk, Data Box or a Data Box Heavy device
 > - Ship the device back to Microsoft
-> - Apply access permissions to files and directories (Data Lake Storage Gen2 only)
+> - Apply access permissions to files and directories (Data Lake Storage only)
 
 ## Prerequisites
 
@@ -191,14 +191,14 @@ Follow these steps to prepare and ship the Data Box device to Microsoft.
 
 5. After Microsoft receives your device, it's connected to the data center network, and the data is uploaded to the storage account you specified when you placed the device order. Verify against the BOM files that all your data is uploaded to Azure.
 
-## Apply access permissions to files and directories (Data Lake Storage Gen2 only)
+## Apply access permissions to files and directories (Data Lake Storage only)
 
 You already have the data into your Azure Storage account. Now you apply access permissions to files and directories.
 
 > [!NOTE]
-> This step is needed only if you are using Azure Data Lake Storage Gen2 as your data store. If you are using just a blob storage account without hierarchical namespace as your data store, you can skip this section.
+> This step is needed only if you are using Azure Data Lake Storage as your data store. If you are using just a blob storage account without hierarchical namespace as your data store, you can skip this section.
 
-### Create a service principal for your Azure Data Lake Storage Gen2 enabled account
+### Create a service principal for your Azure Data Lake Storage enabled account
 
 To create a service principal, see [How to: Use the portal to create a Microsoft Entra application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md).
 
@@ -241,7 +241,7 @@ This command generates a list of copied files with their permissions.
 
 ### Apply permissions to copied files and apply identity mappings
 
-Run this command to apply permissions to the data that you copied into the Data Lake Storage Gen2 enabled account:
+Run this command to apply permissions to the data that you copied into the Data Lake Storage enabled account:
 
 ```bash
 ./copy-acls.py -s ./filelist.json -i ./id_map.json  -A <storage-account-name> -C <container-name> --dest-spn-id <application-id>  --dest-spn-secret <client-secret>
@@ -350,4 +350,4 @@ Here's an example:
 
 ## Next steps
 
-Learn how Data Lake Storage Gen2 works with HDInsight clusters. For more information, see [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md).
+Learn how Data Lake Storage works with HDInsight clusters. For more information, see [Use Azure Data Lake Storage with Azure HDInsight clusters](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md).

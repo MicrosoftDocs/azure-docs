@@ -39,7 +39,7 @@ Some of the prebuilt images include pay-as-you-go licensing for specific softwar
 
 ## Next steps
 
-- [Create a Windows virtual machine with the Azure portal](../virtual-machines/windows/quick-create-portal.md)
-- [Create a Windows virtual machine with PowerShell](../virtual-machines/windows/quick-create-powershell.md)
-- [Create a Windows virtual machine with the Azure CLI](../virtual-machines/windows/quick-create-cli.md)
-- [Create a Linux virtual machine with the Azure portal](../virtual-machines/linux/quick-create-portal.md)
+- [Create a Windows virtual machine with the Azure portal](/azure/virtual-machines/windows/quick-create-portal)
+- [Create a Windows virtual machine with PowerShell](/azure/virtual-machines/windows/quick-create-powershell)
+- [Create a Windows virtual machine with the Azure CLI](/azure/virtual-machines/windows/quick-create-cli)
+- [Create a Linux virtual machine with the Azure portal](/azure/virtual-machines/linux/quick-create-portal)

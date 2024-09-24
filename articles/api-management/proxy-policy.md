@@ -16,6 +16,8 @@ ms.author: danlep
 
 The `proxy` policy allows you to route requests forwarded to backends via an HTTP proxy. Only HTTP (not HTTPS) is supported between the gateway and the proxy. Basic and NTLM authentication only. 
 
+[!INCLUDE [api-management-credentials-caution](../../includes/api-management-credentials-caution.md)]
+
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
 
@@ -38,6 +40,11 @@ The `proxy` policy allows you to route requests forwarded to backends via an HTT
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
+
+### Usage notes
+
+- We recommend using [named values](api-management-howto-properties.md) to provide credentials, with secrets protected in a key vault.
+
 
 ## Example
 

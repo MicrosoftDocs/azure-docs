@@ -4,7 +4,7 @@ ms.author: cephalin
 ms.topic: include
 ms.date: 01/29/2022
 ---
-You can deploy your application code from a local Git repository to Azure by configuring a [Git remote](https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes) in your local repo pointing at Azure to push code to. The URL of the remote repository and Git credentials needed for configuration can be retrieved using either the Azure portal or the Azure CLI.
+You can deploy your application code from a local Git repository to Azure by configuring a [Git remote](https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes) in your local repo that points at the repo you want to push code to. The URL of the remote repository and Git credentials needed for configuration can be retrieved using either the Azure portal or the Azure CLI.
 
 ### [Azure portal](#tab/deploy-instructions-azportal)
 
@@ -21,7 +21,7 @@ Next, in the root directory of your application, configure a [Git remote](https:
 git remote add azure <git-deployment-url>
 ```
 
-You can now push code from your local Git repository to Azure using the Git remote you just configured. The default deployment branch for App Service is `master`, but many Git repositories are moving away from `master` to `main`. You can either specify the mapping from local branch name to remote branch name in the push (as shown below), or you can configure your [`DEPLOYMENT_BRANCH` app setting](../../deploy-local-git.md?tabs=cli#change-deployment-branch).
+You can now push code from your local Git repository to Azure using the Git remote you just configured. The default deployment branch for App Service is `master`, but many Git repositories are moving away from `master` and using `main`. You can either specify the mapping from local branch name to remote branch name in the push (as shown below), or you can configure your [`DEPLOYMENT_BRANCH` app setting](../../deploy-local-git.md?tabs=cli#change-deployment-branch).
 
 ```bash
 git push azure main:master
@@ -31,11 +31,11 @@ The first time you push code to Azure, Git will prompt you for the Azure deploym
 
 ### [Azure CLI](#tab/deploy-instructions-azcli)
 
-First, configure the deployment source for your web app to be local Git using the `az webapp deployment source` command.  This command will output the URL of the remote Git repository that you will be pushing code to.  Make a copy of this value as you will need it in a later step.
+First, configure the deployment source for your web app to be local Git using the `az webapp deployment source` command.  This command will output the URL of the remote Git repository that you'll be pushing code to.  Make a copy of this value as you'll need it in a later step.
 
 [!INCLUDE [CLI deploy configure](./deploy-local-instructions-cli-1.md)]
 
-Retrieve the deployment credentials for your application.  These will be needed for Git to authenticate to Azure when you push code to Azure in a later step.
+Retrieve the deployment credentials for your application. Git will need these to authenticate to Azure when you push code to Azure in a later step.
 
 [!INCLUDE [CLI deploy retrieve credentials](./deploy-local-instructions-cli-2.md)]
 
@@ -45,10 +45,10 @@ Next, in the root directory of your application, configure a [Git remote](https:
 git remote add azure <git-deployment-url>
 ```
 
-You can now push code from your local Git repository to Azure using the Git remote you just configured. The default deployment branch for App Service is `master`, but many Git repositories are moving away from `master` to `main`. You can either specify the mapping from local branch name to remote branch name in the push (as shown below), or you can configure your [`DEPLOYMENT_BRANCH` app setting](../../deploy-local-git.md?tabs=cli#change-deployment-branch).
+You can now push code from your local Git repository to Azure using the Git remote you just configured. The default deployment branch for App Service is `master`, but many Git repositories are moving away from `master` and using `main`. You can either specify the mapping from local branch name to remote branch name in the push (as shown below), or you can configure your [`DEPLOYMENT_BRANCH` app setting](../../deploy-local-git.md?tabs=cli#change-deployment-branch).
 
 ```bash
 git push azure main:master
 ```
 
-The first time you push code to Azure, Git will prompt you for the Azure deployment credentials you obtained in a previous step. Git will then cache these credentials so you won't have to reenter them on subsequent deployments.
+The first time you push code to Azure, Git will prompt you for the Azure deployment credentials you obtained in a previous step. Git will then cache these credentials so you won't have to re-enter them on subsequent deployments.

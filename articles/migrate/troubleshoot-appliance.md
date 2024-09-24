@@ -6,15 +6,15 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.service: azure-migrate
-ms.date: 03/18/2024
-ms.custom: engagement-fy24
+ms.date: 08/08/2024
+ms.custom: engagement-fy25
 ---
 
 
 # Troubleshoot the Azure Migrate appliance
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 This article helps you troubleshoot issues when you deploy the [Azure Migrate](migrate-services-overview.md) appliance and use the appliance to discover on-premises servers.
 
@@ -322,4 +322,7 @@ This error can occur if the appliance is in a shut-down state or the DRA service
 
 ## Next steps
 
-Set up an appliance for [VMware](how-to-set-up-appliance-vmware.md), [Hyper-V](how-to-set-up-appliance-hyper-v.md), or [physical servers](how-to-set-up-appliance-physical.md).
+- Set up an appliance for [VMware](how-to-set-up-appliance-vmware.md), [Hyper-V](how-to-set-up-appliance-hyper-v.md), or [physical servers](how-to-set-up-appliance-physical.md).
+- Learn how to migrate [VMware VMs](./vmware/tutorial-migrate-vmware.md), [Hyper-V VMs](tutorial-migrate-hyper-v.md), or [physical servers](tutorial-migrate-physical-virtual-machines.md).
+
+

@@ -530,9 +530,9 @@ az network firewall nat-rule create --collection-name exampleset --destination-a
 
 Navigate to the Azure Firewall frontend IP address in a browser to validate connectivity.
 
-You should see the AKS voting app. In this example, the Firewall public IP was `52.253.228.132`.
+You should see the AKS voting app. In this example, the Firewall public IP was `203.0.113.32`.
 
-![Screenshot shows the A K S Voting App with buttons for Cats, Dogs, and Reset, and totals.](./media/aks-vote.png)
+:::image type="content" source="media/protect-azure-kubernetes-service/aks-vote.png" alt-text="Screenshot shows the A K S Voting App with buttons for Cats, Dogs, and Reset, and totals.":::
 
 ## Clean up resources
 

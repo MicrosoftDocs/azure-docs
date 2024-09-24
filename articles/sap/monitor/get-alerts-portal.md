@@ -6,7 +6,7 @@ ms.author: sakhare
 ms.topic: how-to
 ms.service: sap-on-azure
 ms.subservice: sap-monitor
-ms.date: 10/19/2022
+ms.date: 08/21/2024
 #Customer intent: As a developer, I want to configure alerts in Azure Monitor for SAP solutions so that I can receive alerts and notifications about my SAP systems.
 ---
 
@@ -40,7 +40,7 @@ In this how-to guide, you learn how to configure alerts in Azure Monitor for SAP
 1. Select **Create rule** to configure an alert of your choice.
 1. For **Alert threshold**, enter your alert threshold.
 1. For **Provider instance**, select a provider instance.
-1. For **Action group**, select or create an [action group](../../azure-monitor/alerts/action-groups.md) to configure the notification setting. You can edit frequency and severity information according to your requirements.
+1. For **Action group**, select or create an [action group](/azure/azure-monitor/alerts/action-groups) to configure the notification setting. You can edit frequency and severity information according to your requirements.
     
 1. Select **Enable alert rule** to create the alert rule.
 
@@ -80,7 +80,7 @@ To access the new Alerts experience in Azure Monitor for SAP Solutions:
 1. Navigate to the Azure portal.
 1. Select your Azure Monitor for SAP Solutions instance.
     :::image type="content" source="./media/get-alerts-portal/new-alerts-view.png" alt-text="Screenshot showing central alerts view." lightbox="./media/get-alerts-portal/new-alerts-view.png":::
-1. Click on the "Alerts" tab to explore the enhanced alert management capabilities.
+1. Select the "Alerts" tab to explore the enhanced alert management capabilities.
 
 ## Next steps
 

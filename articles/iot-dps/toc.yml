@@ -130,12 +130,8 @@ items:
       href: iot-dps-ip-filtering.md
     - name: Managing public network access
       href: public-network-access.md
-  - name: Monitor
-    items:
-    - name: Monitor Device Provisioning Service
-      href: monitor-iot-dps.md
-    - name: Monitoring data reference
-      href: monitor-iot-dps-reference.md
+  - name: Monitor Device Provisioning Service
+    href: monitor-iot-dps.md
   - name: Provision IoT Edge devices
     items:
     - name: Linux
@@ -152,6 +148,8 @@ items:
       href: dps-faq.yml
 - name: Reference
   items:
+  - name: Monitoring data reference
+    href: monitor-iot-dps-reference.md
   - name: Libraries and SDKs
     href: libraries-sdks.md
   - name: Azure CLI

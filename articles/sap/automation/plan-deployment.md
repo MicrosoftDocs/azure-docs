@@ -128,6 +128,7 @@ Before you design your workload zone layout, consider the following questions:
 * How many workload zones does your scenario require (development, quality assurance, and production)?
 * Are you deploying into new virtual networks or are you using existing virtual networks?
 * What storage type do you need for the shared storage (Azure Files NFS or Azure NetApp Files)?
+* Are you going to deploy NAT Gateway for outbound internet connectivity?
 
 The default naming convention for workload zones is `[ENVIRONMENT]-[REGIONCODE]-[NETWORK]-INFRASTRUCTURE`. For example, `DEV-WEEU-SAP01-INFRASTRUCTURE` is for a development environment hosted in the West Europe region by using the SAP01 virtual network. `PRD-WEEU-SAP02-INFRASTRUCTURE` is for a production environment hosted in the West Europe region by using the SAP02 virtual network.
 

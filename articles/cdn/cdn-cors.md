@@ -95,7 +95,7 @@ If the regular expression matches, your rule replaces the **Access-Control-Allow
 
 #### Request header rule for each origin.
 
-Rather than regular expressions, you can instead create a separate rule for each origin you wish to allow using the **Request Header Wildcard** [match condition](/previous-versions/azure/mt757336(v=azure.100)#match-conditions). As with the regular expression method, the rules engine alone sets the CORS headers.
+Rather than regular expressions, you can instead create a separate rule for each origin you wish to allow using the **Request Header Wildcard** [match condition](./cdn-verizon-premium-rules-engine-reference-match-conditions.md). As with the regular expression method, the rules engine alone sets the CORS headers.
 
 ![Rules example without regular expression](./media/cdn-cors/cdn-cors-no-regex.png)
 

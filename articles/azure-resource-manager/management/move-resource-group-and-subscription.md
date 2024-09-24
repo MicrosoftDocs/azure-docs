@@ -26,13 +26,13 @@ Moving a resource only moves it to a new resource group or subscription. It does
 
 When you move a resource, you change its resource ID. The standard format for a resource ID is `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}`. When you move a resource to a new resource group or subscription, you change one or more values in that path.
 
-If you use the resource ID anywhere, you'll need to change that value. For example, if you have a [custom dashboard](../../azure-portal/quickstart-portal-dashboard-azure-cli.md) in the portal that references a resource ID, you'll need to update that value. Look for any scripts or templates that need to be updated for the new resource ID.
+If you use the resource ID anywhere, you'll need to change that value. For example, if you have a [custom dashboard](/azure/azure-portal/quickstart-portal-dashboard-azure-cli) in the portal that references a resource ID, you'll need to update that value. Look for any scripts or templates that need to be updated for the new resource ID.
 
 ## Checklist before moving resources
 
 There are some important steps to do before moving a resource. By verifying these conditions, you can avoid errors.
 
-1. The source and destination subscriptions must be active. If you have trouble enabling an account that has been disabled, [create an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md). Select **Subscription Management** for the issue type.
+1. The source and destination subscriptions must be active. If you have trouble enabling an account that has been disabled, [create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request). Select **Subscription Management** for the issue type.
 
 1. The source and destination subscriptions must exist within the same [Microsoft Entra tenant](../../active-directory/develop/quickstart-create-new-tenant.md). To check that both subscriptions have the same tenant ID, use Azure PowerShell or Azure CLI.
 
@@ -473,7 +473,7 @@ When you get an error message that indicates a resource can't be moved because i
 
 If the source or target resource group contains a virtual network, the states of all dependent resources for the virtual network are checked during the move. The check includes those resources directly and indirectly dependent on the virtual network. If any of those resources are in a failed state, the move is blocked. For example, if a virtual machine that uses the virtual network has failed, the move is blocked. The move is blocked even when the virtual machine isn't one of the resources being moved and isn't in one of the resource groups for the move.
 
-When you receive this error, you have two options. Either move your resources to a resource group that doesn't have a virtual network, or [contact support](../../azure-portal/supportability/how-to-create-azure-support-request.md).
+When you receive this error, you have two options. Either move your resources to a resource group that doesn't have a virtual network, or [contact support](/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
 **Question: Can I move a resource group to a different subscription?**
 

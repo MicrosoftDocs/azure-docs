@@ -47,6 +47,8 @@ landingContent:
         links:
           - text: Build and deploy a static web app
             url: /Shows/Docs-Azure/Building-and-Deploying-a-Static-Web-App/
+          - text: Watch how to deploy a website Static Web Apps using your favorite front end framework
+            url: https://aka.ms/azure/beginnervideos/learn/swa
   - title: Build and deploy
     linkLists:
       - linkListType: tutorial

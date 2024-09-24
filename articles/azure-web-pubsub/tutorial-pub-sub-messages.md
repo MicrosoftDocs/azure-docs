@@ -6,26 +6,26 @@ ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.custom: devx-track-azurecli
 ms.topic: tutorial 
-ms.date: 03/09/2023
+ms.date: 09/03/2024
 ---
 
 # Tutorial: Publish and subscribe messages using WebSocket API and Azure Web PubSub service SDK
 
-The Azure Web PubSub service helps you to easily build real-time web messaging applications. In this tutorial, you'll learn how to subscribe to the service using WebSocket API and publish messages using the Web PubSub service SDK.
+The Azure Web PubSub service helps you easily build real-time web messaging applications. In this tutorial, you learn how to subscribe to the service using the WebSocket API and publish messages using the Web PubSub service SDK.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a Web PubSub service instance
 > * Generate the full URL to establish the WebSocket connection
-> * Create a Web PubSub subscriber client to receive messages using standard WebSocket protocol
-> * Create a Web PubSub publisher client to publish messages using Web PubSub service SDK
+> * Create a Web PubSub subscriber client to receive messages using the standard WebSocket protocol
+> * Create a Web PubSub publisher client to publish messages using the Web PubSub service SDK
 
 [!INCLUDE [azure-web-pubsub-tutorial-prerequisites](includes/cli-awps-prerequisites.md)]
 
 You can use the Windows cmd.exe command shell instead of a Bash shell to run the commands in this tutorial.
 
-If creating the project on a local machine, you'll need to install the dependencies for the language you're using:
+If you're creating the project on a local machine, you need to install the dependencies for the language you're using:
 
 # [C#](#tab/csharp)
 
@@ -69,7 +69,7 @@ If creating the project on a local machine, you'll need to install the dependenc
 
 ### Create a Web PubSub instance
 
-Use the Azure CLI [az webpubsub create](/cli/azure/webpubsub#az-webpubsub-create) command to create a Web PubSub in the resource group you've created. The following command creates a _Free_ Web PubSub resource under resource group `myResourceGroup` in `EastUS`:
+To create a Web PubSub instance in the resource group you created, use the Azure CLI [az webpubsub create](/cli/azure/webpubsub#az-webpubsub-create) command. The following command creates a _Free_ Web PubSub resource under resource group `myResourceGroup` in `EastUS`:
 
 Each Web PubSub resource must have a unique name. Replace &lt;your-unique-resource-name&gt; with the name of your Web PubSub instance in the following command.
 
@@ -77,7 +77,7 @@ Each Web PubSub resource must have a unique name. Replace &lt;your-unique-resour
 az webpubsub create --resource-group myResourceGroup --name <your-unique-resource-name> --location EastUS --sku Free_F1
 ```
 
-The output of this command shows properties of the newly created resource. Take note of the two properties listed below:
+The output of this command shows properties of the newly created resource. Take note of the following roperties:
 
 * **name**: The Web PubSub name you provided in the `--name` parameter above.
 * **hostName**: In the example, the host name is `<your-unique-resource-name>.webpubsub.azure.com/`.
@@ -107,7 +107,7 @@ Clients connect to the Azure Web PubSub service through the standard WebSocket p
     dotnet add package Azure.Messaging.WebPubSub --version 1.0.0
     ```
 
-1. Replace the code in the `Program.cs` with the following code that will connect to the service:
+1. Replace the code in the `Program.cs` with the following code that connects to the service:
 
     ```csharp
     using System;
@@ -199,7 +199,7 @@ Clients connect to the Azure Web PubSub service through the standard WebSocket p
 
      After the connection is established, your client receives messages through the WebSocket connection. The client uses `client.MessageReceived.Subscribe(msg => ...));` to listen for incoming messages.
 
-1. Run the following command replacing `<Web-PubSub-connection-string>` with the connection string you copied earlier. If you are using Windows command shell, you can use `set` instead of `export`.
+1. Run the following command replacing `<Web-PubSub-connection-string>` with the connection string you copied earlier. If you're using Windows command shell, you can use `set` instead of `export`.
 
     ```bash
     export WebPubSubConnectionString=<Web-PubSub-connection-string>
@@ -389,7 +389,7 @@ Clients connect to the Azure Web PubSub service through the standard WebSocket p
 
 ## 2. Publish messages using service SDK
 
-Create a publisher using the Azure Web PubSub SDK to publish a message to the connected client.  For this project, you'll need to open another command shell.
+Create a publisher using the Azure Web PubSub SDK to publish a message to the connected client. For this project, you need to open another command shell.
 
 # [C#](#tab/csharp)
 
@@ -440,7 +440,7 @@ Create a publisher using the Azure Web PubSub SDK to publish a message to the co
     dotnet run <Web-PubSub-connection-string> "myHub1" "Hello World"
     ```
 
-1. Check the command shell of the subscriber to see that it received the message:
+1. Verify that the subscriber's command shell receives the message:
 
     ```console
     Message received: Hello World
@@ -458,7 +458,7 @@ Create a publisher using the Azure Web PubSub SDK to publish a message to the co
 
     ```
 
-1. Use Azure Web PubSub SDK to publish a message to the service. Create a `publish.js` file with the below code:
+1. Use Azure Web PubSub SDK to publish a message to the service. Create a `publish.js` file with the following code:
 
     ```javascript
     const { WebPubSubServiceClient } = require('@azure/web-pubsub');
@@ -472,7 +472,7 @@ Create a publisher using the Azure Web PubSub SDK to publish a message to the co
 
     The `service.sendToAll()` call simply sends a message to all connected clients in a hub.
 
-1. To send a message, run the following command replacing `<Web-PubSub-connection-string>` with the connection string you copied earlier. If you are using Windows command shell, you can use `set` instead of `export`.
+1. To send a message, run the following command replacing `<Web-PubSub-connection-string>` with the connection string you copied earlier. If you're using the Windows command shell, you can use `set` instead of `export`.
 
     ```bash
     export WebPubSubConnectionString=<Web-PubSub-connection-string>
@@ -501,7 +501,7 @@ Create a publisher using the Azure Web PubSub SDK to publish a message to the co
 
     ```
 
-1. Use the Azure Web PubSub SDK to publish a message to the service. Create a `publish.py` file with the below code:
+1. Use the Azure Web PubSub SDK to publish a message to the service. Create a `publish.py` file with the following code:
 
     ```python
     import sys
@@ -538,7 +538,7 @@ Create a publisher using the Azure Web PubSub SDK to publish a message to the co
 
 # [Java](#tab/java)
 
-1. Go to the `pubsub` directory.  Use Maven to create a publisher console app `webpubsub-quickstart-publisher` and go to the *webpubsub-quickstart-publisher* directory:
+1. Go to the `pubsub` directory. Use Maven to create a publisher console app `webpubsub-quickstart-publisher` and go to the *webpubsub-quickstart-publisher* directory:
 
     ```bash
     mvn archetype:generate --define interactiveMode=n --define groupId=com.webpubsub.quickstart --define artifactId=webpubsub-quickstart-publisher --define archetypeArtifactId=maven-archetype-quickstart --define archetypeVersion=1.4
@@ -589,7 +589,7 @@ Create a publisher using the Azure Web PubSub SDK to publish a message to the co
 
     The `sendToAll()` call sends a message to all connected clients in a hub.
 
-1. To send a message, go to the *webpubsub-quickstart-publisher* directory and run the project using the following command.  Replace the  `<Web-PubSub-connection-string>` with the connection string you copied earlier.
+1. To send a message, go to the *webpubsub-quickstart-publisher* directory and run the project using the following command. Replace the `<Web-PubSub-connection-string>` with the connection string you copied earlier.
 
     ```bash
     mvn compile & mvn package & mvn exec:java -Dexec.mainClass="com.webpubsub.quickstart.App" -Dexec.cleanupDaemonThreads=false -Dexec.args="<Web-PubSub-connection-string> 'myHub1' 'Hello World'"
@@ -611,7 +611,7 @@ You can delete the resources that you created in this quickstart by deleting the
 az group delete --name myResourceGroup --yes
 ```
 
-If you aren't planning to continue using Azure Cloud Shell, you can avoid accumulating costs by deleting the resource group that contains the associated the storage account. The resource group is named `cloud-shell-storage-<your-region>`.  Run the following command, replacing `<CloudShellResourceGroup>` with the Cloud Shell group name.
+If you aren't planning to continue using Azure Cloud Shell, you can avoid accumulating costs by deleting the resource group that contains the associated the storage account. The resource group is named `cloud-shell-storage-<your-region>`. Run the following command, replacing `<CloudShellResourceGroup>` with the Cloud Shell group name.
 
 
 ```azurecli

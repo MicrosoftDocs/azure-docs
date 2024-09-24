@@ -21,6 +21,9 @@ In this tutorial, you learn how to connect an application deployed to AKS, to an
 > * Update your application code
 > * Clean up Azure resources.
 
+> [!WARNING]
+> Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable. See the [tutorial using a managed identity](tutorial-python-aks-storage-workload-identity.md).
+
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).

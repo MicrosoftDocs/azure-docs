@@ -6,7 +6,7 @@ ms.author: aterceros
 ms.date: 10/28/2021
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: web-sdk
 ---
 
 # Supported data format details

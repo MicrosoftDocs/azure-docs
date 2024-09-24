@@ -1,8 +1,8 @@
 ---
 title: Data model for Azure Backup diagnostics events
 description: This data model is in reference to the Resource Specific Mode of sending diagnostic events to Log Analytics (LA). 
-ms.topic: conceptual
-ms.date: 05/13/2024
+ms.topic: reference
+ms.date: 09/11/2024
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick

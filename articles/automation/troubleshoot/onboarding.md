@@ -2,11 +2,13 @@
 title: Troubleshoot Azure Automation feature deployment issues
 description: This article tells how to troubleshoot and resolve issues that arise when deploying Azure Automation features.
 services: automation
-ms.date: 02/11/2021
+ms.date: 08/30/2024
 ms.topic: troubleshooting
 ---
 
 # Troubleshoot feature deployment issues
+
+[!INCLUDE [./log-analytics-retirement-announcement.md](../includes/log-analytics-retirement-announcement.md)]
 
 You might receive error messages when you deploy the Azure Automation Update Management feature or the Change Tracking and Inventory feature on your VMs. This article describes the errors that might occur and how to resolve them.
 
@@ -76,7 +78,7 @@ Failed to configure automation account for diagnostic logging
 
 #### Cause
 
-This error can be caused if the pricing tier doesn't match the subscription's billing model. For more information, see [Monitoring usage and estimated costs in Azure Monitor](../../azure-monitor/cost-usage.md#usage-and-estimated-costs).
+This error can be caused if the pricing tier doesn't match the subscription's billing model. For more information, see [Monitoring usage and estimated costs in Azure Monitor](/azure/azure-monitor/cost-usage#usage-and-estimated-costs).
 
 #### Resolution
 

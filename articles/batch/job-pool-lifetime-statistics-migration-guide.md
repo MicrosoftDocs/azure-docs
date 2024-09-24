@@ -46,4 +46,4 @@ The Azure portal has various options to enable monitoring and logs. System logs 
 
 ## Next steps
 
-For more information, see the Batch [Job](/rest/api/batchservice/job) or [Pool](/rest/api/batchservice/pool) API. For Azure Monitor logs, see [this article](../azure-monitor/logs/data-platform-logs.md).
+For more information, see the Batch [Job](/rest/api/batchservice/job) or [Pool](/rest/api/batchservice/pool) API. For Azure Monitor logs, see [this article](/azure/azure-monitor/logs/data-platform-logs).

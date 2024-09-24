@@ -6,7 +6,7 @@ ms.author: sakhare
 ms.topic: quickstart
 ms.service: sap-on-azure
 ms.subservice: sap-monitor
-ms.date: 10/19/2022
+ms.date: 08/22/2024
 ms.devlang: azurepowershell
 ms.custom: devx-track-azurepowershell, mode-api
 # Customer intent: As a developer, I want to deploy Azure Monitor for SAP solutions by using PowerShell so that I can create resources by using PowerShell.
@@ -35,7 +35,7 @@ In this quickstart, get started with Azure Monitor for SAP solutions by using th
   ```
 
 - Create or choose a virtual network for Azure Monitor for SAP solutions that has access to the source SAP system's virtual network.
-- Create a subnet with an address range of IPv4/25 or larger in the virtual network that's associated with Azure Monitor for SAP solutions, with subnet delegation assigned to **Microsoft.Web/serverFarms**.
+- Create a subnet with an address range of IPv4/25 or larger in the virtual network associated with Azure Monitor for SAP solutions, with subnet delegation assigned to **Microsoft.Web/serverFarms**.
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot that shows subnet creation for Azure Monitor for SAP solutions.](./media/quickstart-powershell/subnet-creation.png)
@@ -82,7 +82,7 @@ To create an SAP NetWeaver provider, use the [New-AzWorkloadsProviderInstance](/
 Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
 ```
 
-In the following code, `hostname` is the host name or IP address for SAP Web Dispatcher or the application server. `SapHostFileEntry` is the IP address, fully qualified domain name, or host name of every instance that's listed in [GetSystemInstanceList](./provider-netweaver.md#adding-netweaver-provider) point 6 (xi).
+In the following code, `hostname` is the host name or IP address for SAP Web Dispatcher or the application server. `SapHostFileEntry` is the IP address, fully qualified domain name, or host name of every instance listed in [GetSystemInstanceList](./provider-netweaver.md#adding-netweaver-provider) point 6 (xi).
 
 ```azurepowershell-interactive
 $subscription_id = '00000000-0000-0000-0000-000000000000'

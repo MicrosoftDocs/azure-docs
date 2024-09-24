@@ -21,14 +21,14 @@ In this article, you learn how to monitor and alert with Azure Load Balancer hea
 
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
 - An Azure Load Balancer resource. To learn how to create a Load Balancer resource, see [Quickstart: Create a public Standard Load Balancer](./quickstart-load-balancer-standard-public-portal.md).
-- An Azure Monitor Log Analytics workspace. To learn how to create a Log Analytics workspace, see [Quickstart: Create a Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md).
+- An Azure Monitor Log Analytics workspace. To learn how to create a Log Analytics workspace, see [Quickstart: Create a Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace).
 
 ## Configuring diagnostic settings to collect LoadBalancerHealthEvent logs
 
 In this section, you learn configure diagnostic settings to collect LoadBalancerHealthEvent logs and store the logs in a log analytics workspace. 
 
 > [!IMPORTANT]
-> We recommend sending your logs to a Log Analytics workspace, which will enable you to control access, log data retention and archive settings, and more. To learn more about configuring Log Analytics workspaces, see [Log Analytics workspace overview - Azure Monitor](../azure-monitor/logs/log-analytics-workspace-overview.md).
+> We recommend sending your logs to a Log Analytics workspace, which will enable you to control access, log data retention and archive settings, and more. To learn more about configuring Log Analytics workspaces, see [Log Analytics workspace overview - Azure Monitor](/azure/azure-monitor/logs/log-analytics-workspace-overview).
 
 1. In the Azure portal, navigate to your load balancer resource.
 1. From your load balancer resource's **Overview** page, choose  **Monitoring** > **Diagnostic settings**.

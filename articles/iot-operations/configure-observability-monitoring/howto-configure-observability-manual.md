@@ -39,7 +39,7 @@ To set up Prometheus metrics collection for the new Arc-enabled cluster, follow 
 ## Install Container Insights
 Container Insights monitors the performance of container workloads deployed to the cloud. It gives you performance visibility by collecting memory and processor metrics from controllers, nodes, and containers that are available in Kubernetes through the Metrics API. After you enable monitoring from Kubernetes clusters, metrics and container logs are automatically collected through a containerized version of the Log Analytics agent for Linux. Metrics are sent to the metrics database in Azure Monitor. Log data is sent to your Log Analytics workspace.
 
-To monitor container workload performance, complete the steps to [enable container insights](../../azure-monitor/containers/kubernetes-monitoring-enable.md).
+To monitor container workload performance, complete the steps to [enable container insights](/azure/azure-monitor/containers/kubernetes-monitoring-enable).
 
 ## Install Grafana
 Azure Managed Grafana is a data visualization platform built on top of the Grafana software by Grafana Labs. Azure Managed Grafana is a fully managed Azure service operated and supported by Microsoft. Grafana helps you bring together metrics, logs and traces into a single user interface. With its extensive support for data sources and graphing capabilities, you can view and analyze your application and infrastructure telemetry data in real-time.
@@ -50,7 +50,7 @@ To install Azure Managed Grafana, complete the following steps:
 
 1. Use the Azure portal to [create an Azure Managed Grafana instance](../../managed-grafana/quickstart-managed-grafana-portal.md).
 
-1. Configure an [Azure Monitor managed service for Prometheus as a data source for Azure Managed Grafana](../../azure-monitor/essentials/prometheus-grafana.md).
+1. Configure an [Azure Monitor managed service for Prometheus as a data source for Azure Managed Grafana](/azure/azure-monitor/essentials/prometheus-grafana).
 
 1. Configure the dashboards by following the steps in [Deploy dashboards to Grafana](howto-configure-observability.md#deploy-dashboards-to-grafana).
 

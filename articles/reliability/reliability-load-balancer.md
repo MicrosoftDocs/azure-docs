@@ -48,7 +48,7 @@ In a region that supports availability zones, Standard Load Balancer should be d
 
 #### :::image type="icon" source="media/icon-recommendation-high.svg"::: **Ensure that the backend pool contains at least two instances**
 
-Deploy Load Balancer with at least two instances in the backend. A single instance could result in a single point of failure. In order to build for scale, you might want to pair load balancer with [Virtual Machine Scale Sets](../virtual-machine-scale-sets/overview.md).
+Deploy Load Balancer with at least two instances in the backend. A single instance could result in a single point of failure. In order to build for scale, you might want to pair load balancer with [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview).
 
 
 # [Azure Resource Graph](#tab/graph)

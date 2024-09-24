@@ -5,6 +5,10 @@ author: batamig
 ms.author: bagol
 ms.topic: how-to
 ms.date: 01/15/2024
+
+
+#Customer intent: As a security analyst, I want to handle false positives in my SIEM system so that I can reduce noise and focus on genuine threats.
+
 ---
 
 # Handle false positives in Microsoft Sentinel

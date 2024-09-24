@@ -24,11 +24,11 @@ You can monitor Azure Application Gateway for Containers resources in the follow
 [![A diagram of architecture grid.](./media/prometheus-grafana/design-arch.png)](./media/prometheus-grafana/design-arch.png#lightbox)
 
 ## Learn About the Services
-- [What is Azure Managed Prometheus?](../../azure-monitor/essentials/prometheus-metrics-overview.md)
+- [What is Azure Managed Prometheus?](/azure/azure-monitor/essentials/prometheus-metrics-overview)
    - Why use Prometheus:  Azure Prometheus offers native integration and management capabilities, simplifying the setup and management of monitoring infrastructure.
 - [What is Azure Managed Grafana?](../../managed-grafana/overview.md)
    - Why use Grafana: Azure Managed Grafana lets you bring together all your telemetry data into one place and Built-in support for Azure Monitor and Azure Data Explorer using Microsoft Entra identities.
-- [What is Azure Log Analytics Workspace?](../../azure-monitor/logs/log-analytics-workspace-overview.md)
+- [What is Azure Log Analytics Workspace?](/azure/azure-monitor/logs/log-analytics-workspace-overview)
    - Why use Log Analytics Workspace: Log Analytics workspace scales with your business needs, handling large volumes of log data efficiently and detects and diagnose issues quickly.
      
 ## Prerequisites
@@ -114,7 +114,7 @@ We created the resources and now we combine all resources and configure promethe
 ## Enable diagnostic logs for Application Gateway for Containers
 Activity logging is automatically enabled for every Resource Manager resource. For Access Logs, you must enable access logging to start collecting the data available through those logs. To enable logging, you may configure diagnostic settings in Azure Monitor.
 
-1. [Create a log analytics workspace](../../azure-monitor/logs/quick-create-workspace.md).
+1. [Create a log analytics workspace](/azure/azure-monitor/logs/quick-create-workspace).
 2. Send logs from Application Gateway for Containers to log analytics workspace: 
    1. Enter **Application Gateway for Containers** in the search box. Select your active Application Gateway for Container resource.
    2. Search and select Diagnostic Setting under Monitoring. Add diagnostic setting.

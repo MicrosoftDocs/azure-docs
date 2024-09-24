@@ -4,7 +4,7 @@ description: Overview of virtual network link sub resource an Azure DNS private 
 services: dns
 author: greg-lindsay
 ms.service: azure-dns
-ms.topic: article
+ms.topic: concept-article
 ms.date: 05/15/2024
 ms.author: greglin
 ---

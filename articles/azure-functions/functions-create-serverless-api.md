@@ -19,6 +19,8 @@ In this article, you learn how to build highly scalable APIs with Azure Function
 
 ## Prerequisites
 
+* An HTTP test tool that keeps your data secure. For more information, see [HTTP test tools](functions-develop-local.md#http-test-tools).
+
 [!INCLUDE [Previous quickstart note](../../includes/functions-quickstart-previous-topics.md)]
 
 After you create this function app, you can follow the procedures in this article.
@@ -63,9 +65,7 @@ Next, test your function to see how it works with the new API surface:
 
 1. Press Enter to confirm that your function is working. You should see the response, "*Hello John*."
 
-1. You can also call the endpoint with another HTTP method to confirm that the function isn't executed. To do so, use one of these HTTP test tools:
-
-[!INCLUDE [api-test-http-request-tools](../../includes/api-test-http-request-tools.md)]
+1. You can also call the endpoint with another HTTP method to confirm that the function isn't executed. For HTTP methods other than GET, you need to use a secure [HTTP test tool](functions-develop-local.md#http-test-tools).
 
 ## Proxies overview
 

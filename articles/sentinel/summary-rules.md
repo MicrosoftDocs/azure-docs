@@ -24,7 +24,7 @@ Use [summary rules](/azure/azure-monitor/logs/summary-rules) in Microsoft Sentin
 
 Access summary rule results via Kusto Query Language (KQL) across detection, investigation, hunting, and reporting activities. Use summary rule results for longer in historical investigations, hunting, and compliance activities.
 
-Summary rule results are stored in separate tables under the **Analytics** data plan, and charged accordingly. For more information on data plans and storage costs, see [Select a table plan based on usage patterns in a Log Analytics workspace](../azure-monitor/logs/basic-logs-configure.md)
+Summary rule results are stored in separate tables under the **Analytics** data plan, and charged accordingly. For more information on data plans and storage costs, see [Select a table plan based on usage patterns in a Log Analytics workspace](/azure/azure-monitor/logs/basic-logs-configure)
 
 > [!IMPORTANT]
 > Summary rules are currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -135,7 +135,6 @@ This section reviews common scenarios for creating summary rules in Microsoft Se
     ```kusto
     let csl_columnmatch=(column_name: string) {
     CommonSecurityLog
-    | where TimeGenerated > startofday(ago(1d))
     | where isnotempty(column_name)
     | extend
         Date = format_datetime(TimeGenerated, "yyyy-MM-dd"),
@@ -253,7 +252,7 @@ Most of the data sources are raw logs that are noisy and have high volume, but h
 
 ## Use summary rules with auxiliary logs (sample process)
 
-This procedure describes a sample process for using summary rules with [auxiliary logs](basic-logs-use-cases.md), using a custom connection created via an AMR template to ingest CEF data from Logstash.
+This procedure describes a sample process for using summary rules with [auxiliary logs](basic-logs-use-cases.md), using a custom connection created via an ARM template to ingest CEF data from Logstash.
 
 1. Set up your custom CEF connector from Logstash:
 
@@ -287,7 +286,6 @@ This procedure describes a sample process for using summary rules with [auxiliar
         // Daily Network traffic trend Per Destination IP along with Data transfer stats 
         // Frequency - Daily - Maintain 30 day or 60 Day History. 
           Custom_CommonSecurityLog 
-          | where TimeGenerated > ago(1d) 
           | extend Day = format_datetime(TimeGenerated, "yyyy-MM-dd") 
           | summarize Count= count(), DistinctSourceIps = dcount(SourceIP), NoofByesTransferred = sum(SentBytes), NoofBytesReceived = sum(ReceivedBytes)  
           by Day,DestinationIp, DeviceVendor 

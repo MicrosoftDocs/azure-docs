@@ -16,25 +16,25 @@ ms.subservice: data
 
 ## Overview and access
 
-Before you can take advantage of [Log Analytics](../../../azure-monitor/logs/log-analytics-overview.md) for your Communications Services logs, you must first follow the steps outlined in [Enable logging in Diagnostic Settings](enable-logging.md). Once you've enabled your logs and a [Log Analytics Workspace](../../../azure-monitor/logs/workspace-design.md), you will have access to many helpful [default query packs](../../../azure-monitor/logs/query-packs.md#default-query-pack) that will help you quickly visualize and understand the data available in your logs, which are described below. Through Log Analytics, you also get access to more Communications Services Insights via Azure Monitor Workbooks, the ability to create our own queries and Workbooks, [Log Analytics APIs overview](../../../azure-monitor/logs/api/overview.md) to any query. 
+Before you can take advantage of [Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) for your Communications Services logs, you must first follow the steps outlined in [Enable logging in Diagnostic Settings](enable-logging.md). Once you've enabled your logs and a [Log Analytics Workspace](/azure/azure-monitor/logs/workspace-design), you will have access to many helpful [default query packs](/azure/azure-monitor/logs/query-packs#default-query-pack) that will help you quickly visualize and understand the data available in your logs, which are described below. Through Log Analytics, you also get access to more Communications Services Insights via Azure Monitor Workbooks, the ability to create our own queries and Workbooks, [Log Analytics APIs overview](/azure/azure-monitor/logs/api/overview) to any query. 
 
 ### Access
 You can access the queries by starting on your Communications Services resource page, and then clicking on "Logs" in the left navigation within the Monitor section:
 
 :::image type="content" source="media\log-analytics\access-log-analytics.png" alt-text="Log Analytics navigation":::
 
-From there, you're presented with a modal screen that contains all of the [default query packs](../../../azure-monitor/logs/query-packs.md#default-query-pack) available for your Communications Services, with list of Query Packs available to navigate to the left.
+From there, you're presented with a modal screen that contains all of the [default query packs](/azure/azure-monitor/logs/query-packs#default-query-pack) available for your Communications Services, with list of Query Packs available to navigate to the left.
 
 :::image type="content" source="media\log-analytics\log-analytics-modal-resource.png" alt-text="log analytics queries modal" lightbox="media\log-analytics\log-analytics-modal-resource.png":::
 
-If you close the modal screen, you can still navigate to the various query packs, directly access data in the form of tables based on the schema of the logs and metrics you've enabled in your Diagnostic Setting. Here, you can create your own queries from the data using [KQL (Kusto)](/azure/data-explorer/kusto/query/). Learn more about using, editing, and creating queries by reading more about: [Log Analytics Queries](../../../azure-monitor/logs/queries.md)
+If you close the modal screen, you can still navigate to the various query packs, directly access data in the form of tables based on the schema of the logs and metrics you've enabled in your Diagnostic Setting. Here, you can create your own queries from the data using [KQL (Kusto)](/azure/data-explorer/kusto/query/). Learn more about using, editing, and creating queries by reading more about: [Log Analytics Queries](/azure/azure-monitor/logs/queries)
 
 :::image type="content" source="media\log-analytics\log-analytics-queries-resource.png" alt-text="Log Analytics queries in resource" lightbox="media\log-analytics\log-analytics-queries-resource.png":::
 
 :::image type="content" source="media\log-analytics\log-analytics-tables-resource.png" alt-text="Log Analytics tables in resource" lightbox="media\log-analytics\log-analytics-tables-resource.png":::
 
 ## Default query packs for call summary and call diagnostic logs
-The following are descriptions of each query in the [default query pack](../../../azure-monitor/logs/query-packs.md#default-query-pack), for the [Call Summary and Call Diagnostic logs](logs/voice-and-video-logs.md) including code samples and example outputs for each query available:
+The following are descriptions of each query in the [default query pack](/azure/azure-monitor/logs/query-packs#default-query-pack), for the [Call Summary and Call Diagnostic logs](logs/voice-and-video-logs.md) including code samples and example outputs for each query available:
 ### Call Overview Queries
 #### Number of participants per call
 

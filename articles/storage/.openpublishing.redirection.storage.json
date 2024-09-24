@@ -491,6 +491,36 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/storage/blobs/sas-service-create-dotnet-container.md",
+            "redirect_url": "/azure/storage/blobs/sas-service-create-dotnet",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-blob-container-user-delegation-sas-create-dotnet.md",
+            "redirect_url": "/azure/storage/blobs/storage-blob-user-delegation-sas-create-dotnet",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/sas-service-create-java-container.md",
+            "redirect_url": "/azure/storage/blobs/sas-service-create-java",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-blob-container-user-delegation-sas-create-java.md",
+            "redirect_url": "/azure/storage/blobs/storage-blob-user-delegation-sas-create-java",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/sas-service-create-python-container.md",
+            "redirect_url": "/azure/storage/blobs/sas-service-create-python",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-blob-container-user-delegation-sas-create-python.md",
+            "redirect_url": "/azure/storage/blobs/storage-blob-user-delegation-sas-create-python",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/storage/common/authorize-active-directory-cli.md",
             "redirect_url": "/azure/storage/common/authorize-data-operations-cli",
             "redirect_document_id": true
@@ -2073,7 +2103,7 @@
         {
             "source_path_from_root": "/articles/virtual-machines/virtual-machines-windows-sizes.md",
             "redirect_url": "/azure/virtual-machines/acu",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/virtual-machines/windows/mount-azure-file-storage.md",
@@ -2273,27 +2303,27 @@
         {
             "source_path_from_root": "/articles/storage/storage-table-design-guide.md",
             "redirect_url": "/azure/cosmos-db/table-storage-design-guide",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/storage/storage-c-plus-plus-how-to-use-tables.md",
             "redirect_url": "/azure/cosmos-db/table-storage-how-to-use-c-plus",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/storage/storage-dotnet-how-to-use-tables.md",
             "redirect_url": "/azure/cosmos-db/table-storage-how-to-use-dotnet",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/storage/storage-java-how-to-use-table-storage.md",
             "redirect_url": "/azure/cosmos-db/table-storage-how-to-use-java",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/storage/storage-nodejs-how-to-use-table-storage.md",
             "redirect_url": "/azure/cosmos-db/table-storage-how-to-use-nodejs",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/storage/storage-nodejs-use-table-storage-cloud-service-app.md",
@@ -2308,72 +2338,72 @@
         {
             "source_path_from_root": "/articles/storage/storage-python-how-to-use-table-storage.md",
             "redirect_url": "/azure/cosmos-db/table-storage-how-to-use-python",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/storage/storage-ruby-how-to-use-table-storage.md",
             "redirect_url": "/azure/cosmos-db/table-storage-how-to-use-ruby",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/storage/storage-about-disks-and-vhds-linux.md",
             "redirect_url": "/azure/virtual-machines/linux/about-disks-and-vhds",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/storage/scripts/storage-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md",
             "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-managed-disks-to-same-or-different-subscription",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/storage/scripts/storage-linux-cli-sample-copy-snapshot-to-same-or-different-subscription.md",
             "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-snapshot-to-same-or-different-subscription",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/storage/scripts/storage-linux-cli-sample-copy-snapshot-to-storage-account.md",
             "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-cli-sample-copy-snapshot-to-storage-account",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/storage/scripts/storage-linux-cli-sample-create-managed-disk-from-snapshot.md",
             "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-cli-sample-create-managed-disk-from-snapshot",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/storage/scripts/storage-linux-cli-sample-create-managed-disk-from-vhd.md",
             "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-cli-sample-create-managed-disk-from-vhd",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/storage/scripts/storage-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md",
             "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-powershell-sample-copy-managed-disks-to-same-or-different-subscription",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/storage/scripts/storage-windows-powershell-sample-create-managed-disk-from-snapshot.md",
             "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/storage/scripts/storage-windows-powershell-sample-create-snapshot-from-vhd.md",
             "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-powershell-sample-create-snapshot-from-vhd",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/storage/scripts/storage-windows-powershell-sample-copy-snapshot-to-same-or-different-subscription.md",
             "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-same-or-different-subscription",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/storage/scripts/storage-windows-powershell-sample-copy-snapshot-to-storage-account.md",
             "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-storage-account",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/storage/scripts/storage-windows-powershell-sample-create-managed-disk-from-vhd.md",
             "redirect_url": "/azure/virtual-machines/scripts/virtual-machines-powershell-sample-create-managed-disk-from-vhd",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/storage/blobs/storage-troubleshoot-vhds.md",
@@ -2383,7 +2413,7 @@
         {
             "source_path_from_root": "/articles/storage/storage-about-disks-and-vhds-windows.md",
             "redirect_url": "/azure/virtual-machines/windows/about-disks-and-vhds",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/storage/common/storage-backup-and-disaster-recovery-for-azure-iaas-disks.md",
@@ -2393,17 +2423,17 @@
         {
             "source_path_from_root": "/articles/storage/storage-faq-for-disks.md",
             "redirect_url": "/azure/virtual-machines/windows/faq-for-disks",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/storage/storage-incremental-snapshots.md",
             "redirect_url": "/azure/virtual-machines/windows/incremental-snapshots",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/storage/storage-managed-disks-overview.md",
             "redirect_url": "/azure/virtual-machines/windows/managed-disks-overview",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/storage/common/storage-migration-to-premium-storage.md",
@@ -2433,7 +2463,7 @@
         {
             "source_path_from_root": "/articles/storage/storage-using-managed-disks-template-deployments.md",
             "redirect_url": "/azure/virtual-machines/windows/using-managed-disks-template-deployments",
-            "redirect_document_id": true
+            "redirect_document_id": false
         }
     ]
 }

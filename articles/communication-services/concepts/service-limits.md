@@ -35,7 +35,7 @@ You can find more general guidance on how to set up your service architecture to
 8. Add **Additional details** as needed, then click **Next**.
 9. At **Review + create** check the information, make changes as needed, then click **Create**.
   
-You can follow the documentation for [creating request to Azure Support](../../azure-portal/supportability/how-to-create-azure-support-request.md).
+You can follow the documentation for [creating request to Azure Support](/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
 ## Acquiring phone numbers
 Before acquiring a phone number, make sure your subscription meets the [geographic and subscription](./telephony/plan-solution.md) requirements. Otherwise, you can't purchase a phone number. The following limitations apply to purchasing numbers through the [Phone Numbers SDK](./reference.md) and the [Azure portal](https://portal.azure.com/).
@@ -49,7 +49,19 @@ Before acquiring a phone number, make sure your subscription meets the [geograph
 
 For more information, see the [phone number types](./telephony/plan-solution.md) concept page and the [telephony concept](./telephony/telephony-concept.md) overview page.
 
-If you want to purchase more phone numbers or place a special order, follow the [instructions here](https://github.com/Azure/Communication/blob/master/special-order-numbers.md). If you would like to port toll-free phone numbers from external accounts to their Azure Communication Services account, follow the [instructions here](https://github.com/Azure/Communication/blob/master/port-numbers.md).
+Number purchase limits can be increased through a request to Azure Support.
+
+1. Open the [Azure portal](https://ms.portal.azure.com/) and sign in.
+2. Select [Help+Support](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview).
+3. Click **Create new support request**.
+4. In the **Describe your issue** text box, enter `Technical` then click **Go**. 
+5. From the **Select a service** dropdown menu, select **Service and Subscription Limits (Quotas)** then click **Next**.
+6. At the Problem description, choose the **Issue type**, **Subscription**, and **Quota type** then click **Next**.
+7. Review any **Recommended solution** if available, then click **Next**.
+8. Add **Additional details** as needed, then click **Next**.
+9. At **Review + create** check the information, make changes as needed, then click **Create**.
+
+
 
 ## Identity
 
@@ -79,7 +91,7 @@ Rate Limits for SMS:
 |Send Message|Alphanumeric Sender ID |Per resource|60|600|600|
 
 ### Action to take
-If you have requirements that exceed the rate-limits, submit [a request to Azure Support](../../azure-portal/supportability/how-to-create-azure-support-request.md) to enable higher throughput.
+If you have requirements that exceed the rate-limits, submit [a request to Azure Support](/azure/azure-portal/supportability/how-to-create-azure-support-request) to enable higher throughput.
 
 
 For more information on the SMS SDK and service, see the [SMS SDK overview](./sms/sdk-features.md) page or the [SMS FAQ](./sms/sms-faq.md) page.
@@ -110,10 +122,12 @@ You can send a limited number of email messages. If you exceed the following lim
 
 ### Size Limits
 
-| **Name**         | Limit  |
-|--|--|
-|Number of recipients in Email|50 |
-|Total email request size (including attachments) |10 MB |
+| **Name** | Limit |
+| --- | --- |
+| Number of recipients in Email | 50 |
+| Total email request size (including attachments) | 10 MB |
+
+For all message size limits, you need to consider that that base64 encoding increases the size of the message. You need to increase the size value to account for the message size increase that occurs after the message attachments and any other binary data are Base64 encoded. Base64 encoding increases the size of the message by about 33%, so the message size is about 33% larger than the message sizes before encoding. For example, if you specify a maximum message size value of ~10 MB, you can expect a realistic maximum message size value of approximately ~7.5 MB.
 
 ### Send attachments larger than 10 MB
 
@@ -199,7 +213,7 @@ If you have strict compliance needs, we recommend that you delete chat threads u
 | Default number of outbound* concurrent calls | per Number | 2 |
 
 > [!NOTE] 
-> \* No limits on inbound concurrent calls. You can also [submit a request to Azure Support](../../azure-portal/supportability/how-to-create-azure-support-request.md) to increase the outbound concurrent calls limit, which is reviewed by our vetting team.
+> \* No limits on inbound concurrent calls. You can also [submit a request to Azure Support](/azure/azure-portal/supportability/how-to-create-azure-support-request) to increase the outbound concurrent calls limit, which is reviewed by our vetting team.
 
 ### Call maximum limitations
 
@@ -234,7 +248,7 @@ The following timeouts apply to the Communication Services Calling SDKs:
 
 ### Action to take
 
-For more information about the voice and video calling SDK and service, see the [calling SDK overview](./voice-video-calling/calling-sdk-features.md) page or [known issues](./known-issues.md). You can also [submit a request to Azure Support](../../azure-portal/supportability/how-to-create-azure-support-request.md) to increase some of the limits, pending review by our vetting team.
+For more information about the voice and video calling SDK and service, see the [calling SDK overview](./voice-video-calling/calling-sdk-features.md) page or [known issues](./known-issues.md). You can also [submit a request to Azure Support](/azure/azure-portal/supportability/how-to-create-azure-support-request) to increase some of the limits, pending review by our vetting team.
 
 ## Job Router
 When sending or receiving a high volume of requests, you might receive a ```ThrottleLimitExceededException``` error. This error indicates you're hitting the service limitations, and your requests fail until the token of bucket to handle requests is replenished after a certain time.

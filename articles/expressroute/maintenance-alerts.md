@@ -11,7 +11,7 @@ ms.author: duau
 
 # How to view and configure alerts for Azure ExpressRoute circuit maintenance
 
-ExpressRoute uses Azure Service Health to notify you of planned and upcoming ExpressRoute circuit maintenance. With Service Health, you can view planned and past maintenance in the Azure portal along with configuring alerts and notifications that best suits your needs. To learn more about Azure Service Health refer to [What is Azure Service Health?](../service-health/overview.md)
+ExpressRoute uses Azure Service Health to notify you of planned and upcoming ExpressRoute circuit maintenance. With Service Health, you can view planned and past maintenance in the Azure portal along with configuring alerts and notifications that best suits your needs. To learn more about Azure Service Health refer to [What is Azure Service Health?](/azure/service-health/overview)
 
 > [!NOTE]
 > * During a maintenance activity or in case of unplanned events impacting one of the connection, Microsoft will prefer to use AS path prepending to drain traffic over to the healthy connection. You will need to ensure the traffic is able to route over the healthy path when path prepend is configure from Microsoft and required route advertisements are configured appropriately to avoid any service disruption. 
@@ -41,7 +41,7 @@ ExpressRoute uses Azure Service Health to notify you of planned and upcoming Exp
 
     :::image type="content" source="./media/maintenance-alerts/health-history.png" alt-text="Screenshot of selecting Health history in Service Health." lightbox="./media/maintenance-alerts/health-history-expanded.png"::: 
 
-1. On this page, you can review individual maintenance events by filtering on a target subscription and Azure Region. To further narrow the scope of health history events, you can select the health event type and define a past time range. To filer for planned ExpressRoute circuit maintenance, set the Health Event Type to **Planned Maintenance**.
+1. On this page, you can review individual maintenance events by filtering on a target subscription and Azure Region. To further narrow the scope of health history events, you can select the health event type and define a past time range. To filter for planned ExpressRoute circuit maintenance, set the Health Event Type to **Planned Maintenance**.
 
     :::image type="content" source="./media/maintenance-alerts/past-maintenance.png" alt-text="Screenshot of past maintenance on Health history page." lightbox="./media/maintenance-alerts/past-maintenance-expanded.png"::: 
 
@@ -61,7 +61,7 @@ ExpressRoute uses Azure Service Health to notify you of planned and upcoming Exp
     |               | Service(s) | *ExpressRoute \ ExpressRoute Circuits* |
     |               | Region(s) | Select a region or leave as *Global* for health events for all regions.
     |               | Event type | Select *Planned maintenance*. |
-    | **Actions** | Action group name | The *Action Group* determines the notification type and defines the audience that the notification is sent to. For assistance in creating and managing the Action Group, refer to [Create and manage action groups](../azure-monitor/alerts/action-groups.md) in the Azure portal. |
+    | **Actions** | Action group name | The *Action Group* determines the notification type and defines the audience that the notification is sent to. For assistance in creating and managing the Action Group, refer to [Create and manage action groups](/azure/azure-monitor/alerts/action-groups) in the Azure portal. |
     | **Alert rule details** | Alert rule name | Enter a *name* to identify your alert rule. |
     |                        | Description | Provide a description for what this alert rule does. | 
     |                        | Save alert rule to resource group | Select a *resource group* to create this alert rule in. |

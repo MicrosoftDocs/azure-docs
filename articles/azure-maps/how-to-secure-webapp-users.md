@@ -3,12 +3,11 @@ title: How to secure a web application with interactive single sign-in
 titleSuffix: Azure Maps
 description: How to configure a web application that supports Microsoft Entra single sign-in with Azure Maps Web SDK using OpenID Connect protocol.
 author: pbrasil
-ms.author: peterbr 
+ms.author: peterbr
 ms.date: 06/12/2020
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
-ms.custom:
+ms.subservice: authentication
 ---
 
 # Secure a web application with user sign-in

@@ -91,7 +91,7 @@ Decryption via the envelope technique works as follows:
 
 ### Encryption/decryption on blob upload/download
 
-The Blob Storage client library supports encryption of whole blobs only on upload. For downloads, both complete and range downloads are supported.
+The Blob Storage client library supports encryption of whole blobs only on upload. For downloads, both complete and range downloads are supported. Client-side encryption v2 chunks data into 4MB buffered authenticated encryption blocks which can only be transformed whole. To adjust the chunk size, ensure you are using the most recent version of the SDK that supports client-side encryption v2.1. The region length is configurable from 16 bytes up to 1 GiB.
 
 During encryption, the client library generates a random initialization vector (IV) of 16 bytes and a random CEK of 32 bytes, and performs envelope encryption of the blob data using this information. The wrapped CEK and some additional encryption metadata are then stored as blob metadata along with the encrypted blob.
 

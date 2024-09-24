@@ -2,7 +2,7 @@
 title: Deploy Azure Health Data Services FHIR service using Bicep
 description: Learn how to deploy FHIR service by using Bicep
 author: expekesheth
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.custom: devx-track-bicep
 ms.topic: tutorial
 ms.author: kesheth
@@ -11,7 +11,7 @@ ms.date: 05/27/2022
 
 # Deploy a FHIR service within Azure Health Data Services using Bicep
 
-In this article, you'll learn how to deploy FHIR service within the Azure Health Data Services using Bicep.
+In this article, you'll learn how to deploy FHIR&reg; service within the Azure Health Data Services using Bicep.
 
 [Bicep](../../azure-resource-manager/bicep/overview.md) is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources. It provides concise syntax, reliable type safety, and support for code reuse. Bicep offers the best authoring experience for your infrastructure-as-code solutions in Azure.
 
@@ -105,9 +105,7 @@ Get-AzResource -ResourceGroupName exampleRG
 ---
 
 > [!NOTE]
-> You can also verify that the FHIR service is up and running by opening a browser and navigating to `https://<yourfhirservice>.azurehealthcareapis.com/metadata`. If the
-> capability statement is automatically displayed or downloaded, your deployment was successful. Make sure to replace **\<yourfhirservice\>** with the **\<service-name\>** you
-> used in the deployment step of this quickstart.
+> You can also verify that the FHIR service is up and running by opening a browser and navigating to `https://<yourfhirservice>.azurehealthcareapis.com/metadata`. If the capability statement is automatically displayed or downloaded, your deployment was successful. Make sure to replace **\<yourfhirservice\>** with the **\<service-name\>** you used in the deployment step of this quickstart.
 
 ## Clean up the resources
 
@@ -133,3 +131,5 @@ In this quickstart guide, you've deployed the FHIR service within Azure Health D
 
 >[!div class="nextstepaction"]
 >[Supported FHIR Features](fhir-features-supported.md)
+
+[!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]

@@ -13,7 +13,7 @@ ms.date: 09/29/2023
 
 # Troubleshoot network insights
 
-For general troubleshooting guidance, see [Troubleshooting workbook-based insights](../azure-monitor/insights/troubleshoot-workbooks.md).
+For general troubleshooting guidance, see [Troubleshooting workbook-based insights](/azure/azure-monitor/insights/troubleshoot-workbooks).
 
 This article helps you diagnose and troubleshoot some common problems you might encounter when you use Azure Monitor network insights. 
 

@@ -3,8 +3,8 @@ title: Secure Azure SQL Edge
 description: Learn about security in Azure SQL Edge
 author: rwestMSFT
 ms.author: randolphwest
-ms.date: 09/14/2023
-ms.service: sql-edge
+ms.date: 09/21/2024
+ms.service: azure-sql-edge
 ms.topic: conceptual
 keywords:
   - SQL Edge
@@ -12,7 +12,9 @@ keywords:
 ---
 # Secure Azure SQL Edge
 
-> [!IMPORTANT]  
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
+
+> [!NOTE]  
 > Azure SQL Edge no longer supports the ARM64 platform.
 
 With the increase in adoption of IoT and Edge computing across industries, there's an increase in the number of devices and the data generated from these devices. The increased volume of data and the number of device endpoints poses a significant challenge in terms of security of data and the devices.
@@ -99,7 +101,7 @@ Security information is exposed in several views and functions that are optimize
 
 Azure SQL Edge provides the same Auditing mechanisms as SQL Server. For more information, see [SQL Server Audit (Database Engine)](/sql/relational-databases/security/auditing/sql-server-audit-database-engine).
 
-## Next steps
+## Related content
 
 - [Getting Started with security features](/sql/linux/sql-server-linux-security-get-started)
 - [Running Azure SQL Edge as a non-root user](configure.md#run-azure-sql-edge-as-non-root-user)

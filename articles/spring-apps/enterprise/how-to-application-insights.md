@@ -286,7 +286,7 @@ az spring app-insights update \
 
 This section applies to the Enterprise plan only, and provides instructions that supplement the previous section.
 
-The Azure Spring Apps Enterprise plan uses buildpack bindings to integrate [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) with the type `ApplicationInsights`. For more information, see [How to configure APM integration and CA certificates](how-to-enterprise-configure-apm-integration-and-ca-certificates.md).
+The Azure Spring Apps Enterprise plan uses buildpack bindings to integrate [Azure Application Insights](/azure/azure-monitor/app/app-insights-overview) with the type `ApplicationInsights`. For more information, see [How to configure APM integration and CA certificates](how-to-enterprise-configure-apm-integration-and-ca-certificates.md).
 
 To create an Application Insights buildpack binding, use the following command:
 
@@ -536,7 +536,7 @@ When data is stored in Application Insights, it contains the history of Azure Sp
 
 * [Analyze logs and metrics](diagnostic-services.md)
 * [Stream logs in real time](./how-to-log-streaming.md)
-* [Application Map](../../azure-monitor/app/app-map.md)
-* [Live Metrics](../../azure-monitor/app/live-stream.md)
-* [Metrics](../../azure-monitor/essentials/tutorial-metrics.md)
-* [Logs](../../azure-monitor/logs/data-platform-logs.md)
+* [Application Map](/azure/azure-monitor/app/app-map)
+* [Live Metrics](/azure/azure-monitor/app/live-stream)
+* [Metrics](/azure/azure-monitor/essentials/tutorial-metrics)
+* [Logs](/azure/azure-monitor/logs/data-platform-logs)

@@ -4,10 +4,10 @@ titleSuffix: Microsoft Azure Maps
 description: Tutorial on how to use Azure Maps to find routes for specific travel modes to points of interest. See how to display multiple routes on maps.
 author: sinnypan
 ms.author: sipa
-ms.date: 12/29/2021
+ms.date: 09/03/2024
 ms.topic: tutorial
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: web-sdk
 ms.custom: mvc
 ---
 
@@ -78,10 +78,10 @@ The following steps show you how to create and display the Map control in a web 
     </html>
     ```
 
-   Some things to know about the above HTML:
+   Some things to know about the HTML:
 
    * The HTML header includes CSS and JavaScript resource files hosted by the Azure Map Control library.
-   * The `onload` event in the body of the page calls the `GetMap` function when the body of the page has loaded.
+   * The `onload` event in the body of the page calls the `GetMap` function when the body of the page finishes loading.
    * The `GetMap` function contains the inline JavaScript code used to access the Azure Maps API.
 
 3. Next, add the following JavaScript code to the `GetMap` function, just beneath the code added in the last step. This code creates a map control and initializes it using your Azure Maps subscription keys that you provide. Make sure and replace the string `<Your Azure Maps Subscription Key>` with the Azure Maps subscription key that you copied from your Maps account.
@@ -97,7 +97,7 @@ The following steps show you how to create and display the Map control in a web 
     });
     ```
 
-   Some things to know about the above JavaScript:
+   Some things to know about the JavaScript:
 
    * This code is the core of the `GetMap` function, which initializes the Map Control API for your Azure Maps account.
    * [atlas] is the namespace that contains the Azure Maps API and related visual components.
@@ -105,7 +105,7 @@ The following steps show you how to create and display the Map control in a web 
 
 4. Save the file and open it in your browser. The browser displays a basic map by calling `atlas.Map` using your Azure Maps subscription key.
 
-    :::image type="content" source="./media/tutorial-prioritized-routes/basic-map.png" alt-text="A screenshot that shows the most basic map you can make by calling the atlas Map API, using your Azure Maps subscription key.":::
+    :::image type="content" source="./media/tutorial-prioritized-routes/basic-map.png" lightbox="./media/tutorial-prioritized-routes/basic-map.png" alt-text="A screenshot that shows the most basic map you can make by calling the atlas Map API, using your Azure Maps subscription key.":::
 
 ## Render real-time traffic data on a map
 
@@ -120,7 +120,7 @@ The following steps show you how to create and display the Map control in a web 
     });
     ```
 
-   Some things to know about the above JavaScript:
+   Some things to know about the JavaScript:
 
    * This code implements the Map control's `ready` event handler. The rest of the code in this tutorial is placed inside the `ready` event handler.
    * In the map `ready` event handler, the traffic flow setting on the map is set to `relative`, which is the speed of the road relative to free-flow.
@@ -167,13 +167,13 @@ In this tutorial, two routes are calculated on the map. The first route is calcu
 
     ```
 
-   Some things to know about the above JavaScript:
+   Some things to know about the JavaScript:
 
    * In the Map control's `ready` event handler, a data source is created to store the route from start to finish.
    * [Expressions] are used to retrieve the line width and color from properties on the route line feature.
-   * To ensure that the route line doesn't cover up the road labels, we've passed a second parameter with the value of `'labels'`.
+   * To ensure that the route line doesn't cover up the road labels, pass a second parameter with the value of `'labels'`.
 
-    Next, a symbol layer is created and attached to the data source. This layer specifies how the start and end points are rendered. Expressions have been added to retrieve the icon image and text label information from properties on each point object. To learn more about expressions, see [Data-driven style expressions].
+    Next, a symbol layer is created and attached to the data source. This layer specifies how the start and end points are rendered. Expressions are added to retrieve the icon image and text label information from properties on each point object. To learn more about expressions, see [Data-driven style expressions].
 
 2. Next, set the start point as a fictitious company in Seattle called *Fabrikam*, and the end point as a Microsoft office.  In the Map control's `ready` event handler, append the following code.
 
@@ -200,7 +200,7 @@ In this tutorial, two routes are calculated on the map. The first route is calcu
 
     ```
 
-   About the above JavaScript:
+   About the JavaScript:
 
    * This code creates two [GeoJSON Point objects] to represent start and end points, which are then added to the data source.
    * The last block of code sets the camera view using the latitude and longitude of the start and end points.
@@ -304,7 +304,7 @@ This section shows you how to use the Azure Maps Route service to get directions
     });
     ```
 
-   About the above JavaScript:
+   About the JavaScript:
 
    * This code queries the Azure Maps routing service through the [Azure Maps Route Directions API] method.
    * The route line is then created from the coordinates of each turn and added to the data source.

@@ -3,8 +3,8 @@ title: Deploy Azure SQL Edge with Docker - Azure SQL Edge
 description: Learn about deploying Azure SQL Edge with Docker
 author: rwestMSFT
 ms.author: randolphwest
-ms.date: 09/14/2023
-ms.service: sql-edge
+ms.date: 09/21/2024
+ms.service: azure-sql-edge
 ms.topic: quickstart
 ms.custom: mode-other
 keywords:
@@ -14,7 +14,9 @@ keywords:
 ---
 # Deploy Azure SQL Edge with Docker
 
-> [!IMPORTANT]  
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
+
+> [!NOTE]  
 > Azure SQL Edge no longer supports the ARM64 platform.
 
 In this quickstart, you use Docker to pull and run the Azure SQL Edge container image. Then connect with **sqlcmd** to create your first database and run queries.
@@ -233,7 +235,7 @@ sudo docker rm azuresqledge
 > [!WARNING]  
 > Stopping and removing a container permanently deletes any SQL Edge data in the container. If you need to preserve your data, [create and copy a backup file out of the container](backup-restore.md) or use a [container data persistence technique](configure.md#persist-your-data).
 
-## Next steps
+## Related content
 
 - [Machine Learning and Artificial Intelligence with ONNX in SQL Edge](onnx-overview.md).
 - [Building an end to end IoT Solution with SQL Edge using IoT Edge](tutorial-deploy-azure-resources.md).

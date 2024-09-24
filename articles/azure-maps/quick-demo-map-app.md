@@ -7,7 +7,7 @@ ms.author: sipa
 ms.date: 12/23/2021
 ms.topic: quickstart
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: web-sdk
 ms.custom: mvc
 ---
 

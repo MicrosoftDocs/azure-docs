@@ -23,7 +23,7 @@ In this QuickStart guide, you set up:
 ## Learn About The Services
 - [What is Azure Sentinel?](../../sentinel/overview.md)
   - Why use Sentinel:  Sentinel offers security content that is pre-packaged in SIEM solutions, allowing you to monitor, analyze, investigate, notify, and integrate with many platforms and products, including Log Analytics Workspace.
-- [What is Azure Log Analytics Workspace?](../../azure-monitor/logs/log-analytics-workspace-overview.md)
+- [What is Azure Log Analytics Workspace?](/azure/azure-monitor/logs/log-analytics-workspace-overview)
   - Why use Log Analytics Workspace: Log Analytics workspace scales with your business needs, handling large volumes of log data efficiently and detects and diagnose issues quickly.
    
 ## Prerequisites

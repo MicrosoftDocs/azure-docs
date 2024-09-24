@@ -121,10 +121,6 @@ If you're working with a production environment, you'd deployed a CA-signed SSL/
 
 The following procedures describe how to deploy updated SSL/TLS certificates, such as if the certificate has expired.
 
-> [!TIP]
-> You can also [import the certificate to your OT sensor using CLI commands](references-work-with-defender-for-iot-cli-commands.md#tlsssl-certificate-commands).
->
-
 # [Deploy a CA-signed certificate](#tab/ca-signed)
 
 **To deploy a CA-signed SSL/TLS certificate:**

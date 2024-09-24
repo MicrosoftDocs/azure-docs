@@ -62,7 +62,7 @@ For the highest level of security, you can also secure the entire application ar
 
 ### Disable administrative endpoints
 
-Function apps can serve administrative endpoints under the `/admin` route that can be used for operations such as obtaining host status information and performing test invocations. When exposed, requests against these endpoints must include the app's master key. Administrative operations are also available through the [Azure Resource Manager `Microsoft.Web/sites` API](/rest/api/appservice/web-apps), which offers Azure RBAC. You can disable the `/admin` endpoints by setting the `functionsRuntimeAdminIsolationEnabled` site property to `true`.
+Function apps can serve administrative endpoints under the `/admin` route that can be used for operations such as obtaining host status information and performing test invocations. When exposed, requests against these endpoints must include the app's master key. Administrative operations are also available through the [Azure Resource Manager `Microsoft.Web/sites` API](/rest/api/appservice/web-apps), which offers Azure RBAC. You can disable the `/admin` endpoints by setting the `functionsRuntimeAdminIsolationEnabled` site property to `true`. This property cannot be set for apps running on the Linux Consumption SKU, and it cannot be set for apps running on version 1.x of Azure Functions. If you are using version 1.x, you must first [migrate to version 4.x](./migrate-version-1-version-4.md). 
 
 ### Enable App Service Authentication/Authorization
 
@@ -80,7 +80,7 @@ As with any application or service, the goal is to run your function app with th
 
 Functions supports built-in [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md). Azure roles supported by Functions are [Contributor](../role-based-access-control/built-in-roles.md#contributor), [Owner](../role-based-access-control/built-in-roles.md#owner), and [Reader](../role-based-access-control/built-in-roles.md#owner). 
 
-Permissions are effective at the function app level. The Contributor role is required to perform most function app-level tasks. You also need the Contributor role along with the [Monitoring Reader permission](../azure-monitor/roles-permissions-security.md#monitoring-reader) to be able to view log data in Application Insights. Only the Owner role can delete a function app.  
+Permissions are effective at the function app level. The Contributor role is required to perform most function app-level tasks. You also need the Contributor role along with the [Monitoring Reader permission](/azure/azure-monitor/roles-permissions-security#monitoring-reader) to be able to view log data in Application Insights. Only the Owner role can delete a function app.  
 
 #### Organize functions by privilege 
 

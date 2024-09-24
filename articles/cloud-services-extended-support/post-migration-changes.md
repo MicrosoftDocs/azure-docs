@@ -54,6 +54,6 @@ If you published updates via Visual Studio directly, then you would need to firs
 
 
 ## Next steps
-- [Overview of Platform-supported migration of IaaS resources from classic to Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-overview.md)
+- [Overview of Platform-supported migration of IaaS resources from classic to Azure Resource Manager](/azure/virtual-machines/migration-classic-resource-manager-overview)
 - Migrate to Cloud Services (extended support) using the [Azure portal](in-place-migration-portal.md)
 - Migrate to Cloud Services (extended support) using [PowerShell](in-place-migration-powershell.md)

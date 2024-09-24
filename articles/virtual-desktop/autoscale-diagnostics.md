@@ -1,16 +1,17 @@
 ---
 title: Set up diagnostics for Autoscale in Azure Virtual Desktop
 description: How to set up diagnostic reports for the scaling service in your Azure Virtual Desktop deployment.
-author: Heidilohr
+author: dknappettmsft
 ms.topic: how-to
 ms.date: 11/01/2023
-ms.author: helohr
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
 # Set up diagnostics for Autoscale in Azure Virtual Desktop
 
 Diagnostics lets you monitor potential issues and fix them before they interfere with your Autoscale scaling plan.
 
-Currently, you can either send diagnostic logs for Autoscale to an Azure Storage account or consume logs with Microsoft Azure Event Hubs. If you're using an Azure Storage account, make sure it's in the same region as your scaling plan. Learn more about diagnostic settings at [Create diagnostic settings](../azure-monitor/essentials/diagnostic-settings.md). For more information about resource log data ingestion time, see [Log data ingestion time in Azure Monitor](../azure-monitor/logs/data-ingestion-time.md).
+Currently, you can either send diagnostic logs for Autoscale to an Azure Storage account or consume logs with Microsoft Azure Event Hubs. If you're using an Azure Storage account, make sure it's in the same region as your scaling plan. Learn more about diagnostic settings at [Create diagnostic settings](/azure/azure-monitor/essentials/diagnostic-settings). For more information about resource log data ingestion time, see [Log data ingestion time in Azure Monitor](/azure/azure-monitor/logs/data-ingestion-time).
 
 > [!TIP]
 > For pooled host pools, we recommend you use Autoscale diagnostic data integrated with Insights in Azure Virtual Desktop, which providing a more comprehensive view of your Autoscale operations. For more information, see [Monitor Autoscale operations with Insights in Azure Virtual Desktop](autoscale-monitor-operations-insights.md).
@@ -34,7 +35,7 @@ To enable diagnostics for your scaling plan:
 1. Select **Save**.
 
 > [!NOTE]
-> If you select **Archive to a storage account**, you'll need to [Migrate from diagnostic settings storage retention to Azure Storage lifecycle management](../azure-monitor/essentials/migrate-to-azure-storage-lifecycle-policy.md).
+> If you select **Archive to a storage account**, you'll need to [Migrate from diagnostic settings storage retention to Azure Storage lifecycle management](/azure/azure-monitor/essentials/migrate-to-azure-storage-lifecycle-policy).
 
 ## Find Autoscale diagnostic logs in Azure Storage
 

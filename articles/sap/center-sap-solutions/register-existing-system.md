@@ -184,8 +184,8 @@ This error happens when the Database identifier is incorrectly configured on the
 3. If the service is not running then restart this service. To restart use the following steps:
   - sudo systemctl stop waagent
   - sudo systemctl start waagent
-4. If this does not solve the issue, try updating the VM Agent using [this document](../../virtual-machines/extensions/update-linux-agent.md)
-5. If the VM agent does not exist or needs to be re-installed, then follow [this documentation](../../virtual-machines/extensions/update-linux-agent.md).
+4. If this does not solve the issue, try updating the VM Agent using [this document](/azure/virtual-machines/extensions/update-linux-agent)
+5. If the VM agent does not exist or needs to be re-installed, then follow [this documentation](/azure/virtual-machines/extensions/update-linux-agent).
 
 To fix the Windows VM Agent, follow [Troubleshooting Azure Windows VM Agent](/troubleshoot/azure/virtual-machines/windows-azure-guest-agent).
 

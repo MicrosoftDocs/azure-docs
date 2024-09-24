@@ -31,7 +31,7 @@ Before you can monitor Autoscale operations with Insights, you need:
    | Configure diagnostic settings | [Desktop Virtualization Contributor](rbac.md#desktop-virtualization-contributor) | Assigned on the resource group or subscription for your host pools, workspaces, and session hosts. |
    | View and query data | [Desktop Virtualization Reader](../role-based-access-control/built-in-roles.md#desktop-virtualization-reader)<br /><br />[Log Analytics Reader](../role-based-access-control/built-in-roles.md#log-analytics-reader) | - Desktop Virtualization Reader assigned on the resource group or subscription where the host pools, workspaces, and session hosts are.<br /><br />- Log Analytics Reader assigned on any Log Analytics workspace used for Azure Virtual Desktop Insights.<sup>1</sup>|
 
-   <sup>1. You can also create a custom role to reduce the scope of assignment on the Log Analytics workspace. For more information, see [Manage access to Log Analytics workspaces](../azure-monitor/logs/manage-access.md).</sup>
+   <sup>1. You can also create a custom role to reduce the scope of assignment on the Log Analytics workspace. For more information, see [Manage access to Log Analytics workspaces](/azure/azure-monitor/logs/manage-access).</sup>
 
 ## Configure diagnostic settings and verify Insights workbook configuration
 
@@ -122,7 +122,7 @@ After you configured your diagnostic settings and verified your Insights workboo
 
 ## Queries for Autoscale data in Log Analytics
 
-For additional information about Autoscale operations, you can use run queries against the data in Log Analytics. The data is written to the `WVDAutoscaleEvaluationPooled` table. The following sections contain the schema and some example queries. To learn how to run queries in Log Analytics, see [Log Analytics tutorial](../azure-monitor/logs/log-analytics-tutorial.md).
+For additional information about Autoscale operations, you can use run queries against the data in Log Analytics. The data is written to the `WVDAutoscaleEvaluationPooled` table. The following sections contain the schema and some example queries. To learn how to run queries in Log Analytics, see [Log Analytics tutorial](/azure/azure-monitor/logs/log-analytics-tutorial).
 
 ### WVDAutoscaleEvaluationPooled Schema
 
@@ -201,4 +201,4 @@ WVDAutoscaleEvaluationPooled
 
 ## Related content
 
-For more information about the time for log data to become available after collection, see [Log data ingestion time in Azure Monitor](../azure-monitor/logs/data-ingestion-time.md).
+For more information about the time for log data to become available after collection, see [Log data ingestion time in Azure Monitor](/azure/azure-monitor/logs/data-ingestion-time).

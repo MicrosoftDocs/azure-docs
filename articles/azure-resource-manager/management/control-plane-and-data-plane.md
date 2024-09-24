@@ -40,7 +40,7 @@ Azure Resource Manager handles all control plane requests. It automatically appl
 * [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md)
 * [Azure Policy](../../governance/policy/overview.md)
 * [Management Locks](lock-resources.md)
-* [Activity Logs](../../azure-monitor/essentials/activity-log.md)
+* [Activity Logs](/azure/azure-monitor/essentials/activity-log)
 
 After authenticating the request, Azure Resource Manager sends it to the resource provider, which completes the operation. Even during periods of unavailability for the control plane, you can still access the data plane of your Azure resources. For instance, you can continue to access and operate on data in your storage account resource via its separate storage URI `https://myaccount.blob.core.windows.net` even when `https://management.azure.com` is not available.
 
@@ -48,7 +48,7 @@ The control plane includes two scenarios for handling requests - "green field" a
 
 ## Data plane
 
-Requests for data plane operations are sent to an endpoint that's specific to your instance. For example, the [Detect Language operation](../../ai-services/language-service/language-detection/overview.md) in Azure AI services is a data plane operation because the request URL is:
+Requests for data plane operations are sent to an endpoint that's specific to your instance. For example, the [Detect Language operation](/azure/ai-services/language-service/language-detection/overview) in Azure AI services is a data plane operation because the request URL is:
 
 ```http
 POST {Endpoint}/text/analytics/v2.0/languages

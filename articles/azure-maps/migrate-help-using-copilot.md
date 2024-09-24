@@ -7,7 +7,7 @@ ms.author: sipa
 ms.date: 05/16/2024
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: general
 ---
 
 # Migrate Bing Maps Enterprise applications to Azure Maps with GitHub Copilot

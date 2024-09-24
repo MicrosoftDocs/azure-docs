@@ -6,7 +6,7 @@ author: greg-lindsay
 ms.author: greglin
 ms.service: azure-traffic-manager
 ms.topic: how-to
-ms.date: 04/28/2022
+ms.date: 08/08/2024
 ms.custom: template-how-to, devx-track-arm-template
 ---
 

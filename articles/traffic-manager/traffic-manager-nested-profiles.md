@@ -7,7 +7,7 @@ author: greg-lindsay
 manager: kumud
 ms.service: azure-traffic-manager
 ms.topic: conceptual
-ms.date: 11/10/2022
+ms.date: 08/08/2024
 ms.author: greglin
 ms.custom: template-concept
 ---

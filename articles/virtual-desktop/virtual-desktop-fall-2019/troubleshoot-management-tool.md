@@ -1,10 +1,11 @@
 ---
 title: Azure Virtual Desktop (classic) management tool - Azure
 description: How to troubleshoot issues with the Azure Virtual Desktop (classic) management tool.
-author: Heidilohr
+author: dknappettmsft
 ms.topic: troubleshooting
 ms.date: 03/30/2020
-ms.author: helohr
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
 # Troubleshoot the Azure Virtual Desktop (classic) management tool
 
@@ -23,7 +24,7 @@ When you successfully set up services for the management tool but automated setu
 
 This usually means one of the following two things:
 
-- The user has owner permissions on their subscription and global admin at tenant level, but they can't sign in to Azure.
+- The user has the relevant permissions on their subscription and at the tenant level, but they can't sign in to Azure.
 - The user's account settings have multi-factor authentication enabled.
 
 To fix this:

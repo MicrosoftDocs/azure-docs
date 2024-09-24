@@ -4,7 +4,7 @@ description: A service tag represents a group of IP address prefixes to help min
 services: firewall
 author: vhorne
 ms.service: azure-firewall
-ms.topic: article
+ms.topic: concept-article
 ms.date: 08/31/2023
 ms.author: victorh 
 ms.custom: devx-track-azurepowershell
@@ -29,7 +29,7 @@ Azure Firewall supports configuration of service tags via PowerShell, Azure CLI,
 
 ### Configure via Azure PowerShell
 
-In this example, we must first get context to our previously created Azure Firewall instance.
+In this example, we are making a change to an Azure Firewall using classic rules.  We must first get context to our previously created Azure Firewall instance.
 
 ```Get the context to an existing Azure Firewall
 $FirewallName = "AzureFirewall"

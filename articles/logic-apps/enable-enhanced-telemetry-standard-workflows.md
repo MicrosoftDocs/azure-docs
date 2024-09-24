@@ -22,7 +22,7 @@ This how-to guide shows how to turn on enhanced telemetry collection in Applicat
 
 - An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- An [Application Insights](../azure-monitor/app/app-insights-overview.md) instance. You create this resource [in advance](../azure-monitor/app/create-workspace-resource.md), when you create your Standard logic app, or after logic app deployment.
+- An [Application Insights](/azure/azure-monitor/app/app-insights-overview) instance. You create this resource [in advance](/azure/azure-monitor/app/create-workspace-resource), when you create your Standard logic app, or after logic app deployment.
 
 - A Standard logic app and workflow, either in the Azure portal or in Visual Studio Code.
 
@@ -703,7 +703,7 @@ With the telemetry enhancements in Application Insights, you also get workflow i
 
 When you enable multidimensional metrics in the Metrics dashboard, you can target a subset of the overall events captured in Application Insights and filter events based on a specific workflow.
 
-1. On your Application Insights resource, [enable multidimensional metrics](../azure-monitor/app/get-metric.md#enable-multidimensional-metrics).
+1. On your Application Insights resource, [enable multidimensional metrics](/azure/azure-monitor/app/get-metric#enable-multidimensional-metrics).
 
 1. In Application Insights, [open the Metrics dashboard](#open-metrics-dashboard).
 
@@ -731,7 +731,7 @@ With Application Insights enhanced telemetry enabled, you can view near real-tim
 
    :::image type="content" source="media/enable-enhanced-telemetry-standard-workflows/live-metrics.png" alt-text="Screenshot shows Azure portal and Application Insights menu with selected item named Live metrics." lightbox="media/enable-enhanced-telemetry-standard-workflows/live-metrics.png":::
 
-For more information, see [Live Metrics: Monitor and diagnose with 1-second latency](../azure-monitor/app/live-stream.md).
+For more information, see [Live Metrics: Monitor and diagnose with 1-second latency](/azure/azure-monitor/app/live-stream).
 
 > [!NOTE]
 >

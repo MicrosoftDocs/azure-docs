@@ -53,7 +53,7 @@ Get detailed reports in five-minute increments during an attack, and a complete 
 ](alerts.md) to learn more.
 
 - **Azure DDoS Rapid Response:**
- During an active attack, customers have access to the DDoS Rapid Response (DRR) team, who can help with attack investigation during an attack and post-attack analysis. For more information, see [Azure DDoS Rapid Response](ddos-rapid-response.md).
+ During an active attack, Azure DDoS Network Protection enabled customers have access to the DDoS Rapid Response (DRR) team, who can help with attack investigation during an attack and post-attack analysis. For more information, see [Azure DDoS Rapid Response](ddos-rapid-response.md).
  
 - **Native platform integration:**
  Natively integrated into Azure. Includes configuration through the Azure portal. Azure DDoS Protection understands your resources and resource configuration.

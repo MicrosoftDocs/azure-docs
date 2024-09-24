@@ -5,6 +5,7 @@ ms.topic: troubleshooting
 zone_pivot_groups: azure-virtual-desktop-windows-client-troubleshoot
 author: dknappettmsft
 ms.author: daknappe
+ms.custom: "se-defect-target"
 ms.date: 10/12/2023
 ---
 

@@ -7,7 +7,7 @@ ms.author: aterceros
 ms.date: 6/14/2023
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: data-registry
 ---
 
 # How to create data registry

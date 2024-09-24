@@ -85,7 +85,7 @@ For more information, see the following articles:
 
 For more information, see the article:
 
-[Azure Monitor Overview](../../azure-monitor/overview.md)
+[Azure Monitor Overview](/azure/azure-monitor/overview)
 
 ## Upgrade clusters
 

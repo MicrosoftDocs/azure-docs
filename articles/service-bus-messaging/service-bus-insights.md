@@ -155,7 +155,7 @@ By default, the **Time Range** field displays data from the **Last 4 hours**. Yo
 
 ## Pin and export
 
-You can pin any one of the metric sections to an [Azure Dashboard](../azure-portal/azure-portal-dashboards.md) by selecting the pushpin icon at the top right of the section.
+You can pin any one of the metric sections to an [Azure Dashboard](/azure/azure-portal/azure-portal-dashboards) by selecting the pushpin icon at the top right of the section.
 
 :::image type="content" source="./media/service-bus-insights/pin.png" alt-text="Screenshot that shows the Pin button at the top of the section.":::
 
@@ -176,10 +176,10 @@ On the **Service Bus Overview - Azure Monitor** page, select **Edit** to make mo
 
 ## Troubleshooting
 
-For troubleshooting guidance, refer to the dedicated workbook-based insights [troubleshooting article](../azure-monitor/insights/troubleshoot-workbooks.md).
+For troubleshooting guidance, refer to the dedicated workbook-based insights [troubleshooting article](/azure/azure-monitor/insights/troubleshoot-workbooks).
 
 ## Next steps
 
-* Configure [metric alerts](../azure-monitor/alerts/alerts-metric.md) and [service health notifications](../service-health/alerts-activity-log-service-notifications-portal.md) to set up automated alerting to aid in detecting issues.
+* Configure [metric alerts](/azure/azure-monitor/alerts/alerts-metric) and [service health notifications](/azure/service-health/alerts-activity-log-service-notifications-portal) to set up automated alerting to aid in detecting issues.
 
-* Learn the scenarios workbooks are designed to support, how to author new and customize existing reports, and more by reviewing [Create interactive reports with Azure Monitor workbooks](../azure-monitor/visualize/workbooks-overview.md).
+* Learn the scenarios workbooks are designed to support, how to author new and customize existing reports, and more by reviewing [Create interactive reports with Azure Monitor workbooks](/azure/azure-monitor/visualize/workbooks-overview).

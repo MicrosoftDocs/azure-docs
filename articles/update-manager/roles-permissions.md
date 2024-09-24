@@ -19,7 +19,7 @@ The built-in roles provide blanket permissions on a virtual machine, which inclu
 | **Resource** | **Role** |
 |---|---|
 | **Azure VM** | Azure Virtual Machine Contributor or Azure [Owner](../role-based-access-control/built-in-roles.md)|
-| **Azure Arc-enabled server** | [Azure Connected Machine Resource Administrator](../azure-arc/servers/security-overview.md)|
+| **Azure Arc-enabled server** | [Azure Connected Machine Resource Administrator](/azure/azure-arc/servers/security-overview)|
 
 ## Permissions
 

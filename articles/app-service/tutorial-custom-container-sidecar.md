@@ -53,11 +53,11 @@ First you create the resources that the tutorial uses (for more information, see
     > `azd provision` uses the included templates to create the following Azure resources:
     > 
     > - A resource group
-    > - A [container registry](../container-registry/container-registry-intro.md) with two images deployed:
+    > - A [container registry](/azure/container-registry/container-registry-intro) with two images deployed:
     >     - An Nginx image with the OpenTelemetry module.
-    >     - An OpenTelemetry collector image, configured to export to [Azure Monitor](../azure-monitor/overview.md).
-    > - A [log analytics workspace](../azure-monitor/logs/log-analytics-overview.md)
-    > - An [Application Insights](../azure-monitor/app/app-insights-overview.md) component
+    >     - An OpenTelemetry collector image, configured to export to [Azure Monitor](/azure/azure-monitor/overview).
+    > - A [log analytics workspace](/azure/azure-monitor/logs/log-analytics-overview)
+    > - An [Application Insights](/azure/azure-monitor/app/app-insights-overview) component
     
 ## 2. Create a sidecar-enabled app
 

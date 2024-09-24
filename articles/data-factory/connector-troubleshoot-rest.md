@@ -5,7 +5,7 @@ description: Learn how to troubleshoot issues with the REST connector in Azure D
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 10/20/2023
+ms.date: 08/29/2024
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
 ---
@@ -58,6 +58,12 @@ This article provides suggestions to troubleshoot common problems with the REST 
     - Note that 'curl' might not be suitable to reproduce an SSL certificate validation issue. In some scenarios, the 'curl' command was executed successfully without encountering any SSL certificate validation issues. But when the same URL is executed in a browser, no SSL certificate is actually returned for the client to establish trust with server.
 
       Tools like **Fiddler** are recommended for the preceding case.
+
+## The service principal certificate in Azure Key Vault is not correct
+
+- **Message**: `"Failed to create certificate from certificate raw data and password. Cannot find the requested object."` 
+- **Cause**: Only support the base64 string service principal certificate for Rest connector service principal certificate authentication.
+- **Recommendation**: Follow this [section](connector-rest.md#save-the-service-principal-certificate-in-azure-key-vault) to save the service principal certificate in Azure Key Vault correctly.
 
 ## Related content
 

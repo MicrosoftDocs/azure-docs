@@ -6,7 +6,7 @@ author: greg-lindsay
 manager: kumud
 ms.service: azure-traffic-manager
 ms.topic: how-to
-ms.date: 04/06/2021
+ms.date: 08/08/2024
 ms.author: greglin
 ms.custom: template-how-to
 ---

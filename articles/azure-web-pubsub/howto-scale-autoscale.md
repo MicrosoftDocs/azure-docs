@@ -13,9 +13,9 @@ ms.author: chenyl
 > [!IMPORTANT]
 > Autoscaling is only available in Azure WebPubSub service Premium tier.
 
-Azure WebPubSub service Premium tier supports an *autoscale* feature, which is an implementation of [Azure Monitor autoscale](../azure-monitor/autoscale/autoscale-overview.md). Autoscale allows you to automatically scale the unit count for your WebPubSub service to match the actual load on the service. Autoscale can help you optimize performance and cost for your application.
+Azure WebPubSub service Premium tier supports an *autoscale* feature, which is an implementation of [Azure Monitor autoscale](/azure/azure-monitor/autoscale/autoscale-overview). Autoscale allows you to automatically scale the unit count for your WebPubSub service to match the actual load on the service. Autoscale can help you optimize performance and cost for your application.
 
-Azure WebPubSub adds its own [service metrics](concept-metrics.md). However, most of the user interface is shared and common to other [Azure services that support autoscaling](../azure-monitor/autoscale/autoscale-overview.md#supported-services-for-autoscale). If you're new to the subject of Azure Monitor Metrics, review [Azure Monitor Metrics aggregation and display explained](../azure-monitor/essentials/metrics-aggregation-explained.md) before digging into WebPubSub service Metrics.
+Azure WebPubSub adds its own [service metrics](concept-metrics.md). However, most of the user interface is shared and common to other [Azure services that support autoscaling](/azure/azure-monitor/autoscale/autoscale-overview#supported-services-for-autoscale). If you're new to the subject of Azure Monitor Metrics, review [Azure Monitor Metrics aggregation and display explained](/azure/azure-monitor/essentials/metrics-aggregation-explained) before digging into WebPubSub service Metrics.
 
 ## Understanding autoscale in WebPubSub service
 

@@ -30,7 +30,7 @@ The key benefits of the Azure Storage provider include:
 * Lowest-cost serverless billing model - Azure Storage has a consumption-based pricing model based entirely on usage ([more information](durable-functions-billing.md#azure-storage-transactions)).
 * Best tooling support - Azure Storage offers cross-platform local emulation and integrates with Visual Studio, Visual Studio Code, and the Azure Functions Core Tools.
 * Most mature - Azure Storage was the original and most battle-tested storage backend for Durable Functions.
-* Preview support for using identity instead of secrets for connecting to the storage provider.
+* Support for using identity instead of secrets for connecting to the storage provider.
 
 The source code for the DTFx components of the Azure Storage storage provider can be found in the [Azure/durabletask](https://github.com/Azure/durabletask/tree/main/src/DurableTask.AzureStorage) GitHub repo.
 

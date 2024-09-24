@@ -264,12 +264,6 @@ Some usage scenarios for conditional access in Microsoft Dev Box include:
 
 Learn how you can [configure conditional access policies for Dev Box](./how-to-configure-intune-conditional-access-policies.md).
 
-#### Back up and restore a dev box
-
-Microsoft Intune provides backup functionality for dev boxes. It automatically sets regular restore points, and enables you to create a manual restore point, just as you would for a [Cloud PC](/windows-365/enterprise/create-manual-restore-point).
-
-Restore functionality for dev boxes is provided by sharing Cloud PC restore points to a storage account. For more information, see: [Share Cloud PC restore points to an Azure Storage Account](/windows-365/enterprise/share-restore-points-storage) 
-
 #### Privilege management
 
 You can configure Microsoft Intune Endpoint Privilege Management (EPM) for dev boxes so that dev box users don't need local administrative privileges. Microsoft Intune Endpoint Privilege Management allows your organization’s users to run as a standard user (without administrator rights) and complete tasks that require elevated privileges. Tasks that commonly require administrative privileges are application installs (like Microsoft 365 Applications), updating device drivers, and running certain Windows diagnostics.

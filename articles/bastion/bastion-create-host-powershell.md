@@ -129,7 +129,7 @@ This section helps you create a virtual network, subnets, and deploy Azure Basti
 
 ## <a name="create-vm"></a>Create a VM
 
-You can create a VM using the [Quickstart: Create a VM using PowerShell](../virtual-machines/windows/quick-create-powershell.md) or [Quickstart: Create a VM using the portal](../virtual-machines/windows/quick-create-portal.md) articles. Be sure you deploy the VM to the same virtual network to which you deployed Bastion. The VM you create in this section isn't a part of the Bastion configuration and doesn't become a bastion host. You connect to this VM later in this tutorial via Bastion.
+You can create a VM using the [Quickstart: Create a VM using PowerShell](/azure/virtual-machines/windows/quick-create-powershell) or [Quickstart: Create a VM using the portal](/azure/virtual-machines/windows/quick-create-portal) articles. Be sure you deploy the VM to the same virtual network to which you deployed Bastion. The VM you create in this section isn't a part of the Bastion configuration and doesn't become a bastion host. You connect to this VM later in this tutorial via Bastion.
 
 The following required roles for your resources.
 

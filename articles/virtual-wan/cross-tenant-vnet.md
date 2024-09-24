@@ -25,7 +25,7 @@ In this article, you learn how to:
 The steps for this configuration use a combination of the Azure portal and PowerShell. However, the feature itself is available in PowerShell and the Azure CLI only.
 
 >[!NOTE]
-> You can manage cross-tenant virtual network connections only through PowerShell or the Azure CLI. You *cannot* manage cross-tenant virtual network connections in the Azure portal.
+> You can manage cross-tenant virtual network connections only through PowerShell or the Azure CLI installed on your local machine. Because Azure Portal does not support cross-tenant operations, you can't manage cross-tenant virtual network connections through Azure portal or Azure portal CloudShell (both PowerShell and CLI).
 
 ## Before you begin
 
