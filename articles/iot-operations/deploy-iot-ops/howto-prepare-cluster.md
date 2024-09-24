@@ -87,6 +87,11 @@ This section provides steps to create clusters in validated environments on Linu
 
 The [AksEdgeQuickStartForAio.ps1](https://github.com/Azure/AKS-Edge/blob/main/tools/scripts/AksEdgeQuickStart/AksEdgeQuickStartForAio.ps1) script automates the process of creating and connecting a cluster, and is the recommended path for deploying Azure IoT Operations on AKS Edge Essentials.
 
+> [!NOTE]
+   > The instructions below are for external customer consumption and will only work after AIO 0.7 is released. 
+   > For internal bug bashes, use these instructions instead: https://msazure.visualstudio.com/One/_wiki/wikis/AIO.wiki/714254/Setup-AKS-EE-with-WLIF-for-AIO-M2
+   
+
 1. Open an elevated PowerShell window and change the directory to a working folder.
 
 1. Run the following commands, replacing the placeholder values with your information:
