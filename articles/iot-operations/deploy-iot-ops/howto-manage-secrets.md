@@ -25,13 +25,13 @@ Secrets management for Azure IoT Operations uses Azure Secret Store to sync the 
 
 Once the setup secrets management steps are completed, you can start adding secrets to Azure Key Vault, and sync them to the edge to be used in Asset Endpoint Profile or Dataflow Endpoints using the [operations experience web UI](https://iotoperations.azure.com).
 
-Secrets are used in Asset Endpoint profile and Dataflow endpoints for authentication. In this section, we use Asset Endpoint profile as an example, the same can be applied to dataflow endpoints. You have the following options When using a secret from the selected key vault:
+Secrets are used in Asset Endpoint profile and Dataflow endpoints for authentication. In this section, we use Asset Endpoint profile as an example, the same can be applied to dataflow endpoints. You have the following options when using a secret from the selected key vault:
 
-1. **Create a new secret**: creates a secret reference in the Azure Key Vault and also automatically synchronizes the secret down to the edge using Azure Secret Store. Use this option if you didn't create the secret you require for this scenario in the key vault beforehand. 
+- **Create a new secret**: creates a secret reference in the Azure Key Vault and also automatically synchronizes the secret down to the edge using Azure Secret Store. Use this option if you didn't create the secret you require for this scenario in the key vault beforehand. 
 
-1. **Add from Azure Key Vault**: synchronizes an existing secret in key vault down to the edge in Azure Key Vault that wasn't synchronized before. Selecting this option shows you the list of secret references in the selected key vault. Use this option if you created the secret in the key vault beforehand.  
+- **Add from Azure Key Vault**: synchronizes an existing secret in key vault down to the edge in Azure Key Vault that wasn't synchronized before. Selecting this option shows you the list of secret references in the selected key vault. Use this option if you created the secret in the key vault beforehand.  
 
-1. **Add synced secret**: uses an existing and synchronized to the edge secret for the component. Selecting this option shows you the list of already synchronized secrets. Use this option if you previously created and synchronized the secret but didn't use it in an Azure IoT Operations component.
+- **Add synced secret**: uses an existing and synchronized to the edge secret for the component. Selecting this option shows you the list of already synchronized secrets. Use this option if you previously created and synchronized the secret but didn't use it in an Azure IoT Operations component.
 
 ## Manage Synced Secrets
 
