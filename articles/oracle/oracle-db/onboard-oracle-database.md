@@ -1,6 +1,6 @@
 ---
 title: Onboard with Oracle Database@Azure
-description: Learn about onboarding on OracleOracle Database@Azure.
+description: Learn about onboarding with OracleOracle Database@Azure.
 author: jjaygbay1
 ms.service: oracle-on-azure
 ms.collection: linux
