@@ -30,7 +30,7 @@ items:
   - name: Onboard Oracle Database@Azure
     items:
     - name: Onboard Oracle Database@Azure
-      href: https://docs.oracle.com/en-us/iaas/Content/database-at-azure/oaaonboard.htm 
+      href: oracle-db/oracle-database-onboard.md
   - name: Design considerations 
     items:
     - name: Groups and roles for Oracle Database@Azure
