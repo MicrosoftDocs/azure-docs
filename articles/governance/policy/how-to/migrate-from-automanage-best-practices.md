@@ -88,7 +88,7 @@ The following policies provide the same capabilities as Automanage:
 - Configure Windows machines to associate with a data collection rule or a data collection endpoint.
 
 To configure all the previous options, deploy the **Enable Azure Monitor for VMs with Azure
-Monitor agent** policy initiative.
+Monitoring Agent (AMA)** policy initiative.
 
 ### Change Tracking and Inventory
 
