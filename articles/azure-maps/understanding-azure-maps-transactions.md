@@ -40,6 +40,8 @@ The following table summarizes the Azure Maps services that generate transaction
 | [Traffic] | Yes | One request = 1 transaction (except tiles)<br>15 tiles = 1 transaction | <ul><li>Location Insights Traffic (Gen2 pricing)</li><li>Standard S1 Traffic Transactions (Gen1 S1 pricing)</li><li>Standard Traffic Transactions (Gen1 S0 pricing)</li><li>Maps Traffic Tiles (Gen2 pricing)</li><li>Standard S1 Tile Transactions (Gen1 S1 pricing)</li><li>Standard Tile Transactions (Gen1 S0 pricing)</li></ul> |
 | [Weather] | Yes | One request = 1 transaction | <ul><li>Location Insights Weather (Gen2 pricing)</li><li>Standard S1 Weather Transactions (Gen1 S1 pricing)</li><li>Standard Weather Transactions (Gen1 S0 pricing)</li></ul> |
 
+<sup>1</sup> The Azure Maps Data registry and Spatial services are now deprecated and will be retired on 9/30/25.
+
 > [!NOTE]
 >
 > There is no charge to use [Azure Maps Power BI visual](power-bi-visual-get-started.md) as long as you have a [Power BI subscription](/power-bi/fundamentals/service-self-service-signup-for-power-bi).
