@@ -195,7 +195,7 @@
           href: point-to-site-entra-register-custom-app.md
         - name: Configure access based on users and groups
           href: point-to-site-entra-users-access.md
-        - name: Configure Multi-Factor Authentication (MFA)
+        - name: Configure multifactor authentication (MFA)
           href: openvpn-azure-ad-mfa.md
       - name: VPN client configuration
         items:
