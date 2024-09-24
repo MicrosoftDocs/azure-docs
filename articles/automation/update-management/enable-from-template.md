@@ -11,7 +11,7 @@ ms.service: azure-automation
 
 # Enable Update Management using Azure Resource Manager template
 
-[!INCLUDE [./log-analytics-retirement-announcement.md](../includes/log-analytics-retirement-announcement.md)]
+[!INCLUDE [./automation-update-management-retirement-announcement.md](../includes/automation-update-management-retirement-announcement.md)]
 
 You can use an [Azure Resource Manager template](../../azure-resource-manager/templates/syntax.md) to enable the Azure Automation Update Management feature in your resource group. This article provides a sample template that automates the following:
 

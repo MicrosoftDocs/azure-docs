@@ -241,6 +241,8 @@
       href: create-custom-policies-p2s-ps.md
     - name: Azure VPN Client - optional settings
       href: azure-vpn-client-optional-configurations.md
+    - name: Azure VPN Client prerequisites check
+      href: azure-vpn-client-prerequisites-check.md
     - name: Azure VPN Client versions
       href: azure-vpn-client-versions.md
     - name: Intune - Deploy VPN client profile
@@ -333,6 +335,8 @@
       items:
       - name: Site-to-site connection problems
         href: vpn-gateway-troubleshoot-site-to-site-cannot-connect.md
+      - name: Site-to-site error codes and solutions
+        href: vpn-gateway-troubleshoot-site-to-site-error-codes.md
       - name: Site-to-site connection disconnects intermittently
         href: vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md
     - name: Validate VPN throughput to a VNet
