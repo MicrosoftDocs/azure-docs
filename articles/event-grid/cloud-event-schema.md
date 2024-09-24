@@ -185,5 +185,4 @@ If you're using the Azure portal to develop an Azure function, follow these step
 
 
 ## Related content
-- [CloudEvents](https://cloudevents.io/) 
-- [Open specification](https://github.com/cloudevents/spec/blob/v1.0/spec.md)
+For information about endpoint validation with Cloud Events, see [Endpoint validation with CloudEvents 1.0](webhook-event-delivery.md##endpoint-validation-with-cloudevents-v10).
