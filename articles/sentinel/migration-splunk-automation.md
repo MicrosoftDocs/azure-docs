@@ -14,7 +14,7 @@ Microsoft Sentinel provides Security Orchestration, Automation, and Response (SO
 
 For more information about the differences between automation rules and playbooks, see the following articles:
 - [Automate threat response with automation rules](automate-incident-handling-with-automation-rules.md)
-- [playbooks](automation/automate-responses-with-playbooks.md)
+- [Automate threat response with playbooks](automation/automate-responses-with-playbooks.md)
 
 ## Identify SOAR use cases
 
