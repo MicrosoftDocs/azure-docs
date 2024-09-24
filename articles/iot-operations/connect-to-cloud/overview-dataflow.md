@@ -65,7 +65,7 @@ Schema registry, a feature provided by Azure Device Registry Preview, is a synch
 
 Dataflows uses messages schemas at both the source and destination points. For sources, message schemas can work as filters to identify the specific messages that you want to capture for a dataflow. For destinations, message schemas help to transform the message into the format expected by the destination endpoint.
 
-For more information, see [Create message schemas](./howto-schema-registry.md).
+For more information, see [Understand message schemas](./howto-schema-registry.md).
 
 ## Related content
 
