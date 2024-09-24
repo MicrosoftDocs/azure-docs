@@ -13,7 +13,7 @@ ms.author: sudhirsneha
 
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure VMs :heavy_check_mark: Azure Arc-enabled servers.
  
-Pre and post events, also known as pre/post-scripts, allow you to execute user-defined actions before and after the schedule patch installation. One of the most common scenarios is to start and stop a VM. With pre-events, you can run a prepatching script to start the VM before initiating the schedule patching process. Once the schedule patching is complete, and the server is rebooted, a post-patching script can be executed to safely shut down the VM.
+Pre and post events, also known as pre/post-scripts, allow you to execute user-defined actions before and after the schedule patch installation. One of the most common scenarios is to start and stop a Virtual Machine (VM). With pre-events, you can run a prepatching script to start the VM before initiating the schedule patching process. Once the schedule patching is complete, and the server is rebooted, a post-patching script can be executed to safely shut down the VM.
 
 This tutorial explains how to create pre and post events to start and stop a VM in a schedule patch workflow using a webhook.
 
@@ -108,7 +108,7 @@ In this tutorial, you learn how to:
         }
         ```
 
-   1. To customize you can use either your existing scripts with the above modifications done or use the following scripts.
+   1. To customize, you can use either your existing scripts with the above modifications done or use the following scripts.
 
  
 ### Sample scripts
