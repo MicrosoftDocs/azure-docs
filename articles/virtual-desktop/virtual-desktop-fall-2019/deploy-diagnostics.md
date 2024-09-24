@@ -180,19 +180,24 @@ After that, you need to set the Redirect URI.
 To set the Redirect URI:
 
 1.  In the [Azure portal](https://portal.azure.com/), go to **App Services** and locate the application you created.
-2.  Go to the overview page and copy the URL you find there.
-3.  Navigate to **app registrations** and select the app you want to deploy.
-4.  In the left panel, under Manage section, select **Authentication**.
-5.  Enter the desired Redirect URI into the **Redirect URI** text box, then select **Save** in the top-left corner of the menu.
-6. Select **Web** in the drop-down menu under Type.
-7. Enter the URL from the app overview page and add **/security/signin-callback** to the end of it. For example: `https://<yourappname>.azurewebsites.net/security/signin-callback`.
 
-   > [!div class="mx-imgBorder"]
-   > ![The redirect URI page](../media/redirect-uri-page.png)
+1.  Go to the overview page and copy the URL you find there.
 
-8. Now, go to your Azure resources, select the Azure App Services resource with the name you provided in the template and navigate to the URL associated with it. (For example, if the app name you used in the template was `contosoapp45`, then your associated URL is `http://contoso.azurewebsites.net`).
-9. Sign in using the appropriate Microsoft Entra user account.
-10.   Select **Accept**.
+1.  Navigate to **app registrations** and select the app you want to deploy.
+
+1.  In the left panel, under Manage section, select **Authentication**.
+
+1.  Enter the desired Redirect URI into the **Redirect URI** text box, then select **Save** in the top-left corner of the menu.
+
+1. Select **Web** in the drop-down menu under Type.
+
+1. Enter the URL from the app overview page and add **/security/signin-callback** to the end of it. For example: `https://<yourappname>.azurewebsites.net/security/signin-callback`.
+
+1. Now, go to your Azure resources, select the Azure App Services resource with the name you provided in the template and navigate to the URL you copied earlier.
+
+1. Sign in using the appropriate Microsoft Entra user account.
+
+1. Select **Accept**.
 
 ## Distribute the diagnostics tool
 
