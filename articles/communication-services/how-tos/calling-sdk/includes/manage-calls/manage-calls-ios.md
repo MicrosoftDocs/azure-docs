@@ -180,7 +180,7 @@ call!.unmute { (error) in
 
 ## Mute other participants
 > [!NOTE]
-> This API is provided as a public preview for developers and may change based on feedback that we receive. To use this API please use 'beta' release of Azure Communication Services Calling iOS SDK version 2.9.0-beta.1 or higher. 
+> To use this API please use the Azure Communication Services Calling iOS SDK version 2.13.0 or higher. 
 
 To mute all other participants in a call, use the `muteAllRemoteParticipants` API on the call.
 
