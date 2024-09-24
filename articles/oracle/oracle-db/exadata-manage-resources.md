@@ -46,7 +46,7 @@ The following management functions are available for all resources from the Micr
 1. Select the **+ Create** icon at the top of the blade.
 1. Follow the provisioning flow for the resource.
    * [Provision Exadata infrastructure](exadata-provision-infrastructure.md)
-   * [Provision an Exadata VM cluster](exadata-provisioning-vm-cluster.md)
+   * [Provision an Exadata VM cluster](exadata-provision-vm-cluster.md)
 
 ### Refresh the blade's info
 

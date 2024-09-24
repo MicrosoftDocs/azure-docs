@@ -22,7 +22,7 @@ The above table only lists the changes within the Oracle Database@Azure product 
 
 ## Next steps
 * [Provision Exadata Infrastructure](exadata-provision-infrastructure.md)
-* [Provision an Exadata VM Cluster](exadata-provisioning-vm-cluster.md)
+* [Provision an Exadata VM Cluster](exadata-provision-vm-cluster.md)
 * [Manage Exadata Resources](exadata-manage-resources.md)
 * [Operate processes for Exadata resources](exadata-operations-processes-services.md)
 * [OCI Multicloud Landing Zone for Azure](exadata-multicloud-landing-zone-azure-services.md)

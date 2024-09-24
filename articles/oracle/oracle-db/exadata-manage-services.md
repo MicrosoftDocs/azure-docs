@@ -23,7 +23,7 @@ The following articles provide specifics of the creation and management tasks as
 Articles:
 * [What's New in Exadata Services](exadata-manage-services.md)
 * [Provision Exadata Infrastructure](exadata-provision-infrastructure.md)
-* [Provision an Exadata VM Cluster](exadata-provisioning-vm-cluster.md)
+* [Provision an Exadata VM Cluster](exadata-provision-vm-cluster.md)
 * [Manage Exadata Resources](exadata-manage-resources.md)
 * [Operate processes for Exadata resources](exadata-operations-processes-services.md)
 * [OCI Multicloud Landing Zone for Azure](exadata-multicloud-landing-zone-azure-services.md)

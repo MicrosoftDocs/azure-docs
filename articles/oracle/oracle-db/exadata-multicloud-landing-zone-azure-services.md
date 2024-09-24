@@ -45,7 +45,7 @@ For module details, see [Oracle Multicloud Landing Zone for Azure](https://githu
 | [az-oci-exa-pdb](https://github.com/oracle-quickstart/terraform-oci-multicloud-azure/tree/main/templates/az-oci-exa-pdb) | Quick start Exadata Database Service | [hashicorp/azurerm](https://registry.terraform.io/providers/hashicorp/azurerm) |
 |   | 1. Configuring Azure virtual network with [delegated subnet limits](oracle-database-delegated-subnet-limits.md) | [azure/azapi](https://registry.terraform.io/providers/Azure/azapi) |
 |   | 2. [Provision Exadata infrastructure](exadata-provision-infrastructure.md) | [hashicorp/oci](https://registry.terraform.io/providers/hashicorp/oci) |
-|   | 3. [Provision an Exadata VM Cluster](exadata-provisioning-vm-cluster.md) |  |
+|   | 3. [Provision an Exadata VM Cluster](exadata-provision-vm-cluster.md) |  |
 |   | 4. [Creating Database Home](https://docs.oracle.com/iaas/exadata/doc/ecc-creating-first-db-home-on-exacc.html) |  |
 |   | 5. [Creating Container Database (CDB)](https://docs.oracle.com/iaas/exadata/doc/ecc-create-first-db.html) |  |
 |   | 6. [Creating Pluggable Database (PDB)](https://docs.oracle.com/iaas/exadata/doc/ecc-create-first-db.html) |  |
