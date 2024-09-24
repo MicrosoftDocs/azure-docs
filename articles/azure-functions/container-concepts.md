@@ -54,8 +54,8 @@ The degree to which various features and behaviors of Azure Functions are suppor
 | Diagnostics | Not currently available<sup>4</sup> | [Yes](../container-apps/troubleshooting.md#use-the-diagnose-and-solve-problems-tool) | [Yes](./functions-diagnostics.md) | [Yes](./functions-diagnostics.md) | No |
 | Dedicated hardware | Yes ([workload profiles](../container-apps/workload-profiles-overview.md)) | Yes ([workload profiles](../container-apps/workload-profiles-overview.md)) | No | Yes | Yes | 
 | Dedicated GPUs | Yes ([workload profiles](../container-apps/workload-profiles-overview.md)) | Yes ([workload profiles](../container-apps/workload-profiles-overview.md)) | No | No | Yes | 
-| [Configurable memory/CPU count](../container-apps) | Yes | Yes | No | No | Yes |
-| "Free grant" option | [Yes](../container-apps/billing.md#consumption-plan.md) | [Yes](../container-apps/billing.md#consumption-plan.md) | No | No | No |
+| [Configurable memory/CPU count](../container-apps/workload-profiles-overview.md) | Yes | Yes | No | No | Yes |
+| "Free grant" option | [Yes](../container-apps/billing.md#consumption-plan) | [Yes](../container-apps/billing.md#consumption-plan) | No | No | No |
 | Pricing details | [Container Apps billing](../container-apps/billing.md) | [Container Apps billing](../container-apps/billing.md) | [Premium plan billing](./functions-premium-plan.md#billing) | [Dedicated plan billing](./dedicated-plan.md#billing) | [AKS pricing](/azure/aks/free-standard-pricing-tiers) | 
 
 1. On Container Apps, the default is 10 instances, but you can set the [maximum number of replicas](../container-apps/scale-app.md#scale-definition), which has an overall maximum of 1000. This setting is honored as long as there's enough cores quota available. When you create your function app from the Azure portal, you're limited to 300 instances.
