@@ -58,7 +58,7 @@ The transformations are achieved through *mapping*, which typically involves:
 
 * **Input definition**: Identifying the fields in the input records that are used.
 * **Output definition**: Specifying where and how the input fields are organized in the output records.
-* **Conversion (optional)**: Modifying the input fields to fit into the output fields. Conversion is required when multiple input fields are combined into a single output field.
+* **Conversion (optional)**: Modifying the input fields to fit into the output fields. `expression` is required when multiple input fields are combined into a single output field.
 
 The following mapping is an example:
 
@@ -306,7 +306,7 @@ Mapping configuration that uses wildcards:
   - '*.Max'   # - $1
   - '*.Min'   # - $2
   output: 'ColorProperties.*'
-  conversion: ($1 + $2) / 2
+  expression: ($1 + $2) / 2
 ```
 
 Resulting JSON:
