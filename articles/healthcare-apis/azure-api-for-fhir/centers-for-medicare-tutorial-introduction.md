@@ -29,7 +29,7 @@ There are three main pieces to the Interoperability and Patient Access ruling:
 
 * **Provider Directory API (Required July 1, 2021)** – CMS-regulated payers are required by this portion of the rule to make provider directory information publicly available via a standards-based API. Through making this information available, third-party application developers are able to create services that help patients find providers for specific care needs and clinicians find other providers for care coordination.  
 
-* **Payer-to-Payer Data Exchange (Originally required Jan 1, 2022 - [Currently Delayed](https://www.cms.gov/Regulations-and-Guidance/Guidance/Interoperability/index))** – CMS-regulated payers are, at the patient’s request, required to exchange with other payers certain patient clinical data. While there's no requirement to follow any kind of standard, applying FHIR&#174; to exchange this data is encouraged. 
+* **Payer-to-Payer Data Exchange (Originally required Jan 1, 2022 - [Currently Delayed](https://www.cms.gov/Regulations-and-Guidance/Guidance/Interoperability/index))** – CMS-regulated payers are, at the patient’s request, required to exchange with other payers certain patient clinical data. While there's no requirement to follow any kind of standard, applying FHIR to exchange this data is encouraged. 
 
 ## Key FHIR concepts
 
@@ -62,7 +62,7 @@ The Provider Directory API describes adherence to one implementation guide.
 
 ## Touchstone
 
-To test adherence to the various implementation guides, [Touchstone](https://touchstone.aegis.net/touchstone/) is a great resource. Throughout the upcoming tutorials, we focus on ensuring that the Azure API for FHIR is configured to successfully pass various Touchstone tests. The Touchstone site has extensive documentation to help you get up and running.
+[Touchstone](https://touchstone.aegis.net/touchstone/) is a great resource to test adherence to the various implementation guides. Throughout the upcoming tutorials, we focus on ensuring that the Azure API for FHIR is configured to successfully pass various Touchstone tests. The Touchstone site has extensive documentation to help you get up and running.
 
 ## Next steps
 
