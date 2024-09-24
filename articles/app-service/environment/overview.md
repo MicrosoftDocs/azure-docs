@@ -265,8 +265,8 @@ The following sections list the regional pricing tiers (SKUs) availability for A
 | UK West              | ✅          | ✅          | ✅               | 
 | West Central US      | ✅          | ✅ *        |                   | 
 | West Europe          | ✅          | ✅ *        |                   | 
-| West India           | ✅          | ✅          | ✅               | 
-| West US              | ✅          | ✅          |                   | 
+| West India           | ✅          | ✅          |                   | 
+| West US              | ✅          | ✅          | ✅               | 
 | West US 2            | ✅          | ✅          | ✅               | 
 | West US 3            | ✅          | ✅          | ✅               | 
 
