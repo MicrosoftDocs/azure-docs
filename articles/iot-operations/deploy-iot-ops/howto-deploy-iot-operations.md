@@ -125,7 +125,7 @@ Azure IoT Operations requires a schema registry on your cluster. Schema registry
 
    | Optional parameter | Value | Description |
    | --------- | ----- | ----------- |
-   | `--custom-role-id` | Role definitio, ID | The schema registry needs read/write access to the storage account. Provide a custom role ID to use instead of the default **Storage Blob Data Contributor**. Format: `/subscriptions/<SUBSCRIPTION_ID>/providers/Microsoft.Authorization/roleDefinitions/<ROLE_ID>`. |
+   | `--custom-role-id` | Role definition, ID | The schema registry needs read/write access to the storage account. Provide a custom role ID to use instead of the default **Storage Blob Data Contributor**. Format: `/subscriptions/<SUBSCRIPTION_ID>/providers/Microsoft.Authorization/roleDefinitions/<ROLE_ID>`. |
    | `--sa-container` | string | Storage account container where schemas will be stored. If this container doesn't exist, it will be created. The default container name is **schemas**. |
 
 ### Deploy Azure IoT Operations
