@@ -13,7 +13,7 @@ ms.date: 09/11/2024
 Microsoft Sentinel provides Security Orchestration, Automation, and Response (SOAR) capabilities with automation rules and playbooks. Automation rules facilitate simple incident handling and response, while playbooks run more complex sequences of actions to respond and remediate threats. This article discusses how to identify SOAR use cases, and how to migrate your Splunk SOAR automation to Microsoft Sentinel automation rules and playbooks.
 
 For more information about the differences between automation rules and playbooks, see the following articles:
-- [automation rules](automate-incident-handling-with-automation-rules.md)
+- [Automate threat response with automation rules](automate-incident-handling-with-automation-rules.md)
 - [playbooks](automation/automate-responses-with-playbooks.md)
 
 ## Identify SOAR use cases
