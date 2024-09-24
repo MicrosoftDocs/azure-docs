@@ -35,7 +35,7 @@ For a list of data stores that are supported as sources/sinks, see the [Supporte
 
 The service provides a built-in driver to enable connectivity. Therefore you don't need to manually install any driver using this connector.
 
-**Please use the actual value in ServiceNow, not the displayed value.**
+**Please use the actual value instead of the displayed value in ServiceNow.**
 
 
 ## Prerequisite
