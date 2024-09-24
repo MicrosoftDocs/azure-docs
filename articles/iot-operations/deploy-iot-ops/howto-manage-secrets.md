@@ -13,7 +13,7 @@ ms.date: 09/24/2024
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-Azure IoT Operations uses Azure Key Vault as the managed vault solution on the cloud, and uses [Azure Secret Store](#TODO-ADD-LINK) to sync the secrets down from the cloud and store them on the edge as Kubernetes secrets.
+Azure IoT Operations uses Azure Key Vault as the managed vault solution on the cloud, and uses [Azure Secret Store](#manage-secrets-for-your-azure-iot-operations-preview-deployment) to sync the secrets down from the cloud and store them on the edge as Kubernetes secrets.
 
 ## Prerequisites
 

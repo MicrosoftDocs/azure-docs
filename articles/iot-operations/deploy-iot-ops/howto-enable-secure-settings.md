@@ -31,7 +31,7 @@ The test settings are easier and quicker to get you started with a deployment, b
 
 ## Configure cluster for workload identity
 
-A workload identity is an identity you assign to a software workload (such as an application, service, script, or container) to authenticate and access other services and resources. The workload identity feature needs to be enabled on your cluster, so that the [Azure Secret Store](#TODO-ADD-LINK) and Azure IoT Operations can access Microsoft Entra ID protected resources. To learn more, see [What are workload identities?](/entra/workload-id/workload-identities-overview).
+A workload identity is an identity you assign to a software workload (such as an application, service, script, or container) to authenticate and access other services and resources. The workload identity feature needs to be enabled on your cluster, so that the [Azure Secret Store](#enable-secure-settings-in-azure-iot-operations-preview-deployment) and Azure IoT Operations can access Microsoft Entra ID protected resources. To learn more, see [What are workload identities?](/entra/workload-id/workload-identities-overview).
 
 > [!NOTE]
 > This step only applies to Ubuntu + K3s clusters. The quickstart script for Azure Kubernetes Service (AKS) Edge Essentials used in [Prepare your Azure Arc-enabled Kubernetes cluster](./howto-prepare-cluster.md) enables workload identity by default. If you have an AKS Edge Essentials cluster, continue to the next section.
@@ -252,7 +252,7 @@ az identity create --name $USER_ASSIGNED_MI_NAME `
 
 ### Enable secret synchronization
 
-Use the [az iot ops secretsync enable](/cli/azure/iot/ops#TODO-FINAL-LINK) command to set up the Azure IoT Operations instance for secret synchronization. This command:
+Use the [az iot ops secretsync enable](/cli/azure/iot/ops) command to set up the Azure IoT Operations instance for secret synchronization. This command:
 
 * Creates a federated identity credential using the user-assigned managed identity.
 * Adds a role assignment to the user-assigned managed identity for access to the Azure Key Vault.
@@ -349,7 +349,7 @@ Some Azure IoT Operations components like dataflow endpoints use user-assigned m
    > [!NOTE]
    > You will need to grant the identity permission to whichever cloud resource this will be used for. 
 
-1. Use the [az iot ops identity assign](/cli/azure/iot/ops#TODO-FINAL-LINK) command to assign the identity to the Azure IoT Operations instance. This command also creates a federated identity credential using the OIDC issuer of the indicated connected cluster and the Azure IoT Operations service account.
+1. Use the [az iot ops identity assign](/cli/azure/iot/ops) command to assign the identity to the Azure IoT Operations instance. This command also creates a federated identity credential using the OIDC issuer of the indicated connected cluster and the Azure IoT Operations service account.
 
     # [Bash](#tab/bash)
        
