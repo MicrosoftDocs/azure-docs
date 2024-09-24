@@ -205,8 +205,8 @@ Let's consider a basic scenario to understand the use of asterisks in mappings:
 
 ```yaml
 - inputs:
-  - `*`
-  output: `*`
+  - '*'
+  output: '*'
 ```
 
 Here's how the asterisk (`*`) operates in this context:
@@ -244,11 +244,11 @@ Mapping configuration that uses wildcards:
 ```yaml
 - inputs:
   - 'ColorProperties.*'
-  output: `*`
+  output: '*'
 
 - inputs:
   - 'TextureProperties.*'
-  output: `*`
+  output: '*'
 ```
 
 Resulting JSON:
@@ -524,13 +524,13 @@ This configuration allows for a dynamic mapping where every field within the `po
 
 ## Last known value
 
-You can track the last known value of a property. Suffix the input field with `?last` to capture the last known value of the field. When a property is missing a value in a subsequent input payload, the last known value is mapped to the output payload.
+You can track the last known value of a property. Suffix the input field with `? $last` to capture the last known value of the field. When a property is missing a value in a subsequent input payload, the last known value is mapped to the output payload.
 
 For example, consider the following mapping:
 
 ```yaml
 - inputs:
-  - Temperature?last
+  - Temperature ? $last
   output: Thermostat.Temperature
 ```
 
