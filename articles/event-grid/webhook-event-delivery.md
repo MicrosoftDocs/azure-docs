@@ -28,11 +28,11 @@ from being told to a push to a destination that isn't expecting the traffic. Whi
 
 Delivery targets SHOULD support the abuse protection feature. If a target doesn't support the feature, the sender MAY choose not to send to the target, at all, or send only at a very low request rate.
 
-### 4.1. Validation request
+### Validation request
 
 The validation request uses the **HTTP OPTIONS** method. The request is directed to the exact resource target URI that is being registered. With the validation request, the sender asks the target for permission to send notifications, and it can declare a desired request rate (requests per minute). The delivery target will respond with a permission statement and the permitted request rate. Here's a couple of the header fields are for inclusion in the validation request.
 
-#### 4.1.2. WebHook-Request-Origin
+#### WebHook-Request-Origin
 
 The `WebHook-Request-Origin` header MUST be included in the validation request and requests permission to send notifications from this sender, and contains a
 Domain Name System (DNS) expression that identifies the sending system, for example `eventemitter.example.com`. The value is meant to summarily identify all sender
@@ -47,7 +47,7 @@ Example:
 WebHook-Request-Origin: eventemitter.example.com
 ```
 
-### 4.2. Validation response
+### Validation response
 
 If and only if the delivery target does allow delivery of the events, it MUST reply to the request by including the `WebHook-Allowed-Origin` and
 `WebHook-Allowed-Rate` headers. If the delivery target chooses to grant permission by callback, it withholds the response headers.
@@ -59,7 +59,7 @@ handle the HTTP OPTIONS method, it SHOULD respond with HTTP status code 405, as 
 The OPTIONS response SHOULD include the `Allow` header indicating the POST method being permitted. Other methods MAY be permitted on the
 resource, but their function is outside the scope of this specification.
 
-#### 4.2.1. WebHook-Allowed-Origin
+### WebHook-Allowed-Origin
 
 The `WebHook-Allowed-Origin` header MUST be returned when the delivery target agrees to notification delivery by the origin service. Its value MUST either be
 the origin name supplied in the `WebHook-Request-Origin` header, or a singular asterisk character ('\*'), indicating that the delivery target supports
