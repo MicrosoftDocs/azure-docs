@@ -48,7 +48,7 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.healthcareapis/azure-api-for-fhir/azuredeploy.json":::
 
-The template defines one Azure resource:
+The template defines one Azure resource.
 
 * **Microsoft.HealthcareApis/services**
 
@@ -57,6 +57,8 @@ The template defines one Azure resource:
 Replace the line above with the following line once https://learn.microsoft.com/azure/templates/microsoft.healthcareapis/services goes live:
 
 * [**Microsoft.HealthcareApis/services**](/azure/templates/microsoft.healthcareapis/services)
+
+This file does not exist. I am leaving this note here, but anticipate no changes in this matter before Azure API for FHIR retires.
 
 -->
 
