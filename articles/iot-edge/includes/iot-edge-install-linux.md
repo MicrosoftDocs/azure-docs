@@ -100,6 +100,9 @@ You install IoT Edge runtime from the snap store in a later step. Continue to th
 
 ---
 
+> [!IMPORTANT]
+> For [tier 2 supported platform operating systems](../support.md#tier-2), installation packages are made available at [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases). See the installation steps in [Offline or specific version installation](../how-to-provision-single-device-linux-symmetric.md#offline-or-specific-version-installation-optional).
+
 For more information about operating system versions, see [Azure IoT Edge supported platforms](../support.md?#linux-containers).
 
 > [!NOTE]
@@ -190,9 +193,6 @@ The following steps show you how to configure your container to use [`local` log
 Currently, the local logging driver setting is not supported for the Docker snap.
 
 ---
-
-> [!IMPORTANT]
-> For [tier 2 supported platform operating systems](../support.md#tier-2), installation packages are made available at [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases). See the installation steps in [Offline or specific version installation](../how-to-provision-single-device-linux-symmetric.md#offline-or-specific-version-installation-optional).
 
 ### Install the IoT Edge runtime
 
