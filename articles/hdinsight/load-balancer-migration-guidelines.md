@@ -84,7 +84,7 @@ To upgrade your existing custom virtual network to integrate Azure standard load
 
 ### Scenario 2: The existing subnet has HDInsight clusters with basic load balancers.
 
-Approach 1: The most recommended way is to associate a NAT gateway to the subnet along with Network security group.
+**Approach 1:** The most recommended way is to associate a NAT gateway to the subnet along with Network security group.
 
 According to [Azure NAT Gateway frequently asked questions](/azure/nat-gateway/faq#are-basic-sku-resources--basic-load-balancer-and-basic-public-ip-addresses--compatible-with-a-nat-gateway), the subnet with NAT gateway and Azure standard load balancer isn't compatible.
 
