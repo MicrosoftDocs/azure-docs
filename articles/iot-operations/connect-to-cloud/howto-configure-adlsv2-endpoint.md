@@ -151,6 +151,12 @@ Using the system-assigned managed identity is the recommended authentication met
 
 Before creating the dataflow endpoint, assign a role to the managed identity that has write permission to the storage account. For example, you can assign the *Storage Blob Data Contributor* role. To learn more about assigning roles to blobs, see [Authorize access to blobs using Microsoft Entra ID](../../storage/blobs/authorize-access-azure-active-directory.md).
 
+# [Portal](#tab/portal)
+
+In the Azure IoT Operations portal dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **System assigned managed identity**. In most cases, you don't need to specify a service audience. Not specifying an audience creates a managed identity with the default audience scoped to your storage account.
+
+# [Kubernetes](#tab/kubernetes)
+
 In the *DataflowEndpoint* resource, specify the managed identity authentication method. In most cases, you don't need to specify other settings. Not specifying an audience creates a managed identity with the default audience scoped to your storage account.
 
 ```yaml
@@ -170,6 +176,8 @@ datalakeStorageSettings:
       audience: https://<account>.blob.core.windows.net
 ```
 
+---
+
 #### Access token
 
 Using an access token is an alternative authentication method. This method requires you to create a Kubernetes secret with the SAS token and reference the secret in the *DataflowEndpoint* resource.
@@ -186,13 +194,21 @@ Using an access token is an alternative authentication method. This method requi
 
 1. Create a Kubernetes secret with the SAS token. Don't include the question mark `?` that might be at the beginning of the token.
 
-```bash
-kubectl create secret generic my-sas \
---from-literal=accessToken='sv=2022-11-02&ss=b&srt=c&sp=rwdlax&se=2023-07-22T05:47:40Z&st=2023-07-21T21:47:40Z&spr=https&sig=<signature>' \
--n azure-iot-operations
-```
+    ```bash
+    kubectl create secret generic my-sas \
+    --from-literal=accessToken='sv=2022-11-02&ss=b&srt=c&sp=rwdlax&se=2023-07-22T05:47:40Z&st=2023-07-21T21:47:40Z&spr=https&sig=<signature>' \
+    -n azure-iot-operations
+    ```
 
-Finally, create the DataflowEndpoint resource with the secret reference.
+# [Portal](#tab/portal)
+
+In the Azure IoT Operations portal dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **Access token**.
+
+Enter the access token secret name you created in **Access token secret name**.
+
+# [Kubernetes](#tab/kubernetes)
+
+Create the *DataflowEndpoint* resource with the secret reference.
 
 ```yaml
 datalakeStorageSettings:
@@ -202,10 +218,19 @@ datalakeStorageSettings:
       secretRef: my-sas
 ```
 
+---
+
 #### User-assigned managed identity
 
-To use a user-assigned managed identity, specify the `UserAssignedManagedIdentity` authentication method and provide the `clientId` and `tenantId` of the managed identity.
+# [Portal](#tab/portal)
 
+In the Azure IoT Operations portal dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **User assigned managed identity**.
+
+Enter the user assigned managed identity client ID and tenant ID in the appropriate fields.
+
+# [Kubernetes](#tab/kubernetes)
+
+To use a user-assigned managed identity, specify the `UserAssignedManagedIdentity` authentication method and provide the `clientId` and `tenantId` of the managed identity.
 
 ```yaml
 datalakeStorageSettings:
@@ -215,6 +240,8 @@ datalakeStorageSettings:
       clientId: <ID>
       tenantId: <ID>
 ```
+
+---
 
 ## Advanced settings
 
