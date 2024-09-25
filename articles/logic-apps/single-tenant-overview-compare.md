@@ -278,7 +278,7 @@ For the **Standard** logic app workflow, these capabilities have changed, or the
 
   * The following triggers and actions have either changed or are currently limited, unsupported, or unavailable:
 
-    * The built-in action, [Azure Functions - Choose an Azure function](logic-apps-azure-functions.md) is now **Azure Functions Operations - Call an Azure function**. This action currently works only for functions that are created from the **HTTP Trigger** template.
+    * The built-in action, [Azure Functions - Choose an Azure function](call-azure-functions-from-workflows.md) is now **Azure Functions Operations - Call an Azure function**. This action currently works only for functions that are created from the **HTTP Trigger** template.
 
       In the Azure portal, you can select an HTTP trigger function that you can access by creating a connection through the user experience. If you inspect the function action's JSON definition in code view or the **workflow.json** file using Visual Studio Code, the action refers to the function by using a `connectionName` reference. This version abstracts the function's information as a connection, which you can find in your logic app project's **connections.json** file, which is available after you create a connection in Visual Studio Code.
 
