@@ -219,11 +219,11 @@ output boolEqual bool = firstBool == secondBool
 
 Output from the example:
 
-| Name | Type | Value |
-| ---- | ---- | ---- |
-| `intEqual` | boolean | true |
-| `stringEqual` | boolean | false |
-| `boolEqual` | boolean | true |
+| Name | Type | Value | Note |
+| ---- | ---- | ----- | ---- |
+| `intEqual` | boolean | true | |
+| `stringEqual` | boolean | false | The result is `false` because the comparison is case-sensitive. |
+| `boolEqual` | boolean | true | |
 
 When comparing arrays, the two arrays must have the same elements and order. The arrays don't need to be assigned to each other.
 

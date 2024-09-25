@@ -101,12 +101,12 @@ The following example checks different types of values for equality. All the def
 
 The output from the preceding example with the default values is:
 
-| Name | Type | Value |
-| ---- | ---- | ----- |
-| checkInts | Bool | True |
-| checkStrings | Bool | False |
-| checkArrays | Bool | True |
-| checkObjects | Bool | True |
+| Name | Type | Value | Note |
+| ---- | ---- | ----- | ---- | 
+| checkInts | Bool | True |  |
+| checkStrings | Bool | False | The result is `false` becasue the comparison is case-sensitive. | 
+| checkArrays | Bool | True | |
+| checkObjects | Bool | True | |
 
 The following example template uses [not](template-functions-logical.md#not) with **equals**.
 
