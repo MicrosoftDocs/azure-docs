@@ -117,6 +117,3 @@ To associate with a NAT Gateway, perform the following steps.
 **Approach 2:** Select option other than **Associate a NAT gateway to the subnet** provided in [Use Source Network Address Translation (SNAT) for outbound connections](/azure/load-balancer/load-balancer-outbound-connections), and follow the instruction for the selected option.
 
 **Approach 3:** Create a new subnet and then create the cluster with the new subnet.
-
-
-
