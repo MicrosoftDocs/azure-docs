@@ -14,7 +14,7 @@ items:
   - name: Available regions for Oracle Database@Azure
     href: oracle-db/oracle-database-regions.md
   - name: Get started with Oracle Database@Azure
-    href: oracle-db/oracle-database-getting-started.md
+    href: oracle-db/oracle-database-get-started.md
   - name: Oracle Database@Azure compliance information
     href: oracle-db/oracle-database-compliance.md
   - name: Overview - Oracle Database@Azure
