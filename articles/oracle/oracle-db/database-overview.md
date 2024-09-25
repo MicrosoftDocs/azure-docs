@@ -33,6 +33,7 @@ To purchase Oracle Database@Azure, contact [Oracle's sales team](https://go.orac
 
 Billing and payment for the service is done through Azure. Payment for Oracle Database@Azure counts toward your Microsoft Azure Consumption Commitment (MACC). Existing Oracle Database software customers can use the Bring Your Own License (BYOL) option or Unlimited License Agreements (ULAs). On your regular Microsoft Azure invoices, you can see charges for Oracle Database@Azure alongside charges for your other Azure Marketplace services.
 
+
 ## Next steps
 - [Onboard with Oracle Database@Azure](onboard-oracle-database.md)
 - [Provision and manage Oracle Database@Azure](provision-oracle-database.md)

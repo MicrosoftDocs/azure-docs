@@ -37,7 +37,7 @@ For more information, see [Azure Firewall Explicit proxy (preview)](explicit-pro
 
 With the Azure Firewall Resource Health check, you can now diagnose and get support for service problems that affect your Azure Firewall resource. Resource Health allows IT teams to receive proactive notifications on potential health degradations, and recommended mitigation actions per each health event type.  The resource health is also available in a dedicated page in the Azure portal resource page.
 Starting in August 2023, this preview is automatically enabled on all firewalls and no action is required to enable this functionality.
-For more information, see [Resource Health overview](../service-health/resource-health-overview.md).
+For more information, see [Resource Health overview](/azure/service-health/resource-health-overview).
 
 ### Autolearn SNAT routes (preview)
 
