@@ -7,15 +7,18 @@ ms.date: 09/25/2024
 
 # Azure Event Grid event schema
 
-This article describes the Event Grid schema, which is a proprietary, nonextensible, yet fully functional event format. Event Grid still supports this event format and will continue to support it. However, [CloudEvents](cloud-event-schema.md) is the recommended event format to use. If you're using applications that use the Event Grid format, you may find useful the information in the [CloudEvents] section that describes the transformations between the Event Grid and CloudEvents format supported by Event Grid.
+This article describes the Event Grid schema, which is a proprietary, nonextensible, yet fully functional event format. Event Grid still supports this event format and will continue to support it. However, [CloudEvents](cloud-event-schema.md) is the recommended event format to use. If you're using applications that use the Event Grid format, you might find useful the information in the [CloudEvents] section that describes the transformations between the Event Grid and CloudEvents format supported by Event Grid.
 
 This article describes in detail the properties and schema for the Event Grid format. Events consist of a set of four required string properties. The properties are common to all events from any publisher. The data object has properties that are specific to each publisher. For system topics, these properties are specific to the resource provider, such as Azure Storage or Azure Event Hubs.
 
 Event sources send events to Azure Event Grid in an array, which can have several event objects. When posting events to an Event Grid topic, the array can have a total size of up to 1 MB. Each event in the array is limited to 1 MB. If an event or the array is greater than the size limits, you receive the response **413 Payload Too Large**. Operations are charged in 64 KB increments though. So, events over 64 KB incur operations charges as though they were multiple events. For example, an event that is 130 KB would incur operations as though it were three separate events.
 
-Event Grid sends the events to subscribers in an array that has a single event. This behavior may change in the future.
+Event Grid sends the events to subscribers in an array that has a single event. This behavior might change in the future.
 
 You can find the JSON schema for the Event Grid event and each Azure publisher's data payload in the [Event Schema store](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/eventgrid/data-plane).
+
+> [!NOTE]
+> The support for Event Grid event schema isn't going to be retired, but we won't be making any major improvements to it in the future. We recommend that you use CloudEvents schema, which provides a standardized and protocol-agnostic definition of the structure and metadata description of events. For more information, see [CloudEvents v1.0 schema with Azure Event Grid](cloud-event-schema.md).
 
 ## Event schema
 
