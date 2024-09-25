@@ -19,7 +19,6 @@ For a full list of supported connectors, see the [Find your Microsoft Sentinel d
 
 The following table compares essential details about each method for creating custom connectors described in this article. Select the links in the table for more details about each method.
 
-<!--how to replace for AMA?-->
 |Method description  |Capability | Serverless    |Complexity  |
 |---------|---------|---------|---------|
 | **[Codeless Connector Platform (CCP)](#connect-with-the-codeless-connector-platform)** <br>Best for less technical audiences to create SaaS connectors using a configuration file instead of advanced development. | Supports all capabilities available with the code. | Yes | Low; simple, codeless development
