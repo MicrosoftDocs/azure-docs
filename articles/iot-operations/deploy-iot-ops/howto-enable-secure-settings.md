@@ -312,10 +312,6 @@ Some Azure IoT Operations components like dataflow endpoints use user-assigned m
 
 1. Create a user-assigned managed identity which can be used for cloud connections. Use the [az identity create](/cli/azure/identity#az-identity-create) command to create the user-assigned managed identity.
 
-   ```azurecli
-   az identity create --name "<USER_ASSIGNED_IDENTITY_NAME>" --resource-group "<RESOURCE_GROUP>" --location "<LOCATION>" --subscription "<SUBSCRIPTION>"
-   ```
-
     # [Bash](#tab/bash)
     
     ```azurecli
