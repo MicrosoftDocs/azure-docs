@@ -174,6 +174,7 @@ To prepare a K3s Kubernetes cluster on Ubuntu:
     export KUBECONFIG=~/.kube/config
     #switch to k3s context
     kubectl config use-context default
+    sudo chmod 644 /etc/rancher/k3s/k3s.yaml
     ```
 
 1. Run the following command to increase the [user watch/instance limits](https://www.suse.com/support/kb/doc/?id=000020048).
