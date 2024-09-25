@@ -529,7 +529,7 @@ items:
         - name: Azure Resource Manager template
           href: create-view-manage-system-topics-arm.md
       - name: Use CloudEvents schema
-        href: cloudevents-schema.md
+        href: cloud-event-schema.md
       - name: Create and manage custom topics
         items:
         - name: Create a custom topic or a domain
