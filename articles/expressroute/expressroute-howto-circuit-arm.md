@@ -87,6 +87,8 @@ $resourceGroupName = (Get-AzResourceGroup -Name "<ResourceGroupName>").ResourceG
 
 # [**Maximum Resiliency**](#tab/maximum)
 
+**Maximum Resiliency** (Recommended) provides the highest level of resiliency for your ExpressRoute connection. It provides two ExpressRoute circuits with local redundancy in two different ExpressRoute edge locations.
+
 The following example shows how to create two ExpressRoute circuits through Equinix with local redundancy in Silicon Valley and Washington DC. If you're using a different provider and different settings, replace that information when you make your request.
 
 > [!NOTE]
@@ -104,14 +106,18 @@ highAvailabilitySetup/New-AzHighAvailabilityExpressRouteCircuits.ps1 -Subscripti
 
 # [**High Resiliency**](#tab/high)
 
-The following example shows how to create an ExpressRoute circuit through Equinix in Silicon Valley. If you're using a different provider and different settings, replace that information when you make your request. Use the following example to request a new service key.
+**High Resiliency** provides resiliency against location wide outages through a single ExpressRoute circuit across two locations in a metropolitan area.
+
+The following example shows how to create an ExpressRoute circuit through Equinix in Amsterdam Metro. If you're using a different provider and different settings, replace that information when you make your request. Use the following example to request a new service key.
 
 ```azurepowershell-interactive
-New-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup" -Location "West EU" -SkuTier Standard -SkuFamily MeteredData -ServiceProviderName "Equinix" -PeeringLocation "Amsterdam metro" -BandwidthInMbps 200
+New-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup" -Location "West EU" -SkuTier Standard -SkuFamily MeteredData -ServiceProviderName "Equinix" -PeeringLocation "Amsterdam Metro" -BandwidthInMbps 200
 ```
 :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/high-resiliency.png" alt-text="Diagram of high resiliency for an ExpressRoute connection.":::
 
 # [**Standard Resiliency**](#tab/standard)
+
+**Standard Resiliency** provides a single ExpressRoute circuit with local redundancy at a single ExpressRoute location.
 
 The following example shows how to create an ExpressRoute circuit through Equinix in Silicon Valley. If you're using a different provider and different settings, replace that information when you make your request. Use the following example to request a new service key.
 
