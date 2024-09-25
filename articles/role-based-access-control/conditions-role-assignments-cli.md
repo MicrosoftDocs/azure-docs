@@ -1,23 +1,17 @@
 ---
-title: Add or edit Azure role assignment conditions using Azure CLI (preview) - Azure RBAC
+title: Add or edit Azure role assignment conditions using Azure CLI - Azure ABAC
 description: Learn how to add, edit, list, or delete attribute-based access control (ABAC) conditions in Azure role assignments using Azure CLI and Azure role-based access control (Azure RBAC).
-services: active-directory
 author: rolyon
 manager: amycolannino
 ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: how-to
-ms.workload: identity
-ms.date: 05/07/2021
+ms.custom: devx-track-azurecli
+ms.date: 01/02/2024
 ms.author: rolyon
 ---
 
-# Add or edit Azure role assignment conditions using Azure CLI (preview)
-
-> [!IMPORTANT]
-> Azure ABAC and Azure role assignment conditions are currently in preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# Add or edit Azure role assignment conditions using Azure CLI
 
 An [Azure role assignment condition](conditions-overview.md) is an additional check that you can optionally add to your role assignment to provide more fine-grained access control. For example, you can add a condition that requires an object to have a specific tag to read the object. This article describes how to add, edit, list, or delete conditions for your role assignments using Azure CLI.
 
@@ -37,7 +31,7 @@ To add a role assignment condition, use [az role assignment create](/cli/azure/r
 The following example shows how to assign the [Storage Blob Data Reader](built-in-roles.md#storage-blob-data-reader) role with a condition. The condition checks whether container name equals 'blobs-example-container'.
 
 ```azurecli
-az role assignment create --role "Storage Blob Data Reader" --scope /subscriptions/mySubscriptionID/resourceGroups/myResourceGroupName --scope /subscriptions/mySubscriptionID/resourceGroups/myResourceGroupName --assignee "user1@contoso.com" --resource-group {resourceGroup} \
+az role assignment create --role "Storage Blob Data Reader" --scope /subscriptions/mySubscriptionID/resourceGroups/myResourceGroupName --assignee "user1@contoso.com" \
 --description "Read access if container name equals blobs-example-container" \
 --condition "((!(ActionMatches{'Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read'})) OR (@Resource[Microsoft.Storage/storageAccounts/blobServices/containers:name] StringEquals 'blobs-example-container'))" \
 --condition-version "2.0"
@@ -110,16 +104,16 @@ The following shows an example of the output:
 
 ## List a condition
 
-To list a role assignment condition, use [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list). For more information, see [List Azure role assignments using Azure CLI](role-assignments-list-cli.md).
+To list a role assignment condition, use [az role assignment list](/cli/azure/role/assignment#az-role-assignment-list). For more information, see [List Azure role assignments using Azure CLI](role-assignments-list-cli.yml).
 
 ## Delete a condition
 
 To delete a role assignment condition, edit the role assignment condition and set both the `condition` and `condition-version` properties to either an empty string (`""`) or `null`.
 
-Alternatively, if you want to delete both the role assignment and the condition, you can use the [az role assignment delete](/cli/azure/role/assignment#az-role-assignment-delete) command. For more information, see [Remove Azure role assignments](role-assignments-remove.md).
+Alternatively, if you want to delete both the role assignment and the condition, you can use the [az role assignment delete](/cli/azure/role/assignment#az-role-assignment-delete) command. For more information, see [Remove Azure role assignments](role-assignments-remove.yml).
 
 ## Next steps
 
-- [Example Azure role assignment conditions for Blob Storage (preview)](../storage/blobs/storage-auth-abac-examples.md)
-- [Tutorial: Add a role assignment condition to restrict access to blobs using Azure CLI (preview)](../storage/blobs/storage-auth-abac-cli.md)
-- [Troubleshoot Azure role assignment conditions (preview)](conditions-troubleshoot.md)
+- [Example Azure role assignment conditions for Blob Storage](../storage/blobs/storage-auth-abac-examples.md)
+- [Tutorial: Add a role assignment condition to restrict access to blobs using Azure CLI](../storage/blobs/storage-auth-abac-cli.md)
+- [Troubleshoot Azure role assignment conditions](conditions-troubleshoot.md)

@@ -3,10 +3,9 @@ title: Data access strategies
 description: Azure Data Factory now supports Static IP address ranges.
 ms.author: lle
 author: lrtoyou1223
-ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
-ms.date: 08/03/2022
+ms.date: 01/05/2024
 ---
 
 # Data access strategies
@@ -75,10 +74,10 @@ For more information about supported network security mechanisms on data stores 
     | Azure laaS                     | SQL Server,   Oracle,   etc.                                  | Yes       | -                   |
     | On-premise   laaS              | SQL Server,   Oracle,   etc.                                  | Yes       | -                   |
 
-## Next steps
+## Related content
 
 For more information, see the following related articles:
 * [Supported data stores](./copy-activity-overview.md#supported-data-stores-and-formats)
-* [Azure Key Vault ‘Trusted Services’](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services)
+* [Azure Key Vault ‘Trusted Services’](/azure/key-vault/general/overview-vnet-service-endpoints#trusted-services)
 * [Azure Storage ‘Trusted Microsoft Services’](../storage/common/storage-network-security.md#trusted-microsoft-services)
 * [Managed identity for Data Factory](./data-factory-service-identity.md)

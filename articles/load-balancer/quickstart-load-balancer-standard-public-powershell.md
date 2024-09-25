@@ -1,27 +1,28 @@
 ---
 title: 'Quickstart: Create a public load balancer - Azure PowerShell'
 titleSuffix: Azure Load Balancer
-description: This quickstart shows how to create a load balancer using Azure PowerShell
+description: This quickstart shows how to create a load balancer using Azure PowerShell.
 author: mbender-ms
 ms.author: mbender
-ms.date: 03/17/2022
+ms.date: 07/23/2024
 ms.topic: quickstart
-ms.service: load-balancer
-ms.custom: devx-track-azurepowershell, mode-api
+ms.service: azure-load-balancer
+ms.custom: devx-track-azurepowershell, mode-api, template-quickstart, engagement-fy23
 #Customer intent: I want to create a load balancer so that I can load balance internet traffic to VMs.
 ---
 
 # Quickstart: Create a public load balancer to load balance VMs using Azure PowerShell
 
-Get started with Azure Load Balancer by using Azure PowerShell to create a public load balancer and two virtual machines.
+Get started with Azure Load Balancer by using Azure PowerShell to create a public load balancer and two virtual machines. Also, you deploy other resources including Azure Bastion, NAT Gateway, a virtual network, and the required subnets.
 
+:::image type="content" source="media/quickstart-load-balancer-standard-public-portal/public-load-balancer-resources.png" alt-text="Diagram of resources deployed for a standard public load balancer." lightbox="media/quickstart-load-balancer-standard-public-portal/public-load-balancer-resources.png":::
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 
 - Azure PowerShell installed locally or Azure Cloud Shell
 
-If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
+If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 ## Create a resource group
 
@@ -32,7 +33,7 @@ Create a resource group with [New-AzResourceGroup](/powershell/module/az.resourc
 ```azurepowershell-interactive
 $rg = @{
     Name = 'CreatePubLBQS-rg'
-    Location = 'eastus'
+    Location = 'westus2'
 }
 New-AzResourceGroup @rg
 ```
@@ -44,8 +45,8 @@ Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)
 ```azurepowershell-interactive
 $publicip = @{
     Name = 'myPublicIP'
-    ResourceGroupName = 'CreatePubLBQS-rg'
-    Location = 'eastus'
+    ResourceGroupName = $rg.name
+    Location = 'westus2'
     Sku = 'Standard'
     AllocationMethod = 'static'
     Zone = 1,2,3
@@ -58,8 +59,8 @@ To create a zonal public IP address in zone 1, use the following command:
 ```azurepowershell-interactive
 $publicip = @{
     Name = 'myPublicIP'
-    ResourceGroupName = 'CreatePubLBQS-rg'
-    Location = 'eastus'
+    ResourceGroupName = $rg.name
+    Location = 'westus2'
     Sku = 'Standard'
     AllocationMethod = 'static'
     Zone = 1
@@ -71,9 +72,9 @@ New-AzPublicIpAddress @publicip
 
 This section details how you can create and configure the following components of the load balancer:
 
-* Create a front-end IP with [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig) for the frontend IP pool. This IP receives the incoming traffic on the load balancer
+* Create a frontend IP with [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig) for the frontend IP pool. This IP receives the incoming traffic on the load balancer
 
-* Create a back-end address pool with [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) for traffic sent from the frontend of the load balancer. This pool is where your backend virtual machines are deployed
+* Create a backend address pool with [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) for traffic sent from the frontend of the load balancer. This pool is where your backend virtual machines are deployed
 
 * Create a health probe with [Add-AzLoadBalancerProbeConfig](/powershell/module/az.network/add-azloadbalancerprobeconfig) that determines the health of the backend VM instances
 
@@ -85,7 +86,7 @@ This section details how you can create and configure the following components o
 ## Place public IP created in previous steps into variable. ##
 $pip = @{
     Name = 'myPublicIP'
-    ResourceGroupName = 'CreatePubLBQS-rg'
+    ResourceGroupName = $rg.name
 }
 $publicIp = Get-AzPublicIpAddress @pip
 
@@ -123,9 +124,9 @@ $rule = New-AzLoadBalancerRuleConfig @lbrule -EnableTcpReset -DisableOutboundSNA
 
 ## Create the load balancer resource. ##
 $loadbalancer = @{
-    ResourceGroupName = 'CreatePubLBQS-rg'
+    ResourceGroupName = $rg.name
     Name = 'myLoadBalancer'
-    Location = 'eastus'
+    Location = 'westus2'
     Sku = 'Standard'
     FrontendIpConfiguration = $feip
     BackendAddressPool = $bePool
@@ -161,12 +162,15 @@ Use a NAT gateway to provide outbound internet access to resources in the backen
 
 * Use [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) to associate the NAT gateway to the subnet of the virtual network
 
+> [!IMPORTANT]
+> [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
+
 ```azurepowershell-interactive
 ## Create public IP address for NAT gateway ##
 $ip = @{
     Name = 'myNATgatewayIP'
-    ResourceGroupName = 'CreatePubLBQS-rg'
-    Location = 'eastus'
+    ResourceGroupName = $rg.name
+    Location = 'westus2'
     Sku = 'Standard'
     AllocationMethod = 'Static'
 }
@@ -174,11 +178,11 @@ $publicIP = New-AzPublicIpAddress @ip
 
 ## Create NAT gateway resource ##
 $nat = @{
-    ResourceGroupName = 'CreatePubLBQS-rg'
+    ResourceGroupName = $rg.name
     Name = 'myNATgateway'
     IdleTimeoutInMinutes = '10'
     Sku = 'Standard'
-    Location = 'eastus'
+    Location = 'westus2'
     PublicIpAddress = $publicIP
 }
 $natGateway = New-AzNatGateway @nat
@@ -201,8 +205,8 @@ $bastsubnetConfig = New-AzVirtualNetworkSubnetConfig @bastsubnet
 ## Create the virtual network ##
 $net = @{
     Name = 'myVNet'
-    ResourceGroupName = 'CreatePubLBQS-rg'
-    Location = 'eastus'
+    ResourceGroupName = $rg.name
+    Location = 'westus2'
     AddressPrefix = '10.1.0.0/16'
     Subnet = $subnetConfig,$bastsubnetConfig
 }
@@ -211,8 +215,8 @@ $vnet = New-AzVirtualNetwork @net
 ## Create public IP address for bastion host. ##
 $ip = @{
     Name = 'myBastionIP'
-    ResourceGroupName = 'CreatePubLBQS-rg'
-    Location = 'eastus'
+    ResourceGroupName = $rg.name
+    Location = 'westus2'
     Sku = 'Standard'
     AllocationMethod = 'Static'
 }
@@ -220,7 +224,7 @@ $publicip = New-AzPublicIpAddress @ip
 
 ## Create bastion host ##
 $bastion = @{
-    ResourceGroupName = 'CreatePubLBQS-rg'
+    ResourceGroupName = $rg.name
     Name = 'myBastion'
     PublicIpAddress = $publicip
     VirtualNetwork = $vnet
@@ -245,8 +249,8 @@ $rule1 = New-AzNetworkSecurityRuleConfig @nsgrule
 ## Create network security group ##
 $nsg = @{
     Name = 'myNSG'
-    ResourceGroupName = 'CreatePubLBQS-rg'
-    Location = 'eastus'
+    ResourceGroupName = $rg.name
+    Location = 'westus2'
     SecurityRules = $rule1
 }
 New-AzNetworkSecurityGroup @nsg
@@ -254,7 +258,7 @@ New-AzNetworkSecurityGroup @nsg
 
 ## Create virtual machines
 
-In this section, you'll create the two virtual machines for the backend pool of the load balancer.
+In this section, you create the two virtual machines for the backend pool of the load balancer.
 
 * Create two network interfaces with [New-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface)
 
@@ -279,32 +283,32 @@ $cred = Get-Credential
 ## Place the virtual network into a variable. ##
 $net = @{
     Name = 'myVNet'
-    ResourceGroupName = 'CreatePubLBQS-rg'
+    ResourceGroupName = $rg.name
 }
 $vnet = Get-AzVirtualNetwork @net
 
 ## Place the load balancer into a variable. ##
 $lb = @{
     Name = 'myLoadBalancer'
-    ResourceGroupName = 'CreatePubLBQS-rg'
+    ResourceGroupName = $rg.name
 }
 $bepool = Get-AzLoadBalancer @lb  | Get-AzLoadBalancerBackendAddressPoolConfig
 
 ## Place the network security group into a variable. ##
 $ns = @{
     Name = 'myNSG'
-    ResourceGroupName = 'CreatePubLBQS-rg'
+    ResourceGroupName = $rg.name
 }
 $nsg = Get-AzNetworkSecurityGroup @ns
 
 ## For loop with variable to create virtual machines for load balancer backend pool. ##
-for ($i=1; $i -le 2; $i++)
-{
+for ($i=1; $i -le 2; $i++){
+
     ## Command to create network interface for VMs ##
     $nic = @{
         Name = "myNicVM$i"
-        ResourceGroupName = 'CreatePubLBQS-rg'
-        Location = 'eastus'
+        ResourceGroupName = $rg.name
+        Location = 'westus2'
         Subnet = $vnet.Subnets[0]
         NetworkSecurityGroup = $nsg
         LoadBalancerBackendAddressPool = $bepool
@@ -333,8 +337,8 @@ for ($i=1; $i -le 2; $i++)
 
     ## Create the virtual machine for VMs ##
     $vm = @{
-        ResourceGroupName = 'CreatePubLBQS-rg'
-        Location = 'eastus'
+        ResourceGroupName = $rg.name
+        Location = 'westus2'
         VM = $vmConfig
         Zone = "$i"
     }
@@ -356,7 +360,7 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 
 Ensure the **State** of the VM creation is **Completed** before moving on to the next steps.
 
-[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
 
 ## Install IIS
 
@@ -375,9 +379,9 @@ $ext = @{
     Publisher = 'Microsoft.Compute'
     ExtensionType = 'CustomScriptExtension'
     ExtensionName = 'IIS'
-    ResourceGroupName = 'CreatePubLBQS-rg'
+    ResourceGroupName = $rg.name
     VMName = "myVM$i"
-    Location = 'eastus'
+    Location = 'westus2'
     TypeHandlerVersion = '1.8'
     SettingString = '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}'
 }
@@ -404,7 +408,7 @@ Use [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress)
 
 ```azurepowershell-interactive
 $ip = @{
-    ResourceGroupName = 'CreatePubLBQS-rg'
+    ResourceGroupName = $rg.name
     Name = 'myPublicIP'
 }  
 Get-AzPublicIPAddress @ip | select IpAddress
@@ -419,7 +423,7 @@ Copy the public IP address, and then paste it into the address bar of your brows
 When no longer needed, you can use the [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) command to remove the resource group, load balancer, and the remaining resources.
 
 ```azurepowershell-interactive
-Remove-AzResourceGroup -Name 'CreatePubLBQS-rg'
+Remove-AzResourceGroup -Name $rg.name
 ```
 
 ## Next steps

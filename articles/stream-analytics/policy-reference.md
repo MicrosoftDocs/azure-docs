@@ -1,11 +1,11 @@
 ---
 title: Built-in policy definitions for Azure Stream Analytics
 description: Lists Azure Policy built-in policy definitions for Azure Stream Analytics. These built-in policy definitions provide common approaches to managing your Azure resources.
-ms.date: 09/12/2022
+ms.date: 02/06/2024
 ms.topic: reference
-author: sidramadoss
-ms.author: sidram
-ms.service: stream-analytics
+author: ahartoon
+ms.author: anboisve
+ms.service: azure-stream-analytics
 ms.custom: subject-policy-reference
 ---
 # Azure Policy built-in definitions for Azure Stream Analytics

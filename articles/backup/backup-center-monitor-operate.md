@@ -1,27 +1,34 @@
 ---
-title: Monitor and operate backups using Backup Center
-description: This article explains how to monitor and operate backups at scale using Backup Center
-ms.topic: conceptual
-ms.date: 03/21/2022
-author: v-amallick
-ms.service: backup
-ms.author: v-amallick
+title: Monitor and operate backups and disaster recovery using Backup center
+description: This article explains how to monitor and operate backups and disaster recovery at-scale using Backup center.
+ms.topic: how-to
+ms.date: 09/24/2024
+ms.service: azure-backup
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
-# Monitor and operate backups using Backup center
+# Monitor and operate backups and disaster recovery using Backup center
+
+[!INCLUDE [backup-center-deprecation.md ](../../includes/backup-center-deprecation.md )]
 
 As a backup admin, you can use Backup center as a single pane of glass to monitor your jobs and backup inventory on a day-to-day basis. You can also use Backup center to perform your regular operations, such as responding to on-demand backup requests, restoring backups, creating backup policies, and so on.
 
+Now, you can use Backup center to monitor your jobs and replication inventory as a disaster recovery admin. You can also use Backup center to enable replication for new virtual machines.
+
 ## Supported scenarios
 
-* Backup center is currently supported for Azure VM backup, SQL in Azure VM backup, SAP HANA in Azure VM backup, Azure Files backup, Azure Blobs backup, Azure Managed Disks backup and Azure Database for PostgreSQL Server backup.
-* Refer to the [support matrix](backup-center-support-matrix.md) for a detailed list of supported and unsupported scenarios.
+* Backup center is supported for Azure VM backup, SQL in Azure VM backup, SAP HANA in Azure VM backup, Azure Files backup, Azure Blobs backup, Azure Managed Disks backup and Azure Database for PostgreSQL Server backup.
+
+* Backup center is also supported for Azure VM disaster recovery, VMware and Physical machine disaster recovery.
+
+Learn more about the [supported and unsupported scenarios](backup-center-support-matrix.md).
 
 ## Backup instances
 
-Backup center allows for easy search and discoverability of backup instances across your backup estate.
+Backup center allows easy search and discoverability of backup instances across your backup estate.
 
-Selecting the **Backup Instances** tab in Backup center lets you view details of all the backup instances that you have access to.
+On Backup center, select the **Backup Instances** tile to get a summarized view of all the backup instances that you've access to.
 
  You can view the following information about each of your backup instances:
 
@@ -41,9 +48,43 @@ Selecting the **Backup Instances** tab in Backup center lets you view details of
 * Protection status
 * Datasource tags
 
-Right-clicking on any of the items in the grid lets you perform actions on the given backup instance, such as navigating to the resource, triggering on-demand backups and restores, or stopping backup.
+Right-click any of the items in the grid to perform actions on the given backup instance, such as navigating to the resource, trigger on-demand backups and restores, or stopping backup.
 
-![Backup Center - Instances](./media/backup-center-monitor-operate/backup-center-instances.png)
+![Screenshot shows the Backup center instances.](./media/backup-center-monitor-operate/backup-center-instances.png)
+
+## Replicated items
+
+Backup center allows easy search and discoverability of replicated items across your replication estate.
+
+On Backup center, select the **Backup Instances** tile to get a summarized view of all replicated items across your entire replication estate.
+
+You can view the following information about each of your replicated items:
+
+- Datasource subscription
+- Datasource resource group
+- Datasource location
+- Replication health
+- failover health
+- Vault associated with the replicated item
+- Status
+- Active location
+
+You can also filter the list of backup instances on the following parameters:
+
+- Datasource subscription
+- Datasource resource group
+- Datasource location
+- Replication health
+- Failover health
+- Replication type
+- Vault
+- Protection status
+- Datasource tags
+
+Right-click any of the items on the grid to go to the resource details.
+
+:::image type="content" source="./media/backup-center-monitor-operate/backup-center-instances-replicated-items-inline.png" alt-text="Screenshot shows the Backup center replication instances." lightbox="./media/backup-center-monitor-operate/backup-center-instances-replicated-items-expanded.png":::
+
 
 ## Backup jobs
 
@@ -97,7 +138,7 @@ Currently, the following types of alerts are displayed in Backup center:
 >- Currently, Backup center displays only alerts for Azure-based workloads. To view alerts for on-premises resources, go to the Recovery Services vault and click **Alerts** from the menu.
 >- Backup center displays only Azure Monitor alerts. Alerts raised by the older alerting solution (accessed under the [Backup Alerts](backup-azure-monitoring-built-in-monitor.md#backup-alerts-in-recovery-services-vault) tab in Recovery Services vault) aren't displayed in Backup center.
 
-For more information about Azure Monitor alerts, see [Overview of alerts in Azure](../azure-monitor/alerts/alerts-overview.md).
+For more information about Azure Monitor alerts, see [Overview of alerts in Azure](/azure/azure-monitor/alerts/alerts-overview).
 
 ### Datasource and Global Alerts
 

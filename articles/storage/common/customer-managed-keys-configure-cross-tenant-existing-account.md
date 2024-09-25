@@ -1,95 +1,44 @@
 ---
-title: Configure cross-tenant customer-managed keys for an existing storage account (preview)
+title: Configure cross-tenant customer-managed keys for an existing storage account
 titleSuffix: Azure Storage
-description: Learn how to configure Azure Storage encryption with customer-managed keys in an Azure key vault that resides in a different tenant than the tenant where the storage account resides (preview). Customer-managed keys allow a service provider to encrypt the customer's data using an encryption key that is managed by the service provider's customer and that isn't accessible to the service provider.
+description: Learn how to configure Azure Storage encryption with customer-managed keys in an Azure key vault that resides in a different tenant than the tenant where the storage account resides. Customer-managed keys allow a service provider to encrypt the customer's data using an encryption key that is managed by the service provider's customer and that isn't accessible to the service provider.
 services: storage
-author: tamram
+author: normesta
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
-ms.date: 10/04/2022
-ms.author: tamram
+ms.date: 10/31/2022
+ms.author: normesta
 ms.reviewer: ozgun
-ms.subservice: common 
+ms.subservice: storage-common-concepts
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
-# Configure cross-tenant customer-managed keys for an existing storage account (preview)
+# Configure cross-tenant customer-managed keys for an existing storage account
 
 Azure Storage encrypts all data in a storage account at rest. By default, data is encrypted with Microsoft-managed keys. For additional control over encryption keys, you can manage your own keys. Customer-managed keys must be stored in an Azure Key Vault or in an Azure Key Vault Managed Hardware Security Model (HSM).
 
 This article shows how to configure encryption with customer-managed keys for an existing storage account. In the cross-tenant scenario, the storage account resides in a tenant managed by an ISV, while the key used for encryption of that storage account resides in a key vault in a tenant that is managed by the customer.
 
-To learn how to configure customer-managed keys for a new storage account, see [Configure cross-tenant customer-managed keys for a new storage account (preview)](customer-managed-keys-configure-cross-tenant-new-account.md).
+To learn how to configure customer-managed keys for a new storage account, see [Configure cross-tenant customer-managed keys for a new storage account](customer-managed-keys-configure-cross-tenant-new-account.md).
 
-## About the preview
+> [!NOTE]
+> Azure Key Vault and Azure Key Vault Managed HSM support the same APIs and management interfaces for configuration of customer-managed keys. Any action that is supported for Azure Key Vault is also supported for Azure Key Vault Managed HSM.
 
-To use the preview, you must register for the Azure Active Directory federated client identity feature in the ISV's tenant. Follow these instructions to register with PowerShell or Azure CLI:
+[!INCLUDE [entra-msi-cross-tenant-cmk-overview](~/reusable-content/ce-skilling/azure/includes/entra-msi-cross-tenant-cmk-overview.md)]
 
-### [PowerShell](#tab/powershell-preview)
-
-To register with PowerShell, call the **Register-AzProviderFeature** command.
-
-```azurepowershell
-Register-AzProviderFeature -ProviderNamespace Microsoft.Storage `
- -FeatureName FederatedClientIdentity
-```
-
-To check the status of your registration with PowerShell, call the **Get-AzProviderFeature** command.
-
-```azurepowershell
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
- -FeatureName FederatedClientIdentity
-```
-
-After your registration is approved, you must re-register the Azure Storage resource provider. To re-register the resource provider with PowerShell, call the **Register-AzResourceProvider** command.
-
-```azurepowershell
-Register-AzResourceProvider -ProviderNamespace 'Microsoft.Storage'
-```
-
-### [Azure CLI](#tab/azure-cli-preview)
-
-To register with Azure CLI, call the **az feature register** command.
-
-```azurecli
-az feature register --namespace Microsoft.Storage \
- --name FederatedClientIdentity
-```
-
-To check the status of your registration with Azure CLI, call the **az feature show** command.
-
-```azurecli
-az feature show --namespace Microsoft.Storage \
- --name FederatedClientIdentity
-```
-
-After your registration is approved, you must re-register the Azure Storage resource provider. To re-register the resource provider with Azure CLI, call the **az provider register command**.
-
-```azurecli
-az provider register --namespace 'Microsoft.Storage'
-```
-
----
-
-> [!IMPORTANT]
-> Using cross-tenant customer-managed keys with Azure Storage encryption is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-[!INCLUDE [active-directory-msi-cross-tenant-cmk-overview](../../../includes/active-directory-msi-cross-tenant-cmk-overview.md)]
-
-[!INCLUDE [active-directory-msi-cross-tenant-cmk-create-identities-authorize-key-vault](../../../includes/active-directory-msi-cross-tenant-cmk-create-identities-authorize-key-vault.md)]
+[!INCLUDE [entra-msi-cross-tenant-cmk-create-identities-authorize-key-vault](~/reusable-content/ce-skilling/azure/includes/entra-msi-cross-tenant-cmk-create-identities-authorize-key-vault.md)]
 
 ## Configure customer-managed keys for an existing account
 
 Up to this point, you've configured the multi-tenant application on the ISV's tenant, installed the application on the customer's tenant, and configured the key vault and key on the customer's tenant. Next you can configure customer-managed keys on an existing storage account with the key from the customer's tenant.
 
-The examples in this article show how to configure customer-managed keys on an existing storage account by using a user-assigned managed identity to authorize access to the key vault. You can also use a system-assigned managed identity to configure customer-managed keys on an existing storage account. In either case, the managed identity must have appropriate permissions to access the key vault. For more information, see [Authenticate to Azure Key Vault](../../key-vault/general/authentication.md).
+The examples in this article show how to configure customer-managed keys on an existing storage account by using a user-assigned managed identity to authorize access to the key vault. You can also use a system-assigned managed identity to configure customer-managed keys on an existing storage account. In either case, the managed identity must have appropriate permissions to access the key vault. For more information, see [Authenticate to Azure Key Vault](/azure/key-vault/general/authentication).
 
 When you configure encryption with customer-managed keys for an existing storage account, you can choose to automatically update the key version used for Azure Storage encryption whenever a new version is available in the associated key vault. To do so, omit the key version from the key URI. Alternately, you can explicitly specify a key version to be used for encryption until the key version is manually updated. Including the key version on the key URI configures customer-managed keys for manual updating of the key version.
 
 > [!IMPORTANT]
-> To rotate a key, create a new version of the key in Azure Key Vault. Azure Storage does not handle key rotation, so you will need to manage rotation of the key in the key vault. You can [configure key auto-rotation in Azure Key Vault](../../key-vault/keys/how-to-configure-key-rotation.md) or rotate your key manually.
+> To rotate a key, create a new version of the key in Azure Key Vault. Azure Storage does not handle key rotation, so you will need to manage rotation of the key in the key vault. You can [configure key auto-rotation in Azure Key Vault](/azure/key-vault/keys/how-to-configure-key-rotation) or rotate your key manually.
 >
 > Azure Storage checks the key vault for a new key version only once daily. When you rotate a key in Azure Key Vault, be sure to wait 24 hours before disabling the older version.
 
@@ -98,7 +47,7 @@ When you configure encryption with customer-managed keys for an existing storage
 To configure cross-tenant customer-managed keys for an existing storage account in the Azure portal, follow these steps:
 
 1. Navigate to your storage account.
-1. On the **Settings** blade for the storage account, select **Encryption**. By default, key management is set to **Microsoft-managed keys**, as shown in the following image.
+1. On the Under Security + networking, select Encryption. By default, key management is set to Microsoft-managed keys, as shown in the following image.
 
     :::image type="content" source="media/customer-managed-keys-configure-existing-account/portal-configure-encryption-keys.png" alt-text="Screenshot showing encryption options in Azure portal." lightbox="media/customer-managed-keys-configure-existing-account/portal-configure-encryption-keys.png":::
 
@@ -119,7 +68,7 @@ After you've specified the key from the key vault in the customer's tenant, the 
 
 ### [PowerShell](#tab/azure-powershell)
 
-To configure cross-tenant customer-managed keys for a new storage account in PowerShell, first install the [Az.Storage PowerShell module](https://www.powershellgallery.com/packages/Az.Storage/4.4.2-preview), version 4.4.2-preview.
+To configure cross-tenant customer-managed keys for a new storage account with PowerShell, first install the [Az.Storage PowerShell module](https://www.powershellgallery.com/packages/Az.Storage), version 5.1.0 or later. This module is installed with the [Az PowerShell module](https://www.powershellgallery.com/packages/Az), version 9.1.0 or later.
 
 Next, call [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount), providing the resource ID for the user-assigned managed identity that you configured previously in the ISV's subscription, and the application (client) ID for the multi-tenant application that you configured previously in the ISV's subscription. Provide the key vault URI and key name from the customer's key vault.
 
@@ -128,10 +77,10 @@ Remember to replace the placeholder values in brackets with your own values and 
 ```azurepowershell
 $accountName = "<storage-account>"
 $kvUri = "<key-vault-uri>"
-$keyName = "<keyName>"
+$keyName = "<key-name>"
 $multiTenantAppId = "<multi-tenant-app-id>"
 
-Set-AzStorageAccount -ResourceGroupName $rgName `
+Set-AzStorageAccount -ResourceGroupName $isvRgName `
     -Name $accountName `
     -KeyvaultEncryption `
     -UserAssignedIdentityId $userIdentity.Id `
@@ -144,7 +93,34 @@ Set-AzStorageAccount -ResourceGroupName $rgName `
 
 ### [Azure CLI](#tab/azure-cli)
 
-N/A
+To configure cross-tenant customer-managed keys for an existing storage account with Azure CLI, first install the Azure CLI, version 2.42.0 or later. For more information about installing Azure CLI, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
+
+Next, call [az storage account update](/cli/azure/storage/account#az-storage-account-update), providing the resource ID for the user-assigned managed identity that you configured previously in the ISV's subscription, and the application (client) ID for the multi-tenant application that you configured previously in the ISV's subscription. Provide the key vault URI and key name from the customer's key vault.
+
+Remember to replace the placeholder values in brackets with your own values and to use the variables defined in the previous examples.
+
+```azurecli
+accountName="<storage-account>"
+kvUri="<key-vault-uri>"
+keyName="<key-name>"
+multiTenantAppId="<multi-tenant-app-id>" # appId value from multi-tenant app
+
+# Get the resource ID for the user-assigned managed identity.
+identityResourceId=$(az identity show --name $userIdentityName \
+    --resource-group $isvRgName \
+    --query id \
+    --output tsv)
+
+az storage account update --name $accountName \
+    --resource-group $isvRgName \
+    --identity-type SystemAssigned,UserAssigned \
+    --user-identity-id $identityResourceId \
+    --encryption-key-vault $kvUri \
+    --encryption-key-name $keyName \
+    --encryption-key-source Microsoft.Keyvault \
+    --key-vault-user-identity-id $identityResourceId \
+    --key-vault-federated-client-id $multiTenantAppId
+```
 
 ---
 

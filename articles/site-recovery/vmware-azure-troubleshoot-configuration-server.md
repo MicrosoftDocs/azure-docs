@@ -1,11 +1,10 @@
 ---
-title: Troubleshoot issues with the configuration server during disaster recovery of VMware VMs and physical servers to Azure by using Azure Site Recovery | Microsoft Docs
+title: Troubleshoot issues with the configuration server during disaster recovery of VMware VMs and physical servers to Azure by using Azure Site Recovery
 description: This article provides troubleshooting information for deploying the configuration server for disaster recovery of VMware VMs and physical servers to Azure by using Azure Site Recovery.
-author: v-pgaddala
-manager: gaggupta
-ms.service: site-recovery
-ms.topic: article
-ms.author: v-pgaddala
+author: ankitaduttaMSFT
+ms.service: azure-site-recovery
+ms.topic: troubleshooting
+ms.author: ankitadutta
 ms.date: 05/27/2021
 
 ---
@@ -62,7 +61,7 @@ To resolve vCenter discovery failures, add the vCenter server to the byPass list
 - Download PsExec tool from [here](/sysinternals/downloads/psexec) to access System user content.
 - Open Internet Explorer in system user content by running the following command line
     psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"
-- Add proxy settings in IE and restart tmanssvc service.
+- Add proxy settings in Internet Explorer and restart tmanssvc service.
 - To configure DRA proxy settings, run 
     cd C:\Program Files\Microsoft Azure Site Recovery Provider
 - Next, execute DRCONFIGURATOR.EXE /configure /AddBypassUrls [add IP Address/FQDN of vCenter Server provided during **Configure vCenter Server/vSphere ESXi server** step of [Configuration Server deployment](vmware-azure-deploy-configuration-server.md#configure-settings)]
@@ -185,15 +184,16 @@ Manually stop the following services:
   
 To update the configuration server, run the [unified setup](service-updates-how-to.md#links-to-currently-supported-update-rollups) again.
 
-## Azure Active Directory application creation failure
+<a name='azure-active-directory-application-creation-failure'></a>
 
-You have insufficient permissions to create an application in Azure Active Directory (AAD) using the [Open Virtualization Application (OVA)](vmware-azure-deploy-configuration-server.md#deploy-a-configuration-server-through-an-ova-template
-) template.
+## Microsoft Entra application creation failure
+
+You have insufficient permissions to create an application in Microsoft Entra ID using the [Open Virtualization Application (OVA)](vmware-azure-deploy-configuration-server.md#deploy-a-configuration-server-through-an-ova-template) template.
 
 To resolve the issue, sign in to the Azure portal and do one of the following:
 
-- Request the Application Developer role in AAD. For more information on the Application Developer role, see [Administrator role permissions in Azure Active Directory](../active-directory/roles/permissions-reference.md).
-- Verify that the **User can create application** flag is set to *true* in AAD. For more information, see [How to: Use the portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
+- Request the Application Developer role in Microsoft Entra ID. For more information on the Application Developer role, see [Administrator role permissions in Microsoft Entra ID](../active-directory/roles/permissions-reference.md).
+- Verify that the **User can create application** flag is set to *true* in Microsoft Entra ID. For more information, see [How to: Use the portal to create a Microsoft Entra application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 ## Process server/Master Target are unable to communicate with the configuration server 
 

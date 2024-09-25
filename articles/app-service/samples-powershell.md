@@ -5,8 +5,10 @@ tags: azure-service-management
 
 ms.assetid: b48d1137-8c04-46e0-b430-101e07d7e470
 ms.topic: sample
-ms.date: 07/07/2020
-ms.custom: mvc
+ms.date: 12/06/2022
+ms.custom: mvc, devx-track-azurepowershell
+ms.author: msangapu
+author: msangapu-msft
 ---
 # PowerShell samples for Azure App Service
 
@@ -38,4 +40,3 @@ The following table includes links to PowerShell scripts built using the Azure P
 | [Restore a backup across subscriptions](./scripts/powershell-backup-restore-diff-sub.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Restores a web app from a backup in another subscription. |
 |**Monitor app**||
 | [Monitor an app with web server logs](./scripts/powershell-monitor.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Creates an App Service app, enables logging for it, and downloads the logs to your local machine. |
-| | |

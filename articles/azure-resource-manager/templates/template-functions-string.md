@@ -1,8 +1,9 @@
 ---
 title: Template functions - string
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to work with strings.
-ms.topic: conceptual
-ms.date: 03/10/2022
+ms.topic: reference
+ms.custom: devx-track-arm-template
+ms.date: 07/02/2024
 ---
 
 # String functions for ARM templates
@@ -149,7 +150,8 @@ The output from the preceding example with the default values is:
 
 Combines multiple string values and returns the concatenated string, or combines multiple arrays and returns the concatenated array.
 
-In Bicep, use [string interpolation](../bicep/bicep-functions-string.md#concat) instead of the `concat` function.
+In Bicep, use [string interpolation](../bicep/data-types.md#strings) instead of the [`concat()`](../bicep/bicep-functions-string.md#concat) function to improve readability. However, in some cases such as string replacement in [multi-line strings](../bicep/data-types.md#multi-line-strings), you may need to fall back on using the [`concat()`](../bicep/bicep-functions-string.md#concat) function or the [`replace()` function](../bicep/bicep-functions-string.md#replace).
+
 
 ### Parameters
 
@@ -203,7 +205,7 @@ In Bicep, use the [contains](../bicep/bicep-functions-string.md#contains) functi
 
 ### Return value
 
-**True** if the item is found; otherwise, **False**.
+`True` if the item is found; otherwise, `False`.
 
 ### Examples
 
@@ -300,7 +302,7 @@ In Bicep, use the [empty](../bicep/bicep-functions-string.md#empty) function.
 
 ### Return value
 
-Returns **True** if the value is empty; otherwise, **False**.
+Returns `True` if the value is empty; otherwise, `False`.
 
 ### Examples
 
@@ -333,7 +335,7 @@ In Bicep, use the [endsWith](../bicep/bicep-functions-string.md#endswith) functi
 
 ### Return value
 
-**True** if the last character or characters of the string match the value; otherwise, **False**.
+`True` if the last character or characters of the string match the value; otherwise, `False`.
 
 ### Examples
 
@@ -356,7 +358,7 @@ The output from the preceding example with the default values is:
 
 `first(arg1)`
 
-Returns the first character of the string, or first element of the array.
+Returns the first character of the string, or first element of the array. If an empty string is given, the function results in an empty string. In the case of an empty array, the function returns `null`.
 
 In Bicep, use the [first](../bicep/bicep-functions-string.md#first) function.
 
@@ -455,6 +457,8 @@ Unique scoped to deployment for a resource group
 ```json
 "[guid(resourceGroup().id, deployment().name)]"
 ```
+
+The `guid` function implements the algorithm from [RFC 4122 §4.3](https://www.ietf.org/rfc/rfc4122.txt). The original source can be found in [GuidUtility](https://github.com/LogosBible/Logos.Utility/blob/e7fc45123da090b8cf34da194a1161ed6a34d20d/src/Logos.Utility/GuidUtility.cs) with some modifications.
 
 ### Return value
 
@@ -837,7 +841,7 @@ In Bicep, use the [startsWith](../bicep/bicep-functions-string.md#startswith) fu
 
 ### Return value
 
-**True** if the first character or characters of the string match the value; otherwise, **False**.
+`True` if the first character or characters of the string match the value; otherwise, `False`.
 
 ### Examples
 
@@ -1138,28 +1142,29 @@ In Bicep, use the [uri](../bicep/bicep-functions-string.md#uri) function.
 | baseUri |Yes |string |The base uri string. Take care to observe the behavior about the handling of the trailing slash (`/`), as described following this table.  |
 | relativeUri |Yes |string |The relative uri string to add to the base uri string. |
 
-* If **baseUri** ends in a trailing slash, the result is **baseUri** followed by **relativeUri**.
+* If `baseUri` ends with a trailing slash, the result is simply `baseUri` followed by `relativeUri`. If `relativeUri` also begins with a leading slash, the trailing slash and the leading slash will be combined into one.
 
-* If **baseUri** doesn't end in a trailing slash one of two things
+* If `baseUri` doesn't end in a trailing slash one of two things
   happens.
 
-   * If **baseUri** has no slashes at all (aside from the `//` near
-     the front) the result is **baseUri** followed by **relativeUri**.
+   * If `baseUri` has no slashes at all (aside from the `//` near
+     the front) the result is `baseUri` followed by `relativeUri`.
 
-   * If **baseUri** has some slashes, but doesn't end with a slash,
-     everything from the last slash onward is removed from **baseUri**
-     and the result is **baseUri** followed by **relativeUri**.
+   * If `baseUri` has some slashes, but doesn't end with a slash,
+     everything from the last slash onward is removed from `baseUri`
+     and the result is `baseUri` followed by `relativeUri`.
 
 Here are some examples:
 
 ```
 uri('http://contoso.org/firstpath', 'myscript.sh') -> http://contoso.org/myscript.sh
 uri('http://contoso.org/firstpath/', 'myscript.sh') -> http://contoso.org/firstpath/myscript.sh
+uri('http://contoso.org/firstpath/', '/myscript.sh') -> http://contoso.org/firstpath/myscript.sh
 uri('http://contoso.org/firstpath/azuredeploy.json', 'myscript.sh') -> http://contoso.org/firstpath/myscript.sh
 uri('http://contoso.org/firstpath/azuredeploy.json/', 'myscript.sh') -> http://contoso.org/firstpath/azuredeploy.json/myscript.sh
 ```
 
-For complete details, the **baseUri** and **relativeUri** parameters are
+For complete details, the `baseUri` and `relativeUri` parameters are
 resolved as specified in
 [RFC 3986, section 5](https://tools.ietf.org/html/rfc3986#section-5).
 

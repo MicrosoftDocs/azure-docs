@@ -1,13 +1,12 @@
 ---
 title: Monitor copy activity
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn about how to monitor the copy activity execution in Azure Data Factory and Azure Synapse Analytics. 
+description: Learn about how to monitor the copy activity execution in Azure Data Factory and Azure Synapse Analytics.
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
-ms.custom: synapse, contperf-fy22q2
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 10/20/2023
 ms.author: jianleishen
 ---
 # Monitor copy activity
@@ -76,7 +75,7 @@ Copy activity execution details and performance characteristics are also returne
 | logPath | Path to the session log of skipped data in the blob storage. See [Fault tolerance](copy-activity-overview.md#fault-tolerance). | Text (string) |
 | executionDetails | More details on the stages the Copy activity goes through and the corresponding steps, durations, configurations, and so on. We don't recommend that you parse this section because it might change. To better understand how it helps you understand and troubleshoot copy performance, refer to [Monitor visually](#monitor-visually) section. | Array |
 | perfRecommendation | Copy performance tuning tips. See [Performance tuning tips](copy-activity-performance-troubleshooting.md#performance-tuning-tips) for details. | Array |
-| billingReference | The billing consumption for the given run. Learn more from [Monitor consumption at activity-run level](plan-manage-costs.md#monitor-consumption-at-activity-run-level). | Object |
+| billingReference | The billing consumption for the given run. Learn more from [Monitor consumption at activity-run level](plan-manage-costs.md#monitor-consumption-at-activity-run-level-in-azure-data-factory). | Object |
 | durationInQueue | Queueing duration in second before the copy activity starts to execute. | Object |
 
 **Example:**
@@ -160,7 +159,7 @@ Copy activity execution details and performance characteristics are also returne
 }
 ```
 
-## Next steps
+## Related content
 See the other Copy Activity articles:
 
 \- [Copy activity overview](copy-activity-overview.md)

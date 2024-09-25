@@ -1,13 +1,13 @@
 ---
-title: Monitor Azure Storage services with Azure Monitor Storage insights | Microsoft Docs
+title: Monitor Azure Storage services with Azure Monitor Storage insights
 description: This article describes the Storage insights feature of Azure Monitor that provides storage admins with a quick understanding of performance and utilization issues with their Azure Storage accounts.
 recommendations: false
 ms.topic: conceptual
 author: normesta
 ms.author: normesta
 ms.date: 07/11/2021
-ms.service: storage
-ms.subservice: common
+ms.service: azure-storage
+ms.subservice: storage-common-concepts
 
 ---
 
@@ -222,7 +222,7 @@ In this example, we are working with the storage account capacity workbook and d
 
 ## Troubleshooting
 
-For general troubleshooting guidance, refer to the dedicated workbook-based insights [troubleshooting article](../../azure-monitor/insights/troubleshoot-workbooks.md).
+For general troubleshooting guidance, refer to the dedicated workbook-based insights [troubleshooting article](/azure/azure-monitor/insights/troubleshoot-workbooks).
 
 This section will help you with the diagnosis and troubleshooting of some of the common issues you may encounter when using Storage insights. Use the list below to locate the information relevant to your specific issue.
 
@@ -264,6 +264,6 @@ Each workbook is saved in the storage account that you saved it in. Try to find 
 
 ## Next steps
 
-- Configure [metric alerts](../../azure-monitor/alerts/alerts-metric.md) and [service health notifications](../../service-health/alerts-activity-log-service-notifications-portal.md) to set up automated alerting to aid in detecting issues.
+- Configure [metric alerts](/azure/azure-monitor/alerts/alerts-metric) and [service health notifications](/azure/service-health/alerts-activity-log-service-notifications-portal) to set up automated alerting to aid in detecting issues.
 
-- Learn the scenarios workbooks are designed to support, how to author new and customize existing reports, and more by reviewing [Create interactive reports with Azure Monitor workbooks](../../azure-monitor/visualize/workbooks-overview.md).
+- Learn the scenarios workbooks are designed to support, how to author new and customize existing reports, and more by reviewing [Create interactive reports with Azure Monitor workbooks](/azure/azure-monitor/visualize/workbooks-overview).

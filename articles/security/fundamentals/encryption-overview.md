@@ -3,14 +3,11 @@ title: Azure encryption overview | Microsoft Docs
 description: Learn about encryption options in Azure. See information for encryption at rest, encryption in flight, and key management with Azure Key Vault.
 services: security
 author: msmbaldwin
-
-ms.assetid:
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 10/26/2021
+ms.date: 04/26/2024
 ms.author: mbaldwin
-
 ---
 # Azure encryption overview
 
@@ -18,9 +15,9 @@ This article provides an overview of how encryption is used in Microsoft Azure. 
 
 ## Encryption of data at rest
 
-Data at rest includes information that resides in persistent storage on physical media, in any digital format. The media can include files on magnetic or optical media, archived data, and data backups. Microsoft Azure offers a variety of data storage solutions to meet different needs, including file, disk, blob, and table storage. Microsoft also provides encryption to protect [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview), [Azure Cosmos DB](../../cosmos-db/database-encryption-at-rest.md), and Azure Data Lake.
+Data at rest includes information that resides in persistent storage on physical media, in any digital format. The media can include files on magnetic or optical media, archived data, and data backups. Microsoft Azure offers a variety of data storage solutions to meet different needs, including file, disk, blob, and table storage. Microsoft also provides encryption to protect [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview), [Azure Cosmos DB](/azure/cosmos-db/database-encryption-at-rest), and Azure Data Lake.
 
-Data encryption at rest is available for services across the software as a service (SaaS), platform as a service (PaaS), and infrastructure as a service (IaaS) cloud models. This article summarizes and provides resources to help you use the Azure encryption options.
+Data encryption at rest using AES 256 data encryption is available for services across the software as a service (SaaS), platform as a service (PaaS), and infrastructure as a service (IaaS) cloud models. This article summarizes and provides resources to help you use the Azure encryption options.
 
 For a more detailed discussion of how data at rest is encrypted in Azure, see [Azure Data Encryption-at-Rest](encryption-atrest.md).
 
@@ -49,9 +46,7 @@ The three server-side encryption models offer different key management character
 
 ### Azure disk encryption
 
-You can protect your managed disks by using [Azure Disk Encryption for Linux VMs](../../virtual-machines/linux/disk-encryption-overview.md), which uses [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt), or [Azure Disk Encryption for Windows VMs](../../virtual-machines/linux/disk-encryption-overview.md), which uses [Windows BitLocker](/previous-versions/windows/it-pro/windows-vista/cc766295(v=ws.10)), to protect both operating system disks and data disks with full volume encryption.
-
-Encryption keys and secrets are safeguarded in your [Azure Key Vault subscription](../../key-vault/general/overview.md). By using the Azure Backup service, you can back up and restore encrypted virtual machines (VMs) that use Key Encryption Key (KEK) configuration.
+All Managed Disks, Snapshots, and Images are encrypted using Storage Service Encryption using a service-managed key. Azure also offers options to protect temp disks, caches, and manage keys in Azure Key Vault. For more information, see [Overview of managed disk encryption options](/azure/virtual-machines/disk-encryption-overview).
 
 ### Azure Storage Service Encryption
 
@@ -79,7 +74,7 @@ Finally, you can also use the Azure Storage Client Library for Java to perform c
 
 #### Transparent Data Encryption
 
-[TDE](/sql/relational-databases/security/encryption/transparent-data-encryption-tde) is used to encrypt [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016), [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview), and [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) data files in real time, using a Database Encryption Key (DEK), which is stored in the database boot record for availability during recovery.
+[TDE](/sql/relational-databases/security/encryption/transparent-data-encryption-tde) is used to encrypt [SQL Server](https://www.microsoft.com/sql-server), [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview), and [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) data files in real time, using a Database Encryption Key (DEK), which is stored in the database boot record for availability during recovery.
 
 TDE protects data and log files, using AES and Triple Data Encryption Standard (3DES) encryption algorithms. Encryption of the database file is performed at the page level. The pages in an encrypted database are encrypted before they are written to disk and are decrypted when they’re read into memory. TDE is now enabled by default on newly created Azure SQL databases.
 
@@ -93,9 +88,9 @@ With Azure SQL Database, you can apply symmetric encryption to a column of data 
 
 CLE has built-in functions that you can use to encrypt data by using either symmetric or asymmetric keys, the public key of a certificate, or a passphrase using 3DES.
 
-### Cosmos DB database encryption
+### Azure Cosmos DB database encryption
 
-[Azure Cosmos DB](../../cosmos-db/database-encryption-at-rest.md) is Microsoft's globally distributed, multi-model database. User data that's stored in Cosmos DB in non-volatile storage (solid-state drives) is encrypted by default. There are no controls to turn it on or off. Encryption at rest is implemented by using a number of security technologies, including secure key storage systems, encrypted networks, and cryptographic APIs. Encryption keys are managed by Microsoft and are rotated per Microsoft internal guidelines. Optionally, you can choose to add a second layer of encryption with keys you manage using the [customer-managed keys or CMK](../../cosmos-db/how-to-setup-cmk.md) feature.
+[Azure Cosmos DB](/azure/cosmos-db/database-encryption-at-rest) is Microsoft's globally distributed, multi-model database. User data that's stored in Azure Cosmos DB in non-volatile storage (solid-state drives) is encrypted by default. There are no controls to turn it on or off. Encryption at rest is implemented by using a number of security technologies, including secure key storage systems, encrypted networks, and cryptographic APIs. Encryption keys are managed by Microsoft and are rotated per Microsoft internal guidelines. Optionally, you can choose to add a second layer of encryption with keys you manage using the [customer-managed keys or CMK](/azure/cosmos-db/how-to-setup-cmk) feature.
 
 ### At-rest encryption in Data Lake
 
@@ -109,13 +104,13 @@ Azure offers many mechanisms for keeping data private as it moves from one locat
 
 ### Data-link Layer encryption in Azure
 
-Whenever Azure Customer traffic moves between datacenters-- outside physical boundaries not controlled by Microsoft (or on behalf of Microsoft)-- a data-link layer encryption method using the [IEEE 802.1AE MAC Security Standards](https://1.ieee802.org/security/802-1ae/) (also known as MACsec) is applied from point-to-point across the underlying network hardware. The packets are encrypted and decrypted on the devices before being sent, preventing physical “man-in-the-middle” or snooping/wiretapping attacks. Because this technology is integrated on the network hardware itself, it provides line rate encryption on the network hardware with no measurable link latency increase. This MACsec encryption is on by default for all Azure traffic traveling within a region or between regions, and no action is required on customers’ part to enable. 
+Whenever Azure Customer traffic moves between datacenters-- outside physical boundaries not controlled by Microsoft (or on behalf of Microsoft)-- a data-link layer encryption method using the [IEEE 802.1AE MAC Security Standards](https://1.ieee802.org/security/802-1ae/) (also known as MACsec) is applied from point-to-point across the underlying network hardware. The packets are encrypted  on the devices before being sent, preventing physical “man-in-the-middle” or snooping/wiretapping attacks. Because this technology is integrated on the network hardware itself, it provides line rate encryption on the network hardware with no measurable link latency increase. This MACsec encryption is on by default for all Azure traffic traveling within a region or between regions, and no action is required on customers’ part to enable. 
 
 ### TLS encryption in Azure
 
-Microsoft gives customers the ability to use [Transport Layer Security](https://en.wikipedia.org/wiki/Transport_Layer_Security) (TLS) protocol to protect data when it’s traveling between the cloud services and customers. Microsoft datacenters negotiate a TLS connection with client systems that connect to Azure services. TLS provides strong authentication, message privacy, and integrity (enabling detection of message tampering, interception, and forgery), interoperability, algorithm flexibility, and ease of deployment and use.
+Microsoft gives customers the ability to use [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security) protocol to protect data when it’s traveling between the cloud services and customers. Microsoft datacenters negotiate a TLS connection with client systems that connect to Azure services. TLS provides strong authentication, message privacy, and integrity (enabling detection of message tampering, interception, and forgery), interoperability, algorithm flexibility, and ease of deployment and use.
 
-[Perfect Forward Secrecy](https://en.wikipedia.org/wiki/Forward_secrecy) (PFS) protects connections between customers’ client systems and Microsoft cloud services by unique keys. Connections also use RSA-based 2,048-bit encryption key lengths. This combination makes it difficult for someone to intercept and access data that is in transit.
+[Perfect Forward Secrecy (PFS)](https://en.wikipedia.org/wiki/Forward_secrecy) protects connections between customers’ client systems and Microsoft cloud services by unique keys. Connections also support RSA-based 2,048-bit key lengths, ECC 256-bit key lengths, SHA-384 message authentication, and AES-256 data encryption. This combination makes it difficult for someone to intercept and access data that is in transit.
 
 ### Azure Storage transactions
 
@@ -145,7 +140,7 @@ You can also use Remote Desktop to connect to a Linux VM in Azure.
 
 ### Secure access to Linux VMs with SSH
 
-For remote management, you can use [Secure Shell](../../virtual-machines/linux/ssh-from-windows.md) (SSH) to connect to Linux VMs running in Azure. SSH is an encrypted connection protocol that allows secure sign-ins over unsecured connections. It is the default connection protocol for Linux VMs hosted in Azure. By using SSH keys for authentication, you eliminate the need for passwords to sign in. SSH uses a public/private key pair (asymmetric encryption) for authentication.
+For remote management, you can use [Secure Shell](/azure/virtual-machines/linux/ssh-from-windows) (SSH) to connect to Linux VMs running in Azure. SSH is an encrypted connection protocol that allows secure sign-ins over unsecured connections. It is the default connection protocol for Linux VMs hosted in Azure. By using SSH keys for authentication, you eliminate the need for passwords to sign in. SSH uses a public/private key pair (asymmetric encryption) for authentication.
 
 ## Azure VPN encryption
 
@@ -191,7 +186,7 @@ To learn more about encryption of data in transit in Data Lake, see [Encryption 
 
 ## Key management with Key Vault
 
-Without proper protection and management of the keys, encryption is rendered useless. Key Vault is the Microsoft-recommended solution for managing and controlling access to encryption keys used by cloud services. Permissions to access keys can be assigned to services or to users through Azure Active Directory accounts.
+Without proper protection and management of the keys, encryption is rendered useless. Key Vault is the Microsoft-recommended solution for managing and controlling access to encryption keys used by cloud services. Permissions to access keys can be assigned to services or to users through Microsoft Entra accounts.
 
 Key Vault relieves organizations of the need to configure, patch, and maintain hardware security modules (HSMs) and key management software. When you use Key Vault, you maintain control. Microsoft never sees your keys, and applications don’t have direct access to them. You can also import or generate keys in HSMs.
 

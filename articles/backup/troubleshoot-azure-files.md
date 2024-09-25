@@ -1,8 +1,12 @@
 ---
 title: Troubleshoot Azure file share backup
 description: This article is troubleshooting information about issues occurring when protecting your Azure file shares.
-ms.date: 02/10/2020
+ms.service: azure-backup
+ms.date: 07/18/2024
 ms.topic: troubleshooting
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
+ms.custom: engagement-fy24
 ---
 
 # Troubleshoot problems while backing up Azure file shares
@@ -39,7 +43,7 @@ Retry the registration. If the problem persists, contact support.
 - Ensure that the file share you're looking to protect hasn't been deleted.
 - Ensure that the Storage Account is a supported storage account for file share backup. You can refer to the [Support matrix for Azure file share backup](azure-file-share-support-matrix.md) to find supported Storage Accounts.
 - Check if the file share is already protected in the same Recovery Services vault.
-- Check the Network Routing setting of storage account to ensure that routing preference is set as Microsoft network routing .
+- Check the Network Routing setting of storage account to ensure that routing preference is set as Microsoft network routing.
 
 ### Backup file share configuration (or the protection policy configuration) is failing
 
@@ -63,7 +67,7 @@ In the Azure portal, open your **Vault** > **Backup Infrastructure** > **Storage
 
 Error Code: FileShareNotFound
 
-Error Message: Operation failed as the file share is not found
+Error Message: Operation failed as the file share isn't found
 
 Ensure that the file share you're trying to protect hasn't been deleted.
 
@@ -77,11 +81,11 @@ Error Message: Storage account not found or not supported
 
 - Ensure that the Storage account is a supported Storage account for file share backup.
 
-### AFSMaxSnapshotReached- You have reached the max limit of snapshots for this file share; you will be able to take more once the older ones expire
+### AFSMaxSnapshotReached- You have reached the max limit of snapshots for this file share; you'll be able to take more once the older ones expire
 
 Error Code: AFSMaxSnapshotReached
 
-Error Message: You have reached the max limit of snapshots for this file share; you will be able to take more once the older ones expire.
+Error Message: You have reached the max limit of snapshots for this file share; you'll be able to take more once the older ones expire.
 
 - This error can occur when you create multiple on-demand backups for a file share.
 - There's a limit of 200 snapshots per file share including the ones taken by Azure Backup. Older scheduled backups (or snapshots) are cleaned up automatically. On-demand backups (or snapshots) must be deleted if the maximum limit is reached.
@@ -133,11 +137,11 @@ Error Message: Storage accounts with Internet routing configuration are not supp
 
 Ensure that the routing preference set for the storage account hosting backed up file share is Microsoft network routing.
 
-### FileshareBackupFailedWithAzureRpRequestThrottling/ FileshareRestoreFailedWithAzureRpRequestThrottling- File share backup or restore failed due to storage service throttling. This may be because the storage service is busy processing other requests for the given storage account
+### FileshareBackupFailedWithAzureRpRequestThrottling/ FileshareRestoreFailedWithAzureRpRequestThrottling- File share backup or restore operation failed due to storage service throttling. This may be because the storage service is busy processing other requests for the given storage account
 
 Error Code: FileshareBackupFailedWithAzureRpRequestThrottling/ FileshareRestoreFailedWithAzureRpRequestThrottling
 
-Error Message: File share backup or restore failed due to storage service throttling. This may be because the storage service is busy processing other requests for the given storage account.
+Error Message: File share backup or restore operation failed due to storage service throttling. This may be because the storage service is busy processing other requests for the given storage account.
 
 Try the backup/restore operation at a later time.
 
@@ -269,7 +273,25 @@ Error Message: Another restore job is in progress on the same target file share
 
 Use a different target file share. Alternatively, you can cancel or wait for the other restore to complete.
 
-## Common modify policy errors
+### UserErrorSourceOrTargetAccountNotAccessible
+
+Error Code: UserErrorSourceOrTargetAccountNotAccessible
+
+Error Message: Source or Target storage account is not accessible from the Azure Files restore service.
+
+Recommended Actions: Ensure that the following configurations in the storage account are correctly set for performing a successful restore:
+
+- Ensure that the storage keys aren't rotated during the restore.
+- Check the network configuration on the storage account(s) and ensure that it allows the Microsoft first party services.
+
+  :::image type="content" source="./media/troubleshoot-azure-files/storage-account-network-configuration.png" alt-text="Screenshot shows the required networking details in a storage account." lightbox="./media/troubleshoot-azure-files/storage-account-network-configuration.png":::
+
+- Ensure that the target storage account has the following configuration: *Permitted scope for copy operations* is set to *From storage accounts in the same Microsoft Entra tenant*.
+
+  :::image type="content" source="./media/troubleshoot-azure-files/target-storage-account-configuration.png" alt-text="Screenshot shows the target storage account configuration." lightbox="./media/troubleshoot-azure-files/target-storage-account-configuration.png":::
+
+
+## Common policy modification errors
 
 ### BMSUserErrorConflictingProtectionOperation- Another configure protection operation is in progress for this item
 

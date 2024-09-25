@@ -1,27 +1,16 @@
 ---
-title: Connect devices with X.509 certificates in an Azure IoT Central application
-description: How to connect devices with X.509 certificates using Node.js device SDK for IoT Central Application
+title: Connect devices with X.509 certificates to your application
+description: This article describes how devices can use X.509 certificates to authenticate to your application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 09/13/2022
+ms.date: 03/01/2024
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.custom: device-developer
+ms.custom: device-developer, devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: programming-languages-set-ten
 
 # - id: programming-languages-set-ten
-# # Owner: aahill
-# title: Programming languages
-#   prompt: Choose a programming language
-#   pivots:
-#   - id: programming-language-csharp
-#     title: C#
-#   - id: programming-language-java
-#     title: Java
-#   - id: programming-language-javascript
-#     title: JavaScript
-#   - id: programming-language-python
 #     title: Python
 ---
 
@@ -29,13 +18,13 @@ zone_pivot_groups: programming-languages-set-ten
 
 IoT Central supports both shared access signatures (SAS) and X.509 certificates to secure the communication between a device and your application. The [Create and connect a client application to your Azure IoT Central application](./tutorial-connect-device.md) tutorial uses SAS. In this article, you learn how to modify the code sample to use X.509 certificates. X.509 certificates are recommended in production environments. For more information, see [Device authentication concepts](concepts-device-authentication.md).
 
-This guide shows two ways to use X.509 certificates - [group enrollments](how-to-connect-devices-x509.md#use-group-enrollment) typically used in a production environment, and [individual enrollments](how-to-connect-devices-x509.md#use-individual-enrollment) useful for testing. The article also describes how to [roll device certificates](#roll-x509-device-certificates) to maintain connectivity when certificates expire.
+This guide shows two ways to use X.509 certificates - [group enrollments](how-to-connect-devices-x509.md#use-group-enrollment) typically used in a production environment, and [individual enrollments](how-to-connect-devices-x509.md#use-individual-enrollment) useful for testing. The article also describes how to [roll device certificates](#roll-your-x509-device-certificates) to maintain connectivity when certificates expire.
 
 This guide builds on the samples shown in the [Create and connect a client application to your Azure IoT Central application](tutorial-connect-device.md) tutorial that use C#, Java, JavaScript, and Python. For an example that uses the C programming language, see the [Provision multiple X.509 devices using enrollment groups](../../iot-dps/tutorial-custom-hsm-enrollment-group-x509.md).
 
 ## Prerequisites
 
-To complete the steps in this how-to guide, you should first complete the [Create and connect a client application to your Azure IoT Central application](./tutorial-connect-device.md) tutorial.
+To complete the steps in this how-to guide, you should first complete the [Create and connect a client application to your Azure IoT Central application](./tutorial-connect-device.md) tutorial. You modify the code you used in the tutorial when you follow the steps in this guide.
 
 In this how-to guide, you generate some test X.509 certificates. To be able to generate these certificates, you need:
 
@@ -70,7 +59,7 @@ In this section, you use an X.509 certificate to connect a device with a certifi
     > [!TIP]
     > A device ID can contain letters, numbers, and the `-` character.
 
-These commands produce the following root and the device certificate
+These commands produce the following root and the device certificates:
 
 | filename | contents |
 | -------- | -------- |
@@ -89,7 +78,7 @@ Make a note of the location of these files. You need it later.
 
 1. Open your IoT Central application and navigate to **Permissions**  in the left pane and select **Device connection groups**.
 
-1. Select **+ New** to create a new enrollment group called _MyX509Group_ with an attestation type of **Certificates (X.509)**.
+1. Select **+ New** to create a new enrollment group called _MyX509Group_ with an attestation type of **Certificates (X.509)**. You can create enrollment groups for either IoT devices or IoT Edge devices.
 
 1. In the enrollment group you created, select **Manage primary**.
 
@@ -97,7 +86,7 @@ Make a note of the location of these files. You need it later.
 
 1. Upload the root certificate file called _mytestrootcert_cert.pem_ that you generated previously.
 
-1. If you're using an intermediate or root certificate authority that you trust and know you have full ownership of the certificate, you can self-attest that you've verified the certificate by setting certificate status verified on upload to **On**. Otherwise, set certificate status verified on upload to **Off**.
+1. If you're using an intermediate or root certificate authority that you trust and know you have full ownership of the certificate, you can self-attest that you verified the certificate by setting certificate status verified on upload to **On**. Otherwise, set certificate status verified on upload to **Off**.
 
 1. If you set certificate status verified on upload to **Off**, select **Generate verification code**.
 
@@ -111,11 +100,11 @@ Make a note of the location of these files. You need it later.
 
 1. The status of the primary certificate is now **Verified**:
 
-    ![Verified Certificate](./media/how-to-connect-devices-x509/verified.png)
+    :::image type="content" source="media/how-to-connect-devices-x509/verified.png" alt-text="Screenshot that shows a verified X509 certificate." lightbox="media/how-to-connect-devices-x509/verified.png":::
 
 You can now connect devices that have an X.509 certificate derived from this primary root certificate.
 
-After you save the enrollment group, make a note of the ID scope.
+After you save the enrollment group, make a note of the ID scope. You need it later.
 
 ### Run sample device code
 
@@ -206,7 +195,7 @@ To run the sample:
 
 Verify that telemetry appears on the device view in your IoT Central application:
 
-![Screenshot that shows telemetry arriving in your IoT Central application.](./media/how-to-connect-devices-x509/telemetry.png)
+:::image type="content" source="media/how-to-connect-devices-x509/telemetry.png" alt-text="Screenshot showing telemetry from a device that connected using X.509." lightbox="media/how-to-connect-devices-x509/telemetry.png":::
 
 ## Use individual enrollment
 
@@ -257,7 +246,7 @@ These commands produce the following device certificates:
 
 1. The device now has an individual enrollment with X.509 certificates.
 
-    ![Individual enrollment certificates](./media/how-to-connect-devices-x509/individual-enrollment.png)
+    :::image type="content" source="media/how-to-connect-devices-x509/individual-enrollment.png" alt-text="Screenshot that shows how to connect a device using an X.509 individual enrollment." lightbox="media/how-to-connect-devices-x509/individual-enrollment.png":::
 
 ### Run a sample individual enrollment device
 
@@ -361,14 +350,14 @@ You can repeat the above steps for _mytestselfcertsecondary_ certificate as well
 This section assumes you're using a group enrollment to connect your IoT Edge device. Follow the steps in the previous sections to:
 
 - [Generate root and device certificates](#generate-root-and-device-certificates)
-- [Create a group enrollment](#create-a-group-enrollment) <!-- No slightly different type of enrollment group - UPDATE!! -->
+- [Create a group enrollment](#create-a-group-enrollment)
 
 To connect the IoT Edge device to IoT Central using the X.509 device certificate:
 
 - Copy the device certificate and key files onto your IoT Edge device. In the previous group enrollment example, these files were called **sampleDevice01_key.pem** and **sampleDevice01_cert.pem**.
-- On the IoT Edge device, edit `provisioning` section in the **/etc/iotedge/config.yaml** configuration file as follows:
+- On the IoT Edge device, edit `provisioning` section in the **/etc/aziot/config.toml** configuration file as follows:
 
-    ```yaml
+    ```toml
     # DPS X.509 provisioning configuration
     provisioning:
       source: "dps"
@@ -381,6 +370,17 @@ To connect the IoT Edge device to IoT Central using the X.509 device certificate
         identity_pk: "file:///<path>/sampleDevice01_key.pem"
     #  always_reprovision_on_startup: true
     #  dynamic_reprovisioning: false
+
+    [provisioning]
+    source = "dps"
+    global_endpoint = "https://global.azure-devices-provisioning.net"
+    id_scope = "<SCOPE_ID>"
+    
+    [provisioning.attestation]
+    method = "x509"
+    registration_id = "env-sens-001"
+    identity_pk = "file:///<path>/envSens001_key.pem"
+    identity_cert = "file:///<path>/envSens001_cert.pem"
     ```
 
     > [!TIP]
@@ -389,7 +389,7 @@ To connect the IoT Edge device to IoT Central using the X.509 device certificate
 - Run the following command to restart the IoT Edge runtime:
 
     ```bash
-    sudo systemctl restart iotedge
+    sudo iotedge config apply
     ```
 
 To learn more, see [Create and provision IoT Edge devices at scale on Linux using X.509 certificates](../../iot-edge/how-to-provision-devices-at-scale-linux-x509.md).
@@ -398,12 +398,12 @@ To learn more, see [Create and provision IoT Edge devices at scale on Linux usin
 
 IoT Edge uses X.509 certificates to secure the connection between downstream devices and an IoT Edge device acting as a transparent gateway. To learn more about configuring this scenario, see [Connect a downstream device to an Azure IoT Edge gateway](../../iot-edge/how-to-connect-downstream-device.md).
 
-## Roll X.509 device certificates
+## Roll your X.509 device certificates
 
-During the lifecycle of your IoT Central application, you'll need to roll your x.509 certificates. For example:
+During the lifecycle of your IoT Central application, you might need to roll your X.509 certificates. For example:
 
 - If you have a security breach, rolling certificates is a security best practice to help secure your system.
-- x.509 certificates have expiry dates. The frequency in which you roll your certificates depends on the security needs of your solution. Customers with solutions involving highly sensitive data may roll certificates daily, while others roll their certificates every couple years.
+- X.509 certificates have expiry dates. The frequency in which you roll your certificates depends on the security needs of your solution. Customers with solutions involving highly sensitive data might roll certificates daily, while others roll their certificates every couple years.
 
 For uninterrupted connectivity, IoT Central lets you configure primary and secondary X.509 certificates. If the primary and secondary certificates have different expiry dates, you can roll the expired certificate while devices continue to connect with the other certificate.
 
@@ -451,7 +451,7 @@ To handle certificate expirations, use the following approach to update the curr
 
 4. Add and verify root X.509 certificate in the enrollment group.
 
-5. Later when the secondary certificate has expired, come back and update the secondary certificate.
+5. Later when the secondary certificate expires, come back and update the secondary certificate.
 
 ### Individual enrollments and certificate expiration
 
@@ -468,7 +468,3 @@ When the secondary certificate nears expiration, and needs to be rolled, you can
 4. For secondary certificate update, select the folder icon to select the new certificate to be uploaded for the enrollment entry. Select **Save**.
 
 5. Later when the primary certificate has expired, come back and update the primary certificate.
-
-## Next steps
-
-Now that you've learned how to connect devices using  X.509 certificates, the suggested next step is to learn how to [Monitor device connectivity using Azure CLI](howto-monitor-devices-azure-cli.md).

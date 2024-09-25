@@ -1,9 +1,9 @@
 ---
 title: Apache Ambari stale alerts in Azure HDInsight
 description: Discussion and analysis of possible reasons and solutions for Apache Ambari stale alerts in HDInsight.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: troubleshooting
-ms.date: 04/06/2022
+ms.date: 03/23/2024
 ---
 
 # Scenario: Apache Ambari stale alerts in Azure HDInsight
@@ -14,7 +14,7 @@ This article describes troubleshooting steps and possible resolutions for issues
 
 In the Apache Ambari UI, you might see an alert like this:
 
-:::image type="content" source="./media/apache-ambari-troubleshoot-stale-alerts/ambari-stale-alerts-example.png" alt-text="Apache Ambari stale alert example" border="true":::
+:::image type="content" source="./media/apache-ambari-troubleshoot-stale-alerts/ambari-stale-alerts-example.png" alt-text="Apache Ambari stale alert example." border="true":::
 
 ## Cause
 
@@ -26,7 +26,7 @@ There are various reasons why a health check might not run at its defined interv
 
 * The cluster is busy executing many jobs or services during a period of heavy load.
 
-* A small number of hosts in the cluster are hosting many components and so are required to run many alerts. If the number of components is large, alert jobs might miss their scheduled intervals.
+* A few of hosts in the cluster are hosting many components and so are required to run many alerts. If the number of components is large, alert jobs might miss their scheduled intervals.
 
 ## Resolution
 
@@ -74,8 +74,8 @@ If your problem wasn't mentioned here or you're unable to solve it, visit one of
 
 * Get answers from Azure experts at [Azure Community Support](https://azure.microsoft.com/support/community/).
 
-* Connect with [@AzureSupport](https://twitter.com/azuresupport) on Twitter. This is the official Microsoft Azure account for improving customer experience. It connects the Azure community to the right resources: answers, support, and experts.
+* Connect with [@AzureSupport](https://x.com/azuresupport) on X. This is the official Microsoft Azure account for improving customer experience. It connects the Azure community to the right resources: answers, support, and experts.
 
-* If you need more help, submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). To get there, select Help (**?**) from the portal menu or open the **Help + support** pane. For more information, see [How to create an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md). 
+* If you need more help, submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). To get there, select Help (**?**) from the portal menu or open the **Help + support** pane. For more information, see [How to create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request). 
 
   Support for subscription management and billing is included with your Microsoft Azure subscription. Technical support is available through the [Azure Support Plans](https://azure.microsoft.com/support/plans/).

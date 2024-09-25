@@ -2,72 +2,296 @@
 title: How to log events to Azure Event Hubs in Azure API Management | Microsoft Docs
 description: Learn how to log events to Azure Event Hubs in Azure API Management. Event Hubs is a highly scalable data ingress service.
 services: api-management
-documentationcenter: ''
 author: dlepow
-manager: erikre
-editor: ''
 
-ms.assetid: 88f6507d-7460-4eb2-bffd-76025b73f8c4
-ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 01/29/2018
+ms.service: azure-api-management
+ms.topic: how-to
+ms.date: 09/04/2024
 ms.author: danlep
 
 ---
 # How to log events to Azure Event Hubs in Azure API Management
-Azure Event Hubs is a highly scalable data ingress service that can ingest millions of events per second so that you can process and analyze the massive amounts of data produced by your connected devices and applications. Event Hubs acts as the "front door" for an event pipeline, and once data is collected into an event hub, it can be transformed and stored using any real-time analytics provider or batching/storage adapters. Event Hubs decouples the production of a stream of events from the consumption of those events, so that event consumers can access the events on their own schedule.
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 This article describes how to log API Management events using Azure Event Hubs.
 
-## Create an Azure Event Hub
+Azure Event Hubs is a highly scalable data ingress service that can ingest millions of events per second so that you can process and analyze the massive amounts of data produced by your connected devices and applications. Event Hubs acts as the "front door" for an event pipeline, and once data is collected into an event hub, it can be transformed and stored using any real-time analytics provider or batching/storage adapters. Event Hubs decouples the production of a stream of events from the consumption of those events, so that event consumers can access the events on their own schedule.
 
-For detailed steps on how to create an event hub and get connection strings that you need to send and receive events to and from the Event Hub, see [Create an Event Hubs namespace and an event hub using the Azure portal](../event-hubs/event-hubs-create.md).
+[!INCLUDE [api-management-workspace-availability](../../includes/api-management-workspace-availability.md)]
+
+## Prerequisites
+
+* An API Management service instance. If you don't have one, see [Create an API Management service instance](get-started-create-service-instance.md).
+* An Azure Event Hubs namespace and event hub. For detailed steps, see [Create an Event Hubs namespace and an event hub using the Azure portal](../event-hubs/event-hubs-create.md).
+    > [!NOTE]
+    > The Event Hubs resource **can be** in a different subscription or even a different tenant than the API Management resource
+
+## Configure access to the event hub
+
+To log events to the event hub, you need to configure credentials for access from API Management. API Management supports either of the two following access mechanisms:
+
+* A managed identity for your API Management instance (recommended)
+* An Event Hubs connection string
 
 > [!NOTE]
-> The Event Hub resource **can be** in a different subscription or even a different tenant than the API Management resource
+> Where possible, Microsoft recommends using managed identity credentials for enhanced security. 
+
+
+### Option 1: Configure API Management managed identity
+
+1. Enable a system-assigned or user-assigned [managed identity for API Management](api-management-howto-use-managed-service-identity.md) in your API Management instance.
+
+    * If you enable a user-assigned managed identity, take note of the identity's **Client ID**.
+
+1. Assign the identity the **Azure Event Hubs Data sender** role, scoped to the Event Hubs namespace or to the event hub used for logging. To assign the role, use the [Azure portal](../role-based-access-control/role-assignments-portal.yml) or other Azure tools.
+
+
+### Option 2: Configure Event Hubs connection string
+
+To create an Event Hubs connection string, see [Get an Event Hubs connection string](../event-hubs/event-hubs-get-connection-string.md). 
+
+* You can use a connection string for the Event Hubs namespace or for the specific event hub you use for logging from API Management.
+* The shared access policy for the connection string must enable at least **Send** permissions.
+
 
 ## Create an API Management logger
-Now that you have an Event Hub, the next step is to configure a [Logger](/rest/api/apimanagement/current-ga/logger) in your API Management service so that it can log events to the Event Hub.
+The next step is to configure a [logger](/rest/api/apimanagement/current-ga/logger) in your API Management service so that it can log events to the event hub.
 
-API Management loggers are configured using the [API Management REST API](/rest/api/apimanagement/ApiManagementREST/API-Management-REST). For detailed request examples, see [how to create Loggers](/rest/api/apimanagement/current-ga/logger/create-or-update).
+Create and manage API Management loggers by using the [API Management REST API](/rest/api/apimanagement/current-preview/logger/create-or-update) directly or by using tools including [Azure PowerShell](/powershell/module/az.apimanagement/new-azapimanagementlogger), a Bicep template, or an Azure Resource Management template.
 
-## Configure log-to-eventhub policies
+### Option 1: Logger with managed identity credentials (recommended)
 
-Once your logger is configured in API Management, you can configure your log-to-eventhub policy to log the desired events. The log-to-eventhub policy can be used in either the inbound policy section or the outbound policy section.
+You can configure an API Management logger to an event hub using either system-assigned or user-assigned managed identity credentials.
 
-1. Browse to your APIM instance.
-2. Select the API tab.
-3. Select the API to which you want to add the policy. In this example, we're adding a policy to the **Echo API** in the **Unlimited** product.
-4. Select **All operations**.
-5. On the top of the screen, select the Design tab.
-6. In the Inbound or Outbound processing window, click the triangle (next to the pencil).
-7. Select the Code editor. For more information, see [How to set or edit policies](set-edit-policies.md).
-8. Position your cursor in the `inbound` or `outbound` policy section.
-9. In the window on the right, select **Advanced policies** > **Log to EventHub**. This inserts the `log-to-eventhub` policy statement template.
+### Logger with system-assigned managed identity credentials
 
-```xml
-<log-to-eventhub logger-id="logger-id">
-    @{
-        return new JObject(
-            new JProperty("EventTime", DateTime.UtcNow.ToString()),
-            new JProperty("ServiceName", context.Deployment.ServiceName),
-            new JProperty("RequestId", context.RequestId),
-            new JProperty("RequestIp", context.Request.IpAddress),
-            new JProperty("OperationName", context.Operation.Name)
-        ).ToString();
+For prerequisites, see [Configure API Management managed identity](#option-1-configure-api-management-managed-identity).
+
+#### [REST API](#tab/PowerShell)
+
+Use the API Management [Logger - Create or Update](/rest/api/apimanagement/current-preview/logger/create-or-update) REST API with the following request body.
+
+```JSON
+{
+  "properties": {
+    "loggerType": "azureEventHub",
+    "description": "Event Hub logger with system-assigned managed identity",
+    "credentials": {
+         "endpointAddress":"<EventHubsNamespace>.servicebus.windows.net",
+         "identityClientId":"SystemAssigned",
+         "name":"<EventHubName>"
     }
-</log-to-eventhub>
+  }
+}
+
 ```
-Replace `logger-id` with the value you used for `{loggerId}` in the request URL to create the logger in the previous step.
 
-You can use any expression that returns a string as the value for the `log-to-eventhub` element. In this example, a string in JSON format containing the date and time, service name, request ID, request IP address, and operation name is logged.
+#### [Bicep](#tab/bicep)
 
-Click **Save** to save the updated policy configuration. As soon as it is saved the policy is active and events are logged to the designated Event Hub.
+Include a snippet similar to the following in your Bicep template.
+
+```Bicep
+resource ehLoggerWithSystemAssignedIdentity 'Microsoft.ApiManagement/service/loggers@2022-08-01' = {
+  name: 'ContosoLogger1'
+  parent: '<APIManagementInstanceName>'
+  properties: {
+    loggerType: 'azureEventHub'
+    description: 'Event hub logger with system-assigned managed identity'
+    credentials: {
+      endpointAddress: '<EventHubsNamespace>.servicebus.windows.net'
+      identityClientId: 'systemAssigned'
+      name: '<EventHubName>'
+    }
+  }
+}
+```
+
+#### [ARM](#tab/arm)
+
+Include a JSON snippet similar to the following in your Azure Resource Manager template.
+
+```JSON
+{
+  "type": "Microsoft.ApiManagement/service/loggers",
+  "apiVersion": "2022-08-01",
+  "name": "ContosoLogger1",
+  "properties": {
+    "loggerType": "azureEventHub",
+    "description": "Event Hub logger with system-assigned managed identity",
+    "resourceId": "<EventHubsResourceID>",
+    "credentials": {
+      "endpointAddress": "<EventHubsNamespace>.servicebus.windows.net",
+      "identityClientId": "SystemAssigned",
+      "name": "<EventHubName>"
+    },
+  }
+}
+```
+---
+#### Logger with user-assigned managed identity credentials
+
+For prerequisites, see [Configure API Management managed identity](#option-1-configure-api-management-managed-identity).
+
+#### [REST API](#tab/PowerShell)
+
+Use the API Management [Logger - Create or Update](/rest/api/apimanagement/current-preview/logger/create-or-update) REST API with the following request body.
+
+
+```JSON
+{
+  "properties": {
+    "loggerType": "azureEventHub",
+    "description": "Event Hub logger with user-assigned managed identity",
+    "credentials": {
+         "endpointAddress":"<EventHubsNamespace>.servicebus.windows.net",
+         "identityClientId":"<ClientID>",
+         "name":"<EventHubName>"
+    }
+  }
+}
+
+```
+
+#### [Bicep](#tab/bicep)
+
+Include a snippet similar to the following in your Bicep template.
+
+```Bicep
+resource ehLoggerWithUserAssignedIdentity 'Microsoft.ApiManagement/service/loggers@2022-08-01' = {
+  name: 'ContosoLogger1'
+  parent: '<APIManagementInstanceName>'
+  properties: {
+    loggerType: 'azureEventHub'
+    description: 'Event Hub logger with user-assigned managed identity'
+    credentials: {
+      endpointAddress: '<EventHubsNamespace>.servicebus.windows.net'
+      identityClientId: '<ClientID>'
+      name: '<EventHubName>'
+    }
+  }
+}
+```
+
+#### [ARM](#tab/arm)
+
+Include a JSON snippet similar to the following in your Azure Resource Manager template.
+
+```JSON
+{
+  "type": "Microsoft.ApiManagement/service/loggers",
+  "apiVersion": "2022-08-01",
+  "name": "ContosoLogger1",
+  "properties": {
+    "loggerType": "azureEventHub",
+    "description": "Event Hub logger with user-assigned managed identity",
+    "resourceId": "<EventHubsResourceID>",
+    "credentials": {
+      "endpointAddress": "<EventHubsNamespace>.servicebus.windows.net",
+      "identityClientId": "<ClientID>",
+      "name": "<EventHubName>"
+    },
+  }
+}
+```
+---
+
+
+### Option 2. Logger with connection string credentials
+
+For prerequisites, see [Configure Event Hubs connection string](#option-2-configure-event-hubs-connection-string).
 
 > [!NOTE]
-> The maximum supported message size that can be sent to an event hub from this API Management policy is 200 kilobytes (KB). If a message that is sent to an event hub is larger than 200 KB, it will be automatically truncated, and the truncated message will be transferred to event hubs.
+> Where possible, Microsoft recommends configuring the logger with managed identity credentials. See [Configure logger with managed identity credentials](#option-1-logger-with-managed-identity-credentials-recommended), earlier in this article.
+
+#### [PowerShell](#tab/PowerShell)
+
+The following example uses the [New-AzApiManagementLogger](/powershell/module/az.apimanagement/new-azapimanagementlogger) cmdlet to create a logger to an event hub by configuring a connection string.
+
+```powershell
+# API Management service-specific details
+$apimServiceName = "apim-hello-world"
+$resourceGroupName = "myResourceGroup"
+
+# Create logger
+$context = New-AzApiManagementContext -ResourceGroupName $resourceGroupName -ServiceName $apimServiceName
+New-AzApiManagementLogger -Context $context -LoggerId "ContosoLogger1" -Name "ApimEventHub" -ConnectionString "Endpoint=sb://<EventHubsNamespace>.servicebus.windows.net/;SharedAccessKeyName=<KeyName>;SharedAccessKey=<key>" -Description "Event hub logger with connection string"
+```
+
+#### [Bicep](#tab/bicep)
+
+Include a snippet similar to the following in your Bicep template.
+
+```Bicep
+resource ehLoggerWithConnectionString 'Microsoft.ApiManagement/service/loggers@2022-08-01' = {
+  name: 'ContosoLogger1'
+  parent: '<APIManagementInstanceName>'
+  properties: {
+    loggerType: 'azureEventHub'
+    description: 'Event Hub logger with connection string credentials'
+    credentials: {
+      connectionString: 'Endpoint=sb://<EventHubsNamespace>.servicebus.windows.net/;SharedAccessKeyName=<KeyName>;SharedAccessKey=<key>'
+      name: 'ApimEventHub'
+    }
+  }
+}
+```
+
+#### [ARM](#tab/arm)
+
+Include a JSON snippet similar to the following in your Azure Resource Manager template.
+
+```JSON
+{
+  "type": "Microsoft.ApiManagement/service/loggers",
+  "apiVersion": "2022-08-01",
+  "name": "ContosoLogger1",
+  "properties": {
+    "loggerType": "azureEventHub",
+    "description": "Event Hub logger with connection string credentials",
+    "resourceId": "<EventHubsResourceID>"
+    "credentials": {
+      "connectionString": "Endpoint=sb://<EventHubsNamespace>/;SharedAccessKeyName=<KeyName>;SharedAccessKey=<key>",
+      "name": "ApimEventHub"
+    },
+  }
+}
+```
+---
+
+## Configure log-to-eventhub policy
+
+Once your logger is configured in API Management, you can configure your [log-to-eventhub](log-to-eventhub-policy.md) policy to log the desired events. For example, use the `log-to-eventhub` policy in the inbound policy section to log requests, or in the outbound policy section to log responses.
+
+1. Browse to your API Management instance.
+1. Select **APIs**, and then select the API to which you want to add the policy. In this example, we're adding a policy to the **Echo API** in the **Unlimited** product.
+1. Select **All operations**.
+1. On the top of the screen, select the **Design** tab.
+1. In the Inbound processing or Outbound processing window, select the `</>` (code editor) icon. For more information, see [How to set or edit policies](set-edit-policies.md).
+1. Position your cursor in the `inbound` or `outbound` policy section.
+1. In the window on the right, select **Advanced policies** > **Log to EventHub**. This inserts the `log-to-eventhub` policy statement template.
+
+    ```xml
+    <log-to-eventhub logger-id="logger-id">
+        @{
+            return new JObject(
+                new JProperty("EventTime", DateTime.UtcNow.ToString()),
+                new JProperty("ServiceName", context.Deployment.ServiceName),
+                new JProperty("RequestId", context.RequestId),
+                new JProperty("RequestIp", context.Request.IpAddress),
+                new JProperty("OperationName", context.Operation.Name)
+            ).ToString();
+        }
+    </log-to-eventhub>
+    ```
+
+      1. Replace `logger-id` with the name of the logger that you created in the previous step.
+      1. You can use any expression that returns a string as the value for the `log-to-eventhub` element. In this example, a string in JSON format containing the date and time, service name, request ID, request IP address, and operation name is logged.
+
+1. Select **Save** to save the updated policy configuration. As soon as it's saved, the policy is active and events are logged to the designated event hub.
+
+> [!NOTE]
+> The maximum supported message size that can be sent to an event hub from this API Management policy is 200 kilobytes (KB). If a message that is sent to an event hub is larger than 200 KB, it will be automatically truncated, and the truncated message will be transferred to the event hub. For larger messages, consider using Azure Storage with Azure API Management as a workaround to bypass the 200KB limit. More details can be found in [this article](https://techcommunity.microsoft.com/t5/microsoft-developer-community/how-to-send-requests-to-azure-storage-from-azure-api-management/ba-p/3624955). 
 
 ## Preview the log in Event Hubs by using Azure Stream Analytics
 
@@ -75,7 +299,7 @@ You can preview the log in Event Hubs by using [Azure Stream Analytics queries](
 
 1. In the Azure portal, browse to the event hub that the logger sends events to. 
 2. Under **Features**, select the **Process data** tab.
-3. On the **Enable real time insights from events** card, select **Explore**.
+3. On the **Enable real time insights from events** card, select **Start**.
 4. You should be able to preview the log on the **Input preview** tab. If the data shown isn't current, select **Refresh** to see the latest events.
 
 ## Next steps
@@ -84,16 +308,6 @@ You can preview the log in Event Hubs by using [Azure Stream Analytics queries](
   * [Receive messages with EventProcessorHost](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
   * [Event Hubs programming guide](../event-hubs/event-hubs-programming-guide.md)
 * Learn more about API Management and Event Hubs integration
-  * [Logger entity reference](/rest/api/apimanagement/current-ga/logger)
-  * [log-to-eventhub policy reference](./api-management-advanced-policies.md#log-to-eventhub)
-  * [Monitor your APIs with Azure API Management, Event Hubs, and Moesif](api-management-log-to-eventhub-sample.md)  
+  * [Logger entity reference](/rest/api/apimanagement/current-preview/logger)
+  * [log-to-eventhub](log-to-eventhub-policy.md) policy reference
 * Learn more about [integration with Azure Application Insights](api-management-howto-app-insights.md)
-
-[publisher-portal]: ./media/api-management-howto-log-event-hubs/publisher-portal.png
-[create-event-hub]: ./media/api-management-howto-log-event-hubs/create-event-hub.png
-[event-hub-connection-string]: ./media/api-management-howto-log-event-hubs/event-hub-connection-string.png
-[event-hub-dashboard]: ./media/api-management-howto-log-event-hubs/event-hub-dashboard.png
-[receiving-policy]: ./media/api-management-howto-log-event-hubs/receiving-policy.png
-[sending-policy]: ./media/api-management-howto-log-event-hubs/sending-policy.png
-[event-hub-policy]: ./media/api-management-howto-log-event-hubs/event-hub-policy.png
-[add-policy]: ./media/api-management-howto-log-event-hubs/add-policy.png

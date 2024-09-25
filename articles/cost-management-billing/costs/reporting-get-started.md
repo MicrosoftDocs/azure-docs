@@ -1,18 +1,21 @@
 ---
-title: Get started with Cost Management + Billing reporting - Azure
-description: This article helps you to get started with Cost Management + Billing to understand, report on, and analyze your invoiced Microsoft Cloud and AWS costs.
+title: Get started with Cost Management reporting - Azure
+description: This article helps you to get started with Cost Management to understand, report on, and analyze your invoiced Microsoft Cloud and AWS costs.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/26/2022
+ms.date: 03/21/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
 ---
 
-# Get started with Cost Management + Billing reporting
+# Get started with Cost Management reporting
 
-Cost Management + Billing includes several tools to help you understand, report on, and analyze your invoiced Microsoft Cloud and AWS costs. The following sections describe the major reporting components.
+Cost Management includes several tools to help you understand, report on, and analyze your invoiced Microsoft Cloud and AWS costs. The following sections describe the major reporting components.
+
+> [!NOTE]
+> The Connector for AWS in the Cost Management service retires on March 31, 2025. Users should consider alternative solutions for AWS cost management reporting. On March 31, 2024, Azure will disable the ability to add new Connectors for AWS for all customers. For more information, see [Retire your Amazon Web Services (AWS) connector](retire-aws-connector.md).
 
 ## Cost analysis
 
@@ -41,13 +44,13 @@ While cost analysis offers a rich, interactive experience for analyzing and surf
 
 Need to go beyond the basics with Power BI? The Cost Management connector for Power BI lets you choose the data you need to help you seamlessly integrate costs with your own datasets or easily build out more complete dashboards and reports to meet your organization's needs. For more information about the connector, see [Connect to Cost Management data in Power BI Desktop](/power-bi/connect-data/desktop-connect-azure-cost-management).
 
-## Usage details and exports
+## Cost details and exports
 
 If you're looking for raw data to automate business processes or integrate with other systems, start by exporting data to a storage account. Scheduled exports allow you to automatically publish your raw cost data to a storage account on a daily, weekly, or monthly basis. With special handling for large datasets, scheduled exports are the most scalable option for building first-class cost data integration. For more information, see [Create and manage exported data](tutorial-export-acm-data.md).
 
-If you need more fine-grained control over your data requests, the Usage Details API offers a bit more flexibility to pull raw data the way you need it. For more information, see the [Usage Details REST API](/rest/api/consumption/usage-details/list).
-
 :::image type="content" source="./media/reporting-get-started/exports.png" alt-text="Screenshot showing the list of exports." lightbox="./media/reporting-get-started/exports.png" :::
+
+If you need more fine-grained control over your data requests, the Cost Details API offers a bit more flexibility to pull raw data the way you need it. For more information, see [Cost Details API](../automate/usage-details-best-practices.md#cost-details-api).
 
 ## Invoices and credits
 
@@ -71,7 +74,7 @@ The app is available for [iOS](https://itunes.apple.com/us/app/microsoft-azure/i
 
 :::image type="content" source="./media/reporting-get-started/azure-app-screenshot.png" alt-text="Example screenshot showing the iOS version of the Azure app with Cost Management subscription information." lightbox="./media//reporting-get-started/azure-app-screenshot.png" :::
 
-## Next steps
+## Related content
 
 - [Explore and analyze costs with cost analysis](quick-acm-cost-analysis.md).
 - [Analyze Azure costs with the Power BI App](analyze-cost-data-azure-cost-management-power-bi-template-app.md).

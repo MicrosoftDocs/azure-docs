@@ -2,6 +2,7 @@
 title: Create and manage virtual machines in Azure DevTest Labs with Azure CLI
 description: Learn how to use Azure DevTest Labs to create and manage virtual machines with Azure CLI
 ms.topic: how-to
+ms.custom: devx-track-azurecli, UpdateFrequency2
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 06/26/2020
@@ -68,7 +69,7 @@ The following example command starts a VM:
 az lab vm start --lab-name sampleLabName --name sampleVMName --resource-group sampleLabResourceGroup
 ```
 
-Connect to a VM: [SSH](../virtual-machines/linux/mac-create-ssh-keys.md) or [Remote Desktop](../virtual-machines/windows/connect-logon.md).
+Connect to a VM: [SSH](/azure/virtual-machines/linux/mac-create-ssh-keys) or [Remote Desktop](/azure/virtual-machines/windows/connect-logon).
 ```bash
 ssh userName@ipAddressOrfqdn 
 ```

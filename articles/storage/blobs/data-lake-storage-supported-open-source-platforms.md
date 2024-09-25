@@ -1,22 +1,22 @@
 ---
-title: Open source platforms that support Azure Data Lake Storage Gen2 | Microsoft Docs
-description: Learn about which open source platforms that support Azure Data Lake Storage Gen2
+title: Open source platforms that support Azure Data Lake Storage
+titleSuffix: Azure Storage
+description: Learn about which open source platforms that support Azure Data Lake Storage
 author: normesta
-ms.subservice: data-lake-storage-gen2
-ms.service: storage
+
+ms.service: azure-data-lake-storage
 ms.topic: conceptual
-ms.date: 02/26/2020
+ms.date: 03/09/2023
 ms.author: normesta
-ms.reviewer: stewu
 ---
 
-# Open source platforms that support Azure Data Lake Storage Gen2
+# Open source platforms that support Azure Data Lake Storage
 
-This article lists the open source platforms that support Data Lake Storage Gen2.
+This article lists the open source platforms that support Data Lake Storage.
 
 ## Supported open source platforms
 
-This table lists the open source platforms that support Data Lake Storage Gen2.
+This table lists the open source platforms that support Data Lake Storage.
 
 > [!NOTE]
 > Only the versions that appear in this table are supported.
@@ -31,7 +31,7 @@ This table lists the open source platforms that support Data Lake Storage Gen2.
 
 ## See also
 
-- [Known issues with Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md)
+- [Known issues with Azure Data Lake Storage](data-lake-storage-known-issues.md)
 - [Blob Storage feature support in Azure Storage accounts](storage-feature-support-in-storage-accounts.md)
-- [Azure services that support Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md)
+- [Azure services that support Azure Data Lake Storage](data-lake-storage-supported-azure-services.md)
 - [Multi-protocol access on Azure Data Lake Storage](data-lake-storage-multi-protocol-access.md)

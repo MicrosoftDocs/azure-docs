@@ -1,18 +1,22 @@
 ---
 title: Configure a virtual network for express injection of Azure-SSIS integration runtime
 description: Learn how to configure a virtual network for express injection of Azure-SSIS integration runtime. 
-ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 02/15/2022
+ms.date: 10/20/2023
 author: chugugrace
 ms.author: chugu 
-ms.custom: devx-track-azurepowershell
 ---
 
-# Express virtual network injection method (Preview)
+# Express virtual network injection method
 
-[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+> [!NOTE]
+> Express virtual network injection feature is not supported for SSIS integration runtime in below regions yet:
+>
+>- Jio India West or Switzerland West
+>- US Gov Texas or US Gov Arizona
+>- China North 2 or China East 2
 
 When using SQL Server Integration Services (SSIS) in Azure Data Factory (ADF) or Synapse Pipelines, there are two methods for you to join your Azure-SSIS integration runtime (IR) to a virtual network: standard and express. If you use the express method, you need to configure your virtual network to meet these requirements: 
 
@@ -74,7 +78,7 @@ For more information, see the [DNS server name resolution](../virtual-network/vi
 
 At present, for Azure-SSIS IR to use your own DNS server, you need to configure it with a standard custom setup following these steps:
 
-1. Download a custom setup script ([main.cmd](https://expressvnet.blob.core.windows.net/customsetup/main.cmd)) + its associated file ([setupdnsserver.ps1](https://expressvnet.blob.core.windows.net/customsetup/setupdnsserver.ps1)).
+1. Download a custom setup script main.cmd + its associated file setupdnsserver.ps1.
 
 1. Replace “your-dns-server-ip” in main.cmd with the IP address of your own DNS server.
 
@@ -116,7 +120,7 @@ Following our guidance in the [Configure an NSG](#nsg) section above, you must i
     |-------------------|------|
     | <b>Azure Public</b> | _\*.frontend.clouddatahub.net_ |
     | <b>Azure Government</b> | _\*.frontend.datamovement.azure.us_ |
-    | <b>Azure China 21Vianet</b> | _\*.frontend.datamovement.azure.cn_ |
+    | <b>Microsoft Azure operated by 21Vianet</b> | _\*.frontend.datamovement.azure.cn_ |
 
   - If you use Azure SQL Database server/Managed Instance to host SSISDB, you must open ports *1433, 11000-11999* for outbound TCP traffic with *0.0.0.0/0* or your Azure SQL Database server/Managed Instance FQDN as destination.
 
@@ -124,7 +128,7 @@ Following our guidance in the [Configure an NSG](#nsg) section above, you must i
 
   - If you need to access Azure Files, you must open port *445* for outbound TCP traffic with *0.0.0.0/0* or your Azure Files FQDN as destination.
 
-## Next steps
+## Related content
 
 - [Join Azure-SSIS IR to a virtual network via ADF UI](join-azure-ssis-integration-runtime-virtual-network-ui.md)
 - [Join Azure-SSIS IR to a virtual network via Azure PowerShell](join-azure-ssis-integration-runtime-virtual-network-powershell.md)

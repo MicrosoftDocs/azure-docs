@@ -2,10 +2,10 @@
 title: Azure Firewall Premium certificates
 description: To properly configure TLS inspection on Azure Firewall Premium, you must configure and install Intermediate CA certificates.
 author: vhorne
-ms.service: firewall
+ms.service: azure-firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 05/23/2022
+ms.date: 12/11/2022
 ms.author: victorh
 ---
 
@@ -41,7 +41,7 @@ Azure Firewall Premium can intercept outbound HTTP/S traffic and auto-generate a
 
 Ensure your CA certificate complies with the following requirements:
 
-- When deployed as a Key Vault secret, you must use Password-less PFX (Pkcs12) with a certificate and a private key.
+- When deployed as a Key Vault secret, you must use Password-less PFX (PKCS12) with a certificate and a private key. PEM certificates are not supported.
 
 - It must be a single certificate, and shouldn’t include the entire chain of certificates.  
 
@@ -51,15 +51,16 @@ Ensure your CA certificate complies with the following requirements:
 
 - It must have the `KeyUsage` extension marked as Critical with the `KeyCertSign` flag (RFC 5280; 4.2.1.3 Key Usage).
 
-- It must have the `BasicContraints` extension marked as Critical (RFC 5280; 4.2.1.9 Basic Constraints).  
+- It must have the `BasicConstraints` extension marked as Critical (RFC 5280; 4.2.1.9 Basic Constraints).  
 
 - The `CA` flag must be set to TRUE.
 
 - The Path Length must be greater than or equal to one.
+- It must be exportable.
 
 ## Azure Key Vault
 
-[Azure Key Vault](../key-vault/general/overview.md) is a platform-managed secret store that you can use to safeguard secrets, keys, and TLS/SSL certificates. Azure Firewall Premium supports integration with Key Vault for server certificates that are attached to a Firewall Policy.
+[Azure Key Vault](/azure/key-vault/general/overview) is a platform-managed secret store that you can use to safeguard secrets, keys, and TLS/SSL certificates. Azure Firewall Premium supports integration with Key Vault for server certificates that are attached to a Firewall Policy.
  
 To configure your key vault:
 
@@ -68,10 +69,15 @@ To configure your key vault:
 - It's recommended to use a CA certificate import because it allows you to configure an alert based on certificate expiration date.
 - After you've imported a certificate or a secret, you need to define access policies in the key vault to allow the identity to be granted get access to the certificate/secret.
 - The provided CA certificate needs to be trusted by your Azure workload. Ensure they are deployed correctly.
-- The Key Vault Networking must be set to allow access from **All networks**.
-   :::image type="content" source="media/premium-certificates/keyvault-networking.png" alt-text="Screenshot showing Key Vault networking" lightbox="media/premium-certificates/keyvault-networking.png":::
+- Since Azure Firewall Premium is listed as Key Vault [Trusted Service](/azure/key-vault/general/overview-vnet-service-endpoints#trusted-services), it allows you to bypass Key Vault internal Firewall and to eliminate any exposure of your Key Vault to the Internet.
 
-You can either create or reuse an existing user-assigned managed identity, which Azure Firewall uses to retrieve certificates from Key Vault on your behalf. For more information, see [What is managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md) 
+> [!NOTE]
+> Whenever you import a new Firewall CA certificate into Azure Key Vault (either for the first time or replacing an expired CA certification), you should *explicitly* update the Azure Firewall Policy TLS setting with the new certificate.
+
+You can either create or reuse an existing user-assigned managed identity, which Azure Firewall uses to retrieve certificates from Key Vault on your behalf. For more information, see [What is managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md)
+
+> [!NOTE]
+> Azure role-based access control (Azure RBAC) is not currently supported for authorization. Use the access policy model instead. For more information, see [Azure role-based access control (Azure RBAC) vs. access policies](/azure/key-vault/general/rbac-access-policy).
 
 ## Configure a certificate in your policy
 

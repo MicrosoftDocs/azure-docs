@@ -2,12 +2,12 @@
 title: 'Tutorial: Enable the Ingress Controller add-on for a new AKS cluster with a new Azure application gateway'
 description: Use this tutorial to learn how to enable the Ingress Controller add-on for your new AKS cluster with a new application gateway instance.
 services: application-gateway
-author: caya
-ms.service: application-gateway
+author: greg-lindsay
+ms.service: azure-application-gateway
 ms.topic: tutorial
-ms.date: 07/15/2022
-ms.author: caya
-ms.custom: template-tutorial #Required; leave this attribute/value as-is.
+ms.date: 02/07/2024
+ms.author: greglin
+ms.custom: template-tutorial, devx-track-azurecli
 ---
 
 # Tutorial: Enable the ingress controller add-on for a new AKS cluster with a new application gateway instance
@@ -26,9 +26,9 @@ In this tutorial, you learn how to:
 > * Deploy a sample application by using AGIC for ingress on the AKS cluster.
 > * Check that the application is reachable through application gateway.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Create a resource group
 
@@ -48,12 +48,29 @@ You'll now deploy a new AKS cluster with the AGIC add-on enabled. If you don't p
 > - Enable WAF on application gateway through the portal. 
 > - Create the WAF_v2 application gateway instance first, and then follow instructions on how to [enable the AGIC add-on with an existing AKS cluster and existing application gateway instance](tutorial-ingress-controller-add-on-existing.md). 
 
-In the following example, you'll deploy a new AKS cluster named *myCluster* by using [Azure CNI](../aks/concepts-network.md#azure-cni-advanced-networking) and [managed identities](../aks/use-managed-identity.md). The AGIC add-on will be enabled in the resource group that you created, **myResourceGroup**. 
+In the following example, you'll deploy a new AKS cluster named *myCluster* by using [Azure CNI](/azure/aks/concepts-network-cni-overview) and [managed identities](/azure/aks/use-managed-identity). The AGIC add-on will be enabled in the resource group that you created, **myResourceGroup**. 
 
 Deploying a new AKS cluster with the AGIC add-on enabled without specifying an existing application gateway instance will automatically create a Standard_v2 SKU application gateway instance. You'll need to specify a name and subnet address space for the new application gateway instance. The address space must be from 10.224.0.0/12 prefix used by the AKS virtual network without overlapping with 10.224.0.0/16 prefix used by the AKS subnet. In this tutorial, use *myApplicationGateway* for the application gateway name and *10.225.0.0/16* for its subnet address space.
 
 ```azurecli-interactive
 az aks create -n myCluster -g myResourceGroup --network-plugin azure --enable-managed-identity -a ingress-appgw --appgw-name myApplicationGateway --appgw-subnet-cidr "10.225.0.0/16" --generate-ssh-keys
+```
+
+> [!NOTE] 
+> Please ensure the identity used by AGIC has the **Microsoft.Network/virtualNetworks/subnets/join/action** permission delegated to the subnet Application Gateway is deployed into. If a custom role is not defined with this permission, you may use the built-in _Network Contributor_ role, which contains the _Microsoft.Network/virtualNetworks/subnets/join/action_ permission.
+
+```azurecli-interactive
+# Get application gateway id from AKS addon profile
+appGatewayId=$(az aks show -n myCluster -g myResourceGroup -o tsv --query "addonProfiles.ingressApplicationGateway.config.effectiveApplicationGatewayId")
+
+# Get Application Gateway subnet id
+appGatewaySubnetId=$(az network application-gateway show --ids $appGatewayId -o tsv --query "gatewayIPConfigurations[0].subnet.id")
+
+# Get AGIC addon identity
+agicAddonIdentity=$(az aks show -n myCluster -g myResourceGroup -o tsv --query "addonProfiles.ingressApplicationGateway.identity.clientId")
+
+# Assign network contributor role to AGIC addon identity to subnet that contains the Application Gateway
+az role assignment create --assignee $agicAddonIdentity --scope $appGatewaySubnetId --role "Network Contributor"
 ```
 
 To configure more parameters for the above command, see [az aks create](/cli/azure/aks#az-aks-create). 
@@ -108,7 +125,7 @@ In this tutorial, you:
 - Created new AKS cluster with the AGIC add-on enabled
 - Deployed a sample application by using AGIC for ingress on the AKS cluster
 
-To learn more about AGIC, see [What is Application Gateway Ingress Controller?](ingress-controller-overview.md) and [Disable and re-enable AGIC add-on for your AKS cluster](ingress-controller-disable-addon.md)
+To learn more about AGIC, see [What is Application Gateway Ingress Controller](ingress-controller-overview.md) and [Disable and re-enable AGIC add-on for your AKS cluster](ingress-controller-disable-addon.md).
 
 To learn how to enable application gateway ingress controller add-on for an existing AKS cluster with an existing application gateway, advance to the next tutorial.
 

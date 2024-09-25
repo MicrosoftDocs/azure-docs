@@ -1,19 +1,17 @@
 ---
 title: Troubleshoot package execution in the SSIS integration runtime
 description: "This article provides troubleshooting guidance for SSIS package execution in the SSIS integration runtime"
-ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: faq
 ms.author: chugu
 author: chugugrace
 ms.reviewer: chugugrace
-ms.custom: seo-lt-2019
-ms.date: 09/22/2022
+ms.date: 05/15/2024
 ---
 
 # Troubleshoot package execution in the SSIS integration runtime
 
-[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
   
 This article includes the most common errors that you might find when you're executing SQL Server Integration Services (SSIS) packages in the SSIS integration runtime. It describes the potential causes and actions to solve the errors.
   
@@ -122,7 +120,7 @@ This error occurs when the SSIS integration runtime can't access the storage con
 
 ### Error message: "Microsoft OLE DB Provider for Analysis Services. 'Hresult: 0x80004005 Description:' COM error: COM error: mscorlib; Exception has been thrown by the target of an invocation "
 
-One potential cause is that the username or password with Azure AD Multi-Factor Authentication enabled is configured for Azure Analysis Services authentication. This authentication isn't supported in the SSIS integration runtime. Try to use a service principal for Azure Analysis Services authentication:
+One potential cause is that the username or password with Microsoft Entra multifactor authentication enabled is configured for Azure Analysis Services authentication. This authentication isn't supported in the SSIS integration runtime. Try to use a service principal for Azure Analysis Services authentication:
 
 1. Prepare a service principal as described in [Automation with service principals](../analysis-services/analysis-services-service-principal.md).
 2. In the Connection Manager, configure **Use a specific user name and password:** set **app:*&lt;AppID&gt;*@*&lt;TenantID&gt;*** as the username and clientSecret as the password. Here is an example of a correctly formatted user name:

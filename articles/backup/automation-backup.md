@@ -1,11 +1,12 @@
 ---
 title: Automation in Azure Backup
 description: Provides a summary of automation capabilities offered by Azure Backup.
-ms.topic: conceptual
-ms.date: 11/26/2021
-author: v-amallick
-ms.service: backup
-ms.author: v-amallick
+ms.topic: how-to
+ms.date: 09/09/2024
+ms.service: azure-backup
+ms.custom: engagement-fy23
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Automation in Azure Backup
@@ -38,7 +39,7 @@ This section provides a few common automation use cases that you might encounter
 
 ### Configure backups
 
-As a backup admin, you need to deal with new infrastructure getting added periodically, and ensure they are protected as per the agreed requirements. The automation clients, such as PowerShell/CLI, help to fetch all VM details, check the backup status of each of them, and then take appropriate action for unprotected VMs.
+As a backup admin, you need to deal with new infrastructure getting added periodically, and ensure they're protected as per the agreed requirements. The automation clients, such as PowerShell/CLI, help to fetch all VM details, check the backup status of each of them, and then take appropriate action for unprotected VMs.
 
 However, this must be performant at-scale. Also, you need to schedule them periodically and monitor each run. To ease the automation operations, Azure Backup now uses Azure Policy and provides [built-in backup specific Azure Policies](backup-center-govern-environment.md#azure-policies-for-backup) to govern the backup estate.
 
@@ -60,7 +61,7 @@ See the [sample ARG queries](query-backups-using-azure-resource-graph.md#sample-
 
 ### Automate responses/actions
 
-The automation of responses for transient Backup job failures helps you ensure that you've the right number of reliable backups to restore from. This also helps to avoid unintentional breaches in your [RPO](azure-backup-glossary.md#rpo-recovery-point-objective).
+The automation of responses for transient Backup job failures helps you ensure that you've the right number of reliable backups to restore from. This also helps to avoid unintentional breaches in your [RPO](azure-backup-glossary.md#recovery-point-objective-rpo).
 
 You can set up a workflow to retry Backup jobs using a combination of Azure Automation Runbooks, PowerShell, and ARG. This helps in scenarios where Backup jobs have failed due to transient error or planned/unplanned outage.
 

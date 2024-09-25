@@ -1,14 +1,12 @@
 ---
 title: Deprecation of IPConfig parameters for the cmdlet New-AzRecoveryServicesAsrVMNicConfig | Microsoft Docs
 description: Details about deprecation of IPConfig parameters of the cmdlet New-AzRecoveryServicesAsrVMNicConfig and information about the use of new cmdlet New-AzRecoveryServicesAsrVMNicIPConfig
-services: site-recovery
-author: v-pgaddala
-manager: gaggupta
-ms.service: site-recovery
-ms.topic: article
-ms.date: 04/30/2021
-ms.author: v-pgaddala 
-
+author: ankitaduttaMSFT
+ms.service: azure-site-recovery
+ms.custom: devx-track-azurepowershell
+ms.topic: how-to
+ms.date: 09/11/2024
+ms.author: ankitadutta 
 ---
 # Deprecation of IP Config parameters for the cmdlet New-AzRecoveryServicesAsrVMNicConfig
 
@@ -33,11 +31,11 @@ The New-AzRecoveryServicesAsrVMNicConfig uses the following parameters to config
 - TfoPublicIPAddressId
 - TfoLBBackendAddressPoolId
 
-These parameters will no longer be accepted by the cmdlet.
+These parameters are no longer accepted by the cmdlet.
 
-- Starting 4 May 2021, you will receive Azure portal notifications & email communications with the deprecation of IP Config params in the cmdlet New-AzRecoveryServicesAsrVMNicConfig.
+- Starting 4 May 2021, you receive Azure portal notifications & email communications with the deprecation of IP Config params in the cmdlet New-AzRecoveryServicesAsrVMNicConfig.
 
-- If you have an existing script using it, it will no longer be supported.
+- If you have an existing script using it, it won't be supported.
  
 ## Alternatives 
 
@@ -46,9 +44,10 @@ As an alternative, a new cmdlet [New-AzRecoveryServicesAsrVMNicIPConfig](/powers
 
 ## Remediation steps
 
-You are expected to modify your scripts to remove these params. Instead, start using the new cmdlet **New-AzRecoveryServicesAsrVMNicIPConfig** to create an IP Config object. Here is an illustration:
+You're expected to modify your scripts to remove these params. Instead, start using the new cmdlet **New-AzRecoveryServicesAsrVMNicIPConfig** to create an IP Config object. Here is an illustration:
 
 Your **existing scripts** would have been written like this:
+
 ```azurepowershell
 # Fetching the Protected Item Object (for the Protected VM)
 $protectedItemObject = Get-AsrReplicationProtectedItem -ProtectionContainer $primaryContainerObject | where { $_.FriendlyName -eq $VMName };$protectedItemObject
@@ -62,7 +61,8 @@ $nics = @($nic1)
 Set-AzRecoveryServicesAsrReplicationProtectedItem -InputObject $protectedItemObject -ASRVMNicConfiguration $nics
 ```
 
-Modify your scripts **as below**:
+Modify your scripts **as shown:**:
+
 ```azurepowershell
 # Fetching the Protected Item Object (for the Protected VM)
 $protectedItemObject = Get-AsrReplicationProtectedItem -ProtectionContainer $primaryContainerObject | where { $_.FriendlyName -eq $VMName };$protectedItemObject
@@ -82,4 +82,5 @@ Set-AzRecoveryServicesAsrReplicationProtectedItem -InputObject $protectedItemObj
 ```
 
 ## Next steps
-Modify your scripts as illustrated above. In case you have any queries about this, contact Microsoft Support
+
+Modify your scripts as illustrated in this article. In case you have any queries about this, contact Microsoft Support.

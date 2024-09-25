@@ -2,18 +2,16 @@
 title: Set up a password reset flow
 titleSuffix: Azure AD B2C
 description: Learn how to set up a password reset flow in Azure Active Directory B2C (Azure AD B2C).
-services: active-directory-b2c
-author: kengaderdus
+author: garrodonnell
 manager: CelesteDG
-
 ms.service: active-directory
-ms.workload: identity
 ms.topic: how-to
-ms.date: 08/24/2021
-ms.custom: project-no-code
-ms.author: kengaderdus
+ms.date: 11/27/2023
+ms.author: godonnell
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
+
+#Customer Intent: As an Azure AD B2C administrator, I want to set up a password reset flow for local accounts, so that users can reset their passwords if they forget them.
 ---
 
 # Set up a password reset flow in Azure Active Directory B2C
@@ -22,37 +20,28 @@ zone_pivot_groups: b2c-policy-type
 
 In a [sign-up and sign-in journey](add-sign-up-and-sign-in-policy.md), a user can reset their own password by using the **Forgot your password?** link. This self-service password reset flow applies to local accounts in Azure Active Directory B2C (Azure AD B2C) that use an [email address](sign-in-options.md#email-sign-in) or a [username](sign-in-options.md#username-sign-in) with a password for sign-in.
 
+> [!TIP]
+> A user can change their password by using the self-service password reset flow if they forget their password and want to reset it. You can also choose one of the following user flow options to change a user's password:
+> - If a user knows their password and wants to change it, use a [password change flow](add-password-change-policy.md).
+> - If you want to force a user to reset their password (for example, when they sign in for the first time, when their passwords have been reset by an admin, or after they've been migrated to Azure AD B2C with random passwords), use a [force password reset](force-password-reset.md) flow.
+
 The password reset flow involves the following steps:
 
 1. On the sign-up and sign-in page, the user selects the **Forgot your password?** link. Azure AD B2C initiates the password reset flow.
 1. In the next dialog that appears, the user enters their email address, and then selects **Send verification code**. Azure AD B2C sends a verification code to the user's email account. The user copies the verification code from the email, enters the code in the Azure AD B2C password reset dialog, and then selects **Verify code**.
-1. The user can then enter a new password. (After the email is verified, the user can still select the **Change e-mail** button; see [Hide the change email button](#hide-the-change-email-button).)
+1. The user can then enter a new password. (After the email is verified, the user can still select the **Change e-mail** button; see [Hide the change email button](#hide-the-change-email-button-optional) if you wish to remove it.)
 
-   ![Diagram that shows three dialogs in the password reset flow.](./media/add-password-reset-policy/password-reset-flow.png)
+:::image type="content" source="./media/add-password-reset-policy/password-reset-flow.png" alt-text="Diagram that shows three dialogs in the password reset flow." lightbox="./media/add-password-reset-policy/password-reset-flow.png":::
 
-> [!TIP]
-> A user can change their password by using the self-service password reset flow if they forget their password and want to reset it. Choose one of these user flow options:
-> - If a user knows their password and wants to change it, use a [password change flow](add-password-change-policy.md).
-> - If you want to force a user to reset their password (for example, when they sign in for the first time, when their passwords have been reset by an admin, or after they've been migrated to Azure AD B2C with random passwords), use a [force password reset](force-password-reset.md) flow.
-
-### Hide the change email button
-
-After the email is verified, the user can still select **Change email**, enter another email address, and then repeat email verification. If you'd prefer to hide the **Change email** button, you can modify the CSS to hide the associated HTML elements in the dialog. For example, you can add the following CSS entry to selfAsserted.html and [customize the user interface by using HTML templates](customize-ui-with-html.md):
-
-```html
-<style type="text/css">
-   .changeClaims
-   {
-     visibility: hidden;
-   }
-</style>
-```
-
-The default name of the **Change email** button in *selfAsserted.html* is **changeclaims**. To find the button name, on the sign-up page, inspect the page source by using a browser tool like Inspect.
+The default name of the **Change email** button in *selfAsserted.html* is **changeclaims**. To find the button name, on the sign-up page, inspect the page source by using a browser tool such as _Inspect_.
 
 ## Prerequisites
 
 [!INCLUDE [active-directory-b2c-customization-prerequisites](../../includes/active-directory-b2c-customization-prerequisites.md)]
+
+
+- The B2C Users need to have an authentication method specified for self-service password reset. Select the B2C User, in the left menu under **Manage**,  select **Authentication methods**, ensure **Authentication contact info** is set. B2C users created via a SignUp flow will have this set by default. For users created via Azure Portal or by Graph API need to have this set for SSPR to work. 
+
 
 ## Self-service password reset (recommended)
 
@@ -65,8 +54,7 @@ The self-service password reset experience can be configured for the Sign in (Re
 To set up self-service password reset for the sign-up or sign-in user flow:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. In the portal toolbar, select the **Directories + Subscriptions** icon.
-1. In the **Portal settings | Directories + subscriptions** pane, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Select **User flows**.
 1. Select a sign-up or sign-in user flow (of type **Recommended**) that you want to customize.
@@ -114,6 +102,7 @@ Declare your claims in the [claims schema](claimsschema.md). Open the extensions
 
 [Page layout version](contentdefinitions.md#migrating-to-page-layout) 2.1.2 is required to enable the self-service password reset flow in the sign-up or sign-in journey. To upgrade the page layout version:
 
+1. Open the base file of your policy, for example, *SocialAndLocalAccounts/TrustFrameworkBase.xml*.
 1. Search for the [BuildingBlocks](buildingblocks.md) element. If the element doesn't exist, add it.
 1. Locate the [ContentDefinitions](contentdefinitions.md) element. If the element doesn't exist, add it.
 1. Modify the **DataURI** element within the **ContentDefinition** element to have the ID `api.signuporsignin`:
@@ -131,7 +120,10 @@ Declare your claims in the [claims schema](claimsschema.md). Open the extensions
     ```
 
 ### Add the technical profiles
-A claims transformation technical profile accesses the `isForgotPassword` claim. The technical profile is referenced later. When it's invoked, it sets the value of the `isForgotPassword` claim to `true`. Find the **ClaimsProviders** element (if the element doesn't exist, create it), and then add the following claims provider:
+A claims transformation technical profile accesses the `isForgotPassword` claim. The technical profile is referenced later. When it's invoked, it sets the value of the `isForgotPassword` claim to `true`. 
+
+1. Open the extensions file of your policy, for example, in *SocialAndLocalAccounts/TrustFrameworkExtensions.xml*.
+1. Find the **ClaimsProviders** element (if the element doesn't exist, create it), and then add the following claims provider:
 
 ```xml
 <!-- 
@@ -171,7 +163,8 @@ The user can now sign in, sign up, and perform password reset in your user journ
 
 The sub journey is called from the user journey and performs the specific steps that deliver the password reset experience to the user. Use the `Call` type sub journey so that when the sub journey is finished, control is returned to the orchestration step that initiated the sub journey.
 
-Find the **SubJourneys** element. If the element doesn't exist, add it after the **User Journeys** element. Then, add the following sub journey:
+1. Open the extensions file of your policy, such as *SocialAndLocalAccounts/TrustFrameworkExtensions.xml*.
+1. Find the **SubJourneys** element. If the element doesn't exist, add it after the **User Journeys** element. Then, add the following sub journey:
 
 ```xml
 <!--
@@ -199,19 +192,21 @@ Find the **SubJourneys** element. If the element doesn't exist, add it after the
 
 ### Prepare your user journey
 
-Next, connect the **Forgot your password?** link to the Forgot Password sub journey. Reference the Forgot Password sub journey ID in the **ClaimsProviderSelection** element of the **CombinedSignInAndSignUp** step.
+Next, to connect the **Forgot your password?** link to the **Forgot Password** sub journey you will need to reference the **Forgot Password** sub journey ID in the **ClaimsProviderSelection** element of the **CombinedSignInAndSignUp** step.
 
 If you don't have your own custom user journey that has a **CombinedSignInAndSignUp** step, complete the following steps to duplicate an existing sign-up or sign-in user journey. Otherwise, continue to the next section.
 
-1. In the starter pack, open the *TrustFrameworkBase.xml* file.
+1. In the starter pack, open the *TrustFrameworkBase.xml* file such as *SocialAndLocalAccounts/TrustFrameworkBase.xml*.
 1. Find and copy the entire contents of the **UserJourney** element that includes `Id="SignUpOrSignIn"`.
-1. Open *TrustFrameworkExtensions.xml* and find the **UserJourneys** element. If the element doesn't exist, add one.
+1. Open *TrustFrameworkExtensions.xml* file, such as *SocialAndLocalAccounts/TrustFrameworkExtensions.xml*, and find the **UserJourneys** element. If the element doesn't exist, create it.
 1. Create a child element of the **UserJourneys** element by pasting the entire contents of the **UserJourney** element you copied in step 2.
 1. Rename the ID of the user journey. For example, `Id="CustomSignUpSignIn"`.
 
 ### Connect the Forgot Password link to the Forgot Password sub journey
 
-In your user journey, you can represent the Forgot Password sub journey as a **ClaimsProviderSelection**. Adding this element connects the **Forgot your password?** link to the Forgot Password sub journey.
+In your user journey, you can represent the Forgot Password sub journey as a **ClaimsProviderSelection**. By adding this element, you connect the **Forgot your password?** link to the Forgot Password sub journey.
+
+1. Open the *TrustFrameworkExtensions.xml* file, such as *SocialAndLocalAccounts/TrustFrameworkExtensions.xml*. 
 
 1. In the user journey, find the orchestration step element that includes `Type="CombinedSignInAndSignUp"` or `Type="ClaimsProviderSelection"`. It's usually the first orchestration step. The **ClaimsProviderSelections** element contains a list of identity providers that a user can use to sign in. Add the following line:
 
@@ -219,7 +214,7 @@ In your user journey, you can represent the Forgot Password sub journey as a **C
     <ClaimsProviderSelection TargetClaimsExchangeId="ForgotPasswordExchange" />
     ```
 
-1. In the next orchestration step, add a **ClaimsExchange** element. Add the following line:
+1. In the next orchestration step, add a **ClaimsExchange** element by adding the following line:
 
     ```xml
     <ClaimsExchange Id="ForgotPasswordExchange" TechnicalProfileReferenceId="ForgotPassword" />
@@ -245,7 +240,13 @@ In your user journey, you can represent the Forgot Password sub journey as a **C
 
 ### Set the user journey to be executed
 
-Now that you've modified or created a user journey, in the **Relying Party** section, specify the journey that Azure AD B2C will execute for this custom policy. In the [RelyingParty](relyingparty.md) element, find the **DefaultUserJourney** element. Update the **DefaultUserJourney ReferenceId** to match the ID of the user journey in which you added the **ClaimsProviderSelections**.
+Now that you've modified or created a user journey, in the **Relying Party** section, specify the journey that Azure AD B2C will execute for this custom policy. 
+
+1. Open the file that has the **Relying Party** element, such as *SocialAndLocalAccounts/SignUpOrSignin.xml*.   
+
+1. In the [RelyingParty](relyingparty.md) element, find the **DefaultUserJourney** element. 
+
+1. Update the **DefaultUserJourney ReferenceId** to match the ID of the user journey in which you added the **ClaimsProviderSelections**.
 
 ```xml
 <RelyingParty>
@@ -270,15 +271,28 @@ Your application might need to detect whether the user signed in by using the Fo
 ### Upload the custom policy
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. In the portal toolbar, select the **Directories + Subscriptions** icon.
-1. In the **Portal settings | Directories + subscriptions** pane, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to the Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. In the menu under **Policies**, select **Identity Experience Framework**.
-1. Select **Upload custom policy**. In the following order, upload the two policy files that you changed:
+1. Select **Upload custom policy**. In the following order, upload the policy files that you changed:
+   1. The base file of your policy, for example *TrustFrameworkBase.xml*.  
    1. The extension policy, for example, *TrustFrameworkExtensions.xml*.
    1. The relying party policy, for example, *SignUpSignIn.xml*.
 
 ::: zone-end
+
+### Hide the change email button (Optional)
+
+After the email is verified, the user can still select **Change email**, enter another email address, and then repeat email verification. If you'd prefer to hide the **Change email** button, you can modify the CSS to hide the associated HTML elements in the dialog. For example, you can add the following CSS entry to selfAsserted.html and [customize the user interface by using HTML templates](customize-ui-with-html.md):
+
+```html
+<style type="text/css">
+   .changeClaims
+   {
+     visibility: hidden;
+   }
+</style>
+```
 
 ### Test the password reset flow
 
@@ -301,9 +315,9 @@ The following diagram depicts the process:
 1. The user selects the **Forgot your password?** link. Azure AD B2C returns the `AADB2C90118` error code to the application.
 1. The application handles the error code and initiates a new authorization request. The authorization request specifies the password reset policy name, such as *B2C_1_pwd_reset*.
 
-    ![Diagram that shows the legacy password reset user flow.](./media/add-password-reset-policy/password-reset-flow-legacy.png)
+:::image type="content" source="./media/add-password-reset-policy/password-reset-flow-legacy.png" alt-text="Diagram that shows the legacy password reset user flow with numbered steps.":::
 
-You can see a basic [ASP.NET sample](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI), which demonstrates how user flows link.
+You can see a basic demonstration of how user flows link in our [ASP.NET sample](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI).
 
 ::: zone pivot="b2c-user-flow"
 
@@ -328,8 +342,8 @@ To let your application users reset their passwords, create a password reset use
 To test the user flow:
 
 1. Select the user flow you created. On the user flow overview page, select **Run user flow**.
-1. For **Application**, select the web application named *webapp1* that you registered earlier. The **Reply URL** should be `https://jwt.ms`.
-1. Select **Run user flow**, verify the email address of the account you created earlier, and then select **Continue**.
+1. For **Application**, select the web application you wish to test, such as the one named *webapp1* if you registered that earlier. The **Reply URL** should be `https://jwt.ms`.
+1. Select **Run user flow**, verify the email address of the account that you want to reset the password for, and then select **Continue**.
 1. Change the password, and then select **Continue**. The token is returned to `https://jwt.ms` and the browser displays it.
 
 ::: zone-end

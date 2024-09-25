@@ -1,10 +1,9 @@
 ---
 title: Bicep functions - deployment
 description: Describes the functions to use in a Bicep file to retrieve deployment information.
-author: mumian
-ms.author: jgao
-ms.topic: conceptual
-ms.date: 06/27/2022
+ms.topic: reference
+ms.custom: devx-track-bicep
+ms.date: 06/26/2024
 ---
 
 # Deployment functions for Bicep
@@ -48,7 +47,7 @@ When deploying a local Bicep file to a resource group, the function returns the 
 }
 ```
 
-When you deploy to an Azure subscription, management group, or tenant, the return object includes a `location` property. The `location` property is not included when deploying a local Bicep file. The format is:
+When you deploy to an Azure subscription, management group, or tenant, the return object includes a `location` property. The `location` property isn't included when deploying a local Bicep file. The format is:
 
 ```json
 {
@@ -106,7 +105,7 @@ The preceding example returns the following object:
 
 `environment()`
 
-Returns information about the Azure environment used for deployment.
+Returns information about the Azure environment used for deployment. The `environment()` function is not aware of resource configurations. It can only return a single default DNS suffix for each resource type.
 
 Namespace: [az](bicep-functions.md#namespaces-for-functions).
 
@@ -176,11 +175,8 @@ The preceding example returns the following object when deployed to global Azure
   "vmImageAliasDoc": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json",
   "resourceManager": "https://management.azure.com/",
   "authentication": {
-    "loginEndpoint": "https://login.windows.net/",
-    "audiences": [
-      "https://management.core.windows.net/",
-      "https://management.azure.com/"
-    ],
+    "loginEndpoint": "https://login.microsoftonline.com/",
+    "audiences": [ "https://management.core.windows.net/", "https://management.azure.com/" ],
     "tenant": "common",
     "identityProvider": "AAD"
   },

@@ -7,13 +7,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 06/28/2022
+ms.date: 10/19/2022
 ms.author: alkohli
 ---
 
 # Deploy a GPU enabled IoT module on Azure Stack Edge Pro GPU device
 
 [!INCLUDE [applies-to-gpu-pro-pro2-and-pro-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-pro-2-pro-r-sku.md)]
+
+> [!NOTE]
+> We strongly recommend that you deploy the latest IoT Edge version in a Linux VM. The managed IoT Edge on Azure Stack Edge uses an older version of IoT Edge runtime that doesn’t have the latest features and patches. For instructions, see how to [Deploy an Ubuntu VM](azure-stack-edge-gpu-deploy-iot-edge-linux-vm.md). For more information on other supported Linux distributions that can run IoT Edge, see [Azure IoT Edge supported systems – Container engines](../iot-edge/support.md#linux-containers).
 
 This article describes how to deploy a GPU enabled IoT Edge module on your Azure Stack Edge Pro GPU device. 
 
@@ -35,7 +38,7 @@ Before you begin, make sure you have:
 
 - You've access to a GPU enabled 1-node Azure Stack Edge Pro device. This device is activated with a resource in Azure. See [Activate the device](azure-stack-edge-gpu-deploy-activate.md).
 - You've configured compute on this device. Follow the steps in [Tutorial: Configure compute on your Azure Stack Edge Pro device](azure-stack-edge-gpu-deploy-configure-compute.md).
-- An Azure Container Registry (ACR). Go to the **Access keys** blade and make a note of the ACR login server, username, and password. For more information, go to [Quickstart: Create a private container registry using the Azure portal](../container-registry/container-registry-get-started-portal.md#create-a-container-registry).
+- An Azure Container Registry (ACR). Go to the **Access keys** blade and make a note of the ACR login server, username, and password. For more information, go to [Quickstart: Create a private container registry using the Azure portal](/azure/container-registry/container-registry-get-started-portal#create-a-container-registry).
 - The following development resources on a Windows client:
     - [Azure CLI 2.0 or later](https://aka.ms/installazurecliwindows)
     - [Docker CE](https://store.docker.com/editions/community/docker-ce-desktop-windows). You may have to create an account to download and install the software.

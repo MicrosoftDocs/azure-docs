@@ -1,10 +1,10 @@
 ---
 title: Apache Hive & Data Lake tools for Visual Studio - Azure HDInsight
 description: Learn how to use the Data Lake tools for Visual Studio to run Apache Hive queries with Apache Hadoop on Azure HDInsight.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 04/07/2022
+ms.date: 05/15/2024
 ---
 
 # Run Apache Hive queries using the Data Lake tools for Visual Studio
@@ -44,11 +44,11 @@ Ad hoc queries can be executed in either **Batch** or **Interactive** mode.
 
 5. Select **Execute**. The execution mode defaults to **Interactive**.
 
-    :::image type="content" source="./media/apache-hadoop-use-hive-visual-studio/vs-execute-hive-query.png" alt-text="Execute interactive Hive query, Visual Studio" border="true":::
+    :::image type="content" source="./media/apache-hadoop-use-hive-visual-studio/vs-execute-hive-query.png" alt-text="Execute interactive Hive query, Visual Studio." border="true":::
 
 6. To run the same query in **Batch** mode, toggle the drop-down list from **Interactive** to **Batch**. The execution button changes from **Execute** to **Submit**.
 
-    :::image type="content" source="./media/apache-hadoop-use-hive-visual-studio/visual-studio-batch-query.png" alt-text="Submit batch Hive query, Visual Studio" border="true":::
+    :::image type="content" source="./media/apache-hadoop-use-hive-visual-studio/visual-studio-batch-query.png" alt-text="Submit batch Hive query, Visual Studio." border="true":::
 
     The Hive editor supports IntelliSense. Data Lake Tools for Visual Studio supports loading remote metadata when you edit your Hive script. For example, if you type `SELECT * FROM`, IntelliSense lists all the suggested table names. When a table name is specified, IntelliSense lists the column names. The tools support most Hive DML statements, subqueries, and built-in UDFs. IntelliSense suggests only the metadata of the cluster that is selected in the HDInsight toolbar.
 
@@ -56,7 +56,7 @@ Ad hoc queries can be executed in either **Batch** or **Interactive** mode.
 
 8. If you selected the advanced submit option, configure **Job Name**, **Arguments**, **Additional Configurations**, and **Status Directory** in the **Submit Script** dialog box. Then select **Submit**.
 
-    :::image type="content" source="./media/apache-hadoop-use-hive-visual-studio/vs-tools-submit-jobs-advanced.png" alt-text="Submit Script dialog box, HDInsight Hadoop Hive query" border="true":::
+    :::image type="content" source="./media/apache-hadoop-use-hive-visual-studio/vs-tools-submit-jobs-advanced.png" alt-text="Submit Script dialog box, HDInsight Hadoop Hive query." border="true":::
 
 ### Create a Hive application
 
@@ -75,7 +75,7 @@ To run a Hive query by creating a Hive application, follow these steps:
     ```hql
     set hive.execution.engine=tez;
     DROP TABLE log4jLogs;
-    CREATE EXTERNAL TABLE log4jLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
+    CREATE EXTERNAL TABLE log4j Logs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string)
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
     STORED AS TEXTFILE LOCATION '/example/data/';
     SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs WHERE t4 = '[ERROR]' AND  INPUT__FILE__NAME LIKE '%.log' GROUP BY t4;
@@ -104,7 +104,7 @@ To run a Hive query by creating a Hive application, follow these steps:
 
    The **Hive Job Summary** appears and displays information about the running job. Use the **Refresh** link to refresh the job information, until the **Job Status** changes to **Completed**.
 
-   :::image type="content" source="./media/apache-hadoop-use-hive-visual-studio/hdinsight-job-summary.png" alt-text="Completed Hive job summary, Hive application, Visual Studio" border="true":::
+   :::image type="content" source="./media/apache-hadoop-use-hive-visual-studio/hdinsight-job-summary.png" alt-text="Completed Hive job summary, Hive application, Visual Studio." border="true":::
 
 7. Select **Job Output** to view the output of this job. It displays `[ERROR] 3`, which is the value returned by this query.
 
@@ -129,13 +129,13 @@ The following example relies on the `log4jLogs` table created in the previous pr
         > [!NOTE]  
         > Unlike `EXTERNAL` tables, dropping an internal table also deletes the underlying data.
 
-    * `STORED AS ORC`: Stores the data in *optimized row columnar* (ORC) format. ORC is a highly optimized and efficient format for storing Hive data.
+    * `STORED AS ORC`: Stores the data in *optimized row columnar (ORC)* format. ORC is a highly optimized and efficient format for storing Hive data.
 
     * `INSERT OVERWRITE ... SELECT`: Selects rows from the `log4jLogs` table that contain `[ERROR]`, then inserts the data into the `errorLogs` table.
 
 3. Change **Interactive** to **Batch** if necessary, then select **Submit**.
 
-4. To verify that the job created the table, go to **Server Explorer** and expand **Azure** > **HDInsight**. Expand your HDInsight cluster, and then expand **Hive Databases** > **default**. The **errorLogs** table and the **log4jLogs** table are listed.
+4. To verify that the job created the table, go to **Server Explorer** and expand **Azure** > **HDInsight**. Expand your HDInsight cluster, and then expand **Hive Databases** > **default**. The **errorLogs** table and the **Log4jLogs** table are listed.
 
 ## Next steps
 
@@ -145,4 +145,4 @@ As you can see, the HDInsight tools for Visual Studio provide an easy way to wor
 
 * For information about other ways you can work with Hadoop on HDInsight, see [Use MapReduce in Apache Hadoop on HDInsight](hdinsight-use-mapreduce.md)
 
-* For more information about the HDInsight tools for Visual Studio, see[Use Data Lake Tools for Visual Studio to connect to Azure HDInsight and run Apache Hive queries](apache-hadoop-visual-studio-tools-get-started.md)
+* For more information about the HDInsight tools for Visual Studio, see [Use Data Lake Tools for Visual Studio to connect to Azure HDInsight and run Apache Hive queries](apache-hadoop-visual-studio-tools-get-started.md)

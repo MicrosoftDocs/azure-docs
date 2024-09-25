@@ -1,9 +1,9 @@
 ---
-title: Analyze device data in your Azure IoT Central application | Microsoft Docs
-description: Analyze device data in your Azure IoT Central application.
+title: Analyze device data in your Azure IoT Central application
+description: Analyze device data in your Azure IoT Central application by using device groups and the built-in data explorer.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/21/2022
+ms.date: 03/04/2024
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -34,7 +34,7 @@ The analytics user interface has three main components:
 
 - **Chart control:** The chart control visualizes the data as a line chart. You can toggle the visibility of specific lines by interacting with the chart legend.
 
-  :::image type="content" source="media/howto-create-analytics/analytics-ui.png" alt-text="Screenshot that shows the three areas of the data explorer UI.":::
+  :::image type="content" source="media/howto-create-analytics/analytics-ui.png" alt-text="Screenshot that shows the three areas of the data explorer UI." lightbox="media/howto-create-analytics/analytics-ui.png":::
 
 ## Query your data
 
@@ -54,15 +54,15 @@ Choose a **Device group** to get started and then the telemetry you want to anal
 
 ## Interact with your data
 
-After you've queried your data, you can visualize it on the line chart. You can show or hide telemetry, change the time duration, or view the data in a grid.
+After you query your data, you can visualize it on the line chart. You can show or hide telemetry, change the time duration, or view the data in a grid.
 
 Select **Save** to save an analytics query. Later, you can retrieve any queries you saved.
 
 - **Time editor panel:** By default you see data from the last day. You can drag either end of the slider to change the time duration. You can also use the calendar control to select one of the predefined time buckets or select a custom time range. The time control also has an **Interval size** slider that controls the interval size used to aggregate the data.
 
-  :::image type="content" source="media/howto-create-analytics/time-editor-panel.png" alt-text="Screenshot that shows the time editor panel.":::
+  :::image type="content" source="media/howto-create-analytics/time-editor-panel.png" alt-text="Screenshot that shows the time editor panel." lightbox="media/howto-create-analytics/time-editor-panel.png":::
 
-  - **Inner date range slider tool**: Use the two endpoint controls to highlight the time span you want. The inner date range is constrained by the outer date range slider control.
+  - **Inner date range slider tool**: Use the two endpoint controls to highlight the time span you want. The outer date range slider control constrains the inner date range.
   
   - **Outer date range slider control**: Use the endpoint controls to select the outer date range that's available for your inner date range control.
 
@@ -83,11 +83,11 @@ Select **Save** to save an analytics query. Later, you can retrieve any queries 
   - **Shared:** A graph for each telemetry type is plotted against the same y-axis.
   - **Overlap:** Use this mode to stack multiple lines on the same y-axis, with the y-axis data changing based on the selected line.
 
-  :::image type="content" source="media/howto-create-analytics/y-axis-control.png" alt-text="A screenshot that highlights the y-axis control.":::
+  :::image type="content" source="media/howto-create-analytics/y-axis-control.png" alt-text="A screenshot that highlights the y-axis control." lightbox="media/howto-create-analytics/y-axis-control.png":::
 
 - **Zoom control:** The zoom control lets you drill further into your data. If you find a time period you'd like to focus on within your result set, use your mouse pointer to highlight the area. Then  select **Zoom in**.
 
-  :::image type="content" source="media/howto-create-analytics/zoom.png" alt-text="A Screenshot that shows the use of the zoom control.":::
+  :::image type="content" source="media/howto-create-analytics/zoom.png" alt-text="A Screenshot that shows the use of the zoom control." lightbox="media/howto-create-analytics/zoom.png":::
 
 Select the ellipsis, for more chart controls:
 
@@ -97,8 +97,4 @@ Select the ellipsis, for more chart controls:
 
 - **Drop a Marker:** The **Drop Marker** control lets you anchor certain data points on the chart. It's useful when you're trying to compare data for multiple lines across different time periods.
 
-  :::image type="content" source="media/howto-create-analytics/additional-chart-controls.png" alt-text="A Screenshot that shows how to access the additional chart controls.":::
-
-## Next steps
-
-Now that you've learned how to visualize your data with the built-in analytics capabilities, a suggested next step is to learn how to [Export IoT data to cloud destinations using Blob Storage](howto-export-to-blob-storage.md).
+  :::image type="content" source="media/howto-create-analytics/additional-chart-controls.png" alt-text="A Screenshot that shows how to access the additional chart controls." lightbox="media/howto-create-analytics/additional-chart-controls.png":::

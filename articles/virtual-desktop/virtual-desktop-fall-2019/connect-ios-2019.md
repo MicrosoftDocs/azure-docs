@@ -1,18 +1,18 @@
 ---
 title: Connect to Azure Virtual Desktop (classic) from iOS - Azure
 description: How to connect to Azure Virtual Desktop (classic) using the iOS client.
-author: Heidilohr
+author: dknappettmsft
 ms.topic: how-to
 ms.date: 03/30/2020
-ms.author: helohr
-manager: femila
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
 # Connect to Azure Virtual Desktop (classic) with the iOS client
 
 > Applies to: iOS 13.0 or later. Compatible with iPhone, iPad, and iPod touch.
 
 >[!IMPORTANT]
->This content applies to Azure Virtual Desktop (classic), which doesn't support Azure Resource Manager Azure Virtual Desktop objects. If you're trying to manage Azure Resource Manager Azure Virtual Desktop objects, see [this article](../user-documentation/connect-ios.md).
+>This content applies to Azure Virtual Desktop (classic), which doesn't support Azure Resource Manager Azure Virtual Desktop objects. If you're trying to manage Azure Resource Manager Azure Virtual Desktop objects, see [this article](../users/connect-ios-ipados.md).
 
 You can access Azure Virtual Desktop resources from your iOS device with our downloadable client. This guide will tell you how to set up the iOS client.
 

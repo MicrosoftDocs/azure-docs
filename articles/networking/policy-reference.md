@@ -1,11 +1,11 @@
 ---
 title: Built-in policy definitions for Azure networking services
 description: Lists Azure Policy built-in policy definitions for Azure networking services. These built-in policy definitions provide common approaches to managing your Azure resources.
-ms.date: 09/12/2022
+ms.date: 02/06/2024
 ms.topic: reference
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.custom: subject-policy-reference
 ---
 # Azure Policy built-in definitions for Azure networking services

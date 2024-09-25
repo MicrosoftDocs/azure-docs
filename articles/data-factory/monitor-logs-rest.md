@@ -1,13 +1,12 @@
 ---
 title: Set up diagnostic logs via the Azure Monitor REST API 
 description: Learn how to set up diagnostic logs for Azure Data Factory by using the Azure Monitor REST API.
-author: joshuha-msft
-ms.author: joowen
+author: nabhishek
+ms.author: abnarain
 ms.reviewer: jburchel
-ms.service: data-factory
 ms.subservice: monitoring
 ms.topic: conceptual
-ms.date: 09/02/2021
+ms.date: 10/20/2023
 ---
 
 # Set up diagnostic logs via the Azure Monitor REST API
@@ -43,7 +42,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 * Replace `{api-version}` with `2016-09-01`.
 * Replace `{resource-id}` with the ID of the resource for which you want to edit diagnostic settings. For more information, see [Using resource groups to manage your Azure resources](../azure-resource-manager/management/manage-resource-groups-portal.md).
 * Set the `Content-Type` header to `application/json`.
-* Set the authorization header to the JSON web token that you got from Azure Active Directory (Azure AD). For more information, see [Authenticating requests](../active-directory/develop/authentication-vs-authorization.md).
+* Set the authorization header to the JSON web token that you got from Microsoft Entra ID. For more information, see [Authenticating requests](../active-directory/develop/authentication-vs-authorization.md).
 
 #### Body
 
@@ -163,7 +162,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 * Replace `{api-version}` with `2016-09-01`.
 * Replace `{resource-id}` with the ID of the resource for which you want to edit diagnostic settings. For more information, see [Using resource groups to manage your Azure resources](../azure-resource-manager/management/manage-resource-groups-portal.md).
 * Set the `Content-Type` header to `application/json`.
-* Set the authorization header to a JSON web token that you got from Azure AD. For more information, see [Authenticating requests](../active-directory/develop/authentication-vs-authorization.md).
+* Set the authorization header to a JSON web token that you got from Microsoft Entra ID. For more information, see [Authenticating requests](../active-directory/develop/authentication-vs-authorization.md).
 
 #### Response
 
@@ -216,6 +215,6 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 ```
 For more information, see [Diagnostic settings](/rest/api/monitor/diagnosticsettings).
 
-## Next steps
+## Related content
 
 [Monitor SSIS operations with Azure Monitor](monitor-ssis.md)

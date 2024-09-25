@@ -1,9 +1,9 @@
 ---
-author: rayne-wiselman
-ms.service: site-recovery
+author: ankitaduttaMSFT
+ms.service: azure-site-recovery
 ms.topic: include
 ms.date: 04/28/2019
-ms.author: raynew
+ms.author: ankitadutta
 ---
 
 1. Establish a Remote Desktop Connection to the machine running the process server. 

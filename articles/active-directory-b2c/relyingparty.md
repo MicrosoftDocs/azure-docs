@@ -1,17 +1,20 @@
 ---
 title: RelyingParty - Azure Active Directory B2C  
 description: Specify the RelyingParty element of a custom policy in Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
-ms.date: 06/26/2022
-ms.custom: project-no-code
+ms.date: 01/22/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer integrating Azure Active Directory B2C into my application, I want to understand how to configure the RelyingParty element, so that I can enforce user journeys and specify the claims needed for the issued token.
+
 ---
 
 # RelyingParty
@@ -77,6 +80,8 @@ The optional **RelyingParty** element contains the following elements:
 | Endpoints | 0:1 | A list of endpoints. For more information, see [UserInfo endpoint](userinfo-endpoint.md). |
 | UserJourneyBehaviors | 0:1 | The scope of the user journey behaviors. |
 | TechnicalProfile | 1:1 | A technical profile that's supported by the RP application. The technical profile provides a contract for the RP application to contact Azure AD B2C. |
+
+You need to create the **RelyingParty** child elements in the order presented in the preceding table.
 
 ## Endpoints
 
@@ -144,7 +149,8 @@ The **UserJourneyBehaviors** element contains the following elements:
 | JourneyFraming | 0:1| Allows the user interface of this policy to be loaded in an iframe. |
 | ScriptExecution| 0:1| The supported [JavaScript](javascript-and-page-layout.md) execution modes. Possible values: `Allow` or `Disallow` (default).
 
-
+When you use the above elements, you need add them to your **UserJourneyBehaviors** element in the order specified in the table. For example, the **JourneyInsights** element must be added before (above) the **ScriptExecution** element. 
+ 
 ### SingleSignOn
 
 The **SingleSignOn** element contains the following attributes:
@@ -277,7 +283,7 @@ The **OutputClaim** element contains the following attributes:
 
 ### SubjectNamingInfo
 
-With the **SubjectNameingInfo** element, you control the value of the token subject:
+With the **SubjectNamingInfo** element, you control the value of the token subject:
 
 - **JWT token** - the `sub` claim. This is a principal about which the token asserts information, such as the user of an application. This value is immutable and cannot be reassigned or reused. It can be used to perform safe authorization checks, such as when the token is used to access a resource. By default, the subject claim is populated with the object ID of the user in the directory. For more information, see [Token, session and single sign-on configuration](session-behavior.md).
 - **SAML token** - the `<Subject><NameID>` element, which identifies the subject element. The NameId format can be modified.

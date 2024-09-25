@@ -1,14 +1,14 @@
 ---
 title: Secure traffic between Standard workflows and virtual networks
 description: Secure traffic between Standard logic app workflows and virtual networks in Azure using private endpoints.
-services: logic-apps
+services: azure-logic-apps
+ms.service: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.custom: engagement-fy23
-ms.date: 10/03/2022
-
-# As a developer, I want to connect to my Standard logic app workflows with virtual networks using private endpoints and virtual network integration.
+ms.date: 08/09/2024
+# Customer intent: As a developer, I want to connect to my Standard logic app workflows with virtual networks using private endpoints and virtual network integration.
 ---
 
 # Secure traffic between Standard logic apps and Azure virtual networks using private endpoints
@@ -30,13 +30,15 @@ For more information, review the following documentation:
 
 ## Prerequisites
 
-You need to have a new or existing Azure virtual network that includes a subnet without any delegations. This subnet is used to deploy and allocate private IP addresses from the virtual network.
+- A new or existing Azure virtual network that includes a subnet without any delegations. This subnet is used to deploy and allocate private IP addresses from the virtual network.
 
-For more information, review the following documentation:
+  For more information, review the following documentation:
 
-- [Quickstart: Create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md)
-- [What is subnet delegation?](../virtual-network/subnet-delegation-overview.md)
-- [Add or remove a subnet delegation](../virtual-network/manage-subnet-delegation.md)
+  - [Quickstart: Create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md)
+  - [What is subnet delegation?](../virtual-network/subnet-delegation-overview.md)
+  - [Add or remove a subnet delegation](../virtual-network/manage-subnet-delegation.md)
+
+[!INCLUDE [api-test-http-request-tools-bullet](../../includes/api-test-http-request-tools-bullet.md)]
 
 <a name="set-up-inbound"></a>
 
@@ -44,7 +46,7 @@ For more information, review the following documentation:
 
 To secure inbound traffic to your workflow, complete these high-level steps:
 
-1. Start your workflow with a built-in trigger that can receive and handle inbound requests, such as the Request trigger or the HTTP + Webhook trigger. This trigger sets up your workflow with a callable endpoint.
+1. Start your workflow with a built-in trigger that can receive and handle inbound requests, such as the **Request** trigger or the **HTTP + Webhook** trigger. This trigger sets up your workflow with a callable endpoint.
 
 1. Add a private endpoint for your logic app resource to your virtual network.
 
@@ -68,7 +70,7 @@ To secure inbound traffic to your workflow, complete these high-level steps:
 
 Along with the [virtual network setup in the top-level prerequisites](#prerequisites), you need to have a new or existing Standard logic app workflow that starts with a built-in trigger that can receive requests.
 
-For example, the Request trigger creates an endpoint on your workflow that can receive and handle inbound requests from other callers, including workflows. This endpoint provides a URL that you can use to call and trigger the workflow. For this example, the steps continue with the Request trigger.
+For example, the **Request** trigger creates an endpoint on your workflow that can receive and handle inbound requests from other callers, including workflows. This endpoint provides a URL that you can use to call and trigger the workflow. For this example, the steps continue with the **Request** trigger.
 
 For more information, review [Receive and respond to inbound HTTP requests using Azure Logic Apps](../connectors/connectors-native-reqres.md).
 
@@ -76,7 +78,7 @@ For more information, review [Receive and respond to inbound HTTP requests using
 
 1. If you haven't already, create a single-tenant based logic app, and a blank workflow.
 
-1. After the designer opens, add the Request trigger as the first step in your workflow.
+1. After the designer opens, add the **Request** trigger as the first step in your workflow.
 
 1. Based on your scenario requirements, add other actions that you want to run in your workflow.
 
@@ -90,19 +92,19 @@ For more information, review [Create single-tenant logic app workflows in Azure 
 
 1. On the **Overview** page, copy and save the **Workflow URL** for later use.
 
-   To trigger the workflow, you call or send a request to this URL.
-
-1. Make sure that the URL works by calling or sending a request to the URL. You can use any tool you want to send the request, for example, Postman.
+1. To test the URL and trigger the workflow, send an HTTP request to the URL by using your HTTP request tool and its instructions.
 
 ### Set up private endpoint connection
 
-1. On your logic app menu, under **Settings**, select **Networking**.
+1. On the logic app resource menu, under **Settings**, select **Networking**.
 
-1. On the **Networking** page, on the **Inbound traffic** card, select **Private endpoints**.
+1. On the **Networking** page, in the **Inbound traffic configuration** section, select the link next to **Private endpoints**.
 
-1. On the **Private Endpoint connections**, select **Add**.
+1. On the **Private Endpoint connections** page, select **Add** > **Express** or **Advanced**.
 
-1. On the **Add Private Endpoint** pane that opens, provide the requested information about the endpoint.
+   For more information about the **Advanced** option, see [Create a private endpoint](../private-link/create-private-endpoint-portal.md#create-a-private-endpoint).
+
+1. On the **Add Private Endpoint** pane, provide the requested information about the endpoint.
 
    For more information, review [Private Endpoint properties](../private-link/private-endpoint-overview.md#private-endpoint-properties).
 
@@ -126,10 +128,10 @@ To secure outbound traffic from your logic app, you can integrate your logic app
 
 - For the Azure Logic Apps runtime to work, you need to have an uninterrupted connection to the backend storage. If the backend storage is exposed to the virtual network through a private endpoint, make sure that the following ports are open:
 
-  | Source port | Direction | Protocol | Source / Destination | Purpose |
-  |-------------|-----------|----------|----------------------|---------|
-  | 443 | Outbound | TCP | Private endpoint / Storage account | Storage account |
-  | 445 | Outbound | TCP | Private endpoint / Subnet integrated with Standard logic app | Server Message Block (SMB) File Share |
+  | Source port | Destination port | Source | Destination | Protocol | Purpose |
+  |-------------|------------------|--------|-------------|----------|---------|
+  | * | 443 | Subnet integrated with Standard logic app | Storage account | TCP | Storage account |
+  | * | 445 | Subnet integrated with Standard logic app | Storage account | TCP | Server Message Block (SMB) File Share |
 
 - For Azure-hosted managed connectors to work, you need to have an uninterrupted connection to the managed API service. With virtual network integration, make sure that no firewall or network security policy blocks these connections. If your virtual network uses a network security group (NSG), user-defined route table (UDR), or a firewall, make sure that the virtual network allows outbound connections to [all managed connector IP addresses](/connectors/common/outbound-ip-addresses#azure-logic-apps) in the corresponding region. Otherwise, Azure-managed connectors won't work.
 
@@ -143,7 +145,7 @@ For more information, review the following documentation:
 
 1. If you haven't already, in the [Azure portal](https://portal.azure.com), create a single-tenant based logic app, and a blank workflow.
 
-1. After the designer opens, add the Request trigger as the first step in your workflow.
+1. After the designer opens, add the **Request** trigger as the first step in your workflow.
 
 1. Add an HTTP action to call an internal service that's unavailable through the Internet and runs with a private IP address such as `10.0.1.3`.
 
@@ -153,19 +155,23 @@ For more information, review the following documentation:
 
    The HTTP action fails, which is by design and expected because the workflow runs in the cloud and can't access your internal service.
 
+<a name="set-up-virtual-network-integration"></a>
+
 ### Set up virtual network integration
 
-1. In the Azure portal, on the logic app resource menu, under **Settings**, select **Networking**.
+1. In the [Azure portal](https://portal.azure.com), on the logic app resource menu, under **Settings**, select **Networking**.
 
-1. On the **Networking** pane, on the **Outbound traffic** card, select **VNet integration**.
+1. On the **Networking** page, in the **Outbound traffic configuration** section, select the link next to **Virtual network integration**.
 
-1. On the **VNet Integration** pane, select **Add Vnet**.
+1. On the **Virtual network integration** page, select **Add virtual network integration**.
 
-1. On the **Add VNet Integration** pane, select the subscription and the virtual network that connects to your internal service.
+1. On the **Add virtual network integration** pane, select the subscription, the virtual network that connects to your internal service, and the subnet where to add the logic app. When you finish, select **Connect**.
 
-   After you add virtual network integration, on the **VNet Integration** pane, the **Route All** setting is enabled by default. This setting routes all outbound traffic through the virtual network. When this setting is enabled, the `WEBSITE_VNET_ROUTE_ALL` app setting is ignored.
+   On the **Virtual Network Integration** page, by default, the **Outbound internet traffic** setting is selected, which routes all outbound traffic through the virtual network. In this scenario, the app setting named **WEBSITE_VNET_ROUTE_ALL** is ignored.
 
-1. If you use your own domain name server (DNS) with your virtual network, set your logic app resource's `WEBSITE_DNS_SERVER` app setting to the IP address for your DNS. If you have a secondary DNS, add another app setting named `WEBSITE_DNS_ALT_SERVER`, and set the value also to the IP for your DNS.
+   To find this app setting, on the logic app resource menu, under **Settings**, select **Environment variables**.
+
+1. If you use your own domain name server (DNS) with your virtual network, add the **WEBSITE_DNS_SERVER** app setting, if none exists, and set the value to the IP address for your DNS. If you have a secondary DNS, add another app setting named **WEBSITE_DNS_ALT_SERVER**, and set the value to the IP for your secondary DNS.
 
 1. After Azure successfully provisions the virtual network integration, try to run the workflow again.
 

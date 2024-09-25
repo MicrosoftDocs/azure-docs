@@ -1,32 +1,36 @@
 ---
-title: Query Azure Cosmos DB data using a serverless SQL pool in Azure Synapse Link 
+title: Query Azure Cosmos DB data using a serverless SQL pool in Azure Synapse Link
 description: In this article, you'll learn how to query Azure Cosmos DB by using a serverless SQL pool in Azure Synapse Link.
 author: jovanpop-msft
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
 ms.date: 05/10/2022
 ms.author: jovanpop
 ms.reviewer: sidandrews, wiassaf
-ms.custom: cosmos-db, event-tier1-build-2022
+ms.custom: cosmos-db
 ---
 
 # Query Azure Cosmos DB data with a serverless SQL pool in Azure Synapse Link
 
-A serverless SQL pool allows you to analyze data in your Azure Cosmos DB containers that are enabled with [Azure Synapse Link](../../cosmos-db/synapse-link.md) in near real time without affecting the performance of your transactional workloads. It offers a familiar T-SQL syntax to query data from the [analytical store](../../cosmos-db/analytical-store-introduction.md) and integrated connectivity to a wide range of business intelligence (BI) and ad-hoc querying tools via the T-SQL interface.
+A serverless SQL pool allows you to analyze data in your Azure Cosmos DB containers that are enabled with [Azure Synapse Link](/azure/cosmos-db/synapse-link) in near real time without affecting the performance of your transactional workloads. It offers a familiar T-SQL syntax to query data from the [analytical store](/azure/cosmos-db/analytical-store-introduction) and integrated connectivity to a wide range of business intelligence (BI) and ad-hoc querying tools via the T-SQL interface.
 
-For querying Azure Cosmos DB, the full [SELECT](/sql/t-sql/queries/select-transact-sql?view=azure-sqldw-latest&preserve-view=true) surface area is supported through the [OPENROWSET](develop-openrowset.md) function, which includes the majority of [SQL functions and operators](overview-features.md). You can also store results of the query that reads data from Azure Cosmos DB along with data in Azure Blob Storage or Azure Data Lake Storage by using [create external table as select](develop-tables-cetas.md#cetas-in-serverless-sql-pool) (CETAS). You can't currently store serverless SQL pool query results to Azure Cosmos DB by using CETAS.
+For querying Azure Cosmos DB, the full [SELECT](/sql/t-sql/queries/select-transact-sql?view=azure-sqldw-latest&preserve-view=true) surface area is supported through the [OPENROWSET](develop-openrowset.md) function, which includes the majority of [SQL functions and operators](overview-features.md). You can also store results of the query that reads data from Azure Cosmos DB along with data in Azure Blob Storage or Azure Data Lake Storage by using [create external table as select (CETAS)](develop-tables-cetas.md#cetas-in-serverless-sql-pool). You can't currently store serverless SQL pool query results to Azure Cosmos DB by using CETAS.
 
-In this article, you'll learn how to write a query with a serverless SQL pool that will query data from Azure Cosmos DB containers that are enabled with Azure Synapse Link. You can then learn more about building serverless SQL pool views over Azure Cosmos DB containers and connecting them to Power BI models in [this tutorial](./tutorial-data-analyst.md). This tutorial uses a container with an [Azure Cosmos DB well-defined schema](../../cosmos-db/analytical-store-introduction.md#schema-representation). You can also check out the Learn module on how to [Query Azure Cosmos DB with SQL Serverless for Azure Synapse Analytics](/training/modules/query-azure-cosmos-db-with-sql-serverless-for-azure-synapse-analytics/)
+In this article, you'll learn how to write a query with a serverless SQL pool that will query data from Azure Cosmos DB containers that are enabled with Azure Synapse Link. You can then learn more about building serverless SQL pool views over Azure Cosmos DB containers and connecting them to Power BI models in [this tutorial](./tutorial-data-analyst.md). This tutorial uses a container with an [Azure Cosmos DB well-defined schema](/azure/cosmos-db/analytical-store-introduction#schema-representation). You can also check out the Learn module on how to [Query Azure Cosmos DB with SQL Serverless for Azure Synapse Analytics](/training/modules/query-azure-cosmos-db-with-sql-serverless-for-azure-synapse-analytics/).
+
+>[!NOTE]
+> You can’t use managed identity to access an Azure Cosmos DB container from serverless SQL pool.
+
 
 ## Prerequisites
 
 - Make sure that you have prepared Analytical store:
-  - Enable analytical store on [your Cosmos DB containers](../quickstart-connect-synapse-link-cosmos-db.md#enable-azure-cosmos-db-analytical-store).
+  - Enable analytical store on [your Azure Cosmos DB containers](../quickstart-connect-synapse-link-cosmos-db.md#enable-azure-cosmos-db-analytical-store).
   - Get the connection string with a read-only key that you will use to query analytical store. 
-  - Get the read-only [key that will be used to access Cosmos DB container](../../cosmos-db/database-security.md#primary-keys)
+  - Get the read-only [key that will be used to access the Azure Cosmos DB container](/azure/cosmos-db/database-security#primary-keys)
 - Make sure that you have applied all [best practices](best-practices-serverless-sql-pool.md), such as:
-  - Ensure that your Cosmos DB analytical storage is in the same region as serverless SQL pool.
+  - Ensure that your Azure Cosmos DB analytical storage is in the same region as serverless SQL pool.
   - Ensure that the client application (Power BI, Analysis service) is in the same region as serverless SQL pool.
   - If you are returning a large amount of data (bigger than 80GB), consider using caching layer such as Analysis services and load the partitions smaller than 80GB in the Analysis services model.
   - If you are filtering data using string columns, make sure that you are using the `OPENROWSET` function with the explicit `WITH` clause that has the smallest possible types (for example, don't use VARCHAR(1000) if you know that the property has up to 5 characters).
@@ -35,7 +39,7 @@ In this article, you'll learn how to write a query with a serverless SQL pool th
 
 Serverless SQL pool enables you to query Azure Cosmos DB analytical storage using `OPENROWSET` function. 
 - `OPENROWSET` with inline key. This syntax can be used to query Azure Cosmos DB collections without need to prepare credentials.
-- `OPENROWSET` that referenced credential that contains the Cosmos DB account key. This syntax can be used to create views on Azure Cosmos DB collections.
+- `OPENROWSET` that referenced credential that contains the Azure Cosmos DB account key. This syntax can be used to create views on Azure Cosmos DB collections.
 
 ### [OPENROWSET with key](#tab/openrowset-key)
 
@@ -64,6 +68,9 @@ The SQL connection string has the following format:
 ```
 
 The region is optional. If omitted, the container's primary region is used.
+
+> [!IMPORTANT]
+> There is another optional parameter in connection string called `endpoint`. The `endpoint` param is needed for accounts that do not match the standard `*.documents.azure.com` format. For example, if your Azure CosmosDB account ends with `.documents.azure.us`, make sure that you add `endpoint=<account name>.documents.azure.us` in the connection string.
 
 The Azure Cosmos DB container name is specified without quotation marks in the `OPENROWSET` syntax. If the container name has any special characters, for example, a dash (-), the name should be wrapped within square brackets (`[]`) in the `OPENROWSET` syntax.
 
@@ -101,13 +108,13 @@ Database account master key is placed in server-level credential or database sco
 
 ## Sample dataset
 
-The examples in this article are based on data from the [European Centre for Disease Prevention and Control (ECDC) COVID-19 Cases](../../open-datasets/dataset-ecdc-covid-cases.md) and [COVID-19 Open Research Dataset (CORD-19), doi:10.5281/zenodo.3715505](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/).
+The examples in this article are based on data from the [European Centre for Disease Prevention and Control (ECDC) COVID-19 Cases](/azure/open-datasets/dataset-ecdc-covid-cases) and [COVID-19 Open Research Dataset (CORD-19), doi:10.5281/zenodo.3715505](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/).
 
-You can see the license and the structure of data on these pages. You can also download sample data for the [ECDC](https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases/latest/ecdc_cases.json) and [CORD-19](https://azureopendatastorage.blob.core.windows.net/covid19temp/comm_use_subset/pdf_json/000b7d1517ceebb34e1e3e817695b6de03e2fa78.json) datasets.
+You can see the license and the structure of data on these pages. You can also download sample data for the [ECDC](https://pandemicdatalake.blob.core.windows.net/public/curated/covid-19/ecdc_cases/latest/ecdc_cases.json) and CORD-19 datasets.
 
 To follow along with this article showcasing how to query Azure Cosmos DB data with a serverless SQL pool, make sure that you create the following resources:
 
-* An Azure Cosmos DB database account that's [Azure Synapse Link enabled](../../cosmos-db/configure-synapse-link.md).
+* An Azure Cosmos DB database account that's [Azure Synapse Link enabled](/azure/cosmos-db/configure-synapse-link).
 * An Azure Cosmos DB database named `covid`.
 * Two Azure Cosmos DB containers named `Ecdc` and `Cord19` loaded with the preceding sample datasets.
 
@@ -171,7 +178,7 @@ While automatic schema inference capability in `OPENROWSET` provides a simple, e
 
 The `OPENROWSET` function enables you to explicitly specify what properties you want to read from the data in the container and to specify their data types.
 
-Let's imagine that we've imported some data from the [ECDC COVID dataset](../../open-datasets/dataset-ecdc-covid-cases.md) with the following structure into Azure Cosmos DB:
+Let's imagine that we've imported some data from the [ECDC COVID dataset](/azure/open-datasets/dataset-ecdc-covid-cases) with the following structure into Azure Cosmos DB:
 
 ```json
 {"date_rep":"2020-08-13","cases":254,"countries_and_territories":"Serbia","geo_id":"RS"}
@@ -241,6 +248,8 @@ FROM OPENROWSET(
 ```
 
 Do not use `OPENROWSET` without explicitly defined schema because it might impact your performance. Make sure that you use the smallest possible sizes for your columns (for example VARCHAR(100) instead of default VARCHAR(8000)). You should use some UTF-8 collation as default database collation or set it as explicit column collation to avoid [UTF-8 conversion issue](../troubleshoot/reading-utf8-text.md). Collation `Latin1_General_100_BIN2_UTF8` provides best performance when you filter data using some string columns.
+
+When you query the view, you may encounter errors or unexpected results. This probably means that the view references columns or objects that were modified or no longer exist. You need to manually adjust the view definition to align with the underlying schema changes. Have in mind that this can happen both when using automatic schema inference in the view and when explicitly specifying the schema.
 
 ## Query nested objects
 
@@ -395,7 +404,7 @@ The number of cases is information stored as an `int32` value, but there's one v
 > [!IMPORTANT]
 > The `OPENROWSET` function without a `WITH` clause exposes both values with expected types and the values with incorrectly entered types. This function is designed for data exploration and not for reporting. Don't parse JSON values returned from this function to build reports. Use an explicit [WITH clause](#query-items-with-full-fidelity-schema) to create your reports. You should clean up the values that have incorrect types in the Azure Cosmos DB container to apply corrections in the full fidelity analytical store.
 
-If you need to query Azure Cosmos DB accounts of the Mongo DB API kind, you can learn more about the full fidelity schema representation in the analytical store and the extended property names to be used in [What is Azure Cosmos DB Analytical Store?](../../cosmos-db/analytical-store-introduction.md#analytical-schema).
+To query Azure Cosmos DB for MongoDB accounts, you can learn more about the full fidelity schema representation in the analytical store and the extended property names to be used in [What is Azure Cosmos DB Analytical Store?](/azure/cosmos-db/analytical-store-introduction#analytical-schema).
 
 ### Query items with full fidelity schema
 
@@ -433,18 +442,18 @@ FROM OPENROWSET(
 GROUP BY geo_id
 ```
 
-In this example, the number of cases is stored either as `int32`, `int64`, or `float64` values. All values must be extracted to calculate the number of cases per country.
+In this example, the number of cases is stored either as `int32`, `int64`, or `float64` values. All values must be extracted to calculate the number of cases per country/region.
 
 ## Troubleshooting
 
-Review the [self-help page](resources-self-help-sql-on-demand.md#azure-cosmos-db) to find the known issues or troubleshooting steps that can help you to resolve potential problems with Cosmos DB queries.
+Review the [self-help page](resources-self-help-sql-on-demand.md#azure-cosmos-db) to find the known issues or troubleshooting steps that can help you to resolve potential problems with Azure Cosmos DB queries.
 
 ## Next steps
 
 For more information, see the following articles:
 
-- [Use Power BI and serverless SQL pool with Azure Synapse Link](../../cosmos-db/synapse-link-power-bi.md)
+- [Use Power BI and serverless SQL pool with Azure Synapse Link](/azure/cosmos-db/synapse-link-power-bi)
 - [Create and use views in a serverless SQL pool](create-use-views.md)
 - [Tutorial on building serverless SQL pool views over Azure Cosmos DB and connecting them to Power BI models via DirectQuery](./tutorial-data-analyst.md)
-- Visit the [Azure Synapse link for Cosmos DB self-help page](resources-self-help-sql-on-demand.md#azure-cosmos-db) if you are getting some errors or experiencing performance issues.
+- Visit the [Azure Synapse link for Azure Cosmos DB self-help page](resources-self-help-sql-on-demand.md#azure-cosmos-db) if you are getting some errors or experiencing performance issues.
 - Checkout the Learn module on how to [Query Azure Cosmos DB with SQL Serverless for Azure Synapse Analytics](/training/modules/query-azure-cosmos-db-with-sql-serverless-for-azure-synapse-analytics/).

@@ -3,10 +3,11 @@ title: Tutorial - Create a PowerShell Workflow runbook in Azure Automation
 description: This tutorial teaches you to create, test, and publish a PowerShell Workflow runbook.
 services: automation
 ms.subservice: process-automation
-ms.date: 10/28/2021
-ms.topic: tutorial 
-ms.custom: devx-track-azurepowershell
+ms.date: 07/04/2024
+ms.topic: tutorial
+ms.custom:
 #Customer intent: As a developer, I want use workflow runbooks so that I can automate the parallel starting of VMs.
+ms.service: azure-automation
 ---
 
 # Tutorial: Create a PowerShell Workflow runbook in Automation
@@ -14,7 +15,7 @@ ms.custom: devx-track-azurepowershell
 This tutorial walks you through the creation of a [PowerShell Workflow runbook](../automation-runbook-types.md#powershell-workflow-runbooks) in Azure Automation. PowerShell Workflow runbooks are text runbooks based on Windows PowerShell Workflow. You can create and edit the code of the runbook using the text editor in the Azure portal.
 
 >[!NOTE]
->  This article is applicable for PowerShell 5.1; PowerShell 7.1 (preview) does not support workflows.
+> This article is applicable only for PowerShell 5.1. PowerShell 7+ versions do not support Workflows, and outdated runbooks cannot be updated. We recommend you to use PowerShell 7.2 textual runbooks for advanced features such as parallel job execution. [Learn more](../automation-runbook-types.md#limitations) about limitations of PowerShell Workflow runbooks.
 
 In this tutorial, you learn how to:
 
@@ -31,8 +32,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 * An Azure Automation account with at least one user-assigned managed identity. For more information, see [Enable managed identity](../quickstarts/enable-managed-identity.md).
 * Az modules: `Az.Accounts` and `Az.Compute` imported into the Automation account. For more information, see [Import Az modules](../shared-resources/modules.md#import-az-modules).
-* Two or more [Azure virtual machines](../../virtual-machines/windows/quick-create-powershell.md). Since you stop and start these machines, they shouldn't be production VMs.
-* The [Azure Az PowerShell module](/powershell/azure/new-azureps-module-az) installed on your machine. To install or upgrade, see [How to install the Azure Az PowerShell module](/powershell/azure/install-az-ps).
+* Two or more [Azure virtual machines](/azure/virtual-machines/windows/quick-create-powershell). Since you stop and start these machines, they shouldn't be production VMs.
+* The [Azure Az PowerShell module](/powershell/azure/new-azureps-module-az) installed on your machine. To install or upgrade, see [How to install the Azure Az PowerShell module](/powershell/azure/install-azure-powershell).
 
 ## Assign permissions to managed identities
 
@@ -46,7 +47,7 @@ Assign permissions to the appropriate [managed identity](../automation-security-
 
    :::image type="content" source="../media/automation-tutorial-runbook-textual/system-assigned-role-assignments-portal.png" alt-text="Selecting Azure role assignments in portal.":::
 
-1. Select **+ Add role assignment (Preview)** to open the **Add role assignment (Preview)** page. 
+1. Select **+ Add role assignment (Preview)** to open the **Add role assignment (Preview)** page.
 
    :::image type="content" source="../media/automation-tutorial-runbook-textual/system-assigned-add-role-assignment-portal.png" alt-text="Add role assignments in portal.":::
 
@@ -71,7 +72,7 @@ Assign permissions to the appropriate [managed identity](../automation-security-
 
    :::image type="content" source="../media/automation-tutorial-runbook-textual/managed-identity-client-id-portal.png" alt-text="Showing Client ID for managed identity in portal":::
 
-1. From the left menu, select **Azure role assignments** and then **+ Add role assignment (Preview)** to open the **Add role assignment (Preview)** page. 
+1. From the left menu, select **Azure role assignments** and then **+ Add role assignment (Preview)** to open the **Add role assignment (Preview)** page.
 
    :::image type="content" source="../media/automation-tutorial-runbook-textual/user-assigned-add-role-assignment-portal.png" alt-text="Add role assignments in portal for user-assigned identity.":::
 
@@ -91,7 +92,7 @@ Assign permissions to the appropriate [managed identity](../automation-security-
 Start by creating a simple [PowerShell Workflow runbook](../automation-runbook-types.md#powershell-workflow-runbooks). One advantage of Windows PowerShell Workflows is the ability to perform a set of commands in parallel instead of sequentially as with a typical script.
 
 >[!NOTE]
-> With release runbook creation has a new experience in the Azure portal. When you select **Runbooks** blade > **Create a runbook**, a new page **Create a runbook** opens with applicable options. 
+> With release runbook creation has a new experience in the Azure portal. When you select **Runbooks** blade > **Create a runbook**, a new page **Create a runbook** opens with applicable options.
 
 1. From your open Automation account page, under **Process Automation**, select **Runbooks**
 
@@ -103,18 +104,18 @@ Start by creating a simple [PowerShell Workflow runbook](../automation-runbook-t
     1. From the  **Runtime version** drop-down, select **5.1**.
     1. Enter applicable **Description**.
     1. Select **Create**.
-   
+
     :::image type="content" source="../media/automation-tutorial-runbook-textual/create-powershell-workflow-runbook-options.png" alt-text="PowerShell workflow runbook options from portal":::
-   
+
 
 ## Add code to the runbook
 
 You can either type code directly into the runbook, or you can select cmdlets, runbooks, and assets from the Library control and add them to the runbook with any related parameters. For this tutorial, you type code directly into the runbook.
 
-Your runbook is currently empty with only the required `Workflow` keyword, the name of the runbook, and the braces that encase the entire workflow.
+Your runbook is currently empty with only the required `workflow` keyword, the name of the runbook, and the braces that encase the entire workflow.
 
 ```powershell
-Workflow MyFirstRunbook-Workflow
+workflow MyFirstRunbook-Workflow
 {
 }
 ```
@@ -122,18 +123,19 @@ Workflow MyFirstRunbook-Workflow
 1. You can use the `Parallel` keyword to create a script block with multiple commands that will run concurrently. Enter the following code *between* the braces:
 
    ```powershell
-   Parallel {
-        Write-Output "Parallel"
-        Get-Date
-        Start-Sleep -s 3
-        Get-Date
-    }
-
-   Write-Output " `r`n"
-   Write-Output "Non-Parallel"
-   Get-Date
-   Start-Sleep -s 3
-   Get-Date  
+	parallel
+	{
+		Write-Output "Parallel"
+		Get-Date
+		Start-Sleep -Seconds 3
+		Get-Date
+	}
+	
+	Write-Output " `r`n"
+	Write-Output "Non-Parallel"
+	Get-Date
+	Start-Sleep -Seconds 3
+	Get-Date
    ```
 
 1. Save the runbook by selecting **Save**.
@@ -152,7 +154,7 @@ Before you publish the runbook to make it available in production, you should te
 
    :::image type="content" source="../media/automation-tutorial-runbook-textual/workflow-runbook-parallel-output.png" alt-text="PowerShell workflow runbook parallel output":::
 
-   Review the output. Everything in the `Parallel` block, including the `Start-Sleep` command, executed at the same time. The same commands outside the `Parallel` block ran sequentially, as shown by the different date time stamps. 
+   Review the output. Everything in the `Parallel` block, including the `Start-Sleep` command, executed at the same time. The same commands outside the `Parallel` block ran sequentially, as shown by the different date time stamps.
 
 1. Close the **Test** page to return to the canvas.
 
@@ -189,16 +191,16 @@ You've tested and published your runbook, but so far it doesn't do anything usef
    ```powershell
    workflow MyFirstRunbook-Workflow
    {
-   $resourceGroup = "resourceGroupName"
-    
-   # Ensures you do not inherit an AzContext in your runbook
-   Disable-AzContextAutosave -Scope Process
-    
-   # Connect to Azure with system-assigned managed identity
-   Connect-AzAccount -Identity
-    
-   # set and store context
-   $AzureContext = Set-AzContext –SubscriptionId "<SubscriptionID>"   
+   	$resourceGroup = "resourceGroupName"
+   	
+   	# Ensures you do not inherit an AzContext in your runbook
+   	Disable-AzContextAutosave -Scope Process
+   	
+   	# Connect to Azure with system-assigned managed identity
+   	Connect-AzAccount -Identity
+   	
+   	# set and store context
+   	$AzureContext = Set-AzContext -SubscriptionId "<SubscriptionID>"
    }
    ```
 
@@ -219,9 +221,9 @@ You've tested and published your runbook, but so far it doesn't do anything usef
 
 ## Add code to start a virtual machine
 
-Now that your runbook is authenticating to the Azure subscription, you can manage resources. Add a command to start a virtual machine. You can pick any VM in your Azure subscription, and for now you're hardcoding that name in the runbook. 
+Now that your runbook is authenticating to the Azure subscription, you can manage resources. Add a command to start a virtual machine. You can pick any VM in your Azure subscription, and for now you're hardcoding that name in the runbook.
 
-1. Add the code below as the last line immediately before the closing brace. Replace `VMName` with the actual name of a VM. 
+1. Add the code below as the last line immediately before the closing brace. Replace `VMName` with the actual name of a VM.
 
    ```powershell
    Start-AzVM -Name "VMName" -ResourceGroupName $resourceGroup -DefaultProfile $AzureContext
@@ -235,11 +237,11 @@ Your runbook currently starts the VM that you've hardcoded in the runbook. It wi
 
 1. Replace line 3, `$resourceGroup = "resourceGroupName"`, with the following:
 
-    ```powershell
-    Param(
-        [string]$resourceGroup,
-        [string]$VMName
-    )
+   ```powershell
+   Param(
+       [string]$resourceGroup,
+       [string]$VMName
+   )
    ```
 
 1. Replace the previous `Start-AzVM` command with the following:
@@ -262,43 +264,46 @@ You can use the `ForEach -Parallel` construct to process commands for each item 
     ```powershell
     workflow MyFirstRunbook-Workflow
     {
-    Param(
-        [string]$resourceGroup,
-        [string[]]$VMs,
-        [string]$action
-    )
-    
-    # Ensures you do not inherit an AzContext in your runbook
-    Disable-AzContextAutosave -Scope Process
-    
-    # Connect to Azure with system-assigned managed identity
-    Connect-AzAccount -Identity
-    
-    # set and store context
-    $AzureContext = Set-AzContext –SubscriptionId "<SubscriptionID>"   
-    
-    # Start or stop VMs in parallel
-    if($action -eq "Start")
-        {
-            ForEach -Parallel ($vm in $VMs)
-            {
-                Start-AzVM -Name $vm -ResourceGroupName $resourceGroup -DefaultProfile $AzureContext
-            }
-        }
-    elseif ($action -eq "Stop")
-        {
-            ForEach -Parallel ($vm in $VMs)
-            {
-                Stop-AzVM -Name $vm -ResourceGroupName $resourceGroup -DefaultProfile $AzureContext -Force
-            }
-        }
-    else {
-    	    Write-Output "`r`n Action not allowed. Please enter 'stop' or 'start'."
+    	param
+    	(
+    		[string]$resourceGroup,
+    		[string[]]$VMs,
+    		[string]$action
+    	)
+
+    	# Ensures you do not inherit an AzContext in your runbook
+    	Disable-AzContextAutosave -Scope Process
+
+    	# Connect to Azure with system-assigned managed identity
+    	Connect-AzAccount -Identity
+
+    	# set and store context
+    	$AzureContext = Set-AzContext -SubscriptionId "<SubscriptionID>"
+
+    	# Start or stop VMs in parallel
+    	if ($action -eq "Start")
+    	{
+    		ForEach -Parallel ($vm in $VMs)
+    		{
+    			Start-AzVM -Name $vm -ResourceGroupName $resourceGroup -DefaultProfile $AzureContext
+    		}
+    	}
+    	elseif ($action -eq "Stop")
+    	{
+    		ForEach -Parallel ($vm in $VMs)
+    		{
+    			Stop-AzVM -Name $vm -ResourceGroupName $resourceGroup -DefaultProfile $AzureContext -Force
+    		}
+    	}
+    	else
+    	{
+    		Write-Output "`r`n Action not allowed. Please enter 'stop' or 'start'."
     	}
     }
     ```
 
 1. If you want the runbook to execute with the system-assigned managed identity, leave the code as-is. If you prefer to use a user-assigned managed identity, then:
+
     1. From line 9, remove `Connect-AzAccount -Identity`,
     1. Replace it with `Connect-AzAccount -Identity -AccountId <ClientId>`, and
     1. Enter the Client ID you obtained earlier.
@@ -315,7 +320,7 @@ You can use the `ForEach -Parallel` construct to process commands for each item 
    |VMs|Enter the names of the virtual machines using the following syntax: `["VM1","VM2","VM3"]`|
    |Action|Enter `stop` or `start`.|
 
-1. Navigate to your list of virtual machines and refresh the page every few seconds. Observe that the action for each VM happens in parallel. Without the `-Parallel` keyword, the actions would have performed sequentially. While the VMs will start sequentially, each VM may reach the **Running** phase at slightly different times based on the characteristics of each VM.
+1. Navigate to your list of virtual machines and refresh the page every few seconds. Observe that the action for each VM happens in parallel. Without the `-Parallel` keyword, the actions would have performed sequentially. While the VMs will start in parallel, each VM may reach the **Running** phase at slightly different times based on the characteristics of each VM.
 
 ## Clean up resources
 
@@ -331,4 +336,4 @@ If you're not going to continue to use this runbook, delete it with the followin
 In this tutorial, you created a PowerShell workflow runbook. For a look at Python 3 runbooks, see:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Create a Python 3 runbook (preview)](automation-tutorial-runbook-textual-python-3.md)
+> [Tutorial: Create a Python 3 runbook](automation-tutorial-runbook-textual-python-3.md)

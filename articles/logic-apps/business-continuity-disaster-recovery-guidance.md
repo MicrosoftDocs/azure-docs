@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 08/20/2022
+ms.date: 01/10/2024
 ---
 
 # Business continuity and disaster recovery for Azure Logic Apps
@@ -14,60 +14,42 @@ To help reduce the impact and effects that unpredictable events have on your bus
 
 This article provides BCDR guidance and strategies that you can apply when you build automated workflows by using [Azure Logic Apps](../logic-apps/logic-apps-overview.md). Logic app workflows help you more easily integrate and orchestrate data between apps, cloud services, and on-premises systems by reducing how much code that you have to write. When you plan for BCDR, make sure that you consider not just your logic apps, but also these Azure resources that you use with your logic apps:
 
-* [Connections](../connectors/apis-list.md) that you create from logic apps to other apps, services, and systems. For more information, see [Connections to resources](#resource-connections) later in this topic.
+* [Connections](../connectors/introduction.md) that you create from logic app workflows to other apps, services, and systems. For more information, see [Connections to resources](#resource-connections) later in this topic.
 
 * [On-premises data gateways](../logic-apps/logic-apps-gateway-connection.md) which are Azure resources that you create and use in your logic apps to access data in on-premises systems. Each gateway resource represents a separate [data gateway installation](../logic-apps/logic-apps-gateway-install.md) on a local computer. For more information, see [On-premises data gateways](#on-premises-data-gateways) later in this topic.
 
 * [Integration accounts](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) where you define and store the artifacts that logic apps use for [business-to-business (B2B) enterprise integration](../logic-apps/logic-apps-enterprise-integration-overview.md) scenarios. For example, you can [set up cross-region disaster recovery for integration accounts](../logic-apps/logic-apps-enterprise-integration-b2b-business-continuity.md).
 
-* [Integration service environments (ISEs)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) where you create logic apps that run in an isolated Logic Apps runtime instance within an Azure virtual network. These logic apps can then access resources that are protected behind a firewall in that virtual network.
-
 <a name="primary-secondary-locations"></a>
 
 ## Primary and secondary locations
 
-Each logic app needs to specify the location that you want to use for deployment. This location is either a public region in global multi-tenant Azure, such as "West US", or an integration service environment (ISE) that you previously created and deployed into an Azure virtual network. Running logic apps in an ISE is similar to running logic apps in a global Azure region, which means your disaster recovery strategy can apply to both scenarios. However, ISEs have other considerations such as configuring access to resources that are available only to ISEs.
+Each logic app needs to specify the location that you want to use for deployment, such as an Azure region, for example, "West US". This disaster recovery strategy focuses on setting up your primary logic app to [*failover*](https://en.wikipedia.org/wiki/Failover) onto a standby or backup logic app in an alternate location where Azure Logic Apps is also available. That way, if the primary suffers losses, disruptions, or failures, the secondary can take on the work. This strategy requires that your secondary logic app and dependent resources are already deployed and ready in the alternate location.
 
 > [!NOTE]
+>
 > If your logic app also works with B2B artifacts, such as trading partners, agreements, schemas, maps, and certificates, 
-> which are stored in an integration account, both your integration account and logic apps must specify the same location.
+> which are stored in an integration account, both your integration account and logic apps must use the same location.
 
-This disaster recovery strategy focuses on setting up your primary logic app to [*failover*](https://en.wikipedia.org/wiki/Failover) onto a standby or backup logic app in an alternate location where Azure Logic Apps is also available. That way, if the primary suffers losses, disruptions, or failures, the secondary can take on the work. This strategy requires that your secondary logic app and dependent resources are already deployed and ready in the alternate location.
-
-If you follow good DevOps practices, you already use [Azure Resource Manager templates](../azure-resource-manager/management/overview.md) to define and deploy your logic apps and their dependent resources. Resource Manager templates give you the capability to use a single deployment definition and then use parameter files to provide the configuration values to use for each deployment destination. This capability means that you can deploy the same logic app to different environments, for example, development, test, and production. You can also deploy the same logic app to different Azure regions or ISEs, which support disaster recovery strategies that use [paired-regions](../availability-zones/cross-region-replication-azure.md).
+If you follow good DevOps practices, you already use [Azure Resource Manager templates](../azure-resource-manager/management/overview.md) to define and deploy your logic apps and their dependent resources. Resource Manager templates give you the capability to use a single deployment definition and then use parameter files to provide the configuration values to use for each deployment destination. This capability means that you can deploy the same logic app to different environments, for example, development, test, and production. You can also deploy the same logic app to different Azure regions, which support disaster recovery strategies that use [paired-regions](../availability-zones/cross-region-replication-azure.md).
 
 For the failover strategy, your logic apps and locations must meet these requirements:
 
 * The secondary logic app instance has access to the same apps, services, and systems as the primary logic app instance.
 
-* Both logic app instances have the same host type. So, either both instances are deployed to regions in global multi-tenant Azure, or both instances are deployed to ISEs, which let your logic apps directly access resources in an Azure virtual network. For best practices and more information about paired regions for BCDR, see [Cross-region replication in Azure: Business continuity and disaster recovery](../availability-zones/cross-region-replication-azure.md).
+* Both logic app instances have the same host type. So, both instances are deployed to regions in global multitenant Azure Logic Apps or regions in single-tenant Azure Logic Apps. For best practices and more information about paired regions for BCDR, see [Cross-region replication in Azure: Business continuity and disaster recovery](../availability-zones/cross-region-replication-azure.md).
 
-  For example, both the primary and secondary locations must be ISEs when the primary logic app runs in an ISE and uses [ISE-versioned connectors](../connectors/managed.md#ise-connectors), HTTP actions to call resources in the Azure virtual network, or both. In this scenario, your secondary logic app must also have a similar setup in the secondary location as the primary logic app.
+#### Example: Multitenant Azure
 
-  > [!NOTE]
-  > For more advanced scenarios, you can mix both multi-tenant Azure and an 
-  > ISE as locations. However, make sure that you consider and understand the 
-  > [differences between how logic apps run in an ISE versus multi-tenant Azure](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#difference).
-
-* If you use ISEs, [make sure that they are scaled out or have enough capacity](../logic-apps/ise-manage-integration-service-environment.md#add-capacity) to handle the load.
-
-#### Example: Multi-tenant Azure
-
-This example shows primary and secondary logic app instances, which are deployed to separate regions in the global multi-tenant Azure for this scenario. A single [Resource Manager template](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) defines both logic app instances and the dependent resources required by those logic apps. Separate parameter files specify the configuration values to use for each deployment location:
+This example shows primary and secondary logic app instances, which are deployed to separate regions in the global multitenant Azure for this scenario. A single [Resource Manager template](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) defines both logic app instances and the dependent resources required by those logic apps. Separate parameter files specify the configuration values to use for each deployment location:
 
 ![Primary and secondary logic app instances in separate locations](./media/business-continuity-disaster-recovery-guidance/primary-secondary-locations.png)
-
-#### Example: Integration service environment
-
-This example shows the previous primary and secondary logic app instances but deployed to separate ISEs. A single Resource Manager template defines both logic app instances, the dependent resources required by those logic apps, and the ISEs as the deployment locations. Separate parameter files define the configuration values to use for deployment in each location:
-
-![Primary and secondary logic apps in different locations](./media/business-continuity-disaster-recovery-guidance/primary-secondary-locations-ise.png)
 
 <a name="resource-connections"></a>
 
 ## Connections to resources
 
-Azure Logic Apps provides [built-in triggers and actions plus hundreds of managed connectors](../connectors/apis-list.md) that your logic app can use to work with other apps, services, systems, and other resources, such as Azure Storage accounts, SQL Server databases, work or school email accounts, and so on. If your logic app needs access to these resources, you create connections that authenticate access to these resources. Each connection is a separate Azure resource that exists in a specific location and can't be used by resources in other locations.
+Azure Logic Apps provides [many hundreds of connector operations](../connectors/introduction.md) that your logic app workflow can use to work with other apps, services, systems, and other resources, such as Azure Storage accounts, SQL Server databases, work or school email accounts, and so on. If your logic app needs access to these resources, you create connections that authenticate access to these resources. Each connection is a separate Azure resource that exists in a specific location and can't be used by resources in other locations.
 
 For your disaster recovery strategy, consider the locations where dependent resources exist relative to your logic app instances:
 
@@ -83,19 +65,9 @@ For your disaster recovery strategy, consider the locations where dependent reso
 
 ## On-premises data gateways
 
-If your logic app runs in multi-tenant Azure and needs access to on-premises resources such as SQL Server databases, you need to install the [on-premises data gateway](../logic-apps/logic-apps-gateway-install.md) on a local computer. You can then create a data gateway resource in the Azure portal so that your logic app can use the gateway when you create a connection to the resource.
+If your logic app runs in multitenant Azure and needs access to on-premises resources such as SQL Server databases, you need to install the [on-premises data gateway](../logic-apps/logic-apps-gateway-install.md) on a local computer. You can then create a data gateway resource in the Azure portal so that your logic app can use the gateway when you create a connection to the resource.
 
 The data gateway resource is associated with a location or Azure region, just like your logic app resource. In your disaster recovery strategy, make sure that the data gateway remains available for your logic app to use. You can [enable high availability for your gateway](../logic-apps/logic-apps-gateway-install.md#high-availability) when you have multiple gateway installations.
-
-> [!NOTE]
-> If your logic app runs in an integration service environment (ISE) and uses only 
-> ISE-versioned connectors for on-premises data sources, you don't need the data 
-> gateway because ISE connectors provide direct access to the the on-premises resource.
->
-> If no ISE-versioned connector is available for the on-premises resource that you want, 
-> your logic app can still create the connection by using a non-ISE connector, 
-> which runs in the global multi-tenant Azure, not your ISE. However, this connection 
-> requires the on-premises data gateway.
 
 <a name="roles"></a>
 
@@ -178,7 +150,7 @@ To minimize the number of abandoned in-progress workflow instances, you can choo
 
 ### Access to trigger and runs history
 
-To get more information about your logic app's past workflow executions, you can review the app's trigger and runs history. A logic app's history execution history is stored in the same location or region where that logic app ran, which means you can't migrate this history to a different location. If your primary instance fails over to a secondary instance, you can only access each instance's trigger and runs history in the respective locations where those instances ran. However, you can get location-agnostic information about your logic app's history by setting up your logic apps to send diagnostic events to an Azure Log Analytics workspace. You can then review the health and history across logic apps that run in multiple locations.
+To get more information about your logic app's past workflow executions, you can review the app's trigger and runs history. A logic app's execution history is stored in the same location or region where that logic app ran, which means you can't migrate this history to a different location. If your primary instance fails over to a secondary instance, you can only access each instance's trigger and runs history in the respective locations where those instances ran. However, you can get location-agnostic information about your logic app's history by setting up your logic apps to send diagnostic events to an Azure Log Analytics workspace. You can then review the health and history across logic apps that run in multiple locations.
 
 <a name="trigger-types-guidance"></a>
 
@@ -200,7 +172,7 @@ The **Recurrence** trigger is independent from any specific service or endpoint,
 * A fixed frequency and interval, such as every 10 minutes
 * A more advanced schedule, such as the last Monday of every month at 5:00 PM
 
-When your logic app starts with a Recurrence trigger, you need to set up your primary and secondary logic app instances with the [active-passive roles](#roles). To reduce the *recovery time objective* (RTO), which refers to the target duration for restoring a business process after a disruption or disaster, you can set up your logic app instances with a combination of [active-passive roles](#roles) and [passive-active roles](#roles). In this setup, you split the schedule across locations.
+When your logic app starts with a Recurrence trigger, you need to set up your primary and secondary logic app instances with the [active-passive roles](#roles). To reduce the *recovery time objective (RTO)*, which refers to the target duration for restoring a business process after a disruption or disaster, you can set up your logic app instances with a combination of [active-passive roles](#roles) and [passive-active roles](#roles). In this setup, you split the schedule across locations.
 
 For example, suppose that you have a logic app that needs to run every 10 minutes. You can set up your logic apps and locations so that if the primary location becomes unavailable, the secondary location can take over the work:
 
@@ -323,8 +295,8 @@ For this task, create a basic health-check logic app that performs these tasks:
 To monitor the primary instance's health and call the health-check logic app, create a "watchdog" logic app in an *alternate location*. For example, you can set up the watchdog logic app so that if calling the health-check logic fails, the watchdog can send an alert to your operations team so that they can investigate the failure and why the primary instance doesn't respond.
 
 > [!IMPORTANT]
-> Make sure that your watchdog logic app is in a *location that differs from primary location*. If the 
-> Logic Apps service in the primary location experiences problems, your watchdog logic app might not run.
+> Make sure that your watchdog logic app is in a *location that differs from primary location*. If Azure 
+> Logic Apps in the primary location experiences problems, your watchdog logic app workflow might not run.
 
 For this task, in the secondary location, create a watchdog logic app that performs these tasks:
 
@@ -332,7 +304,9 @@ For this task, in the secondary location, create a watchdog logic app that perfo
 
    You can set the recurrence to a value that below the tolerance level for your recovery time objective (RTO).
 
-1. Call the health-check logic app in the primary location by using the HTTP action, for example:
+1. Call the health-check logic app workflow in the primary location by using the HTTP action.
+
+You might also create a more sophisticated watchdog logic app, which after a number of failures, that calls another logic app that automatically handles switching to the secondary location when the primary fails.
 
 <a name="activate-secondary"></a>
 
@@ -359,7 +333,7 @@ Currently, this capability is preview and available for new Consumption logic ap
 
 You can set up logging for your logic app runs and send the resulting diagnostic data to services such as Azure Storage, Azure Event Hubs, and Azure Log Analytics for further handling and processing.
 
-* If you want to use this data with Azure Log Analytics, you can make the data available for both the primary and secondary locations by setting up your logic app's **Diagnostic settings** and sending the data to multiple Log Analytics workspaces. For more information, see [Set up Azure Monitor logs and collect diagnostics data for Azure Logic Apps](../logic-apps/monitor-logic-apps-log-analytics.md).
+* If you want to use this data with Azure Log Analytics, you can make the data available for both the primary and secondary locations by setting up your logic app's **Diagnostic settings** and sending the data to multiple Log Analytics workspaces. For more information, see [Set up Azure Monitor logs and collect diagnostics data for Azure Logic Apps](../logic-apps/monitor-workflows-collect-diagnostic-data.md).
 
 * If you want to send the data to Azure Storage or Azure Event Hubs, you can make the data available for both the primary and secondary locations by setting up geo-redundancy. For more information, see these articles:<p>
 

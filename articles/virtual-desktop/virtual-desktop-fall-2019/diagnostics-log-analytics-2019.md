@@ -1,11 +1,11 @@
 ---
 title: Azure Virtual Desktop (classic) diagnostics log analytics - Azure
 description: How to use log analytics with the Azure Virtual Desktop (classic) diagnostics feature.
-author: Heidilohr
+author: dknappettmsft
 ms.topic: how-to
 ms.date: 03/30/2020
-ms.author: helohr
-manager: femila
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
 # Use Log Analytics for the diagnostics feature in Azure Virtual Desktop (classic)
 
@@ -16,7 +16,7 @@ Azure Virtual Desktop offers a diagnostics feature that allows the administrator
 
 - Feed subscription activities: when a user tries to connect to their feed through Microsoft Remote Desktop applications.
 - Connection activities: when a user tries to connect to a desktop or RemoteApp through Microsoft Remote Desktop applications.
-- Management activities: when an administrator performs management operations on the system, such as creating host pools, assigning users to app groups, and creating role assignments.
+- Management activities: when an administrator performs management operations on the system, such as creating host pools, assigning users to application groups, and creating role assignments.
 
 Connections that don't reach Azure Virtual Desktop won't show up in diagnostics results because the diagnostics role service itself is part of Azure Virtual Desktop. Azure Virtual Desktop connection issues can happen when the user is experiencing network connectivity issues.
 
@@ -26,9 +26,9 @@ We recommend you use Log Analytics to analyze diagnostics data in the Azure clie
 
 ## Before you get started
 
-Before you can use Log Analytics with the diagnostics feature, you'll need to [create a workspace](../../azure-monitor/logs/quick-create-workspace.md).
+Before you can use Log Analytics with the diagnostics feature, you'll need to [create a workspace](/azure/azure-monitor/logs/quick-create-workspace).
 
-After you've created your workspace, follow the instructions in [Connect Windows computers to Azure Monitor](../../azure-monitor/agents/agent-windows.md#workspace-id-and-key) to get the following information:
+After you've created your workspace, follow the instructions in [Connect Windows computers to Azure Monitor](/azure/azure-monitor/agents/agent-windows#workspace-id-and-key) to get the following information:
 
 - The workspace ID
 - The primary key of your workspace
@@ -66,53 +66,33 @@ The following example queries show how the diagnostics feature generates a repor
 
 This first example shows connection activities initiated by users with supported remote desktop clients:
 
-```powershell
+```kusto
 WVDActivityV1_CL
-
 | where Type_s == "Connection"
-
 | join kind=leftouter (
-
     WVDErrorV1_CL
-
     | summarize Errors = makelist(pack('Time', Time_t, 'Code', ErrorCode_s , 'CodeSymbolic', ErrorCodeSymbolic_s, 'Message', ErrorMessage_s, 'ReportedBy', ReportedBy_s , 'Internal', ErrorInternal_s )) by ActivityId_g
-
     ) on $left.Id_g  == $right.ActivityId_g 
-
 | join  kind=leftouter (
-
     WVDCheckpointV1_CL
-
     | summarize Checkpoints = makelist(pack('Time', Time_t, 'ReportedBy', ReportedBy_s, 'Name', Name_s, 'Parameters', Parameters_s) ) by ActivityId_g
-
     ) on $left.Id_g  == $right.ActivityId_g
-
 |project-away ActivityId_g, ActivityId_g1
 ```
 
 This next example query shows management activities by admins on tenants:
 
-```powershell
+```kusto
 WVDActivityV1_CL
-
 | where Type_s == "Management"
-
 | join kind=leftouter (
-
     WVDErrorV1_CL
-
     | summarize Errors = makelist(pack('Time', Time_t, 'Code', ErrorCode_s , 'CodeSymbolic', ErrorCodeSymbolic_s, 'Message', ErrorMessage_s, 'ReportedBy', ReportedBy_s , 'Internal', ErrorInternal_s )) by ActivityId_g
-
     ) on $left.Id_g  == $right.ActivityId_g 
-
 | join  kind=leftouter (
-
     WVDCheckpointV1_CL
-
     | summarize Checkpoints = makelist(pack('Time', Time_t, 'ReportedBy', ReportedBy_s, 'Name', Name_s, 'Parameters', Parameters_s) ) by ActivityId_g
-
     ) on $left.Id_g  == $right.ActivityId_g
-
 |project-away ActivityId_g, ActivityId_g1
 ```
 

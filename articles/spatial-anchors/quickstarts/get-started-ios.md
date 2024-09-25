@@ -8,7 +8,7 @@ ms.author: pamistel
 ms.date: 11/20/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.custom: has-adal-ref, devx-track-azurecli, mode-other
+ms.custom: has-adal-ref, devx-track-azurecli, mode-other, devx-track-azurepowershell
 ---
 
 # Run the sample app: iOS - Xcode (Swift or Objective-C)
@@ -22,7 +22,7 @@ You'll learn how to:
 > * Configure the Spatial Anchors account identifier and account key
 > * Deploy and run on an iOS device
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 

@@ -2,12 +2,12 @@
 title: 'Quickstart: Bulk load data with a dedicated SQL pool'
 description: Use Synapse Studio to bulk load data into a dedicated SQL pool in Azure Synapse Analytics.
 author: WilliamDAssafMSFT
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql
 ms.topic: quickstart
 ms.date: 12/11/2020
 ms.author: wiassaf
-ms.reviewer: sngun
+ms.reviewer: whhender
 ms.custom: mode-ui
 ---
 
@@ -23,7 +23,7 @@ You can bulk load data by right-clicking the following area within Synapse Studi
 
 ## Prerequisites
 
-- The wizard generates a COPY statement, which uses Azure Active Directory (Azure AD) pass-through for authentication. Your [Azure AD user must have access](./sql-data-warehouse/quickstart-bulk-load-copy-tsql-examples.md#d-azure-active-directory-authentication) to the workspace with at least the Storage Blob Data Contributor Azure role for the Azure Data Lake Storage Gen2 account. 
+- The wizard generates a COPY statement, which uses Microsoft Entra pass-through for authentication. Your [Microsoft Entra user must have access](./sql-data-warehouse/quickstart-bulk-load-copy-tsql-examples.md#d-azure-active-directory-authentication) to the workspace with at least the Storage Blob Data Contributor Azure role for the Azure Data Lake Storage Gen2 account. 
 
 - You must have the required [permissions to use the COPY statement](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true#permissions) and Create Table permissions if you're creating a new table to load to.
 

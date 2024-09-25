@@ -1,22 +1,22 @@
 ---
 title: 'Quickstart: Deploy an Azure Red Hat OpenShift cluster with an ARM template or Bicep'
-description: In this Quickstart, learn how to create an Azure Red Hat OpenShift cluster using an Azure Resource Manager template or a Bicep file.
+description: In this article, learn how to create an Azure Red Hat OpenShift cluster using an Azure Resource Manager template or a Bicep file.
 author: johnmarco
 ms.service: azure-redhat-openshift
 ms.topic: quickstart
-ms.custom: mode-arm
+ms.custom: mode-arm, devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template, devx-track-bicep
 ms.author: johnmarc
-ms.date: 03/17/2022
+ms.date: 08/27/2024
 keywords: azure, openshift, aro, red hat, arm, bicep
-#Customer intent: I need to use ARM templates or Bicep files to deploy my Azure Red Hat OpenShift cluster.
 zone_pivot_groups: azure-red-hat-openshift
+#Customer intent: I need to use ARM templates or Bicep files to deploy my Azure Red Hat OpenShift cluster.
 ---
 
 # Quickstart: Deploy an Azure Red Hat OpenShift cluster with an Azure Resource Manager template or Bicep file
 
-This quickstart describes how to use either Azure Resource Manager template (ARM template) or Bicep to create an Azure Red Hat OpenShift cluster. You can deploy the Azure Red Hat OpenShift cluster with either PowerShell or the Azure command-line interface (Azure CLI).
+This article describes how to use either Azure Resource Manager template (ARM template) or Bicep to create an Azure Red Hat OpenShift cluster. You can deploy the Azure Red Hat OpenShift cluster with either PowerShell or the Azure command-line interface (Azure CLI).
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 Bicep is a domain-specific language (DSL) that uses declarative syntax to deploy Azure resources. In a Bicep file, you define the infrastructure you want to deploy to Azure, and then use that file throughout the development lifecycle to repeatedly deploy your infrastructure. Your resources are deployed in a consistent manner.
 
@@ -32,13 +32,13 @@ Bicep is a domain-specific language (DSL) that uses declarative syntax to deploy
 
 * An Azure account with an active subscription is required. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/).
 
-* Ability to assign User Access Administrator and Contributor roles. If you lack this ability, contact your Azure Active Directory admin to manage roles.
+* Ability to assign User Access Administrator and Contributor roles. If you lack this ability, contact your Microsoft Entra admin to manage roles.
 
 * A Red Hat account. If you don't have one, you'll have to [register for an account](https://www.redhat.com/wapps/ugc/register.html).
 
 * A pull secret for your Azure Red Hat OpenShift cluster. [Download the pull secret file from the Red Hat OpenShift Cluster Manager web site](https://cloud.redhat.com/openshift/install/azure/aro-provisioned).
 
-* If you want to run the Azure PowerShell code locally, [Azure PowerShell](/powershell/azure/install-az-ps).
+* If you want to run the Azure PowerShell code locally, [Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 * If you want to run the Azure CLI code locally:
     * A Bash shell (such as Git Bash, which is included in [Git for Windows](https://gitforwindows.org)).
@@ -371,7 +371,7 @@ More Azure Red Hat OpenShift templates can be found on the [Red Hat OpenShift we
 
 Create the following Bicep file containing the definition for the Azure Red Hat OpenShift cluster. The following example shows how your Bicep file should look when configured.
 
-Save the following file as *azuredeploy.json*:
+Save the following file as *azuredeploy.bicep*:
 
 ```bicep
 @description('Location')
@@ -453,7 +453,31 @@ param aadClientSecret string
 @description('The ObjectID of the Resource Provider Service Principal')
 param rpObjectId string
 
-var contribRole = '/subscriptions/${subscription().subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c'
+@description('Specify if FIPS validated crypto modules are used')
+@allowed([
+  'Enabled'
+  'Disabled'
+])
+param fips string = 'Disabled'
+
+@description('Specify if master VMs are encrypted at host')
+@allowed([
+  'Enabled'
+  'Disabled'
+])
+param masterEncryptionAtHost string = 'Disabled'
+
+@description('Specify if worker VMs are encrypted at host')
+@allowed([
+  'Enabled'
+  'Disabled'
+])
+param workerEncryptionAtHost string = 'Disabled'
+
+var contributorRoleDefinitionId = resourceId('Microsoft.Authorization/roleDefinitions', 'b24988ac-6180-42a0-ab88-20f7382dd24c')
+var resourceGroupId = '/subscriptions/${subscription().subscriptionId}/resourceGroups/aro-${domain}-${location}'
+var masterSubnetId=resourceId('Microsoft.Network/virtualNetworks/subnets', clusterVnetName, 'master')
+var workerSubnetId=resourceId('Microsoft.Network/virtualNetworks/subnets', clusterVnetName, 'worker')
 
 resource clusterVnetName_resource 'Microsoft.Network/virtualNetworks@2020-05-01' = {
   name: clusterVnetName
@@ -493,37 +517,36 @@ resource clusterVnetName_resource 'Microsoft.Network/virtualNetworks@2020-05-01'
   }
 }
 
-resource clusterVnetName_Microsoft_Authorization_id_name_aadObjectId 'Microsoft.Network/virtualNetworks/providers/roleAssignments@2018-09-01-preview' = {
-  name: '${clusterVnetName}/Microsoft.Authorization/${guid(resourceGroup().id, deployment().name, aadObjectId)}'
+resource clusterVnetName_Microsoft_Authorization_id_name_aadObjectId 'Microsoft.Authorization/roleAssignments@2020-10-01-preview' = {
+  name: guid(aadObjectId, clusterVnetName_resource.id, contributorRoleDefinitionId)
+  scope: clusterVnetName_resource
   properties: {
-    roleDefinitionId: contribRole
+    roleDefinitionId: contributorRoleDefinitionId
     principalId: aadObjectId
+    principalType: 'ServicePrincipal'
   }
-  dependsOn: [
-    clusterVnetName_resource
-  ]
 }
 
-resource clusterVnetName_Microsoft_Authorization_id_name_rpObjectId 'Microsoft.Network/virtualNetworks/providers/roleAssignments@2018-09-01-preview' = {
-  name: '${clusterVnetName}/Microsoft.Authorization/${guid(resourceGroup().id, deployment().name, rpObjectId)}'
+resource clusterVnetName_Microsoft_Authorization_id_name_rpObjectId 'Microsoft.Authorization/roleAssignments@2020-10-01-preview' = {
+  name: guid(rpObjectId, clusterVnetName_resource.id, contributorRoleDefinitionId)
+  scope: clusterVnetName_resource
   properties: {
-    roleDefinitionId: contribRole
+    roleDefinitionId: contributorRoleDefinitionId
     principalId: rpObjectId
+    principalType: 'ServicePrincipal'
   }
-  dependsOn: [
-    clusterVnetName_resource
-  ]
 }
 
-resource clusterName_resource 'Microsoft.RedHatOpenShift/OpenShiftClusters@2020-04-30' = {
+resource clusterName_resource 'Microsoft.RedHatOpenShift/OpenShiftClusters@2023-04-01' = {
   name: clusterName
   location: location
   tags: tags
   properties: {
     clusterProfile: {
       domain: domain
-      resourceGroupId: '/subscriptions/${subscription().subscriptionId}/resourceGroups/aro-${domain}-${location}'
+      resourceGroupId: resourceGroupId
       pullSecret: pullSecret
+      fipsValidatedModules: fips
     }
     networkProfile: {
       podCidr: podCidr
@@ -535,15 +558,17 @@ resource clusterName_resource 'Microsoft.RedHatOpenShift/OpenShiftClusters@2020-
     }
     masterProfile: {
       vmSize: masterVmSize
-      subnetId: resourceId('Microsoft.Network/virtualNetworks/subnets', clusterVnetName, 'master')
+      subnetId: masterSubnetId
+      encryptionAtHost: masterEncryptionAtHost
     }
     workerProfiles: [
       {
         name: 'worker'
         vmSize: workerVmSize
         diskSizeGB: workerVmDiskSize
-        subnetId: resourceId('Microsoft.Network/virtualNetworks/subnets', clusterVnetName, 'worker')
+        subnetId: workerSubnetId
         count: workerCount
+        encryptionAtHost: workerEncryptionAtHost
       }
     ]
     apiserverProfile: {
@@ -568,20 +593,19 @@ resource clusterName_resource 'Microsoft.RedHatOpenShift/OpenShiftClusters@2020-
 
 ## Deploy the azuredeploy.json template
 
-This section provides information on deploying the azuredeploy.json template.
+The azuredeploy.json template is used to deploy an Azure Red Hat OpenShift cluster. The following  parameters are required:
 
-### azuredeploy.json parameters
-
-The azuredeploy.json template is used to deploy an Azure Red Hat OpenShift cluster. The following  parameters are required.
+> [!NOTE]
+> For the `domain` parameter, specify the domain prefix that will be used as part of the auto-generated DNS name for OpenShift console and API servers. This prefix is also used as part of the name of the resource group that is created to host the cluster VMs.
 
 | Property | Description | Valid Options | Default Value |
 |----------|-------------|---------------|---------------|
 | `domain` |The domain prefix for the cluster. | | none |
 | `pullSecret` | The pull secret that you obtained from the Red Hat OpenShift Cluster Manager web site.
 | `clusterName` | The name of the cluster. | |
-| `aadClientId` | The application ID (a GUID) of an Azure Active Directory (Azure AD) client application. | |
-| `aadObjectId` | The object ID (a GUID) of the service principal for the Azure AD client application. | |
-| `aadClientSecret` | The client secret of the service principal for the Azure AD client application, as a secure string. | |
+| `aadClientId` | The application ID (a GUID) of a Microsoft Entra client application. | |
+| `aadObjectId` | The object ID (a GUID) of the service principal for the Microsoft Entra client application. | |
+| `aadClientSecret` | The client secret of the service principal for the Microsoft Entra client application, as a secure string. | |
 | `rpObjectId` | The object ID (a GUID) of the resource provider service principal. | |
 
 The template parameters below have default values. They can be specified, but they aren't explicitly required.
@@ -593,7 +617,7 @@ The template parameters below have default values. They can be specified, but th
 | `clusterVnetCidr` | The address space of the ARO virtual network, in [Classless Inter-Domain Routing](https://wikipedia.org/wiki/Classless_Inter-Domain_Routing) (CIDR) notation. | | 10.100.0.0/15
 | `workerSubnetCidr` | The address space of the worker node subnet, in CIDR notation. | | 10.100.70.0/23
 | `masterSubnetCidr` | The address space of the control plane node subnet, in CIDR notation. | | 10.100.76.0/24
-| `masterVmSize` | The [virtual machine type/size](../virtual-machines/sizes.md) of the control plane node. | | Standard_D8s_v3
+| `masterVmSize` | The [virtual machine type/size](/azure/virtual-machines/sizes) of the control plane node. | | Standard_D8s_v3
 | `workerVmSize` | The virtual machine type/size of the worker node. | | Standard_D4s_v3
 | `workerVmDiskSize` | The disk size of the worker node, in gigabytes. | |  128
 | `workerCount` | The number of worker nodes. | | 3
@@ -611,7 +635,7 @@ Perform the following steps if you're using PowerShell.
 
 ### Before you begin - PowerShell
 
-Before running the commands in this quickstart, you might need to run `Connect-AzAccount`. Check to determine whether you have connectivity to Azure before proceeding. To check whether you have connectivity, run `Get-AzContext` to verify whether you have access to an active Azure subscription.
+Before running the commands in this article, you might need to run `Connect-AzAccount`. Check to determine whether you have connectivity to Azure before proceeding. To check whether you have connectivity, run `Get-AzContext` to verify whether you have access to an active Azure subscription.
 
 > [!NOTE] 
 > This template uses the pull secret text that was obtained from the Red Hat OpenShift Cluster Manager website. Before proceeding, ensure you have the pull secret saved locally as `pull-secret.txt`.
@@ -651,7 +675,7 @@ New-AzResourceGroup -Name $resourceGroup -Location $location
 ```powershell
 $suffix=Get-Random # random suffix for the Service Principal
 $spDisplayName="sp-$resourceGroup-$suffix"
-$azureADAppSp = New-AzADServicePrincipal -DisplayName $displayName -Role Contributor
+$azureADAppSp = New-AzADServicePrincipal -DisplayName $spDisplayName -Role Contributor
 
 New-AzRoleAssignment -ObjectId $azureADAppSp.Id -RoleDefinitionName 'User Access Administrator' -ResourceGroupName $resourceGroup -ObjectType 'ServicePrincipal'
 New-AzRoleAssignment -ObJectId $azureADAppSp.Id -RoleDefinitionName 'Contributor' -ResourceGroupName $resourceGroup -ObjectType 'ServicePrincipal'
@@ -660,7 +684,6 @@ New-AzRoleAssignment -ObJectId $azureADAppSp.Id -RoleDefinitionName 'Contributor
 ### Get the Service Principal password  - PowerShell
 
 ```powershell
-$aadClientSecretDigest = ConvertTo-SecureString -String $azureADAppSp.PasswordCredentials.SecretText -AsPlainText -Force
 $aadClientSecretDigest = ConvertTo-SecureString -String $azureADAppSp.PasswordCredentials.SecretText -AsPlainText -Force
 ```
 
@@ -692,18 +715,18 @@ Write-Verbose (ConvertTo-Json $templateParams) -Verbose
 
 ```powershell
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroup @templateParams `
-    -TemplateParameterFile azuredeploy.json
+    -TemplateFile azuredeploy.json
 ```
 
 ::: zone-end
 
-### Connect to your cluster -  PowerShell
+### Connect to your cluster
 
-To connect to your new cluster, review the steps in [Connect to an Azure Red Hat OpenShift 4 cluster](tutorial-connect-cluster.md).
+To connect to your new cluster, review the steps in [Connect to an Azure Red Hat OpenShift 4 cluster](connect-cluster.md).
 
 ### Clean up resources - PowerShell
 
-Once you're done, run the following command to delete your resource group and all the resources you created in this tutorial.
+Once you're done, run the following command to delete your resource group and all the resources you created in this article.
 
 ```powershell
 Remove-AzResourceGroup -Name $resourceGroup -Force
@@ -714,7 +737,7 @@ Perform the following steps if you're using Azure CLI.
 
 ### Before you begin - Azure CLI
 
-You might need to run `az login` before running the commands in this quickstart. Check whether you have connectivity to Azure before proceeding. To check whether you have connectivity, run `az account list` and verify that you have access to an active Azure subscription.
+You might need to run `az login` before running the commands in this article. Check whether you have connectivity to Azure before proceeding. To check whether you have connectivity, run `az account list` and verify that you have access to an active Azure subscription.
 
 > [!NOTE]
 > This template will use the pull secret text that was obtained from the Red Hat OpenShift Cluster Manager website. Before proceeding
@@ -727,10 +750,10 @@ PULL_SECRET=$(cat pull-secret.txt)    # the pull secret text
 ### Define the following parameters as environment variables - Azure CLI
 
 ```azurecli-interactive
-RESOURCEGROUP=aro-rg   # the new resource group for the cluster
-LOCATION=eastus        # the location of the new cluster
-DOMAIN=mydomain        # the domain prefix for the cluster
-CLUSTER=aro-cluster    # the name of the cluster
+RESOURCEGROUP=aro-rg            # the new resource group for the cluster
+LOCATION=eastus                 # the location of the new cluster
+DOMAIN=mydomain                 # the domain prefix for the cluster
+ARO_CLUSTER_NAME=aro-cluster    # the name of the cluster
 ```
 
 ### Register the required resource providers - Azure CLI
@@ -750,11 +773,13 @@ az provider register --namespace 'Microsoft.Authorization' --wait
 az group create --name $RESOURCEGROUP --location $LOCATION
 ```
 
-### Create a service principal for the new Azure AD application 
+<a name='create-a-service-principal-for-the-new-azure-ad-application'></a>
+
+### Create a service principal for the new Microsoft Entra application 
 - Azure CLI
 
 ```azurecli-interactive
-az ad sp create-for-rbac --name "sp-$RG_NAME-${RANDOM}" --role Contributor > app-service-principal.json
+az ad sp create-for-rbac --name "sp-$RG_NAME-${RANDOM}" > app-service-principal.json
 SP_CLIENT_ID=$(jq -r '.appId' app-service-principal.json)
 SP_CLIENT_SECRET=$(jq -r '.password' app-service-principal.json)
 SP_OBJECT_ID=$(az ad sp show --id $SP_CLIENT_ID | jq -r '.id')
@@ -766,13 +791,13 @@ SP_OBJECT_ID=$(az ad sp show --id $SP_CLIENT_ID | jq -r '.id')
 az role assignment create \
     --role 'User Access Administrator' \
     --assignee-object-id $SP_OBJECT_ID \
-    --resource-group $RESOURCEGROUP \
+    --scope $SCOPE \
     --assignee-principal-type 'ServicePrincipal'
 
 az role assignment create \
     --role 'Contributor' \
     --assignee-object-id $SP_OBJECT_ID \
-    --resource-group $RESOURCEGROUP \
+    --scope $SCOPE \
     --assignee-principal-type 'ServicePrincipal'
 ```
 
@@ -783,6 +808,8 @@ ARO_RP_SP_OBJECT_ID=$(az ad sp list --display-name "Azure Red Hat OpenShift RP" 
 ```
 
 ### Deploy the cluster - Azure CLI
+
+::: zone pivot="aro-arm"
 
 ```azurecli-interactive
 az deployment group create \
@@ -798,30 +825,50 @@ az deployment group create \
     --parameters aadClientSecret=$SP_CLIENT_SECRET \
     --parameters rpObjectId=$ARO_RP_SP_OBJECT_ID
 ```
+::: zone-end
+
+
+::: zone pivot="aro-bicep"
+
+```azurecli-interactive
+az deployment group create \
+    --name aroDeployment \
+    --resource-group $RESOURCEGROUP \
+    --template-file azuredeploy.bicep \
+    --parameters location=$LOCATION \
+    --parameters domain=$DOMAIN \
+    --parameters pullSecret=$PULL_SECRET \
+    --parameters clusterName=$ARO_CLUSTER_NAME \
+    --parameters aadClientId=$SP_CLIENT_ID \
+    --parameters aadObjectId=$SP_OBJECT_ID \
+    --parameters aadClientSecret=$SP_CLIENT_SECRET \
+    --parameters rpObjectId=$ARO_RP_SP_OBJECT_ID
+```
+::: zone-end
 
 ### Connect to your cluster - Azure CLI
 
-To connect to your new cluster, review the steps in [Connect to an Azure Red Hat OpenShift 4 cluster](tutorial-connect-cluster.md).
+To connect to your new cluster, review the steps in [Connect to an Azure Red Hat OpenShift 4 cluster](connect-cluster.md).
 
 ### Clean up resources - Azure CLI
 
-Once you're done, run the following command to delete your resource group and all the resources you created in this tutorial.
+Once you're done, run the following command to delete your resource group and all the resources you created in this article.
 
 ```azurecli-interactive
-az aro delete --resource-group $RESOURCEGROUP --name $ARO_CLUSTER_NAME
+az aro delete --resource-group $RESOURCEGROUP --name $CLUSTER
 ```
 
 > [!TIP]
-> Having issues? Let us know on GitHub by opening an issue in the [Azure Container Apps repo](https://github.com/microsoft/azure-container-apps).
+> Having issues? Let us know on GitHub by opening an issue in the [Azure Red Hat Openshift (ARO) repo](https://github.com/Azure/OpenShift).
 
 ## Next steps
 
 In this article, you learned how to create an Azure Red Hat OpenShift cluster running OpenShift 4 using both ARM templates and Bicep.
 
-Advance to the next article to learn how to configure the cluster for authentication using Azure Active Directory.
+Advance to the next article to learn how to configure the cluster for authentication using Microsoft Entra ID.
 
 * [Rotate service principal credentials for your Azure Red Hat OpenShift (ARO) Cluster](howto-service-principal-credential-rotation.md)
 
-* [Configure authentication with Azure Active Directory using the command line](configure-azure-ad-cli.md)
+* [Configure authentication with Microsoft Entra ID using the command line](configure-azure-ad-cli.md)
 
-* [Configure authentication with Azure Active Directory using the Azure portal and OpenShift web console](configure-azure-ad-cli.md)i
+* [Configure authentication with Microsoft Entra ID using the Azure portal and OpenShift web console](configure-azure-ad-cli.md)i

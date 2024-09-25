@@ -11,7 +11,7 @@
 - name: Quickstarts
   expanded: false
   items:
-  - name: Assign a policy - Portal
+  - name: Assign a policy - Azure portal
     displayName: assign, compliance
     href: ./assign-policy-portal.md
   - name: Assign a policy - Azure CLI
@@ -20,17 +20,8 @@
   - name: Assign a policy - Azure PowerShell
     displayName: assign, compliance
     href: ./assign-policy-powershell.md
-  - name: Assign a policy - .NET
-    displayName: assign, compliance
-    href: ./assign-policy-dotnet.md
-  - name: Assign a policy - JavaScript
-    displayName: assign, compliance
-    href: ./assign-policy-javascript.md
-  - name: Assign a policy - Python
-    displayName: assign, compliance
-    href: ./assign-policy-python.md
   - name: Assign a policy - REST
-    displayName: armclient, postman
+    displayName: az rest
     href: ./assign-policy-rest-api.md
   - name: Assign a policy - ARM template
     displayName: assign, compliance, resource manager
@@ -54,15 +45,15 @@
   - name: Route policy state change events
     displayName: event grid, subject, topic, subscription
     href: ./tutorials/route-state-change-events.md
-  - name: Implement Azure Policy as Code with GitHub
-    displayName: devops, infrastructure as code, iac, release, continuous, delivery, deploy
-    href: ./tutorials/policy-as-code-github.md
   - name: Implement Azure Policy with Azure DevOps
     displayName: devops, pipelines, releases
     href: ./tutorials/policy-devops-pipelines.md
-  - name: "Learn: Control and audit your resources by using Azure Policy"
-    displayName: governance, module
-    href: /training/modules/build-cloud-governance-strategy-azure/6-control-audit-resources-azure-policy
+  - name: Add user assign identities to virtual machines
+    displayName: remediate, identity, user assign, virtual machines, monitoring agent
+    href: ./tutorials/modify-virtual-machine-identity.md
+  - name: Disallow resource types
+    displayName: assign, definition, resource, type, exclusion, allow, disallow
+    href: ./tutorials/disallowed-resources.md
 - name: Samples
   items:
   - name: Index
@@ -102,72 +93,88 @@
       items:
       - name: Australian Government ISM PROTECTED
         href: ./samples/australia-ism.md
-      - name: Azure Security Benchmark
-        href: ./samples/azure-security-benchmark.md
       - name: Canada Federal PBMM
         href: ./samples/canada-federal-pbmm.md
-      - name: CIS Microsoft Azure Foundations Benchmark 1.3.0
-        href: ./samples/cis-azure-1-3-0.md
       - name: CIS Microsoft Azure Foundations Benchmark 1.1.0
         href: ./samples/cis-azure-1-1-0.md
+      - name: CIS Microsoft Azure Foundations Benchmark 1.3.0
+        href: ./samples/cis-azure-1-3-0.md
+      - name: CIS Microsoft Azure Foundations Benchmark 1.4.0
+        href: ./samples/cis-azure-1-4-0.md
+      - name: CIS Microsoft Azure Foundations Benchmark 2.0.0
+        href: ./samples/cis-azure-2-0-0.md
       - name: CMMC Level 3
         href: ./samples/cmmc-l3.md
-      - name: FedRAMP Moderate
-        href: ./samples/fedramp-moderate.md
       - name: FedRAMP High
         href: ./samples/fedramp-high.md
+      - name: FedRAMP Moderate
+        href: ./samples/fedramp-moderate.md
       - name: HIPAA HITRUST 9.2
         href: ./samples/hipaa-hitrust-9-2.md
       - name: IRS 1075 September 2016
         href: ./samples/irs-1075-sept2016.md
       - name: ISO 27001:2013
         href: ./samples/iso-27001.md
-      - name: PCI DSS 3.2.1
-        href: ./samples/pci-dss-3-2-1.md
-      - name: RMIT Malaysia
-        href: ./samples/rmit-malaysia.md
-      - name: New Zealand ISM Restricted v3.5
-        href: ./samples/NZ_ISM_Restricted_v3_5.md
-      - name: NIST SP 800-53 Rev. 5
-        href: ./samples/nist-sp-800-53-r5.md
+      - name: Microsoft cloud security benchmark
+        href: ./samples/azure-security-benchmark.md
+      - name: Microsoft Cloud for Sovereignty Confidential
+        href: ./samples/mcfs-baseline-confidential.md
+      - name: Microsoft Cloud for Sovereignty Global
+        href: ./samples/mcfs-baseline-global.md
       - name: NIST SP 800-53 Rev. 4
         href: ./samples/nist-sp-800-53-r4.md
+      - name: NIST SP 800-53 Rev. 5
+        href: ./samples/nist-sp-800-53-r5.md
       - name: NIST SP 800-171 R2
         href: ./samples/nist-sp-800-171-r2.md
+      - name: NL BIO Cloud Theme
+        href: ./samples/nl-bio-cloud-theme.md
+      - name: PCI DSS 3.2.1
+        href: ./samples/pci-dss-3-2-1.md
+      - name: PCI DSS 4.0
+        href: ./samples/pci-dss-4-0.md
+      - name: RBI ITF Banks v2016
+        href: ./samples/rbi-itf-banks-2016.md
       - name: RBI ITF NBFC v2017
-        href: ./samples/rbi_itf_nbfc_v2017.md
-      - name: SWIFT CSCF 2021
-        href: ./samples/swift-cscf-v2021.md
+        href: ./samples/rbi-itf-nbfc-2017.md
+      - name: RMIT Malaysia
+        href: ./samples/rmit-malaysia.md
+      - name: Spain ENS
+        href: ./samples/spain-ens.md
+      - name: SOC 2 Type 2
+        href: ./samples/soc-2.md
+      - name: SWIFT CSP-CSCF 2021
+        href: ./samples/swift-csp-cscf-2021.md
+      - name: SWIFT CSP-CSCF 2022
+        href: ./samples/swift-csp-cscf-2022.md
       - name: UK OFFICIAL and UK NHS
         href: ./samples/ukofficial-uknhs.md
     - name: Azure Government built-ins
       items:
-      - name: Azure Security Benchmark
-        href: ./samples/gov-azure-security-benchmark.md
-      - name: CIS Microsoft Azure Foundations Benchmark 1.3.0
-        href: ./samples/gov-cis-azure-1-3-0.md
       - name: CIS Microsoft Azure Foundations Benchmark 1.1.0
         href: ./samples/gov-cis-azure-1-1-0.md
+      - name: CIS Microsoft Azure Foundations Benchmark 1.3.0
+        href: ./samples/gov-cis-azure-1-3-0.md
       - name: CMMC Level 3
         href: ./samples/gov-cmmc-l3.md
-      - name: DoD Impact Level 4
-        href: ./samples/gov-dod-impact-level-4.md
-      - name: DoD Impact Level 5
-        href: ./samples/gov-dod-impact-level-5.md
-      - name: FedRAMP Moderate
-        href: ./samples/gov-fedramp-moderate.md
       - name: FedRAMP High
         href: ./samples/gov-fedramp-high.md
+      - name: FedRAMP Moderate
+        href: ./samples/gov-fedramp-moderate.md
       - name: IRS 1075 September 2016
         href: ./samples/gov-irs-1075-sept2016.md
       - name: ISO 27001:2013
         href: ./samples/gov-iso-27001.md
-      - name: NIST SP 800-53 Rev. 5
-        href: ./samples/gov-nist-sp-800-53-r5.md
+      - name: Microsoft cloud security benchmark
+        href: ./samples/gov-azure-security-benchmark.md
       - name: NIST SP 800-53 Rev. 4
         href: ./samples/gov-nist-sp-800-53-r4.md
+      - name: NIST SP 800-53 Rev. 5
+        href: ./samples/gov-nist-sp-800-53-r5.md
       - name: NIST SP 800-171 R2
         href: ./samples/gov-nist-sp-800-171-r2.md
+      - name: SOC 2 Type 2
+        href: ./samples/gov-soc-2.md
   - name: Compute security baselines
     items:
     - name: Docker host security baseline
@@ -179,11 +186,57 @@
 - name: Concepts
   items:
   - name: Definition structure
-    displayName: parameters, location, rule, alias, initiatives
-    href: ./concepts/definition-structure.md
-  - name: Understand effects
-    displayName: order, evaluation
-    href: ./concepts/effects.md
+    items:
+    - name: Basics
+      href: ./concepts/definition-structure-basics.md
+      displayName: basics, location, initiatives, policy type, mode, metadata, display name, description, resource manager modes, resource provider modes, definition structure
+    - name: Parameters
+      href: ./concepts/definition-structure-parameters.md
+      displayName: basics, parameters, parameter values, definition structure
+    - name: Policy rule
+      href: ./concepts/definition-structure-policy-rule.md
+      displayName: policy rule, conditions, fields, tags, value, count, function, limit, definition structure
+    - name: Aliases
+      href: ./concepts/definition-structure-alias.md
+      displayName: alias, array alias, definition structure
+  - name: Understand effect
+    items:
+    - name: Basics
+      href: ./concepts/effect-basics.md
+      displayName: basics, order, evaluation, interchanging, layering
+    - name: Add to network group
+      href: ./concepts/effect-add-to-network-group.md
+      displayName: add network group, addToNetworkGroup
+    - name: Append
+      href: ./concepts/effect-append.md
+      displayName: append
+    - name: Audit
+      href: ./concepts/effect-audit.md
+      displayName: audit
+    - name: Audit if not exists
+      href: ./concepts/effect-audit-if-not-exists.md
+      displayName: audit if not exists, auditIfNotExists
+    - name: Deny
+      href: ./concepts/effect-deny.md
+      displayName: deny
+    - name: Deny action
+      href: ./concepts/effect-deny-action.md
+      displayName: deny action, denyAction
+    - name: Deploy if not exists
+      href: ./concepts/effect-deploy-if-not-exists.md
+      displayName: deploy if not exists, deployIfNotExists
+    - name: Disabled
+      href: ./concepts/effect-disabled.md
+      displayName: disabled
+    - name: Manual
+      href: ./concepts/effect-manual.md
+      displayName: Manual
+    - name: Modify
+      href: ./concepts/effect-modify.md
+      displayName: modify
+    - name: Mutate (preview)
+      href: ./concepts/effect-mutate.md
+      displayName: mutate, preview, aks, kubernetes
   - name: Scope
     displayName: location, notScope, exemption, waiver, save
     href: ./concepts/scope.md
@@ -193,23 +246,29 @@
   - name: Assignment structure
     displayName: parameters, enforcementmode, policyDefinitionId
     href: ./concepts/assignment-structure.md
-  - name: Policy applicability
-    displayName: policy, applicability, scope
-    href: ./concepts/policy-applicability.md
-  - name: Policy attestation
-    displayName: manual policy, compliance, attestation
-    href: ./concepts/attestation-structure.md
-  - name: React to policy state change events
-    displayName: event grid, subject, topic, subscription
-    href: ./concepts/event-overview.md
   - name: Exemption structure
     displayName: waiver, mitigated, compliance
     href: ./concepts/exemption-structure.md
+  - name: Applicability
+    displayName: policy, applicability, scope
+    href: ./concepts/policy-applicability.md
+  - name: Compliance states
+    displayName: compliance, states, evaluation
+    href: ./concepts/compliance-states.md
+  - name: Attestation
+    displayName: manual policy, compliance, attestation
+    href: ./concepts/attestation-structure.md
+  - name: Remediation structure
+    displayName: remediate, remediation task, deployment, deployIfNotExist, modify
+    href: ./concepts/remediation-structure.md
+  - name: React to policy state change events
+    displayName: event grid, subject, topic, subscription
+    href: ./concepts/event-overview.md
   - name: Evaluate the impact of a new policy
     displayName: audit, enforcementmode, compliance
     href: ./concepts/evaluate-impact.md
-  - name: Recommended policies
-    displayName: VMs, virtual machines
+  - name: Virtual machine recommended policies
+    displayName: VM, virtual machine
     href: ./concepts/recommended-policies.md
   - name: Regulatory Compliance
     displayName: standards, domains, controls
@@ -217,20 +276,18 @@
   - name: Design Azure Policy as Code workflows
     displayName: devops, infrastructure as code, iac, release, continuous, delivery, deploy
     href: ./concepts/policy-as-code.md
-  - name: Kubernetes integration
-    items:
-    - name: Azure Policy for Kubernetes
-      displayName: aks, engine, k8s, rego, opa, open policy agent, gatekeeper, v3, crd, constraints, arc
-      href: ./concepts/policy-for-kubernetes.md
-    - name: Secure AKS with Azure Policy
-      displayName: aks, psp, rego, opa
-      href: ../../aks/use-azure-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
   - name: Security
     items:
     - name: Security baseline for Azure Security Benchmark
-      href: /security/benchmark/azure/baselines/policy-security-baseline?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+      href: /security/benchmark/azure/baselines/azure-policy-security-baseline?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
 - name: How-to guides
   items:
+  - name: Safe deployment of Azure Policy assignments
+    displayName: policy, assignments, sdp
+    href: ./how-to/policy-safe-deployment-practices.md
+  - name: Migrate from Automanage
+    displayName: migration, automanage best practices
+    href: ./how-to/migrate-from-automanage-best-practices.md
   - name: Azure Policy extension for VS Code
     displayName: visual studio code
     href: ./how-to/extension-for-vscode.md
@@ -252,27 +309,32 @@
   - name: Remediate non-compliant resources
     displayName: managed identity, task, definition, roleDefinitionIds
     href: ./how-to/remediate-resources.md
+  - name: Kubernetes integration
+    items:
+    - name: Azure Policy for Kubernetes
+      displayName: aks, engine, k8s, rego, opa, open policy agent, gatekeeper, v3, crd, constraints, arc
+      href: ./concepts/policy-for-kubernetes.md
+    - name: Secure AKS with Azure Policy
+      displayName: aks, psp, rego, opa
+      href: /azure/aks/use-azure-policy?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
   - name: Azure Key Vault integration
     items:
     - name: Integrate Key Vault with Azure Policy
       displayName: key vault, certificate, key
-      href: ../../key-vault/general/azure-policy.md?bc=/azure/governance/policy/breadcrumb/toc.json&toc=/azure/governance/policy/toc.json
+      href: /azure/key-vault/general/azure-policy?bc=/azure/governance/policy/breadcrumb/toc.json&toc=/azure/governance/policy/toc.json
   - name: Azure Lighthouse integration
     items:
     - name: Deploy a policy at scale
       displayName: lighthouse, scale, deploy
-      href: ../../lighthouse/how-to/policy-at-scale.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+      href: /azure/lighthouse/how-to/policy-at-scale?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
     - name: Deploy a policy that can be remediated
       displayName: lighthouse, scale, remediate
-      href: ../../lighthouse/how-to/deploy-policy-remediation.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+      href: /azure/lighthouse/how-to/deploy-policy-remediation?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
   - name: Azure Monitor integration
     items:
-    - name: Deploy Azure Monitor at scale
-      displayName: monitor, diagnostic settings, dependency agent
-      href: ../../azure-monitor/best-practices.md?bc=/azure/governance/policy/breadcrumb/toc.json&toc=/azure/governance/policy/toc.json
-    - name: Enable Azure Monitor for VMs (preview)
-      displayName: monitor, insights, log analytics, builtin
-      href: ../../azure-monitor/vm/vminsights-enable-policy.md?bc=/azure/governance/policy/breadcrumb/toc.json&toc=/azure/governance/policy/toc.json
+    - name: Enable VM insights
+      displayName: monitor, monitor agent, vm, insights, log analytics, builtin
+      href: /azure/azure-monitor/vm/vminsights-enable-policy?bc=/azure/governance/policy/breadcrumb/toc.json&toc=/azure/governance/policy/toc.json
   - name: Azure Storage integration
     items:
     - name: Audit TLS with Azure Policy

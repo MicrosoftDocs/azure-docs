@@ -3,21 +3,17 @@ title: Azure Government virtual machine extensions
 description: This article provides customer guidance on how to obtain a complete list of virtual machine extensions available in Azure Government.
 services: azure-government
 cloud: gov
-documentationcenter: ''
 
 ms.service: azure-government
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: azure-government
-ms.date: 08/31/2021 
-ms.custom: devx-track-azurepowershell
+ms.date: 08/31/2021
 ---
 
 # Azure Government virtual machine extensions
 
-Azure [virtual machine (VM) extensions](../virtual-machines/extensions/features-windows.md) are small applications that provide post-deployment configuration and automation tasks on Azure VMs. 
+Azure [virtual machine (VM) extensions](/azure/virtual-machines/extensions/features-windows) are small applications that provide post-deployment configuration and automation tasks on Azure VMs. 
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Virtual machine extensions
 
@@ -44,5 +40,5 @@ Out-File vm-extensions.md
 
 ## Next steps
 
-* [Deploy a Windows virtual machine extension](../virtual-machines/extensions/features-windows.md#run-vm-extensions)
-* [Deploy a Linux virtual machine extension](../virtual-machines/extensions/features-linux.md#run-vm-extensions)
+* [Deploy a Windows virtual machine extension](/azure/virtual-machines/extensions/features-windows#run-vm-extensions)
+* [Deploy a Linux virtual machine extension](/azure/virtual-machines/extensions/features-linux#run-vm-extensions)

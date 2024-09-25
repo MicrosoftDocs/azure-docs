@@ -3,11 +3,9 @@ title: Copy data from SQL Server to Blob storage using PowerShell
 description: Learn how to copy data from an on-premises data store to the Azure cloud by using a self-hosted integration runtime in Azure Data Factory.
 author: nabhishek
 ms.author: abnarain
-ms.service: data-factory
-ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: devx-track-azurepowershell
-ms.date: 09/26/2022
+ms.date: 05/15/2024
 ---
 
 # Tutorial: Copy data from a SQL Server database to Azure Blob storage
@@ -37,7 +35,7 @@ Before you begin, if you don't already have an Azure subscription, [create a fre
 ### Azure roles
 To create data factory instances, the user account you use to sign in to Azure must be assigned a *Contributor* or *Owner* role or must be an *administrator* of the Azure subscription.
 
-To view the permissions you have in the subscription, go to the Azure portal, select your username at the top-right corner, and then select **Permissions**. If you have access to multiple subscriptions, select the appropriate subscription. For sample instructions on adding a user to a role, see the [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md) article.
+To view the permissions you have in the subscription, go to the Azure portal, select your username at the top-right corner, and then select **Permissions**. If you have access to multiple subscriptions, select the appropriate subscription. For sample instructions on adding a user to a role, see the [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml) article.
 
 ### SQL Server 2014, 2016, and 2017
 In this tutorial, you use a SQL Server database as a *source* data store. The pipeline in the data factory you create in this tutorial copies data from this SQL Server database (source) to Azure Blob storage (sink). You then create a table named **emp** in your SQL Server database, and insert a couple of sample entries into the table.
@@ -107,9 +105,9 @@ In this section, you create a blob container named **adftutorial** in your Azure
 
 #### Install Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
-Install the latest version of Azure PowerShell if you don't already have it on your machine. For detailed instructions, see [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
+Install the latest version of Azure PowerShell if you don't already have it on your machine. For detailed instructions, see [How to install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 #### Log in to PowerShell
 
@@ -119,7 +117,7 @@ Install the latest version of Azure PowerShell if you don't already have it on y
 
     ```powershell
     Connect-AzAccount
-    ```        
+    ```
 
 1. If you have multiple Azure subscriptions, run the following command to select the subscription that you want to work with. Replace **SubscriptionId** with the ID of your Azure subscription:
 
@@ -160,7 +158,7 @@ Install the latest version of Azure PowerShell if you don't already have it on y
 
 1. To create the data factory, run the following `Set-AzDataFactoryV2` cmdlet:
 
-    ```powershell       
+    ```powershell
     Set-AzDataFactoryV2 -ResourceGroupName $resourceGroupName -Location $location -Name $dataFactoryName
     ```
 
@@ -311,7 +309,7 @@ In this step, you link your Azure storage account to the data factory.
     > [!IMPORTANT]
     > Before you save the file, replace \<accountName> and \<accountKey> with the name and key of your Azure storage account. You noted them in the [Prerequisites](#get-storage-account-name-and-account-key) section.
 
-   ```json
+    ```json
     {
         "name": "AzureStorageLinkedService",
         "properties": {
@@ -322,11 +320,12 @@ In this step, you link your Azure storage account to the data factory.
             }
         }
     }
-   ```
+    ```
 
 1. In PowerShell, switch to the *C:\ADFv2Tutorial* folder.
+
    ```powershell
-   Set-Location 'C:\ADFv2Tutorial'    
+   Set-Location 'C:\ADFv2Tutorial'
    ```
 
 1. To create the linked service, AzureStorageLinkedService, run the following `Set-AzDataFactoryV2LinkedService` cmdlet:
@@ -374,7 +373,7 @@ In this step, you link your SQL Server instance to the data factory.
             }
         }
     }
-   ```    
+    ```
 
     **Using Windows authentication:**
 
@@ -429,7 +428,8 @@ In this step, you create input and output datasets. They represent input and out
 ### Create a dataset for the source SQL Server database
 In this step, you define a dataset that represents data in the SQL Server database instance. The dataset is of type SqlServerTable. It refers to the SQL Server linked service that you created in the preceding step. The linked service has the connection information that the Data Factory service uses to connect to your SQL Server instance at runtime. This dataset specifies the SQL table in the database that contains the data. In this tutorial, the **emp** table contains the source data.
 
-1. Create a JSON file named *SqlServerDataset.json* in the *C:\ADFv2Tutorial* folder, with the following code:  
+1. Create a JSON file named *SqlServerDataset.json* in the *C:\ADFv2Tutorial* folder, with the following code:
+
     ```json
     {  
         "name":"SqlServerDataset",
@@ -705,10 +705,10 @@ The pipeline automatically creates the output folder named *fromonprem* in the `
 1. Select `fromonprem` in the list of folders.
 1. Confirm that you see a file named `dbo.emp.txt`.
 
-    :::image type="content" source="media/tutorial-hybrid-copy-powershell/fromonprem-file.png" alt-text="Output file":::
+    :::image type="content" source="media/tutorial-hybrid-copy-powershell/from-on-premises-file.png" alt-text="Output file":::
 
 
-## Next steps
+## Related content
 The pipeline in this sample copies data from one location to another in Azure Blob storage. You learned how to:
 
 > [!div class="checklist"]

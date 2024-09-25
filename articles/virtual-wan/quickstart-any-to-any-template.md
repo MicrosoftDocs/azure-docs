@@ -3,22 +3,22 @@ title: 'Quickstart: Create an any-to-any configuration using an ARM template'
 titleSuffix: Azure Virtual WAN
 description: Learn how to create an any-to-any configuration using an Azure Resource Manager template (ARM template).
 author: cherylmc
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: quickstart
-ms.date: 06/14/2022
+ms.date: 08/24/2023
 ms.author: cherylmc
-ms.custom: subject-armqs, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ---
 
 # Quickstart: Create an any-to-any configuration using an ARM template
 
 This quickstart describes how to use an Azure Resource Manager template (ARM template) to create an any-to-any scenario where any spoke can reach another spoke.
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.network%2fvirtual-wan-with-all-gateways%2fazuredeploy.json)
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.network%2fvirtual-wan-with-all-gateways%2fazuredeploy.json":::
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 
 In this quickstart, you'll create an Azure Virtual WAN multi-hub deployment, including all gateways and VNet connections. The list of input parameters has been purposely kept at a minimum. The IP addressing scheme can be changed by modifying the variables inside of the template. The scenario is explained further in the [Any-to-any scenario](scenario-any-to-any.md) article.
 
-:::image type="content" source="./media/routing-scenarios/any-any/figure-1.png" alt-text="Deployment architecture":::
+:::image type="content" source="./media/routing-scenarios/any-any/figure-1.png" alt-text="Screenshot of deployment architecture." lightbox="./media/routing-scenarios/any-any/figure-1.png":::
 
 This template creates a fully functional Azure Virtual WAN environment with the following resources:
 
@@ -68,7 +68,7 @@ To deploy this template properly, you must use **Deploy to Azure** button in the
 
 1. Click **Deploy to Azure**.
 
-   [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.network%2fvirtual-wan-with-all-gateways%2fazuredeploy.json)
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.network%2fvirtual-wan-with-all-gateways%2fazuredeploy.json":::
 1. To view the template, click **Edit template**. On this page, you can adjust some of the values such as address space or the name of certain resources. **Save** to save your changes, or **Discard**.
 1. On the template page, enter the values. For the **Hub_Public Certificate Data for P2S** fields, you need to input the public key certificate data from the root certificate that you want to use (as mentioned in the prerequisites). If you haven't generated a root certificate and you're using these steps as only an exercise to run the template and observe the results, you can use the following example certificate data for both hubs. If you choose to use this example data and later want P2S clients to connect, you must replace this information with the certificate data from your own environment.
 

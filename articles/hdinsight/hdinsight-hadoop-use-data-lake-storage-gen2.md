@@ -1,15 +1,15 @@
 ---
 title: Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters
 description: Learn how to use Azure Data Lake Storage Gen2 with Azure HDInsight clusters.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive,seoapr2020
-ms.date: 03/31/2022
+ms.custom: hdinsightactive
+ms.date: 05/10/2024
 ---
 
 # Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters
 
-[Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) is a cloud storage service dedicated to big data analytics, built on [Azure Blob storage](../storage/blobs/storage-blobs-introduction.md). Data Lake Storage Gen2 combines the capabilities of Azure Blob storage and Azure Data Lake Storage Gen1. The resulting service offers features from Azure Data Lake Storage Gen1 including: file system semantics, directory-level and file-level security, and adaptability. Along with the low-cost, tiered storage, high availability, and disaster-recovery capabilities from Azure Blob storage.
+[Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) is a cloud storage service dedicated to big data analytics, built on [Azure Blob storage](../storage/blobs/storage-blobs-introduction.md). The resulting service offers features from Azure Data Lake Storage including: file system semantics, directory-level and file-level security, and adaptability. Along with the low-cost, tiered storage, high availability, and disaster-recovery capabilities from Azure Blob storage.
 
 For a full comparison of cluster creation options using Data Lake Storage Gen2, see [Compare storage options for use with Azure HDInsight clusters](hdinsight-hadoop-compare-storage-options.md).
 
@@ -32,9 +32,9 @@ Use the following links for detailed instructions on how to create HDInsight clu
 
 ## Access control for Data Lake Storage Gen2 in HDInsight
 
-### What kinds of permissions does Data Lake Storage Gen2 support?
+### What kinds of permissions do Data Lake Storage Gen2 support?
 
-Data Lake Storage Gen2 uses an access control model that supports both Azure role-based access control (Azure RBAC) and POSIX-like access control lists (ACLs). Data Lake Storage Gen1 supports access control lists only for controlling access to data.
+Data Lake Storage Gen2 uses an access control model that supports both Azure role-based access control (Azure RBAC) and POSIX-like access control lists (ACLs).
 
 Azure RBAC uses role assignments to effectively apply sets of permissions to users, groups, and service principals for Azure resources. Typically, those Azure resources are constrained to top-level resources (for example, Azure Blob storage accounts). For Azure Blob storage, and also Data Lake Storage Gen2, this mechanism has been extended to the file system resource.
 
@@ -44,15 +44,17 @@ For more information about file permissions with ACLs, see [Access control lists
 
 ### How do I control access to my data in Data Lake Storage Gen2?
 
-Your HDInsight cluster's ability to access files in Data Lake Storage Gen2 is controlled through managed identities. A managed identity is an identity registered in Azure Active Directory (Azure AD) whose credentials are managed by Azure. With managed identities, you don't need to register service principals in Azure AD. Or maintain credentials such as certificates.
+Your HDInsight cluster's ability to access files in Data Lake Storage Gen2 is controlled through managed identities. A managed identity is an identity registered in Microsoft Entra whose credentials are managed by Azure. With managed identities, you don't need to register service principals in Microsoft Entra ID. Or maintain credentials such as certificates.
 
-Azure services have two types of managed identities: system-assigned and user-assigned. HDInsight uses user-assigned managed identities to access Data Lake Storage Gen2. A `user-assigned managed identity` is created as a standalone Azure resource. Through a create process, Azure creates an identity in the Azure AD tenant that's trusted by the subscription in use. After the identity is created, the identity can be assigned to one or more Azure service instances.
+Azure services have two types of managed identities: system-assigned and user-assigned. HDInsight uses user-assigned managed identities to access Data Lake Storage Gen2. A `user-assigned managed identity` is created as a standalone Azure resource. Through a create process, Azure creates an identity in the Microsoft Entra tenant that's trusted by the subscription in use. After the identity is created, the identity can be assigned to one or more Azure service instances.
 
 The lifecycle of a user-assigned identity is managed separately from the lifecycle of the Azure service instances to which it's assigned. For more information about managed identities, see [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md).
 
-### How do I set permissions for Azure AD users to query data in Data Lake Storage Gen2 by using Hive or other services?
+<a name='how-do-i-set-permissions-for-azure-ad-users-to-query-data-in-data-lake-storage-gen2-by-using-hive-or-other-services'></a>
 
-To set permissions for users to query data, use Azure AD security groups as the assigned principal in ACLs. Don't directly assign file-access permissions to individual users or service principals. With Azure AD security groups to control the flow of permissions, you can add and remove users or service principals without reapplying ACLs to an entire directory structure. You only have to add or remove the users from the appropriate Azure AD security group. ACLs aren't inherited, so reapplying ACLs requires updating the ACL on every file and subdirectory.
+### How do I set permissions for Microsoft Entra users to query data in Data Lake Storage Gen2 by using Hive or other services?
+
+To set permissions for users to query data, use Microsoft Entra security groups as the assigned principal in ACLs. Don't directly assign file-access permissions to individual users or service principals. With Microsoft Entra security groups to control the flow of permissions, you can add and remove users or service principals without reapplying ACLs to an entire directory structure. You only have to add or remove the users from the appropriate Microsoft Entra security group. ACLs aren't inherited, so reapplying ACLs requires updating the ACL on every file and subdirectory.
 
 ## Access files from the cluster
 

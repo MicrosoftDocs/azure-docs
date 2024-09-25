@@ -1,93 +1,100 @@
 ---
 title: 'Securely connect to Azure resources'
-description: Your app service may need to connect to other Azure services such as a database, storage, or another app. This overview recommends the more secure method for connecting.
-
-ms.topic: tutorial
-ms.date: 02/16/2022
+description: Shows you how to connect to other Azure services such as a database, storage, or another app. This overview recommends the more secure method for connecting.
+author: cephalin
+ms.author: cephalin
+ms.topic: article
+ms.date: 07/06/2024
+ms.custom: AppServiceConnectivity
+#customer intent: As a developer, I want to learn how to securely connect to Azure resources from Azure App Service so that I can protect sensitive data and ensure secure communication.
 ---
-# Securely connect to Azure services and databases from Azure App Service
+# Secure connectivity to Azure services and databases from Azure App Service
 
-Your app service may need to connect to other Azure services such as a database, storage, or another app. This overview recommends the more secure method for connecting.
+Your app service might need to connect to other Azure services such as a database, storage, or another app. This overview recommends different methods for connecting and when to use them.
+
+Today, the decision for a connectivity approach is closely related to secrets management. The common pattern of using connection secrets in connection strings, such as username and password, secret key, etc. is no longer considered the most secure approach for connectivity. The risk is even higher today because threat actors regularly crawl public GitHub repositories for accidentally committed connection secrets. For cloud applications, the best secrets management is to have no secrets at all. When you migrate to Azure App Service, your app might start with secrets-based connectivity, and App Service lets you keep secrets securely. However, Azure can help secure your app's back-end connectivity through Microsoft Entra authentication, which eliminates secrets altogether in your app.
 
 |Connection method|When to use|
 |--|--|
-|[Direct connection from App Service managed identity](#connect-to-azure-services-with-managed-identity)|Dependent service [supports managed identity](../active-directory/managed-identities-azure-resources/managed-identities-status.md)<br><br>* Best for enterprise-level security.<br>* Connection to dependent service is secured with managed identity.<br>* Large team or automated connection string and secret management.<br>* Don't manage credentials manually.<br>* Credentials aren’t accessible to you.<br>* An Azure Active Directory Identity is required to access. Services include Microsoft Graph or Azure management SDKs.|
-|[Connect using Key Vault secrets from App Service managed identity](#connect-to-key-vault-with-managed-identity)|Dependent service doesn't support managed identity.<br><br>* Best for enterprise-level security.<br>* Connection includes non-Azure services such as GitHub, Twitter, Facebook, Google<br>* Large team or automated connection string and secret management<br>* Don't manage credentials manually.<br>* Credentials aren’t accessible to you.<br>* Manage connection information with environment variables.|
-|[Connect with app settings](#connect-with-app-settings)|* Best for small team or individual owner of Azure resources.<br>* Stage 1 of multi-stage migration to Azure.<br>* Temporary or proof-of-concept applications.<br>* Manually manage connection information with environment variables.|
+|[Connect with an app identity](#connect-with-an-app-identity)|* You want to remove credentials, keys, or secrets completely from your application.<br/>* The downstream Azure service supports Microsoft Entra authentication, such as Microsoft Graph.<br/>* The downstream resource doesn't need to know the current signed-in user or doesn't need granular authorization of the current signed-in user.|
+|[Connect on behalf of the signed-in user](#connect-on-behalf-of-the-signed-in-user)| * The app must access a downstream resource on behalf of the signed-in user.<br/>* The downstream Azure service supports Microsoft Entra authentication, such as Microsoft Graph.<br/>* The downstream resource must perform granular authorization of the current signed-in user.|
+|[Connect using secrets](#connect-using-secrets)|* The downstream resource requires connection secrets.<br/>* Your app connects to non-Azure services, such as an on-premises database server.<br/>* The downstream Azure service doesn't support Microsoft Entra authentication yet.|
 
-## Connect to Azure services with managed identity
+## Connect with an app identity
 
-Use [managed identity](../active-directory/managed-identities-azure-resources/overview.md) to authenticate from one Azure resource, such as Azure app service, to another Azure resource whenever possible. This level of authentication lets Azure manage the authentication process, after the required setup is complete. Once the connection is set up, you won't need to manage the connection. 
-
-Benefits of managed identity:
-
-* Automated credentials management
-* Many Azure services are included
-* No additional cost
-* No code changes
-
-:::image type="content" source="media/tutorial-connect-overview/when-use-managed-identities.png" alt-text="Image showing source and target resources for managed identity.":::
-
-Learn which [services](../active-directory/managed-identities-azure-resources/managed-identities-status.md) are supported with managed identity and what [operations you can perform](../active-directory/managed-identities-azure-resources/overview.md).
-
-### Example managed identity scenario
+If your app already uses a single set of credentials to access a downstream Azure service, you can quickly convert the connection to use an app identity instead. A [managed identity](overview-managed-identity.md) from Microsoft Entra ID lets App Service access resources without secrets, and you can manage its access through role-based access control (RBAC). A managed identity can connect to any Azure resource that supports Microsoft Entra authentication, and the authentication takes place with short-lived tokens.
 
 The following image demonstrates the following an App Service connecting to other Azure services:
 
 * A: User visits Azure app service website.
-* B: Securely **connect from** App Service **to** another Azure service using managed identity. 
-* C: Securely **connect from** App Service **to** Microsoft Graph.
+* B: Securely **connect from** App Service **to** another Azure service using a managed identity. 
+* C: Securely **connect from** App Service **to** Microsoft Graph using a managed identity.
 
 :::image type="content" source="media/scenario-secure-app-overview/web-app.svg" alt-text="Diagram showing managed identity accessing a resource with or without the user's identity.":::
 
-## Connect to Key Vault with managed identity
+Examples of using application secrets to connect to a database:
 
-When managed identity isn't supported for your app's dependent services, use Key Vault to store your secrets, and connect your app to Key Vault with a managed identity. 
+- [Tutorial: Connect to Azure databases from App Service without secrets using a managed identity](tutorial-connect-msi-azure-database.md)
+- [Tutorial: Connect to SQL Database from .NET App Service without secrets using a managed identity](tutorial-connect-msi-sql-database.md)
+- [Tutorial: Connect to a PostgreSQL Database from Java Tomcat App Service without secrets using a managed identity](tutorial-java-tomcat-connect-managed-identity-postgresql-database.md)
 
-Secrets include:
+## Connect on behalf of the signed-in user
 
-|Secret|Example|
-|--|--|
-|Certificates|SSL certificates|
-|Keys and access tokens|Cognitive service API Key<br>GitHub personal access token<br>Twitter consumer keys and authentication tokens|
-|Connection strings|Database connection strings such as SQL server or MongoDB|
+Your app might need to connect to a downstream service on behalf of the signed-in user. App Service lets you easily authenticate users using the most common identity providers (see [Authentication and authorization in Azure App Service and Azure Functions](overview-authentication-authorization.md)). If you use the Microsoft provider (Microsoft Entra authentication), you can then flow the signed-in user to any downstream service. For example:
 
-:::image type="content" source="media/tutorial-connect-overview/app-service-connect-key-vault-managed-identity.png" alt-text="Image showing app service using a secret stored in Key Vault and managed with Managed identity to connect to Cognitive Services."::: 
+- Run a database query that returns confidential data that the signed-in user is authorized to read.
+- Retrieve personal data or take actions as the signed-in user in Microsoft Graph.
 
-Benefits of managed identity integrated with Key Vault include:
+The following image demonstrates an application securely accessing an SQL database on behalf of the signed-in user.
 
-* Connectivity to Key Vault is secured by managed identities
-* Access to the Key Vault is restricted to the app. App contributors, such as administrators, may have complete control of the App Service resources, and at the same time have no access to the Key Vault secrets.
-* No code change is required if your application code already accesses connection secrets with app settings.
-* Monitoring and auditing of who accessed secrets.
-* Rotation of connection information in Key Vault requires no changes in App Service.
+:::image type="content" source="./media/tutorial-connect-app-access-sql-database-as-user-dotnet/architecture.png" alt-text="Architecture diagram for tutorial scenario.":::
 
-## Connect with app settings 
+Some common scenarios are:
+- [Connect to Microsoft Graph on behalf of the user](scenario-secure-app-access-microsoft-graph-as-user.md)
+- [Connect to an SQL database on behalf the user](tutorial-connect-app-access-sql-database-as-user-dotnet.md)
+- [Connect to another App Service app on behalf of the user](tutorial-auth-aad.md)
+- [Flow the signed-in user through multiple layers of downstream services](tutorial-connect-app-app-graph-javascript.md)
 
-The App Service provides [App settings](configure-common.md?tabs=portal#configure-app-settings) to store connection strings, API keys, and other environment variables. While App Service does provide encryption for app settings, for enterprise-level security, consider other services to manage these types of secrets that provide additional benefits.
+## Connect using secrets
 
-**App settings** best used when:
+There are two recommended ways to use secrets in your app: using secrets stored in Azure Key Vault or secrets in App Service app settings.
 
-* Security of connection information is manual and limited to a few people
-* Web app is temporary, proof-of-concept, or in first migration stage to Azure
+### Use secrets from Key Vault
 
-**App Service** managed identity to another Azure service best when:
+[Azure Key Vault](app-service-key-vault-references.md) can be used to securely store secrets and keys, monitor access and use of secrets, and simplify administration of application secrets. If the downstream service doesn't support Microsoft Entra authentication or requires a connection string or key, use Key Vault to store your secrets and connect your app to Key Vault with a managed identity and retrieve the secrets. Your app can access they key vault secrets as [Key Vault references](app-service-key-vault-references.md) in the app settings. 
 
-* You don't need to manage Azure credentials. Credentials aren’t even accessible to you.
-* You can use managed identities to authenticate to any resource that supports Azure Active Directory authentication including your own applications.
-* Managed identities can be used without any additional cost.
+Benefits of managed identities integrated with Key Vault include:
+- Access to the key vault secret is restricted to the app. 
+- App contributors, such as administrators, might have complete control of the App Service resources, and at the same time have no access to the key vault secrets. 
+- No code change is required if your application code already accesses connection secrets with app settings. 
+- Key Vault provides monitoring and auditing of who accessed secrets.
+- Rotation of key vault secrets requires no changes in App Service.
 
-**Key Vault** integration from App Service with managed identity best used when:
+The following image demonstrates App Service connecting to Key Vault using a managed identity and then accessing an Azure service using secrets stored in Key Vault:
 
-* Connectivity to Key Vault is secured by managed identities.
-* Access to the Key Vault is restricted to the app. App contributors, such as administrators, may have complete control of the App Service resources, and at the same time have no access to the Key Vault secrets.
-* No code change is required if your application code already accesses connection secrets with app settings.
-* Monitoring and auditing of who accessed secrets.
+:::image type="content" source="media/tutorial-connect-overview/app-service-connect-key-vault-managed-identity.png" alt-text="Diagram showing app service using a secret stored in Key Vault and managed with Managed identity to connect to Azure AI services."::: 
 
+### Use secrets in app settings 
+
+For apps that connect to services using secrets (such as usernames, passwords, and API keys), App Service can store them securely in [app settings](configure-common.md). These secrets are injected into your application code as environment variables at app startup. App settings are always encrypted when stored (encrypted-at-rest). For more advanced secrets management, such as secrets rotation, access policies, and audit history, try [using Key Vault](#use-secrets-from-key-vault).
+
+Examples of using application secrets to connect to a database:
+
+- [Tutorial: Deploy an ASP.NET Core and Azure SQL Database app to Azure App Service](tutorial-dotnetcore-sqldb-app.md)
+- [Tutorial: Deploy an ASP.NET app to Azure with Azure SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)
+- [Tutorial: Deploy a PHP, MySQL, and Redis app to Azure App Service](tutorial-php-mysql-app.md)
+- [Deploy a Node.js + MongoDB web app to Azure](tutorial-nodejs-mongodb-app.md)
+- [Deploy a Python (Django or Flask) web app with PostgreSQL in Azure](tutorial-python-postgresql-app.md)
+- [Tutorial: Build a Tomcat web app with Azure App Service on Linux and MySQL](tutorial-java-tomcat-mysql-app.md)
+- [Tutorial: Build a Java Spring Boot web app with Azure App Service on Linux and Azure Cosmos DB](tutorial-java-spring-cosmosdb.md)
 
 ## Next steps
 
-* Learn how to use App Service managed identity with:
-    * [SQL server](tutorial-connect-msi-sql-database.md?tabs=windowsclient%2Cdotnet)
-    * [Azure storage](scenario-secure-app-access-storage.md?tabs=azure-portal%2Cprogramming-language-csharp)
-    * [Microsoft Graph](scenario-secure-app-access-microsoft-graph-as-app.md?tabs=azure-powershell%2Cprogramming-language-csharp)
+Learn how to:
+- Securely store secrets in [Azure Key Vault](app-service-key-vault-references.md).
+- Access resources using a [managed identity](overview-managed-identity.md).
+- Store secrets using App Service [app settings](configure-common.md).
+- [Connect to Microsoft Graph](scenario-secure-app-access-microsoft-graph-as-user.md) as the user.
+- [Connect to an SQL database](tutorial-connect-app-access-sql-database-as-user-dotnet.md) as the user.
+- [Connect to another App Service app](tutorial-auth-aad.md) as the user.
+- [Connect to another App Service app and then a downstream service](tutorial-connect-app-app-graph-javascript.md) as the user.

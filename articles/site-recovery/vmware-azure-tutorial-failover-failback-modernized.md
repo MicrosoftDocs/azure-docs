@@ -1,10 +1,12 @@
 ---
-title: Fail over VMware VMs to Azure with Site Recovery - Modernized
+title: Run VMware VMs failover to Azure
 description: Learn how to fail over VMware VMs to Azure in Azure Site Recovery - Modernized
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: tutorial
-ms.date: 08/19/2021
+ms.date: 09/29/2023
 ms.custom: MVC
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 ---
 # Fail over VMware VMs - Modernized
 
@@ -23,7 +25,7 @@ In this tutorial, you learn how to:
 
 [Learn about](failover-failback-overview.md#types-of-failover) different types of failover. If you want to fail over multiple VMs in a recovery plan, review [this article](site-recovery-failover.md).
 
-## Before you start
+## Prerequisites
 
 Complete the previous tutorials:
 
@@ -36,12 +38,11 @@ Complete the previous tutorials:
 
 Before you run a failover, check the VM properties to make sure that the VMs meet [Azure requirements](vmware-physical-azure-support-matrix.md#replicated-machines).
 
-Verify properties as follows:
+Follow these steps to verify VM properties:
 
 1. In **Protected Items**, select **Replicated Items**, and then select the VM you want to verify.
 
-2. In the **Replicated item** pane, there's a summary of VM information, health status, and the
-   latest available recovery points. Select **Properties** to view more details.
+2. In the **Replicated item** pane, there's a summary of VM information, health status, and the latest available recovery points. Select **Properties** to view more details.
 
 3. In **Compute and Network**, you can modify these properties as needed:
     * Azure name
@@ -79,7 +80,7 @@ Verify properties as follows:
 ## Connect to failed-over VM
 
 1. If you want to connect to Azure VMs after failover by using Remote Desktop Protocol (RDP) and Secure Shell (SSH), [verify that the requirements have been met](failover-failback-overview.md#connect-to-azure-after-failover).
-2. After failover, go to the VM and validate by [connecting](../virtual-machines/windows/connect-logon.md) to it.
+2. After failover, go to the VM and validate by [connecting](/azure/virtual-machines/windows/connect-logon) to it.
 3. Use **Change recovery point** if you want to use a different recovery point after failover. After you commit the failover in the next step, this option will no longer be available.
 4. After validation, select **Commit** to finalize the recovery point of the VM after failover.
 5. After you commit, all the other available recovery points are deleted. This step completes the failover.
@@ -112,8 +113,7 @@ Ensure the following for the VM,  after it is failed over to Azure:
 
 ## Cancel planned failover
 
-If your on-premises environment is not ready or in case of any challenges, you can cancel the planned failover
-You can perform a planned failover any time later, once your on-premises conditions turn favorable.
+If your on-premises environment is not ready or in case of any challenges, you can cancel the planned failover. You can perform a planned failover any time later, once your on-premises conditions turn favorable.
 
 **To cancel a planned failover**:
 
@@ -159,7 +159,10 @@ If issue persists, contact Microsoft support. **Do not** disable replication.
 
 After successful planned failover, the machine is active in your on-premises. To protect your machine  in the future, ensure that the machine is replicated to Azure (re-protected).
 
-To do this, go to the machine > **Re-protect**, select the appliance of your choice, select the replication policy and proceed.
+To do this, go to the machine > **Re-protect**, select the appliance of your choice, select the cache storage account and proceed. When selecting the appliance, ensure that the target datastore where the source machine is located, is accessible by the appliance. The datastore of the source machine should always be accessible by the appliance. Even if the machine and appliance are located in different ESX servers, as long as the data store is shared between them, reprotection will succeed. 
+
+  > [!NOTE]
+  > When selecting the appliance, ensure that the target datastore where the source machine is located, is accessible by the appliance.
 
 After successfully enabling replication and initial replication, recovery points will be generated to offer business continuity from unwanted disruptions.
 
@@ -167,6 +170,5 @@ After successfully enabling replication and initial replication, recovery points
 
 After failover, reprotect the Azure VMs to on-premises. After the VMs are reprotected and replicating to the on-premises site, fail back from Azure when you're ready.
 
-> [!div class="nextstepaction"]
-> [Reprotect Azure VMs](vmware-azure-reprotect.md)
-> [Fail back from Azure](vmware-azure-failback.md)
+- [Reprotect Azure VMs](failover-failback-overview-modernized.md)
+- [Fail back from Azure](failover-failback-overview-modernized.md)

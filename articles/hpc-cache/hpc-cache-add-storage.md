@@ -2,18 +2,16 @@
 title: Add storage to an Azure HPC Cache
 description: How to define storage targets so that your Azure HPC Cache can use your on-premises NFS system or Azure Blob containers for long-term file storage 
 author: ekpgh
-ms.service: hpc-cache
+ms.service: azure-hpc-cache
 ms.topic: how-to
-ms.date: 10/05/2022
+ms.date: 3/1/2023
 ms.custom: subject-rbac-steps
-ms.author: v-erinkelly
+ms.author: kianaharris
 ---
 
 # Add storage targets
 
 *Storage targets* are back-end storage for files that are accessed through an Azure HPC Cache. You can add NFS storage (like an on-premises hardware system), or store data in Azure Blob.
-
-You can define 10 different storage targets for any cache, and larger caches can [support up to 20 storage targets](#size-your-cache-correctly-to-support-your-storage-targets).
 
 The cache presents all of the storage targets in one [aggregated namespace](hpc-cache-namespace.md). The namespace paths are configured separately after you add the storage targets.
 
@@ -30,23 +28,6 @@ The procedure to add a storage target is slightly different depending on the typ
 <!-- Click the image below to watch a [video demonstration](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/) of creating a cache and adding a storage target from the Azure portal.
 
 [![video thumbnail: Azure HPC Cache: Setup (click to visit the video page)](media/video-4-setup.png)](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/) -->
-
-## Size your cache correctly to support your storage targets
-
-When you create the cache, make sure you select the type and size that will support the number of storage targets you need.
-
-The number of supported storage targets depends on the cache type and the cache capacity. Cache capacity is a combination of throughput capacity (in GB/s) and storage capacity (in TB).
-
-* Up to 10 storage targets - A standard cache with the smallest or medium cache storage value for your selected throughput can have a maximum of 10 storage targets.
-
-  For example, if you choose 2 GB/second throughput and don't choose the largest cache storage size (12 TB), your cache supports a maximum of 10 storage targets.
-
-* Up to 20 storage targets -
-
-  * All read-only high-throughput caches (which have preconfigured cache storage sizes) can support up to 20 storage targets.
-  * Standard caches can support up to 20 storage targets if you choose the highest available cache size for your selected throughput value. (If using Azure CLI, choose the highest valid cache size for your cache SKU.)
-
-Read [Choose cache type and capacity](hpc-cache-create.md#choose-cache-type-and-capacity) to learn more about throughput and cache size settings.
 
 ## Choose the correct storage target type
 
@@ -121,17 +102,17 @@ You can do this ahead of time, or by clicking a link on the portal page where yo
 
 1. Select **Add** > **Add role assignment** to open the Add role assignment page.
 
-1. Assign the following roles, one at a time. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+1. Assign the following roles, one at a time. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
     | Setting | Value |
     | --- | --- |
     | Roles | [Storage Account Contributor](../role-based-access-control/built-in-roles.md#storage-account-contributor) <br/>  [Storage Blob Data Contributor](../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) |
-    | Assign access to | HPC Cache Resource Provider |
+    | Assign access to | "HPC Cache Resource Provider" or "StorageCache Resource Provider" |
 
-    ![Add role assignment page](../../includes/role-based-access-control/media/add-role-assignment-page.png)
+    ![Add role assignment page](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png)
 
-   > [!NOTE]
-   > If you can't find the HPC Cache Resource Provider, try a search for the string "storagecache" instead. This was a pre-GA name for the service principal.
+   <!-- > [!NOTE]
+   > If you can't find the HPC Cache Resource Provider, try a search for the string "storagecache" instead. This was a pre-GA name for the service principal. -->
 
 <!-- 
 Steps to add the Azure roles:

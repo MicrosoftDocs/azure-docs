@@ -16,10 +16,9 @@ In this tutorial you'll learn how to:
 > [!div class="checklist"]
 > - Investigate new recommendations
 > - Investigate security recommendation details
-> - Investigate recommendations in Log Analytics workspace
+> - Investigate recommendations in a Log Analytics workspace
 
-> [!NOTE]
-> The Microsoft Defender for IoT legacy experience under IoT Hub has been replaced by our new Defender for IoT standalone experience, in the Defender for IoT area of the Azure portal. The legacy experience under IoT Hub will not be supported after **March 31, 2023**.
+[!INCLUDE [device-agents-note](../includes/device-agents-note.md)]
 
 ## Prerequisites
 
@@ -29,13 +28,13 @@ In this tutorial you'll learn how to:
 
 - You must have [enabled Microsoft Defender for IoT on your Azure IoT Hub](quickstart-onboard-iot-hub.md).
 
-- You must have [added a resource group to your IoT solution](quickstart-configure-your-solution.md)
+- You must have [added a resource group to your IoT solution](quickstart-configure-your-solution.md).
 
-- You must have [created a Defender for IoT micro agent module twin (Preview)](quickstart-create-micro-agent-module-twin.md).
+- You must have [created a Defender for IoT micro agent module twin](quickstart-create-micro-agent-module-twin.md).
 
-- You must have [installed the Defender for IoT micro agent (Preview)](quickstart-standalone-agent-binary-installation.md)
+- You must have [installed the Defender for IoT micro agent](quickstart-standalone-agent-binary-installation.md).
 
-- You must have [configured the Microsoft Defender for IoT agent-based solution](how-to-configure-agent-based-solution.md)
+- You must have [configured the Microsoft Defender for IoT agent-based solution](how-to-configure-agent-based-solution.md).
 
 ## Investigate recommendations
 
@@ -49,7 +48,7 @@ The IoT Hub recommendations list displays all of the aggregated security recomme
 
 ## Investigate security recommendation details
 
-Open each aggregated recommendation to display the detailed recommendation description, remediation steps, device ID for each device that triggered a recommendation. It also displays recommendation severity and direct-investigation access using Log Analytics.
+Open each aggregated recommendation to display the detailed recommendation description, remediation steps, and device ID for each device that triggered a recommendation. It also displays recommendation severity and direct-investigation access using Log Analytics.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -65,9 +64,9 @@ Open each aggregated recommendation to display the detailed recommendation descr
 
     :::image type="content" source="media/quickstart/explore-security-recommendation-detail-inline.png" alt-text="Investigate specific security recommendations for a device with Defender for IoT" lightbox="media/quickstart/explore-security-recommendation-detail-expanded.png":::
 
-## Investigate recommendations in Log Analytics workspace
+## Investigate recommendations in a Log Analytics workspace
 
-**To access your recommendations in Log Analytics workspace**:
+**To access your recommendations in a Log Analytics workspace**:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -79,7 +78,7 @@ Open each aggregated recommendation to display the detailed recommendation descr
 
     :::image type="content" source="media/how-to-configure-agent-based-solution/recommendation-alert.png" alt-text="Screenshot showing how to view a recommendation in the log analytics workspace.":::
 
-For more information on querying data from Log Analytics, see [Get started with log queries in Azure Monitor](../../azure-monitor/logs/get-started-queries.md).
+For more information on querying data from Log Analytics, see [Get started with log queries in Azure Monitor](/azure/azure-monitor/logs/get-started-queries).
 
 ## Clean up resources
 

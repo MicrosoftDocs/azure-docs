@@ -1,0 +1,1264 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/security/develop/security-code-analysis-customize.md",
+            "redirect_url": "/previous-versions/azure/security/develop/security-code-analysis-customize",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/develop/security-code-analysis-faq.yml",
+            "redirect_url": "/previous-versions/azure/security/develop/security-code-analysis-faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/develop/security-code-analysis-onboard.md",
+            "redirect_url": "/previous-versions/azure/security/develop/security-code-analysis-onboard",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/develop/security-code-analysis-overview.md",
+            "redirect_url": "/previous-versions/azure/security/develop/security-code-analysis-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/develop/security-code-analysis-releases.md",
+            "redirect_url": "/previous-versions/azure/security/develop/security-code-analysis-releases",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/develop/yaml-configuration.md",
+            "redirect_url": "/previous-versions/azure/security/develop/yaml-configuration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/fundamentals/azure-disk-encryption-vms-vmss.md",
+            "redirect_url": "/azure/virtual-machines/disk-encryption-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/fundamentals/security-controls.md",
+            "redirect_url": "/azure/security/benchmarks",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/fundamentals/application-architecture.md",
+            "redirect_url": "/azure/architecture/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/compliance/azure-services-in-fedramp-auditscope.md",
+            "redirect_url": "/azure/azure-government/compliance/azure-services-in-fedramp-auditscope",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/compliance/compliance-tic.md",
+            "redirect_url": "/azure/azure-government/compliance/compliance-tic",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/compliance/secure-azure-computing-architecture.md",
+            "redirect_url": "/azure/azure-government/compliance/secure-azure-computing-architecture",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/governance-in-azure.md",
+            "redirect_url": "/azure/governance/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/fundamentals/iot-overview.md",
+            "redirect_url": "/azure/iot/iot-security-architecture",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/fundamentals/iot-best-practices.md",
+            "redirect_url": "/azure/iot/iot-overview-security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-security-architecture-overview.md",
+            "redirect_url": "/azure/security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-security-getting-started.md",
+            "redirect_url": "/azure/security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/how-to-discover-classify-personal-data-azure.md",
+            "redirect_url": "/azure/security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/manage-personal-data-azure.md",
+            "redirect_url": "/azure/security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/protection-personal-data-azure-reporting-tools.md",
+            "redirect_url": "/azure/security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/protect-personal-data-at-rest.md",
+            "redirect_url": "/azure/security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/protect-personal-data-azure.md",
+            "redirect_url": "/azure/security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/protect-personal-data-azure-security-center.md",
+            "redirect_url": "/azure/security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/protect-personal-data-identity-access-controls.md",
+            "redirect_url": "/azure/security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/protect-personal-data-in-transit-encryption.md",
+            "redirect_url": "/azure/security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/protect-personal-data-network-security.md",
+            "redirect_url": "/azure/security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/fundamentals/quick-encrypt-vm-powershell.md",
+            "redirect_url": "/azure/security/azure-disk-encryption-linux-powershell-quickstart",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/quick-encrypt-vm-powershell.md",
+            "redirect_url": "/azure/security/azure-disk-encryption-linux-powershell-quickstart",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/fedramp.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/fedramp-access-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/fedramp-audit-accountability-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/fedramp-awareness-training-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/fedramp-configuration-manager-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/fedramp-contingency-planning-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/fedramp-controls-overview.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/fedramp-iaaswa-access-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/fedramp-iaaswa-audit-accountability-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/fedramp-iaaswa-awareness-training-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/fedramp-iaaswa-configuration-management-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/fedramp-iaaswa-contingency-planning-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/fedramp-iaaswa-controls-overview.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/fedramp-iaaswa-identification-authentication-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/fedramp-iaaswa-incident-response-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/fedramp-iaaswa-maintenance-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/fedramp-iaaswa-media-protection-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/fedramp-iaaswa-personnel-security-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/fedramp-iaaswa-physical-environmental-protection-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/fedramp-iaaswa-planning-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/fedramp-iaaswa-risk-assessment-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/fedramp-iaaswa-security-assessment-authorization-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/fedramp-iaaswa-system-communications-protection-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/fedramp-iaaswa-system-information-integrity-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/fedramp-iaaswa-system-services-acquisition-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/fedramp-identification-authentication-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/fedramp-incident-response-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/fedramp-maintenance-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/fedramp-media-protection-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/fedramp-personnel-security-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/fedramp-physical-environmental-protection-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/fedramp-planning-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/fedramp-risk-assessment-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/fedramp-security-assessment-authorization-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/fedramp-system-communications-protection-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/fedramp-system-information-integrity-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/fedramp-system-services-acquisition-controls.md",
+            "redirect_url": "/azure/security/blueprints/fedramp-iaaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/financial-services-regulated-workloads.md",
+            "redirect_url": "/azure/security/blueprints/ffiec-paaswa-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/payment-processing-blueprint.md",
+            "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/pci-dss-requirement-10-monitoring.md",
+            "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/pci-dss-requirement-11-testing.md",
+            "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/pci-dss-requirement-12-policy.md",
+            "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/pci-dss-requirement-1-firewall.md",
+            "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/pci-dss-requirement-2-password.md",
+            "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/pci-dss-requirement-3-chd.md",
+            "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/pci-dss-requirement-4-encryption.md",
+            "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/pci-dss-requirement-5-malware.md",
+            "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/pci-dss-requirement-6-secure-system.md",
+            "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/pci-dss-requirement-7-access.md",
+            "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/pci-dss-requirement-8-identity.md",
+            "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/pci-dss-requirement-9-physical-access.md",
+            "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/pci-dss-requirements-overview.md",
+            "redirect_url": "/azure/security/blueprints/pcidss-paaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/uk-official-three-tier-applications-overview.md",
+            "redirect_url": "/azure/security/blueprints/ukofficial-iaaswa-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/uk-official-three-tier-applications-principles-overview.md",
+            "redirect_url": "/azure/security/blueprints/ukofficial-iaaswa-overview#compliance-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/develop/security-code-analysis-install.md",
+            "redirect_url": "/azure/security/develop/security-code-analysis-onboard",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-security-threat-modeling-tool.md",
+            "redirect_url": "/azure/security/develop/threat-modeling-tool",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-security-threat-modeling-tool-auditing-and-logging.md",
+            "redirect_url": "/azure/security/develop/threat-modeling-tool-auditing-and-logging",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-security-threat-modeling-tool-authentication.md",
+            "redirect_url": "/azure/security/develop/threat-modeling-tool-authentication",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-security-threat-modeling-tool-authorization.md",
+            "redirect_url": "/azure/security/develop/threat-modeling-tool-authorization",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-security-threat-modeling-tool-communication-security.md",
+            "redirect_url": "/azure/security/develop/threat-modeling-tool-communication-security",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-security-threat-modeling-tool-configuration-management.md",
+            "redirect_url": "/azure/security/develop/threat-modeling-tool-configuration-management",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-security-threat-modeling-tool-cryptography.md",
+            "redirect_url": "/azure/security/develop/threat-modeling-tool-cryptography",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-security-threat-modeling-tool-exception-management.md",
+            "redirect_url": "/azure/security/develop/threat-modeling-tool-exception-management",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-security-threat-modeling-tool-feature-overview.md",
+            "redirect_url": "/azure/security/develop/threat-modeling-tool-feature-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-security-threat-modeling-tool-getting-started.md",
+            "redirect_url": "/azure/security/develop/threat-modeling-tool-getting-started",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-security-threat-modeling-tool-input-validation.md",
+            "redirect_url": "/azure/security/develop/threat-modeling-tool-input-validation",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-security-threat-modeling-tool-mitigations.md",
+            "redirect_url": "/azure/security/develop/threat-modeling-tool-mitigations",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-security-threat-modeling-tool-releases.md",
+            "redirect_url": "/azure/security/develop/threat-modeling-tool-releases",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-security-threat-modeling-tool-releases-71509112.md",
+            "redirect_url": "/azure/security/develop/threat-modeling-tool-releases-71509112",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-security-threat-modeling-tool-releases-71510231.md",
+            "redirect_url": "/azure/security/develop/threat-modeling-tool-releases-71510231",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-security-threat-modeling-tool-releases-71601261.md",
+            "redirect_url": "/azure/security/develop/threat-modeling-tool-releases-71601261",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-security-threat-modeling-tool-releases-71604081.md",
+            "redirect_url": "/azure/security/develop/threat-modeling-tool-releases-71604081",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-security-threat-modeling-tool-releases-71607021.md",
+            "redirect_url": "/azure/security/develop/threat-modeling-tool-releases-71607021",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-security-threat-modeling-tool-sensitive-data.md",
+            "redirect_url": "/azure/security/develop/threat-modeling-tool-sensitive-data",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-security-threat-modeling-tool-session-management.md",
+            "redirect_url": "/azure/security/develop/threat-modeling-tool-session-management",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-security-threat-modeling-tool-threats.md",
+            "redirect_url": "/azure/security/develop/threat-modeling-tool-threats",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/abstract-container-security-microsoft-azure.md",
+            "redirect_url": "/azure/security/fundamentals/abstract-container-security",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/abstract-develop-secure-apps.md",
+            "redirect_url": "/azure/security/fundamentals/abstract-develop-secure-apps",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/abstract-azure-network-security.md",
+            "redirect_url": "/azure/security/fundamentals/abstract-network-security",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/abstract-azure-operational-security.md",
+            "redirect_url": "/azure/security/fundamentals/abstract-operational-security",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/abstract-serverless-platform-security.md",
+            "redirect_url": "/azure/security/fundamentals/abstract-serverless-platform-security",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-ad-passwordless.md",
+            "redirect_url": "/azure/security/fundamentals/ad-passwordless",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-security-antimalware.md",
+            "redirect_url": "/azure/security/fundamentals/antimalware",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/security-application-architecture-on-azure.md",
+            "redirect_url": "/azure/security/fundamentals/application-architecture",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-security-disk-encryption-appendix.md",
+            "redirect_url": "/azure/security/fundamentals/azure-disk-encryption-vms-vmss",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-security-disk-encryption-faq.md",
+            "redirect_url": "/azure/security/fundamentals/azure-disk-encryption-vms-vmss",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-security-disk-encryption-overview.md",
+            "redirect_url": "/azure/security/fundamentals/azure-disk-encryption-vms-vmss",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-security-disk-encryption-prerequisites.md",
+            "redirect_url": "/azure/security/fundamentals/azure-disk-encryption-vms-vmss",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-security-disk-encryption-prerequisites-aad.md",
+            "redirect_url": "/azure/security/fundamentals/azure-disk-encryption-vms-vmss",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-security-disk-encryption-tsg.md",
+            "redirect_url": "/azure/security/fundamentals/azure-disk-encryption-vms-vmss",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/security-azure-log-integration-ad.md",
+            "redirect_url": "/azure/security/fundamentals/azure-log-integration-ad",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/security-azure-log-integration-faq.md",
+            "redirect_url": "/azure/security/fundamentals/azure-log-integration-faq",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/security-azure-log-integration-get-started.md",
+            "redirect_url": "/azure/security/fundamentals/azure-log-integration-get-started",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/security-azure-log-integration-keyvault-eventhub.md",
+            "redirect_url": "/azure/security/fundamentals/azure-log-integration-keyvault-eventhub",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/security-azure-log-integration-overview.md",
+            "redirect_url": "/azure/security/fundamentals/azure-log-integration-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/security-recommendations-azure-marketplace-images.md",
+            "redirect_url": "/azure/security/fundamentals/azure-marketplace-images",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/security-best-practices-and-patterns.md",
+            "redirect_url": "/azure/security/fundamentals/best-practices-and-patterns",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/security-channel-nine.md",
+            "redirect_url": "/azure/security/fundamentals/channel-nine",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-customer-lockbox-overview.md",
+            "redirect_url": "/azure/security/fundamentals/customer-lockbox-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-security-cyber-services.md",
+            "redirect_url": "/azure/security/fundamentals/cyber-services",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-database-security-best-practices.md",
+            "redirect_url": "/azure/security/fundamentals/database-best-practices",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-database-security-checklist.md",
+            "redirect_url": "/azure/security/fundamentals/database-security-checklist",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-database-security-overview.md",
+            "redirect_url": "/azure/security/fundamentals/database-security-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-security-data-encryption-best-practices.md",
+            "redirect_url": "/azure/security/fundamentals/data-encryption-best-practices",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-security-encryption-atrest.md",
+            "redirect_url": "/azure/security/fundamentals/encryption-atrest",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/security-azure-encryption-overview.md",
+            "redirect_url": "/azure/security/fundamentals/encryption-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-security-event-support-ticket.md",
+            "redirect_url": "/azure/security/fundamentals/event-support-ticket",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/security-get-started-overview.md",
+            "redirect_url": "/azure/security/fundamentals/get-started-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-security-global-admin.md",
+            "redirect_url": "/azure/security/fundamentals/global-admin",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/security-health-care-solution.md",
+            "redirect_url": "/azure/security/fundamentals/health-care-solution",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-security-best-practices-vms.md",
+            "redirect_url": "/azure/security/fundamentals/iaas",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-security-iaas.md",
+            "redirect_url": "/azure/security/fundamentals/iaas",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-security-identity-management-best-practices.md",
+            "redirect_url": "/azure/security/fundamentals/identity-management-best-practices",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/security-identity-management-overview.md",
+            "redirect_url": "/azure/security/fundamentals/identity-management-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-security-infrastructure.md",
+            "redirect_url": "/azure/security/fundamentals/infrastructure",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-infrastructure-availability.md",
+            "redirect_url": "/azure/security/fundamentals/infrastructure-availability",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-infrastructure-components.md",
+            "redirect_url": "/azure/security/fundamentals/infrastructure-components",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-infrastructure-integrity.md",
+            "redirect_url": "/azure/security/fundamentals/infrastructure-integrity",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-infrastructure-monitoring.md",
+            "redirect_url": "/azure/security/fundamentals/infrastructure-monitoring",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-infrastructure-network.md",
+            "redirect_url": "/azure/security/fundamentals/infrastructure-network",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-infrastructure-operations.md",
+            "redirect_url": "/azure/security/fundamentals/infrastructure-operations",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-infrastructure-sql.md",
+            "redirect_url": "/azure/security/fundamentals/infrastructure-sql",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-security-iot-best-practices.md",
+            "redirect_url": "/azure/security/fundamentals/iot-best-practices",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/security-internet-of-things-overview.md",
+            "redirect_url": "/azure/security/fundamentals/iot-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-isolation.md",
+            "redirect_url": "/azure/security/fundamentals/isolation-choices",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-log-audit.md",
+            "redirect_url": "/azure/security/fundamentals/log-audit",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-security-management.md",
+            "redirect_url": "/azure/security/fundamentals/management",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/security-management-and-monitoring-overview.md",
+            "redirect_url": "/azure/security/fundamentals/management-monitoring-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-security-mvp.md",
+            "redirect_url": "/azure/security/fundamentals/mvp",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-security-network-security-best-practices.md",
+            "redirect_url": "/azure/security/fundamentals/network-best-practices",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/fundamentals/network-security.md",
+            "redirect_url": "/azure/security/fundamentals/network-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/security-network-overview.md",
+            "redirect_url": "/azure/security/fundamentals/network-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-network-security.md",
+            "redirect_url": "/azure/security/fundamentals/network-security",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-operational-security-best-practices.md",
+            "redirect_url": "/azure/security/fundamentals/operational-best-practices",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-operational-security-checklist.md",
+            "redirect_url": "/azure/security/fundamentals/operational-checklist",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-operational-security-overview.md",
+            "redirect_url": "/azure/security/fundamentals/operational-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-operational-security.md",
+            "redirect_url": "/azure/security/fundamentals/operational-security",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-security.md",
+            "redirect_url": "/azure/security/fundamentals/overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/fundamentals/get-started-overview.md",
+            "redirect_url": "/azure/security/fundamentals/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/fundamentals/overviews.md",
+            "redirect_url": "/azure/security/fundamentals/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/security-overviews.md",
+            "redirect_url": "/azure/security/fundamentals/overviews",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/security-paas-applications-using-app-services.md",
+            "redirect_url": "/azure/security/fundamentals/paas-applications-using-app-services",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/security-paas-applications-using-sql.md",
+            "redirect_url": "/azure/security/fundamentals/paas-applications-using-sql",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/security-paas-applications-using-storage.md",
+            "redirect_url": "/azure/security/fundamentals/paas-applications-using-storage",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/security-paas-deployments.md",
+            "redirect_url": "/azure/security/fundamentals/paas-deployments",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-security-pen-testing.md",
+            "redirect_url": "/azure/security/fundamentals/pen-testing",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-physical-security.md",
+            "redirect_url": "/azure/security/fundamentals/physical-security",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-production-network.md",
+            "redirect_url": "/azure/security/fundamentals/production-network",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-protection-of-customer-data.md",
+            "redirect_url": "/azure/security/fundamentals/protection-customer-data",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-security-response-center.md",
+            "redirect_url": "/azure/security/fundamentals/response-center",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/common-security-attributes.md",
+            "redirect_url": "/azure/security/fundamentals/security-controls",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-service-fabric-security-best-practices.md",
+            "redirect_url": "/azure/security/fundamentals/service-fabric-best-practices",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-service-fabric-security-checklist.md",
+            "redirect_url": "/azure/security/fundamentals/service-fabric-checklist",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-service-fabric-security-overview.md",
+            "redirect_url": "/azure/security/fundamentals/service-fabric-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-security-services-technologies.md",
+            "redirect_url": "/azure/security/fundamentals/services-technologies",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-ad-secure-steps.md",
+            "redirect_url": "/azure/security/fundamentals/steps-secure-identity",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/security-storage-overview.md",
+            "redirect_url": "/azure/storage/blobs/security-recommendations",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-security-technical-capabilities.md",
+            "redirect_url": "/azure/security/fundamentals/technical-capabilities",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-threat-detection.md",
+            "redirect_url": "/azure/security/fundamentals/threat-detection",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/security-microsoft-trust-center.md",
+            "redirect_url": "/azure/security/fundamentals/trust-center",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/security-microsoft-virtual-academy.md",
+            "redirect_url": "/azure/security/fundamentals/virtual-academy",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/security-virtual-machines-overview.md",
+            "redirect_url": "/azure/security/fundamentals/virtual-machines-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/security-white-papers.md",
+            "redirect_url": "/azure/security/fundamentals/white-papers",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/index.md",
+            "redirect_url": "/azure/security/index",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/security-azure-log-integration-security-center.md",
+            "redirect_url": "/azure/security-center/security-center-export-data-to-siem",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/fundamentals/service-fabric-checklist.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-best-practices-security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/fundamentals/service-fabric-overview.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-best-practices-security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/fundamentals/database-best-practices.md",
+            "redirect_url": "/azure/sql-database/sql-database-security-best-practice",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/fundamentals/database-security-overview.md",
+            "redirect_url": "/azure/sql-database/sql-database-security-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/fundamentals/ddos-best-practices.md",
+            "redirect_url": "/azure/ddos-protection/fundamental-best-practices",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/fundamentals/virtual-academy.md",
+            "redirect_url": "/learn/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/au-protected-iaaswa-overview.md",
+            "redirect_url": "/previous-versions/azure/security/blueprints/au-protected-iaaswa-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/au-protected-paaswa-overview.md",
+            "redirect_url": "/previous-versions/azure/security/blueprints/au-protected-paaswa-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/azure-health.md",
+            "redirect_url": "/previous-versions/azure/security/blueprints/azure-health",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/fedramp-analytics-overview.md",
+            "redirect_url": "/previous-versions/azure/security/blueprints/fedramp-analytics-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/fedramp-datawarehouse-overview.md",
+            "redirect_url": "/previous-versions/azure/security/blueprints/fedramp-datawarehouse-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/fedramp-iaaswa-overview.md",
+            "redirect_url": "/previous-versions/azure/security/blueprints/fedramp-iaaswa-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/fedramp-paaswa-overview.md",
+            "redirect_url": "/previous-versions/azure/security/blueprints/fedramp-paaswa-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/ffiec-analytics-overview.md",
+            "redirect_url": "/previous-versions/azure/security/blueprints/ffiec-analytics-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/ffiec-dw-overview.md",
+            "redirect_url": "/previous-versions/azure/security/blueprints/ffiec-dw-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/ffiec-iaaswa-overview.md",
+            "redirect_url": "/previous-versions/azure/security/blueprints/ffiec-iaaswa-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/ffiec-paaswa-overview.md",
+            "redirect_url": "/previous-versions/azure/security/blueprints/ffiec-paaswa-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/nist171-analytics-overview.md",
+            "redirect_url": "/previous-versions/azure/security/blueprints/nist171-analytics-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/nist171-datawarehouse-overview.md",
+            "redirect_url": "/previous-versions/azure/security/blueprints/nist171-datawarehouse-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/nist171-iaaswa-overview.md",
+            "redirect_url": "/previous-versions/azure/security/blueprints/nist171-iaaswa-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/nist171-paaswa-overview.md",
+            "redirect_url": "/previous-versions/azure/security/blueprints/nist171-paaswa-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/pcidss-analytics-overview.md",
+            "redirect_url": "/previous-versions/azure/security/blueprints/pcidss-analytics-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/pcidss-dw-overview.md",
+            "redirect_url": "/previous-versions/azure/security/blueprints/pcidss-dw-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/pcidss-iaaswa-overview.md",
+            "redirect_url": "/previous-versions/azure/security/blueprints/pcidss-iaaswa-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/pcidss-paaswa-overview.md",
+            "redirect_url": "/previous-versions/azure/security/blueprints/pcidss-paaswa-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/uknhs-analytics-overview.md",
+            "redirect_url": "/previous-versions/azure/security/blueprints/uknhs-analytics-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/uknhs-datawarehouse-overview.md",
+            "redirect_url": "/previous-versions/azure/security/blueprints/uknhs-datawarehouse-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/uknhs-iaaswa-overview.md",
+            "redirect_url": "/previous-versions/azure/security/blueprints/uknhs-iaaswa-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/uknhs-paaswa-overview.md",
+            "redirect_url": "/previous-versions/azure/security/blueprints/uknhs-paaswa-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/ukofficial-iaaswa-overview.md",
+            "redirect_url": "/previous-versions/azure/security/blueprints/ukofficial-iaaswa-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/ukofficial-paaswa-overview.md",
+            "redirect_url": "/previous-versions/azure/security/blueprints/ukofficial-paaswa-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/develop/secure-aad-app.md",
+            "redirect_url": "/previous-versions/azure/security/develop/secure-aad-app",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/develop/secure-pci-web-app.md",
+            "redirect_url": "/previous-versions/azure/security/develop/secure-pci-web-app",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/develop/secure-web-app.md",
+            "redirect_url": "/previous-versions/azure/security/develop/secure-web-app",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/fundamentals/azure-log-integration-ad.md",
+            "redirect_url": "/previous-versions/azure/security/fundamentals/azure-log-integration-ad",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/fundamentals/azure-log-integration-faq.md",
+            "redirect_url": "/previous-versions/azure/security/fundamentals/azure-log-integration-faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/fundamentals/azure-log-integration-get-started.md",
+            "redirect_url": "/previous-versions/azure/security/fundamentals/azure-log-integration-get-started",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/fundamentals/azure-log-integration-keyvault-eventhub.md",
+            "redirect_url": "/previous-versions/azure/security/fundamentals/azure-log-integration-keyvault-eventhub",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/fundamentals/azure-log-integration-overview.md",
+            "redirect_url": "/previous-versions/azure/security/fundamentals/azure-log-integration-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/gdpr-analytics-overview.md",
+            "redirect_url": "https://aka.ms/azureblueprint",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/gdpr-datawarehouse-overview.md",
+            "redirect_url": "https://aka.ms/azureblueprint",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/gdpr-iaaswa-overview.md",
+            "redirect_url": "https://aka.ms/azureblueprint",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/blueprints/gdpr-paaswa-overview.md",
+            "redirect_url": "https://aka.ms/azureblueprint",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/fundamentals/health-care-solution.md",
+            "redirect_url": "https://aka.ms/azureindustrysecurity",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-security-data-classification.md",
+            "redirect_url": "https://aka.ms/data-classification-cloud",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/fundamentals/abstract-serverless-platform-security.md",
+            "redirect_url": "https://azure.microsoft.com/resources/azure-functions-serverless-platform-security/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/fundamentals/abstract-network-security.md",
+            "redirect_url": "https://azure.microsoft.com/resources/azure-network-security/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/fundamentals/abstract-operational-security.md",
+            "redirect_url": "https://azure.microsoft.com/resources/azure-operational-security/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/fundamentals/abstract-container-security.md",
+            "redirect_url": "https://azure.microsoft.com/resources/container-security-in-microsoft-azure/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/fundamentals/abstract-develop-secure-apps.md",
+            "redirect_url": "https://azure.microsoft.com/resources/develop-secure-applications-on-azure/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/fundamentals/white-papers.md",
+            "redirect_url": "https://azure.microsoft.com/resources/whitepapers/search/?term=security&type=WhitePaperResource",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/fundamentals/channel-nine.md",
+            "redirect_url": "/teamblog/channel9joinedmicrosoftlearn/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/fundamentals/mvp.md",
+            "redirect_url": "https://mvp.microsoft.com/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/fundamentals/response-center.md",
+            "redirect_url": "https://www.microsoft.com/msrc",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/fundamentals/trust-center.md",
+            "redirect_url": "https://www.microsoft.com/trust-center",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-security-disk-encryption-linux.md",
+            "redirect_url": "/azure/virtual-machines/linux/disk-encryption-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-security-disk-encryption-windows.md",
+            "redirect_url": "/azure/virtual-machines/linux/disk-encryption-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-security-disk-encryption-linux-aad.md",
+            "redirect_url": "/azure/virtual-machines/linux/disk-encryption-overview-aad",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/security/azure-security-disk-encryption-windows-aad.md",
+            "redirect_url": "/azure/virtual-machines/linux/disk-encryption-overview-aad",
+            "redirect_document_id": false
+        }
+    ]
+}

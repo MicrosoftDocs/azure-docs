@@ -1,10 +1,11 @@
 ---
 title: Apache Spark streaming with Apache Kafka - Azure HDInsight
 description: Learn how to use Apache Spark to stream data into or out of Apache Kafka using DStreams. In this example, you stream data using a Jupyter Notebook from Spark on HDInsight.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 07/18/2022
+ROBOTS: NOINDEX
+ms.date: 03/15/2024
 ---
 
 # Apache Spark streaming (DStream) example with Apache Kafka on HDInsight
@@ -23,7 +24,7 @@ Learn how to use [Apache Spark](https://spark.apache.org/) to stream data into o
 
 Apache Kafka on HDInsight doesn't provide access to the Kafka brokers over the public internet. Anything that talks to Kafka must be in the same Azure virtual network as the nodes in the Kafka cluster. For this example, both the Kafka and Spark clusters are located in an Azure virtual network. The following diagram shows how communication flows between the clusters:
 
-:::image type="content" source="./media/hdinsight-apache-spark-with-kafka/apache-spark-kafka-vnet.png" alt-text="Diagram of Spark and Kafka clusters in an Azure virtual network" border="false":::
+:::image type="content" source="./media/hdinsight-apache-spark-with-kafka/apache-spark-kafka-vnet.png" alt-text="Diagram of Spark and Kafka clusters in an Azure virtual network." border="false":::
 
 > [!NOTE]  
 > Though Kafka itself is limited to communication within the virtual network, other services on the cluster such as SSH and Ambari can be accessed over the internet. For more information on the public ports available with HDInsight, see [Ports and URIs used by HDInsight](hdinsight-hadoop-port-settings-for-services.md).
@@ -32,12 +33,12 @@ While you can create an Azure virtual network, Kafka, and Spark clusters manuall
 
 1. Use the following button to sign in to Azure and open the template in the Azure portal.
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-kafka-spark-cluster-in-vnet-v4.1.json" target="_blank"><img src="./media/hdinsight-apache-spark-with-kafka/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
+   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FHDInsight%2Fhdinsight-kafka-tools%2Fmaster%2Fsrc%2Farm%2FHDInsight4.0%2Fhdinsight-kafka-2.1-spark-2.4-vnet%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-apache-spark-with-kafka/hdi-deploy-to-azure1.png" alt="Deploy to Azure button for new cluster"></a>
 
    > [!WARNING]
-   > To guarantee availability of Kafka on HDInsight, your cluster must contain at least three worker nodes. This template creates a Kafka cluster that contains three worker nodes.
+   > To guarantee availability of Kafka on HDInsight, your cluster must contain at least four worker nodes. This template creates a Kafka cluster that contains four worker nodes.
 
-   This template creates an HDInsight 3.6 cluster for both Kafka and Spark.
+   This template creates an HDInsight 4.0 cluster for both Kafka and Spark.
 
 1. Use the following information to populate the entries on the **Custom deployment** section:
 
@@ -51,7 +52,7 @@ While you can create an Azure virtual network, Kafka, and Spark clusters manuall
    |SSH User Name|The SSH user to create for the Spark and Kafka clusters.|
    |SSH Password|The password for the SSH user for the Spark and Kafka clusters.|
 
-   :::image type="content" source="./media/hdinsight-apache-spark-with-kafka/hdinsight-parameters.png" alt-text="HDInsight custom deployment parameters":::
+   :::image type="content" source="./media/hdinsight-apache-spark-with-kafka/hdinsight-parameters.png" alt-text="HDInsight custom deployment parameters.":::
 
 1. Read the **Terms and Conditions**, and then select **I agree to the terms and conditions stated above**.
 
@@ -59,7 +60,7 @@ While you can create an Azure virtual network, Kafka, and Spark clusters manuall
 
 Once the resources have been created, a summary page appears.
 
-:::image type="content" source="./media/hdinsight-apache-spark-with-kafka/hdinsight-group-blade.png" alt-text="Resource group summary for the vnet and clusters":::
+:::image type="content" source="./media/hdinsight-apache-spark-with-kafka/hdinsight-group-blade.png" alt-text="Resource group summary for the vnet and clusters.":::
 
 > [!IMPORTANT]  
 > Notice that the names of the HDInsight clusters are **spark-BASENAME** and **kafka-BASENAME**, where BASENAME is the name you provided to the template. You use these names in later steps when connecting to the clusters.
@@ -80,4 +81,3 @@ In this example, you learned how to use Spark to read and write to Kafka. Use th
 
 * [Get started with Apache Kafka on HDInsight](kafka/apache-kafka-get-started.md)
 * [Use MirrorMaker to create a replica of Apache Kafka on HDInsight](kafka/apache-kafka-mirroring.md)
-* [Use Apache Storm with Apache Kafka on HDInsight](hdinsight-apache-storm-with-kafka.md)

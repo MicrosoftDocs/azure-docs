@@ -2,18 +2,18 @@
 title: Manage the configuration server for physical servers in Azure Site Recovery
 description: This article describes how to manage the Azure Site Recovery configuration server for physical server disaster recovery to Azure.
 services: site-recovery
-author: v-pgaddala
-ms.service: site-recovery
-ms.topic: article
+author: ankitaduttaMSFT
+ms.service: azure-site-recovery
+ms.topic: tutorial
 ms.date: 07/27/2022
-ms.author: v-pgaddala
+ms.author: ankitadutta
 ---
 
 # Manage the configuration server for physical server disaster recovery
 
 You set up an on-premises configuration server when you use the [Azure Site Recovery](site-recovery-overview.md) service for disaster recovery of physical servers to Azure. The configuration server coordinates communications between on-premises machines and Azure, and manages data replication. This article summarizes common tasks for managing the configuration server after it's been deployed.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Prerequisites
 
@@ -262,7 +262,7 @@ Upgrade the server as follows:
 
 ## Delete or unregister a configuration server (PowerShell)
 
-1. [Install](/powershell/azure/install-Az-ps) Azure PowerShell module
+1. [Install](/powershell/azure/install-azure-powershell) Azure PowerShell module
 2. Login into to your Azure account using the command
     
     `Connect-AzAccount –UseDeviceAuthentication`

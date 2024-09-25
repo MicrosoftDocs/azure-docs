@@ -2,7 +2,8 @@
 title: Linter settings for Bicep config
 description: Describes how to customize configuration values for the Bicep linter
 ms.topic: conceptual
-ms.date: 09/30/2022
+ms.custom: devx-track-bicep
+ms.date: 09/19/2024
 ---
 
 # Add linter settings in the Bicep config file
@@ -29,6 +30,15 @@ The following example shows the rules that are available for configuration.
         "artifacts-parameters": {
           "level": "warning"
         },
+        "decompiler-cleanup": {
+          "level": "warning"
+        },
+        "explicit-values-for-loc-params": {
+          "level": "off"
+        },
+        "max-asserts": {
+          "level": "warning"
+        },
         "max-outputs": {
           "level": "warning"
         },
@@ -41,14 +51,23 @@ The following example shows the rules that are available for configuration.
         "max-variables": {
           "level": "warning"
         },
+        "nested-deployment-template-scoping": {
+          "level": "error"
+        },
+        "no-conflicting-metadata" : {
+          "level": "warning"
+        },
+        "no-deployments-resources" : {
+          "level": "warning"
+        },
         "no-hardcoded-env-urls": {
           "level": "warning"
         },
         "no-hardcoded-location": {
-          "level": "warning"
+          "level": "off"
         },
         "no-loc-expr-outside-params": {
-          "level": "warning"
+          "level": "off"
         },
         "no-unnecessary-dependson": {
           "level": "warning"
@@ -86,19 +105,38 @@ The following example shows the rules that are available for configuration.
         "simplify-interpolation": {
           "level": "warning"
         },
-        "use-protectedsettings-for-commandtoexecute-secrets": {
+        "simplify-json-null": {
+          "level": "warning"
+        },
+        "use-parent-property": {
           "level": "warning"
         },
         "use-recent-api-versions": {
+          "level": "warning",
+          "maxAllowedAgeInDays": 730
+        },
+        "use-recent-module-versions": {
           "level": "warning"
         },
         "use-resource-id-functions": {
           "level": "warning"
         },
+        "use-resource-symbol-reference": {
+          "level": "warning"
+        },
+        "use-safe-access": {
+          "level": "warning"
+        },
+        "use-secure-value-for-secure-inputs": {
+          "level": "error"
+        },
         "use-stable-resource-identifiers": {
           "level": "warning"
         },
         "use-stable-vm-image": {
+          "level": "warning"
+        },
+        "what-if-short-circuiting": {
           "level": "warning"
         }
       }
@@ -135,29 +173,23 @@ For the rule about hardcoded environment URLs, you can customize which URLs are 
         "no-hardcoded-env-urls": {
           "level": "warning",
           "disallowedhosts": [
-            "management.core.windows.net",
-            "gallery.azure.com",
-            "management.core.windows.net",
-            "management.azure.com",
-            "database.windows.net",
-            "core.windows.net",
-            "login.microsoftonline.com",
-            "graph.windows.net",
-            "trafficmanager.net",
-            "vault.azure.net",
-            "datalake.azure.net",
-            "azuredatalakestore.net",
+            "api.loganalytics.io",
+            "api.loganalytics.iov1",
+            "asazure.windows.net",
             "azuredatalakeanalytics.net",
-            "vault.azure.net",
-            "api.loganalytics.io",
-            "api.loganalytics.iov1",
-            "asazure.windows.net",
+            "azuredatalakestore.net",
+            "batch.core.windows.net",
+            "core.windows.net",
+            "database.windows.net",
+            "datalake.azure.net",
+            "gallery.azure.com",
+            "graph.windows.net",
+            "login.microsoftonline.com",
+            "management.azure.com",
+            "management.core.windows.net",
             "region.asazure.windows.net",
-            "api.loganalytics.iov1",
-            "api.loganalytics.io",
-            "asazure.windows.net",
-            "region.asazure.windows.net",
-            "batch.core.windows.net"
+            "trafficmanager.net",
+            "vault.azure.net"
           ],
           "excludedhosts": [
             "schema.management.azure.com"

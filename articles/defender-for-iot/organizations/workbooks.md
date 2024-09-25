@@ -1,14 +1,11 @@
 ---
-title: Use Azure Monitor workbooks in Microsoft Defender for IoT
+title: Visualize Microsoft Defender for IoT data with Azure Monitor workbooks
 description: Learn how to view and create Azure Monitor workbooks for Defender for IoT data.
 ms.topic: how-to
 ms.date: 09/04/2022
 ---
 
-# Use Azure Monitor workbooks in Microsoft Defender for IoT
-
-> [!IMPORTANT]
-> The **Azure Monitor workbooks** are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+# Visualize Microsoft Defender for IoT data with Azure Monitor workbooks
 
 Azure Monitor workbooks provide graphs, charts, and dashboards that visually reflect data stored in your Azure Resource Graph subscriptions and are available directly in Microsoft Defender for IoT.
 
@@ -19,7 +16,7 @@ Each workbook graph or chart is based on an Azure Resource Graph (ARG) query run
 - Gather sensor statuses
 - Identify new devices in your network
 - Find alerts related to specific IP addresses
-- Understand which alerts are seen by each sensor.
+- Understand which alerts are seen by each sensor
 
 ## View workbooks
 
@@ -191,5 +188,5 @@ Learn more about viewing dashboards and reports on the sensor console:
 Learn more about Azure Monitor workbooks and Azure Resource Graph:
 
 - [Azure Resource Graph documentation](../../governance/resource-graph/index.yml)
-- [Azure Monitor workbook documentation](../../azure-monitor/visualize/workbooks-overview.md)
+- [Azure Monitor workbook documentation](/azure/azure-monitor/visualize/workbooks-overview)
 - [Kusto Query Language (KQL) documentation](/azure/data-explorer/kusto/query/)

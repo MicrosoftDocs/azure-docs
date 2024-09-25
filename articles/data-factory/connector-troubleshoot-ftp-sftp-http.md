@@ -3,10 +3,9 @@ title: Troubleshoot the FTP, SFTP and HTTP connectors
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to troubleshoot issues with the FTP, SFTP and HTTP connectors in Azure Data Factory and Azure Synapse Analytics. 
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 08/12/2022
+ms.date: 01/05/2024
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
 ---
@@ -37,7 +36,7 @@ This article provides suggestions to troubleshoot common problems with the FTP, 
 
 ## SFTP
 
-#### Error code: SftpOperationFail
+### Error code: SftpOperationFail
 
 - **Message**: `Failed to '%operation;'. Check detailed error from SFTP.`
 
@@ -206,6 +205,14 @@ This article provides suggestions to troubleshoot common problems with the FTP, 
 
 - **Recommendation**: Get a valid fingerprint using the Host Key Name in `real finger-print` from the error message in the SFTP server. You can run the command to get the fingerprint on your SFTP server. For example: run `ssh-keygen -E md5 -lf <keyFilePath>` in Linux server to get the fingerprint. The command may vary among different server types.
 
+### Error code: UnsupportedCompressionTypeWhenDisableChunking
+
+- **Message**: `"Disable chunking" is not compatible with "ZipDeflate" decompression.`
+
+- **Cause**: **Disable chunking** is not compatible with **ZipDeflate** decompression.
+
+- **Recommendation**: Load the binary data to a staging area (for example: Azure Blob Storage) and decompress them in another copy activity.
+
 ## HTTP
 
 ### Error code: HttpFileFailedToRead
@@ -224,14 +231,14 @@ This article provides suggestions to troubleshoot common problems with the FTP, 
 
 - **Recommendation**: For more information about HTTP status code, see this [document](/troubleshoot/developer/webapps/iis/www-administration-management/http-status-code).
 
-## Next steps
+## Related content
 
 For more troubleshooting help, try these resources:
 
 - [Connector troubleshooting guide](connector-troubleshoot-guide.md)
-- [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
+- [Data Factory blog](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/bg-p/AzureDataFactoryBlog)
 - [Data Factory feature requests](/answers/topics/azure-data-factory.html)
 - [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 - [Microsoft Q&A page](/answers/topics/azure-data-factory.html)
 - [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
-- [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)
+- [X information about Data Factory](https://x.com/hashtag/DataFactory)

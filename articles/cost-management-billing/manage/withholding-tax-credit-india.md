@@ -3,11 +3,10 @@ title: Request a credit for Withholding Tax on your account (India customers) - 
 description: Learn how to request a credit on your account for Withholding Tax you paid. This article only applies to customers in India.
 author: bandersmsft
 ms.reviewer: amberb
-tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 03/22/2022
+ms.date: 01/08/2024
 ms.author: banders
 ---
 
@@ -15,7 +14,7 @@ ms.author: banders
 
 Customers in India receive Web Direct (Azure and Microsoft 365) invoices billed by Microsoft Regional Sales Pte Ltd. Singapore (MRS) and make cross-border payments to Singapore to settle the invoice. If you withheld taxes when remitting the payment, this article explains the process for claiming a credit for the Withholding Tax (WHT) in your account with MRS.
 
-## Invoice payment by check and wire
+## Invoice payment by wire
 
 If you withheld tax when remitting payment to MRS and deposited the withheld tax with the Income Tax Department, you must submit a WHT request to settle the tax amount withheld in your account.
 
@@ -60,7 +59,7 @@ If there’s a problem with your request, the review team might require correcti
 
 ## Approved requests
 
-**For customers paying by check and wire:** Approved WHT requests are settled against the unpaid portion of the invoice amount reflected in the Withholding Tax Credit Form.
+**For customers paying by wire:** Approved WHT requests are settled against the unpaid portion of the invoice amount reflected in the Withholding Tax Credit Form.
 
 After your claim is approved, it’s reflected in the next billing cycle. The WHT amount paid is included in the payment section of your next invoice. The amount is also displayed under the paid amount in the customer portal.
 
@@ -71,6 +70,6 @@ After your claim is approved, it’s reflected in the next billing cycle. The WH
 > - If changes are required, the approval process might take longer because of the corrections that must be made and then resubmitted.
 > - If you have questions about the WHT request process, please open a ticket with Microsoft support.
 
-## Next steps
+## Related content
 
 - See [Resolve past due balance for your Azure subscription](resolve-past-due-balance.md) if you need to pay an Azure bill.

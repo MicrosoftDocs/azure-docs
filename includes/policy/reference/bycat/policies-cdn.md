@@ -1,9 +1,9 @@
 ---
-author: timwarner-msft
 ms.service: azure-policy
 ms.topic: include
-ms.date: 09/12/2022
-ms.author: timwarner
+ms.date: 09/23/2024
+ms.author: davidsmatlak
+author: davidsmatlak
 ms.custom: generated
 ---
 

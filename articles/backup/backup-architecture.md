@@ -1,11 +1,12 @@
 ---
 title: Architecture Overview 
 description: Provides an overview of the architecture, components, and processes used by the Azure Backup service.
-ms.topic: conceptual
-ms.date: 12/24/2021
-author: v-amallick
-ms.service: backup
-ms.author: v-amallick
+ms.topic: overview
+ms.date: 07/18/2024
+ms.service: azure-backup
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
+ms.custom: engagement-fy24
 ---
 
 # Azure Backup architecture and components
@@ -39,7 +40,7 @@ Vaults have the following features:
 
 - Vaults make it easy to organize your backup data, while minimizing management overhead.
 - You can monitor backed-up items in a vault, including Azure VMs and on-premises machines.
-- You can manage vault access with [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.md).
+- You can manage vault access with [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.yml).
 - You specify how data in the vault is replicated for redundancy:
   - **Locally redundant storage (LRS)**: To protect your data against server rack and drive failures, you can use LRS. LRS replicates your data three times within a single data center in the primary region. LRS provides at least 99.999999999% (11 nines) durability of objects over a given year. [Learn more](../storage/common/storage-redundancy.md#locally-redundant-storage)
   - **Geo-redundant storage (GRS)**: To protect against region-wide outages, you can use GRS. GRS replicates your data to a secondary region. [Learn more](../storage/common/storage-redundancy.md#geo-redundant-storage).
@@ -196,8 +197,8 @@ Azure VMs use disks to store their operating system, apps, and data. Each Azure 
 
 For more information about disk storage and the available disk types for VMs, see these articles:
 
-- [Azure managed disks for Linux VMs](../virtual-machines/managed-disks-overview.md)
-- [Available disk types for VMs](../virtual-machines/disks-types.md)
+- [Azure managed disks for Linux VMs](/azure/virtual-machines/managed-disks-overview)
+- [Available disk types for VMs](/azure/virtual-machines/disks-types)
 
 ### Back up and restore Azure VMs with premium storage
 
@@ -206,7 +207,7 @@ You can back up Azure VMs by using premium storage with Azure Backup:
 - During the process of backing up VMs with premium storage, the Backup service creates a temporary staging location, named *AzureBackup-*, in the storage account. The size of the staging location equals the size of the recovery point snapshot.
 - Make sure that the premium storage account has adequate free space to accommodate the temporary staging location. For more information, see [Scalability targets for premium page blob storage accounts](../storage/blobs/scalability-targets-premium-page-blobs.md). Don't modify the staging location.
 - After the backup job finishes, the staging location is deleted.
-- The price of storage used for the staging location is consistent with [premium storage pricing](../virtual-machines/disks-types.md#billing).
+- The price of storage used for the staging location is consistent with [premium storage pricing](/azure/virtual-machines/disks-types#billing).
 
 When you restore Azure VMs by using premium storage, you can restore them to premium or standard storage. Typically, you would restore them to premium storage. But if you need only a subset of files from the VM, it might be cost effective to restore them to standard storage.
 
@@ -222,6 +223,14 @@ When you restore VMs with managed disks, you can restore to a complete VM with m
 
 - During the restore process, Azure handles the managed disks. If you're using the storage account option, you manage the storage account that's created during the restore process.
 - If you restore a managed VM that's encrypted, make sure the VM's keys and secrets exist in the key vault before you start the restore process.
+
+## Data isolation with Azure Backup
+
+With Azure Backup, the vaulted backup data is stored in Microsoft-managed Azure subscription and tenant. External users or guests have no direct access to this backup storage or its contents, ensuring the isolation of backup data from the production environment where the data source resides.
+
+In Azure, all communications and data in transit is securely transferred with *HTTPS* and *TLS 1.2+* protocols. This data remains on the Azure backbone network ensuring reliable and efficient data transmission. The backup data at rest is encrypted by default using *Microsoft-managed keys*. You can also bring your own keys for encryption if you require greater control over the data. To enhance protection, you can use [immutability](backup-azure-immutable-vault-concept.md), which prevents data from being altered or deleted before its retention period.  Azure Backup gives you diverse options such as [soft delete](backup-azure-enhanced-soft-delete-about.md), stop backup and delete data or retain data if you need to stop backups at any time. To protect critical operations, you can add [Multi-User Authorization (MUA)](multi-user-authorization-concept.md) that adds additional layer of protection by using an Azure resource called Azure Resource Guard.
+
+This robust approach ensures that even in a compromised environment, existing backups cannot be tampered with or deleted by unauthorized users.
 
 ## Next steps
 

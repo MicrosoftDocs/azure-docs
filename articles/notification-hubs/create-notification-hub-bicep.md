@@ -6,15 +6,15 @@ author: femila
 ms.author: femila
 ms.date: 05/24/2022
 ms.topic: quickstart
-ms.service: notification-hubs
-ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm
+ms.service: azure-notification-hubs
+ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ---
 
 # Quickstart: Create a notification hub using Bicep
 
 Azure Notification Hubs provides an easy-to-use and scaled-out push engine that enables you to send notifications to any platform (iOS, Android, Windows, Kindle, etc.) from any backend (cloud or on-premises). For more information about the service, see [What is Azure Notification Hubs](notification-hubs-push-notification-overview.md).
 
-[!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 This quickstart uses Bicep to create an Azure Notification Hubs namespace, and a notification hub named **MyHub** within that namespace.
 

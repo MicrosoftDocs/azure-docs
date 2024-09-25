@@ -1,13 +1,14 @@
 ---
 title: Azure Policy Regulatory Compliance controls for Azure Virtual Network
 description: Lists Azure Policy Regulatory Compliance controls available for Azure Virtual Network. These built-in policy definitions provide common approaches to managing the compliance of your Azure resources.
-ms.date: 10/03/2022
+ms.date: 02/06/2024
 ms.topic: sample
-author: mbender-ms
-ms.author: mbender
-ms.service: virtual-network
+author: asudbring
+ms.author: allensu
+ms.service: azure-virtual-network
 ms.custom: subject-policy-compliancecontrols
 ---
+
 # Azure Policy Regulatory Compliance controls for Azure Virtual Network
 
 [Regulatory Compliance in Azure Policy](../governance/policy/concepts/regulatory-compliance.md)

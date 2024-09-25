@@ -5,8 +5,12 @@
   items:
   - name: Security advantages
     href: ../fundamentals/overview.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
-  - name: Shared responsibility in the cloud
-    href: ../fundamentals/shared-responsibility.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+  - name: Shared responsibility
+    items:
+    - name: Shared responsibility in the cloud
+      href: ../fundamentals/shared-responsibility.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    - name: AI shared responsibility model
+      href: ../fundamentals/shared-responsibility-ai.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
   - name: Identity as the security perimeter
     href: ../fundamentals/paas-deployments.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
 
@@ -117,7 +121,7 @@
   - name: Security best practices
     href: ../fundamentals/best-practices-and-patterns.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
   - name: Security controls and baselines
-    href: ../benchmarks/introduction.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+    href: /security/benchmark/azure/introduction?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
 
   - name: Identity & and access management
     items:
@@ -132,7 +136,7 @@
     - name: Authorization
       href: /azure/architecture/framework/security/design-identity-authorization?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Choose passwordless
-      href: ../../active-directory/authentication/concept-authentication-passwordless.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+      href: /entra/identity/authentication/concept-authentication-passwordless?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Checklist
       href: ../fundamentals/steps-secure-identity.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
 
@@ -147,7 +151,7 @@
       - name: DDoS Protection best practices
         href: ../../ddos-protection/fundamental-best-practices.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
       - name: DDoS Protection security baseline
-        href: /security/benchmark/azure/baselines/ddos-protection-security-baseline?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json?toc=/azure/security/journey/TOC.json?toc=/azure/security/journey/TOC.json
+        href: /security/benchmark/azure/baselines/azure-ddos-protection-security-baseline?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json?toc=/azure/security/journey/TOC.json?toc=/azure/security/journey/TOC.json
     - name: Dangling DNS and subdomain takeover
       href: ../fundamentals/subdomain-takeover.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Network segmentation
@@ -165,6 +169,8 @@
 
   - name: Data security, encryption, and storage
     items:
+    - name: Best practices for protecting secrets
+      href: ../fundamentals/secrets-best-practices.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Azure Certificate Authority details
       href: ../fundamentals/azure-CA-details.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Data security and encryption
@@ -184,7 +190,7 @@
       - name: Data encryption models
         href: ../fundamentals/encryption-models.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
       - name: Managed disk encryption
-        href: ../../virtual-machines/disk-encryption-overview.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+        href: /azure/virtual-machines/disk-encryption-overview?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Database security
       items:
       - name: Overview
@@ -205,6 +211,8 @@
         href: ../fundamentals/customer-lockbox-overview.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
       - name: Security baseline for Customer Lockbox
         href: /security/benchmark/azure/baselines/lockbox-security-baseline?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json?toc=/azure/security/journey/TOC.json?toc=/azure/security/journey/TOC.json
+    - name: Trusted Hardware Identity Management
+      href: ../fundamentals/trusted-hardware-identity-management.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Checklist
       href: /azure/architecture/framework/security/design-storage?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
 
@@ -217,7 +225,7 @@
     - name: Virtual machine security overview
       href: ../fundamentals/virtual-machines-overview.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Automatic VM guest patching
-      href: /azure/virtual-machines/automatic-vm-guest-patching?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+      href: /azure/virtual-machines/automatic-vm-guest-patching?bc=%2fazure%2fsecurity%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsecurity%2fjourney%2ftoc.json
     - name: Best practices - IaaS workloads
       href: ../fundamentals/iaas.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Azure Marketplace images

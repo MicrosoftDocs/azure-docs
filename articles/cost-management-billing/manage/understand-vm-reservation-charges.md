@@ -6,7 +6,7 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 10/03/2022
+ms.date: 03/21/2024
 ms.author: banders
 ---
 
@@ -18,6 +18,9 @@ A reservation discount applies to the base VMs that you purchase from the Azure 
 
 For SQL Database reserved capacity, see [Understand Azure Reserved Instances discount](../reservations/understand-reservation-charges.md).
 
+>[!NOTE]
+> Azure doesn't offer reservations for Spot VMs.
+
 The following table illustrates the costs for your virtual machine after you purchase a Reserved VM Instance. In all cases, you're charged for storage and networking at the normal rates.
 
 | Virtual Machine Type  | Charges with Reserved VM Instance |
@@ -26,7 +29,7 @@ The following table illustrates the costs for your virtual machine after you pur
 |Linux VMs with software charges (For example, Red Hat) | The reservation covers the infrastructure costs. You're charged for additional software.|
 |Windows VMs without additional software |The reservation covers the infrastructure costs. You're charged for Windows software.|
 |Windows VMs with additional software (For example, SQL server) | The reservation covers the infrastructure costs. You're charged for Windows software and for additional software.|
-|Windows VMs with [Azure Hybrid Benefit](../../virtual-machines/windows/hybrid-use-benefit-licensing.md) | The reservation covers the infrastructure costs. The Windows software costs are covered by the Azure Hybrid Benefit. Any additional software is charged separately.|
+|Windows VMs with [Azure Hybrid Benefit](/azure/virtual-machines/windows/hybrid-use-benefit-licensing) | The reservation covers the infrastructure costs. The Windows software costs are covered by the Azure Hybrid Benefit. Any additional software is charged separately.|
 
 ## How reservation discount is applied
 
@@ -40,7 +43,7 @@ Stopped VMs are billed and continue to use reservation hours. Deallocate or dele
 
  The Azure reservation discount is applied to running VM instances on an hourly basis. The reservations that you have purchased are matched to the usage emitted by the running VMs to apply the reservation discount. For VMs that may not run the full hour, the reservation will be filled from other VMs not using a reservation, including concurrently running VMs. At the end of the hour, the reservation application for VMs in the hour is locked. In the event a VM doesn't run for an hour or concurrent VMs within the hour don't fill the hour of the reservation, the reservation is underutilized for that hour. The following graph illustrates the application of a reservation to billable VM usage. The illustration is based on one reservation purchase and two matching VM instances.
 
-![Screenshot of one applied reservation and two matching VM instances](./media/understand-vm-reservation-charges/billing-reserved-vm-instance-application.png)
+:::image type="content" border="true" source="./media/understand-vm-reservation-charges/billing-reserved-vm-instance-application.png" alt-text="Screenshot of one applied reservation and two matching VM instances.":::
 
 1. Any usage that's above the reservation line gets charged at the regular pay-as-you-go rates. You're not charged for any usage below the reservations line, since it has been already paid as part of reservation purchase.
 2. In hour 1, instance 1 runs for 0.75 hours and instance 2 runs for 0.5 hours. Total usage for hour 1 is 1.25 hours. You're charged the pay-as-you-go rates for the remaining 0.25 hours.
@@ -51,11 +54,11 @@ To understand and view the application of your Azure Reservations in billing usa
 
 ## Reservation discount for Windows VMs
 
-When you're running Windows VM instances, the reservation is applied to cover the infrastructure costs. The application of the reservation to the VM infrastructure costs for Windows VMs is the same as for non-Windows VMs. You're charged separately for Windows software on a per vCPU basis. See [Windows software costs with Reservations](../reservations/reserved-instance-windows-software-costs.md). You can cover your Windows licensing costs with [Azure Hybrid Benefit for Windows Server](../../virtual-machines/windows/hybrid-use-benefit-licensing.md).
+When you're running Windows VM instances, the reservation is applied to cover the infrastructure costs. The application of the reservation to the VM infrastructure costs for Windows VMs is the same as for non-Windows VMs. You're charged separately for Windows software on a per vCPU basis. See [Windows software costs with Reservations](../reservations/reserved-instance-windows-software-costs.md). You can cover your Windows licensing costs with [Azure Hybrid Benefit for Windows Server](/azure/virtual-machines/windows/hybrid-use-benefit-licensing).
 
 ## Discount can apply to different sizes
 
-When you buy a Reserved VM Instance and select **Optimized for instance size flexibility**, the discount coverage applies to the VM size you select. It can also apply to other VMs sizes that are in the same series instance size flexibility group. For more information, see [Virtual machine size flexibility with Reserved VM Instances](../../virtual-machines/reserved-vm-instance-size-flexibility.md).
+When you buy a Reserved VM Instance and select **Optimized for instance size flexibility**, the discount coverage applies to the VM size you select. It can also apply to other VMs sizes that are in the same series instance size flexibility group. For more information, see [Virtual machine size flexibility with Reserved VM Instances](/azure/virtual-machines/reserved-vm-instance-size-flexibility).
 
 ## Premium storage VMs don't get non-premium discounts
 
@@ -63,7 +66,7 @@ Here's an example. Assume you bought a reservation for five Standard_D1 VMs, the
 
 The reservation discount application ignores the meter used for VMs and only evaluates ServiceType. Look at the `ServiceType` value in `AdditionalInfo` to determine the instance flexibility group/series information for your VMs. The values are in your usage CSV file.
 
-You can't directly change the instance flexibility group/series of the reservation after purchase. However, you can *exchange* a VM reservation from one instance flexibility group/series to another.
+You can't directly change the instance flexibility group/series of the reservation after purchase. However, you can *exchange* a VM reservation from one instance flexibility group/series to another. For more information about reservation exchanges, see [Exchanges and refunds for Azure Reservations](../reservations/exchange-and-refund-azure-reservations.md).
 
 ## Services that get VM reservation discounts
 
@@ -92,19 +95,19 @@ When the setting is on, reservation discounts automatically apply to matching VM
 
 Check the *ConsumedService* value in your usage data to determine if the usage is eligible for reservation discounts.
 
-For more information about instance size flexibility, see [Virtual machine size flexibility with Reserved VM Instances](../../virtual-machines/reserved-vm-instance-size-flexibility.md).
+For more information about instance size flexibility, see [Virtual machine size flexibility with Reserved VM Instances](/azure/virtual-machines/reserved-vm-instance-size-flexibility).
 
 
 ## Need help? Contact us
 
 If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-## Next steps
+## Related content
 
 To learn more about Azure Reservations, see the following articles:
 
 - [What are reservations for Azure?](../reservations/save-compute-costs-reservations.md)
-- [Prepay for Virtual Machines with Azure Reserved VM Instances](../../virtual-machines/prepay-reserved-vm-instances.md)
+- [Prepay for Virtual Machines with Azure Reserved VM Instances](/azure/virtual-machines/prepay-reserved-vm-instances)
 - [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](/azure/azure-sql/database/reserved-capacity-overview)
 - [Manage reservations for Azure](../reservations/manage-reserved-vm-instance.md)
 - [Understand reservation usage for your Pay-As-You-Go subscription](../reservations/understand-reserved-instance-usage.md)

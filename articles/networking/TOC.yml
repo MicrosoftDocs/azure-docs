@@ -20,28 +20,36 @@
       href: /azure/architecture/reference-architectures/dmz/nva-ha
     - name: Combine load balancing methods
       href: ../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fnetworking%2ftoc.json
-    - name: Disaster recovery using Azure DNS and Traffic Manager
-      href: disaster-recovery-dns-traffic-manager.md
+    - name: Reliability
+      items:
+      - name: Reliability in Azure DNS
+        href: ../reliability/reliability-dns.md?toc=%2fazure%2fnetworking%2ftoc.json
+      - name: Reliability in Traffic Manager
+        href: ../reliability/reliability-traffic-manager.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Choose a secure network topology
+      href: secure-network-topology.md
+    - name: Choose a secure application delivery service
+      href: secure-application-delivery.md
   - name: Plan and design
     items:
     - name: Support for working remotely
-      href: working-remotely-support.md  
+      href: working-remotely-support.md
     - name: Virtual networks
       href: ../virtual-network/virtual-network-vnet-plan-design-arm.md?toc=%2fazure%2fnetworking%2ftoc.json
     - name: Cross-premises connectivity - VPN
       href: ../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json
     - name: Cross-premises connectivity - dedicated private
       href: ../expressroute/expressroute-workflows.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Load balancing and content delivery
+      href: load-balancer-content-delivery/index.yml
     - name: Backend connectivity interoperability
       items:
       - name: Preface and Test Setup
-        href: connectivty-interoperability-preface.md?toc=%2fazure%2fnetworking%2ftoc.json
-      - name: Test Setup Configuration
-        href: connectivty-interoperability-configuration.md?toc=%2fazure%2fnetworking%2ftoc.json
+        href: connectivity-interoperability-preface.md
       - name: Control Plane Analysis
-        href: connectivty-interoperability-control-plane.md?toc=%2fazure%2fnetworking%2ftoc.json
+        href: connectivity-interoperability-control-plane.md
       - name: Data Plane Analysis
-        href: connectivty-interoperability-data-plane.md?toc=%2fazure%2fnetworking%2ftoc.json
+        href: connectivity-interoperability-data-plane.md
   - name: Concepts
     items:
     - name: Microsoft global network
@@ -70,6 +78,8 @@
       href: ../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json
     - name: Connect on-premises - dedicated
       href: ../expressroute/expressroute-introduction.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: NVA accelerated connections
+      href: nva-accelerated-connections.md
 - name: Quickstart
   items:
   - name: Create your first virtual network
@@ -114,18 +124,16 @@
       href: network-monitoring-overview.md
     - name: Check resource usage against Azure limits
       href: check-usage-against-limits.md
-    - name: View network topology
-      href: ../network-watcher/view-network-topology.md?toc=%2fazure%2fnetworking%2ftoc.json
-  - name: Sample scripts
+    - name: View topology
+      href: ../network-watcher/network-insights-topology.md?toc=%2fazure%2fnetworking%2ftoc.json
+  - name: Security
     items:
-    - name: Azure CLI
-      href: cli-samples.md
-    - name: Azure PowerShell
-      href: powershell-samples.md
+    - name: Create a Zero Trust network for web applications
+      href: create-zero-trust-network-web-apps.md
   - name: Tutorials
     items:
     - name: Load balance VMs
-      href: ../virtual-machines/linux/tutorial-load-balancer.md?toc=%2fazure%2fnetworking%2ftoc.json
+      href: ../load-balancer/quickstart-load-balancer-standard-public-portal.md
     - name: Connect a computer to a virtual network
       href: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md?toc=%2fazure%2fnetworking%2ftoc.json
 - name: Reference
@@ -134,7 +142,7 @@
     href: /cli/azure/network
   - name: Azure PowerShell
     href: /powershell/module/az.network/
-  - name: .Net
+  - name: .NET
     href: /dotnet/api/microsoft.azure.management.network
   - name: Node.js
     href: https://azure.microsoft.com/develop/nodejs/#azure-sdk

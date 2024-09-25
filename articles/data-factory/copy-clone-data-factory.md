@@ -1,13 +1,12 @@
 ---
 title: Copy or clone a data factory in Azure Data Factory 
 description: Learn how to copy or clone a data factory in Azure Data Factory
-ms.service: data-factory
 ms.subservice: data-movement
-author: joshuha-msft
-ms.author: joowen
+author: kromerm
+ms.author: makromer
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 01/26/2022
+ms.date: 01/05/2024
 ---
 
 # Copy or clone a data factory in Azure Data Factory
@@ -43,6 +42,6 @@ Here are some of the circumstances in which you may find it useful to copy or cl
 
 1. For security reasons, the generated Resource Manager template won't contain any secret information, for example passwords for linked services. Hence, you need to provide the credentials as deployment parameters. If manually inputting credential isn't desirable for your settings, please consider retrieving the connection strings and passwords from Azure Key Vault instead. [See more](store-credentials-in-key-vault.md)
 
-## Next steps
+## Related content
 
 Review the guidance for creating a data factory in the Azure portal in [Create a data factory by using the Azure Data Factory UI](quickstart-create-data-factory-portal.md).

@@ -1,26 +1,26 @@
 ---
 title: Create backup policies for disks using data protection REST API
 description: In this article, you'll learn how to create and manage backup policies for disks using REST API.
-ms.topic: conceptual
-ms.date: 10/06/2021
+ms.topic: how-to
+ms.date: 05/09/2024
 ms.assetid: ecc107c0-311c-42d0-a094-654d7ee30443
-author: v-amallick
-ms.service: backup
-ms.author: v-amallick
+ms.service: azure-backup
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
+ms.custom: engagement-fy23
 ---
 
 # Create Azure Data Protection backup policies for disks using REST API
 
-A backup policy governs the retention and schedule of your backups. Azure Disk Backup offers multiple backups per day.
+This article describes how to create a backup policy via REST API.
 
-You can reuse the backup policy to configure backup for multiple Azure Disks to a vault or [create a backup policy for an Azure Recovery Services vault using REST API](/rest/api/dataprotection/backup-policies/create-or-update).
+Azure Disk Backup offers a turnkey solution that provides snapshot lifecycle management for managed disks by automating periodic creation of snapshots and retaining it for configured duration using backup policy. You can manage the disk snapshots with zero infrastructure cost and without the need for custom scripting or any management overhead. This is a crash-consistent backup solution that takes point-in-time backup of a managed disk using incremental snapshots with support for multiple backups per day. It's also an agent-less solution and doesn't impact production application performance. It supports backup and restore of both OS and data disks (including shared disks), whether or not they're currently attached to a running Azure virtual machine.
+
+The backup policy helps to govern the retention and schedule of your backups. The backup policy offers multiple backups per day. You can reuse the backup policy to configure backup for multiple Azure Disks to a vault or [create a backup policy for an Azure Recovery Services vault using REST API](/rest/api/dataprotection/backup-policies/create-or-update).
 
 To create a policy for backing up disks, perform the following actions:
 
 ## Create a policy
-
->[!IMPORTANT]
->Currently, updating or modifying an existing policy isn't supported. Alternatively, you can create a new policy with the required details and assign it to the relevant backup instance.
 
 To create an Azure Backup policy, use the following *PUT* operation:
 
@@ -30,7 +30,10 @@ PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 The `{policyName}` and `{vaultName}` are provided in the URI. Additional information is provided in the request body.
 
-## Create the request body
+>[!IMPORTANT]
+>Currently, updating or modifying an existing policy isn't supported. Alternatively, you can create a new policy with the required details and assign it to the relevant backup instance.
+
+### Create the request body
 
 For example, to create a policy for Disk backup, the request body needs the following components:
 
@@ -40,7 +43,7 @@ For example, to create a policy for Disk backup, the request body needs the foll
 
 For the complete list of definitions in the request body, refer to the [backup policy REST API document](/rest/api/dataprotection/backup-policies/create-or-update).
 
-### Example request body
+**Example request body**
 
 The policy says:
 
@@ -112,11 +115,15 @@ The policy says:
 >[!IMPORTANT]
 >The time formats support only DateTime. They don't support only Time. The time of the day indicates the backup start time, and not the time when the backup completes.
 
-The time required for completing the backup operation depends on various factors including size of the disk, and churn rate between consecutive backups. However, Azure Disk Backup is an agentless backup that uses [incremental snapshots](../virtual-machines/disks-incremental-snapshots.md), which doesn't impact the production application performance.
+The time required for completing the backup operation depends on various factors including size of the disk, and churn rate between consecutive backups. However, Azure Disk Backup is an agentless backup that uses [incremental snapshots](/azure/virtual-machines/disks-incremental-snapshots), which doesn't impact the production application performance.
 
 To know more details about policy creation, refer to the [Azure Disk Backup policy](backup-managed-disks.md#create-backup-policy) document.
 
-## Responses
+>[!Note]
+>- For Azure Disks belonging to Standard HDD, Standard SSD, and Premium SSD SKUs, you can define the backup schedule with *Hourly* frequency (of 1, 2, 4, 6, 8, or 12 hours) and *Daily* frequency. 
+>- For Azure Disks belonging to Premium V2 and Ultra Disk SKUs, you can define the backup schedule with *Hourly* frequency of only 12 hours and *Daily* frequency.
+
+### Responses
 
 The backup policy creation/update is a synchronous operation and returns OK once the operation is successful.
 
@@ -124,7 +131,7 @@ The backup policy creation/update is a synchronous operation and returns OK once
 |---------|---------|---------|
 |200 OK     |     [BaseBackupPolicyResource](/rest/api/dataprotection/backup-policies/create-or-update#basebackuppolicyresource)     |  OK       |
 
-### Example responses
+**Example responses**
 
 Once the operation completes, it returns 200 (OK) with the policy content in the response body.
 

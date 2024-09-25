@@ -3,11 +3,10 @@ title: Mapping data flows
 description: An overview of mapping data flows in Azure Data Factory
 author: kromerm
 ms.author: makromer
-ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 08/26/2021
+ms.date: 10/20/2023
 ---
 
 # Mapping data flows in Azure Data Factory
@@ -24,8 +23,7 @@ Mapping data flows provide an entirely visual experience with no coding required
 
 Data flows are created from the factory resources pane like pipelines and datasets. To create a data flow, select the plus sign next to **Factory Resources**, and then select **Data Flow**. 
 
-:::image type="content" source="media/data-flow/new-data-flow.png" alt-text="New data flow":::
-
+![Screenshot showing a new data flow.](media/concepts-data-flow-overview/new-data-flow.png)
 This action takes you to the data flow canvas, where you can create your transformation logic. Select **Add source** to start configuring your source transformation. For more information, see [Source transformation](data-flow-source.md).
 
 ## Authoring data flows
@@ -36,7 +34,7 @@ Mapping data flow has a unique authoring canvas designed to make building transf
 
 ### Graph
 
-The graph displays the transformation stream. It shows the lineage of source data as it flows into one or more sinks. To add a new source, select **Add source**. To add a new transformation, select the plus sign on the lower right of an existing transformation. Learn more on how to [manage the data flow graph](concepts-data-flow-manage-graph.md).
+The graph displays the transformation stream. It shows the lineage of source data as it flows into one or more sinks. Sinks can be any data source destinations where you want to move the results of your transformed data. To add a new source, select **Add source**. To add a new transformation, select the plus sign on the lower right of an existing transformation. Learn more on how to [manage the data flow graph](concepts-data-flow-manage-graph.md).
 
 :::image type="content" source="media/data-flow/canvas-2.png" alt-text="Screenshot shows the graph part of the canvas with a Search text box.":::
 
@@ -50,14 +48,12 @@ Each transformation contains at least four configuration tabs.
 
 The first tab in each transformation's configuration pane contains the settings specific to that transformation. For more information, see that transformation's documentation page.
 
-:::image type="content" source="media/data-flow/source-1.png" alt-text="Source settings tab":::
-
+![Screenshot showing the source settings tab.](media/concepts-data-flow-overview/source-1.png)
 #### Optimize
 
 The **Optimize** tab contains settings to configure partitioning schemes. To learn more about how to optimize your data flows, see the [mapping data flow performance guide](concepts-data-flow-performance.md).
 
-:::image type="content" source="media/data-flow/optimize.png" alt-text="Screenshot shows the Optimize tab, which includes Partition option, Partition type, and Number of partitions.":::
-
+![Screenshot shows the Optimize tab, which includes Partition option, Partition type, and Number of partitions.](media/concepts-data-flow-overview/optimize.png)
 #### Inspect
 
 The **Inspect** tab provides a view into the metadata of the data stream that you're transforming. You can see column counts, the columns changed, the columns added, data types, the column order, and column references. **Inspect** is a read-only view of your metadata. You don't need to have debug mode enabled to see metadata in the **Inspect** pane.
@@ -108,69 +104,8 @@ Mapping data flow integrates with existing Azure Data Factory monitoring capabil
 
 The Azure Data Factory team has created a [performance tuning guide](concepts-data-flow-performance.md) to help you optimize the execution time of your data flows after building your business logic.
 
-
-## Available regions
-
-Mapping data flows are available in the following regions in ADF:
-
-| Azure region | Data flows in ADF |
-| ------------ | ----------------- |
-| Australia Central | |
-| Australia Central 2 | |
-| Australia East | ✓ |
-| Australia Southeast	| ✓ |
-| Brazil South	| ✓ |
-| Canada Central | ✓ |
-| Central India	| ✓ |
-| Central US	| ✓ |
-| China East |		|
-| China East 2	|	|
-| China Non-Regional | |
-| China North | ✓ |
-| China North 2	| ✓ |
-| East Asia	| ✓ |
-| East US	| ✓ |
-| East US 2	| ✓ |
-| France Central | ✓ |
-| France South	| |
-| Germany Central (Sovereign) | |
-| Germany Non-Regional (Sovereign) | |
-| Germany North (Public) | |
-| Germany Northeast (Sovereign) | |
-| Germany West Central (Public) | ✓ |
-| Japan East | ✓ |
-| Japan West | ✓	|
-| Korea Central	| ✓ |
-| Korea South | |
-| North Central US	| ✓ |
-| North Europe	| ✓ |
-| Norway East | ✓ |
-| Norway West | |
-| South Africa North	| ✓ |
-| South Africa West	|  |
-| South Central US	| |
-| South India | ✓ |
-| Southeast Asia	| ✓ |
-| Switzerland North	| ✓ |
-| Switzerland West | |
-| UAE Central | |
-| UAE North	| ✓ |
-| UK South	| ✓ |
-| UK West |		|
-| US DoD Central | |
-| US DoD East | |
-| US Gov Arizona | ✓ |
-| US Gov Non-Regional | |
-| US Gov Texas | |
-| US Gov Virginia | ✓ |
-| West Central US |		|
-| West Europe	| ✓ |
-| West India | ✓ |
-| West US	| ✓ |
-| West US 2	| ✓ |
-| West US 3	| ✓ |
-
-## Next steps
+## Related content
 
 * Learn how to create a [source transformation](data-flow-source.md).
 * Learn how to build your data flows in [debug mode](concepts-data-flow-debug-mode.md).
+

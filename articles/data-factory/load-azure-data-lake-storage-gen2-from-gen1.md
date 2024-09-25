@@ -3,11 +3,9 @@ title: Copy data from Azure Data Lake Storage Gen1 to Gen2
 description: 'Use Azure Data Factory to copy data from Azure Data Lake Storage Gen1 to Gen2'
 ms.author: jianleishen
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 08/06/2021
+ms.date: 10/20/2023
 ---
 
 # Copy data from Azure Data Lake Storage Gen1 to Gen2 with Azure Data Factory
@@ -34,7 +32,7 @@ This article shows you how to use the Data Factory copy data tool to copy data f
 
 1. If you have not created your data factory yet, follow the steps in [Quickstart: Create a data factory by using the Azure portal and Azure Data Factory Studio](quickstart-create-data-factory-portal.md) to create one.  After creating it, browse to the data factory in the Azure portal.
 
-   :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Open Azure Data Factory Studio tile.":::
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/data-factory/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Open Azure Data Factory Studio tile.":::
 
 1. Select **Open** on the **Open Azure Data Factory Studio** tile to launch the Data Integration application in a separate tab.
 
@@ -121,7 +119,7 @@ ADF offers a serverless architecture that allows parallelism at different levels
 
 Customers have successfully migrated petabytes of data consisting of hundreds of millions of files from Data Lake Storage Gen1 to Gen2, with a sustained throughput of 2 GBps and higher.
 
-you can achieve great data movement speeds through different levels of parallelism:
+You can achieve greater data movement speeds by applying different levels of parallelism:
 
 - A single copy activity can take advantage of scalable compute resources: when using Azure Integration Runtime, you can specify up to 256 [data integration units (DIUs)](copy-activity-performance-features.md#data-integration-units) for each copy activity in a serverless manner; when using self-hosted Integration Runtime, you can manually scale up the machine or scale out to multiple machines (up to 4 nodes), and a single copy activity will partition its file set across all nodes.
 - A single copy activity reads from and writes to the data store using multiple threads.
@@ -176,10 +174,10 @@ You can also enable [fault tolerance](copy-activity-fault-tolerance.md) in copy 
 
 ### Permissions 
 
-In Data Factory, the [Data Lake Storage Gen1 connector](connector-azure-data-lake-store.md) supports service principal and managed identity for Azure resource authentications. The [Data Lake Storage Gen2 connector](connector-azure-data-lake-storage.md) supports account key, service principal, and managed identity for Azure resource authentications. To make Data Factory able to navigate and copy all the files or access control lists (ACLs) you need, grant high enough permissions for the account you provide to access, read, or write all files and set ACLs if you choose to. Grant it a super-user or owner role during the migration period. 
+In Data Factory, the [Data Lake Storage Gen1 connector](connector-azure-data-lake-store.md) supports service principal and managed identity for Azure resource authentications. The [Data Lake Storage Gen2 connector](connector-azure-data-lake-storage.md) supports account key, service principal, and managed identity for Azure resource authentications. To make Data Factory able to navigate and copy all the files or access control lists (ACLs) you will need to grant high enough permissions to the account to access, read, or write all files and set ACLs if you choose to. You should grant the account a super-user or owner role during the migration period and remove the elevated permissions once the migration is completed. 
 
 
-## Next steps
+## Related content
 
 > [!div class="nextstepaction"]
 > [Copy activity overview](copy-activity-overview.md)

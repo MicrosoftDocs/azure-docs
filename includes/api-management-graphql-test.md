@@ -1,10 +1,9 @@
 ---
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: include
 author: dlepow
 ms.author: danlep
-ms.date: 05/10/2022
-ms.custom: 
+ms.date: 02/24/2023
 ---
 
 ## Test your GraphQL API
@@ -33,9 +32,3 @@ ms.custom:
 
 1. Repeat preceding steps to test different payloads.
 1. When testing is complete, exit test console.
-
-> [!NOTE]
-> You can test a subscription in the test console:
-> * Set up a subscription query in the query editor, and then select **Connect** to establish a WebSocket connection to the backend service. 
-> * Review connection details in the **Subscription** pane. 
-> * The WebSocket connection is maintained until you disconnect it or you connect to a new WebSocket subscription.  

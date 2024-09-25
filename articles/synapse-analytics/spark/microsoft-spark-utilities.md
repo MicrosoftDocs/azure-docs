@@ -1,46 +1,48 @@
 ---
 title: Introduction to Microsoft Spark utilities
 description: "Tutorial: MSSparkutils in Azure Synapse Analytics notebooks"
-author: ruixinxu
-services: synapse-analytics
-ms.service: synapse-analytics
+author: JeneZhang
+ms.service: azure-synapse-analytics
 ms.topic: reference
 ms.subservice: spark
 ms.date: 09/10/2020
-ms.author: ruxu
-ms.reviewer:
+ms.author: jingzh
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.custom: subject-rbac-steps
+ms.custom: subject-rbac-steps, devx-track-python
 ---
 
 # Introduction to Microsoft Spark Utilities
 
-Microsoft Spark Utilities (MSSparkUtils) is a builtin package to help you easily perform common tasks. You can use MSSparkUtils to work with file systems, to get environment variables, to chain notebooks together, and to work with secrets. MSSparkUtils are available in `PySpark (Python)`, `Scala`, and `.NET Spark (C#)` notebooks and Synapse pipelines.
+Microsoft Spark Utilities (MSSparkUtils) is a builtin package to help you easily perform common tasks. You can use MSSparkUtils to work with file systems, to get environment variables, to chain notebooks together, and to work with secrets. MSSparkUtils are available in `PySpark (Python)`, `Scala`, `.NET Spark (C#)`, and `R (Preview)` notebooks and Synapse pipelines.
 
 ## Pre-requisites
 
 ### Configure access to Azure Data Lake Storage Gen2
 
-Synapse notebooks use Azure Active Directory (Azure AD) pass-through to access the ADLS Gen2 accounts. You need to be a **Storage Blob Data Contributor** to access the ADLS Gen2 account (or folder).
+Synapse notebooks use Microsoft Entra pass-through to access the ADLS Gen2 accounts. You need to be a **Storage Blob Data Contributor** to access the ADLS Gen2 account (or folder).
 
 Synapse pipelines use workspace's Managed Service Identity (MSI) to access the storage accounts. To use MSSparkUtils in your pipeline activities, your workspace identity needs to be **Storage Blob Data Contributor** to access the ADLS Gen2 account (or folder).
 
-Follow these steps to make sure your Azure AD and workspace MSI have access to the ADLS Gen2 account:
+Follow these steps to make sure your Microsoft Entra ID and workspace MSI have access to the ADLS Gen2 account:
+
 1. Open the [Azure portal](https://portal.azure.com/) and the storage account you want to access. You can navigate to the specific container you want to access.
+
 1. Select the **Access control (IAM)** from the left panel.
+
 1. Select **Add** > **Add role assignment** to open the Add role assignment page.
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 
     | Setting | Value |
     | --- | --- |
     | Role | Storage Blob Data Contributor |
     | Assign access to | USER and MANAGEDIDENTITY |
-    | Members | your Azure AD account and your workspace identity |
+    | Members | your Microsoft Entra account and your workspace identity |
 
     > [!NOTE]
     > The managed identity name is also the workspace name.
 
-    ![Add role assignment page in Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
+    ![Add role assignment page in Azure portal.](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png)
 
 1. Select **Save**.
 
@@ -50,7 +52,7 @@ You can access data on ADLS Gen2 with Synapse Spark via the following URL:
 
 ### Configure access to Azure Blob Storage
 
-Synapse use [**Shared access signature (SAS)**](../../storage/common/storage-sas-overview.md) to access Azure Blob Storage. To avoid exposing SAS keys in the code, we recommend creating a new linked service in Synapse workspace to the Azure Blob Storage account you want to access.
+Synapse uses [**Shared access signature (SAS)**](../../storage/common/storage-sas-overview.md) to access Azure Blob Storage. To avoid exposing SAS keys in the code, we recommend creating a new linked service in Synapse workspace to the Azure Blob Storage account you want to access.
 
 Follow these steps to add a new linked service for an Azure Blob Storage account:
 
@@ -118,7 +120,7 @@ var blob_relative_path = "";  // replace with your relative folder path
 var linked_service_name = "";    // replace with your linked service name
 var blob_sas_token = Credentials.GetConnectionStringOrCreds(linked_service_name);
 
-spark.SparkContext.GetConf().Set($"fs.azure.sas.{blob_container_name}.{blob_account_name}.blob.core.windows.net", blob_sas_token);
+spark.Conf().Set($"fs.azure.sas.{blob_container_name}.{blob_account_name}.blob.core.windows.net", blob_sas_token);
 
 var wasbs_path = $"wasbs://{blob_container_name}@{blob_account_name}.blob.core.windows.net/{blob_relative_path}";
 
@@ -128,25 +130,52 @@ Console.WriteLine(wasbs_path);
 
 ::: zone-end
 
-###  Configure access to Azure Key Vault
+:::zone pivot = "programming-language-r"
+
+```r
+# Azure storage access info
+blob_account_name <- 'Your account name' # replace with your blob name
+blob_container_name <- 'Your container name' # replace with your container name
+blob_relative_path <- 'Your path' # replace with your relative folder path
+linked_service_name <- 'Your linked service name' # replace with your linked service name
+
+blob_sas_token <- mssparkutils.credentials.getConnectionStringOrCreds(linked_service_name)
+
+# Allow SPARK to access from Blob remotely
+sparkR.session()
+wasb_path <- sprintf('wasbs://%s@%s.blob.core.windows.net/%s',blob_container_name, blob_account_name, blob_relative_path)
+sparkR.session(sprintf('fs.azure.sas.%s.%s.blob.core.windows.net',blob_container_name, blob_account_name), blob_sas_token)
+
+print( paste('Remote blob path: ',wasb_path))
+```
+
+::: zone-end
+
+### Configure access to Azure Key Vault
 
 You can add an Azure Key Vault as a linked service to manage your credentials in Synapse.
 Follow these steps to add an Azure Key Vault as a Synapse linked service:
+
 1. Open the [Azure Synapse Studio](https://web.azuresynapse.net/).
+
 2. Select **Manage** from the left panel and select **Linked services** under the **External connections**.
+
 3. Search **Azure Key Vault** in the **New linked Service** panel on the right.
+
 4. Select the Azure Key Vault Account to access and configure the linked service name.
+
 5. Select **Test connection** to validate the settings are correct.
+
 6. Select **Create** first and click **Publish all** to save your change.
 
-Synapse notebooks use Azure active directory(Azure AD) pass-through to access Azure Key Vault. Synapse pipelines use workspace identity(MSI) to access Azure Key Vault. To make sure your code work both in notebook and in Synapse pipeline, we recommend granting secret access permission for both your Azure AD account and workspace identity.
+Synapse notebooks use Microsoft Entra pass-through to access Azure Key Vault. Synapse pipelines use workspace identity(MSI) to access Azure Key Vault. To make sure your code work both in notebook and in Synapse pipeline, we recommend granting secret access permission for both your Microsoft Entra account and workspace identity.
 
 Follow these steps to grant secret access to your workspace identity:
 1. Open the [Azure portal](https://portal.azure.com/) and the Azure Key Vault you want to access.
 2. Select the **Access policies** from the left panel.
 3. Select **Add Access Policy**:
     - Choose **Key, Secret, & Certificate Management** as config template.
-    - Select **your Azure AD account** and **your workspace identity** (same as your workspace name) in the select principal or make sure it is already assigned.
+    - Select **your Microsoft Entra account** and **your workspace identity** (same as your workspace name) in the select principal or make sure it is already assigned.
 4. Select **Select** and **Add**.
 5. Select the **Save** button to commit changes.
 
@@ -162,6 +191,7 @@ Run the following commands for an overview of the available methods:
 from notebookutils import mssparkutils
 mssparkutils.fs.help()
 ```
+
 ::: zone-end
 
 :::zone pivot = "programming-language-scala"
@@ -181,14 +211,24 @@ FS.Help()
 
 ::: zone-end
 
+:::zone pivot = "programming-language-r"
+
+```r
+library(notebookutils)
+mssparkutils.fs.help()
+```
+
+::: zone-end
+
 Results in:
 ```
+
 mssparkutils.fs provides utilities for working with various FileSystems.
 
 Below is overview about the available methods:
 
 cp(from: String, to: String, recurse: Boolean = false): Boolean -> Copies a file or directory, possibly across FileSystems
-mv(from: String, to: String, recurse: Boolean = false): Boolean -> Moves a file or directory, possibly across FileSystems
+mv(src: String, dest: String, create_path: Boolean = False, overwrite: Boolean = False): Boolean -> Moves a file or directory, possibly across FileSystems
 ls(dir: String): Array -> Lists the contents of a directory
 mkdirs(dir: String): Boolean -> Creates the given directory if it does not exist, also creating any necessary parent directories
 put(file: String, contents: String, overwrite: Boolean = false): Boolean -> Writes the given String out to a file, encoded in UTF-8
@@ -201,6 +241,7 @@ Use mssparkutils.fs.help("methodName") for more info about a method.
 ```
 
 ### List files
+
 List the content of a directory.
 
 
@@ -209,6 +250,7 @@ List the content of a directory.
 ```python
 mssparkutils.fs.ls('Your directory path')
 ```
+
 ::: zone-end
 
 :::zone pivot = "programming-language-scala"
@@ -226,16 +268,25 @@ FS.Ls("Your directory path")
 
 ::: zone-end
 
+:::zone pivot = "programming-language-r"
+
+```r
+mssparkutils.fs.ls("Your directory path")
+```
+
+::: zone-end
+
 
 ### View file properties
-Returns file properties including file name, file path, file size, and whether it is a directory and a file.
+
+Returns file properties including file name, file path, file size, file modification time, and whether it is a directory and a file.
 
 :::zone pivot = "programming-language-python"
 
 ```python
 files = mssparkutils.fs.ls('Your directory path')
 for file in files:
-    print(file.name, file.isDir, file.isFile, file.path, file.size)
+    print(file.name, file.isDir, file.isFile, file.path, file.size, file.modifyTime)
 ```
 ::: zone-end
 
@@ -244,7 +295,7 @@ for file in files:
 ```scala
 val files = mssparkutils.fs.ls("/")
 files.foreach{
-    file => println(file.name,file.isDir,file.isFile,file.size)
+    file => println(file.name,file.isDir,file.isFile,file.size,file.modifyTime)
 }
 ```
 
@@ -256,6 +307,17 @@ files.foreach{
 var Files = FS.Ls("/");
 foreach(var File in Files) {
     Console.WriteLine(File.Name+" "+File.IsDir+" "+File.IsFile+" "+File.Size);
+}
+```
+
+::: zone-end
+
+:::zone pivot = "programming-language-r"
+
+```r
+files <- mssparkutils.fs.ls("/")
+for (file in files) {
+    writeLines(paste(file$name, file$isDir, file$isFile, file$size, file$modifyTime))
 }
 ```
 
@@ -288,6 +350,14 @@ FS.Mkdirs("new directory name")
 
 ::: zone-end
 
+:::zone pivot = "programming-language-r"
+
+```r
+mssparkutils.fs.mkdirs("new directory name")
+```
+
+::: zone-end
+
 ### Copy file
 
 Copies a file or directory. Supports copy across file systems.
@@ -311,8 +381,25 @@ mssparkutils.fs.cp("source file or directory", "destination file or directory", 
 ```csharp
 FS.Cp("source file or directory", "destination file or directory", true) // Set the third parameter as True to copy all files and directories recursively
 ```
-
 ::: zone-end
+
+:::zone pivot = "programming-language-r"
+
+```r
+mssparkutils.fs.cp('source file or directory', 'destination file or directory', True)
+```
+::: zone-end
+
+### Performant copy file
+
+This method provides a faster way of copying or moving files, especially large volumes of data.
+
+```python
+mssparkutils.fs.fastcp('source file or directory', 'destination file or directory', True) # Set the third parameter as True to copy all files and directories recursively
+```
+
+> [!NOTE]
+> The method only supports in [Azure Synapse Runtime for Apache Spark 3.3](./apache-spark-33-runtime.md) and [Azure Synapse Runtime for Apache Spark 3.4](./apache-spark-34-runtime.md).
 
 ### Preview file content
 
@@ -339,6 +426,13 @@ mssparkutils.fs.head("file path", maxBytes to read)
 FS.Head("file path", maxBytes to read)
 ```
 
+::: zone-end
+
+:::zone pivot = "programming-language-r"
+
+```r
+mssparkutils.fs.head('file path', maxBytes to read)
+```
 ::: zone-end
 
 ### Move file
@@ -368,6 +462,13 @@ FS.Mv("source file or directory", "destination directory", true)
 
 ::: zone-end
 
+:::zone pivot = "programming-language-r"
+
+```r
+mssparkutils.fs.mv('source file or directory', 'destination directory', True) # Set the last parameter as True to firstly create the parent directory if it does not exist
+```
+::: zone-end
+
 ### Write file
 
 Writes the given string out to a file, encoded in UTF-8.
@@ -393,6 +494,13 @@ mssparkutils.fs.put("file path", "content to write", true) // Set the last param
 FS.Put("file path", "content to write", true) // Set the last parameter as True to overwrite the file if it existed already
 ```
 
+::: zone-end
+
+:::zone pivot = "programming-language-r"
+
+```r
+mssparkutils.fs.put("file path", "content to write", True) # Set the last parameter as True to overwrite the file if it existed already
+```
 ::: zone-end
 
 ### Append content to a file
@@ -422,6 +530,13 @@ FS.Append("file path", "content to append", true) // Set the last parameter as T
 
 ::: zone-end
 
+:::zone pivot = "programming-language-r"
+
+```r
+mssparkutils.fs.append("file path", "content to append", True) # Set the last parameter as True to create the file if it does not exist
+```
+::: zone-end
+
 ### Delete file or directory
 
 Removes a file or a directory.
@@ -449,7 +564,12 @@ FS.Rm("file path", true) // Set the last parameter as True to remove all files a
 
 ::: zone-end
 
+:::zone pivot = "programming-language-r"
 
+```r
+mssparkutils.fs.rm('file path', True) # Set the last parameter as True to remove all files and directories recursively
+```
+::: zone-end
 
 ## Notebook utilities
 
@@ -477,6 +597,9 @@ run(path: String, timeoutSeconds: int, arguments: Map): String -> This method ru
 
 ```
 
+> [!NOTE]
+> Notebook utilities aren't applicable for Apache Spark job definitions (SJD).
+
 ### Reference a notebook
 Reference a notebook and returns its exit value. You can run nesting function calls in a notebook interactively or in a pipeline. The notebook being referenced will run on the Spark pool of which notebook calls this function.
 
@@ -496,10 +619,79 @@ After the run finished, you will see a snapshot link named '**View notebook run:
 
 ![Screenshot of a snap link python](./media/microsoft-spark-utilities/spark-utilities-run-notebook-snap-link-sample-python.png)
 
+### Reference run multiple notebooks in parallel
+
+The method `mssparkutils.notebook.runMultiple()` allows you to run multiple notebooks in parallel or with a predefined topological structure. The API is using a multi-thread implementation mechanism within a spark session, which means the compute resources are shared by the reference notebook runs.
+
+With `mssparkutils.notebook.runMultiple()`, you can:
+
+- Execute multiple notebooks simultaneously, without waiting for each one to finish.
+
+- Specify the dependencies and order of execution for your notebooks, using a simple JSON format.
+
+- Optimize the use of Spark compute resources and reduce the cost of your Synapse projects.
+
+- View the Snapshots of each notebook run record in the output, and debug/monitor your notebook tasks conveniently.
+
+- Get the exit value of each executive activity and use them in downstream tasks.
+
+You can also try to run the mssparkutils.notebook.help("runMultiple") to find the example and detailed usage.
+
+Here's a simple example of running a list of notebooks in parallel using this method:
+
+```python
+
+mssparkutils.notebook.runMultiple(["NotebookSimple", "NotebookSimple2"])
+
+```
+
+The execution result from the root notebook is as follows:
+
+:::image type="content" source="media\microsoft-spark-utilities\spark-utilities-run-notebook-list.png" alt-text="Screenshot of reference a list of notebooks." lightbox="media\microsoft-spark-utilities\spark-utilities-run-notebook-list.png":::
+
+The following is an example of running notebooks with topological structure using `mssparkutils.notebook.runMultiple()`. Use this method to easily orchestrate notebooks through a code experience.
+
+```python
+# run multiple notebooks with parameters
+DAG = {
+    "activities": [
+        {
+            "name": "NotebookSimple", # activity name, must be unique
+            "path": "NotebookSimple", # notebook path
+            "timeoutPerCellInSeconds": 90, # max timeout for each cell, default to 90 seconds
+            "args": {"p1": "changed value", "p2": 100}, # notebook parameters
+        },
+        {
+            "name": "NotebookSimple2",
+            "path": "NotebookSimple2",
+            "timeoutPerCellInSeconds": 120,
+            "args": {"p1": "changed value 2", "p2": 200}
+        },
+        {
+            "name": "NotebookSimple2.2",
+            "path": "NotebookSimple2",
+            "timeoutPerCellInSeconds": 120,
+            "args": {"p1": "changed value 3", "p2": 300},
+            "retry": 1,
+            "retryIntervalInSeconds": 10,
+            "dependencies": ["NotebookSimple"] # list of activity names that this activity depends on
+        }
+    ]
+}
+mssparkutils.notebook.runMultiple(DAG)
+
+```
+
+> [!NOTE]
+>
+> - The method only supports in [Azure Synapse Runtime for Apache Spark 3.3](./apache-spark-33-runtime.md) and [Azure Synapse Runtime for Apache Spark 3.4](./apache-spark-34-runtime.md).
+> - The parallelism degree of the multiple notebook run is restricted to the total available compute resource of a Spark session.
+
+
 ### Exit a notebook
 Exits a notebook with a value. You can run nesting function calls in a notebook interactively or in a pipeline.
 
-- When you call an `exit()` function a notebook interactively, Azure Synapse will throw an exception, skip running subsequence cells, and keep Spark session alive.
+- When you call an *exit()* function from a notebook interactively, Azure Synapse will throw an exception, skip running subsequence cells, and keep the Spark session alive.
 
 - When you orchestrate a notebook that calls an `exit()` function in a Synapse pipeline, Azure Synapse will return an exit value, complete the pipeline run, and stop the Spark session.
 
@@ -637,6 +829,93 @@ Sample1 run success with input is 20
 ```
 ::: zone-end
 
+:::zone pivot = "programming-language-r"
+
+You can use the MSSparkUtils Notebook Utilities to run a notebook or exit a notebook with a value.
+Run the following command to get an overview of the available methods:
+
+```r
+mssparkutils.notebook.help()
+```
+
+Get results:
+```
+The notebook module.
+
+exit(value: String): void -> This method lets you exit a notebook with a value.
+run(path: String, timeoutSeconds: int, arguments: Map): String -> This method runs a notebook and returns its exit value.
+
+```
+
+### Reference a notebook
+
+Reference a notebook and returns its exit value. You can run nesting function calls in a notebook interactively or in a pipeline. The notebook being referenced will run on the Spark pool of which notebook calls this function.
+
+```r
+
+mssparkutils.notebook.run("notebook path", <timeoutSeconds>, <parameterMap>)
+
+```
+
+For example:
+
+```r
+mssparkutils.notebook.run("folder/Sample1", 90, list("input": 20))
+```
+
+After the run finished, you will see a snapshot link named '**View notebook run: *Notebook Name***'  shown in the cell output, you can click the link to see the snapshot for this specific run.
+
+
+### Exit a notebook
+
+Exits a notebook with a value. You can run nesting function calls in a notebook interactively or in a pipeline.
+
+- When you call an `exit()` function a notebook interactively, Azure Synapse will throw an exception, skip running subsequence cells, and keep Spark session alive.
+
+- When you orchestrate a notebook that calls an `exit()` function in a Synapse pipeline, Azure Synapse will return an exit value, complete the pipeline run, and stop the Spark session.
+
+- When you call an `exit()` function in a notebook being referenced, Azure Synapse will stop the further execution in the notebook being referenced, and continue to run next cells in the notebook that call the `run()` function. For example: Notebook1 has three cells and calls an `exit()` function in the second cell. Notebook2 has five cells and calls `run(notebook1)` in the third cell. When you run Notebook2, Notebook1 will be stopped at the second cell when hitting the `exit()` function. Notebook2 will continue to run its fourth cell and fifth cell.
+
+```r
+mssparkutils.notebook.exit("value string")
+```
+
+For example:
+
+**Sample1** notebook locates under **folder/** with following two cells:
+- cell 1 defines an **input** parameter with default value set to 10.
+- cell 2 exits the notebook with **input** as exit value.
+
+![Screenshot of a sample notebook](./media/microsoft-spark-utilities/spark-utilities-run-notebook-sample.png)
+
+You can run the **Sample1** in another notebook with default values:
+
+```r
+
+exitVal <- mssparkutils.notebook.run("folder/Sample1")
+print (exitVal)
+
+```
+
+Results in:
+
+```
+Sample1 run success with input is 10
+```
+
+You can run the **Sample1** in another notebook and set the **input** value as 20:
+
+```r
+exitVal <- mssparkutils.notebook.run("mssparkutils/folder/Sample1", 90, list("input": 20))
+print (exitVal)
+```
+
+Results in:
+
+```
+Sample1 run success with input is 20
+```
+::: zone-end
 
 ## Credentials utilities
 
@@ -658,41 +937,111 @@ mssparkutils.credentials.help()
 ```
 
 ::: zone-end
-
 :::zone pivot = "programming-language-csharp"
 
 ```csharp
-Credentials.Help()
+Not supported.
+```
+
+::: zone-end
+
+:::zone pivot = "programming-language-r"
+
+```r
+mssparkutils.credentials.help()
 ```
 
 ::: zone-end
 
 Get result:
+:::zone pivot = "programming-language-python"
 
-```
+```python
 getToken(audience, name): returns AAD token for a given audience, name (optional)
 isValidToken(token): returns true if token hasn't expired
 getConnectionStringOrCreds(linkedService): returns connection string or credentials for linked service
-getSecret(akvName, secret, linkedService): returns AKV secret for a given AKV linked service, akvName, secret key
+getFullConnectionString(linkedService): returns full connection string with credentials
+getPropertiesAll(linkedService): returns all the properties of a linked servicegetSecret(akvName, secret, linkedService): returns AKV secret for a given AKV linked service, akvName, secret key
+getSecret(akvName, secret): returns AKV secret for a given akvName, secret key
+getSecretWithLS(linkedService, secret): returns AKV secret for a given linked service, secret key
+putSecret(akvName, secretName, secretValue, linkedService): puts AKV secret for a given akvName, secretName
+putSecret(akvName, secretName, secretValue): puts AKV secret for a given akvName, secretName
+putSecretWithLS(linkedService, secretName, secretValue): puts AKV secret for a given linked service, secretName
+```
+::: zone-end
+
+:::zone pivot = "programming-language-scala"
+
+```scala
+getToken(audience, name): returns AAD token for a given audience, name (optional)
+isValidToken(token): returns true if token hasn't expired
+getConnectionStringOrCreds(linkedService): returns connection string or credentials for linked service
+getFullConnectionString(linkedService): returns full connection string with credentials
+getPropertiesAll(linkedService): returns all the properties of a linked servicegetSecret(akvName, secret, linkedService): returns AKV secret for a given AKV linked service, akvName, secret key
+getSecret(akvName, secret): returns AKV secret for a given akvName, secret key
+getSecretWithLS(linkedService, secret): returns AKV secret for a given linked service, secret key
+putSecret(akvName, secretName, secretValue, linkedService): puts AKV secret for a given akvName, secretName
+putSecret(akvName, secretName, secretValue): puts AKV secret for a given akvName, secretName
+putSecretWithLS(linkedService, secretName, secretValue): puts AKV secret for a given linked service, secretName
+```
+
+::: zone-end
+
+:::zone pivot = "programming-language-csharp"
+
+```csharp
+getToken(audience, name): returns AAD token for a given audience, name (optional)
+isValidToken(token): returns true if token hasn't expired
+getConnectionStringOrCreds(linkedService): returns connection string or credentials for linked service
+getFullConnectionString(linkedService): returns full connection string with credentials
+getPropertiesAll(linkedService): returns all the properties of a linked servicegetSecret(akvName, secret, linkedService): returns AKV secret for a given AKV linked service, akvName, secret key
 getSecret(akvName, secret): returns AKV secret for a given akvName, secret key
 putSecret(akvName, secretName, secretValue, linkedService): puts AKV secret for a given akvName, secretName
 putSecret(akvName, secretName, secretValue): puts AKV secret for a given akvName, secretName
+putSecretWithLS(linkedService, secretName, secretValue): puts AKV secret for a given linked service, secretName
 ```
+
+
+> [!NOTE]
+> Currently getSecretWithLS(linkedService, secret) is not supported in C#.
+
+::: zone-end
+
+:::zone pivot = "programming-language-r"
+
+```r
+getToken(audience, name): returns AAD token for a given audience, name (optional)
+isValidToken(token): returns true if token hasn't expired
+getConnectionStringOrCreds(linkedService): returns connection string or credentials for linked service
+getFullConnectionString(linkedService): returns full connection string with credentials
+getPropertiesAll(linkedService): returns all the properties of a linked servicegetSecret(akvName, secret, linkedService): returns AKV secret for a given AKV linked service, akvName, secret key
+getSecret(akvName, secret): returns AKV secret for a given akvName, secret key
+getSecretWithLS(linkedService, secret): returns AKV secret for a given linked service, secret key
+putSecret(akvName, secretName, secretValue, linkedService): puts AKV secret for a given akvName, secretName
+putSecret(akvName, secretName, secretValue): puts AKV secret for a given akvName, secretName
+putSecretWithLS(linkedService, secretName, secretValue): puts AKV secret for a given linked service, secretName
+```
+
+::: zone-end
+
 
 ### Get token
 
-Returns Azure AD token for a given audience, name (optional). The table below list all the available audience types:
+Returns Microsoft Entra token for a given audience, name (optional). The table below list all the available audience types:
 
-|Audience Type|Audience key|
-|--|--|
-|Audience Resolve Type|'Audience'|
-|Storage Audience Resource|'Storage'|
-|Dedicated SQL pools (Data warehouse)|'DW'|
-|Data Lake Audience Resource|'AzureManagement'|
-|Vault Audience Resource|'DataLakeStore'|
-|Azure OSSDB Audience Resource|'AzureOSSDB'|
-|Azure Synapse Resource|'Synapse'|
-|Azure Data Factory Resource|'ADF'|
+| Audience Type                                         | String literal to be used in API call |
+|-------------------------------------------------------|---------------------------------------|
+| Azure Storage                                         | `Storage`                             |
+| Azure Key Vault                                       | `Vault`                               |
+| Azure Management                                      | `AzureManagement`                     |
+| Azure SQL Data Warehouse (Dedicated and Serverless)   | `DW`                                  |
+| Azure Synapse                                         | `Synapse`                             |
+| Azure Data Lake Store                                 | `DataLakeStore`                       |
+| Azure Data Factory                                    | `ADF`                                 |
+| Azure Data Explorer                                   | `AzureDataExplorer`                   |
+| Azure Database for MySQL                              | `AzureOSSDB`                          |
+| Azure Database for MariaDB                            | `AzureOSSDB`                          |
+| Azure Database for PostgreSQL                         | `AzureOSSDB`                          |
 
 :::zone pivot = "programming-language-python"
 
@@ -713,6 +1062,14 @@ mssparkutils.credentials.getToken("audience Key")
 
 ```csharp
 Credentials.GetToken("audience Key")
+```
+
+::: zone-end
+
+:::zone pivot = "programming-language-r"
+
+```r
+mssparkutils.credentials.getToken('audience Key')
 ```
 
 ::: zone-end
@@ -745,6 +1102,13 @@ Credentials.IsValidToken("your token")
 
 ::: zone-end
 
+:::zone pivot = "programming-language-r"
+
+```r
+mssparkutils.credentials.isValidToken('your token')
+```
+::: zone-end
+
 
 ### Get connection string or credentials for linked service
 
@@ -773,6 +1137,13 @@ Credentials.GetConnectionStringOrCreds("linked service name")
 
 ::: zone-end
 
+:::zone pivot = "programming-language-r"
+
+```r
+mssparkutils.credentials.getConnectionStringOrCreds('linked service name')
+```
+
+::: zone-end
 
 ### Get secret using workspace identity
 
@@ -799,6 +1170,13 @@ mssparkutils.credentials.getSecret("azure key vault name","secret name","linked 
 Credentials.GetSecret("azure key vault name","secret name","linked service name")
 ```
 
+::: zone-end
+
+:::zone pivot = "programming-language-r"
+
+```r
+mssparkutils.credentials.getSecret('azure key vault name','secret name','linked service name')
+```
 ::: zone-end
 
 
@@ -829,6 +1207,13 @@ Credentials.GetSecret("azure key vault name","secret name")
 
 ::: zone-end
 
+:::zone pivot = "programming-language-r"
+
+```r
+mssparkutils.credentials.getSecret('azure key vault name','secret name')
+```
+::: zone-end
+
 <!-- ### Put secret using workspace identity
 
 Puts Azure Key Vault secret for a given Azure Key Vault name, secret name, and linked service name using workspace identity. Make sure you configure the access to [Azure Key Vault](#configure-access-to-azure-key-vault) appropriately. -->
@@ -856,6 +1241,17 @@ mssparkutils.credentials.putSecret("azure key vault name","secret name","secret 
 
 ::: zone-end
 
+:::zone pivot = "programming-language-r"
+
+### Put secret using workspace identity
+
+Puts Azure Key Vault secret for a given Azure Key Vault name, secret name, and linked service name using workspace identity. Make sure you configure the access to [Azure Key Vault](#configure-access-to-azure-key-vault) appropriately.
+
+```r
+mssparkutils.credentials.putSecret('azure key vault name','secret name','secret value','linked service name')
+```
+
+::: zone-end
 <!-- :::zone pivot = "programming-language-csharp"
 
 ```csharp
@@ -879,6 +1275,18 @@ Puts Azure Key Vault secret for a given Azure Key Vault name, secret name, and l
 mssparkutils.credentials.putSecret('azure key vault name','secret name','secret value')
 ```
 ::: zone-end
+
+:::zone pivot = "programming-language-r"
+
+### Put secret using user credentials
+
+Puts Azure Key Vault secret for a given Azure Key Vault name, secret name, and linked service name using user credentials.
+
+```r
+mssparkutils.credentials.putSecret('azure key vault name','secret name','secret value')
+```
+::: zone-end
+
 
 :::zone pivot = "programming-language-scala"
 
@@ -908,6 +1316,13 @@ Run following commands to get an overview of the available methods:
 :::zone pivot = "programming-language-python"
 
 ```python
+mssparkutils.env.help()
+```
+::: zone-end
+
+:::zone pivot = "programming-language-r"
+
+```r
 mssparkutils.env.help()
 ```
 ::: zone-end
@@ -949,12 +1364,18 @@ mssparkutils.env.getUserName()
 ```
 ::: zone-end
 
+:::zone pivot = "programming-language-r"
+
+```r
+mssparkutils.env.getUserName()
+```
+::: zone-end
+
 :::zone pivot = "programming-language-scala"
 
 ```scala
 mssparkutils.env.getUserName()
 ```
-
 ::: zone-end
 
 :::zone pivot = "programming-language-csharp"
@@ -962,7 +1383,6 @@ mssparkutils.env.getUserName()
 ```csharp
 Env.GetUserName()
 ```
-
 ::: zone-end
 
 ### Get user ID
@@ -972,6 +1392,13 @@ Returns current user ID.
 :::zone pivot = "programming-language-python"
 
 ```python
+mssparkutils.env.getUserId()
+```
+::: zone-end
+
+:::zone pivot = "programming-language-r"
+
+```r
 mssparkutils.env.getUserId()
 ```
 ::: zone-end
@@ -1003,6 +1430,13 @@ mssparkutils.env.getJobId()
 ```
 ::: zone-end
 
+:::zone pivot = "programming-language-r"
+
+```r
+mssparkutils.env.getJobId()
+```
+::: zone-end
+
 :::zone pivot = "programming-language-scala"
 
 ```scala
@@ -1026,6 +1460,13 @@ Returns workspace name.
 :::zone pivot = "programming-language-python"
 
 ```python
+mssparkutils.env.getWorkspaceName()
+```
+::: zone-end
+
+:::zone pivot = "programming-language-r"
+
+```r
 mssparkutils.env.getWorkspaceName()
 ```
 ::: zone-end
@@ -1057,6 +1498,14 @@ mssparkutils.env.getPoolName()
 ```
 ::: zone-end
 
+:::zone pivot = "programming-language-r"
+
+```r
+mssparkutils.env.getPoolName()
+```
+::: zone-end
+
+
 :::zone pivot = "programming-language-scala"
 
 ```scala
@@ -1080,6 +1529,13 @@ Returns current cluster ID.
 :::zone pivot = "programming-language-python"
 
 ```python
+mssparkutils.env.getClusterId()
+```
+::: zone-end
+
+:::zone pivot = "programming-language-r"
+
+```r
 mssparkutils.env.getClusterId()
 ```
 ::: zone-end
@@ -1117,6 +1573,16 @@ mssparkutils.runtime.context
 ```
 ::: zone-end
 
+:::zone pivot = "programming-language-r"
+
+```r
+ctx <- mssparkutils.runtime.context()
+for (key in ls(ctx)) {
+    writeLines(paste(key, ctx[[key]], sep = "\t"))
+}
+```
+::: zone-end
+
 :::zone pivot = "programming-language-scala"
 
 ```scala
@@ -1138,6 +1604,13 @@ mssparkutils.session.stop()
 ```
 ::: zone-end
 
+:::zone pivot = "programming-language-r"
+
+```r
+mssparkutils.session.stop()
+```
+::: zone-end
+
 :::zone pivot = "programming-language-scala"
 
 ```scala
@@ -1150,6 +1623,22 @@ mssparkutils.session.stop()
 > [!NOTE]
 > We don't recommend call language built-in APIs like `sys.exit` in Scala or `sys.exit()` in Python in your code, because such APIs just
 > kill the interpreter process, leaving Spark session alive and resources not released.
+
+## Package Dependencies
+
+If you want to develop notebooks or jobs locally and need to reference the relevant packages for compilation/IDE hints, you can use the following packages.
+
+:::zone pivot = "programming-language-python"
+[PyPI package](https://pypi.org/project/dummy-notebookutils/)
+::: zone-end
+
+:::zone pivot = "programming-language-r"
+[Cran package](https://cran.r-project.org/web/packages/notebookutils/index.html)
+::: zone-end
+
+:::zone pivot = "programming-language-scala"
+[Maven dependencies](https://mvnrepository.com/artifact/com.microsoft.azure.synapse/synapseutils)
+::: zone-end
 
 ## Next steps
 

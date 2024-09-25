@@ -1,16 +1,20 @@
 ---
 title: Add a web API application - Azure Active Directory B2C  
 description: Learn how to add a web API application to your Active Directory B2C tenant.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.author: kengaderdus
-ms.date: 03/30/2022
+ms.date: 01/11/2024
 ms.custom: mvc
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: B2C
+
+
+#Customer intent: As a developer integrating a web API with Azure Active Directory B2C, I want to register my application in the Azure portal, so that it can accept and respond to requests from client applications with access tokens.
+
 ---
 
 # Add a web API application to your Azure Active Directory B2C tenant
@@ -22,8 +26,7 @@ To register an application in your Azure AD B2C tenant, you can use the Azure po
 #### [App registrations](#tab/app-reg-ga/)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
 1. Select **App registrations**, and then select **New registration**.
 1. Enter a **Name** for the application. For example, *webapi1*.
@@ -35,8 +38,7 @@ To register an application in your Azure AD B2C tenant, you can use the Azure po
 #### [Applications (Legacy)](#tab/applications-legacy/)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 1. Select **Applications (Legacy)**, and then select **Add**.
 1. Enter a name for the application. For example, *webapi1*.

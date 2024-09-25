@@ -7,13 +7,19 @@ ms.assetid: 73ce0213-bd3e-4876-b1ed-5ecad4ad5601
 ms.topic: article
 ms.date: 03/29/2022
 ms.author: madsd
-ms.custom: seodec18
-
 ---
 # Implementing a Layered Security Architecture with App Service Environments
 
 > [!IMPORTANT]
-> This article is about App Service Environment v1. [App Service Environment v1 will be retired on 31 August 2024](https://azure.microsoft.com/updates/app-service-environment-v1-and-v2-retirement-announcement/). There's a new version of App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version, start with the [Introduction to the App Service Environment](overview.md). If you're currently using App Service Environment v1, please follow the steps in [this article](migration-alternatives.md) to migrate to the new version.
+> This article is about App Service Environment v1. [App Service Environment v1 and v2 are retired as of 31 August 2024](https://aka.ms/postEOL/ASE). There's a new version of App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version, start with the [Introduction to the App Service Environment](overview.md). If you're currently using App Service Environment v1, please follow the steps in [this article](upgrade-to-asev3.md) to migrate to the new version.
+>
+> As of 31 August 2024, [Service Level Agreement (SLA) and Service Credits](https://aka.ms/postEOL/ASE/SLA) no longer apply for App Service Environment v1 and v2 workloads that continue to be in production since they are retired products. Decommissioning of the App Service Environment v1 and v2 hardware has begun, and this may affect the availability and performance of your apps and data.
+>
+> You must complete migration to App Service Environment v3 immediately or your apps and resources may be deleted. We will attempt to auto-migrate any remaining App Service Environment v1 and v2 on a best-effort basis using the [in-place migration feature](migrate.md), but Microsoft makes no claim or guarantees about application availability after auto-migration. You may need to perform manual configuration to complete the migration and to optimize your App Service plan SKU choice to meet your needs. If auto-migration isn't feasible, your resources and associated app data will be deleted. We strongly urge you to act now to avoid either of these extreme scenarios.
+>
+> If you need additional time, we can offer a one-time 30-day grace period for you to complete your migration. For more information and to request this grace period, review the [grace period overview](./auto-migration.md#grace-period), and then go to [Azure portal](https://portal.azure.com) and visit the Migration blade for each of your App Service Environments.
+>
+> For the most up-to-date information on the App Service Environment v1/v2 retirement, see the [App Service Environment v1 and v2 retirement update](https://github.com/Azure/app-service-announcements/issues/469).
 >
 
 Since App Service Environments provide an isolated runtime environment deployed into a virtual network, developers can create a layered security architecture providing differing levels of network access for each physical application tier.
@@ -22,22 +28,24 @@ A common desire is to hide API back-ends from general Internet access, and only 
 
 The diagram below shows an example architecture with a WebAPI based app deployed on an App Service Environment.  Three separate web app instances, deployed on three separate App Service Environments, make back-end calls to the same WebAPI app.
 
-![Conceptual Architecture][ConceptualArchitecture] 
+![Conceptual Architecture][ConceptualArchitecture]
 
-The green plus signs indicate that the network security group on the subnet containing "apiase" allows inbound calls from the upstream web apps, as well calls from itself.  However the same network security group explicitly denies access to general inbound traffic from the Internet. 
+The green plus signs indicate that the network security group on the subnet containing "apiase" allows inbound calls from the upstream web apps, as well calls from itself.  However the same network security group explicitly denies access to general inbound traffic from the Internet.
 
 The remainder of this article walks through the steps needed to configure the network security group on the subnet containing "apiase."
 
 ## Determining the Network Behavior
-In order to know what network security rules are needed, you need to determine which network clients will be allowed to reach the App Service Environment containing the API app, and which clients will be blocked.
 
-Since [network security groups (NSGs)][NetworkSecurityGroups] are applied to subnets, and App Service Environments are deployed into subnets, the rules contained in an NSG apply to **all** apps running on an App Service Environment.  Using the sample architecture for this article, once a network security group is applied to the subnet containing "apiase", all apps running on the "apiase" App Service Environment will be protected by the same set of security rules. 
+In order to know what network security rules are needed, you need to determine which network clients will be allowed to reach the App Service Environment containing the API app, and which clients are blocked.
 
-* **Determine the outbound IP address of upstream callers:**  What is the IP address or addresses of the upstream callers?  These addresses will need to be explicitly allowed access in the NSG.  Since calls between App Service Environments are considered "Internet" calls, the outbound IP address assigned to each of the three upstream App Service Environments needs to be allowed access in the NSG for the "apiase" subnet.   For more information on determining the outbound IP address for apps running in an App Service Environment, see the [Network Architecture][NetworkArchitecture] Overview article.
-* **Will the back-end API app need to call itself?**  A sometimes overlooked and subtle point is the scenario where the back-end application needs to call itself.  If a back-end API application on an App Service Environment needs to call itself, it is also treated as an "Internet" call.  In the sample architecture, this requires allowing access from the outbound IP address of the "apiase" App Service Environment as well.
+Since [network security groups (NSGs)][NetworkSecurityGroups] are applied to subnets, and App Service Environments are deployed into subnets, the rules contained in an NSG apply to **all** apps running on an App Service Environment.  Using the sample architecture for this article, once a network security group is applied to the subnet containing "apiase," all apps running on the "apiase" App Service Environment will be protected by the same set of security rules.
+
+* **Determine the outbound IP address of upstream callers:**  What is the IP address or addresses of the upstream callers?  These addresses need to be explicitly allowed access in the NSG.  Since calls between App Service Environments are considered "Internet" calls, the outbound IP address assigned to each of the three upstream App Service Environments needs to be allowed access in the NSG for the "apiase" subnet.   For more information on determining the outbound IP address for apps running in an App Service Environment, see the [Network Architecture][NetworkArchitecture] Overview article.
+* **Will the back-end API app need to call itself?**  A sometimes overlooked and subtle point is the scenario where the back-end application needs to call itself.  If a back-end API application on an App Service Environment needs to call itself, it's also treated as an "Internet" call.  In the sample architecture, this requires allowing access from the outbound IP address of the "apiase" App Service Environment as well.
 
 ## Setting up the Network Security Group
-Once the set of outbound IP addresses are known, the next step is to construct a network security group.  Network security groups can be created for both Resource Manager based virtual networks, as well as classic virtual networks.  The examples below show creating and configuring an NSG on a classic virtual network using PowerShell.
+
+Once the set of outbound IP addresses are known, the next step is to construct a network security group.  Network security groups can be created for both Resource Manager based virtual networks, and classic virtual networks.  The following examples show creating and configuring an NSG on a classic virtual network using PowerShell.
 
 For the sample architecture, the environments are located in South Central US, so an empty NSG is created in that region:
 
@@ -101,9 +109,9 @@ Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecur
 
 No other network security rules are required, because every NSG has a set of default rules that block inbound access from the Internet, by default.
 
-The full list of rules in the network security group are shown below.  Note how the last rule, which is highlighted, blocks inbound access from all callers, other than callers that have been explicitly granted access.
+The full list of rules in the network security group are shown.  Note how the last rule, which is highlighted, blocks inbound access from all callers, other than callers that are explicitly granted access.
 
-![NSG Configuration][NSGConfiguration] 
+![NSG Configuration][NSGConfiguration]
 
 The final step is to apply the NSG to the subnet that contains the "apiase" App Service Environment.
 
@@ -115,7 +123,8 @@ Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecur
 
 With the NSG applied to the subnet, only the three upstream App Service Environments, and the App Service Environment containing the API back-end, are allowed to call into the "apiase" environment.
 
-## Additional Links and Information
+## Extra Links and Information
+
 Information about [network security groups](../../virtual-network/network-security-groups-overview.md).
 
 Understanding [outbound IP addresses][NetworkArchitecture] and App Service Environments.

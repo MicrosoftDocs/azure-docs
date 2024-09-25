@@ -1,11 +1,11 @@
 ---
 title: Managed identities for Azure Stream Analytics
 description: This article describes managed identities for Azure Stream Analytics.
-author: enkrumah
-ms.author: ebnkruma
-ms.service: stream-analytics
+author: AliciaLiMicrosoft 
+ms.author: ali 
+ms.service: azure-stream-analytics
 ms.topic: conceptual
-ms.date: 08/10/2022
+ms.date: 10/27/2022
 ---
 
 # Managed identities for Azure Stream Analytics
@@ -13,13 +13,13 @@ ms.date: 08/10/2022
 Azure Stream Analytics currently allows you to authenticate to other Azure resources using managed identities.
 A common challenge when building cloud applications is credential management in your code to authenticate cloud services. Keeping the credentials secure is an important task. The credentials shouldn't be stored in developer workstations or checked into source control. 
 
-The Azure Active Directory (Azure AD) managed identities for Azure resources feature solves this problem. The feature provides Azure services with an automatically managed identity in Azure AD. This allows you to assign an identity to your Stream Analytics job which can then authenticate to any input or outputs that supports Azure AD authentication, without any credentials. See [managed identities for Azure resources overview page](../active-directory/managed-identities-azure-resources/overview.md) for more information about this service.
+The Microsoft Entra managed identities for Azure resources feature solves this problem. The feature provides Azure services with an automatically managed identity in Microsoft Entra ID. This allows you to assign an identity to your Stream Analytics job which can then authenticate to any input or outputs that supports Microsoft Entra authentication, without any credentials. See [managed identities for Azure resources overview page](../active-directory/managed-identities-azure-resources/overview.md) for more information about this service.
 
 ## Managed identity types
 
 Stream Analytics supports two types of managed identities:
 
-*	System-assigned identity: When you enable a system-assigned managed identity for your job, you create an identity in Azure AD that is tied to the lifecycle of that job. So when you delete the resource, Azure automatically deletes the identity for you. 
+*	System-assigned identity: When you enable a system-assigned managed identity for your job, you create an identity in Microsoft Entra ID that is tied to the lifecycle of that job. So when you delete the resource, Azure automatically deletes the identity for you. 
 *	User-assigned identity: You may also create a managed identity as a standalone Azure resource and assign it to your Stream Analytics job. In the case of user-assigned managed identities, the identity is managed separately from the resources that use it.
 
 
@@ -32,7 +32,7 @@ Stream Analytics supports two types of managed identities:
 
 Below is a table that shows Azure Stream Analytics inputs and outputs that support system-assigned managed identity or user-assigned managed identity:
 
-| Type            |  Adapter                      | User-assigned managed identity (Preview)                               | System-assigned managed identity       |
+| Type            |  Adapter                      | User-assigned managed identity                                         | System-assigned managed identity       |
 |-----------------|-------------------------------|------------------------------------------------------------------------|------------------------------------------|
 | Storage Account | Blob/ADLS Gen 2               | Yes                                                                    | Yes                                      |
 | Inputs          | Event Hubs                    | Yes                                                                    | Yes                                      |
@@ -46,7 +46,7 @@ Below is a table that shows Azure Stream Analytics inputs and outputs that suppo
 |                 | Table Storage                 | No                                                                     | No                                       |
 |                 | Service Bus Topic             | Yes                                                                    | Yes                                      |
 |                 | Service Bus Queue             | Yes                                                                    | Yes                                      |
-|                 | Cosmos DB                     | Yes                                                                    | Yes                                      |
+|                 | Azure Cosmos DB                     | Yes                                                                    | Yes                                      |
 |                 | Power BI                      | No                                                                     | Yes                                      |
 |                 | Data Lake Storage Gen1        | Yes                                                                    | Yes                                      |
 |                 | Azure Functions               | No                                                                     | No                                       |

@@ -1,13 +1,12 @@
 ---
 title: Create and delete managed private endpoints in an Azure Stream Analytics cluster
 description: Learn how to managed private endpoints in an Azure Stream Analytics cluster.
-author: sidramadoss
-ms.author: sidram
-
-ms.service: stream-analytics
+author: ahartoon
+ms.author: anboisve
+ms.service: azure-stream-analytics
 ms.topic: overview
 ms.custom: mvc
-ms.date: 05/20/2021
+ms.date: 04/13/2023
 ---
 
 # Create and delete managed private endpoints in an Azure Stream Analytics cluster
@@ -23,6 +22,7 @@ Once you approve the connection, any job running in your Stream Analytics cluste
 * Azure IoT Hubs
 * Azure Service Bus
 * Azure Synapse Analytics - Dedicated SQL pool
+* Azure Data Explorer (kusto)
 
 ## Create managed private endpoint in Stream Analytics cluster
 

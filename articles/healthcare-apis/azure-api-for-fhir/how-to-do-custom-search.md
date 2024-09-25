@@ -2,13 +2,15 @@
 title:  How to do custom search in Azure API for FHIR 
 description: This article describes how you can define your own custom search parameters in Azure API for FHIR to be used in the database. 
 author: expekesheth
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 06/03/2022
+ms.date: 09/27/2023
 ms.author: kesheth
 ---
 # Defining custom search parameters for Azure API for FHIR
+
+[!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 
 The Fast Healthcare Interoperability Resources (FHIR&#174;) specification defines a set of search parameters for all resources and search parameters that are specific to a resource(s). However, there are scenarios where you might want to search against an element in a resource that isn’t defined by the FHIR specification as a standard search parameter. This article describes how you can define your own [search parameters](https://www.hl7.org/fhir/searchparameter.html) to be used in the Azure API for FHIR.
 

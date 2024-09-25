@@ -9,10 +9,18 @@ ms.author: madsd
 # Availability Zone support for App Service Environment v2
 
 > [!IMPORTANT]
-> This article is about App Service Environment v2 which is used with Isolated App Service plans. [App Service Environment v2 will be retired on 31 August 2024](https://azure.microsoft.com/updates/app-service-environment-v1-and-v2-retirement-announcement/). There's a new version of App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version, start with the [Introduction to the App Service Environment](overview.md). If you're currently using App Service Environment v2, please follow the steps in [this article](migration-alternatives.md) to migrate to the new version.
+> This article is about App Service Environment v2, which is used with Isolated App Service plans. [App Service Environment v1 and v2 are retired as of 31 August 2024](https://aka.ms/postEOL/ASE). There's a new version of App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version, start with the [Introduction to the App Service Environment](overview.md). If you're currently using App Service Environment v1, please follow the steps in [this article](upgrade-to-asev3.md) to migrate to the new version.
+>
+> As of 31 August 2024, [Service Level Agreement (SLA) and Service Credits](https://aka.ms/postEOL/ASE/SLA) no longer apply for App Service Environment v1 and v2 workloads that continue to be in production since they are retired products. Decommissioning of the App Service Environment v1 and v2 hardware has begun, and this may affect the availability and performance of your apps and data.
+>
+> You must complete migration to App Service Environment v3 immediately or your apps and resources may be deleted. We will attempt to auto-migrate any remaining App Service Environment v1 and v2 on a best-effort basis using the [in-place migration feature](migrate.md), but Microsoft makes no claim or guarantees about application availability after auto-migration. You may need to perform manual configuration to complete the migration and to optimize your App Service plan SKU choice to meet your needs. If auto-migration isn't feasible, your resources and associated app data will be deleted. We strongly urge you to act now to avoid either of these extreme scenarios.
+>
+> If you need additional time, we can offer a one-time 30-day grace period for you to complete your migration. For more information and to request this grace period, review the [grace period overview](./auto-migration.md#grace-period), and then go to [Azure portal](https://portal.azure.com) and visit the Migration blade for each of your App Service Environments.
+>
+> For the most up-to-date information on the App Service Environment v1/v2 retirement, see the [App Service Environment v1 and v2 retirement update](https://github.com/Azure/app-service-announcements/issues/469).
 >
 
-App Service Environment v2 (ASE) can be deployed into Availability Zones (AZ).  Customers can deploy an internal load balancer (ILB) ASEs into a specific AZ within an Azure region. If you pin your ILB ASE to a specific AZ, the resources used by a ILB ASE will either be pinned to the specified AZ, or deployed in a zone redundant manner.  
+App Service Environment v2 (ASE) can be deployed into Availability Zones (AZ).  Customers can deploy an internal load balancer (ILB) ASEs into a specific AZ within an Azure region. If you pin your ILB ASE to a specific AZ, the resources used by an ILB ASE will either be pinned to the specified AZ, or deployed in a zone redundant manner.  
 
 An ILB ASE that is explicitly deployed into an AZ is considered a zonal resource because the ILB ASE is pinned to a specific zone. The following ILB ASE dependencies will be pinned to the specified zone:
 
@@ -21,7 +29,7 @@ An ILB ASE that is explicitly deployed into an AZ is considered a zonal resource
 
 The remote file storage for web applications deployed on a zonal ILB ASE uses Zone Redundant Storage (ZRS).
 
-Unless the steps described in this article are followed, ILB ASEs are not automatically deployed in a zonal manner. You cannot pin an External ASE with a public IP address to a specific availability zone. 
+Unless the steps described in this article are followed, ILB ASEs aren't automatically deployed in a zonal manner. You can't pin an External ASE with a public IP address to a specific availability zone.
 
 Zonal ILB ASEs can be created in any of the following regions:
 
@@ -31,7 +39,7 @@ Zonal ILB ASEs can be created in any of the following regions:
 - East US
 - East US 2
 - East US 2 (EUAP)
-- France Central 
+- France Central
 - Japan East
 - North Europe
 - West Europe
@@ -39,7 +47,7 @@ Zonal ILB ASEs can be created in any of the following regions:
 - UK South
 - West US 2
 
-Applications deployed on a zonal ILB ASE will continue to run and serve traffic on that ASE even if other zones in the same region suffer an outage.  It is possible that non-runtime behaviors, including; application service plan scaling, application creation, application configuration, and application publishing may still be impacted from an outage in other availability zones. The zone-pinned deployment of a zonal ILB ASE only ensures continued uptime for already deployed applications.
+Applications deployed on a zonal ILB ASE will continue to run and serve traffic on that ASE even if other zones in the same region suffer an outage.  It's possible that nonruntime behaviors, including; application service plan scaling, application creation, application configuration, and application publishing might still be impacted from an outage in other availability zones. The zone-pinned deployment of a zonal ILB ASE only ensures continued uptime for already deployed applications.
 
 ## How to Deploy an App Service Environment in an Availability Zone
 
@@ -75,16 +83,16 @@ The example ARM template snippet below shows the new ***zones*** property specif
 ]
 ```
 
-To make your apps zone redundant, you need to deploy two zonal ILB ASEs. The two zonal ILB ASEs must be in separate availability zones. You then need to deploy your apps into each of the ILB ASEs. After your apps are created, you need to configure a load balancing solution. The recommended solution is to deploy a [zone redundant Application Gateway](../../application-gateway/application-gateway-autoscaling-zone-redundant.md) upstream of the zonal ILB ASEs. 
+To make your apps zone redundant, you need to deploy two zonal ILB ASEs. The two zonal ILB ASEs must be in separate availability zones. You then need to deploy your apps into each of the ILB ASEs. After your apps are created, you need to configure a load balancing solution. The recommended solution is to deploy a [zone redundant Application Gateway](../../application-gateway/application-gateway-autoscaling-zone-redundant.md) upstream of the zonal ILB ASEs.
 
 ## In-region data residency
 
-ILB ASEs deployed in an availability zone will only store customer data within the region where the zonal ILB ASE has been deployed. Both website file content as well as customer supplied settings and secrets stored in App Service remain within the region where the zonal ILB ASE is deployed.
+ILB ASEs deployed in an availability zone will only store customer data within the region where the zonal ILB ASE has been deployed. Both website file content and customer supplied settings and secrets stored in App Service remain within the region where the zonal ILB ASE is deployed.
 
 Customers ensure single region data residency by following the steps outlined earlier in the section "How to Deploy an App Service Environment in an Availability Zone". By configuring an App Service Environment according to these steps, an App Service Environment deployed in an availability zone satisfies in region data residency requirements including those specified in the [Azure Trust Center](https://azuredatacentermap.azurewebsites.net/).
 
-Customers can validate that an App Service Environment is properly configured to store data in a single region by following these steps: 
+Customers can validate that an App Service Environment is properly configured to store data in a single region by following these steps:
 
-1. Using [Resource Explorer](https://resources.azure.com), navigate to the ARM resource for the App Service Environment.  ASEs are listed under *providers/Microsoft.Web/hostingEnvironments*.
-2. If a *zones* property exists in the view of the ARM JSON syntax, and it contains a single valued JSON array with a value of "1", "2", or "3", then the ASE is zonally deployed and customer data remains in the same region.
-2. If a *zones* property does not exist, or the property does not have valid zone value as specified earlier, then the ASE is not zonally deployed, and customer data is not exclusively stored in the same region.
+1. Using [Resource Explorer](https://resources.azure.com), navigate to the Azure Resource Manager resource for the App Service Environment.  ASEs are listed under *providers/Microsoft.Web/hostingEnvironments*.
+2. If a *zones* property exists in the view of the Azure Resource Manager JSON syntax, and it contains a single valued JSON array with a value of "1," "2," or "3," then the ASE is zonally deployed and customer data remains in the same region.
+2. If a *zones* property doesn't exist, or the property doesn't have valid zone value as specified earlier, then the ASE isn't zonally deployed, and customer data isn't exclusively stored in the same region.

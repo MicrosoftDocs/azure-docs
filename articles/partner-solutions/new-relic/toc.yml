@@ -1,0 +1,42 @@
+items:
+- name: Azure Native New Relic Service Documentation 
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Azure Native New Relic Service?
+    href: new-relic-overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Create a New Relic resource
+    href: new-relic-create.md
+  - name: Link to an existing New Relic account
+    href: new-relic-link-to-existing.md
+- name: How to
+  items:
+  - name: Configure prerequisites
+    href: new-relic-how-to-configure-prereqs.md
+  - name: Manage Azure Native New Relic service
+    href: new-relic-how-to-manage.md
+  - name: Troubleshoot
+    items:
+    - name: Get support
+      href: new-relic-get-support.md
+    - name: Fix common errors
+      href: new-relic-troubleshoot.md
+- name: Reference
+  items:
+  - name: REST API
+    href: /rest/api/newrelic
+  - name: Python
+    href: /python/api/overview/azure/new-relic-observability
+  - name: JavaScript
+    href: /javascript/api/overview/azure/new-relic-observability
+  - name: .NET
+    href: /dotnet/api/overview/azure/new-relic-observability
+  - name: Java
+    href: /java/api/overview/azure/new-relic-observability
+  - name: Azure CLI
+    href: /cli/azure/new-relic
+  - name: Azure PowerShell
+    href: /powershell/module/az.newrelic/#newrelic

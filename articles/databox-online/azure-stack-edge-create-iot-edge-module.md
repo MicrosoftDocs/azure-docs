@@ -7,12 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/06/2019
+ms.date: 02/27/2024
 ms.author: alkohli
 ms.custom: devx-track-csharp
 ---
 
 # Develop a C# IoT Edge module to move files with Azure Stack Edge Pro FPGA
+
+[!INCLUDE [Azure Stack Edge Pro FPGA end-of-life](../../includes/azure-stack-edge-fpga-eol.md)]
 
 This article steps you through how to create an IoT Edge module for deployment with your Azure Stack Edge Pro FPGA device. Azure Stack Edge Pro FPGA is a storage solution that allows you to process data and send it over network to Azure.
 
@@ -60,7 +62,7 @@ Before you begin, make sure you have:
 
 An Azure container registry is a private Docker registry in Azure where you can store and manage your private Docker container images. The two popular Docker registry services available in the cloud are Azure Container Registry and Docker Hub. This article uses the Container Registry.
 
-1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+1. From a browser, ign in to the [Azure portal](https://portal.azure.com).
 2. Select **Create a resource > Containers > Container Registry**. Click **Create**.
 3. Provide:
 
@@ -236,7 +238,7 @@ Create a C# solution template that you can customize with your own code.
     ```
 
 7. Save this file.
-8. You can also [download an existing code sample](https://azure.microsoft.com/resources/samples/data-box-edge-csharp-modules/?cdn=disable) for this project. You can then validate the file that you saved against the **program.cs** file in this sample.
+8. You can also [download an existing code sample](https://github.com/Azure-Samples/data-box-edge-csharp-modules) for this project. You can then validate the file that you saved against the **program.cs** file in this sample.
 
 ## Build your IoT Edge solution
 

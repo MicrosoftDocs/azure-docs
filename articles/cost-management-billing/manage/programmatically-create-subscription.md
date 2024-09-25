@@ -5,10 +5,9 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 03/22/2022
+ms.date: 03/21/2024
 ms.reviewer: andalmia
 ms.author: banders 
-ms.custom: devx-track-azurepowershell
 ---
 
 # Create Azure subscriptions programmatically
@@ -21,7 +20,7 @@ Using various REST APIs you can create a subscription for the following Azure ag
 - Microsoft Customer Agreement (MCA)
 - Microsoft Partner Agreement (MPA)
 
-You can't programmatically create additional subscriptions for other agreement types with REST APIs.
+You can't create support plans programmatically. You can buy a new support plan or upgrade one in the Azure portal. Navigate to **Help + support** and then at the top of the page, select **Choose the right support plan**.
 
 Requirements and details to create subscriptions differ for different agreements and API versions. See the following articles that apply to your situation:
 

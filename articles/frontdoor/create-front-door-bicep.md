@@ -1,15 +1,13 @@
 ---
-title: 'Quickstart: Create an Azure Front Door Standard/Premium using Bicep'
+title: 'Quickstart: Create an Azure Front Door Standard/Premium - Bicep'
 description: This quickstart describes how to create an Azure Front Door Standard/Premium using Bicep.
 services: front-door
-author: schaffererin
-ms.author: v-eschaffer
-ms.date: 07/08/2022
+author: duongau
+ms.author: duau
+ms.date: 12/29/2023
 ms.topic: quickstart
-ms.service: frontdoor
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm
+ms.service: azure-frontdoor
+ms.custom: subject-armqs, mode-arm, devx-track-bicep
 #Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ---
 
@@ -17,7 +15,9 @@ ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm
 
 This quickstart describes how to use Bicep to create an Azure Front Door Standard/Premium with a Web App as origin.
 
-[!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [ddos-waf-recommendation](../../includes/ddos-waf-recommendation.md)]
+
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites
 
@@ -28,13 +28,13 @@ This quickstart describes how to use Bicep to create an Azure Front Door Standar
 
 The Bicep file used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/front-door-standard-premium-app-service-public/).
 
-In this quickstart, you'll create a Front Door Standard/Premium, an App Service, and configure the App Service to validate that traffic has come through the Front Door origin.
+In this quickstart, you create a Front Door Standard/Premium, an App Service, and configure the App Service to validate that traffic comes through the Front Door origin.
 
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.cdn/front-door-standard-premium-app-service-public/main.bicep":::
 
 Multiple Azure resources are defined in the Bicep file:
 
-* [**Microsoft.Network/frontDoors**](/azure/templates/microsoft.network/frontDoors)
+* [**Microsoft.Cdn/profiles**](/azure/templates/microsoft.cdn/profiles) (Azure Front Door Standard/Premium profile)
 * [**Microsoft.Web/serverfarms**](/azure/templates/microsoft.web/serverfarms) (App service plan to host web apps)
 * [**Microsoft.Web/sites**](/azure/templates/microsoft.web/sites) (Web app origin servicing request for Front Door)
 
@@ -89,13 +89,13 @@ You can also use the Azure portal to validate the deployment.
 
 1. Select the resource group that you created in the previous section.
 
-1. Select the Front Door you created and you'll be able to see the endpoint hostname. Copy the hostname and paste it on to the address bar of a browser. Press enter and your request will automatically get routed to the web app.
+1. Select the Front Door you created and you're able to see the endpoint hostname. Copy the hostname and paste it on to the address bar of a browser. Press enter and your requests automatically get routed to the web app.
 
     :::image type="content" source="./media/create-front-door-bicep/front-door-bicep-web-app-origin-success.png" alt-text="Screenshot of the message: Your web app is running and waiting for your content.":::
 
 ## Clean up resources
 
-When no longer needed, use the Azure portal, Azure CLI, or Azure PowerShell to delete the Front Door service and the resource group. This removes the Front Door and all the related resources.
+When no longer needed, use the Azure portal, Azure CLI, or Azure PowerShell to delete the Front Door service and the resource group. The Front Door and all the related resources are removed.
 
 # [CLI](#tab/CLI)
 

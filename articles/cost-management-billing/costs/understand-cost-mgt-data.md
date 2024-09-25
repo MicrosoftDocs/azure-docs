@@ -1,22 +1,21 @@
 ---
 title: Understand Cost Management data
 titleSuffix: Microsoft Cost Management
-description: This article helps you better understand data that's included in Cost Management and how frequently it's processed, collected, shown, and closed.
+description: This article helps you better understand data included in Cost Management. It also explains how frequently data is processed, collected, shown, and closed.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/13/2021
+ms.date: 09/10/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: micflan
-ms.custom: contperf-fy21q2
 ---
 
 # Understand Cost Management data
 
-This article helps you better understand Azure cost and usage data that's included in Cost Management. It explains how frequently data is processed, collected, shown, and closed. You're billed for Azure usage monthly. Although billing cycles are monthly periods, cycle start and end dates vary by subscription type. How often Cost Management receives usage data varies based on different factors. Such factors include how long it takes to process the data and how frequently Azure services emit usage to the billing system.
+This article helps you better understand Azure cost and usage data included in Cost Management. It explains how frequently data is processed, collected, shown, and closed. You receive a bill for your Azure usage each month. Although billing cycles are monthly periods, cycle start and end dates vary by subscription type. How often Cost Management receives usage data varies based on different factors. Such factors include how long it takes to process the data and how frequently Azure services emit usage to the billing system.
 
-Cost Management includes all usage and purchases, including reservations and third-party offerings for Enterprise Agreement (EA) accounts. Microsoft Customer Agreement accounts and individual subscriptions with pay-as-you-go rates  only include usage from Azure and Marketplace services. Support and other costs aren't included. Costs are estimated until an invoice is generated and don't factor in credits. Cost Management also includes costs associated with New Commerce products like Microsoft 365 and Dynamics 365 that are invoiced along with Azure. Currently, only Partners can purchase New Commerce non-Azure products.
+Cost Management includes all usage and purchases, including commitment discounts (that is, reservations and savings plans) and third-party offerings, for Enterprise Agreement (EA) and Microsoft Customer Agreement (MCA) accounts. Microsoft Online Services Agreement (MOSA) accounts only include usage from Azure and Marketplace services with applicable commitment discounts applied but don't include Marketplace or commitment discounts purchases. Support and other costs aren't included. Costs are estimated until an invoice is generated and don't factor in credits. Cost Management also includes costs associated with New Commerce products like Microsoft 365 and Dynamics 365 that are invoiced along with Azure.
 
 If you have a new subscription, you can't immediately use Cost Management features. It might take up to 48 hours before you can use all Cost Management features.
 
@@ -26,45 +25,42 @@ The following information shows the currently supported [Microsoft Azure offers]
 
 | **Category**  | **Offer name** | **Quota ID** | **Offer number** | **Data available from** |
 | --- | --- | --- | --- | --- |
-| **Azure Government** | Azure Government Enterprise    | EnterpriseAgreement_2014-09-01 | MS-AZR-USGOV-0017P | May 2014<sup>1</sup> |
-| **Azure Government** | Azure Government Pay-As-You-Go | PayAsYouGo_2014-09-01 | MS-AZR-USGOV-0003P | October 2, 2018 |
-| **Enterprise Agreement (EA)** | Enterprise Dev/Test        | MSDNDevTest_2014-09-01 | MS-AZR-0148P | May 2014<sup>1</sup> |
-| **Enterprise Agreement (EA)** | Microsoft Azure Enterprise | EnterpriseAgreement_2014-09-01 | MS-AZR-0017P | May 2014<sup>1</sup> |
-| **Microsoft Customer Agreement** | Microsoft Azure Plan | EnterpriseAgreement_2014-09-01 | N/A | March 2019<sup>2</sup> |
-| **Microsoft Customer Agreement** | Microsoft Azure Plan for Dev/Test | MSDNDevTest_2014-09-01 | N/A | March 2019<sup>2</sup> |
-| **Microsoft Customer Agreement supported by partners** | Microsoft Azure Plan | CSP_2015-05-01, CSP_MG_2017-12-01, and CSPDEVTEST_2018-05-01<sup>4</sup> | N/A | October 2019 |
-| **Microsoft Developer Network (MSDN)** | MSDN Platforms<sup>3</sup> | MSDN_2014-09-01 | MS-AZR-0062P | October 2, 2018 |
-| **Pay-As-You-Go** | Pay-As-You-Go                  | PayAsYouGo_2014-09-01 | MS-AZR-0003P | October 2, 2018 |
-| **Pay-As-You-Go** | Pay-As-You-Go Dev/Test         | MSDNDevTest_2014-09-01 | MS-AZR-0023P | October 2, 2018 |
-| **Pay-As-You-Go** | Microsoft Partner Network      | MPN_2014-09-01 | MS-AZR-0025P | October 2, 2018 |
-| **Pay-As-You-Go** | Free Trial<sup>3</sup>         | FreeTrial_2014-09-01 | MS-AZR-0044P | October 2, 2018 |
-| **Pay-As-You-Go** | Azure in Open<sup>3</sup>      | AzureInOpen_2014-09-01 | MS-AZR-0111P | October 2, 2018 |
-| **Pay-As-You-Go** | Azure Pass<sup>3</sup>         | AzurePass_2014-09-01 | MS-AZR-0120P, MS-AZR-0122P - MS-AZR-0125P, MS-AZR-0128P - MS-AZR-0130P | October 2, 2018 |
-| **Visual Studio** | Visual Studio Enterprise – MPN<sup>3</sup>     | MPN_2014-09-01 | MS-AZR-0029P | October 2, 2018 |
-| **Visual Studio** | Visual Studio Professional<sup>3</sup>         | MSDN_2014-09-01 | MS-AZR-0059P | October 2, 2018 |
-| **Visual Studio** | Visual Studio Test Professional<sup>3</sup>    | MSDNDevTest_2014-09-01 | MS-AZR-0060P | October 2, 2018 |
-| **Visual Studio** | Visual Studio Enterprise<sup>3</sup>           | MSDN_2014-09-01 | MS-AZR-0063P | October 2, 2018 |
-| **Visual Studio** | Visual Studio Enterprise: BizSpark<sup>3</sup> | MSDN_2014-09-01 | MS-AZR-0064P | October 2, 2018 |
+| **Azure Government** | Azure Government Enterprise    | EnterpriseAgreement_2014-09-01 | MS-AZR-USGOV-0017P | May 2014 |
+| **Azure Government** | Azure Government pay-as-you-go | Pay-as-you-go_2014-09-01 | MS-AZR-USGOV-0003P | October 2, 2018 |
+| **Enterprise Agreement (EA)** | Enterprise Dev/Test        | MSDNDevTest_2014-09-01 | MS-AZR-0148P | May 2014 |
+| **Enterprise Agreement (EA)** | Microsoft Azure Enterprise | EnterpriseAgreement_2014-09-01 | MS-AZR-0017P | May 2014 |
+| **Microsoft Customer Agreement** | Microsoft Azure Plan | EnterpriseAgreement_2014-09-01 | MS-AZR-0017G | March 2019¹ |
+| **Microsoft Customer Agreement** | Microsoft Azure Plan for Dev/Test | MSDNDevTest_2014-09-01 | MS-AZR-0148G | March 2019¹ |
+| **Microsoft Customer Agreement supported by partners** | Microsoft Azure Plan | CSP_2015-05-01, CSP_MG_2017-12-01, and CSPDEVTEST_2018-05-01³ | N/A | October 2019 |
+| **Microsoft Developer Network (MSDN)** | MSDN Platforms² | MSDN_2014-09-01 | MS-AZR-0062P | October 2, 2018 |
+| **Pay-as-you-go** | Pay-as-you-go                  | Pay-as-you-go_2014-09-01 | MS-AZR-0003P | October 2, 2018 |
+| **Pay-as-you-go** | Pay-as-you-go Dev/Test         | MSDNDevTest_2014-09-01 | MS-AZR-0023P | October 2, 2018 |
+| **Pay-as-you-go** | Microsoft Cloud Partner Program (MPN)      | MPN_2014-09-01 | MS-AZR-0025P | October 2, 2018 |
+| **Pay-as-you-go** | Free Trial²         | FreeTrial_2014-09-01 | MS-AZR-0044P | October 2, 2018 |
+| **Pay-as-you-go** | Azure in Open²      | AzureInOpen_2014-09-01 | MS-AZR-0111P | October 2, 2018 |
+| **Pay-as-you-go** | Azure Pass²         | AzurePass_2014-09-01 | MS-AZR-0120P, MS-AZR-0122P - MS-AZR-0125P, MS-AZR-0128P - MS-AZR-0130P | October 2, 2018 |
+| **Visual Studio** | Visual Studio Enterprise – MPN²     | MPN_2014-09-01 | MS-AZR-0029P | October 2, 2018 |
+| **Visual Studio** | Visual Studio Professional²         | MSDN_2014-09-01 | MS-AZR-0059P | October 2, 2018 |
+| **Visual Studio** | Visual Studio Test Professional²    | MSDNDevTest_2014-09-01 | MS-AZR-0060P | October 2, 2018 |
+| **Visual Studio** | Visual Studio Enterprise²           | MSDN_2014-09-01 | MS-AZR-0063P | October 2, 2018 |
 
-_<sup>**1**</sup> For data before May 2014, visit the [Azure Enterprise portal](https://ea.azure.com)._
 
-_<sup>**2**</sup> Microsoft Customer Agreements started in March 2019 and don't have any historical data before this point._
+_¹ Microsoft Customer Agreements started in March 2019 and don't have any historical data before this point._
 
-_<sup>**3**</sup> Historical data for credit-based and pay-in-advance subscriptions might not match your invoice. See [Historical data may not match invoice](#historical-data-might-not-match-invoice) below._
+_² Historical data for credit-based and pay-in-advance subscriptions might not match your invoice. See the following [Historical data might not match invoice](#historical-data-might-not-match-invoice) section._
 
-_<sup>**4**</sup> Quota IDs are the same across Microsoft Customer Agreement and classic subscription offers. Classic CSP subscriptions are not supported._
+_³ Quota IDs are the same across Microsoft Customer Agreement and classic subscription offers. Classic Cloud Solution Provider (CSP) subscriptions aren't supported._
 
 The following offers aren't supported yet:
 
 | **Category**  | **Offer name** | **Quota ID** | **Offer number** |
 | --- | --- | --- | --- |
-| **Azure Germany** | Azure Germany Pay-As-You-Go | PayAsYouGo_2014-09-01 | MS-AZR-DE-0003P |
 | **Cloud Solution Provider (CSP)** | Microsoft Azure                                    | CSP_2015-05-01 | MS-AZR-0145P |
 | **Cloud Solution Provider (CSP)** | Azure Government CSP                               | CSP_2015-05-01 | MS-AZR-USGOV-0145P |
 | **Cloud Solution Provider (CSP)** | Azure Germany in CSP for Microsoft Cloud Germany   | CSP_2015-05-01 | MS-AZR-DE-0145P |
-| **Pay-As-You-Go** | Azure for Students Starter | DreamSpark_2015-02-01 | MS-AZR-0144P |
-| **Pay-As-You-Go** | Azure for Students<sup>3</sup> | AzureForStudents_2018-01-01 | MS-AZR-0170P |
-| **Pay-As-You-Go** | Microsoft Azure Sponsorship | Sponsored_2016-01-01 | MS-AZR-0036P |
+| **Pay-as-you-go** | Azure for Students Starter | DreamSpark_2015-02-01 | MS-AZR-0144P |
+| **Pay-as-you-go** | Azure for Students² | AzureForStudents_2018-01-01 | MS-AZR-0170P |
+| **Pay-as-you-go** | Microsoft Azure Sponsorship | Sponsored_2016-01-01 | MS-AZR-0036P |
 | **Support Plans** | Standard support                    | Default_2014-09-01 | MS-AZR-0041P |
 | **Support Plans** | Professional Direct support         | Default_2014-09-01 | MS-AZR-0042P |
 | **Support Plans** | Developer support                   | Default_2014-09-01 | MS-AZR-0043P |
@@ -77,32 +73,32 @@ The following offers aren't supported yet:
 
 For information about the availability of free tier services after you upgrade to pay-as-you-go pricing from a Free trial, see the [Azure free account FAQ](https://azure.microsoft.com/free/free-account-faq/).
 
-### Determine your offer type
+### View billing account
 
-If you don't see data for a subscription and you want to determine if your subscription falls under the supported offers, you can validate that your subscription is supported. To validate an Azure subscription is supported, sign in to the Azure portal. Then select **All Services** in the left menu pane. In the list of services, select **Subscriptions**. In the subscription list menu, select the subscription that you want to verify. Your subscription is shown on the Overview tab and you can see the **Offer** and **Offer ID**. The following image shows an example.
-
-![Example of the Subscription Overview tab showing Offer and Offer ID](./media/understand-cost-mgt-data/offer-and-offer-id.png)
+Your billing account type, and subscriptions created under it, is based on your Azure offer. If you want to view the properties of your billing account, including its offer ID information, see [Check the type of your account](../manage/view-all-accounts.md#check-the-type-of-your-account).
 
 ## Costs included in Cost Management
 
-The following tables show data that's included or isn't in Cost Management. All costs are estimated until an invoice is generated. Costs shown don't include free and prepaid credits.
+The following table shows included and not included data in Cost Management. All costs are estimated until an invoice is generated. Costs shown don't include free and prepaid credits.
 
 | **Included** | **Not included** |
 | --- | --- |
-| Azure service usage<sup>5</sup>        | Support charges - For more information, see [Invoice terms explained](../understand/understand-invoice.md). |
-| Marketplace offering usage<sup>6</sup> | Taxes - For more information, see [Invoice terms explained](../understand/understand-invoice.md). |
-| Marketplace purchases<sup>6</sup>      | Credits - For more information, see [Invoice terms explained](../understand/understand-invoice.md). |
-| Reservation purchases<sup>7</sup>      |  |
-| Amortization of reservation purchases<sup>7</sup>      |  |
-| New Commerce non-Azure products (Microsoft 365 and Dynamics 365) <sup>8</sup> | |
+| Azure service usage (including deleted resources)⁴ | Unbilled services (for example, free tier resources) |
+| Marketplace offering usage⁵ | Support charges - For more information, see [Invoice terms explained](../understand/understand-invoice.md). |
+| Marketplace purchases⁵      | Taxes - For more information, see [Invoice terms explained](../understand/understand-invoice.md). |
+| Commitment discount purchases⁶      | Credits - For more information, see [Invoice terms explained](../understand/understand-invoice.md). |
+| Amortization of commitment discount purchases⁶      |  |
+| New Commerce non-Azure products (Microsoft 365 and Dynamics 365) ⁷ | |
 
-_<sup>**5**</sup> Azure service usage is based on reservation and negotiated prices._
+_⁴ Azure service usage is based on commitment discounts and negotiated prices._
 
-_<sup>**6**</sup> Marketplace purchases aren't available for MSDN and Visual Studio offers at this time._
+_⁵ Marketplace purchases aren't available for MSDN and Visual Studio offers at this time._
 
-_<sup>**7**</sup> Reservation purchases are only available for Enterprise Agreement (EA) and Microsoft Customer Agreement accounts at this time._
+_⁶ Commitment discount purchases are only available for Enterprise Agreement (EA) and Microsoft Customer Agreement accounts at this time._
 
-_<sup>**8**</sup> Only available for specific offers._
+_⁷ Only available for specific offers._
+
+Cost Management data only includes the usage and purchases from services and resources that are actively running. The cost data you see is based on past records. It includes resources, resource groups, and subscriptions that might be stopped, deleted, or canceled. So, it might not match with the current resources, resource groups, and subscriptions you see in tools like Azure Resource Manager or Azure Resource Graph. They only display currently deployed resources in your subscriptions. Not all resources emit usage and therefore might not be represented in the cost data. Similarly, Azure Resource Manager doesn't track some resources so they might not be represented in subscription resources. 
 
 ## How tags are used in cost and usage data
 
@@ -110,35 +106,23 @@ Cost Management receives tags as part of each usage record submitted by the indi
 
 - Tags must be applied directly to resources and aren't implicitly inherited from the parent resource group.
 - Resource tags are only supported for resources deployed to resource groups.
-- Some deployed resources may not support tags or may not include tags in usage data.
+- Some deployed resources might not support tags or might not include tags in usage data.
 - Resource tags are only included in usage data while the tag is applied – tags aren't applied to historical data.
 - Resource tags are only available in Cost Management after the data is refreshed.
-- Resource tags are only available in Cost Management when the resource is active/running and producing usage records. For example, when a VM is deallocated.
-- Managing tags requires contributor access to each resource.
+- Resource tags are only available in Cost Management when the resource is active/running and producing usage records. For example, when a virtual machine (VM) is deallocated.
+- Managing tags requires contributor access to each resource or the [tag contributor](../../role-based-access-control/built-in-roles.md#tag-contributor) Azure role-based-access-control (RBAC) role.
 - Managing tag policies requires either owner or policy contributor access to a management group, subscription, or resource group.
     
 If you don't see a specific tag in Cost Management, consider the following questions:
 
 - Was the tag applied directly to the resource?
 - Was the tag applied more than 24 hours ago?
-- Does the resource type support tags? The following resource types don't support tags in usage data as of December 1, 2019. See [Tags support for Azure resources](../../azure-resource-manager/management/tag-support.md) for the full list of what is supported.
-    - Azure Active Directory B2C Directories
-    - Azure Bastion
-    - Azure Firewalls
-    - Azure NetApp Files
-    - Data Factory
-    - Databricks
-    - Load balancers
-    - Machine Learning workspace Compute instances
-    - Network Watcher
-    - Notification Hubs
-    - Service Bus
-    - Time Series Insights
+- Does the resource type support tags? Some resource types don't support tags in usage data. See [Tags support for Azure resources](../../azure-resource-manager/management/tag-support.md) for the full list of what is supported.
     
 Here are a few tips for working with tags:
 
 - Plan ahead and define a tagging strategy that allows you to break down costs by organization, application, environment, and so on.
-- Use Azure Policy to copy resource group tags to individual resources and enforce your tagging strategy.
+- [Group and allocate costs using tag inheritance](enable-tag-inheritance.md) to apply resource group and subscription tags to child resource usage records. If you're using Azure policy to enforce tagging for cost reporting, consider enabling the tag inheritance setting for easier management and more flexibility.
 - Use the Tags API with either Query or UsageDetails to get all cost based on the current tags.
 
 ## Cost and usage data updates and retention
@@ -150,14 +134,16 @@ Cost and usage data is typically available in Cost Management within 8-24 hours.
 - Estimated charges for the current billing period can change as you incur more usage.
 - Each update is cumulative and includes all the line items and information from the previous update.
 - Azure finalizes or _closes_ the current billing period up to 72 hours (three calendar days) after the billing period ends.
-- During the open month (uninvoiced) period, cost management data should be considered an estimate only. In some cases, charges may be latent in arriving to the system after the usage actually occurred.
+- During the open month (uninvoiced) period, cost management data should be considered an estimate only. In some cases, charges might be latent in arriving to the system after the usage actually occurred.
 
 The following examples illustrate how billing periods could end:
 
-* Enterprise Agreement (EA) subscriptions – If the billing month ends on March 31, estimated charges are updated up to 72 hours later. In this example, by midnight (UTC) April 4.
+* Enterprise Agreement (EA) subscriptions – If the billing month ends on March 31, estimated charges are updated up to 72 hours later. In this example, by midnight (UTC) April 4. There are uncommon circumstances where it might take longer than 72 hours to finalize a billing period.
 * Pay-as-you-go subscriptions – If the billing month ends on May 15, then the estimated charges might get updated up to 72 hours later. In this example, by midnight (UTC) May 19.
 
-Once cost and usage data becomes available in Cost Management, it will be retained for at least seven years. Only the last 13 months is available from the portal. For historical data before 13 months, please use [Exports](tutorial-export-acm-data.md) or the [UsageDetails API](/rest/api/consumption/usage-details/list).
+Usage charges can continue to accrue and can change until the fifth day of the month after your current billing period ends, as Azure completes processing all data. If the usage file isn't ready, you see a message on the Invoices page in the Azure portal stating `Your usage and charges file is not ready`. After the usage file is available, you can download it.
+
+When cost and usage data becomes available in Cost Management, it gets retained for at least seven years. Only the last 13 months are available from the Azure portal under Cost Management portal under [Exports](tutorial-export-acm-data.md). It's also available in the [Cost Details API](../automate/usage-details-best-practices.md#cost-details-api). To retrieve historical data that is older than 13 months, use the [Exports REST API](/rest/api/cost-management/exports).
 
 ### Rerated data
 
@@ -175,15 +161,22 @@ Costs shown in Cost Management are rounded. Costs returned by the Query API aren
 
 ## Historical data might not match invoice
 
-Historical data for credit-based and pay-in-advance offers might not match your invoice. Some Azure pay-as-you-go, MSDN, and Visual Studio offers can have Azure credits and advanced payments applied to the invoice. The historical data shown in Cost Management is based on your estimated consumption charges only. Cost Management historical data doesn't include payments and credits. Historical data shown for the following offers may not match exactly with your invoice.
+Historical data for credit-based and pay-in-advance offers might not match your invoice. Some Azure pay-as-you-go, MSDN, and Visual Studio offers can have Azure credits and advanced payments applied to the invoice. The historical data (closed month data) shown in Cost Management is based on your estimated consumption charges only. For the following listed offers, Cost Management historical data doesn't include payments and credits. Additionally, price changes might affect it. *The price shown on your invoice might differ from the price used for cost estimation.*
+
+For example, you get invoiced on January 5 for a service consumed in the month of December. It has a price of $86 per unit. On January 1, the unit price changed to $100. When you view your estimated charges in Cost Management, you see that your cost is the result of your consumed quantity * $100 (not $86, as shown in your  invoice).
+
+>[!NOTE]
+>The price change might result in a price decrease, not only an increase, as explained in this example.
+
+Historical data shown for the following offers might not match exactly with your invoice.
 
 - Azure for Students (MS-AZR-0170P)
 - Azure in Open (MS-AZR-0111P)
 - Azure Pass (MS-AZR-0120P, MS-AZR-0123P, MS-AZR-0125P, MS-AZR-0128P, MS-AZR-0129P)
 - Free Trial (MS-AZR-0044P)
 - MSDN (MS-AZR-0062P)
-- Visual Studio (MS-AZR-0029P, MS-AZR-0059P, MS-AZR-0060P, MS-AZR-0063P, MS-AZR-0064P)
+- Visual Studio (MS-AZR-0029P, MS-AZR-0059P, MS-AZR-0060P, MS-AZR-0063P)
 
-## Next steps
+## Related content
 
-- If you haven't already completed the first quickstart for Cost Management, read it at [Start analyzing costs](./quick-acm-cost-analysis.md).
+- If you didn't complete the first quickstart for Cost Management, read it at [Start analyzing costs](./quick-acm-cost-analysis.md).

@@ -2,35 +2,36 @@
 title: Run an Azure Function in response to a blob rehydration event
 titleSuffix: Azure Storage
 description: Learn how to develop an Azure Function with .NET, then configure Azure Event Grid to run the function in response to an event fired when a blob is rehydrated from the Archive tier.
-services: storage
 author: normesta
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 02/28/2022
+ms.date: 08/07/2024
 ms.author: normesta
 ms.reviewer: fryu
-ms.subservice: blobs
 ms.devlang: csharp
+ms.custom: devx-track-dotnet
 ---
 
 # Run an Azure Function in response to a blob rehydration event
 
-To read a blob that is in the Archive tier, you must first rehydrate the blob to the Hot or Cool tier. The rehydration process can take several hours to complete. Instead of repeatedly polling the status of the rehydration operation, you can configure [Azure Event Grid](../../event-grid/overview.md) to fire an event when the blob rehydration operation is complete and handle this event in your application.
+To read a blob that is in the archive tier, you must first rehydrate the blob to the hot or cool tier. The rehydration process can take several hours to complete. Instead of repeatedly polling the status of the rehydration operation, you can configure [Azure Event Grid](../../event-grid/overview.md) to fire an event when the blob rehydration operation is complete and handle this event in your application.
 
 When an event occurs, Event Grid sends the event to an event handler via an endpoint. A number of Azure services can serve as event handlers, including [Azure Functions](../../azure-functions/functions-overview.md). An Azure Function is a block of code that can execute in response to an event. This how-to walks you through the process of developing an Azure Function and then configuring Event Grid to run the function in response to an event that occurs when a blob is rehydrated.
 
 This article shows you how to create and test an Azure Function with .NET from Visual Studio. You can build Azure Functions from a variety of local development environments and using a variety of different programming languages. For more information about supported languages for Azure Functions, see [Supported languages in Azure Functions](../../azure-functions/supported-languages.md). For more information about development options for Azure Functions, see [Code and test Azure Functions locally](../../azure-functions/functions-develop-local.md).
 
-For more information about rehydrating blobs from the Archive tier, see [Overview of blob rehydration from the Archive tier](archive-rehydrate-overview.md).
+For more information about rehydrating blobs from the archive tier, see [Overview of blob rehydration from the archive tier](archive-rehydrate-overview.md).
 
 ## Prerequisites
 
 This article shows you how to use [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) or later to develop an Azure Function with .NET. You can install Visual Studio Community for free. Make sure that you [configure Visual Studio for Azure Development with .NET](/dotnet/azure/configure-visual-studio).
 
-To debug the Azure Function locally, you will need to use a tool that can send an HTTP request, such as Postman.
+[!INCLUDE [api-test-http-request-tools-bullet](../../../includes/api-test-http-request-tools-bullet.md)]
 
 An [Azure subscription](../../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing) is required. If you don't already have an account, [create a free one](https://azure.microsoft.com/free/dotnet/) before you begin.
+
+A provisioned Microsoft Entra ID [security principal](../../role-based-access-control/overview.md#security-principal) that has been assigned the [Storage Blob Data Contributor](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) role, scoped to the storage account, parent resource group, or subscription. See [Assign roles to your Microsoft Entra user account](storage-quickstart-blobs-dotnet.md#assign-roles-to-your-microsoft-entra-user-account).
 
 ## Create an Azure Function app
 
@@ -62,7 +63,8 @@ To learn more about configuring your function app, see [Manage your function app
 
 Next, create an Azure Function that will run when a blob is rehydrated in a particular storage account. Follow these steps to create an Azure Function in Visual Studio with C# and .NET Core:
 
-1. Launch Visual Studio 2019, and create a new Azure Functions project. For details, follow the instructions described in [Create a function app project](../../azure-functions/functions-create-your-first-function-visual-studio.md#create-a-function-app-project).
+1. Launch Visual Studio 2019. Then, [Sign in and connect your app code to Azure using DefaultAzureCredential](storage-quickstart-blobs-dotnet.md#sign-in-and-connect-your-app-code-to-azure-using-defaultazurecredential).
+1. Create a new Azure Functions project. For details, follow the instructions described in [Create a function app project](../../azure-functions/functions-create-your-first-function-visual-studio.md#create-a-function-app-project).
 1. On the **Create a new Azure Functions application** step, select the following values:
     - By default, the Azure Functions runtime is set to **Azure Functions v3 (.NET Core)**. Microsoft recommends using this version of the Azure Functions runtime.
     - From the list of possible triggers, select **Event Grid Trigger**. For more information on why an Event Grid trigger is the recommended type of trigger for handling a Blob Storage event with an Azure Function, see [Use a function as an event handler for Event Grid events](../../event-grid/handler-functions.md).
@@ -102,9 +104,6 @@ Next, create an Azure Function that will run when a blob is rehydrated in a part
     // Create a unique name for the log blob.
     string logBlobName = string.Format("function-log-{0}.txt", DateTime.UtcNow.Ticks);
 
-    // Populate connection string with your Shared Key credentials.
-    const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net";
-
     // Get data from the event.
     dynamic data = eventGridEvent.Data;
     string eventBlobUrl = Convert.ToString(data.url);
@@ -138,10 +137,12 @@ Next, create an Azure Function that will run when a blob is rehydrated in a part
             BlobName = logBlobName
         };
 
-        BlobClient logBlobClient = new BlobClient(ConnectionString,
-                                                  logBlobUriBuilder.BlobContainerName,
-                                                  logBlobName);
+        TokenCredential credential = new DefaultAzureCredential();
 
+        string blobUri = "https://" + accountName + ".blob.core.windows.net/" + logBlobUriBuilder.BlobContainerName + "/" + logBlobName;
+
+        BlobClient logBlobClient = new BlobClient(new Uri(blobUri), credential);
+        
         byte[] byteArray = Encoding.ASCII.GetBytes(eventInfo.ToString());
 
         try
@@ -168,7 +169,7 @@ To learn more about the information that is included when a Blob Storage event i
 
 ## Run the Azure Function locally in the debugger
 
-To test your Azure Function code locally, you need to manually send an HTTP request that triggers the event. You can post the request using a tool such as Postman.
+To test your Azure Function code locally, you need to manually send an HTTP request that triggers the event. You can post the request by using a tool such as those that are described in the prerequisite section of this article.
 
 At the top of the class file for your Azure Function is a URL endpoint that you can use for testing in the local environment. Posting the request with this URL triggers the event in the local environment so that you can debug your code. The URL is in the following format:
 
@@ -176,50 +177,12 @@ At the top of the class file for your Azure Function is a URL endpoint that you 
 http://localhost:7071/runtime/webhooks/EventGrid?functionName={functionname}
 ```
 
-The request that you send to this endpoint is a simulated request. It does not send or receive data from your Azure Storage account.
+The request that you send to this endpoint is a simulated request. It does not send or receive data from your Azure Storage account. 
 
-Follow these steps to construct and send a request to this endpoint. This example shows how to send the request with Postman.
-
-1. In Postman, create a new request.
-1. Paste the URL shown above into the field for the request URL, substituting the name of your function for `{functionname}` and removing the curly braces. Make sure that the request verb is set to GET.
-
-    :::image type="content" source="media/archive-rehydrate-handle-event/trigger-azure-function-postman-url.png" alt-text="Screenshot showing how to specify local URL for event trigger in Postman ":::
-
-1. Add the **Content-Type** header and set it to *application/json*.
-1. Add the **aeg-event-type** header and set it to *Notification*.
-
-    :::image type="content" source="media/archive-rehydrate-handle-event/trigger-azure-function-postman-headers.png" alt-text="Screenshot showing header configuration for local request to trigger event":::
-
-1. In Postman, specify the request body, with the body type set to *JSON* and the format to *raw*. The following example simulates a **Copy Blob** request. Replace placeholder values in angle brackets with your own values. Note that it is not necessary to change date/time or identifier values, because this is a simulated request:
-
-    ```json
-    [{
-      "topic": "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>",
-      "subject": "/blobServices/default/containers/<container-name>/blobs/<blob-name>",
-      "eventType": "Microsoft.Storage.BlobCreated",
-      "id": "2bfb587b-501e-0094-2746-8b2884065d32",
-      "data": {
-        "api": "CopyBlob",
-        "clientRequestId": "3d4dedc7-6c27-4816-9405-fdbfa806b00c",
-        "requestId": "2bfb587b-501e-0094-2746-8b2884000000",
-        "eTag": "0x8D9595DCA505BDF",
-        "contentType": "text/plain",
-        "contentLength": 48,
-        "blobType": "BlockBlob",
-        "url": "https://<storage-account>.blob.core.windows.net/<container-name>/<blob-name>",
-        "sequencer": "0000000000000000000000000000201B00000000004092a5",
-        "storageDiagnostics": {
-          "batchId": "8a92736a-6006-0026-0046-8bd7f5000000"
-        }
-      },
-      "dataVersion": "",
-      "metadataVersion": "1",
-      "eventTime": "2021-08-07T04:42:41.0730463Z"
-    }]
-    ```
+Send a request to this endpoint by using your HTTP request tool and its instructions. Make sure to substitute the `{functionname}` placeholder with the name of your function (for example `Get http://localhost:7071/runtime/webhooks/EventGrid?functionName=BlobRehydrateEventHandler`).
 
 1. In Visual Studio, place any desired breakpoints in your code, and press **F5** to run the debugger.
-1. In Postman, select the **Send** button to send the request to the endpoint.
+1. In your HTTP request tool, send the request to the endpoint.
 
 When you send the request, Event Grid calls your Azure Function, and you can debug it normally. For additional information and examples, see [Manually post the request](../../azure-functions/event-grid-how-tos.md#manually-post-the-request) in the Azure Functions documentation.
 
@@ -250,17 +213,17 @@ Whenever you make changes to the code in your Azure Function, you must publish t
 
 You now have a function app that contains an Azure Function that can run in response to an event. The next step is to create an event subscription from your storage account. The event subscription configures the storage account to publish an event through Event Grid in response to an operation on a blob in your storage account. Event Grid then sends the event to the event handler endpoint that you've specified. In this case, the event handler is the Azure Function that you created in the previous section.
 
-When you create the event subscription, you can filter which events are sent to the event handler. The events to capture when rehydrating a blob from the Archive tier are **Microsoft.Storage.BlobTierChanged**, corresponding to a [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation, and **Microsoft.Storage.BlobCreated** events, corresponding to a [Copy Blob](/rest/api/storageservices/copy-blob) operation. Depending on your scenario, you may want to handle only one of these events.
+When you create the event subscription, you can filter which events are sent to the event handler. The events to capture when rehydrating a blob from the archive tier are **Microsoft.Storage.BlobTierChanged**, corresponding to a [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation, and **Microsoft.Storage.BlobCreated** events, corresponding to a [Copy Blob](/rest/api/storageservices/copy-blob) operation. Depending on your scenario, you may want to handle only one of these events.
 
 To create the event subscription, follow these steps:
 
-1. In the Azure portal, navigate to the storage account that contains blobs to rehydrate from the Archive tier.
+1. In the Azure portal, navigate to the storage account that contains blobs to rehydrate from the archive tier.
 1. Select the **Events** setting in the left navigation pane.
 1. On the **Events** page, select **More options**.
 1. Select **Create Event Subscription**.
 1. On the **Create Event Subscription** page, in the **Event subscription details** section, provide a name for the event subscription.
 1. In the **Topic details** section, provide a name for the system topic. The system topic represents one or more events that are published by Azure Storage. For more information about system topics, see [System topics in Azure Event Grid](../../event-grid/system-topics.md).
-1. In the **Event Types** section, select the **Blob Created** and **Blob Tier Changed** events. Depending on how you choose to rehydrate a blob from the Archive tier, one of these two events will fire.
+1. In the **Event Types** section, select the **Blob Created** and **Blob Tier Changed** events. Depending on how you choose to rehydrate a blob from the archive tier, one of these two events will fire.
 
     :::image type="content" source="media/archive-rehydrate-handle-event/select-event-types-portal.png" alt-text="Screenshot showing how to select event types for blob rehydration events in the Azure portal":::
 
@@ -287,20 +250,20 @@ To learn how to test the function by rehydrating a blob, see one of these two pr
 - [Rehydrate a blob with a copy operation](archive-rehydrate-to-online-tier.md#rehydrate-a-blob-with-a-copy-operation)
 - [Rehydrate a blob by changing its tier](archive-rehydrate-to-online-tier.md#rehydrate-a-blob-by-changing-its-tier)
 
-After the rehydration is complete, the log blob is written to the same container as the blob that you rehydrated. For example, after you rehydrate a blob with a copy operation, you can see in the Azure portal that the original source blob remains in the Archive tier, the fully rehydrated destination blob appears in the targeted online tier, and the log blob that was created by the Azure Function also appears in the list.
+After the rehydration is complete, the log blob is written to the same container as the blob that you rehydrated. For example, after you rehydrate a blob with a copy operation, you can see in the Azure portal that the original source blob remains in the archive tier, the fully rehydrated destination blob appears in the targeted online tier, and the log blob that was created by the Azure Function also appears in the list.
 
-:::image type="content" source="media/archive-rehydrate-handle-event/copy-blob-archive-tier-rehydrated-with-log-blob.png" alt-text="Screenshot showing the original blob in the Archive tier, the rehydrated blob in the Hot tier, and the log blob written by the event handler":::
+:::image type="content" source="media/archive-rehydrate-handle-event/copy-blob-archive-tier-rehydrated-with-log-blob.png" alt-text="Screenshot showing the original blob in the archive tier, the rehydrated blob in the hot tier, and the log blob written by the event handler.":::
 
-Keep in mind that rehydrating a blob can take up to 15 hours, depending on the rehydration priority setting. If you set the rehydration priority to **High**, rehydration may complete in under one hour for blobs that are less than 10 GB in size. However, a high-priority rehydration incurs a greater cost. For more information, see [Overview of blob rehydration from the Archive tier](archive-rehydrate-overview.md).
+Keep in mind that rehydrating a blob can take up to 15 hours, depending on the rehydration priority setting. If you set the rehydration priority to **High**, rehydration may complete in under one hour for blobs that are less than 10 GB in size. However, a high-priority rehydration incurs a greater cost. For more information, see [Overview of blob rehydration from the archive tier](archive-rehydrate-overview.md).
 
 > [!TIP]
-> Although the goal of this how-to is to handle these events in the context of blob rehydration, for testing purposes it may also be helpful to observe these events in response to uploading a blob or changing an online blob's tier (*i.e.*, from Hot to Cool), because the event fires immediately.
+> Although the goal of this how-to is to handle these events in the context of blob rehydration, for testing purposes it may also be helpful to observe these events in response to uploading a blob or changing an online blob's tier (*i.e.*, from hot to cool), because the event fires immediately.
 
 For more information on how to filter events in Event Grid, see [How to filter events for Azure Event Grid](../../event-grid/how-to-filter-events.md).
 
 ## See also
 
-- [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md)
-- [Overview of blob rehydration from the Archive tier](archive-rehydrate-overview.md)
+- [Hot, cool, and archive access tiers for blob data](access-tiers-overview.md)
+- [Overview of blob rehydration from the archive tier](archive-rehydrate-overview.md)
 - [Rehydrate an archived blob to an online tier](archive-rehydrate-to-online-tier.md)
 - [Reacting to Blob storage events](storage-blob-event-overview.md)

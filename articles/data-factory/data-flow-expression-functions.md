@@ -4,11 +4,10 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about expression functions in mapping data flow.
 author: kromerm
 ms.author: makromer
-ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/03/2022
+ms.date: 01/05/2024
 ---
 
 # Expression functions in mapping data flow
@@ -104,7 +103,6 @@ In Data Factory and Synapse pipelines, use the expression language of the mappin
 | [normalize](data-flow-expressions-usage.md#normalize) | Normalizes the string value to separate accented unicode characters.  |
 | [not](data-flow-expressions-usage.md#not) | Logical negation operator.  |
 | [notEquals](data-flow-expressions-usage.md#notEquals) | Comparison not equals operator. Same as != operator.  |
-| [notNull](data-flow-expressions-usage.md#notNull) | Checks if the value isn't NULL.  |
 | [null](data-flow-expressions-usage.md#null) | Returns a NULL value. Use the function `syntax(null())` if there's a column named 'null'. Any operation that uses will result in a NULL.  |
 | [or](data-flow-expressions-usage.md#or) | Logical OR operator. Same as \|\|.  |
 | [pMod](data-flow-expressions-usage.md#pMod) | Positive Modulus of pair of numbers.  |
@@ -145,7 +143,7 @@ In Data Factory and Synapse pipelines, use the expression language of the mappin
 | [xor](data-flow-expressions-usage.md#xor) | Logical XOR operator. Same as ^ operator.  |
 |||
 
-## Next steps
+## Related content
 
 - List of all [aggregate functions](data-flow-aggregate-functions.md).
 - List of all [array functions](data-flow-array-functions.md).

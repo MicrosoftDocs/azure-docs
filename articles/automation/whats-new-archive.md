@@ -1,13 +1,16 @@
 ---
 title: Archive for What's new in Azure Automation
-description: The What's new release notes in the Overview section of this content set contains six months of activity. Thereafter, the items are removed from the main article and put into this article.
+description: The What's new release notes in the Overview section of this content set contain six months of activity. Thereafter, the items are removed from the main article and put into this article.
 services: automation
 ms.topic: overview
-ms.date: 10/27/2021
+ms.date: 08/01/2023
 ms.custom: references_regions
 ---
 
 # Archive for What's new in Azure Automation?
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 The primary [What's new in Azure Automation?](whats-new.md) article contains updates for the last six months, while this article contains all the older information.
 
@@ -81,7 +84,7 @@ See the [full list](./update-management/operating-system-requirements.md) of sup
 
 **Type:** New feature
 
-In all regions except Brazil South and Southeast Asia, Azure Automation data is stored in a different region (Azure paired region) for providing Business Continuity and Disaster Recovery (BCDR). For the Brazil and Southeast Asia regions only, we now store Azure Automation data in the same region to accommodate data-residency requirements for these regions. For more information, see [Geo-replication in Azure Automation](./automation-managing-data.md#geo-replication-in-azure-automation).
+In all regions except Brazil South and Southeast Asia, Azure Automation data is stored in a different region (Azure paired region) for providing Business Continuity and Disaster Recovery (BCDR). For the Brazil and Southeast Asia regions only, we now store Azure Automation data in the same region to accommodate data-residency requirements for these regions. For more information, see [Data residency](./automation-managing-data.md#data-residency).
 
 ## February 2021
 
@@ -204,7 +207,7 @@ Automation account and State Configuration availability in Brazil South East. Fo
 
 **Type:** New feature
 
-Azure Automation region mapping updated to support Update Management feature in South Central US region. See [Supported region mapping](how-to/region-mappings.md#supported-mappings) for updates to the documentation to reflect this change.
+Azure Automation region mapping updated to support Update Management feature in South Central US region. See [Supported region mapping](how-to/region-mappings.md#supported-mappings-for-log-analytics-and-azure-automation) for updates to the documentation to reflect this change.
 
 ## September 2020
 
@@ -212,7 +215,7 @@ Azure Automation region mapping updated to support Update Management feature in 
 
 **Type:** New feature
 
-Start/Stop VM runbooks have been updated to use Az modules in place of Azure Resource Manager modules. See [Start/Stop VMs during off-hours](automation-solution-vm-management.md) overview for updates to the documentation to reflect these changes.
+Start/Stop VM runbooks have been updated to use Az modules in place of Azure Resource Manager modules. 
 
 ## August 2020
 
@@ -220,7 +223,7 @@ Start/Stop VM runbooks have been updated to use Az modules in place of Azure Res
 
 **Type:** New feature
 
-Use Azure Automation State Configuration to centrally store configurations and maintain the desired state of hybrid connected machines enabled through the Azure Arc enabled servers DSC VM extension. For more information, read [Arc enabled servers VM extensions overview](../azure-arc/servers/manage-vm-extensions.md).
+Use Azure Automation State Configuration to centrally store configurations and maintain the desired state of hybrid connected machines enabled through the Azure Arc enabled servers DSC VM extension. For more information, read [Arc enabled servers VM extensions overview](/azure/azure-arc/servers/manage-vm-extensions).
 
 ### July 2020
 
@@ -272,7 +275,7 @@ The New-OnPremiseHybridWorker runbook has been updated to support Az modules. Fo
 
 **Type:** New feature
 
-Azure Automation region mapping updated to support Update Management feature in China East 2 region. See [Supported region mapping](how-to/region-mappings.md#supported-mappings) for updates to the documentation to reflect this change.
+Azure Automation region mapping updated to support Update Management feature in China East 2 region. See [Supported region mapping](how-to/region-mappings.md#supported-mappings-for-log-analytics-and-azure-automation) for updates to the documentation to reflect this change.
 
 ## May 2020
 
@@ -316,7 +319,7 @@ Automation support of service tags allows or denies the traffic for the Automati
 
 **Type:** Plan for change
 
-Azure Automation fully supports TLS 1.2 and all client calls (through webhooks, DSC nodes, and hybrid worker). TLS 1.1 and TLS 1.0 are still supported for backward compatibility with older clients until customers standardize and fully migrate to TLS 1.2.
+Azure Automation fully supports [TLS 1.2 or higher](../automation/automation-managing-data.md#tls-for-azure-automation) and all client calls (through webhooks, DSC nodes, and hybrid worker). TLS 1.1 and TLS 1.0 are still supported for backward compatibility with older clients until customers standardize and fully migrate to TLS 1.2.
 
 ## January 2020
 

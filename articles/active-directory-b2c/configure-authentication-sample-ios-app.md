@@ -1,16 +1,20 @@
 ---
 title: Configure authentication in a sample iOS Swift application by using Azure Active Directory B2C
 description:  This article discusses how to use Azure Active Directory B2C to sign in and sign up users in an iOS Swift application.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
-ms.workload: identity
-ms.topic: reference
-ms.date: 07/29/2021
+
+ms.topic: how-to
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
+
+
+#Customer intent: As an iOS app developer, I want to configure authentication in my app using Azure AD B2C, so that I can securely sign users in and out, acquire tokens, and validate them for accessing protected resources.
+
 ---
 
 # Configure authentication in a sample iOS Swift app by using Azure AD B2C
@@ -110,10 +114,10 @@ This sample acquires an access token with the relevant scopes that the mobile ap
 
 ## Step 4: Get the iOS mobile app sample
 
-1. [Download the .zip file](https://github.com/Azure-Samples/active-directory-b2c-ios-swift-native-msal/archive/refs/heads/vNext.zip), or clone the sample web app from the [GitHub repo](https://github.com/Azure-Samples/active-directory-b2c-ios-swift-native-msal). 
+1. [Download the .zip file](https://github.com/Azure-Samples/active-directory-b2c-ios-swift-native-msal/archive/refs/heads/master.zip), or clone the sample web app from the [GitHub repo](https://github.com/Azure-Samples/active-directory-b2c-ios-swift-native-msal). 
 
     ```bash
-    git clone https://github.com/Azure-Samples/active-directory-b2c-ios-swift-native-msal/tree/vNext.git
+    git clone https://github.com/Azure-Samples/active-directory-b2c-ios-swift-native-msal
     ``` 
 
 1. Use [CocoaPods](https://cocoapods.org/) to install the MSAL library. In a terminal window, go to the project root folder. This folder contains the *podfile* file. Run the following command:
@@ -134,8 +138,8 @@ Update the following class members:
 
 |Key  |Value  |
 |---------|---------|
-|kTenantName| Your Azure AD B2C tenant full [tenant name](tenant-management.md#get-your-tenant-name) (for example, `contoso.onmicrosoft.com`).|
-|kAuthorityHostName|The first part of your Azure AD B2C [tenant name](tenant-management.md#get-your-tenant-name) (for example, `contoso.b2clogin.com`).|
+|kTenantName| Your Azure AD B2C tenant full [tenant name]( tenant-management-read-tenant-name.md#get-your-tenant-name) (for example, `contoso.onmicrosoft.com`).|
+|kAuthorityHostName|The first part of your Azure AD B2C [tenant name]( tenant-management-read-tenant-name.md#get-your-tenant-name) (for example, `contoso.b2clogin.com`).|
 |kClientID|The mobile application ID from [step 2.3](#step-23-register-the-mobile-app).|
 |kRedirectUri|The mobile application redirect URI from [step 2.3](#step-23-register-the-mobile-app), `msauth.com.microsoft.identitysample.MSALiOS://auth`.|
 |kSignupOrSigninPolicy| The sign-up or sign-in user flow or custom policy you created in [step 1](#step-1-configure-your-user-flow).|

@@ -2,10 +2,10 @@
 title: Azure HDInsight supported node configurations
 description: Learn the minimum and recommended configurations for HDInsight cluster nodes.
 keywords: vm sizes, cluster sizes, cluster configuration
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 06/22/2022
+ms.custom: hdinsightactive
+ms.date: 07/12/2024
 ---
 
 # What are the default and recommended node configurations for Azure HDInsight?
@@ -18,7 +18,7 @@ The following tables list default and recommended virtual machine (VM) sizes for
 
 If you need more than 32 worker nodes in a cluster, select a head node size with at least 8 cores and 14 GB of RAM.
 
-The only cluster types that have data disks are Kafka and HBase clusters with the Accelerated Writes feature enabled. HDInsight supports P30 and S30 disk sizes in these scenarios. For all other cluster types, HDInsight provides managed disk space with the cluster. Starting 11/07/2019, the managed disk size of each node in the newly created cluster is 128 GB. This can't be changed.
+The only cluster types that have data disks are Kafka and HBase clusters with the Accelerated Writes feature enabled. HDInsight supports P30 and S30 disk sizes in these scenarios. For all other cluster types, HDInsight provides managed disk space with the cluster. From 11/07/2019 onwards, the managed disk size of each node in the newly created cluster is 128 GB. This can't be changed.
 
 The specifications of all minimum recommended VM types used in this document are summarized in the following table.
 
@@ -36,29 +36,27 @@ The specifications of all minimum recommended VM types used in this document are
 
 For more information on the specifications of each VM type, see the following documents:
 
-* [General purpose virtual machine sizes: Dv2 series 1-5](../virtual-machines/dv2-dsv2-series.md)
-* [Memory optimized virtual machine sizes: Dv2 series 11-15](../virtual-machines/dv2-dsv2-series-memory.md)
-* [General purpose virtual machine sizes: Av2 series 1-8](../virtual-machines/av2-series.md)
+* [General purpose virtual machine sizes: `Dv2` series 1-5](/azure/virtual-machines/dv2-dsv2-series)
+* [Memory optimized virtual machine sizes: `Dv2` series 11-15](/azure/virtual-machines/dv2-dsv2-series-memory)
+* [General purpose virtual machine sizes: `Av2` series 1-8](/azure/virtual-machines/av2-series)
 
 ### All supported regions
 
 > [!Note]
 > To get the SKU identifier for use in powershell and other scripts, add `Standard_` to the beginning of all of the VM SKUs in the tables below. For example, `D12_v2` would become `Standard_D12_v2`.
 
-| Cluster type                            | Hadoop | HBase  | Interactive Query | Storm | Spark                | Kafka                                |
-|-----------------------------------------|--------|--------|-------------------|-------|----------------------|--------------------------------------|
-| Head: default VM size                   | E4_v3 | E4_v3 | D13_v2            | A4_v2 | E8_v3, <br/>D13_v2* | E4_v3                                |
-| Head: minimum recommended VM sizes      | D5_v2  | D3_v2  | D13_v2            | A4_v2 | D12_v2, <br/>D13_v2* | D3_v2                                |
-| Worker: default VM size                 | E8_v3  | E4_v3  | D14_v2            | D3_v2 | E8_v3               | 4 E4_v3 with 2 S30 disks per broker |
-| Worker: minimum recommended VM sizes    | D5_v2  | D3_v2  | D13_v2            | D3_v2 | D12_v2               | D3_v2                                |
-| ZooKeeper: default VM size              |        | A4_v2  | A4_v2             | A4_v2 |                      | A4_v2                                |
-| ZooKeeper: minimum recommended VM sizes |        | A4_v2  | A4_v2             | A2_v2 |                      | A4_v2                                |
+| Cluster type                            | Hadoop | HBase  | Interactive Query | Spark                | Kafka                                |
+|-----------------------------------------|--------|--------|-------------------|----------------------|----------------------|---------------|
+| Head: default VM size                   | E4_v3 | E4_v3 | D13_v2              |  E8_v3, <br/>D13_v2* | E4_v3                                |
+| Head: minimum recommended VM sizes      | D5_v2  | D3_v2  | D13_v2            |  D12_v2, <br/>D13_v2*| D3_v2                                |
+| Worker: default VM size                 | E8_v3  | E4_v3  | D14_v2            |  E8_v3               | 4 E4_v3 with 2 S30 disks per broker  | 
+| Worker: minimum recommended VM sizes    | D5_v2  | D3_v2  | D13_v2            |  D12_v2              | D3_v2                                |
+| ZooKeeper: default VM size              |        | A4_v2  | A4_v2             |                      | A4_v2                                |
+| ZooKeeper: minimum recommended VM sizes |        | A4_v2  | A4_v2             |                      | A4_v2                                |
 
 \* = VM Sizes for Spark Enterprise Security Package (ESP) clusters
 
 > [!NOTE]
-> - Head is known as *Nimbus* for the Storm cluster type.
-> - Worker is known as *Supervisor* for the Storm cluster type.
 > - Worker is known as *Region* for the HBase cluster type.
 
 ## Next steps

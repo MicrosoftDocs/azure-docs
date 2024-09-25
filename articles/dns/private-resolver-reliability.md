@@ -4,9 +4,9 @@ description: Find out about reliability in Azure DNS Private Resolver #Required;
 author: greg-lindsay #Required; your GitHub user alias, with correct capitalization.
 ms.author: greglin #Required; Microsoft alias of author; optional team alias.
 ms.custom: subject-reliability
-ms.service: dns
+ms.service: azure-dns
 ms.topic: conceptual
-ms.date: 09/27/2022 #Required; mm/dd/yyyy format.
+ms.date: 11/30/2023 #Required; mm/dd/yyyy format.
 #Customer intent: As a customer, I want to understand reliability support for Azure DNS Private Resolver. I need to avoid failures and respond to them so that I can minimize down time and data loss.
 ---
 
@@ -25,11 +25,11 @@ For a comprehensive overview of reliability in Azure, see [Azure reliability](/a
 
 ## Availability zones
 
-For more information about availability zones, see [Regions and availability zones](/azure/availability-zones/az-overview).
+For more information about availability zones, see [Regions and availability zones](../availability-zones/az-overview.md).
 
 ### Prerequisites
 
-For a list of regions that support availability zones, see [Azure regions with availability zones](/azure/availability-zones/az-region#azure-regions-with-availability-zones). If your Azure DNS Private Resolver is located in one of the regions listed, you don't need to take any other action beyond provisioning the service.
+For a list of regions that support availability zones, see [Azure regions with availability zones](../availability-zones/az-region.md#azure-regions-with-availability-zones). If your Azure DNS Private Resolver is located in one of the regions listed, you don't need to take any other action beyond provisioning the service.
 
 #### Enabling availability zones with private resolver
 
@@ -56,4 +56,4 @@ Also see the [SLA for Azure DNS](https://azure.microsoft.com/support/legal/sla/d
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Resiliency in Azure](/azure/availability-zones/overview)
+> [Resiliency in Azure](../availability-zones/overview.md)

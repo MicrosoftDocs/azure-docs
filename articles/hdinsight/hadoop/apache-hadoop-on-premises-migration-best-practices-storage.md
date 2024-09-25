@@ -1,10 +1,10 @@
 ---
 title: 'Storage: Migrate on-premises Apache Hadoop to Azure HDInsight'
 description: Learn storage best practices for migrating on-premises Hadoop clusters to Azure HDInsight.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 12/10/2019
+ms.date: 07/24/2024
 ---
 
 # Migrate on-premises Apache Hadoop clusters to Azure HDInsight
@@ -71,15 +71,6 @@ For more information, see the following articles:
 - [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md)
 - [Monitor a storage account in the Azure portal](../../storage/common/manage-storage-analytics-logs.md)
 
-### Azure Data Lake Storage Gen1
-
-Azure Data Lake Storage Gen1 implements HDFS and POSIX style access control model. It provides first class integration with Azure AD for fine grained access control. There are no limits to the size of data that it can store, or its ability to run massively parallel analytics.
-
-For more information, see the following articles:
-
-- [Create HDInsight clusters with Data Lake Storage Gen1 using the Azure portal](../../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md)
-- [Use Data Lake Storage Gen1 with Azure HDInsight clusters](../hdinsight-hadoop-use-data-lake-storage-gen1.md)
-
 ### Azure Data Lake Storage Gen2
 
 Azure Data Lake Storage Gen2 is the latest storage offering. It unifies the core capabilities from the first generation of Azure Data Lake Storage Gen1 with a Hadoop compatible file system endpoint directly integrated into Azure Blob Storage. This enhancement combines the scale and cost benefits of object storage with the reliability and performance typically associated only with on-premises file systems.
@@ -98,11 +89,14 @@ In the past, cloud-based analytics had to compromise in areas of performance, ma
 
 - **Works with Blob storage tools, frameworks, and apps**: Data Lake Storage Gen2 continues to work with a wide array of tools, frameworks, and applications that exist today for Blob storage.
 
-- **Optimized driver**: The Azure Blob Filesystem driver (ABFS) is [optimized specifically](../../storage/blobs/data-lake-storage-abfs-driver.md) for big data analytics. The corresponding REST APIs are surfaced through the dfs endpoint, dfs.core.windows.net.
+- **Optimized driver**: The Azure Blob Filesystem driver (ABFS) is [optimized specifically](../../storage/blobs/data-lake-storage-abfs-driver.md) for big data analytics. The corresponding REST APIs are surfaced through the `dfs` endpoint, dfs.core.windows.net.
 
 One of the following formats can be used to access data that is stored in ADLS Gen2:
 - `abfs:///`: Access the default Data Lake Storage for the cluster.
 - `abfs://file_system@account_name.dfs.core.windows.net`: Used when communicating with a non-default Data Lake Storage.
+
+>[!NOTE]
+> Upgrading the primary or secondary storage account of a running cluster with Azure Data Lake Storage Gen2 capabilities is not supported. To change the storage type of an existing HDInsight cluster to Data Lake Storage Gen2, you will need to recreate the cluster and select an hierarchical namespace enabled storage account.
 
 For more information, see the following articles:
 

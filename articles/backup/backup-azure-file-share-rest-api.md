@@ -1,8 +1,10 @@
 ---
 title: Back up Azure file shares with REST API
 description: Learn how to use REST API to back up Azure file shares in the Recovery Services vault
-ms.topic: conceptual
-ms.date: 02/16/2020
+ms.topic: how-to
+ms.date: 09/09/2024
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Backup Azure file share using Azure Backup via REST API
@@ -13,15 +15,15 @@ This article assumes you've already created a Recovery Services vault and policy
 
 For this article, we'll use the following resources:
 
-- **RecoveryServicesVault**: *azurefilesvault*
+- **RecoveryServicesVault**: `azurefilesvault`
 
-- **Policy:** *schedule1*
+- **Policy:** `schedule1`
 
-- **Resource group**: *azurefiles*
+- **Resource group**: `azurefiles`
 
-- **Storage Account**: *testvault2*
+- **Storage Account**: `testvault2`
 
-- **File Share**: *testshare*
+- **File Share**: `testshare`
 
 ## Configure backup for an unprotected Azure file share using REST API
 
@@ -167,7 +169,7 @@ Set the variables for the URI as follows:
 - {fabricName} - *Azure*
 - {vaultName} - *azurefilesvault*
 - {containerName} - This is the name attribute in the response body of the GET ProtectableContainers operation.
-   In our example, it's *StorageContainer;Storage;AzureFiles;testvault2*
+   In our example, it's `StorageContainer;Storage;AzureFiles;testvault2`
 
 >[!NOTE]
 > Always take the name attribute of the response and fill it in this request. Don't hard-code or create the container-name format. If you create or hard-code it, the API call will fail if the container-name format changes in the future.
@@ -232,7 +234,7 @@ protectionContainers/StorageContainer;Storage;AzureFiles;testvault2",
 }
 ```
 
-You can verify if the registration was successful from the value of the *registrationstatus* parameter in the response body. In our case, it shows the status as registered for *testvault2*, so the registration operation was successful.
+You can verify if the registration was successful from the value of the `registrationstatus` parameter in the response body. In our case, it shows the status as registered for `testvault2`, so the registration operation was successful.
 
 ### Inquire all unprotected files shares under a storage account
 

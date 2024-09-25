@@ -4,21 +4,21 @@ titlesuffix: Azure Traffic Manager
 description: Learn how to configure the Multivalue routing method with nested endpoints and the min-child feature.
 author: greg-lindsay
 ms.author: greglin
-ms.service: traffic-manager
+ms.service: azure-traffic-manager
 ms.topic: how-to
-ms.date: 04/28/2022
-ms.custom: template-how-to
+ms.date: 08/08/2024
+ms.custom: template-how-to, devx-track-arm-template
 ---
 
 # Configure the Multivalue routing method using an ARM Template
 
 This article describes how to use an Azure Resource Manager template (ARM Template) to create a nested, Multivalue profile with the min-child feature.
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Ftraffic-manager-minchild%2Fazuredeploy.json)
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Ftraffic-manager-minchild%2Fazuredeploy.json":::
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Review the template
 
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/traffic-manager-minchild).
+The template used in this quickstart is from [Azure Quickstart Templates](/samples/azure/azure-quickstart-templates/traffic-manager-minchild/).
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/traffic-manager-minchild/azuredeploy.json":::
 

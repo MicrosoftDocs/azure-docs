@@ -1,13 +1,13 @@
 ---
 title: Deploy STIG-compliant Windows Virtual Machines (Preview)
 description: This quickstart shows you how to deploy a STIG-compliant Windows VM (Preview) from the Azure portal or Azure Government portal.
-author: stevevi
-ms.author: stevevi
+author: EliotSeattle
+ms.author: eliotgra
 ms.service: azure-government
 ms.topic: quickstart
 ms.custom: mode-other, kr2b-contr-experiment
 recommendations: false
-ms.date: 08/25/2022
+ms.date: 06/14/2023
 ---
 
 # Deploy STIG-compliant Windows Virtual Machines (Preview)
@@ -50,7 +50,7 @@ Sign in at the [Azure portal](https://portal.azure.com/) or [Azure Government po
 
     a. Enter the *VM name*.
 
-    b. Select the *Availability options*. To learn about availability sets, see [Availability sets overview](../virtual-machines/availability-set-overview.md).
+    b. Select the *Availability options*. To learn about availability sets, see [Availability sets overview](/azure/virtual-machines/availability-set-overview).
 
     c. Select the *Windows OS version*.
 
@@ -126,7 +126,7 @@ Site Recovery can manage replication for:
 - Azure VMs replicating between Azure regions.
 - On-premises VMs, Azure Stack VMs, and physical servers.
  
-To learn more about backup and restore options for virtual machines in Azure, continue to [Overview of backup options for VMs](../virtual-machines/backup-recovery.md).
+To learn more about backup and restore options for virtual machines in Azure, continue to [Overview of backup options for VMs](/azure/virtual-machines/backup-recovery).
 
 ## Clean up resources
 
@@ -136,17 +136,28 @@ Select the resource group for the virtual machine, then select **Delete**. Confi
 
 ## Support
 
-Contact Azure support to get assistance with issues related to STIG solution templates. You can create and manage support requests in the Azure portal. For more information see, [Create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md). Use the following support paths when creating a ticket:
+Contact Azure support to get assistance with issues related to STIG solution templates. You can create and manage support requests in the Azure portal. For more information see, [Create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request). Use the following support paths when creating a ticket:
 
 Azure -> Virtual Machine running Windows -> Cannot create a VM -> Troubleshoot my ARM template error
 
 :::image type="content" source="./media/stig-windows-support.png" alt-text="New support request for Windows STIG solution template":::
 
+## Frequently asked questions
+
+**When will STIG-compliant VMs reach general availability (GA)?** </br>
+The Azure STIG-compliant VM offering is expected to remain in Preview instead of reaching GA because of the release cadence for DISA STIGs. Every quarter, the offering is upgraded with latest guidance, and this process is expected to continue in the future. See previous section for support options that most customers require for production workloads, including creating support tickets.
+
+**Can Azure Update Management be used with STIG images?** </br>
+Yes, [Update Management](../automation/update-management/overview.md) in Azure Automation supports STIG images.
+
+**What STIG settings are being applied by the template?** </br>
+For more information, see [Deploy Azure Virtual Machine (Windows) and apply STIG](https://github.com/Azure/ato-toolkit/tree/master/stig/windows).
+
 ## Next steps
 
 This quickstart showed you how to deploy a STIG-compliant Windows virtual machine (Preview) on Azure or Azure Government. For more information about creating virtual machines in:
 
-- Azure, see [Quickstart: Create a Windows virtual machine in the Azure portal](../virtual-machines/windows/quick-create-portal.md).
+- Azure, see [Quickstart: Create a Windows virtual machine in the Azure portal](/azure/virtual-machines/windows/quick-create-portal).
 - Azure Government, see [Tutorial: Create virtual machines](./documentation-government-quickstarts-vm.md).
 
 To learn more about Azure services, continue to the Azure documentation.
@@ -166,3 +177,4 @@ For more information about Azure Government, see the following resources:
 - [DoD Impact Level 5 – Azure compliance](/azure/compliance/offerings/offering-dod-il5)
 - [Isolation guidelines for Impact Level 5 workloads](./documentation-government-impact-level-5.md)
 - [Secure Azure Computing Architecture](./compliance/secure-azure-computing-architecture.md)
+- [Security Technical Implementation Guides (STIGs)](https://public.cyber.mil/stigs/)

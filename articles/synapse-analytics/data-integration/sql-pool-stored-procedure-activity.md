@@ -1,12 +1,12 @@
 ---
 title: Transform data by using the SQL pool stored procedure activity
 description: Explains how to use SQL pool stored procedure activity to invoke a stored procedure in Azure Synapse Analytics.
-ms.service: synapse-analytics 
+ms.service: azure-synapse-analytics
 ms.topic: how-to
 ms.subservice: pipeline 
 author: linda33wj
 ms.author: jingwang
-ms.reviewer: sngun
+ms.reviewer: whhender
 ms.date: 05/13/2021
 ---
 

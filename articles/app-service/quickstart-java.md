@@ -2,51 +2,48 @@
 title: 'Quickstart: Create a Java app on Azure App Service'
 description: Deploy your first Java Hello World to Azure App Service in minutes. The Azure Web App Plugin for Maven makes it convenient to deploy Java apps.
 keywords: azure, app service, web app, windows, linux, java, maven, quickstart
-author: jasonfreeberg
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 03/03/2022
-ms.author: jafreebe
-ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019, mode-other, devdivchpfy22
-zone_pivot_groups: app-service-platform-environment
+ms.date: 02/10/2024
+ms.custom: mvc, mode-other, devdivchpfy22, devx-track-java, devx-track-javaee-jbosseap-appsvc, devx-track-javaee-jbosseap, devx-track-javaee, devx-track-extended-java
+zone_pivot_groups: app-service-java-deploy
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./quickstart-java-uiex
+author: cephalin
+ms.author: cephalin
 ---
 
 # Quickstart: Create a Java app on Azure App Service
 
 
-::: zone pivot="platform-linux-development-environment-maven"
+::: zone pivot="java-tomcat"
 
-[!INCLUDE [quickstart-java-linux-maven-pivot.md](./includes/quickstart-java/quickstart-java-linux-maven-pivot.md)]
-
-::: zone-end
-
-::: zone pivot="platform-windows-development-environment-maven"
-
-[!INCLUDE [quickstart-java-windows-maven-pivot.md](./includes/quickstart-java/quickstart-java-windows-maven-pivot.md)]
+[!INCLUDE [quickstart-java-linux-maven-pivot.md](./includes/quickstart-java/quickstart-java-tomcat.md)]
 
 ::: zone-end
 
-::: zone pivot="platform-linux-development-environment-azure-portal"
+::: zone pivot="java-javase"
 
-[!INCLUDE [quickstart-java-azure-portal-pivot.md](./includes/quickstart-java/quickstart-java-linux-azure-portal-pivot.md)]
+[!INCLUDE [quickstart-java-windows-maven-pivot.md](./includes/quickstart-java/quickstart-java-javase.md)]
 
 ::: zone-end
 
-::: zone pivot="platform-windows-development-environment-azure-portal"
+::: zone pivot="java-jboss"
 
-[!INCLUDE [quickstart-java-azure-portal-pivot.md](./includes/quickstart-java/quickstart-java-windows-azure-portal-pivot.md)]
+[!INCLUDE [quickstart-java-windows-maven-pivot.md](./includes/quickstart-java/quickstart-java-jboss.md)]
 
 ::: zone-end
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Connect to Azure DB for PostgreSQL with Java](../postgresql/connect-java.md)
+> [Tutorial: Build a Tomcat web app with Azure App Service on Linux and MySQL](tutorial-java-tomcat-mysql-app.md)
+
+> [!div class="nextstepaction"]
+> [Tutorial: Build a Java Spring Boot web app with Azure App Service on Linux and Azure Cosmos DB](tutorial-java-spring-cosmosdb.md)
 
 > [!div class="nextstepaction"]
 > [Set up CI/CD](deploy-continuous-deployment.md)
@@ -64,4 +61,7 @@ adobe-target-content: ./quickstart-java-uiex
 > [Azure for Java Developers Resources](/java/azure/)
 
 > [!div class="nextstepaction"]
-> [Configure your Java app](configure-language-java.md)
+> [Configure your Java app](configure-language-java-deploy-run.md)
+
+> [!div class="nextstepaction"]
+> [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)

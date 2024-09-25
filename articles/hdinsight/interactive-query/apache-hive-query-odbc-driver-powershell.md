@@ -2,11 +2,9 @@
 title: Query Apache Hive with ODBC Driver & PowerShell - Azure HDInsight
 description: Use the Microsoft Hive ODBC driver and PowerShell to query Apache Hive clusters on Azure HDInsight.
 keywords: hive,hive odbc,powershell
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: tutorial
-ms.date: 04/29/2022
-ms.custom: devx-track-azurepowershell
-
+ms.date: 06/15/2024
 #Customer intent: As a HDInsight user, I want to query data from my Apache Hive datasets so that I can view and interpret the data.
 ---
 
@@ -39,7 +37,7 @@ The following steps show you how to create an Apache Hive ODBC data source.
 
 1. From Windows, navigate to **Start** > **Windows Administrative Tools** > **ODBC Data Sources (32-bit)/(64-bit)**.  An **ODBC Data Source Administrator** window opens.
 
-    :::image type="content" source="./media/apache-hive-query-odbc-driver-powershell/hive-odbc-driver-dsn-setup.png " alt-text="OBDC data source administrator" border="true":::
+    :::image type="content" source="./media/apache-hive-query-odbc-driver-powershell/hive-odbc-driver-dsn-setup.png " alt-text="OBDC data source administrator." border="true":::
 
 1. From the **User DSN** tab, select **Add** to open the **Create New Data Source** window.
 
@@ -54,10 +52,10 @@ The following steps show you how to create an Apache Hive ODBC data source.
    |  Port |Use **443**.|
    |  Database |Use **default**. |
    |  Mechanism |Select **Windows Azure HDInsight Service** |
-   |  User Name |Enter HDInsight cluster HTTP user username. The default username is **admin**. |
+   |  User Name |Enter HDInsight cluster HTTP user username. The default username is `admin`. |
    |  Password |Enter HDInsight cluster user password. Select the checkbox **Save Password (Encrypted)**.|
 
-1. Optional: Select **Advanced Options**.  
+1. Optional: Select **Advanced Options**.
 
    | Parameter | Description |
    | --- | --- |
@@ -65,7 +63,7 @@ The following steps show you how to create an Apache Hive ODBC data source.
    |  Rows fetched per block |When fetching a large number of records, tuning this parameter may be required to ensure optimal performances. |
    |  Default string column length, Binary column length, Decimal column scale |The data type lengths and precisions may affect how data is returned. They cause incorrect information to be returned because of loss of precision and truncation. |
 
-    :::image type="content" source="./media/apache-hive-query-odbc-driver-powershell/odbc-data-source-advanced-options.png " alt-text="Advanced DSN configuration options" border="true":::
+    :::image type="content" source="./media/apache-hive-query-odbc-driver-powershell/odbc-data-source-advanced-options.png " alt-text="Advanced DSN configuration options." border="true":::
 
 1. Select **Test** to test the data source. When the data source is configured correctly, the test result shows **SUCCESS**.  
 

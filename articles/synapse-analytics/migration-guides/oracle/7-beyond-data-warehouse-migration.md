@@ -1,10 +1,8 @@
 ---
 title: "Beyond Oracle migration, implement a modern data warehouse in Microsoft Azure"
 description: Learn how an Oracle migration to Azure Synapse Analytics lets you integrate your data warehouse with the Microsoft Azure analytical ecosystem.
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.custom:
-ms.devlang:
 ms.topic: conceptual
 author: ajagadish-24
 ms.author: ajagadish
@@ -44,7 +42,7 @@ A key reason to migrate your existing data warehouse to Azure Synapse Analytics 
   
 - [Azure HDInsight](../../../hdinsight/index.yml) to process large amounts of data, and to join big data with Azure Synapse data by creating a logical data warehouse using PolyBase.
 
-- [Azure Event Hubs](../../../event-hubs/event-hubs-about.md), [Azure Stream Analytics](../../../stream-analytics/stream-analytics-introduction.md), and [Apache Kafka](/azure/databricks/spark/latest/structured-streaming/kafka) to integrate live streaming data from Azure Synapse.
+- [Azure Event Hubs](../../../event-hubs/event-hubs-about.md), [Azure Stream Analytics](../../../stream-analytics/stream-analytics-introduction.md), and [Apache Kafka](../../../hdinsight/kafka/apache-kafka-introduction.md) to integrate live streaming data from Azure Synapse.
 
 The growth of big data has led to an acute demand for [machine learning](../../machine-learning/what-is-machine-learning.md) to enable custom-built, trained machine learning models for use in Azure Synapse. Machine learning models enable in-database analytics to run at scale in batch, on an event-driven basis and on-demand. The ability to take advantage of in-database analytics in Azure Synapse from multiple BI tools and applications also guarantees consistent predictions and recommendations.
 
@@ -243,7 +241,7 @@ Azure Machine Learning provides an SDK and services for Python that supports can
 >[!TIP]
 >Azure Machine Learning provides an SDK for developing machine learning models using several open-source frameworks.
 
-You can also use Azure Machine Learning to build machine learning pipelines that manage end-to-end workflow, programmatically scale in the cloud, and deploy models both to the cloud and the edge. Azure Machine Learning contains [workspaces](../../../machine-learning/concept-workspace.md), which are logical spaces that you can programmatically or manually create in the Azure portal. These workspaces keep compute targets, experiments, data stores, trained machine learning models, Docker images, and deployed services all in one place to enable teams to work together. You can use Azure Machine Learning in Visual Studio with the Visual Studio for AI extension.
+You can also use Azure Machine Learning to build machine learning pipelines that manage end-to-end workflow, programmatically scale in the cloud, and deploy models both to the cloud and the edge. Azure Machine Learning contains [workspaces](/azure/machine-learning/concept-workspace), which are logical spaces that you can programmatically or manually create in the Azure portal. These workspaces keep compute targets, experiments, data stores, trained machine learning models, Docker images, and deployed services all in one place to enable teams to work together. You can use Azure Machine Learning in Visual Studio with the Visual Studio for AI extension.
 
 >[!TIP]
 >Organize and manage related data stores, experiments, trained models, Docker images, and deployed services in workspaces.

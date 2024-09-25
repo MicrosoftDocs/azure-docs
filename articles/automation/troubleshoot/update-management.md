@@ -3,12 +3,18 @@ title: Troubleshoot Azure Automation Update Management issues
 description: This article tells how to troubleshoot and resolve issues with Azure Automation Update Management.
 services: automation
 ms.subservice: update-management
-ms.date: 06/10/2021
+ms.date: 08/30/2024
 ms.topic: troubleshooting
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, linux-related-content
+ms.service: azure-automation
 ---
 
 # Troubleshoot Update Management issues
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
+
+[!INCLUDE [./log-analytics-retirement-announcement.md](../includes/log-analytics-retirement-announcement.md)]
 
 This article discusses issues that you might run into when using the Update Management feature to assess and manage updates on your machines. There's an agent troubleshooter for the Hybrid Runbook Worker agent to help determine the underlying problem. To learn more about the troubleshooter, see [Troubleshoot Windows update agent issues](update-agent-issues.md) and [Troubleshoot Linux update agent issues](update-agent-issues-linux.md). For other feature deployment issues, see [Troubleshoot feature deployment issues](onboarding.md).
 
@@ -77,7 +83,7 @@ When an assessment of OS updates pending for your Linux machine is done, [Open V
 
 You can manually check the Linux machine, the applicable updates, and their classification per the distro's package manager. To understand which updates are classified as **Security** by your package manager, run the following commands.
 
-For YUM, the following command returns a non-zero list of updates categorized as **Security** by Red Hat. Note that in the case of CentOS, it always returns an empty list and no security classification occurs.
+For YUM, the following command returns a non-zero list of updates categorized as **Security** by Red Hat. 
 
 ```bash
 sudo yum -q --security check-update
@@ -179,7 +185,7 @@ This issue can be caused by local configuration issues or by improperly configur
 
 1. Run the troubleshooter for [Windows](update-agent-issues.md#troubleshoot-offline) or [Linux](update-agent-issues-linux.md#troubleshoot-offline), depending on the OS.
 
-2. Make sure that your machine is reporting to the correct workspace. For guidance on how to verify this aspect, see [Verify agent connectivity to Azure Monitor](../../azure-monitor/agents/agent-windows.md#verify-agent-connectivity-to-azure-monitor). Also make sure that this workspace is linked to your Azure Automation account. To confirm, go to your Automation account and select **Linked workspace** under **Related Resources**.
+2. Make sure that your machine is reporting to the correct workspace. For guidance on how to verify this aspect, see [Verify agent connectivity to Azure Monitor](/azure/azure-monitor/agents/agent-windows#verify-agent-connectivity-to-azure-monitor). Also make sure that this workspace is linked to your Azure Automation account. To confirm, go to your Automation account and select **Linked workspace** under **Related Resources**.
 
 3. Make sure that the machines show up in the Log Analytics workspace linked to your Automation account. Run the following query in the Log Analytics workspace.
 
@@ -188,7 +194,7 @@ This issue can be caused by local configuration issues or by improperly configur
    | summarize by Computer, Solutions
    ```
 
-    If you don't see your machine in the query results, it hasn't recently checked in. There's probably a local configuration issue and you should [reinstall the agent](../../azure-monitor/agents/agent-windows.md).
+    If you don't see your machine in the query results, it hasn't recently checked in. There's probably a local configuration issue and you should [reinstall the agent](/azure/azure-monitor/agents/agent-windows).
 
     If your machine is listed in the query results, verify under the **Solutions** property that **updates** is listed. This verifies it is registered with Update Management. If it is not, check for scope configuration problems. The [scope configuration](../update-management/scope-configuration.md) determines which machines are configured for Update Management. To configure the scope configuration for the target the machine, see [Enable machines in the workspace](../update-management/enable-from-automation-account.md#enable-machines-in-the-workspace).
 
@@ -280,7 +286,7 @@ Use the following procedure if your subscription is configured for the Automatio
 
 2. Check [Update Management history](../update-management/deploy-updates.md#view-results-of-a-completed-update-deployment) to determine the exact time when the update deployment was run.
 
-3. For machines that you suspect to have been missed by Update Management, use Azure Resource Graph (ARG) to [locate machine changes](../../governance/resource-graph/how-to/get-resource-changes.md#find-detected-change-events-and-view-change-details).
+3. For machines that you suspect to have been missed by Update Management, use Azure Resource Graph (ARG) to [locate machine changes](../../governance/resource-graph/how-to/get-resource-changes.md).
 
 4. Search for changes over a considerable period, such as one day, before the update deployment was run.
 
@@ -652,7 +658,7 @@ If updates run locally, try removing and reinstalling the agent on the machine b
 
 ### I know updates are available, but they don't show as available on my machines
 
-This often happens if machines are configured to get updates from WSUS or Microsoft Endpoint Configuration Manager but WSUS and Configuration Manager haven't approved the updates.
+This often happens if machines are configured to get updates from WSUS or Microsoft Configuration Manager but WSUS and Configuration Manager haven't approved the updates.
 
 You can check to see if the machines are configured for WSUS and SCCM by cross-referencing the `UseWUServer` registry key to the registry keys in the [Configuring Automatic Updates by Editing the Registry section of this article](https://support.microsoft.com/help/328010/how-to-configure-automatic-updates-by-using-group-policy-or-registry-s).
 
@@ -668,16 +674,16 @@ Updates are often superseded by other updates. For more information, see [Update
 
 ### Installing updates by classification on Linux
 
-Deploying updates to Linux by classification ("Critical and security updates") has important caveats, especially for CentOS. These limitations are documented on the [Update Management overview page](../update-management/overview.md#update-classifications).
+Deploying updates to Linux by classification ("Critical and security updates") has important caveats. These limitations are documented on the [Update Management overview page](../update-management/overview.md#update-classifications).
 
 ### KB2267602 is consistently missing
 
-KB2267602 is the [Windows Defender definition update](https://www.microsoft.com/wdsi/definitions). It's updated daily.
+KB2267602 is the [Windows Defender definition update](https://www.microsoft.com/en-us/wdsi/defenderupdates). It's updated daily.
 
 ## Next steps
 
 If you don't see your problem or can't resolve your issue, try one of the following channels for additional support.
 
 * Get answers from Azure experts through [Azure Forums](https://azure.microsoft.com/support/forums/).
-* Connect with [@AzureSupport](https://twitter.com/azuresupport), the official Microsoft Azure account for improving customer experience.
+* Connect with [@AzureSupport](https://x.com/azuresupport), the official Microsoft Azure account for improving customer experience.
 * File an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/) and select **Get Support**.

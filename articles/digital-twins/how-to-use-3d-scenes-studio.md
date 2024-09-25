@@ -5,10 +5,9 @@ titleSuffix: Azure Digital Twins
 description: Learn how to use all the features of 3D Scenes Studio (preview) for Azure Digital Twins.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 05/03/2022
+ms.date: 07/19/2023
 ms.topic: how-to
-ms.service: digital-twins
-ms.custom: event-tier1-build-2022
+ms.service: azure-digital-twins
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -22,19 +21,41 @@ Azure Digital Twins [3D Scenes Studio (preview)](https://explorer.digitaltwins.a
 
 ## Prerequisites
 
-To use 3D Scenes Studio, you'll need the following resources:
+To use 3D Scenes Studio, you'll need the following resources.
+
 * An Azure Digital Twins instance. For instructions, see [Set up an instance and authentication](how-to-set-up-instance-cli.md).
     * Obtain *Azure Digital Twins Data Owner* or *Azure Digital Twins Data Reader* access to the instance. For instructions, see [Set up user access permissions](how-to-set-up-instance-cli.md#set-up-user-access-permissions).
     * Take note of the *host name* of your instance to use later.
 * An Azure storage account. For instructions, see [Create a storage account](../storage/common/storage-account-create.md?tabs=azure-portal).
+    * Take note of the *URL* of your storage account to use later.
 * A private container in the storage account. For instructions, see [Create a container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container).
-    * Take note of the *URL* of your storage container to use later.
-* *Storage Blob Data Owner* or *Storage Blob Data Contributor* access to your storage resources. You can grant required roles at either the storage account level or the container level. For instructions and more information about permissions to Azure storage, see [Assign an Azure role](../storage/blobs/assign-azure-role-data-access.md?tabs=portal#assign-an-azure-role).
+    * Take note of the *name* of your storage container to use later.
+* Permissions for your storage resources, including:
+    * At least *Reader* control plane access
+    * A data access role of *Storage Blob Data Owner* or *Storage Blob Data Contributor*
 
-You should also configure [CORS](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) for your storage account, so that 3D Scenes Studio will be able to access your storage container. You can use the following [Azure CLI](/cli/azure/what-is-azure-cli) command to set the minimum required methods, origins, and headers. The command contains one placeholder for the name of your storage account.
+    You can grant required roles at either the storage account level or the container level. For instructions and more information about permissions to Azure storage, see [Assign an Azure role](../storage/blobs/assign-azure-role-data-access.md?tabs=portal#assign-an-azure-role). 
+* Configure CORS for your storage account (see details in the following sub-section).
+
+### Configure CORS
+
+You'll need to configure [CORS](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) for your storage account, so that 3D Scenes Studio will be able to access your storage container. 
+
+These CORS headers are always required:
+* Authorization
+* x-ms-version
+* x-ms-blob-type
+
+These additional CORS headers are required if you're planning on using private links functionality:
+* Content-Type
+* Content-Length
+* x-ms-copy-source
+* x-ms-requires-sync
+
+Below is the [Azure CLI](/cli/azure/what-is-azure-cli) command that will set the methods, origins, and headers listed above for CORS in your storage account. The command contains one placeholder for the name of your storage account.
 
 ```azurecli
-az storage cors add --services b --methods GET OPTIONS POST PUT --origins https://explorer.digitaltwins.azure.net --allowed-headers Authorization x-ms-version x-ms-blob-type --account-name <your-storage-account>
+az storage cors add --services b --methods GET OPTIONS POST PUT --origins https://explorer.digitaltwins.azure.net --allowed-headers Authorization Content-Type Content-Length x-ms-version x-ms-blob-type x-ms-copy-source x-ms-requires-sync --account-name <your-storage-account>
 ```
 
 Now you have all the necessary resources to work with scenes in 3D Scenes Studio.
@@ -50,7 +71,7 @@ In this section, you'll set the environment in *3D Scenes Studio* and customize 
 
     1. The **Azure Digital Twins instance URL** should start with *https://*, followed by the *host name* of your instance from the [Prerequisites](#prerequisites) section.
     
-    1. For the **Azure storage container URL**, enter the URL of your storage container from the [Prerequisites](#prerequisites) section.
+    1. For the **Azure Storage account URL**, enter the URL of your storage container from the [Prerequisites](#prerequisites) section. For the **Azure Storage container name**, enter the name of your storage container from the [Prerequisites](#prerequisites) section.
     
     1. Select **Save**.
     
@@ -108,6 +129,14 @@ You can switch to **View** mode to enable filtering on specific elements and vis
 
 :::image type="content" source="media/how-to-use-3d-scenes-studio/scene-view.png" alt-text="Screenshot of 3D Scenes Studio, showing a scene in the viewer." lightbox="media/how-to-use-3d-scenes-studio/scene-view.png":::
 
+You can view **All properties** of an element from here, as well as their values over time if [data history](concepts-data-history.md) is enabled on your instance. To view property history, select the **Open data history explorer** icon.
+
+:::image type="content" source="media/how-to-use-3d-scenes-studio/scene-view-data-history.png" alt-text="Screenshot of 3D Scenes Studio, showing the icon to open the data history explorer." lightbox="media/how-to-use-3d-scenes-studio/scene-view-data-history.png":::
+
+This will open the **Data history explorer** for the property. For more information about using the data history explorer, see [Validate and explore historized properties](how-to-use-azure-digital-twins-explorer.md#validate-and-explore-historized-properties). 
+
+:::image type="content" source="media/how-to-use-3d-scenes-studio/data-history-explorer.png" alt-text="Screenshot of data history explorer for 3D Scenes Studio." lightbox="media/how-to-use-3d-scenes-studio/data-history-explorer.png":::
+
 ### Embed scenes in custom applications
 
 The viewer component can also be embedded into custom applications outside of 3D Scenes Studio, and can work in conjunction with 3rd party components.
@@ -134,7 +163,7 @@ This will open the **New element** panel where you can fill in element informati
 
 A *primary twin* is the main digital twin counterpart for an element. You connect the element to a twin in your Azure Digital Twins instance so that the element can represent your twin and its data within the 3D visualization.
 
-In the **New element** panel, the **Primary twin** dropdown list contains names of all the twins in the connected Azure Digital Twins instance. 
+In the **New element** panel, the **Primary twin** dropdown list contains names of all the twins in the connected Azure Digital Twins instance. Next to this field, you can select the **Inspect properties** icon to view the twin data, or the **Advanced twin search** icon to find other twins by querying property values.
 
 :::image type="content" source="media/how-to-use-3d-scenes-studio/new-element-primary-twin.png" alt-text="Screenshot of the New element options in 3D Scenes Studio. The Primary twin dropdown list is highlighted." lightbox="media/how-to-use-3d-scenes-studio/new-element-primary-twin.png":::
 
@@ -204,7 +233,7 @@ If you started the behavior creation process from a specific element, that eleme
 
 On the **Twins** tab, you can modify the set of twins whose data is available to this behavior. This includes the targeted elements' primary twins, and any additional twins.
 
-You can add secondary digital twin data sources for an element. After configuring other twins, you'll be able to use properties from those twins in your behavior expressions for this element. You should only add other twins when there are additional twins with data beyond your primary twin that you want to leverage in your [status](#status), [alerts](#alerts), and [widgets](#widgets) for this behavior.
+You can add secondary digital twin data sources for an element. After configuring other twins, you'll be able to use properties from those twins in your behavior expressions for this element. You should only add other twins when there are additional twins with data beyond your primary twin that you want to leverage in your [visual rules](#visual-rules) and [widgets](#widgets) for this behavior.
 
 To add a new twin data source, select **Add twin** and **Create twin**.
 
@@ -217,35 +246,37 @@ This will open a **New twin** panel where you can name the additional twin and s
 >[!TIP]
 >[Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md) can help you see twins that might be related to the primary twin for this element. You can query your graph using `SELECT * FROM digitaltwins WHERE $dtId="<primary-twin-id>`, and then use the [double-click expansion feature](how-to-use-azure-digital-twins-explorer.md#control-twin-graph-expansion) to explore related twins.
 
-### Status 
+### Visual rules 
 
-In the **Status** tab, you can define states for your element. *States* are data-driven overlays on your elements to indicate the health or status of the element. 
+In the **Visual rules** tab, you can configure data-driven overlays on your elements to indicate their health or status in the viewer.
 
-To create a state, first choose whether the state is dependent on a **Single property** or a **Custom (advanced)** property expression. For a **Single property**, you'll get a dropdown list of numeric properties on the primary twin. For **Custom (advanced)**, you'll get a text box where you can write a custom JavaScript expression using one or more properties. The expression should have a numeric outcome. For more information about writing custom expressions, see [Use custom (advanced) expressions](#use-custom-advanced-expressions).
+To create a rule, start by selecting **Add Rule**.
 
-Once you've defined your property expression, set value ranges to create state boundaries, and choose colors to represent each state in the visualization. The min of each value range is inclusive, and the max is exclusive.
+:::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-visual-rules.png" alt-text="Screenshot of the New behavior options in 3D Scenes Studio. The Visual Rules tab is highlighted." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-visual-rules.png":::
 
-:::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-status.png" alt-text="Screenshot of the New behavior options in 3D Scenes Studio. The Status tab is highlighted." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-status.png":::
+Choose a **Display name** for the rule.
 
-### Alerts
+Next, choose whether the rule is dependent on a **Single property** or a **Custom (advanced)** property expression. For a **Single property**, you'll get a dropdown list of numeric properties on the primary twin. For **Custom (advanced)**, you'll get a text box where you can write a custom JavaScript expression using one or more properties. The result of your expression must match the result type that you specify in the **Type** field. For more information about writing custom expressions, see [Use custom (advanced) expressions](#use-custom-advanced-expressions).
 
-In the **Alerts** tab, you can set conditional notifications to help you quickly see when an element requires your attention.
+[!INCLUDE [digital-twins-visual-property-error-note.md](../../includes/digital-twins-visual-property-error-note.md)]
 
-First, enter a **Trigger expression**. This is a JavaScript expression involving one or more properties of *PrimaryTwin* that yields a boolean result. This expression will generate an alert badge in the visualization when it evaluates to true. For more information about writing custom expressions, see [Use custom (advanced) expressions](#use-custom-advanced-expressions).
+Once you've defined your property expression, select **Add condition** to define the conditional visual effects.
 
-Then, customize your alert badge with an **Icon** and **Color**, and a string for **Scenario Description**. 
+:::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-visual-rules-2.png" alt-text="Screenshot of the New visual rule options in 3D Scenes Studio. The described fields are highlighted." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-visual-rules-2.png":::
 
-:::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-alerts.png" alt-text="Screenshot of the New behavior options in 3D Scenes Studio. The Alerts tab is highlighted." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-alerts.png":::
+In the **Add condition** options, enter a **Label** for the condition in the visualization.
 
-Notification text can also include calculation expressions with this syntax: `${<calculation-expression>}`. Expressions will be computed and displayed dynamically in the [viewer](#view-scenes-individually).
+Then, set the **Values** to identify value boundaries for the condition (the exact selection will change depending on the property type). For numerical properties, the min of each value range is inclusive, and the max is exclusive.
 
-For an example of notification text with an expression, consider a behavior for a pasteurization tank, whose twin has double properties for `InFlow` and `OutFlow`. To display the difference between the tank's inflow and outflow in the notification, you could use this notification text: `Too much flow (InFlow is ${PrimaryTwin.InFlow - PrimaryTwin.OutFlow} greater than OutFlow)`. The computed result of the expression will be shown in the alert text in the viewer.
+Under **Actions**, define what happens in the scene visualization when the condition is met. You can use **Mesh coloring** to control the color of the property expression in the viewer, or **Badge** to display a badge of a certain color and icon when the condition for the property expression is met.
 
-:::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-alerts-expression.png" alt-text="Screenshots showing the notification text being entered on the Alerts dialog, and how the alert appears in the Viewer." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-alerts-expression.png":::
+:::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-visual-rules-3.png" alt-text="Screenshot of the New visual rule options in 3D Scenes Studio. The Add condition options are highlighted." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-visual-rules-3.png":::
+
+When you're done, select **Save**.
 
 ### Widgets 
 
-Widgets are managed on the **Widgets** tab. *Widgets* are data-driven visuals that provide additional context and data, to help you understand the scenario that the behavior represents. Configuring widgets will help you make sure the right data is discoverable when an alert or status is active.
+Widgets are managed on the **Widgets** tab. *Widgets* are data-driven visuals that provide additional context and data, to help you understand the scenario that the behavior represents. Configuring widgets will help you make sure the right data is discoverable when a certain condition is active.
 
 Select **Add widget** to bring up the **Widget library**, where you can select from different type of available widgets. 
 
@@ -261,7 +292,9 @@ Here are the types of widget that you can create:
 
     :::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-widgets-gauge.png" alt-text="Screenshot of creating a new gauge-type widget in 3D Scenes Studio." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-widgets-gauge.png":::
 
-* **Link**: For including externally-referenced content via a linked URL
+    [!INCLUDE [digital-twins-visual-property-error-note.md](../../includes/digital-twins-visual-property-error-note.md)]
+
+* **Link**: For including externally referenced content via a linked URL
 
     Enter a **Label** and destination **URL**.
 
@@ -271,11 +304,11 @@ Here are the types of widget that you can create:
 
 * **Value**: For directly displaying twin property values
 
-    Enter a **Display name** and select a **Property expression** that you want to display. This can be a **Single property** of the primary twin, or a **Custom (advanced)** property expression. Custom expressions should be JavaScript expressions using one or more properties of the twin, and you'll select which outcome type the expression will produce. For more information about writing custom expressions, see [Use custom (advanced) expressions](#use-custom-advanced-expressions).
+    Enter a **Display name** and select a **Property expression** that you want to display. This can be a **Single property** of the primary twin, or a **Custom (advanced)** property expression. Custom expressions should be JavaScript expressions using one or more properties of the twin, and you'll select which outcome type the expression will produce. If your custom property expression outputs a string, you can also use JavaScript's template literal syntax to include a dynamic expression in the string output. Format the dynamic expression with this syntax: `${<calculation-expression>}`. Then, wrap the whole string output with backticks (`` ` ``). For more information about writing custom expressions, see [Use custom (advanced) expressions](#use-custom-advanced-expressions).
 
     :::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-widgets-value.png" alt-text="Screenshot of creating a new value-type widget in 3D Scenes Studio." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-widgets-value.png":::
 
-    If your custom property expression outputs a string, you can also use JavaScript's template literal syntax to include a dynamic expression in the string output. Format the dynamic expression with this syntax: `${<calculation-expression>}`. Then, wrap the whole string output with backticks (`` ` ``).
+    [!INCLUDE [digital-twins-visual-property-error-note.md](../../includes/digital-twins-visual-property-error-note.md)]
 
     Below is an example of a value widget that checks if the `InFlow` value of the primary twin exceeds 99. If so, it outputs a string with an expression containing the twin's `$dtId`. Otherwise, there will be no expression in the output, so no backticks are required. 
 
@@ -283,15 +316,25 @@ Here are the types of widget that you can create:
 
     :::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-widgets-value-expression.png" alt-text="Screenshots showing the notification text being entered on the value widget dialog, and how the widget appears in the Viewer." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-widgets-value-expression.png":::
 
+* **Data history**: For displaying property values over time. This widget works with Azure Digital Twins' [data history feature](concepts-data-history.md), so it's only available if you've [enabled data history](how-to-create-data-history-connection.md) for the instance being used in this 3D scene. Once a data history connection exists for the instance, you'll be able to display that data with this widget.
+    
+    The widget will fill the **Connection string** field automatically, by targeting data in the Azure Data Explorer instance that's already connected to this Azure Digital Twins instance.
+
+    Enter a **Display name**, and add one or more **time series** datasets based on properties of the primary twin. You can also customize how the time series data appears in the widget chart.
+
+    :::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-widgets-data-history.png" alt-text="Screenshot of creating a new data history widget in 3D Scenes Studio." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-widgets-data-history.png":::
+
+    [!INCLUDE [digital-twins-visual-property-error-note.md](../../includes/digital-twins-visual-property-error-note.md)]
+
 ### Use custom (advanced) expressions
 
-While defining [status](#status), [alerts](#alerts), and [widgets](#widgets) in your behaviors, you may want to use custom expressions to define a property condition.
+While defining [visual rules](#visual-rules) and [widgets](#widgets) in your behaviors, you may want to use custom expressions to define a property condition.
 
-:::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-status-custom.png" alt-text="Screenshot of defining a custom expression for a Status in 3D Scenes Studio." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-status-custom.png":::
+:::image type="content" source="media/how-to-use-3d-scenes-studio/new-behavior-custom-property-expression.png" alt-text="Screenshot of defining a custom expression in 3D Scenes Studio." lightbox="media/how-to-use-3d-scenes-studio/new-behavior-custom-property-expression.png":::
 
-These expressions use the JavaScript language, and allow you to use one or more properties of associated twins to define custom logic.
+These expressions use the JavaScript language, and allow you to use one or more properties of associated twins to define custom logic. The result of your expression must match the result type that you specify in the **Type** field.
 
-The following chart indicates which JavaScript operators are supported in 3D Scenes Studio.
+The following chart indicates which JavaScript operators are supported in 3D Scenes Studio custom expressions.
 
 | Operator type | Supported? |
 | --- | --- |
@@ -323,6 +366,20 @@ Alternatively, you can create layers while [creating or modifying a behavior](#n
 When looking at your scene in the viewer, you can use the **Select layers** button to choose which layers show up in the visualization. Behaviors that aren't part of any layer are grouped under **Default layer**.
 
 :::image type="content" source="media/how-to-use-3d-scenes-studio/layers-select-viewer.png" alt-text="Screenshot of 3D Scenes Studio in View mode. The layer selection is highlighted." lightbox="media/how-to-use-3d-scenes-studio/layers-select-viewer.png":::
+
+## Configure minimum refresh rate
+
+You can manually configure the **minimum refresh rate** for the 3D scene viewer, to exercise some control over how often data is pulled and the resulting impact on performance. You can configure the minimum refresh rate to be anywhere between 10 seconds and one hour.
+
+In the builder for a scene, select the **Scene configuration** button.
+
+:::image type="content" source="media/how-to-use-3d-scenes-studio/scene-configuration.png" alt-text="Screenshot of 3D Scenes Studio in Build mode. The scene configuration option is highlighted." lightbox="media/how-to-use-3d-scenes-studio/scene-configuration.png":::
+
+Use the dropdown list to select a refresh rate option.
+
+While looking at the scene in the viewer, you can hover over the **Refresh** button to see the refresh rate setting and the time of the last refresh. You can also select it to refresh the scene manually.
+
+:::image type="content" source="media/how-to-use-3d-scenes-studio/viewer-refresh.png" alt-text="Screenshot of 3D Scenes Studio in View mode. The refresh button highlighted." lightbox="media/how-to-use-3d-scenes-studio/viewer-refresh.png":::
 
 ## Modify theme 
 

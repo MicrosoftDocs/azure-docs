@@ -1,0 +1,40 @@
+### YamlMime:Landing
+
+title: Overview of what's new in Azure machine configuration
+summary: >-
+  A collection of release notes and documentation about the new features available in and changes
+  to Azure machine configuration.
+
+metadata:
+  title: Overview of what's new in Azure machine configuration
+  description: >-
+    A collection of release notes and documentation about the new features available in and changes
+    to Azure machine configuration.
+  ms.service:    machine-configuration
+  ms.topic:      landing-page
+  author:        michaeltlombardi
+  ms.author:     mlombardi
+  ms.date:       02/01/2024
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  - title: What's new in Azure Machine Configuration
+    linkLists:
+      - linkListType: whats-new
+        links:
+          - text: What's new in the Azure machine configuration agent
+            url: ./agent.md
+          - text: What's new in the Azure machine configuration docs
+            url: ./docs.md
+
+  - title: Migrating to machine configuration
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Changes in behavior in PowerShell DSC for machine configuration
+            url: ./psdsc-in-machine-configuration.md
+          - text: Migrating from Azure Automation
+            url: ./migrating-from-azure-automation.md
+          - text: Migrating from the DSC extension for Linux
+            url: ./migrating-from-dsc-extension.md

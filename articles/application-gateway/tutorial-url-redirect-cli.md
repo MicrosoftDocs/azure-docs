@@ -4,9 +4,9 @@ titleSuffix: Azure Application Gateway
 description: In this tutorial, you learn how to create an application gateway with URL path-based redirected traffic using the Azure CLI.
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: tutorial
-ms.date: 03/05/2021
+ms.date: 04/27/2023
 ms.author: greglin
 ms.custom: mvc, devx-track-azurecli
 #Customer intent: As an IT administrator, I want to use Azure CLI to set up URL path redirection of web traffic to specific pools of servers so I can ensure my customers have access to the information they need.
@@ -14,7 +14,7 @@ ms.custom: mvc, devx-track-azurecli
 
 # Tutorial: Create an application gateway with URL path-based redirection using the Azure CLI
 
-You can use the Azure CLI to configure [URL path-based routing rules](tutorial-url-route-cli.md) when you create an [application gateway](./overview.md). In this tutorial, you create backend pools using [virtual machine scale sets](../virtual-machine-scale-sets/overview.md). You then create URL routing rules that make sure web traffic is redirected to the appropriate backend pool.
+You can use the Azure CLI to configure [URL path-based routing rules](tutorial-url-route-cli.md) when you create an [application gateway](./overview.md). In this tutorial, you create backend pools using [virtual machine scale sets](/azure/virtual-machine-scale-sets/overview). You then create URL routing rules that make sure web traffic is redirected to the appropriate backend pool.
 
 In this tutorial, you learn how to:
 
@@ -26,13 +26,13 @@ In this tutorial, you learn how to:
 
 The following example shows site traffic coming from both ports 8080 and 8081 and being directed to the same backend pools:
 
-![URL routing example](./media/tutorial-url-redirect-cli/scenario.png)
+:::image type="content" source="./media/tutorial-url-redirect-cli/scenario.png" alt-text="Diagram of application gateway URL routing example." lightbox="./media/tutorial-url-redirect-cli/scenario.png":::
 
 If you prefer, you can complete this tutorial using [Azure PowerShell](tutorial-url-redirect-powershell.md).
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
  - This tutorial requires version 2.0.4 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -42,11 +42,11 @@ A resource group is a logical container into which Azure resources are deployed 
 
 The following example creates a resource group named *myResourceGroupAG* in the *eastus* location.
 
-```azurecli-interactive 
+```azurecli-interactive
 az group create --name myResourceGroupAG --location eastus
 ```
 
-## Create network resources 
+## Create network resources
 
 Create the virtual network named *myVNet* and the subnet named *myAGSubnet* using [az network vnet create](/cli/azure/network/vnet). You can then add the subnet named *myBackendSubnet* that's needed by the backend servers using [az network vnet subnet create](/cli/azure/network/vnet/subnet). Create the public IP address named *myAGPublicIPAddress* using [az network public-ip create](/cli/azure/network/public-ip).
 
@@ -89,7 +89,8 @@ az network application-gateway create \
   --frontend-port 80 \
   --http-settings-port 80 \
   --http-settings-protocol Http \
-  --public-ip-address myAGPublicIPAddress
+  --public-ip-address myAGPublicIPAddress \
+  --priority 100
 ```
 
  It may take several minutes for the application gateway to be created. After the application gateway is created, you can see these new features:
@@ -103,7 +104,7 @@ az network application-gateway create \
 
 ### Add backend pools and ports
 
-You can add backend address pools named *imagesBackendPool* and *videoBackendPool* to your application gateway by using [az network application-gateway address-pool create](/cli/azure/network/application-gateway/address-pool). You add the frontend ports for the pools using [az network application-gateway frontend-port create](/cli/azure/network/application-gateway/frontend-port). 
+You can add backend address pools named *imagesBackendPool* and *videoBackendPool* to your application gateway by using [az network application-gateway address-pool create](/cli/azure/network/application-gateway/address-pool). You add the frontend ports for the pools using [az network application-gateway frontend-port create](/cli/azure/network/application-gateway/frontend-port).
 
 ```azurecli-interactive
 az network application-gateway address-pool create \
@@ -216,7 +217,8 @@ az network application-gateway rule create \
   --http-listener backendListener \
   --rule-type PathBasedRouting \
   --url-path-map urlpathmap \
-  --address-pool appGatewayBackendPool
+  --address-pool appGatewayBackendPool \
+  --priority 100
 
 az network application-gateway rule create \
   --gateway-name myAppGateway \
@@ -225,7 +227,8 @@ az network application-gateway rule create \
   --http-listener redirectedListener \
   --rule-type PathBasedRouting \
   --url-path-map redirectpathmap \
-  --address-pool appGatewayBackendPool
+  --address-pool appGatewayBackendPool \
+  --priority 100
 ```
 
 ## Create virtual machine scale sets
@@ -238,7 +241,7 @@ Replace \<azure-user> and \<password> with a user name and password of your choi
 for i in `seq 1 3`; do
   if [ $i -eq 1 ]
   then
-    poolName="appGatewayBackendPool" 
+    poolName="appGatewayBackendPool"
   fi
   if [ $i -eq 2 ]
   then
@@ -252,7 +255,7 @@ for i in `seq 1 3`; do
   az vmss create \
     --name myvmss$i \
     --resource-group myResourceGroupAG \
-    --image UbuntuLTS \
+    --image Ubuntu2204 \
     --admin-username <azure-user> \
     --admin-password <password> \
     --instance-count 2 \

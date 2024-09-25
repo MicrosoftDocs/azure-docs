@@ -3,11 +3,11 @@ title: "Tutorial: Deploy Nuxt sites with universal rendering on Azure Static Web
 description: "Generate and deploy Nuxt 3 sites with universal rendering on Azure Static Web Apps."
 services: static-web-apps
 author: craigshoemaker
-ms.service: static-web-apps
+ms.service: azure-static-web-apps
 ms.topic:  tutorial
 ms.date: 09/01/2022
 ms.author: cshoe
-ms.custom: devx-track-js
+ms.custom:
 ---
 
 # Deploy Nuxt 3 sites with universal rendering on Azure Static Web Apps
@@ -120,7 +120,7 @@ git pull
 
 Make changes to the app by updating the code and pushing it to GitHub. GitHub Actions automatically builds and deploys the app.
 
-For more information, see the Azure Static Web Apps Nuxt 3 deployment preset [documentation](https://v3.nuxtjs.org/guide/deploy/providers/azure/).
+For more information, see the Azure Static Web Apps Nuxt 3 deployment preset [documentation](https://nitro.unjs.io/deploy/providers/azure#azure-static-web-apps).
 
 > [!div class="nextstepaction"]
 > [Set up a custom domain](custom-domain.md)

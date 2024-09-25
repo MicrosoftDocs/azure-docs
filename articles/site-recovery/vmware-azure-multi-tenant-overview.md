@@ -1,12 +1,11 @@
 ---
 title: VMware VM multi-tenant disaster recovery with Azure Site Recovery 
 description: Provides an overview of Azure Site Recovery support for VMWare disaster recovery to Azure in a multi-tenant environment (CSP) program.
-author: v-pgaddala
-manager: rochakm
-ms.service: site-recovery
-ms.topic: conceptual
-ms.date: 11/27/2018
-ms.author: v-pgaddala
+author: ankitaduttaMSFT
+ms.service: azure-site-recovery
+ms.topic: how-to
+ms.date: 09/06/2024
+ms.author: ankitadutta
 
 ---
 # Overview of multi-tenant support for VMware disaster recovery to Azure with CSP

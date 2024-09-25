@@ -1,10 +1,11 @@
 ---
 title: Troubleshoot the Azure VM extension for disaster recovery with Azure Site Recovery
 description: Troubleshoot issues with the Azure VM extension for disaster recovery with Azure Site Recovery.
-author: v-pgaddala
-manager: rochakm
+author: ankitaduttaMSFT
+ms.author: ankitadutta
+ms.service: azure-site-recovery
 ms.topic: troubleshooting
-ms.date: 11/27/2018
+ms.date: 05/27/2024
 ---
 
 # Troubleshoot Azure VM extension issues
@@ -15,7 +16,7 @@ This article provides troubleshooting steps that can help you resolve Azure Site
 
 This issue occurs when the system has low available memory, and is not able to allocate memory for mobility service installation. Ensure that enough memory has been freed up for the installation to proceed and complete successfully.
 
-## Azure Site Recovery extension time-out  
+## Azure Site Recovery extension time-out
 
 Error message: "Task execution has timed out while tracking for extension operation to be started"<br>
 Error code: "151076"
@@ -51,7 +52,7 @@ Error code: "151095"
 
 This error occurs when the agent version on the Linux machine is out of date. Complete the following troubleshooting step:
 
-- [The agent installed in the VM is out of date (for Linux VMs)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)  
+- [The agent installed in the VM is out of date (for Linux VMs)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
 
 ## Causes and solutions
 
@@ -60,7 +61,7 @@ This error occurs when the agent version on the Linux machine is out of date. Co
 #### Solution
 The VM agent might have been corrupted, or the service might have been stopped. Reinstalling the VM agent helps get the latest version. It also helps restart communication with the service.
 
-1. Determine whether the Windows Azure Guest Agent service is running in the VM services (services.msc). Restart the Windows Azure Guest Agent service.    
+1. Determine whether the Windows Azure Guest Agent service is running in the VM services (services.msc). Restart the Windows Azure Guest Agent service.
 1. If the Windows Azure Guest Agent service isn't visible in services, open the Control Panel. Go to **Programs and Features** to see whether the Windows Guest Agent service is installed.
 1. If the Windows Azure Guest Agent appears in **Programs and Features**, uninstall the Windows Azure Guest Agent.
 1. Download and install the [latest version of the agent MSI](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). You need administrator rights to complete the installation.
@@ -74,7 +75,7 @@ Also, verify that [Microsoft .NET 4.5 is installed](/dotnet/framework/migration-
 #### Solution
 Most agent-related or extension-related failures for Linux VMs are caused by issues that affect an outdated VM agent. To troubleshoot this issue, follow these general guidelines:
 
-1. Follow the instructions for [updating the Linux VM agent](../virtual-machines/extensions/update-linux-agent.md).
+1. Follow the instructions for [updating the Linux VM agent](/azure/virtual-machines/extensions/update-linux-agent).
 
    > [!NOTE]
    > We *strongly recommend* that you update the agent only through a distribution repository. We don't recommend downloading the agent code directly from GitHub and updating it. If the latest agent for your distribution isn't available, contact distribution support for instructions on how to install it. To check for the most recent agent, go to the [Windows Azure Linux agent](https://github.com/Azure/WALinuxAgent/releases) page in the GitHub repository.
@@ -83,8 +84,16 @@ Most agent-related or extension-related failures for Linux VMs are caused by iss
 
    If the process isn't running, restart it by using the following commands:
 
-   - For Ubuntu: `service walinuxagent start`
-   - For other distributions: `service waagent start`
+    - For Ubuntu/Debian:
+
+    ```bash
+       sudo systemctl enable --now walinuxagent.service
+    ```
+    - For other distributions:
+
+    ```bash
+       sudo systemctl enable --now waagent.service
+    ```
 
 1. [Configure the automatic restart agent](https://github.com/Azure/WALinuxAgent/wiki/Known-Issues#mitigate_agent_crash).
 1. Enable protection of the virtual machine.
@@ -105,6 +114,14 @@ To uninstall the extension:
 1. Select **Site Recovery Extension**.
 1. Select **Uninstall**.
 
-For Linux VM, if the VMSnapshot extension does not show in the Azure portal, [update the Azure Linux Agent](../virtual-machines/extensions/update-linux-agent.md). Then run the protection.
+For Linux VM, if the VMSnapshot extension does not show in the Azure portal, [update the Azure Linux Agent](/azure/virtual-machines/extensions/update-linux-agent). Then run the protection.
 
 When you complete these steps, it causes the extension to be reinstalled during the protection.
+
+
+## Next steps
+
+- Troubleshoot [RDP connection to Windows VM](/troubleshoot/azure/virtual-machines/troubleshoot-rdp-connection)
+- Troubleshoot [SSH connection to Linux VM](/troubleshoot/azure/virtual-machines/detailed-troubleshoot-ssh-connection)
+
+If you need more help, then post your query on [Microsoft Q&A question page for Site Recovery](/answers/topics/azure-site-recovery.html) or leave a comment at the end of this document. We have an active community that should be able to assist you.

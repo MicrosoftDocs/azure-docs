@@ -123,6 +123,8 @@ items:
           href: ./security/synapse-workspace-ip-firewall.md
         - name: Connectivity settings
           href: ./security/connectivity-settings.md
+        - name: Gateway IP addresses
+          href: ./security/gateway-ip-addresses.md
         - name: Synapse workspace Managed virtual network
           href: ./security/synapse-workspace-managed-vnet.md
           displayName: vnet
@@ -136,10 +138,10 @@ items:
           href: ./security/connect-to-a-secure-storage-account.md
       - name: Authentication and pass-through
         items:
-        - name: Azure Active Directory
+        - name: Microsoft Entra ID
           href: ./sql/active-directory-authentication.md
           displayName: authentication
-        - name: Multi-factor authentication
+        - name: Multifactor authentication
           href: ./sql/mfa-authentication.md
         - name: SQL authorization
           href: ./sql/sql-authentication.md
@@ -163,8 +165,10 @@ items:
     items:
     - name: Manage and Monitor
       items:
-      - name: Azure Monitor metrics, alerts, and logs
-        href: monitoring/how-to-monitor-using-azure-monitor.md
+      - name: Monitor Synapse Analytics
+        href: monitor-synapse-analytics.md
+      - name: Monitoring data reference
+        href: monitor-synapse-analytics-reference.md
     - name: Secure
       items:
       - name: Manage access control 
@@ -195,6 +199,8 @@ items:
           href: security/how-to-connect-to-workspace-from-restricted-network.md
     - name: Troubleshoot
       items:
+      - name: Azure Synapse Analytics known issues
+        href: known-issues.md
       - name: Troubleshoot Synapse Studio
         href: troubleshoot/troubleshoot-synapse-studio.md
       - name: Troubleshoot Synapse Studio connectivity issues
@@ -271,6 +277,8 @@ items:
       href: quickstart-create-sql-pool-studio.md
     - name: Create a dedicated SQL pool using Azure portal
       href: quickstart-create-sql-pool-portal.md
+    - name: Pause and resume using PowerShell
+      href: ./sql-data-warehouse/pause-and-resume-compute-workspace-powershell.md
     - name: Pause and resume using Azure portal
       href: ./sql-data-warehouse/pause-and-resume-compute-portal.md?context=/azure/synapse-analytics/context/context
     - name: Load data with dedicated SQL pools
@@ -286,6 +294,12 @@ items:
         displayName: sql pool
     - name: Workload management
       items: 
+      - name: Scale compute using the Azure portal
+        href: ./sql-data-warehouse/quickstart-scale-compute-workspace-portal.md
+      - name: Scale compute using PowerShell
+        href: ./sql-data-warehouse/quickstart-scale-compute-workspace-powershell.md
+      - name: Scale compute using T-SQL
+        href: ./sql-data-warehouse/quickstart-scale-compute-tsql.md?context=/azure/synapse-analytics/context/context 
       - name: Create workload classifier
         items:
         - name: Portal
@@ -634,9 +648,9 @@ items:
         href: data-explorer/ingest-data/data-explorer-ingest-data-one-click.md
       - name: Streaming ingestion
         href: data-explorer/ingest-data/data-explorer-ingest-data-streaming.md
-      - name: Event Hub
+      - name: Event Hubs
         items:
-          - name: Event Hub data connection
+          - name: Event Hubs data connection
             href: data-explorer/ingest-data/data-explorer-ingest-event-hub-overview.md
           - name: Azure portal
             href: data-explorer/ingest-data/data-explorer-ingest-event-hub-portal.md
@@ -650,7 +664,7 @@ items:
             href: data-explorer/ingest-data/data-explorer-ingest-event-hub-resource-manager.md
       - name: Event Grid
         items:
-          - name: Event Hub data connection
+          - name: Event Grid data connection
             href: data-explorer/ingest-data/data-explorer-ingest-event-grid-overview.md
           - name: Azure portal
             href: data-explorer/ingest-data/data-explorer-ingest-event-grid-portal.md
@@ -680,8 +694,6 @@ items:
       href: quickstart-create-apache-spark-pool-portal.md
     - name: Create a Spark pool using Synapse Studio
       href: quickstart-create-apache-spark-pool-studio.md
-    - name: Create a GPU-accelerated Apache Spark pool
-      href: quickstart-create-apache-gpu-pool-portal.md
   - name: Tutorials
     items:
     - name: Data visualization with Synapse Studio notebooks
@@ -704,12 +716,14 @@ items:
       href: ./spark/apache-spark-concepts.md
     - name: Apache Spark pool configurations
       href: ./spark/apache-spark-pool-configurations.md
-    - name: GPU-accelerated Apache Spark pools
+    - name: GPU-accelerated Apache Spark pools (deprecated)
       href: ./spark/apache-spark-gpu-concept.md
     - name: Delta Lake
       href: ./spark/apache-spark-what-is-delta-lake.md
     - name: Optimize Apache Spark writes on Delta Lake
       href: ./spark/optimize-write-for-apache-spark.md
+    - name: Low Shuffle Merge on Delta Lake
+      href: ./spark/low-shuffle-merge-for-apache-spark.md 
     - name: Apache Spark autoscale behavior
       href: ./spark/apache-spark-autoscale.md
     - name: Intelligent Cache
@@ -718,11 +732,15 @@ items:
       items:
         - name: Runtime for Apache Spark overview
           href: ./spark/apache-spark-version-support.md
-        - name: Azure Synapse Apache Spark 3.2 runtime
+        - name: Azure Synapse Apache Spark 3.4 runtime (GA)
+          href: ./spark/apache-spark-34-runtime.md
+        - name: Azure Synapse Apache Spark 3.3 runtime (EOSA)
+          href: ./spark/apache-spark-33-runtime.md
+        - name: Azure Synapse Apache Spark 3.2 runtime (deprecated)
           href: ./spark/apache-spark-32-runtime.md
-        - name: Azure Synapse Apache Spark 3.1 runtime
+        - name: Azure Synapse Apache Spark 3.1 runtime (deprecated)
           href: ./spark/apache-spark-3-runtime.md
-        - name: Azure Synapse Apache Spark 2.4 runtime
+        - name: Azure Synapse Apache Spark 2.4 runtime (deprecated)
           href: ./spark/apache-spark-24-runtime.md
         - name: Lifecycle and Supportability
           href: ./spark/runtime-for-apache-spark-lifecycle-and-supportability.md
@@ -750,7 +768,7 @@ items:
         href: ./spark/apache-spark-troubleshoot-library-errors.md
       - name: Create a Conda private channel
         href: ./spark/apache-spark-custom-conda-channel.md
-      - name: Manage your package outside Synapse Studio portal
+      - name: Automate the library management process through Azure PowerShell cmdlets and REST APIs
         href: ./spark/apache-spark-manage-packages-outside-ui.md
     - name: Use notebooks and IDE tools
       items:
@@ -760,10 +778,10 @@ items:
         href: ./spark/apache-spark-data-visualization.md
       - name: Connect to Spark with IntelliJ plug-in
         href: ./spark/intellij-tool-synapse.md
-      - name: Connect to Spark pools with VSCode
-        href: ./spark/vscode-tool-synapse.md
     - name: Explore languages
       items:
+      - name: R for Apache Spark
+        href: ./spark/apache-spark-r-language.md
       - name: .NET for Apache Spark
         href: ./spark/spark-dotnet.md
     - name: Security
@@ -776,7 +794,7 @@ items:
           href: ./spark/apache-spark-performance.md
         - name: Performance optimization for Apache Spark using Hyperspace indexes
           href: ./spark/apache-spark-performance-hyperspace.md
-        - name: Accelerate ETL operations with NVIDIA RAPIDS
+        - name: Accelerate ETL operations with NVIDIA RAPIDS (deprecated)
           href: ./spark/apache-spark-rapids-gpu.md
     - name: Manage and monitor
       items:
@@ -821,27 +839,27 @@ items:
   - name: Overview
     items:
     - name: Synapse Link for Azure Cosmos DB
-      href: ../cosmos-db/synapse-link.md?context=/azure/synapse-analytics/context/context
+      href: /azure/cosmos-db/synapse-link?context=/azure/synapse-analytics/context/context
     - name: Synapse Link for SQL
       href: ./synapse-link/sql-synapse-link-overview.md
     - name: Synapse Link for Dataverse
       href: /powerapps/maker/data-platform/export-to-data-lake?context=/azure/synapse-analytics/context/context
   - name: Quickstarts
     items:
-    - name: Connect to Synapse Link for Cosmos DB
+    - name: Connect to Synapse Link for Azure Cosmos DB
       href: quickstart-connect-synapse-link-cosmos-db.md
   - name: Concepts
     items:
-    - name: Cosmos DB
+    - name: Azure Cosmos DB
       items:
       - name: Analytical Store Overview
-        href: ../cosmos-db/analytical-store-introduction.md?context=/azure/synapse-analytics/context/context
+        href: /azure/cosmos-db/analytical-store-introduction?context=/azure/synapse-analytics/context/context
       - name: Synapse Link supported features
         href: ./synapse-link/concept-synapse-link-cosmos-db-support.md
-      - name: Cosmos DB FAQ
-        href: ../cosmos-db/synapse-link-frequently-asked-questions.yml?context=/azure/synapse-analytics/context/context
+      - name: Azure Cosmos DB FAQ
+        href: /azure/cosmos-db/synapse-link-frequently-asked-questions?context=/azure/synapse-analytics/context/context
       - name: Synapse Link use cases
-        href: ../cosmos-db/synapse-link-use-cases.md?context=/azure/synapse-analytics/context/context
+        href: /azure/cosmos-db/synapse-link-use-cases?context=/azure/synapse-analytics/context/context
     - name: SQL Database
       items:
       - name: Synapse Link for Azure SQL Database
@@ -866,16 +884,16 @@ items:
   #   items:  
   - name: How-to guides
     items:
-    - name: Cosmos DB
+    - name: Azure Cosmos DB
       items:
       - name: Configure Synapse Link
-        href: ../cosmos-db/configure-synapse-link.md?context=/azure/synapse-analytics/context/context
-      - name: Connect to Azure Synapse Link for Cosmos DB
+        href: /azure/cosmos-db/configure-synapse-link?context=/azure/synapse-analytics/context/context
+      - name: Connect to Azure Synapse Link for Azure Cosmos DB
         href: ./synapse-link/how-to-connect-synapse-link-cosmos-db.md
       - name: Synapse Link and integrated Power BI
-        href: ../cosmos-db/integrated-power-bi-synapse-link.md?context=/azure/synapse-analytics/context/context
+        href: /azure/cosmos-db/integrated-power-bi-synapse-link?context=/azure/synapse-analytics/context/context
       - name: Use Power BI and serverless SQL pool to analyze Azure Cosmos DB
-        href: ../cosmos-db/synapse-link-power-bi.md?context=/azure/synapse-analytics/context/context
+        href: /azure/cosmos-db/synapse-link-power-bi?context=/azure/synapse-analytics/context/context
       - name: Query Azure Cosmos DB analytical store with Apache Spark 3
         href: ./synapse-link/how-to-query-analytical-store-spark-3.md
       - name: Query Azure Cosmos DB analytical store with Apache Spark 2
@@ -890,16 +908,34 @@ items:
         href: ./synapse-link/connect-synapse-link-sql-database.md
       - name: Configure Synapse Link with managed virtual network
         href: ./synapse-link/connect-synapse-link-sql-database-vnet.md
-      - name: Known limitations and issues
-        href: ./synapse-link/synapse-link-for-sql-known-issues.md
+      - name: Monitor Synapse Link
+        href: ./synapse-link/how-to-monitor-synapse-link-sql-database.md
+      - name: Troubleshoot
+        items:
+        - name: Known limitations and issues
+          href: ./synapse-link/synapse-link-for-sql-known-issues.md
+        - name: Failover of an Azure SQL Database
+          href: ./synapse-link/troubleshoot/troubleshoot-sql-database-failover.md
+        - name: Microsoft Entra user impersonation
+          href: ./synapse-link/troubleshoot/troubleshoot-sql-azure-active-directory.md
+        - name: Troubleshoot initial snapshot
+          href: ./synapse-link/troubleshoot/troubleshoot-sql-snapshot-issues.md
+        - name: Troubleshoot creation
+          href: ./synapse-link/troubleshoot/troubleshoot-sql-link-creation.md
     - name: SQL Server 2022
       items:
       - name: Configure Synapse Link
         href: ./synapse-link/connect-synapse-link-sql-server-2022.md
       - name: Configure Synapse Link with managed virtual network
         href: ./synapse-link/connect-synapse-link-sql-server-2022-vnet.md
-      - name: Known limitations and issues
-        href: ./synapse-link/synapse-link-for-sql-known-issues.md
+      - name: Monitor Synapse Link
+        href: ./synapse-link/how-to-monitor-synapse-link-sql-server-2022.md
+      - name: Troubleshoot
+        items:
+        - name: Known limitations and issues
+          href: ./synapse-link/synapse-link-for-sql-known-issues.md
+        - name: Troubleshoot initial snapshot
+          href: ./synapse-link/troubleshoot/troubleshoot-sql-snapshot-issues.md
     - name: Dataverse
       items:
       - name: Configure Synapse Link for Dataverse
@@ -981,7 +1017,7 @@ items:
       items:
       - name: Connector overview
         href: ../data-factory/connector-overview.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
-      - name: Amazon Marketplace Web Service
+      - name: Amazon Marketplace Web Service (Deprecated)
         href: ../data-factory/connector-amazon-marketplace-web-service.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Amazon RDS for Oracle
         href: ../data-factory/connector-amazon-rds-for-oracle.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics      
@@ -1001,11 +1037,11 @@ items:
         href: ../data-factory/format-avro.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Azure Blob Storage
         href: ../data-factory/connector-azure-blob-storage.md?toc=/azure/synapse-analytics/toc.json&tabs=synapse-analytics
-      - name: Azure Cognitive Search
+      - name: Azure AI Search
         href: ../data-factory/connector-azure-search.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
-      - name: Azure Cosmos DB SQL API
+      - name: Azure Cosmos DB for NoSQL
         href: ../data-factory/connector-azure-cosmos-db.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
-      - name: Azure Cosmos DB's API for MongoDB
+      - name: Azure Cosmos DB for MongoDB
         href: ../data-factory/connector-azure-cosmos-db-mongodb-api.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
       - name: Azure Data Explorer
         href: ../data-factory/connector-azure-data-explorer.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
@@ -1429,6 +1465,8 @@ items:
           href: ../data-factory/connector-troubleshoot-parquet.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
         - name: REST
           href: ../data-factory/connector-troubleshoot-rest.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
+        - name: SAP Table, SAP Business Warehouse Open Hub, and SAP ODP
+          href: ../data-factory/connector-troubleshoot-sap.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics          
         - name: SharePoint Online list
           href: ../data-factory/connector-troubleshoot-sharepoint-online-list.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics
         - name: Snowflake
@@ -1458,14 +1496,14 @@ items:
       - name: Azure Machine Learning
         displayName: linked service
         href: machine-learning/quickstart-integrate-azure-machine-learning.md
-      - name: Cognitive Services
+      - name: Azure AI services
         displayName: linked service, configure
         href: ./machine-learning/tutorial-configure-cognitive-services-synapse.md
   - name: Concepts
     items:
     - name: Train machine learning models
       href: ./spark/apache-spark-machine-learning-training.md
-    - name: Deep learning 
+    - name: Deep learning (deprecated)
       href: ./machine-learning/concept-deep-learning.md
     - name:  SynapseML library
       href: ./machine-learning/synapse-machine-learning-library.md
@@ -1476,26 +1514,28 @@ items:
       - name: Visualize data with Apache Spark
         displayName: data prep, data preparation, visualization
         href: ./spark/apache-spark-data-visualization-tutorial.md
+      - name: Access ADLSg2 from Azure ML
+        href: ./machine-learning/access-data-from-aml.md 
     - name: Train a model
       items:
       - name: With Apache Spark MLlib
         displayName: train model
         href: ./spark/apache-spark-machine-learning-mllib-notebook.md
-      - name: With automated machine learning
+      - name: With automated machine learning (deprecated)
         items:
-        - name: Code-free
+        - name: Code-free (deprecated)
           displayName: train model, automated machine learning, automated ml, automl
           href: ./machine-learning/tutorial-automl.md
-        - name: In Python
+        - name: In Python (deprecated)
           displayName: train model, automated machine learning, automated ml, automl
           href: ./spark/apache-spark-azure-machine-learning-tutorial.md
-      - name: With Horovod and Petastorm 
+      - name: With Horovod and Petastorm (deprecated)
         items:
-        - name: Train a model with Horovod and PyTorch
+        - name: Train a model with Horovod and PyTorch (deprecated)
           href: ./machine-learning/tutorial-horovod-pytorch.md
         - name: Train a model with Horovod and TensorFlow
           href: ./machine-learning/tutorial-horovod-tensorflow.md
-        - name: Write and load data with Petastorm
+        - name: Write and load data with Petastorm (deprecated)
           href: ./machine-learning/tutorial-load-data-petastorm.md
     - name: Score a model
       items:
@@ -1505,33 +1545,35 @@ items:
       - name: PREDICT score in Synapse spark using model registered in AML or ADLS
         displayName: predict score, Synapse spark, model registered in AML or ADLS
         href: ./machine-learning/tutorial-score-model-predict-spark-pool.md
-      - name: With Cognitive Services
+      - name: With Azure AI services
         items:
         - name: Overview
-          displayName: cognitive services, score model
+          displayName: cognitive services, ai services, score model
           href: machine-learning/overview-cognitive-services.md
+        - name: Setup environment
+          displayName: cognitive services, ai services, score model
+          href: ./machine-learning/setup-environment-cognitive-services.md
         - name: Sentiment analysis wizard
-          displayName: cognitive services, score model
+          displayName: cognitive services, ai services, score model
           href: ./machine-learning/tutorial-cognitive-services-sentiment.md
         - name: Anomaly detection wizard
-          displayName: cognitive services, score model
+          displayName: cognitive services, ai services, score model
           href: ./machine-learning/tutorial-cognitive-services-anomaly.md
         - name: Text Analytics with Apache Spark (SynapseML)
-          displayName: cognitive services, score model, applications
+          displayName: cognitive services, ai services, score model, applications
           href: ./machine-learning/tutorial-text-analytics-use-mmlspark.md
         - name: Computer Vision with Apache Spark (SynapseML)
-          displayName: cognitive services, score model, applications
+          displayName: cognitive services, ai services, score model, applications
           href: ./machine-learning/tutorial-computer-vision-use-mmlspark.md        
-        - name: Form Recognizer with Apache Spark (SynapseML)
-          displayName: cognitive services, score model, applications
+        - name: Document Intelligence with Apache Spark (SynapseML)
+          displayName: cognitive services, ai services, score model, applications
           href: ./machine-learning/tutorial-form-recognizer-use-mmlspark.md
         - name: Translator with Apache Spark (SynapseML)
-          displayName: cognitive services, score model, applications
+          displayName: cognitive services, ai services, score model, applications
           href: ./machine-learning/tutorial-translator-use-mmlspark.md
         - name: With Apache Spark (SynapseML)
-          displayName: cognitive services, score model, applications
+          displayName: cognitive services, ai services, score model, applications
           href: ./machine-learning/tutorial-build-applications-use-mmlspark.md
-  
 - name: Data Catalog and Governance
   items:
   - name: Quickstarts
@@ -1550,6 +1592,10 @@ items:
     href: plan-manage-costs.md
   - name: Browse an ADLS Gen2 folder with ACLs
     href: how-to-access-container-with-access-control-lists.md
+  - name: Monitor
+    items:
+    - name: Learn about monitoring
+      href: monitor-articles.md
 - name: Guidance
   items:
   - name: Azure Synapse Success by Design
@@ -1564,6 +1610,8 @@ items:
         href: ./guidance/proof-of-concept-playbook-dedicated-sql-pool.md
       - name: Data lake exploration with serverless SQL pool
         href: ./guidance/proof-of-concept-playbook-serverless-sql-pool.md
+      - name: Big data analytics with Data Explorer pool
+        href: ./guidance/proof-of-concept-playbook-data-explorer-pool.md
       - name: Big data analytics with Apache Spark pool
         href: ./guidance/proof-of-concept-playbook-spark-pool.md
     - name: Synapse implementation success methodology

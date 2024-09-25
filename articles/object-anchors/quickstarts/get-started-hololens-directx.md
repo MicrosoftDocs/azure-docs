@@ -24,7 +24,7 @@ You'll learn how to:
 > * Create and side-load a HoloLens application
 > * Detect an object and visualize its model
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
@@ -105,7 +105,7 @@ The app aligns a 3D model to its physical counterpart closely. A user can air ta
 > [FAQ](../faq.md)
 
 > [!div class="nextstepaction"]
-> [Conversion SDK](/dotnet/api/overview/azure/mixedreality.objectanchors.conversion-readme-pre)
+> [Conversion SDK](/dotnet/api/overview/azure/mixedreality.objectanchors.conversion-readme)
 
 > [!div class="nextstepaction"]
 > [Troubleshooting object detection](../troubleshoot/object-detection.md)

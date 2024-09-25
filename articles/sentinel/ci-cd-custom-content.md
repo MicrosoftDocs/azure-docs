@@ -42,7 +42,7 @@ The following Microsoft Sentinel content types can be deployed through a reposit
 > This article does *not* describe how to create these types of content from scratch. For more information, see the relevant [Microsoft Sentinel GitHub wiki](https://github.com/Azure/Azure-Sentinel/wiki#get-started) for each content type.
 >
 
- Repositories content needs to be stored as [ARM templates](/azure/azure-resource-manager/templates/overview). The repositories deployment doesn't validate the content except to confirm it's in the correct JSON format.
+ Repositories content needs to be stored as [ARM templates](../azure-resource-manager/templates/overview.md). The repositories deployment doesn't validate the content except to confirm it's in the correct JSON format.
 
 The first step to validate your content is to test it within Microsoft Sentinel. You can also apply the [Microsoft Sentinel GitHub validation process](https://github.com/Azure/Azure-Sentinel/wiki#test-your-contribution) and tools to complement your validation process.
 
@@ -61,6 +61,10 @@ A sample repository is available with ARM templates for each of the content type
 
 
 ## Improve performance with smart deployments
+
+> [!TIP]
+> To ensure smart deployments works in GitHub, Workflows must have read and write permissions on your repositoriy. See [Managing GitHub Actions settings for a repository](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository) for more details.
+>
 
 The **smart deployments** feature is a back-end capability that improves performance by actively tracking modifications made to the content files of a connected repository. It uses a CSV file within the '.sentinel' folder in your repository to audit each commit. The workflow avoids redeploying content that hasn't been modified since the last deployment. This process improves your deployment performance and prevents tampering with unchanged content in your workspace, such as resetting dynamic schedules of your analytics rules.
 

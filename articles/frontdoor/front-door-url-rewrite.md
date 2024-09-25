@@ -1,12 +1,12 @@
 ---
-title: Azure Front Door - URL Rewrite
+title: URL Rewrite
+titleSuffix: Azure Front Door
 description: This article helps you understand how URL rewrites works in Azure Front Door.
 services: front-door
 author: duongau
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: conceptual
-ms.workload: infrastructure-services
-ms.date: 03/22/2022
+ms.date: 08/12/2024
 ms.author: duau
 zone_pivot_groups: front-door-tiers
 ---
@@ -15,53 +15,53 @@ zone_pivot_groups: front-door-tiers
 
 ::: zone pivot="front-door-standard-premium"
 
-Azure Front Door supports URL rewrite to change the path of a request that is being routed to your origin. URL rewrite also allows you to add conditions to make sure that the URL or the specified headers gets rewritten only when certain conditions get met. These conditions are based on the request and response information.
+Azure Front Door provides support for URL rewrite, enabling you to modify the request path that is being routed to your origin. This powerful feature allows you to define conditions that determine when the URL or specified headers should be rewritten. These conditions are based on the information present in the request and response.
 
-With this feature, you can redirect users to different origins based on scenarios, device types, or the requested file type.
+By using URL rewrite, you have the ability to redirect your end users to different origins based on factors such as their device type or the type of file they're requesting. The URL rewrite action can be easily configured within the rule set, providing you with fine-grained control over your routing behavior.
 
-URL rewrite settings can be found in the Rule set configuration.
-
-:::image type="content" source="./media/front-door-url-rewrite/front-door-url-rewrite.png" alt-text="Screenshot of creating url rewrite with Rule Set." lightbox="./media/front-door-url-rewrite/front-door-url-rewrite-expanded.png":::
+:::image type="content" source="./media/front-door-url-rewrite/front-door-url-rewrite.png" alt-text="Screenshot of URL rewrite action in a rule set configuration.":::
 
 ## Source pattern
 
-Source pattern is the URL path in the source request to replace. Currently, source pattern uses a prefix-based match. To match all URL paths, use a forward slash (/) as the source pattern value.
+The **source pattern** represents the URL path in the initial request that you wish to replace. Currently, the source pattern utilizes a prefix-based matching approach. To match all URL paths, you can specify a forward slash (`/`) as the value for the source pattern.
 
-For URL rewrite source pattern, only the path after the route configuration “patterns to match” is considered. For example, you have the following incoming URL format `<Frontend-domain>/<route-patterns-to-match-path>/<Rule-URL-Rewrite-Source-pattern>`, only `/<Rule-URL-Rewrite-Source-pattern>` will be considered by the rule engine as the source pattern to be rewritten. Therefore, when you have a URL rewrite rule using source pattern match, the format for the outgoing URL will be `<Frontend-domain>/<route-patterns-to-match-path>/<Rule-URL-Rewrite-destination>`.
+In the context of a URL rewrite action, only the path after the *patterns to match* in the route configuration is taken into consideration for the source pattern. For instance, the rule set considers only `/source-pattern` as the source pattern to be rewritten if you have an incoming URL format of `contoso.com/pattern-to-match/source-pattern`. After the URL rewrite is applied, the outgoing URL format will be `contoso.com/pattern-to-match/destination`.
 
-For scenarios, where `/<route-patterns-to-match-path` segment of the URL path must be removed, set the Origin path of the Origin group in route configuration to `/`.
+In cases where you need to remove the `/pattern-to-match` segment of the URL, you can set the **origin path** for the origin group in the route configuration to `/`.
 
 ## Destination
 
-You can define the destination path to use in the rewrite. The destination path overwrites the source pattern.
+The destination path represents the path that replaces the source pattern. For instance, if the request URL path is `contoso.com/foo/1.jpg`, and the source pattern is `/foo/`, specifying the destination as `/bar/` results in the content being served from `contoso.com/bar/1.jpg` from the origin.
 
 ## Preserve unmatched path
 
-Preserve unmatched path allows you to append the remaining path after the source pattern to the new path.
+Preserve unmatched path allows you to control how the remaining path after the source pattern is handled. By setting preserve unmatched path to **Yes**, the remaining path is appended to the new path. On the other hand, setting it to **No** (default) will remove the remaining path after the source pattern.
 
-For example, if I set **Preserve unmatched path to Yes**.
-* If the incoming request is `www.contoso.com/sub/1.jpg`, the source pattern gets set to `/`, the destination get set to `/foo/`, and the content get served from `/foo/sub/1`.jpg from the origin.
+Here's an example showcasing the behavior of preserve unmatched path:
 
-* If the incoming request is `www.contoso.com/sub/image/1.jpg`, the source pattern gets set to `/sub/`, the destination get set to `/foo/`, the content get served from `/foo/image/1.jpg` from the origin.
-
-For example, if I set **Preserve unmatched path to No**.
-* If the incoming request is `www.contoso.com/sub/image/1.jpg`, the source pattern gets set to `/sub/`, the destination get set to `/foo/2.jpg`, the content will always be served from `/foo/2.jpg` from the origin no matter what paths followed in `wwww.contoso.com/sub/`.
+| Preserve unmatched path | Source pattern | Destination | Incoming request | Content served from origin |
+|--|--|--|--|--|
+| Yes | / | /foo/ | contoso.com/sub/1.jpg | /foo/sub/1.jpg |
+| Yes | /sub/ | /foo/ | contoso.com/sub/image/1.jpg | /foo/image/1.jpg |
+| No | /sub/ | /foo/2.jpg | contoso.com/sub/image/1.jpg | /foo/2.jpg |
 
 ::: zone-end
 
 ::: zone pivot="front-door-classic"
 
-Azure Front Door (classic) supports URL rewrite by configuring an optional **Custom Forwarding Path** to use when constructing the request to forward to the backend. By default, if a custom forwarding path isn't provided, the Front Door will copy the incoming URL path to the URL used in the forwarded request. The Host header used in the forwarded request is as configured for the selected backend. Read [Backend Host Header](front-door-backend-pool.md#hostheader) to learn what it does and how you can configure it.
+[!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
 
-The robust part of URL rewrite is that the custom forwarding path will copy any part of the incoming path that matches the wildcard path to the forwarded path.
+Azure Front Door (classic) provides support for URL rewrite by configuring a **Custom forwarding path** when setting up the forward routing type rule. By default, if only a forward slash (`/*`) is defined, Front Door replicates the incoming URL path in the forwarded request. The host header used in the forwarded request is based on the configuration of the selected backend. For more detailed information, see the [Backend host header](origin.md#origin-host-header) documentation.
 
-For example, if you have a **match path** of `/foo/*` and configured `/fwd/` for the **custom forwarding path**, any path segment from the wildcard onward will be copied to the forwarding path, shown in orange in the diagram below. In this example, when the **incoming URL path** is `/foo/a/b/c` you'll have a **forwarded path** of `/fwd/a/b/c`. Noticed that the `a/b/c` path segment will replace the wildcard, which is show in green in the below diagram.
+The key aspect of URL rewrite lies in the ability to copy any matching part of the incoming path to the forwarded path when using a custom forwarding path with a wildcard match. The following table illustrates an example of an incoming request and the corresponding forwarded path when utilizing a custom forwarding path of `/fwd/`. The section denoted as **a/b/c** represents the portion that replaces the wildcard match.
 
-:::image type="content" source="./media/front-door-url-rewrite/url-rewrite-example.png" alt-text="Diagram of a URL path rewrite in Azure Front Door":::
+| Incoming URL path | Match path | Custom forwarding path | Forwarded path |
+|--|--|--|--|
+| /foo/a/b/c | /foo/* | /fwd/ |  /fwd/a/b/c |
 
 ## URL rewrite example
 
-Consider a routing rule with the following combination of frontend hosts and paths configured:
+Consider a routing rule with the following combination of frontend hosts and paths are configured:
 
 | Hosts | Paths |
 |--|--|
@@ -70,9 +70,10 @@ Consider a routing rule with the following combination of frontend hosts and pat
 |  | /foo/\* |
 |  | /foo/bar/\* |
 
-The first column of the table below shows examples of incoming requests and the second column shows what would be the "most-specific" matching route 'Path'.  The third and ensuing columns of the table are examples of configured **Custom Forwarding Paths**.
+The following table illustrates examples of incoming requests and their corresponding most-specific matching routes. It also provides examples of custom forwarding paths and the resulting forwarded paths.
 
-For example, if we read across the second row, it's saying that for incoming request `www.contoso.com/sub`, if the custom forwarding path was `/`, then the forwarded path would be `/sub`. If the custom forwarding path was `/fwd/`, then the forwarded path would be `/fwd/sub`. And so forth, for the remaining columns. The **emphasized** parts of the paths below represent the portions that are part of the wildcard match.
+For instance, consider the second row of the table. If the incoming request is `www.contoso.com/sub`, and the custom forwarding path is set to `/`, then the forwarded path would be `/sub`. However, if the custom forwarding path is set to `/fwd/`, then the forwarded path would be `/fwd/sub`. The emphasized parts of the paths indicate the portions that are part of the wildcard match.
+
 
 | Incoming request | Most-specific match path | / | /fwd/ | /foo/ | /foo/bar/ |
 |--|--|--|--|--|--|
@@ -84,19 +85,17 @@ For example, if we read across the second row, it's saying that for incoming req
 | www\.contoso.com/foo/**bar** | /foo/\* | /**bar** | /fwd/**bar** | /foo/**bar** | /foo/bar/**bar** |
 
 > [!NOTE]
-> Azure Front Door only supports URL rewrite from a static path to another static path. Preserve unmatched path is supported with Azure Front Door Standard and Premium tier. For more information, see [Preserve unmatched path](front-door-url-rewrite.md#preserve-unmatched-path).
+> Azure Front Door (classic) only supports URL rewrite from a static path to another static path. Preserve unmatched path is supported with Azure Front Door Standard and Premium. For more information, see [Preserve unmatched path](front-door-url-rewrite.md#preserve-unmatched-path).
 > 
 
 ## Optional settings
 
-There are extra optional settings you can also specify for any given routing rule settings:
-
-* **Cache Configuration** - If disabled or not specified, requests that match to this routing rule won't attempt to use cached content and instead will always fetch from the backend. Read more about [Caching with Azure Front Door](front-door-caching.md).
+**Cache configuration** - If disabled or not specified, requests that match to this routing rule doesn't attempt to use cached content and instead always fetch from the backend. For more information, see [caching with Azure Front Door](front-door-caching.md).
 
 ::: zone-end
 
 ## Next steps
 
 - Learn how to [create an Azure Front Door profile](create-front-door-portal.md).
-- Learn more about [Azure Front Door Rule set](front-door-rules-engine.md)
+- Learn more about [Azure Front Door rule set](front-door-rules-engine.md)
 - Learn about [Azure Front Door routing architecture](front-door-routing-architecture.md).

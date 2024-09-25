@@ -1,11 +1,9 @@
 ---
 title: Use Azure Key Vault in templates
 description: Learn how to use Azure Key Vault to pass secure parameter values during Azure Resource Manager template (ARM template) deployment.
-author: mumian
-ms.date: 03/01/2021
+ms.date: 06/20/2024
 ms.topic: tutorial
-ms.author: jgao
-ms.custom: seodec18, devx-track-azurepowershell
+ms.custom: devx-track-arm-template
 ---
 
 # Tutorial: Integrate Azure Key Vault in your ARM template deployment
@@ -43,7 +41,7 @@ To complete this article, you need:
 
     To learn more, run `man openssl rand` to open the manual page.
 
-    Verify that the generated password meets the VM password requirements. Each Azure service has specific password requirements. For the VM password requirements, see [What are the password requirements when you create a VM?](../../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
+    Verify that the generated password meets the VM password requirements. Each Azure service has specific password requirements. For the VM password requirements, see [What are the password requirements when you create a VM?](/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm-).
 
 ## Prepare a key vault
 
@@ -143,12 +141,12 @@ By using the static ID method, you don't need to make any changes to the templat
 
     ```json
     "adminPassword": {
-        "reference": {
-            "keyVault": {
-                "id": "/subscriptions/<SubscriptionID>/resourceGroups/mykeyvaultdeploymentrg/providers/Microsoft.KeyVault/vaults/<KeyVaultName>"
-            },
-            "secretName": "vmAdminPassword"
-        }
+      "reference": {
+        "keyVault": {
+          "id": "/subscriptions/<SubscriptionID>/resourceGroups/mykeyvaultdeploymentrg/providers/Microsoft.KeyVault/vaults/<KeyVaultName>"
+        },
+        "secretName": "vmAdminPassword"
+      }
     },
     ```
 

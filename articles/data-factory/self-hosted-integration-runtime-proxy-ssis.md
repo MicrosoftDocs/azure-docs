@@ -1,18 +1,16 @@
 ---
 title: Configure a self-hosted integration runtime as a proxy for SSIS
-description: Learn how to configure a self-hosted integration runtime as a proxy for an Azure-SSIS Integration Runtime. 
-ms.service: data-factory
+description: Learn how to configure a self-hosted integration runtime as a proxy for an Azure-SSIS Integration Runtime.
 ms.subservice: integration-services
 ms.topic: conceptual
 author: chugugrace
 ms.author: chugu
-ms.custom: seo-lt-2019, devx-track-azurepowershell
-ms.date: 08/18/2022
+ms.date: 01/05/2024
 ---
 
 # Configure a self-hosted IR as a proxy for an Azure-SSIS IR
 
-[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article describes how to run SQL Server Integration Services (SSIS) packages on an Azure-SSIS Integration Runtime (Azure-SSIS IR) with a self-hosted integration runtime (self-hosted IR) configured as a proxy. 
 
@@ -38,6 +36,23 @@ You then set up your self-hosted IR in the same data factory where your Azure-SS
 
 Finally, you download and install the latest version of self-hosted IR, as well as the additional drivers and runtime, on your on-premises machine or Azure virtual machine (VM), as follows:
 - Download and install the latest version of [self-hosted IR](https://www.microsoft.com/download/details.aspx?id=39717).
+
+- Enable SSIS package execution on self-hosted integration runtime node if self-hosted IR version is **5.28.0** or later.
+
+  **ExecuteSsisPackage** property is newly introduced from self-hosted IR version **5.28.0**. Use below self-hosted IR command line action to enable or disable SSIS package execution: 
+    
+    - -EnableExecuteSsisPackage		Enable SSIS package execution on self-hosted IR node.
+    
+    - -DisableExecuteSsisPackage	Disable SSIS package execution on self-hosted IR node.
+  
+    - -GetExecuteSsisPackage 
+  
+  Self-hosted IR command line details refer to [Set up an existing self-hosted IR via local PowerShell](create-self-hosted-integration-runtime.md?tabs=data-factory#set-up-an-existing-self-hosted-ir-via-local-powershell).
+  
+  Newly installed self-hosted IR node with version 5.28.0 or later, ExecuteSsisPackage property is by default **disabled**.
+  
+  Existing self-hosted IR node updated to version 5.28.0 or later, ExecuteSsisPackage property is by default **enabled**
+
 - If you use Object Linking and Embedding Database (OLEDB), Open Database Connectivity (ODBC), or ADO.NET connectors in your packages, download and install the relevant drivers on the same machine where your self-hosted IR is installed, if you haven't done so already.  
 
   If you use the earlier version of the OLEDB driver for SQL Server (SQL Server Native Client [SQLNCLI]), [download the 64-bit version](https://www.microsoft.com/download/details.aspx?id=50402).  
@@ -66,7 +81,10 @@ If you haven't already done so, create an Azure Blob Storage linked service in t
 - For **Authentication method**, select **Account key**, **SAS URI**, **Service Principal**, **Managed Identity**, or **User-Assigned Managed Identity**.  
 
 >[!TIP]
->If you select the **Service Principal** method, grant your service principal at least a *Storage Blob Data Contributor* role. For more information, see [Azure Blob Storage connector](connector-azure-blob-storage.md#linked-service-properties). If you select the **Managed Identity**/**User-Assigned Managed Identity** method, grant the specified system/user-assigned managed identity for your ADF a proper role to access Azure Blob Storage. For more information, see [Access Azure Blob Storage using Azure Active Directory (Azure AD) authentication with the specified system/user-assigned managed identity for your ADF](/sql/integration-services/connection-manager/azure-storage-connection-manager#managed-identities-for-azure-resources-authentication).
+>If your data factory instance is Git-enabled, a linked service without key authentication will not be immediately published, which means you cannot save the integration runtime that depends on the linked service in your feature-branch. Authenticating with account key or SAS URI will immediately publish the linked service.
+
+>[!TIP]
+>If you select the **Service Principal** method, grant your service principal at least a *Storage Blob Data Contributor* role. For more information, see [Azure Blob Storage connector](connector-azure-blob-storage.md#linked-service-properties). If you select the **Managed Identity**/**User-Assigned Managed Identity** method, grant the specified system/user-assigned managed identity for your ADF a proper role to access Azure Blob Storage. For more information, see [Access Azure Blob Storage using Microsoft Entra authentication with the specified system/user-assigned managed identity for your ADF](/sql/integration-services/connection-manager/azure-storage-connection-manager#managed-identities-for-azure-resources-authentication).
 
 :::image type="content" source="media/self-hosted-integration-runtime-proxy-ssis/shir-azure-blob-storage-linked-service.png" alt-text="Prepare the Azure Blob storage-linked service for staging":::
 
@@ -169,9 +187,7 @@ The cloud staging tasks that run on your Azure-SSIS IR are not be billed separat
 
 ## Enforce TLS 1.2
 
-If you need to access data stores that have been configured to use only the strongest cryptography/most secure network protocol (TLS 1.2), including your Azure Blob Storage for staging, you must enable only TLS 1.2 and disable older SSL/TLS versions at the same time on your self-hosted IR. To do so, you can download and run the *main.cmd* script that we provide in the *CustomSetupScript/UserScenarios/TLS 1.2* folder of our public preview blob container. Using [Azure Storage Explorer](https://storageexplorer.com/), you can connect to our public preview blob container by entering the following SAS URI:
-
-`https://ssisazurefileshare.blob.core.windows.net/publicpreview?sp=rl&st=2020-03-25T04:00:00Z&se=2025-03-25T04:00:00Z&sv=2019-02-02&sr=c&sig=WAD3DATezJjhBCO3ezrQ7TUZ8syEUxZZtGIhhP6Pt4I%3D`
+If you need to access data stores that have been configured to use only the strongest cryptography/most secure network protocol (TLS 1.2), including your Azure Blob Storage for staging, you must enable only TLS 1.2 and disable older SSL/TLS versions at the same time on your self-hosted IR. To do so, you can download and run the *main.cmd* script from https://github.com/Azure/Azure-DataFactory/tree/main/SamplesV2/SQLServerIntegrationServices/publicpreview/CustomSetupScript/UserScenarios/TLS%201.2.
 
 ## Current limitations
 
@@ -181,6 +197,6 @@ If you need to access data stores that have been configured to use only the stro
 - Changing variable values of type object in on-premises staging tasks won't be reflected in other tasks.
 - *ParameterMapping* in OLEDB Source is currently unsupported. As a workaround, please use *SQL Command From Variable* as the *AccessMode* and use *Expression* to insert your variables/parameters in a SQL command. As an illustration, see the *ParameterMappingSample.dtsx* package that can be found in the *SelfHostedIRProxy/Limitations* folder of our public preview blob container. Using Azure Storage Explorer, you can connect to our public preview blob container by entering the above SAS URI.
 
-## Next steps
+## Related content
 
 After you've configured your self-hosted IR as a proxy for your Azure-SSIS IR, you can deploy and run your packages to access data and or run any SQL statements/processes on premises as Execute SSIS Package activities in Data Factory pipelines. To learn how, see [Run SSIS packages as Execute SSIS Package activities in Data Factory pipelines](./how-to-invoke-ssis-package-ssis-activity.md).  See also our blogs: [Run Any SQL Anywhere in 3 Easy Steps with SSIS in Azure Data Factory](https://techcommunity.microsoft.com/t5/sql-server-integration-services/run-any-sql-anywhere-in-3-easy-steps-with-ssis-in-azure-data/ba-p/2457244) and [Run Any Process Anywhere in 3 Easy Steps with SSIS in Azure Data Factory](https://techcommunity.microsoft.com/t5/sql-server-integration-services/run-any-process-anywhere-in-3-easy-steps-with-ssis-in-azure-data/ba-p/2962609).

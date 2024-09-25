@@ -1,11 +1,9 @@
 ---
 title: 'Community-suggested third-party VPN or firewall device settings for Azure VPN Gateway'
 description: Learn about community-suggested third-party VPN or firewall device settings for Azure VPN gateway.
-services: vpn-gateway
 author: chadmath
 manager: dcscontentpm
-
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: troubleshooting
 ms.date: 02/10/2021
 ms.author: delhan

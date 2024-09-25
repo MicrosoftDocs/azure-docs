@@ -4,12 +4,10 @@ description: This article walks you through the steps to check the status, updat
 services: expressroute
 author: duongau
 
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 11/05/2019
 ms.author: duau 
-ms.custom: devx-track-azurepowershell
-
 ---
 # Modify an ExpressRoute circuit using PowerShell (classic)
 

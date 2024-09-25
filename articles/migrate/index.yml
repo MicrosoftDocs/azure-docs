@@ -8,10 +8,10 @@ metadata:
   description: Find Azure migration tutorials, resources, and migration assessment tools. Learn how to use tools in the Azure Migrate hub to discover, assess, and migrate your on-premises environment to Azure.
   ms.service: azure-migrate
   ms.topic: landing-page
-  ms.collection: collection
-  author: v-ksreedevan
-  ms.author: v-ksreedevan
-  ms.date: 07/08/2020
+
+  author: v-sreedevank
+  ms.author: v-sreedevank
+  ms.date: 03/15/2024
   ms.custom: seo-azure-migrate
   keywords: azure migrate, azure migration, azure migrate assessment tool, azure migrate tool, azure migrate documentation, azure migration documentation
 
@@ -37,14 +37,21 @@ landingContent:
             url: ./tutorial-discover-hyper-v.md
           - text: Assess physical servers with Server Assessment
             url: ./tutorial-discover-physical.md
-          - text: Assess servers using imported data
-            url: ./tutorial-discover-import.md
-          - text: Migrate VMware VMs with Server Migration
+          - text: Assess ASP.NET web apps for migration to Azure App Service
+            url: ./tutorial-assess-webapps.md
+          - text: Assess SQL instances for migration to Azure SQL
+            url: ./tutorial-assess-sql.md
+          - text: Migrate VMware VMs with Migration and modernization
             url: ./server-migrate-overview.md
-          - text: Migrate Hyper-V VMs with Server Migration
+          - text: Migrate Hyper-V VMs with Migration and modernization
             url: ./tutorial-migrate-hyper-v.md
-          - text: Migrate physical servers/VMs with Server Migration
+          - text: Migrate physical servers/VMs with Migration and modernization
             url: ./tutorial-migrate-physical-virtual-machines.md
+          - text: Modernize ASP.NET web apps to Azure Kubernetes Service (AKS)
+            url: ./tutorial-modernize-asp-net-aks.md
+          - text: Create an Azure Spring Apps assessment
+            url: ./how-to-create-azure-spring-apps-assessment.md
+
 
   - title: Start deployment
     linkLists:
@@ -67,19 +74,32 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
+          - text: Business case
+            url: ./how-to-build-a-business-case.md
           - text: Add assessment tools
             url: ./how-to-assess.md
           - text: Discover application inventory
             url: ./how-to-discover-applications.md
           - text: Add migration tools
             url: ./how-to-migrate.md
+          - text: Upgrade Windows OS
+            url: ./how-to-upgrade-windows.md
           - text: Scale VMware assessment
             url: ./scale-vmware-assessment.md
           - text: Automate and scale migration
             url: ./how-to-migrate-at-scale.md
           - text: Troubleshoot assessment and migration
             url: ./troubleshoot-general.md
-
+  - title: SAP Systems
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: About assessment of SAP systems (preview)
+            url: ./concepts-azure-sap-systems-assessment.md
+      - linkListType: tutorial
+        links:
+          - text: Discover SAP systems (preview)
+            url: ./tutorial-discover-sap-systems.md
   - title: Learn more
     linkLists:
       - linkListType: learn

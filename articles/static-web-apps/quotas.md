@@ -3,28 +3,39 @@ title: Quotas in Azure Static Web Apps
 description: Learn about quotas associated with Azure Static Web Apps
 services: static-web-apps
 author: craigshoemaker
-ms.service: static-web-apps
+ms.service: azure-static-web-apps
 ms.topic:  overview
-ms.date: 10/13/2021
+ms.date: 05/30/2024
 ms.author: cshoe
 ---
 
 # Quotas in Azure Static Web Apps
 
-The following quotas exist for Azure Static Web Apps.
+Subscription limits:
 
-| Feature                     | Free plan        | Standard plan |
-|-----------------------------|------------------|---------------|
-| Included bandwidth          | 100 GB per month, per subscription | 100 GB per month, per subscription |
-| Overage bandwidth           | Unavailable      | $0.20 per GB |
-| Apps per Azure subscription | 10               | Unlimited |
-| App size                    | 250 MB           | 500 MB |
-| Plan size                   | 500 MB max app size for a single deployment, and 0.50 GB max for all staging and production environments  | 500 MB max app size for a single deployment, and 2.00 GB max combined across all staging and production environments |
-| Pre-production environments | 3                | 10 |
-| Custom domains              | 2 per app        | 5 per app |
-| Allowed IP ranges           | Unavailable      | 25 |
-| Authorization (built-in roles) | Unlimited end-users that may authenticate with built-in `authenticated` role | Unlimited end-users that may authenticate with built-in `authenticated` role |
-| Authorization (custom roles) | Maximum of 25 end-users that may belong to custom roles via [invitations](authentication-authorization.md?tabs=invitations#role-management) | Maximum of 25 end-users that may belong to custom roles via [invitations](authentication-authorization.md?tabs=invitations#role-management), or unlimited end-users that may be assigned custom roles via [serverless function](authentication-authorization.md?tabs=function#role-management) |
+| Feature                             | Free plan   | Standard plan | Dedicated plan (Preview) |
+|-------------------------------------|-------------|---------------|--------------------------|
+| Included bandwidth (per month)      | 100 GB      | 100 GB        | 100 GB                   |
+| Overage bandwidth                   | Unavailable | $0.20 per GB  | $0.20 per GB             |
+| Apps                                | 10          | 100           | 1                        |
+
+If you need more apps on the Standard plan, contact Azure Support.
+
+App limits:
+
+| Feature                             | Free plan   | Standard plan | Dedicated plan (Preview) |
+|-------------------------------------|-------------|---------------|--------------------------|
+| [Preview environments][3]           | 3           | 10            | 10                       |
+| Total storage (all environments)    | 500 MB      | 2 GB          | 2 GB                     |
+| Storage (single environment)        | 250 MB      | 500 MB        | 500 MB                   |
+| File count                          | 15,000      | 15,000        | 15,000                   |
+| [Custom domains][1]                 | 2           | 5             | 5                        |
+| [Private endpoint][4]               | Unavailable | 1             | 1                        |
+| Allowed IP range restrictions       | Unavailable | 25            | 25                       |
+| [Authorization (custom roles)][2]   |             |               |                          |
+| &nbsp;&nbsp;&nbsp;&nbsp;via invitations | 25 | 25 | 25 |
+| &nbsp;&nbsp;&nbsp;&nbsp;via serverless functions | Unavailable | Unlimited | Unlimited |
+| Request Size Limit                  | 30 MB       | 30 MB         | 30 MB                    |
 
 ## GitHub storage
 
@@ -38,4 +49,10 @@ See the following resources for more detail:
 
 ## Next steps
 
-- [Overview](overview.md)
+- [Azure Static Web Apps overview](overview.md)
+
+<!-- Links -->
+[1]: custom-domain.md
+[2]: authentication-custom.md#manage-roles
+[3]: preview-environments.md
+[4]: private-endpoint.md

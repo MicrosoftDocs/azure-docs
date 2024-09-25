@@ -2,7 +2,8 @@
 title: Bicep language for deploying Azure resources
 description: Describes the Bicep language for deploying infrastructure to Azure. It provides an improved authoring experience over using JSON to develop templates.
 ms.topic: conceptual
-ms.date: 03/14/2022
+ms.custom: devx-track-bicep
+ms.date: 07/05/2024
 ---
 
 # What is Bicep?
@@ -15,7 +16,7 @@ Bicep provides concise syntax, reliable type safety, and support for code reuse.
 
 Bicep provides the following advantages:
 
-- **Support for all resource types and API versions**: Bicep immediately supports all preview and GA versions for Azure services. As soon as a resource provider introduces new resources types and API versions, you can use them in your Bicep file. You don't have to wait for tools to be updated before using the new services.
+- **Support for all resource types and API versions**: Bicep immediately supports all preview and GA versions for Azure services. As soon as a resource provider introduces new resource types and API versions, you can use them in your Bicep file. You don't have to wait for tools to be updated before using the new services.
 - **Simple syntax**: When compared to the equivalent JSON template, Bicep files are more concise and easier to read. Bicep requires no previous knowledge of programming languages. Bicep syntax is declarative and specifies which resources and resource properties you want to deploy.
 
   The following examples show the difference between a Bicep file and the equivalent JSON template. Both examples deploy a storage account.
@@ -26,7 +27,7 @@ Bicep provides the following advantages:
   param location string = resourceGroup().location
   param storageAccountName string = 'toylaunch${uniqueString(resourceGroup().id)}'
 
-  resource storageAccount 'Microsoft.Storage/storageAccounts@2021-06-01' = {
+  resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
     name: storageAccountName
     location: location
     sku: {
@@ -58,7 +59,7 @@ Bicep provides the following advantages:
     "resources": [
       {
         "type": "Microsoft.Storage/storageAccounts",
-        "apiVersion": "2021-06-01",
+        "apiVersion": "2023-04-01",
         "name": "[parameters('storageAccountName')]",
         "location": "[parameters('location')]",
         "sku": {
@@ -76,10 +77,57 @@ Bicep provides the following advantages:
   ---
 
 - **Authoring experience**: When you use the [Bicep Extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep) to create your Bicep files, you get a first-class authoring experience. The editor provides rich type-safety, intellisense, and syntax validation.
-  
+
   ![Bicep file authoring example](./media/overview/bicep-intellisense.gif)
 
-- **Repeatable results**: Repeatedly deploy your infrastructure throughout the development lifecycle and have confidence your resources are deployed in a consistent manner. Bicep files are idempotent, which means you can deploy the same file many times and get the same resource types in the same state. You can develop one file that represents the desired state, rather than developing lots of separate files to represent updates.
+  You can also create Bicep files in Visual Studio with the [Bicep extension for Visual Studio](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.visualstudiobicep).
+
+- **Repeatable results**: Repeatedly deploy your infrastructure throughout the development lifecycle and have confidence your resources are deployed in a consistent manner. Bicep files are idempotent, which means you can deploy the same file many times and get the same resource types in the same state. You can develop one file that represents the desired state, rather than developing lots of separate files to represent updates. For example, the following file creates a storage account. If you deploy this template and the storage account with the specified properties already exists, no changes are made.
+
+  # [Bicep](#tab/bicep)
+
+  ```bicep
+  param location string = resourceGroup().location
+  
+  resource mystore 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+    name: 'mystorageaccount'
+    location: location
+    sku: {
+      name: 'Standard_LRS'
+    }
+    kind: 'StorageV2'
+  }
+  ```
+
+  # [JSON](#tab/json)
+
+  ```json
+  {
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+      "location": {
+        "type": "string",
+        "defaultValue": "[resourceGroup().location]"
+      }
+    },
+    "resources": {
+      "mystore": {
+        "type": "Microsoft.Storage/storageAccounts",
+        "apiVersion": "2023-04-01",
+        "name": "mystorageaccount",
+        "location": "[parameters('location')]",
+        "sku": {
+          "name": "Standard_LRS"
+        },
+        "kind": "StorageV2"
+      }
+    }
+  }
+  ```
+
+---
+  
 - **Orchestration**: You don't have to worry about the complexities of ordering operations. Resource Manager orchestrates the deployment of interdependent resources so they're created in the correct order. When possible, Resource Manager deploys resources in parallel so your deployments finish faster than serial deployments. You deploy the file through one command, rather than through multiple imperative commands.
 
    :::image type="content" source="./media/overview/bicep-processing.png" alt-text="Bicep deployment comparison" border="false":::
@@ -124,6 +172,8 @@ For a full comparison of the syntax, see [Comparing JSON and Bicep for templates
 Bicep automatically manages dependencies between resources. You can avoid setting `dependsOn` when the symbolic name of a resource is used in another resource declaration.
 
 The structure of the Bicep file is more flexible than the JSON template. You can declare parameters, variables, and outputs anywhere in the file. In JSON, you have to declare all parameters, variables, and outputs within the corresponding sections of the template.
+
+[!INCLUDE [Request ARM template support](../../../includes/template-support.md)]
 
 ## Next steps
 

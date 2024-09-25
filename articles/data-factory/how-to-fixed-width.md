@@ -2,10 +2,9 @@
 title: Process fixed-length text files with mapping data flows in Azure Data Factory
 description: Learn how to process fixed-length text files in Azure Data Factory using mapping data flows.
 author: kromerm
-ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.date: 08/09/2022
+ms.date: 05/15/2024
 ms.author: makromer
 ---
 
@@ -83,6 +82,6 @@ By using mapping data flows in Microsoft Azure Data Factory, you can transform d
 
   The fixed-width data is now split, with four characters each and assigned to Col1, Col2, Col3, Col4, and so on. Based on the preceding example, the data is split into four columns.
 
-## Next steps
+## Related content
 
 * Build the rest of your data flow logic by using mapping data flows [transformations](concepts-data-flow-overview.md).

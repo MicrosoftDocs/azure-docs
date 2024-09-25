@@ -44,7 +44,7 @@ An endpoint that implements a "Proxy" resource endpoint must handle the request 
 
 **Sample resource**:
 
-``` JSON
+```json
 {
     "name": "{myCustomResourceName}",
     "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResources/{myCustomResourceName}",

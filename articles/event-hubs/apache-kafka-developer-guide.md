@@ -1,7 +1,7 @@
 ---
 title: Apache Kafka developer guide for Event Hubs
 description: This article provides links to articles that describe how to integrate your Kafka applications with Azure Event Hubs.
-ms.date: 09/20/2021
+ms.date: 11/09/2022
 ms.topic: article
 ---
 
@@ -9,7 +9,7 @@ ms.topic: article
 This article provides links to articles that describe how to integrate your Apache Kafka applications with Azure Event Hubs. 
 
 ## Overview
-Event Hubs provides a Kafka endpoint that can be used by your existing Kafka based applications as an alternative to running your own Kafka cluster. Event Hubs works with many of your existing Kafka applications. For more information, see [Event Hubs for Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md)
+Event Hubs provides a Kafka endpoint that can be used by your existing Kafka based applications as an alternative to running your own Kafka cluster. Event Hubs works with many of your existing Kafka applications. For more information, see [Event Hubs for Apache Kafka](azure-event-hubs-kafka-overview.md)
 
 ## Quickstarts
 You can find quickstarts in GitHub and in this content set that helps you quickly ramp up on Event Hubs for Kafka.
@@ -26,7 +26,7 @@ See the following quickstarts in the **azure-event-hubs-for-kafka** repo:
 | [Go](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/go) | <p>This quickstart will show how to create and connect to an Event Hubs Kafka endpoint using an example producer and consumer written in Go.</p><p>This sample is based on [Confluent's Apache Kafka Golang client](https://github.com/confluentinc/confluent-kafka-go), modified for use with Event Hubs for Kafka.</p>| 
 | [Sarama kafka Go](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/go-sarama-client) | This quickstart will show how to create and connect to an Event Hubs Kafka endpoint using an example producer and consumer written in Go using the [Sarama Kafka client](https://github.com/Shopify/sarama) library. |
 | [Kafka](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/kafka-cli) | This quickstart will show how to create and connect to an Event Hubs Kafka endpoint using the CLI that comes bundled with the Apache Kafka distribution.| 
-| [Kafkacat](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/kafkacat) | kafkacat is a non-JVM command-line consumer and producer based on librdkafka, popular due to its speed and small footprint. This quickstart contains a sample configuration and several simple sample kafkacat commands. | 
+| [kcat](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/quickstart/kafkacat) | kcat is a non-JVM command-line consumer and producer based on librdkafka, popular due to its speed and small footprint. This quickstart contains a sample configuration and several simple sample kafkacat commands. | 
  
 ### Quickstarts in DOCS
 See the quickstart: [Data streaming with Event Hubs using the Kafka protocol](event-hubs-quickstart-kafka-enabled-event-hubs.md) in this content set, which provides step-by-step instructions on how to stream into Event Hubs. You learn how to use your producers and consumers to talk to Event Hubs with just a configuration change in your applications. 

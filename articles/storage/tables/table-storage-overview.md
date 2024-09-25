@@ -1,17 +1,15 @@
 ---
-title: Introduction to Table storage - Object storage in Azure | Microsoft Docs
+title: Introduction to Table storage - Object storage in Azure
 description: Store structured data in the cloud using Azure Table storage, a NoSQL data store.
 services: storage
-ms.service: storage
-author: tamram
-ms.author: tamram
-ms.devlang: csharp
+ms.service: azure-table-storage
+author: akashdubey-ms
+ms.author: akashdubey
 ms.topic: overview
 ms.date: 05/27/2021
-ms.subservice: tables
 ---
 
-# What is Azure Table storage ? 
+# What is Azure Table storage?
 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../../includes/storage-table-cosmos-db-tip-include.md)]
 
@@ -25,7 +23,7 @@ You can use Table storage to store flexible datasets like user data for web appl
 
 * [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
 
-* [Get started with Azure Table Storage in .NET](../../cosmos-db/tutorial-develop-table-dotnet.md)
+* [Get started with Azure Table Storage in .NET](/azure/cosmos-db/tutorial-develop-table-dotnet)
 
 * View the Table service reference documentation for complete details about available APIs:
 

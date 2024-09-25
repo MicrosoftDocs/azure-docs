@@ -3,9 +3,9 @@ title: Troubleshoot Azure Automation State Configuration issues
 description: This article tells how to troubleshoot and resolve Azure Automation State Configuration issues.
 services: automation
 ms.subservice:
-ms.date: 04/16/2019
+ms.date: 10/17/2022
 ms.topic: troubleshooting
-ms.custom: devx-track-azurepowershell
+ms.custom: linux-related-content
 ---
 
 # Troubleshoot Azure Automation State Configuration issues
@@ -34,7 +34,7 @@ The [xDscDiagnostics](https://github.com/PowerShell/xDscDiagnostics) module can 
 
 You can install the `xDscDiagnostics` module on your local machine by following the instructions in [Install the stable version module](https://github.com/PowerShell/xDscDiagnostics#install-the-stable-version-module).
 
-To install the `xDscDiagnostics` module on your Azure machine, use [Invoke-AzVMRunCommand](/powershell/module/az.compute/invoke-azvmruncommand). You can also use the **Run command** option in the Azure portal by following the steps in [Run PowerShell scripts in your Windows VM with Run Command](../../virtual-machines/windows/run-command.md).
+To install the `xDscDiagnostics` module on your Azure machine, use [Invoke-AzVMRunCommand](/powershell/module/az.compute/invoke-azvmruncommand). You can also use the **Run command** option in the Azure portal by following the steps in [Run PowerShell scripts in your Windows VM with Run Command](/azure/virtual-machines/windows/run-command).
 
 For information on using **xDscDiagnostics**, see [Using xDscDiagnostics to analyze DSC logs](/powershell/dsc/troubleshooting/troubleshooting#using-xdscdiagnostics-to-analyze-dsc-logs). See also [xDscDiagnostics Cmdlets](https://github.com/PowerShell/xDscDiagnostics#cmdlets).
 
@@ -101,9 +101,15 @@ VM has reported a failure when processing extension 'Microsoft.Powershell.DSC / 
 
 ### Cause
 
-This issue is caused by a bad or expired certificate. See [Re-register a node](../automation-dsc-onboarding.md#re-register-a-node).
+The following are the possible causes:
 
-This issue might also be caused by a proxy configuration not allowing access to ***.azure-automation.net**. For more information, see [Configuration of private networks](../automation-dsc-overview.md#network-planning).
+- A bad or expired certificate. See [Re-register a node](../automation-dsc-onboarding.md#re-register-a-node).
+
+- A proxy configuration that isn't allowing access to ***.azure-automation.net**. For more information, see [Configuration of private networks](../automation-dsc-overview.md#network-planning). 
+
+- When you disable local authentication in Azure Automation. See [Disable local authentication](../disable-local-authentication.md). To fix it, see [re-enable local authentication](../disable-local-authentication.md#re-enable-local-authentication).
+
+- Client computer time is many minutes inaccurate from actual time. (To check time use: *w32tm /stripchart /computer:time.windows.com /samples:6*).
 
 ### Resolution
 
@@ -352,5 +358,5 @@ The work around is to apply different test configuration and apply the original 
 If you don't see your problem here or you can't resolve your issue, try one of the following channels for additional support:
 
 * Get answers from Azure experts through [Azure Forums](https://azure.microsoft.com/support/forums/).
-* Connect with [@AzureSupport](https://twitter.com/azuresupport), the official Microsoft Azure account for improving customer experience. Azure Support connects the Azure community to answers, support, and experts.
+* Connect with [@AzureSupport](https://x.com/azuresupport), the official Microsoft Azure account for improving customer experience. Azure Support connects the Azure community to answers, support, and experts.
 * File an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/), and select **Get Support**.

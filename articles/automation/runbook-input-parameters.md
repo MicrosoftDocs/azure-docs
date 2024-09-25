@@ -3,28 +3,40 @@ title: Configure runbook input parameters in Azure Automation
 description: This article tells how to configure runbook input parameters, which allow data to be passed to a runbook when it's started.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/22/2021
-ms.topic: conceptual 
+ms.date: 09/10/2024
+ms.topic: how-to
 ms.custom: devx-track-azurepowershell
+ms.service: azure-automation
 ---
 
 # Configure runbook input parameters in Automation
 
 Runbook input parameters increase the flexibility of a runbook by allowing data to be passed to it when it's started. These parameters allow runbook actions to be targeted for specific scenarios and environments. This article describes the configuration and use of input parameters in your runbooks.
 
-You can configure input parameters for PowerShell, PowerShell Workflow, graphical, and Python runbooks. A runbook can have multiple parameters with different data types, or no parameters at all. Input parameters can be mandatory or optional, and you can use default values for optional parameters.
+You can configure input parameters for PowerShell, PowerShell Workflow, graphical, and Python runbooks. A runbook can have multiple parameters with different data types or no parameters. Input parameters can be mandatory or optional, and you can use default values for optional parameters.
 
 You assign values to the input parameters for a runbook when you start it. You can start a runbook from the Azure portal, a web service, or PowerShell. You can also start one as a child runbook that is called inline in another runbook.
 
-### Configure input parameters in PowerShell runbooks
+## Input types
+
+Azure Automation supports various input parameter values across the different runbook types. Supported input types for each type of runbook are listed in the following table.
+
+| Runbook type        | Supported parameter inputs                                                                                                            |
+|---------------------|---------------------------------------------------------------------------------------------------------------------------------------|
+| PowerShell          | - String <br>- Security.SecureString <br>- INT32 <br>- Boolean <br>- DateTime <br>- Array <br>- Collections.Hashtable <br>- Management.Automation.SwitchParameter |
+| PowerShell Workflow | - String <br>- Security.SecureString <br>- INT32 <br>- Boolean <br>- DateTime <br>- Array <br>- Collections.Hashtable <br>- Management.Automation.SwitchParameter |
+| Graphical PowerShell| - String <br>- INT32 <br>- INT64 <br>- Boolean <br>- Decimal <br>- DateTime <br>- Object                                                                       |
+| Python              | - String                                                                                                                              |  
+
+## Configure input parameters in PowerShell runbooks
 
 PowerShell and PowerShell Workflow runbooks in Azure Automation support input parameters that are defined through the following properties. 
 
 | **Property** | **Description** |
 |:--- |:--- |
-| Type |Required. The data type expected for the parameter value. Any .NET type is valid. |
+| Type |Required. The data type is expected for the parameter value. Any .NET type is valid. |
 | Name |Required. The name of the parameter. This name must be unique within the runbook, must start with a letter, and can contain only letters, numbers, or underscore characters. |
-| Mandatory |Optional. Boolean value specifying if the parameter requires a value. If you set this to True, a value must be provided when the runbook is started. If you set this to False, a value is optional. If you don't specify a value for the `Mandatory` property, PowerShell considers the input parameter optional by default. |
+| Mandatory |Optional. The Boolean value specifies whether the parameter requires a value. If you set this to True, a value must be provided when the runbook is started. If you set this to False, a value is optional. If you don't specify a value for the `Mandatory` property, PowerShell considers the input parameter optional by default. |
 | Default value |Optional. A value that is used for the parameter if no input value is passed in when the runbook starts. The runbook can set a default value for any parameter. |
 
 Windows PowerShell supports more attributes of input parameters than those listed above, such as validation, aliases, and parameter sets. However, Azure Automation currently supports only the listed input parameter properties.
@@ -60,6 +72,11 @@ In this case, you can pass the following value to the parameter.
 ```powershell
 @{"FirstName"="Joe";"MiddleName"="Bob";"LastName"="Smith"}
 ```
+For PowerShell 7.1 runbooks, provide array input parameters in below format:
+
+| **Name** | **Value** |
+| --- | --- |
+| TESTPARAMETER | does,this,even,work |
 
 > [!NOTE]
 > When you do not pass a value to an optional String parameter with a null default value, the value of the parameter is an empty string instead of Null.
@@ -68,9 +85,9 @@ In this case, you can pass the following value to the parameter.
 
 To illustrate the configuration of input parameters for a graphical runbook, let's create a runbook that outputs details about virtual machines, either a single VM or all VMs within a resource group. For details, see [My first graphical runbook](./learn/powershell-runbook-managed-identity.md).
 
-A graphical runbook uses these these major runbook activities:
+A graphical runbook uses these major runbook activities:
 
-* Configuration of the Azure Run As account to authenticate with Azure. 
+* Authenticate with Azure using managed identity configured for automation account. 
 * Definition of a [Get-AzVM](/powershell/module/az.compute/get-azvm) cmdlet to get VM properties.
 * Use of the [Write-Output](/powershell/module/microsoft.powershell.utility/write-output) activity to output the VM names. 
 
@@ -111,6 +128,9 @@ Unlike PowerShell, PowerShell Workflow, and graphical runbooks, Python runbooks 
 For an example of how to use input parameters in a Python runbook, see
 [My first Python runbook in Azure Automation](./learn/automation-tutorial-runbook-textual-python-3.md).
 
+>[!NOTE]
+>Arguments with spaces are currently not supported. As a workaround, you could use \\\t in addition to \\\n.
+
 ## Assign values to input parameters in runbooks
 
 This section describes several ways to pass values to input parameters in runbooks. You can assign parameter values when you:
@@ -145,7 +165,7 @@ In the label beneath the input box, you can see the properties that have been se
      Start-AzAutomationRunbook -AutomationAccountName "TestAutomation" -Name "Get-AzureVMGraphical" –ResourceGroupName $resourceGroupName -Parameters $params
    ```
 
-* **Azure classic deployment model cmdlets:** You can start an automation runbook that was created in a default resource group by using [Start-AzureAutomationRunbook](/powershell/module/servicemanagement/azure.service/start-azureautomationrunbook).
+* **Azure classic deployment model cmdlets:** You can start an automation runbook that was created in a default resource group by using [Start-AzureAutomationRunbook](/powershell/module/servicemanagement/azure/start-azureautomationrunbook).
   
    ```powershell
      $params = @{"VMName"="WSVMClassic"; "ServiceName"="WSVMClassicSG"}
@@ -158,7 +178,7 @@ In the label beneath the input box, you can see the properties that have been se
 
 #### Start a runbook using an SDK and assign parameters
 
-* **Azure Resource Manager method:** You can start a runbook using the SDK of a programming language. Below is a C# code snippet for starting a runbook in your Automation account. You can view all the code at our [GitHub repository](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/automation/Microsoft.Azure.Management.Automation/tests/TestSupport/AutomationTestBase.cs).
+* **Azure Resource Manager method:** You can start a runbook using the SDK of a programming language. Below is a C# code snippet for starting a runbook in your Automation account. You can view all the code at our [GitHub repository](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/automation/Azure.ResourceManager.Automation/tests/AutomationManagementTestBase.cs).
 
   ```csharp
   public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
@@ -178,7 +198,7 @@ In the label beneath the input box, you can see the properties that have been se
   }
   ```
 
-* **Azure classic deployment model method:** You can start a runbook by using the SDK of a programming language. Below is a C# code snippet for starting a runbook in your Automation account. You can view all the code at our [GitHub repository](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/automation/Microsoft.Azure.Management.Automation/tests/TestSupport/AutomationTestBase.cs).
+* **Azure classic deployment model method:** You can start a runbook by using the SDK of a programming language. Below is a C# code snippet for starting a runbook in your Automation account. You can view all the code at our [GitHub repository](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/automation/Azure.ResourceManager.Automation/tests/AutomationManagementTestBase.cs).
 
   ```csharp
   public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)

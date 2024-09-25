@@ -5,11 +5,10 @@ titleSuffix: Azure Data Factory & Azure Synapse
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
-ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/04/2022
+ms.date: 05/15/2024
 ---
 
 # Sort transformation in mapping data flow
@@ -61,6 +60,6 @@ BasketballStats sort(desc(PTS, true),
     asc(Age, true)) ~> Sort1
 ```
 
-## Next steps
+## Related content
 
 After sorting, you may want to use the [Aggregate Transformation](data-flow-aggregate.md)

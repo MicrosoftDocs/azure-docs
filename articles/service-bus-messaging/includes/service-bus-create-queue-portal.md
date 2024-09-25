@@ -1,11 +1,10 @@
 ---
  title: include file
  description: include file
- services: service-bus-messaging
  author: spelluru
- ms.service: service-bus-messaging
+ ms.service: azure-service-bus
  ms.topic: include
- ms.date: 10/08/2021
+ ms.date: 11/28/2023
  ms.author: spelluru
  ms.custom: include file
 ---

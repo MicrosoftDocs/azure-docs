@@ -1,11 +1,18 @@
 ---
 title: Support matrix for VMware/physical disaster recovery in Azure Site Recovery.
 description: Summarizes support for disaster recovery of VMware VMs and physical server to Azure using Azure Site Recovery.
-ms.topic: conceptual
-ms.date: 09/21/2022
+ms.topic: concept-article
+ms.service: azure-site-recovery
+ms.date: 07/15/2024
+ms.author: ankitadutta
+author: ankitaduttaMSFT
+ms.custom: engagement-fy23, linux-related-content
 ---
 
 # Support matrix for disaster recovery  of VMware VMs and physical servers to Azure
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 This article summarizes supported components and settings for disaster recovery of VMware VMs and physical servers to Azure using [Azure Site Recovery](site-recovery-overview.md).
 
@@ -16,7 +23,7 @@ This article summarizes supported components and settings for disaster recovery 
 - Follow our [tutorials](tutorial-prepare-azure.md) to try out disaster recovery.
 
 > [!NOTE]
-> Site Recovery does not move or store customer data out of the target region, in which disaster recovery has been set up for the source machines. Customers may select a Recovery Services Vault from a different region if they so choose. The Recovery Services Vault contains metadata but no actual customer data.
+> Site Recovery doesn't move or store customer data out of the target region, in which disaster recovery has been set up for the source machines. Customers may select a Recovery Services Vault from a different region if they so choose. The Recovery Services Vault contains metadata but no actual customer data.
 
 ## Deployment scenarios
 
@@ -29,42 +36,35 @@ Disaster recovery of physical servers | Replication of on-premises Windows/Linux
 
 **Server** | **Requirements** | **Details**
 --- | --- | ---
-vCenter Server | Version 7.0 & subsequent updates in this version, 6.7, 6.5, 6.0, or 5.5 | We recommend that you use a vCenter server in your disaster recovery deployment.
-vSphere hosts | Version 7.0 & subsequent updates in this version, 6.7, 6.5, 6.0, or 5.5 | We recommend that vSphere hosts and vCenter servers are located in the same network as the process server. By default the process server runs on the configuration server. [Learn more](vmware-physical-azure-config-process-server-overview.md).
+vCenter Server | Version 8.0 & subsequent updates in this version, Version 7.0, 6.7 or 6.5 | We recommend that you use a vCenter server in your disaster recovery deployment.
+vSphere hosts | Version 8.0 & subsequent updates in this version, Version 7.0, 6.7 or 6.5 | We recommend that vSphere hosts and vCenter servers are located in the same network as the process server. By default the process server runs on the configuration server. [Learn more](vmware-physical-azure-config-process-server-overview.md).
 
-## Site Recovery configuration server
+## Azure Site Recovery replication appliance
 
-The configuration server is an on-premises machine that runs Site Recovery components, including the configuration server, process server, and master target server.
+The replication appliance is an on-premises machine that runs Site Recovery components, including various Site Recovery services that help with discovery of on-premises environment, orchestration of disaster recovery and act as a bridge between on-premises and Azure.
 
-- For VMware VMs, you set the configuration server by downloading an OVF template to create a VMware VM.
-- For physical servers, you set up the configuration server machine manually.
+- For VMware VMs, you can create the replication appliance by downloading an OVF template to create a VMware VM.
+- For physical servers, you can set up the replication appliance manually by running our PowerShell script.
 
 **Component** | **Requirements**
 --- |---
 CPU cores | 8
 RAM | 16 GB
-Number of disks | 3 disks<br/><br/> Disks include the OS disk, process server cache disk, and retention drive for failback.
-Disk free space | 600 GB of space for the process server cache.
-Disk free space | 600 GB  of space for the retention drive.
-Operating system  | Windows Server 2012 R2, or Windows Server 2016 with Desktop experience <br/><br> If you plan to use the in-built Master Target of this appliance for failback, ensure that the OS version is same or higher than the replicated items.|
+Number of disks | 2 disks<br/><br/> Disks include the OS disk and data disk.
+Operating system  | Windows Server 2019 with Desktop experience 
 Operating system locale | English (en-us)
-[PowerCLI](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) | Not needed for configuration server version [9.14](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery) or later.
 Windows Server roles | Don't enable Active Directory Domain Services; Internet Information Services (IIS) or Hyper-V.
-Group policies| - Prevent access to the command prompt. <br/> - Prevent access to registry editing tools. <br/> - Trust logic for file attachments. <br/> - Turn on Script Execution. <br/> - [Learn more](/previous-versions/windows/it-pro/windows-7/gg176671(v=ws.10))|
+Group policies| Don't enable these group policies: <br/> - Prevent access to the command prompt. <br/> - Prevent access to registry editing tools. <br/> - Trust logic for file attachments. <br/> - Turn on Script Execution. <br/> - [Learn more](/previous-versions/windows/it-pro/windows-7/gg176671(v=ws.10))|
 IIS | Make sure you:<br/><br/> - Don't have a pre-existing default website <br/> - Enable  [anonymous authentication](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731244(v=ws.10)) <br/> - Enable [FastCGI](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753077(v=ws.10)) setting  <br/> - Don't have preexisting website/app listening on port 443<br/>
 NIC type | VMXNET3 (when deployed as a VMware VM)
-IP address type | Static
+Fully qualified domain name (FQDN) | Static
 Ports | 443 used for control channel orchestration<br/>9443 for data transport
-IP address | Make sure that configuration server and process server have a static IPv4 address, and doesn't have NAT configured.
+NAT | Supported
 
 > [!NOTE]
 > Operating system has to be installed with English locale. Conversion of locale post installation could result in potential issues.
 
-
-
 ## Replicated machines
-
-In Modernized, replication is done by the Azure Site Recovery replication appliance. For detailed information about replication appliance, see [this article](deploy-vmware-azure-replication-appliance-modernized.md).
 
 Site Recovery supports replication of any workload running on a supported machine.
 
@@ -72,7 +72,11 @@ Site Recovery supports replication of any workload running on a supported machin
 --- | ---
 Machine settings | Machines that replicate to Azure must meet [Azure requirements](#azure-vm-requirements).
 Machine workload | Site Recovery supports replication of any workload running on a supported machine. [Learn more](./site-recovery-workload.md).
-Machine name | Ensure that the display name of machine does not fall into [Azure reserved resource names](../azure-resource-manager/templates/error-reserved-resource-name.md).<br/><br/> Logical volume names are not case-sensitive. Ensure that no two volumes on a device have same name. For example, Volumes with names "voLUME1", "volume1" cannot be protected through Azure Site Recovery.
+Machine name | Ensure that the display name of machine doesn't fall into [Azure reserved resource names](../azure-resource-manager/templates/error-reserved-resource-name.md).<br/><br/> Logical volume names aren't case-sensitive. Ensure that no two volumes on a device have same name. For example, Volumes with names "voLUME1", "volume1" can't be protected through Azure Site Recovery.
+Azure Virtual Machines as Physical | Failover of virtual machines with Marketplace image disks is currently not supported.
+
+>[!NOTE]
+> Different machine with same BIOS ID are not supported. 
 
 ### For Windows
 
@@ -92,82 +96,164 @@ Windows 7 with SP1 64-bit | Supported from [Update rollup 36](https://support.mi
 
 ### For Linux
 
+> [!NOTE]
+> Mobility service versions`9.56` and `9.60` are only available for Modernized experience. <br>
+> Mobility service version `9.58` is not released for VMWare to Azure Site Recovery. <br>
+> Mobility service versions `9.59` is only available for Classic experience.
+
+
 **Operating system** | **Details**
 --- | ---
-Linux | Only 64-bit system is supported. 32-bit system isn't supported.<br/><br/>Every Linux server should have [Linux Integration Services (LIS) components](https://www.microsoft.com/download/details.aspx?id=55106) installed. It is required to boot the server in Azure after test failover/failover. If in-built LIS components are missing, ensure to install the [components](https://www.microsoft.com/download/details.aspx?id=55106) before enabling replication for the machines to boot in Azure. <br/><br/> Site Recovery orchestrates failover to run Linux servers in Azure. However Linux vendors might limit support to only distribution versions that haven't reached end-of-life.<br/><br/> On Linux distributions, only the stock kernels that are part of the distribution minor version release/update are supported.<br/><br/> Upgrading protected machines across major Linux distribution versions isn't supported. To upgrade, disable replication, upgrade the operating system, and then enable replication again.<br/><br/> [Learn more](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) about support for Linux and open-source technology in Azure.<br/><br/> Chained IO is not supported by Site Recovery.
-Linux Red Hat Enterprise | 5.2 to 5.11</b><br/> 6.1 to 6.10</b> </br> 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [7.8](https://support.microsoft.com/help/4564347/), [7.9 Beta version](https://support.microsoft.com/help/4578241/), [7.9](https://support.microsoft.com/help/4590304/) </br> [8.0](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), 8.1, [8.2](https://support.microsoft.com/help/4570609), [8.3](https://support.microsoft.com/help/4597409/), [8.4](https://support.microsoft.com/topic/883a93a7-57df-4b26-a1c4-847efb34a9e8) (4.18.0-305.30.1.el8_4.x86_64 or higher), [8.5](https://support.microsoft.com/topic/883a93a7-57df-4b26-a1c4-847efb34a9e8) (4.18.0-348.5.1.el8_5.x86_64 or higher), [8.6](https://support.microsoft.com/en-us/topic/update-rollup-62-for-azure-site-recovery-e7aff36f-b6ad-4705-901c-f662c00c402b) <br/> Few older kernels on servers running Red Hat Enterprise Linux 5.2-5.11 & 6.1-6.10 do not have [Linux Integration Services (LIS) components](https://www.microsoft.com/download/details.aspx?id=55106) pre-installed. If in-built LIS components are missing, ensure to install the [components](https://www.microsoft.com/download/details.aspx?id=55106) before enabling replication for the machines to boot in Azure. 
-Linux: CentOS | 5.2 to 5.11</b><br/> 6.1 to 6.10</b><br/> </br> 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [7.8](https://support.microsoft.com/help/4564347/), [7.9](https://support.microsoft.com/help/4578241/) </br> [8.0](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), 8.1, [8.2](https://support.microsoft.com/help/4570609), [8.3](https://support.microsoft.com/help/4597409/), 8.4, 8.5, 8.6 <br/><br/> Few older kernels on servers running  CentOS 5.2-5.11 & 6.1-6.10 do not have  [Linux Integration Services (LIS) components](https://www.microsoft.com/download/details.aspx?id=55106) pre-installed. If in-built LIS components are missing, ensure to install the [components](https://www.microsoft.com/download/details.aspx?id=55106) before enabling replication for the machines to boot in Azure. 
-Ubuntu | Ubuntu 14.04* LTS server [(review supported kernel versions)](#ubuntu-kernel-versions)<br/>Ubuntu 16.04* LTS server [(review supported kernel versions)](#ubuntu-kernel-versions) </br> Ubuntu 18.04* LTS server [(review supported kernel versions)](#ubuntu-kernel-versions) </br> Ubuntu 20.04* LTS server [(review supported kernel versions)](#ubuntu-kernel-versions) </br> (*includes support for all 14.04.*x*, 16.04.*x*, 18.04.*x*, 20.04.*x* versions)
-Debian | Debian 7/Debian 8 (includes support for all 7. *x*, 8. *x* versions); Debian 9 (includes support for 9.1 to 9.13. Debian 9.0 is not supported.), Debian 10 [(Review supported kernel versions)](#debian-kernel-versions)
-SUSE Linux | SUSE Linux Enterprise Server 12 SP1, SP2, SP3, SP4, [SP5](https://support.microsoft.com/help/4570609) [(review supported kernel versions)](#suse-linux-enterprise-server-12-supported-kernel-versions) <br/> SUSE Linux Enterprise Server 15, 15 SP1 [(review supported kernel versions)](#suse-linux-enterprise-server-15-supported-kernel-versions) <br/> SUSE Linux Enterprise Server 11 SP3. [Ensure to download latest mobility agent installer on the configuration server](vmware-physical-mobility-service-overview.md#download-latest-mobility-agent-installer-for-suse-11-sp3-suse-11-sp4-rhel-5-cent-os-5-debian-7-debian-8-oracle-linux-6-and-ubuntu-1404-server). </br> SUSE Linux Enterprise Server 11 SP4 </br> **Note**: Upgrading replicated machines from SUSE Linux Enterprise Server 11 SP3 to SP4 is not supported. To upgrade, disable replication and re-enable after the upgrade. <br/>|
-Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), [7.8](https://support.microsoft.com/help/4573888/), [7.9](https://support.microsoft.com/help/4597409/), [8.0](https://support.microsoft.com/help/4573888/), [8.1](https://support.microsoft.com/help/4573888/), [8.2](https://support.microsoft.com/topic/b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8), [8.3](https://support.microsoft.com/topic/b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8), [8.4](https://support.microsoft.com/topic/update-rollup-59-for-azure-site-recovery-kb5008707-66a65377-862b-4a4c-9882-fd74bdc7a81e), 8.5 <br/><br/> Running the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3, 4 & 5 (UEK3, UEK4, UEK5)<br/><br/>8.1<br/>Running on all UEK kernels and RedHat kernel <= 3.10.0-1062.* are supported in [9.35](https://support.microsoft.com/help/4573888/) Support for rest of the RedHat kernels is available in [9.36](https://support.microsoft.com/help/4578241/)
+Linux | Only 64-bit system is supported. 32-bit system isn't supported.<br/><br/>Every Linux server should have [Linux Integration Services (LIS) components](https://www.microsoft.com/download/details.aspx?id=55106) installed. It is required to boot the server in Azure after test failover/failover. If in-built LIS components are missing, ensure to install the [components](https://www.microsoft.com/download/details.aspx?id=55106) before enabling replication for the machines to boot in Azure. <br/><br/> Site Recovery orchestrates failover to run Linux servers in Azure. However Linux vendors might limit support to only distribution versions that haven't reached end-of-life.<br/><br/> On Linux distributions, only the stock kernels that are part of the distribution minor version release/update are supported.<br/><br/> Upgrading protected machines across major Linux distribution versions isn't supported. To upgrade, disable replication, upgrade the operating system, and then enable replication again.<br/><br/> [Learn more](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) about support for Linux and open-source technology in Azure.<br/><br/> Chained IO isn't supported by Site Recovery.
+Linux Red Hat Enterprise | 5.2 to 5.11</b><br/> 6.1 to 6.10</b> </br> 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [7.8](https://support.microsoft.com/help/4564347/), [7.9 Beta version](https://support.microsoft.com/help/4578241/), [7.9](https://support.microsoft.com/help/4590304/) </br> [8.0](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), 8.1, [8.2](https://support.microsoft.com/help/4570609), [8.3](https://support.microsoft.com/help/4597409/), [8.4](https://support.microsoft.com/topic/883a93a7-57df-4b26-a1c4-847efb34a9e8) (4.18.0-305.30.1.el8_4.x86_64 or higher), [8.5](https://support.microsoft.com/topic/883a93a7-57df-4b26-a1c4-847efb34a9e8) (4.18.0-348.5.1.el8_5.x86_64 or higher), [8.6](https://support.microsoft.com/topic/update-rollup-62-for-azure-site-recovery-e7aff36f-b6ad-4705-901c-f662c00c402b), 8.7, 8.8, 8.9, 8.10, 9.0, 9.1, 9.2, 9.3, 9.4  <br/> Few older kernels on servers running Red Hat Enterprise Linux 5.2-5.11 & 6.1-6.10 don't have [Linux Integration Services (LIS) components](https://www.microsoft.com/download/details.aspx?id=55106) pre-installed. If in-built LIS components are missing, ensure to install the [components](https://www.microsoft.com/download/details.aspx?id=55106) before enabling replication for the machines to boot in Azure.  <br> <br> **Notes**: <br> - Support for Linux Red Hat Enterprise versions `8.9`, `8.10`, `9.0`, `9.1`, `9.2`, `9.3` and `9.4` is only available for Modernized experience and isn't available for Classic experience. <br> - RHEL `9.x` is supported for [the following kernel versions](#supported-kernel-versions-for-red-hat-enterprise-linux-for-azure-virtual-machines) |
+Linux: CentOS | 5.2 to 5.11</b><br/> 6.1 to 6.10</b><br/> </br> 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [7.8](https://support.microsoft.com/help/4564347/), [7.9](https://support.microsoft.com/help/4578241/) </br> [8.0](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), 8.1, [8.2](https://support.microsoft.com/help/4570609), [8.3](https://support.microsoft.com/help/4597409/),  [8.4](https://support.microsoft.com/topic/883a93a7-57df-4b26-a1c4-847efb34a9e8) (4.18.0-305.30.1.el8_4.x86_64 or later), [8.5](https://support.microsoft.com/topic/883a93a7-57df-4b26-a1c4-847efb34a9e8) (4.18.0-348.5.1.el8_5.x86_64 or later), 8.6, 8.7 <br/><br/> Few older kernels on servers running  CentOS 5.2-5.11 & 6.1-6.10 don't have  [Linux Integration Services (LIS) components](https://www.microsoft.com/download/details.aspx?id=55106) pre-installed. If in-built LIS components are missing, ensure to install the [components](https://www.microsoft.com/download/details.aspx?id=55106) before enabling replication for the machines to boot in Azure.   
+Ubuntu | Ubuntu 14.04* LTS server [(review supported kernel versions)](#ubuntu-kernel-versions)<br/>Ubuntu 16.04* LTS server [(review supported kernel versions)](#ubuntu-kernel-versions) </br> Ubuntu 18.04* LTS server [(review supported kernel versions)](#ubuntu-kernel-versions) </br> Ubuntu 20.04* LTS server [(review supported kernel versions)](#ubuntu-kernel-versions) <br> Ubuntu 22.04* LTS server [(review supported kernel versions)](#ubuntu-kernel-versions) <br> **Note**: Support for Ubuntu 22.04 is available for Modernized experience only and not available for Classic experience yet. </br> (*includes support for all 14.04.*x*, 16.04.*x*, 18.04.*x*, 20.04.*x* versions)  
+Debian | Debian 7/Debian 8 (includes support for all 7. *x*, 8. *x* versions). [Ensure to download latest mobility agent installer on the configuration server](vmware-physical-mobility-service-overview.md#download-latest-mobility-agent-installer-for-suse-11-sp3-suse-11-sp4-rhel-5-cent-os-5-debian-7-debian-8-debian-9-oracle-linux-6-and-ubuntu-1404-server). <br/> Debian 9 (includes support for 9.1 to 9.13. Debian 9.0 isn't supported.). [Ensure to download latest mobility agent installer on the configuration server](vmware-physical-mobility-service-overview.md#download-latest-mobility-agent-installer-for-suse-11-sp3-suse-11-sp4-rhel-5-cent-os-5-debian-7-debian-8-debian-9-oracle-linux-6-and-ubuntu-1404-server). <br/> Debian 10, Debian 11, Debian 12 [(Review supported kernel versions)](#debian-kernel-versions).
+SUSE Linux | SUSE Linux Enterprise Server 12 SP1, SP2, SP3, SP4, [SP5](https://support.microsoft.com/help/4570609) [(review supported kernel versions)](#suse-linux-enterprise-server-12-supported-kernel-versions) <br/> SUSE Linux Enterprise Server 15, 15 SP1, SP2, SP3, SP4, SP5 [(review supported kernel versions)](#suse-linux-enterprise-server-15-supported-kernel-versions) <br/> SUSE Linux Enterprise Server 11 SP3. [Ensure to download latest mobility agent installer on the configuration server](vmware-physical-mobility-service-overview.md#download-latest-mobility-agent-installer-for-suse-11-sp3-suse-11-sp4-rhel-5-cent-os-5-debian-7-debian-8-debian-9-oracle-linux-6-and-ubuntu-1404-server). </br> SUSE Linux Enterprise Server 11 SP4 </br> **Note**: Upgrading replicated machines from SUSE Linux Enterprise Server 11 SP3 to SP4 isn't supported. To upgrade, disable replication and re-enable after the upgrade. <br/> Support for SUSE Linux Enterprise Server 15 SP5 is available for Modernized experience only.| 
+Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), [7.8](https://support.microsoft.com/help/4573888/), [7.9](https://support.microsoft.com/help/4597409/), [8.0](https://support.microsoft.com/help/4573888/), [8.1](https://support.microsoft.com/help/4573888/), [8.2](https://support.microsoft.com/topic/b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8), [8.3](https://support.microsoft.com/topic/b19c8190-5f88-43ea-85b1-d9e0cc5ca7e8), [8.4](https://support.microsoft.com/topic/update-rollup-59-for-azure-site-recovery-kb5008707-66a65377-862b-4a4c-9882-fd74bdc7a81e), 8.5, 8.6, 8.7, 8.8, 8.9, 9.0, 9.1, 9.2, and 9.3   <br/><br/> **Notes:** <br> - Support for Oracle Linux `8.9`, `9.0`, `9.1`, `9.2`, and `9.3` is only available for Modernized experience and isn't available for Classic experience. <br><br> Running the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3, 4 & 5 (UEK3, UEK4, UEK5)<br/><br/>8.1<br/>Running on all UEK kernels and RedHat kernel <= 3.10.0-1062.* are supported in [9.35](https://support.microsoft.com/help/4573888/) Support for rest of the RedHat kernels is available in [9.36](https://support.microsoft.com/help/4578241/). <br> Oracle Linux `9.x` is supported for the [following kernel versions](#supported-red-hat-linux-kernel-versions-for-oracle-linux-on-azure-virtual-machines) |
+Rocky Linux | [See supported versions](#rocky-linux-server-supported-kernel-versions).
 
-> [!Note]
->- For each of the Windows versions, Azure Site Recovery only supports [Long-Term Servicing Channel (LTSC)](/windows-server/get-started/servicing-channels-comparison#long-term-servicing-channel-ltsc) builds.  [Semi-Annual Channel](/windows-server/get-started/servicing-channels-comparison#semi-annual-channel) releases are currently unsupported at this time.
->- Please ensure that for Linux versions, Azure Site Recovery does not support customized OS images. Only the stock kernels that are part of the distribution minor version release/update are supported.
+> [!NOTE]
+>- For each of the Windows versions, Azure Site Recovery only supports [Long-Term Servicing Channel (LTSC)](/windows-server/get-started/servicing-channels-comparison#long-term-servicing-channel-ltsc) builds. [Semi-Annual Channel](/windows-server/get-started/servicing-channels-comparison#semi-annual-channel) releases are currently unsupported at this time.
+>- Ensure that for Linux versions, Azure Site Recovery doesn't support customized OS images. Only the stock kernels that are part of the distribution minor version release/update are supported.
+
+
+#### Supported kernel versions for Red Hat Enterprise Linux for Azure virtual machines 
+
+**Release** | **Mobility service version** | **Red Hat kernel version** |
+--- | --- | --- |
+RHEL 9.0 <br> RHEL 9.1 <br> RHEL 9.2 <br> RHEL 9.3 <br> RHEL 9.4 | 9.62 | 5.14.0-70.97.1.el9_0.x86_64 <br>  5.14.0-70.101.1.el9_0.x86_64 <br>  5.14.0-284.62.1.el9_2.x86_64 <br>  5.14.0-284.64.1.el9_2.x86_64 <br>  5.14.0-284.66.1.el9_2.x86_64 <br> 5.14.0-284.67.1.el9_2.x86_64  <br> 5.14.0-284.69.1.el9_2.x86_64  <br> 5.14.0-284.71.1.el9_2.x86_64 <br> 5.14.0-427.13.1.el9_4.x86_64 <br> 5.14.0-427.16.1.el9_4.x86_64 <br> 5.14.0-427.18.1.el9_4.x86_64 <br> 5.14.0-427.20.1.el9_4.x86_64 <br> 5.14.0-427.22.1.el9_4.x86_64 | 
+RHEL 9.0 <br> RHEL 9.1 <br> RHEL 9.2 <br> RHEL 9.3 | 9.61 | 5.14.0-70.93.2.el9_0.x86_64 <br> 5.14.0-284.54.1.el9_2.x86_64 <br> 5.14.0-284.57.1.el9_2.x86_64 <br> 5.14.0-284.59.1.el9_2.x86_64 <br>5.14.0-362.24.1.el9_3.x86_64| 
+RHEL 9.0 <br> RHEL 9.1 <br> RHEL 9.2 <br> RHEL 9.3  | 9.60 | 5.14.0-70.13.1.el9_0.x86_64 <br> 5.14.0-70.17.1.el9_0.x86_64 <br> 5.14.0-70.22.1.el9_0.x86_64 <br> 5.14.0-70.26.1.el9_0.x86_64 <br> 5.14.0-70.30.1.el9_0.x86_64 <br> 5.14.0-70.36.1.el9_0.x86_64 <br> 5.14.0-70.43.1.el9_0.x86_64 <br> 5.14.0-70.49.1.el9_0.x86_64 <br> 5.14.0-70.50.2.el9_0.x86_64 <br> 5.14.0-70.53.1.el9_0.x86_64 <br> 5.14.0-70.58.1.el9_0.x86_64 <br> 5.14.0-70.64.1.el9_0.x86_64 <br> 5.14.0-70.70.1.el9_0.x86_64 <br> 5.14.0-70.75.1.el9_0.x86_64 <br> 5.14.0-70.80.1.el9_0.x86_64 <br> 5.14.0-70.85.1.el9_0.x86_64 <br> 5.14.0-162.6.1.el9_1.x86_64  <br> 5.14.0-162.12.1.el9_1.x86_64 <br> 5.14.0-162.18.1.el9_1.x86_64 <br> 5.14.0-162.22.2.el9_1.x86_64 <br> 5.14.0-162.23.1.el9_1.x86_64 <br> 5.14.0-284.11.1.el9_2.x86_64 <br> 5.14.0-284.13.1.el9_2.x86_64 <br> 5.14.0-284.16.1.el9_2.x86_64 <br> 5.14.0-284.18.1.el9_2.x86_64 <br> 5.14.0-284.23.1.el9_2.x86_64 <br> 5.14.0-284.25.1.el9_2.x86_64 <br> 5.14.0-284.28.1.el9_2.x86_64 <br> 5.14.0-284.30.1.el9_2.x86_64 <br> 5.14.0-284.32.1.el9_2.x86_64 <br> 5.14.0-284.34.1.el9_2.x86_64 <br> 5.14.0-284.36.1.el9_2.x86_64 <br> 5.14.0-284.40.1.el9_2.x86_64 <br> 5.14.0-284.41.1.el9_2.x86_64 <br>5.14.0-284.43.1.el9_2.x86_64 <br>5.14.0-284.44.1.el9_2.x86_64 <br> 5.14.0-284.45.1.el9_2.x86_64 <br>5.14.0-284.48.1.el9_2.x86_64 <br>5.14.0-284.50.1.el9_2.x86_64 <br> 5.14.0-284.52.1.el9_2.x86_64 <br>5.14.0-362.8.1.el9_3.x86_64 <br>5.14.0-362.13.1.el9_3.x86_64 <br> 5.14.0-362.18.1.el9_3.x86_64 |
 
 ### Ubuntu kernel versions
 
+> [!NOTE]
+> Mobility service versions`9.56` `9,60`, and `9.62` are only available for Modernized experience. <br>
+> Mobility service version `9.58` is not released for VMWare to Azure Site Recovery. <br>
+> Mobility service versions `9.59` is only available for Classic experience.
+
 **Supported release** | **Mobility service version** | **Kernel version** |
 --- | --- | --- |
-14.04 LTS | [9.46](https://support.microsoft.com/topic/update-rollup-59-for-azure-site-recovery-kb5008707-66a65377-862b-4a4c-9882-fd74bdc7a81e), [9.47](https://support.microsoft.com/topic/883a93a7-57df-4b26-a1c4-847efb34a9e8), [9.48](https://support.microsoft.com/topic/update-rollup-61-for-azure-site-recovery-kb5012960-a1cc029b-03ad-446f-9365-a00b41025d39), [9.49](https://support.microsoft.com/en-us/topic/update-rollup-62-for-azure-site-recovery-e7aff36f-b6ad-4705-901c-f662c00c402b), [9.50](https://support.microsoft.com/en-us/topic/update-rollup-63-for-azure-site-recovery-kb5017421-992e63af-aa94-4ea6-8d1b-2dd89a9cc70b) | 3.13.0-24-generic to 3.13.0-170-generic,<br/>3.16.0-25-generic to 3.16.0-77-generic,<br/>3.19.0-18-generic to 3.19.0-80-generic,<br/>4.2.0-18-generic to 4.2.0-42-generic,<br/>4.4.0-21-generic to 4.4.0-148-generic,<br/>4.15.0-1023-azure to 4.15.0-1045-azure |
+14.04 LTS | [9.56](https://support.microsoft.com/topic/update-rollup-69-for-azure-site-recovery-kb5033791-a41c2400-0079-4f93-b4a4-366660d0a30d), [9.57](https://support.microsoft.com/topic/update-rollup-70-for-azure-site-recovery-kb5034599-e94901f6-7624-4bb4-8d43-12483d2e1d50), 9.59, 9.60, [9.61](https://support.microsoft.com/topic/update-rollup-73-for-azure-site-recovery-d3845f1e-2454-4ae8-b058-c1fec6206698), 9.62 | 3.13.0-24-generic to 3.13.0-170-generic,<br/>3.16.0-25-generic to 3.16.0-77-generic,<br/>3.19.0-18-generic to 3.19.0-80-generic,<br/>4.2.0-18-generic to 4.2.0-42-generic,<br/>4.4.0-21-generic to 4.4.0-148-generic,<br/>4.15.0-1023-azure to 4.15.0-1045-azure |
 |||
-16.04 LTS |[9.46](https://support.microsoft.com/topic/update-rollup-59-for-azure-site-recovery-kb5008707-66a65377-862b-4a4c-9882-fd74bdc7a81e), [9.47](https://support.microsoft.com/topic/883a93a7-57df-4b26-a1c4-847efb34a9e8), [9.48](https://support.microsoft.com/topic/update-rollup-61-for-azure-site-recovery-kb5012960-a1cc029b-03ad-446f-9365-a00b41025d39), [9.49](https://support.microsoft.com/en-us/topic/update-rollup-62-for-azure-site-recovery-e7aff36f-b6ad-4705-901c-f662c00c402b), [9.50](https://support.microsoft.com/en-us/topic/update-rollup-63-for-azure-site-recovery-kb5017421-992e63af-aa94-4ea6-8d1b-2dd89a9cc70b) | 4.4.0-21-generic to 4.4.0-210-generic,<br/>4.8.0-34-generic to 4.8.0-58-generic,<br/>4.10.0-14-generic to 4.10.0-42-generic,<br/>4.11.0-13-generic, 4.11.0-14-generic,<br/>4.13.0-16-generic to 4.13.0-45-generic,<br/>4.15.0-13-generic to 4.15.0-142-generic<br/>4.11.0-1009-azure to 4.11.0-1016-azure,<br/>4.13.0-1005-azure to 4.13.0-1018-azure <br/>4.15.0-1012-azure to 4.15.0-1113-azure </br> 4.15.0-101-generic to 4.15.0-107-generic |
+16.04 LTS | [9.56](https://support.microsoft.com/topic/update-rollup-69-for-azure-site-recovery-kb5033791-a41c2400-0079-4f93-b4a4-366660d0a30d) [9.57](https://support.microsoft.com/topic/e94901f6-7624-4bb4-8d43-12483d2e1d50), 9.59, 9.60, [9.61](https://support.microsoft.com/topic/update-rollup-73-for-azure-site-recovery-d3845f1e-2454-4ae8-b058-c1fec6206698), 9.62 | 4.4.0-21-generic to 4.4.0-210-generic,<br/>4.8.0-34-generic to 4.8.0-58-generic,<br/>4.10.0-14-generic to 4.10.0-42-generic,<br/>4.11.0-13-generic, 4.11.0-14-generic,<br/>4.13.0-16-generic to 4.13.0-45-generic,<br/>4.15.0-13-generic to 4.15.0-142-generic<br/>4.11.0-1009-azure to 4.11.0-1016-azure<br/>4.13.0-1005-azure to 4.13.0-1018-azure <br/>4.15.0-1012-azure to 4.15.0-1113-azure </br> 4.15.0-101-generic to 4.15.0-107-generic |
 |||
-18.04 |[9.50](https://support.microsoft.com/en-us/topic/update-rollup-63-for-azure-site-recovery-kb5017421-992e63af-aa94-4ea6-8d1b-2dd89a9cc70b) | 4.15.0-1146-azure </br> 4.15.0-189-generic </br> 5.4.0-1086-azure </br> 5.4.0-122-generic </br>
-18.04 LTS |[9.49](https://support.microsoft.com/en-us/topic/update-rollup-62-for-azure-site-recovery-e7aff36f-b6ad-4705-901c-f662c00c402b) | 4.15.0-1139-azure </br> 4.15.0-1142-azure </br> 4.15.0-1145-azure </br> 4.15.0-180-generic </br> 4.15.0-184-generic </br> 4.15.0-187-generic </br> 4.15.0-188-generic </br> 5.4.0-1080-azure </br> 5.4.0-1083-azure </br> 5.4.0-1085-azure </br> 5.4.0-113-generic </br> 5.4.0-117-generic </br> 5.4.0-120-generic </br> 5.4.0-121-generic </br>
-18.04 LTS |[9.48](https://support.microsoft.com/en-us/topic/update-rollup-61-for-azure-site-recovery-kb5012960-a1cc029b-03ad-446f-9365-a00b41025d39) | 4.15.0-1009-azure to 4.15.0-1138-azure </br> 4.15.0-101-generic to 4.15.0-177-generic </br> 4.18.0-1006-azure to 4.18.0-1025-azure </br> 4.18.0-13-generic to 4.18.0-25-generic </br> 5.0.0-1012-azure to 5.0.0-1036-azure </br> 5.0.0-15-generic to 5.0.0-65-generic </br> 5.3.0-1007-azure to 5.3.0-1035-azure </br> 5.3.0-19-generic to 5.3.0-76-generic </br> 5.4.0-1020-azure to 5.4.0-1078-azure </br> 5.4.0-37-generic to 5.4.0-110-generic |
-18.04 LTS |[9.47](https://support.microsoft.com/topic/update-rollup-60-for-azure-site-recovery-k5011122-883a93a7-57df-4b26-a1c4-847efb34a9e8) | 4.15.0-1126-azure </br> 4.15.0-1127-azure </br> 4.15.0-1129-azure </br> 4.15.0-162-generic </br> 4.15.0-163-generic </br> 4.15.0-166-generic </br> 5.4.0-1063-azure </br> 5.4.0-1064-azure </br> 5.4.0-1065-azure </br> 5.4.0-90-generic </br> 5.4.0-91-generic </br> 5.4.0-92-generic |
-18.04 LTS |[9.46](https://support.microsoft.com/topic/update-rollup-59-for-azure-site-recovery-kb5008707-66a65377-862b-4a4c-9882-fd74bdc7a81e) | 4.15.0-1123-azure </br> 4.15.0-1124-azure </br> 4.15.0-1125-azure</br> 4.15.0-156-generic </br> 4.15.0-158-generic </br> 4.15.0-159-generic </br> 4.15.0-161-generic </br> 5.4.0-1058-azure </br>  5.4.0-1059-azure </br> 5.4.0-1061-azure </br> 5.4.0-1062-azure </br> 5.4.0-84-generic </br> 5.4.0-86-generic </br> 5.4.0-87-generic </br>  5.4.0-89-generic |
+18.04 LTS | 9.62 | No new Ubuntu 18.04 kernels support added for Modernized experience.|
+18.04 LTS | [9.61](https://support.microsoft.com/topic/update-rollup-73-for-azure-site-recovery-d3845f1e-2454-4ae8-b058-c1fec6206698) | **Ubuntu 18.04 kernels support added for Modernized experience:** <br> 5.4.0-173-generic <br> 4.15.0-1175-azure <br> 4.15.0-223-generic <br> 5.4.0-1126-azure <br> 5.4.0-174-generic <br> 4.15.0-1176-azure <br> 4.15.0-224-generic <br> 5.4.0-1127-azure <br> 5.4.0-1128-azure <br> 5.4.0-175-generic <br> 5.4.0-177-generic <br> 4.15.0-1177-azure <br> 4.15.0-225-generic <br> 5.4.0-1129-azure <br> 5.4.0-1130-azure <br> 5.4.0-181-generic <br> 5.4.0-182-generic <br><br> **Ubuntu 18.04 kernels support added for Classic experience:** <br> 4.15.0-1168-azure <br> 4.15.0-1169-azure <br> 4.15.0-1170-azure <br> 4.15.0-1171-azure <br> 4.15.0-1172-azure <br> 4.15.0-1173-azure <br> 4.15.0-1174-azure <br> 4.15.0-214-generic <br> 4.15.0-216-generic <br> 4.15.0-218-generic <br> 4.15.0-219-generic <br> 4.15.0-220-generic <br> 4.15.0-221-generic <br> 4.15.0-222-generic <br> 5.4.0-1110-azure <br> 5.4.0-1111-azure <br> 5.4.0-1112-azure <br> 5.4.0-1113-azure <br> 5.4.0-1115-azure <br> 5.4.0-1116-azure <br> 5.4.0-1117-azure <br> 5.4.0-1118-azure <br> 5.4.0-1119-azure <br> 5.4.0-1120-azure <br> 5.4.0-1121-azure <br> 5.4.0-1122-azure <br> 5.4.0-1123-azure <br> 5.4.0-1124-azure <br> 5.4.0-152-generic <br> 5.4.0-153-generic <br> 5.4.0-155-generic <br> 5.4.0-156-generic <br> 5.4.0-159-generic <br> 5.4.0-162-generic <br> 5.4.0-163-generic <br> 5.4.0-164-generic <br> 5.4.0-165-generic <br> 5.4.0-166-generic <br> 5.4.0-167-generic <br> 5.4.0-169-generic <br> 5.4.0-170-generic <br> 5.4.0-171-generic <br> 5.4.0-172-generic <br> 5.4.0-173-generic |
+18.04 LTS | [9.60]() | 4.15.0-1168-azure <br> 4.15.0-1169-azure <br> 4.15.0-1170-azure <br> 4.15.0-1171-azure <br> 4.15.0-1172-azure <br> 4.15.0-1173-azure <br> 4.15.0-214-generic <br> 4.15.0-216-generic <br> 4.15.0-218-generic <br> 4.15.0-219-generic <br> 4.15.0-220-generic <br> 4.15.0-221-generic <br> 5.4.0-1110-azure <br> 5.4.0-1111-azure <br> 5.4.0-1112-azure <br> 5.4.0-1113-azure <br> 5.4.0-1115-azure <br> 5.4.0-1116-azure <br> 5.4.0-1117-azure <br> 5.4.0-1118-azure <br> 5.4.0-1119-azure <br> 5.4.0-1120-azure <br> 5.4.0-1121-azure <br> 5.4.0-1122-azure <br> 5.4.0-1123-azure <br> 5.4.0-152-generic <br> 5.4.0-153-generic <br> 5.4.0-155-generic <br> 5.4.0-156-generic <br> 5.4.0-159-generic <br> 5.4.0-162-generic <br> 5.4.0-163-generic <br> 5.4.0-164-generic <br> 5.4.0-165-generic <br> 5.4.0-166-generic <br> 5.4.0-167-generic <br> 5.4.0-169-generic <br> 5.4.0-170-generic <br> 5.4.0-171-generic <br> 4.15.0-1174-azure <br> 4.15.0-222-generic <br> 5.4.0-1124-azure <br> 5.4.0-172-generic |
+18.04 LTS | 9.59 | No new Ubuntu 18.04 kernels supported in this release. |
+18.04 LTS | [9.57](https://support.microsoft.com/topic/e94901f6-7624-4bb4-8d43-12483d2e1d50) | No new Ubuntu 18.04 kernels supported in this release|
+18.04 LTS | [9.56](https://support.microsoft.com/topic/update-rollup-69-for-azure-site-recovery-kb5033791-a41c2400-0079-4f93-b4a4-366660d0a30d) | No new Ubuntu 18.04 kernels supported in this release|
 |||
-20.04 LTS|[9.50](https://support.microsoft.com/en-us/topic/update-rollup-63-for-azure-site-recovery-kb5017421-992e63af-aa94-4ea6-8d1b-2dd89a9cc70b) | 5.4.0-1080-azure </br> 5.4.0-1083-azure </br> 5.4.0-1085-azure </br> 5.4.0-1086-azure </br> 5.4.0-113-generic </br> 5.4.0-117-generic </br> 5.4.0-120-generic </br> 5.4.0-121-generic </br> 5.4.0-122-generic |
-20.04 LTS |[9.49](https://support.microsoft.com/en-us/topic/update-rollup-62-for-azure-site-recovery-e7aff36f-b6ad-4705-901c-f662c00c402b) | No new 20.04 LTS kernels supported in this release |
-20.04 LTS |[9.48](https://support.microsoft.com/topic/update-rollup-61-for-azure-site-recovery-kb5012960-a1cc029b-03ad-446f-9365-a00b41025d39) | 5.4.0-26-generic to 5.4.0-110-generic </br> 5.4.0-1010-azure to 5.4.0-1078-azure </br> 5.8.0-1033-azure to 5.8.0-1043-azure </br> 5.8.0-23-generic to 5.8.0-63-generic </br> 5.11.0-22-generic to 5.11.0-46-generic </br> 5.11.0-1007-azure to 5.11.0-1028-azure |
-20.04 LTS |[9.47](https://support.microsoft.com/topic/update-rollup-60-for-azure-site-recovery-k5011122-883a93a7-57df-4b26-a1c4-847efb34a9e8) | 5.4.0-1063-azure </br> 5.4.0-1064-azure </br> 5.4.0-1065-azure </br> 5.4.0-90-generic </br> 5.4.0-91-generic </br> 5.4.0-92-generic |
-20.04 LTS |[9.46](https://support.microsoft.com/topic/update-rollup-59-for-azure-site-recovery-kb5008707-66a65377-862b-4a4c-9882-fd74bdc7a81e) | 5.4.0-1058-azure </br> 5.4.0-1059-azure </br> 5.4.0-1061-azure </br> 5.4.0-1062-azure </br> 5.4.0-84-generic </br> 5.4.0-86-generic </br> 5.4.0-88-generic </br> 5.4.0-89-generic  |
+20.04 LTS | 9.62 |No new Ubuntu 20.04 kernels support added for Modernized experience. |
+20.04 LTS | [9.61](https://support.microsoft.com/topic/update-rollup-73-for-azure-site-recovery-d3845f1e-2454-4ae8-b058-c1fec6206698) | **Ubuntu 20.04 kernels support added for Modernized experience**: <br> 5.15.0-100-generic <br> 5.15.0-1058-azure <br> 5.4.0-173-generic <br> 5.4.0-1126-azure <br> 5.4.0-174-generic <br> 5.15.0-101-generic <br>5.15.0-1059-azure <br> 5.15.0-102-generic <br> 5.15.0-105-generic <br> 5.15.0-1060-azure <br> 5.15.0-1061-azure <br> 5.4.0-1127-azure <br> 5.4.0-1128-azure <br> 5.4.0-176-generic <br> 5.4.0-177-generic <br> 5.15.0-106-generic <br> 5.15.0-1063-azure<br> 5.15.0-1064-azure<br> 5.15.0-107-generic<br> 5.4.0-1129-azure<br> 5.4.0-1130-azure<br> 5.4.0-181-generic<br> 5.4.0-182-generic <br><br> **Ubuntu 20.04 kernels support added for Classic experience:** <br> 5.15.0-100-generic <br> 5.15.0-1054-azure <br> 5.15.0-1056-azure <br> 5.15.0-1057-azure <br> 5.15.0-1058-azure <br> 5.15.0-92-generic <br> 5.15.0-94-generic <br> 5.15.0-97-generic <br> 5.4.0-1122-azure <br> 5.4.0-1123-azure <br> 5.4.0-1124-azure <br> 5.4.0-170-generic <br> 5.4.0-171-generic <br> 5.4.0-172-generic <br> 5.4.0-173-generic |
+20.04 LTS | [9.60]() | 5.15.0-1054-azure <br> 5.15.0-92-generic <br> 5.15.0-94-generic <br> 5.4.0-1122-azure <br>5.4.0-1123-azure <br> 5.4.0-170-generic <br> 5.4.0-171-generic <br> 5.15.0-1056-azure <br> 5.15.0-1057-azure <br> 5.15.0-97-generic <br> 5.4.0-1124-azure <br> 5.4.0-172-generic  |
+20.04 LTS | 9.59 | No new Ubuntu 20.04 kernels supported in this release. |
+20.04 LTS |[9.57](https://support.microsoft.com/topic/e94901f6-7624-4bb4-8d43-12483d2e1d50) | 5.15.0-89-generic <br> 5.15.0-91-generic <br> 5.4.0-167-generic <br> 5.4.0-169-generic |
+20.04 LTS |[9.56](https://support.microsoft.com/topic/update-rollup-69-for-azure-site-recovery-kb5033791-a41c2400-0079-4f93-b4a4-366660d0a30d) | 5.15.0-1049-azure <br> 5.15.0-1050-azure <br> 5.15.0-1051-azure <br> 5.15.0-86-generic <br> 5.15.0-87-generic <br> 5.15.0-88-generic <br> 5.4.0-1117-azure <br> 5.4.0-1118-azure <br> 5.4.0-1119-azure <br> 5.4.0-164-generic <br> 5.4.0-165-generic <br> 5.4.0-166-generic |
+|||
+22.04 LTS <br> **Note**: Support for Ubuntu 22.04 is available for Modernized experience only and not available for Classic experience yet. | [9.61](https://support.microsoft.com/topic/update-rollup-73-for-azure-site-recovery-d3845f1e-2454-4ae8-b058-c1fec6206698) | 5.15.0-100-generic <br> 5.15.0-1058-azure <br> 6.5.0-1016-azure <br> 6.5.0-25-generic <br> 5.15.0-101-generic <br> 5.15.0-1059-azure <br> 6.5.0-1017-azure <br> 6.5.0-26-generic <br> 5.15.0-102-generic <br> 5.15.0-105-generic <br> 5.15.0-1060-azure <br> 5.15.0-1061-azure <br> 6.5.0-1018-azure <br> 6.5.0-1019-azure <br> 6.5.0-27-generic <br> 6.5.0-28-generic<br> 5.15.0-106-generic <br> 5.15.0-1063-azure<br>5.15.0-1064-azure<br> 5.15.0-107-generic<br> 6.5.0-1021-azure<br> 6.5.0-35-generic|                           
+22.04 LTS <br> **Note**: Support for Ubuntu 22.04 is available for Modernized experience only and not available for Classic experience yet. | [9.60]() | 5.19.0-1025-azure <br> 5.19.0-1026-azure <br> 5.19.0-1027-azure <br> 6.2.0-1005-azure <br> 6.2.0-1006-azure <br> 6.2.0-1007-azure <br> 6.2.0-1008-azure <br> 6.2.0-1011-azure <br> 6.2.0-1012-azure <br> 6.2.0-1014-azure <br> 6.2.0-1015-azure <br> 6.2.0-1016-azure <br> 6.2.0-1017-azure <br> 6.2.0-1018-azure <br> 6.5.0-1007-azure <br> 6.5.0-1009-azure <br> 6.5.0-1010-azure <br> 5.19.0-41-generic <br> 5.19.0-42-generic <br> 5.19.0-43-generic <br> 5.19.0-45-generic <br> 5.19.0-46-generic <br> 5.19.0-50-generic <br> 6.2.0-25-generic <br> 6.2.0-26-generic <br> 6.2.0-31-generic <br> 6.2.0-32-generic <br> 6.2.0-33-generic <br> 6.2.0-34-generic <br> 6.2.0-35-generic <br> 6.2.0-36-generic <br> 6.2.0-37-generic <br> 6.2.0-39-generic <br> 6.5.0-14-generic <br> 5.15.0-1054-azure <br> 5.15.0-92-generic <br> 5.15.0-94-generic <br> 6.2.0-1019-azure <br> 6.5.0-1011-azure <br> 6.5.0-15-generic <br> 6.5.0-17-generic <br> 5.15.0-1056-azure <br>5.15.0-1057-azure <br> 5.15.0-97-generic <br>6.5.0-1015-azure <br>6.5.0-18-generic <br>6.5.0-21-generic  |
+22.04 LTS <br> **Note**: Support for Ubuntu 22.04 is available for Modernized experience only and not available for Classic experience yet.| [9.57](https://support.microsoft.com/topic/e94901f6-7624-4bb4-8d43-12483d2e1d50) | 5.15.0-76-generic <br> 5.15.0-89-generic <br> 5.15.0-91-generic |
+22.04 LTS <br> **Note**: Support for Ubuntu 22.04 is available for Modernized experience only and not available for Classic experience yet. |[9.56](https://support.microsoft.com/topic/update-rollup-69-for-azure-site-recovery-kb5033791-a41c2400-0079-4f93-b4a4-366660d0a30d) | 5.15.0-1049-azure <br> 5.15.0-1050-azure <br> 5.15.0-1051-azure <br> 5.15.0-86-generic <br> 5.15.0-87-generic <br> 5.15.0-88-generic |
 
 
 ### Debian kernel versions
 
+> [!NOTE]
+> Mobility service versions`9.56` `9,60`, and `9.62` are only available for Modernized experience. <br>
+> Mobility service version `9.58` is not released for VMWare to Azure Site Recovery. <br>
+> Mobility service versions `9.59` is only available for Classic experience. 
 
 **Supported release** | **Mobility service version** | **Kernel version** |
 --- | --- | --- |
-Debian 7 | [9.46](https://support.microsoft.com/topic/update-rollup-59-for-azure-site-recovery-kb5008707-66a65377-862b-4a4c-9882-fd74bdc7a81e), [9.47](https://support.microsoft.com/topic/883a93a7-57df-4b26-a1c4-847efb34a9e8), [9.48](https://support.microsoft.com/topic/update-rollup-61-for-azure-site-recovery-kb5012960-a1cc029b-03ad-446f-9365-a00b41025d39), [9.49](https://support.microsoft.com/en-us/topic/update-rollup-62-for-azure-site-recovery-e7aff36f-b6ad-4705-901c-f662c00c402b), [9.50](https://support.microsoft.com/en-us/topic/update-rollup-63-for-azure-site-recovery-kb5017421-992e63af-aa94-4ea6-8d1b-2dd89a9cc70b)  | 3.2.0-4-amd64 to 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
+Debian 7 | [9.56](https://support.microsoft.com/topic/update-rollup-69-for-azure-site-recovery-kb5033791-a41c2400-0079-4f93-b4a4-366660d0a30d), [9.57](https://support.microsoft.com/topic/e94901f6-7624-4bb4-8d43-12483d2e1d50), 9.59, 9.60, [9.61](https://support.microsoft.com/topic/update-rollup-73-for-azure-site-recovery-d3845f1e-2454-4ae8-b058-c1fec6206698), 9.62 | 3.2.0-4-amd64 to 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
 |||
-Debian 8 |[9.46](https://support.microsoft.com/topic/update-rollup-59-for-azure-site-recovery-kb5008707-66a65377-862b-4a4c-9882-fd74bdc7a81e), [9.47](https://support.microsoft.com/topic/883a93a7-57df-4b26-a1c4-847efb34a9e8), [9.48](https://support.microsoft.com/topic/update-rollup-61-for-azure-site-recovery-kb5012960-a1cc029b-03ad-446f-9365-a00b41025d39), [9.49](https://support.microsoft.com/en-us/topic/update-rollup-62-for-azure-site-recovery-e7aff36f-b6ad-4705-901c-f662c00c402b), [9.50](https://support.microsoft.com/en-us/topic/update-rollup-63-for-azure-site-recovery-kb5017421-992e63af-aa94-4ea6-8d1b-2dd89a9cc70b) | 3.16.0-4-amd64 to 3.16.0-11-amd64, 4.9.0-0.bpo.4-amd64 to 4.9.0-0.bpo.12-amd64 |
+Debian 8 | [9.56](https://support.microsoft.com/topic/update-rollup-69-for-azure-site-recovery-kb5033791-a41c2400-0079-4f93-b4a4-366660d0a30d) <br> [9.57](https://support.microsoft.com/topic/e94901f6-7624-4bb4-8d43-12483d2e1d50), 9.59, 9.60, [9.61](https://support.microsoft.com/topic/update-rollup-73-for-azure-site-recovery-d3845f1e-2454-4ae8-b058-c1fec6206698), 9.62 | 3.16.0-4-amd64 to 3.16.0-11-amd64, 4.9.0-0.bpo.4-amd64 to 4.9.0-0.bpo.12-amd64 |
 |||
-Debian 9.1 | [9.50](https://support.microsoft.com/en-us/topic/update-rollup-63-for-azure-site-recovery-kb5017421-992e63af-aa94-4ea6-8d1b-2dd89a9cc70b) | No new Debian 9.1 kernels supported in this release|
-Debian 9.1 | [9.49](https://support.microsoft.com/en-us/topic/update-rollup-62-for-azure-site-recovery-e7aff36f-b6ad-4705-901c-f662c00c402b) | 4.9.0-19-amd64 </br>
-Debian 9.1 | [9.48](https://support.microsoft.com/topic/update-rollup-61-for-azure-site-recovery-kb5012960-a1cc029b-03ad-446f-9365-a00b41025d39) | 4.9.0-17-amd64 to 4.9.0-19-amd64 </br> 4.19.0-0.bpo.19-cloud-amd64 </br>
-Debian 9.1 | [9.47](https://support.microsoft.com/topic/update-rollup-60-for-azure-site-recovery-k5011122-883a93a7-57df-4b26-a1c4-847efb34a9e8) | 4.9.0-17-amd64 </br>
-Debian 9.1 | [9.46](https://support.microsoft.com/topic/update-rollup-59-for-azure-site-recovery-kb5008707-66a65377-862b-4a4c-9882-fd74bdc7a81e) | 4.9.0-1-amd64 to 4.9.0-15-amd64 </br> 4.19.0-0.bpo.1-amd64 to 4.19.0-0.bpo.16-amd64 </br> 4.19.0-0.bpo.1-cloud-amd64 to 4.19.0-0.bpo.16-cloud-amd64 </br> 4.19.0-0.bpo.18-amd64 </br> 4.19.0-0.bpo.18-cloud-amd64
+Debian 9.1 | [9.62]() | No new Debian 9.1 kernels supported in this release. |
+Debian 9.1 | [9.61](https://support.microsoft.com/topic/update-rollup-73-for-azure-site-recovery-d3845f1e-2454-4ae8-b058-c1fec6206698) | No new Debian 9.1 kernels supported in this release. |
+Debian 9.1 | [9.60]() | No new Debian 9.1 kernels supported in this release. |
+Debian 9.1 | [9.59]() | No new Debian 9.1 kernels supported in this release. |
+Debian 9.1 | [9.57](https://support.microsoft.com/topic/e94901f6-7624-4bb4-8d43-12483d2e1d50) | No new Debian 9.1 kernels supported in this release|
 |||
-Debian 10 | [9.50](https://support.microsoft.com/en-us/topic/update-rollup-63-for-azure-site-recovery-kb5017421-992e63af-aa94-4ea6-8d1b-2dd89a9cc70b) | No new Debian 10 kernels supported in this release|
-Debian 10 | [9.49](https://support.microsoft.com/en-us/topic/update-rollup-62-for-azure-site-recovery-e7aff36f-b6ad-4705-901c-f662c00c402b) | 4.19.0-21-amd64 </br> 4.19.0-21-cloud-amd64 </br> 5.10.0-0.bpo.15-amd64 </br> 5.10.0-0.bpo.15-cloud-amd64
-Debian 10 | [9.48](https://support.microsoft.com/en-us/topic/update-rollup-61-for-azure-site-recovery-kb5012960-a1cc029b-03ad-446f-9365-a00b41025d39) | 4.19.0-19-cloud-amd64, 4.19.0-20-cloud-amd64 </br> 4.19.0-19-amd64, 4.19.0-20-amd64 </br> 5.8.0-0.bpo.2-amd64, 5.8.0-0.bpo.2-cloud-amd64, 5.9.0-0.bpo.2-amd64, 5.9.0-0.bpo.2-cloud-amd64, 5.9.0-0.bpo.5-amd64, 5.9.0-0.bpo.5-cloud-amd64, 5.10.0-0.bpo.7-amd64, 5.10.0-0.bpo.7-cloud-amd64, 5.10.0-0.bpo.9-amd64, 5.10.0-0.bpo.9-cloud-amd64, 5.10.0-0.bpo.11-amd64, 5.10.0-0.bpo.11-cloud-amd64, 5.10.0-0.bpo.12-amd64, 5.10.0-0.bpo.12-cloud-amd64 |
-Debian 10 | [9.47](https://support.microsoft.com/topic/update-rollup-60-for-azure-site-recovery-k5011122-883a93a7-57df-4b26-a1c4-847efb34a9e8) | No new kernels supported.
-Debian 10 | [9.46](https://support.microsoft.com/topic/update-rollup-59-for-azure-site-recovery-kb5008707-66a65377-862b-4a4c-9882-fd74bdc7a81e) | 4.9.0-1-amd64 to 4.9.0-15-amd64 <br/> 4.19.0-18-amd64 </br> 4.19.0-18-cloud-amd64
-
+Debian 10 | [9.62]() | No new Debian 10 kernels supported in this release. |
+Debian 10 | [9.61](https://support.microsoft.com/topic/update-rollup-73-for-azure-site-recovery-d3845f1e-2454-4ae8-b058-c1fec6206698) | **Debian 10 kernels support added for Modernized experience**: 5.10.0-0.deb10.29-amd64 <br> 5.10.0-0.deb10.29-cloud-amd64 <br><br> **Debian 10 kernels support added for Classic experience**: 4.19.0-26-amd64 <br> 4.19.0-26-cloud-amd64 <br> 5.10.0-0.deb10.27-amd64 <br> 5.10.0-0.deb10.27-cloud-amd64 <br>5.10.0-0.deb10.28-amd64 <br> 5.10.0-0.deb10.28-cloud-amd64  |
+Debian 10 | [9.60]()| 4.19.0-26-amd64 <br> 4.19.0-26-cloud-amd64 <br> 5.10.0-0.deb10.27-amd64 <br> 5.10.0-0.deb10.27-cloud-amd64 <br> 5.10.0-0.deb10.28-amd64 <br> 5.10.0-0.deb10.28-cloud-amd64  |
+Debian 10 | [9.59]() | No new Debian 10 kernels supported in this release. |
+Debian 10 | [9.57](https://support.microsoft.com/topic/e94901f6-7624-4bb4-8d43-12483d2e1d50) | No new Debian 10 kernels supported in this release  |
+Debian 10 | [9.56](https://support.microsoft.com/topic/update-rollup-69-for-azure-site-recovery-kb5033791-a41c2400-0079-4f93-b4a4-366660d0a30d) | 5.10.0-0.deb10.26-amd64 <br> 5.10.0-0.deb10.26-cloud-amd64  |
+|||
+Debian 11 | 9.62 | **Debian 11 kernels support added for Modernized experience:** <br> 5.10.0-30-amd64 <br> 5.10.0-30-cloud-amd64 <br> 6.1.0-0.deb11.21-amd64 <br> 6.1.0-0.deb11.21-cloud-amd64  <br> <br> **Debian 11 kernels support added for Classic experience:** <br> No new Debian 11 kernels supported for Classic version. |
+Debian 11 | [9.61](https://support.microsoft.com/topic/update-rollup-73-for-azure-site-recovery-d3845f1e-2454-4ae8-b058-c1fec6206698) | **Debian 11 kernels support added for Modernized experience:** <br> 6.1.0-0.deb11.13-amd64 <br> 6.1.0-0.deb11.13-cloud-amd64 <br> 6.1.0-0.deb11.17-amd64 <br> 6.1.0-0.deb11.17-cloud-amd64 <br> 6.1.0-0.deb11.18-amd64 <br> 6.1.0-0.deb11.18-cloud-amd64  <br> 5.10.0-29-amd64 <br> 5.10.0-29-cloud-amd64 <br> <br> **Debian 11 kernels support added for Classic experience:** <br> 5.10.0-27-amd64 <br> 5.10.0-27-cloud-amd64 <br> 5.10.0-28-amd64 <br> 5.10.0-28-cloud-amd64 <br> 6.1.0-0.deb11.13-amd64 <br> 6.1.0-0.deb11.13-cloud-amd64 <br> 6.1.0-0.deb11.17-amd64 <br> 6.1.0-0.deb11.17-cloud-amd64 <br> 6.1.0-0.deb11.18-amd64 <br> 6.1.0-0.deb11.18-cloud-amd64 |
+Debian 11 | 9.60 | 5.10.0-27-amd64 <br> 5.10.0-27-cloud-amd64 <br> 5.10.0-28-amd64 <br> 5.10.0-28-cloud-amd64 |
+Debian 11 | 9.59 | No new Debian 11 kernels supported in this release. |
+Debian 11 | [9.57](https://support.microsoft.com/topic/e94901f6-7624-4bb4-8d43-12483d2e1d50) | No new Debian 11 kernels supported in this release. |
+Debian 11 | [9.56](https://support.microsoft.com/topic/update-rollup-69-for-azure-site-recovery-kb5033791-a41c2400-0079-4f93-b4a4-366660d0a30d) | 5.10.0-26-amd64 <br> 5.10.0-26-cloud-amd64 |
+|||
+Debian 12 <br> **Note**: Support for Debian 12 is available for Modernized experience only and not available for Classic experience. | 9.62 | No new Debian 12 kernels supported in this release.
+Debian 12 <br> **Note**: Support for Debian 12 is available for Modernized experience only and not available for Classic experience. | [9.61](https://support.microsoft.com/topic/update-rollup-73-for-azure-site-recovery-d3845f1e-2454-4ae8-b058-c1fec6206698) | 5.17.0-1-amd64 <br> 5.17.0-1-cloud-amd64 <br> 6.1.0-11-amd64 <br> 6.1.0-11-cloud-amd64 <br> 6.1.0-12-amd64 <br> 6.1.0-12-cloud-amd64 <br> 6.1.0-13-amd64 <br> 6.1.0-15-amd64 <br> 6.1.0-15-cloud-amd64 <br> 6.1.0-16-amd64 <br> 6.1.0-16-cloud-amd64 <br> 6.1.0-17-amd64 <br> 6.1.0-17-cloud-amd64 <br> 6.1.0-18-amd64 <br> 6.1.0-18-cloud-amd64 <br> 6.1.0-7-amd64 <br> 6.1.0-7-cloud-amd64 <br> 6.5.0-0.deb12.4-amd64 <br> 6.5.0-0.deb12.4-cloud-amd64 <br> 6.1.0-20-amd64 <br> 6.1.0-20-cloud-amd64 <br> 6.1.0-21-amd64 <br> 6.1.0-21-cloud-amd64 |
 
 ### SUSE Linux Enterprise Server 12 supported kernel versions
 
+> [!NOTE]
+> Mobility service versions`9.56` `9,60`, and `9.62` are only available for Modernized experience. <br>
+> Mobility service version `9.58` is not released for VMWare to Azure Site Recovery. <br>
+> Mobility service versions `9.59` is only available for Classic experience.
+
+
 **Release** | **Mobility service version** | **Kernel version** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4, SP5) | [9.50](https://support.microsoft.com/en-us/topic/update-rollup-63-for-azure-site-recovery-kb5017421-992e63af-aa94-4ea6-8d1b-2dd89a9cc70b) | All [stock SUSE 12 SP1,SP2,SP3,SP4,SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported. </br> 4.12.14-16.103-azure:5 |
-SUSE Linux Enterprise Server 12 (SP1,SP2,SP3,SP4, SP5) | [9.49](https://support.microsoft.com/en-us/topic/update-rollup-62-for-azure-site-recovery-e7aff36f-b6ad-4705-901c-f662c00c402b) | All [stock SUSE 12 SP1,SP2,SP3,SP4,SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported. </br> 4.12.14-16.100-azure:5 |
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4, SP5) | [9.48](https://support.microsoft.com/en-us/topic/update-rollup-61-for-azure-site-recovery-kb5012960-a1cc029b-03ad-446f-9365-a00b41025d39) | All [stock SUSE 12 SP1,SP2,SP3,SP4,SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported. </br> 4.12.14-16.85-azure:5 </br> 4.12.14-16.88-azure:5 </br> 4.12.14-16.94-azure:5 </br> 4.12.14-16.97-azure:5 |
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4, SP5) | [9.47](https://support.microsoft.com/topic/update-rollup-60-for-azure-site-recovery-k5011122-883a93a7-57df-4b26-a1c4-847efb34a9e8) | All [stock SUSE 12 SP1,SP2,SP3,SP4,SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br></br> 4.12.14-16.80-azure </br> 4.12.14-122.103-default </br> 4.12.14-122.98-default5 |
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4, SP5) | [9.46](https://support.microsoft.com/topic/update-rollup-59-for-azure-site-recovery-kb5008707-66a65377-862b-4a4c-9882-fd74bdc7a81e) | All [stock SUSE 12 SP1,SP2,SP3,SP4,SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br></br> 4.4.138-4.7-azure to 4.4.180-4.31-azure,</br>4.12.14-6.3-azure to 4.12.14-6.43-azure </br> 4.12.14-16.7-azure to 4.12.14-16.65-azure </br> 4.12.14-16.68-azure </br> 4.12.14-16.73-azure </br> 4.12.14-16.76-azure </br> 4.12.14-122.88-default </br> 4.12.14-122.91-default |
+SUSE Linux Enterprise Server 12, SP1, SP2, SP3, SP4, SP5 | 9.62 | By default, all [stock SUSE 12 SP1, SP2, SP3, SP4, SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br> **SUSE 12 Azure kernels support added for Modernized experience:** <br> 4.12.14-16.185-azure:5 |
+SUSE Linux Enterprise Server 12, SP1, SP2, SP3, SP4, SP5 | [9.61](https://support.microsoft.com/topic/update-rollup-73-for-azure-site-recovery-d3845f1e-2454-4ae8-b058-c1fec6206698) | By default, all [stock SUSE 12 SP1, SP2, SP3, SP4, SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br> **SUSE 12 Azure kernels support added for Modernized experience:** <br> 4.12.14-16.173-azure <br> 4.12.14-16.182-azure:5 <br><br> **SUSE 12 Azure kernels support added for Classic experience:** <br> 4.12.14-16.163-azure:5 <br> 4.12.14-16.168-azure:5  |
+SUSE Linux Enterprise Server 12, SP1, SP2, SP3, SP4 | [9.60]() | By default, all [stock SUSE 12 SP1, SP2, SP3, SP4, SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br> 4.12.14-16.163-azure:5 <br> 4.12.14-16.168-azure  |
+SUSE Linux Enterprise Server 12, SP1, SP2, SP3, SP4 | [9.59]() | By default, all [stock SUSE 12 SP1, SP2, SP3, SP4, SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br> No new SUSE 12 kernels supported in this release. |
+SUSE Linux Enterprise Server 12, SP1, SP2, SP3, SP4 | [9.57](https://support.microsoft.com/topic/e94901f6-7624-4bb4-8d43-12483d2e1d50) | By default, all [stock SUSE 12 SP1, SP2, SP3, SP4, SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br> No new SUSE 12 kernels supported in this release. |
+SUSE Linux Enterprise Server 12, SP1, SP2, SP3, SP4 | [9.56](https://support.microsoft.com/topic/update-rollup-69-for-azure-site-recovery-kb5033791-a41c2400-0079-4f93-b4a4-366660d0a30d) | By default, all [stock SUSE 12 SP1, SP2, SP3, SP4, SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br> No new SUSE 12 kernels supported in this release. |
 
 ### SUSE Linux Enterprise Server 15 supported kernel versions
 
+> [!NOTE]
+> Mobility service versions`9.56` `9,60`, and `9.62` are only available for Modernized experience. <br>
+> Mobility service version `9.58` is not released for VMWare to Azure Site Recovery. <br>
+> Mobility service versions `9.59` is only available for Classic experience.
+
+
 **Release** | **Mobility service version** | **Kernel version** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 15, SP1, SP2, SP3 | [9.50](https://support.microsoft.com/en-us/topic/update-rollup-63-for-azure-site-recovery-kb5017421-992e63af-aa94-4ea6-8d1b-2dd89a9cc70b) | By default, all [stock SUSE 15, SP1, SP2, SP3 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br> 5.3.18-150300.38.69-azure:3 |
-SUSE Linux Enterprise Server 15, SP1, SP2, SP3 | [9.49](https://support.microsoft.com/en-us/topic/update-rollup-62-for-azure-site-recovery-e7aff36f-b6ad-4705-901c-f662c00c402b) | By default, all [stock SUSE 15, SP1, SP2, SP3 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br> 5.3.18-150300.38.59-azure:3 </br> 5.3.18-150300.38.62-azure:3 |
-SUSE Linux Enterprise Server 15, SP1, SP2, SP3 | [9.48](https://support.microsoft.com/en-us/topic/update-rollup-61-for-azure-site-recovery-kb5012960-a1cc029b-03ad-446f-9365-a00b41025d39) | By default, all [stock SUSE 15, SP1, SP2, SP3 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br> 5.3.18-150300.38.37-azure:3 </br> 5.3.18-150300.38.40-azure:3 </br> 5.3.18-150300.38.47-azure:3 </br> 5.3.18-150300.38.50-azure:3 </br> 5.3.18-150300.38.53-azure:3 </br> 5.3.18-150300.38.56-azure:3 </br> 5.3.18-150300.38.59-azure:3 </br> 5.3.18-150300.38.62-azure:3  </br> 5.3.18-36-azure:3 </br> 5.3.18-38.11-azure:3 </br> 5.3.18-38.14-azure:3 </br> 5.3.18-38.17-azure:3 </br> 5.3.18-38.22-azure:3 </br> 5.3.18-38.25-azure:3 </br> 5.3.18-38.28-azure:3 </br> 5.3.18-38.31-azure:3 </br> 5.3.18-38.34-azure:3 </br> 5.3.18-38.3-azure:3 </br> 5.3.18-38.8-azure:3 </br> |
-SUSE Linux Enterprise Server 15, SP1, SP2 | [9.47](https://support.microsoft.com/topic/update-rollup-60-for-azure-site-recovery-k5011122-883a93a7-57df-4b26-a1c4-847efb34a9e8) | By default, all [stock SUSE 15, SP1, SP2 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br></br> 5.3.18-18.72-azure: </br> 5.3.18-18.75-azure: </br> 5.3.18-24.93-default </br> 5.3.18-24.96-default </br> 5.3.18-36-azure </br> 5.3.18-38.11-azure </br> 5.3.18-38.14-azure </br> 5.3.18-38.17-azure </br> 5.3.18-38.22-azure </br> 5.3.18-38.25-azure </br> 5.3.18-38.28-azure </br> 5.3.18-38.3-azure </br> 5.3.18-38.31-azure </br> 5.3.18-38.8-azure </br> 5.3.18-57-default </br> 5.3.18-59.10-default </br> 5.3.18-59.13-default </br> 5.3.18-59.16-default </br> 5.3.18-59.19-default </br> 5.3.18-59.24-default </br> 5.3.18-59.27-default </br> 5.3.18-59.30-default </br> 5.3.18-59.34-default </br> 5.3.18-59.37-default </br> 5.3.18-59.5-default |
-SUSE Linux Enterprise Server 15, SP1, SP2 | [9.46](https://support.microsoft.com/topic/update-rollup-59-for-azure-site-recovery-kb5008707-66a65377-862b-4a4c-9882-fd74bdc7a81e) | By default, all [stock SUSE 15, SP1, SP2 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br></br> 4.12.14-5.5-azure to 4.12.14-5.47-azure </br></br> 4.12.14-8.5-azure to 4.12.14-8.55-azure </br> 5.3.18-16-azure </br> 5.3.18-18.5-azure to 5.3.18-18.58-azure </br> 5.3.18-18.66-azure </br> 5.3.18-18.69-azure </br> 5.3.18-24.83-default </br> 5.3.18-24.86-default |
+SUSE Linux Enterprise Server 15, SP1, SP2, SP3, SP4, SP5 | 9.62 | By default, all [stock SUSE 15 SP1, SP2, SP3, SP4, SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br> **SUSE 15 Azure kernels support added for Modernized experience:** <br> 5.14.21-150500.33.54-azure:5 |
+SUSE Linux Enterprise Server 15, SP1, SP2, SP3, SP4, SP5 | [9.61](https://support.microsoft.com/topic/update-rollup-73-for-azure-site-recovery-d3845f1e-2454-4ae8-b058-c1fec6206698) | By default, all [stock SUSE 15 SP1, SP2, SP3, SP4, SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br> **SUSE 15 Azure kernels support added for Modernized experience:** <br> 5.14.21-150500.33.37-azure <br> 5.14.21-150500.33.48-azure:5 <br> 5.14.21-150500.33.51-azure:5 <br><br> **SUSE 15 Azure kernels support added for Classic experience:** <br> 5.14.21-150500.33.29-azure:5 <br>5.14.21-150500.33.34-azure:5 <br> 5.14.21-150500.33.42-azure |
+SUSE Linux Enterprise Server 15, SP1, SP2, SP3, SP4 | [9.60]() | By default, all [stock SUSE 12 SP1, SP2, SP3, SP4, SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br> 5.14.21-150500.33.29-azure <br>5.14.21-150500.33.34-azure  |
+SUSE Linux Enterprise Server 15, SP1, SP2, SP3, SP4 | [9.59]() | By default, all [stock SUSE 12 SP1, SP2, SP3, SP4, SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br> No new SUSE 15 kernels supported in this release. |
+SUSE Linux Enterprise Server 15, SP1, SP2, SP3, SP4, SP5 <br> **Note:** SUSE 15 SP5 is only supported for Modernized experience. | [9.57](https://support.microsoft.com/topic/e94901f6-7624-4bb4-8d43-12483d2e1d50) | By default, all [stock SUSE 15, SP1, SP2, SP3, SP4, SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br> No new SUSE 15 kernels supported in this release.|
+SUSE Linux Enterprise Server 15, SP1, SP2, SP3, SP4, SP5 <br> **Note:** SUSE 15 SP5 is only supported for Modernized experience. | [9.56](https://support.microsoft.com/topic/update-rollup-69-for-azure-site-recovery-kb5033791-a41c2400-0079-4f93-b4a4-366660d0a30d) | By default, all [stock SUSE 15, SP1, SP2, SP3, SP4, SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported.</br> 4.12.14-16.152-azure:5  <br> 5.14.21-150400.14.69-azure:4 <br> 5.14.21-150500.31-azure:5 <br> 5.14.21-150500.33.11-azure:5 <br> 5.14.21-150500.33.14-azure:5 <br> 5.14.21-150500.33.17-azure:5 <br> 5.14.21-150500.33.20-azure:5 <br> 5.14.21-150500.33.3-azure:5 <br> 5.14.21-150500.33.6-azure:5 |
+
+
+#### Supported Red Hat Linux kernel versions for Oracle Linux on Azure virtual machines 
+
+**Release** | **Mobility service version** | **Red Hat kernel version** |
+--- | --- | --- |
+Oracle Linux 9.0  <br> Oracle Linux 9.1  <br> Oracle Linux 9.2  <br> Oracle Linux 9.3 | 9.62 |  5.14.0-70.97.1.el9_0.x86_64 <br>  5.14.0-70.101.1.el9_0.x86_64 <br> 5.14.0-284.62.1.el9_2.x86_64 <br> 5.14.0-284.64.1.el9_2.x86_64 <br>  5.14.0-284.66.1.el9_2.x86_64 <br> 5.14.0-284.67.1.el9_2.x86_64 <br> 5.14.0-284.69.1.el9_2.x86_64 <br> 5.14.0-284.71.1.el9_2.x86_64 |
+Oracle Linux 9.0  <br> Oracle Linux 9.1  <br> Oracle Linux 9.2  <br> Oracle Linux 9.3 | 9.61 |  5.14.0-70.93.2.el9_0.x86_64 <br> 5.14.0-284.54.1.el9_2.x86_64 <br> 5.14.0-284.57.1.el9_2.x86_64 <br> 5.14.0-284.59.1.el9_2.x86_64 <br> 5.14.0-362.24.1.el9_3.x86_64 |
+Oracle Linux 9.0  <br> Oracle Linux 9.1  <br> Oracle Linux 9.2  <br> Oracle Linux 9.3 | 9.60 |  5.14.0-70.13.1.el9_0.x86_64 <br> 5.14.0-70.17.1.el9_0.x86_64 <br> 5.14.0-70.22.1.el9_0.x86_64 <br> 5.14.0-70.26.1.el9_0.x86_64 <br> 5.14.0-70.30.1.el9_0.x86_64 <br> 5.14.0-70.36.1.el9_0.x86_64 <br> 5.14.0-70.43.1.el9_0.x86_64 <br> 5.14.0-70.49.1.el9_0.x86_64 <br> 5.14.0-70.50.2.el9_0.x86_64 <br> 5.14.0-70.53.1.el9_0.x86_64 <br> 5.14.0-70.58.1.el9_0.x86_64 <br> 5.14.0-70.64.1.el9_0.x86_64 <br> 5.14.0-70.70.1.el9_0.x86_64 <br> 5.14.0-70.75.1.el9_0.x86_64 <br> 5.14.0-70.80.1.el9_0.x86_64 <br> 5.14.0-70.85.1.el9_0.x86_64 <br> 5.14.0-162.6.1.el9_1.x86_64  <br> 5.14.0-162.12.1.el9_1.x86_64 <br> 5.14.0-162.18.1.el9_1.x86_64 <br> 5.14.0-162.22.2.el9_1.x86_64 <br> 5.14.0-162.23.1.el9_1.x86_64 <br> 5.14.0-284.11.1.el9_2.x86_64 <br> 5.14.0-284.13.1.el9_2.x86_64 <br> 5.14.0-284.16.1.el9_2.x86_64 <br> 5.14.0-284.18.1.el9_2.x86_64 <br> 5.14.0-284.23.1.el9_2.x86_64 <br> 5.14.0-284.25.1.el9_2.x86_64 <br> 5.14.0-284.28.1.el9_2.x86_64 <br> 5.14.0-284.30.1.el9_2.x86_64 <br> 5.14.0-284.32.1.el9_2.x86_64 <br> 5.14.0-284.34.1.el9_2.x86_64 <br> 5.14.0-284.36.1.el9_2.x86_64 <br> 5.14.0-284.40.1.el9_2.x86_64 <br> 5.14.0-284.41.1.el9_2.x86_64 <br>5.14.0-284.43.1.el9_2.x86_64 <br>5.14.0-284.44.1.el9_2.x86_64 <br> 5.14.0-284.45.1.el9_2.x86_64 <br>5.14.0-284.48.1.el9_2.x86_64 <br>5.14.0-284.50.1.el9_2.x86_64 <br> 5.14.0-284.52.1.el9_2.x86_64 <br>5.14.0-362.8.1.el9_3.x86_64 <br>5.14.0-362.13.1.el9_3.x86_64 <br> 5.14.0-362.18.1.el9_3.x86_64 |
+
+
+### Rocky Linux Server supported kernel versions
+
+> [!IMPORTANT]
+> Support for Rocky Linux is available for Modernized experience only and not available for Classic experience.
+
+**Release** | **Mobility service version** | **Red Hat kernel version** |
+--- | --- | --- |
+Rocky Linux 9.0 <br> Rocky Linux 9.1 | 9.62 |  5.14.0-70.97.1.el9_0.x86_64 <br> 5.14.0-70.101.1.el9_0.x86_64 <br> 5.14.0-284.62.1.el9_2.x86_64 <br> 5.14.0-284.64.1.el9_2.x86_64 <br> 5.14.0-284.66.1.el9_2.x86_64 <br>  5.14.0-284.67.1.el9_2.x86_64<br>  5.14.0-284.69.1.el9_2.x86_64<br> 5.14.0-284.71.1.el9_2.x86_64<br> 5.14.0-427.13.1.el9_4.x86_64<br> 5.14.0-427.16.1.el9_4.x86_64<br> 5.14.0-427.18.1.el9_4.x86_64<br> 5.14.0-427.20.1.el9_4.x86_64<br> 5.14.0-427.22.1.el9_4.x86_64 |
+Rocky Linux 9.0 <br> Rocky Linux 9.1 | 9.61 |  5.14.0-70.93.2.el9_0.x86_64 |
+Rocky Linux 9.0 <br> Rocky Linux 9.1  | 9.60 |  5.14.0-70.13.1.el9_0.x86_64 <br> 5.14.0-70.17.1.el9_0.x86_64 <br> 5.14.0-70.22.1.el9_0.x86_64 <br> 5.14.0-70.26.1.el9_0.x86_64 <br> 5.14.0-70.30.1.el9_0.x86_64 <br> 5.14.0-70.36.1.el9_0.x86_64 <br> 5.14.0-70.43.1.el9_0.x86_64 <br> 5.14.0-70.49.1.el9_0.x86_64 <br> 5.14.0-70.50.2.el9_0.x86_64 <br> 5.14.0-70.53.1.el9_0.x86_64 <br> 5.14.0-70.58.1.el9_0.x86_64 <br> 5.14.0-70.64.1.el9_0.x86_64 <br> 5.14.0-70.70.1.el9_0.x86_64 <br> 5.14.0-70.75.1.el9_0.x86_64 <br> 5.14.0-70.80.1.el9_0.x86_64 <br> 5.14.0-70.85.1.el9_0.x86_64 <br> 5.14.0-162.6.1.el9_1.x86_64  <br> 5.14.0-162.12.1.el9_1.x86_64 <br> 5.14.0-162.18.1.el9_1.x86_64 <br> 5.14.0-162.22.2.el9_1.x86_64 <br> 5.14.0-162.23.1.el9_1.x86_64  |
+
+**Release** | **Mobility service version** | **Kernel version** |
+--- | --- | --- |
+Rocky Linux | [9.57](https://support.microsoft.com/topic/e94901f6-7624-4bb4-8d43-12483d2e1d50) | Rocky Linux 8.8 <br> Rocky Linux 8.9 |
+Rocky Linux | [9.56](https://support.microsoft.com/topic/update-rollup-69-for-azure-site-recovery-kb5033791-a41c2400-0079-4f93-b4a4-366660d0a30d) | Rocky Linux 8.7 <br> Rocky Linux 9.0 |
 
 
 ## Linux file systems/guest storage
@@ -183,7 +269,7 @@ Physical servers with the HP CCISS storage controller | Not supported.
 Device/Mount point naming convention | Device name or mount point name should be unique.<br/> Ensure that no two devices/mount points have case-sensitive names. For example, naming devices for the same VM as *device1* and *Device1* isn't supported.
 Directories | If you're running a version of the Mobility service earlier than version 9.20 (released in [Update Rollup 31](https://support.microsoft.com/help/4478871/)), then these restrictions apply:<br/><br/> - These directories (if set up as separate partitions/file-systems) must be on the same OS disk on the source server: /(root), /boot, /usr, /usr/local, /var, /etc.</br> - The /boot directory should be on a disk partition and not be an LVM volume.<br/><br/> From version 9.20 onwards, these restrictions don't apply.
 Boot directory | - Boot disks with GPT partition format are supported. GPT disks are also supported as data disks.<br/><br/> Multiple boot disks on a VM aren't supported.<br/><br/> - /boot on an LVM volume across more than one disk isn't supported.<br/> - A machine without a boot disk can't be replicated.
-Free space requirements| 2 GB on the /(root) partition <br/><br/> 250 MB on the installation folder
+Free space requirements| 2 GB on the /(root) partition <br/><br/> 600 MB on the installation folder
 XFSv5 | XFSv5 features on XFS file systems, such as metadata checksum, are supported (Mobility service version 9.10 onwards).<br/> Use the xfs_info utility to check the XFS superblock for the partition. If `ftype` is set to 1, then XFSv5 features are in use.
 BTRFS | BTRFS is supported from [Update Rollup 34](https://support.microsoft.com/help/4490016) (version 9.22 of the Mobility service) onwards. BTRFS isn't supported if:<br/><br/> - The BTRFS file system subvolume is changed after enabling protection.</br> - The BTRFS file system is spread over multiple disks.</br> - The BTRFS file system supports RAID.
 
@@ -191,13 +277,14 @@ BTRFS | BTRFS is supported from [Update Rollup 34](https://support.microsoft.com
 
 **Action** | **Details**
 --- | ---
-Resize disk on replicated VM | Resizing up on the source VM is supported. Resizing down on the source VM is not supported. Resizing should be performed before failover, directly in the VM properties. No need to disable/re-enable replication.<br/><br/> If you change the source VM after failover, the changes aren't captures.<br/><br/> If you change the disk size on the Azure VM after failover, when you fail back, Site Recovery creates a new VM with the updates.
-Add disk on replicated VM | Not supported.<br/> Disable replication for the VM, add the disk, and then re-enable replication.
+Resize disk on replicated VM | Resizing up on the source VM is supported. Resizing down on the source VM isn't supported. Resizing should be performed before failover, directly in the VM properties. No need to disable/re-enable replication.<br/><br/> If you change the source VM after failover, the changes aren't captures.<br/><br/> If you change the disk size on the Azure VM after failover, when you fail back, Site Recovery creates a new VM with the updates.
+Add disk on replicated VM | Supported.<br/> You can manually enable replication on a disk added after a VMware VM has been protected. [Learn more](vmware-azure-enable-replication-added-disk.md).
+Exclude disk before replicating VM | Supported for VMware machines. <br/><br/> Not supported for Physical machines, if using modernized experience. 
 
 > [!NOTE]
->  - Any change to disk identity is not supported. For example, if the disk partitioning has been changed from GPT to MBR or vice versa, then this will change the disk identity. In such a scenario, the replication will break and a fresh setup will be required.
-> - For Linux machines, device name change is not supported as it has an impact on the disk identity.
-> - In Modernized, resizing the disk size to reduce it from its original size, is not supported.
+>  - Any change to disk identity isn't supported. For example, if the disk partitioning has been changed from GPT to MBR or vice versa, then this will change the disk identity. In such a scenario, the replication will break and a fresh setup will be required.
+> - For Linux machines, device name change isn't supported as it has an impact on the disk identity.
+> - In Modernized, resizing the disk size to reduce it from its original size, isn't supported.
 
 ## Network
 
@@ -246,7 +333,7 @@ Guest/server shared cluster disk | No
 Guest/server encrypted disk | No
 FIPS encryption | No
 Guest/server NFS | No
-Guest/server iSCSI | For Migration - Yes<br/>For Disaster Recovery - No, iSCSI will failback as an attached disk to the VM
+Guest/server iSCSI | For Migration - Yes, but you must setup replication as a Physical machine.<br/>For Disaster Recovery - No, iSCSI will failback as an attached disk to the VM
 Guest/server SMB 3.0 | No
 Guest/server RDM | Yes<br/><br/> N/A for physical servers
 Guest/server disk > 1 GB | Yes, disk must be larger than 1024 MB<br/><br/>Up to 32,767 GB when replicating to managed disk (9.41 version onwards)<br></br> Up to 4,095 GB when replicating to storage accounts
@@ -255,13 +342,15 @@ Guest/server disk with 4K logical and 512-bytes physical sector size | No
 Guest/server volume with striped disk >4 TB | Yes
 Logical volume management (LVM)| Thick provisioning - Yes <br></br> Thin provisioning - Yes, it is supported from [Update Rollup 61](https://support.microsoft.com/topic/update-rollup-61-for-azure-site-recovery-kb5012960-a1cc029b-03ad-446f-9365-a00b41025d39) onwards. It wasn't supported in earlier Mobility service versions.
 Guest/server - Storage Spaces | No
-Guest/server - NVMe interface | No
+Guest/server - NVMe interface | Yes, for Windows machines. Not supported for Linux machines.
 Guest/server hot add/remove disk | No
 Guest/server - exclude disk | Yes
 Guest/server multipath (MPIO) | No
 ReFS | Resilient File System is supported with Mobility service version 9.23 or higher
-Guest/server EFI/UEFI boot | - Supported for all [Azure Marketplace UEFI operating systems](../virtual-machines/generation-2.md#generation-2-vm-images-in-azure-marketplace). <br/> - Secure UEFI boot type is not supported. [Learn more.](../virtual-machines/generation-2.md#on-premises-vs-azure-generation-2-vms)
-RAID disk| No
+Guest/server EFI/UEFI boot | - Supported for all [Azure Marketplace UEFI operating systems](/azure/virtual-machines/generation-2#generation-2-vm-images-in-azure-marketplace). <br/> - UEFI boot is supported as long as the Secure Boot setting is disabled. [Learn more.](/azure/virtual-machines/generation-2#on-premises-vs-azure-generation-2-vms) <br/> - Windows 2008 R2 SP1 & Windows 2008 SP2 servers with UEFI isn't supported. 
+RAID disk| Hardware RAID disks aren't supported.<br/> Software RAID disks are supported. 
+Storage vMotion | Supported for migration. Not supported for disaster recovery. 
+BIOS | Supported.
 
 ## Replication channels
 
@@ -284,19 +373,21 @@ Block blobs | No
 Encryption at host | No 
 Encryption at rest (SSE)| Yes
 Encryption at rest (CMK)| Yes (via PowerShell Az 3.3.0 module onwards)
-Double Encryption at rest | Yes (via PowerShell Az 3.3.0 module onwards). Learn more on supported regions for [Windows](../virtual-machines/disk-encryption.md) and [Linux](../virtual-machines/disk-encryption.md).
+Double Encryption at rest | Yes (via PowerShell Az 3.3.0 module onwards). Learn more on supported regions for [Windows](/azure/virtual-machines/disk-encryption) and [Linux](/azure/virtual-machines/disk-encryption).
 Premium storage | Yes
 Secure transfer option | Yes
 Import/export service | No
 Azure Storage firewalls for VNets | Yes.<br/> Configured on target storage/cache storage account (used to store replication data).
 General-purpose v2 storage accounts (hot and cool tiers) | Yes (Transaction costs are substantially higher for V2 compared to V1)
 Soft delete | Not supported.
+Disk subscription limits | Up to 3000 protected disks per subscription. Ensure that the target subscription doesn't have more than 3000 Azure Site Recovery-protected Disks (Both Data and OS).
 
 ## Azure compute
 
 **Feature** | **Supported**
 --- | ---
-Availability sets | Yes. Not supported for modernized experience.
+Availability sets | Yes 
+Proximity Placement Groups | Yes
 Availability zones | No
 HUB | Yes
 Managed disks | Yes
@@ -310,8 +401,8 @@ On-premises VMs replicated to Azure must meet the Azure VM requirements summariz
 Guest operating system | Verify [supported operating systems](#replicated-machines) for replicated machines. | Check fails if unsupported.
 Guest operating system architecture | 64-bit. | Check fails if unsupported.
 Operating system disk size | Up to 2,048 GB for Generation 1 machines. <br> Up to 4,095 GB for Generation 2 machines. | Check fails if unsupported.
-Operating system disk count | 1 </br> boot and system partition on different disks is not supported | Check fails if unsupported.
-Data disk count | 64 or less. | Check fails if unsupported.
+Operating system disk count | 1 </br> boot and system partition on different disks isn't supported | Check fails if unsupported.
+Data disk count | 64 or less. | The number of supported disks could be affected if the count of logical volumes is large. In such scenarios, use the below formula to calculate maximum supported count of data disks. </br></br> If all disks share a logical volume: </br></br> D < 627790 / (450 + (Count of Logical Volume * 317))</br></br> If logical volume shared by disks is varying: </br></br> D < (627790 - (Count of times Logical Volume is repeated * Count of Logical Volume * 317)) / 450 </br></br> Here **D** is the maximum count of data disks that can be protected.
 Data disk size | Up to 32 TB when replicating to managed disk (9.41 version onwards)<br> Up to 4 TB when replicating to storage account </br> Each premium storage account can host up to 35 TB of data </br> Minimum disk size requirement - at least 1 GB  | Check fails if unsupported.
 RAM | Site Recovery driver consumes 6% of RAM.
 Network adapters | Multiple adapters are supported. |
@@ -350,7 +441,14 @@ Maximum data churn per day supported by a Process Server | 2 TB
 - Site Recovery is capable of handling higher throughput based on overlap ratio, larger write sizes, and actual workload I/O behavior.
 - These numbers assume a typical backlog of approximately five minutes. That is, after data is uploaded, it is processed and a recovery point is created within five minutes.
 
-## Storage account limits
+## Cache Storage account 
+
+This table summarizes support for the cache storage account used by Site Recovery during replication.
+
+**Setting** | **Support** | **Details**
+--- | --- | ---
+General purpose V2 storage accounts | Supported | Site Recovery is transaction-intensive, a general-purpose v1 account may be more cost-effective. 
+Soft delete | Not supported | Soft delete isn't supported because once it is enabled on cache storage account, it increases cost. Azure Site Recovery performs frequent creates/deletes of log files while replicating causing costs to increase. 
 
 As average churn on the disks increases, the number of disks that a storage account can support decreases. The below table may be used as a guide for making decisions on number of storage accounts that need to be provisioned.
 

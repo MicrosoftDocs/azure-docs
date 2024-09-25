@@ -3,7 +3,7 @@ title: Enable Web Application Firewall - Azure CLI
 description: Learn how to restrict web traffic with a Web Application Firewall on an application gateway using the Azure CLI.
 services: web-application-firewall
 author: vhorne
-ms.service: web-application-firewall
+ms.service: azure-web-application-firewall
 ms.date: 06/23/2022
 ms.author: victorh
 ms.topic: how-to 
@@ -12,7 +12,7 @@ ms.custom: devx-track-azurecli
 
 # Enable Web Application Firewall using the Azure CLI
 
-You can restrict traffic on an application gateway with a [Web Application Firewall](ag-overview.md) (WAF). The WAF uses [OWASP](https://owasp.org/www-project-modsecurity-core-rule-set/) rules to protect your application. These rules include protection against attacks such as SQL injection, cross-site scripting attacks, and session hijacks.
+You can restrict traffic on an application gateway with a [Web Application Firewall (WAF)](ag-overview.md). The WAF uses [OWASP](https://owasp.org/www-project-modsecurity-core-rule-set/) rules to protect your application. These rules include protection against attacks such as SQL injection, cross-site scripting attacks, and session hijacks.
 
 In this article, you learn how to:
 
@@ -21,13 +21,13 @@ In this article, you learn how to:
  * Create a virtual machine scale set
  * Create a storage account and configure diagnostics
 
-![Web Application Firewall example](../media/tutorial-restrict-web-traffic-cli/scenario-waf.png)
+:::image type="content" source="../media/tutorial-restrict-web-traffic-cli/scenario-waf.png" alt-text="Diagram of the Web application firewall example." lightbox="../media/tutorial-restrict-web-traffic-cli/scenario-waf.png":::
 
 If you prefer, you can complete this procedure using [Azure PowerShell](tutorial-restrict-web-traffic-powershell.md).
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.0.4 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -112,7 +112,7 @@ Replace \<username> and \<password> with your values before you run this.
 az vmss create \
   --name myvmss \
   --resource-group myResourceGroupAG \
-  --image UbuntuLTS \
+  --image Ubuntu2204 \
   --admin-username <username> \
   --admin-password <password> \
   --instance-count 2 \

@@ -3,14 +3,13 @@ title: Client-side encryption for queues
 titleSuffix: Azure Storage
 description: The Queue Storage client library supports client-side encryption and integration with Azure Key Vault for users requiring encryption on the client.
 services: storage
-author: tamram
+author: pauljewellmsft
 
-ms.service: storage
+ms.service: azure-queue-storage
 ms.topic: article
-ms.date: 07/11/2022
-ms.author: tamram
+ms.date: 09/10/2024
+ms.author: pauljewell
 ms.reviewer: ozgun
-ms.subservice: queues
 ms.custom: devx-track-csharp
 ---
 
@@ -39,7 +38,7 @@ Due to a security vulnerability discovered in the Queue Storage client library's
 
 - If you need to use client-side encryption, then migrate your applications from client-side encryption v1 to client-side encryption v2.
 
-The following table summarizes the steps you'll need to take if you choose to migrate your applications to client-side encryption v2:
+The following table summarizes the steps you need to take if you choose to migrate your applications to client-side encryption v2:
 
 | Client-side encryption status | Recommended actions |
 |---|---|
@@ -60,13 +59,13 @@ The following table shows which versions of the client libraries for .NET and Py
 | **Client-side encryption v2 and v1** | [Versions 12.11.0 and later](https://www.nuget.org/packages/Azure.Storage.Queues) | [Versions 12.4.0 and later](https://pypi.org/project/azure-storage-queue) |
 | **Client-side encryption v1 only** | Versions 12.10.0 and earlier | Versions 12.3.0 and earlier |
 
-If your application is using client-side encryption with an earlier version of the .NET or Python client library, you must first upgrade your code to a version that supports client-side encryption v2. Next, you must decrypt and re-encrypt your data with client-side encryption v2. If necessary, you can use a version of the client library that supports client-side encryption v2 side-by-side with an earlier version of the client library while you are migrating your code.
+If your application is using client-side encryption with an earlier version of the .NET or Python client library, you must first upgrade your code to a version that supports client-side encryption v2. Next, you must decrypt and re-encrypt your data with client-side encryption v2. If necessary, you can use a version of the client library that supports client-side encryption v2 side-by-side with an earlier version of the client library while you're migrating your code.
 
 ## How client-side encryption works
 
 The Azure Queue Storage client libraries use envelope encryption to encrypt and decrypt your data on the client side. Envelope encryption encrypts a key with one or more additional keys.
 
-The Queue Storage client libraries rely on Azure Key Vault to protect the keys that are used for client-side encryption. For more information about Azure Key Vault, see [What is Azure Key Vault?](../../key-vault/general/overview.md).
+The Queue Storage client libraries rely on Azure Key Vault to protect the keys that are used for client-side encryption. For more information about Azure Key Vault, see [What is Azure Key Vault?](/azure/key-vault/general/overview).
 
 ### Encryption and decryption via the envelope technique
 
@@ -91,15 +90,15 @@ Decryption via the envelope technique works as follows:
 
 Since queue messages can be of any format, the client library defines a custom format that includes the Initialization Vector (IV) and the encrypted content encryption key (CEK) in the message text.
 
-During encryption, the client library generates a random IV of 16 bytes along with a random CEK of 32 bytes and performs envelope encryption of the queue message text using this information. The wrapped CEK and some additional encryption metadata are then added to the encrypted queue message. This modified message (shown below) is stored on the service.
+During encryption, the client library generates a random IV of 16 bytes along with a random CEK of 32 bytes and performs envelope encryption of the queue message text using this information. The wrapped CEK and some additional encryption metadata are then added to the encrypted queue message. This modified message is stored on the service.
 
 ```xml
 <MessageText>{"EncryptedMessageContents":"6kOu8Rq1C3+M1QO4alKLmWthWXSmHV3mEfxBAgP9QGTU++MKn2uPq3t2UjF1DO6w","EncryptionData":{…}}</MessageText>
 ```
 
-During decryption, the wrapped key is extracted from the queue message and unwrapped. The IV is also extracted from the queue message and used along with the unwrapped key to decrypt the queue message data. Encryption metadata is small (under 500 bytes), so while it does count toward the 64KB limit for a queue message, the impact should be manageable. The encrypted message is Base64-encoded, as shown in the above snippet, which will also expand the size of the message being sent.
+During decryption, the wrapped key is extracted from the queue message and unwrapped. The IV is also extracted from the queue message and used along with the unwrapped key to decrypt the queue message data. Encryption metadata is small (under 500 bytes), so while it does count toward the 64 KB limit for a queue message, the impact should be manageable. The encrypted message is Base64-encoded, as shown in the above snippet, which expands the size of the message being sent.
 
-Due to the short-lived nature of messages in the queue, decrypting and reencrypting queue messages after updating to client-side encryption v2 should not be necessary. Any less secure messages will be rotated in the course of normal queue consumption.
+Due to the short-lived nature of messages in the queue, decrypting and reencrypting queue messages after updating to client-side encryption v2 shouldn't be necessary. Any less secure messages are rotated in the course of normal queue consumption.
 
 ## Client-side encryption and performance
 
@@ -109,4 +108,4 @@ Keep in mind that encrypting your storage data results in additional performance
 
 - [Azure Storage updating client-side encryption in SDK to address security vulnerability](https://aka.ms/azstorageclientencryptionblog)
 - [Azure Storage encryption for data at rest](../common/storage-service-encryption.md)
-- [Azure Key Vault documentation](../../key-vault/general/overview.md)
+- [Azure Key Vault documentation](/azure/key-vault/general/overview)

@@ -1,10 +1,8 @@
 ---
 title: "Security, access, and operations for Oracle migrations"
 description: Learn about authentication, users, roles, permissions, monitoring, and auditing, and workload management in Azure Synapse Analytics and Oracle.
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.custom:
-ms.devlang:
 ms.topic: conceptual
 author: ajagadish-24
 ms.author: ajagadish
@@ -57,7 +55,7 @@ Azure Synapse supports two basic options for connection and authorization:
 
 - **SQL authentication**: SQL authentication uses a database connection that includes a database identifier, user ID, and password, plus other optional parameters. This method of authentication is functionally equivalent to Oracle [database authentication](#oracle-authorization-options).
 
-- **Azure AD authentication**: with Azure AD authentication, you can centrally manage the identities of database users and Microsoft services in one location. Centralized management provides a single place to manage Azure Synapse users and simplifies permission management. Azure AD authentication supports connections to LDAP and Kerberos services. For example, you can use Azure AD authentication to connect to existing LDAP directories if they're to remain in place after migration of the database.
+- **Microsoft Entra authentication**: with Microsoft Entra authentication, you can centrally manage the identities of database users and Microsoft services in one location. Centralized management provides a single place to manage Azure Synapse users and simplifies permission management. Microsoft Entra authentication supports connections to LDAP and Kerberos services. For example, you can use Microsoft Entra authentication to connect to existing LDAP directories if they're to remain in place after migration of the database.
 
 ### Users, roles, and permissions
 
@@ -265,7 +263,7 @@ The Azure portal can also provide recommendations for performance enhancements, 
 
 :::image type="content" source="../media/3-security-access-operations/azure-portal-recommendations.png" border="true" alt-text="Screenshot of Azure portal recommendations for performance enhancements." lightbox="../media/3-security-access-operations/azure-portal-recommendations-lrg.png":::
 
-The portal supports integration with other Azure monitoring services, such as Operations Management Suite (OMS) and [Azure Monitor](../../../azure-monitor/overview.md), to provide an integrated monitoring experience of the data warehouse and the entire Azure analytics platform. For more information, see [Azure Synapse operations and management options](../../sql-data-warehouse/sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
+The portal supports integration with other Azure monitoring services, such as Operations Management Suite (OMS) and [Azure Monitor](/azure/azure-monitor/overview), to provide an integrated monitoring experience of the data warehouse and the entire Azure analytics platform. For more information, see [Azure Synapse operations and management options](../../sql-data-warehouse/sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md).
 
 ### High availability (HA) and disaster recovery (DR)
 

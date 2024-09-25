@@ -2,13 +2,11 @@
 title: Dedicated SQL pool Azure Advisor recommendations
 description: Learn about Synapse SQL recommendations and how they are generated
 author: WilliamDAssafMSFT
-manager: craigg-msft
-ms.service: synapse-analytics
-ms.topic: conceptual
-ms.subservice: sql-dw 
-ms.date: 06/26/2020
 ms.author: wiassaf
-ms.reviewer: wiassaf
+ms.date: 06/26/2020
+ms.service: azure-synapse-analytics
+ms.subservice: sql-dw
+ms.topic: conceptual
 ms.custom: azure-synapse
 ---
 
@@ -16,7 +14,7 @@ ms.custom: azure-synapse
 
 This article describes the dedicated SQL pool recommendations available in Azure Advisor.  
 
-Dedicated SQL pool provides recommendations to ensure your data warehouse workload is consistently optimized for performance. Recommendations are tightly integrated with [Azure Advisor](../../advisor/advisor-performance-recommendations.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) to provide you with best practices directly within the [Azure portal](https://aka.ms/Azureadvisor). Dedicated SQL pool collects telemetry and surfaces recommendations for your active workload on a daily cadence. The supported  recommendation scenarios are outlined below along with how to apply recommended actions.
+Dedicated SQL pool provides recommendations to ensure your data warehouse workload is consistently optimized for performance. Recommendations are tightly integrated with [Azure Advisor](/azure/advisor/advisor-performance-recommendations?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) to provide you with best practices directly within the [Azure portal](https://aka.ms/Azureadvisor). Dedicated SQL pool collects telemetry and surfaces recommendations for your active workload on a daily cadence. The supported  recommendation scenarios are outlined below along with how to apply recommended actions.
 
 You can [check your recommendations](https://aka.ms/Azureadvisor) today! 
 
@@ -56,7 +54,7 @@ The following section describes workload-based heuristics you may find in the Az
 Currently Advisor will only show at most four replicated table candidates at once with clustered columnstore indexes prioritizing the highest activity.
 
 > [!IMPORTANT]
-> The replicated table recommendation is not full proof and does not take into account data movement operations. We are working on adding this as a heuristic but in the meantime, you should always validate your workload after applying the recommendation. To learn more about replicated tables, visit the following [documentation](design-guidance-for-replicated-tables.md#what-is-a-replicated-table).
+> The replicated table recommendation is not fool proof and does not take into account data movement operations. We are working on adding this as a heuristic but in the meantime, you should always validate your workload after applying the recommendation. To learn more about replicated tables, visit the following [documentation](design-guidance-for-replicated-tables.md#what-is-a-replicated-table).
 
 
 ## Adaptive (Gen2) cache utilization

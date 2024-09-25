@@ -5,12 +5,9 @@ author: yelevin
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: yelevin
-ms.custom: ignite-fall-2021
 ---
 
 # Connect Azure Stack Hub virtual machines to Microsoft Sentinel
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 With Microsoft Sentinel, you can monitor your VMs running on Azure and Azure Stack Hub in one place. To on-board your Azure Stack machines to Microsoft Sentinel, you first need to add the virtual machine extension to your existing Azure Stack Hub virtual machines. 
 
@@ -41,9 +38,9 @@ Add the **Azure Monitor, Update, and Configuration Management** virtual machine 
 
 1. After the extension installation completes, its status shows as **Provisioning Succeeded**. It might take up to one hour for the virtual machine to appear in the Microsoft Sentinel portal.
 
-For more information on installing and configuring the agent for Windows, see [Connect Windows computers](../azure-monitor/agents/agent-windows.md#install-the-agent).
+For more information on installing and configuring the agent for Windows, see [Connect Windows computers](/azure/azure-monitor/agents/agent-windows#install-the-agent).
 
-For Linux troubleshooting of agent issues, see [Troubleshoot Azure Log Analytics Linux Agent](../azure-monitor/agents/agent-linux-troubleshoot.md).
+For Linux troubleshooting of agent issues, see [Troubleshoot Azure Log Analytics Linux Agent](/azure/azure-monitor/agents/agent-linux-troubleshoot).
 
 In the Microsoft Sentinel portal on Azure, under **Virtual Machines**, you have an overview of all VMs and computers along with their status. 
 

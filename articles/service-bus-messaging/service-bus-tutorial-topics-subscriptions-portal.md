@@ -5,7 +5,7 @@ author: spelluru
 ms.author: spelluru
 ms.date: 04/26/2022
 ms.topic: tutorial
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-dotnet
 #Customer intent: In a retail scenario, how do I update inventory assortment and send a set of messages from the back office to the stores?
 ---
 
@@ -38,13 +38,16 @@ Each [subscription to a topic](service-bus-messaging-overview.md#topics) can rec
 
 [!INCLUDE [service-bus-create-namespace-portal](./includes/service-bus-create-namespace-portal.md)]
 
+
+[!INCLUDE [get-namespace-connection-string](./includes/get-namespace-connection-string.md)]
+
 [!INCLUDE [service-bus-create-topics-three-subscriptions-portal](./includes/service-bus-create-topics-three-subscriptions-portal.md)]
 
 
 
 ## Create filter rules on subscriptions
 
-After the namespace and topic/subscriptions are provisioned, and you have the necessary credentials, you're ready to create filter rules on the subscriptions, then send and receive messages. You can examine the code in [this GitHub sample folder](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/TopicFilters).
+After the namespace and topic/subscriptions are provisioned, and you have the connection string to the namespace, you're ready to create filter rules on the subscriptions, then send and receive messages. You can examine the code in [this GitHub sample folder](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus/TopicFilters).
 
 ## Send and receive messages
 
@@ -58,7 +61,7 @@ To run the code, follow these steps:
 
 2. Navigate to the sample folder `azure-service-bus\samples\DotNet\Azure.Messaging.ServiceBus\BasicSendReceiveTutorialWithFilters`.
 
-3. Obtain the connection string you copied to Notepad in the Obtain the management credentials section of this tutorial. You also need the name of the topic you created in the previous section.
+3. Obtain the connection string you copied to Notepad earlier in this tutorial. You also need the name of the topic you created in the previous section.
 
 4. At the command prompt, type the following command:
 

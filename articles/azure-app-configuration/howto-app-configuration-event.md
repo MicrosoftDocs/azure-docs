@@ -3,7 +3,6 @@ title: Use Event Grid for App Configuration data change notifications
 description: Learn how to use Azure App Configuration event subscriptions to send key-value modification events to a web endpoint
 services: azure-app-configuration
 author: maud-lv
-ms.assetid: 
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.topic: how-to
@@ -23,7 +22,7 @@ In this article, you learn how to set up Azure App Configuration event subscript
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/). You can optionally use the Azure Cloud Shell.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
 If you choose to install and use the CLI locally, this article requires that you're running the latest version of Azure CLI (2.0.70 or later). To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
@@ -72,7 +71,7 @@ The deployment may take a few minutes to complete. After the deployment has succ
 
 You should see the site with no messages currently displayed.
 
-[!INCLUDE [event-grid-register-provider-cli.md](../../includes/event-grid-register-provider-cli.md)]
+[!INCLUDE [register-provider-cli.md](../../articles/event-grid/includes/register-provider-cli.md)]
 
 ## Subscribe to your App Configuration store
 
@@ -106,7 +105,7 @@ You've triggered the event, and Event Grid sent the message to the endpoint you 
 
 ```json
 [{
-  "id": "deb8e00d-8c64-4b6e-9cab-282259c7674f",
+  "id": "00000000-0000-0000-0000-000000000000",
   "topic": "/subscriptions/{subscription-id}/resourceGroups/eventDemoGroup/providers/microsoft.appconfiguration/configurationstores/{appconfig-name}",
   "subject": "https://{appconfig-name}.azconfig.io/kv/Foo",
   "data": {

@@ -1,0 +1,33 @@
+### YamlMime:Landing
+
+title: Azure AD B2C daemon/service apps documentation
+summary: >
+  Learn how to access protected web APIs by daemons/services apps using our how-to guide and samples.
+
+metadata:
+  author: kengaderdus
+  manager: CelesteDG
+  ms.author: kengaderdus
+  ms.date: 03/01/2024
+  ms.service: active-directory
+  ms.subservice: B2C
+  ms.topic: landing-page
+
+landingContent:
+
+## ROW 1 ################################################### ROW 1 ##
+  - title: "Explore sample apps"
+    linkLists:
+      - linkListType: sample
+        links:
+          - text: Node console application
+            url: https://github.com/Azure-Samples/ms-identity-docs-code-javascript
+          - text: .NET Core console application
+            url: https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-management
+  
+  - title: "Scenarios in depth"
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Client credentials flow
+            url: client-credentials-grant-flow.md

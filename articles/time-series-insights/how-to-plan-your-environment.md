@@ -5,12 +5,9 @@ author: tedvilutis
 ms.author: tvilutis
 manager: cnovak
 ms.reviewer: orspodek
-ms.workload: big-data
 ms.service: time-series-insights
-services: time-series-insights
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.custom: seodec18
 ---
 
 # Plan your Azure Time Series Insights Gen2 environment
@@ -74,7 +71,7 @@ You can now configure your Azure Time Series Insights environment's Time Series 
 
 The model is dynamic, so it can be built at any time. To get started quickly, build and upload it prior to pushing data into Azure Time Series Insights. To build your model, read [Use the Time Series Model](./concepts-model-overview.md).
 
-For many customers, the Time Series Model maps to an existing asset model or ERP system already in place. If you don't have an existing model, a prebuilt user experience is [provided](https://github.com/Microsoft/tsiclient) to get up and running quickly. To envision how a model might help you, view the [sample demo environment](https://insights.timeseries.azure.com/preview/demo).
+For many customers, the Time Series Model maps to an existing asset model or ERP system already in place. If you don't have an existing model, a prebuilt user experience is [provided](https://github.com/Microsoft/tsiclient) to get up and running quickly.
 
 ## Shape your events
 
@@ -91,8 +88,8 @@ For more information and to understand how events will be flattened and stored, 
 
 ## Next steps
 
-* Review [Azure Advisor](../advisor/advisor-overview.md) to plan out your business recovery configuration options.
-* Review [Azure Advisor](../advisor/advisor-overview.md) to plan out your business recovery configuration options.
+* Review [Azure Advisor](/azure/advisor/advisor-overview) to plan out your business recovery configuration options.
+* Review [Azure Advisor](/azure/advisor/advisor-overview) to plan out your business recovery configuration options.
 * Read more about [data ingestion](./concepts-ingestion-overview.md) in Azure Time Series Insights Gen2.
 * Review the article on [data storage](./concepts-storage.md) in Azure Time Series Insights Gen2.
 * Learn about [data modeling](./concepts-model-overview.md) in Azure Time Series Insights Gen2.

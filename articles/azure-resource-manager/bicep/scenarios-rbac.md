@@ -4,7 +4,8 @@ description: Describes how to create role assignments and role definitions by us
 author: johndowns
 ms.author: jodowns
 ms.topic: conceptual
-ms.date: 05/15/2022
+ms.custom: devx-track-bicep
+ms.date: 06/23/2023
 ---
 # Create Azure RBAC resources by using Bicep
 
@@ -22,11 +23,50 @@ Role assignments apply at a specific *scope*, which defines the resource or set 
 
 Role assignments are [extension resources](scope-extension-resources.md), which means they apply to another resource. The following example shows how to create a storage account and a role assignment scoped to that storage account:
 
-::: code language="bicep" source="~/azure-docs-bicep-samples/samples/scenarios-rbac/scope.bicep" highlight="17" :::
+```bicep
+param location string = resourceGroup().location
+param storageAccountName string = 'stor${uniqueString(resourceGroup().id)}'
+param storageSkuName string = 'Standard_LRS'
+param roleDefinitionResourceId string
+param principalId string
+
+resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+  name: storageAccountName
+  location: location
+  kind: 'StorageV2'
+  sku: {
+   name: storageSkuName
+  }
+}
+
+resource roleAssignment 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
+  scope: storageAccount
+  name: guid(storageAccount.id, principalId, roleDefinitionResourceId)
+  properties: {
+    roleDefinitionId: roleDefinitionResourceId
+    principalId: principalId
+    principalType: 'ServicePrincipal'
+  }
+}
+```
 
 If you don't explicitly specify the scope, Bicep uses the file's `targetScope`. In the following example, no `scope` property is specified, so the role assignment is scoped to the subscription:
 
-::: code language="bicep" source="~/azure-docs-bicep-samples/samples/scenarios-rbac/scope-default.bicep" highlight="4" :::
+```bicep
+param roleDefinitionResourceId string
+param principalId string
+
+targetScope = 'subscription'
+
+resource roleAssignment 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
+  name: guid(subscription().id, principalId, roleDefinitionResourceId)
+  properties: {
+    roleDefinitionId: roleDefinitionResourceId
+    principalId: principalId
+    principalType: 'ServicePrincipal'
+  }
+}
+```
 
 > [!TIP]
 > Use the smallest scope that you need to meet your requirements.
@@ -37,7 +77,7 @@ If you don't explicitly specify the scope, Bicep uses the file's `targetScope`. 
 
 A role assignment's resource name must be a globally unique identifier (GUID).
 
-Role assignment resource names must be unique within the Azure Active Directory tenant, even if the scope is narrower.
+Role assignment resource names must be unique within the Microsoft Entra tenant, even if the scope is narrower.
 
 For your Bicep deployment to be repeatable, it's important for the name to be deterministic - in other words, to use the same name every time you deploy. It's a good practice to create a GUID that uses the scope, principal ID, and role ID together. It's a good idea to use the `guid()` function to help you to create a deterministic GUID for your role assignment names, like in this example:
 
@@ -51,11 +91,28 @@ The role you assign can be a built-in role definition or a [custom role definiti
 
 When you create the role assignment resource, you need to specify a fully qualified resource ID. Built-in role definition IDs are subscription-scoped resources. It's a good practice to use an `existing` resource to refer to the built-in role, and to access its fully qualified resource ID by using the `.id` property:
 
-::: code language="bicep" source="~/azure-docs-bicep-samples/samples/scenarios-rbac/built-in-role.bicep" highlight="3-7, 12" :::
+```bicep
+param principalId string
+
+@description('This is the built-in Contributor role. See https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor')
+resource contributorRoleDefinition 'Microsoft.Authorization/roleDefinitions@2022-04-01' existing = {
+  scope: subscription()
+  name: 'b24988ac-6180-42a0-ab88-20f7382dd24c'
+}
+
+resource roleAssignment 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
+  name: guid(resourceGroup().id, principalId, contributorRoleDefinition.id)
+  properties: {
+    roleDefinitionId: contributorRoleDefinition.id
+    principalId: principalId
+    principalType: 'ServicePrincipal'
+  }
+}
+```
 
 ### Principal
 
-The `principalId` property must be set to a GUID that represents the Azure Active Directory (Azure AD) identifier for the principal. In Azure AD, this is sometimes referred to as the *object ID*.
+The `principalId` property must be set to a GUID that represents the Microsoft Entra identifier for the principal. In Microsoft Entra ID, this is sometimes referred to as the *object ID*.
 
 The `principalType` property specifies whether the principal is a user, a group, or a service principal. Managed identities are a form of service principal.
 
@@ -64,13 +121,32 @@ The `principalType` property specifies whether the principal is a user, a group,
 
 The following example shows how to create a user-assigned managed identity and a role assignment:
 
-::: code language="bicep" source="~/azure-docs-bicep-samples/samples/scenarios-rbac/managed-identity.bicep" highlight="15-16" :::
+```bicep
+param location string = resourceGroup().location
+param roleDefinitionResourceId string
+
+var managedIdentityName = 'MyManagedIdentity'
+
+resource managedIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@2023-01-31' = {
+  name: managedIdentityName
+  location: location
+}
+
+resource roleAssignment 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
+  name: guid(resourceGroup().id, managedIdentity.id, roleDefinitionResourceId)
+  properties: {
+    roleDefinitionId: roleDefinitionResourceId
+    principalId: managedIdentity.properties.principalId
+    principalType: 'ServicePrincipal'
+  }
+}
+```
 
 ### Resource deletion behavior
 
-When you delete a user, group, service principal, or managed identity from Azure AD, it's a good practice to delete any role assignments. They aren't deleted automatically.
+When you delete a user, group, service principal, or managed identity from Microsoft Entra ID, it's a good practice to delete any role assignments. They aren't deleted automatically.
 
-Any role assignments that refer to a deleted principal ID become invalid. If you try to reuse a role assignment's name for another role assignment, the deployment will fail. To work around this behavior, you should either remove the old role assignment before you recreate it, or ensure that you use a unique name when you deploy a new role assignment. [This quickstart template illustrates how you can define a role assignment in a Bicep module and use a principal ID as a seed value for the role assignment name.](https://azure.microsoft.com/resources/templates/key-vault-managed-identity-role-assignment/)
+Any role assignments that refer to a deleted principal ID become invalid. If you try to reuse a role assignment's name for another role assignment, the deployment will fail. To work around this behavior, you should either remove the old role assignment before you recreate it, or ensure that you use a unique name when you deploy a new role assignment. This [quickstart template](/samples/azure/azure-quickstart-templates/key-vault-managed-identity-role-assignment) illustrates how you can define a role assignment in a Bicep module and use a principal ID as a seed value for the role assignment name.
 
 ## Custom role definitions
 
@@ -78,7 +154,7 @@ Custom role definitions enable you to define a set of permissions that can then 
 
 To create a custom role definition, define a resource of type `Microsoft.Authorization/roleDefinitions`. See the [Create a new role def via a subscription level deployment](https://azure.microsoft.com/resources/templates/create-role-def/) quickstart for an example.
 
-Role definition resource names must be unique within the Azure Active Directory tenant, even if the assignable scopes are narrower.
+Role definition resource names must be unique within the Microsoft Entra tenant, even if the assignable scopes are narrower.
 
 > [!NOTE]
 > Some services manage their own role definitions and assignments. For example, Azure Cosmos DB maintains its own [`Microsoft.DocumentDB/databaseAccounts/sqlRoleAssignments`](/azure/templates/microsoft.documentdb/databaseaccounts/sqlroleassignments?tabs=bicep) and [`Microsoft.DocumentDB/databaseAccounts/sqlRoleDefinitions`](/azure/templates/microsoft.documentdb/databaseaccounts/sqlroledefinitions?tabs=bicep) resources. For more information, see the specific service's documentation.
@@ -99,6 +175,6 @@ Role definition resource names must be unique within the Azure Active Directory 
   - [Assign a role at subscription scope](https://azure.microsoft.com/resources/templates/subscription-role-assignment/)
   - [Assign a role at tenant scope](https://azure.microsoft.com/resources/templates/tenant-role-assignment/)
   - [Create a resourceGroup, apply a lock and RBAC](https://azure.microsoft.com/resources/templates/create-rg-lock-role-assignment/)
-  - [Create key vault, managed identity, and role assignment](https://azure.microsoft.com/resources/templates/key-vault-managed-identity-role-assignment/)
+  - [Create key vault, managed identity, and role assignment](/samples/azure/azure-quickstart-templates/key-vault-managed-identity-role-assignment)
 - Community blog posts
   - [Create role assignments for different scopes with Bicep](https://4bes.nl/2022/04/24/create-role-assignments-for-different-scopes-with-bicep/), by Barbara Forbes

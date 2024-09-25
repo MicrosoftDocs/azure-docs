@@ -2,18 +2,23 @@
 title: Import Azure Container App to Azure API Management | Microsoft Docs
 description: This article shows you how to use Azure API Management to import a web API hosted in Azure Container Apps.
 services: api-management
-documentationcenter: ''
-author: adrianhall
+author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
 ms.date: 11/03/2021
-ms.author: adhal
+ms.author: danlep
 
 ---
 # Import an Azure Container App as an API
 
-This article shows how to import an Azure Container App to Azure API Management and test the imported API using the Azure portal.  In this article, you learn how to:
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
+This article shows how to import an Azure Container App to Azure API Management and test the imported API using the Azure portal.  
+
+[!INCLUDE [api-management-workspace-availability](../../includes/api-management-workspace-availability.md)]
+
+In this article, you learn how to:
 
 > [!div class="checklist"]
 > * Import a Container App that exposes a Web API
@@ -85,7 +90,7 @@ The wildcard operation allows the same requests to the backend service as the op
     > [!NOTE]
     > Products are associations of one or more APIs. You can include many APIs and offer them to developers through the developer portal. Developers must first subscribe to a product to get access to the API. When they subscribe, they get a subscription key that is good for any API in that product. If you created the API Management instance, you're an administrator and subscribed to every product by default.
     >
-    > Each API Management instance comes with two sample products when createdgg:
+    > Each API Management instance comes with two sample products when created:
     > * **Starter**
     > * **Unlimited**
 

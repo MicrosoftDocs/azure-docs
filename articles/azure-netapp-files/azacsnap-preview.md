@@ -1,127 +1,147 @@
 ---
-title: Preview features for Azure Application Consistent Snapshot tool for Azure NetApp Files | Microsoft Docs
-description: Provides a guide for using the preview features of the Azure Application Consistent Snapshot tool that you can use with Azure NetApp Files. 
+title: Preview features for the Azure Application Consistent Snapshot tool for Azure NetApp Files
+description: Learn about the preview features of the Azure Application Consistent Snapshot tool that you can use with Azure NetApp Files.
 services: azure-netapp-files
-documentationcenter: ''
 author: Phil-Jensen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: reference
-ms.date: 07/29/2022
+ms.date: 05/15/2024
 ms.author: phjensen
 ---
 
-# Preview features of Azure Application Consistent Snapshot tool
+# Preview features of the Azure Application Consistent Snapshot tool
+
+This article provides a guide on setup and usage of the new features in preview for the Azure Application Consistent Snapshot tool (AzAcSnap). For basic information about the tool, see [What is the Azure Application Consistent Snapshot tool?](./azacsnap-introduction.md).
+
+The preview features provided with AzAcSnap 10 are:
+
+- Microsoft SQL Server
+- Azure NetApp Files backup
+- Azure managed disks
 
 > [!NOTE]
-> PREVIEWS ARE PROVIDED "AS-IS," "WITH ALL FAULTS," AND "AS AVAILABLE," AND ARE EXCLUDED FROM THE SERVICE LEVEL AGREEMENTS AND LIMITED WARRANTY
-> ref:  https://azure.microsoft.com/support/legal/preview-supplemental-terms/
+> Previews are provided "as is," "with all faults," and "as available," and are excluded from the service-level agreements and may not be covered by customer support.
+> Previews are subject to the supplemental terms of use for Microsoft Azure Previews found at https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 
-This article provides a guide on set up and usage of the new features in preview for **AzAcSnap**.  This guide should be read along with the main
-documentation for AzAcSnap at [aka.ms/azacsnap](./azacsnap-introduction.md).
+## Using AzAcSnap preview features
 
-The preview features provided with **AzAcSnap 6** are:
-- Azure Managed Disk.
-- Azure Key Vault support for storing Service Principal.
+AzAcSnap preview features are offered together with generally available features. Using the preview features requires the use of the `--preview` command-line option. To set up and install AzAcSnap, see [Get started with the Azure Application Consistent Snapshot tool](azacsnap-get-started.md).
 
 ## Providing feedback
 
-Feedback on AzAcSnap, including this preview, can be provided [online](https://aka.ms/azacsnap-feedback).
+You can provide feedback on AzAcSnap, including this preview, [online](https://aka.ms/azacsnap-feedback).
 
-## Getting the AzAcSnap Preview snapshot tools
+## Microsoft SQL Server
 
-Refer to [Get started with Azure Application Consistent Snapshot tool](azacsnap-get-started.md)
-
-Return to this document for details on using the preview features.
-
-## Azure Managed Disk
+### Supported platforms and operating systems
 
 > [!NOTE]
-> Support for Azure Managed Disk as a storage back-end is a Preview feature.  
+> Support for Microsoft SQL Server is Preview feature.  
+> This section's content supplements [What is Azure Application Consistent Snapshot tool](azacsnap-introduction.md) page.
+
+New database platforms and operating systems supported with this preview release.
+
+- **Databases**
+  - Microsoft SQL Server 2022 (or later) on Windows Server 2019 (or later) only is in preview.
+
+
+### Enable communication with database
+
+> [!NOTE]
+> Support for Microsoft SQL Server is Preview feature.  
+> This section's content supplements [Install Azure Application Consistent Snapshot tool](azacsnap-installation.md) page.
+This section explains how to enable communication with the database. Ensure the database you're using is correctly selected from the tabs.
+
+# [Microsoft SQL Server](#tab/mssql)
+
+The snapshot tools issue commands to the Microsoft SQL Server database directly to enable and disable backup mode.  
+
+AzAcSnap connects directly to Microsoft SQL Server using the provided connect-string to issue SQL commands, such as `ALTER SERVER CONFIGURATION SET SUSPEND_FOR_SNAPSHOT_BACKUP = ON` or `ALTER SERVER CONFIGURATION SET SUSPEND_FOR_SNAPSHOT_BACKUP = OFF`.  The connect-string will determine if the installation is on the database server or a centralized "backup" server.  Typical installations of AzAcSnap would be onto the database server to ensure features such as flushing file buffers can  work as expected.  If AzAcSnap has been installed onto the database server, then be sure the user running azacsnap has the required permissions.
+
+##### `azacsnap` user permissions
+
+Refer to [Get started with Azure Application Consistent Snapshot tool](azacsnap-get-started.md)
+The `azacsnap` user should have permissions to put Microsoft SQL Server into backup mode, and have permissions to flush I/O buffers to the volumes configured.
+
+Configure (`.\azacsnap.exe -c configure`) with the correct values for Microsoft SQL Server and test (`.\azacsnap.exe -c test --test mssql`) azacsnap database connectivity.
+Run the `azacsnap` test command
+```shell
+.\azacsnap.exe -c test --test mssql
+```
+
+```output
+BEGIN : Test process started for 'mssql'
+BEGIN : Database tests
+PASSED: Successful connectivity to MSSQL version 16.00.1115
+END   : Test process complete for 'mssql'
+```
+---
+### Configuring the database
+This section explains how to configure the data base.
+# [Microsoft SQL Server](#tab/mssql)
+No special database configuration is required for Microsoft SQL Server as we are using the User's local operating system environment.
+
+---
+
+### Configuring AzAcSnap
+
+This section explains how to configure AzAcSnap for the specified database.
+
+> [!NOTE]
+> Support for Microsoft SQL Server is Preview feature.  
 > This section's content supplements [Configure Azure Application Consistent Snapshot tool](azacsnap-cmd-ref-configure.md) website page.
+### Details of required values
+The following sections provide detailed guidance on the various values required for the configuration file.
+# [Microsoft SQL Server](#tab/mssql)
+#### Microsoft SQL Server Database values for configuration
+When adding a Microsoft SQL Server database to the configuration, the following values are required:
+- **connectionString** = The Connection String used to connect to the database.  For a typical AzAcSnap installation on to the system running Microsoft SQL Server where the Database Instance is MSSQL2022 the connection string = "Trusted_Connection=True;Persist Security Info=True;Data Source=MSSQL2022;TrustServerCertificate=true".
+- **instanceName** = The database instance name.
+- **metaDataFileLocation** = The location where Microsoft SQL Server will write out the backup meta-data file (for example, "C:\\MSSQL_BKP\\").
 
-Microsoft provides many storage options for deploying databases such as SAP HANA.  Many of these options are detailed on the 
-[Azure Storage types for SAP workload](../virtual-machines/workloads/sap/planning-guide-storage.md) web page.  Additionally there's a 
-[Cost conscious solution with Azure premium storage](../virtual-machines/workloads/sap/hana-vm-operations-storage.md#cost-conscious-solution-with-azure-premium-storage).  
+---
 
-AzAcSnap is able to take application consistent database snapshots when deployed on this type of architecture (that is, a VM with Managed Disks).  However, the set up 
-for this platform is slightly more complicated as in this scenario we need to block I/O to the mountpoint (using `xfs_freeze`) before taking a snapshot of the Managed 
-Disks in the mounted Logical Volume(s).  
+## Azure NetApp Files backup
+
+When you're taking snapshots by using AzAcSnap on multiple volumes, all the snapshots have the same name by default. Due to the removal of the volume name from the resource ID hierarchy when the snapshot is archived into an Azure NetApp Files backup, you must ensure that the snapshot name is unique.
+
+AzAcSnap can automatically ensure the use of a unique name when it creates the snapshot, by appending the volume name to the normal snapshot name. For example, for a system that has two data volumes (`hanadata01`, `hanadata02`) when you're using `-c backup` with `--prefix daily`, the complete snapshot names become `daily__F2AFDF98703__hanadata01` and `daily__F2AFDF98703__hanadata02`.
+
+You can enable this feature in AzAcSnap by setting `"anfBackup": "renameOnly"` in the configuration file, as the following snippet shows:
+
+```output
+"anfStorage": [
+  {
+    "anfBackup" : "renameOnly",
+    "dataVolume": [
+```
+
+You can also enable this feature by using `azacsnap -c configure --configuration edit --configfile <configfilename>`. For `Enter new value for 'ANF Backup (none, renameOnly)' (current = 'none'):`, enter `renameOnly`.
+
+For more information about this feature, see [Configure the Azure Application Consistent Snapshot tool](azacsnap-cmd-ref-configure.md).
+
+## Azure managed disks
+
+Microsoft provides many storage options for deploying databases such as SAP HANA. For details about some of these options, see [Azure Storage types for SAP workload](/azure/virtual-machines/workloads/sap/planning-guide-storage). There's also a [cost-conscious solution with Azure premium storage](/azure/virtual-machines/workloads/sap/hana-vm-premium-ssd-v1#cost-conscious-solution-with-azure-premium-storage).
+
+AzAcSnap can take application-consistent database snapshots when you deploy it on this type of architecture (that is, a virtual machine [VM] with managed disks). But the setup for this platform is slightly more complicated because in this scenario AzAcSnap takes an additional step to try and flush all I/O buffers and ensure they are written out to persistent storage.  On Linux AzAcSnap will call the `sync` command to flush file buffers, on Windows it uses the kernel call to FlushFileBuffers, before it takes a snapshot of the managed disks in the mounted logical volumes.
 
 > [!IMPORTANT]
-> The Linux system must have `xfs_freeze` available to block disk I/O.
+> AzAcSnap will need appropriate operating system permissions for the volume so it can perform the flush.
 
-> [!CAUTION]
-> Take extra care to configure AzAcSnap with the correct mountpoints (filesystems) because `xfs_freeze` blocks I/O to the device specified by the Azure Managed Disk 
-> mount-point.  This could inadvertently block a running application until `azacsnap` finishes running.
+Here's the architecture at a high level:
 
-Architecture at a high level:
-1. Azure Managed Disks attached to the VM using the Azure portal.
-1. Logical Volume is created from these Managed Disks.
-1. Logical Volume mounted to a Linux directory.
-1. Service Principal should be created in the same way as for Azure NetApp Files in [AzAcSnap installation](azacsnap-installation.md?tabs=azure-netapp-files%2Csap-hana#enable-communication-with-storage).
-1. Install and Configure AzAcSnap.
-   > [!NOTE]
-   > The configurator has a new option to define the mountpoint for the Logical Volume.  This parameter gets passed to `xfs_freeze` to block the I/O (this 
-   > happens after the database is put into backup mode).  After the I/O cache has been flushed (dependent on Linux kernel parameter `fs.xfs.xfssyncd_centisecs`).  
-1. Install and Configure `xfs_freeze` to be run as a non-privileged user: 
-   1. Create an executable file called $HOME/bin/xfs_freeze with the following content.
-   
-      ```bash
-      #!/bin/sh
-      /usr/bin/sudo /usr/sbin/xfs_freeze $1 $2
-      ```
-   
-   1. Create a sudoers file called `/etc/sudoers.d/azacsnap` to allow the azacsnap user to run `xfs_freeze` with the following content:
-   
-      ```bash
-      #
-      # What: azacsnap
-      # Why: Allow the azacsnap user to run "specific" commands with elevated privileges.
-      #
-      # User_Alias = SAP HANA Backup administrator user.
-      User_Alias      AZACSNAP = azacsnap
-      #
-      AZACSNAP ALL=(ALL) NOPASSWD: /usr/sbin/xfs_freeze
-      ```
-   
-   1. Test the azacsnap user can freeze and unfreeze I/O to the target mountpoint by running the following as the azacsnap user.
-   
-      > [!NOTE]
-      > In this example we run each command twice to show it worked the first time as there's no command to confirm if `xfs_freeze` has frozen I/O.
-  
-      Freeze I/O.
-  
-      ```bash
-      su - azacsnap
-      xfs_freeze -f /hana/data
-      xfs_freeze -f /hana/data
-      ```
-      
-      ```output
-      xfs_freeze: cannot freeze filesystem at /hana/data: Device or resource busy
-      ```
-  
-      Unfreeze I/O.
-   
-      ```bash
-      su - azacsnap
-      xfs_freeze -u /hana/data
-      xfs_freeze -u /hana/data
-      ```
-  
-      ```output
-      xfs_freeze: cannot unfreeze filesystem mounted at /hana/data: Invalid argument
-      ```
+1. Attach Azure managed disks to the VM by using the Azure portal.
+1. Create a logical volume from these managed disks.
+1. Mount the logical volume to a Linux directory.
+1. Enable communication in the same way as for Azure NetApp Files in the [AzAcSnap installation](azacsnap-configure-storage.md?tabs=azure-netapp-files#enable-communication-with-storage).
+1. Install and configure AzAcSnap.
+
+For more information about using Azure managed disks as a storage back end, see [Configure the Azure Application Consistent Snapshot tool](azacsnap-cmd-ref-configure.md).
 
 ### Example configuration file
 
-Here's an example config file, note the hierarchy for the dataVolume, mountpoint, azureManagedDisks:
+Here's an example configuration file. Note the hierarchy for `dataVolume`, `mountPoint`, and `azureManagedDisks`.
 
 ```output
 {
@@ -138,30 +158,27 @@ Here's an example config file, note the hierarchy for the dataVolume, mountpoint
         "hdbUserStoreName": "AZACSNAP",
         "savePointAbortWaitSeconds": 600,
         "autoDisableEnableBackint": false,
-        "hliStorage": [],
-        "anfStorage": [],
-        "amdStorage": [
+        "storage": [
           {
-            "dataVolume": [
+            "dataVolumes": [
               {
                 "mountPoint": "/hana/data",
+                "aliStorageResources": [
                 "azureManagedDisks": [
                   {
                     "resourceId": "/subscriptions/<sub-id>/resourceGroups/<rg-name>/providers/Microsoft.Compute/disks/<disk01>",
-                    "authFile": "azureauth.json"
+                    "authFile": ""
                   },
                   {
                     "resourceId": "/subscriptions/<sub-id>/resourceGroups/<rg-name>/providers/Microsoft.Compute/disks/<disk02>",
-                    "authFile": "azureauth.json"
+                    "authFile": ""
                   }
                 ]
               }
-            ],
-            "otherVolume": []
+            ]
           }
         ]
-      },
-      "oracle": null
+      }
     }
   ]
 }
@@ -171,17 +188,20 @@ Here's an example config file, note the hierarchy for the dataVolume, mountpoint
 
 The storage hierarchy looks like the following example for SAP HANA:
 
-- SAP HANA Database data files:
+- Data files for the SAP HANA database:
+
   ```output
   /hana/data/mnt00001
   ```
 
-- Mountpoint:
+- Mount point:
+
   ```output
   /dev/mapper/hanadata-hanadata on /hana/data type xfs 
   ```
 
-- Logical Volume
+- Logical volume:
+
   ```bash
   lvdisplay
   ```
@@ -193,7 +213,8 @@ The storage hierarchy looks like the following example for SAP HANA:
   VG Name                hanadata
   ```
   
-- Volume Group
+- Volume group:
+
   ```bash
   vgdisplay
   ```
@@ -216,7 +237,8 @@ The storage hierarchy looks like the following example for SAP HANA:
   VG Size               1023.99 GiB
   ```
   
-- Physical Volume(s) (attached Azure Managed Disks)
+- Physical volumes (attached Azure managed disks):
+
   ```bash
   pvdisplay
   ```
@@ -244,32 +266,31 @@ The storage hierarchy looks like the following example for SAP HANA:
   PV UUID               RNCylW-F3OG-G93c-1XL3-W6pw-M0XB-2mYFGV
   ```
 
-Installing and setting up the Azure VM and Azure Managed Disks in this way follows Microsoft guidance to create LVM stripes of the Managed Disks on the VM.  
+Installing and setting up the Azure VM and Azure managed disks in this way follows Microsoft guidance to create Logical Volume Manager (LVM) stripes of the managed disks on the VM.
 
-With the Azure VM set up as prescribed, AzAcSnap can take snapshots of Azure Managed Disks.  The snapshot operations are similar to those for other storage back-ends supported by AzAcSnap (for example, Azure NetApp Files, Azure Large Instance (Bare Metal)).  Because AzAcSnap communicates with the Azure Resource Manager to take snapshots, it also needs a Service Principal with the correct permissions to take managed disk snapshots.
+With the Azure VM set up as prescribed, AzAcSnap can take snapshots of Azure managed disks. The snapshot operations are similar to those for other storage back ends that AzAcSnap supports; for example, Azure NetApp Files or Azure Large Instances (bare metal). Because AzAcSnap communicates with Azure Resource Manager to take snapshots, it also needs a service principal with the correct permissions to take managed disk snapshots.
 
-This capability allows customers to test/trial AzAcSnap on a smaller system and scale-up to Azure NetApp Files and/or Azure Large Instance (Bare Metal).
+This capability allows customers to test AzAcSnap on a smaller system and scale up to Azure NetApp Files and/or Azure Large Instances (bare metal).
 
-Supported `azacsnap` command functionality with Azure Managed Disks is 'configure', 'test', 'backup', 'delete', 'details', but not yet 'restore'.
+Supported `azacsnap` command functionality with Azure managed disks is `configure`, `test`, `backup`, `delete`, and `details`, but not yet `restore`.
 
-### Restore from an Azure Managed Disk snapshot
+### Restore from an Azure managed disk snapshot
 
-Although `azacsnap` is currently missing the `-c restore` option for Azure Managed Disks, it’s possible to restore manually as follows:
+Although `azacsnap` is currently missing the `-c restore` option for Azure managed disks, it's possible to restore manually as follows:
 
-1.	Creating disks from the snapshots via the Azure portal. 
+1. Create disks from the snapshots via the Azure portal.
 
-    > [!NOTE]
-    > Be sure to create the disks in the same Availability Zone as the target VM.
+   Be sure to create the disks in the same availability zone as the target VM.
 
-1.	Connect the disks to the VM via the Azure portal.
-1.	Log in to the VM as the `root` user and scan for the newly attached disks using dmesg or pvscan:
-    
-    1. Using `dmesg`:
-    
+1. Connect the disks to the VM via the Azure portal.
+1. Log in to the VM as the root user and scan for the newly attached disks by using `dmesg` or `pvscan`:
+
+    - Using `dmesg`:
+
        ```bash
        dmesg | tail -n30
        ```
-    
+
        ```output
        [2510054.252801] scsi 5:0:0:2: Direct-Access     Msft     Virtual Disk     1.0  PQ:0 ANSI: 5
        [2510054.262358] scsi 5:0:0:2: Attached scsi generic sg4 type 0
@@ -288,13 +309,13 @@ Although `azacsnap` is currently missing the `-c restore` option for Azure Manag
        [2510054.594839] sd 5:0:0:3: [sdf] Write cache: disabled, read cache: enabled, supports DPO and FUA
        [2510054.627310] sd 5:0:0:3: [sdf] Attached SCSI disk
        ```
-    
-    1. Using `pvscan`:
-    
+
+    - Using `pvscan`:
+
        ```bash
        saphana:~ # pvscan
        ```
-    
+
        ```output
        WARNING: scan found duplicate PVID RNCylWF3OGG93c1XL3W6pwM0XB2mYFGV on /dev/sde
        WARNING: scan found duplicate PVID K3yhxN2713lk4kc3PcxOJQsCkD8ZE6YX on /dev/sdf
@@ -306,13 +327,13 @@ Although `azacsnap` is currently missing the `-c restore` option for Azure Manag
        PV /dev/sdc   VG hanadata        lvm2 [512.00 GiB / 0    free]
        Total: 2 [1023.99 GiB] / in use: 2 [1023.99 GiB] / in no VG: 0 [0   ]
        ```
-    
-1.	Import a Volume Group Clone from the disks using `vgimportclone` as the `root` user:
+
+1. Import a volume group clone from the disks by using `vgimportclone` as the root user:
 
     ```bash
     vgimportclone --basevgname hanadata_adhoc /dev/sde /dev/sdf
     ```
-    
+
     ```output
     WARNING: scan found duplicate PVID RNCylWF3OGG93c1XL3W6pwM0XB2mYFGV on /dev/sde
     WARNING: scan found duplicate PVID K3yhxN2713lk4kc3PcxOJQsCkD8ZE6YX on /dev/sdf
@@ -321,223 +342,48 @@ Although `azacsnap` is currently missing the `-c restore` option for Azure Manag
     WARNING: PV RNCylW-F3OG-G93c-1XL3-W6pw-M0XB-2mYFGV prefers device /dev/sdc because device is used by LV.
     WARNING: PV K3yhxN-2713-lk4k-c3Pc-xOJQ-sCkD-8ZE6YX prefers device /dev/sdd because device is used by LV.
     ```
-    
-1.	Activate the Logical Volume using `pvscan` and `vgchange` as `root` user:
+
+1. Activate the logical volume by using `pvscan` and `vgchange` as the root user:
 
     ```bash
     pvscan --cache
     ```
-    
+
     ```output
     pvscan[23761] PV /dev/sdc online.
     pvscan[23761] PV /dev/sdd online.
     pvscan[23761] PV /dev/sde online.
     pvscan[23761] PV /dev/sdf online.
     ```
-    
+
     ```bash
     vgchange -ay hanadata_adhoc
     ```
-    
+
     ```output
     1 logical volume(s) in volume group "hanadata_adhoc" now active
     ```
-    
-1.	Mount the logical volume as the `root` user:
 
-    > [!IMPORTANT]
-    > Use the `mount -o rw,nouuid` options, otherwise volume mounting will fail due to duplicate UUIDs on the VM.
-    
+1. Mount the logical volume as the root user.
+
+   Use the `mount -o rw,nouuid` options. Otherwise, volume mounting will fail because of duplicate UUIDs (universally unique identifiers) on the VM.
+
     ```bash
     mount -o rw,nouuid /dev/hanadata_adhoc/hanadata /mnt/hanadata_adhoc
     ```
 
-1.	Then access the data:
+1. Access the data:
 
     ```bash
     ls /mnt/hanadata_adhoc/
     ```
-    
+
     ```output
     software  write-test.txt
     ```
 
-
-
-## Azure Key Vault
-
-From AzAcSnap v5.1, it's possible to store the Service Principal securely as a Secret in Azure Key Vault.  Using this feature allows for centralization of Service Principal credentials
-where an alternate administrator can set up the Secret for AzAcSnap to use.
-
-The steps to follow to set up Azure Key Vault and store the Service Principal in a Secret are as follows:
-
-1. Within an Azure Cloud Shell session, make sure you're logged on at the subscription where you want to create the Azure Key Vault:
-
-    ```azurecli-interactive
-    az account show
-    ```
-
-1. If the subscription isn't correct, use the following command to set the Cloud Shell to the correct subscription:
-
-    ```azurecli-interactive
-    az account set -s <subscription name or id>
-    ```
-
-1. Create Azure Key Vault
-
-    ```azurecli-interactive
-    az keyvault create --name "<AzureKeyVaultName>" -g <ResourceGroupName>
-    ```
-
-1. Create the trust relationship and assign the policy for virtual machine to get the Secret
-
-   1. Show AzAcSnap virtual machine Identity
-      
-      If the virtual machine already has an identity created, retrieve it as follows:
-      
-      ```azurecli-interactive
-      az vm identity show --name "<VMName>" --resource-group "<ResourceGroup>"
-      ```
-      
-      The `"principalId"` in the output is used as the `--object-id` value when setting the Policy with `az keyvault set-policy`.
-      
-      ```output
-      {
-        "principalId": "99z999zz-99z9-99zz-99zz-9z9zz999zz99",
-        "tenantId": "99z999zz-99z9-99zz-99zz-9z9zz999zz99",
-        "type": "SystemAssigned, UserAssigned",
-        "userAssignedIdentities": { 
-          "/subscriptions/99z999zz-99z9-99zz-99zz-9z9zz999zz99/resourceGroups/AzSecPackAutoConfigRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/AzSecPackAutoConfigUA-eastus2": {
-            "clientId": "99z999zz-99z9-99zz-99zz-9z9zz999zz99",
-            "principalId": "99z999zz-99z9-99zz-99zz-9z9zz999zz99"
-          }
-        }
-      }
-      ```
-
-   1. Set AzAcSnap virtual machine Identity (if necessary)
-   
-      If the VM doesn't have an identity, create it as follows:
-      
-      ```azurecli-interactive
-      az vm identity assign --name "<VMName>" --resource-group "<ResourceGroup>"
-      ```
-      
-      The `"systemAssignedIdentity"` in the output is used as the `--object-id` value when setting the Policy with `az keyvault set-policy`.
-      
-      ```output
-      {
-        "systemAssignedIdentity": "99z999zz-99z9-99zz-99zz-9z9zz999zz99",
-        "userAssignedIdentities": {
-          "/subscriptions/99z999zz-99z9-99zz-99zz-  9z9zz999zz99/resourceGroups/AzSecPackAutoConfigRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/AzSecPackAutoConfigUA-eastus2": {
-            "clientId": "99z999zz-99z9-99zz-99zz-9z9zz999zz99",
-            "principalId": "99z999zz-99z9-99zz-99zz-9z9zz999zz99"
-          }
-        }
-      }
-      ```
-
-   1. Assign a suitable policy for the virtual machine to be able to retrieve the Secret from the Key Vault.
-
-      ```azurecli-interactive
-      az keyvault set-policy --name "<AzureKeyVaultName>" --object-id "<VMIdentity>" --secret-permissions get
-      ```
-
-1. Create Azure Key Vault Secret
-
-   Create the secret, which will store the Service Principal credential information.
-   
-   It's possible to paste the contents of the Service Principal. In the **Bash** Cloud Shell below a single apostrophe character is put after value then 
-   press the `[Enter]` key, then paste the contents of the Service Principal, close the content by adding another single apostrophe and press the `[Enter]` key.  
-   This command should create the Secret and store it in Azure Key Vault.
-   
-   > [!TIP] 
-   > If you have a separate Service Principal per installation the `"<NameOfSecret>"` could be the SID, or some other suitable unique identifier.
-  
-   Following example is for using the **Bash** Cloud Shell:
-
-    ```azurecli-interactive
-    az keyvault secret set --name "<NameOfSecret>" --vault-name "<AzureKeyVaultName>" --value '
-    {
-      "clientId": "99z999zz-99z9-99zz-99zz-9z9zz999zz99",
-      "clientSecret": "<ClientSecret>",
-      "subscriptionId": "99z999zz-99z9-99zz-99zz-9z9zz999zz99",
-      "tenantId": "99z999zz-99z9-99zz-99zz-9z9zz999zz99",
-      "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
-      "resourceManagerEndpointUrl": "https://management.azure.com/",
-      "activeDirectoryGraphResourceId": "https://graph.windows.net/",
-      "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
-      "galleryEndpointUrl": "https://gallery.azure.com/",
-      "managementEndpointUrl": "https://management.core.windows.net/"
-    }'
-    ```
-
-    Following example is for using the **PowerShell** Cloud Shell:
-
-    > [!WARNING] 
-    > In PowerShell the double quotes have to be escaped with an additional double quote, so one double quote (") becomes two double quotes ("").
-
-    ```azurecli-interactive
-    az keyvault secret set --name "<NameOfSecret>" --vault-name "<AzureKeyVaultName>" --value '
-    {
-      ""clientId"": ""99z999zz-99z9-99zz-99zz-9z9zz999zz99"",
-      ""clientSecret"": ""<ClientSecret>"",
-      ""subscriptionId"": ""99z999zz-99z9-99zz-99zz-9z9zz999zz99"",
-      ""tenantId"": ""99z999zz-99z9-99zz-99zz-9z9zz999zz99"",
-      ""activeDirectoryEndpointUrl"": ""https://login.microsoftonline.com"",
-      ""resourceManagerEndpointUrl"": ""https://management.azure.com/"",
-      ""activeDirectoryGraphResourceId"": ""https://graph.windows.net/"",
-      ""sqlManagementEndpointUrl"": ""https://management.core.windows.net:8443/"",
-      ""galleryEndpointUrl"": ""https://gallery.azure.com/"",
-      ""managementEndpointUrl"": ""https://management.core.windows.net/""
-    }'
-    ```
-
-    The output of the command `az keyvault secret set` will have the URI value to use as `"authFile"` entry in the AzAcSnap JSON configuration file.  The URI is
-    the value of the `"id"` below (for example, `"https://<AzureKeyVaultName>.vault.azure.net/secrets/<NameOfSecret>/z9999999z9999999z9999999"`).
-
-    ```output
-    {
-      "attributes": {
-        "created": "2022-02-23T20:21:01+00:00",
-        "enabled": true,
-        "expires": null,
-        "notBefore": null,
-        "recoveryLevel": "Recoverable+Purgeable",
-        "updated": "2022-02-23T20:21:01+00:00"
-      },
-      "contentType": null,
-      "id": "https://<AzureKeyVaultName>.vault.azure.net/secrets/<NameOfSecret>/z9999999z9999999z9999999",
-      "kid": null,
-      "managed": null,
-      "name": "AzureAuth",
-      "tags": {
-        "file-encoding": "utf-8"
-      },
-      "value": "\n{\n  \"clientId\": \"99z999zz-99z9-99zz-99zz-9z9zz999zz99\",\n  \"clientSecret\": \"<ClientSecret>\",\n  \"subscriptionId\": \"99z999zz-99z9-99zz-99zz-9z9zz999zz99\",\n  \"tenantId\": \"99z999zz-99z9-99zz-99zz-9z9zz999zz99\",\n  \"activeDirectoryEndpointUrl\": \"https://login.microsoftonline.com\",\n  \"resourceManagerEndpointUrl\": \"https://management.azure.com/\",\n  \"activeDirectoryGraphResourceId\": \"https://graph.windows.net/\",\n  \"sqlManagementEndpointUrl\": \"https://management.core.windows.net:8443/\",\n  \"galleryEndpointUrl\": \"https://gallery.azure.com/\",\n  \"managementEndpointUrl\": \"https://management.core.windows.net/\"\n}"
-    }
-    ```
-
-1. Update AzAcSnap JSON configuration file
-
-   Replace the value for the authFile entry with the Secret's ID value.  Making this change can be done by editing the file using a tool like `vi`, or by using the 
-   `azacsnap -c configure --configuration edit` option.
-
-    1. Old Value
-  
-      ```output
-      "authFile": "azureauth.json"
-      ```
-  
-    1. New Value
-  
-      ```output
-      "authFile": "https://<AzureKeyVaultName>.vault.azure.net/secrets/<NameOfSecret>/z9999999z9999999z9999999"
-      ```
-
-
 ## Next steps
 
-- [Get started](azacsnap-get-started.md)
-- [Test AzAcSnap](azacsnap-cmd-ref-test.md)
-- [Back up using AzAcSnap](azacsnap-cmd-ref-backup.md)
+- [Get started with the Azure Application Consistent Snapshot tool](azacsnap-get-started.md)
+- [Test the Azure Application Consistent Snapshot tool](azacsnap-cmd-ref-test.md)
+- [Back up using the Azure Application Consistent Snapshot tool](azacsnap-cmd-ref-backup.md)

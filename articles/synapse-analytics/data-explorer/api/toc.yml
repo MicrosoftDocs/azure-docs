@@ -1,116 +1,84 @@
 items:
-- name: API overview
-  href: /azure/data-explorer/kusto/api/index?context=/azure/synapse-analytics/context/context
-- name: Client libraries
-  href: /azure/data-explorer/kusto/api/client-libraries?context=/azure/synapse-analytics/context/context
-- name: Connection strings
-  items:
-  - name: Connection strings overview
-    href: /azure/data-explorer/kusto/api/connection-strings/index?context=/azure/synapse-analytics/context/context
-  - name: Kusto connection strings
-    href: /azure/data-explorer/kusto/api/connection-strings/kusto?context=/azure/synapse-analytics/context/context
-  - name: Storage connection strings
-    href: /azure/data-explorer/kusto/api/connection-strings/storage?context=/azure/synapse-analytics/context/context
 - name: REST API
   items:
   - name: REST API overview
-    href: /azure/data-explorer/kusto/api/rest/index?context=/azure/synapse-analytics/context/context
-  - name: Authentication
-    href: /azure/data-explorer/kusto/api/rest/authentication?context=/azure/synapse-analytics/context/context
-  - name: Query/management HTTP request
-    href: /azure/data-explorer/kusto/api/rest/request?context=/azure/synapse-analytics/context/context
-  - name: Query/management HTTP response
-    href: /azure/data-explorer/kusto/api/rest/response?context=/azure/synapse-analytics/context/context
+    href: /kusto/api/rest/index?view=azure-data-explorer&preserve-view=true
+  - name: Authentication over HTTPs
+    href: /kusto/api/rest/authentication?view=azure-data-explorer&preserve-view=true
+  - name: Query HTTP request
+    href: /kusto/api/rest/request?view=azure-data-explorer&preserve-view=true
+  - name: Query HTTP response
+    href: /kusto/api/rest/response?view=azure-data-explorer&preserve-view=true
   - name: Query v2 HTTP response
-    href: /azure/data-explorer/kusto/api/rest/response2?context=/azure/synapse-analytics/context/context
+    href: /kusto/api/rest/response-v2?view=azure-data-explorer&preserve-view=true
+  - name: Request properties
+    href: /kusto/api/rest/request-properties?view=azure-data-explorer&preserve-view=true
+    displayName: CRPs, clientrequestproperties
   - name: UI (Deep Links)
-    href: /azure/data-explorer/kusto/api/rest/deeplink?context=/azure/synapse-analytics/context/context
+    href: /kusto/api/rest/deeplink?view=azure-data-explorer&preserve-view=true
   - name: Streaming ingest
-    href: /azure/data-explorer/kusto/api/rest/streaming-ingest?context=/azure/synapse-analytics/context/context
-- name: MS-TDS
-  displayName: SQL, ADO.NET, JDBC, ODBC
-  items:
-  - name: MS-TDS overview
-    displayName: SQL, ADO.NET, JDBC, ODBC
-    href: /azure/data-explorer/kusto/api/tds/index?context=/azure/synapse-analytics/context/context
-  - name: T-SQL
-    href: /azure/data-explorer/kusto/api/tds/t-sql?context=/azure/synapse-analytics/context/context
-  - name: KQL over TDS
-    href: /azure/data-explorer/kusto/api/tds/tdskql?context=/azure/synapse-analytics/context/context
-  - name: Clients
-    href: /azure/data-explorer/kusto/api/tds/clients?context=/azure/synapse-analytics/context/context
-  - name: Linked server
-    href: /azure/data-explorer/kusto/api/tds/linkedserver?context=/azure/synapse-analytics/context/context
-  - name: Azure Active Directory
-    displayName: AAD, Azure AD
-    href: /azure/data-explorer/kusto/api/tds/aad?context=/azure/synapse-analytics/context/context
-  - name: Known issues
-    href: /azure/data-explorer/kusto/api/tds/sqlknownissues?context=/azure/synapse-analytics/context/context
+    href: /kusto/api/rest/streaming-ingest?view=azure-data-explorer&preserve-view=true
+  - name: Query with T-SQL
+    href: /kusto/api/rest/t-sql?view=azure-data-explorer&preserve-view=true
+  - name: How to ingest data with the REST API
+    displayName: Kusto.Ingest
+    href: /kusto/api/netfx/kusto-ingest-client-rest?view=azure-data-explorer&preserve-view=true
+  - name: How to authenticate with MSAL in apps
+    displayName: AAD, how to authenticate
+    href: /kusto/api/rest/authenticate-with-msal?view=azure-data-explorer&preserve-view=true
 - name: .NET SDK
   items:
-  - name: General
-    items:
-    - name: About the SDK
-      href: /azure/data-explorer/kusto/api/netfx/about-the-sdk?context=/azure/synapse-analytics/context/context
-    - name: Controlling tracing
-      href: /azure/data-explorer/kusto/api/netfx/controlling-tracing?context=/azure/synapse-analytics/context/context
+  - name: About the SDK
+    href: /kusto/api/netfx/about-the-sdk?view=azure-data-explorer&preserve-view=true
+  - name: Controlling tracing
+    href: /kusto/api/netfx/controlling-tracing?view=azure-data-explorer&preserve-view=true
   - name: Kusto.Data
     items:
-    - name: Kusto.Data overview
-      href: /azure/data-explorer/kusto/api/netfx/about-kusto-data?context=/azure/synapse-analytics/context/context
-    - name: Request properties, ClientRequestProperties
-      href: /azure/data-explorer/kusto/api/netfx/request-properties?context=/azure/synapse-analytics/context/context
+    - name: Errors and exceptions
+      href: /kusto/api/netfx/kusto-data-client-errors?view=azure-data-explorer&preserve-view=true
   - name: Kusto.Ingest
     items:
-    - name: Kusto.Ingest overview
-      href: /azure/data-explorer/kusto/api/netfx/about-kusto-ingest?context=/azure/synapse-analytics/context/context
-    - name: Permissions
-      displayName: Kusto.Ingest
-      href: /azure/data-explorer/kusto/api/netfx/kusto-ingest-client-permissions?context=/azure/synapse-analytics/context/context
     - name: Client reference
       displayName: Kusto.Ingest
-      href: /azure/data-explorer/kusto/api/netfx/kusto-ingest-client-reference?context=/azure/synapse-analytics/context/context
+      href: /kusto/api/netfx/kusto-ingest-client-reference?view=azure-data-explorer&preserve-view=true
     - name: Errors and exceptions
       displayName: Kusto.Ingest
-      href: /azure/data-explorer/kusto/api/netfx/kusto-ingest-client-errors?context=/azure/synapse-analytics/context/context
+      href: /kusto/api/netfx/kusto-ingest-client-errors?view=azure-data-explorer&preserve-view=true
     - name: Operation status
       displayName: Kusto.Ingest
-      href: /azure/data-explorer/kusto/api/netfx/kusto-ingest-client-status?context=/azure/synapse-analytics/context/context
-    - name: Kusto.Ingest best practices
-      href: /azure/data-explorer/kusto/api/netfx/kusto-ingest-best-practices?context=/azure/synapse-analytics/context/context
+      href: /kusto/api/netfx/kusto-ingest-client-status?view=azure-data-explorer&preserve-view=true
     - name: Code samples
       displayName: Kusto.Ingest
-      href: /azure/data-explorer/kusto/api/netfx/kusto-ingest-client-examples?context=/azure/synapse-analytics/context/context
-    - name: HowTo Data Ingestion with REST API
-      displayName: Kusto.Ingest
-      href: /azure/data-explorer/kusto/api/netfx/kusto-ingest-client-rest?context=/azure/synapse-analytics/context/context
+      href: /kusto/api/netfx/kusto-ingest-client-examples?view=azure-data-explorer&preserve-view=true
+  - name: Kusto.Language
+    items:
+    - name: Kusto.Language overview
+      href: /kusto/api/netfx/about-kusto-language?view=azure-data-explorer&preserve-view=true
+    - name: Parse queries and commands
+      href: /kusto/api/netfx/kusto-language-parse-queries?view=azure-data-explorer&preserve-view=true
+    - name: Define schemas
+      href: /kusto/api/netfx/kusto-language-define-schemas?view=azure-data-explorer&preserve-view=true
 - name: Python SDK
   items:
   - name: azure-kusto-python
-    href: /azure/data-explorer/kusto/api/python/kusto-python-client-library?context=/azure/synapse-analytics/context/context
+    href: /kusto/api/python/kusto-python-client-library?view=azure-data-explorer&preserve-view=true
 - name: R SDK
   items:
   - name: azure-kusto-r
-    href: /azure/data-explorer/kusto/api/r/kusto-r-client-library?context=/azure/synapse-analytics/context/context
+    href: /kusto/api/r/kusto-r-client-library?view=azure-data-explorer&preserve-view=true
 - name: Java SDK
   items:
   - name: azure-kusto-java
-    href: /azure/data-explorer/kusto/api/java/kusto-java-client-library?context=/azure/synapse-analytics/context/context
+    href: /kusto/api/java/kusto-java-client-library?view=azure-data-explorer&preserve-view=true
 - name: Node SDK
   items:
   - name: azure-kusto-node
-    href: /azure/data-explorer/kusto/api/node/kusto-node-client-library?context=/azure/synapse-analytics/context/context
+    href: /kusto/api/node/kusto-node-client-library?view=azure-data-explorer&preserve-view=true
 - name: Go SDK
   items:
   - name: azure-kusto-go
-    href: /azure/data-explorer/kusto/api/golang/kusto-golang-client-library?context=/azure/synapse-analytics/context/context
+    href: /kusto/api/golang/kusto-golang-client-library?view=azure-data-explorer&preserve-view=true
 - name: PowerShell
   items:
-  - name: Calling Kusto from PowerShell
-    href: /azure/data-explorer/kusto/api/powershell/powershell?context=/azure/synapse-analytics/context/context
-- name: Monaco IDE integration
-  items:
-  - name: monaco-kusto overview
-    href: /azure/data-explorer/kusto/api/monaco/monaco-kusto?context=/azure/synapse-analytics/context/context
-  - name: Embed web UX in an iFrame
-    href: /azure/data-explorer/kusto/api/monaco/host-web-ux-in-iframe?context=/azure/synapse-analytics/context/context
+  - name: Use Kusto .NET client libraries from PowerShell
+    href: /kusto/api/powershell/powershell?view=azure-data-explorer&preserve-view=true

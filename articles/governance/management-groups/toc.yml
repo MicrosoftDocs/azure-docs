@@ -4,13 +4,13 @@
   expanded: true
   items:
   - name: Azure Management
-    href: ../azure-management.md
+    href: ./azure-management.md
   - name: Management groups
     href: ./overview.md
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create a management group - Portal
+  - name: Create a management group - portal
     displayName: hierarchy
     href: ./create-management-group-portal.md
   - name: Create a management group - Azure CLI
@@ -60,7 +60,7 @@
   - name: Azure PowerShell
     href: /powershell/module/az.resources/#resources
   - name: Azure SDK for .NET
-    href: /dotnet/api/overview/azure/managementgroups
+    href: /dotnet/api/overview/azure/management-groups
   - name: Azure SDK for Go
     href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/services/preview/resources/mgmt/2018-03-01-preview/managementgroups
   - name: Azure SDK for JavaScript

@@ -1,8 +1,9 @@
 ---
 title: Template functions - arrays
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) for working with arrays.
-ms.topic: conceptual
-ms.date: 04/12/2022
+ms.topic: reference
+ms.custom: devx-track-arm-template
+ms.date: 01/11/2024
 ---
 
 # Array functions for ARM templates
@@ -720,6 +721,8 @@ For arrays, the function iterates through each element in the first parameter an
 
 For objects, property names and values from the first parameter are added to the result. For later parameters, any new names are added to the result. If a later parameter has a property with the same name, that value overwrites the existing value. The order of the properties isn't guaranteed.
 
+The union function merges not only the top-level elements but also recursively merges any nested objects within them. Nested array values are not merged. See the second example in the following section.
+
 ### Example
 
 The following example shows how to use union with arrays and objects.
@@ -732,6 +735,77 @@ The output from the preceding example with the default values is:
 | ---- | ---- | ----- |
 | objectOutput | Object | {"one": "a", "two": "b", "three": "c2", "four": "d", "five": "e"} |
 | arrayOutput | Array | ["one", "two", "three", "four"] |
+
+The following example shows the deep merge capability:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "variables": {
+    "firstObject": {
+      "property": {
+        "one": "a",
+        "two": "b",
+        "three": "c1"
+      },
+      "nestedArray": [
+        1,
+        2
+      ]
+    },
+    "secondObject": {
+      "property": {
+        "three": "c2",
+        "four": "d",
+        "five": "e"
+      },
+      "nestedArray": [
+        3,
+        4
+      ]
+    },
+    "firstArray": [
+      [
+        "one",
+        "two"
+      ],
+      [
+        "three"
+      ]
+    ],
+    "secondArray": [
+      [
+        "three"
+      ],
+      [
+        "four",
+        "two"
+      ]
+    ]
+  },
+  "resources": [],
+  "outputs": {
+    "objectOutput": {
+      "type": "Object",
+      "value": "[union(variables('firstObject'), variables('secondObject'))]"
+    },
+    "arrayOutput": {
+      "type": "Array",
+      "value": "[union(variables('firstArray'), variables('secondArray'))]"
+    }
+  }
+}
+```
+
+The output from the preceding example is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| objectOutput | Object |{"property":{"one":"a","two":"b","three":"c2","four":"d","five":"e"},"nestedArray":[3,4]}|
+| arrayOutput | Array |[["one","two"],["three"],["four","two"]]|
+
+If nested arrays were merged, then the value of **objectOutput.nestedArray** would be [1, 2, 3, 4], and the value of **arrayOutput** would be [["one", "two", "three"], ["three", "four", "two"]].
 
 ## Next steps
 

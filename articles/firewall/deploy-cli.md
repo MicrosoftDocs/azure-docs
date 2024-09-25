@@ -3,8 +3,9 @@ title: Deploy and configure Azure Firewall using Azure CLI
 description: In this article, you learn how to deploy and configure Azure Firewall using the Azure CLI. 
 services: firewall
 author: vhorne
-ms.service: firewall
-ms.date: 08/29/2019
+ms.service: azure-firewall
+ms.custom: devx-track-azurecli
+ms.date: 10/31/2022
 ms.author: victorh
 ms.topic: how-to
 #Customer intent: As an administrator new to this service, I want to control outbound network access from resources located in an Azure subnet.
@@ -27,7 +28,7 @@ For this article, you create a simplified single VNet with three subnets for eas
 * **Workload-SN** - the workload server is in this subnet. This subnet's network traffic goes through the firewall.
 * **Jump-SN** - The "jump" server is in this subnet. The jump server has a public IP address that you can connect to using Remote Desktop. From there, you can then connect to (using another Remote Desktop) the workload server.
 
-![Tutorial network infrastructure](media/tutorial-firewall-rules-portal/Tutorial_network.png)
+:::image type="content" source="media/tutorial-firewall-rules-portal/Tutorial_network.png" alt-text="Diagram of network infrastructure." lightbox="media/tutorial-firewall-rules-portal/Tutorial_network.png":::
 
 In this article, you learn how to:
 
@@ -40,11 +41,11 @@ In this article, you learn how to:
 
 If you prefer, you can complete this procedure using the [Azure portal](tutorial-firewall-deploy-portal.md) or [Azure PowerShell](deploy-ps.md).
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
-- This article requires version 2.0.4 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+- This article requires version 2.55.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Set up the network
 
@@ -131,7 +132,7 @@ az vm create \
     --admin-username azureadmin
 ```
 
-[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
 
 ## Deploy the firewall
 
@@ -167,7 +168,7 @@ Note the private IP address. You'll use it later when you create the default rou
 
 ## Create a default route
 
-Create a table, with BGP route propagation disabled
+Create a route table, with BGP route propagation disabled
 
 ```azurecli-interactive
 az network route-table create \

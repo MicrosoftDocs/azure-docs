@@ -1,6 +1,6 @@
 ---
 author: cephalin
-ms.service: app-service
+ms.service: azure-app-service
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 06/30/2022
@@ -9,16 +9,12 @@ ms.author: cephalin
 
 [Azure App Service](../../overview.md) provides pre-defined application stacks on Windows like ASP.NET or Node.js, running on IIS. However, the pre-configured application stacks [lock down the operating system and prevent low-level access](../../operating-system-functionality.md). Custom Windows containers don't have these restrictions, and let developers fully customize the containers and give containerized applications full access to Windows functionality. 
 
-> [!NOTE]
-> For information regarding running containerized applications in a serverless environment, please see [Container Apps](../../../container-apps/overview.md).
->
-
 This quickstart shows you how to deploy an ASP.NET app in a Windows image from Azure Container Registry to Azure App Service. 
 
 To complete this quickstart, you need:
 
 - An [Azure account](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-docker-extension&mktingSource=vscode-tutorial-docker-extension)
-- An [Azure container registry](../../../container-registry/container-registry-get-started-portal.md)
+- An [Azure container registry](/azure/container-registry/container-registry-get-started-portal)
 - [Azure CLI](/cli/azure/install-azure-cli)
 - [Install Docker for Windows](https://docs.docker.com/docker-for-windows/install/)
 - [Switch Docker to run Windows containers](/virtualization/windowscontainers/quick-start/quick-start-windows-10)
@@ -69,7 +65,7 @@ Make sure you are in the cloned repository's root folder. This repository contai
 
 ### Sign in to Azure portal
 
-Sign in to the Azure portal at https://portal.azure.com.
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ### Create Azure resources
 
@@ -132,7 +128,29 @@ The App Service app pulls from the container registry every time it starts. If y
 > [Configure custom container](../../configure-custom-container.md)
 
 > [!div class="nextstepaction"]
-> [Custom container tutorial](../../tutorial-custom-container.md)
+> [How to use managed identities for App Service and Azure Functions](../../overview-managed-identity.md)
 
 > [!div class="nextstepaction"]
-> [Multi-container app tutorial](../../tutorial-multi-container-app.md)
+> [Application monitoring for Azure App Service overview](/azure/azure-monitor/app/azure-web-apps)
+
+> [!div class="nextstepaction"]
+> [Azure Monitor overview](/azure/azure-monitor/overview)
+
+> [!div class="nextstepaction"]
+> [Secure with custom domain and certificate](../../tutorial-secure-domain-certificate.md)
+
+> [!div class="nextstepaction"]
+> [Integrate your app with an Azure virtual network](../../overview-vnet-integration.md)
+
+> [!div class="nextstepaction"]
+> [Use Private Endpoints for App Service apps](../../networking/private-endpoint.md)
+
+> [!div class="nextstepaction"]
+> [Migrate to Windows container in Azure](../../tutorial-custom-container.md)
+
+> [!div class="nextstepaction"]
+> [Deploy a container with Azure Pipelines](../../deploy-container-azure-pipelines.md)
+
+> [!div class="nextstepaction"]
+> [Deploy a container with GitHub Actions](../../deploy-container-github-action.md)
+

@@ -1,7 +1,7 @@
 ---
-title: Learn how to sign an HTTP request with C#
+title: Learn how to sign an HTTP request with HMAC
 titleSuffix: An Azure Communication Services tutorial
-description: Learn how to sign an HTTP request for Azure Communication Services via C#.
+description: Learn how to sign an HTTP request for Azure Communication Services using HMAC.
 author: alexandra142
 manager: soricos
 services: azure-communication-services
@@ -11,6 +11,7 @@ ms.date: 06/30/2021
 ms.topic: tutorial
 ms.service: azure-communication-services
 ms.subservice: identity
+ms.custom: devx-track-python
 zone_pivot_groups: acs-programming-languages-csharp-python
 ---
 
@@ -41,6 +42,6 @@ To clean up and remove a Communication Services subscription, delete the resourc
 You might also want to:
 
 - [Add chat to your app](../quickstarts/chat/get-started.md)
-- [Create user access tokens](../quickstarts/access-tokens.md)
+- [Create user access tokens](../quickstarts/identity/access-tokens.md)
 - [Learn about client and server architecture](../concepts/client-and-server-architecture.md)
 - [Learn about authentication](../concepts/authentication.md)

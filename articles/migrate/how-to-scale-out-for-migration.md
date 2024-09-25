@@ -1,17 +1,19 @@
 ---
 title: Set up an Azure Migrate scale-out appliance for agentless VMware migration
 description: Learn how to set up an Azure Migrate scale-out appliance to migrate Hyper-V VMs.
-author: anvar-ms 
-ms.author: anvar
-ms.manager: bsiva
+author: ajaypartha95
+ms.author: ajaypar
+ms.manager: roopesh.nair
+ms.service: azure-migrate
 ms.topic: how-to
-ms.date: 04/27/2022
+ms.date: 06/20/2024
+ms.custom: engagement-fy24
 ---
 
 
 # Scale agentless migration of VMware virtual machines to Azure
 
-This article helps you understand how to use a scale-out appliance to migrate a large number of VMware virtual machines (VMs) to Azure using the Azure Migrate Server Migration tool's agentless method for migration of VMware VMs.
+This article helps you understand how to use a scale-out appliance to migrate a large number of VMware virtual machines (VMs) to Azure using the Migration and modernization tool's agentless method for migration of VMware VMs.
 
 Using the agentless migration method for VMware virtual machines you can:
 
@@ -55,7 +57,7 @@ To add a scale-out appliance, follow the steps mentioned below:
 
 ### 2. Download the installer for the scale-out appliance
 
-In **Download Azure Migrate appliance**, click  **Download**. You need to download the PowerShell installer script to deploy the scale-out appliance on an existing server running Windows Server 2016 and with the required hardware configuration (32-GB RAM, 8 vCPUs, around 80 GB of disk storage and internet access, either directly or through a proxy).
+In **Download Azure Migrate appliance**, click  **Download**. You need to download the PowerShell installer script to deploy the scale-out appliance on an existing server running Windows Server 2019 or Windows Server 2022 and with the required hardware configuration (32-GB RAM, 8 vCPUs, around 80 GB of disk storage and internet access, either directly or through a proxy).
 
 :::image type="content" source="./media/how-to-scale-out-for-migration/download-scale-out.png" alt-text="Download script for scale-out appliance":::
 
@@ -67,7 +69,7 @@ In **Download Azure Migrate appliance**, click  **Download**. You need to downlo
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Example usage: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
 > 3. Download the [latest version](https://go.microsoft.com/fwlink/?linkid=2191847) of the scale-out appliance installer from the portal if the computed hash value doesn't match this string:
-277C53620DB299F57E3AC5A65569E9720F06190A245476810B36BF651C8B795B
+[!INCLUDE [security-hash-value.md](includes/security-hash-value.md)]
 
 ### 3. Run the Azure Migrate installer script
 
@@ -139,28 +141,31 @@ In the configuration manager, select **Set up prerequisites**, and then complete
 
         After the appliance is successfully registered, to see the registration details, select **View details**.
 
-         #### Import appliance configuration from primary appliance
+#### Import appliance configuration from primary appliance
 
-         To complete the registration of the scale-out appliance, click **import** to get the necessary configuration files from the primary appliance.
+To complete the registration of the scale-out appliance, click **import** to get the necessary configuration files from the primary appliance.
 
-         1. Clicking **import** opens a pop-up window with instructions on how to import the necessary configuration files from the primary appliance.
+1. Clicking **import** opens a pop-up window with instructions on how to import the necessary configuration files from the primary appliance.
 
-            :::image type="content" source="./media/how-to-scale-out-for-migration/import-modal-scale-out.png" alt-text="Screenshot of the Import Configuration files modal.":::
+    :::image type="content" source="./media/how-to-scale-out-for-migration/import-modal-scale-out.png" alt-text="Screenshot of the Import Configuration files modal.":::
 
-         1. Login (remote desktop) to the primary appliance and execute the following PowerShell commands:
+1. Login (remote desktop) to the primary appliance and execute the following PowerShell commands:
 
-            `PS cd 'C:\Program Files\Microsoft Azure Appliance Configuration Manager\Scripts\PowerShell' `
+    `PS cd 'C:\Program Files\Microsoft Azure Appliance Configuration Manager\Scripts\PowerShell' `
     
-            `PS .\ExportConfigFiles.ps1 `
+    `PS .\ExportConfigFiles.ps1 `
 
-         1. Copy the zip file created by running the above commands to the scale-out appliance. The zip file contains configuration files needed to register the scale-out appliance.
+    > [!Note] 
+    > Install PowerShell 7.x in the appliance and execute the script ExportConfigFiles.ps1. The script execution is only supported with PowerShell 7.x. 
 
-         1. In the pop-up window opened in the previous step, select the location of the copied configuration zip file and click **Save**.
+1. Copy the zip file created by running the above commands to the scale-out appliance. The zip file contains configuration files needed to register the scale-out appliance.
 
-         Once the files have been successfully imported, the registration of the scale-out appliance will complete and it will show you the timestamp of the last successful import. You can also see the registration details by clicking **View details**.
-1. **Install the VDDK**: The appliance checks that VMware vSphere Virtual Disk Development Kit (VDDK) is installed. If the VDDK isn't installed, download VDDK 6.7 from VMware. Extract the downloaded zip file contents to the specified location on the appliance, as indicated in the *Installation instructions*.
+1. In the pop-up window opened in the previous step, select the location of the copied configuration zip file and click **Save**.
 
-    Azure Migrate Server Migration uses the VDDK to replicate servers during migration to Azure.
+    Once the files have been successfully imported, the registration of the scale-out appliance will complete and it will show you the timestamp of the last successful import. You can also see the registration details by clicking **View details**.
+1. **Install the VDDK**: The appliance checks that VMware vSphere Virtual Disk Development Kit (VDDK) is installed. If the VDDK isn't installed, download VDDK 6.7, 7, or 8(depending on the compatibility of VDDK and ESXi versions) from VMware. Extract the downloaded zip file contents to the specified location on the appliance, as indicated in the *Installation instructions*.
+
+    The Migration and modernization tool uses the VDDK to replicate servers during migration to Azure.
 
 You can *rerun prerequisites* at any time during appliance configuration to check whether the appliance meets all the prerequisites.
 
@@ -172,16 +177,19 @@ At this point, you should revalidate that the scale-out appliance is able to con
 
 ## Replicate
 
-1. After the scale-out appliance is registered, on the Azure Migrate: Server Migration tile, click **Replicate**.
+1. After the scale-out appliance is registered, on the Migration and modernization tile, select **Replicate**.
 
 2.	Follow the steps on the screen to start replicating more virtual machines. 
 
 With the scale-out appliance in place, you can now replicate 500 VMs concurrently. You can also migrate VMs in batches of 200 through the Azure portal.
 
-Azure Migrate Server Migration tool will take care of distributing the virtual machines between the primary and scale-out appliance for replication. Once the replication is done, you can migrate the virtual machines.
+The Migration and modernization tool will take care of distributing the virtual machines between the primary and scale-out appliance for replication. Once the replication is done, you can migrate the virtual machines.
 
 > [!TIP]
 > We recommend migrating virtual machines in batches of 200 for optimal performance if you want to migrate a large number of virtual machines.
+
+> [!NOTE]
+> User can only select the primary appliance while starting replication. It is not possible for user to select a scale out appliance while starting replication. By design, based on availability it would be decided whether replication will be allotted to primary appliance or scale out appliance.
   
 ## Next steps
 
@@ -190,4 +198,4 @@ In this article, you learned:
 - How to replicate VMs using a scale-out appliance
 
 
-[Learn more](./tutorial-migrate-vmware.md) about migrating servers to Azure using Azure Migrate: Server Migration tool.
+[Learn more](./tutorial-migrate-vmware.md) about migrating servers to Azure using the Migration and modernization tool.

@@ -2,7 +2,7 @@
 title: Azure Event Hubs as Event Grid source
 description: Describes the properties that are provided for event hubs events with Azure Event Grid
 ms.topic: conceptual
-ms.date: 09/15/2021
+ms.date: 12/02/2022
 ---
 
 # Azure Event Hubs as an Event Grid source
@@ -14,6 +14,34 @@ This article provides the properties and schema for event hubs events. For an i
 Event Hubs emits the **Microsoft.EventHub.CaptureFileCreated** event type when a capture file is created.
 
 ## Example event
+
+# [Cloud event schema](#tab/cloud-event-schema)
+
+This sample event shows the schema of an event hubs event raised when the capture feature stores a file: 
+
+```json
+[
+    {
+        "source": "/subscriptions/<guid>/resourcegroups/rgDataMigrationSample/providers/Microsoft.EventHub/namespaces/tfdatamigratens",
+        "subject": "eventhubs/hubdatamigration",
+        "type": "Microsoft.EventHub.CaptureFileCreated",
+        "time": "2017-08-31T19:12:46.0498024Z",
+        "id": "14e87d03-6fbf-4bb2-9a21-92bd1281f247",
+        "data": {
+            "fileUrl": "https://tf0831datamigrate.blob.core.windows.net/windturbinecapture/tfdatamigratens/hubdatamigration/1/2017/08/31/19/11/45.avro",
+            "fileType": "AzureBlockBlob",
+            "partitionId": "1",
+            "sizeInBytes": 249168,
+            "eventCount": 1500,
+            "firstSequenceNumber": 2400,
+            "lastSequenceNumber": 3899,
+            "firstEnqueueTime": "2017-08-31T19:12:14.674Z",
+            "lastEnqueueTime": "2017-08-31T19:12:44.309Z"
+        },
+        "specversion": "1.0"
+    }
+]
+```
 
 # [Event Grid event schema](#tab/event-grid-event-schema)
 
@@ -44,39 +72,24 @@ This sample event shows the schema of an event hubs event raised when the captur
 ]
 ```
 
-# [Cloud event schema](#tab/cloud-event-schema)
-
-This sample event shows the schema of an event hubs event raised when the capture feature stores a file: 
-
-```json
-[
-    {
-        "source": "/subscriptions/<guid>/resourcegroups/rgDataMigrationSample/providers/Microsoft.EventHub/namespaces/tfdatamigratens",
-        "subject": "eventhubs/hubdatamigration",
-        "type": "Microsoft.EventHub.CaptureFileCreated",
-        "time": "2017-08-31T19:12:46.0498024Z",
-        "id": "14e87d03-6fbf-4bb2-9a21-92bd1281f247",
-        "data": {
-            "fileUrl": "https://tf0831datamigrate.blob.core.windows.net/windturbinecapture/tfdatamigratens/hubdatamigration/1/2017/08/31/19/11/45.avro",
-            "fileType": "AzureBlockBlob",
-            "partitionId": "1",
-            "sizeInBytes": 249168,
-            "eventCount": 1500,
-            "firstSequenceNumber": 2400,
-            "lastSequenceNumber": 3899,
-            "firstEnqueueTime": "2017-08-31T19:12:14.674Z",
-            "lastEnqueueTime": "2017-08-31T19:12:44.309Z"
-        },
-        "specversion": "1.0"
-    }
-]
-```
-
-
 ---
 
 
 ## Event properties
+
+# [Cloud event schema](#tab/cloud-event-schema)
+
+An event has the following top-level data:
+
+| Property | Type | Description |
+| -------- | ---- | ----------- |
+| `source` | string | Full resource path to the event source. This field is not writeable. Event Grid provides this value. |
+| `subject` | string | Publisher-defined path to the event subject. |
+| `type` | string | One of the registered event types for this event source. |
+| `time` | string | The time the event is generated based on the provider's UTC time. |
+| `id` | string | Unique identifier for the event. |
+| `data` | object | Event hub event data. |
+| `specversion` | string | CloudEvents schema specification version. |
 
 # [Event Grid event schema](#tab/event-grid-event-schema)
 An event has the following top-level data:
@@ -92,19 +105,6 @@ An event has the following top-level data:
 | `dataVersion` | string | The schema version of the data object. The publisher defines the schema version. |
 | `metadataVersion` | string | The schema version of the event metadata. Event Grid defines the schema of the top-level properties. Event Grid provides this value. |
 
-# [Cloud event schema](#tab/cloud-event-schema)
-
-An event has the following top-level data:
-
-| Property | Type | Description |
-| -------- | ---- | ----------- |
-| `source` | string | Full resource path to the event source. This field is not writeable. Event Grid provides this value. |
-| `subject` | string | Publisher-defined path to the event subject. |
-| `type` | string | One of the registered event types for this event source. |
-| `time` | string | The time the event is generated based on the provider's UTC time. |
-| `id` | string | Unique identifier for the event. |
-| `data` | object | Event hub event data. |
-| `specversion` | string | CloudEvents schema specification version. |
 
 ---
 
@@ -127,10 +127,10 @@ The data object has the following properties:
 
 |Title  |Description  |
 |---------|---------|
-| [Tutorial: stream big data into a data warehouse](event-grid-event-hubs-integration.md) | When Event Hubs creates a Capture file, Event Grid sends an event to a function app. The app retrieves the Capture file and migrates data to a data warehouse. |
+| [Tutorial: stream big data into a data warehouse](event-hubs-integration.md) | When Event Hubs creates a Capture file, Event Grid sends an event to a function app. The app retrieves the Capture file and migrates data to a data warehouse. |
 
 ## Next steps
 
 * For an introduction to Azure Event Grid, see [What is Event Grid?](overview.md)
 * For more information about creating an Azure Event Grid subscription, see [Event Grid subscription schema](subscription-creation-schema.md).
-* For information about handling event hubs events, see [Stream big data into a data warehouse](event-grid-event-hubs-integration.md).
+* For information about handling event hubs events, see [Stream big data into a data warehouse](event-hubs-integration.md).

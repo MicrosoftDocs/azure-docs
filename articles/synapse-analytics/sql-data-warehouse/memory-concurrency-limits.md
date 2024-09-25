@@ -2,13 +2,12 @@
 title: Memory and concurrency limits
 description: View the memory and concurrency limits allocated to the various performance levels and resource classes for dedicated SQL pool in Azure Synapse Analytics.
 author: WilliamDAssafMSFT
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: conceptual
-ms.subservice: sql-dw 
-ms.date: 04/04/2021
 ms.author: wiassaf
-ms.reviewer: sngun
+ms.reviewer: whhender
+ms.date: 04/04/2021
+ms.service: azure-synapse-analytics
+ms.subservice: sql-dw
+ms.topic: conceptual
 ms.custom: azure-synapse
 ---
 
@@ -49,6 +48,9 @@ The service levels range from DW100c to DW30000c.
 
 The maximum service level is DW30000c, which has 60 Compute nodes and one distribution per Compute node. For example, a 600 TB data warehouse at DW30000c processes approximately 10 TB per Compute node.
 
+> [!NOTE]
+> Synapse Dedicated SQL pool is an evergreen platform service. Under [shared responsibility model in the cloud](../../security/fundamentals/shared-responsibility.md#division-of-responsibility), Microsoft continues to invest in advancements to underlying software and hardware which host dedicated SQL pool. As a result, the number of nodes or the type of computer hardware which underpins a given performance level (SLO) may change. The number of compute nodes listed here are provided as a reference, and shouldn't be used for sizing or performance purposes. Irrespective of number of nodes or underlying infrastructure, Microsoft's goal is to deliver performance in accordance with SLO; hence, we recommend that all sizing exercises must use cDWU as a guide. For more information on SLO and compute Data Warehouse Units, see [Data Warehouse Units (DWUs) for dedicated SQL pool (formerly SQL DW)](what-is-a-data-warehouse-unit-dwu-cdwu.md#service-level-objective).
+
 ## Concurrency maximums for workload groups
 
 With the introduction of [workload groups](sql-data-warehouse-workload-isolation.md), the concept of concurrency slots no longer applies.  Resources per request are allocated on a percentage basis and specified in the workload group definition.  However, even with the removal of concurrency slots, there are minimum amounts of resources needed per queries based on the service level.  The below table defined the minimum amount of resources needed per query across service levels and the associated concurrency that can be achieved.
@@ -83,8 +85,8 @@ The following table shows the maximum concurrent queries and concurrency slots f
 
 | Service Level | Maximum concurrent queries | Concurrency slots available | Slots used by staticrc10 | Slots used by staticrc20 | Slots used by staticrc30 | Slots used by staticrc40 | Slots used by staticrc50 | Slots used by staticrc60 | Slots used by staticrc70 | Slots used by staticrc80 |
 |:-------------:|:--------------------------:|:---------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
-| DW100c        |  4                         |    4                        | 1         | 2          | 4          | 4          | 4         |  4         |  4         |  4         |
-| DW200c        |  8                         |    8                        | 1         | 2          | 4          | 8          |  8         |  8         |  8         |  8        |
+| DW100c        |  4                         |    4                        | 1         | 2          | 4          | 4          |  4         |  4         |  4         |   4        |
+| DW200c        |  8                         |    8                        | 1         | 2          | 4          | 8          |  8         |  8         |  8         |   8        |
 | DW300c        | 12                         |   12                        | 1         | 2          | 4          | 8          |  8         |  8         |  8         |   8        |
 | DW400c        | 16                         |   16                        | 1         | 2          | 4          | 8          | 16         | 16         | 16         |  16        |
 | DW500c        | 20                         |   20                        | 1         | 2          | 4          | 8          | 16         | 16         | 16         |  16        |
@@ -102,7 +104,7 @@ The following table shows the maximum concurrent queries and concurrency slots f
 
 **Dynamic resource classes**
 
-The following table shows the maximum concurrent queries and concurrency slots for each [dynamic resource class](resource-classes-for-workload-management.md). Dynamic resource classes use a 3-10-22-70 memory percentage allocation for small-medium-large-xlarge resource classes across all service levels.
+The following table shows the maximum concurrent queries and concurrency slots for each [dynamic resource class](resource-classes-for-workload-management.md). Dynamic resource classes use a 3-10-22-70 memory percentage allocation for small-medium-large-xlarge resource classes across service level DW1000c to DW30000c. For memory allocation under DW1000c, please refer to the document [dynamic resource class](resource-classes-for-workload-management.md).
 
 | Service Level | Maximum concurrent queries | Concurrency slots available | Slots used by smallrc | Slots used by mediumrc | Slots used by largerc | Slots used by xlargerc |
 |:-------------:|:--------------------------:|:---------------------------:|:---------------------:|:----------------------:|:---------------------:|:----------------------:|

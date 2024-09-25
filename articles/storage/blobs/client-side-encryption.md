@@ -3,14 +3,14 @@ title: Client-side encryption for blobs
 titleSuffix: Azure Storage
 description: The Blob Storage client library supports client-side encryption and integration with Azure Key Vault for users requiring encryption on the client.
 services: storage
-author: tamram
+author: normesta
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: article
-ms.date: 07/12/2022
-ms.author: tamram
+ms.date: 08/07/2024
+ms.author: normesta
 ms.reviewer: ozgun
-ms.subservice: blobs
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
@@ -68,7 +68,7 @@ If your application is using client-side encryption with an earlier version of t
 
 The Azure Blob Storage client libraries use envelope encryption to encrypt and decrypt your data on the client side. Envelope encryption encrypts a key with one or more additional keys.
 
-The Blob Storage client libraries rely on Azure Key Vault to protect the keys that are used for client-side encryption. For more information about Azure Key Vault, see [What is Azure Key Vault?](../../key-vault/general/overview.md).
+The Blob Storage client libraries rely on Azure Key Vault to protect the keys that are used for client-side encryption. For more information about Azure Key Vault, see [What is Azure Key Vault?](/azure/key-vault/general/overview).
 
 ### Encryption and decryption via the envelope technique
 
@@ -91,7 +91,7 @@ Decryption via the envelope technique works as follows:
 
 ### Encryption/decryption on blob upload/download
 
-The Blob Storage client library supports encryption of whole blobs only on upload. For downloads, both complete and range downloads are supported.
+The Blob Storage client library supports encryption of whole blobs only on upload. For downloads, both complete and range downloads are supported. Client-side encryption v2 chunks data into 4MB buffered authenticated encryption blocks which can only be transformed whole. To adjust the chunk size, ensure you are using the most recent version of the SDK that supports client-side encryption v2.1. The region length is configurable from 16 bytes up to 1 GiB.
 
 During encryption, the client library generates a random initialization vector (IV) of 16 bytes and a random CEK of 32 bytes, and performs envelope encryption of the blob data using this information. The wrapped CEK and some additional encryption metadata are then stored as blob metadata along with the encrypted blob.
 
@@ -154,7 +154,8 @@ BlobClientOptions options = new SpecializedBlobClientOptions() { ClientSideEncry
 // and from container clients to blob clients.
 // Attempting to construct a BlockBlobClient, PageBlobClient, or AppendBlobClient from a BlobContainerClient
 // with client-side encryption options present will throw, as this functionality is only supported with BlobClient.
-BlobClient blob = new BlobServiceClient(connectionString, options).GetBlobContainerClient("my-container").GetBlobClient("myBlob");
+BlobClient blob = new BlobServiceClient
+(new Uri($"https://{accountName}.blob.core.windows.net"), new DefaultAzureCredential(), options).GetBlobContainerClient("my-container").GetBlobClient("myBlob");
 
 // Upload the encrypted contents to the blob.
 blob.Upload(stream);
@@ -189,9 +190,9 @@ For sample code that shows how to use client-side encryption v2 from Java, see [
 
 After you update your code to use client-side encryption v2, make sure that you deencrypt and reencrypt any existing encrypted data, as described in [Reencrypt previously encrypted data with client-side encryption v2](#reencrypt-previously-encrypted-data-with-client-side-encryption-v2).
 
-### [Python v12 SDK](#tab/python)
+### [Python](#tab/python)
 
-To use client-side encryption from your Python code, reference the [Blob Storage client library](/python/api/overview/azure/storage-blob-readme). Make sure that you are using version 12.13.0 or later. If you need to migrate from an earlier version of the Java client library, see the [Blob Storage migration guide for Python](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/storage/azure-storage-blob/migration_guide.md).
+To use client-side encryption from your Python code, reference the [Blob Storage client library](/python/api/overview/azure/storage-blob-readme). Make sure that you are using version 12.13.0 or later. If you need to migrate from an earlier version of the Python client library, see the [Blob Storage migration guide for Python](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/storage/azure-storage-blob/migration_guide.md).
 
 The following example shows how to use client-side migration v2 from Python:
 
@@ -235,4 +236,4 @@ Keep in mind that encrypting your storage data results in additional performance
 
 - [Azure Storage updating client-side encryption in SDK to address security vulnerability](https://aka.ms/azstorageclientencryptionblog)
 - [Azure Storage encryption for data at rest](../common/storage-service-encryption.md)
-- [Azure Key Vault documentation](../../key-vault/general/overview.md)
+- [Azure Key Vault documentation](/azure/key-vault/general/overview)

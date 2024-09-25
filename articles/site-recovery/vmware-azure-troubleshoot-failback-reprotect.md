@@ -1,12 +1,11 @@
 ---
 title: Troubleshoot failback in VMware VM disaster recovery with Azure Site Recovery 
 description: This article describes ways to troubleshoot failback and reprotection issues during VMware VM disaster recovery to Azure with Azure Site Recovery.
-author: v-pgaddala
-manager: gaggupta
-ms.service: site-recovery
-ms.topic: conceptual
+author: ankitaduttaMSFT
+ms.service: azure-site-recovery
+ms.topic: troubleshooting
 ms.date: 11/27/2018
-ms.author: v-pgaddala
+ms.author: ankitadutta
 
 ---
 

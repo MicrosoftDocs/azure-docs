@@ -1,20 +1,23 @@
 ---
-title: Create backup policies using REST API
+title: Create backup policies via REST API in Azure Backup
 description: In this article, you'll learn how to create and manage backup policies (schedule and retention) using REST API.
-ms.topic: conceptual
-ms.date: 06/13/2022
+ms.topic: how-to
+ms.date: 02/21/2024
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
-author: v-amallick
-ms.service: backup
-ms.author: v-amallick
+ms.service: azure-backup
+ms.custom: engagement-fy24
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
-# Create Azure Recovery Services backup policies using REST API
+# Create Azure Recovery Services backup policies by using REST API
 
-The steps to create a backup policy for an Azure Recovery Services vault are outlined in the [policy REST API document](/rest/api/backup/protection-policies/create-or-update). Let's use this document as a reference to create a policy for Azure VM backup.
+This article describes how to create policies for the backup of Azure VM, SQL database in Azure VM, SAP HANA database in Azure VM, and Azure File share.
+
+Learn more about [creating or modifying a backup policy for an Azure Recovery Services vault by using REST API](/rest/api/backup/protection-policies/create-or-update). 
 
 ## Create or update a policy
 
-To create or update an Azure Backup policy, use the following *PUT* operation
+To create or update an Azure Backup policy, use the following *PUT* operation.
 
 ```http
 PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupPolicies/{policyName}?api-version=2019-05-13
@@ -24,20 +27,24 @@ The `{policyName}` and `{vaultName}` are provided in the URI. Additional informa
 
 ## Create the request body
 
-For example, to create a policy for Azure VM backup, following are the components of the request body.
+If you want to create a policy for Azure VM backup, the request body needs to have the following components:
 
 |Name  |Required  |Type  |Description  |
 |---------|---------|---------|---------|
 |properties     |   True      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](/rest/api/backup/protection-policies/create-or-update#azureiaasvmprotectionpolicy)      | ProtectionPolicyResource properties        |
 |tags     |         | Object        |  Resource tags       |
 
-For the complete list of definitions in the request body, refer to the [backup policy REST API document](/rest/api/backup/protection-policies/create-or-update).
+For the complete list of definitions in the request body, see the [backup policy REST API article](/rest/api/backup/protection-policies/create-or-update).
 
 ### Example request body
 
-#### For Azure VM backup
+This section provides the example request body to create policies for the backup of Azure VM, SQL database in Azure VM, SAP HANA database in Azure VM, and Azure File share.
 
-The following request body defines a backup policy for Azure VM backups.
+**Choose a datasource**:
+
+# [Azure VM](#tab/azure-vm)
+
+The following request body defines a standard backup policy for Azure VM backups.
 
 This policy:
 
@@ -127,12 +134,96 @@ This policy:
 }
 ```
 
+The following request body defines an enhanced backup policy for Azure VM backups creating multiple backups a day.
+
+This policy:
+
+- Takes a backup every 4 hours from 3:30 PM UTC everyday
+- Retains instant recovery snapshot for 7 days
+- Retains the daily backups for 180 days
+- Retains the backups taken on the Sunday of every week for 12 weeks
+- Retains the backups taken on the first Sunday of every month for 12 months
+
+```json
+{
+	"properties": {
+		"backupManagementType": "AzureIaasVM",
+		"policyType": "V2",
+		"instantRPDetails": {},
+		"schedulePolicy": {
+			"schedulePolicyType": "SimpleSchedulePolicyV2",
+			"scheduleRunFrequency": "Hourly",
+			"hourlySchedule": {
+				"interval": 4,
+				"scheduleWindowStartTime": "2023-02-06T15:30:00Z",
+				"scheduleWindowDuration": 24
+			}
+		},
+		"retentionPolicy": {
+			"retentionPolicyType": "LongTermRetentionPolicy",
+			"dailySchedule": {
+				"retentionTimes": [
+					"2023-02-06T15:30:00Z"
+				],
+				"retentionDuration": {
+					"count": 180,
+					"durationType": "Days"
+				}
+			},
+			"weeklySchedule": {
+				"daysOfTheWeek": [
+					"Sunday"
+				],
+				"retentionTimes": [
+					"2023-02-06T15:30:00Z"
+				],
+				"retentionDuration": {
+					"count": 12,
+					"durationType": "Weeks"
+				}
+			},
+			"monthlySchedule": {
+				"retentionScheduleFormatType": "Weekly",
+				"retentionScheduleWeekly": {
+					"daysOfTheWeek": [
+						"Sunday"
+					],
+					"weeksOfTheMonth": [
+						"First"
+					]
+				},
+				"retentionTimes": [
+					"2023-02-06T15:30:00Z"
+				],
+				"retentionDuration": {
+					"count": 12,
+					"durationType": "Months"
+				}
+			}
+		},
+		"tieringPolicy": {
+			"ArchivedRP": {
+				"tieringMode": "DoNotTier",
+				"duration": 0,
+				"durationType": "Invalid"
+			}
+		},
+		"instantRpRetentionRangeInDays": 7,
+		"timeZone": "UTC",
+		"protectedItemsCount": 0
+	}
+}
+```
+
+
 > [!IMPORTANT]
 > The time formats for schedule and retention support only DateTime. They don't support Time format alone.
 
-#### For SQL in Azure VM backup
 
-The following is an example request body for SQL in Azure VM backup.
+
+# [SQL in Azure VM](#tab/sql-in-azure-vm)
+
+The following request body defines the backup policy for SQL in Azure VM backup.
 
 This policy:
 
@@ -316,9 +407,9 @@ The following is an example of a policy that takes a differential backup everyda
   }
 ```
 
-#### For SAP HANA in Azure VM backup
+# [SAP HANA in Azure VM](#tab/sap-hana-in-azure-vm)
 
-The following is an example request body for SQL in Azure VM backup.
+The following request body defines the policy for SAP HANA database in Azure VM backup.
 
 This policy:
 
@@ -538,9 +629,9 @@ The following is an example of a policy that takes a full backup once a week and
 ```
 
 
-#### For Azure File share backup
+# [Azure File share](#tab/azure-file-share)
 
-The following is an example request body for Azure File share backup.
+The following request body defines the policy for Azure File share backup.
 
 This policy:
 
@@ -590,6 +681,8 @@ This policy:
 ```
 
 
+
+---
 
 ## Responses
 

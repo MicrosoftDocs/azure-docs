@@ -4,9 +4,9 @@ titlesuffix: Azure Traffic Manager
 description: Learn how to add an external endpoint to an existing Azure Traffic Manager profile using an Azure Template.
 author: greg-lindsay
 ms.author: greglin
-ms.service: traffic-manager
+ms.service: azure-traffic-manager
 ms.topic: how-to
-ms.date: 12/13/2021
+ms.date: 04/24/2023
 ms.custom: template-how-to
 ---
 
@@ -14,11 +14,11 @@ ms.custom: template-how-to
 
 This article describes how to use an Azure Resource Manager template (ARM Template) to add an external endpoint to an existing Traffic Manager profile.
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Ftraffic-manager-add-external-endpoint%2Fazuredeploy.json)
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Ftraffic-manager-add-external-endpoint%2Fazuredeploy.json":::
 
 ## Prerequisites
 

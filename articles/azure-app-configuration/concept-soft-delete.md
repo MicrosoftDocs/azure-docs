@@ -4,14 +4,14 @@ description: Soft Delete in Azure App Configuration
 author: muksvso
 ms.author: mubatra
 ms.service: azure-app-configuration
-ms.custom: devx-track-dotnet
+ms.custom:
 ms.topic: conceptual
-ms.date: 03/01/2022
+ms.date: 05/13/2024
 ---
 
 # Soft delete
 
-Azure App Configuration's Soft delete feature allows recovery of your data such as key-values, feature flags, and revision history of a deleted store. It's automatically enabled for all stores in the standard tier. In this article, learn more about the soft delete feature and its functionality.
+Azure App Configuration's Soft delete feature allows recovery of your data such as key-values, feature flags, and revision history of a deleted store. It's automatically enabled for all stores in the Standard and Premium tiers. In this article, learn more about the soft delete feature and its functionality.
 
 Learn how to [recover Azure App Configuration stores](./howto-recover-deleted-stores-in-azure-app-configuration.md) using the soft delete feature.
 

@@ -1,9 +1,9 @@
 ---
 title: LDAP sync in Ranger and Apache Ambari in Azure HDInsight
 description: Address the LDAP sync in Ranger and Ambari and provide general guidelines.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: conceptual
-ms.date: 04/14/2022
+ms.date: 06/15/2024
 ---
 
 # LDAP sync in Ranger and Apache Ambari in Azure HDInsight
@@ -13,9 +13,9 @@ HDInsight Enterprise Security Package (ESP) clusters use Ranger for authorizatio
 ## General guidelines
 
 * Always deploy clusters with one or more groups.
-* If you want to use more groups in the cluster, check whether it makes sense to update the group memberships in Azure Active Directory (Azure AD).
+* If you want to use more groups in the cluster, check whether it makes sense to update the group memberships in Microsoft Entra ID.
 * If you want to change the cluster groups, you can change the sync filters by using Ambari.
-* All group membership changes in Azure AD are reflected in the cluster in subsequent syncs. The changes need to be synced to Azure AD Domain Services (Azure AD DS) first, and then to the clusters.
+* All group membership changes in Microsoft Entra ID are reflected in the cluster in subsequent syncs. The changes need to be synced to Microsoft Entra Domain Services first, and then to the clusters.
 * HDInsight clusters use Samba/Winbind to project the group memberships on the cluster nodes.
 * Group members are synced transitively (all the subgroups and their members) to both Ambari and Ranger. 
 
@@ -32,7 +32,7 @@ From the head nodes, a cron job, `/opt/startup_scripts/start_ambari_ldap_sync.py
 
 The logs should be in `/var/log/ambari-server/ambari-server.log`. For more information, see [Configure Ambari logging level](https://docs.cloudera.com/HDPDocuments/Ambari-latest/administering-ambari/content/amb_configure_ambari_logging_level.html).
 
-In Data Lake clusters, the post user creation hook is used to create the home folders for the synced users and they're set as the owners of the home folders. If the user isn't synced to Ambari correctly, then the user could face failures in running jobs as the home folder may not be setup correctly.
+In Data Lake clusters, the post user creation hook is used to create the home folders for the synced users and they're set as the owners of the home folders. If the user isn't synced to Ambari correctly, then the user could face failures in running jobs as the home folder may not be set up correctly.
 
 ## Ranger user sync and configuration
 
@@ -45,7 +45,7 @@ Ranger has a built-in sync engine that runs every hour to sync users. It doesn't
 
 ### Group or incremental sync
 
-Ranger supports a group sync option, but it works as an intersection with user filter, not as a union between group memberships and user filter. A typical use case for group sync filter in Ranger is - group filter: (dn=clusteradmingroup), user filter: (city=seattle).
+Ranger supports a group sync option, but it works as an intersection with user filter, not as a union between group memberships and user filter. A typical use case for group sync filter in Ranger is - group filter: `(dn=clusteradmingroup)`, user filter: `(city=seattle)`.
 
 Incremental sync works only for the users who are already synced (the first time). Incremental won't sync any new users added to the groups after the initial sync.
 
@@ -70,4 +70,4 @@ Ranger user sync can happen out of either of the headnodes. The logs are in `/va
 ## Next steps
 
 * [Authentication issues in Azure HDInsight](./domain-joined-authentication-issues.md)
-* [Synchronize Azure AD users to an HDInsight cluster](../hdinsight-sync-aad-users-to-cluster.md)
+* [Synchronize Microsoft Entra users to an HDInsight cluster](../hdinsight-sync-aad-users-to-cluster.md)

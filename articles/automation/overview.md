@@ -5,6 +5,7 @@ services: automation
 keywords: azure automation, DSC, powershell, state configuration, update management, change tracking, DSC, inventory, runbooks, python, graphical
 ms.date: 10/25/2021
 ms.topic: overview
+ms.custom: linux-related-content
 ---
 
 # What is Azure Automation?
@@ -40,7 +41,7 @@ Configuration Management in Azure Automation is supported by two capabilities:
 
 ### Change Tracking and Inventory
 
-Change Tracking and Inventory combines functions to allow you to track Linux and Windows virtual machine and server infrastructure changes. The service supports change tracking across services, daemons, software, registry, and files in your environment to help you diagnose unwanted changes and raise alerts. Inventory support allows you to query in-guest resources for visibility into installed applications and other configuration items. For details of this feature, see [Change Tracking and Inventory](change-tracking/overview.md).
+[Change Tracking and Inventory](change-tracking/overview.md) combines functions to allow you to track Linux and Windows virtual machine and server infrastructure changes. The service supports change tracking across services, daemons, software, registry, and files in your environment to help you diagnose unwanted changes and raise alerts. Inventory support allows you to query in-guest resources for visibility into installed applications and other configuration items. Change Tracking & Inventory is now supported with the Azure Monitoring Agent version. [Learn more](change-tracking/overview-monitoring-agent.md).
 
 ### Azure Automation State Configuration
 
@@ -79,7 +80,7 @@ Azure Automation supports [source control integration](source-control-integratio
 
 Automation is designed to work across Windows and Linux physical servers and virtual machines outside of Azure, on your corporate network, or other cloud provider. It delivers a consistent way to automate and configure deployed workloads and the operating systems that run them. The Hybrid Runbook Worker feature of Azure Automation enables running runbooks directly on the non-Azure physical server or virtual machine hosting the role, and against resources in the environment to manage those local resources.
 
-Through [Arc-enabled servers](../azure-arc/servers/overview.md), it provides a consistent deployment and management experience for your non-Azure machines. It enables integration with the Automation service using the VM extension framework to deploy the Hybrid Runbook Worker role, and simplify onboarding to Update Management and Change Tracking and Inventory.
+Through [Arc-enabled servers](/azure/azure-arc/servers/overview), it provides a consistent deployment and management experience for your non-Azure machines. It enables integration with the Automation service using the VM extension framework to deploy the Hybrid Runbook Worker role, and simplify onboarding to Update Management and Change Tracking and Inventory.
 
 ## Common scenarios
 
@@ -101,13 +102,13 @@ Azure Automation supports management throughout the lifecycle of your infrastruc
     - Subscription management.
     - Start-stop resources to save cost.
 * **Monitoring & integrate** with 1st party (through Azure Monitor) or 3rd party external systems.
-    - Ensure resource creation\deletion operations is captured to SQL. 
+    - Ensure resource creation\deletion operations are captured to SQL. 
     - Send resource usage data to web API.
-    - Send monitoring data to ServiceNow, Event Hub, New Relic and so on.
+    - Send monitoring data to ServiceNow, Event Hubs, New Relic and so on.
     - Collect and store information about Azure resources. 
     - Perform SQL monitoring checks & reporting.
     - Check website availability. 
-* **Dev/test automation scenarios** - Start and start resources, scale resources, etc.
+* **Dev/test automation scenarios** - Stop and start resources, scale resources, etc.
 * **Governance related automation** - Automatically apply or update tags, locks, etc.
 * **Azure Site Recovery** - orchestrate pre/post scripts defined in a Site Recovery DR workflow.
 * **Azure Virtual Desktop** - orchestrate scaling of VMs or start/stop VMs based on utilization.
@@ -116,11 +117,11 @@ Azure Automation supports management throughout the lifecycle of your infrastruc
 * **Find changes** - Identify and isolate machine changes that can cause misconfiguration and improve operational compliance. Remediate or escalate them to management systems.
 
 
-Depending on your requirements, one or more of the following Azure services integrate with or compliment Azure Automation to help fullfil them:
+Depending on your requirements, one or more of the following Azure services integrate with or complement Azure Automation to help fulfill them:
 
-* [Azure Arc-enabled servers](../azure-arc/servers/overview.md) enables simplified onboarding of hybrid machines to Update Management, Change Tracking and Inventory, and the Hybrid Runbook Worker role.
-* [Azure Alerts action groups](../azure-monitor/alerts/action-groups.md) can initiate an Automation runbook when an alert is raised.
-* [Azure Monitor](../azure-monitor/overview.md) to collect metrics and log data from your Automation account for further analysis and take action on the telemetry. Automation features such as Update Management and Change Tracking and Inventory rely on the Log Analytics workspace to deliver elements of their functionality.
+* [Azure Arc-enabled servers](/azure/azure-arc/servers/overview) enables simplified onboarding of hybrid machines to Update Management, Change Tracking and Inventory, and the Hybrid Runbook Worker role.
+* [Azure Alerts action groups](/azure/azure-monitor/alerts/action-groups) can initiate an Automation runbook when an alert is raised.
+* [Azure Monitor](/azure/azure-monitor/overview) to collect metrics and log data from your Automation account for further analysis and take action on the telemetry. Automation features such as Update Management and Change Tracking and Inventory rely on the Log Analytics workspace to deliver elements of their functionality.
 * [Azure Policy](../governance/policy/samples/built-in-policies.md) includes initiative definitions to help establish and maintain  compliance with different security standards for your Automation account.
 * [Azure Site Recovery](../site-recovery/site-recovery-runbook-automation.md) can use Azure Automation runbooks to automate recovery plans.
 
@@ -131,7 +132,7 @@ These Azure services can work with Automation job and runbook resources using an
 * [Azure Event Grid](../event-grid/handler-webhooks.md)
 * [Azure Power Automate](/connectors/azureautomation)
 
-[!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
+[!INCLUDE [azure-lighthouse-supported-service](~/reusable-content/ce-skilling/azure/includes/azure-lighthouse-supported-service.md)]
 
 ## Pricing for Azure Automation
 
@@ -143,4 +144,4 @@ You can review the prices associated with Azure Automation on the [pricing](http
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create an Automation account](/azure/automation/quickstarts/create-azure-automation-account-portal)
+> [Create an Automation account](./quickstarts/create-azure-automation-account-portal.md)

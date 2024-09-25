@@ -1,27 +1,29 @@
 ---
-title: Manage the Mobility agent for VMware/physical servers with Azure Site Recovery 
+title: Manage the Mobility agent for VMware/physical servers with Azure Site Recovery
 description: Manage Mobility Service agent for disaster recovery of VMware VMs and physical servers to Azure using the  Azure Site Recovery service.
-author: v-pgaddala
-manager: gaggupta
-ms.service: site-recovery
-ms.topic: conceptual
-ms.author: v-pgaddala
-ms.date: 05/27/2021
+author: ankitaduttaMSFT
+ms.service: azure-site-recovery
+ms.topic: how-to
+ms.author: ankitadutta
+ms.date: 03/07/2024
 ---
 
-# Manage the Mobility agent 
+# Manage the Mobility agent
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 You set up mobility agent on your server when you use Azure Site Recovery for disaster recovery of VMware VMs and physical servers to Azure. Mobility agent coordinates communications between your protected machine, configuration server/scale-out process server and manages data replication. This article summarizes common tasks for managing mobility agent after it's deployed.
 
 >[!TIP]
 >To download installer for a specific OS/Linux distro, refer to the guidance [here](vmware-physical-mobility-service-overview.md#locate-installer-files). To automatically update from portal, you do not need to download the installer. [ASR automatically fetches the installer from configuration server and updates the agent](#update-mobility-service-from-azure-portal).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Update mobility service from Azure portal
 
 1. Before you start ensure that the configuration server, scale-out process servers, and any master target servers that are a part of your deployment are updated before you update the Mobility Service on protected machines.
-    1. From 9.36 version onwards, for SUSE Linux Enterprise Server 11 SP3, RHEL 5, CentOS 5, Debian 7 ensure the latest installer is [available on the configuration server and scale-out process server](vmware-physical-mobility-service-overview.md#download-latest-mobility-agent-installer-for-suse-11-sp3-suse-11-sp4-rhel-5-cent-os-5-debian-7-debian-8-oracle-linux-6-and-ubuntu-1404-server).
+    1. From 9.36 version onwards, for SUSE Linux Enterprise Server 11 SP3, RHEL 5, CentOS 5, Debian 7 ensure the latest installer is [available on the configuration server and scale-out process server](vmware-physical-mobility-service-overview.md#download-latest-mobility-agent-installer-for-suse-11-sp3-suse-11-sp4-rhel-5-cent-os-5-debian-7-debian-8-debian-9-oracle-linux-6-and-ubuntu-1404-server).
 1. In the portal open the vault > **Replicated items**.
 1. If the configuration server is the latest version, you see a notification that reads "New Site recovery replication agent update is available. Click to install."
 
@@ -65,7 +67,7 @@ When you deployed Site Recovery, to enable push installation of the Mobility ser
 Uninstall from the UI or from a command prompt.
 
 - **From the UI**: In the Control Panel of the machine, select **Programs**. Select **Microsoft Azure Site Recovery Mobility Service/Master Target server** > **Uninstall**.
-- **From a command prompt**: Open a command prompt window as an administrator on the machine. Run the following command: 
+- **From a command prompt**: Open a command prompt window as an administrator on the machine. Run the following command:
     ```
     MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"
     ```
@@ -74,10 +76,10 @@ Uninstall from the UI or from a command prompt.
 1. On the Linux machine, sign in as a **root** user.
 2. In a terminal, go to /usr/local/ASR.
 3. Run the following command:
-    ```
-    ./uninstall.sh -Y
+   ```bash
+   ./uninstall.sh -Y
    ```
-   
+
 ## Install Site Recovery VSS provider on source machine
 
 Azure Site Recovery VSS provider is required on the source machine to generate application consistency points. If the installation of the provider didn't succeed through push installation, follow the below given guidelines to install it manually.

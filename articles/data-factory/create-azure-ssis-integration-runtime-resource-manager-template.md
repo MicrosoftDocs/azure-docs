@@ -1,18 +1,17 @@
 ---
 title: Use an Azure Resource Manager template to create an integration runtime 
 description: Learn how to use an Azure Resource Manager template to create an Azure-SSIS integration runtime in Azure Data Factory so you can deploy and run SSIS packages in Azure.
-ms.service: data-factory
 ms.subservice: integration-services
+ms.custom: devx-track-arm-template
 ms.topic: conceptual
-ms.date: 02/15/2022
+ms.date: 01/05/2024
 author: chugugrace
 ms.author: chugu 
-ms.custom: devx-track-azurepowershell
 ---
 
 # Use an Azure Resource Manager template to create an integration runtime
 
-[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 In this section, you use an Azure Resource Manager template to create the Azure-SSIS integration runtime in Azure Data Factory. 
 
@@ -94,7 +93,7 @@ Following are steps to create an Azure-SSIS integration runtime with an Azure Re
 > When you provision an Azure-SSIS IR, Access Redistributable and Azure Feature Pack for SSIS are also installed. These components provide connectivity to Excel files, Access files, and various Azure data sources, in addition to the data sources that built-in components already support. For more information about built-in/preinstalled components, see [Built-in/preinstalled components on Azure-SSIS IR](./built-in-preinstalled-components-ssis-integration-runtime.md). For more information about additional components that you can install, see [Custom setups for Azure-SSIS IR](./how-to-configure-azure-ssis-ir-custom-setup.md).
 
 
-## Next steps
+## Related content
 
 - [Learn how to provision an Azure-SSIS IR using the Azure portal](create-azure-ssis-integration-runtime-portal.md).
 - [Learn how to provision an Azure-SSIS IR using Azure PowerShell](create-azure-ssis-integration-runtime-powershell.md).

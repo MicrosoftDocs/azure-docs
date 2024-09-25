@@ -2,11 +2,11 @@
 title: Partner Events overview for system owners who desire to become partners
 description: Provides an overview of the concepts and general steps to become a partner. 
 ms.topic: conceptual
-ms.date: 04/28/2022
+ms.date: 04/10/2023
 ---
 
 # Partner Events overview for partners - Azure Event Grid
-Event Grid's **Partner Events** allows customers to **subscribe to events** that originate in a registered system using the same mechanism they would use for any other event source on Azure, such as an Azure service. Those registered systems integrate with Event Grid are known as "partners". This feature also enables customers to **send events** to partner systems that support receiving and routing events to customer's solutions/endpoints in their platform. Typically, partners are software-as-a-service (SaaS) or [ERP](https://en.wikipedia.org/wiki/Enterprise_resource_planning) providers, but they might be corporate platforms wishing to make their events available to internal teams. They purposely integrate with Event Grid to realize end-to-end customer use cases that end on Azure (customers subscribe to events sent by partner) or end on a partner system (customers subscribe to Microsoft events sent by Azure Event Grid). Customers bank on Azure Event Grid to send events published by a partner to supported destinations such as webhooks, Azure Functions, Azure Event Hubs, or Azure Service Bus, to name a few. Customers also rely on Azure Event Grid to route events that originate in Microsoft services, such as Azure Storage, Outlook, Teams, or Azure AD, to partner systems where customer's solutions can react to them. With Partner Events, customers can build event-driven solutions across platforms and network boundaries to receive or send events reliably, securely and at a scale.
+Event Grid's **Partner Events** allows customers to **subscribe to events** that originate in a registered system using the same mechanism they would use for any other event source on Azure, such as an Azure service. Those registered systems integrate with Event Grid are known as "partners". This feature also enables customers to **send events** to partner systems that support receiving and routing events to customer's solutions/endpoints in their platform. Typically, partners are software-as-a-service (SaaS) or [ERP](https://en.wikipedia.org/wiki/Enterprise_resource_planning) providers, but they might be corporate platforms wishing to make their events available to internal teams. They purposely integrate with Event Grid to realize end-to-end customer use cases that end on Azure (customers subscribe to events sent by partner) or end on a partner system (customers subscribe to Microsoft events sent by Azure Event Grid). Customers bank on Azure Event Grid to send events published by a partner to supported destinations such as webhooks, Azure Functions, Azure Event Hubs, or Azure Service Bus, to name a few. Customers also rely on Azure Event Grid to route events that originate in Microsoft services, such as Outlook, Teams, or Microsoft Entra ID, so that customer's solutions can react to them. With Partner Events, customers can build event-driven solutions across platforms and network boundaries to receive or send events reliably, securely and at a scale.
 
 > [!NOTE]
 > This is a conceptual article that's required reading before you decide to onboard as a partner to Azure Event Grid. For step-by-step instructions on how to onboard as an Event Grid partner using the Azure portal, see [How to onboard as an Event Grid partner (Azure portal)](onboard-partner.md). 
@@ -19,7 +19,7 @@ You can also create Event Grid resources to receive events from Azure Event Grid
 
 For either publishing events or receiving events, you create the same kind of Event Grid [resources](#resources-managed-by-partners) following these general steps. 
 
-1. Communicate your interest in becoming a partner by sending an email to [GridPartner@microsoft.com](mailto:GridPartner@microsoft.com). Once you contact us, we'll guide you through the onboarding process and help your service get an entry card on our [Azure Event Grid gallery](https://portal.azure.com/#create/Microsoft.EventGridPartnerTopic) so that your service can be found on the Azure portal. 
+1. Contact the Event Grid team at [askgrid@microsoft.com](mailto:askgrid@microsoft.com?subject=Interested&nbsp;in&nbsp;onboarding&nbsp;as&nbsp;an&nbsp;Event&nbsp;Grid&nbsp;partner) communicating your interest in becoming a partner. Once you contact us, we'll guide you through the onboarding process and help your service get an entry card on our [Azure Event Grid gallery](https://portal.azure.com/#create/Microsoft.EventGridPartnerTopic) so that your service can be found on the Azure portal. 
 2. Create a [partner registration](#partner-registration). This is a global resource and you usually need to create once.
 3. Create a [partner namespace](#partner-namespace). This resource exposes an endpoint to which you can publish events to Azure. When creating the partner namespace, provide the partner registration you created. 
 4. Customer authorizes you to create a [partner topic](concepts.md#partner-topics) in customer's Azure subscription. 
@@ -109,10 +109,10 @@ You have two options:
 
 ## References
 
-  * [Swagger](https://github.com/ahamad-MS/azure-rest-api-specs/blob/main/specification/eventgrid/resource-manager/Microsoft.EventGrid/stable/2022-06-15/EventGrid.json)
+  * [Swagger](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/eventgrid/resource-manager/Microsoft.EventGrid)
   * [ARM template](/azure/templates/microsoft.eventgrid/allversions)
   * [ARM template schema](https://github.com/Azure/azure-resource-manager-schemas/blob/main/schemas/2022-06-15/Microsoft.EventGrid.json)
-  * [REST APIs](/rest/api/eventgrid/controlplane-version2021-10-15-preview/partner-namespaces)
+  * [REST APIs](/rest/api/eventgrid/controlplane-preview/partner-namespaces)
   * [CLI extension](/cli/azure/eventgrid)
 
 ### SDKs

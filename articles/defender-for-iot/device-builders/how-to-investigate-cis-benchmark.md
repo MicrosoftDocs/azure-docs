@@ -9,9 +9,6 @@ ms.topic: how-to
 
 Perform basic and advanced investigations based on OS baseline recommendations.
 
-> [!NOTE]
-> The Microsoft Defender for IoT legacy experience under IoT Hub has been replaced by our new Defender for IoT standalone experience, in the Defender for IoT area of the Azure portal. The legacy experience under IoT Hub will not be supported after **March 31, 2023**.
-
 ## Basic OS baseline security recommendation investigation
 
 You can investigate OS baseline recommendations by navigating to [Defender for IoT in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started). For more information, see how to [Investigate security recommendations](quickstart-investigate-security-recommendations.md).
@@ -45,11 +42,11 @@ For example:
 ## Useful queries to investigate the OS baseline resources
 
 > [!Note]
-> Make sure to Replace `<device-id>` with the name(s) you gave your device in each of the following queries.
+> Make sure to replace `<device-id>` with the name(s) you gave your device in each of the following queries.
 
 ### Retrieve the latest information
 
-- **Device fleet failure**: Run the following query to retrieve the latest information about checks that failed across the device fleet:
+- **Device fleet failure**: Run this query to retrieve the latest information about checks that failed across the device fleet:
 
     ```kusto
     let lastDates = SecurityIoTRawEvent |
@@ -61,7 +58,7 @@ For example:
     project DeviceId, event.BaselineCheckId, event.BaselineCheckDescription
     ```
 
-- **Specific device failure** - Run the following query to retrieve the latest information about checks that failed on a specific device:  
+- **Specific device failure** - Run this query to retrieve the latest information about checks that failed on a specific device:  
 
     ```kusto
     let id = SecurityIoTRawEvent | 

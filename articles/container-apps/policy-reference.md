@@ -1,11 +1,11 @@
 ---
 title: Built-in policy definitions for Azure Container Apps
 description: Lists Azure Policy built-in policy definitions for Azure Container Apps. These built-in policy definitions provide common approaches to managing your Azure resources.
-author: cebundy
-ms.author: v-bcatherine
-ms.date: 09/12/2022
+author: v-jaswel
+ms.author: v-wellsjason
+ms.date: 02/06/2024
 ms.topic: reference
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: subject-policy-reference
 ---
 # Azure Policy built-in definitions for Azure Container Apps
@@ -21,7 +21,7 @@ the link in the **Version** column to view the source on the
 ## Policy definitions
 
 
-[!INCLUDE [azure-policy-reference-rp-appservice](../../includes/policy/reference/bycat/policies-container-apps.md)]
+[!INCLUDE [azure-policy-reference-rp-container-apps](../../includes/policy/reference/bycat/policies-container-apps.md)]
 
 
 ## Next steps

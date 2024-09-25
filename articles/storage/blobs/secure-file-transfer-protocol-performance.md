@@ -1,32 +1,26 @@
 ---
-title: SSH File Transfer Protocol (SFTP) performance considerations in Azure Blob storage (preview) | Microsoft Docs
+title: SSH File Transfer Protocol (SFTP) performance considerations in Azure Blob storage
+titleSuffix: Azure Storage
 description: Optimize the performance of your SSH File Transfer Protocol (SFTP) requests by using the recommendations in this article.
 author: normesta
-ms.subservice: blobs
-ms.service: storage
+
+ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.date: 09/13/2022
+ms.date: 10/20/2022
 ms.custom: references_regions
 ms.author: normesta
-ms.reviewer: ylunagaria
 
 ---
 
-# SSH File Transfer Protocol (SFTP) performance considerations in Azure Blob storage (preview)
+# SSH File Transfer Protocol (SFTP) performance considerations in Azure Blob storage
 
-Blob storage now supports the SSH File Transfer Protocol (SFTP). This article contains recommendations that will help you to optimize the performance of your storage requests. To learn more about SFTP support for Azure Blob Storage, see [SSH File Transfer Protocol (SFTP) support for Azure Blob Storage](secure-file-transfer-protocol-support.md).
-
-> [!IMPORTANT]
-> SFTP support is currently in PREVIEW. 
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. 
->
-> To help us understand your scenario, please complete [this form](https://forms.office.com/r/gZguN0j65Y) before you begin using SFTP support. After you've tested your end-to-end scenarios with SFTP, please share your experience by using [this form](https://forms.office.com/r/MgjezFV1NR). Both of these forms are optional. 
+Blob storage now supports the SSH File Transfer Protocol (SFTP). This article contains recommendations that help you to optimize the performance of your storage requests. To learn more about SFTP support for Azure Blob Storage, see [SSH File Transfer Protocol (SFTP) support for Azure Blob Storage](secure-file-transfer-protocol-support.md).
 
 ## Use concurrent connections to increase throughput
 
 Azure Blob Storage scales linearly until it reaches the maximum storage account egress and ingress limit. Therefore, your applications can achieve higher throughput by using more client connections. To view storage account egress and ingress limits, see [Scalability and performance targets for standard storage accounts](../common/scalability-targets-standard-account.md).
 
-For WinSCP, you can use a maximum of 9 concurrent connections to upload multiple files. Other common SFTP clients such as FileZilla have similar options.
+For WinSCP, you can use a maximum of nine concurrent connections to upload multiple files. Other common SFTP clients such as FileZilla have similar options.
 
 > [!IMPORTANT]
 > Concurrent uploads will only improve performance when uploading multiple files at the same time. Using multiple connections to upload a single file is not supported.
@@ -42,7 +36,7 @@ For WinSCP, you can use a maximum of 9 concurrent connections to upload multiple
 
 ## Reduce the impact of network latency
 
-Network latency has a large impact on SFTP performance due to its reliance on small messages. By default, most clients use a message size of around 32KB.
+Network latency has a large impact on SFTP performance due to its reliance on small messages. By default, most clients use a message size of around 32 KB.
 
 - Increase default message size to achieve better performance
   

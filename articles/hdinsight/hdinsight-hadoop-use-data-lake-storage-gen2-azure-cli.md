@@ -3,10 +3,10 @@ title: Create Azure HDInsight - Azure Data Lake Storage Gen2 - Azure CLI
 description: Learn how to use Azure Data Lake Storage Gen2 with Azure HDInsight clusters using Azure CLI.
 author: yeturis
 ms.author: sairamyeturi
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive,seoapr2020, devx-track-azurecli
-ms.date: 07/21/2022
+ms.custom: hdinsightactive, devx-track-azurecli
+ms.date: 07/24/2024
 ---
 
 # Create a cluster with Data Lake Storage Gen2 using Azure CLI
@@ -22,7 +22,7 @@ To create an HDInsight cluster that uses Data Lake Storage Gen2 for storage, fol
     - Use the embedded Azure Cloud Shell via the "Try It" button, located in the top-right corner of each code block.
     - [Install the latest version of the Azure CLI](/cli/azure/install-azure-cli) (2.0.13 or later) if you prefer to use a local CLI console. Sign in to Azure using `az login`, using an account that is associated with the Azure subscription under which you would like to deploy the user-assigned managed identity.Azure CLI. 
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [delete-cluster-warning](includes/hdinsight-delete-cluster-warning.md)]
 
@@ -41,7 +41,7 @@ You can [download a sample template file](https://github.com/Azure-Samples/hdins
 The code snippet below does the following initial steps:
 
 1. Logs in to your Azure account.
-1. Sets the active subscription where the create operations will be done.
+1. Sets the active subscription where the created operations will be done.
 1. Creates a new resource group for the new deployment activities.
 1. Creates a user-assigned managed identity.
 1. Adds an extension to the Azure CLI to use features for Data Lake Storage Gen2.
@@ -65,10 +65,10 @@ az storage account create --name <STORAGEACCOUNTNAME> \
     --kind StorageV2 --hierarchical-namespace true
 ```
 
-Next, sign in to the portal. Add the new user-assigned managed identity to the **Storage Blob Data Contributor** role on the storage account. This step is described in step 3 under [Using the Azure portal](hdinsight-hadoop-use-data-lake-storage-gen2.md).
+Next, sign in to the portal. Add the new user-assigned managed identity to the **Storage Blob Data Owner** role on the storage account. This step is described in step 3 under [Using the Azure portal](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
  > [!IMPORTANT]
- > Ensure that your storage account has the user-assigned identity with **Storage Blob Data Contributor** role permissions, otherwise cluster creation will fail.
+ > Ensure that your storage account has the user-assigned identity with **Storage Blob Data Owner** role permissions, otherwise cluster creation will fail.
 
 ```azurecli
 az deployment group create --name HDInsightADLSGen2Deployment \

@@ -1,8 +1,8 @@
 ---
 title: Use Azure Blob Storage for model conversion
 description: Describes common steps to set up and use blob storage for model conversion.
-author: jakrams
-ms.author: jakras
+author: FlorianBorn71
+ms.author: flborn
 ms.date: 02/04/2020
 ms.topic: how-to
 ---
@@ -54,13 +54,20 @@ A SAS URI can be generated using one of:
 
 An example of using Shared Access Signatures in asset conversion is shown in Conversion.ps1 of the [PowerShell Example Scripts](../../samples/powershell-example-scripts.md#script-conversionps1).
 
+> [!IMPORTANT]
+> When configuring the storage account, do **not** specify an allowed IP address range, even when it allow-lists all IP addresses:
+>
+> ![Screenshot of blob storage settings in Azure portal that show how to configure an allowed IP address range.](./media/blob-storage-ip-allowlist.png)
+>
+> With any IP range being specified, the SAS token may not work with ARR and model loading might fail.
+
 ## Upload an input model
 
 To start converting a model, you need to upload it, using one of the following options:
 
 - [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) - a convenient UI to upload/download/manage files on Azure blob storage
 - [Azure command line](../../../storage/blobs/storage-quickstart-blobs-cli.md)
-- [Azure PowerShell module](/powershell/azure/install-az-ps)
+- [Azure PowerShell module](/powershell/azure/install-azure-powershell)
   - see the [Example PowerShell scripts](../../samples/powershell-example-scripts.md)
 - [Using a storage SDK (Python, C# ... )](../../../storage/index.yml)
 - [Using the Azure Storage REST APIs](/rest/api/storageservices/blob-service-rest-api)

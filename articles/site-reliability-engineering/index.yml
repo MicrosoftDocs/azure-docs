@@ -6,14 +6,13 @@ summary: Site reliability engineering is an engineering discipline devoted to he
 brand: azure
 
 metadata:
-  title: Site reliability engineering documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Site reliability engineering is an engineering discipline devoted to helping an organization sustainably achieve the appropriate level of reliability in their systems, services, and products. # Required; article description that is displayed in search results. < 160 chars.
-  services: site-reliability-engineering
-  ms.service: site-reliability-engineering #Required; service per approved list. service slug assigned to your service by ACOM.
-  ms.topic: hub-page # Required
-  author: dnblankedelman #Required; your GitHub user alias, with correct capitalization.
-  ms.author: dnb #Required; microsoft alias of author; optional team alias.
-  ms.date: 02/18/2020 #Required; mm/dd/yyyy format.
+  title: Site reliability engineering documentation
+  description: Site reliability engineering is an engineering discipline devoted to helping an organization sustainably achieve the appropriate level of reliability in their systems, services, and products.
+  ms.service: site-reliability-engineering
+  ms.topic: hub-page
+  author: dnblankedelman
+  ms.author: dnb
+  ms.date: 02/18/2020
 
 # highlightedContent section (optional)
 # Maximum of 8 items
@@ -137,29 +136,29 @@ conceptualContent:
     # Card
     - title: Monitoring
       links:
-        - url: ../azure-monitor/overview.md
+        - url: /azure/azure-monitor/overview
           itemType: get-started
           text: Azure Monitor overview
 
-        - url: ../azure-monitor/essentials/data-platform-metrics.md
+        - url: /azure/azure-monitor/essentials/data-platform-metrics
           itemType: get-started
           text: Metrics with Azure Monitor
 
-        - url: ../azure-monitor/logs/data-platform-logs.md
+        - url: /azure/azure-monitor/logs/data-platform-logs
           itemType: get-started
           text: Logs with Azure Monitor
 
-        - url: ../azure-monitor/app/app-insights-overview.md
+        - url: /azure/azure-monitor/app/app-insights-overview
           itemType: get-started
           text: Application Performance Management with Application Insights
 
-        - url: ../azure-monitor/app/distributed-tracing.md
+        - url: /azure/azure-monitor/app/distributed-tracing-telemetry-correlation
           itemType: get-started
           text: Distributed Tracing with Azure Monitor
           
       # footerLink (optional)
       footerLink:
-        url: ../azure-monitor/index.yml
+        url: /azure/azure-monitor/
         text: See more about Azure Monitor
     # Card
     - title: Provisioning and Delivery
@@ -180,7 +179,7 @@ conceptualContent:
     # Card
     - title: Scaling
       links:
-        - url: ../azure-monitor/autoscale/autoscale-overview.md
+        - url: /azure/azure-monitor/autoscale/autoscale-overview
           itemType: get-started
           text: Overview of autoscale
 

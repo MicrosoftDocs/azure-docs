@@ -1,13 +1,14 @@
 ---
-title: Copy or move data to Azure Storage by using AzCopy v10 | Microsoft Docs
+title: Copy or move data to Azure Storage by using AzCopy v10
 description: AzCopy is a command-line utility that you can use to copy data to, from, or between storage accounts. This article helps you download AzCopy, connect to your storage account, and then transfer data.
 author: normesta
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
-ms.date: 09/23/2022
+ms.date: 07/18/2024
 ms.author: normesta
-ms.subservice: common
-ms.custom: contperf-fy21q2
+ms.subservice: storage-common-concepts
+ms.custom: ai-video-demo
+ai-usage: ai-assisted
 ---
 
 # Get started with AzCopy
@@ -21,22 +22,149 @@ AzCopy is a command-line utility that you can use to copy blobs or files to or f
 
 <a id="download-and-install-azcopy"></a>
 
-## Download AzCopy
+This video shows you how to download and run the AzCopy utility.
+> [!VIDEO 4238a2be-881a-4aaa-8ccd-07a6557a05ef]
 
-First, download the AzCopy V10 executable file to any directory on your computer. AzCopy V10 is just an executable file, so there's nothing to install.
+The steps in the video are also described in the following sections.
+
+## Install AzCopy on Linux by using a package manager
+
+You can install AzCopy by using a Linux package that is hosted on the [Linux Software Repository for Microsoft Products](/linux/packages).
+
+### [dnf (RHEL)](#tab/dnf)
+
+1. Download the repository configuration package.
+
+   > [!IMPORTANT]
+   > Make sure to replace the distribution and version with the appropriate strings.
+
+   ```bash
+   curl -sSL -O https://packages.microsoft.com/config/<distribution>/<version>/packages-microsoft-prod.rpm
+   ```
+
+2. Install the repository configuration package.
+
+   ```bash
+   sudo rpm -i packages-microsoft-prod.rpm
+   ````
+
+3. Delete the repository configuration package after you've installed it.
+
+   ```bash
+   rm packages-microsoft-prod.rpm
+   ````
+
+4. Update the package index files.
+
+   ```bash
+   sudo dnf update
+   ```
+5. Install AzCopy.
+
+   ```bash
+   sudo dnf install azcopy
+   ```
+
+
+### [zypper (OpenSUSE, SLES)](#tab/zypper)
+
+1. Download the repository configuration package.
+
+   > [!IMPORTANT]
+   > Make sure to replace the distribution and version with the appropriate strings.
+
+   ```bash
+   curl -sSL -O https://packages.microsoft.com/config/<distribution>/<version>/packages-microsoft-prod.rpm
+   ```
+
+2. Install the repository configuration package.
+
+   ```bash
+   sudo rpm -i packages-microsoft-prod.rpm
+   ```
+
+3. Delete the repository configuration package after you've installed it.
+
+   ```bash
+   rm packages-microsoft-prod.rpm
+   ```
+
+4. Update the package index files.
+
+   ```bash
+   sudo dnf update
+   ```
+
+5. Install AzCopy.
+   
+   ```bash
+   sudo zypper install -y azcopy
+   ```
+
+### [apt (Ubuntu, Debian)](#tab/apt)
+
+1. Download the repository configuration package.
+
+   > [!IMPORTANT]
+   > Make sure to replace the distribution and version with the appropriate strings.
+
+   ```bash
+   curl -sSL -O https://packages.microsoft.com/config/<distribution>/<version>/packages-microsoft-prod.deb
+   ```
+
+2. Install the repository configuration package.
+   
+   ```bash
+   sudo dpkg -i packages-microsoft-prod.deb
+   ```
+
+3. Delete the repository configuration package after you've installed it.
+
+   ```bash
+   rm packages-microsoft-prod.deb
+   ```
+
+4. Update the package index files.
+
+   ```bash
+   sudo apt-get update
+   ```
+
+5. Install AzCopy.
+   
+   ```bash
+   sudo apt-get install azcopy
+   ```
+
+# [tdnf (Azure Linux)](#tab/tdnf)
+
+Install AzCopy.
+
+```bash
+sudo tdnf install azcopy
+```
+
+---
+
+<a id="download-azcopy"></a>
+
+## Download the AzCopy portable binary
+
+As an alternative to installing a package, you can download the AzCopy V10 executable file to any directory on your computer. 
 
 - [Windows 64-bit](https://aka.ms/downloadazcopy-v10-windows) (zip)
 - [Windows 32-bit](https://aka.ms/downloadazcopy-v10-windows-32bit) (zip)
 - [Linux x86-64](https://aka.ms/downloadazcopy-v10-linux) (tar)
-- [Linux ARM64 Preview](https://aka.ms/downloadazcopy-v10-linux-arm64) (tar)
+- [Linux ARM64](https://aka.ms/downloadazcopy-v10-linux-arm64) (tar)
 - [macOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
+- [macOS ARM64 Preview](https://aka.ms/downloadazcopy-v10-mac-arm64) (zip)
 
 These files are compressed as a zip file (Windows and Mac) or a tar file (Linux). To download and decompress the tar file on Linux, see the documentation for your Linux distribution.
 
 For detailed information on AzCopy releases, see the [AzCopy release page](https://github.com/Azure/azure-storage-azcopy/releases).
 
 > [!NOTE]
-> If you want to copy data to and from your [Azure Table storage](../tables/table-storage-overview.md) service, then install [AzCopy version 7.3](https://aka.ms/downloadazcopynet).
+> If you want to copy data to and from your [Azure Table storage](../tables/table-storage-overview.md) service, then install [AzCopy version 7.3](/previous-versions/azure/storage/storage-use-azcopy#azcopy-with-table-support-v73).
 
 ## Run AzCopy
 
@@ -50,19 +178,13 @@ As an owner of your Azure Storage account, you aren't automatically assigned per
 
 ## Authorize AzCopy
 
-You can provide authorization credentials by using Azure Active Directory (AD), or by using a Shared Access Signature (SAS) token.
+You can provide authorization credentials by using Microsoft Entra ID, or by using a Shared Access Signature (SAS) token.
 
-Use this table as a guide:
+<a name='option-1-use-azure-active-directory'></a>
 
-| Storage type | Currently supported method of authorization |
-|--|--|
-|**Blob storage** | Azure AD & SAS |
-|**Blob storage (hierarchical   namespace)** | Azure AD & SAS |
-|**File storage** | SAS only |
+#### Option 1: Use Microsoft Entra ID
 
-#### Option 1: Use Azure Active Directory
-
-This option is available for blob Storage only. By using Azure Active Directory, you can provide credentials once instead of having to append a SAS token to each command.
+By using Microsoft Entra ID, you can provide credentials once instead of having to append a SAS token to each command.
 
 #### Option 2: Use a SAS token
 
@@ -124,7 +246,7 @@ The following table lists all AzCopy v10 commands. Each command links to a refer
 |[azcopy jobs resume](storage-ref-azcopy-jobs-resume.md?toc=/azure/storage/blobs/toc.json)|Resumes the existing job with the given job ID.|
 |[azcopy jobs show](storage-ref-azcopy-jobs-show.md?toc=/azure/storage/blobs/toc.json)|Shows detailed information for the given job ID.|
 |[azcopy list](storage-ref-azcopy-list.md?toc=/azure/storage/blobs/toc.json)|Lists the entities in a given resource.|
-|[azcopy login](storage-ref-azcopy-login.md?toc=/azure/storage/blobs/toc.json)|Logs in to Azure Active Directory to access Azure Storage resources.|
+|[azcopy login](storage-ref-azcopy-login.md?toc=/azure/storage/blobs/toc.json)|Logs in to Microsoft Entra ID to access Azure Storage resources.|
 |[azcopy login status](storage-ref-azcopy-login-status.md)|Lists the entities in a given resource.|
 |[azcopy logout](storage-ref-azcopy-logout.md?toc=/azure/storage/blobs/toc.json)|Logs the user out and terminates access to Azure Storage resources.|
 |[azcopy make](storage-ref-azcopy-make.md?toc=/azure/storage/blobs/toc.json)|Creates a container or file share.|
@@ -147,24 +269,38 @@ To obtain the link, run this command:
 
 | Operating system  | Command |
 |--------|-----------|
-| **Linux** | `curl -s -D- https://aka.ms/downloadazcopy-v10-linux | grep ^Location` |
-| **Windows (PowerShell Core 7)** | `(Invoke-WebRequest https://aka.ms/downloadazcopy-v10-windows -MaximumRedirection 0 -ErrorAction silentlycontinue -SkipHttpErrorCheck).headers.location[0]` |
-| **Windows (PowerShell 5.1)** | `(Invoke-WebRequest https://aka.ms/downloadazcopy-v10-windows -MaximumRedirection 0 -ErrorAction silentlycontinue ).headers.location` |
-
+| **Linux** | `curl -s -D- https://aka.ms/downloadazcopy-v10-linux \| grep ^Location` |
+| **Windows PowerShell** | `(Invoke-WebRequest -Uri https://aka.ms/downloadazcopy-v10-windows -MaximumRedirection 0 -ErrorAction SilentlyContinue).headers.location` |
+| **PowerShell 6.1+** | `(Invoke-WebRequest -Uri https://aka.ms/downloadazcopy-v10-windows -MaximumRedirection 0 -ErrorAction SilentlyContinue -SkipHttpErrorCheck).headers.location` |
 
 > [!NOTE]
 > For Linux, `--strip-components=1` on the `tar` command removes the top-level folder that contains the version name, and instead extracts the binary directly into the current folder. This allows the script to be updated with a new version of `azcopy` by only updating the `wget` URL.
 
 The URL appears in the output of this command. Your script can then download AzCopy by using that URL.
 
-| Operating system  | Command |
-|--------|-----------|
-| **Linux** | `wget -O azcopy_v10.tar.gz https://aka.ms/downloadazcopy-v10-linux && tar -xf azcopy_v10.tar.gz --strip-components=1` |
-| **Windows** | `Invoke-WebRequest https://azcopyvnext.azureedge.net/release20190517/azcopy_windows_amd64_10.1.2.zip -OutFile azcopyv10.zip <<Unzip here>>` |
+**Linux**
+```bash
+wget -O azcopy_v10.tar.gz https://aka.ms/downloadazcopy-v10-linux && tar -xf azcopy_v10.tar.gz --strip-components=1
+```
+**Windows PowerShell** 
+```PowerShell
+Invoke-WebRequest -Uri 'https://azcopyvnext.azureedge.net/release20220315/azcopy_windows_amd64_10.14.1.zip' -OutFile 'azcopyv10.zip'
+Expand-archive -Path '.\azcopyv10.zip' -Destinationpath '.\'
+$AzCopy = (Get-ChildItem -path '.\' -Recurse -File -Filter 'azcopy.exe').FullName
+# Invoke AzCopy 
+& $AzCopy
+```
+**PowerShell 6.1+**
+```PowerShell
+Invoke-WebRequest -Uri 'https://azcopyvnext.azureedge.net/release20220315/azcopy_windows_amd64_10.14.1.zip' -OutFile 'azcopyv10.zip'
+$AzCopy = (Expand-archive -Path '.\azcopyv10.zip' -Destinationpath '.\' -PassThru | where-object {$_.Name -eq 'azcopy.exe'}).FullName
+# Invoke AzCopy
+& $AzCopy
+``` 
 
 #### Escape special characters in SAS tokens
 
-In batch files that have the `.cmd` extension, you'll have to escape the `%` characters that appear in SAS tokens. You can do that by adding an extra `%` character next to existing `%` characters in the SAS token string.
+In batch files that have the `.cmd` extension, you'll have to escape the `%` characters that appear in SAS tokens. You can do that by adding an extra `%` character next to existing `%` characters in the SAS token string. The resulting character sequence appears as `%%`. Make sure to add an extra `^` before each `&` character to create the character sequence `^&`.
 
 #### Run scripts by using Jenkins
 
@@ -194,13 +330,16 @@ See any of the following resources:
 
 - [Troubleshoot problems with AzCopy v10](storage-use-azcopy-troubleshoot.md)
 
-## Use a previous version
+## Use a previous version (deprecated)
 
 If you need to use the previous version of AzCopy, see either of the following links:
 
 - [AzCopy on Windows (v8)](/previous-versions/azure/storage/storage-use-azcopy)
 
 - [AzCopy on Linux (v7)](/previous-versions/azure/storage/storage-use-azcopy-linux)
+
+> [!NOTE]
+> These versions AzCopy are been deprecated. Microsoft recommends using AzCopy v10.
 
 ## Next steps
 

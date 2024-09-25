@@ -4,17 +4,16 @@ titleSuffix: Microsoft Cost Management
 description: Describes how to use associated billing tenants to manage billing across tenants and move subscriptions in different tenants.
 author: bandersmsft
 ms.reviewer: amberb
-tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/15/2022
+ms.date: 06/28/2024
 ms.author: banders
 ---
 
 # Manage billing across multiple tenants using associated billing tenants
 
-You can simplify billing management for your organization by creating multi-tenant billing relationships using associated billing tenants. A multi-tenant billing relationship lets you securely share your organization’s billing account with other tenants, while maintaining control over your billing data. You can move subscriptions in different tenants and provide users in those tenants with access to your organization’s billing account. This relationship lets users on those tenants do billing activities like viewing and downloading invoices or managing licenses.
+You can simplify billing management for your organization by creating multitenant billing relationships using associated billing tenants. A multitenant billing relationship lets you securely share your organization’s billing account with other tenants, while maintaining control over your billing data. You can move subscriptions in different tenants and provide users in those tenants with access to your organization’s billing account. This relationship lets users on those tenants do billing activities like viewing and downloading invoices or managing licenses.
 
 ## Understand tenant types
 
@@ -22,8 +21,14 @@ Primary billing tenant: The primary billing tenant is the tenant used when the b
 
 Associated billing tenants: An associated billing tenant is a tenant that is linked to your primary billing tenant’s billing account. You can move Microsoft 365 subscriptions to these tenants. You can also assign billing account roles to users in associated billing tenants.
 
-> [!IMPORTANT]
-> Adding associated billing tenants, moving subscriptions and assigning roles to users in associated billing tenants are only available for billing accounts of type Microsoft Customer Agreement that are created by working with a Microsoft sales representative. To learn more about types of billing accounts, see [Billing accounts and scopes in the Azure portal](view-all-accounts.md).
+## Prerequisites
+
+You must have a Microsoft Customer Agreement - enterprise billing account to use associated billing tenants. An enterprise billing account is a billing account that is created by working with a Microsoft sales representative.
+
+If you don't have one, you don't see the **Associated billing tenants** option in the Azure portal. You also can't move subscriptions to other tenants or assign roles to users in other tenants.
+
+To learn more about types of billing accounts, see [Billing accounts and scopes in the Azure portal](view-all-accounts.md).
+
 
 ## Access settings for associated billing tenants
 
@@ -47,7 +52,7 @@ Before you begin, make sure you have either the tenant ID, or the primary domain
 1. On the Add tenant page, enter a tenant ID or domain name, provide a friendly name and then select one or both options for access settings. For more information about access settings, see [Access settings for associated billing tenant](#access-settings-for-associated-billing-tenants).  
     :::image type="content" source="./media/manage-billing-across-tenants/associated-tenants-add.png" alt-text="Screenshot showing associated billing tenants form." lightbox="./media/manage-billing-across-tenants/associated-tenants-add.png" :::
     > [!NOTE]
-    > The friendly name of an associated billing tenant is used to easily identify the tenant in the Cost management + Billing section. The name is different from the display name of the tenant in Azure active directory.
+    > The friendly name of an associated billing tenant is used to easily identify the tenant in the Cost management + Billing section. The name is different from the display name of the tenant in Microsoft Entra ID.
 1. Select **Save**.
 
 If the Provisioning access setting is turned on, a unique link is created for you to send to the global administrator of the associated billing tenant. They must accept the request before you can move subscriptions to their tenant.
@@ -65,11 +70,11 @@ Before assigning roles, make sure you [add a tenant as an associated billing ten
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for **Cost Management + Billing**.  
-    :::image type="content" source="./media/manage-billing-across-tenants/billing-search-cost-management-billing.png" alt-text="Screenshot showing Search in the Azure portal for cost management + billing" lightbox="./media/manage-billing-across-tenants/billing-search-cost-management-billing.png" :::
+    :::image type="content" source="./media/manage-billing-across-tenants/billing-search-cost-management-billing.png" alt-text="Screenshot showing Search in the Azure portal for Cost Management + Billing." lightbox="./media/manage-billing-across-tenants/billing-search-cost-management-billing.png" :::
 1. Select **Access control (IAM)** on the left side of the page.
 1. On the Access control (IAM) page, select **Add** at the top of the page.  
     :::image type="content" source="./media/manage-billing-across-tenants/access-management-add-role-assignment-button.png" alt-text="Screenshot showing access control page while assigning roles." lightbox="./media/manage-billing-across-tenants/access-management-add-role-assignment-button.png" :::
-1. In the Add role assignment pane, select a role, select the associated billing tenant from the tenant dropdown, then enter the email address of the users, groups or apps to whom you want to assign roles.
+1. In the Add role assignment pane, select a role, select the associated billing tenant from the tenant dropdown, then enter the email address of the users, groups, or apps to whom you want to assign roles.
 1. Select **Add**.  
     :::image type="content" source="./media/manage-billing-across-tenants/associated-tenants-add-role-assignment.png" alt-text="Screenshot showing saving a role assignment." lightbox="./media/manage-billing-across-tenants/associated-tenants-add-role-assignment.png" :::
 1. The users receive an email with a link to review the role assignment request. After they accept the role, they have access to your billing account.
@@ -96,7 +101,7 @@ Choosing to assign roles to users from associated billing tenants might be the r
 
 | Consideration |Associated billing tenants  |Azure B2B  |
 |---------|---------|---------|
-|Security     |  The users that you invite to share your billing account will follow their tenant's security policies.      |  The users that you invite to share your billing account will follow your tenant's security policies.       |
+|Security     |  The users that you invite to share your billing account follow their tenant's security policies.      |  The users that you invite to share your billing account follow your tenant's security policies.       |
 |Access    | The users get access to your billing account in their own tenant and can manage billing and make purchases without switching tenants.        |  External guest identities are created for users in your tenant and these identities get access to your billing account. Users would have to switch tenant to manage billing and make purchases.     |
 
 ## Move Microsoft 365 subscriptions to a billing tenant
@@ -114,7 +119,7 @@ Before moving subscriptions, make sure you [add a tenant as an associated billin
 
 ## Move Azure subscriptions to an associated billing tenant
 
-The provisioning setting that you enable for an associated billing tenant doesn't apply for Azure subscriptions. To move Azure subscriptions to an associated billing tenant, see [Associate or add an Azure subscription to your Azure Active Directory tenant](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
+The provisioning setting that you enable for an associated billing tenant doesn't apply for Azure subscriptions. To move Azure subscriptions to an associated billing tenant, see [Associate or add an Azure subscription to your Microsoft Entra tenant](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
 ## Need help? Contact support
 
@@ -123,4 +128,4 @@ If you need help, [contact support](https://portal.azure.com/?#blade/Microsoft_A
 ## Next steps
 
 - [Billing administrative roles](understand-mca-roles.md)
-- [Associate or add an Azure subscription to your Azure Active Directory tenant](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
+- [Associate or add an Azure subscription to your Microsoft Entra tenant](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)

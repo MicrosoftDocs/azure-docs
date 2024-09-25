@@ -1,18 +1,18 @@
 ---
 title: Configure DHCP on L2 stretched VMware HCX networks
-description: Learn how to send DHCP requests from your Azure VMware Solution VMs to a non-NSX-T DHCP server.
+description: Learn how to send DHCP requests from your Azure VMware Solution VMs to a non-NSX DHCP server.
 ms.topic: how-to
-ms.custom: contperf-fy22q1
+ms.custom: engagement-fy23
 ms.service: azure-vmware
-ms.date: 04/11/2022
-
-# Customer intent: As an Azure service administrator, I want to configure DHCP on L2 stretched VMware HCX networks to send DHCP requests from my Azure VMware Solution VMs to a non-NSX-T DHCP server. 
-
+ms.date: 3/7/2024
+# Customer intent: As an Azure service administrator, I want to configure DHCP on L2 stretched VMware HCX networks to send DHCP requests from my Azure VMware Solution VMs to a non-NSX DHCP server.
 ---
 
 # Configure DHCP on L2 stretched VMware HCX networks
 
-DHCP does not work for virtual machines (VMs) on the VMware HCX L2 stretch network when the DHCP server is in the on-premises data center. This is because NSX-T Data Center, by default, blocks all DHCP requests from traversing the L2 stretch. Therefore, to send DHCP requests from your Azure VMware Solution VMs to a non-NSX-T Data Center DHCP server, you'll need to configure DHCP on L2 stretched VMware HCX networks.
+DHCP doesn't work for virtual machines (VMs) on the VMware HCX L2 stretched network when the DHCP server is in the on-premises data center because NSX, by default, blocks all DHCP requests from traversing the L2 stretch. Therefore, to send DHCP requests from your Azure VMware Solution VMs to a non-NSX DHCP server, you need to configure DHCP on L2 stretched VMware HCX networks.
+
+Configuring DHCP Relay in NSX is unnecessary while the network is stretched. Implementing DHCP relay on an extended network may lead to unintended issues, resulting in clients not receiving the correct responses. Following a failover to Azure VMware Solution, DHCP Relay or NSX DHCP server configuration would be necessary to continue serving clients effectively.
 
 1. (Optional) If you need to locate the segment name of the L2 extension:
 

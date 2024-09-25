@@ -1,17 +1,17 @@
 ---
-# Mandatory fields.
 title: 'Tutorial: Connect an end-to-end solution'
 titleSuffix: Azure Digital Twins
 description: Follow this tutorial to learn how to build out an end-to-end Azure Digital Twins solution that's driven by device data.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 09/26/2022
+ms.date: 09/12/2023
 ms.topic: tutorial
-ms.service: digital-twins
+ms.service: azure-digital-twins
+ms.custom: engagement-fy23, devx-track-azurecli
 
+# CustomerIntent: As a developer, I want to create a data flow from devices through Azure Digital Twins so that I can have a connected digital twin solution.
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
@@ -26,9 +26,9 @@ In this tutorial, you will...
 > * Use an [Azure Functions](../azure-functions/functions-overview.md) app to route simulated telemetry from an [IoT Hub](../iot-hub/about-iot-hub.md) device into digital twin properties
 > * Propagate changes through the twin graph by processing digital twin notifications with Azure Functions, endpoints, and routes
 
-[!INCLUDE [Azure Digital Twins tutorial: sample prerequisites](../../includes/digital-twins-tutorial-sample-prereqs.md)]
+[!INCLUDE [Sample prerequisites for Azure Digital Twins tutorial](../../includes/digital-twins-tutorial-sample-prereqs.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
 
 [!INCLUDE [CLI setup for Azure Digital Twins](../../includes/digital-twins-cli.md)]
 
@@ -40,7 +40,7 @@ The sample project used in this tutorial represents a real-world building scenar
 
 Below is a diagram representing the full scenario. 
 
-You'll first create the Azure Digital Twins instance (**section A** in the diagram), then set up the telemetry data flow into the digital twins (**arrow B**), then set up the data propagation through the twin graph (**arrow C**).
+You'll first create the Azure Digital Twins instance (**section A** in the diagram), then set up the device telemetry data flow into the digital twins (**arrow B**), then set up the data propagation through the twin graph (**arrow C**).
 
 :::image type="content" source="media/tutorial-end-to-end/building-scenario.png" alt-text="Diagram of the full building scenario, which shows the data flowing from a device into and out of Azure Digital Twins through various Azure services.":::
 
@@ -48,10 +48,10 @@ To work through the scenario, you'll interact with components of the pre-written
 
 Here are the components implemented by the building scenario AdtSampleApp sample app:
 * Device authentication 
-* [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) usage examples (found in *CommandLoop.cs*)
+* [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins.core-readme) usage examples (found in *CommandLoop.cs*)
 * Console interface to call the Azure Digital Twins API
 * SampleClientApp - A sample Azure Digital Twins solution
-* SampleFunctionsApp - An Azure Functions app that updates your Azure Digital Twins graph based on telemetry from IoT Hub and Azure Digital Twins events
+* SampleFunctionsApp - An Azure Functions app that updates your Azure Digital Twins graph based on device telemetry from IoT Hub and Azure Digital Twins events
 
 ### Instantiate the pre-created twin graph
 
@@ -94,13 +94,13 @@ The next step is setting up an [Azure Functions app](../azure-functions/function
 * *ProcessHubToDTEvents*: processes incoming IoT Hub data and updates Azure Digital Twins accordingly
 * *ProcessDTRoutedData*: processes data from digital twins, and updates the parent twins in Azure Digital Twins accordingly
 
-In this section, you'll publish the pre-written function app, and ensure the function app can access Azure Digital Twins by assigning it an Azure Active Directory (Azure AD) identity.
+In this section, you'll publish the pre-written function app, and ensure the function app can access Azure Digital Twins by assigning it a Microsoft Entra identity.
 
 The function app is part of the sample project you downloaded, located in the *digital-twins-samples-main\AdtSampleApp\SampleFunctionsApp* folder.
 
 ### Publish the app
 
-To publish the function app to Azure, you'll need to create a storage account, then create the function app in Azure, and finally publish the functions to the Azure function app. This section completes these actions using the Azure CLI.
+To publish the function app to Azure, you'll need to create a storage account, then create the function app in Azure, and finally publish the functions to the Azure function app. This section completes these actions using the Azure CLI. In each command, replace any placeholders in angle brackets with the details for your own resources.
 
 1. Create an Azure storage account by running the following command:
 
@@ -111,36 +111,31 @@ To publish the function app to Azure, you'll need to create a storage account, t
 1. Create an Azure function app by running the following command:
 
     ```azurecli-interactive
-    az functionapp create --name <name-for-new-function-app> --storage-account <name-of-storage-account-from-previous-step> --consumption-plan-location <location> --runtime dotnet --resource-group <resource-group>
+    az functionapp create --name <name-for-new-function-app> --storage-account <name-of-storage-account-from-previous-step> --functions-version 4 --consumption-plan-location <location> --runtime dotnet-isolated --resource-group <resource-group>
     ```
 
 1. Next, you'll zip up the functions and publish them to your new Azure function app.
 
-    1. Open a console window on your machine, and navigate into the *digital-twins-samples-main\AdtSampleApp\SampleFunctionsApp* folder inside your downloaded sample project.
+    1. Open a console window on your machine (if you're using the local Azure CLI, it can be the same window), and navigate into the *digital-twins-samples-main\AdtSampleApp\SampleFunctionsApp* folder inside your downloaded sample project.
     
     1. In the console, run the following command to publish the project locally:
 
         ```cmd/sh
-        dotnet publish -c Release
+        dotnet publish -c Release -o publish
         ```
 
-        This command publishes the project to the *digital-twins-samples-main\AdtSampleApp\SampleFunctionsApp\bin\Release\netcoreapp3.1\publish* directory.
+        This command publishes the project to the *digital-twins-samples-main\AdtSampleApp\SampleFunctionsApp\publish* directory.
 
-    1. Using your preferred method, create a zip of the published files that are located in the *digital-twins-samples-main\AdtSampleApp\SampleFunctionsApp\bin\Release\netcoreapp3.1\publish* directory. Name the zipped folder *publish.zip*.
+    1. Using your preferred method, create a zip of the published files that are located **inside** the *digital-twins-samples-main\AdtSampleApp\SampleFunctionsApp\publish* directory. Name the zipped folder *publish.zip*.
         
-        >[!TIP] 
-        >If you're using PowerShell, you can create the zip by copying the full path to that *\publish* directory and pasting it into the following command:
-        >
-        >```powershell
-        >Compress-Archive -Path <full-path-to-publish-directory>\* -DestinationPath .\publish.zip
-        >```
-        > The cmdlet will create the *publish.zip* file in the directory location of your console.
+        >[!IMPORTANT] 
+        >Make sure the zipped folder does not include an extra layer for the *publish* folder itself. It should only contain the contents that were inside the *publish* folder.
 
-        Your *publish.zip* file should contain folders for *bin*, *ProcessDTRoutedData*, and *ProcessHubToDTEvents*, and there should also be a *host.json* file.
+        Here's an image of how the zip contents might look (it may change depending on your version of .NET).
 
         :::image type="content" source="media/tutorial-end-to-end/publish-zip.png" alt-text="Screenshot of File Explorer in Windows showing the contents of the publish zip folder.":::
 
-    Now you can close the local console window that you used to prepare the project. The last step will be done in the Azure CLI.
+    The last step will be done in the Azure CLI.
 
 1. In the Azure CLI, run the following command to deploy the published and zipped functions to your Azure function app:
 
@@ -160,11 +155,7 @@ To publish the function app to Azure, you'll need to create a storage account, t
     A successful deployment will respond with status code 202 and output a JSON object containing details of your new function. You can confirm the deployment succeeded by looking for this field in the result:
 
     ```json
-    {
-      ...
-      "provisioningState": "Succeeded",
-      ...
-    }
+    "provisioningState": "Succeeded",
     ```
 
 The functions should now be published to a function app in Azure. You can use the following CLI commands to verify both functions were published successfully. Each command has placeholders for your resource group and the name of your function app. The commands will print information about the *ProcessDTRoutedData* and *ProcessHubToDTEvents* functions that have been published.
@@ -184,7 +175,7 @@ There are two settings that need to be set for the function app to access your A
 
 The first setting gives the function app the **Azure Digital Twins Data Owner** role in the Azure Digital Twins instance. This role is required for any user or function that wants to perform many data plane activities on the instance. You can read more about security and role assignments in [Security for Azure Digital Twins solutions](concepts-security.md). 
 
-1. Use the following command to create a system-managed identity for the function. The output will display details of the identity that's been created. Take note of the **principalId** field in the output to use in the next step.
+1. Use the following command to create a [system-assigned identity](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) for the function. The output will display details of the identity that's been created. Take note of the **principalId** field in the output to use in the next step.
 
     ```azurecli-interactive	
     az functionapp identity assign --resource-group <your-resource-group> --name <your-function-app-name>
@@ -193,12 +184,12 @@ The first setting gives the function app the **Azure Digital Twins Data Owner** 
 1. Use the **principalId** value in the following command to assign the function app's identity to the **Azure Digital Twins Data Owner** role for your Azure Digital Twins instance.
 
     ```azurecli-interactive	
-    az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Data Owner"
+    az dt role-assignment create --resource-group <your-resource-group> --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Data Owner"
     ```
 
 The result of this command is outputted information about the role assignment you've created. The function app now has permissions to access data in your Azure Digital Twins instance.
 
-#### Configure application settings
+#### Configure application setting
 
 The second setting creates an environment variable for the function with the URL of your Azure Digital Twins instance. The function code will use the value of this variable to refer to your instance. For more information about environment variables, see [Manage your function app](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal). 
 
@@ -259,6 +250,9 @@ The output will show information about the event subscription that has been crea
 "provisioningState": "Succeeded",
 ```
 
+>[!TIP]
+>If the command returns a resource provider error, add *Microsoft.EventGrid* as a resource provider to your subscription. You can do this in the Azure portal by following the instructions in [Register resource provider](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider-1).
+
 ### Register the simulated device with IoT Hub 
 
 This section creates a device representation in IoT Hub with the ID thermostat67. The simulated device will connect into this representation, which is how telemetry events will go from the device into IoT Hub. The IoT hub is where the subscribed Azure function from the previous step is listening, ready to pick up the events and continue processing.
@@ -273,9 +267,11 @@ The output is information about the device that was created.
 
 ### Configure and run the simulation
 
+[!INCLUDE [iot-authentication-device-connection-string.md](../../includes/iot-authentication-device-connection-string.md)]
+
 Next, configure the device simulator to send data to your IoT Hub instance.
 
-Begin by getting the IoT hub connection string with this command:
+Begin by getting the IoT hub connection string with the following command. The connection string value will start with `HostName=`.
 
 ```azurecli-interactive
 az iot hub connection-string show --hub-name <your-IoT-hub-name>
@@ -292,8 +288,9 @@ Next, plug these values into the device simulator code in your local project to 
 Navigate on your local machine to the downloaded sample folder, and into the *digital-twins-samples-main\DeviceSimulator\DeviceSimulator* folder. Open the *AzureIoTHub.cs* file for editing. Change the following connection string values to the values you gathered above:
 
 ```csharp
-iotHubConnectionString = <your-hub-connection-string>
-deviceConnectionString = <your-device-connection-string>
+private const string iotHubConnectionString = "<your-hub-connection-string>";
+//...
+private const string deviceConnectionString = "<your-device-connection-string>";
 ```
 
 Save the file.
@@ -301,7 +298,7 @@ Save the file.
 Now, to see the results of the data simulation that you've set up, open a new local console window and navigate to *digital-twins-samples-main\DeviceSimulator\DeviceSimulator*.
 
 >[!NOTE]
-> You should now have two open console windows: one that's open to the the *DeviceSimulator\DeviceSimulator* folder, and one from earlier that's still open to the *AdtSampleApp\SampleClientApp* folder.
+> You should now have two open console windows: one that's open to the *DeviceSimulator\DeviceSimulator* folder, and one from earlier that's still open to the *AdtSampleApp\SampleClientApp* folder.
 
 Use the following dotnet command to run the device simulator project:
 
@@ -320,6 +317,10 @@ You don't need to do anything else in this console, but leave it running while y
 The *ProcessHubToDTEvents* function you published earlier listens to the IoT Hub data, and calls an Azure Digital Twins API to update the `Temperature` property on the thermostat67 twin.
 
 To see the data from the Azure Digital Twins side, switch to your other console window that's open to the *AdtSampleApp\SampleClientApp* folder. Run the *SampleClientApp* project with `dotnet run`.
+
+```cmd/sh
+dotnet run
+```
 
 Once the project is running and accepting commands, run the following command to get the temperatures being reported by the digital twin thermostat67:
 
@@ -398,7 +399,7 @@ Here's a review of the scenario that you built in this tutorial.
 2. Simulated device telemetry is sent to IoT Hub, where the *ProcessHubToDTEvents* Azure function is listening for telemetry events. The *ProcessHubToDTEvents* Azure function uses the information in these events to set the `Temperature` property on thermostat67 (**arrow B** in the diagram).
 3. Property change events in Azure Digital Twins are routed to an Event Grid topic, where the *ProcessDTRoutedData* Azure function is listening for events. The *ProcessDTRoutedData* Azure function uses the information in these events to set the `Temperature` property on room21 (**arrow C** in the diagram).
 
-:::image type="content" source="media/tutorial-end-to-end/building-scenario.png" alt-text="Diagram of the full building scenario, which shows the data flowing from a device into and out of Azure Digital Twins through various Azure services.":::
+:::image type="content" source="media/tutorial-end-to-end/building-scenario.png" alt-text="Diagram from the beginning of the article showing the full building scenario.":::
 
 ## Clean up resources
 

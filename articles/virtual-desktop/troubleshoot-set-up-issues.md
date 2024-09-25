@@ -1,12 +1,11 @@
 ---
 title: Azure Virtual Desktop environment host pool creation - Azure
-description: How to troubleshoot and resolve tenant and host pool issues during setup of a Azure Virtual Desktop environment.
-author: Heidilohr
+description: How to troubleshoot and resolve tenant and host pool issues during setup of an Azure Virtual Desktop environment.
+author: dknappettmsft
 ms.topic: troubleshooting
-ms.custom: references_regions
+ms.custom: references_regions, devx-track-arm-template, docs_inherited
 ms.date: 02/17/2021
-ms.author: helohr
-manager: femila
+ms.author: daknappe
 ---
 # Host pool creation
 
@@ -42,11 +41,11 @@ If your operation goes over the quota limit, you can do one of the following thi
 
 - Open the link you see in the statusMessage field in a browser to submit a request to increase the quota for your Azure subscription for the specified VM SKU.
 
-### Error: Can't see user assignments in app groups.
+### Error: Can't see user assignments in application groups.
 
-**Cause**: This error usually happens after you've moved the subscription from one Azure Active Directory tenant to another. If your old assignments are still tied to the previous Azure Active Directory tenant, the Azure portal will lose track of them.
+**Cause**: This error usually happens after you've moved the subscription from one Microsoft Entra tenant to another. If your old assignments are still tied to the previous Microsoft Entra tenant, the Azure portal will lose track of them.
 
-**Fix**: You'll need to reassign users to app groups.
+**Fix**: You'll need to reassign users to application groups.
 
 ### I don't see the Azure region I want to use when selecting the location for my service objects
 
@@ -65,7 +64,7 @@ When you re-register the resource provider, you won't see any specific UI feedba
 Follow these instructions to troubleshoot unsuccessful deployments of Azure Resource Manager templates and PowerShell DSC.
 
 1. Review errors in the deployment using [View deployment operations with Azure Resource Manager](../azure-resource-manager/templates/deployment-history.md).
-2. If there are no errors in the deployment, review errors in the activity log using [View activity logs to audit actions on resources](../azure-monitor/essentials/activity-log.md).
+2. If there are no errors in the deployment, review errors in the activity log using [View activity logs to audit actions on resources](/azure/azure-monitor/essentials/activity-log).
 3. Once the error is identified, use the error message and the resources in [Troubleshoot common Azure deployment errors with Azure Resource Manager](../azure-resource-manager/templates/common-deployment-errors.md) to address the issue.
 4. Delete any resources created during the previous deployment and retry deploying the template again.
 
@@ -278,9 +277,9 @@ the VM.\\\"
 - To troubleshoot issues while configuring a virtual machine (VM) in Azure Virtual Desktop, see [Session host virtual machine configuration](troubleshoot-vm-configuration.md).
 - To troubleshoot issues related to the Azure Virtual Desktop agent or session connectivity, see [Troubleshoot common Azure Virtual Desktop Agent issues](troubleshoot-agent.md).
 - To troubleshoot issues with Azure Virtual Desktop client connections, see [Azure Virtual Desktop service connections](troubleshoot-service-connection.md).
-- To troubleshoot issues with Remote Desktop clients, see [Troubleshoot the Remote Desktop client](troubleshoot-client.md)
+- To troubleshoot issues with Remote Desktop clients, see [Troubleshoot the Remote Desktop client](troubleshoot-client-windows.md)
 - To troubleshoot issues when using PowerShell with Azure Virtual Desktop, see [Azure Virtual Desktop PowerShell](troubleshoot-powershell.md).
 - To learn more about the service, see [Azure Virtual Desktop environment](environment-setup.md).
 - To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](../azure-resource-manager/templates/template-tutorial-troubleshoot.md).
-- To learn about auditing actions, see [Audit operations with Resource Manager](../azure-monitor/essentials/activity-log.md).
+- To learn about auditing actions, see [Audit operations with Resource Manager](/azure/azure-monitor/essentials/activity-log).
 - To learn about actions to determine the errors during deployment, see [View deployment operations](../azure-resource-manager/templates/deployment-history.md).

@@ -2,13 +2,17 @@
 title: Remediate noncompliant Azure Automation State Configuration servers
 description: This article tells how to reapply configurations on demand to servers where configuration state has drifted.
 services: automation
-ms.service: automation
-ms.subservice: dsc
+ms.service: azure-automation
+ms.subservice: desired-state-config
+ms.custom: linux-related-content
 ms.topic: conceptual
 ms.date: 07/17/2019
 ---
 
 # Remediate noncompliant Azure Automation State Configuration servers
+
+> [!NOTE]
+> Before you enable Automation State Configuration, we would like you to know that a newer version of DSC is now generally available, managed by a feature of Azure Policy named [guest configuration](../governance/machine-configuration/overview.md). The guest configuration service combines features of DSC Extension, Azure Automation State Configuration, and the most commonly requested features from customer feedback. Guest configuration also includes hybrid machine support through [Arc-enabled servers](/azure/azure-arc/servers/overview).
 
 When servers are registered with Azure Automation State Configuration,
 the configuration mode is set to `ApplyOnly`, `ApplyAndMonitor`, or `ApplyAndAutoCorrect`. If the mode isn't set to `ApplyAndAutoCorrect`,
@@ -22,7 +26,7 @@ when manually correcting configuration drift.
 
 ## Correct drift of Windows virtual machines using PowerShell
 
-You can correct drift of Windows virtual machines using the `Run` command feature. See [Run PowerShell scripts in your Windows VM with Run command](../virtual-machines/windows/run-command.md).
+You can correct drift of Windows virtual machines using the `Run` command feature. See [Run PowerShell scripts in your Windows VM with Run command](/azure/virtual-machines/windows/run-command).
 
 To force an Azure Automation State Configuration node to download the latest configuration and apply it, use the [Update-DscConfiguration](/powershell/module/psdesiredstateconfiguration/update-dscconfiguration) cmdlet.
 

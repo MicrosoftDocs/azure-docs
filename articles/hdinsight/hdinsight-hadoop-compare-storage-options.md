@@ -1,10 +1,9 @@
 ---
 title: Compare storage options for use with Azure HDInsight clusters
 description: Provides an overview of storage types and how they work with Azure HDInsight.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: conceptual
-ms.custom: seoapr2020
-ms.date: 05/30/2022
+ms.date: 06/14/2024
 ---
 
 # Compare storage options for use with Azure HDInsight clusters
@@ -13,7 +12,6 @@ You can choose between a few different Azure storage services when creating HDIn
 
 * [Azure Blob storage with HDInsight](./overview-azure-storage.md)
 * [Azure Data Lake Storage Gen2 with HDInsight](./overview-data-lake-storage-gen2.md)
-* [Azure Data Lake Storage Gen1 with HDInsight](./overview-data-lake-storage-gen1.md)
 
 This article provides an overview of these storage types and their unique features.
 
@@ -62,11 +60,13 @@ You can create clusters using combinations of services for primary and optional 
 Azure HDInsight does not store customer data. The primary means of storage for a cluster are its associated storage accounts. You can attach your cluster to an existing storage account, or create a new storage account during the cluster creation process. If a new account is created, it will be created as a locally redundant storage (LRS) account, and will satisfy in-region data residency requirements including those specified in the [Trust Center](https://azuredatacentermap.azurewebsites.net).
 
 You can validate that HDInsight is properly configured to store data in a single region by ensuring that the storage account associated with your HDInsight is LRS or another storage option mentioned on [Trust Center](https://azuredatacentermap.azurewebsites.net).
+
+>[!NOTE]
+> Upgrading the primary or secondary storage account of a running cluster with Azure Data Lake Storage Gen2 capabilities is not supported. To change the storage type of an existing HDInsight cluster to Data Lake Storage Gen2, you will need to recreate the cluster and select an hierarchical namespace enabled storage account.
  
 ## Next steps
 
 * [Azure Storage overview in HDInsight](./overview-azure-storage.md)
-* [Azure Data Lake Storage Gen1 overview in HDInsight](./overview-data-lake-storage-gen1.md)
 * [Azure Data Lake Storage Gen2 overview in HDInsight](./overview-data-lake-storage-gen2.md)
 * [Introduction to Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)
 * [Introduction to Azure Storage](../storage/common/storage-introduction.md)

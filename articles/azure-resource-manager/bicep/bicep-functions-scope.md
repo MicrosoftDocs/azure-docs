@@ -1,8 +1,9 @@
 ---
 title: Bicep functions - scopes
 description: Describes the functions to use in a Bicep file to retrieve values about deployment scopes.
-ms.topic: conceptual
-ms.date: 11/23/2021
+ms.topic: reference
+ms.custom: devx-track-bicep
+ms.date: 07/11/2024
 ---
 
 # Scope functions for Bicep
@@ -94,7 +95,7 @@ targetScope = 'managementGroup'
 
 param mgName string = 'mg-${uniqueString(newGuid())}'
 
-resource newMG 'Microsoft.Management/managementGroups@2020-05-01' = {
+resource newMG 'Microsoft.Management/managementGroups@2023-04-01' = {
   scope: tenant()
   name: mgName
   properties: {
@@ -202,7 +203,7 @@ A common use of the resourceGroup function is to create resources in the same lo
 param location string = resourceGroup().location
 ```
 
-You can also use the resourceGroup function to apply tags from the resource group to a resource. For more information, see [Apply tags from resource group](../management/tag-resources.md#apply-tags-from-resource-group).
+You can also use the resourceGroup function to apply tags from the resource group to a resource. For more information, see [Apply tags from resource group](../management/tag-resources-bicep.md#apply-tags-from-resource-group).
 
 ## subscription
 
@@ -270,7 +271,7 @@ Returns an object used for setting the scope to the tenant.
 
 Or
 
-Returns properties about the tenant for the current deployment.
+Returns the tenant of the user.
 
 Namespace: [az](bicep-functions.md#namespaces-for-functions).
 
@@ -318,7 +319,7 @@ It returns:
 Some resources require setting the tenant ID for a property. Rather than passing the tenant ID as a parameter, you can retrieve it with the tenant function.
 
 ```bicep
-resource kv 'Microsoft.KeyVault/vaults@2021-06-01-preview' = {
+resource kv 'Microsoft.KeyVault/vaults@2023-07-01' = {
   name: 'examplekeyvault'
   location: 'westus'
   properties: {

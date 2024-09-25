@@ -5,17 +5,17 @@ description: Learn how to use Azure Virtual WAN to create a User VPN (point-to-s
 services: virtual-wan
 author: cherylmc
 
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
+ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 07/05/2022
+ms.date: 08/24/2023
 ms.author: cherylmc
-
 ---
 # Create a P2S User VPN connection using Azure Virtual WAN - PowerShell
 
 This article shows you how to use Virtual WAN to connect to your resources in Azure. In this article, you create a point-to-site User VPN connection over OpenVPN or IPsec/IKE (IKEv2) using PowerShell. This type of connection requires the native VPN client to be configured on each connecting client computer. Most of the steps in this article can be performed using Azure Cloud Shell, except for uploading certificates for certificate authentication.
 
-:::image type="content" source="./media/virtual-wan-about/virtualwanp2s.png" alt-text="Virtual WAN diagram.":::
+:::image type="content" source="./media/virtual-wan-about/virtualwanp2s.png" alt-text="Screenshot of Virtual WAN diagram." lightbox="./media/virtual-wan-about/virtualwanp2s.png":::
 
 ## Prerequisites
 
@@ -55,7 +55,7 @@ In the following steps, when selecting the authentication method, you have three
 
 * **Radius-based authentication:** Obtain the Radius server IP, Radius server secret, and certificate information.
 
-* **Azure Active Directory authentication:** See [Configure a User VPN connection - Azure Active Directory authentication](virtual-wan-point-to-site-azure-ad.md).
+* **Microsoft Entra authentication:** See [Configure a User VPN connection - Microsoft Entra authentication](virtual-wan-point-to-site-azure-ad.md).
 
 ### Configuration steps using Azure Certificate authentication
 

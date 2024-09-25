@@ -2,18 +2,14 @@
 title: View relative latencies to Azure regions from specific locations
 description: Learn how to view relative latencies across Internet providers to Azure regions from specific locations.
 services: network-watcher
-documentationcenter: ''
-author: damendo
-
-ms.service: virtual-network
+author: halkazwini
+ms.service: azure-network-watcher
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 12/14/2017
-ms.author: damendo
+ms.date: 04/20/2022
+ms.author: halkazwini
 ms.custom: devx-track-azurepowershell
-
 ---
+
 # View relative latency to Azure regions from specific locations
 
 > [!WARNING]
@@ -24,9 +20,6 @@ ms.custom: devx-track-azurepowershell
 
 In this tutorial, learn how to use the Azure [Network Watcher](network-watcher-monitoring-overview.md) service to help you decide what Azure region to deploy your application or service in, based on your user demographic. Additionally, you can use it to help evaluate service providers' connections to Azure.  
         
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 ## Create a network watcher
 
 If you already have a network watcher in at least one Azure [region](https://azure.microsoft.com/regions), you can skip the tasks in this section. Create a resource group for the network watcher. In this example, the resource group is created in the East US region, but you can create the resource group in any Azure region.

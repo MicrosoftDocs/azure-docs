@@ -2,16 +2,20 @@
 title: Predicates and PredicateValidations
 titleSuffix: Azure AD B2C
 description: Prevent malformed data from being added to your Azure AD B2C tenant by using custom policies in Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
-ms.date: 03/13/2022
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer using Azure Active Directory B2C, I want to perform validation on user input data, so that I can ensure that only properly formed data is entered into the system.
+
 ---
 
 # Predicates and PredicateValidations
@@ -74,7 +78,7 @@ The IsLengthRange method checks whether the length of a string claim value is wi
 | Maximum | Yes | The maximum number of characters that can be entered. |
 | Minimum | Yes | The minimum number of characters that must be entered. |
 
-The following example shows a IsLengthRange method with the parameters `Minimum` and `Maximum` that specify the length range of the string:
+The following example shows an IsLengthRange method with the parameters `Minimum` and `Maximum` that specify the length range of the string:
 
 ```xml
 <Predicate Id="IsLengthBetween8And64" Method="IsLengthRange" HelpText="The password must be between 8 and 64 characters.">

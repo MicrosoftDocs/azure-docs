@@ -2,20 +2,15 @@
 title: Transform data using Hadoop Hive activity
 description: Learn how you can use the Hive Activity in an Azure Data Factory or Synapse Analytics pipeline to run Hive queries on an on-demand/your own HDInsight cluster.
 titleSuffix: Azure Data Factory & Azure Synapse
-ms.service: data-factory
-ms.subservice: tutorials
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
 ms.custom: synapse
-ms.date: 09/22/2022
+ms.date: 05/15/2024
 ---
 
 # Transform data using Hadoop Hive activity in Azure Data Factory or Synapse Analytics
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-hive-activity.md)
-> * [Current version](transform-data-using-hadoop-hive.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -81,7 +76,7 @@ To use an HDInsight Hive activity for Azure Data Lake Analytics in a pipeline, c
 >[!NOTE]
 >The default value for queryTimeout is 120 minutes. 
 
-## Next steps
+## Related content
 See the following articles that explain how to transform data in other ways: 
 
 * [U-SQL activity](transform-data-using-data-lake-analytics.md)

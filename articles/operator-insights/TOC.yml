@@ -1,0 +1,18 @@
+- name: Reference
+  items:
+    - name: Azure CLI for Operator Insights
+      href: /cli/azure/service-page/azure%20operator%20insights%20-%20network%20analytics
+    - name: PowerShell for Operator Insights
+      href: /powershell/module/az.networkanalytics
+    - name: SDK documentation
+      items:
+      - name: .NET
+        href: /dotnet/api/overview/azure/networkanalytics
+      - name: Go
+        href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/networkanalytics/armnetworkanalytics
+      - name: Java
+        href: /java/api/overview/azure/networkanalytics
+      - name: JavaScript
+        href: /javascript/api/%40azure/arm-networkanalytics
+      - name: Python
+        href: /python/api/overview/azure/networkanalytics

@@ -4,28 +4,24 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about pipelines and activities in Azure Data Factory and Azure Synapse Analytics.
 author: dcstwh
 ms.author: weetok
-ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 03/11/2024
 ---
 
 # Pipelines and activities in Azure Data Factory and Azure Synapse Analytics
 
-> [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
-> * [Version 1](v1/data-factory-create-pipelines.md)
-> * [Current version](concepts-pipelines-activities.md)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-[!INCLUDE[ML Studio (classic) retirement](../../includes/machine-learning-studio-classic-deprecation.md)] 
+[!INCLUDE[ML Studio (classic) retirement](~/reusable-content/ce-skilling/azure/includes/machine-learning-studio-classic-deprecation.md)] 
 
 This article helps you understand pipelines and activities in Azure Data Factory and Azure Synapse Analytics and use them to construct end-to-end data-driven workflows for your data movement and data processing scenarios.
 
 ## Overview
 A Data Factory or Synapse Workspace can have one or more pipelines. A pipeline is a logical grouping of activities that together perform a task. For example, a pipeline could contain a set of activities that ingest and clean log data, and then kick off a mapping data flow to analyze the log data. The pipeline allows you to manage the activities as a set instead of each one individually. You deploy and schedule the pipeline instead of the activities independently.
 
-The activities in a pipeline define actions to perform on your data. For example, you may use a copy activity to copy data from SQL Server to an Azure Blob Storage. Then, use a data flow activity or a Databricks Notebook activity to process and transform data from the blob storage to an Azure Synapse Analytics pool on top of which business intelligence reporting solutions are built.
+The activities in a pipeline define actions to perform on your data. For example, you can use a copy activity to copy data from SQL Server to an Azure Blob Storage. Then, use a data flow activity or a Databricks Notebook activity to process and transform data from the blob storage to an Azure Synapse Analytics pool on top of which business intelligence reporting solutions are built.
 
 Azure Data Factory and Azure Synapse Analytics have three groupings of activities: [data movement activities](copy-activity-overview.md), [data transformation activities](transform-data.md), and [control activities](#control-flow-activities). An activity can take zero or more input [datasets](concepts-datasets-linked-services.md) and produce one or more output [datasets](concepts-datasets-linked-services.md). The following diagram shows the relationship between pipeline, activity, and dataset:
 
@@ -33,16 +29,24 @@ Azure Data Factory and Azure Synapse Analytics have three groupings of activitie
 
 An input dataset represents the input for an activity in the pipeline, and an output dataset represents the output for the activity. Datasets identify data within different data stores, such as tables, files, folders, and documents. After you create a dataset, you can use it with activities in a pipeline. For example, a dataset can be an input/output dataset of a Copy Activity or an HDInsightHive Activity. For more information about datasets, see [Datasets in Azure Data Factory](concepts-datasets-linked-services.md) article.
 
+> [!NOTE]
+> There is a default soft limit of maximum 80 activities per pipeline, which includes inner activities for containers.
+
+
 ## Data movement activities
 
-Copy Activity in Data Factory copies data from a source data store to a sink data store. Data Factory supports the data stores listed in the table in this section. Data from any source can be written to any sink. Click a data store to learn how to copy data to and from that store.
-
-[!INCLUDE [data-factory-v2-supported-data-stores](includes/data-factory-v2-supported-data-stores.md)]
+Copy Activity in Data Factory copies data from a source data store to a sink data store. Data Factory supports the data stores listed in the table in this section. Data from any source can be written to any sink. 
 
 For more information, see [Copy Activity - Overview](copy-activity-overview.md) article.
 
+Click a data store to learn how to copy data to and from that store.
+
+[!INCLUDE [data-factory-v2-supported-data-stores](includes/data-factory-v2-supported-data-stores.md)]
+
 ## Data transformation activities
 Azure Data Factory and Azure Synapse Analytics support the following transformation activities that can be added either individually or chained with another activity.
+
+For more information, see the [data transformation activities](transform-data.md) article.
 
 Data transformation activity | Compute environment
 ---------------------------- | -------------------
@@ -60,8 +64,6 @@ Data transformation activity | Compute environment
 [Databricks Notebook](transform-data-databricks-notebook.md) | Azure Databricks
 [Databricks Jar Activity](transform-data-databricks-jar.md) | Azure Databricks
 [Databricks Python Activity](transform-data-databricks-python.md) | Azure Databricks
-
-For more information, see the [data transformation activities](transform-data.md) article.
 
 ## Control flow activities
 The following control flow activities are supported:
@@ -175,7 +177,7 @@ Tag | Description | Required
 name | Name of the activity. Specify a name that represents the action that the activity performs. <br/><ul><li>Maximum number of characters: 55</li><li>Must start with a letter-number, or an underscore (\_)</li><li>Following characters are not allowed: “.”, "+", "?", "/", "<",">","*"," %"," &",":"," \" | Yes</li></ul>
 description | Text describing what the activity or is used for | Yes
 type | Type of the activity. See the [Data Movement Activities](#data-movement-activities), [Data Transformation Activities](#data-transformation-activities), and [Control Activities](#control-flow-activities) sections for different types of activities. | Yes
-linkedServiceName | Name of the linked service used by the activity.<br/><br/>An activity may require that you specify the linked service that links to the required compute environment. | Yes for HDInsight Activity, ML Studio (classic) Batch Scoring Activity, Stored Procedure Activity. <br/><br/>No for all others
+linkedServiceName | Name of the linked service used by the activity.<br/><br/>An activity might require that you specify the linked service that links to the required compute environment. | Yes for HDInsight Activity, ML Studio (classic) Batch Scoring Activity, Stored Procedure Activity. <br/><br/>No for all others
 typeProperties | Properties in the typeProperties section depend on each type of activity. To see type properties for an activity, click links to the activity in the previous section. | No
 policy | Policies that affect the run-time behavior of the activity. This property includes a timeout and retry behavior. If it isn't specified, default values are used. For more information, see [Activity policy](#activity-policy) section. | No
 dependsOn | This property is used to define activity dependencies, and how subsequent activities depend on previous activities. For more information, see [Activity dependency](#activity-dependency) | No
@@ -213,7 +215,7 @@ Policies affect the run-time behavior of an activity, giving configuration optio
 
 JSON name | Description | Allowed Values | Required
 --------- | ----------- | -------------- | --------
-timeout | Specifies the timeout for the activity to run. | Timespan | No. Default timeout is 7 days.
+timeout | Specifies the timeout for the activity to run. | Timespan | No. Default timeout is 12 hours, minimum 10 minutes.
 retry | Maximum retry attempts | Integer | No. Default is 0
 retryIntervalInSeconds | The delay between retry attempts in seconds | Integer | No. Default is 30 seconds
 secureOutput | When set to true, the output from activity is considered as secure and aren't logged for monitoring. | Boolean | No. Default is false.
@@ -395,7 +397,7 @@ The **typeProperties** section is different for each transformation activity. To
 For a complete walkthrough of creating this pipeline, see [Tutorial: transform data using Spark](tutorial-transform-data-spark-powershell.md).
 
 ## Multiple activities in a pipeline
-The previous two sample pipelines have only one activity in them. You can have more than one activity in a pipeline. If you have multiple activities in a pipeline and subsequent activities are not dependent on previous activities, the activities may run in parallel.
+The previous two sample pipelines have only one activity in them. You can have more than one activity in a pipeline. If you have multiple activities in a pipeline and subsequent activities are not dependent on previous activities, the activities might run in parallel.
 
 You can chain two activities by using [activity dependency](#activity-dependency), which defines how subsequent activities depend on previous activities, determining the condition whether to continue executing the next task. An activity can depend on one or more previous activities with different dependency conditions.
 
@@ -430,7 +432,7 @@ For example, say you have a Scheduler trigger, "Trigger A," that I wish to kick 
 }
 ```
 
-## Next steps
+## Related content
 See the following tutorials for step-by-step instructions for creating pipelines with activities:
 
 - [Build a pipeline with a copy activity](quickstart-create-data-factory-powershell.md)

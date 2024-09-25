@@ -2,13 +2,11 @@
 title: Confidential computing application enclave nodes on Azure Kubernetes Service (AKS)
 description: Intel SGX based confidential computing VM nodes with application enclave support
 services: virtual-machines
-author: agowdamsft
-ms.service: container-service
-ms.subservice: confidential-computing
+author: angarg05
+ms.service: confidential-computing
 ms.topic: overview
 ms.date: 07/15/2022
-ms.author: amgowda
-ms.custom: ignite-fall-2021
+ms.author: ananyagarg
 ---
 
 # Application enclave support with Intel SGX based confidential computing nodes on Azure Kubernetes Service
@@ -25,13 +23,13 @@ Azure Kubernetes Service (AKS) supports adding [Intel SGX confidential computing
 
 - Hardware based, process level container isolation through Intel SGX trusted execution environment (TEE)
 - Heterogenous node pool clusters (mix confidential and non-confidential node pools)
-- Encrypted Page Cache (EPC) memory-based pod scheduling through "Confcon" AKS addon
+- Encrypted Page Cache (EPC) memory-based pod scheduling through "confcom" AKS addon
 - Intel SGX DCAP driver pre-installed and kernel dependency installed
 - CPU consumption based horizontal pod autoscaling and cluster autoscaling
 - Linux Containers support through Ubuntu 18.04 Gen 2 VM worker nodes
 
 ## Confidential Computing add-on for AKS
-The add-on feature enables extra capability on AKS when running confidential computing Intel SGX capable node pools on the cluster. "Confcon" add-on on AKS enables the features below.
+The add-on feature enables extra capability on AKS when running confidential computing Intel SGX capable node pools on the cluster. "confcom" add-on on AKS enables the features below.
 
 #### Azure Device Plugin for Intel SGX <a id="sgx-plugin"></a>
 
@@ -61,9 +59,9 @@ Find answers to some of the common questions about Azure Kubernetes Service (AKS
 
 [Quick starter confidential container samples](https://github.com/Azure-Samples/confidential-container-samples)
 
-[Intel SGX Confidential VMs - DCsv2 SKU List](../virtual-machines/dcv2-series.md)
+[Intel SGX Confidential VMs - DCsv2 SKU List](/azure/virtual-machines/dcv2-series)
 
-[Intel SGX Confidential VMs - DCsv3 SKU List](../virtual-machines/dcv3-series.md)
+[Intel SGX Confidential VMs - DCsv3 SKU List](/azure/virtual-machines/dcv3-series)
 
 [Defense-in-depth with confidential containers webinar session](https://www.youtube.com/watch?reload=9&v=FYZxtHI_Or0&feature=youtu.be)
 

@@ -4,11 +4,10 @@ description: This article describes the different states and status of an Azure 
 keywords: azure subscription state status
 author: bandersmsft
 ms.reviewer: andalmia
-tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 06/28/2022
+ms.date: 03/21/2024
 ms.author: banders
 ---
 

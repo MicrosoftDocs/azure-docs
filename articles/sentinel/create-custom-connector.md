@@ -1,22 +1,19 @@
 ---
 title: Resources for creating Microsoft Sentinel custom connectors | Microsoft Docs
 description: Learn about available resources for creating custom connectors for Microsoft Sentinel. Methods include the Log Analytics agent and API, Logstash, Logic Apps, PowerShell, and Azure Functions.
-author: batamig
+author: limwainstein
 ms.topic: conceptual
-ms.custom: mvc, ignite-fall-2021
-ms.date: 11/21/2021
-ms.author: bagol
+ms.date: 01/09/2023
+ms.author: lwainstein
 ---
 
 # Resources for creating Microsoft Sentinel custom connectors
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 Microsoft Sentinel provides a wide range of [built-in connectors for Azure services and external solutions](connect-data-sources.md), and also supports ingesting data from some sources without a dedicated connector.
 
 If you're unable to connect your data source to Microsoft Sentinel using any of the existing solutions available, consider creating your own data source connector.
 
-For a full list of supported connectors, see the [Microsoft Sentinel: The connectors grand (CEF, Syslog, Direct, Agent, Custom, and more)](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-the-connectors-grand-cef-syslog-direct-agent/ba-p/803891) blog post.
+For a full list of supported connectors, see the [Find your Microsoft Sentinel data connector)](data-connectors-reference.md).
 
 ## Compare custom connector methods
 
@@ -52,9 +49,9 @@ For more information, see [Create a codeless connector for Microsoft Sentinel](c
 
 If your data source delivers events in files, we recommend that you use the Azure Monitor Log Analytics agent to create your custom connector.
 
-- For more information, see [Collecting custom logs in Azure Monitor](../azure-monitor/agents/data-sources-custom-logs.md).
+- For more information, see [Collecting custom logs in Azure Monitor](/azure/azure-monitor/agents/data-sources-custom-logs).
 
-- For an example of this method, see [Collecting custom JSON data sources with the Log Analytics agent for Linux in Azure Monitor](../azure-monitor/agents/data-sources-json.md).
+- For an example of this method, see [Collecting custom JSON data sources with the Log Analytics agent for Linux in Azure Monitor](/azure/azure-monitor/agents/data-sources-json).
 
 ## Connect with Logstash
 
@@ -170,10 +167,10 @@ You can stream events to Microsoft Sentinel by using the Log Analytics Data Coll
 
 While calling a RESTful endpoint directly requires more programming, it also provides more flexibility.
 
-For more information, see the [Log Analytics Data collector API](../azure-monitor/logs/data-collector-api.md), especially the following examples:
+For more information, see the [Log Analytics Data collector API](/azure/azure-monitor/logs/data-collector-api), especially the following examples:
 
-- [C#](../azure-monitor/logs/data-collector-api.md#c-sample)
-- [Python](../azure-monitor/logs/data-collector-api.md#python-sample)
+- [C#](/azure/azure-monitor/logs/data-collector-api#sample-requests)
+- [Python](/azure/azure-monitor/logs/data-collector-api#sample-requests)
 
 ## Connect with Azure Functions
 
@@ -181,11 +178,11 @@ Use Azure Functions together with a RESTful API and various coding languages, su
 
 For examples of this method, see:
 
-- [Connect your VMware Carbon Black Cloud Endpoint Standard to Microsoft Sentinel with Azure Function](./data-connectors-reference.md#vmware-carbon-black-endpoint-standard-preview)
-- [Connect your Okta Single Sign-On to Microsoft Sentinel with Azure Function](./data-connectors-reference.md#okta-single-sign-on-preview)
-- [Connect your Proofpoint TAP to Microsoft Sentinel with Azure Function](./data-connectors-reference.md#proofpoint-targeted-attack-protection-tap-preview)
-- [Connect your Qualys VM to Microsoft Sentinel with Azure Function](./data-connectors-reference.md#qualys-vulnerability-management-vm-preview)
-- [Ingesting XML, CSV, or other formats of data](../azure-monitor/logs/create-pipeline-datacollector-api.md#ingesting-xml-csv-or-other-formats-of-data)
+- [Connect your VMware Carbon Black Cloud Endpoint Standard to Microsoft Sentinel with Azure Function](./data-connectors/vmware-carbon-black-cloud-using-azure-functions.md)
+- [Connect your Okta Single Sign-On to Microsoft Sentinel with Azure Function](./data-connectors/okta-single-sign-on-using-azure-function.md)
+- [Connect your Proofpoint TAP to Microsoft Sentinel with Azure Function](./data-connectors/proofpoint-tap-using-azure-functions.md)
+- [Connect your Qualys VM to Microsoft Sentinel with Azure Function](data-connectors/qualys-vulnerability-management-using-azure-functions.md)
+- [Ingesting XML, CSV, or other formats of data](/azure/azure-monitor/logs/create-pipeline-datacollector-api#ingesting-xml-csv-or-other-formats-of-data)
 - [Monitoring Zoom with Microsoft Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/monitoring-zoom-with-azure-sentinel/ba-p/1341516) (blog)
 - [Deploy a Function App for getting Office 365 Management API data into Microsoft Sentinel](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/O365%20Data) (Microsoft Sentinel GitHub community)
 
@@ -206,7 +203,7 @@ Use the data ingested into Microsoft Sentinel to secure your environment with an
 - [Get visibility into alerts](get-visibility.md)
 - [Visualize and monitor your data](monitor-your-data.md)
 - [Investigate incidents](investigate-cases.md)
-- [Detect threats](detect-threats-built-in.md)
+- [Detect threats](threat-detection.md)
 - [Automate threat prevention](tutorial-respond-threats-playbook.md)
 - [Hunt for threats](hunting.md)
 

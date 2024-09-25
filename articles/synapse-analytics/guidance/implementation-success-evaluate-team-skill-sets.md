@@ -1,10 +1,10 @@
 ---
 title: "Synapse implementation success methodology: Evaluate team skill sets"
 description: "Learn how to evaluate your team of skilled resources that will implement your Azure Synapse solution."
-author: peter-myers
-ms.author: v-petermyers
-ms.reviewer: sngun
-ms.service: synapse-analytics
+author: whhender
+ms.author: whhender
+ms.reviewer: whhender
+ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.date: 05/31/2022
 ---
@@ -50,7 +50,7 @@ The *Azure administrator* manages administrative aspects of Azure. They're respo
 
 ### Security administrator
 
-The *security administrator* must have local knowledge of the existing security landscape and requirements. This role collaborates with the [Synapse administrator](#synapse-administrator), [Synapse database administrator](#synapse-database-administrator), [Synapse Spark administrator](#synapse-spark-administrator), and other roles to set up security requirements. The security administrator could also be an Azure Active Directory (Azure AD) administrator.
+The *security administrator* must have local knowledge of the existing security landscape and requirements. This role collaborates with the [Synapse administrator](#synapse-administrator), [Synapse database administrator](#synapse-database-administrator), [Synapse Spark administrator](#synapse-spark-administrator), and other roles to set up security requirements. The security administrator could also be a Microsoft Entra administrator.
 
 ### Network administrator
 

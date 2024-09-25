@@ -1,20 +1,20 @@
 ---
-title: Quickstart - Create an Azure budget with Bicep
+title: Quickstart - Create a budget with Bicep
 description: Quickstart showing how to create a budget with Bicep.
 author: bandersmsft 
 ms.author: banders 
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: quickstart
-ms.date: 08/26/2022
-ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
+ms.date: 03/21/2024
+ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm, devx-track-azurecli, devx-track-bicep
 ---
 
 # Quickstart: Create a budget with Bicep
 
 Budgets in Cost Management help you plan for and drive organizational accountability. With budgets, you can account for the Azure services you consume or subscribe to during a specific period. They help you inform others about their spending to proactively manage costs and monitor how spending progresses over time. When the budget thresholds you've created are exceeded, notifications are triggered. None of your resources are affected and your consumption isn't stopped. You can use budgets to compare and track spending as you analyze costs. This quickstart shows you how to create a budget named 'MyBudget' using Bicep.
 
-[!INCLUDE [About Bicep](../../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites
 
@@ -64,7 +64,7 @@ The Bicep file used in this quickstart is from [Azure Quickstart Templates](http
 
 One Azure resource is defined in the Bicep file:
 
-- [Microsoft.Consumption/budgets](/azure/templates/microsoft.consumption/budgets): Create an Azure budget.
+- [Microsoft.Consumption/budgets](/azure/templates/microsoft.consumption/budgets): Create a budget.
 
 ### Deploy the Bicep file
 
@@ -108,7 +108,7 @@ The Bicep file used in this quickstart is from [Azure Quickstart Templates](http
 
 One Azure resource is defined in the Bicep file:
 
-- [Microsoft.Consumption/budgets](/azure/templates/microsoft.consumption/budgets): Create an Azure budget.
+- [Microsoft.Consumption/budgets](/azure/templates/microsoft.consumption/budgets): Create a budget.
 
 ### Deploy the Bicep file
 
@@ -155,7 +155,7 @@ The Bicep file used in this quickstart is from [Azure Quickstart Templates](http
 
 One Azure resource is defined in the Bicep file:
 
-- [Microsoft.Consumption/budgets](/azure/templates/microsoft.consumption/budgets): Create an Azure budget.
+- [Microsoft.Consumption/budgets](/azure/templates/microsoft.consumption/budgets): Create a budget.
 
 ### Deploy the Bicep file
 
@@ -237,7 +237,7 @@ Remove-AzConsumptionBudget -Name MyBudget
 
 ## Next steps
 
-In this quickstart, you created an Azure budget and deployed it using Bicep. To learn more about Cost Management and Billing and Bicep, continue on to the articles below.
+In this quickstart, you created a budget and deployed it using Bicep. To learn more about Cost Management and Billing and Bicep, continue on to the articles below.
 
 - Read the [Cost Management and Billing](../cost-management-billing-overview.md) overview.
 - [Create budgets](tutorial-acm-create-budgets.md) in the Azure portal.

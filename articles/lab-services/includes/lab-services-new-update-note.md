@@ -1,10 +1,9 @@
 ---
-author: EMaher
-ms.author: enewman
+ms.service: azure-lab-services
 ms.date: 07/04/2022
 ms.topic: include
 ms.custom: devdivchpfy22
 ---
 
-> [!NOTE]
-> For greater performance gains, we recommend that you use the [August 2022 Update](../lab-services-whats-new.md).
+> [!IMPORTANT]
+> Azure Lab Services **lab plans** replace **lab accounts**. Learn how you can get started by [creating a lab plan](../quick-create-resources.md). For existing lab account customers, we recommend that you [migrate from lab accounts to lab plans](../how-to-migrate-lab-acounts-to-lab-plans.md).

@@ -1,11 +1,11 @@
 ---
 author: cephalin
-ms.service: app-service
+ms.service: azure-app-service
 ms.topic: include
 ms.date: 11/03/2016
 ms.author: cephalin
 ---
-An [App Service plan](../articles/app-service/overview-hosting-plans.md) specifies the location, size, and features of the web server farm that hosts your app. You can save money when you host multiple apps by configuring the web apps to share a single App Service plan.
+An [App Service plan](/azure/app-service/overview-hosting-plans) specifies the location, size, and features of the web server farm that hosts your app. You can save money when you host multiple apps by configuring the web apps to share a single App Service plan.
 
 App Service plans define:
 

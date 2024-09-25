@@ -3,9 +3,8 @@ title: How to integrate Service Bus with RabbitMQ
 description: Step-by-step guide on how to integrate Service Bus with RabbitMQ
 author: videlalvaro
 ms.topic: how-to
-ms.date: 11/17/2021
+ms.date: 01/10/2024
 ms.author: alvidela
-ms.custom: contperf-fy22q2
 ---
 
 # How to integrate Service Bus with RabbitMQ
@@ -18,7 +17,7 @@ Here's a few scenarios in which we can make use of these capabilities:
 - **Hybrid Cloud**: Your company just acquired a third party that uses RabbitMQ for their messaging needs. They are on a different cloud. While they transition to Azure you can already start sharing data by bridging RabbitMQ with Azure Service Bus.
 - **Third-Party Integration**: A third party uses RabbitMQ as a broker, and wants to send their data to us, but they are outside our organization. We can provide them with SAS Key giving them access to a limited set of Azure Service Bus queues where they can forward their messages to.
 
-The list goes on, but we can solve most of these use cases by bridging RabbitMQ to Azure.
+The list goes on, but we can solve most of these use cases by [bridging](/azure/architecture/patterns/messaging-bridge) RabbitMQ to Azure.
 
 First you need to create a free Azure account by signing up [here](https://azure.microsoft.com/free/)
 
@@ -80,7 +79,7 @@ Once the policy has been created click on it to see the **Primary Connection Str
 
 :::image type="content" source="./media/service-bus-integrate-with-rabbitmq/sas-policy-key.png" alt-text="Get SAS Policy":::
 
-Before you can use that connection string, you'll need to convert it to RabbitMQ's AMQP connection format. So go to the [connection string converter tool](https://red-mushroom-0f7446a0f.azurestaticapps.net/) and paste your connection string in the form, click convert. You'll get a connection string that's RabbitMQ ready. (That website runs everything local in your browser so your data isn't sent over the wire). You can access its source code on [GitHub](https://github.com/videlalvaro/connstring_to_amqp).
+Before you can use that connection string, you'll need to convert it to RabbitMQ's AMQP connection format. So go to the [connection string converter tool](https://amqpconnconverter.github.io/) and paste your connection string in the form, click convert. You'll get a connection string that's RabbitMQ ready. (That website runs everything local in your browser so your data isn't sent over the wire). You can access its source code on [GitHub](https://github.com/amqpconnconverter/amqpconnconverter.github.io).
 
 :::image type="content" source="./media/service-bus-integrate-with-rabbitmq/converter.png" alt-text="Convert connection string":::
 
@@ -102,7 +101,7 @@ In the `Address` field we'll enter the name of your **Azure Service Bus Queue**,
 
 ## Publishing Messages from RabbitMQ to Azure Service Bus
 
-In the RabbitMQ Management interface we can go to `Queues`, select the `azure` queue, and search for the `Publish message` panel. There a form will appear that will let you publish messages directly to your queue. For our example we're just going to add `fist message` as the `Payload` and hit `Publish Message`:
+In the RabbitMQ Management interface we can go to `Queues`, select the `azure` queue, and search for the `Publish message` panel. There a form will appear that will let you publish messages directly to your queue. For our example we're just going to add `first message` as the `Payload` and hit `Publish Message`:
 
 :::image type="content" source="./media/service-bus-integrate-with-rabbitmq/first-message.png" alt-text="Publish first message":::
 

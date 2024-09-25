@@ -2,16 +2,13 @@
 title: Enforce a minimum required version of Transport Layer Security (TLS) for requests to an Event Hubs namespace
 titleSuffix: Azure Event Hubs
 description: Configure a service bus namespace to require a minimum version of Transport Layer Security (TLS) for clients making requests against Azure Event Hubs.
-services: event-hubs
 author: EldertGrootenboer
-
-ms.service: event-hubs
 ms.topic: article
-ms.date: 04/25/2022
+ms.date: 06/24/2024
 ms.author: egrootenboer
 ---
 
-# Enforce a minimum required version of Transport Layer Security (TLS) for requests to an Event Hubs namespace (Preview)
+# Enforce a minimum required version of Transport Layer Security (TLS) for requests to an Event Hubs namespace
 
 Communication between a client application and an Azure Event Hubs namespace is encrypted using Transport Layer Security (TLS). TLS is a standard cryptographic protocol that ensures privacy and data integrity between clients and services over the Internet. For more information about TLS, see [Transport Layer Security](https://datatracker.ietf.org/wg/tls/about/).
 
@@ -19,8 +16,14 @@ Azure Event Hubs supports choosing a specific TLS version for namespaces. Curren
 
 Azure Event Hubs namespaces permit clients to send and receive data with TLS 1.0 and above. To enforce stricter security measures, you can configure your Event Hubs namespace to require that clients send and receive data with a newer version of TLS. If an Event Hubs namespace requires a minimum version of TLS, then any requests made with an older version will fail.
 
+> [!WARNING]
+> As of 31 October 2024, TLS 1.0 and TLS 1.1 will no longer be supported on Azure. [TLS 1.0 and TLS 1.1 end of support announcement](https://azure.microsoft.com/updates/azure-support-tls-will-end-by-31-october-2024-2/) The minimum TLS version will be 1.2 for all Event Hubs deployments.
+
 > [!IMPORTANT]
-> If you are using a service that connects to Azure Event Hubs, make sure that that service is using the appropriate version of TLS to send requests to Azure Event Hubs before you set the required minimum version for an Event Hubs namespace.
+> On 31 October 2024, TLS 1.3 will be enabled for AMQP traffic. TLS 1.3 is already enabled for Kafka and HTTPS traffic. Java clients may have a problem with TLS 1.3 due to a dependency on an older version of Proton-J. For more details, read [Java client changes to support TLS 1.3 with Azure Service Bus and Azure Event Hubs](https://techcommunity.microsoft.com/t5/messaging-on-azure-blog/java-client-changes-to-support-tls-1-3-with-azure-service-bus/ba-p/4089355) 
+
+> [!IMPORTANT]
+> If you are using a service that connects to Azure Event Hubs, make sure that service is using the appropriate version of TLS to send requests to Azure Event Hubs before you set the required minimum version for an Event Hubs namespace.
 
 ## Permissions necessary to require a minimum version of TLS
 
@@ -35,7 +38,7 @@ Role assignments must be scoped to the level of the Event Hubs namespace or high
 Be careful to restrict assignment of these roles only to those who require the ability to create an Event Hubs namespace or update its properties. Use the principle of least privilege to ensure that users have the fewest permissions that they need to accomplish their tasks. For more information about managing access with Azure RBAC, see [Best practices for Azure RBAC](../role-based-access-control/best-practices.md).
 
 > [!NOTE]
-> The classic subscription administrator roles Service Administrator and Co-Administrator include the equivalent of the Azure Resource Manager [**Owner**](../role-based-access-control/built-in-roles.md#owner) role. The  **Owner**  role includes all actions, so a user with one of these administrative roles can also create and manage Event Hubs namespaces. For more information, see [**Classic subscription administrator roles, Azure roles, and Azure AD administrator roles**](../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
+> The classic subscription administrator roles Service Administrator and Co-Administrator include the equivalent of the Azure Resource Manager [**Owner**](../role-based-access-control/built-in-roles.md#owner) role. The  **Owner**  role includes all actions, so a user with one of these administrative roles can also create and manage Event Hubs namespaces. For more information, see [**Azure roles, Microsoft Entra roles, and classic subscription administrator roles**](../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
 
 ## Network considerations
 

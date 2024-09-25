@@ -1,8 +1,11 @@
 ---
 title: Connect BareMetal Infrastructure instances in Azure
+author: jjaygbay1
+ms.author: jacobjaygbay
 description: Learn how to identify and interact with BareMetal instances in the Azure portal or Azure CLI.
 ms.topic: how-to
-ms.date: 07/13/2021
+ms.custom: devx-track-azurecli
+ms.date: 08/15/2024
 ---
 
 # Connect BareMetal Infrastructure instances in Azure
@@ -37,7 +40,7 @@ You'll need to list your subscription in the Azure portal and then double-click 
 
 To begin using Azure CLI:
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 Sign in to the Azure subscription you use for the BareMetal instance deployment through the Azure CLI. Register the `BareMetalInfrastructure` resource provider with the [az provider register](/cli/azure/provider#az-provider-register) command:
 
@@ -114,14 +117,14 @@ The possible hardware revisions are:
 >Rev 4.2 is the latest rebranded BareMetal Infrastructure using the existing Rev 4 architecture. Rev 4 provides closer proximity to the Azure virtual machine (VM) hosts. It has significant improvements in network latency between Azure VMs and SAP HANA instances. You can access and manage your BareMetal instances through the Azure portal. For more information, see [BareMetal Infrastructure on Azure](concepts-baremetal-infrastructure-overview.md).
 
  
-Also on the right side, you'll find the [Azure proximity placement group's](../virtual-machines/co-location.md) name. The placement group's name is created automatically for each deployed BareMetal instance. Reference the proximity placement group when you deploy the Azure VMs that host the application layer. Use the proximity placement group associated with the BareMetal instance to ensure the Azure VMs are deployed close to the BareMetal instance.
+Also on the right side, you'll find the [Azure proximity placement group's](/azure/virtual-machines/co-location) name. The placement group's name is created automatically for each deployed BareMetal instance. Reference the proximity placement group when you deploy the Azure VMs that host the application layer. Use the proximity placement group associated with the BareMetal instance to ensure the Azure VMs are deployed close to the BareMetal instance.
  
 >[!TIP]
->To locate the application layer in the same Azure datacenter as Revision 4.x, see [Azure proximity placement groups for optimal network latency](../virtual-machines/workloads/sap/sap-proximity-placement-scenarios.md).
+>To locate the application layer in the same Azure datacenter as Revision 4.x, see [Azure proximity placement groups for optimal network latency](/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios).
 
 ### [Azure CLI](#tab/azure-cli)
 
-To see details of a BareMetal instance, run the [az baremetalinstance show](/cli/azure/baremetalinstance#az-baremetalinstance-show) command:
+To see these details of a BareMetal instance, run the [az baremetalinstance show](/cli/azure/baremetalinstance#az-baremetalinstance-show) command:
 
 ```azurecli
 az baremetalinstance show --resource-group DSM05A-T550 --instance-name orcllabdsm01
@@ -245,4 +248,4 @@ It takes up to five business days for a support representative to confirm your r
 Learn more about workloads for BareMetal Infrastructure.
 
 > [!div class="nextstepaction"]
-> [What is SAP HANA on Azure (Large Instances)?](../virtual-machines/workloads/sap/hana-overview-architecture.md)
+> [What is SAP HANA on Azure (Large Instances)?](/azure/virtual-machines/workloads/sap/hana-overview-architecture)

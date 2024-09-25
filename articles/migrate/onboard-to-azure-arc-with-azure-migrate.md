@@ -1,18 +1,19 @@
 ---
 title: Onboard on-premises servers in VMware virtual environment to Azure Arc   
 description: Onboard on-premises servers in VMware virtual environment to Azure Arc    
-author: deseelam
-ms.author: deseelam
-ms.manager: bsiva
+author: vijain
+ms.author: vijain
 ms.topic: how-to
-ms.date: 04/27/2022
+ms.date: 01/31/2023
+ms.service: azure-migrate
+ms.custom: engagement-fy23
 ---
 
 # Onboard on-premises servers in VMware virtual environment to Azure Arc   
 
 This article describes how to onboard on-premises VMware VMs to Azure Arc for Azure Management using the Azure Migrate: Discovery and assessment tool. 
 
-Azure Arc allows you to manage your hybrid IT estate with a single pane of glass by extending the Azure management experience to your on-premises servers that are not ideal candidates for migration. [Learn more](../azure-arc/servers/overview.md) about Azure Arc. 
+Azure Arc allows you to manage your hybrid IT estate with a single pane of glass by extending the Azure management experience to your on-premises servers that are not ideal candidates for migration. [Learn more](/azure/azure-arc/servers/overview) about Azure Arc. 
 
 ## Before you get started
 
@@ -25,13 +26,13 @@ Azure Arc allows you to manage your hybrid IT estate with a single pane of glass
         - _For Linux:_ On all target Linux servers, allow inbound connections on port 22 (SSH).
         - You can also add the IP addresses of the remote machines (discovered servers) to the WinRM TrustedHosts list on the appliance. 
     2. The Azure Migrate appliance should have a network line of sight to the target servers. 
-- Be sure to verify the [prerequisites for Azure Arc](../azure-arc/servers/prerequisites.md) and review the following considerations:
+- Be sure to verify the [prerequisites for Azure Arc](/azure/azure-arc/servers/prerequisites) and review the following considerations:
     - Onboarding to Azure Arc can only be initiated after the vCenter Server discovery and software inventory is completed. It may take up to 6 hours for software inventory to complete after it is turned on.
-    -  The [Azure Arc Hybrid Connected Machine agent](../azure-arc/servers/learn/quick-enable-hybrid-vm.md) will be installed on the discovered servers during the Arc onboarding process. Make sure you provide credentials with administrator permissions on the servers to install and configure the agent. On Linux, provide the root account, and on Windows, provide an account that is a member of the Local Administrators group. 
-    - Verify that the servers are running [a supported operating system](../azure-arc/servers/prerequisites.md#supported-operating-systems).
-    - Ensure that the Azure account is granted assignment to the [required Azure roles](../azure-arc/servers/prerequisites.md#required-permissions).
-    - Make sure [the required URLs](../azure-arc/servers/network-requirements.md#urls) are not blocked if the discovered servers connect through a firewall or proxy server to communicate over the Internet.
-    - Review the [regions supported](../azure-arc/servers/overview.md#supported-regions) for Azure Arc. 
+    -  The [Azure Arc Hybrid Connected Machine agent](/azure/azure-arc/servers/learn/quick-enable-hybrid-vm) will be installed on the discovered servers during the Arc onboarding process. Make sure you provide credentials with administrator permissions on the servers to install and configure the agent. On Linux, provide the root account, and on Windows, provide an account that is a member of the Local Administrators group. 
+    - Verify that the servers are running [a supported operating system](/azure/azure-arc/servers/prerequisites#supported-operating-systems).
+    - Ensure that the Azure account is granted assignment to the [required Azure roles](/azure/azure-arc/servers/prerequisites#required-permissions).
+    - Make sure [the required URLs](/azure/azure-arc/servers/network-requirements#urls) are not blocked if the discovered servers connect through a firewall or proxy server to communicate over the Internet.
+    - Review the [regions supported](/azure/azure-arc/servers/overview#supported-regions) for Azure Arc. 
     - Azure Arc-enabled servers support up to 5,000 machine instances in a resource group.
 
 
@@ -86,12 +87,12 @@ Once the vCenter Server discovery has been completed, software inventory (discov
 
 3. In the **Region** drop-down list, select the Azure region to store the servers' metadata.
 
-4. Provide the **Azure Active Directory service principal** details for onboarding at scale. Review this article to [create a service principal using the Azure portal or Azure PowerShell.](../azure-arc/servers/onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) <br/>
+4. Provide the **Microsoft Entra service principal** details for onboarding at scale. Review this article to [create a service principal using the Azure portal or Azure PowerShell.](/azure/azure-arc/servers/onboard-service-principal#create-a-service-principal-for-onboarding-at-scale) <br/>
 
     The following inputs are required:
-    - **Directory (tenant) ID** - The [unique identifier (GUID)](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) that represents your dedicated instance of Azure AD. 
-    - **Application (client) ID** - The [unique identifier (GUID)](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in) that represents the application ID of the service principal.
-    - **Service principal secret (application secret)** - The [client secret](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret) for password-based authentication. 
+    - **Directory (tenant) ID** - The [unique identifier (GUID)](../active-directory/develop/howto-create-service-principal-portal.md#sign-in-to-the-application) that represents your dedicated instance of Microsoft Entra ID. 
+    - **Application (client) ID** - The [unique identifier (GUID)](../active-directory/develop/howto-create-service-principal-portal.md#sign-in-to-the-application) that represents the application ID of the service principal.
+    - **Service principal secret (application secret)** - The [client secret](../active-directory/develop/howto-create-service-principal-portal.md#option-3-create-a-new-client-secret) for password-based authentication. 
     
 5. _Optional_: Provide the **proxy server IP address** or the name and **port number** if your discovered servers require a proxy server to connect to the Internet. Enter the value in the format `http://<proxyURL>:<proxyport>`. This proxy server used by the discovered servers can be different from the proxy server required by the appliance server  to connect to the Internet (provided in the prerequisites section in the appliance configuration manager).   
 
@@ -122,7 +123,7 @@ Once the vCenter Server discovery has been completed, software inventory (discov
 
 If you receive an error when onboarding to Azure Arc using the Azure Migrate appliance, the following section can help identify the probable cause and suggested steps to resolve your problem. 
 
-If you don't see the error code listed below or if the error code starts with **_AZCM_**, refer to [this guide for troubleshooting Azure Arc](../azure-arc/servers/troubleshoot-agent-onboard.md)
+If you don't see the error code listed below or if the error code starts with **_AZCM_**, refer to [this guide for troubleshooting Azure Arc](/azure/azure-arc/servers/troubleshoot-agent-onboard).
 
 ### Error 60001 - UnableToConnectToPhysicalServer  
 
@@ -175,7 +176,7 @@ Unable to connect to server. Either you have provided incorrect credentials on t
 - The server hosts an unsupported operating system for Azure Arc onboarding.
 
 **Recommended actions**  
-- [Review the supported operating systems](../azure-arc/servers/prerequisites.md#supported-operating-systems) for Azure Arc. 
+- [Review the supported operating systems](/azure/azure-arc/servers/prerequisites#supported-operating-systems) for Azure Arc. 
  
 ### Error 10002 - ScriptExecutionTimedOutOnVm  
 

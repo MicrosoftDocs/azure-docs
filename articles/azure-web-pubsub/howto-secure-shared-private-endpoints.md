@@ -1,70 +1,79 @@
 ---
-title: Secure Azure Web PubSub outbound traffic through Shared Private Endpoints
-titleSuffix: Azure Web PubSub Service
-description: How to secure Azure Web PubSub outbound traffic through Shared Private Endpoints to avoid traffic go to public network
+title: Secure outbound traffic through shared private endpoints
+titleSuffix: Azure Web PubSub
+description: Learn how to secure Azure Web PubSub outbound traffic by using shared private endpoints.
 author: ArchangelSDY
-
 ms.service: azure-web-pubsub
-ms.topic: article
-ms.date: 11/08/2021
+ms.custom: devx-track-azurecli
+ms.topic: how-to
+ms.date: 08/16/2024
 ms.author: dayshen
 ---
 
-# Secure Azure Web PubSub outbound traffic through Shared Private Endpoints
+# Secure outbound traffic through shared private endpoints
 
-If you're using an [event handler](concept-service-internals.md#event-handler) in Azure Web PubSub Service, you might have outbound traffic to an upstream. Upstream such as
-Azure Web App and Azure Functions, can be configured to accept connections from a list of virtual networks and refuse outside connections that originate from a public network. You can create an outbound [private endpoint connection](../private-link/private-endpoint-overview.md) to reach these endpoints.
+If you're using an [event handler](concept-service-internals.md#event-handler) in Azure Web PubSub, you might have outbound traffic to upstream endpoints to a static web app that you created by using the Web Apps feature of Azure App Service or to a function that you created by using Azure Functions. You can configure Web Apps and Functions to use endpoints that accept connections from a list of virtual networks and refuse outside connections that originate in a public network. You can create an outbound [private endpoint connection](../private-link/private-endpoint-overview.md) in your Web PubSub services to reach these endpoints.
 
-   :::image type="content" alt-text="Diagram showing architecture of shared private endpoint." source="media\howto-secure-shared-private-endpoints\shared-private-endpoint-overview.png" border="false" :::
+:::image type="content" alt-text="Diagram showing architecture of shared private endpoint." source="media\howto-secure-shared-private-endpoints\shared-private-endpoint-overview.png" border="false" :::
+
+This article shows you how to configure your Web PubSub resource to send upstream calls to a function in Azure Functions through a shared private endpoint instead of through a public network.
 
 This outbound method is subject to the following requirements:
 
-+ The upstream must be Azure Web App or Azure Function.
+- The upstream endpoint must be deployed by using Azure App Service or Azure Functions.
+- The Web PubSub resource must be on the Standard tier or the Premium tier.
+- An Azure App Service or an Azure Functions resource must be created by choosing a specific tier to create the resource. For more information, see [Use private endpoints for Azure Web App](../app-service/networking/private-endpoint.md).
 
-+ The Azure Web PubSub Service service must be on the Standard tier.
+Private endpoints of secured resources that are created by using Azure Web PubSub APIs are called *shared private link resources*. You're "sharing" access to a resource, such as an Azure Functions resource, that is integrated with [Azure Private Link](https://azure.microsoft.com/services/private-link/). These private endpoints are created inside the Web PubSub service execution environment and aren't directly visible to you.
 
-+ The Azure Web App or Azure Function must be on certain SKUs. See [Use Private Endpoints for Azure Web App](../app-service/networking/private-endpoint.md).
+## Prerequisites
 
-## Shared Private Link Resources Management
-
-Private endpoints of secured resources that are created through Azure Web PubSub Service APIs are referred to as *shared private link resources*.  This term is used because you're "sharing" access to a resource, such as an Azure Function that has been integrated with the [Azure Private Link service](https://azure.microsoft.com/services/private-link/). These private endpoints are created inside Azure Web PubSub Service execution environment and aren't directly visible to you.
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure Web PubSub instance.
+- An Azure Functions resource.
 
 > [!NOTE]
-> The examples in this article are based on the following assumptions:
-> * The resource ID of this Azure Web PubSub Service is _/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.SignalRService/webPubSub/contoso-webpubsub.
-> * The resource ID of upstream Azure Function is _/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Web/sites/contoso-func.
+> The examples in this article uses the following values:
+>
+> - The resource ID of this Azure Web PubSub resource is `_/subscriptions//00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.SignalRService/webPubSub/contoso-webpubsub`.
+> - The resource ID of the Azure Functions network resource is `_/subscriptions//00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Web/sites/contoso-func`.
+>
+> To use the steps in the following examples, replace these values with your own subscription ID, the name of your Web PubSub resource, and the name of your Azure Functions resource.
 
-The rest of the examples show how the _contoso-webpubsub_ service can be configured so that its upstream calls to function go through a private endpoint rather than public network.
+## Create a shared private link resource to a function
 
-### Step 1: Create a shared private link resource to the function
+### [Azure portal](#tab/azure-portal)
 
-#### [Azure portal](#tab/azure-portal)
-
-1. In the Azure portal, go to your Azure Web PubSub Service resource.
-1. In the menu pane, select **Networking**. Switch to **Private access** tab.
+1. In the Azure portal, go to your Azure Web PubSub resource.
+1. On the left menu, select **Networking**.
+1. Select **Private access**.
 1. Select **Add shared private endpoint**.
 
-   :::image type="content" alt-text="Screenshot of shared private endpoints management." source="media\howto-secure-shared-private-endpoints\portal-shared-private-endpoints-management.png" lightbox="media\howto-secure-shared-private-endpoints\portal-shared-private-endpoints-management.png" :::
+   :::image type="content" alt-text="Screenshot that shows managing shared private endpoints." source="media\howto-secure-shared-private-endpoints\portal-shared-private-endpoints-management.png" lightbox="media\howto-secure-shared-private-endpoints\portal-shared-private-endpoints-management.png" :::
 
-1. Fill in a name for the shared private endpoint.
-1. Select the target linked resource either by selecting from your owned resources or by filling a resource ID.
+1. Enter a name for the shared private endpoint.
+1. To set your target linked sources, either choose **Select from your resources** or enter your resource ID in **Specify resource ID**.
+
+    Optionally, you can enter text in **Request message** to send a request to the target resource owner.
 1. Select **Add**.
 
-   :::image type="content" alt-text="Screenshot of adding a shared private endpoint." source="media\howto-secure-shared-private-endpoints\portal-shared-private-endpoints-add.png" :::
+   :::image type="content" alt-text="Screenshot that shows adding a shared private endpoint." source="media\howto-secure-shared-private-endpoints\portal-shared-private-endpoints-add.png" :::
 
-1. The shared private endpoint resource will be in **Succeeded** provisioning state. The connection state is **Pending** approval at target resource side.
+The value for **Provisioning state** in the shared private endpoint resource is **Succeeded**. **Connection state** is **Pending** until the endpoint is approved at the target resource.
 
-   :::image type="content" alt-text="Screenshot of an added shared private endpoint." source="media\howto-secure-shared-private-endpoints\portal-shared-private-endpoints-added.png" lightbox="media\howto-secure-shared-private-endpoints\portal-shared-private-endpoints-added.png" :::
+:::image type="content" alt-text="Screenshot that shows an added shared private endpoint pending approval." source="media\howto-secure-shared-private-endpoints\portal-shared-private-endpoints-added.png" lightbox="media\howto-secure-shared-private-endpoints\portal-shared-private-endpoints-added.png" :::
 
-#### [Azure CLI](#tab/azure-cli)
+### [Azure CLI](#tab/azure-cli)
 
-You can make the following API call with the [Azure CLI](/cli/azure/) to create a shared private link resource:
+Use the following API call with the [Azure CLI](/cli/azure/) to create a shared private link resource. Replace the values in the following example with the values from your scenario.
 
-```dotnetcli
+```bash:
+
+```bash
 az rest --method put --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.SignalRService/webPubSub/contoso-webpubsub/sharedPrivateLinkResources/func-pe?api-version=2021-06-01-preview --body @create-pe.json --debug
 ```
 
-The contents of the *create-pe.json* file, which represent the request body to the API, are as follows:
+The *create-pe.json* file contains the request body to the API. It's similar to the following example:
 
 ```json
 {
@@ -77,55 +86,57 @@ The contents of the *create-pe.json* file, which represent the request body to t
 }
 ```
 
-The process of creating an outbound private endpoint is a long-running (asynchronous) operation. As in all asynchronous Azure operations, the `PUT` call returns an `Azure-AsyncOperation` header value that looks like the following example.
+The process of creating an outbound private endpoint is a long-running (asynchronous) operation. As in all asynchronous Azure operations, the PUT call returns an `Azure-AsyncOperation` header value that's similar to the following example:
 
 ```plaintext
 "Azure-AsyncOperation": "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.SignalRService/webPubSub/contoso-webpubsub/operationStatuses/c0786383-8d5f-4554-8d17-f16fcf482fb2?api-version=2021-06-01-preview"
 ```
 
-You can poll this URI periodically to obtain the status of the operation.
+To poll this URI periodically to get the status of the operation, manually query the `Azure-AsyncOperationHeader` value. Here's an example:
 
-If you're using the CLI, you can poll for the status by manually querying the `Azure-AsyncOperationHeader` value,
-
-```dotnetcli
+```bash
 az rest --method get --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.SignalRService/webPubSub/contoso-webpubsub/operationStatuses/c0786383-8d5f-4554-8d17-f16fcf482fb2?api-version=2021-06-01-preview
 ```
 
-Wait until the status changes to "Succeeded" before proceeding to the next steps.
+Wait until the status changes to "Succeeded" before you go to the next step.
 
 -----
 
-### Step 2a: Approve the private endpoint connection for the function
+## Approve the private endpoint connection for the function
+
+When the shared private endpoint connection has a **Pending** status, the connection request must be approved at the target resource.
 
 > [!IMPORTANT]
-> After you approved the private endpoint connection, the Function is no longer accessible from public network. You may need to create other private endpoints in your own virtual network to access the Function endpoint.
+> After the private endpoint connection is approved, the function is no longer accessible from a public network. You might need to create other private endpoints in your own virtual network to access the function endpoint.
 
-#### [Azure portal](#tab/azure-portal)
+### [Azure portal](#tab/azure-portal)
 
-1. In the Azure portal, select the **Networking** tab of your Function App and navigate to **Private endpoint connections**. Select **Configure your private endpoint connections**. After the asynchronous operation has succeeded, there should be a request for a private endpoint connection with the request message from the previous API call.
+1. In the Azure portal, go to your Azure Functions app.
+1. On the left menu, select **Networking**.
+1. Under **Inbound Traffic**, select **Private endpoints**.
+1. Select the pending connection that you created in your Web PubSub resource.
+1. Select **Approve**, and then select **Yes** to confirm.
 
-   :::image type="content" alt-text="Screenshot of the Azure portal, showing the Private endpoint connections pane." source="media\howto-secure-shared-private-endpoints\portal-function-approve-private-endpoint.png" lightbox="media\howto-secure-shared-private-endpoints\portal-function-approve-private-endpoint.png" :::
+:::image type="content" alt-text="Screenshot of approving a private endpoint connection." source="media\howto-secure-shared-private-endpoints\portal-function-approve-private-endpoint.png" lightbox="media\howto-secure-shared-private-endpoints\portal-function-approve-private-endpoint.png" :::
 
-1. Select the private endpoint that Azure Web PubSub Service created. In the **Private endpoint** column, identify the private endpoint connection by the name that's specified in the previous API, select **Approve**.
+You can select **Refresh** to check the status. It might take a few minutes for the status **Connection state** to update to **Approved**.  
 
-   Make sure that the private endpoint connection appears as shown in the following screenshot. It could take one to two minutes for the status to be updated in the portal.
+:::image type="content" alt-text="Screenshot of the Azure portal, showing an Approved status on the Private endpoint connections pane." source="media\howto-secure-shared-private-endpoints\portal-function-approved-private-endpoint.png" lightbox="media\howto-secure-shared-private-endpoints\portal-function-approved-private-endpoint.png" :::
 
-   :::image type="content" alt-text="Screenshot of the Azure portal, showing an Approved status on the Private endpoint connections pane." source="media\howto-secure-shared-private-endpoints\portal-function-approved-private-endpoint.png" lightbox="media\howto-secure-shared-private-endpoints\portal-function-approved-private-endpoint.png" :::
+### [Azure CLI](#tab/azure-cli)
 
-#### [Azure CLI](#tab/azure-cli)
+1. List private endpoint connections:
 
-1. List private endpoint connections.
-
-    ```dotnetcli
+    ```bash
     az network private-endpoint-connection list -n <function-resource-name>  -g <function-resource-group-name> --type 'Microsoft.Web/sites'
     ```
 
-    There should be a pending private endpoint connection. Note down its ID.
+    Check for a pending private endpoint connection. Note the connection ID.
 
     ```json
     [
         {
-            "id": "<id>",
+            "id": "<ID>",
             "location": "",
             "name": "",
             "properties": {
@@ -139,29 +150,29 @@ Wait until the status changes to "Succeeded" before proceeding to the next steps
     ]
     ```
 
-1. Approve the private endpoint connection.
+1. Approve the private endpoint connection:
 
-    ```dotnetcli
-    az network private-endpoint-connection approve --id <private-endpoint-connection-id>
+    ```bash
+    az network private-endpoint-connection approve --id <private-endpoint-connection-ID>
     ```
 
 -----
 
-### Step 2b: Query the status of the shared private link resource
+## Query the status of the shared private link resource
 
-It takes minutes for the approval to be propagated to Azure Web PubSub Service. You can check the state using either Azure portal or Azure CLI.
+It takes a few minutes for the approval to be reflected in Web PubSub. You can check the state by using either the Azure portal or the Azure CLI.
 
-#### [Azure portal](#tab/azure-portal)
-   
-   :::image type="content" alt-text="Screenshot of an approved shared private endpoint." source="media\howto-secure-shared-private-endpoints\portal-shared-private-endpoints-approved.png" lightbox="media\howto-secure-shared-private-endpoints\portal-shared-private-endpoints-approved.png" :::
+### [Azure portal](#tab/azure-portal)
 
-#### [Azure CLI](#tab/azure-cli)
+:::image type="content" alt-text="Screenshot of an approved shared private endpoint." source="media\howto-secure-shared-private-endpoints\portal-shared-private-endpoints-approved.png" lightbox="media\howto-secure-shared-private-endpoints\portal-shared-private-endpoints-approved.png" :::
 
-```dotnetcli
+### [Azure CLI](#tab/azure-cli)
+
+```bash
 az rest --method get --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.SignalRService/webPubSub/contoso-webpubsub/sharedPrivateLinkResources/func-pe?api-version=2021-06-01-preview
 ```
 
-This command would return JSON, where the connection state would show up as "status" under the "properties" section.
+This command returns JSON. The connection state is indicated in `status` under `properties`.
 
 ```json
 {
@@ -177,20 +188,18 @@ This command would return JSON, where the connection state would show up as "sta
 
 ```
 
-If the "Provisioning State" (`properties.provisioningState`) of the resource is `Succeeded` and "Connection State" (`properties.status`) is `Approved`, it means that the shared private link resource is functional, and Azure Web PubSub Service can communicate over the private endpoint.
+When `properties.provisioningState` is `Succeeded` and `properties.status` (connection state) is `Approved`, the shared private link resource is functional, and Web PubSub can communicate over the private endpoint.
 
 -----
 
-At this point, the private endpoint between Azure SignalR Service and Azure Function is established.
+At this point, the private endpoint between Azure Web PubSub and Azure Functions is established.
 
-### Step 3: Verify upstream calls are from a private IP
+## Verify that upstream calls are from a private IP address
 
-Once the private endpoint is set up, you can verify incoming calls are from a private IP by checking the `X-Forwarded-For` header at upstream side.
+When the private endpoint is set up, you can verify that incoming calls are from a private IP address by checking the `X-Forwarded-For` header for upstream calls.
 
-:::image type="content" alt-text="Screenshot of the Azure portal, showing incoming requests are from a private IP." source="media\howto-secure-shared-private-endpoints\portal-function-log.png" :::
+:::image type="content" alt-text="Screenshot of the Azure portal, showing that incoming requests are from a private IP." source="media\howto-secure-shared-private-endpoints\portal-function-log.png" :::
 
-## Next steps
+## Related content
 
-Learn more about private endpoints:
-
-+ [What are private endpoints?](../private-link/private-endpoint-overview.md)
+- [What is a private endpoint?](../private-link/private-endpoint-overview.md)

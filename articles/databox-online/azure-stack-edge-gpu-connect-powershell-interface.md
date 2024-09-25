@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 04/14/2022
+ms.date: 02/21/2024
 ms.author: alkohli
 ---
 # Manage an Azure Stack Edge Pro GPU device via Windows PowerShell
@@ -92,10 +92,44 @@ If the compute role is configured on your device, you can also get the compute l
     - `Credential`: Provide the username for the network share. When you run this cmdlet, you will need to provide the share password.
     - `FullLogCollection`: This parameter ensures that the log package will contain all the compute logs. By default, the log package contains only a subset of logs.
 
+## Change Kubernetes workload profiles
+
+After you have formed and configured a cluster and you have created new virtual switches, you can add or delete virtual networks associated with your virtual switches. For detailed steps, see [Configure virtual switches](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md?pivots=two-node#configure-virtual-switches-1).
+
+After virtual switches are created, you can enable the switches for Kubernetes compute traffic to specify a Kubernetes workload profile. To do so using the local UI, use the steps in [Configure compute IPS](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md?pivots=two-node#configure-compute-ips-1). To do so using PowerShell, use the following steps:
+
+1. [Connect to the PowerShell interface](#connect-to-the-powershell-interface).
+2. Use the `Get-HcsApplianceInfo` cmdlet to get current `KubernetesPlatform` and `KubernetesWorkloadProfile` settings for your device.
+3. Use the `Get-HcsKubernetesWorkloadProfiles` cmdlet to identify the profiles available on your Azure Stack Edge device.
+
+   ```powershell
+   [Device-IP]: PS>Get-HcsKubernetesWorkloadProfiles 
+   Type  Description    
+   ----  -----------   
+   AP5GC an Azure Private MEC solution   
+   SAP   a SAP Digital Manufacturing for Edge Computing or another Microsoft partner solution   
+   NONE  other workloads
+   [Device-IP]: PS>
+   ```
+    
+4. Use the `Set-HcsKubernetesWorkloadProfile` cmdlet to set the workload profile for AP5GC, an Azure Private MEC solution.
+
+    The following example shows the usage of this cmdlet:
+
+    ```powershell
+    Set-HcsKubernetesWorkloadProfile -Type "AP5GC"
+    ```
+    Here is sample output for this cmdlet:
+
+    ```powershell
+    [10.100.10.10]: PS>KubernetesPlatform : AKS
+    [10.100.10.10]: PS>KubernetesWorkloadProfile : AP5GC
+    [10.100.10.10]: PS>
+    ```
 
 ## Change Kubernetes pod and service subnets
 
-By default, Kubernetes on your Azure Stack Edge device uses subnets 172.27.0.0/16 and 172.28.0.0/16 for pod and service respectively. If these subnets are already in use in your network, then you can run the `Set-HcsKubeClusterNetworkInfo` cmdlet to change these subnets.
+If you're running the **other workloads** option in your environment, by default, Kubernetes on your Azure Stack Edge device uses subnets 172.27.0.0/16 and 172.28.0.0/16 for pod and service respectively. If these subnets are already in use in your network, then you can run the `Set-HcsKubeClusterNetworkInfo` cmdlet to change these subnets.
 
 You want to perform this configuration before you configure compute from the Azure portal as the Kubernetes cluster is created in this step.
 
@@ -540,7 +574,10 @@ While changing the memory and processor usage, follow these guidelines.
 
 ## Connect to BMC
 
-Baseboard management controller (BMC) is used to remotely monitor and manage your device. This section describes the cmdlets that can be used to manage BMC configuration. Prior to running any of these cmdlets, [Connect to the PowerShell interface of the device](#connect-to-the-powershell-interface).
+> [!NOTE]
+> Baseboard management controller (BMC) is not available on Azure Stack Edge Pro 2 and Azure Stack Edge Mini R. The cmdlets described in this section only apply to Azure Stack Edge Pro GPU and Azure Stack Edge Pro R.
+
+BMC is used to remotely monitor and manage your device. This section describes the cmdlets that can be used to manage BMC configuration. Prior to running any of these cmdlets, [Connect to the PowerShell interface of the device](#connect-to-the-powershell-interface).
 
 - `Get-HcsNetBmcInterface`: Use this cmdlet to get the network configuration properties of the BMC, for example, `IPv4Address`, `IPv4Gateway`, `IPv4SubnetMask`, `DhcpEnabled`. 
     

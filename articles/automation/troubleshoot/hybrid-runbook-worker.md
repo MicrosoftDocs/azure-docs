@@ -2,18 +2,45 @@
 title: Troubleshoot agent-based Hybrid Runbook Worker issues in Azure Automation
 description: This article tells how to troubleshoot and resolve issues that arise with Azure Automation agent-based Hybrid Runbook Workers.
 services: automation
-ms.date: 10/18/2021
-ms.topic: troubleshooting 
-ms.custom: devx-track-azurepowershell
+ms.date: 09/17/2023
+ms.topic: troubleshooting
+ms.custom: linux-related-content, has-azure-ad-ps-ref, azure-ad-ref-level-one-done
 ---
 
 # Troubleshoot agent-based Hybrid Runbook Worker issues in Automation
+
+[!INCLUDE [./agent-based-user-hybrid-runbook-worker-retirement.md](../includes/agent-based-user-hybrid-runbook-worker-retirement.md)]
 
 This article provides information on troubleshooting and resolving issues with Azure Automation agent-based Hybrid Runbook Workers. For troubleshooting extension-based workers, see [Troubleshoot extension-based Hybrid Runbook Worker issues in Automation](./extension-based-hybrid-runbook-worker.md). For general information, see [Hybrid Runbook Worker overview](../automation-hybrid-runbook-worker.md).
 
 ## General
 
 The Hybrid Runbook Worker depends on an agent to communicate with your Azure Automation account to register the worker, receive runbook jobs, and report status. For Windows, this agent is the Log Analytics agent for Windows. For Linux, it's the Log Analytics agent for Linux.
+
+
+### Unable to update Az modules while using the Hybrid Worker
+
+#### Issue
+
+The Hybrid Runbook Worker jobs failed as it was unable to import Az modules.
+
+#### Resolution
+
+As a workaround, you can follow these steps:
+
+1. Go to the folder : C:\Program Files\Microsoft Monitoring Agent\Agent\AzureAutomation\7.3.1722.0\HybridAgent
+1. Edit the file with the name *Orchestrator.Sandbox.exe.config*
+1. Add the following lines inside the `<assemblyBinding>` tags:
+```xml
+<dependentAssembly>
+  <assemblyIdentity name="Newtonsoft.Json" publicKeyToken="30ad4fe6b2a6aeed" culture="neutral" />
+  <bindingRedirect oldVersion="0.0.0.0-13.0.0.0" newVersion="13.0.0.0" />
+</dependentAssembly>
+```
+
+> [!NOTE]
+> The workaround replaces the file with the original if you restart MMA/server either by enabling solution or patching. For both these scenarios, we recommend that you replace the contents.
+
 
 ### <a name="runbook-execution-fails"></a>Scenario: Runbook execution fails
 
@@ -51,7 +78,48 @@ The Hybrid Runbook Worker jobs failed to refresh when communicating through a Lo
 
 #### Resolution
 
-Verify the Log Analytics Gateway server is online and is accessible from the machine hosting the Hybrid Runbook Worker role. For additional troubleshooting information, see [Troubleshoot Log Analytics Gateway](../../azure-monitor/agents/gateway.md#troubleshooting).
+Verify the Log Analytics Gateway server is online and is accessible from the machine hosting the Hybrid Runbook Worker role. For additional troubleshooting information, see [Troubleshoot Log Analytics Gateway](/azure/azure-monitor/agents/gateway#troubleshooting).
+
+
+### Scenario: Job failed to start as the Hybrid Worker was not available when the scheduled job started
+
+#### Issue
+Job fails to start on a Hybrid Worker and you see the following error:
+
+*Failed to start, as hybrid worker was not available when scheduled job started, the hybrid worker was last active at mm/dd/yyyy*.
+
+#### Cause
+This error can occur due to the following reasons:
+- The machines doesn't exist anymore.
+- The machine is turned off and is unreachable.
+- The machine has a network connectivity issue.
+- The Hybrid Runbook Worker extension has been uninstalled from the machine.
+
+#### Resolution
+- Ensure that the machine exists, and Hybrid Runbook Worker extension is installed on it. The Hybrid Worker should be healthy and should give a heartbeat. Troubleshoot any network issues by checking the Microsoft-SMA event logs on the Workers in the Hybrid Runbook Worker Group that tried to run this job.
+- You can also monitor [HybridWorkerPing](/azure/azure-monitor/essentials/metrics-supported#microsoftautomationautomationaccounts) metric that provides the number of pings from a Hybrid Worker and can help to check ping-related issues.
+
+### Scenario: Job was suspended as it exceeded the job limit for a Hybrid Worker
+
+#### Issue
+Job gets suspended with the following error message:
+
+*Job was suspended as it exceeded the job limit for a Hybrid Worker. Add more Hybrid Workers to the Hybrid Worker group to overcome this issue.*
+
+#### Cause
+Jobs might get suspended due to any of the following reasons:
+- Each active Hybrid Worker in the group will poll for jobs every 30 seconds to see if any jobs are available. The Worker picks jobs on a first-come, first-serve basis. Depending on when a job was pushed, whichever Hybrid Worker within the Hybrid Worker Group pings the Automation service first picks up the job. A single hybrid worker can generally pick up four jobs per ping (that is, every 30 seconds). If your rate of pushing jobs is higher than four per 30 seconds and no other Worker picks up the job, the job might get suspended.
+- Hybrid Worker might not be polling as expected every 30 seconds. This could happen if the Worker is not healthy or there are network issues.
+
+#### Resolution
+- If the job limit for a Hybrid Worker exceeds four jobs per 30 seconds, you can add more Hybrid Workers to the Hybrid Worker group for high availability and load balancing. You can also schedule jobs so they do not exceed the limit of four jobs per 30 seconds. The processing time of the jobs queue depends on the Hybrid worker hardware profile and load. Ensure that the Hybrid Worker is healthy and gives a heartbeat.
+- Troubleshoot any network issues by checking the Microsoft-SMA event logs on the Workers in the Hybrid Runbook Worker Group that tried to run this job.
+- You can also monitor the [HybridWorkerPing](/azure/azure-monitor/essentials/metrics-supported#microsoftautomationautomationaccounts) metric that provides the number of pings from a Hybrid Worker and can help to check ping-related issues.
+
+
+
+
+
 
 ### <a name="cannot-connect-signalr"></a>Scenario: Event 15011 in the Hybrid Runbook Worker
 
@@ -78,7 +146,7 @@ You have two options for resolving this issue:
 
 * Manually configure the worker machine to run in an Orchestrator sandbox. Then run a runbook created in the Azure Automation account on the worker to test the functionality.
 
-### <a name="vm-automatically-dropped"></a>Scenario: Windows Azure VMs automatically dropped from a hybrid worker group
+### <a name="vm-automatically-dropped"></a>Scenario: Microsoft Azure VMs automatically dropped from a hybrid worker group
 
 #### Issue
 
@@ -86,11 +154,11 @@ You can't see the Hybrid Runbook Worker or VMs when the worker machine has been 
 
 #### Cause
 
-The Hybrid Runbook Worker machine hasn't pinged Azure Automation for more than 30 days. As a result, Automation has purged the Hybrid Runbook Worker group or the System Worker group. 
+The Hybrid Runbook Worker machine hasn't pinged Azure Automation for more than 30 days. As a result, Automation has purged the Hybrid Runbook Worker group or the System Worker group.
 
 #### Resolution
 
-Start the worker machine, and then rereregister it with Azure Automation. For instructions on how to install the runbook environment and connect to Azure Automation, see [Deploy a Windows Hybrid Runbook Worker](../automation-windows-hrw-install.md).
+Start the worker machine, and then re-register it with Azure Automation. For instructions on how to install the runbook environment and connect to Azure Automation, see [Deploy a Windows Hybrid Runbook Worker](../automation-windows-hrw-install.md).
 
 ### <a name="no-cert-found"></a>Scenario: No certificate was found in the certificate store on the Hybrid Runbook Worker
 
@@ -98,16 +166,16 @@ Start the worker machine, and then rereregister it with Azure Automation. For in
 
 A runbook running on a Hybrid Runbook Worker fails with the following error message:
 
-`Connect-AzAccount : No certificate was found in the certificate store with thumbprint 0000000000000000000000000000000000000000`  
-`At line:3 char:1`  
-`+ Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -Appl ...`  
-`+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`  
-`    + CategoryInfo          : CloseError: (:) [Connect-AzAccount],ArgumentException`  
+`Connect-AzAccount : No certificate was found in the certificate store with thumbprint 0000000000000000000000000000000000000000`
+`At line:3 char:1`
+`+ Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -Appl ...`
+`+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`
+`    + CategoryInfo          : CloseError: (:) [Connect-AzAccount],ArgumentException`
 `    + FullyQualifiedErrorId : Microsoft.Azure.Commands.Profile.ConnectAzAccountCommand`
 
 #### Cause
 
-This error occurs when you attempt to use a [Run As account](../automation-security-overview.md#run-as-accounts) in a runbook that runs on a Hybrid Runbook Worker where the Run As account certificate isn't present. Hybrid Runbook Workers don't have the certificate asset locally by default. The Run As account requires this asset to operate properly.
+This error occurs when you attempt to use a Run As account in a runbook that runs on a Hybrid Runbook Worker where the Run As account certificate isn't present. Hybrid Runbook Workers don't have the certificate asset locally by default. The Run As account requires this asset to operate properly.
 
 #### Resolution
 
@@ -125,14 +193,14 @@ The worker's initial registration phase fails, and you receive the following err
 
 The following issues are possible causes:
 
-* There's a mistyped workspace ID or workspace key (primary) in the agent's settings. 
+* There's a mistyped workspace ID or workspace key (primary) in the agent's settings.
 * The Hybrid Runbook Worker can't download the configuration, which causes an account linking error. When Azure enables features on machines, it supports only certain regions for linking a Log Analytics workspace and an Automation account. It's also possible that an incorrect date or time is set on the computer. If the time is +/- 15 minutes from the current time, feature deployment fails.
 * Log Analytics Gateway is not configured to support Hybrid Runbook Worker.
 
 #### Resolution
 
 ##### Mistyped workspace ID or key
-To verify if the agent's workspace ID or workspace key was mistyped, see [Adding or removing a workspace - Windows agent](../../azure-monitor/agents/agent-manage.md#windows-agent) for the Windows agent or [Adding or removing a workspace - Linux agent](../../azure-monitor/agents/agent-manage.md#linux-agent) for the Linux agent. Make sure to select the full string from the Azure portal, and copy and paste it carefully.
+To verify if the agent's workspace ID or workspace key was mistyped, see [Adding or removing a workspace - Windows agent](/azure/azure-monitor/agents/agent-manage#windows-agent) for the Windows agent or [Adding or removing a workspace - Linux agent](/azure/azure-monitor/agents/agent-manage#linux-agent) for the Linux agent. Make sure to select the full string from the Azure portal, and copy and paste it carefully.
 
 ##### Configuration not downloaded
 
@@ -142,10 +210,10 @@ You might also need to update the date or time zone of your computer. If you sel
 
 ##### Log Analytics gateway not configured
 
-Follow the steps mentioned [here](../../azure-monitor/agents/gateway.md#configure-for-automation-hybrid-runbook-workers) to add Hybrid Runbook Worker endpoints to the Log Analytics Gateway.
+Follow the steps mentioned [here](/azure/azure-monitor/agents/gateway#configure-for-automation-hybrid-runbook-workers) to add Hybrid Runbook Worker endpoints to the Log Analytics Gateway.
 
 
-### <a name="set-azstorageblobcontent-execution-fails"></a>Scenario: Set-AzStorageBlobContent fails on a Hybrid Runbook Worker 
+### <a name="set-azstorageblobcontent-execution-fails"></a>Scenario: Set-AzStorageBlobContent fails on a Hybrid Runbook Worker
 
 #### Issue
 
@@ -178,7 +246,7 @@ Place this file in the same folder as the executable file `OrchestratorSandbox.e
 
 ## Linux
 
-The Linux Hybrid Runbook Worker depends on the [Log Analytics agent for Linux](../../azure-monitor/agents/log-analytics-agent.md) to communicate with your Automation account to register the worker, receive runbook jobs, and report status. If registration of the worker fails, here are some possible causes for the error.
+The Linux Hybrid Runbook Worker depends on the [Log Analytics agent for Linux](/azure/azure-monitor/agents/log-analytics-agent) to communicate with your Automation account to register the worker, receive runbook jobs, and report status. If registration of the worker fails, here are some possible causes for the error.
 
 ### <a name="prompt-for-password"></a>Scenario: Linux Hybrid Runbook Worker receives prompt for a password when signing a runbook
 
@@ -210,7 +278,7 @@ If the agent isn't running, it prevents the Linux Hybrid Runbook Worker from com
 
  Verify the agent is running by entering the command `ps -ef | grep python`. You should see output similar to the following. The Python processes with the **nxautomation** user account. If the Azure Automation feature isn't enabled, none of the following processes are running.
 
-```bash
+```output
 nxautom+   8567      1  0 14:45 ?        00:00:00 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/main.py /var/opt/microsoft/omsagent/state/automationworker/oms.conf rworkspace:<workspaceId> <Linux hybrid worker version>
 nxautom+   8593      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/hybridworker.py /var/opt/microsoft/omsagent/state/automationworker/worker.conf managed rworkspace:<workspaceId> rversion:<Linux hybrid worker version>
 nxautom+   8595      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/hybridworker.py /var/opt/microsoft/omsagent/<workspaceId>/state/automationworker/diy/worker.conf managed rworkspace:<workspaceId> rversion:<Linux hybrid worker version>
@@ -234,7 +302,7 @@ wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/inst
 
 ## Windows
 
-The Windows Hybrid Runbook Worker depends on the [Log Analytics agent for Windows](../../azure-monitor/agents/log-analytics-agent.md) to communicate with your Automation account to register the worker, receive runbook jobs, and report status. If registration of the worker fails, this section includes some possible reasons.
+The Windows Hybrid Runbook Worker depends on the [Log Analytics agent for Windows](/azure/azure-monitor/agents/log-analytics-agent) to communicate with your Automation account to register the worker, receive runbook jobs, and report status. If registration of the worker fails, this section includes some possible reasons.
 
 ### <a name="mma-not-running"></a>Scenario: The Log Analytics agent for Windows isn't running
 
@@ -262,7 +330,7 @@ This issue can be caused by your proxy or network firewall blocking communicatio
 
 #### Resolution
 
-Logs are stored locally on each hybrid worker at C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. You can verify if there are any warning or error events in the **Application and Services Logs\Microsoft-SMA\Operations** and **Application and Services Logs\Operations Manager** event logs. These logs indicate a connectivity or other type of issue that affects the enabling of the role to Azure Automation, or an issue encountered under normal operations. For more help troubleshooting issues with the Log Analytics agent, see [Troubleshoot issues with the Log Analytics Windows agent](../../azure-monitor/agents/agent-windows-troubleshoot.md).
+Logs are stored locally on each hybrid worker at C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. You can verify if there are any warning or error events in the **Application and Services Logs\Microsoft-SMA\Operations** and **Application and Services Logs\Operations Manager** event logs. These logs indicate a connectivity or other type of issue that affects the enabling of the role to Azure Automation, or an issue encountered under normal operations. For more help troubleshooting issues with the Log Analytics agent, see [Troubleshoot issues with the Log Analytics Windows agent](/azure/azure-monitor/agents/agent-windows-troubleshoot).
 
 Hybrid workers send [Runbook output and messages](../automation-runbook-output-and-messages.md) to Azure Automation in the same way that runbook jobs running in the cloud send output and messages. You can enable the Verbose and Progress streams just as you do for runbooks.
 
@@ -270,24 +338,24 @@ Hybrid workers send [Runbook output and messages](../automation-runbook-output-a
 
 #### Issue
 
-A script running on a Windows Hybrid Runbook Worker can't connect as expected to Microsoft 365 on an Orchestrator sandbox. The script is using [Connect-MsolService](/powershell/module/msonline/connect-msolservice) for connection. 
+A script running on a Windows Hybrid Runbook Worker can't connect as expected to Microsoft 365 on an Orchestrator sandbox. The script is using [Connect-MgGraph](/powershell/microsoftgraph/authentication-commands#using-connect-mggraph) for connection.
 
 If you adjust **Orchestrator.Sandbox.exe.config** to set the proxy and the bypass list, the sandbox still doesn't connect properly. A **Powershell_ise.exe.config** file with the same proxy and bypass list settings seems to work as you expect. Service Management Automation (SMA) logs and PowerShell logs don't provide any information about proxy.​
 
 #### Cause
 
-The connection to Active Directory Federation Services (AD FS) on the server can't bypass the proxy. Remember that a PowerShell sandbox runs as the logged user. However, an Orchestrator sandbox is heavily customized and might ignore the **Orchestrator.Sandbox.exe.config** file settings. It has special code for handling machine or Log Analytics agent proxy settings, but not for handling other custom proxy settings. 
+The connection to Active Directory Federation Services (AD FS) on the server can't bypass the proxy. Remember that a PowerShell sandbox runs as the logged user. However, an Orchestrator sandbox is heavily customized and might ignore the **Orchestrator.Sandbox.exe.config** file settings. It has special code for handling machine or Log Analytics agent proxy settings, but not for handling other custom proxy settings.
 
 #### Resolution
 
-You can resolve the issue for the Orchestrator sandbox by migrating your script to use the Azure Active Directory modules instead of the MSOnline module for PowerShell cmdlets. For more information, see [Migrating from Orchestrator to Azure Automation (Beta)](../automation-orchestrator-migration.md).
+You can resolve the issue for the Orchestrator sandbox by migrating your script to use the Microsoft Entra modules instead of the PowerShell cmdlets. For more information, see [Migrating from Orchestrator to Azure Automation (Beta)](../automation-orchestrator-migration.md).
 
-​If you want to continue to use the MSOnline module cmdlets, change your script to use [Invoke-Command](/powershell/module/microsoft.powershell.core/invoke-command). Specify values for the `ComputerName` and `Credential` parameters. 
+​If you want to continue to use the module cmdlets, change your script to use [Invoke-Command](/powershell/module/microsoft.powershell.core/invoke-command). Specify values for the `ComputerName` and `Credential` parameters.
 
 ```powershell
 $Credential = Get-AutomationPSCredential -Name MyProxyAccessibleCredential​
-Invoke-Command -ComputerName $env:COMPUTERNAME -Credential $Credential 
-{ Connect-MsolService … }​
+Invoke-Command -ComputerName $env:COMPUTERNAME -Credential $Credential
+{ Connect-MgGraph … }​
 ```
 
 This code change starts an entirely new PowerShell session under the context of the specified credentials. It should enable the traffic to flow through a proxy server that's authenticating the active user.
@@ -366,7 +434,7 @@ To resolve this issue:
 
 1. Run these commands:
 
-   ```
+   ```bash
    sudo mv -f /home/nxautomation/state/worker.conf /home/nxautomation/state/worker.conf_old
    sudo mv -f /home/nxautomation/state/worker_diy.crt /home/nxautomation/state/worker_diy.crt_old
    sudo mv -f /home/nxautomation/state/worker_diy.key /home/nxautomation/state/worker_diy.key_old
@@ -383,5 +451,5 @@ To resolve this issue:
 If you don't see your problem here or you can't resolve your issue, try one of the following channels for more support:
 
 * Get answers from Azure experts through [Azure Forums](https://azure.microsoft.com/support/forums/).
-* Connect with [@AzureSupport](https://twitter.com/azuresupport), the official Microsoft Azure account for improving customer experience. Azure Support connects the Azure community to answers, support, and experts.
+* Connect with [@AzureSupport](https://x.com/azuresupport), the official Microsoft Azure account for improving customer experience. Azure Support connects the Azure community to answers, support, and experts.
 * File an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/), and select **Get Support**.

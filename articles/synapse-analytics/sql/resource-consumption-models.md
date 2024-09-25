@@ -3,13 +3,12 @@ title: Synapse SQL resource consumption
 description: Learn about Synapse SQL consumption models in Azure Synapse Analytics.
 services: synapse analytics
 author: vvasic-msft
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql
 ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
-ms.reviewer: sngun    
-ms.custom: devx-track-azurepowershell
+ms.reviewer: whhender    
 ---
 
 # Synapse SQL resource consumption
@@ -129,7 +128,7 @@ To change DWUs:
 
 #### PowerShell
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 To change the DWUs, use the [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) PowerShell cmdlet. The following example sets the service level objective to DW1000 for the database MySQLDW that is hosted on server MyServer.
 
@@ -169,7 +168,7 @@ Content-Type: application/json; charset=UTF-8
 }
 ```
 
-For more REST API examples, see [REST APIs for Azure Synapse Analytics](/rest/api/synapse/?view=azps-6.1.0&preserve-view=true).
+For more REST API examples, see [REST APIs for Azure Synapse Analytics](/rest/api/synapse/).
 
 ### Check status of DWU changes
 

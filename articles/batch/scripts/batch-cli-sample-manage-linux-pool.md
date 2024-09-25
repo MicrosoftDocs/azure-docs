@@ -2,8 +2,8 @@
 title: Azure CLI Script Example - Linux Pool in Batch | Microsoft Docs
 description: Learn the commands available in the Azure CLI to create and manage a pool of Linux compute nodes in Azure Batch.
 ms.topic: sample
-ms.date: 05/24/2022 
-ms.custom: devx-track-azurecli, seo-azure-cli
+ms.date: 06/24/2024
+ms.custom: devx-track-azurecli, seo-azure-cli, linux-related-content
 keywords: linux, azure cli samples, azure cli code samples, azure cli script samples
 ---
 
@@ -11,13 +11,13 @@ keywords: linux, azure cli samples, azure cli code samples, azure cli script sam
 
 This script demonstrates some of the commands available in the Azure CLI to create and manage a pool of Linux compute nodes in Azure Batch.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Sample script
 
-[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../includes/cli-launch-cloud-shell-sign-in.md)]
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](~/reusable-content/ce-skilling/azure/includes/cli-launch-cloud-shell-sign-in.md)]
 
 ### To create a Linux pool in Azure Batch
 
@@ -46,7 +46,7 @@ az batch node delete \
 
 ## Clean up resources
 
-[!INCLUDE [cli-clean-up-resources.md](../../../includes/cli-clean-up-resources.md)]
+[!INCLUDE [cli-clean-up-resources.md](~/reusable-content/ce-skilling/azure/includes/cli-clean-up-resources.md)]
 
 ```azurecli
 az group delete --name $resourceGroup

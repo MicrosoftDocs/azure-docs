@@ -3,12 +3,11 @@ title: Create a confidential VM from an Azure Compute Gallery image
 description: Learn how to quickly create and deploy an AMD-based DCasv5 or ECasv5 series Azure confidential virtual machine (confidential VM) from an Azure Compute Gallery image
 author: lakmeedee
 ms.author: dejv
-ms.service: virtual-machines
-ms.subservice: confidential-computing
-ms.workload: infrastructure
+ms.service: azure-virtual-machines
+ms.subservice: azure-confidential-computing
 ms.topic: quickstart
 ms.date: 07/14/2022
-ms.custom: mode-arm, devx-track-azurecli 
+ms.custom: mode-arm
 ms.devlang: azurecli
 ---
 
@@ -16,12 +15,12 @@ ms.devlang: azurecli
 
 [Azure confidential virtual machines](confidential-vm-overview.md) supports the creation and sharing of custom images using Azure Compute Gallery. There are two types of images that you can create, based on the security types of the image:
 
-- [Confidential VM (`ConfidentialVM`) images](#confidential-vm-images) are images where the source already has the [VM Guest state information](confidential-vm-faq-amd.yml). This image type might also have confidential disk encryption enabled.
+- [Confidential VM (`ConfidentialVM`) images](#confidential-vm-images) are images where the source already has the [VM Guest state information](confidential-vm-faq.yml). This image type might also have confidential disk encryption enabled.
 - [Confidential VM supported (`ConfidentialVMSupported`) images](#confidential-vm-supported-images) are images where the source doesn't have VM Guest state information and confidential disk encryption is not enabled.
 
 ## Confidential VM images
 
-For the following image sources, the security type on the image definition should be set to `ConfidentialVM` as the image source already has [VM Guest State information](confidential-vm-faq-amd.yml#is-there-an-extra-cost-for-using-confidential-vms-) and may also have confidential disk encryption enabled:
+For the following image sources, the security type on the image definition should be set to `ConfidentialVM` as the image source already has [VM Guest State information](confidential-vm-faq.yml#is-there-an-extra-cost-for-using-confidential-vms-) and may also have confidential disk encryption enabled:
 - Confidential VM capture
 - Managed OS disk 
 - Managed OS disk snapshot
@@ -38,9 +37,9 @@ This image version can be replicated within the source region **but cannot be re
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Go to the **Virtual machines** service.
 1. Open the confidential VM that you want to use as the image source.
-1. If you want to create a generalized image, [remove machine-specific information](../virtual-machines/generalize.md) before you create the image.
+1. If you want to create a generalized image, [remove machine-specific information](/azure/virtual-machines/generalize) before you create the image.
 1. Select **Capture**.
-1. In the **Create an image** page that opens, [create your image definition and version](../virtual-machines/image-version.md?tabs=portal#create-an-image).
+1. In the **Create an image** page that opens, [create your image definition and version](/azure/virtual-machines/image-version?tabs=portal#create-an-image).
     1. Allow the image to be shared to Azure Compute Gallery as a VM image version. Managed images aren't supported for confidential VMs.
     1. Either create a new gallery, or select an existing gallery.
     1. For the **Operating system state**, select either **Generalized** or **Specialized**, depending on your use case.
@@ -57,7 +56,7 @@ Now, you can [create a Confidential VM from your custom image](#create-a-confide
 ### Create a Confidential VM type image from managed disk or snapshot
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. If you want to create a generalized image, [remove machine-specific information](../virtual-machines/generalize.md) for the disk or snapshot before you create the image.
+1. If you want to create a generalized image, [remove machine-specific information](/azure/virtual-machines/generalize) for the disk or snapshot before you create the image.
 1. Search for and select **VM Image Versions** in the search bar.
 1. Select **Create**
 1. On the **Create VM image version** page's **Basics** tab:
@@ -105,7 +104,7 @@ This image can be replicated within the source region and to different target re
     1. If you selected **Storage Blobs (VHD)**, enter an OS disk VHD (without the VM Guest state). Make sure to use a Gen 2 VHD.
     1. If you selected **Managed Image**, select an existing managed image of a Gen 2 VM.
     1. For **Target Azure compute gallery**, select or create a gallery to share the image.
-    1. For **Operating system state**, select either **Generalized** or **Specialized** depending on your use case. If you're using a managed image as the source, always select **Generalized**. If you're using a storage blob (VHD) and want to select **Generalized**, follow the steps to [generalize a Linux VHD](../virtual-machines/linux/create-upload-generic.md) or [generalize a Windows VHD](../virtual-machines/windows/upload-generalized-managed.md) before you continue.
+    1. For **Operating system state**, select either **Generalized** or **Specialized** depending on your use case. If you're using a managed image as the source, always select **Generalized**. If you're using a storage blob (VHD) and want to select **Generalized**, follow the steps to [generalize a Linux VHD](/azure/virtual-machines/linux/create-upload-generic) or [generalize a Windows VHD](/azure/virtual-machines/windows/upload-generalized-managed) before you continue.
     1. For **Target VM Image Definition**, select **Create new**.
     1. In the **Create a VM image definition** pane, enter a name for the definition. Make sure the security type is set to **Confidential supported**. Enter publisher, offer, and SKU information. Then, select **Ok**.
 1. On the **Replication** tab, enter the replica count and target regions for image replication, if required.

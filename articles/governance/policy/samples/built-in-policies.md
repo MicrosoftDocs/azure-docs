@@ -1,7 +1,7 @@
 ---
 title: List of built-in policy definitions
-description: List built-in policy definitions for Azure Policy. Categories include Tags, Regulatory Compliance, Key Vault, Kubernetes, Guest Configuration, and more.
-ms.date: 09/12/2022
+description: List built-in policy definitions for Azure Policy. Categories include Tags, Regulatory Compliance, Key Vault, Kubernetes, Azure Machine Configuration, and more.
+ms.date: 09/23/2024
 ms.topic: sample
 ms.custom: generated
 ---
@@ -12,8 +12,7 @@ This page is an index of Azure Policy built-in policy definitions.
 The name of each built-in links to the policy definition in the Azure portal. Use the link in the
 **Source** column to view the source on the
 [Azure Policy GitHub repo](https://github.com/Azure/azure-policy). The built-ins are grouped by the
-**category** property in **metadata**. To jump to a specific **category**, use the menu on the right
-side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browser's search feature.
+**category** property in **metadata**. To go to a specific **category**, use <kbd>Ctrl</kbd>-<kbd>F</kbd> for your browser's search feature.
 
 ## API for FHIR
 
@@ -51,6 +50,10 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 
 [!INCLUDE [azure-policy-reference-policies-azure-active-directory](../../../../includes/policy/reference/bycat/policies-azure-active-directory.md)]
 
+## Azure AI Services
+
+[!INCLUDE [azure-policy-reference-policies-azure-ai-services](../../../../includes/policy/reference/bycat/policies-azure-ai-services.md)]
+
 ## Azure Arc
 
 [!INCLUDE [azure-policy-reference-policies-azure-arc](../../../../includes/policy/reference/bycat/policies-azure-arc.md)]
@@ -79,6 +82,10 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 
 [!INCLUDE [azure-policy-reference-policies-azure-stack-edge](../../../../includes/policy/reference/bycat/policies-azure-stack-edge.md)]
 
+## Azure Update Manager
+
+[!INCLUDE [azure-policy-reference-policies-azure-update-manager](../../../../includes/policy/reference/bycat/policies-azure-update-manager.md)]
+
 ## Backup
 
 [!INCLUDE [azure-policy-reference-policies-backup](../../../../includes/policy/reference/bycat/policies-backup.md)]
@@ -99,9 +106,17 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 
 [!INCLUDE [azure-policy-reference-policies-cdn](../../../../includes/policy/reference/bycat/policies-cdn.md)]
 
+## ChangeTrackingAndInventory
+
+[!INCLUDE [azure-policy-reference-policies-changetrackingandinventory](../../../../includes/policy/reference/bycat/policies-changetrackingandinventory.md)]
+
 ## Cognitive Services
 
 [!INCLUDE [azure-policy-reference-policies-cognitive-services](../../../../includes/policy/reference/bycat/policies-cognitive-services.md)]
+
+## Communication
+
+[!INCLUDE [azure-policy-reference-policies-communication](../../../../includes/policy/reference/bycat/policies-communication.md)]
 
 ## Compute
 
@@ -114,6 +129,10 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 ## Container Instance
 
 [!INCLUDE [azure-policy-reference-policies-container-instance](../../../../includes/policy/reference/bycat/policies-container-instance.md)]
+
+## Container Instances
+
+[!INCLUDE [azure-policy-reference-policies-container-instances](../../../../includes/policy/reference/bycat/policies-container-instances.md)]
 
 ## Container Registry
 
@@ -138,6 +157,22 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 ## Data Lake
 
 [!INCLUDE [azure-policy-reference-policies-data-lake](../../../../includes/policy/reference/bycat/policies-data-lake.md)]
+
+## Desktop Virtualization
+
+[!INCLUDE [azure-policy-reference-policies-desktop-virtualization](../../../../includes/policy/reference/bycat/policies-desktop-virtualization.md)]
+
+## DevCenter
+
+[!INCLUDE [azure-policy-reference-policies-devcenter](../../../../includes/policy/reference/bycat/policies-devcenter.md)]
+
+## DevOpsInfrastructure
+
+[!INCLUDE [azure-policy-reference-policies-devopsinfrastructure](../../../../includes/policy/reference/bycat/policies-devopsinfrastructure.md)]
+
+## ElasticSan
+
+[!INCLUDE [azure-policy-reference-policies-elasticsan](../../../../includes/policy/reference/bycat/policies-elasticsan.md)]
 
 ## Event Grid
 
@@ -166,6 +201,14 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 ## Health Bot
 
 [!INCLUDE [azure-policy-reference-policies-health-bot](../../../../includes/policy/reference/bycat/policies-health-bot.md)]
+
+## Health Data Services workspace
+
+[!INCLUDE [azure-policy-reference-policies-health-data-services-workspace](../../../../includes/policy/reference/bycat/policies-health-data-services-workspace.md)]
+
+## Health Deidentification Service
+
+[!INCLUDE [azure-policy-reference-policies-health-deidentification-service](../../../../includes/policy/reference/bycat/policies-health-deidentification-service.md)]
 
 ## Healthcare APIs
 
@@ -203,6 +246,10 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 
 [!INCLUDE [azure-policy-reference-policies-managed-application](../../../../includes/policy/reference/bycat/policies-managed-application.md)]
 
+## Managed Grafana
+
+[!INCLUDE [azure-policy-reference-policies-managed-grafana](../../../../includes/policy/reference/bycat/policies-managed-grafana.md)]
+
 ## Managed Identity
 
 [!INCLUDE [azure-policy-reference-policies-managed-identity](../../../../includes/policy/reference/bycat/policies-managed-identity.md)]
@@ -219,6 +266,10 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 
 [!INCLUDE [azure-policy-reference-policies-migrate](../../../../includes/policy/reference/bycat/policies-migrate.md)]
 
+## Mobile Network
+
+[!INCLUDE [azure-policy-reference-policies-mobile-network](../../../../includes/policy/reference/bycat/policies-mobile-network.md)]
+
 ## Monitoring
 
 [!INCLUDE [azure-policy-reference-policies-monitoring](../../../../includes/policy/reference/bycat/policies-monitoring.md)]
@@ -231,6 +282,14 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 
 [!INCLUDE [azure-policy-reference-policies-portal](../../../../includes/policy/reference/bycat/policies-portal.md)]
 
+## PostgreSQL
+
+[!INCLUDE [azure-policy-reference-policies-postgresql](../../../../includes/policy/reference/bycat/policies-postgresql.md)]
+
+## Resilience
+
+[!INCLUDE [azure-policy-reference-policies-resilience](../../../../includes/policy/reference/bycat/policies-resilience.md)]
+
 ## Search
 
 [!INCLUDE [azure-policy-reference-policies-search](../../../../includes/policy/reference/bycat/policies-search.md)]
@@ -238,6 +297,10 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 ## Security Center
 
 [!INCLUDE [azure-policy-reference-policies-security-center](../../../../includes/policy/reference/bycat/policies-security-center.md)]
+
+## Security Center - Granular Pricing
+
+[!INCLUDE [azure-policy-reference-policies-security-center---granular-pricing](../../../../includes/policy/reference/bycat/policies-security-center---granular-pricing.md)]
 
 ## Service Bus
 
@@ -259,6 +322,18 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 
 [!INCLUDE [azure-policy-reference-policies-sql](../../../../includes/policy/reference/bycat/policies-sql.md)]
 
+## SQL Managed Instance
+
+[!INCLUDE [azure-policy-reference-policies-sql-managed-instance](../../../../includes/policy/reference/bycat/policies-sql-managed-instance.md)]
+
+## SQL Server
+
+[!INCLUDE [azure-policy-reference-policies-sql-server](../../../../includes/policy/reference/bycat/policies-sql-server.md)]
+
+## Stack HCI
+
+[!INCLUDE [azure-policy-reference-policies-stack-hci](../../../../includes/policy/reference/bycat/policies-stack-hci.md)]
+
 ## Storage
 
 [!INCLUDE [azure-policy-reference-policies-storage](../../../../includes/policy/reference/bycat/policies-storage.md)]
@@ -275,13 +350,13 @@ side of the page. Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browse
 
 [!INCLUDE [azure-policy-reference-policies-tags](../../../../includes/policy/reference/bycat/policies-tags.md)]
 
-## Update Management Center
+## Trusted Launch
 
-[!INCLUDE [azure-policy-reference-policies-update-management-center](../../../../includes/policy/reference/bycat/policies-update-management-center.md)]
+[!INCLUDE [azure-policy-reference-policies-trusted-launch](../../../../includes/policy/reference/bycat/policies-trusted-launch.md)]
 
-## Video Analyzers
+## VirtualEnclaves
 
-[!INCLUDE [azure-policy-reference-policies-video-analyzers](../../../../includes/policy/reference/bycat/policies-video-analyzers.md)]
+[!INCLUDE [azure-policy-reference-policies-virtualenclaves](../../../../includes/policy/reference/bycat/policies-virtualenclaves.md)]
 
 ## VM Image Builder
 

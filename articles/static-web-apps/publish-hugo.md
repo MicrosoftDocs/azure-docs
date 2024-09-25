@@ -1,15 +1,15 @@
 ---
-title: "Tutorial: Publish a Hugo site to Azure Static Web Apps"
+title: "Deploy a Hugo site to Azure Static Web Apps"
 description: Learn how to deploy a Hugo application to Azure Static Web Apps.
 services: static-web-apps
 author: aaronpowell
-ms.service: static-web-apps
+ms.service: azure-static-web-apps
 ms.topic: tutorial
-ms.date: 05/11/2021
+ms.date: 01/10/2024
 ms.author: aapowell
 ---
 
-# Tutorial: Publish a Hugo site to Azure Static Web Apps
+# Deploy a Hugo site to Azure Static Web Apps
 
 This article demonstrates how to create and deploy a [Hugo](https://gohugo.io/) web application to [Azure Static Web Apps](overview.md). The final result is a new Azure Static Web App with associated GitHub Actions that give you control over how the app is built and published.
 
@@ -21,12 +21,13 @@ In this tutorial, you learn how to:
 > - Setup an Azure Static Web Apps
 > - Deploy the Hugo app to Azure
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
 - An Azure account with an active subscription. If you don't have one, you can [create an account for free](https://azure.microsoft.com/free/).
 - A GitHub account. If you don't have one, you can [create an account for free](https://github.com/join).
+- A Git setup installed. If you don't have one, you can [install Git](https://www.git-scm.com/downloads). 
 
 ## Create a Hugo App
 
@@ -42,7 +43,7 @@ Create a Hugo app using the Hugo Command Line Interface (CLI):
    hugo new site static-app
    ```
 
-1. Navigate to the newly created app.
+1. Go to the newly created app.
 
    ```bash
    cd static-app
@@ -98,7 +99,7 @@ The following steps show you how to create a new static site app and deploy it t
 
 ### Create the application
 
-1. Navigate to the [Azure portal](https://portal.azure.com)
+1. Go to the [Azure portal](https://portal.azure.com)
 1. Select **Create a Resource**
 1. Search for **Static Web Apps**
 1. Select **Static Web Apps**
@@ -124,17 +125,21 @@ The following steps show you how to create a new static site app and deploy it t
     | _Repository_ | Select **hugo-static-app**. |
     | _Branch_ | Select **main**. |
 
+    > [!NOTE]
+    > If you don't see any repositories, you may need to authorize Azure Static Web Apps on GitHub.
+    > Browse to your GitHub repository and go to **Settings > Applications > Authorized OAuth Apps**, select **Azure Static Web Apps**, and then select **Grant**. For organization repositories, you must be an owner of the organization to grant the permissions.
+
 1. In the _Build Details_ section, select **Hugo** from the _Build Presets_ drop-down and keep the default values.
 
 ### Review and create
 
-1. Select the **Review + Create** button to verify the details are all correct.
+1. Select **Review + Create** to verify the details are all correct.
 
-1. Select **Create** to start the creation of the App Service Static Web App and provision a GitHub Actions for deployment.
+2. Select **Create** to start the creation of the App Service Static Web App and provision a GitHub Actions for deployment.
 
-1. Once the deployment completes click, **Go to resource**.
+3. Once the deployment completes, select **Go to resource**.
 
-1. On the resource screen, click the _URL_ link to open your deployed application. You may need to wait a minute or two for the GitHub Actions to complete.
+4. On the resource screen, select the _URL_ link to open your deployed application. You may need to wait a minute or two for the GitHub Actions to complete.
 
    :::image type="content" source="./media/publish-hugo/deployed-app.png" alt-text="Deployed application":::
 
@@ -149,7 +154,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Build and Deploy Job
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           submodules: true
       - name: Build And Deploy
@@ -171,18 +176,18 @@ jobs:
 
 #### Use the Git Info feature in your Hugo application
 
-If your Hugo application uses the [Git Info feature](https://gohugo.io/variables/git/), the default [workflow file](./build-configuration.md) created for the Static Web App uses the [checkout GitHub Action](https://github.com/actions/checkout) to fetch a _shallow_ version of your Git repository, with a default depth of **1**. In this scenario, Hugo sees all your content files as coming from a _single commit_, so they have the same author, last modification timestamp, and other `.GitInfo` variables.
+If your Hugo application uses the [Git Info feature](https://gohugo.io/methods/page/gitinfo/#prerequisites), the default [workflow file](./build-configuration.md) created for the Static Web App uses the [checkout GitHub Action](https://github.com/actions/checkout) to fetch a _shallow_ version of your Git repository, with a default depth of **1**. In this scenario, Hugo sees all your content files as coming from a _single commit_, so they have the same author, last modification timestamp, and other `.GitInfo` variables.
 
 Update your workflow file to [fetch your full Git history](https://github.com/actions/checkout/blob/main/README.md#fetch-all-history-for-all-tags-and-branches) by adding a new parameter under the `actions/checkout` step to set the `fetch-depth` to `0` (no limit):
 
 ```yaml
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           submodules: true
           fetch-depth: 0
 ```
 
-Fetching the full history increases the build time of your GitHub Actions workflow, but your `.Lastmod` and `.GitInfo` variables will be accurate and available for each of your content files.
+Fetching the full history increases the build time of your GitHub Actions workflow, but your `.Lastmod` and `.GitInfo` variables are accurate and available for each of your content files.
 
 ## Clean up resources
 

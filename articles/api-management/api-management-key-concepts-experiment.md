@@ -2,11 +2,9 @@
 title: Azure API Management - Overview and key concepts | Microsoft Docs
 description: Introduction to key scenarios, capabilities, and concepts of the Azure API Management service. API Management supports the full API lifecycle.
 services: api-management
-documentationcenter: ''
 author: dlepow
-editor: ''
  
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: overview
 ms.date: 06/27/2022
 ms.author: danlep
@@ -110,13 +108,13 @@ Using the developer portal, developers can:
 
 API Management integrates with many complementary Azure services to create enterprise solutions, including:
 
-* [Azure Key Vault](../key-vault/general/overview.md) for secure safekeeping and management of [client certificates](api-management-howto-mutual-certificates.md) and [secrets​](api-management-howto-properties.md)
+* [Azure Key Vault](/azure/key-vault/general/overview) for secure safekeeping and management of [client certificates](api-management-howto-mutual-certificates.md) and [secrets​](api-management-howto-properties.md)
 * [Azure Monitor](api-management-howto-use-azure-monitor.md) for logging, reporting, and alerting on management operations, systems events, and API requests​
 * [Application Insights](api-management-howto-app-insights.md) for live metrics, end-to-end tracing, and troubleshooting
 * [Virtual networks](virtual-network-concepts.md), [private endpoints](private-endpoint.md), and [Application Gateway](api-management-howto-integrate-internal-vnet-appgateway.md) for network-level protection​
-* Azure Active Directory for [developer authentication](api-management-howto-aad.md) and [request authorization](api-management-howto-protect-backend-with-aad.md)​
+* Microsoft Entra ID for [developer authentication](api-management-howto-aad.md) and [request authorization](api-management-howto-protect-backend-with-aad.md)​
 * [Event Hubs](api-management-howto-log-event-hubs.md) for streaming events​
-* Several Azure compute offerings commonly used to build and host APIs on Azure, including [Functions](import-function-app-as-api.md), [Logic Apps](import-logic-app-as-api.md), [Web Apps](import-app-service-as-api.md), [Service Fabric](how-to-configure-service-fabric-backend.md), and others.​
+* Several Azure compute offerings commonly used to build and host APIs on Azure, including [Functions](import-function-app-as-api.md), [Logic Apps](import-logic-app-as-api.md), [Web Apps](import-app-service-as-api.md), [Service Fabric](how-to-configure-service-fabric-backend.yml), and others.​
 
 **More information**:
 * [Basic enterprise integration](/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)
@@ -157,7 +155,7 @@ Groups are used to manage the visibility of products to developers. API Manageme
 
 * **Guests** - Unauthenticated developer portal users, such as prospective customers visiting the developer portal. They can be granted certain read-only access, such as the ability to view APIs but not call them.
 
-Administrators can also create custom groups or use external groups in an [associated Azure Active Directory tenant](api-management-howto-aad.md) to give developers visibility and access to API products. For example, create a custom group for developers in a partner organization to access a specific subset of APIs in a product. A user can belong to more than one group.
+Administrators can also create custom groups or use external groups in an [associated Microsoft Entra tenant](api-management-howto-aad.md) to give developers visibility and access to API products. For example, create a custom group for developers in a partner organization to access a specific subset of APIs in a product. A user can belong to more than one group.
 
 **More information**: 
 * [How to create and use groups][How to create and use groups]
@@ -175,7 +173,7 @@ When developers subscribe to a product, they're granted the primary and secondar
 
 With [policies][API Management policies], an API publisher can change the behavior of an API through configuration. Policies are a collection of statements that are executed sequentially on the request or response of an API. Popular statements include format conversion from XML to JSON and call-rate limiting to restrict the number of incoming calls from a developer. For a complete list, see [API Management policies][Policy reference].
 
-Policy expressions can be used as attribute values or text values in any of the API Management policies, unless the policy specifies otherwise. Some policies such as the [Control flow](./api-management-advanced-policies.md#choose) and [Set variable](./api-management-advanced-policies.md#set-variable) policies are based on policy expressions. 
+Policy expressions can be used as attribute values or text values in any of the API Management policies, unless the policy specifies otherwise. Some policies such as the [Control flow](./choose-policy.md) and [Set variable](./set-variable-policy.md) policies are based on policy expressions. 
 
 Policies can be applied at different scopes, depending on your needs: global (all APIs), a product, a specific API, or an API operation. 
 

@@ -16,6 +16,8 @@ In this tutorial you'll learn how to:
 > - Create a Log Analytics workspace
 > - Enable geolocation and IP address handling
 
+[!INCLUDE [device-agents-note](../includes/device-agents-note.md)]
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -26,9 +28,9 @@ In this tutorial you'll learn how to:
 
 - You must have [added a resource group to your IoT solution](quickstart-configure-your-solution.md)
 
-- You must have [created a Defender for IoT micro agent module twin (Preview)](quickstart-create-micro-agent-module-twin.md).
+- You must have [created a Defender for IoT micro agent module twin](quickstart-create-micro-agent-module-twin.md).
 
-- You must have [installed the Defender for IoT micro agent (Preview)](quickstart-standalone-agent-binary-installation.md)
+- You must have [installed the Defender for IoT micro agent](quickstart-standalone-agent-binary-installation.md)
 
 ## Enable data collection
 

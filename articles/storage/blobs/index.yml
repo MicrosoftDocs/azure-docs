@@ -4,17 +4,16 @@ title: Azure Blob Storage documentation # < 60 chars
 summary: Azure Blob Storage is Microsoft's object storage solution for the cloud. Blob storage is optimized for storing massive amounts of unstructured data.  # < 160 chars
 
 metadata:
-  title: Azure Blob Storage documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Azure Blob Storage is Microsoft's object storage solution for the cloud. Blob storage is optimized for storing massive amounts of unstructured data. # Required; article description that is displayed in search results. < 160 chars.
-  services: storage
-  ms.service: storage #Required; service per approved list. Service slug assigned to your service by ACOM.
+  title: Azure Blob Storage documentation
+  description: Azure Blob Storage is Microsoft's object storage solution for the cloud. Blob storage is optimized for storing massive amounts of unstructured data.
+  ms.service: azure-storage
   ms.subservice: blobs
-  ms.topic: landing-page # Required
-  ms.collection: collection
-  author: normesta #Required; your GitHub user alias, with correct capitalization.
-  ms.author: normesta #Required; microsoft alias of author; optional team alias.
+  ms.custom:
+    - ignite-2023
+  ms.topic: landing-page
+  author: normesta
+  ms.author: normesta
   ms.date: 08/05/2022
-
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
 landingContent:
@@ -27,6 +26,13 @@ landingContent:
         links:
           - text: What is Azure Blob Storage?
             url: storage-blobs-overview.md
+    # Card
+  - title: Architecture
+    linkLists:
+      - linkListType: architecture
+        links:
+          - text: Azure Well-Architected Framework considerations
+            url: /azure/well-architected/service-guides/azure-blob-storage?toc=/azure/storage/blobs/toc.json
   # Card
   - title: Get started
     linkLists:
@@ -41,11 +47,11 @@ landingContent:
           - text: Storage account overview
             url: ../common/storage-account-overview.md
           - text: Data redundancy
-            url: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            url: ../common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json
       - linkListType: how-to-guide
         links:
           - text: Create a storage account
-            url: ../common/storage-account-create.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            url: ../common/storage-account-create.md?toc=/azure/storage/blobs/toc.json
           - text: Create a block blob storage account
             url: ../common/storage-account-create.md
           - text: Configure a custom domain
@@ -56,15 +62,15 @@ landingContent:
       - linkListType: concept
         links:
           - text: Use AI to understand blob data 
-            url: ../../search/search-blob-ai-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            url: /azure/search/search-blob-ai-integration?toc=/azure/storage/blobs/toc.json
           - text: Search your blob content
-            url: ../../search/search-blob-storage-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            url: /azure/search/search-blob-storage-integration?toc=/azure/storage/blobs/toc.json
   # Card
   - title: Analytics and insights
     linkLists:
       - linkListType: overview
         links:
-          - text: Azure Data Lake Storage Gen2
+          - text: Azure Data Lake Storage
             url: data-lake-storage-introduction.md
       - linkListType: quickstart
         links:
@@ -81,15 +87,15 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Extract, transform, and load data with Azure Databricks
-            url: /azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            url: /azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse?toc=/azure/storage/blobs/toc.json
           - text: Extract, transform, load data with Apache Hive on Azure HDInsight
             url: data-lake-storage-tutorial-extract-transform-load-hive.md
           - text: Insert data into Databricks tables by using Event Grid
-            url: data-lake-storage-events.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            url: data-lake-storage-events.md?toc=/azure/storage/blobs/toc.json
       - linkListType: how-to-guide
         links:
           - text: Use with Azure HDInsight clusters
-            url: ../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            url: ../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md?toc=/azure/storage/blobs/toc.json
           - text: Use with Power BI
             url: /power-query/connectors/datalakestorage
   # Card
@@ -129,34 +135,34 @@ landingContent:
       - linkListType: concept
         links:
           - text: Authorize access to Azure Storage
-            url: ../common/authorize-data-access.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            url: ../common/authorize-data-access.md?toc=/azure/storage/blobs/toc.json
           - text: Data Lake access control
             url: data-lake-storage-access-control.md
       - linkListType: how-to-guide
         links:
-          - text: Access blob data with an Azure AD account
+          - text: Access blob data with Microsoft Entra account
             url: authorize-data-operations-portal.md
           - text: Manage access rights with Azure RBAC
             url: assign-azure-role-data-access.md
-          - text: Use a managed identity to authorize access to Blob Storage
-            url: authorize-managed-identity.md
   # Card
   - title: Transfer data
     linkLists:
       - linkListType: concept
         links:
           - text: Compare data transfer solutions
-            url: ../common/storage-choose-data-transfer-solution.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            url: ../common/storage-choose-data-transfer-solution.md?toc=/azure/storage/blobs/toc.json
+          - text: Tape migration overview
+            url: ../common/tape-migration-guide.md?toc=/azure/storage/blobs/toc.json
           - text: Use Azure Data Box for offline transfer
-            url: ../../databox/data-box-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            url: ../../databox/data-box-overview.md?toc=/azure/storage/blobs/toc.json
       - linkListType: how-to-guide
         links:
           - text: Transfer with AzCopy
-            url: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            url: ../common/storage-use-azcopy-v10.md?toc=/azure/storage/blobs/toc.json
           - text: Access Azure blob data on Linux with BlobFuse2
-            url: blobfuse2-how-to-deploy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            url: blobfuse2-how-to-deploy.md?toc=/azure/storage/blobs/toc.json
           - text: Transfer with Azure Data Factory
-            url: ../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            url: ../../data-factory/connector-azure-blob-storage.md?toc=/azure/storage/blobs/toc.json
   #Card
   - title: Performance and scalability
     linkLists:
@@ -169,7 +175,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Optimize for performance and scalability
-            url: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            url: ../common/storage-use-azcopy-v10.md?toc=/azure/storage/blobs/toc.json
   # Card
   - title: Back up and archive data
     linkLists:

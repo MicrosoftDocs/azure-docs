@@ -5,9 +5,9 @@ titleSuffix: Azure Digital Twins
 description: Learn about digital twins, and how their relationships form a digital twin graph.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 03/01/2022
+ms.date: 1/3/2024
 ms.topic: conceptual
-ms.service: digital-twins
+ms.service: azure-digital-twins
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -24,7 +24,7 @@ This article describes what digital twins are in the context of Azure Digital Tw
 
 ## Digital twins
 
-Before you can create a digital twin in your Azure Digital Twins instance, you need to have a *model* uploaded to the service. A model describes the set of properties, telemetry messages, and relationships that a particular twin can have, among other things. For the types of information that are defined in a model, see [Custom models](concepts-models.md).
+Before you can create a digital twin in your Azure Digital Twins instance, you need to have a *model* uploaded to the service. A model describes the set of properties and relationships that a particular twin can have, among other things. For the types of information that are defined in a model, see [Custom models](concepts-models.md).
 
 After creating and uploading a model, your client app can create an instance of the type. This instance is a digital twin. For example, after creating a model of Floor, you may create one or several digital twins that use this type (like a Floor-type twin called GroundFloor, another called Floor2, and so on).
 
@@ -44,7 +44,7 @@ The result of this process is a set of nodes (the digital twins) connected via e
 
 ## Create with the APIs
 
-This section shows what it looks like to create digital twins and relationships from a client application. It contains .NET code examples that use the [DigitalTwins APIs](/rest/api/digital-twins/dataplane/twins), to provide more context on what goes on inside each of these concepts.
+This section shows what it looks like to create digital twins and relationships from a client application. It contains [.NET SDK](/dotnet/api/overview/azure/digitaltwins.core-readme) examples that use the [DigitalTwins APIs](/rest/api/digital-twins/dataplane/twins), to provide more context on what goes on inside each of these concepts.
 
 ### Create digital twins
 
@@ -64,6 +64,16 @@ You can also use a helper class called `BasicDigitalTwin` to store property fiel
 Here's some example client code that uses the [DigitalTwins APIs](/rest/api/digital-twins/dataplane/twins) to build a relationship from one digital twin (the "source" twin) to another digital twin (the "target" twin).
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_other.cs" id="CreateRelationship_short":::
+
+### Create twins and relationships in bulk with the Import Jobs API
+
+You can upload many twins and relationships in a single API call using the [Import Jobs API](concepts-apis-sdks.md#bulk-import-with-the-import-jobs-api). Twins and relationships created with this API can optionally include initialization of their properties. For detailed instructions and examples that use this API, see [bulk import instructions for twins](how-to-manage-twin.md#create-twins-in-bulk-with-the-import-jobs-api) and [relationships](how-to-manage-graph.md#create-relationships-in-bulk-with-the-import-jobs-api).
+
+## Delete graph elements
+
+To delete specific twins and relationships, use the [DigitalTwins Delete](/rest/api/digital-twins/dataplane/twins/digital-twins-delete) and [DigitalTwins DeleteRelationship](/rest/api/digital-twins/dataplane/twins/digital-twins-delete-relationship) APIs (also available in as CLI commands and SDK calls). 
+
+To delete all models, twins, and relationships in an instance at once, use the [Delete Jobs API](concepts-apis-sdks.md#bulk-delete-with-the-delete-jobs-api).
 
 ## JSON representations of graph elements
 

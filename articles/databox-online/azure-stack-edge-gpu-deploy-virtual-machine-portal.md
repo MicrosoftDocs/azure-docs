@@ -6,8 +6,9 @@ author: alkohli
 
 ms.service: databox
 ms.subservice: edge
+ms.custom: linux-related-content
 ms.topic: how-to
-ms.date: 08/31/2022
+ms.date: 05/01/2023
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to configure compute on an Azure Stack Edge Pro GPU device so that I can use it to transform data before I send it to Azure.
 ---
@@ -19,8 +20,8 @@ ms.author: alkohli
 You can create and manage virtual machines (VMs) on an Azure Stack Edge Pro GPU device by using the Azure portal, templates, and Azure PowerShell cmdlets, and via the Azure CLI or Python scripts. This article describes how to create and manage a VM on your Azure Stack Edge Pro GPU device by using the Azure portal.
 
 > [!IMPORTANT] 
-> You will need to enable multifactor authentication for the user who manages the VMs and images that are deployed on your device from the cloud. The cloud operations will fail if the user doesn't have multifactor authentication enabled. For steps to enable multifactor authentication, see [Manage authentication methods for Azure AD Multi-Factor Authentication](/azure/active-directory/authentication/howto-mfa-userdevicesettings).
-        
+> You will need to enable multifactor authentication for the user who manages the VMs and images that are deployed on your device from the cloud. The cloud operations will fail if the user doesn't have multifactor authentication enabled. For steps to enable multifactor authentication, see [Enable Microsoft Entra multifactor authentication](/training/modules/secure-aad-users-with-mfa/4-exercise-mfa).
+
 ## VM deployment workflow
 
 The high-level summary of the deployment workflow is as follows:
@@ -91,7 +92,7 @@ Follow these steps to create a VM on your Azure Stack Edge Pro GPU device.
     |Edge resource group  |Select the resource group to add the image to. |
     |Save image as      | The name for the VM image that you're creating from the VHD you uploaded to the storage account.        |
     |OS type     |Choose from Windows or Linux as the operating system of the VHD you'll use to create the VM image.         |
-    |VM generation    |Choose Gen 1 or Gen 2 as the generation of the image you'll use to create the VM.        |
+    |VM generation    |Choose Gen 1 or Gen 2 as the generation of the image you'll use to create the VM. For Gen 2 VMs, secure boot is enabled by default.        |
    
 
     ![Screenshot showing the Add image page for a virtual machine with the Add button highlighted.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-image-6.png)
@@ -133,7 +134,7 @@ Follow these steps to create a VM after you've created a VM image.
     |Username     | Use the default username **azureuser** for the admin to sign in to the VM.        |
     |Authentication type    | Choose from an SSH public key or a user-defined password.       |
     |SSH public key | Displayed when you select the **SSH public key** authentication type. Paste in the SSH public key. |
-    |Password     | Displayed when you select the **Password** authentication type. Enter a password to sign in to the VM. The password must be at least 12 characters long and meet the defined [complexity requirements](../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-). |
+    |Password     | Displayed when you select the **Password** authentication type. Enter a password to sign in to the VM. The password must be at least 12 characters long and meet the defined [complexity requirements](/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm-). |
     |Confirm password    | Enter the password again.        |
 
     ![Screenshot showing the Basics tab in the Add Virtual Machine wizard for Azure Stack Edge. The Basics tab and the Next: Disks button are highlighted.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-basics-1.png)
@@ -172,7 +173,7 @@ Follow these steps to create a VM after you've created a VM image.
 
 1. If you want to use the `cloud-init` utility to customize the new VM on its first boot, on the **Advanced** tab, paste your `cloud-init` script into the **Custom data** box under **Custom data and cloud init**. 
 
-    For more information about using `cloud-init`, see [Cloud-init overview](../virtual-machines/linux/tutorial-automate-vm-deployment.md#cloud-init-overview).
+    For more information about using `cloud-init`, see [Cloud-init overview](/azure/virtual-machines/linux/tutorial-automate-vm-deployment#cloud-init-overview).
 
     ![Screenshot that shows the Advanced tab of the Create a new virtual machine wizard, with a cloud init script in the Custom data box highlighted.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-advanced-tab-with-cloud-init-script.png)
 
@@ -223,4 +224,3 @@ Follow these steps to connect to a Windows VM.
 - [Troubleshoot VM deployment](azure-stack-edge-gpu-troubleshoot-virtual-machine-provisioning.md)
 - [Monitor VM activity on your device](azure-stack-edge-gpu-monitor-virtual-machine-activity.md)
 - [Monitor CPU and memory on a VM](azure-stack-edge-gpu-monitor-virtual-machine-metrics.md)
-

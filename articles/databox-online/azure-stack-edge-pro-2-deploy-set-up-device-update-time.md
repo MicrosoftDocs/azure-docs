@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 03/04/2022
+ms.date: 10/26/2022
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to set up device name, update server and time server via the local web UI of Azure Stack Edge Pro 2 so I can use the device to transfer data to Azure. 
 ---
@@ -71,7 +71,7 @@ Follow these steps to configure device-related settings:
 
         ![Screenshot of the Update server page with Microsoft update server configured in the local web UI of an Azure Stack Edge device. The Apply button is highlighted.](./media/azure-stack-edge-pro-2-deploy-set-up-device-update-time/update-1.png)
 
-        You can also choose to deploy updates from the **Windows Server Update services** (WSUS). Provide the path to the WSUS server.
+        You can also choose to deploy updates from the **Windows Server Update services (WSUS)**. Provide the path to the WSUS server.
         
         ![Screenshot of the Update server page with Windows Server Update Services configured in the local web UI of an Azure Stack Edge device. The Apply button is highlighted.](./media/azure-stack-edge-pro-2-deploy-set-up-device-update-time/update-2.png)
 

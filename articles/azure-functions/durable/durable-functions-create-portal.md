@@ -4,7 +4,9 @@ description: Learn how to install the Durable Functions extension for Azure Func
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.reviewer: azfuncdf
-ms.devlang: csharp, javascript
+ms.devlang: csharp
+# ms.devlang: csharp, javascript
+ms.custom: devx-track-js
 ---
 
 # Create Durable Functions using the Azure portal
@@ -13,7 +15,7 @@ The [Durable Functions](durable-functions-overview.md) extension for Azure Funct
 
 > [!NOTE]
 > 
-> * If you are developing durable functions in C#, you should instead consider [Visual Studio 2019 development](durable-functions-create-first-csharp.md).
+> * If you are developing durable functions in C#, you should instead consider [Visual Studio 2019 development](durable-functions-isolated-create-first-csharp.md).
 > * If you are developing durable functions in JavaScript, you should instead consider [Visual Studio Code development](./quickstart-js-vscode.md).
 
 ## Create a function app
@@ -74,7 +76,7 @@ If you are creating JavaScript Durable Functions, you'll need to install the [`d
 
 1. Go back to the **HttpStart** function, choose **Get function Url**, and select the **Copy to clipboard** icon to copy the URL. You use this URL to start the **HelloSequence** function.
 
-1. Use an HTTP tool like Postman or cURL to send a POST request to the URL that you copied. The following example is a cURL command that sends a POST request to the durable function:
+1. Use a secure HTTP test tool to send an HTTP POST request to the URL endpoint. This example is a cURL command that sends a POST request to the durable function:
 
     ```bash
     curl -X POST https://{your-function-app-name}.azurewebsites.net/api/orchestrators/{functionName} --header "Content-Length: 0"
@@ -91,6 +93,8 @@ If you are creating JavaScript Durable Functions, you'll need to install the [`d
        "rewindPostUri":"https://..."
     }
     ```
+
+    Make sure to choose an HTTP test tool that keeps your data secure. For more information, see [HTTP test tools](../functions-develop-local.md#http-test-tools).
 
 1. Call the `statusQueryGetUri` endpoint URI and you see the current status of the durable function, which might look like this example:
 

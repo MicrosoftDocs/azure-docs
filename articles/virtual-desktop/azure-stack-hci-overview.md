@@ -1,73 +1,84 @@
 ---
-title: Azure Virtual Desktop for Azure Stack HCI (preview) - Azure
-description: A brief overview of Azure Virtual Desktop for Azure Stack HCI (preview).
-author: Heidilohr
+title: Azure Virtual Desktop on Azure Stack HCI
+description: Learn about using Azure Virtual Desktop on Azure Stack HCI, enablng you to deploy session hosts where you need them.
 ms.topic: conceptual
-ms.date: 11/02/2021
-ms.author: helohr
-manager: femila
-ms.custom: ignite-fall-2021
+author: dknappettmsft
+ms.author: daknappe
+ms.date: 04/11/2024
 ---
-# Azure Virtual Desktop for Azure Stack HCI (preview)
+
+# Azure Virtual Desktop on Azure Stack HCI
 
 > [!IMPORTANT]
-> Azure Virtual Desktop for Azure Stack HCI is currently in preview.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Azure Virtual Desktop on Azure Stack HCI is currently in preview for Azure Government and Azure China. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-Azure Virtual Desktop for Azure Stack HCI (preview) lets you deploy Azure Virtual Desktop session hosts to your on-premises Azure Stack HCI infrastructure. You can also use Azure Virtual Desktop for Azure Stack HCI to manage your session hosts from the Azure portal. If you already have an existing on-premises Virtual Desktop Infrastructure (VDI) deployment, Azure Virtual Desktop for Azure Stack HCI can improve your administrator and end-user experience. If you're already using Azure Virtual Desktop in the cloud, you can extend your deployment to your on-premises infrastructure to better meet your performance or data locality needs.
+Using Azure Virtual Desktop on Azure Stack HCI, you can deploy session hosts for Azure Virtual Desktop where you need them. If you already have an existing on-premises virtual desktop infrastructure (VDI) deployment, Azure Virtual Desktop on Azure Stack HCI can improve your experience. If you're already using Azure Virtual Desktop with your session hosts in Azure, you can extend your deployment to your on-premises infrastructure to better meet your performance or data locality needs.
 
-Azure Virtual Desktop for Azure Stack HCI is currently in public preview. Azure Stack HCI doesn't currently support certain important Azure Virtual Desktop features. Because of these limitations, we don't recommend using this feature for production workloads yet.
+Azure Virtual Desktop service components, such as host pools, workspaces, and application groups are all deployed in Azure, but you can choose to deploy session hosts on Azure Stack HCI. As Azure Virtual Desktop on Azure Stack HCI isn't an Azure Arc-enabled service, it's not supported as a standalone service outside of Azure, in a multicloud environment, or on other Azure Arc-enabled servers.
 
-## Key benefits
+## Benefits
 
-We've established what Azure Virtual Desktop for Azure Stack HCI is. The question remains: what can it do for you?
-
-With Azure Virtual Desktop for Azure Stack HCI, you can:
+Using Azure Virtual Desktop on Azure Stack HCI, you can:
 
 - Improve performance for Azure Virtual Desktop users in areas with poor connectivity to the Azure public cloud by giving them session hosts closer to their location.
 
-- Meet data locality requirements by keeping app and user data on-premises.  For more information, see [Data locations for Azure Virtual Desktop](data-locations.md).
+- Meet data locality requirements by keeping app and user data on-premises. For more information, see [Data locations for Azure Virtual Desktop](data-locations.md).
 
-- Improve access to legacy on-premises apps and data sources by keeping virtual desktops and apps in the same location.
+- Improve access to legacy on-premises apps and data sources by keeping desktops and apps in the same location.
 
-- Reduce costs and improve user experience with Windows 10 and Windows 11 Enterprise multi-session virtual desktops.
+- Reduce cost and improve user experience with Windows 10 and Windows 11 Enterprise multi-session, which allows multiple concurrent interactive sessions.
 
 - Simplify your VDI deployment and management compared to traditional on-premises VDI solutions by using the Azure portal.
 
-## Pricing
+- Achieve the best performance by using [RDP Shortpath](rdp-shortpath.md?tabs=managed-networks) for low-latency user access.
 
-The following things affect how much it costs to run Azure Virtual Desktop for Azure Stack HCI:
- - Infrastructure costs. You'll pay monthly service fees for Azure Stack HCI. Learn more at [Azure Stack HCI pricing](https://azure.microsoft.com/pricing/details/azure-stack/hci/).
+- Deploy the latest fully patched images quickly and easily using [Azure Marketplace images](/azure-stack/hci/manage/virtual-machine-image-azure-marketplace).
+
+## Supported deployment configurations
+
+Your Azure Stack HCI clusters need to be running a minimum of [version 23H2](/azure-stack/hci/release-information) and [registered with Azure](/azure-stack/hci/deploy/register-with-azure).
+
+Once your cluster is ready, you can use the following 64-bit operating system images for your session hosts that are in support:
+
+- Windows 11 Enterprise multi-session
+- Windows 11 Enterprise
+- Windows 10 Enterprise multi-session
+- Windows 10 Enterprise
+- Windows Server 2022
+- Windows Server 2019
+
+To use session hosts on Azure Stack HCI with Azure Virtual Desktop, you also need to:
+
+- License and activate the virtual machines. For activating Windows 10 and Windows 11 Enterprise multi-session, and Windows Server 2022 Datacenter: Azure Edition, use [Azure verification for VMs](/azure-stack/hci/deploy/azure-verification). For all other OS images (such as Windows 10 and Windows 11 Enterprise, and other editions of Windows Server), you should continue to use existing activation methods. For more information, see [Activate Windows Server VMs on Azure Stack HCI](/azure-stack/hci/manage/vm-activate).
+
+- Install the [Azure Connected Machine agent](/azure/azure-arc/servers/agent-overview) on the virtual machines so they can communicate with [Azure Instance Metadata Service](/azure/virtual-machines/instance-metadata-service), which is a [required endpoint for Azure Virtual Desktop](../virtual-desktop/required-fqdn-endpoint.md). The Azure Connected Machine agent is automatically installed when you add session hosts using the Azure portal as part of the process to [Deploy Azure Virtual Desktop](deploy-azure-virtual-desktop.md) or [Add session hosts to a host pool](add-session-hosts-host-pool.md).
+
+Finally, users can connect using the same [Remote Desktop clients](users/remote-desktop-clients-overview.md) as Azure Virtual Desktop.
+
+## Licensing and pricing
+
+To run Azure Virtual Desktop on Azure Stack HCI, you need to make sure you're licensed correctly and be aware of the pricing model. There are three components that affect how much it costs to run Azure Virtual Desktop on Azure Stack HCI:
+
+- **User access rights.** The same licenses that grant access to Azure Virtual Desktop on Azure also apply to Azure Virtual Desktop on Azure Stack HCI. Learn more at [Azure Virtual Desktop pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/).
+
+- **Azure Stack HCI service fee.** Learn more at [Azure Stack HCI pricing](https://azure.microsoft.com/pricing/details/azure-stack/hci/).
  
-- User access rights for Azure Virtual Desktop. The same licenses that grant access to Azure Virtual Desktop in the cloud also apply to Azure Virtual Desktop for Azure Stack HCI. Learn more at [Azure Virtual Desktop pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/).
+- **Azure Virtual Desktop for Azure Stack HCI service fee.** This fee requires you to pay for each active virtual CPU (vCPU) for your Azure Virtual Desktop session hosts running on Azure Stack HCI. Learn more at [Azure Virtual Desktop pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/).
 
-- The Azure Virtual Desktop hybrid service fee. This fee requires you to pay for each active virtual CPU (vCPU) of Azure Virtual Desktop session hosts you're running on Azure Stack HCI. This fee will become active once the preview period ends.
+## Data storage
 
-## Known issues and limitations
+There are different classifications of data for Azure Virtual Desktop, such as customer input, customer data, diagnostic data, and service-generated data. With Azure Stack HCI, you can choose to store user data on-premises when you deploy session host virtual machines (VMs) and associated services such as file servers. However, some customer data, diagnostic data, and service-generated data is still stored in Azure. For more information on how Azure Virtual Desktop stores different kinds of data, see [Data locations for Azure Virtual Desktop](data-locations.md).
 
-We're aware of the following issues affecting the public preview version of Azure Virtual Desktop for Azure Stack HCI:
+## Limitations
 
-- Azure Stack HCI host pools don't currently support the following Azure Virtual Desktop features:
-    
-    - [Azure Monitor for Azure Virtual Desktop](azure-monitor.md)
-    - [Session host scaling with Azure Automation](set-up-scaling-script.md)
-    - [Autoscale (preview)](autoscale-scaling-plan.md)
-    - [Start VM on connect](start-virtual-machine-connect.md)
-    - [Multimedia redirection (preview)](multimedia-redirection.md)
-    - [Per-user access pricing](./remote-app-streaming/licensing.md)
+Azure Virtual Desktop on Azure Stack HCI has the following limitations:
 
-- The Azure Virtual Desktop tab in the Azure portal can't create new virtual machines directly on Azure Stack HCI infrastructure. Instead, admins must create on-premises virtual machines separately, then register them with an Azure Virtual Desktop host pool.
+- Each host pool must only contain session hosts on Azure or on Azure Stack HCI. You can't mix session hosts on Azure and on Azure Stack HCI in the same host pool.
 
-- When connecting to a Windows 10 or 11 Enterprise multi-session virtual desktop, users may see activation issues, such as a desktop watermark saying "Activate Windows," even if they have an eligible license.
+- Azure Stack HCI supports many types of hardware and on-premises networking capabilities, so performance and user density might vary compared to session hosts running on Azure. Azure Virtual Desktop's [virtual machine sizing guidelines](/windows-server/remote/remote-desktop-services/virtual-machine-recs) are broad, so you should use them for initial performance estimates and monitor after deployment.
 
-- Azure Virtual Desktop for Azure Stack HCI doesn't currently support host pools containing both cloud and on-premises session hosts. Each host pool in the deployment must have only one type of host pool.
+- You can only join session hosts on Azure Stack HCI to an Active Directory Domain Services domain.
 
-- Session hosts on Azure Stack HCI don't support certain cloud-only Azure services.
+## Next step
 
-- Because Azure Stack HCI supports so many types of hardware and on-premises networking capabilities that performance and user density may vary widely between session hosts running in the Azure cloud. Azure Virtual Desktop's [virtual machine sizing guidelines](/windows-server/remote/remote-desktop-services/virtual-machine-recs) are broad, so you should only use them for initial performance estimates.
-
-If there are any issues you encounter during the preview that aren't on this list, we encourage you to report them.
-
-## Next steps
-
-Now that you’re familiar with Azure Virtual Desktop for Azure Stack HCI, learn how to deploy this feature at [Set up Azure Virtual Desktop for Azure Stack HCI (preview)](azure-stack-hci.md).
+To learn how to deploy Azure Virtual Desktop on Azure Stack HCI, see [Deploy Azure Virtual Desktop](deploy-azure-virtual-desktop.md).

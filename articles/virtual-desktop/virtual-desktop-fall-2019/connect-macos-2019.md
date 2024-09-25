@@ -1,18 +1,18 @@
 ---
 title: Connect to Azure Virtual Desktop (classic) from macOS - Azure
 description: How to connect to Azure Virtual Desktop (classic) using the macOS client.
-author: Heidilohr
+author: dknappettmsft
 ms.topic: how-to
 ms.date: 03/30/2020
-ms.author: helohr
-manager: femila
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
 # Connect to Azure Virtual Desktop (classic) with the macOS client
 
 > Applies to: macOS 10.12 or later
 
 >[!IMPORTANT]
->This content applies to Azure Virtual Desktop (classic), which doesn't support Azure Resource Manager Azure Virtual Desktop objects. If you're trying to manage Azure Resource Manager Azure Virtual Desktop objects, see [this article](../user-documentation/connect-macos.md).
+>This content applies to Azure Virtual Desktop (classic), which doesn't support Azure Resource Manager Azure Virtual Desktop objects. If you're trying to manage Azure Resource Manager Azure Virtual Desktop objects, see [this article](../users/connect-macos.md).
 
 You can access Azure Virtual Desktop resources from your macOS devices with our downloadable client. This guide will tell you how to set up the client.
 

@@ -1,7 +1,7 @@
 ---
 title: Manage your IoT devices with the cloud device inventory
 description: Learn how to manage your IoT devices with the device inventory.
-ms.date: 11/10/2021
+ms.date: 01/01/2023
 ms.topic: how-to
 ---
 
@@ -20,6 +20,8 @@ Some of the benefits of the device inventory include:
 - Gain visibility into each device, and investigate the different threats, and alerts for each one.
 
 - Export the entire device inventory to a CSV file for your reports.
+
+[!INCLUDE [device-agents-note](../includes/device-agents-note.md)]
 
 ## Device inventory overview
 

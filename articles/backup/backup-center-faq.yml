@@ -4,9 +4,9 @@ metadata:
   description: This article answers frequently asked questions about Backup center.
   ms.date: 02/14/2022
   ms.topic: faq
-  ms.service: backup
-  author: v-amallick
-  ms.author: v-amallick
+  ms.service: azure-backup
+  author: AbhishekMallick-MS
+  ms.author: v-abhmallick
 title: Backup center - Frequently asked questions
 summary: This article answers frequently asked questions about Backup center.
 sections:
@@ -14,7 +14,7 @@ sections:
     questions:
       - question: Can Backup center be used across tenants? 
         answer: |
-          Yes, if you're using [Azure Lighthouse](../lighthouse/overview.md) and have delegated access to subscriptions across different tenants, you can use Backup Center as a single pane of glass to manage backups across tenants.
+          Yes, if you're using [Azure Lighthouse](/azure/lighthouse/overview) and have delegated access to subscriptions across different tenants, you can use Backup Center as a single pane of glass to manage backups across tenants.
       - question: Can Backup center be used to manage both Recovery Services vaults and Backup vaults? 
         answer: |
           Yes, Backup center can manage both [Recovery Services vaults](./backup-azure-recovery-services-vault-overview.md) and [Backup vaults](backup-vault-overview.md).

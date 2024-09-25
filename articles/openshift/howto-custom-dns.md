@@ -1,20 +1,20 @@
 ---
-title: Configure custom DNS resources in an Azure Red Hat OpenShift (ARO) cluster
-description: Discover how to add a custom DNS server on all of your nodes in Azure Red Hat OpenShift (ARO).
-author: sakthi-vetrivel
-ms.author: suvetriv
+title: Configure a custom DNS resolver in an Azure Red Hat OpenShift (ARO) cluster
+description: Discover how to add a custom DNS resolver on all of your nodes in Azure Red Hat OpenShift (ARO).
+author: johnmarco
+ms.author: johnmarc
 ms.service: azure-redhat-openshift
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/02/2021
 #Customer intent: As an operator or developer, I need a custom DNS configured for an Azure Red Hat OpenShift cluster
 ---
-# Configure custom DNS for your Azure Red Hat OpenShift (ARO) cluster
+# Configure a custom DNS resolver for your Azure Red Hat OpenShift (ARO) cluster
 
 This article provides the necessary details that allow you to configure your Azure Red Hat OpenShift cluster (ARO) to use a custom DNS server. It contains the cluster requirements for a basic ARO deployment.
 
 ## Before you begin
 
-This article assumes that you're creating a new cluster or have an existing cluster with latest updates applied. If you need an ARO cluster, see the [ARO quickstart](./tutorial-create-cluster.md) for a public cluster, or the [private cluster tutorial](./howto-create-private-cluster-4x.md) for a private cluster. These steps to configure your cluster to use a custom DNS server are the same for both private and public clusters.
+This article assumes that you're creating a new cluster or have an existing cluster with latest updates applied. If you need an ARO cluster, see the [ARO quickstart](./create-cluster.md) for a public cluster, or the [private cluster tutorial](./howto-create-private-cluster-4x.md) for a private cluster. These steps to configure your cluster to use a custom DNS server are the same for both private and public clusters.
 
 ### Confirm cluster compatibility with custom DNS
 
@@ -80,7 +80,7 @@ You should receive a notification that your update was successful.
 
 ### Gracefully reboot your cluster
 
-These steps require having a valid kubeconfig to your cluster, see [this tutorial](./tutorial-connect-cluster.md) for details on how to obtain a kubeconfig.
+These steps require having a valid kubeconfig to your cluster, see [this tutorial](./connect-cluster.md) for details on how to obtain a kubeconfig.
 
 The following code snippets create noop `machineconfig`'s for master and worker nodes. This allows you to initiate rolling reboots for either the worker or master nodes. For more information about the Machine Config Operator (MCO), please see either [the source code](https://github.com/openshift/machine-config-operator) or the [OpenShift docs for MCO
 ](https://docs.openshift.com/container-platform/4.6/architecture/control-plane.html).
@@ -140,7 +140,7 @@ Create the worker restart file, this example calls the file `worker-restarts.yml
 machineconfig.machineconfiguration.openshift.io/25-machineconfig-worker-reboot created
 ```
 
-The MCO will move workloads and then reboot each node one at a time. Once the workers have come back online, we will follow the same procedure to reboot the master nodes. You can verify the status of the workers by querying the nodes and validate they are all in the `Ready` state.
+The MCO moves workloads and then reboots each node one at a time. Once the workers have come back online, we'll follow the same procedure to reboot the master nodes. You can verify the status of the workers by querying the nodes and validate they're all in the `Ready` state.
 
 >[!NOTE]
 > Depending on the size of the workload the cluster has, it can take several minutes for each node to reboot.
@@ -239,7 +239,7 @@ The output:
 machineconfig.machineconfiguration.openshift.io "25-machineconfig-worker-reboot" deleted
 ```
 
-Wait for all of the worker nodes to reboot. This is similar to the the [reboot of worker nodes](#reboot-worker-nodes) above.
+Wait for all of the worker nodes to reboot. This is similar to the [reboot of worker nodes](#reboot-worker-nodes) above.
 
 Now we'll reboot the master nodes.
 

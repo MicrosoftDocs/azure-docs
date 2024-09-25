@@ -1,13 +1,10 @@
 ---
 title: Create UI definition conversion functions
 description: Describes the functions to use when converting values between data types and encodings.
-author: davidsmatlak
-
-ms.topic: conceptual
-ms.date: 07/13/2020
-ms.author: davidsmatlak
-
+ms.topic: reference
+ms.date: 06/21/2024
 ---
+
 # CreateUiDefinition conversion functions
 
 These functions can be used to convert values between JSON data types and encodings.
@@ -170,4 +167,4 @@ The following example returns `"{"type":"webapp"}"`:
 
 ## Next steps
 
-* For an introduction to Azure Resource Manager, see [Azure Resource Manager overview](../management/overview.md).
+- For an introduction to Azure Resource Manager, see [Azure Resource Manager overview](../management/overview.md).

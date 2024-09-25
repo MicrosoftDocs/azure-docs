@@ -1,101 +1,208 @@
 ---
-title: Azure Cloud Shell features | Microsoft Docs
 description: Overview of features in Azure Cloud Shell
-services: Azure
-documentationcenter: ''
-author: theJasonHelmick
-manager: timlt
+ms.contributor: jahelmic
+ms.date: 06/05/2024
+ms.topic: overview
 tags: azure-resource-manager
-
-ms.assetid:
-ms.service: azure-resource-manager
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-ms.topic: article
-ms.date: 09/20/2022
-ms.author: jahelmic
+title: Azure Cloud Shell features
 ---
-
 # Features & tools for Azure Cloud Shell
 
-[!INCLUDE [features-introblock](../../includes/cloud-shell-features-introblock.md)]
+Azure Cloud Shell is a browser-based terminal that provides an authenticated, preconfigured shell
+experience for managing Azure resources. Cloud Shell comes with the tools you need, already
+installed.
 
-Azure Cloud Shell runs on **Common Base Linux - Mariner** (CBL-Mariner),
-Microsoft's Linux distribution for cloud-infrastructure-edge products and services.
-
-Microsoft internally compiles all the packages included in the **CBL-Mariner** repository to help
-guard against supply chain attacks. Tooling has been updated to reflect the new base image
-CBL-Mariner. You can get a full list of installed package versions using the following command:
-`tdnf list installed`. If these changes affected your Cloud Shell environment, please contact
-Azuresupport or create an issue in the
-[Cloud Shell repository](https://github.com/Azure/CloudShell/issues).
+Azure Cloud Shell runs on **Azure Linux**, Microsoft's Linux distribution for cloud infrastructure
+edge products and services. You can choose Bash or PowerShell as your default shell.
 
 ## Features
 
-### Secure automatic authentication
+### Secure environment
 
-Cloud Shell securely and automatically authenticates account access for the Azure CLI and Azure PowerShell.
+Microsoft internally compiles all the packages included in the **Azure Linux** repository to help
+guard against supply chain attacks. For more information or to request changes to the **Azure
+Linux** image, see the [Cloud Shell GitHub repository][24].
+
+Cloud Shell automatically authenticates your Azure account to allow secure access for Azure CLI,
+Azure PowerShell, and other cloud management tools.
 
 ### $HOME persistence across sessions
 
-To persist files across sessions, Cloud Shell walks you through attaching an Azure file share on first launch.
-Once completed, Cloud Shell will automatically attach your storage (mounted as `$HOME\clouddrive`) for all future sessions.
-Additionally, your `$HOME` directory is persisted as an .img in your Azure File share.
-Files outside of `$HOME` and machine state are not persisted across sessions. Use best practices when storing secrets such as SSH keys. Services like [Azure Key Vault have tutorials for setup](../key-vault/general/manage-with-cli2.md#prerequisites).
+When you start Cloud Shell for the first time, you have the option of using Cloud Shell with or
+without an attached storage account. Choosing to continue without storage is the fastest way to
+start using Cloud Shell. Using Cloud Shell without storage is known as an _ephemeral session_. When
+you close the Cloud Shell window, all files you saved are deleted and don't persist across sessions.
 
-[Learn more about persisting files in Cloud Shell.](persisting-shell-storage.md)
+To persist files across sessions, you can choose to mount a storage account. Cloud Shell
+automatically attaches your storage (mounted as `$HOME\clouddrive`) for all future sessions.
+Additionally, your `$HOME` directory is persisted as an `.img` file in your Azure File share. The
+machine state and files outside of `$HOME` aren't persisted across sessions. Learn more about
+[Persisting files in Cloud Shell][32].
+
+Use best practices when storing secrets such as SSH keys. You can use Azure Key Vault to securely
+store and retrieve your keys. For more information, see [Manage Key Vault using the Azure CLI][05].
 
 ### Azure drive (Azure:)
 
-PowerShell in Cloud Shell provides the Azure drive (`Azure:`). You can switch to the Azure drive with `cd Azure:` and back to your home directory with `cd  ~`.
-The Azure drive enables easy discovery and navigation of Azure resources such as Compute, Network, Storage etc. similar to filesystem navigation.
-You can continue to use the familiar [Azure PowerShell cmdlets](/powershell/azure) to manage these resources regardless of the drive you are in.
-Any changes made to the Azure resources, either made directly in Azure portal or through Azure PowerShell cmdlets, are reflected in the Azure drive.  You can run `dir -Force` to refresh your resources.
+PowerShell in Cloud Shell provides the Azure drive (`Azure:`). You can switch to the Azure drive
+with `cd Azure:` and back to your home directory with `cd  ~`. The Azure drive enables easy
+discovery and filesystem-like navigation of Azure resources such as Compute, Network, Storage, and
+others. You can continue to use the familiar [Azure PowerShell cmdlets][09] to manage these
+resources regardless of the drive you are in.
 
-![Screenshot of an Azure Cloud Shell being initialized and a list of directory resources.](media/features-powershell/azure-drive.png)
-
-### Manage Exchange Online
-
-PowerShell in Cloud Shell contains a private build of the Exchange Online module.  Run `Connect-EXOPSSession` to get your Exchange cmdlets.
-
-![Screenshot of an Azure Cloud Shell running the commands Connect-EXOPSSession and Get-User.](media/features-powershell/exchangeonline.png)
-
- Run `Get-Command -Module tmp_*`
 > [!NOTE]
-> The module name should begin with `tmp_`, if you have installed modules with the same prefix, their cmdlets will also be surfaced. 
+> Any changes made to the Azure resources, either made directly in Azure portal or through Azure
+> PowerShell cmdlets, are reflected in the `Azure:` drive. However, you must run `dir -Force` to
+> refresh the view of your resources in the `Azure:`.
 
-![Screenshot of an Azure Cloud Shell running the command Get-Command -Module tmp_*.](media/features-powershell/exchangeonlinecmdlets.png)
+### Deep integration with open source tooling
 
-### Deep integration with open-source tooling
+Cloud Shell includes preconfigured authentication for open source tools such as Terraform, Ansible,
+and Chef InSpec. For more information, see the following articles:
 
-Cloud Shell includes pre-configured authentication for open-source tools such as Terraform, Ansible, and Chef InSpec. Try it out from the example walkthroughs.
+- [Run Ansible playbook][03]
+- [Manage your Azure dynamic inventories][02]
+- [Install and configure Terraform][04]
 
-## Tools
+## Preinstalled tools
 
-|Category   |Name   |
-|---|---|
-|Linux tools            |bash<br> zsh<br> sh<br> tmux<br> dig<br>               |
-|Azure tools            |[Azure CLI](https://github.com/Azure/azure-cli) and [Azure classic CLI](https://github.com/Azure/azure-xplat-cli)<br> [AzCopy](../storage/common/storage-use-azcopy-v10.md)<br> [Azure Functions CLI](https://github.com/Azure/azure-functions-core-tools)<br> [Service Fabric CLI](../service-fabric/service-fabric-cli.md)<br> [Batch Shipyard](https://github.com/Azure/batch-shipyard)<br> [blobxfer](https://github.com/Azure/blobxfer)|
-|Text editors           |code (Cloud Shell editor)<br> vim<br> nano<br> emacs    |
-|Source control         |git                    |
-|Build tools            |make<br> maven<br> npm<br> pip         |
-|Containers             |[Docker Machine](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [DC/OS CLI](https://github.com/dcos/dcos-cli)         |
-|Databases              |MySQL client<br> PostgreSql client<br> [sqlcmd Utility](/sql/tools/sqlcmd-utility)<br> [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli) |
-|Other                  |iPython Client<br> [Cloud Foundry CLI](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef InSpec](https://www.chef.io/inspec/)<br> [Puppet Bolt](https://puppet.com/docs/bolt/latest/bolt.html)<br> [HashiCorp Packer](https://www.packer.io/)<br> [Office 365 CLI](https://pnp.github.io/office365-cli/)|
+The most commonly used tools are preinstalled in Cloud Shell. This curated collection of tools is
+updated monthly. Use the following commands to see the current list of tools and versions.
 
-## Language support
+- In PowerShell, use the `Get-Module -ListAvailable` command to get a list of installed module
+- In Bash or PowerShell
+  - Use the `tdnf list` command to list the TDNF packages that are installed
+  - Use the `pip3 list` command to list the Python packages that are installed
 
-|Language   |Version   |
-|---|---|
-|.NET Core  |[3.1.302](https://github.com/dotnet/core/blob/master/release-notes/3.1/3.1.6/3.1.302-download.md)       |
-|Go         |1.9        |
-|Java       |1.8        |
-|Node.js    |8.16.0      |
-|PowerShell |[7.0.0](https://github.com/PowerShell/powershell/releases)       |
-|Python     |2.7 and 3.7 (default)|
+### Azure tools
+
+Cloud Shell comes with the following Azure command-line tools preinstalled:
+
+- [Azure CLI][08]
+- [Azure PowerShell][09]
+- [Az.Tools.Predictor][10]
+- [AzCopy][07]
+- [Service Fabric CLI][06]
+
+### Other Microsoft services
+
+- [Office 365 CLI][28]
+- [Exchange Online PowerShell][11]
+- A basic set of [Microsoft Graph PowerShell][12] modules
+  - Microsoft.Graph.Applications
+  - Microsoft.Graph.Authentication
+  - Microsoft.Graph.Groups
+  - Microsoft.Graph.Identity.DirectoryManagement
+  - Microsoft.Graph.Identity.Governance
+  - Microsoft.Graph.Identity.SignIns
+  - Microsoft.Graph.Users.Actions
+  - Microsoft.Graph.Users.Functions
+- [MicrosoftPowerBIMgmt][13] PowerShell modules
+- [SqlServer][14] PowerShell modules
+
+### Productivity tools
+
+Linux tools
+
+- `bash`
+- `zsh`
+- `sh`
+- `tmux`
+- `dig`
+
+Text editors
+
+- Cloud Shell editor (code)
+- vim
+- nano
+- emacs
+
+### Cloud management tools
+
+- [Docker Desktop][23]
+- [Kubectl][27]
+- [Helm][26]
+- [D2iQ Kubernetes Platform CLI][22]
+- [Cloud Foundry CLI][21]
+- [Terraform][31]
+- [Ansible][30]
+- [Chef InSpec][20]
+- [Puppet Bolt][29]
+- [HashiCorp Packer][19]
+
+### Developer tools
+
+Build tools
+
+- `make`
+- `maven`
+- `npm`
+- `pip`
+
+Source control
+
+- Git
+- GitHub CLI
+
+Database tools
+
+- MySQL client
+- PostgreSql client
+- [sqlcmd Utility][15]
+- [mssql-scripter][25]
+
+Programming languages
+
+- .NET 7.0
+- PowerShell 7.4
+- Node.js
+- Java
+- Python 3.9
+- Ruby
+- Go
+
+## Installing your own tools
+
+If you configured Cloud Shell to use a storage account, you can install your own tools. You can
+install any tool that doesn't require root permissions. For example, you can install Python modules,
+PowerShell modules, Node.js packages, and most packages that can be installed with `wget`.
 
 ## Next steps
-[Bash in Cloud Shell Quickstart](quickstart.md) <br>
-[PowerShell in Cloud Shell Quickstart](quickstart-powershell.md) <br>
-[Learn about Azure CLI](/cli/azure/) <br>
-[Learn about Azure PowerShell](/powershell/azure/) <br>
+
+- [Cloud Shell Quickstart][16]
+- [Learn about Azure CLI][08]
+- [Learn about Azure PowerShell][09]
+
+<!-- link references -->
+[01]: /azure/azure-functions/functions-run-local
+[02]: /azure/developer/ansible/dynamic-inventory-configure
+[03]: /azure/developer/ansible/getting-started-cloud-shell
+[04]: /azure/developer/terraform/quickstart-configure
+[05]: /azure/key-vault/general/manage-with-cli2#prerequisites
+[06]: /azure/service-fabric/service-fabric-cli
+[07]: /azure/storage/common/storage-use-azcopy-v10
+[08]: /cli/azure/
+[09]: /powershell/azure
+[10]: /powershell/azure/predictor-overview
+[11]: /powershell/exchange/exchange-online-powershell
+[12]: /powershell/module/?term=Microsoft.Graph
+[13]: /powershell/module/?term=MicrosoftPowerBIMgmt
+[14]: /powershell/module/sqlserver
+[15]: /sql/tools/sqlcmd-utility
+[16]: get-started.md
+[17]: https://batch-shipyard.readthedocs.io/en/latest/
+[18]: https://blobxfer.readthedocs.io/en/latest/
+[19]: https://developer.hashicorp.com/packer/docs
+[20]: https://docs.chef.io/
+[21]: https://docs.cloudfoundry.org/cf-cli/
+[22]: https://docs.d2iq.com/dkp/2.6/azure-infrastructure
+[23]: https://docs.docker.com/desktop/
+[24]: https://github.com/Azure/CloudShell
+[25]: https://github.com/microsoft/mssql-scripter/blob/dev/doc/usage_guide.md
+[26]: https://helm.sh/docs/
+[27]: https://kubernetes.io/docs/reference/kubectl/
+[28]: https://pnp.github.io/office365-cli/
+[29]: https://puppet.com/docs/bolt/latest/bolt.html
+[30]: /azure/developer/ansible/overview
+[31]: https://www.terraform.io/docs/providers/azurerm/
+[32]: persisting-shell-storage.md

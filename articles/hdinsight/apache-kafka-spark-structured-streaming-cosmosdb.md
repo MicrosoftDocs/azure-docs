@@ -1,19 +1,19 @@
 ---
-title: Apache Spark & Apache Kafka with Cosmos DB - Azure HDInsight
+title: Apache Spark and Apache Kafka with Azure Cosmos DB - Azure HDInsight
 description: Learn how to use Apache Spark Structured Streaming to read data from Apache Kafka and then store it into Azure Cosmos DB. In this example, you stream data using a Jupyter Notebook from Spark on HDInsight.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-azurecli
-ms.date: 04/08/2022
+ms.date: 12/05/2023
 ---
 
 # Use Apache Spark Structured Streaming with Apache Kafka and Azure Cosmos DB
 
 Learn how to use [Apache Spark](https://spark.apache.org/) [Structured Streaming](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html) to read data from [Apache Kafka](https://kafka.apache.org/) on Azure HDInsight, and then store the data into Azure Cosmos DB.
 
-[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is a globally distributed, multi-model database. This example uses a SQL API database model. For more information, see the [Welcome to Azure Cosmos DB](../cosmos-db/introduction.md) document.
+[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is a globally distributed, multi-model database. This example uses an Azure Cosmos DB for NoSQL database model. For more information, see the [Welcome to Azure Cosmos DB](/azure/cosmos-db/introduction) document.
 
-Spark structured streaming is a stream processing engine built on Spark SQL. It allows you to express streaming computations the same as batch computation on static data. For more information on Structured Streaming, see the [Structured Streaming Programming Guide](https://spark.apache.org/docs/2.2.0/structured-streaming-programming-guide.html) at Apache.org.
+Spark structured streaming is a stream processing engine built on Spark SQL. It allows you to express streaming computations the same as batch computation on static data. For more information on Structured Streaming, see the [Structured Streaming Programming Guide](https://archive.apache.org/dist/spark/docs/2.2.0/structured-streaming-programming-guide.html) at Apache.org.
 
 > [!IMPORTANT]  
 > This example uses Spark 2.4 on HDInsight 4.0.
@@ -26,7 +26,7 @@ Spark structured streaming is a stream processing engine built on Spark SQL. It 
 
 Apache Kafka on HDInsight doesn't provide access to the Kafka brokers over the public internet. Anything that talks to Kafka must be in the same Azure virtual network as the nodes in the Kafka cluster. For this example, both the Kafka and Spark clusters are located in an Azure virtual network. The following diagram shows how communication flows between the clusters:
 
-:::image type="content" source="./media/apache-kafka-spark-structured-streaming-cosmosdb/apache-spark-kafka-vnet.png" alt-text="Diagram of Spark and Kafka clusters in an Azure virtual network" border="false":::
+:::image type="content" source="./media/apache-kafka-spark-structured-streaming-cosmosdb/apache-spark-kafka-vnet.png" alt-text="Diagram of Spark and Kafka clusters in an Azure virtual network." border="false":::
 
 > [!NOTE]  
 > The Kafka service is limited to communication within the virtual network. Other services on the cluster, such as SSH and Ambari, can be accessed over the internet. For more information on the public ports available with HDInsight, see [Ports and URIs used by HDInsight](hdinsight-hadoop-port-settings-for-services.md).
@@ -49,7 +49,7 @@ While you can create an Azure virtual network, Kafka, and Spark clusters manuall
 
    * An Azure Virtual Network, which contains the HDInsight clusters. The virtual network created by the template uses the 10.0.0.0/16 address space.
 
-   * An Azure Cosmos DB SQL API database.
+   * An Azure Cosmos DB for NoSQL database.
 
     > [!IMPORTANT]  
     > The structured streaming notebook used in this example requires Spark on HDInsight 4.0. If you use an earlier version of Spark on HDInsight, you receive errors when using the notebook.
@@ -60,7 +60,7 @@ While you can create an Azure virtual network, Kafka, and Spark clusters manuall
     |---|---|
     |Subscription|Select your Azure subscription.|
     |Resource group|Create a group or select an existing one. This group contains the HDInsight cluster.|
-    |Cosmos DB Account Name|This value is used as the name for the Cosmos DB account. The name can only contain lowercase letters, numbers, and the hyphen (-) character. It must be between 3-31 characters in length.|
+    |Azure Cosmos DB Account Name|This value is used as the name for the Azure Cosmos DB account. The name can only contain lowercase letters, numbers, and the hyphen (-) character. It must be between 3-31 characters in length.|
     |Base Cluster Name|This value is used as the base name for the Spark and Kafka clusters. For example, entering **myhdi** creates a Spark cluster named __spark-myhdi__ and a Kafka cluster named **kafka-myhdi**.|
     |Cluster Version|The HDInsight cluster version. This example is tested with HDInsight 4.0, and may not work with other cluster types.|
     |Cluster Login User Name|The admin user name for the Spark and Kafka clusters.|
@@ -68,15 +68,15 @@ While you can create an Azure virtual network, Kafka, and Spark clusters manuall
     |Ssh User Name|The SSH user to create for the Spark and Kafka clusters.|
     |Ssh Password|The password for the SSH user for the Spark and Kafka clusters.|
 
-    :::image type="content" source="./media/apache-kafka-spark-structured-streaming-cosmosdb/hdi-custom-parameters.png" alt-text="HDInsight custom deployment values":::
+    :::image type="content" source="./media/apache-kafka-spark-structured-streaming-cosmosdb/hdi-custom-parameters-40.png" alt-text="HDInsight version 4.0 custom deployment values.":::
 
 1. Read the **Terms and Conditions**, and then select **I agree to the terms and conditions stated above**.
 
-1. Finally, select **Purchase**. It may take up to 45 minutes to create the clusters, virtual network, and Cosmos DB account.
+1. Finally, select **Purchase**. It may take up to 45 minutes to create the clusters, virtual network, and Azure Cosmos DB account.
 
-## Create the Cosmos DB database and collection
+## Create the Azure Cosmos DB database and collection
 
-The project used in this document stores data in Cosmos DB. Before running the code, you must first create a _database_ and _collection_ in your Cosmos DB instance. You must also retrieve the document endpoint and the _key_ used to authenticate requests to Cosmos DB.
+The project used in this document stores data in Azure Cosmos DB. Before running the code, you must first create a _database_ and _collection_ in your Azure Cosmos DB instance. You must also retrieve the document endpoint and the _key_ used to authenticate requests to Azure Cosmos DB.
 
 One way to do this is to use the [Azure CLI](/cli/azure/). The following script will create a database named `kafkadata` and a collection named `kafkacollection`. It then returns the primary key.
 
@@ -85,7 +85,7 @@ One way to do this is to use the [Azure CLI](/cli/azure/). The following script 
 
 # Replace 'myresourcegroup' with the name of your resource group
 resourceGroupName='myresourcegroup'
-# Replace 'mycosmosaccount' with the name of your Cosmos DB account name
+# Replace 'mycosmosaccount' with the name of your Azure Cosmos DB account name
 name='mycosmosaccount'
 
 # WARNING: If you change the databaseName or collectionName
@@ -154,4 +154,4 @@ Now that you've learned how to use Apache Spark Structured Streaming, see the fo
 
 * [How to use Apache Spark streaming (DStream) with Apache Kafka](hdinsight-apache-spark-with-kafka.md).
 * [Start with Jupyter Notebook and Apache Spark on HDInsight](spark/apache-spark-jupyter-spark-sql.md)
-* [Welcome to Azure Cosmos DB](../cosmos-db/introduction.md)
+* [Welcome to Azure Cosmos DB](/azure/cosmos-db/introduction)

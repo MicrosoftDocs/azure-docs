@@ -5,12 +5,12 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: apseth, divswa, azla
 ms.topic: how-to
-ms.date: 05/29/2020
+ms.date: 01/04/2024
 ---
 
 # Send related messages in order by using a sequential convoy in Azure Logic Apps with Azure Service Bus
 
-[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 
 When you need to send correlated messages in a specific order, you can follow the [*sequential convoy* pattern](/azure/architecture/patterns/sequential-convoy) when using [Azure Logic Apps](../logic-apps/logic-apps-overview.md) by using the [Azure Service Bus connector](../connectors/connectors-create-api-servicebus.md). Correlated messages have a property that defines the relationship between those messages, such as the ID for the [session](../service-bus-messaging/message-sessions.md) in Service Bus.
 
@@ -36,7 +36,7 @@ For more information, see [Sequential convoy pattern - Azure Architecture Cloud 
 
   [!INCLUDE [Warning about creating infinite loops](../../includes/connectors-infinite-loops.md)]
 
-* Basic knowledge about how to create logic apps. If you're new to Azure Logic Apps, try the quickstart, [Create your first automated workflow](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* Basic knowledge about how to create logic apps. If you're new to Azure Logic Apps, try the [quickstart that creates an example Consumption logic app workflow in multi-tenant Azure Logic Apps](../logic-apps/quickstart-create-example-consumption-workflow.md).
 
 <a name="permissions-connection-string"></a>
 

@@ -4,11 +4,10 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to transform data at scale in Azure Data Factory and Azure Synapse Analytics with the mapping data flow Derived Column transformation.
 author: kromerm
 ms.author: makromer
-ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/03/2022
+ms.date: 01/05/2024
 ---
 
 # Derived column transformation in mapping data flow
@@ -86,6 +85,6 @@ MoviesYear derive(
             ) ~> CleanData
 ```
 
-## Next steps
+## Related content
 
 - Learn more about the [Mapping Data Flow expression language](data-transformation-functions.md).

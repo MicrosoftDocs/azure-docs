@@ -3,14 +3,10 @@ title: Create Virtual Machines in Azure Government | Microsoft Docs
 description: This tutorial shows steps for creating Virtual Machines with Azure Government
 services: azure-government
 cloud: gov
-documentationcenter: ''
 
 ms.service: azure-government
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: azure-government
 ms.date: 08/10/2018
-
 #Customer intent: As a developer working for a federal government agency "x", I want to connect to Azure Government and provision a VM in the Azure Government cloud because i want to be sure that my agency meets government security and compliance requirements.
 ---
 
@@ -18,7 +14,7 @@ ms.date: 08/10/2018
 
 Microsoft Azure Government delivers a dedicated cloud with world-class security and compliance, enabling US government agencies and their partners to transform their workloads to the cloud. For example, your workload may include using virtual machines. Before provisioning a VM, you need to create and configure a virtual network for your environment. A virtual network enables resources to securely communicate with each other (within Azure and with servers accessing Azure).
 
-This tutorial shows how to connect to Azure Government, create a virtual network and a virtual machine on this network in Azure Government cloud. The Azure Government marketplace provides a VM library, in this tutorial we use "Data Science Virtual Machine - Windows 2016 CSP". To learn more about Azure Virtual Machines and see end-to-end scenarios, see [Virtual Machines Documentation](../virtual-machines/index.yml).
+This tutorial shows how to connect to Azure Government, create a virtual network and a virtual machine on this network in Azure Government cloud. The Azure Government marketplace provides a VM library, in this tutorial we use "Data Science Virtual Machine - Windows 2016 CSP". To learn more about Azure Virtual Machines and see end-to-end scenarios, see [Virtual Machines Documentation](/azure/virtual-machines/).
 
 In this tutorial, you learn how to:
 
@@ -139,4 +135,3 @@ This tutorial showed you how to create Virtual Machines in Azure Government. To 
 
 > [!div class="nextstepaction"]
 > [Microsoft Azure Government Blog](https://blogs.msdn.microsoft.com/azuregov/).
-

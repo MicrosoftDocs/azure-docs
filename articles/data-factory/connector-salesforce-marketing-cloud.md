@@ -4,11 +4,10 @@ description: Learn how to copy data from Salesforce Marketing Cloud to supported
 titleSuffix: Azure Data Factory & Azure Synapse
 ms.author: jianleishen
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/02/2022
+ms.date: 10/20/2023
 ---
 
 # Copy data from Salesforce Marketing Cloud using Azure Data Factory or Synapse Analytics
@@ -26,14 +25,14 @@ This Salesforce Marketing Cloud connector is supported for the following capabil
 |[Copy activity](copy-activity-overview.md) (source/-)|&#9312; &#9313;|
 |[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|
 
-<small>*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*</small>
+*&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
 For a list of data stores that are supported as sources/sinks, see the [Supported data stores](connector-overview.md#supported-data-stores) table.
 
 The Salesforce Marketing Cloud connector supports OAuth 2 authentication, and it supports both legacy and enhanced package types. The connector is built on top of the [Salesforce Marketing Cloud REST API](https://developer.salesforce.com/docs/atlas.en-us.mc-apis.meta/mc-apis/index-api.htm).
 
 >[!NOTE]
->This connector doesn't support retrieving custom objects or custom data extensions.
+>This connector doesn't support retrieving views, custom objects or custom data extensions.
 
 ## Getting started
 
@@ -61,6 +60,9 @@ Use the following steps to create a linked service to Salesforce Marketing Cloud
 1. Configure the service details, test the connection, and create the new linked service.
 
    :::image type="content" source="media/connector-salesforce-marketing-cloud/configure-salesforce-marketing-cloud-linked-service.png" alt-text="Configure a linked service to Salesforce Marketing Cloud.":::
+   
+>[!NOTE]
+> The API integration scope on the Salesforce Marketing Cloud must be set to Hub | Campaign | Read in order for the connector to succeed.
 
 ## Connector configuration details
 
@@ -237,5 +239,5 @@ To copy data from Salesforce Marketing Cloud, set the source type in the copy ac
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
-## Next steps
+## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

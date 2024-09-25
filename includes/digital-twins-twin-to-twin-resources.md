@@ -1,7 +1,7 @@
 ---
 author: baanders
 description: include file describing how to set up an Event Grid endpoint and route
-ms.service: digital-twins
+ms.service: azure-digital-twins
 ms.topic: include
 ms.date: 7/21/2021
 ms.author: baanders
@@ -48,7 +48,7 @@ Next, create an Azure Digital Twins route that sends events to the Event Grid en
 Use the following CLI command, filling in the name of your endpoint from the previous step and the other placeholder fields as needed. This command forwards all events that occur in the twin graph. 
 
 >[!TIP]
->You can limit the events to only specific ones if you want, by using [filters](../articles/digital-twins/how-to-manage-routes.md?tabs=portal%2Cportal2%2Cportal3#filter-events).
+>You can limit the events to only specific ones if you want, by using [filters](../articles/digital-twins/how-to-create-routes.md?tabs=portal%2Cportal2%2Cportal3#filter-events).
 
 ```azurecli-interactive
 az dt route create --dt-name <your-Azure-Digital-Twins-instance> --endpoint-name <your-Azure-Digital-Twins-endpoint> --route-name <name-for-your-Azure-Digital-Twins-route>

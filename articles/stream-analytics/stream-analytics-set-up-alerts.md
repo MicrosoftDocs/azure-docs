@@ -1,12 +1,10 @@
 ---
 title: Set up monitoring alerts for Azure Stream Analytics jobs
 description: This article describes how to use the Azure portal to set up monitoring and alerts for Azure Stream Analytics jobs.
-author: jseb225
-ms.author: sidram
-
-ms.service: stream-analytics
+author: ajetasin
+ms.author: ajetasi
+ms.service: azure-stream-analytics
 ms.topic: how-to
-ms.custom: contperf-fy21q1
 ms.date: 07/12/2022
 ---
 # Set up alerts for Azure Stream Analytics jobs

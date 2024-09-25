@@ -1,12 +1,11 @@
 ---
 title: Protect a file server by using Azure Site Recovery 
 description: This article describes how to protect a file server by using Azure Site Recovery 
-author: v-pgaddala
-manager: rochakm
-ms.service: site-recovery
-ms.topic: conceptual
-ms.date: 07/31/2019
-ms.author: v-pgaddala
+author: ankitaduttaMSFT
+ms.service: azure-site-recovery
+ms.topic: how-to
+ms.date: 09/06/2024
+ms.author: ankitadutta
 ms.custom: mvc
 ---
 # Protect a file server by using Azure Site Recovery 
@@ -39,7 +38,7 @@ In the previous diagram, multiple file servers called members actively participa
 
     * You can use this approach if your VMs have configurations that aren't supported by Site Recovery. An example is a shared cluster disk, which is sometimes commonly used in file server environments. DFSR also works well in low-bandwidth environments with medium churn rate. You need to consider the additional cost of having an Azure VM up and running all the time. 
 
-* **Use Azure File Sync to replicate your files**: If you plan to use the cloud or already use an Azure VM, you can use Azure File Sync. Azure File Sync offers syncing of fully managed file shares in the cloud that are accessible via the industry-standard [Server Message Block](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) (SMB) protocol. Azure file shares can then be mounted concurrently by cloud or on-premises deployments of Windows, Linux, and macOS. 
+* **Use Azure File Sync to replicate your files**: If you plan to use the cloud or already use an Azure VM, you can use Azure File Sync. Azure File Sync offers syncing of fully managed file shares in the cloud that are accessible via the industry-standard [Server Message Block (SMB)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) protocol. Azure file shares can then be mounted concurrently by cloud or on-premises deployments of Windows, Linux, and macOS. 
 
 The following diagram helps you determine what strategy to use for your file server environment.
 
@@ -124,7 +123,7 @@ The following steps describe replication for a VMware VM. For steps to replicate
 
 1. Establish a site-to-site VPN connection between the on-premises site and the Azure network. 
 2. Extend on-premises Active Directory.
-3. [Create and provision a file server VM](../virtual-machines/windows/quick-create-portal.md?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json) on the Azure virtual network.
+3. [Create and provision a file server VM](/azure/virtual-machines/windows/quick-create-portal?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json) on the Azure virtual network.
 Make sure that the virtual machine is added to the same Azure virtual network, which has cross-connectivity with the on-premises environment. 
 4. Install and [configure DFSR](https://techcommunity.microsoft.com/t5/storage-at-microsoft/dfs-replication-initial-sync-in-windows-server-2012-r2-attack-of/ba-p/424877) on Windows Server.
 5. [Implement a DFS namespace](/windows-server/storage/dfs-namespaces/deploying-dfs-namespaces).

@@ -2,18 +2,22 @@
 title: Configure Azure Active Directory B2C as a SAML IdP to your applications
 title-suffix: Azure Active Directory B2C
 description: Learn how to configure Azure Active Directory B2C to provide SAML protocol assertions to your applications (service providers).
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: how-to
-ms.date: 11/12/2021
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 zone_pivot_groups: b2c-policy-type
+
+
+#Customer intent: As a developer integrating SAML applications with Azure AD B2C, I want to register a SAML application in Azure AD B2C, so that I can authenticate users using the SAML protocol and achieve single sign-on with SAML-based applications.
+
 ---
 
 # Register a SAML application in Azure AD B2C
@@ -36,7 +40,7 @@ Organizations that use Azure AD B2C as their customer identity and access manage
 
 ![Diagram with Azure Active Directory B2C as an identity provider on the left and as a service provider on the right.](media/saml-service-provider/saml-service-provider-integration.png)
 
-1. The application creates a SAML AuthN request that's sent to the SAML login endpoint for Azure AD B2C.
+1. The application creates a SAML AuthN request that's sent to the SAML sign-in endpoint for Azure AD B2C.
 2. The user can use an Azure AD B2C local account or any other federated identity provider (if configured) to authenticate.
 3. If the user signs in by using a federated identity provider, a token response is sent to Azure AD B2C.
 4. Azure AD B2C generates a SAML assertion and sends it to the application.
@@ -95,8 +99,7 @@ To have a trust relationship between your application and Azure AD B2C, create a
 You need to store your certificate in your Azure AD B2C tenant.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Select **All services** in the upper-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 1. On the **Overview** page, select **Identity Experience Framework**.
 1. Select **Policy Keys**, and then select **Add**.
@@ -175,7 +178,11 @@ Now that your policy can create SAML responses, you must configure the policy to
 
 1. Open the *SignUpOrSigninSAML.xml* file in your preferred editor.
 
-1. Change the `PolicyId` and `PublicPolicyUri` values of the policy to `B2C_1A_signup_signin_saml` and `http://<tenant-name>.onmicrosoft.com/B2C_1A_signup_signin_saml`.
+1. Change the value of:
+    
+    1. `PolicyId` to `B2C_1A_signup_signin_saml` 
+    
+    1. `PublicPolicyUri` to `http://<tenant-name>.onmicrosoft.com/B2C_1A_signup_signin_saml`. Replace `<tenant-name>` placeholder with the subdomain of your Azure AD B2C tenant's domain name. For example, if your tenant primary domain is `contoso.onmicrosoft.com`, use `contoso`. If you don't have your tenant name, learn [how to read your tenant details](tenant-management-read-tenant-name.md#get-your-tenant-name).  
 
     ```xml
     <TrustFrameworkPolicy
@@ -183,7 +190,7 @@ Now that your policy can create SAML responses, you must configure the policy to
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
     xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06"
     PolicySchemaVersion="0.3.0.0"
-    TenantId="tenant-name.onmicrosoft.com"
+    TenantId="<tenant-name>.onmicrosoft.com"
     PolicyId="B2C_1A_signup_signin_saml"
     PublicPolicyUri="http://<tenant-name>.onmicrosoft.com/B2C_1A_signup_signin_saml">
     ```
@@ -206,7 +213,7 @@ If you started from a different folder in the starter pack or you customized the
 
 The relying party element determines which protocol your application uses. The default is `OpenId`. The `Protocol` element must be changed to `SAML`. The output claims will create the claims mapping to the SAML assertion.
 
-Replace the entire `<TechnicalProfile>` element in the `<RelyingParty>` element with the following technical profile XML. Update `tenant-name` with the name of your Azure AD B2C tenant.
+Replace the entire `<TechnicalProfile>` element in the `<RelyingParty>` element with the following technical profile XML.
 
 ```xml
     <TechnicalProfile Id="PolicyProfile">
@@ -278,7 +285,7 @@ Save your changes and upload the new *TrustFrameworkExtensions.xml* and *SignUpO
 
 ### Test the Azure AD B2C IdP SAML metadata
 
-After the policy files are uploaded, Azure AD B2C uses the configuration information to generate the identity provider's SAML metadata document that the application will use. The SAML metadata document contains the locations of services, such as sign-in methods, logout methods, and certificates.
+After the policy files are uploaded, Azure AD B2C uses the configuration information to generate the identity provider's SAML metadata document that the application will use. The SAML metadata document contains the locations of services, such as sign-in methods, sign out methods, and certificates.
 
 The Azure AD B2C policy metadata is available at the following URL:
 
@@ -293,8 +300,7 @@ Replace `<tenant-name>` with the name of your Azure AD B2C tenant. Replace `<pol
 For Azure AD B2C to trust your application, you create an Azure AD B2C application registration. The registration contains configuration information, such as the application's metadata endpoint.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. On the left menu, select **Azure AD B2C**. Or, select **All services** and then search for and select **Azure AD B2C**.
 1. Select **App registrations**, and then select **New registration**.
 1. Enter a **Name** for the application. For example, enter **SAMLApp1**.
@@ -313,7 +319,7 @@ For SAML apps, you need to configure several properties in the application regis
 
 When your SAML application makes a request to Azure AD B2C, the SAML AuthN request includes an `Issuer` attribute. The value of this attribute is typically the same as the application's metadata `entityID` value. Azure AD B2C uses this value to look up the application registration in the directory and read the configuration. For this lookup to succeed, `identifierUri` in the application registration must be populated with a value that matches the `Issuer` attribute.
 
-In the registration manifest, find the `identifierURIs` parameter and add the appropriate value. This value will be the same value that's configured in the SAML AuthN requests for `EntityId` at the application, and the `entityID` value in the application's metadata. You will also need to find the `accessTokenAcceptedVersion` parameter and set the value to `2`.
+In the registration manifest, find the `identifierURIs` parameter and add the appropriate value. This value will be the same value that's configured in the SAML AuthN requests for `EntityId` at the application, and the `entityID` value in the application's metadata. You'll also need to find the `accessTokenAcceptedVersion` parameter and set the value to `2`.
 
 > [!IMPORTANT]
 > If you do not update the `accessTokenAcceptedVersion` to `2` you will receive an error message requiring a verified domain.
@@ -327,7 +333,7 @@ The following example shows the `entityID` value in the SAML metadata:
 The `identifierUris` property will accept URLs only on the domain `tenant-name.onmicrosoft.com`.
 
 ```json
-"identifierUris":"https://tenant-name.onmicrosoft.com",
+"identifierUris":"https://tenant-name.onmicrosoft.com/app-name",
 ```
 
 #### Share the application's metadata with Azure AD B2C
@@ -370,9 +376,9 @@ Using the SAML test application as an example, you'd set the `url` property of `
 ],
 ```
 
-#### Override or set the logout URL (optional)
+#### Override or set the sign-out URL (optional)
 
-The logout URL defines where to redirect the user after a logout request. The application usually provides this URL in the metadata document as the `Location` attribute of the `SingleLogoutService` element, as shown in the following example:
+The sign-out URL defines where to redirect the user after a sign-out request. The application usually provides this URL in the metadata document as the `Location` attribute of the `SingleLogoutService` element, as shown in the following example:
 
 ```xml
 <SPSSODescriptor AuthnRequestsSigned="false" WantAssertionsSigned="false" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">
@@ -424,7 +430,7 @@ Select **Login**, and a user sign-in screen should appear. After you sign in, a 
 
 The following SAML application scenarios are supported via your own metadata endpoint:
 
-* Specify multiple logout URLs or POST binding for the logout URL in the application or service principal object.
+* Specify multiple sign-out URLs or POST binding for the sign-out URL in the application or service principal object.
 * Specify a signing key to verify relying party requests in the application or service principal object.
 * Specify a token encryption key in the application or service principal object.
 * [Specify IdP-initiated sign-on, where the identity provider is Azure AD B2C](saml-service-provider-options.md#configure-idp-initiated-flow).
@@ -433,6 +439,7 @@ The following SAML application scenarios are supported via your own metadata end
 
 - Get the SAML test web app from the [Azure AD B2C GitHub community repo](https://github.com/azure-ad-b2c/saml-sp-tester).
 - See the [options for registering a SAML application in Azure AD B2C](saml-service-provider-options.md).
+- Learn how to build [Resilience through developer best practices](../active-directory/architecture/resilience-b2c-developer-best-practices.md?bc=/azure/active-directory-b2c/bread/toc.json&toc=/azure/active-directory-b2c/TOC.json).
 
 <!-- LINKS - External -->
 [samltest]: https://aka.ms/samltestapp

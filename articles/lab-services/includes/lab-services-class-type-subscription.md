@@ -1,6 +1,5 @@
 ---
-author: EMaher
-ms.author: enewman
+ms.service: azure-lab-services
 ms.date: 01/04/2022
 ms.topic: include
 ---

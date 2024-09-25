@@ -17,7 +17,7 @@ This how-to guide helps you use Azure Pipelines to set up continuous integration
 
 [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines) is used by development teams to configure continuous deployment for applications hosted in Azure subscriptions. We can use this service for applications running in Azure Government by defining [service connections](/azure/devops/pipelines/library/service-endpoints) for Azure Government.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Prerequisites
 
@@ -25,7 +25,7 @@ Before starting this how-to guide, you must complete the following prerequisites
 
 - [Create an organization in Azure DevOps](/azure/devops/organizations/accounts/create-organization)
 - [Create and add a project to the Azure DevOps organization](/azure/devops/organizations/projects/create-project)
-- Install and set up [Azure PowerShell](/powershell/azure/install-az-ps)
+- Install and set up [Azure PowerShell](/powershell/azure/install-azure-powershell)
 
 If you don't have an active Azure Government subscription, create a [free account](https://azure.microsoft.com/global-infrastructure/government/request/) before you begin.
 
@@ -172,7 +172,6 @@ For more information, see the following resources:
 - [Azure Government blog](https://devblogs.microsoft.com/azuregov/)
 - [What is Infrastructure as Code? – Azure DevOps](/devops/deliver/what-is-infrastructure-as-code)
 - [DevSecOps for infrastructure as code (IaC) – Azure Architecture Center](/azure/architecture/solution-ideas/articles/devsecops-infrastructure-as-code)
-- [Testing your application and Azure environment – Microsoft Azure Well-Architected Framework](/azure/architecture/framework/devops/release-engineering-testing)
 - [Azure Government overview](./documentation-government-welcome.md)
 - [Azure Government security](./documentation-government-plan-security.md)
 - [Compare Azure Government and global Azure](./compare-azure-government-global-azure.md)

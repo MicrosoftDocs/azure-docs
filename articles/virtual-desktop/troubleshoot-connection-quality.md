@@ -1,11 +1,11 @@
 ---
 title: Troubleshoot Azure Virtual Desktop connection quality
 description: How to troubleshoot connection quality issues in Azure Virtual Desktop.
-author: Heidilohr
+author: dknappettmsft
 ms.topic: troubleshooting
 ms.date: 09/26/2022
-ms.author: helohr
-manager: femila
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
 
 # Troubleshooting connection quality in Azure Virtual Desktop
@@ -29,18 +29,18 @@ To reduce round trip time:
 
 - Check if something is interfering with your network bandwidth. If your network's available bandwidth is too low, you may need to change your network settings to improve connection quality. Make sure your configured settings follow our [network guidelines](/windows-server/remote/remote-desktop-services/network-guidance).
 
-- Check your compute resources by looking at CPU utilization and available memory on your VM. You can view your compute resources by following the instructions in [Configuring performance counters](../azure-monitor/agents/data-sources-performance-counters.md#configuring-performance-counters) to set up a performance counter to track certain information. For example, you can use the Processor Information(_Total)\\% Processor Time counter to track CPU utilization, or the Memory(\*)\\Available Mbytes counter for available memory. Both of these counters are enabled by default in Azure Virtual Desktop Insights. If both counters show that CPU usage is too high or available memory is too low, your VM size or storage may be too small to support your users' workloads, and you'll need to upgrade to a larger size.
+- Check your compute resources by looking at CPU utilization and available memory on your VM. You can view your compute resources by following the instructions in [Configuring performance counters](/azure/azure-monitor/agents/data-sources-performance-counters#configure-performance-counters) to set up a performance counter to track certain information. For example, you can use the Processor Information(_Total)\\% Processor Time counter to track CPU utilization, or the Memory(\*)\\Available Mbytes counter for available memory. Both of these counters are enabled by default in Azure Virtual Desktop Insights. If both counters show that CPU usage is too high or available memory is too low, your VM size or storage may be too small to support your users' workloads, and you'll need to upgrade to a larger size.
 
-## Optimize VM latency with the Azure Virtual Desktop Experience Estimator tool
+## Optimize VM latency by reviewing Azure network round-trip latency statistics
 
-The [Azure Virtual Desktop Experience Estimator tool](https://azure.microsoft.com/services/virtual-desktop/assessment/) can help you determine the best location to optimize the latency of your VMs. We recommend you use the tool every two to three months to make sure the optimal location hasn't changed as Azure Virtual Desktop rolls out to new areas.
+Round-trip time (RTT) latency from the client's network to the Azure region that contains the host pools should be less than 150 ms. To see which locations have the best latency, look up your desired location in [Azure network round-trip latency statistics](../networking/azure-network-latency.md). To optimize for network performance, we recommend you create session hosts in the Azure region closest to your users. We recommend you review the statistics every two to three months to make sure the optimal location hasn't changed as Azure Virtual Desktop rolls out to new areas.
 
 ## My connection data isn't going to Azure Log Analytics
 
 If your **Connection Network Data Logs**  aren't going to Azure Log Analytics every two minutes, you'll need to check the following things:
 
 - Make sure you've [configured the diagnostic settings correctly](diagnostics-log-analytics.md).
-- Make sure you've configured the VM and [monitoring agents](azure-monitor.md) correctly.
+- Make sure you've configured the VM correctly.
 - Make sure you're actively using the session. Sessions that aren't actively used won't send data to Azure Log Analytics as frequently.
 
 ## Next steps

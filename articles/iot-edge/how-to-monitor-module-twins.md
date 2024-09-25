@@ -4,15 +4,15 @@ description: How to interpret device twins and module twins to determine connect
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 05/29/2020
-ms.topic: conceptual
+ms.date: 06/03/2024
+ms.topic: how-to
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ---
 # Monitor module twins
 
-[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 Module twins in Azure IoT Hub enable monitoring the connectivity and health of your IoT Edge deployments. Module twins store useful information in your IoT hub about the performance of your running modules. The [IoT Edge agent](iot-edge-runtime.md#iot-edge-agent) and the [IoT Edge hub](iot-edge-runtime.md#iot-edge-hub) runtime modules each maintain their module twins, `$edgeAgent` and `$edgeHub`, respectively:
 
@@ -164,7 +164,7 @@ If you're experiencing issues with your downstream devices, examining this data 
 
 The information about the connectivity of your custom modules is maintained in the IoT Edge agent module twin. The module twin for your custom module is used primarily for maintaining data for your solution. The desired properties you defined in your deployment.json file are reflected in the module twin, and your module can update reported property values as needed.
 
-You can use your preferred programming language with the [Azure IoT Hub Device SDKs](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks) to update reported property values in the module twin, based on your module's application code. The following procedure uses the Azure SDK for .NET to do this, using code from the [SimulatedTemperatureSensor](https://github.com/Azure/iotedge/blob/dd5be125df165783e4e1800f393be18e6a8275a3/edge-modules/SimulatedTemperatureSensor/src/Program.cs) module:
+You can use your preferred programming language with the [Azure IoT Hub Device SDKs](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks) to update reported property values in the module twin, based on your module's application code. The following procedure uses the Azure SDK for .NET to do this, using code from the [SimulatedTemperatureSensor](https://github.com/Azure/iotedge/blob/main/edge-modules/SimulatedTemperatureSensor/src/Program.cs) module:
 
 1. Create an instance of the [ModuleClient](/dotnet/api/microsoft.azure.devices.client.moduleclient) with the [CreateFromEnvironmentAysnc](/dotnet/api/microsoft.azure.devices.client.moduleclient.createfromenvironmentasync) method.
 
@@ -187,7 +187,7 @@ To view the JSON for the module twin:
 1. Select the **Device ID** of the IoT Edge device with the modules you want to monitor.
 1. Select the module name from the **Modules** tab and then select **Module Identity Twin** from the upper menu bar.
 
-  ![Select a module twin to view in the Azure portal](./media/how-to-monitor-module-twins/select-module-twin.png)
+   :::image type="content" source="./media/how-to-monitor-module-twins/select-module-twin.png" alt-text="Screenshot showing how to select a module twin to view in the Azure portal.":::
 
 If you see the message "A module identity doesn't exist for this module", this error indicates that the back-end solution is no longer available that originally created the identity.
 
@@ -195,15 +195,15 @@ If you see the message "A module identity doesn't exist for this module", this e
 
 To review and edit a module twin:
 
-1. If not already installed, install the [Azure IoT Tools Extension](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) for Visual Studio Code.
+1. If not already installed, install the [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) and [Azure IoT Hub](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) extensions. The *Azure IoT Edge tools for Visual Studio Code* extension is in [maintenance mode](https://github.com/microsoft/vscode-azure-iot-edge/issues/639).
 1. In the **Explorer**, expand the **Azure IoT Hub**, and then expand the device with the module you want to monitor.
 1. Right-click the module and select **Edit Module Twin**. A temporary file of the module twin is downloaded to your computer and displayed in Visual Studio Code.
 
-  ![Get a module twin to edit in Visual Studio Code](./media/how-to-monitor-module-twins/edit-module-twin-vscode.png)
+   :::image type="content" source="./media/how-to-monitor-module-twins/edit-module-twin-vscode.png" alt-text="Screenshot showing how to get a module twin to edit in Visual Studio Code.":::
 
 If you make changes, select **Update Module Twin** above the code in the editor to save changes to your IoT hub.
 
-  ![Update a module twin in Visual Studio Code](./media/how-to-monitor-module-twins/update-module-twin-vscode.png)
+   :::image type="content" source="./media/how-to-monitor-module-twins/update-module-twin-vscode.png" alt-text="Screenshot showing how to update a module twin in Visual Studio Code.":::
 
 ### Monitor module twins in Azure CLI
 

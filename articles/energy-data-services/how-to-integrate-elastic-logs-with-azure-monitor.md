@@ -1,43 +1,41 @@
 ---
-title: Integrate elastic logs with Azure Monitor - Microsoft Energy Data Services Preview
+title: Integrate elastic logs with Azure Monitor - Microsoft Azure Data Manager for Energy
 description: This is a how-to article on how to start collecting ElasticSearch logs in Azure Monitor, archiving them to a storage account, and querying them in Log Analytics workspace.
 author: nitinnms
 ms.author: nitindwivedi
 ms.service: energy-data-services
 ms.topic: how-to 
 ms.date: 08/18/2022
-ms.custom: template-how-to #Required; leave this attribute/value as-is.
+ms.custom: template-how-to
 ---
 
 # Integrate elastic logs with Azure Monitor
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
-This article describes how you can start collecting Elasticsearch logs for your Microsoft Energy Data Services instances in Azure Monitor. This integration feature is developed to help you debug Elasticsearch related issues inside Azure Monitor. 
+In this article, you'll learn how to start collecting Elasticsearch logs for your Azure Data Manager for Energy instances in Azure Monitor. This integration feature is developed to help you debug Elasticsearch related issues inside Azure Monitor. 
 
 
 ## Prerequisites
 
-- You need to have a Log Analytics workspace. It will be used to query the Elasticsearch logs dataset using the Kusto Query Language (KQL) query editor in the Log Analytics workspace. Useful Resource: [Create a log Analytics workspace in Azure portal](../azure-monitor/logs/quick-create-workspace.md)
+- You need to have a Log Analytics workspace. It will be used to query the Elasticsearch logs dataset using the Kusto Query Language (KQL) query editor in the Log Analytics workspace. [Create a log Analytics workspace in Azure portal](/azure/azure-monitor/logs/quick-create-workspace).
 
 
 - You need to have a storage account. It will be used to store JSON dumps of Elasticsearch & Elasticsearch Operator logs. The storage account doesn’t have to be in the same subscription as your Log Analytics workspace. 
 
 
 ## Enabling Diagnostic Settings to collect logs in a storage account & a Log Analytics workspace
-Every Microsoft Energy Data Services instance comes inbuilt with a managed Elasticsearch service. We collect Elasticsearch logs for internal troubleshooting and debugging purposes. You can get access to these logs by integrating Elasticsearch logs with Azure Monitor. 
+Every Azure Data Manager for Energy instance comes inbuilt with a managed Elasticsearch service. We collect Elasticsearch logs for internal troubleshooting and debugging purposes. You can get access to these logs by integrating Elasticsearch logs with Azure Monitor. 
 
 
 
 Each diagnostic setting has three basic parts:
 
-| Title | Description |
+| Part | Description |
 |-|-|
 | Name  | This is the name of the diagnostic log. Ensure a unique name is set for each log. |
-| Categories | Category of logs to send to each of the destinations. The set of categories will vary for each Azure service. Visit: [Supported Resource Log Categories](../azure-monitor/essentials/resource-logs-categories.md) |
+| Categories | Category of logs to send to each of the destinations. The set of categories will vary for each Azure service. Visit: [Supported Resource Log Categories](/azure/azure-monitor/essentials/resource-logs-categories) |
 | Destinations | One or more destinations to send the logs. All Azure services share the same set of possible destinations. Each diagnostic setting can define one or more destinations but no more than one destination of a particular type. It should be a storage account, an Event Hubs namespace or an event hub. |
 
-We support two destinations for your Elasticsearch logs from Microsoft Energy Data Services instance:
+We support two destinations for your Elasticsearch logs from Azure Data Manager for Energy instance:
 
 * Storage account
 * Log Analytics workspace
@@ -46,7 +44,7 @@ We support two destinations for your Elasticsearch logs from Microsoft Energy Da
 
 ## Steps to enable diagnostic setting to collect Elasticsearch logs
 
-1. Open *Microsoft Energy Data Services* overview page
+1. Open *Azure Data Manager for Energy* overview page
 1. Select *Diagnostic Settings* from the left panel
   
     [![Screenshot for diagnostic settings overview page. It shows the list of existing settings as well as the option to create a new diagnostic setting.](media/how-to-integrate-elastic-logs-with-azure-monitor/diagnostic-setting-overview-page.png)](media/how-to-integrate-elastic-logs-with-azure-monitor/diagnostic-setting-overview-page.png#lightbox)
@@ -57,14 +55,14 @@ We support two destinations for your Elasticsearch logs from Microsoft Energy Da
  
 1. Select *Send to a Log Analytics workspace*
 
-1. Choose Subscription and the Log Analytics workspace Name. You would have created it already as a prerequisite.
+1. Choose Subscription and the Log Analytics workspace name. You would have created it already as a prerequisite.
 
   
     [![Screenshot for choosing destination settings for Log Analytics workspace. The image shows the subscription and Log Analytics workspace chosen.](media/how-to-integrate-elastic-logs-with-azure-monitor/diagnostic-setting-log-analytics-workspace.png)](media/how-to-integrate-elastic-logs-with-azure-monitor/diagnostic-setting-log-analytics-workspace.png#lightbox)
 
 
 1. Select *Archive to storage account*
-1. Choose Subscription and storage account Name. You would have created it already as a prerequisite.
+1. Choose Subscription and storage account name. You would have created it already as a prerequisite.
     [![Screenshot that shows choosing destination settings for storage account. Required fields include regions, subscription and storage account.](media/how-to-integrate-elastic-logs-with-azure-monitor/diagnostic-setting-archive-storage-account.png)](media/how-to-integrate-elastic-logs-with-azure-monitor/diagnostic-setting-archive-storage-account.png#lightbox)
 
 1. Select *Save*.
@@ -76,7 +74,7 @@ Go back to the Diagnostic Settings page. You would now see a new diagnostic sett
 ## View Elasticsearch logs in Log Analytics workspace or download them as JSON files using storage account
 
 ### How to view & query logs in Log Analytics workspace
-The editor in Log Analytics workspace support Kusto (KQL) queries through which you can easily perform complicated queries to extract interesting logs data from the Elasticsearch service running in your Microsoft Energy Data Services instance.
+The editor in Log Analytics workspace support Kusto (KQL) queries through which you can easily perform complicated queries to extract interesting logs data from the Elasticsearch service running in your Azure Data Manager for Energy instance.
  
  
 * Run queries and see Elasticsearch logs in the Log Analytics workspace.
@@ -113,8 +111,8 @@ The editor in Log Analytics workspace support Kusto (KQL) queries through which 
 After collecting resource logs as explained in this article, there are more capabilities you can explore.
 
 * Create a log query alert to be proactively notified when interesting data is identified in your log data.
-    [Create a log query alert for an Azure resource](../azure-monitor/alerts/tutorial-log-alert.md)
+    [Create a log query alert for an Azure resource](/azure/azure-monitor/alerts/tutorial-log-alert)
 
-* Start collecting logs from other sources such as Airflow in your Microsoft Energy Data Services instance. 
+* Start collecting logs from other sources such as Airflow in your Azure Data Manager for Energy instance. 
     [How to Integrate Airflow logs with Azure Monitor](how-to-integrate-airflow-logs-with-azure-monitor.md)
 

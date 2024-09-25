@@ -1,16 +1,16 @@
 ---
 title: Manage Enterprise Security Package clusters - Azure HDInsight
 description: Learn how to manage Azure HDInsight clusters with Enterprise Security Package.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
-ms.date: 04/14/2022
+ms.date: 06/15/2024
 ---
 
 # Manage HDInsight clusters with Enterprise Security Package
 
 Learn the users and the roles in HDInsight Enterprise Security Package (ESP), and how to manage ESP clusters.
 
-## Use VSCode to link to domain joined cluster
+## Use VS Code to link to domain joined cluster
 
 You can link a normal cluster by using Apache Ambari managed username, also link a security Apache Hadoop cluster by using domain username (such as: `user1@contoso.com`).
 
@@ -72,7 +72,7 @@ If you have Beeline installed locally, and connect over an Azure Virtual Network
 Connection string: -u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'
 ```
 
-To find the fully qualified domain name of a headnode, use the information in the Manage HDInsight using the Ambari REST API document.
+To find the fully qualified domain name of a headnode, use the information in the Managed HDInsight using the Ambari REST API document.
 
 ## Users of HDInsight clusters with ESP
 
@@ -91,9 +91,9 @@ A HDInsight cluster with ESP has three new users in addition to Ambari Admin.
 
     Note the other AD users also have these privileges.
 
-    There are some end points within the cluster (for example, Templeton) which are not managed by Ranger, and hence aren't secure. These end points are locked down for all users except the cluster admin domain user.
+    There are some end points within the cluster (for example, Templeton) which aren't managed by Ranger, and hence  secure. These end points are locked down for all users except the cluster admin domain user.
 
-- **Regular**: During cluster creation, you can provide multiple active directory groups. The users in these groups are synced to Ranger and Ambari. These users are domain users and have access to only Ranger-managed endpoints (for example, Hiveserver2). All the RBAC policies and auditing will be applicable to these users.
+- **Regular**: During cluster creation, you can provide multiple active directory groups. The users in these groups are synced to Ranger and Ambari. These users are domain users and have access to only Ranger-managed endpoints (for example, `Hiveserver2`). All the RBAC policies and auditing will be applicable to these users.
 
 ## Roles of HDInsight clusters with ESP
 
@@ -111,7 +111,7 @@ HDInsight Enterprise Security Package has the following roles:
 2. From the left menu, select **Roles**.
 3. Select the blue question mark to see the permissions:
 
-    :::image type="content" source="./media/apache-domain-joined-manage/hdinsight-domain-joined-roles-permissions.png" alt-text="ESP HDInsight roles permissions" border="true":::
+    :::image type="content" source="./media/apache-domain-joined-manage/hdinsight-domain-joined-roles-permissions.png" alt-text="ESP HDInsight roles permissions." border="true":::
 
 ## Open the Ambari Management UI
 
@@ -119,25 +119,25 @@ HDInsight Enterprise Security Package has the following roles:
 1. Sign in to Ambari using the cluster administrator domain user name and password.
 1. Select the **admin** dropdown menu from the upper right corner, and then select **Manage Ambari**.
 
-    :::image type="content" source="./media/apache-domain-joined-manage/hdinsight-domain-joined-manage-ambari.png" alt-text="ESP HDInsight manage Apache Ambari" border="true":::
+    :::image type="content" source="./media/apache-domain-joined-manage/hdinsight-domain-joined-manage-ambari.png" alt-text="ESP HDInsight manage Apache Ambari." border="true":::
 
     The UI looks like:
 
-    :::image type="content" source="./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui.png" alt-text="ESP HDInsight Apache Ambari management UI" border="true":::
+    :::image type="content" source="./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui.png" alt-text="ESP HDInsight Apache Ambari management UI." border="true":::
 
 ## List the domain users synchronized from your Active Directory
 
 1. Open the Ambari Management UI.  See [Open the Ambari Management UI](#open-the-ambari-management-ui).
 2. From the left menu, select **Users**. You shall see all the users synced from your Active Directory to the HDInsight cluster.
 
-    :::image type="content" source="./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-users.png" alt-text="ESP HDInsight Ambari management UI list users" border="true":::
+    :::image type="content" source="./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-users.png" alt-text="ESP HDInsight Ambari management UI list users." border="true":::
 
 ## List the domain groups synchronized from your Active Directory
 
 1. Open the Ambari Management UI.  See [Open the Ambari Management UI](#open-the-ambari-management-ui).
 2. From the left menu, select **Groups**. You shall see all the groups synced from your Active Directory to the HDInsight cluster.
 
-    :::image type="content" source="./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-groups.png" alt-text="ESP HDInsight Ambari management UI list groups" border="true":::
+    :::image type="content" source="./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-groups.png" alt-text="ESP HDInsight Ambari management UI list groups." border="true":::
 
 ## Configure Hive Views permissions
 
@@ -145,12 +145,12 @@ HDInsight Enterprise Security Package has the following roles:
 2. From the left menu, select **Views**.
 3. Select **HIVE** to show the details.
 
-    :::image type="content" source="./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-hive-views.png" alt-text="ESP HDInsight Ambari management UI Hive Views" border="true":::
+    :::image type="content" source="./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-hive-views.png" alt-text="ESP HDInsight Ambari management UI Hive Views." border="true":::
 
 4. Select the **Hive View** link to configure Hive Views.
 5. Scroll down to the **Permissions** section.
 
-    :::image type="content" source="./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-hive-views-permissions.png" alt-text="ESP HDInsight Ambari management UI Hive Views configure permissions" border="true":::
+    :::image type="content" source="./media/apache-domain-joined-manage/hdinsight-domain-joined-ambari-management-ui-hive-views-permissions.png" alt-text="ESP HDInsight Ambari management UI Hive Views configure permissions." border="true":::
 
 6. Select **Add User** or **Add Group**, and then specify the users or groups that can use Hive Views.
 

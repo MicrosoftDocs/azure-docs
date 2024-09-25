@@ -1,10 +1,10 @@
 ---
 title: Success by design
-description: "TODO: Success by design"
-author: peter-myers
-ms.author: v-petermyers
-ms.reviewer: sngun
-ms.service: synapse-analytics
+description: Azure Synapse Customer Success Engineering Success by Design repository.
+author: whhender
+ms.author: whhender
+ms.reviewer: whhender
+ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.date: 05/23/2022
 ---

@@ -1,11 +1,11 @@
 ---
 title: Restore SQL server databases in Azure VMs with REST API
 description: Learn how to use REST API to restore SQL server databases in Azure VM from a restore point created by Azure Backup
-ms.topic: conceptual
-ms.date: 08/11/2022
-author: v-amallick
-ms.service: backup
-ms.author: v-amallick
+ms.topic: how-to
+ms.date: 09/11/2024
+ms.service: azure-backup
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Restore SQL Server databases in Azure VMs with REST API
@@ -357,7 +357,7 @@ The recovery point is identified with the `{name}` field in the response above.
 
 To perform Cross-region restore, you will require an access token to enable proper communication between the Azure Backup services. To get an access token, follow these steps:
 
-1. Use the [AAD Properties API](/rest/api/backup/aad-properties/get) to fetch Azure Active Directory (AAD) properties for the secondary region (*westus* in the below example).
+1. Use the [Microsoft Entra Properties API](/rest/api/backup/aad-properties/get) to fetch Microsoft Entra properties for the secondary region (*westus* in the below example).
 
     ```http
     GET https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.RecoveryServices/locations/westus/backupAadProperties?api-version=2018-12-20
@@ -375,13 +375,13 @@ To perform Cross-region restore, you will require an access token to enable prop
     }
     ```
 
-1. Use the [Get Access Token API](/rest/api/backup/recovery-points-get-access-token-for-crr/get-access-token) to get an access token to enable communication between the Azure Backup services.
+1. Use the Get Access Token API to get an access token to enable communication between the Azure Backup services.
 
     ```http
     POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints/{recoveryPointId}/accessToken?api-version=2018-12-20
     ```
 
-   For the request body, paste the contents of the response returned by the AAD Properties API in the previous step.
+   For the request body, paste the contents of the response returned by the Microsoft Entra Properties API in the previous step.
 
    The response returned format is as follows:
 

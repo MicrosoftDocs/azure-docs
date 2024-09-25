@@ -4,14 +4,21 @@ description: Learn how to create, publish, and scale apps in an App Service Envi
 author: madsd
 ms.assetid: a22450c4-9b8b-41d4-9568-c4646f4cf66b
 ms.topic: article
-ms.date: 03/29/2022
+ms.date: 03/25/2024
 ms.author: madsd
-ms.custom: seodec18
 ---
 # Manage an App Service Environment
 
 > [!IMPORTANT]
-> This article is about App Service Environment v2 which is used with Isolated App Service plans. [App Service Environment v2 will be retired on 31 August 2024](https://azure.microsoft.com/updates/app-service-environment-v1-and-v2-retirement-announcement/). There's a new version of App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version, start with the [Introduction to the App Service Environment](overview.md). If you're currently using App Service Environment v2, please follow the steps in [this article](migration-alternatives.md) to migrate to the new version.
+> This article is about App Service Environment v2, which is used with Isolated App Service plans. [App Service Environment v1 and v2 are retired as of 31 August 2024](https://aka.ms/postEOL/ASE). There's a new version of App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version, start with the [Introduction to the App Service Environment](overview.md). If you're currently using App Service Environment v1, please follow the steps in [this article](upgrade-to-asev3.md) to migrate to the new version.
+>
+> As of 31 August 2024, [Service Level Agreement (SLA) and Service Credits](https://aka.ms/postEOL/ASE/SLA) no longer apply for App Service Environment v1 and v2 workloads that continue to be in production since they are retired products. Decommissioning of the App Service Environment v1 and v2 hardware has begun, and this may affect the availability and performance of your apps and data.
+>
+> You must complete migration to App Service Environment v3 immediately or your apps and resources may be deleted. We will attempt to auto-migrate any remaining App Service Environment v1 and v2 on a best-effort basis using the [in-place migration feature](migrate.md), but Microsoft makes no claim or guarantees about application availability after auto-migration. You may need to perform manual configuration to complete the migration and to optimize your App Service plan SKU choice to meet your needs. If auto-migration isn't feasible, your resources and associated app data will be deleted. We strongly urge you to act now to avoid either of these extreme scenarios.
+>
+> If you need additional time, we can offer a one-time 30-day grace period for you to complete your migration. For more information and to request this grace period, review the [grace period overview](./auto-migration.md#grace-period), and then go to [Azure portal](https://portal.azure.com) and visit the Migration blade for each of your App Service Environments.
+>
+> For the most up-to-date information on the App Service Environment v1/v2 retirement, see the [App Service Environment v1 and v2 retirement update](https://github.com/Azure/app-service-announcements/issues/469).
 >
 
 An App Service Environment (ASE) is a deployment of Azure App Service into a subnet in a customer's Azure Virtual Network instance. An ASE consists of:
@@ -60,9 +67,9 @@ To create an app in an ASE:
 
     f. Select a runtime stack.
 
-    g. Select **Linux** or **Windows**. 
+    g. Select **Linux** or **Windows**.
 
-    h. Select your ASE in the **Region** drop-down list. 
+    h. Select your ASE in the **Region** drop-down list.
 
     i. Select or create a new App Service plan. If creating a new App Service plan, select the appropriate **Isolated** SKU size.
 
@@ -78,7 +85,7 @@ To create an app in an ASE:
 
 Every App Service app runs in an App Service plan. App Service Environments hold App Service plans, and App Service plans hold apps. When you scale an app, you also scale the App Service plan and all the apps in that same plan.
 
-When you scale an App Service plan, the needed infrastructure is added automatically. There's a time delay to scale operations while the infrastructure is being added. If you do several scale operations in sequence, the first infrastructure scale request is acted on and the others are queued. When the first scale operation finishes, the other infrastructure requests all operate together. And when the infrastructure is added, the App Service plans are assigned as appropriate. Creating a new App Service plan is itself a scale operation because it requests additional hardware. A scale operation usually takes 30-60 minutes to complete.
+When you scale an App Service plan, the needed infrastructure is added automatically. There's a time delay to scale operations while the infrastructure is being added. If you do several scale operations in sequence, the first infrastructure scale request is acted on and the others are queued. When the first scale operation finishes, the other infrastructure requests all operate together. And when the infrastructure is added, the App Service plans are assigned as appropriate. Creating a new App Service plan is itself a scale operation because it requests additional hardware. A scale operation usually takes 30-60 minutes to complete. Upgrades are also operations that block scaling while in progress.  
 
 In the multitenant App Service, scaling is immediate because a pool of resources is readily available to support it. In an ASE, there's no such buffer, and resources are allocated based on need.
 
@@ -118,7 +125,7 @@ For information about how to create an ILB ASE, see [Create and use an ILB ASE][
 
 The SCM URL is used to access the Kudu console or for publishing your app by using Web Deploy. The Kudu console gives you a web UI for debugging, uploading files, editing files, and much more.
 
-### DNS configuration 
+### DNS configuration
 
 When you use an External ASE, apps made in your ASE are registered with Azure DNS. There are no additional steps then in an External ASE for your apps to be publicly available. With an ILB ASE, you must manage your own DNS. You can do this in your own DNS server or with Azure DNS private zones.
 
@@ -137,7 +144,7 @@ To configure DNS in Azure DNS Private zones:
 1. create an A record in that zone that points @ to the ILB IP address
 1. create an A record in that zone that points *.scm to the ILB IP address
 
-The DNS settings for your ASE default domain suffix do not restrict your apps to only being accessible by those names. You can set a custom domain name without any validation on your apps in an ILB ASE. If you then want to create a zone named *contoso.net*, you could do so and point it to the ILB IP address. The custom domain name works for app requests but doesn't for the scm site. The scm site is only available at *&lt;appname&gt;.scm.&lt;asename&gt;.appserviceenvironment.net*. 
+The DNS settings for your ASE default domain suffix do not restrict your apps to only being accessible by those names. You can set a custom domain name without any validation on your apps in an ILB ASE. If you then want to create a zone named *contoso.net*, you could do so and point it to the ILB IP address. The custom domain name works for app requests but doesn't for the scm site. The scm site is only available at *&lt;appname&gt;.scm.&lt;asename&gt;.appserviceenvironment.net*.
 
 The zone named *.&lt;asename&gt;.appserviceenvironment.net* is globally unique. Before May 2019, customers were able to specify the domain suffix of the ILB ASE. If you wanted to use *.contoso.com* for the domain suffix, you were able do so and that would include the scm site. There were challenges with that model including; managing the default TLS/SSL certificate, lack of single sign-on with the scm site, and the requirement to use a wildcard certificate. The ILB ASE default certificate upgrade process was also disruptive and caused application restarts. To solve these problems, the ILB ASE behavior was changed to use a domain suffix based on the name of the ASE and with a Microsoft owned suffix. The change to the ILB ASE behavior only affects ILB ASEs made after May 2019. Pre-existing ILB ASEs must still manage the default certificate of the ASE and their DNS configuration. If your ILB ASE V2 was created after May 2019, you do not need to manage the ILB default certificate as it is managed by Microsoft.
 
@@ -169,7 +176,7 @@ As a customer, you should monitor the App Service plans and the individual apps 
 
 Through Azure portal and CLI, you can configure the scale ratio of your frontend servers between 5 and 15 (default 15) App Service plan instances per frontend server. An App Service Environment will always have a minimum of two frontend servers. You can also increase the size of the frontend servers.
 
-The [metrics scope](../../azure-monitor/essentials/metrics-supported.md#microsoftwebhostingenvironmentsmultirolepools) used to monitor the platform infrastructure is called `Microsoft.Web/hostingEnvironments/multiRolePools`.
+The [metrics scope](/azure/azure-monitor/essentials/metrics-supported#microsoftwebhostingenvironmentsmultirolepools) used to monitor the platform infrastructure is called `Microsoft.Web/hostingEnvironments/multiRolePools`.
 
 You'll see a scope called `Microsoft.Web/hostingEnvironments/workerPools`. The metrics here are only applicable to App Service Environment v1.
 
@@ -200,18 +207,18 @@ To enable logging on your ASE:
 
 ![ASE diagnostic log settings][4]
 
-If you integrate with Log Analytics, you can see the logs by selecting **Logs** from the ASE portal and creating a query against **AppServiceEnvironmentPlatformLogs**. Logs are only emitted when your ASE has an event that will trigger it. If your ASE doesn't have such an event, there won't be any logs. To quickly see an example of logs in your Log Analytics workspace, perform a scale operation with one of the App Service plans in your ASE. You can then run a query against **AppServiceEnvironmentPlatformLogs** to see those logs. 
+If you integrate with Log Analytics, you can see the logs by selecting **Logs** from the ASE portal and creating a query against **AppServiceEnvironmentPlatformLogs**. Logs are only emitted when your ASE has an event that will trigger it. If your ASE doesn't have such an event, there won't be any logs. To quickly see an example of logs in your Log Analytics workspace, perform a scale operation with one of the App Service plans in your ASE. You can then run a query against **AppServiceEnvironmentPlatformLogs** to see those logs.
 
 **Creating an alert**
 
-To create an alert against your logs, follow the instructions in [Create, view, and manage log alerts using Azure Monitor](../../azure-monitor/alerts/alerts-log.md). In brief:
+To create an alert against your logs, follow the instructions in [Create, view, and manage log alerts using Azure Monitor](/azure/azure-monitor/alerts/alerts-log). In brief:
 
-* Open the Alerts page in your ASE portal
-* Select **New alert rule**
-* Select your Resource to be your Log Analytics workspace
-* Set your condition with a custom log search to use a query like, "AppServiceEnvironmentPlatformLogs | where ResultDescription contains "has begun scaling" or whatever you want. Set the threshold as appropriate. 
-* Add or create an action group as desired. The action group is where you define the response to the alert such as sending an email or an SMS message
-* Name your alert and save it.
+- Open the Alerts page in your ASE portal
+- Select **New alert rule**
+- Select your Resource to be your Log Analytics workspace
+- Set your condition with a custom log search to use a query like, "AppServiceEnvironmentPlatformLogs | where ResultDescription contains "has begun scaling" or whatever you want. Set the threshold as appropriate.
+- Add or create an action group as desired. The action group is where you define the response to the alert such as sending an email or an SMS message
+- Name your alert and save it.
 
 ## Upgrade preference
 
@@ -275,32 +282,16 @@ Commands:
 For more specific examples, use: az find "az appservice ase"
 ```
 
-
-
 <!--Image references-->
 [1]: ./media/using_an_app_service_environment/usingase-appcreate.png
 [2]: ./media/using_an_app_service_environment/usingase-pricingtiers.png
 [3]: ./media/using_an_app_service_environment/usingase-delete.png
 [4]: ./media/using_an_app_service_environment/usingase-logsetup.png
-[4]: ./media/using_an_app_service_environment/usingase-logs.png
 [5]: ./media/using_an_app_service_environment/usingase-upgradepref.png
 
 <!--Links-->
-[Intro]: ./intro.md
 [MakeExternalASE]: ./create-external-ase.md
-[MakeASEfromTemplate]: ./create-from-template.md
 [MakeILBASE]: ./create-ilb-ase.md
-[ASENetwork]: ./network-info.md
-[UsingASE]: ./using-an-ase.md
-[UDRs]: ../../virtual-network/virtual-networks-udr-overview.md
-[NSGs]: ../../virtual-network/network-security-groups-overview.md
-[ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
-[ASEv1Intro]: app-service-app-service-environment-intro.md
-[Functions]: ../../azure-functions/index.yml
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/
-[ARMOverview]: ../../azure-resource-manager/management/overview.md
 [ConfigureSSL]: ../configure-ssl-certificate.md
 [AppDeploy]: ../deploy-local-git.md
-[ASEWAF]: ./integrate-with-application-gateway.md
-[AppGW]: ../../web-application-firewall/ag/ag-overview.md
-[logalerts]: ../../azure-monitor/alerts/alerts-log.md

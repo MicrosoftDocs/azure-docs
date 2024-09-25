@@ -1,17 +1,15 @@
 ---
-title: 'Enable MFA for VPN users: Azure AD authentication'
+title: 'Enable MFA for VPN users - Microsoft Entra ID authentication'
 titleSuffix: Azure VPN Gateway
-description: Learn how to enable multi-factor authentication (MFA) for VPN users.
-services: vpn-gateway
+description: Learn how to enable multifactor authentication (MFA) for VPN users.
 author: cherylmc
-
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 05/05/2021
-ms.author: alzam
+ms.date: 09/24/2024
+ms.author: cherylmc
 
 ---
-# Enable Azure AD Multi-Factor Authentication (MFA) for VPN users
+# Enable Microsoft Entra ID multifactor authentication (MFA) for P2S VPN users
 
 [!INCLUDE [overview](../../includes/vpn-gateway-vwan-openvpn-enable-mfa-overview.md)]
 
@@ -33,4 +31,4 @@ ms.author: alzam
 
 ## Next steps
 
-To connect to your virtual network, you must create and configure a VPN client profile. See [Configure a VPN client for P2S VPN connections](openvpn-azure-ad-client.md).
+To connect to your virtual network, you must create and configure a VPN client profile. See [Configure a VPN client for P2S VPN connections](point-to-site-entra-gateway.md#download).

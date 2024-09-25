@@ -3,8 +3,7 @@ title: 'Quickstart: Deploy an existing container image in the Azure portal'
 description: Deploy an existing container image to Azure Container Apps using the Azure portal.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
-ms.custom: event-tier1-build-2022
+ms.service: azure-container-apps
 ms.topic: quickstart
 ms.date: 12/13/2021
 ms.author: cshoe
@@ -25,9 +24,6 @@ This article demonstrates how to deploy an existing container to Azure Container
 - Azure account with an active subscription.
   - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
 ## Setup
-
-> [!NOTE]
-> An Azure Container Apps environment can be deployed as a zone redundant resource in regions where support is available. This is a deployment-time only configuration option.
 
 Begin by signing in to the [Azure portal](https://portal.azure.com).
 
@@ -158,4 +154,4 @@ If you're not going to continue to use this application, you can delete the Azur
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Environments in Azure Container Apps](environment.md)
+> [Communication between microservices](communicate-between-microservices.md)

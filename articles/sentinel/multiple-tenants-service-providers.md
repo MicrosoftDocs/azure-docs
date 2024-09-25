@@ -5,18 +5,15 @@ author: yelevin
 ms.topic: how-to
 ms.date: 11/09/2021
 ms.author: yelevin
-ms.custom: ignite-fall-2021
 ---
 
 # Manage multiple tenants in Microsoft Sentinel as an MSSP
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
-If you're a managed security service provider (MSSP) and you're using [Azure Lighthouse](../lighthouse/overview.md) to offer security operations center (SOC) services to your customers, you can manage your customers' Microsoft Sentinel resources directly from your own Azure tenant, without having to connect to the customer's tenant. 
+If you're a managed security service provider (MSSP) and you're using [Azure Lighthouse](/azure/lighthouse/overview) to offer security operations center (SOC) services to your customers, you can manage your customers' Microsoft Sentinel resources directly from your own Azure tenant, without having to connect to the customer's tenant. 
 
 ## Prerequisites
 
-- [Onboard Azure Lighthouse](../lighthouse/how-to/onboard-customer.md)
+- [Onboard Azure Lighthouse](/azure/lighthouse/how-to/onboard-customer)
 
 - For this to work properly, your tenant (the MSSP tenant) must have the Microsoft Sentinel resource providers registered on at least one subscription. In addition, each of your customers' tenants must have the resource providers registered. If you have registered Microsoft Sentinel in your tenant, and your customers in theirs, you are ready to get started. To verify registration, take the following steps:
 

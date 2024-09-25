@@ -1,9 +1,9 @@
 ---
 title: Decompile ARM template JSON to Bicep
 description: Describes commands for decompiling Azure Resource Manager templates to Bicep files.
-ms.topic: conceptual
-ms.date: 09/28/2022
-ms.custom: devx-track-azurepowershell
+ms.topic: how-to
+ms.date: 03/20/2024
+ms.custom: devx-track-bicep, devx-track-arm-template
 ---
 
 # Decompiling ARM template JSON to Bicep
@@ -12,6 +12,8 @@ This article describes how to decompile Azure Resource Manager templates (ARM te
 
 > [!NOTE]
 > From Visual Studio Code, you can directly create resource declarations by importing from existing resources. For more information, see [Bicep commands](./visual-studio-code.md#bicep-commands).
+>
+> Visual Studio Code enables you to paste JSON as Bicep. It automatically runs the decompile command. For more information, see [Paste JSON as Bicep](./visual-studio-code.md#paste-as-bicep).
 
 Decompiling an ARM template helps you get started with Bicep development. If you have a library of ARM templates and want to use Bicep for future development, you can decompile them to Bicep. However, the Bicep file might need revisions to implement best practices for Bicep.
 
@@ -26,6 +28,8 @@ az bicep decompile --file main.json
 ```
 
 The command creates a file named _main.bicep_ in the same directory as _main.json_. If _main.bicep_ exists in the same directory, use the **--force** switch to overwrite the existing Bicep file.
+
+You can also decompile ARM template JSON to Bicep from Visual Studio Code by using the **Decompile into Bicep** command. For more information, see [Visual Studio Code](./visual-studio-code.md#decompile-into-bicep).
 
 > [!CAUTION]
 > Decompilation attempts to convert the file, but there is no guaranteed mapping from ARM template JSON to Bicep. You may need to fix warnings and errors in the generated Bicep file. Or, decompilation can fail if an accurate conversion isn't possible. To report any issues or inaccurate conversions, [create an issue](https://github.com/Azure/bicep/issues).
@@ -68,7 +72,7 @@ Suppose you have the following ARM template:
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2019-06-01",
+      "apiVersion": "2023-04-01",
       "name": "[variables('storageAccountName')]",
       "location": "[parameters('location')]",
       "sku": {
@@ -102,10 +106,10 @@ param storageAccountType string = 'Standard_LRS'
 @description('Location for all resources.')
 param location string = resourceGroup().location
 
-var storageAccountName_var = 'store${uniqueString(resourceGroup().id)}'
+var storageAccountName = 'store${uniqueString(resourceGroup().id)}'
 
-resource storageAccountName 'Microsoft.Storage/storageAccounts@2019-06-01' = {
-  name: storageAccountName_var
+resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+  name: storageAccountName
   location: location
   sku: {
     name: storageAccountType
@@ -114,7 +118,7 @@ resource storageAccountName 'Microsoft.Storage/storageAccounts@2019-06-01' = {
   properties: {}
 }
 
-output storageAccountName string = storageAccountName_var
+output storageAccountName string = storageAccountName
 ```
 
 The decompiled file works, but it has some names that you might want to change. The variable `var storageAccountName_var` has an unusual naming convention. Let's change it to:
@@ -128,7 +132,7 @@ To rename across the file, right-click the name, and then select **Rename symbol
 The resource has a symbolic name that you might want to change. Instead of `storageAccountName` for the symbolic name, use `exampleStorage`.
 
 ```bicep
-resource exampleStorage 'Microsoft.Storage/storageAccounts@2019-06-01' = {
+resource exampleStorage 'Microsoft.Storage/storageAccounts@2023-04-01' = {
 ```
 
 The complete file is:
@@ -148,7 +152,7 @@ param location string = resourceGroup().location
 
 var uniqueStorageName = 'store${uniqueString(resourceGroup().id)}'
 
-resource exampleStorage 'Microsoft.Storage/storageAccounts@2019-06-01' = {
+resource exampleStorage 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   name: uniqueStorageName
   location: location
   sku: {

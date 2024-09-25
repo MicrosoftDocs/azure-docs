@@ -1,60 +1,68 @@
 ---
-title: Azure Notification Hubs and the Google Firebase Cloud Messaging (FCM) migration
-description: Describes how Azure Notification Hubs addresses the Google GCM to FCM migration.
-services: notification-hubs
+title: Azure Notification Hubs and the Google Firebase Cloud Messaging (FCM) migration using REST APIs and SDKs
+description: Describes how Azure Notification Hubs addresses the Google GCM to FCM migration using either REST APIs or SDKs.
 author: sethmanheim
 manager: femila
-editor: jwargo
-
-ms.service: notification-hubs
-ms.workload: mobile
-ms.tgt_pltfrm: 
-ms.devlang: 
+ms.service: azure-notification-hubs
 ms.topic: article
-ms.date: 04/10/2019
+ms.date: 05/08/2024
 ms.author: sethm
-ms.reviewer: jowargo
-ms.lastreviewed: 04/10/2019
+ms.reviewer: heathertian
+ms.lastreviewed: 03/01/2024
 ---
 
 # Azure Notification Hubs and Google Firebase Cloud Messaging migration
 
-## Current state
+The core capabilities for the integration of Azure Notification Hubs with Firebase Cloud Messaging (FCM) v1 are available. As a reminder, Google will stop supporting FCM legacy HTTP on June 20, 2024, so you must migrate your applications and notification payloads to the new format before then.
 
-When Google announced its migration from Google Cloud Messaging (GCM) to Firebase Cloud Messaging (FCM), push services like ours had to adjust how we sent notifications to Android devices to accommodate the change.
+> [!IMPORTANT]
+> As of June 2024, FCM legacy APIs will no longer be supported and will be retired. To avoid any disruption in your push notification service, you must [migrate to the FCM v1 protocol](#migration-steps) as soon as possible.
 
-We updated our service backend, then published updates to our API and SDKs as needed. With our implementation, we made the decision to maintain compatibility with existing GCM notification schemas to minimize customer impact. This means that we currently send notifications to Android devices using FCM in FCM Legacy Mode. Ultimately, we want to add true support for FCM, including the new features and payload format. That is a longer-term change and the current migration is focused on maintaining compatibility with existing applications and SDKs. You can use either the GCM or FCM SDKs in your app (along with our SDK) and we make sure the notification is sent correctly.
+## Concepts for FCM v1
 
-Some customers recently received an email from Google warning about apps using a GCM endpoint for notifications. This was just a warning, and nothing is broken – your app's Android notifications are still sent to Google for processing and Google still processes them. Some customers who specified the GCM endpoint explicitly in their service configuration were still using the deprecated endpoint. We had already identified this gap and were working on fixing the issue when Google sent the email.
+- A new platform type is supported, called **FCM v1**.
+- New APIs, credentials, registrations, and installations are used for FCM v1.
 
-We replaced that deprecated endpoint and the fix is deployed.
+## Migration steps
 
-## Going forward
+The Firebase Cloud Messaging (FCM) legacy API will be deprecated by July 2024. You can begin migrating from the legacy HTTP protocol to FCM v1 now. You must complete the migration by June 2024.
 
-Google's FCM FAQ says you don't have to do anything. In the [FCM FAQ](https://developers.google.com/cloud-messaging/faq), Google said "client SDKs and GCM tokens will continue to work indefinitely. However, you won't be able to target the latest version of Google Play Services in your Android app unless you migrate to FCM."
+- For information about migrating from FCM legacy to FCM v1 using the Azure SDKs, see [Google Firebase Cloud Messaging (FCM) migration using SDKs](firebase-migration-sdk.md).
+- For information about migrating from FCM legacy to FCM v1 using the Azure REST APIs, see [Google Firebase Cloud Messaging (FCM) migration using REST APIs](firebase-migration-rest.md).
+- For the latest information about FCM migration, see the [Firebase Cloud Messaging migration guide](https://firebase.google.com/docs/cloud-messaging/migrate-v1).
 
-If your app uses the GCM library, go ahead and follow Google's instructions to upgrade to the FCM library in your app. Our SDK is compatible with either, so you won't have to update anything in your app on our side (as long as you're up to date with our SDK version).
+## FAQ
 
-## Questions and answers
+This section provides answers to frequently asked questions about the migration from FCM legacy to FCM v1.
 
-Here's some answers to common questions we've heard from customers:
+### How do I create FCM v1 template registrations with SDKs or REST APIs? 
 
-**Q:** What do I need to do to be compatible by the cutoff date (Google's current cutoff date is May 29th and may change)?
+For instructions on how to create FCM v1 template registrations, see [Azure Notification Hubs and the Google Firebase Cloud Messaging (FCM) migration using SDKs](firebase-migration-sdk.md#android-sdk).
 
-**A:** Nothing. We will maintain compatibility with existing GCM notification schema. Your GCM key will continue to work as normal as will any GCM SDKs and libraries used by your application.
+### Do I need to store both FCM legacy and FCM v1 credentials?
 
-If/when you decide to upgrade to the FCM SDKs and libraries to take advantage of new features, your GCM key will still work. You may switch to using an FCM key if you wish, but ensure you are adding Firebase to your existing GCM project when creating the new Firebase project. This will guarantee backward compatibility with your customers that are running older versions of the app that still use GCM SDKs and libraries.
+Yes, FCM legacy and FCM v1 are treated as two separate platforms in Azure Notification Hubs, so you must store both FCM legacy and FCM v1 credentials separately. For more information, see [the instructions to set up credentials](firebase-migration-rest.md#create-google-service-account-json-file).
 
-If you are creating a new FCM project and not attaching to the existing GCM project, once you update Notification Hubs with the new FCM secret you will lose the ability to push notifications to your current app installations, since the new FCM key has no link to the old GCM project.
+### How can I verify that send operations are going through the FCM v1 pipeline rather than the FCM legacy pipeline?
 
-**Q:** Why am I getting this email about old GCM endpoints being used? What do I have to do?
+The debug send response contains a `results` property, which is an [array of registration results](/rest/api/notificationhubs/notification-hubs/debug-send?tabs=HTTP#registrationresult) for the debug send. Each registration result specifies the application platform. Additionally, we offer [per-message telemetry](/rest/api/notificationhubs/get-notification-message-telemetry) for standard tier notification hubs. This telemetry features `GcmOutcomeCounts` and `FcmV1OutcomeCounts`, which can help you verify which platform is used for send operations.
 
-**A:** Nothing. We have been migrating to the new endpoints and will be finished soon, so no change is necessary. Nothing is broken, our one missed endpoint simply caused warning messages from Google.
+### Do I need to create new registrations for FCM v1?
 
-**Q:** How can I transition to the new FCM SDKs and libraries without breaking existing users?
+Yes, but you can use import/export. Once you update the client SDK, it creates device tokens for FCM v1 registrations.
 
-A: Upgrade at any time. Google has not yet announced any deprecation of existing GCM SDKs and libraries. To ensure you don't break push notifications to your existing users, make sure when you create the new Firebase project you are associating with your existing GCM project. This will ensure new Firebase secrets will work for users running the older versions of your app with GCM SDKs and libraries, as well as new users of your app with FCM SDKs and libraries.
+### Google Firebase documentation says that no client-side changes are required. Do I need to make any changes in Notification Hubs to ensure my notifications are sent through FCM v1?
 
-**Q:** When can I use new FCM features and schemas for my notifications?
+For direct send operations, there are no Notification Hubs-specific changes that need to be made on the client device. If you store installations or registrations with Azure Notification Hubs, you must let Notification Hubs know that you want to listen to the migrated platform (FCM v1). Regardless of whether you use Notification Hubs or Firebase directly, payload changes are required. See the [documentation on how to migrate to FCM v1](notification-hubs-gcm-to-fcm.md).
 
-**A:** Once we publish an update to our API and SDKs, stay tuned – we expect to have something for you in the coming months.
+### My PNS feedback shows "unknown error" when sending an FCM v1 message. What should I do to fix this error?
+
+Azure Notification Hubs is working on a solution that reduces the number of times "unknown error" is shown. In the meantime, standard tier customers can use the [notification feedback API](/rest/api/notificationhubs/get-pns-feedback) to examine the responses.
+
+### How can Xamarin customers migrate to FCM v1?
+
+Xamarin is now deprecated and Xamarin customers should migrate to .NET Multi-platform App UI (.NET MAUI). While specific Azure Notification Hub SDKs aren't provided for .NET for Android, .NET for iOS, and .NET MAUI, the [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs) can be used by apps built with .NET, including .NET MAUI. For more information, including sending push notifications to a .NET MAUI app via FCM v1, see [Send push notifications to .NET MAUI apps using Azure Notification Hubs via a backend service](/dotnet/maui/data-cloud/push-notifications).
+
+## Next steps
+
+- [What is Azure Notification Hubs?](notification-hubs-push-notification-overview.md)

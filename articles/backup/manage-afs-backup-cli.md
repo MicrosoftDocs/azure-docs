@@ -1,8 +1,12 @@
 ---
 title: Manage Azure file share backups with the Azure CLI
 description: Learn how to use the Azure CLI to manage and monitor Azure file shares backed up by Azure Backup.
-ms.topic: conceptual
-ms.date: 02/09/2022
+ms.topic: how-to
+ms.custom: devx-track-azurecli
+ms.date: 09/11/2024
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
+
 ---
 
 # Manage Azure file share backups with the Azure CLI
@@ -17,7 +21,7 @@ This article assumes you already have an Azure file share backed up by [Azure Ba
    -  **Storage Account**: *afsaccount*
    -  **File Share**: *azurefiles*
   
-  [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+  [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
    - This tutorial requires version 2.0.18 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Monitor jobs

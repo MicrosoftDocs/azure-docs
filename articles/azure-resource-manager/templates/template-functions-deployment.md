@@ -1,8 +1,9 @@
 ---
 title: Template functions - deployment
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve deployment information.
-ms.topic: conceptual
-ms.date: 06/27/2022
+ms.topic: reference
+ms.custom: devx-track-arm-template
+ms.date: 06/26/2024
 ---
 
 # Deployment functions for ARM templates
@@ -128,6 +129,24 @@ When you deploy to an Azure subscription, management group, or tenant, the retur
 }
 ```
 
+When deploying a [languageVersion 2.0](./syntax.md#languageversion-20) template, the `deployment` function returns a limited subset of properties:
+
+```json
+{
+  "name": "",
+  "location": "",
+  "properties": {
+    "template": {
+      "contentVersion": ""
+    },
+    "templateLink": {
+      "id": "",
+      "uri": ""
+    }
+  }
+}
+```
+
 ### Remarks
 
 You can use `deployment()` to link to another template based on the URI of the parent template.
@@ -179,7 +198,7 @@ For a subscription deployment, the following example returns a deployment object
 
 `environment()`
 
-Returns information about the Azure environment used for deployment.
+Returns information about the Azure environment used for deployment. The `environment()` function is not aware of resource configurations. It can only return a single default DNS suffix for each resource type.
 
 In Bicep, use the [environment](../bicep/bicep-functions-deployment.md#environment) function.
 

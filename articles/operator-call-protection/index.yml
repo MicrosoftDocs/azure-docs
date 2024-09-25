@@ -1,0 +1,46 @@
+### YamlMime:Landing
+
+title: Azure Operator Call Protection Preview documentation
+summary: Learn about Azure Operator Call Protection Preview for telecommunications operators. It uses real-time AI to help protect subscribers from voice call scams.
+
+metadata:
+  title: Azure Operator Call Protection Preview documentation
+  description: Learn about Azure Operator Call Protection Preview for telecommunications operators.
+  ms.service: azure-operator-call-protection
+  ms.topic: landing-page
+  author:  rcdun
+  ms.author: rdunstan
+  ms.date: 01/31/2024
+
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+
+  # Card
+  - title: Understand Azure Operator Call Protection Preview
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Operator Call Protection?
+            url: overview.md
+          - text: Onboarding and Included Benefits
+            url: onboarding.md
+
+  # Card
+  - title: Learn how to deploy Azure Operator Call Protection Preview
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Overview of deploying
+            url: deployment-overview.md
+      - linkListType: deploy
+        links:
+          - text: Prepare to deploy Azure Communications Gateway
+            url: ../communications-gateway/prepare-to-deploy.md?toc=/azure/operator-call-protection/toc.json&bc=/azure/operator-call-protection/breadcrumb/toc.json
+          - text: Deploy Azure Communications Gateway
+            url: ../communications-gateway/deploy.md?toc=/azure/operator-call-protection/toc.json&bc=/azure/operator-call-protection/breadcrumb/toc.json
+          - text: Integrate with Azure Communications Gateway's API
+            url: ../communications-gateway/integrate-with-provisioning-api.md?toc=/azure/operator-call-protection/toc.json&bc=/azure/operator-call-protection/breadcrumb/toc.json
+          - text: Set up Azure Operator Call Protection
+            url: set-up-operator-call-protection.md

@@ -1,11 +1,11 @@
 ---
 title: Azure Virtual Desktop (classic) management tool - Azure
 description: How to troubleshoot issues with the Azure Virtual Desktop (classic) management tool.
-author: Heidilohr
+author: dknappettmsft
 ms.topic: troubleshooting
 ms.date: 03/30/2020
-ms.author: helohr
-manager: femila
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
 # Troubleshoot the Azure Virtual Desktop (classic) management tool
 
@@ -24,12 +24,12 @@ When you successfully set up services for the management tool but automated setu
 
 This usually means one of the following two things:
 
-- The user has owner permissions on their subscription and global admin at tenant level, but they can't sign in to Azure.
+- The user has the relevant permissions on their subscription and at the tenant level, but they can't sign in to Azure.
 - The user's account settings have multi-factor authentication enabled.
 
 To fix this:
 
-1. Make sure the user you created for the Azure Active Directory User Principal Name has the "Contributor" subscription level.
+1. Make sure the user you created for the Microsoft Entra user Principal Name has the "Contributor" subscription level.
 2. Sign in to <portal.azure.com> with the UPN account to check the account settings and make sure multi-factor authentication isn't on. If it's turned on, turn it off.
 3. Visit the Azure Virtual Desktop Consent page and make sure the server and client apps have consent.
 4. Review the [Deploy a management tool](manage-resources-using-ui.md) tutorial if the issue continues and redeploy the tool.

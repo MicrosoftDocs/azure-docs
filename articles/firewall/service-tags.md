@@ -3,9 +3,9 @@ title: Overview of Azure Firewall service tags
 description: A service tag represents a group of IP address prefixes to help minimize complexity for security rule creation.
 services: firewall
 author: vhorne
-ms.service: firewall
-ms.topic: article
-ms.date: 01/28/2022
+ms.service: azure-firewall
+ms.topic: concept-article
+ms.date: 08/31/2023
 ms.author: victorh 
 ms.custom: devx-track-azurepowershell
 ---
@@ -18,7 +18,10 @@ Azure Firewall service tags can be used in the network rules destination field. 
 
 ## Supported service tags
 
-See [Virtual network service tags](../virtual-network/service-tags-overview.md#available-service-tags) for a list of service tags that are available for use in Azure firewall network rules.
+Azure Firewall supports the following Service Tags to use in Azure Firewall Network rules:
+
+- Tags for various Microsoft and Azure services listed in [Virtual network service tags](../virtual-network/service-tags-overview.md#available-service-tags).
+- Tags for the required IP addresses of Office365 services, split by Office365 product and category. You must define the TCP/UDP ports in your rules. For more information, see [Use Azure Firewall to protect Office 365](protect-office-365.md).
 
 ## Configuration
 
@@ -26,7 +29,7 @@ Azure Firewall supports configuration of service tags via PowerShell, Azure CLI,
 
 ### Configure via Azure PowerShell
 
-In this example, we must first get context to our previously created Azure Firewall instance.
+In this example, we are making a change to an Azure Firewall using classic rules.  We must first get context to our previously created Azure Firewall instance.
 
 ```Get the context to an existing Azure Firewall
 $FirewallName = "AzureFirewall"

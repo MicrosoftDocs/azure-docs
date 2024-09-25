@@ -1,21 +1,19 @@
 ---
 title:  DICOM extended query tags overview - Azure Health Data Services
 description: In this article, you'll learn the concepts of Extended Query Tags.
-author: mmitrik
-ms.service: healthcare-apis
-ms.subservice: fhir
+author: varunbms
+ms.service: azure-health-data-services
+ms.subservice: dicom-service
 ms.topic: conceptual
-ms.date: 03/21/2022
-ms.author: mmitrik
+ms.date: 10/9/2023
+ms.author: buchvarun
 ---
 
 # Extended query tags
 
-## Overview
+By default, the DICOM&reg; service supports querying on the DICOM tags specified in the [conformance statement](dicom-services-conformance-statement-v2.md#searchable-attributes). When extended query tags are enabled, the list of tags can easily be expanded based on the application's needs. 
 
-By default, the DICOM service supports querying on the DICOM tags specified in the [conformance statement](dicom-services-conformance-statement.md#searchable-attributes). By enabling extended query tags, the list of tags can easily be expanded based on the application's needs. 
-
-Using the APIs listed below, users can index their DICOM studies, series, and instances on both standard and private DICOM tags such that they can be specified in QIDO-RS queries.
+Using the following listed APIs, users can index their DICOM studies, series, and instances on both standard and private DICOM tags such that they can be specified in QIDO-RS queries.
 
 ## APIs
 
@@ -35,7 +33,7 @@ To help manage the supported tags in a given DICOM service instance, the followi
 
 ### Add extended query tags 
 
-Adds one or more extended query tags and starts a long-running operation that reindexes current DICOM instances with the specified tag(s).
+Adds one or more extended query tags and starts a long-running operation that reindexes current DICOM instances with the specified tags.
 
 ```http
 POST .../extendedquerytags
@@ -81,18 +79,19 @@ The following VR types are supported:
 > [!NOTE]
 > Sequential tags, which are tags under a tag of type Sequence of Items (SQ), are currently not supported.
 > You can add up to 128 extended query tags.
+> We do not index extended query tags if the value is null or empty.
 
 #### Responses
 
 | Name              | Type                                        | Description                                                  |
 | ----------------- | ------------------------------------------- | ------------------------------------------------------------ |
-| 202 (Accepted)    | [Operation Reference](#operation-reference) | Extended query tag(s) have been added, and a long-running operation has been started to reindex existing DICOM instances |
+| 202 (Accepted)    | [Operation Reference](#operation-reference) | Extended query tags have been added, and a long-running operation has been started to reindex existing DICOM instances |
 | 400 (Bad Request) |                                             | Request body has invalid data                                |
 | 409 (Conflict)    |                                             | One or more requested query tags already are supported       |
 
 ### List extended query tags
 
-Lists of all extended query tag(s).
+Lists of all extended query tags.
 
 ```http
 GET .../extendedquerytags
@@ -230,9 +229,9 @@ GET .../operations/{operationId}
 
 ### Tag status
 
-The [Status](#extended-query-tag-status) of extended query tag indicates current status. When an extended query tag is first added, its status is set to `Adding`, and a long-running operation is kicked off to reindex existing DICOM instances. After the operation is completed, the tag status is updated to `Ready`. The extended query tag can now be used in [QIDO](dicom-services-conformance-statement.md#search-qido-rs). 
+The [Status](#extended-query-tag-status) of extended query tag indicates the current status. When an extended query tag is first added, its status is set to `Adding`, and a long-running operation is kicked off to reindex existing DICOM instances. After the operation is completed, the tag status is updated to `Ready`. The extended query tag can now be used in [QIDO](dicom-services-conformance-statement-v2.md#search-qido-rs). 
 
-For example, if the tag Manufacturer Model Name (0008,1090) is added, and in `Ready` status, hereafter the following queries can be used to filter stored instances by the Manufacturer Model Name.
+For example, if the tag Manufacturer Model Name (0008,1090) is added, and in `Ready` status, from then on the following queries can be used to filter stored instances by the Manufacturer Model Name.
 
 ```http
 ../instances?ManufacturerModelName=Microsoft
@@ -283,7 +282,7 @@ Code **example 1** is a standard tag (0008,0070) in `Ready` status.
 }
 ```
 
-Code **example 2** is a standard tag (0010,1010) in `Adding` status.  An operation with ID `1a5d0306d9624f699929ee1a59ed57a0` is running on it, and 21 errors has occurred so far.
+Code **example 2** is a standard tag (0010,1010) in `Adding` status.  An operation with ID `1a5d0306d9624f699929ee1a59ed57a0` is running on it, and 21 errors have occurred so far.
 
 ```json
 {
@@ -481,10 +480,8 @@ This conceptual article provided you with an overview of the Extended Query Tag 
  
 ## Next steps
 
-For more information about deploying the DICOM service, see
+[Deploy the DICOM service to Azure](deploy-dicom-services-in-azure.md)
 
->[!div class="nextstepaction"]
->[Deploy DICOM service to Azure](deploy-dicom-services-in-azure.md)
+[Use DICOMweb APIs with the DICOM service](dicomweb-standard-apis-with-dicom-services.md)
 
->[!div class="nextstepaction"]
->[Using DICOMweb&trade;Standard APIs with DICOM service](dicomweb-standard-apis-with-dicom-services.md)
+[!INCLUDE [DICOM trademark statement](../includes/healthcare-apis-dicom-trademark.md)]

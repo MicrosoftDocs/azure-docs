@@ -4,15 +4,12 @@ title: Azure Files documentation # < 60 chars
 summary: Simple, secure, and serverless enterprise-grade cloud file shares. # < 160 chars
 
 metadata:
-  title: Azure Files documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Mount file shares in the cloud or on-premises on Windows, Linux, and macOS. Cache Azure file shares on Windows Servers with Azure File Sync for local access.  # Required; article description that is displayed in search results. < 160 chars.
-  services: storage
-  ms.service: storage #Required; service per approved list. service slug assigned to your service by ACOM.
-  ms.subservice: files
-  ms.topic: landing-page # Required
-  ms.collection: collection
-  author: khdownie #Required; your GitHub user alias, with correct capitalization.
-  ms.author: kendownie #Required; microsoft alias of author; optional team alias.
+  title: Azure Files documentation
+  description: Mount file shares in the cloud or on-premises on Windows, Linux, and macOS. Cache Azure file shares on Windows Servers with Azure File Sync for local access.
+  ms.service: azure-file-storage
+  ms.topic: landing-page
+  author: khdownie
+  ms.author: kendownie
   ms.date: 08/18/2022
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -31,7 +28,8 @@ landingContent:
             url: storage-files-introduction.md
           - text: Identity-based authentication
             url: storage-files-active-directory-overview.md
-
+          - text: Videos
+            url: ../common/videos-azure-files-and-file-sync.md
 
   # Card (optional)
   - title: Get started
@@ -52,12 +50,10 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
-          - text: Azure Files Windows troubleshooting
-            url: storage-troubleshoot-windows-file-connection-problems.md
-          - text: Azure Files Linux troubleshooting
-            url: storage-troubleshoot-linux-file-connection-problems.md
-          - text: Azure Files performance troubleshooting
-            url: storage-troubleshooting-files-performance.md
+          - text: Troubleshoot Azure Files
+            url: /troubleshoot/azure/azure-storage/files-troubleshoot?toc=/azure/storage/files/toc.json
+          - text: Troubleshoot Azure Files performance
+            url: /troubleshoot/azure/azure-storage/files-troubleshoot-performance?toc=/azure/storage/files/toc.json
 
   # Card
   - title: Migrate

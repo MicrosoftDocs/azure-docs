@@ -1,12 +1,12 @@
 ---
 title: Filter and ingest to Azure Data Lake Storage Gen2 using the Stream Analytics no code editor
 description: Learn how to use the no code editor to easily create a Stream Analytics job. It continuously reads from Event Hubs, filters the incoming data, and then writes the results continuously to Azure Data Lake Storage Gen2.
-author: sidramadoss
-ms.author: sidram
-ms.service: stream-analytics
+author: xujxu
+ms.author: xujiang1
+ms.service: azure-stream-analytics
 ms.topic: how-to
-ms.custom: mvc, event-tier1-build-2022
-ms.date: 05/24/2022
+ms.custom: mvc
+ms.date: 10/12/2022
 ---
 
 # Filter and ingest to Azure Data Lake Storage Gen2 using the Stream Analytics no code editor
@@ -44,16 +44,18 @@ This article describes how you can use the no code editor to easily create a Str
 1. Select **Save** and then select **Start** the Stream Analytics job.  
     :::image type="content" source="./media/filter-ingest-data-lake-storage-gen2/no-code-save-start.png" alt-text="Screenshot showing the job Save and Start options." lightbox="./media/filter-ingest-data-lake-storage-gen2/no-code-save-start.png" :::
 1. To start the job, specify the number of **Streaming Units (SUs)** that the job runs with. SUs represents the amount of compute and memory allocated to the job. We recommended that you start with three and then adjust as needed.
-1. After your select **Start**, the job starts running within two minutes.  
-:::image type="content" source="./media/filter-ingest-data-lake-storage-gen2/no-code-start-job.png" alt-text="Screenshot showing the Start Stream Analytics job window." lightbox="./media/filter-ingest-data-lake-storage-gen2/no-code-start-job.png" :::
+1. After you select **Start**, the job starts running within two minutes and the metrics will be open in tab section below.   
 
-You can see the job under the Process Data section in the **Stream Analytics jobs** tab. Select **Refresh** until you see the job status as **Running**. Select **Open metrics** to monitor it or stop and restart it, as needed.
 
-:::image type="content" source="./media/filter-ingest-data-lake-storage-gen2/no-code-list-jobs.png" alt-text="Screenshot showing the Stream Analytics jobs tab." lightbox="./media/filter-ingest-data-lake-storage-gen2/no-code-list-jobs.png" :::
+    :::image type="content" source="./media/filter-ingest-data-lake-storage-gen2/no-code-start-job.png" alt-text="Screenshot showing the Start Stream Analytics job window." lightbox="./media/filter-ingest-data-lake-storage-gen2/no-code-start-job.png" :::
 
-Here's a sample **Metrics** page:
+    You can see the job under the Process Data section in the **Stream Analytics jobs** tab. Select **Refresh** until you see the job status as **Running**. Select **Open metrics** to monitor it or stop and restart it, as needed.
 
-:::image type="content" source="./media/filter-ingest-data-lake-storage-gen2/metrics-page.png" alt-text="Screenshot showing the Metrics page." lightbox="./media/filter-ingest-data-lake-storage-gen2/metrics-page.png" :::
+    :::image type="content" source="./media/filter-ingest-data-lake-storage-gen2/no-code-list-jobs.png" alt-text="Screenshot showing the Stream Analytics jobs tab." lightbox="./media/filter-ingest-data-lake-storage-gen2/no-code-list-jobs.png" :::
+
+    Here's a sample **Metrics** page:
+
+    :::image type="content" source="./media/filter-ingest-data-lake-storage-gen2/metrics-page.png" alt-text="Screenshot showing the Metrics page." lightbox="./media/filter-ingest-data-lake-storage-gen2/metrics-page.png" :::
 
 
 ## Verify data in Data Lake Storage
@@ -69,6 +71,7 @@ Here's a sample **Metrics** page:
     {"RecordType":"MO","SystemIdentity":"d0","FileNum":"559","SwitchNum":"US","CallingNum":"456757102","CallingIMSI":"466920401237309","CalledNum":"345617823","CalledIMSI":"466923000886460","DateS":"20220524","TimeType":1,"CallPeriod":696,"ServiceType":"V","Transfer":1,"OutgoingTrunk":"419","MSRN":"886932429155","callrecTime":"2022-05-25T02:07:22Z","EventProcessedUtcTime":"2022-05-25T02:07:50.5478116Z","PartitionId":0,"EventEnqueuedUtcTime":"2022-05-25T02:07:21.9190000Z", "TimeS":null,"CallingCellID":null,"CalledCellID":null,"IncomingTrunk":null,"CalledNum2":null,"FCIFlag":null}
     ```
 
+[!INCLUDE [geo-replication-stream-analytics-job](./includes/geo-replication-stream-analytics-job.md)]
 
 ## Next steps
 

@@ -3,11 +3,11 @@ title: Accessing user information in Azure Static Web Apps
 description: Learn to read authorization provider-returned user data.
 services: static-web-apps
 author: craigshoemaker
-ms.service: static-web-apps
+ms.service: azure-static-web-apps
 ms.topic: conceptual
-ms.date: 04/09/2021
+ms.date: 06/25/2024
 ms.author: cshoe
-ms.custom: devx-track-js
+ms.custom:
 ---
 
 # Accessing user information in Azure Static Web Apps
@@ -20,20 +20,20 @@ Many user interfaces rely heavily on user authentication data. The direct-access
 
 Client principal data object exposes user-identifiable information to your app. The following properties are featured in the client principal object:
 
-| Property           | Description                                                                                                                                                                                                                                                                                                                                                        |
-| ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `identityProvider` | The name of the [identity provider](authentication-authorization.md).                                                                                                                                                                                                                                                                                              |
-| `userId`           | An Azure Static Web Apps-specific unique identifier for the user. <ul><li>The value is unique on a per-app basis. For instance, the same user returns a different `userId` value on a different Static Web Apps resource.<li>The value persists for the lifetime of a user. If you delete and add the same user back to the app, a new `userId` is generated.</ul> |
-| `userDetails`      | Username or email address of the user. Some providers return the [user's email address](authentication-authorization.md), while others send the [user handle](authentication-authorization.md).                                                                                                                                                                    |
-| `userRoles`        | An array of the [user's assigned roles](authentication-authorization.md).                                                                                                                                                                                                                                                                                          |
-| `claims`        | An array of claims returned by your [custom authentication provider](authentication-custom.md).                                                                                                                                                                                                                                                                        |
+| Property | Description |
+|---|---|
+| `identityProvider` | The name of the [identity provider](authentication-authorization.yml). |
+| `userId`| An Azure Static Web Apps-specific unique identifier for the user. <ul><li>The value is unique on a per-app basis. For instance, the same user returns a different `userId` value on a different Static Web Apps resource.<li>The value persists for the lifetime of a user. If you delete and add the same user back to the app, a new `userId` is generated.</ul> |
+| `userDetails` | Username or email address of the user. Some providers return the [user's email address](authentication-authorization.yml), while others send the [user handle](authentication-authorization.yml). |
+| `userRoles` | An array of the [user's assigned roles](authentication-authorization.yml). |
+| `claims` | An array of claims returned by your [custom authentication provider](authentication-custom.md). Only accessible in the direct-access endpoint. |
 
 The following example is a sample client principal object:
 
 ```json
 {
   "identityProvider": "github",
-  "userId": "d75b260a64504067bfc5b2905e3b8182",
+  "userId": "abcd12345abcd012345abcdef0123450",
   "userDetails": "username",
   "userRoles": ["anonymous", "authenticated"],
   "claims": [{
@@ -59,12 +59,14 @@ async function getUserInfo() {
   return clientPrincipal;
 }
 
+(async () => {
 console.log(await getUserInfo());
+})();
 ```
 
 ## API functions
 
-The API functions available in Static Web Apps via the Azure Functions backend have access to the same user information as a client application. While the API does receive user-identifiable information, it does not perform its own checks if the user is authenticated or if they match a required role. Access control rules are defined in the [`staticwebapp.config.json`](configuration.md#routes) file.
+The API functions available in Static Web Apps via the Azure Functions backend have access to the same user information as a client application, with the exception of the `claims` array. While the API does receive user-identifiable information, it does not perform its own checks if the user is authenticated or if they match a required role. Access control rules are defined in the [`staticwebapp.config.json`](configuration.md#routes) file.
 
 # [JavaScript](#tab/javascript)
 
@@ -74,7 +76,7 @@ The following example function shows how to read and return user information.
 
 ```javascript
 module.exports = async function (context, req) {
-  const header = req.headers['x-ms-client-principal'];
+  const header = req.headers.get('x-ms-client-principal');
   const encoded = Buffer.from(header, 'base64');
   const decoded = encoded.toString('ascii');
 
@@ -101,7 +103,7 @@ console.log(await getUser());
 
 # [C#](#tab/csharp)
 
-In a C# function, the user information is available from the `x-ms-client-principal` header which can be deserialized into a `ClaimsPrincipal` object, or your own custom type. The following code demonstrates how to unpack the header into an intermediary type, `ClientPrincipal`, which is then turned into a `ClaimsPrincipal` instance.
+In a C# function, the user information is available from the `x-ms-client-principal` header which your app can deserialize into a `ClaimsPrincipal` object, or your own custom type. The following code demonstrates how to unpack the header into an intermediary type, `ClientPrincipal`, which is then turned into a `ClaimsPrincipal` instance.
 
 ```csharp
 using System;
@@ -155,9 +157,12 @@ public static class StaticWebAppsAuth
 
 When a user is logged in, the `x-ms-client-principal` header is added to the requests for user information via the Static Web Apps edge nodes.
 
+> [!NOTE]
+> The `x-ms-client-principal` header accessible in the API function does not contain the `claims` array.
+
 <sup>1</sup> The [fetch](https://caniuse.com/#feat=fetch) API and [await](https://caniuse.com/#feat=mdn-javascript_operators_await) operator aren't supported in Internet Explorer.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Configure app settings](application-settings.md)
+> [Configure app settings](application-settings.yml)

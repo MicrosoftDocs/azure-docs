@@ -5,12 +5,9 @@ author: yelevin
 ms.topic: how-to
 ms.date: 11/09/2021
 ms.author: yelevin
-ms.custom: ignite-fall-2021
 ---
 
 # Export and import analytics rules to and from ARM templates
-
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 > [!IMPORTANT]
 >
@@ -30,7 +27,7 @@ The file includes all the parameters defined in the analytics rule, so for **Sch
 
 1. Select the rule you want to export and click **Export** from the bar at the top of the screen.
 
-    :::image type="content" source="./media/import-export-analytics-rules/export-rule.png" alt-text="Export analytics rule" lightbox="./media/import-export-analytics-rules/export-rule.png":::
+    :::image type="content" source="./media/import-export-analytics-rules/export-analytics-rule.png" alt-text="Export analytics rule" lightbox="./media/import-export-analytics-rules/export-analytics-rule.png":::
 
     > [!NOTE]
     > - You can select multiple analytics rules at once for export by marking the check boxes next to the rules and clicking **Export** at the end.
@@ -47,7 +44,7 @@ The file includes all the parameters defined in the analytics rule, so for **Sch
 
 1. Click **Import** from the bar at the top of the screen. In the resulting dialog box, navigate to and select the JSON file representing the rule you want to import, and select **Open**.
 
-    :::image type="content" source="./media/import-export-analytics-rules/import-rule.png" alt-text="Import analytics rule" lightbox="./media/import-export-analytics-rules/import-rule.png":::
+    :::image type="content" source="./media/import-export-analytics-rules/import-analytics-rule.png" alt-text="Import analytics rule" lightbox="./media/import-export-analytics-rules/import-analytics-rule.png":::
 
     > [!NOTE]
     > You can import **up to 50** analytics rules from a single ARM template file.

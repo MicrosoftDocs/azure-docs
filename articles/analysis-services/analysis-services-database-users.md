@@ -1,18 +1,18 @@
 ---
-title: Manage database roles and users in Azure Analysis Services | Microsoft Docs
+title: Learn how to manage database roles and users in Azure Analysis Services | Microsoft Docs
 description: Learn how to manage database roles and users on an Analysis Services server in Azure.
-author: minewiskan
-ms.service: azure-analysis-services
+author: kfollis
+ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 02/02/2022
-ms.author: owend
+ms.date: 01/27/2023
+ms.author: kfollis
 ms.reviewer: minewiskan
 ms.custom: references_regions 
 
 ---
 # Manage database roles and users
 
-At the model database level, all users must belong to a role. Roles define users with particular permissions for the model database. Any user or security group added to a role must have an account in an Azure AD tenant in the same subscription as the server. 
+At the model database level, all users must belong to a role. Roles define users with particular permissions for the model database. Any user or security group added to a role must have an account in a Microsoft Entra tenant in the same subscription as the server. 
 
 How you define roles is different depending on the tool you use, but the effect is the same.
 
@@ -21,7 +21,7 @@ Role permissions include:
 *  **Process** - Users can connect to and perform process operations on the database, and analyze model database data.
 *  **Read** -  Users can use a client application to connect to and analyze model database data.
 
-When creating a tabular model project, you create roles and add users or groups to those roles by using Role Manager in Visual Studio with Analysis Services projects. When deployed to a server, use SQL Server Management Studio (SSMS), [Analysis Services PowerShell cmdlets](/analysis-services/powershell/analysis-services-powershell-reference), or [Tabular Model Scripting Language](/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) (TMSL) to add or remove roles and user members.
+When creating a tabular model project, you create roles and add users or groups to those roles by using Role Manager in Visual Studio with Analysis Services projects. When deployed to a server, use SQL Server Management Studio (SSMS), [Analysis Services PowerShell cmdlets](/analysis-services/powershell/analysis-services-powershell-reference), or [Tabular Model Scripting Language (TMSL)](/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) to add or remove roles and user members.
 
 When adding a **security group**, use `obj:groupid@tenantid`.
 
@@ -51,9 +51,9 @@ When adding a **service principal** use `app:appid@tenantid`.
   
 6.  Click **Members** > **Add External**.  
   
-8.  In **Add External Member**, enter users or groups in your tenant Azure AD by email address. After you click OK and close Role Manager, roles and role members appear in Tabular Model Explorer. 
+8.  In **Add External Member**, enter users or groups in your tenant Microsoft Entra ID by email address. After you click OK and close Role Manager, roles and role members appear in Tabular Model Explorer. 
  
-     ![Roles and users in Tabular Model Explorer](./media/analysis-services-database-users/aas-roles-tmexplorer.png)
+     ![Screen showing roles and users in Tabular Model Explorer.](./media/analysis-services-database-users/aas-roles-tmexplorer.png)
 
 9. Deploy to your Azure Analysis Services server.
 
@@ -74,9 +74,9 @@ To add roles and users to a deployed model database, you must be connected to th
    |**Process database**|Members can run Process and Process All operations. Cannot modify the model schema and cannot query data.|  
    |**Read**|Members can query data (based on row filters) but cannot modify the model schema.|  
   
-4. Click **Membership**, then enter a user or group in your tenant Azure AD by email address.
+4. Click **Membership**, then enter a user or group in your tenant Microsoft Entra ID by email address.
 
-     ![Add user](./media/analysis-services-database-users/aas-roles-adduser-ssms.png)
+     ![Screen showing Add user.](./media/analysis-services-database-users/aas-roles-adduser-ssms.png)
 
 5. If the role you are creating has Read permission, you can add row filters by using a DAX formula. Click **Row Filters**, select a table, and then type a DAX formula in the **DAX Filter** field. 
 
@@ -86,7 +86,7 @@ You can run a TMSL script in the XMLA window in SSMS or by using PowerShell. Use
 
 **Sample TMSL script**
 
-In this sample, a B2B external user and a group are added to the Analyst role with Read permissions for the SalesBI database. Both the external user and group must be in same tenant Azure AD.
+In this sample, a B2B external user and a group are added to the Analyst role with Read permissions for the SalesBI database. Both the external user and group must be in same tenant Microsoft Entra ID.
 
 ```
 {

@@ -3,16 +3,16 @@ title: HTTP to HTTPS redirection in portal - Azure Application Gateway
 description: Learn how to create an application gateway with redirected traffic from HTTP to HTTPS using the Azure portal.
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 11/13/2019
+ms.date: 05/19/2023
 ms.author: greglin 
 ms.custom: devx-track-azurepowershell
 
 ---
 # Create an application gateway with HTTP to HTTPS redirection using the Azure portal
 
-You can use the Azure portal to create an [application gateway](overview.md) with a certificate for TLS termination. A routing rule is used to redirect HTTP traffic to the HTTPS port in your application gateway. In this example, you also create a [virtual machine scale set](../virtual-machine-scale-sets/overview.md) for the backend pool of the application gateway that contains two virtual machine instances.
+You can use the Azure portal to create an [application gateway](overview.md) with a certificate for TLS termination. A routing rule is used to redirect HTTP traffic to the HTTPS port in your application gateway. In this example, you also create a [virtual machine scale set](/azure/virtual-machine-scale-sets/overview) for the backend pool of the application gateway that contains two virtual machine instances.
 
 In this article, you learn how to:
 
@@ -24,9 +24,9 @@ In this article, you learn how to:
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
-This tutorial requires the Azure PowerShell module version 1.0.0 or later to create a certificate and install IIS. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps). To run the commands in this tutorial, you also need to run `Login-AzAccount` to create a connection with Azure.
+This tutorial requires the Azure PowerShell module version 1.0.0 or later to create a certificate and install IIS. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). To run the commands in this tutorial, you also need to run `Login-AzAccount` to create a connection with Azure.
 
 ## Create a self-signed certificate
 
@@ -62,7 +62,7 @@ Export-PfxCertificate `
 
 A virtual network is needed for communication between the resources that you create. Two subnets are created in this example: one for the application gateway, and the other for the backend servers. You can create a virtual network at the same time that you create the application gateway.
 
-1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Click **Create a resource** found on the upper left-hand corner of the Azure portal.
 3. Select **Networking** and then select **Application Gateway** in the Featured list.
 4. Enter these values for the application gateway:
@@ -123,6 +123,9 @@ First, add the listener named *myListener* for port 80.
 7. Ensure the **Target listener** is set to **appGatewayHttpListener**.
 8. For the **Include query string** and **Include path** select *Yes*.
 9. Select **Add**.
+
+> [!NOTE]
+> **appGatewayHttpListener** is the default listener name. For more information, see [Application Gateway listener configuration](configuration-listeners.md).
 
 ## Create a virtual machine scale set
 

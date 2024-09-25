@@ -4,10 +4,9 @@ description: This article shows how to estimate pricing for Azure Data Factory t
 author: jianleishen
 ms.author: jianleishen
 ms.reviewer: jburchel
-ms.service: data-factory
 ms.subservice: pricing
 ms.topic: conceptual
-ms.date: 09/22/2022
+ms.date: 05/15/2024
 ---
 
 # Pricing example: Copy data from AWS S3 to Azure Blob storage hourly
@@ -33,9 +32,9 @@ To accomplish the scenario, you need to create a pipeline with the following ite
 
 | **Operations** | **Types and Units** |
 | --- | --- |
-| Run Pipeline | 2 Activity runs per execution (1 for the trigger to run, 1 for activity to run) |
-| Copy Data Assumption: execution hours **per run** | 0.5 hours \* 4 Azure Integration Runtime (default DIU setting = 4) For more information on data integration units and optimizing copy performance, see [this article](copy-activity-performance.md) |
-| Total execution hours: 8 runs per day for 30 days | 240 runs * 2 DIU/run = 480 DIUs |
+| Run Pipeline | 2 Activity runs **per execution** (1 for the trigger to run, 1 for activity to run) = 480 Activity runs, rounded up since the calculator only allows increments of 1000. |
+| Copy Data Assumption: DIU hours **per execution** | 0.5 hours \* 4 Azure Integration Runtime (default DIU setting = 4) For more information on data integration units and optimizing copy performance, see [this article](copy-activity-performance.md) |
+| Total execution hours: 8 executions per day for 30 days | 240 executions * 2 DIU/run = 480 DIUs |
 
 ## Pricing calculator example
 
@@ -43,7 +42,7 @@ To accomplish the scenario, you need to create a pipeline with the following ite
 
 :::image type="content" source="media/pricing-concepts/scenario-1-pricing-calculator.png" alt-text="Screenshot of the pricing calculator configured for an hourly pipeline run." lightbox="media/pricing-concepts/scenario-1-pricing-calculator.png":::
 
-## Next steps
+## Related content
 
 - [Pricing example: Copy data and transform with Azure Databricks hourly for 30 days](pricing-examples-copy-transform-azure-databricks.md)
 - [Pricing example: Copy data and transform with dynamic parameters hourly for 30 days](pricing-examples-copy-transform-dynamic-parameters.md)

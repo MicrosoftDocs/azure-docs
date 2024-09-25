@@ -3,10 +3,9 @@ title: External call data transformation in mapping data flows
 description: Call external custom endpoints for mapping data flows
 author: kromerm
 ms.author: makromer
-ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.date: 08/03/2022
+ms.date: 01/05/2024
 ---
 
 # External call transformation in mapping data flows
@@ -111,7 +110,7 @@ ExternalCall1 sink(allowSchemaDrift: true,
 	saveOrder: 1) ~> sink1
 ```    
 
-## Next steps
+## Related content
 
 * Use the [Flatten transformation](data-flow-flatten.md) to pivot rows to columns.
 * Use the [Derived column transformation](data-flow-derived-column.md) to transform rows.

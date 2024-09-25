@@ -41,13 +41,13 @@ An **endpoint** that implements an **resourceType** must handle the request and 
 
 Manipulate Single Resource (`PUT`, `GET`, and `DELETE`):
 
-``` JSON
+```http
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResource/{myCustomResourceName}
 ```
 
 Retrieve All Resources (`GET`):
 
-``` JSON
+```http
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/{resourceProviderName}/myCustomResource
 ```
 
@@ -132,7 +132,7 @@ Azure Resource Manager Templates require that `id`, `name`, and `type` are retur
 
 Sample **endpoint** response:
 
-``` JSON
+```json
 {
   "properties": {
     "myProperty1": "myPropertyValue1",

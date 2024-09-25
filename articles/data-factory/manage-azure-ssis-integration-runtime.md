@@ -1,17 +1,17 @@
 ---
 title: Reconfigure the Azure-SSIS integration runtime 
 description: Learn how to reconfigure an Azure-SSIS integration runtime in Azure Data Factory after you have already provisioned it.
-ms.service: data-factory
 ms.subservice: integration-services
+ms.custom: devx-track-azurepowershell
 ms.topic: conceptual
-ms.date: 08/12/2022
+ms.date: 05/15/2024
 author: chugugrace
 ms.author: chugu
 ---
 
 # Reconfigure the Azure-SSIS integration runtime
 
-[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article describes how to reconfigure an existing Azure-SSIS integration runtime. To create an Azure-SSIS integration runtime (IR), see [Create an Azure-SSIS integration runtime](create-azure-ssis-integration-runtime.md).  
 
@@ -44,7 +44,7 @@ On **Manage** hub, switch to the **Integration runtimes** page.
 
 ## Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 After you provision and start an instance of Azure-SSIS integration runtime, you can reconfigure it by running a sequence of `Stop` - `Set` - `Start` PowerShell cmdlets consecutively. For example, the following PowerShell script changes the number of nodes allocated for the Azure-SSIS integration runtime instance to five.
 
@@ -96,7 +96,7 @@ After you provision and start an instance of Azure-SSIS integration runtime, you
    Remove-AzResourceGroup -Name $ResourceGroupName -Force 
    ```
 
-## Next steps
+## Related content
 For more information about Azure-SSIS runtime, see the following topics: 
 
 - [Azure-SSIS Integration Runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime). This article provides conceptual information about integration runtimes in general including the Azure-SSIS IR. 

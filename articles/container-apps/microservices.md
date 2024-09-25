@@ -3,11 +3,11 @@ title: Microservices with Azure Containers Apps
 description: Build a microservice in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 06/23/2022
+ms.date: 08/02/2024
 ms.author: cshoe
-ms.custom: ignite-fall-2021, event-tier1-build-2022
+ms.custom: build-2023
 ---
 
 # Microservices with Azure Container Apps
@@ -16,11 +16,13 @@ ms.custom: ignite-fall-2021, event-tier1-build-2022
 
 - Independent [scaling](scale-app.md), [versioning](application-lifecycle-management.md), and [upgrades](application-lifecycle-management.md)
 - [Service discovery](connect-apps.md)
-- Native [Dapr integration](./dapr-overview.md)
+- [Dapr integration](./dapr-overview.md)
 
 :::image type="content" source="media/microservices/azure-container-services-microservices.png" alt-text="Container apps are deployed as microservices.":::
 
 A Container Apps [environment](environment.md) provides a security boundary around a group of container apps. A single container app typically represents a microservice, which is composed of container apps made up of one or more [containers](containers.md).
+
+You can add [**Azure Functions**](https://aka.ms/functionsonaca) and [**Azure Spring Apps**](https://aka.ms/asaonaca) to your Azure Container Apps environment.
 
 ## Dapr integration
 

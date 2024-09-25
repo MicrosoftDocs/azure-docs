@@ -1,24 +1,26 @@
 ---
 title: Automated publishing for continuous integration and delivery
 description: Learn how to publish for continuous integration and delivery automatically.
-ms.service: data-factory
 ms.subservice: ci-cd
 author: nabhishek
 ms.author: abnarain
-ms.reviewer: jburchel
+ms.reviewer: susabat
 ms.topic: conceptual
-ms.date: 08/15/2022
+ms.date: 04/09/2024
 ---
 
-# Automated publishing for continuous integration and delivery
+# Automated publishing for continuous integration and delivery (CI/CD)
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
+> [!NOTE]
+> Synapse Analytics also supports CI/CD. Refer to the [Synapse Analytics CI/CD documentation](/azure/synapse-analytics/cicd/continuous-integration-delivery) for more information.
 
 ## Overview
 
 Continuous integration is the practice of testing each change made to your codebase automatically. As early as possible, continuous delivery follows the testing that happens during continuous integration and pushes changes to a staging or production system.
 
-In Azure Data Factory, continuous integration and continuous delivery (CI/CD) means moving Data Factory pipelines from one environment, such as development, test, and production, to another. Data Factory uses [Azure Resource Manager templates (ARM templates)](../azure-resource-manager/templates/overview.md) to store the configuration of your various Data Factory entities, such as pipelines, datasets, and data flows.
+In Azure Data Factory, CI/CD means moving Data Factory pipelines from one environment, such as development, test, and production, to another. Data Factory uses [Azure Resource Manager templates (ARM templates)](../azure-resource-manager/templates/overview.md) to store the configuration of your various Data Factory entities, such as pipelines, datasets, and data flows.
 
 There are two suggested methods to promote a data factory to another environment:
 
@@ -32,6 +34,9 @@ This article focuses on the continuous deployment improvements and the automated
 ## Continuous deployment improvements
 
 The automated publish feature takes the **Validate all** and **Export ARM template** features from the Data Factory user experience and makes the logic consumable via a publicly available npm package [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities). For this reason, you can programmatically trigger these actions instead of having to go to the Data Factory UI and select a button manually. This capability will give your CI/CD pipelines a truer continuous integration experience.
+
+> [!NOTE]
+> Be sure to use the node version 18.x and and its compatible version to avoid errors that can occur due to package incompatibility with older versions.
 
 ### Current CI/CD flow
 
@@ -65,9 +70,6 @@ In the current CI/CD flow, the user experience is the intermediary to create the
 > [!NOTE]
 > You can continue to use the existing mechanism, which is the `adf_publish` branch, or you can use the new flow. Both are supported.
 
-> [!WARNING]
-> When using automated publishing, the **Include in ARM template** configuration for global parameters is not supported and will result in the factory’s Git configuration being removed after the ARM template deployment. Instead, use the [PowerShell script method](author-global-parameters.md#cicd) to deploy global parameters in your Azure pipelines.
-
 ## Package overview
 
 Two commands are currently available in the package:
@@ -77,7 +79,7 @@ Two commands are currently available in the package:
 
 ### Export ARM template
 
-Run `npm run build export <rootFolder> <factoryId> [outputFolder]` to export the ARM template by using the resources of a given folder. This command also runs a validation check prior to generating the ARM template. Here's an example:
+Run `npm run build export <rootFolder> <factoryId> [outputFolder]` to export the ARM template by using the resources of a given folder. This command also runs a validation check prior to generating the ARM template. Here's an example using a resource group named **testResourceGroup**:
 
 ```dos
 npm run build export C:\DataFactories\DevDataFactory /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testResourceGroup/providers/Microsoft.DataFactory/factories/DevDataFactory ArmTemplateOutput
@@ -87,16 +89,10 @@ npm run build export C:\DataFactories\DevDataFactory /subscriptions/xxxxxxxx-xxx
 - `FactoryId` is a mandatory field that represents the Data Factory resource ID in the format `/subscriptions/<subId>/resourceGroups/<rgName>/providers/Microsoft.DataFactory/factories/<dfName>`.
 - `OutputFolder` is an optional parameter that specifies the relative path to save the generated ARM template.
 
-If you would like to stop/ start only the updated triggers, instead use the below command (currently this capability is in preview and the functionality will be transparently merged into the above command during GA): 
-```dos
-npm run build-preview export C:\DataFactories\DevDataFactory /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testResourceGroup/providers/Microsoft.DataFactory/factories/DevDataFactory ArmTemplateOutput
-```
-- `RootFolder` is a mandatory field that represents where the Data Factory resources are located.
-- `FactoryId` is a mandatory field that represents the Data Factory resource ID in the format `/subscriptions/<subId>/resourceGroups/<rgName>/providers/Microsoft.DataFactory/factories/<dfName>`.
-- `OutputFolder` is an optional parameter that specifies the relative path to save the generated ARM template.
+The ability to stop/start only the updated triggers is now generally available and is merged into the command shown above. 
+
 > [!NOTE]
 > The ARM template generated isn't published to the live version of the factory. Deployment should be done by using a CI/CD pipeline.
-
 
 
 ### Validate
@@ -125,8 +121,7 @@ Follow these steps to get started:
    ```json
    {
        "scripts":{
-           "build":"node node_modules/@microsoft/azure-data-factory-utilities/lib/index",
-           "build-preview":"node node_modules/@microsoft/azure-data-factory-utilities/lib/index --preview"
+           "build":"node node_modules/@microsoft/azure-data-factory-utilities/lib/index"
        },
        "dependencies":{
            "@microsoft/azure-data-factory-utilities":"^1.0.0"
@@ -152,9 +147,9 @@ Follow these steps to get started:
    
    # Installs Node and the npm packages saved in your package.json file in the build
    
-   - task: NodeTool@0
+   - task: UseNode@1
      inputs:
-       versionSpec: '14.x'
+       version: '18.x'
      displayName: 'Install Node.js'
    
    - task: Npm@1
@@ -165,7 +160,7 @@ Follow these steps to get started:
      displayName: 'Install npm package'
    
    # Validates all of the Data Factory resources in the repository. You'll get the same validation errors as when "Validate All" is selected.
-   # Enter the appropriate subscription and name for the source factory.
+   # Enter the appropriate subscription and name for the source factory. Either of the "Validate" or "Validate and Generate ARM temmplate" options are required to perform validation. Running both is unnecessary.
    
    - task: Npm@1
      inputs:
@@ -194,14 +189,15 @@ Follow these steps to get started:
        artifact: 'ArmTemplates'
        publishLocation: 'pipeline'
    ```
-> [!NOTE]
-> Node version 10.x is currently still supported but may be deprected in the future. We highly recommend upgrading to the latest version.
 
 4. Enter your YAML code. We recommend that you use the YAML file as a starting point.
 
 5. Save and run. If you used the YAML, it gets triggered every time the main branch is updated.
 
-## Next steps
+> [!NOTE]
+> The generated artifacts already contain pre and post deployment scripts for the triggers so it isn't necessary to add these manually. However, when deploying one would still need to reference the [documentation on stopping and starting triggers](continuous-integration-delivery-sample-script.md#script-execution-and-parameters) to execute the provided script.
+
+## Related content
 
 Learn more information about continuous integration and delivery in Data Factory:
 [Continuous integration and delivery in Azure Data Factory](continuous-integration-delivery.md).

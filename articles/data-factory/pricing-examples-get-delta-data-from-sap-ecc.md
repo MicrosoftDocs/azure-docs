@@ -4,17 +4,16 @@ description: This article shows how to price getting delta data from SAP ECC via
 author: dearandyxu
 ms.author: yexu
 ms.reviewer: jburchel
-ms.service: data-factory
 ms.subservice: pricing
 ms.topic: conceptual
-ms.date: 09/22/2022
+ms.date: 05/15/2024
 ---
 
 # Pricing example: Get delta data from SAP ECC via SAP CDC in mapping data flows
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-In this scenario, you want to get delta changes from one table in SAP ECC via SAP CDC connector, do a few necessary transforms in flight, and then write data to Azure Data Lake Gen2 storage in ADF mapping dataflow daily. 
+In this scenario, you want to get delta changes from one table in SAP ECC via SAP CDC connector, do a few necessary transforms in flight, and then write data to Azure Data Lake Gen2 storage in ADF mapping dataflow daily. We will calculate prices for execution on a schedule once per hour for 8 hours over 30 days.
 
 The prices used in this example below are hypothetical and aren't intended to imply exact actual pricing.  Read/write and monitoring costs aren't shown since they're typically negligible and won't impact overall costs significantly.  Activity runs are also rounded to the nearest 1000 in pricing calculator estimates.
 
@@ -36,17 +35,17 @@ Assuming every time it requires 15 minutes to complete the job, the cost estimat
 
 | **Operations** | **Types and Units** |
 | --- | --- |
-| Run Pipeline | 2 Activity runs per execution (1 for trigger run, 1 for activity run) |
-| Data Flow: execution time per run = 15 mins  | 15 min * 8 cores of General Compute  |
-| Self-Hosted Integration Runtime: execution time per run = 15 mins  | 15 min * $0.10/hour (Data Movement Activity on Self-Hosted Integration Runtime Price) |
+| Run Pipeline | 2 Activity runs **per execution** (1 for trigger run, 1 for activity run) = 480, rounded up since the calculator only allows increments of 1000. |
+| Data Flow: execution hours of general compute with 8 cores **per execution** = 15 mins  | 15 min / 60 min  |
+| Self-Hosted Integration Runtime: data movement execution hours60 **per execution** = 15 mins  | 15 min / 60 min |
 
 ## Pricing calculator example
 
-**Total scenario pricing for 30 days: $17.21**
+**Total scenario pricing for 30 days: $138.66**
 
 :::image type="content" source="media/pricing-concepts/scenario-6-pricing-calculator.png" alt-text="Screenshot of the pricing calculator configured for getting delta data from SAP ECC via SAP CDC in mapping data flows." lightbox="media/pricing-concepts/scenario-6-pricing-calculator.png":::
 
-## Next steps
+## Related content
 
 - [Pricing example: Copy data from AWS S3 to Azure Blob storage hourly for 30 days](pricing-examples-s3-to-blob.md)
 - [Pricing example: Copy data and transform with Azure Databricks hourly for 30 days](pricing-examples-copy-transform-azure-databricks.md)

@@ -1,19 +1,19 @@
 ---
-title: Multiple IP addresses for Azure virtual machines - Azure CLI
+title: Assign multiple IP addresses to VMs - Azure CLI
 titleSuffix: Azure Virtual Network
-description: Learn how to create a virtual machine with multiple IP addresses with the Azure CLI.
+description: Learn how to create a virtual machine with multiple IP addresses using the Azure CLI.
 services: virtual-network
-author: asudbring
-ms.service: virtual-network
+ms.date: 06/21/2024
+ms.author: mbender
+author: mbender-ms
+ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
-ms.date: 09/07/2022
-ms.author: allensu
-
+ms.custom: template-how-to, engagement-fy23, devx-track-azurecli, linux-related-content
 ---
 # Assign multiple IP addresses to virtual machines using the Azure CLI
 
-An Azure Virtual Machine (VM) has one or more network interfaces (NIC) attached to it. Any NIC can have one or more static or dynamic public and private IP addresses assigned to it. 
+An Azure Virtual Machine (VM) has one or more network interfaces (NIC) attached to it. Any NIC can have one or more static or dynamic public and private IP addresses assigned to it.
 
 Assigning multiple IP addresses to a VM enables the following capabilities:
 
@@ -23,29 +23,29 @@ Assigning multiple IP addresses to a VM enables the following capabilities:
 
 * The ability to add any of the private IP addresses for any of the NICs to an Azure Load Balancer back-end pool. In the past, only the primary IP address for the primary NIC could be added to a back-end pool. For more information about load balancing multiple IP configurations, see [Load balancing multiple IP configurations](../../load-balancer/load-balancer-multiple-ip.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-Every NIC attached to a VM has one or more IP configurations associated to it. Each configuration is assigned one static or dynamic private IP address. Each configuration may also have one public IP address resource associated to it. To learn more about IP addresses in Azure, read the [IP addresses in Azure](../../virtual-network/ip-services/public-ip-addresses.md) article.
+Every NIC attached to a VM has one or more IP configurations associated to it. Each configuration is assigned one static or dynamic private IP address. Each configuration may also have one public IP address resource associated to it. To learn more about IP addresses in Azure, see [IP addresses in Azure](../../virtual-network/ip-services/public-ip-addresses.md).
 
 > [!NOTE]
-> All IP configurations on a single NIC must be associated to the same subnet.  If multiple IPs on different subnets are desired, multiple NICs on a VM can be used.  To learn more about multiple NICs on a VM in Azure, read the [Create VM with Multiple NICs](../../virtual-machines/windows/multiple-nics.md) article.
+> All IP configurations on a single NIC must be associated to the same subnet.  If multiple IPs on different subnets are desired, multiple NICs on a VM can be used. To learn more about multiple NICs on a VM in Azure, see [Create VM with Multiple NICs](/azure/virtual-machines/windows/multiple-nics).
 
-There's a limit to how many private IP addresses can be assigned to a NIC. There's also a limit to how many public IP addresses that can be used in an Azure subscription. See the [Azure limits](../../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) article for details.
+There's a limit to how many private IP addresses can be assigned to a NIC. There's also a limit to how many public IP addresses that can be used in an Azure subscription. See [Azure limits](../../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) for details.
 
-This article explains how to add multiple IP addresses to a virtual machine using the Azure portal. 
+This article explains how to add multiple IP addresses to a virtual machine using the Azure CLI.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 - This tutorial requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 > [!NOTE]
-> Though the steps in this article assigns all IP configurations to a single NIC, you can also assign multiple IP configurations to any NIC in a multi-NIC VM. To learn how to create a VM with multiple NICs, see [Create a VM with multiple NICs](../../virtual-machines/windows/multiple-nics.md).
+> Though the steps in this article assigns all IP configurations to a single NIC, you can also assign multiple IP configurations to any NIC in a multi-NIC VM. To learn how to create a VM with multiple NICs, see [Create a VM with multiple NICs](/azure/virtual-machines/windows/multiple-nics).
 
   :::image type="content" source="./media/virtual-network-multiple-ip-addresses-portal/multiple-ipconfigs.png" alt-text="Diagram of network configuration resources created in How-to article.":::
 
-  *Figure: Diagram of network configuration resources created in How-to article.*
+  *Figure: Diagram of network configuration resources created in this How-to article.*
 
 ## Create a resource group
 
@@ -61,7 +61,7 @@ Create a resource group with [az group create](/cli/azure/group#az-group-create)
 
 ## Create a virtual network
 
-In this section, you'll create a virtual network for the virtual machine.
+In this section, you create a virtual network for the virtual machine.
 
 Use [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) to create a virtual network.
 
@@ -98,7 +98,7 @@ Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public
 
 ## Create a network security group
 
-In this section, you'll create a network security group for the virtual machine and virtual network.
+In this section, you create a network security group for the virtual machine and virtual network.
 
 Use [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create) to create the network security group.
 
@@ -110,7 +110,7 @@ Use [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create) to cre
 
 ### Create network security group rules
 
-You'll create a rule to allow connections to the virtual machine on port 22 for SSH.
+You create a rule to allow connections to the virtual machine on port 22 for SSH.
 
 Use [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create) to create the network security group rules.
 
@@ -129,9 +129,9 @@ Use [az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule
     --priority 200
 
 ```
-### Create network interface
+## Create a network interface
 
-You'll use [az network nic create](/cli/azure/network/nic#az-network-nic-create) to create the network interface for the virtual machine. The public IP addresses and the NSG created previously are associated with the NIC. The network interface is attached to the virtual network you created previously.
+You use [az network nic create](/cli/azure/network/nic#az-network-nic-create) to create the network interface for the virtual machine. The public IP addresses and the NSG created previously are associated with the NIC. The network interface is attached to the virtual network you created previously.
 
 ```azurecli-interactive
   az network nic create \
@@ -178,7 +178,7 @@ Use [az network nic ip-config create](/cli/azure/network/nic/ip-config#az-networ
 > [!NOTE]
 > When adding a static IP address, you must specify an unused, valid address on the subnet the NIC is connected to.
 
-### Create virtual machine
+## Create a virtual machine
 
 Use [az vm create](/cli/azure/vm#az-vm-create) to create the virtual machine.
 
@@ -187,10 +187,16 @@ Use [az vm create](/cli/azure/vm#az-vm-create) to create the virtual machine.
     --resource-group myResourceGroup \
     --name myVM \
     --nics myNIC1 \
-    --image UbuntuLTS \
+    --image Ubuntu2204 \
     --admin-username azureuser \
     --authentication-type ssh \
     --generate-ssh-keys
 ```
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../../includes/virtual-network-multiple-ip-addresses-os-config.md)]
+
+## Next steps
+
+- Learn more about [public IP addresses](public-ip-addresses.md) in Azure.
+- Learn more about [private IP addresses](private-ip-addresses.md) in Azure.
+- Learn how to [Configure IP addresses for an Azure network interface](virtual-network-network-interface-addresses.md?tabs=nic-address-cli).

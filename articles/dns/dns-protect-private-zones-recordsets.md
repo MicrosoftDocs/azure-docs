@@ -2,18 +2,18 @@
 title: Protecting private DNS Zones and Records - Azure DNS
 description: In this learning path, get started protecting private DNS zones and record sets in Microsoft Azure DNS.
 services: dns
-ms.service: dns
-author: duongau
-ms.author: duau
+ms.service: azure-dns
+author: greg-lindsay
+ms.author: greglin
 ms.topic: how-to
-ms.date: 09/27/2022
+ms.date: 11/30/2023
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
 ---
 
 # How to protect private DNS zones and records
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 Private DNS zones and records are critical resources. Deleting a DNS zone or a single DNS record can result in a service outage. It's important that DNS zones and records are protected against unauthorized or accidental changes.
 
@@ -29,7 +29,7 @@ The Private DNS Zone Contributor role is a built-in role for managing private DN
 
 The resource group *myPrivateDNS* contains five zones for Contoso Corporation. Granting the DNS administrator Private DNS Zone Contributor permissions to that resource group, enables full control over those DNS zones. It avoids granting unnecessary permissions. The DNS administrator can't create or stop virtual machines.
 
-The simplest way to assign Azure RBAC permissions is [via the Azure portal](../role-based-access-control/role-assignments-portal.md).  
+The simplest way to assign Azure RBAC permissions is [via the Azure portal](../role-based-access-control/role-assignments-portal.yml).  
 
 Open **Access control (IAM)** for the resource group, select **Add**, then select the **Private DNS Zone Contributor** role. Select the required users or groups to grant permissions.
 
@@ -154,7 +154,7 @@ The following example shows a custom role definition for managing CNAME records 
     "NotActions": [
     ],
     "AssignableScopes": [
-        "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e"
+        "/subscriptions/<subscription id>"
     ]
 }
 ```
@@ -245,7 +245,7 @@ Azure PowerShell
 $lvl = "<lock level>"
 $lnm = "<lock name>"
 $rnm = "<zone name>/<record set name>"
-$rty = "Microsoft.Network/privateDnsZones"
+$rty = "Microsoft.Network/privateDnsZones/<record type>"
 $rsg = "<resource group name>"
 
 New-AzResourceLock -LockLevel $lvl -LockName $lnm -ResourceName $rnm -ResourceType $rty -ResourceGroupName $rsg

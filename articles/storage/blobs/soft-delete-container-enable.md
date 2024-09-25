@@ -2,14 +2,12 @@
 title: Enable and manage soft delete for containers
 titleSuffix: Azure Storage
 description: Enable container soft delete to more easily recover your data when it is erroneously modified or deleted.
-services: storage
 author: normesta
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 07/06/2021
 ms.author: normesta
-ms.subservice: blobs
 ---
 
 # Enable and manage soft delete for containers
@@ -44,6 +42,15 @@ Enable-AzStorageContainerDeleteRetentionPolicy -ResourceGroupName <resource-grou
     -RetentionDays 7
 ```
 
+To check the current settings for container soft delete, call the [Get-AzStorageBlobServiceProperty](/powershell/module/az.storage/get-azstorageblobserviceproperty) command:
+
+```azurepowershell
+$properties = Get-AzStorageBlobServiceProperty -ResourceGroupName <resource-group> `
+    -StorageAccountName <storage-account>
+$properties.ContainerDeleteRetentionPolicy.Enabled
+$properties.ContainerDeleteRetentionPolicy.Days
+```
+
 To disable container soft delete, call the **Disable-AzStorageContainerDeleteRetentionPolicy** command.
 
 # [Azure CLI](#tab/azure-cli)
@@ -56,6 +63,13 @@ az storage account blob-service-properties update \
     --container-delete-retention-days 7 \
     --account-name <storage-account> \
     --resource-group <resource_group>
+```
+
+To check the current settings for container soft delete, call the [az storage account blob-service-properties show](/cli/azure/storage/account/blob-service-properties#az-storage-account-blob-service-properties-show) command:
+
+```azurecli-interactive
+az storage account blob-service-properties show --account-name <storage-account> \
+    --resource-group <resource-group>
 ```
 
 To disable container soft delete, specify `false` for the `--enable-container-delete-retention` parameter.
@@ -106,7 +120,7 @@ To view soft-deleted containers in the Azure portal, follow these steps:
 1. Navigate to your storage account in the Azure portal and view the list of your containers.
 1. Toggle the Show deleted containers switch to include deleted containers in the list.
 
-    :::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-list.png" alt-text="Screenshot showing how to view soft deleted containers in the Azure portal":::
+    :::image type="content" source="media/soft-delete-container-enable/soft-delete-container-portal-list.png" alt-text="Screenshot showing how to view soft-deleted containers in the Azure portal.":::
 
 ## Restore a soft-deleted container
 

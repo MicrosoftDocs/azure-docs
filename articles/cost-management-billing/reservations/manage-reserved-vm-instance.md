@@ -6,7 +6,7 @@ ms.subservice: reservations
 author: bandersmsft
 ms.reviewer: primittal
 ms.topic: how-to
-ms.date: 09/20/2021
+ms.date: 08/14/2024
 ms.author: banders
 ---
 # Manage Reservations for Azure resources
@@ -17,7 +17,7 @@ If you bought Azure Reserved Virtual Machine Instances, you can change the optim
 
 *Permission needed to manage a reservation is separate from subscription permission.*
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Reservation Order and Reservation
 
@@ -27,7 +27,7 @@ At the time of purchase, a Reservation Order has one Reservation under it. Actio
 
 To view a Reservation Order, go to **Reservations** > select the reservation, and then select the **Reservation order ID**.
 
-![Example of reservation order details showing Reservation order ID ](./media/manage-reserved-vm-instance/reservation-order-details.png)
+:::image type="content" border="true" source="./media/manage-reserved-vm-instance/reservation-order-details.png" alt-text="Screenshot showing reservation order details with the reservation order ID.":::
 
 A reservation inherits permissions from its reservation order. To exchange or refund a reservation, the user should be added to the reservation order.
 
@@ -54,12 +54,14 @@ If all subscriptions are moved out of a management group, the scope of the reser
 By default, the following users can view and manage reservations:
 
 - The person who bought the reservation and the account owner for the billing subscription get Azure RBAC access to the reservation order.
--  Enterprise Agreement and Microsoft Customer Agreement billing contributors can manage all reservations from Cost Management + Billing > Reservation Transactions > select the blue banner.
+- Enterprise Agreement and Microsoft Customer Agreement billing contributors can manage all reservations from Cost Management + Billing > Reservation Transactions > select the blue banner.
+- A Reservation administrator for reservations in their Microsoft Entra tenant (directory).
+- A Reservation reader has read-only access to reservations in their Microsoft Entra tenant (directory).
 
 To allow other people to manage reservations, you have two options:
 
 - Delegate access management for an individual reservation order by assigning the Owner role to a user at the resource scope of the reservation order. If you want to give limited access, select a different role.  
-     For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+     For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 
 - Add a user as billing administrator to an Enterprise Agreement or a Microsoft Customer Agreement:
     - For an Enterprise Agreement, add users with the _Enterprise Administrator_ role to view and manage all reservation orders that apply to the Enterprise Agreement. Users with the _Enterprise Administrator (read only)_ role can only view the reservation. Department admins and account owners can't view reservations _unless_ they're explicitly added to them using Access control (IAM). For more information, see [Managing Azure Enterprise roles](../manage/understand-ea-roles.md).
@@ -72,16 +74,20 @@ To allow other people to manage reservations, you have two options:
 
 If you're a billing administrator, use following steps to view and manage all reservations and reservation transactions.
 
-1. Sign into the [Azure portal](https://portal.azure.com) and navigate to **Cost Management + Billing**.
+1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to **Cost Management + Billing**.
     - If you're an EA admin, in the left menu, select **Billing scopes** and then in the list of billing scopes, select one.
     - If you're a Microsoft Customer Agreement billing profile owner, in the left menu, select **Billing profiles**. In the list of billing profiles, select one.
 2. In the left menu, select **Products + services** > **Reservations**.
 3. The complete list of reservations for your EA enrollment or billing profile is shown.
 4. Billing administrators can take ownership of a reservation by selecting it and then selecting **Grant access** in the window that appears.
 
-## Change Billing Subscription for an Azure Reservation
+## Change billing subscription for an Azure Reservation
 
-We don’t allow changing Billing subscription after a reservation is purchased. If you want to change the subscription, use the exchange process to set the right billing subscription for the reservation.
+We don’t allow changing the billing subscription after a reservation is purchased. [Subscription transfer](../manage/ea-transfers.md#change-azure-subscription-or-account-ownership) doesn't transfer an Azure reservation. If you want to change the subscription, use the exchange process to set the right billing subscription for the reservation.
+
+## Change billing frequency for an Azure Reservation
+
+We don’t allow changing billing frequency after a reservation is purchased. If you want to change the billing frequency, use the exchange process to set the right billing frequency for the reservation or select a different billing frequency when setting up a renewal for an already purchased reservation.
 
 ## Split a single reservation into two reservations
 
@@ -101,19 +107,19 @@ We don’t allow changing Billing subscription after a reservation is purchased.
 2. Get the details of a reservation:
 
     ```powershell
-    Get-AzReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId b8be062a-fb0a-46c1-808a-5a844714965a
+    Get-AzReservation -ReservationOrderId aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb -ReservationId bbbbbbbb-1111-2222-3333-cccccccccccc
     ```
 
 3. Split the reservation into two and distribute the instances:
 
     ```powershell
     # Split the reservation. The sum of the reservations, the quantity, must equal the total number of instances in the reservation that you're splitting.
-    Split-AzReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId b8be062a-fb0a-46c1-808a-5a844714965a -Quantity 3,2
+    Split-AzReservation -ReservationOrderId aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb -ReservationId bbbbbbbb-1111-2222-3333-cccccccccccc -Quantity 3,2
     ```
 4. You can update the scope by running the following command:
 
     ```powershell
-    Update-AzReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId 5257501b-d3e8-449d-a1ab-4879b1863aca -AppliedScopeType Single -AppliedScope /subscriptions/15bb3be0-76d5-491c-8078-61fe3468d414
+    Update-AzReservation -ReservationOrderId aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb -ReservationId bbbbbbbb-1111-2222-3333-cccccccccccc -AppliedScopeType Single -AppliedScope /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e
     ```
 
 ## Cancel, exchange, or refund reservations
@@ -122,7 +128,7 @@ You can cancel, exchange, or refund reservations with certain limitations. For m
 
 ## Change optimize setting for Reserved VM Instances
 
- When you buy a Reserved VM Instance, you choose instance size flexibility or capacity priority. Instance size flexibility applies the reservation discount to other VMs in the same [VM size group](../../virtual-machines/reserved-vm-instance-size-flexibility.md). Capacity priority designates data center capacity most important for your deployments. This option offers additional confidence in your ability to launch the VM instances when you need them.
+ When you buy a Reserved VM Instance, you choose instance size flexibility or capacity priority. Instance size flexibility applies the reservation discount to other VMs in the same [VM size group](/azure/virtual-machines/reserved-vm-instance-size-flexibility). Capacity priority designates data center capacity most important for your deployments. This option offers additional confidence in your ability to launch the VM instances when you need them.
 
 By default, when the scope of the reservation is shared, the instance size flexibility is on. The data center capacity isn't prioritized for VM deployments.
 
@@ -134,9 +140,9 @@ To update the optimize setting for the reservation:
 2. Select **All Services** > **Reservations**.
 3. Select the reservation.
 4. Select **Settings** > **Configuration**.
-  ![Example showing the Configuration item](./media/manage-reserved-vm-instance/add-product03.png)
+  :::image type="content" border="true" source="./media/manage-reserved-vm-instance/add-product03.png" alt-text="Screenshot showing  the Configuration symbol.":::
 5. Change the **Optimize for** setting.
-  ![Example showing the Optimize for setting](./media/manage-reserved-vm-instance/instance-size-flexibility-option.png)
+  :::image type="content" border="true" source="./media/manage-reserved-vm-instance/instance-size-flexibility-option.png" alt-text="Screenshot showing the Optimize for setting.":::
 
 ## Optimize reservation use
 
@@ -146,12 +152,12 @@ Azure reservation savings only result from sustained resource use. When you make
 
 One way of viewing reservation usage is in the Azure portal.
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select  **All services** > [**Reservations**](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) and note the **Utilization (%)** for a reservation.  
-  ![Image showing the list of reservations](./media/manage-reserved-vm-instance/reservation-list.png)
+  :::image type="content" border="true" source="./media/manage-reserved-vm-instance/reservation-list.png" alt-text="Screenshot showing the list of reservations.":::
 3. Select a reservation.
 4. Review the reservation use trend over time.
-  ![Image showing reservation use ](./media/manage-reserved-vm-instance/reservation-utilization-trend.png)
+  :::image type="content" border="true" source="./media/manage-reserved-vm-instance/reservation-utilization-trend.png" alt-text="Screenshot  showing reservation use.":::
 
 ### View reservation use with API
 

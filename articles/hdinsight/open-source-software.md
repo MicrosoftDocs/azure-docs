@@ -1,10 +1,9 @@
 ---
 title: Open-source software support in Azure HDInsight
 description: Microsoft Azure provides a general level of support for open-source technologies.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
-ms.custom: seoapr2020
-ms.date: 04/21/2020
+ms.date: 02/20/2024
 ---
 
 # Open-source software support in Azure HDInsight
@@ -21,7 +20,6 @@ These components are preinstalled on HDInsight clusters and provide core functio
 
 * [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) Resource Manager.
 * The Hive query language [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual).
-* [Apache Mahout](https://mahout.apache.org/).
 
 A full list of cluster components is available in [What are the Apache Hadoop components and versions available with HDInsight?](hdinsight-component-versioning.md)
 

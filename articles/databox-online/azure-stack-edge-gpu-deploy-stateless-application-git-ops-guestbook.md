@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 09/09/2022
 ms.author: alkohli
 ---
 
@@ -23,7 +23,7 @@ This article shows you how to build and deploy a simple, multi-tier web applicat
 
 The deployment is done using GitOps on the Azure Arc-enabled Kubernetes cluster on your Azure Stack Edge Pro device. 
 
-This procedure is intended for people who have reviewed the [Kubernetes workloads on Azure Stack Edge Pro device](azure-stack-edge-gpu-kubernetes-workload-management.md) and are familiar with the concepts of [What is Azure Arc-enabled Kubernetes (Preview)](../azure-arc/kubernetes/overview.md).
+This procedure is intended for people who have reviewed the [Kubernetes workloads on Azure Stack Edge Pro device](azure-stack-edge-gpu-kubernetes-workload-management.md) and are familiar with the concepts of [What is Azure Arc-enabled Kubernetes (Preview)](/azure/azure-arc/kubernetes/overview).
 
 > [!NOTE]
 > This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
@@ -81,7 +81,9 @@ Follow these steps to configure the Azure Arc resource to deploy a GitOps config
 
     ![Screenshot shows the Azure Arc-enabled Kubernetes cluster with Add configuration selected.](media/azure-stack-edge-gpu-connect-powershell-interface/select-configurations-1.png)
 
-1. In **Add configuration**, enter the appropriate values for the fields, and then select **Apply**.
+1. Specify the **Flux version 1 Extension**.
+
+1. In **Add a GitOps configuration**, enter the appropriate values for the fields, and then select **Add**.
 
     |Parameter  |Description |
     |---------|---------|
@@ -92,7 +94,7 @@ Follow these steps to configure the Azure Arc resource to deploy a GitOps config
     |Operator scope     | Select **Namespace**. <br>This parameter defines the scope at which the operator is installed. Select Namespace to install your operator in the namespace specified in the deployment yaml files.       |
     |Operator type     | Leave at default. <br>This parameter specifies the type of the operator - by default, set as flux.        |
     |Operator params     | Leave this blank. <br>This parameter contains parameters to pass to the flux operator.        |
-    |Helm     | Set this parameter to **Disabled**. <br>Enable this option if you will do chart-based deployments.        |
+    |Helm     | Leave this checkbox **Unchecked**. <br>Enable this option if you will do chart-based deployments.        |
 
 
     ![Add configuration](media/azure-stack-edge-gpu-connect-powershell-interface/add-configuration-1.png)

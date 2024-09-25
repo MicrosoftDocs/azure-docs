@@ -7,7 +7,7 @@ tags: azure-service-management
 ms.topic: sample
 ms.date: 08/26/2020
 ms.author: tomfitz
-ms.custom: mvc, fasttrack-edit
+ms.custom: mvc, fasttrack-edit, devx-track-arm-template
 ---
 # Azure Resource Manager templates for App Service
 
@@ -19,6 +19,7 @@ To learn about the JSON syntax and properties for App Services resources, see [M
 |-|-|
 | [App Service plan and basic Linux app](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/webapp-basic-linux) | Deploys an App Service app that is configured for Linux. |
 | [App Service plan and basic Windows app](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/webapp-basic-windows) | Deploys an App Service app that is configured for Windows. |
+| [App Service plan and basic Windows container app](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/app-service-docs-windows-container) | Deploys an App Service app that is configured for a Windows container. |
 | [App linked to a GitHub repository](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/web-app-github-deploy)| Deploys an App Service app that pulls code from GitHub. |
 | [App with custom deployment slots](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/webapp-custom-deployment-slots)| Deploys an App Service app with custom deployment slots/environments. |
 | [App with Private Endpoint](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/private-endpoint-webapp)| Deploys an App Service app with a Private Endpoint. |
@@ -39,8 +40,7 @@ To learn about the JSON syntax and properties for App Services resources, see [M
 | [App with a Blob storage connection](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/web-app-blob-connection)| Deploys an App Service app with an Azure Blob storage connection string. You can then use Blob storage from the app. |
 | [App with an Azure Cache for Redis](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/web-app-with-redis-cache)| Deploys an App Service app with an Azure Cache for Redis. |
 | [App connected to a backend webapp](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/webapp-privateendpoint-vnet-injection)| Deploys two web apps (frontend and backend) securely connected together with VNet injection and Private Endpoint. |
+| [App connected to a backend webapp with staging slots](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/webapp-secure-ntier)| Deploys two web apps (frontend and backend) with staging slots securely connected together with VNet injection and Private Endpoint. |
+| [Two apps in separate regions with Azure Front Door](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/webapp-multi-region-front-door) | Deploys two identical web apps in separate regions with Azure Front Door to direct traffic. |
 |**App Service Environment**| **Description** |
-| [Create an App Service environment v2](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/web-app-asev2-create) | Creates an App Service environment v2 in your virtual network. |
-| [Create an App Service environment v2 with an ILB address](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/web-app-asev2-ilb-create) | Creates an App Service environment v2 in your virtual network with a private internal load balancer address. |
-| [Configure the default SSL certificate for an ILB App Service environment or an ILB App Service environment v2](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/web-app-ase-ilb-configure-default-ssl) | Configures the default TLS/SSL certificate for an ILB App Service environment or an ILB App Service environment v2. |
-| | |
+| [Create an App Service environment v3](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/web-app-asp-app-on-asev3-create) | Creates an App Service environment v3, App Service plan, App Service, and all associated networking resources. |

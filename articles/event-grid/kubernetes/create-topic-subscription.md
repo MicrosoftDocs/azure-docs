@@ -1,29 +1,29 @@
 ---
 title: Azure Event Grid on Kubernetes - Webhook as event handler
-description: This article describes how to create an event grid topic on a Kubernetes cluster that's connected to Azure Arc and then create a subscription for the topic.
-author: jfggdl
+description: This article describes how to create an Event Grid topic on a Kubernetes cluster that's connected to Azure Arc and then create a subscription for the topic.
+author: robece
 ms.subservice: kubernetes
-ms.author: jafernan
+ms.author: robece
 ms.date: 06/17/2021
 ms.topic: quickstart
-ms.custom: mode-other, devx-track-azurecli 
+ms.custom: mode-other, devx-track-azurecli, build-2024
 ms.devlang: azurecli
 ---
 
 # Route cloud events to Webhooks with Azure Event Grid on Kubernetes
-In this quickstart, you'll create a topic in Event Grid on Kubernetes, create a subscription for the topic, and then send a sample event to the topic to test the scenario. 
+In this quickstart, you create a topic in Event Grid on Kubernetes, create a subscription for the topic, and then send a sample event to the topic to test the scenario. 
 
-[!INCLUDE [event-grid-preview-feature-note.md](../includes/event-grid-preview-feature-note.md)]
+[!INCLUDE [preview-feature-note.md](../includes/preview-feature-note.md)]
 
 
 ## Prerequisites
 
-1. [Connect your Kubernetes cluster to Azure Arc](../../azure-arc/kubernetes/quickstart-connect-cluster.md).
+1. [Connect your Kubernetes cluster to Azure Arc](/azure/azure-arc/kubernetes/quickstart-connect-cluster).
 1. [Install Event Grid extension on Kubernetes cluster](install-k8s-extension.md). This extension deploys Event Grid to a Kubernetes cluster. 
 
 
 ## Create a custom location
-As an Azure location extension, a custom location lets you use your Azure Arc-enabled Kubernetes cluster as a target location for deploying resources such as Event Grid topics. A custom location represents a namespace in the cluster and it's the place where topics and event subscriptions are deployed. In this section, you'll create a custom location. 
+As an Azure location extension, a custom location lets you use your Azure Arc-enabled Kubernetes cluster as a target location for deploying resources such as Event Grid topics. A custom location represents a namespace in the cluster and it's the place where topics and event subscriptions are deployed. In this section, you create a custom location. 
 
 1. Declare the following variables to hold values of the Azure Arc cluster, resource group, and custom location names. Copy these statements to an editor, replace the values, and then copy/paste to the bash window.  
 
@@ -42,7 +42,7 @@ As an Azure location extension, a custom location lets you use your Azure Arc-en
     ```azurecli-interactive
     clusterextensionid=$(az k8s-extension show --name eventgrid-ext --cluster-type connectedClusters -c $arcclustername -g $resourcegroupname  --query id -o tsv)    
     ```
-1. Create a custom location using the above two values. Update custom location and resource group names before running the command. 
+1. Create a custom location using the two values from the previous step. Update custom location and resource group names before running the command. 
 
     ```azurecli-interactive
     az customlocation create -n $customlocationname -g $resourcegroupname --namespace arc --host-resource-id $hostresourceid --cluster-extension-ids $clusterextensionid    
@@ -53,10 +53,10 @@ As an Azure location extension, a custom location lets you use your Azure Arc-en
     customlocationid=$(az customlocation show -n $customlocationname -g $resourcegroupname --query id -o tsv)    
     ```
 
-    For more information on creating custom locations, see [Create and manage custom locations on Azure Arc-enabled Kubernetes](../../azure-arc/kubernetes/custom-locations.md). 
+    For more information on creating custom locations, see [Create and manage custom locations on Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/custom-locations). 
 
 ## Create a topic
-In this section, you'll create a topic in the custom location you created in the previous step. Update resource group and event grid topic names before running the command. Update the location if you are using a location other than East US. 
+In this section, you create a topic in the custom location you created in the previous step. Update resource group and Event Grid topic names before running the command. Update the location if you're using a location other than East US. 
 
 1. Declare a variable to hold the topic name. 
 
@@ -73,11 +73,12 @@ In this section, you'll create a topic in the custom location you created in the
 
 ## Create a message endpoint
 
-Before you create a subscription for the custom topic, create an endpoint for the event message. Typically, the endpoint takes actions based on the event data. To simplify this quickstart, you deploy a [pre-built web app](https://github.com/Azure-Samples/azure-event-grid-viewer) that displays the event messages. The deployed solution includes an App Service plan, an App Service web app, and source code from GitHub.
+Before you create a subscription for the custom topic, create an endpoint for the event message. Typically, the endpoint takes actions based on the event data. To simplify this quickstart, you deploy a [prebuilt web app](https://github.com/Azure-Samples/azure-event-grid-viewer) that displays the event messages. The deployed solution includes an App Service plan, an App Service web app, and source code from GitHub.
 
 1. In the article page, select **Deploy to Azure** to deploy the solution to your subscription. In the Azure portal, provide values for the parameters.
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="../../media/template-deployments/deploy-to-azure.svg"  alt="Button to deploy to Azure."></a>
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json":::
+
 1. The deployment may take a few minutes to complete. After the deployment has succeeded, view your web app to make sure it's running. In a web browser, navigate to: 
 `https://<your-site-name>.azurewebsites.net`
 
@@ -87,7 +88,7 @@ Before you create a subscription for the custom topic, create an endpoint for th
    ![View new site](../media/custom-event-quickstart-portal/view-site.png)
 
 ## Create a subscription
-Subscribers can register for events published to a topic. To receive any event, you'll need to create an Event Grid subscription for a topic of interest. An event subscription defines the destination to which those events are sent. To learn about all the destinations or handlers supported, see [Event handlers](event-handlers.md).
+Subscribers can register for events published to a topic. To receive any event, you need to create an Event Grid subscription for a topic of interest. An event subscription defines the destination to which those events are sent. To learn about all the destinations or handlers supported, see [Event handlers](event-handlers.md).
 
 To create an event subscription with a WebHook (HTTPS endpoint) destination, enter a name for the event subscription, update the name of the web site, and run the following command.
 
@@ -100,7 +101,7 @@ az eventgrid event-subscription create --name <EVENT SUBSCRIPTION NAME> --source
 For more information about the CLI command, see [`az eventgrid event-subscription create`](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create).
 
 ## Send events to the topic
-1. Run the following command to get the **endpoint** for the topic: After you copy and paste the command, update the **topic name** and **resource group name** before you run the command. You'll publish sample events to this topic endpoint. 
+1. Run the following command to get the **endpoint** for the topic: After you copy and paste the command, update the **topic name** and **resource group name** before you run the command. You publish sample events to this topic endpoint. 
 
     ```azurecli
     az eventgrid topic show --name $topicname -g $resourcegroupname --query "endpoint" --output tsv
@@ -132,7 +133,7 @@ For more information about the CLI command, see [`az eventgrid event-subscriptio
     
     If the topic endpoint URL from step 1 is a private IP address, such as in the case when Event Grid broker's service type is ClusterIP, you can execute **Curl** from within another pod in the cluster to have access to that IP address. For example, you can perform the following steps:
 
-    1. Create a manifest file with the following configuration. You may want to adjust the ``dnsPolicy`` according to your needs. Consult [DNS for Services and Pods](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/) for more information.
+    1. Create a manifest file with the following configuration. You may want to adjust the ``dnsPolicy`` according to your needs. For more information, see [DNS for Services and Pods](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/).
     
         ```yml
         apiVersion: v1
@@ -159,7 +160,7 @@ For more information about the CLI command, see [`az eventgrid event-subscriptio
             kubectl exec --stdin --tty test-pod -- /bin/bash
         ```
 
-    At this point, you have a shell session from a running container in the cluster from which you can execute the **Curl** command described in an earlier step above.
+    At this point, you have a shell session from a running container in the cluster from which you can execute the **Curl** command described in an earlier step.
 
     > [!NOTE]
     > To learn how to send cloud events using programming languages, see the following samples: 

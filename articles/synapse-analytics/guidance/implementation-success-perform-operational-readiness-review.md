@@ -1,10 +1,10 @@
 ---
 title: "Synapse implementation success methodology: Perform operational readiness review"
 description: "Learn how to perform an operational readiness review to evaluate your solution for its preparedness to provide optimal services to users."
-author: peter-myers
-ms.author: v-petermyers
-ms.reviewer: sngun
-ms.service: synapse-analytics
+author: whhender
+ms.author: whhender
+ms.reviewer: whhender
+ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.date: 05/31/2022
 ---
@@ -38,7 +38,7 @@ It's important to review solution readiness by using the following points.
 
 Data security and privacy are non-negotiable. Azure Synapse implements a multi-layered security architecture for end-to-end protection of your data. Review security readiness by using the following points.
 
-- **Authentication:** Ensure Azure Active Directory (Azure AD) authentication is used whenever possible. If non-Azure AD authentication is used, ensure strong password mechanisms are in place and that passwords are rotated on a regular basis. For more information, see [Password Guidance](https://www.microsoft.com/research/publication/password-guidance/). Ensure monitoring is in place to detect suspicious actions related to user authentication. Consider using [Azure Identity Protection](../../active-directory/identity-protection/overview-identity-protection.md) to automate the detection and remediation of identity-based risks.
+- **Authentication:** Ensure Microsoft Entra authentication is used whenever possible. If non-Microsoft Entra authentication is used, ensure strong password mechanisms are in place and that passwords are rotated on a regular basis. For more information, see [Password Guidance](https://www.microsoft.com/research/publication/password-guidance/). Ensure monitoring is in place to detect suspicious actions related to user authentication. Consider using [Azure Identity Protection](../../active-directory/identity-protection/overview-identity-protection.md) to automate the detection and remediation of identity-based risks.
 - **Access control:** Ensure proper access controls are in place following the [principle of least privilege](../../active-directory/develop/secure-least-privileged-access.md). Use security features available with Azure services to strengthen the security of your solution. For example, Azure Synapse provides granular security features, including row-level security (RLS), column-level security, and dynamic data masking. For more information, see [Azure Synapse Analytics security white paper: Access control](security-white-paper-access-control.md).
 - **Threat protection:** Ensure proper threat detection mechanisms are place to prevent, detect, and respond to threats. Azure Synapse provides SQL Auditing, SQL Threat Detection, and Vulnerability Assessment to audit, protect, and monitor databases. For more information, see [Azure Synapse Analytics security white paper: Threat detection](security-white-paper-threat-protection.md).
 
@@ -54,27 +54,19 @@ Set and document expectations for monitoring readiness with your business. These
 - Details of proactive health checks.
 - Any mechanisms that are in place that automate actions in response to incidents, for example, raising tickets automatically.
 
-Consider using [Azure Monitor](../../azure-monitor/overview.md) to collect, analyze, and act on telemetry data from your Azure and on-premises environments. Azure Monitor helps you maximize performance and availability of your applications by proactively identify problems in seconds.
+Consider using [Azure Monitor](/azure/azure-monitor/overview) to collect, analyze, and act on telemetry data from your Azure and on-premises environments. Azure Monitor helps you maximize performance and availability of your applications by proactively identify problems in seconds.
 
-List all the important metrics to monitor for each service in your solution along with their acceptable thresholds. For example, the following list includes important metrics to monitor for a dedicated SQL pool:
-
-- `DWULimit`
-- `DWUUsed`
-- `AdaptiveCacheHitPercent`
-- `AdaptiveCacheUsedPercent`
-- `LocalTempDBUsedPercent`
-- `ActiveQueries`
-- `QueuedQueries`
+List all the important metrics to monitor for each service in your solution along with their acceptable thresholds. For example, you can [view metrics](../monitor-synapse-analytics-reference.md#supported-metrics-for-microsoftsynapseworkspacessqlpools) to monitor for a dedicated SQL pool.
 
 Consider using [Azure Service Health](https://azure.microsoft.com/features/service-health/) to notify you about Azure service incidents and planned maintenance. That way, you can take action to mitigate downtime. You can set up customizable cloud alerts and use a personalized dashboard to analyze health issues, monitor the impact to your cloud resources, get guidance and support, and share details and updates.
 
-Lastly, ensure proper notifications are set up to notify appropriate people when incidents occur. Incidents could be proactive, such as when a certain metric exceeds a threshold, or reactive, such as a failure of a component or service. For more information, see [Overview of alerts in Microsoft Azure](../../azure-monitor/alerts/alerts-overview.md).
+Lastly, ensure proper notifications are set up to notify appropriate people when incidents occur. Incidents could be proactive, such as when a certain metric exceeds a threshold, or reactive, such as a failure of a component or service. For more information, see [Overview of alerts in Microsoft Azure](/azure/azure-monitor/alerts/alerts-overview).
 
 ### High availability
 
 Define and document *recovery time objective (RTO)* and *recovery point objective (RPO)* for your solution. RTO is how soon the service will be available to users, and RPO is how much data loss would occur in the event of a failover.
 
-Each of the Azure services publishes a set of guidelines and metrics on the expected high availability (HA) of the service. Ensure these HA metrics align with your business expectations. when they don't align, customizations may be necessary to meet your HA requirements. For example, Azure Synapse dedicated SQL pool supports an eight-hour RPO with automatic restore points. If that RPO isn't sufficient, you can set up user-defined restore points with an appropriate frequency to meet your RPO needs. For more information, see [Backup and restore in Azure Synapse dedicated SQL pool](../sql-data-warehouse/backup-and-restore.md).
+Each of the Azure services publishes a set of guidelines and metrics on the expected high availability (HA) of the service. Ensure these HA metrics align with your business expectations. When they don't align, customizations may be necessary to meet your HA requirements. For example, Azure Synapse dedicated SQL pool supports an eight-hour RPO with automatic restore points. If that RPO isn't sufficient, you can set up user-defined restore points with an appropriate frequency to meet your RPO needs. For more information, see [Backup and restore in Azure Synapse dedicated SQL pool](../sql-data-warehouse/backup-and-restore.md).
 
 ### Disaster recovery
 

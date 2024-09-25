@@ -1,33 +1,33 @@
 ---
 title: Highly available Spark Streaming jobs in YARN - Azure HDInsight
 description: How to set up Apache Spark Streaming for a high-availability scenario in Azure HDInsight
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 05/26/2022
+ms.date: 06/14/2024
 ---
 
 # Create high-availability Apache Spark Streaming jobs with YARN
 
-[Apache Spark](https://spark.apache.org/) Streaming enables you to implement scalable, high-throughput, fault-tolerant applications for data streams processing. You can connect Spark Streaming applications on a HDInsight Spark cluster to different kinds of data sources, such as Azure Event Hubs, Azure IoT Hub, [Apache Kafka](https://kafka.apache.org/), [Apache Flume](https://flume.apache.org/), Twitter, [ZeroMQ](http://zeromq.org/), raw TCP sockets, or by monitoring the [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html) filesystem for changes. Spark Streaming supports fault tolerance with the guarantee that any given event is processed exactly once, even with a node failure.
+[Apache Spark](https://spark.apache.org/) Streaming enables you to implement scalable, high-throughput, fault-tolerant applications for data streams processing. You can connect Spark Streaming applications on a HDInsight Spark cluster to different kinds of data sources, such as Azure Event Hubs, Azure IoT Hub, [Apache Kafka](https://kafka.apache.org/), [Apache Flume](https://flume.apache.org/), X, [ZeroMQ](http://zeromq.org/), raw TCP sockets, or by monitoring the [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html) filesystem for changes. Spark Streaming supports fault tolerance with the guarantee that any given event is processed exactly once, even with a node failure.
 
 Spark Streaming creates long-running jobs during which you're able to apply transformations to the data and then push the results out to filesystems, databases, dashboards, and the console. Spark Streaming processes micro-batches of data, by first collecting a batch of events over a defined time interval. Next, that batch is sent on for processing and output. Batch time intervals are typically defined in fractions of a second.
 
-:::image type="content" source="./media/apache-spark-streaming-high-availability/apache-spark-streaming.png" alt-text="Spark Streaming" border="false":::
+:::image type="content" source="./media/apache-spark-streaming-high-availability/apache-spark-streaming.png" alt-text="Spark Streaming." border="false":::
 
 ## DStreams
 
 Spark Streaming represents a continuous stream of data using a *discretized stream* (DStream). This DStream can be created from input sources like Event Hubs or Kafka, or by applying transformations on another DStream. When an event arrives at your Spark Streaming application, the event is stored in a reliable way. That is, the event data is replicated so that multiple nodes have a copy of it. This ensures that the failure of any single node won't result in the loss of your event.
 
-The Spark core uses *resilient distributed datasets* (RDDs). RDDs distribute data across multiple nodes in the cluster, where each node generally maintains its data completely in-memory for best performance. Each RDD represents events collected over a batch interval. When the batch interval elapses, Spark Streaming produces a new RDD containing all the data in that interval. This continuous set of RDDs is collected into a DStream. A Spark Streaming application processes the data stored in each batch's RDD.
+The Spark core uses *resilient distributed datasets (RDDs)*. RDDs distribute data across multiple nodes in the cluster, where each node generally maintains its data completely in-memory for best performance. Each RDD represents events collected over a batch interval. When the batch interval elapses, Spark Streaming produces a new RDD containing all the data in that interval. This continuous set of RDDs is collected into a DStream. A Spark Streaming application processes the data stored in each batch's RDD.
 
-:::image type="content" source="./media/apache-spark-streaming-high-availability/apache-spark-dstream.png" alt-text="Spark DStream" border="false":::
+:::image type="content" source="./media/apache-spark-streaming-high-availability/apache-spark-dstream.png" alt-text="Spark DStream." border="false":::
 
 ## Spark Structured Streaming jobs
 
 Spark Structured Streaming was introduced in Spark 2.0 as an analytic engine for use on streaming structured data. Spark Structured Streaming uses the SparkSQL batching engine APIs. As with Spark Streaming, Spark Structured Streaming runs its computations over continuously arriving micro-batches of data. Spark Structured Streaming represents a stream of data as an Input Table with unlimited rows. That is, the Input Table continues to grow as new data arrives. This Input Table is continuously processed by a long running query, and the results are written out to an Output Table.
 
-:::image type="content" source="./media/apache-spark-streaming-high-availability/structured-streaming.png" alt-text="Spark Structured Streaming" border="false":::
+:::image type="content" source="./media/apache-spark-streaming-high-availability/structured-streaming.png" alt-text="Spark Structured Streaming." border="false":::
 
 In Structured Streaming, data arrives at the system and is immediately ingested into the Input Table. You write queries that perform operations against this Input Table. The query output yields another table, called the Results Table. The Results Table contains results of your query, from which you draw data to send to an external datastore such a relational database. The *trigger interval* sets the timing for when data is processed from the Input Table. By default, Structured Streaming processes the data as soon as it arrives. However, you can also configure the trigger to run on a longer interval, so the streaming data is processed in time-based batches. The data in the Results Table may be refreshed each time there's new data so that it includes all of the output data since the streaming query began (*complete mode*), or it may only contain just the data that is new since the last time the query was processed (*append mode*).
 
@@ -47,9 +47,9 @@ To create an application that processes each event once (and only once), conside
 
 ## Spark Streaming and Apache Hadoop YARN
 
-In HDInsight, cluster work is coordinated by *Yet Another Resource Negotiator* (YARN). Designing high availability for Spark Streaming includes techniques for Spark Streaming, and also for YARN components.  An example configuration using YARN is shown below.
+In HDInsight, cluster work is coordinated by *Yet Another Resource Negotiator (YARN)*. Designing high availability for Spark Streaming includes techniques for Spark Streaming, and also for YARN components.  An example configuration using YARN is shown below.
 
-:::image type="content" source="./media/apache-spark-streaming-high-availability/hdi-yarn-architecture.png" alt-text="YARN Architecture" border="false":::
+:::image type="content" source="./media/apache-spark-streaming-high-availability/hdi-yarn-architecture.png" alt-text="YARN Architecture." border="false":::
 
 The following sections describe design considerations for this configuration.
 
@@ -59,7 +59,7 @@ To create a YARN configuration for high-availability, you should plan for a poss
 
 If an **executor** fails, its tasks and receivers are restarted by Spark automatically, so there's no configuration change needed.
 
-However, if a **driver** fails, then all of its associated executors fail, and all received blocks and computation results are lost. To recover from a driver failure, use *DStream checkpointing* as described in [Create Spark Streaming jobs with exactly once event processing](apache-spark-streaming-exactly-once.md#use-checkpoints-for-drivers). DStream checkpointing periodically saves the *directed acyclic graph* (DAG) of DStreams to fault-tolerant storage such as Azure Storage.  Checkpointing allows Spark Structured Streaming to restart the failed driver from the checkpoint information.  This driver restart launches new executors and also restarts receivers.
+However, if a **driver** fails, then all of its associated executors fail, and all received blocks and computation results are lost. To recover from a driver failure, use *DStream checkpointing* as described in [Create Spark Streaming jobs with exactly once event processing](apache-spark-streaming-exactly-once.md#use-checkpoints-for-drivers). DStream checkpointing periodically saves the *directed acyclic graph (DAG)* of DStreams to fault-tolerant storage such as Azure Storage.  Checkpointing allows Spark Structured Streaming to restart the failed driver from the checkpoint information.  This driver restart launches new executors and also restarts receivers.
 
 To recover drivers with DStream checkpointing:
 
@@ -114,5 +114,5 @@ To summarize, using checkpointing + WAL + reliable receivers, you'll be able to 
 * [Apache Spark Streaming Overview](apache-spark-streaming-overview.md)
 * [Create Apache Spark Streaming jobs with exactly once event processing](apache-spark-streaming-exactly-once.md)
 * [Long-running Apache Spark Streaming Jobs on YARN](https://mkuthan.github.io/blog/2016/09/30/spark-streaming-on-yarn/)
-* [Structured Streaming: Fault Tolerant Semantics](https://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html#fault-tolerance-semantics)
+* [Structured Streaming: Fault Tolerant Semantics](https://archive.apache.org/dist/spark/docs/2.1.0/structured-streaming-programming-guide.html#fault-tolerance-semantics#fault-tolerance-semantics)
 * [Discretized Streams: A Fault-Tolerant Model for Scalable Stream Processing](https://www2.eecs.berkeley.edu/Pubs/TechRpts/2012/EECS-2012-259.pdf)

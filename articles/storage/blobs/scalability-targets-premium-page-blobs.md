@@ -2,14 +2,12 @@
 title: Scalability targets for premium page blob storage accounts
 titleSuffix: Azure Storage
 description: A premium performance page blob storage account is optimized for read/write operations. This type of storage account backs an unmanaged disk for an Azure virtual machine.
-services: storage
-author: jimmart-dev
+author: akashdubey-ms
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.date: 09/24/2021
-ms.author: jammart
-ms.subservice: common
+ms.author: akashdubey
 ---
 
 # Scalability and performance targets for premium page blob storage accounts
@@ -23,7 +21,7 @@ The service-level agreement (SLA) for Azure Storage accounts is available at [SL
 A premium-performance page blob storage account is optimized for read/write operations. This type of storage account backs an unmanaged disk for an Azure virtual machine.
 
 > [!NOTE]
-> Microsoft recommends using managed disks with Azure virtual machines (VMs) if possible. For more information about managed disks, see [Azure Disk Storage overview for VMs](../../virtual-machines/managed-disks-overview.md).
+> Microsoft recommends using managed disks with Azure virtual machines (VMs) if possible. For more information about managed disks, see [Azure Disk Storage overview for VMs](/azure/virtual-machines/managed-disks-overview).
 
 Premium page blob storage accounts have the following scalability targets:
 
@@ -39,7 +37,7 @@ Premium page blob storage accounts have the following scalability targets:
 
 A premium page blob account is a general-purpose account configured for premium performance. General-purpose v2 storage accounts are recommended.
 
-If you are using premium page blob storage accounts for unmanaged disks and your application exceeds the scalability targets of a single storage account, then Microsoft recommends migrating to managed disks. For more information about managed disks, see [Azure Disk Storage overview for VMs](../../virtual-machines/managed-disks-overview.md).
+If you are using premium page blob storage accounts for unmanaged disks and your application exceeds the scalability targets of a single storage account, then Microsoft recommends migrating to managed disks. For more information about managed disks, see [Azure Disk Storage overview for VMs](/azure/virtual-machines/managed-disks-overview).
 
 If you cannot migrate to managed disks, then build your application to use multiple storage accounts and partition your data across those storage accounts. For example, if you want to attach 51-TB disks across multiple VMs, spread them across two storage accounts. 35 TB is the limit for a single premium storage account. Make sure that a single premium performance storage account never has more than 35 TB of provisioned disks.
 

@@ -4,13 +4,15 @@ description: Learn how to import a SOAP API to Azure API Management as a WSDL sp
 services: api-management
 author: dlepow
 ms.custom: devdivchpfy22
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 03/29/2022
 ms.author: danlep
 
 ---
 # Import SOAP API to API Management and convert to REST
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 This article shows how to import a SOAP API as a WSDL specification and then convert it to a REST API. The article also shows how to test the API in API Management.
 
@@ -40,7 +42,7 @@ Complete the following quickstart: [Create an Azure API Management instance](get
 
     ![SOAP to REST](./media/restify-soap-api/soap-to-rest.png)
 
-1. The following fields are filled automatically with information from the SOAP API: **Display name**, **Name**, **Description**.
+1. The following fields are filled automatically with information from the SOAP API: **Display name**, **Name**, **Description**. Operations are filled automatically with **Display name**, **URL**, and **Description**, and receive a system-generated **Name**.
 1. Enter other API settings. You can set the values during creation or configure them later by going to the **Settings** tab. 
 
     For more information about API settings, see [Import and publish your first API](import-and-publish.md#import-and-publish-a-backend-api) tutorial.

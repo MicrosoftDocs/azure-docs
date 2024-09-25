@@ -1,21 +1,42 @@
 ---
-title: Azure Active Directory B2C integrate with app samples
+title: Azure Active Directory B2C integrates with app samples
 description: Code samples for integrating Azure AD B2C to mobile, desktop, web, and single-page applications.
-services: active-directory-b2c
-author: kengaderdus
+
+author: garrodonnell
 manager: CelesteDG
 
-ms.author: kengaderdus
-ms.date: 06/21/2022
+ms.author: godonnell
+ms.date: 01/24/2024
 ms.custom: mvc
 ms.topic: sample
 ms.service: active-directory
 ms.subservice: B2C
+
+#Customer Intent: As a developer, I want to access code samples for Azure Active Directory B2C, so that I can learn how to integrate authentication and user management into my web, mobile, and desktop applications using Azure AD B2C.
+
 ---
 
 # Azure Active Directory B2C code samples
 
 The following tables provide links to samples for applications including iOS, Android, .NET, and Node.js.
+
+## Web apps and APIs
+
+| Sample | Description |
+|--------| ----------- |
+| [dotnet-webapp-and-webapi](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi) | A combined sample for a .NET web application that calls a .NET Web API, both secured using Azure AD B2C. |
+| [dotnetcore-webapp-openidconnect](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-5-B2C) | An ASP.NET Core web application that uses OpenID Connect to sign in users in Azure AD B2C. |
+| [dotnetcore-webapp-msal-api](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/4-WebApp-your-API/4-2-B2C) | An ASP.NET Core web application that can sign in a user using Azure AD B2C, get an access token using MSAL.NET and call an API. |
+| [auth-code-flow-nodejs](https://github.com/Azure-Samples/active-directory-b2c-msal-node-sign-in-sign-out-webapp) | A Node.js app that shows how to enable authentication (sign in, sign out and profile edit) in a Node.js web application using Azure Active Directory B2C. The web app uses MSAL-node.|
+| [javascript-nodejs-webapi](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi) | A small Node.js Web API for Azure AD B2C that shows how to protect your web api and accept B2C access tokens using passport.js. |
+| [ms-identity-python-webapp](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/main/README.md) | Demonstrate how to Integrate B2C of Microsoft identity platform with a Python web application.  |
+
+## Single page apps
+
+| Sample | Description |
+|--------| ----------- |
+| [ms-identity-javascript-react-tutorial](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/tree/main/3-Authorization-II/2-call-api-b2c) | A React single page application (SPA) calling a web API. Authentication is done with Azure AD B2C by using MSAL React. This sample uses the authorization code flow with PKCE. |
+| [ms-identity-b2c-javascript-spa](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa) | A VanillaJS single page application (SPA) calling a web API. Authentication is done with Azure AD B2C by using MSAL.js. This sample uses the authorization code flow with PKCE. |
 
 ## Mobile and desktop apps
 
@@ -28,31 +49,10 @@ The following tables provide links to samples for applications including iOS, An
 | [dotnet-desktop](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop) | A sample that shows how a Windows Desktop .NET (WPF) application can sign in a user using Azure AD B2C, get an access token using MSAL.NET and call an API. |
 | [xamarin-native](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native) | A simple Xamarin Forms app showcasing how to use MSAL to authenticate users via Azure Active Directory B2C, and access a Web API with the resulting tokens. |
 
-## Web apps and APIs
-
-| Sample | Description |
-|--------| ----------- |
-| [dotnet-webapp-and-webapi](https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-and-webapi) | A combined sample for a .NET web application that calls a .NET Web API, both secured using Azure AD B2C. |
-| [dotnetcore-webapp-openidconnect](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-5-B2C) | An ASP.NET Core web application that uses OpenID Connect to sign in users in Azure AD B2C. |
-| [dotnetcore-webapp-msal-api](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/4-WebApp-your-API/4-2-B2C) | An ASP.NET Core web application that can sign in a user using Azure AD B2C, get an access token using MSAL.NET and call an API. |
-| [auth-code-flow-nodejs](https://github.com/Azure-Samples/active-directory-b2c-msal-node-sign-in-sign-out-webapp) | A Node.js app that shows how to enable authentication (sign in, sign out and profile edit) in a Node.js web application using Azure Active Directory B2C. The web app uses MSAL-node.|
-| [javascript-nodejs-webapi](https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi) | A small Node.js Web API for Azure AD B2C that shows how to protect your web api and accept B2C access tokens using passport.js. |
-| [ms-identity-python-webapp](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/master/README_B2C.md) | Demonstrate how to Integrate B2C of Microsoft identity platform with a Python web application.  |
-
-## Single page apps
-
-| Sample | Description |
-|--------| ----------- |
-| [ms-identity-javascript-angular-tutorial](https://github.com/Azure-Samples/ms-identity-javascript-angular-tutorial/tree/main/3-Authorization-II/2-call-api-b2c) | An Angular single page application (SPA) calling a web API. Authentication is done with Azure AD B2C by using MSAL Angular. This sample uses the authorization code flow with PKCE. |
-| [ms-identity-javascript-react-tutorial](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/tree/main/3-Authorization-II/2-call-api-b2c) | A React single page application (SPA) calling a web API. Authentication is done with Azure AD B2C by using MSAL React. This sample uses the authorization code flow with PKCE. |
-| [ms-identity-b2c-javascript-spa](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa) | A VanillaJS single page application (SPA) calling a web API. Authentication is done with Azure AD B2C by using MSAL.js. This sample uses the authorization code flow with PKCE. |
-| [javascript-nodejs-management](https://github.com/Azure-Samples/ms-identity-b2c-javascript-nodejs-management/tree/main/Chapter1) | A VanillaJS single page application (SPA) calling Microsoft Graph to manage users in a B2C directory. Authentication is done with Azure AD B2C by using MSAL.js. This sample uses the authorization code flow with PKCE.|
-
 ## Console/Daemon apps
 
 | Sample | Description |
 |--------| ----------- |
-| [javascript-nodejs-management](https://github.com/Azure-Samples/ms-identity-b2c-javascript-nodejs-management/tree/main/Chapter2) | A Node.js and express console daemon application calling Microsoft Graph with its own identity to manage users in a B2C directory. Authentication is done with Azure AD B2C by using MSAL Node. This sample uses the authorization code flow.|
 | [dotnetcore-b2c-account-management](https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-management) | A .NET Core console application calling Microsoft Graph with its own identity to manage users in a B2C directory. Authentication is done with Azure AD B2C by using MSAL.NET. This sample uses the authorization code flow.|
 
 ## SAML test application

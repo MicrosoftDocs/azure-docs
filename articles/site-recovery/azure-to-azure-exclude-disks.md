@@ -1,9 +1,11 @@
 ---
 title: Exclude Azure VM disks from replication with Azure Site Recovery and Azure PowerShell
 description: Learn how to exclude disks of Azure virtual machines during Azure Site Recovery by using Azure PowerShell.
-author: v-pgaddala
+ms.author: ankitadutta
+author: ankitaduttaMSFT
 manager: rochakm
 ms.topic: how-to
+ms.service: azure-site-recovery
 ms.date: 02/18/2019 
 ms.custom: devx-track-azurepowershell
 ---
@@ -13,7 +15,7 @@ ms.custom: devx-track-azurepowershell
 This article describes how to exclude disks when you replicate Azure VMs. You might exclude disks to optimize the consumed replication bandwidth or the target-side resources that those disks use. Currently, this capability is available only through Azure PowerShell.
 
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Prerequisites
 
@@ -21,7 +23,7 @@ Before you start:
 
 - Make sure that you understand the [disaster-recovery architecture and components](azure-to-azure-architecture.md).
 - Review the [support requirements](azure-to-azure-support-matrix.md) for all components.
-- Make sure that you have AzureRm PowerShell "Az" module. To install or update PowerShell, see [Install the Azure PowerShell module](/powershell/azure/install-az-ps).
+- Make sure that you have AzureRm PowerShell "Az" module. To install or update PowerShell, see [Install the Azure PowerShell module](/powershell/azure/install-azure-powershell).
 - Make sure that you have created a recovery services vault and protected virtual machines at least once. If you haven't done these things, follow the process at [Set up disaster recovery for Azure virtual machines using Azure PowerShell](azure-to-azure-powershell.md).
 - If you're looking for information on adding disks to an Azure VM enabled for replication, [review this article](azure-to-azure-enable-replication-added-disk.md).
 
@@ -132,4 +134,4 @@ After initial replication finishes, replication moves on to the differential-syn
 
 ## Next steps
 
-Learn about [running a test failover](site-recovery-test-failover-to-azure.md).
+- Learn about [running a test failover](site-recovery-test-failover-to-azure.md).

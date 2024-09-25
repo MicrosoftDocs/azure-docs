@@ -1,10 +1,12 @@
 ---
 title: Scale VMware/physical disaster recovery with Azure Site Recovery 
 description: Learn how to set up disaster recovery to Azure for large numbers of on-premises VMware VMs or physical servers with Azure Site Recovery.
-ms.service: site-recovery
-ms.topic: conceptual
-ms.date: 11/14/2019
-
+ms.service: azure-site-recovery
+ms.topic: how-to
+ms.date: 08/31/2023
+ms.author: ankitadutta
+author: ankitaduttaMSFT
+ms.custom: engagement-fy23
 
 ---
 # Set up disaster recovery at scale for VMware VMs/physical servers
@@ -78,7 +80,7 @@ We want to make sure that available quotas in the target subscription are suffic
 
 **Task** | **Details** | **Action**
 --- | --- | ---
-**Check cores** | If cores in the available quota don't equal or exceed the total target count at the time of failover, failovers will fail. | For VMware VMs, check you have enough cores in the target subscription to meet the Deployment Planner core recommendation.<br/><br/> For physical servers, check that Azure cores meet your manual estimations.<br/><br/> To check quotas, in the Azure portal > **Subscription**, click **Usage + quotas**.<br/><br/> [Learn more](../azure-portal/supportability/regional-quota-requests.md) about increasing quotas.
+**Check cores** | If cores in the available quota don't equal or exceed the total target count at the time of failover, failovers will fail. | For VMware VMs, check you have enough cores in the target subscription to meet the Deployment Planner core recommendation.<br/><br/> For physical servers, check that Azure cores meet your manual estimations.<br/><br/> To check quotas, in the Azure portal > **Subscription**, click **Usage + quotas**.<br/><br/> [Learn more](/azure/azure-portal/supportability/regional-quota-requests) about increasing quotas.
 **Check failover limits** | The number of failovers mustn't exceed Site Recovery failover limits. |  If failovers exceed the limits, you can add subscriptions, and fail over to multiple subscriptions, or increase quota for a subscription. 
 
 
@@ -148,7 +150,7 @@ Process server capacity is affected by data churn rates, and not by the number o
 
 **CPU** | **Memory** | **Cache disk** | **Churn rate**
  --- | --- | --- | --- 
-12 vCPUs<br> 2 sockets*6 cores @ 2.5 Ghz | 24 GB | 1 GB | Up to 2 TB a day
+12 vCPUs<br> 2 sockets*6 cores @ 2.5 Ghz | 24 GB | 1 TB | Up to 2 TB a day
 
 Set up the process server as follows:
 
@@ -171,7 +173,7 @@ After planning capacity and deploying the required components and infrastructure
     
 2. If disk churn for a machine is high, or exceeds limits in  Deployment thePlanner, you can move non-critical files you don't need to replicate (such as log dumps or temp files) off the machine. For VMware VMs, you can move these files to a separate disk, and then [exclude that disk](vmware-azure-exclude-disk.md) from replication.
 3. Before you enable replication, check that machines meet [replication requirements](vmware-physical-azure-support-matrix.md#replicated-machines).
-4. Configure a replication policy for [VMware VMs](vmware-azure-set-up-replication.md#create-a-policy) or [physical servers](physical-azure-disaster-recovery.md#create-a-replication-policy).
+4. Configure a replication policy for [VMware VMs](vmware-azure-set-up-replication.md#create-a-policy) or [physical servers](physical-azure-disaster-recovery.md#replication-policy).
 5. Enable replication for [VMware VMs](vmware-azure-enable-replication.md) or [physical servers](physical-azure-disaster-recovery.md#enable-replication). This kicks off the initial replication for the selected machines.
 
 ## Monitor your deployment

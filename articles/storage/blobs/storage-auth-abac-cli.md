@@ -1,34 +1,29 @@
 ---
-title: "Tutorial: Add a role assignment condition to restrict access to blobs using Azure CLI (preview) - Azure ABAC"
+title: "Tutorial: Add a role assignment condition to restrict access to blobs using Azure CLI - Azure ABAC"
 titleSuffix: Azure Storage
 description: Add a role assignment condition to restrict access to blobs using Azure CLI and Azure attribute-based access control (Azure ABAC).
-services: storage
-author: jimmart-dev
-ms.service: storage
+author: pauljewellmsft
+ms.author: pauljewell
+ms.service: azure-blob-storage
 ms.topic: tutorial
-ms.author: jammart
-ms.reviewer: 
-ms.subservice: blobs
-ms.date: 09/01/2022
 
-#Customer intent:
-
+ms.reviewer: nachakra
+ms.custom: devx-track-azurecli
+ms.date: 06/26/2023
 ---
 
-# Tutorial: Add a role assignment condition to restrict access to blobs using Azure CLI (preview)
+# Tutorial: Add a role assignment condition to restrict access to blobs using Azure CLI
 
-> [!IMPORTANT]
-> Azure ABAC and Azure role assignment conditions are currently in preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-In most cases, a role assignment will grant the permissions you need to Azure resources. However, in some cases you might want to provide more fine-grained access control by adding a role assignment condition.
+In most cases, a role assignment grants the permissions you need to Azure resources. However, in some cases you might want to provide more granular access control by adding a role assignment condition.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
+>
 > - Add a condition to a role assignment
 > - Restrict access to blobs based on a blob index tag
+
+[!INCLUDE [storage-abac-preview](../../../includes/storage-abac-preview.md)]
 
 ## Prerequisites
 
@@ -40,11 +35,11 @@ In this tutorial, you restrict access to blobs with a specific tag. For example,
 
 ![Diagram of role assignment with a condition.](./media/shared/condition-role-assignment-rg.png)
 
-If Chandra tries to read a blob without the tag Project=Cascade, access is not allowed.
+If Chandra tries to read a blob without the tag Project=Cascade, access isn't allowed.
 
 ![Diagram showing read access to blobs with Project=Cascade tag.](./media/shared/condition-access.png)
 
-Here is what the condition looks like in code:
+Here's what the condition looks like in code:
 
 ```
 (
@@ -92,15 +87,15 @@ Here is what the condition looks like in code:
 
 ## Step 3: Set up storage
 
-You can authorize access to Blob storage from the Azure CLI either with Azure AD credentials or by using the storage account access key. This article shows how to authorize Blob storage operations using Azure AD. For more information, see [Quickstart: Create, download, and list blobs with Azure CLI](../blobs/storage-quickstart-blobs-cli.md)
+You can authorize access to Blob storage from the Azure CLI either with Microsoft Entra credentials or by using the storage account access key. This article shows how to authorize Blob storage operations using Microsoft Entra ID. For more information, see [Quickstart: Create, download, and list blobs with Azure CLI](storage-quickstart-blobs-cli.md)
 
-1. Use [az storage account](/cli/azure/storage/account) to create a storage account that is compatible with the blob index feature. For more information, see [Manage and find Azure Blob data with blob index tags (preview)](../blobs/storage-manage-find-blobs.md#regional-availability-and-storage-account-support).
+1. Use [az storage account](/cli/azure/storage/account) to create a storage account that is compatible with the blob index feature. For more information, see [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md#regional-availability-and-storage-account-support).
 
-1. Use [az storage container](/cli/azure/storage/container) to create a new blob container within the storage account and set the Public access level to **Private (no anonymous access)**.
+1. Use [az storage container](/cli/azure/storage/container) to create a new blob container within the storage account and set the anonymous access level to **Private (no anonymous access)**.
 
 1. Use [az storage blob upload](/cli/azure/storage/blob#az-storage-blob-upload) to upload a text file to the container.
 
-1. Add the following blob index tag to the text file. For more information, see [Use blob index tags (preview) to manage and find data on Azure Blob Storage](../blobs/storage-blob-index-how-to.md).
+1. Add the following blob index tag to the text file. For more information, see [Use blob index tags to manage and find data on Azure Blob Storage](storage-blob-index-how-to.md).
 
     > [!NOTE]
     > Blobs also support the ability to store arbitrary user-defined key-value metadata. Although metadata is similar to blob index tags, you must use blob index tags with conditions.
@@ -188,13 +183,13 @@ You can authorize access to Blob storage from the Azure CLI either with Azure AD
 
 1. In the Azure portal, open the resource group.
 
-1. Click **Access control (IAM)**.
+1. Select **Access control (IAM)**.
 
 1. On the Role assignments tab, find the role assignment.
 
-1. In the **Condition** column, click **View/Edit** to view the condition.
+1. In the **Condition** column, select **View/Edit** to view the condition.
 
-    ![Screenshot of Add role assignment condition in the Azure portal.](./media/shared/condition-view.png)
+:::image type="content" source="./media/shared/condition-view.png" alt-text="Screenshot of Add role assignment condition in the Azure portal." lightbox="./media/shared/condition-view.png":::
 
 ## Step 6: Test the condition
 
@@ -279,7 +274,7 @@ You can authorize access to Blob storage from the Azure CLI either with Azure AD
     az role assignment list --assignee $userObjectId --resource-group $resourceGroup
     ```
 
-    The output will be similar to the following:
+    The output is similar to the following:
 
     ```azurecli
     [
@@ -344,5 +339,5 @@ You can authorize access to Blob storage from the Azure CLI either with Azure AD
 ## Next steps
 
 - [Example Azure role assignment conditions](storage-auth-abac-examples.md)
-- [Actions and attributes for Azure role assignment conditions in Azure Storage (preview)](storage-auth-abac-attributes.md)
+- [Actions and attributes for Azure role assignment conditions in Azure Storage](storage-auth-abac-attributes.md)
 - [Azure role assignment condition format and syntax](../../role-based-access-control/conditions-format.md)

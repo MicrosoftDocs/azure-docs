@@ -5,9 +5,8 @@ services: notification-hubs
 author: dbradish-microsoft
 manager: barbkess
 editor: sethmanheim
-ms.service: notification-hubs
+ms.service: azure-notification-hubs
 ms.devlang: azurecli
-ms.workload: mobile
 ms.topic: quickstart
 ms.date: 05/27/2020
 ms.author: dbradish
@@ -24,7 +23,7 @@ In this quickstart, you create a notification hub using the Azure CLI. The first
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 > [!IMPORTANT]
 > Notification Hubs requires version 2.0.67 or later of the Azure CLI. Run [az version](/cli/azure/reference-index#az-version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index#az-upgrade).

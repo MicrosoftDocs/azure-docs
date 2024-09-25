@@ -1,7 +1,7 @@
 ---
 title: Whitepapers and case studies - Avere vFXT for Azure
 description: Links to downloadable whitepapers, case studies, and other articles that illustrate Avere vFXT for Azure and how it can be used. 
-ms.service: avere-vfxt
+ms.service: azure-avere-vfxt
 author: ekpgh
 ms.author: rohogue
 ms.topic: conceptual
@@ -20,13 +20,13 @@ This guide provides step-by-step guidance for installing Agisoft PhotoScan photo
 
 ## Datasheet: Avere vFXT for Azure
 
-**Link:** [Avere vFXT for Azure datasheet](https://azure.microsoft.com/resources/avere-vfxt-for-azure-data-sheet/)
+**Link:** [Avere vFXT for Azure datasheet](https://azure.microsoft.com/products/storage/avere-vfxt/)
 
 This two-page brief has basic information and diagrams that explain how to use Avere vFXT for Azure in several use case scenarios.
 
 ## Hybrid cloud for file-based workloads
 
-**Link:** [Infographic: Building a hybrid cloud for file-based workloads](https://azure.microsoft.com/resources/building-a-hybrid-cloud-for-file-based-hpc-workloads/)
+**Link:** [Infographic: Building a hybrid cloud for file-based workloads](https://azure.microsoft.com/solutions/hybrid-cloud-app/)
 
 This graphic shows components and layouts for using Avere vFXT for Azure to add cloud infrastructure to your existing system. Use Avere vFXT for Azure to augment computing capacity with your existing on-premises infrastructure, or move data and computing to the cloud on a temporary or permanent basis.
 

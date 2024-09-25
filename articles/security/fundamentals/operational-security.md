@@ -2,17 +2,13 @@
 title: Azure Operational Security | Microsoft Docs
 description: Introduce yourself to Microsoft Azure Monitor logs, its services, and how it works by reading this overview.
 services: security
-documentationcenter: na
 author: UnifyCloud
 manager: barbkess
 editor: TomSh
 
-ms.assetid: 
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article 
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
 
@@ -37,17 +33,17 @@ Azure’s infrastructure is designed from the facility to applications for hosti
 Azure Operational Security refers to the services, controls, and features available to users for protecting their data, applications,and other assets in Microsoft Azure. Azure Operational Security is built on a framework that incorporates the knowledge gained through various capabilities that are unique to Microsoft, including the Microsoft Security Development Lifecycle (SDL), the Microsoft Security Response Center program, and deep awareness of the cybersecurity threat landscape.
 
 This white paper outlines Microsoft’s approach to Azure Operational Security within the Microsoft Azure cloud platform and covers following services:
-1.	[Azure Monitor](../../azure-monitor/index.yml)
+1.	[Azure Monitor](/azure/azure-monitor/)
 
 2.	[Microsoft Defender for Cloud](../../security-center/security-center-introduction.md)
 
-3.	[Azure Monitor](../../azure-monitor/overview.md)
+3.	[Azure Monitor](/azure/azure-monitor/overview)
 
 4.	[Azure Network watcher](../../network-watcher/network-watcher-monitoring-overview.md)
 
 5.	[Azure Storage analytics](/rest/api/storageservices/fileservices/storage-analytics)
 
-6.	[Azure Active directory](../../active-directory/fundamentals/active-directory-whatis.md)
+6.	[Microsoft Entra ID](../../active-directory/fundamentals/active-directory-whatis.md)
 
 
 ## Microsoft Azure Monitor logs
@@ -89,7 +85,7 @@ The Azure Monitor service manages your cloud-based data securely by using the fo
 
 ### Azure Backup
 
-[Azure Backup](/azure/backup) provides data backup and restore services and is part of the Azure Monitor suite of products and services.
+[Azure Backup](../../backup/index.yml) provides data backup and restore services and is part of the Azure Monitor suite of products and services.
  It protects your application data and retains it for years without any capital investment and with minimal operating costs. It can back up data from physical and virtual Windows servers in addition to application workloads such as SQL Server and SharePoint. It can also be used by [System Center Data Protection Manager (DPM)](https://en.wikipedia.org/wiki/System_Center_Data_Protection_Manager) to replicate protected data to Azure for redundancy and long-term storage.
 
 
@@ -99,12 +95,12 @@ Protected data in Azure Backup is stored in a backup vault located in a particul
 [Azure Monitor](../../security-center/security-center-introduction.md) is Microsoft's cloud-based IT management solution that helps you manage and protect your on-premises and cloud infrastructure.
 
 
-[Management Solutions](../../azure-monitor/insights/solutions.md) are prepackaged sets of logics that implement a particular management scenario using one or more Azure Monitor services. Different solutions are available from Microsoft and from partners that you can easily add to your Azure subscription to increase the value of your investment in Azure Monitor. As a partner, you can create your own solutions to support your applications and services and provide them to users through the Azure Marketplace or quickstart templates.
+[Management Solutions](/previous-versions/azure/azure-monitor/insights/solutions) are prepackaged sets of logics that implement a particular management scenario using one or more Azure Monitor services. Different solutions are available from Microsoft and from partners that you can easily add to your Azure subscription to increase the value of your investment in Azure Monitor. As a partner, you can create your own solutions to support your applications and services and provide them to users through the Azure Marketplace or quickstart templates.
 
 
 ![Management Solutions](./media/operational-security/azure-operational-security-fig4.png)
 
-A good example of a solution that uses multiple services to provide additional functionality is the [Update Management solution](../../automation/update-management/overview.md). This solution uses the [Azure Monitor logs](../../azure-monitor/logs/log-query-overview.md) agent for Windows and Linux to collect information about required updates on each agent. It writes this data to the Azure Monitor logs repository where you can analyze it with an included dashboard.
+A good example of a solution that uses multiple services to provide additional functionality is the [Update Management solution](../../automation/update-management/overview.md). This solution uses the [Azure Monitor logs](/azure/azure-monitor/logs/log-query-overview) agent for Windows and Linux to collect information about required updates on each agent. It writes this data to the Azure Monitor logs repository where you can analyze it with an included dashboard.
 
 When you create a deployment, runbooks in [Azure Automation](../../automation/automation-intro.md) are used to install required updates. You manage this entire process in the portal and don’t need to worry about the underlying details.
 
@@ -191,11 +187,11 @@ These logs are emitted by a resource and provide rich, frequent data about the o
 
 For example, Windows event system logs are one category of Diagnostic Log for VMs and blob, table, and queue logs are categories of Diagnostic Logs for storage accounts.
 
-Diagnostics Logs differ from the [Activity Log (formerly known as Audit Log or Operational Log)](../../azure-monitor/essentials/platform-logs-overview.md). The Activity log provides insight into the operations that were performed on resources in your subscription. Diagnostics logs provide insight into operations that your resource performed itself.
+Diagnostics Logs differ from the [Activity Log (formerly known as Audit Log or Operational Log)](/azure/azure-monitor/essentials/platform-logs-overview). The Activity log provides insight into the operations that were performed on resources in your subscription. Diagnostics logs provide insight into operations that your resource performed itself.
 
 ### Metrics
 
-Azure Monitor enables you to consume telemetry to gain visibility into the performance and health of your workloads on Azure. The most important type of Azure telemetry data is the metrics (also called performance counters) emitted by most Azure resources. Azure Monitor provides several ways to configure and consume these [metrics](../../azure-monitor/data-platform.md) for monitoring and troubleshooting. Metrics are a valuable source of telemetry and enable you to do the following tasks:
+Azure Monitor enables you to consume telemetry to gain visibility into the performance and health of your workloads on Azure. The most important type of Azure telemetry data is the metrics (also called performance counters) emitted by most Azure resources. Azure Monitor provides several ways to configure and consume these [metrics](/azure/azure-monitor/data-platform) for monitoring and troubleshooting. Metrics are a valuable source of telemetry and enable you to do the following tasks:
 
 -	**Track the performance** of your resource (such as a VM, website, or logic app) by plotting its metrics on a portal chart and pinning that chart to a dashboard.
 
@@ -209,7 +205,7 @@ Azure Monitor enables you to consume telemetry to gain visibility into the perfo
 
 ### Azure Diagnostics
 
-It is the capability within Azure that enables the collection of diagnostic data on a deployed application. You can use the diagnostics extension from various different sources. Currently supported are [Azure Cloud Service Web and Worker Roles](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service), [Azure Virtual Machines](../../virtual-machines/windows/overview.md) running Microsoft Windows,and [Service Fabric](../../azure-monitor/agents/diagnostics-extension-overview.md). Other Azure services have their own separate diagnostics.
+It is the capability within Azure that enables the collection of diagnostic data on a deployed application. You can use the diagnostics extension from various different sources. Currently supported are [Azure Cloud Service Web and Worker Roles](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service), [Azure Virtual Machines](/azure/virtual-machines/windows/overview) running Microsoft Windows,and [Service Fabric](/azure/azure-monitor/agents/diagnostics-extension-overview). Other Azure services have their own separate diagnostics.
 
 ## Azure Network Watcher
 
@@ -269,17 +265,19 @@ The following types of authenticated and anonymous requests are logged.
 | 	Requests to analytics data | 	Failed GET requests with error code 304 (Not Modified) |
 | Requests made by Storage Analytics itself, such as log creation or deletion, are not logged. A full list of the logged data is documented in the [Storage Analytics Logged Operations and Status Messages](/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) and [Storage Analytics Log Format](/rest/api/storageservices/fileservices/storage-analytics-log-format) topics. | All other failed anonymous requests are not logged. A full list of the logged data is documented in the [Storage Analytics Logged Operations and Status Messages](/rest/api/storageservices/fileservices/storage-analytics-logged-operations-and-status-messages) and [Storage Analytics Log Format](/rest/api/storageservices/fileservices/storage-analytics-log-format). |
 
-## Azure Active Directory
+<a name='azure-active-directory'></a>
 
-Azure AD also includes a full suite of identity management capabilities including multi-factor authentication, device registration, self-service password management, self-service group management, privileged account management, role-based access control, application usage monitoring, rich auditing,and security monitoring and alerting.
+## Microsoft Entra ID
 
--	Improve application security with Azure AD multifactor authentication and Conditional Access.
+Microsoft Entra ID also includes a full suite of identity management capabilities including multifactor authentication, device registration, self-service password management, self-service group management, privileged account management, role-based access control, application usage monitoring, rich auditing,and security monitoring and alerting.
+
+-	Improve application security with Microsoft Entra multifactor authentication and Conditional Access.
 
 -	Monitor application usage and protect your business from advanced threats with security reporting and monitoring.
 
-Azure Active Directory (Azure AD) includes security, activity, and audit reports for your directory. [The Azure Active Directory Audit Report](../../active-directory/reports-monitoring/overview-reports.md) helps customers to identify privileged actions that occurred in their Azure Active Directory. Privileged actions include elevation changes (for example, role creation or password resets), changing policy configurations (for example password policies), or changes to directory configuration (for example, changes to domain federation settings).
+Microsoft Entra ID includes security, activity, and audit reports for your directory. [The Microsoft Entra audit Report](../../active-directory/reports-monitoring/overview-reports.md) helps customers to identify privileged actions that occurred in their Microsoft Entra ID. Privileged actions include elevation changes (for example, role creation or password resets), changing policy configurations (for example password policies), or changes to directory configuration (for example, changes to domain federation settings).
 
-The reports provide the audit record for the event name, the actor who performed the action, the target resource affected by the change, and the date and time (in UTC). Customers are able to retrieve the list of audit events for their Azure Active Directory via the [Azure portal](https://portal.azure.com/), as described in [View your Audit Logs](../../active-directory/reports-monitoring/overview-reports.md). Here's a list of the reports included:
+The reports provide the audit record for the event name, the actor who performed the action, the target resource affected by the change, and the date and time (in UTC). Customers are able to retrieve the list of audit events for their Microsoft Entra ID via the [Azure portal](https://portal.azure.com/), as described in [View your Audit Logs](../../active-directory/reports-monitoring/overview-reports.md). Here's a list of the reports included:
 
 | Security reports  | Activity reports| Audit reports |
 | :------------- | :-------------| :-------------|
@@ -295,12 +293,12 @@ The reports provide the audit record for the event name, the actor who performed
 
 
 
-The data of these reports can be useful to your applications, such as SIEM systems, audit, and business intelligence tools. The Azure AD reporting [APIs](../../active-directory/reports-monitoring/concept-reporting-api.md) provide programmatic access to the data through a set of REST-based APIs. You can call these APIs from various programming languages and tools.
+The data of these reports can be useful to your applications, such as SIEM systems, audit, and business intelligence tools. The Microsoft Entra ID reporting [APIs](../../active-directory/reports-monitoring/concept-reporting-api.md) provide programmatic access to the data through a set of REST-based APIs. You can call these APIs from various programming languages and tools.
 
-Events in the Azure AD Audit report are retained for 180 days.
+Events in the Microsoft Entra audit report are retained for 180 days.
 
 > [!Note]
-> For more information about retention on reports, see [Azure Active Directory Report Retention Policies](../../active-directory/reports-monitoring/reference-reports-data-retention.md).
+> For more information about retention on reports, see [Microsoft Entra report retention Policies](../../active-directory/reports-monitoring/reference-reports-data-retention.md).
 
 For customers interested in storing their [audit events](../../active-directory/reports-monitoring/concept-audit-logs.md) for longer retention periods, the Reporting API can be used to regularly pull audit events into a separate data store.
 
@@ -337,5 +335,5 @@ Microsoft designs its services and software with security in mind to help ensure
 
 Use Microsoft security data and analysis to perform more intelligent and effective threat detection.
 
-- [Microsoft Defender for Cloud planning and operations](../../security-center/security-center-planning-and-operations-guide.md)
+- [Microsoft Defender for Cloud planning and operations](/azure/defender-for-cloud/defender-for-cloud-planning-and-operations-guide)
 A set of steps and tasks that you can follow to optimize your use of Defender for Cloud based on your organization’s security requirements and cloud management model.

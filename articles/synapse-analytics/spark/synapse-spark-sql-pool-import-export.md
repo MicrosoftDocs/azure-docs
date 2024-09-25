@@ -2,7 +2,7 @@
 title: Azure Synapse Dedicated SQL Pool Connector for Apache Spark
 description: Azure Synapse Dedicated SQL Pool Connector for Apache Spark to move data between the Synapse Serverless Spark Pool and the Synapse Dedicated SQL Pool.
 author: kalyankadiyala-Microsoft
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: overview
 ms.subservice: spark
 ms.date: 05/10/2022
@@ -18,9 +18,10 @@ The Azure Synapse Dedicated SQL Pool Connector for Apache Spark in Azure Synapse
 At a high-level, the connector provides the following capabilities:
 
 * Read from Azure Synapse Dedicated SQL Pool:
-  * Read large data sets from Synapse Dedicated SQL Pool Tables (Internal and External) and Views.
+  * Read large data sets from Synapse Dedicated SQL Pool Tables (Internal and External) and views.
   * Comprehensive predicate push down support, where filters on DataFrame get mapped to corresponding SQL predicate push down.
   * Support for column pruning.
+  * Support for query push down.
 * Write to Azure Synapse Dedicated SQL Pool:
   * Ingest large volume data to Internal and External table types.
   * Supports following DataFrame save mode preferences:
@@ -62,7 +63,7 @@ Review and setup following dependent Azure Resources:
 
 Connect to the Synapse Dedicated SQL Pool database and run following setup statements:
 
-* Create a database user that is mapped to the Azure Active Directory User Identity used to sign in to the Azure Synapse Workspace.
+* Create a database user that is mapped to the Microsoft Entra user Identity used to sign in to the Azure Synapse Workspace.
   
     ```sql
     CREATE USER [username@domain.com] FROM EXTERNAL PROVIDER;      
@@ -76,9 +77,11 @@ Connect to the Synapse Dedicated SQL Pool database and run following setup state
 
 ### Authentication
 
-#### Azure Active Directory based authentication
+<a name='azure-active-directory-based-authentication'></a>
 
-Azure Active Directory based authentication is an integrated authentication approach. The user is required to successfully log in to the Azure Synapse Analytics Workspace.
+#### Microsoft Entra ID based authentication
+
+Microsoft Entra ID based authentication is an integrated authentication approach. The user is required to successfully sign in to the Azure Synapse Analytics Workspace.
 
 #### Basic authentication
 
@@ -148,7 +151,7 @@ To successfully bootstrap and orchestrate the read or write operation, the Conne
 
 Following is the list of configuration options based on usage scenario:
 
-* **Read using Azure AD based authentication**
+* **Read using Microsoft Entra ID based authentication**
   * Credentials are auto-mapped, and user isn't required to provide specific configuration options.
   * Three-part table name argument on `synapsesql` method is required to read from respective table in Azure Synapse Dedicated SQL Pool.
 * **Read using basic authentication**
@@ -158,7 +161,7 @@ Following is the list of configuration options based on usage scenario:
     * `Constants.PASSWORD` - SQL User Password.
   * Azure Data Lake Storage (Gen 2) End Point  - Staging Folders
     * `Constants.DATA_SOURCE` - Storage path set on the data source location parameter is used for data staging.
-* **Write using Azure AD based authentication**
+* **Write using Microsoft Entra ID based authentication**
   * Azure Synapse Dedicated SQL End Point
     * By default, the Connector infers the Synapse Dedicated SQL end point by using the database name set on the `synapsesql` method's three-part table name parameter.
     * Alternatively, users can use the `Constants.SERVER` option to specify the sql end point. Ensure the end point hosts the corresponding database with respective schema.
@@ -188,7 +191,7 @@ This section presents reference code templates to describe how to use and invoke
 
 > [!Note]
 > Using the Connector in Python-
-> * The connector is supported in Python for Spark 3 only. For Spark 2.4, we can use the Scala connector API to interact with content from a DataFrame in PySpark by using DataFrame.createOrReplaceTempView or DataFrame.createOrReplaceGlobalTempView. See Section - [Using materialized data across cells](#using-materialized-data-across-cells).
+> * The connector is supported in Python for Spark 3 only. For [Spark 2.4 (unsupported)](./apache-spark-24-runtime.md), we can use the Scala connector API to interact with content from a DataFrame in PySpark by using DataFrame.createOrReplaceTempView or DataFrame.createOrReplaceGlobalTempView. See Section - [Using materialized data across cells](#using-materialized-data-across-cells).
 > * The call back handle is not available in Python.
 
 ### Read from Azure Synapse Dedicated SQL Pool
@@ -198,17 +201,19 @@ This section presents reference code templates to describe how to use and invoke
 ##### [Scala](#tab/scala)
 
 ```Scala
-synapsesql(tableName:String) => org.apache.spark.sql.DataFrame
+synapsesql(tableName:String="") => org.apache.spark.sql.DataFrame
 ```
 
 ##### [Python](#tab/python)
 
 ```python
-synapsesql(table_name: str) -> org.apache.spark.sql.DataFrame
+synapsesql(table_name: str="") -> org.apache.spark.sql.DataFrame
 ```
 ---
 
-#### Read using Azure AD based authentication
+<a name='read-from-a-table-using-azure-ad-based-authentication'></a>
+
+#### Read from a table using Microsoft Entra ID based authentication
 
 ##### [Scala](#tab/scala1)
 
@@ -268,9 +273,109 @@ dfToReadFromTable.show()
 ```
 ---
 
-#### Read using basic authentication
+<a name='read-from-a-query-using-azure-ad-based-authentication'></a>
+
+#### Read from a query using Microsoft Entra ID based authentication
+> [!Note]
+> Restrictions while reading from query:
+> * Table name and query cannot be specified at the same time.
+> * Only select queries are allowed. DDL and DML SQLs are not allowed.
+> * The select and filter options on dataframe are not pushed down to the SQL dedicated pool when a query is specified.
+> * Read from a query is only available in Spark 3.1 and 3.2. 
 
 ##### [Scala](#tab/scala2)
+
+```Scala
+//Use case is to read data from an internal table in Synapse Dedicated SQL Pool DB
+//Azure Active Directory based authentication approach is preferred here.
+import org.apache.spark.sql.DataFrame
+import com.microsoft.spark.sqlanalytics.utils.Constants
+import org.apache.spark.sql.SqlAnalyticsConnector._
+
+
+// Read from a query
+// Query can be provided either as an argument to synapsesql or as a Constant - Constants.QUERY
+val dfToReadFromQueryAsOption:DataFrame = spark.read.
+    // Name of the SQL Dedicated Pool or database where to run the query
+    // Database can be specified as a Spark Config - spark.sqlanalyticsconnector.dw.database or as a Constant - Constants.DATABASE
+     option(Constants.DATABASE, "<database_name>").
+    //If `Constants.SERVER` is not provided, the `<database_name>` from the three-part table name argument 
+    //to `synapsesql` method is used to infer the Synapse Dedicated SQL End Point.
+    option(Constants.SERVER, "<sql-server-name>.sql.azuresynapse.net").
+    //Defaults to storage path defined in the runtime configurations
+    option(Constants.TEMP_FOLDER, "abfss://<container_name>@<storage_account_name>.dfs.core.windows.net/<some_base_path_for_temporary_staging_folders>")
+    //query from which data will be read
+    .option(Constants.QUERY, "select <column_name>, count(*) as cnt from <schema_name>.<table_name> group by <column_name>")
+    synapsesql()
+
+val dfToReadFromQueryAsArgument:DataFrame = spark.read.
+     // Name of the SQL Dedicated Pool or database where to run the query
+     // Database can be specified as a Spark Config - spark.sqlanalyticsconnector.dw.database or as a Constant - Constants.DATABASE
+     option(Constants.DATABASE, "<database_name>")
+    //If `Constants.SERVER` is not provided, the `<database_name>` from the three-part table name argument 
+    //to `synapsesql` method is used to infer the Synapse Dedicated SQL End Point.
+    option(Constants.SERVER, "<sql-server-name>.sql.azuresynapse.net").
+    //Defaults to storage path defined in the runtime configurations
+    option(Constants.TEMP_FOLDER, "abfss://<container_name>@<storage_account_name>.dfs.core.windows.net/<some_base_path_for_temporary_staging_folders>")
+    //query from which data will be read
+    .synapsesql("select <column_name>, count(*) as counts from <schema_name>.<table_name> group by <column_name>")
+
+
+//Show contents of the dataframe
+dfToReadFromQueryAsOption.show()
+dfToReadFromQueryAsArgument.show()
+```
+
+##### [Python](#tab/python2)
+
+```python
+# Add required imports
+import com.microsoft.spark.sqlanalytics
+from com.microsoft.spark.sqlanalytics.Constants import Constants
+from pyspark.sql.functions import col
+
+# Name of the SQL Dedicated Pool or database where to run the query
+# Database can be specified as a Spark Config or as a Constant - Constants.DATABASE
+spark.conf.set("spark.sqlanalyticsconnector.dw.database", "<database_name>")
+
+# Read from a query
+# Query can be provided either as an argument to synapsesql or as a Constant - Constants.QUERY
+dfToReadFromQueryAsOption = (spark.read
+                     # Name of the SQL Dedicated Pool or database where to run the query
+                     # Database can be specified as a Spark Config - spark.sqlanalyticsconnector.dw.database or as a Constant - Constants.DATABASE
+                     .option(Constants.DATABASE, "<database_name>")
+                     # If `Constants.SERVER` is not provided, the `<database_name>` from the three-part table name argument
+                     # to `synapsesql` method is used to infer the Synapse Dedicated SQL End Point.
+                     .option(Constants.SERVER, "<sql-server-name>.sql.azuresynapse.net")
+                     # Defaults to storage path defined in the runtime configurations
+                     .option(Constants.TEMP_FOLDER, "abfss://<container_name>@<storage_account_name>.dfs.core.windows.net/<some_base_path_for_temporary_staging_folders>")
+                     # query from which data will be read
+                     .option(Constants.QUERY, "select <column_name>, count(*) as cnt from <schema_name>.<table_name> group by <column_name>")
+                     .synapsesql()
+)
+
+dfToReadFromQueryAsArgument = (spark.read
+                     # Name of the SQL Dedicated Pool or database where to run the query
+                     # Database can be specified as a Spark Config - spark.sqlanalyticsconnector.dw.database or as a Constant - Constants.DATABASE
+                     .option(Constants.DATABASE, "<database_name>")
+                     # If `Constants.SERVER` is not provided, the `<database_name>` from the three-part table name argument
+                     # to `synapsesql` method is used to infer the Synapse Dedicated SQL End Point.
+                     .option(Constants.SERVER, "<sql-server-name>.sql.azuresynapse.net")
+                     # Defaults to storage path defined in the runtime configurations
+                     .option(Constants.TEMP_FOLDER, "abfss://<container_name>@<storage_account_name>.dfs.core.windows.net/<some_base_path_for_temporary_staging_folders>")
+                     # query from which data will be read
+                     .synapsesql("select <column_name>, count(*) as counts from <schema_name>.<table_name> group by <column_name>")
+)
+
+# Show contents of the dataframe
+dfToReadFromQueryAsOption.show()
+dfToReadFromQueryAsArgument.show()
+```
+---
+
+#### Read from a table using basic authentication
+
+##### [Scala](#tab/scala3)
 
 ```Scala
 //Use case is to read data from an internal table in Synapse Dedicated SQL Pool DB
@@ -289,22 +394,23 @@ val dfToReadFromTable:DataFrame = spark.read.
     //Set user's password to the database
     option(Constants.PASSWORD, "<user_password>").
     //Set name of the data source definition that is defined with database scoped credentials.
-    //Data extracted from the SQL query will be staged to the storage path defined on the data source's location setting.
+    //Data extracted from the table will be staged to the storage path defined on the data source's location setting.
     option(Constants.DATA_SOURCE, "<data_source_name>").
     //Three-part table name from where data will be read.
     synapsesql("<database_name>.<schema_name>.<table_name>").
     //Column-pruning i.e., query select column values.
-    select("<some_column_1>", "<some_column_5>", "<some_column_n>").
+    select("<some_column_1>", "<some_column_5>", "<some_column_n>"). 
     //Push-down filter criteria that gets translated to SQL Push-down Predicates.    
     filter(col("Title").startsWith("E")).
     //Fetch a sample of 10 records 
     limit(10)
+    
 
 //Show contents of the dataframe
 dfToReadFromTable.show()
 ```
 
-##### [Python](#tab/python2)
+##### [Python](#tab/python3)
 
 ```python
 # Add required imports
@@ -323,7 +429,7 @@ dfToReadFromTable = (spark.read
                      .option(Constants.PASSWORD, "<user_password>")
                      # Set name of the data source definition that is defined with database scoped credentials.
                      # https://learn.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql?view=sql-server-ver15&tabs=dedicated#h-create-external-data-source-to-access-data-in-azure-storage-using-the-abfs-interface
-                     # Data extracted from the SQL query will be staged to the storage path defined on the data source's location setting.
+                     # Data extracted from the table will be staged to the storage path defined on the data source's location setting.
                      .option(Constants.DATA_SOURCE, "<data_source_name>")
                      # Three-part table name from where data will be read.
                      .synapsesql("<database_name>.<schema_name>.<table_name>")
@@ -332,7 +438,8 @@ dfToReadFromTable = (spark.read
                      # Push-down filter criteria that gets translated to SQL Push-down Predicates.
                      .filter(col("Title").contains("E"))
                      # Fetch a sample of 10 records
-                     .limit(10))
+                     .limit(10)
+                    )
 
 # Show contents of the dataframe
 dfToReadFromTable.show()
@@ -340,11 +447,129 @@ dfToReadFromTable.show()
 ```
 ---
 
+#### Read from a query using basic authentication
+
+##### [Scala](#tab/scala4)
+
+```Scala
+//Use case is to read data from an internal table in Synapse Dedicated SQL Pool DB
+//Azure Active Directory based authentication approach is preferred here.
+import org.apache.spark.sql.DataFrame
+import com.microsoft.spark.sqlanalytics.utils.Constants
+import org.apache.spark.sql.SqlAnalyticsConnector._
+
+// Name of the SQL Dedicated Pool or database where to run the query
+// Database can be specified as a Spark Config or as a Constant - Constants.DATABASE
+spark.conf.set("spark.sqlanalyticsconnector.dw.database", "<database_name>")
+
+// Read from a query
+// Query can be provided either as an argument to synapsesql or as a Constant - Constants.QUERY
+val dfToReadFromQueryAsOption:DataFrame = spark.read.
+     //Name of the SQL Dedicated Pool or database where to run the query
+     //Database can be specified as a Spark Config - spark.sqlanalyticsconnector.dw.database or as a Constant - Constants.DATABASE
+      option(Constants.DATABASE, "<database_name>").
+    //If `Constants.SERVER` is not provided, the `<database_name>` from the three-part table name argument 
+    //to `synapsesql` method is used to infer the Synapse Dedicated SQL End Point.
+    option(Constants.SERVER, "<sql-server-name>.sql.azuresynapse.net").
+    //Set database user name
+    option(Constants.USER, "<user_name>").
+    //Set user's password to the database
+    option(Constants.PASSWORD, "<user_password>").
+    //Set name of the data source definition that is defined with database scoped credentials.
+    //Data extracted from the SQL query will be staged to the storage path defined on the data source's location setting.
+    option(Constants.DATA_SOURCE, "<data_source_name>").
+    //Query where data will be read.  
+    option(Constants.QUERY, "select <column_name>, count(*) as counts from <schema_name>.<table_name> group by <column_name>" ).
+    synapsesql()
+
+val dfToReadFromQueryAsArgument:DataFrame = spark.read.
+     //Name of the SQL Dedicated Pool or database where to run the query
+     //Database can be specified as a Spark Config - spark.sqlanalyticsconnector.dw.database or as a Constant - Constants.DATABASE
+      option(Constants.DATABASE, "<database_name>").
+    //If `Constants.SERVER` is not provided, the `<database_name>` from the three-part table name argument 
+    //to `synapsesql` method is used to infer the Synapse Dedicated SQL End Point.
+    option(Constants.SERVER, "<sql-server-name>.sql.azuresynapse.net").
+    //Set database user name
+    option(Constants.USER, "<user_name>").
+    //Set user's password to the database
+    option(Constants.PASSWORD, "<user_password>").
+    //Set name of the data source definition that is defined with database scoped credentials.
+    //Data extracted from the SQL query will be staged to the storage path defined on the data source's location setting.
+    option(Constants.DATA_SOURCE, "<data_source_name>").
+    //Query where data will be read.  
+    synapsesql("select <column_name>, count(*) as counts from <schema_name>.<table_name> group by <column_name>")
+    
+
+//Show contents of the dataframe
+dfToReadFromQueryAsOption.show()
+dfToReadFromQueryAsArgument.show()
+```
+
+##### [Python](#tab/python4)
+
+```python
+# Add required imports
+import com.microsoft.spark.sqlanalytics
+from com.microsoft.spark.sqlanalytics.Constants import Constants
+from pyspark.sql.functions import col
+
+# Name of the SQL Dedicated Pool or database where to run the query
+# Database can be specified as a Spark Config or as a Constant - Constants.DATABASE
+spark.conf.set("spark.sqlanalyticsconnector.dw.database", "<database_name>")
+
+# Read from a query
+# Query can be provided either as an argument to synapsesql or as a Constant - Constants.QUERY
+dfToReadFromQueryAsOption = (spark.read
+                     # Name of the SQL Dedicated Pool or database where to run the query
+                     # Database can be specified as a Spark Config - spark.sqlanalyticsconnector.dw.database or as a Constant - Constants.DATABASE
+                     .option(Constants.DATABASE, "<database_name>")
+                     # If `Constants.SERVER` is not provided, the `<database_name>` from the three-part table name argument
+                     # to `synapsesql` method is used to infer the Synapse Dedicated SQL End Point.
+                     .option(Constants.SERVER, "<sql-server-name>.sql.azuresynapse.net")
+                     # Set database user name
+                     .option(Constants.USER, "<user_name>")
+                     # Set user's password to the database
+                     .option(Constants.PASSWORD, "<user_password>")
+                     # Set name of the data source definition that is defined with database scoped credentials.
+                     # https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql?view=sql-server-ver15&tabs=dedicated#h-create-external-data-source-to-access-data-in-azure-storage-using-the-abfs-interface
+                     # Data extracted from the SQL query will be staged to the storage path defined on the data source's location setting.
+                     .option(Constants.DATA_SOURCE, "<data_source_name>")
+                     # Query from where data will be read.
+                     .option(Constants.QUERY, "select <column_name>, count(*) as counts from <schema_name>.<table_name> group by <column_name>")
+                     .synapsesql()
+                    )
+
+dfToReadFromQueryAsArgument = (spark.read
+                     # Name of the SQL Dedicated Pool or database where to run the query
+                     # Database can be specified as a Spark Config - spark.sqlanalyticsconnector.dw.database or as a Constant - Constants.DATABASE
+                     .option(Constants.DATABASE, "<database_name>")
+                     # If `Constants.SERVER` is not provided, the `<database_name>` from the three-part table name argument
+                     # to `synapsesql` method is used to infer the Synapse Dedicated SQL End Point.
+                     .option(Constants.SERVER, "<sql-server-name>.sql.azuresynapse.net")
+                     # Set database user name
+                     .option(Constants.USER, "<user_name>")
+                     # Set user's password to the database
+                     .option(Constants.PASSWORD, "<user_password>")
+                     # Set name of the data source definition that is defined with database scoped credentials.
+                     # https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql?view=sql-server-ver15&tabs=dedicated#h-create-external-data-source-to-access-data-in-azure-storage-using-the-abfs-interface
+                     # Data extracted from the SQL query will be staged to the storage path defined on the data source's location setting.
+                     .option(Constants.DATA_SOURCE, "<data_source_name>")
+                     .synapsesql("select <column_name>, count(*) as counts from <schema_name>.<table_name> group by <column_name>")
+                    )
+
+# Show contents of the dataframe
+dfToReadFromQueryAsOption.show()
+dfToReadFromQueryAsArgument.show()
+
+```
+---
+
+
 ### Write to Azure Synapse Dedicated SQL Pool
 
 #### Write Request - `synapsesql` method signature
 
-The method signature for the Connector version built for Spark 2.4.8 has one less argument, than that applied to the Spark 3.1.2 version. Following are the two method signatures:
+The method signature for the Connector version built for [Spark 2.4.8](./apache-spark-24-runtime.md) has one less argument, than that applied to the Spark 3.1.2 version. Following are the two method signatures:
 
 * Spark Pool Version 2.4.8
 
@@ -372,7 +597,9 @@ synapsesql(table_name: str, table_type: str = Constants.INTERNAL, location: str 
 ```
 ---
 
-#### Write using Azure AD based authentication
+<a name='write-using-azure-ad-based-authentication'></a>
+
+#### Write using Microsoft Entra ID based authentication
 
 Following is a comprehensive code template that describes how to use the Connector for write scenarios:
 
@@ -491,7 +718,7 @@ from com.microsoft.spark.sqlanalytics.Constants import Constants
 
 #### Write using basic authentication
 
-Following code snippet replaces the write definition described in the [Write using Azure AD based authentication](#write-using-azure-ad-based-authentication) section, to submit write request using SQL basic authentication approach:
+Following code snippet replaces the write definition described in the [Write using Microsoft Entra ID based authentication](#write-using-azure-ad-based-authentication) section, to submit write request using SQL basic authentication approach:
 
 ##### [Scala](#tab/scala5)
 
@@ -587,7 +814,7 @@ from com.microsoft.spark.sqlanalytics.Constants import Constants
 
 In a basic authentication approach, in order to read data from a source storage path other configuration options are required. Following code snippet provides an example to read from an Azure Data Lake Storage Gen2 data source using Service Principal credentials:
 
- ```Scala
+```Scala
 //Specify options that Spark runtime must support when interfacing and consuming source data
 val storageAccountName="<storageAccountName>"
 val storageContainerName="<storageContainerName>"

@@ -1,18 +1,19 @@
 ---
 title: Quickstart to create an Azure Recovery Services vault using Bicep.
 description: In this quickstart, you learn how to create an Azure Recovery Services vault using Bicep.
-author: v-pgaddala
-ms.author: v-pgaddala
-ms.date: 06/27/2022
+author: ankitaduttaMSFT
+ms.service: azure-site-recovery
+ms.author: ankitadutta
+ms.date: 05/23/2024
 ms.topic: quickstart
-ms.custom: devx-track-azurepowershell, subject-armqs, mode-arm
+ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ---
 
 # Quickstart: Create a Recovery Services vault using Bicep
 
 This quickstart describes how to set up a Recovery Services vault using Bicep. The [Azure Site Recovery](site-recovery-overview.md) service contributes to your business continuity and disaster recovery (BCDR) strategy so your business applications stay online during planned and unplanned outages. Site Recovery manages disaster recovery of on-premises machines and Azure virtual machines (VM), including replication, failover, and recovery.
 
-[!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites
 
@@ -101,7 +102,4 @@ Remove-AzResourceGroup -Name exampleRG
 
 ## Next steps
 
-In this quickstart, you created a Recovery Services vault using Bicep. To learn more about disaster recovery, continue to the next quickstart article.
-
-> [!div class="nextstepaction"]
-> [Set up disaster recovery](azure-to-azure-quickstart.md)
+In this quickstart, you created a Recovery Services vault using Bicep. To learn more about disaster recovery, continue to the next quickstart article - [Set up disaster recovery](azure-to-azure-quickstart.md).

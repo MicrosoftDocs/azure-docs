@@ -1,0 +1,19 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/iot-hub-device-update/migration-pp-to-ppr.md",
+            "redirect_url": "/azure/iot-hub-device-update/migration-public-preview-refresh-to-ga",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/iot-hub-device-update/connected-cache-configure.md",
+            "redirect_url": "/azure/iot-hub-device-update/connected-cache-disconnected-device-update",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-hub-device-update/connected-cache-industrial-iot-nested.md",
+            "redirect_url": "/azure/iot-hub-device-update/connected-cache-nested-level",
+            "redirect_document_id": false
+        }
+      ]
+}

@@ -1,91 +1,48 @@
 ---
-title: Microsoft Energy Data Services Preview csv parser ingestion workflow concept #Required; page title is displayed in search results. Include the brand.
-description: Learn how to use CSV parser ingestion. #Required; article description that is displayed in search results. 
-author: bharathim #Required; your GitHub user alias, with correct capitalization.
-ms.author: bselvaraj #Required; microsoft alias of author; optional team alias.
-ms.service: energy-data-services #Required; service per approved list. slug assigned by ACOM.
-ms.topic: conceptual #Required; leave this attribute/value as-is.
-ms.date: 08/18/2022
-ms.custom: template-concept #Required; leave this attribute/value as-is.
+title: Microsoft Azure Data Manager for Energy csv parser ingestion workflow concept
+description: Learn how to use CSV parser ingestion.
+author: bharathim
+ms.author: bselvaraj
+ms.service: energy-data-services
+ms.topic: conceptual
+ms.date: 02/10/2023
+ms.custom: template-concept
 ---
 
 # CSV parser ingestion concepts
+A CSV (comma-separated values) file is a comma delimited text file that is used to save data in a table structured format. 
 
-One of the simplest generic data formats that are supported by the Microsoft Energy Data Services Preview ingestion process is the "comma separated values" format, which is called a CSV format. The CSV format is processed through a CSV Parser DAG definition. 
+A CSV Parser [DAG](https://airflow.apache.org/docs/apache-airflow/1.10.12/concepts.html#dags) allows a customer to load data into Microsoft Azure Data Manager for Energy instance based on a custom schema that is, a schema that doesn't match the [OSDU&reg;](https://osduforum.org) Well Known Schema (WKS). Customers must create and register the custom schema using the Schema service before loading the data. 
 
-CSV Parser DAG implements an ELT approach to data loading, that is, data is loaded after it's extracted. Customers can use CSV Parser DAG to load data that doesn't match the [OSDU&trade;](https://osduforum.org) canonical schema. Customers need to create and register a custom schema using the schema service matching the format of the CSV file.
+A CSV Parser DAG implements an ELT (Extract Load and Transform) approach to data loading, that is, data is first extracted from the source system in a CSV format, and it's loaded into the Azure Data Manager for Energy instance. It could then be transformed to the [OSDU&reg;](https://osduforum.org) Well Known Schema using a mapping service.
 
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## What does CSV ingestion do?
-
-* **Schema validation** – ensure CSV file conforms to the schema.
-* **Type conversion** – ensure that the type of a field is as defined and converts it to the defined type if otherwise.
-* **ID generation** – used to upload into storage service. It helps in scenarios where the ingestion failed half-way as ID generation logic is idempotent, one avoids duplicate data on platform.
-* **Reference handling** – enable customers to refer to actual data on the platform and access it.
-* **Persistence** – It persists each row after validations by calling storage service API. Once persisted, the data is available for consumption through search and storage service APIs.
-
-## CSV Parser ingestion functionality
-
-The CSV parser ingestion currently supports the following functionality as a one-step DAG:
-
-- CSV file is parsed as per the schema (one row in CSV = 1 record ingested into the data platform)
-- CSV file contents match the contents of the provided schema.
-    - **Success**: validate the schema vs. the header of the CSV file and the values of the first nrows. Use the schema for all downstream tasks to build the metadata.
-    - **Fail**: log the error(s) in the schema validation, proceed with ingestion if errors are non-breaking
-- Convert all characters to UTF8, and gracefully handle/replace characters that can't be converted to UTF8.
-- Unique data identity for an object in the Data Platform - CSV Ingestion generates Unique Identifier (ID) for each record by combining source, entity type and a base64 encoded string formed by concatenating natural key(s) in the data. In case the schema used for CSV Ingestion doesn't contain any natural keys storage service will generate random IDs for every record
-- Typecast to JSON-supported data types:
-    - **Number** - Typecast integers, doubles, floats, etc. as described in the schema to "number". Some common spatial formats, such as Degrees/Minutes/Seconds (DMS) or Easting/Northing should be typecast to "String." Special Handling of these string formats will be handled in the Spatial Data Handling Task.
-    - **Date** - Typecast dates as described in the schema to a date, doing a date format conversion toISO8601TZ format (for fully qualified dates). Some date fragments (such as years) can't be easily converted to this format and should be typecast to a number instead, or if textual date representations, for example, "July" should be typecast to string.
-    - **Others** - All other encountered attributes should be typecast as string.
-- Stores a batch of records in the context of a particular ingestion job. Fragments/outputs from the previous steps are collected into a batch, and formatted in a way that is compatible with the Storage Service with the appropriate additional information, such as the ACL's, Legal tags, etc.
-- Support frame of reference handling:
-    - **Unit** - converting declared frame of reference information into the appropriate persistable reference as per the Unit Service. This information is stored in the meta[] block.
-    - **CRS** - the CRS Frame of Reference (FoR) information should be included in the schema of the data, including the source CRS (either geographic or projected), and if projected, the CRS info and persistable reference (if provided in schema) information is stored in the meta[] block.
-- Creates relationships as declared in the source schema.
-- Supports publishing status of ingested/failed records on GSM article
+A CSV Parser DAG allows the customers to load the CSV data into the Microsoft Azure Data Manager for Energy instance. It parses each row of a CSV file and creates a storage metadata record. It performs `schema validation` to ensure that the CSV data conforms to the registered custom schema. It automatically performs `type coercion` on the columns based on the schema data type definition. It generates `unique id` for each row of the CSV record by combining source, entity type and a Base64 encoded string formed by concatenating natural key(s) in the data. It performs `unit conversion` by converting declared frame of reference information into appropriate persistable reference using the Unit service. It performs `CRS conversion` for spatially aware columns based on the Frame of Reference (FoR) information present in the schema. It creates `relationships` metadata as declared in the source schema. Finally, it `persists` the metadata record using the Storage service.
 
 ## CSV parser ingestion components
 
-* **File service** – Facilitates management of files on data platform. Uploading, Secure discovery and downloading of files are capabilities provided by file service.
-* **Schema service** – Facilitates management of Schemas on data platform. Creating, fetching and searching for schemas are capabilities provided by schema service.
-* **Storage Service** – JSON object store that facilitates storage of metadata information for domain entities. Also raises storage events when records are saved using storage service.
-* **Unit Service** – Facilitates management and conversion of Units
-* **Workflow service** – Facilitates management of workflows on data platform. Wrapper over the workflow engine and abstract many technical nuances of the workflow engine from consumers.
-* **Airflow engine** – Heart of the ingestion framework. Actual Workflow orchestrator.
-* **DAGs** – Based on Direct Acyclic Graph concept, are workflows that are authored, orchestrated, managed and monitored by the workflow engine.
+The CSV Parser DAG workflow is made up of the following services:
+* **File service** facilitates the management of files in the Azure Data Manager for Energy instance. It allows the user to securely upload, discovery and download files from the data platform.
+* **Schema service** facilitates the management of schemas in the Azure Data Manager for Energy instance. It allows the user to create, fetch and search for schemas in the data platform.
+* **Storage Service** facilitates the storage of metadata information for domain entities ingested into the data platform. It also raises storage record change events that allow downstream services to perform operations on ingested metadata records.
+* **Unit Service** facilitates the management and conversion of units
+* **Workflow service** facilitates the management of workflows in the Azure Data Manager for Energy instance. It's a wrapper service on top of the Airflow orchestration engine.
 
-## CSV ingestion components diagram
+### CSV ingestion components diagram
 
 :::image type="content" source="media/concepts-csv-parser-ingestion/csv-ingestion-components-diagram.png" alt-text="Screenshot of the CSV ingestion components diagram.":::
 
-## CSV ingestion sequence diagram
-
-:::image type="content" source="media/concepts-csv-parser-ingestion/csv-ingestion-sequence-diagram.png" alt-text="Screenshot of the CSV ingestion sequence diagram." lightbox="media/concepts-csv-parser-ingestion/csv-ingestion-sequence-diagram-expanded.png":::
-
 ## CSV parser ingestion workflow
 
-### Prerequisites
+To execute the CSV Parser DAG workflow, the user must have a valid authorization token and appropriate access to the following services: Search, Storage, Schema, File Service, Entitlement, Legal, and Workflow. 
 
-* To trigger APIs, the user must have the below access and a valid authorization token
-  * Access to services: Search, Storage, Schema, File Service, Entitlement, Legal
-  * Access to Workflow service.
-  * Following is list of service level groups that you need access to register and execute DAG using workflow service.
-    * "service.workflow.creator"
-    * "service.workflow.viewer"
-    * "service.workflow.admin"
+The below workflow diagram illustrates the CSV Parser DAG workflow:
+    :::image type="content" source="media/concepts-csv-parser-ingestion/csv-ingestion-sequence-diagram.png" alt-text="Screenshot of the CSV ingestion sequence diagram." lightbox="media/concepts-csv-parser-ingestion/csv-ingestion-sequence-diagram-expanded.png":::
 
-### Steps to execute a DAG using Workflow Service
+To execute the CSV Parser DAG workflow, the user must first create and register the schema using the workflow service. Once the schema is created, the user then uses the File service to upload the CSV file to the Microsoft Azure Data Manager for Energy instances, and also creates the storage record of file generic kind. The file service then provides a file ID to the user, which is used while triggering the CSV Parser workflow using the Workflow service. The Workflow service provides a run ID, which the user could use to track the status of the CSV Parser workflow run.
 
-* **Create schema** – Definition of the kind of records that will be created as outcome of ingestion workflow. The schema is uploaded through the schema service. The schema needs to be registered using schema service.
-* **Uploading the file** – Use file Service to upload a file. The file service provides a signed URL, which enables the customers to upload the data without credential requirements.
-* **Create Metadata record for the file** – Use file service to create meta data. The meta data enables discovery of file and secure downloads. It also provides a mechanism to provide information associated with the file that is needed during the processing of the file.  
-* The file ID created is provided to the CSV parser, which takes care of downloading the file, ingesting the file, and ingesting the records with the help of workflow service. The customers also need to register the workflow, the CSV parser DAG is already deployed in the Airflow.
-* **Trigger the Workflow service** – To trigger the workflow, the customer needs to provide the file ID, the kind of the file and data partition ID. Once the workflow is triggered, the customer gets a run ID.
-Workflow service provides API to monitor the status of each workflow run. Once the csv parser run is completed, data is ingested into OSDU&trade; Data Platform, and can be searched through search service
-
-OSDU&trade; is a trademark of The Open Group.
+OSDU&reg; is a trademark of The Open Group.
 
 ## Next steps
 Advance to the CSV parser tutorial and learn how to perform a CSV parser ingestion

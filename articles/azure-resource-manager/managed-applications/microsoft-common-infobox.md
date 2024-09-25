@@ -1,12 +1,8 @@
 ---
 title: InfoBox UI element
 description: Describes the Microsoft.Common.InfoBox UI element for Azure portal. Use to add text or warnings when deploying managed application.
-author: davidsmatlak
-
-ms.topic: conceptual
-ms.date: 06/15/2018
-ms.author: davidsmatlak
-
+ms.topic: reference
+ms.date: 06/24/2024
 ---
 
 # Microsoft.Common.InfoBox UI element
@@ -15,7 +11,7 @@ A control that adds an information box. The box contains important text or warni
 
 ## UI sample
 
-![Microsoft.Common.InfoBox](./media/managed-application-elements/microsoft-common-infobox.png)
+:::image type="content" source="./media/managed-application-elements/microsoft-common-infobox.png" alt-text="Screenshot of Microsoft.Common.InfoBox UI element displaying important text or warnings.":::
 
 
 ## Schema
@@ -41,10 +37,10 @@ A control that adds an information box. The box contains important text or warni
 
 ## Remarks
 
-* For `icon`, use **None**, **Info**, **Warning**, or **Error**.
-* The `uri` property is optional.
+- For `icon`, use **None**, **Info**, **Warning**, or **Error**.
+- The `uri` property is optional.
 
 ## Next steps
 
-* For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](create-uidefinition-overview.md).
-* For a description of common properties in UI elements, see [CreateUiDefinition elements](create-uidefinition-elements.md).
+- For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](create-uidefinition-overview.md).
+- For a description of common properties in UI elements, see [CreateUiDefinition elements](create-uidefinition-elements.md).

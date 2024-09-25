@@ -1,44 +1,59 @@
 ---
-title: Create backup policies for blobs using data protection REST API
+title: Create Azure Backup policies for blobs using data protection REST API
 description: In this article, you'll learn how to create and manage backup policies for blobs using REST API.
-ms.topic: conceptual
-ms.date: 07/09/2021
+ms.topic: how-to
+ms.date: 07/24/2024
 ms.assetid: 472d6a4f-7914-454b-b8e4-062e8b556de3
+ms.service: azure-backup
+ms.custom: engagement-fy23
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
+
 # Create Azure Data Protection backup policies for blobs using REST API
 
-> [!IMPORTANT]
-> Read [this section](blob-backup-configure-manage.md#before-you-start) before proceeding to create the policy and configuring backups for Azure blobs.
+This article describes how to create Azure Data Protection backup policies for Azure Blobs using REST API.
 
-A backup policy typically governs the retention and schedule of your backups. Since operational backup for blobs is continuous in nature, you don't need a schedule to perform backups. The policy is essentially needed to specify the retention period. You can reuse the backup policy to configure backup for multiple storage accounts to a vault.
+Azure Backup policy typically governs the retention and schedule of your backups. As operational backup for blobs is continuous in nature, you don't need a schedule to perform backups. The policy is essentially needed to specify the retention period. You can reuse the backup policy to configure backup for multiple storage accounts to a vault.
+
+> [!IMPORTANT]
+> Before you proceed to create the policy and configure backups for Azure blobs, see [this section](blob-backup-configure-manage.md#before-you-start).
+
+This article describes how to create a policy for blobs in a storage account. Learn about [the process to create a backup policy for an Azure Recovery Services vault using REST API](/rest/api/dataprotection/backup-policies/create-or-update).
 
 >[!NOTE]
->Restoring over long durations may lead to restore operations taking longer to complete. Furthermore, the time that it takes to restore a set of data is based on the number of write and delete operations made during the restore period. For example, an account with one million objects with 3,000 objects added per day and 1,000 objects deleted per day will require approximately two hours to restore to a point 30 days in the past. A retention period and restoration more than 90 days in the past would not be recommended for an account with this rate of change.
+>Restoring over long durations may lead to restore operations taking longer to complete. Further, the time that it takes to restore a set of data is based on the number of write and delete operations made during the restore period.
+>For example, an account with one million objects with 3,000 objects added per day and 1,000 objects deleted per day will require approximately two hours to restore to a point 30 days in the past. A retention period and restoration more than 90 days in the past would not be recommended for an account with this rate of change.
 
-The steps to create a backup policy for an Azure Recovery Services vault are outlined in the policy [REST API document](/rest/api/dataprotection/backup-policies/create-or-update). Let's use this document as a reference to create a policy for blobs in a storage account.
+In this article, you'll learn about:
+
+> [!div class="checklist"]
+> - Create a policy
+> - Create the request body
+> - Responses
 
 ## Create a policy
 
-> [!IMPORTANT]
-> Currently, we do not support updating or modifying an existing policy. An alternative is to create a new policy with the required details and assign it to the relevant backup instance.
-
-To create an Azure Backup policy, use the following *PUT* operation
+To create an Azure Backup policy, use the following *PUT* operation:
 
 ```http
 PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataProtection/backupVaults/{vaultName}/backupPolicies/{policyName}?api-version=2021-01-01
 ```
 
-The `{policyName}` and `{vaultName}` are provided in the URI. Additional information is provided in the request body.
+The `{policyName}` and `{vaultName}` are provided in the URI. You can find additional information the request body.
+
+> [!IMPORTANT]
+> Currently, we don't support updating or modifying an existing policy. So, you can create a new policy with the required details and assign it to the relevant backup instance.
 
 ## Create the request body
 
-For example, to create a policy for Blob backup, following are the components of the request body.
+For example, to create a policy for Blob backup, use the following component of the request body:
 
 |Name  |Required  |Type  |Description  |
 |---------|---------|---------|---------|
-|properties     |   True      |  BaseBackupPolicy:[BackupPolicy](/rest/api/dataprotection/backup-policies/create-or-update#backuppolicy)      | BaseBackupPolicyResource properties        |
+|`properties`     |   True      |  BaseBackupPolicy:[BackupPolicy](/rest/api/dataprotection/backup-policies/create-or-update#backuppolicy)      | BaseBackupPolicyResource properties        |
 
-For the complete list of definitions in the request body, refer to the [backup policy REST API document](/rest/api/dataprotection/backup-policies/create-or-update).
+For the complete list of definitions in the request body, see the [backup policy REST API document](/rest/api/dataprotection/backup-policies/create-or-update).
 
 ### Example request body
 
@@ -47,7 +62,7 @@ The following request body defines a backup policy for blob backups.
 The policy says:
 
 - Retention period is 30 days.
-- Datastore is 'operational store' since the backups are local and no data is stored in the Backup vault.
+- Datastore is 'operational store'.
 
 ```json
 {
@@ -79,12 +94,98 @@ The policy says:
 }
 ```
 
+To configure a backup policy with the vaulted backup, use the following JSON script:
+
+```json
+{
+  "id": "/subscriptions/495944b2-66b7-4173-8824-77043bb269be/resourceGroups/Blob-Backup/providers/Microsoft.DataProtection/BackupVaults/yavovaultecy01/backupPolicies/TestPolicy",
+  "name": "TestPolicy",
+  "type": "Microsoft.DataProtection/BackupVaults/backupPolicies",
+  "properties": {
+    "policyRules": [
+      {
+        "name": "Default",
+        "objectType": "AzureRetentionRule",
+        "isDefault": true,
+        "lifecycles": [
+          {
+            "deleteAfter": {
+              "duration": "P30D",
+              "objectType": "AbsoluteDeleteOption"
+            },
+            "sourceDataStore": {
+              "dataStoreType": "OperationalStore",
+              "objectType": "DataStoreInfoBase"
+            },
+            "targetDataStoreCopySettings": []
+          }
+        ]
+      },
+      {
+        "name": "Default",
+        "objectType": "AzureRetentionRule",
+        "isDefault": true,
+        "lifecycles": [
+          {
+            "deleteAfter": {
+              "duration": "P7D",
+              "objectType": "AbsoluteDeleteOption"
+            },
+            "sourceDataStore": {
+              "dataStoreType": "VaultStore",
+              "objectType": "DataStoreInfoBase"
+            },
+            "targetDataStoreCopySettings": []
+          }
+        ]
+      },
+      {
+        "name": "BackupDaily",
+        "objectType": "AzureBackupRule",
+        "backupParameters": {
+          "backupType": "Discrete",
+          "objectType": "AzureBackupParams"
+        },
+        "dataStore": {
+          "dataStoreType": "VaultStore",
+          "objectType": "DataStoreInfoBase"
+        },
+        "trigger": {
+          "schedule": {
+            "timeZone": "UTC",
+            "repeatingTimeIntervals": [
+              "R/2024-05-08T14:00:00+00:00/P1D"
+            ]
+          },
+          "taggingCriteria": [
+            {
+              "isDefault": true,
+              "taggingPriority": 99,
+              "tagInfo": {
+                "id": "Default_",
+                "tagName": "Default"
+              }
+            }
+          ],
+          "objectType": "ScheduleBasedTriggerContext"
+        }
+      }
+    ],
+    "datasourceTypes": [
+      "Microsoft.Storage/storageAccounts/blobServices"
+    ],
+    "objectType": "BackupPolicy",
+    "name": "TestPolicy"
+  }
+} 
+```
+
 > [!IMPORTANT]
-> The time formats for support only DateTime. They don't support Time format alone.
+> The supported time formats is *DateTime* only. They don't support *Time* format alone.
 
 ## Responses
 
-The backup policy creation/update is a synchronous operation and returns OK once the operation is successful.
+The backup policy creation/update is an asynchronous operation and returns *OK* once the operation is successful.
 
 |Name  |Type  |Description  |
 |---------|---------|---------|

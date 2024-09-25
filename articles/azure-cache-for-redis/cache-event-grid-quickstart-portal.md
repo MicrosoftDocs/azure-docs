@@ -1,11 +1,11 @@
 ---
 title: 'Quickstart: Route Azure Cache for Redis events to web endpoint with the Azure portal'
 description: Use Azure Event Grid to subscribe to Azure Cache for Redis events, send the events to a Webhook, and handle the events in a web application
-author: flang-msft
-ms.author: franlanglois
+
+
 ms.date: 1/5/2021
 ms.topic: quickstart
-ms.service: cache
+
 ms.custom: mode-ui
 ---
 
@@ -13,7 +13,7 @@ ms.custom: mode-ui
 
 Azure Event Grid is an eventing service for the cloud. In this quickstart, you'll use the Azure portal to create an Azure Cache for Redis instance, subscribe to events for that instance, trigger an event, and view the results. Typically, you send events to an endpoint that processes the event data and takes actions. However, to simplify this quickstart, you'll send events to a web app that will collect and display the messages.
 
-[!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note.md](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 When you're finished, you'll see that the event data has been sent to the web app.
 
@@ -21,7 +21,7 @@ When you're finished, you'll see that the event data has been sent to the web ap
 
 ## Create an Azure Cache for Redis cache instance
 
-[!INCLUDE [redis-cache-create](includes/redis-cache-create.md)]
+[!INCLUDE [redis-cache-create](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/redis-cache-create.md)]
 
 ## Create a message endpoint
 
@@ -29,10 +29,10 @@ Before subscribing to the events for the cache instance, let's create the endpoi
 
 1. Select **Deploy to Azure** in GitHub README to deploy the solution to your subscription.
 
-:::image type="content" source="media/cache-event-grid-portal/deploy-to-azure.png" alt-text="Deploy to Azure button.":::
+    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" border="false" alt-text="Deploy to Azure button.":::
 
 1. On the **Custom deployment** page, do the following steps:
-    1. For **Resource group**, select the resource group that you created when creating the cache instance. It will be easier for you to clean up after you are done with the tutorial by deleting the resource group.  
+    1. For **Resource group**, select the resource group that you created when creating the cache instance. It will be easier for you to clean up after you're done with the tutorial by deleting the resource group.  
     2. For **Site Name**, enter a name for the web app.
     3. For **Hosting plan name**, enter a name for the App Service plan to use for hosting the web app.
     4. Select the check box for **I agree to the terms and conditions stated above**.
@@ -40,10 +40,10 @@ Before subscribing to the events for the cache instance, let's create the endpoi
 
     | Setting      | Suggested value  | Description |
     | ------------ |  ------- | -------------------------------------------------- |
-    | **Subscription** | Drop down and select your subscription. | The subscription under which to create this web app. |
+    | **Subscription** | Drop down and select your subscription. | The subscription in which you want to create this web app. |
     | **Resource group** | Drop down and select a resource group, or select **Create new** and enter a new resource group name. | By putting all your app resources in one resource group, you can easily manage or delete them together. |
-    | **Site Name** | Enter a name for your web app. | This value cannot be empty. |
-    | **Hosting plan name** | Enter a name for the App Service plan to use for hosting the web app. | This value cannot be empty. |
+    | **Site Name** | Enter a name for your web app. | This value can't be empty. |
+    | **Hosting plan name** | Enter a name for the App Service plan to use for hosting the web app. | This value can't be empty. |
 
 1. Select Alerts (bell icon) in the portal, and then select **Go to resource group**.
 
@@ -57,7 +57,8 @@ Before subscribing to the events for the cache instance, let's create the endpoi
 
     :::image type="content" source="media/cache-event-grid-portal/blank-event-grid-viewer.png" alt-text="Empty Event Grid Viewer site.":::
 
-[!INCLUDE [event-grid-register-provider-portal.md](../../includes/event-grid-register-provider-portal.md)]
+[!INCLUDE [register-provider.md](../../articles/event-grid/includes/register-provider.md)]
+
 
 ## Subscribe to the Azure Cache for Redis instance
 
@@ -65,7 +66,7 @@ In this step, you'll subscribe to a topic to tell Event Grid which events you wa
 
 1. In the portal, navigate to your cache instance that you created earlier.
 1. On the **Azure Cache for Redis** page, select **Events** on the left menu.
-1. Select **Web Hook**. You are sending events to your viewer app using a web hook for the endpoint.
+1. Select **Web Hook**. You're sending events to your viewer app using a web hook for the endpoint.
 
      :::image type="content" source="media/cache-event-grid-portal/event-grid-web-hook.png" alt-text="Azure portal Events page.":::
 

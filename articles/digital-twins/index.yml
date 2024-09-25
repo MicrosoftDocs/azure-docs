@@ -6,9 +6,8 @@ summary: Learn how to use Azure Digital Twins by creating a digital twin archite
 metadata:
   title: Azure Digital Twins Documentation - Tutorials, API Reference | Microsoft Docs
   description: Learn how to Use Azure Digital Twins to connect people, places, and things, and to build IoT solutions with spatial intelligence.
-  ms.service: digital-twins
+  ms.service: azure-digital-twins
   ms.topic: landing-page
-  ms.collection: collection
   author: baanders
   ms.author: baanders
   ms.date: 03/10/2022
@@ -70,13 +69,13 @@ landingContent:
           - text: REST APIs
             url:  /rest/api/azure-digitaltwins/
           - text: Control plane .NET (C#) SDK
-            url:  /dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet&preserve-view=true
+            url:  /dotnet/api/overview/azure/digitaltwins
           - text: Data plane .NET (C#) SDK
-            url:  /dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true
+            url:  /dotnet/api/overview/azure/digitaltwins.core-readme
       - linkListType: how-to-guide
         links:
-          - text: Call the Azure Digital Twins APIs with Postman
-            url: how-to-use-postman-with-digital-twins.md
+          - text: Call the Azure Digital Twins APIs
+            url: how-to-use-apis.md
 
   - title: DTDL-based industry ontologies
     linkLists:

@@ -2,12 +2,12 @@
 title: 'Tutorial: Use Microsoft Azure Maps to create store locator web applications'
 titleSuffix: Microsoft Azure Maps
 description: Tutorial on how to use Microsoft Azure Maps to create store locator web applications.
-author: stevemunk
-ms.author: v-munksteve
-ms.date: 01/03/2022
+author: sinnypan
+ms.author: sipa
+ms.date: 09/05/2024
 ms.topic: tutorial
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: web-sdk
 ms.custom: mvc, devx-track-js
 ---
 
@@ -31,24 +31,24 @@ In this tutorial, you'll learn how to:
 
 ## Prerequisites
 
-1. An [Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account) using the Gen 1 (S1) or Gen 2 pricing tier.
-2. An [Azure Maps primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account).
+* [Visual Studio Code] is recommended for this tutorial, but you can use any suitable integrated development environment (IDE).
+* An [Azure Maps account]
+* A [subscription key]
 
-For more information about Azure Maps authentication, see [Manage authentication in Azure Maps](how-to-manage-authentication.md).
-
-[Visual Studio Code](https://code.visualstudio.com/) is recommended for this tutorial, but you can use any suitable integrated development environment (IDE).
+> [!NOTE]
+> For more information on authentication in Azure Maps, see [manage authentication in Azure Maps].
 
 ## Sample code
 
-In this tutorial, you'll create a store locator for a fictional company named *Contoso Coffee*. Also, this tutorial includes some tips to help you learn about extending the store locator with other optional functionality.
+This tutorial demonstrates how to create a store locator for a fictional company named *Contoso Coffee*, along with tips to extend the store locator with additional functionality.
 
-To see a live sample of what you will create in this tutorial, see [Simple Store Locator](https://samples.azuremaps.com/?sample=simple-store-locator) on the **Azure Maps Code Samples** site.
+To see a live sample of what you're creating in this tutorial, see [Simple Store Locator] on the **Azure Maps Code Samples** site.
 
-To more easily follow and engage this tutorial, you'll need to download the following resources:
+To more easily follow and engage this tutorial, download the following resources:
 
-* Full source code for the [Simple Store Locator](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/Samples/Tutorials/Simple%20Store%20Locator) on GitHub.
-* [Store location data](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/Samples/Tutorials/Simple%20Store%20Locator/data) that you'll import into the store locator dataset.
-* The [Map images](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/Samples/Tutorials/Simple%20Store%20Locator/images).
+* [Simple Store Locator] source code.
+* [Store location data] used to import into the store locator dataset.
+* The [Map images].
 
 ## Store locator features
 
@@ -73,13 +73,13 @@ This section lists the Azure Maps features that are demonstrated in the Contoso 
 
 ## Store locator design
 
-The following screenshot shows the general layout of the Contoso Coffee store locator application. To view and interact with the live sample, see the [Simple Store Locator](https://samples.azuremaps.com/?sample=simple-store-locator) sample application on the **Azure Maps Code Samples** site.
+The following screenshot shows the general layout of the Contoso Coffee store locator application. To view and interact with the live sample, see the [Simple Store Locator] sample application on the **Azure Maps Code Samples** site.
 
-:::image type="content" source="./media/tutorial-create-store-locator/store-locator-wireframe.png" alt-text="A screenshot the Contoso Coffee store locator Azure Maps sample application.":::
+:::image type="content" source="./media/tutorial-create-store-locator/store-locator-wireframe.png" lightbox="./media/tutorial-create-store-locator/store-locator-wireframe.png" alt-text="A screenshot showing the Contoso Coffee store locator Azure Maps sample application.":::
 
 To maximize the usefulness of this store locator, we include a responsive layout that adjusts when a user's screen width is smaller than 700 pixels wide. A responsive layout makes it easy to use the store locator on a small screen, like on a mobile device. Here's a screenshot showing a sample of the small-screen layout:  
 
-:::image type="content" source="./media/tutorial-create-store-locator/store-locator-wireframe-mobile.png" alt-text="A screenshot showing what the Contoso Coffee store locator application looks like on a mobile device.":::
+:::image type="content" source="./media/tutorial-create-store-locator/store-locator-wireframe-mobile.png" lightbox="./media/tutorial-create-store-locator/store-locator-wireframe-mobile.png" alt-text="A screenshot showing what the Contoso Coffee store locator application looks like on a mobile device.":::
 
 <a id="create a data-set"></a>
 
@@ -89,20 +89,20 @@ This section describes how to create a dataset of the stores that you want to di
 
 :::image type="content" source="./media/tutorial-create-store-locator/store-locator-data-spreadsheet.png" alt-text="Screenshot of the store locator data in an Excel workbook.":::
 
-The excel file containing the full dataset for the Contoso Coffee locator sample application can be downloaded from the [data](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/Samples/Tutorials/Simple%20Store%20Locator/data) folder of the _Azure Maps code samples_ repository in GitHub.
+Download the excel file containing the full dataset for the Contoso Coffee locator sample application from the [data] folder of the _Azure Maps code samples_ repository in GitHub.
 
 From the above screenshot of the data, we can make the following observations:
 
 * Location information is stored in the following six columns: **AddressLine**, **City**, **Municipality** (county), **AdminDivision** (state/province), **PostCode** (postal code), and **Country**.  
-* The **Latitude** and **Longitude** columns contain the coordinates for each Contoso Coffee location. If you don't have coordinate information, you can use the Azure Maps [Search service](/rest/api/maps/search) to determine the location coordinates.
+* The **Latitude** and **Longitude** columns contain the coordinates for each Contoso Coffee location. If you don't have coordinate information, you can use the [Search service] to determine the location coordinates.
 * Some other columns contain metadata that's related to the coffee shops: a phone number, Boolean columns, and store opening and closing times in 24-hour format. The Boolean columns are for Wi-Fi and wheelchair accessibility. You can create your own columns that contain metadata that's more relevant to your location data.
 
 > [!NOTE]
-> Azure Maps renders data in the [Spherical Mercator projection](glossary.md#spherical-mercator-projection) "[EPSG:3857](https://epsg.io/3857)" but reads data in "[EPSG:4326](https://epsg.io/4326)" that use the WGS84 datum.
+> Azure Maps renders data in the [Spherical Mercator projection] "[EPSG:3857]" but reads data in "[EPSG:4326]" that use the WGS84 datum.
 
 ## Load Contoso Coffee shop locator dataset
 
- The Contoso Coffee shop locator dataset is small, so we'll convert the Excel worksheet into a tab-delimited text file. This file can then be downloaded by the browser when the application loads.
+ The Contoso Coffee shop locator dataset is small, so it can be converted into a tab-delimited text file that the browser downloads when the application loads.
 
 > [!TIP]
 > If your dataset is too large for client download, or is updated frequently, you might consider storing your dataset in a database. After your data is loaded into a database, you can then set up a web service that accepts queries for the data, then sends the results to the user's browser.
@@ -111,7 +111,7 @@ From the above screenshot of the data, we can make the following observations:
 
 To convert the Contoso Coffee shop location data from an Excel workbook into a tab-delimited text file:
 
-1. Download the Excel workbook [ContosoCoffee.xlsx](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/Samples/Tutorials/Simple%20Store%20Locator/data) and Open it in Excel.
+1. Download the Excel workbook [ContosoCoffee.xlsx] and Open it in Excel.
 
 1. Select **File > Save As...**.
 
@@ -127,7 +127,7 @@ If you open the text file in Notepad, it looks similar to the following text:
 
 ## Set up the project
 
-1. Open [Visual Studio Code](https://code.visualstudio.com/), or your choice of development environments.
+1. Open [Visual Studio Code], or your choice of development environments.
 
 2. Select **File > Open Workspace...**.
 
@@ -147,11 +147,11 @@ If you open the text file in Notepad, it looks similar to the following text:
 
 8. Create another folder named *images*.
 
-9. If you haven't already, download the 10 [Map images](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/Samples/Tutorials/Simple%20Store%20Locator/images) from the images directory in the GitHub Repository and add them to the *images* folder.
+9. If you haven't already, download the 10 [Map images] from the images directory in the GitHub Repository and add them to the *images* folder.
 
     Your workspace folder should now look like the following screenshot:
 
-    :::image type="content" source="./media/tutorial-create-store-locator/store-locator-workspace.png" alt-text="Screenshot of the images folder in the Contoso Coffee directory.":::
+    :::image type="content" source="./media/tutorial-create-store-locator/store-locator-workspace.png" lightbox="./media/tutorial-create-store-locator/store-locator-workspace.png" alt-text="Screenshot of the images folder in the Contoso Coffee directory.":::
 
 ## Create the HTML
 
@@ -169,18 +169,11 @@ To create the HTML:
 
     ```HTML
     <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
-    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
-    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
+    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.css" type="text/css">
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.js"></script>
     ```
 
-3. Next, add a reference to the Azure Maps Services module. This module is a JavaScript library that wraps the Azure Maps REST services, making them easy to use in JavaScript. The Services module is useful for powering search functionality.
-
-    ```HTML
-    <!-- Add a reference to the Azure Maps Services Module JavaScript file. -->
-    <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
-    ```
-
-4. Add references to *index.js* and *index.css*.
+3. Add references to *index.js* and *index.css*.
 
     ```HTML
     <!-- Add references to the store locator JavaScript and CSS files. -->
@@ -188,7 +181,7 @@ To create the HTML:
     <script src="index.js"></script>
     ```
 
-5. In the body of the document, add a `header` tag. Inside the `header` tag, add the logo and company name.
+4. In the body of the document, add a `header` tag. Inside the `header` tag, add the logo and company name.
 
     ```HTML
     <header>
@@ -197,7 +190,7 @@ To create the HTML:
     </header>
     ```
 
-6. Add a `main` tag and create a search panel that has a text box and search button. Also, add `div` references for the map, the list panel, and the My Location GPS button.
+5. Add a `main` tag and create a search panel that has a text box and search button. Also, add `div` references for the map, the list panel, and the My Location GPS button.
 
     ```HTML
     <main>
@@ -213,7 +206,7 @@ To create the HTML:
     </main>
     ```
 
-After you finish, *index.html* should look like [Simple Store Locator.html](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/Samples/Tutorials/Simple%20Store%20Locator/Simple%20Store%20Locator.html).
+Once completed, *index.html* should look like [Simple Store Locator.html] in the tutorial sample code.
 
 ## Define the CSS styles
 
@@ -429,17 +422,17 @@ The next step is to define the CSS styles. CSS styles define how the application
     }
    ```
 
-Run the application. You'll see the header, search box, and search button. However, the map isn't visible because it hasn't been loaded yet. If you try to do a search, nothing happens. We need to add the JavaScript logic described in the next section. This logic accesses all the functionality of the store locator.
+If you run the application at this point, the header, search box, and search button appear. However, the map isn't visible because it hasn't been loaded yet. If you try to do a search, nothing happens. The next section describes adding the JavaScript logic needed to access all the functionality of the store locator.
 
 ## Add JavaScript code
 
 The JavaScript code in the Contoso Coffee shop locator app enables the following processes:
 
-1. Adds an [event listener](/javascript/api/azure-maps-control/atlas.map#events) called `ready` to wait until the page has completed its loading process. When the page loading is complete, the event handler creates more event listeners to monitor the loading of the map, and give functionality to the search and **My location** buttons.
+1. Adds an [event listener] called `ready` to wait until the page has completed its loading process. When the page loading is complete, the event handler creates more event listeners to monitor the loading of the map, and give functionality to the search and **My location** buttons.
 
 2. When the user selects the search button, or types a location in the search box then presses enter, a fuzzy search against the user's query begins. The code passes in an array of country/region ISO 2 values to the `countrySet` option to limit the search results to those countries/regions. Limiting the countries/regions to search helps increase the accuracy of the results that are returned.
   
-3. Once the search completes, the first location result is used as the center focus of the map. When the user selects the My Location button, the code retrieves the user's location using the *HTML5 Geolocation API* that's built into the browser. After retrieving the location, the code centers the map over the user's location.  
+3. Once the search completes, the first location result is used as the center focus of the map. When the user selects the My Location button, the code retrieves the user's location using the *HTML5 Geolocation API* that's built into the browser. Once the location is retrieved, the code centers the map over the user's location.  
 
 To add the JavaScript:
 
@@ -461,14 +454,14 @@ To add the JavaScript:
     var countrySet = ['US', 'CA', 'GB', 'FR','DE','IT','ES','NL','DK'];      
     
     //
-    var map, popup, datasource, iconLayer, centerMarker, searchURL;
+    var map, popup, datasource, iconLayer, centerMarker;
 
     // Used in function updateListItems
     var listItemTemplate = '<div class="listItem" onclick="itemSelected(\'{id}\')"><div class="listItem-title">{title}</div>{city}<br />Open until {closes}<br />{distance} miles away</div>';
 
     ```
 
-3. Add the following initialization code. Make sure to replace `<Your Azure Maps Key>` with your primary subscription key.
+3. Add the following initialization code. Make sure to replace `<Your Azure Maps Key>` with your Azure Maps subscription key.
 
    > [!Tip]
    > When you use pop-up windows, it's best to create a single `Popup` instance and reuse the instance by updating its content and position. For every `Popup`instance you add to your code, multiple DOM elements are added to the page. The more DOM elements there are on a page, the more things the browser has to keep track of. If there are too many items, the browser might become slow.
@@ -481,7 +474,7 @@ To add the JavaScript:
             center: [-90, 40],
             zoom: 2,
 
-            //Add your Azure Maps primary subscription key to the map SDK.
+            //Add your Azure Maps subscription key to the map SDK.
             authOptions: {
                 authType: 'subscriptionKey',
                 subscriptionKey: '<Your Azure Maps Key>'
@@ -490,12 +483,6 @@ To add the JavaScript:
 
         //Create a pop-up window, but leave it closed so we can update it and display it later.
         popup = new atlas.Popup();
-
-        //Use MapControlCredential to share authentication between a map control and the service module.
-        var pipeline = atlas.service.MapsURL.newPipeline(new atlas.service.MapControlCredential(map));
-
-        //Create an instance of the SearchURL client.
-        searchURL = new atlas.service.SearchURL(pipeline);
 
         //If the user selects the search button, geocode the value the user passed in.
         document.getElementById('searchBtn').onclick = performSearch;
@@ -520,20 +507,28 @@ To add the JavaScript:
 
     function performSearch() {
         var query = document.getElementById('searchTbx').value;
+        //Pass in the array of country/region ISO2 for which we want to limit the search to.
+        var url = `https://atlas.microsoft.com/search/fuzzy/json?api-version=1.0&countrySet=${countrySet}&query=${query}&view=Auto`;
 
         //Perform a fuzzy search on the users query.
-        searchURL.searchFuzzy(atlas.service.Aborter.timeout(3000), query, {
-            //Pass in the array of country/region ISO2 for which we want to limit the search to.
-            countrySet: countrySet,
-            view: 'Auto'
-        }).then(results => {
-            //Parse the response into GeoJSON so that the map can understand.
-            var data = results.geojson.getFeatures();
-
-            if (data.features.length > 0) {
-                //Set the camera to the bounds of the results.
+        fetch(url, {
+            headers: {
+                "Subscription-Key": map.authentication.getToken()
+            }
+        })
+        .then((response) => response.json())
+        .then((response) => {
+            if (Array.isArray(response.results) && response.results.length > 0) {
+                var result = response.results[0];
+                var bbox = [
+                    result.viewport.topLeftPoint.lon,
+                    result.viewport.btmRightPoint.lat,
+                    result.viewport.btmRightPoint.lon,
+                    result.viewport.topLeftPoint.lat
+                ];
+                //Set the camera to the bounds of the first result.
                 map.setCamera({
-                    bounds: data.features[0].bbox,
+                    bounds: bbox,
                     padding: 40
                 });
             } else {
@@ -997,7 +992,7 @@ The first time a user selects the My Location button, the browser displays a sec
 
 When you zoom in close enough in an area that has coffee shop locations, the clusters separate into individual locations. Select one of the icons on the map or select an item in the side panel to see a pop-up window. The pop-up shows information for the selected location.
 
-![Screenshot of the finished store locator](./media/tutorial-create-store-locator/finished-simple-store-locator.png)
+:::image type="content" source="./media/tutorial-create-store-locator/finished-simple-store-locator.png" lightbox="./media/tutorial-create-store-locator/finished-simple-store-locator.png" alt-text="Screenshot of the finished store locator.":::
 
 If you resize the browser window to fewer than 700 pixels wide or open the application on a mobile device, the layout changes to be better suited for smaller screens.
 
@@ -1005,20 +1000,20 @@ If you resize the browser window to fewer than 700 pixels wide or open the appli
 
 In this tutorial, you learned how to create a basic store locator by using Azure Maps. The store locator you create in this tutorial might have all the functionality you need. You can add features to your store locator or use more advance features for a more custom user experience:
 
-* Enable [suggestions as you type](https://samples.azuremaps.com/?sample=search-autosuggest-and-jquery-ui) in the search box.  
-* Add [support for multiple languages](https://samples.azuremaps.com/?sample=map-localization).
-* Allow the user to [filter locations along a route](https://samples.azuremaps.com/?sample=filter-data-along-route).
-* Add the ability to [set filters](https://samples.azuremaps.com/?sample=filter-symbols-by-property).
+* Enable [suggestions as you type] in the search box.  
+* Add [support for multiple languages].
+* Allow the user to [filter locations along a route].
+* Add the ability to [set filters].
 * Add support to specify an initial search value by using a query string. When you include this option in your store locator, users are then able to bookmark and share searches. It  also provides an easy method for you to pass searches to this page from another page.  
-* Deploy your store locator as an [Azure App Service Web App](../app-service/quickstart-html.md).
-* Store your data in a database and search for nearby locations. To learn more, see the [SQL Server spatial data types overview](/sql/relational-databases/spatial/spatial-data-types-overview?preserve-view=true&view=sql-server-2017) and [Query spatial data for the nearest neighbor](/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?preserve-view=true&view=sql-server-2017).
+* Deploy your store locator as an [Azure App Service Web App].
+* Store your data in a database and search for nearby locations. To learn more, see the [SQL Server spatial data types overview] and [Query spatial data for the nearest neighbor].
 
 ## Additional information
 
-* For the completed code used in this tutorial, see the [Simple Store Locator](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/Samples/Tutorials/Simple%20Store%20Locator) tutorial on GitHub.
-* To view this sample live, see [Simple Store Locator](https://samples.azuremaps.com/?sample=simple-store-locator) on the **Azure Maps Code Samples** site.
-* learn more about the coverage and capabilities of Azure Maps by using [Zoom levels and tile grid](zoom-levels-and-tile-grid.md).
-* You can also [Use data-driven style expressions](data-driven-style-expressions-web-sdk.md) to apply to your business logic.
+* For the completed code, see the [Simple Store Locator tutorial on GitHub].
+* To view this sample live, see [Simple Store Locator] on the **Azure Maps Code Samples** site.
+* learn more about the coverage and capabilities of Azure Maps by using [Zoom levels and tile grid].
+* You can also [Use data-driven style expressions] to apply to your business logic.
 
 ## Next steps
 
@@ -1026,3 +1021,30 @@ To see more code examples and an interactive coding experience:
 
 > [!div class="nextstepaction"]
 > [How to use the map control](how-to-use-map-control.md)
+
+[Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
+[Manage authentication in Azure Maps]: how-to-manage-authentication.md
+[Visual Studio Code]: https://code.visualstudio.com
+[Simple Store Locator]: https://samples.azuremaps.com/?sample=simple-store-locator
+[Simple Store Locator tutorial on GitHub]: https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/Samples/Tutorials/Simple%20Store%20Locator
+[Simple Store Locator.html]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/Samples/Tutorials/Simple%20Store%20Locator/Simple%20Store%20Locator.html
+
+[data]: https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/Samples/Tutorials/Simple%20Store%20Locator/data
+[Search service]: /rest/api/maps/search?view=rest-maps-1.0&preserve-view=true
+[Spherical Mercator projection]: glossary.md#spherical-mercator-projection
+[EPSG:3857]: https://epsg.io/3857
+[EPSG:4326]: https://epsg.io/4326
+[ContosoCoffee.xlsx]: https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/Samples/Tutorials/Simple%20Store%20Locator/data
+[Map images]: https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/Samples/Tutorials/Simple%20Store%20Locator/images
+[event listener]: /javascript/api/azure-maps-control/atlas.map#events
+[suggestions as you type]: https://samples.azuremaps.com/?sample=search-autosuggest-and-jquery-ui
+[support for multiple languages]: https://samples.azuremaps.com/?sample=map-localization
+[filter locations along a route]: https://samples.azuremaps.com/?sample=filter-data-along-route
+[set filters]: https://samples.azuremaps.com/?sample=filter-symbols-by-property
+[Azure App Service Web App]: ../app-service/quickstart-html.md
+[SQL Server spatial data types overview]: /sql/relational-databases/spatial/spatial-data-types-overview?preserve-view=true&view=sql-server-2017
+[Query spatial data for the nearest neighbor]: /sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?preserve-view=true&view=sql-server-2017
+[Zoom levels and tile grid]: zoom-levels-and-tile-grid.md
+[Use data-driven style expressions]: data-driven-style-expressions-web-sdk.md
+[Store location data]: https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/Samples/Tutorials/Simple%20Store%20Locator/data

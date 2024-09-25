@@ -17,7 +17,7 @@ In REST APIs, the identifier is a polymorphic type: you construct a JSON object 
 
 ### Communication user
 
-The `CommunicationUserIdentifierModel` represents a user identity that was created using the [Identity SDK or REST API](../../../quickstarts/access-tokens.md). It's the only identifier used if your application doesn't use Microsoft Teams interoperability or Telephony features.
+The `CommunicationUserIdentifierModel` represents a user identity that was created using the [Identity SDK or REST API](../../../quickstarts/identity/access-tokens.md). It's the only identifier used if your application doesn't use Microsoft Teams interoperability or Telephony features.
 
 
 #### Basic usage
@@ -50,7 +50,7 @@ You can find an example for a request that includes an identifier in Chat's REST
 
 ### Microsoft Teams user
 
-The `MicrosoftTeamsUserIdentifierModel` represents a Teams user with its Azure AD user object ID. You can retrieve the Azure AD user object ID via the [Microsoft Graph REST API /users](/graph/api/user-get) endpoint from the `id` property in the response. For more information on how to work with Microsoft Graph, try the [Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer?request=users%2F%7Buser-mail%7D&method=GET&version=v1.0&GraphUrl=https://graph.microsoft.com) and look into the [Graph SDK](/graph/sdks/sdks-overview). Alternatively, you can find the ID as the `oid` claim in an [Azure AD ID token](/azure/active-directory/develop/id-tokens#payload-claims) or [Azure AD access token](/azure/active-directory/develop/access-tokens#payload-claims) after your user has signed in and acquired a token.
+The `MicrosoftTeamsUserIdentifierModel` represents a Teams user with its Microsoft Entra user object ID. You can retrieve the Microsoft Entra user object ID via the [Microsoft Graph REST API /users](/graph/api/user-get) endpoint from the `id` property in the response. For more information on how to work with Microsoft Graph, try the [Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer?request=users%2F%7Buser-mail%7D&method=GET&version=v1.0&GraphUrl=https://graph.microsoft.com) and look into the [Graph SDK](/graph/sdks/sdks-overview). Alternatively, you can find the ID as the `oid` claim in an [Microsoft Entra token](/entra/identity-platform/id-token-claims-reference#payload-claims) or [Microsoft Entra access token](/entra/identity-platform/access-token-claims-reference#payload-claims) after your user has signed in and acquired a token.
 
 #### Basic usage
 
@@ -124,6 +124,53 @@ The `PhoneNumberIdentifierModel` represents a phone number. The service assumes 
 
 [PhoneNumberIdentifierModel](https://github.com/Azure/azure-rest-api-specs/blob/c1883ee5b87c41dfcb699420409bc0e31cff0786/specification/communication/data-plane/Common/stable/2022-07-13/common.json#L126)
 
+### Microsoft Teams Application
+
+The `MicrosoftTeamsAppIdentifierModel` represents a bot of the Teams Voice applications such as Call Queue and Auto Attendant with its Microsoft Entra bot object ID. The Teams applications should be configured with a resource account. You can retrieve the Microsoft Entra bot object ID via the [Microsoft Graph REST API /users](/graph/api/user-list) endpoint from the `id` property in the response. For more information on how to work with Microsoft Graph, try the [Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer?request=users%2F%7Buser-mail%7D&method=GET&version=v1.0&GraphUrl=https://graph.microsoft.com) and look into the [Graph SDK](/graph/sdks/sdks-overview).
+
+#### Basic usage
+
+```json
+// request
+{
+    "microsoftTeamsApp": {
+        "appId": "45ab2481-1c1c-4005-be24-0ffb879b1130"
+    }
+}
+
+// response
+{
+    "kind": "microsoftTeamsApp",
+    "rawId": "28:orgid:45ab2481-1c1c-4005-be24-0ffb879b1130",
+    "microsoftTeamsApp": {
+        "appId": "45ab2481-1c1c-4005-be24-0ffb879b1130"
+    }
+}
+
+
+// if you're not operating in the public cloud, you must also pass the right Cloud type in a request
+{
+    "microsoftTeamsApp": {
+        "appId": "45ab2481-1c1c-4005-be24-0ffb879b1130",
+        "cloud": "gcch"
+    }
+}
+
+// response
+{
+    "kind": "microsoftTeamsApp",
+    "rawId": "28:gcch:45ab2481-1c1c-4005-be24-0ffb879b1130",
+    "microsoftTeamsApp": {
+        "appId": "45ab2481-1c1c-4005-be24-0ffb879b1130",
+        "cloud": "gcch"
+    }
+}
+```
+
+#### API reference
+
+[MicrosoftTeamsAppIdentifierModel](https://github.com/Azure/azure-rest-api-specs/blob/ea28180c6ce9027df36568307f235868d581144c/specification/communication/data-plane/Common/stable/2023-11-15/common.json#L165C6-L165C38)
+
 ### Unknown
 
 If a new identifier gets introduced in a service, it will get downgraded to the `CommunicationIdentifierModel` if you are on an old API version.
@@ -160,6 +207,9 @@ switch (communicationIdentifier.kind)
     case "microsoftTeamsUser":
         console.log(`Teams user: ${communicationIdentifier.microsoftTeamsUser.userId}`);
         break;
+    case "microsoftTeamsApp":
+        console.log(`Teams user: ${communicationIdentifier.microsoftTeamsApp.appId}`);
+        break;
     case "phoneNumber":
         console.log(`Phone number: ${communicationIdentifier.phoneNumber.value}`);
         break;
@@ -180,6 +230,8 @@ if (communicationIdentifier.communicationUser) {
     console.log(`Communication user: ${communicationIdentifier.communicationUser.id}`);
 } else if (communicationIdentifier.microsoftTeamsUser) {
     console.log(`Teams user: ${communicationIdentifier.microsoftTeamsUser.userId}`);
+} else if (communicationIdentifier.microsoftTeamsApp) {
+    console.log(`Teams app: ${communicationIdentifier.microsoftTeamsApp.appId}`);
 } else if (communicationIdentifier.phoneNumber) {
     console.log(`Phone number: ${communicationIdentifier.phoneNumber.value}`);
 } else {
@@ -217,30 +269,30 @@ The raw ID is the same as `communicationUser.id`.
 ```json
 {
     "microsoftTeamsUser": {
-        "userId": "[aadUserId]"
+        "userId": "[entraUserId]"
     }
 }
 ```
 *Raw ID:*
 
-`8:orgid:[aadUserId]`
+`8:orgid:[entraUserId]`
 
-The raw ID is the Azure AD user object ID prefixed with `8:orgid:`.
+The raw ID is the Microsoft Entra user object ID prefixed with `8:orgid:`.
 
 *Identifier:*
 ```json
 {
     "microsoftTeamsUser": {
-        "userId": "[aadUserId]",
+        "userId": "[entraUserId]",
         "cloud": "gcch"
     }
 }
 ```
 *Raw ID:*
 
-`8:gcch:[aadUserId]`
+`8:gcch:[entraUserId]`
 
-The raw ID is the Azure AD user object ID prefixed with `8:gcch:` or `8:dod:` depending on the cloud environment.
+The raw ID is the Microsoft Entra user object ID prefixed with `8:gcch:` or `8:dod:` depending on the cloud environment.
 
 *Identifier:*
 ```json
@@ -271,7 +323,38 @@ The raw ID is the Teams visitor ID prefixed with `8:teamsvisitor:`. The Teams vi
 
 `4:+1123455567`
 
-The raw ID is the E.164 formatted phone number without the leading `+` and prefixed with `4:`.
+The raw ID is the E.164 formatted phone number prefixed with `4:`.
+
+### Microsoft Teams app
+
+*Identifier:*
+```json
+{
+    "microsoftTeamsApp": {
+        "appId": "[entraUserId]"
+    }
+}
+```
+*Raw ID:*
+
+`28:orgid:[entraUserId]`
+
+The raw ID is the application's Entra user object ID prefixed with `28:orgid:`.
+
+*Identifier:*
+```json
+{
+    "microsoftTeamsUser": {
+        "userId": "[entraUserId]",
+        "cloud": "gcch"
+    }
+}
+```
+*Raw ID:*
+
+`28:gcch:[entraUserId]`
+
+The raw ID is the application's Entra user object ID prefixed with `28:gcch:` or `28:dod:` depending on the cloud environment.
 
 ### Unknown
 

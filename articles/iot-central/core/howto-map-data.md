@@ -1,9 +1,9 @@
 ---
-title: Transform telemetry on ingress to IoT Central | Microsoft Docs
-description: To use complex telemetry from devices, you can use mappings to transform it as it arrives in your IoT Central application. This article describes how to map device telemetry on ingress to IoT Central. 
+title: Transform telemetry on ingress to IoT Central
+description: To use complex telemetry from devices, you can use mappings to transform it as it arrives in your IoT Central application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/17/2022
+ms.date: 07/12/2024
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -17,6 +17,9 @@ Data mapping lets you transform complex device telemetry into structured data in
 * Create device templates and device management experiences in IoT Central.
 * Normalize telemetry from different devices by mapping JSON paths on multiple devices to a common alias.
 * Export to destinations outside IoT Central.
+
+> [!TIP]
+> If you want to autogenerate a device template from unmodeled telemetry, see [Autogenerate a device template](howto-set-up-template.md#autogenerate-a-device-template).
 
 :::image type="content" source="media/howto-map-data/map-data-summary.png" alt-text="Diagram that summarizes the mapping process in IoT Central." border="false":::
 
@@ -48,17 +51,17 @@ To create a mapping in your IoT Central application, choose one of the following
 
 * From any device page, select **Manage device > Map data**:
 
-    :::image type="content" source="media/howto-map-data/manage-device.png" alt-text="Screenshot that shows the **Map data** menu item.":::
+    :::image type="content" source="media/howto-map-data/manage-device.png" alt-text="Screenshot that shows the **Map data** menu item." lightbox="media/howto-map-data/manage-device.png":::
 
 * From the **Raw data** view for your device, expand any telemetry message, hover the mouse pointer over a path, and select **Add alias**. The **Map data** panel opens with the JSONPath expression copied to the **JSON path** field:
 
-    :::image type="content" source="media/howto-map-data/raw-data.png" alt-text="Screenshot that shows the **Add alias** option on the **Raw data** view.":::
+    :::image type="content" source="media/howto-map-data/raw-data.png" alt-text="Screenshot that shows the **Add alias** option on the **Raw data** view." lightbox="media/howto-map-data/raw-data.png":::
 
 The left-hand side of the **Map data** panel shows the latest message from your device. Hover to mouse pointer over any part of the data and select **Add Alias**. The JSONPath expression is copied to **JSON path**. Add an **Alias** name with no more than 64 characters. You can't use the alias to refer to a field in a complex object defined in the device template.
 
 Add as many mappings as you need and then select **Save**:
 
-:::image type="content" source="media/howto-map-data/map-data.png" alt-text="Screenshot of the **Map data** view showing the Json path and alias.":::
+:::image type="content" source="media/howto-map-data/map-data.png" alt-text="Screenshot of the **Map data** view showing the Json path and alias." lightbox="media/howto-map-data/map-data.png":::
 
 For a given device:
 
@@ -70,7 +73,7 @@ For a given device:
 
 To verify that IoT Central is mapping the telemetry, navigate to **Raw data** view for your device and check the `_mappeddata` section:
 
-:::image type="content" source="media/howto-map-data/mapped-data.png" alt-text="Screenshot that shows the mapped data section in a message in the **Raw data** view.":::
+:::image type="content" source="media/howto-map-data/mapped-data.png" alt-text="Screenshot that shows the mapped data section in a message in the **Raw data** view." lightbox="media/howto-map-data/mapped-data.png":::
 
 If you don't see your mapped data after refreshing the **Raw data** several times, check that the JSONPath expression you're using matches the structure of the telemetry message.
 
@@ -82,7 +85,7 @@ For devices assigned to a device template, you can't map data for components or 
 
 To view, edit, or delete mappings, navigate to the **Mapped aliases** page. Select a mapping to edit or delete it. You can select multiple mappings and delete them at the same time:
 
-:::image type="content" source="media/howto-map-data/mapped-aliases.png" alt-text="Screenshot that shows the **Mapped aliases** view with the edit and delete buttons.":::
+:::image type="content" source="media/howto-map-data/mapped-aliases.png" alt-text="Screenshot that shows the **Mapped aliases** view with the edit and delete buttons." lightbox="media/howto-map-data/mapped-aliases.png":::
 
 By default, data exports from IoT Central include mapped data. To exclude mapped data, use a [data transformation](howto-transform-data-internally.md) in your data export.
 
@@ -150,7 +153,3 @@ The results of these mapping rules look like the following examples:
 ```
 
 Now you can use the mapped aliases to display telemetry on a chart or dashboard. You can also use the mapped aliases when you export telemetry.
-
-## Next steps
-
-Now that you've learned how to map data for your device, a suggested next step is to learn [How to use data explorer to analyze device data](howto-create-analytics.md).

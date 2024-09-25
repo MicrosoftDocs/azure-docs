@@ -4,10 +4,10 @@ titleSuffix: Azure Load Balancer
 description: Use this tutorial to learn how to create a gateway load balancer using the Azure CLI.
 author: mbender-ms
 ms.author: mbender
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: tutorial
-ms.date: 11/02/2021
-ms.custom: template-tutorial, ignite-fall-2021, devx-track-azurecli 
+ms.date: 07/31/2024
+ms.custom: template-tutorial, devx-track-azurecli, engagement-fy23
 ms.devlang: azurecli
 ---
 
@@ -23,7 +23,7 @@ In this tutorial, you learn how to:
 > * Create a gateway load balancer.
 > * Chain a load balancer frontend to gateway load balancer.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This tutorial requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -101,6 +101,12 @@ az network bastion create \
 ```
 
 It can take a few minutes for the Azure Bastion host to deploy.
+
+> [!IMPORTANT]
+
+> [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
+
+>
 
 ## Configure NSG
 
@@ -298,4 +304,4 @@ When creating the NVAs, choose the resources created in this tutorial:
 
 Advance to the next article to learn how to create a cross-region Azure Load Balancer.
 > [!div class="nextstepaction"]
-> [Cross-region load balancer](tutorial-cross-region-powershell.md)
+> [Cross-region load balancer](tutorial-cross-region-portal.md)

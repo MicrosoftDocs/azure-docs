@@ -1,11 +1,11 @@
 ---
 title: Move Azure Virtual Desktop resources between regions - Azure
 description: How to move Azure Virtual Desktop resources between regions.
-author: Heidilohr
+author: dknappettmsft
 ms.topic: how-to
 ms.date: 05/13/2022
-ms.author: helohr
-manager: femila
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
 # Move Azure Virtual Desktop resource between regions
 
@@ -20,9 +20,9 @@ In this article, we'll tell you how to move Azure Virtual Desktop resources betw
 
 When you move Azure Virtual Desktop resources between regions, these are some things you should keep in mind:
 
-- When exporting resources, you must move them as a set. All resources associated with a specific host pool have to stay together. A host pool and its associated app groups need to be in the same region.
+- When exporting resources, you must move them as a set. All resources associated with a specific host pool have to stay together. A host pool and its associated application groups need to be in the same region.
 
-- Workspaces and their associated app groups also need to be in the same region.
+- Workspaces and their associated application groups also need to be in the same region.
 
 - Scaling plans and the host pools they are assigned to also need to be in the same region.
 

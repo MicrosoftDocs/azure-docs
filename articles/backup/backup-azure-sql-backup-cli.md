@@ -2,17 +2,18 @@
 title: Back up SQL server databases in Azure VMs using Azure Backup via CLI
 description: Learn how to use CLI to back up SQL server databases in Azure VMs in the Recovery Services vault.
 ms.topic: how-to
-ms.date: 08/11/2022
-author: v-amallick
-ms.service: backup
-ms.author: v-amallick
+ms.date: 09/10/2024
+ms.service: azure-backup
+ms.custom: devx-track-azurecli
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Back up SQL databases in Azure VM using Azure CLI
 
 Azure CLI is used to create and manage Azure resources from the Command Line or through scripts. This article describes how to back up an SQL database in Azure VM and trigger on-demand backups using Azure CLI. You can also perform these actions using the [Azure portal](backup-sql-server-database-azure-vms.md).
 
-This article assumes that you already have an SQL database installed on an Azure VM. (You can also [create a VM using Azure CLI](../virtual-machines/linux/quick-create-cli.md)). 
+This article assumes that you already have an SQL database installed on an Azure VM. (You can also [create a VM using Azure CLI](/azure/virtual-machines/linux/quick-create-cli)). 
 
 In this article, you'll learn how to:
 > [!div class="checklist"]
@@ -24,13 +25,13 @@ In this article, you'll learn how to:
 
 See the [currently supported scenarios](sql-support-matrix.md) for SQL in Azure VM.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Create a Recovery Services vault
 
 A Recovery Services vault is a logical container that stores the backup data for each protected resource, such as Azure VMs or workloads running on Azure VMs - for example, SQL or HANA databases. When the backup job for a protected resource runs, it creates a recovery point inside the Recovery Services vault. You can then use one of these recovery points to restore data to a given point in time.
 
-Create a Recovery Services vault with the [az backup vault create](/cli/azure/backup/vault#az-backup-vault-create) command. Use the resource group and location as that of the VM you want to protect. Learn how to create a VM using Azure CLI with [this VM quickstart](../virtual-machines/linux/quick-create-cli.md).
+Create a Recovery Services vault with the [az backup vault create](/cli/azure/backup/vault#az-backup-vault-create) command. Use the resource group and location as that of the VM you want to protect. Learn how to create a [Windows VM](/azure/virtual-machines/windows/quick-create-cli) and a [Linux VM](/azure/virtual-machines/linux/quick-create-cli) using Azure CLI.  
 
 For this article, we'll use:
 
@@ -156,7 +157,7 @@ As the instruction is to back up all future databases, the operation is done at 
 az backup protection auto-enable-for-azurewl --resource-group SQLResourceGroup \
     --vault-name SQLVault \
     --policy-name SQLPolicy \
-    --protectable-item-name "sqlinstance;mssqlserver;"  \
+    --protectable-item-name "sqlinstance;mssqlserver"  \
     --protectable-item-type SQLInstance \
     --server-name testSQLVM \
     --workload-type MSSQL\
@@ -171,7 +172,7 @@ To trigger an on-demand backup, use the [az backup protection backup-now](/cli/a
 >The retention period of this backup is determined by the type of on-demand backup you have run.
 >
 >- *On-demand full* retains backups for a minimum of *45 days* and a maximum of *99 years*.
->- *On-demand copy only full* accepts any v0alue for retaintion.
+>- *On-demand copy only full* accepts any value for retention.
 >- *On-demand differential* retains backup as per the retention of scheduled differentials set in policy.
 >- *On-demand log* retains backups as per the retention of scheduled logs set in policy.
 

@@ -1,12 +1,12 @@
 ---
 title: Troubleshoot VMware vCenter discovery failures in Azure Site Recovery 
 description: This article describes how to troubleshooting VMware vCenter discovery failures in Azure Site Recovery. 
-author: v-pgaddala
+author: ankitaduttaMSFT
 manager: gaggupta
-ms.service: site-recovery
-ms.topic: conceptual
-ms.author: v-pgaddala
-ms.date: 05/27/2021
+ms.service: azure-site-recovery
+ms.topic: troubleshooting
+ms.author: ankitadutta
+ms.date: 09/06/2024
 
 ---
 # Troubleshoot vCenter Server discovery failures
@@ -55,7 +55,7 @@ Use the PsExec tool to access the System user context and determine whether the 
 
 For Discovery proxy configuration:
 
-1. Open IE in system user context using the PsExec tool.
+1. Open Internet Explorer in system user context using the PsExec tool.
     
     psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"
 

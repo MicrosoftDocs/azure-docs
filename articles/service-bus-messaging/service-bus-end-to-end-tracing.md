@@ -2,9 +2,9 @@
 title: Azure Service Bus end-to-end tracing and diagnostics | Microsoft Docs
 description: Overview of Service Bus client diagnostics and end-to-end tracing (client through all the services that are involved in processing.)
 ms.topic: article
-ms.date: 02/03/2021
+ms.date: 12/21/2022
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, devx-track-dotnet
 ---
 
 # Distributed tracing and correlation through Service Bus messaging
@@ -12,7 +12,7 @@ ms.custom: devx-track-csharp
 One of the common problems in micro services development is the ability to trace operation from a client through all the services that are involved in processing. It's useful for debugging, performance analysis, A/B testing, and other typical diagnostics scenarios.
 One part of this problem is tracking logical pieces of work. It includes message processing result and latency and external dependency calls. Another part is correlation of these diagnostics events beyond process boundaries.
 
-When a producer sends a message through a queue, it typically happens in the scope of some other logical operation, initiated by some other client or service. The same operation is continued by consumer once it receives a message. Both producer and consumer (and other services that process the operation), presumably emit telemetry events to trace the operation flow and result. In order to correlate such events and trace operation end-to-end, each service that reports telemetry has to stamp every event with a trace context.
+When a producer sends a message through a queue, it typically happens in the scope of some other logical operation, initiated by some other client or service. The same operation is continued by consumer once it receives a message. Both producer and consumer (and other services that process the operation), presumably emit telemetry events to trace the operation flow and result. In order to correlate such events and trace operation end-to-end, each service that reports telemetry has to stamp every event with a trace context. One library that can help developers have all of this telemetry emitted by default is [NServiceBus](https://docs.particular.net/nservicebus/operations/opentelemetry).
 
 Microsoft Azure Service Bus messaging has defined payload properties that producers and consumers should use to pass such trace context.
 The protocol is based on the [W3C Trace-Context](https://www.w3.org/TR/trace-context/).
@@ -30,9 +30,9 @@ The `ServiceBusProcessor` class of [Azure Messaging Service Bus client for .NET]
 [Microsoft Application Insights](https://azure.microsoft.com/services/application-insights/) provides rich performance monitoring capabilities including automagical request and dependency tracking.
 
 Depending on your project type, install Application Insights SDK:
-- [ASP.NET](../azure-monitor/app/asp-net.md) - install version 2.5-beta2 or higher
-- [ASP.NET Core](../azure-monitor/app/asp-net-core.md) - install version 2.2.0-beta2 or higher.
-These links provide details on installing SDK, creating resources, and configuring SDK (if needed). For non-ASP.NET applications, refer to [Azure Application Insights for Console Applications](../azure-monitor/app/console.md) article.
+- [ASP.NET](/azure/azure-monitor/app/asp-net) - install version 2.5-beta2 or higher
+- [ASP.NET Core](/azure/azure-monitor/app/asp-net-core) - install version 2.2.0-beta2 or higher.
+These links provide details on installing SDK, creating resources, and configuring SDK (if needed). For non-ASP.NET applications, refer to [Azure Application Insights for Console Applications](/azure/azure-monitor/app/console) article.
 
 If you use [`ProcessMessageAsync` of `ServiceBusProcessor`](/dotnet/api/azure.messaging.servicebus.servicebusprocessor.processmessageasync) (message handler pattern) to process messages, the message processing is also instrumented. All Service Bus calls done by your service are automatically tracked and correlated with other telemetry items. Otherwise refer to the following example for manual message processing tracking.
 
@@ -69,7 +69,7 @@ async Task ProcessAsync(ProcessMessageEventArgs args)
 
 In this example, request telemetry is reported for each processed message, having a timestamp, duration, and result (success). The telemetry also has a set of correlation properties. Nested traces and exceptions reported during message processing are also stamped with correlation properties representing them as 'children' of the `RequestTelemetry`.
 
-In case you make calls to supported external components during message processing, they're also automatically tracked and correlated. Refer to [Track custom operations with Application Insights .NET SDK](../azure-monitor/app/custom-operations-tracking.md) for manual tracking and correlation.
+In case you make calls to supported external components during message processing, they're also automatically tracked and correlated. Refer to [Track custom operations with Application Insights .NET SDK](/azure/azure-monitor/app/custom-operations-tracking) for manual tracking and correlation.
 
 If you're running any external code in addition to the Application Insights SDK, expect to see longer **duration** when viewing Application Insights logs. 
 
@@ -78,7 +78,7 @@ If you're running any external code in addition to the Application Insights SDK,
 It doesn't mean that there was a delay in receiving the message. In this scenario, the message has already been received since the message is passed in as a parameter to the SDK code. And, the **name** tag in the App Insights logs (**Process**) indicates that the message is now being processed by your external event processing code. This issue isn't Azure-related. Instead, these metrics refer to the efficiency of your external code given that the message has already been received from Service Bus. 
 
 ### Tracking with OpenTelemetry
-Service Bus .NET Client library version 7.5.0 and later supports OpenTelemetry in experimental mode. Refer to [Distributed tracing in .NET SDK](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/Diagnostics.md#opentelemetry-with-azure-monitor-zipkin-and-others) documentation for more details.
+Service Bus .NET Client library version 7.5.0 and later supports OpenTelemetry in experimental mode. For more information, see [Distributed tracing in .NET SDK](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/core/Azure.Core/samples/Diagnostics.md#opentelemetry-with-azure-monitor-zipkin-and-others).
 
 ### Tracking without tracing system
 In case your tracing system doesn't support automatic Service Bus calls tracking you may be looking into adding such support into a tracing system or into your application. This section describes diagnostics events sent by Service Bus .NET client.  
@@ -141,9 +141,9 @@ All events will have the following properties that conform with the open telemet
 - `kind` – either producer, consumer, or client. Producer is used when sending messages, consumer when receiving, and client when settling.
 - `component` – `servicebus`
 
-All events also have 'Entity' and 'Endpoint' properties, they're omitted in below table
-  * `string Entity` -  - Name of the entity (queue, topic, and so on.)
-  * `Uri Endpoint` - Service Bus endpoint URL
+All events also have `Entity` and `Endpoint` properties.
+  * `Entity` -  - Name of the entity (queue, topic, and so on.)
+  * `Endpoint` - Service Bus endpoint URL
 
 ### Instrumented operations
 Here's the full list of instrumented operations:
@@ -194,6 +194,8 @@ In presence of multiple `DiagnosticSource` listeners for the same source, it's e
 
 # [Microsoft.Azure.ServiceBus SDK](#tab/net-standard-sdk)
 
+[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
+
 | Property Name        | Description                                                 |
 |----------------------|-------------------------------------------------------------|
 |  Diagnostic-Id       | Unique identifier of an external call from producer to the queue. Refer to [Request-Id in HTTP protocol](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#request-id) for the rationale, considerations, and format |
@@ -209,9 +211,9 @@ The instrumentation allows tracking all calls to the Service Bus messaging servi
 [Microsoft Application Insights](https://azure.microsoft.com/services/application-insights/) provides rich performance monitoring capabilities including automagical request and dependency tracking.
 
 Depending on your project type, install Application Insights SDK:
-- [ASP.NET](../azure-monitor/app/asp-net.md) - install version 2.5-beta2 or higher
-- [ASP.NET Core](../azure-monitor/app/asp-net-core.md) - install version 2.2.0-beta2 or higher.
-These links provide details on installing SDK, creating resources, and configuring SDK (if needed). For non-ASP.NET applications, refer to [Azure Application Insights for Console Applications](../azure-monitor/app/console.md) article.
+- [ASP.NET](/azure/azure-monitor/app/asp-net) - install version 2.5-beta2 or higher
+- [ASP.NET Core](/azure/azure-monitor/app/asp-net-core) - install version 2.2.0-beta2 or higher.
+These links provide details on installing SDK, creating resources, and configuring SDK (if needed). For non-ASP.NET applications, refer to [Azure Application Insights for Console Applications](/azure/azure-monitor/app/console) article.
 
 If you use [message handler pattern](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler) to process messages, you're done: all Service Bus calls done by your service are automatically tracked and correlated with other telemetry items. Otherwise refer to the following example for manual message processing tracking.
 
@@ -247,7 +249,7 @@ async Task ProcessAsync(Message message)
 In this example, `RequestTelemetry` is reported for each processed message, having a timestamp, duration, and result (success). The telemetry also has a set of correlation properties.
 Nested traces and exceptions reported during message processing are also stamped with correlation properties representing them as 'children' of the `RequestTelemetry`.
 
-In case you make calls to supported external components during message processing, they're also automatically tracked and correlated. Refer to [Track custom operations with Application Insights .NET SDK](../azure-monitor/app/custom-operations-tracking.md) for manual tracking and correlation.
+In case you make calls to supported external components during message processing, they're also automatically tracked and correlated. Refer to [Track custom operations with Application Insights .NET SDK](/azure/azure-monitor/app/custom-operations-tracking) for manual tracking and correlation.
 
 If you're running any external code in addition to the Application Insights SDK, expect to see longer **duration** when viewing Application Insights logs. 
 
@@ -316,7 +318,7 @@ Most probably, you're only interested in 'Stop' events. They provide the result 
 
 Event payload provides a listener with the context of the operation, it replicates API incoming parameters and return value. 'Stop' event payload has all the properties of 'Start' event payload, so you can ignore 'Start' event completely.
 
-All events also have 'Entity' and 'Endpoint' properties, they're omitted in below table
+All events also have 'Entity' and 'Endpoint' properties.
   * `string Entity` -  - Name of the entity (queue, topic, etc.)
   * `Uri Endpoint` - Service Bus endpoint URL
 
@@ -328,7 +330,7 @@ Here's the full list of instrumented operations:
 |----------------|-------------|---------|
 | Microsoft.Azure.ServiceBus.Send | [MessageSender.SendAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.sendasync) | `IList<Message> Messages` - List of messages being sent |
 | Microsoft.Azure.ServiceBus.ScheduleMessage | [MessageSender.ScheduleMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.schedulemessageasync) | `Message Message` - Message being processed<br/>`DateTimeOffset ScheduleEnqueueTimeUtc` - Scheduled message offset<br/>`long SequenceNumber` - Sequence number of scheduled message ('Stop' event payload) |
-| Microsoft.Azure.ServiceBus.Cancel | [MessageSender.CancelScheduledMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.cancelscheduledmessageasync) | `long SequenceNumber` - Sequence number of te message to be canceled | 
+| Microsoft.Azure.ServiceBus.Cancel | [MessageSender.CancelScheduledMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.cancelscheduledmessageasync) | `long SequenceNumber` - Sequence number of the message to be canceled | 
 | Microsoft.Azure.ServiceBus.Receive | [MessageReceiver.ReceiveAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.receiveasync) | `int RequestedMessageCount` - The maximum number of messages that could be received.<br/>`IList<Message> Messages` - List of received messages ('Stop' event payload) |
 | Microsoft.Azure.ServiceBus.Peek | [MessageReceiver.PeekAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.peekasync) | `int FromSequenceNumber` - The starting point from which to browse a batch of messages.<br/>`int RequestedMessageCount` - The number of messages to retrieve.<br/>`IList<Message> Messages` - List of received messages ('Stop' event payload) |
 | Microsoft.Azure.ServiceBus.ReceiveDeferred | [MessageReceiver.ReceiveDeferredMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.receivedeferredmessageasync) | `IEnumerable<long> SequenceNumbers` - The list containing the sequence numbers to receive.<br/>`IList<Message> Messages` - List of received messages ('Stop' event payload) |
@@ -400,7 +402,6 @@ In presence of multiple `DiagnosticSource` listeners for the same source, it's e
 
 ## Next steps
 
-* [Application Insights Correlation](../azure-monitor/app/correlation.md)
-* [Application Insights Monitor Dependencies](../azure-monitor/app/asp-net-dependencies.md) to see if REST, SQL, or other external resources are slowing you down.
-* [Track custom operations with Application Insights .NET SDK](../azure-monitor/app/custom-operations-tracking.md)
-
+* [Application Insights Correlation](/azure/azure-monitor/app/distributed-tracing-telemetry-correlation)
+* [Application Insights Monitor Dependencies](/azure/azure-monitor/app/asp-net-dependencies) to see if REST, SQL, or other external resources are slowing you down.
+* [Track custom operations with Application Insights .NET SDK](/azure/azure-monitor/app/custom-operations-tracking)

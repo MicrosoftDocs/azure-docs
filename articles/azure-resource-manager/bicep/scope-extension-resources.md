@@ -2,7 +2,8 @@
 title: Scope on extension resource types (Bicep)
 description: Describes how to use the scope property when deploying extension resource types with Bicep.
 ms.topic: conceptual
-ms.date: 07/12/2022
+ms.custom: devx-track-bicep
+ms.date: 03/20/2024
 ---
 
 # Set scope for extension resources in Bicep
@@ -27,7 +28,7 @@ To apply an extension resource type at the target deployment scope, add the reso
 When deployed to a resource group, the following template adds a lock to that resource group.
 
 ```bicep
-resource createRgLock 'Microsoft.Authorization/locks@2016-09-01' = {
+resource createRgLock 'Microsoft.Authorization/locks@2020-05-01' = {
   name: 'rgLock'
   properties: {
     level: 'CanNotDelete'
@@ -58,7 +59,7 @@ var role = {
   Reader: '/subscriptions/${subscription().subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/acdd72a7-3385-48ef-bd42-f606fba81ae7'
 }
 
-resource roleAssignSub 'Microsoft.Authorization/roleAssignments@2020-04-01-preview' = {
+resource roleAssignSub 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
   name: guid(subscription().id, principalId, role[builtInRoleType])
   properties: {
     roleDefinitionId: role[builtInRoleType]
@@ -94,7 +95,7 @@ var role = {
 }
 var uniqueStorageName = 'storage${uniqueString(resourceGroup().id)}'
 
-resource demoStorageAcct 'Microsoft.Storage/storageAccounts@2019-04-01' = {
+resource demoStorageAcct 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   name: uniqueStorageName
   location: location
   sku: {
@@ -104,7 +105,7 @@ resource demoStorageAcct 'Microsoft.Storage/storageAccounts@2019-04-01' = {
   properties: {}
 }
 
-resource roleAssignStorage 'Microsoft.Authorization/roleAssignments@2020-04-01-preview' = {
+resource roleAssignStorage 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
   name: guid(demoStorageAcct.id, principalId, role[builtInRoleType])
   properties: {
     roleDefinitionId: role[builtInRoleType]
@@ -117,11 +118,11 @@ resource roleAssignStorage 'Microsoft.Authorization/roleAssignments@2020-04-01-p
 You can apply an extension resource to an existing resource. The following example adds a lock to an existing storage account.
 
 ```bicep
-resource demoStorageAcct 'Microsoft.Storage/storageAccounts@2021-04-01' existing = {
+resource demoStorageAcct 'Microsoft.Storage/storageAccounts@2023-04-01' existing = {
   name: 'examplestore'
 }
 
-resource createStorageLock 'Microsoft.Authorization/locks@2016-09-01' = {
+resource createStorageLock 'Microsoft.Authorization/locks@2020-05-01' = {
   name: 'storeLock'
   scope: demoStorageAcct
   properties: {
@@ -161,12 +162,12 @@ The following example shows how to apply a lock on a storage account that reside
 
     ```bicep
     param storageAccountName string
-
-    resource storage 'Microsoft.Storage/storageAccounts@2021-09-01' existing = {
+    
+    resource storage 'Microsoft.Storage/storageAccounts@2023-04-01' existing = {
       name: storageAccountName
     }
-
-    resource storeLock 'Microsoft.Authorization/locks@2017-04-01' = {
+    
+    resource storeLock 'Microsoft.Authorization/locks@2020-05-01' = {
       scope: storage
       name: 'storeLock'
       properties: {

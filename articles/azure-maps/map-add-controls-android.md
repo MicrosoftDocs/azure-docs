@@ -1,18 +1,25 @@
 ---
 title: Add controls to an Android map | Microsoft Azure Maps
 description: How to add zoom control, pitch control, rotate control and a style picker to a map in Microsoft Azure Maps Android SDK.
-author: stevemunk
-ms.author: v-munksteve
+author: sinnypan
+ms.author: sipa
 ms.date: 02/26/2021
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: android-sdk
+ms.custom: devx-track-java
 zone_pivot_groups: azure-maps-android
 ---
 
 # Add controls to a map (Android SDK)
 
 This article shows you how to add UI controls to the map.
+
+> [!NOTE]
+>
+> **Azure Maps Android SDK retirement**
+>
+> The Azure Maps Native SDK for Android is now deprecated and will be retired on 3/31/25. To avoid service disruptions, migrate to the Azure Maps Web SDK by 3/31/25. For more information, see [The Azure Maps Android SDK migration guide](android-sdk-migration-guide.md).
 
 ## Add zoom control
 
@@ -36,7 +43,7 @@ map.controls.add(ZoomControl())
 
 ::: zone-end
 
-The screenshot below is of a zoom control loaded on a map.
+The following screenshot shows a zoom control loaded on a map.
 
 ![Zoom control added to map](media/map-add-controls-android/android-zoom-control.jpg)
 
@@ -62,7 +69,7 @@ map.controls.add(PitchControl())
 
 ::: zone-end
 
-The screenshot below is of a pitch control loaded on a map.
+The following screenshot shows a pitch control loaded on a map.
 
 ![Pitch control added to map](media/map-add-controls-android/android-pitch-control.jpg)
 
@@ -88,7 +95,7 @@ map.controls.add(CompassControl())
 
 ::: zone-end
 
-The screenshot below is of a compass control loaded on a map.
+The following screenshot shows a compass control loaded on a map.
 
 ![Compass control added to map](media/map-add-controls-android/android-compass-control.jpg)
 
@@ -114,13 +121,13 @@ map.controls.add(TrafficControl())
 
 ::: zone-end
 
-The screenshot below is of a traffic control loaded on a map.
+The following screenshot shows a traffic control loaded on a map.
 
 ![Traffic control added to map](media/map-add-controls-android/android-traffic-control.jpg)
 
 ## A map with all controls
 
-Multiple controls can be put into an array and added to the map all at once and positioned in the same area of the map to simplify development. The following code adds the standard navigation controls to the map using this approach.
+To simplify development, add multiple controls to an array and map simultaneously then position in the same area. The following code adds the standard navigation controls to the map using this approach.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -152,7 +159,7 @@ map.controls.add(
 
 ::: zone-end
 
-The screenshot below shows all controls loaded on a map. The order they are added to the map, is the order they will appear.
+The following screenshot shows all controls loaded on a map. They appear in the order they're added to the map.
 
 ![All controls added to map](media/map-add-controls-android/android-all-controls.jpg)
 

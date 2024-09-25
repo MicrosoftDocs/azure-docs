@@ -2,13 +2,12 @@
 title: Parameterize linked services
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to parameterize linked services in Azure Data Factory and Azure Synapse Analytics pipelines, and pass dynamic values at run time.
-ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/05/2022
-author: chez-charlie
-ms.author: chez
+ms.date: 08/06/2024
+author: kromerm
+ms.author: makromer
 ---
 
 # Parameterize linked services in Azure Data Factory and Azure Synapse Analytics
@@ -39,7 +38,8 @@ All the linked service types are supported for parameterization.
 - Amazon S3
 - Amazon S3 Compatible Storage
 - Azure Blob Storage
-- Azure Cosmos DB (SQL API)
+- Azure Cosmos DB for NoSQL
+- Azure Databricks Delta Lake
 - Azure Data Explorer
 - Azure Data Lake Storage Gen1
 - Azure Data Lake Storage Gen2
@@ -53,13 +53,19 @@ All the linked service types are supported for parameterization.
 - Azure SQL Managed Instance
 - Azure Synapse Analytics 
 - Azure Table Storage
+- Dataverse
 - DB2
+- Dynamics 365
+- Dynamics AX
+- Dynamics CRM
 - File System
 - FTP
 - Generic HTTP
 - Generic REST
 - Google AdWords
+- Google BigQuery
 - Informix
+- MariaDB
 - Microsoft Access
 - MySQL
 - OData 
@@ -69,7 +75,10 @@ All the linked service types are supported for parameterization.
 - PostgreSQL
 - Salesforce
 - Salesforce Service Cloud
-- SAP ODP
+- SAP CDC
+- SAP HANA
+- SAP Table
+- ServiceNow (not supported in ServiceNow legacy)
 - SFTP
 - SharePoint Online List
 - Snowflake
@@ -117,3 +126,6 @@ Refer to the [JSON sample](#json) to add ` parameters` section to define paramet
 	}
 }
 ```
+## Related content
+
+[Store credentials in Azure Key Vault](store-credentials-in-key-vault.md)

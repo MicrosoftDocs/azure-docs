@@ -2,13 +2,12 @@
 title: Score machine learning models with PREDICT
 description: Learn how to score machine learning models using the T-SQL PREDICT function in dedicated SQL pool.
 author: WilliamDAssafMSFT
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: conceptual
-ms.subservice: machine-learning
-ms.date: 07/21/2020
 ms.author: wiassaf
-ms.reviewer: sngun
+ms.reviewer: whhender
+ms.date: 07/21/2020
+ms.service: azure-synapse-analytics
+ms.subservice: machine-learning
+ms.topic: conceptual
 ms.custom: azure-synapse
 ---
 
@@ -29,7 +28,7 @@ Dedicated SQL pool expects a pre-trained model. Keep the following factors in mi
 
 - Dedicated SQL pool only supports ONNX format models. ONNX is an open-source model format that allows you to exchange models between various frameworks to enable interoperability. You can convert your existing models to ONNX format using frameworks that either support it natively or have converting packages available. For example, [sklearn-onnx](https://github.com/onnx/sklearn-onnx) package convert scikit-learn models to ONNX. [ONNX GitHub repository](https://github.com/onnx/tutorials#converting-to-onnx-format) provides a list of supported frameworks and examples.
 
-   If you are using [Automated ML](../../machine-learning/concept-automated-ml.md) for training, make sure to set the *enable_onnx_compatible_models* parameter to TRUE to produce an ONNX format model. [Automated Machine Learning Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) shows an example of how to use automated ML to create a machine learning model of ONNX format.
+   If you are using [Automated ML](/azure/machine-learning/concept-automated-ml) for training, make sure to set the *enable_onnx_compatible_models* parameter to TRUE to produce an ONNX format model. [Automated Machine Learning Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) shows an example of how to use automated ML to create a machine learning model of ONNX format.
 
 - The following data types are supported for the input data:
     - int, bigint, real, float

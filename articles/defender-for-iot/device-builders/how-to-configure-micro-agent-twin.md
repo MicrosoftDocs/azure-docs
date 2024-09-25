@@ -9,6 +9,8 @@ ms.date: 01/16/2022
 
 Learn how to configure a micro agent twin.
 
+[!INCLUDE [device-agents-note](../includes/device-agents-note.md)]
+
 ## Prerequisites
 
 - An Azure account. If you do not already have an Azure account, you can [create your Azure free account today](https://azure.microsoft.com/free/).
@@ -90,7 +92,6 @@ Learn how to configure a micro agent twin.
 
 You learned how to configure a micro agent twin. For more information about micro agent configurations and event aggregation, see:
 
-- [Micro agent configurations (Preview)](concept-micro-agent-configuration.md)
+- [Micro agent configurations](concept-micro-agent-configuration.md)
 
-- [Micro agent event collection (Preview)](concept-event-aggregation.md)
-
+- [Micro agent event collection](concept-event-aggregation.md)

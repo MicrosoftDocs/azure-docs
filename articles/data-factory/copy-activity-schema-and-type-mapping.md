@@ -1,13 +1,12 @@
 ---
-title: Schema and data type mapping in copy activity 
+title: Schema and data type mapping in copy activity
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about how copy activity in Azure Data Factory and Azure Synapse Analytics pipelines map schemas and data types from source data to sink data.
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/09/2021
+ms.date: 10/20/2023
 ms.author: jianleishen
 ---
 # Schema and data type mapping in copy activity
@@ -43,7 +42,7 @@ You can configure the mapping on the Authoring UI -> copy activity -> mapping ta
 | -------- | ------------------------------------------------------------ | -------- |
 | name     | Name of the source or sink column/field. Apply for tabular source and sink. | Yes      |
 | ordinal  | Column index. Start from 1. <br>Apply and required when using delimited text without header line. | No       |
-| path     | JSON path expression for each field to extract or map. Apply for hierarchical source and sink, for example, Cosmos DB, MongoDB, or REST connectors.<br>For fields under the root object, the JSON path starts with root `$`; for fields inside the array chosen by `collectionReference` property, JSON path starts from the array element without `$`. | No       |
+| path     | JSON path expression for each field to extract or map. Apply for hierarchical source and sink, for example, Azure Cosmos DB, MongoDB, or REST connectors.<br>For fields under the root object, the JSON path starts with root `$`; for fields inside the array chosen by `collectionReference` property, JSON path starts from the array element without `$`. | No       |
 | type     | Interim data type of the source or sink column. In general, you don't need to specify or change this property. Learn more about [data type mapping](#data-type-mapping). | No       |
 | culture  | Culture of the source or sink column. Apply when type is `Datetime` or `Datetimeoffset`. The default is `en-us`.<br>In general, you don't need to specify or change this property. Learn more about [data type mapping](#data-type-mapping). | No       |
 | format   | Format string to be used when type is `Datetime` or `Datetimeoffset`. Refer to [Custom Date and Time Format Strings](/dotnet/standard/base-types/custom-date-and-time-format-strings) on how to format datetime. In general, you don't need to specify or change this property. Learn more about [data type mapping](#data-type-mapping). | No       |
@@ -52,7 +51,7 @@ The following properties are supported under `translator` in addition to `mappin
 
 | Property            | Description                                                  | Required |
 | ------------------- | ------------------------------------------------------------ | -------- |
-| collectionReference | Apply when copying data from hierarchical source, for example, Cosmos DB, MongoDB, or REST connectors.<br>If you want to iterate and extract data from the objects **inside an array field** with the same pattern and convert to per row per object, specify the JSON path of that array to do cross-apply. | No       |
+| collectionReference | Apply when copying data from a hierarchical source, such as Azure Cosmos DB, MongoDB, or REST connectors.<br>If you want to iterate and extract data from the objects **inside an array field** with the same pattern and convert to per row per object, specify the JSON path of that array to do cross-apply. | No       |
 
 #### Tabular source to tabular sink
 
@@ -278,17 +277,17 @@ Copy activity currently supports the following interim data types: Boolean, Byte
 
 The following data type conversions are supported between the interim types from source to sink.
 
-| Source\Sink | Boolean | Byte array | Decimal | Date/Time <small>(1)</small> | Float-point <small>(2)</small> | GUID | Integer <small>(3)</small> | String | TimeSpan |
-| ----------- | ------- | ---------- | ------- | ---------------------------- | ------------------------------ | ---- | -------------------------- | ------ | -------- |
-| Boolean     | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
-| Byte array  |         | ✓          |         |                              |                                |      |                            | ✓      |          |
-| Date/Time   |         |            |         | ✓                            |                                |      |                            | ✓      |          |
-| Decimal     | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
-| Float-point | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
-| GUID        |         |            |         |                              |                                | ✓    |                            | ✓      |          |
-| Integer     | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
-| String      | ✓       | ✓          | ✓       | ✓                            | ✓                              | ✓    | ✓                          | ✓      | ✓        |
-| TimeSpan    |         |            |         |                              |                                |      |                            | ✓      | ✓        |
+| Source\Sink | Boolean | Byte array | Date/Time | Decimal | Float-point | GUID | Integer | String | TimeSpan |
+| ----------- | ------- | ---------- | ------------- | ------- | --------------- | ---- | ------------ | ------ | -------- |
+| Boolean     | ✓       |            |               | ✓       |                 |      | ✓            | ✓      |          |
+| Byte array  |         | ✓          |               |         |                 |      |              | ✓      |          |
+| Date/Time   |         |            | ✓             |         |                 |      |              | ✓      |          |
+| Decimal     | ✓       |            |               | ✓       |                 |      | ✓            | ✓      |          |
+| Float-point | ✓       |            |               | ✓       |                 |      | ✓            | ✓      |          |
+| GUID        |         |            |               |         |                 | ✓    |              | ✓      |          |
+| Integer     | ✓       |            |               | ✓       |                 |      | ✓            | ✓      |          |
+| String      | ✓       | ✓          | ✓             | ✓       |                 | ✓    | ✓            | ✓      | ✓        |
+| TimeSpan    |         |            |               |         |                 |      |              | ✓      | ✓        |
 
 (1) Date/Time includes DateTime and DateTimeOffset.
 
@@ -382,7 +381,7 @@ In the following example, the input dataset has a structure, and it points to a 
 }
 ```
 
-In this sample, the output dataset has a structure and it points to a table in Salesfoce.
+In this sample, the output dataset has a structure and it points to a table in Salesforce.
 
 ```json
 {
@@ -445,7 +444,7 @@ If you are using the syntax of `"columnMappings": "UserId: MyUserId, Group: MyGr
 
 ### Alternative schema-mapping (legacy model)
 
-You can specify copy activity -> `translator` -> `schemaMapping` to map between hierarchical-shaped data and tabular-shaped data, for example, copy from MongoDB/REST to text file and copy from Oracle to Azure Cosmos DB's API for MongoDB. The following properties are supported in copy activity `translator` section:
+You can specify copy activity -> `translator` -> `schemaMapping` to map between hierarchical-shaped data and tabular-shaped data, for example, copy from MongoDB/REST to text file and copy from Oracle to Azure Cosmos DB for MongoDB. The following properties are supported in copy activity `translator` section:
 
 | Property            | Description                                                  | Required |
 | :------------------ | :----------------------------------------------------------- | :------- |
@@ -518,7 +517,7 @@ Configure the schema-mapping rule as the following copy activity JSON sample:
 }
 ```
 
-## Next steps
+## Related content
 See the other Copy Activity articles:
 
 - [Copy activity overview](copy-activity-overview.md)

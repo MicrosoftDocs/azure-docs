@@ -1,14 +1,15 @@
 ---
 title: Azure Gateway Load Balancer partners
-description: Learn about partners offering their network appliances for use with this service.
+description: Learn about partners offering their network appliances for use with Azure Gateway Load Balancer.
 author: mbender-ms
-ms.service: load-balancer
-ms.topic: article
-ms.date: 05/11/2022
+ms.service: azure-load-balancer
+ms.topic: conceptual
+ms.date: 06/26/2024
 ms.author: mbender
-ms.custom: 
+ms.custom: template-concept
 ---
-# Gateway Load Balancer partners
+
+# Azure Gateway Load Balancer partners
 
 Azure has a growing ecosystem of partners offering their network appliances for use with Gateway Load Balancer.
 
@@ -18,7 +19,7 @@ Azure has a growing ecosystem of partners offering their network appliances for 
 
 :::image type="content" source="./media/gateway-partners/a10.png" alt-text="Screenshot of A10 Networks logo.":::
 
-“Protecting enterprise workloads from DDoS attacks has become a must as organizations are migrating to the cloud alongside a rise in complexity, intensity, and frequency of attacks. With Azure Gateway Load Balancer, customers can now inject A10’s Thunder Virtual Appliance, on top of Azure’s DDoS Protection Standard to offer improved L3-7 protection for latency sensitive workloads. Azure Gateway Load Balancer is setting a new precedent by simplifying the injection of L7 DDoS appliances in the path, providing transparent flow (bump in the wire) using an overlay network with low latency, preserving the health of the host as well as the NVAs during the DDoS attacks.” 
+“Protecting enterprise workloads from DDoS attacks has become a must as organizations are migrating to the cloud alongside a rise in complexity, intensity, and frequency of attacks. With Azure Gateway Load Balancer, customers can now inject A10’s Thunder Virtual Appliance, on top of Azure’s DDoS Protection to offer improved L3-7 protection for latency sensitive workloads. Azure Gateway Load Balancer is setting a new precedent by simplifying the injection of L7 DDoS appliances in the path, providing transparent flow (bump in the wire) using an overlay network with low latency, preserving the health of the host as well as the NVAs during the DDoS attacks.” 
 
 **John Hofdahl - Area Vice President, Cloud Service Provider Team**
 
@@ -52,8 +53,6 @@ Azure has a growing ecosystem of partners offering their network appliances for 
 
 **Gopinath Durairaj - Sr. Director, Product Management** 
 
-[Learn more](https://www.citrix.com/blogs/2021/11/02/citrix-adc-integration-with-azure-gw-load-balancer/)
-
 ### cPacket Networks
 
 :::image type="content" source="./media/gateway-partners/cpacket.png" alt-text="Screenshot of cPacket Networks logo.":::
@@ -62,7 +61,7 @@ Azure has a growing ecosystem of partners offering their network appliances for 
 
 **Brendan O’Flaherty - CEO**
 
-[Learn more](https://www.cpacket.com/azure-gateway-load-balancer/)
+[Learn more](https://www.cpacket.com/)
 
 ### F5
 
@@ -91,8 +90,6 @@ Azure has a growing ecosystem of partners offering their network appliances for 
 “Glasnostic is proud to be a partner for Azure Gateway Load Balancer. With Azure’s new Gateway Load Balancer, using Glasnostic to make applications reliable and secure couldn’t be any easier. Adding Glasnostic as an NVA to your Azure deployments provides you instantly with the holistic visibility and control you need to optimize performance, maximize reliability and enforce security.” 
 
 **Tobias Kunze - Co-founder & CEO** 
-
-[Learn more](https://glasnostic.com/blog/announcing-glasnostic-for-azure-gwlb)
 
 ### Palo Alto Networks
 

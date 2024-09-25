@@ -1,161 +1,85 @@
 ---
 title: 'Azure VPN Gateway configuration settings'
 description: Learn about VPN Gateway resources and configuration settings.
-services: vpn-gateway
 author: cherylmc
-
-ms.service: vpn-gateway
-ms.topic: conceptual
-ms.date: 04/22/2022
+ms.service: azure-vpn-gateway
+ms.topic: concept-article
+ms.date: 07/29/2024
 ms.author: cherylmc 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.custom: devx-track-azurepowershell
 ms.devlang: azurecli
-
 ---
 # About VPN Gateway configuration settings
 
-A VPN gateway is a type of virtual network gateway that sends encrypted traffic between your virtual network and your on-premises location across a public connection. You can also use a VPN gateway to send traffic between virtual networks across the Azure backbone.
+VPN gateway connection architecture relies on the configuration of multiple resources, each of which contains configurable settings. The sections in this article discuss the resources and settings that relate to a VPN gateway for a virtual network. You can find descriptions and topology diagrams for each connection solution in the [VPN Gateway topology and design](design.md) article.
 
-A VPN gateway connection relies on the configuration of multiple resources, each of which contains configurable settings. The sections in this article discuss the resources and settings that relate to a VPN gateway for a virtual network created in [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md). You can find descriptions and topology diagrams for each connection solution in the [About VPN Gateway](vpn-gateway-about-vpngateways.md) article.
+The values in this article specifically apply to VPN gateways (virtual network gateways that use the -GatewayType Vpn). If you're looking for information about the following types of gateways, see the following articles:
 
-The values in this article apply VPN gateways (virtual network gateways that use the -GatewayType Vpn). This article doesn't cover all gateway types or zone-redundant gateways.
-
-* For values that apply to -GatewayType 'ExpressRoute', see [Virtual Network Gateways for ExpressRoute](../expressroute/expressroute-about-virtual-network-gateways.md).
-
+* For values that apply to -GatewayType 'ExpressRoute', see [Virtual network gateways for ExpressRoute](../expressroute/expressroute-about-virtual-network-gateways.md).
 * For zone-redundant gateways, see [About zone-redundant gateways](about-zone-redundant-vnet-gateways.md).
+* For Virtual WAN gateways, see [About Virtual WAN](../virtual-wan/virtual-wan-about.md).
 
-* For active-active gateways, see [About highly available connectivity](vpn-gateway-highlyavailable.md).
+## <a name="gwtype"></a>Gateways and gateway types
 
-* For Virtual WAN, see [About Virtual WAN](../virtual-wan/virtual-wan-about.md).
+A virtual network gateway is composed of two or more Azure-managed VMs that are automatically configured and deployed to a specific subnet that you create called the **gateway subnet**. The gateway VMs contain routing tables and run specific gateway services. When you create a virtual network gateway, the gateway VMs are automatically deployed to the gateway subnet (always named *GatewaySubnet*), and configured with the settings that you specified. The process can take 45 minutes or more to complete, depending on the gateway SKU that you selected.
 
-## <a name="gwtype"></a>Gateway types
+One of the settings that you specify when creating a virtual network gateway is the **gateway type**. The gateway type determines how the virtual network gateway is used and the actions that the gateway takes. A virtual network can have two virtual network gateways; one VPN gateway and one ExpressRoute gateway. The -GatewayType 'Vpn' specifies that the type of virtual network gateway created is a **VPN gateway**. This distinguishes it from an ExpressRoute gateway.
 
-Each virtual network can only have one virtual network gateway of each type. When you're creating a virtual network gateway, you must make sure that the gateway type is correct for your configuration.
+## <a name="gwsku"></a>Gateway SKUs and performance
 
-The available values for -GatewayType are:
-
-* Vpn
-* ExpressRoute
-
-A VPN gateway requires the `-GatewayType` *Vpn*.
-
-Example:
-
-```azurepowershell-interactive
-New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
--Location 'West US' -IpConfigurations $gwipconfig -GatewayType Vpn `
--VpnType RouteBased
-```
-
-## <a name="gwsku"></a>Gateway SKUs
-
-[!INCLUDE [vpn-gateway-gwsku-include](../../includes/vpn-gateway-gwsku-include.md)]
-
-### Configure a gateway SKU
-
-**Azure portal**
-
-If you use the Azure portal to create a Resource Manager virtual network gateway, you can select the gateway SKU by using the dropdown. The options you're presented with correspond to the Gateway type and VPN type that you select.
-
-**PowerShell**
-
-The following PowerShell example specifies the `-GatewaySku` as VpnGw1. When using PowerShell to create a gateway, you have to first create the IP configuration, then use a variable to refer to it. In this example, the configuration variable is $gwipconfig.
-
-```azurepowershell-interactive
-New-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1 `
--Location 'US East' -IpConfigurations $gwipconfig -GatewaySku VpnGw1 `
--GatewayType Vpn -VpnType RouteBased
-```
-
-**Azure CLI**
-
-```azurecli
-az network vnet-gateway create --name VNet1GW --public-ip-address VNet1GWPIP --resource-group TestRG1 --vnet VNet1 --gateway-type Vpn --vpn-type RouteBased --sku VpnGw1 --no-wait
-```
-
-###  <a name="resizechange"></a>Resizing or changing a SKU
-
-If you have a VPN gateway and you want to use a different gateway SKU, your options are to either resize your gateway SKU, or to change to another SKU. When you change to another gateway SKU, you delete the existing gateway entirely and build a new one. Creating a gateway can often take 45 minutes or more, depending on the selected gateway SKU. In comparison, when you resize a gateway SKU, there isn't much downtime because you don't have to delete and rebuild the gateway. If you have the option to resize your gateway SKU, rather than change it, you'll want to do that. However, there are rules regarding resizing:
-
-1. Except for the Basic SKU, you can resize a VPN gateway SKU to another VPN gateway SKU within the same generation (Generation1 or Generation2). For example, VpnGw1 of Generation1 can be resized to VpnGw2 of Generation1 but not to VpnGw2 of Generation2.
-2. When working with the old gateway SKUs, you can resize between Standard and HighPerformance SKUs.
-3. You **cannot** resize from Basic/Standard/HighPerformance SKUs to VpnGw SKUs. You must instead, [change](#change) to the new SKUs.
-
-#### <a name="resizegwsku"></a>To resize a gateway
-
-**Azure portal**
-
-[!INCLUDE [Resize a SKU - portal](../../includes/vpn-gateway-resize-gw-portal-include.md)]
-
-**PowerShell**
-
-[!INCLUDE [Resize a SKU](../../includes/vpn-gateway-gwsku-resize-include.md)]
-
-####  <a name="change"></a>To change from an old (legacy) SKU to a new SKU
-
-[!INCLUDE [Change a SKU](../../includes/vpn-gateway-gwsku-change-legacy-sku-include.md)]
-
-## <a name="connectiontype"></a>Connection types
-
-In the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md), each configuration requires a specific virtual network gateway connection type. The available Resource Manager PowerShell values for `-ConnectionType` are:
-
-* IPsec
-* Vnet2Vnet
-* ExpressRoute
-* VPNClient
-
-In the following PowerShell example, we create a S2S connection that requires the connection type *IPsec*.
-
-```azurepowershell-interactive
-New-AzVirtualNetworkGatewayConnection -Name localtovon -ResourceGroupName testrg `
--Location 'West US' -VirtualNetworkGateway1 $gateway1 -LocalNetworkGateway2 $local `
--ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
-```
+See [About Gateway SKUs](about-gateway-skus.md) article for the latest information about gateway SKUs, performance, and supported features.
 
 ## <a name="vpntype"></a>VPN types
 
-When you create the virtual network gateway for a VPN gateway configuration, you must specify a VPN type. The VPN type that you choose depends on the connection topology that you want to create. For example, a P2S connection requires a RouteBased VPN type. A VPN type can also depend on the hardware that you're using. S2S configurations require a VPN device. Some VPN devices only support a certain VPN type.
+Azure supports two different VPN types for VPN gateways: *policy-based* and *route-based*. Route-based VPN gateways are built on a different platform than policy-based VPN gateways. This results in different gateway specifications. The following table shows the gateway SKUs that support each of the VPN types, and associated supported IKE versions.
 
-The VPN type you select must satisfy all the connection requirements for the solution you want to create. For example, if you want to create a S2S VPN gateway connection and a P2S VPN gateway connection for the same virtual network, you would use VPN type *RouteBased* because P2S requires a RouteBased VPN type. You would also need to verify that your VPN device supported a RouteBased VPN connection. 
+[!INCLUDE [Route-based and policy-based table](../../includes/vpn-gateway-vpn-type-table.md)]
 
-Once a virtual network gateway has been created, you can't change the VPN type. You have to delete the virtual network gateway and create a new one.
-There are two VPN types:
+In most cases, you'll create a route-based VPN gateway. Previously, the older gateway SKUs didn't support IKEv1 for route-based gateways. Now, most of the current gateway SKUs support both IKEv1 and IKEv2.
 
-[!INCLUDE [vpn-gateway-vpntype](../../includes/vpn-gateway-vpntype-include.md)]
+* As of Oct 1, 2023, policy-based gateways can only be configured using PowerShell or CLI, and aren't available in the Azure portal. To create a policy-based gateway, see [Create a Basic SKU VPN gateway using PowerShell](create-gateway-basic-sku-powershell.md).
 
-The following PowerShell example specifies the `-VpnType` as *RouteBased*. When you're creating a gateway, you must make sure that the -VpnType is correct for your configuration.
+* If you already have a policy-based gateway, you aren't required to change your gateway to route-based unless you want to use a configuration that requires a route-based gateway, such as point-to-site.
+* You can't convert a policy-based gateway to route-based. You must delete the existing gateway, and then create a new gateway as route-based.
 
-```azurepowershell-interactive
-New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
--Location 'West US' -IpConfigurations $gwipconfig `
--GatewayType Vpn -VpnType RouteBased
-```
+## <a name="active"></a>Active-active mode gateways
+
+Azure VPN gateways can be configured as active-standby or active-active. In an active-active configuration, both instances of the gateway VMs establish site-to-site VPN tunnels to your on-premises VPN device. Active-active mode gateways are a key part of highly available gateway connectivity design. For more information, see the following articles:
+
+* [About active-active gateways](about-active-active-gateways.md)
+* [Design highly available gateway connectivity for cross-premises and VNet-to-VNet connections](vpn-gateway-highlyavailable.md)
+
+## <a name="connectiontype"></a>Connection types
+
+Each connection requires a specific virtual network gateway connection type. The available PowerShell values for [New-AzVirtualNetworkGatewayConnection](/powershell/module/az.network/new-azvirtualnetworkgatewayconnection) `-Connection Type` are: IPsec, Vnet2Vnet, ExpressRoute, VPNClient.
+
+## <a name="connectionmode"></a>Connection modes
+
+[!INCLUDE [Connection modes](../../includes/vpn-gateway-connection-mode-include.md)]
 
 ## <a name="gwsub"></a>Gateway subnet
 
-Before you create a VPN gateway, you must create a gateway subnet. The gateway subnet contains the IP addresses that the virtual network gateway VMs and services use. When you create your virtual network gateway, gateway VMs are deployed to the gateway subnet and configured with the required VPN gateway settings. Never deploy anything else (for example, additional VMs) to the gateway subnet. The gateway subnet must be named 'GatewaySubnet' to work properly. Naming the gateway subnet 'GatewaySubnet' lets Azure know that this is the subnet to deploy the virtual network gateway VMs and services to.
+Before you create a VPN gateway, you must create a gateway subnet. The gateway subnet contains the IP addresses that the virtual network gateway VMs and services use. When you create your virtual network gateway, gateway VMs are deployed to the gateway subnet and configured with the required VPN gateway settings. Never deploy anything else (for example, more VMs) to the gateway subnet. The gateway subnet must be named 'GatewaySubnet' to work properly. Naming the gateway subnet 'GatewaySubnet' lets Azure know that this is the subnet to which it should deploy the virtual network gateway VMs and services.
 
->[!NOTE]
->[!INCLUDE [vpn-gateway-gwudr-warning.md](../../includes/vpn-gateway-gwudr-warning.md)]
->
+When you create the gateway subnet, you specify the number of IP addresses that the subnet contains. The IP addresses in the gateway subnet are allocated to the gateway VMs and gateway services. Some configurations require more IP addresses than others.
 
-When you create the gateway subnet, you specify the number of IP addresses that the subnet contains. The IP addresses in the gateway subnet are allocated to the gateway VMs and gateway services. Some configurations require more IP addresses than others. 
+When you're planning your gateway subnet size, refer to the documentation for the configuration that you're planning to create. For example, the ExpressRoute/VPN Gateway coexist configuration requires a larger gateway subnet than most other configurations. While it's possible to create a gateway subnet as small as /29 (applicable to the Basic SKU only), all other SKUs require a gateway subnet of size /27 or larger (/27, /26, /25 etc.). You might want to create a gateway subnet larger than /27 so that the subnet has enough IP addresses to accommodate possible future configurations.
 
-When you're planning your gateway subnet size, refer to the documentation for the configuration that you're planning to create. For example, the ExpressRoute/VPN Gateway coexist configuration requires a larger gateway subnet than most other configurations. Additionally, you may want to make sure your gateway subnet contains enough IP addresses to accommodate possible future additional configurations. While you can create a gateway subnet as small as /29, we recommend that you create a gateway subnet of /27 or larger (/27, /26 etc.) if you have the available address space to do so. This will accommodate most configurations.
-
-The following Resource Manager PowerShell example shows a gateway subnet named GatewaySubnet. You can see the CIDR notation specifies a /27, which allows for enough IP addresses for most configurations that currently exist.
+The following PowerShell example shows a gateway subnet named GatewaySubnet. You can see the CIDR notation specifies a /27, which allows for enough IP addresses for most configurations that currently exist.
 
 ```azurepowershell-interactive
 Add-AzVirtualNetworkSubnetConfig -Name 'GatewaySubnet' -AddressPrefix 10.0.3.0/27
 ```
 
-[!INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
+Considerations:
+
+[!INCLUDE [vpn-gateway-gwudr-warning.md](../../includes/vpn-gateway-gwudr-warning.md)]
 
 ## <a name="lng"></a>Local network gateways
 
-A local network gateway is different than a virtual network gateway. When creating a VPN gateway configuration, the local network gateway usually represents your on-premises network and the corresponding VPN device. In the classic deployment model, the local network gateway was referred to as a Local Site.
+A local network gateway is different than a virtual network gateway. When you're working with a VPN gateway site-to-site architecture, the local network gateway usually represents your on-premises network and the corresponding VPN device.
 
-You give the local network gateway a name, the public IP address or the fully qualified domain name (FQDN) of the on-premises VPN device, and specify the address prefixes that are located on the on-premises location. Azure looks at the destination address prefixes for network traffic, consults the configuration that you've specified for your local network gateway, and routes packets accordingly. If you use Border Gateway Protocol (BGP) on your VPN device, you'll provide the BGP peer IP address of your VPN device and the autonomous system number (ASN) of your on-premises network. You also specify local network gateways for VNet-to-VNet configurations that use a VPN gateway connection.
+When you configure a local network gateway, you specify the name, the public IP address or the fully qualified domain name (FQDN) of the on-premises VPN device, and the address prefixes that are located on the on-premises location. Azure looks at the destination address prefixes for network traffic, consults the configuration that you specified for your local network gateway, and routes packets accordingly. If you use Border Gateway Protocol (BGP) on your VPN device, you provide the BGP peer IP address of your VPN device and the autonomous system number (ASN) of your on-premises network. You also specify local network gateways for VNet-to-VNet configurations that use a VPN gateway connection.
 
 The following PowerShell example creates a new local network gateway:
 
@@ -164,17 +88,15 @@ New-AzLocalNetworkGateway -Name LocalSite -ResourceGroupName testrg `
 -Location 'West US' -GatewayIpAddress '23.99.221.164' -AddressPrefix '10.5.51.0/24'
 ```
 
-Sometimes you need to modify the local network gateway settings. For example, when you add or modify the address range, or if the IP address of the VPN device changes. See [Modify local network gateway settings using PowerShell](vpn-gateway-modify-local-network-gateway.md).
+Sometimes you need to modify the local network gateway settings. For example, when you add or modify the address range, or if the IP address of the VPN device changes. For more information, see [Modify local network gateway settings](vpn-gateway-modify-local-network-gateway-portal.md).
 
 ## <a name="resources"></a>REST APIs, PowerShell cmdlets, and CLI
 
-For additional technical resources and specific syntax requirements when using REST APIs, PowerShell cmdlets, or Azure CLI for VPN Gateway configurations, see the following pages:
+For technical resources and specific syntax requirements when using REST APIs, PowerShell cmdlets, or Azure CLI for VPN Gateway configurations, see the following pages:
 
-| **Classic** | **Resource Manager** |
-| --- | --- |
-| [PowerShell](/powershell/module/az.network/#networking) |[PowerShell](/powershell/module/az.network#vpn) |
-| [REST API](/previous-versions/azure/reference/jj154113(v=azure.100)) |[REST API](/rest/api/network/virtualnetworkgateways) |
-| Not supported | [Azure CLI](/cli/azure/network/vnet-gateway)|
+* [PowerShell](/powershell/module/az.network#vpn)
+* [Azure CLI](/cli/azure/network/vnet-gateway)
+* [REST API](/rest/api/network/virtualnetworkgateways)
 
 ## Next steps
 

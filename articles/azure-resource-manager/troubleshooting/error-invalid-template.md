@@ -2,7 +2,8 @@
 title: Invalid template errors
 description: Describes how to resolve invalid template errors when deploying Bicep files or Azure Resource Manager templates (ARM templates).
 ms.topic: troubleshooting
-ms.date: 09/12/2022
+ms.custom: devx-track-bicep, devx-track-arm-template
+ms.date: 06/20/2024
 ---
 
 # Resolve errors for invalid template
@@ -85,19 +86,19 @@ You may see this error in earlier deployments because you were limited to five t
 
 ## Solution 5: Circular dependency detected
 
-You receive this error when resources depend on each other in a way that prevents the deployment from starting. A combination of interdependencies makes two or more resource wait for other resources that are also waiting. For example, resource1 depends on resource3, resource2 depends on resource1, and resource3 depends on resource2. You can usually solve this problem by removing unnecessary dependencies.
+You receive this error when resources depend on each other in a way that prevents the deployment from starting. A combination of interdependencies makes two or more resources wait for other resources that are also waiting. For example, `resource1` depends on `resource3`, `resource2` depends on `resource1`, and `resource3` depends on `resource2`. You can usually solve this problem by removing unnecessary dependencies.
 
 Bicep creates an implicit dependency when one resource uses the symbolic name of another resource. An explicit dependency using `dependsOn` usually isn't necessary. For more information, see Bicep [dependencies](../bicep/resource-dependencies.md).
 
 To solve a circular dependency:
 
 1. In your template, find the resource identified in the circular dependency.
-1. For that resource, examine the `dependsOn` property and any uses of the `reference` function to see which resources it depends on.
+1. For that resource, examine the `dependsOn` property and any uses of the `reference` or `resourceId` functions to see which resources it depends on.
 1. Examine those resources to see which resources they depend on. Follow the dependencies until you notice a resource that depends on the original resource.
-1. For the resources involved in the circular dependency, carefully examine all uses of the `dependsOn` property to identify any dependencies that aren't needed. Remove those dependencies. If you're unsure that a dependency is needed, try removing it.
+1. For the resources involved in the circular dependency, carefully examine all uses of the `dependsOn` property to identify any dependencies that aren't needed. To troubleshoot the deployment, remove the circular dependencies. Rather than delete the code, you can use comments so that the code doesn't run during the next deployment. You can use single-line comments (`//`) or multi-line comments (`/* ... */`) in [ARM templates](../templates/syntax.md#comments-and-metadata) or [Bicep](../bicep/file.md#comments) files.
 1. Redeploy the template.
 
-Removing values from the `dependsOn` property can cause errors when you deploy the template. If you get an error, add the dependency back into the template.
+Removing values from the `dependsOn` property can cause errors when you deploy the template. If you get an error, add the dependency back into the template. If you used comments to bypass code in your template, you can remove the comments to restore the code.
 
 If that approach doesn't solve the circular dependency, consider moving part of your deployment logic into child resources (such as extensions or configuration settings). Configure those child resources to deploy after the resources involved in the circular dependency. For example, suppose you're deploying two virtual machines but you must set properties on each one that refer to the other. You can deploy them in the following order:
 
@@ -112,3 +113,29 @@ The same approach works for App Service apps. Consider moving configuration valu
 1. webapp2
 1. Configuration for webapp1 depends on webapp1 and webapp2. It contains app settings with values from webapp2.
 1. Configuration for webapp2 depends on webapp1 and webapp2. It contains app settings with values from webapp1.
+
+## Solution 6: Validate syntax for exported templates
+
+After you deploy resources in Azure, you can export the ARM template JSON and modify it for other deployments. You should validate the exported template for correct syntax _before_ you use it to deploy resources.
+
+You can export a template from the [portal](../templates/export-template-portal.md), [Azure CLI](../templates/export-template-cli.md), or [Azure PowerShell](../templates/export-template-powershell.md). There are recommendations whether you exported the template from the resource or resource group, or from deployment history.
+
+# [Bicep](#tab/bicep)
+
+After you export an ARM template, you can decompile the JSON template to Bicep. Then use best practices and the linter to validate your code.
+
+For more information, go to the following articles:
+
+- [Decompiling ARM template JSON to Bicep](../bicep/decompile.md)
+- [Best practices for Bicep](../bicep/best-practices.md)
+- [Add linter settings in the Bicep config file](../bicep/bicep-config-linter.md)
+
+
+# [JSON](#tab/json)
+
+After you export an ARM template, you can learn more about best practices and the toolkit for template validation:
+
+- [ARM template best practices](../templates/best-practices.md)
+- [ARM template test toolkit](../templates/test-toolkit.md)
+
+---

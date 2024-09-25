@@ -3,9 +3,10 @@ title: Diagnostics in Durable Functions - Azure
 description: Learn how to diagnose problems with the Durable Functions extension for Azure Functions.
 author: cgillum
 ms.topic: conceptual
-ms.date: 05/26/2022
+ms.date: 12/07/2022
 ms.author: azfuncdf
-ms.devlang: csharp, java, javascript, python
+ms.devlang: csharp
+# ms.devlang: csharp, java, javascript, python
 ---
 
 # Diagnostics in Durable Functions in Azure
@@ -14,9 +15,9 @@ There are several options for diagnosing issues with [Durable Functions](durable
 
 ## Application Insights
 
-[Application Insights](../../azure-monitor/app/app-insights-overview.md) is the recommended way to do diagnostics and monitoring in Azure Functions. The same applies to Durable Functions. For an overview of how to leverage Application Insights in your function app, see [Monitor Azure Functions](../functions-monitoring.md).
+[Application Insights](/azure/azure-monitor/app/app-insights-overview) is the recommended way to do diagnostics and monitoring in Azure Functions. The same applies to Durable Functions. For an overview of how to leverage Application Insights in your function app, see [Monitor Azure Functions](../functions-monitoring.md).
 
-The Azure Functions Durable Extension also emits *tracking events* that allow you to trace the end-to-end execution of an orchestration. These tracking events can be found and queried using the [Application Insights Analytics](../../azure-monitor/logs/log-query-overview.md) tool in the Azure portal.
+The Azure Functions Durable Extension also emits *tracking events* that allow you to trace the end-to-end execution of an orchestration. These tracking events can be found and queried using the [Application Insights Analytics](/azure/azure-monitor/logs/log-query-overview) tool in the Azure portal.
 
 ### Tracking data
 
@@ -178,7 +179,7 @@ For more information about what log events are available, see the [Durable Task 
 
 It's important to keep the orchestrator replay behavior in mind when writing logs directly from an orchestrator function. For example, consider the following orchestrator function:
 
-# [C#](#tab/csharp)
+# [C# (InProc)](#tab/csharp-inproc)
 
 ```csharp
 [FunctionName("FunctionChain")]
@@ -186,6 +187,25 @@ public static async Task Run(
     [OrchestrationTrigger] IDurableOrchestrationContext context,
     ILogger log)
 {
+    log.LogInformation("Calling F1.");
+    await context.CallActivityAsync("F1");
+    log.LogInformation("Calling F2.");
+    await context.CallActivityAsync("F2");
+    log.LogInformation("Calling F3");
+    await context.CallActivityAsync("F3");
+    log.LogInformation("Done!");
+}
+```
+
+# [C# (Isolated)](#tab/csharp-isolated)
+
+```csharp
+[Function("FunctionChain")]
+public static async Task Run(
+    [OrchestrationTrigger] TaskOrchestrationContext context,
+    FunctionContext executionContext)
+{
+    ILogger log = executionContext.GetLogger("FunctionChain");
     log.LogInformation("Calling F1.");
     await context.CallActivityAsync("F1");
     log.LogInformation("Calling F2.");
@@ -235,19 +255,17 @@ main = df.Orchestrator.create(orchestrator_function)
 
 ```java
 @FunctionName("FunctionChain")
-public String functionChain(
-        @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState,
+public void functionChain(
+        @DurableOrchestrationTrigger(name = "ctx") TaskOrchestrationContext ctx,
         ExecutionContext functionContext) {
-    return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
-        Logger log = functionContext.getLogger();
-        log.info("Calling F1.");
-        ctx.callActivity("F1").await();
-        log.info("Calling F2.");
-        ctx.callActivity("F2").await();
-        log.info("Calling F3.");
-        ctx.callActivity("F3").await();
-        log.info("Done!");
-    });
+    Logger log = functionContext.getLogger();
+    log.info("Calling F1.");
+    ctx.callActivity("F1").await();
+    log.info("Calling F2.");
+    ctx.callActivity("F2").await();
+    log.info("Calling F3.");
+    ctx.callActivity("F3").await();
+    log.info("Done!");
 }
 ```
 
@@ -273,7 +291,7 @@ Done!
 
 If you want to only write logs on non-replay executions, you can write a conditional expression to log only if the "is replaying" flag is `false`. Consider the example above, but this time with replay checks.
 
-# [C#](#tab/csharp)
+# [C# (InProc)](#tab/csharp-inproc)
 
 ```csharp
 [FunctionName("FunctionChain")]
@@ -312,6 +330,28 @@ public static async Task Run(
 
 > [!NOTE]
 > The previous C# examples are for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+
+# [C# (Isolated)](#tab/csharp-isolated)
+
+In Durable Functions for .NET-isolated, you can create an `ILogger` that automatically filters out log statements during replay. The main difference with Durable Functions in-proc is that you do not provide an existing `ILogger`. This logger is created via the `TaskOrchestrationContext.CreateReplaySafeLogger` overloads.
+
+```csharp
+[Function("FunctionChain")]
+public static async Task Run([OrchestrationTrigger] TaskOrchestrationContext context)
+{
+    ILogger log = context.CreateReplaySafeLogger("FunctionChain");
+    log.LogInformation("Calling F1.");
+    await context.CallActivityAsync("F1");
+    log.LogInformation("Calling F2.");
+    await context.CallActivityAsync("F2");
+    log.LogInformation("Calling F3");
+    await context.CallActivityAsync("F3");
+    log.LogInformation("Done!");
+}
+```
+
+> [!NOTE]
+> The ability to wrap an existing `ILogger` into a replay-safe logger has been removed in Durable Functions for .NET isolated worker.
 
 # [JavaScript](#tab/javascript)
 
@@ -356,19 +396,17 @@ main = df.Orchestrator.create(orchestrator_function)
 
 ```java
 @FunctionName("FunctionChain")
-public String functionChain(
-        @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState,
+public void functionChain(
+        @DurableOrchestrationTrigger(name = "ctx") TaskOrchestrationContext ctx,
         ExecutionContext functionContext) {
-    return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
-        Logger log = functionContext.getLogger();
-        if (!ctx.getIsReplaying()) log.info("Calling F1.");
-        ctx.callActivity("F1").await();
-        if (!ctx.getIsReplaying()) log.info("Calling F2.");
-        ctx.callActivity("F2").await();
-        if (!ctx.getIsReplaying()) log.info("Calling F3.");
-        ctx.callActivity("F3").await();
-        log.info("Done!");
-    });
+    Logger log = functionContext.getLogger();
+    if (!ctx.getIsReplaying()) log.info("Calling F1.");
+    ctx.callActivity("F1").await();
+    if (!ctx.getIsReplaying()) log.info("Calling F2.");
+    ctx.callActivity("F2").await();
+    if (!ctx.getIsReplaying()) log.info("Calling F3.");
+    ctx.callActivity("F3").await();
+    log.info("Done!");
 }
 ```
 
@@ -387,7 +425,7 @@ Done!
 
 Custom orchestration status lets you set a custom status value for your orchestrator function. This custom status is then visible to external clients via the [HTTP status query API](durable-functions-http-api.md#get-instance-status) or via language-specific API calls. The custom orchestration status enables richer monitoring for orchestrator functions. For example, the orchestrator function code can invoke the "set custom status" API to update the progress for a long-running operation. A client, such as a web page or other external system, could then periodically query the HTTP status query APIs for richer progress information. Sample code for setting a custom status value in an orchestrator function is provided below:
 
-# [C#](#tab/csharp)
+# [C# (InProc)](#tab/csharp-inproc)
 
 ```csharp
 [FunctionName("SetStatusTest")]
@@ -405,6 +443,22 @@ public static async Task SetStatusTest([OrchestrationTrigger] IDurableOrchestrat
 
 > [!NOTE]
 > The previous C# example is for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+
+# [C# (Isolated)](#tab/csharp-isolated)
+
+```csharp
+[Function("SetStatusTest")]
+public static async Task SetStatusTest([OrchestrationTrigger] TaskOrchestrationContext context)
+{
+    // ...do work...
+
+    // update the status of the orchestration with some arbitrary data
+    var customStatus = new { completionPercentage = 90.0, status = "Updating database records" };
+    context.SetCustomStatus(customStatus);
+
+    // ...do more work...
+}
+```
 
 # [JavaScript](#tab/javascript)
 
@@ -446,19 +500,17 @@ main = df.Orchestrator.create(orchestrator_function)
 
 ```java
 @FunctionName("SetStatusTest")
-public String setStatusTest(
-        @DurableOrchestrationTrigger(name = "runtimeState") String runtimeState) {
-    return OrchestrationRunner.loadAndRun(runtimeState, ctx -> {
-        // ...do work...
+public void setStatusTest(
+        @DurableOrchestrationTrigger(name = "ctx") TaskOrchestrationContext ctx) {
+    // ...do work...
 
-        // update the status of the orchestration with some arbitrary data
-        ctx.setCustomStatus(new Object() {
-            public final double completionPercentage = 90.0;
-            public final String status = "Updating database records";
-        });
-
-        // ...do more work...
+    // update the status of the orchestration with some arbitrary data
+    ctx.setCustomStatus(new Object() {
+        public final double completionPercentage = 90.0;
+        public final String status = "Updating database records";
     });
+
+    // ...do more work...
 }
 ```
 
@@ -487,6 +539,38 @@ Clients will get the following response:
 > [!WARNING]
 > The custom status payload is limited to 16 KB of UTF-16 JSON text because it needs to be able to fit in an Azure Table Storage column. You can use external storage if you need larger payload.
 
+## Distributed Tracing
+
+Distributed Tracing tracks requests and shows how different services interact with each other. In Durable Functions, it also correlates orchestrations and activities together. This is helpful to understand how much time steps of the orchestration take relative to the entire orchestration. It is also useful to understand where an application is having an issue or where an exception was thrown. This feature is supported for all languages and storage providers.
+
+> [!NOTE]
+> Distributed Tracing V2 requires [Durable Functions v2.12.0](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask/2.12.0) or greater. Also, Distributed Tracing V2 is in a preview state and therefore some Durable Functions patterns are not instrumented. For example, Durable Entities operations are not instrumented and traces will not show up in Application Insights.
+
+### Setting up Distributed Tracing
+
+To set up distributed tracing, please update the host.json and set up an Application Insights resource.
+
+#### host.json
+```
+"durableTask": {
+  "tracing": {
+    "distributedTracingEnabled": true,
+    "Version": "V2"
+  }
+}
+```
+
+#### Application Insights
+If the Function app is not configured with an Application Insights resource, then please configure it following the instructions [here](../configure-monitoring.md#enable-application-insights-integration).
+
+### Inspecting the traces
+In the Application Insights resource, navigate to **Transaction Search**. In the results, check for `Request` and `Dependency` events that start with Durable Functions specific prefixes (e.g. `orchestration:`, `activity:`, etc.). Selecting one of these events will open up a Gantt chart that will show the end to end distributed trace.
+
+[![Gantt Chart showing Application Insights Distributed Trace.](./media/durable-functions-diagnostics/app-insights-distributed-trace-gantt-chart.png)](./media/durable-functions-diagnostics/app-insights-distributed-trace-gantt-chart.png#lightbox)
+
+### Troubleshooting
+If you don't see the traces in Application Insights, please make sure to wait about five minutes after running the application to ensure that all of the data is propagated to the Application Insights resource.
+
 ## Debugging
 
 Azure Functions supports debugging function code directly, and that same support carries forward to Durable Functions, whether running in Azure or locally. However, there are a few behaviors to be aware of when debugging:
@@ -513,9 +597,13 @@ This is useful for debugging because you see exactly what state an orchestration
 > [!NOTE]
 > Other storage providers can be configured instead of the default Azure Storage provider. Depending on the storage provider configured for your app, you may need to use different tools to inspect the underlying state. For more information, see the [Durable Functions Storage Providers](durable-functions-storage-providers.md) documentation.
 
-## 3rd party tools
+## Durable Functions Monitor
 
-The Durable Functions community publishes a variety of tools that can be useful for debugging, diagnostics, or monitoring. One such tool is the open source [Durable Functions Monitor](https://github.com/scale-tone/DurableFunctionsMonitor#durable-functions-monitor), a graphical tool for monitoring, managing, and debugging your orchestration instances.
+[Durable Functions Monitor](https://github.com/microsoft/DurableFunctionsMonitor) is a graphical tool for monitoring, managing, and debugging orchestration and entity instances. It is available as a Visual Studio Code extension or a standalone app. Information about set up and a list of features can be found in [this Wiki](https://github.com/microsoft/DurableFunctionsMonitor/wiki).
+
+## Durable Functions troubleshooting guide
+
+To troubleshoot common problem symptoms such as orchestrations being stuck, failing to start, running slowly, etc., refer to this [troubleshooting guide](durable-functions-troubleshooting-guide.md). 
 
 ## Next steps
 

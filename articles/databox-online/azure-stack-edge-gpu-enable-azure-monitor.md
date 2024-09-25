@@ -20,7 +20,7 @@ Monitoring containers on your Azure Stack Edge Pro GPU device is critical, speci
 This article describes the steps required to enable Azure Monitor on your device and gather container logs in Log Analytics workspace. The Azure Monitor metrics store is currently not supported with your Azure Stack Edge Pro GPU device. 
 
 > [!NOTE]
-> If Azure Arc is enabled on the Kubernetes cluster on your device, follow the steps in [Azure Monitor Container Insights for Azure Arc-enabled Kubernetes clusters](../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=%2fazure%2fazure-arc%2fkubernetes%2ftoc.json) to set up container monitoring.
+> If Azure Arc is enabled on the Kubernetes cluster on your device, follow the steps in [Azure Monitor Container Insights for Azure Arc-enabled Kubernetes clusters](/azure/azure-monitor/containers/container-insights-enable-arc-enabled-clusters?toc=%2fazure%2fazure-arc%2fkubernetes%2ftoc.json) to set up container monitoring.
 
 
 ## Prerequisites
@@ -50,7 +50,7 @@ Take the following steps to create a log analytics workspace. A log analytics wo
 
         ![Review + Create for Log Analytics workspace](media/azure-stack-edge-gpu-enable-azure-monitor/create-log-analytics-workspace-review-create-1.png)
 
-For more information, see the detailed steps in [Create a Log Analytics workspace via Azure portal](../azure-monitor/logs/quick-create-workspace.md).
+For more information, see the detailed steps in [Create a Log Analytics workspace via Azure portal](/azure/azure-monitor/logs/quick-create-workspace).
 
 
 
@@ -58,7 +58,7 @@ For more information, see the detailed steps in [Create a Log Analytics workspac
 
 Take the following steps to enable Container Insights on your workspace. 
 
-1. Follow the detailed steps in the [How to add the Azure Monitor Containers solution](../azure-monitor/containers/container-insights-hybrid-setup.md#how-to-add-the-azure-monitor-containers-solution). Use the following template file `containerSolution.json`:
+1. Follow the detailed steps in [Add the Azure Monitor Containers solution](/azure/azure-monitor/containers/container-insights-hybrid-setup#add-the-azure-monitor-containers-solution). Use the following template file `containerSolution.json`:
 
     ```yml
     {

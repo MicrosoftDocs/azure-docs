@@ -3,15 +3,21 @@ title: How to create alerts for Azure Automation Change Tracking and Inventory
 description: This article tells how to configure Azure alerts to notify about the status of changes detected by Change Tracking and Inventory.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 10/15/2020
-ms.topic: conceptual
+ms.date: 09/09/2024
+ms.topic: how-to
+ms.service: azure-automation
 ---
 
 # How to create alerts for Change Tracking and Inventory
 
+[!INCLUDE [./log-analytics-retirement-announcement.md](../includes/log-analytics-retirement-announcement.md)]
+
+> [!NOTE]
+> Change Tracking & Inventory with Log Analytics onboarding via Azure portal will not be allowed since the service has retired on **31st August 2024**. We recommend that you configure new version of Change Tracking & Inventory with AMA. Your existing VMs on Change Tracking & Inventory with legacy agent will continue to work till **1st February, 2025**. For more information, see [Enable Change Tracking and Inventory using Azure Monitoring Agent](enable-vms-monitoring-agent.md).
+
 Alerts in Azure proactively notify you of results from runbook jobs, service health issues, or other scenarios related to your Automation account. Azure Automation does not include pre-configured alert rules, but you can create your own based on data that it generates. This article provides guidance on creating alert rules based on changes identified by Change Tracking and Inventory.
 
-If you're not familiar with Azure Monitor alerts, see [Overview of alerts in Microsoft Azure](../../azure-monitor/alerts/alerts-overview.md) before you start. To learn more about alerts that use log queries, see [Log alerts in Azure Monitor](../../azure-monitor/alerts/alerts-unified-log.md).
+If you're not familiar with Azure Monitor alerts, see [Overview of alerts in Microsoft Azure](/azure/azure-monitor/alerts/alerts-overview) before you start. To learn more about alerts that use log queries, see [Log alerts in Azure Monitor](/azure/azure-monitor/alerts/alerts-unified-log).
 
 ## Create alert
 
@@ -21,7 +27,7 @@ The following example shows that the file **c:\windows\system32\drivers\etc\host
 
 Let's use this example to discuss the steps for creating alerts on a change.
 
-1. On the **Change tracking** page from your Automation account, select **Log Analytics**.
+1. On the **Change tracking** page from your Virtual Machine, select **Log Analytics**.
 
 2. In the Logs search, look for content changes to the **hosts** file with the query `ConfigurationChange | where FieldsChanged contains "FileContentChecksum" and FileSystemPath contains "hosts"`. This query looks for content changes for files with fully qualified path names containing the word `hosts`. You can also ask for a specific file by changing the path portion to its fully qualified form, for example, using `FileSystemPath == "c:\windows\system32\drivers\etc\hosts"`.
 
@@ -33,11 +39,11 @@ Let's use this example to discuss the steps for creating alerts on a change.
 
 5. After the alert logic is set, assign action groups to perform actions in response to triggering of the alert. In this case, we're setting up emails to be sent and an IT Service Management (ITSM) ticket to be created.
 
-Follow the steps below to set up alerts to let you know the status of an update deployment. If you are new to Azure alerts, see [Azure Alerts overview](../../azure-monitor/alerts/alerts-overview.md).
+Follow the steps below to set up alerts to let you know the status of an update deployment. If you are new to Azure alerts, see [Azure Alerts overview](/azure/azure-monitor/alerts/alerts-overview).
 
 ## Configure action groups for your alerts
 
-Once you have your alerts configured, you can set up an action group, which is a group of actions to use across multiple alerts. The actions can include email notifications, runbooks, webhooks, and much more. To learn more about action groups, see [Create and manage action groups](../../azure-monitor/alerts/action-groups.md).
+Once you have your alerts configured, you can set up an action group, which is a group of actions to use across multiple alerts. The actions can include email notifications, runbooks, webhooks, and much more. To learn more about action groups, see [Create and manage action groups](/azure/azure-monitor/alerts/action-groups).
 
 1. Select an alert and then select **Create New** under **Action Groups**.
 
@@ -61,8 +67,8 @@ Once you have your alerts configured, you can set up an action group, which is a
 
 ## Next steps
 
-* Learn more about [alerts in Azure Monitor](../../azure-monitor/alerts/alerts-overview.md).
+* Learn more about [alerts in Azure Monitor](/azure/azure-monitor/alerts/alerts-overview).
 
-* Learn about [log queries](../../azure-monitor/logs/log-query-overview.md) to retrieve and analyze data from a Log Analytics workspace.
+* Learn about [log queries](/azure/azure-monitor/logs/log-query-overview) to retrieve and analyze data from a Log Analytics workspace.
 
-* [Analyze usage in Log Analytics workspace](../../azure-monitor/logs/analyze-usage.md) describes how to analyze and alert on your data usage.
+* [Analyze usage in Log Analytics workspace](/azure/azure-monitor/logs/analyze-usage) describes how to analyze and alert on your data usage.

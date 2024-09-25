@@ -1,16 +1,20 @@
 ---
 title: Configure authentication in a sample Android application by using Azure Active Directory B2C
 description:  This article discusses how to use Azure Active Directory B2C to sign in and sign up users in an Android application.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
-ms.workload: identity
+
 ms.topic: reference
-ms.date: 07/05/2021
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
+
+
+#Customer intent: As a mobile app developer, I want to configure Azure AD B2C authentication in my Android app, so that I can securely sign users in and access protected web APIs.
+
 ---
 
 # Configure authentication in a sample Android app by using Azure AD B2C
@@ -58,9 +62,9 @@ The apps registration and application architecture are illustrated in the follow
 A computer that's running: 
 
 
-- [Java Development Kit (JDK) 8 or later](https://openjdk.java.net/)
+- [Java Development Kit (JDK) 8 or later](https://openjdk.org/)
 - [Apache Maven](https://maven.apache.org/)
-- [Android API level 16 or later](https://developer.android.com/studio/releases/platforms)
+- [Android API level 16 or later](https://developer.android.com/tools/releases/platforms)
 - [Android Studio](https://developer.android.com/studio) or another code editor
 
 
@@ -150,7 +154,7 @@ Update the following app settings properties:
 |---------|---------|
 | [client_id](../active-directory/develop/msal-client-application-configuration.md#client-id) | The mobile application ID from [step 2.3](#step-23-register-the-mobile-app). | 
 | [redirect_uri](../active-directory/develop/msal-client-application-configuration.md#redirect-uri) | The mobile application redirect URI from [step 2.3](#step-23-register-the-mobile-app). | 
-| [authorities](../active-directory/develop/msal-client-application-configuration.md#authority)| The authority is a URL that indicates a directory that the MSAL can request tokens from. Use the following format: `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<your-sign-in-sign-up-policy>`. Replace `<your-tenant-name>` with your Azure AD B2C [tenant name](tenant-management.md#get-your-tenant-name). Then, replace `<your-sign-in-sign-up-policy>` with the user flows or custom policy that you created in [step 1](#step-1-configure-your-user-flow). |
+| [authorities](../active-directory/develop/msal-client-application-configuration.md#authority)| The authority is a URL that indicates a directory that the MSAL can request tokens from. Use the following format: `https://<your-tenant-name>.b2clogin.com/<your-tenant-name>.onmicrosoft.com/<your-sign-in-sign-up-policy>`. Replace `<your-tenant-name>` with your Azure AD B2C [tenant name]( tenant-management-read-tenant-name.md#get-your-tenant-name). Then, replace `<your-sign-in-sign-up-policy>` with the user flows or custom policy that you created in [step 1](#step-1-configure-your-user-flow). |
 | | | 
 
 
@@ -159,8 +163,8 @@ Open the `B2CConfiguration` class, and update the following class members:
 |Key  |Value  |
 |---------|---------|
 | Policies| The list of user flows or custom policies that you created in [step 1](#step-1-configure-your-user-flow).|
-| azureAdB2CHostName| The first part of your Azure AD B2C [tenant name](tenant-management.md#get-your-tenant-name) (for example, `https://contoso.b2clogin.com`).|
-| tenantName| Your Azure AD B2C tenant full [tenant name](tenant-management.md#get-your-tenant-name) (for example, `contoso.onmicrosoft.com`).|
+| azureAdB2CHostName| The first part of your Azure AD B2C [tenant name]( tenant-management-read-tenant-name.md#get-your-tenant-name) (for example, `https://contoso.b2clogin.com`).|
+| tenantName| Your Azure AD B2C tenant full [tenant name]( tenant-management-read-tenant-name.md#get-your-tenant-name) (for example, `contoso.onmicrosoft.com`).|
 | scopes| The web API scopes that you created in [step 2.4](#step-24-grant-the-mobile-app-permissions-for-the-web-api).|
 | | |
 

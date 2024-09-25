@@ -1,11 +1,9 @@
 ---
 title: include file
 description: include file
-services: data-factory
 author: jianleishen
-ms.service: data-factory
 ms.topic: include
-ms.date: 09/29/2021
+ms.date: 07/12/2024
 ms.author: jianleishen
 ms.custom: include file
 ---
@@ -13,9 +11,9 @@ ms.custom: include file
 | Category | Data store | Supported as a source | Supported as a sink | Supported by [Azure IR](../concepts-integration-runtime.md#azure-integration-runtime) | Supported by [self-hosted IR](../concepts-integration-runtime.md#self-hosted-integration-runtime) |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | **Azure** |[Azure Blob storage](../connector-azure-blob-storage.md) |✓ |✓ |✓ |✓  |
-| &nbsp; |[Azure Cognitive Search index](../connector-azure-search.md) | |✓ |✓ |✓  |
-| &nbsp; |[Azure Cosmos DB (SQL API)](../connector-azure-cosmos-db.md) |✓ |✓ |✓ |✓  |
-| &nbsp; |[Azure Cosmos DB's API for MongoDB](../connector-azure-cosmos-db-mongodb-api.md) |✓ |✓ |✓ |✓  |
+| &nbsp; |[Azure AI Search index](../connector-azure-search.md) | |✓ |✓ |✓  |
+| &nbsp; |[Azure Cosmos DB for NoSQL](../connector-azure-cosmos-db.md) |✓ |✓ |✓ |✓  |
+| &nbsp; |[Azure Cosmos DB for MongoDB](../connector-azure-cosmos-db-mongodb-api.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure Data Explorer](../connector-azure-data-explorer.md) |✓ |✓ |✓ |✓ |
 | &nbsp; |[Azure Data Lake Storage Gen1](../connector-azure-data-lake-store.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure Data Lake Storage Gen2](../connector-azure-data-lake-storage.md) |✓ |✓ |✓ |✓  |
@@ -73,7 +71,7 @@ ms.custom: include file
 | &nbsp; |[Generic OData](../connector-odata.md) |✓ | |✓ |✓  |
 | &nbsp; |[Generic ODBC](../connector-odbc.md) |✓ |✓ | |✓  |
 | &nbsp; |[Generic REST](../connector-rest.md) |✓ | ✓ |✓ |✓  |
-| **Services and apps** |[Amazon Marketplace Web Service](../connector-amazon-marketplace-web-service.md) |✓ | |✓ |✓  |
+| **Services and apps** |[Amazon Marketplace Web Service (Deprecated)](../connector-amazon-marketplace-web-service.md) | | | |  |
 | &nbsp; |[Concur (Preview)](../connector-concur.md) |✓ | |✓ |✓  |
 | &nbsp; |[Dataverse](../connector-dynamics-crm-office-365.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Dynamics 365](../connector-dynamics-crm-office-365.md) |✓ |✓ |✓ |✓  |

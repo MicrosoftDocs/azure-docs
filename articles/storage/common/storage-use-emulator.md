@@ -4,8 +4,8 @@ description: The Azure Storage Emulator (deprecated) provides a free local devel
 author: pauljewellmsft
 ms.author: pauljewell
 ms.date: 07/14/2021
-ms.service: storage
-ms.subservice: common
+ms.service: azure-storage
+ms.subservice: storage-common-concepts
 ms.topic: how-to 
 ms.custom: devx-track-azurepowershell
 ---
@@ -95,13 +95,13 @@ For more information on connection strings, see [Configure Azure Storage connect
 
 ### Authorize with a shared access signature
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 Some Azure storage client libraries, such as the Xamarin library, only support authentication with a shared access signature (SAS) token. You can create the SAS token using [Storage Explorer](https://storageexplorer.com/) or another application that supports Shared Key authentication.
 
 You can also generate a SAS token by using Azure PowerShell. The following example generates a SAS token with full permissions to a blob container:
 
-1. Install Azure PowerShell if you haven't already (using the latest version of the Azure PowerShell cmdlets is recommended). For installation instructions, see [Install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
+1. Install Azure PowerShell if you haven't already (using the latest version of the Azure PowerShell cmdlets is recommended). For installation instructions, see [Install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).
 2. Open Azure PowerShell and run the following commands, replacing `CONTAINER_NAME` with a name of your choosing:
 
 ```powershell
@@ -117,7 +117,7 @@ New-AzStorageContainerSASToken -Name CONTAINER_NAME -Permission rwdl -ExpiryTime
 The resulting shared access signature URI for the new container should be similar to:
 
 ```
-http://127.0.0.1:10000/devstoreaccount1/sascontainer?sv=2012-02-12&se=2015-07-08T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3Dsss
+http://127.0.0.1:10000/devstoreaccount1/sascontainer?sv=2012-02-12&se=2015-07-08T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst/8MCUhTjrHyV9rDNLSe8g%3Dsss
 ```
 
 The shared access signature created with this example is valid for one day. The signature grants full access (read, write, delete, list) to blobs within the container.

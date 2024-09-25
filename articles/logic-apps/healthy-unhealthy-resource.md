@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/20/2022
+ms.date: 01/04/2024
 ---
 
 # Set up logging to monitor logic apps in Microsoft Defender for Cloud
@@ -21,11 +21,11 @@ When you monitor your Azure Logic Apps resources in [Microsoft Azure Security Ce
 
 * Existing logic apps with [diagnostic logging enabled](#enable-diagnostic-logging).
 
-* A Log Analytics workspace, which is required to enable logging for your logic app. If you don't have a workspace, first [create your workspace](../azure-monitor/logs/quick-create-workspace.md).
+* A Log Analytics workspace, which is required to enable logging for your logic app. If you don't have a workspace, first [create your workspace](/azure/azure-monitor/logs/quick-create-workspace).
 
 ## Enable diagnostic logging
 
-Before you can view the resource health status for your logic apps, you must first [set up diagnostic logging](monitor-logic-apps-log-analytics.md). If you already have a Log Analytics workspace, you can enable logging either when you create your logic app or on existing logic apps.
+Before you can view the resource health status for your logic apps, you must first [set up diagnostic logging](monitor-workflows-collect-diagnostic-data.md). If you already have a Log Analytics workspace, you can enable logging either when you create your logic app or on existing logic apps.
 
 > [!TIP]
 > The default recommendation is to enable diagnostic logs for Azure Logic Apps. However, you control this setting for your logic apps. When you enable diagnostic logs for your logic apps, you can use the information to help analyze security incidents.

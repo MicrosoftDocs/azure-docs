@@ -1,14 +1,16 @@
 ---
-title: Database consistent snapshots using enhanced pre-post script framework
-description: Learn how Azure Backup allows you to take database consistent snapshots, leveraging Azure VM backup and using packaged pre-post scripts
-ms.topic: conceptual
-ms.date: 09/16/2021 
-ms.custom: devx-track-azurepowershell
+title: Database consistent snapshots using enhanced prepost script framework
+description: Learn how Azure Backup allows you to take database consistent snapshots, leveraging Azure Virtual Machine (VM) backup and using packaged prepost scripts
+ms.topic: how-to
+ms.custom: linux-related-content
+ms.date: 09/11/2024 
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
-# Enhanced pre-post scripts for database consistent snapshot
+# Enhanced prepost scripts for database consistent snapshot
 
-Azure Backup service already provides a [_pre-post_ script framework](./backup-azure-linux-app-consistent.md) to achieve application consistency in Linux VMs using Azure Backup. This involves invoking a pre-script (to quiesce the applications) before taking
+Azure Backup service already provides a [_prepost_ script framework](./backup-azure-linux-app-consistent.md) to achieve application consistency in Linux VMs using Azure Backup. This process involves invoking a pre-script (to quiesce the applications) before taking
 snapshot of disks and calling post-script (commands to un-freeze the applications) after the snapshot is completed to return the applications to the normal mode.
 
 Authoring, debugging and maintenance of e pre/post scripts could be challenging. To remove this complexity, Azure Backup provides simplified pre/post-script experience for marquee databases to get application consistent snapshot with least overhead.
@@ -17,7 +19,7 @@ Authoring, debugging and maintenance of e pre/post scripts could be challenging.
 
 The new _enhanced_ pre-post script framework has the following key benefits:
 
-- These pre-post scripts are directly installed in Azure VMs along with the backup extension. This helps to eliminate authoring and download them from an external location.
+- These pre-post scripts are directly installed in Azure VMs along with the backup extension, which helps to eliminate authoring and download them from an external location.
 - You can view the definition and content of pre-post scripts in [GitHub](https://github.com/Azure/azure-linux-extensions/tree/master/VMBackup/main/workloadPatch/DefaultScripts), even submit suggestions and changes. You can even submit suggestions and changes via GitHub, which will be triaged and added to benefit the broader community.
 - You can even add new pre-post scripts for other databases via [GitHub](https://github.com/Azure/azure-linux-extensions/tree/master/VMBackup/main/workloadPatch/DefaultScripts), _which will be triaged and addressed to benefit the broader community_.
 - The robust framework is efficient to handle scenarios, such as pre-script execution failure or crashes. In any event, the post-script automatically runs to roll back all changes done in the pre-script.
@@ -31,7 +33,7 @@ The new _enhanced_ pre-post script framework has the following key benefits:
 
 The following the list of databases are covered under the enhanced framework:
 
-- [Oracle (Generally Available)](../virtual-machines/workloads/oracle/oracle-database-backup-azure-backup.md) - [Link to support matrix](backup-support-matrix-iaas.md#support-matrix-for-managed-pre-post-scripts-for-linux-databases)
+- [Oracle (Generally Available)](/azure/virtual-machines/workloads/oracle/oracle-database-backup-azure-backup) - [Link to support matrix](backup-support-matrix-iaas.md#support-matrix-for-managed-pre-and-post-scripts-for-linux-databases)
 - MySQL (Preview)
 
 ## Prerequisites
@@ -54,7 +56,7 @@ The following table describes the parameters:
 |Parameter  |Mandatory  |Explanation  |
 |---------|---------|---------|
 |workload_name     |   Yes      |     This will contain the name of the database for which you need application consistent backup. The current supported values are `oracle` or `mysql`.    |
-|command_path/configuration_path     |         |   This will contain path to the workload binary. This is not a mandatory field if the workload binary is set as path variable.      |
+|command_path/configuration_path     |         |   This will contain path to the workload binary. This isn't a mandatory field if the workload binary is set as path variable.      |
 |linux_user     |    Yes     |   This will contain the username of the Linux user with access to the database user login. If this value isn't set, then root is considered as the default user.      |
 |credString     |         |     This stands for credential string to connect to the database. This will contain the entire login string.    |
 |ipc_folder     |         |   The workload can only write to certain file system paths. You need to provide here this folder path so that the pre-script can write the states to this folder path.      |
@@ -85,9 +87,9 @@ Therefore, a daily snapshot + logs with occasional full backup for long-term ret
 
 ### Log backup strategy
 
-The enhanced pre-post script framework is built on Azure VM backup that schedules backup once per day. So, the data loss window with RPO as 24 hours isn’t suitable for production databases. This solution is complemented with a log backup strategy where log backups are streamed out explicitly.
+The enhanced pre-post script framework is built on Azure VM backup that schedules backup once per day. So, the data loss window with Recovery Point Objective (RPO) as 24 hours isn’t suitable for production databases. This solution is complemented with a log backup strategy where log backups are streamed out explicitly.
 
-[NFS on blob](../storage/blobs/network-file-system-protocol-support.md) and [NFS on AFS (Preview)](../storage/files/files-nfs-protocol.md) help in easy mounting of volumes directly on database VMs and use database clients to transfer log backups. The data loss window, that is RPO, falls to the frequency of log backups. Also, NFS targets don't need to be highly performant as you might not need to trigger regular streaming (full and incremental) for operational backups after you have a database consistent snapshots.
+[NFS on blob](../storage/blobs/network-file-system-protocol-support.md) and [NFS on AFS (Preview)](../storage/files/files-nfs-protocol.md) help in easy mounting of volumes directly on database VMs and use database clients to transfer log backups. The data loss window that is RPO, falls to the frequency of log backups. Also, NFS targets don't need to be highly performant as you might not need to trigger regular streaming (full and incremental) for operational backups after you have a database consistent snapshots.
 
 >[!NOTE]
 >The enhanced pre- script usually takes care to flush all the log transactions in transit to the log backup destination, before quiescing the database to take a snapshot. Therefore, the snapshots are database consistent and reliable during recovery.

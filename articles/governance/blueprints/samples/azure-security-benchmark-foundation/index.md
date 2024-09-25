@@ -1,10 +1,12 @@
 ---
 title: Azure Security Benchmark Foundation blueprint sample overview
 description: Overview and architecture of the Azure Security Benchmark Foundation blueprint sample.
-ms.date: 09/08/2021
+ms.date: 09/07/2023
 ms.topic: sample
 ---
 # Overview of the Azure Security Benchmark Foundation blueprint sample
+
+[!INCLUDE [Blueprints deprecation note](../../../../../includes/blueprints-deprecation-note.md)]
 
 The Azure Security Benchmark Foundation blueprint sample provides a set of baseline infrastructure
 patterns to help you build a secure and compliant Azure environment. The blueprint helps you deploy
@@ -34,7 +36,7 @@ management jump boxes.
 This blueprint deploys several Azure services to provide a secure, monitored, enterprise-ready
 foundation. This environment is composed of:
 
-- [Azure Monitor Logs](../../../../azure-monitor/logs/data-platform-logs.md)
+- [Azure Monitor Logs](/azure/azure-monitor/logs/data-platform-logs)
   and an Azure storage account to ensure resource logs, activity logs, metrics, and networks traffic
   flows are stored in a central location for easy querying, analytics, archival, and alerting.
 - [Azure Security Center](../../../../security-center/security-center-introduction.md)
@@ -54,12 +56,12 @@ foundation. This environment is composed of:
   Azure Firewall) configured to block all internet inbound and outbound traffic.
 - [Application security groups](../../../../virtual-network/application-security-groups.md)
   to enable grouping of Azure virtual machines to apply common network security policies.
-- [Route tables](../../../../virtual-network/manage-route-table.md) to route all
+- [Route tables](../../../../virtual-network/manage-route-table.yml) to route all
   outbound internet traffic from subnets through the firewall. (Azure Firewall and NSG rules will
   need to be configured after deployment to open connectivity.)
 - [Azure Network Watcher](../../../../network-watcher/network-watcher-monitoring-overview.md)
   to monitor, diagnose, and view metrics of resources in the Azure virtual network.
-- [Azure DDoS Protection Standard](../../../../ddos-protection/ddos-protection-overview.md)
+- [Azure DDoS Protection](../../../../ddos-protection/ddos-protection-overview.md)
   to protect Azure resources against DDoS attacks.
 - [Azure Bastion](../../../../bastion/bastion-overview.md) to provide seamless and
   secure connectivity to a virtual machine that does not require a public IP address, agent, or

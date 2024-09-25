@@ -3,11 +3,9 @@ title: Create a mapping data flow
 description: How to create an Azure Data Factory mapping data flow
 author: kromerm
 ms.author: makromer
-ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: quickstart
-ms.custom: seo-lt-2019
-ms.date: 08/03/2022
+ms.date: 01/05/2024
 ---
 
 # Create Azure Data Factory data flows
@@ -60,7 +58,7 @@ You can also add data flows directly to your workspace without using a template.
 
 ---
 
-## Next steps
+## Related content
 
 * [Tutorial: Transform data using mapping data flows](tutorial-data-flow.md)
 * Begin building your data transformation with a [source transformation](data-flow-source.md).

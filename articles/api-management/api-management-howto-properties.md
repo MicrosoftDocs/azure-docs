@@ -2,16 +2,18 @@
 title: How to use named values in Azure API Management policies
 description: Learn how to use named values in Azure API Management policies. Named values can contain literal strings, policy expressions, and secrets stored in Azure Key Vault.
 services: api-management
-documentationcenter: ''
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
-ms.date: 02/09/2021
+ms.date: 07/11/2024
 ms.author: danlep
+ms.custom: engagement-fy23, devx-track-azurecli
 ---
 
 # Use named values in Azure API Management policies
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 [API Management policies](api-management-howto-policies.md) are a powerful capability of the system that allow the publisher to change the behavior of the API through configuration. Policies are a collection of statements that are executed sequentially on the request or response of an API. Policy statements can be constructed using literal text values, policy expressions, and named values.
 
@@ -33,33 +35,42 @@ For details about the named value attributes, see the API Management [REST API r
 
 ## Key vault secrets
 
-Secret values can be stored either as encrypted strings in API Management (custom secrets) or by referencing secrets in [Azure Key Vault](../key-vault/general/overview.md). 
+Secret values can be stored either as encrypted strings in API Management (custom secrets) or by referencing secrets in [Azure Key Vault](/azure/key-vault/general/overview). 
 
 Using key vault secrets is recommended because it helps improve API Management security:
 
 * Secrets stored in key vaults can be reused across services
-* Granular [access policies](../key-vault/general/security-features.md#privileged-access) can be applied to secrets
+* Granular [access policies](/azure/key-vault/general/security-features#privileged-access) can be applied to secrets
 * Secrets updated in the key vault are automatically rotated in API Management. After update in the key vault, a named value in API Management is updated within 4 hours. You can also manually refresh the secret using the Azure portal or via the management REST API.
+
+## Prerequisites
+
+* If you have not created an API Management service instance yet, see [Create an API Management service instance](get-started-create-service-instance.md).
 
 ### Prerequisites for key vault integration
 
-1. For steps to create a key vault, see [Quickstart: Create a key vault using the Azure portal](../key-vault/general/quick-create-portal.md).
-1. Enable a system-assigned or user-assigned [managed identity](api-management-howto-use-managed-service-identity.md) in the API Management instance.
-1. Assign a [key vault access policy](../key-vault/general/assign-access-policy-portal.md) to the managed identity with permissions to get and list secrets from the vault. To add the policy:
-    1. In the portal, navigate to your key vault.
-    1. Select **Settings > Access policies > +Add Access Policy**.
-    1. Select **Secret permissions**, then select **Get** and **List**.
-    1. In **Select principal**, select the resource name of your managed identity. If you're using a system-assigned identity, the principal is the name of your API Management instance.
-1. Create or import a secret to the key vault. See [Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal](../key-vault/secrets/quick-create-portal.md).
-1. When adding a key vault secret to your API Management instance, you must have permissions to list secrets from the key vault.
+[!INCLUDE [api-management-workspace-availability](../../includes/api-management-workspace-availability.md)]
+
+- If you don't already have a key vault, create one. For steps to create a key vault, see [Quickstart: Create a key vault using the Azure portal](/azure/key-vault/general/quick-create-portal).
+
+    To create or import a secret to the key vault, see [Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal](/azure/key-vault/secrets/quick-create-portal).
+
+- Enable a system-assigned or user-assigned [managed identity](api-management-howto-use-managed-service-identity.md) in the API Management instance.
+
+[!INCLUDE [api-management-key-vault-access](../../includes/api-management-key-vault-access.md)]
+
 
 [!INCLUDE [api-management-key-vault-network](../../includes/api-management-key-vault-network.md)]
 
 ## Add or edit a named value
 
-### Add a key vault secret
+### Add a key vault secret to API Management
 
 See [Prerequisites for key vault integration](#prerequisites-for-key-vault-integration).
+
+
+> [!IMPORTANT]
+> When adding a key vault secret to your API Management instance, you must have permissions to list secrets from the key vault.
 
 > [!CAUTION]
 > When using a key vault secret in API Management, be careful not to delete the secret, key vault, or managed identity used to access the key vault.
@@ -79,7 +90,7 @@ See [Prerequisites for key vault integration](#prerequisites-for-key-vault-integ
 
     :::image type="content" source="media/api-management-howto-properties/add-property.png" alt-text="Add key vault secret value":::
 
-### Add a plain or secret value
+### Add a plain or secret value to API Management
 
 ### [Portal](#tab/azure-portal)
 
@@ -97,7 +108,7 @@ Once the named value is created, you can edit it by selecting the name. If you c
 
 To begin using Azure CLI:
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 To add a named value, use the [az apim nv create](/cli/azure/apim/nv#az-apim-nv-create) command:
 
