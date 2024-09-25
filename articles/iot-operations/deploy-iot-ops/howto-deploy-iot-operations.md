@@ -157,7 +157,6 @@ Azure IoT Operations requires a schema registry on your cluster. Schema registry
    | `--disable-rsync-rules` |  | Disable the resource sync rules on the deployment feature flag if you don't have **Microsoft.Authorization/roleAssignment/write** permissions in the resource group. |
    | `--add-insecure-listener` |  | Add an insecure 1883 port config to the default listener. *Not for production use*. |
    | `--broker-config-file` | Path to JSON file | Provide a configuration file for the MQTT broker. For more information, see [Advanced MQTT broker config](https://github.com/Azure/azure-iot-ops-cli-extension/wiki/Advanced-Mqtt-Broker-Config) and [Configure core MQTT broker settings](../manage-mqtt-broker/howto-configure-availability-scale.md). |
-   | `--name` | String | Provide a name for your Azure IoT Operations instance. Otherwise, a default name is assigned. You can view the `instanceName` parameter in the command output. |
 
 Once the `create` command completes successfully, you have a working Azure IoT Operations instance running on your cluster. At this point, your instance is configured for most testing and evaluation scenarios. If you want to prepare your instance for production scenarios, continue to the next section to enable secure settings.
 
