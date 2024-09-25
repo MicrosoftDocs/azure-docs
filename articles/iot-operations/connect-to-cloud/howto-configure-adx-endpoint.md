@@ -151,6 +151,12 @@ Using the system-assigned managed identity is the recommended authentication met
 
 Before you create the dataflow endpoint, assign a role to the managed identity that grants permission to write to the Azure Data Explorer database. For more information on adding permissions, see [Manage Azure Data Explorer cluster permissions](/azure/data-explorer/manage-cluster-permissions).
 
+# [Portal](#tab/portal)
+
+In the Azure IoT Operations portal dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **System assigned managed identity**. In most cases, you don't need to specify a service audience. Not specifying an audience creates a managed identity with the default audience scoped to your storage account.
+
+# [Kubernetes](#tab/kubernetes)
+
 In the *DataflowEndpoint* resource, specify the managed identity authentication method. In most cases, you don't need to specify other settings. This configuration creates a managed identity with the default audience `https://api.kusto.windows.net`.
 
 ```yaml
@@ -170,7 +176,17 @@ dataExplorerSettings:
       audience: https://<audience URL>
 ```
 
+---
+
 #### User-assigned managed identity
+
+# [Portal](#tab/portal)
+
+In the Azure IoT Operations portal dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **User assigned managed identity**.
+
+Enter the user assigned managed identity client ID and tenant ID in the appropriate fields.
+
+# [Kubernetes](#tab/kubernetes)
 
 To use a user-assigned managed identity, specify the `UserAssignedManagedIdentity` authentication method and provide the `clientId` and `tenantId` of the managed identity.
 
@@ -182,6 +198,8 @@ dataExplorerSettings:
       clientId: <ID>
       tenantId: <ID>
 ```
+
+---
 
 ## Advanced settings
 
