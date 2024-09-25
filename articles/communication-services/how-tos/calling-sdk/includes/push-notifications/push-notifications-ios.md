@@ -11,7 +11,7 @@ ms.author: rifox
 Mobile push notifications are the pop-up notifications you see on mobile devices. For calling, we'll be focusing on VoIP (Voice over Internet Protocol) push notifications. We'll register for push notifications, handle push notifications, and then un-register push notifications. For a guide on CallKit integration in your iOS application, refer here, [CallKit integration with iOS ACS SDK](../../callkit-integration.md).
 
 > [!NOTE]
-> To Register for Push Notifications and handling of the Push Notifications for a Teams user the APIs are the same. The APIs described can also be invoked on the `CommonCallAgent` or `TeamsCallAgent` classes.
+> Registering for Push Notifications and handling of the incoming Push Notifications for a Teams user, the APIs are the same. The APIs described here can also be invoked on the `CommonCallAgent` or `TeamsCallAgent` classes.
 
 ## Set up push notifications
 
@@ -76,8 +76,8 @@ callAgent.unregisterPushNotification { (error) in
 ## Disable internal push for incoming call
 
 There are 2 ways that a push payload of an incoming call can be delivered to the callee.
-  1. Using APNS and registering the device token with the API mentioned above , `registerPushNotification` on `CallAgent` or `TeamsCallAgent`.
-  2. When a `CallAgent` or `TeamsCallAgent` is created, SDK also registers with an internal service to get the push payload delivered.
+  - Using APNS and registering the device token with the API mentioned above, `registerPushNotification` on `CallAgent` or `TeamsCallAgent`.
+  - When a `CallAgent` or `TeamsCallAgent` is created, SDK also registers with an internal service to get the push payload delivered.
 
 Using the property `disableInternalPushForIncomingCall` in `CallAgentOptions` or `TeamsCallAgentOptions` it's possible to instruct the SDK to disable the delivery of the push payload using the internal push service.
 
