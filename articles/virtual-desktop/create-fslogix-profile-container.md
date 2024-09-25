@@ -183,4 +183,4 @@ This section is based on [Create a profile container for a host pool using a fil
 
 5. Go to the **Overview** tab and confirm that the FSLogix profile container is using space.
 
-6. Connect directly to any VM part of the host pool using Remote Desktop and open the **File Explorer.** Then navigate to your **Mount path**. Within this folder, there should be a profile VHD (or VHDX).
+6. Connect directly to any VM part of the host pool using Remote Desktop and open the **File Explorer.** Then navigate to your **Mount path**. Within this folder, there should be a `.VHD` or .`VHDX` file for the profile.
