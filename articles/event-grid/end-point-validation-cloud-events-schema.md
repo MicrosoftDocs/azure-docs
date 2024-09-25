@@ -78,21 +78,6 @@ WebHook-Request-Origin: *
 > [!IMPORTANT]
 > For more information about the abuse protection, see [Abuse protection in the HTTP 1.1 Web Hooks for event delivery spec](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection). 
 
-## Event schema compatibility
-When a topic is created, an incoming event schema is defined. And, when a subscription is created, an outgoing event schema is defined. The following table shows you the compatibility allowed when creating a subscription. 
-
-| Incoming event schema | Outgoing event schema | Supported |
-| ---- | ---- | ---- |
-| Event Grid schema | Event Grid schema | Yes |
-| | Cloud Events v1.0 schema | Yes |
-| | Custom input schema | No |
-| Cloud Events v1.0 schema | Event Grid schema | No |
-| | Cloud Events v1.0 schema | Yes |
-| | Custom input schema | No |
-| Custom input schema | Event Grid schema | Yes |
-| | Cloud Events v1.0 schema | Yes |
-| | Custom input schema | Yes |
-
 
 ## Related content
 See the following article to learn how to troubleshoot event subscription validations: [Troubleshoot event subscription validations](troubleshoot-subscription-validation.md).
