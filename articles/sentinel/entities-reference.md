@@ -142,6 +142,7 @@ The following section contains a more in-depth look at the full schemas of each 
 [Back to list of entity type schemas](#list-of-entity-type-schemas) | [Back to entity identifiers table](#entity-types-and-identifiers)
 
 ### Host
+<!--how to update for AMA?-->
 
 *Entity name: Host*
 
