@@ -29,7 +29,10 @@ Azure IoT Operations provides a built-in MQTT broker that you can use with dataf
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="media/default-mqtt-endpoint.png" alt-text="Screenshot using Azure Operations portal to view default MQTT dataflow endpoint.":::
+1. In the IoT Operations portal, select the **Dataflow endpoints**.
+1. The built-in MQTT broker endpoint is already created with default settings. You can view or edit the endpoint settings by selecting the **default** dataflow endpoint in the list.
+
+    :::image type="content" source="media/default-mqtt-endpoint.png" alt-text="Screenshot using Azure Operations portal to view default MQTT dataflow endpoint.":::
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -74,7 +77,25 @@ To configure an Azure Event Grid MQTT broker endpoint, we recommend that you use
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="media/howto-configure-mqtt-endpoint/event-grid-endpoint.png" alt-text="Screenshot using Azure Operations portal to create an Azure Event Grid endpoint.":::
+1. In the IoT Operations portal, select the **Dataflow endpoints** tab.
+1. Under **Create new dataflow endpoint**, select **Azure Event Grid MQTT** > **New**.
+
+    :::image type="content" source="media/howto-configure-mqtt-endpoint/event-grid-endpoint.png" alt-text="Screenshot using Azure Operations portal to create an Azure Event Grid endpoint.":::
+
+1. Enter the following settings for the endpoint:
+
+    | Setting              | Description                                                                                       |
+    | -------------------- | ------------------------------------------------------------------------------------------------- |
+    | Name                 | The name of the dataflow endpoint.                                                        |
+    | Host                 | The hostname and port of the MQTT broker. Use the format `<hostname>:<port>`                                |
+    | Authentication method | The method used for authentication. Choose *System assigned managed identity*, *User assigned managed identity*, or *X509 certificate* |
+    | Client ID             | The client ID of the user-assigned managed identity. Required if using *User assigned managed identity*. |
+    | Tenant ID             | The tenant ID of the user-assigned managed identity. Required if using *User assigned managed identity*. |
+    | X509 client certificate | The X.509 client certificate used for authentication. Required if using *X509 certificate*. |
+    | X509 client key       | The private key corresponding to the X.509 client certificate. Required if using *X509 certificate*. |
+    | X509 intermediate certificates | The intermediate certificates for the X.509 client certificate chain. Required if using *X509 certificate*. |
+
+1. Select **Apply** to provision the endpoint.
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -131,7 +152,24 @@ For other MQTT brokers, you can configure the endpoint, TLS, authentication, and
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="media/howto-configure-mqtt-endpoint/custom-mqtt-broker.png" alt-text="Screenshot using Azure Operations portal to create a custom MQTT broker endpoint.":::
+1. In the IoT Operations portal, select the **Dataflow endpoints** tab.
+1. Under **Create new dataflow endpoint**, select **Custom MQTT Broker** > **New**.
+
+    :::image type="content" source="media/howto-configure-mqtt-endpoint/custom-mqtt-broker.png" alt-text="Screenshot using Azure Operations portal to create a custom MQTT broker endpoint.":::
+
+1. Enter the following settings for the endpoint:
+
+    | Setting               | Description                                                                                       |
+    | --------------------- | ------------------------------------------------------------------------------------------------- |
+    | Name                  | The name of the dataflow endpoint                                                                 |
+    | Host                  | The hostname of the MQTT broker endpoint in the format `<hostname>.<port>`. |
+    | Authentication method | The method used for authentication. Choose *System assigned managed identity*, *User assigned managed identity*, or *Service account token*.     |
+    | Service audience      | The audience for the service account token. Required if using service account token. |
+    | Client ID             | The client ID of the user-assigned managed identity. Required if using *User assigned managed identity*. |
+    | Tenant ID             | The tenant ID of the user-assigned managed identity. Required if using *User assigned managed identity*. |
+    | Access token secret name | The name of the Kubernetes secret containing the SAS token. Required if using *Access token*. |
+
+1. Select **Apply** to provision the endpoint.
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -250,7 +288,25 @@ mqttSettings:
 
 You can set advanced settings for the MQTT broker dataflow endpoint such as TLS, trusted CA certificate, MQTT messaging settings, and CloudEvents. You can set these settings in the dataflow endpoint **Advanced** portal tab or within the dataflow endpoint custom resource.
 
+# [Portal](#tab/portal)
+
+In the IoT Operations portal, select the **Advanced** tab for the dataflow endpoint.
+
 :::image type="content" source="media/howto-configure-mqtt-endpoint/mqtt-advanced.png" alt-text="Screenshot using Azure Operations portal to set Kafka dataflow endpoint advanced settings.":::
+
+| Setting                  | Description                                                                                       |
+| ------------------------ | ------------------------------------------------------------------------------------------------- |
+| Quality of service (QoS) | Defines the level of guarantee for message delivery. Values are 0 (at most once), 1 (at least once). Default is 1. |
+| Keep alive               | The keep alive interval (in seconds) is the maximum time that the dataflow client can be idle before sending a PINGREQ message to the broker. The default is 60 seconds. |
+| Maximum in-flight messages | You can set the maximum number of inflight messages that the dataflow MQTT client can have. The default is 100. |
+| Protocol                 | By default, WebSockets isn't enabled. To use MQTT over WebSockets, set the protocol to WebSockets. |
+| Retain                   | Specify if the dataflow should keep the retain flag on MQTT messages. The default is Keep.|
+| Session expiry           | The session expiry interval (in seconds) is the maximum time that an MQTT session is maintained if the dataflow client disconnects. The default is 3600 seconds. |
+| TLS mode enabled         | Indicates whether TLS is enabled for secure communication with the MQTT broker.                   |
+| Client ID prefix         | The client ID is generated by appending the dataflow instance name to the prefix. |
+| Cloud event attributes   | For *Propogate*, CloudEvent properties are passed through for messages that contain the required properties. If the message doesn't contain the required properties, the message is passed through as is. For *Create or re-map*, CloudEvent properties are passed through for messages that contain the required properties. If the message doesn't contain the required properties, the properties are generated. |
+
+# [Kubernetes](#tab/kubernetes)
 
 ### TLS
 
@@ -275,11 +331,11 @@ mqttSettings:
 
 This is useful when the MQTT broker uses a self-signed certificate or a certificate that's not trusted by default. The CA certificate is used to verify the MQTT broker's certificate. In the case of Event Grid, its CA certificate is already widely trusted and so you can omit this setting.
 
-## MQTT messaging settings
+### MQTT messaging settings
 
 Under `mqttSettings`, you can configure the MQTT messaging settings for the dataflow MQTT client used with the endpoint.
 
-### Client ID prefix
+#### Client ID prefix
 
 You can set a client ID prefix for the MQTT client. The client ID is generated by appending the dataflow instance name to the prefix.
 
@@ -288,7 +344,7 @@ mqttSettings:
   clientIdPrefix: dataflow
 ```
 
-### QoS
+#### QoS
 
 You can set the Quality of Service (QoS) level for the MQTT messages to either 1 or 0. The default is 1.
 
@@ -297,7 +353,7 @@ mqttSettings:
   qos: 1
 ```
 
-### Retain
+#### Retain
 
 Use the `retain` setting to specify whether the dataflow should keep the retain flag on MQTT messages. The default is `Keep`.
 
@@ -312,7 +368,7 @@ If set to `Never`, the retain flag is removed from the MQTT messages. This can b
 
 The *retain* setting only takes effect if the dataflow uses MQTT endpoint as both source and destination. For example, in an MQTT bridge scenario.
 
-### Session expiry
+#### Session expiry
 
 You can set the session expiry interval for the dataflow MQTT client. The session expiry interval is the maximum time that an MQTT session is maintained if the dataflow client disconnects. The default is 3600 seconds.
 
@@ -321,7 +377,7 @@ mqttSettings:
   sessionExpirySeconds: 3600
 ```
 
-### MQTT or WebSockets protocol
+#### MQTT or WebSockets protocol
 
 By default, WebSockets isn't enabled. To use MQTT over WebSockets, set the `protocol` field to `WebSockets`.
 
@@ -330,7 +386,7 @@ mqttSettings:
   protocol: WebSockets
 ```
 
-### Max inflight messages
+#### Max inflight messages
 
 You can set the maximum number of inflight messages that the dataflow MQTT client can have. The default is 100.
 
@@ -341,7 +397,7 @@ mqttSettings:
 
 For subscribe when the MQTT endpoint is used as a source, this is the receive maximum. For publish when the MQTT endpoint is used as a destination, this is the maximum number of messages to send before waiting for an acknowledgment.
 
-### Keep alive
+#### Keep alive
 
 You can set the keep alive interval for the dataflow MQTT client. The keep alive interval is the maximum time that the dataflow client can be idle before sending a PINGREQ message to the broker. The default is 60 seconds.
 
@@ -350,7 +406,7 @@ mqttSettings:
   keepAliveSeconds: 60
 ```
 
-### CloudEvents
+#### CloudEvents
 
 [CloudEvents](https://cloudevents.io/) are a way to describe event data in a common way. The CloudEvents settings are used to send or receive messages in the CloudEvents format. You can use CloudEvents for event-driven architectures where different services need to communicate with each other in the same or different cloud providers.
 
@@ -361,7 +417,7 @@ mqttSettings:
   CloudEventAttributes: Propagate # or CreateOrRemap
 ```
 
-#### Propagate setting
+##### Propagate setting
 
 CloudEvent properties are passed through for messages that contain the required properties. If the message doesn't contain the required properties, the message is passed through as is. 
 
@@ -376,7 +432,7 @@ CloudEvent properties are passed through for messages that contain the required 
 | `datacontenttype` | No       | `application/json`                                     | Changed to the output data content type after the optional transform stage.                             |
 | `dataschema`      | No       | `sr://fabrikam-schemas/123123123234234234234234#1.0.0` | If an output data transformation schema is given in the transformation configuration, `dataschema` is changed to the output schema.         |
 
-#### CreateOrRemap setting
+##### CreateOrRemap setting
 
 CloudEvent properties are passed through for messages that contain the required properties. If the message doesn't contain the required properties, the properties are generated.
 
@@ -390,3 +446,5 @@ CloudEvent properties are passed through for messages that contain the required 
 | `time`            | No       | Generated as RFC 3339 in the target client                                    |
 | `datacontenttype` | No       | Changed to the output data content type after the optional transform stage    |
 | `dataschema`      | No       | Schema defined in the schema registry                                         |
+
+---

@@ -29,16 +29,23 @@ To configure a dataflow endpoint for Azure Data Lake Storage Gen2, we suggest us
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="media/howto-configure-adlsv2-endpoint/create-adls-endpoint.png" alt-text="Screenshot using Azure Operations portal to create a new ADLS V2 dataflow endpoint.":::
+1. In the IoT Operations portal, select the **Dataflow endpoints** tab.
+1. Under **Create new dataflow endpoint**, select **Azure Data Lake Storage (2nd generation)** > **New**.
 
-| Setting               | Description                                                                                       |
-| --------------------- | ------------------------------------------------------------------------------------------------- |
-| Name                  | The name of the dataflow endpoint                                                                 |
-| Host                  | The hostname of the Azure Data Lake Storage Gen2 endpoint in the format `<account>.blob.core.windows.net`. Replace the account placeholder with the endpoint account name. |
-| Authentication method | The method used for authentication, such as `SystemAssignedManagedIdentity` or `AccessToken`.     |
-| Service audience      | The audience for the managed identity. If you need to override the system-assigned managed identity audience, see the [System-assigned managed identity](#system-assigned-managed-identity) section. |
+    :::image type="content" source="media/howto-configure-adlsv2-endpoint/create-adls-endpoint.png" alt-text="Screenshot using Azure Operations portal to create a new ADLS V2 dataflow endpoint.":::
 
-Select **Apply** to provision the endpoint.
+1. Enter the following settings for the endpoint:
+
+    | Setting               | Description                                                                                       |
+    | --------------------- | ------------------------------------------------------------------------------------------------- |
+    | Name                  | The name of the dataflow endpoint                                                                 |
+    | Host                  | The hostname of the Azure Data Lake Storage Gen2 endpoint in the format `<account>.blob.core.windows.net`. Replace the account placeholder with the endpoint account name. |
+    | Authentication method | The method used for authentication. Choose *System assigned managed identity*, *User assigned managed identity*, or *Access token*.     |
+    | Client ID             | The client ID of the user-assigned managed identity. Required if using *User assigned managed identity*. |
+    | Tenant ID             | The tenant ID of the user-assigned managed identity. Required if using *User assigned managed identity*. |
+    | Access token secret name | The name of the Kubernetes secret containing the SAS token. Required if using *Access token*. |
+
+1. Select **Apply** to provision the endpoint.
 
 # [Kubernetes](#tab/kubernetes)
 
