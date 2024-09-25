@@ -5,7 +5,7 @@ titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 06/05/2024
+ms.date: 09/06/2024
 ms.author: cherylmc
 
 ---
@@ -33,27 +33,20 @@ This article continues on from the [Configure a P2S VPN gateway for Microsoft En
 
 ## <a name="generate"></a>Extract client profile configuration files
 
-To configure your Azure VPN Client profile, you must first download the VPN client profile configuration package from the Azure P2S gateway. This package is specific to the configured VPN gateway and contains the necessary settings to configure the VPN client.
+To configure your Azure VPN Client profile, you must first download the VPN client profile configuration package from the Azure P2S gateway. This package is specific to the configured VPN gateway and contains the necessary settings to configure the VPN client. If you used the P2S server configuration steps as mentioned in the [Prerequisites](#prerequisites) section, you've already generated and downloaded the VPN client profile configuration package that contains the VPN profile configuration files. If you need to generate configuration files, see [Download the VPN client profile configuration package](point-to-site-entra-gateway.md#download).
 
-If you used the P2S server configuration steps as mentioned in the [Prerequisites](#prerequisites) section, you've already generated and downloaded the VPN client profile configuration package that contains the VPN profile configuration files. If you need to generate configuration files, see [Download the VPN client profile configuration package](point-to-site-entra-gateway.md#download).
-
-After you obtain the VPN client profile configuration package, extract the zip file. The file contains the following folders:
-
-* **AzureVPN**: The AzureVPN folder contains the **Azurevpnconfig.xml** file that is used to configure the Azure VPN Client.
-* **Generic**: The generic folder contains the public server certificate and the VpnSettings.xml file. The VpnSettings.xml file contains information needed to configure a generic client.
+After you obtain the VPN client profile configuration package, extract the zip file. The zip file contains the **AzureVPN** folder. The **AzureVPN** folder contains the **azurevpnconfig_aad.xml** file or the **azurevpnconfig.xml** file, depending on whether your P2S configuration includes multiple authentication types. If you don't see **azurevpnconfig_aad.xml** or **azurevpnconfig.xml**, or you don't have an **AzureVPN** folder, verify that your VPN gateway is configured to use the OpenVPN tunnel type and that Azure Active Directory (Microsoft Entra ID) authentication is selected.
 
 ## <a name="import"></a>Import client profile configuration settings
 
 > [!NOTE]
 > [!INCLUDE [Entra VPN client note](../../includes/vpn-gateway-entra-vpn-client-note.md)]
 
-When your P2S configuration specifies Microsoft Entra ID authentication, the VPN client profile configuration settings are contained in the **azurevpnconfig.xml** file. This file is located in the **AzureVPN** folder of the VPN client profile configuration package.
-
 1. On the page, select **Import**.
 
    :::image type="content" source="./media/point-to-site-entra-vpn-client-windows/import.png" alt-text="Screenshot that shows the Add button selected and the Import action highlighted in the lower left-side of the window." lightbox="./media/point-to-site-entra-vpn-client-windows/import.png":::
 
-1. Browse to the Azure VPN Client profile configuration folder that you extracted. In the AzureVPN folder, select **azurevpnconfig.xml**. With the file selected, select **Open**.
+1. Browse to the Azure VPN Client profile configuration folder that you extracted. Open the **AzureVPN** folder and select the client profile configuration file (azurevpnconfig_aad.xml or azurevpnconfig.xml). Select **Open** to import the file.
 
 1. Change the name of the Connection name (optional). In this example, you'll notice that the Audience value shown is the new Azure Public value associated to the Microsoft-registered Azure VPN Client App ID. The value in this field must match the value that your P2S VPN gateway is configured to use.
 

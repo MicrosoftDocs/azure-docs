@@ -12,6 +12,9 @@ ms.service: azure-automation
 
 [!INCLUDE [./log-analytics-retirement-announcement.md](../includes/log-analytics-retirement-announcement.md)]
 
+> [!NOTE]
+> Change Tracking & Inventory with Log Analytics onboarding via Azure portal will not be allowed since the service has retired on **31st August 2024**. We recommend that you configure new version of Change Tracking & Inventory with AMA. Your existing VMs on Change Tracking & Inventory with legacy agent will continue to work till **1st February, 2025**. For more information, see [Enable Change Tracking and Inventory using Azure Monitoring Agent](enable-vms-monitoring-agent.md).
+
 This article describes how to work with scope configurations when using the [Change Tracking and Inventory](overview.md) feature to deploy changes to your VMs. For more information, see [Targeting monitoring solutions in Azure Monitor (Preview)](/previous-versions/azure/azure-monitor/insights/solution-targeting).
 
 ## About scope configurations

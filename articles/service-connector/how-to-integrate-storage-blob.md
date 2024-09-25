@@ -92,6 +92,10 @@ Refer to the steps and code below to connect to Azure Blob Storage using a user-
 ### Connection string
 
 #### SpringBoot client
+> [!WARNING]
+> Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
+
+#### SpringBoot client type
 
 | Application properties      | Description                    | Example value                                             |
 | --------------------------- | ------------------------------ | --------------------------------------------------------- |
@@ -103,6 +107,7 @@ Refer to the steps and code below to connect to Azure Blob Storage using a user-
 | spring.cloud.azure.storage.blob.endpoint | Your Blob Storage endpoint for Spring Cloud Azure version 4.0 or above    | `https://<storage-account-name>.blob.core.windows.net/` |
 
 #### Other clients
+
 | Default environment variable name  | Description                    | Example value                                                                                                       |
 |------------------------------------|--------------------------------|---------------------------------------------------------------------------------------------------------------------|
 | AZURE_STORAGEBLOB_CONNECTIONSTRING | Blob Storage connection string | `DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net` |

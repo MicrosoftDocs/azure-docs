@@ -157,6 +157,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         - **App Service**: Represents your app and runs in the App Service plan.
         - **Virtual network**: Integrated with the App Service app and isolates back-end network traffic.
         - **Azure Cosmos DB**: Accessible only from behind its private endpoint. A database is created for you on the database account.
+        - **Private endpoints**: Access endpoints for the database server and the Redis cache in the virtual network.
         - **Private DNS zones**: Enable DNS resolution of the database server and the Redis cache in the virtual network.
     :::column-end:::
     :::column:::
@@ -172,7 +173,7 @@ The creation wizard generated the connectivity string for you already as an [app
 
 :::row:::
     :::column span="2":::
-        **Step 1:** In the App Service page, 
+        **Step 1:** In the App Service page:
         1. In the left menu, select **Settings > Environment variables**. 
         1. Next to **AZURE_COSMOS_CONNECTIONSTRING**, select **Show value**.
         This connection string lets you connect to the Cosmos DB database secured behind a private endpoint. However, the secret is saved directly in the App Service app, which isn't the best. You'll change this.
@@ -255,7 +256,7 @@ The creation wizard generated the connectivity string for you already as an [app
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 7:** To verify that you secured the secrets: 
+        **Step 7:** To verify your changes: 
         1. From the left menu, select **Environment variables** again.
         1. Make sure that the app setting **spring.data.mongodb.uri** exists. The default connector generated it for you, and your Spring Boot application already uses the variable.
         1. Next to the app setting, select **Show value**. The value should be `@Microsoft.KeyValut(...)`, which means that it's a [key vault reference](app-service-key-vault-references.md) because the secret is now managed in the key vault.
@@ -267,7 +268,7 @@ The creation wizard generated the connectivity string for you already as an [app
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
-## 5. Deploy sample code
+## 4. Deploy sample code
 
 In this step, you configure GitHub deployment using GitHub Actions. It's just one of many ways to deploy to App Service, but also a great way to have continuous integration in your deployment process. By default, every `git push` to your GitHub repository kicks off the build and deploy action.
 
@@ -321,7 +322,7 @@ Like the Tomcat convention, if you want to deploy to the root context of Tomcat,
     :::column span="2":::
         **Step 5 (Option 1: with GitHub Copilot):**  
         1. Start a new chat session by selecting the **Chat** view, then selecting **+**.
-        1. Ask, "*@workspace why do i get the error in GitHub actions: The string 'java21' is not valid SemVer notation for a Java version.*" Copilot might give you an explanation and even give you the link to the workflow file that you need to fix.
+        1. Ask, "*@workspace Why do I get the error in GitHub actions: The string 'java21' is not valid SemVer notation for a Java version.*" Copilot might give you an explanation and even give you the link to the workflow file that you need to fix.
         1. Open *.github/workflows/starter-no-infra_msdocs-spring-cosmosdb-123.yaml* in the explorer and make the suggested fix.
         GitHub Copilot doesn't give you the same response every time, you might need to ask more questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace).
     :::column-end:::
@@ -373,7 +374,7 @@ Like the Tomcat convention, if you want to deploy to the root context of Tomcat,
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
-## 6. Browse to the app
+## 5. Browse to the app
 
 :::row:::
     :::column span="2":::
@@ -397,7 +398,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
-## 7. Stream diagnostic logs
+## 6. Stream diagnostic logs
 
 Azure App Service captures all messages output to the console to help you diagnose issues with your application. The sample application includes standard Log4j logging statements to demonstrate this capability, as shown in the following snippet:
 
@@ -423,11 +424,11 @@ Azure App Service captures all messages output to the console to help you diagno
     :::column-end:::
 :::row-end:::
 
-Learn more about logging in Java apps in the series on [Enable Azure Monitor OpenTelemetry for .NET, Node.js, Python and Java applications](../azure-monitor/app/opentelemetry-enable.md?tabs=java).
+Learn more about logging in Java apps in the series on [Enable Azure Monitor OpenTelemetry for .NET, Node.js, Python and Java applications](/azure/azure-monitor/app/opentelemetry-enable?tabs=java).
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
-## 8. Clean up resources
+## 7. Clean up resources
 
 When you're finished, you can delete all of the resources from your Azure subscription by deleting the resource group.
 
@@ -497,7 +498,7 @@ The dev container already has the [Azure Developer CLI](/azure/developer/azure-d
     azd up
     ```  
 
-    The `azd up` command takes about 15 minutes to complete (the Redis cache take the most time). It also compiles and deploys your application code, but you'll modify your code later to work with App Service. While it's running, the command provides messages about the provisioning and deployment process, including a link to the deployment in Azure. When it finishes, the command also displays a link to the deploy application.
+    The `azd up` command takes about 15 minutes to complete (the Redis cache takes the most time). It also compiles and deploys your application code, but you'll modify your code later to work with App Service. While it's running, the command provides messages about the provisioning and deployment process, including a link to the deployment in Azure. When it finishes, the command also displays a link to the deploy application.
 
     This AZD template contains files (*azure.yaml* and the *infra* directory) that generate a secure-by-default architecture with the following Azure resources:
 
@@ -508,6 +509,7 @@ The dev container already has the [Azure Developer CLI](/azure/developer/azure-d
     - **Azure Cosmos DB account with MongoDB API**: Accessible only from behind its private endpoint. A database is created for you on the server.
     - **Azure Cache for Redis**: Accessible only from within the virtual network.
     - **Key vault**: Accessible only from behind its private endpoint. Used to manage secrets for the App Service app.
+    - **Private endpoints**: Access endpoints for the key vault, the database server, and the Redis cache in the virtual network.
     - **Private DNS zones**: Enable DNS resolution of the Cosmos DB database, the Redis cache, and the key vault in the virtual network.
     - **Log Analytics workspace**: Acts as the target container for your app to ship its logs, where you can also query the logs.
 
@@ -544,7 +546,7 @@ The AZD template you use generated the connectivity variables for you already as
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
-## 5. Browse to the app
+## 4. Browse to the app
 
 1. In the AZD output, find the URL of your app and navigate to it in the browser. The URL looks like this in the AZD output:
 
@@ -563,7 +565,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
-## 6. Stream diagnostic logs
+## 5. Stream diagnostic logs
 
 Azure App Service can capture console logs to help you diagnose issues with your application. For convenience, the AZD template already [enabled logging to the local file system](troubleshoot-diagnostic-logs.md#enable-application-logging-linuxcontainer) and is [shipping the logs to a Log Analytics workspace](troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor).
 
@@ -577,11 +579,11 @@ In the AZD output, find the link to stream App Service logs and navigate to it i
 Stream App Service logs at: https://portal.azure.com/#@/resource/subscriptions/&lt;subscription-guid>/resourceGroups/&lt;group-name>/providers/Microsoft.Web/sites/&lt;app-name>/logStream
 </pre>
 
-Learn more about logging in Java apps in the series on [Enable Azure Monitor OpenTelemetry for .NET, Node.js, Python and Java applications](../azure-monitor/app/opentelemetry-enable.md?tabs=java).
+Learn more about logging in Java apps in the series on [Enable Azure Monitor OpenTelemetry for .NET, Node.js, Python and Java applications](/azure/azure-monitor/app/opentelemetry-enable?tabs=java).
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
-## 7. Clean up resources
+## 6. Clean up resources
 
 To delete all Azure resources in the current deployment environment, run `azd down` and follow the prompts.
 

@@ -125,6 +125,10 @@ If you're not going to continue to use this application, you can delete the Azur
 
 In the Visual Studio Code Azure window, return to the _Resources_ section and under _Static Web Apps_, right-click **my-first-static-web-app** and select **Delete**.
 
+## Related content
+
+* [Video series: Deploy websites to the cloud with Azure Static Web Apps](https://aka.ms/azure/beginnervideos/learn/swa)
+
 ## Next steps
 
 > [!div class="nextstepaction"]
