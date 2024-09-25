@@ -46,6 +46,8 @@ Microsoft Dev Box uses the *hosted on-behalf* architecture, which means that the
 
 Microsoft Dev Box manages the capacity and in-region availability in the Microsoft Dev Box subscriptions. Microsoft Dev Box determines the Azure region to host your dev boxes based on the network connection you select when creating a dev box pool.
 
+Microsoft Dev Box encrypts the disk by default to protect your data. You don't need to enable BitLocker, and doing so can prevent you from accessing your dev box.
+
 For more information about data storage and protection in Azure services see: [Azure customer data protection](/azure/security/fundamentals/protection-customer-data). 
 
 For the network connection, you can also choose between a Microsoft-hosted network connection, and an Azure network connection that you create in your own subscription.
