@@ -56,6 +56,7 @@ A sufficient policy for most CycleCloud features is posted below.
           "Microsoft.Compute/virtualMachineScaleSets/virtualMachines/*",
           "Microsoft.ManagedIdentity/userAssignedIdentities/*/assign/action",
           "Microsoft.MarketplaceOrdering/offertypes/publishers/offers/plans/agreements/read",
+          "Microsoft.MarketplaceOrdering/offertypes/publishers/offers/plans/agreements/write",
           "Microsoft.Network/*/read",
           "Microsoft.Network/locations/*/read",
           "Microsoft.Network/networkInterfaces/read",

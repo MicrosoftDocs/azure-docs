@@ -4,10 +4,14 @@
   items:
   - name: What is Azure CycleCloud?
     href: overview.md
+  - name: What is Azure CycleCloud Workspace for Slurm?
+    href: overview-ccws.md    
 - name: Quickstarts
   items:
   - name: Install - via Marketplace
     href: qs-install-marketplace.md
+  - name: Deploy CycleCloud Workspace for Slurm
+    href: qs-deploy-ccws.md    
 - name: Tutorials
   items:
   - name: Create a Cluster
@@ -74,6 +78,16 @@
       href: ./how-to/multiple-installs.md
     - name: Move a Cluster to Another Resource Group
       href: ./how-to/move-resource-group.md
+  - name: CycleCloud Workspace for Slurm
+    items:
+    - name: Plan you CycleCloud Workspace for Slurm Deployment
+      href: ./how-to/ccws/plan-your-deployment.md
+    - name: How to deploy using the CLI
+      href: ./how-to/ccws/deploy-with-cli.md
+    - name: How to clean up roles using the CLI
+      href: ./how-to/ccws/cleanup-roles.md
+    - name: How to connect to a Login Node through Bastion
+      href: ./how-to/ccws/connect-to-login-node-with-bastion.md
   - name: Cluster Operations
     items:
     - name: Create a Cluster

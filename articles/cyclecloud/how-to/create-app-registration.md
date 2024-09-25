@@ -53,14 +53,15 @@ ms.author: aevdokimova
 
     At a minimum, add the following roles:
     ![Basic roles required for CycleCloud](../images/entra_setup/entra21.png)
-
+1. By default, the app registration issues access tokens v2.0, which are currently not supported by CycleCloud. To configure the issuing of tokens v1.0, you should select **Manifest**, locate the property **accessTokenAcceptedVersion** in the manifest, and change the value of that property to **null**. Once you changed the token version, select **Save**.
+![Manifest menu](../images/entra_setup/entra24.png)
 ## Permissioning Users for CycleCloud
 
 1. After you have create the required CycleCloud roles, you may add users and assign roles to them. To do this, navigate to the app’s **Enterprise Application** page. The easiest way to do it is via a helper link located on your App roles page 
 ![A shortcut to get to the Enterprise Application's role assignment window](../images/entra_setup/entra10.png)
 1. To add a user and assign a role, navigate to **Users and groups** page of the Enterprise Application and select **Add user/group**
 ![Add a user/group menu](../images/entra_setup/entra11.png)
-1. On the **Add Assignment** page, select one or more users and the role (or roles) to be assigned to them. You can use a search bar to filter users (since only one app role was created in the screenshot, it is selected automatically – you might need to select a list of roles to assign in the same way you did users)
+1. On the **Add Assignment** page, select one or more users and the role to be assigned to them. You can use a search bar to filter users (since only one app role was created in the screenshot, it is selected automatically, but the menu for selecting it is similar to how you select users). Only one role can be assigned at a time, so, to add multiple roles to the same user, you will need to go through this process several times.
 ![Add a role assignment selection](../images/entra_setup/entra12.png)
 ![Add a role assignment completion](../images/entra_setup/entra13.png)
 1. After the role is assigned, the user should show up on the **User and groups** page – please note that assigning multiple roles to a single user will result in several entries for that user - one entry per role.
