@@ -104,7 +104,7 @@ More workflows in your logic app raise the risk of longer load times, which nega
 
    The **Create Logic App** page appears and shows the following options:
 
-   [!INCLUDE [logic-apps-host-plans](../../includes/logic-apps-host-plans.md)]
+   [!INCLUDE [logic-apps-host-plans](./includes/logic-apps-host-plans.md)]
 
 1. On the **Create Logic App** page, select **Standard (Workflow Service Plan)**.
 
