@@ -25,4 +25,13 @@ Azure Communication Services (ACS) can be used within [Azure Government](https:/
 
 Azure Communication Services in Azure Government is currently In Process for the FedRAMP High accreditation as part of the [M365 GCC-High service offering](https://marketplace.fedramp.gov/products/FR1824057433). Once the FedRAMP High certification process is completed and the authorization is granted, Azure Communication Services in the Azure Government cloud will GA and be officially recognized as meeting the requirements set forth by the FedRAMP, providing government customers with the confidence that the service is secure and compliant with federal standards.
 
+## General Availability and Future Feature Releases
+Azure Communication Services for US Government is scheduled to reach General Availability (GA) in 2025. Initially, the service will focus on core capabilities (basic video calling and messaing), providing government customers with a secure, compliant communication solution.
+Additional advanced features such as:
+- Call Logs
+- Call Records
+- Transcriptions
+- Live Captions
+- Email Integration
+will be introduced in a later release in 2025, following GA. Azure Communication Services is committed to releasing these features as part of its roadmap and maintaining feature parity with Azure Communication Services Commercial within 6 months of each feature becoming available in the commercial cloud. 
 You can find more information about the Office 365 Government – GCC High offering for US Government customers at [Office 365 Government plans](https://products.office.com/government/compare-office-365-government-plans). Please see [eligibility requirements](https://azure.microsoft.com/global-infrastructure/government/how-to-buy/) for Azure Government. 
