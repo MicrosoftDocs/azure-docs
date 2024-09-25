@@ -22,7 +22,6 @@ MQTT dataflow endpoints are used for MQTT sources and destinations. You can conf
 - An instance of [Azure IoT Operations Preview](../deploy-iot-ops/howto-deploy-iot-operations.md)
 - A [configured dataflow profile](howto-configure-dataflow-profile.md)
 
-
 ## Azure IoT Operations built-in MQTT broker
 
 Azure IoT Operations provides a built-in MQTT broker that you can use with dataflows.

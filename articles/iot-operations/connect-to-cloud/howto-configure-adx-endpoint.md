@@ -58,7 +58,20 @@ Create the dataflow endpoint resource with your cluster and database information
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="media/howto-configure-adx-endpoint/create-adx-endpoint.png" alt-text="Screenshot using Azure Operations portalportal to create an Azure Data Explorer dataflow endpoint.":::
+1. In the IoT Operations portal, select the **Dataflow endpoints** tab.
+1. Under **Create new dataflow endpoint**, select **Azure Data Explorer** > **New**.
+
+    :::image type="content" source="media/howto-configure-adx-endpoint/create-adx-endpoint.png" alt-text="Screenshot using Azure Operations portal to create an Azure Data Explorer dataflow endpoint.":::
+
+1. Enter the following settings for the endpoint:
+
+    | Setting               | Description                                                                                       |
+    | --------------------- | ------------------------------------------------------------------------------------------------- |
+    | Name                  | The name of the dataflow endpoint.                                                        |
+    | Host                  | The hostname of the Azure Data Explorer endpoint in the format `<cluster>.<region>.kusto.windows.net`. |
+    | Authentication method | The method used for authentication. Choose *System assigned managed identity*, *User assigned managed identity*, or *Access token*.     |
+    | Client ID             | The client ID of the user-assigned managed identity. Required if using *User assigned managed identity*. |
+    | Tenant ID             | The tenant ID of the user-assigned managed identity. Required if using *User assigned managed identity*. |
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -86,7 +99,14 @@ Once the endpoint is created, you can use it in a dataflow by specifying the end
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="media/howto-configure-adx-endpoint/dataflow-mq-adx.png" alt-text="Screenshot using Azure Operations portal to create a dataflow with an MQTT source and Azure Data Explorer destination.":::
+1. In the Azure IoT Operations Preview portal, create a new dataflow or edit an existing dataflow by selecting the **Dataflows** tab on the left. If creating a new dataflow, select a source for the dataflow.
+1. In the editor, select the destination dataflow endpoint.
+1. Choose the Azure Data Explorer endpoint that you created previously.
+
+    :::image type="content" source="media/howto-configure-adx-endpoint/dataflow-mq-adx.png" alt-text="Screenshot using Azure Operations portal to create a dataflow with an MQTT source and Azure Data Explorer destination.":::
+
+1. Specify an output schema for the data. The schema must match the table schema in Azure Data Explorer. You can select an existing schema or upload a new schema to the schema registry.
+1. Select **Apply** to provision the dataflow.
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -165,9 +185,7 @@ dataExplorerSettings:
 
 ## Advanced settings
 
-You can set advanced settings for the Azure Data Explorer endpoint, such as the batching latency and message count. You can set these settings in the dataflow endpoint **Advanced** portal tab or within the dataflow endpoint custom resource.
-
-:::image type="content" source="media/howto-configure-adx-endpoint/adx-advanced.png" alt-text="Screenshot using Azure Operations portal to set Azure Data Explorer advanced settings.":::
+You can set advanced settings for the  Azure Data Explorer endpoint, such as the batching latency and message count. 
 
 Use the `batching` settings to configure the maximum number of messages and the maximum latency before the messages are sent to the destination. This setting is useful when you want to optimize for network bandwidth and reduce the number of requests to the destination.
 
@@ -176,7 +194,17 @@ Use the `batching` settings to configure the maximum number of messages and the 
 | `latencySeconds` | The maximum number of seconds to wait before sending the messages to the destination. The default value is 60 seconds. | No |
 | `maxMessages` | The maximum number of messages to send to the destination. The default value is 100000 messages. | No |
 
-For example, to configure the maximum number of messages to 1000 and the maximum latency to 100 seconds, use the following settings.
+For example, to configure the maximum number of messages to 1000 and the maximum latency to 100 seconds, use the following settings:
+
+# [Portal](#tab/portal)
+
+In the IoT Operations portal, select the **Advanced** tab for the dataflow endpoint.
+
+:::image type="content" source="media/howto-configure-adx-endpoint/adx-advanced.png" alt-text="Screenshot using Azure Operations portal to set Azure Data Explorer advanced settings.":::
+
+# [Kubernetes](#tab/kubernetes)
+
+Set the values in the dataflow endpoint custom resource.
 
 ```yaml
 dataExplorerSettings:

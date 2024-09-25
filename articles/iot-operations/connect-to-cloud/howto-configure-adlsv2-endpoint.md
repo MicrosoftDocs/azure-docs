@@ -38,7 +38,7 @@ To configure a dataflow endpoint for Azure Data Lake Storage Gen2, we suggest us
 
     | Setting               | Description                                                                                       |
     | --------------------- | ------------------------------------------------------------------------------------------------- |
-    | Name                  | The name of the dataflow endpoint                                                                 |
+    | Name                  | The name of the dataflow endpoint.                                                              |
     | Host                  | The hostname of the Azure Data Lake Storage Gen2 endpoint in the format `<account>.blob.core.windows.net`. Replace the account placeholder with the endpoint account name. |
     | Authentication method | The method used for authentication. Choose *System assigned managed identity*, *User assigned managed identity*, or *Access token*.     |
     | Client ID             | The client ID of the user-assigned managed identity. Required if using *User assigned managed identity*. |
@@ -102,9 +102,9 @@ Once the endpoint is created, you can use it in a dataflow by specifying the end
 
 # [Portal](#tab/portal)
 
-1. In the Azure IoT Operations Preview portal, create a new dataflow or edit an existing dataflow by selecting the **Dataflows** tab on the left. 
+1. In the Azure IoT Operations Preview portal, create a new dataflow or edit an existing dataflow by selecting the **Dataflows** tab on the left. If creating a new dataflow, select a source for the dataflow.
 1. In the editor, select the destination dataflow endpoint.
-1. Choose the Azure Data Lake Storage Gen2 endpoint that you created previously. 
+1. Choose the Azure Data Lake Storage Gen2 endpoint that you created previously.
 
     :::image type="content" source="media/howto-configure-adlsv2-endpoint/dataflow-mq-adls.png" alt-text="Screenshot using Azure Operations portal to create a dataflow with an MQTT source and ADLS V2 destination.":::
 
