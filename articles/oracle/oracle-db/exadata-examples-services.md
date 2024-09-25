@@ -318,7 +318,7 @@ In this section, you will find examples of how to use the `AzAPI` provider to ma
 
 ### Create an Oracle Database Home on an Exadata VM Cluster on an Exadata Infrastructure with a Delegated Subnet in Microsoft Azure
  >[!NOTE] 
- >The following script creates an Oracle Exadata Infrastructure and an Oracle Exadata VM Cluster using the `AzAPI` Terraform provider followed by creating an Exadata Database deployment using the OCI Terraform provider ([https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/database_db_home](https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/database_db_home)).
+ >The following script creates an Oracle Exadata Infrastructure and an Oracle Exadata VM Cluster using the `AzAPI` Terraform provider followed by creating an Exadata Database deployment using the [OCI Terraform provider](https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/database_db_home).
 
 ```terraform {
   required_providers {
