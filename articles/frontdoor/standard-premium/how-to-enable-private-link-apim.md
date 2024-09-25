@@ -1,20 +1,20 @@
 ---
-title: 'Connect Azure Front Door Premium to an Azure Application Gateway origin with Private Link (Preview)'
+title: 'Connect Azure Front Door Premium to an Azure API Management origin with Private Link (Preview)'
 titleSuffix: Azure Private Link
-description: Learn how to connect your Azure Front Door Premium to an Azure Application Gateway privately.
+description: Learn how to connect your Azure Front Door Premium to an Azure API Management privately.
 services: frontdoor
 author: duongau
 ms.service: azure-frontdoor
 ms.topic: how-to
-ms.date: 09/23/2024
+ms.date: 09/26/2024
 ms.author: duau
 zone_pivot_groups: front-door-dev-exp-ps-cli
 ms.custom: ai-usage
 ---
 
-# Connect Azure Front Door Premium to an Azure Application Gateway with Private Link (Preview)
+# Connect Azure Front Door Premium to an Azure API Management with Private Link (Preview)
 
-This article guides you through the steps to configure an Azure Front Door Premium to connect privately to your Azure Application Gateway using Azure Private Link.
+This article guides you through the steps to configure an Azure Front Door Premium to connect privately to your Azure API Management origin using Azure Private Link.
 
 ::: zone pivot="front-door-ps"
 
@@ -28,15 +28,11 @@ This article guides you through the steps to configure an Azure Front Door Premi
 
 [!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
+- Have a functioning Azure API Management instance. For more information on how to create an API Management instance, see [Create a new Azure API Management instance by using PowerShell](../api-management/powershell-create-service-instance.md)
+
 - Have a functioning Azure Front Door Premium profile and an endpoint. For more information on how to create an Azure Front Door profile, see [Create a Front Door - PowerShell](create-front-door-powershell.md).
 
-- Have a functioning Azure Application Gateway. For more information on how to create an Application Gateway, see [Direct web traffic with Azure Application Gateway using Azure PowerShell](../application-gateway/quick-create-powershell.md)
-
-## Enable private connectivity to Azure Application Gateway
-
-Follow the instructions in [Configure Azure Application Gateway Private Link](../application-gateway/private-link-configure.md), but don't complete the final step of creating a private endpoint.
-
-## Create an origin group and add the application gateway as an origin
+## Create an origin group and add the API Management instance as an origin
 
 1. Use [New-AzFrontDoorCdnOriginGroupHealthProbeSettingObject](/powershell/module/az.cdn/new-azfrontdoorcdnorigingrouphealthprobesettingobject) to create an in-memory object for storing the health probe settings.
 
@@ -57,7 +53,7 @@ Follow the instructions in [Configure Azure Application Gateway Private Link](..
         -SuccessfulSamplesRequired 3
     ```
 
-1. Run [New-AzFrontDoorCdnOriginGroup](/powershell/module/az.cdn/new-azfrontdoorcdnorigingroup) to create an origin group that contains your application gateway.
+1. Run [New-AzFrontDoorCdnOriginGroup](/powershell/module/az.cdn/new-azfrontdoorcdnorigingroup) to create an origin group that contains your API Management instance.
 
     ```azurepowershell-interactive
     $origingroup = New-AzFrontDoorCdnOriginGroup `
@@ -68,49 +64,38 @@ Follow the instructions in [Configure Azure Application Gateway Private Link](..
         -LoadBalancingSetting $loadBalancingSetting
     ```
 
-1. Get the frontend IP configuration name of the Application Gateway with the [Get-AzApplicationGatewayFrontendIPConfig](/powershell/module/az.network/get-azapplicationgatewayfrontendipconfig) command.
-
-    ```azurepowershell-interactive
-    $AppGw = Get-AzApplicationGateway -Name myAppGateway -ResourceGroupName myResourceGroup
-    $FrontEndIPs= Get-AzApplicationGatewayFrontendIPConfig  -ApplicationGateway $AppGw
-    $FrontEndIPs.name
-    ```
-
-1. Use the [New-AzFrontDoorCdnOrigin](/powershell/module/az.cdn/new-azfrontdoorcdnorigin) command to add your application gateway to the origin group.
+1. Use the [New-AzFrontDoorCdnOrigin](/powershell/module/az.cdn/new-azfrontdoorcdnorigin) command to add your API Management instance to the origin group.
 
     ```azurepowershell-interactive
     New-AzFrontDoorCdnOrigin ` 
         -OriginGroupName myOriginGroup ` 
-        -OriginName myAppGatewayOrigin ` 
+        -OriginName myAPIMOrigin ` 
         -ProfileName myFrontDoorProfile ` 
         -ResourceGroupName myResourceGroup ` 
-        -HostName 10.0.0.4 ` 
+        -HostName myapim.azure-api.net ` 
         -HttpPort 80 ` 
         -HttpsPort 443 ` 
-        -OriginHostHeader 10.0.0.4 ` 
+        -OriginHostHeader myapim.azure-api.net ` 
         -Priority 1 ` 
-        -PrivateLinkId /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Network/applicationGateways/myAppGateway ` 
-        -SharedPrivateLinkResourceGroupId $FrontEndIPs.name ` 
+        -PrivateLinkId /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.ApiManagement/service/myAPIM ` 
+        -SharedPrivateLinkResourceGroupId Gateway ` 
         -SharedPrivateLinkResourcePrivateLinkLocation CentralUS ` 
         -SharedPrivateLinkResourceRequestMessage 'Azure Front Door private connectivity request' ` 
         -Weight 1000 `
     ```
-
-    > [!NOTE]
-    > `SharedPrivateLinkResourceGroupId` is the name of the Azure Application Gateway frontend IP configuration.
 
 ## Approve the private endpoint
 
 1. Run [Get-AzPrivateEndpointConnection](/powershell/module/az.network/get-azprivateendpointconnection) to retrieve the connection name of the private endpoint connection that needs approval.
 
     ```azurepowershell-interactive
-    Get-AzPrivateEndpointConnection -ResourceGroupName myResourceGroup -ServiceName myAppGateway -PrivateLinkResourceType Microsoft.Network/applicationgateways
+    $PrivateEndpoint = Get-AzPrivateEndpointConnection -ResourceGroupName myResourceGroup -ServiceName myAPIM -PrivateLinkResourceType Microsoft.ApiManagement/service
     ```
 
 2. Run [Approve-AzPrivateEndpointConnection](/powershell/module/az.network/approve-azprivateendpointconnection) to approve the private endpoint connection details. Use the *Name* value from the output in the previous step for approving the connection.
 
     ```azurepowershell-interactive
-    Get-AzPrivateEndpointConnection -Name aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb.bbbbbbbb-1111-2222-3333-cccccccccccc -ResourceGroupName myResourceGroup -ServiceName myAppGateway -PrivateLinkResourceType Microsoft.Network/applicationgateways
+    Get-AzPrivateEndpointConnection -Name $PrivateEndpoint.Name -ResourceGroupName myResourceGroup -ServiceName myAPIM -PrivateLinkResourceType Microsoft.ApiManagement/service
     ```
 
 ## Complete Azure Front Door setup
@@ -144,13 +129,9 @@ Your Azure Front Door profile is now fully functional after completing the final
 
 - A functioning Azure Front Door Premium profile and endpoint. See [Create a Front Door - CLI](create-front-door-cli.md).
 
-- A functioning Azure Application Gateway. See [Direct web traffic with Azure Application Gateway - Azure CLI](../application-gateway/quick-create-cli.md).
+- A functioning Azure API Management instance. See [Create a new Azure API Management instance by using the Azure CLI](../api-management/get-started-create-service-instance-cli.md).
 
-## Enable private connectivity to Azure Application Gateway
-
-Follow the steps in [Configure Azure Application Gateway Private Link](../application-gateway/private-link-configure.md), skipping the last step of creating a private endpoint.
-
-## Create an origin group and add the application gateway as an origin
+## Create an origin group and add the API Management instance as an origin
 
 1. Run [az afd origin-group create](/cli/azure/afd/origin-group#az-afd-origin-group-create) to create an origin group.
 
@@ -168,23 +149,17 @@ Follow the steps in [Configure Azure Application Gateway Private Link](../applic
         --additional-latency-in-milliseconds 50
     ```
 
-1. Run [az network application-gaeay frontend-ip list](/cli/azure/network/application-gateway/frontend-ip#az-network-application-gateway-frontend-ip-list) to get the frontend IP configuration name of the Application Gateway.
-
-    ```azurecli-interactive
-    az network application-gateway frontend-ip list --gateway-name myAppGateway --resource-group myResourceGroup
-    ```
-
-1. Run [az afd origin create](/cli/azure/afd/origin#az-afd-origin-create) to add an application gateway as an origin to the origin group.
+1. Run [az afd origin create](/cli/azure/afd/origin#az-afd-origin-create) to add the API Management instance as an origin to the origin group.
 
     ```azurecli-interactive
     az afd origin create \
         --enabled-state Enabled \
         --resource-group myResourceGroup \
         --origin-group-name myOriginGroup \
-        --origin-name myAppGatewayOrigin \
+        --origin-name myAPIMOrigin \
         --profile-name myFrontDoorProfile \
-        --host-name 10.0.0.4 \
-        --origin-host-header 10.0.0.4 \
+        --host-name myapim.azure-api.net \
+        --origin-host-header myapim.azure-api.net \
         --http-port 80  \
         --https-port 443 \
         --priority 1 \
@@ -192,25 +167,23 @@ Follow the steps in [Configure Azure Application Gateway Private Link](../applic
         --enable-private-link true \
         --private-link-location centralus \
         --private-link-request-message 'Azure Front Door private connectivity request.' \
-        --private-link-resource /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myRGAG/providers/Microsoft.Network/applicationGateways/myAppGateway \
-        --private-link-sub-resource-type myAppGatewayFrontendIPName
+        --private-link-resource /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.ApiManagement/service/myAPIM \
+        --private-link-sub-resource-type Gateway
     ```
 
-    > [!NOTE]
-    > `private-link-sub-resource-type` is the Azure Application Gateway frontend IP configuration name.
 
 ## Approve the private endpoint connection
 
-1. Run [az network private-endpoint-connection list](/cli/azure/network/private-endpoint-connection#az-network-private-endpoint-connection-list) to get the **id** of the private endpoint connection that needs approval.
+1. Run [az network private-endpoint-connection list](/cli/azure/network/private-endpoint-connection#az-network-private-endpoint-connection-list) to get the **name** of the private endpoint connection that needs approval.
 
     ```azurecli-interactive
-    az network private-endpoint-connection list --name myAppGateway --resource-group myResourceGroup --type Microsoft.Network/applicationgateways
+    az network private-endpoint-connection list --name myAPIM --resource-group myResourceGroup --type Microsoft.ApiManagement/service
     ```
 
-1. Run [az network private-endpoint-connection approve](/cli/azure/network/private-endpoint-connection#az-network-private-endpoint-connection-approve) to approve the private endpoint connection using the **id** from the previous step.
+1. Run [az network private-endpoint-connection approve](/cli/azure/network/private-endpoint-connection#az-network-private-endpoint-connection-approve) to approve the private endpoint connection using the **name** from the previous step.
 
     ```azurecli-interactive
-    az network private-endpoint-connection approve --id /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Network/applicationGateways/myAppGateway/privateEndpointConnections/aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb.bbbbbbbb-1111-2222-3333-cccccccccccc
+    az network private-endpoint-connection approve --id /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.ApiManagement/service/myAPIM/privateEndpointConnections/aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb
     ```
 
 ## Complete Azure Front Door setup
@@ -231,26 +204,6 @@ az afd route create \
 ```
 
 Your Azure Front Door profile is now fully functional after completing the final step.
-
-::: zone-end
-
-## Common mistakes to avoid
-
-The following are common mistakes when configuring an Azure Application Gateway origin with Azure Private Link enabled:
-
-1. Configuring Azure Front Door origin before configuring Azure Private Link on the Azure Application Gateway.
-
-1. Adding the Azure Application Gateway origin with Azure Private Link to an existing origin group that contains public origins. Azure Front Door doesn't allow mixing public and private origins in the same origin group.
-
-::: zone pivot="front-door-ps"
-
-3. Providing an incorrect Azure Application Gateway frontend IP configuration name as the value for `SharedPrivateLinkResourceGroupId`.
-
-::: zone-end
-
-::: zone pivot="front-door-cli"
-
-3. Providing an incorrect Azure Application Gateway frontend IP configuration name as the value for `private-link-sub-resource-type`.
 
 ::: zone-end
 
