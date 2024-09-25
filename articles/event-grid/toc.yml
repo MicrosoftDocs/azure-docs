@@ -483,8 +483,10 @@ items:
           href: event-filtering.md
         - name: Delivery and retry
           href: delivery-and-retry.md
-        - name: Webhook event delivery
-          href: webhook-event-delivery.md
+        - name: Endpoint validation with CloudEvents 1.0 schema
+          href: end-point-validation-cloud-events-schema.md
+        - name: Endpoint validation with Event Grid event schema
+          href: end-point-validation-event-grid-events-schema.md
         - name: Custom delivery properties
           href: delivery-properties.md
       - name: Availability zones and disaster recovery
