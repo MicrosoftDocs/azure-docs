@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 08/03/2022
+ms.date: 09/25/2024
 ms.author: greglin
 #Customer intent: As a user, I want to know how can I disable/enable proxy buffers.
 ---
@@ -49,6 +49,21 @@ az network application-gateway update --name <gw-name> --resource-group <rg-name
 **Request Buffer**
 ```azurecli-interactive
  az network application-gateway update --name <gw-name> --resource-group <rg-name> --set globalConfiguration.enableRequestBuffering=false
+```
+
+### PowerShell method
+
+**New application gateway**
+```PowerShell
+$AppGw02 = New-AzApplicationGateway -Name "ApplicationGateway02" -ResourceGroupName "ResourceGroup02" -Location $location -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting01 -FrontendIpConfigurations $fipconfig -GatewayIpConfigurations $gipconfig -FrontendPorts $fp01 -HttpListeners $listener01 -RequestRoutingRules $rule01 -Sku $sku
+-EnableRequestBuffering = $false -EnableResponseBuffering = $false
+```
+**Update an existing application gateway**
+```PowerShell
+$appgw = Get-AzApplicationGateway -Name $appgwName -ResourceGroupName $rgname
+$appgw.EnableRequestBuffering = $false
+$appgw.EnableResponseBuffering = $false
+Set-AzApplicationGateway -ApplicationGateway $appgw
 ```
 
 ### ARM template method
