@@ -2,7 +2,7 @@
 title: Azure Event Grid event schema
 description: Describes the properties and schema for the proprietary, nonextensible, yet fully functional Event Grid format. 
 ms.topic: reference
-ms.date: 05/24/2023
+ms.date: 09/25/2024
 ---
 
 # Azure Event Grid event schema
@@ -83,19 +83,8 @@ All events have the same following top-level data:
 | `dataVersion` | string | No, but will be stamped with an empty value. | The schema version of the data object. The publisher defines the schema version. |
 | `metadataVersion` | string | Not required, but if included, must match the Event Grid Schema `metadataVersion` exactly (currently, only `1`). If not included, Event Grid stamps onto the event. | The schema version of the event metadata. Event Grid defines the schema of the top-level properties. Event Grid provides this value. |
 
-To learn about the properties in the data object, see the event source:
+To learn about the properties in the data object, see articles in this section: [System topics](system-topics.md).
 
-* [Azure Policy](./event-schema-policy.md)
-* [Azure subscriptions (management operations)](event-schema-subscriptions.md)
-* [Container Registry](event-schema-container-registry.md)
-* [Blob storage](event-schema-blob-storage.md)
-* [Event Hubs](event-schema-event-hubs.md)
-* [IoT Hub](event-schema-iot-hub.md)
-* [Media Services](/azure/media-services/latest/monitoring/media-services-event-schemas?toc=%2fazure%2fevent-grid%2ftoc.json)
-* [Resource groups (management operations)](event-schema-resource-groups.md)
-* [Service Bus](event-schema-service-bus.md)
-* [Azure SignalR](event-schema-azure-signalr.md)
-* [Azure Machine Learning](event-schema-machine-learning.md)
 
 For custom topics, the event publisher determines the data object. The top-level data should have the same fields as standard resource-defined events.
 
