@@ -55,6 +55,8 @@ docker start sapcon-[SID]
 
 ## Remove the user role and any optional CR installed on your ABAP system
 
+<!--how to handle w removing crs?-->
+
 If you're turning off the SAP data connector agent and stopping log ingestion from your SAP system, we recommend that you also remove the user role and optional CRs installed on your ABAP system.
 
 To do so, import the deletion CR *NPLK900259* into your ABAP system. For more information, see the [SAP documentation](https://help.sap.com/docs/ABAP_PLATFORM_NEW/4a368c163b08418890a406d413933ba7/e15d9acae75c11d2b451006094b9ea64.html?locale=en-US&version=LATEST).
