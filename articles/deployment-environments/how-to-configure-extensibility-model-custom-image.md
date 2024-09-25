@@ -6,7 +6,7 @@ ms.service: azure-deployment-environments
 ms.custom: devx-track-azurecli, devx-track-bicep
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 09/24/2024
+ms.date: 09/25/2024
 ms.topic: how-to
 zone_pivot_groups: ade-extensibility-iac-framework
 
@@ -99,11 +99,19 @@ You can find a few sample environment definitions in the [Environments folder](h
 
 ## Create a custom container image
 
-Creating a custom container image allows you to customize your deployments to fit your requirements. You can create custom images based on the ADE sample container images.
+Creating a custom container image allows you to customize your deployments to fit your requirements. You can create custom images based on the ADE sample images.
 
-After you complete the image customization, you must build the image and push it to your container registry. 
+After you complete the image customization, you must build the image and push it to your container registry.
 
-The ADE CLI is a tool that allows you to build custom images by using ADE base images. You can use the ADE CLI to customize your deployments and deletions to fit your workflow. The ADE CLI is preinstalled on the sample images. To learn more about the ADE CLI, see the [CLI Custom Runner Image reference](https://aka.ms/deployment-environments/ade-cli-reference).
+::: zone pivot="arm-bicep"
+ You can build and push the image manually, or use a script provided by Microsoft to automate the process.
+::: zone-end
+
+::: zone pivot="terraform"
+Alternatively, you can fork the repo [Leveraging ADE's Extensibility Model With Terraform](https://github.com/Azure/ade-extensibility-model-terraform) to build and push the Terraform image to a provided ACR.
+::: zone-end
+
+You build custom images by using the ADE sample images as a base with ADE CLI, which is preinstalled on the sample images. To learn more about the ADE CLI, see the [CLI Custom Runner Image reference](https://aka.ms/deployment-environments/ade-cli-reference).
 
 In this example, you learn how to build a Docker image to utilize ADE deployments and access the ADE CLI, basing your image off of one of the ADE authored images.
 
