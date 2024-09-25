@@ -146,7 +146,7 @@ Azure IoT Operations requires a schema registry on your cluster. Schema registry
 1. Deploy Azure IoT Operations. This command takes several minutes to complete:
 
    ```azurecli
-   az iot ops create --cluster <CLUSTER_NAME> --resource-group <RESOURCE_GROUP>
+   az iot ops create --name <NAME> --cluster <CLUSTER_NAME> --resource-group <RESOURCE_GROUP>
    ```
 
    Use the optional parameters to customize your instance, including:
