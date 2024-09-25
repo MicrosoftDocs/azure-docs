@@ -161,7 +161,7 @@ In this section, you configure test failure criteria on server-side metrics for 
 
 1.	In the [Azure portal](https://portal.azure.com), go to your Azure Load Testing resource.
    
-2.	Click on **Create Test**.
+2.	Select **Create Test**.
    
 3.	Under the **Monitoring** Tab, [configure the app components](./how-to-monitor-server-side-metrics.md) you want to monitor during the test.
    
