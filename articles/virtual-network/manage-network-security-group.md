@@ -589,10 +589,10 @@ az network asg show --resource-group myResourceGroup --name myASG
 
    - Select **edit** next to **Tags** to add or remove tags. To learn more, see [Use tags to organize your Azure resources and management hierarchy](../azure-resource-manager/management/tag-resources.md).
 
-   :::image type="content" source="./media/manage-network-security-group/change-application-security-group.png" alt-text="Screenshot that shows changing an application security group in the Azure portal.":::
+     :::image type="content" source="./media/manage-network-security-group/change-application-security-group.png" alt-text="Screenshot that shows changing an application security group in the Azure portal.":::
 
-   > [!NOTE]
-   > You can't change the location of an application security group.
+     > [!NOTE]
+     > You can't change the location of an application security group.
 
    - Select **Access control (IAM)** to assign or remove permissions to the application security group.
 
