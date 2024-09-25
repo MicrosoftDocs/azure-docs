@@ -3,7 +3,8 @@ author: v-sreeiyer
 ms.author: v-sreeiyer
 ms.service: hdinsight-on-aks
 ms.topic: include
-ms.date: 02/09/2024
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 > [!Note]
