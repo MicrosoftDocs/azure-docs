@@ -59,7 +59,7 @@ The following table shows which versions of the client libraries for .NET, Java,
 
 |  | .NET | Java | Python |
 | --- | --- | --- | --- |
-| **Client-side encryption v2 and v1** | [Versions 12.13.0 and later](https://www.nuget.org/packages/Azure.Storage.Blobs) | [Versions 12.18.0 and later](https://search.maven.org/artifact/com.azure/azure-storage-blob)</br>v2.1 is supported in version 12.27.0 and later | [Versions 12.13.0 and later](https://pypi.org/project/azure-storage-blob) |
+| **Client-side encryption v2 and v1** | [Versions 12.13.0 and later](https://www.nuget.org/packages/Azure.Storage.Blobs) | [Versions 12.18.0 and later] | [Versions 12.13.0 and later](https://pypi.org/project/azure-storage-blob) |
 | **Client-side encryption v1 only** | Versions 12.12.0 and earlier | Versions 12.17.0 and earlier | Versions 12.12.0 and earlier |
 
 If your application is using client-side encryption with an earlier version of the .NET, Java, or Python client library, you must first upgrade your code to a version that supports client-side encryption v2. Next, you must decrypt and re-encrypt your data with client-side encryption v2. If necessary, you can use a version of the client library that supports client-side encryption v2 side-by-side with an earlier version of the client library while you're migrating your code. For code examples, see [Example: Encrypting and decrypting a blob with client-side encryption v2](#example-encrypting-and-decrypting-a-blob-with-client-side-encryption-v2).
@@ -215,8 +215,9 @@ BlobClientSideEncryptionOptions encryptionOptions = new BlobClientSideEncryption
     .setAuthenticatedRegionDataLengthInBytes(1024 * 4);
  
 EncryptedBlobClient ebc = new EncryptedBlobClientBuilder(EncryptionVersion.V2_1)
-    .blobClient(null)
-    .key(keyEncryptionKey, keyWrapAlgorithm)
+    .blobClient(client)
+    .key(key, keyWrapAlgorithm)
+    .keyResolver(keyResolver)
     .credential(new DefaultAzureCredentialBuilder().build())
     .endpoint("https://<storage-account-name>.blob.core.windows.net/")
     .clientSideEncryptionOptions(encryptionOptions)
