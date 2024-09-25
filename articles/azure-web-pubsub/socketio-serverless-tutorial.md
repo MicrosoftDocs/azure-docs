@@ -335,11 +335,10 @@ func start
 
 And visit the webpage at `http://localhost:7071/api/index`. 
 
-:::image type="content" source="./media/socketio-serverless-quickstart/chatsample.png" alt-text="Screenshot of the serverless chat app.":::
+:::image type="content" source="./media/socketio-serverless-tutorial/chatsample.png" alt-text="Screenshot of the serverless chat app.":::
 
 ## Next steps
-Next, you can explore more samples in various languages:
+Next, you can try to leverage Bicep to deploy the app online with identity-based authentication:
 
 > [!div class="nextstepaction"]
-> [TypeScript Sample](https://github.com/Azure/azure-webpubsub/tree/main/sdk/webpubsub-socketio-extension/examples/chat-serverless-typescript)
-> [C# Sample](https://github.com/Azure/azure-webpubsub/tree/main/sdk/webpubsub-socketio-extension/examples/chat-serverless-dotnet)
+> [Quickstart: Build chat app with Azure Function in Socket.IO Serverless Mode](./socketio-serverless-quickstart.md)

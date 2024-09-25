@@ -143,8 +143,13 @@
       href: socketio-overview.md
     - name: Serverless Mode Overview
       href: socketio-serverless-overview.md
-    - name: Quickstart for Socket.IO users
-      href: socketio-quickstart.md
+    - name: Quickstart
+      expanded: true
+      items:
+      - name: Quickstart for Socket.IO users
+        href: socketio-quickstart.md
+      - name: Quickstart for Socket.IO Serverless with Azure Function
+        href: socketio-serverless-quickstart.md
     - name: Tutorials
       expanded: true
       items:

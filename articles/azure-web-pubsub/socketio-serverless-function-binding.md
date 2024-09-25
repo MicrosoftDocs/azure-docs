@@ -47,7 +47,7 @@ For the local development, use the `local.settings.json` file to store the conne
 {
   "Values": {
     "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-    "WebPubSubForSocketIOConnectionString": "Endpoint=https://<webpubsub-name>.webpubsub.azure.com;AccessKey=<access-key>;Version=1.0;"
+    `WebPubSubForSocketIOConnectionString`: "Endpoint=https://<webpubsub-name>.webpubsub.azure.com;AccessKey=<access-key>;Version=1.0;"
   }
 }
 ```
@@ -76,7 +76,7 @@ For the local development, use the `local.settings.json` file to store the conne
 }
 ```
 
-If you want to use identity based configuration and running online, the `AzureWebJobsStorage` should refer to [Connecting to host storage with an identity](../azure-functions/functions-reference.md#connecting-to-host-storage-with-an-identity)
+If you want to use identity based configuration and running online, the `AzureWebJobsStorage` should refer to [Connecting to host storage with an identity](../azure-functions/functions-reference.md#connecting-to-host-storage-with-an-identity).
 
 ## Input Binding
 
@@ -101,7 +101,7 @@ The attribute for input binding is `[SocketIONegotiation]`.
 | Attribute property | Description |
 |---------|---------|
 | Hub | The hub name that a client needs to connect to. |
-| Connection | The name of the app setting that contains the Socket.IO connection string (defaults to "WebPubSubForSocketIOConnectionString"). |
+| Connection | The name of the app setting that contains the Socket.IO connection string (defaults to `WebPubSubForSocketIOConnectionString`). |
 | UserId | The userId of the connection. It applys to all sockets in the connection. It becomes the `sub` claim in the generated token. |
 
 # [JavaScript Model v4](#tab/javascript-v4)
@@ -139,7 +139,7 @@ app.http('negotiate', {
 | direction | Must be `in` |
 | name | Variable name used in function code for input connection binding object |
 | hub | The hub name that a client needs to connect to. |
-| connection | The name of the app setting that contains the Socket.IO connection string (defaults to "WebPubSubForSocketIOConnectionString"). |
+| connection | The name of the app setting that contains the Socket.IO connection string (defaults to `WebPubSubForSocketIOConnectionString`). |
 | userId | The userId of the connection. It applys to all sockets in the connection. It becomes the `sub` claim in the generated token. |
 
 ---
@@ -211,7 +211,7 @@ The attribute for trigger binding is `[SocketIOTrigger]`.
 
 ### Binding Data
 
-`[SocketIOTrigger]` binds some variable to binding data. You can learn more about it from [Azure Functions binding expression patterns](../azure-functions/functions-bindings-expressions-patterns.md)
+`[SocketIOTrigger]` binds some variables to binding data. You can learn more about it from [Azure Functions binding expression patterns](../azure-functions/functions-bindings-expressions-patterns.md)
 
 
 
@@ -361,7 +361,7 @@ The attribute for input binding is `[SocketIO]`.
 | Attribute property | Description |
 |---------|---------|
 | Hub | The hub name that a client needs to connect to. |
-| Connection | The name of the app setting that contains the Socket.IO connection string (defaults to "WebPubSubForSocketIOConnectionString"). |
+| Connection | The name of the app setting that contains the Socket.IO connection string (defaults to `WebPubSubForSocketIOConnectionString`). |
 
 # [JavaScript Model v4](#tab/javascript-v4)
 
@@ -402,7 +402,7 @@ app.generic('newMessage', {
 |---------|---------|
 | type | Must be `socketio` |
 | hub | The hub name that a client needs to connect to. |
-| connection | The name of the app setting that contains the Socket.IO connection string (defaults to "WebPubSubForSocketIOConnectionString"). |
+| connection | The name of the app setting that contains the Socket.IO connection string (defaults to `WebPubSubForSocketIOConnectionString`). |
 
 ---
 
