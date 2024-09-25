@@ -23,9 +23,8 @@ To use ASIM audit event parsers, deploy the parsers from the [Microsoft Sentinel
 | --- | --------------------------- | ---------- |
 | **Azure Activity administrative events** | Azure Activity events (in the `AzureActivity` table) in the category `Administrative`. | `ASimAuditEventAzureActivity` |
 | **Exchange 365 administrative events** | Exchange Administrative events collected using the Office 365 connector (in the `OfficeActivity` table). | `ASimAuditEventMicrosoftOffice365` |
-| **Windows Log clear event** | Windows Event 1102 collected using the Azure monitor agent Security Events and WEF connectors (using the `SecurityEvent`, `WindowsEvent`, or `Event` tables). | `ASimAuditEventMicrosoftWindowsEvents` |
+| **Windows Log clear event** | Windows Event 1102 collected using the Azure Monitor agent Security Events and WEF connectors (using the `SecurityEvent`, `WindowsEvent`, or `Event` tables). | `ASimAuditEventMicrosoftWindowsEvents` |
 
-<!--how to update for AMA?-->
 ## Authentication parsers
 
 To use ASIM authentication parsers, deploy the parsers from the [Microsoft Sentinel GitHub repository](https://aka.ms/ASimAuthentication). Microsoft Sentinel provides the following parsers in the packages deployed from GitHub:
