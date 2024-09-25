@@ -55,7 +55,7 @@ az network application-gateway update --name <gw-name> --resource-group <rg-name
 
 **New application gateway**
 ```PowerShell
-$AppGw02 = New-AzApplicationGateway -Name "ApplicationGateway02" -ResourceGroupName "ResourceGroup02" -Location $location -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting01 -FrontendIpConfigurations $fipconfig -GatewayIpConfigurations $gipconfig -FrontendPorts $fp01 -HttpListeners $listener01 -RequestRoutingRules $rule01 -Sku $sku -EnableRequestBuffering = $false -EnableResponseBuffering = $false
+$AppGw02 = New-AzApplicationGateway -Name "ApplicationGateway02" -ResourceGroupName "ResourceGroup02" -Location $location -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting01 -FrontendIpConfigurations $fipconfig -GatewayIpConfigurations $gipconfig -FrontendPorts $fp01 -HttpListeners $listener01 -RequestRoutingRules $rule01 -Sku $sku -EnableRequestBuffering:$false -EnableResponseBuffering:$false
 ```
 **Update an existing application gateway**
 ```PowerShell
