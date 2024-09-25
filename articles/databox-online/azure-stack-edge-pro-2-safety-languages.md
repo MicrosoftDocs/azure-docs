@@ -18,7 +18,7 @@ For safety instructions in English, go to [Safety instructions for your Azure St
 
 ## Safety instructions in Azure languages
 
-Use a locale code in the table below to create a URL for the article in a specific language.
+To create a URL for the article in a specific language, use a locale code in the following table.
 
 Examples:
  - English-language article using the *en* locale code: 
