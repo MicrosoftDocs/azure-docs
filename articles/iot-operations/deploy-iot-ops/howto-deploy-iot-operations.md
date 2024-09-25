@@ -191,7 +191,7 @@ Azure secret requires a user-assigned managed identity with access to the Azure 
    * Adds a minimum secret provider class associated with the Azure IoT Operations instance.
 
    ```azurecli
-   az iot ops secretsync enable -n <CLUSTER_NAME> -g <RESOURCE_GROUP> --mi-user-assigned <USER_ASSIGNED_MI_RESOURCE_ID> --kv-resource-id <KEYVAULT_RESOURCE_ID>
+   az iot ops secretsync enable -n <AIO_NAME> -g <RESOURCE_GROUP> --mi-user-assigned <USER_ASSIGNED_MI_RESOURCE_ID> --kv-resource-id <KEYVAULT_RESOURCE_ID>
    ```
 
 1. Create a user-assigned managed identity which can be used for cloud connections. Don't use the same identity as the one used to set up secrets management.
@@ -204,7 +204,7 @@ Azure secret requires a user-assigned managed identity with access to the Azure 
 1. Run the following command to assign the identity to the Azure IoT Operations instance. This command also created a federated identity credential using the OIDC issuer of the indicated connected cluster and the Azure IoT Operations service account.
 
    ```azurecli
-   az iot ops identity assign -n <CLUSTER_NAME> -g <RESOURCE_GROUP> --mi-user-assigned <USER_ASSIGNED_MI_RESOURCE_ID>
+   az iot ops identity assign -n <AIO_NAME> -g <RESOURCE_GROUP> --mi-user-assigned <USER_ASSIGNED_MI_RESOURCE_ID>
    ```
 
 ### [Azure portal](#tab/portal)
