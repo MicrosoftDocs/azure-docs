@@ -1,13 +1,12 @@
 ---
-title: Load balancer migration guidelines in Azure HDInsight on AKS
-description: Guidelines to perform load balancer migration in Azure HDInsight on AKS
+title: Load balancer migration guidelines for Azure HDInsight on AKS
+description: Guidelines to perform load balancer migration for Azure HDInsight on AKS
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.date: 09/25/2024
 ---
 
 # Load balancer migration guidelines
-
 
 This article describes the details about the impact on HDInsight clusters and the necessary steps required as HDInsight service is transitioning to use standard load balancers for all its cluster configurations.
 
@@ -61,7 +60,7 @@ In this case, there are two options to create a cluster
 
 To upgrade your existing custom virtual network to integrate Azure standard load balancer (which is HDInsight clusters use by default), see, [Use Source Network Address Translation (SNAT) for outbound connections](/azure/load-balancer/load-balancer-outbound-connections) to provide outbound connectivity for the cluster. The most recommended way is to attach a network security group and a NAT gateway to the subnet. Since the existing subnet which has HDInsight clusters with Azure basic load balancers can't be associated with an NAT gateway due to incompatibility with basic load balancer, there are two scenarios:
 
-Scenario 1: Existing subnet has no HDInsight clusters with Azure basic load balancer
+### Scenario 1: Existing subnet has no HDInsight clusters with Azure basic load balancer
 
 1. (Optional) Create a new NAT gateway and a new network security group.
  
@@ -83,7 +82,7 @@ Scenario 1: Existing subnet has no HDInsight clusters with Azure basic load bala
     > [!NOTE]
     > If you are unable to find the NAT gateway, see, [FAQ of the NAT gateway (Azure NAT Gateway frequently asked questions](/azure/nat-gateway/faq#are-basic-sku-resources--basic-load-balancer-and-basic-public-ip-addresses--compatible-with-a-nat-gateway). 
 
-## Scenario 2: The existing subnet has HDInsight clusters with basic load balancers.
+### Scenario 2: The existing subnet has HDInsight clusters with basic load balancers.
 
 Approach 1: The most recommended way is to associate a NAT gateway to the subnet along with Network security group.
 
