@@ -17,6 +17,28 @@ items:
     href: oracle-db/oracle-database-network-plan.md
   - name: Groups and roles for Oracle Database@Azure
     href: oracle-db/oracle-database-groups-roles.md
+  - name: Design considerations 
+    items:
+    - name: Groups and roles for Oracle Database@Azure
+      href: oracle-db/oracle-database-groups-roles.md
+    - name: Delegated subnet limits
+      href: oracle-db/oracle-database-delegated-subnet-limits.md      
+  - name: Exadata Services
+    items:
+    - name: What's new in Exadata services
+      href: oracle-db/exadata-whats-new-services.md
+    - name: Provision Exadata infrastructure
+      href: oracle-db/exadata-provision-infrastructure.md
+    - name: Manage Exadata resources
+      href: oracle-db/exadata-manage-resources.md
+    - name: Operations processes for Exadata services
+      href: oracle-db/exadata-operations-processes-services.md
+    - name: OCI Multicloud landing zone for Azure
+      href: oracle-db/exadata-multicloud-landing-zone-azure-services.md
+    - name: Terraform/OpenTofu Examples for Exadata Services
+      href: oracle-db/exadata-examples-services.md
+    - name: Troubleshoot Exadata services
+      href: oracle-db/exadata-troubleshoot-services.md
   - name: Provision and manage Oracle Database@Azure
     items:
     - name: Overview of provisioning
