@@ -239,7 +239,7 @@ When you [changed your package references in a previous step](#package-reference
 
 Before upgrade the input binding will be as below for cosmos change feed trigger
 ```csharp
-		  [FunctionName("TestUpdate")]
+    [FunctionName("TestUpdate")]
     public async Task Run([CosmosDBTrigger(
         databaseName: "testdb",
         collectionName: "testcontainer",
@@ -250,7 +250,7 @@ Before upgrade the input binding will be as below for cosmos change feed trigger
 
 After upgrade the input binding will be 
 ```csharp
-  [Function("TestUpdate")]
+   [Function("TestUpdate")]
     public async Task Run([CosmosDBTrigger(
         databaseName: "testdb",
         collectionName: "testcontainer",
