@@ -8,7 +8,7 @@ ms.reviewer: jburchel
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/20/2023
+ms.date: 09/25/2024
 ---
 
 # Linked services in Azure Data Factory and Azure Synapse Analytics

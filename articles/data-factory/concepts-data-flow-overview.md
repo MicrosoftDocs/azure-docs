@@ -6,7 +6,7 @@ ms.author: makromer
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 10/20/2023
+ms.date: 09/25/2024
 ---
 
 # Mapping data flows in Azure Data Factory

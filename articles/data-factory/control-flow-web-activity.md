@@ -7,7 +7,7 @@ ms.author: abnarain
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/20/2023
+ms.date: 09/25/2024
 ---
 
 # Web activity in Azure Data Factory and Azure Synapse Analytics

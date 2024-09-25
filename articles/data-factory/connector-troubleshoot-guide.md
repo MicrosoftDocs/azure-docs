@@ -5,7 +5,7 @@ description: Learn how to troubleshoot connector issues in Azure Data Factory an
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 10/20/2023
+ms.date: 09/25/2024
 ms.author: jianleishen
 ms.custom: synapse
 ---

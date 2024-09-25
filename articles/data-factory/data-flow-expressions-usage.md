@@ -7,7 +7,7 @@ ms.author: makromer
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/20/2023
+ms.date: 09/25/2024
 ---
 
 # Data transformation expression usage in mapping data flow
