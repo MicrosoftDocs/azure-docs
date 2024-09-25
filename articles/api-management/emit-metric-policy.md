@@ -17,9 +17,6 @@ ms.custom: engagement-fy23
 
 The `emit-metric` policy sends custom metrics in the specified format to Application Insights.
 
-> [!NOTE]
-> Custom metrics are a [preview feature](/azure/azure-monitor/essentials/metrics-custom-overview) of Azure Monitor and subject to [limitations](/azure/azure-monitor/essentials/metrics-custom-overview#design-limitations-and-considerations).
-
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
 ## Limits for custom metrics
