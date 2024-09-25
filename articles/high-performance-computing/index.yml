@@ -61,7 +61,10 @@ conceptualContent:
               text: Digital image-based modeling on Azure
             - url: /azure/architecture/guide/hpc/hpc-deployments/
               itemType: overview
-              text: HPC Deployments              
+              text: HPC Deployments
+            - url: /azure/high-performance-computing/lift-and-shift-overview/
+              itemType: overview
+              text: On-premises to cloud lift and shift migration guide
         # Card
         - title: Azure HPC Compute
           links:
