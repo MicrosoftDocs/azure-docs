@@ -133,10 +133,7 @@ After you create the volume, configure the volume access parameters.
 
 5.  At this point, the new volume will start to deploy. Once deployment is complete, you can use the Azure NetApp Files share.
 
-6.  To see the mount path, select **Go to resource** and look for it in the Overview tab.
-
-    > [!div class="mx-imgBorder"]
-    > ![A screenshot of the Overview screen with a red arrow pointing at the mount path.](media/overview-mount-path.png)
+6.  To see the mount path, select **Go to resource** and look for it in the Overview tab. The mount path is in the format `\\<share-name>\<folder-name>`.
 
 ## Configure FSLogix on session host virtual machines (VMs)
 
@@ -186,4 +183,4 @@ This section is based on [Create a profile container for a host pool using a fil
 
 5. Go to the **Overview** tab and confirm that the FSLogix profile container is using space.
 
-6. Connect directly to any VM part of the host pool using Remote Desktop and open the **File Explorer.** Then navigate to your **Mount path**. Within this folder, there should be a profile VHD (or VHDX).
+6. Connect directly to any VM part of the host pool using Remote Desktop and open the **File Explorer.** Then navigate to your **Mount path**. Within this folder, there should be a `.VHD` or .`VHDX` file for the profile.
