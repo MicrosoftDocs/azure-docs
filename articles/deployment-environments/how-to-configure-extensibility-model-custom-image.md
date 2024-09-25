@@ -496,24 +496,6 @@ You can use Pulumi to create an Azure Container Registry and publish your image 
 
 Select the appropriate tab to learn more about each approach.
 
-### [Public registry](#tab/public-registry/)
-
-**Use a public registry with anonymous pull**
-
-To set up your registry to have anonymous image pull enabled, run the following commands in the Azure CLI:
-
-```azurecli
-az login
-az acr login -n {YOUR_REGISTRY}
-az acr update -n {YOUR_REGISTRY} --public-network-enabled true
-az acr update -n {YOUR_REGISTRY} --anonymous-pull-enabled true
-```
-
-When you're ready to push your image to your registry, run the following command:
-
-```docker
-docker push {YOUR_REGISTRY}.azurecr.io/{YOUR_IMAGE_LOCATION}:{YOUR_TAG}
-```
 ### [Private registry](#tab/private-registry/)
 
 **Use a private registry with secured access**
@@ -564,6 +546,24 @@ In this configuration, ADE uses the Managed Identity for the PET, whether system
 
 > [!Tip]
 > This role assignment has to be made for every project environment type. It can be automated through the Azure CLI.
+
+When you're ready to push your image to your registry, run the following command:
+
+```docker
+docker push {YOUR_REGISTRY}.azurecr.io/{YOUR_IMAGE_LOCATION}:{YOUR_TAG}
+```
+### [Public registry](#tab/public-registry/)
+
+**Use a public registry with anonymous pull**
+
+To set up your registry to have anonymous image pull enabled, run the following commands in the Azure CLI:
+
+```azurecli
+az login
+az acr login -n {YOUR_REGISTRY}
+az acr update -n {YOUR_REGISTRY} --public-network-enabled true
+az acr update -n {YOUR_REGISTRY} --anonymous-pull-enabled true
+```
 
 When you're ready to push your image to your registry, run the following command:
 
