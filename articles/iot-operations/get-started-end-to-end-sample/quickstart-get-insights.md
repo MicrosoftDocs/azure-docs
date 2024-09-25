@@ -56,8 +56,9 @@ After the eventstream is created, you'll see the main editor where you can start
 Next, add your event hub from the previous quickstart as a data source for the eventstream.
 
 Follow the steps in [Add Azure Event Hubs source to an eventstream](/fabric/real-time-intelligence/event-streams/add-source-azure-event-hubs?pivots=enhanced-capabilities) to add the event source. Keep the following notes in mind:
-* When it's time to select a **Data format**, choose *Json* (it might be selected already by default).
-* Make sure to complete all the steps in the article through selecting **Publish** on the ribbon.
+
+- When it's time to select a **Data format**, choose *Json* (it might be selected already by default).
+- Make sure to complete all the steps in the article through selecting **Publish** on the ribbon.
 
 After completing this flow, the Azure event hub is visible in the eventstream live view as a source.
 
@@ -99,19 +100,20 @@ In this section, you create a KQL database in your Microsoft Fabric workspace to
 
     ```kql
     .create table ['OPCUA'] ingestion json mapping 'opcua_mapping' '[{"column":"AssetId", "Properties":{"Path":"$[\'AssetId\']"}},{"column":"Temperature", "Properties":{"Path":"$.Temperature.Value"}},{"column":"Humidity", "Properties":{"Path":"$.Humidity.Value"}},{"column":"Timestamp", "Properties":{"Path":"$[\'EventProcessedUtcTime\']"}}]'
-    ``` 
+    ```
 
 ### Add data table as a destination
 
 Next, return to your eventstream view, where you can add your new KQL table as an eventstream destination.
 
 Follow the steps in [Add a KQL Database destination to an eventstream](/fabric/real-time-intelligence/event-streams/add-destination-kql-database?pivots=enhanced-capabilities#direct-ingestion-mode) to add the destination. Keep the following notes in mind:
-* Use direct ingestion mode.
-* On the **Configure** step, select the *OPCUA* table that you created earlier.
-* On the **Inspect** step, open the **Advanced** options. Under **Mapping**, select **Existing mapping** and choose *opcua_mapping*.
+
+- Use direct ingestion mode.
+- On the **Configure** step, select the *OPCUA* table that you created earlier.
+- On the **Inspect** step, open the **Advanced** options. Under **Mapping**, select **Existing mapping** and choose *opcua_mapping*.
 
     :::image type="content" source="media/quickstart-get-insights/existing-mapping.png" alt-text="Screenshot adding an existing mapping.":::
-    
+
     >[!TIP]
     >If no existing mappings are found, try refreshing the eventstream editor and restarting the steps to add the destination. Alternatively, you can initiate this same configuration process from the KQL table instead of from the eventstream, as described in [Get data from Eventstream](/fabric/real-time-intelligence/get-data-eventstream).
 
@@ -136,8 +138,9 @@ In this section, you'll create a new [Real-Time Dashboard](/fabric/real-time-int
 
 Follow the steps in the [Create a new dashboard](/fabric/real-time-intelligence/dashboard-real-time-create#create-a-new-dashboard) section to create a new Real-Time Dashboard from the Real-Time Intelligence capabilities.
 
-Then, follow the steps in the [Add data source](/fabric/real-time-intelligence/dashboard-real-time-create#add-data-source) section to add your database as a data source. Keep the following notes in mind:
-* In the **Data sources** pane, your database will be under **OneLake data hub**.
+Then, follow the steps in the [Add data source](/fabric/real-time-intelligence/dashboard-real-time-create#add-data-source) section to add your database as a data source. Keep the following note in mind:
+
+- In the **Data sources** pane, your database will be under **OneLake data hub**.
 
 ### Create line chart tile
 
@@ -160,15 +163,16 @@ Next, add a tile to your dashboard to show a line chart of temperature and humid
     :::image type="content" source="media/quickstart-get-insights/chart-query.png" alt-text="Screenshot of adding a tile query.":::
 
 1. Select **+ Add visual** next to the query results to add a visual for this data. Create a visual with the following characteristics:
-    * **Tile name**: *Temperature and humidity over time*
-    * **Visual type**: *Line chart*
-    * **Data**:
-        * **Y columns**: *Temperature (decimal)* and *Humidity (decimal)* (already inferred by default)
-        * **X columns**: *Timestamp (datetime)* (already inferred by default)
-    * **Y Axis**:
-        * **Label**: *Units*
-    * **X Axis**:
-        * **Label**: *Timestamp*
+
+    - **Tile name**: *Temperature and humidity over time*
+    - **Visual type**: *Line chart*
+    - **Data**:
+        - **Y columns**: *Temperature (decimal)* and *Humidity (decimal)* (already inferred by default)
+        - **X columns**: *Timestamp (datetime)* (already inferred by default)
+    - **Y Axis**:
+        - **Label**: *Units*
+    - **X Axis**:
+        - **Label**: *Timestamp*
 
     Select **Apply changes** to create the tile.
 
@@ -185,7 +189,7 @@ Next, create some tiles to display the maximum values of temperature and humidit
 1. Select **New tile** to create a new tile.
 
 1. Enter the following KQL query for the tile. This query applies a built-in filter parameter from the dashboard selector for time range, and takes the highest temperature value from the resulting records.
-    
+
     ```kql
     OPCUA
     | where Timestamp between (_startTime.._endTime)
@@ -196,13 +200,13 @@ Next, create some tiles to display the maximum values of temperature and humidit
     **Run** the query to verify that a maximum temperature can be found.
 
 1. Select **+ Add visual** to add a visual for this data. Create a visual with the following characteristics:
-    * **Tile name**: *Max temperature*
-    * **Visual type**: *Stat*
-    * **Data**:
-        * **Value column**: *Temperature (decimal)* (already inferred by default)
-    
+    - **Tile name**: *Max temperature*
+    - **Visual type**: *Stat*
+    - **Data**:
+        - **Value column**: *Temperature (decimal)* (already inferred by default)
+
     Select **Apply changes** to create the tile.
-    
+
     :::image type="content" source="media/quickstart-get-insights/stat-visual.png" alt-text="Screenshot of adding a stat visual.":::
 
 1. View the finished tile on your dashboard (you may want to resize the tile so the full text is visible).
@@ -228,9 +232,9 @@ Next, create some tiles to display the maximum values of temperature and humidit
     **Run** the query to verify that a maximum humidity can be found.
 
 1. In the **Visual formatting** pane, update the following characteristics:
-    * **Tile name**: *Max humidity*
-    * **Data**:
-        * **Value column**: *Humidity (decimal)* (already inferred by default)
+    - **Tile name**: *Max humidity*
+    - **Data**:
+        - **Value column**: *Humidity (decimal)* (already inferred by default)
 
     Select **Apply changes**.
 
