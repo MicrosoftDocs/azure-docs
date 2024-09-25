@@ -1,10 +1,10 @@
 ---
 title: Azure Backup glossary
 description: This article defines terms helpful for use with Azure Backup.
-ms.topic: conceptual
+ms.topic: reference
 ms.service: azure-backup
 ms.custom: devx-track-azurepowershell, devx-track-arm-template, devx-track-azurecli, engagement-fy24
-ms.date: 03/21/2024
+ms.date: 09/09/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---

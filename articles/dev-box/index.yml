@@ -25,10 +25,10 @@ landingContent:
             url: overview-what-is-microsoft-dev-box.md
           - text: Architecture overview
             url: concept-dev-box-architecture.md
-          - text: Microsoft Dev Box Roadmap
-            url: dev-box-roadmap.md
           - text: Microsoft Dev Box concepts
             url: concept-dev-box-concepts.md
+          - text: Microsoft Dev Box Roadmap
+            url: dev-box-roadmap.md
 
   # Card
   - title: Get started
@@ -67,6 +67,16 @@ landingContent:
         links:
           - text: Troubleshoot dev box connectivity issues
             url: how-to-troubleshoot-repair-dev-box.md      
+
+  # Card
+  - title: Provide secure access
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Configure conditional access policies
+            url: how-to-configure-intune-conditional-access-policies.md
+          - text: Enable single sign-on for dev boxEssentials
+            url: how-to-enable-single-sign-on.md  
 
   # Card
   - title: Create custom dev boxes

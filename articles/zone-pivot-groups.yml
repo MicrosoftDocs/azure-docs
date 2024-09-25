@@ -1160,6 +1160,14 @@ groups:
     title: Azure portal
   - id: front-door-cli
     title: Azure CLI
+- id: front-door-dev-exp-ps-cli
+  title: Front Door Developer experience
+  prompt: "Select the developer experience:"
+  pivots:
+  - id: front-door-ps
+    title: Azure PowerShell
+  - id: front-door-cli
+    title: Azure CLI
 # Owner: wiassaf
 - id: azure-sql-deployment-option-single-elastic
   title: Azure SQL deployment option, single or elastic
@@ -1552,17 +1560,6 @@ groups:
     title: New Maintenance Configuration
   - id: existing-mc
     title: Existing Maintenance Configuration
-# Owner: v-gjeronika
-- id: vmware-portal-bicep-terraform
-  title: Create a virtual machine on VMware vCenter using Azure Arc
-  prompt: Choose a method
-  pivots:
-  - id: portal
-    title: Azure portal
-  - id: bicep
-    title: Bicep
-  - id: terraform
-    title: Terraform
 # Owner: marymichael
 - id: web-apps-assessment-app-service
   title: Assess ASP.NET web apps for migration to Azure App Service
@@ -1581,15 +1578,6 @@ groups:
     title: ASP.NET
   - id: java
     title: Java
-# Owner: tejaswikolli-web
-- id: container-registry-zones
-  title: Container registry ide
-  prompt: Choose a scope option
-  pivots:
-  - id: development-environment-azure-portal
-    title: Portal
-  - id: development-environment-azure-cli
-    title: CLI
 # Owner: sethm
 - id: platform-select
   title: Platform
@@ -1667,3 +1655,12 @@ groups:
     title: C#
   - id: programming-language-java
     title: Java
+# Owner: xiaofanzhou
+- id: tutorial-type
+  title: Choose a tutorial type
+  prompt: Choose a tutorial type
+  pivots:
+  - id: serviceconnector
+    title: Service Connector
+  - id: manual
+    title: Manual

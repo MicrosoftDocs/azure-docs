@@ -27,7 +27,9 @@ landingContent:
             url: overview-what-is-azure-deployment-environments.md
           - text: Key concepts
             url: concept-environments-key-concepts.md
-
+          - text: Azure Deployment Environments roadmap 
+            url: ade-roadmap.md
+            
   # Card
   - title: Get started
     linkLists:

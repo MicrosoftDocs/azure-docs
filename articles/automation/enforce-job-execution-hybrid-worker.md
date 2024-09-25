@@ -3,8 +3,8 @@ title: Enforce job execution on Azure Automation Hybrid Runbook Worker
 description: This article tells how to use a custom Azure Policy definition to enforce job execution on an Azure Automation Hybrid Runbook Worker.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/04/2024
-ms.topic: conceptual
+ms.date: 09/09/2024
+ms.topic: overview
 ms.service: azure-automation
 ---
 

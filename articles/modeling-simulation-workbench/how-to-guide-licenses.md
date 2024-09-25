@@ -20,7 +20,11 @@ This article shows you how to upload a license file and activate a license servi
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
+[!INCLUDE [prerequisite-chamber](includes/prerequisite-chamber.md)]
+
 - A FLEXlm license file for a software vendor that requires a license. You need to buy a production environment license from a vendor such as Synopsys, Cadence, Siemens, or Ansys.
+
+[!INCLUDE [prerequisite-user-chamber-admin](includes/prerequisite-user-chamber-admin.md)]
 
 ## Upload or update a license for FLEXlm-based tools
 
@@ -37,6 +41,11 @@ This section lists the steps to upload a license for a FLEXlm-based tool. First,
 
 > [!IMPORTANT]
 > Loading a new license causes the license server to restart. This could affect actively running jobs.
+>
+> For Siemens license files validate that:
+>
+> - A `saltd` compatible file is requested; and
+> - The clause `VENDOR saltd` is included in the license file.
 
 ## Next steps
 

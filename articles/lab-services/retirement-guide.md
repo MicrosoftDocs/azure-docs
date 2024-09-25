@@ -111,6 +111,17 @@ Partners might provide migration tooling to automatically migrate labs from Azur
    - Dev Box requires specific Dev Box supported Marketplace images.
    - AVD requires multi-session Marketplace images to enable multi-session capabilities.
 
+### Can I transfer my Azure Lab Services core limits to my preferred transition solution?
+No, your Azure subscription core limits can't be transferred to your preferred solution, applicable to both Lab Account (Classic) and Lab Plan. You or the partner have to request a core limit for your chosen solution as part of the transition plan.
+
+To ensure that you have the resources you require when you need them, you should:
+- Request capacity as far in advance as possible.
+- Be flexible on the region where you're requesting capacity, if possible.
+- Make incremental requests for VM cores rather than making large, bulk requests. Break requests for large number of cores into smaller requests for extra flexibility in how those requests are fulfilled.
+
+### Should I request the same amount of Azure subscription core limits with my preferred transition solution?
+Make sure to review your lab usage trends and not assume you require the same volume of core limits. Keep in mind, the recommended transition solutions allow for more efficient use of lab resources which can reduce the overall number of cores needed. For example, multi-session VDI offerings enable multiple users to share the same VM. 
+
 ## Related content
 
 - [Azure Lab Services to Azure DevTest Labs Transition Guide](/azure/lab-services/transition-devtest-labs-guidance)

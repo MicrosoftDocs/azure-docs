@@ -1,8 +1,8 @@
 ---
 title: SAP HANA Backup support matrix
 description: In this article, learn about the supported scenarios and limitations when you use Azure Backup to back up SAP HANA databases on Azure VMs.
-ms.topic: conceptual
-ms.date: 01/30/2024
+ms.topic: reference
+ms.date: 09/25/2024
 ms.custom: references_regions 
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -49,7 +49,6 @@ Azure Backup supports the backup of SAP HANA databases to Azure. This article su
 
 ## Support for multistreaming data backups
 
-- **Supported HANA versions**: SAP HANA 2.0 SP05 and prior.
 - **Parameters to enable SAP HANA settings for multistreaming**: 
   - *parallel_data_backup_backint_channels*
   - *data_backup_buffer_size (optional)*
