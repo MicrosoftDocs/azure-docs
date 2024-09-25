@@ -7,7 +7,7 @@ author: normesta
 
 ms.service: azure-blob-storage
 ms.topic: article
-ms.date: 08/07/2024
+ms.date: 09/25/2024
 ms.author: normesta
 ms.reviewer: ozgun
 ms.devlang: csharp
@@ -186,7 +186,7 @@ After you update your code to use client-side encryption v2, make sure that you 
 
 To use client-side encryption from your Java code, reference the [Blob Storage client library](/java/api/overview/azure/storage-blob-readme). Make sure that you're using version 12.18.0 or later. If you need to migrate from an earlier version of the Java client library, see the [Blob Storage migration guide for Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/storage/azure-storage-blob/migrationGuides/V8_V12.md).
 
-To use client-side encryption v2.1, install the `azure-storage-blob-cryptography` package version 12.27.0 or later. Client-side encryption v2 has a fixed chunk size of 4 MiB, while v2.1 includes the ability to configure the region length for authenticated encryption. The region length is configurable from 16 bytes up to 1 GiB.
+To use client-side encryption v2.1, make sure you have a dependency on `azure-storage-blob-cryptography` version 12.27.0 or later. Client-side encryption v2 has a fixed chunk size of 4 MiB, while v2.1 includes the ability to configure the region length for authenticated encryption. The region length is configurable from 16 bytes up to 1 GiB.
 
 Developers can provide a key, a key resolver, or both a key and a key resolver. Keys are identified using a key identifier that provides the logic for wrapping and unwrapping the CEK. A key resolver is used to resolve a key during the decryption process. The key resolver defines a resolve method that returns a key given a key identifier. The resolver provides users the ability to choose between multiple keys that are managed in multiple locations.
 
