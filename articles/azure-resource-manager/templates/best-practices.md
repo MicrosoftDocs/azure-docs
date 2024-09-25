@@ -3,7 +3,7 @@ title: Best practices for templates
 description: Describes recommended approaches for authoring Azure Resource Manager templates (ARM templates). Offers suggestions to avoid common problems when using templates.
 ms.topic: best-practice
 ms.custom: devx-track-arm-template
-ms.date: 09/22/2023
+ms.date: 09/25/2024
 ---
 # ARM template best practices
 
@@ -16,7 +16,7 @@ Limit the size of your template to 4 MB, and each resource definition to 1 MB. T
 You're also limited to:
 
 * 256 parameters
-* 256 variables
+* 512 variables
 * 800 resources (including [copy count](copy-resources.md))
 * 64 output values
 * 10 unique locations per subscription/tenant/management group scope
