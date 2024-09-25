@@ -487,6 +487,8 @@ items:
           href: end-point-validation-cloud-events-schema.md
         - name: Endpoint validation with Event Grid event schema
           href: end-point-validation-event-grid-events-schema.md
+        - name: Event schema compatibility
+          href: event-schema-compatibility.md
         - name: Custom delivery properties
           href: delivery-properties.md
       - name: Availability zones and disaster recovery

@@ -2,7 +2,7 @@
 title: Endpoint validation with CloudEvents schema
 description: This article describes WebHook event delivery and endpoint validation when using webhooks and CloudEvents v1.0 schema.
 ms.topic: concept-article
-ms.date: 09/25/2023
+ms.date: 09/25/2024
 #customer intent: As a developer, I want to know hw to validate a Webhook endpoint using the CloudEvents v1.0 schema.
 ---
 
