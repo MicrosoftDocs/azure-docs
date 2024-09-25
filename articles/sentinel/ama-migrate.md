@@ -8,12 +8,13 @@ ms.author: yelevin
 ---
 
 # AMA migration for Microsoft Sentinel
-This article describes the migration process to the Azure Monitor Agent (AMA) when you have an existing Log Analytics Agent (MMA/OMS), and are working with Microsoft Sentinel. 
 
-> [!IMPORTANT]
-> The Log Analytics agent will be [retired on **31 August, 2024**](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). If you are using the Log Analytics agent in your Microsoft Sentinel deployment, we recommend that you start planning your migration to the AMA.
+This article describes the migration process to the Azure Monitor Agent (AMA) when you have an existing, legacy Log Analytics Agent (MMA/OMS), and are working with Microsoft Sentinel.
+
+The Log Analytics agent is [retired as of **31 August, 2024**](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). If you are using the Log Analytics agent in your Microsoft Sentinel deployment, we recommend that you migrate to the AMA.
 
 ## Prerequisites
+
 Start with the [Azure Monitor documentation](/azure/azure-monitor/agents/azure-monitor-agent-migration) which provides an agent comparison and general information for this migration process. 
 
 This article provides specific details and differences for Microsoft Sentinel.
@@ -92,8 +93,6 @@ The legacy Log Analytics agent will be retired on 31 August 2024.
 We recommend that you keep up to date with the new features being released for the AMA over time, as it reaches towards parity with the MMA/OMS. Aim to migrate as soon as the features you need to run your Microsoft Sentinel deployment are available in the AMA.
 
 While you can run the MMA and AMA simultaneously, you may want to migrate each connector, one at a time, while running both agents.
-
-
 
 ## Next steps
 

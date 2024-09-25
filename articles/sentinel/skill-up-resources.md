@@ -276,8 +276,7 @@ Microsoft Sentinel supports two new features for data ingestion and transformati
 - [**Logs ingestion API**](/azure/azure-monitor/logs/logs-ingestion-api-overview): Use it to send custom-format logs from any data source to your Log Analytics workspace and then store those logs either in certain specific standard tables, or in custom-formatted tables that you create. You can perform the actual ingestion of these logs by using direct API calls. You can use Azure Monitor [data collection rules](/azure/azure-monitor/essentials/data-collection-rule-overview) to define and configure these workflows.
 
 - [**Workspace data transformations for standard logs**](/azure/azure-monitor/essentials/data-collection-transformations-workspace): It uses [data collection rules](/azure/azure-monitor/essentials/data-collection-rule-overview) to filter out irrelevant data, to enrich or tag your data, or to hide sensitive or personal information. You can configure data transformation at ingestion time for the following types of built-in data connectors:
-    - Azure Monitor agent (AMA)-based data connectors (based on the new Azure Monitor agent)
-    - Microsoft Monitoring agent (MMA)-based data connectors (based on the legacy Azure Monitor Logs Agent)
+    - Azure Monitor agent (AMA)-based data connectors
     - Data connectors that use diagnostics settings
     - [Service-to-service data connectors](data-connectors-reference.md)
 

@@ -62,6 +62,8 @@ ASIM DNS parsers are available in every workspace. Microsoft Sentinel provides t
 | **Zscaler ZIA** | | `_Im_Dns_ZscalerZIAVxx` |
 ||||
 
+<!--how to update for AMA?-->
+
 Deploy the workspace deployed parsers version from the [Microsoft Sentinel GitHub repository](https://aka.ms/AsimDNS).
 
 ## File Activity parsers
