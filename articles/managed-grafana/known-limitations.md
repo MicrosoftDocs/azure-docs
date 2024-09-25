@@ -4,7 +4,7 @@ titlesuffix: Azure Managed Grafana
 description: Learn about current technical or feature limitations you may encounter in the Azure Managed Grafana service.
 ms.service: azure-managed-grafana
 ms.topic: troubleshooting
-ms.date: 05/23/2024
+ms.date: 09/25/2024
 ms.author: malev
 ms.custom: engagement-fy23
 author: maud-lv
@@ -33,6 +33,10 @@ Azure Managed Grafana has the following known limitations:
 * Unified alerting is enabled by default for all instances created after December 2022. For instances created before this date, unified alerting must be enabled manually by the Azure Managed Grafana team. For activation, [open a support ticket](find-help-open-support-ticket.md#open-a-support-ticket).
 
 * > Only Azure subscriptions billed directly through Microsoft are eligible for the purchase of Grafana Enterprise. CSP subscriptions, i.e., Azure subscriptions billed through Cloud Solution Providers (CSP), are ineligible.
+
+## Current User authentication
+
+The *Current User* authentication option triggers the following limitation. Grafana offers some automated features such as alerts and reporting, that are expected to run in the background periodically. The Current User authentication method relies on a user being logged in, in an interactive session, to connect a data source to a database. Therefore, when this authentication method is used and no user is logged in, automated tasks can't run in the background. To leverage automated tasks, we recommend setting up another data source with another authentication method.
 
 ## Feature availability in sovereign clouds
 
