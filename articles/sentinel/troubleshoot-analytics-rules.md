@@ -71,7 +71,7 @@ Another kind of permanent failure occurs due to an **improperly built query** th
 To re-enable the rule, you must address the issues in the query that cause it to use too many resources. See the following articles for best practices to optimize your Kusto queries:
 
 - [Query best practices - Azure Data Explorer](/azure/data-explorer/kusto/query/best-practices)
-- [Optimize log queries in Azure Monitor](../azure-monitor/logs/query-optimization.md)
+- [Optimize log queries in Azure Monitor](/azure/azure-monitor/logs/query-optimization)
 
 Also see [Useful resources for working with Kusto Query Language in Microsoft Sentinel](kusto-resources.md) for further assistance.
 

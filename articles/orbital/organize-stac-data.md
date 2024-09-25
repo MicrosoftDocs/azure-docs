@@ -106,11 +106,11 @@ The following Azure services are used in this architecture.
 - [Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/overview) is a fully managed database service designed to provide more granular control and flexibility over database management functions and configuration settings. It has richer capabilities such as zone resilient high availability (HA), predictable performance, maximum control, custom maintenance window, cost optimization controls, and simplified developer experience suitable for your enterprise workloads.
 - [API Management Services](https://azure.microsoft.com/services/api-management/) offers a scalable, multicloud API management platform for securing, publishing and analyzing APIs.
 - [Azure Kubernetes Services](/azure/aks/intro-kubernetes) offers the quickest way to start developing and deploying cloud-native apps, with built-in code-to-cloud pipelines and guardrails.
-- [Container Registry](../container-registry/container-registry-intro.md) to store and manage your container images and related artifacts.
+- [Container Registry](/azure/container-registry/container-registry-intro) to store and manage your container images and related artifacts.
 - [Virtual Machine](/azure/virtual-machines/overview) (VM) gives you the flexibility of virtualization for a wide range of computing solutions. In a fully secured deployment, a user connects to a VM via Azure Bastion (described in the next item below) to perform a range of operations like copying files to storage accounts, running Azure CLI commands, and interacting with other services.  
 - [Azure Bastion](../bastion/bastion-overview.md) enables you to securely and seamlessly RDP & SSH to your VMs in Azure virtual network, without the need of public IP on the VM, directly from the Azure portal, and without the need of any other client/agent or any piece of software.
-- [Application Insights](../azure-monitor/app/app-insights-overview.md) provides extensible application performance management and monitoring for live web apps.
-- [Log Analytics](../azure-monitor/logs/log-analytics-overview.md) is a tool to edit and run log queries from data collected by Azure Monitor logs and interactively analyze the results.
+- [Application Insights](/azure/azure-monitor/app/app-insights-overview) provides extensible application performance management and monitoring for live web apps.
+- [Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) is a tool to edit and run log queries from data collected by Azure Monitor logs and interactively analyze the results.
 
 The following Geospatial libraries are also used:
 

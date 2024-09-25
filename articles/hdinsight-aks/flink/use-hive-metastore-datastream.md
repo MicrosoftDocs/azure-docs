@@ -3,12 +3,15 @@ title: Use Hive Metastore with Apache Flink® DataStream API
 description: Use Hive Metastore with Apache Flink® DataStream API
 ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 03/29/2024
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Use Hive Metastore with Apache Flink® DataStream API
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 Over the years, Hive Metastore has evolved into a de facto metadata center in the Hadoop ecosystem. Many companies have a separate Hive Metastore service instance in their production environments to manage all their metadata (Hive or non-Hive metadata). For users who have both Hive and Flink deployments, HiveCatalog enables them to use Hive Metastore to manage Flink’s metadata.
 

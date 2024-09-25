@@ -127,6 +127,8 @@ items:
       href: guidance-migration-azure.md
 - name: Troubleshoot
   items:
+  - name: Using the Azure Update Manager Troubleshooter
+    href: troubleshooter-known-issues.md
   - name: Troubleshoot issues
     href: troubleshoot.md
   

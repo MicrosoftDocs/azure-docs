@@ -25,11 +25,14 @@ The following built-in roles are available in Azure Managed Grafana, each provid
 > | --- | --- | --- |
 > | <a name='grafana-admin'></a>[Grafana Admin](../role-based-access-control/built-in-roles/monitor.md#grafana-admin) | Perform all Grafana operations, including the ability to manage data sources, create dashboards, and manage role assignments within Grafana. | 22926164-76b3-42b3-bc55-97df8dab3e41 |
 > | <a name='grafana-editor'></a>[Grafana Editor](../role-based-access-control/built-in-roles/monitor.md#grafana-editor) | View and edit a Grafana instance, including its dashboards and alerts. | a79a5197-3a5c-4973-a920-486035ffd60f |
+> | <a name='grafana-limited-viewer'></a>[Grafana Limited Viewer](../role-based-access-control/built-in-roles/monitor.md#grafana-limited-viewer) | View a Grafana home page. This role contains no permissions assigned by default and it is not available for Grafana v9 workspaces. | 41e04612-9dac-4699-a02b-c82ff2cc3fb5 |
 > | <a name='grafana-viewer'></a>[Grafana Viewer](../role-based-access-control/built-in-roles/monitor.md#grafana-viewer) | View a Grafana instance, including its dashboards and alerts. | 60921a7e-fef1-4a43-9b16-a26c52ad4769 |
 
 To access the Grafana user interface, users must possess one of these roles. 
 
-These permissions are included within the broader roles of resource group Contributor and resource group Owner roles. If you're not a resource group Contributor or resource group Owner, a User Access Administrator, you will need to ask a subscription Owner or resource group Owner to grant you one of the Grafana roles on the resource you want to access.
+These permissions are included within the broader roles of resource group Contributor and resource group Owner roles. If you're not a resource group Contributor or a resource group Owner, you will need to ask a subscription Owner or resource group Owner to grant you one of the Grafana roles on the resource you want to access.
+
+You can find more information about the Grafana roles from the [Grafana documentation](https://grafana.com/docs/grafana/latest/administration/roles-and-permissions/#organization-roles). The Grafana Limited Viewer role in Azure maps to the "No Basic Role" in the Grafana docs.
 
 ## Adding a role assignment to an Azure Managed Grafana resource
 
@@ -41,5 +44,5 @@ Assign a role, such as **Grafana viewer**, to a user, group, service principal o
 
 ## Related content
 
-* [Configure Grafana teams](how-to-sync-teams-with-azure-ad-groups.md)
+* [Configure Grafana teams](how-to-sync-teams-with-entra-groups.md)
 * [Set up authentication and permissions](how-to-authentication-permissions.md)

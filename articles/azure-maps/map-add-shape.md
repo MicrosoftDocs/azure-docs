@@ -4,7 +4,7 @@ titleSuffix:  Microsoft Azure Maps
 description: Learn how to add polygons or circles to maps. See how to use the Azure Maps Web SDK to customize geometric shapes and make them easy to update and maintain.
 author: sinnypan
 ms.author: sipa
-ms.date: 06/07/2023
+ms.date: 08/28/2024
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: web-sdk
@@ -64,7 +64,7 @@ function InitMap()
 
 ```
 
-:::image type="content" source="./media/map-add-shape/polygon-layer.png" alt-text="A screenshot of map of New York City demonstrating the polygon layer that is covering Central Park with fill Color set to red and fill Opacity set to 0.7.":::
+:::image type="content" source="./media/map-add-shape/polygon-layer.png" lightbox="./media/map-add-shape/polygon-layer.png" alt-text="A screenshot of map of New York City demonstrating the polygon layer that is covering Central Park with fill Color set to red and fill Opacity set to 0.7.":::
 
   <!--------------------------------------------------------------------------
 > [!VIDEO //codepen.io/azuremaps/embed/yKbOvZ/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
@@ -124,7 +124,7 @@ function InitMap()
 }
 ```
 
-:::image type="content" source="./media/map-add-shape/polygon-line-layer.png" alt-text="A screenshot of a map of New York City demonstrating a mostly transparent polygon layer covering all of Central Park, bordered with a red line.":::
+:::image type="content" source="./media/map-add-shape/polygon-line-layer.png" lightbox="./media/map-add-shape/polygon-line-layer.png" alt-text="A screenshot of a map of New York City demonstrating a mostly transparent polygon layer covering all of Central Park, bordered with a red line.":::
 
 <!------------------------------------------------------------
 > [!VIDEO //codepen.io/azuremaps/embed/aRyEPy/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
@@ -136,7 +136,7 @@ In addition to filling a polygon with a color, you may use an image pattern to f
 
 For a fully functional sample that shows how to use an image template as a fill pattern in a polygon layer, see [Fill polygon with built-in icon template] in the [Azure Maps Samples]. For the source code for this sample, see [Fill polygon with built-in icon template source code].
 
-:::image type="content" source="./media/map-add-shape/fill-polygon-with-built-in-icon-template.png" alt-text="A screenshot of a map of the world with red dots forming a triangle in the center of the map.":::
+:::image type="content" source="./media/map-add-shape/fill-polygon-with-built-in-icon-template.png" lightbox="./media/map-add-shape/fill-polygon-with-built-in-icon-template.png" alt-text="A screenshot of a map of the world with red dots forming a triangle in the center of the map.":::
 
 <!------------------------------------------------------------
 > [!VIDEO //codepen.io/azuremaps/embed/JzQpYX/?height=500&theme-id=0&default-tab=js,result]
@@ -149,7 +149,7 @@ For a fully functional sample that shows how to use an image template as a fill 
 
 The Polygon layer only has a few styling options. See the [Polygon Layer Options] sample map in the [Azure Maps Samples] to try them out. For the source code for this sample, see [Polygon Layer Options source code].
 
-:::image type="content" source="./media/map-add-shape/polygon-layer-options.png" alt-text="A screenshot of the Polygon Layer Options tool.":::
+:::image type="content" source="./media/map-add-shape/polygon-layer-options.png" lightbox="./media/map-add-shape/polygon-layer-options.png" alt-text="A screenshot of the Polygon Layer Options tool.":::
 
 <!------------------------------------------------------------
 > [!VIDEO //codepen.io/azuremaps/embed/LXvxpg/?height=700&theme-id=0&default-tab=result]
@@ -216,7 +216,7 @@ function InitMap()
 }
 ```
 
-:::image type="content" source="./media/map-add-shape/add-circle-to-map.png" alt-text="A screenshot of a map showing a partially transparent green circle in New York City. This demonstrates adding a circle to a map.":::
+:::image type="content" source="./media/map-add-shape/add-circle-to-map.png" lightbox="./media/map-add-shape/add-circle-to-map.png" alt-text="A screenshot of a map showing a partially transparent green circle in New York City. This demonstrates adding a circle to a map.":::
 
   <!---------------------------------------------------------
 > [!VIDEO //codepen.io/azuremaps/embed/PRmzJX/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
