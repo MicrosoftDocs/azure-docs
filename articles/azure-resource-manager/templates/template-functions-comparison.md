@@ -59,7 +59,7 @@ The output from the preceding example with the default values is:
 
 `equals(arg1, arg2)`
 
-Checks whether two values equal each other.
+Checks whether two values are identical. The comparison is case-sensitive.
 
 In Bicep, use the `==` operator instead. See [Equals ==](../bicep/operators-comparison.md#equals-).
 
@@ -104,7 +104,7 @@ The output from the preceding example with the default values is:
 | Name | Type | Value |
 | ---- | ---- | ----- |
 | checkInts | Bool | True |
-| checkStrings | Bool | True |
+| checkStrings | Bool | False |
 | checkArrays | Bool | True |
 | checkObjects | Bool | True |
 

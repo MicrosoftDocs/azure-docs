@@ -185,7 +185,7 @@ The string is `true` because lowercase letters are less than uppercase letters.
 
 `operand1 == operand2`
 
-Evaluates if the values are equal.
+Evaluates if the values are equal. The comparison is case-sensitive.
 
 ### Operands
 
@@ -207,7 +207,7 @@ param firstInt int = 5
 param secondInt int = 5
 
 param firstString string = 'demo'
-param secondString string = 'demo'
+param secondString string = 'Demo'
 
 param firstBool bool = true
 param secondBool bool = true
@@ -222,7 +222,7 @@ Output from the example:
 | Name | Type | Value |
 | ---- | ---- | ---- |
 | `intEqual` | boolean | true |
-| `stringEqual` | boolean | true |
+| `stringEqual` | boolean | false |
 | `boolEqual` | boolean | true |
 
 When comparing arrays, the two arrays must have the same elements and order. The arrays don't need to be assigned to each other.
