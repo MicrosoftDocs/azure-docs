@@ -242,6 +242,8 @@
       href: compare-cdn-front-door-price.md
     - name: Migrate CDN provider
       href: ../cdn/cdn-change-provider.md?toc=/azure/frontdoor/TOC.json
+    - name: Microsoft CDN (classic) retirement FAQ
+      href: ../cdn/classic-cdn-retirement-faq.md
     - name: Akamai retirement FAQ
       href: ../cdn/akamai-retirement-faq.md?toc=/azure/frontdoor/TOC.json
     - name: Security baseline
