@@ -32,81 +32,26 @@ A deployed instance of Azure IoT Operations Preview. To deploy Azure IoT Operati
 
 ## Configure username and password authentication
 
-First, configure the secrets for the username and password in Azure Key Vault and project them into the connected cluster by using a `SecretProviderClass` object.
+First, configure the secrets for the username and password in Azure Operator Experience. 
 
-1. Configure the username and password in Azure Key Vault. In the following example, use the `username` and `password` as secret references for the asset endpoint configuration in the operations experience web UI.
+Step 1: Navigate to the Asset EndPoint Profile from the left side menu 
 
-    Replace the placeholders for username and password with the credentials used to connect to the OPC UA server.
+![image](https://github.com/user-attachments/assets/0ef75d0f-f4c1-46bf-95e0-e6076a0b28df)
 
-    To configure the username and password, run the following code:
+Step 2: Select Create asset endpoint 
+![image](https://github.com/user-attachments/assets/59e0d03c-4db0-4e8d-9740-54843c9b4a40)
 
-    # [Bash](#tab/bash)
 
-    ```bash
-    # Create username Secret in Azure Key Vault
-    az keyvault secret set \
-      --name username \
-      --vault-name <your-azure-key-vault-name> \
-      --value <your-opc-ua-server-username> \
-      --content-type text/plain
+Step 3: Under User authentication mode select username and password 
 
-    # Create password Secret in Azure Key Vault
-    az keyvault secret set \
-      --name password \
-      --vault-name <your-azure-key-vault-name> \
-      --value <your-opc-ua-server-password> \
-      --content-type text/plain
-    ```
+Step 4: Insert the usernama and password reference from AKV and click on Create
 
-    # [PowerShell](#tab/powershell)
+Step 5: In case you don't have the reference, click on Select. You will see a list of available AKV references and you can select one.
+![image](https://github.com/user-attachments/assets/468dc6aa-db55-48ee-880b-5746f04cff28)
 
-    ```powershell
-    # Create username Secret in Azure Key Vault
-    az keyvault secret set `
-      --name username `
-      --vault-name <your-azure-key-vault-name> `
-      --value <your-opc-ua-server-username> `
-      --content-type text/plain
 
-    # Create password Secret in Azure Key Vault
-    az keyvault secret set `
-      --name password `
-      --vault-name <your-azure-key-vault-name> `
-      --value <your-opc-ua-server-password> `
-      --content-type text/plain
-    ```
+Alternatively, you can create a new reference 
+![image](https://github.com/user-attachments/assets/fb4534ad-d5d4-4424-92de-0e499b8cd764)
 
-    ---
+Step 6: Click Apply 
 
-1. Configure the `aio-opc-ua-broker-user-authentication` custom resource in the cluster. Use a Kubernetes client such as `kubectl` to configure the `username` and `password` secrets in the `SecretProviderClass` object array in the cluster.
-
-    The following example shows a complete `SecretProviderClass` custom resource after you add the secrets:
-
-    ```yaml
-    apiVersion: secrets-store.csi.x-k8s.io/v1
-    kind: SecretProviderClass
-    metadata:
-      name: aio-opc-ua-broker-user-authentication
-      namespace: azure-iot-operations
-    spec:
-      provider: azure
-      parameters:
-        usePodIdentity: 'false'
-        keyvaultName: <azure-key-vault-name>
-        tenantId: <azure-tenant-id>
-        objects: |
-          array:
-            - |
-              objectName: username
-              objectType: secret
-              objectVersion: ""
-            - |
-              objectName: password
-              objectType: secret
-              objectVersion: ""
-    ```
-
-    > [!NOTE]
-    > The time it takes to project Azure Key Vault certificates into the cluster depends on the configured polling interval.
-
-In the operations experience, select the **Username & password** option when you configure the Asset endpoint. Enter the names of the references that store the username and password values. In this example, the names of the references are `username` and `password`.
