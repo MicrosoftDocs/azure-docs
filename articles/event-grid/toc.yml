@@ -43,6 +43,8 @@ items:
         items:
         - name: Terminology
           href: mqtt-event-grid-namespace-terminology.md
+        - name: Support for CloudEvents schema
+          href: namespaces-cloud-events.md
         - name: Access control for MQTT clients
           href: mqtt-access-control.md
         - name: MQTT clients
