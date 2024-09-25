@@ -185,7 +185,7 @@ Use base64 encryption to encrypt the user and password. You can use online encry
 
 If you get an error message similar to: **..Missing Backend RFC Authorization..**, your SAP authorizations and role weren't applied properly.
 
-1. Ensure that the **MSFTSEN/SENTINEL_CONNECTOR** role was imported and applied to the connector user. For more information, see [Configure the Microsoft Sentinel role](preparing-sap.md#configure-the-microsoft-sentinel-role).
+1. Ensure that the **MSFTSEN/SENTINEL_CONNECTOR** role was imported as part of a [change request](prerequisites-for-deploying-sap-continuous-threat-monitoring.md) transport, and applied to the connector user.
 
 1. Run the role generation and user comparison process using the SAP transaction PFCG.
 
@@ -201,15 +201,15 @@ Use the **RSAU_CONFIG_LOG** transaction for this step.
 
 In SAP systems with versions for SAP BASIS 7.5 SP12 and above, Microsoft Sentinel can reflect extra fields in the `ABAPAuditLog_CL` and `SAPAuditLog` tables. 
 
-If you're using SAP BASIS versions higher than 7.5 SP12 and are missing IP address or transaction code fields in the SAP audit log, verify that the SAP system from which you're extracting the data contains the relevant change requests (transports). For more information, see [Configure support for extra data retrieval (recommended)](preparing-sap.md#configure-support-for-extra-data-retrieval-recommended). <!--what if we remove crs?-->
+If you're using SAP BASIS versions higher than 7.5 SP12 and are missing IP address or transaction code fields in the SAP audit log, verify that the SAP system from which you're extracting the data contains the relevant change requests (transports). For more information, see [Configure support for extra data retrieval (recommended)](preparing-sap.md#configure-support-for-extra-data-retrieval-recommended).
 
 ### Missing SAP change request
 
 If you see errors that you're missing a required SAP change request, make sure you've imported the correct SAP change request for your system. For more information, see [SAP prerequisites](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#sap-prerequisites) and [Configure your SAP system for the Microsoft Sentinel solution](preparing-sap.md).
-<!--what if we remove crs?-->
+
 
 ### No data is showing in the SAP table data log
-<!--what if we remove crs?-->
+
 This solution allows SAP systems with versions for SAP BASIS 7.5 SP12 and above to reflect table data log changes in the `ABAPTableDataLog_CL` table. 
 
 If no data is showing in the `ABAPTableDataLog_CL` table, verify that the SAP system from which you're extracting the data contains the relevant change requests (transports). For more information, see [Configure support for extra data retrieval (recommended)](preparing-sap.md#configure-support-for-extra-data-retrieval-recommended).
@@ -231,7 +231,6 @@ Common issues include:
 - Outbound communication from your SAP agent host to Microsoft Container Registry or Azure requires proxy configuration. This typically impacts the installation and requires you to configure the `HTTP_PROXY` and `HTTPS_PROXY` environmental variables. You can also ingest environment variables into the docker container when you create the container, by adding the `-e` flag to the docker `create` / `run` command.
 
 ### Retrieving an audit log fails with warnings
-<!--what if we remove crs?-->
 
 If you attempt to retrieve an audit log without the [required configurations](preparing-sap.md#configure-sap-auditing) and the process fails with warnings, verify that the SAP Auditlog can be retrieved using one of the following methods:
 

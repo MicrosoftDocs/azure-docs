@@ -76,7 +76,7 @@ wget -O sapcon-instance-update.sh https://raw.githubusercontent.com/Azure/Azure-
 
 The SAP data connector Docker container on your machine is updated.
 
-Be sure to check for any other available updates in solution content.
+Be sure to check for any other available updates, such as SAP change requests.
 
 ## Update your system for attack disruption
 
