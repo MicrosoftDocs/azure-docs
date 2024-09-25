@@ -87,10 +87,7 @@ This section provides steps to create clusters in validated environments on Linu
 
 The [AksEdgeQuickStartForAio.ps1](https://github.com/Azure/AKS-Edge/blob/main/tools/scripts/AksEdgeQuickStart/AksEdgeQuickStartForAio.ps1) script automates the process of creating and connecting a cluster, and is the recommended path for deploying Azure IoT Operations on AKS Edge Essentials.
 
-> [!NOTE]
-   > The instructions below are for external customer consumption and will only work after AIO 0.7 is released. 
-   > For internal bug bashes, use these instructions instead: https://msazure.visualstudio.com/One/_wiki/wikis/AIO.wiki/714254/Setup-AKS-EE-with-WLIF-for-AIO-M2
-   
+ 
 
 1. Open an elevated PowerShell window and change the directory to a working folder.
 
@@ -103,6 +100,19 @@ The [AksEdgeQuickStartForAio.ps1](https://github.com/Azure/AKS-Edge/blob/main/to
    | RESOURCE_GROUP_NAME | The name of an existing resource group or a name for a new resource group to be created. |
    | LOCATION | An Azure region close to you. For the list of currently supported Azure regions, see [Supported regions](../overview-iot-operations.md#supported-regions). |
    | CLUSTER_NAME | A name for the new cluster to be created. |
+
+> [!NOTE]
+>  > **Special instructions for AIO Internal Bugbash**: 
+   > The instructions below for AksEdgeQuickStartForAio.ps1 from AKS-Edge GitHub repo are  for external customer consumption and will only work after AIO 0.7 is released. 
+   > For internal bug bashes, use this powershell script below instead
+>   ```powershell
+>   $url = "https://raw.githubusercontent.com/jagadishmurugan/AKS-Edge/blob/users/jagamu/changes-for-M2-integration/tools/scripts/AksEdgeQuickStart/AksEdgeQuickStartForAio.ps1"
+>   Invoke-WebRequest -Uri $url -OutFile .\AksEdgeQuickStartForAio.ps1
+>   Unblock-File .\AksEdgeQuickStartForAio.ps1
+>   Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process -Force
+>   .\AksEdgeQuickStartForAio.ps1 -SubscriptionId "<SUBSCRIPTION_ID>" -TenantId "<TENANT_ID>" -ResourceGroupName "<RESOURCE_GROUP_NAME>"  -Location "<LOCATION>"  -ClusterName "<CLUSTER_NAME>" -Tag "test-v0.3" -CustomLocationOid $customlocationOid
+>   ```
+
 
    ```powershell
    $url = "https://raw.githubusercontent.com/Azure/AKS-Edge/main/tools/scripts/AksEdgeQuickStart/AksEdgeQuickStartForAio.ps1"
