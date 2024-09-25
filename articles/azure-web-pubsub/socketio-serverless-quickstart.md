@@ -1,44 +1,39 @@
 ---
 title: 'Quickstart: Build chat app with Azure Function in Socket.IO Serverless Mode'
-description: In this artical, you will familiar with the samples of using Web PubSub for Socket.IO with Azure Function in Serverless Mode.
+description: In this article, you will familiar with the samples of using Web PubSub for Socket.IO with Azure Function in Serverless Mode.
 keywords: Socket.IO, serverless, azure function, Socket.IO on Azure, multi-node Socket.IO, scaling Socket.IO, socketio, azure socketio
 author: zackliu
 ms.author: chenyl
 ms.date: 09/01/2024
 ms.service: azure-web-pubsub
 ms.topic: tutorial
-zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Quickstart: Build chat app with Azure Function in Socket.IO Serverless Mode (Preview)
 
-In this artical, you will use samples to familiar with how to build a chat app using Web PubSub for Socket.IO in Serverless Mode with Azure Function online and use Identity based authentication to secure your app.
+In this article, you'll learn how to build a chat app using Web PubSub for Socket.IO in Serverless Mode with Azure Functions. The tutorial will guide you through securing your app with identity-based authentication, while working online.
 
-The project source uses the Bicep to deploy the infrastructure in Azure and Azure Function Core Tools to deploy the code to the Function App.
+The project source uses Bicep to deploy the infrastructure on Azure, and Azure Functions Core Tools to deploy the code to the Function App.
 
 ## Prerequest
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-+ [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools).
++ [Azure Functions Core Tools](../azure-functions/functions-run-local.md).
 
 + [.NET 8.0 SDK](https://dotnet.microsoft.com/download)
 
-::: zone pivot="programming-language-typescript"  
 + [Node.js 18](https://nodejs.org/)  
-::: zone-end
 
 
 ## Get the sample code
 
-::: zone pivot="programming-language-typescript"  
 Find the sample code: [Socket.IO Serverless Sample (TS)](https://github.com/Azure/azure-webpubsub/tree/main/sdk/webpubsub-socketio-extension/examples/chat-serverless-typescript)
 
 ```bash
 git clone https://github.com/Azure/azure-webpubsub.git
 cd ./sdk/webpubsub-socketio-extension/examples/chat-serverless-typescript
 ```
-::: zone-end
 
 ## Deploy infrastructure
 
@@ -56,14 +51,14 @@ az deployment sub create -n "<deployment-name>" -l "<deployment-location>" --tem
 
 - `<deployment-name>`: The name of the deployment.
 - `<deployment-location>`: The location of the deployment metadata. Note it's not the location where resources deploy to.
-- `<env-name>`: The name will be a part of the resource group name and resource name.
+- `<env-name>`: The name is a part of the resource group name and resource name.
 - `<location>`: The location of the resources.
 
 ### Review of the infrastructure
 
-In the infrastructure release, we deploy an Azure Function App in consumption plan as well as the Monitor and Storage Account that required by the Function App. We also deploy a Web PubSub for Socket.IO resource in Serverless Mode.
+In the infrastructure release, we deploy an Azure Function App in consumption plan and the Monitor and Storage Account that required by the Function App. We also deploy a Web PubSub for Socket.IO resource in Serverless Mode.
 
-For the identity based authentication purpose, we deploye a user-assigned managed identity, assign it to both Function App and Socket.IO resource and grant it with some permissions:
+For the identity based authentication purpose, we deploy a user-assigned managed identity, assign it to both Function App and Socket.IO resource and grant it with some permissions:
 
 - **Storage Blob Data Owner role**: Access storage for Function App
 - **Monitoring Metrics Publisher role**: Access monitor for Function App
@@ -102,7 +97,7 @@ We need to do two steps to deploy the sample app.
 
 ### Run Sample App
 
-After the code is deployed, visit the website to try the sample: 
+After the code is deployd, visit the website to try the sample: 
 
 ```bash
 https://<function-endpoint>/api/index

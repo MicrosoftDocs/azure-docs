@@ -297,19 +297,19 @@ func settings add WebPubSubForSocketIOConnectionString "<connection string>"
 az webpubsub hub create -n <resource name> -g <resource group> --hub-name hub --event-handler url-template="tunnel:///runtime/webhooks/socketio" user-event-pattern="*"
 ```
 
-The connection string can be get by the azure cli command
+The connection string can be obtained by the Azure CLI command
 
 ```azcli
 az webpubsub key show -g <resource group> -n <resource name>
 ```
 
-The output will contains `primaryConnectionString` and `secondaryConnectionString`, and either is available.
+The output contains `primaryConnectionString` and `secondaryConnectionString`, and either is available.
 
 ### Setup tunnel 
 
-In serverless mode, the service uses webhooks to trigger the function. When running the app locally, a crucial problem is let the service be able to access your local function endpoint.
+In serverless mode, the service uses webhooks to trigger the function. When you try to run the app locally, a crucial problem is let the service be able to access your local function endpoint.
 
-An easiest way to achieve it is to use [Tunnel Tool](../azure-web-pubsub/howto-web-pubsub-tunnel-tool.md)
+An easiest way to achieve it's to use [Tunnel Tool](../azure-web-pubsub/howto-web-pubsub-tunnel-tool.md)
 
 1. Install Tunnel Tool:
 
@@ -338,7 +338,7 @@ And visit the webpage at `http://localhost:7071/api/index`.
 :::image type="content" source="./media/socketio-serverless-tutorial/chatsample.png" alt-text="Screenshot of the serverless chat app.":::
 
 ## Next steps
-Next, you can try to leverage Bicep to deploy the app online with identity-based authentication:
+Next, you can try to use Bicep to deploy the app online with identity-based authentication:
 
 > [!div class="nextstepaction"]
 > [Quickstart: Build chat app with Azure Function in Socket.IO Serverless Mode](./socketio-serverless-quickstart.md)

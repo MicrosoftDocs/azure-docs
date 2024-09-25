@@ -45,9 +45,9 @@ Explanations of the previous sample:
 
 When a client attempts to connect to the service, the process is divided into two distinct steps: establishing an Engine.IO (physical) connection and connecting to a namespace, which is referred to as a socket in Socket.IO terminology. The authentication process differs between these two steps:
 
-1. **Engine.IO connection**: During this step, the service authenticates the client using an access token to determine whether to accept the connection. If the corresponding hub is configured to allow anonymous mode, the Engine.IO connection can proceed without validating the access token. However, for security reasons, it's recommended to disable anonymous mode in production environments.
+1. **Engine.IO connection**: During this step, the service authenticates the client using an access token to determine whether to accept the connection. If the corresponding hub is configured to allow anonymous mode, the Engine.IO connection can proceed without validating the access token. However, for security reasons, we recommend to disable anonymous mode in production environments.
 
-    - The Engine.IO connection url follow the format as shown below. But in most cases, it should be handled by Socket.IO client library.
+    - The Engine.IO connection url follows the format. But in most cases, it should be handled by Socket.IO client library.
 
       ```
       http://<service-endpoint>/clients/socketio/hubs/<hub-name>/?access_token=<access-token>
@@ -55,7 +55,7 @@ When a client attempts to connect to the service, the process is divided into tw
 
     - The details of access token can be found in [here](#authentication-details)
 
-2. **Socket**: After the Engine.IO connection is successfully established, the client SDK sends a payload to connect to a namespace. Upon receiving the socket connect request, the service triggers a connect call to the event handler. The outcome of this step depends on the status code returned by the connect response: a 200 status code indicates that the socket is approved, while a 4xx or 5xx status code results in the socket being rejected.
+2. **Socket**: After the Engine.IO connection is successfully established, the client SDK sends a payload to connect to a namespace. Once the service receives the socket connect request, the service triggers a connect call to the event handler. The outcome of this step depends on the status code returned by the connect response: a 200 status code indicates that the socket is approved, while a 4xx or 5xx status code results in the socket being rejected.
 
 3. Once a socket is connected, the service triggers a connected call to the event handler. It's an asynchronized call to notify the event handler a socket is successfully connected.
 
@@ -85,7 +85,7 @@ Client disconnects from a namespace or the corresponding Engine.IO connection cl
 
 ## Authentication Details
 
-The service uses bearer token to authenticate. There're two main scenario to use the token. 
+The service uses bearer token to authenticate. There are two main scenarios to use the token. 
 
 - Connect of Engine.IO connection. The following request is an example.
 
@@ -102,7 +102,7 @@ The service uses bearer token to authenticate. There're two main scenario to use
   Authorization: Bearer <token>
   ```
 
-The generation of token can also be devided into two categories: key based authenitcation or identity based authentication.
+The generation of token can also be divided into two categories: key based authentication or identity based authentication.
 
 ### **Key based authentication**
 
@@ -139,7 +139,7 @@ The generation of token can also be devided into two categories: key based authe
   HMACSHA256(base64UrlEncode(header) + "." + base64UrlEncode(payload), <AccessKey>)
   ```
 
-  The `AccessKey` can be get from the service Azure Portal or from the Azure Cli:
+  The `AccessKey` can be obtained from the service Azure portal or from the Azure CLI:
 
   ```azcli
   az webpubsub key show -g <resource-group> -n <resource-name>
