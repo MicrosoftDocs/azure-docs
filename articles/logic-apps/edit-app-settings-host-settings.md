@@ -74,6 +74,7 @@ For your workflow to run properly, some app settings are marked as "required".
 | `Workflows.<workflowName>.RuntimeConfiguration.RetentionInDays` | No | None | Sets the amount of time in days to keep the run history for <*workflowName*>. |
 | `Workflows.RuntimeConfiguration.RetentionInDays` | No | `90` days | Sets the amount of time in days to keep workflow run history after a run starts. |
 | `Workflows.WebhookRedirectHostUri` | No | None | Sets the host name to use for webhook callback URLs. |
+| `AZURE_AUTHORITY_HOST` | No | None | Sets the default authority for the App's OAuth Authentication |
 
 <a name="manage-app-settings"></a>
 
