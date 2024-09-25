@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot autonomous database services
+title: Troubleshoot autonomous database services for Oracle Database@Azure
 description: Learn about how to troubleshoot for autonomous database services.
 author: jjaygbay1
 ms.author: jacobjaygbay
@@ -8,7 +8,7 @@ ms.service: oracle-on-azure
 ms.date: 08/01/2024
 ---
 
-# Troubleshoot autonomous database services
+# Troubleshoot autonomous database services for Oracle Database@Azure
 
 In this article, you learn to resolve common errors and provisioning issues in your Oracle Database@Azure environments.
 

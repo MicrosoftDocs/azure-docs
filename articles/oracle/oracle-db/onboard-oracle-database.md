@@ -12,7 +12,6 @@ ms.author: jacobjaygbay
 
 # Onboard with Oracle Database@Azure 
 
-Onboarding with Oracle Database@Azure
 In this article, you learn about the purchase and configuration of Oracle Database@Azure, which is called onboarding.
 
 You perform most onboarding tasks only one time, during your Oracle Database@Azure deployment. After you complete the onboarding tasks, you can begin provisioning and using Oracle Database resources in your Azure environment.
@@ -24,7 +23,6 @@ Most of the onboarding tasks apply to all deployments. For tasks (or task sectio
 Onboarding uses both the Azure portal and the OCI Console.
 
 ## Steps to onboard with Oracle Database@Azure
-Complete the following tasks in the listed order to onboard with Oracle Database@Azure:
 
 - [Prerequisites](https://docs.oracle.com/en-us/iaas/Content/database-at-azure/getting-started.htm#oaa_prerequisites)
 - [Accept Private Offer](https://docs.oracle.com/en-us/iaas/Content/database-at-azure/oaaonboard-task-2.htm#oaaonboard_task_2) (private offer purchases only)

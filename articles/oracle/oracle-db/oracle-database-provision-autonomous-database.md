@@ -53,7 +53,11 @@ For more detailed documentation, including optional steps, see [Onboarding with 
    1. Select **Next** to continue.
 1. From the **Networking** tab of the Create Oracle Autonomous Database flow, enter the following information.
    1. Currently, the **Access type** drop-down only allows you to select **Managed private virtual network IP only**.
-   1. For **Managed private virtual network IP only**, the **Require mutual TLS (mTLS) authentication** is unselected by default and can be selected if desired. Additionally, the **Virtual network** and **Subnet** drop-downs are required and require you to select from existing resources. **NOTE:** The selected virtual network must have one subnet delegated to the **Oracle.Database/networkAttachments** service. For more information, see Delegate a subnet to an Azure service.
+   1. For **Managed private virtual network IP only**, the **Require mutual TLS (mTLS) authentication** is unselected by default and can be selected if desired. Additionally, the **Virtual network** and **Subnet** drop-downs are required and require you to select from existing resources.
+    
+       > [!NOTE]
+       > The selected virtual network must have one subnet delegated to the **Oracle.Database/networkAttachments** service. For more information, see Delegate a subnet to an Azure service.
+
    1. Select **Next** to continue.
 1. From the **Maintenance** tab of the Create Oracle Autonomous Database flow, enter the following information.
    1. The **Maintenance patch level** is a read-only field. Your Oracle Autonomous Database is patched on a regular and as-needed basis. This patching is done in a manner that should be unnoticeable to you. **Regular** means that the typical patch schedule is applied. For more information, see [View Patch and Maintenance Window Information, Set the Patch Level](https://docs.oracle.com/iaas/autonomous-database-serverless/doc/maintenance-windows-patching.html).

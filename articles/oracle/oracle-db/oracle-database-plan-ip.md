@@ -17,9 +17,9 @@ This article provides tables you can use to find the minimum subnet CIDR size fo
 
 Consider the following points when setting up networking:
 
--   The minimum CIDR size is /27.
--   IP address ranges allocated to an Exadata virtual machine cluster must not overlap with other CIDRs in use, as this overlap might cause routing issues. Take cross-region routing into consideration when configuring CIDRs for Oracle Database@Azure.
--   For Exadata X9M: IP addresses XXX.XXX.X.X/XX and XXX.XXX.X.X/XX are reserved for the interconnect, and can't be allocated to client or backup networks.
+-   For , the minimum CIDR size is /27.
+-   IP address ranges allocated to an  and Exadata VM clusters must not overlap with other CIDRs in use, as this might cause routing issues. Take cross-region routing into consideration when configuring CIDRs for Oracle Database@Azure.
+-   For Exadata X9M: IP addresses 100.106.0.0/16 and 100.107.0.0/16 are reserved for the interconnect, and can't be allocated to client or backup networks.
 
 Other requirements specific to the Client Subnet and the Backup Subnet are provided in the sections for each subnet type that follow.
 
