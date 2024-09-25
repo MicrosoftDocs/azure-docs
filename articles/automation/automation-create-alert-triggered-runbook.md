@@ -14,6 +14,9 @@ ms.service: azure-automation
 
 You can use [Azure Monitor](/azure/azure-monitor/overview) to monitor base-level metrics and logs for most services in Azure. You can call Azure Automation runbooks by using [action groups](/azure/azure-monitor/alerts/action-groups) to automate tasks based on alerts. This article shows you how to configure and run a runbook by using alerts.
 
+> [!NOTE]  
+> You can create a budget (in Azure Cost Management) and associate it with an Azure Automation runbook in order to stop resources once they reach a certain threshold.
+> 
 
 ## Prerequisites
 
