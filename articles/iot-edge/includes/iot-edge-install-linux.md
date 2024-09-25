@@ -16,6 +16,9 @@ Run the following commands to add the package repository and then add the Micros
 
 > [!IMPORTANT]
 > On June 30, 2022 Raspberry Pi OS Stretch was retired from the Tier 1 OS support list. To avoid potential security vulnerabilities update your host OS to Bullseye.
+>
+> For [tier 2 supported platform operating systems](../support.md#tier-2), installation packages are made available at [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases). See the installation steps in [Offline or specific version installation](../how-to-provision-single-device-linux-symmetric.md#offline-or-specific-version-installation-optional).
+
 
 # [Ubuntu](#tab/ubuntu)
 
@@ -99,9 +102,6 @@ Installing can be done with a few commands. Open a terminal and run the followin
 You install IoT Edge runtime from the snap store in a later step. Continue to the next section.
 
 ---
-
-> [!IMPORTANT]
-> For [tier 2 supported platform operating systems](../support.md#tier-2), installation packages are made available at [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases). See the installation steps in [Offline or specific version installation](../how-to-provision-single-device-linux-symmetric.md#offline-or-specific-version-installation-optional).
 
 For more information about operating system versions, see [Azure IoT Edge supported platforms](../support.md?#linux-containers).
 
