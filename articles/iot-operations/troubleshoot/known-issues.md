@@ -21,6 +21,8 @@ This article lists the known issues for Azure IoT Operations Preview.
 
 - Using your own cert-manager issuer is only supported for cert-manager versions less than 1.13.
 
+- The Azure storage account that you use for the schema registry must have public network access enabled.
+
 - When you use the `az iot ops delete` command to uninstall Azure IoT Operations, some custom Akri resources might not be deleted from the cluster. These Akri instances can cause issues if you redeploy Azure IoT Operations to the same cluster. You should manually delete any Akri instance custom resources from the cluster before you redeploy Azure IoT Operations.
 
 - If your deployment fails with the `"code":"LinkedAuthorizationFailed"` error, it means that you don't have **Microsoft.Authorization/roleAssignments/write** permissions on the resource group that contains your cluster.
@@ -95,4 +97,8 @@ kubectl delete pod aio-opc-opc.tcp-1-f95d76c54-w9v9c -n azure-iot-operations
 
 - You can't use anonymous authentication for MQTT and Kafka endpoints when you deploy dataflow endpoints from the operations experience UI. The current workaround is to use a YAML configuration file and apply it by using `kubectl`.
 
+- Changing the instance count in a dataflow profile on an active dataflow might result in new messages being discarded or in messages being duplicated on the destination.
+
 - When you create a dataflow, if you set the `dataSources` field as an empty list, the dataflow crashes. The current workaround is to always enter at least one value in the data sources.
+
+- Dataflow custom resources created in your cluster aren't visible in the operations experience UI. This is expected because synchronizing dataflow resources from the edge to the cloud isn't currently supported.
