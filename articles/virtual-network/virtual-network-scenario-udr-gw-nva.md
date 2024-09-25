@@ -66,9 +66,9 @@ In this example, a subscription contains the following items:
 
 * Three firewall virtual appliances are in the `azurevnet` network:
 
-  * `AZF1`: An external firewall exposed to the public internet by using a public IP address resource in Azure. You need to ensure that you have a template from Azure Marketplace or directly from your appliance vendor that deploys a 3-NIC virtual appliance.
-  * `AZF2`: An internal firewall used to control traffic between `azsn2` and `azsn3`. This firewall is also a 3-NIC virtual appliance.
-  * `AZF3`: A management firewall accessible to administrators from the on-premises datacenter and connected to a management subnet that's used to manage all firewall appliances. You can find 2-NIC virtual appliance templates in Azure Marketplace. You can also request one directly from your appliance vendor.
+  * `AZF1`: An external firewall exposed to the public internet by using a public IP address resource in Azure. You need to ensure that you have a template from Azure Marketplace or directly from your appliance vendor that deploys a three-NIC virtual appliance.
+  * `AZF2`: An internal firewall used to control traffic between `azsn2` and `azsn3`. This firewall is also a three-NIC virtual appliance.
+  * `AZF3`: A management firewall accessible to administrators from the on-premises datacenter and connected to a management subnet that's used to manage all firewall appliances. You can find two-NIC virtual appliance templates in Azure Marketplace. You can also request one directly from your appliance vendor.
 
 ## Route tables
 
