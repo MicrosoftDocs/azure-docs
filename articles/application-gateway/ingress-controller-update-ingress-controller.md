@@ -10,7 +10,7 @@ ms.date: 07/23/2023
 ms.author: greglin
 ---
 
-# Upgrade the Application Gateway Ingress Controller by using Helm
+# Upgrade AGIC by using Helm
 
 You can upgrade the Azure Application Gateway Ingress Controller (AGIC) for Kubernetes by using a Helm repository hosted on Azure Storage.
 

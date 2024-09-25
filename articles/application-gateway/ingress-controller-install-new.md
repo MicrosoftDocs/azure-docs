@@ -10,7 +10,7 @@ ms.date: 9/17/2024
 ms.author: greglin
 ---
 
-# Install an Application Gateway Ingress Controller (AGIC) by using a new Application Gateway instance
+# Install AGIC by using a new Application Gateway instance
 
 The instructions in this article assume that you want to install an Application Gateway Ingress Controller (AGIC) in an environment that has no preexisting components.
 

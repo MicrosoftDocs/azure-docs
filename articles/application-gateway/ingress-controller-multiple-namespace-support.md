@@ -9,7 +9,7 @@ ms.date: 08/01/2023
 ms.author: greglin
 ---
 
-# Enable multiple-namespace support in an AKS cluster by using the Application Gateway Kubernetes Ingress Controller
+# Enable multiple-namespace support in an AKS cluster by using AGIC
 
 [Kubernetes namespaces](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) make it possible for a Kubernetes cluster to be partitioned and allocated to subgroups of a larger team. These subgroups can then deploy and manage infrastructure with finer controls of resources, security, and configuration. Kubernetes allows for one or more ingress resources to be defined independently within each namespace.
 
@@ -17,7 +17,7 @@ As of version 0.7, the [Application Gateway Kubernetes Ingress Controller](https
 
 Version 0.7 of AGIC continues to exclusively observe the `default` namespace, unless you explicitly change it to one or more different namespaces in the Helm configuration.
 
-## Enable support for multiple namespaces
+## Enable multiple-namespace support
 
 1. Modify the [helm-config.yaml](#sample-helm-configuration-file) file in one of the following ways:
 

@@ -14,7 +14,7 @@ ms.author: greglin
 
 As incoming traffic increases, it becomes crucial to scale up your applications based on the demand.
 
-This article explains how you can use the `AvgRequestCountPerHealthyHost` metric in Azure Application Gateway to scale up an application. The `AvgRequestCountPerHealthyHost` metric measures average requests sent to a specific combination of a back-end pool and a back-end HTTP setting.
+This article explains how you can use the `AvgRequestCountPerHealthyHost` metric in Azure Application Gateway to scale up Azure Kubernetes Service (AKS) pods for an application. The `AvgRequestCountPerHealthyHost` metric measures average requests sent to a specific combination of a back-end pool and a back-end HTTP setting.
 
 Use the following two components:
 

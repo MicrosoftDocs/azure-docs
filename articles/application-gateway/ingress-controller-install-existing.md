@@ -10,7 +10,7 @@ ms.date: 9/17/2024
 ms.author: greglin
 ---
 
-# Install an Application Gateway Ingress Controller (AGIC) by using an existing Application Gateway instance
+# Install AGIC by using an existing Application Gateway instance
 
 The Application Gateway Ingress Controller (AGIC) is a pod within your Azure Kubernetes Service (AKS) cluster. AGIC monitors the Kubernetes [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) resources. It creates and applies an Azure Application Gateway configuration based on the status of the Kubernetes cluster.
 
