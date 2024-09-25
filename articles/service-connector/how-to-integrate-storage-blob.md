@@ -91,11 +91,10 @@ Refer to the steps and code below to connect to Azure Blob Storage using a user-
 
 ### Connection string
 
-#### SpringBoot client
 > [!WARNING]
 > Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
 
-#### SpringBoot client type
+#### SpringBoot client
 
 | Application properties      | Description                    | Example value                                             |
 | --------------------------- | ------------------------------ | --------------------------------------------------------- |
