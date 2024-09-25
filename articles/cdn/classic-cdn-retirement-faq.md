@@ -3,11 +3,11 @@ title: Azure CDN Standard from Microsoft (classic) retirement FAQ
 titleSuffix:  Azure CDN Standard from Microsoft
 description: Common questions about the retirement of Azure CDN Standard from Microsoft (classic).
 services: front-door
-author: duongau, hmb
+author: duongau
 ms.service: azure-cdn
 ms.topic: faq
 ms.date: 09/26/2024
-ms.author: duau, hmb
+ms.author: duau
 ms.custom: ai-usage
 ---
 
@@ -94,8 +94,6 @@ If you have a support plan and you need technical assistance, you can create a [
 * *Resource*, select the **Azure CDN resource**.
 * *Summary*, describe the problem you’re experiencing with the migration.
 * *Problem type*, select **Migrating Microsoft CDN to Front Door Standard or Premium**
-
-:::image type="content" source="./media/classic-retirement-faq/support-request.png" alt-text="Screenshot of a new support request for Azure CDN Standard from Microsoft (classic) migration issue.":::
 
 ## Next steps
 
