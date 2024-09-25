@@ -235,7 +235,30 @@ When you [changed your package references in a previous step](#package-reference
 1. Consult each binding's reference documentation for the types it allows you to bind to. In some cases, you might need to change the type. For output bindings, if the in-process model version used an `IAsyncCollector<T>`, you can replace this with binding to an array of the target type: `T[]`. You can also consider replacing the output binding with a client object for the service it represents, either as the binding type for an input binding if available, or by [injecting a client yourself](./dotnet-isolated-process-guide.md#register-azure-clients).
 
 1. If your function includes an `IBinder` parameter, remove it. Replace the functionality with a client object for the service it represents, either as the binding type for an input binding if available, or by [injecting a client yourself](./dotnet-isolated-process-guide.md#register-azure-clients).
+2. If your function uses cosmos db change feed trigger, then the input documents will be IReadOnlyList<JsonNode> after upgrade instead of IReadOnlyList<Document>.
 
+Before upgrade the input binding will be as below for cosmos change feed trigger
+```csharp
+		  [FunctionName("TestUpdate")]
+    public async Task Run([CosmosDBTrigger(
+        databaseName: "testdb",
+        collectionName: "testcontainer",
+        ConnectionStringSetting = "testCosmosDBConnectionString",
+        LeaseCollectionName = "testauditlease"
+        )]IReadOnlyList<Document> testDocuments)
+```
+
+After upgrade the input binding will be 
+```csharp
+  [Function("TestUpdate")]
+    public async Task Run([CosmosDBTrigger(
+        databaseName: "testdb",
+        collectionName: "testcontainer",
+        ConnectionStringSetting = "testCosmosDBConnectionString",
+        LeaseCollectionName = "testauditlease"
+        )]IReadOnlyList<JsonNode> testDocuments)
+		
+```
 1. Update the function code to work with any new types.
 
 ### local.settings.json file
