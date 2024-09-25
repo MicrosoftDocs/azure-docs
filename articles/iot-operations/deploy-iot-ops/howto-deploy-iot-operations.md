@@ -41,25 +41,7 @@ Cloud resources:
   az keyvault create --enable-rbac-authorization --name "<KEYVAULT_NAME>" --resource-group "<RESOURCE_GROUP>"
   ```
 
-* Azure access permissions. For more information, see [Steps to assign an Azure role](../../role-based-access-control/role-assignments-steps.md).
-
-  * At a minimum, have **Contributor** permissions in your Azure subscription.
-
-  * Creating secrets in Key Vault requires **Key Vault Secrets Officer** permissions.
-
-  * The following tasks require **Microsoft/Authorization/roleAssignments/write** permissions.
-
-    * Enabling resource sync rules on the Azure IoT Operations instance. If you don't have role assignment write permissions, you can disable this feature during deployment. This approach is discussed in more detail in the [Deploy](#deploy) section of this article.
-
-    * Creating a schema registry.
-
-  > [!TIP]
-  >
-  > * If you use the Azure CLI, use the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command to give permissions. For example, `az role assignment create --assignee sp_name --role "Role Based Access Control Administrator" --scope subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyResourceGroup`
-  >
-  > * If you use the Azure portal to assign privileged admin roles to a user or principal, you're prompted to restrict access using conditions. For this scenario, select the **Allow user to assign all roles** condition in the **Add role assignment** page.
-  >
-  >   :::image type="content" source="./media/howto-deploy-iot-operations/add-role-assignment-conditions.png" alt-text="Screenshot that shows assigning users highly privileged role access in the Azure portal.":::
+* Azure access permissions. For more information, see [Deployment details > Required permissions](overview-deploy.md#required-permissions).
 
 Development resources:
 
@@ -157,7 +139,6 @@ Azure IoT Operations requires a schema registry on your cluster. Schema registry
    | `--disable-rsync-rules` |  | Disable the resource sync rules on the deployment feature flag if you don't have **Microsoft.Authorization/roleAssignment/write** permissions in the resource group. |
    | `--add-insecure-listener` |  | Add an insecure 1883 port config to the default listener. *Not for production use*. |
    | `--broker-config-file` | Path to JSON file | Provide a configuration file for the MQTT broker. For more information, see [Advanced MQTT broker config](https://github.com/Azure/azure-iot-ops-cli-extension/wiki/Advanced-Mqtt-Broker-Config) and [Configure core MQTT broker settings](../manage-mqtt-broker/howto-configure-availability-scale.md). |
-   | `--name` | String | Provide a name for your Azure IoT Operations instance. Otherwise, a default name is assigned. You can view the `instanceName` parameter in the command output. |
 
 Once the `create` command completes successfully, you have a working Azure IoT Operations instance running on your cluster. At this point, your instance is configured for most testing and evaluation scenarios. If you want to prepare your instance for production scenarios, continue to the next section to enable secure settings.
 

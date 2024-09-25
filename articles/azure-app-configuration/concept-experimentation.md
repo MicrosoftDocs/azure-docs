@@ -98,7 +98,7 @@ Benefits:
  
 ### For intelligent applications (for example, AI-based features)
 
-Objective: Accelerate General AI (Gen AI) adoption and optimize AI models and use cases through rapid experimentation.
+Objective: Accelerate Generative AI (Gen AI) adoption and optimize AI models and use cases through rapid experimentation.
 
 Approach: Use experimentation to iterate quickly on AI models, test different scenarios, and determine effective approaches.
 

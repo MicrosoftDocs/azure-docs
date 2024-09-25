@@ -42,6 +42,25 @@ If you want to deploy Azure IoT Operations with secure settings, follow these ar
 1. Start with [Prepare your Azure Arc-enabled Kubernetes cluster](./howto-prepare-cluster.md) to configure and Arc-enable your cluster.
 1. Then, [Deploy Azure IoT Operations Preview](./howto-deploy-iot-operations.md).
 
+## Required permissions
+
+The following table described Azure IoT Operations deployment and management tasks that require elevated permissions. For information about assigning roles to users, see [Steps to assign an Azure role](../../role-based-access-control/role-assignments-steps.md).
+
+| Task | Required permission | Comments |
+| ---- | ------------------- | -------- |
+| Deploy Azure IoT Operations | **Contributor** permissions at the subscription level. |  |
+| Creating secrets in Key Vault | **Key Vault Secrets Officer** permissions at the resource level. | Only required for secure settings deployment. |
+| Enabling resource sync rules on an Azure IoT Operations instance | **Microsoft/Authorization/roleAssignments/write** permissions at the resource group level. | Resource sync rules can be disabled during instance creation if the user doesn't have permissions. |
+| Creating a schema registry. | **Microsoft/Authorization/roleAssignments/write** permissions at the resource group level. |  |
+
+> [!TIP]
+>
+> * If you use the Azure CLI to assign roles, use the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command to give permissions. For example, `az role assignment create --assignee sp_name --role "Role Based Access Control Administrator" --scope subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyResourceGroup`
+>
+> * If you use the Azure portal to assign privileged admin roles to a user or principal, you're prompted to restrict access using conditions. For this scenario, select the **Allow user to assign all roles** condition in the **Add role assignment** page.
+>
+>   :::image type="content" source="./media/howto-deploy-iot-operations/add-role-assignment-conditions.png" alt-text="Screenshot that shows assigning users highly privileged role access in the Azure portal.":::
+
 ## Included components
 
 Azure IoT Operations is a suite of data services that run on Azure Arc-enabled edge Kubernetes clusters. It also depends on a set of support services that are also installed as part of a deployment.
