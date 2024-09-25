@@ -4,7 +4,7 @@ description: This quickstart shows you how to create, provision, verify, update,
 services: expressroute
 author: duongau
 ms.author: duau
-ms.date: 09/17/2024
+ms.date: 09/25/2024
 ms.topic: quickstart
 ms.service: azure-expressroute
 ms.custom: devx-track-azurepowershell, mode-api
@@ -102,9 +102,18 @@ highAvailabilitySetup/New-AzHighAvailabilityExpressRouteCircuits.ps1 -Subscripti
 > [!NOTE]
 > Maximum Resiliency provides maximum protection against location wide outages and connectivity failures in an ExpressRoute location. This option is strongly recommended for all critical and production workloads.
 
+# [**High Resiliency**](#tab/high)
+
+The following example shows how to create an ExpressRoute circuit through Equinix in Silicon Valley. If you're using a different provider and different settings, replace that information when you make your request. Use the following example to request a new service key.
+
+```azurepowershell-interactive
+New-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup" -Location "West EU" -SkuTier Standard -SkuFamily MeteredData -ServiceProviderName "Equinix" -PeeringLocation "Amsterdam metro" -BandwidthInMbps 200
+```
+:::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/high-resiliency.png" alt-text="Diagram of high resiliency for an ExpressRoute connection.":::
+
 # [**Standard Resiliency**](#tab/standard)
 
-The following example shows how to create an ExpressRoute circuit through Equinix in Silicon Valley. If you're using a different provider and different settings, replace that information when you make your request. Use the following example to request a new service key:
+The following example shows how to create an ExpressRoute circuit through Equinix in Silicon Valley. If you're using a different provider and different settings, replace that information when you make your request. Use the following example to request a new service key.
 
 ```azurepowershell-interactive
 New-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup" -Location "West US" -SkuTier Standard -SkuFamily MeteredData -ServiceProviderName "Equinix" -PeeringLocation "Silicon Valley" -BandwidthInMbps 200
