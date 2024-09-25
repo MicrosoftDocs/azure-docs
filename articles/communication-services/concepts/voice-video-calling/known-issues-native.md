@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 
-# Known issues associated with the Azure Communication Services Calling Native and Native UI SDKs.
+# Known issues associated with the Azure Communication Services Calling Native and Native UI SDKs
 This article provides known issues related to using the Azure Communication Services native calling SDKs.
 
 ## Issues with Android API emulators
