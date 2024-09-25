@@ -1125,6 +1125,10 @@
       href: windows-security-event-id-reference.md
     - name: DNS over AMA reference
       href: dns-ama-fields.md
+    - name: Data connector definitions API reference
+      href: data-connector-ui-definitions-reference.md
+    - name: Data connectors API reference
+      href: data-connector-connection-rules-reference.md
     - name: Sample API requests for creating Data Collection Rules (DCRs)
       href: api-dcr-reference.md
     - name: Microsoft Purview Information Protection reference
@@ -1145,18 +1149,12 @@
       href: fusion-scenario-reference.md
     - name: Watchlist template schemas
       href: watchlist-schemas.md
-    - name: REST APIs - samples
-      items:
-      - name: Manage hunting queries with REST-API
-        href: hunting-with-rest-api.md
-      - name: Enrich entities with geolocation data with REST-API
-        href: geolocation-data-api.md
-      - name: Upload indicator API reference
-        href: upload-indicators-api.md
-      - name: Data connector definitions API reference
-        href: data-connector-ui-definitions-reference.md
-      - name: Data connectors API reference
-        href: data-connector-connection-rules-reference.md
+    - name: Manage hunting queries with REST-API
+      href: hunting-with-rest-api.md
+    - name: Enrich entities with geolocation data with REST-API
+      href: geolocation-data-api.md
+    - name: Upload indicator API reference
+      href: upload-indicators-api.md
   - name: Compare playbooks, workbooks, and notebooks
     href: resources.md
   - name: Operations guide
