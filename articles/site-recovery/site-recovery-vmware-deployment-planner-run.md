@@ -101,7 +101,7 @@ We have seen that based on the hardware configuration especially RAM size of the
 
 If you have multiple vCenter servers, you need to run one instance of ASRDeploymentPlanner for each vCenter server for profiling.
 
-virtual machine configurations are captured once at the beginning of the profiling operation and stored in a file called VMDetailList.xml. This information is used when the report is generated. Any change in virtual machine configuration (for example, an increased number of cores, disks, or NICs) from the beginning to the end of profiling isn'tcaptured. If a profiled virtual machine configuration has changed during the profiling, in the public preview, here is the workaround to get latest virtual machine details when generating the report:
+Virtual machine configurations are captured once at the beginning of the profiling operation and stored in a file called VMDetailList.xml. This information is used when the report is generated. Any change in virtual machine configuration (for example, an increased number of cores, disks, or NICs) from the beginning to the end of profiling isn'tcaptured. If a profiled virtual machine configuration has changed during the profiling, in the public preview, here is the workaround to get latest virtual machine details when generating the report:
 
 * Back up VMdetailList.xml, and delete the file from its current location.
 * Pass -User and -Password arguments at the time of report generation.
@@ -165,7 +165,7 @@ After profiling is complete, you can run the tool in report-generation mode. The
 | -UseManagedDisks | (Optional) UseManagedDisks - Yes/No. Default is Yes. The number of virtual machines that can be placed into a single storage account is calculated considering whether Failover/Test failover of virtual machines is done on managed disk instead of unmanaged disk. |
 |-SubscriptionId |(Optional) The subscription GUID. This parameter is required when you need to generate the cost estimation report with the latest price based on your subscription, the offer that is associated with your subscription and for your specific target Azure region in the **specified currency**.|
 |-TargetRegion|(Optional) The Azure region where replication is targeted. Since Azure has different costs per region, to generate report with specific target Azure region use this parameter.<br>Default is WestUS2 or the last used target region.<br>Refer to the list of [supported target regions](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions).|
-|-OfferId|(Optional) The offer associated with the give subscription. Default is MS-AZR-0003P (pay-as-you-go).|
+|-OfferId|(Optional) The offer associated with the given subscription. Default is MS-AZR-0003P (pay-as-you-go).|
 |-Currency|(Optional) The currency in which cost is shown in the generated report. Default is US Dollar ($) or the last used currency.<br>Refer to the list of [supported currencies](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies).|
 
 By default, the tool is configured to profile and generate report up to 1000 virtual machines. You can change limit by changing MaxVMsSupported key value in *ASRDeploymentPlanner.exe.config* file.
@@ -216,7 +216,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization VMware  -Dire
 ## Percentile value used for the calculation
 **What default percentile value of the performance metrics collected during profiling does the tool use when it generates a report?**
 
-The tool defaults to the 95th percentile values of read/write IOPS, write IOPS, and data churn that are collected during profiling of all the virtual machines. This metric ensures that the 100th percentile spike your virtual machines might see because of temporary events isn'tused to determine your target storage-account and source-bandwidth requirements. For example, a temporary event might be a backup job running once a day, a periodic database indexing or analytics report-generation activity, or other similar short-lived, point-in-time events.
+The tool defaults to the 95th percentile values of read/write IOPS, write IOPS, and data churn that are collected during profiling of all the virtual machines. This metric ensures that the 100th percentile spike your virtual machines might see because of temporary events aren't used to determine your target storage-account and source-bandwidth requirements. For example, a temporary event might be a backup job running once a day, a periodic database indexing or analytics report-generation activity, or other similar short-lived, point-in-time events.
 
 Using 95th percentile values gives a true picture of real workload characteristics, and it gives you the best performance when the workloads are running on Azure. We don't anticipate that you would need to change this number. If you do change the value (to the 90th percentile, for example), you can update the configuration file *ASRDeploymentPlanner.exe.config* in the default folder and save it to generate a new report on the existing profiled data.
 ```xml
@@ -236,7 +236,7 @@ For example, let's say that today your virtual machine fits in a standard storag
 * The resulting increased churn on the virtual machine requires the virtual machine to go to premium storage so that Site Recovery replication can keep pace.
 * So, you have to disable and re-enable protection to a premium storage account.
 
-We strongly recommend that you plan for growth during deployment planning and while the default value is 30 percent. you're the expert on your application usage pattern and growth projections, and you can change this number accordingly while generating a report. Moreover, you can generate multiple reports with various growth factors with the same profiled data and determine what target storage and source bandwidth recommendations work best for you.
+We strongly recommend that you plan for growth during deployment planning and while the default value is 30 percent. You're the expert on your application usage pattern and growth projections, and you can change this number accordingly while generating a report. Moreover, you can generate multiple reports with various growth factors with the same profiled data and determine what target storage and source bandwidth recommendations work best for you.
 
 The generated Microsoft Excel report contains the following information:
 
