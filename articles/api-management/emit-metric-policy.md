@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: article
-ms.date: 07/23/2024
+ms.date: 09/25/2024
 ms.author: danlep
 ms.custom: engagement-fy23
 ---
@@ -18,10 +18,19 @@ ms.custom: engagement-fy23
 The `emit-metric` policy sends custom metrics in the specified format to Application Insights.
 
 > [!NOTE]
-> * Custom metrics are a [preview feature](/azure/azure-monitor/essentials/metrics-custom-overview) of Azure Monitor and subject to [limitations](/azure/azure-monitor/essentials/metrics-custom-overview#design-limitations-and-considerations).
-> * For more information about the API Management data added to Application Insights, see [How to integrate Azure API Management with Azure Application Insights](./api-management-howto-app-insights.md#what-data-is-added-to-application-insights).
+> Custom metrics are a [preview feature](/azure/azure-monitor/essentials/metrics-custom-overview) of Azure Monitor and subject to [limitations](/azure/azure-monitor/essentials/metrics-custom-overview#design-limitations-and-considerations).
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
+
+## Limits for custom metrics
+
+[!INCLUDE [api-management-custom-metrics-limits](../../includes/api-management-custom-metrics-limits.md)]
+
+## Prerequisites
+
+* Your API Management instance must be integrated with Application insights. For more information, see [How to integrate Azure API Management with Azure Application Insights](./api-management-howto-app-insights.md).
+* Enable Application Insights logging for your APIs. 
+* Enable custom metrics with dimensions in Application Insights. For more information, see [Emit custom metrics](api-management-howto-app-insights.md#emit-custom-metrics).
 
 ## Policy statement
 
@@ -72,8 +81,6 @@ The `emit-metric` policy sends custom metrics in the specified format to Applica
 ### Usage notes
 
 * You can configure at most 10 custom dimensions for this policy.
-
-* Invoking the `emit-metric` policy counts toward the usage limits for custom metrics per region in a subscription. [Learn more](api-management-howto-app-insights.md#limits-for-custom-metrics)
 
 ## Example
 

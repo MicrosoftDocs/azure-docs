@@ -16,7 +16,7 @@ ms.custom:
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-The `llm-emit-token-metric` policy sends metrics to Application Insights about consumption of large language model (LLM) tokens through LLM APIs. Token count metrics include: Total Tokens, Prompt Tokens, and Completion Tokens. 
+The `llm-emit-token-metric` policy sends custom metrics to Application Insights about consumption of large language model (LLM) tokens through LLM APIs. Token count metrics include: Total Tokens, Prompt Tokens, and Completion Tokens. 
 
 > [!NOTE]
 > Currently, this policy is in preview.
@@ -25,6 +25,10 @@ The `llm-emit-token-metric` policy sends metrics to Application Insights about c
 
 [!INCLUDE [api-management-llm-models](../../includes/api-management-llm-models.md)]
 
+
+## Limits for custom metrics
+
+[!INCLUDE [api-management-custom-metrics-limits](../../includes/api-management-custom-metrics-limits.md)]
 
 ## Prerequisites
 
