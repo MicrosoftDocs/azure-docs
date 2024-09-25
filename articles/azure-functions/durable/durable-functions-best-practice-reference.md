@@ -71,6 +71,13 @@ A single worker instance can execute multiple work items concurrently to increas
 > [!NOTE]
 > This is not a replacement for fine-tuning the performance and concurrency settings of your language runtime in Azure Functions. The Durable Functions concurrency settings only determine how much work can be assigned to a given VM at a time, but it does not determine the degree of parallelism in processing that work inside the VM. The latter requires fine-tuning the language runtime performance settings.
 
+### Use unique names for your external events
+
+As with activity functions, external events have an _at-least-once_ delivery guarantee. This means that, under certain _rare_ conditions (which may occur during restarts, scaling, crashes, etc.), your application may receive duplicates of the same external event. Therefore, we recommend that external events contain an ID that allows them to be manually de-duplicated in orchestrators.
+
+> [!NOTE]
+> The [MSSQL](./durable-functions-storage-providers.md#mssql) storage provider consumes external events and updates orchestrator state transactionally, so in that backend there should be no risk of duplicate events, unlike with the default [Azure Storage storage provider](./durable-functions-storage-providers.md). That said, it is still recommended that external events have unique names so that code is portable across backends.
+
 ### Invest in stress testing
 
 As with anything performance related, the ideal concurrency settings and architechture of your app ultimately depends on your application's workload. Therefore, it's recommended that users to invest in a performance testing harness that simulates their expected workload and to use it to run performance and reliability experiments for their app.
@@ -92,7 +99,7 @@ There are several tools available to help you diagnose problems.
 ### Durable Functions and Durable Task Framework Logs
 
 #### Durable Functions Extension
-The Durable extension emits tracking events that allow you to trace the end-to-end execution of an orchestration. These tracking events can be found and queried using the [Application Insights Analytics](../../azure-monitor/logs/log-query-overview.md) tool in the Azure portal. The verbosity of tracking data emitted can be configured in the `logger` (Functions 1.x) or `logging` (Functions 2.0) section of the host.json file. See [configuration details](durable-functions-diagnostics.md#functions-10). 
+The Durable extension emits tracking events that allow you to trace the end-to-end execution of an orchestration. These tracking events can be found and queried using the [Application Insights Analytics](/azure/azure-monitor/logs/log-query-overview) tool in the Azure portal. The verbosity of tracking data emitted can be configured in the `logger` (Functions 1.x) or `logging` (Functions 2.0) section of the host.json file. See [configuration details](durable-functions-diagnostics.md#functions-10). 
         
 #### Durable Task Framework
 Starting in v2.3.0 of the Durable extension, logs emitted by the underlying Durable Task Framework (DTFx) are also available for collection. See [details on how to enable these logs](durable-functions-diagnostics.md#durable-task-framework-logging).  

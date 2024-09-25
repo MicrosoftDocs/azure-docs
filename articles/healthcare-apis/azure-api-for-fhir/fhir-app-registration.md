@@ -2,7 +2,7 @@
 title: Register the Microsoft Entra apps for Azure API for FHIR
 description: This tutorial explains which applications need to be registered for Azure API for FHIR and FHIR Server for Azure.
 services: healthcare-apis
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: overview
 ms.author: kesheth

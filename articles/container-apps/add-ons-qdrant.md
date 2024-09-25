@@ -3,7 +3,7 @@ title: 'Tutorial: Connect to a Qdrant vector database in Azure Container Apps (p
 description: Learn to use the Container Apps Qdrant vector database add-on.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: ignite-2023, devx-track-azurecli
 ms.topic: conceptual
 ms.date: 11/02/2023
@@ -121,7 +121,7 @@ Now that you have an existing environment and workload profile, you can create y
 1. Create the Qdrant add-on service.
 
     ```azurecli
-    az containerapp service qdrant create \
+    az containerapp add-on qdrant create \
       --environment $ENVIRONMENT \
       --resource-group $RESOURCE_GROUP \
       --name $SERVICE_NAME

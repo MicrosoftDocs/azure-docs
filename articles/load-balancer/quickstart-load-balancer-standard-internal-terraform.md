@@ -5,7 +5,7 @@ description: This quickstart shows how to create an internal load balancer by us
 services: load-balancer
 author: hisriram96
 manager: vikasbagde
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: quickstart
 ms.date: 01/02/2024
 ms.author: sriramiyer

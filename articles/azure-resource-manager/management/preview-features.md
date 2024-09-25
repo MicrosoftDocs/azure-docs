@@ -155,7 +155,7 @@ After a preview feature is registered in your subscription, you'll see one of tw
 
 - For a preview feature that doesn't require approval, the state is **Registered**.
 - If a preview feature requires approval, the registration state is **Pending**. You must request approval from the Azure service offering the preview feature. Usually, you request access through a support ticket.
-  - To request approval, submit an [Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md).
+  - To request approval, submit an [Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request).
   - After the registration is approved, the preview feature's state changes to **Registered**.
 
 Some services require other methods, such as email, to get approval for pending request. Check announcements about the preview feature for information about how to get access.
@@ -345,6 +345,9 @@ InGuestPatchVMPreview   Microsoft.Compute   Unregistered
 ```
 
 ---
+## Configuring preview features using Azure Policy
+
+Subscriptions can be remediated to register to a preview feature if not already registered using a [built-in](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe624c84f-2923-4437-9fd9-4115c6da3888) policy definition. Note that new subscriptions added to an existing tenant won't be automatically registered.
 
 ## Next steps
 

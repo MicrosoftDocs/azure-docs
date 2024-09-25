@@ -3,8 +3,6 @@ title: Incrementally copy data using Change Tracking using PowerShell
 description: In this tutorial, you create an Azure Data Factory pipeline that copies delta data incrementally from multiple tables in a SQL Server database to Azure SQL Database.
 ms.author: yexu
 author: dearandyxu
-ms.service: data-factory
-ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: devx-track-azurepowershell
 ms.date: 10/20/2023
@@ -27,7 +25,7 @@ You perform the following steps in this tutorial:
 > * Add or update data in the source table
 > * Create, run, and monitor the incremental copy pipeline
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Overview
 In a data integration solution, incrementally loading data after initial data loads is a widely used scenario. In some cases, the changed data within a period in your source data store can be easily to sliced up (for example, LastModifyTime, CreationTime). In some cases, there is no explicit way to identify the delta data from last time you processed the data. The Change Tracking technology supported by data stores such as Azure SQL Database and SQL Server can be used to identify the delta data.  This tutorial describes how to use Azure Data Factory with SQL Change Tracking technology to incrementally load delta data from Azure SQL Database into Azure Blob Storage.  For more concrete information about SQL Change Tracking technology, see [Change tracking in SQL Server](/sql/relational-databases/track-changes/about-change-tracking-sql-server).
@@ -229,19 +227,22 @@ In this step, you link your Azure Storage Account to the data factory.
 ### Create Azure SQL Database linked service.
 In this step, you link your database to the data factory.
 
-1. Create a JSON file named **AzureSQLDatabaseLinkedService.json** in **C:\ADFTutorials\IncCopyChangeTrackingTutorial** folder with the following content: Replace **&lt;server&gt; &lt;database name&gt;, &lt;user id&gt;, and &lt;password&gt;** with name of your server, name of your database, user ID, and password before saving the file.
+1. Create a JSON file named **AzureSQLDatabaseLinkedService.json** in **C:\ADFTutorials\IncCopyChangeTrackingTutorial** folder with the following content: Replace &lt;your-server-name&gt; and &lt;your-database-name&gt; with the name of your server and database before you save the file. You must also configure your Azure SQL Server to [grant access to your data factory's managed identity](connector-azure-sql-database.md#user-assigned-managed-identity-authentication).
 
     ```json
     {
-        "name": "AzureSQLDatabaseLinkedService",
-        "properties": {
+    "name": "AzureSqlDatabaseLinkedService",
+    "properties": {
             "type": "AzureSqlDatabase",
             "typeProperties": {
-                "connectionString": "Server = tcp:<server>.database.windows.net,1433;Initial Catalog=<database name>; Persist Security Info=False; User ID=<user name>; Password=<password>; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;"
-            }
+                "connectionString": "Server=tcp:<your-server-name>.database.windows.net,1433;Database=<your-database-name>;"
+            },
+            "authenticationType": "ManagedIdentity",
+            "annotations": []
         }
     }
     ```
+    
 2. In **Azure PowerShell**, run the **Set-AzDataFactoryV2LinkedService** cmdlet to create the linked service: **AzureSQLDatabaseLinkedService**.
 
     ```powershell

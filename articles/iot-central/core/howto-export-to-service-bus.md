@@ -1,5 +1,5 @@
 ---
-title: Export data to Service Bus IoT Central
+title: Export data to Service Bus
 description: Learn how to use the IoT Central data export capability to continuously export your IoT data to Service Bus
 services: iot-central
 author: dominicbetts

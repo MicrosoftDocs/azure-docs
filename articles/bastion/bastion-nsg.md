@@ -2,9 +2,9 @@
 title: Working with VMs and NSGs in Azure Bastion
 description: Learn about using network security groups with Azure Bastion.
 author: cherylmc
-ms.service: bastion
+ms.service: azure-bastion
 ms.topic: conceptual
-ms.date: 06/23/2023
+ms.date: 04/05/2024
 ms.author: cherylmc
 ---
 # Working with NSG access and Azure Bastion
@@ -56,7 +56,7 @@ Azure Bastion is deployed specifically to ***AzureBastionSubnet***.
 ### Target VM Subnet
 This is the subnet that contains the target virtual machine that you want to RDP/SSH to.
 
-   * **Ingress Traffic from Azure Bastion:** Azure Bastion will reach to the target VM over private IP. RDP/SSH ports (ports 3389/22 respectively, or custom port values if you are using the custom port feature as a part of Standard SKU) need to be opened on the target VM side over private IP. As a best practice, you can add the Azure Bastion Subnet IP address range in this rule to allow only Bastion to be able to open these ports on the target VMs in your target VM subnet.
+   * **Ingress Traffic from Azure Bastion:** Azure Bastion will reach to the target VM over private IP. RDP/SSH ports (ports 3389/22 respectively, or custom port values if you're using the custom port feature as a part of Standard or Premium SKU) need to be opened on the target VM side over private IP. As a best practice, you can add the Azure Bastion Subnet IP address range in this rule to allow only Bastion to be able to open these ports on the target VMs in your target VM subnet.
 
 
 ## Next steps

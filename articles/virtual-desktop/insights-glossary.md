@@ -1,10 +1,11 @@
 ---
 title: Azure Virtual Desktop Insights glossary - Azure
 description: A glossary of terms and concepts related to Azure Virtual Desktop Insights.
-author: Heidilohr
+author: dknappettmsft
 ms.topic: conceptual
 ms.date: 09/12/2023
-ms.author: helohr
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
 # Azure Virtual Desktop Insights glossary
 
@@ -12,7 +13,7 @@ This article lists and briefly describes key terms and concepts related to Azure
 
 ## Alerts
 
-Any active Azure Monitor alerts that you've configured on the subscription and classified as [severity 0](#severity-0-alerts) will appear in the Overview page. To learn how to set up alerts, see [Azure Monitor Log Alerts](../azure-monitor/alerts/alerts-log.md).
+Any active Azure Monitor alerts that you've configured on the subscription and classified as [severity 0](#severity-0-alerts) will appear in the Overview page. To learn how to set up alerts, see [Azure Monitor Log Alerts](/azure/azure-monitor/alerts/alerts-log).
 
 ## Available sessions
 
@@ -67,6 +68,59 @@ When an error or alert appears in Azure Virtual Desktop Insights, it's categoriz
      - Client: software running on the end-user machine that provides the interface to the Azure Virtual Desktop service. It displays the list of published resources and hosts the Remote Desktop connection once you've made a selection.
 
 Each diagnostics issue or error includes a message that explains what went wrong. To learn more about troubleshooting errors, see [Identify and diagnose Azure Virtual Desktop issues](./troubleshoot-set-up-overview.md).
+
+## Gateway region codes
+
+Some metrics in Azure Virtual Desktop Insights list the gateway region a user connects through. The gateway region is represented by a three or four-letter code that corresponds to the Azure region where the gateway is located. The following table lists the gateway region codes and their corresponding Azure regions:
+
+| Gateway region code | Azure region |
+|--|--|
+| AUC | Australia Central |
+| AUC2 | Australia Central 2 |
+| AUE | Australia East |
+| AUSE | Australia Southeast |
+| BRS | Brazil South |
+| CAC | Canada Central |
+| CAE | Canada East |
+| CHNO | Switzerland North |
+| CIN | Central India |
+| CUS | Central US |
+| EAS | East Asia |
+| EEU | East Europe |
+| EUS | East US |
+| EUS2 | East US 2 |
+| FRAS | France South |
+| FRC | France Central |
+| GEC | Germany Central |
+| GEN | Germany North |
+| GENE | Germany Northeast |
+| GWC | Germany West Central |
+| JPE | Japan East |
+| JPW | Japan West |
+| KRC | Korea Central |
+| KRS | Korea South |
+| KRS2 | Korea South 2 |
+| NCUS | North Central US |
+| NEU | North Europe |
+| NOE | Norway East |
+| NOW | Norway West |
+| SAN | South Africa North |
+| SAW | South Africa West |
+| SCUS | South Central US |
+| SEA2 | Southeast Asia 2 |
+| SEAS | Southeast Asia |
+| SIN | South India |
+| SWW | Switzerland West |
+| UAEC | UAE Central |
+| UAEN | UAE North |
+| UKN | UK North |
+| UKS | UK South |
+| UKS2 | UK South 2 |
+| UKW | UK West |
+| WCUS | West Central US |
+| WEU | West Europe |
+| WIN | West India |
+| WUS | West US |
 
 ## Input delay
 
@@ -132,7 +186,7 @@ You can also select entries to view additional information. You can view which h
 
 ## Round-trip time (RTT)
 
-Round-trip time (RTT) is an estimate of the connection's round-trip time between the end-user’s location and the session host's Azure region. To see which locations have the best latency, look up your desired location in the [Azure Virtual Desktop Experience Estimator tool](https://azure.microsoft.com/services/virtual-desktop/assessment/).
+Round-trip time (RTT) is an estimate of the connection's round-trip time between the end-user’s location and the session host's Azure region. To see which locations have the best latency, look up your desired location in [Azure network round-trip latency statistics](../networking/azure-network-latency.md).
 
 ## Session history
 
@@ -230,7 +284,7 @@ The following table lists the required Windows Event Logs for Azure Virtual Desk
 - If you encounter a problem, check out our [troubleshooting guide](troubleshoot-insights.md) for help and known issues.
 
 
-You can also set up Azure Advisor to help you figure out how to resolve or prevent common issues. Learn more at [Introduction to Azure Advisor](../advisor/advisor-overview.md).
+You can also set up Azure Advisor to help you figure out how to resolve or prevent common issues. Learn more at [Introduction to Azure Advisor](/azure/advisor/advisor-overview).
 
 If you need help or have any questions, check out our community resources:
 

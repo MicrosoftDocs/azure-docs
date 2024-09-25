@@ -33,7 +33,7 @@ Some filters are only available to specific offers. For example, a billing profi
 | **BillingProfileName** | Name of the EA enrollment, pay-as-you-go subscription, MCA billing profile, or AWS¹ consolidated account. | Name of the EA enrollment, pay-as-you-go subscription, MCA billing profile, or AWS consolidated account.|
 | **Charge type** | Break down usage, purchase, refund, and unused reservation and savings plan costs. | Reservation purchases, savings plan purchases, and refunds are available only when using actual costs and not when using amortized costs. Unused reservation and savings plan costs are available only when looking at amortized costs. |
 | **Department** | Break down costs by EA department. | Available only for EA and management groups. PAYG subscriptions don't have a department and will show as **No department** or **unassigned**. |
-| **Enrollment account** | Break down costs by EA account owner. | Available only for EA billing accounts, departments, and  management groups. PAYG subscriptions don't have EA enrollment accounts and will show as **No enrollment account** or **unassigned**. |
+| **Enrollment account** | Break down costs by EA account owner. | Available only for EA billing accounts, departments, and management groups. PAYG subscriptions don't have EA enrollment accounts and will show as **No enrollment account** or **unassigned**. |
 | **Frequency** | Break down usage-based, one-time, and recurring costs. | Indicates whether a charge is expected to repeat. Charges can either happen once **OneTime**, repeat on a monthly or yearly basis **Recurring**, or be based on usage **UsageBased**.|
 | **Invoice ID** | Break down costs by billed invoice. | Unbilled charges don't have an invoice ID yet and EA costs don't include invoice details and will show as **No invoice ID**.  |
 | **InvoiceSectionId**| Unique identifier for the MCA invoice section. | Unique identifier for the EA department or MCA invoice section. |
@@ -41,7 +41,7 @@ Some filters are only available to specific offers. For example, a billing profi
 | **Location** | Break down costs by resource location or region. | Purchases and Marketplace usage may be shown as **unassigned**, or **No resource location**. |
 | **Meter** | Break down costs by usage meter. | Purchases and Marketplace usage might show as **unassigned** or **No meter**. Refer to **Charge type** to identify purchases and **Publisher type** to identify Marketplace charges. |
 | **Operation** | Break down AWS¹ costs by operation. | Applicable only to AWS scopes and management groups. Azure data doesn't include operation and will show as **No operation** - use **Meter** instead. |
-| **Pricing model** | Break down costs by on-demand, reservation, or spot usage. | Purchases show as **OnDemand**. If you see **Not applicable**, group by **Reservation** to determine whether the usage is reservation or on-demand usage and **Charge type** to identify purchases.
+| **Pricing model** | Break down costs by on-demand, reservation, or spot usage. | Purchases show as **OnDemand**. If you see **Not applicable**, group by **Reservation** to determine whether the usage is reservation or on-demand usage and **Charge type** to identify purchases. |
 | **PartNumber** | The identifier used to get specific meter pricing. | |
 | **Product** | Name of the product. | |
 | **ProductOrderId** | Unique identifier for the product order | |
@@ -54,7 +54,7 @@ Some filters are only available to specific offers. For example, a billing profi
 | **Resource** | Break down costs by resource. | Marketplace purchases show as **Other Marketplace purchases** and Azure purchases, like Reservations and Support charges, show as **Other Azure purchases**. Group by or filter on **Publisher type** to identify other Azure, AWS¹, or Marketplace purchases. |
 | **Resource group** | Break down costs by resource group. | Purchases, tenant resources not associated with subscriptions, subscription resources not deployed to a resource group, and classic resources don't have a resource group and will show as **Other Marketplace purchases**, **Other Azure purchases**, **Other tenant resources**, **Other subscription resources**, **$system**, or **Other charges**. |
 | **ResourceId**| Unique identifier of the [Azure Resource Manager](/rest/api/resources/resources) resource. | |
-| **Resource type** | Break down costs by resource type. | Type of resource instance. Not all charges come from deployed resources. Charges that don't have a resource type will be shown as null or empty, **Others**, or **Not applicable**. For example, purchases and classic services will show as **others**, **classic services**, or **No resource type**. |
+| **Resource type** | Break down costs by resource type. | Type of resource instance. Not all charges come from deployed resources. Charges that don't have a resource type are shown as null or empty, **Others**, or **Not applicable**. For example, purchases and classic services will show as **others**, **classic services**, or **No resource type**. |
 | **ServiceFamily**| Type of Azure service. For example, Compute, Analytics, and Security. | |
 | **ServiceName**| Name of the Azure service. | Name of the classification category for the meter. For example, Cloud services and Networking. |
 | **Service name** or **Meter category** | Break down cost by Azure service. | Purchases and Marketplace usage will show as **No service name** or **unassigned**. |
@@ -144,6 +144,6 @@ If you use Cost Management + Billing REST API calls that filter the `PublisherTy
 
 There's no impact to Cost analysis or budgets because the changes are automatically reflected in the filters. Any saved views or budgets created with Publisher Type = “Azure” filter will be automatically updated.
 
-## Next steps
+## Related content
 
 - [Start analyzing costs](./quick-acm-cost-analysis.md).

@@ -3,7 +3,7 @@ title: Azure Peering Service customer walkthrough
 description: Learn about Azure Peering Service and how to onboard.
 author: halkazwini
 ms.author: halkazwini
-ms.service: peering-service
+ms.service: azure-peering-service
 ms.topic: how-to
 ms.date: 07/26/2023
 ---

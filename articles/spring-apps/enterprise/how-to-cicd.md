@@ -2,9 +2,9 @@
 title: Automate application deployments to Azure Spring Apps
 description: Describes how to use the Azure Spring Apps task for Azure Pipelines.
 author: KarlErickson
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: conceptual
-ms.date: 09/13/2021
+ms.date: 06/27/2024
 ms.author: karler
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-arm-template
 zone_pivot_groups: programming-languages-spring-apps
@@ -19,7 +19,7 @@ zone_pivot_groups: programming-languages-spring-apps
 
 This article shows you how to use the [Azure Spring Apps task for Azure Pipelines](/azure/devops/pipelines/tasks/deploy/azure-spring-cloud) to deploy applications.
 
-Continuous integration and continuous delivery tools let you quickly deploy updates to existing applications with minimal effort and risk. Azure DevOps helps you organize and control these key jobs. 
+Continuous integration and continuous delivery tools let you quickly deploy updates to existing applications with minimal effort and risk. Azure DevOps helps you organize and control these key jobs.
 
 The following video describes end-to-end automation using tools of your choice, including Azure Pipelines.
 
@@ -93,7 +93,7 @@ steps:
 
 First, use the following steps to set up an existing Azure Spring Apps instance for use with Azure DevOps.
 
-1. Go to your Azure Spring Apps instance, then create a new app. 
+1. Go to your Azure Spring Apps instance, then create a new app.
 1. Go to the Azure DevOps portal, then create a new project under your chosen organization. If you don't have an Azure DevOps organization, you can create one for free.
 1. Select **Repos**, then import the [Spring Boot demo code](https://github.com/spring-guides/gs-spring-boot) to the repository.
 
@@ -116,7 +116,7 @@ To deploy using a pipeline, follow these steps:
 1. Disable **Use Staging Deployment**.
 1. Set **Package or folder** to *complete/target/spring-boot-complete-0.0.1-SNAPSHOT.jar*.
 1. Select **Add** to add this task to your pipeline.
-  
+
    Your pipeline settings should match the following image.
 
    :::image type="content" source="media/how-to-cicd/pipeline-task-setting.jpg" alt-text="Screenshot of Azure DevOps that shows the New pipeline settings." lightbox="media/how-to-cicd/pipeline-task-setting.jpg":::

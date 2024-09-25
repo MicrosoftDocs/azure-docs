@@ -4,11 +4,10 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy and transform data to and from Microsoft Fabric Warehouse using Azure Data Factory or Azure Synapse Analytics pipelines.
 ms.author: jianleishen
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 02/23/2024
+ms.date: 09/04/2024
 ---
 
 # Copy and transform data in Microsoft Fabric Warehouse using Azure Data Factory or Azure Synapse Analytics
@@ -24,6 +23,7 @@ This Microsoft Fabric Warehouse connector is supported for the following capabil
 | Supported capabilities|IR | Managed private endpoint|
 |---------| --------| --------|
 |[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;|✓ |
+|[Mapping data flow](concepts-data-flow-overview.md) (source/sink)|&#9312; |✓ |
 |[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|✓ |
 |[GetMetadata activity](control-flow-get-metadata-activity.md)|&#9312; &#9313;|✓ |
 |[Script activity](transform-data-using-script.md)|&#9312; &#9313;|✓ |
@@ -191,7 +191,7 @@ To copy data from Microsoft Fabric Warehouse, set the **type** property in the C
 | partitionOptions | Specifies the data partitioning options used to load data from Microsoft Fabric Warehouse. <br>Allowed values are: **None** (default), and **DynamicRange**.<br>When a partition option is enabled (that is, not `None`), the degree of parallelism to concurrently load data from a Microsoft Fabric Warehouse is controlled by the [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) setting on the copy activity. | No |
 | partitionSettings | Specify the group of the settings for data partitioning. <br>Apply when the partition option isn't `None`. | No |
 | ***Under `partitionSettings`:*** | | |
-| partitionColumnName | Specify the name of the source column **in integer or date/datetime type** (`int`, `smallint`, `bigint`, `date`, `datetime2`) that will be used by range partitioning for parallel copy. If not specified, the index or the primary key of the table is detected automatically and used as the partition column.<br>Apply when the partition option is `DynamicRange`. If you use a query to retrieve the source data, hook  `?AdfDynamicRangePartitionCondition` in the WHERE clause. For an example, see the [Parallel copy from Microsoft Fabric Warehouse](#parallel-copy-from-microsoft-fabric-warehouse) section. | No |
+| partitionColumnName | Specify the name of the source column **in integer or date/datetime type** (`int`, `smallint`, `bigint`, `date`, `datetime2`) that will be used by range partitioning for parallel copy. If not specified, the index or the primary key of the table is detected automatically and used as the partition column.<br>Apply when the partition option is `DynamicRange`. If you use a query to retrieve the source data, hook  `?DfDynamicRangePartitionCondition` in the WHERE clause. For an example, see the [Parallel copy from Microsoft Fabric Warehouse](#parallel-copy-from-microsoft-fabric-warehouse) section. | No |
 | partitionUpperBound | The maximum value of the partition column for partition range splitting. This value is used to decide the partition stride, not for filtering the rows in table. All rows in the table or query result will be partitioned and copied. If not specified, copy activity auto detect the value.  <br>Apply when the partition option is `DynamicRange`. For an example, see the [Parallel copy from Microsoft Fabric Warehouse](#parallel-copy-from-microsoft-fabric-warehouse) section. | No |
 | partitionLowerBound | The minimum value of the partition column for partition range splitting. This value is used to decide the partition stride, not for filtering the rows in table. All rows in the table or query result will be partitioned and copied. If not specified, copy activity auto detect the value.<br>Apply when the partition option is `DynamicRange`. For an example, see the [Parallel copy from Microsoft Fabric Warehouse](#parallel-copy-from-microsoft-fabric-warehouse) section. | No |
 
@@ -350,7 +350,7 @@ You are suggested to enable parallel copy with data partitioning especially when
 | Scenario                                                     | Suggested settings                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | Full load from large table, while with an integer or datetime column for data partitioning. | **Partition options**: Dynamic range partition.<br>**Partition column** (optional): Specify the column used to partition data. If not specified, the index or primary key column is used.<br/>**Partition upper bound** and **partition lower bound** (optional): Specify if you want to determine the partition stride. This is not for filtering the rows in table, and all rows in the table will be partitioned and copied. If not specified, copy activity auto detect the values.<br><br>For example, if your partition column "ID" has values range from 1 to 100, and you set the lower bound as 20 and the upper bound as 80, with parallel copy as 4, the service retrieves data by 4 partitions - IDs in range <=20, [21, 50], [51, 80], and >=81, respectively. |
-| Load a large amount of data by using a custom query, while with an integer or date/datetime column for data partitioning. | **Partition options**: Dynamic range partition.<br>**Query**: `SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`.<br>**Partition column**: Specify the column used to partition data.<br>**Partition upper bound** and **partition lower bound** (optional): Specify if you want to determine the partition stride. This is not for filtering the rows in table, and all rows in the query result will be partitioned and copied. If not specified, copy activity auto detect the value.<br><br>During execution, the service replaces `?AdfRangePartitionColumnName` with the actual column name and value ranges for each partition, and sends to Microsoft Fabric Warehouse. <br>For example, if your partition column "ID" has values range from 1 to 100, and you set the lower bound as 20 and the upper bound as 80, with parallel copy as 4, the service retrieves data by 4 partitions- IDs in range <=20, [21, 50], [51, 80], and >=81, respectively. <br><br>Here are more sample queries for different scenarios:<br> 1. Query the whole table: <br>`SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition`<br> 2. Query from a table with column selection and additional where-clause filters: <br>`SELECT <column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 3. Query with subqueries: <br>`SELECT <column_list> FROM (<your_sub_query>) AS T WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 4. Query with partition in subquery: <br>`SELECT <column_list> FROM (SELECT <your_sub_query_column_list> FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition) AS T`|
+| Load a large amount of data by using a custom query, while with an integer or date/datetime column for data partitioning. | **Partition options**: Dynamic range partition.<br>**Query**: `SELECT * FROM <TableName> WHERE ?DfDynamicRangePartitionCondition AND <your_additional_where_clause>`.<br>**Partition column**: Specify the column used to partition data.<br>**Partition upper bound** and **partition lower bound** (optional): Specify if you want to determine the partition stride. This is not for filtering the rows in table, and all rows in the query result will be partitioned and copied. If not specified, copy activity auto detect the value.<br><br>For example, if your partition column "ID" has values range from 1 to 100, and you set the lower bound as 20 and the upper bound as 80, with parallel copy as 4, the service retrieves data by 4 partitions- IDs in range <=20, [21, 50], [51, 80], and >=81, respectively. <br><br>Here are more sample queries for different scenarios:<br> 1. Query the whole table: <br>`SELECT * FROM <TableName> WHERE ?DfDynamicRangePartitionCondition`<br> 2. Query from a table with column selection and additional where-clause filters: <br>`SELECT <column_list> FROM <TableName> WHERE ?DfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 3. Query with subqueries: <br>`SELECT <column_list> FROM (<your_sub_query>) AS T WHERE ?DfDynamicRangePartitionCondition AND <your_additional_where_clause>`<br> 4. Query with partition in subquery: <br>`SELECT <column_list> FROM (SELECT <your_sub_query_column_list> FROM <TableName> WHERE ?DfDynamicRangePartitionCondition) AS T`|
 
 Best practices to load data with partition option:
 
@@ -364,7 +364,7 @@ Best practices to load data with partition option:
 ```json
 "source": {
     "type": "WarehouseSource",
-    "query": "SELECT * FROM <TableName> WHERE ?AdfDynamicRangePartitionCondition AND <your_additional_where_clause>",
+    "query": "SELECT * FROM <TableName> WHERE ?DfDynamicRangePartitionCondition AND <your_additional_where_clause>",
     "partitionOption": "DynamicRange",
     "partitionSettings": {
         "partitionColumnName": "<partition_column_name>",
@@ -513,6 +513,47 @@ To use this feature, create an [Azure Blob Storage linked service](connector-azu
     }
 ]
 ```
+
+## Mapping data flow properties
+
+When transforming data in mapping data flow, you can read and write to tables from Microsoft Fabric Warehouse. 
+For more information, see the [source transformation](data-flow-source.md) and [sink transformation](data-flow-sink.md) in mapping data flows.
+
+### Microsoft Fabric Warehouse as the source
+Settings specific to Microsoft Fabric Warehouse are available in the Source Options tab of the source transformation.
+
+| Name                     | Description                                                  | Required | Allowed Values | Data flow script property |
+| :--------------------------- | :----------------------------------------------------------- | :------- |:-------------------- |:------- |
+| Input                          | Select whether you point your source at a table (equivalent of Select * from tablename) or enter a custom SQL query or retrieve data from a Stored Procedure. Query: If you select Query in the input field, enter a SQL query for your source. This setting overrides any table that you've chosen in the dataset. **Order By** clauses aren't supported here, but you can set a full SELECT FROM statement. You can also use user-defined table functions. **select * from udfGetData()** is a UDF in SQL that returns a table. This query will produce a source table that you can use in your data flow. Using queries is also a great way to reduce rows for testing or for lookups.SQL Example: ```Select * from MyTable where customerId > 1000 and customerId < 2000``` | Yes      | Table or Query or Stored Procedure    | format: 'table' |
+| Batch size               | Enter a batch size to chunk large data into reads. In data flows, this setting will be used to set Spark columnar caching. This is an option field, which will use Spark defaults if it is left blank. | No       | Numeral values | batchSize: 1234|
+| Isolation Level          | The default for SQL sources in mapping data flow is read uncommitted. You can change the isolation level here to one of these values:•	Read Committed  • Read Uncommitted • Repeatable Read • Serializable • None (ignore isolation level) | Yes       | •	Read Committed  • Read Uncommitted • Repeatable Read • Serializable • None (ignore isolation level) | isolationLevel|
+
+>[!NOTE]
+>Read via staging is not supported. CDC support for Microsoft Fabric Warehouse source is currently not available.
+
+### Microsoft Fabric Warehouse as the sink
+Settings specific to Microsoft Fabric Warehouse are available in the Settings tab of the sink transformation.
+
+| Name                     | Description                                                  | Required | Allowed Values | Data flow script property |
+| :--------------------------- | :----------------------------------------------------------- | :------- |:-------------------- |:------- |
+| Update method                         | Determines what operations are allowed on your database destination. The default is to only allow inserts. To update, upsert, or delete rows, an alter-row transformation is required to tag rows for those actions. For updates, upserts and deletes, a key column or columns must be set to determine which row to alter. | Yes      | true or false    | insertable deletable upsertable updateable |
+| Table action              | Determines whether to recreate or remove all rows from the destination table prior to writing.• None: No action will be done to the table. • Recreate: The table will get dropped and recreated. Required if creating a new table dynamically.• Truncate: All rows from the target table will get removed. | No       | None or recreate or truncate | recreate: true truncate: true |
+| Enable staging          | The staging storage is configured in [Execute Data Flow activity](control-flow-execute-data-flow-activity.md). When you use managed identity authentication for your storage linked service, learn the needed configurations for [Azure Blob](connector-azure-blob-storage.md#managed-identity) and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) respectively.If your Azure Storage is configured with VNet service endpoint, you must use managed identity authentication with "allow trusted Microsoft service" enabled on storage account, refer to [Impact of using VNet Service Endpoints with Azure storage](/azure/azure-sql/database/vnet-service-endpoint-rule-overview#impact-of-using-virtual-network-service-endpoints-with-azure-storage).| No       | true or false |staged: true |
+| Batch size               | Controls how many rows are being written in each bucket. Larger batch sizes improve compression and memory optimization, but risk out of memory exceptions when caching data. | No       | Numeral values | batchSize: 1234|
+| Use sink schema             | By default, a temporary table will be created under the sink schema as staging. You can alternatively uncheck the **Use sink schema** option and instead, in **Select user DB schema**, specify a schema name under which Data Factory will create a staging table to load upstream data and automatically clean them up upon completion. Make sure you have create table permission in the database and alter permission on the schema. | No       | true or false | stagingSchemaName|
+| Pre and Post SQL scripts   | Enter multi-line SQL scripts that will execute before (pre-processing) and after (post-processing) data is written to your Sink database| No       | SQL scripts | preSQLs:['set IDENTITY_INSERT mytable ON'] postSQLs:['set IDENTITY_INSERT mytable OFF'],|
+
+### Error row handling
+By default, a data flow run will fail on the first error it gets. You can choose to Continue on error that allows your data flow to complete even if individual rows have errors. The service provides different options for you to handle these error rows.
+ 
+Transaction Commit: Choose whether your data gets written in a single transaction or in batches. Single transaction will provide better performance and no data written will be visible to others until the transaction completes. Batch transactions have worse performance but can work for large datasets.
+ 
+Output rejected data: If enabled, you can output the error rows into a csv file in Azure Blob Storage or an Azure Data Lake Storage Gen2 account of your choosing. This will write the error rows with three additional columns: the SQL operation like INSERT or UPDATE, the data flow error code, and the error message on the row.
+ 
+Report success on error: If enabled, the data flow will be marked as a success even if error rows are found.
+
+>[!NOTE]
+>For Microsoft Fabric Warehouse Linked Service, the supported authentication type for Service Principal is 'Key'; 'Certificate' authentication is not supported.
 
 ## Lookup activity properties
 

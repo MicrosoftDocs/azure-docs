@@ -20,7 +20,7 @@ A manifest is a JSON document that has a pre-determined structure for capturing 
 
 You can find an example manifest json document [here](https://community.opengroup.org/osdu/data/data-definitions/-/tree/master/Examples/manifest#manifest-example).
 
-The manifest schema has containers for the following OSDU&trade; [Group types](https://community.opengroup.org/osdu/data/data-definitions/-/blob/master/Guides/Chapters/02-GroupType.md#2-group-type):
+The manifest schema has containers for the following OSDU&reg; [Group types](https://community.opengroup.org/osdu/data/data-definitions/-/blob/master/Guides/Chapters/02-GroupType.md#2-group-type):
 
 * **ReferenceData** (*zero or more*) - A set of permissible values to be used by other (master or transaction) data fields. Examples include *Unit of Measure (feet)*, *Currency*, etc.
 * **MasterData** (*zero or more*) - A single source of basic business data used across multiple systems, applications, and/or process. Examples include *Wells* and *Wellbores*
@@ -45,15 +45,15 @@ Azure Data Manager for Energy instance has out-of-the-box support for Manifest-b
 ### Manifest-based file ingestion workflow components
 The Manifest-based file ingestion workflow consists of the following components:
 * **Workflow Service** - A wrapper service running on top of the Airflow workflow engine. 
-* **Airflow engine** - A workflow orchestration engine that executes workflows registered as DAGs (Directed Acyclic Graphs). Airflow is the chosen workflow engine by the [OSDU&trade;](https://osduforum.org/) community to orchestrate and run ingestion workflows. Airflow isn't directly exposed, instead its features are accessed through the workflow service.
+* **Airflow engine** - A workflow orchestration engine that executes workflows registered as DAGs (Directed Acyclic Graphs). Airflow is the chosen workflow engine by the [OSDU&reg;](https://osduforum.org/) community to orchestrate and run ingestion workflows. Airflow isn't directly exposed, instead its features are accessed through the workflow service.
 * **Storage Service** - A service that is used to save the manifest metadata records into the data platform.
-* **Schema Service** - A service that manages OSDU&trade; defined schemas in the data platform. Schemas are being referenced during the Manifest-based file ingestion. 
+* **Schema Service** - A service that manages OSDU&reg; defined schemas in the data platform. Schemas are being referenced during the Manifest-based file ingestion. 
 * **Entitlements Service** - A service that manages access groups. This service is used during the ingestion for verification of ingestion permissions. This service is also used during the metadata record retrieval for validation of "read" writes.  
 * **Legal Service** - A service that validates compliance through legal tags.
 * **Search Service** is used to perform referential integrity check during the manifest ingestion process.
 
 ### Pre-requisites
-Before running the Manifest-based file ingestion workflow, customers must ensure that the user accounts running the workflow have access to the core services (Search, Storage, Schema, Entitlement and Legal) and Workflow service (see [Entitlement roles](https://community.opengroup.org/osdu/platform/deployment-and-operations/infra-azure-provisioning/-/blob/master/docs/osdu-entitlement-roles.md) for details). As part of Azure Data Manager for Energy instance provisioning, the OSDU&trade; standard schemas and associated reference data are pre-loaded. Customers must ensure that the user account used for ingesting the manifests is included in appropriate owners and viewers ACLs. Customers must ensure that manifests are configured with correct legal tags, owners and viewers ACLs, reference data, etc.
+Before running the Manifest-based file ingestion workflow, customers must ensure that the user accounts running the workflow have access to the core services (Search, Storage, Schema, Entitlement and Legal) and Workflow service (see [Entitlement roles](https://community.opengroup.org/osdu/platform/deployment-and-operations/infra-azure-provisioning/-/blob/master/docs/osdu-entitlement-roles.md) for details). As part of Azure Data Manager for Energy instance provisioning, the OSDU&reg; standard schemas and associated reference data are pre-loaded. Customers must ensure that the user account used for ingesting the manifests is included in appropriate owners and viewers ACLs. Customers must ensure that manifests are configured with correct legal tags, owners and viewers ACLs, reference data, etc.
 
 ### Workflow sequence
 The following illustration provides the Manifest-based file ingestion workflow:
@@ -65,7 +65,7 @@ The workflow service executes a series of manifest `syntax validation` like mani
 
 Once the validations are successful, the system processes the content into storage by writing each valid entity into the data platform using the Storage Service API. 
 
-OSDU&trade; is a trademark of The Open Group.
+OSDU&reg; is a trademark of The Open Group.
 
 ## Next steps
 - [Tutorial: Sample steps to perform a manifest-based file ingestion](tutorial-manifest-ingestion.md)

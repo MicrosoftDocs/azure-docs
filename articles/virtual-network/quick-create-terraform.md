@@ -5,7 +5,7 @@ description: In this quickstart, you create an Azure virtual network and subnets
 ms.topic: quickstart
 ms.date: 1/19/2024
 ms.custom: devx-track-terraform, devx-track-azurecli
-ms.service: virtual-network
+ms.service: azure-virtual-network
 author: asudbring
 ms.author: allensu
 content_well_notification: 
@@ -27,6 +27,8 @@ The script creates the following resources:
 - A virtual network: A fundamental building block for your private network in Azure.
 
 - Two subnets: Segments of a virtual network's IP address range where you can place groups of isolated resources.
+
+:::image type="content" source="./media/quick-create-bicep/virtual-network-bicep-resources.png" alt-text="Diagram of resources created in the virtual network quickstart." lightbox="./media/quick-create-bicep/virtual-network-bicep-resources.png":::
 
 [!INCLUDE [About Terraform](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
 

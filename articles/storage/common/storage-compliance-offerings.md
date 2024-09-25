@@ -20,7 +20,7 @@ Microsoft retains independent, third-party auditing firms to conduct audits of M
 
 Azure Storage is included in many Azure compliance audits such as CSA STAR, ISO, SOC, PCI DSS, HITRUST, FedRAMP, DoD, and others. The resulting compliance assurances are applicable to:
 
-- Blobs (including Azure Data Lake Storage Gen2)
+- Blobs (including Azure Data Lake Storage)
 - Files
 - Queues
 - Tables

@@ -5,11 +5,10 @@ description: Learn about change data capture in Azure Data Factory and Azure Syn
 author: kromerm
 ms.author: makromer
 ms.reviewer: jburchel
-ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/08/2023
+ms.date: 05/15/2024
 ---
 
 # Change data capture in Azure Data Factory and Azure Synapse Analytics
@@ -40,7 +39,7 @@ The changed data including inserted, updated and deleted rows can be automatical
 -   [SQL Server](connector-sql-server.md)
 -   [Azure SQL Managed Instance](connector-azure-sql-managed-instance.md)
 -   [Azure Cosmos DB (SQL API)](connector-azure-cosmos-db.md)
--   [Azure Cosmos DB analytical store](../cosmos-db/analytical-store-introduction.md)
+-   [Azure Cosmos DB analytical store](/azure/cosmos-db/analytical-store-introduction)
 -   [Snowflake](connector-snowflake.md)
 
 ### Auto incremental extraction in mapping data flow

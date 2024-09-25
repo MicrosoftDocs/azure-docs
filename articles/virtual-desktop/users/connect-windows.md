@@ -5,15 +5,15 @@ ms.topic: how-to
 zone_pivot_groups: azure-virtual-desktop-windows-clients
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 02/20/2024
+ms.custom: "se-defect-target"
+ms.date: 09/23/2024
 ---
 
 # Connect to Azure Virtual Desktop with the Remote Desktop client for Windows
 
 ::: zone pivot="avd-store"
 > [!IMPORTANT]
-> The Azure Virtual Desktop Store app for Windows is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> The Azure Virtual Desktop store app is no longer available for download or installation. To ensure a seamless experience and avoid any disruption, users are encouraged to download the Windows App Windows App is the gateway to securely connect to any devices or apps across Azure Virtual Desktop, Windows 365, and Microsoft Dev Box. For more information, see [What is Windows App](/windows-app/overview).
 ::: zone-end
 
 The Microsoft Remote Desktop client is used to connect to Azure Virtual Desktop to access your desktops and applications. This article shows you how to connect to Azure Virtual Desktop with the Remote Desktop client for Windows, which only allows you to subscribe to a feed made available to you by your organization administrators.

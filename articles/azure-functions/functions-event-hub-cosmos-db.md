@@ -21,7 +21,7 @@ In this tutorial, you'll:
 > * Create and test Java functions that interact with these resources.
 > * Deploy your functions to Azure and monitor them with Application Insights.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 

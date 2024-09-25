@@ -3,16 +3,19 @@ title: Relocate Azure Key Vault to another region
 description: This article offers guidance on moving a key vault to another region.
 services: key-vault
 author: anaharris
-ms.service: key-vault
+ms.service: azure-key-vault
 ms.subservice: general
-ms.topic: concept
+ms.topic: concept-article
 ms.date: 03/18/2024
 ms.author: mbaldwin
-ms.custom: subject-relocation
+ms.custom: subject-relocation, devx-track-azurepowershell
 # Customer intent: As a key vault administrator, I want to move my vault to another region.
 ---
 
 # Relocate Azure Key Vault to another region
+
+[!INCLUDE [relocate-reasons](./includes/service-relocation-reason-include.md)]
+
 
 Azure Key Vault doesn't support key vault relocation to another region. 
 
@@ -352,7 +355,7 @@ Deploy the template to create a new key vault in the target region.
 >[!IMPORTANT] 
 >If you plan to move a Key Vault across regions but within the same geography, it's recommended that you do  a [backup and restore for secrets, keys and certificates](/azure/key-vault/general/backup) is recommended. 
 
-1. Follow steps in the described in the [redeploy approach](#redeploy).
+1. Follow steps described in the [redeploy approach](#redeploy).
 2. For [secrets](/azure/key-vault/secrets/about-secrets):
     1. Copy and save the secret value in the source key vault.
     1. Recreate the secret in the target key vault and set the value to saved secret.
@@ -366,7 +369,7 @@ Deploy the template to create a new key vault in the target region.
 
 Before deleting your old key vault, verify that the new vault contains all of the required keys, secrets, and certificates after the relocation of the associated Azure services.
 
-## Links
+## Related content
 
 - [Azure Key Vault backup and restore](/azure/key-vault/general/backup)
 - [Moving an Azure Key Vault across resource groups](/azure/key-vault/general/move-resourcegroup)

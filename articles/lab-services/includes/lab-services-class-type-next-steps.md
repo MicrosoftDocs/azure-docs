@@ -1,6 +1,6 @@
 ---
 author: EMaher
-ms.service: lab-services
+ms.service: azure-lab-services
 ms.date: 01/04/2022
 ms.topic: include
 ---

@@ -13,8 +13,6 @@ ms.custom: template-how-to
 
 # Music Mode
 
-[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
-
 The **music mode** enhances the audio quality for music playback and performance within virtual environments, ensuring clarity and depth in sound reproduction; currently supports a 32-kHz sampling rate at 128 kbps when network bandwidth allows; when network bandwidth is insufficient, the bitrate can be reduced to as low as 48 kbps.
 
 This feature is designed to elevate the audio quality for calls, ensuring the audio is crispy and offering a richer and more immersive audio experience. Also, it reduces audio compression to maintain the original sound, making it ideal for applications ranging from live musical performances and remote music education or music sessions.
@@ -30,10 +28,10 @@ We recommend using high-quality external loudspeakers, professional microphones,
 
 The Calling native SDK provides an additional set of audio filters that bring a richer experience during the call:
 
-- Analog Automatic gain control
-- Digital Automatic gain control
 - Echo cancellation. *You can only toggle echo cancellation only if music mode is enabled*
 - Noise suppression. *The currently available modes are `Off`, `Auto`, `Low`, and `High`*
+- Analog Automatic gain control
+- Digital Automatic gain control
 
 ## Next steps
-- [Learn how to setup audio filters](../../how-tos/calling-sdk/manage-audio-filters.md)
+- [Learn how to setup audio filters](../../tutorials/audio-quality-enhancements/add-noise-supression.md)

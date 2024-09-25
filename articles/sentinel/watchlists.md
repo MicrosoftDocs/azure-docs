@@ -4,7 +4,7 @@ titleSuffix: Microsoft Sentinel
 description: Learn how watchlists allow you to correlate data with events and when to use them in Microsoft Sentinel.
 author: cwatson-cat
 ms.author: cwatson
-ms.topic: concept
+ms.topic: concept-article
 ms.date: 3/14/2024
 appliesto:
     - Microsoft Sentinel in the Azure portal
@@ -42,7 +42,7 @@ Before you create a watchlist, be aware of the following limitations:
 
 - When you create a watchlist, the watchlist name and alias must each be between 3 and 64 characters. The first and last characters must be alphanumeric. But you can include whitespaces, hyphens, and underscores in between the first and last characters.
 - The use of watchlists should be limited to reference data, as they aren't designed for large data volumes.
-- The **total number of active watchlist items** across all watchlists in a single workspace is currently limited to **10 million**. Deleted watchlist items don't count against this total. If you require the ability to reference large data volumes, consider ingesting them using [custom logs](../azure-monitor/agents/data-sources-custom-logs.md) instead.
+- The **total number of active watchlist items** across all watchlists in a single workspace is currently limited to **10 million**. Deleted watchlist items don't count against this total. If you require the ability to reference large data volumes, consider ingesting them using [custom logs](/azure/azure-monitor/agents/data-sources-custom-logs) instead.
 - Watchlists are refreshed in your workspace every 12 days, updating the `TimeGenerated` field.
 - Using Lighthouse to manage watchlists across different workspaces is not supported at this time.
 - Local file uploads are currently limited to files of up to 3.8 MB in size.

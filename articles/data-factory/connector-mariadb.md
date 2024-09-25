@@ -3,11 +3,10 @@ title: Copy data from MariaDB
 description: Learn how to copy data from MariaDB to supported sink data stores using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 titleSuffix: Azure Data Factory & Azure Synapse
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 04/17/2024
+ms.date: 05/22/2024
 ms.author: jianleishen
 ---
 
@@ -15,6 +14,9 @@ ms.author: jianleishen
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from MariaDB. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+
+>[!IMPORTANT]
+>MariaDB connector using the recommended driver version provides improved native MariaDB support. If you are using it with the legacy driver version, please [upgrade your driver version](#upgrade-the-mariadb-driver-version) before **October 31, 2024**. Refer to this [section](#differences-between-the-recommended-and-the-legacy-driver-version) for details on the difference between the legacy and recommended version.  
 
 ## Supported capabilities
 
@@ -294,9 +296,9 @@ Here are steps that help you upgrade your MariaDB driver version:
 
 1. The latest driver version v2 supports more MariaDB versions. For more information, see [Supported capabilities](connector-mariadb.md#supported-capabilities). 
 
-## Differences between MariaDB using the recommended driver version and using the legacy driver version
+## Differences between the recommended and the legacy driver version
 
-The table below shows the data type mapping differences between MariaDB connector using the recommended driver version and using the legacy driver version.
+The table below shows the data type mapping differences between MariaDB using the recommended and the legacy driver version.
 
 |MariaDB data type |Interim service data type (using the recommended driver version) |Interim service data type (using the legacy driver version)|
 |:---|:---|:---|

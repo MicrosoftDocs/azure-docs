@@ -105,8 +105,15 @@ This parameter file is intended to be used with the [quickStart guide](./quickst
     "location": {
       "value": "eastus"
     },
-    "sshPublicKey": {
-      "value": "ssh-rsa AAAAB...."
+    "sshPublicKeys": {
+      "value": [
+        {
+          "keyData": "ssh-rsa AAAAB..."
+        },
+        {
+          "keyData": "ssh-rsa AAAAC..."
+        }
+      ]
     },
     "ipAddressPools": {
       "value": [

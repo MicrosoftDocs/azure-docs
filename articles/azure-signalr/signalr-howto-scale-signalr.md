@@ -2,7 +2,7 @@
 title: Scale an instance of Azure SignalR Service
 description: Learn how to scale an Azure SignalR Service instance to add or reduce capacity, through Azure portal or Azure CLI.
 author: vicancy
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.topic: how-to
 ms.date: 07/18/2022
 ms.author: lianwei 
@@ -95,7 +95,7 @@ For a table of service limits, quotas, and constraints in each tier, see [Signal
 
 
 ## Enhanced Large Instance Support with Premium_P2 SKU
-The new Premium_P2 SKU (currently in Preview) is designed to facilitate extensive scalability for high-demand scenarios.  This SKU allows scaling among 100, 200, 300, 400, 500, 600. 700, 800, 900, 1000 units for a single SignalR Service instance. This enhancement enables the handling of up to **one million** concurrent connections, catering to large-scale, real-time communication needs.
+The new Premium_P2 SKU is designed to facilitate extensive scalability for high-demand scenarios.  This SKU allows scaling among 100, 200, 300, 400, 500, 600. 700, 800, 900, 1000 units for a single SignalR Service instance. This enhancement enables the handling of up to **one million** concurrent connections, catering to large-scale, real-time communication needs.
 
 You can scale up the SKU to Premium_P2 using Azure portal or Azure CLI.
 

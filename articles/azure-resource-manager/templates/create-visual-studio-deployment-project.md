@@ -1,7 +1,7 @@
 ---
 title: Create & deploy Visual Studio resource group projects
 description: Use Visual Studio to create an Azure resource group project and deploy the resources to Azure.
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/20/2024
 ---
 
@@ -365,7 +365,7 @@ You aren't limited to only the resources that are available through the Visual S
 
    :::image type="content" source="./media/create-visual-studio-deployment-project/Ops-DemoSiteGroup-dashboard.png" alt-text="Screenshot of the customized operational dashboard in the Azure portal.":::
 
-You can manage access to the dashboard by using Azure role-based access control (Azure RBAC). You can also customize the dashboard's appearance after it's deployed. However, if you redeploy the resource group, the dashboard is reset to its default state in your template. For more information about creating dashboards, see [Programmatically create Azure Dashboards](../../azure-portal/azure-portal-dashboards-create-programmatically.md).
+You can manage access to the dashboard by using Azure role-based access control (Azure RBAC). You can also customize the dashboard's appearance after it's deployed. However, if you redeploy the resource group, the dashboard is reset to its default state in your template. For more information about creating dashboards, see [Programmatically create Azure Dashboards](/azure/azure-portal/azure-portal-dashboards-create-programmatically).
 
 ## Clean up resources
 

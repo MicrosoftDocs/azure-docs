@@ -1,12 +1,12 @@
 ---
 title: Overview of the MedTech service device mapping - Azure Health Data Services
 description: Learn about the MedTech service device mapping.
-author: msjasteppe
-ms.service: healthcare-apis
-ms.subservice: iomt
+author: chachachachami
+ms.service: azure-health-data-services
+ms.subservice: medtech-service
 ms.topic: overview
 ms.date: 08/01/2023
-ms.author: jasteppe
+ms.author: chrupa
 ---
 
 # Overview of the MedTech service device mapping

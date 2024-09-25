@@ -88,7 +88,8 @@ To generate and receive Email events, take the steps in the following sections.
 
 To view event triggers, we need to generate some events. To trigger an event, [send email](../email/send-email.md) using the Email domain resource attached to the Communication Services resource.
 
-- `Email Delivery Report Received` events are generated when the Email status is in terminal state, i.e. Delivered, Failed, FilteredSpam, Quarantined.
+- `Email Delivery Report Received` events are generated when the Email status is in terminal state, like Delivered, Failed, FilteredSpam, Quarantined.
+
 - `Email Engagement Tracking Report Received` events are generated when the email sent is either opened or a link within the email is clicked. To trigger an event, you need to turn on the `User Interaction Tracking` option on the Email domain resource
 
 Check out the full list of [events that Communication Services supports](../../../event-grid/event-schema-communication-services.md).

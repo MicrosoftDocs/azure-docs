@@ -4,8 +4,8 @@ description: How to configure Palo Alto for Azure Spring Apps
 author: KarlErickson
 ms.author: karler
 ms.topic: how-to
-ms.service: spring-apps
-ms.date: 09/17/2021
+ms.service: azure-spring-apps
+ms.date: 06/27/2024
 ms.custom: devx-track-java, devx-track-azurecli
 ---
 
@@ -82,7 +82,7 @@ crl.microsoft.com,
 crl3.digicert.com
 ```
 
-Name the third file *AzureMonitorAddresses.csv*. This file should contain all addresses and IP ranges to be made available for metrics and monitoring via Azure Monitor, if you're using Azure monitor. The values in the following example are for demonstration purposes only. For up-to-date values, see [IP addresses used by Azure Monitor](../../azure-monitor/ip-addresses.md).
+Name the third file *AzureMonitorAddresses.csv*. This file should contain all addresses and IP ranges to be made available for metrics and monitoring via Azure Monitor, if you're using Azure monitor. The values in the following example are for demonstration purposes only. For up-to-date values, see [IP addresses used by Azure Monitor](/azure/azure-monitor/ip-addresses).
 
 ```CSV
 name,type,address,tag

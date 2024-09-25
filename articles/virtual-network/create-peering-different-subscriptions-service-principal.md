@@ -4,12 +4,11 @@ titleSuffix: Azure Virtual Network
 description: Learn how to peer virtual networks in different subscriptions using service principal names.
 author: asudbring
 ms.author: allensu
-ms.service: virtual-network
+ms.service: azure-virtual-network
+ms.custom: devx-track-azurecli
 ms.topic: how-to 
 ms.date: 04/18/2024
-
 #customer intent: As a network administrator, I want to connect virtual networks in different subscriptions using service principal names so that I can allow resources in different subscriptions to communicate with each other.
-
 ---
 # Connect virtual networks in different subscriptions with service principal names
 
@@ -260,11 +259,11 @@ An administrator in the **subscription-1** Microsoft Entra ID tenant must approv
 
 1. Open the URL in a web browser and sign-in with an administrator in the Microsoft Entra ID tenant in **subscription-1**.
 
-1. Approve the application **spn-2-vnet-peer**. The microsoft.com homepage displays if the authentication was successful.
+1. Approve the application **spn-2-peer-vnet**. The microsoft.com homepage displays if the authentication was successful.
 
 ### Assign spn-2-peer-vnet to vnet-1
 
-After the administrator approves **spn-2-vnet-peer**, add it to the virtual network **vnet-1** as a **Network Contributor**.
+After the administrator approves **spn-2-peer-vnet**, add it to the virtual network **vnet-1** as a **Network Contributor**.
 
 1. Use [az login](/cli/azure/reference-index#az-login) to sign-in to **subscription-1**.
 
@@ -272,7 +271,7 @@ After the administrator approves **spn-2-vnet-peer**, add it to the virtual netw
     az login
     ```
 
-1. Use [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list) to find the appId for **spn-2-vnet-peer** and place in a variable for later use.
+1. Use [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list) to find the appId for **spn-2-peer-vnet** and place in a variable for later use.
 
     ```azurecli
     appid2=$(az ad sp list \
@@ -299,9 +298,9 @@ After the administrator approves **spn-2-vnet-peer**, add it to the virtual netw
         --scope $vnetid
     ```
 
-## Register spn-1-vnet-peer in subscription-2 and assign permissions to vnet-2
+## Register spn-1-peer-vnet in subscription-2 and assign permissions to vnet-2
 
-A user account with administrator permissions in the Microsoft Entra ID tenant must complete the process of adding **spn-1-vnet-peer** to **subscription-2**. Once completed, **spn-1-vnet-peer** can be assigned permissions to **vnet-2**. 
+A user account with administrator permissions in the Microsoft Entra ID tenant must complete the process of adding **spn-1-peer-vnet** to **subscription-2**. Once completed, **spn-1-peer-vnet** can be assigned permissions to **vnet-2**. 
 
 ### Register spn-1-peer-vnet app in subscription-2
 
@@ -337,11 +336,11 @@ An administrator in the **subscription-2** Microsoft Entra ID tenant must approv
 
 1. Open the URL in a web browser and sign-in with an administrator in the Microsoft Entra ID tenant in **subscription-2**.
 
-1. Approve the application **spn-1-vnet-peer**. The microsoft.com homepage displays if the authentication was successful.
+1. Approve the application **spn-1-peer-vnet**. The microsoft.com homepage displays if the authentication was successful.
 
 ### Assign spn-1-peer-vnet to vnet-2
 
-Once the administrator approves **spn-1-vnet-peer**, add it to the virtual network **vnet-2** as a **Network Contributor**.
+Once the administrator approves **spn-1-peer-vnet**, add it to the virtual network **vnet-2** as a **Network Contributor**.
 
 1. Use [az login](/cli/azure/reference-index#az-login) to sign-in to **subscription-2**.
 
@@ -349,7 +348,7 @@ Once the administrator approves **spn-1-vnet-peer**, add it to the virtual netwo
     az login
     ```
 
-1. Use [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list) to find the appId for **spn-1-vnet-peer** and place in a variable for later use.
+1. Use [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list) to find the appId for **spn-1-peer-vnet** and place in a variable for later use.
 
     ```azurecli
     appid1=$(az ad sp list \

@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 03/01/2024
+ms.date: 09/20/2024
 ms.custom: generated
 ---
 
@@ -35,6 +35,7 @@ Grants full access to manage all resources, but does not allow you to assign rol
 > | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/galleries/share/action | Shares a Gallery to different scopes |
 > | [Microsoft.Purview](../permissions/analytics.md#microsoftpurview)/consents/write | Create or Update a Consent Resource. |
 > | [Microsoft.Purview](../permissions/analytics.md#microsoftpurview)/consents/delete | Delete the Consent Resource. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deploymentStacks/manageDenySetting/action | Manage the denySettings property of a deployment stack. |
 > | **DataActions** |  |
 > | *none* |  |
 > | **NotDataActions** |  |
@@ -61,7 +62,8 @@ Grants full access to manage all resources, but does not allow you to assign rol
         "Microsoft.Blueprint/blueprintAssignments/delete",
         "Microsoft.Compute/galleries/share/action",
         "Microsoft.Purview/consents/write",
-        "Microsoft.Purview/consents/delete"
+        "Microsoft.Purview/consents/delete",
+        "Microsoft.Resources/deploymentStacks/manageDenySetting/action"
       ],
       "dataActions": [],
       "notDataActions": []

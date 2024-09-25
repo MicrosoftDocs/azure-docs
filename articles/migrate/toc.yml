@@ -186,7 +186,7 @@ items:
           href: prepare-for-agentless-migration.md
     - name: Hyper-V migration architecture
       href: hyper-v-migration-architecture.md
-    - name: VMware agent-based migration architecture
+    - name: VMware/Physical agent-based migration architecture
       href: agent-based-migration-architecture.md
     - name: Web apps migration support
       href: concepts-migration-webapps.md
@@ -204,8 +204,6 @@ items:
         href: migrate-servers-to-azure-using-private-link.md
       - name: Troubleshoot network connectivity
         href: troubleshoot-network-connectivity.md
-  - name: Prepare to work with ISV tools/Movere
-    href: prepare-isv-movere.md
   - name: Discover
     items:
     - name: Deploy the Azure Migrate appliance
@@ -230,6 +228,8 @@ items:
       href: how-to-discover-applications.md
     - name: Discover SQL instances and web apps in an existing project
       href: how-to-discover-sql-existing-project.md
+    - name: Migrate to Azure Monitor agent
+      href: azure-monitor-agent-migration.md
     - name: Analyze machine dependencies (agent-based)
       href: how-to-create-group-machine-dependencies.md
     - name: Analyze machine dependencies (agentless)
@@ -244,8 +244,6 @@ items:
     items:
     - name: Azure Migrate application and code assessment
       href: appcat/index.yml
-    - name: Add assessment tools
-      href: how-to-assess.md
     - name: Group machines for assessment
       href: how-to-create-a-group.md
     - name: Create an Azure VM assessment
@@ -305,7 +303,7 @@ items:
     - name: Onboard on-premises servers in VMware virtual environment to Azure Arc
       href: onboard-to-azure-arc-with-azure-migrate.md
     - name: Manage migration projects with Azure Lighthouse
-      href: ../lighthouse/how-to/migration-at-scale.md?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json
+      href: /azure/lighthouse/how-to/migration-at-scale?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json
 - name: Troubleshoot
   items:
   - name: General

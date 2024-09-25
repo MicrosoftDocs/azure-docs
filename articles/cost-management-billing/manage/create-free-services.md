@@ -34,7 +34,7 @@ To learn about Azure service availability by region, see [Products available by 
 
 You can create multiple instances of services for free if your total usage is within the usage limit. For example, you get 750 hours of a B1S Windows virtual machine free each month with your Azure free account. Use 750 hours in any combination you want. You can create 5 B1S Windows virtual machines and use them for 150 hours each.
 
-## Next steps
+## Related content
 
 - Learn how to [Check usage of free services included with your Azure free account](check-free-service-usage.md).
 - Learn how to [Avoid getting charged for your Azure free account](avoid-charges-free-account.md).

@@ -4,7 +4,7 @@ description: Learn about the command line parameters and syntax you can use with
 ms.topic: conceptual
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 12/13/2023
+ms.date: 03/05/2024
 ---
 
 # MSIXMGR tool parameters
@@ -203,6 +203,6 @@ To learn more about MSIX app attach, check out these articles:
 
 - [Create an MSIX image to use with app attach](app-attach-create-msix-image.md)
 - [What's new in the MSIXMGR tool](whats-new-msixmgr.md)
-- [MSIX app attach and app attach](app-attach-overview.md)
-- [Add and manage MSIX app attach and app attach applications](app-attach-setup.md)
+- [App attach and MSIX app attach](app-attach-overview.md)
+- [Add and manage app attach and MSIX app attach applications](app-attach-setup.md)
 - [Test MSIX packages for app attach](app-attach-test-msix-packages.md)

@@ -5,7 +5,7 @@ author: dlepow
 ms.topic: troubleshooting
 ms.date: 12/04/2020
 ms.author: danlep
-ms.service: api-management
+ms.service: azure-api-management
 ---
 
 # Troubleshooting client response timeouts and errors with API Management
@@ -21,7 +21,7 @@ Client applications calling APIs through your API Management (APIM) service may 
 * Intermittent HTTP 500 errors
 * Timeout error messages
 
-These symptoms manifest as instances of `BackendConnectionFailure` in your [Azure Monitor resource logs](../azure-monitor/essentials/resource-logs.md).
+These symptoms manifest as instances of `BackendConnectionFailure` in your [Azure Monitor resource logs](/azure/azure-monitor/essentials/resource-logs).
 
 ## Cause
 

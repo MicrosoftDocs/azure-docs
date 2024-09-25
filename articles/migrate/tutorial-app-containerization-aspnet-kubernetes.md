@@ -1,13 +1,12 @@
 ---
 title: Azure App Containerization ASP.NET; Containerization and migration of ASP.NET applications to Azure Kubernetes.
 description: Tutorial - Containerize & migrate ASP.NET applications to Azure Kubernetes Service.
-author: vijain
-ms.author: vijain
-ms.manager: kmadnani
-ms.custom: subject-rbac-steps
+author: anraghun
+ms.author: anraghun
+ms.custom: subject-rbac-steps, engagement-fy24
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 07/14/2023
+ms.date: 09/19/2024
 ---
 # ASP.NET app containerization and migration to Azure Kubernetes Service
 
@@ -88,7 +87,7 @@ If you just created a free Azure account, you're the owner of your subscription.
     | Assign access to | User |
     | Members | azmigrateuser (in this example) |
 
-    ![Screenshot of add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
+    ![Screenshot of add role assignment page in Azure portal.](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png)
 
 1. Your Azure account also needs **permissions to register Microsoft Entra apps.**
 
@@ -97,6 +96,8 @@ If you just created a free Azure account, you're the owner of your subscription.
 1. In **User settings**, verify that Microsoft Entra users can register applications (set to **Yes** by default).
 
       ![Screenshot of verification in User Settings if users can register Active Directory apps.](./media/tutorial-discover-vmware/register-apps.png)
+
+   [!INCLUDE [global-admin-usage.md](includes/global-admin-usage.md)]
 
 1. In case the 'App registrations' settings is set to 'No', request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the **Application Developer** role to an account to allow the registration of Microsoft Entra App. [Learn more](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
@@ -184,7 +185,7 @@ Parameterizing the configuration makes it available as a deployment time paramet
 
 ### Externalize file system dependencies
 
- You can add other folders that your application uses. Specify if they should be part of the container image or are to be externalized through persistent volumes on Azure file share. Using persistent volumes works great for stateful applications that store state outside the container or have other static content stored on the file system. [Learn more](../aks/concepts-storage.md).
+ You can add other folders that your application uses. Specify if they should be part of the container image or are to be externalized through persistent volumes on Azure file share. Using persistent volumes works great for stateful applications that store state outside the container or have other static content stored on the file system. [Learn more](/azure/aks/concepts-storage).
 
 1. Select **Edit** under App Folders to review the detected application folders. The detected application folders have been identified as mandatory artifacts needed by the application and will be copied into the container image.
 2. Select **Add folders** and specify the folder paths to be added.
@@ -217,7 +218,7 @@ Parameterizing the configuration makes it available as a deployment time paramet
 
 To build a container image, follow these steps:
 
-1. **Select Azure Container Registry**: Use the dropdown to select an [Azure Container Registry](../container-registry/index.yml) that will be used to build and store the container images for the apps. You can use an existing Azure Container Registry or choose to create a new one using the Create new registry option.
+1. **Select Azure Container Registry**: Use the dropdown to select an [Azure Container Registry](/azure/container-registry/) that will be used to build and store the container images for the apps. You can use an existing Azure Container Registry or choose to create a new one using the Create new registry option.
 
     ![Screenshot for app ACR selection.](./media/tutorial-containerize-apps-aks/build-aspnet-app.png)
 

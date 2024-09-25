@@ -1,7 +1,7 @@
 ---
 title: Connect Azure Functions to Azure Cosmos DB using Visual Studio Code
 description: Learn how to connect Azure Functions to an Azure Cosmos DB account by adding an output binding to your Visual Studio Code project.
-ms.date: 03/04/2024
+ms.date: 04/25/2024
 ms.topic: quickstart
 zone_pivot_groups: programming-languages-set-functions-temp
 ms.devlang: csharp
@@ -13,7 +13,7 @@ ms.custom: mode-ui, vscode-azure-extension-update-completed, devx-track-extended
 
 [!INCLUDE [functions-add-storage-binding-intro](../../includes/functions-add-storage-binding-intro.md)]
 
-This article shows you how to use Visual Studio Code to connect [Azure Cosmos DB](../cosmos-db/introduction.md) to the function you created in the previous quickstart article. The output binding that you add to this function writes data from the HTTP request to a JSON document stored in an Azure Cosmos DB container. 
+This article shows you how to use Visual Studio Code to connect [Azure Cosmos DB](/azure/cosmos-db/introduction) to the function you created in the previous quickstart article. The output binding that you add to this function writes data from the HTTP request to a JSON document stored in an Azure Cosmos DB container. 
 
 ::: zone pivot="programming-language-csharp"  
 Before you begin, you must complete the [quickstart: Create a C# function in Azure using Visual Studio Code](create-first-function-vs-code-csharp.md). If you already cleaned up resources at the end of that article, go through the steps again to recreate the function app and related resources in Azure.
@@ -34,7 +34,7 @@ Before you get started, make sure to install the [Azure Databases extension](htt
 
 ## Create your Azure Cosmos DB account
 
-Now, you create an Azure Cosmos DB account as a [serverless account type](../cosmos-db/serverless.md). This consumption-based mode makes Azure Cosmos DB a strong option for serverless workloads. 
+Now, you create an Azure Cosmos DB account as a [serverless account type](/azure/cosmos-db/serverless). This consumption-based mode makes Azure Cosmos DB a strong option for serverless workloads. 
 
 1. In Visual Studio Code, select **View** > **Command Palette...** then in the command palette search for `Azure Databases: Create Server...`
 
@@ -42,9 +42,9 @@ Now, you create an Azure Cosmos DB account as a [serverless account type](../cos
 
     |Prompt| Selection|
     |--|--|
-    |**Select an Azure Database Server**| Choose **Core (NoSQL)** to create a document database that you can query by using a SQL syntax or a Query Copilot ([Preview](../cosmos-db/nosql/query/how-to-enable-use-copilot.md)) converting natural language prompts to queries. [Learn more about the Azure Cosmos DB](../cosmos-db/introduction.md). |
+    |**Select an Azure Database Server**| Choose **Core (NoSQL)** to create a document database that you can query by using a SQL syntax or a Query Copilot ([Preview](/azure/cosmos-db/nosql/query/how-to-enable-use-copilot)) converting natural language prompts to queries. [Learn more about the Azure Cosmos DB](/azure/cosmos-db/introduction). |
     |**Account name**| Enter a unique name to identify your Azure Cosmos DB account. The account name can use only lowercase letters, numbers, and hyphens (-), and must be between 3 and 31 characters long.|
-    |**Select a capacity model**| Select **Serverless** to create an account in [serverless](../cosmos-db/serverless.md) mode. 
+    |**Select a capacity model**| Select **Serverless** to create an account in [serverless](/azure/cosmos-db/serverless) mode. 
     |**Select a resource group for new resources**| Choose the resource group where you created your function app in the [previous article](./create-first-function-vs-code-csharp.md). |
     |**Select a location for new resources**| Select a geographic location to host your Azure Cosmos DB account. Use the location that's closest to you or your users to get the fastest access to your data. |
 
@@ -60,7 +60,7 @@ Now, you create an Azure Cosmos DB account as a [serverless account type](../cos
     |--|--|
     |**Database name** | Type `my-database`.|
     |**Enter and ID for your collection**| Type `my-container`. |
-    |**Enter the partition key for the collection**|Type `/id` as the [partition key](../cosmos-db/partitioning-overview.md).|
+    |**Enter the partition key for the collection**|Type `/id` as the [partition key](/azure/cosmos-db/partitioning-overview).|
 
 1. Select **OK** to create the container and database. 
 
@@ -102,7 +102,18 @@ dotnet add package Microsoft.Azure.Functions.Worker.Extensions.CosmosDB
 ```
 
 ::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-python"  
+
+::: zone pivot="programming-language-javascript"  
+
+Your project has been configured to use [extension bundles](functions-bindings-register.md#extension-bundles), which automatically installs a predefined set of extension packages. 
+
+Extension bundles usage is enabled in the *host.json* file at the root of the project, which appears as follows:
+
+:::code language="json" source="~/functions-docs-javascript/functions-add-output-binding-cosmosdb-cli-v4-programming-model/host.json":::
+
+::: zone-end  
+
+::: zone pivot="programming-language-python"  
 
 Your project has been configured to use [extension bundles](functions-bindings-register.md#extension-bundles), which automatically installs a predefined set of extension packages. 
 
@@ -128,35 +139,15 @@ The `MultiResponse` class allows you to both write to the specified collection i
 Specific attributes specify the name of the container and the name of its parent database. The connection string for your Azure Cosmos DB account is set by the `CosmosDbConnectionSetting`.  
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
-Binding attributes are defined directly in the *function.json* file. Depending on the binding type, other properties may be required. The [Azure Cosmos DB output configuration](./functions-bindings-cosmosdb-v2-output.md#configuration) describes the fields required for an Azure Cosmos DB output binding. The extension makes it easy to add bindings to the *function.json* file. 
+Binding attributes are defined directly in your function code. The [Azure Cosmos DB output configuration](./functions-bindings-cosmosdb-v2-output.md#configuration) describes the fields required for an Azure Cosmos DB output binding.  
 
-To create a binding, right-click (Ctrl+select on macOS) the *function.json* file in your HttpTrigger folder and choose **Add binding...**. Follow the prompts to define the following binding properties for the new binding:
+For this `MultiResponse` scenario, you need to add an `extraOutputs` output binding to the function.
 
-| Prompt | Value | Description |
-| -------- | ----- | ----------- |
-| **Select binding direction** | `out` | The binding is an output binding. |
-| **Select binding with direction "out"** | `Azure Cosmos DB` | The binding is an Azure Cosmos DB binding. |
-| **The name used to identify this binding in your code** | `outputDocument` | Name that identifies the binding parameter referenced in your code. |
-| **The Azure Cosmos DB database where data will be written** | `my-database` | The name of the Azure Cosmos DB database containing the target container. |
-| **Database collection where data will be written** | `my-container` | The name of the Azure Cosmos DB container where the JSON documents will be written. |
-| **If true, creates the Azure Cosmos DB database and collection** | `false` | The target database and container already exist. |
-| **Select setting from "local.setting.json"** | `CosmosDbConnectionSetting` | The name of an application setting that contains the connection string for the Azure Cosmos DB account. |
-| **Partition key (optional)** | *leave blank* | Only required when the output binding creates the container. |
-| **Collection throughput (optional)** | *leave blank* | Only required when the output binding creates the container. |
+:::code language="javascript" source="~/functions-docs-javascript/functions-add-output-binding-cosmosdb-cli-v4-programming-model/src/functions/httpTrigger1.js" range="10-13":::
 
-A binding is added to the `bindings` array in your *function.json*, which should look like the following after removing any `undefined` values present:
+Add the following properties to the binding configuration:
 
-```json
-{
-    "type": "cosmosDB",
-    "direction": "out",
-    "name": "outputDocument",
-    "databaseName": "my-database",
-    "containerName": "my-container",
-    "createIfNotExists": "false",
-    "connection": "CosmosDbConnectionSetting"
-}
-```
+:::code language="javascript" source="~/functions-docs-javascript/functions-add-output-binding-cosmosdb-cli-v4-programming-model/src/functions/httpTrigger1.js" range="3-8":::
 
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
@@ -179,43 +170,13 @@ Replace the existing Run method with the following code:
 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"   
-Add code that uses the `outputDocument` output binding object on `context.bindings` to create a JSON document. Add this code before the `context.res` statement.
+Add code that uses the `extraInputs` output binding object on `context` to send a JSON document to the named output binding function, `sendToCosmosDb`. Add this code before the `return` statement.
 
-```javascript
-if (name) {
-    context.bindings.outputDocument = JSON.stringify({
-        // create a random ID
-        id: new Date().toISOString() + Math.random().toString().substring(2, 10),
-        name: name
-    });
-}
-```
+:::code language="javascript" source="~/functions-docs-javascript/functions-add-output-binding-cosmosdb-cli-v4-programming-model/src/functions/httpTrigger1.js" range="24-29":::
 
 At this point, your function should look as follows:
 
-```javascript
-module.exports = async function (context, req) {
-    context.log('JavaScript HTTP trigger function processed a request.');
-
-    const name = (req.query.name || (req.body && req.body.name));
-    const responseMessage = name
-        ? "Hello, " + name + ". This HTTP triggered function executed successfully."
-        : "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.";
-
-    if (name) {
-        context.bindings.outputDocument = JSON.stringify({
-            // create a random ID
-            id: new Date().toISOString() + Math.random().toString().substring(2, 10),
-            name: name
-        });
-    }
-
-    context.res = {
-        // status: 200, /* Defaults to 200 */
-        body: responseMessage
-    };
-}
-```
+:::code language="javascript" source="~/functions-docs-javascript/src/functions/httpSendToCosmosDb.js" :::
 
 This code now returns a `MultiResponse` object that contains both a document and an HTTP response.
 

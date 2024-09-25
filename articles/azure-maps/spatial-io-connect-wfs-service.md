@@ -6,9 +6,16 @@ ms.author: sipa
 ms.date: 06/20/2023
 ms.topic: how-to
 ms.service: azure-maps
+ms.subservice: web-sdk
 ---
 
 # Connect to a WFS service
+
+> [!NOTE]
+>
+> **Azure Maps Spatial service retirement**
+>
+> The Azure Maps Spatial service is now deprecated and will be retired on 9/30/25. For more information, see [End of Life Announcement of Azure Maps Spatial](https://aka.ms/AzureMapsSpatialDeprecation).
 
 A Web Feature Service (WFS) is a web service for querying spatial data that has a standardized API defined by the Open Geospatial Consortium (OGC). The `WfsClient` class in the spatial IO module lets developers connect to a WFS service and query data from the service.
 

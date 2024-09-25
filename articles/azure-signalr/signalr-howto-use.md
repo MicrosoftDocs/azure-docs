@@ -2,7 +2,7 @@
 title: Use Azure SignalR Service
 description: Learn how to use Azure SignalR Service in your app server
 author: vicancy
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.topic: how-to
 ms.date: 04/18/2024
 ms.author: lianwei 
@@ -145,7 +145,7 @@ You can increase this value to avoid client disconnect.
 #### `MaxPollIntervalInSeconds`
 
 - Default value is `5`
-- This option defines the max poll interval allowed for `LongPolling` connections in Azure SignalR Service. If the next poll request doesn't come in within `MaxPollIntervalInSeconds`, Azure SignalR Service cleans up the client connection. Note that Azure SignalR Service also cleans up connections when cached waiting to write buffer size is greater than `1Mb` to ensure service performance.
+- This option defines the max poll interval allowed for `LongPolling` connections in Azure SignalR Service. If the next poll request doesn't come in within `MaxPollIntervalInSeconds`, Azure SignalR Service cleans up the client connection.
 - The value is limited to `[1, 300]`.
 
 #### `TransportTypeDetector`
@@ -265,7 +265,7 @@ You can increase this value to avoid client disconnect.
 #### `MaxPollIntervalInSeconds`
 
 - Default value is `5`
-- This option defines the max idle time allowed for inactive connections in Azure SignalR Service. In ASP.NET SignalR, it applies to long polling transport type or reconnection. If the next `/reconnect` or `/poll` request doesn't come in within `MaxPollIntervalInSeconds`, Azure SignalR Service cleans up the client connection. Note that Azure SignalR Service also cleans up connections when cached waiting to write buffer size is greater than `1Mb` to ensure service performance.
+- This option defines the max idle time allowed for inactive connections in Azure SignalR Service. In ASP.NET SignalR, it applies to long polling transport type or reconnection. If the next `/reconnect` or `/poll` request doesn't come in within `MaxPollIntervalInSeconds`, Azure SignalR Service cleans up the client connection.
 - The value is limited to `[1, 300]`.
 
 ### Sample

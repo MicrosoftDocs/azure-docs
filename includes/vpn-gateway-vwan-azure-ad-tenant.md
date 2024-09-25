@@ -1,9 +1,11 @@
 ---
  author: cherylmc
- ms.service: vpn-gateway
+ ms.service: azure-vpn-gateway
  ms.topic: include
- ms.date: 07/13/2022
+ ms.date: 09/24/2024
  ms.author: cherylmc
+
+#Note that Audience values are not sensitive data. 
 ---
 1. Sign in to the Azure portal as a user that is assigned the **Global administrator** role.
 

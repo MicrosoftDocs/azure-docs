@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 05/11/2023
+ms.date: 09/24/2024
 ms.author: anfdocs
 ---
 # Dynamically change the service level of an Azure NetApp Files volume
@@ -28,7 +28,7 @@ The capacity pool that you want to move the volume to must already exist. The ca
 
 * Regardless of the source pool’s QoS type, when the target pool is of the *auto* QoS type, the volume's throughput is changed with the move to match the service level of the target capacity pool.
 
-* If you use standard storage with cool access, see [Manage Azure NetApp Files standard storage with cool access](manage-cool-access.md#considerations) for more considerations. 
+* If you use cool access, see [Manage Azure NetApp Files storage with cool access](manage-cool-access.md#considerations) for more considerations. 
  
 ## Move a volume to another capacity pool
 

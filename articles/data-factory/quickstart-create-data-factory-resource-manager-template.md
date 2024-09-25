@@ -1,8 +1,6 @@
 ---
 title: Create an Azure Data Factory using an Azure Resource Manager template (ARM template)
 description: Create a sample Azure Data Factory pipeline using an Azure Resource Manager template (ARM template).
-ms.service: data-factory
-ms.subservice: tutorials
 tags: azure-resource-manager
 author: ssabat
 ms.author: susabat
@@ -19,7 +17,7 @@ ms.date: 10/20/2023
 
 This quickstart describes how to use an Azure Resource Manager template (ARM template) to create an Azure data factory. The pipeline you create in this data factory **copies** data from one folder to another folder in an Azure blob storage. For a tutorial on how to **transform** data using Azure Data Factory, see [Tutorial: Transform data using Spark](transform-data-using-spark.md).
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 > [!NOTE]
 > This article does not provide a detailed introduction of the Data Factory service. For an introduction to the Azure Data Factory service, see [Introduction to Azure Data Factory](introduction.md).

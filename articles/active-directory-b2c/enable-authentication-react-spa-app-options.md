@@ -19,7 +19,7 @@ ms.custom: "b2c-support"
 
 # Configure authentication options in a React application by using Azure Active Directory B2C
 
-This article describes ways you can customize and enhance the Azure Active Directory B2C (Azure AD B2C) authentication experience for your React single-page application (SPA). Before you start, familiarize yourself with the article [Configure authentication in an React SPA](configure-authentication-sample-react-spa-app.md) or [Enable authentication in your own React SPA](enable-authentication-react-spa-app.md).
+This article describes ways you can customize and enhance the Azure Active Directory B2C (Azure AD B2C) authentication experience for your React single-page application (SPA). Before you start, familiarize yourself with the article [Configure authentication in a React SPA](configure-authentication-sample-react-spa-app.md) or [Enable authentication in your own React SPA](enable-authentication-react-spa-app.md).
 
 
 ## Sign-in and sign-out behavior
@@ -260,4 +260,3 @@ export const msalConfig = {
 ## Next steps
 
 - Learn more: [MSAL.js configuration options](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-react/docs).
-

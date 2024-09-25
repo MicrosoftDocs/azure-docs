@@ -10,7 +10,7 @@ ms.date: 03/19/2024
 
 Learn how to use the [Azure portal](https://portal.azure.com) with [Azure Resource Manager](overview.md) to manage your Azure resources. For managing resource groups, see [Manage Azure resource groups by using the Azure portal](manage-resource-groups-portal.md).
 
-[!INCLUDE [Handle personal data](../../../includes/gdpr-intro-sentence.md)]
+[!INCLUDE [Handle personal data](~/reusable-content/ce-skilling/azure/includes/gdpr-intro-sentence.md)]
 
 ## Deploy resources to a resource group
 
@@ -99,7 +99,7 @@ When you open a resource, the portal presents default graphs and tables for moni
 
 :::image type="content" source="./media/manage-resources-portal/manage-azure-resources-portal-monitor-resource.png" alt-text="Screenshot of the Azure portal showing monitoring graphs for a virtual machine.":::
 
-You can select the pin icon on the upper right corner of the graphs to pin the graph to the dashboard. To learn about working with dashboards, see [Creating and sharing dashboards in the Azure portal](../../azure-portal/azure-portal-dashboards.md).
+You can select the pin icon on the upper right corner of the graphs to pin the graph to the dashboard. To learn about working with dashboards, see [Creating and sharing dashboards in the Azure portal](/azure/azure-portal/azure-portal-dashboards).
 
 ## Manage access to resources
 

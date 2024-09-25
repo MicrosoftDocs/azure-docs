@@ -99,7 +99,7 @@ az appservice plan create \
 
 ### Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 The following command creates an App Service plan in _P1V3_. The options for `-WorkerSize` are _Small_, _Medium_, and _Large_.
 
@@ -114,5 +114,5 @@ New-AzAppServicePlan -ResourceGroupName <resource_group_name> `
 ## More resources
 
 * [Scale up an app in Azure](manage-scale-up.md)
-* [Scale instance count manually or automatically](../azure-monitor/autoscale/autoscale-get-started.md)
+* [Scale instance count manually or automatically](/azure/azure-monitor/autoscale/autoscale-get-started)
 * [Tutorial: Run a load test to identify performance bottlenecks in a web app](../load-testing/tutorial-identify-bottlenecks-azure-portal.md)

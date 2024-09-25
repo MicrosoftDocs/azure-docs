@@ -6,7 +6,7 @@ ms.author: johnmarc
 ms.service: azure-redhat-openshift
 keywords: openshift, red hat, monitor, cluster, alerts
 ms.topic: how-to
-ms.date: 01/25/2024
+ms.date: 05/20/2024
 ms.custom: template-how-to
 ---
 
@@ -26,6 +26,9 @@ Resource Health signals can generate one or more of the following alerts:
 - **Cluster API server is unreachable:** This signal indicates that the Azure Red Hat OpenShift service Resource Provider is unable to reach your cluster's API server. Your cluster is hence unable to be monitored and is unmanageable. 
 
 Once the underlying condition causing an alert is remediated, the alert is cleared and the Resource Health is reported as *Available*.
+
+> [!NOTE]
+> This feature is not currently available for Azure Government cloud.
 
 ## Creating alert rules
 

@@ -9,7 +9,7 @@ ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 01/31/2023
+ms.date: 06/27/2024
 ms.author: terrylan
 
 ---
@@ -35,4 +35,4 @@ This series of articles provides information about what Microsoft does to secure
 
 - Understand your [shared responsibility in the cloud](shared-responsibility.md).
 
-- Learn how [Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md) can help you prevent, detect, and respond to threats with increased visibility and control over the security of your Azure resources.
+- Learn how [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) can help you prevent, detect, and respond to threats with increased visibility and control over the security of your Azure resources.

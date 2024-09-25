@@ -213,7 +213,8 @@ This section of the onboarding guide describes the steps you follow to migrate f
 The following points help you plan for your migration from EA to MCA:
 
 - Migrating from EA to MCA redirects your charges from your EA enrollment to your MCA billing account after you complete the subscription migration. The change goes into effect immediately. Any charges incurred up to the point of migration are invoiced to the EA and must be settled on that enrollment. There's no effect on your services and no downtime.
-- You can continue to see your historic charges in the Azure portal under your EA enrollment billing scope. Historical charges aren't visible in cost analysis when migration completes if you're an Account owner or a subscription owner without access to view the EA billing scope. We recommend that you [download your cost and usage data and invoices](../understand/download-azure-daily-usage.md) before you transfer subscriptions.
+- You can continue to see your historic charges in the Azure portal under your EA enrollment billing scope. Historical charges are visible in cost analysis when migration completes if you are an Account Owner or Enterprise Administrator for the enrollment.
+- Subscription ownership does not provide access to historical data since there is no access to the EA Billing Scope. We recommend that you [download your cost and usage data and invoices](../understand/download-azure-daily-usage.md) before you transfer subscriptions.
 - Depending on the timing of your migration, you might receive two invoices, one EA and one MCA, in the transition month. The MCA invoice covers usage for a calendar month and is generated from the fifth to the seventh day of the month following the usage.
 - To ensure your MCA invoice gets received by the right person or group, you must add an accounts payable email address as an invoice recipient's contact to the MCA. For more information, see [share your billing profiles invoice](../understand/download-azure-invoice.md#share-your-billing-profiles-invoice).
 - If you use Cost Management APIs for reporting purposes, familiarize yourself with [Other actions to manage your MCA](#other-actions-to-manage-your-mca).
@@ -405,7 +406,7 @@ The following videos provide more information about how to manage your MCA:
 - [How to manage your subscriptions and organize your account in the Microsoft 365 admin center](https://www.youtube.com/watch?v=NO25_5QXoy8&list=PLC6yPvO9Xb_fRexgBmBeILhzxdETFUZbv&index=9)
 - [How to find a copy of your Microsoft Customer Agreement in the Microsoft 365 admin center (MAC)](https://www.youtube.com/watch?v=pIe5yHljdcM&list=PLC6yPvO9Xb_fRexgBmBeILhzxdETFUZbv&index=10)
 
-## Next steps
+## Related content
 
 - [View and download your Azure invoice](../understand/download-azure-invoice.md)
 - [Why you might not see an invoice](../understand/download-azure-invoice.md#why-you-might-not-see-an-invoice)

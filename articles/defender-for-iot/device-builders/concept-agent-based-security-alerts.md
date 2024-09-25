@@ -11,6 +11,8 @@ Defender for IoT continuously analyzes your IoT solution using advanced analytic
 In addition, you can create custom alerts based on your knowledge of expected device behavior.
 An alert acts as an indicator of potential compromise, and should be investigated and remediated.
 
+[!INCLUDE [device-agents-note](../includes/device-agents-note.md)]
+
 In this article, you'll find a list of built-in alerts, which can be triggered on your IoT devices.
 
 ## Security alerts

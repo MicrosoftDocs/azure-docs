@@ -3,9 +3,9 @@ title: "Quickstart - Build and deploy apps to Azure Spring Apps"
 description: Describes app deployment to Azure Spring Apps.
 author: KarlErickson
 ms.author: karler
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: quickstart
-ms.date: 11/15/2021
+ms.date: 06/27/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, mode-other
 zone_pivot_groups: programming-languages-spring-apps
 ---
@@ -337,7 +337,7 @@ The following steps show you how to generate configurations and deploy to Azure 
 1. Go to the *spring-petclinic-customers-service* folder. Generate configurations by running the following command. If you've already signed-in with Azure CLI, the command automatically picks up the credentials. Otherwise, it signs you in using a prompt with instructions. For more information, see [Authentication](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication) on the [azure-maven-plugins](https://github.com/microsoft/azure-maven-plugins) wiki.
 
    ```bash
-   mvn com.microsoft.azure:azure-spring-apps-maven-plugin:1.17.0:config -DappName=customers-service
+   mvn com.microsoft.azure:azure-spring-apps-maven-plugin:1.19.0:config -DappName=customers-service
    ```
 
    You're asked to provide the following values:
@@ -354,7 +354,7 @@ The following steps show you how to generate configurations and deploy to Azure 
            <plugin>
                <groupId>com.microsoft.azure</groupId>
                <artifactId>azure-spring-apps-maven-plugin</artifactId>
-               <version>1.17.0</version>
+               <version>1.19.0</version>
                <configuration>
                    <subscriptionId>xxxxxxxxx-xxxx-xxxx-xxxxxxxxxxxx</subscriptionId>
                    <clusterName>v-spr-cld</clusterName>
@@ -372,7 +372,7 @@ The following steps show you how to generate configurations and deploy to Azure 
 1. Go to the *spring-petclinic-api-gateway* folder. Run the following commands to generate the configuration and deploy `api-gateway`. Select **yes** for **Public endpoint**.
 
    ```bash
-   mvn com.microsoft.azure:azure-spring-apps-maven-plugin:1.17.0:config -DappName=api-gateway
+   mvn com.microsoft.azure:azure-spring-apps-maven-plugin:1.19.0:config -DappName=api-gateway
    mvn azure-spring-apps:deploy
    ```
 

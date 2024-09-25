@@ -6,7 +6,7 @@ ms.reviewer: sapnakeshari
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 02/16/2024
+ms.date: 09/04/2024
 ms.author: banders
 ---
 
@@ -49,7 +49,7 @@ The Azure portal hierarchy for Cost Management consists of:
 
 - **Accounts** are organizational units in the Azure portal for Cost Management. You can use accounts to manage subscriptions and access reports.
 
-- **Subscriptions** are the smallest unit in the Azure portal for Cost Management. They're containers for Azure services managed by the Account Owner role, also known as the Subscription's service administrator.
+- **Subscriptions** are the smallest unit in the Azure portal for Cost Management. They're containers for Azure services.
 
 The following diagram illustrates simple Azure EA hierarchies.
 
@@ -63,7 +63,6 @@ The following administrative user roles are part of your enterprise enrollment:
 - EA purchaser
 - Department administrator
 - Account owner
-- Service administrator
 - Notification contact
 
 Use Cost Management in the [Azure portal](https://portal.azure.com) so you can manage Azure Enterprise Agreement roles.
@@ -127,7 +126,7 @@ You can grant department administrators read-only access when you edit or create
 Users with this role can:
 
 - Create and manage subscriptions.
-- Manage service administrators.
+- Manage subscription role assignments.
 - View usage for subscriptions.
 
 Each account requires a unique work, school, or Microsoft account. For more information about Azure portal administrative roles, see [Understand Azure Enterprise Agreement administrative roles in Azure](understand-ea-roles.md).
@@ -135,10 +134,6 @@ Each account requires a unique work, school, or Microsoft account. For more info
 There can be only one account owner per account. However, there can be multiple accounts in an EA enrollment. Each account has a unique account owner.
 
 For different Microsoft Entra accounts, it can take more than 30 minutes for permission settings to take effect.
-
-### Service administrator
-
-The service administrator role has permissions to manage services in the Azure portal and assign users to the coadministrator role.
 
 ### Notification contact
 
@@ -241,7 +236,7 @@ The Enterprise Administrator always sees usage details based on the organization
 
 You set the Enterprise admin role and view charges policies in the Azure portal. The Azure role-based-access-control (RBAC) role can be updated with information at [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 
-## Next steps
+## Related content
 
 - [Manage access to billing information for Azure](manage-billing-access.md)
 - [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml)

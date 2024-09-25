@@ -3,7 +3,7 @@ title: Configure Azure Front Door rules match conditions
 description: This article provides a list of the various match conditions available with Azure Front Door rules. 
 services: frontdoor
 author: duongau
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: conceptual
 ms.date: 12/28/2023
 ms.author: duau

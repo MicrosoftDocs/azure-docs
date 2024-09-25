@@ -12,7 +12,7 @@ ms.custom: UpdateFrequency2
 
 You can use Azure Resource Manager (ARM) templates to create preconfigured Azure virtual machines (VMs) in Azure DevTest Labs. 
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 Single-VM ARM templates use the [Microsoft.DevTestLab/labs/virtualmachines](/azure/templates/microsoft.devtestlab/2018-09-15/labs/virtualmachines) resource type. Each VM created with this resource type appears as a separate item in the lab's **My virtual machines** list.
 
@@ -79,7 +79,7 @@ Add your template repositories to your lab so all lab users can access the templ
 
 1. On the **Configuration and policies** page, select **Repositories** under **External resources** in the left navigation.
 
-   On the **Repositories** screen, the **Public Artifact Repo** and **Public Environment Repo** are automatically present for all labs, and connect to the [DevTest Labs public GitHub repository](https://github.com/Azure/azure-devtestlab). If these repos aren't enabled for your lab, you can enable them by selecting the checkboxes next to **Public Artifact Repo** and **Public Environment Repo**, and then selecting **Enable** on the top menu bar. For more information, see [Enable and configure public environments](devtest-lab-create-environment-from-arm.md#configure-public-environment-settings-for-your-lab).
+   On the **Repositories** screen, the **Public Artifact Repo** and **Public Environment Repo** are automatically present for all labs, and connect to the [DevTest Labs public GitHub repository](https://github.com/Azure/azure-devtestlab). If these repos aren't enabled for your lab, you can enable them by selecting the checkboxes next to **Public Artifact Repo** and **Public Environment Repo**, and then selecting **Enable** on the top menu bar. For more information, see [Enable and configure public environments](devtest-lab-create-environment-from-arm.md#configure-public-environment-settings).
 
 1. To add your private ARM template repository to the lab, select **Add** in the top menu bar.
 

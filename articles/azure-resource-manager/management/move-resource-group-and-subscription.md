@@ -1,8 +1,8 @@
 ---
 title: Move resources to a new subscription or resource group
-description: Use Azure Resource Manager to move resources to a new resource group or subscription.
+description: Describes how to move resources to a new resource group or subscription, and the steps to take to ensure a successful move operation.
 ms.topic: conceptual
-ms.date: 04/24/2023
+ms.date: 05/31/2024
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template, devx-track-python
 content_well_notification: 
   - AI-contribution
@@ -19,17 +19,20 @@ If your move requires setting up new dependent resources, you'll experience an i
 
 Moving a resource only moves it to a new resource group or subscription. It doesn't change the location of the resource.
 
+> [!NOTE]  
+> You can't move Azure resources to another resource group or another subscription if there's a read-only lock, whether in the source or in the destination. 
+
 ## Changed resource ID
 
 When you move a resource, you change its resource ID. The standard format for a resource ID is `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}`. When you move a resource to a new resource group or subscription, you change one or more values in that path.
 
-If you use the resource ID anywhere, you'll need to change that value. For example, if you have a [custom dashboard](../../azure-portal/quickstart-portal-dashboard-azure-cli.md) in the portal that references a resource ID, you'll need to update that value. Look for any scripts or templates that need to be updated for the new resource ID.
+If you use the resource ID anywhere, you'll need to change that value. For example, if you have a [custom dashboard](/azure/azure-portal/quickstart-portal-dashboard-azure-cli) in the portal that references a resource ID, you'll need to update that value. Look for any scripts or templates that need to be updated for the new resource ID.
 
 ## Checklist before moving resources
 
 There are some important steps to do before moving a resource. By verifying these conditions, you can avoid errors.
 
-1. The source and destination subscriptions must be active. If you have trouble enabling an account that has been disabled, [create an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md). Select **Subscription Management** for the issue type.
+1. The source and destination subscriptions must be active. If you have trouble enabling an account that has been disabled, [create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request). Select **Subscription Management** for the issue type.
 
 1. The source and destination subscriptions must exist within the same [Microsoft Entra tenant](../../active-directory/develop/quickstart-create-new-tenant.md). To check that both subscriptions have the same tenant ID, use Azure PowerShell or Azure CLI.
 
@@ -66,7 +69,7 @@ There are some important steps to do before moving a resource. By verifying thes
    * [Networking move guidance](./move-limitations/networking-move-limitations.md)
    * [Recovery Services move guidance](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json)
    * [Virtual Machines move guidance](./move-limitations/virtual-machines-move-limitations.md)
-   * To move an Azure subscription to a new management group, see [Move subscriptions](../../governance/management-groups/manage.md#move-subscriptions).
+   * To move an Azure subscription to a new management group, see [Move subscriptions](../../governance/management-groups/manage.md#move-management-groups-and-subscriptions).
 
 1. The destination subscription must be registered for the resource provider of the resource being moved. If not, you receive an error stating that the **subscription is not registered for a resource type**. You might see this error when moving a resource to a new subscription, but that subscription has never been used with that resource type.
 
@@ -470,7 +473,11 @@ When you get an error message that indicates a resource can't be moved because i
 
 If the source or target resource group contains a virtual network, the states of all dependent resources for the virtual network are checked during the move. The check includes those resources directly and indirectly dependent on the virtual network. If any of those resources are in a failed state, the move is blocked. For example, if a virtual machine that uses the virtual network has failed, the move is blocked. The move is blocked even when the virtual machine isn't one of the resources being moved and isn't in one of the resource groups for the move.
 
-When you receive this error, you have two options. Either move your resources to a resource group that doesn't have a virtual network, or [contact support](../../azure-portal/supportability/how-to-create-azure-support-request.md).
+When you receive this error, you have two options. Either move your resources to a resource group that doesn't have a virtual network, or [contact support](/azure/azure-portal/supportability/how-to-create-azure-support-request).
+
+**Question: Can I move a resource group to a different subscription?**
+
+No, you can't move a resource group to a new subscription. But, you can move all of the resources in the resource group to a resource group in another subscription. Settings such as tags, role assignments, and policies aren't automatically transferred from the original resource group to the destination resource group. You need to reapply these settings to the new resource group. For more information, see [Move resources to new resource group or subscription](./move-support-resources.md).
 
 ## Next steps
 

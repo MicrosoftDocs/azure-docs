@@ -3,10 +3,10 @@ title: Application Gateway for Containers components
 description: This article provides information about how Application Gateway for Containers accepts incoming requests and routes them to a backend target.
 services: application-gateway
 author: greglin
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: conceptual
-ms.date: 03/26/2024
+ms.date: 5/9/2024
 ms.author: greglin
 ---
 
@@ -105,11 +105,11 @@ Application Gateway for Containers inserts three extra headers to all requests b
 
 ## Request timeouts
 
-Application Gateway for Containers enforces the following timeouts as requests are initiated and maintained between the client, AGC, and backend.
+Application Gateway for Containers enforces the following timeouts as requests are initiated and maintained between the client, Application Gateway for Containers, and backend.
 
 | Timeout | Duration | Description |
 | ------- | --------- | ----------- |
-| Request Timeout | 60 seconds | time for which AGC waits for the backend target response. |
+| Request Timeout | 60 seconds | time for which Application Gateway for Containers waits for the backend target response. |
 | HTTP Idle Timeout | 5 minutes | idle timeout before closing an HTTP connection. |
 | Stream Idle Timeout | 5 minutes | idle timeout before closing an individual stream carried by an HTTP connection. |
 | Upstream Connect Timeout | 5 seconds | time for establishing a connection to the backend target. |

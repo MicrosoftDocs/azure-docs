@@ -2,8 +2,8 @@
 title: Shared disks in Azure Site Recovery (preview)
 description: This article describes how to enable replication, failover, and failback Azure virtual machines for shared disks.
 ms.topic: conceptual
-ms.service: site-recovery
-ms.date: 04/04/2024
+ms.service: azure-site-recovery
+ms.date: 05/08/2024
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ---
@@ -14,9 +14,9 @@ This article describes how to protect, monitor, failover, and reprotect your wor
 
 Azure shared disks is a feature for Azure managed disks that allow you to attach a managed disk to multiple virtual machines simultaneously. Attaching a managed disk to multiple virtual machines allows you to either deploy new or migrate existing clustered applications to Azure.
 
-Using a shared disk, you can replicate and recover your WSFC-clusters as a single unit throughout the disaster recovery lifecycle, while you create cluster-consistent recovery points that are consistent across all the disks (including the shared disk) of the cluster.
+Using Azure Site Recovery for Azure shared disks, you can replicate and recover your WSFC-clusters as a single unit throughout the disaster recovery lifecycle, while you create cluster-consistent recovery points that are consistent across all the disks (including the shared disk) of the cluster.
 
-Using shared disk, you can:
+Using Azure Site Recovery for shared disks, you can:
 
 - Protect your clusters. 
 - Create recovery points (App and Crash) that are consistent across all the virtual machines and disks of the cluster. 
@@ -25,7 +25,7 @@ Using shared disk, you can:
 - Change recovery point and reprotect the cluster after failover with a single click. 
 - Failback the cluster to the primary region with minimal data loss and downtime.
 
-Follow these steps to use shared disks in Azure site recovery:
+Follow these steps to protect shared disks with Azure Site Recovery:
 
 ## Sign in to Azure
 
@@ -36,7 +36,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 **Before you start, ensure you have:**
 
 - A recovery services vault. If you don't have one, [create recovery services vault](./azure-to-azure-tutorial-enable-replication.md#create-a-recovery-services-vault). 
-- A virtual machine as a part of the [Windows Server Failover Cluster](/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server?view=sql-server-ver16). 
+- A virtual machine as a part of the [Windows Server Failover Cluster](/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server?view=sql-server-ver16&preserve-view=true). 
 
 
 ## Enable replication for shared disks
@@ -87,11 +87,11 @@ To enable replication for shared disks, follow these steps:
     1. Under the **Manage** tab, do the following:
         1. In the **Shared disk clusters** section, assign a **Cluster name** for the group, which is used to represent the group throughout their disaster recovery lifecycle. 
         
-            This name is used to trigger any operations, monitor, or operate via PowerShell/REST. 
-    
+            **Note**: The cluster name shouldn't contain special characters (for example, \/""[]:|<>+=;,?*@&), whitespace, or begin with `_` or end with `.` or `-`. 
+
             :::image type="content" source="media/tutorial-shared-disk/shared-disk-cluster.png" alt-text="Screenshot showing cluster name.":::
 
-        We recommend that you use the same name as your cluster.
+        We recommend that you use the same name as your cluster for the ease of tracking.
     1. Under **Replication policy** section, select an appropriate replication policy and extension update settings.
     1. Review the information and select **Enable replication**.  
  
@@ -147,7 +147,7 @@ To failover the cluster to a recovery point, follow these steps:
 1. Retain values for the **Time span** field.
 1. Select an individual recovery point for the virtual machines that are *not* part of the cluster recovery point.  
     
-    These virtual machines then failover like independent virtual machines and the shared disk is no longer attached to them. 
+    These virtual machines then failover like independent virtual machines and the shared disk is attached to them. 
 
     :::image type="content" source="media/tutorial-shared-disk/failover-list.png" alt-text="Screenshot showing cluster recovery list."::: 
 
@@ -220,9 +220,11 @@ To disable replication of your cluster with Azure Site Recovery, follow these st
 
 ## Commonly asked questions
 
+#### Does Azure Site Recovery support Linux VMs with shared disks?
+No, Azure Site Recovery does not support Linux VMs with shared disks. Only VMs with WSFC-based shared disks are supported.
 
 #### Is PowerShell supported for Azure Site Recovery with shared disks?
-No, PowerShell support for shared disks will be available as part of General Availability.
+No, PowerShell support for shared disks is currently unavailable.
 
 #### Can we enable replication for only some of the VMs attached to a shared disk?
 No, enable replication can only be enabled successfully when all the VMs attached to a shared disk are selected.
@@ -230,6 +232,8 @@ No, enable replication can only be enabled successfully when all the VMs attache
 #### Is it possible to exclude shared disks and enable replication for only some of the VMs in a cluster?
 Yes, the first time you don’t select all the VMs in Enable Replication, a warning appears mentioning the unselected VMs attached to the shared disk. If you still proceed, unselect the shared disk replication by selecting ‘No’ for the storage option in Replication Settings tab.
  
+####  If the *enable replication* job fails for a cluster, can we restart it after fixing the issue without reselecting clusters again?
+Yes, you can restart the job without reselecting clusters, just like other A2A scenarios. However, since the *enable replication* process runs for each node, you need to restart the failed job for all nodes through the Site Recovery Jobs interface.
 
 #### Can new shared disks be added to a protected cluster?
 No, if new shared disks need to be added, disable the replication for the already protected cluster. Enable a new cluster protection with a new cluster name for the modified infrastructure.
@@ -248,5 +252,5 @@ The health status warning due to test failover will be available as part of Gene
 
 Learn more about:
 
--  [Azure managed disk](../virtual-machines/disks-shared.md).
+-  [Azure managed disk](/azure/virtual-machines/disks-shared).
 -  [Support matrix for shared disk in Azure Site Recovery](./shared-disk-support-matrix.md).

@@ -14,17 +14,17 @@ ms.custom: mvc, subject-bicepqs, devx-track-azurepowershell, devx-track-bicep, d
 
 You can use a [Bicep](../azure-resource-manager/bicep/overview.md) file to programmatically set up the Azure cloud resources necessary for provisioning your devices. These steps show how to create an IoT hub and a new IoT Hub Device Provisioning Service instance with a Bicep file. The IoT Hub is also linked to the DPS resource using the Bicep file. This linking allows the DPS resource to assign devices to the hub based on allocation policies you configure.
 
-[!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 This quickstart uses [Azure PowerShell](../azure-resource-manager/bicep/deploy-powershell.md), and the [Azure CLI](../azure-resource-manager/bicep/deploy-cli.md) to perform the programmatic steps necessary to create a resource group and deploy the Bicep file, but you can easily use .NET, Ruby, or other programming languages to perform these steps and deploy your Bicep file.
 
 ## Prerequisites
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
-[!INCLUDE [azure-powershell-requirements-no-header.md](../../includes/azure-powershell-requirements-no-header.md)]
+[!INCLUDE [azure-powershell-requirements-no-header.md](~/reusable-content/ce-skilling/azure/includes/azure-powershell-requirements-no-header.md)]
 
 ## Review the Bicep file
 

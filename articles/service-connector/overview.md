@@ -4,8 +4,10 @@ description: Understand typical use case scenarios for Service Connector, and le
 author: maud-lv
 ms.author: malev
 ms.service: service-connector
+ms.custom:
+  - build-2024
 ms.topic: overview
-ms.date: 10/19/2023
+ms.date: 05/06/2024
 ---
 # What is Service Connector?
 
@@ -45,7 +47,7 @@ Once a service connection is created, developers can validate and check the heal
 
 **Target Services:**
 
-* Apache Kafka on Confluent Cloud
+* Azure AI services
 * Azure App Configuration
 * Azure Cache for Redis (Basic, Standard and Premium and Enterprise tiers)
 * Azure Cosmos DB (NoSQL, MongoDB, Gremlin, Cassandra, Table)
@@ -58,6 +60,7 @@ Once a service connection is created, developers can validate and check the heal
 * Azure SignalR Service
 * Azure Storage (Blob, Queue, File and Table storage)
 * Azure Web PubSub
+* Apache Kafka on Confluent Cloud
 
 ## How to use Service Connector?
 
@@ -75,21 +78,10 @@ What's more, Service Connector is also supported in the following client tools w
 
 Finally, you can also use Azure SDKs and API calls to interact with Service Connector. And you're recommended to read [how to provide correct parameters](how-to-provide-correct-parameters.md) before starting if using these ways.
 
-## Next steps
+## Related content
 
-Follow the tutorials listed below to start building your own application with Service Connector.
-
-> [!div class="nextstepaction"]
-> [Quickstart: Service Connector in App Service using Azure CLI](./quickstart-cli-app-service-connection.md)
-
-> [!div class="nextstepaction"]
-> [Quickstart: Service Connector in App Service using Azure portal](./quickstart-portal-app-service-connection.md)
-
-> [!div class="nextstepaction"]
-> [Quickstart: Service Connector in Spring Cloud Service using Azure CLI](./quickstart-cli-spring-cloud-connection.md)
-
-> [!div class="nextstepaction"]
-> [Quickstart: Service Connector in Spring Cloud using Azure portal](./quickstart-portal-spring-cloud-connection.md)
-
-> [!div class="nextstepaction"]
-> [Learn about Service Connector concepts](./concept-service-connector-internals.md)
+- [Quickstart: Service Connector in Azure App Service](./quickstart-portal-app-service-connection.md)
+- [Quickstart: Service Connector in Azure Functions](./quickstart-portal-functions-connection.md)
+- [Quickstart: Service Connector in Azure Spring Cloud](./quickstart-portal-spring-cloud-connection.md)
+- [Quickstart: Service Connector in Azure Container Apps](./quickstart-portal-container-apps.md)
+- [Learn about Service Connector concepts](./concept-service-connector-internals.md)

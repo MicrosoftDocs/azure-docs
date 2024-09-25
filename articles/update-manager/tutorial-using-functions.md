@@ -2,7 +2,7 @@
 title: Create pre and post events using Azure Functions.
 description: In this tutorial, you learn how to create the pre and post events using Azure Functions.
 ms.service: azure-update-manager
-ms.date: 11/21/2023
+ms.date: 07/24/2024
 ms.topic: tutorial 
 author: SnehaSudhirG
 ms.author: sudhirsneha
@@ -37,7 +37,7 @@ In this tutorial, you learn how to:
     > You have to load the dependencies only for the first time.
 
     1. On the **Function App**, select **App files**.
-    1. Under the **host.json**, enable **ManagedDependecy** to **True** and select **requirments.psd1**.
+    1. Under the **host.json**, enable **ManagedDependecy** to **True** and select **requirements.psd1**.
     1. Under the **requirements.psd1**, paste the following code: 
     
        ```
@@ -50,7 +50,7 @@ In this tutorial, you learn how to:
         ```
     1. Select **Save**.
        
-1. Restart the function app from the **Overview** tab to load the dependencies that are mentioned in the **requirments.psd1** file.
+1. Restart the function app from the **Overview** tab to load the dependencies that are mentioned in the **requirements.psd1** file.
 
 ## Create a function
 
@@ -287,5 +287,8 @@ In this tutorial, you learn how to:
 You can also use Azure Storage accounts and Event hub to store, send, and receive events. Learn more on [how to create Event hub](../event-hubs/event-hubs-create.md) and [Storage queues](../event-hubs/event-hubs-create.md).
 
 ## Next steps
-Learn about [managing multiple machines](manage-multiple-machines.md).
+- Learn more on the [overview of pre and post events in Azure Update Manager](pre-post-scripts-overview.md).
+- Learn more on [how to create pre and post events](pre-post-events-schedule-maintenance-configuration.md)
+- To learn on how to manage pre and post events or to cancel a schedule run, see [pre and post maintenance configuration events](manage-pre-post-events.md).
+- Learn more on [Create pre and post events using a webhook with Automation](manage-multiple-machines.md).
  

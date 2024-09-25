@@ -3,15 +3,15 @@ title: Use Azure Log Analytics to examine Application Gateway Web Application Fi
 description: This article shows you how you can use Azure Log Analytics to examine Application Gateway Web Application Firewall logs
 services: web-application-firewall
 author: vhorne
-ms.service: web-application-firewall
-ms.topic: article
-ms.date: 09/06/2019
+ms.service: azure-web-application-firewall
+ms.topic: how-to
+ms.date: 08/14/2024
 ms.author: victorh
 ---
 
 # Use Log Analytics to examine Application Gateway Web Application Firewall (WAF) logs
 
-Once your Application Gateway WAF is operational, you can enable logs to inspect what is happening with each request. Firewall logs give insight to what the WAF is evaluating, matching, and blocking. With Azure Monitor Log Analytics, you can examine the data inside the firewall logs to give even more insights. For more information about creating a Log Analytics workspace, see [Create a Log Analytics workspace in the Azure portal](../../azure-monitor/logs/quick-create-workspace.md). For more information about log queries, see [Overview of log queries in Azure Monitor](../../azure-monitor/logs/log-query-overview.md).
+Once your Application Gateway WAF is operational, you can enable logs to inspect what is happening with each request. Firewall logs give insight to what the WAF is evaluating, matching, and blocking. With Azure Monitor Log Analytics, you can examine the data inside the firewall logs to give even more insights. For more information about creating a Log Analytics workspace, see [Create a Log Analytics workspace in the Azure portal](/azure/azure-monitor/logs/quick-create-workspace). For more information about log queries, see [Overview of log queries in Azure Monitor](/azure/azure-monitor/logs/log-query-overview).
 
 ## Import WAF logs
 
@@ -28,7 +28,7 @@ AzureDiagnostics
 
 This will look similar to the following query:
 
-![Log Analytics query](../media/log-analytics/log-query.png)
+:::image type="content" source="../media/log-analytics/log-query.png" lightbox="../media/log-analytics/log-query.png" alt-text="Screenshot showing WAF log analytics.":::
 
 You can drill down into the data, and plot graphs or create visualizations from here. See the following queries as a starting point:
 

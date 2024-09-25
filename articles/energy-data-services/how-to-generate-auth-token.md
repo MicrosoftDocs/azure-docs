@@ -202,7 +202,7 @@ The second step is to get the auth token and the refresh token. Your app uses th
 
 For more information on generating a user access token and using a refresh token to generate a new access token, see [Generate refresh tokens](/graph/auth-v2-user#2-get-authorization).
 
-OSDU&trade; is a trademark of The Open Group.
+OSDU&reg; is a trademark of The Open Group.
 
 ## Next steps
 

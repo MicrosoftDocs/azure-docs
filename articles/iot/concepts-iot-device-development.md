@@ -4,7 +4,7 @@ description: Learn how to use Azure IoT services, SDKs, and tools to do device d
 author: timlt
 ms.author: timlt
 ms.service: iot
-ms.topic: concept
+ms.topic: concept-article
 ms.date: 04/09/2024
 
 #Customer intent: As a device builder, I want to understand the options for device development using Azure IoT. 

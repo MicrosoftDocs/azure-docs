@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: lizross
-ms.custom: mvc, mode-other, devx-track-extended-java, devx-track-python
+ms.custom: mvc, mode-other, devx-track-extended-java, devx-track-python, devx-track-js
 zone_pivot_groups: iot-dps-set1
 #Customer intent: As a new IoT developer, I want to connect a device to an IoT hub using the SDK, to learn how secure provisioning works with symmetric keys.
 ---

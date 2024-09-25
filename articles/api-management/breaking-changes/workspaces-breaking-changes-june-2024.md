@@ -1,11 +1,11 @@
 ---
-title: Azure API Management workspaces - breaking changes (June 2024) | Microsoft Docs
+title: Azure API Management workspaces preview - breaking changes (June 2024) | Microsoft Docs
 description: Azure API Management is updating the workspaces (preview) with breaking changes. If your service uses workspaces, you may need to update workspace configurations.
 services: api-management 
 author: dlepow
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: reference
-ms.date: 03/07/2024
+ms.date: 05/08/2024
 ms.author: danlep
 ---
 
@@ -13,9 +13,13 @@ ms.author: danlep
 
 [!INCLUDE [api-management-availability-premium-dev-standard](../../../includes/api-management-availability-premium-dev-standard.md)]
 
-On 14 June 2024, as part of our development of [workspaces](../workspaces-overview.md) (preview) in Azure API Management, we're introducing several breaking changes. 
+> [!IMPORTANT]
+> If you created workspaces after the generally available release of workspaces in July 2024, your workspaces shouldn't be affected by these changes.
+> 
 
-These changes will have no effect on the availability of your API Management service. However, you may have to take action to continue using full workspaces functionality beyond 14 June 2024.
+After 14 June 2024, as part of our development of [workspaces](../workspaces-overview.md) in Azure API Management, we're introducing several breaking changes. 
+
+After 14 June 2024, your workspaces and APIs managed in them may stop working if they still rely on the capabilities set to change. APIs and resources managed outside workspaces aren't affected by this change.
 
 ## Is my service affected by these changes?
 
@@ -58,7 +62,44 @@ The `context.Workspace` object can be used instead.
 
 ## What is the deadline for the change?
 
-The breaking changes are effective 14 June 2024. We strongly recommend that you make all required changes to the configuration of workspaces before then.
+The breaking changes will be introduced after 14 June 2024. We strongly recommend that you make all required changes to the configuration of workspaces before that date.
+
+## What do I need to do?
+
+If your workspaces are affected by these changes, you need to update your workspace configurations to align with the new capabilities.
+
+### Standard tier customers 
+
+If you're using workspaces in the **Standard** tier, [upgrade](../upgrade-and-scale.md) to the **Premium** tier to continue using workspaces.
+
+### Developer tier customers
+
+The Developer tier was designed for single-user or single-team use cases. It's unable to facilitate multi-team collaboration with workspaces because of the limited computing resources, lack of SLA, and no infrastructure redundancy. If you're using workspaces preview in the **Developer** tier, you can choose one of the following options:
+
+* **Aggregate in a Premium tier instance**
+
+    While upgrading each Developer tier instance to Premium tier is an option, consider aggregating multiple nonproduction environments in a single Premium tier instance. Use workspaces in the Premium tier to isolate the different environments.
+
+* **Use Developer tier instances for development, migrate to workspaces in Premium tier for production**
+
+    You might use Developer tier instances for development environments. For higher environments, you can migrate the configuration of each Developer-tier service into a workspace of a Premium tier service, for example, using CI/CD pipelines. With this approach you may run into issues or conflicts when managing the configurations across environments. 
+
+    If you're currently using workspaces in a Developer tier instance, you can migrate the workspace configurations to a Developer tier instance without workspaces:
+
+    1. Export a Resource Manager template from your API Management instance. You can export the template from the [Azure portal](../../azure-resource-manager/templates/export-template-portal.md) or by using other tools.
+    1. Remove the following substring of the resource ID values: `/workspaces/[^/]+`
+    1. Deploy the template. For more information, see [Quickstart: Create and deploy ARM templates by using the Azure portal](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
+
+    Depending on your use case, you may need to perform other configuration changes in your API Management instance.
+
+### Assignment of workspace-level entities
+
+If you assigned workspace-level entities to service-level entities in the workspaces preview, see the following table for migration guidance.
+
+|Assignment no longer supported  |Recommended migration step  |
+|---------|---------|
+|Assign workspace APIs to service-level products    | Use workspace-level products        |
+|Assign workspace APIs or products to service-level tags     | Use workspace-level tags        |
 
 ## Help and support
 
@@ -67,6 +108,9 @@ If you have questions, get answers from community experts in [Microsoft Q&A](htt
 ## More information
 
 * [Workspaces overview](../workspaces-overview.md)
+* [Workspaces breaking changes, part 2 (March 2025)](workspaces-breaking-changes-march-2025.md)
+
+
 
 ## Related content
 

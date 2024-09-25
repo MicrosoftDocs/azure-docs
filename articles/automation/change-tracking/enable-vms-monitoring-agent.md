@@ -3,8 +3,9 @@ title: Enable Azure Automation Change Tracking for single machine and multiple m
 description: This article tells how to enable the Change Tracking feature for single machine and multiple machines at scale from the Azure portal.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 04/10/2024
-ms.topic: conceptual
+ms.date: 09/09/2024
+ms.topic: how-to
+ms.service: azure-automation
 ---
 
 # Enable Change Tracking and Inventory using Azure Monitoring Agent
@@ -17,7 +18,7 @@ This article describes how you can enable [Change Tracking and Inventory](overvi
 ## Prerequisites
 
 - An Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- A [virtual machine](../../virtual-machines/windows/quick-create-portal.md) configured in the specified region.
+- A [virtual machine](/azure/virtual-machines/windows/quick-create-portal) configured in the specified region.
 
 ## Enable Change Tracking and Inventory
 
@@ -163,7 +164,8 @@ Using the Deploy if not exist (DINE) policy, you can enable Change tracking with
    :::image type="content" source="media/enable-vms-monitoring-agent/build-template.png" alt-text="Screenshot to get started with building a template.":::
 1. In the **Edit template**, select **Load file** to upload the *CtDcrCreation.json* file.
 1. Select **Save**.
-1. In the **Custom deployment** > **Basics** tab, provide **Subscription** and **Resource group** where you want to deploy the Data Collection Rule. The **Data Collection Rule Name** is optional.
+1. In the **Custom deployment** > **Basics** tab, provide **Subscription** and **Resource group** where you want to deploy the Data Collection Rule. The **Data Collection Rule Name** is optional. The resource group must be same as the resource group associated with the Log Analytic workspace id chosen here.
+
    :::image type="content" source="media/enable-vms-monitoring-agent/build-template-basics.png" alt-text="Screenshot to provide subscription and resource group details to deploy data collection rule.":::
    
    >[!NOTE]

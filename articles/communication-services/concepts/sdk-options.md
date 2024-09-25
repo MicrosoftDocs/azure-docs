@@ -2,12 +2,12 @@
 title: SDKs and REST APIs for Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
 description: Learn more about Azure Communication Services SDKs and REST APIs.
-author: tophpalmer
+author: sloanster
 manager: chpalm
 services: azure-communication-services
 
-ms.author: chpalm
-ms.date: 04/16/2024
+ms.author: micahvivion
+ms.date: 06/04/2024
 ms.topic: conceptual
 ms.service: azure-communication-services
 ---
@@ -18,6 +18,9 @@ Azure Communication Services capabilities are conceptually organized into discre
 In the tables below we summarize these areas and availability of REST APIs and SDK libraries. We note if APIs and SDKs are intended for end-user clients or trusted service environments. APIs such as SMS shouldn't be directly accessed by end-user devices in low trust environments.
 
 Development of Calling and Chat applications can be accelerated by the  [Azure Communication Services UI library](./ui-library/ui-library-overview.md). The customizable UI library provides open-source UI components for Web and mobile apps, and a Microsoft Teams theme.
+
+## Creating a practice to use the latest SDK
+Browsers and operating systems are constantly evolving to support the latest enhancements and to fix existing bugs. Using the most recent Azure Communication Services SDK can help you achieve the best overall end user experience for your application when used with updated browsers and operating system updates. The most update Azure Communication Services SDK offers many benefits, such as better performance, security, compatibility, quality, and usability. Updating allows you to access the newest features and updates that are regularly added to the browser and operating system. Azure Communication Services SDKs are updated frequently (approximately every 6 weeks to once a quarter). It's advised that you create a process to ensure that you're always updating to the most recent SDKs.
 
 ## SDKs
 
@@ -65,7 +68,19 @@ Publishing locations for individual SDK packages:
 - Support for Android API Level 21 or Higher
 - Support for Java 7 or higher
 - Support for Android Studio 2.0
-- **Android Auto (AAOS)** and **IoT devices running Android** are currently not supported
+
+##### Android platform support
+
+The Android ecosystem is extensive, encompassing various versions and specialized platforms designed for diverse types of devices. The next table lists the Android platforms currently supported:
+
+| Devices                | Description                                                                              | Support          |
+| -----------------------            | -----------------------------------------------------------------------------------------| ----------------- |
+| Phones and tablets                 | Standard devices running [Android Commercial](https://developer.android.com/get-started).          | Fully support with [the video resolution](./voice-video-calling/calling-sdk-features.md?#supported-video-resolutions).       |
+
+> [!NOTE]
+> We **only support video calls on phones and tablets**. For use cases involving video on non-standard devices or platforms (such as smart glasses or custom devices), we suggest [contacting us](https://github.com/Azure/communication) early in your development process to help determine the most suitable integration approach.
+
+In case that you found issues during your implementation we encourage you to visit [the troubleshooting guide](./troubleshooting-info.md?#accessing-support-files-in-the-calling-sdk).
 
 #### iOS Calling SDK support
 
@@ -100,6 +115,18 @@ All other Communication Services packages target .NET Standard 2.0, which suppor
   - Xamarin iOS 10.14
   - Xamarin Mac 3.8
 
+#### SDK package size
+
+| SDK                   |      Compressed size (MB)     |    Uncompressed size (MB)     |
+|-----------------------| ------------------------------|-------------------------------|
+|iOS SDK                |  ARM64 - 17.1 MB              | ARM64 - 61.1 MB               |
+|Android SDK            |  x86 – 13.3 MB                | x86 – 33.75 MB                |
+|                       |  x86_64 – 13.3 MB             | x86_64 – 35.75 MB             |
+|                       |  ARM64-v8a – 13.1 MB          | ARM64-v8a – 37.02 MB          |
+|                       |  armeabi-v7a – 11.4 MB        | armeabi-v7a – 23.97 MB        |
+
+If you want to improve your app, we suggest read [the Best Practices article](./best-practices.md). It provides recommendations and a checklist to review before releasing your app.
+
 ## REST APIs
 
 Communication Services APIs are documented alongside other [Azure REST APIs](/rest/api/azure/). This documentation tells you how to structure your HTTP messages and offers guidance for using [Postman](../tutorials/postman-tutorial.md). REST interface documentation is also published in Swagger format on [GitHub](https://github.com/Azure/azure-rest-api-specs). You can find throttling limits for individual APIs on [service limits page](./service-limits.md).
@@ -111,18 +138,18 @@ Communication Services APIs are documented alongside other [Azure REST APIs](/re
 
 In the future we may retire versions of the Communication Services SDKs, and we may introduce breaking changes to our REST APIs and released SDKs. Azure Communication Services *generally* follows two supportability policies for retiring service versions:
 
-- You'll be notified at least three years before being required to change code due to a Communication Services interface change. All documented REST APIs and SDK APIs generally enjoy at least three years warning before interfaces are decommissioned.
-- You'll be notified at least one year before having to update SDK assemblies to the latest minor version. These required updates shouldn't require any code changes because they're in the same major version. Using the latest SDK is especially important for the Calling and Chat libraries that real-time components that often require security and performance updates. We strongly encourage you to keep all your Communication Services SDKs updated.
+- You're notified at least three years before being required to change code due to a Communication Services interface change. All documented REST APIs and SDK APIs generally enjoy at least three years warning before interfaces are decommissioned.
+- You're notified at least one year before having to update SDK assemblies to the latest minor version. These required updates shouldn't require any code changes because they're in the same major version. Using the latest SDK is especially important for the Calling and Chat libraries that real-time components that often require security and performance updates. We strongly encourage you to keep all your Communication Services SDKs updated.
 
 ### API and SDK decommissioning examples
 
 **You've integrated the v24 version of the SMS REST API into your application. Azure Communication releases v25.**
 
-You'll get three years warning before these APIs stop working and are forced to update to v25. This update might require a code change.
+You get three years warning before these APIs stop working and are forced to update to v25. This update might require a code change.
 
 **You've integrated the v2.02 version of the Calling SDK into your application. Azure Communication releases v2.05.**
 
-You may be required to update to the v2.05 version of the Calling SDK within 12 months of the release of v2.05. The update should be a simple replacement of the artifact without requiring a code change because v2.05 is in the v2 major version and has no breaking changes.
+You may be required to update to the v2.05 version of the Calling SDK within 12 months of the release of v2.05. The update should be a replacement of the artifact without requiring a code change because v2.05 is in the v2 major version and has no breaking changes.
 
 ## Next steps
 

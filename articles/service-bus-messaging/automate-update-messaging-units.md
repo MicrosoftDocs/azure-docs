@@ -6,7 +6,7 @@ ms.date: 05/16/2022
 ---
 
 # Automatically update messaging units of an Azure Service Bus namespace 
-Autoscale allows you to have the right amount of resources running to handle the load on your application. It allows you to add resources to handle increases in load and also save money by removing resources that are sitting idle. See [Overview of autoscale in Microsoft Azure](../azure-monitor/autoscale/autoscale-overview.md) to learn more about the Autoscale feature of Azure Monitor. 
+Autoscale allows you to have the right amount of resources running to handle the load on your application. It allows you to add resources to handle increases in load and also save money by removing resources that are sitting idle. See [Overview of autoscale in Microsoft Azure](/azure/azure-monitor/autoscale/autoscale-overview) to learn more about the Autoscale feature of Azure Monitor. 
 
 Service Bus Premium Messaging provides resource isolation at the CPU and memory level so that each customer workload runs in isolation. This resource container is called a **messaging unit**. To learn more about messaging units, see [Service Bus Premium Messaging](service-bus-premium-messaging.md). 
 
@@ -55,7 +55,7 @@ You can configure automatic scaling of messaging units by using conditions. This
 You can't set a schedule to autoscale on a specific days or date range for a default condition. This scale condition is executed when none of the other scale conditions with schedules match. 
 
 > [!NOTE]
-> To improve the receive throughput, Service Bus keeps some messages in its cache. Service Bus trims the cache only when memory usage exceeds a certain high threshold like 90%. So if an entity is sending messages but not receiving them, those messages are cached and it reflects in increased memory usage. There is nothing to concern about, as Service Bus trims the cache if needed, which eventually causes the memory usage to go down. Memory will not cause any issue unless there is performance or any other issues with the namespace. We recommend that you use the CPU usage metric for autoscaling with Service Bus. 
+> To improve the receive throughput, Service Bus keeps some messages in its cache. Service Bus trims the cache only when memory usage exceeds a certain high threshold like 80%. So if an entity is sending messages but not receiving them, those messages are cached and it reflects in increased memory usage. Normally this means there is nothing to concern about, as Service Bus trims the cache if needed, which eventually causes the memory usage to go down. As such, it is recommended to only scale up once memory usage reaches 90%. Additionally, it is recommended not to scale down as long as memory usage does not go below 90%.
 
 ### Scale based on a metric
 The following procedure shows you how to add a condition to automatically increase messaging units (scale out) when the CPU usage is greater than 75% and decrease messaging units (scale in) when the CPU usage is less than 25%. Increments are done from 1 to 2, 2 to 4, 4 to 8, and 8 to 16. Similarly, decrements are done from 16 to 8, 8 to 4, 4 to 2, and 2 to 1. 
@@ -138,12 +138,12 @@ The previous section shows you how to add a default condition for the autoscale 
     :::image type="content" source="./media/automate-update-messaging-units/repeat-specific-days-2.png" alt-text="scale to specific messaging units - repeat specific days":::
 
     
-    To learn more about how autoscale settings work, especially how it picks a profile or condition and evaluates multiple rules, see [Understand Autoscale settings](../azure-monitor/autoscale/autoscale-understanding-settings.md).          
+    To learn more about how autoscale settings work, especially how it picks a profile or condition and evaluates multiple rules, see [Understand Autoscale settings](/azure/azure-monitor/autoscale/autoscale-understanding-settings).          
 
     > [!NOTE]
     > - The metrics you review to make decisions on autoscaling may be 5-10 minutes old. When you are dealing with spiky workloads, we recommend that you have shorter durations for scaling up and longer durations for scaling down (> 10 minutes) to ensure that there are enough messaging units to process spiky workloads. 
     > 
-    > - If you see failures due to lack of capacity (no messaging units available), raise a support ticket with us.  
+    > - If you see failures due to lack of capacity (no messaging units available), raise a support ticket with us. Capacity fulfillment is subject to the constraints of the environment and is carried out to our best effort.
 
 ## Run history
 Switch to the **Run history** tab on the **Scale** page to see a chart that plots number of messaging units as observed by the autoscale engine. If the chart is empty, it means either autoscale wasn't configured or configured but disabled, or is in a cool down period.  

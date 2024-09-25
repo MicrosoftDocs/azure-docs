@@ -7,7 +7,7 @@ author: greg-lindsay
 ms.author: greglin
 ms.date: 11/30/2023
 ms.topic: quickstart
-ms.service: dns
+ms.service: azure-dns
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 #Customer intent: As an administrator or developer, I want to learn how to configure Azure DNS using Azure ARM template so I can use Azure DNS for my name resolution.
 ---
@@ -16,7 +16,7 @@ ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 
 This quickstart describes how to use an Azure Resource Manager template (ARM Template) to create a DNS zone with an `A` record in it.
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 

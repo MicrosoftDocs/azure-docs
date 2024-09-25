@@ -41,7 +41,7 @@ The fixed set of states that can be overridden are:
   > [!NOTE]
   > The see-through effect is ignored for point clouds.
 
-* **`Shell`**: The geometry is rendered as a transparent, de-saturated shell. This mode allows fading out non-important parts of a scene while still retaining a sense of shape and relative positioning. To change the shell rendering's appearance, use the [ShellRenderingSettings](shell-effect.md) state. See the following image for the car model being entirely shell-rendered, except for the blue springs:
+* **`Shell`**: The geometry is rendered as a transparent, desaturated shell. This mode allows fading out unimportant parts of a scene while still retaining a sense of shape and relative positioning. To change the shell rendering's appearance, use the [ShellRenderingSettings](shell-effect.md) state. See the following image for the car model being entirely shell-rendered, except for the blue springs:
 
   ![Shell mode used to fade out specific objects](./media/shell.png)
 
@@ -60,10 +60,15 @@ The fixed set of states that can be overridden are:
 
 * **`DisableCollision`**: The geometry is exempt from [spatial queries](spatial-queries.md). The **`Hidden`** flag doesn't affect the collision state flag, so these two flags are often set together.
 
-* **`TransparencyWritesDepth`**: Activates depth writing for **`See-through`** and material transparencies in the component's entity's scene-tree. Using this flag, **`See-through`** transparencies can have depth writing either enabled or disabled in a subtree, even if `TransparencyWritesDepth` is globally forced. For material transparency, the flag behaves inclusively, meaning if `TransparencyWritesDepth` is enabled with either override, globally forced or via the material's flags, depth writing will be enabled for objects rendered with this material.
+* **`TransparencyWritesDepth`**: Activates depth writing for **`See-through`** and material transparencies in the component's entity's scene-tree. Using this flag, **`See-through`** transparencies can have depth writing either enabled or disabled in a subtree, even if `TransparencyWritesDepth` is globally forced. For material transparency, the flag behaves inclusively, meaning if `TransparencyWritesDepth` is enabled with either override, globally forced or via the material's flags, depth writing is enabled for objects rendered with this material.
 
 * **`UseCutPlaneFilterMask`**: Use an individual filter bit mask to control the cut plane selection. This flag determines whether the individual filter mask should be used or inherited from its parent. The filter bit mask itself is set via the `CutPlaneFilterMask` property. For detailed information about how the filtering works, refer to the [Selective cut planes paragraph](cut-planes.md#selective-cut-planes). See the following example where only the tire and rim is cut while the rest of the scene remains unaffected.
 ![Selective cut planes](./media/selective-cut-planes-hierarchical-override.png)
+
+* **`UseOverrideMaterial`**: If enabled, the material stored in `OverrideMaterial` is used to render the geometry with that material. It's an efficient way to switch rendering of larger model parts to a dedicated material without actually switching individual part materials. [Color materials](color-materials.md) may override [PBR materials](pbr-materials.md) and vice versa. However, it must be guaranteed that the model provides mandatory vertex streams, for instance, the vertex normal in case the overridden material is a [PBR material](pbr-materials.md). Furthermore, overrides that toggle on transparency, only work reliably in the *TileBasedComposition* [rendering mode](../../concepts/rendering-modes.md).
+
+  > [!NOTE]
+  > The override material is ignored for point clouds.
 
 
 > [!TIP]
@@ -111,7 +116,7 @@ component->SetState(
 
 ### Tint color
 
-The `tint color` override is slightly special in that there's both an on/off/inherit state and a tint color property. The alpha portion of the tint color defines the weight of the tinting effect: If set to 0.0, no tint color is visible and if set to 1.0 the object will be rendered with pure tint color. For in-between values, the final color will be mixed with the tint color. The tint color can be changed on a per-frame basis to achieve a color animation.
+The `tint color` override is slightly special in that there's both an on/off/inherit state and a tint color property. The alpha portion of the tint color defines the weight of the tinting effect: If set to 0.0, no tint color is visible and if set to 1.0 the object is rendered with pure tint color. For in-between values, the final color is mixed with the tint color. The tint color can be changed on a per-frame basis to achieve a color animation.
 
 ## Performance considerations
 

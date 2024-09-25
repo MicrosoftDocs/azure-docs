@@ -3,7 +3,7 @@ title: Stream data from Azure Stream Analytics into Kafka
 description: Learn about setting up Azure Stream Analytics as a producer to kafka
 author: AliciaLiMicrosoft 
 ms.author: ali 
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: conceptual
 ms.date: 02/20/2024
 ---
@@ -53,8 +53,8 @@ You can use four types of security protocols to connect to your Kafka clusters:
 
 |Property name   |Description   |
 |----------|-----------|
-|mTLS     |encryption and authentication       |
-|SASL_SSL |It combines two different security mechanisms - SASL (Simple Authentication and Security Layer) and SSL (Secure Sockets Layer) - to ensure both authentication and encryption are in place for data transmission. The mechanism supported is PLAIN. The SASL_SSL protocol doesn't support SCRAM. |
+|mTLS     |Encryption and authentication. Supports PLAIN, SCRAM-SHA-256, and SCRAM-SHA-512 security mechanisms.       |
+|SASL_SSL |It combines two different security mechanisms - SASL (Simple Authentication and Security Layer) and SSL (Secure Sockets Layer) - to ensure both authentication and encryption are in place for data transmission. The SASL_SSL protocol supports PLAIN, SCRAM-SHA-256, and SCRAM-SHA-512 security mechanisms. |
 |SASL_PLAINTEXT |standard authentication with username and password without encryption |
 |None | No authentication and encryption. |
 
@@ -80,7 +80,7 @@ Certificates are stored as secrets in the key vault and must be in PEM format.
 
 ### Configure Key vault with permissions
 
-You can create a key vault resource by following the documentation [Quickstart: Create a key vault using the Azure portal](../key-vault/general/quick-create-portal.md)
+You can create a key vault resource by following the documentation [Quickstart: Create a key vault using the Azure portal](/azure/key-vault/general/quick-create-portal)
 To upload certificates, you must have "**Key Vault Administrator**"  access to your Key vault. Follow the following to grant admin access.
 
 > [!NOTE]

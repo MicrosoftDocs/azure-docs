@@ -6,7 +6,7 @@ ms.topic: reference
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 03/01/2024
+ms.date: 09/20/2024
 ms.custom: generated
 ---
 
@@ -43,6 +43,145 @@ Azure service: [Azure Chaos Studio](/azure/chaos-studio/)
 > | Microsoft.Chaos/targets/capabilities/write | Creates or update a Capability resource that extends a Target resource. |
 > | Microsoft.Chaos/targets/capabilities/delete | Deletes a Capability resource that extends a Target resource. |
 > | Microsoft.Chaos/targets/capabilities/read | Gets all Capabilities that extend a Target resource. |
+
+## Microsoft.DevCenter
+
+Azure service: [Azure Deployment Environments](/azure/deployment-environments/overview-what-is-azure-deployment-environments)
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.DevCenter/checkNameAvailability/action | action checkNameAvailability |
+> | Microsoft.DevCenter/checkScopedNameAvailability/action | Check the availability of name for resource |
+> | Microsoft.DevCenter/register/action | Register the subscription for Microsoft.DevCenter |
+> | Microsoft.DevCenter/unregister/action | Unregister the subscription for Microsoft.DevCenter |
+> | Microsoft.DevCenter/devcenters/read | Lists all devcenters in a subscription. |
+> | Microsoft.DevCenter/devcenters/read | Lists all devcenters in a resource group. |
+> | Microsoft.DevCenter/devcenters/read | Gets a devcenter. |
+> | Microsoft.DevCenter/devcenters/write | Creates or updates a devcenter resource |
+> | Microsoft.DevCenter/devcenters/delete | Deletes a devcenter |
+> | Microsoft.DevCenter/devcenters/write | Partially updates a devcenter. |
+> | Microsoft.DevCenter/devcenters/attachednetworks/read | Lists the attached NetworkConnections for a DevCenter. |
+> | Microsoft.DevCenter/devcenters/attachednetworks/read | Gets an attached NetworkConnection. |
+> | Microsoft.DevCenter/devcenters/attachednetworks/write | Creates or updates an attached NetworkConnection. |
+> | Microsoft.DevCenter/devcenters/attachednetworks/delete | Un-attach a NetworkConnection. |
+> | Microsoft.DevCenter/devcenters/catalogs/read | Lists catalogs for a devcenter. |
+> | Microsoft.DevCenter/devcenters/catalogs/read | Gets a catalog |
+> | Microsoft.DevCenter/devcenters/catalogs/write | Creates or updates a catalog. |
+> | Microsoft.DevCenter/devcenters/catalogs/delete | Deletes a catalog resource. |
+> | Microsoft.DevCenter/devcenters/catalogs/write | Partially updates a catalog. |
+> | Microsoft.DevCenter/devcenters/catalogs/getSyncErrorDetails/action | Gets catalog synchronization error details |
+> | Microsoft.DevCenter/devcenters/catalogs/sync/action | Syncs templates for a template source. |
+> | Microsoft.DevCenter/devcenters/catalogs/connect/action | Connects a catalog to enable syncing. |
+> | Microsoft.DevCenter/devcenters/catalogs/environmentDefinitions/read | List environment definitions in the catalog. |
+> | Microsoft.DevCenter/devcenters/catalogs/environmentDefinitions/read | Gets an environment definition from the catalog. |
+> | Microsoft.DevCenter/devcenters/catalogs/environmentDefinitions/getErrorDetails/action | Gets Environment Definition error details |
+> | Microsoft.DevCenter/devcenters/devboxdefinitions/read | List Dev Box definitions for a devcenter. |
+> | Microsoft.DevCenter/devcenters/devboxdefinitions/read | Gets a Dev Box definition |
+> | Microsoft.DevCenter/devcenters/devboxdefinitions/write | Creates or updates a Dev Box definition. |
+> | Microsoft.DevCenter/devcenters/devboxdefinitions/delete | Deletes a Dev Box definition |
+> | Microsoft.DevCenter/devcenters/devboxdefinitions/write | Partially updates a Dev Box definition. |
+> | Microsoft.DevCenter/devcenters/environmentTypes/read | Lists environment types for the devcenter. |
+> | Microsoft.DevCenter/devcenters/environmentTypes/read | Gets an environment type. |
+> | Microsoft.DevCenter/devcenters/environmentTypes/write | Creates or updates an environment type. |
+> | Microsoft.DevCenter/devcenters/environmentTypes/delete | Deletes an environment type. |
+> | Microsoft.DevCenter/devcenters/environmentTypes/write | Partially updates an environment type. |
+> | Microsoft.DevCenter/devcenters/galleries/read | Lists galleries for a devcenter. |
+> | Microsoft.DevCenter/devcenters/galleries/read | Gets a gallery |
+> | Microsoft.DevCenter/devcenters/galleries/write | Creates or updates a gallery. |
+> | Microsoft.DevCenter/devcenters/galleries/delete | Deletes a gallery resource. |
+> | Microsoft.DevCenter/devcenters/galleries/images/read | Lists images for a gallery. |
+> | Microsoft.DevCenter/devcenters/galleries/images/read | Gets a gallery image. |
+> | Microsoft.DevCenter/devcenters/galleries/images/versions/read | Lists versions for an image. |
+> | Microsoft.DevCenter/devcenters/galleries/images/versions/read | Gets an image version. |
+> | Microsoft.DevCenter/devcenters/images/read | Lists images for a devcenter. |
+> | Microsoft.DevCenter/Locations/OperationStatuses/read | read OperationStatuses |
+> | Microsoft.DevCenter/Locations/OperationStatuses/write | write OperationStatuses |
+> | Microsoft.DevCenter/locations/usages/read | Lists the current usages and limits in this location for the provided subscription. |
+> | Microsoft.DevCenter/networkConnections/read | Lists network connections in a subscription |
+> | Microsoft.DevCenter/networkConnections/read | Lists network connections in a resource group |
+> | Microsoft.DevCenter/networkConnections/read | Gets a network connection resource |
+> | Microsoft.DevCenter/networkConnections/write | Creates or updates a Network Connections resource |
+> | Microsoft.DevCenter/networkConnections/delete | Deletes a Network Connections resource |
+> | Microsoft.DevCenter/networkConnections/write | Partially updates a Network Connection |
+> | Microsoft.DevCenter/networkConnections/runHealthChecks/action | Triggers a new health check run. The execution and health check result can be tracked via the network Connection health check details |
+> | Microsoft.DevCenter/networkConnections/DevCenterJoin/action | Allow a DevCenter to attach this NetworkConnection. |
+> | Microsoft.DevCenter/networkConnections/healthChecks/read | Lists health check status details |
+> | Microsoft.DevCenter/networkConnections/healthChecks/read | Gets health check status details. |
+> | Microsoft.DevCenter/networkConnections/outboundNetworkDependenciesEndpoints/read | Lists the endpoints that agents may call as part of Dev Box service administration. These FQDNs should be allowed for outbound access in order for the Dev Box service to function. |
+> | Microsoft.DevCenter/operations/read | read operations |
+> | Microsoft.DevCenter/projects/read | Lists all projects in the subscription. |
+> | Microsoft.DevCenter/projects/read | Lists all projects in the resource group. |
+> | Microsoft.DevCenter/projects/read | Gets a specific project. |
+> | Microsoft.DevCenter/projects/write | Creates or updates a project. |
+> | Microsoft.DevCenter/projects/delete | Deletes a project resource. |
+> | Microsoft.DevCenter/projects/write | Partially updates a project. |
+> | Microsoft.DevCenter/projects/allowedEnvironmentTypes/read | Lists allowed environment types for a project. |
+> | Microsoft.DevCenter/projects/allowedEnvironmentTypes/read | Gets an allowed environment type. |
+> | Microsoft.DevCenter/projects/attachednetworks/read | Lists the attached NetworkConnections for a Project. |
+> | Microsoft.DevCenter/projects/attachednetworks/read | Gets an attached NetworkConnection. |
+> | Microsoft.DevCenter/projects/catalogs/read | Lists the catalogs associated with a project. |
+> | Microsoft.DevCenter/projects/catalogs/read | Gets an associated project catalog. |
+> | Microsoft.DevCenter/projects/catalogs/write | Creates or updates a project catalog. |
+> | Microsoft.DevCenter/projects/catalogs/delete | Deletes a project catalog resource. |
+> | Microsoft.DevCenter/projects/catalogs/write | Partially updates a project catalog. |
+> | Microsoft.DevCenter/projects/catalogs/getSyncErrorDetails/action | Gets project catalog synchronization error details |
+> | Microsoft.DevCenter/projects/catalogs/sync/action | Syncs templates for a template source. |
+> | Microsoft.DevCenter/projects/catalogs/connect/action | Connects a project catalog to enable syncing. |
+> | Microsoft.DevCenter/projects/catalogs/environmentDefinitions/read | Lists the environment definitions in this project catalog. |
+> | Microsoft.DevCenter/projects/catalogs/environmentDefinitions/read | Gets an environment definition from the catalog. |
+> | Microsoft.DevCenter/projects/catalogs/environmentDefinitions/getErrorDetails/action | Gets Environment Definition error details |
+> | Microsoft.DevCenter/projects/devboxdefinitions/read | List Dev Box definitions configured for a project. |
+> | Microsoft.DevCenter/projects/devboxdefinitions/read | Gets a Dev Box definition configured for a project |
+> | Microsoft.DevCenter/projects/environmentTypes/read | Lists environment types for a project. |
+> | Microsoft.DevCenter/projects/environmentTypes/read | Gets a project environment type. |
+> | Microsoft.DevCenter/projects/environmentTypes/write | Creates or updates a project environment type. |
+> | Microsoft.DevCenter/projects/environmentTypes/delete | Deletes a project environment type. |
+> | Microsoft.DevCenter/projects/environmentTypes/write | Partially updates a project environment type. |
+> | Microsoft.DevCenter/projects/pools/read | Lists pools for a project |
+> | Microsoft.DevCenter/projects/pools/read | Gets a machine pool |
+> | Microsoft.DevCenter/projects/pools/write | Creates or updates a machine pool |
+> | Microsoft.DevCenter/projects/pools/delete | Deletes a machine pool |
+> | Microsoft.DevCenter/projects/pools/write | Partially updates a machine pool |
+> | Microsoft.DevCenter/projects/pools/runHealthChecks/action | Triggers a refresh of the pool status. |
+> | Microsoft.DevCenter/projects/pools/schedules/read | Lists schedules for a pool |
+> | Microsoft.DevCenter/projects/pools/schedules/read | Gets a schedule resource. |
+> | Microsoft.DevCenter/projects/pools/schedules/write | Creates or updates a Schedule. |
+> | Microsoft.DevCenter/projects/pools/schedules/delete | Deletes a Scheduled. |
+> | Microsoft.DevCenter/projects/pools/schedules/write | Partially updates a Scheduled. |
+> | Microsoft.DevCenter/registeredSubscriptions/read | read registeredSubscriptions |
+> | Microsoft.DevCenter/RegisteredSubscriptions/read | Reads registered subscriptions |
+> | **DataAction** | **Description** |
+> | Microsoft.DevCenter/projects/users/devboxes/adminStart/action | Allows a user to start any Dev Box resource. |
+> | Microsoft.DevCenter/projects/users/devboxes/adminStop/action | Allows a user to stop any Dev Box resource. |
+> | Microsoft.DevCenter/projects/users/devboxes/adminRead/action | Allows a user read access to any Dev Box resource. |
+> | Microsoft.DevCenter/projects/users/devboxes/adminWrite/action | Allows a user write access to any Dev Box resource. |
+> | Microsoft.DevCenter/projects/users/devboxes/adminDelete/action | Allows a user to delete any Dev Box resource. |
+> | Microsoft.DevCenter/projects/users/devboxes/userStop/action | Allows a user to stop their own Dev Box resources. |
+> | Microsoft.DevCenter/projects/users/devboxes/userStart/action | Allows a user to start their own Dev Box resources. |
+> | Microsoft.DevCenter/projects/users/devboxes/userGetRemoteConnection/action | Allows a user to get the RDP connection information for their own Dev Box resources. |
+> | Microsoft.DevCenter/projects/users/devboxes/userRead/action | Allows a user to read their own Dev Box resources. |
+> | Microsoft.DevCenter/projects/users/devboxes/userWrite/action | Allows a user to create and update their own Dev Box resources. |
+> | Microsoft.DevCenter/projects/users/devboxes/userDelete/action | Allows a user to delete their own Dev Box resources. |
+> | Microsoft.DevCenter/projects/users/devboxes/userUpcomingActionRead/action | Allows a user to read upcoming actions. |
+> | Microsoft.DevCenter/projects/users/devboxes/userUpcomingActionManage/action | Allows a user to skip or delay upcoming actions. |
+> | Microsoft.DevCenter/projects/users/devboxes/userActionRead/action | Allows a user to read dev box actions. |
+> | Microsoft.DevCenter/projects/users/devboxes/userActionManage/action | Allows a user to skip or delay dev box actions. |
+> | Microsoft.DevCenter/projects/users/devboxes/userCustomize/action | Allows a user to customize their own Dev Box resources. |
+> | Microsoft.DevCenter/projects/users/environments/userRead/action | Allows a user to read the environments they have access to in a project. |
+> | Microsoft.DevCenter/projects/users/environments/adminRead/action | Allows a project administrator to read all of the environments in a project. |
+> | Microsoft.DevCenter/projects/users/environments/userWrite/action | Allows a user to write the environments they have access to in a project. |
+> | Microsoft.DevCenter/projects/users/environments/adminWrite/action | Allows a project administrator to write all of the environments in a project. |
+> | Microsoft.DevCenter/projects/users/environments/userDelete/action | Allows a user to delete the environments they have access to in a project. |
+> | Microsoft.DevCenter/projects/users/environments/adminDelete/action | Allows a project administrator to delete all of the environments in a project. |
+> | Microsoft.DevCenter/projects/users/environments/userAction/action | Allows a user to perform an action on the environments they have access to in a project. |
+> | Microsoft.DevCenter/projects/users/environments/adminAction/action | Allows a project administrator to perform an action on all of the environments in a project. |
+> | Microsoft.DevCenter/projects/users/environments/userActionRead/action | Allows a user to read environment actions. |
+> | Microsoft.DevCenter/projects/users/environments/adminActionRead/action | Allows an admin to read environment actions. |
+> | Microsoft.DevCenter/projects/users/environments/userActionManage/action | Allows a user to skip, delay etc. environment actions. |
+> | Microsoft.DevCenter/projects/users/environments/adminActionManage/action | Allows an admin to skip, delay etc. environment actions. |
+> | Microsoft.DevCenter/projects/users/environments/userOutputsRead/action | Allows a user to read Output values from environment deployment. |
+> | Microsoft.DevCenter/projects/users/environments/adminOutputsRead/action | Allows an admin to read Output values from environment deployment. |
 
 ## Microsoft.DevTestLab
 
@@ -272,6 +411,9 @@ Azure service: [Azure Load Testing](/azure/load-testing/)
 > | Microsoft.LoadTestService/loadTestMappings/read | Get a LoadTest mapping resource, or Lists LoadTest mapping resources in a scope. |
 > | Microsoft.LoadTestService/loadTestMappings/write | Create or update LoadTest mapping resource. |
 > | Microsoft.LoadTestService/loadTestMappings/delete | Delete a LoadTest mapping resource. |
+> | Microsoft.LoadTestService/loadTestProfileMappings/read | Get a LoadTest profile mapping resource, or Lists LoadTest profile mapping resources in a scope. |
+> | Microsoft.LoadTestService/loadTestProfileMappings/write | Create or update LoadTest profile mapping resource. |
+> | Microsoft.LoadTestService/loadTestProfileMappings/delete | Delete a LoadTest profile mapping resource. |
 > | Microsoft.LoadTestService/loadTests/read | Get a LoadTest resource, or Lists loadtest resources in a subscription or resource group. |
 > | Microsoft.LoadTestService/loadTests/write | Create or update LoadTest resource. |
 > | Microsoft.LoadTestService/loadTests/delete | Delete a LoadTest resource. |
@@ -288,81 +430,13 @@ Azure service: [Azure Load Testing](/azure/load-testing/)
 > | Microsoft.LoadTestService/loadtests/writeTest/action | Create or Update Load Tests |
 > | Microsoft.LoadTestService/loadtests/deleteTest/action | Delete Load Tests |
 > | Microsoft.LoadTestService/loadtests/readTest/action | Read Load Tests |
-
-## Microsoft.SecurityDevOps
-
-Azure service: [Microsoft Defender for Cloud](/azure/defender-for-cloud/)
-
-> [!div class="mx-tableFixed"]
-> | Action | Description |
-> | --- | --- |
-> | Microsoft.SecurityDevOps/register/action | Register the subscription for Microsoft.SecurityDevOps |
-> | Microsoft.SecurityDevOps/unregister/action | Unregister the subscription for Microsoft.SecurityDevOps |
-> | Microsoft.SecurityDevOps/azureDevOpsConnectors/read | read azureDevOpsConnectors |
-> | Microsoft.SecurityDevOps/azureDevOpsConnectors/read | read azureDevOpsConnectors |
-> | Microsoft.SecurityDevOps/azureDevOpsConnectors/write | write azureDevOpsConnectors |
-> | Microsoft.SecurityDevOps/azureDevOpsConnectors/delete | delete azureDevOpsConnectors |
-> | Microsoft.SecurityDevOps/azureDevOpsConnectors/write | write azureDevOpsConnectors |
-> | Microsoft.SecurityDevOps/azureDevOpsConnectors/configure/action | action configure |
-> | Microsoft.SecurityDevOps/azureDevOpsConnectors/read | read azureDevOpsConnectors |
-> | Microsoft.SecurityDevOps/azureDevOpsConnectors/orgs/read | read orgs |
-> | Microsoft.SecurityDevOps/azureDevOpsConnectors/orgs/write | write orgs |
-> | Microsoft.SecurityDevOps/azureDevOpsConnectors/orgs/write | write orgs |
-> | Microsoft.SecurityDevOps/azureDevOpsConnectors/orgs/read | read orgs |
-> | Microsoft.SecurityDevOps/azureDevOpsConnectors/orgs/projects/read | read projects |
-> | Microsoft.SecurityDevOps/azureDevOpsConnectors/orgs/projects/write | write projects |
-> | Microsoft.SecurityDevOps/azureDevOpsConnectors/orgs/projects/write | write projects |
-> | Microsoft.SecurityDevOps/azureDevOpsConnectors/orgs/projects/read | read projects |
-> | Microsoft.SecurityDevOps/azureDevOpsConnectors/orgs/projects/repos/read | read repos |
-> | Microsoft.SecurityDevOps/azureDevOpsConnectors/orgs/projects/repos/write | write repos |
-> | Microsoft.SecurityDevOps/azureDevOpsConnectors/orgs/projects/repos/write | write repos |
-> | Microsoft.SecurityDevOps/azureDevOpsConnectors/orgs/projects/repos/read | read repos |
-> | Microsoft.SecurityDevOps/azureDevOpsConnectors/repos/read | read repos |
-> | Microsoft.SecurityDevOps/azureDevOpsConnectors/stats/read | read stats |
-> | Microsoft.SecurityDevOps/gitHubConnectors/read | read gitHubConnectors |
-> | Microsoft.SecurityDevOps/gitHubConnectors/read | read gitHubConnectors |
-> | Microsoft.SecurityDevOps/gitHubConnectors/write | write gitHubConnectors |
-> | Microsoft.SecurityDevOps/gitHubConnectors/delete | delete gitHubConnectors |
-> | Microsoft.SecurityDevOps/gitHubConnectors/write | write gitHubConnectors |
-> | Microsoft.SecurityDevOps/gitHubConnectors/configure/action | action configure |
-> | Microsoft.SecurityDevOps/gitHubConnectors/read | read gitHubConnectors |
-> | Microsoft.SecurityDevOps/gitHubConnectors/gitHubInstallations/read | read gitHubInstallations |
-> | Microsoft.SecurityDevOps/gitHubConnectors/gitHubInstallations/read | read gitHubInstallations |
-> | Microsoft.SecurityDevOps/gitHubConnectors/gitHubInstallations/gitHubRepositories/read | read gitHubRepositories |
-> | Microsoft.SecurityDevOps/gitHubConnectors/gitHubInstallations/gitHubRepositories/read | read gitHubRepositories |
-> | Microsoft.SecurityDevOps/gitHubConnectors/owners/read | read owners |
-> | Microsoft.SecurityDevOps/gitHubConnectors/owners/read | read owners |
-> | Microsoft.SecurityDevOps/gitHubConnectors/owners/write | write owners |
-> | Microsoft.SecurityDevOps/gitHubConnectors/owners/write | write owners |
-> | Microsoft.SecurityDevOps/gitHubConnectors/owners/repos/read | read repos |
-> | Microsoft.SecurityDevOps/gitHubConnectors/owners/repos/read | read repos |
-> | Microsoft.SecurityDevOps/gitHubConnectors/owners/repos/write | write repos |
-> | Microsoft.SecurityDevOps/gitHubConnectors/owners/repos/write | write repos |
-> | Microsoft.SecurityDevOps/gitHubConnectors/repos/read | read repos |
-> | Microsoft.SecurityDevOps/gitHubConnectors/stats/read | read stats |
-> | Microsoft.SecurityDevOps/gitLabConnectors/read | read gitLabConnectors |
-> | Microsoft.SecurityDevOps/gitLabConnectors/read | read gitLabConnectors |
-> | Microsoft.SecurityDevOps/gitLabConnectors/write | write gitLabConnectors |
-> | Microsoft.SecurityDevOps/gitLabConnectors/delete | delete gitLabConnectors |
-> | Microsoft.SecurityDevOps/gitLabConnectors/write | write gitLabConnectors |
-> | Microsoft.SecurityDevOps/gitLabConnectors/configure/action | action configure |
-> | Microsoft.SecurityDevOps/gitLabConnectors/read | read gitLabConnectors |
-> | Microsoft.SecurityDevOps/gitLabConnectors/groups/read | read groups |
-> | Microsoft.SecurityDevOps/gitLabConnectors/groups/read | read groups |
-> | Microsoft.SecurityDevOps/gitLabConnectors/groups/write | write groups |
-> | Microsoft.SecurityDevOps/gitLabConnectors/groups/delete | delete groups |
-> | Microsoft.SecurityDevOps/gitLabConnectors/groups/write | write groups |
-> | Microsoft.SecurityDevOps/gitLabConnectors/groups/listSubgroups/action | action listSubgroups |
-> | Microsoft.SecurityDevOps/gitLabConnectors/groups/projects/read | read projects |
-> | Microsoft.SecurityDevOps/gitLabConnectors/groups/projects/read | read projects |
-> | Microsoft.SecurityDevOps/gitLabConnectors/groups/projects/write | write projects |
-> | Microsoft.SecurityDevOps/gitLabConnectors/groups/projects/delete | delete projects |
-> | Microsoft.SecurityDevOps/gitLabConnectors/groups/projects/write | write projects |
-> | Microsoft.SecurityDevOps/gitLabConnectors/projects/read | read projects |
-> | Microsoft.SecurityDevOps/gitLabConnectors/stats/read | read stats |
-> | Microsoft.SecurityDevOps/Locations/OperationStatuses/read | read OperationStatuses |
-> | Microsoft.SecurityDevOps/Locations/OperationStatuses/write | write OperationStatuses |
-> | Microsoft.SecurityDevOps/Operations/read | read Operations |
+> | Microsoft.LoadTestService/testProfileRuns/write | Write Test Profile Runs |
+> | Microsoft.LoadTestService/testProfileRuns/read | Read Test Profile Runs |
+> | Microsoft.LoadTestService/testProfileRuns/delete | Delete Test Profile Runs |
+> | Microsoft.LoadTestService/testProfileRuns/stop/action | Stop Test Profile Runs |
+> | Microsoft.LoadTestService/testProfiles/write | Write Test Profiles |
+> | Microsoft.LoadTestService/testProfiles/read | Read Test Profiles |
+> | Microsoft.LoadTestService/testProfiles/delete | Delete Test Profiles |
 
 ## Microsoft.VisualStudio
 

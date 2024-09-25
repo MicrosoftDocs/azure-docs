@@ -4,9 +4,9 @@ metadata:
   description: "This article answers frequently asked questions asked about the Azure Network Watcher service."
   author: halkazwini
   ms.author: halkazwini
-  ms.service: network-watcher
+  ms.service: azure-network-watcher
   ms.topic: faq
-  ms.date: 04/24/2024
+  ms.date: 09/06/2024
 title: "Network Watcher frequently asked questions (FAQ)"
 summary: |
   This article provides answers to some of the frequently asked questions asked about Azure Network Watcher.
@@ -128,7 +128,7 @@ sections:
       - question: |
           What is the latest version of the Network Watcher Agent?
         answer: |
-          [!INCLUDE [Network Watcher Agent version](../../includes/virtual-machines-extensions-network-watcher-agent-version.md)]. For more information, see [Update Azure Network Watcher extension to the latest version](../virtual-machines/extensions/network-watcher-update.md?toc=/azure/network-watcher/toc.json&bc=/azure/network-watcher/breadcrumb/toc.json).
+          [!INCLUDE [Network Watcher agent version](../../includes/network-watcher-agent-version.md)]. For more information, see [Update Azure Network Watcher extension to the latest version](network-watcher-agent-update.md).
 
       - question: |
           What ports does the Network Watcher Agent use?
@@ -146,7 +146,7 @@ sections:
       - question: |
           Does connection monitor support classic VMs?
         answer: |
-          No, connection monitor doesn't support classic VMs. For more information, see [Migrate IaaS resources from classic to Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-overview.md).
+          No, connection monitor doesn't support classic VMs. For more information, see [Migrate IaaS resources from classic to Azure Resource Manager](/azure/virtual-machines/migration-classic-resource-manager-overview).
 
       - question: |
           What if my topology isn't decorated or my hops have missing information?
@@ -171,7 +171,7 @@ sections:
       - question: |
           Are there any limitations to using Azure Monitor and Arc Agents with connection monitor?
         answer: |
-          There's currently a regional boundary when an endpoint uses Azure Monitor and Arc agents with the associated Log Analytics workspace. As a result to this limitation, the associated Log Analytics workspace must be in the same region as the Arc endpoint. Data ingested into individual workspaces can be unionized for a single view, see [Query data across Log Analytics workspaces, applications, and resources in Azure Monitor](../azure-monitor/logs/cross-workspace-query.md).
+          There's currently a regional boundary when an endpoint uses Azure Monitor and Arc agents with the associated Log Analytics workspace. As a result to this limitation, the associated Log Analytics workspace must be in the same region as the Arc endpoint. Data ingested into individual workspaces can be unionized for a single view, see [Query data across Log Analytics workspaces, applications, and resources in Azure Monitor](/azure/azure-monitor/logs/cross-workspace-query).
 
   - name: Flow logs
     questions:

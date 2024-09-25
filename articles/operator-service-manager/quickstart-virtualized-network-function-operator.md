@@ -25,11 +25,11 @@ This quickstart contains the prerequisite tasks for Operator and Virtualized Net
     az account set --subscription "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     ```
 1. Create the Resource Group.
-    
+
     ```azurecli
     az group create --name OperatorResourceGroup  --location uksouth
     ```
-    
+
     > [!NOTE]
     > The Resource Group you create here is used for further deployment.
 
@@ -42,17 +42,17 @@ This quickstart contains the prerequisite tasks for Operator and Virtualized Net
     param subnetName string = 'ubuntu-vm-subnet'
     param subnetAddressPrefix string
     param identityName string = 'identity-for-ubuntu-vm-sns'
-    
+
     resource networkSecurityGroup 'Microsoft.Network/networkSecurityGroups@2022-05-01' ={
       name: '${vnetName}-nsg'
       location: location
     }
-    
+
     resource virtualNetwork 'Microsoft.Network/virtualNetworks@2019-11-01' = {
       name: vnetName
       location: location
       properties: {
-    
+
         addressSpace: {
           addressPrefixes: [vnetAddressPrefixes]
         }
@@ -69,12 +69,12 @@ This quickstart contains the prerequisite tasks for Operator and Virtualized Net
         ]
       }
     }
-    
+
     resource managedIdentity 'Microsoft.ManagedIdentity/userAssignedIdentities@2018-11-30' = {
       name: identityName
       location: location
     }
-    
+
     output managedIdentityId string = managedIdentity.id
     output vnetId string = virtualNetwork.id
     ```
@@ -107,8 +107,6 @@ This quickstart contains the prerequisite tasks for Operator and Virtualized Net
     ```
 1. The script creates a Virtual Network, a Network Security Group and the Managed Identity.
 
-   
-
 ## Locate Resource ID for managed identity
 
 1. **Login to Azure portal**: Open a web browser and sign in to the Azure portal (https://portal.azure.com/) using your Azure account credentials.
@@ -130,11 +128,11 @@ This quickstart contains the prerequisite tasks for Operator and Virtualized Net
 1. **Copy to clipboard**: Select the **Copy** button or icon next to the Resource ID to copy it to your clipboard.
 1. **Save copied Resource ID**: Save the copied Resource ID as this information is required for the **Config Group Values** when creating the Site Network Service.
 
-    :::image type="content" source="media/resource-id-ubuntu-vm-vnet.png" alt-text="Screenshot showing Virtual network Properties and the Resource ID.":::
+    :::image type="content" source="media/resource-id-ubuntu-vm-vnet.png" alt-text="Screenshot showing Virtual network Properties and the Resource ID." lightbox="media/resource-id-ubuntu-vm-vnet.png":::
 
 ## Update Site Network Service (SNS) permissions
 
-To perform this task, you need either the 'Owner' or 'User Access Administrator' role in the respective Resource Group.
+To perform this task, you need the 'User Access Administrator' role over the respective Resource Group.
 In prior steps, you created a Managed Identity labeled *identity-for-ubuntu-vm-sns* inside your reference resource group. This identity plays a crucial role in deploying the Site Network Service. (SNS). Grant the identity 'Contributor' permissions for relevant resources. These actions facilitate the connection of the Virtual Machine (VM) to the Virtual Network (VNET). Through this identity, the Site Network Service (SNS) attains the required permissions.
 
 In prior steps, you created a Managed Identity labeled identity-for-ubuntu-vm-sns inside your reference resource group. This identity plays a crucial role in deploying the Site Network Service (SNS). Grant the identity 'Contributor' permissions for relevant resources. These actions facilitate the deployment of the Virtual Network Function and the connection of the Virtual Machine (VM) to the Virtual Network (VNET). Through this identity, the Site Network Service (SNS) attains the required permissions.
@@ -146,17 +144,17 @@ In prior steps, you created a Managed Identity labeled identity-for-ubuntu-vm-sn
 1. In the side menu of the Virtual Network, select **Access Control (IAM)**.
 1. Choose **Add Role Assignment**.
 
-    :::image type="content" source="media/add-role-assignment-ubuntu-vm-vnet.png" alt-text="Screenshot showing Virtual Access control (IAM) area to Add role assignment.":::        
+    :::image type="content" source="media/add-role-assignment-ubuntu-vm-vnet.png" alt-text="Screenshot showing Virtual Access control (IAM) area to Add role assignment." lightbox="media/add-role-assignment-ubuntu-vm-vnet.png":::
 
 1. Under the **Privileged administrator roles**, category pick *Contributor* then proceed with **Next**.
 
-    :::image type="content" source="media/privileged-admin-roles-contributor-ubuntu.png" alt-text="Screenshot showing the Add role assignment window and Contributor with description.":::
+    :::image type="content" source="media/privileged-admin-roles-contributor-ubuntu.png" alt-text="Screenshot showing the 'Add role assignment' window and Contributor with description." lightbox="media/privileged-admin-roles-contributor-ubuntu.png":::
 
 1. Select **Managed identity**.
 1. Choose **+ Select members** then find and choose the user-assigned managed identity **identity-for-ubuntu-vm-sns**.
 1. Select **Review and assign**.
 
-    :::image type="content" source="media/managed-identity-select-members-ubuntu.png" alt-text="Screenshot showing Managed identity and + Select members.":::
+    :::image type="content" source="media/managed-identity-select-members-ubuntu.png" alt-text="Screenshot showing Managed identity and + Select members." lightbox="media/managed-identity-select-members-ubuntu.png":::
 
 ### Grant Contributor role over publisher Resource Group to Managed Identity
 
@@ -165,18 +163,18 @@ In prior steps, you created a Managed Identity labeled identity-for-ubuntu-vm-sn
 1. In the side menu of the Resource Group, select **Access Control (IAM)**.
 1. Choose **Add Role Assignment**.
 
-    :::image type="content" source="media/how-to-assign-custom-role-resource-group.png" alt-text="Screen shot showing the ubuntu publisher resource screen where you add role assignment.":::
-     
+    :::image type="content" source="media/how-to-assign-custom-role-resource-group.png" alt-text="Screen shot showing the ubuntu publisher resource screen where you add role assignment." lightbox="media/how-to-assign-custom-role-resource-group.png":::
+
 
 1. Under the **Privileged administrator roles**, category pick *Contributor* then proceed with **Next**.
 
-    :::image type="content" source="media/privileged-admin-roles-contributor-resource-group.png" alt-text="Screenshot show privileged administrator roles with owner of contributor.":::
+    :::image type="content" source="media/privileged-admin-roles-contributor-resource-group.png" alt-text="Screenshot show privileged administrator roles with owner of contributor." lightbox="media/privileged-admin-roles-contributor-resource-group.png":::
 
 1. Select **Managed identity**.
 1. Choose **+ Select members** then find and choose the user-assigned managed identity **identity-for-ubuntu-vm-sns**.
 1. Select **Review and assign**.
 
-    :::image type="content" source="media/managed-identity-resource-group-select-members-ubuntu.png" alt-text="Screenshot showing the add role assignment screen with review + assign highlighted.":::
+    :::image type="content" source="media/managed-identity-resource-group-select-members-ubuntu.png" alt-text="Screenshot showing the 'Add role assignment' screen with review + assign highlighted." lightbox="media/managed-identity-resource-group-select-members-ubuntu.png":::
 
 ### Grant Managed Identity Operator role to itself
 
@@ -185,21 +183,21 @@ In prior steps, you created a Managed Identity labeled identity-for-ubuntu-vm-sn
 1. On the side menu, select **Access Control (IAM)**.
 1. Choose **Add Role Assignment**.
 
-    :::image type="content" source="media/quickstart-virtual-network-function-operator-add-role-assignment-screen.png" alt-text="Screenshot showing the identity for ubuntu VM SNS add role assignment.":::
+    :::image type="content" source="media/quickstart-virtual-network-function-operator-add-role-assignment-screen.png" alt-text="Screenshot showing the identity for ubuntu VM SNS add role assignment." lightbox="media/quickstart-virtual-network-function-operator-add-role-assignment-screen.png":::
 
 
 1. Select the **Managed Identity Operator** role then proceed with **Next**.
 
-    :::image type="content" source="media/managed-identity-operator-role-virtual-network-function.png" alt-text="Screenshot showing the Managed Identity Operator role.":::
+    :::image type="content" source="media/managed-identity-operator-role-virtual-network-function.png" alt-text="Screenshot showing the Managed Identity Operator role." lightbox="media/managed-identity-operator-role-virtual-network-function.png":::
 
 1. Select **Managed identity**.
 1. Select **+ Select members** and navigate to the user-assigned managed identity called *identity-for-ubuntu-vm-sns* and proceed with the assignment.
 
-    :::image type="content" source="media/managed-identity-user-assigned-ubuntu.png" alt-text="Screenshot showing the Add role assignment screen with Managed identity selected.":::
+    :::image type="content" source="media/managed-identity-user-assigned-ubuntu.png" alt-text="Screenshot showing the 'Add role assignment' screen with Managed identity selected." lightbox="media/managed-identity-user-assigned-ubuntu.png":::
 
 1. Select **Review and assign**.
 
-Completion of all the tasks outlined in this article ensures that the Service Network Slice (SNS) has the necessary permissions to function effectively within the specified Azure environment.
+Completion of all the tasks outlined in this article ensures that the Site Network Service (SNS) has the necessary permissions to function effectively within the specified Azure environment.
 
 ## Next steps
 

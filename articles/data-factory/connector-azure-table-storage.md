@@ -4,11 +4,10 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from supported source stores to Azure Table storage, or from Table storage to supported sink stores, using Azure Data Factory or Synapse Analytics pipelines.
 ms.author: jianleishen
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 01/05/2024
+ms.date: 08/01/2024
 ---
 
 # Copy data to and from Azure Table storage using Azure Data Factory or Synapse Analytics
@@ -18,7 +17,7 @@ ms.date: 01/05/2024
 
 This article outlines how to use Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data to and from Azure Table storage. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of Copy Activity.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Supported capabilities
 
@@ -67,7 +66,14 @@ The following sections provide details about properties that are used to define 
 
 ## Linked service properties
 
-### Use an account key
+This Azure Table Storage connector supports the following authentication types. See the corresponding sections for details.
+
+- [Account key authentication](#account-key-authentication)
+- [Shared access signature authentication](#shared-access-signature-authentication)
+- [System-assigned managed identity authentication](#system-assigned-managed-identity-authentication)
+- [User-assigned managed identity authentication](#user-assigned-managed-identity-authentication)
+
+### Account key authentication
 
 You can create an Azure Storage linked service by using the account key. It provides the service with global access to Storage. The following properties are supported.
 
@@ -124,7 +130,7 @@ You can create an Azure Storage linked service by using the account key. It prov
 }
 ```
 
-### Use shared access signature authentication
+### Shared access signature authentication
 
 You also can create a Storage linked service by using a shared access signature. It provides the service with restricted/time-bound access to all/specific resources in the storage.
 
@@ -204,6 +210,92 @@ When you create a shared access signature URI, consider the following points:
 - Set appropriate read/write permissions on objects based on how the linked service (read, write, read/write) is used.
 - Set **Expiry time** appropriately. Make sure that the access to Storage objects doesn't expire within the active period of the pipeline.
 - The URI should be created at the right table level based on the need.
+
+### System-assigned managed identity authentication
+
+A data factory or Synapse pipeline can be associated with a [system-assigned managed identity for Azure resources](data-factory-service-identity.md#system-assigned-managed-identity), which represents that resource for authentication to other Azure services. You can use this system-assigned managed identity for Azure Table Storage authentication. To learn more about managed identities for Azure resources, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md)
+
+To use system-assigned managed identity authentication, follow these steps：
+
+1. [Retrieve system-assigned managed identity information](data-factory-service-identity.md#retrieve-managed-identity) by copying the value of the system-assigned managed identity object ID generated along with your factory or Synapse workspace.
+
+2. Grant the managed identity permission in Azure Table Storage. For more information on the roles, see this [article](../role-based-access-control/built-in-roles/storage.md#storage-table-data-contributor).
+
+    - **As source**, in **Access control (IAM)**, grant at least the **Storage Table Data Reader** role.
+    - **As sink**, in **Access control (IAM)**, grant at least the **Storage Table Data Contributor** role.
+
+These properties are supported for an Azure Table Storage linked service:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The **type** property must be set to **AzureTableStorage**. | Yes |
+| serviceEndpoint | Specify the Azure Table Storage service endpoint with the pattern of `https://<accountName>.table.core.windows.net/`. | Yes |
+| connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure Integration Runtime. If not specified, it uses the default Azure Integration Runtime. |No |
+
+>[!NOTE]
+>System-assigned managed identity authentication is only supported by Azure integration runtime.
+
+**Example:**
+
+```json
+{
+    "name": "AzureTableStorageLinkedService",
+    "properties": {
+        "type": "AzureTableStorage",
+        "typeProperties": {            
+            "serviceEndpoint": "https://<accountName>.table.core.windows.net/"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### User-assigned managed identity authentication
+
+A data factory can be assigned with one or multiple [user-assigned managed identities](data-factory-service-identity.md#user-assigned-managed-identity). You can use this user-assigned managed identity for Azure Table Storage authentication, which allows to access and copy data from or to Azure Table Storage. To learn more about managed identities for Azure resources, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md)
+
+To use user-assigned managed identity authentication, follow these steps:
+
+1. [Create one or multiple user-assigned managed identities](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) and grant permission in Azure Table Storage. For more information on the roles, see this [article](../role-based-access-control/built-in-roles/storage.md#storage-table-data-contributor).
+
+    - **As source**, in **Access control (IAM)**, grant at least the **Storage Table Data Reader** role.
+    - **As sink**, in **Access control (IAM)**, grant at least the **Storage Table Data Contributor** role.
+     
+2. Assign one or multiple user-assigned managed identities to your data factory and [create credentials](credentials.md) for each user-assigned managed identity. 
+
+These properties are supported for an Azure Table Storage linked service:
+
+| Property | Description | Required |
+|:--- |:--- |:--- |
+| type | The **type** property must be set to **AzureTableStorage**. | Yes |
+| serviceEndpoint | Specify the Azure Table Storage service endpoint with the pattern of `https://<accountName>.table.core.windows.net/`. | Yes |
+| credentials | Specify the user-assigned managed identity as the credential object. | Yes |
+| connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure Integration Runtime or the Self-hosted Integration Runtime (if your data store is located in a private network). If not specified, it uses the default Azure Integration Runtime. |No |
+
+**Example:**
+
+```json
+{
+    "name": "AzureTableStorageLinkedService",
+    "properties": {
+        "type": "AzureTableStorage",
+        "typeProperties": {            
+            "serviceEndpoint": "https://<accountName>.table.core.windows.net/",
+            "credential": {
+                "referenceName": "credential1",
+                "type": "CredentialReference"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
 
 ## Dataset properties
 

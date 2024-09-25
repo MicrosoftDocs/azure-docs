@@ -3,9 +3,9 @@ title: How to start or stop an Azure Spring Apps service instance
 description: Describes how to start or stop an Azure Spring Apps service instance
 author: KarlErickson
 ms.author: wepa
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 11/04/2021
+ms.date: 06/27/2024
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
@@ -113,4 +113,4 @@ The following list describes some common actions you can take to recover from th
 ## Next steps
 
 - [Monitor app lifecycle events using Azure Activity log and Azure Service Health](./monitor-app-lifecycle-events.md)
-- [Azure Monitor cost and usage](../../azure-monitor/cost-usage.md)
+- [Azure Monitor cost and usage](/azure/azure-monitor/cost-usage)

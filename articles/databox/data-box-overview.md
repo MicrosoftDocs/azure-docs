@@ -60,6 +60,8 @@ Data Box is designed to move large amounts of data to Azure with little to no im
 
 ## Features and specifications
 
+[!INCLUDE [data-box-cross-region](../../includes/data-box-cross-region.md)]
+
 The Data Box device has the following features in this release.
 
 | Specifications                                          | Description              |

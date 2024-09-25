@@ -4,7 +4,7 @@ description: This article helps you understand how to purge cache for an Azure F
 services: frontdoor
 author: duongau
 manager: KumudD
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 06/02/2023
 ms.author: duau
@@ -43,7 +43,7 @@ Review [caching with Azure Front Door](../front-door-caching.md) to understand h
    Cache purges for Azure Front Door are case-insensitive. Additionally, they're query string agnostic, which means to purge a URL purges all query-string variations of it. 
 
 > [!NOTE]
-> Cache purging can takes up to 10 mins to propagate across all Azure Front Door POP locations.
+> Cache purging can take up to 10 mins to propagate across all Azure Front Door POP locations.
 
 ## Next steps
 

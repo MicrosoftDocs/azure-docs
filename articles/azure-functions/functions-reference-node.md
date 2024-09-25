@@ -1422,11 +1422,9 @@ The response can be set in several ways:
 
 ::: zone-end
 
-## HTTP streams (preview)
+## HTTP streams
 
 HTTP streams is a feature that makes it easier to process large data, stream OpenAI responses, deliver dynamic content, and support other core HTTP scenarios. It lets you stream requests to and responses from HTTP endpoints in your Node.js function app. Use HTTP streams in scenarios where your app requires real-time exchange and interaction between client and server over HTTP. You can also use HTTP streams to get the best performance and reliability for your apps when using HTTP.
-
-HTTP streams is currently in preview.
 
 ::: zone pivot="nodejs-model-v3"  
 >[!IMPORTANT]
@@ -1494,9 +1492,9 @@ This example shows an HTTP triggered function that streams a file's content as t
   
 ---
 
-### Stream considerations
+For a ready-to-run sample app using streams, check out this example on [GitHub](https://github.com/Azure-Samples/azure-functions-nodejs-stream).
 
-+ The `request.params` object isn't supported when using HTTP streams during preview. Refer to this [GitHub issue](https://github.com/Azure/azure-functions-nodejs-library/issues/229) for more information and suggested workaround.
+### Stream considerations
 
 + Use `request.body` to obtain the maximum benefit from using streams. You can still continue to use methods like `request.text()`, which always return the body as a string.
 ::: zone-end  
@@ -1906,7 +1904,7 @@ This section describes several impactful patterns for Node.js apps that we recom
 
 ### Choose single-vCPU App Service plans
 
-When you create a function app that uses the App Service plan, we recommend that you select a single-vCPU plan rather than a plan with multiple vCPUs. Today, Functions runs Node.js functions more efficiently on single-vCPU VMs, and using larger VMs doesn't produce the expected performance improvements. When necessary, you can manually scale out by adding more single-vCPU VM instances, or you can enable autoscale. For more information, see [Scale instance count manually or automatically](../azure-monitor/autoscale/autoscale-get-started.md?toc=/azure/app-service/toc.json).
+When you create a function app that uses the App Service plan, we recommend that you select a single-vCPU plan rather than a plan with multiple vCPUs. Today, Functions runs Node.js functions more efficiently on single-vCPU VMs, and using larger VMs doesn't produce the expected performance improvements. When necessary, you can manually scale out by adding more single-vCPU VM instances, or you can enable autoscale. For more information, see [Scale instance count manually or automatically](/azure/azure-monitor/autoscale/autoscale-get-started?toc=/azure/app-service/toc.json).
 
 <a name="cold-start"></a>
 

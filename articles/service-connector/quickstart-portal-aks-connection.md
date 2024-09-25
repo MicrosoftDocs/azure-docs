@@ -17,7 +17,7 @@ Get started with Service Connector by using the Azure portal to create a new ser
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
-- An AKS cluster in a [region supported by Service Connector](./concept-region-support.md). If you don't have one yet, [create an AKS cluster](../aks/learn/quick-kubernetes-deploy-cli.md).
+- An AKS cluster in a [region supported by Service Connector](./concept-region-support.md). If you don't have one yet, [create an AKS cluster](/azure/aks/learn/quick-kubernetes-deploy-cli).
 
 ## Sign in to Azure
 
@@ -48,14 +48,17 @@ Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.
     ### [Workload identity](#tab/UMI)
 
     Select **Workload identity** to authenticate through [Microsoft Entra workload identity](/entra/workload-id/workload-identities-overview) to one or more instances of an Azure service. Then select a user-assigned managed identity to enable workload identity.
-
-    ### [Connection string](#tab/CS)
-    
-    Select **Connection string** to generate or configure one or multiple key-value pairs with pure secrets or tokens.
     
     ### [Service principal](#tab/SP)
     
     Select **Service principal** to use a service principal that defines the access policy and permissions for the user/application.
+
+    ### [Connection string](#tab/CS)
+    
+    > [!WARNING]
+    > Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
+
+    Select **Connection string** to generate or configure one or multiple key-value pairs with pure secrets or tokens.
 
     ---
 

@@ -4,7 +4,7 @@ titleSuffix: Azure Network Watcher
 description: Learn about Azure Network Watcher's effective security rules feature, which provides visibility into security and admin rules applied to a network interface.
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: concept-article
 ms.date: 09/15/2023
 #CustomerIntent: As an Azure administrator, I want to see the effective security rules applied to an Azure virtual machine (VM) instead of checking each network security group that applies to the VM.

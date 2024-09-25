@@ -4,7 +4,7 @@ description: Learn how to use the Azure Storage client library to upload large a
 author: akashdubey-ms
 ms.service: azure-blob-storage
 ms.topic: tutorial
-ms.date: 02/04/2021
+ms.date: 08/14/2024
 ms.author: akashdubey
 ms.devlang: csharp
 ---
@@ -44,6 +44,9 @@ In the Azure portal, navigate to your storage account. Select **Access keys** un
 ```console
 setx storageconnectionstring "<storageConnectionString>" /m
 ```
+
+> [!IMPORTANT]
+> This code example uses a connection string to authorize access to your storage account. This configuration is for example purposes. Connection strings and account access keys should be used with caution in application code. If your account access key is lost or accidentally placed in an insecure location, your service may become vulnerable. Anyone who has the access key is able to authorize requests against the storage account, and effectively has access to all the data.
 
 When finished, open another **Command Prompt**, navigate to `D:\git\storage-dotnet-perf-scale-app` and type `dotnet build` to build the application.
 

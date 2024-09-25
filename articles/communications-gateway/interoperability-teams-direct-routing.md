@@ -3,7 +3,7 @@ title: Overview of Microsoft Teams Direct Routing with Azure Communications Gate
 description: Understand how Azure Communications Gateway works with Microsoft Teams Direct Routing and your fixed network.
 author: rcdun
 ms.author: rdunstan
-ms.service: communications-gateway
+ms.service: azure-communications-gateway
 ms.topic: conceptual
 ms.date: 03/31/2024
 ms.custom: template-concept
@@ -57,19 +57,18 @@ Each of your customers needs _customer subdomains_ of these per-region domains. 
 
 For each customer, you must:
 
-1. Choose a suitable subdomain. The label for the subdomain must:
-    - Contain only letters, numbers, underscores, and dashes.
-    - Be up to **eight** characters in length.
-    - Not contain a wildcard or multiple labels separated by `.`.
+1. Choose a suitable customer-specific DNS label to form the subdomains.
+    - The label must be up to **nine** characters in length and can only contain letters, numbers, underscores, and dashes.
+    - You must not use wildcard subdomains or subdomains with multiple labels.
+    - For example, you could allocate the label `contoso`.
     > [!IMPORTANT]
-    > The full customer subdomain (including the regional subdomains and the base domain) must be a maximum of 48 characters. Microsoft Entra ID does not support domain names of more than 48 characters. For example, the customer subdomain `contoso1.1-r1.a1b2c3d4e5f6g7h8.commsgw.azure.com` is 48 characters.
-2. Configure Azure Communications Gateway with this information, as part of "account" configuration available in Azure Communications Gateway's Number Management Portal and Provisioning API.
-3. Liaise with the customer to update their tenant with the appropriate subdomain, by following the [Microsoft Teams documentation for registering subdomain names in customer tenants](/microsoftteams/direct-routing-sbc-multiple-tenants#register-a-subdomain-name-in-a-customer-tenant).
+    > The full customer subdomains (including the per-region domain names) must be a maximum of 48 characters. Microsoft Entra ID does not support domain names of more than 48 characters. For example, the customer subdomain `contoso1.1r1.a1b2c3d4e5f6g7h8.commsgw.azure.com` is 48 characters.
+1. Configure Azure Communications Gateway with this information, as part of "account" configuration available in Azure Communications Gateway's Number Management Portal and Provisioning API.
+1. Liaise with the customer to update their tenant with the appropriate subdomain, by following the [Microsoft Teams documentation for registering subdomain names in customer tenants](/microsoftteams/direct-routing-sbc-multiple-tenants#register-a-subdomain-name-in-a-customer-tenant).
 
 As part of arranging updates to customer tenants, you must create DNS records containing a verification code (provided by Microsoft 365 when the customer updates their tenant with the domain name) on a DNS server that you control. These records allow Microsoft 365 to verify that the customer tenant is authorized to use the domain name. Azure Communications Gateway provides the DNS server that you must use. You must obtain the verification code from the customer and upload it to Azure Communications Gateway with the Number Management Portal (preview) or the Provisioning API (preview). This step allows Azure Communications Gateway to generate the DNS TXT records that verify the domain.
 
-> [!TIP]
-> For a walkthrough of setting up a customer tenant and numbers for your testing, see [Configure a test customer for Microsoft Teams Direct Routing with Azure Communications Gateway](configure-test-customer-teams-direct-routing.md) and [Configure test numbers for Microsoft Teams Direct Routing with Azure Communications Gateway](configure-test-numbers-teams-direct-routing.md). When you onboard a real customer, you'll need to follow a similar process, but you'll typically need to ask your customer to carry out the steps that need access to their tenant.
+For instructions, see [Manage Microsoft Teams Direct Routing customers and numbers with Azure Communications Gateway](manage-enterprise-teams-direct-routing.md).
 
 ## Support for caller ID screening
 

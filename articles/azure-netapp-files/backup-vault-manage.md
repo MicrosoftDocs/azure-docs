@@ -5,10 +5,10 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 10/27/2022
+ms.date: 04/24/2024
 ms.author: anfdocs
 ---
-# Manage backup vaults for Azure NetApp Files (preview)
+# Manage backup vaults for Azure NetApp Files
 
 Backup vaults store the backups for your Azure NetApp Files subscription.
 

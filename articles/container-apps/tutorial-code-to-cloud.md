@@ -3,7 +3,7 @@ title: "Tutorial: Build and deploy your app to Azure Container Apps"
 description: Build and deploy your app to Azure Container Apps with az containerapp create command.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom:
   - devx-track-azurecli
   - devx-track-azurepowershell
@@ -38,7 +38,7 @@ To complete this project, you need the following items:
 
 | Requirement | Instructions |
 |--|--|
-| Azure account | If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). You need the *Contributor* or *Owner* permission on the Azure subscription to proceed. <br><br>Refer to [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml?tabs=current) for details. |
+| Azure account | If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). You need the *User Access Administrator* or *Owner* permission on the Azure subscription to proceed. Make sure to use the most restrictive role for your context. <br><br>See [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml?tabs=current) and [Azure roles, Microsoft Entra roles, and classic subscription administrator roles](/azure/role-based-access-control/rbac-and-directory-admin-roles)for details. |
 | GitHub Account | Sign up for [free](https://github.com/join). |
 | git | [Install git](https://git-scm.com/downloads) |
 | Azure CLI | Install the [Azure CLI](/cli/azure/install-azure-cli).|
@@ -57,7 +57,9 @@ To complete this project, you need the following items:
 
 ::: zone-end
 
-[!INCLUDE [container-apps-setup-cli-only.md](../../includes/container-apps-setup-cli-only.md)]
+[!INCLUDE [container-apps-create-cli-steps.md](../../includes/container-apps-create-cli-steps.md)]
+
+## Create environment variables
 
 Now that your Azure CLI setup is complete, you can define the environment variables that are used throughout this article.
 
@@ -139,25 +141,7 @@ Next, change the directory into the root of the cloned repo.
 cd code-to-cloud/src
 ```
 
-## Create an Azure resource group
-
-Create a resource group to organize the services related to your container app deployment.
-
-# [Bash](#tab/bash)
-
-```azurecli
-az group create \
-  --name $RESOURCE_GROUP \
-  --location "$LOCATION"
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-New-AzResourceGroup -Location $Location -Name $ResourceGroup
-```
-
----
+[!INCLUDE [container-apps-create-resource-group.md](../../includes/container-apps-create-resource-group.md)]
 
 ## Create an Azure Container Registry
 
@@ -185,7 +169,7 @@ $acr = New-AzContainerRegistry -ResourceGroupName $ResourceGroup -Name $ACRName 
 
 ## Build your application
 
-With [ACR tasks](../container-registry/container-registry-tasks-overview.md), you can build and push the docker image for the album API without installing Docker locally.
+With [ACR tasks](/azure/container-registry/container-registry-tasks-overview), you can build and push the docker image for the album API without installing Docker locally.
 
 ### Build the container with ACR
 
@@ -333,7 +317,7 @@ az containerapp create \
   --environment $ENVIRONMENT \
   --image $ACR_NAME.azurecr.io/$API_NAME \
   --target-port 8080 \
-  --ingress 'external' \
+  --ingress external \
   --registry-server $ACR_NAME.azurecr.io \
   --query properties.configuration.ingress.fqdn
 ```
