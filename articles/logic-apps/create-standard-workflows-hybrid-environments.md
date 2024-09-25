@@ -19,11 +19,6 @@ ms.date: 09/30/2024
 
 For scenarios where you need to control and manage your own infrastructure, Azure Logic Apps supports creating Standard workflows that can run in hybrid environments, which can include on-premises systems, private clouds, and public clouds. This hybrid solution is useful when you have partially connected scenarios that require local processing, storage, and network access.
 
-> [!IMPORTANT]
->
-> Standard workflows for hybrid environments are created within a [Container App resource](/azure/container-apps/overview) 
-> that has **Hybrid Logic App** type and is listed under **Container Apps**. 
-
 ## Limitations
 
 The following capabilities currently aren't available in the preview release:
@@ -225,7 +220,7 @@ To test the connection between your AKS cluster and your SMB file share and chec
 
 1. When you finish, select **Review + create**. Confirm the provided information, and select **Create**.
 
-   Azure creates and deploys your hybrid logic app as a container app with **Hybrid Logic App** type. Your hybrid logic app appears under **Container Apps** in the Azure portal. You can create, edit, and manage workflows as usual from the Azure portal.
+   Azure creates and deploys your hybrid logic app as a [Container App resource](/azure/container-apps/overview) with **Hybrid Logic App** type. In this release, your hybrid logic app appears in the Azure portal under **Container Apps** and not **Logic apps**. You can create, edit, and manage workflows as usual from the Azure portal.
 
 1. To review the app settings, on the container app menu, under **Settings**, select **Containers**, and then select the **Environment variables** tab.
 
@@ -247,7 +242,7 @@ Before you create and deploy with Visual Studio Code, complete the following req
 
 1. Browse to the folder where you want to save your hybrid logic app project. Create a folder for your project, select that folder, and then select **Select**.
 
-1. From the list that appears, select **Create new Logic App (Standard) in Azure**. Provide a globally unique name in lowercase letters for your hybrid logic app.
+1. From the list that appears, select **Create new Logic App (Standard) in Azure**. Provide a globally unique hybrid logic app name that uses only lowercase alphanumeric characters or hyphens.
 
    This example uses **my-hybrid-logic-app**.
 
@@ -261,13 +256,18 @@ Before you create and deploy with Visual Studio Code, complete the following req
 
 1. From the connected environment list, select your environment.
 
-1. Provide your previously saved values for the host IP address, SMB file share path, username, and password for your artifacts storage.
+1. Provide your previously saved values for the host name, SMB file share path, username, and password for your artifacts storage.
 
 1. Provide the connection string for the SQL database that you set up for runtime storage.
 
-You can monitor the deployment status under Azure Activity logs.  
+You can monitor the deployment status under Azure Activity logs. Azure creates and deploys your hybrid logic app as a [Container App resource](/azure/container-apps/overview) with **Hybrid Logic App** type. In this release, your hybrid logic app appears in the Azure portal under **Container Apps** and not **Logic apps**. You can create, edit, and manage workflows as usual from the Azure portal.
 
 ## Known issues and troubleshooting
+
+### Azure portal
+
+- Hybrid logic apps appear in the Azure portal under the **Container Apps** resource list and not the **Logic apps** resource list.
+- To reflect changes in the designer after you save your workflow, you might have to occasionally refresh the designer.
 
 ### AKS clusters
 
