@@ -33,9 +33,8 @@ ms.custom: include file, ignite-2023, devx-track-azurecli
 1. Download and install a preview version of the `connectedk8s` extension for Azure CLI.
 
    ```azurecli
-   az storage blob download --auth-mode login --blob-url https://github.com/AzureArcForKubernetes/azure-cli-extensions/blob/connectedk8s/public/cli-extensions/connectedk8s-1.10.0-py2.py3-none-any.whl -f ./connectedk8s-1.10.0-py2.py3-none-any.whl
-   
-   az extension add --upgrade --source ./connectedk8s-1.10.0-py2.py3-none-any.whl
+   curl -L -o connectedk8s-1.10.0-py2.py3-none-any.whl https://github.com/AzureArcForKubernetes/azure-cli-extensions/raw/refs/heads/connectedk8s/public/cli-extensions/connectedk8s-1.10.0-py2.py3-none-any.whl   
+   az extension add --upgrade --source connectedk8s-1.10.0-py2.py3-none-any.whl
    ```
 
 1. Use the [az connectedk8s connect](/cli/azure/connectedk8s#az-connectedk8s-connect) command to Arc-enable your Kubernetes cluster and manage it as part of your Azure resource group:
@@ -85,7 +84,7 @@ ms.custom: include file, ignite-2023, devx-track-azurecli
 
 1. Save the file and exit the nano editor.
 
-1. Get the `objectId` of the Microsoft Entra ID application that the Azure Arc service uses and save it as an environment variable.
+1. Get the `objectId` of the Microsoft Entra ID application that the Azure Arc service uses in your tenant and save it as an environment variable.
 
    ```azurecli
    export OBJECT_ID=$(az ad sp show --id bc313c14-388c-4e7d-a58e-70017303ee3b --query id -o tsv)
