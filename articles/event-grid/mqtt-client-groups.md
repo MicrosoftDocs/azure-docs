@@ -45,6 +45,8 @@ Here are a few sample queries:
 
 In group queries, following operands are allowed:
 - Equality operator "="
+- Parentheses "()" to group expressions to control the order of operations
+- Logical operators "and" , "or" , "and" has higher precedence than "or"
 - Not equal operator in two forms "<>" and "!="
 - Less than "<", greater than ">", less than equal to "<=", greater than equal to ">=" for long integer values
 - "IN" to compare with a set of values

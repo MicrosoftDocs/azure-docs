@@ -236,6 +236,8 @@
       href: front-door-faq.yml
   - name: CDN
     items:
+    - name: About migration to Azure Front Door
+      href: ../cdn/tier-migration.md?toc=/azure/frontdoor/TOC.json
     - name: CDN and Front Door price comparison
       href: compare-cdn-front-door-price.md
     - name: Migrate CDN provider
@@ -320,6 +322,8 @@
             href: standard-premium/how-to-enable-private-link-web-app.md
           - name: Azure CLI
             href: standard-premium/how-to-enable-private-link-web-app-cli.md
+        - name: Connect to an application gateway
+          href: how-to-enable-private-link-application-gateway.md
       - name: Monitor and reports
         items:
         - name: Configure diagnostic logs
@@ -334,7 +338,7 @@
           href: integrate-storage-account.md
         - name: Azure API Management
           href: ../api-management/front-door-api-management.md?toc=/azure/frontdoor/toc.json
-        - name: Azure Open AI
+        - name: Azure OpenAI
           href: ../web-application-firewall/afds/protect-azure-open-ai.md?toc=/azure/frontdoor/toc.json
         - name: Azure Static Web Apps
           href: ../static-web-apps/front-door-manual.md?toc=/azure/frontdoor/toc.json
@@ -390,6 +394,8 @@
     items:
     - name: Microsoft (classic)
       items:
+      - name: Migrate to Azure Front Door
+        href: ../cdn/migrate-tier.md?toc=/azure/frontdoor/TOC.json
       - name: Optimized content
         href: ../cdn/cdn-optimization-overview.md?toc=/azure/frontdoor/TOC.json
         items:

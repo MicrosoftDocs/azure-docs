@@ -1,5 +1,5 @@
 ---
-title: Export data to Azure Data Explorer IoT Central
+title: Export data to Azure Data Explorer
 description: Learn how to use the IoT Central data export capability to continuously export your IoT data to Azure Data Explorer
 services: iot-central
 author: dominicbetts

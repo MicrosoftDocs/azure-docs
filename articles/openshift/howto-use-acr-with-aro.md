@@ -14,9 +14,9 @@ Azure Container Registry (ACR) is a managed container registry service that you 
 
 ## Prerequisites
 
-This guide assumes that you have an existing Azure Container Registry. If you do not, use the Azure portal or [Azure CLI instructions](../container-registry/container-registry-get-started-azure-cli.md) to create a container registry.
+This guide assumes that you have an existing Azure Container Registry. If you do not, use the Azure portal or [Azure CLI instructions](/azure/container-registry/container-registry-get-started-azure-cli) to create a container registry.
 
-This article also assumes that you have an existing Azure Red Hat OpenShift cluster and have the `oc` CLI installed. If not, follow instructions in the [Create ARO cluster tutorial](tutorial-create-cluster.md).
+This article also assumes that you have an existing Azure Red Hat OpenShift cluster and have the `oc` CLI installed. If not, follow instructions in the [Create ARO cluster tutorial](create-cluster.md).
 
 ## Get a pull secret
 
@@ -85,5 +85,5 @@ hello-world  1/1     Running   0          30s
 
 ## Next steps
 
-* [Azure Container Registry](../container-registry/container-registry-concepts.md)
-* [Quickstart: Create a private container registry using the Azure CLI](../container-registry/container-registry-get-started-azure-cli.md)
+* [Azure Container Registry](/azure/container-registry/container-registry-concepts)
+* [Quickstart: Create a private container registry using the Azure CLI](/azure/container-registry/container-registry-get-started-azure-cli)

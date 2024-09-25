@@ -6,7 +6,7 @@ summary: Learn how to use Azure Bastion to connect to a virtual machine. Configu
 metadata:
   title: Azure Bastion documentation
   description: Learn how to use Azure Bastion to connect to a virtual machine. Configure secure and seamless RDP/SSH connectivity to your virtual machines directly in the Azure portal over SSL.
-  ms.service: bastion
+  ms.service: azure-bastion
   ms.topic: landing-page
   author: cherylmc
   ms.author: cherylmc

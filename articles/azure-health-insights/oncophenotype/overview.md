@@ -13,6 +13,14 @@ ms.author: behoorne
 
 
 # What is Onco-Phenotype (Preview)?
+> [!IMPORTANT]
+> Onco-Phenotype will be retired on July 31st, 2024, at which time the Onco-Phenotype model will no longer be available.  
+> 
+> The Onco-Phenotype model is being retired, but please note that all other models within Azure Health Insights will remain available. The container image for Onco-Phenotype will also be removed from the [Microsoft Artifact Registry](https://mcr.microsoft.com). If you’ve downloaded the image and have it deployed in your own hosting environment, the Onco-phenotype model will cease to function.
+> 
+> If you have Azure AI Health Insights deployed via the Azure Portal, it will continue to work as usual, but the Onco-Phenotype endpoint will no longer be available. As per the standard operating procedure for the Onco-Phenotype model, API results are available for 24 hours from the time the request was created, after which the results are purged. We will honor this commitment up until the model is retired.  
+>
+> We understand that you may have questions regarding this retirement. Please reach out to our Customer Service and Support (CSS) team for assistance. If you don’t currently have CSS support, you can purchase support [here](https://azure.microsoft.com/support/plans/).  
 
 Onco-Phenotype is an AI model that’s offered within the context of the broader Azure AI Health Insights. It augments traditional clinical natural language processing tools by enabling healthcare organizations to rapidly identify key cancer attributes within their patient populations.
 

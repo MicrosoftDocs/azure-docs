@@ -7,7 +7,7 @@ author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 05/17/2023
 ms.topic: how-to
-ms.service: digital-twins
+ms.service: azure-digital-twins
 ms.custom: engagement-fy23
 
 # Optional fields. Don't forget to remove # if you need a field.
@@ -18,7 +18,7 @@ ms.custom: engagement-fy23
 
 # Monitor Azure Digital Twins with metrics, alerts, and diagnostics
 
-Azure Digital Twins integrates with [Azure Monitor](../azure-monitor/overview.md) to provide metrics and diagnostic information that you can use to monitor your Azure Digital Twins resources. **Metrics** are enabled by default, and give you information about the state of Azure Digital Twins resources in your Azure subscription. **Alerts** can proactively notify you when certain conditions are found in your metrics data. You can also collect **diagnostic logs** for your service instance to monitor its performance, access, and other data. 
+Azure Digital Twins integrates with [Azure Monitor](/azure/azure-monitor/overview) to provide metrics and diagnostic information that you can use to monitor your Azure Digital Twins resources. **Metrics** are enabled by default, and give you information about the state of Azure Digital Twins resources in your Azure subscription. **Alerts** can proactively notify you when certain conditions are found in your metrics data. You can also collect **diagnostic logs** for your service instance to monitor its performance, access, and other data. 
 
 These monitoring features can help you assess the overall health of the Azure Digital Twins service and the resources connected to it. You can use them to understand what is happening in your Azure Digital Twins instance, and analyze root causes on issues without needing to contact Azure support.
 
@@ -28,7 +28,7 @@ They can be accessed from the [Azure portal](https://portal.azure.com), grouped 
 
 ## Metrics and alerts
 
-For general information about viewing Azure resource **metrics**, see [Get started with metrics explorer](../azure-monitor/essentials/metrics-getting-started.md) in the Azure Monitor documentation. For general information about configuring **alerts** for Azure metrics, see [Create a new alert rule](../azure-monitor/alerts/alerts-create-new-alert-rule.md?tabs=metric).
+For general information about viewing Azure resource **metrics**, see [Get started with metrics explorer](/azure/azure-monitor/essentials/metrics-getting-started) in the Azure Monitor documentation. For general information about configuring **alerts** for Azure metrics, see [Create a new alert rule](/azure/azure-monitor/alerts/alerts-create-new-alert-rule?tabs=metric).
 
 The rest of this section describes the metrics tracked by each Azure Digital Twins instance, and how each metric relates to the overall status of your instance.
 
@@ -36,7 +36,7 @@ The rest of this section describes the metrics tracked by each Azure Digital Twi
 
 You can configure these metrics to track when you're approaching a [published service limit](reference-service-limits.md#functional-limits) for some aspect of your solution. 
 
-To set up tracking, use the [alerts](../azure-monitor/alerts/alerts-overview.md) feature in Azure Monitor. You can define thresholds for these metrics so that you receive an alert when a metric reaches a certain percentage of its published limit.
+To set up tracking, use the [alerts](/azure/azure-monitor/alerts/alerts-overview) feature in Azure Monitor. You can define thresholds for these metrics so that you receive an alert when a metric reaches a certain percentage of its published limit.
 
 | Metric | Metric display name | Unit | Aggregation type| Description | Dimensions |
 | --- | --- | --- | --- | --- | --- |
@@ -113,7 +113,7 @@ Dimensions help identify more details about the metrics. Some of the routing met
 
 ## Diagnostics logs
 
-For general information about Azure **diagnostics settings**, including how to enable them, see [Diagnostic settings in Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md). For information about querying diagnostic logs using **Log Analytics**, see [Overview of Log Analytics in Azure Monitor](../azure-monitor/logs/log-analytics-overview.md).
+For general information about Azure **diagnostics settings**, including how to enable them, see [Diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings). For information about querying diagnostic logs using **Log Analytics**, see [Overview of Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview).
 
 The rest of this section describes the diagnostic log categories that Azure Digital Twins can collect, and their schemas.
 
@@ -395,4 +395,4 @@ Here's an example JSON body for an `ADTEventRoutesOperation` that of `Microsoft.
 
 ## Next steps
 
-Read more about Azure Monitor and its capabilities in the [Azure Monitor documentation](../azure-monitor/overview.md).
+Read more about Azure Monitor and its capabilities in the [Azure Monitor documentation](/azure/azure-monitor/overview).

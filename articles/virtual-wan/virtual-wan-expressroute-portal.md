@@ -2,7 +2,7 @@
 title: 'Tutorial: Create an ExpressRoute association to Azure Virtual WAN'
 description: In this tutorial, learn how to use Azure Virtual WAN to create ExpressRoute connections to Azure and on-premises environments.
 author: cherylmc
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: tutorial
 ms.date: 04/28/2023
 ms.author: cherylmc
@@ -39,7 +39,7 @@ Verify that you've met the following criteria before beginning your configuratio
 
 ## <a name="openvwan"></a>Create a virtual WAN
 
-[!INCLUDE [Create a virtual WAN](~/reusable-content/ce-skilling/azure/includes/virtual-wan-create-vwan-include.md)]
+[!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-create-vwan-include.md)]
 
 ## <a name="hub"></a>Create a virtual hub and gateway
 
@@ -52,7 +52,7 @@ Create a new virtual hub. Once a hub is created, you'll be charged for the hub, 
 
 #### Basics page
 
-[!INCLUDE [Create a hub](~/reusable-content/ce-skilling/azure/includes/virtual-wan-hub-basics.md)]
+[!INCLUDE [Create a hub](../../includes/virtual-wan-hub-basics.md)]
 
 #### ExpressRoute page
 

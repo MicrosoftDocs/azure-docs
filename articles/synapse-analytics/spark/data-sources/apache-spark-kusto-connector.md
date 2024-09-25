@@ -2,7 +2,7 @@
 title: Azure Data Explorer (Kusto) 
 description: This article provides information on how to use the  connector for moving data between Azure Data Explorer (Kusto) and serverless Apache Spark pools.
 ms.author: midesa 
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.subservice: spark
 ms.date: 05/19/2020 

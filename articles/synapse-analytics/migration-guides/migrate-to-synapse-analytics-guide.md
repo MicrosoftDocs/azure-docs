@@ -1,7 +1,7 @@
 ---
 title: "Azure Synapse Analytics: Migration guide"
 description: Follow this guide to migrate your databases to an Azure Synapse Analytics dedicated SQL pool. 
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql
 ms.topic: conceptual
 author: WilliamDAssafMSFT

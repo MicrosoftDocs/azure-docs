@@ -6,7 +6,7 @@ author: sethmanheim
 manager: femila
 
 
-ms.service: notification-hubs
+ms.service: azure-notification-hubs
 ms.tgt_pltfrm: python
 ms.devlang: php
 ms.topic: article

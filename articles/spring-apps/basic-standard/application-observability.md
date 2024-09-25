@@ -3,9 +3,9 @@ title: Optimize application observability for Azure Spring Apps
 description: Learn how to observe the application of Azure Spring Apps.
 author: karlerickson
 ms.author: v-shilichen
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 10/02/2023
+ms.date: 08/28/2024
 ms.custom: devx-track-java
 ---
 
@@ -36,8 +36,8 @@ This article uses the well-known [PetClinic](https://github.com/azure-samples/sp
 
 Log Analytics and Application Insights are deeply integrated with Azure Spring Apps. You can use Log Analytics to diagnose your application with various log queries and use Application Insights to investigate production issues. For more information, see the following articles:
 
-- [Overview of Log Analytics in Azure Monitor](../../azure-monitor/logs/log-analytics-overview.md)
-- [Azure Monitor Insights overview](../../azure-monitor/insights/insights-overview.md)
+- [Overview of Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview)
+- [Azure Monitor Insights overview](/azure/azure-monitor/insights/insights-overview)
 
 ## Prerequisites
 
@@ -51,8 +51,8 @@ If you encounter production issues, you need to do a root cause analysis. Findin
 
 This section explains how to use Log Analytics to query the application logs and use Application Insights to investigate request failures. For more information, see the following articles:
 
-- [Log Analytics tutorial](../../azure-monitor/logs/log-analytics-tutorial.md)
-- [Application Map: Triage distributed applications](../../azure-monitor/app/app-map.md)
+- [Log Analytics tutorial](/azure/azure-monitor/logs/log-analytics-tutorial)
+- [Application Map: Triage distributed applications](/azure/azure-monitor/app/app-map)
 
 ### Log queries
 

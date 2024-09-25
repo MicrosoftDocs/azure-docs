@@ -1,14 +1,15 @@
 ---
-title: FSLogix profile containers NetApp Azure Virtual Desktop - Azure
-description: How to create an FSLogix profile container using Azure NetApp Files in Azure Virtual Desktop.
-author: Heidilohr
+title: Configure FSLogix profile container on Azure Virtual Desktop with Azure NetApp Files
+description: Learn how to configure FSLogix profile container on Azure Virtual Desktop with Azure NetApp Files.
+author: dknappettmsft
 ms.topic: how-to
 ms.date: 07/01/2020
-ms.author: helohr
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
-# Create a profile container with Azure NetApp Files
+# Configure FSLogix profile container on Azure Virtual Desktop with Azure NetApp Files
 
-We recommend using FSLogix profile containers as a user profile solution for the [Azure Virtual Desktop service](overview.md). FSLogix profile containers store a complete user profile in a single container and are designed to roam profiles in non-persistent remote computing environments like Azure Virtual Desktop. When you sign in, the container dynamically attaches to the computing environment using a locally supported virtual hard disk (VHD) and Hyper-V virtual hard disk (VHDX). These advanced filter-driver technologies allow the user profile to be immediately available and appear in the system exactly like a local user profile. To learn more about FSLogix profile containers, see [FSLogix profile containers and Azure Files](fslogix-containers-azure-files.md).
+We recommend using FSLogix profile containers as a user profile solution for the [Azure Virtual Desktop service](overview.md). FSLogix profile containers store a complete user profile in a single container and are designed to roam profiles in non-persistent remote computing environments like Azure Virtual Desktop. When you sign in, the container dynamically attaches to the computing environment using a locally supported virtual hard disk (VHD) and Hyper-V virtual hard disk (VHDX). These advanced filter-driver technologies allow the user profile to be immediately available and appear in the system exactly like a local user profile. To learn more about FSLogix profile containers, see [User profile management for Azure Virtual Desktop with FSLogix profile containers](fslogix-profile-containers.md).
 
 You can create FSLogix profile containers using [Azure NetApp Files](https://azure.microsoft.com/services/netapp/), an easy-to-use Azure native platform service that helps customers quickly and reliably provision enterprise-grade SMB volumes for their Azure Virtual Desktop environments. To learn more about Azure NetApp Files, see [What is Azure NetApp Files?](../azure-netapp-files/azure-netapp-files-introduction.md)
 
@@ -185,10 +186,4 @@ This section is based on [Create a profile container for a host pool using a fil
 
 5. Go to the **Overview** tab and confirm that the FSLogix profile container is using space.
 
-6. Connect directly to any VM part of the host pool using Remote Desktop and open the **File Explorer.** Then navigate to the **Mount path**
-(in the following example, the mount path is \\\\anf-SMB-3863.gt1107.onmicrosoft.com\\anf-VOL).
-
-   Within this folder, there should be a profile VHD (or VHDX) like the one in the following example.
-
-   > [!div class="mx-imgBorder"]
-   > ![A screenshot of the contents of the folder in the mount path. Inside is a single VHD file named "Profile_ssbb."](media/mount-path-folder.png)
+6. Connect directly to any VM part of the host pool using Remote Desktop and open the **File Explorer.** Then navigate to your **Mount path**. Within this folder, there should be a profile VHD (or VHDX).

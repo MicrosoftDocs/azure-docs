@@ -1,10 +1,10 @@
 ---
-title: include file
-description: include file
+title: Troubleshoot connectivity issues
+description: Include file with some common content that helps you with troubleshooting connectivity issues. 
 author: spelluru
-ms.service: event-hubs
+ms.service: azure-event-hubs
 ms.topic: include
-ms.date: 12/15/2022
+ms.date: 07/29/2024
 ms.author: spelluru
 ms.custom: "include file"
 
@@ -48,7 +48,7 @@ Also, verify that the IP address for your namespace is allowed. To find the righ
     ```
 2. Note down the IP address returned in `Non-authoritative answer`. 
 
-If you use a namespace hosted in an older cluster (based on Cloud Services - CNAME ending in *.cloudapp.net) and the namespace is **zone redundant**, you will need to follow few extra steps below. If your namespace is on a newer cluster (based on Virtual Machine Scale Set (VMSS) - CNAME ending in *.cloudapp.azure.com) and zone redundant you can skip below steps.
+If you use a namespace hosted in an older cluster (based on Cloud Services - CNAME ending in *.cloudapp.net) and the namespace is **zone redundant**, you'll need to follow few extra steps below. If your namespace is on a newer cluster (based on Virtual Machine Scale Set (VMSS) - CNAME ending in *.cloudapp.azure.com) and zone redundant you can skip below steps.
 
 1. First, you run nslookup on the namespace.
 
@@ -70,7 +70,7 @@ If you use a namespace hosted in an older cluster (based on Cloud Services - CNA
 ### What client IPs are sending events to or receiving events from my namespace?
 First, enable [IP filtering](../event-hubs-ip-filtering.md) on the namespace. 
 
-Then, Enable diagnostic logs for [Event Hubs virtual network connection events](../monitor-event-hubs-reference.md#event-hubs-virtual-network-connection-event-schema) by following instructions in the [Enable diagnostic logs](../../azure-monitor/essentials/diagnostic-settings.md). You see the IP address for which connection is denied.
+Then, Enable diagnostic logs for [Event Hubs virtual network connection events](../monitor-event-hubs-reference.md#event-hubs-virtual-network-connection-event-schema) by following instructions in the [Enable diagnostic logs](/azure/azure-monitor/essentials/diagnostic-settings). You see the IP address for which connection is denied.
 
 ```json
 {

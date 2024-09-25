@@ -1,8 +1,8 @@
 ---
 title: Azure Migrate support matrix
 description: Provides a summary of support settings and limitations for the Azure Migrate service.
-author: MaryMichael-MS
-ms.author: v-michaelar
+author: v-sreedevank
+ms.author: v-sreedevank
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 05/22/2024
@@ -112,8 +112,8 @@ Microsoft Azure operated by 21Vianet | China North 2
 
 There are two versions of the Azure Migrate service:
 
-- **Current version**: Using this version you can create new projects, discover on-premises assesses, and orchestrate assessments and migrations. [Learn more](whats-new.md).
-- **Previous version**: For customer using, the previous version of Azure Migrate (only assessment of on-premises VMware VMs was supported), you should now use the current version. In the previous version, you can't create new projects or perform new discoveries.
+- **Current version**: Using this version, you can create new projects, discover on-premises servers, and orchestrate assessments and migrations. [Learn more](whats-new.md).
+- **Previous version**: For customers using the previous version of Azure Migrate (only assessment of on-premises VMware VMs was supported), you should now use the current version. In the previous version, you can't create new projects or perform new discoveries.
 
 ## Next steps
 

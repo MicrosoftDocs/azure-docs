@@ -25,7 +25,7 @@ You can create a reservation utilization alert rule at any of the following scop
 | Supported agreement | Alert rule scope | Required role | Supported actions |
 | --- | --- | --- | --- |
 | Enterprise Agreement | Billing account | Enterprise admin, enterprise read only| Create, read, update, delete |
-|• Microsoft Customer Agreement (MCA) in the Enterprise motion where you buy Azure services through a Microsoft representative. Also called an MCA enterprise agreement.<br><br>• Microsoft Customer Agreement (MCA) that you bought through the Azure website. Also called an MCA individual agreement. | Billing profile |Billing profile owner, billing profile contributor, billing profile reader, and invoice manager | Create, read, update, delete|
+|• Microsoft Customer Agreement (MCA) in the Enterprise motion where you buy Azure services through a Microsoft representative. Also called an MCA-E agreement.<br><br>• Microsoft Customer Agreement (MCA) that you bought through the Azure website. Also called an MCA-online agreement. | Billing profile |Billing profile owner, billing profile contributor, billing profile reader, and invoice manager | Create, read, update, delete|
 | Microsoft Partner Agreement (MPA) | Customer scope | Global admin, admin agent | Create, read, update, delete |
 
 For more information, see [scopes and roles](understand-work-scopes.md).
@@ -49,7 +49,7 @@ The following table explains the fields in the alert rule form.
 | --- | --- | --- | --- |
 | Alert type|Mandatory | The type of alert that you want to create. | Reservation utilization |
 | Services | Optional | Select if you want to filter the alert rule for any specific reservation type. **Note**: If you haven’t applied a filter, then the alert rule monitors all available services by default. |Virtual machine, SQL Database, and so on. |
-| Reservations | Optional | Select if you want to filter the alert rule for any specific reservations. **Note**: If you haven’t  applied a filter, then the alert rule monitors all available reservations by default. | Contoso\_Sub\_alias-SQL\_Server\_Standard\_Edition. |
+| Reservations | Optional | Select if you want to filter the alert rule for any specific reservations. **Note**: If you haven’t applied a filter, then the alert rule monitors all available reservations by default. | Contoso\_Sub\_alias-SQL\_Server\_Standard\_Edition. |
 | Utilization percentage | Mandatory | When any of the reservations have a utilization that is less than the target percentage, then the alert notification is sent. | Utilization is less than 95% |
 | Time grain | Mandatory | Choose the time over which reservation utilization value should be averaged. For example, if you choose Last 7-days, then the alert rule evaluates the last 7-day average reservation  utilization of all reservations. **Note**: Last day reservation utilization is subject to change because the usage data refreshes. So, Cost Management relies on the last 7-day or 30-day averaged utilization, which is more accurate. | Last 7-days, Last 30-days|
 | Start on | Mandatory | The start date for the alert rule. | Current or any future date |
@@ -97,6 +97,9 @@ The following information provides more detail.
 **Alert email’s landing page** - Reservations page in the customer tenant.
 
 **Permissions needed to view reservations** - For partners to review reservations in the customer tenant, partners require foreign principal access to the customer subscription. The default permissions required for managing reservations are explained at [Who can manage a reservation by default](../reservations/view-reservations.md#who-can-manage-a-reservation-by-default).
+
+> [!NOTE]
+> Filtering options to monitor specific reservation categories or individual reservations aren't supported within this scope. As a result, the alert rule evaluates the utilization of all available reservations by default.
 
 ## Next steps
 

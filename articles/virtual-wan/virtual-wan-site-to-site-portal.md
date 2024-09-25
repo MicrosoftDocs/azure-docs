@@ -3,7 +3,7 @@ title: 'Tutorial: Create site-to-site connections using Virtual WAN'
 titleSuffix: Azure Virtual WAN
 description: Learn how to use Azure Virtual WAN to create a site-to-site VPN connection to Azure.
 author: cherylmc
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: tutorial
 ms.date: 01/31/2024
 ms.author: cherylmc
@@ -40,13 +40,13 @@ Verify that you've met the following criteria before beginning your configuratio
 
 ## <a name="openvwan"></a>Create a virtual WAN
 
-[!INCLUDE [Create a virtual WAN](~/reusable-content/ce-skilling/azure/includes/virtual-wan-create-vwan-include.md)]
+[!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-create-vwan-include.md)]
 
 ## <a name="hub"></a>Configure virtual hub settings
 
 A virtual hub is a virtual network that can contain gateways for site-to-site, ExpressRoute, or point-to-site functionality. For this tutorial, you begin by filling out the **Basics** tab for the virtual hub and then continue on to fill out the site-to-site tab in the next section. It's also possible to create an empty virtual hub (a virtual hub that doesn't contain any gateways) and then add gateways (S2S, P2S, ExpressRoute, etc.) later. Once a virtual hub is created, you're charged for the virtual hub, even if you don't attach any sites or create any gateways within the virtual hub.
 
-[!INCLUDE [Create a virtual hub](~/reusable-content/ce-skilling/azure/includes/virtual-wan-hub-basics.md)]
+[!INCLUDE [Create a virtual hub](../../includes/virtual-wan-hub-basics.md)]
 
 **Don't create the virtual hub yet**. Continue on to the next section to configure more settings.
 
@@ -54,7 +54,7 @@ A virtual hub is a virtual network that can contain gateways for site-to-site, E
 
 In this section, you configure site-to-site connectivity settings, and then create the virtual hub and site-to-site VPN gateway. A virtual hub and gateway can take about 30 minutes to create.
 
-[!INCLUDE [Create a gateway](~/reusable-content/ce-skilling/azure/includes/virtual-wan-tutorial-s2s-gateway-include.md)]
+[!INCLUDE [Create a gateway](../../includes/virtual-wan-tutorial-s2s-gateway-include.md)]
 
 [!INCLUDE [hub warning message](../../includes/virtual-wan-hub-router-provisioning-warning.md)]
 
@@ -143,8 +143,8 @@ The device configuration file contains the settings to use when configuring your
             },
             "gatewayConfiguration":{ 
                "IpAddresses":{ 
-                  "Instance0":"104.45.18.186",
-                  "Instance1":"104.45.13.195"
+                  "Instance0":"203.0.113.186",
+                  "Instance1":"203.0.113.195"
                }
             },
             "connectionConfiguration":{ 
@@ -165,7 +165,7 @@ The device configuration file contains the settings to use when configuring your
       },
       "vpnSiteConfiguration":{ 
          "Name":" testsite2",
-         "IPAddress":"66.193.205.122"
+         "IPAddress":"198.51.100.122"
       },
       "vpnSiteConnections":[ 
          { 
@@ -175,8 +175,8 @@ The device configuration file contains the settings to use when configuring your
             },
             "gatewayConfiguration":{ 
                "IpAddresses":{ 
-                  "Instance0":"104.45.18.187",
-                  "Instance1":"104.45.13.195"
+                  "Instance0":"203.0.113.186",
+                  "Instance1":"203.0.113.195"
                }
             },
             "connectionConfiguration":{ 
@@ -197,7 +197,7 @@ The device configuration file contains the settings to use when configuring your
       },
       "vpnSiteConfiguration":{ 
          "Name":" testsite3",
-         "IPAddress":"182.71.123.228"
+         "IPAddress":"192.0.2.228"
       },
       "vpnSiteConnections":[ 
          { 
@@ -207,8 +207,8 @@ The device configuration file contains the settings to use when configuring your
             },
             "gatewayConfiguration":{ 
                "IpAddresses":{ 
-                  "Instance0":"104.45.18.187",
-                  "Instance1":"104.45.13.195"
+                  "Instance0":"203.0.113.186",
+                  "Instance1":"203.0.113.195"
                }
             },
             "connectionConfiguration":{ 

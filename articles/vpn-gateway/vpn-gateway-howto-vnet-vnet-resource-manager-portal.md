@@ -3,7 +3,7 @@ title: 'Configure a VNet-to-VNet VPN gateway connection: Azure portal'
 titleSuffix: Azure VPN Gateway
 description: Learn how to create a VPN gateway connection between VNets.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 12/11/2023
 ms.author: cherylmc
@@ -154,7 +154,7 @@ In this step, you create the virtual network gateway for your VNet. Creating a g
 
 You can see the deployment status on the Overview page for your gateway. A gateway can take 45 minutes or more to fully create and deploy. After the gateway is created, you can view the IP address that has been assigned to it by looking at the virtual network in the portal. The gateway appears as a connected device.
 
-[!INCLUDE [NSG warning](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-no-nsg-include.md)]
+[!INCLUDE [NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
 
 ## Create and configure VNet4
 

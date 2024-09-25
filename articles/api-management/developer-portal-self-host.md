@@ -5,7 +5,7 @@ description: Learn how to self-host the developer portal for Azure API Managemen
 author: dlepow
 ms.author: danlep
 ms.date: 03/29/2024
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ---
 

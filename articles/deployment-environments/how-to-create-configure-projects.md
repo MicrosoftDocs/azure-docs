@@ -4,7 +4,7 @@ titleSuffix: Azure Deployment Environments
 description: Learn how to create a project in Azure Deployment Environments and associate the project with a dev center using the Azure CLI.
 author: renato-marciano
 ms.author: remarcia
-ms.service: deployment-environments
+ms.service: azure-deployment-environments
 ms.custom: devx-track-azurecli, build-2023
 ms.topic: quickstart
 ms.date: 11/29/2023

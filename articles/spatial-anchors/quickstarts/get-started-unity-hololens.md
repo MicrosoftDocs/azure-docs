@@ -87,7 +87,7 @@ In the app, select **BasicDemo** using the arrows, then press the **Go!** button
 
 In Visual Studio, stop the app by selecting either **Stop Debugging** or Shift+F5.
 
-[!INCLUDE [Clean-up section](~/reusable-content/ce-skilling/azure/includes/clean-up-section-portal.md)]
+[!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 
 [!INCLUDE [Next steps](../../../includes/spatial-anchors-quickstarts-nextsteps.md)]
 

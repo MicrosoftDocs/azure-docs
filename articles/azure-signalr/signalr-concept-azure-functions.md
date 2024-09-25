@@ -2,7 +2,7 @@
 title: Real-time apps with Azure SignalR Service and Azure Functions
 description: Learn about how Azure SignalR Service and Azure Functions together allow you to create real-time serverless web applications.
 author: vicancy
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.topic: conceptual
 ms.date: 05/16/2024
 ms.author: lianwei
@@ -56,7 +56,7 @@ Using Azure Functions to integrate with Azure Cosmos DB is an example of utilizi
 
 ### Authentication and users
 
-SignalR Service allows you to broadcast messages to all or a subset of clients, such as those belonging to a single user. You can combine the SignalR Service bindings for Azure Functions with App Service authentication to authenticate users with providers such as Microsoft Entra ID, Facebook, and Twitter. You can then send messages directly to these authenticated users.
+SignalR Service allows you to broadcast messages to all or a subset of clients, such as those belonging to a single user. You can combine the SignalR Service bindings for Azure Functions with App Service authentication to authenticate users with providers such as Microsoft Entra ID, Facebook, and X. You can then send messages directly to these authenticated users.
 
 ## Next steps
 

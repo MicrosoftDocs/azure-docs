@@ -4,7 +4,7 @@ description: 'Learn how to use Virtual Network Verifier in the Azure portal to v
 author: mbender-ms
 ms.author: mbender
 ms.topic: how-to
-ms.service: virtual-network-manager
+ms.service: azure-virtual-network-manager
 ms.date: 05/20/2024
 ms.custom: references_regions
 ---

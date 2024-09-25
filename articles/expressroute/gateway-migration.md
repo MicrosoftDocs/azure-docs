@@ -4,7 +4,7 @@ titleSuffix: Azure ExpressRoute
 description: This article explains how to seamlessly migrate from Standard/HighPerf/UltraPerf SKUs to ErGw1/2/3AZ SKUs.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.custom: ignite-2023
 ms.topic: conceptual
 ms.date: 04/26/2024
@@ -48,16 +48,13 @@ Gateway migration is recommended if you have a non-Az enabled Gateway SKU or a n
 
 ## Supported migration scenarios
 
-### Azure portal
-
-The guided gateway migration experience supports non-Az-enabled SKU to Az-enabled SKU migration. To learn more, see [Migrate to an availability zone-enabled ExpressRoute virtual network gateway in Azure portal](expressroute-howto-gateway-migration-portal.md).
-
-### Azure PowerShell
+### Azure portal & Azure PowerShell
 
 The guided gateway migration experience supports:
 
 * Non-Az-enabled SKU on Basic IP to Non-az enabled SKU on Standard IP.
-* Non-Az-enabled SKU to Az-enabled SKU.
+* Non-Az-enabled SKU on Basic IP to Az-enabled SKU on Standard IP.
+* Non-Az-enabled SKU on Standard IP to Az-enabled SKU on Standard IP.
 
 It's recommended to migrate to an Az-enabled SKU for enhanced reliability and high availability. To learn more, see [Migrate to an availability zone-enabled ExpressRoute virtual network gateway using PowerShell](expressroute-howto-gateway-migration-powershell.md).
 

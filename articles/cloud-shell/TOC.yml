@@ -5,6 +5,8 @@ items:
         href: overview.md
       - name: Features & tools
         href: features.md
+      - name: Release notes
+        href: release-notes.md
   - name: Get started with Cloud Shell
     items:
       - name: Get started (Classic)

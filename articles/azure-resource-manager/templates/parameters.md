@@ -145,6 +145,8 @@ You can use another parameter value to build a default value. The following temp
 }
 ```
 
+However, you can't reference a [variable](./variables.md) as the default value.
+
 ## Length constraints
 
 You can specify minimum and maximum lengths for string  and array parameters. You can set one or both constraints. For strings, the length indicates the number of characters. For arrays, the length indicates the number of items in the array.

@@ -22,9 +22,18 @@ The command execution produces an output file containing the results that can be
 1. Ensure that the target BMM must have its `poweredState` set to `On` and have its `readyState` set to `True`
 1. Get the Managed Resource group name (cluster_MRG) that you created for `Cluster` resource
 
+## Verify Storage Account access
+
+Verify you have access to the Cluster Manager's storage account
+  1. From Azure portal, navigate to Cluster Manager's Storage account.
+  1. In the Storage account details, select **Storage browser** from the navigation menu on the left side.
+  1. In the Storage browser details, select on **Blob containers**.
+  1. If you encounter a `403 This request is not authorized to perform this operation.` while accessing the storage account, storage account’s firewall settings need to be updated to include the public IP address.
+  1. Request access by creating a support ticket via Portal on the Cluster Manager resource. Provide the public IP address that requires access.
+ 
 ## Executing a run-read command
 
-The run-read command lets you run a command on the BMM that does not change anything. Some commands have more
+The run-read command lets you run a command on the BMM that doesn't change anything. Some commands have more
 than one word, or need an argument to work. These commands are made like this to separate them from the ones
 that can change things. For example, run-read-command can use `kubectl get` but not `kubectl apply`. When you
 use these commands, you have to put all the words in the “command” field. For example,
@@ -38,6 +47,9 @@ baremetal host, such as `ipmitool` and `racadm`.
 Some of the run-read commands require specific arguments be supplied to enforce read-only capabilities of the commands.
 An example of run-read commands that require specific arguments is the allowed Mellanox command `mstconfig`,
 which requires the `query` argument be provided to enforce read-only.
+
+> [!WARNING]
+> Microsoft does not provide or support any Operator Nexus API calls that expect plaintext username and/or password to be supplied. Please note any values sent will be logged and are considered exposed secrets, which should be rotated and revoked. The Microsoft documented method for securely using secrets is to store them in an Azure Key Vault, if you have specific questions or concerns please submit a request via the Azure Portal.
 
 The list below shows the commands you can use. Commands in `*italics*` cannot have `arguments`; the rest can.
 
@@ -274,6 +286,8 @@ This guide walks you through accessing the output file that is created in the Cl
 1. In the Storage browser details, select on **Blob containers**.
 
 1. Select the baremetal-run-command-output blob container.
+
+1. Storage Account could be locked resulting in `403 This request is not authorized to perform this operation.` due to networking or firewall restrictions. Refer [Verify Storage Account access](#verify-storage-account-access) for procedure to verify/request access. 
 
 1. Select the output file from the run-read command. The file name can be identified from the `az rest --method get` command. Additionally, the **Last modified** timestamp aligns with when the command was executed.
 

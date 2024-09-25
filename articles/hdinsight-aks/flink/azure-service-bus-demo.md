@@ -1,13 +1,16 @@
 ---
 title: Use Apache Flink on HDInsight on AKS with Azure Service Bus 
 description: Use Apache Flink DataStream API on HDInsight on AKS with Azure Service Bus.
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 04/02/2024
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 # Use Apache Flink on HDInsight on AKS with Azure Service Bus
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 This article provides an overview and demonstration of Apache Flink DataStream API on HDInsight on AKS for Azure Service Bus. A Flink job demonstration is designed to read messages from an [Azure Service Bus](/azure/service-bus-messaging/service-bus-messaging-overview) and writes them to [Azure Data Lake Storage Gen2](./assign-kafka-topic-event-message-to-azure-data-lake-storage-gen2.md) (ADLS Gen2).
 
@@ -333,12 +336,4 @@ This Flink source function, encapsulated within the `SessionBasedServiceBusSourc
 
 - To learn more about Azure Service Bus, refer to the [What is Azure Service Bus?](/azure/service-bus-messaging/service-bus-messaging-overview).
 - For guidance on creating topics, consult the [Service Bus Explorer](/azure/service-bus-messaging/explorer).
-- Apache, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).
-
-
-
-
-
-
-
-
+- Apache, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation (ASF)](https://www.apache.org/).

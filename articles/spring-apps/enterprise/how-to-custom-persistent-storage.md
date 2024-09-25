@@ -2,9 +2,9 @@
 title: How to enable your own persistent storage in Azure Spring Apps | Microsoft Docs
 description: Learn how to bring your own storage as persistent storages in Azure Spring Apps
 author: KarlErickson
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: conceptual
-ms.date: 2/18/2022
+ms.date: 06/27/2024
 ms.author: xuycao
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
@@ -123,7 +123,7 @@ Use the following steps to enable your own storage with the Azure CLI.
                      "uid=0",
                      "gid=0"
                   ],
-                  "readOnly": false 
+                  "readOnly": false
                }
          },
          {

@@ -4,7 +4,7 @@ description: Recommendations for designing replicated tables in Synapse SQL pool
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.date: 01/09/2024
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 ms.custom:

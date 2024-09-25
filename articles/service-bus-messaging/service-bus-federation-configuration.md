@@ -7,7 +7,7 @@ ms.date: 09/27/2021
 
 # Configured replication tasks
 
-[!INCLUDE [messaging-configured-functions](~/reusable-content/ce-skilling/azure/includes/messaging-configured-functions.md)]
+[!INCLUDE [messaging-configured-functions](../../includes/messaging-configured-functions.md)]
 
 ## Next Steps
 

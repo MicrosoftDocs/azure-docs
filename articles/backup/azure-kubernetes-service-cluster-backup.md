@@ -2,7 +2,7 @@
 title: Back up Azure Kubernetes Service by using Azure Backup
 description: Learn how to back up Azure Kubernetes Service (AKS) by using Azure Backup.
 ms.topic: how-to
-ms.service: backup
+ms.service: azure-backup
 ms.custom:
   - ignite-2023
 ms.date: 01/03/2024
@@ -212,17 +212,29 @@ To configure backups for AKS cluster:
 
 ### Backup configurations
 
-As part of the AKS backup capability, you can back up all cluster resources or specific cluster resources. You can use the filters that are available for backup configuration to choose the resources to back up. The defined backup configurations are referenced by the values for **Backup Instance Name**. You can use the following options to choose the **Namespaces** values to back up:
+Azure Backup for AKS allows you to define the application boundary within AKS cluster that you want to back up. You can use the filters that are available within backup configurations to choose the resources to back up and also to run custom hooks. The defined backup configuration is referenced by the value for **Backup Instance Name**. The below filters are available to define your application boundary:
 
-- **All (including future Namespaces)**: This backs up all current and future values for **Namespaces** when the underlying cluster resources are backed up.
-- **Choose from list**: Select the specific values for **Namespaces** in the AKS cluster to back up.
+1. **Select Namespaces to backup**, you can either select **All** to back up all existing and future namespaces in the cluster, or you can select **Choose from list** to select specific namespaces for backup.
 
-  To select specific cluster resources to back up, you can use labels that are attached to the resources to include the resources in the backup. Only the resources that have the labels that you enter are backed up. You can use multiple labels.
+     :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/backup-instance-name.png" alt-text="Screenshot that shows how to select namespaces to include in the backup." lightbox="./media/azure-kubernetes-service-cluster-backup/backup-instance-name.png":::
+
+2. Expand **Additional Resource Settings** to see filters that you can use to choose cluster resources to back up. You can choose to back up resources based on the following categories:
+
+   - **Labels**: You can filter AKS resources by using [labels](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/) that you assign to types of resources. Enter labels in the form of key/value pairs. Combine multiple labels by using `AND` logic.
+
+   For example, if you enter the labels `env=prod;tier!=web`, the process selects resources that have a label with the `env` key and the `prod` value, and a label with the `tier` key for which the value isn't `web`. 
+
+   - **API groups**: You can also include resources by providing the AKS API group and kind. For example, you can choose for backup AKS resources like Deployments. You can access the list of Kubernetes defined API Groups [here](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.30/).
+
+   - **Other options**: You can enable or disable backup for cluster-scoped resources, persistent volumes, and secrets. By default, cluster-scoped resources and persistent volumes are enabled
+
+   :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/cluster-scope-resources.png" alt-text="Screenshot that shows the Additional Resource Settings pane." lightbox="./media/azure-kubernetes-service-cluster-backup/cluster-scope-resources.png":::
+
+   > [!NOTE]
+   > All these resource settings are combined and applied via `AND` logic.
 
   > [!NOTE]
   > You should add the labels to every single YAML file that is deployed and to be backed up. This includes namespace-scoped resources like persistent volume claims, and cluster-scoped resources like persistent volumes.
-
-  If you also want to back up cluster-scoped resources, secrets, and persistent volumes, select the items under **Other Options**.
 
 :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/various-backup-configurations.png" alt-text="Screenshot that shows various backup configurations.":::
 

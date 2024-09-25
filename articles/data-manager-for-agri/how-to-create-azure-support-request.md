@@ -3,7 +3,7 @@ title: How to create an Azure support request for Azure Data Manager for Agricul
 description: Customers who need assistance can use the Azure portal to find self-service solutions and to create and manage support requests for Azure Data Manager for Agriculture resource.
 author: BlackRider97
 ms.author: ramithar
-ms.service: data-manager-for-agri
+ms.service: azure-data-manager-agriculture
 ms.topic: how-to
 ms.date: 06/27/2023
 ms.custom: template-how-to

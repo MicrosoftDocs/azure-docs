@@ -2,7 +2,7 @@
 title: Azure Functions HTTP trigger
 description: Learn how to call an Azure Function via HTTP.
 ms.topic: reference
-ms.date: 05/16/2024
+ms.date: 07/16/2024
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: devx-track-csharp, devx-track-python, devx-track-extended-java, devx-track-js, devx-track-ts
@@ -39,7 +39,7 @@ For more information about HTTP bindings, see the [overview](./functions-binding
 
 [!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
 
-[!INCLUDE [functions-in-process-model-retirement-note](~/reusable-content/ce-skilling/azure/includes/functions-in-process-model-retirement-note.md)]
+[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
 
 The code in this article defaults to .NET Core syntax, used in Functions version 2.x and higher. For information on the 1.x syntax, see the [1.x functions templates](https://github.com/Azure/azure-functions-templates/tree/v1.x/Functions.Templates/Templates).
 
@@ -219,7 +219,7 @@ public HttpResponseMessage run(
 
 #### Read POJO body from a POST request
 
-Here is the code for the `ToDoItem` class, referenced in this example:
+Here's the code for the `ToDoItem` class, referenced in this example:
 
 ```java
 
@@ -292,7 +292,7 @@ The following example shows an HTTP trigger [TypeScript function](functions-refe
 
 # [Model v3](#tab/nodejs-v3)
 
-TypeScript samples are not documented for model v3.
+TypeScript samples aren't documented for model v3.
 
 ---
 
@@ -536,7 +536,7 @@ For Python v2 functions defined using a decorator, the following properties for 
 
 | Property    | Description |
 |-------------|-----------------------------|
-| `route` | Route for the http endpoint. If None, it will be set to function name if present or user defined python function name. |
+| `route` | Route for the http endpoint. If None, it will be set to function name if present or user-defined python function name. |
 | `trigger_arg_name` | Argument name for HttpRequest. The default value is 'req'. |
 | `binding_arg_name` | Argument name for HttpResponse. The default value is '$return'. |
 | `methods` | A tuple of the HTTP methods to which the function responds. |
@@ -646,7 +646,7 @@ The [HttpTrigger](/java/api/com.microsoft.azure.functions.annotation.httptrigger
 
 ### Payload
 
-# [Isolated worker model](#tab/isolated-process)
+#### [Isolated worker model](#tab/isolated-process)
 
 The trigger input type is declared as one of the following types:
 
@@ -654,9 +654,9 @@ The trigger input type is declared as one of the following types:
 |-|-|
 | [HttpRequest]     | _Use of this type requires that the app is configured with [ASP.NET Core integration in .NET Isolated]._<br/>This gives you full access to the request object and overall HttpContext. |
 | [HttpRequestData] | A projection of the request object. |
-| A custom type     | When the body of the request is JSON, the runtime will try to parse it to set the object properties. |
+| A custom type     | When the body of the request is JSON, the runtime tries to parse it to set the object properties. |
 
-When the trigger parameter is an `HttpRequestData`  an `HttpRequest`, custom types can also be bound to additional parameters using `Microsoft.Azure.Functions.Worker.Http.FromBodyAttribute`. Use of this attribute requires [`Microsoft.Azure.Functions.Worker.Extensions.Http` version 3.1.0 or later](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Http). Note that this is a different type than the similar attribute in `Microsoft.AspNetCore.Mvc`, and when using ASP.NET Core integration, you will need a fully qualified reference or `using` statement. The following example shows how to use the attribute to get just the body contents while still having access to the full `HttpRequest`, using the ASP.NET Core integration:
+When the trigger parameter is of type `HttpRequestData` or `HttpRequest`, custom types can also be bound to other parameters using `Microsoft.Azure.Functions.Worker.Http.FromBodyAttribute`. Use of this attribute requires [`Microsoft.Azure.Functions.Worker.Extensions.Http` version 3.1.0 or later](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Http). This is a different type than the similar attribute in `Microsoft.AspNetCore.Mvc`. When using ASP.NET Core integration, you need a fully qualified reference or `using` statement. This example shows how to use the attribute to get just the body contents while still having access to the full `HttpRequest`, using ASP.NET Core integration:
 
 ```csharp
 using Microsoft.AspNetCore.Http;
@@ -680,20 +680,12 @@ namespace AspNetIntegration
 }
 ```
 
-# [In-process model](#tab/in-process)   
+#### [In-process model](#tab/in-process)   
 
 The trigger input type is declared as either `HttpRequest` or a custom type. If you choose `HttpRequest`, you get full access to the request object. For a custom type, the runtime tries to parse the JSON request body to set the object properties.
 
 ---
 
-::: zone-end 
-::: zone pivot="programming-language-python"  
-### HTTP streams
-
-HTTP streams support in Python lets you accept and return data from your HTTP endpoints using FastAPI request and response APIs enabled in your functions. These APIs enable the host to process data in HTTP messages as chunks instead of having to read an entire message into memory. For more information, see [HTTP streams in Python](./functions-reference-python.md#http-streams-preview)
-
->[!IMPORTANT]  
-> HTTP streams support for Python is currently in preview and is only supported for the Python v2 programming model.
 ::: zone-end  
 ### Customize the HTTP endpoint
 
@@ -707,7 +699,7 @@ You can customize this route using the optional `route` property on the HTTP tri
 
 ::: zone pivot="programming-language-csharp"
 
-# [Isolated worker model](#tab/isolated-process)
+#### [Isolated worker model](#tab/isolated-process)
 
 The following function code accepts two parameters `category` and `id` in the route and writes a response using both parameters.
 
@@ -729,7 +721,7 @@ FunctionContext executionContext)
 }
 ```
 
-# [In-process model](#tab/in-process)
+#### [In-process model](#tab/in-process)
 
 The following C# function code accepts two parameters `category` and `id` in the route and writes a response using both parameters.
 
@@ -778,28 +770,28 @@ public class HttpTriggerJava {
 ::: zone-end 
 ::: zone pivot="programming-language-typescript"  
 
-# [Model v4](#tab/nodejs-v4)
+#### [Model v4](#tab/nodejs-v4)
 
 As an example, the following TypeScript code defines a `route` property for an HTTP trigger with two parameters, `category` and `id`. The example reads the parameters from the request and returns their values in the response.
 
 :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/httpTrigger2.ts" :::
 
-# [Model v3](#tab/nodejs-v3)
+#### [Model v3](#tab/nodejs-v3)
 
-TypeScript samples are not documented for model v3.
+TypeScript samples aren't documented for model v3.
 
 ---
 
 ::: zone-end 
 ::: zone pivot="programming-language-javascript"  
 
-# [Model v4](#tab/nodejs-v4)
+#### [Model v4](#tab/nodejs-v4)
 
 As an example, the following JavaScript code defines a `route` property for an HTTP trigger with two parameters, `category` and `id`. The example reads the parameters from the request and returns their values in the response.
 
 :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/httpTrigger2.js" :::
 
-# [Model v3](#tab/nodejs-v3)
+#### [Model v3](#tab/nodejs-v3)
 
 As an example, the following *function.json* file defines a `route` property for an HTTP trigger with two parameters, `category` and `id`:
 
@@ -844,14 +836,14 @@ module.exports = async function (context, req) {
 
 As an example, the following code defines a `route` property for an HTTP trigger with two parameters, `category` and `id`:
 
-# [v2](#tab/python-v2)
+#### [v2](#tab/python-v2)
 
 ```python
 @app.function_name(name="httpTrigger")
 @app.route(route="products/{category:alpha}/{id:int?}")
 ```
 
-# [v1](#tab/python-v1)
+#### [v1](#tab/python-v1)
 
 In the *function.json* file:
 
@@ -922,7 +914,7 @@ https://<APP_NAME>.azurewebsites.net/api/products/electronics/357
 
 This configuration allows the function code to support two parameters in the address, _category_ and _ID_. For more information on how route parameters are tokenized in a URL, see [Routing in ASP.NET Core](/aspnet/core/fundamentals/routing#route-constraint-reference).
 
-By default, all function routes are prefixed with *api*. You can also customize or remove the prefix using the `extensions.http.routePrefix` property in your [host.json](functions-host-json.md) file. The following example removes the *api* route prefix by using an empty string for the prefix in the *host.json* file.
+By default, all function routes are prefixed with `api`. You can also customize or remove the prefix using the `extensions.http.routePrefix` property in your [host.json](functions-host-json.md) file. The following example removes the `api` route prefix by using an empty string for the prefix in the *host.json* file.
 
 ```json
 {
@@ -941,7 +933,7 @@ Route parameters that defined a function's `route` pattern are available to each
 The following configuration shows how the `{id}` parameter is passed to the binding's `rowKey`.
 ::: zone-end
 ::: zone pivot="programming-language-python"  
-# [v2](#tab/python-v2)
+#### [v2](#tab/python-v2)
 
 ```python
 @app.table_input(arg_name="product", table_name="products", 
@@ -949,7 +941,7 @@ The following configuration shows how the `{id}` parameter is passed to the bind
                  connection="AzureWebJobsStorage")
 ```
 
-# [v1](#tab/python-v1)
+#### [v1](#tab/python-v1)
 
 ```json
 {
@@ -964,22 +956,22 @@ The following configuration shows how the `{id}` parameter is passed to the bind
 ---
 ::: zone-end
 ::: zone pivot="programming-language-typescript"
-# [Model v4](#tab/nodejs-v4)
+#### [Model v4](#tab/nodejs-v4)
 
 :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/httpTrigger3.ts" :::
 
-# [Model v3](#tab/nodejs-v3)
+#### [Model v3](#tab/nodejs-v3)
 
-TypeScript samples are not documented for model v3.
+TypeScript samples aren't documented for model v3.
 
 ---
 ::: zone-end
 ::: zone pivot="programming-language-javascript"
-# [Model v4](#tab/nodejs-v4)
+#### [Model v4](#tab/nodejs-v4)
 
 :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/httpTrigger3.js" :::
 
-# [Model v3](#tab/nodejs-v3)
+#### [Model v3](#tab/nodejs-v3)
 
 ```json
 {
@@ -1016,21 +1008,31 @@ You can programmatically access the `invoke_URL_template` by using the Azure Res
 
 You can now stream requests to and responses from your HTTP endpoint in Node.js v4 function apps. For more information, see [HTTP streams](functions-reference-node.md?pivots=nodejs-model-v4#http-streams).   
 ::: zone-end  
+::: zone pivot="programming-language-python"  
+### HTTP streams
 
+HTTP streams support in Python lets you accept and return data from your HTTP endpoints using FastAPI request and response APIs enabled in your functions. These APIs enable the host to process data in HTTP messages as chunks instead of having to read an entire message into memory. For more information, see [HTTP streams in Python](./functions-reference-python.md#http-streams-preview)
+
+>[!IMPORTANT]  
+> HTTP streams support for Python is currently in preview and is only supported for the Python v2 programming model.
+::: zone-end  
 ### Working with client identities
 
 If your function app is using [App Service Authentication / Authorization](../app-service/overview-authentication-authorization.md), you can view information about authenticated clients from your code. This information is available as [request headers injected by the platform](../app-service/configure-authentication-user-identities.md#access-user-claims-in-app-code).
 
-You can also read this information from binding data. This capability is only available to the Functions runtime in 2.x and higher. It is also currently only available for .NET languages.
+You can also read this information from binding data. 
+
+> [!NOTE] 
+> Access to authenticated client information is currently only available for .NET languages. It also isn't supported in version 1.x of the Functions runtime.
 
 ::: zone pivot="programming-language-csharp"
 Information regarding authenticated clients is available as a [ClaimsPrincipal], which is available as part of the request context as shown in the following example:
 
-# [Isolated worker model](#tab/isolated-process)
+#### [Isolated worker model](#tab/isolated-process)
 
 The authenticated user is available via [HTTP Headers](../app-service/configure-authentication-user-identities.md#access-user-claims-in-app-code).
 
-# [In-process model](#tab/in-process)
+#### [In-process model](#tab/in-process)
 
 ```csharp
 using System.Net;
@@ -1045,7 +1047,7 @@ public static IActionResult Run(HttpRequest req, ILogger log)
 }
 ```
 
-Alternatively, the ClaimsPrincipal can simply be included as an additional parameter in the function signature:
+Alternatively, the ClaimsPrincipal can simply be included as an extra parameter in the function signature:
 
 ```csharp
 using System.Net;
@@ -1072,87 +1074,53 @@ The authenticated user is available via [HTTP Headers](../app-service/configure-
 
 The authorization level is a string value that indicates the kind of [authorization key](#authorization-keys) that's required to access the function endpoint. For an HTTP triggered function, the authorization level can be one of the following values:
 
+| Level value | Description |
+| --- | --- |
+|**anonymous**| No access key is required.|
+|**function**| A function-specific key is required to access the endpoint. |
+|**admin**| The master key is required to access the endpoint.|
+
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-powershell,programming-language-python"
+When a level isn't explicitly set, authorization defaults to the `function` level.
+::: zone-end
 ::: zone pivot="programming-language-javascript,programming-language-typescript"
+When a level isn't explicitly set, the default authorization depends on the version of the Node.js model:
 
-# [Model v4](#tab/nodejs-v4)
+#### [Model v4](#tab/nodejs-v4)
 
-| Level value | Description |
-| --- | --- |
-|**anonymous**| No API key is required. This is the default value when a level isn't specifically set.|
-|**function**| A function-specific API key is required.|
-|**admin**| The master key is required.|
+Authorization defaults to the `anonymous` level.
 
-# [Model v3](#tab/nodejs-v3)
+#### [Model v3](#tab/nodejs-v3)
 
-| Level value | Description |
-| --- | --- |
-|**anonymous**| No API key is required.|
-|**function**| A function-specific API key is required. This is the default value when a level isn't specifically set.|
-|**admin**| The master key is required.|
+Authorization defaults to the `function` level.
 
 ---
-
 ::: zone-end
-::: zone pivot="programming-language-csharp,programming-language-java,programming-language-powershell,programming-language-python"
-
-| Level value | Description |
-| --- | --- |
-|**anonymous**| No API key is required.|
-|**function**| A function-specific API key is required. This is the default value when a level isn't specifically set.|
-|**admin**| The master key is required.|
-
-::: zone-end
-
 ### <a name="authorization-keys"></a>Function access keys
 
-[!INCLUDE [functions-authorization-keys](../../includes/functions-authorization-keys.md)]
+Functions lets you use access keys to make it harder to access your function endpoints. Unless the authorization level on an HTTP triggered function is set to `anonymous`, requests must include an access key in the request. For more information, see [Work with access keys in Azure Functions](function-keys-how-to.md). 
 
-#### Obtaining keys
+### <a name="api-key-authorization"></a>Access key authorization
 
-Keys are stored as part of your function app in Azure and are encrypted at rest. To view your keys, create new ones, or roll keys to new values, navigate to one of your HTTP-triggered functions in the [Azure portal](https://portal.azure.com) and select **Function Keys**.
-
-You can also manage host keys. Navigate to the function app in the [Azure portal](https://portal.azure.com) and select **App keys**.
-
-You can obtain function and host keys programmatically by using the Azure Resource Manager APIs. There are APIs to [List Function Keys](/rest/api/appservice/webapps/listfunctionkeys) and [List Host Keys](/rest/api/appservice/webapps/listhostkeys), and when using deployment slots the equivalent APIs are [List Function Keys Slot](/rest/api/appservice/webapps/listfunctionkeysslot) and [List Host Keys Slot](/rest/api/appservice/webapps/listhostkeysslot).
-
-You can also create new function and host keys programmatically by using the [Create Or Update Function Secret](/rest/api/appservice/webapps/createorupdatefunctionsecret), [Create Or Update Function Secret Slot](/rest/api/appservice/webapps/createorupdatefunctionsecretslot), [Create Or Update Host Secret](/rest/api/appservice/webapps/createorupdatehostsecret) and [Create Or Update Host Secret Slot](/rest/api/appservice/webapps/createorupdatehostsecretslot) APIs.
-
-Function and host keys can be deleted programmatically by using the [Delete Function Secret](/rest/api/appservice/webapps/deletefunctionsecret), [Delete Function Secret Slot](/rest/api/appservice/webapps/deletefunctionsecretslot), [Delete Host Secret](/rest/api/appservice/webapps/deletehostsecret), and [Delete Host Secret Slot](/rest/api/appservice/webapps/deletehostsecretslot) APIs.
-
-You can also use the [legacy key management APIs to obtain function keys](https://github.com/Azure/azure-functions-host/wiki/Key-management-API), but using the Azure Resource Manager APIs is recommended instead.
-
-#### API key authorization
-
-Most HTTP trigger templates require an API key in the request. So your HTTP request normally looks like the following URL:
+Most HTTP trigger templates require an access key in the request. So your HTTP request normally looks like the following URL:
 
 ```http
 https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?code=<API_KEY>
 ```
 
-The key can be included in a query string variable named `code`, as above. It can also be included in an `x-functions-key` HTTP header. The value of the key can be any function key defined for the function, or any host key.
+The key can be included in a query string variable named `code`, as mentioned earlier. It can also be included in an `x-functions-key` HTTP header. The value of the key can be any function key defined for the function, or any host key.
 
-You can allow anonymous requests, which do not require keys. You can also require that the master key is used. You change the default authorization level by using the `authLevel` property in the binding JSON. For more information, see [Trigger - configuration](#configuration).
+You can allow anonymous requests, which don't require keys. You can also require that the master key is used. You change the default authorization level by using the `authLevel` property in the binding JSON. 
 
 > [!NOTE]
 > When running functions locally, authorization is disabled regardless of the specified authorization level setting. After publishing to Azure, the `authLevel` setting in your trigger is enforced. Keys are still required when running [locally in a container](functions-create-container-registry.md#build-the-container-image-and-verify-locally).
-
-
-#### Secure an HTTP endpoint in production
-
-To fully secure your function endpoints in production, you should consider implementing one of the following function app-level security options. When using one of these function app-level security methods, you should set the HTTP-triggered function authorization level to `anonymous`.
-
-[!INCLUDE [functions-enable-auth](../../includes/functions-enable-auth.md)]
-
-##### Deploy your function app in isolation
-
-[!INCLUDE [functions-deploy-isolation](../../includes/functions-deploy-isolation.md)]
 
 ### Webhooks
 
 > [!NOTE]
 > Webhook mode is only available for version 1.x of the Functions runtime. This change was made to improve the performance of HTTP triggers in version 2.x and higher.
 
-In version 1.x, webhook templates provide additional validation for webhook payloads. In version 2.x and higher, the base HTTP trigger still works and is the recommended approach for webhooks. 
+In version 1.x, webhook templates provide another validation for webhook payloads. In version 2.x and higher, the base HTTP trigger still works and is the recommended approach for webhooks. 
 
 #### WebHook type
 

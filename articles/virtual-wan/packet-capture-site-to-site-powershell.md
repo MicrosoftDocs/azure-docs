@@ -4,7 +4,7 @@ description: Learn how to perform packet capture on a Virtual WAN site-to-site V
 services: virtual-wan
 titleSuffix: Azure Virtual WAN
 author: cherylmc
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 11/21/2023
@@ -27,7 +27,7 @@ Verify that you have the following configuration already set up in your environm
 
 ### Working with Azure PowerShell
 
-[!INCLUDE [PowerShell](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-cloud-shell-powershell.md)]
+[!INCLUDE [PowerShell](../../includes/vpn-gateway-cloud-shell-powershell.md)]
 
 ### Set up the environment
 
