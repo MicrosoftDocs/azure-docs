@@ -6,6 +6,8 @@ items:
 - name: Overview
   expanded: true
   items:
+  - name: Retirement announcement
+    href: ../enterprise/retirement-announcement.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
   - name: What is Azure Spring Apps?
     href: ../enterprise/overview.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
   - name: What's new
