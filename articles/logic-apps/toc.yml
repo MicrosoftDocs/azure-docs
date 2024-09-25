@@ -326,7 +326,7 @@ items:
     - name: Azure Event Hubs
       href: ../connectors/connectors-create-api-azure-event-hubs.md
     - name: Azure Functions
-      href: logic-apps-azure-functions.md
+      href: call-azure-functions-from-workflows.md
     - name: Azure Logic Apps
       href: logic-apps-http-endpoint.md
     - name: Azure Monitor Application Insights
