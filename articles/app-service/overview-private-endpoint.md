@@ -55,10 +55,9 @@ In the Web HTTP logs of your app, you find the client source IP. This feature is
 
 ## DNS
 
-When you use private endpoint for App Service apps, the requested URL must match the name of your app. By default mywebappname.azurewebsites.net (see [note at top](#dnl-note)).
+When you use private endpoint for App Service apps, the requested URL must match the name of your app. By default `<app-name>.azurewebsites.net`. If you are using [unique default hostname](#dnl-note) your app name will have the format `<app-name>-<random-hash>.<region>.azurewebsites.net`. In the examples below _mywebapp_ could also represent the full regionalized unique hostname.
 
-By default, without private endpoint, the public name of your web app is a canonical name to the cluster.
-For example, the name resolution is:
+By default, without private endpoint, the public name of your web app is a canonical name to the cluster. For example, the name resolution is:
 
 |Name |Type |Value |
 |-----|-----|------|
@@ -86,7 +85,7 @@ For example, the name resolution is:
 |mywebapp.azurewebsites.net|CNAME|mywebapp.privatelink.azurewebsites.net|<--Azure creates this CNAME entry in Azure Public DNS to point the app address to the private endpoint address|
 |mywebapp.privatelink.azurewebsites.net|A|10.10.10.8|<--You manage this entry in your DNS system to point to your private endpoint IP address|
 
-After this DNS configuration, you can reach your app privately with the default name mywebappname.azurewebsites.net. You must use this name, because the default certificate is issued for *.azurewebsites.net.
+After this DNS configuration, you can reach your app privately with the default name mywebapp.azurewebsites.net. You must use this name, because the default certificate is issued for *.azurewebsites.net.
 
 
 If you need to use a custom DNS name, you must add the custom name in your app and you must validate the custom name like any custom name, using public DNS resolution. 
