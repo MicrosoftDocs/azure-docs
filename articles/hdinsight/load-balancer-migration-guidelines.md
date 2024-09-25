@@ -11,7 +11,7 @@ ms.date: 09/25/2024
 
 This article describes the details about the impact on HDInsight clusters and the necessary steps required as HDInsight service is transitioning to use standard load balancers for all its cluster configurations.
 
-This transition is done in line with the announcement of retirement of Azure basic load balancer by 30 September 2025 and no support for new deployment by Mar 31, 2025. For more information, see [Azure Basic Load Balancer retires on 30 September 2025. Upgrade to Standard Load Balancer](https://azure.microsoft.com/en-us/updates/azure-basic-load-balancer-will-be-retired-on-30-september-2025-upgrade-to-standard-load-balancer).
+This transition is done in line with the announcement of retirement of Azure basic load balancer by 30 September 2025 and no support for new deployment by Mar 31, 2025. For more information, see [Azure Basic Load Balancer retires on 30 September 2025. Upgrade to Standard Load Balancer](https://azure.microsoft.com/updates/azure-basic-load-balancer-will-be-retired-on-30-september-2025-upgrade-to-standard-load-balancer).
 
 ## Impact on HDInsight clusters
 
@@ -44,7 +44,7 @@ In this case, there are two options to create a cluster
     >
     > Follow the docs [Quickstart: Create a NAT gateway - Azure portal](/azure/nat-gateway/quickstart-create-nat-gateway-portal), and [Create, change, or delete an Azure network security group](/azure/virtual-network/manage-network-security-group?tabs=network-security-group-portal#create-a-network-security-group) to create a new NAT gateway and a new network security group.
     >
-    > You can refer to the doc [Control network traffic in Azure HDInsight](./hdinsight/control-network-traffic.md#hdinsight-with-network-security-groups) to set up correct NSG rules.
+    > You can refer to the doc [Control network traffic in Azure HDInsight](./control-network-traffic.md#hdinsight-with-network-security-groups) to set up correct NSG rules.
     
 1. Create a new subnet and associate the subnet with the NAT gateway and network security group.
     
@@ -69,7 +69,7 @@ Scenario 1: Existing subnet has no HDInsight clusters with Azure basic load bala
     > You could associate an existing NAT gateway and NSG or the newly created ones.
     > Follow the docs [Quickstart: Create a NAT gateway - Azure portal](/azure/nat-gateway/quickstart-create-nat-gateway-portal), and [Create, change, or delete an Azure network security group](/azure/virtual-network/manage-network-security-group?tabs=network-security-group-portal#create-a-network-security-group) to create a new NAT gateway and a new network security group.
     > 
-    > You can refer to the doc [Control network traffic in Azure HDInsight](./hdinsight/control-network-traffic.md#hdinsight-with-network-security-groups) to set up correct NSG rules.
+    > You can refer to the doc [Control network traffic in Azure HDInsight](./control-network-traffic.md#hdinsight-with-network-security-groups) to set up correct NSG rules.
     
 1. Associate the NAT gateway with your subnet along with a network security group.
     
@@ -99,7 +99,7 @@ To associate with a NAT Gateway, perform the following steps.
     > You could associate an existing NAT gateway and NSG or the newly created ones.
     > Follow the docs [Quickstart: Create a NAT gateway - Azure portal](/azure/nat-gateway/quickstart-create-nat-gateway-portal), and [Create, change, or delete an Azure network security group](/azure/virtual-network/manage-network-security-group?tabs=network-security-group-portal#create-a-network-security-group) to create a new NAT gateway and a new network security group.
     > 
-    > You can refer to the doc [Control network traffic in Azure HDInsight](./hdinsight/control-network-traffic.md#hdinsight-with-network-security-groups) to set up correct NSG rules.
+    > You can refer to the doc [Control network traffic in Azure HDInsight](./control-network-traffic.md#hdinsight-with-network-security-groups) to set up correct NSG rules.
 
 1. Associate the subnet with the NAT gateway and network security group.
 
