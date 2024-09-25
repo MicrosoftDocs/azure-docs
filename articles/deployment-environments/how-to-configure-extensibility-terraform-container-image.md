@@ -31,6 +31,8 @@ Creating a custom container image allows you to customize your deployments to fi
 
 After you complete the image customization, you must build the image and push it to your container registry.
 
+Alternatively, you can fork the repo [Leveraging ADE's Extensibility Model With Terraform](https://github.com/Azure/ade-extensibility-model-terraform) to build and push the image to your container registry.
+
 ## Create and customize a container image with Docker
 
 In this example, you learn how to build a Docker image to utilize ADE deployments and access the ADE CLI, basing your image on one of the ADE authored images.
