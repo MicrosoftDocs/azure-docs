@@ -39,6 +39,15 @@ To prepare your Azure Arc-enabled Kubernetes cluster, you need:
 
 * The latest version of the Azure IoT Operations extension for Azure CLI. Use the following command to add the extension or update it to the latest version:
 
+> [!NOTE]
+   > **Special instructions for AIO Internal Bugbash**: 
+   >
+   > Official IoT Ops CLI releases are installed via extension index like so az extension add --upgrade --name azure-iot-ops mentioned below. However for bug bashes, we will distribute one-off release candidates intended to expose functionality to exercise internally. Use this for Bug Bash 2 on 9/27 and skip the az extension command below
+   > ``` bash
+   >    az storage blob download --auth-mode login --blob-url https://azedgecli.blob.core.windows.net/drop/azure_iot_ops-0.7.0a10-py3-none-any.whl -f ./azure_iot_ops-0.7.0a10-py3-none-any.whl
+   >    az extension add --upgrade --source ./azure_iot_ops-0.7.0a10-py3-none-any.whl
+   > ```
+
   ```bash
   az extension add --upgrade --name azure-iot-ops
   ```
@@ -55,6 +64,15 @@ To prepare your Azure Arc-enabled Kubernetes cluster, you need:
 * An Azure subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 * Azure CLI version 2.64.0 or newer installed on your development machine. Use `az --version` to check your version and `az upgrade` to update if necessary. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
+
+> [!NOTE]
+   > **Special instructions for AIO Internal Bugbash**: 
+   >
+   > Official IoT Ops CLI releases are installed via extension index like so az extension add --upgrade --name azure-iot-ops mentioned below. However for bug bashes, we will distribute one-off release candidates intended to expose functionality to exercise internally. Use this for Bug Bash 2 on 9/27 and skip the az extension command below
+   > ``` bash
+   >    az storage blob download --auth-mode login --blob-url https://azedgecli.blob.core.windows.net/drop/azure_iot_ops-0.7.0a10-py3-none-any.whl -f ./azure_iot_ops-0.7.0a10-py3-none-any.whl
+   >    az extension add --upgrade --source ./azure_iot_ops-0.7.0a10-py3-none-any.whl
+   > ```    
 
 * The latest version of the Azure IoT Operations extension for Azure CLI. Use the following command to add the extension or update it to the latest version:
 
@@ -290,6 +308,16 @@ To connect your cluster to Azure Arc:
 ### [Codespaces](#tab/codespaces)
 
 To connect your cluster to Azure Arc:
+
+   > [!NOTE]
+   > **Special instructions for AIO Internal Bugbash**: 
+   >
+   > Official IoT Ops CLI releases are installed via extension index like so az extension add --upgrade --name azure-iot-ops mentioned below.
+  > However for bug bashes, we will distribute one-off release candidates intended to expose functionality to exercise internally. Use this for Bug Bash 2 on 9/27
+   > ``` bash
+   >    az storage blob download --auth-mode login --blob-url https://azedgecli.blob.core.windows.net/drop/azure_iot_ops-0.7.0a10-py3-none-any.whl -f ./azure_iot_ops-0.7.0a10-py3-none-any.whl
+   >    az extension add --upgrade --source ./azure_iot_ops-0.7.0a10-py3-none-any.whl
+   > ```
 
 1. In your codespace terminal, sign in to Azure CLI:
 
