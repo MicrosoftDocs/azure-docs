@@ -49,7 +49,11 @@ View the status and results of the log data restore by going to the **Restoratio
 
    In the [Azure portal](https://portal.azure.com), results are shown in the **Logs** query page. In the [Defender portal](https://security.microsoft.com/), results are shown in the **Advanced hunting** page.
 
-   In both portals, the **Time range** is set to a custom time range that uses the start and end times of the restored data.
+   For example:
+
+   :::image type="content" source="media/restore/restored-data-logs-view.png" alt-text="Screenshot that shows the logs query pane with the restored table results.":::
+
+   The **Time range** is set to a custom time range that uses the start and end times of the restored data.
 
 ## Delete restored data tables
 
