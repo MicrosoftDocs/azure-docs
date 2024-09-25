@@ -46,6 +46,19 @@ To learn more about using _alpha_ Dapr APIs and features, [see the Dapr FAQ][dap
 | [**Secrets**][dapr-secrets]                           | GA | Access secrets from your application code or reference secure values in your Dapr components.                                                                   |
 | [**Configuration**][dapr-config]                           | GA | Retrieve and subscribe to application configuration items for supported configuration stores.                                                                   |
 
+### Compatible SDKs
+
+The following open source Dapr SDK versions are compatible with Azure Container Apps.
+
+| Language | SDK version | Supported APIs |
+| -------- | ------- | -------------- |
+| Java | 1.12.0 | [See the full list of supported, GA Dapr APIs.](#managed-apis) |
+| Go | 1.11.0 | [See the full list of supported, GA Dapr APIs.](#managed-apis) |
+| Python | 1.14.0 | [See the full list of supported, GA Dapr APIs.](#managed-apis) |
+| .NET | 1.14.0 | [See the full list of supported, GA Dapr APIs.](#managed-apis) |
+| JavaScript | 3.3.1 | [See the full list of supported, GA Dapr APIs.](#managed-apis) |
+| Rust | 0.15.1 | [See the full list of supported, GA Dapr APIs.](#managed-apis) |
+
 [!INCLUDE [component-support](~/reusable-content/ce-skilling/azure/includes/dapr-in-azure/dapr-support-policy.md)]
 
 ### Tooling
