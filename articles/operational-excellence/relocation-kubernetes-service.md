@@ -1,6 +1,6 @@
 ---
-title: Relocate Azure Kubernetes cluster to another region
-description: Learn how to relocate an Azure Kubernetes cluster to another region
+title: Relocate an Azure Kubernetes Service cluster to another region
+description: Learn how to relocate an Azure Kubernetes Service cluster to another region
 author: anaharris-ms
 ms.author: anaharris
 ms.reviewer: anaharris
@@ -11,9 +11,9 @@ ms.custom:
   - subject-relocation
 ---
 
-# Relocate an Azure Kubernetes Services (AKS) cluster to another region
+# Relocate an Azure Kubernetes Service (AKS) cluster to another region
 
-This article covers guidance for relocating an [Azure Kubernetes cluster](/azure/aks/what-is-aks) to another region.
+This article covers guidance for relocating an [Azure Kubernetes Service cluster](/azure/aks/what-is-aks) to another region.
 
 [!INCLUDE [relocate-reasons](./includes/service-relocation-reason-include.md)]
 
@@ -33,7 +33,7 @@ Before you begin the relocation planning stage, first review the following prere
 - Collect the Kubernetes manifests in order to re-create the application workload within the target cluster
     
     >[!TIP]
-    >Evaluate a GitOps approach to workload deployment where Kubernetes configuration manifests are stored in a git repo and automatically applied by a GitOps operator running within the cluster, such as [Flux](https://fluxcd.io/). A GitOps approach makes re-deploying workloads to different clusters as simple as installing the GitOps controller and pointing it at the repo.
+    >Evaluate a GitOps approach to workload deployment where Kubernetes configuration manifests are stored in a git repo and automatically applied by a GitOps operator running within the cluster, such as [Flux](/azure/azure-arc/kubernetes/conceptual-gitops-flux2). A GitOps approach makes re-deploying workloads to different clusters as simple as installing the GitOps controller and pointing it at the repo.
 
 - Review cluster ingress implementation.
 
