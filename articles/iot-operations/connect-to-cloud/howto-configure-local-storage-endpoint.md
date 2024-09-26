@@ -5,7 +5,7 @@ author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 09/10/2024
+ms.date: 09/26/2024
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to configure a local storage dataflow endpoint so that I can create a dataflow.
@@ -29,7 +29,19 @@ Use the local storage option to send data to a locally available persistent volu
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="media/howto-configure-fabric-endpoint/create-fabric-endpoint.png" alt-text="Screenshot using Azure Operations portal to create a Microsoft Fabric OneLake dataflow endpoint.":::
+1. In the IoT Operations portal, select the **Dataflow endpoints** tab.
+1. Under **Create new dataflow endpoint**, select **Local Storage** > **New**.
+
+    :::image type="content" source="media/howto-configure-local-storage-endpoint/create-local-storage-endpoint.png" alt-text="Screenshot using Azure Operations portal to create a Local Storage dataflow endpoint.":::
+
+1. Enter the following settings for the endpoint:
+
+    | Setting               | Description                                                             |
+    | --------------------- | ------------------------------------------------------------------------------------------------- |
+    | Name                  | The name of the dataflow endpoint.                                      |
+    | Persistent volume claim name | The name of the PersistentVolumeClaim (PVC) to use for local storage.                        |
+
+1. Select **Apply** to provision the endpoint.
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -55,7 +67,21 @@ Once the endpoint is created, you can use it in a dataflow by specifying the end
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="media/howto-configure-local-storage-endpoint/dataflow-mq-local-storage.png" alt-text="Screenshot using Azure Operations portal to create a dataflow with an MQTT source and local storage.":::
+1. In the Azure IoT Operations Preview portal, create a new dataflow or edit an existing dataflow by selecting the **Dataflows** tab on the left. If creating a new dataflow, select a source for the dataflow.
+1. In the editor, select the destination dataflow endpoint.
+1. Choose the Local Storage endpoint that you created previously.
+
+    :::image type="content" source="media/howto-configure-local-storage-endpoint/dataflow-mq-local-storage.png" alt-text="Screenshot using Azure Operations portal to create a dataflow with an MQTT source and local storage.":::
+
+1. Enter the following settings for the endpoint:
+
+    | Settings      | Description                                                                                       |
+    | ------------- | ------------------------------------------------------------------------------------------------- |
+    | Folder name   | The name of the folder where the data should be stored.                                           |
+    | Schema name   | The name of the schema that defines the structure of the data.                                     |
+    | Output schema | The schema that matches the source data. You can select an existing schema or upload a new one to the schema registry. |
+
+1. Select **Apply** to provision the dataflow.
 
 # [Kubernetes](#tab/kubernetes)
 
