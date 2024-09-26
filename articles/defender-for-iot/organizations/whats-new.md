@@ -27,7 +27,7 @@ Features released earlier than nine months ago are described in the [What's new 
 
 If there are connection problems, during deployment, between a new OT sensor and the Azure portal at the configuration stage, the process couldn't be completed until the connection problem is solved.
 
-We now support completing the configuration process without the need to solve the communication problem, allowing you to complete the setup of your OT sensor quickly and solve the problem at a later time. For more information, see [activate your OT sensor](../ot-deploy/activate-deploy-sensor.md#activate-your-ot-sensor).
+We now support completing the configuration process without the need to solve the communication problem, allowing you to complete the setup of your OT sensor quickly and solve the problem at a later time. For more information, see [activate your OT sensor](ot-deploy/activate-deploy-sensor.md#activate-your-ot-sensor).
 
 ## July 2024
 
