@@ -61,7 +61,7 @@ Use the following steps to enable workload identity on an existing connected K3s
 
    ```azurecli
    #!/bin/bash
-   az extension add --source <PATH_TO_WHL_FILE>
+   az extension add --upgrade --source <PATH_TO_WHL_FILE>
    ```
 
 1. Export environment variables that the `az connectedk8s upgrade` command requires.
