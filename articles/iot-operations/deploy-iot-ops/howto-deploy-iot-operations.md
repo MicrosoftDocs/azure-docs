@@ -65,6 +65,8 @@ A cluster host:
   az iot ops verify-host
   ```
 
+* (Optional) Prepare your cluster for observability before deploying Azure IoT Operations: [Configure observability](../configure-observability-monitoring/howto-configure-observability.md).
+
 ## Deploy
 
 Use the Azure portal or Azure CLI to deploy Azure IoT Operations to your Arc-enabled Kubernetes cluster.
@@ -136,7 +138,7 @@ Azure IoT Operations requires a schema registry on your cluster. Schema registry
    | Optional parameter | Value | Description |
    | --------- | ----- | ----------- |
    | `--no-progress` |  | Disables the deployment progress display in the terminal. |
-   | `--disable-rsync-rules` |  | Disable the resource sync rules on the deployment feature flag if you don't have **Microsoft.Authorization/roleAssignment/write** permissions in the resource group. |
+   | `--enable-rsync-rules` |  | Enable the resource sync rules on the instance to project resources from the cloud to the edge. |
    | `--add-insecure-listener` |  | Add an insecure 1883 port config to the default listener. *Not for production use*. |
    | `--broker-config-file` | Path to JSON file | Provide a configuration file for the MQTT broker. For more information, see [Advanced MQTT broker config](https://github.com/Azure/azure-iot-ops-cli-extension/wiki/Advanced-Mqtt-Broker-Config) and [Configure core MQTT broker settings](../manage-mqtt-broker/howto-configure-availability-scale.md). |
 

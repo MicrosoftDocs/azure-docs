@@ -49,9 +49,9 @@ The following table described Azure IoT Operations deployment and management tas
 | Task | Required permission | Comments |
 | ---- | ------------------- | -------- |
 | Deploy Azure IoT Operations | **Contributor** permissions at the subscription level. |  |
-| Creating secrets in Key Vault | **Key Vault Secrets Officer** permissions at the resource level. | Only required for secure settings deployment. |
-| Enabling resource sync rules on an Azure IoT Operations instance | **Microsoft/Authorization/roleAssignments/write** permissions at the resource group level. | Resource sync rules can be disabled during instance creation if the user doesn't have permissions. |
-| Creating a schema registry. | **Microsoft/Authorization/roleAssignments/write** permissions at the resource group level. |  |
+| Create secrets in Key Vault | **Key Vault Secrets Officer** permissions at the resource level. | Only required for secure settings deployment. |
+| Enable resource sync rules on an Azure IoT Operations instance | **Microsoft/Authorization/roleAssignments/write** permissions at the resource group level. | Resource sync rules are disabled by default, but can be enabled during instance creation. |
+| Create a schema registry. | **Microsoft/Authorization/roleAssignments/write** permissions at the resource group level. |  |
 
 > [!TIP]
 >
