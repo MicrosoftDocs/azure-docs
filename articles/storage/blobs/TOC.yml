@@ -481,15 +481,6 @@ items:
       - name: Storage resource provider
         href: ../common/scalability-targets-resource-provider.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: 'Tutorial: Optimize performance and scalability'
-      items:
-      - name: 1 - Create a VM and storage account
-        href: storage-blob-scalable-app-create-vm.md
-      - name: 2 - Upload large data to an Azure storage account
-        href: storage-blob-scalable-app-upload-files.md
-      - name: 3 - Download large data from an Azure storage account
-        href: storage-blob-scalable-app-download-files.md
-      - name: 4 - Verify throughput and latency metrics
-        href: storage-blob-scalable-app-verify-metrics.md
     - name: Object replication
       items:
       - name: Object replication
@@ -504,12 +495,12 @@ items:
       href: ../common/storage-plan-manage-costs.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Find prices
       items:
-        - name: Azure Blob Storage prices
-          href: https://azure.microsoft.com/pricing/details/storage/blobs/
-        - name: Azure Data Lake Storage prices
-          href: https://azure.microsoft.com/pricing/details/storage/data-lake/
-        - name: Map each REST operation to a price
-          href: map-rest-apis-transaction-categories.md
+      - name: Azure Blob Storage prices
+        href: https://azure.microsoft.com/pricing/details/storage/blobs/
+      - name: Azure Data Lake Storage prices
+        href: https://azure.microsoft.com/pricing/details/storage/data-lake/
+      - name: Map each REST operation to a price
+        href: map-rest-apis-transaction-categories.md
     - name: Estimate costs
       items:
       - name: Estimate the cost of Azure Blob Storage
@@ -1046,7 +1037,7 @@ items:
     - name: Other languages
       href: ../common/storage-samples.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Azure PowerShell
-      items: 
+      items:
       - name: Overview
         href: storage-samples-blobs-powershell.md
       - name: Calculate the total billing size of a blob container
@@ -1474,7 +1465,7 @@ items:
     - name: Use with Databricks Delta and Event Grid
       href: data-lake-storage-events.md
     - name: Use with other Azure services
-      href: data-lake-storage-integrate-with-services-tutorials.md    
+      href: data-lake-storage-integrate-with-services-tutorials.md
     - name: Use with Azure services
       href: data-lake-storage-integrate-with-services-tutorials.md
 - name: Reference
