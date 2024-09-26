@@ -5,7 +5,7 @@ author: kgremban
 ms.author: kgremban
 ms.topic: how-to
 ms.custom: ignite-2023, devx-track-azurecli
-ms.date: 09/23/2024
+ms.date: 09/26/2024
 
 #CustomerIntent: As an OT professional, I want to deploy Azure IoT Operations to a Kubernetes cluster.
 ---
@@ -83,12 +83,6 @@ The Azure portal deployment experience is a helper tool that generates a deploym
 
    If at any point you get an error that says *Your device is required to be managed to access your resource*, run `az login` again and make sure that you sign in interactively with a browser.
 
-   > [!NOTE]
-   > If you're using GitHub Codespaces in a browser, `az login` returns a localhost error in the browser window after logging in. To fix, either:
-   >
-   > * Open the codespace in VS Code desktop, and then run `az login` in the terminal. This opens a browser window where you can log in to Azure.
-   > * Or, after you get the localhost error on the browser, copy the URL from the browser and use `curl <URL>` in a new terminal tab. You should see a JSON response with the message "You have logged into Microsoft Azure!".
-
 ### Create a storage account and schema registry
 
 Azure IoT Operations requires a schema registry on your cluster. Schema registry requires an Azure storage account so that it can synchronize schema information between cloud and edge.
@@ -105,11 +99,14 @@ Azure IoT Operations requires a schema registry on your cluster. Schema registry
    az iot ops schema registry create --name <NEW_SCHEMA_REGISTRY_NAME> --resource-group <RESOURCE_GROUP> --registry-namespace <NEW_SCHEMA_REGISTRY_NAMESPACE> --sa-resource-id $(az storage account show --name <STORAGE_ACCOUNT_NAME> --resource-group <RESOURCE_GROUP> -o tsv --query id)
    ```
 
+   >[!NOTE]
+   >This command requires that you have role assignment write permissions because it assigns a role to give schema registry access to the storage account. By default, the role is the built-in **Storage Blob Data Contributor** role, or you can create a custom role with restricted permissions to assign instead.
+
    Use the optional parameters to customize your schema registry, including:
 
    | Optional parameter | Value | Description |
    | --------- | ----- | ----------- |
-   | `--custom-role-id` | Role definition, ID | The schema registry needs read/write access to the storage account. Provide a custom role ID to use instead of the default **Storage Blob Data Contributor**. Format: `/subscriptions/<SUBSCRIPTION_ID>/providers/Microsoft.Authorization/roleDefinitions/<ROLE_ID>`. |
+   | `--custom-role-id` | Role definition ID | Provide a custom role ID to assign to the schema registry instead of the default **Storage Blob Data Contributor** role. Format: `/subscriptions/<SUBSCRIPTION_ID>/providers/Microsoft.Authorization/roleDefinitions/<ROLE_ID>`. |
    | `--sa-container` | string | Storage account container where schemas will be stored. If this container doesn't exist, it will be created. The default container name is **schemas**. |
 
 ### Deploy Azure IoT Operations
@@ -152,19 +149,14 @@ Secret management for Azure IoT Operations uses Azure Secret Store to sync the s
 
 Azure secret requires a user-assigned managed identity with access to the Azure Key Vault where secrets are stored. Dataflows also requires a user-assigned managed identity to authenticate cloud connections.
 
+
 1. If you don't have an Azure Key Vault, create one by using the [az keyvault create](/cli/azure/keyvault#az-keyvault-create) command.
 
    ```azurecli
    az keyvault create --resource-group "<RESOURCE_GROUP>" --location "<LOCATION>" --name "<KEYVAULT_NAME>" --enable-rbac-authorization 
    ```
 
-1. Give yourself **Secrets officer** permissions on the vault, so that you can create secrets:
-
-   ```azurecli
-   az role assignment create --role "Key Vault Secrets Officer" --assignee <CURRENT_USER> --scope /subscriptions/<SUBSCRIPTION>/resourcegroups/<RESOURCE_GROUP>/providers/Microsoft.KeyVault/vaults/<KEYVAULT_NAME> 
-   ```
-
-1. Create a user-assigned managed identity that has access to the Azure Key Vault.
+1. Create a user-assigned managed identity that will be assigned access to the Azure Key Vault.
 
    ```azurecli
    az identity create --name "<USER_ASSIGNED_IDENTITY_NAME>" --resource-group "<RESOURCE_GROUP>" --location "<LOCATION>" --subscription "<SUBSCRIPTION>" 
