@@ -60,7 +60,18 @@ For Network Policy Server (NPS) vendor-specific attributes configuration informa
 
 ### Certificates
 
-To generate self-signed certificates, see [Generate and export certificates for User VPN P2S connections: PowerShell](certificates-point-to-site.md). To generate a certificate with a specific Common Name, change the **Subject** parameter to the appropriate value (example, xx@domain.com) when running the `New-SelfSignedCertificate` PowerShell command.
+To generate self-signed certificates, see [Generate and export certificates for User VPN P2S connections: PowerShell](certificates-point-to-site.md). To generate a certificate with a specific Common Name, change the **Subject** parameter to the appropriate value (example, xx@domain.com) when running the `New-SelfSignedCertificate` PowerShell command. For example, you can generate certificates with the following **Subject**:
+
+| **Digital certificate field**  | Value  | description  |
+|---|---|--|
+| **Subject**| CN= cert@marketing.contoso.com| digital certificate for Marketing department|
+| **Subject**| CN= cert@sale.contoso.com| digital certificate for Sale department|
+| **Subject**| CN= cert@engineering.contoso.com| digital certificate for Engineering department|
+| **Subject**| CN= cert@finance.contoso.com| digital certificate for Finance department|
+
+> [!NOTE]
+> Multiple address pool feature with digital certificates authetication apply a selection of specific user group only based on **Subject**. The selection criteria doesn't work on Subject Alternative Name (SAN) certificates. 
+
 
 ## Step 3: Create a user group
 
