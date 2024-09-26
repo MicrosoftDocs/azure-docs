@@ -54,7 +54,7 @@ The following tables list the Private Link services and the regions where they'r
 
 |Supported services  |Available regions | Other considerations | Status  |
 |:-------------------|:-----------------|:----------------|:--------|
-|Azure Container Registry | All public regions<br/> All Government regions    | Supported with premium tier of container registry. [Select for tiers](../container-registry/container-registry-skus.md)| GA   <br/> [Learn how to create a private endpoint for Azure Container Registry.](../container-registry/container-registry-private-link.md)   |
+|Azure Container Registry | All public regions<br/> All Government regions    | Supported with premium tier of container registry. [Select for tiers](/azure/container-registry/container-registry-skus)| GA   <br/> [Learn how to create a private endpoint for Azure Container Registry.](/azure/container-registry/container-registry-private-link)   |
 |Azure Kubernetes Service - Kubernetes API | All public regions <br/> All Government regions  |  | GA   <br/> [Learn how to create a private endpoint for Azure Kubernetes Service.](/azure/aks/private-clusters)   |
 
 ### Databases

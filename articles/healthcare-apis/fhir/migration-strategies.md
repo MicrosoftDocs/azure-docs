@@ -36,7 +36,7 @@ Compare the differences between Azure API for FHIR and Azure Health Data Service
 |Capabilities|Azure API for FHIR|Azure Health Data Services|
 |------------|------------------|--------------------------|
 |**Settings**|Supported: <br> • Local RBAC <br> • SMART on FHIR Proxy|Planned deprecation: <br> • Local RBAC (9/6/23) <br> • SMART on FHIR Proxy (9/21/26)|
-|**Data storage Volume**|More than 4 TB|Current support is 4 TB. Open an [Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md) if you need more than 4 TB|
+|**Data storage Volume**|More than 4 TB|Current support is 4 TB. Open an [Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request) if you need more than 4 TB|
 |**Data ingress**|Tools available in OSS|`$import` operation|
 |**Autoscaling**|Supported on request and incurs charge|Enabled by default at no extra charge|
 |**Search parameters**|Bundle type supported: Batch <br> • Include and revinclude, iterate modifier not supported  <br> • Sorting supported by first name, family name, birthdate and clinical date|Bundle type supported: Batch and transaction  <br> • Selectable search parameters  <br> • Include, revinclude, and iterate modifier is supported <br>• Sorting supported by string and dateTime fields|

@@ -196,12 +196,12 @@ Parameterizing the configuration makes it available as a deploy-time parameter. 
 ## Build container image
 
 
-1. In the dropdown list, select an [Azure container registry](../container-registry/index.yml) that will be used to build and store the container images for the apps. You can use an existing Azure container registry or create a new one by selecting **Create new registry**:
+1. In the dropdown list, select an [Azure container registry](/azure/container-registry/) that will be used to build and store the container images for the apps. You can use an existing Azure container registry or create a new one by selecting **Create new registry**:
 
     ![Screenshot that shows the Build images window.](./media/tutorial-containerize-apps-aks/build-aspnet-app.png)
 
    > [!NOTE]
-   > Only Azure container registries with the admin user account enabled are displayed. The admin user account is currently required for deploying an image from an Azure container registry to Azure App Service. For more information, see [Authenticate with an Azure container registry](../container-registry/container-registry-authentication.md#admin-account).
+   > Only Azure container registries with the admin user account enabled are displayed. The admin user account is currently required for deploying an image from an Azure container registry to Azure App Service. For more information, see [Authenticate with an Azure container registry](/azure/container-registry/container-registry-authentication#admin-account).
 
 2. The Dockerfiles needed to build the container images for each selected application are generated at the beginning of the build step. Select **Review** to review the Dockerfile. You can also add any necessary customizations to the Dockerfile in the review step and save the changes before you start the build process.
 

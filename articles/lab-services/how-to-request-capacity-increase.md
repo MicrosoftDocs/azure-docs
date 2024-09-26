@@ -195,4 +195,4 @@ To complete the support request, enter the following information:
 
 - For more information about capacity limits, see [Capacity limits in Azure Lab Services](capacity-limits.md).
 - Learn more about the different [virtual machine sizes in the administrator's guide](./administrator-guide.md#vm-sizing).
-- Learn more about the general [process for creating Azure support requests](../azure-portal/supportability/how-to-create-azure-support-request.md).
+- Learn more about the general [process for creating Azure support requests](/azure/azure-portal/supportability/how-to-create-azure-support-request).
