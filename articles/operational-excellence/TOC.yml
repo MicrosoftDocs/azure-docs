@@ -78,7 +78,7 @@
           href: relocation-event-grid-system-topics.md
       - name: Azure Functions
         href: relocation-functions.md
-      - name: Azure Kubernetes
+      - name: Azure Kubernetes Service
         href: relocation-kubernetes-service.md
       - name: Azure Logic apps
         href: ../logic-apps/move-logic-app-resources.md?toc=/azure/operational-excellence/toc.json
