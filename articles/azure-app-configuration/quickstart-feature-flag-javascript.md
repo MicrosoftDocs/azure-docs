@@ -35,7 +35,7 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
 
 1. Go to the *app-configuration-quickstart* directory that you created in the quickstart and install the Feature Management by using the `npm install` command.
 
-    ```console
+    ``` console
     npm install @microsoft/feature-management
     ```
 
