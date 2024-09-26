@@ -12,6 +12,8 @@ ms.custom: mvc
 
 # What are the comparisons between Azure Content Delivery Network product features?
 
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
+
 Azure Content Delivery Network includes three products:
 
 - **Azure CDN Standard from Microsoft**

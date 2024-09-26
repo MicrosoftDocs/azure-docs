@@ -10,9 +10,9 @@ ms.date: 03/20/2024
 ms.author: duau
 ---
 
-[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
-
 # Quickstart: Create an Azure Content Delivery Network profile and endpoint
+
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
 
 In this quickstart, you enable Azure Content Delivery Network by creating a new content delivery network profile, which is a collection of one or more content delivery network endpoints. After you've created a profile and an endpoint, you can start delivering content to your customers.
 
