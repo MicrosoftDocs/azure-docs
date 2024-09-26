@@ -5,7 +5,7 @@ author: anaharris-ms
 ms.author: csudrisforresiliency
 ms.topic: overview
 ms.custom: subject-reliability, references-regions
-ms.service: traffic-manager
+ms.service: azure-traffic-manager
 ms.date: 02/06/2024
 ---
 
@@ -138,10 +138,21 @@ This scenario is ideal for the use of Azure Traffic Manager that has inbuilt pro
 
 1. Set up health check and failover configuration
 
-    In this step, you set the DNS TTL to 10 seconds, which is honored by most internet-facing recursive resolvers. This configuration means that no DNS resolver will cache the information for more than 10 seconds. For the endpoint monitor settings, the path is current set at / or root, but you can customize the endpoint settings to evaluate a path, for example, prod.contoso.com/index. The example below shows the **https** as the probing protocol. However, you can choose **http** or **tcp** as well. The choice of protocol depends upon the end application. The probing interval is set to 10 seconds, which enables fast probing, and the retry is set to 3. As a result, Traffic Manager will fail over to the second endpoint if three consecutive intervals register a failure. The following formula defines the total time for an automated failover:
-    Time for failover = TTL + Retry * Probing interval 
+    In this step, you set the DNS TTL to 10 seconds, which is honored by most internet-facing recursive resolvers. This configuration means that no DNS resolver will cache the information for more than 10 seconds.
+
+    For the endpoint monitor settings, the path is current set at / or root, but you can customize the endpoint settings to evaluate a path, for example, prod.contoso.com/index.
+   
+    The example below shows the **https** as the probing protocol. However, you can choose **http** or **tcp** as well. The choice of protocol depends upon the end application. The probing interval is set to 10 seconds, which enables fast probing, and the retry is set to 3. As a result, Traffic Manager will fail over to the second endpoint if three consecutive intervals register a failure.
+
+    The following formula defines the total time for an automated failover:
+   
+    `Time for failover = TTL + Retry * Probing interval`
+   
     And in this case, the value is 10 + 3 * 10 = 40 seconds (Max).
-    If the Retry is set to 1 and TTL is set to 10 secs, then the time for failover 10 + 1 * 10 = 20 seconds. Set the Retry to a value greater than **1** to eliminate chances of failovers due to false positives or any minor network blips. 
+   
+    If the Retry is set to 1 and TTL is set to 10 secs, then the time for failover 10 + 1 * 10 = 20 seconds.
+
+    Set the Retry to a value greater than **1** to eliminate chances of failovers due to false positives or any minor network blips. 
     
 
     ![Screenshot of setting up health check.](../networking/media/disaster-recovery-dns-traffic-manager/set-up-health-check.png)

@@ -5,6 +5,10 @@ author: batamig
 ms.author: bagol
 ms.topic: troubleshooting
 ms.date: 01/09/2023
+
+
+#Customer intent: As an SAP BASIS team member, I want to troubleshoot issues with my Microsoft Sentinel for SAP applications data connector so that I can ensure accurate and timely data ingestion and monitoring.
+
 ---
 
 # Troubleshooting your Microsoft Sentinel solution for SAP® applications deployment
@@ -225,7 +229,7 @@ For more information, see [ValidateSAP environment validation steps](prerequisit
 ### No records / late records
 
 The agent relies on time zone information to be correct. If you see that there are no records in the SAP audit and change logs, or if records are constantly a few hours behind, check if SAP report TZCUSTHELP presents any errors. Follow [SAP note 481835](<https://me.sap.com/notes/481835/E>) for more details.
-
+Additionally, there can be issues with the clock on the VM where the Microsoft Sentinel solution for SAP® applications agent is hosted. Any deviation of the VM's clock from UTC will impact data collection. More importantly, the SAP VM's clock and the Sentinel agent's VM's clock should match.
 
 
 ### Network connectivity issues

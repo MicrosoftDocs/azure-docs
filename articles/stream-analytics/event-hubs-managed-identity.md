@@ -3,7 +3,7 @@ title: Use managed identities to access Event Hubs from an Azure Stream Analyt
 description: This article describes how to use managed identities to authenticate your Azure Stream Analytics job to Azure Event Hubs input and output.
 author: AliciaLiMicrosoft 
 ms.author: ali 
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 05/15/2023
 ms.custom: subject-rbac-steps
@@ -43,7 +43,7 @@ For the Stream Analytics job to access your event hub using managed identity, th
 
 1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
 > [!NOTE]
 > When giving access to any resource, you should give the least needed access. Depending on whether you are configuring Event Hubs as an input or output, you may not need to assign the Azure Event Hubs Data Owner role which would grant more than needed access to your Eventhub resource. For more information see [Authenticate an application with Microsoft Entra ID to access Event Hubs resources](../event-hubs/authenticate-application.md)
@@ -54,7 +54,7 @@ For the Stream Analytics job to access your event hub using managed identity, th
  | Assign access to | User, group, or service principal |
  | Members | \<Name of your Stream Analytics job> |
 
- ![Screenshot that shows Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
+ ![Screenshot that shows Add role assignment page in Azure portal.](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png)
 
 You can also grant this role at the Event Hubs Namespace level, which will naturally propagate the permissions to all event hubs created under it. That is, all event hubs under a Namespace can be used as a managed-identity-authenticating resource in your Stream Analytics job.
 

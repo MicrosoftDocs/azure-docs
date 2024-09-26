@@ -6,7 +6,7 @@ author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 09/12/2023
 ms.topic: tutorial
-ms.service: digital-twins
+ms.service: azure-digital-twins
 ms.custom: engagement-fy23, devx-track-azurecli
 
 # CustomerIntent: As a developer, I want to create a data flow from devices through Azure Digital Twins so that I can have a connected digital twin solution.
@@ -111,12 +111,12 @@ To publish the function app to Azure, you'll need to create a storage account, t
 1. Create an Azure function app by running the following command:
 
     ```azurecli-interactive
-    az functionapp create --name <name-for-new-function-app> --storage-account <name-of-storage-account-from-previous-step> --functions-version 4 --consumption-plan-location <location> --runtime dotnet-isolated --runtime-version 7 --resource-group <resource-group>
+    az functionapp create --name <name-for-new-function-app> --storage-account <name-of-storage-account-from-previous-step> --functions-version 4 --consumption-plan-location <location> --runtime dotnet-isolated --resource-group <resource-group>
     ```
 
 1. Next, you'll zip up the functions and publish them to your new Azure function app.
 
-    1. Open a console window on your machine, and navigate into the *digital-twins-samples-main\AdtSampleApp\SampleFunctionsApp* folder inside your downloaded sample project.
+    1. Open a console window on your machine (if you're using the local Azure CLI, it can be the same window), and navigate into the *digital-twins-samples-main\AdtSampleApp\SampleFunctionsApp* folder inside your downloaded sample project.
     
     1. In the console, run the following command to publish the project locally:
 
@@ -135,7 +135,7 @@ To publish the function app to Azure, you'll need to create a storage account, t
 
         :::image type="content" source="media/tutorial-end-to-end/publish-zip.png" alt-text="Screenshot of File Explorer in Windows showing the contents of the publish zip folder.":::
 
-    Now you can close the local console window that you used to prepare the project. The last step will be done in the Azure CLI.
+    The last step will be done in the Azure CLI.
 
 1. In the Azure CLI, run the following command to deploy the published and zipped functions to your Azure function app:
 
@@ -266,6 +266,8 @@ az iot hub device-identity create --device-id thermostat67 --hub-name <your-IoT-
 The output is information about the device that was created.
 
 ### Configure and run the simulation
+
+[!INCLUDE [iot-authentication-device-connection-string.md](../../includes/iot-authentication-device-connection-string.md)]
 
 Next, configure the device simulator to send data to your IoT Hub instance.
 

@@ -5,7 +5,7 @@ author: rolyon
 manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
-ms.date: 02/22/2024
+ms.date: 06/27/2024
 ms.author: rolyon
 ---
 
@@ -31,12 +31,12 @@ When you try to assign a role, you get the following error message:
 
 ### Cause
 
-Azure supports up to **4000** role assignments per subscription. This limit includes role assignments at the subscription, resource group, and resource scopes, but not at the management group scope. You should try to reduce the number of role assignments in the subscription.
+Azure supports up to **4000** role assignments per subscription. This limit includes role assignments at the subscription, resource group, and resource scopes, but not at the management group scope. [Eligible role assignments](./role-assignments-portal.yml#step-6-select-assignment-type-(preview)) and role assignments scheduled in the future do not count towards this limit. You should try to reduce the number of role assignments in the subscription.
 
 > [!NOTE]
 > The **4000** role assignments limit per subscription is fixed and cannot be increased.
 
-To get the number of role assignments, you can view the [chart on the Access control (IAM) page](role-assignments-list-portal.md#list-number-of-role-assignments) in the Azure portal. You can also use the following Azure PowerShell commands:
+To get the number of role assignments, you can view the [chart on the Access control (IAM) page](role-assignments-list-portal.yml#list-number-of-role-assignments) in the Azure portal. You can also use the following Azure PowerShell commands:
 
 ```azurepowershell
 $scope = "/subscriptions/<subscriptionId>"
@@ -54,11 +54,11 @@ To reduce the number of role assignments in the subscription, add principals (us
 
     You typically set scope to **Directory** to query your entire tenant, but you can narrow the scope to particular subscriptions.
 
-    :::image type="content" source="media/troubleshoot-limits/scope.png" alt-text="Screenshot of Azure Resource Graph Explorer that shows Scope selection." lightbox="media/troubleshoot-limits/scope.png":::
+    :::image type="content" source="./media/shared/resource-graph-scope.png" alt-text="Screenshot of Azure Resource Graph Explorer that shows Scope selection." lightbox="./media/shared/resource-graph-scope.png":::
 
 1. Select **Set authorization scope** and set the authorization scope to **At, above and below** to query all resources at the specified scope.
 
-    :::image type="content" source="media/troubleshoot-limits/authorization-scope.png" alt-text="Screenshot of Azure Resource Graph Explorer that shows Set authorization scope pane." lightbox="media/troubleshoot-limits/authorization-scope.png":::
+    :::image type="content" source="./media/shared/resource-graph-authorization-scope.png" alt-text="Screenshot of Azure Resource Graph Explorer that shows Set authorization scope pane." lightbox="./media/shared/resource-graph-authorization-scope.png":::
 
 1. Run the following query to get the role assignments with the same role and at the same scope, but for different principals.
 
@@ -68,11 +68,11 @@ To reduce the number of role assignments in the subscription, add principals (us
 
     # [Default](#tab/default)
 
-    [!INCLUDE [resource-graph-query-authorization-same-role-scope](../governance/includes/resource-graph/query/authorization-same-role-scope.md)]
+    [!INCLUDE [resource-graph-query-authorization-same-role-scope](./includes/query/authorization-same-role-scope.md)]
 
     # [Conditions](#tab/conditions)
 
-    [!INCLUDE [resource-graph-query-authorization-same-role-scope-condition](../governance/includes/resource-graph/query/authorization-same-role-scope-condition.md)]
+    [!INCLUDE [resource-graph-query-authorization-same-role-scope-condition](./includes/query/authorization-same-role-scope-condition.md)]
 
     ---
 
@@ -104,7 +104,7 @@ To reduce the number of role assignments in the subscription, add principals (us
 
     For information about how to add principals in bulk, see [Bulk add group members in Microsoft Entra ID](../active-directory/enterprise-users/groups-bulk-import-members.md).
 
-1. Assign the role to the group you created at the same scope. For more information, see [Assign Azure roles using the Azure portal](role-assignments-portal.md).
+1. Assign the role to the group you created at the same scope. For more information, see [Assign Azure roles using the Azure portal](role-assignments-portal.yml).
 
     Now you can find and remove the principal-based role assignments.
 
@@ -126,7 +126,7 @@ To reduce the number of role assignments in the subscription, add principals (us
 
     :::image type="content" source="media/troubleshoot-limits/role-assignments-filter-remove.png" alt-text="Screenshot of Access control (IAM) page that shows role assignments with the same role and at the same scope, but for different principals." lightbox="media/troubleshoot-limits/role-assignments-filter-remove.png":::
 
-1. Select and remove the principal-based role assignments. For more information, see [Remove Azure role assignments](role-assignments-remove.md).
+1. Select and remove the principal-based role assignments. For more information, see [Remove Azure role assignments](role-assignments-remove.yml).
 
 ### Solution 2 - Remove redundant role assignments
 
@@ -138,25 +138,25 @@ To reduce the number of role assignments in the subscription, remove redundant r
 
     You typically set scope to **Directory** to query your entire tenant, but you can narrow the scope to particular subscriptions.
 
-    :::image type="content" source="media/troubleshoot-limits/scope.png" alt-text="Screenshot of Azure Resource Graph Explorer that shows Scope selection." lightbox="media/troubleshoot-limits/scope.png":::
+    :::image type="content" source="./media/shared/resource-graph-scope.png" alt-text="Screenshot of Azure Resource Graph Explorer that shows Scope selection." lightbox="./media/shared/resource-graph-scope.png":::
 
 1. Select **Set authorization scope** and set the authorization scope to **At, above and below** to query all resources at the specified scope.
 
-    :::image type="content" source="media/troubleshoot-limits/authorization-scope.png" alt-text="Screenshot of Azure Resource Graph Explorer that shows Set authorization scope pane." lightbox="media/troubleshoot-limits/authorization-scope.png":::
+    :::image type="content" source="./media/shared/resource-graph-authorization-scope.png" alt-text="Screenshot of Azure Resource Graph Explorer that shows Set authorization scope pane." lightbox="./media/shared/resource-graph-authorization-scope.png":::
 
 1. Run the following query to get the role assignments with the same role and same principal, but at different scopes.
 
-    This query checks active role assignments and doesn't consider eligible role assignments in [Microsoft Entra Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-resource-roles-assign-roles). To list eligible role assignments, you can the Microsoft Entra admin center, PowerShell, or REST API. For more information, see [Get-AzRoleEligibilityScheduleInstance](/powershell/module/az.resources/get-azroleeligibilityscheduleinstance) or [Role Eligibility Schedule Instances - List For Scope](/rest/api/authorization/role-eligibility-schedule-instances/list-for-scope).
+    This query checks active role assignments and doesn't consider eligible role assignments in [Microsoft Entra Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-resource-roles-assign-roles). To list eligible role assignments, you can use the Microsoft Entra admin center, PowerShell, or REST API. For more information, see [Get-AzRoleEligibilityScheduleInstance](/powershell/module/az.resources/get-azroleeligibilityscheduleinstance) or [Role Eligibility Schedule Instances - List For Scope](/rest/api/authorization/role-eligibility-schedule-instances/list-for-scope).
 
     If you are using [role assignment conditions](conditions-overview.md) or [delegating role assignment management with conditions](delegate-role-assignments-overview.md), you should use the Conditions query. Otherwise, use the Default query.
 
     # [Default](#tab/default)
 
-    [!INCLUDE [resource-graph-query-authorization-same-role-principal](../governance/includes/resource-graph/query/authorization-same-role-principal.md)]
+    [!INCLUDE [resource-graph-query-authorization-same-role-principal](./includes/query/authorization-same-role-principal.md)]
 
     # [Conditions](#tab/conditions)
 
-    [!INCLUDE [resource-graph-query-authorization-same-role-principal-condition](../governance/includes/resource-graph/query/authorization-same-role-principal-condition.md)]
+    [!INCLUDE [resource-graph-query-authorization-same-role-principal-condition](./includes/query/authorization-same-role-principal-condition.md)]
 
     ---
 
@@ -200,7 +200,7 @@ To reduce the number of role assignments in the subscription, remove redundant r
 
 1. Find the principal.
 
-1. Select and remove the role assignment. For more information, see [Remove Azure role assignments](role-assignments-remove.md).
+1. Select and remove the role assignment. For more information, see [Remove Azure role assignments](role-assignments-remove.yml).
 
 ### Solution 3 - Replace multiple built-in role assignments with a custom role assignment
 
@@ -212,7 +212,7 @@ To reduce the number of role assignments in the subscription, replace multiple b
 
     You typically set scope to **Directory** to query your entire tenant, but you can narrow the scope to particular subscriptions.
 
-    :::image type="content" source="media/troubleshoot-limits/scope.png" alt-text="Screenshot of Azure Resource Graph Explorer that shows Scope selection." lightbox="media/troubleshoot-limits/scope.png":::
+    :::image type="content" source="./media/shared/resource-graph-scope.png" alt-text="Screenshot of Azure Resource Graph Explorer that shows Scope selection." lightbox="./media/shared/resource-graph-scope.png":::
 
 1. Run the following query to get role assignments with the same principal and same scope, but with different built-in roles.
 
@@ -222,11 +222,11 @@ To reduce the number of role assignments in the subscription, replace multiple b
 
     # [Default](#tab/default)
 
-    [!INCLUDE [resource-graph-query-authorization-same-principal-scope](../governance/includes/resource-graph/query/authorization-same-principal-scope.md)]
+    [!INCLUDE [resource-graph-query-authorization-same-principal-scope](./includes/query/authorization-same-principal-scope.md)]
 
     # [Condition](#tab/conditions)
 
-    [!INCLUDE [resource-graph-query-authorization-same-principal-scope-condition](../governance/includes/resource-graph/query/authorization-same-principal-scope-condition.md)]
+    [!INCLUDE [resource-graph-query-authorization-same-principal-scope-condition](./includes/query/authorization-same-principal-scope-condition.md)]
 
     ---
 
@@ -247,7 +247,7 @@ To reduce the number of role assignments in the subscription, replace multiple b
 
 1. Use **AllRD** to see the built-in roles that can potentially be combined into a custom role.
 
-1. List the actions and data actions for the built-in roles. For more information, see [List Azure role definitions](role-definitions-list.md) or [Azure built-in roles](./built-in-roles.md)
+1. List the actions and data actions for the built-in roles. For more information, see [List Azure role definitions](role-definitions-list.yml) or [Azure built-in roles](./built-in-roles.md)
 
 1. Create a custom role that includes all the actions and data actions as the built-in roles. To make it easier to create the custom role, you can start by cloning one of the built-in roles. For more information, see [Create or update Azure custom roles using the Azure portal](custom-roles-portal.md).
 
@@ -259,7 +259,7 @@ To reduce the number of role assignments in the subscription, replace multiple b
 
 1. Open the **Access control (IAM)** page at the same scope as the role assignments.
 
-1. Assign the new custom role to the principal. For more information, see [Assign Azure roles using the Azure portal](role-assignments-portal.md).
+1. Assign the new custom role to the principal. For more information, see [Assign Azure roles using the Azure portal](role-assignments-portal.yml).
 
     Now you can remove the built-in role assignments.
 
@@ -267,7 +267,7 @@ To reduce the number of role assignments in the subscription, replace multiple b
 
 1. Find the principal and built-in role assignments.
 
-1. Remove the built-in role assignments from the principal. For more information, see [Remove Azure role assignments](role-assignments-remove.md).
+1. Remove the built-in role assignments from the principal. For more information, see [Remove Azure role assignments](role-assignments-remove.yml).
 
 ### Solution 4 - Make role assignments eligible
 
@@ -318,13 +318,13 @@ Follow these steps to find and delete unused Azure custom roles.
 
 1. Select **Scope** and set the scope to **Directory** for the query.
 
-    :::image type="content" source="media/troubleshoot-limits/scope.png" alt-text="Screenshot of Azure Resource Graph Explorer that shows Scope selection." lightbox="media/troubleshoot-limits/scope.png":::
+    :::image type="content" source="./media/shared/resource-graph-scope.png" alt-text="Screenshot of Azure Resource Graph Explorer that shows Scope selection." lightbox="./media/shared/resource-graph-scope.png":::
 
 1. Run the following query to get all custom roles that don't have any role assignments:
 
     This query checks active role assignments and doesn't consider eligible custom role assignments in [Microsoft Entra Privileged Identity Management](/entra/id-governance/privileged-identity-management/pim-resource-roles-assign-roles). To list eligible custom role assignments, you can use the Microsoft Entra admin center, PowerShell, or REST API. For more information, see [Get-AzRoleEligibilityScheduleInstance](/powershell/module/az.resources/get-azroleeligibilityscheduleinstance) or [Role Eligibility Schedule Instances - List For Scope](/rest/api/authorization/role-eligibility-schedule-instances/list-for-scope).
 
-    [!INCLUDE [resource-graph-query-authorization-unused-custom-roles](../governance/includes/resource-graph/query/authorization-unused-custom-roles.md)]
+    [!INCLUDE [resource-graph-query-authorization-unused-custom-roles](./includes/query/authorization-unused-custom-roles.md)]
 
     The following shows an example of the results:
 
@@ -348,5 +348,5 @@ Follow these steps to find and delete unused Azure custom roles.
 
 ## Next steps
 
-- [Remove Azure role assignments](./role-assignments-remove.md)
+- [Remove Azure role assignments](./role-assignments-remove.yml)
 - [Create or update Azure custom roles using the Azure portal](custom-roles-portal.md)

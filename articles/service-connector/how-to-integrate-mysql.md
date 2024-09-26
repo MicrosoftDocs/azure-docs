@@ -13,7 +13,7 @@ ms.date: 02/02/2024
 
 This page shows supported authentication methods and clients, and shows sample code you can use to connect Azure Database for MySQL - Flexible Server to other cloud services using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection.
 
-[!INCLUDE [Azure-database-for-mysql-single-server-deprecation](../mysql/includes/azure-database-for-mysql-single-server-deprecation.md)]
+[!INCLUDE [Azure-database-for-mysql-single-server-deprecation](~/reusable-content/ce-skilling/azure/includes/mysql/includes/azure-database-for-mysql-single-server-deprecation.md)]
 
 ## Supported compute services
 
@@ -240,6 +240,9 @@ Refer to the steps and code below to connect to Azure Database for MySQL using a
 [!INCLUDE [code sample for mysql system mi](./includes/code-mysql-me-id.md)]
 
 ### Connection String
+
+> [!WARNING]
+> Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
 
 #### [.NET](#tab/dotnet)
 

@@ -215,7 +215,7 @@ Determines whether a claim value is equal to the input parameter value. Check ou
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | string | The claim's type, which is to be compared. |
 | InputParameter | operator | string | Possible values: `EQUAL` or `NOT EQUAL`. |
-| InputParameter | compareTo | string | String comparison, one of the values: Ordinal, OrdinalIgnoreCase. |
+| InputParameter | compareTo | string | String comparison, one of the values, that is, the string to which the input claim values must be compared to: Ordinal, OrdinalIgnoreCase. |
 | InputParameter | ignoreCase | string | Specifies whether this comparison should ignore the case of the strings being compared. |
 | OutputClaim | outputClaim | boolean | The claim that is produced after this claims transformation has been invoked. |
 

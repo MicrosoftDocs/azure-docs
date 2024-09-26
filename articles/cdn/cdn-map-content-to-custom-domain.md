@@ -29,7 +29,7 @@ In this tutorial, you learn how to:
 > - Add a custom domain with your content delivery network endpoint.
 > - Verify the custom domain.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 

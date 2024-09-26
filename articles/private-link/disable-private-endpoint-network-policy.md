@@ -4,7 +4,7 @@ titleSuffix: Azure Private Link
 description: Learn how to manage network policies for private endpoints.
 services: private-link
 author: abell
-ms.service: private-link
+ms.service: azure-private-link
 ms.topic: how-to
 ms.date: 07/26/2023
 ms.author: abell 

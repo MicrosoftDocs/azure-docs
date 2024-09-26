@@ -39,7 +39,7 @@ These features are improvements at the IoT Hub protocol and authentication layer
 
 1. Select **IoT Hub** from the search results, and then select **Create**.
 
-1. On the **Basics** tab, complete the fields [as you normally would](iot-hub-create-through-portal.md) except for **Region**. Select one of these regions:
+1. On the **Basics** tab, complete the fields [as you normally would](create-hub.md) except for **Region**. Select one of these regions:
     
     - Central US
     - West Europe

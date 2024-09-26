@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Create an Azure Stream Analytics job using the Azure CLI
 description: This quickstart shows how to use the Azure CLI to create an Azure Stream Analytics job.
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 author: ahartoon
 ms.author: anboisve
 ms.reviewer: jasonh
@@ -15,7 +15,7 @@ In this quickstart, you will use Azure CLI to define a Stream Analytics job that
 
 ## Before you begin
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 

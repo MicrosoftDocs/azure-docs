@@ -18,7 +18,7 @@ In some scenarios, you might want to centralize data from self-managed Prometheu
 
 To send data from a Prometheus server by using remote write, you need:
 
-- An [Azure Monitor workspace](../azure-monitor/essentials/azure-monitor-workspace-overview.md). If you don't already have a workspace, you must [create a new workspace](../azure-monitor/essentials/azure-monitor-workspace-manage.md#create-an-azure-monitor-workspace).
+- An [Azure Monitor workspace](/azure/azure-monitor/essentials/azure-monitor-workspace-overview). If you don't already have a workspace, you must [create a new workspace](/azure/azure-monitor/essentials/azure-monitor-workspace-manage#create-an-azure-monitor-workspace).
 
 ## Register an application with Microsoft Entra ID
 
@@ -121,7 +121,7 @@ You can use community Grafana dashboards to visualize the captured metrics, or y
 
 1. Create an [Azure Managed Grafana workspace](../managed-grafana/quickstart-managed-grafana-portal.md).
 
-1. [Link the Azure Managed Grafana workspace](../azure-monitor/essentials/azure-monitor-workspace-manage.md?tabs=azure-portal#link-a-grafana-workspace) to your Azure Monitor workspace.
+1. [Link the Azure Managed Grafana workspace](/azure/azure-monitor/essentials/azure-monitor-workspace-manage?tabs=azure-portal#link-a-grafana-workspace) to your Azure Monitor workspace.
 
 1. [Import](../managed-grafana/how-to-create-dashboard.md?tabs=azure-portal#import-a-grafana-dashboard) the community Grafana dashboard [Openshift/K8 Cluster Overview](https://grafana.com/grafana/dashboards/3870-openshift-k8-cluster-overview/) (ID 3870)  to the Grafana workspace.
 
@@ -133,8 +133,8 @@ To access the dashboard, in your Azure Managed Grafana workspace, go to **Home**
 
 ## Troubleshoot
 
-For troubleshooting information, see [Azure Monitor managed service for Prometheus remote write](../azure-monitor/containers/prometheus-remote-write.md#hitting-your-ingestion-quota-limit).
+For troubleshooting information, see [Azure Monitor managed service for Prometheus remote write](/azure/azure-monitor/containers/prometheus-remote-write-troubleshooting#ingestion-quotas-and-limits).
 
 ## Related content
 
-- [Learn more about Azure Monitor managed service for Prometheus](../azure-monitor/essentials/prometheus-metrics-overview.md)
+- [Learn more about Azure Monitor managed service for Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview)

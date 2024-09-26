@@ -7,7 +7,7 @@ keywords: 'Azure, Db2, SAP, IBM'
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.date: 03/07/2024
+ms.date: 08/29/2024
 ms.author: juergent
 ms.custom: H1Hack27Feb2017, linux-related-content
 ---
@@ -60,26 +60,26 @@ Remote shared volumes like the Azure services in the listed scenarios are suppor
  
 * Hosting Linux guest OS based Db2 data and log files on NFS shares hosted on Azure NetApp Files is supported!
 
-If you're using disks based on Azure Page BLOB Storage or Managed Disks, the statements made in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide-general.md) apply to deployments with the Db2 DBMS as well.
+If you're using disks based on Azure Page BLOB Storage or Managed Disks, the statements made in [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide-general.md) apply to deployments with the Db2 DBMS (Database Management System) as well.
 
-As explained earlier in the general part of the document, quotas on IOPS throughput for Azure disks exist. The exact quotas are depending on the VM type used. A list of VM types with their quotas can be found [here (Linux)](../../virtual-machines/sizes.md) and [here (Windows)](../../virtual-machines/sizes.md).
+As explained earlier in the general part of the document, quotas on IOPS (I/O operations per second) throughput for Azure disks exist. The exact quotas are depending on the VM type used. A list of VM types with their quotas can be found [here (Linux)](/azure/virtual-machines/sizes) and [here (Windows)](/azure/virtual-machines/sizes).
 
 As long as the current IOPS quota per disk is sufficient, it's possible to store all the database files on one single mounted disk. Whereas you always should separate the data files and transaction log files on different disks/VHDs.
 
 For performance considerations, also refer to chapter 'Data Safety and Performance Considerations for Database Directories' in SAP installation guides.
 
-Alternatively, you can use Windows Storage Pools, which are only available in Windows Server 2012 and higher as described [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide-general.md). On Linux you can use LVM or mdadm to create one large logical device over multiple disks.
+Alternatively, you can use Windows Storage Pools, which are only available in Windows Server 2012 and higher as described [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](dbms-guide-general.md). On Linux, you can use LVM or mdadm to create one large logical device over multiple disks.
 
 <!-- log_dir, sapdata and saptmp are terms in the SAP and DB2 world and now spelling errors -->
 
-For Azure M-Series VM, you can reduce by factors the latency writing into the transaction logs, compared to Azure Premium storage performance, when using Azure Write Accelerator. Therefore, you should deploy Azure Write Accelerator for one or more VHDs that form the volume for the Db2 transaction logs. Details can be read in the document [Write Accelerator](../../virtual-machines/how-to-enable-write-accelerator.md).
+For Azure M-Series VM, you can reduce by factors the latency writing into the transaction logs, compared to Azure Premium storage performance, when using Azure Write Accelerator. Therefore, you should deploy Azure Write Accelerator for one or more VHDs that form the volume for the Db2 transaction logs. Details can be read in the document [Write Accelerator](/azure/virtual-machines/how-to-enable-write-accelerator).
 
 IBM Db2 LUW 11.5 released support for 4-KB sector size. Though you need to enable the usage of 4-KB sector size with 11.5 by the configurations setting of db2set DB2_4K_DEVICE_SUPPORT=ON as documented in:
 
 - [Db1 11.5 performance variable](https://www.ibm.com/docs/en/db2/11.5?topic=variables-performance)
 - [Db2 registry and environment variables](https://www.ibm.com/docs/en/db2/11.5?topic=variables-registry-environment)
 
-For older Db2 versions, a 512 Byte sector size must be used. Premium SSD disks are 4-KB native and have 512 Byte emulation. Ultra disk uses 4-KB sector size by default. You can enable 512 Byte sector size during creation of Ultra disk. Details are available [Using Azure ultra disks](../../virtual-machines/disks-enable-ultra-ssd.md#deploy-an-ultra-disk---512-byte-sector-size). This 512 Byte sector size is a prerequisite for IBM Db2 LUW versions lower than 11.5.
+For older Db2 versions, a 512 Byte sector size must be used. Premium SSD disks are 4-KB native and have 512 Byte emulation. Ultra disk uses 4-KB sector size by default. You can enable 512 Byte sector size during creation of Ultra disk. Details are available [Using Azure ultra disks](/azure/virtual-machines/disks-enable-ultra-ssd#deploy-an-ultra-disk---512-byte-sector-size). This 512 Byte sector size is a prerequisite for IBM Db2 LUW versions lower than 11.5.
 
 On Windows using Storage pools for Db2 storage paths for `log_dir`, `sapdata` and `saptmp` directories, you must specify a physical disk sector size of 512 Bytes. When using Windows Storage Pools, you must create the storage pools  manually via command line interface using the parameter `-LogicalSectorSizeDefault`. For more information, see [New-StoragePool](/powershell/module/storage/new-storagepool).
 
@@ -87,52 +87,57 @@ On Windows using Storage pools for Db2 storage paths for `log_dir`, `sapdata` an
 
 IBM Db2 for SAP NetWeaver Applications is supported on any VM type listed in SAP support note [1928533].  Recommended VM families for running IBM Db2 database are Esd_v4/Eas_v4/Es_v3 and M/M_v2-series for large multi-terabyte databases. The IBM Db2 transaction log disk write performance can be improved by enabling the M-series Write Accelerator. 
 
-Following is a baseline configuration for various sizes and uses of SAP on Db2 deployments from small to large. The list is based on Azure premium storage. However, Azure Ultra disk is fully supported with Db2 as well and can be used as well. Use the values for capacity, burst throughput, and burst IOPS to define the Ultra disk configuration. You can limit the IOPS for the /db2/```<SID>```/log_dir at around 5000 IOPS. 
+Following is a baseline configuration for various sizes and uses of SAP on Db2 deployments from small to x-large.  
+
+>[!IMPORTANT]
+> The VM types listed below are examples that meet the vCPU and memory critiera of each of the categories. The storage configuration is based on Azure premium storage v1. Premium SSD v2 and Azure Ultra disk is fully supported with IBM Db2 as well and can be used for deployments. Use the values for capacity, burst throughput, and burst IOPS to define the Ultra disk or Premium SSD v2 configuration. You can limit the IOPS for the /db2/```<SID>```/log_dir at around 5000 IOPS. Adjust the throughput and IOPS to the specific workload if these baseline recommendations don't meet the requirements
 
 #### Extra small SAP system: database size 50 - 200 GB: example Solution Manager
-| VM Name / Size |Db2 mount point |Azure Premium Disk |# of Disks |IOPS |Through-<br />put [MB/s] |Size [GB] |Burst IOPS |Burst Through-<br />put [GB] | Stripe size | Caching |
+| VM Size / Examples |Db2 mount point |Azure Premium Disk |# of Disks |IOPS |Through-<br />put [MB/s] |Size [GB] |Burst IOPS |Burst Through-<br />put [GB] | Stripe size | Caching |
 | --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-|E4ds_v4 |/db2 |P6 |1 |240  |50  |64  |3,500  |170  ||  |
-|vCPU: 4 |/db2/```<SID>```/sapdata |P10 |2 |1,000  |200  |256  |7,000  |340  |256<br />KB |ReadOnly |
-|RAM: 32 GiB |/db2/```<SID>```/saptmp |P6 |1 |240  |50  |128  |3,500  |170  | ||
-| |/db2/```<SID>```/log_dir |P6 |2 |480  |100  |128  |7,000  |340  |64<br />KB ||
-| |/db2/```<SID>```/offline_log_dir |P10 |1 |500  |100  |128  |3,500  |170  || |
+| vCPU: 4 |/db2 |P6 |1 |240  |50  |64  |3,500  |170  ||  |
+| RAM: ~32 GiB |/db2/```<SID>```/sapdata |P10 |2 |1,000  |200  |256  |7,000  |340  |256<br />KB |ReadOnly |
+| E4(d)s_v5|/db2/```<SID>```/saptmp |P6 |1 |240  |50  |128  |3,500  |170  | ||
+| E4(d)as_v5 |/db2/```<SID>```/log_dir |P6 |2 |480  |100  |128  |7,000  |340  |64<br />KB ||
+| ... |/db2/```<SID>```/offline_log_dir |P10 |1 |500  |100  |128  |3,500  |170  || |
 
 #### Small SAP system: database size 200 - 750 GB: small Business Suite
-| VM Name / Size |Db2 mount point |Azure Premium Disk |# of Disks |IOPS |Through-<br />put [MB/s] |Size [GB] |Burst IOPS |Burst Through-<br />put [GB] | Stripe size | Caching |
+| VM Size / Examples |Db2 mount point |Azure Premium Disk |# of Disks |IOPS |Through-<br />put [MB/s] |Size [GB] |Burst IOPS |Burst Through-<br />put [GB] | Stripe size | Caching |
 | --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-|E16ds_v4 |/db2 |P6 |1 |240  |50  |64  |3,500  |170  || |
-|vCPU: 16 |/db2/```<SID>```/sapdata |P15 |4 |4,400  |500  |1.024  |14,000  |680  |256 KB |ReadOnly |
-|RAM: 128 GiB |/db2/```<SID>```/saptmp |P6 |2 |480  |100  |128  |7,000  |340  |128 KB ||
-| |/db2/```<SID>```/log_dir |P15 |2 |2,200  |250  |512  |7,000  |340  |64<br />KB ||
-| |/db2/```<SID>```/offline_log_dir |P10 |1 |500  |100  |128  |3,500  |170  ||| 
+| vCPU: 16 |/db2 |P6 |1 |240  |50  |64  |3,500  |170  || |
+| RAM: ~128 GiB |/db2/```<SID>```/sapdata |P15 |4 |4,400  |500  |1.024  |14,000  |680  |256 KB |ReadOnly |
+| E16(d)s_v5 |/db2/```<SID>```/saptmp |P6 |2 |480  |100  |128  |7,000  |340  |128 KB ||
+| E16(d)as_v5 |/db2/```<SID>```/log_dir |P15 |2 |2,200  |250  |512  |7,000  |340  |64<br />KB ||
+| ... |/db2/```<SID>```/offline_log_dir |P10 |1 |500  |100  |128  |3,500  |170  ||| 
 
 #### Medium SAP system: database size 500 - 1000 GB: small Business Suite
-| VM Name / Size |Db2 mount point |Azure Premium Disk |# of Disks |IOPS |Through-<br />put [MB/s] |Size [GB] |Burst IOPS |Burst Through-<br />put [GB] | Stripe size | Caching |
+| VM Size / Examples |Db2 mount point |Azure Premium Disk |# of Disks |IOPS |Through-<br />put [MB/s] |Size [GB] |Burst IOPS |Burst Through-<br />put [GB] | Stripe size | Caching |
 | --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-|E32ds_v4 |/db2 |P6 |1 |240  |50  |64  |3,500  |170  || |
-|vCPU: 32 |/db2/```<SID>```/sapdata |P30 |2 |10,000  |400  |2.048  |10,000  |400  |256 KB |ReadOnly |
-|RAM: 256 GiB |/db2/```<SID>```/saptmp |P10 |2 |1,000  |200  |256  |7,000  |340  |128 KB ||
-| |/db2/```<SID>```/log_dir |P20 |2 |4,600  |300  |1.024  |7,000  |340  |64<br />KB ||
-| |/db2/```<SID>```/offline_log_dir |P15 |1 |1,100  |125  |256  |3,500  |170  ||| 
+| vCPU: 32 |/db2 |P6 |1 |240  |50  |64  |3,500  |170  || |
+| RAM: ~256 GiB |/db2/```<SID>```/sapdata |P30 |2 |10,000  |400  |2.048  |10,000  |400  |256 KB |ReadOnly |
+| E32(d)s_v5 |/db2/```<SID>```/saptmp |P10 |2 |1,000  |200  |256  |7,000  |340  |128 KB ||
+| E32(d)as_v5 |/db2/```<SID>```/log_dir |P20 |2 |4,600  |300  |1.024  |7,000  |340  |64<br />KB ||
+| M32ls |/db2/```<SID>```/offline_log_dir |P15 |1 |1,100  |125  |256  |3,500  |170  ||| 
 
 #### Large SAP system: database size 750 - 2000 GB: Business Suite
-| VM Name / Size |Db2 mount point |Azure Premium Disk |# of Disks |IOPS |Through-<br />put [MB/s] |Size [GB] |Burst IOPS |Burst Through-<br />put [GB] | Stripe size | Caching |
+| VM Size / Examples |Db2 mount point |Azure Premium Disk |# of Disks |IOPS |Through-<br />put [MB/s] |Size [GB] |Burst IOPS |Burst Through-<br />put [GB] | Stripe size | Caching |
 | --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-|E64ds_v4 |/db2 |P6 |1 |240  |50  |64  |3,500  |170  || |
-|vCPU: 64 |/db2/```<SID>```/sapdata |P30 |4 |20,000  |800  |4.096  |20,000  |800  |256 KB |ReadOnly |
-|RAM: 504 GiB |/db2/```<SID>```/saptmp |P15 |2 |2,200  |250  |512  |7,000  |340  |128 KB ||
-| |/db2/```<SID>```/log_dir |P20 |4 |9,200  |600  |2.048  |14,000  |680  |64<br />KB ||
-| |/db2/```<SID>```/offline_log_dir |P20 |1 |2,300  |150  |512  |3,500  |170  || |
+| vCPU: 64 |/db2 |P6 |1 |240  |50  |64  |3,500  |170  || |
+| RAM: ~512 GiB |/db2/```<SID>```/sapdata |P30 |4 |20,000  |800  |4.096  |20,000  |800  |256 KB |ReadOnly |
+| E64(d)s_v5 |/db2/```<SID>```/saptmp |P15 |2 |2,200  |250  |512  |7,000  |340  |128 KB ||
+| E64(d)as_v5 |/db2/```<SID>```/log_dir |P20 |4 |9,200  |600  |2.048  |14,000  |680  |64<br />KB ||
+| M64ls |/db2/```<SID>```/offline_log_dir |P20 |1 |2,300  |150  |512  |3,500  |170  || |
 
 #### Large multi-terabyte SAP system: database size 2 TB+: Global Business Suite system
+Especially for such larger systems it's important to evaluate the infrastructure that the system is currently running on and the resource consumption data of those systems to find the best match of Azure compute and storage infrastructure and configuration.
+
 | VM Name / Size |Db2 mount point |Azure Premium Disk |# of Disks |IOPS |Through-<br />put [MB/s] |Size [GB] |Burst IOPS |Burst Through-<br />put [GB] | Stripe size | Caching |
 | --- | --- | --- | :---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-|M128s |/db2 |P10 |1 |500  |100  |128  |3,500  |170  || |
-|vCPU: 128 |/db2/```<SID>```/sapdata |P40 |4 |30,000  |1.000  |8.192  |30,000  |1.000  |256 KB |ReadOnly |
-|RAM:  2,048 GiB |/db2/```<SID>```/saptmp |P20 |2 |4,600  |300  |1.024  |7,000  |340  |128 KB ||
-| |/db2/```<SID>```/log_dir |P30 |4 |20,000  |800  |4.096  |20,000  |800  |64<br />KB |Write-<br />Accelerator |
-| |/db2/```<SID>```/offline_log_dir |P30 |1 |5,000  |200  |1.024  |5,000  |200  || |
+| vCPU: =>128 |/db2 |P10 |1 |500  |100  |128  |3,500  |170  || |
+| RAM:  =>2,048 GiB |/db2/```<SID>```/sapdata |P40 |4 |30,000  |1.000  |8.192  |30,000  |1.000  |256 KB |ReadOnly |
+| M128s_v2 |/db2/```<SID>```/saptmp |P20 |2 |4,600  |300  |1.024  |7,000  |340  |128 KB ||
+| M176s_2_v3 |/db2/```<SID>```/log_dir |P30 |4 |20,000  |800  |4.096  |20,000  |800  |64<br />KB |Write-<br />Accelerator |
+| M176s_3_v3,<br />M176s_4_v3 |/db2/```<SID>```/offline_log_dir |P30 |1 |5,000  |200  |1.024  |5,000  |200  || |
 
 
 ### Using Azure NetApp Files
@@ -223,7 +228,7 @@ Db2 high availability disaster recovery (HADR) with pacemaker is supported. Both
 
 #### Windows Cluster Server
 
-Microsoft Cluster Server (MSCS) isn't supported.
+Windows Server Failover Cluster (WSFC) also known as Microsoft Cluster Server (MSCS) isn't supported.
 
 Db2 high availability disaster recovery (HADR) is supported. If the virtual machines of the HA configuration have working name resolution, the setup in Azure doesn't differ from any setup that is done on-premises. It isn't recommended to rely on IP resolution only.
 

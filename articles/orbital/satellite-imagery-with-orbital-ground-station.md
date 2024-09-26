@@ -11,9 +11,6 @@ ms.custom: template-overview
 
 # Tutorial: Process Aqua satellite data using NASA-provided tools
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
-
 > [!NOTE]
 > NASA has deprecated support of the DRL software used to process Aqua satellite imagery. Please see: [DRL Current Status](https://directreadout.sci.gsfc.nasa.gov/home.html). Steps 2, 3, and 4 of this tutorial are no longer relevant but presented for informational purposes only.
 
@@ -21,7 +18,7 @@ This article is a comprehensive walk-through showing how to use the [Azure Orbit
 
 Aqua is a polar-orbiting spacecraft launched by NASA in 2002. Data from all science instruments aboard Aqua is downlinked to the Earth using direct broadcast over the X-band in near real-time. More information about Aqua can be found on the [Aqua Project Science](https://aqua.nasa.gov/) website. 
 
-Using AOGS, we capture the Aqua broadcast when the satellite is within line of sight of a ground station by scheduling a *contact*. A *contact* is time reserved at a ground station to communicate with a satellite. During the contact, the ground station orients its antenna towards Aqua and captures the direct broadcast data. The captured data is sent to an Azure VM as a data stream and processed using the [Real-Time Software Telemetry Processing System](http://directreadout.sci.gsfc.nasa.gov/index.cfm?section=technology&page=NISGS&subpage=NISFES&sub2page=RT-STPS&sub3Page=overview)(RT-STPS) tool provided by the [Direct Readout Laboratory](http://directreadout.sci.gsfc.nasa.gov/)(DRL) which generates a Level-0 product. This Level-0 product is processed further using DRL's [International Planetary Observation Processing Package](https://directreadout.sci.gsfc.nasa.gov/?id=dspContent&cid=68)(IPOPP) tool to produce higher level products.
+Using AOGS, we capture the Aqua broadcast when the satellite is within line of sight of a ground station by scheduling a *contact*. A *contact* is time reserved at a ground station to communicate with a satellite. During the contact, the ground station orients its antenna towards Aqua and captures the direct broadcast data. The captured data is sent to an Azure VM as a data stream and processed using the [Real-Time Software Telemetry Processing System](http://directreadout.sci.gsfc.nasa.gov/index.cfm?section=technology&page=NISGS&subpage=NISFES&sub2page=RT-STPS&sub3Page=overview)(RT-STPS) tool provided by the [Direct Readout Laboratory (DRL)](http://directreadout.sci.gsfc.nasa.gov/) which generates a Level-0 product. This Level-0 product is processed further using DRL's [International Planetary Observation Processing Package (IPOPP)](https://directreadout.sci.gsfc.nasa.gov/?id=dspContent&cid=68) tool to produce higher level products.
 
 In this tutorial, we will follow these steps to collect and process Aqua data:
 
@@ -43,7 +40,7 @@ The above tutorial provides a walkthrough for scheduling a contact with Aqua and
 > In the section [Prepare a virtual machine (VM) to receive the downlinked AQUA data](downlink-aqua.md#prepare-your-virtual-machine-and-network-to-receive-public-satellite-data), use the following values:
 >
 >   - **Name:** receiver-vm
->   - **Operating System:** Linux (CentOS Linux 7 or higher)
+>   - **Operating System:** Enter the name of your preferred [endorsed Linux distribution](/azure/virtual-machines/linux/endorsed-distros)
 >   - **Size:** Standard_D8s_v5 or higher
 >   - **IP Address:** Ensure that the VM has internet access for downloading tools by having one standard public IP address
 
@@ -216,4 +213,3 @@ To easily deploy downstream components necessary to receive and process spacebor
 For an end-to-end implementation that involves extracting, loading, transforming, and analyzing spaceborne data by using geospatial libraries and AI models with Azure Synapse Analytics, see: 
 
 - [Spaceborne data analysis with Azure Synapse Analytics](/azure/architecture/industries/aerospace/geospatial-processing-analytics)
-

@@ -53,7 +53,7 @@ items:
   - name: Memory
     items:
     - name: Java memory management
-      href: ../enterprise/concepts-for-java-memory-management.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+      href: ../basic-standard/concepts-for-java-memory-management.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
     - name: Tools to troubleshoot memory issues
       href: ../enterprise/tools-to-troubleshoot-memory-issues.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
     - name: Fix app restart issues caused by OOM
@@ -97,7 +97,7 @@ items:
   - name: Enable and disable Spring Cloud Config Server
     href: quickstart-standard-consumption-config-server.md
   - name: Set up a Config Server
-    href: ../basic-standard/how-to-config-server.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+    href: ../enterprise/how-to-config-server.md?pivots=sc-standard&toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
   - name: Enable and disable Eureka Server
     href: quickstart-standard-consumption-eureka-server.md
   - name: Enable Service Registration

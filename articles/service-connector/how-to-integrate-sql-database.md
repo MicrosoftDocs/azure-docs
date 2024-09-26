@@ -174,6 +174,9 @@ Refer to the steps and code below to connect to Azure SQL Database using a user-
 
 ### Connection String
 
+> [!WARNING]
+> Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
+
 #### [.NET](#tab/sql-secret-dotnet)
 
 > [!div class="mx-tdBreakAll"]
@@ -288,7 +291,7 @@ Refer to the steps and code below to connect to Azure SQL Database using a conne
 > | `AZURE_SQL_CLIENTID`                | Your client ID                    | `<client-ID>`                                           |
 > | `AZURE_SQL_CLIENTSECRET`            | Your client secret                | `<client-secret>`                                       |
 > | `AZURE_SQL_TENANTID`                | Your tenant ID                    | `<tenant-ID>`                                           |
-> | `AZURE_SQL_CONNECTIONSTRING`        | Azure SQL Database connection string | `Data Source=<sql-server>.database.windows.net,1433;Initial Catalog=<sql-database>;User ID=a30eeedc-e75f-4301-b1a9-56e81e0ce99c;Password=asdfghwerty;Authentication=ActiveDirectoryServicePrincipal` |
+> | `AZURE_SQL_CONNECTIONSTRING`        | Azure SQL Database connection string | `Data Source=<sql-server>.database.windows.net,1433;Initial Catalog=<sql-database>;User ID=<client-Id>;Password=<client-secret>;Authentication=ActiveDirectoryServicePrincipal` |
 
 #### [Java](#tab/sql-me-id-java)
 

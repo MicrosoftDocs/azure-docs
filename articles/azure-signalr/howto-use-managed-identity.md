@@ -2,7 +2,7 @@
 title: Managed identities in Azure SignalR Service
 description: Learn how managed identities work in Azure SignalR Service, and how to use a managed identity in serverless scenarios.
 author: vicancy
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.topic: how-to
 ms.date: 12/09/2022
 ms.author: lianwei
@@ -120,7 +120,7 @@ Libraries and code samples that show how to handle token validation are availabl
 Azure SignalR Service can access Key Vault to get secrets by using the managed identity.
 
 1. Add a [system-assigned identity](#add-a-system-assigned-identity) or [user-assigned identity](#add-a-user-assigned-identity) to your Azure SignalR Service instance.
-1. Grant secret read permission for the managed identity in the access policies in Key Vault. See [Assign a Key Vault access policy by using the Azure portal](../key-vault/general/assign-access-policy-portal.md).
+1. Grant secret read permission for the managed identity in the access policies in Key Vault. See [Assign a Key Vault access policy by using the Azure portal](/azure/key-vault/general/assign-access-policy-portal).
 
 Currently, you can use this feature to [reference a secret in the upstream URL pattern](./concept-upstream.md#key-vault-secret-reference-in-url-template-settings).
 

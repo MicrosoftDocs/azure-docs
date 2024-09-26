@@ -7,12 +7,12 @@ summary: Use Azure Site Recovery for disaster recovery of on-premises workloads,
 metadata:
   title: Azure Site Recovery documentation
   description: Set up disaster recovery to Azure for on-premises workloads, and Azure VMs.
-  ms.service: site-recovery
+  ms.service: azure-site-recovery
   ms.topic: landing-page
 
   author: ankitaduttaMSFT
   ms.author: ankitadutta
-  ms.date: 12/14/2023
+  ms.date: 04/04/2024
 
 landingContent:
   - title: About Site Recovery
@@ -40,6 +40,8 @@ landingContent:
         links:
           - text: Disaster recovery for Azure VMs
             url: ./azure-to-azure-tutorial-enable-replication.md
+          - text: Disaster recovery for Azure VMs using shared disks (preview)
+            url: ./tutorial-shared-disk.md
           - text: Move Azure VMs to another region (Resource Mover)
             url: ../resource-mover/tutorial-move-region-virtual-machines.md
       - linkListType: learn
@@ -108,6 +110,8 @@ landingContent:
             url: site-recovery-monitor-and-troubleshoot.md
           - text: Monitor Site Recovery with Azure Monitor logs
             url: monitor-log-analytics.md
+          - text: Reports for Site Recovery with Azure Monitor logs
+            url: report-site-recovery.md
 
   - title: Disaster recovery for Azure Public Multi-Access Edge Compute (MEC) (preview)
     linkLists:

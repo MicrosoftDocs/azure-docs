@@ -2,7 +2,7 @@
 title: What is Azure Firewall Manager?
 description: Learn about Azure Firewall Manager features.
 author: vhorne
-ms.service: firewall-manager
+ms.service: azure-firewall-manager
 services: firewall-manager
 ms.topic: overview
 ms.date: 02/26/2024
@@ -83,8 +83,8 @@ Azure Firewall Manager has the following known issues:
 |---------|---------|---------|
 |Traffic splitting|Microsoft 365 and Azure Public PaaS traffic splitting isn't currently supported. As such, selecting a partner provider for V2I or B2I also sends all Azure Public PaaS and Microsoft 365 traffic via the partner service.|Investigating traffic splitting at the hub.
 |Base policies must be in same region as local policy|Create all your local policies in the same region as the base policy. You can still apply a policy that was created in one region on a secured hub from another region.|Investigating|
-|Filtering inter-hub traffic in secure virtual hub deployments|Secured Virtual Hub to Secured Virtual Hub communication filtering is supported with the Routing Intent feature.|Enable Routing Intent on your Virtual WAN Hub by setting Inter-hub to **Enabled** in Azure Firewall Manager. See [Routing Intent documentation](../virtual-wan/how-to-routing-policies.md) for more information about this feature.|
-|Branch to branch traffic with private traffic filtering enabled|Branch to branch traffic can be inspected by Azure Firewall in secured hub scenarios if Routing Intent is enabled. |Enable Routing Intent on your Virtual WAN Hub by setting Inter-hub to **Enabled** in Azure Firewall Manager. See [Routing Intent documentation](../virtual-wan/how-to-routing-policies.md) for more information about this feature.|
+|Filtering inter-hub traffic in secure virtual hub deployments|Secured Virtual Hub to Secured Virtual Hub communication filtering is supported with the Routing Intent feature.|Enable Routing Intent on your Virtual WAN Hub by setting Inter-hub to **Enabled** in Azure Firewall Manager. See [Routing Intent documentation](../virtual-wan/how-to-routing-policies.md) for more information about this feature. The only Virtual WAN routing configuration that enables inter-hub traffic filtering is Routing intent. |
+|Branch to branch traffic with private traffic filtering enabled|Branch to branch traffic can be inspected by Azure Firewall in secured hub scenarios if Routing Intent is enabled. |Enable Routing Intent on your Virtual WAN Hub by setting Inter-hub to **Enabled** in Azure Firewall Manager. See [Routing Intent documentation](../virtual-wan/how-to-routing-policies.md) for more information about this feature. The only Virtual WAN routing configuration that enables branch to branch private traffic is routing intent. |
 |All Secured Virtual Hubs sharing the same virtual WAN must be in the same resource group.|This behavior is aligned with Virtual WAN Hubs today.|Create multiple Virtual WANs to allow Secured Virtual Hubs to be created in different resource groups.|
 |Bulk IP address addition fails|The secure hub firewall goes into a failed state if you add multiple public IP addresses.|Add smaller public IP address increments. For example, add 10 at a time.|
 |DDoS Protection not supported with secured virtual hubs|DDoS Protection isn't integrated with vWANs.|Investigating|

@@ -3,9 +3,9 @@ title: "Tutorial - Use Circuit Breaker Dashboard with Azure Spring Apps"
 description: Learn how to use circuit Breaker Dashboard with Azure Spring Apps.
 author: KarlErickson
 ms.author: karler
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: tutorial
-ms.date: 04/06/2020
+ms.date: 06/27/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 
@@ -93,11 +93,11 @@ Verify using public endpoints or private test endpoints.
 
 Access hystrix-turbine with the path `https://<SERVICE-NAME>-hystrix-turbine.azuremicroservices.io/hystrix` from your browser.  The following figure shows the Hystrix dashboard running in this app.
 
-:::image type="content" source="media/tutorial-circuit-breaker/hystrix-dashboard.png" alt-text="Screenshot of the Hystrix dashboard." lightbox="media/tutorial-circuit-breaker/hystrix-dashboard.png":::
+:::image type="content" source="media/tutorial-circuit-breaker/hystrix-dashboard.png" alt-text="Screenshot of the Hystrix Dashboard that shows the Delay and Title details." lightbox="media/tutorial-circuit-breaker/hystrix-dashboard.png":::
 
 Copy the Turbine stream url `https://<SERVICE-NAME>-hystrix-turbine.azuremicroservices.io/turbine.stream?cluster=default` into the text box, and select **Monitor Stream**.  This action displays the dashboard. If nothing shows in the viewer, hit the `user-service` endpoints to generate streams.
 
-:::image type="content" source="media/tutorial-circuit-breaker/hystrix-stream.png" alt-text="Screenshot of the Hystrix stream page." lightbox="media/tutorial-circuit-breaker/hystrix-stream.png":::
+:::image type="content" source="media/tutorial-circuit-breaker/hystrix-stream.png" alt-text="Screenshot of the Hystrix stream page that shows the Circuit and Thread Pools details." lightbox="media/tutorial-circuit-breaker/hystrix-stream.png":::
 
 > [!NOTE]
 > In production, the Hystrix dashboard and metrics stream should not be exposed to the Internet.

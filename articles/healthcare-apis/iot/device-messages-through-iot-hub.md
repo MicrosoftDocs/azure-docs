@@ -2,13 +2,13 @@
 title: Receive device messages through Azure IoT Hub - Azure Health Data Services
 description: Learn how to deploy Azure IoT Hub with message routing to send device messages to the MedTech service. The tutorial uses an Azure Resource Manager template and Visual Studio Code with the Azure IoT Hub extension.
 services: healthcare-apis
-author: msjasteppe
-ms.service: healthcare-apis
-ms.subservice: iomt
+author: chachachachami
+ms.service: azure-health-data-services
+ms.subservice: medtech-service
 ms.topic: tutorial
 ms.date: 07/27/2023
 ms.custom: devx-track-arm-template
-ms.author: jasteppe
+ms.author: chrupa
 ---
 
 # Tutorial: Receive device messages through Azure IoT Hub

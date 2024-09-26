@@ -3,7 +3,6 @@ title: Delimited text format in Azure Data Factory
 titleSuffix: Azure Data Factory & Azure Synapse
 description: This topic describes how to deal with delimited text format in Azure Data Factory and Azure Synapse Analytics.
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
@@ -230,19 +229,20 @@ CSVSource sink(allowSchemaDrift: true,
 
 Here are some common connectors and formats related to the delimited text format:
 
-- Azure Blob Storage (connector-azure-blob-storage.md)
-- Binary format (format-binary.md)
-- Dataverse(connector-dynamics-crm-office-365.md)
-- Delta format(format-delta.md)
-- Excel format(format-excel.md)
-- File System(connector-file-system.md)
-- FTP(connector-ftp.md)
-- HTTP(connector-http.md)
-- JSON format(format-json.md)
-- Parquet format(format-parquet.md)
+- [Azure Blob Storage](connector-azure-blob-storage.md)
+- [Binary format](format-binary.md)
+- [Dataverse](connector-dynamics-crm-office-365.md)
+- [Delta format](format-delta.md)
+- [Excel format](format-excel.md)
+- [File System](connector-file-system.md)
+- [FTP](connector-ftp.md)
+- [HTTP](connector-http.md)
+- [JSON format](format-json.md)
+- [Parquet format](format-parquet.md)
 
 ## Related content
 
+- [Data type mapping in dataset schemas](copy-activity-schema-and-type-mapping.md#data-type-mapping)
 - [Copy activity overview](copy-activity-overview.md)
 - [Mapping data flow](concepts-data-flow-overview.md)
 - [Lookup activity](control-flow-lookup-activity.md)

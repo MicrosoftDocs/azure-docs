@@ -1,10 +1,10 @@
 ---
 title: Guidance and best practices
 description: Discover the best practices and guidance for backing up cloud and on-premises workload to the cloud
-ms.topic: conceptual
-ms.date: 03/12/2024
+ms.topic: overview
+ms.date: 09/11/2024
 ms.reviewer: dapatil
-ms.service: backup
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ms.custom: engagement-fy24
@@ -254,7 +254,7 @@ Azure Backup provides you with the [Multi-User Authorization (MUA)](./multi-user
 
 You may encounter scenarios where someone tries to breach into your system and maliciously turn off the security mechanisms, such as disabling Soft Delete or attempts to perform destructive operations, such as deleting the backup resources. 
 
-Azure Backup provides security against such incidents by sending you critical alerts over your preferred notification channel (email, ITSM, Webhook, runbook, and sp pn) by creating an [Action Rule](../azure-monitor/alerts/alerts-action-rules.md) on top of the alert. [Learn more](./security-overview.md#monitoring-and-alerts-of-suspicious-activity)
+Azure Backup provides security against such incidents by sending you critical alerts over your preferred notification channel (email, ITSM, Webhook, runbook, and sp pn) by creating an [Action Rule](/azure/azure-monitor/alerts/alerts-action-rules) on top of the alert. [Learn more](./security-overview.md#monitoring-and-alerts-of-suspicious-activity)
 
 ### Security features to help protect hybrid backups
 
@@ -286,7 +286,7 @@ To fulfill all these needs, use [Azure Private Endpoint](../private-link/private
 
 ## Governance considerations
 
-Governance in Azure is primarily implemented with [Azure Policy](../governance/policy/overview.md) and [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md). [Azure Policy](../governance/policy/overview.md) allows you to create, assign, and manage policy definitions to enforce rules for your resources. This feature keeps those resources in compliance with your corporate standards. [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md) allows you to track cloud usage and expenditures for your Azure resources and other cloud providers. Also, the following tools such as [Azure Price Calculator](https://azure.microsoft.com/pricing/calculator/) and [Azure Advisor](../advisor/advisor-overview.md)  play an important role in the cost management process.
+Governance in Azure is primarily implemented with [Azure Policy](../governance/policy/overview.md) and [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md). [Azure Policy](../governance/policy/overview.md) allows you to create, assign, and manage policy definitions to enforce rules for your resources. This feature keeps those resources in compliance with your corporate standards. [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md) allows you to track cloud usage and expenditures for your Azure resources and other cloud providers. Also, the following tools such as [Azure Price Calculator](https://azure.microsoft.com/pricing/calculator/) and [Azure Advisor](/azure/advisor/advisor-overview)  play an important role in the cost management process.
 
 ### Auto-configure newly provisioned backup infrastructure with Azure Policy at Scale
 
@@ -342,9 +342,9 @@ As a backup user or administrator, you should be able to monitor all backup solu
   * Identifying key trends at different levels of granularity.
 
 * In addition,
-  * You can send data (for example, jobs, policies, and so on) to the **Log Analytics** workspace. This will enable the features of Azure Monitor Logs to enable correlation of data with other monitoring data collected by Azure Monitor, consolidate log entries from multiple Azure subscriptions and tenants into one location for analysis together, use log queries to perform complex analysis and gain deep insights on Log entries. [Learn more here](../azure-monitor/essentials/activity-log.md#send-to-log-analytics-workspace).
-  * You can send data to an Azure event hub to send entries outside of Azure, for example to a third-party SIEM (Security Information and Event Management) or other log analytics solution. [Learn more here](../azure-monitor/essentials/activity-log.md#send-to-azure-event-hubs).
-  * You can send data to an Azure Storage account if you want to retain your log data longer than 90 days for audit, static analysis, or back up. If you only need to retain your events for 90 days or less, you don't need to set up archives to a storage account, since Activity Log events are kept in the Azure platform for 90 days. [Learn more](../azure-monitor/essentials/activity-log.md#send-to-azure-storage).
+  * You can send data (for example, jobs, policies, and so on) to the **Log Analytics** workspace. This will enable the features of Azure Monitor Logs to enable correlation of data with other monitoring data collected by Azure Monitor, consolidate log entries from multiple Azure subscriptions and tenants into one location for analysis together, use log queries to perform complex analysis and gain deep insights on Log entries. [Learn more here](/azure/azure-monitor/essentials/activity-log#send-to-log-analytics-workspace).
+  * You can send data to an Azure event hub to send entries outside of Azure, for example to a third-party SIEM (Security Information and Event Management) or other log analytics solution. [Learn more here](/azure/azure-monitor/essentials/activity-log#send-to-azure-event-hubs).
+  * You can send data to an Azure Storage account if you want to retain your log data longer than 90 days for audit, static analysis, or back up. If you only need to retain your events for 90 days or less, you don't need to set up archives to a storage account, since Activity Log events are kept in the Azure platform for 90 days. [Learn more](/azure/azure-monitor/essentials/activity-log#send-to-azure-storage).
 
 ### Alerts
 

@@ -11,7 +11,7 @@ metadata:
   ms.topic: hub-page
   author: davidsmatlak
   ms.author: davidsmatlak
-  ms.date: 01/05/2024
+  ms.date: 06/07/2024
 
 highlightedContent:
   items:
@@ -49,8 +49,8 @@ productDirectory:
           text: Azure Policy glossary
         - url: ./policy/concepts/definition-structure-basics.md
           text: Policy definition structure
-        - url: ./policy/concepts/effects.md
-          text: Azure Policy effects
+        - url: ./policy/concepts/effect-basics.md
+          text: Azure Policy effect
         - url: ./policy/index.yml
           text: See more >
     - title: Azure Blueprints
@@ -96,9 +96,6 @@ tools:
     - title: Azure Resource Graph
       imageSrc: ./media/azure-resource-graph.svg
       url: ./resource-graph/samples/starter.md
-    - title: Cost Management
-      imageSrc: ./media/cost-management.svg
-      url: https://github.com/Azure-Samples/Cost-Management-Samples
 
 additionalContent:
   sections:

@@ -1,29 +1,30 @@
 ---
-title: 'Configure Azure DDoS Protection diagnostic logging through portal'
+title: 'Tutorial: Configure Azure DDoS Protection diagnostic logging through portal'
 description: Learn how to configure Azure DDoS Protection diagnostic logs.
 services: ddos-protection
 author: AbdullahBell
-ms.service: ddos-protection
+ms.service: azure-ddos-protection
 ms.topic: tutorial
-ms.date: 08/07/2023
+ms.date: 07/17/2024
 ms.author: abell
 ---
 
-# Configure Azure DDoS Protection diagnostic logging through portal
-
-Configure diagnostic logging for Azure DDoS Protection to gain visibility into DDoS attacks. 
+# Tutorial: Configure Azure DDoS Protection diagnostic logging through portal
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Configure diagnostic logs.
 > * Query logs in log analytics workspace.
+
+Configure diagnostic logging for Azure DDoS Protection to gain visibility into DDoS attacks. 
+
 ## Prerequisites
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - Before you can complete the steps in this guide, you must first create a [Azure DDoS protection plan](manage-ddos-protection.md). DDoS Network Protection must be enabled on a virtual network or DDoS IP Protection must be enabled on a public IP address.  
 - In order to use diagnostic logging, you must first create a [Log Analytics workspace with diagnostic settings enabled](ddos-configure-log-analytics-workspace.md). 
-- DDoS monitors public IP addresses assigned to resources within a virtual network. If you don't have any resources with public IP addresses in the virtual network, you must first create a resource with a public IP address. You can monitor the public IP address of all resources deployed through Resource Manager (not classic) listed in [Virtual network for Azure services](../virtual-network/virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network) (including Azure Load Balancers where the backend virtual machines are in the virtual network), except for Azure App Service Environments. To continue with this guide, you can quickly create a [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) virtual machine.
+- DDoS monitors public IP addresses assigned to resources within a virtual network. If you don't have any resources with public IP addresses in the virtual network, you must first create a resource with a public IP address.
 
 ## Configure diagnostic logs
 
@@ -42,7 +43,7 @@ In this tutorial, you learn how to:
 
 1. On the *Diagnostic setting* page, under *Destination details*, select **Send to Log Analytics workspace**, then enter the following information, then select **Save**.
 
-    :::image type="content" source="./media/ddos-attack-telemetry/ddos-public-ip-diagnostic-setting.png" alt-text="Screenshot of DDoS diagnostic settings.":::
+    :::image type="content" source="./media/ddos-attack-telemetry/ddos-public-ip-diagnostic-setting.png" alt-text="Screenshot of DDoS Protection diagnostic settings.":::
 
     | Setting | Value |
     |--|--|
@@ -52,37 +53,6 @@ In this tutorial, you learn how to:
     |**Destination details**| Select **Send to Log Analytics workspace**.|
     | Subscription | Select your Azure subscription. |   
     | Log Analytics Workspace | Select **myLogAnalyticsWorkspace**. | 
-
-
-### Query Azure DDOS Protection logs in log analytics workspace
-
-For more information on log schemas, see [View diagnostic logs](ddos-view-diagnostic-logs.md#example-log-queries).
-#### DDoSProtectionNotifications logs
-
-1. Under the **Log analytics workspaces** blade, select your log analytics workspace.
-
-1. Under **General**, select on **Logs**
-
-1. In Query explorer, type in the following Kusto Query and change the time range to Custom and change the time range to last three months. Then hit Run.
-
-    ```kusto
-    AzureDiagnostics
-    | where Category == "DDoSProtectionNotifications"
-    ```
-
-1. To view **DDoSMitigationFlowLogs** change the query to the following and keep the same time range and hit Run.
-
-    ```kusto
-    AzureDiagnostics
-    | where Category == "DDoSMitigationFlowLogs"
-    ```
-
-1. To view **DDoSMitigationReports** change the query to the following and keep the same time range and hit Run.
-
-    ```kusto
-    AzureDiagnostics
-    | where Category == "DDoSMitigationReports"
-    ```
 
 ## Validate
 

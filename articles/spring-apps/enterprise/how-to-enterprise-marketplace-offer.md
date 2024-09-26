@@ -3,7 +3,7 @@ title: Enterprise plan in Azure Marketplace
 description: Learn about the Azure Spring Apps Enterprise plan offering available in Azure Marketplace.
 author: KarlErickson
 ms.author: yuwzho
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 10/18/2023
 ms.custom: devx-track-java, engagement-fy23, references_regions
@@ -63,7 +63,7 @@ You must understand and fulfill the following requirements to successfully creat
 
 - Your Azure subscription must belong to a [billing account](../../cost-management-billing/manage/view-all-accounts.md) in a supported geographic location defined in the [Azure Spring Apps Enterprise](https://aka.ms/ascmpoffer) offer in Azure Marketplace. For more information, see the [Supported geographic locations of billing account](#supported-geographic-locations-of-billing-account) section.
 
-- Your region must be available. Choose an Azure region currently available. For more information, see [In which regions is the Azure Spring Apps Enterprise plan available?](./faq.md#in-which-regions-is-the-azure-spring-apps-enterprise-plan-available) in the [Azure Spring Apps FAQ](faq.md).
+- Your region must be available. Choose an Azure region currently available. For more information, see [In which regions is the Azure Spring Apps Enterprise plan available?](./faq.md#in-which-regions-is-azure-spring-apps-available) in the [Azure Spring Apps FAQ](faq.md).
 
 - Your organization must allow Azure Marketplace purchases. For more information, see the [Enabling Azure Marketplace purchases](../../cost-management-billing/manage/ea-azure-marketplace.md#enabling-azure-marketplace-purchases) section of [Azure Marketplace](../../cost-management-billing/manage/ea-azure-marketplace.md).
 

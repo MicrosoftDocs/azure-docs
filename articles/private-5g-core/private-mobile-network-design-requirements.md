@@ -4,7 +4,7 @@ titleSuffix: Azure Private 5G Core
 description: Learn how to design a private mobile network for Azure Private 5G Core.
 author: robswain
 ms.author: robswain
-ms.service: private-5g-core
+ms.service: azure-private-5g-core
 ms.topic: conceptual 
 ms.date: 03/30/2023
 ms.custom: template-concept 
@@ -46,7 +46,9 @@ This section outlines some decisions you should consider when designing your net
 #### Design considerations
 
 :::zone pivot="ase-pro-gpu"
-When deployed on Azure Stack Edge Pro GPU (ASE), AP5GC uses physical port 5 for access signaling and data (5G N2 and N3 reference points/4G S1 and S1-U reference points) and port 6 for core data (5G N6/4G SGi reference points). If more than six data networks are configured, port 5 is also used for core data.
+When deployed on Azure Stack Edge Pro GPU (ASE), AP5GC uses physical port 5 for access signaling and data (5G N2 and N3 reference points/4G S1 and S1-U reference points) and port 6 for core data (5G N6/4G SGi reference points).
+
+For HA deployments, you must use VLAN trunking, where data networks are separated by VLANs. In this setup, all core data uses port 6. If you are not using VLAN trunking and more than six data networks are configured, port 5 is used for core data for the remaining data networks.
 
 AP5GC supports deployments with or without layer 3 routers on ports 5 and 6. This is useful for avoiding extra hardware at smaller edge sites.
 
@@ -55,7 +57,9 @@ AP5GC supports deployments with or without layer 3 routers on ports 5 and 6. Thi
 - Alternatively, you can combine these approaches. For example, you could use a router on ASE port 6 with a flat layer 2 network on ASE port 5. If a layer 3 router is present in the local network, you must configure it to match the ASE's configuration.
 :::zone-end
 :::zone pivot="ase-pro-2"
-When deployed on Azure Stack Edge 2 (ASE 2), AP5GC uses physical port 3 for access signaling and data (5G N2 and N3 reference points/4G S1 and S1-U reference points) and port 4 for core data (5G N6/4G SGi reference points). If more than six data networks are configured, port 3 is also used for core data.
+When deployed on Azure Stack Edge 2 (ASE 2), AP5GC uses physical port 3 for access signaling and data (5G N2 and N3 reference points/4G S1 and S1-U reference points) and port 4 for core data (5G N6/4G SGi reference points). 
+
+For HA deployments, you must use VLAN trunking, where data networks are separated by VLANs. In this setup, all core data uses port 6. If you are not using VLAN trunking and more than six data networks are configured, port 3 is used for core data for the remaining data networks.
 
 AP5GC supports deployments with or without layer 3 routers on ports 3 and 4. This is useful for avoiding extra hardware at smaller edge sites.
 
@@ -84,18 +88,24 @@ There are multiple ways to set up your network for use with AP5GC. The exact set
   :::image type="content" source="media/private-mobile-network-design-requirements/layer-2-network.png" alt-text="Diagram of a layer 2 network." lightbox="media/private-mobile-network-design-requirements/layer-2-network.png":::
 
 - Layer 3 network with multiple data networks
-  - AP5GC can support up to ten attached data networks, each with its own configuration for Domain Name System (DNS), UE IP address pools, N6 IP configuration, and NAT. The operator can provision UEs as subscribed in one or more data networks and apply data network-specific policy and quality of service (QoS) configuration.
+  - The recommended setup for deployments with multiple data networks is to use VLAN trunking. In this setup, AP5GC can support up to ten attached data networks, each with its own configuration for Domain Name System (DNS), UE IP address pools, N6 IP configuration, and NAT. You can provision UEs as subscribed in one or more data networks and apply data network-specific policy and quality of service (QoS) configuration. VLAN trunking is required for HA deployments.
+  - In this topology, there is a single N6 virtual network on the ASE with no IP information. All VLAN and IP configuration is done when configuring each attached data network.
+  :::image type="content" source="media/private-mobile-network-design-requirements/layer-3-network-with-vlan-trunking.png" alt-text="Diagram of a layer 3 network with VLAN trunking." lightbox="media/private-mobile-network-design-requirements/layer-3-network-with-vlan-trunking.png":::
+
+- Layer 3 network with multiple data networks without VLAN separation.
+  - AP5GC can support up to ten attached data networks, each with its own configuration for Domain Name System (DNS), UE IP address pools, N6 IP configuration, and NAT. You can provision UEs as subscribed in one or more data networks and apply data network-specific policy and quality of service (QoS) configuration.
   - This topology requires that the N6 interface is split into one subnet for each data network or one subnet for all data networks. This option therefore requires careful planning and configuration to prevent overlapping data network IP ranges or UE IP ranges.  
   :::image type="content" source="media/private-mobile-network-design-requirements/layer-3-network-with-multiple-dns.png" alt-text="Diagram of layer 3 network topology with multiple data networks." lightbox="media/private-mobile-network-design-requirements/layer-3-network-with-multiple-dns.png":::
 
-- Layer 3 network with VLAN and physical access/core separation
+- Layer 3 network with VLAN and physical access/core separation (Access VLANs)
   - You can also separate ASE traffic into VLANs, whether or not you choose to add layer 3 gateways to your network. There are multiple benefits to segmenting traffic into separate VLANs, including more flexible network management and increased security.
   - For example, you could configure separate VLANs for management, access and data traffic, or a separate VLAN for each attached data network.
   - VLANs must be configured on the local layer 2 or layer 3 network equipment. Multiple VLANs will be carried on a single link from ASE port 5 (access network) and/or 6 (core network), so you must configure each of those links as a VLAN trunk.
   :::image type="content" source="media/private-mobile-network-design-requirements/layer-3-network-with-vlans.png" alt-text="Diagram of layer 3 network topology with V L A N s." lightbox="media/private-mobile-network-design-requirements/layer-3-network-with-vlans.png":::
 
-- Layer 3 network with 7-10 data networks
-  - If you want to deploy more than six VLAN-separated data networks, the additional (up to four) data networks must be deployed on ASE port 5. This requires one shared switch or router that carries both access and core traffic. VLAN tags can be assigned as required to N2, N3 and each of the N6 data networks.
+- Layer 3 network with 7-10 data networks without VLAN trunking.
+  - With VLAN trunking, all DNs are routed through port 6. VLAN trunking is required for HA deployments.
+  - Without VLAN trunking, if you want to deploy more than six VLAN-separated data networks, the additional (up to four) data networks must be deployed on ASE port 5. This requires one shared switch or router that carries both access and core traffic. VLAN tags can be assigned as required to N2, N3 and each of the N6 data networks.
   - No more than six data networks can be configured on the same port.
   - For optimal performance, the data networks with the highest expected load should be configured on port 6.
   :::image type="content" source="media/private-mobile-network-design-requirements/layer-3-network-with-additional-dns.png" alt-text="Diagram of layer 3 network topology with 10 data networks." lightbox="media/private-mobile-network-design-requirements/layer-3-network-with-vlans.png":::
@@ -116,20 +126,25 @@ There are multiple ways to set up your network for use with AP5GC. The exact set
   :::image type="content" source="media/private-mobile-network-design-requirements/layer-2-network.png" alt-text="Diagram of a layer 2 network." lightbox="media/private-mobile-network-design-requirements/layer-2-network.png":::
 
 - Layer 3 network with multiple data networks
-  - AP5GC can support up to ten attached data networks, each with its own configuration for Domain Name System (DNS), UE IP address pools, N6 IP configuration, and NAT. The operator can provision UEs as subscribed in one or more data networks and apply data network-specific policy and quality of service (QoS) configuration.
+  - The recommended setup for deployments with multiple data networks is to use VLAN trunking. In this setup, AP5GC can support up to ten attached data networks, each with its own configuration for Domain Name System (DNS), UE IP address pools, N6 IP configuration, and NAT. You can provision UEs as subscribed in one or more data networks and apply data network-specific policy and quality of service (QoS) configuration. VLAN trunking is required for HA deployments.
+  - In this topology, there is a single N6 virtual network on the ASE with no IP information. All VLAN and IP configuration is done when configuring each attached data network.
+  :::image type="content" source="media/private-mobile-network-design-requirements/layer-3-network-with-vlan-trunking.png" alt-text="Diagram of a layer 3 network with VLAN trunking." lightbox="media/private-mobile-network-design-requirements/layer-3-network-with-vlan-trunking.png":::
+
+- Layer 3 network with multiple data networks without VLAN separation.
+  - AP5GC can support up to ten attached data networks, each with its own configuration for Domain Name System (DNS), UE IP address pools, N6 IP configuration, and NAT. You can provision UEs as subscribed in one or more data networks and apply data network-specific policy and quality of service (QoS) configuration.
   - This topology requires that the N6 interface is split into one subnet for each data network or one subnet for all data networks. This option therefore requires careful planning and configuration to prevent overlapping data network IP ranges or UE IP ranges.  
 
   :::image type="content" source="media/private-mobile-network-design-requirements/layer-3-network-with-multiple-dns-azure-stack-edge-2.png" alt-text="Diagram of layer 3 network topology with multiple data networks." lightbox="media/private-mobile-network-design-requirements/layer-3-network-with-multiple-dns-azure-stack-edge-2.png":::
 
-- Layer 3 network with VLAN and physical access/core separation
+- Layer 3 network with VLAN and physical access/core separation (Access VLANs)
   - You can also separate ASE traffic into VLANs, whether or not you choose to add layer 3 gateways to your network. There are multiple benefits to segmenting traffic into separate VLANs, including more flexible network management and increased security.
   - For example, you could configure separate VLANs for management, access and data traffic, or a separate VLAN for each attached data network.
   - VLANs must be configured on the local layer 2 or layer 3 network equipment. Multiple VLANs will be carried on a single link from ASE port 3 (access network) and/or 4 (core network), so you must configure each of those links as a VLAN trunk.
 
   :::image type="content" source="media/private-mobile-network-design-requirements/layer-3-network-with-vlans-azure-stack-edge-2.png" alt-text="Diagram of layer 3 network topology with V L A N s." lightbox="media/private-mobile-network-design-requirements/layer-3-network-with-vlans-azure-stack-edge-2.png":::
 
-- Layer 3 network with 7-10 data networks
-  - If you want to deploy more than six VLAN-separated data networks, the additional (up to four) data networks must be deployed on ASE port 3. This requires one shared switch or router that carries both access and core traffic. VLAN tags can be assigned as required to N2, N3 and each of the N6 data networks.
+- Layer 3 network with 7-10 data networks without VLAN trunking.
+  - Without VLAN trunking, if you want to deploy more than six VLAN-separated data networks, the additional (up to four) data networks must be deployed on ASE port 3. This requires one shared switch or router that carries both access and core traffic. VLAN tags can be assigned as required to N2, N3 and each of the N6 data networks. VLAN trunking is required for HA deployments.
   - No more than six data networks can be configured on the same port.
   - For optimal performance, the data networks with the highest expected load should be configured on port 4.
 
@@ -148,6 +163,15 @@ You might have existing IP networks at the enterprise site that the private cell
 
 You need to document the IPv4 subnets that will be used for the deployment and agree on the IP addresses to use for each element in the solution, and on the IP addresses that will be allocated to UEs when they attach. You need to deploy (or configure existing) routers and firewalls at the enterprise site to permit traffic. You should also agree how and where in the network any NAPT or MTU changes are required and plan the associated router/firewall configuration. For more information, see [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).
 
+### High Availability (HA)
+
+You can optionally deploy Azure Private 5G Core as a Highly Available (HA) service on a pair of Azure Stack Edge (ASE) devices. This requires a gateway router (strictly, a Layer 3 capable device – either a router or an L3 switch (router/switch hybrid)) between the ASE cluster and:
+
+- the RAN equipment in the access network.
+- the data network(s).
+
+For more information, see [Complete the prerequisite tasks for deploying a private mobile network](complete-private-mobile-network-prerequisites.md).
+
 ### Network access
 
 Your design must reflect the enterprise’s rules on what networks and assets should be reachable by the RAN and UEs on the private 5G network. For example, they might be permitted to access local Domain Name System (DNS), Dynamic Host Configuration Protocol (DHCP), the internet, or Azure, but not a factory operations local area network (LAN). You might need to arrange for remote access to the network so that you can troubleshoot issues without requiring a site visit. You also need to consider how the enterprise site will be connected to upstream networks such as Azure for management and/or for access to other resources and applications outside of the enterprise site.
@@ -159,7 +183,7 @@ You need to agree with the enterprise team which IP subnets and addresses will b
 The RAN that you use to broadcast the signal across the enterprise site must comply with local regulations. For example, this could mean:
 
 - The RAN units have completed the process of homologation and received regulatory approval for their use on a certain frequency band in a country/region.
-- You have received permission for the RAN to broadcast using spectrum in a certain location, for example, by grant from a telecom operator, regulatory authority or via a technological solution such as a Spectrum Access System (SAS).
+- You have received permission for the RAN to broadcast using spectrum in a certain location, for example, by grant from a telecommunications operator, regulatory authority or via a technological solution such as a Spectrum Access System (SAS).
 - The RAN units in a site have access to high-precision timing sources, such as Precision Time Protocol (PTP) and GPS location services.
 
 You should ask your RAN partner for the countries/regions and frequency bands for which the RAN is approved. You might find that you need to use multiple RAN partners to cover the countries and regions in which you provide your solution. Although the RAN, UE and packet core all communicate using standard protocols, we recommend that you perform interoperability testing for the specific 4G Long-Term Evolution (LTE) or 5G standalone (SA) protocol between Azure Private 5G Core, UEs and the RAN prior to any deployment at an enterprise customer.

@@ -1,5 +1,5 @@
 ---
-title: Quickstart - How to send an email using Azure Communication Service
+title: Quickstart - How to send an email using Azure Communication Services
 titleSuffix: An Azure Communication Services Quickstart
 description: Learn how to send an email message using Azure Communication Services.
 author: bashan-git
@@ -13,11 +13,11 @@ ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: acs-azcli-js-csharp-java-python-portal-nocode
 ---
 
-# Quickstart: How to send an email using Azure Communication Service
+# Quickstart: How to send an email using Azure Communication Services
 
 [!INCLUDE [Survey Request](../../includes/survey-request.md)]
 
-In this quick start, you'll learn about how to send email using our Email SDKs.
+This quickstart describes how to send email using our Email SDKs.
 
 ::: zone pivot="platform-azportal"
 [!INCLUDE [Send email using Try Email in Azure Portal ](./includes/try-send-email.md)]
@@ -28,7 +28,7 @@ In this quick start, you'll learn about how to send email using our Email SDKs.
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [Send email with .NET SDK](./includes/send-email-net.md)]
+[!INCLUDE [Send email with .NET SDK](./includes/send-email-async-sync-net.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"
@@ -74,4 +74,4 @@ In this quickstart, you learned how to send emails using Azure Communication Ser
  - Learn about [Email concepts](../../concepts/email/email-overview.md).
  - Familiarize yourself with [email client library](../../concepts/email/sdk-features.md).
  - Learn more about [how to send a chat message](../chat/logic-app.md) from Power Automate using Azure Communication Services.
- - Learn more about access tokens check in [Create and Manage Azure Communication Services users and access tokens](../chat/logic-app.md).
+ - Learn more about access tokens check-in [Create and Manage Azure Communication Services users and access tokens](../chat/logic-app.md).

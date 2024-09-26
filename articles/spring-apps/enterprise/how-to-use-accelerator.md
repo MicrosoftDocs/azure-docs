@@ -2,7 +2,7 @@
 title: Use VMware Tanzu Application Accelerator with the Azure Spring Apps Enterprise plan
 description: Learn how to use VMware Tanzu App Accelerator with the Azure Spring Apps Enterprise plan.
 author: KarlErickson
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 01/23/2024
 ms.author: caiqing
@@ -200,7 +200,7 @@ az spring application-accelerator predefined-accelerator enable \
 
 ### Manage your own accelerators
 
-In addition to using the predefined accelerators, you can create your own accelerators. You can use any Git repository in Azure Devops, GitHub, GitLab, or BitBucket.
+In addition to using the predefined accelerators, you can create your own accelerators. You can use any Git repository in Azure DevOps, GitHub, GitLab, or BitBucket.
 
 Use the following steps to create and maintain your own accelerators:
 
@@ -371,8 +371,6 @@ Use the following steps to bootstrap a new project using accelerators:
    :::image type="content" source="media/how-to-use-accelerator/configure-accelerator.png" alt-text="Screenshot of the VMware Tanzu Dev Tools for Azure Spring Apps Generate Accelerators page that shows the Configure accelerator section." lightbox="media/how-to-use-accelerator/configure-accelerator.png":::
 
 1. Select **EXPLORE FILE** to view the project structure and source code.
-
-   :::image type="content" source="media/how-to-use-accelerator/explore-accelerator-project.png" alt-text="Screenshot of the VMware Tanzu Dev Tools for Azure Spring Apps Explore project pane." lightbox="media/how-to-use-accelerator/explore-accelerator-project.png":::
 
 1. Select **Review and generate** to review the specified parameters, and then select **Generate accelerator**.
 

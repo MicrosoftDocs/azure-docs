@@ -2,9 +2,9 @@
 title: Analyze logs with Elastic Cloud from Azure Spring Apps
 description: Learn how to analyze diagnostics logs in Azure Spring Apps using Elastic
 author: KarlErickson
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: conceptual
-ms.date: 12/07/2021
+ms.date: 04/23/2024
 ms.author: karler
 ms.custom: devx-track-java
 ---
@@ -35,7 +35,7 @@ To configure diagnostics settings, use the following steps:
 1. Enter a name for the setting, choose **Send to partner solution**, then select **Elastic** and an Elastic deployment where you want to send the logs.
 1. Select **Save**.
 
-:::image type="content" source="media/how-to-elastic-diagnostic-settings/diagnostic-settings-asc-2.png" alt-text="Screenshot of Azure portal showing the Diagnostic setting page with selected options and the name specified for the setting." lightbox="media/how-to-elastic-diagnostic-settings/diagnostic-settings-asc-2.png":::
+:::image type="content" source="media/how-to-elastic-diagnostic-settings/diagnostic-settings-asc-2.png" alt-text="Screenshot of the Azure portal that shows the Diagnostic setting page with selected options and the name specified for the setting." lightbox="media/how-to-elastic-diagnostic-settings/diagnostic-settings-asc-2.png":::
 
 > [!NOTE]
 > There might be a gap of up to 15 minutes between when logs are emitted and when they appear in your Elastic deployment.
@@ -49,15 +49,15 @@ Use the following steps to analyze the logs:
 
 1. From the Elastic deployment overview page in the Azure portal, open **Kibana**.
 
-   :::image type="content" source="media/how-to-elastic-diagnostic-settings/elastic-on-azure-native-microsoft-azure.png" alt-text="Screenshot of Azure portal showing 'Elasticsearch (Elastic Cloud)' page with Deployment U R L / Kibana highlighted." lightbox="media/how-to-elastic-diagnostic-settings/elastic-on-azure-native-microsoft-azure.png":::
+   :::image type="content" source="media/how-to-elastic-diagnostic-settings/elastic-on-azure-native-microsoft-azure.png" alt-text="Screenshot of the Azure portal that shows the Elasticsearch (Elastic Cloud) page with the Deployment URL Kibana link highlighted." lightbox="media/how-to-elastic-diagnostic-settings/elastic-on-azure-native-microsoft-azure.png":::
 
 1. In Kibana, in the **Search** bar at top, type *Spring Cloud type:dashboard*.
 
-   :::image type="content" source="media/how-to-elastic-diagnostic-settings/elastic-kibana-spring-cloud-dashboard.png" alt-text="Elastic / Kibana screenshot showing 'Spring Cloud type:dashboard' search results." lightbox="media/how-to-elastic-diagnostic-settings/elastic-kibana-spring-cloud-dashboard.png":::
+   :::image type="content" source="media/how-to-elastic-diagnostic-settings/elastic-kibana-spring-cloud-dashboard.png" alt-text="Screenshot of Elastic / Kibana that shows the search results for Spring Cloud type:dashboard." lightbox="media/how-to-elastic-diagnostic-settings/elastic-kibana-spring-cloud-dashboard.png":::
 
 1. Select **[Logs Azure] Azure Spring Apps logs Overview** from the results.
 
-   :::image type="content" source="media/how-to-elastic-diagnostic-settings/elastic-kibana-asc-dashboard-full.png" alt-text="Elastic / Kibana screenshot showing Azure Spring Apps Application Console Logs." lightbox="media/how-to-elastic-diagnostic-settings/elastic-kibana-asc-dashboard-full.png":::
+   :::image type="content" source="media/how-to-elastic-diagnostic-settings/elastic-kibana-asc-dashboard-full.png" alt-text="Screenshot of Elastic / Kibana that shows the Azure Spring Apps Application Console Logs." lightbox="media/how-to-elastic-diagnostic-settings/elastic-kibana-asc-dashboard-full.png":::
 
 1. Search on out-of-the-box Azure Spring Apps dashboards by using the queries such as the following:
 
@@ -71,11 +71,11 @@ Application logs provide critical information and verbose logs about your applic
 
 1. In Kibana, in the **Search** bar at top, type *Discover*, then select the result.
 
-   :::image type="content" source="media/how-to-elastic-diagnostic-settings/elastic-kibana-go-discover.png" alt-text="Elastic / Kibana screenshot showing 'Discover' search results." lightbox="media/how-to-elastic-diagnostic-settings/elastic-kibana-go-discover.png":::
+   :::image type="content" source="media/how-to-elastic-diagnostic-settings/elastic-kibana-go-discover.png" alt-text="Screenshot of Elastic / Kibana  that shows the search results for Discover." lightbox="media/how-to-elastic-diagnostic-settings/elastic-kibana-go-discover.png":::
 
 1. In the **Discover** app, select the **logs-** index pattern if it's not already selected.
 
-   :::image type="content" source="media/how-to-elastic-diagnostic-settings/elastic-kibana-index-pattern.png" alt-text="Elastic / Kibana screenshot showing logs in the Discover app." lightbox="media/how-to-elastic-diagnostic-settings/elastic-kibana-index-pattern.png":::
+   :::image type="content" source="media/how-to-elastic-diagnostic-settings/elastic-kibana-index-pattern.png" alt-text="Screenshot of Elastic / Kibana that shows the logs page in the Discover app." lightbox="media/how-to-elastic-diagnostic-settings/elastic-kibana-index-pattern.png":::
 
 1. Use queries such as the ones in the following sections to help you understand your application's current and past states.
 
@@ -89,7 +89,7 @@ To review a list of application logs from Azure Spring Apps, sorted by time with
 azure_log_forwarder.resource_type : "Microsoft.AppPlatform/Spring"
 ```
 
-:::image type="content" source="media/how-to-elastic-diagnostic-settings/elastic-kibana-kql-asc-logs.png" alt-text="Elastic / Kibana screenshot showing Discover app with all logs displayed." lightbox="media/how-to-elastic-diagnostic-settings/elastic-kibana-kql-asc-logs.png":::
+:::image type="content" source="media/how-to-elastic-diagnostic-settings/elastic-kibana-kql-asc-logs.png" alt-text="Screenshot of Elastic / Kibana that shows the Discover app with all logs displayed." lightbox="media/how-to-elastic-diagnostic-settings/elastic-kibana-kql-asc-logs.png":::
 
 ### Show specific log types from Azure Spring Apps
 
@@ -99,7 +99,7 @@ To review a list of application logs from Azure Spring Apps, sorted by time with
 azure.springcloudlogs.category : "ApplicationConsole"
 ```
 
-:::image type="content" source="media/how-to-elastic-diagnostic-settings/elastic-kibana-kql-asc-app-console.png" alt-text="Elastic / Kibana screenshot showing Discover app with specific logs displayed." lightbox="media/how-to-elastic-diagnostic-settings/elastic-kibana-kql-asc-app-console.png":::
+:::image type="content" source="media/how-to-elastic-diagnostic-settings/elastic-kibana-kql-asc-app-console.png" alt-text="Screenshot of Elastic / Kibana that shows the Discover app with specific logs displayed." lightbox="media/how-to-elastic-diagnostic-settings/elastic-kibana-kql-asc-app-console.png":::
 
 ### Show log entries containing errors or exceptions
 
@@ -109,7 +109,7 @@ To review unsorted log entries that mention an error or exception, run the follo
 azure_log_forwarder.resource_type : "Microsoft.AppPlatform/Spring" and (log.level : "ERROR" or log.level : "EXCEPTION")
 ```
 
-:::image type="content" source="media/how-to-elastic-diagnostic-settings/elastic-kibana-kql-asc-error-exception.png" alt-text="Elastic / Kibana screenshot showing Discover app with error and exception logs displayed." lightbox="media/how-to-elastic-diagnostic-settings/elastic-kibana-kql-asc-error-exception.png":::
+:::image type="content" source="media/how-to-elastic-diagnostic-settings/elastic-kibana-kql-asc-error-exception.png" alt-text="Screenshot of Elastic / Kibana that shows the Discover app with error and exception logs displayed." lightbox="media/how-to-elastic-diagnostic-settings/elastic-kibana-kql-asc-error-exception.png":::
 
 The Kibana Query Language helps you form queries by providing autocomplete and suggestions to help you gain insights from the logs. Use your query to find errors, or modify the query terms to find specific error codes or exceptions.
 
@@ -121,7 +121,7 @@ To review log entries that are generated by a specific service, run the followin
 azure.springcloudlogs.properties.service_name : "sa-petclinic-service"
 ```
 
-:::image type="content" source="media/how-to-elastic-diagnostic-settings/elastic-kibana-kql-specific-service.png" alt-text="Elastic / Kibana screenshot showing Discover app with specific-service logs displayed." lightbox="media/how-to-elastic-diagnostic-settings/elastic-kibana-kql-specific-service.png":::
+:::image type="content" source="media/how-to-elastic-diagnostic-settings/elastic-kibana-kql-specific-service.png" alt-text="Screenshot of Elastic / Kibana that shows the Discover app with specific-service logs displayed." lightbox="media/how-to-elastic-diagnostic-settings/elastic-kibana-kql-specific-service.png":::
 
 ### Show Config Server logs containing warnings or errors
 
@@ -131,7 +131,7 @@ To review logs from Config Server, run the following query:
 azure.springcloudlogs.properties.type : "ConfigServer" and (log.level : "ERROR" or log.level : "WARN")
 ```
 
-:::image type="content" source="media/how-to-elastic-diagnostic-settings/elastic-kibana-kql-config-error-exception.png" alt-text="Elastic / Kibana screenshot showing Discover app with Config Server logs displayed." lightbox="media/how-to-elastic-diagnostic-settings/elastic-kibana-kql-config-error-exception.png":::
+:::image type="content" source="media/how-to-elastic-diagnostic-settings/elastic-kibana-kql-config-error-exception.png" alt-text="Screenshot of Elastic / Kibana that shows the Discover app with Config Server logs displayed." lightbox="media/how-to-elastic-diagnostic-settings/elastic-kibana-kql-config-error-exception.png":::
 
 ### Show Service Registry logs
 
@@ -141,7 +141,7 @@ To review logs from Service Registry, run the following query:
 azure.springcloudlogs.properties.type : "ServiceRegistry"
 ```
 
-:::image type="content" source="media/how-to-elastic-diagnostic-settings/elastic-kibana-kql-service-registry.png" alt-text="Elastic / Kibana screenshot showing Discover app with Service Registry logs displayed." lightbox="media/how-to-elastic-diagnostic-settings/elastic-kibana-kql-service-registry.png":::
+:::image type="content" source="media/how-to-elastic-diagnostic-settings/elastic-kibana-kql-service-registry.png" alt-text="Screenshot of Elastic / Kibana that shows the Discover app with Service Registry logs displayed." lightbox="media/how-to-elastic-diagnostic-settings/elastic-kibana-kql-service-registry.png":::
 
 ## Visualizing logs from Azure Spring Apps with Elastic
 
@@ -153,11 +153,11 @@ Use the following steps to show the various log levels in your logs so you can a
 
 1. Select the **log.level** field. From the floating informational panel about **log.level**, select **Visualize**.
 
-   :::image type="content" source="media/how-to-elastic-diagnostic-settings/elastic-kibana-asc-visualize.png" alt-text="Elastic / Kibana screenshot showing Discover app showing log levels." lightbox="media/how-to-elastic-diagnostic-settings/elastic-kibana-asc-visualize.png":::
+   :::image type="content" source="media/how-to-elastic-diagnostic-settings/elastic-kibana-asc-visualize.png" alt-text="Screenshot of Elastic / Kibana that shows the Discover app with log levels displayed." lightbox="media/how-to-elastic-diagnostic-settings/elastic-kibana-asc-visualize.png":::
 
 1. From here, you can choose to add more data from the left pane, or choose from multiple suggestions how you would like to visualize your data.
 
-   :::image type="content" source="media/how-to-elastic-diagnostic-settings/elastic-kibana-visualize-lens.png" alt-text="Elastic / Kibana screenshot showing Discover app showing visualization options." lightbox="media/how-to-elastic-diagnostic-settings/elastic-kibana-visualize-lens.png":::
+   :::image type="content" source="media/how-to-elastic-diagnostic-settings/elastic-kibana-visualize-lens.png" alt-text="Screenshot of Elastic / Kibana that shows the Discover app with visualization options." lightbox="media/how-to-elastic-diagnostic-settings/elastic-kibana-visualize-lens.png":::
 
 ## Next steps
 

@@ -4,7 +4,7 @@ description: An overview of Azure Elastic SAN, a service that enables you to cre
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: overview
-ms.date: 02/13/2024
+ms.date: 05/31/2024
 ms.author: rogarana
 ms.custom:
   - ignite-2023-elastic-SAN

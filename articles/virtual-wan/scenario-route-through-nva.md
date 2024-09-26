@@ -3,7 +3,7 @@ title: 'Scenario: Route traffic through a Network Virtual Appliance (NVA)'
 titleSuffix: Azure Virtual WAN
 description: Learn about Virtual WAN routing scenarios to route traffic through a Network Virtual Appliance (NVA).
 author: cherylmc
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: conceptual
 ms.date: 02/13/2023
 ms.author: cherylmc
@@ -114,7 +114,7 @@ Virtual WAN  doesn't support a scenario where VNets 5,6 connect to virtual hub a
    :::image type="content" source="./media/routing-scenarios/nva/nva-static-expand.png" alt-text="Example":::
    
    > [!NOTE]
-   > To simplify the routing and to reduce the changes in the Virtual WAN hub route tables, we recommend the new BGP peering with Virtual WAN hub (preview). For more information, see the following articles: 
+   > To simplify the routing and to reduce the changes in the Virtual WAN hub route tables, we recommend the new BGP peering with Virtual WAN hub. For more information, see the following articles: 
    >* [Scenario: BGP peering with a virtual hub](scenario-bgp-peering-hub.md) 
    >* [How to create BGP peering with virtual hub - Azure portal](create-bgp-peering-hub-portal.md)
    >

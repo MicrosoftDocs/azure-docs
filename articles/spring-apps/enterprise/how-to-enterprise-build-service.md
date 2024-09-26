@@ -3,7 +3,7 @@ title: How to use Tanzu Build Service in the Azure Spring Apps Enterprise plan
 description: Learn how to use Tanzu Build Service in the Azure Spring Apps Enterprise plan.
 author: KarlErickson
 ms.author: fenzho
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 11/29/2023
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
@@ -123,7 +123,7 @@ Use the following steps to enable Tanzu Build Service when provisioning an Azure
    az provider register --namespace Microsoft.SaaS
    ```
 
-1. Use the following command to accept the legal terms and privacy statements for the Azure Spring Apps Enterprise plan. This step is necessary only if you never used your subscription to create an Enterprise plan instance.
+1. Use the following command to accept the legal terms and privacy statements for the Azure Spring Apps Enterprise plan. This step is necessary only if your subscription has never been used to create an Enterprise plan instance of Azure Spring Apps.
 
    ```azurecli
    az term accept \

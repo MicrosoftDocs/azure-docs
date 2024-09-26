@@ -7,12 +7,12 @@ brand: azure ## Used for color theming of icons and hero area
 metadata: 
   title: Azure networking documentation
   description: Azure networking services provide connectivity to your resources in Azure, deliver and protect applications, and help secure your network. 
-  ms.service: virtual-network
+  ms.service: azure-virtual-network
   ms.topic: hub-page
   author: duongau
   ms.author: duau
   manager: kumudD
-  ms.date: 04/02/2024
+  ms.date: 07/31/2024
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new 
@@ -23,7 +23,7 @@ highlightedContent:
     - title: What's new in Azure Networking? 
       itemType: whats-new 
       url: https://azure.microsoft.com/updates/?category=networking
-    - title: Azure network security
+    - title: Azure network security documentation
       itemType: overview
       url: ./security/index.yml
     - title: Hub-spoke network topology in Azure
@@ -32,15 +32,47 @@ highlightedContent:
     - title: Azure Networking blogs
       itemType: concept
       url: https://azure.microsoft.com/blog/topics/networking/
-    - title: Define an Azure network topology
+    - title: Design a hybrid network architecture on Azure
+      itemType: learn
+      url: /training/modules/design-a-hybrid-network-architecture/
+    - title: Network Architecture Design
       itemType: architecture
-      url: /azure/cloud-adoption-framework/ready/azure-best-practices/define-an-azure-network-topology
-    - title: Azure Network Watcher
-      itemType: overview
-      url: ../network-watcher/network-watcher-overview.md
+      url: /azure/architecture/networking
     - title: Apply Zero Trust principles to encrypting Azure-based network communications
       itemType: architecture
       url: /security/zero-trust/azure-networking-encryption
+
+# productDirectory section (Optional; Remove if not applicable.)
+productDirectory:
+  title: Azure networking scenarios # Optional but good for SEO. Remove if not applicable.
+  summary: Select an Azure networking scenario to learn how Azure can enhance connectivity to your resources, deliver and protect applications, and help secure your environment. # Optional but good for SEO. Remove if not applicable.
+  items:
+    # Card
+    - title: Networking foundation
+      # imageSrc should be square in ratio with no white space
+      imageSrc: ./media/index/networking-foundations.svg
+      summary: Manage and diagnose your network with Azure network foundation services.
+      url: ./foundations/index.yml
+    # Card
+    - title: Load balancing and content delivery
+      imageSrc: ./media/index/load-balancing-and-content-delivery.svg
+      summary: Distribute network traffic to load balance workloads with Azure application delivery services.
+      url: ./load-balancer-content-delivery/index.yml
+    # Card
+    - title: Hybrid connectivity
+      imageSrc: ./media/index/hybrid-connectivity.svg
+      summary: Integrate your on-premises and Azure networks with Azure hybrid connectivity services.
+      url: ./hybrid-connectivity/index.yml
+    # Card
+    - title: Network security
+      imageSrc: ./media/index/network-security.svg
+      summary: Protect your network from cyber security attacks with Azure network security services.
+      url: ./security/index.yml
+    # Card
+    - title: Network monitoring and management
+      imageSrc: ./media/index/network-monitoring-and-management.svg
+      summary: Monitor and manage your network with Azure network monitoring and management services.
+      url: ./monitoring-management/index.yml
 
 # additionalContent section (optional)
 # Card with links style
@@ -50,7 +82,7 @@ additionalContent:
     - title: Networking foundation # < 60 chars (optional)
       items:
         # Card
-        - title: Virtual network
+        - title: Virtual Network
           links:
             - text: What is Azure Virtual Network?
               url: ../virtual-network/virtual-networks-overview.md
@@ -59,7 +91,7 @@ additionalContent:
             - text: See more
               url: ../virtual-network/index.yml
         # Card
-        - title: Private access to a service
+        - title: Private Link
           links:
             - text: What is Azure Private Link?
               url: ../private-link/private-link-overview.md
@@ -76,10 +108,11 @@ additionalContent:
               url: ../dns/dns-delegate-domain-azure-dns.md
             - text: See more
               url: ../dns/index.yml
+
     - title: Load balancing and content delivery # < 60 chars (optional)
       items:
         # Card
-        - title: Network load balancer
+        - title: Load Balancer
           links:
             - text: What is Azure Load Balancer?
               url: ../load-balancer/load-balancer-overview.md
@@ -88,7 +121,7 @@ additionalContent:
             - text: See more
               url: ../load-balancer/index.yml
         # Card
-        - title: Web application load balancer
+        - title: Application Gateway
           links:
             - text: What is Azure Application Gateway?
               url: ../application-gateway/overview.md
@@ -97,7 +130,7 @@ additionalContent:
             - text: See more
               url: ../application-gateway/index.yml
         # Card
-        - title: Secure cloud CDN and global load balancer
+        - title: Front Door
           links:
             - text: What is Azure Front Door?
               url: ../frontdoor/front-door-overview.md
@@ -108,7 +141,7 @@ additionalContent:
     - title: Hybrid connectivity # < 60 chars (optional)
       items:
         # Card
-        - title: Connect on-premises to Azure - VPN encryption
+        - title: VPN Gateway
           links:
             - text: What is Azure VPN Gateway?
               url: ../vpn-gateway/vpn-gateway-about-vpngateways.md
@@ -119,7 +152,7 @@ additionalContent:
             - text: See more
               url: ../vpn-gateway/index.yml   
         # Card
-        - title: Connect on-premises to Azure - private connection
+        - title: ExpressRoute
           links:
             - text: What is Azure ExpressRoute?
               url: ../expressroute/expressroute-introduction.md
@@ -128,7 +161,7 @@ additionalContent:
             - text: See more
               url: ../expressroute/index.yml
         # Card
-        - title: Unified hub and spoke networking
+        - title: Virtual WAN
           links:
             - text: What is Azure Virtual WAN?
               url: ../virtual-wan/virtual-wan-about.md
@@ -136,10 +169,11 @@ additionalContent:
               url: ../virtual-wan/virtual-wan-global-transit-network-architecture.md
             - text: See more
               url: ../virtual-wan/index.yml
+
     - title: Network security # < 60 chars (optional)
       items:
         # Card
-        - title: Network Firewall
+        - title: Firewall
           links:
             - text: What is Azure Firewall?
               url: ../firewall/overview.md
@@ -148,7 +182,7 @@ additionalContent:
             - text: See more
               url: ../firewall/index.yml
         # Card
-        - title: DDoS protection
+        - title: DDoS Protection
           links:
             - text: What is Azure DDoS Protection?
               url: ../ddos-protection/ddos-protection-overview.md
@@ -159,7 +193,7 @@ additionalContent:
             - text: See more
               url: ../ddos-protection/index.yml
         # Card
-        - title: Web application firewall
+        - title: Web Application Firewall
           links:
             - text: What is Azure Web Application Firewall?
               url: ../web-application-firewall/overview.md
@@ -169,4 +203,3 @@ additionalContent:
               url: ../web-application-firewall/afds/waf-front-door-create-portal.md
             - text: See more
               url: ../web-application-firewall/index.yml
-              

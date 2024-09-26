@@ -10,7 +10,7 @@ ms.date: 01/04/2024
 
 # Create a streaming customer insights dashboard with Azure Logic Apps and Azure Functions
 
-[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 
 Azure offers [serverless](https://azure.microsoft.com/solutions/serverless/) tools that help you quickly build 
 and host apps in the cloud, without having to think about infrastructure. 
@@ -30,9 +30,9 @@ tweets based on predefined keywords.
 
 In this scenario, you create a logic app that triggers on finding feedback from customers. 
 Some connectors that help you respond to customer feedback include Outlook.com, 
-Office 365, Survey Monkey, Twitter, and an 
+Office 365, Survey Monkey, X, and an 
 [HTTP request from a web form](/archive/blogs/logicapps/calling-a-logic-app-from-an-html-form). 
-The workflow that you create monitors a hashtag on Twitter.
+The workflow that you create monitors a hashtag on X.
 
 You can [build the entire solution in Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) 
 and [deploy the solution with Azure Resource Manager template](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md). 
@@ -45,18 +45,18 @@ For a video walkthrough that shows how to create this solution,
 
    If you're new to logic apps, review the [quickstart for the Azure portal](../logic-apps/quickstart-create-example-consumption-workflow.md) or the [quickstart for Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 
-2. In workflow designer, find and add the Twitter trigger that has this action: **When a new tweet is posted**
+2. In workflow designer, find and add the X trigger that has this action: **When a new tweet is posted**
 
 3. Set up the trigger to listen for 
 tweets based on a keyword or hashtag.
 
    On polling-based triggers, 
-   such as the Twitter trigger, 
+   such as the X trigger, 
    the recurrence property 
    determines how often the logic app 
    checks for new items.
 
-   ![Example of Twitter trigger][1]
+   ![Example of X trigger.][1]
 
 This logic app now fires on all new tweets. 
 You can then take and analyze the tweet data 

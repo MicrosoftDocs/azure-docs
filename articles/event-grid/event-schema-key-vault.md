@@ -7,7 +7,7 @@ ms.date: 01/17/2024
 
 # Azure Key Vault as Event Grid source
 
-This article provides the properties and schema for events in [Azure Key Vault](../key-vault/index.yml). For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md) and [Cloud event schema](cloud-event-schema.md).
+This article provides the properties and schema for events in [Azure Key Vault](/azure/key-vault/). For an introduction to event schemas, see [Azure Event Grid event schema](event-schema.md) and [Cloud event schema](cloud-event-schema.md).
 
 
 ## Available event types
@@ -20,7 +20,7 @@ An Azure Key Vault account generates the following event types:
 | Microsoft.KeyVault.CertificateNearExpiry | Certificate Near Expiry | Triggered when the current version of certificate is about to expire. (The event is triggered 30 days before the expiration date.) |
 | Microsoft.KeyVault.CertificateExpired | Certificate Expired | Triggered when the current version of a certificate is expired. |
 | Microsoft.KeyVault.KeyNewVersionCreated | Key New Version Created | Triggered when a new key or new key version is created. |
-| Microsoft.KeyVault.KeyNearExpiry | Key Near Expiry | Triggered when the current version of a key is about to expire. The event time can be configured using [key rotation policy](../key-vault/keys/how-to-configure-key-rotation.md) |
+| Microsoft.KeyVault.KeyNearExpiry | Key Near Expiry | Triggered when the current version of a key is about to expire. The event time can be configured using [key rotation policy](/azure/key-vault/keys/how-to-configure-key-rotation) |
 | Microsoft.KeyVault.KeyExpired | Key Expired | Triggered when the current version of a key is expired. |
 | Microsoft.KeyVault.SecretNewVersionCreated | Secret New Version Created | Triggered when a new secret or new secret version is created. |
 | Microsoft.KeyVault.SecretNearExpiry | Secret Near Expiry | Triggered when the current version of a secret is about to expire. (The event is triggered  30 days before the expiration date.) |
@@ -135,13 +135,13 @@ The data object has the following properties:
 ## Tutorials and how-tos
 |Title  |Description  |
 |---------|---------|
-| [Monitoring Key Vault events with Azure Event Grid](../key-vault/general/event-grid-overview.md) | Overview of integrating Key Vault with Event Grid. |
-| [Tutorial: Create and monitor Key Vault events with Event Grid](../key-vault/general/event-grid-logicapps.md) | Learn how to set up Event Grid notifications for Key Vault. |
+| [Monitoring Key Vault events with Azure Event Grid](/azure/key-vault/general/event-grid-overview) | Overview of integrating Key Vault with Event Grid. |
+| [Tutorial: Create and monitor Key Vault events with Event Grid](/azure/key-vault/general/event-grid-logicapps) | Learn how to set up Event Grid notifications for Key Vault. |
 
 
 ## Next steps
 
 * For an introduction to Azure Event Grid, see [What is Event Grid?](overview.md).
 * For more information about how to create an Azure Event Grid subscription, see [Event Grid subscription schema](subscription-creation-schema.md).
-* For more information about Key Vault, see [What is Azure Key Vault?](../key-vault/general/overview.md)
+* For more information about Key Vault, see [What is Azure Key Vault?](/azure/key-vault/general/overview)
 

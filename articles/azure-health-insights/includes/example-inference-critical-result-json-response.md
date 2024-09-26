@@ -12,7 +12,7 @@ ms.service: azure-health-insights
   "result": {
     "patientResults": [
       {
-        "patientId": "11111",
+        "patientId": "111111",
         "inferences": [
           {
             "kind": "criticalResult",
@@ -20,19 +20,8 @@ ms.service: azure-health-insights
               "description": "NEW FRACTURE",
               "finding": {
                 "resourceType": "Observation",
-                "id": "722",
+                "id": "819",
                 "status": "unknown",
-                "category": [
-                  {
-                    "coding": [
-                      {
-                        "system": "http://snomed.info/sct",
-                        "code": "439401001",
-                        "display": "DIAGNOSIS (OBSERVABLE ENTITY)"
-                      }
-                    ]
-                  }
-                ],
                 "code": {
                   "coding": [
                     {
@@ -205,19 +194,8 @@ ms.service: azure-health-insights
               "description": "NEW FRACTURE",
               "finding": {
                 "resourceType": "Observation",
-                "id": "724",
+                "id": "820",
                 "status": "unknown",
-                "category": [
-                  {
-                    "coding": [
-                      {
-                        "system": "http://snomed.info/sct",
-                        "code": "439401001",
-                        "display": "DIAGNOSIS (OBSERVABLE ENTITY)"
-                      }
-                    ]
-                  }
-                ],
                 "code": {
                   "coding": [
                     {
@@ -387,12 +365,12 @@ ms.service: azure-health-insights
         ]
       }
     ],
-    "modelVersion": "2024-01-10-Preview"
+    "modelVersion": "2024-04-16"
   },
-  "id": "780e4802-2a64-44d9-a108-bda47f477198",
-  "createdDateTime": "2024-01-12T07:35:57.9734608Z",
-  "expirationDateTime": "2024-01-12T07:52:37.9734608Z",
-  "lastUpdateDateTime": "2024-01-12T07:36:04.755901Z",
+  "id": "CriticalResult",
+  "createdAt": "2024-05-14T15:32:08Z",
+  "expiresAt": "2024-05-15T15:32:08Z",
+  "updatedAt": "2024-05-14T15:32:11Z",
   "status": "succeeded"
 }
 ```

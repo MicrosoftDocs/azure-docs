@@ -3,10 +3,10 @@ title: What's new in Azure Spring Apps?
 description: Learn about the new features and recent improvements in Azure Spring Apps.
 author: KarlErickson
 ms.author: hangwan
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: conceptual
 ms.custom: devx-track-java
-ms.date: 10/10/2023
+ms.date: 07/29/2024
 ---
 
 # What's new in Azure Spring Apps?
@@ -17,6 +17,36 @@ ms.date: 10/10/2023
 Azure Spring Apps is improved on an ongoing basis. To help you stay up to date with the most recent developments, this article provides you with information about the latest releases.
 
 This article is updated quarterly, so revisit it regularly. You can also visit [Azure updates](https://azure.microsoft.com/updates/?query=azure%20spring), where you can search for updates or browse by category.
+
+## Q2 2024
+
+The following updates are now available in the Enterprise plan:
+
+- **Richer log of Application Configuration Service**: The Git revision is a crucial piece of information that indicates the recency of configuration files. Currently, the Application Configuration Service logs the Git revision to enhance troubleshooting efficiency. For more information, see the [Examine Git revisions of the configuration files](how-to-enterprise-application-configuration-service.md#examine-git-revisions-of-the-configuration-files) section of [Use Application Configuration Service for Tanzu](how-to-enterprise-application-configuration-service.md).
+
+- **Managed OSS Spring Cloud Config Server (preview)**: The open-source version of Spring Cloud Config Server provides a native Spring experience to developers. Now we offer managed Spring Cloud Config Server to dynamically retrieve configuration properties from central repositories. For more information, see [Configure a managed Spring Cloud Config Server in Azure Spring App](how-to-config-server.md).
+
+- **Custom actuator endpoint support**: Users might want to use a different port or path for the actuator due to security concerns, but this choice can result in the Application Live View being unable to connect to the app. This feature enables Application Live View to work with apps that have a non-default port or path for the actuator. For more information, see the [Configure customized Spring Boot actuator](how-to-use-application-live-view.md#configure-customized-spring-boot-actuator) section of [Use Application Live View with the Azure Spring Apps Enterprise plan](how-to-use-application-live-view.md).
+
+- **Disable basic auth for the test endpoint of an app**: Azure Spring Apps provides basic authentication to protect the test endpoint of an application instance. When a user's app is integrated with their auth server, this basic authentication becomes unnecessary. If the user has a good understanding of the application's security, this feature lets them disable the basic authentication provided by the Azure Spring Apps service, making the tests against the application closer to a real-world environment. For more information, see the second tip in [Set up a staging environment in Azure Spring Apps](how-to-staging-environment.md).
+
+- **Private storage access for virtual network injection**: The private storage access feature enables routing of traffic through a private network for backend storage hosting application assets like JAR files and logs. This feature enhances security and can potentially improve performance for users. For more information, see [Configure private network access for backend storage in your virtual network (Preview)](how-to-private-network-access-backend-storage.md).
+
+- **Support Job (preview) in Azure Spring Apps**: This feature enables customers to run their ephemeral applications in Azure Spring Apps natively. It offers batch job management and execution, along with integration with managed components. For more information, see [Job in Azure Spring Apps (Preview)](concept-job.md).
+
+## Q1 2024
+
+The following updates are now available in the Enterprise plan:
+
+- **Save up to 47%: Azure Spring Apps Enterprise is now eligible for Azure savings plan**: All Azure Spring Apps regions under the Enterprise plan are eligible for substantial cost savings – 20% for one year and 47% for three years – when you commit to the Azure savings plan. For more information, see [Azure Spring Apps Enterprise is now eligible for Azure savings plan for compute](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/azure-spring-apps-enterprise-is-now-eligible-for-azure-savings/ba-p/4021532).
+
+- **Azure CLI supports log streaming for Spring Cloud Gateway**: This feature enables you to fetch the Spring Cloud Gateway log in real time for diagnosis purposes. For more information, see the [Use real-time log streaming](how-to-troubleshoot-enterprise-spring-cloud-gateway.md#use-real-time-log-streaming) section of [Troubleshoot VMware Spring Cloud Gateway](how-to-troubleshoot-enterprise-spring-cloud-gateway.md).
+
+- **Azure CLI supports log streaming for Application Configuration Service**: The feature enables you to retrieve the Application Configuration Service log using the Azure CLI, making it possible to detect any configuration updates. For more information, see the [Use real-time log streaming](how-to-enterprise-application-configuration-service.md#use-real-time-log-streaming) section of [Use Application Configuration Service for Tanzu](how-to-enterprise-application-configuration-service.md).
+
+- **Shows buildpack versions**: The latest feature added to buildpacks assists you in comprehending the version used and diagnosing issues associated with the build process.
+
+- **Enhanced troubleshooting of Application Configuration Service**: Now you can directly view the linked `configMap` for your apps to further assist in troubleshooting issues with unrefreshed configurations. You can also export configuration files pulled by the Application Configuration Service from upstream Git repositories to your local environment through the Azure CLI. This process helps you examine the content and use configuration files for local development. For more information, see the [Examine configuration file in ConfigMap](how-to-enterprise-application-configuration-service.md#examine-configuration-file-in-configmap) section of [Use Application Configuration Service for Tanzu](how-to-enterprise-application-configuration-service.md).
 
 ## Q4 2023
 

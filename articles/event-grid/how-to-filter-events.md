@@ -124,7 +124,7 @@ New-AzEventGridSubscription `
 In the following Azure CLI example, you create an event subscription that filters by the beginning of the subject. You use the `--subject-begins-with` parameter to limit events to ones for a specific resource. You pass the resource ID of a network security group.
 
 ```azurecli
-resourceId=$(az resource show --name demoSecurityGroup --resource-group myResourceGroup --resource-type Microsoft.Network/networkSecurityGroups --query id --output tsv)
+resourceId=$(az network nsg show -g myResourceGroup -n demoSecurityGroup --query id --output tsv)
 
 az eventgrid event-subscription create \
   --name demoSubscriptionToResourceGroup \
@@ -240,7 +240,7 @@ New-AzEventGridTopic -ResourceGroupName gridResourceGroup -Location eastus2 -Nam
 $topicid = (Get-AzEventGridTopic -ResourceGroupName gridResourceGroup -Name $topicName).Id
 
 $expDate = '<mm/dd/yyyy hh:mm:ss>' | Get-Date
-$AdvFilter1=@{operator="StringIn"; key="Data.color"; Values=@('blue', 'red', 'green')}
+$AdvFilter1=@{operatorType="StringIn"; key="Data.color"; values=@('blue', 'red', 'green')}
 
 New-AzEventGridSubscription `
   -ResourceId $topicid `

@@ -1,7 +1,6 @@
 ---
 title: REST APIs for the Workflow Orchestration Manager integration runtime
 description: This article documents the REST APIs for the Workflow Orchestration Manager integration runtime.
-ms.service: data-factory
 ms.topic: reference
 author: nabhishek
 ms.author: abnarain

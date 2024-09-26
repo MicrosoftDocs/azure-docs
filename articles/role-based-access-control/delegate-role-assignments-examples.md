@@ -7,7 +7,7 @@ ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.date: 01/30/2024
+ms.date: 04/15/2024
 ms.author: rolyon
 #Customer intent: As a dev, devops, or it admin, I want to learn about the conditions so that I write more complex conditions.
 ---
@@ -694,7 +694,13 @@ You must add this condition to any role assignments for the delegate that includ
 
 # [Template](#tab/template)
 
-None
+Here are the settings to add this condition using the Azure portal and a condition template.
+
+> [!div class="mx-tableFixed"]
+> | Condition | Setting |
+> | --- | --- |
+> | Template | Allow all except specific roles |
+> | Exclude roles | [Owner](built-in-roles.md#owner)<br/>[Role Based Access Control Administrator](built-in-roles.md#role-based-access-control-administrator)<br/>[User Access Administrator](built-in-roles.md#user-access-administrator) |
 
 # [Condition editor](#tab/condition-editor)
 
@@ -708,7 +714,7 @@ To target both the add and remove role assignment actions, notice that you must 
 > | Actions | [Create or update role assignments](conditions-authorization-actions-attributes.md#create-or-update-role-assignments) |
 > | Attribute source | Request |
 > | Attribute | [Role definition ID](conditions-authorization-actions-attributes.md#role-definition-id) |
-> | Operator | [ForAnyOfAnyValues:GuidNotEquals](conditions-format.md#foranyofanyvalues) |
+> | Operator | [ForAnyOfAllValues:GuidNotEquals](conditions-format.md#foranyofallvalues) |
 > | Comparison | Value |
 > | Roles | [Owner](built-in-roles.md#owner)<br/>[Role Based Access Control Administrator](built-in-roles.md#role-based-access-control-administrator)<br/>[User Access Administrator](built-in-roles.md#user-access-administrator) |
 
@@ -718,7 +724,7 @@ To target both the add and remove role assignment actions, notice that you must 
 > | Actions | [Delete a role assignment](conditions-authorization-actions-attributes.md#delete-a-role-assignment) |
 > | Attribute source | Resource |
 > | Attribute | [Role definition ID](conditions-authorization-actions-attributes.md#role-definition-id) |
-> | Operator | [ForAnyOfAnyValues:GuidNotEquals](conditions-format.md#foranyofanyvalues) |
+> | Operator | [ForAnyOfAllValues:GuidNotEquals](conditions-format.md#foranyofallvalues) |
 > | Comparison | Value |
 > | Roles | [Owner](built-in-roles.md#owner)<br/>[Role Based Access Control Administrator](built-in-roles.md#role-based-access-control-administrator)<br/>[User Access Administrator](built-in-roles.md#user-access-administrator) |
 
@@ -729,7 +735,7 @@ To target both the add and remove role assignment actions, notice that you must 
  )
  OR 
  (
-  @Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidNotEquals {8e3af657-a8ff-443c-a75c-2fe8c4bcb635, f58310d9-a9f6-439a-9e8d-f62e7b41a168, 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9}
+  @Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAllValues:GuidNotEquals {8e3af657-a8ff-443c-a75c-2fe8c4bcb635, f58310d9-a9f6-439a-9e8d-f62e7b41a168, 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9}
  )
 )
 AND
@@ -739,7 +745,7 @@ AND
  )
  OR 
  (
-  @Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidNotEquals {8e3af657-a8ff-443c-a75c-2fe8c4bcb635, f58310d9-a9f6-439a-9e8d-f62e7b41a168, 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9}
+  @Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAllValues:GuidNotEquals {8e3af657-a8ff-443c-a75c-2fe8c4bcb635, f58310d9-a9f6-439a-9e8d-f62e7b41a168, 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9}
  )
 )
 ```
@@ -752,7 +758,7 @@ Here's how to add this condition using Azure PowerShell.
 $roleDefinitionId = "f58310d9-a9f6-439a-9e8d-f62e7b41a168"
 $principalId = "<principalId>"
 $scope = "/subscriptions/<subscriptionId>"
-$condition = "((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR (@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidNotEquals {8e3af657-a8ff-443c-a75c-2fe8c4bcb635, f58310d9-a9f6-439a-9e8d-f62e7b41a168, 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9})) AND ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/delete'})) OR (@Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidNotEquals {8e3af657-a8ff-443c-a75c-2fe8c4bcb635, f58310d9-a9f6-439a-9e8d-f62e7b41a168, 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9}))"
+$condition = "((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR (@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAllValues:GuidNotEquals {8e3af657-a8ff-443c-a75c-2fe8c4bcb635, f58310d9-a9f6-439a-9e8d-f62e7b41a168, 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9})) AND ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/delete'})) OR (@Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAllValues:GuidNotEquals {8e3af657-a8ff-443c-a75c-2fe8c4bcb635, f58310d9-a9f6-439a-9e8d-f62e7b41a168, 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9}))"
 $conditionVersion = "2.0"
 New-AzRoleAssignment -ObjectId $principalId -Scope $scope -RoleDefinitionId $roleDefinitionId -Condition $condition -ConditionVersion $conditionVersion
 ```

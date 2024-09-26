@@ -33,7 +33,7 @@ In the case of VMware and Hyper-V VMs, an Azure VM assessment marks Linux VM as 
 - The gap prevents it from detecting the minor version of the Linux OS installed on the on-premises VMs.
 - For example, for RHEL 6.10, currently an Azure VM assessment detects only RHEL 6 as the OS version. This behavior occurs because the vCenter Server and the Hyper-V host don't provide the kernel version for Linux VM operating systems.
 - Since Azure endorses only specific versions of Linux, the Linux VMs are currently marked as **conditionally ready** in an Azure VM assessment.
-- You can determine whether the Linux OS running on the on-premises VM is endorsed in Azure by reviewing [Azure Linux support](../virtual-machines/linux/endorsed-distros.md).
+- You can determine whether the Linux OS running on the on-premises VM is endorsed in Azure by reviewing [Azure Linux support](/azure/virtual-machines/linux/endorsed-distros).
 - After you've verified the endorsed distribution, you can ignore this warning.
 
 ### Resolution

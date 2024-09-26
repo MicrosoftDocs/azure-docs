@@ -2,7 +2,7 @@
 title: Prepare an OT site deployment - Microsoft Defender for IoT
 description: Learn how to prepare for an OT site deployment, including understanding how many OT sensors you'll need, where they should be placed, and how they'll be managed. 
 ms.topic: install-set-up-deploy
-ms.date: 02/16/2023
+ms.date: 04/08/2024
 ---
 
 # Prepare an OT site deployment
@@ -198,7 +198,7 @@ Prepare a workstation from where you can run Defender for IoT deployment activit
 
 - Terminal software, such as PuTTY
 
-- A supported browser for connecting to sensor consoles and the Azure portal. For more information, see [recommended browsers for the Azure portal](../../../azure-portal/azure-portal-supported-browsers-devices.md#recommended-browsers).
+- A supported browser for connecting to sensor consoles and the Azure portal. For more information, see [recommended browsers for the Azure portal](/azure/azure-portal/azure-portal-supported-browsers-devices#recommended-browsers).
 
 - Required firewall rules configured, with access open for required interfaces. For more information, see [Networking requirements](../networking-requirements.md).
 

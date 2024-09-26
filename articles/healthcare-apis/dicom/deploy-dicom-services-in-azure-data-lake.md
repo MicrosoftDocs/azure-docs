@@ -1,12 +1,12 @@
 ---
 title: Deploy the DICOM service with Azure Data Lake Storage
 description: Learn how to deploy the DICOM service and store all your DICOM data in its native format with a data lake in Azure Health Data Services.
-author: mmitrik
-ms.service: healthcare-apis
-ms.subservice: dicom
+author: varunbms
+ms.service: azure-health-data-services
+ms.subservice: dicom-service
 ms.topic: how-to
 ms.date: 11/21/2023
-ms.author: mmitrik
+ms.author: buchvarun
 ms.custom: mode-api, devx-track-arm-template
 ---
 
@@ -18,9 +18,9 @@ After deployment completes, you can use the Azure portal to see the details abou
 
 ## Prerequisites
 
-- **Deploy an Azure Health Data Services workspace**.  For more information, see [Deploy a workspace in the Azure portal](../healthcare-apis-quickstart.md).
-- **Create a storage account with a hierarchical namespace**.  For more information, see [Create a storage account to use with Azure Data Lake Storage Gen2](/azure/storage/blobs/create-data-lake-storage-account).
-- **Create a blob container in the storage account**.  The container is used by the DICOM service to store DICOM files.  For more information, see [Manage blob containers using the Azure portal](/azure/storage/blobs/blob-containers-portal).
+- **Deploy an Azure Health Data Services workspace**. For more information, see [Deploy a workspace in the Azure portal](../healthcare-apis-quickstart.md).
+- **Create a storage account with a hierarchical namespace**. For more information, see [Create a storage account to use with Azure Data Lake Storage Gen2](/azure/storage/blobs/create-data-lake-storage-account).
+- **Create a blob container in the storage account**. The container is used by the DICOM service to store DICOM files. For more information, see [Manage blob containers using the Azure portal](/azure/storage/blobs/blob-containers-portal).
 
 > [!NOTE]
 > The Azure Data Lake Storage option is only available for new instances of the DICOM service. After the option becomes generally available, we plan to offer a migration path for existing DICOM service instances.
@@ -65,7 +65,7 @@ After deployment completes, you can use the Azure portal to see the details abou
 
 ## Deploy the DICOM service with Data Lake Storage by using an ARM template
 
-Use the Azure portal to **Deploy a custom template** and then use the sample ARM template to deploy the DICOM service with Azure Data Lake Storage. For more information, see [Create and deploy ARM templates by using the Azure portal](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
+Use the Azure portal to **Deploy a custom template**. Then use the sample ARM template to deploy the DICOM service with Azure Data Lake Storage. For more information, see [Create and deploy ARM templates by using the Azure portal](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
 ```json
 {
@@ -206,12 +206,30 @@ Use the Azure portal to **Deploy a custom template** and then use the sample ARM
 
 1. When prompted, select the values for the workspace name, DICOM service name, region, storage account name, storage account SKU, and container name.  
 
-1. Select **Review + create** to deploy the DICOM service.  
+1. Select **Review + create** to deploy the DICOM service.
+
+## Troubleshooting
+
+### Connectivity
+
+To receive alerts regarding store health and connectivity failures please sign up for [Resource Health alerts](/azure/service-health/resource-health-alert-monitor-guide).
+
+### 424 Failed Dependency
+
+When the response status code is `424 Failed Dependency`, the issue lies with a dependency configured with DICOM and it may be the data lake store.
+The response body indicates which dependency failed and provides more context on the failure. For data lake storage account failures, an error code is provided which was received when attempting to interact with the store. For more information, see [Azure Blob Storage error codes](/rest/api/storageservices/blob-service-error-codes).
+Note that a `ConditionNotMet` code typically indicates the blob file has been moved, deleted or modified without using DICOM APIs. The best way to mitigate this situation is to use the DICOM API to DELETE the instance, to remove the index and then reupload the modified file. This enables you to continue to reference and interact with the file through DICOM APIs.
 
 ## Next steps
+[Receive resource health alerts](/azure/service-health/resource-health-alert-monitor-guide)
 
-* [Assign roles for the DICOM service](../configure-azure-rbac.md#assign-roles-for-the-dicom-service)
-* [Use DICOMweb Standard APIs with DICOM services](dicomweb-standard-apis-with-dicom-services.md)
+[Assign roles for the DICOM service](../configure-azure-rbac.md#assign-roles-for-the-dicom-service)
+
+[Review DICOM service conformance statement](/azure/healthcare-apis/dicom/dicom-services-conformance-statement-v2)
+
+[Use DICOMweb Standard APIs with DICOM services](dicomweb-standard-apis-with-dicom-services.md)
+
 * [Enable audit and diagnostic logging in the DICOM service](enable-diagnostic-logging.md)
+
 
 [!INCLUDE [DICOM trademark statement](../includes/healthcare-apis-dicom-trademark.md)]

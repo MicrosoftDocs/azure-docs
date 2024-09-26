@@ -3,7 +3,7 @@ title: 'Quickstart: Deploy your first container app with containerapp up'
 description: Deploy your first application to Azure Container Apps using the Azure CLI containerapp up command.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: quickstart
 ms.date: 01/10/2024
 ms.author: cshoe
@@ -23,88 +23,27 @@ In this quickstart, you create and deploy your first container app using the `az
   - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
 - Install the [Azure CLI](/cli/azure/install-azure-cli).
 
-## Setup
+[!INCLUDE [container-apps-create-cli-steps.md](../../includes/container-apps-create-cli-steps.md)]
 
-To sign in to Azure from the CLI, run the following command and follow the prompts to complete the authentication process.
+## Create an Azure resource group
+
+Create a resource group to organize the services related to your container app deployment.
 
 # [Bash](#tab/bash)
 
 ```azurecli
-az login
+az group create \
+  --name my-container-apps \
+  --location centralus
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
-az login
+New-AzResourceGroup -Location centralus -Name my-container-apps
 ```
 
 ---
-
-Ensure you're running the latest version of the CLI via the upgrade command.
-
-# [Bash](#tab/bash)
-
-```azurecli
-az upgrade
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-az upgrade
-```
-
----
-
-Next, install or update the Azure Container Apps extension for the CLI.
-
-# [Bash](#tab/bash)
-
-```azurecli
-az extension add --name containerapp --upgrade
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-
-```azurepowershell
-az extension add --name containerapp --upgrade
-```
-
----
-
-Register the `Microsoft.App` and `Microsoft.OperationalInsights` namespaces if you haven't already registered them in your Azure subscription.
-
-# [Bash](#tab/bash)
-
-```azurecli
-az provider register --namespace Microsoft.App
-```
-
-```azurecli
-az provider register --namespace Microsoft.OperationalInsights
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-az provider register --namespace Microsoft.App
-```
-
-```azurepowershell
-az provider register --namespace Microsoft.OperationalInsights
-```
-
----
-
-Now that your Azure CLI setup is complete, you can define the environment variables that are used throughout this article.
-
-## Create a resource group
-
-```azurepowershell
-az group create --location centralus --resource-group my-container-apps
-```
 
 ## Create and deploy the container app
 

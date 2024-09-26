@@ -29,7 +29,7 @@ To complete this quickstart, make sure you have:
 * <a href="https://git-scm.com" target="_blank">Git for Windows</a>.
 * The <a href="https://dotnet.microsoft.com/download/dotnet/6.0">.NET 6.0 SDK</a>.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Create an Object Anchors account
 

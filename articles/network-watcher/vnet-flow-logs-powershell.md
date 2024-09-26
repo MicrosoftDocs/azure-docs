@@ -1,25 +1,22 @@
 ---
-title: Manage VNet flow logs - PowerShell
+title: Manage virtual network flow logs - PowerShell
 titleSuffix: Azure Network Watcher
-description: Learn how to create, change, enable, disable, or delete Azure Network Watcher VNet flow logs using Azure PowerShell. 
+description: Learn how to create, change, enable, disable, or delete Azure Network Watcher virtual network flow logs using Azure PowerShell. 
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 02/14/2024
+ms.date: 04/24/2024
 ms.custom: devx-track-azurepowershell
 
-#CustomerIntent: As an Azure administrator, I want to log my virtual network IP traffic using Network Watcher VNet flow logs so that I can analyze it later.
+#CustomerIntent: As an Azure administrator, I want to log my virtual network IP traffic using Network Watcher virtual network flow logs so that I can analyze it later.
 ---
 
-# Create, change, enable, disable, or delete VNet flow logs using Azure PowerShell
+# Create, change, enable, disable, or delete virtual network flow logs using Azure PowerShell
 
-Virtual network flow logging is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through an Azure virtual network. For more information about virtual network flow logging, see [VNet flow logs overview](vnet-flow-logs-overview.md).
+Virtual network flow logging is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through an Azure virtual network. For more information about virtual network flow logging, see [Virtual network flow logs overview](vnet-flow-logs-overview.md).
 
-In this article, you learn how to create, change, enable, disable, or delete a VNet flow log using Azure PowerShell. You can learn how to manage a VNet flow log using the [Azure portal](vnet-flow-logs-portal.md) or [Azure CLI](vnet-flow-logs-cli.md).
-
-> [!IMPORTANT]
-> The VNet flow logs feature is currently in preview. This preview version is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+In this article, you learn how to create, change, enable, disable, or delete a virtual network flow log using Azure PowerShell. You can learn how to manage a virtual network flow log using the [Azure portal](vnet-flow-logs-portal.md) or [Azure CLI](vnet-flow-logs-cli.md).
 
 ## Prerequisites
 
@@ -44,9 +41,9 @@ In this article, you learn how to create, change, enable, disable, or delete a V
 Register-AzResourceProvider -ProviderNamespace Microsoft.Insights
 ```
 
-## Enable VNet flow logs
+## Enable virtual network flow logs
 
-Use [New-AzNetworkWatcherFlowLog](/powershell/module/az.network/new-aznetworkwatcherflowlog) to create a VNet flow log. 
+Use [New-AzNetworkWatcherFlowLog](/powershell/module/az.network/new-aznetworkwatcherflowlog) to create a virtual network flow log. 
 
 ```azurepowershell-interactive
 # Place the virtual network configuration into a variable.
@@ -58,9 +55,9 @@ $storageAccount = Get-AzStorageAccount -Name myStorageAccount -ResourceGroupName
 New-AzNetworkWatcherFlowLog -Enabled $true -Name myVNetFlowLog -NetworkWatcherName NetworkWatcher_eastus -ResourceGroupName NetworkWatcherRG -StorageId $storageAccount.Id -TargetResourceId $vnet.Id
 ```
 
-## Enable VNet flow logs and traffic analytics
+## Enable virtual network flow logs and traffic analytics
 
-Use [New-AzOperationalInsightsWorkspace](/powershell/module/az.operationalinsights/new-azoperationalinsightsworkspace) to create a traffic analytics workspace, and then use [New-AzNetworkWatcherFlowLog](/powershell/module/az.network/new-aznetworkwatcherflowlog) to create a VNet flow log that uses it.
+Use [New-AzOperationalInsightsWorkspace](/powershell/module/az.operationalinsights/new-azoperationalinsightsworkspace) to create a traffic analytics workspace, and then use [New-AzNetworkWatcherFlowLog](/powershell/module/az.network/new-aznetworkwatcherflowlog) to create a virtual network flow log that uses it.
 
 ```azurepowershell-interactive
 # Place the virtual network configuration into a variable.
@@ -84,7 +81,7 @@ Use [Get-AzNetworkWatcherFlowLog](/powershell/module/az.network/get-aznetworkwat
 Get-AzNetworkWatcherFlowLog -NetworkWatcherName NetworkWatcher_eastus -ResourceGroupName NetworkWatcherRG | format-table Name
 ```
 
-## View VNet flow log resource 
+## View virtual network flow log resource 
 
 Use [Get-AzNetworkWatcherFlowLog](/powershell/module/az.network/get-aznetworkwatcherflowlog) to see details of a flow log resource.
 
@@ -95,9 +92,9 @@ Get-AzNetworkWatcherFlowLog -NetworkWatcherName NetworkWatcher_eastus -ResourceG
 
 ## Download a flow log
 
-To download VNet flow logs from your storage account, use [Get-AzStorageBlobContent](/powershell/module/az.storage/get-azstorageblobcontent) cmdlet.
+To download virtual network flow logs from your storage account, use [Get-AzStorageBlobContent](/powershell/module/az.storage/get-azstorageblobcontent) cmdlet.
 
-VNet flow log files are saved to the storage account at the following path:
+Virtual network flow log files are saved to the storage account at the following path:
 
 ```
 https://{storageAccountName}.blob.core.windows.net/insights-logs-flowlogflowevent/flowLogResourceID=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/NETWORKWATCHERRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKWATCHERS/NETWORKWATCHER_{Region}/FLOWLOGS/{FlowlogResourceName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
@@ -108,7 +105,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-flowlogfloweven
 
 ## Disable traffic analytics on flow log resource 
 
-To disable traffic analytics on the flow log resource and continue to generate and save VNet flow logs to storage account, use [Set-AzNetworkWatcherFlowLog](/powershell/module/az.network/set-aznetworkwatcherflowlog).
+To disable traffic analytics on the flow log resource and continue to generate and save virtual network flow logs to storage account, use [Set-AzNetworkWatcherFlowLog](/powershell/module/az.network/set-aznetworkwatcherflowlog).
 
 ```azurepowershell-interactive
 # Place the virtual network configuration into a variable.
@@ -120,9 +117,9 @@ $storageAccount = Get-AzStorageAccount -Name mynwstorageaccount -ResourceGroupNa
 Set-AzNetworkWatcherFlowLog -Enabled $true -Name myVNetFlowLog -NetworkWatcherName NetworkWatcher_eastus -ResourceGroupName NetworkWatcherRG -StorageId $storageAccount.Id -TargetResourceId $vnet.Id
 ```
 
-## Disable VNet flow logging 
+## Disable virtual network flow logging 
 
-To disable a VNet flow log without deleting it so you can re-enable it later, use [Set-AzNetworkWatcherFlowLog](/powershell/module/az.network/set-aznetworkwatcherflowlog).
+To disable a virtual network flow log without deleting it so you can re-enable it later, use [Set-AzNetworkWatcherFlowLog](/powershell/module/az.network/set-aznetworkwatcherflowlog).
 
 ```azurepowershell-interactive
 # Place the virtual network configuration into a variable.
@@ -134,9 +131,9 @@ $storageAccount = Get-AzStorageAccount -Name mynwstorageaccount -ResourceGroupNa
 Set-AzNetworkWatcherFlowLog -Enabled $false -Name myVNetFlowLog -NetworkWatcherName NetworkWatcher_eastus -ResourceGroupName NetworkWatcherRG -StorageId $storageAccount.Id -TargetResourceId $vnet.Id
 ```
 
-## Delete a VNet flow log resource
+## Delete a virtual network flow log resource
 
-To delete a VNet flow log resource, use [Remove-AzNetworkWatcherFlowLog](/powershell/module/az.network/remove-aznetworkwatcherflowlog).
+To delete a virtual network flow log resource, use [Remove-AzNetworkWatcherFlowLog](/powershell/module/az.network/remove-aznetworkwatcherflowlog).
 
 ```azurepowershell-interactive
 # Delete the VNet flow log.

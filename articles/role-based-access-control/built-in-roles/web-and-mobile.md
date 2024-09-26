@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 03/01/2024
+ms.date: 09/20/2024
 ms.custom: generated
 ---
 
@@ -99,6 +99,315 @@ Grants access to read map related data from an Azure maps account.
     }
   ],
   "roleName": "Azure Maps Data Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Azure Maps Search and Render Data Reader
+
+Grants access to very limited set of data APIs for common visual web SDK scenarios. Specifically, render and search data APIs.
+
+[Learn more](/azure/azure-maps/azure-maps-authentication)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.Maps](../permissions/web-and-mobile.md#microsoftmaps)/accounts/services/render/read | Allows reading of data for Render services. |
+> | [Microsoft.Maps](../permissions/web-and-mobile.md#microsoftmaps)/accounts/services/search/read | Allows reading of data for Search services. |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Grants access to very limited set of data APIs for common visual web SDK scenarios. Specifically, render and search data APIs.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/6be48352-4f82-47c9-ad5e-0acacefdb005",
+  "name": "6be48352-4f82-47c9-ad5e-0acacefdb005",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Maps/accounts/services/render/read",
+        "Microsoft.Maps/accounts/services/search/read"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Maps Search and Render Data Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Azure Spring Apps Application Configuration Service Config File Pattern Reader Role
+
+Read content of config file pattern for Application Configuration Service in Azure Spring Apps
+
+[Learn more](/azure/spring-apps/enterprise/how-to-enterprise-application-configuration-service)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.AppPlatform](../permissions/compute.md#microsoftappplatform)/Spring/read | Get Azure Spring Apps service instance(s) |
+> | [Microsoft.AppPlatform](../permissions/compute.md#microsoftappplatform)/Spring/configurationServices/read | Get the Application Configuration Services for a specific Azure Spring Apps service instance |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.AppPlatform](../permissions/compute.md#microsoftappplatform)/Spring/ApplicationConfigurationService/read | Read the configuration content (for example, application-prod.yaml) pulled by Application Configuration Service for a specific Azure Spring Apps service instance |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Read content of config file pattern for Application Configuration Service in Azure Spring Apps",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/25211fc6-dc78-40b6-b205-e4ac934fd9fd",
+  "name": "25211fc6-dc78-40b6-b205-e4ac934fd9fd",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.AppPlatform/Spring/read",
+        "Microsoft.AppPlatform/Spring/configurationServices/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.AppPlatform/Spring/ApplicationConfigurationService/read"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Spring Apps Application Configuration Service Config File Pattern Reader Role",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Azure Spring Apps Application Configuration Service Log Reader Role
+
+Read real-time logs for Application Configuration Service in Azure Spring Apps
+
+[Learn more](/azure/spring-apps/enterprise/how-to-managed-component-log-streaming)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.AppPlatform](../permissions/compute.md#microsoftappplatform)/Spring/read | Get Azure Spring Apps service instance(s) |
+> | [Microsoft.AppPlatform](../permissions/compute.md#microsoftappplatform)/Spring/configurationServices/read | Get the Application Configuration Services for a specific Azure Spring Apps service instance |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.AppPlatform](../permissions/compute.md#microsoftappplatform)/Spring/ApplicationConfigurationService/logstream/action | Read the streaming log of all subcomponents in Application Configuration Service from a specific Azure Spring Apps service instance |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Read real-time logs for Application Configuration Service in Azure Spring Apps",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/6593e776-2a30-40f9-8a32-4fe28b77655d",
+  "name": "6593e776-2a30-40f9-8a32-4fe28b77655d",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.AppPlatform/Spring/read",
+        "Microsoft.AppPlatform/Spring/configurationServices/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.AppPlatform/Spring/ApplicationConfigurationService/logstream/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Spring Apps Application Configuration Service Log Reader Role",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Azure Spring Apps Connect Role
+
+Azure Spring Apps Connect Role
+
+[Learn more](/azure/spring-apps/enterprise/how-to-connect-to-app-instance-for-troubleshooting)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.AppPlatform](../permissions/compute.md#microsoftappplatform)/Spring/apps/deployments/connect/action | Connect to an instance for a specific application |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Azure Spring Apps Connect Role",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/80558df3-64f9-4c0f-b32d-e5094b036b0b",
+  "name": "80558df3-64f9-4c0f-b32d-e5094b036b0b",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.AppPlatform/Spring/apps/deployments/connect/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Spring Apps Connect Role",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Azure Spring Apps Job Log Reader Role
+
+Read real-time logs for jobs in Azure Spring Apps
+
+[Learn more](/azure/spring-apps/enterprise/how-to-job-log-streaming)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.AppPlatform](../permissions/compute.md#microsoftappplatform)/Spring/read | Get Azure Spring Apps service instance(s) |
+> | [Microsoft.AppPlatform](../permissions/compute.md#microsoftappplatform)/Spring/jobs/read | Get the job for a specific Azure Spring Apps service instance |
+> | [Microsoft.AppPlatform](../permissions/compute.md#microsoftappplatform)/Spring/jobs/executions/read | Get the job execution for a specific Azure Spring Apps service instance |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.AppPlatform](../permissions/compute.md#microsoftappplatform)/Spring/jobs/executions/logstream/action | Get the streaming log of job executions for a specific Azure Spring Apps service instance |
+> | [Microsoft.AppPlatform](../permissions/compute.md#microsoftappplatform)/Spring/jobs/executions/listInstances/action | List instances of a specific job execution for a specific Azure Spring Apps service instance |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Read real-time logs for jobs in Azure Spring Apps",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/b459aa1d-e3c8-436f-ae21-c0531140f43e",
+  "name": "b459aa1d-e3c8-436f-ae21-c0531140f43e",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.AppPlatform/Spring/read",
+        "Microsoft.AppPlatform/Spring/jobs/read",
+        "Microsoft.AppPlatform/Spring/jobs/executions/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.AppPlatform/Spring/jobs/executions/logstream/action",
+        "Microsoft.AppPlatform/Spring/jobs/executions/listInstances/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Spring Apps Job Log Reader Role",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Azure Spring Apps Remote Debugging Role
+
+Azure Spring Apps Remote Debugging Role
+
+[Learn more](/azure/spring-apps/enterprise/how-to-remote-debugging-app-instance)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.AppPlatform](../permissions/compute.md#microsoftappplatform)/Spring/apps/deployments/remotedebugging/action | Remote debugging app instance for a specific application |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Azure Spring Apps Remote Debugging Role",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/a99b0159-1064-4c22-a57b-c9b3caa1c054",
+  "name": "a99b0159-1064-4c22-a57b-c9b3caa1c054",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.AppPlatform/Spring/apps/deployments/remotedebugging/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Spring Apps Remote Debugging Role",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Azure Spring Apps Spring Cloud Gateway Log Reader Role
+
+Read real-time logs for Spring Cloud Gateway in Azure Spring Apps
+
+[Learn more](/azure/spring-apps/enterprise/how-to-managed-component-log-streaming)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.AppPlatform](../permissions/compute.md#microsoftappplatform)/Spring/read | Get Azure Spring Apps service instance(s) |
+> | [Microsoft.AppPlatform](../permissions/compute.md#microsoftappplatform)/Spring/gateways/read | Get the Spring Cloud Gateways for a specific Azure Spring Apps service instance |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.AppPlatform](../permissions/compute.md#microsoftappplatform)/Spring/SpringCloudGateway/logstream/action | Read the streaming log of Spring Cloud Gateway from a specific Azure Spring Apps service instance |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Read real-time logs for Spring Cloud Gateway in Azure Spring Apps",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/4301dc2a-25a9-44b0-ae63-3636cf7f2bd2",
+  "name": "4301dc2a-25a9-44b0-ae63-3636cf7f2bd2",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.AppPlatform/Spring/read",
+        "Microsoft.AppPlatform/Spring/gateways/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.AppPlatform/Spring/SpringCloudGateway/logstream/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Spring Apps Spring Cloud Gateway Log Reader Role",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -959,6 +1268,88 @@ Manage the web plans for websites. Does not allow you to assign roles in Azure R
 }
 ```
 
+## Web PubSub Service Owner
+
+Full access to Azure Web PubSub Service REST APIs
+
+[Learn more](/azure/azure-web-pubsub/howto-authorize-from-application)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.SignalRService](../permissions/web-and-mobile.md#microsoftsignalrservice)/WebPubSub/* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Full access to Azure Web PubSub Service REST APIs",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/12cf5a90-567b-43ae-8102-96cf46c7d9b4",
+  "name": "12cf5a90-567b-43ae-8102-96cf46c7d9b4",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.SignalRService/WebPubSub/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Web PubSub Service Owner",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Web PubSub Service Reader
+
+Read-only access to Azure Web PubSub Service REST APIs
+
+[Learn more](/azure/azure-web-pubsub/concept-azure-ad-authorization)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.SignalRService](../permissions/web-and-mobile.md#microsoftsignalrservice)/WebPubSub/*/read |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Read-only access to Azure Web PubSub Service REST APIs",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/bfb1c7d2-fb1a-466b-b2ba-aee63b92deaf",
+  "name": "bfb1c7d2-fb1a-466b-b2ba-aee63b92deaf",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.SignalRService/WebPubSub/*/read"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Web PubSub Service Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ## Website Contributor
 
 Manage websites, but not web plans. Does not allow you to assign roles in Azure RBAC.
@@ -975,6 +1366,7 @@ Manage websites, but not web plans. Does not allow you to assign roles in Azure 
 > | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
 > | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/certificates/* | Create and manage website certificates |
 > | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/listSitesAssignedToHostName/read | Get names of sites assigned to hostname. |
+> | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/register/action | Register Microsoft.Web resource provider for the subscription. |
 > | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/serverFarms/join/action | Joins an App Service Plan |
 > | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/serverFarms/read | Get the properties on an App Service Plan |
 > | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/sites/* | Create and manage websites (site creation also requires write permissions to the associated App Service Plan) |
@@ -1005,6 +1397,7 @@ Manage websites, but not web plans. Does not allow you to assign roles in Azure 
         "Microsoft.Support/*",
         "Microsoft.Web/certificates/*",
         "Microsoft.Web/listSitesAssignedToHostName/read",
+        "Microsoft.Web/register/action",
         "Microsoft.Web/serverFarms/join/action",
         "Microsoft.Web/serverFarms/read",
         "Microsoft.Web/sites/*"

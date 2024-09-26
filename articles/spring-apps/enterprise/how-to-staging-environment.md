@@ -2,9 +2,9 @@
 title: Set up a staging environment in Azure Spring Apps
 description: Learn how to use blue-green deployment with Azure Spring Apps
 author: KarlErickson
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: conceptual
-ms.date: 01/14/2021
+ms.date: 06/27/2024
 ms.author: karler
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
@@ -169,7 +169,7 @@ Use the following steps to view deployed apps.
 
 1. Select an app to view details.
 
-   :::image type="content" source="media/how-to-staging-environment/app-overview.png" lightbox="media/how-to-staging-environment/app-overview.png" alt-text="Screenshot of details for an app.":::
+   :::image type="content" source="media/how-to-staging-environment/app-overview.png" lightbox="media/how-to-staging-environment/app-overview.png" alt-text="Screenshot of the demo app that shows the Overview page with available settings.":::
 
 1. Open **Deployments** to see all deployments of the app. The grid shows both production and staging deployments.
 
@@ -188,7 +188,7 @@ Use the following steps to view deployed apps.
    :::image type="content" source="media/how-to-staging-environment/running-staging-app.png" lightbox="media/how-to-staging-environment/running-staging-app.png" alt-text="Screenshot that shows the URL of the staging app.":::
 
 >[!TIP]
-> Confirm that your test endpoint ends with a slash (/) to ensure that the CSS file is loaded correctly. If your browser requires you to enter login credentials to view the page, use [URL decode](https://www.urldecoder.org/) to decode your test endpoint. URL decode returns a URL in the format `https://\<username>:\<password>@\<cluster-name>.test.azuremicroservices.io/demo/green`. Use this format to access your endpoint.
+> Confirm that your test endpoint ends with a slash (/) to ensure that the CSS file is loaded correctly. If your browser requires you to enter login credentials to view the page, use [URL decode](https://www.urldecoder.org/) to decode your test endpoint. URL decode returns a URL in the format `https://\<username>:\<password>@\<cluster-name>.test.azuremicroservices.io/demo/green`. Use this format to access your endpoint. If you want to disable basic authentication for your test endpoint, run the following Azure CLI command: `az spring app update --resource-group <resource-group-name> --service <Azure-Spring-Apps-instance-name> --name demo --disable-test-endpoint-auth true`
 
 >[!NOTE]
 > Configuration server settings apply to both your staging environment and your production environment. For example, if you set the context path (*server.servlet.context-path*) for your app demo in the configuration server as *somepath*, the path to your green deployment changes to `https://\<username>:\<password>@\<cluster-name>.test.azuremicroservices.io/demo/green/somepath/...`.

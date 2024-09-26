@@ -12,7 +12,7 @@ ms.service: azure-health-insights
   "result": {
     "patientResults": [
       {
-        "patientId": "11111",
+        "patientId": "111111",
         "inferences": [
           {
             "kind": "sexMismatch",
@@ -29,12 +29,12 @@ ms.service: azure-health-insights
         ]
       }
     ],
-    "modelVersion": "2024-01-10-Preview"
+    "modelVersion": "2024-04-16"
   },
-  "id": "9ac3de47-c163-4838-bfe8-c27f127123ae",
-  "createdDateTime": "2024-01-12T07:33:22.787062Z",
-  "expirationDateTime": "2024-01-12T07:50:02.787062Z",
-  "lastUpdateDateTime": "2024-01-12T07:33:29.786962Z",
+  "id": "SexMismatch",
+  "createdAt": "2024-05-14T15:46:58Z",
+  "expiresAt": "2024-05-15T15:46:58Z",
+  "updatedAt": "2024-05-14T15:47:01Z",
   "status": "succeeded"
 }
 ```

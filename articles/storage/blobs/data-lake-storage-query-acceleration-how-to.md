@@ -6,7 +6,7 @@ author: normesta
 
 ms.service: azure-data-lake-storage
 ms.topic: how-to
-ms.date: 06/09/2022
+ms.date: 05/14/2024
 ms.author: normesta
 ms.reviewer: jamsbak
 ms.devlang: csharp
@@ -233,7 +233,7 @@ Get-QueryCsv $ctx $container $blob "SELECT * FROM BlobStorage WHERE _3 = 'Heming
 
 ### [.NET v12 SDK](#tab/dotnet)
 
-The async method `BlobQuickQueryClient.QueryAsync` sends the query to the query acceleration API, and then streams the results back to the application as a [Stream](/dotnet/api/system.io.stream) object.
+The async method `BlockBlobClient.QueryAsync` sends the query to the query acceleration API, and then streams the results back to the application as a [Stream](/dotnet/api/system.io.stream) object.
 
 ```cs
 static async Task QueryHemingway(BlockBlobClient blob)
@@ -296,7 +296,7 @@ private static async Task DumpQueryCsv(BlockBlobClient blob, string query, bool 
 
 ### [Java v12 SDK](#tab/java)
 
-The method `BlobQuickQueryClient.openInputStream()` sends the query to the query acceleration API, and then streams the results back to the application as a `InputStream` object which can be read like any other InputStream object.
+The method `BlockBlobClient.openInputStream()` sends the query to the query acceleration API, and then streams the results back to the application as a `InputStream` object which can be read like any other InputStream object.
 
 ```java
 static void QueryHemingway(BlobClient blobClient) {

@@ -9,7 +9,7 @@ ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.date: 02/14/2024
+ms.date: 08/14/2024
 ---
 
 # View and download your Azure usage and charges
@@ -104,7 +104,7 @@ Then use the [az costmanagement export](/cli/azure/costmanagement/export) comman
 
    ```azurecli
    az costmanagement export create --name DemoExport --type Usage \
-   --scope "subscriptions/00000000-0000-0000-0000-000000000000" --storage-account-id cmdemo \
+   --scope "subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e" --storage-account-id cmdemo \
    --storage-container democontainer --timeframe MonthToDate --storage-directory demodirectory
    ```
 
@@ -112,7 +112,7 @@ Then use the [az costmanagement export](/cli/azure/costmanagement/export) comman
 
 If you have questions or need help, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-## Next steps
+## Related content
 
 To learn more about your invoice and usage charges, see:
 

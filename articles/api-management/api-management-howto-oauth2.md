@@ -5,9 +5,9 @@ description: Set up OAuth 2.0 user authorization for the test console in the Azu
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
-ms.date: 09/12/2023
+ms.date: 04/01/2024
 ms.author: danlep
 ms.custom: engagement-fy23
 ---
@@ -70,7 +70,8 @@ The following is a high level summary. For more information about grant types, s
 |Grant type  |Description  |Scenarios  |
 |---------|---------|---------|
 |Authorization code     | Exchanges authorization code for token         |  Server-side apps such as web apps      |
-|Implicit     | Returns access token immediately without an extra authorization code exchange step       |  Clients that can't protect a secret or token such as mobile apps and single-page apps<br/><br/>Generally not recommended because of inherent risks of returning access token in HTTP redirect without confirmation that it's received by client     |
+|Authorization code + PKCE   | Enhancement to authorization code flow that creates a code challenge that is sent with authorization request       |  Mobile and public clients that can't protect a secret or token      |
+|Implicit (deprecated)     | Returns access token immediately without an extra authorization code exchange step       |  Clients that can't protect a secret or token such as mobile apps and single-page apps<br/><br/>Generally not recommended because of inherent risks of returning access token in HTTP redirect without confirmation that it's received by client     |
 |Resource owner password  | Requests user credentials (username and password), typically using an interactive form |    For use with highly trusted applications<br/><br/>Should only be used when other, more secure flows can't be used        |
 |Client credentials     | Authenticates and authorizes an app rather than a user       |  Machine-to-machine applications that don't require a specific user's permissions to access data, such as CLIs, daemons, or services running on your backend       |
 
@@ -290,9 +291,11 @@ To pre-authorize requests, configure a [validate-jwt](validate-jwt-policy.md) po
 
 [!INCLUDE [api-management-configure-validate-jwt](../../includes/api-management-configure-validate-jwt.md)]
 
-## Next steps
+## Related content
 
-For more information about using OAuth 2.0 and API Management, see [Protect a web API backend in Azure API Management using OAuth 2.0 authorization with Microsoft Entra ID](api-management-howto-protect-backend-with-aad.md).
+* For more information about using OAuth 2.0 and API Management, see [Protect a web API backend in Azure API Management using OAuth 2.0 authorization with Microsoft Entra ID](api-management-howto-protect-backend-with-aad.md).
+
+* Learn more about [Microsoft identity platform and OAuth 2.0 authorization code flow](/entra/identity-platform/v2-oauth2-auth-code-flow)
 
 
 [api-management-oauth2-signin]: ./media/api-management-howto-oauth2/api-management-oauth2-signin.png

@@ -8,7 +8,7 @@ ms.reviewer: thsomasu
 ms.date: 09/21/2022
 ms.lastreviewed: 05/15/2020
 ms.topic: quickstart
-ms.service: notification-hubs
+ms.service: azure-notification-hubs
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ---
 
@@ -16,7 +16,7 @@ ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 
 Azure Notification Hubs provides an easy-to-use and scaled-out push engine that enables you to send notifications to any platform (iOS, Android, Windows, Kindle, etc.) from any backend (cloud or on-premises). For more information about the service, see [What is Azure Notification Hubs](notification-hubs-push-notification-overview.md).
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 This quickstart uses an Azure Resource Manager template to create an Azure Notification Hubs namespace, and a notification hub named **MyHub** within that namespace.
 

@@ -4,10 +4,12 @@ titleSuffix: Microsoft Dev Box
 description: In this quickstart, learn how developers can create a dev box in the Microsoft Dev Box developer portal, and remotely connect to it through the browser.
 services: dev-box
 ms.service: dev-box
+ms.custom:
+  - build-2024
 ms.topic: quickstart
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 12/13/2023
+ms.date: 08/30/2024
 #Customer intent: As a dev box user, I want to understand how to create and access a dev box so that I can start work.
 ---
 
@@ -23,7 +25,7 @@ You can create and manage multiple dev boxes as a dev box user. Create a dev box
 To complete this quickstart, you need:
 
 - Your organization must have configured Microsoft Dev Box with at least one project and dev box pool before you can create a dev box. 
-    - Platform engineers can follow these steps to configure Microsoft Dev Box: [Quickstart: Configure Microsoft Dev Box](quickstart-configure-dev-box-service.md)    -  
+    - Platform engineers can follow these steps to configure Microsoft Dev Box: [Quickstart: Configure Microsoft Dev Box](quickstart-configure-dev-box-service.md).  
 - You must have permissions as a [Dev Box User](quickstart-configure-dev-box-service.md#provide-access-to-a-dev-box-project) for a project that has an available dev box pool. If you don't have permissions to a project, contact your administrator.
 
 ## Create a dev box
@@ -39,9 +41,7 @@ To create a dev box in the Microsoft Dev Box developer portal:
 
 1. Sign in to the [Microsoft Dev Box developer portal](https://aka.ms/devbox-portal).
 
-1. Select **Add a dev box**.
-
-   :::image type="content" source="./media/quickstart-create-dev-box/welcome-to-developer-portal.png" alt-text="Screenshot of the developer portal and the button for adding a dev box." lightbox="./media/quickstart-create-dev-box/welcome-to-developer-portal.png":::
+1. Select **New** > **New dev box**.
 
 1. In **Add a dev box**, enter the following values:
 
@@ -50,27 +50,25 @@ To create a dev box in the Microsoft Dev Box developer portal:
    | **Name** | Enter a name for your dev box. Dev box names must be unique within a project. |
    | **Project** | Select a project from the dropdown list. |
    | **Dev box pool** | Select a pool from the dropdown list, which includes all the dev box pools for that project. Choose a dev box pool near to you for least latency.|
-   | **Repository clone URL** | Leave blank. |
-   | **Uploaded customization files** | Leave blank. |
 
    :::image type="content" source="./media/quickstart-create-dev-box/developer-portal-create-dev-box.png" alt-text="Screenshot of the dialog for adding a dev box." lightbox="./media/quickstart-create-dev-box/developer-portal-create-dev-box.png":::
 
    After you make your selections, the page shows you the following information:
 
-   - How many dev boxes you can create in the project that you selected, if the project has limits configured
-   - Whether hibernation is supported or not
-   - A shutdown time if the pool where you're creating the dev box has a shutdown schedule
-   - A notification that the dev box creation process can take 25 minutes or longer
+   - How many dev boxes you can create in the project that you selected, if the project has limits configured.
+   - Whether *Hibernation* is supported or not.
+   - Whether *Customizations* is enabled or not.
+   - A shutdown time if the pool where you're creating the dev box has a shutdown schedule.
+   - A notification that the dev box creation process can take 25 minutes or longer.
    
 1. Select **Create** to begin creating your dev box.
 
 1. Use the dev box tile in the developer portal to track the progress of creation.
-
-   > [!Note]
-   > If you encounter a vCPU quota error with a *QuotaExceeded* message, ask your administrator to [request an increased quota limit](/azure/dev-box/how-to-request-quota-increase). If your admin can't increase the quota limit at this time, try selecting another pool with a region close to your location.  
       
    :::image type="content" source="./media/quickstart-create-dev-box/dev-box-tile-creating.png" alt-text="Screenshot of the developer portal that shows the dev box card with a status of Creating." lightbox="./media/quickstart-create-dev-box/dev-box-tile-creating.png":::
-
+   
+   > [!Note]
+   > If you encounter a vCPU quota error with a *QuotaExceeded* message, ask your administrator to [request an increased quota limit](/azure/dev-box/how-to-request-quota-increase). If your admin can't increase the quota limit at this time, try selecting another pool with a region close to your location. 
 
 [!INCLUDE [dev box runs on creation note](./includes/note-dev-box-runs-on-creation.md)]
 

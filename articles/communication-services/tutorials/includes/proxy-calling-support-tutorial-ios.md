@@ -24,7 +24,7 @@ Many times, establishing a network connection between two peers isn't straightfo
 - Peers sitting behind a private network.
 - Computers running in a network address translation (NAT) environment.
 
-To solve these network connection issues, you can use a server that uses the Traversal Using Relay NAT (TURN) protocol for relaying network traffic. Session Traversal Utilities for NAT (STUN) and TURN servers are the relay servers here. To learn more about how Azure Communication Services mitigates network challenges by using STUN and TURN, see [Network traversal concepts](../../concepts/network-traversal.md).
+To solve these network connection issues, you can use a server that uses the Traversal Using Relay NAT (TURN) protocol for relaying network traffic. Session Traversal Utilities for NAT (STUN) and TURN servers are the relay servers.
 
 ### Provide your TURN server details with the SDK
 To provide the details of your TURN servers, you need to pass details of what TURN server to use as part of `CallClientOptions` while initializing `CallClient`. For more information on how to set up a call, see [Azure Communication Services iOS SDK](../../quickstarts/voice-video-calling/get-started-with-video-calling.md?pivots=platform-ios) for the quickstart on how to set up voice and video.
@@ -45,16 +45,19 @@ callNetworkOptions.iceServers = [iceServer]
 // Supply the network options when creating an instance of the CallClient
 callClientOptions.network = callNetworkOptions
 self.callClient = CallClient(options: callClientOptions);
-
-// ...continue normally with your SDK setup and usage.
 ```
 
 > [!IMPORTANT]
 > If you provided your TURN server details while you initialized `CallClient`, all the media traffic <i>exclusively</i> flows through these TURN servers. Any other ICE candidates that are normally generated when you create a call won't be considered while trying to establish connectivity between peers. That means only `relay` candidates are considered. To learn more about different types of Ice candidates, see [RTCIceCandidate: type property](https://developer.mozilla.org/en-US/docs/Web/API/RTCIceCandidate/type).
 
-Currently, the iOS SDK supports only <b>one IPv4 address</b> and <b>UDP</b> protocol for media proxy. Any URLs in non-ipv4 format are ignored. When multiple URLs are provided, only the last one is used by the SDK. If a UDP port isn't provided, a default UDP port 3478 is used.
+ Currently, the Android SDK supports only <b>one single IPv4 address</b> and <b>UDP</b> protocol for media proxy. If a UDP port isn't provided, a default UDP port 3478 is used. The SDK will throw an `Failed to set media proxy` error when calling `setIceServer` with unsupported input as follows:
+ * More than one ICE server is provided in the IceServers list.
+ * More than one url is provided in the IceServer's url list.
+ * IPv6 url is provided in the url list.
+ * Only TCP port is provided.
+ * Realm information is not provided.
 
-If any of the URLs provided are invalid, the `CallClient` initialization fails and throws errors accordingly.
+If the ICE server information provided is invalid, the `CallClient` initialization fails and throws errors accordingly.
 
 ### Set up a TURN server in Azure
 You can create a Linux virtual machine in the Azure portal. For more information, see [Quickstart: Create a Linux virtual machine in the Azure portal](/azure/virtual-machines/linux/quick-create-portal?tabs=ubuntu). To deploy a TURN server, use [coturn](https://github.com/coturn/coturn). Coturn is a free and open-source implementation of a TURN and STUN server for VoIP and WebRTC.

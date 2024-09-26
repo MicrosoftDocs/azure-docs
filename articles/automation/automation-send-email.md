@@ -7,6 +7,7 @@ ms.date: 09/21/2021
 ms.topic: how-to 
 ms.custom: devx-track-azurepowershell
 #Customer intent: As a developer, I want understand runbooks so that I can use it to automate e-mails.
+ms.service: azure-automation
 ---
 
 # Send an email from an Automation runbook
@@ -27,7 +28,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Create an Azure Key Vault
 
-Create an Azure Key Vault and [Key Vault access policy](../key-vault/general/assign-access-policy-portal.md) that allows the credential to get and set key vault secrets in the specified key vault.
+Create an Azure Key Vault and [Key Vault access policy](/azure/key-vault/general/assign-access-policy-portal) that allows the credential to get and set key vault secrets in the specified key vault.
 
 1. Sign in to Azure interactively using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet and follow the instructions.
 
@@ -95,11 +96,11 @@ Create an Azure Key Vault and [Key Vault access policy](../key-vault/general/ass
         -PermissionsToSecrets Set, Get
     ```
 
-   For other ways to create an Azure Key Vault and store a secret, see [Key Vault quickstarts](../key-vault/index.yml).
+   For other ways to create an Azure Key Vault and store a secret, see [Key Vault quickstarts](/azure/key-vault/).
 
 ## Assign permissions to managed identities
 
-Assign permissions to the appropriate [managed identity](./automation-security-overview.md#managed-identities). The runbook can use either the Automation account system-assigned managed identity or a user-assigned managed identity. Steps are provided to assign permissions to each identity. The steps below use PowerShell. If you prefer using the Portal, see [Assign Azure roles using the Azure portal](./../role-based-access-control/role-assignments-portal.md).
+Assign permissions to the appropriate [managed identity](./automation-security-overview.md#managed-identities). The runbook can use either the Automation account system-assigned managed identity or a user-assigned managed identity. Steps are provided to assign permissions to each identity. The steps below use PowerShell. If you prefer using the Portal, see [Assign Azure roles using the Azure portal](./../role-based-access-control/role-assignments-portal.yml).
 
 1. Use PowerShell cmdlet [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) to assign a role to the system-assigned managed identity.
 

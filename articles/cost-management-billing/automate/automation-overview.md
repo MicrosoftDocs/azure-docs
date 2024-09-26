@@ -106,7 +106,7 @@ Often it's useful to understand how much an organization is spending over time. 
 
 For more information about reservation-specific automation scenarios, see [APIs for Azure reservation automation](../reservations/reservation-apis.md).
 
-## Next steps
+## Related content
 
 - To learn more about how to assign the proper permissions to call our APIs programatically, see [Assign permissions to Cost Management APIs](cost-management-api-permissions.md).
 - To learn more about working with cost details, see [Ingest usage details data](automation-ingest-usage-details-overview.md).

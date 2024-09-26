@@ -1,9 +1,9 @@
 ---
 title: Architecture - Design considerations for vSAN stretched clusters
 description: Learn about how to use stretched clusters for Azure VMware Solution.
-ms.topic: concepts
+ms.topic: concept-article
 ms.service: azure-vmware
-ms.date: 3/22/2024
+ms.date: 6/4/2024
 ms.custom: references_regions, engagement-fy24
 ---
 
@@ -60,7 +60,8 @@ Azure VMware Solution stretched clusters are available in the following regions:
 - UK South (on AV36, and AV36P)
 - West Europe (on AV36, and AV36P) 
 - Germany West Central (on AV36, and AV36P)
-- Australia East (on AV36P) 
+- Australia East (on AV36P)
+- East US (on AV36P)
 
 ## Storage policies supported
 
@@ -81,7 +82,7 @@ The following SPBM policies are supported with a PFTT of "Dual Site Mirroring" a
 
 ### Are any other regions planned?
 
-Currently, there are [four regions supported](#stretched-clusters-region-availability) for stretched clusters.
+Currently, there are [five regions supported](#stretched-clusters-region-availability) for stretched clusters.
 
 ### What kind of SLA does Azure VMware Solution provide with the stretched clusters?
 

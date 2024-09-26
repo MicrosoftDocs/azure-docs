@@ -18,7 +18,6 @@ Azure Elastic storage area network (SAN) addresses the problem of workload optim
 
 The following prerequisites are required to continue.
 
-- Register for the preview by filling out the [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR8FVh9RJVPdOk_mdTpp--pZUN0RKUklROEc4UE1RRFpRMkhNVFAySTM1TC4u).
 - Verify you have a Dev/Test private cloud in a [region that Elastic SAN is available in](../storage/elastic-san/elastic-san-create.md).
 - Know the availability zone your private cloud is in. 
 	- In the UI, select an Azure VMware Solution host.
@@ -94,6 +93,11 @@ Once your SDDC express route is connected with the private endpoint for your Ela
 
 To delete the Elastic SAN-based datastore, use the following steps from the Azure portal.
 
-1. From the left navigation in your Azure VMware Solution private cloud, select **Storage**, then **Storage list**.
-1. Under **Virtual network**, select **Disconnect** to disconnect the datastore from the Cluster(s).
+1. From the left navigation in your Azure VMware Solution private cloud, select **Storage**, then **Datastore list**.
+1. On the far right is an **ellipsis**. Select **Delete** to disconnect the datastore from the Cluster(s).
+   
+   :::image type="content" source="media/configure-azure-elastic-san/elastic-san-datastore-list-ellipsis-removal.png" alt-text="Screenshot showing Elastic SAN volume removal." border="false"lightbox="media/configure-azure-elastic-san/elastic-san-datastore-list-ellipsis-removal.png":::
+   
 1. Optionally you can delete the volume you previously created in your Elastic SAN.
+	> [!NOTE]
+	> This operation can't be completed if virtual machines or virtual disks reside on an Elastic SAN VMFS Datastore.

@@ -4,7 +4,7 @@ titlesuffix: Azure Virtual Network
 description: Learn how to add or remove a delegated subnet for a service in Azure.
 services: virtual-network
 author: asudbring
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: how-to
 ms.date: 08/23/2023
 ms.author: allensu 
@@ -338,7 +338,7 @@ Output from command is a null bracket:
 
 ---
 
-[!INCLUDE [portal-clean-up.md](../../includes/portal-clean-up.md)]
+[!INCLUDE [portal-clean-up.md](~/reusable-content/ce-skilling/azure/includes/portal-clean-up.md)]
 
 ## Next steps
 - Learn how to [manage subnets in Azure](virtual-network-manage-subnet.md).

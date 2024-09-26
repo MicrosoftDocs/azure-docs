@@ -6,20 +6,20 @@ ms.service: cost-management-billing
 ms.subservice: billing
 ms.reviewer: andalmia
 ms.topic: conceptual
-ms.date: 03/21/2024
+ms.date: 09/11/2024
 ms.author: banders
 ---
 
 # Grant access to create Azure Enterprise subscriptions (legacy)
 
-As an Azure customer with an [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/), you can give another user or service principal permission to create subscriptions billed to your account. In this article, you learn how to use [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md) to share the ability to create subscriptions, and how to audit subscription creations. You must have the Owner role on the account you wish to share.
+As an Azure customer with an [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/), you can give another user or service principal permission to create subscriptions billed to your account. In this article, you learn how to use [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.yml) to share the ability to create subscriptions, and how to audit subscription creations. You must have the Owner role on the account you wish to share.
 
 > [!NOTE]
 > - This API only works with the [legacy APIs for subscription creation](programmatically-create-subscription-preview.md). 
 > - Unless you have a specific need to use the legacy APIs, you should use the information for the [latest GA version](programmatically-create-subscription-enterprise-agreement.md) about the latest API version. **See [Enrollment Account Role Assignments - Put](/rest/api/billing/2019-10-01-preview/enrollment-account-role-assignments/put) to grant permission to create EA subscriptions with the latest API**. 
 > - If you're migrating to use the newer APIs, you must grant owner permissions again using [2019-10-01-preview](/rest/api/billing/2019-10-01-preview/enrollment-account-role-assignments/put). Your previous configuration that uses the following APIs doesn't automatically convert for use with newer APIs.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Grant access
 
@@ -174,7 +174,7 @@ To [create subscriptions under an enrollment account](programmatically-create-su
     az role assignment create --role Owner --assignee-object-id <userObjectId> --scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>
     ```
 
-    Once a user becomes an Azure RBAC Owner for your enrollment account, they can [programmatically create subscriptions](programmatically-create-subscription-enterprise-agreement.md) under it. A subscription created by a delegated user still has the original Account Owner as Service Admin, but it also has the delegated user as an Azure RBAC Owner by default.
+    Once a user becomes an Azure RBAC Owner for your enrollment account, they can [programmatically create subscriptions](programmatically-create-subscription-enterprise-agreement.md) under it. When a delegated user creates a subscription, they get the Azure RBAC [Owner](../../role-based-access-control/built-in-roles.md#owner) role for the subscription.
 
     ---
 
@@ -191,7 +191,7 @@ To track the subscriptions created via this API, use the [Tenant Activity Log AP
 
 To conveniently call this API from the command line, try [ARMClient](https://github.com/projectkudu/ARMClient).
 
-## Next steps
+## Related content
 
 * Now that the user or service principal has permission to create a subscription, you can use that identity to [programmatically create Azure Enterprise subscriptions](programmatically-create-subscription-enterprise-agreement.md).
 * For an example on creating subscriptions using .NET, see [sample code on GitHub](https://github.com/Azure-Samples/create-azure-subscription-dotnet-core).

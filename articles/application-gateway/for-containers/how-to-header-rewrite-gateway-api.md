@@ -3,10 +3,10 @@ title: Header rewrite for Azure Application Gateway for Containers - Gateway API
 description: Learn how to rewrite headers in Gateway API for Application Gateway for Containers.
 services: application gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: conceptual
-ms.date: 02/27/2024
+ms.date: 5/9/2024
 ms.author: greglin
 ---
 
@@ -170,7 +170,7 @@ Once the gateway is created, create an HTTPRoute that listens for hostname conto
 
 In this example, we look for the user agent used by the Bing search engine and simplify the header to SearchEngine-BingBot for easier backend parsing. 
 
-This example also demonstrates addition of a new header called `AGC-Header-Add` with a value of `agc-value` and removes a request header called `client-custom-header`.
+This example also demonstrates addition of a new header called `AGC-Header-Add` with a value of `AGC-value` and removes a request header called `client-custom-header`.
 
 > [!TIP]
 > For this example, while we can use the HTTPHeaderMatch of "Exact" for a string match, a demonstration is used in regular expression for illistration of further capabilities.
@@ -202,7 +202,7 @@ spec:
                 value: SearchEngine-BingBot
             add:
               - name: AGC-Header-Add
-                value: agc-value
+                value: AGC-value
             remove: ["client-custom-header"]
       backendRefs:
         - name: backend-v2
@@ -337,7 +337,7 @@ Via the response we should see:
 }
 ```
 
-Specifying a `client-custom-header` header with the value `moo` should be stripped from the request when AGC initiates the connection to the backend service:
+Specifying a `client-custom-header` header with the value `moo` should be stripped from the request when Application Gateway for Containers initiates the connection to the backend service:
 
 ```bash
 fqdnIp=$(dig +short $fqdn)

@@ -12,7 +12,7 @@ ms.custom: amqp
 
 # Configure an IoT Edge device to communicate through a proxy server
 
-[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 IoT Edge devices send HTTPS requests to communicate with IoT Hub. If you connected your device to a network that uses a proxy server, you need to configure the IoT Edge runtime to communicate through the server. Proxy servers can also affect individual IoT Edge modules if they make HTTP or HTTPS requests that you haven't routed through the IoT Edge hub.
 
@@ -206,7 +206,7 @@ This step takes place once on the IoT Edge device during initial device setup.
     type = "docker"
     
     [agent.config]
-    image = "mcr.microsoft.com/azureiotedge-agent:1.4"
+    image = "mcr.microsoft.com/azureiotedge-agent:1.5"
     
     [agent.env]
     # "RuntimeLogLevel" = "debug"
@@ -218,7 +218,7 @@ This step takes place once on the IoT Edge device during initial device setup.
 
     ```toml
     [agent.config]
-    image = "mcr.microsoft.com/azureiotedge-agent:1.4"
+    image = "mcr.microsoft.com/azureiotedge-agent:1.5"
     
     [agent.env]
     # "RuntimeLogLevel" = "debug"
@@ -234,7 +234,7 @@ This step takes place once on the IoT Edge device during initial device setup.
     type = "docker"
     
     [agent.config]
-    image = "mcr.microsoft.com/azureiotedge-agent:1.4"
+    image = "mcr.microsoft.com/azureiotedge-agent:1.5"
     
     [agent.env]
     # "RuntimeLogLevel" = "debug"
@@ -246,7 +246,7 @@ This step takes place once on the IoT Edge device during initial device setup.
 
     ```toml
     [agent.config]
-    image = "mcr.microsoft.com/azureiotedge-agent:1.4"
+    image = "mcr.microsoft.com/azureiotedge-agent:1.5"
     
     [agent.env]
     # "RuntimeLogLevel" = "debug"
@@ -286,9 +286,7 @@ To configure the IoT Edge agent and IoT Edge hub modules, select **Runtime Setti
 
 :::image type="content" source="./media/how-to-configure-proxy-support/configure-runtime.png" alt-text="Screenshot of how to configure advanced Edge Runtime settings.":::
 
-Add the **https_proxy** environment variable to both the IoT Edge agent and IoT Edge hub module definitions. If you included the **UpstreamProtocol** environment variable in the config file on your IoT Edge device, add that to the IoT Edge agent module definition too.
-
-:::image type="content" source="./media/how-to-configure-proxy-support/edgehub-environment-var.png" alt-text="Screenshot of how to set the https_proxy environment variable.":::
+Add the **https_proxy** environment variable to *both the IoT Edge agent and IoT Edge hub module* runtime settings definitions. If you included the **UpstreamProtocol** environment variable in the config file on your IoT Edge device, add that to the IoT Edge agent module definition too.
 
 All other modules that you add to a deployment manifest follow the same pattern. Select **Apply** to save your changes.
 
@@ -312,7 +310,7 @@ With the environment variables included, your module definition should look like
 "edgeHub": {
     "type": "docker",
     "settings": {
-        "image": "mcr.microsoft.com/azureiotedge-hub:1.4",
+        "image": "mcr.microsoft.com/azureiotedge-hub:1.5",
         "createOptions": "{}"
     },
     "env": {

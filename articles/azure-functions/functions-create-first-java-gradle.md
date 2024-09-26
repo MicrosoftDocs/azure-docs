@@ -25,7 +25,7 @@ To develop functions using Java, you must have the following installed:
 - [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.6.666 or above
 - [Gradle](https://gradle.org/), version 6.8 and above
 
-You also need an active Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+You also need an active Azure subscription. [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 > [!IMPORTANT]
 > The JAVA_HOME environment variable must be set to the install location of the JDK to complete this quickstart.
@@ -94,7 +94,7 @@ Hello, AzureFunctions
 </pre>
 
 > [!NOTE]
-> If you set authLevel to `FUNCTION` or `ADMIN`, the [function key](functions-bindings-http-webhook-trigger.md#authorization-keys) isn't required when running locally.  
+> If you set authLevel to `FUNCTION` or `ADMIN`, the [access key](function-keys-how-to.md) isn't required when running locally.  
 
 Use `Ctrl+C` in the terminal to stop the function code.
 

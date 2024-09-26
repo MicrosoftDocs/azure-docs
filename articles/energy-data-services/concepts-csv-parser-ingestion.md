@@ -12,9 +12,9 @@ ms.custom: template-concept
 # CSV parser ingestion concepts
 A CSV (comma-separated values) file is a comma delimited text file that is used to save data in a table structured format. 
 
-A CSV Parser [DAG](https://airflow.apache.org/docs/apache-airflow/1.10.12/concepts.html#dags) allows a customer to load data into Microsoft Azure Data Manager for Energy instance based on a custom schema that is, a schema that doesn't match the [OSDU&trade;](https://osduforum.org) Well Known Schema (WKS). Customers must create and register the custom schema using the Schema service before loading the data. 
+A CSV Parser [DAG](https://airflow.apache.org/docs/apache-airflow/1.10.12/concepts.html#dags) allows a customer to load data into Microsoft Azure Data Manager for Energy instance based on a custom schema that is, a schema that doesn't match the [OSDU&reg;](https://osduforum.org) Well Known Schema (WKS). Customers must create and register the custom schema using the Schema service before loading the data. 
 
-A CSV Parser DAG implements an ELT (Extract Load and Transform) approach to data loading, that is, data is first extracted from the source system in a CSV format, and it's loaded into the Azure Data Manager for Energy instance. It could then be transformed to the [OSDU&trade;](https://osduforum.org) Well Known Schema using a mapping service.
+A CSV Parser DAG implements an ELT (Extract Load and Transform) approach to data loading, that is, data is first extracted from the source system in a CSV format, and it's loaded into the Azure Data Manager for Energy instance. It could then be transformed to the [OSDU&reg;](https://osduforum.org) Well Known Schema using a mapping service.
 
 
 ## What does CSV ingestion do?
@@ -42,7 +42,7 @@ The below workflow diagram illustrates the CSV Parser DAG workflow:
 
 To execute the CSV Parser DAG workflow, the user must first create and register the schema using the workflow service. Once the schema is created, the user then uses the File service to upload the CSV file to the Microsoft Azure Data Manager for Energy instances, and also creates the storage record of file generic kind. The file service then provides a file ID to the user, which is used while triggering the CSV Parser workflow using the Workflow service. The Workflow service provides a run ID, which the user could use to track the status of the CSV Parser workflow run.
 
-OSDU&trade; is a trademark of The Open Group.
+OSDU&reg; is a trademark of The Open Group.
 
 ## Next steps
 Advance to the CSV parser tutorial and learn how to perform a CSV parser ingestion

@@ -3,10 +3,11 @@ title: Configure data at scale for Azure Automation State Configuration
 description: This article tells how to configure data at scale for Azure Automation State Configuration.
 keywords: dsc,powershell,configuration,setup
 services: automation
-ms.subservice: dsc
-ms.date: 10/21/2022
+ms.subservice: desired-state-config
+ms.date: 08/20/2024
 ms.custom: engagement-fy23
-ms.topic: conceptual
+ms.topic: how-to
+ms.service: azure-automation
 ---
 
 # Configure data at scale for Azure Automation State Configuration
@@ -14,7 +15,7 @@ ms.topic: conceptual
 **Applies to:** :heavy_check_mark: Windows PowerShell 5.1
 
 > [!NOTE]
-> Before you enable Automation State Configuration, we would like you to know that a newer version of DSC is now generally available, managed by a feature of Azure Policy named [guest configuration](../governance/machine-configuration/overview.md). The guest configuration service combines features of DSC Extension, Azure Automation State Configuration, and the most commonly requested features from customer feedback. Guest configuration also includes hybrid machine support through [Arc-enabled servers](../azure-arc/servers/overview.md).
+> Before you enable Automation State Configuration, we would like you to know that a newer version of DSC is now generally available, managed by a feature of Azure Policy named [guest configuration](../governance/machine-configuration/overview.md). The guest configuration service combines features of DSC Extension, Azure Automation State Configuration, and the most commonly requested features from customer feedback. Guest configuration also includes hybrid machine support through [Arc-enabled servers](/azure/azure-arc/servers/overview).
 
 > [!IMPORTANT]
 > This article refers to a solution that is maintained by the Open Source community. Support is only available in the form of GitHub collaboration, and not from Microsoft.

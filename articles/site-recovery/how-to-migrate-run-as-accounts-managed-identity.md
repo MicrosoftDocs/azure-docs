@@ -2,16 +2,16 @@
 title: Migrate from a Run As account to a managed identity
 description: This article describes how to migrate from a Run As account to a managed identity in Azure Site Recovery.
 author: ankitaduttaMSFT
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.author: ankitadutta
 ms.topic: how-to 
-ms.date: 01/31/2024
+ms.date: 04/29/2024
 ---
 
 # Migrate from a Run As account to Managed Identities 
 
 > [!IMPORTANT]
-> - Azure Automation Run As Account will retire on September 30, 2023 and will be replaced with Managed Identities. Before that date, you'll need to start migrating your runbooks to use managed identities. For more information, see [migrating from an existing Run As accounts to managed identity](../automation/automation-managed-identity-faq.md).
+> - Azure Automation Run As Account was retired on September 30, 2023 and is replaced by Managed Identities. We recommend to start migrating your runbooks to use managed identities. For more information, see [migrating from an existing Run As accounts to managed identity](../automation/automation-managed-identity-faq.md).
 > - Delaying the feature has a direct impact on our support burden, as it would cause upgrades of mobility agent to fail.
 
 This article shows you how to migrate your runbooks to use a Managed Identities for Azure Site Recovery. Azure Automation Accounts are used by Azure Site Recovery customers to auto-update the agents of their protected virtual machines. Site Recovery creates Azure Automation Run As Accounts when you enable replication via the IaaS VM Blade and Recovery Services Vault. 
@@ -21,6 +21,9 @@ On Azure, managed identities eliminate the need for developers having to manage 
 ## Prerequisites
 
 Before you migrate from a Run As account to a managed identity, ensure that you have the appropriate roles to create a system-assigned identity for your automation account and to assign it the *Owner* role in the corresponding recovery services vault.
+
+> [!NOTE]
+> You can use the same automation account across multiple recovery services vaults, however, both the automation account and recovery services vault should be in the same region.
 
 ## Benefits of managed identities
 
@@ -98,6 +101,8 @@ To link an existing managed identity Automation account to your Recovery Service
 1. Go back to your recovery services vault. On the left pane, select the **Access control (IAM)** option.
     :::image type="content" source="./media/how-to-migrate-from-run-as-to-managed-identities/add-mi-iam.png" alt-text="Screenshot that shows IAM settings page.":::
 1. Select **Add** > **Add role assignment** > **Contributor** to open the **Add role assignment** page.
+    > [!NOTE]
+    > Once the automation account is set, you can change the role of the account from *Contributor* to *Site Recovery Contributor*.
 1. On the **Add role assignment** page, ensure to select **Managed identity**.
 1. Select the **Select members**. In the **Select managed identities** pane, do the following:
     1. In the **Select** field, enter the name of the managed identity automation account.

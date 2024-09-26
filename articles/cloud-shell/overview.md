@@ -1,8 +1,8 @@
 ---
 description: Overview of the Azure Cloud Shell.
 ms.contributor: jahelmic
-ms.date: 12/06/2023
-ms.topic: article
+ms.date: 04/11/2024
+ms.topic: overview
 tags: azure-resource-manager
 title: What is Azure Cloud Shell?
 ---
@@ -56,7 +56,7 @@ mounted Azure Files share. Regular storage costs apply.
 
 ## Next steps
 
-- [Cloud Shell quickstart][08]
+- [Get started with Cloud Shell (Classic)][08]
 
 <!-- link references -->
 [01]: /cli/azure
@@ -66,5 +66,5 @@ mounted Azure Files share. Regular storage costs apply.
 [05]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account
 [06]: https://portal.azure.com
 [07]: https://shell.azure.com
-[08]: quickstart.md
+[08]: get-started/classic.md
 [09]: using-cloud-shell-editor.md

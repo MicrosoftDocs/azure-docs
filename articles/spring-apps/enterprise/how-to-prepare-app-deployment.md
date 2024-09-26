@@ -2,9 +2,9 @@
 title: How to prepare an application for deployment in Azure Spring Apps
 description: Learn how to prepare an application for deployment to Azure Spring Apps.
 author: KarlErickson
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 07/06/2021
+ms.date: 04/28/2024
 ms.author: karler
 ms.custom: devx-track-java, devx-track-extended-java
 zone_pivot_groups: programming-languages-spring-apps
@@ -23,7 +23,7 @@ This article shows how to prepare an existing Steeltoe application for deploymen
 This article explains the dependencies, configuration, and code that are required to run a .NET Core Steeltoe app in Azure Spring Apps. For information about how to deploy an application to Azure Spring Apps, see [Deploy your first Spring Boot app in Azure Spring Apps](./quickstart.md).
 
 > [!NOTE]
-> Steeltoe support for Azure Spring Apps is currently offered as a public preview. Public preview offerings allow customers to experiment with new features prior to their official release. Public preview features and services are not meant for production use. For more information about support during previews, see the [FAQ](https://azure.microsoft.com/support/faq/) or file a [Support request](../../azure-portal/supportability/how-to-create-azure-support-request.md).
+> Steeltoe support for Azure Spring Apps is currently offered as a public preview. Public preview offerings allow customers to experiment with new features prior to their official release. Public preview features and services are not meant for production use. For more information about support during previews, see the [FAQ](https://azure.microsoft.com/support/faq/) or file a [Support request](/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
 ## Supported versions
 
@@ -172,6 +172,7 @@ The following table lists the supported Spring Boot and Spring Cloud combination
 
 For more information, see the following pages:
 
+* [Version support for Java, Spring Boot, and more](concept-app-customer-responsibilities.md#version-support-for-all-plans)
 * [Spring Boot support](https://spring.io/projects/spring-boot#support)
 * [Spring Cloud Config support](https://spring.io/projects/spring-cloud-config#support)
 * [Spring Cloud Netflix support](https://spring.io/projects/spring-cloud-netflix#support)
@@ -227,7 +228,7 @@ public class GatewayApplication {
 
 #### [Enterprise plan](#tab/enterprise-plan)
 
-To enable distributed configuration in the Enterprise plan, use [Application Configuration Service for VMware Tanzu](https://docs.vmware.com/en/Application-Configuration-Service-for-VMware-Tanzu/2.0/acs/GUID-overview.html), which is one of the proprietary VMware Tanzu components. Application Configuration Service for Tanzu is Kubernetes-native, and different from Spring Cloud Config Server. Application Configuration Service for Tanzu enables the management of Kubernetes-native ConfigMap resources that are populated from properties defined in one or more Git repositories.
+To enable distributed configuration in the Enterprise plan, use [Application Configuration Service for VMware Tanzu](https://docs.vmware.com/en/Application-Configuration-Service-for-VMware-Tanzu/2.3/acs/GUID-overview.html), which is one of the proprietary VMware Tanzu components. Application Configuration Service for Tanzu is Kubernetes-native, and different from Spring Cloud Config Server. Application Configuration Service for Tanzu enables the management of Kubernetes-native ConfigMap resources that are populated from properties defined in one or more Git repositories.
 
 In the Enterprise plan, there's no Spring Cloud Config Server, but you can use Application Configuration Service for Tanzu to manage centralized configurations. For more information, see [Use Application Configuration Service for Tanzu](how-to-enterprise-application-configuration-service.md)
 
@@ -288,13 +289,13 @@ Include the `spring-boot-starter-actuator` dependency in the dependencies sectio
 ## See also
 
 * [Analyze application logs and metrics](./diagnostic-services.md)
-* [Set up your Config Server](../basic-standard/how-to-config-server.md)
+* [Set up your Config Server](how-to-config-server.md)
 * [Spring Quickstart Guide](https://spring.io/quickstart)
 * [Spring Boot documentation](https://spring.io/projects/spring-boot)
 
 ## Next steps
 
-In this article, you learned how to configure your Java Spring application for deployment to Azure Spring Apps. To learn how to set up a Config Server instance, see [Set up a Config Server instance](../basic-standard/how-to-config-server.md).
+In this article, you learned how to configure your Java Spring application for deployment to Azure Spring Apps. To learn how to set up a Config Server instance, see [Set up a Config Server instance](how-to-config-server.md).
 
 More samples are available on GitHub: [Azure Spring Apps Samples](https://github.com/Azure-Samples/azure-spring-apps-samples).
 ::: zone-end

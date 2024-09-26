@@ -5,13 +5,24 @@ items:
         href: overview.md
       - name: Features & tools
         href: features.md
+      - name: Release notes
+        href: release-notes.md
   - name: Get started with Cloud Shell
     items:
       - name: Get started (Classic)
+        href: get-started/classic.md
+      - name: Get started (New UI)
+        href: get-started/ephemeral.md
+      - name: Get started with new storage account (New UI)
+        href: get-started/new-storage.md
+      - name: Get started with existing storage account (New UI)
+        href: get-started/existing-storage.md
   - name: How to use Cloud Shell
     items:
       - name: Use the window (Classic UI)
         href: using-the-shell-window.md
+      - name: Use the window (New UI)
+        href: new-ui-shell-window.md
       - name: Use the Cloud Shell editor (Classic UI)
         href: using-cloud-shell-editor.md
       - name: Persist files in storage

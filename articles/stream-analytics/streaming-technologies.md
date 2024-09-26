@@ -3,7 +3,7 @@ title: Choose a real-time and stream processing solution on Azure
 description: Learn about how to choose the right real-time analytics and streaming processing technology to build your application on Azure.
 author: AliciaLiMicrosoft 
 ms.author: ali 
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2024
 ---
@@ -40,9 +40,9 @@ Azure Stream Analytics has a rich out-of-the-box experience. You can immediately
 
 Azure Stream Analytics supports user-defined functions (UDF) or user-defined aggregates (UDA) in JavaScript for cloud jobs and C# for IoT Edge jobs. C# user-defined deserializers are also supported. If you want to implement a deserializer, a UDF, or a UDA in other languages, such as Java or Python, you can use Spark Structured Streaming. You can also run the Event Hubs **EventProcessorHost** on your own virtual machines to do arbitrary streaming processing.
 
-### Your solution is in a multi-cloud or on-premises environment
+### Your solution is in a multicloud or on-premises environment
 
-Azure Stream Analytics is Microsoft's proprietary technology and is only available on Azure. If you need your solution to be portable across Clouds or on-premises, consider open-source technologies such as Spark Structured Streaming or [Apache Flink](/azure/hdinsight-aks/flink/flink-overview).
+Azure Stream Analytics is Microsoft's proprietary technology and is only available on Azure. If you need your solution to be portable across Clouds or on-premises, consider open-source technologies such as Spark Structured Streaming or [Apache Flink](../hdinsight-aks/flink/flink-overview.md).
 
 ## Next steps
 

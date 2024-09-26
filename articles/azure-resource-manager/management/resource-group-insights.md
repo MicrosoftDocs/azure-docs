@@ -38,10 +38,10 @@ The resource group insights page provides several other tools scoped to help you
 
    | Tool | Description |
    | ---------------- |:-----|
-   | [**Alerts**](../../azure-monitor/alerts/alerts-overview.md)      |  View, create, and manage your alerts. |
-   | [**Metrics**](../../azure-monitor/data-platform.md) | Visualize and explore your metric based data.    |
-   | [**Activity logs**](../../azure-monitor/essentials/platform-logs-overview.md) | Subscription level events that have occurred in Azure.  |
-   | [**Application map**](../../azure-monitor/app/app-map.md) | Navigate your distributed application's topology to identify performance bottlenecks or failure hotspots. |
+   | [**Alerts**](/azure/azure-monitor/alerts/alerts-overview)      |  View, create, and manage your alerts. |
+   | [**Metrics**](/azure/azure-monitor/data-platform) | Visualize and explore your metric based data.    |
+   | [**Activity logs**](/azure/azure-monitor/essentials/platform-logs-overview) | Subscription level events that have occurred in Azure.  |
+   | [**Application map**](/azure/azure-monitor/app/app-map) | Navigate your distributed application's topology to identify performance bottlenecks or failure hotspots. |
 
 ## Failures and performance
 
@@ -105,10 +105,10 @@ To see alerts in Resource Group insights, someone with an Owner or Contributor r
 
 Resource Group insights relies on the Azure Monitor Alerts Management system to retrieve alert status. Alerts Management isn't configured for every resource group and subscription by default, and it can only be enabled by someone with an Owner or Contributor role. It can be enabled either by:
 * Opening Resource Group insights for any resource group in the subscription.
-* Or by going to the subscription, clicking **Resource Providers**, then clicking **Register for Alerts.Management**.
+* Or by going to the subscription, clicking **Resource Providers**, then clicking **Register** for **Microsoft.AlertsManagement**.
 
 ## Next steps
 
-- [Azure Monitor Workbooks](../../azure-monitor/visualize/workbooks-overview.md)
-- [Azure Resource Health](../../service-health/resource-health-overview.md)
-- [Azure Monitor Alerts](../../azure-monitor/alerts/alerts-overview.md)
+- [Azure Monitor Workbooks](/azure/azure-monitor/visualize/workbooks-overview)
+- [Azure Resource Health](/azure/service-health/resource-health-overview)
+- [Azure Monitor Alerts](/azure/azure-monitor/alerts/alerts-overview)

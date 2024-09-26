@@ -3,7 +3,7 @@ title: Use deployment scripts in templates | Microsoft Docs
 description: Use deployment scripts in Azure Resource Manager templates.
 ms.custom: devx-track-arm-template
 ms.topic: conceptual
-ms.date: 12/12/2023
+ms.date: 06/14/2024
 ---
 
 # Use deployment scripts in ARM templates
@@ -29,7 +29,7 @@ The benefits of deployment script:
 - Allow passing command-line arguments to the script.
 - Can specify script outputs and pass them back to the deployment.
 
-The deployment script resource is only available in the regions where Azure Container Instance is available.  See [Resource availability for Azure Container Instances in Azure regions](../../container-instances/container-instances-region-availability.md). Currently, deployment script only uses public networking.
+The deployment script resource is only available in the regions where Azure Container Instance is available.  See [Resource availability for Azure Container Instances in Azure regions](/azure/container-instances/container-instances-region-availability). Currently, deployment script only uses public networking.
 
 > [!IMPORTANT]
 > The deployment script service requires two supporting resources for script execution and troubleshooting: a storage account and a container instance. You can specify an existing storage account, otherwise the script service creates one for you. The two automatically-created supporting resources are usually deleted by the script service when the deployment script execution gets in a terminal state. You are billed for the supporting resources until they are deleted. For the price information, see [Container Instances pricing](https://azure.microsoft.com/pricing/details/container-instances/) and [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/). To learn more, see [Clean-up deployment script resources](#clean-up-deployment-script-resources).
@@ -298,6 +298,7 @@ A storage account and a container instance are needed for script execution and t
 
 - Storage account firewall rules aren't supported yet. For more information, see [Configure Azure Storage firewalls and virtual networks](../../storage/common/storage-network-security.md).
 - Deployment principal must have permissions to manage the storage account, which includes read, create, delete file shares.
+- The `allowSharedKeyAccess` property of the storage account must be set to `true`. The only way to mount a storage account in Azure Container Instance(ACI) is via an access key.
 
 To specify an existing storage account, add the following JSON to the property element of `Microsoft.Resources/deploymentScripts`:
 
@@ -352,13 +353,13 @@ For more information about using `AZ_SCRIPTS_OUTPUT_PATH`, see [Work with output
 
 ### Pass secured strings to deployment script
 
-Setting environment variables (EnvironmentVariable) in your container instances allows you to provide dynamic configuration of the application or script run by the container. Deployment script handles nonsecured and secured environment variables in the same way as Azure Container Instance. For more information, see [Set environment variables in container instances](../../container-instances/container-instances-environment-variables.md#secure-values). For an example, see [Sample templates](#sample-templates).
+Setting environment variables (EnvironmentVariable) in your container instances allows you to provide dynamic configuration of the application or script run by the container. Deployment script handles nonsecured and secured environment variables in the same way as Azure Container Instance. For more information, see [Set environment variables in container instances](/azure/container-instances/container-instances-environment-variables#secure-values). For an example, see [Sample templates](#sample-templates).
 
 The max allowed size for environment variables is 64 KB.
 
 ## Monitor and troubleshoot deployment scripts
 
-The script service creates a [storage account](../../storage/common/storage-account-overview.md) (unless you specify an existing storage account) and a [container instance](../../container-instances/container-instances-overview.md) for script execution. If these resources are automatically created by the script service, both resources have the `azscripts` suffix in the resource names.
+The script service creates a [storage account](../../storage/common/storage-account-overview.md) (unless you specify an existing storage account) and a [container instance](/azure/container-instances/container-instances-overview) for script execution. If these resources are automatically created by the script service, both resources have the `azscripts` suffix in the resource names.
 
 :::image type="content" source="./media/deployment-script-template/resource-manager-template-deployment-script-resources.png" alt-text="Screenshot of Resource Manager template deployment script resource names.":::
 
@@ -639,7 +640,7 @@ After the script is tested successfully, you can use it as a deployment script i
 | DeploymentScriptExecutionFailed | Unknown error during the deployment script execution. |
 | DeploymentScriptContainerInstancesServiceUnavailable | When creating the Azure container instance (ACI), ACI threw a service unavailable error. |
 | DeploymentScriptContainerGroupInNonterminalState | When creating the Azure container instance (ACI), another deployment script is using the same ACI name in the same scope (same subscription, resource group name, and resource name). |
-| DeploymentScriptContainerGroupNameInvalid | The Azure container instance name (ACI) specified doesn't meet the ACI requirements. See [Troubleshoot common issues in Azure Container Instances](../../container-instances/container-instances-troubleshooting.md#issues-during-container-group-deployment).|
+| DeploymentScriptContainerGroupNameInvalid | The Azure container instance name (ACI) specified doesn't meet the ACI requirements. See [Troubleshoot common issues in Azure Container Instances](/azure/container-instances/container-instances-troubleshooting#issues-during-container-group-deployment).|
 
 ## Use Microsoft Graph within a deployment script
 
@@ -660,7 +661,7 @@ The identity that your deployment script uses needs to be authorized to work wit
 With Microsoft.Resources/deploymentScripts version 2023-08-01, you can run deployment scripts in private networks with some additional configurations.
 
 - Create a user-assigned managed identity, and specify it in the `identity` property. To assign the identity, see [Identity](#identity).
-- Create a storage account, and specify the deployment script to use the existing storage account. To specify an existing storage account, see [Use existing storage account](#use-existing-storage-account). Some additional configuration is required for the storage account.
+- Create a storage account with [`allowSharedKeyAccess`](/azure/templates/microsoft.storage/storageaccounts) set to `true` , and specify the deployment script to use the existing storage account. To specify an existing storage account, see [Use existing storage account](#use-existing-storage-account). Some additional configuration is required for the storage account.
 
     1. Open the storage account in the [Azure portal](https://portal.azure.com).
     1. From the left menu, select **Access Control (IAM)**, and then select the **Role assignments** tab.
@@ -708,7 +709,7 @@ The following ARM template shows how to configure the environment for running a 
   "resources": [
     {
       "type": "Microsoft.Network/virtualNetworks",
-      "apiVersion": "2023-05-01",
+      "apiVersion": "2023-09-01",
       "name": "[parameters('vnetName')]",
       "location": "[parameters('location')]",
       "properties": {
@@ -761,7 +762,8 @@ The following ARM template shows how to configure the environment for running a 
             }
           ],
           "defaultAction": "Deny"
-        }
+        },
+        "allowSharedKeyAccess": true
       },
       "dependsOn": [
         "[resourceId('Microsoft.Network/virtualNetworks', parameters('vnetName'))]"
@@ -769,7 +771,7 @@ The following ARM template shows how to configure the environment for running a 
     },
     {
       "type": "Microsoft.ManagedIdentity/userAssignedIdentities",
-      "apiVersion": "2023-01-31",
+      "apiVersion": "2023-07-31-preview",
       "name": "[parameters('userAssignedIdentityName')]",
       "location": "[parameters('location')]"
     },
@@ -779,7 +781,7 @@ The following ARM template shows how to configure the environment for running a 
       "scope": "[format('Microsoft.Storage/storageAccounts/{0}', parameters('storageAccountName'))]",
       "name": "[guid(tenantResourceId('Microsoft.Authorization/roleDefinitions', '69566ab7-960f-475b-8e7c-b3118f30c6bd'), resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', parameters('userAssignedIdentityName')), resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')))]",
       "properties": {
-        "principalId": "[reference(resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', parameters('userAssignedIdentityName')), '2023-01-31').principalId]",
+        "principalId": "[reference(resourceId('Microsoft.ManagedIdentity/userAssignedIdentities', parameters('userAssignedIdentityName')), '2023-07-31-preview').principalId]",
         "roleDefinitionId": "[tenantResourceId('Microsoft.Authorization/roleDefinitions', '69566ab7-960f-475b-8e7c-b3118f30c6bd')]",
         "principalType": "ServicePrincipal"
       },

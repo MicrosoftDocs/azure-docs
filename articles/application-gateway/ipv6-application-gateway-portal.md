@@ -7,14 +7,12 @@ author: greg-lindsay
 ms.topic: how-to
 ms.date: 04/04/2024
 ms.author: greglin
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.custom: mvc, mode-ui
 ---
 
 # Configure Application Gateway with a frontend public IPv6 address using the Azure portal
 
-> [!IMPORTANT]
-> Application Gateway IPv6 support is now generally available. Updates to the Azure portal for IPv6 support are currently being deployed across all regions and will be fully available within the next few weeks. In the meantime to use the portal to create an IPv6 Application Gateway continue using the [preview registration process](/azure/azure-resource-manager/management/preview-features?tabs=azure-portal) in the Azure portal to opt in for **Allow Application Gateway IPv6 Access**. 
 
 [Azure Application Gateway](overview.md) supports dual stack (IPv4 and IPv6) frontend connections from clients. To use IPv6 frontend connectivity, you need to create a new Application Gateway. Currently you can’t upgrade existing IPv4 only Application Gateways to dual stack (IPv4 and IPv6) Application Gateways. Also, currently backend IPv6 addresses aren't supported.
 
@@ -37,7 +35,7 @@ You can also complete this quickstart using [Azure PowerShell](ipv6-application-
 
 ## Regions and availability
 
-The IPv6 Application Gateway preview is available to all public cloud regions where Application Gateway v2 SKU is supported. It's also available in [Microsoft Azure operated by 21Vianet](https://www.azure.cn/) and [Azure Government](https://azure.microsoft.com/overview/clouds/government/)
+The IPv6 Application Gateway is available to all public cloud regions where Application Gateway v2 SKU is supported. It's also available in [Microsoft Azure operated by 21Vianet](https://www.azure.cn/) and [Azure Government](https://azure.microsoft.com/overview/clouds/government/)
 
 ## Limitations
 
@@ -56,7 +54,7 @@ An Azure account with an active subscription is required.  If you don't already 
 
 Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
 
-Use the [preview registration process](/azure/azure-resource-manager/management/preview-features?tabs=azure-portal) in the Azure portal to **Allow Application Gateway IPv6 Access**. This is required until the feature is completely rolled out in the Azure portal.
+
 
 ## Create an application gateway
 
@@ -103,14 +101,14 @@ Create the application gateway using the tabs on the **Create application gatewa
 1. On the **Frontends** tab, verify **Frontend IP address type** is set to **Public**.
 
    > [!IMPORTANT]
-   > For the Application Gateway v2 SKU, there must be a **Public** frontend IP configuration. A private IPv6 frontend IP configuration (Only ILB mode) is currently not supported for the IPv6 Application Gateway preview. 
+   > For the Application Gateway v2 SKU, there must be a **Public** frontend IP configuration. A private IPv6 frontend IP configuration (Only ILB mode) is currently not supported for the IPv6 Application Gateway. 
 
 2. Select **Add new** for the **Public IP address**, enter a name for the public IP address, and select **OK**. For example, **myAGPublicIPAddress**. 
 
      ![A screenshot of create new application gateway: frontends.](./media/ipv6-application-gateway-portal/ipv6-frontends.png)
 
     > [!NOTE]
-    > IPv6 Application Gateway (preview) supports up to 4 frontend IP addresses: two IPv4 addresses (Public and Private) and two IPv6 addresses (Public and Private)
+    > IPv6 Application Gateway supports up to 4 frontend IP addresses: two IPv4 addresses (Public and Private) and two IPv6 addresses (Public and Private)
 
 
 3. Select **Next: Backends**.

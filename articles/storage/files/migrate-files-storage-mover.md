@@ -3,12 +3,12 @@ title: Migrate to SMB Azure file shares using Azure Storage Mover
 description: Learn how to migrate on-premises file shares to SMB Azure file shares with full fidelity using Azure Storage Mover, a fully managed migration service.
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 01/24/2024
+ms.date: 05/08/2024
 ms.author: kendownie
 author: khdownie
 ---
 
-# Migrate to SMB Azure file shares using Azure Storage Mover
+# Use Azure Storage Mover to migrate to SMB Azure file shares
 
 This migration guide describes how to migrate on-premises files to SMB Azure file shares with full fidelity using [Azure Storage Mover](../../storage-mover/service-overview.md), a fully managed migration service. You can use Azure Storage Mover to migrate from any SMB source share, including Windows Server, Linux, or NAS. You must have port 443 open outbound on the source in order to use Azure Storage Mover for Azure Files migrations. However, you don't need an SMB connection to your Azure file share because Azure Storage Mover uses the FileREST API to move the data instead of SMB.
 
@@ -56,7 +56,7 @@ To migrate your data to Azure Files, follow these steps.
 
 1. [Create a project](../../storage-mover/project-manage.md) to collate the shares that need to be migrated together.
 
-1. [Create an Azure Key Vault](../../key-vault/general/quick-create-portal.md) and place two secrets in it: one for the username and one for the password the agent can use to access the source SMB share.
+1. [Create an Azure Key Vault](/azure/key-vault/general/quick-create-portal) and place two secrets in it: one for the username and one for the password the agent can use to access the source SMB share.
 
 1. [Define your first migration job](../../storage-mover/job-definition-create.md) in your Storage Mover project, using the source and target pair you've created. For the first migration job, it's best to use the Azure portal. You'll create multiple resources within your Storage Mover resource. There will be a source endpoint and a target endpoint, as well as a few migration settings you should review carefully. In addition, you'll reference the Azure Key Vault secrets when creating your migration job.
 

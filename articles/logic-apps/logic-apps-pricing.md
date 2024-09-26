@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 01/10/2024
+ms.date: 09/06/2024
 # Customer intent: As a logic apps developer, I want to learn and understand how usage metering, billing, and pricing work in Azure Logic Apps.
 ---
 
@@ -17,21 +17,21 @@ ms.date: 01/10/2024
 
 * [Pricing rates for Azure Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps)
 * [Plan and manage costs for Azure Logic Apps](plan-manage-costs.md)
-* [Single-tenant versus multi-tenant and integration service environment](single-tenant-overview-compare.md)
+* [Single-tenant versus multitenant](single-tenant-overview-compare.md)
 
 <a name="consumption-pricing"></a>
 
-## Consumption (multi-tenant)
+## Consumption (multitenant)
 
-In multi-tenant Azure Logic Apps, a logic app and its workflow follow the [**Consumption** plan](https://azure.microsoft.com/pricing/details/logic-apps) for pricing and billing. You create such logic apps in various ways, for example, when you choose the **Logic App (Consumption)** resource type, use the **Azure Logic Apps (Consumption)** extension in Visual Studio Code, or when you create [automation tasks](create-automation-tasks-azure-resources.md).
+In multitenant Azure Logic Apps, a logic app and its workflow follow the [**Consumption** plan](https://azure.microsoft.com/pricing/details/logic-apps) for pricing and billing. You create such logic apps in various ways, for example, when you choose the **Logic App (Consumption)** resource type, use the **Azure Logic Apps (Consumption)** extension in Visual Studio Code, or when you create [automation tasks](create-automation-tasks-azure-resources.md).
 
-The following table summarizes how the Consumption model handles metering and billing for the following components when used with a logic app and a workflow in multi-tenant Azure Logic Apps:
+The following table summarizes how the Consumption model handles metering and billing for the following components when used with a logic app and a workflow in multitenant Azure Logic Apps:
 
 | Component | Metering and billing |
 | ----------|----------------------|
 | Trigger and action operations | The Consumption model includes an *initial number* of free built-in operations, per Azure subscription, that a workflow can run. Above this number, metering applies to *each execution*, and billing follows the [*Actions* pricing for the Consumption plan](https://azure.microsoft.com/pricing/details/logic-apps). For other operation types, such as managed connectors, billing follows the [*Standard* or *Enterprise* connector pricing for the Consumption plan](https://azure.microsoft.com/pricing/details/logic-apps). For more information, review [Trigger and action operations in the Consumption model](#consumption-operations). |
 | Storage operations | Metering applies *only to data retention-related storage consumption* such as saving inputs and outputs from your workflow's run history. Billing follows the [data retention pricing for the Consumption plan](https://azure.microsoft.com/pricing/details/logic-apps/). For more information, review [Storage operations](#storage-operations). |
-| Integration accounts | Metering applies based on the integration account type that you create and use with your logic app. Billing follows [*Integration Account* pricing](https://azure.microsoft.com/pricing/details/logic-apps/) unless your logic app is deployed and hosted in an [integration service environment (ISE)](#ise-pricing). For more information, review [Integration accounts](#integration-accounts). |
+| Integration accounts | Metering applies based on the integration account type that you create and use with your logic app. Billing follows [*Integration Account* pricing](https://azure.microsoft.com/pricing/details/logic-apps/). For more information, review [Integration accounts](#integration-accounts). |
 
 <a name="consumption-operations"></a>
 
@@ -51,7 +51,7 @@ The Consumption model meters and bills an operation *per execution, not per call
 > where the triggers don't instantiate and start the workflow, but the trigger state is **Succeeded**, 
 > **Failed**, or **Skipped**.
 
-The following table summarizes how the Consumption model handles metering and billing for these operation types when used with a logic app and workflow in multi-tenant Azure Logic Apps:
+The following table summarizes how the Consumption model handles metering and billing for these operation types when used with a logic app and workflow in multitenant Azure Logic Apps:
 
 | Operation type | Description | Metering and billing |
 |----------------|-------------|----------------------|
@@ -82,8 +82,9 @@ In single-tenant Azure Logic Apps, a logic app and its workflows follow the [**S
 When you create or deploy logic apps with the **Logic App (Standard)** resource type, and you select any Azure region for deployment, you'll also select a Workflow Standard hosting plan. However, if you select an existing **App Service Environment v3** resource for your deployment location, you must then select an [App Service Plan](../app-service/overview-hosting-plans.md).
 
 > [!IMPORTANT]
-> The following plans and resources are no longer available or supported with the public release of the **Logic App (Standard)** resource type in Azure regions: 
-> Functions Premium plan, App Service Environment v1, and App Service Environment v2. Except with ASEv3, the App Service Plan is unavailable and unsupported.
+> The following plans and resources are no longer available or supported with the public release of Standard 
+> logic app workflows in single-tenant Azure Logic Apps: Functions Premium plan, App Service Environment v1, 
+> and App Service Environment v2. The App Service Plan is available and supported only with App Service Environment v3 (ASE v3).
 
 The following table summarizes how the Standard model handles metering and billing for the following components when used with a logic app and a workflow in single-tenant Azure Logic Apps:
 
@@ -151,51 +152,16 @@ The following table summarizes how the Standard model handles metering and billi
 
 For more information about how the Standard model works with operations that run inside other operations such as loops, process multiple items such as arrays, and retry policies, review [Other operation behavior](#other-operation-behavior).
 
-<a name="ise-pricing"></a>
-
-## Integration service environment (ISE)
-
-When you create a logic app using the **Logic App (Consumption)** resource type, and you deploy to a dedicated [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), the logic app and its workflow follow the [Integration Service Environment plan](https://azure.microsoft.com/pricing/details/logic-apps) for pricing and billing. This pricing model depends on your [ISE level or *SKU*](connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) and differs from the Consumption plan in that you're billed for reserved capacity and dedicated resources whether or not you use them.
-
-The following table summarizes how the ISE model handles metering and billing for capacity and other dedicated resources based on your ISE level or SKU:
-
-| ISE SKU | Metering and billing |
-|---------|----------------------|
-| **Premium** | The base unit has [fixed capacity](logic-apps-limits-and-config.md#integration-service-environment-ise) and is [billed at an hourly rate for the Premium SKU](https://azure.microsoft.com/pricing/details/logic-apps). If you need more throughput, you can [add more scale units](../logic-apps/ise-manage-integration-service-environment.md#add-capacity) when you create your ISE or afterwards. Each scale unit is billed at an [hourly rate that's roughly half the base unit rate](https://azure.microsoft.com/pricing/details/logic-apps). <p><p>For capacity and limits information, see [ISE limits in Azure Logic Apps](logic-apps-limits-and-config.md#integration-service-environment-ise). |
-| **Developer** | The base unit has [fixed capacity](logic-apps-limits-and-config.md#integration-service-environment-ise) and is [billed at an hourly rate for the Developer SKU](https://azure.microsoft.com/pricing/details/logic-apps). However, this SKU has no service-level agreement (SLA), scale up capability, or redundancy during recycling, which means that you might experience delays or downtime. Backend updates might intermittently interrupt service. <p><p>**Important**: Make sure that you use this SKU only for exploration, experiments, development, and testing - not for production or performance testing. <p><p>For capacity and limits information, see [ISE limits in Azure Logic Apps](logic-apps-limits-and-config.md#integration-service-environment-ise). |
-
-The following table summarizes how the ISE model handles the following components when used with a logic app and a workflow in an ISE:
-
-| Component | Description |
-|-----------|-------------|
-| Trigger and action operations | The ISE model includes free built-in, managed connector, and custom connector operations that your workflow can run, but subject to the [ISE limits in Azure Logic Apps](logic-apps-limits-and-config.md#integration-service-environment-ise) and [custom connector limits in Azure Logic Apps](logic-apps-limits-and-config.md#custom-connector-limits). For more information, review [Trigger and action operations in the ISE model](#integration-service-environment-operations). |
-| Storage operations | The ISE model includes free storage consumption, such as data retention. For more information, review [Storage operations](#storage-operations). |
-| Integration accounts | The ISE model includes a single free integration account tier, based on your selected ISE SKU. For an [extra cost](https://azure.microsoft.com/pricing/details/logic-apps/), you can create more integration accounts for your ISE to use up to the [total ISE limit](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits). For more information, review [Integration accounts](#integration-accounts). |
-
-<a name="integration-service-environment-operations"></a>
-
-### Trigger and action operations in the ISE model
-
-The following table summarizes how the ISE model handles the following operation types when used with a logic app and workflow in an ISE:
-
-| Operation type | Description | Metering and billing |
-|----------------|-------------|----------------------|
-| [*Built-in*](../connectors/built-in.md) | These operations run directly and natively with the Azure Logic Apps runtime and in the same ISE as your logic app workflow. In the designer, you can find these operations under the **Built-in** label, but each operation also displays the **CORE** label. <p>For example, the HTTP trigger and Request trigger are built-in triggers. The HTTP action and Response action are built-in actions. Other built-in operations include workflow control actions such as loops and conditions, data operations, batch operations, and others. | The ISE model includes these operations *for free*, but are subject to the [ISE limits in Azure Logic Apps](logic-apps-limits-and-config.md#integration-service-environment-ise). |
-| [*Managed connector*](../connectors/managed.md) | Whether *Standard* or *Enterprise*, managed connector operations run in either your ISE or multi-tenant Azure, based on whether the connector or operation displays the **ISE** label. <p><p>- **ISE** label: These operations run in the same ISE as your logic app and work without requiring the [on-premises data gateway](#data-gateway). <p><p>- No **ISE** label: These operations run in multi-tenant Azure. | The ISE model includes both **ISE** and no **ISE** labeled operations *for free*, but are subject to the [ISE limits in Azure Logic Apps](logic-apps-limits-and-config.md#integration-service-environment-ise). |
-| [*Custom connector*](../connectors/introduction.md#custom-connectors-and-apis) | In the designer, you can find these operations under the **Custom** label. | The ISE model includes these operations *for free*, but are subject to [custom connector limits in Azure Logic Apps](logic-apps-limits-and-config.md#custom-connector-limits). |
-
-For more information about how the ISE model works with operations that run inside other operations such as loops, process multiple items such as arrays, and retry policies, review [Other operation behavior](#other-operation-behavior).
-
 <a name="other-operation-behavior"></a>
 
 ## Other operation behavior
 
-The following table summarizes how the Consumption, Standard, and ISE models handle operations that run inside other operations such as loops, process multiple items such as arrays, and retry policies:
+The following table summarizes how the Consumption and Standard models handle operations that run inside other operations such as loops, process multiple items such as arrays, and retry policies:
 
-| Operation | Description | Consumption | Standard | ISE |
-|-----------|-------------|-------------|----------|-----|
-| [Loop actions](logic-apps-control-flow-loops.md) | A loop action, such as the **For each** or **Until** loop, can include other actions that run during each loop cycle. | Except for the initial number of included built-in operations, the loop action and each action in the loop are metered each time the loop cycle runs. If an action processes any items in a collection, such as a list or array, the number of items is also used in the metering calculation. <p><p>For example, suppose you have a **For each** loop with actions that process a list. The service multiplies the number of list items against the number of actions in the loop, and adds the action that starts the loop. So, the calculation for a 10-item list is (10 * 1) + 1, which results in 11 action executions. <p><p>Pricing is based on whether the operation types are built-in, Standard, or Enterprise. | Except for the included built-in operations, same as the Consumption model. | Not metered or billed. |
-| [Retry policies](logic-apps-exception-handling.md#retry-policies) | On supported operations, you can implement basic exception and error handling by setting up a [retry policy](logic-apps-exception-handling.md#retry-policies). | Except for the initial number of built-in operations, the original execution plus each retried execution are metered. For example, an action that executes with 5 retries is metered and billed as 6 executions. <p><p>Pricing is based on whether the operation types are built-in, Standard, or Enterprise. | Except for the built-in included operations, same as the Consumption model. | Not metered or billed. |
+| Operation | Description | Consumption | Standard |
+|-----------|-------------|-------------|----------|
+| [Loop actions](logic-apps-control-flow-loops.md) | A loop action, such as the **For each** or **Until** loop, can include other actions that run during each loop cycle. | Except for the initial number of included built-in operations, the loop action and each action in the loop are metered each time the loop cycle runs. If an action processes any items in a collection, such as a list or array, the number of items is also used in the metering calculation. <p><p>For example, suppose you have a **For each** loop with actions that process a list. The service multiplies the number of list items against the number of actions in the loop, and adds the action that starts the loop. So, the calculation for a 10-item list is (10 * 1) + 1, which results in 11 action executions. <p><p>Pricing is based on whether the operation types are built-in, Standard, or Enterprise. | Except for the included built-in operations, same as the Consumption model. |
+| [Retry policies](logic-apps-exception-handling.md#retry-policies) | On supported operations, you can implement basic exception and error handling by setting up a [retry policy](logic-apps-exception-handling.md#retry-policies). | Except for the initial number of built-in operations, the original execution plus each retried execution are metered. For example, an action that executes with 5 retries is metered and billed as 6 executions. <p><p>Pricing is based on whether the operation types are built-in, Standard, or Enterprise. | Except for the built-in included operations, same as the Consumption model. |
 
 <a name="storage-operations"></a>
 
@@ -203,13 +169,12 @@ The following table summarizes how the Consumption, Standard, and ISE models han
 
 Azure Logic Apps uses [Azure Storage](../storage/index.yml) for any required storage transactions, such as using queues for scheduling trigger operations or using tables and blobs for storing workflow states. Based on the operations in your workflow, storage costs vary because different triggers, actions, and payloads result in different storage operations and needs. The service also saves and stores inputs and outputs from your workflow's run history, based on the logic app resource's [run history retention limit](logic-apps-limits-and-config.md#run-duration-retention-limits). You can manage this retention limit at the logic app resource level, not the workflow level.
 
-The following table summarizes how the Consumption, Standard, and ISE models handle metering and billing for storage operations:
+The following table summarizes how the Consumption and Standard models handle metering and billing for storage operations:
 
 | Model | Description | Metering and billing |
 |-------|-------------|----------------------|
-| Consumption (multi-tenant) | Storage resources and usage are attached to the logic app resource. | Metering and billing *apply only to data retention-related storage consumption* and follow the [data retention pricing for the Consumption plan](https://azure.microsoft.com/pricing/details/logic-apps). |
+| Consumption (multitenant) | Storage resources and usage are attached to the logic app resource. | Metering and billing *apply only to data retention-related storage consumption* and follow the [data retention pricing for the Consumption plan](https://azure.microsoft.com/pricing/details/logic-apps). |
 | Standard (single-tenant) | You can use your own Azure [storage account](../azure-functions/storage-considerations.md#storage-account-requirements), which gives you more control and flexibility over your workflow's data. |  Metering and billing follow the [Azure Storage pricing model](https://azure.microsoft.com/pricing/details/storage/). Storage costs appear separately on your Azure billing invoice. <p><p>**Tip**: To help you better understand the number of storage operations that a workflow might run and their cost, try using the [Logic Apps Storage calculator](https://logicapps.azure.com/calculator). Select either a sample workflow or use an existing workflow definition. The first calculation estimates the number of storage operations in your workflow. You can then use these numbers to estimate possible costs using the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/). For more information, review [Estimate storage needs and costs for workflows in single-tenant Azure Logic Apps](estimate-storage-costs.md). |
-| Integration service environment (ISE) | Storage resources and usage are attached to the logic app resource. | Not metered or billed. |
 
 For more information, review the following documentation:
 
@@ -228,13 +193,12 @@ The [on-premises data gateway](../logic-apps/logic-apps-gateway-install.md) is a
 
 An [integration account](logic-apps-enterprise-integration-create-integration-account.md) is a separate Azure resource that you create as a container to define and store business-to-business (B2B) artifacts such as trading partners, agreements, schemas, maps, and so on. After you create this account and define these artifacts, link this account to your logic app so that you can use these artifacts and various B2B operations in workflows to explore, build, and test integration solutions that use [EDI](logic-apps-enterprise-integration-b2b.md) and [XML processing](logic-apps-enterprise-integration-xml.md) capabilities.
 
-The following table summarizes how the Consumption, Standard, and ISE models handle metering and billing for integration accounts:
+The following table summarizes how the Consumption and Standard models handle metering and billing for integration accounts:
 
 | Model | Metering and billing |
 |-------|----------------------|
-| Consumption (multi-tenant) | Metering and billing use the [integration account pricing](https://azure.microsoft.com/pricing/details/logic-apps/), based on the account tier that you use. |
+| Consumption (multitenant) | Metering and billing use the [integration account pricing](https://azure.microsoft.com/pricing/details/logic-apps/), based on the account tier that you use. |
 | Standard (single-tenant) | Metering and billing use the [integration account pricing](https://azure.microsoft.com/pricing/details/logic-apps/), based on the account tier that you use. |
-| ISE | This model includes a single integration account, based on your ISE SKU. For an [extra cost](https://azure.microsoft.com/pricing/details/logic-apps/), you can create more integration accounts for your ISE to use up to the [total ISE limit](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits). |
 
 For more information, review the following documentation:
 

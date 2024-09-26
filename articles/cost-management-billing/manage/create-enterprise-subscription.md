@@ -7,7 +7,7 @@ ms.reviewer: amberb
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 04/02/2024
+ms.date: 04/16/2024
 ms.author: banders
 ---
 
@@ -58,6 +58,41 @@ A user with Enterprise Administrator or Account Owner permissions can use the fo
 
 After the new subscription is created, the account owner can see it in on the **Subscriptions** page.
 
+## View the new subscription
+
+When you created the subscription, Azure created a notification stating **Successfully created the subscription**. The notification also had a link to **Go to subscription**, which allows you to view the new subscription. If you missed the notification, you can view select the bell symbol in the upper-right corner of the portal to view the notification that has the link to **Go to subscription**. Select the link to view the new subscription.
+
+Here's an example of the notification:
+
+:::image type="content" source="./media/create-enterprise-subscription/subscription-create-notification.png" alt-text="Screenshot showing the Successfully created the subscription notification." lightbox="./media/create-enterprise-subscription/subscription-create-notification.png" :::
+
+Or, if you're already on the Subscriptions page, you can refresh your browser's view to see the new subscription.
+
+## Create subscription in other tenant and view transfer requests
+
+A user with the following permission can create subscriptions in their customer's directory if they're allowed or exempted with subscription policy. For more information, see [Setting subscription policy](manage-azure-subscription-policy.md#setting-subscription-policy).
+
+- Enterprise Administrator
+- Account Owner
+
+When you try to create a subscription for someone in a directory outside of the current directory (such as a customer's tenant), a _subscription creation request_ is created. You specify the subscription directory and subscription owner details on the Advanced tab when creating the subscription. The subscription owner must accept the subscription ownership request before the subscription is created. The subscription owner is the customer in the target tenant where the subscription is being provisioned.
+
+:::image type="content" source="./media/create-enterprise-subscription/create-subscription-other-directory.png" alt-text="Screenshot showing Create a subscription outside the current directory." lightbox="./media/create-enterprise-subscription/create-subscription-other-directory.png" :::
+
+When the request is created, the subscription owner (the customer) is sent an email letting them know that they need to accept subscription ownership. The email contains a link used to accept ownership in the Azure portal. The customer must accept the request within seven days. If not accepted within seven days, the request expires. The person that created the request can also manually send their customer the ownership URL to accept the subscription.
+
+After the request is created, it's visible in the Azure portal at **Subscriptions** > **View Requests** by the following people:
+
+- The tenant global administrator of the source tenant where the subscription provisioning request is made.
+- The user who made the subscription creation request for the subscription being provisioned in the other tenant.
+- The user who made the request to provision the subscription in a different tenant than where they make the [Subscription – Alias REST API](/rest/api/subscription/) call instead of the Azure portal.
+
+The subscription owner in the request who resides in the target tenant doesn't see this subscription creation request on the View requests page. Instead, they receive an email with the link to accept ownership of the subscription in the target tenant.
+
+:::image type="content" source="./media/create-enterprise-subscription/view-requests.png" alt-text="Screenshot showing View Requests page that lists all subscription creation requests." lightbox="./media/create-enterprise-subscription/view-requests.png" :::
+
+Anyone with access to view the request can view its details. In the request details, the **Accept ownership URL** is visible. You can copy it to manually share it with the subscription owner in the target tenant for subscription ownership acceptance.
+
 ## Can't view subscription
 
 If you created a subscription but can't find it in the Subscriptions list view, a view filter might be applied.
@@ -78,7 +113,7 @@ You can also create subscriptions programmatically. For more information, see [C
 
 If you have questions or need help, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-## Next steps
+## Related content
 
 - [Add or change Azure subscription administrators](add-change-subscription-administrator.md)
 - [Move resources to new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md)

@@ -4,9 +4,9 @@ description: Configure a GraphQL resolver in Azure API Management for a field in
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
-ms.date: 06/08/2023
+ms.date: 05/02/2024
 ms.author: danlep
 ---
 
@@ -16,6 +16,8 @@ ms.author: danlep
 
 
 Configure a resolver to retrieve or set data for a GraphQL field in an object type specified in a GraphQL schema. The schema must be imported to API Management as a GraphQL API. 
+
+[!INCLUDE [api-management-workspace-availability](../../includes/api-management-workspace-availability.md)]
 
 Currently, API Management supports resolvers that can access the following data sources:
 
@@ -29,6 +31,7 @@ Currently, API Management supports resolvers that can access the following data 
 * Each resolver resolves data for a single field. To resolve data for multiple fields, configure a separate resolver for each.
 * Resolver-scoped policies are evaluated *after* any `inbound` and `backend` policies in the policy execution pipeline. They don't inherit policies from other scopes. For more information, see [Policies in API Management](api-management-howto-policies.md).
 * You can configure API-scoped policies for a GraphQL API, independent of the resolver-scoped policies. For example, add a [validate-graphql-request](validate-graphql-request-policy.md) policy to the `inbound` scope to validate the request before the resolver is invoked. Configure API-scoped policies on the **API policies** tab for the API.
+* To support interface and union types in GraphQL resolvers, the backend response must either already contain the `__typename` field, or be altered using the [set-body](set-body-policy.md) policy to include `__typename`.
 
 ## Prerequisites
 

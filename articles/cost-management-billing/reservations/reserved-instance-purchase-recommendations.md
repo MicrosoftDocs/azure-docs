@@ -12,7 +12,7 @@ ms.date: 08/14/2023
 
 # Reservation recommendations
 
-Azure reserved instance (RI) purchase recommendations are provided through Azure Consumption [Reservation Recommendation API](/rest/api/consumption/reservationrecommendations), [Azure Advisor](../../advisor/advisor-reference-cost-recommendations.md#reserved-instances), and through the reservation purchase experience in the Azure portal.
+Azure reserved instance (RI) purchase recommendations are provided through Azure Consumption [Reservation Recommendation API](/rest/api/consumption/reservationrecommendations), [Azure Advisor](/azure/advisor/advisor-reference-cost-recommendations#reserved-instances), and through the reservation purchase experience in the Azure portal.
 
 The savings that are presented as part of reservation recommendations are the savings that are calculated in addition to your negotiated, or discounted (if applicable) prices.
 
@@ -63,6 +63,7 @@ Reservation purchase recommendations are available in Azure Advisor. Keep in min
 
 - When using a look-back period of seven days, you might not get recommendations when VMs are shut down for more than a day.
 
-## Next steps
+## Related content
+
 - Get [Reservation recommendations using REST APIs](/rest/api/consumption/reservationrecommendations/list).
 - Learn about [how the Azure reservation discount is applied to virtual machines](../manage/understand-vm-reservation-charges.md).

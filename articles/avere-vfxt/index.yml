@@ -6,7 +6,7 @@ summary: Avere vFXT for Azure provides a cloud-based cache layer for data-intens
 metadata:
   title: Avere vFXT for Azure documentation
   description: Use Avere vFXT as a caching layer for read-intensive high-performance computing (HPC) tasks.
-  ms.service: avere-vfxt
+  ms.service: azure-avere-vfxt
   ms.topic: landing-page
   author: ronhogue
   ms.author: rohogue

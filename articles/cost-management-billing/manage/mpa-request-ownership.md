@@ -187,7 +187,7 @@ Azure Marketplace products, which are available for subscriptions that are manag
 
 Access for existing users, groups, or service principals that was assigned using [Azure role-based access control (Azure RBAC role)](../../role-based-access-control/overview.md) isn't affected during the transition. The partner won’t get any new Azure RBAC role access to the subscriptions.
 
-The partners should work with the customer to get access to subscriptions. The partners need to get either Admin on Behalf Of - AOBO or [Azure Lighthouse](../../lighthouse/concepts/cloud-solution-provider.md) access open support tickets.
+The partners should work with the customer to get access to subscriptions. The partners need to get either Admin on Behalf Of - AOBO or [Azure Lighthouse](/azure/lighthouse/concepts/cloud-solution-provider) access open support tickets.
 
 ### Power BI connectivity
 
@@ -240,4 +240,4 @@ If you need help, [contact support](https://portal.azure.com/?#blade/Microsoft_A
 ## Next steps
 
 * The billing ownership of the Azure products is transferred to you. Keep track of the charges for these products in the [Azure portal](https://portal.azure.com).
-* Work with the customer to get access to the transferred Azure products. [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+* Work with the customer to get access to the transferred Azure products. [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).

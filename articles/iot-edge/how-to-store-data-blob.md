@@ -1,11 +1,11 @@
 ---
-title: Store block blobs on devices - Azure IoT Edge | Microsoft Docs
-description: Understand tiering and time-to-live features, see supported blob storage operations, and connect to your blob storage account.
+title: Store block blobs on Azure IoT Edge devices
+description: Understand how to use Azure Blob Storage on IoT Edge including features, supported blob storage operations, and connecting to your blob storage account.
 author: PatAltimore
 ms.author: patricka
 ms.reviewer: arduppal
-ms.date: 12/13/2019
-ms.topic: conceptual
+ms.date: 06/06/2024
+ms.topic: concept-article
 ms.service: iot-edge
 ms.custom: linux-related-content
 services: iot-edge
@@ -37,7 +37,7 @@ The **deviceToCloudUpload** feature is a configurable functionality. This functi
 
 This module uses block level upload, when your blob consists of blocks. Here are some of the common scenarios:
 
-* Your application updates some blocks of a previously uploaded block blob or appends new blocks to an append blob, this module uploads only the updated blocks and not the whole blob.
+* Your application updates some blocks of a previously uploaded block blob or appends new blocks to an append blob. This module uploads only the updated blocks and not the whole blob.
 * The module is uploading blob and internet connection goes away, when the connectivity is back again it uploads only the remaining blocks and not the whole blob.
 
 If an unexpected process termination (like power failure) happens during a blob upload, all blocks due for the upload are uploaded again once the module comes back online.
@@ -75,7 +75,7 @@ The name of this setting is `deviceToCloudUploadProperties`. If you're using the
 | Property | Possible Values | Explanation |
 | ----- | ----- | ---- |
 | uploadOn | true, false | Set to `false` by default. If you want to turn on the feature, set this field to `true`. <br><br> Environment variable: `deviceToCloudUploadProperties__uploadOn={false,true}` |
-| uploadOrder | NewestFirst, OldestFirst | Allows you to choose the order in which the data is copied to Azure. Set to `OldestFirst` by default. The order is determined by last modified time of Blob. <br><br> Environment variable: `deviceToCloudUploadProperties__uploadOrder={NewestFirst,OldestFirst}` |
+| uploadOrder | NewestFirst, OldestFirst | Allows you to choose the order in which the data is copied to Azure. Set to `OldestFirst` by default. The order is determined by last modified time of blob. <br><br> Environment variable: `deviceToCloudUploadProperties__uploadOrder={NewestFirst,OldestFirst}` |
 | cloudStorageConnectionString |  | `"DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>"` is a connection string that allows you to specify the storage account to which you want your data uploaded. Specify `Azure Storage Account Name`, `Azure Storage Account Key`, `End point suffix`. Add appropriate EndpointSuffix of Azure where data is uploaded, it varies for Global Azure, Government Azure, and Microsoft Azure Stack. <br><br> You can choose to specify Azure Storage SAS connection string here. But you have to update this property when it expires. SAS permissions may include create access for containers and create, write, and add access for blobs.  <br><br> Environment variable: `deviceToCloudUploadProperties__cloudStorageConnectionString=<connection string>` |
 | storageContainersForUpload | `"<source container name1>": {"target": "<target container name>"}`,<br><br> `"<source container name1>": {"target": "%h-%d-%m-%c"}`, <br><br> `"<source container name1>": {"target": "%d-%c"}` | Allows you to specify the container names you want to upload to Azure. This module allows you to specify both source and target container names. If you don't specify the target container name, it's automatically assigned a container name such as `<IoTHubName>-<IotEdgeDeviceID>-<ModuleName>-<SourceContainerName>`. You can create template strings for target container name, check out the possible values column. <br>* %h -> IoT Hub Name (3-50 characters). <br>* %d -> IoT Edge Device ID (1 to 129 characters). <br>* %m -> Module Name (1 to 64 characters). <br>* %c -> Source Container Name (3 to 63 characters). <br><br>Maximum size of the container name is 63 characters. The name is automatically assigned the target container name if the size of container exceeds 63 characters. In this case, name is trimmed in each section (IoTHubName, IotEdgeDeviceID, ModuleName, SourceContainerName) to 15 characters. <br><br> Environment variable: `deviceToCloudUploadProperties__storageContainersForUpload__<sourceName>__target=<targetName>` |
 | deleteAfterUpload | true, false | Set to `false` by default. When set to `true`, the data automatically deletes when the upload to cloud storage is finished. <br><br> **CAUTION**: If you're using append blobs, this setting deletes append blobs from local storage after a successful upload, and any future Append Block operations to those blobs will fail. Use this setting with caution. Don't enable this setting if your application does infrequent append operations or doesn't support continuous append operations<br><br> Environment variable: `deviceToCloudUploadProperties__deleteAfterUpload={false,true}`. |
@@ -177,7 +177,7 @@ Specify your IoT Edge device as the blob endpoint for any storage requests that 
   * `http://<fully qualified domain name>:11002/<account name>`
 
  > [!IMPORTANT]
- > Azure IoT Edge is case-sensitive when you make calls to modules, and the Storage SDK also defaults to lowercase. Although the name of the module in the [Azure Marketplace](how-to-deploy-modules-portal.md#deploy-modules-from-azure-marketplace) is **AzureBlobStorageonIoTEdge**, changing the name to lowercase helps to ensure that your connections to the Azure Blob Storage on IoT Edge module aren't interrupted.
+ > Azure IoT Edge is case-sensitive when you make calls to modules, and the Storage SDK also defaults to lowercase. Changing the name to lowercase helps to ensure that your connections to the Azure Blob Storage on IoT Edge module aren't interrupted.
 
 ## Azure Blob Storage quickstart samples
 

@@ -3,9 +3,9 @@ title: Azure Communications Gateway and your network
 description: Azure Communication Gateway sits on the edge of your network. Its interoperability features allow it to adapt to your requirements.
 author: rcdun
 ms.author: rdunstan
-ms.service: communications-gateway
+ms.service: azure-communications-gateway
 ms.topic: concept-article
-ms.date: 02/16/2024
+ms.date: 03/31/2024
 ms.custom: template-concept
 ---
 
@@ -29,10 +29,10 @@ Azure Communications Gateway sits at the edge of your fixed line and mobile netw
 
 Azure Communications Gateway provides all the features of a traditional session border controller (SBC). These features include:
 
-- Signaling interworking features to solve interoperability problems
-- Advanced media manipulation and interworking
-- Defending against Denial of Service attacks and other malicious traffic
-- Ensuring Quality of Service
+- Signaling interworking features to solve interoperability problems.
+- Advanced media manipulation and interworking.
+- Defending against Denial of Service attacks and other malicious traffic.
+- Ensuring Quality of Service.
 
 Azure Communications Gateway also offers metrics for monitoring your deployment.
 
@@ -68,27 +68,30 @@ To allow Azure Communications Gateway to identify the correct service for a call
 - Required for Microsoft Teams Direct Routing and Zoom Phone Cloud Peering.
 - Not required for Operator Connect (because Azure Communications Gateway defaults to Operator Connect for fixed line calls) or Teams Phone Mobile.
 
-You can also configure Azure Communications Gateway to add a custom header to messages associated with a number. You can use this feature to indicate the service and/or the enterprise associated with a call.
+You can also configure Azure Communications Gateway to add a custom header to messages associated with a number. You can use this feature to indicate the service and/or the enterprise associated with a call. This feature is available for all communications services except Azure Operator Call Protection Preview and Teams Phone Mobile.
 
-For Microsoft Teams Direct Routing and for Zoom Phone Cloud Peering, configuring numbers with services and custom headers requires Azure Communications Gateway's Provisioning API (preview). For more information, see [Provisioning API (preview) for Azure Communications Gateway](provisioning-platform.md). For Operator Connect or Teams Phone Mobile, you can use the Provisioning API or the [Number Management Portal (preview)](manage-enterprise-operator-connect.md)
+This configuration requires you to use Azure Communication Gateway's browser-based Number Management Portal (preview) or the [Provisioning API (preview)](provisioning-platform.md).
 
 > [!NOTE]
-> Although integrating with the Provisioning API is optional for Operator Connect or Teams Phone Mobile, we strongly recommend it. Integrating with the Provisioning API enables flow-through API-based provisioning of your customers in the Operator Connect environment, in addition to provisioning on Azure Communications Gateway (for custom header configuration). This flow-through provisioning interoperates with the Operator Connect APIs, and allows you to meet the requirements for API-based provisioning from the Operator Connect and Teams Phone Mobile programs. For more information, see [Provisioning and Operator Connect APIs](interoperability-operator-connect.md#provisioning-and-operator-connect-apis).
+> For Operator Connect and Teams Phone Mobile:
+> 
+> - We strongly recommend integrating with the Provisioning API. It enables flow-through API-based provisioning of your customers in the Operator Connect environment, in addition to provisioning on Azure Communications Gateway (for custom header configuration). Flow-through provisioning interoperates with the Operator Connect APIs, and allows you to meet the requirements for API-based provisioning from the Operator Connect and Teams Phone Mobile programs. For more information, see [Provisioning and Operator Connect APIs](interoperability-operator-connect.md#provisioning-and-operator-connect-apis).
+> - You can't use the Number Management Portal after you launch your service, because the Operator Connect and Teams Phone Mobile programs require full API integration.
 
 You can arrange more interworking function as part of your initial network design or at any time by raising a support request for Azure Communications Gateway. For example, you might need extra interworking configuration for:
 
-- Advanced SIP header or SDP message manipulation
-- Support for reliable provisional messages (100rel)
-- Interworking between early and late media
-- Interworking away from inband DTMF tones
+- Advanced SIP header or SDP message manipulation.
+- Support for reliable provisional messages (100rel).
+- Interworking between early and late media.
+- Interworking away from inband DTMF tones.
 
 ## RTP and SRTP media support
 
 Azure Communications Gateway supports both RTP and SRTP, and can interwork between them. Azure Communications Gateway offers other media manipulation features to allow your networks to interoperate with your chosen communications services. For example, you can use Azure Communications for:
 
-- Changing how RTCP is handled
-- Controlling bandwidth allocation
-- Prioritizing specific media traffic for Quality of Service
+- Changing how RTCP is handled.
+- Controlling bandwidth allocation.
+- Prioritizing specific media traffic for Quality of Service.
 
 For full details of the media interworking features available in Azure Communications Gateway, raise a support request.
 

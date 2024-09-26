@@ -3,16 +3,14 @@ title: Query your Azure Virtual Network Manager using Azure Resource Graph (ARG)
 description: This article covers the usage of Azure Resource Graph with Azure Virtual Network Manager.
 author: mbender-ms
 ms.author: mbender
-ms.topic: conceptual
-ms.service: virtual-network-manager
+ms.topic: how-to
+ms.service: azure-virtual-network-manager
 ms.date: 11/02/2023
 ---
 
 # Query your Azure Virtual Network Manager using Azure Resource Graph (ARG)
 
 This article covers the usage of [Azure Resource Graph](../governance/resource-graph/overview.md) with Azure Virtual Network Manager. Azure Resource Graph (ARG) extends Azure Resource Management allowing you to query a given set of subscriptions for better governance of your environment. With ARG integration, you can query ARG to get insights into their Azure Virtual Network Manager (AVNM) configurations. Insights are provided through customized [Kusto queries](/azure/data-explorer/kusto/query/) offering resource level or at the regional level status data.
-
-[!INCLUDE [virtual-network-manager-preview](../../includes/virtual-network-manager-preview.md)]
 
 ## Using ARG with virtual network manager
 
@@ -43,7 +41,7 @@ To get started with querying your virtual network manager data in ARG, follow th
 
 1. Enter your Kusto queries in the query editor and select **Run Query**.
 
-You can download the output of these queries as CSV from the **Resource Graph Explorer**. You can also use these queries in custom automation using any automation clients supported by ARG, such as [PowerShell](../governance/resource-graph/first-query-powershell.md), [CLI](../governance/resource-graph/first-query-azurecli.md), or [SDK](../governance/resource-graph/first-query-python.md). You can also create [custom workbooks](../azure-monitor/visualize/workbooks-overview.md) in the Azure portal using ARG as a data source.
+You can download the output of these queries as CSV from the **Resource Graph Explorer**. You can also use these queries in custom automation using any automation clients supported by ARG, such as [PowerShell](../governance/resource-graph/first-query-powershell.md), [CLI](../governance/resource-graph/first-query-azurecli.md), or [SDK](../governance/resource-graph/first-query-python.md). You can also create [custom workbooks](/azure/azure-monitor/visualize/workbooks-overview) in the Azure portal using ARG as a data source.
 
 > [!NOTE]
 > ARG allows you to query the resources for which you have the appropriate RBAC rights.

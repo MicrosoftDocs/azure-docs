@@ -1,8 +1,8 @@
 ---
-title: include file
-description: include file
+title: Azure Event Grid resource logs schema
+description: This article provides schema information for resources logs in Azure Event Grid. 
 author: spelluru
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: include
 ms.date: 03/20/2024
 ms.author: spelluru

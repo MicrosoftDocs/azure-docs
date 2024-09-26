@@ -1,9 +1,8 @@
 ---
  title: Pull and push delivery
  description: Describes the differences between push and pull delivery models supported by Event Grid namespaces.
- services: event-grid
  author: robece
- ms.service: event-grid
+ ms.service: azure-event-grid
  ms.topic: include
  ms.date: 11/15/2023
  ms.author: robece
@@ -27,7 +26,6 @@ The following are general guidelines to help you decide when to use pull or push
 
 #### Pull delivery
 
-- Your applications or services publish events. Event Grid doesn't yet support pull delivery when the source of the events is an [Azure service](../event-schema-api-management.md?tabs=cloud-event-schema) or a [partner](../partner-events-overview.md) (SaaS) system.
 - You need full control as to when to receive events. For example, your application might not be up all the time, not stable enough, or you process data at certain times.
 - You need full control over event consumption. For example, a downstream service or layer in your consumer application has a problem that prevents you from processing events. In that case, the pull delivery API allows the consumer app to release an already read event back to the broker so that it can be delivered later.
 - You want to use [private links](../../private-link/private-endpoint-overview.md) when receiving events, which is possible only with the pull delivery, not the push delivery.
@@ -35,6 +33,5 @@ The following are general guidelines to help you decide when to use pull or push
 
 #### Push delivery
 
-- You need to receive events from your applications. Push delivery supports these types of event sources.
 - You want to avoid constant polling to determine that a system state change has occurred. You rather use Event Grid to send events to you at the time state changes happen.
 - You have an application that can't make outbound calls. For example, your organization might be concerned about data exfiltration. However, your application can receive events through a public endpoint.

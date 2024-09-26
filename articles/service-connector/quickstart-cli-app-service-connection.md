@@ -7,13 +7,13 @@ ms.service: service-connector
 ms.topic: quickstart
 ms.date: 11/17/2023
 ms.devlang: azurecli
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, build-2024
 ---
 # Quickstart: Create a service connection in App Service with the Azure CLI
 
 This quickstart describes the steps for creating a service connection in Azure App Service with the Azure CLI.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
@@ -39,26 +39,10 @@ This quickstart describes the steps for creating a service connection in Azure A
 
 ## Create a service connection
 
-#### [Using an access key](#tab/Using-access-key)
-
-Use the Azure CLI [az webapp connection create](/cli/azure/webapp/connection/create) command to create a service connection to an Azure Blob Storage with an access key, providing the following information:
-
-- **Source compute service resource group name:** the resource group name of the App Service.
-- **App Service name:** the name of your App Service that connects to the target service.
-- **Target service resource group name:** the resource group name of the Blob Storage.
-- **Storage account name:** the account name of your Blob Storage.
-
-```azurecli
-az webapp connection create storage-blob --secret
-```
-
-> [!TIP]
-> If you don't have a Blob Storage, run `az webapp connection create storage-blob --new --secret` to provision a new one and directly get connected to your App Service resource.
-
 #### [Using a managed identity](#tab/Using-Managed-Identity)
 
 > [!IMPORTANT]
-> Using Managed Identity requires you have the permission to [Microsoft Entra role assignment](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). Without this permission, creating a connection will fail. You can ask your subscription owner to grant you this permission or use an access key to create the connection.
+> Using Managed Identity requires you have the permission to [Microsoft Entra role assignment](/entra/identity/role-based-access-control/manage-roles-portal). Without this permission, creating a connection will fail. You can ask your subscription owner to grant you this permission or use an access key to create the connection.
 
 Use the Azure CLI [az webapp connection](/cli/azure/webapp/connection) command to create a service connection to a Blob Storage with a system-assigned Managed Identity, providing the following information:
 
@@ -73,6 +57,25 @@ az webapp connection create storage-blob
 
 > [!NOTE]
 > If you don't have a Blob Storage, you can run `az webapp connection create storage-blob --new --system-identity` to provision a new Blob Storage resource and directly connected it to your App Service instance.
+
+#### [Using an access key](#tab/Using-access-key)
+
+> [!WARNING]
+> Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
+
+Use the Azure CLI [az webapp connection create](/cli/azure/webapp/connection/create) command to create a service connection to an Azure Blob Storage with an access key, providing the following information:
+
+- **Source compute service resource group name:** the resource group name of the App Service.
+- **App Service name:** the name of your App Service that connects to the target service.
+- **Target service resource group name:** the resource group name of the Blob Storage.
+- **Storage account name:** the account name of your Blob Storage.
+
+```azurecli
+az webapp connection create storage-blob --secret
+```
+
+> [!TIP]
+> If you don't have a Blob Storage, run `az webapp connection create storage-blob --new --secret` to provision a new one and directly get connected to your App Service resource.
 
 ---
 

@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 03/01/2024
+ms.date: 09/20/2024
 ms.custom: generated
 ---
 
@@ -15,6 +15,290 @@ ms.custom: generated
 
 This article lists the Azure built-in roles in the DevOps category.
 
+
+## Deployment Environments Reader
+
+Provides read access to environment resources.
+
+[Learn more](/azure/deployment-environments/how-to-configure-deployment-environments-user)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/read | Gets a specific project. |
+> | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/*/read |  |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/pools/read | Gets a machine pool |
+> | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/pools/schedules/read | Gets a schedule resource. |
+> | **DataActions** |  |
+> | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/users/environments/adminRead/action | Allows a project administrator to read all of the environments in a project. |
+> | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/users/environments/adminActionRead/action | Allows an admin to read environment actions. |
+> | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/users/environments/adminOutputsRead/action | Allows an admin to read Output values from environment deployment. |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Provides read access to environment resources.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/eb960402-bf75-4cc3-8d68-35b34f960f72",
+  "name": "eb960402-bf75-4cc3-8d68-35b34f960f72",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.DevCenter/projects/read",
+        "Microsoft.DevCenter/projects/*/read",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [
+        "Microsoft.DevCenter/projects/pools/read",
+        "Microsoft.DevCenter/projects/pools/schedules/read"
+      ],
+      "dataActions": [
+        "Microsoft.DevCenter/projects/users/environments/adminRead/action",
+        "Microsoft.DevCenter/projects/users/environments/adminActionRead/action",
+        "Microsoft.DevCenter/projects/users/environments/adminOutputsRead/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Deployment Environments Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Deployment Environments User
+
+Provides access to manage environment resources.
+
+[Learn more](/azure/deployment-environments/how-to-configure-deployment-environments-user)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/read | Gets a specific project. |
+> | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/*/read |  |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | **NotActions** |  |
+> | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/pools/read | Gets a machine pool |
+> | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/pools/schedules/read | Gets a schedule resource. |
+> | **DataActions** |  |
+> | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/users/environments/userRead/action | Allows a user to read the environments they have access to in a project. |
+> | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/users/environments/userWrite/action | Allows a user to write the environments they have access to in a project. |
+> | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/users/environments/userDelete/action | Allows a user to delete the environments they have access to in a project. |
+> | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/users/environments/userActionManage/action | Allows a user to skip, delay etc. environment actions. |
+> | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/users/environments/userOutputsRead/action | Allows a user to read Output values from environment deployment. |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Provides access to manage environment resources.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/18e40d4e-8d2e-438d-97e1-9528336e149c",
+  "name": "18e40d4e-8d2e-438d-97e1-9528336e149c",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.DevCenter/projects/read",
+        "Microsoft.DevCenter/projects/*/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Authorization/*/read"
+      ],
+      "notActions": [
+        "Microsoft.DevCenter/projects/pools/read",
+        "Microsoft.DevCenter/projects/pools/schedules/read"
+      ],
+      "dataActions": [
+        "Microsoft.DevCenter/projects/users/environments/userRead/action",
+        "Microsoft.DevCenter/projects/users/environments/userWrite/action",
+        "Microsoft.DevCenter/projects/users/environments/userDelete/action",
+        "Microsoft.DevCenter/projects/users/environments/userActionManage/action",
+        "Microsoft.DevCenter/projects/users/environments/userOutputsRead/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Deployment Environments User",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## DevCenter Dev Box User
+
+Provides access to create and manage dev boxes.
+
+[Learn more](/azure/dev-box/how-to-dev-box-user)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/read | Gets a specific project. |
+> | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/*/read |  |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/users/devboxes/userStop/action | Allows a user to stop their own Dev Box resources. |
+> | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/users/devboxes/userStart/action | Allows a user to start their own Dev Box resources. |
+> | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/users/devboxes/userGetRemoteConnection/action | Allows a user to get the RDP connection information for their own Dev Box resources. |
+> | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/users/devboxes/userRead/action | Allows a user to read their own Dev Box resources. |
+> | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/users/devboxes/userWrite/action | Allows a user to create and update their own Dev Box resources. |
+> | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/users/devboxes/userDelete/action | Allows a user to delete their own Dev Box resources. |
+> | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/users/devboxes/userUpcomingActionRead/action | Allows a user to read upcoming actions. |
+> | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/users/devboxes/userUpcomingActionManage/action | Allows a user to skip or delay upcoming actions. |
+> | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/users/devboxes/userActionRead/action | Allows a user to read dev box actions. |
+> | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/users/devboxes/userActionManage/action | Allows a user to skip or delay dev box actions. |
+> | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/users/devboxes/userCustomize/action | Allows a user to customize their own Dev Box resources. |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Provides access to create and manage dev boxes.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/45d50f46-0b78-4001-a660-4198cbe8cd05",
+  "name": "45d50f46-0b78-4001-a660-4198cbe8cd05",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.DevCenter/projects/read",
+        "Microsoft.DevCenter/projects/*/read",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.DevCenter/projects/users/devboxes/userStop/action",
+        "Microsoft.DevCenter/projects/users/devboxes/userStart/action",
+        "Microsoft.DevCenter/projects/users/devboxes/userGetRemoteConnection/action",
+        "Microsoft.DevCenter/projects/users/devboxes/userRead/action",
+        "Microsoft.DevCenter/projects/users/devboxes/userWrite/action",
+        "Microsoft.DevCenter/projects/users/devboxes/userDelete/action",
+        "Microsoft.DevCenter/projects/users/devboxes/userUpcomingActionRead/action",
+        "Microsoft.DevCenter/projects/users/devboxes/userUpcomingActionManage/action",
+        "Microsoft.DevCenter/projects/users/devboxes/userActionRead/action",
+        "Microsoft.DevCenter/projects/users/devboxes/userActionManage/action",
+        "Microsoft.DevCenter/projects/users/devboxes/userCustomize/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "DevCenter Dev Box User",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## DevCenter Project Admin
+
+Provides access to manage project resources.
+
+[Learn more](/azure/dev-box/how-to-project-admin)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/* |  |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/write | Partially updates a project. |
+> | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/delete | Deletes a project resource. |
+> | **DataActions** |  |
+> | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/users/devboxes/adminStart/action | Allows a user to start any Dev Box resource. |
+> | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/users/devboxes/adminStop/action | Allows a user to stop any Dev Box resource. |
+> | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/users/devboxes/adminRead/action | Allows a user read access to any Dev Box resource. |
+> | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/users/devboxes/adminWrite/action | Allows a user write access to any Dev Box resource. |
+> | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/users/devboxes/adminDelete/action | Allows a user to delete any Dev Box resource. |
+> | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/users/devboxes/userStop/action | Allows a user to stop their own Dev Box resources. |
+> | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/users/devboxes/userStart/action | Allows a user to start their own Dev Box resources. |
+> | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/users/devboxes/userGetRemoteConnection/action | Allows a user to get the RDP connection information for their own Dev Box resources. |
+> | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/users/devboxes/userRead/action | Allows a user to read their own Dev Box resources. |
+> | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/users/devboxes/userWrite/action | Allows a user to create and update their own Dev Box resources. |
+> | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/users/devboxes/userDelete/action | Allows a user to delete their own Dev Box resources. |
+> | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/users/devboxes/userActionRead/action | Allows a user to read dev box actions. |
+> | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/users/devboxes/userActionManage/action | Allows a user to skip or delay dev box actions. |
+> | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/users/devboxes/userCustomize/action | Allows a user to customize their own Dev Box resources. |
+> | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/users/environments/adminRead/action | Allows a project administrator to read all of the environments in a project. |
+> | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/users/environments/userWrite/action | Allows a user to write the environments they have access to in a project. |
+> | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/users/environments/adminWrite/action | Allows a project administrator to write all of the environments in a project. |
+> | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/users/environments/userDelete/action | Allows a user to delete the environments they have access to in a project. |
+> | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/users/environments/adminDelete/action | Allows a project administrator to delete all of the environments in a project. |
+> | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/users/environments/adminAction/action | Allows a project administrator to perform an action on all of the environments in a project. |
+> | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/users/environments/adminActionRead/action | Allows an admin to read environment actions. |
+> | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/users/environments/adminActionManage/action | Allows an admin to skip, delay etc. environment actions. |
+> | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/users/environments/adminOutputsRead/action | Allows an admin to read Output values from environment deployment. |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Provides access to manage project resources.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/331c37c6-af14-46d9-b9f4-e1909e1b95a0",
+  "name": "331c37c6-af14-46d9-b9f4-e1909e1b95a0",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.DevCenter/projects/*",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [
+        "Microsoft.DevCenter/projects/write",
+        "Microsoft.DevCenter/projects/delete"
+      ],
+      "dataActions": [
+        "Microsoft.DevCenter/projects/users/devboxes/adminStart/action",
+        "Microsoft.DevCenter/projects/users/devboxes/adminStop/action",
+        "Microsoft.DevCenter/projects/users/devboxes/adminRead/action",
+        "Microsoft.DevCenter/projects/users/devboxes/adminWrite/action",
+        "Microsoft.DevCenter/projects/users/devboxes/adminDelete/action",
+        "Microsoft.DevCenter/projects/users/devboxes/userStop/action",
+        "Microsoft.DevCenter/projects/users/devboxes/userStart/action",
+        "Microsoft.DevCenter/projects/users/devboxes/userGetRemoteConnection/action",
+        "Microsoft.DevCenter/projects/users/devboxes/userRead/action",
+        "Microsoft.DevCenter/projects/users/devboxes/userWrite/action",
+        "Microsoft.DevCenter/projects/users/devboxes/userDelete/action",
+        "Microsoft.DevCenter/projects/users/devboxes/userActionRead/action",
+        "Microsoft.DevCenter/projects/users/devboxes/userActionManage/action",
+        "Microsoft.DevCenter/projects/users/devboxes/userCustomize/action",
+        "Microsoft.DevCenter/projects/users/environments/adminRead/action",
+        "Microsoft.DevCenter/projects/users/environments/userWrite/action",
+        "Microsoft.DevCenter/projects/users/environments/adminWrite/action",
+        "Microsoft.DevCenter/projects/users/environments/userDelete/action",
+        "Microsoft.DevCenter/projects/users/environments/adminDelete/action",
+        "Microsoft.DevCenter/projects/users/environments/adminAction/action",
+        "Microsoft.DevCenter/projects/users/environments/adminActionRead/action",
+        "Microsoft.DevCenter/projects/users/environments/adminActionManage/action",
+        "Microsoft.DevCenter/projects/users/environments/adminOutputsRead/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "DevCenter Project Admin",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
 
 ## DevTest Labs User
 
@@ -569,6 +853,8 @@ View, create, update, delete and execute load tests. View and list load test res
 > | *none* |  |
 > | **DataActions** |  |
 > | [Microsoft.LoadTestService](../permissions/devops.md#microsoftloadtestservice)/loadtests/* | Create and manage load tests |
+> | [Microsoft.LoadTestService](../permissions/devops.md#microsoftloadtestservice)/testProfiles/* |  |
+> | [Microsoft.LoadTestService](../permissions/devops.md#microsoftloadtestservice)/testProfileRuns/* |  |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -591,7 +877,9 @@ View, create, update, delete and execute load tests. View and list load test res
       ],
       "notActions": [],
       "dataActions": [
-        "Microsoft.LoadTestService/loadtests/*"
+        "Microsoft.LoadTestService/loadtests/*",
+        "Microsoft.LoadTestService/testProfiles/*",
+        "Microsoft.LoadTestService/testProfileRuns/*"
       ],
       "notDataActions": []
     }
@@ -671,6 +959,8 @@ View and list all load tests and load test resources but can not make any change
 > | *none* |  |
 > | **DataActions** |  |
 > | [Microsoft.LoadTestService](../permissions/devops.md#microsoftloadtestservice)/loadtests/readTest/action | Read Load Tests |
+> | [Microsoft.LoadTestService](../permissions/devops.md#microsoftloadtestservice)/testProfiles/read | Read Test Profiles |
+> | [Microsoft.LoadTestService](../permissions/devops.md#microsoftloadtestservice)/testProfileRuns/read | Read Test Profile Runs |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -693,7 +983,9 @@ View and list all load tests and load test resources but can not make any change
       ],
       "notActions": [],
       "dataActions": [
-        "Microsoft.LoadTestService/loadtests/readTest/action"
+        "Microsoft.LoadTestService/loadtests/readTest/action",
+        "Microsoft.LoadTestService/testProfiles/read",
+        "Microsoft.LoadTestService/testProfileRuns/read"
       ],
       "notDataActions": []
     }

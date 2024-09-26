@@ -4,7 +4,7 @@ description: Use Apache Spark in Azure Synapse Analytics to train machine learni
 author: midesa
 ms.author: midesa
 ms.reviewer: euang
-ms.service:  synapse-analytics 
+ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.subservice: machine-learning
 ms.date: 09/13/2020
@@ -37,7 +37,7 @@ The Microsoft Machine Learning library for Apache Spark is [MMLSpark](https://gi
 
 MMLSpark provides a layer on top of SparkML's low-level APIs when building scalable ML models, such as indexing strings, coercing data into a layout expected by machine learning algorithms, and assembling feature vectors. The MMLSpark library simplifies these and other common tasks for building models in PySpark.
 
-## Automated ML in Azure Machine Learning 
+## Automated ML in Azure Machine Learning (deprecated)
 Azure Machine Learning is a cloud-based environment that allows you to train, deploy, automate, manage, and track machine learning models. Automated ML in Azure Machine Learning accepts training data and configuration settings and automatically iterates through combinations of different feature normalization/standardization methods, models, and hyperparameter settings to arrive at the best model. 
 
 When using automated ML within Azure Synapse Analytics, you can leverage the deep integration between the different services to simplify authentication & model training. 
@@ -52,7 +52,7 @@ When using automated ML within Azure Synapse Analytics, you can leverage the dee
 <a name='azure-cognitive-services'></a>
 
 ## Azure AI services
-[Azure AI services](../../ai-services/what-are-ai-services.md) provides machine learning capabilities to solve general problems such as analyzing text for emotional sentiment or analyzing images to recognize objects or faces. You don't need special machine learning or data science knowledge to use these services. A Cognitive Service provides part or all of the components in a machine learning solution: data, algorithm, and trained model. These services are meant to require general knowledge about your data without needing experience with machine learning or data science. You can leverage these pre-trained Azure AI services automatically within Azure Synapse Analytics.
+[Azure AI services](/azure/ai-services/what-are-ai-services) provides machine learning capabilities to solve general problems such as analyzing text for emotional sentiment or analyzing images to recognize objects or faces. You don't need special machine learning or data science knowledge to use these services. A Cognitive Service provides part or all of the components in a machine learning solution: data, algorithm, and trained model. These services are meant to require general knowledge about your data without needing experience with machine learning or data science. You can leverage these pre-trained Azure AI services automatically within Azure Synapse Analytics.
 
 ## Next steps
 This article provides an overview of the various options to train machine learning models within Apache Spark pools in Azure Synapse Analytics. You can learn more about model training by following the tutorial below:

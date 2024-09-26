@@ -24,16 +24,16 @@ To connect your workflows to other Azure services, Microsoft services, cloud-bas
 
 If no connector is available to meet your needs, you can use the built-in HTTP operation or Request trigger to communicate with any service endpoint. Or, you can create your own connector using an existing API.
 
-Based on the logic app resource type that you choose, the associated workflow runs in either multi-tenant Azure Logic Apps, single-tenant Azure Logic Apps, or a dedicated integration service environment (ISE). Each has their own capabilities, benefits, and billing models. The Azure portal provides the fastest way to get started creating logic app workflows. However, you can also use other tools such as Visual Studio Code, Visual Studio, Azure PowerShell, and others. For more information, review [What is Azure Logic Apps](logic-apps-overview.md)?
+Based on the logic app resource type that you choose, the associated workflow runs in either multitenant Azure Logic Apps or single-tenant Azure Logic Apps. Each has their own capabilities, benefits, and billing models. The Azure portal provides the fastest way to get started creating logic app workflows. However, you can also use other tools such as Visual Studio Code, Visual Studio, Azure PowerShell, and others. For more information, review [What is Azure Logic Apps](logic-apps-overview.md)?
 
-To get started with Azure Logic Apps, try a [quickstart to create an example Consumption logic app workflow in multi-tenant Azure Logic Apps using the Azure portal](quickstart-create-example-consumption-workflow.md). Or, try these [steps that create an example serverless app with Azure Logic Apps and Azure Functions in Visual Studio](create-serverless-apps-visual-studio.md).
+To get started with Azure Logic Apps, try a [quickstart to create an example Consumption logic app workflow in multitenant Azure Logic Apps using the Azure portal](quickstart-create-example-consumption-workflow.md). Or, try these [steps that create an example serverless app with Azure Logic Apps and Azure Functions in Visual Studio](create-serverless-apps-visual-studio.md).
 
 For other information, review the following documentation:
 
 * [What is Azure Logic Apps?](logic-apps-overview.md)
 * [Managed connectors for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
 * [Built-in connectors for Azure Logic Apps](../connectors/built-in.md)
-* [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](single-tenant-overview-compare.md)
+* [Single-tenant versus multitenant in Azure Logic Apps](single-tenant-overview-compare.md)
 * [Usage metering, billing, and pricing models for Azure Logic Apps](logic-apps-pricing.md)
 
 ## Azure Functions

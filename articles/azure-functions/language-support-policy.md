@@ -2,7 +2,7 @@
 title: Azure Functions language runtime support policy
 description: Learn about Azure Functions language runtime support policy
 ms.topic: conceptual
-ms.date: 07/18/2023
+ms.date: 08/05/2024
 ---
 
 # Language runtime support policy
@@ -28,14 +28,9 @@ After the language end-of-life date, function apps that use retired language ver
 
 ## Retirement policy exceptions
 
-There are few exceptions to the retirement policy outlined above. Here's a list of languages that are approaching or have reached their end-of-life (EOL) dates but continue to be supported on the platform until further notice. When these languages versions reach their end-of-life dates, they're no longer updated or patched. Because of this, we discourage you from developing and running your function apps on these language versions.
+Any Azure Functions supported exceptions to language-specific retirement policies are documented here.  
 
-|Language Versions                        |EOL Date         |Retirement Date|
-|-----------------------------------------|-----------------|----------------|
-|Python 3.7|27 June 2023|30 September 2023|
-|Node 14|30 April 2023|30 June 2024|
-|Node 16|11 September 2023|30 June 2024|
-
+> There are currently no exceptions to the general retirement policy.
 
 ## Language version support timeline
 

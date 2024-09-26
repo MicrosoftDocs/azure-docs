@@ -71,3 +71,40 @@ The `action` property of a route policy statement defines the action to be taken
 The `ipCommunityProperties` property specifies how the policy affects the community values and extended community values of the route.
 
 It has a `set` property and a `delete` property. The `set` property specifies the IP community and IP extended community resources to add or overwrite to the routes. The `delete` property specifies the IP community and IP extended community resources to remove from the routes.
+
+### BGP Regex Support in Route Policies
+
+BGP communities are configured using the `IPCommunity` and `IPExtendedCommunity` BGP configuration properties. These take a list of exact match values. For example, the string `1234:2345` in the ARM JSON snippet below matches an IP extended community.
+
+```json
+{
+    "ipExtendedCommunityRules": [
+        {
+            "action": "Permit",
+            "sequenceNumber": 4155123341,
+            "routeTargets": [
+                "1234:2345"
+            ]
+        }
+    ]
+}
+```
+
+#### BGP Regex Matching
+
+Enhanced BGP community matching using regular expressions, enabling more concise and flexible route policies.
+
+The following table shows examples of the community member property under IPCommunityRules and route targets under IPExtendedCommunityRules, which can be specified in the formats below.
+
+| **Type**                                           | **Formats**                              | **Exact Match Examples**                  | **Regex Examples**                                      |
+|----------------------------------------------------|------------------------------------------|-------------------------------------------|---------------------------------------------------------|
+| **Community Member (IPCommunity) AA:NN**           | `<0-65535>:<0-65535>`                    | `7287:22222`                              | `7287:[2-9][0-9]2[0-9][0-9]`                            |
+|                                                    | `<1-4294967040>`                         | `333233`                                  | `[3-6][2-9][0-9]2[0-9][0-9]`                            |
+| **Route Targets (IPExtendedCommunity) ASN (asplain):nn** | `<0-4294967295>:<0-65535>`               | `1122:33533`                              | `[3-6][2-9][0-9]2[0-9][0-9]:[2-9][0-3]5[0-8][0-9]`      |
+|                                                    | `<0-65535>:<0-4294967295>`               |                                           |                                                         |
+| **Route Targets (IPExtendedCommunity) ASN (asdot):nn** | `<0-65535>.<0-65535>:<0-65535>`          | `2345.7287:33533`                         | `2345.7287:[2-9][0-3]5[0-8][0-9]`                       |
+| **Route Targets (IPExtendedCommunity) IP-address:nn** | `<Valid-IPv4-Address>:<0-65535>`         | `10.11.33.56:33533`                       | `10.11.33.56:[2-9][0-3]5[0-8][0-9]`                     |
+
+> [!NOTE] 
+> - IPCommunity or IPExtendedCommunity supports multiple strings for RT values of each sequence number. However, to support regular expressions, only one regular expression under each sequence number of IPCommunity and IPExtendedCommunity can be provided. In the case of multiple regular expressions under each IPCommunity, they can be added with more sequence numbers with the respective regular expressions.
+> - Well-known communities are not supported for IPCommunity with regular expressions.

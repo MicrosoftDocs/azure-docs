@@ -3,17 +3,17 @@ title: Creating an ingress controller with a new Application Gateway
 description: This article provides information on how to deploy an Application Gateway Ingress Controller with a new Application Gateway.
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.custom:
 ms.topic: how-to
-ms.date: 07/28/2023
+ms.date: 9/17/2024
 ms.author: greglin
 ---
 
 # How to Install an Application Gateway Ingress Controller (AGIC) Using a New Application Gateway
 
 The instructions below assume Application Gateway Ingress Controller (AGIC) will be
-installed in an environment with no pre-existing components.
+installed in an environment with no preexisting components.
 
 > [!TIP]
 > Also see [What is Application Gateway for Containers](for-containers/overview.md).
@@ -39,7 +39,7 @@ choose to use another environment, ensure the following command-line tools are i
 
 ## Create an Identity
 
-Follow the steps below to create a Microsoft Entra [service principal object](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object). Record the `appId`, `password`, and `objectId` values - these values will be used in the following steps.
+Follow the steps below to create a Microsoft Entra [service principal object](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object). Record the `appId`, `password`, and `objectId` values - these values are used in the following steps.
 
 1. Create AD service principal ([Read more about Azure RBAC](../role-based-access-control/overview.md)):
     ```azurecli
@@ -56,7 +56,7 @@ Follow the steps below to create a Microsoft Entra [service principal object](..
     ```
     The output of this command is `objectId`, which will be used in the Azure Resource Manager template below
 
-1. Create the parameter file that will be used in the Azure Resource Manager template deployment later.
+1. Create the parameter file that is used in the Azure Resource Manager template deployment later.
     ```bash
     cat <<EOF > parameters.json
     {
@@ -70,9 +70,9 @@ Follow the steps below to create a Microsoft Entra [service principal object](..
     To deploy an **Kubernetes RBAC** enabled cluster, set the `aksEnableRBAC` field to `true`
 
 ## Deploy Components
-This step will add the following components to your subscription:
+This step adds the following components to your subscription:
 
-- [Azure Kubernetes Service](../aks/intro-kubernetes.md)
+- [Azure Kubernetes Service](/azure/aks/intro-kubernetes)
 - [Application Gateway](./overview.md) v2
 - [Virtual Network](../virtual-network/virtual-networks-overview.md) with two [subnets](../virtual-network/virtual-networks-overview.md)
 - [Public IP Address](../virtual-network/ip-services/virtual-network-public-ip-address.md)
@@ -112,9 +112,9 @@ With the instructions in the previous section, we created and configured a new A
 
 ### Set up Kubernetes Credentials
 For the following steps, we need setup [kubectl](https://kubectl.docs.kubernetes.io/) command,
-which we'll use to connect to our new Kubernetes cluster. [Cloud Shell](https://shell.azure.com/) has `kubectl` already installed. We'll use `az` CLI to obtain credentials for Kubernetes.
+which we use to connect to our new Kubernetes cluster. [Cloud Shell](https://shell.azure.com/) has `kubectl` already installed. We'll use `az` CLI to obtain credentials for Kubernetes.
 
-Get credentials for your newly deployed AKS ([read more](../aks/manage-azure-rbac.md#use-azure-rbac-for-kubernetes-authorization-with-kubectl)):
+Get credentials for your newly deployed AKS ([read more](/azure/aks/manage-azure-rbac#use-azure-rbac-for-kubernetes-authorization-with-kubectl)):
 
 ```azurecli
 # use the deployment-outputs.json created after deployment to get the cluster name and resource group name
@@ -150,12 +150,12 @@ To install Microsoft Entra Pod Identity to your cluster:
      ```
 
 ### Install Helm
-[Helm](../aks/kubernetes-helm.md) is a package manager for Kubernetes. We'll use it to install the `application-gateway-kubernetes-ingress` package.
+[Helm](/azure/aks/kubernetes-helm) is a package manager for Kubernetes. We use it to install the `application-gateway-kubernetes-ingress` package.
 
 > [!NOTE]
 > If you use [Cloud Shell](https://shell.azure.com/), you don't need to install Helm.  Azure Cloud Shell comes with Helm version 3. Skip the first step and just add the AGIC Helm repository.
 
-1. Install [Helm](../aks/kubernetes-helm.md) and run the following to add `application-gateway-kubernetes-ingress` helm package:
+1. Install [Helm](/azure/aks/kubernetes-helm) and run the following:
 
     - *Kubernetes RBAC enabled* AKS cluster
 
@@ -170,12 +170,6 @@ To install Microsoft Entra Pod Identity to your cluster:
         ```bash
         helm init
         ```
-
-2. Add the AGIC Helm repository:
-    ```bash
-    helm repo add application-gateway-kubernetes-ingress https://appgwingress.blob.core.windows.net/ingress-azure-helm-package/
-    helm repo update
-    ```
 
 ### Install Ingress Controller Helm Chart
 
@@ -285,7 +279,7 @@ To install Microsoft Entra Pod Identity to your cluster:
 1. Install the Application Gateway ingress controller package:
 
     ```bash
-    helm install -f helm-config.yaml --generate-name application-gateway-kubernetes-ingress/ingress-azure
+    helm install agic-controller oci://mcr.microsoft.com/azure-application-gateway/charts/ingress-azure --version 1.7.5 -f helm-config.yaml
     ```
 
 ## Install a Sample App

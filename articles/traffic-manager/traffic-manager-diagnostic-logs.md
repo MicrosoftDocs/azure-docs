@@ -3,9 +3,9 @@ title: Enable resource logging in Azure Traffic Manager
 description: Learn how to enable resource logging for your Traffic Manager profile and access the log files that are created as a result.
 services: traffic-manager
 author: greg-lindsay
-ms.service: traffic-manager
+ms.service: azure-traffic-manager
 ms.topic: how-to
-ms.date: 05/17/2023
+ms.date: 08/08/2024
 ms.author: greglin
 ms.custom: template-how-to, devx-track-azurepowershell
 ---
@@ -23,7 +23,7 @@ Azure Traffic Manager resource logs can provide insight into the behavior of the
 
 * This guide requires an Azure Storage account. To learn more, see [Create a storage account](../storage/common/storage-account-create.md).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
 ## Enable resource logging
@@ -74,7 +74,7 @@ To access log files follow the following steps.
 ## Traffic Manager log schema
 
 All resource logs available through Azure Monitor share a common top-level schema, with flexibility for each service to emit unique properties for their own events. 
-For top-level resource logs schema, see [Supported services, schemas, and categories for Azure Resource Logs](../azure-monitor/essentials/resource-logs-schema.md).
+For top-level resource logs schema, see [Supported services, schemas, and categories for Azure Resource Logs](/azure/azure-monitor/essentials/resource-logs-schema).
 
 The following table includes logs schema specific to the Azure Traffic Manager profile resource.
 

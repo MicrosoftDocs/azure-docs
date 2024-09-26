@@ -2,8 +2,8 @@
 title: Back up Azure File shares in the Azure portal
 description: Learn how to use the Azure portal to back up Azure File shares in the Recovery Services vault
 ms.topic: how-to
-ms.date: 04/05/2024
-ms.service: backup
+ms.date: 07/29/2024
+ms.service: azure-backup
 ms.custom: engagement-fy23
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -18,7 +18,7 @@ Azure File share backup is a native, cloud based backup solution that protects y
 [Learn about](azure-file-share-backup-overview.md) the Azure File share snapshot-based backup solution.
 
 >[!Note]
->Vaulted backup for Azure File share is currently in preview.
+>Vaulted backup for Azure File share is currently in preview and available in limited regions mentioned [here](azure-file-share-support-matrix.md?tabs=vault-tier#supported-regions).
 
 ## Prerequisites
 
@@ -50,11 +50,11 @@ To configure backup for multiple file shares from the Backup center, follow thes
 
    The **Select storage account** blade opens on the right, which lists a set of discovered supported storage accounts. They're either associated with this vault or present in the same region as the vault, but not yet associated to any Recovery Services vault.
 
-   :::image type="content" source="./media/backup-afs/azure-file-share-select-storage-account-inline.png" alt-text="Screenshot showing to select a storage account." lightbox="./media/backup-afs/azure-file-share-select-storage-account-expanded.png":::
+   :::image type="content" source="./media/backup-azure-files/azure-file-share-select-storage-account.png" alt-text="Screenshot showing to select a storage account." lightbox="./media/backup-azure-files/azure-file-share-select-storage-account.png":::
 
 1. On the **Select storage account** blade, from the list of discovered storage accounts, select an account, and select **OK**.
 
-   :::image type="content" source="./media/backup-afs/azure-file-share-confirm-storage-account-inline.png" alt-text="Screenshot showing to select one of the discovered storage accounts." lightbox="./media/backup-afs/azure-file-share-confirm-storage-account-expanded.png":::
+   :::image type="content" source="./media/backup-azure-files/azure-file-share-confirm-storage-account.png" alt-text="Screenshot showing to select one of the discovered storage accounts." lightbox="./media/backup-azure-files/azure-file-share-confirm-storage-account.png":::
    
    >[!NOTE]
    >If a storage account is present in a different region than the vault, it won't be present in the list of discovered storage accounts.
@@ -110,7 +110,7 @@ The following steps explain how you can configure backup for individual file sha
 
 1. On the **File share settings** blade, all the file shares present in the storage account appear. Select the file share you want to back up.
 
-   ![Screenshot shows the File shares list.](./media/backup-afs/file-shares-list.png)
+   :::image type="content" source="./media/backup-afs/file-shares-list.png" alt-text="Screenshot shows the File shares list." lightbox="./media/backup-afs/file-shares-list.png":::
 
 1. On the *file share* blade, under the **Operations** section, select **Backup**.
 

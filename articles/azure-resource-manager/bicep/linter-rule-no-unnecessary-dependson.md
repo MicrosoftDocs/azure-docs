@@ -1,9 +1,9 @@
 ---
 title: Linter rule - no unnecessary dependsOn entries
 description: Linter rule - no unnecessary dependsOn entries
-ms.topic: conceptual
+ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 03/20/2024
+ms.date: 07/11/2024
 ---
 
 # Linter rule - no unnecessary dependsOn entries
@@ -25,7 +25,7 @@ The following example fails this test because the dependsOn entry `appServicePla
 ```bicep
 param location string = resourceGroup().location
 
-resource appServicePlan 'Microsoft.Web/serverfarms@2022-03-01' = {
+resource appServicePlan 'Microsoft.Web/serverfarms@2023-12-01' = {
   name: 'name'
   location: location
   sku: {
@@ -34,7 +34,7 @@ resource appServicePlan 'Microsoft.Web/serverfarms@2022-03-01' = {
   }
 }
 
-resource webApplication 'Microsoft.Web/sites@2022-03-01' = {
+resource webApplication 'Microsoft.Web/sites@2023-12-01' = {
   name: 'name'
   location: location
   properties: {
@@ -51,7 +51,7 @@ You can fix it by removing the unnecessary dependsOn entry.
 ```bicep
 param location string = resourceGroup().location
 
-resource appServicePlan 'Microsoft.Web/serverfarms@2022-03-01' = {
+resource appServicePlan 'Microsoft.Web/serverfarms@2023-12-01' = {
   name: 'name'
   location: location
   sku: {
@@ -60,7 +60,7 @@ resource appServicePlan 'Microsoft.Web/serverfarms@2022-03-01' = {
   }
 }
 
-resource webApplication 'Microsoft.Web/sites@2022-03-01' = {
+resource webApplication 'Microsoft.Web/sites@2023-12-01' = {
   name: 'name'
   location: location
   properties: {

@@ -2,7 +2,7 @@
 title: Azure Firewall Premium features
 description: Azure Firewall Premium is a managed, cloud-based network security service that protects your Azure Virtual Network resources.
 author: vhorne
-ms.service: firewall
+ms.service: azure-firewall
 services: firewall
 ms.topic: conceptual
 ms.date: 06/14/2023
@@ -56,6 +56,10 @@ The following use case is supported by [Azure Web Application Firewall on Azure 
 
    To protect internal servers or applications hosted in Azure from malicious requests that arrive from the Internet or an external network. Application Gateway provides end-to-end encryption.
 
+   For related information, see:
+
+   - [Azure Firewall Premium and name resolution](/azure/architecture/example-scenario/gateway/application-gateway-before-azure-firewall)
+   - [Application Gateway before Firewall](/azure/architecture/example-scenario/gateway/firewall-application-gateway)
 
 > [!TIP]
 > TLS 1.0 and 1.1 are being deprecated and won’t be supported. TLS 1.0 and 1.1 versions of TLS/Secure Sockets Layer (SSL) have been found to be vulnerable, and while they still currently work to allow backwards compatibility, they aren't recommended. Migrate to TLS 1.2 as soon as possible.
@@ -79,7 +83,7 @@ The Azure Firewall signatures/rulesets include:
 
 IDPS allows you to detect attacks in all ports and protocols for nonencrypted traffic. However, when HTTPS traffic needs to be inspected, Azure Firewall can use its TLS inspection capability to decrypt the traffic and better detect malicious activities.  
 
-The IDPS Bypass List is a configuration that allows you to not filter traffic to any of the IP addresses, ranges, and subnets specified in the bypass list. The IDPS Bypass list is not intended to be a way to improve throughput performance, as the firewall is still subject to the performance associated with your use case. For more information, see [Azure Firewall performance](firewall-performance.md#performance-data).
+The IDPS Bypass List is a configuration that allows you to not filter traffic to any of the IP addresses, ranges, and subnets specified in the bypass list. The IDPS Bypass list isn't intended to be a way to improve throughput performance, as the firewall is still subject to the performance associated with your use case. For more information, see [Azure Firewall performance](firewall-performance.md#performance-data).
 
 :::image type="content" source="media/premium-features/idps-bypass-list.png" alt-text="Screenshot showing the IDPS Bypass list screen." lightbox="media/premium-features/idps-bypass-list.png":::
 
@@ -93,11 +97,11 @@ In Azure Firewall Premium IDPS, private IP address ranges are used to identify i
 
 IDPS signature rules allow you to:
 
-- Customize one or more signatures and change their mode to *Disabled*, *Alert* or *Alert and Deny*. 
+- Customize one or more signatures and change their mode to *Disabled*, *Alert* or *Alert and Deny*. The maximum number of customized IDPS rules should not exceed 10,000.
 
    For example, if you receive a false positive where a legitimate request is blocked by Azure Firewall due to a faulty signature, you can use the signature ID from the network rules logs and set its IDPS mode to off. This causes the "faulty" signature to be ignored and resolves the false positive issue.
 - You can apply the same fine-tuning procedure for signatures that are creating too many low-priority alerts, and therefore interfering with visibility for high-priority alerts.
-- Get a holistic view of the entire 55,000 signatures
+- Get a holistic view of the more than 67,000 signatures
 - Smart search
 
    This action allows you to search through the entire signatures database by any type of attribute. For example, you can search for specific CVE-ID to discover what signatures are taking care of this CVE by typing the ID in the search bar.
@@ -109,7 +113,7 @@ IDPS signature rules have the following properties:
 |Column  |Description  |
 |---------|---------|
 |Signature ID     |Internal ID for each signature. This ID is also presented in Azure Firewall Network Rules logs.|
-|Mode      |Indicates if the signature is active or not, and whether firewall drops or alerts upon matched traffic. The below signature mode can override IDPS mode<br>- **Disabled**: The signature isn't enabled on your firewall.<br>- **Alert**: You receive alerts when suspicious traffic is detected.<br>- **Alert and Deny**: You receive alerts and suspicious traffic is blocked. Few signature categories are defined as “Alert Only”, therefore by default, traffic matching their signatures isn't blocked even though IDPS mode is set to “Alert and Deny”. Customers may override this by customizing these specific signatures to “Alert and Deny” mode. <br><br>IDPS Signature mode is determined by one of the following reasons:<br><br> 1. Defined by Policy Mode – Signature mode is derived from IDPS mode of the existing policy.<br>2. Defined by Parent Policy – Signature mode is derived from IDPS mode of the parent policy.<br>3. Overridden – You can override and customize the Signature mode.<br>4. Defined by System - Signature mode is set to *Alert Only* by the system due to its [category](idps-signature-categories.md). You may override this signature mode.<br><br>Note: IDPS alerts are available in the portal via network rule log query.|
+|Mode      |Indicates if the signature is active or not, and whether firewall drops or alerts upon matched traffic. The below signature mode can override IDPS mode<br>- **Disabled**: The signature isn't enabled on your firewall.<br>- **Alert**: You receive alerts when suspicious traffic is detected.<br>- **Alert and Deny**: You receive alerts and suspicious traffic is blocked. Few signature categories are defined as “Alert Only”, therefore by default, traffic matching their signatures isn't blocked even though IDPS mode is set to “Alert and Deny”. You can override this by customizing these specific signatures to *Alert and Deny* mode. <br><br>IDPS Signature mode is determined by one of the following reasons:<br><br> 1. Defined by Policy Mode – Signature mode is derived from IDPS mode of the existing policy.<br>2. Defined by Parent Policy – Signature mode is derived from IDPS mode of the parent policy.<br>3. Overridden – You can override and customize the Signature mode.<br>4. Defined by System - Signature mode is set to *Alert Only* by the system due to its [category](idps-signature-categories.md). You can override this signature mode.<br><br>Note: IDPS alerts are available in the portal via network rule log query.|
 |Severity      |Each signature has an associated severity level and assigned priority that indicates the probability that the signature is an actual attack.<br>- **Low (priority 3)**: An abnormal event is one that doesn't normally occur on a network or Informational events are logged. Probability of attack is low.<br>- **Medium (priority 2)**: The signature indicates an attack of a suspicious nature. The administrator should investigate further.<br>- **High (priority 1)**: The attack signatures indicate that an attack of a severe nature is being launched. There's little probability that the packets have a legitimate purpose.|
 |Direction      |The traffic direction for which the signature is applied.<br><br>- **Inbound**: Signature is applied only on traffic arriving from the Internet and destined to your [configured private IP address range](#idps-private-ip-ranges).<br>- **Outbound**: Signature is applied only on traffic sent from your [configured private IP address range](#idps-private-ip-ranges) to the Internet.<br>- **Internal**: Signature is applied only on traffic sent from and destined to your [configured private IP address range](#idps-private-ip-ranges).<br>- **Internal/Inbound**: Signature is applied on traffic arriving from your [configured private IP address range](#idps-private-ip-ranges) or from the Internet and destined to your [configured private IP address range](#idps-private-ip-ranges).<br>- **Internal/Outbound**: Signature is applied on traffic sent from your [configured private IP address range](#idps-private-ip-ranges) and destined to your [configured private IP address range](#idps-private-ip-ranges) or to the Internet.<br>- **Any**: Signature is always applied on any traffic direction.|
 |Group      |The group name that the signature belongs to.|
@@ -182,7 +186,7 @@ As a result, the following Web Categories don't support TLS termination:
 - Government
 - Health and medicine
 
-As a workaround, if you want a specific URL to support TLS termination, you can manually add the URL(s) with TLS termination in application rules. For example, you can add `www.princeton.edu` to application rules to allow this website. 
+As a workaround, if you want a specific URL to support TLS termination, you can manually add one or more URLs with TLS termination in application rules. For example, you can add `www.princeton.edu` to application rules to allow this website. 
 
 ## Supported regions
 
