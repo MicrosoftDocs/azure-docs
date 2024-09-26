@@ -8,6 +8,7 @@ author: lrtoyou1223
 ms.author: lle
 ms.date: 09/03/2024
 ms.custom: synapse
+ai-usage: ai-assisted
 ---
 
 # Create and configure a self-hosted integration runtime
