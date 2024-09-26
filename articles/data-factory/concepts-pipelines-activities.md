@@ -6,7 +6,7 @@ description: Learn how to use pipelines and activities in Azure Data Factory and
 author: dcstwh
 ms.author: weetok
 ms.subservice: orchestration
-ms.custom: synapse
+ms.custom: FY25Q1-Linter, synapse
 ms.topic: concept-article
 ms.date: 03/11/2024
 ---
