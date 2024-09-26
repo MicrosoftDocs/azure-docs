@@ -96,7 +96,7 @@ Ensure that you grant the same permissions to the system identity of the Azure A
 
 ## How to test DR
 
-While not required, you can test the DR feature on a non-production environment. For a DR test, only the data is included. The compute isn't be included. 
+While not required, you can test the DR feature on a non-production environment. For a DR test, only the data is included. The compute isn't included. 
 
 Consider the following steps for DR test.
 
