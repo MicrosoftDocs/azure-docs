@@ -16,13 +16,16 @@ Using Azure NetApp Files storage with cool access, you can configure inactive da
 
 Most cold data is associated with unstructured data. It can account for more than 50% of the total storage capacity in many storage environments. Infrequently accessed data associated with productivity software, completed projects, and old datasets are an inefficient use of a high-performance storage. 
 
-Azure NetApp Files supports cool access with three [service levels](azure-netapp-files-service-levels.md) (Standard, Premium and Ultra).
+Azure NetApp Files supports cool access with three [service levels](azure-netapp-files-service-levels.md) (Standard, Premium, and Ultra).
 
 The following diagram illustrates an application with a volume enabled for cool access.
 
 :::image type="content" source="./media/cool-access-introduction/cool-access-explainer.png" alt-text="Diagram of cool access tiering showing cool volumes being moved to the cool tier." lightbox="./media/cool-access-introduction/cool-access-explainer.png" border="false":::
 
-In the initial write, data blocks are assigned a "warm" temperature value (in the diagram, red data blocks) and exist on the "hot" tier. As the data resides on the volume, a temperature scan monitors the activity of each block. When a data block is inactive, the temperature scan decreases the value of the block until it has been inactive for the number of days specified in the cooling period. The cooling period can be between 2 and 183 days; it has a default value of 31 days. Once marked "cold,"  the tiering scan collects blocks and packages them into 4-MB objects, which are moved to Azure storage fully transparently. To the application and users, those cool blocks still appear online. Tiered data appears to be online and continues to be available to users and applications by transparent and automated retrieval from the cool tier.
+In the initial write, data blocks are assigned a "warm" temperature value (in the diagram, red data blocks) and exist on the "hot" tier. As the data resides on the volume, a temperature scan monitors the activity of each block. When a data block is inactive, the temperature scan decreases the value of the block until it has been inactive for the number of days specified in the coolness period. The coolness period can be between 2 and 183 days; it has a default value of 31 days. Once marked "cold," the tiering scan collects blocks and packages them into 4-MB objects, which are moved to Azure storage fully transparently. To the application and users, those cool blocks still appear online. Tiered data appears to be online and continues to be available to users and applications by transparent and automated retrieval from the cool tier.
+
+>[!NOTE]
+>When you enable cool access, data that satisfies the conditions set by the coolness period moves to the cool tier. For example, if the coolness period is set to 30 days, any data that has been cool for at least 30 days moves to the cool tier _when_ you enable cool access. 
 
 By `Default` (unless cool access retrieval policy is configured otherwise), data blocks on the cool tier that are read randomly again become "warm" and are moved back to the hot tier. Once marked as _warm_, the data blocks are again subjected to the temperature scan. However, large sequential reads (such as index and antivirus scans) on inactive data in the cool tier don't "warm" the data nor do they trigger inactive data to be moved back to the hot tier.
 
@@ -99,7 +102,7 @@ Billing calculation for a capacity pool is at the hot-tier rate for the data tha
 
 ### Examples of billing structure
 
-Assume that you created a 4 TiB Standard capacity pool. The billing structure is at the Standard capacity tier rate for the entire 4 TiB. 
+Assume that you created a 4-TiB Standard capacity pool. The billing structure is at the Standard capacity tier rate for the entire 4 TiB. 
 
 When you create volumes in the capacity pool and start tiering data to the cool tier, the following scenarios explain the applicable billing structure: 
 
