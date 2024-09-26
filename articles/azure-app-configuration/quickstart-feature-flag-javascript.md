@@ -9,7 +9,7 @@ ms.topic: quickstart
 ms.date: 09/26/2024
 ms.author: zhiyuanliang
 ms.custom: quickstart, mode-other, devx-track-js
-#Customer intent: As an JavaScript developer, I want to use feature flags to control feature availability quickly and confidently.
+#Customer intent: As a JavaScript developer, I want to use feature flags to control feature availability quickly and confidently.
 ---
 
 # Quickstart: Add feature flags to a Node.js app
@@ -29,7 +29,7 @@ The example used in this tutorial is based on the Node.js application introduced
 Add a feature flag called *Beta* to the App Configuration store and leave **Label** and **Description** with their default values. For more information about how to add feature flags to a store using the Azure portal or the CLI, go to [Create a feature flag](./manage-feature-flags.md#create-a-feature-flag).
 
 > [!div class="mx-imgBorder"]
-> ![Enable feature flag named Beta](media/add-beta-feature-flag.png)
+> ![Enable feature flag named Beta](media/quickstart-feature-flag-javascript/add-beta-feature-flag.png)
 
 ## Use the feature flag
 
@@ -87,7 +87,7 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     node app.js
     ```
 
-1. You will see the following console outputs because the *Beta feature flag is disabled.
+1. You will see the following console outputs because the *Beta* feature flag is disabled.
 
     ``` console
     Beta is enabled: false
