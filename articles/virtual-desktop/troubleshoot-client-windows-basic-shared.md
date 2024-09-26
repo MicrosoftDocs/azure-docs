@@ -6,7 +6,7 @@ zone_pivot_groups: azure-virtual-desktop-windows-client-troubleshoot
 author: dknappettmsft
 ms.author: daknappe
 ms.custom: "se-defect-target"
-ms.date: 10/12/2023
+ms.date: 09/25/2024
 ---
 
 # Basic troubleshooting for the Remote Desktop client for Windows
@@ -94,6 +94,20 @@ To reset user data from the client:
 1. Select the three dots at the top right-hand corner to show the menu, then select **About**.
 
 1. In the section **Reset user data**, select **Reset**. To confirm you want to reset your user data, select **Continue**.
+
+## Reset password
+
+::: zone pivot="azure-virtual-desktop"
+Password resets can't be done in the product. You should follow your organization's process to reset your password. 
+::: zone-end
+
+::: zone pivot="windows-365"
+Password resets can't be done in the product. You should follow your organization's process to reset your password.
+::: zone-end
+
+::: zone pivot="dev-box"
+Password resets can't be done in the product. You should follow your organization's process to reset your password.
+::: zone-end
 
 ## Issue isn't listed here
 
