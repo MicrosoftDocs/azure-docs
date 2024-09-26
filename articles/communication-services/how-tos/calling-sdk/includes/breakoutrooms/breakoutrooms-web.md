@@ -108,6 +108,7 @@ The following code shows you valuable information received in the breakout room 
         case "breakoutRoomsSettings":
           const breakoutRoomSettings = event.data;
           console.log(`Breakout room ends at: ${breakoutRoomSettings.roomEndTime}`);
+          console.log(`Main meeting url to join the Main Meeting : ${breakoutRoomSettings.mainMeetingUrl}`);
           console.log(`Disable the user to return to main meeting from breakout room call : ${breakoutRoomSettings.disableReturnToMainMeeting}`);         
           break;
         case "join":
@@ -151,18 +152,30 @@ if(breakoutRoom.state == 'open' && !breakoutRoom.autoMoveParticipantToBreakoutRo
   const breakoutRoomCall = await breakoutRoom.join();
 }
 ```
+When the user joins the breakout room, the user is removed from the main meeting. Subscribe to the breakout room features from the call object which you get in the callsUpdated `added` list to get the other updates of breakout rooms like breakoutrooms closed or breakoutrooms assignment changed in `breakoutRoomsUpdated` event.
+
+```js
+callAgent.on('callsUpdated', e =>{
+    e.added.foreach((call) => {
+        if(call.id == mainMeetingCall.id){
+             call.feature(SDK.Features.BreakoutRooms).on('breakoutRoomsUpdated', breakoutRoomsUpdatedListener);   
+        }
+    }
+});
+```
 
 ### Leave breakout room
 
-When the breakout room state is `closed`, then the user is automatically moved to the main meeting. User is informed about the end of breakout room by receiving event `breakoutRoomsUpdated` with class `AssignedBreakoutRoomsEvent` and property `type` equal to `assignedBreakoutRooms` that indicates that `assignedBreakoutRoom` has property `state` set to `closed`. 
+When the breakout room state is `closed`, then the user has to join the main meeting using the mainmeeting url provided in `breakoutRoomsSettings`. User is informed about the end of breakout room by receiving event `breakoutRoomsUpdated` with class `AssignedBreakoutRoomsEvent` and property `type` equal to `assignedBreakoutRooms` that indicates that `assignedBreakoutRoom` has property `state` set to `closed`. 
 
 If the user wants to leave the breakout room even before the room is closed and the breakout room settings `breakoutRoomsFeature.breakoutRoomsSettings` have property `disableReturnToMainMeeting` set to `false` then user can join the main meeting call with the following code: 
 
 ```js
 const breakoutRoomsSettings = breakoutRoomsFeature.breakoutRoomsSettings;
+const mainMeetingUrl = breakoutRoomsFeature.breakoutRoomsSettings.mainMeetingUrl;
  if(breakoutRoomCall != null && !breakoutRoomsSettings.disableReturnToMainMeeting){
     breakoutRoomCall.hangUp();   
-    mainMeetingCall.resume();
+    //join mainMeeting using the mainmeeting url    
  }
 ```
 
