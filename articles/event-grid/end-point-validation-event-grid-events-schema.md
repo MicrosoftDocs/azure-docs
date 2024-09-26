@@ -1,19 +1,16 @@
 ---
-title: WebHook event delivery
-description: This article describes WebHook event delivery and endpoint validation when using webhooks. 
-ms.topic: conceptual
-ms.date: 09/25/2023
+title: Endpoint validation with Event Grid event schema
+description: This article describes WebHook event delivery and endpoint validation when using webhooks and the Event Grid event schema.
+ms.topic: concept-article
+ms.date: 09/25/2024
+#customer intent: As a developer, I want to know hw to validate a Webhook endpoint using the Event Grid event schema.
 ---
 
 
-# Webhook event delivery
+# # Endpoint validation with Event Grid event schema
 Webhooks are one of the many ways to receive events from Azure Event Grid. When a new event is ready, Event Grid service POSTs an HTTP request to the configured endpoint with the event information in the request body.
 
 Like many other services that support webhooks, Event Grid requires you to prove ownership of your Webhook endpoint before it starts delivering events to that endpoint. This requirement prevents a malicious user from flooding your endpoint with events. 
-
-
-## Endpoint validation with CloudEvents v1.0
-CloudEvents v1.0 implements its own abuse protection semantics using the **HTTP OPTIONS** method. You can read more about it [here](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection). When you use the CloudEvents schema for output, Event Grid uses the CloudEvents v1.0 abuse protection in place of the Event Grid validation event mechanism.
 
 ## Endpoint validation with Event Grid events
 When you use any of the following three Azure services, the Azure infrastructure automatically handles this validation:
@@ -91,21 +88,6 @@ And, follow one of these steps:
 
 For an example of handling the subscription validation handshake, see a [C# sample](https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/blob/master/EventGridConsumer/EventGridConsumer/Function1.cs).
 
-## Event schema compatibility
-When a topic is created, an incoming event schema is defined. And, when a subscription is created, an outgoing event schema is defined. The following table shows you the compatibility allowed when creating a subscription. 
 
-| Incoming event schema | Outgoing event schema | Supported |
-| ---- | ---- | ---- |
-| Event Grid schema | Event Grid schema | Yes |
-| | Cloud Events v1.0 schema | Yes |
-| | Custom input schema | No |
-| Cloud Events v1.0 schema | Event Grid schema | No |
-| | Cloud Events v1.0 schema | Yes |
-| | Custom input schema | No |
-| Custom input schema | Event Grid schema | Yes |
-| | Cloud Events v1.0 schema | Yes |
-| | Custom input schema | Yes |
-
-
-## Next steps
+## Related content
 See the following article to learn how to troubleshoot event subscription validations: [Troubleshoot event subscription validations](troubleshoot-subscription-validation.md).

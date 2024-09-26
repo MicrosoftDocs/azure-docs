@@ -75,7 +75,7 @@ landingContent:
         links:
           - text: Configure conditional access policies
             url: how-to-configure-intune-conditional-access-policies.md
-          - text: Enable single sign-on for dev boxEssentials
+          - text: Enable single sign-on for dev box
             url: how-to-enable-single-sign-on.md  
 
   # Card
