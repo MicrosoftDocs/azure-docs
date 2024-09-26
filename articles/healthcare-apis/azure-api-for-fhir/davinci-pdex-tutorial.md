@@ -23,7 +23,7 @@ The first set of tests that we focus on is testing Azure API for FHIR against th
 
 * The first test validates the basic capability statement against the IG requirements and will pass without any updates.
 
-* The second test validates all the profiles have been added for US Core. This test passes without updates but include several warnings. To remove these warnings, you need to [load the US Core profiles](validation-against-profiles.md). We've created a [sample HTTP file](https://github.com/microsoft/fhir-server/blob/main/docs/rest/PayerDataExchange/USCore.http) that walks through creating all the profiles. You can also get the [profiles](http://hl7.org/fhir/us/core/STU3.1.1/profiles.html#profiles) from the HL7 site directly, which will have the most current versions.
+* The second test validates all the profiles have been added for US Core. This test passes without updates but includes several warnings. To remove these warnings, you need to [load the US Core profiles](validation-against-profiles.md). We've created a [sample HTTP file](https://github.com/microsoft/fhir-server/blob/main/docs/rest/PayerDataExchange/USCore.http) that walks through creating all the profiles. You can also get the [profiles](http://hl7.org/fhir/us/core/STU3.1.1/profiles.html#profiles) from the HL7 site directly, which will have the most current versions.
 
 * The third test validates that the [$patient-everything operation](patient-everything.md) is supported.
 
