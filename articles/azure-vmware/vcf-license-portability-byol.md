@@ -1,5 +1,5 @@
 ---
-title: <Placeholder>
+title: Advance your cloud strategy using VMware Cloud Foundations (VCF) license portability (BYOL) on Azure VMware Solutions 
 author: saloniyadav
 ms.author: saloniyadav
 description: Bring your own VMware Cloud Foundations (VCF) License on Azure VMware Solutions
@@ -8,34 +8,36 @@ ms.service: azure-vmware
 ms.date: 9/25/2024
 ---
 
-# Title
+# Advance your cloud strategy using VMware Cloud Foundations (VCF) license portability (BYOL) on Azure VMware Solutions 
 
-Now you can bring your own VMware Cloud Foundation (VCF) entitlements to Azure VMware Solutions (AVS) and take advantage of incredible cost savings as you modernize your VMware workloads. Currently with AVS, you get access to both the physical infrastructure and the licensing entitlements for the entire VMware software-defined datacenter (SDDC) stack, including vSphere, ESXi, NSX networking, NSX Firewall, and HCX. With the new VCF BYOL (Bring Your Own License) option, you can leverage the license portability offering and apply your on-prem VCF entitlements purchased from Broadcom directly to the AVS infrastructure. This means you can seamlessly integrate your existing VMware assets into a fully managed, state-of-the-art Azure environment, maximizing efficiency and cutting costs. Upgrade with confidence and experience the power and flexibility of Azure VMware Solutions today! 
+Now you can bring your own VMware Cloud Foundation (VCF) entitlements to Azure VMware Solutions (AVS) and take advantage of incredible cost savings as you modernize your VMware workloads. Currently with AVS, you get access to both the physical infrastructure and the licensing entitlements for the entire VMware software-defined datacenter (SDDC) stack, including vSphere, ESXi, NSX networking, NSX Firewall, and HCX. With the new VCF license portability (VCF BYOL) option, you can leverage the offering to apply your on-prem VCF entitlements purchased from Broadcom directly to the AVS infrastructure. This means you can seamlessly integrate your existing VMware assets into a fully managed, state-of-the-art Azure environment, maximizing efficiency and cutting costs. Upgrade with confidence and experience the power and flexibility of Azure VMware Solutions today! 
 
 
 ## What's changing!
 
-ARIA is now included in the VCF bundle and fully supported by AVS for all BYOL customers. As we work towards offering ARIA out-of-the-box, our BYOL customers can still enjoy the features. Simply bring your own ARIA binaries and licenses (procured from Broadcom) and self-install them on AVS. In this self-installation phase, you are responsible for managing the installation, configurations, upgrades, scaling, backup, restore, and security patches for the ARIA software. AVS Experience seamless integration and support throughout your entire journey with ARIA on AVS. [Learn more about ARIA on AVS here](). 
+ARIA is now included in the VCF bundle and fully supported by AVS for all VCF BYOL customers. Simply bring your own ARIA binaries and licenses (procured from Broadcom) and self-install them on AVS. In this self-installation phase, you are responsible for managing the installation, configurations, upgrades, scaling, backup, restore, and security patches for the ARIA software. Experience seamless integration and support throughout your entire journey with ARIA on AVS. In the future, ARIA installation experience will be provided out-of-box with AVS. [Learn more about ARIA on AVS here](). 
 
-Moving forward, the Azure VMware Solution will fully support VMware vDefend Firewall *as an add-on service*. For those using the VCF license portability offering on their SDDCs, it’s important to note that you must pre-purchase this Firewall add-on from Broadcom along with your VCF subscription. To start using the software on AVS, please ensure you register your Firewall add-on with Microsoft. Detailed instructions on how to register the license can be found below. In the near future, AVS will also offer the convenience of purchasing the Firewall add-on directly from Microsoft. [Learn more](). 
+Moving forward, VMware vDefend Firewall on AVS will become an *add-on service*. For those using the VCF license portability offering on their SDDCs, you must pre-purchase this Firewall add-on from Broadcom along with your VCF subscription to use the vDefend Firewall on AVS. Before using the software on AVS, please ensure you register your Firewall add-on with Microsoft. Detailed instructions on how to register the license can be found [here](). In the near future, AVS will also offer the convenience of purchasing the Firewall add-on directly from Microsoft. [Learn more](). 
 
 >[!IMPORTANT]
 >
->VCF BYOL licenses are applied at the host level and must cover all the physical cores on a host. For example, if each host in AVS has 36 cores and you intend to have a Private Cloud with 3 nodes, the VCF portable license must cover 108 (3*36) cores. 
->In the current version, if you want to use your own license on an Azure subscription for the AVS workloads, all the nodes (cores) in that subscription including multiple Private Clouds need to be purchased through Broadcom and covered under your Broadcom VMware Cloud Foundations license portability contract. At the moment, Azure VMware Solutions does not support a mixed environment where some cores are covered under your own and some from AVS. However, changes to open mixed licensing scenarios are on the horizon and will enable more flexible licensing options soon.
+>VCF portable licenses are applied at the host level and must cover all the physical cores on a host. For example, if each host in AVS has 36 cores and you intend to have a Private Cloud with 3 nodes, the VCF portable license must cover 108 (3*36) cores. 
+>In the current version, if you want to use your own license on an Azure subscription for the AVS workloads, all the nodes (cores) in that subscription including multiple Private Clouds need to be purchased through Broadcom and covered under your Broadcom VMware Cloud Foundations license portability contract. At the moment, Azure VMware Solutions does not support a mixed environment within a subscription where some cores are covered under your own and some from AVS. However, changes to open mixed licensing scenarios are on the horizon and will enable more flexible licensing options soon.
 
 ## Purchasing AVS VCF BYOL
 
-We offer three flexible commitments and pricing options for using your own VMware Cloud Foundations (VCF) license on Azure VMware Solutions, similar to how you can purchase AVS-managed licenses. You can choose from pay-as-you-go, 1-year Reserved Instance (RI), and 3-year RI options. To get a better idea of the costs involved, you can use the [Pricing Calculator]() and [Azure Migrate]() to estimate the price of the AVS nodes and your overall migration expenses. 
+We offer three flexible commitments and pricing options for using your own VMware Cloud Foundations (VCF) license on Azure VMware Solutions, similar to how you can purchase AVS-managed licenses. You can choose from pay-as-you-go, 1-year Reserved Instance (RI), and 3-year RI options. 
+// To get a better idea of the costs involved, you can use the [Pricing Calculator]() and [Azure Migrate]() to estimate the price of the AVS nodes and your overall migration expenses. 
 
-To take advantage of the discounted VCF BYOL pricing, simply purchase a Reserved Instance (RI) for the “Product Name” VCF BYOL that corresponds to the node type you’ll be using in your private cloud. For example, if your private cloud uses AV36P nodes, you must purchase the Reserved Instance for AV36P VCF BYOL. 
+To take advantage of the discounted VCF BYOL pricing, simply purchase a Reserved Instance (RI) for the “Product Name” VCF BYOL that corresponds to the node type you’ll be using in your private cloud. For example, if your private cloud uses AV36P nodes, you must [purchase the Reserved Instance]() for AV36P VCF BYOL. 
 
->> insert image
+:::image type="content" source="media/vcf-byol/ri-purchase.png" alt-text="ri purchase" border="false":::
 
 ## Request host quota for AVS VCF BYOL
 
 Existing: 
->> insert image
+:::image type="content" source="media/vcf-byol/quota-request-old.png" alt-text="existing quota request" border="false":::
+
 
 If requesting quota to leverage VCF BYOL pricing provide the following additional information in the Description of the support ticket:
 
@@ -46,7 +48,7 @@ If requesting quota to leverage VCF BYOL pricing provide the following additiona
 *“I acknowledge that I have procured portable VCF license from Broadcom for "N" cores to use with Azure VMware Solutions.”*
 - Any other details, including Availability Zone requirements for integrating with other Azure services; for example, Azure NetApp Files, Azure Blob Storage
 
->> insert image
+:::image type="content" source="media/vcf-byol/quota-request-byol.png" alt-text="quota request with byol" border="false":::
 
 >[!NOTE]
 >
@@ -61,18 +63,23 @@ How to register the VCF license keys:
 
 - Email your VCF license entitlements (and VMware vDefender Firewall license entitlements if to enable vDefender Firewall on AVS) to the following email address:  registeravsvcfbyol@microsoft.com. 
 
-- VCF license entitlement sample: 
->> insert image
+- VCF entitlement sample: 
+:::image type="content" source="media/vcf-byol/vcf-entitlements.png" alt-text="quota request with byol" border="false":::
 
 >[!NOTE]
 >
 >The Qty represents the number of cores eligible for license portability. Your quota request should not surpass the number of nodes equivalent to your entitled cores. If your quota request exceeds the approved cores, the quota will be granted only for the number of nodes that are fully covered by the entitled cores.
 
-- VMware vDefend license 
->> insert image
+- VCF entitlement With VMware vDefend entitlement sample: 
+:::image type="content" source="media/vcf-byol/vcf-vdefend-entitlements.png" alt-text="VCF entitlement With VMware vDefend entitlement" border="false":::
 
 Sample Email to register portable VCF entitlements: 
->> insert image
+:::image type="content" source="media/vcf-byol/email-register-vcf.png" alt-text="Sample Email to register portable VCF " border="false":::
+
+** The VMware vDefend Firewall add-on CPU cores required on Azure VMware Solution depend on the planned feature usage: 
+- For NSX Distributed Firewall: same core count as VCF core count. 
+- For NSX Gateway Firewall it would be 64 cores (with default NSX Edges).
+- For both NSX Distributed and Gateway firewall, it will be combined core count of both.
 
 >[!NOTE] 
 > 
