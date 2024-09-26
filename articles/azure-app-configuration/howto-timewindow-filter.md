@@ -50,6 +50,9 @@ To learn how to use the feature flag with a time window filter in your applicati
 > [!div class="nextstepaction"]
 > [ASP.NET Core](./howto-timewindow-filter-aspnet-core.md)
 
+> [!div class="nextstepaction"]
+> [Node.js](./howto-timewindow-filter-javascript.md)
+
 To learn more about the feature filters, continue to the following tutorials:
 
 > [!div class="nextstepaction"]
