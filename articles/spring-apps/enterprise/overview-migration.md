@@ -16,7 +16,7 @@ This article describes when and how to migrate Azure Spring Apps to Azure Contai
 
 We recommend Azure Container Apps as the best destination for your migration. Azure Container Apps is a fully managed, serverless container platform for polyglot apps and offers enhanced Java features previously available in Azure Spring Apps.
 
-We've introduced a 1-click migration feature to ease the transition from the Azure Spring Apps Standard consumption and dedicated plan to Azure Container Apps. Select **Migrate** in the Azure portal and confirm the action.
+We've introduced a one-click migration feature to ease the transition from the Azure Spring Apps Standard consumption and dedicated plan to Azure Container Apps. Select **Migrate** in the Azure portal and confirm the action.
 
 :::image type="content" source="media/overview-migration/consumption-plan-migration-button.png" alt-text="Screenshot of the Azure portal that shows the Migrate button." lightbox="media/overview-migration/consumption-plan-migration-button.png":::
 
@@ -55,19 +55,19 @@ Fill out the support request form on the Azure portal, using the following value
 - For **Summary**, type a description of your issue.
 - For **Problem type**, select **My issue is not listed**.
 
-### Do I need to manually create Spring Cloud Config and Spring Cloud Eureka instances in Azure Container Apps?
+### Do I need to manually create Spring Cloud Config Server and Spring Cloud Service Registry instances in Azure Container Apps?
 
-Yes, you must recreate Spring Cloud Config and Spring Cloud Eureka instances in Azure Container Apps. Both Spring Cloud Config and Spring Cloud Eureka are also managed components in Azure Container Apps, but there are some experiential differences. For more information, see [Tutorial: Connect to a managed Eureka Server for Spring in Azure Container Apps](../../container-apps/java-eureka-server.md) and [Tutorial: Connect to a managed Config Server for Spring in Azure Container Apps](../../container-apps/java-config-server.md).
+Yes, you must recreate Spring Cloud Config Server and Spring Cloud Service Registry instances in Azure Container Apps. Both Spring Cloud Config Server and Spring Cloud Service Registry are also managed components in Azure Container Apps, but there are some experiential differences. For more information, see [Tutorial: Connect to a managed Eureka Server for Spring in Azure Container Apps](../../container-apps/java-eureka-server.md) and [Tutorial: Connect to a managed Config Server for Spring in Azure Container Apps](../../container-apps/java-config-server.md).
 
-If you need assistance creating and migrating Spring Cloud Config and Spring Cloud Eureka to Azure Container Apps, create a support request.
+If you need assistance creating and migrating Spring Cloud Config Server and Spring Cloud Service Registry to Azure Container Apps, create a support request.
 
 ### Is there any downtime during the migration process?
 
-There's no downtime unless you're using Spring Cloud Config and Spring Cloud Eureka, which you must manually recreate in Azure Container Apps.
+There's no downtime unless you're using Spring Cloud Config Server and Spring Cloud Service Registry, which you must manually recreate in Azure Container Apps.
 
 ### What happens to apps that have in-flight transactions during the migration?
 
-All in-flight transactions execute without any interruptions, unless you're using Spring Cloud Config and Spring Cloud Eureka, which you must manually recreate in Azure Container Apps.
+All in-flight transactions execute without any interruptions, unless you're using Spring Cloud Config Server and Spring Cloud Service Registry, which you must manually recreate in Azure Container Apps.
 
 ### Is there any change in IP address/FQDN after the migration?
 
@@ -83,21 +83,16 @@ Azure Container Apps has the same pricing structure as Azure Spring Apps for the
 
 The following table describes the differences:
 
-| Resources used for managed Java components | Azure Spring Apps Standard consumption plan | Azure Container Apps consumption plan |
-|--------------------------------------------|---------------------------------------------|---------------------------------------|
-| Eureka active CPU                          | No change.                                  | No change.                            |
-| Eureka idle CPU                            | No change.                                  | No change.                            |
-| Config Server active CPU                   | No change.                                  | No change.                            |
-| Config Server idle CPU                     | No change.                                  | No change.                            |
-| One million requests made to Eureka        | No extra cost.                              | $0.4 USD (estimated price)            |
-| One million requests made to Config Server | No extra cost.                              | $0.4 USD (estimated price)            |
+| Resources used for managed Java components                 | Azure Spring Apps Standard consumption plan | Azure Container Apps consumption plan                                                            |
+|------------------------------------------------------------|---------------------------------------------|--------------------------------------------------------------------------------------------------|
+| Spring Cloud Service Registry active CPU                   | No change.                                  | No change.                                                                                       |
+| Spring Cloud Service Registry idle CPU                     | No change.                                  | No change.                                                                                       |
+| Spring Cloud Config Server active CPU                      | No change.                                  | No change.                                                                                       |
+| Spring Cloud Config Server idle CPU                        | No change.                                  | No change.                                                                                       |
+| One million requests made to Spring Cloud Service Registry | No extra cost.                              | See [Azure Container Apps pricing](https://azure.microsoft.com/pricing/details/container-apps/). |
+| One million requests made to Spring Cloud Config Server    | No extra cost.                              | See [Azure Container Apps pricing](https://azure.microsoft.com/pricing/details/container-apps/). |
 
-With Azure Container Apps, you can apply the Azure savings plan and save up to 15% with a one year commitment and up to 17% with a three year commitment, as shown in the following table:
-
-| Resources used for user apps                 | Azure Spring Apps | Azure Container Apps dedicated workload profile with one year savings plan |
-|----------------------------------------------|-------------------|----------------------------------------------------------------------------|
-| Resources used in consumption plan           | Advertised price. | 15% off the advertised price.                                              |
-| Resources used in dedicated workload profile | Advertised price. | 15% off the advertised price.                                              |
+Also, with Azure Container Apps, you can take advantage of the Azure savings plan and benefit from savings through commitment. For more information, see [Azure savings plan for compute](https://azure.microsoft.com/pricing/offers/savings-plan-compute/).
 
 ### How do I continue to use my own virtual network in Azure Container Apps?
 
@@ -117,4 +112,4 @@ Azure CLI scripts must change to make them work in Azure Container Apps. For mor
 
 ### Are there plans to retire any other Azure Spring Apps SKUs?
 
-Yes, other Azure Spring Apps plans are also retiring. For more information, see [https://aka.ms/asaretirement](https://aka.ms/asaretirement).
+Yes, other Azure Spring Apps plans are also retiring. For more information, see the [Azure Spring Apps retirement announcement](retirement-announcement.md).
