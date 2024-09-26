@@ -153,7 +153,9 @@ Before creating the dataflow endpoint, assign a role to the managed identity tha
 
 # [Portal](#tab/portal)
 
-In the Azure IoT Operations portal dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **System assigned managed identity**. In most cases, you don't need to specify a service audience. Not specifying an audience creates a managed identity with the default audience scoped to your storage account.
+In the Azure IoT Operations portal dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **System assigned managed identity**.
+
+In most cases, you don't need to specify a service audience. Not specifying an audience creates a managed identity with the default audience scoped to your storage account.
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -182,23 +184,23 @@ datalakeStorageSettings:
 
 Using an access token is an alternative authentication method. This method requires you to create a Kubernetes secret with the SAS token and reference the secret in the *DataflowEndpoint* resource.
 
-1. Get a [SAS token](../../storage/common/storage-sas-overview.md) for an Azure Data Lake Storage Gen2 (ADLSv2) account. For example, use the Azure portal to browse to your storage account. On the left menu, choose **Security + networking** > **Shared access signature**. Use the following table to set the required permissions.
+Get a [SAS token](../../storage/common/storage-sas-overview.md) for an Azure Data Lake Storage Gen2 (ADLSv2) account. For example, use the Azure portal to browse to your storage account. On the left menu, choose **Security + networking** > **Shared access signature**. Use the following table to set the required permissions.
 
-    | Parameter              | Enabled setting             |
-    | ---------------------- | --------------------------- |
-    | Allowed services       | Blob                        |
-    | Allowed resource types | Object, Container           |
-    | Allowed permissions    | Read, Write, Delete, List, Create |
+| Parameter              | Enabled setting             |
+| ---------------------- | --------------------------- |
+| Allowed services       | Blob                        |
+| Allowed resource types | Object, Container           |
+| Allowed permissions    | Read, Write, Delete, List, Create |
 
-1. To enhance security and follow the principle of least privilege, you can generate a SAS token for a specific container. To prevent authentication errors, ensure that the container specified in the SAS token matches the dataflow destination setting in the configuration.
+To enhance security and follow the principle of least privilege, you can generate a SAS token for a specific container. To prevent authentication errors, ensure that the container specified in the SAS token matches the dataflow destination setting in the configuration.
 
-1. Create a Kubernetes secret with the SAS token. Don't include the question mark `?` that might be at the beginning of the token.
+Create a Kubernetes secret with the SAS token. Don't include the question mark `?` that might be at the beginning of the token.
 
-    ```bash
-    kubectl create secret generic my-sas \
-    --from-literal=accessToken='sv=2022-11-02&ss=b&srt=c&sp=rwdlax&se=2023-07-22T05:47:40Z&st=2023-07-21T21:47:40Z&spr=https&sig=<signature>' \
-    -n azure-iot-operations
-    ```
+```bash
+kubectl create secret generic my-sas \
+--from-literal=accessToken='sv=2022-11-02&ss=b&srt=c&sp=rwdlax&se=2023-07-22T05:47:40Z&st=2023-07-21T21:47:40Z&spr=https&sig=<signature>' \
+-n azure-iot-operations
+```
 
 # [Portal](#tab/portal)
 
