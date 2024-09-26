@@ -28,9 +28,9 @@ This article guides you through the steps to configure an Azure Front Door Premi
 
 [!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
-- Have a functioning Azure API Management instance. For more information on how to create an API Management instance, see [Create a new Azure API Management instance by using PowerShell](../api-management/powershell-create-service-instance.md)
+- Have a functioning Azure API Management instance. For more information on how to create an API Management instance, see [Create a new Azure API Management instance by using PowerShell](../../api-management/powershell-create-service-instance.md)
 
-- Have a functioning Azure Front Door Premium profile and an endpoint. For more information on how to create an Azure Front Door profile, see [Create a Front Door - PowerShell](create-front-door-powershell.md).
+- Have a functioning Azure Front Door Premium profile and an endpoint. For more information on how to create an Azure Front Door profile, see [Create a Front Door - PowerShell](../create-front-door-powershell.md)
 
 ## Create an origin group and add the API Management instance as an origin
 
@@ -127,9 +127,9 @@ Your Azure Front Door profile is now fully functional after completing the final
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- A functioning Azure Front Door Premium profile and endpoint. See [Create a Front Door - CLI](create-front-door-cli.md).
+- A functioning Azure Front Door Premium profile and endpoint. See [Create a Front Door - CLI](../create-front-door-cli.md).
 
-- A functioning Azure API Management instance. See [Create a new Azure API Management instance by using the Azure CLI](../api-management/get-started-create-service-instance-cli.md).
+- A functioning Azure API Management instance. See [Create a new Azure API Management instance by using the Azure CLI](../../api-management/get-started-create-service-instance-cli.md)
 
 ## Create an origin group and add the API Management instance as an origin
 
@@ -209,4 +209,4 @@ Your Azure Front Door profile is now fully functional after completing the final
 
 ## Next steps
 
-Learn about [Private Link service with storage account](../storage/common/storage-private-endpoints.md).
+Learn about [Private Link service with storage account](../../storage/common/storage-private-endpoints.md).
