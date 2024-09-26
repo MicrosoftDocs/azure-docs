@@ -6,7 +6,7 @@ ms.service: sap-on-azure
 author: msjuergent
 manager: bburns
 ms.topic: article
-ms.date: 07/29/2024
+ms.date: 09/16/2024
 ms.author: juergent
 ---
 
@@ -55,6 +55,8 @@ In the SAP workload documentation space, you can find the following areas:
 
 ## Change Log
 
+- September 16, 2024: Included section on supported clock sources in Azure VMs in [SAP HANA infrastructure configurations and operations on Azure](./hana-vm-operations.md)
+- September 03, 2024: Included Mv3 High Memory and Very High Memory in HANA storage configuration in [SAP HANA Azure virtual machine Premium SSD storage configurations](./hana-vm-premium-ssd-v1.md), [SAP HANA Azure virtual machine Premium SSD v2 storage configurations](./hana-vm-premium-ssd-v2.md), and [SAP HANA Azure virtual machine Ultra Disk storage configurations](./hana-vm-ultra-disk.md)
 - August 22, 2024: Added documentation option for SAPHanaSR-angi as separate tab in [High availability for SAP HANA on Azure VMs on SLES](./sap-hana-high-availability.md) and [High availability of SAP HANA scale-up with Azure NetApp Files on SLES](./sap-hana-high-availability-netapp-files-suse.md).
 - July 29, 2024: Changes in [Azure VMs high availability for SAP NetWeaver on SLES for SAP Applications with simple mount and NFS](./high-availability-guide-suse-nfs-simple-mount.md), [Azure VMs high availability for SAP NW on SLES with NFS on Azure Files](./high-availability-guide-suse-nfs-azure-files.md), [Azure VMs high availability for SAP NW on SLES with NFS on Azure Files](./high-availability-guide-suse-netapp-files.md), [Azure VMs high availability for SAP NetWeaver on SLES](./high-availability-guide-suse.md), [Azure VMs high availability for SAP NetWeaver on SLES multi-SID guide](./high-availability-guide-suse-multi-sid.md) with the instructions of managing SAP ASCS and ERS instances SAP startup framework when configured with systemd.
 - July 24, 2024: Release of SBD STONITH support using iSCSI target server or Azure shared disk in [Configuring Pacemaker on RHEL in Azure](./high-availability-guide-rhel-pacemaker.md).

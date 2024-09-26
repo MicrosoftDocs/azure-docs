@@ -5,11 +5,14 @@ author: batamig
 ms.author: bagol
 ms.topic: how-to
 ms.date: 04/17/2024
-#customer-intent: As a SOC engineer, I want to understand how to automate and run playbooks in Microsoft Sentinel so that my team can remediate security threats in our environment more efficiently.
 appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
+
+
+#Customer intent: As a security analyst, I want to automate incident response using playbooks so that I can streamline and enhance the efficiency of threat management.
+
 ---
 
 # Automate and run Microsoft Sentinel playbooks

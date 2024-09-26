@@ -27,7 +27,7 @@ Primary and secondary keys are generated after the Azure Maps account is created
 Example using the _subscription key_ as a parameter in your URL:
 
 ```http
-https://atlas.microsoft.com/mapData/upload?api-version=1.0&dataFormat=zip&subscription-key={Your-Azure-Maps-Subscription-key}
+https://atlas.microsoft.com/map/tile?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=2024-04-01&tilesetId=microsoft.base.road&zoom=15&x=5236&y=12665&tileSize=256
 ```
 
 > [!IMPORTANT]
@@ -125,12 +125,13 @@ The following role definition types exist to support application scenarios.
 
 Some Azure Maps services may require elevated privileges to perform write or delete actions on Azure Maps REST APIs. Azure Maps Data Contributor role is required for services, which provide write or delete actions. The following table describes what services Azure Maps Data Contributor is applicable when using write or delete actions. When only read actions are required, the Azure Maps Data Reader role can be used in place of the Azure Maps Data Contributor role.
 
-| Azure Maps service         | Azure Maps Role Definition  |
-| :--------------------------| :-------------------------- |
-| [Data]                     | Azure Maps Data Contributor |
-| [Creator]                  | Azure Maps Data Contributor |
-| [Spatial]                  | Azure Maps Data Contributor |
-| Batch [Search] and [Route] | Azure Maps Data Contributor |
+| Azure Maps service                 | Azure Maps Role Definition  |
+| :----------------------------------| :-------------------------- |
+| [Creator] (Deprecated<sup>1</sup>) | Azure Maps Data Contributor |
+| [Spatial] (Deprecated<sup>1</sup>) | Azure Maps Data Contributor |
+| Batch [Search] and [Route]         | Azure Maps Data Contributor |
+
+<sup>1</sup> Azure Maps Creator, and the Data registry and Spatial services are now deprecated and will be retired on 9/30/25.
 
 For information about viewing your Azure RBAC settings, see [How to configure Azure RBAC for Azure Maps].
 
@@ -272,7 +273,7 @@ SAS token parameters:
 | :--------------- | :----------------------------------------- | :---------------------------------------------------- |
 | signingKey       | `primaryKey`                               | Required, the string enum value for the signingKey either `primaryKey`, `secondaryKey` or managed identity is used to create the signature of the SAS. |
 | principalId      | `<GUID>`                                   | Required, the principalId is the Object (principal) ID of the user-assigned managed identity attached to the map account. |
-| regions          | `[ "eastus", "westus2", "westcentralus" ]` | Optional, the default value is `null`. The regions control which regions the SAS token can be used in the Azure Maps REST [data-plane] API. Omitting regions parameter allows the SAS token to be used without any constraints. When used in combination with an Azure Maps data-plane geographic endpoint like `us.atlas.microsoft.com` and `eu.atlas.microsoft.com` allows the application to control usage with-in the specified geography. This allows prevention of usage in other geographies. |
+| regions          | `[ "eastus", "westus2", "westcentralus" ]` | Optional, the default value is `null`. The regions control which regions the SAS token can be used in the Azure Maps REST [data-plane] API. Omitting regions parameter allows the SAS token to be used without any constraints. When used in combination with an Azure Maps data-plane geographic endpoint like `us.atlas.microsoft.com` and `eu.atlas.microsoft.com` allows the application to control usage within the specified geography. This allows prevention of usage in other geographies. |
 | maxRatePerSecond | 500                                        | Required, the specified approximate maximum request per second which the SAS token is granted. Once the limit is reached, more throughput is rate limited with HTTP status code `429 (TooManyRequests)`. |
 | start            | `2021-05-24T10:42:03.1567373Z`             | Required, a UTC date that specifies the date and time the token becomes active. |
 | expiry           | `2021-05-24T11:42:03.1567373Z`             | Required, a UTC date that specifies the date and time the token expires. The duration between start and expiry can't be more than 24 hours. |

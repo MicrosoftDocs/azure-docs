@@ -1,12 +1,13 @@
 ---
 title: Secure traffic between Standard workflows and virtual networks
 description: Secure traffic between Standard logic app workflows and virtual networks in Azure using private endpoints.
-services: logic-apps
+services: azure-logic-apps
+ms.service: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.custom: engagement-fy23
-ms.date: 01/10/2024
+ms.date: 08/09/2024
 # Customer intent: As a developer, I want to connect to my Standard logic app workflows with virtual networks using private endpoints and virtual network integration.
 ---
 
@@ -153,6 +154,8 @@ For more information, review the following documentation:
 1. From the designer, manually run the workflow.
 
    The HTTP action fails, which is by design and expected because the workflow runs in the cloud and can't access your internal service.
+
+<a name="set-up-virtual-network-integration"></a>
 
 ### Set up virtual network integration
 

@@ -79,7 +79,7 @@ When a regional disaster occurs, Microsoft is responsible for outage detection, 
 
 #### Outage detection, notification, and management
 
-Microsoft sends a notification if there's an outage in the Azure Image Builder (AIB) Service. One common outage symptom is image templates getting 500 errors when attempting to run. You can review Azure Image Builder outage notifications and status updates through [support request management.](../azure-portal/supportability/how-to-manage-azure-support-request.md)
+Microsoft sends a notification if there's an outage in the Azure Image Builder (AIB) Service. One common outage symptom is image templates getting 500 errors when attempting to run. You can review Azure Image Builder outage notifications and status updates through [support request management.](/azure/azure-portal/supportability/how-to-manage-azure-support-request)
 
 
 #### Set up disaster recovery and outage detection
