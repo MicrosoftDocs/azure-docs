@@ -309,6 +309,8 @@
       items:
       - name: Create a dual-protocol volume 
         href: create-volumes-dual-protocol.md
+    - name: Migrate on-premises volumes 
+      href: migrate-on-premises-volumes.md
     - name: Manage volume access and encryption 
       items:
       - name: Configure export policy for NFS or dual protocol
