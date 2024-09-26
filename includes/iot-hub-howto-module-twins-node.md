@@ -105,7 +105,7 @@ client.open()  //open the connection
 });
 ```
 
-### Retrieve a device twin and examine reported properties
+### Retrieve a module twin and examine reported properties
 
 Call [getTwin](/javascript/api/azure-iot-device/client?#azure-iot-device-client-gettwin-1) to retrieve current module twin information into a [Twin](/javascript/api/azure-iot-device/twin) object.
 
@@ -122,11 +122,11 @@ console.log('twin contents:');
 console.log(twin.properties);
 ```
 
-### Update reported device twin properties
+### Update reported module twin properties
 
 Use [update](/javascript/api/azure-iothub/twin?#azure-iothub-twin-update) to update device reported properties. Include a JSON-formatted patch as the first parameter and function execution status callback method as the second parameter to the method.
 
-In this example, a JSON-formatted device twin patch is stored in the `patch` variable. The patch contains a device twin `connectivity` update value of `cellular`. The patch and error handler are passed to the `update` method. If there's an error, a console error message is displayed.
+In this example, a JSON-formatted module twin patch is stored in the `patch` variable. The patch contains a module twin `connectivity` update value of `cellular`. The patch and error handler are passed to the `update` method. If there's an error, a console error message is displayed.
 
 ```javascript
 // Create a patch to send to IoT Hub
@@ -239,20 +239,20 @@ You can set up a listener for a single property change. In this example, the cod
 
 ### Device SDK samples
 
-The Azure IoT SDK for Node.js contains two device twin samples:
+The Azure IoT SDK for Node.js provides working samples of a service app that handles module twin tasks. For more information, see:
 
-* [Simple sample device twin](https://github.com/Azure/azure-iot-sdk-node/blob/main/device/samples/javascript/simple_sample_device_twin.js)
-
-* [Simple sample device twin with SAS](https://github.com/Azure/azure-iot-sdk-node/blob/main/device/samples/javascript/simple_sample_device_with_sas.js)
+* [Module Twin](https://github.com/Azure/azure-iot-sdk-node/blob/main/e2etests/test/module_twin.js)
+* [Module Test Helper](https://github.com/Azure/azure-iot-sdk-node/blob/main/e2etests/test/module_test_helper.js)
+* [Twin e2e tests](https://github.com/Azure/azure-iot-sdk-node/blob/main/e2etests/test/twin_e2e_tests.js)
 
 ## Create a backend application
 
-A backend application connects to a device through IoT Hub and can read device reported and desired properties, and write device desired properties.
+A backend application connects to a device through IoT Hub and can read and write device desired properties.
 
 This section describes how to create a backend application that:
 
-* Retrieves and updates a device twin
-* Creates a device twin query
+* Creates a module
+* Retrieves and updates a module twin
 
 ### Install service SDK packages
 
@@ -262,64 +262,78 @@ Run this command to install **azure-iothub** on your development machine:
 npm install azure-iothub --save
 ```
 
-Run this command to install the service SDK inside the node_modules subdirectory. The subdirectory name "node_modules" uses the word module to mean "a node library". The term here has nothing to do with IoT Hub modules.
-
-```cmd/sh
-npm install -S azure-iothub@modules-preview
-```
-
-The [Registry](/javascript/api/azure-iothub/registry) class exposes all methods required to interact with device twins from a backend application.
+The [Registry](/javascript/api/azure-iothub/registry) class exposes all methods required to interact with module twins from a backend application.
 
 ### Connect to IoT hub
 
 Use [fromConnectionString](/javascript/api/azure-iothub/registry?#azure-iothub-registry-fromconnectionstring) to connect to IoT hub. As a parameter, supply the **IoT hub service connection string** that you created in the prerequisites section.
 
 ```javascript
-'use strict';
 var iothub = require('azure-iothub');
 var connectionString = '{Iot Hub service connection string}';
 var registry = iothub.Registry.fromConnectionString(connectionString);
 ```
 
+### Create a module
+
+Call [addModule](/javascript/api/azure-iothub/registry?view=azure-node-latest#azure-iothub-registry-addmodule-1) to add a module to a device.
+
+For example:
+
+```javascript
+// Add a module to a device
+var deviceId = 'myFirstDevice';
+var moduleId = 'myFirstModule';
+registry.addModule({ deviceId: deviceId, moduleId: moduleId }, function(err) {
+  if (err) {
+    console.log('Error creating module identity: ' + err);
+    process.exit(1);
+  }
+```
+
 ### Retrieve and update a module twin
 
-You can create a patch that contains tag and desired property updates for a device twin.
+You can create a patch that contains tag and desired property updates for a module twin.
 
-To update a device twin:
+To update a module twin:
 
 1. Call [getModuleTwin](/javascript/api/azure-iothub/registry?#azure-iothub-registry-getmoduletwin-1) to retrieve the device [Twin](/javascript/api/azure-iothub/twin) object.
 
-1. Format a patch that contains the device twin update. The patch is formatted in JSON as described in [Twin class](/javascript/api/azure-iothub/twin). A backend service patch can contain tag and desired property updates. For more patch format information, see [Tags and properties format](/azure/iot-hub/iot-hub-devguide-device-twins#tags-and-properties-format).
+1. Format a patch that contains the module twin update. The patch is formatted in JSON as described in [Twin class](/javascript/api/azure-iothub/twin). A backend service patch can contain tag and desired property updates. For more patch format information, see [Tags and properties format](/azure/iot-hub/iot-hub-devguide-device-twins#tags-and-properties-format).
 
 1. Call [updateModuleTwin](/javascript/api/azure-iothub/registry?view=azure-node-latest&#azure-iothub-registry-updatemoduletwin-1) to update the module twin with the patch.
 
 In this example, the module twin is retrieved for `myDeviceId` and `myModuleId`. Then a patch is applied to the twins that contains `updateTime`, `firmwareVersion`, and `weather` information.
 
 ```javascript
-     registry.getModuleTwin('myDeviceId', 'myModuleId', function(err, twin){
-         if (err) {
-             console.error(err.constructor.name + ': ' + err.message);
-         } else {
-             var patch = {
-                updateTime: new Date().toString(),
-                firmwareVersion:'1.2.0',
-                weather:{
-                  temperature: 75,
-                  humidity: 23
-                }
-             };
+registry.getModuleTwin('myDeviceId', 'myModuleId', function(err, twin){
+    if (err) {
+        console.error(err.constructor.name + ': ' + err.message);
+    } else {
+        var patch = {
+          updateTime: new Date().toString(),
+          firmwareVersion:'1.2.0',
+          weather:{
+            temperature: 75,
+            humidity: 23
+          }
+        };
 
-             twin.updateModuleTwin('myDeviceId', 'myModuleId', patch, twin.etag,function(err) {
-               if (err) {
-                 console.error('Could not update twin: ' + err.constructor.name + ': ' + err.message);
-               } else {
-                 console.log(twin.deviceId + ' twin updated successfully');
-               }
-             });
-         }
-     });
+        twin.updateModuleTwin('myDeviceId', 'myModuleId', patch, twin.etag,function(err) {
+          if (err) {
+            console.error('Could not update twin: ' + err.constructor.name + ': ' + err.message);
+          } else {
+            console.log(twin.deviceId + ' twin updated successfully');
+          }
+        });
+    }
+});
 ```
 
-### Service SDK sample
+### Service SDK samples
 
-The Azure IoT SDK for Node.js provides a working sample of a service app that handles device twin tasks. For more information, see [Device Twin Backend Service](https://github.com/Azure/azure-iot-sdk-node/tree/main/device/samples/helpers/device-twin-service) - This project is used to send device twin patch updates for a specific device.
+The Azure IoT SDK for Node.js provides working samples of a service app that handles module twin tasks. For more information, see:
+
+* [Module Twin](https://github.com/Azure/azure-iot-sdk-node/blob/main/e2etests/test/module_twin.js)
+* [Module Test Helper](https://github.com/Azure/azure-iot-sdk-node/blob/main/e2etests/test/module_test_helper.js)
+* [Twin e2e tests](https://github.com/Azure/azure-iot-sdk-node/blob/main/e2etests/test/twin_e2e_tests.js)
