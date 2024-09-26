@@ -6,6 +6,8 @@ items:
 - name: Overview
   expanded: true
   items:
+  - name: Retirement announcement
+    href: retirement-announcement.md
   - name: What is Azure Spring Apps?
     href: overview.md
   - name: What's new
