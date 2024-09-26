@@ -81,6 +81,17 @@ To connect your cluster to Azure Arc:
 
 1. After signing in, Azure CLI displays all of your subscriptions and indicates your default subscription with an asterisk `*`. To continue with your default subscription, select `Enter`. Otherwise, type the number of the Azure subscription that you want to use.
 
+   > [!NOTE]
+   > **Special instructions for AIO Internal Bugbash**:
+   >
+   > Official IoT Ops CLI releases are installed via extension index like so az extension add --upgrade --name azure-iot-ops mentioned below.
+   > However for bug bashes, we will distribute one-off release candidates intended to expose functionality to exercise internally. Use this for Bug Bash 2 on 9/27:
+   >
+   > ``` bash
+   >    az storage blob download --auth-mode login --blob-url https://azedgecli.blob.core.windows.net/drop/azure_iot_ops-0.7.0a10-py3-none-any.whl -f ./azure_iot_ops-0.7.0a10-py3-none-any.whl
+   >    az extension add --upgrade --source ./azure_iot_ops-0.7.0a10-py3-none-any.whl
+   > ```
+
 1. Register the required resource providers in your subscription:
 
    >[!NOTE]

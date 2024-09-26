@@ -33,15 +33,8 @@ ms.custom: include file, ignite-2023, devx-track-azurecli
 1. Download and install a preview version of the `connectedk8s` extension for Azure CLI.
 
    ```azurecli
-   az storage blob download --auth-mode login --blob-url https://github.com/AzureArcForKubernetes/azure-cli-extensions/blob/connectedk8s/public/cli-extensions/connectedk8s-1.10.0-py2.py3-none-any.whl -f ./connectedk8s-1.10.0-py2.py3-none-any.whl
-   
-   az extension add --upgrade --source ./connectedk8s-1.10.0-py2.py3-none-any.whl
-   ```
-
-1. Use the [az connectedk8s connect](/cli/azure/connectedk8s#az-connectedk8s-connect) command to Arc-enable your Kubernetes cluster and manage it as part of your Azure resource group:
-
-   ```azurecli
-   az connectedk8s connect --name $CLUSTER_NAME -l $LOCATION --resource-group $RESOURCE_GROUP --subscription $SUBSCRIPTION_ID --disable-auto-upgrade
+   curl -L -o connectedk8s-1.10.0-py2.py3-none-any.whl https://github.com/AzureArcForKubernetes/azure-cli-extensions/raw/refs/heads/connectedk8s/public/cli-extensions/connectedk8s-1.10.0-py2.py3-none-any.whl   
+   az extension add --upgrade --source connectedk8s-1.10.0-py2.py3-none-any.whl
    ```
 
 1. Export environment variables that the `az connectedk8s upgrade` command requires.
@@ -51,16 +44,10 @@ ms.custom: include file, ignite-2023, devx-track-azurecli
    export HELMREGISTRY=azurearcfork8sdev.azurecr.io/merge/private/azure-arc-k8sagents:0.1.15392-private
    ```
 
-1. Upgrade the Azure Arc agent to use a preview build that supports the workload identity feature that Azure IoT Operations uses for user-assigned managed identities.
+1. Use the [az connectedk8s connect](/cli/azure/connectedk8s#az-connectedk8s-connect) command to Arc-enable your Kubernetes cluster and manage it as part of your Azure resource group:
 
    ```azurecli
-   az connectedk8s upgrade --resource-group $RESOURCE_GROUP --name $CLUSTER_NAME --agent-version 0.1.15392-private
-   ```
-
-1. Enable the workload identity feature on the cluster.
-
-   ```azurecli
-   az connectedk8s update --resource-group $RESOURCE_GROUP --name $CLUSTER_NAME --enable-oidc-issuer --enable-workload-identity
+   az connectedk8s connect --name $CLUSTER_NAME -l $LOCATION --resource-group $RESOURCE_GROUP --subscription $SUBSCRIPTION_ID --disable-auto-upgrade --enable-oidc-issuer --enable-workload-identity
    ```
 
 1. Get the cluster's issuer URL.
@@ -80,12 +67,12 @@ ms.custom: include file, ignite-2023, devx-track-azurecli
 1. Add the following content to the `config.yaml` file, replacing the `<SERVICE_ACCOUNT_ISSUER>` placeholder with your cluster's issuer URL.
 
    ```yml
-   kube-apiserver-arg: 'service-account-issuer=<SERVICE_ACCOUNT_ISSUER>' kube-apiserver-arg: 'service-account-max-token-expiration=24h'
+   kube-apiserver-arg: 'service-account-issuer=<SERVICE_ACCOUNT_ISSUER>'
    ```
 
 1. Save the file and exit the nano editor.
 
-1. Get the `objectId` of the Microsoft Entra ID application that the Azure Arc service uses and save it as an environment variable.
+1. Get the `objectId` of the Microsoft Entra ID application that the Azure Arc service uses in your tenant and save it as an environment variable.
 
    ```azurecli
    export OBJECT_ID=$(az ad sp show --id bc313c14-388c-4e7d-a58e-70017303ee3b --query id -o tsv)

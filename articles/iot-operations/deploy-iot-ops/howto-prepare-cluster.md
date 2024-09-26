@@ -29,8 +29,6 @@ Microsoft supports AKS Edge Essentials for deployments on Windows and K3s for de
 
 To prepare your Azure Arc-enabled Kubernetes cluster, you need:
 
-* Hardware that meets the [system requirements](/azure/azure-arc/kubernetes/system-requirements).
-
 ### [AKS Edge Essentials](#tab/aks-edge-essentials)
 
 * An Azure subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -105,9 +103,13 @@ This section provides steps to create clusters in validated environments on Linu
 
 The [AksEdgeQuickStartForAio.ps1](https://github.com/Azure/AKS-Edge/blob/main/tools/scripts/AksEdgeQuickStart/AksEdgeQuickStartForAio.ps1) script automates the process of creating and connecting a cluster, and is the recommended path for deploying Azure IoT Operations on AKS Edge Essentials.
 
- 
-
 1. Open an elevated PowerShell window and change the directory to a working folder.
+
+1. Get the `objectId` of the Microsoft Entra ID application that the Azure Arc service uses in your tenant.
+
+   ```azurecli
+   az ad sp show --id bc313c14-388c-4e7d-a58e-70017303ee3b --query id -o tsv
+   ```
 
 1. Run the following commands, replacing the placeholder values with your information:
 
@@ -118,26 +120,28 @@ The [AksEdgeQuickStartForAio.ps1](https://github.com/Azure/AKS-Edge/blob/main/to
    | RESOURCE_GROUP_NAME | The name of an existing resource group or a name for a new resource group to be created. |
    | LOCATION | An Azure region close to you. For the list of currently supported Azure regions, see [Supported regions](../overview-iot-operations.md#supported-regions). |
    | CLUSTER_NAME | A name for the new cluster to be created. |
+   | ARC_APP_OBJECT_ID | The object ID value that you retrieved in the previous step. |
 
-> [!NOTE]
->  > **Special instructions for AIO Internal Bugbash**: 
+   > [!NOTE]
+   > **Special instructions for AIO Internal Bugbash**:
+   >
    > The instructions below for AksEdgeQuickStartForAio.ps1 from AKS-Edge GitHub repo are  for external customer consumption and will only work after AIO 0.7 is released. 
    > For internal bug bashes, use this powershell script below instead
->   ```powershell
->   $url = "https://raw.githubusercontent.com/jagadishmurugan/AKS-Edge/blob/users/jagamu/changes-for-M2-integration/tools/scripts/AksEdgeQuickStart/AksEdgeQuickStartForAio.ps1"
->   Invoke-WebRequest -Uri $url -OutFile .\AksEdgeQuickStartForAio.ps1
->   Unblock-File .\AksEdgeQuickStartForAio.ps1
->   Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process -Force
->   .\AksEdgeQuickStartForAio.ps1 -SubscriptionId "<SUBSCRIPTION_ID>" -TenantId "<TENANT_ID>" -ResourceGroupName "<RESOURCE_GROUP_NAME>"  -Location "<LOCATION>"  -ClusterName "<CLUSTER_NAME>" -Tag "test-v0.3" -CustomLocationOid $customlocationOid
->   ```
-
+   >
+   >```powershell
+   >$url = "https://raw.githubusercontent.com/jagadishmurugan/AKS-Edge/blob/users/jagamu/changes-for-M2-integration/tools/scripts/AksEdgeQuickStart/AksEdgeQuickStartForAio.ps1"
+   >Invoke-WebRequest -Uri $url -OutFile .\AksEdgeQuickStartForAio.ps1
+   >Unblock-File .\AksEdgeQuickStartForAio.ps1
+   >Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process -Force
+   >.\AksEdgeQuickStartForAio.ps1 -SubscriptionId "<SUBSCRIPTION_ID>" -TenantId "<TENANT_ID>" -ResourceGroupName "<RESOURCE_GROUP_NAME>"  -Location "<LOCATION>"  -ClusterName "<CLUSTER_NAME>" -Tag "test-v0.3" -CustomLocationOid $customlocationOid
+   >```
 
    ```powershell
    $url = "https://raw.githubusercontent.com/Azure/AKS-Edge/main/tools/scripts/AksEdgeQuickStart/AksEdgeQuickStartForAio.ps1"
    Invoke-WebRequest -Uri $url -OutFile .\AksEdgeQuickStartForAio.ps1
    Unblock-File .\AksEdgeQuickStartForAio.ps1
    Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process -Force
-   .\AksEdgeQuickStartForAio.ps1 -SubscriptionId "<SUBSCRIPTION_ID>" -TenantId "<TENANT_ID>" -ResourceGroupName "<RESOURCE_GROUP_NAME>"  -Location "<LOCATION>"  -ClusterName "<CLUSTER_NAME>"
+   .\AksEdgeQuickStartForAio.ps1 -SubscriptionId "<SUBSCRIPTION_ID>" -TenantId "<TENANT_ID>" -ResourceGroupName "<RESOURCE_GROUP_NAME>"  -Location "<LOCATION>"  -ClusterName "<CLUSTER_NAME>" --CustomLocationOid "<ARC_APP_OBJECT_ID>"
    ```
 
    If there are any issues during deployment, including if your machine reboots as part of this process, run the whole set of commands again.
