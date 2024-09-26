@@ -19,8 +19,8 @@ The life cycle of the Azure Application Gateway instance differs when you disabl
 
 If the AGIC add-on automatically deployed the Application Gateway instance for you when you first set up everything, then disabling the AGIC add-on might delete the Application Gateway instance by default. The AGIC add-on considers two criteria to determine if it should delete the associated Application Gateway instance:
 
-- Is the Application Gateway instance that the AGIC add-on is associated with deployed in the `MC_*` node resource group?
-- Does the Application Gateway instance that the AGIC add-on is associated with have the tag `created-by: ingress-appgw`? AGIC uses the tag to determine whether or not the add-on deployed the Application Gateway instance.
+- Is the Application Gateway instance deployed in the `MC_*` node resource group?
+- Does the Application Gateway instance have the tag `created-by: ingress-appgw`? AGIC uses the tag to determine whether or not the add-on deployed the Application Gateway instance.
 
 If both criteria are met, the AGIC add-on deletes the Application Gateway instance when you disable the add-on. However, the AGIC add-on doesn't delete the public IP address or the subnet in which it deployed the Application Gateway instance.
 

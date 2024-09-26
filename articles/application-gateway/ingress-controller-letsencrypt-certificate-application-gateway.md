@@ -56,7 +56,7 @@ Use the following steps to install [cert-manager](https://docs.cert-manager.io) 
     # you must add the --set installCRDs=true flag to your Helm installation command.
     ```
 
-2. Create a `ClusterIssuer` resource. Cert-manager requires this resource to represent the Let's Encrypt certificate authority where the signed certificate is obtained.
+2. Create a `ClusterIssuer` resource. Cert-manager requires this resource to represent the Let's Encrypt certificate authority that issues the signed certificate.
 
     Cert-manager uses the non-namespaced `ClusterIssuer` resource to issue certificates that can be consumed from multiple namespaces. Let's Encrypt uses the ACME protocol to verify that you control a particular domain name and to issue a certificate. You can get more details on configuring `ClusterIssuer` properties in the [cert-manager documentation](https://docs.cert-manager.io/en/latest/tasks/issuers/index.html).
 

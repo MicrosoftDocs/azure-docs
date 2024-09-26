@@ -1,6 +1,6 @@
 ---
 title: Create an ingress controller by using an existing Application Gateway instance
-description: This article provides information on how to deploy an Application Gateway Ingress Controller by using an existing Application Gateway instance.
+description: This article provides information on how to deploy the Application Gateway Ingress Controller by using an existing Application Gateway instance.
 services: application-gateway
 author: greg-lindsay
 ms.service: azure-application-gateway
@@ -21,13 +21,13 @@ This article assumes that you already installed the following tools and infrastr
 - [An AKS cluster](/azure/aks/intro-kubernetes) with [Azure Container Networking Interface (CNI)](/azure/aks/configure-azure-cni).
 - [Application Gateway v2](./tutorial-autoscale-ps.md) in the same virtual network as the AKS cluster.
 - [Microsoft Entra Workload ID](/azure/aks/workload-identity-overview) configured for your AKS cluster.
-- [Azure Cloud Shell](https://shell.azure.com/) as the Azure shell environment, which has `az` (Azure CLI), `kubectl`, and `helm` installed. These tools are required for commands used to support configuring this deployment.
+- [Azure Cloud Shell](https://shell.azure.com/) as the Azure shell environment, which has `az` (Azure CLI), `kubectl`, and `helm` installed. These tools are required for commands that support configuring this deployment.
 
 ## Add the Helm repository
 
 [Helm](/azure/aks/kubernetes-helm) is a package manager for Kubernetes. You use it to install the `application-gateway-kubernetes-ingress` package.
 
-If you use Cloud Shell, you don't need to install Helm. Azure Cloud Shell comes with Helm version 3. Run the following commands to add the AGIC Helm repository for an AKS cluster that's enabled with Kubernetes role-based access control (RBAC):
+If you use Cloud Shell, you don't need to install Helm. Cloud Shell comes with Helm version 3. Run the following commands to add the AGIC Helm repository for an AKS cluster that's enabled with Kubernetes role-based access control (RBAC):
 
 ```bash
 kubectl create serviceaccount --namespace kube-system tiller-sa
@@ -52,7 +52,7 @@ AGIC communicates with the Kubernetes API server and [Azure Resource Manager](..
 
 ### Set up Microsoft Entra Workload ID
 
-[Microsoft Entra Workload ID](/azure/aks/workload-identity-overview) is an identity that you assign to a software workload, to authenticate and access other services and resources. This identity enables your AKS pod to authenticate with other Azure resources.
+[Microsoft Entra Workload ID](/azure/aks/workload-identity-overview) is an identity that you assign to a software workload. This identity enables your AKS pod to authenticate with other Azure resources.
 
 For this configuration, you need authorization for the AGIC pod to make HTTP requests to Azure Resource Manager.
 
@@ -62,7 +62,7 @@ For this configuration, you need authorization for the AGIC pod to make HTTP req
     az account set --subscription "subscriptionID"
     ```
 
-   Then use the [az identity create](/cli/azure/identity#az-identity-create) command to create a managed identity. You must create the identity in the [node resource group](/azure/aks/concepts-clusters-workloads#node-resource-group). The node resource group is assigned a name by default, such as *MC_myResourceGroup_myAKSCluster_eastus*.
+   Then use the [az identity create](/cli/azure/identity#az-identity-create) command to create a managed identity. You must create the identity in the [node resource group](/azure/aks/concepts-clusters-workloads#node-resource-group). The node resource group is assigned a name by default, such as `MC_myResourceGroup_myAKSCluster_eastus`.
 
     ```azurecli-interactive
     az identity create --name "userAssignedIdentityName" --resource-group "resourceGroupName" --location "location" --subscription "subscriptionID"
@@ -92,7 +92,7 @@ For this configuration, you need authorization for the AGIC pod to make HTTP req
     # Get the Application Gateway ID
     $AppGatewayID=$(az network application-gateway list --query '[].id' -o tsv)
     $role="contributor"
-    # Get the principal ID for the User assigned identity
+    # Get the principal ID for the user-assigned identity
     $principalId=$(az identity list -g $resourceGroup --query "[?name == '$identityName'].principalId | [0]" -o tsv)
     az role assignment create --assignee $principalId --role $role --scope $AppGatewayID
     ```
@@ -108,9 +108,9 @@ For this configuration, you need authorization for the AGIC pod to make HTTP req
     # Get the Application Gateway resource group ID
     $AppGatewayResourceGroupID=$(az group show --name $AppGatewayResourceGroup --query id -o tsv)
     $role="Reader"
-    # Get the principal ID for the User assigned identity
+    # Get the principal ID for the user-assigned identity
     $principalId=$(az identity list -g $resourceGroup --query "[?name == '$identityName'].principalId | [0]" -o tsv)
-    # Assign the Reader role to the User assigned identity at the resource group scope
+    # Assign the Reader role to the user-assigned identity at the resource group scope
     az role assignment create --role $role --assignee $principalId  --scope $AppGatewayResourceGroupID
     ```
 
@@ -135,7 +135,7 @@ It's also possible to provide AGIC access to Azure Resource Manager by using a K
         secretJSON: <Base64-Encoded-Credentials>
     ```
 
-## Deploy the Azure Application Gateway Ingress Controller add-on
+## Deploy the AGIC add-on
 
 ### Create a deployment manifest for the ingress controller
 
@@ -300,7 +300,7 @@ Let's look at an imaginary Application Gateway instance that manages traffic for
 - `dev.contoso.com`: Hosted on a new AKS cluster by using Application Gateway and AGIC.
 - `prod.contoso.com`: Hosted on a virtual machine scale set.
 
-With default settings, AGIC assumes 100% ownership of the Application Gateway instance that it's pointed to. AGIC overwrites all of the App Gateway configuration. If you manually create a listener for `prod.contoso.com` (on Application Gateway) without defining it in the Kubernetes Ingress, AGIC deletes the `prod.contoso.com` configuration within seconds.
+With default settings, AGIC assumes 100% ownership of the Application Gateway instance that it's pointed to. AGIC overwrites all of the App Gateway configuration. If you manually create a listener for `prod.contoso.com` on Application Gateway without defining it in the Kubernetes ingress, AGIC deletes the `prod.contoso.com` configuration within seconds.
 
 To install AGIC and also serve `prod.contoso.com` from the machines that use the virtual machine scale set, you must constrain AGIC to configuring
 `dev.contoso.com` only. You facilitate this constraint by instantiating the following [custom resource definition (CRD)](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/):
@@ -357,7 +357,7 @@ As a result, your AKS cluster has a new instance of `AzureIngressProhibitedTarge
   kubectl get AzureIngressProhibitedTargets prohibit-all-targets -o yaml
   ```
 
-The object `prohibit-all-targets` prohibits AGIC from changing the configuration for *any* host and path. Helm installed with `appgw.shared=true` deploys AGIC, but it doesn't make any changes to Application Gateway.
+The `prohibit-all-targets` object prohibits AGIC from changing the configuration for *any* host and path. Helm installed with `appgw.shared=true` deploys AGIC, but it doesn't make any changes to Application Gateway.
 
 ### Broaden permissions
 
@@ -386,7 +386,7 @@ Because Helm with `appgw.shared=true` and the default `prohibit-all-targets` blo
 
 Assume that you already have a working AKS cluster and an Application Gateway instance, and you configured AGIC in your cluster. You have an Ingress for `prod.contoso.com` and are successfully serving traffic for it from the cluster.
 
-You want to add `staging.contoso.com` to your existing Application Gateway instance, but you need to host it on a [virtual machine](https://azure.microsoft.com/services/virtual-machines/). You're going to reuse the existing Application Gateway instance and manually configure a listener and back-end pools for `staging.contoso.com`. But manually tweaking Application Gateway configuration (by using the [Azure portal](https://portal.azure.com), [Resource Manager APIs](/rest/api/resources/), or [Terraform](https://www.terraform.io/)) would conflict with AGIC's assumptions of full ownership. Shortly after you apply changes, AGIC overwrites or deletes them.
+You want to add `staging.contoso.com` to your existing Application Gateway instance, but you need to host it on a [virtual machine](https://azure.microsoft.com/services/virtual-machines/). You're going to reuse the existing Application Gateway instance and manually configure a listener and back-end pools for `staging.contoso.com`. But manually tweaking the Application Gateway configuration (by using the [Azure portal](https://portal.azure.com), [Resource Manager APIs](/rest/api/resources/), or [Terraform](https://www.terraform.io/)) would conflict with AGIC's assumptions of full ownership. Shortly after you apply changes, AGIC overwrites or deletes them.
 
 You can prohibit AGIC from making changes to a subset of the configuration:
 

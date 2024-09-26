@@ -69,7 +69,7 @@ Before you begin the upgrade procedure, ensure that you've added the required re
     odd-billygoat   22              Fri Jun 21 15:56:06 2019        FAILED  ingress-azure-0.7.0-rc1 0.7.0-rc1       default
     ```
 
-    The Helm chart installation from the preceding sample response is named `odd-billygoat`. This article uses this name for the commands. Your actual deployment name will be different.
+    The Helm chart installation from the preceding sample response is named `odd-billygoat`. This article uses that name for the commands. Your actual deployment name will be different.
 
 1. Upgrade the Helm deployment to a new version:
 

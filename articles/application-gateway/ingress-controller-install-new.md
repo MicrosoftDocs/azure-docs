@@ -1,6 +1,6 @@
 ---
 title: Create an ingress controller by using a new Application Gateway instance
-description: This article provides information on how to deploy an Application Gateway Ingress Controller by using a new Application Gateway instance.
+description: This article provides information on how to deploy the Application Gateway Ingress Controller by using a new Application Gateway instance.
 services: application-gateway
 author: greg-lindsay
 ms.service: azure-application-gateway
@@ -12,7 +12,7 @@ ms.author: greglin
 
 # Install AGIC by using a new Application Gateway instance
 
-The instructions in this article assume that you want to install an Application Gateway Ingress Controller (AGIC) in an environment that has no preexisting components.
+The instructions in this article assume that you want to install the Application Gateway Ingress Controller (AGIC) in an environment that has no preexisting components.
 
 ## Install required command-line tools
 
@@ -20,16 +20,16 @@ We recommend the use of [Azure Cloud Shell](https://shell.azure.com/) for all th
 
 :::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Button to open Azure Cloud Shell." border="false" link="https://shell.azure.com":::
 
-Alternatively, open Cloud Shell from the Azure portal by selecting the icon.
+Alternatively, open Cloud Shell from the Azure portal by selecting its icon.
 
 ![Azure PowerShell icon in the portal](./media/application-gateway-ingress-controller-install-new/portal-launch-icon.png)
 
 Your Cloud Shell instance already has all necessary tools. If you choose to use another environment, ensure that the following command-line tools are installed:
 
-- `az`: Azure CLI ([installation instructions](/cli/azure/install-azure-cli)).
-- `kubectl`: Kubernetes command-line tool ([installation instructions](https://kubernetes.io/docs/tasks/tools/install-kubectl)).
-- `helm`: Kubernetes package manager ([installation instructions](https://github.com/helm/helm/releases/latest)).
-- `jq`: Command-line JSON processor ([installation instructions](https://stedolan.github.io/jq/download/)).
+- `az`: Azure CLI ([installation instructions](/cli/azure/install-azure-cli))
+- `kubectl`: Kubernetes command-line tool ([installation instructions](https://kubernetes.io/docs/tasks/tools/install-kubectl))
+- `helm`: Kubernetes package manager ([installation instructions](https://github.com/helm/helm/releases/latest))
+- `jq`: Command-line JSON processor ([installation instructions](https://stedolan.github.io/jq/download/))
 
 ## Create an identity
 
@@ -66,13 +66,13 @@ Use the following steps to create a Microsoft Entra [service principal object](.
     EOF
     ```
 
-    To deploy a Kubernetes RBAC-enabled cluster, set the `aksEnableRBAC` field to `true`.
+    To deploy a Kubernetes RBAC-enabled cluster, set `aksEnableRBAC` to `true`.
 
 ## Deploy components
 
 The following procedure adds these components to your subscription:
 
-- [Azure Kubernetes Service](/azure/aks/intro-kubernetes)
+- [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes)
 - [Azure Application Gateway](./overview.md) v2
 - [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) with two [subnets](../virtual-network/virtual-networks-overview.md)
 - [Public IP address](../virtual-network/ip-services/virtual-network-public-ip-address.md)
@@ -110,9 +110,9 @@ To deploy the components:
     az deployment group show -g $resourceGroupName -n $deploymentName --query "properties.outputs" -o json > deployment-outputs.json
     ```
 
-## Set up an Application Gateway Ingress Controller
+## Set up AGIC
 
-With the instructions in the previous section, you created and configured a new Azure Kubernetes Service (AKS) cluster and an Application Gateway instance. You're now ready to deploy a sample app and an ingress controller to your new Kubernetes infrastructure.
+With the instructions in the previous section, you created and configured a new AKS cluster and an Application Gateway instance. You're now ready to deploy a sample app and an ingress controller to your new Kubernetes infrastructure.
 
 ### Set up Kubernetes credentials
 
@@ -121,7 +121,7 @@ For the following steps, you need to set up the [kubectl](https://kubectl.docs.k
 Get credentials for your newly deployed AKS instance. For more information about the following commands, see [Use Azure RBAC for Kubernetes authorization with kubectl](/azure/aks/manage-azure-rbac#use-azure-rbac-for-kubernetes-authorization-with-kubectl).
 
 ```azurecli
-# use the deployment-outputs.json created after deployment to get the cluster name and resource group name
+# use the deployment-outputs.json file created after deployment to get the cluster name and resource group name
 aksClusterName=$(jq -r ".aksClusterName.value" deployment-outputs.json)
 resourceGroupName=$(jq -r ".resourceGroupName.value" deployment-outputs.json)
 
@@ -158,7 +158,7 @@ To install Microsoft Entra Pod Identity to your cluster, use one of the followin
 
 [Helm](/azure/aks/kubernetes-helm) is a package manager for Kubernetes. You use it to install the `application-gateway-kubernetes-ingress` package.
 
-If you use [Cloud Shell](https://shell.azure.com/), you don't need to install Helm. Azure Cloud Shell comes with Helm version 3. Run one of the following commands to add the AGIC Helm repository:
+If you use [Cloud Shell](https://shell.azure.com/), you don't need to install Helm. Cloud Shell comes with Helm version 3. Run one of the following commands to add the AGIC Helm repository:
 
 - Kubernetes RBAC-enabled AKS cluster:
 
@@ -272,7 +272,7 @@ If you use [Cloud Shell](https://shell.azure.com/), you don't need to install He
    - `armAuth.type`: Could be `aadPodIdentity` or `servicePrincipal`.
    - `armAuth.identityResourceID`: Resource ID of the Azure managed identity.
    - `armAuth.identityClientID`: Client ID of the identity.
-   - `armAuth.secretJSON`: Needed only when you choose service principal as the secret type (that is, when you set `armAuth.type` to `servicePrincipal`).
+   - `armAuth.secretJSON`: Needed only when you choose a service principal as the secret type (that is, when you set `armAuth.type` to `servicePrincipal`).
 
    > [!NOTE]
    > You created the `identityResourceID` and `identityClientID` values during the earlier steps for [deploying components](ingress-controller-install-new.md#deploy-components). You can obtain them again by using the following command:
@@ -283,7 +283,7 @@ If you use [Cloud Shell](https://shell.azure.com/), you don't need to install He
    >
    > In the command, `<resource-group>` is the resource group of your Application Gateway instance. The `<identity-name>` placeholder is the name of the created identity. You can list all identities for a particular subscription by using `az identity list`.
 
-1. Install the Application Gateway ingress controller package:
+1. Install the AGIC package:
 
     ```bash
     helm install agic-controller oci://mcr.microsoft.com/azure-application-gateway/charts/ingress-azure --version 1.7.5 -f helm-config.yaml

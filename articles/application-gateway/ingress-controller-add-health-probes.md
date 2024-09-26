@@ -11,7 +11,7 @@ ms.author: greglin
 
 # Add health probes to your AKS pods
 
-By default, the Application Gateway Ingress Controller (AGIC) provisions an HTTP `GET` probe for exposed Azure Kubernetes Service (AKS) pods. You can customize the probe properties by adding a [readiness or liveness probe](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/) to your `deployment` or `pod` specification.
+By default, the Application Gateway Ingress Controller (AGIC) provisions an HTTP `GET` probe for exposed Azure Kubernetes Service (AKS) pods. You can customize the probe properties by adding a [readiness or liveness probe](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/) to your deployment or pod specification.
 
 ## Code for adding a readiness or liveness probe
 

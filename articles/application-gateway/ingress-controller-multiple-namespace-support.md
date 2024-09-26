@@ -41,7 +41,7 @@ At the top of the hierarchy, AGIC could create *listeners* (IP address, port, an
 
 On the other hand, AGIC could create paths, back-end pools, HTTP settings, and TLS certificates for one namespace only and remove duplicates.
 
-For example, consider the following duplicate ingress resources defined in namespaces `staging` and `production` for `www.contoso.com`:
+For example, consider the following duplicate ingress resources defined in the `staging` and `production` namespaces for `www.contoso.com`:
 
 ```yaml
 apiVersion: networking.k8s.io/v1

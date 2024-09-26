@@ -23,7 +23,7 @@ This article illustrates the usage of [Kubernetes ingress resources](https://kub
 
 ## Deploy the guestbook application
 
-The `guestbook` application is a canonical Kubernetes application that consists of a Web UI front end, a back end, and a Redis database.
+The `guestbook` application is a canonical Kubernetes application that consists of a web UI front end, a back end, and a Redis database.
 
 By default, `guestbook` exposes its application through a service with the name `frontend` on port `80`. Without a Kubernetes ingress resource, the service isn't accessible from outside the AKS cluster. You use the application, and set up ingress resources to access the application, through HTTP and HTTPS.
 
@@ -116,7 +116,7 @@ Now the `guestbook` application is available on both HTTP and HTTPS.
 
 ### With a specified host name
 
-You can also specify the host name on the ingress resource in order to multiplex TLS configurations and services. When you specify a host name, the `guestbook` service is available only on the specified host.
+You can also specify the host name on the ingress resource to multiplex TLS configurations and services. When you specify a host name, the `guestbook` service is available only on the specified host.
 
 1. Define the following ingress resource. In the `secretName` section, replace `<guestbook-secret-name>` with the name of your secret. In the `hosts` and `host` sections, replace `<guestbook.contoso.com>` with your host name.
 
