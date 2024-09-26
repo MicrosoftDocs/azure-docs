@@ -274,22 +274,21 @@ Calculates the Blake2 digest of set of column of varying primitive datatypes giv
 * ``unHex('c9521a5080d8da30dffb430c50ce253c345cc4c4effc315dab2162dac974711d')``
 ___
 
-
 <a name="byItem" ></a>
 
 ### <code>byItem</code>
 <code><b>byItem(<i>&lt;parent column&gt;</i> : any, <i>&lt;column name&gt;</i> : string) => any</b></code><br/><br/>
-Find a sub item within a structure or array of structure. If there are multiple matches, the first match is returned. If no match it returns a NULL value. The returned value has to be type converted by one of the type conversion actions(? date, ? string ...). Just address column names known at design time by their name. Computed inputs aren't supported but you can use parameter substitutions  
+Find a sub item within a structure or array of structure. If there are multiple matches, the first match is returned. If no match it returns a NULL value. The returned value has to be type converted by one of the type conversion actions (? date, ? string ...). Just address column names known at design time by their name. Computed inputs aren't supported but you can use parameter substitutions.
+
 * ``byItem( byName('customer'), 'orderItems') ? (itemName as string, itemQty as integer)``
 * ``byItem( byItem( byName('customer'), 'orderItems'), 'itemName') ? string``
 ___
-
 
 <a name="byName" ></a>
 
 ### <code>byName</code>
 <code><b>byName(<i>&lt;column name&gt;</i> : string, [<i>&lt;stream name&gt;</i> : string]) => any</b></code><br/><br/>
-Selects a column value by name in the stream. You can pass an optional stream name as the second argument. If there are multiple matches, the first match is returned. If no match it returns a NULL value. The returned value has to be type converted by one of the type conversion functions(TO_DATE, TO_STRING ...). Just address column names known at design time by their name. Computed inputs aren't supported but you can use parameter substitutions. 
+Selects a column value by name in the stream. You can pass an optional stream name as the second argument. If there are multiple matches, the first match is returned. If no match it returns a NULL value. The returned value has to be type converted by one of the type conversion functions (TO_DATE, TO_STRING ...). Just address column names known at design time by their name. Computed inputs aren't supported but you can use parameter substitutions. 
 * ``toString(byName('parent'))``  
 * ``toLong(byName('income'))``  
 * ``toBoolean(byName('foster'))``  
@@ -320,7 +319,7 @@ ___
 
 ### <code>byOrigin</code>
 <code><b>byOrigin(<i>&lt;column name&gt;</i> : string, [<i>&lt;origin stream name&gt;</i> : string]) => any</b></code><br/><br/>
-Selects a column value by name in the origin stream. The second argument is the origin stream name. If there are multiple matches, the first match is returned. If no match it returns a NULL value. The returned value has to be type converted by one of the type conversion functions(TO_DATE, TO_STRING ...). Just address column names known at design time by their name. Computed inputs aren't supported but you can use parameter substitutions. 
+Selects a column value by name in the origin stream. The second argument is the origin stream name. If there are multiple matches, the first match is returned. If no match it returns a NULL value. The returned value has to be type converted by one of the type conversion functions (TO_DATE, TO_STRING ...). Just address column names known at design time by their name. Computed inputs aren't supported but you can use parameter substitutions. 
 * ``toString(byOrigin('ancestor', 'ancestorStream'))``
 ___
 
@@ -329,7 +328,7 @@ ___
 
 ### <code>byOrigins</code>
 <code><b>byOrigins(<i>&lt;column names&gt;</i> : array, [<i>&lt;origin stream name&gt;</i> : string]) => any</b></code><br/><br/>
-Selects an array of columns by name in the stream. The second argument is the stream where it originated from. If there are multiple matches, the first match is returned. If no match it returns a NULL value. The returned value has to be type converted by one of the type conversion functions(TO_DATE, TO_STRING ...) Just address column names known at design time by their name. Computed inputs aren't supported but you can use parameter substitutions.
+Selects an array of columns by name in the stream. The second argument is the stream where it originated from. If there are multiple matches, the first match is returned. If no match it returns a NULL value. The returned value has to be type converted by one of the type conversion functions (TO_DATE, TO_STRING ...). Just address column names known at design time by their name. Computed inputs aren't supported but you can use parameter substitutions.
 * ``toString(byOrigins(['ancestor1', 'ancestor2'], 'ancestorStream'))``
 ___
 
@@ -347,7 +346,7 @@ ___
 
 ### <code>byPosition</code>
 <code><b>byPosition(<i>&lt;position&gt;</i> : integer) => any</b></code><br/><br/>
-Selects a column value by its relative position(1 based) in the stream. If the position is out of bounds, it returns a NULL value. The returned value has to be type converted by one of the type conversion functions(TO_DATE, TO_STRING ...) Computed inputs aren't supported but you can use parameter substitutions. 
+Selects a column value by its relative position (1 based) in the stream. If the position is out of bounds, it returns a NULL value. The returned value has to be type converted by one of the type conversion functions (TO_DATE, TO_STRING ...). Computed inputs aren't supported but you can use parameter substitutions. 
 * ``toString(byPosition(1))``  
 * ``toDecimal(byPosition(2), 10, 2)``  
 * ``toBoolean(byName(4))``  
@@ -609,7 +608,7 @@ ___
 
 ### <code>cumeDist</code>
 <code><b>cumeDist() => integer</b></code><br/><br/>
-The CumeDist function computes the position of a value relative to all values in the partition. The result is the number of rows preceding or equal to the current row in the ordering of the partition divided by the total number of rows in the window partition. Any tie values in the  ordering evaluates to the same position. 
+The CumeDist function computes the position of a value relative to all values in the partition. The result is the number of rows preceding or equal to the current row in the ordering of the partition divided by the total number of rows in the window partition. Any tie values in the ordering evaluate to the same position. 
 * ``cumeDist()``  
 ___
 
@@ -756,7 +755,6 @@ Encodes the input string data into binary based on a charset. A second (optional
 * ``encode('abc', 'US-ASCII') -> array(toByte(97),toByte(98),toByte(99))``  
 ___
 
-Input string: string, Charset: string) => binary
 <a name="endsWith" ></a>
 
 ### <code>endsWith</code>
@@ -1030,7 +1028,7 @@ ___
 
 ### <code>iif</code>
 <code><b>iif(<i>&lt;condition&gt;</i> : boolean, <i>&lt;true_expression&gt;</i> : any, [<i>&lt;false_expression&gt;</i> : any]) => any</b></code><br/><br/>
-Based on a condition applies one value or the other. If other is unspecified, the value is considered NULL. Both the values must be compatible(numeric, string...). 
+Based on a condition applies one value or the other. If other is unspecified, the value is considered NULL. Both the values must be compatible (numeric, string...). 
 * ``iif(10 + 20 == 30, 'dumbo', 'gumbo') -> 'dumbo'``  
 * ``iif(10 > 30, 'dumbo', 'gumbo') -> 'gumbo'``  
 * ``iif(month(toDate('2018-12-01')) == 12, 345.12, 102.67) -> 345.12``  
@@ -1072,7 +1070,7 @@ ___
 
 ### <code>instr</code>
 <code><b>instr(<i>&lt;string&gt;</i> : string, <i>&lt;substring to find&gt;</i> : string) => integer</b></code><br/><br/>
-Finds the position(1 based) of the substring within a string. 0 is returned if not found. 
+Finds the position (1 based) of the substring within a string. 0 is returned if not found. 
 * ``instr('dumbo', 'mbo') -> 3``  
 * ``instr('microsoft', 'o') -> 5``  
 * ``instr('good', 'bad') -> 0``  
@@ -1443,7 +1441,7 @@ ___
 ### <code>like</code>
 <code><b>like(<i>&lt;string&gt;</i> : string, <i>&lt;pattern match&gt;</i> : string) => boolean</b></code><br/><br/>
 The pattern is a string that is matched literally. The exceptions are the following special symbols:  _ matches any one character in the input (similar to. In ```posix``` regular expressions)
-  % matches zero or more characters in the input (similar to.* in ```posix``` regular expressions).
+  % matches zero or more characters in the input (similar to ```.*``` in ```posix``` regular expressions).
   The escape character is ''. If an escape character precedes a special symbol or another escape character, the following character is matched literally. It's invalid to escape any other character. 
 * ``like('icecream', 'ice%') -> true``  
 ___
@@ -1453,7 +1451,7 @@ ___
 
 ### <code>locate</code>
 <code><b>locate(<i>&lt;substring to find&gt;</i> : string, <i>&lt;string&gt;</i> : string, [<i>&lt;from index - 1-based&gt;</i> : integral]) => integer</b></code><br/><br/>
-Finds the position(1 based) of the substring within a string starting a certain position. If the position is omitted, it's considered from the beginning of the string. 0 is returned if not found. 
+Finds the position (1 based) of the substring within a string starting a certain position. If the position is omitted, it's considered from the beginning of the string. 0 is returned if not found. 
 * ``locate('mbo', 'dumbo') -> 3``  
 * ``locate('o', 'microsoft', 6) -> 7``  
 * ``locate('bad', 'good') -> 0``  
@@ -2556,7 +2554,7 @@ ___
 
 ### <code>typeMatch</code>
 <code><b>typeMatch(<i>&lt;type&gt;</i> : string, <i>&lt;base type&gt;</i> : string) => boolean</b></code><br/><br/>
-Matches the type of the column. Can only be used in pattern expressions.number matches short, integer, long, double, float or decimal, integral matches short, integer, long, fractional matches double, float, decimal and datetime matches date or timestamp type. 
+Matches the type of the column. Can only be used in pattern expressions. Number matches short, integer, long, double, float or decimal, integral matches short, integer, long, fractional matches double, float, decimal and datetime matches date or timestamp type. 
 * ``typeMatch(type, 'number')``  
 * ``typeMatch('date', 'datetime')``  
 ___

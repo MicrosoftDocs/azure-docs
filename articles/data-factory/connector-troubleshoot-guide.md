@@ -105,7 +105,7 @@ The following errors are general to the copy activity and could occur with any c
 
 #### Error code: 20152
 
-- **Message**: `The toke type '%tokenType;' from your authorization server is not supported, supported types: '%tokenTypes;'.`
+- **Message**: `The token type '%tokenType;' from your authorization server is not supported, supported types: '%tokenTypes;'.`
 
 - **Cause**: Your authorization server isn't supported.
 
@@ -251,7 +251,7 @@ The following errors are general to the copy activity and could occur with any c
 
 - **Message**: `Failed to connect to your instance of Azure Database for PostgreSQL flexible server. '%'`
  
-- **Cause**: Exact cause depends on the text returned in `'%'`. If it's **The operation has timed out**, it can be because the instance of PostgreSQL is stopped or because the network connectivity method configured for your instance doesn't allow connections from the Integration Runtime selected. User or password provided are incorrect. If it's **28P01: password authentication failed for user &lt;youruser&gt;**, it means that the user provided doesn't exist in the instance or that the password is incorrect. If it's **28000: no pg_hba.conf entry for host "*###.###.###.###*", user "&lt;youruser&gt;", database "&lt;yourdatabase&gt;", no encryption**, it means that the encryption method selected isn't compatible with the configuration of the server.
+- **Cause**: Exact cause depends on the text returned in `'%'`. If it's **The operation has timed out**, it can be because the instance of PostgreSQL is stopped or because the network connectivity method configured for your instance doesn't allow connections from the Integration Runtime selected. User or password provided is incorrect. If it's **28P01: password authentication failed for user &lt;youruser&gt;**, it means that the user provided doesn't exist in the instance or that the password is incorrect. If it's **28000: no pg_hba.conf entry for host "*###.###.###.###*", user "&lt;youruser&gt;", database "&lt;yourdatabase&gt;", no encryption**, it means that the encryption method selected isn't compatible with the configuration of the server.
 
 - **Recommendation**: Confirm that the user provided exists in your instance of PostgreSQL and that the password corresponds to the one currently assigned to that user. Make sure that the encryption method selected is accepted by your instance of PostgreSQL, based on its current configuration. If the network connectivity method of your instance is configured for Private access (virtual network integration), use a Self-Hosted Integration Runtime (IR) to connect to it. If it's configured for Public access (allowed IP addresses), it's recommended to use an Azure IR with managed virtual network and deploy a managed private endpoint to connect to your instance. When it's configured for Public access (allowed IP addresses) a less recommended alternative consists in creating firewall rules in your instance to allow traffic originating on the IP addresses used by the Azure IR you're using.
 
