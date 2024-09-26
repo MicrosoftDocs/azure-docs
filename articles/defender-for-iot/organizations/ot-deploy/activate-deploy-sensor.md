@@ -162,11 +162,11 @@ Use this procedure to configure the following initial setup settings via CLI:
 - Defining network details for your sensor
 - Defining the interfaces you want to monitor
 
+Continue with [activating](#activate-your-ot-sensor) and [configuring SSL/TLS certificate settings](#define-ssltls-certificate-settings) in the browser.
+
 > [!NOTE]
 > The information in this article applies to the sensor version 24.1.5. If you are running an earlier version, see [configure ERSPAN mirroring](../traffic-mirroring/configure-mirror-erspan.md).
 >
-
-Continue with [activating](#activate-your-ot-sensor) and [configuring SSL/TLS certificate settings](#define-ssltls-certificate-settings) in the browser.
 
 **To configure initial setup settings via CLI**:
 
@@ -220,7 +220,7 @@ An interface can be set as either **Management**, **Monitor**, **Tunnel** or **U
     1. Select the interface.
     1. Select **Monitor**. The **Sensor Config** screen updates.
 
-1. To configure an ERSPAN interface:
+1. To configure an **ERSPAN** interface:
 
     1. Select **Type**.
     1. Select **ERSPAN**.
