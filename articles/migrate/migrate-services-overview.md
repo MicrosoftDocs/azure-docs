@@ -20,19 +20,19 @@ Azure Migrate provides a simplified migration, modernization, and optimization s
 
 :::image type="content" source="./media/migrate-services-overview/migrate-journey.png" alt-text="Screenshot that shows the migration journey." lightbox="./media/migrate-services-overview/migrate-journey.png":::
 
-- **Decide**: The first step in a migration journey is to identify your workloads. This process of identification is known as discovery. To discover your workloads you can deploy a light-weight [Azure Migrate appliance](https://learn.microsoft.com/azure/migrate/migrate-appliance) (recommended approach) or quickly import the inventory data for your workloads. The Azure Migrate appliance is a virtual appliance that can be deployed on a server on your datacenter. The appliance collects the configuration and performance data for your servers and continually sends it over to Azure Migrate Service. Once the inventory of workloads is identified you can create a business case to make your decision to migrate to Azure.  
+- **Decide**: The first step in a migration journey is to identify your workloads. This process of identification is known as discovery. To discover your workloads you can deploy a light-weight [Azure Migrate appliance](migrate-appliance.md) (recommended approach) or quickly import the inventory data for your workloads. The Azure Migrate appliance is a virtual appliance that can be deployed on a server on your datacenter. The appliance collects the configuration and performance data for your servers and continually sends it over to Azure Migrate Service. Once the inventory of workloads is identified you can create a business case to make your decision to migrate to Azure.  
 
   - **Business case** helps you decide if you should migrate your on-premises workloads to Azure, by estimating the costs and savings of moving to Azure. The business case helps you identify- 
     - On-premises vs Azure total cost of ownership
     - YoY comparison of cash flows
     - Resource utilization-based insights on Azure targets. 
-    - Long-term cost reduction by switching from a capital expenditure (Capex) model to an Operating expenditure (Opex) model. Learn more about [business case](https://learn.microsoft.com/azure/migrate/concepts-business-case-calculation).
+    - Long-term cost reduction by switching from a capital expenditure (Capex) model to an Operating expenditure (Opex) model. Learn more about [business case](concepts-business-case-calculation.md).
 
 - **Plan**: Once the decision is made to migrate to Azure, the next important phase is planning of migration. To plan migration in detail you can  assess your discovered workloads using Azure Migrate assessments to find the readiness, right sized targets, configuration of the target Azure resources, cost of hosting target resources on Azure and migration guidance. 
     - **Azure readiness**: Assesses whether on-premises servers, SQL Servers and web apps are ready for migration to Azure.
     - **Right** **sizing**: Estimates the size of Azure VMs/Azure SQL configuration/number of Azure VMware Solution nodes after migration.
     - **Azure cost estimation**: Estimates costs for running on-premises servers in Azure.
-    - **Dependency Analysis:** Dependency analysis helps you understand the network dependencies between servers in your datacenter so that you can make high confidence migration plans without missing any critical dependency during migration. Learn more about [dependency analysis](https://learn.microsoft.com/azure/migrate/concepts-dependency-visualization).
+    - **Dependency Analysis:** Dependency analysis helps you understand the network dependencies between servers in your datacenter so that you can make high confidence migration plans without missing any critical dependency during migration. Learn more about [dependency analysis](concepts-dependency-visualization.md).
     
 - **Execute**: In this phase, you perform the migration or modernization of your workloads to move to Azure. You can use the Azure Migrate service or third-party tools to migrate your servers, databases, web apps, or virtual desktops with minimal downtime and risk. You can migrate the following workloads using the integrated migration tool.
 
