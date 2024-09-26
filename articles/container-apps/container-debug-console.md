@@ -149,7 +149,7 @@ We will pre-install below diagnostic tools to help you troubleshoot issues more 
 - [bind-utils](https://www.linuxfromscratch.org/~ken/inkscape-python-deps/blfs-book-sysv/basicnet/bind-utils.html)
 - [tcpping](http://www.vdberg.org/~richard/tcpping.html)
 
-If you want to install other tools, you can run `tdnf install <TOOL_NAME>` command. Replace the \<PLACEHOLDERS\> with your container app's values.
+If you want to install other tools, you can run `tdnf install <TOOL_NAME>` command. Replace the \<PLACEHOLDERS\> with your tool's values.
 
 For example, install JDK in debug console in a container app using the following command:
 
