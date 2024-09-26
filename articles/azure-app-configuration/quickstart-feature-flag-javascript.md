@@ -41,6 +41,51 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
 
 1. Open the file *app.js* and update it with the following code.
 
+    ### [Use Azure Credential (Recommended)](#tab/azurecredential)
+
+    ``` javascript
+    const sleepInMs = require("util").promisify(setTimeout);
+    const { load } = require("@azure/app-configuration-provider");
+    const { getDefaultAzureCredential } = require("@azure/identity");
+    const { FeatureManager, ConfigurationMapFeatureFlagProvider} = require("@microsoft/feature-management")
+    const endpoint = process.env.AZURE_APPCONFIG_ENDPOINT;
+
+    async function run() {
+        // Connect to Azure App Configuration using an endpoint with credential.
+        // To learn more about Azure credential, please refer to
+        // https://learn.microsoft.com/javascript/api/overview/azure/identity-readme#defaultazurecredential
+        const settings = await load(endpoint, getDefaultAzureCredential(), {
+            featureFlagOptions: {
+                enabled: true,
+                // Note: selectors must be explicitly provided for feature flags.
+                selectors: [{
+                    keyFilter: "*"
+                }],
+                refresh: {
+                    enabled: true,
+                    refreshIntervalInMs: 10_000
+                }
+            }
+        });
+
+        // Create a feature flag provider which uses a map as feature flag source
+        const ffProvider = new ConfigurationMapFeatureFlagProvider(settings);
+        // Create a feature manager which will evaluate the feature flag
+        const fm = new FeatureManager(ffProvider);
+
+        while (true) {
+            await settings.refresh(); // Refresh to get the latest feature flag settings
+            const isEnabled = await fm.isEnabled("Beta"); // Evaluate the feature flag
+            console.log(`Beta is enabled: ${isEnabled}`);
+            await sleepInMs(5000);
+        }
+    }
+
+    run().catch(console.error);
+    ```
+
+    ### [Use Connection String](#tab/connectionstring)
+
     ``` javascript
     const sleepInMs = require("util").promisify(setTimeout);
     const { load } = require("@azure/app-configuration-provider");
@@ -48,7 +93,7 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     const connectionString = process.env.AZURE_APPCONFIG_CONNECTION_STRING;
 
     async function run() {
-        // Connecting to Azure App Configuration using connection string
+        // Connect to Azure App Configuration using connection string
         const settings = await load(connectionString, {
             featureFlagOptions: {
                 enabled: true,
@@ -63,9 +108,9 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
             }
         });
 
-        // Creating a feature flag provider which uses a map as feature flag source
+        // Create a feature flag provider which uses a map as feature flag source
         const ffProvider = new ConfigurationMapFeatureFlagProvider(settings);
-        // Creating a feature manager which will evaluate the feature flag
+        // Create a feature manager which will evaluate the feature flag
         const fm = new FeatureManager(ffProvider);
 
         while (true) {
@@ -78,6 +123,8 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
 
     run().catch(console.error);
     ```
+
+    ---
 
 ## Run the application
 
