@@ -229,7 +229,6 @@ The following table outlines the support scope of flow logs.
 | Identification of virtual network encryption  | Not supported | Supported |
 | Azure API management  | Not supported | Supported |
 | Azure Application Gateway | Not supported | Supported |
-| Azure Bastion | Supported | Supported |
 | Azure Virtual Network Manager | Not supported | Supported |
 | ExpressRoute gateway | Not supported | Supported |
 | Virtual machine scale sets | Supported | Supported |
