@@ -107,7 +107,7 @@ Update the CI workflow definition to run your Playwright tests with the Playwrig
     ```yml
     
       # This step is to sign-in to Azure to run tests from GitHub Action workflow. 
-      # You can choose how to set up Authentication to Azure from GitHub Actions, this is one example. 
+      # Choose how to set up authentication to Azure from GitHub Actions. This is one example. 
     - name: Login to Azure with AzPowershell (enableAzPSSession true) 
       uses: azure/login@v2 
       with: 
@@ -190,7 +190,7 @@ Update the CI workflow definition to run your Playwright tests with the Playwrig
 
 ## View test runs and results in the Playwright portal
 
-You can now troubleshoot the CI pipeline easily in the Playwright portal,  
+You can now troubleshoot the CI pipeline in the Playwright portal,  
 
 [!INCLUDE [View test runs and results in the Playwright portal](./includes/include-playwright-portal-view-test-results.md)]
 

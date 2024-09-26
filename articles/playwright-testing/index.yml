@@ -36,7 +36,7 @@ landingContent:
             url: quickstart-run-end-to-end-tests.md
           - text: Set up continuous end-to-end testing
             url: quickstart-automate-end-to-end-testing.md
-          - text: Troubleshoot using rich reports and atrifacts 
+          - text: Troubleshoot using rich reports and artifacts 
             url: quickstart-generate-rich-reports-for-tests.md
       - linkListType: concept
         links:

@@ -10,7 +10,7 @@ ms.custom: playwright-testing-preview
 
 In this quickstart, you learn how to troubleshoot your Playwright tests easily using reports and artifacts published on Microsoft Playwright Testing Preview. 
 
-After you complete this quickstart, you have a Microsoft Playwright Testing workspace to view test results and artifacts in the service portal.
+After you complete this quickstart, you'll have a Microsoft Playwright Testing workspace to view test results and artifacts in the service portal.
 
 > [!IMPORTANT]
 > Microsoft Playwright Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -24,7 +24,7 @@ After you complete this quickstart, you have a Microsoft Playwright Testing work
 
 ## Create a workspace
 
-To get started with running your Playwright tests at scale on cloud browsers, you first create a Microsoft Playwright Testing workspace in the Playwright portal.
+To get started with running your Playwright tests at scale on cloud browsers, first create a Microsoft Playwright Testing workspace in the Playwright portal.
 
 [!INCLUDE [Create workspace in Playwright portal](./includes/include-playwright-portal-create-workspace.md)]
 
@@ -32,7 +32,7 @@ When the workspace creation finishes, you're redirected to the setup guide.
 
 ## Install Microsoft Playwright Testing package 
 
-To use the service, install Microsoft Playwright Testing package. 
+To use the service, install the Microsoft Playwright Testing package. 
 
 ```npm
 npm init @azure/microsoft-playwright-testing
@@ -66,7 +66,7 @@ Setting this as `false` ensures that cloud-hosted browsers are not used to run t
 
 In your setup, you have to provide the region-specific service endpoint. The endpoint depends on the Azure region you selected when creating the workspace.
 
-To get the service endpoint URL, perform the following steps:
+To get the service endpoint URL:
 
 1. In **Add region endpoint in your setup**, copy the region endpoint for your workspace.
 
@@ -158,7 +158,7 @@ Test report: https://playwright.microsoft.com/workspaces/<workspace-id>/runs/<ru
 
 ## View test runs and results in the Playwright portal
 
-You can now troubleshoot the failed test cases easily in the Playwright portal, 
+You can now troubleshoot the failed test cases in the Playwright portal.
 
 [!INCLUDE [View test runs and results in the Playwright portal](./includes/include-playwright-portal-view-test-results.md)]
 
