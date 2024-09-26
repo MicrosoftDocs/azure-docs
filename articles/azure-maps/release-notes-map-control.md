@@ -16,6 +16,21 @@ This document contains information about new features and other changes to the M
 
 ## v3 (latest)
 
+### [3.4.0]
+- CDN: Sep 30, 2024
+- npm: TBA
+
+#### New features (3.4.0)
+- Add support for PMTiles.
+- Add @types/geojson as a dependency.
+
+#### Bug fixes (3.4.0)
+- Accessibility: Fix overflow issue with the style picker label in small containers.
+- Fix attribution not updating after style changes with a GeoJSON data source.
+- Fix `setCamera` with bounds and min/max zoom.
+- Use `ResizeObserver` instead of window resize events.
+- Fix footer logo width.
+
 ### [3.3.0] (Aug 8, 2024)
 
 #### New features (3.3.0)
