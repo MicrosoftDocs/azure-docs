@@ -32,7 +32,7 @@ To learn more about template specs, and for hands-on guidance, see [Publish libr
 
 ## Required permissions
 
-There are two Azure build-in roles defined for template spec:
+There are two Azure built-in roles defined for template spec:
 
 - [Template Spec Reader](../../role-based-access-control//built-in-roles.md#template-spec-reader)
 - [Template Spec Contributor](../../role-based-access-control//built-in-roles.md#template-spec-contributor)
