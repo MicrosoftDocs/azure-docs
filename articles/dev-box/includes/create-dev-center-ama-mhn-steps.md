@@ -32,7 +32,7 @@ ms.service: dev-box
 
    For a list of the currently supported Azure locations with capacity, see [Frequently asked questions about Microsoft Dev Box](https://aka.ms/devbox_acom).
 
-1. On the **Basics** tab, enter the following values:
+1. On the **Settings** tab, enter the following values:
 
    | Setting | Value |
    |---|---|
