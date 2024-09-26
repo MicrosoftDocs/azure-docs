@@ -276,7 +276,7 @@ var registry = iothub.Registry.fromConnectionString(connectionString);
 
 ### Create a module
 
-Call [addModule](/javascript/api/azure-iothub/registry?view=azure-node-latest#azure-iothub-registry-addmodule-1) to add a module to a device.
+Call [addModule](/javascript/api/azure-iothub/registry?#azure-iothub-registry-addmodule-1) to add a module to a device.
 
 For example:
 
@@ -301,7 +301,7 @@ To update a module twin:
 
 1. Format a patch that contains the module twin update. The patch is formatted in JSON as described in [Twin class](/javascript/api/azure-iothub/twin). A backend service patch can contain tag and desired property updates. For more patch format information, see [Tags and properties format](/azure/iot-hub/iot-hub-devguide-device-twins#tags-and-properties-format).
 
-1. Call [updateModuleTwin](/javascript/api/azure-iothub/registry?view=azure-node-latest&#azure-iothub-registry-updatemoduletwin-1) to update the module twin with the patch.
+1. Call [updateModuleTwin](/javascript/api/azure-iothub/registry?&#azure-iothub-registry-updatemoduletwin-1) to update the module twin with the patch.
 
 In this example, the module twin is retrieved for `myDeviceId` and `myModuleId`. Then a patch is applied to the twins that contains `updateTime`, `firmwareVersion`, and `weather` information.
 
