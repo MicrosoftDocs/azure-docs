@@ -87,7 +87,7 @@ The Observations page features a list of all potential insights in the left-hand
 
 ![Screenshot of attack surface drilldown for medium severity priorities.](media/Dashboards-3.png)
 
-This detailed view for any observation includes the title of the issue, a description, and remediation guidance from the Defender EASM team. In this example, the description explains how expired SSL certificates can lead to critical business functions becoming unavailable, preventing customers or employees from accessing web content and thus damaging your organization’s brand. The Remediation section provides advice on how to swiftly fix the issue; in this example, Microsoft recommends that you review the certificates associated with the impacted host assets, update the coinciding SSL certificate(s), and update your internal procedures to ensure that SSL certificates are updated in a timely manner.
+This detailed view for any observation includes the title of the issue, a description, and remediation guidance from the Defender EASM team. In this example, the description explains how expired SSL certificates can lead to critical business functions becoming unavailable, preventing customers or employees from accessing web content and thus damaging your organization’s brand. The Remediation section provides advice on how to swiftly fix the issue; in this example, Microsoft recommends that you review the certificates associated with the impacted host assets, update the coinciding SSL certificates, and update your internal procedures to ensure that SSL certificates are updated in a timely manner.
 
 Finally, the Asset section lists any entities that have been impacted by this specific security concern. In this example, a user wants to investigate the impacted assets to learn more about the expired SSL Certificate. You can click on any asset name from this list to view the Asset Details page.
 
@@ -113,7 +113,7 @@ For instance, your organization may decide to migrate all cloud infrastructure t
 
 ### Sensitive services
 
-This section displays sensitive services detected on your Attack Surface that should be assessed and potentially adjusted to ensure the security of your organization. This chart highlights any services that have historically been vulnerable to attack or are common vectors of information leakage to malicious actors. Any assets in this section should be investigated, and Microsoft recommends that organizations consider alternative services with a better security posture to mitigate risk.
+This section displays sensitive services detected on your Attack Surface that should be assessed and potentially adjusted to ensure the security of your organization. This chart highlights any services that are historically vulnerable to attack or are common vectors of information leakage to malicious actors. Any assets in this section should be investigated, and Microsoft recommends that organizations consider alternative services with a better security posture to mitigate risk.
 
 ![Screenshot of sensitive services chart.](media/Dashboards-7.png)
 
