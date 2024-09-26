@@ -16,13 +16,6 @@ ms.date: 05/02/2024
 
 In this quickstart, you deploy a suite of IoT services to an Azure Arc-enabled Kubernetes cluster so that you can remotely manage your devices and workloads. Azure IoT Operations is a digital operations suite of services. This quickstart guides you through using Orchestrator to deploy these services to a Kubernetes cluster. At the end of the quickstart, you have a cluster that you can manage from the cloud that generates sample data to use in the following quickstarts.
 
-The services deployed in this quickstart include:
-
-* [MQTT broker](../manage-mqtt-broker/overview-iot-mq.md)
-* [Connector for OPC UA](../discover-manage-assets/overview-opcua-broker.md)
-* [Azure Device Registry Preview](../discover-manage-assets/overview-manage-assets.md#store-assets-as-azure-resources-in-a-centralized-registry) including a schema registry
-* [Observability](../configure-observability-monitoring/howto-configure-observability.md)
-
 The rest of the quickstarts in this end-to-end series build on this one to define sample assets, data processing pipelines, and visualizations. If you want to deploy Azure IoT Operations to a cluster such as AKS Edge Essentials in order to run your own workloads, see [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md?tabs=aks-edge-essentials) and [Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-deploy-iot-operations.md).
 
 ## Before you begin
@@ -88,8 +81,8 @@ To connect your cluster to Azure Arc:
    > However for bug bashes, we will distribute one-off release candidates intended to expose functionality to exercise internally. Use this for Bug Bash 2 on 9/27:
    >
    > ``` bash
-   >    az storage blob download --auth-mode login --blob-url https://azedgecli.blob.core.windows.net/drop/azure_iot_ops-0.7.0a10-py3-none-any.whl -f ./azure_iot_ops-0.7.0a10-py3-none-any.whl
-   >    az extension add --upgrade --source ./azure_iot_ops-0.7.0a10-py3-none-any.whl
+   >    az storage blob download --auth-mode login --blob-url https://azedgecli.blob.core.windows.net/drop/azure_iot_ops-0.7.0a11-py3-none-any.whl -f ./azure_iot_ops-0.7.0a11-py3-none-any.whl
+   >    az extension add --upgrade --source ./azure_iot_ops-0.7.0a11-py3-none-any.whl
    > ```
 
 1. Register the required resource providers in your subscription:

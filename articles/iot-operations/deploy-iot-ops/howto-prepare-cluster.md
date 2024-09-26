@@ -5,7 +5,7 @@ author: kgremban
 ms.author: kgremban
 ms.topic: how-to
 ms.custom: ignite-2023, devx-track-azurecli
-ms.date: 08/26/2024
+ms.date: 09/26/2024
 
 #CustomerIntent: As an IT professional, I want prepare an Azure-Arc enabled Kubernetes cluster so that I can deploy Azure IoT Operations to it.
 ---
@@ -43,8 +43,8 @@ To prepare your Azure Arc-enabled Kubernetes cluster, you need:
   > Official IoT Ops CLI releases are installed via extension index like so az extension add --upgrade --name azure-iot-ops mentioned below. However for bug bashes, we will distribute one-off release candidates intended to expose functionality to exercise internally. Use this for Bug Bash 2 on 9/27 and skip the az extension command below
   >
   >``` bash
-  >az storage blob download --auth-mode login --blob-url https://azedgecli.blob.core.windows.net/drop/azure_iot_ops-0.7.0a10-py3-none-any.whl -f ./azure_iot_ops-0.7.0a10-py3-none-any.whl
-  >az extension add --upgrade --source ./azure_iot_ops-0.7.0a10-py3-none-any.whl
+  >az storage blob download --auth-mode login --blob-url https://azedgecli.blob.core.windows.net/drop/azure_iot_ops-0.7.0a11-py3-none-any.whl -f ./azure_iot_ops-0.7.0a11-py3-none-any.whl
+  >az extension add --upgrade --source ./azure_iot_ops-0.7.0a11-py3-none-any.whl
   >```
 
   ```bash
@@ -69,8 +69,8 @@ To prepare your Azure Arc-enabled Kubernetes cluster, you need:
    >
    > Official IoT Ops CLI releases are installed via extension index like so az extension add --upgrade --name azure-iot-ops mentioned below. However for bug bashes, we will distribute one-off release candidates intended to expose functionality to exercise internally. Use this for Bug Bash 2 on 9/27 and skip the az extension command below
    > ``` bash
-   >    az storage blob download --auth-mode login --blob-url https://azedgecli.blob.core.windows.net/drop/azure_iot_ops-0.7.0a10-py3-none-any.whl -f ./azure_iot_ops-0.7.0a10-py3-none-any.whl
-   >    az extension add --upgrade --source ./azure_iot_ops-0.7.0a10-py3-none-any.whl
+   >    az storage blob download --auth-mode login --blob-url https://azedgecli.blob.core.windows.net/drop/azure_iot_ops-0.7.0a11-py3-none-any.whl -f ./azure_iot_ops-0.7.0a11-py3-none-any.whl
+   >    az extension add --upgrade --source ./azure_iot_ops-0.7.0a11-py3-none-any.whl
    > ```    
 
 * The latest version of the Azure IoT Operations extension for Azure CLI. Use the following command to add the extension or update it to the latest version:
@@ -84,19 +84,11 @@ To prepare your Azure Arc-enabled Kubernetes cluster, you need:
   * [Azure Arc-enabled Kubernetes system requirements](/azure/azure-arc/kubernetes/system-requirements).
   * [K3s requirements](https://docs.k3s.io/installation/requirements).
 
-### [Codespaces](#tab/codespaces)
-
-* An Azure subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-* A [GitHub](https://github.com) account.
-
-* Visual Studio Code installed on your development machine. For more information, see [Download Visual Studio Code](https://code.visualstudio.com/download).
-
 ---
 
 ## Create a cluster
 
-This section provides steps to create clusters in validated environments on Linux and Windows as well as GitHub Codespaces in the cloud.
+This section provides steps to create clusters in validated environments on Linux and Windows.
 
 ### [AKS Edge Essentials](#tab/aks-edge-essentials)
 
@@ -164,38 +156,17 @@ By default, Azure Kubernetes Service Edge Essentials clusters support Azure Cont
 
 ### [Ubuntu](#tab/ubuntu)
 
-Install dependencies on Ubuntu:
-
-1. Run the helm installation script:
-
-  ```bash
-  curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 
-  chmod 700 get_helm.sh 
-  ./get_helm.sh 
-  helm version 
-   ```
-
-Install dependencies on Ubuntu:
-
-1. Run the kubectl installation script:
-
-  ```bash
-  curl -LO “https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl” 
-  curl -LO “https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl.sha256” 
-  echo “$(cat kubectl.sha256) kubectl” | sha256sum --check 
-  sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl 
-  kubectl version --client 
-   ```
-
 To prepare a K3s Kubernetes cluster on Ubuntu:
 
-1. Run the K3s installation script:
+1. Install K3s following the instructions in the [K3s quick-start guide](https://docs.k3s.io/quick-start).
+
+1. Check to see that kubectl was installed as part of K3s. If not, follow the instructions to [Install kubectl on Linux](https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/).
 
    ```bash
-   curl -sfL https://get.k3s.io | sh -
+   kubectl version --client
    ```
 
-   For full installation information, see the [K3s quick-start guide](https://docs.k3s.io/quick-start).
+1. Follow the instructions to [Install Helm](https://helm.sh/docs/intro/install/).
 
 1. Create a K3s configuration yaml file in `.kube/config`:
 
@@ -230,36 +201,6 @@ To prepare a K3s Kubernetes cluster on Ubuntu:
 ### Configure multi-node clusters for Azure Container Storage
 
 On multi-node clusters with at least three nodes, you have the option of enabling fault tolerance for storage with [Azure Container Storage enabled by Azure Arc](/azure/azure-arc/container-storage/overview) when you deploy Azure IoT Operations. If you want to enable that option, prepare your multi-node cluster with the following steps:
-
-1. Install the required NVME over TCP module for your kernel using the following command:
-
-   ```bash
-   sudo apt install linux-modules-extra-`uname -r`
-   ```
-
-   > [!NOTE]
-   > The minimum supported Linux kernel version is 5.1. At this time, there are known issues with 6.4 and 6.2. For the latest information, refer to [Azure Container Storage release notes](/azure/azure-arc/edge-storage-accelerator/release-notes)
-
-1. On each node in your cluster, set the number of **HugePages** to 512 using the following command:
-
-   ```bash
-   HUGEPAGES_NR=512
-   echo $HUGEPAGES_NR | sudo tee /sys/devices/system/node/node0/hugepages/hugepages-2048kB/nr_hugepages
-   echo "vm.nr_hugepages=$HUGEPAGES_NR" | sudo tee /etc/sysctl.d/99-hugepages.conf
-   ```
-
-### [Codespaces](#tab/codespaces)
-
-> [!IMPORTANT]
-> Codespaces are easy to set up quickly and tear down later, but they're not suitable for performance evaluation or scale testing. Use GitHub Codespaces for exploration only.
-
-[!INCLUDE [prepare-codespaces](../includes/prepare-codespaces.md)]
-
-### Configure multi-node clusters for Azure Container Storage
-
-On multi-node clusters with at least three nodes, you have the option of enabling fault tolerance for storage with [Azure Container Storage (preview)](/azure/azure-arc/edge-storage-accelerator/overview) when you deploy Azure IoT Operations.
-
-*This feature isn't recommended for Codespaces because Codespaces aren't persistent.* If you want to enable fault tolerance anyways, prepare your multi-node cluster with the following steps:
 
 1. Install the required NVME over TCP module for your kernel using the following command:
 
@@ -317,37 +258,6 @@ To connect your cluster to Azure Arc:
    # Name of the Arc-enabled cluster to create in your resource group
    export CLUSTER_NAME=<NEW_CLUSTER_NAME>
    ```
-
-[!INCLUDE [connect-cluster-k3s](../includes/connect-cluster-k3s.md)]
-
-### [Codespaces](#tab/codespaces)
-
-To connect your cluster to Azure Arc:
-
-   > [!NOTE]
-   > **Special instructions for AIO Internal Bugbash**:
-   >
-   > Official IoT Ops CLI releases are installed via extension index like so az extension add --upgrade --name azure-iot-ops mentioned below.
-   > However for bug bashes, we will distribute one-off release candidates intended to expose functionality to exercise internally. Use this for Bug Bash 2 on 9/27:
-   >
-   > ``` bash
-   >    az storage blob download --auth-mode login --blob-url https://azedgecli.blob.core.windows.net/drop/azure_iot_ops-0.7.0a10-py3-none-any.whl -f ./azure_iot_ops-0.7.0a10-py3-none-any.whl
-   >    az extension add --upgrade --source ./azure_iot_ops-0.7.0a10-py3-none-any.whl
-   > ```
-
-1. In your codespace terminal, sign in to Azure CLI:
-
-   ```azurecli
-   az login
-   ```
-
-   If at any point you get an error that says *Your device is required to be managed to access your resource*, run `az login` again and make sure that you sign in interactively with a browser.
-
-   > [!TIP]
-   > If you're using the GitHub codespace environment in a browser rather than VS Code desktop, running `az login` returns a localhost error. To fix the error, either:
-   >
-   > * Open the codespace in VS Code desktop, and then return to the browser terminal and rerun `az login`.
-   > * Or, after you get the localhost error on the browser, copy the URL from the browser and run `curl "<URL>"` in a new terminal tab. You should see a JSON response with the message "You have logged into Microsoft Azure!."
 
 [!INCLUDE [connect-cluster-k3s](../includes/connect-cluster-k3s.md)]
 

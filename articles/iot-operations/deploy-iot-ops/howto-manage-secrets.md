@@ -15,9 +15,16 @@ ms.date: 09/24/2024
 
 Azure IoT Operations uses Azure Key Vault as the managed vault solution on the cloud, and uses [Azure Secret Store](#manage-secrets-for-your-azure-iot-operations-preview-deployment) to sync the secrets down from the cloud and store them on the edge as Kubernetes secrets.
 
+>[!NOTE]
+>**Special instructions for AIO Internal Bugbash**:
+>
+>Refer to [Test secrets and user-assigned managed identity](https://msazure.visualstudio.com/One/_wiki/wikis/AIO.wiki/710296/Test-Secrets-and-User-Assigned-Managed-Identity) for instructions on how to test secrets with the PLC simulator.
+
 ## Prerequisites
 
 * An Azure IoT Operations instance deployed with secure settings. If you deployed Azure IoT Operations with test settings and now want to use secrets, you need to first [enable secure settings](./howto-enable-secure-settings.md).
+
+* Creating secrets in the key vault requires **Secrets officer** permissions at the resource level. For information about assigning roles to users, see [Steps to assign an Azure role](../../role-based-access-control/role-assignments-steps.md).
 
 ## Add and use secrets
 
@@ -33,8 +40,6 @@ Secrets are used in asset endpoints and dataflow endpoints for authentication. I
 - **Create a new secret**: creates a secret reference in the Azure Key Vault and also automatically synchronizes the secret down to the edge using Azure Secret Store. Use this option if you didn't create the secret you require for this scenario in the key vault beforehand. 
 
 - **Add from Azure Key Vault**: synchronizes an existing secret in key vault down to the edge if it wasn't synchronized before. Selecting this option shows you the list of secret references in the selected key vault. Use this option if you created the secret in the key vault beforehand.  
-
-- **Add synced secret**: uses an existing and synchronized to the edge secret for the component. Selecting this option shows you the list of already synchronized secrets. Use this option if you previously created and synchronized the secret but didn't use it in an Azure IoT Operations component.
 
 ## Manage Synced Secrets
 
