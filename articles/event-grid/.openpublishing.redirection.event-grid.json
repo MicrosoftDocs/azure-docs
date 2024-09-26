@@ -2,7 +2,7 @@
   "redirections": [    
     {
       "source_path": "webhook-event-delivery.md",
-      "redirect_url": "/azure/event-grid/end-point-validation-cloud-events-schema.md",
+      "redirect_url": "/azure/event-grid/end-point-validation-cloud-events-schema",
       "redirect_document_id": false
     },    
     {
