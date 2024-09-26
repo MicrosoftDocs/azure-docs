@@ -16,6 +16,8 @@ In this article, you learn about the purchase and configuration of Oracle Databa
 
 You perform most onboarding tasks only one time, during your Oracle Database@Azure deployment. After you complete the onboarding tasks, you can begin provisioning and using Oracle Database resources in your Azure environment.
 
+## Purchase Oracle Database@Azure
+
 The exact set of tasks you perform depends on the type of offer you purchase (Pay as You Go or private offer) and the database products you plan to use (Oracle Autonomous Database and Oracle Exadata Database Service). For details on the differences between the Pay as You Go offer and the private offer, see [Purchase Oracle Database@Azure](https://docs.oracle.com/en-us/iaas/Content/database-at-azure/getting-started.htm#oaa_purchasing).
 
 Most of the onboarding tasks apply to all deployments. For tasks (or task sections) that depend on offer type or Oracle Database product, the documentation explains which tasks need to be completed for which scenarios.
