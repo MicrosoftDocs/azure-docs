@@ -225,7 +225,7 @@ Arm64 based clusters aren't supported at this time.
  ### Container Apps extension v1.37.2 (September 2024)
 
   - Updated Dapr-Metrics image to v0.6.8 to resolve network timeout issue
-  - Resolved issue in Log Processor which prevented MDSD container from starting when cluster is connected behind a Proxy.
+  - Resolved issue in Log Processor which prevented MDSD container from starting when cluster is connected behind a Proxy
 
 ## Next steps
 
