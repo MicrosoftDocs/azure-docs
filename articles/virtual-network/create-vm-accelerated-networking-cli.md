@@ -197,6 +197,11 @@ Once you create the VM in Azure, connect to the VM and confirm that the Ethernet
 
    The presence of the adapter confirms that Accelerated Networking is enabled for your VM.
 
+1. Verify the packets are flowing over the VF interface from the output of the following command:
+   ```powershell
+   PS C:\ > Get-NetAdapter | Where-Object InterfaceDescription –like "*Mellanox*Virtual*" | Get-NetAdapterStatistics
+   ```
+
 > [!NOTE]
 > If the Mellanox adapter fails to start, open an administrator command prompt on the remote VM and enter the following command:
 >

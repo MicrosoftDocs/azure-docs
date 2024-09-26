@@ -100,9 +100,18 @@ You can directly query the list of VM SKUs that support Accelerated Networking b
 
 ### Custom VM images
 
-If you use a custom image that supports Accelerated Networking, make sure you have the required drivers to work with Mellanox ConnectX-3, ConnectX-4 Lx, and ConnectX-5 NICs on Azure. Accelerated Networking also requires network configurations that exempt configuration of the virtual functions on the mlx4_en and mlx5_core drivers.
+If you use a custom image that supports Accelerated Networking, make sure you meet the following requirements.
 
-Images with cloud-init version 19.4 or later have networking correctly configured to support Accelerated Networking during provisioning.
+#### Device and driver support
+Any custom image supporting AccelNet must include drivers that enable Single Root I/O Virtualization for the network interface cards (NIC) which are used on Azure platforms. This hardware list includes NVIDIA [ConnectX-3](https://network.nvidia.com/pdf/user_manuals/ConnectX-3_Ethernet_Single_and_Dual_SFP+_Port_Adapter_Card_User_Manual.pdf), [ConnectX-4 Lx](https://docs.nvidia.com/networking/display/cx4lxen), [ConnectX-5](https://docs.nvidia.com/networking/display/connectx5en) and the [Microsoft Azure Network Adapter (MANA)](https://learn.microsoft.com/en-us/azure/virtual-network/accelerated-networking-mana-overview). Download and install the latest versions of these drivers into your custom image.
+
+#### Dynamic binding and revocation of virtual function
+Binding to the synthetic NIC that's exposed in the VM is a mandatory requirement for all applications that take advantage of AccelNet. If an application runs directly over the VF NIC, it doesn't receive all packets that are destined to the VM, because some packets show up over the synthetic interface. You must run an application over the synthetic NIC to guarantee that the application receives all packets that are destined to it. Binding to the synthetic NIC also ensures that the application keeps running even if the VF is revoked during host servicing.
+
+For more information about application binding requirements, see [How Accelerated Networking works in Linux and FreeBSD VMs](./create-vm-accelerated-networking-cli?tabs=windows#handle-dynamic-binding-and-revocation-of-virtual-function). 
+
+#### Configure drivers to be unmanaged
+AccelNet requires network configurations that mark the NVIDIA drivers as unmanaged devices. Images with cloud-init version 19.4 or later have networking correctly configured to support AccelNet during provisioning.
 
 # [RHEL, CentOS](#tab/redhat)
 
@@ -152,6 +161,17 @@ EOF
 
 >[!NOTE]
 >We strongly advise that you don't run competing network interface software (such as ifupdown and networkd) on custom images, and that you don't run dhcpclient directly on multiple interfaces.
+
+#### Verify data path
+To ensure your custom image will support AccelNet, confirm that networking traffic is using the AccelNet data path.
+
+For NVIDIA drivers: Verify that the packets are flowing over the VF interface
+- [Linux documentation](./accelerated-networking-how-it-works#application-usage)
+- [Windows documentation](./create-vm-accelerated-networking-cli?tabs=windows#confirm-that-accelerated-networking-is-enabled)
+
+For MANA driver: Verify that the traffic is flowing through MANA
+- [Linux documentation](./accelerated-networking-mana-linux#verify-that-traffic-is-flowing-through-mana)
+- [Windows documentation](./accelerated-networking-mana-windows#verify-that-traffic-is-flowing-through-mana)
 
 ---
 
