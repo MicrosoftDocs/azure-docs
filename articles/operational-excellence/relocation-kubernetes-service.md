@@ -109,22 +109,7 @@ Deploy the AKS cluster without any data migration, by following these steps:
 
 ## Redeploy with data migration
 
-AKS workloads that use local storage, such as persistent volumes, to store data or host database services within the cluster can be backed up on a source cluster and restored to a target cluster. You can perform backup and restoration by using a variety of OSS and paid-for tools such as [Velero](https://velero.io/), [TrilioVault](https://trilio.io/), and [Kasten K10](https://www.veeam.com/products/cloud/kubernetes-data-protection.html). 
-
-The high-level steps are as follows:
-
-1.  Deploy the container workload to the AKS cluster, which can be achieved in two ways:
-    - *Pull* Manifests are pulled from a repo and applied by a controller running within the cluster, known as a GitOps approach.
-    - *Push.* Manifests are pushed to the cluster using the Kubernetes API service and kubectl command line tool, either from a CI/CD pipeline or local workstation.
-
-1. Install the backup tool in the source cluster and perform a backup of all cluster objects, volumes, deployments, etc. to an Azure storage account in the source region.
-
-1. Create a storage account in the target region and copy the backup across from the source region.
-
-1. Install the backup solution in the target cluster.
-
-1. Restore the backup to the target cluster.
-
+AKS workloads that use local storage, such as persistent volumes, to store data or host database services within the cluster can be backed up on a source cluster and restored to a target cluster. To learn how to perform backup and restoration, see [Back up Azure Kubernetes Service using Azure CLI](/azure/backup/azure-kubernetes-service-cluster-backup-using-cli).
 
 ## Related content
 
