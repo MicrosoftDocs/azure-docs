@@ -4,7 +4,6 @@ titleSuffix: Azure App Configuration
 description: Learn how to implement a custom feature filter to enable conditional feature flags for your Node.js application.
 ms.service: azure-app-configuration
 ms.devlang: javascript
-ms.custom: devx-track-csharp
 author: zhiyuanliang-ms
 ms.author: zhiyuanliang
 ms.topic: how-to

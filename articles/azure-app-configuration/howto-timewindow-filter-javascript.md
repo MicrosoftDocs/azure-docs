@@ -11,7 +11,7 @@ ms.custom: mode-other, devx-track-js
 ms.date: 09/26/2024
 ---
 
-# Tutorial: Enable features on a schedule in an ASP.NET Core application
+# Tutorial: Enable features on a schedule in a Node.js application
 
 In this tutorial, you use the time window filter to enable a feature on a schedule for a Node.js application. 
 
