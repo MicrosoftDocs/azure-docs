@@ -15,18 +15,20 @@ ms.service: azure-communication-services
 We can add an inline attachment by defining one or more EmailAttachment objects, defining a unique `ContentId` for each, and adding them to our EmailMessage object. Read the attachment file and encode it using Base64.
 
 ```java
-BinaryData jpgInlineAttachmentContent = BinaryData.fromFile(new File("./inline-attachment.png").toPath());
+byte[] jpgContent = Files.readAllBytes(new File("./inline-attachment.jpg").toPath());
+byte[] jpgEncodedContent = Base64.getEncoder().encodeToString(jpgContent).getBytes();
 EmailAttachment jpgInlineAttachment = new EmailAttachment(
     "inline-attachment.jpg",
     "image/jpeg",
-    jpgInlineAttachmentContent
+    BinaryData.fromBytes(jpgEncodedContent)
 ).setContentId("my-inline-attachment-1");
 
-BinaryData pngInlineAttachmentContent = BinaryData.fromFile(new File("./inline-attachment.png").toPath());
+byte[] pngContent = Files.readAllBytes(new File("./inline-attachment.png").toPath());
+byte[] pngEncodedContent = Base64.getEncoder().encodeToString(pngContent).getBytes();
 EmailAttachment pngInlineAttachment = new EmailAttachment(
     "inline-attachment.png",
     "image/png",
-    pngInlineAttachmentContent
+    BinaryData.fromBytes(pngEncodedContent)
 ).setContentId("my-inline-attachment-2");
 ```
 
