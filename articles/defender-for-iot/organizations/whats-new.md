@@ -16,6 +16,18 @@ Features released earlier than nine months ago are described in the [What's new 
 > Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
+## September 2024
+
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | [Complete OT sensor configuration even with connection problems](#complete-ot-sensor-configuration-even-with-connection-problems) |
+
+### Complete OT sensor configuration even with connection problems
+
+If there are connection problems, during deployment, between a new OT sensor and the Azure portal at the configuration stage, the process couldn't be completed until the connection problem is solved.
+
+We now support completing the configuration process without the need to solve the communication problem, allowing you to complete the setup of your OT sensor quickly and solve the problem at a later time. For more information, see [activate your OT sensor](/ot-deploy/activate-deploy-sensor.md#activate-your-ot-sensor).
+
 ## March 2024
 
 |Service area  |Updates  |
