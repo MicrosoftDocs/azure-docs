@@ -123,9 +123,9 @@ The Azure Front Door Private Link feature is region agnostic but for the best la
 
 ## Next steps
 
-* Learn how to [connect Azure Front Door Premium to a Web App origin with Private Link](standard-premium/how-to-enable-private-link-web-app.md).
-* Learn how to [connect Azure Front Door Premium to a storage account origin with Private Link](standard-premium/how-to-enable-private-link-storage-account.md).
-* Learn how to [connect Azure Front Door Premium to an internal load balancer origin with Private Link](standard-premium/how-to-enable-private-link-internal-load-balancer.md).
-* Learn how to [connect Azure Front Door Premium to a storage static website origin with Private Link](how-to-enable-private-link-storage-static-website.md).
-* Learn how to [connect Azure Front Door Premium to an Application Gateway origin with Private Link](how-to-enable-private-link-application-gateway.md)
-* Learn how to [connect Azure Front Door Premium to an API Management origin with Private Link](standard-premium/how-to-enable-private-link-apim.md)
+* Learn how to [connect Azure Front Door Premium to a Web App origin with Private Link](how-to-enable-private-link-web-app.md).
+* Learn how to [connect Azure Front Door Premium to a storage account origin with Private Link](how-to-enable-private-link-storage-account.md).
+* Learn how to [connect Azure Front Door Premium to an internal load balancer origin with Private Link](how-to-enable-private-link-internal-load-balancer.md).
+* Learn how to [connect Azure Front Door Premium to a storage static website origin with Private Link](./how-to-enable-private-link-storage-static-website.md).
+* Learn how to [connect Azure Front Door Premium to an application gateway origin with Private Link](./how-to-enable-private-link-application-gateway.md).
+* Learn how to [connect Azure Front Door Premium to an API Management origin with Private Link](how-to-enable-private-link-apim.md).
