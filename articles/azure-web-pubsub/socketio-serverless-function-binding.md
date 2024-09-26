@@ -23,7 +23,7 @@ This article explains how to use Socket.IO serverless integrate with Azure Funct
 [Package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.WebPubSubForSocketIO) |
 [API reference documentation](/dotnet/api/microsoft.azure.webjobs.extensions.webpubsubforsocketio) |
 [Product documentation](./index.yml) |
-[Samples][https://github.com/Azure/azure-webpubsub/tree/main/sdk/webpubsub-socketio-extension/examples]
+[Samples](https://github.com/Azure/azure-webpubsub/tree/main/sdk/webpubsub-socketio-extension/examples)
 
 > [!IMPORTANT]
 > Azure Function bindings can only integrate with Web PubSub for Socket.IO in Serverlesse Mode.
