@@ -132,7 +132,7 @@ Use the following steps to create a user group.
 
    :::image type="content" source="./media/user-groups-create/select-groups.png" alt-text="Screenshot of Edit User VPN gateway page with groups selected." lightbox="./media/user-groups-create/select-groups.png":::
 
-1. For **Address Pools**, select **Configure** to open the **Specify Address Pools** page. On this page, associate new address pools with this configuration. Users who are members of groups associated to this configuration will be assigned IP addresses from the specified pools. Based on the number of **Gateway Scale Units** associated to the gateway, you might need to specify more than one address pool. Address pools can't be smaller than /24. For example you can't assign a range of /25 or /26 if you want to have a smaller address pool range for the usergroups. The minimum prefix is /24. Select **Add** and **Okay** to save your address pools.
+1. For **Address Pools**, select **Configure** to open the **Specify Address Pools** page. On this page, associate new address pools with this configuration. Users who are members of groups associated to this configuration will be assigned IP addresses from the specified pools. Based on the number of **Gateway Scale Units** associated to the gateway, you might need to specify more than one address pool. Address pools can't be smaller than /24. For example you can't assign a range of /25 or /26 if you want to have a smaller address pool range for the user groups. The minimum prefix is /24. Select **Add** and **Okay** to save your address pools.
 
    :::image type="content" source="./media/user-groups-create/address-pools.png" alt-text="Screenshot of Specify Address Pools page." lightbox="./media/user-groups-create/address-pools.png":::
 
