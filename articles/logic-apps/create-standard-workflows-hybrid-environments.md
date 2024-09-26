@@ -17,7 +17,11 @@ ms.date: 09/30/2024
 > This capability is in preview and is subject to the
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-For scenarios where you need to control and manage your own infrastructure, Azure Logic Apps supports creating Standard workflows that can run in hybrid environments, which can include on-premises systems, private clouds, and public clouds. This hybrid solution is useful when you have partially connected scenarios that require local processing, storage, and network access.
+For scenarios where you need to control and manage your own infrastructure, Azure Logic Apps supports creating hybrid logic apps, which are Standard workflows that run in a hybrid environment. This environment can include on-premises systems, private clouds, and public clouds. A hybrid logic app and workflow is powered by an Azure Logic Apps runtime that uses [Azure Container Apps extensibility]() and is hosted as an extension on the Azure Container Apps runtime as an on-premises resource. When you need to build an integration solution or workflow for a partially connected scenario that requires local processing, storage, and network access, a hybrid logic app provides the capability for you to meet the needs for this scenario.
+
+The following architectural overview shows how a hybrid logic app fits into partially connected environment. This environment uses a SQL database for local storage and processing, a Server Message Block (SMB) file share to store artifacts used by your workflow, and [Azure Arc-enabled Azure Kubernetes (AKS) clusters](/azure-arc/kubernetes/overview) or [on-premises AKS *hyperconverged infrastructure* (HCI) clusters](/azure-stack/hci/overview) for hosting your hybrid logic app:
+
+:::image type="content" source="media/create-standard-workflows-hybrid-environments/architecture-overview.png" alt-text="Diagram with architectural overview for how a hybrid logic app fits into a partially connected environment." border="false":::
 
 ## Limitations
 
@@ -42,9 +46,9 @@ The following capabilities currently aren't available in the preview release:
   > basic Standard workflow before you try to deploy in a hybrid environment. This test 
   > run helps isolate any errors that might exist in your Standard workflow project.
 
-## Set up an Azure Kubernetes Service (AKS) cluster
+## Set up an AKS cluster
 
-To use [AKS](/azure/aks/what-is-aks) for deployment, you can create an AKS cluster or an [on-premises AKS *hyperconverged infrastructure* (HCI) cluster](/azure-stack/hci/overview). Your AKS cluster requires inbound and outbound connectivity with the [SQL Server that you use as the storage provider](#storage-provider).
+To use [AKS](/azure/aks/what-is-aks) for deployment, you can create an AKS cluster or an [on-premises AKS HCI cluster](/azure-stack/hci/overview). Your AKS cluster requires inbound and outbound connectivity with the [SQL database that you use as the storage provider](#storage-provider).
 
 ### Create an AKS cluster
 
