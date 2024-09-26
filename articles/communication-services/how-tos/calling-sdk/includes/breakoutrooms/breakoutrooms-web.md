@@ -20,7 +20,7 @@ const breakoutRoomsFeature = mainMeetingCall.feature(Features.BreakoutRooms);
 ```
 ### Subscribe to breakoutRoom events
 
-The `BreakoutRooms` API allows you to subscribe to `BreakoutRooms` events. A `breakoutRoomsUpdated` event comes from a `BreakoutRoomsCallFeature` instance and contains information about the created, updated and assigned breakout rooms. 
+The `BreakoutRooms` API allows you to subscribe to `BreakoutRooms` events. A `breakoutRoomsUpdated` event comes from a `BreakoutRoomsCallFeature` instance and contains information about the created, updated, and assigned breakout rooms. 
 
 To receive  breakout room details, subscribe to the `breakoutRoomsUpdated` event. 
 ```js
@@ -164,7 +164,7 @@ callAgent.on('callsUpdated', e =>{
 });
 ```
 
-When the user is in a breakout room and the organizer assigns a new breakout room to the user, the user will get `breakoutRoomsUpdated` event with the type `assignedBreakoutRooms`. This event will contain the latest breakout room details. The user has to `hangUp()` previous breakout room call. If `autoMoveParticipantToBreakoutRoom` is set to `true`, the user will be automatically moved, other wise the user has to call the `join` method explicitly on the new breakout room as shown above.
+When the user is in a breakout room and the organizer assigns a new breakout room to the user, the user gets `breakoutRoomsUpdated` event with the type `assignedBreakoutRooms`. This event contains the latest breakout room details. The user has to `hangUp()` previous breakout room call. If `autoMoveParticipantToBreakoutRoom` is set to `true`, the user is automatically moved, other wise the user has to call the `join` method explicitly on the new breakout room.
 
 ```js
 //Breakout room which is assigned initially.
@@ -192,7 +192,7 @@ if(assignedRoom.state == 'open' && !assignedRoom.autoMoveParticipantToBreakoutRo
 }
 ```
 
-Microsoft 365 user with role organizer, co-organizer, or breakout room manager will get the list of breakout rooms created by the breakout room manager or organizer of the main meeting. In this case, the behavior is slightly different. This user has to explicitly call `join()` method to join the breakout room. The user will be kept on hold in the mainmeeting. When the leaves the breakoutroom, then the user's main meeting call will be automatically resumed.
+Microsoft 365 user with role organizer, co-organizer, or breakout room manager get the list of breakout rooms created by the breakout room manager or organizer of the main meeting. In this case, the behavior is slightly different. This user has to explicitly call `join()` method to join the breakout room. The user is kept on hold in the main meeting. When the leaves the breakout room, then the user's main meeting call is automatically resumed.
 
 If the user wants to join any of the breakout rooms , then the user explicitly calls the `join` method.
 
@@ -202,7 +202,7 @@ if(breakoutRoom.state == 'open') {
   const breakoutRoomCall = await breakoutRoom.join();
 }
 ```
-To exit a breakout room, users should execute the `hangUp()` function on the breakout room call. The user will be automatically resumed in the main meeting.
+To exit a breakout room, users should execute the `hangUp()` function on the breakout room call. The user is automatically resumed in the main meeting.
 
 ```js
 breakoutRoomCall.hangUp();
@@ -262,7 +262,7 @@ const state : BreakoutRoomState = breakoutRoom.state;
 ```js
 const autoMoveParticipantToBreakoutRoom : boolean = breakoutRoom.autoMoveParticipantToBreakoutRoom; 
 ```
-- `autoMoveParticipantToBreakoutRoom` : Boolean value, which indicates whether the users are moved to breakout rooms automatically when the `state` of `assignedBreakoutRoom` is set to `open`. This property is read-only. In the Teams UI settings for breakout rooms, the organizer, co-organizer, or breakout room manager can adjust this specific setting. By setting this option to `true`, participants will be automatically transferred to their designated breakout room. Conversely, if it's set to `false`, the `join` method must be manually invoked to move participants into the breakout room.
+- `autoMoveParticipantToBreakoutRoom` : Boolean value, which indicates whether the users are moved to breakout rooms automatically when the `state` of `assignedBreakoutRoom` is set to `open`. This property is read-only. In the Teams UI settings for breakout rooms, the organizer, co-organizer, or breakout room manager can adjust this specific setting. By setting this option to `true`, participants are automatically transferred to their designated breakout room. Conversely, if it's set to `false`, the `join` method must be manually invoked to move participants into the breakout room.
 
 ```js
 const call : Call | TeamsCall = breakoutRoom.call;
