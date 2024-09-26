@@ -83,18 +83,6 @@ There are a few basic troubleshooting steps you can try if you're having issues 
 1. If none of the previous steps resolved your issue, you can use the *Troubleshoot & repair* tool in the developer portal to diagnose and repair some common dev box connectivity issues. To learn how to use the Troubleshoot & repair tool, see [Troubleshoot and resolve dev box remote desktop connectivity issues](../dev-box/how-to-troubleshoot-repair-dev-box.md).
 ::: zone-end
 
-## Client stops responding or can't be opened
-
-If the client stops responding or can't be opened, you might need to reset user data. If you can open the client, you can reset user data from the **About** menu. The default settings for the client will be restored and you'll be unsubscribed from all workspaces.
-
-To reset user data from the client:
-
-1. Open the *Remote Desktop* app on your device.
-
-1. Select the three dots at the top right-hand corner to show the menu, then select **About**.
-
-1. In the section **Reset user data**, select **Reset**. To confirm you want to reset your user data, select **Continue**.
-
 ## Reset password
 
 ::: zone pivot="azure-virtual-desktop"
@@ -108,6 +96,18 @@ Password resets can't be done in the product. You should follow your organizatio
 ::: zone pivot="dev-box"
 Password resets can't be done in the product. You should follow your organization's process to reset your password.
 ::: zone-end
+
+## Client stops responding or can't be opened
+
+If the client stops responding or can't be opened, you might need to reset user data. If you can open the client, you can reset user data from the **About** menu. The default settings for the client will be restored and you'll be unsubscribed from all workspaces.
+
+To reset user data from the client:
+
+1. Open the *Remote Desktop* app on your device.
+
+1. Select the three dots at the top right-hand corner to show the menu, then select **About**.
+
+1. In the section **Reset user data**, select **Reset**. To confirm you want to reset your user data, select **Continue**.
 
 ## Issue isn't listed here
 
