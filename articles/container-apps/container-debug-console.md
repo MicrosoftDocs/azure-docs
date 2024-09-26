@@ -19,21 +19,14 @@ Azure Container Apps platform offers debug console to help you troubleshoot your
 - If you only install JRE in the runtime image, there are no JDK troubleshooting tools like jcmd, jstack pre-installed in the image.
 - When encounter networking issues, your image do not have debugging utilities to investigate them.
 
-You can connect to debug console using the Azure portal or Azure CLI.
+You can connect to debug console using the Azure CLI.
 
 
 > [!NOTE]
 > Debug Console will create a separate container, which will share underlying resource with connected container(If the debug console container already exists when you try to connect to, we will reuse the existing one instead of creating a new one. At most 1 debug console container will be created per replicae). If you do not need to use a existing debug console container any more, please make sure to enter **exit** or use **Ctrl-D** to explicitly exit.
 
-## Azure portal
-
-To connect to a container's debug console in the Azure portal, follow these steps.
-
-1. In the Azure portal, select **Console** in the **Monitoring** menu group from your container app page.
-1. Select the revision, replica, and container you want to connect to.
-1. Select **Debug** tab, then click the Connect button.
-
-:::image type="content" source="media/observability/debug-console.png" alt-text="Screenshot of Azure Container Apps Debug Console page.":::
+> [!NOTE]
+> If you encounter input missing in debug console, you can try to use **Ctrl-D** to exit and re-connect to debug console again.
 
 ## Azure CLI
 

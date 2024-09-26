@@ -15,6 +15,9 @@ ms.author: v-wellsjason
 
 Connecting to a container's console is useful when you want to troubleshoot your application inside a container. Azure Container Apps allows you to connect to a container's console using the Azure portal or Azure CLI.
 
+> [!NOTE]
+> Azure Container Apps platform offers [Debug Console](container-debug-console.md) to help you troubleshoot your applications if your applications use distroless image.
+
 ## Azure portal
 
 To connect to a container's console in the Azure portal, follow these steps.
