@@ -29,6 +29,10 @@ ms.custom: include file, ignite-2023, devx-track-azurecli
    ```azurecli
    az group create --location $LOCATION --resource-group $RESOURCE_GROUP --subscription $SUBSCRIPTION_ID
    ```
+1. Remove the existing connected k8s cli if any
+   ```azurecli
+   az extension remove --name connectedk8s 
+   ```
 
 1. Download and install a preview version of the `connectedk8s` extension for Azure CLI.
 
@@ -37,7 +41,7 @@ ms.custom: include file, ignite-2023, devx-track-azurecli
    az extension add --upgrade --source connectedk8s-1.10.0-py2.py3-none-any.whl
    ```
 
-1. Export environment variables that the `az connectedk8s upgrade` command requires.
+1. Export environment variables that the `az connectedk8s connect` command requires.
 
    ```bash
    export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
