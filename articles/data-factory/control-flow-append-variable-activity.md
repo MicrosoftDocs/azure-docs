@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: kromerm
 ms.author: makromer
 ms.reviewer: jburchel
-ms.date: 10/20/2023
+ms.date: 09/26/2024
 ---
 
 # Append Variable activity in Azure Data Factory and Synapse Analytics

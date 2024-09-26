@@ -5,7 +5,7 @@ ms.subservice: integration-runtime
 ms.topic: conceptual
 author: lrtoyou1223
 ms.author: lle
-ms.date: 10/20/2023
+ms.date: 09/26/2024
 ---
 
 # Self-hosted integration runtime auto-update and expire notification

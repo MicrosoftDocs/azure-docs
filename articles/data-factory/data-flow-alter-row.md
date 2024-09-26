@@ -8,7 +8,7 @@ ms.reviewer: daperlov
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 10/20/2023
+ms.date: 09/26/2024
 ---
 
 # Alter row transformation in mapping data flow
