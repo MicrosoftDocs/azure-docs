@@ -2,20 +2,23 @@
 title: Azure Event Grid event schema
 description: Describes the properties and schema for the proprietary, nonextensible, yet fully functional Event Grid format. 
 ms.topic: reference
-ms.date: 05/24/2023
+ms.date: 09/25/2024
 ---
 
 # Azure Event Grid event schema
 
-This article describes the Event Grid schema, which is a proprietary, nonextensible, yet fully functional event format. Event Grid still supports this event format and will continue to support it. However, [CloudEvents](cloud-event-schema.md) is the recommended event format to use. If you're using applications that use the Event Grid format, you may find useful the information in the [CloudEvents] section that describes the transformations between the Event Grid and CloudEvents format supported by Event Grid.
+This article describes the Event Grid schema, which is a proprietary, nonextensible, yet fully functional event format. Event Grid still supports this event format and will continue to support it. However, [CloudEvents](cloud-event-schema.md) is the recommended event format to use. If you're using applications that use the Event Grid format, you might find useful the information in the [CloudEvents] section that describes the transformations between the Event Grid and CloudEvents format supported by Event Grid.
 
 This article describes in detail the properties and schema for the Event Grid format. Events consist of a set of four required string properties. The properties are common to all events from any publisher. The data object has properties that are specific to each publisher. For system topics, these properties are specific to the resource provider, such as Azure Storage or Azure Event Hubs.
 
 Event sources send events to Azure Event Grid in an array, which can have several event objects. When posting events to an Event Grid topic, the array can have a total size of up to 1 MB. Each event in the array is limited to 1 MB. If an event or the array is greater than the size limits, you receive the response **413 Payload Too Large**. Operations are charged in 64 KB increments though. So, events over 64 KB incur operations charges as though they were multiple events. For example, an event that is 130 KB would incur operations as though it were three separate events.
 
-Event Grid sends the events to subscribers in an array that has a single event. This behavior may change in the future.
+Event Grid sends the events to subscribers in an array that has a single event. This behavior might change in the future.
 
 You can find the JSON schema for the Event Grid event and each Azure publisher's data payload in the [Event Schema store](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/eventgrid/data-plane).
+
+> [!NOTE]
+> The support for Event Grid event schema isn't going to be retired, but we won't be making any major improvements to it in the future. We recommend that you use CloudEvents schema, which provides a standardized and protocol-agnostic definition of the structure and metadata description of events. For more information, see [CloudEvents v1.0 schema with Azure Event Grid](cloud-event-schema.md).
 
 ## Event schema
 
@@ -83,19 +86,8 @@ All events have the same following top-level data:
 | `dataVersion` | string | No, but will be stamped with an empty value. | The schema version of the data object. The publisher defines the schema version. |
 | `metadataVersion` | string | Not required, but if included, must match the Event Grid Schema `metadataVersion` exactly (currently, only `1`). If not included, Event Grid stamps onto the event. | The schema version of the event metadata. Event Grid defines the schema of the top-level properties. Event Grid provides this value. |
 
-To learn about the properties in the data object, see the event source:
+To learn about the properties in the data object, see articles in this section: [System topics](system-topics.md).
 
-* [Azure Policy](./event-schema-policy.md)
-* [Azure subscriptions (management operations)](event-schema-subscriptions.md)
-* [Container Registry](event-schema-container-registry.md)
-* [Blob storage](event-schema-blob-storage.md)
-* [Event Hubs](event-schema-event-hubs.md)
-* [IoT Hub](event-schema-iot-hub.md)
-* [Media Services](/azure/media-services/latest/monitoring/media-services-event-schemas?toc=%2fazure%2fevent-grid%2ftoc.json)
-* [Resource groups (management operations)](event-schema-resource-groups.md)
-* [Service Bus](event-schema-service-bus.md)
-* [Azure SignalR](event-schema-azure-signalr.md)
-* [Azure Machine Learning](event-schema-machine-learning.md)
 
 For custom topics, the event publisher determines the data object. The top-level data should have the same fields as standard resource-defined events.
 
