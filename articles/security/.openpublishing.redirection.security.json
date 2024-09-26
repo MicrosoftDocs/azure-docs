@@ -1,7 +1,7 @@
 {
     "redirections": [
         {
-            "source_path_from_root": "/articles/security/journey",
+            "source_path_from_root": "/articles/security/journey/index.yml",
             "redirect_url": "/previous-versions/azure/security/fundamentals",
             "redirect_document_id": false
         },
