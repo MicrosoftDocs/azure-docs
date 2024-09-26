@@ -38,7 +38,7 @@ Cloud resources:
 * An Azure key vault. To create a new key vault, use the [az keyvault create](/cli/azure/keyvault#az-keyvault-create) command:
 
   ```azurecli
-  az keyvault create --enable-rbac-authorization --name "<KEYVAULT_NAME>" --resource-group "<RESOURCE_GROUP>"
+  az keyvault create --enable-rbac-authorization --name "<NEW_KEYVAULT_NAME>" --resource-group "<RESOURCE_GROUP>"
   ```
 
 * Azure access permissions. For more information, see [Deployment details > Required permissions](overview-deploy.md#required-permissions).
@@ -96,13 +96,13 @@ Azure IoT Operations requires a schema registry on your cluster. Schema registry
 1. Create a storage account with hierarchical namespace enabled.
 
    ```azurecli
-   az storage account create --name <STORAGE_ACCOUNT_NAME> --resource-group <RESOURCE_GROUP> --enable-hierarchical-namespace
+   az storage account create --name <NEW_STORAGE_ACCOUNT_NAME> --resource-group <RESOURCE_GROUP> --enable-hierarchical-namespace
    ```
 
 1. Create a schema registry that connects to your storage account.
 
    ```azurecli
-   az iot ops schema registry create --name <SCHEMA_REGISTRY> --resource-group <RESOURCE_GROUP> --registry-namespace <SCHEMA_REGISTRY_NAMESPACE> --sa-resource-id $(az storage account show --name <STORAGE_ACCOUNT_NAME> --resource-group <RESOURCE_GROUP> -o tsv --query id)
+   az iot ops schema registry create --name <NEW_SCHEMA_REGISTRY_NAME> --resource-group <RESOURCE_GROUP> --registry-namespace <NEW_SCHEMA_REGISTRY_NAMESPACE> --sa-resource-id $(az storage account show --name <STORAGE_ACCOUNT_NAME> --resource-group <RESOURCE_GROUP> -o tsv --query id)
    ```
 
    Use the optional parameters to customize your schema registry, including:
@@ -126,11 +126,13 @@ Azure IoT Operations requires a schema registry on your cluster. Schema registry
    | --------- | ----- | ----------- |
    | `--no-progress` |  | Disables the deployment progress display in the terminal. |
    | `--enable-fault-tolerance` | `false`, `true` | Enables fault tolerance for Azure Arc Container Storage. At least 3 cluster nodes are required. |
+   | `--ops-config` | `observability.metrics.openTelemetryCollectorAddress="<FULLNAMEOVERRIDE>.azure-iot-operations.svc.cluster.local:<GRPC_ENDPOINT>` | If you followed the optional prerequisites to prepare your cluster for observability, provide the otel collector address you configured in the otel-collector-values.yaml file.<br><br>The sample values used in [Configure observability](../configure-observability-monitoring/howto-configure-observability.md) are **fullnameOverride=aio-otel-collector** and **grpc.enpoint=4317**. |
+   | `--ops-config` | `observability.metrics.exportInternalSeconds=<CHECK_INTERVAL>` | If you followed the optional prerequisites to prepare your cluster for observability, provide the **check_interval** value you configured in the otel-collector-values.yaml file.<br><br>The sample value used in [Configure observability](../configure-observability-monitoring/howto-configure-observability.md) is **check_interval=60**. |
 
 1. Deploy Azure IoT Operations. This command takes several minutes to complete:
 
    ```azurecli
-   az iot ops create --name <NAME> --cluster <CLUSTER_NAME> --resource-group <RESOURCE_GROUP>
+   az iot ops create --name <NEW_INSTANCE_NAME> --cluster <CLUSTER_NAME> --resource-group <RESOURCE_GROUP>
    ```
 
    Use the optional parameters to customize your instance, including:
@@ -175,7 +177,7 @@ Azure secret requires a user-assigned managed identity with access to the Azure 
    * Adds a minimum secret provider class associated with the Azure IoT Operations instance.
 
    ```azurecli
-   az iot ops secretsync enable -n <AIO_NAME> -g <RESOURCE_GROUP> --mi-user-assigned <USER_ASSIGNED_MI_RESOURCE_ID> --kv-resource-id <KEYVAULT_RESOURCE_ID>
+   az iot ops secretsync enable --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> --mi-user-assigned <USER_ASSIGNED_MI_RESOURCE_ID> --kv-resource-id <KEYVAULT_RESOURCE_ID>
    ```
 
 1. Create a user-assigned managed identity which can be used for cloud connections. Don't use the same identity as the one used to set up secrets management.
@@ -188,7 +190,7 @@ Azure secret requires a user-assigned managed identity with access to the Azure 
 1. Run the following command to assign the identity to the Azure IoT Operations instance. This command also created a federated identity credential using the OIDC issuer of the indicated connected cluster and the Azure IoT Operations service account.
 
    ```azurecli
-   az iot ops identity assign -n <AIO_NAME> -g <RESOURCE_GROUP> --mi-user-assigned <USER_ASSIGNED_MI_RESOURCE_ID>
+   az iot ops identity assign --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> --mi-user-assigned <USER_ASSIGNED_MI_RESOURCE_ID>
    ```
 
 ### [Azure portal](#tab/portal)
