@@ -70,7 +70,7 @@ To generate self-signed certificates, see [Generate and export certificates for 
 | **Subject**| CN= cert@finance.contoso.com| digital certificate for Finance department|
 
 > [!NOTE]
-> Multiple address pool feature with digital certificates authetication apply a selection of specific user group only based on **Subject**. The selection criteria doesn't work on Subject Alternative Name (SAN) certificates. 
+> The multiple address pool feature with digital certificate authentication applies to a specific user group based on the **Subject** field. The selection criteria do not work with Subject Alternative Name (SAN) certificates.
 
 
 ## Step 3: Create a user group
