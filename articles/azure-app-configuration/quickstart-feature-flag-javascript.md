@@ -12,7 +12,7 @@ ms.custom: quickstart, mode-other, devx-track-js
 #Customer intent: As an JavaScript developer, I want to use feature flags to control feature availability quickly and confidently.
 ---
 
-# Quickstart: Add feature flags to a Python app
+# Quickstart: Add feature flags to a Node.js app
 
 In this quickstart, you incorporate Azure App Configuration into a Node.js console app to create an end-to-end implementation of feature management. You can use App Configuration to centrally store all your feature flags and control their states.
 

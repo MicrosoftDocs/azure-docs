@@ -11,7 +11,7 @@ ms.date: 10/12/2023
 ms.author: yanzh
 #Customer intent: As a JavaScript developer, I want to manage all my app settings in one place.
 ---
-# Quickstart: Create a JavaScript app with Azure App Configuration
+# Quickstart: Create a Node.js app with Azure App Configuration
 
 In this quickstart, you use Azure App Configuration to centralize storage and management of application settings using the [Azure App Configuration JavaScript provider client library](https://github.com/Azure/AppConfiguration-JavaScriptProvider).
 
