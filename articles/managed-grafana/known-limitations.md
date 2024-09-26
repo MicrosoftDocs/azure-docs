@@ -36,7 +36,7 @@ Azure Managed Grafana has the following known limitations:
 
 ## Current User authentication
 
-The *Current User* authentication option triggers the following limitation. Grafana offers some automated features such as alerts and reporting, that are expected to run in the background periodically. The Current User authentication method relies on a user being logged in, in an interactive session, to connect a data source to a database. Therefore, when this authentication method is used and no user is logged in, automated tasks can't run in the background. To leverage automated tasks, we recommend setting up another data source with another authentication method.
+The *Current User* authentication option triggers the following limitation. Grafana offers some automated features such as alerts and reporting, that are expected to run in the background periodically. The Current User authentication method relies on a user being logged in, in an interactive session, to connect a data source to a database. Therefore, when this authentication method is used and no user is logged in, automated tasks can't run in the background. To leverage automated tasks, we recommend setting up another data source with another authentication method or [configuring alerts in Azure Monitor](how-to-use-azure-monitor-alerts).
 
 ## Feature availability in sovereign clouds
 
