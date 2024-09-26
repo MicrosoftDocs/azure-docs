@@ -44,7 +44,11 @@ az connectedk8s show --name <CLUSTER_NAME> --resource-group <RESOURCE_GROUP> --q
 
 Use the following steps to enable workload identity on an existing connected K3s cluster:
 
-1. Download the `connectedk8s` cli version 1.10.0 whl file from GitHub: [connectedk8s-1.10.0](https://github.com/AzureArcForKubernetes/azure-cli-extensions/blob/connectedk8s/public/cli-extensions/connectedk8s-1.10.0-py2.py3-none-any.whl).
+1. Download and install a preview version of the `connectedk8s` extension for Azure CLI. GitHub: [connectedk8s-1.10.0](https://github.com/AzureArcForKubernetes/azure-cli-extensions/blob/connectedk8s/public/cli-extensions/connectedk8s-1.10.0-py2.py3-none-any.whl).
+
+   ```azurecli
+   curl -L -o connectedk8s-1.10.0-py2.py3-none-any.whl https://github.com/AzureArcForKubernetes/azure-cli-extensions/raw/refs/heads/connectedk8s/public/cli-extensions/connectedk8s-1.10.0-py2.py3-none-any.whl   
+   ```
 
 1. Remove the existing connectedk8s cli extension if you already installed it.
 
@@ -60,12 +64,11 @@ Use the following steps to enable workload identity on an existing connected K3s
    az extension add --source <PATH_TO_WHL_FILE>
    ```
 
-1. Export environment variables, and set the release tag to `0.1.15392-private`.
+1. Export environment variables that the `az connectedk8s upgrade` command requires.
 
    ```bash
-   export KUBECONFIG=/etc/rancher/k3s/k3s.yaml 
-   tag="0.1.15392-private" 
-   export HELMREGISTRY=azurearcfork8sdev.azurecr.io/merge/private/azure-arc-k8sagents:${tag}
+   export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
+   export HELMREGISTRY=azurearcfork8s.azurecr.io/public/azurearck8s/canary/stable/azure-arc-k8sagents:1.20.1
    ```
  
 1. Upgrade the Arc agent version to the private build that supports the workload identity feature.
@@ -76,7 +79,7 @@ Use the following steps to enable workload identity on an existing connected K3s
    # Variable block
    RESOURCE_GROUP="<RESOURCE_GROUP>"
    CLUSTER_NAME="<CLUSTER_NAME>"
-   RELEASE_TAG="0.1.15392-private"
+   RELEASE_TAG="1.20.1"
 
    # Update the Arc agent version
    az connectedk8s upgrade --resource-group $RESOURCE_GROUP \
@@ -123,7 +126,6 @@ Use the following steps to enable workload identity on an existing connected K3s
 
    ```yml
    kube-apiserver-arg: 'service-account-issuer=<SERVICE_ACCOUNT_ISSUER>' 
-   kube-apiserver-arg: 'service-account-max-token-expiration=24h' 
    ```
 
 1. Save and exit the file editor.
