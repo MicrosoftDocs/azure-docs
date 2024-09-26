@@ -267,7 +267,21 @@ You can associate multiple nodes by installing the self-hosted integration runti
 
 #### Scale out
 
-When processor usage is high and available memory is low on the self-hosted IR, add a new node to help scale out the load across machines. If activities fail because they time out or the self-hosted IR node is offline, it helps if you add a node to the gateway.
+When processor usage is high and available memory is low on the self-hosted IR, add a new node to help scale out the load across machines. If activities fail because they time out or the self-hosted IR node is offline, it helps if you add a node to the gateway. To add a node, use one of the following methods, either using the Azure Data Factory Studio, or with the SHIR installer.
+
+#### Adding a node using Azure Data Factory Studio
+
+1. Navigate to the [Azure Data Factory portal](https://learn.microsoft.com/en-us/azure/data-factory/create-self-hosted-integration-runtime).
+2. Go to the **Manage** tab, and select **Integration Runtimes** under the **Connections** section.
+3. Choose the existing self-hosted integration runtime you want to add a node to.
+4. Select **Add Node**, and follow the instructions to download and install the SHIR setup on the new machine.
+5. During the installation, provide the authentication key from the existing SHIR to link the new node to the existing SHIR cluster.
+
+#### Adding a node using the SHIR installer
+
+1. [Download the SHIR setup from the Azure Data Factory portal](https://learn.microsoft.com/en-us/azure/data-factory/create-self-hosted-integration-runtime).
+2. Run the Installer on the node you want to add to the cluster.
+3. During the installation, select the option to join an existing integration runtime, and provide the authentication key from the existing SHIR to link the new node to the existing SHIR cluster.
 
 #### Scale up
 
