@@ -91,8 +91,6 @@ Self-hosted gateways require outbound TCP/IP connectivity to Azure on port 443. 
 -   Sending metrics to Azure Monitor, if configured to do so
 -   Sending events to Application Insights, if set to do so
 
-[!INCLUDE [preview](./includes/preview/preview-callout-self-hosted-gateway-deprecation.md)]
-
 ### FQDN dependencies
 
 To operate properly, each self-hosted gateway needs outbound connectivity on port 443 to the following endpoints associated with its cloud-based API Management instance:

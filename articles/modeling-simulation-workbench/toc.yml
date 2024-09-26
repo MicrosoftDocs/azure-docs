@@ -37,6 +37,8 @@ items:
         href: ./how-to-guide-manage-users.md
       - name: Set up networking
         href: ./how-to-guide-set-up-networking.md
+      - name: Create a private network connector for VPN
+        href: ./how-to-guide-private-network.md
       - name: Manage license service
         href: ./how-to-guide-licenses.md
       - name: Import data
@@ -53,18 +55,20 @@ items:
         href: ./how-to-guide-start-stop-restart.md
       - name: Enable copy/paste
         href: ./how-to-guide-enable-copy-paste.md
-      - name: Place a chamber into Idle mode
+      - name: Place a chamber into idle mode
         href: ./how-to-guide-chamber-idle.md
-      - name: Add redirect URIs
-        href: ./how-to-guide-add-redirect-uris.md
       - name: Manage VMs
         href: ./how-to-guide-chamber-vm.md
-      - name: Register a resource provider
-        href: ./how-to-guide-register-resource-provider.md
       - name: Create a chamber
         href: ./how-to-guide-chamber.md
-      - name: Refresh remote connection keys
-        href: ./refresh-remote-connection-keys.md
+      - name: Management and configuration
+        items:
+          - name: Refresh remote connection keys
+            href: ./refresh-remote-connection-keys.md
+          - name: Register a resource provider
+            href: ./how-to-guide-register-resource-provider.md
+          - name: Add redirect URIs
+            href: ./how-to-guide-add-redirect-uris.md
   - name: Resources
     items:
       - name: Troubleshoot
