@@ -19,8 +19,10 @@ Observability provides visibility into every layer of your Azure IoT Operations 
 
 ## Prerequisites
 
-- Azure IoT Operations Preview installed. For more information, see [Quickstart: Run Azure IoT Operations Preview in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md).
-- [Git](https://git-scm.com/downloads) for cloning the repository.
+* An Arc-enabled Kubernetes cluster.
+* Helm installed on your development machine. For instructions, see [Install Helm](https://helm.sh/docs/intro/install/).
+* Kubectl installed on your development machine. For instructions, see [Install Kubernetes tools](https://kubernetes.io/docs/tasks/tools/).
+* Azure CLI installed on your development machine. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
 ## Configure your subscription
 
@@ -39,16 +41,10 @@ az provider register -n "Microsoft.AlertsManagement"
 
 The steps in this section install shared monitoring resources and configure your Arc enabled cluster to emit observability signals to these resources. The shared monitoring resources include Azure Managed Grafana, Azure Monitor Workspace, Azure Managed Prometheus, Azure Log Analytics, and Container Insights. In this section, you also deploy an [OpenTelemetry (Otel) Collector](https://opentelemetry.io/docs/collector/)
 
-1. In your console, go to the local folder where you want to clone the Azure IoT Operations repo:
+1. Clone or download the Azure IoT Operations repo to your local machine: [azure-iot-operations.git](https://github.com/Azure/azure-iot-operations.git).
 
    > [!NOTE]
    > The repo contains the deployment definition of Azure IoT Operations, and samples that include the sample dashboards used in this article.
-
-1. Clone the repo to your local machine, using the following command:
-
-   ```shell
-   git clone https://github.com/Azure/azure-iot-operations.git
-   ```
 
 1. Browse to the following path in your local copy of the repo:
 
