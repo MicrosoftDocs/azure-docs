@@ -32,11 +32,11 @@ Labels are free form text fields, so you can create a label for any use case tha
 ### Change the state of an asset 
 
 Users can also change the state of an asset. States help categorize your inventory based on their role in your organization. Users can switch between the following states: 
-- **Approved Inventory**:	A part of your owned attack surface; an item that you are directly responsible for.
+- **Approved Inventory**:	A part of your owned attack surface; an item that you're directly responsible for.
 - **Dependency**:	Infrastructure owned by a third party but is part of your attack surface because it directly supports the operation of your owned assets. For example, you might depend on an IT provider to host your web content. While the domain, hostname, and pages would be part of your “Approved Inventory,” you may wish to treat the IP Address running the host as a “Dependency.”
 - **Monitor Only**:	An asset that is relevant to your attack surface but isn't directly controlled by your organization, nor a technical dependency. For example, independent franchisees or assets belonging to related companies might be labeled as “Monitor Only” rather than “Approved Inventory” to separate the groups for reporting purposes.
-- **Candidate**:	An asset that has some relationship to your organization's known seed assets but does not have a strong enough connection to immediately label it as “Approved Inventory.” These candidate assets must be manually reviewed to determine ownership.
-- **Requires Investigation**:	A state similar to the “Candidate” states, but this value is applied to assets that require manual investigation to validate. This is determined based on our internally generated confidence scores that assess the strength of detected connections between assets. It does not indicate the infrastructure's exact relationship to the organization as much as it denotes that this asset was flagged as requiring extra review to determine how it should be categorized.
+- **Candidate**:	An asset that has some relationship to your organization's known seed assets but doesn't have a strong enough connection to immediately label it as “Approved Inventory.” These candidate assets must be manually reviewed to determine ownership.
+- **Requires Investigation**:	A state similar to the “Candidate” states, but this value is applied to assets that require manual investigation to validate. This is determined based on our internally generated confidence scores that assess the strength of detected connections between assets. It doesn't indicate the infrastructure's exact relationship to the organization as much as it denotes that this asset was flagged as requiring extra review to determine how it should be categorized.
 
 
 ### Apply an External ID 
@@ -46,7 +46,7 @@ Users can also apply an external ID to an asset. This action is useful in situat
 
 ### Mark observation as non-applicable 
 
-Many Defender EASM dashboards feature CVE data, bringing your attention to potential vulnerabilities based on the web component infrastructure that powers your attack surface. For instance, CVEs are listed on the Attack Surface summary dashboard, categorized by their potential severity. Upon investigating these CVEs, you might determine that some are not relevant to your organization. This may be because you are running an unimpacted version of the web component, or your organization has different technical solutions in place to protect you from that specific vulnerability. 
+Many Defender EASM dashboards feature CVE data, bringing your attention to potential vulnerabilities based on the web component infrastructure that powers your attack surface. For instance, CVEs are listed on the Attack Surface summary dashboard, categorized by their potential severity. Upon investigating these CVEs, you might determine that some aren't relevant to your organization. This may be because you're running an unimpacted version of the web component, or your organization has different technical solutions in place to protect you from that specific vulnerability. 
 
 From the drilldown view of any CVE-related chart, next to the "Download CSV report" button, you now have the option to set an observation as non-applicable. Clicking this value routes you to an inventory list of all assets associated to that observation, and you can then elect to mark all observations as non-applicable from this page. The actual change is either performed from the Inventory list view or from the Asset details page for a particular asset. 
 
@@ -190,7 +190,7 @@ In some instances, you may wish to remove multiple assets at once based on the m
 
 You may decide that one of your initially designated discovery seeds should no longer be included in a discovery group.  The seed may no longer be relevant to your organization, or it might be bringing in more false positives than legitimate owned assets. In this situation, you can remove the seed from your Discovery Group to prevent it from being used in future discovery runs while simultaneously removing any assets that have been brought to inventory through the designated seed in the past. 
 
-To perform a bulk removal based on a seed, route to the appropriate Discovery Group details page and click "Edit discovery group."  Follow the prompts to reach the Seeds page, and remove the problematic seed from the list. When you select "Review + Update", you will see a warning that indicates that all assets discovered through the designated seed will be removed as well. Select "Update" or "Update & Run" to complete the deletion. 
+To perform a bulk removal based on a seed, route to the appropriate Discovery Group details page and click "Edit discovery group."  Follow the prompts to reach the Seeds page, and remove the problematic seed from the list. When you select "Review + Update", you'll see a warning that indicates that all assets discovered through the designated seed will be removed as well. Select "Update" or "Update & Run" to complete the deletion. 
 
 ![Screenshot that shows the Edit Discovery Group page with a warning indicating the removal of a seed and any assets discovered through that seed.](media/chain-1.png)
 
@@ -209,7 +209,7 @@ In this situation, the initial discovery seed (the corporate domain) is still le
 
 ### Discovery group deletion 
 
-You may need to delete and entire discovery group and all the assets discovered through the group.  For instance, your company may have sold a subsidiary that no longer needs to be monitored. Users can delete discovery groups from the Discovery management page. To remove a discovery group and all related assets, simply select the trash bin icon next to the appropriate group in the list. You will receive a warning that lists a summary of the assets that will be removed with this action. To confirm the deletion of the discovery group; and all related assets, select "Remove discovery group." 
+You may need to delete and entire discovery group and all the assets discovered through the group.  For instance, your company may have sold a subsidiary that no longer needs to be monitored. Users can delete discovery groups from the Discovery management page. To remove a discovery group and all related assets, select the trash bin icon next to the appropriate group in the list. You'll receive a warning that lists a summary of the assets that will be removed with this action. To confirm the deletion of the discovery group; and all related assets, select "Remove discovery group." 
 
 ![Screenshot that shows the Discovery management page, with the warning box that appears after electing to delete a group highlighted.](media/chain-4.png)
 
