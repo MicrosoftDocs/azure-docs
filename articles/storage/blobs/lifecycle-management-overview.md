@@ -187,7 +187,7 @@ The run conditions are based on age. Current versions use the last modified time
 
 When you add or edit the rules of a lifecycle policy, it can take up to 24 hours for changes to go into effect and for the first execution to start. 
 
-A policy is scheduled to run once per day (_per 24 hours_) but only if any previous run of the policy has completed prior to the scheduling. The time required for a run to complete depends on the number of blobs evaluated and operated on. If a run takes longer than 24 hours to complete, then that run continues without interruption. After the run completes, it is scheduled to run again within 24 hours.
+A policy is scheduled to run once per day (_per 24 hours_) but only if there are no runs in progress. The time required for a run to complete depends on the number of blobs evaluated and operated on. If a run takes longer than 24 hours to complete, then that run continues without interruption. After the run completes, it is scheduled to run again within 24 hours.
 
 If you edit, delete, or disable a rule while a run is in progress, then that run terminates within 15 minutes, and runs again within 24 hours. If you disable or delete all of the rules in a policy, then the policy becomes inactive, and no new runs will be scheduled. 
 
