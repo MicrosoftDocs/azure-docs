@@ -1681,6 +1681,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/sentinel/troubleshooting-cef-syslog.md",
+            "redirect_url": "/previous-versions/azure/sentinel/troubleshooting-cef-syslog",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/sentinel/create-codeless-connector-legacy.md",
             "redirect_url": "/previous-versions/azure/sentinel/create-codeless-connector-legacy",
             "redirect_document_id": false
