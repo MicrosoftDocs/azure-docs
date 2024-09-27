@@ -11,7 +11,7 @@ ms.date: 09/26/2024
 
 # What is IP address management (IPAM) in Azure Virtual Network Manager?
 
-In this article, you learn about the IP address management (IPAM) feature in Azure Virtual Network Manager and how it can help you manage IP addresses in your virtual networks. With Azure Virtual Network Manager's IP Address Management (IPAM), you can create pools for IP address planning, automatically assign non-overlapping classless inter-domain routing (CIDR) addresses to Azure resources, and prevent address space conflicts across on-premises and multicloud environments.
+In this article, you learn about the IP address management (IPAM) feature in Azure Virtual Network Manager and how it can help you manage IP addresses in your virtual networks. With Azure Virtual Network Manager's IP Address Management (IPAM), you can create pools for IP address planning, automatically assign nonoverlapping classless inter-domain routing (CIDR) addresses to Azure resources, and prevent address space conflicts across on-premises and multicloud environments.
 
 [!INCLUDE [virtual-network-manager-ipam](../../includes/virtual-network-manager-ipam.md)]
 
@@ -21,7 +21,7 @@ In Azure Virtual Network Manager, IP address management (IPAM) helps you central
 
 - Create pools for IP address planning.
 
-- Automatically assign non-overlapped CIDRs to Azure resources.
+- Automatically assign nonoverlapped CIDRs to Azure resources.
 
 - Reserve IPs for specific needs.
 
@@ -45,7 +45,7 @@ IPAM allows network administrators to plan and organize IP address usage by crea
 
 There are two types of pools in IPAM:
 - Root pool: The first pool created in your instance is the root pool. This represents your entire IP address range.
-- Child pool: A child pool is a subset of the root pool or another child pool. You can create multiple child pools within a root pool or another child pool. You can have up to 7 layers of pools
+- Child pool: A child pool is a subset of the root pool or another child pool. You can create multiple child pools within a root pool or another child pool. You can have up to seven layers of pools
 
 ### Allocating IP addresses to Azure resources
 

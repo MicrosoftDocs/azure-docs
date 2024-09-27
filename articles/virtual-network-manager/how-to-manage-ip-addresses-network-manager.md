@@ -62,7 +62,7 @@ In this step, you associate an existing virtual network with an IP address pool 
    
    :::image type="content" source="media/how-to-manage-ip-addresses/associate-virtual-network-resources-thumb.png" alt-text="Screenshot of associate resources page with virtual networks selected." lightbox="media/how-to-manage-ip-addresses/associate-virtual-network-resources.png":::
 
-5. Verify the virtual network are listed.
+5. Verify the virtual network is listed.
    
    :::image type="content" source="media/how-to-manage-ip-addresses/ip-address-pool-allocation-statistics.png" alt-text="Screenshot of IP address pool allocations and statistics.":::
 
@@ -71,7 +71,7 @@ In this step, you associate an existing virtual network with an IP address pool 
 
 ## Create static CIDR blocks for a pool
 
-In this step, you create a static CIDR block for a pool. This is helpful for allocating a space that is outside of Azure or Azure resources that aren't supported by IPAM. For example, you can allocate a CIDR in the pool to the address space in your on-premises environment. Likewise, you can also use this for a space that is used by a Virtual WAN hub or Azure VMware Private Cloud.
+In this step, you create a static CIDR block for a pool. This is helpful for allocating a space that is outside of Azure or Azure resources not supported by IPAM. For example, you can allocate a CIDR in the pool to the address space in your on-premises environment. Likewise, you can also use this for a space that is used by a Virtual WAN hub or Azure VMware Private Cloud.
 
 1. Browse to your IP address pool.
 2. Select **Allocate** or **Allocations** under **Settings**.
@@ -104,7 +104,7 @@ In this step, you review the allocation usage of the IP address pool. This helps
     | **Available address count** | The number of addresses that are allocated to the pool. |
     | **IP allocation** | The set of IP addresses that are allocated from the pool for potential use. |
 
-    :::image type="content" source="media/how-to-manage-ip-addresses/review-ip-address-pool-allocations.png" alt-text="Screenshot of an ip address pool allocations and statistics for the pool.":::
+    :::image type="content" source="media/how-to-manage-ip-addresses/review-ip-address-pool-allocations.png" alt-text="Screenshot of an IP address pool's allocations and statistics for the pool.":::
 
 4. For each allocation, you can review the following:
    
@@ -130,7 +130,7 @@ In this step, you delegate permissions to other users to manage IP address pools
 
     :::image type="content" source="media/how-to-manage-ip-addresses/delegate-ip-address-pool-permissions.png" alt-text="Screenshot of the Add role assignment window with IPAM Pool User selected.":::
 
-6. Choose **+ Select members** and then **Select** the user, group,service principal, or managed identity that you want to assign the role to.
+6. Choose **+ Select members** and then **Select** the user, group, service principal, or managed identity that you want to assign the role to.
 7. Select **Review + assign** and then **Assign** to delegate permissions to the user.
 
 
@@ -144,17 +144,30 @@ In this step, you create a virtual network with a nonoverlapping CIDR range by a
    
     | Field | Description |
     | --- | --- |
-    | **Subscription** | Select your subscription. |
+    | **Subscription** | Select the subscription managed by a Network Manager management scope. |
     | **Resource group** | Select the resource group for the virtual network. |
     | **Name** | Enter a name for the virtual network. |
-    | **Region** | Select the region for the virtual network. |
-
+    | **Region** | Select the region for the virtual network. IP address pools must be in the same region as your virtual network in order to be associated.|
+ 
 4. Select the **IP addresses** tab or **Next** > **Next**.
-5. On the **IP addresses** tab, select **Allocate using IPAM.*
-6. In the **Select an IPAM pool** window, select the IP address pool that you want to associate with the virtual network and then choose **Select**.
+5. On the **IP addresses** tab, select **Allocate using IP address pools** checkbox.
+   
+   :::image type="content" source="media/how-to-manage-ip-addresses/create-virtual-network-ip-address-pool.png" alt-text="Screenshot of create virtual network window with Allocate using IP address setting.":::
+
+6. In the **Select an IP address pool** window, select the IP address pool that you want to associate with the virtual network and then choose **Save**. You can select at most one IPv4 pool and one IPv6 pool for association to a single virtual network.
+   
+    :::image type="content" source="media/how-to-manage-ip-addresses/virtual-network-create-select-ip-address-pool-thumb.png" alt-text="Screenshot of Select an IP address pool with IP address pool selected." lightbox="media/how-to-manage-ip-addresses/virtual-network-create-select-ip-address-pool.png":::
+
 7. From the dropdown menu next to your IP address pool, select the size for the virtual network.
-8. Select **Review + create** and then **Create** to create the virtual network.
-9. Once the virtual network is created, you can view the IP address pool that is associated with the virtual network under **Allocations** in the IP address pool.
+   
+    :::image type="content" source="media/how-to-manage-ip-addresses/virtual-network-create-select-address-space-size.png" alt-text="Screenshot of Create virtual network window with IP address size selection.":::
+
+8. Optionally create subnets referring to the selected pool.
+9.  Select **Review + create** and then **Create** to create the virtual network.
+10. Once the virtual network is created, you can
 
 ## Next steps
+
+> [!div class="nextstepaction"]
+> [What is IP address management in Azure Virtual Network Manager](./concept-ip-address-management.md)
 
