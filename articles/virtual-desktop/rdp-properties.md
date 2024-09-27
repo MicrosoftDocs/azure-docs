@@ -561,7 +561,7 @@ Here are the RDP properties that you can use to configure display settings.
 - **Description**: Specifies the scale factor of the remote session to make the content appear larger.
 - **Supported values**: 
   - Numerical value from the following list: `100`, `125`, `150`, `175`, `200`, `250`, `300`, `400`, `500`
-- **Default value**: Match the local computer.
+- **Default value**: None. Match the local device.
 - **Applies to**:
    - Azure Virtual Desktop
    - Remote Desktop Services
