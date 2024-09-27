@@ -508,7 +508,7 @@
     {
       "source_path_from_root": "/articles/azure-maps/tutorial-iot-hub-maps.md",
       "redirect_url": "/azure/azure-maps",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-maps/about-creator.md",
