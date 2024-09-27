@@ -102,6 +102,8 @@ After March 31, 2028, Azure Spring Apps Basic, Standard and Enterprise plans wil
 
 ### Does Microsoft Container Apps offer feature parity with Azure Spring Apps?
 
+Most Java features work the same on Azure Container Apps, with some experiential differences. Managed Spring components, Java metrics, and diagnostics support are available for you to use on Azure Container Apps. For more information, see [Java on Azure Container Apps overview](../../container-apps/java-overview.md). If you have any questions, open a support ticket from the Azure portal or open an issue in the [azure-container-apps](https://github.com/microsoft/azure-container-apps/issues) repository on GitHub.
+
 Most Java features work the same on Azure Container Apps, with some experiential differences. Features such as autopatching and Terraform support aren't available on Azure Container Apps yet, and we're working on enabling the features by the end of December.
 
 If you have interest in obtaining or continuing Spring commercial support and using Tanzu components, you can download the components and run them as JAR files on top of Azure Container Apps. Please work with your Broadcom sales to explore running Tanzu Platform Spring Essentials on top of Azure Container Apps.
