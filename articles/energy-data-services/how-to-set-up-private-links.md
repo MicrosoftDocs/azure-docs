@@ -182,7 +182,8 @@ In the same virtual network, you can create multiple endpoints. Each end point w
 3. This is the IP to which your resource is connected.
 
 ## New data partitions with static IP private endpoints
-It is preferrable to create private endpoints with dynamic IP to enable dynamic data partition creation. If you initiate the creation of new data partitions with static IPs private endpoint, it will fail. Each new data partition requires three additional static IPs which the static IP private endpoint is not able to provide. 
+It is preferable to create private endpoints with dynamic IP to enable dynamic data partition creation. If you initiate the creation of new data partitions with static IPs private endpoint, it will fail. Each new data partition requires three additional static IPs which the static IP private endpoint is not able to provide. 
+
 
 To create new data partitions successfully with static IP private endpoint, follow the below steps:
 1. Create a new private endpoint with either dynamic IP or enable public access.
