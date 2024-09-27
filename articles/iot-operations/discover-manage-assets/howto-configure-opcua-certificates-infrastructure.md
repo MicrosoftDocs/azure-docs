@@ -6,7 +6,7 @@ ms.author: dobett
 ms.subservice: azure-opcua-connector
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 09/16/2024
+ms.date: 09/27/2024
 
 # CustomerIntent: As an industrial edge IT or operations user, I want to to understand how to manage the OPC UA Certificates in the context of the connector for OPC UA.
 ---
@@ -40,32 +40,24 @@ To connect to an asset, first you need to establish the application authenticati
     > [!TIP]
     > Typically, an OPC UA server has an interface that lets you export its application instance certificate. This interface isn't standardized. For servers such as KEPServerEx, there's a Windows-based configuration UI for certificates management. Other servers might have a web interface or use operating system folders to store the certificates. Refer to the user manual of your server to find out how to export the application instance certificate. After you have the certificate, make sure it's either DER or PEM encoded. Typically stored in files with either the .der or .crt extension. If the certificate isn't in one of those file formats, use a tool such as `openssl` to transform the certificate into the required format.
 
-1. Save the OPC UA server's application instance certificate in Azure Key Vault as a secret.
+1. Add the OPC UA server's application instance certificate in the trusted certificates list. This list implemented as a kubernetes native secret, named: *aio-opc-ua-broker-trust-list* which is created when Azure IoT Operations is deployed.
 
     # [Bash](#tab/bash)
 
     For a DER encoded certificate in a file such as *./my-server.der*, run the following command:
 
     ```bash
-    # Upload my-server.der OPC UA server certificate as secret to Azure Key Vault
-    az keyvault secret set \
-      --name my-server-der \
-      --vault-name <your-azure-key-vault-name> \
-      --file my-server.der \
-      --encoding hex \
-      --content-type application/pkix-cert
+    # Append my-server.der OPC UA server certificate to the trusted certificate list secret as a new entry
+    data=$(kubectl create secret generic temp --from-file=my-server.der=./my-server.der --dry-run=client -o jsonpath='{.data}')
+    kubectl patch secret aio-opc-ua-broker-trust-list -n azure-iot-operations -p "{\"data\": $data}"
     ```
 
     For a PEM encoded certificate in a file such as *./my-server.crt*, run the following command:
 
     ```bash
-    # Upload my-server.crt OPC UA server certificate as secret to Azure Key Vault
-    az keyvault secret set \
-      --name my-server-crt \
-      --vault-name <your-azure-key-vault-name> \
-      --file my-server.crt \
-      --encoding hex \
-      --content-type application/x-pem-file
+    # Append my-server.crt OPC UA server certificate to the trusted certificate list secret as a new entry
+    data=$(kubectl create secret generic temp --from-file=my-server.crt=./my-server.crt --dry-run=client -o jsonpath='{.data}')
+    kubectl patch secret aio-opc-ua-broker-trust-list -n azure-iot-operations -p "{\"data\": $data}"
     ```
 
     # [PowerShell](#tab/powershell)
@@ -73,79 +65,20 @@ To connect to an asset, first you need to establish the application authenticati
     For a DER encoded certificate in a file such as *./my-server.der*, run the following command:
 
     ```powershell
-    # Upload my-server.der OPC UA server certificate as secret to Azure Key Vault
-    az keyvault secret set `
-      --name my-server-der `
-      --vault-name <your-azure-key-vault-name> `
-      --file my-server.der `
-      --encoding hex `
-      --content-type application/pkix-cert
+    # Append my-server.der OPC UA server certificate to the trusted certificate list secret as a new entry
+    $data = kubectl create secret generic temp --from-file=my-server.der=./my-server.der --dry-run=client -o jsonpath='{.data}'
+    kubectl patch secret aio-opc-ua-broker-trust-list -n azure-iot-operations -p "{`"data`": $data}"
     ```
 
     For a PEM encoded certificate in a file such as *./my-server.crt*, run the following command:
 
     ```powershell
-    # Upload my-server.crt OPC UA server certificate as secret to Azure Key Vault
-    az keyvault secret set `
-      --name my-server-crt `
-      --vault-name <your-azure-key-vault-name> `
-      --file my-server.crt `
-      --encoding hex `
-      --content-type application/x-pem-file
+    # Append my-server.crt OPC UA server certificate to the trusted certificate list secret as a new entry
+    $data = kubectl create secret generic temp --from-file=my-server.crt=./my-server.crt --dry-run=client -o jsonpath='{.data}'
+    kubectl patch secret aio-opc-ua-broker-trust-list -n azure-iot-operations -p "{`"data`": $data}"
     ```
 
     ---
-
-1. Configure the `aio-opc-ua-broker-trust-list` custom resource in the cluster. Use a Kubernetes client such as `kubectl` to configure the secrets, such as `my-server-der` or `my-server-crt`, in the `SecretProviderClass` object array in the cluster.
-
-    The following example shows a complete `SecretProviderClass` custom resource that contains the trusted OPC UA server certificate in a DER encoded file:
-
-    ```yaml
-    apiVersion: secrets-store.csi.x-k8s.io/v1
-    kind: SecretProviderClass
-    metadata:
-      name: aio-opc-ua-broker-trust-list
-      namespace: azure-iot-operations
-    spec:
-      provider: azure
-      parameters:
-        usePodIdentity: 'false'
-        keyvaultName: <your-azure-key-vault-name>
-        tenantId: <your-azure-tenant-id>
-        objects: |
-          array:
-            - |
-              objectName: my-server-der
-              objectType: secret
-              objectAlias: my-server.der
-              objectEncoding: hex
-    ```
-
-    The following example shows a complete `SecretProviderClass` custom resource that contains the trusted OPC UA server certificate in a PEM encoded file with the .crt extension:
-
-    ```yaml
-    apiVersion: secrets-store.csi.x-k8s.io/v1
-    kind: SecretProviderClass
-    metadata:
-      name: aio-opc-ua-broker-trust-list
-      namespace: azure-iot-operations
-    spec:
-      provider: azure
-      parameters:
-        usePodIdentity: 'false'
-        keyvaultName: <your-azure-key-vault-name>
-        tenantId: <your-azure-tenant-id>
-        objects: |
-          array:
-            - |
-              objectName: my-server-crt
-              objectType: secret
-              objectAlias: my-server.crt
-              objectEncoding: hex
-    ```
-
-    > [!NOTE]
-    > The time it takes to project Azure Key Vault certificates into the cluster depends on the configured polling interval.
 
 If your OPC UA server uses a certificate issued by a certificate authority (CA), you can trust the CA by adding its public key certificate to the connector for OPC UA trusted certificates list. The connector for OPC UA now automatically trusts all the servers that use a valid certificate issued by the CA. Therefore, you don't need to explicitly add the OPC UA server's certificate to the connector for OPC UA trusted certificates list.
 
@@ -153,48 +86,32 @@ To trust a CA, complete the following steps:
 
 1. Get the CA certificate public key encode in DER or PEM format. These certificates are typically stored in files with either the .der or .crt extension. Get the CA's CRL. This list is typically in a file with the .crl. Check the documentation for your OPC UA server for details.
 
-1. Save the CA certificate and the CRL in Azure Key Vault as secrets.
+1. Save the CA certificate and the CRL in the *aio-opc-ua-broker-trust-list* kubernetes native secret.
 
     # [Bash](#tab/bash)
 
-    For a DER encoded certificate in a file such as *./my-server-ca.der*, run the following commands:
+    For a DER encoded CA certificate in a file such as *./my-server-ca.der*, run the following commands:
 
     ```bash
-    # Upload CA certificate as secret to Azure Key Vault
-    az keyvault secret set \
-      --name my-server-ca-der \
-      --vault-name <your-azure-key-vault-name> \
-      --file my-server-ca.der \
-      --encoding hex \
-      --content-type application/pkix-cert
+    # Append CA certificate to the trusted certificate list secret as a new entry
+    data=$(kubectl create secret generic temp --from-file=my-server-ca.der=./my-server-ca.der --dry-run=client -o jsonpath='{.data}')
+    kubectl patch secret aio-opc-ua-broker-trust-list -n azure-iot-operations -p "{`"data`": $data}"
 
-    # Upload the CRL as secret to Azure Key Vault
-    az keyvault secret set \
-      --name my-server-crl \
-      --vault-name <your-azure-key-vault-name> \
-      --file my-server-ca.crl \
-      --encoding hex \
-      --content-type application/pkix-crl
+    # Append the CRL to the trusted certificate list secret as a new entry
+    data=$(kubectl create secret generic temp --from-file= my-server-ca.crl=./ my-server-ca.crl --dry-run=client -o jsonpath='{.data}')
+    kubectl patch secret aio-opc-ua-broker-trust-list -n azure-iot-operations -p "{`"data`": $data}"
     ```
 
-    For a PEM encoded certificate in a file such as *./my-server-ca.crt*, run the following commands:
+    For a PEM encoded CA certificate in a file such as *./my-server-ca.crt*, run the following commands:
 
     ```bash
-    # Upload CA certificate as secret to Azure Key Vault
-    az keyvault secret set \
-      --name my-server-ca-crt \
-      --vault-name <your-azure-key-vault-name> \
-      --file my-server-ca.crt \
-      --encoding hex \
-      --content-type application/x-pem-file
+    # Append CA certificate to the trusted certificate list secret as a new entry
+    data=$(kubectl create secret generic temp --from-file=my-server-ca.crt=./my-server-ca.crt --dry-run=client -o jsonpath='{.data}')
+    kubectl patch secret aio-opc-ua-broker-trust-list -n azure-iot-operations -p "{`"data`": $data}"
 
-    # Upload the CRL as secret to Azure Key Vault
-    az keyvault secret set \
-      --name my-server-crl \
-      --vault-name <your-azure-key-vault-name> \
-      --file my-server-ca.crl \
-      --encoding hex \
-      --content-type application/pkix-crl
+    # Append the CRL to the trusted certificates list secret as a new entry
+    data=$(kubectl create secret generic temp --from-file=my-server-ca.crl=./my-server-ca.crl --dry-run=client -o jsonpath='{.data}')
+    kubectl patch secret aio-opc-ua-broker-trust-list -n azure-iot-operations -p "{`"data`": $data}"
     ```
 
     # [PowerShell](#tab/powershell)
@@ -202,105 +119,28 @@ To trust a CA, complete the following steps:
     For a DER encoded certificate in a file such as *./my-server-ca.der*, run the following commands:
 
     ```powershell
-    # Upload CA certificate as secret to Azure Key Vault
-    az keyvault secret set `
-      --name my-server-ca-der `
-      --vault-name <your-azure-key-vault-name> `
-      --file my-server-ca.der `
-      --encoding hex `
-      --content-type application/pkix-cert
+    # Append CA certificate to the trusted certificate list secret as a new entry
+    $data = kubectl create secret generic temp --from-file=my-server-ca.der=./my-server-ca.der --dry-run=client -o jsonpath='{.data}'
+    kubectl patch secret aio-opc-ua-broker-trust-list -n azure-iot-operations -p "{`"data`": $data}"
 
-    # Upload the CRL as secret to Azure Key Vault
-    az keyvault secret set `
-      --name my-server-crl `
-      --vault-name <your-azure-key-vault-name> `
-      --file my-server-ca.crl `
-      --encoding hex `
-      --content-type application/pkix-crl
+    # Append the CRL to the trusted certificate list secret as a new entry
+    $data = kubectl create secret generic temp --from-file=my-server-ca.crl=./my-server-ca.crl --dry-run=client -o jsonpath='{.data}'
+    kubectl patch secret aio-opc-ua-broker-trust-list -n azure-iot-operations -p "{`"data`": $data}"
     ```
 
     For a PEM encoded certificate in a file such as *./my-server-ca.crt*, run the following commands:
 
     ```powershell
-    # Upload CA certificate as secret to Azure Key Vault
-    az keyvault secret set `
-      --name my-server-ca-crt `
-      --vault-name <your-azure-key-vault-name> `
-      --file my-server-ca.crt `
-      --encoding hex `
-      --content-type application/x-pem-file
+    # Append CA certificate to the trusted certificate list secret as a new entry
+    $data = kubectl create secret generic temp --from-file=my-server-ca.crt=./my-server-ca.crt --dry-run=client -o jsonpath='{.data}'
+    kubectl patch secret aio-opc-ua-broker-trust-list -n azure-iot-operations -p "{`"data`": $data}"
 
-    # Upload the CRL as secret to Azure Key Vault
-    az keyvault secret set `
-      --name my-server-crl `
-      --vault-name <your-azure-key-vault-name> `
-      --file my-server-ca.crl `
-      --encoding hex `
-      --content-type application/pkix-crl
+    # Append the CRL to the trusted certificate list secret as a new entry
+    $data = kubectl create secret generic temp --from-file=my-server-ca.crl=./my-server-ca.crl --dry-run=client -o jsonpath='{.data}'
+    kubectl patch secret aio-opc-ua-broker-trust-list -n azure-iot-operations -p "{`"data`": $data}"
     ```
 
     ---
-
-1. Configure the `aio-opc-ua-broker-trust-list` custom resource in the cluster. Use a Kubernetes client such as `kubectl` to configure the secrets, such as `my-server-ca-der` or `my-server-ca-crt`, in the `SecretProviderClass` object array in the cluster.
-
-    The following example shows a complete `SecretProviderClass` custom resource that contains the trusted OPC UA server certificate in a DER encoded file:
-
-    ```yaml
-    apiVersion: secrets-store.csi.x-k8s.io/v1
-    kind: SecretProviderClass
-    metadata:
-      name: aio-opc-ua-broker-trust-list
-      namespace: azure-iot-operations
-    spec:
-      provider: azure
-      parameters:
-        usePodIdentity: 'false'
-        keyvaultName: <your-azure-key-vault-name>
-        tenantId: <your-azure-tenant-id>
-        objects: |
-          array:
-            - |
-              objectName: my-server-ca-der
-              objectType: secret
-              objectAlias: my-server-ca.der
-              objectEncoding: hex
-            - |
-              objectName: my-server-ca-crl
-              objectType: secret
-              objectAlias: my-server-ca.crl
-              objectEncoding: hex
-    ```
-
-    The following example shows a complete `SecretProviderClass` custom resource that contains the trusted OPC UA server certificate in a PEM encoded file with the .crt extension:
-
-    ```yaml
-    apiVersion: secrets-store.csi.x-k8s.io/v1
-    kind: SecretProviderClass
-    metadata:
-      name: aio-opc-ua-broker-trust-list
-      namespace: azure-iot-operations
-    spec:
-      provider: azure
-      parameters:
-        usePodIdentity: 'false'
-        keyvaultName: <your-azure-key-vault-name>
-        tenantId: <your-azure-tenant-id>
-        objects: |
-          array:
-            - |
-              objectName: my-server-ca-crt
-              objectType: secret
-              objectAlias: my-server-ca.crt
-              objectEncoding: hex
-            - |
-              objectName: my-server-ca-crl
-              objectType: secret
-              objectAlias: my-server-ca.crl
-              objectEncoding: hex
-    ```
-
-    > [!NOTE]
-    > The time it takes to project Azure Key Vault certificates into the cluster depends on the configured polling interval.
 
 ## Configure the issuer certificates list
 
@@ -308,50 +148,34 @@ If your OPC UA server uses a certificate issued by a CA, but you don't want to t
 
 1. Trust the OPC UA server's application instance certificate by following the first three steps in the previous section.
 
-1. Besides the certificate itself, the connector for OPC UA needs the CA certificate to properly validate the issuer chain of the OPC UA server's certificate. Add the CA certificate and its certificate revocation list (CRL) to a separate list called `aio-opc-ua-broker-issuer-list`.
+1. Besides the certificate itself, the connector for OPC UA needs the CA certificate to properly validate the issuer chain of the OPC UA server's certificate. Add the CA certificate and its certificate revocation list (CRL) to a separate list called `aio-opc-ua-broker-issuer-list` implemented as a kubernetes secret.
 
-    1. Save the CA certificate and the CRL in Azure Key Vault as secrets.
+    1. Save the CA certificate and the CRL in the `aio-opc-ua-broker-issuer-list` secret.
 
         # [Bash](#tab/bash)
 
         For a DER encoded certificate in a file such as *./my-server-ca.der*, run the following commands:
 
         ```bash
-        # Upload CA certificate as secret to Azure Key Vault
-        az keyvault secret set \
-          --name my-server-ca-der \
-          --vault-name <your-azure-key-vault-name> \
-          --file my-server-ca.der \
-          --encoding hex \
-          --content-type application/pkix-cert
-    
-        # Upload the CRL as secret to Azure Key Vault
-        az keyvault secret set \
-          --name my-server-crl \
-          --vault-name <your-azure-key-vault-name> \
-          --file my-server-ca.crl \
-          --encoding hex \
-          --content-type application/pkix-crl
+        # Append CA certificate to the issuer list secret as a new entry
+        data=$(kubectl create secret generic temp --from-file=my-server-ca.der=./my-server-ca.der --dry-run=client -o jsonpath='{.data}')
+        kubectl patch secret aio-opc-ua-broker-issuer-list -n azure-iot-operations -p "{`"data`": $data}"
+
+        # Append the CRL to the issuer list secret as a new entry
+        data=$(kubectl create secret generic temp --from-file=my-server-ca.crl=./my-server-ca.crl --dry-run=client -o jsonpath='{.data}')
+        kubectl patch secret aio-opc-ua-broker-issuer-list -n azure-iot-operations -p "{`"data`": $data}"
         ```
 
         For a PEM encoded certificate in a file such as *./my-server-ca.crt*, run the following commands:
 
         ```bash
-        # Upload CA certificate as secret to Azure Key Vault
-        az keyvault secret set \
-          --name my-server-ca-crt \
-          --vault-name <your-azure-key-vault-name> \
-          --file my-server-ca.crt \
-          --encoding hex \
-          --content-type application/x-pem-file
-    
-        # Upload the CRL as secret to Azure Key Vault
-        az keyvault secret set \
-          --name my-server-crl \
-          --vault-name <your-azure-key-vault-name> \
-          --file my-server-ca.crl \
-          --encoding hex \
-          --content-type application/pkix-crl
+        # Append CA certificate to the issuer list secret as a new entry
+        data=$(kubectl create secret generic temp --from-file=my-server-ca.crt=./my-server-ca.crt --dry-run=client -o jsonpath='{.data}')
+        kubectl patch secret aio-opc-ua-broker-issuer-list -n azure-iot-operations -p "{`"data`": $data}"
+
+        # Append the CRL to the issuer list secret as a new entry
+        data=$(kubectl create secret generic temp --from-file=my-server-ca.crl=./my-server-ca.crl --dry-run=client -o jsonpath='{.data}')
+        kubectl patch secret aio-opc-ua-broker-issuer-list -n azure-iot-operations -p "{`"data`": $data}"
         ```
 
         # [PowerShell](#tab/powershell)
@@ -359,105 +183,28 @@ If your OPC UA server uses a certificate issued by a CA, but you don't want to t
         For a DER encoded certificate in a file such as *./my-server-ca.der*, run the following commands:
 
         ```powershell
-        # Upload CA certificate as secret to Azure Key Vault
-        az keyvault secret set `
-          --name my-server-ca-der `
-          --vault-name <your-azure-key-vault-name> `
-          --file my-server-ca.der `
-          --encoding hex `
-          --content-type application/pkix-cert
-    
-        # Upload the CRL as secret to Azure Key Vault
-        az keyvault secret set `
-          --name my-server-crl `
-          --vault-name <your-azure-key-vault-name> `
-          --file my-server-ca.crl `
-          --encoding hex `
-          --content-type application/pkix-crl
+        # Append CA certificate to the issuer list secret as a new entry
+        $data = kubectl create secret generic temp --from-file=my-server-ca.der=./my-server-ca.der --dry-run=client -o jsonpath='{.data}'
+        kubectl patch secret aio-opc-ua-broker-issuer-list -n azure-iot-operations -p "{`"data`": $data}"
+
+        # Append the CRL to the issuer list secret as a new entry
+        $data = kubectl create secret generic temp --from-file=my-server-ca.crl=./my-server-ca.crl --dry-run=client -o jsonpath='{.data}'
+        kubectl patch secret aio-opc-ua-broker-issuer-list -n azure-iot-operations -p "{`"data`": $data}"
         ```
 
         For a PEM encoded certificate in a file such as *./my-server-ca.crt*, run the following commands:
 
         ```powershell
-        # Upload CA certificate as secret to Azure Key Vault
-        az keyvault secret set `
-          --name my-server-ca-crt `
-          --vault-name <your-azure-key-vault-name> `
-          --file my-server-ca.crt `
-          --encoding hex `
-          --content-type application/x-pem-file
-    
-        # Upload the CRL as secret to Azure Key Vault
-        az keyvault secret set `
-          --name my-server-crl `
-          --vault-name <your-azure-key-vault-name> `
-          --file my-server-ca.crl `
-          --encoding hex `
-          --content-type application/pkix-crl
+        # Append CA certificate to the issuer list secret as a new entry
+        $data = kubectl create secret generic temp --from-file=my-server-ca.crt=./my-server-ca.crt --dry-run=client -o jsonpath='{.data}'
+        kubectl patch secret aio-opc-ua-broker-issuer-list -n azure-iot-operations -p "{`"data`": $data}"
+
+        # Append the CRL to the issuer list secret as a new entry
+        $data = kubectl create secret generic temp --from-file=my-server-ca.crl=./my-server-ca.crl --dry-run=client -o jsonpath='{.data}'
+        kubectl patch secret aio-opc-ua-broker-issuer-list -n azure-iot-operations -p "{`"data`": $data}"
         ```
 
         ---
-
-1. Configure the `aio-opc-ua-broker-issuer-list` custom resource in the cluster. Use a Kubernetes client such as `kubectl` to configure the secrets, such as `my-server-ca-der` or `my-server-ca-crt`, in the `SecretProviderClass` object array in the cluster.
-
-    The following example shows a complete `SecretProviderClass` custom resource that contains the trusted OPC UA server certificate in a DER encoded file:
-
-    ```yaml
-    apiVersion: secrets-store.csi.x-k8s.io/v1
-    kind: SecretProviderClass
-    metadata:
-      name: aio-opc-ua-broker-issuer-list
-      namespace: azure-iot-operations
-    spec:
-      provider: azure
-      parameters:
-        usePodIdentity: 'false'
-        keyvaultName: <your-azure-key-vault-name>
-        tenantId: <your-azure-tenant-id>
-        objects: |
-          array:
-            - |
-              objectName: my-server-ca-der
-              objectType: secret
-              objectAlias: my-server-ca.der
-              objectEncoding: hex
-            - |
-              objectName: my-server-ca-crl
-              objectType: secret
-              objectAlias: my-server-ca.crl
-              objectEncoding: hex
-    ```
-
-    The following example shows a complete `SecretProviderClass` custom resource that contains the trusted OPC UA server certificate in a PEM encoded file with the .crt extension:
-
-    ```yaml
-    apiVersion: secrets-store.csi.x-k8s.io/v1
-    kind: SecretProviderClass
-    metadata:
-      name: aio-opc-ua-broker-issuer-list
-      namespace: azure-iot-operations
-    spec:
-      provider: azure
-      parameters:
-        usePodIdentity: 'false'
-        keyvaultName: <your-azure-key-vault-name>
-        tenantId: <your-azure-tenant-id>
-        objects: |
-          array:
-            - |
-              objectName: my-server-ca-crt
-              objectType: secret
-              objectAlias: my-server-ca.crt
-              objectEncoding: hex
-            - |
-              objectName: my-server-ca-crl
-              objectType: secret
-              objectAlias: my-server-ca.crl
-              objectEncoding: hex
-    ```
-
-    > [!NOTE]
-    > The time it takes to project Azure Key Vault certificates into the cluster depends on the configured polling interval.
 
 ## Configure your OPC UA server
 
@@ -502,149 +249,70 @@ The following example references the following items:
 | _enterprise-grade-ca-1.der_   | File that contains the enterprise grade CA certificate public key. |
 | _enterprise-grade-ca-1.crl_   | The CA's CRL file. |
 
-Like the previous examples, you use Azure Key Vault to store the certificates and CRLs. You then configure the `SecretProviderClass` custom resources in the connected cluster to project the certificates and CRLs into the connector for OPC UA pods. To configure the enterprise grade application instance certificate, complete the following steps:
+Like the previous examples, you use a dedicated Kubernetes secret to store the certificates and CRLs. To configure the enterprise grade application instance certificate, complete the following steps:
 
-1. Save the certificates and the CRL in Azure Key Vault as secrets by using the following commands:
+1. Save the certificates and the CRL in `aio-opc-ua-broker-client-certificate` secret by using the following command:
 
     # [Bash](#tab/bash)
 
     ```bash
-    # Upload the connector for OPC UA public key certificate as secret to Azure Key Vault
-    az keyvault secret set \
-      --name opcuabroker-certificate-der \
-      --vault-name <your-azure-key-vault-name> \
-      --file opcuabroker-certificate.der \
-      --encoding hex \
-      --content-type application/pkix-cert
-
-    # Upload connector for OPC UA private key certificate as secret to Azure Key Vault
-    az keyvault secret set \
-      --name opcuabroker-certificate-pem \
-      --vault-name <your-azure-key-vault-name> \
-      --file opcuabroker-certificate.pem \
-      --encoding hex \
-      --content-type application/x-pem-file
-
-    # Upload CA public key certificate as secret to Azure Key Vault
-    az keyvault secret set \
-      --name enterprise-grade-ca-1-der \
-      --vault-name <your-azure-key-vault-name> \
-      --file enterprise-grade-ca-1.der \
-      --encoding hex \
-      --content-type application/pkix-cert
-
-    # Upload CA certificate revocation list as secret to Azure Key Vault
-    az keyvault secret set \
-      --name enterprise-grade-ca-1-crl \
-      --vault-name <your-azure-key-vault-name> \
-      --file enterprise-grade-ca-1.crl \
-      --encoding hex \
-      --content-type application/pkix-crl
+    # Create aio-opc-ua-broker-client-certificate secret
+    # Upload OPC UA public key certificate as an entry to the secret
+    # Upload OPC UA private key certificate as an entry to the secret
+    kubectl create secret generic aio-opc-ua-broker-client-certificate -n azure-iot-operations  \
+      --from-file=opcuabroker-certificate.der=./opcuabroker-certificate.der \
+      --from-file=opcuabroker-certificate.pem=./opcuabroker-certificate.pem
     ```
 
     # [PowerShell](#tab/powershell)
 
     ```powershell
-    # Upload the connector for OPC UA public key certificate as secret to Azure Key Vault
-    az keyvault secret set `
-      --name opcuabroker-certificate-der `
-      --vault-name <your-azure-key-vault-name> `
-      --file opcuabroker-certificate.der `
-      --encoding hex `
-      --content-type application/pkix-cert
-
-    # Upload connector for OPC UA private key certificate as secret to Azure Key Vault
-    az keyvault secret set `
-      --name opcuabroker-certificate-pem `
-      --vault-name <your-azure-key-vault-name> `
-      --file opcuabroker-certificate.pem `
-      --encoding hex `
-      --content-type application/x-pem-file
-
-    # Upload CA public key certificate as secret to Azure Key Vault
-    az keyvault secret set `
-      --name enterprise-grade-ca-1-der `
-      --vault-name <your-azure-key-vault-name> `
-      --file enterprise-grade-ca-1.der `
-      --encoding hex `
-      --content-type application/pkix-cert
-
-    # Upload CA certificate revocation list as secret to Azure Key Vault
-    az keyvault secret set `
-      --name enterprise-grade-ca-1-crl `
-      --vault-name <your-azure-key-vault-name> `
-      --file enterprise-grade-ca-1.crl `
-      --encoding hex `
-      --content-type application/pkix-crl
+    # Create aio-opc-ua-broker-client-certificate secret
+    # Upload OPC UA public key certificate as an entry to the secret
+    # Upload OPC UA private key certificate as an entry to the secret
+    kubectl create secret generic aio-opc-ua-broker-client-certificate -n azure-iot-operations  `
+      --from-file=opcuabroker-certificate.der=./opcuabroker-certificate.der `
+      --from-file=opcuabroker-certificate.pem=./opcuabroker-certificate.pem
     ```
 
     ---
 
-1. Configure the `aio-opc-ua-broker-client-certificate` custom resource in the cluster. Use a Kubernetes client such as `kubectl` to configure the secrets `opcuabroker-certificate-der` and `opcuabroker-certificate-pem` in the `SecretProviderClass` object array in the cluster.
+2. If you use the CA to issue certificates for your OPC UA Broker, configure `aio-opc-ua-broker-issuer-list` secret. Use a Kubernetes client such as `kubectl` to configure the secrets `enterprise-grade-ca-1.der` and `enterprise-grade-ca-1.crl`
 
-    The following example shows a complete `SecretProviderClass` custom resource after you add the secret configurations:
+    # [Bash](#tab/bash)
 
-    ```yaml
-    apiVersion: secrets-store.csi.x-k8s.io/v1
-    kind: SecretProviderClass
-    metadata:
-      name: aio-opc-ua-broker-client-certificate
-      namespace: azure-iot-operations
-    spec:
-      provider: azure
-      parameters:
-        usePodIdentity: 'false'
-        keyvaultName: <your-azure-key-vault-name>
-        tenantId: <your-azure-tenant-id>
-        objects: |
-          array:
-            - |
-              objectName: opcuabroker-certificate-der
-              objectType: secret
-              objectAlias: opcuabroker-certificate.der
-              objectEncoding: hex
-            - |
-              objectName: opcuabroker-certificate-pem
-              objectType: secret
-              objectAlias: opcuabroker-certificate.pem
-              objectEncoding: hex
+
+    ```bash
+    # Append CA certificate to the issuer list secret as a new entry
+    data=$(kubectl create secret generic temp --from-file=enterprise-grade-ca-1.der=./enterprise-grade-ca-1.der --dry-run=client -o jsonpath='{.data}')
+    kubectl patch secret aio-opc-ua-broker-issuer-list -n azure-iot-operations -p "{`"data`": $data}"
+
+    # Append the CRL to the issuer list secret as a new entry
+    data=$(kubectl create secret generic temp --from-file= enterprise-grade-ca-1.crl=./enterprise-grade-ca-1.crl --dry-run=client -o jsonpath='{.data}')
+    kubectl patch secret aio-opc-ua-broker-issuer-list -n azure-iot-operations -p "{`"data`": $data}"
     ```
 
-1. If you use the CA to issue certificates for your OPC UA servers, configure `aio-opc-ua-broker-issuer-list` custom resource in the cluster. Use a Kubernetes client such as `kubectl` to configure the secrets `enterprise-grade-ca-1-der` and `enterprise-grade-ca-1-crl` in the `SecretProviderClass` object array in the cluster.
+    # [PowerShell](#tab/powershell)
 
-    The following example shows a complete `SecretProviderClass` custom resource after you add the secret configurations:
+    ```powershell
+    # Append CA certificate to the issuer list secret as a new entry
+    $data = kubectl create secret generic temp --from-file=enterprise-grade-ca-1.der=./enterprise-grade-ca-1.der --dry-run=client -o jsonpath='{.data}'
+    kubectl patch secret aio-opc-ua-broker-issuer-list -n azure-iot-operations -p "{`"data`": $data}"
 
-    ```yaml
-    apiVersion: secrets-store.csi.x-k8s.io/v1
-    kind: SecretProviderClass
-    metadata:
-      name: aio-opc-ua-broker-issuer-list
-      namespace: azure-iot-operations
-    spec:
-      provider: azure
-      parameters:
-        usePodIdentity: 'false'
-        keyvaultName: <your-azure-key-vault-name>
-        tenantId: <your-azure-tenant-id>
-        objects: |
-          array:
-            - |
-              objectName: enterprise-grade-ca-1-der
-              objectType: secret
-              objectAlias: enterprise-grade-ca-1.der
-              objectEncoding: hex
-            - |
-              objectName: enterprise-grade-ca-1-crl
-              objectType: secret
-              objectAlias: enterprise-grade-ca-1.crl
-              objectEncoding: hex
+    # Append the CRL to the issuer list secret as a new entry
+    $data = kubectl create secret generic temp --from-file=enterprise-grade-ca-1.crl=./enterprise-grade-ca-1.crl --dry-run=client -o jsonpath='{.data}'
+    kubectl patch secret aio-opc-ua-broker-issuer-list -n azure-iot-operations -p "{`"data`": $data}"
     ```
+
+    ---
 
 1. Update the connector for OPC UA deployment to use the new `SecretProviderClass` source for application instance certificates by using the following command:
 
     # [Bash](#tab/bash)
 
     ```bash
+    TBD!!!!!!!!!!!!!!!!!!
+
     az k8s-extension update \
         --version 0.3.0-preview \
         --name opc-ua-broker \
@@ -661,6 +329,8 @@ Like the previous examples, you use Azure Key Vault to store the certificates an
     # [PowerShell](#tab/powershell)
 
     ```powershell
+    TBD!!!!!!!!!!!!!!!!!!
+
     az k8s-extension update `
         --version 0.3.0-preview `
         --name opc-ua-broker `
