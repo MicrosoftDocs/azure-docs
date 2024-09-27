@@ -65,9 +65,14 @@ The following packages are required to run your .NET functions in an isolated wo
 
 #### Version 2.x (Preview)
 
-The 2.x versions of the core packages change the supported framework assets and bring in support for new .NET APIs from these later versions. When using .NET 9 (Preview) or later, your app needs to reference version 2.0.0-preview1 or later of both packages. 
+The 2.x versions of the core packages change the supported framework assets and bring in support for new .NET APIs from these later versions. When using .NET 9 (Preview) or later, your app needs to reference version 2.0.0-preview1 or later of both packages.
 
-The 2.0.0-preview1 versions are compatible with code written against version 1.x. However, during the preview period, newer versions may introduce behavior changes that could influence the code you write.
+The initial preview versions are compatible with code written against version 1.x. However, during the preview period, newer versions may introduce behavior changes that could influence the code you write.
+
+When updating to the 2.x versions, please note the following changes:
+
+- Starting with version 2.0.0-preview2, [Microsoft.Azure.Functions.Worker.Sdk] adds default configurations for [SDK container builds](/dotnet/core/docker/publish-as-container).
+
 
 ### Extension packages
 

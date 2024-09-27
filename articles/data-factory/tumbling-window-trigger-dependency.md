@@ -7,7 +7,7 @@ author: kromerm
 ms.subservice: orchestration
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 10/20/2023
+ms.date: 09/26/2024
 ---
 
 # Create a tumbling window trigger dependency

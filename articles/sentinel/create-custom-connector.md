@@ -13,7 +13,7 @@ Microsoft Sentinel provides a wide range of [built-in connectors for Azure servi
 
 If you're unable to connect your data source to Microsoft Sentinel using any of the existing solutions available, consider creating your own data source connector.
 
-For a full list of supported connectors, see the [Microsoft Sentinel: The connectors grand (CEF, Syslog, Direct, Agent, Custom, and more)](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-the-connectors-grand-cef-syslog-direct-agent/ba-p/803891) blog post.
+For a full list of supported connectors, see the [Find your Microsoft Sentinel data connector)](data-connectors-reference.md).
 
 ## Compare custom connector methods
 
