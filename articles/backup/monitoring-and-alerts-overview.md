@@ -12,11 +12,11 @@ ms.author: v-abhmallick
 
 This article provides an overview of different monitoring and reporting solutions provided by Azure Backup.
 
-Azure Backup offers integration with various Azure services, such as Azure Resource Graph, Azure Monitor Alerts, Azure Monitor Logs, and Azure Resource Health. Azure Backup also offers interfaces to various Azure clients, such as Azure portal, Azure PowerShell, Azure CLI, and Azure REST API. Depending on your monitoring and reporting requirements, you can use a combination of these integrations.
+Azure Backup offers integration with various Azure services, such as Azure Resource Graph, Azure Monitor Alerts, Azure Monitor Logs (Log Analytics), and Azure Resource Health. Azure Backup also offers interfaces to various Azure clients, such as Azure portal, Azure PowerShell, Azure CLI, and Azure REST API. Depending on your monitoring and reporting requirements, you can use a combination of these integrations.
 
 ## Monitoring and reporting scenarios
 
-The following table provides a summary of the different monitoring and reporting scenarios that commonly arise in enterprise backup deployments, and the different capabilities that Azure Backup provides today for each of these scenarios, along with the relevant document references.
+The following sections provide an overview of the different monitoring and reporting scenarios that commonly arise in enterprise backup deployments. Today, Azure Backup provides the capabilities for each scenario, along with the relevant document references.
 
 | Scenario | Solutions available |
 | --- | --- |

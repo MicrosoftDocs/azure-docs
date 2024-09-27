@@ -222,7 +222,7 @@
       href: backup-azure-about-mars.md
     - name: Restore
       href: about-restore-microsoft-azure-recovery-services.md
-  - name: Monitor and Alerts
+  - name: Monitoring and Reporting
     href: monitoring-and-alerts-overview.md
   - name: Security
     items:

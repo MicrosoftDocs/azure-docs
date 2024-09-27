@@ -65,7 +65,7 @@ sections:
 
 
 
-  - name: Configure Azure Backup reports
+  - name: Configure Reports for Azure Backup
     questions:
       - question: |
           How do I check if reporting data has started flowing into a Log Analytics (LA) Workspace?
