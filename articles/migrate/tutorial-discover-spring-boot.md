@@ -120,7 +120,7 @@ After copying the script, you can go to your Linux server, save the script as *D
     ---- | ----
     **Supported Linux OS** | Ubuntu 20.04, RHEL 9
     **Hardware configuration required** | 6 GB RAM, with 30 GB storage on root volume, 4 Core CPU
-    **Network Requirements** | Access to the following endpoints: <br/><br/> https://dc.services.visualstudio.com/v2/track <br/><br/> https://legoonboarding.blob.core.windows.net <br/><br/>  [Azure CLI endpoints for proxy bypass](/cli/azure/azure-cli-endpoints) 
+    **Network Requirements** | Access to the following endpoints: <br/><br/> https://dc.services.visualstudio.com/v2/track <br/><br/> [Azure CLI endpoints for proxy bypass](/cli/azure/azure-cli-endpoints) 
 
 5.	After copying the script, go to your Linux server, save the script as *Deploy.sh* on the server.
 ---
