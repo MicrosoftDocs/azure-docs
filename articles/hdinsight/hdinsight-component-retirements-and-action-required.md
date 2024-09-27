@@ -28,7 +28,7 @@ HDInsight bundles open-source components and HDInsight platform into a package t
 | HDInsight version | VM OS | Release date| Support type | Support expiration date | Retirement date | High availability | Action Required|
 | --- | --- | --- | --- | --- | --- | ---|---|
 | [HDInsight 5.1](./hdinsight-5x-component-versioning.md) |Ubuntu 18.0.4 LTS |November 1, 2023 | [Standard](hdinsight-component-versioning.md#support-options-for-hdinsight-versions) | Not announced |Not announced| Yes |-|
-| [HDInsight 5.0](./hdinsight-5x-component-versioning.md) |Ubuntu 18.0.4 LTS |March 11, 2022 | [Basic](hdinsight-component-versioning.md#support-options-for-hdinsight-versions) | March 31, 2025 | March 31, 2025| Yes | ./hdinsight-5x-component-versioning.md|
+| [HDInsight 5.0](./hdinsight-5x-component-versioning.md) |Ubuntu 18.0.4 LTS |March 11, 2022 | [Basic](hdinsight-component-versioning.md#support-options-for-hdinsight-versions) | March 31, 2025 | March 31, 2025| Yes | [HDInsight 5.x component versions](./hdinsight-5x-component-versioning.md)|
 | HDInsight 4.0 |Ubuntu 18.0.4 LTS |September 24, 2018 | [Basic](hdinsight-component-versioning.md#support-options-for-hdinsight-versions) | March 31, 2025 | March 31, 2025 |Yes | https://azure.microsoft.com/en-us/updates/azure-hdinsight-40-will-be-retired-on-31-march-2025-migrate-your-hdinsight-clusters-to-51/ |
 
 
