@@ -20,7 +20,7 @@ AzCopy is a command-line utility that you can use to copy blobs or files to or f
 >
 > If you need to use a previous version of AzCopy, see the [Use the previous version of AzCopy](#previous-version) section of this article.
 
-<a id="download-and-install-azcopy">This video shows you how to download and run the AzCopy utility.
+<a id="download-and-install-azcopy"></a>This video shows you how to download and run the AzCopy utility.
 
 > [!VIDEO 4238a2be-881a-4aaa-8ccd-07a6557a05ef]
 
