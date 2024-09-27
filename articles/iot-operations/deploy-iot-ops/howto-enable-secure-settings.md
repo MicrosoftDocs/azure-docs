@@ -36,7 +36,7 @@ A workload identity is an identity you assign to a software workload (such as an
 > [!NOTE]
 > This step only applies to Ubuntu + K3s clusters. The quickstart script for Azure Kubernetes Service (AKS) Edge Essentials used in [Prepare your Azure Arc-enabled Kubernetes cluster](./howto-prepare-cluster.md) enables workload identity by default. If you have an AKS Edge Essentials cluster, continue to the next section.
 
-If you aren't sure whether your K3s cluster already has workload identity enabled or not, run the following command to check:
+If you aren't sure whether your K3s cluster already has workload identity enabled or not, run the [az connectedk8s show](/cli/azure/connectedk8s#az-connectedk8s-show) command to check:
 
 ```azurecli
 az connectedk8s show --name <CLUSTER_NAME> --resource-group <RESOURCE_GROUP> --query "{oidcIssuerEnabled:oidcIssuerProfile.enabled, workloadIdentityEnabled: securityProfile.workloadIdentity.enabled}"
@@ -46,18 +46,18 @@ Use the following steps to enable workload identity on an existing connected K3s
 
 1. Download and install a preview version of the `connectedk8s` extension for Azure CLI. GitHub: [connectedk8s-1.10.0](https://github.com/AzureArcForKubernetes/azure-cli-extensions/blob/connectedk8s/public/cli-extensions/connectedk8s-1.10.0-py2.py3-none-any.whl).
 
-   ```azurecli
+   ```bash
    curl -L -o connectedk8s-1.10.0-py2.py3-none-any.whl https://github.com/AzureArcForKubernetes/azure-cli-extensions/raw/refs/heads/connectedk8s/public/cli-extensions/connectedk8s-1.10.0-py2.py3-none-any.whl   
    ```
 
-1. Remove the existing connectedk8s cli extension if you already installed it.
+1. Use the [az extension remove](/cli/azure/extension#az-extension-remove) command to remove the existing connectedk8s cli extension if you already installed it.
 
    ```azurecli
    #!/bin/bash
    az extension remove --name connectedk8s 
    ```
 
-1. Add the new connectedk8s cli source.
+1. Use the [az extension add](/cli/azure/extension#az-extension-add) command to add the new connectedk8s cli source.
 
    ```azurecli
    #!/bin/bash
@@ -71,7 +71,7 @@ Use the following steps to enable workload identity on an existing connected K3s
    export HELMREGISTRY=azurearcfork8s.azurecr.io/public/azurearck8s/canary/stable/azure-arc-k8sagents:1.20.1
    ```
  
-1. Upgrade the Arc agent version to the private build that supports the workload identity feature.
+1. Use the [az connectedk8s upgrade](/cli/azure/connectedk8s#az-connectedk8s-upgrade) command to upgrade the Arc agent version to the private build that supports the workload identity feature.
 
    ```azurecli
    #!/bin/bash   
@@ -87,7 +87,7 @@ Use the following steps to enable workload identity on an existing connected K3s
                            --agent-version $RELEASE_TAG
    ```
 
-1. Enable the workload identity feature on the cluster.
+1. Use the [az connectedk8s update](/cli/azure/connectedk8s#az-connectedk8s-update) command to enable the workload identity feature on the cluster.
 
    ```azurecli
    #!/bin/bash   
@@ -102,7 +102,7 @@ Use the following steps to enable workload identity on an existing connected K3s
                           --enable-oidc-issuer --enable-workload-identity 
    ```
 
-1. Get the cluster's issuer url. Take a note to add it later in K3s config file.
+1. Use the [az connectedk8s show](/cli/azure/connectedk8s#az-connectedk8s-show) command to to get the cluster's issuer url. Take a note to add it later in K3s config file.
 
    ```azurecli
    #!/bin/bash
