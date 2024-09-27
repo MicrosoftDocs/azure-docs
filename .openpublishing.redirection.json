@@ -1,6 +1,26 @@
 {
   "redirections": [
     {
+      "source_path": "articles/storage/blobs/storage-blob-scalable-app-create-vm.md",
+      "redirect_url": "/previous-versions/azure/storage/blobs/storage-blob-scalable-app-create-vm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/blobs/storage-blob-scalable-app-download-files.md",
+      "redirect_url": "/previous-versions/azure/storage/blobs/storage-blob-scalable-app-download-files",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/blobs/storage-blob-scalable-app-upload-files.md",
+      "redirect_url": "/previous-versions/azure/storage/blobs/storage-blob-scalable-app-upload-files",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/blobs/storage-blob-scalable-app-verify-metrics.md",
+      "redirect_url": "/previous-versions/azure/storage/blobs/storage-blob-scalable-app-verify-metrics",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/api-management/self-hosted-gateway-migration-guide.md",
       "redirect_url": "/previous-versions/azure/api-management/self-hosted-gateway-migration-guide",
       "redirect_document_id": false
