@@ -20,7 +20,7 @@ After you complete this quickstart, you'll have a Microsoft Playwright Testing w
 Microsoft Playwright Testing service enables you to:
 
 - Accelerate build pipelines by running tests in parallel using cloud-hosted browsers.
-- Simplify troubleshooting with easy access to test results and artifacts published to the service.
+- Simplify troubleshooting by publishing test results and artifacts to the service, making them accessible through the service portal.
 
 These two features of the service can be used independently of each other and each has its own [pricing plan](https://aka.ms/mpt/pricing). This means you can:
 
@@ -76,7 +76,7 @@ export default defineConfig(
 Setting the value as `false` ensures that cloud-hosted browsers aren't used to run the tests. The tests run on your local machine but the results and artifacts are published on the service. 
 
 > [!TIP]
-> If you wish to accelerate your test run using cloud-hosted browser, you can set `useCloudHostedBrowsers` as true, This will run your tests on the service managed browsers.
+> If you wish to accelerate your test run using cloud-hosted browser, you can set `useCloudHostedBrowsers` as true. This will run your tests on the service managed browsers.
 
 ## Configure the service region endpoint
 
