@@ -54,6 +54,8 @@ items:
       href: tutorials/events-playbook.md
     - name: Contact center
       href: tutorials/contact-center.md
+    - name: Embed chat in Teams custom app
+      href: tutorials/chat-app-teams-embed.md
   - name: Privacy and compliance
     items:
     - name: Data residency and user privacy
@@ -287,18 +289,9 @@ items:
       href: tutorials/building-app-start.md
     - name: Build an authentication service using Azure Functions
       href: tutorials/trusted-service-tutorial.md
-    - name: Add video calling to your Android WebView client app
-      href: quickstarts/voice-video-calling/get-started-android-webview.md
-    - name: Using Event Grid to send calling push notifications
-      href: tutorials/add-voip-push-notifications-event-grid.md
-    - name: Proxy your calling traffic
-      href: tutorials/proxy-calling-support-tutorial.md
-    - name: Survey users
-      href: tutorials/end-of-call-survey-tutorial.md
-      displayName: diagnostics, Survey, feedback, quality, reliability, users, end, call, quick
-    - name: Collecting user feedback with the mobile UI Library
-      href: tutorials/collecting-user-feedback/collecting-user-feedback.md
-    - name: Audio quality enhancements
+    - name: Add Calling and Chat SDK in an Android application
+      href: quickstarts/voice-video-calling/get-started-android-calling-chat-sdk.md
+    - name: Adding audio quality enhancements
       items:
         - name: Enabling audio effects
           href: tutorials/audio-quality-enhancements/add-noise-supression.md
@@ -364,7 +357,7 @@ items:
         href: how-tos/calling-sdk/closed-captions-teams-interop-how-to.md
       - name: Get local capabilities
         href: how-tos/calling-sdk/capabilities.md
-      - name: Pass contextual information
+      - name: Pass User-to-User Information (UUI) data in a header
         href: how-tos/calling-sdk/call-context.md     
     - name: Call recording
       items:
@@ -372,7 +365,7 @@ items:
         href: quickstarts/voice-video-calling/get-started-call-recording.md
       - name: Record every call in the resource
         href: how-tos/call-automation/record-every-call.md
-    - name: Editing media from the client
+    - name: Editing audio and video media from the client
       items:
       - name: Access raw audio and video
         href: quickstarts/voice-video-calling/get-started-raw-media-access.md
@@ -415,6 +408,13 @@ items:
         - name: 3. Microphone and camera setup before a call
           href: tutorials/call-readiness/call-readiness-tutorial-part-3-camera-microphone-setup.md
           displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
+    - name: Add end of call survey
+      items:
+        - name: Using the survey users API
+          href: tutorials/end-of-call-survey-tutorial.md
+          displayName: diagnostics, Survey, feedback, quality, reliability, users, end, call, quick
+        - name: Collecting user feedback with the mobile UI Library
+          href: tutorials/collecting-user-feedback/collecting-user-feedback.md
     - name: Migrating to Azure Communication Services
       items:
         - name: Migrate from Twilio Video to Azure Communication Services
@@ -443,6 +443,8 @@ items:
           href: how-tos/ui-library-sdk/theming.md
         - name: Customize the button bar
           href: how-tos/ui-library-sdk/button-injection.md
+        - name: Customize the title and subtitle
+          href: how-tos/ui-library-sdk/setup-title-subtitle.md
         - name: Disable end call confirmation
           href: how-tos/ui-library-sdk/leave-call-confirmation.md
         - name: Enable audio only mode
@@ -451,6 +453,8 @@ items:
           href: how-tos/ui-library-sdk/picture-in-picture.md
         - name: Enable skip the setup screen
           href: how-tos/ui-library-sdk/skip-setup-screen.md
+        - name: Events
+          href: how-tos/ui-library-sdk/events.md
         - name: Inject participant view data
           href: how-tos/ui-library-sdk/data-model.md
         - name: Integrate CallKit
@@ -465,6 +469,8 @@ items:
           href: how-tos/ui-library-sdk/troubleshooting.md
     - name: Events
       items:
+      - name: Using Event Grid to send calling push notifications
+        href: tutorials/add-voip-push-notifications-event-grid.md
       - name: View calling events
         href: quickstarts/voice-video-calling/handle-calling-events.md
     - name: Analytics
@@ -489,6 +495,14 @@ items:
         href: how-tos/calling-sdk/breakoutrooms.md
       - name: Together Mode
         href: how-tos/calling-sdk/together-mode.md
+    - name: Configuring to proxy traffic
+      items:
+        - name: Proxy your calling traffic
+          href: tutorials/proxy-calling-support-tutorial.md
+    - name: Build a Webview based client
+      items:
+        - name: Add audio and video calling to your WebView application
+          href: quickstarts/voice-video-calling/get-started-webview.md
   - name: Chat
     items:
     - name: Build an authentication service using Azure Functions
@@ -943,8 +957,8 @@ items:
         href: concepts/telephony/certified-session-border-controllers.md
       - name: Inbound telephony calling capabilities
         href: concepts/telephony/inbound-calling-capabilities.md
-      - name: Outbound calling with Toll-Free numbers
-        href: concepts/telephony/outbound-calling.md
+      - name: Calling with toll-free numbers
+        href: concepts/telephony/toll-free-calling.md
       - name: Known limitations
         href: concepts/telephony/known-limitations-acs-telephony.md
       - name: Troubleshooting

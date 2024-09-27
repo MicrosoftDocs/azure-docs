@@ -10,6 +10,10 @@ appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
 
+
+
+#Customer intent: As a SOC analyst, I want to automate incident response tasks using automation rules so that I can streamline threat management and improve operational efficiency.
+
 ---
 
 # Automate threat response in Microsoft Sentinel with automation rules
@@ -312,7 +316,7 @@ When you're configuring an automation rule and adding a **run playbook** action,
 
 #### Permissions in a multitenant architecture
 
-Automation rules fully support cross-workspace and [multitenant deployments](extend-sentinel-across-workspaces-tenants.md#manage-workspaces-across-tenants-using-azure-lighthouse) (in the case of multitenant, using [Azure Lighthouse](../lighthouse/index.yml)).
+Automation rules fully support cross-workspace and [multitenant deployments](extend-sentinel-across-workspaces-tenants.md#manage-workspaces-across-tenants-using-azure-lighthouse) (in the case of multitenant, using [Azure Lighthouse](/azure/lighthouse/)).
 
 Therefore, if your Microsoft Sentinel deployment uses a multitenant architecture, you can have an automation rule in one tenant run a playbook that lives in a different tenant, but permissions for Sentinel to run the playbooks must be defined in the tenant where the playbooks reside, not in the tenant where the automation rules are defined.
 

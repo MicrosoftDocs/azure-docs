@@ -161,7 +161,7 @@ The following table provides detailed capabilities mapped to the roles. At a hig
 | **Mid call controls** | | |
 | - Turn video on/off | ✔️ | ✔️ | ❌ |
 | - Mute/Unmute mic | ✔️ | ✔️ | ❌ |
-| - Mute remote user ** | ✔️ | ❌ | ❌ |
+| - Mute remote user | ✔️ | ❌ | ❌ |
 | - Switch between cameras | ✔️ | ✔️ | ❌ |
 | - Active speaker | ✔️ | ✔️ | ✔️ |
 | - Choose speaker for calls | ✔️ | ✔️ | ✔️ |

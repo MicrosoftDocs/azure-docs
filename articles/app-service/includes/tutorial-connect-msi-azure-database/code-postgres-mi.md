@@ -109,6 +109,11 @@ For more information, see the following resources:
     conn = psycopg2.connect(conn_string + ' password=' + accessToken.token) 
     ```
 
+For more information, see the following resources:
+
+* [Create and deploy a Flask Python web app to Azure with system-assigned managed identity](/azure/developer/python/tutorial-python-managed-identity-cli)
+* [Create and deploy a Django web app to Azure with a user-assigned managed identity](/azure/developer/python/tutorial-python-managed-identity-user-assigned-cli)
+
 # [NodeJS](#tab/nodejs-postgres-mi)
 
 1. Install dependencies.

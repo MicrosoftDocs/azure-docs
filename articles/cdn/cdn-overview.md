@@ -14,6 +14,8 @@ ms.custom: mvc
 
 # What is a content delivery network on Azure?
 
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
+
 A content delivery network is a distributed network of servers that can efficiently deliver web content to users. A content delivery network store cached content on edge servers in point of presence (POP) locations that are close to end users, to minimize latency.
 
 Azure Content Delivery Network offers developers a global solution for rapidly delivering high-bandwidth content to users by caching their content at strategically placed physical nodes across the world. Azure Content Delivery Network can also accelerate dynamic content, which can't get cached, by using various network optimizations using content delivery network POPs. For example, route optimization to bypass Border Gateway Protocol (BGP).

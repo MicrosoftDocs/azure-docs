@@ -11,9 +11,6 @@ ms.service: azure-automation
 
 # Change Tracking and Inventory overview
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
-
 > [!Important]
 > Change Tracking and Inventory using Log Analytics agent has retired on **31 August 2024** and we recommend that you use Azure Monitoring Agent as the new supporting agent. Follow the guidelines for  [migration from Change Tracking and inventory using Log Analytics to Change Tracking and inventory using Azure Monitoring Agent version](guidance-migration-log-analytics-monitoring-agent.md).
 
@@ -23,7 +20,7 @@ ms.service: azure-automation
 > - **Installation**: The ability to configure Change Tracking & Inventory using MMA/OMS agents will be removed from the Azure portal soon.
 >- **Customer Support**: You will not be able to get support through existing channels for Change Tracking & Inventory with MMA/OMS. Microsoft will provide support on a best effort basis.
 > - **New capabilities and support matrix**:  No new capabilities will be added, including functionality for additional Windows or Linux versions.
-> - **File Integrity Monitoring**: Microsoft Defender for Servers Plan 2 will offer a new File Integrity Monitoring (FIM) solution powered by Microsoft Defender for Endpoint (MDE) integration. Microsoft Defender for Cloud recommends disabling FIM over MMA by November 2024 and onboarding your environment to the new FIM version based on Defender for Endpoint. File Integrity Monitoring based on Log Analytics Agent (MMA) is supported till November 2024. [Learn more](https://learn.microsoft.com/azure/defender-for-cloud/prepare-deprecation-log-analytics-mma-agent#migration-from-fim-over-log-analytics-agent-mma).
+> - **File Integrity Monitoring**: Microsoft Defender for Servers Plan 2 will offer a new File Integrity Monitoring (FIM) solution powered by Microsoft Defender for Endpoint (MDE) integration. Microsoft Defender for Cloud recommends disabling FIM over MMA by November 2024 and onboarding your environment to the new FIM version based on Defender for Endpoint. File Integrity Monitoring based on Log Analytics Agent (MMA) is supported till November 2024. [Learn more](/azure/defender-for-cloud/prepare-deprecation-log-analytics-mma-agent#migration-from-fim-over-log-analytics-agent-mma).
 
 
 This article introduces you to Change Tracking and Inventory in Azure Automation. This feature tracks changes in virtual machines hosted in Azure, on-premises, and other cloud environments to help you pinpoint operational and environmental issues with software managed by the Distribution Package Manager. Items that are tracked by Change Tracking and Inventory include:
@@ -53,7 +50,7 @@ Machines connected to the Log Analytics workspace use the [Log Analytics agent](
 > [!NOTE]
 > Change Tracking and Inventory requires linking a Log Analytics workspace to your Automation account. For a definitive list of supported regions, see [Azure Workspace mappings](../how-to/region-mappings.md). The region mappings don't affect the ability to manage VMs in a separate region from your Automation account.
 
-As a service provider, you may have onboarded multiple customer tenants to [Azure Lighthouse](../../lighthouse/overview.md). Azure Lighthouse allows you to perform operations at scale across several Microsoft Entra tenants at once, making management tasks like Change Tracking and Inventory more efficient across those tenants you're responsible for. Change Tracking and Inventory can manage machines in multiple subscriptions in the same tenant, or across tenants using [Azure delegated resource management](../../lighthouse/concepts/architecture.md).
+As a service provider, you may have onboarded multiple customer tenants to [Azure Lighthouse](/azure/lighthouse/overview). Azure Lighthouse allows you to perform operations at scale across several Microsoft Entra tenants at once, making management tasks like Change Tracking and Inventory more efficient across those tenants you're responsible for. Change Tracking and Inventory can manage machines in multiple subscriptions in the same tenant, or across tenants using [Azure delegated resource management](/azure/lighthouse/concepts/architecture).
 
 ## Current limitations
 
@@ -140,7 +137,7 @@ You can enable Change Tracking and Inventory in the following ways:
 
 - From your [Automation account](enable-from-automation-account.md) for one or more Azure and non-Azure machines.
 
-- Manually for non-Azure machines, including machines or servers registered with [Azure Arc-enabled servers](../../azure-arc/servers/overview.md). For hybrid machines, we recommend installing the Log Analytics agent for Windows by first connecting your machine to [Azure Arc-enabled servers](../../azure-arc/servers/overview.md), and then using Azure Policy to assign the [Deploy Log Analytics agent to *Linux* or *Windows* Azure Arc machines](../../governance/policy/samples/built-in-policies.md#monitoring) built-in policy. If you plan to also monitor the machines with Azure Monitor for VMs, instead use the [Enable Azure Monitor for VMs](../../governance/policy/samples/built-in-initiatives.md#monitoring) initiative.
+- Manually for non-Azure machines, including machines or servers registered with [Azure Arc-enabled servers](/azure/azure-arc/servers/overview). For hybrid machines, we recommend installing the Log Analytics agent for Windows by first connecting your machine to [Azure Arc-enabled servers](/azure/azure-arc/servers/overview), and then using Azure Policy to assign the [Deploy Log Analytics agent to *Linux* or *Windows* Azure Arc machines](../../governance/policy/samples/built-in-policies.md#monitoring) built-in policy. If you plan to also monitor the machines with Azure Monitor for VMs, instead use the [Enable Azure Monitor for VMs](../../governance/policy/samples/built-in-initiatives.md#monitoring) initiative.
 
 - For a single Azure VM from the [Virtual machine page](enable-from-vm.md) in the Azure portal. This scenario is available for Linux and Windows VMs.
 

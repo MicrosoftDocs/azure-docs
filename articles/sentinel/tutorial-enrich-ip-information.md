@@ -9,6 +9,10 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
+
+
+#Customer intent: As a security analyst, I want to automate the process of checking IP address reputations in incidents so that I can quickly assess the severity of threats and save time.
+
 ---
 
 # Tutorial: Automatically check and record IP address reputation information in incidents
@@ -38,6 +42,8 @@ To complete this tutorial, make sure you have:
 - An Azure user with the following roles assigned on the following resources: 
     - [**Microsoft Sentinel Contributor**](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor) on the Log Analytics workspace where Microsoft Sentinel is deployed. 
     - [**Logic App Contributor**](../role-based-access-control/built-in-roles.md#logic-app-contributor), and **Owner** or equivalent, on whichever resource group will contain the playbook created in this tutorial.
+
+- Installed [VirusTotal Solution from the Content Hub](https://azuremarketplace.microsoft.com/en-gb/marketplace/apps/azuresentinel.azure-sentinel-solution-virustotal?tab=Overview)
 
 - A (free) [VirusTotal account](https://www.virustotal.com/gui/my-apikey) will suffice for this tutorial. A production implementation requires a VirusTotal Premium account.
 
