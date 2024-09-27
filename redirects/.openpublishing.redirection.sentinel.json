@@ -2144,6 +2144,11 @@
             "source_path_from_root": "/articles/sentinel/data-connectors/cyber-blind-spot-intergration.md",
             "redirect_url": "/azure/sentinel/data-connectors/cyber-blind-spot-integration",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/awake-security.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/awake-security-via-legacy-agent",
+            "redirect_document_id": false
         }
     ]
 }
