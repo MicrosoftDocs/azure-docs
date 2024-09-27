@@ -3,7 +3,7 @@ title: Release notes for Azure Container Storage
 description: Release notes for Azure Container Storage
 author: denisacatalinastan
 ms.service: azure-container-storage
-ms.topic: conceptual
+ms.topic: release-notes
 ms.date: 09/20/2024
 ms.author: dstan
 ---
