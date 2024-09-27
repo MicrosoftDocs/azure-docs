@@ -100,7 +100,7 @@ items:
         - name: Enrich data
           href: connect-to-cloud/concept-dataflow-enrich.md
       - name: Use message schemas
-        href: connect-to-cloud/howto-schema-registry.md
+        href: connect-to-cloud/concept-schema-registry.md
       - name: Manage dataflow profile
         href: connect-to-cloud/howto-configure-dataflow-profile.md
     - name: Manage layered network

@@ -28,13 +28,6 @@ Schema registry expects the following required fields in a message schema:
 | `type` | `Object` |
 | `properties` | The message definition. |
 
-Additionally, you can include optional fields in your message schema as long as they conform with the schema type. For example:
-
-| Optional field | Definition |
-| `name` | A name for the schema. |
-| `description` | A description of the schema. |
-| `required` | A list of properties required to be present in the messages. |
-
 ### Sample schemas
 
 The following sample schemas provide examples for defining message schemas in each format.
