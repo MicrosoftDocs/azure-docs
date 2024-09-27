@@ -200,6 +200,10 @@ Once you create the VM in Azure, connect to the VM and confirm that the Ethernet
 1. Verify the packets are flowing over the VF interface from the output of the following command:
    ```powershell
    PS C:\ > Get-NetAdapter | Where-Object InterfaceDescription –like "*Mellanox*Virtual*" | Get-NetAdapterStatistics
+
+   Name                             ReceivedBytes ReceivedUnicastPackets       SentBytes SentUnicastPackets
+   ----                             ------------- ----------------------       --------- ------------------
+   Ethernet 2                           492447549                 347643         7468446              34991
    ```
 
 > [!NOTE]
