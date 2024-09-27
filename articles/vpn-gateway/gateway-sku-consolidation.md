@@ -6,7 +6,7 @@ author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.custom: references_regions
-ms.date: 09/18/2024
+ms.date: 09/26/2024
 
 ms.author: cherylmc
 
@@ -18,7 +18,7 @@ We're simplifying our VPN Gateway SKU portfolio. Due to the lack of redundancy, 
 * **Effective January 1, 2025**: Creation of new VPN gateways using VpnGw1-5 SKUs (non-AZ) will no longer be possible.
 * **Migration period**: From April 2025 to October 2026, all existing VPN gateways using VpnGw1-5 SKUs (non-AZ SKUs) will be seamlessly migrated to VpnGw1-5 SKUs (AZ).
 
-To support this migration, we're reducing the prices on AZ SKUs. Refer to the [pricing page](https://azure.microsoft.com/pricing/details/vpn-gateway/) to select the appropriate SKU for your organization.
+To support this migration, we're reducing the prices on AZ SKUs. Refer to the [FAQ](#faq) section of this article for more information about SKUs and pricing.
 
 > [!NOTE]
 > This article doesn't apply to the following legacy gateway SKUs: Standard or High Performance. For information legacy SKUS, including legacy SKU migration, see [Working with VPN Gateway legacy SKUs](vpn-gateway-about-skus-legacy.md).
@@ -60,7 +60,7 @@ Yes. The new pricing timeline is:
 
 ### Can I deploy VpnGw 1-5 AZ SKUs in all regions?
 
-Yes, you can deploy AZ SKUs in all regions. If a region doesn't currently support availability zones, you can still create VPN Gateway AZ SKUs, but the deployment will remain regional.
+Yes, you can deploy AZ SKUs in all regions. If a region doesn't currently support availability zones, you can still create VPN Gateway AZ SKUs, but the deployment will remain regional. When the region supports availability zones, we'll enable zone redundancy for the gateways
 
 ### Will there be downtime during migrating my Non-AZ gateways?
 
