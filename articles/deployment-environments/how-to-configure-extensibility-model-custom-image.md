@@ -55,18 +55,27 @@ You can take one of the following approaches to use container images with ADE:
 - **Use a sample container image** For simple scenarios, use the sample ARM-Bicep container image provided by ADE.
 - **Create a custom container image** For more complex scenarios, create a custom container image that meets your specific requirements.
  
-Regardless of which approach you choose, you must specify the container image in your environment definition to deploy your Azure resources.
+The main steps you'll follow when using a container image are:
+1. Choose the image type you want to use: a sample image or a custom image.
+    - If you use a custom image, you begin with a sample image and then customize it to fit your requirements.
+1. Build the image.
+1. Upload the image to a private registry or a public registry.
+1. Configure access to the registry.
+    - For a public registry, configure anonymous pull.
+    - For a private registry, give the DevCenter ACR permissions.
+1. Add your image location to the `runner` parameter in your environment definition
+1. Deploy environments that use your custom image.
 
 ### [Use a sample container image](#tab/sample/)
 
 ::: zone pivot="arm-bicep"
-## Use a sample container image
+### Use a sample container image
 
 ADE supports ARM and Bicep without requiring any extra configuration. You can create an environment definition that deploys Azure resources for a deployment environment by adding the template files (like *azuredeploy.json* and *environment.yaml*) to your catalog. ADE then uses the sample ARM-Bicep container image to create the deployment environment.
 
-In the *environment.yaml* file, the runner property specifies the location of the container image you want to use. To use the sample image published on the Microsoft Artifact Registry, use the respective identifiers runner.
+In the *environment.yaml* file, the `runner` property specifies the location of the container image you want to use. To use the sample image published on the Microsoft Artifact Registry, use the respective identifiers `runner`.
 
-The following example shows a runner that references the sample ARM-Bicep container image:
+The following example shows a `runner` that references the sample ARM-Bicep container image:
 ```yaml
     name: WebApp
     version: 1.0.0
@@ -81,7 +90,7 @@ For more information about how to create environment definitions that use the AD
 ::: zone-end
 
 ::: zone pivot="pulumi"
-## Use a sample container image provided by Pulumi
+### Use a sample container image provided by Pulumi
 
 The Pulumi team provides a prebuilt image to get you started, which you can see in the [Runner-Image](https://github.com/pulumi/azure-deployment-environments/tree/main/Runner-Image) folder. This image is publicly available at Pulumi's Docker Hub as [`pulumi/azure-deployment-environments`](https://hub.docker.com/repository/docker/pulumi/azure-deployment-environments), so you can use it directly from your ADE environment definitions.
 
@@ -99,9 +108,9 @@ templatePath: Pulumi.yaml
 You can find a few sample environment definitions in the [Environments folder](https://github.com/pulumi/azure-deployment-environments/tree/main/Environments).
 ::: zone-end
 
-### [Use a custom container image](#tab/custom/)
+### [Create a custom image](#tab/custom/)
 
-## Use a custom container image
+### Create a custom image
 
 Creating a custom container image allows you to customize your deployments to fit your requirements. You can create custom images based on the ADE sample images.
 
@@ -442,7 +451,6 @@ echo "$ADE_OPERATION_PARAMETERS" | jq -r 'to_entries|.[]|[.key, .value] | @tsv' 
   done
 ```
 
-
 Additionally, to utilize ADE privileges to deploy infrastructure inside your subscription, your script needs to use ADE Managed Service Identity (MSI) when provisioning infrastructure by using the Pulumi Azure Native or Azure Classic provider. If your deployment needs special permissions to complete your deployment, such as particular roles, assign those permissions to the project environment type's identity that is being used for your environment deployment. ADE sets the relevant environment variables, such as the client, tenant, and subscription IDs within the core image's entrypoint, so run the following commands to ensure the provider uses ADE MSI:
 
 ```bash
@@ -470,7 +478,7 @@ echo "{\"outputs\": ${stackout:-{\}}}" > $ADE_OUTPUTS
 ::: zone-end
 ---
 
-## Build a custom image
+## Build an image
 
 You can build your image using the Docker CLI. Ensure the [Docker Engine is installed](https://docs.docker.com/desktop/) on your computer. Then, navigate to the directory of your Dockerfile, and run the following command:
 
