@@ -17,4 +17,4 @@ These limits have the following implications for configuring custom metrics in a
 
 * If you configure the policy in multiple API Management instances that are in the same region in a subscription, all instances can contribute to the regional active time series limit.
 
-Learn more about [design limits and considerations ](/azure/azure-monitor/essentials/metrics-custom-overview#design-limits-and-considerations) for custom metrics in Azure Monitor.
+Learn more about [design limitations and considerations ](/azure/azure-monitor/essentials/metrics-custom-overview#design-limitations-and-considerations) for custom metrics in Azure Monitor.
