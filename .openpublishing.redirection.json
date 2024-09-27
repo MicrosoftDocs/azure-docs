@@ -4646,6 +4646,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/modeling-simulation-workbench/get-started-modeling-simulation-workbench.md",
+      "redirect_url": "/azure/modeling-simulation-workbench/quickstart-create-portal",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/load-balancer/upgrade-basic-standard.md",
       "redirect_url": "/azure/load-balancer/upgrade-basic-standard-with-powershell",
       "redirect_document_id": false
