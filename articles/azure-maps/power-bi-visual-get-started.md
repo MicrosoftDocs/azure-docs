@@ -24,7 +24,7 @@ The Azure Maps Power BI visual offers a comprehensive range of data visualizatio
 :::image type="content" source="media/power-bi-visual/azure-maps-visual-hero.png" alt-text="A screenshot of Power BI desktop with the Azure Maps Power BI visual displaying business data." lightbox="media/power-bi-visual/azure-maps-visual-hero.png":::
 
 > [!NOTE]
-> Power BI ensures that no Personally Identifiable Information (PII) is sent to Azure Maps. Additionally, IP addresses are truncated in the Power BI diagnostic logs.
+> Power BI ensures that no Personal Identifiable Information (PII) is sent to Azure Maps. Additionally, IP addresses are truncated in the Power BI diagnostic logs.
 
 ## What is sent to Azure?
 
