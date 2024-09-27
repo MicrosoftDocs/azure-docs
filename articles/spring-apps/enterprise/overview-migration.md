@@ -1,6 +1,6 @@
 ---
-title: Migrate Azure Spring Apps consumption and dedicated plan to Azure Container Apps
-description: The complete overview guide for migrating Azure Spring Apps consumption and dedicated plan to Azure Container Apps, including steps, benefits, and frequently asked questions.
+title: Migrate Azure Spring Apps Standard consumption and dedicated plan to Azure Container Apps
+description: The complete overview guide for migrating Azure Spring Apps Standard consumption and dedicated plan to Azure Container Apps, including steps, benefits, and frequently asked questions.
 author: KarlErickson
 ms.service: azure-spring-apps
 ms.topic: overview
@@ -10,9 +10,9 @@ ms.custom: devx-track-java, devx-track-extended-java
 #Customer intent: As an Azure Cloud user, I want to deploy, run, and monitor Spring applications.
 ---
 
-# Migrate Azure Spring Apps to Azure Container Apps
+# Migrate Azure Spring Apps Standard consumption and dedicated plan to Azure Container Apps
 
-This article describes when and how to migrate Azure Spring Apps consumption and dedicated plan to Azure Container Apps. To consolidate cloud-native benefits and streamline our offerings, the Azure Spring Apps service is retiring, including the Standard consumption and dedicated, Basic, Standard, and Enterprise plans. The Standard consumption and dedicated plan enters its six-month sunset period on September 30, 2024 and retires in March 2025.
+This article describes when and how to migrate Azure Spring Apps Standard consumption and dedicated plan to Azure Container Apps. To consolidate cloud-native benefits and streamline our offerings, the Azure Spring Apps service is retiring, including the Standard consumption and dedicated, Basic, Standard, and Enterprise plans. The Standard consumption and dedicated plan enters its six-month sunset period on September 30, 2024 and retires in March 2025.
 
 We recommend Azure Container Apps as the best destination for your migration. Azure Container Apps is a fully managed, serverless container platform for polyglot apps and offers enhanced Java features previously available in Azure Spring Apps.
 
@@ -38,7 +38,7 @@ The following section addresses several questions you might have about the migra
 
 ### Are there plans to retire any other Azure Spring Apps SKUs?
 
-Yes, other Azure Spring Apps plans are also retiring, with a 3-year sunset period. For more information, see the [Azure Spring Apps retirement announcement](retirement-announcement.md).
+Yes, other Azure Spring Apps plans are also retiring, with a three-year sunset period. For more information, see the [Azure Spring Apps retirement announcement](retirement-announcement.md).
 
 ### What happens if I don't take any actions by March 30, 2025?
 
@@ -108,7 +108,7 @@ There's a direct mapping between the service plans in Azure Spring Apps and Azur
 
 ### How can I continue to keep my deployment pipelines/workflow working?
 
-Your deployment pipelines/workflow must point to Azure Container Apps to work properly. See [ways to deploy Azure Container Apps](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/introducing-more-ways-to-deploy-azure-container-apps/ba-p/3678390)
+Your deployment pipelines/workflow must point to Azure Container Apps to work properly. For more information, see [Introducing more ways to deploy Azure Container Apps](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/introducing-more-ways-to-deploy-azure-container-apps/ba-p/3678390).
 
 ### How do I continue to make my automation scripts work using Azure CLI?
 
