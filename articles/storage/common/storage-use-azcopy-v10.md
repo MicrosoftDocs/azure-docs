@@ -43,7 +43,7 @@ To learn more about these scenarios, see:
 - [Copy blobs between Azure storage accounts by using AzCopy](storage-use-azcopy-blobs-copy.md)
 - [Synchronize with Azure Blob storage by using AzCopy](storage-use-azcopy-blobs-synchronize)
 
-[!INCLUDE [azcopy-support](incldues/storage-azcopy-change-support.md)]
+[!INCLUDE [storage-azcopy-change-support](includes/storage-azcopy-change-support.md)]
 
 ## Install AzCopy on Linux by using a package manager
 
