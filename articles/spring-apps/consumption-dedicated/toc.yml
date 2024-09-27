@@ -7,7 +7,7 @@ items:
   expanded: true
   items:
   - name: Retirement announcement
-    href: ../enterprise/retirement-announcement.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+    href: ../basic-standard/retirement-announcement.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
   - name: Migrate to Azure Container Apps
     href: overview-migration.md
   - name: What is Azure Spring Apps?
