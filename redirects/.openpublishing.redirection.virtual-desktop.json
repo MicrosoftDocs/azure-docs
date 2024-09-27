@@ -471,7 +471,7 @@
             "redirect_document_id": true
         },
         {
-            "source_path_from_root": "/articles/virtual-desktop/users/connect-mac-os.md",
+            "source_path_from_root": "/articles/virtual-desktop/users/connect-macos.md",
             "redirect_url": "/azure/virtual-desktop/users/connect-remote-desktop-client",
             "redirect_document_id": true
         },
