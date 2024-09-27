@@ -63,9 +63,9 @@ The Operator Nexus service offers a built-in policy definition that is recommend
 
 - [[Preview]: Nexus compute machines should meet security baseline](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fec2c1bce-5ad3-4b07-bb4f-e041410cd8db)
 
-## Use Azure Policy to secure your Nexus Kubernetes cluster resources
+## Use Azure Policy to secure your Nexus Kubernetes Compute Cluster resources
 
-The Operator Nexus service offers a built-in initiative definition that is recommended to assign to your Nexus Kubernetes cluster resources. This initiative definition is called **[Preview]: Nexus compute cluster should meet security baseline**. This initiative definition is used to ensure that your Nexus Kubernetes cluster resources are configured with industry best practice security settings.
+The Operator Nexus service offers a built-in initiative definition that is recommended to assign to your Nexus Kubernetes Compute Cluster resources. This initiative definition is called **[Preview]: Nexus compute cluster should meet security baseline**. This initiative definition is used to ensure that your Nexus Kubernetes Compute Cluster resources are configured with industry best practice security settings.
 
 - [[Preview]: Nexus compute cluster should meet security baseline](https://portal.azure.com/#blade/Microsoft_Azure_Policy/InitiativeDetail.ReactView/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2F336cb876-5cb8-4795-b9d1-bd9323d3487e)
 
@@ -76,12 +76,12 @@ The Operator Nexus service offers a built-in initiative definition that is recom
 
 ## Apply and validate Policies for Nexus resources
 
-Whether you're securing Nexus BMM resources or Nexus Kubernetes Clusters, the process of applying and validating policies is similar. Here's a generalized approach:
+Whether you're securing Nexus BMM resources or Nexus Kubernetes Compute Clusters, the process of applying and validating policies is similar. Here's a generalized approach:
 
 1. **Identify Suitable Policies**:
 
    - For Nexus Bare Metal Machine resources, consider the recommended **[Preview]: Nexus compute machines should meet security baseline** policy.
-   - For Nexus Kubernetes clusters, consider the recommended **[Preview]: Nexus compute cluster should meet security baseline** initiative.
+   - For Nexus Kubernetes Compute Clusters, consider the recommended **[Preview]: Nexus compute cluster should meet security baseline** initiative.
 
 2. **Assign Policies**:
 
