@@ -41,6 +41,8 @@ If you aren't sure whether your K3s cluster already has workload identity enable
 ```azurecli
 az connectedk8s show --name <CLUSTER_NAME> --resource-group <RESOURCE_GROUP> --query "{oidcIssuerEnabled:oidcIssuerProfile.enabled, workloadIdentityEnabled: securityProfile.workloadIdentity.enabled}"
 ```
+> [!NOTE]
+>You can skip this section if workload identity is already set up.
 
 Use the following steps to enable workload identity on an existing connected K3s cluster:
 
