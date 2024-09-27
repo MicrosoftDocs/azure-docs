@@ -22,7 +22,6 @@ This document contains information about new features and other changes to the M
 
 #### New features (3.4.0)
 - Add support for PMTiles.
-- Add @types/geojson as a dependency.
 
 #### Bug fixes (3.4.0)
 - Accessibility: Fix overflow issue with the style picker label in small containers.
@@ -30,6 +29,9 @@ This document contains information about new features and other changes to the M
 - Fix `setCamera` with bounds and min/max zoom.
 - Use `ResizeObserver` instead of window resize events.
 - Fix footer logo width.
+
+#### Other changes (3.4.0)
+- Add `@types/geojson` as a dependency.
 
 ### [3.3.0] (Aug 8, 2024)
 
