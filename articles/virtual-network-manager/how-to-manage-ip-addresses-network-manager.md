@@ -120,7 +120,7 @@ In this step, you review the allocation usage of the IP address pool. This helps
 
 ## Delegating permissions for IP address management
 
-In this step, you delegate permissions to other users to manage IP address pools in your network manager. This allows you to control access to the IP address pools and ensure that only authorized users can manage the pools.
+In this step, you delegate permissions to other users to manage IP address pools in your network manager using A[zure role-based access control (RBAC)](../role-based-access-control/check-access.md). This allows you to control access to the IP address pools and ensure that only authorized users can manage the pools.
 
 1. Browse to your IP address pool.
 2. In the left menu, select **Access control (IAM)**.
