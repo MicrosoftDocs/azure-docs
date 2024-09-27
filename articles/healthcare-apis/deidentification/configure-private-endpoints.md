@@ -31,7 +31,7 @@ For more information, see [What is Azure Private Link?](../../private-link/priva
 
 Follow the steps at [Quickstart: Create a private endpoint by using the Azure portal](/azure/private-link/create-private-endpoint-portal). 
 
-- Instead of a webapp, you will create a private endpoint to a de-identification service (preview).
+- Instead of a webapp, create a private endpoint to a de-identification service (preview).
 - When you reach [Create a private endpoint](/azure/private-link/create-private-endpoint-portal?tabs=dynamic-ip#create-a-private-endpoint), step 5, enter resource type **Microsoft.HealthDataAIServices/deidServices**.
 - Your private endpoint and virtual network must be in the same region. When you select a region for the private endpoint using the portal, it automatically filters virtual networks that are in that region. Your de-identification service can be in a different region.
 - When you reach [Test connectivity to the private endpoint](/azure/private-link/create-private-endpoint-portal?tabs=dynamic-ip#test-connectivity-to-the-private-endpoint) steps 8 and 10, use the service URL of your de-identification service plus the `/health` path.
@@ -55,8 +55,8 @@ There are four provisioning states:
 |--|--|--|
 | None | Pending | Connection is created manually and is pending approval from the target resource owner. |
 | Approve | Approved | Connection was automatically or manually approved and is ready to be used. |
-| Reject | Rejected | Connection was rejected by the target resource owner. |
-| Remove | Disconnected | Connection was removed by the target resource owner. The private endpoint should be deleted for cleanup. |
+| Reject | Rejected | The target resource owner rejected the connection. |
+| Remove | Disconnected | The target resource owner removed the connection. The private endpoint should be deleted for cleanup. |
  
 ###  Approve, reject, or remove a private endpoint connection
 
@@ -89,10 +89,10 @@ There are four provisioning states:
 
 - For pricing information, see [Azure Private Link pricing](https://azure.microsoft.com/pricing/details/private-link/).
 - This feature is available in all Azure public regions.
-- The traffic is blocked at the application layer, not at the TCP layer. Therefore, you see TCP connections or `nslookup` operations succeeding against the public endpoint even though public network access is disabled. 
+- Because network traffic is blocked at the application layer, you can still ping the public endpoint of your service even though public network access is disabled. 
 
-For more, see [Azure Private Link service: Limitations](../private-link/private-link-service-overview.md#limitations)
+For more, see [Azure Private Link service: Limitations](../../private-link/private-link-service-overview.md#limitations)
 
 ## Related content
 
-- Learn more about [Azure Private Link](../private-link/private-link-service-overview.md)
+- Learn more about [Azure Private Link](../../private-link/private-link-service-overview.md)
