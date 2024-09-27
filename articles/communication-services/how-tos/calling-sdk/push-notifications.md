@@ -11,7 +11,7 @@ ms.date: 08/10/2021
 ms.custom: template-how-to
 zone_pivot_groups: acs-plat-web-ios-android-windows
 
-#Customer intent: As a developer, I want to enable push notifications with the Azure Communication Services sdks so that I can create a calling application that provides push notifications to its users.
+#Customer intent: As a developer, I want to enable push notifications with the Azure Communication Services SDKs so that I can create a calling application that provides push notifications to its users.
 ---
 
 # Enable push notifications for calls
@@ -35,7 +35,7 @@ Once the register push notification API is called when the device token informat
 In case that you want to revoke an identity you need to follow [this process](../../concepts/identity-model.md#revoke-or-update-access-token), once the identity is revoked the Registrar entry should be deleted.
 
 >[!Note]
->For CTE (Custom Teams Endpoint) the max TTL value is **24 hrs (86,400 seconds)** there's no way to increase this value.
+>For a Teams user the max TTL value is **24 hrs (86,400 seconds)**. There's no way to increase this value. Contoso should wake up the application every 24 hours in the background and perform the registration of the device token. In iOS platform please follow the instructions [here](https://developer.apple.com/documentation/uikit/app_and_environment/scenes/preparing_your_ui_to_run_in_the_background/using_background_tasks_to_update_your_app) and for Android [here](https://developer.android.com/develop/background-work/background-tasks) to wake up the application, fetch the new token and perform the registration.
 
 ## Prerequisites
 

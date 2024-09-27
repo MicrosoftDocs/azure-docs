@@ -204,7 +204,7 @@ If your session hosts meet the following criteria, you must [Create a Kerberos S
 - Your session host is Microsoft Entra joined and your environment contains Active Directory domain controllers. You must have a Kerberos Server object for users to access on-premises resources, such as SMB shares, and Windows-integrated authentication to websites.
 
 > [!IMPORTANT]
-> If you enable single sign-on on Microsoft Entra hybrid joined session hosts before you create a Kerberos server object, one of the following things can happen: 
+> If you enable single sign-on on Microsoft Entra hybrid joined session hosts without creating a Kerberos server object, one of the following things can happen: 
 >
 > - You receive an error message saying the specific session doesn't exist.
 > - Single sign-on will be skipped and you see a standard authentication dialog for the session host. 
