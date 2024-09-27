@@ -50,7 +50,6 @@ The `azure-openai-emit-token-metric` policy sends custom metrics to Application 
 | Attribute | Description                | Required                | Default value  |
 | --------- | -------------------------- |  ------------------ | -------------- |
 | namespace | A string. Namespace of metric. Policy expressions aren't allowed. | No        | API Management |
-| value     |  Value of metric expressed as a double. Policy expressions are allowed.   | No           | 1              |
 
 
 ## Elements
@@ -92,15 +91,13 @@ The `azure-openai-emit-token-metric` policy sends custom metrics to Application 
 
 ## Example
 
-The following example sends Azure OpenAI token count metrics to Application Insights along with User ID, Client IP, and API ID as dimensions.
+The following example sends Azure OpenAI token count metrics to Application Insights along with API ID as a custom dimension.
 
 ```xml
 <policies>
   <inbound>
       <azure-openai-emit-token-metric
             namespace="AzureOpenAI">   
-            <dimension name="User ID" />
-            <dimension name="Client IP" value="@(context.Request.IpAddress)" />
             <dimension name="API ID" />
         </azure-openai-emit-token-metric> 
   </inbound>

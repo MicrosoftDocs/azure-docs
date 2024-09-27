@@ -52,7 +52,6 @@ The `llm-emit-token-metric` policy sends custom metrics to Application Insights 
 | Attribute | Description                | Required                | Default value  |
 | --------- | -------------------------- |  ------------------ | -------------- |
 | namespace | A string. Namespace of metric. Policy expressions aren't allowed. | No        | API Management |
-| value     |  Value of metric expressed as a double. Policy expressions are allowed.   | No           | 1              |
 
 
 ## Elements
@@ -93,15 +92,13 @@ The `llm-emit-token-metric` policy sends custom metrics to Application Insights 
 
 ## Example
 
-The following example sends LLM token count metrics to Application Insights along with User ID, Client IP, and API ID as dimensions.
+The following example sends LLM token count metrics to Application Insights along with API ID as a custom dimension.
 
 ```xml
 <policies>
   <inbound>
       <llm-emit-token-metric
             namespace="MyLLM">   
-            <dimension name="User ID" />
-            <dimension name="Client IP" value="@(context.Request.IpAddress)" />
             <dimension name="API ID" />
         </llm-emit-token-metric> 
   </inbound>

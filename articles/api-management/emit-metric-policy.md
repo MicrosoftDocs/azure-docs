@@ -81,14 +81,12 @@ The `emit-metric` policy sends custom metrics in the specified format to Applica
 
 ## Example
 
-The following example sends a custom metric to count the number of API requests along with user ID, client IP, and API ID as custom dimensions.
+The following example sends a custom metric to count the number of API requests along with API ID as a custom dimension.
 
 ```xml
 <policies>
   <inbound>
     <emit-metric name="Request" value="1" namespace="my-metrics"> 
-        <dimension name="User ID" /> 
-        <dimension name="Client IP" value="@(context.Request.IpAddress)" /> 
         <dimension name="API ID" /> 
     </emit-metric> 
   </inbound>
