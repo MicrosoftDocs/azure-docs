@@ -18,6 +18,8 @@ items:
   - name: How-to
     expanded: true
     items:
+      - name: Configure private endpoints
+        href: configure-private-endpoints.md
       - name: Use managed identities
         href: managed-identities.md
       - name: Use Azure role-based access control

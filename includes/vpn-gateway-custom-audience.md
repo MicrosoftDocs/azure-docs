@@ -69,4 +69,4 @@ In this section, you associate the Microsoft-registered Azure VPN Client applica
 On the **Overview** page for your application, make a note of the following values that you need when you configure your point-to-site VPN gateway for Microsoft Entra ID authentication.
 
 * Application (client) ID: This is the custom Audience ID that you use for the **Audience** field when you configure your P2S VPN gateway.
-* Directory (tenent) ID: This value is part of the value required for the **Tenant** and **Issuer** field for the P2S VPN gateway.
+* Directory (tenant) ID: This value is part of the value required for the **Tenant** and **Issuer** field for the P2S VPN gateway.

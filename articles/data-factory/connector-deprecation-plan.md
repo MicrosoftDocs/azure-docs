@@ -1,13 +1,13 @@
 ---
 title: Planned connector deprecations for Azure Data Factory
 description: This page describes future deprecations for some connectors of Azure Data Factory.
-author: pennyzhou-msft
-ms.author: xupzhou
+author: jianleishen
+ms.author: jianleishen
 ms.service: azure-data-factory
 ms.subservice: data-movement
 ms.topic: concept-article
 ms.custom: references_regions
-ms.date: 09/13/2024
+ms.date: 09/27/2024
 ---
 
 # Planned connector deprecations for Azure Data Factory
@@ -19,25 +19,30 @@ This article describes future deprecations for some connectors of Azure Data Fac
 
 ## Overview
 
-| Connector|Release stage |End of Support Date  |Disabled Date  | 
-|:-- |:-- |:-- | :-- | 
-| [Google BigQuery (legacy)](connector-google-bigquery-legacy.md)  | End of support announced and new version available | October 31, 2024 | January 10, 2024 | 
-| [MariaDB (legacy driver version)](connector-mariadb.md)  | End of support announced and new version available | October 31, 2024 | January 10, 2024 | 
-| [MySQL (legacy driver version)](connector-mysql.md)  | End of support announced and new version available | October 31, 2024| January 10, 2024| 
-| [Salesforce (legacy)](connector-salesforce-legacy.md)   | End of support announced and new version available | October 11, 2024 | January 10, 2024 | 
-| [Salesforce Service Cloud (legacy)](connector-salesforce-service-cloud-legacy.md)   | End of support announced and new version available | October 11, 2024 |January 10, 2024 | 
-| [PostgreSQL (legacy)](connector-postgresql-legacy.md)   | End of support announced and new version available |October 31, 2024 | January 10, 2024 | 
-| [Snowflake (legacy)](connector-snowflake-legacy.md)   | End of support announced and new version available | October 31, 2024 | January 10, 2024 | 
-| [Azure Database for MariaDB](connector-azure-database-for-mariadb.md) | End of support announced |December 31, 2024 | December 31, 2024 | 
-| [Concur (Preview)](connector-concur.md) | End of support announced | December 31, 2024 | December 31, 2024 | 
-| [Drill](connector-drill.md) | End of support announced  | December 31, 2024 | December 31, 2024 | 
-| [Hbase](connector-hbase.md) | End of support announced  | December 31, 2024 | December 31, 2024 | 
-| [Magento (Preview)](connector-magento.md) | End of support announced  | December 31, 2024 | December 31, 2024 | 
-| [Marketo (Preview)](connector-marketo.md) | End of support announced  | December 31, 2024| December 31, 2024 | 
-| [Oracle Responsys (Preview)](connector-oracle-responsys.md) | End of support announced  | December 31, 2024 | December 31, 2024 | 
-| [Paypal (Preview)](connector-paypal.md) | End of support announced  |December 31, 2024 | December 31, 2024| 
-| [Phoenix](connector-phoenix.md) | End of support announced  | December 31, 2024 | December 31, 2024 | 
-| [Amazon Marketplace Web Service](connector-amazon-marketplace-web-service.md)| Disabled |/  |/  | 
+| Connector|Upgrade Guidance|Release stage |End of Support Date  |Disabled Date  | 
+|:-- |:-- |:-- |:-- | :-- | 
+| [Google BigQuery (legacy)](connector-google-bigquery-legacy.md)  | [Link](connector-google-bigquery.md#upgrade-the-google-bigquery-linked-service) |End of support announced and new version available | October 31, 2024 | January 10, 2025 | 
+| [MariaDB (legacy driver version)](connector-mariadb.md)  | [Link](connector-mariadb.md#upgrade-the-mariadb-driver-version) | End of support announced and new version available | October 31, 2024 | January 10, 2025 | 
+| [MySQL (legacy driver version)](connector-mysql.md)  | [Link](connector-mysql.md#upgrade-the-mysql-driver-version) | End of support announced and new version available | October 31, 2024| January 10, 2025| 
+| [Salesforce (legacy)](connector-salesforce-legacy.md)   | [Link](connector-salesforce.md#upgrade-the-salesforce-linked-service) | End of support announced and new version available | October 11, 2024 | January 10, 2025| 
+| [Salesforce Service Cloud (legacy)](connector-salesforce-service-cloud-legacy.md)   | [Link](connector-salesforce-service-cloud.md#upgrade-the-salesforce-service-cloud-linked-service) | End of support announced and new version available | October 11, 2024 |January 10, 2025 | 
+| [PostgreSQL (legacy)](connector-postgresql-legacy.md)   | [Link](connector-postgresql.md#upgrade-the-postgresql-linked-service)| End of support announced and new version available |October 31, 2024 | January 10, 2025  | 
+| [Snowflake (legacy)](connector-snowflake-legacy.md)   | [Link](connector-snowflake.md#upgrade-the-snowflake-linked-service) | End of support announced and new version available | October 31, 2024 | January 10, 2025  | 
+| [Azure Database for MariaDB](connector-azure-database-for-mariadb.md) |/ | End of support announced |December 31, 2024 | December 31, 2024 | 
+| [Concur (Preview)](connector-concur.md) |/ | End of support announced | December 31, 2024 | December 31, 2024 | 
+| [Couchbase (Preview)](connector-couchbase.md) |/ | End of support announced | December 31, 2024 | December 31, 2024 | 
+| [Drill](connector-drill.md) |/ | End of support announced  | December 31, 2024 | December 31, 2024 | 
+| [Hbase](connector-hbase.md) |/ | End of support announced  | December 31, 2024 | December 31, 2024 | 
+| [Magento (Preview)](connector-magento.md) |/ | End of support announced  | December 31, 2024 | December 31, 2024 | 
+| [Marketo (Preview)](connector-marketo.md) |/ | End of support announced  | December 31, 2024| December 31, 2024 | 
+| [Oracle Eloqua (Preview)](connector-oracle-eloqua.md) |/ | End of support announced  | December 31, 2024 | December 31, 2024 | 
+| [Oracle Responsys (Preview)](connector-oracle-responsys.md) |/ | End of support announced  | December 31, 2024 | December 31, 2024 | 
+| [Oracle Service Cloud (Preview)](connector-oracle-service-cloud.md) |/ | End of support announced  | December 31, 2024 | December 31, 2024 | 
+| [Paypal (Preview)](connector-paypal.md) |/ | End of support announced  |December 31, 2024 | December 31, 2024| 
+| [Phoenix](connector-phoenix.md) |/ | End of support announced  | December 31, 2024 | December 31, 2024 | 
+| [Salesforce Marketing Cloud](connector-salesforce-marketing-cloud.md) |/ | End of support announced  | December 31, 2024 | December 31, 2024 | 
+| [Zoho (Preview)](connector-zoho.md) |/ | End of support announced  | December 31, 2024 | December 31, 2024 | 
+| [Amazon Marketplace Web Service](connector-amazon-marketplace-web-service.md)|/ | Disabled |/  |/  | 
 
 
 ## Release stages and support
@@ -69,13 +74,18 @@ The following connectors are scheduled for deprecation on December 31, 2024. You
 
 - [Azure Database for MariaDB](connector-azure-database-for-mariadb.md)
 - [Concur (Preview)](connector-concur.md)
+- [Couchbase (Preview)](connector-couchbase.md)
 - [Drill](connector-drill.md)
 - [Hbase](connector-hbase.md)
 - [Magento (Preview)](connector-magento.md)
 - [Marketo (Preview)](connector-marketo.md)
+- [Oracle Eloqua (Preview)](connector-oracle-eloqua.md)
 - [Oracle Responsys (Preview)](connector-oracle-responsys.md)
+- [Oracle Service Cloud (Preview)](connector-oracle-service-cloud.md)
 - [Paypal (Preview)](connector-paypal.md)
 - [Phoenix](connector-phoenix.md)
+- [Salesforce Marketing Cloud](connector-salesforce-marketing-cloud.md)
+- [Zoho (Preview)](connector-zoho.md)
 
 
 ## Connectors that are deprecated

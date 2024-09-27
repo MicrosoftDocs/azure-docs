@@ -3,7 +3,7 @@ title: Use deployment scripts in Bicep
 description: Learn how to create, monitor, and troubleshoot deployment scripts in Bicep.
 ms.custom: devx-track-bicep
 ms.topic: how-to
-ms.date: 06/06/2024
+ms.date: 09/26/2024
 ---
 
 # Use deployment scripts in Bicep
@@ -402,7 +402,7 @@ You can use the REST API to get information about the deployment script resource
 /subscriptions/<SubscriptionID>/providers/microsoft.resources/deploymentScripts?api-version=2020-10-01
 ```
 
-The following example uses [ARMClient](https://github.com/projectkudu/ARMClient). ARMClient is not a supported Microsoft tool.
+The following example uses [ARMClient](https://github.com/projectkudu/ARMClient). ARMClient isn't a supported Microsoft tool.
 
 ```azurepowershell
 armclient login
@@ -476,7 +476,7 @@ The following table lists the error codes for the deployment script:
 | `DeploymentScriptStorageAccountAccessKeyNotSpecified` | The access key wasn't specified for the existing storage account.|
 | `DeploymentScriptContainerGroupContainsInvalidContainers` | A container group that the deployment script service created was externally modified, and invalid containers were added. |
 | `DeploymentScriptContainerGroupInNonterminalState` | Two or more deployment script resources use the same Azure container instance name in the same resource group, and one of them hasn't finished its execution yet. |
-| `DeploymentScriptExistingStorageNotInSameSubscriptionAsDeploymentScript` | The existing storage provided in deployment is not found in the subscription where the script is being deployed. |
+| `DeploymentScriptExistingStorageNotInSameSubscriptionAsDeploymentScript` | The existing storage provided in deployment isn't found in the subscription where the script is being deployed. |
 | `DeploymentScriptStorageAccountInvalidKind` | The existing storage account of the `BlobBlobStorage` or `BlobStorage` type doesn't support file shares and can't be used. |
 | `DeploymentScriptStorageAccountInvalidKindAndSku` | The existing storage account doesn't support file shares. For a list of supported types of storage accounts, see [Use an existing storage account](./deployment-script-develop.md#use-an-existing-storage-account). |
 | `DeploymentScriptStorageAccountNotFound` | The storage account doesn't exist, or an external process or tool deleted it. |
