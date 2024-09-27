@@ -18,10 +18,10 @@ By default, network policies are disabled for a subnet in a virtual network. To 
 
 You can enable network policies either for network security groups only, for user-defined routes only, or for both.
 
-If you enable network security policies for user-defined routes, you can use a custom address prefix length ( subnet mask ) equal to or larger than the virtual network address space prefix length to invalidate the /32 default route propagated by the private endpoint. This capability can be useful if you want to ensure that private endpoint connection requests go through a firewall or virtual appliance. Otherwise, the /32 default route sends traffic directly to the private endpoint in accordance with the [longest prefix match algorithm](../virtual-network/virtual-networks-udr-overview.md#how-azure-selects-a-route).
+If you enable network security policies for user-defined routes, you can use a custom address prefix size that is equal to or less than the address prefix of the respective virtual network to invalidate the /32 default route propagated by the private endpoint. This capability can be useful if you want to ensure that private endpoint connection requests go through a firewall or virtual appliance. Otherwise, the /32 default route sends traffic directly to the private endpoint in accordance with the [longest prefix match algorithm](../virtual-network/virtual-networks-udr-overview.md#how-azure-selects-a-route).
 
 > [!IMPORTANT]
-> To invalidate a private endpoint route, user-defined routes must have a prefix length equal to or larger than the virtual network address space prefix length where the private endpoint is provisioned. For example, a user-defined routes default route (0.0.0.0/0) doesn't invalidate private endpoint routes. Network policies should be enabled in the subnet that hosts the private endpoint.
+> To invalidate a private endpoint route, user-defined routes must have a prefix size equal to or less than the virtual network address space where the private endpoint is provisioned. For example, a user-defined routes default route (0.0.0.0/0) doesn't invalidate private endpoint routes because it is wider than the address space of private endpoint virtual network. Longest prefix match will make the custom address prefix lower in priority. Also note that network policies should be enabled in the subnet that is hosting the private endpoint.
 
 Use the following steps to enable or disable network policy for private endpoints:
 
