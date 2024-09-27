@@ -1,6 +1,6 @@
 ---
-title: How to turn on Java Stack in Azure Container Apps
-description: How to turn on Java Stack feature to use Java-optimized support in Azure Container Apps
+title: How to turn on Java features in Azure Container Apps
+description: How to turn on Java features to use Java-optimized supports in Azure Container Apps
 services: container-apps
 author: hangwang
 ms.service: azure-container-apps
