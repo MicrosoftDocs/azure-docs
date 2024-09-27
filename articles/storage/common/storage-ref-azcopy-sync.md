@@ -14,7 +14,7 @@ ms.reviewer: zezha-msft
 
 Replicates the source location to the destination location. This article provides a detailed reference for the azcopy sync command. To learn more about synchronizing blobs between source and destination locations, see [Synchronize with Azure Blob storage by using AzCopy v10](storage-use-azcopy-blobs-synchronize.md). For Azure Files, see [Synchronize files](storage-use-azcopy-files.md#synchronize-files).
 
-[!INCLUDE [azcopy-support](includes/storage-azcopy-change-support.md)]
+[!INCLUDE [storage-azcopy-change-support](includes/storage-azcopy-change-support.md)]
 
 ## Synopsis
 
