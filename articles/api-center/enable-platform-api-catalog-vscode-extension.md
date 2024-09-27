@@ -72,7 +72,9 @@ First, configure an app registration in your Microsoft Entra ID tenant. The app 
 
 ### Enable sign-in to platform API catalog by Microsoft Entra users and groups 
 
-Enterprise developers must sign in with a Microsoft account to see the platform API catalog for your API center. If needed, add or invite developers to your Microsoft Entra tenant. Then, to enable sign-in, assign the **Azure API Center Data Reader** role to users or groups in your tenant, scoped to your API center.
+Enterprise developers must sign in with a Microsoft account to see the platform API catalog for your API center. If needed, [add or invite developers](/entra/external-id/b2b-quickstart-add-guest-users-portal) to your Microsoft Entra tenant. 
+
+Then, to enable sign-in, assign the **Azure API Center Data Reader** role to users or groups in your tenant, scoped to your API center.
 
 > [!IMPORTANT]
 > By default, you and other administrators of the API center don't have access to APIs in the API Center extension's platform API catalog. Be sure to assign the **Azure API Center Data Reader** role to yourself and other administrators.  
