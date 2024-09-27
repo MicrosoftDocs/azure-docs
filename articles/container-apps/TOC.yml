@@ -146,8 +146,6 @@
             href: sessions-tutorial-semantic-kernel.md
     - name: Event-driven processing
       items:
-        - name: With an app
-          href: background-processing.md
         - name: With a job
           href: tutorial-event-driven-jobs.md
     - name: Troubleshooting
