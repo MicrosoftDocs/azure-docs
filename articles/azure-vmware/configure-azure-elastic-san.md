@@ -52,15 +52,15 @@ In this section, you create a virtual network for your Elastic SAN. Then you cre
    > 
    > Create your Elastic SAN in the same region and availability zone as your private cloud for best performance.
    - [Azure portal](/azure/storage/elastic-san/elastic-san-create?tabs=azure-portal)
-- [PowerShell](/azure/storage/elastic-san/elastic-san-create?tabs=azure-powershell)
-- [Azure CLI](/azure/storage/elastic-san/elastic-san-create?tabs=azure-cli)
+   - [PowerShell](/azure/storage/elastic-san/elastic-san-create?tabs=azure-powershell)
+   - [Azure CLI](/azure/storage/elastic-san/elastic-san-create?tabs=azure-cli)
 1. Use one of the following instructions to configure a Private Endpoint (PE) for your Elastic SAN:
       > [!IMPORTANT]
    > 
    > You must have a Private Endpoint set up for your dedicated volume group to be able to connect your SDDC to the Elastic SAN.
    - [Azure Portal](/azure/storage/elastic-san/elastic-san-networking?tabs=azure-portal#tabpanel_2_azure-portal)
-	- [PowerShell](/azure/storage/elastic-san/elastic-san-networking?tabs=azure-powershell#configure-a-private-endpoint)
-	- [Azure CLI](/azure/storage/elastic-san/elastic-san-networking?tabs=azure-cli#tabpanel_2_azure-cli)
+   - [PowerShell](/azure/storage/elastic-san/elastic-san-networking?tabs=azure-powershell#configure-a-private-endpoint)
+   - [Azure CLI](/azure/storage/elastic-san/elastic-san-networking?tabs=azure-cli#tabpanel_2_azure-cli)
 
 ## Configuration recommendations
 
@@ -71,8 +71,8 @@ We recommend using multiple private endpoints to establish multiple sessions bet
 
 Each private endpoint will provide two sessions to Elastic SAN per host. The recommended number of sessions to Elastic SAN per host is 8, but because the maximum number of sessions an Elastic SAN datastore can handle is 128, the ideal number for your setup depends on the number of hosts in your private cloud. 
 
-> [!IMPORTANT]
-> You should configure all Private Endpoints before attaching a volume as a datastore. Adding Private Endpoints after a volume is attached as a datastore will require detaching the datastore and reconnecting it to the cluster.
+   > [!IMPORTANT]
+   > You should configure all Private Endpoints before attaching a volume as a datastore. Adding Private Endpoints after a volume is attached as a datastore will require detaching the datastore and reconnecting it to the cluster.
 ## Configure external storage address block
 
 Start by providing an IP block for deploying external storage. Navigate to the **Storage** tab in your Azure VMware Solution private cloud in the Azure portal. The address block should be a /24 network. 
