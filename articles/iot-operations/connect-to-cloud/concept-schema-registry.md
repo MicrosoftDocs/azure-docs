@@ -24,6 +24,7 @@ Edge services use message schemas to filter and transform messages as they're ro
 Schema registry expects the following required fields in a message schema:
 
 | Required field | Definition |
+| -------------- | ---------- |
 | `$schema` | Either `http://json-schema.org/draft-07/schema#` or `Delta/1.0`. In dataflows, JSON schemas are used for source endpoints and Delta schemas are used for destination endpoints. |
 | `type` | `Object` |
 | `properties` | The message definition. |
@@ -103,5 +104,3 @@ The operations experience uses the input schema as a starting point for your dat
 Schemas are only used for dataflows that select local storage, Fabric, Azure Data Lake, or Azure Data Explorer as the destination endpoint. Currently, Azure IoT Operations supports Delta Parquey for outpus schema.
 
 For these dataflows, the operations experience applies any transformations to the input schema then creates a new schema in Delta format. When the dataflow custom resource (CR) is created, it includes a `schemaRef` value that points to the generated schema stored in the schema registry.
-
-Other endpoints don't need reference schemas because they accept messages in JSON format
