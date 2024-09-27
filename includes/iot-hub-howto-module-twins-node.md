@@ -266,11 +266,18 @@ The [Registry](/javascript/api/azure-iothub/registry) class exposes all methods 
 
 ### Connect to IoT hub
 
-Use [fromConnectionString](/javascript/api/azure-iothub/registry?#azure-iothub-registry-fromconnectionstring) to connect to IoT hub. As a parameter, supply the **IoT hub service connection string** that you created in the prerequisites section.
+Use [fromConnectionString](/javascript/api/azure-iothub/registry?#azure-iothub-registry-fromconnectionstring) to connect to IoT hub.
+
+The SDK methods in this section require shared access policy permissions that includes the following:
+
+* **Registry Write** - required to add a module (or device) to the IoT Hub registry
+* **Service Connect** - required to add desired properties to a module
+
+As a parameter to `CreateFromConnectionString`, supply a shared access policy connection string that includes these permissions. For more information about shared access policies, see [Control access to IoT Hub with shared access signatures](/azure/iot-hub/authenticate-authorize-sas).
 
 ```javascript
 var iothub = require('azure-iothub');
-var connectionString = '{Iot Hub service connection string}';
+var connectionString = '{IoT hub shared access policy connection string}';
 var registry = iothub.Registry.fromConnectionString(connectionString);
 ```
 

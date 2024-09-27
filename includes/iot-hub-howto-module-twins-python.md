@@ -20,7 +20,7 @@ This article describes how to use the [Azure IoT SDK for Python](https://github.
 The azure-iot-device library must be installed to create device applications.
 
 ```cmd/sh
-pip install azure-iot-hub
+pip install azure-iot-device
 ```
 
 The azure-iot-hub library must be installed to create backend service applications.
@@ -154,7 +154,8 @@ A backend application connects to a device through IoT Hub and can read module r
 
 This section describes how to create a backend application to:
 
-* Update twin tags and desired properties
+* Create a module
+* Update desired properties
 
 The [IoTHubRegistryManager](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager) class exposes all methods required to create a backend application to interact with module twins from the service.
 
@@ -170,13 +171,20 @@ from azure.iot.hub.models import Twin, TwinProperties, QuerySpecification, Query
 
 ### Connect to IoT hub
 
-Connect to IoT hub using [from_connection_string](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?#azure-iot-hub-iothubregistrymanager-from-connection-string). As a parameter, supply the **IoT Hub service connection string** that you created in the prerequisites section.
+Connect to IoT hub using [from_connection_string](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?#azure-iot-hub-iothubregistrymanager-from-connection-string).
+
+The SDK methods in this section require shared access policy permissions that includes the following:
+
+* **Registry Write** - required to add a module (or device) to the IoT Hub registry
+* **Service Connect** - required to add desired properties to a module
+
+As a parameter to `CreateFromConnectionString`, supply a shared access policy connection string that includes these permissions. For more information about shared access policies, see [Control access to IoT Hub with shared access signatures](/azure/iot-hub/authenticate-authorize-sas).
 
 For example:
 
 ```python
 # Connect to IoT hub
-IOTHUB_CONNECTION_STRING = "{IoT hub service connection string}"
+IOTHUB_CONNECTION_STRING = "{IoT hub shared access policy connection string}"
 iothub_registry_manager = IoTHubRegistryManager.from_connection_string(IOTHUB_CONNECTION_STRING)
 ```
 

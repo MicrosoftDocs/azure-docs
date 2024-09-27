@@ -50,7 +50,7 @@ using Microsoft.Azure.Devices.Shared;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-static string ModuleConnectionString = "{IoT hub module connection string}";
+static string ModuleConnectionString = "{Device module connection string}";
 private static ModuleClient _moduleClient = null;
 
 _moduleClient = ModuleClient.CreateFromConnectionString(ModuleConnectionString, 
@@ -149,12 +149,19 @@ Backend service applications require the **Microsoft.Azure.Devices** NuGet packa
 
 ### Connect to IoT hub
 
-Connect a backend application to a device using [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.registrymanager.createfromconnectionstring). As a parameter, supply the **IoT Hub service connection string** that you created in the prerequisites section.
+Connect a backend application to a device using [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.registrymanager.createfromconnectionstring).
+
+The SDK methods in this section require shared access policy permissions that includes the following:
+
+* **Registry Write** - required to add a module (or device) to the IoT Hub registry
+* **Service Connect** - required to add desired properties to a module
+
+As a parameter to `CreateFromConnectionString`, supply a shared access policy connection string that includes these permissions. For more information about shared access policies, see [Control access to IoT Hub with shared access signatures](/azure/iot-hub/authenticate-authorize-sas).
 
 ```csharp
 using Microsoft.Azure.Devices;
 static RegistryManager registryManager;
-static string connectionString = "{IoT hub service connection string}";
+static string connectionString = "{IoT hub shared access policy connection string}";
 registryManager = RegistryManager.CreateFromConnectionString(connectionString);
 ```
 
@@ -219,4 +226,4 @@ catch (Exception e)
 
 ### SDK service sample
 
-The Azure IoT SDK for .NET provides a working sample of a service app that handles module twin tasks. For more information, see [Registry Manager Sample](https://github.com/Azure/azure-iot-sdk-csharp/blob/main/iothub/service/samples/how%20to%20guides/RegistryManagerSample/RegistryManagerSample.cs).
+The Azure IoT SDK for .NET provides a working sample of a service app that handles module twin tasks. For more information, see [Registry Manager E2E Tests](https://github.com/Azure/azure-iot-sdk-csharp/blob/main/e2e/test/iothub/service/RegistryManagerE2ETests.cs).
