@@ -23,7 +23,7 @@ You can connect to debug console using the Azure CLI.
 
 
 > [!NOTE]
-> Debug Console will create a separate container, which will share underlying resource with connected container(If the debug console container already exists when you try to connect to, we will reuse the existing one instead of creating a new one. At most 1 debug console container will be created per replicae). If you do not need to use a existing debug console container any more, please make sure to enter **exit** or use **Ctrl-D** to explicitly exit.
+> Debug Console will create a separate container, which will share underlying resources with the container your app is running on. If a debug container already exists, Debug Console will reuse the existing one instead of creating a new one. There will be at most 1 running debug container per Container App replica. If you do not need to keep a debug container running any more, please type **exit** or press **Ctrl + D** in Debug Console session.
 
 > [!NOTE]
 > If you encounter input missing in debug console, you can try to use **Ctrl-D** to exit and re-connect to debug console again.
@@ -52,7 +52,7 @@ az containerapp debug `
 
 ---
 
-To connect to a container debug console in a container app with multiple revisions, replicas, and containers include the  following parameters in the `az containerapp debug` command.
+To connect to a container debug console in a container app with multiple revisions, replicas, and containers, include the following parameters in the `az containerapp debug` command.
 
 | Argument | Description |
 |----------|-------------|
@@ -134,7 +134,7 @@ az containerapp debug `
 
 ## Built-in tools in Debug Console
 
-We will pre-install below diagnostic tools to help you troubleshoot issues more easily in debug console.
+We pre-installed below diagnostic tools to help you troubleshoot issues more easily in debug console.
 
 - [ip-utils](https://github.com/iputils/iputils)
 - [net-tools](https://github.com/ecki/net-tools)
@@ -149,12 +149,12 @@ We will pre-install below diagnostic tools to help you troubleshoot issues more 
 - [bind-utils](https://www.linuxfromscratch.org/~ken/inkscape-python-deps/blfs-book-sysv/basicnet/bind-utils.html)
 - [tcpping](http://www.vdberg.org/~richard/tcpping.html)
 
-If you want to install other tools, you can run `tdnf install <TOOL_NAME>` command. Replace the \<PLACEHOLDERS\> with your tool's values.
+If you want to install other tools, you can run `tdnf install -y <TOOL_NAME>` command. Replace the \<PLACEHOLDERS\> with your tool's values.
 
 For example, install JDK in debug console in a container app using the following command:
 
 ```bash
-tdnf install msopenjdk-17
+tdnf install -y msopenjdk-17
 ```
 
 ---
