@@ -53,8 +53,8 @@
       href: ../databox-online/azure-stack-edge-contact-microsoft-support.md
   - name: Release notes
     items:
-      - name: 2408 - Current
-        href: data-box-gateway-2408-release-notes.md
+      - name: 2409 - Current
+        href: data-box-gateway-2409-release-notes.md
       - name: 2301
         href: data-box-gateway-2301-release-notes.md
       - name: 2105
