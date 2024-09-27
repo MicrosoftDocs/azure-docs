@@ -16,7 +16,7 @@ For a step-by-step tutorial that guides you through the process of creating a Bi
 
 Bicep is a declarative language, which means the elements can appear in any order. Unlike imperative languages, the order of elements doesn't affect how deployment is processed.
 
-A Bicep file has the following elements.
+A Bicep file has the following elements:
 
 ```bicep
 @<decorator>(<argument>)
@@ -122,7 +122,7 @@ The decorators include:
 
 | Decorator | Apply to element | Apply to data type | Argument | Description |
 | --------- | ---- | ----------- | ------- |
-| allowed | [param](./parameters.md#allowed-values) | all | array | Use this decorator to make sure the user provides correct values. This decorator is only permitted on `param` statements. To declare that a property must be one of a set of predefined values in a [`type`](./user-defined-data-types.md) or [`output`](./outputs.md) statement, use [union type syntax](./data-types.md#union-types). You can also use union type syntax in `param` statements.|
+| allowed | [param](./parameters.md#allowed-values) | all | array | Use this decorator to make sure the user provides correct values. This decorator is permitted only on `param` statements. To declare that a property must be one of a set of predefined values in a [`type`](./user-defined-data-types.md) or [`output`](./outputs.md) statement, use [union type syntax](./data-types.md#union-types). You can also use union type syntax in `param` statements.|
 | batchSize |[module](./modules.md#batchsize), [resource](./resource-declaration.md#batchsize) | N/A | integer | Set up instances to deploy sequentially. |
 | description | [func](./user-defined-functions.md#description), [param](./parameters.md#description), [module](./modules.md#description), [output](./outputs.md#description), [resource](./resource-declaration.md#description), [type](./user-defined-data-types.md#description), [var](./variables.md#description) | all | string | Provide descriptions for the elements. Use Markdown-formatted text for the description text. |
 | discriminator | [param](./parameters.md#discriminator), [type](./user-defined-data-types.md#discriminator), [output](./outputs.md#discriminator) | object | string | Use this decorator to ensure that the correct subclass is identified and managed. For more information, see [Custom-tagged union data type](./data-types.md#custom-tagged-union-data-type).|
@@ -132,7 +132,7 @@ The decorators include:
 | metadata | [func](./user-defined-functions.md#metadata), [output](./outputs.md#metadata), [param](./parameters.md#metadata), [type](./user-defined-data-types.md#metadata) | all | object | Custom properties to apply to the elements. Can include a description property that's equivalent to the description decorator. |
 | minLength | [param](./parameters.md#length-constraints), [output](./outputs.md#length-constraints), [type](./user-defined-data-types.md#length-constraints) | array, string | int | The minimum length for string and array elements. The value is inclusive. |
 | minValue | [param](./parameters.md#integer-constraints), [output](./outputs.md#integer-constraints), [type](./user-defined-data-types.md#integer-constraints) | int | int | The minimum value for the integer elements. This value is inclusive. |
-| sealed | [param](./parameters.md#sealed), [type](./user-defined-data-types.md#sealed), [output](./outputs.md#sealed) | object | none | Elevate [BCP089](./diagnostics/bcp089.md) from a warning to an error when a property name of a use-define data type is likely a typo. For more information, see [Elevate error level](./user-defined-data-types.md#elevate-error-level). |
+| sealed | [param](./parameters.md#sealed), [type](./user-defined-data-types.md#sealed), [output](./outputs.md#sealed) | object | none | Elevate [BCP089](./diagnostics/bcp089.md) from a warning to an error when a property name of a user-defined data type is likely a typo. For more information, see [Elevate error level](./user-defined-data-types.md#elevate-error-level). |
 | secure | [param](./parameters.md#secure-parameters), [type](./user-defined-data-types.md#secure-types) | string, object | none | Marks the parameter as secure. The value for a secure parameter isn't saved to the deployment history and isn't logged. For more information, see [Secure strings and objects](data-types.md#secure-strings-and-objects). |
 
 ## Parameters
@@ -450,13 +450,13 @@ var foo = resourceGroup(
   myRgName)
 ```
 
-For multiple-line declaration samples, see [Arrays](./data-types.md#arrays) and [Objects](./data-types.md#objects).
+For multiple-line declaration samples, see [arrays](./data-types.md#arrays) and [objects](./data-types.md#objects).
 
 ## Known limitations
 
-* No support for the concept of `apiProfile`, which is used to map a single `apiProfile` to a set `apiVersion` for each resource type.
+* No support is available for the concept of `apiProfile`, which is used to map a single `apiProfile` to a set `apiVersion` for each resource type.
 * User-defined functions aren't supported at the moment. An experimental feature is currently accessible. For more information, see [User-defined functions in Bicep](./user-defined-functions.md).
-* Some Bicep features require a corresponding change to the intermediate language (Azure Resource Manager JSON templates). We announce these features as available after all the required updates are deployed to global Azure. If you use a different environment, such as Azure Stack, there might be a delay in the availability of the feature. The Bicep feature is only available after the intermediate language is also updated in that environment.
+* Some Bicep features require a corresponding change to the intermediate language (Azure Resource Manager JSON templates). We announce these features as available after all the required updates are deployed to global Azure. If you use a different environment, such as Azure Stack, there might be a delay in the availability of the feature. The Bicep feature is available only after the intermediate language is also updated in that environment.
 
 ## Next steps
 
