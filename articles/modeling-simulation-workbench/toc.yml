@@ -4,7 +4,9 @@ items:
   - name: Overview
     items:
       - name: What is Azure Modeling and Simulation Workbench?
-        href: modeling-simulation-workbench-overview.md
+        href: ./modeling-simulation-workbench-overview.md
+      - name: Get started with Azure Modeling and Simulation Workbench
+        href: ./get-started-modeling-simulation-workbench.md
   - name: Quickstarts
     items:
       - name: Add users
@@ -27,14 +29,10 @@ items:
         href: ./concept-vm-offerings.md
       - name: Storage
         href: ./concept-storage.md
-      - name: Business continuity
-        items:
-          - name: Disaster recovery
-            href: ./disaster-recovery.md
-  - name: Tutorials
-    items:
-      - name: Create an Azure Modeling and Simulation Workbench
-        href: ./quickstart-create-portal.md
+  # - name: Tutorials
+  #   items:
+  #     - name: Create an Azure Modeling and Simulation Workbench
+  #       href: ./quickstart-create-portal.md
   - name: How-to guides
     items:
       - name: Manage users
@@ -77,6 +75,10 @@ items:
     items:
       - name: Troubleshoot
         href: ./resources-troubleshoot.md
+      - name: Business continuity
+        items:
+          - name: Disaster recovery
+            href: ./disaster-recovery.md
       - name: Get support
         href: ./resources-get-support.md
       - name: AzCopy
