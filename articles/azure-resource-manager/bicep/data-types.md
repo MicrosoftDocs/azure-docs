@@ -102,15 +102,15 @@ When you specify integer values, don't use quotation marks.
 param exampleInt int = 1
 ```
 
-Bicep integers are 64-bit integers. When passed as inline parameters, the range of values might be limited by the SDK or command-line tool you use for deployment. For example, when you use PowerShell to deploy a Bicep, integer types might range from -2147483648 to 2147483647. To avoid this limitation, specify large integer values in a [parameter file](parameter-files.md). Resource types apply their own limits for integer properties.
+Bicep integers are 64-bit integers. When they're passed as inline parameters, the SDK or command-line tool you use for deployment can limit the range of values. For example, when you use PowerShell to deploy Bicep, integer types can range from -2147483648 to 2147483647. To avoid this limitation, specify large integer values in a [parameter file](parameter-files.md). Resource types apply their own limits for integer properties.
 
-Bicep supports an integer literal type that refers to a specific value that's an exact integer. In the following example, _1_ is an integer literal type, and _foo_ can only be assigned the value _1_ and no other value.
+Bicep supports an integer literal type that refers to a specific value that's an exact integer. In the following example, `1` is an integer literal type, and `foo` can only be assigned the value `1` and no other value.
 
 ```bicep
 output foo 1 = 1
 ```
 
-You can declare an integer literal type as either inline, as shown in the preceding example, or in a [`type` statement](./user-defined-data-types.md).  
+You can declare an integer literal type either inline, as shown in the preceding example, or in a [`type` statement](./user-defined-data-types.md).  
 
 ```bicep
 type oneType = 1
@@ -219,7 +219,7 @@ output bar bool = contains(objectToTest, 'four') && objectToTest.four == 4
 
 ## Strings
 
-In Bicep, strings are marked with single quotation marks, and you must declare them on a single line. All Unicode characters with code points between _0_ and _10FFFF_ are allowed.
+In Bicep, strings are marked with single quotation marks, and you must declare them on a single line. All Unicode characters with code points between `0` and `10FFFF` are allowed.
 
 ```bicep
 param exampleString string = 'test value'
@@ -234,7 +234,7 @@ The following table lists the set of reserved characters that you must escape by
 | `\n` | Line feed (LF) ||
 | `\r` | Carriage return (CR) ||
 | `\t` | Tab character ||
-| `\u{x}` | Unicode code point `x` | The *x* represents a hexadecimal code point value between _0_ and _10FFFF_ (both inclusive). Leading zeros are allowed. Code points above _FFFF_ are emitted as a surrogate pair. |
+| `\u{x}` | Unicode code point `x` | The `x` represents a hexadecimal code point value between `0` and `10FFFF` (both inclusive). Leading zeros are allowed. Code points above `FFFF` are emitted as a surrogate pair. |
 | `\$` | `$` | Only escape when followed by `{`. |
 
 ```bicep
@@ -242,13 +242,13 @@ The following table lists the set of reserved characters that you must escape by
 var myVar = 'what\'s up?'
 ```
 
-Bicep supports string literal type that refers to a specific string value. In the following example, _red_ is a string literal type, _redColor_ can only be assigned the value _red_ and no other value.
+Bicep supports a string literal type that refers to a specific string value. In the following example, `red` is a string literal type. You can only assign the value `red` to `redColor`.
 
 ```bicep
 output redColor 'red' = 'red'
 ```
 
-You can declare a string literal type either as inline, as shown in the preceding example, or in a [`type` statement](./user-defined-data-types.md).
+You can declare a string literal type either inline, as shown in the preceding example, or in a [`type` statement](./user-defined-data-types.md).
 
 ```bicep
 type redColor = 'red'
@@ -276,10 +276,10 @@ var storageName = 'storage${uniqueString(resourceGroup().id)}'
 
 ### Multiline strings
 
-In Bicep, multiline strings are defined between three single quotation mark characters (`'''`) followed optionally by a newline (the opening sequence) and three single quotation mark characters (`'''` - the closing sequence). Characters that are entered between the opening and closing sequence are read verbatim. Escaping isn't necessary or possible.
+In Bicep, multiline strings are defined between three single quotation marks (`'''`) followed optionally by a newline (the opening sequence) and three single quotation marks (`'''` is the closing sequence). Characters that are entered between the opening and closing sequence are read verbatim. Escaping isn't necessary or possible.
 
 > [!NOTE]
-> Because the Bicep parser reads all characters as is, depending on the line endings of your Bicep file, newlines can be interpreted as either `\r\n` or `\n`.
+> The Bicep parser reads all characters as is. Depending on the line endings of your Bicep file, newlines are interpreted as either `\r\n` or `\n`.
 >
 > Interpolation isn't currently supported in multiline strings. Because of this limitation, you might need to use the [`concat`](./bicep-functions-string.md#concat) function instead of using [interpolation](#strings).
 >
@@ -319,7 +319,7 @@ is ${blocked}'''
 
 ## Union types
 
-In Bicep, a union type allows the creation of a combined type that consists of a set of subtypes. An assignment is valid if any of the individual subtype assignments are permitted. The `|` character separates individual subtypes that use an _or_ condition. For example, the syntax `a | b` means that a valid assignment could be either `a` or `b`. Union types are translated into the [allowed-value](../templates/definitions.md#allowed-values) constraint in Bicep, so only literals are permitted as members. Unions can include any number of literal-typed expressions.
+In Bicep, a union type allows the creation of a combined type that consists of a set of subtypes. An assignment is valid if any of the individual subtype assignments are permitted. The `|` character separates individual subtypes that use an `or` condition. For example, the syntax `a | b` means that a valid assignment could be either `a` or `b`. Union types are translated into the [allowed-value](../templates/definitions.md#allowed-values) constraint in Bicep, so only literals are permitted as members. Unions can include any number of literal-typed expressions.
 
 ```bicep
 type color = 'Red' | 'Blue' | 'White'
@@ -372,14 +372,14 @@ The parameter value is validated based on the discriminated property value. For 
 
 The union type has some limitations:
 
-    * Union types must be reducible to a single Azure Resource Manager (ARM) type. The following definition is invalid:
+  - Union types must be reducible to a single Azure Resource Manager type. The following definition is invalid:
     
-      ```bicep
-      type foo = 'a' | 1
-      ```
+    ```bicep
+    type foo = 'a' | 1
+    ```
 
-    * Only literals are permitted as members.
-    * All literals must be of the same primitive data type (for example, all strings or all integers).
+  - Only literals are permitted as members.
+  - All literals must be of the same primitive data type (for example, all strings or all integers).
 
 You can use the union type syntax in [user-defined data types](./user-defined-data-types.md).
 
