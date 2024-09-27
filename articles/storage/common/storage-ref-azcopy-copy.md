@@ -14,7 +14,7 @@ ms.reviewer: zezha-msft
 
 Copies source data to a destination location.  
 
-[!INCLUDE [azcopy-support](incldues/storage-azcopy-change-support.md)]
+[!INCLUDE [azcopy-support](includes/storage-azcopy-change-support.md)]
 
 ## Synopsis
 
