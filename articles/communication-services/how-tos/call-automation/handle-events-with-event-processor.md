@@ -69,7 +69,7 @@ CreateCallEventResult eventResult = await createCallResult.WaitForEventProcessor
 CallConnected returnedEvent = eventResult.SuccessResult;
 ```
 
-With EventProcessor, we can easily wait CallConnected event until the call is established. If the call was never established (that is, callee never picked up the phone), it throws Timeout Exception.  If the creation of the call otherwise fails, you will receive the `CallDisconnected` and `CreateCallFailed` events with error codes to further troubleshoot.
+With EventProcessor, we can easily wait CallConnected event until the call is established. If the call was never established (that is, callee never picked up the phone), it throws Timeout Exception.  If the creation of the call otherwise fails, you will receive the `CallDisconnected` and `CreateCallFailed` events with error codes to further troubleshoot (see [this page](./../../resources/troubleshooting/voice-video-calling/troubleshooting-codes.md) for more information on Call Automation error codes).
 
 > [!NOTE]
 > If specific timeout was not given when waiting on EventProcessor, it will wait until its default timeout happens. The default timeout is 4 minutes.
