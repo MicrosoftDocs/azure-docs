@@ -19,6 +19,74 @@ Edge services use message schemas to filter and transform messages as they're ro
 
 *Schemas* are documents that describe data to enable processing and contextualization. *Message schemas* describe the format of a message and its contents.
 
+## Message schema definitions
+
+Schema registry expects the following required fields in a message schema:
+
+| Required field | Definition |
+| `$schema` | Either `http://json-schema.org/draft-07/schema#` or `Delta/1.0`. In dataflows, JSON schemas are used for source endpoints and Delta schemas are used for destination endpoints. |
+| `type` | `Object` |
+| `properties` | The message definition. |
+
+Additionally, you can include optional fields in your message schema as long as they conform with the schema type. For example:
+
+| Optional field | Definition |
+| `name` | A name for the schema. |
+| `description` | A description of the schema. |
+| `required` | A list of properties required to be present in the messages. |
+
+### Sample schemas
+
+The following sample schemas provide examples for defining message schemas in each format.
+
+JSON:
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "name": "foobarbaz",
+  "description": "A representation of an event",
+  "type": "object",
+  "required": [ "dtstart", "summary" ],
+  "properties": {
+    "summary": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string"
+    },
+    "duration": {
+      "type": "string",
+      "description": "Event duration"
+    }
+  }
+}
+```
+
+Delta:
+
+```delta
+{
+    "$schema": "Delta/1.0",
+    "type": "object",
+    "properties": {
+        "type": "struct",
+        "fields": [
+            { "name": "asset_id", "type": "string", "nullable": false, "metadata": {} },
+            { "name": "asset_name", "type": "string", "nullable": false, "metadata": {} },
+            { "name": "location", "type": "string", "nullable": false, "metadata": {} },
+            { "name": "manufacturer", "type": "string", "nullable": false, "metadata": {} },
+            { "name": "production_date", "type": "string", "nullable": false, "metadata": {} },
+            { "name": "serial_number", "type": "string", "nullable": false, "metadata": {} },
+            { "name": "temperature", "type": "double", "nullable": false, "metadata": {} }
+        ]
+    }
+}
+```
+
 ## How dataflows use message schemas
 
 Message schemas are used in all three phases of a dataflow: defining the source input, applying data tranformations, and creating the destination output.
@@ -29,7 +97,7 @@ Each dataflow source requires a message schema.
 
 Asset sources have a predefined message schema that was created by the connector for OPC UA.
 
-MQTT sources require an uploaded message schema. Azure IoT Operations supports JSON schemas, and the filename is used as the schema name. In the operations experience, you can select an existing schema or upload one while defining an MQTT source:
+MQTT sources require an uploaded message schema. Currently, Azure IoT Operations supports JSON for input schemas. In the operations experience, you can select an existing schema or upload one while defining an MQTT source:
 
 :::image type="content" source="./media/concept-schema-registry/upload-schema.png" alt-text="Screenshot that shows uploading a message schema in the operations experience portal.":::
 
@@ -39,7 +107,7 @@ The operations experience uses the input schema as a starting point for your dat
 
 ### Output schema
 
-Schemas are only used for dataflows that select Fabric or ADX as the destination endpoint.
+Schemas are only used for dataflows that select local storage, Fabric, Azure Data Lake, or Azure Data Explorer as the destination endpoint. Currently, Azure IoT Operations supports Delta Parquey for outpus schema.
 
 For these dataflows, the operations experience applies any transformations to the input schema then creates a new schema in Delta format. When the dataflow custom resource (CR) is created, it includes a `schemaRef` value that points to the generated schema stored in the schema registry.
 
