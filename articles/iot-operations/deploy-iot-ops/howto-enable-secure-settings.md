@@ -31,7 +31,7 @@ The test settings are easier and quicker to get you started with a deployment, b
 
 ## Configure cluster for workload identity
 
-A workload identity is an identity you assign to a software workload (such as an application, service, script, or container) to authenticate and access other services and resources. The workload identity feature needs to be enabled on your cluster, so that the [Azure Secret Store](#enable-secure-settings-in-azure-iot-operations-preview-deployment) and Azure IoT Operations can access Microsoft Entra ID protected resources. To learn more, see [What are workload identities?](/entra/workload-id/workload-identities-overview).
+A workload identity is an identity you assign to a software workload (such as an application, service, script, or container) to authenticate and access other services and resources. The workload identity feature needs to be enabled on your cluster, so that the [Azure Key Vault Secret Store extension for Kubernetes](/azure/azure-arc/kubernetes/secret-store-extension) and Azure IoT Operations can access Microsoft Entra ID protected resources. To learn more, see [What are workload identities?](/entra/workload-id/workload-identities-overview).
 
 > [!NOTE]
 > This step only applies to Ubuntu + K3s clusters. The quickstart script for Azure Kubernetes Service (AKS) Edge Essentials used in [Prepare your Azure Arc-enabled Kubernetes cluster](./howto-prepare-cluster.md) enables workload identity by default. If you have an AKS Edge Essentials cluster, continue to the next section.
@@ -138,9 +138,9 @@ Use the following steps to enable workload identity on an existing connected K3s
 
 ## Set up Secrets Management
 
-Secrets Management for Azure IoT Operations uses Azure Secret Store to sync the secrets from an Azure Key Vault and store them on the edge as Kubernetes secrets.  
+Secrets Management for Azure IoT Operations uses Secret Store extension to sync the secrets from an Azure Key Vault and store them on the edge as Kubernetes secrets.  
 
-Azure Secret Store requires a user-assigned managed identity with access to the Azure Key Vault where secrets are stored. To learn more, see [What are managed identities for Azure resources?](/entra/identity/managed-identities-azure-resources/overview).
+Secret Store extension requires a user-assigned managed identity with access to the Azure Key Vault where secrets are stored. To learn more, see [What are managed identities for Azure resources?](/entra/identity/managed-identities-azure-resources/overview).
 
 ### Create an Azure Key Vault
 
@@ -218,7 +218,7 @@ If you already have an Azure Key Vault with `Key Vault Secrets Officer` permissi
 
     ---
 
-### Create a user-assigned managed identity for Azure Secret Store
+### Create a user-assigned managed identity for Secret Store extension
 
 Use the [az identity create](/cli/azure/identity#az-identity-create) command to create the user-assigned managed identity.
 
