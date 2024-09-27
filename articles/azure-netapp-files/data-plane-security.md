@@ -23,7 +23,7 @@ Azure NetApp Files secures network attached storage (NAS) data through permissio
 
 Securing your NAS data in Azure NetApp Files involves managing permissions effectively. Permissions are categorized into two main types:
 
-* **Share Access Permissions**: These control who can mount a NAS volume and basic permissions for read/write.
+* **Share access permissions**: These permissions control who can mount a NAS volume and basic permissions for read/write.
     - NFS exports: Uses IP addresses or host names to control access.
     - SMB shares: Uses user and group access control lists (ACLs).
 
@@ -44,12 +44,12 @@ Securing your NAS data in Azure NetApp Files involves managing permissions effec
 - Access is controlled via user and group ACLs.
 - Permissions can include read, change, and full control.
 
-For a detailed understanding of share access permissions, see [Understand NAS share permissions](network-attached-storage-permissions.md).
+For more information, see [Understand NAS share permissions](network-attached-storage-permissions.md).
 
 #### File access permissions
 
 **SMB file permissions:**
-- Attributes include read, write, delete, change permissions, and take ownership and more granular permissions supported by Windows. See the links below for details.
+- Attributes include read, write, delete, change permissions, and take ownership and more granular permissions supported by Windows.
 - Permissions can be inherited from parent folders to child objects. 
  
 **NFS file permissions:**
@@ -83,7 +83,7 @@ For more details on permission inheritance, see:
 
 ## Data encryption in transit
 
-Azure NetApp Files encryption in transit refers to the protection of data as it moves between your client and the Azure NetApp Files service. This ensures that data is secure and cannot be intercepted or read by unauthorized parties during transmission.
+Azure NetApp Files encryption in transit refers to the protection of data as it moves between your client and the Azure NetApp Files service. Encryption ensures that data is secure and can't be intercepted or read by unauthorized parties during transmission.
 
 ### Protocols and encryption methods
 
@@ -103,7 +103,7 @@ For more information on SMB encryption, see [Understand data encryption](underst
 
 ## Data Encryption at rest
 
-Encryption at rest protects your data while it;s stored on disk, ensuring that even if the physical storage media is accessed by unauthorized individuals, the data remains unreadable without the proper decryption keys.
+Encryption at rest protects your data while it's stored on disk. Even if the physical storage media is accessed by unauthorized individuals, the data remains unreadable without the proper decryption keys.
 
 There are two types of encryption at rest in Azure NetApp Files:
 
@@ -157,7 +157,7 @@ NSGs are collections of security rules that govern inbound and outbound traffic 
 - **Segmentation:** By applying NSGs to the subnets housing your Azure NetApp Files volumes, you can segment and isolate network traffic. Segmentation effectively reduces the attack surface and enhances overall security.
 - **Monitoring and logging:** NSGs offer monitoring and logging capabilities through Network Security Group Flow Logs. These logs are critical for tracking traffic patterns, detecting potential security threats, and ensuring compliance with security policies.
 
-For further details, see [Network Security Groups](../virtual-network/security-overview.md) and [What is a private endpoint?](../private-link/private-endpoint-overview.md)
+For more information, see [Network Security Groups](../virtual-network/security-overview.md) and [What is a private endpoint?](../private-link/private-endpoint-overview.md)
 
 ## Next steps 
 
