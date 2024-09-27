@@ -65,6 +65,8 @@ The main steps you'll follow when using a container image are:
     - For a private registry, give the DevCenter ACR permissions.
 1. Add your image location to the `runner` parameter in your environment definition
 1. Deploy environments that use your custom image.
+1. 
+The first step in the process is to choose the type of image you want to use. Select the corresponding tab to see the process.
 
 ### [Use a sample container image](#tab/sample/)
 
