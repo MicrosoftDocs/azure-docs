@@ -12,7 +12,7 @@ ms.custom: engagement-fy24
 
 # Support matrix for Hyper-V migration
 
-This article summarizes support settings and limitations for migrating Hyper-V VMs with [Migration and modernization](migrate-services-overview.md#migration-and-modernization-tool) . If you're looking for information about assessing Hyper-V VMs for migration to Azure, review the [assessment support matrix](migrate-support-matrix-hyper-v.md).
+This article summarizes support settings and limitations for migrating Hyper-V VMs with [Migration and modernization](migrate-services-overview.md) . If you're looking for information about assessing Hyper-V VMs for migration to Azure, review the [assessment support matrix](migrate-support-matrix-hyper-v.md).
 
 ## Migration limitations
 

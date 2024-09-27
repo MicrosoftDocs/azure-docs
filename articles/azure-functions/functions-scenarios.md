@@ -2,9 +2,14 @@
 title: Azure Functions Scenarios 
 description: Identify key scenarios that use Azure Functions to provide serverless compute resources in aa Azure cloud-based topology. 
 ms.topic: conceptual
-ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
-ms.date: 05/15/2023
-zone_pivot_groups: programming-languages-set-functions-lang-workers
+ms.custom: 
+  - devx-track-extended-java
+  - devx-track-js
+  - devx-track-python
+ms.collection: 
+  - ce-skilling-ai-copilot
+ms.date: 07/25/2024
+zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Azure Functions scenarios
@@ -152,6 +157,7 @@ A function might also call a TensorFlow model or Azure AI services to process an
 
 ::: zone pivot="programming-language-csharp"  
 + Tutorial: [Text completion using Azure OpenAI](functions-add-openai-text-completion.md?pivots=programming-language-csharp)
++ Sample: [Upload text files and access data using various OpenAI features](https://github.com/azure-samples/azure-functions-openai-demo) 
 + Sample: [Text summarization using AI Cognitive Language Service](https://github.com/Azure-Samples/function-csharp-ai-textsummarize)
 + Sample: [Text completion using Azure OpenAI](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/textcompletion/csharp-ooproc)
 + Sample: [Provide assistant skills to your model](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/assistant/csharp-ooproc)
@@ -169,6 +175,13 @@ A function might also call a TensorFlow model or Azure AI services to process an
 + Tutorial: [Text completion using Azure OpenAI](functions-add-openai-text-completion.md?pivots=programming-language-javascript)
 + Training: [Create a custom skill for Azure AI Search](/training/modules/create-enrichment-pipeline-azure-cognitive-search)
 + Sample: [Chat using ChatGPT](https://github.com/Azure-Samples/function-javascript-ai-openai-chatgpt)
++ Sample: [Upload text files and access data using various OpenAI features](https://github.com/azure-samples/azure-functions-openai-demo)
+::: zone-end
+::: zone pivot="programming-language-typescript"  
++ Tutorial: [Text completion using Azure OpenAI](functions-add-openai-text-completion.md?pivots=programming-language-typescript)
++ Training: [Create a custom skill for Azure AI Search](/training/modules/create-enrichment-pipeline-azure-cognitive-search)
++ Sample: [Chat using ChatGPT](https://github.com/Azure-Samples/function-javascript-ai-openai-chatgpt)
++ Sample: [Upload text files and access data using various OpenAI features](https://github.com/azure-samples/azure-functions-openai-demo)
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 + Tutorial: [Text completion using Azure OpenAI](functions-add-openai-text-completion.md?pivots=programming-language-python)

@@ -160,22 +160,6 @@ await call.unmuteIncomingAudio();
 
 When incoming audio is muted, the participant client SDK still receives the call audio (remote participant's audio). The call audio isn't heard in the speaker and the participant isn't able to listen until 'call.unmuteIncomingAudio()' is called. However, we can apply filter on call audio and play the filtered audio. 
 
-## Mute other participants
-> [!NOTE]
-> To use this API please use Azure Communication Services Calling Web SDK version 1.26.1 or higher. 
-
-To mute all other participants or mute a specific participant who are connected to a call, you can use the asynchronous APIs `muteAllRemoteParticipants` on the call and `mute` on the remote participant. The `mutedByOthers` event from Call is raised when the local participant has been muted by others.
-
- *Note: The scenarios to mute PSTN (phone number) participants or 1:1 call participants are not supported.* 
-
-```js
-//mute all participants except yourself
-await call.muteAllRemoteParticipants();
-
-//mute a specific participant
-await call.remoteParticipants[0].mute();
-```
-
 ## Manage remote participants
 
 All remote participants are detailed in  the `RemoteParticipant` object and available through the `remoteParticipants` collection on a call instance. The `remoteParticipants` is accessible from a `Call` instance.
@@ -277,6 +261,21 @@ const state = remoteParticipant.state;
     ```
     *Note: A remote participant could be in the call from many endpoints, and each endpoint has its own unique `participantId`. `participantId` is different from the RemoteParticipant.identifier's raw ID.*
 
+### Mute other participants
+> [!NOTE]
+> To use this API please use Azure Communication Services Calling Web SDK version 1.26.1 or higher. 
+
+To mute all other participants or mute a specific participant who are connected to a call, you can use the asynchronous APIs `muteAllRemoteParticipants` on the call and `mute` on the remote participant. The `mutedByOthers` event from Call is raised when the local participant has been muted by others.
+
+ *Note: The scenarios to mute PSTN (phone number) participants or 1:1 call participants are not supported.* 
+
+```js
+//mute all participants except yourself
+await call.muteAllRemoteParticipants();
+
+//mute a specific participant
+await call.remoteParticipants[0].mute();
+```
 ## Check call properties
 
 Get the unique ID (string) for a call:
