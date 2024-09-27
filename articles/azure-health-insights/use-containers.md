@@ -132,7 +132,7 @@ curl -X POST 'http://<serverURL>:5000/health-insights/<model>/jobs?api-version=<
 
 #### Example docker compose file
 
-The below example shows how a [docker compose](https://docs.docker.com/compose/reference/overview) file can be created to deploy the health-insights containers. 
+The below example shows how a [docker compose](https://docs.docker.com/compose/) file can be created to deploy the health-insights containers. 
 
 ```yaml
 version: "3"
