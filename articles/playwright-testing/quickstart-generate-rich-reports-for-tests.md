@@ -8,12 +8,25 @@ ms.custom: playwright-testing-preview
 
 # Quickstart: Troubleshoot tests with Microsoft Playwright Testing Preview
 
-In this quickstart, you learn how to troubleshoot your Playwright tests easily using reports and artifacts published on Microsoft Playwright Testing Preview. 
+In this quickstart, you learn how to troubleshoot your Playwright tests easily using reports and artifacts published on Microsoft Playwright Testing Preview. Additionally, this guide demonstrates how to utilize the reporting feature, regardless of whether you are running tests on the cloud-hosted browsers provided by the service.
 
 After you complete this quickstart, you'll have a Microsoft Playwright Testing workspace to view test results and artifacts in the service portal.
 
 > [!IMPORTANT]
 > Microsoft Playwright Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+## Background
+
+Microsoft Playwright Testing service enables you to:
+
+- Accelerate build pipelines by running tests in parallel using cloud-hosted browsers.
+- Simplify troubleshooting with easy access to test results and artifacts published to the service.
+
+These two features of the service can be used independently of each other and each has its own [pricing plan](https://aka.ms/mpt/pricing). This means you can:
+
+- Expedite test runs and streamline troubleshooting by running tests in cloud-hosted browsers and publishing results to the service.
+- Run tests only in cloud-hosted browsers to finish test runs faster.
+- Publish test results to the service while continuing to run tests locally for efficient troubleshooting.
 
 ## Prerequisites
 
@@ -24,7 +37,7 @@ After you complete this quickstart, you'll have a Microsoft Playwright Testing w
 
 ## Create a workspace
 
-To get started with running your Playwright tests at scale on cloud browsers, first create a Microsoft Playwright Testing workspace in the Playwright portal.
+To get started with publishing test results on Playwright Testing service, first create a Microsoft Playwright Testing workspace in the Playwright portal.
 
 [!INCLUDE [Create workspace in Playwright portal](./includes/include-playwright-portal-create-workspace.md)]
 
@@ -40,7 +53,7 @@ npm init @azure/microsoft-playwright-testing
 
 This generates `playwright.service.config.ts` file which serves to:
 
-- Direct and authenticate Playwright to the Microsoft Playwright Testing service.
+- Direct and authenticate your Playwright client to the Microsoft Playwright Testing service.
 - Adds a reporter to publish test results and artifacts.
 
 If you already have this file, the package asks you to override it. 
@@ -61,6 +74,9 @@ export default defineConfig(
 );
 ```
 Setting this as `false` ensures that cloud-hosted browsers are not used to run the tests. The tests run on your local machine but the results and artifacts are published on the service. 
+
+> [!TIP]
+> If you wish to accelerate your test run using cloud-hosted browser, you can set `useCloudHostedBrowsers` as true, This will run your tests on the service managed browsers.
 
 ## Configure the service region endpoint
 
@@ -97,7 +113,7 @@ We recommend that you use the `dotenv` module to manage your environment. With `
 
 ## Set up Authentication
 
-To run your Playwright tests in your Microsoft Playwright Testing workspace, you need to authenticate the Playwright client where you're running the tests with the service. This could be your local dev machine or CI machine. 
+To publish test results and artifacts to your Microsoft Playwright Testing workspace, you need to authenticate the Playwright client where you're running the tests with the service. This could be your local dev machine or CI machine. 
 
 The service offers two authentication methods: Microsoft Entra ID and Access Tokens.
 
@@ -136,7 +152,7 @@ In the `playwright.config.ts` file of your project, make sure you are collecting
 
 ## Run your tests and publish results on Microsoft Playwright Testing
 
-You've now prepared the configuration for publishing test results with Microsoft Playwright Testing. Run tests using the newly created `playwright.service.config.ts` file and publish test results to the service.
+You've now prepared the configuration for publishing test results and artifacts with Microsoft Playwright Testing. Run tests using the newly created `playwright.service.config.ts` file and publish test results and artifacts to the service.
 
  ```bash
     npx playwright test --config=playwright.service.config.ts
@@ -164,7 +180,7 @@ You can now troubleshoot the failed test cases in the Playwright portal.
 
 
 > [!TIP]
-> You can also use Microsoft Playwright Testing service to run tests in parallel using cloud-hosted browsers. Both Reporting and cloud-hosted browsers are independent features and are billed separately. You can use either of these or both.  
+> You can also use Microsoft Playwright Testing service to run tests in parallel using cloud-hosted browsers. Both Reporting and cloud-hosted browsers are independent features and are billed separately. You can use either of these or both. For details, see [How to use service features](./how-to-use-service-features.md)
 
 > [!NOTE]
 > The test results and artifacts that you publish are retained on the service for 90 days. After that, they are automatically deleted.  

@@ -7,7 +7,7 @@ ms.date: 09/23/2024
 ---
  
 
-1. After your test run completes, a link to the Playwright Portal is generated. Click this link to view detailed test results and associated artifacts. The portal displays essential information, including:
+1. After your test run completes, a link to the Playwright Portal is generated. Open this link to view detailed test results and associated artifacts. The portal displays essential information, including:
     - CI build details
     - Overall test run status
     - The commit ID linked to the test run

@@ -69,6 +69,12 @@ If you haven't configured your Playwright tests yet for running them on cloud-ho
 
     :::code language="typescript" source="~/playwright-testing-service/samples/get-started/playwright.service.config.ts":::
 
+  By default, the service configuration enables you to:
+  - Accelerate build pipelines by running tests in parallel using cloud-hosted browsers.
+  - Simplify troubleshooting with easy access to test results and artifacts published to the service.
+
+  However, you can choose to use either of these feature or both. See [How to use service features](./how-to-use-service-features.md#manage-features-while-running-tests) and update the service configuration file as per your requirement. 
+
 1. Save and commit the file to your source code repository.
 
 ## Update package.json file 
@@ -196,7 +202,7 @@ You can now troubleshoot the CI pipeline in the Playwright portal,
 
 
 > [!TIP]
-> You can use Microsoft Playwright Testing service features independently. You can publish test results to the portal without using the cloud-hosted browsers feature and you can also use only cloud-hosted browsers to expedite your test suite without publishing test results. 
+> You can use Microsoft Playwright Testing service features independently. You can publish test results to the portal without using the cloud-hosted browsers feature and you can also use only cloud-hosted browsers to expedite your test suite without publishing test results. For details, see [How to use service features](./how-to-use-service-features.md).
 
 > [!NOTE]
 > The test results and artifacts that you publish are retained on the service for 90 days. After that, they are automatically deleted.  
