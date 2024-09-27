@@ -304,34 +304,34 @@ run().catch(console.error);
 
     ### [Windows command prompt](#tab/windowscommandprompt)
 
-    To run the app locally using the Windows command prompt, run the following command and replace `<app-configuration-store-connection-string>` with the connection string of your app configuration store:
+    To run the app locally using the Windows command prompt, run the following command and replace `<app-configuration-store-endpoint>` with the endpoint of your app configuration store:
 
     ```cmd
-    setx AZURE_APPCONFIG_CONNECTION_STRING "<app-configuration-store-connection-string>"
+    setx AZURE_APPCONFIG_ENDPOINT "<app-configuration-store-endpoint>"
     ```
 
     ### [PowerShell](#tab/powershell)
 
-    If you use Windows PowerShell, run the following command and replace `<app-configuration-store-connection-string>` with the connection string of your app configuration store:
+    If you use Windows PowerShell, run the following command and replace `<app-configuration-store-endpoint>` with the endpoint of your app configuration store:
 
     ```azurepowershell
-    $Env:AZURE_APPCONFIG_CONNECTION_STRING = "<app-configuration-store-connection-string>"
+    $Env:AZURE_APPCONFIG_ENDPOINT = "<app-configuration-store-endpoint>"
     ```
 
     ### [macOS](#tab/unix)
 
-    If you use macOS, run the following command and replace `<app-configuration-store-connection-string>` with the connection string of your app configuration store:
+    If you use macOS, run the following command and replace `<app-configuration-store-endpoint>` with the endpoint of your app configuration store:
 
     ```console
-    export AZURE_APPCONFIG_CONNECTION_STRING='<app-configuration-store-connection-string>'
+    export AZURE_APPCONFIG_ENDPOINT='<app-configuration-store-endpoint>'
     ```
 
     ### [Linux](#tab/linux)
 
-    If you use Linux, run the following command and replace `<app-configuration-store-connection-string>` with the connection string of your app configuration store:
+    If you use Linux, run the following command and replace `<app-configuration-store-endpoint>` with the endpoint of your app configuration store:
 
     ```console
-    export AZURE_APPCONFIG_CONNECTION_STRING='<app-configuration-store-connection-string>'
+    export AZURE_APPCONFIG_ENDPOINT='<app-configuration-store-endpoint>'
     ```
 
     ---
@@ -343,7 +343,7 @@ run().catch(console.error);
     Using the Windows command prompt, restart the command prompt to allow the change to take effect and run the following command:
 
     ```cmd
-    echo %AZURE_APPCONFIG_CONNECTION_STRING%
+    echo %AZURE_APPCONFIG_ENDPOINT%
     ```
 
     ### [PowerShell](#tab/powershell)
@@ -351,7 +351,7 @@ run().catch(console.error);
     If you use Windows PowerShell, run the following command:
 
     ```azurepowershell
-    $Env:AZURE_APPCONFIG_CONNECTION_STRING
+    $Env:AZURE_APPCONFIG_ENDPOINT
     ```
 
     ### [macOS](#tab/unix)
@@ -359,7 +359,7 @@ run().catch(console.error);
     If you use macOS, run the following command:
 
     ```console
-    echo "$AZURE_APPCONFIG_CONNECTION_STRING"
+    echo "$AZURE_APPCONFIG_ENDPOINT"
     ```
 
     ### [Linux](#tab/linux)
@@ -367,7 +367,7 @@ run().catch(console.error);
     If you use Linux, run the following command:
 
     ```console
-    echo "$AZURE_APPCONFIG_CONNECTION_STRING"
+    echo "$AZURE_APPCONFIG_ENDPOINT"
     ```
 
     ---
