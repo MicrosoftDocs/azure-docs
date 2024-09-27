@@ -8,7 +8,9 @@ ms.role: developer
 ms.devlang: javascript
 ms.author: msangapu
 author: msangapu-msft
-ms.custom: scenarios:getting-started, languages:javascript, devx-track-js, devdivchpfy22, AppServiceConnectivity
+ms.custom: scenarios:getting-started, languages:javascript, devx-track-js, devdivchpfy22, AppServiceConnectivity, devx-track-extended-azdevcli
+zone_pivot_groups: app-service-portal-azd
+ms.collection: ce-skilling-ai-copilot
 ---
 
 # Tutorial: Deploy a Node.js + MongoDB web app to Azure
@@ -618,7 +620,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 2. Add a few tasks to the list.
 
-    :::image type="content" source="./media/msdocs-nodejs-mongodb-azure-sample-app/azure-portal-browse-app-2.png" alt-text="A screenshot of the Express.js web app with Cosmos DB running in Azure showing tasks." lightbox="./media/msdocs-nodejs-mongodb-azure-sample-app/azure-portal-browse-app-2.png":::
+    :::image type="content" source="./media/tutorial-nodejs-mongodb-app/azure-portal-browse-app-2.png" alt-text="A screenshot of the Express.js web app with Cosmos DB running in Azure showing tasks." lightbox="./media/tutorial-nodejs-mongodb-app/azure-portal-browse-app-2.png":::
 
     Congratulations, you're running a web app in Azure App Service, with secure connectivity to Azure Cosmos DB.
 
