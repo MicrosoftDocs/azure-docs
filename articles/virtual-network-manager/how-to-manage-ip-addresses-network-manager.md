@@ -117,17 +117,22 @@ In this step, you review the allocation usage of the IP address pool. This helps
     | **Status** | The status of the allocation to the pool. |
     
     :::image type="content" source="media/how-to-manage-ip-addresses/review-ip-address-pool-allocations-by-resource.png" alt-text="Screenshot of ip address pool allocations highlighting individual resource information.":::
+
 ## Delegating permissions for IP address management
 
 In this step, you delegate permissions to other users to manage IP address pools in your network manager. This allows you to control access to the IP address pools and ensure that only authorized users can manage the pools.
 
 1. Browse to your IP address pool.
 2. In the left menu, select **Access control (IAM)**.
+3. In the **Access control (IAM)** window, select **+ Add**>**Add role assignment**.
+4. Under **Role**, select **IPAM Pool User** through the search bar under the **Job function roles** tab, and then select **Next**.
+5. On the **Members** tab, select how you wish to assign access to the role. You can assign access to a user, group, or service principal, or you can use a managed identity.
 
-You can also give other users permission to use an IPAM pool. This is useful when you want to let your users create a virtual network and make sure the virtual network that they create won't have overlap CIDRs.
-To do so, in IAM, add a role assignment of “IPAM Pool User" and assign access. 
+    :::image type="content" source="media/how-to-manage-ip-addresses/delegate-ip-address-pool-permissions.png" alt-text="Screenshot of the Add role assignment window with IPAM Pool User selected.":::
 
-:::image type="content" source="media/how-to-manage-ip-addresses/ip-address-pool-allocation-statistics-thumb.png" alt-text="Screenshot of ip address allocations page with resource allocations and statistics of ip address pool." lightbox="media/how-to-manage-ip-addresses/ip-address-pool-allocation-statistics.png":::
+6. Choose **+ Select members** and then **Select** the user, group,service principal, or managed identity that you want to assign the role to.
+7. Select **Review + assign** and then **Assign** to delegate permissions to the user.
+
 
 ## Create a virtual network with a nonoverlapping CIDR range
 
@@ -135,7 +140,21 @@ In this step, you create a virtual network with a nonoverlapping CIDR range by a
 
 1. In the Azure portal, search for and select **Virtual networks**.
 2. Select **+ Create**.
-3. 
+3. On the **Basics** tab, enter the following information:
+   
+    | Field | Description |
+    | --- | --- |
+    | **Subscription** | Select your subscription. |
+    | **Resource group** | Select the resource group for the virtual network. |
+    | **Name** | Enter a name for the virtual network. |
+    | **Region** | Select the region for the virtual network. |
 
+4. Select the **IP addresses** tab or **Next** > **Next**.
+5. On the **IP addresses** tab, select **Allocate using IPAM.*
+6. In the **Select an IPAM pool** window, select the IP address pool that you want to associate with the virtual network and then choose **Select**.
+7. From the dropdown menu next to your IP address pool, select the size for the virtual network.
+8. Select **Review + create** and then **Create** to create the virtual network.
+9. Once the virtual network is created, you can view the IP address pool that is associated with the virtual network under **Allocations** in the IP address pool.
 
-Instead of specifying a specific CIDR, you can choose to let IPAM to automatically provide a nonoverlapping CIDR. You can do so by choosing an IPAM pool and the size for the virtual network as shown below.
+## Next steps
+
