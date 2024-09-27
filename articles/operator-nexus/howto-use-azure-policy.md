@@ -65,9 +65,9 @@ The Operator Nexus service offers a built-in policy definition that is recommend
 
 ## Use Azure Policy to secure your Nexus Kubernetes cluster resources
 
-The Operator Nexus service offers a built-in policy definition that is recommended to assign to your Nexus Kubernetes cluster resources. This policy definition is called **[Preview]: Nexus compute cluster should meet security baseline**. This policy definition is used to ensure that your Nexus Kubernetes cluster resources are configured with industry best practice security settings.
+The Operator Nexus service offers a built-in initiative definition that is recommended to assign to your Nexus Kubernetes cluster resources. This initiative definition is called **[Preview]: Nexus compute cluster should meet security baseline**. This initiative definition is used to ensure that your Nexus Kubernetes cluster resources are configured with industry best practice security settings.
 
-- [[Preview]: Nexus compute cluster should meet security baseline](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fec2c1bce-5ad3-4b07-bb4f-e041410cd8db) UPDATE LINK!!!
+- [[Preview]: Nexus compute cluster should meet security baseline](https://portal.azure.com/#blade/Microsoft_Azure_Policy/InitiativeDetail.ReactView/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2F336cb876-5cb8-4795-b9d1-bd9323d3487e)
 
 ### Customizing Policies
 
@@ -81,7 +81,7 @@ Whether you're securing Nexus BMM resources or Nexus Kubernetes Clusters, the pr
 1. **Identify Suitable Policies**:
 
    - For Nexus Bare Metal Machine resources, consider the recommended **[Preview]: Nexus compute machines should meet security baseline** policy.
-   - For Nexus Kubernetes clusters, consider the recommended **[Preview]: Nexus compute cluster should meet security baseline** policy.
+   - For Nexus Kubernetes clusters, consider the recommended **[Preview]: Nexus compute cluster should meet security baseline** initiative.
 
 2. **Assign Policies**:
 
