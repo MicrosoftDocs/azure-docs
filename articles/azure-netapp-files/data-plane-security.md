@@ -56,7 +56,7 @@ For more information, see [Understand NAS share permissions](network-attached-st
 - NFSv3 and NFSv4.x use traditional UNIX file permissions that are represented by mode bits.
 - NFSv4.1 also supports advanced permissions using NFSv4.1 ACLs.
 
-For more information on file access permissions, see [Understand NAS file permissions](network-attached-file-permissions.md) and [Understand SMB file permissions](etwork-attached-file-permissions-smb.md).
+For more information on file access permissions, see [Understand NAS file permissions](network-attached-file-permissions.md) and [Understand SMB file permissions](network-attached-file-permissions-smb.md).
 
 ### Permission inheritance
 
@@ -70,11 +70,7 @@ Permission inheritance allows a parent folder to automatically apply its permiss
 - NFSv3 uses `umask` and `setgid` flags to mimic inheritance.
 - NFSv4.1 uses inheritance flags on ACLs. 
 - 
-For more details on permission inheritance, see:
-
-- [Understand NAS file permissions](network-attached-file-permissions.md),
-- [Understand NFS mode bits](network-attached-file-permissions-nfs.md), and
-- [Understand NFSv4.x ACLs](nfs-access-control-lists.md).
+For more details on permission inheritance, see [Understand NAS file permissions](network-attached-file-permissions.md), [Understand NFS mode bits](network-attached-file-permissions-nfs.md), and [Understand NFSv4.x ACLs](nfs-access-control-lists.md).
 
 #### Considerations
 
@@ -159,10 +155,10 @@ NSGs are collections of security rules that govern inbound and outbound traffic 
 
 For more information, see [Network Security Groups](../virtual-network/security-overview.md) and [What is a private endpoint?](../private-link/private-endpoint-overview.md)
 
-## Next steps 
+## More information 
 
 - [Understand NAS share permissions in Azure NetApp Files](network-attached-storage-permissions.md)
 - [Understand NAS protocols in Azure NetApp Files](network-attached-storage-protocols.md)
 - [Understand data encryption in Azure NetApp Files](understand-data-encryption.md)
 - [Security FAQs for Azure NetApp Files](faq-security.md)
-- [Guidelines for Azure NetApp Files Network Planning](azure-netapp-files-network-topologies.md)
+- [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md)
