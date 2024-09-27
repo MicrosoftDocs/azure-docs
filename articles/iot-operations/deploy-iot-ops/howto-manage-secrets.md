@@ -13,7 +13,7 @@ ms.date: 09/24/2024
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-Azure IoT Operations uses Azure Key Vault as the managed vault solution on the cloud, and uses [Azure Secret Store](#manage-secrets-for-your-azure-iot-operations-preview-deployment) to sync the secrets down from the cloud and store them on the edge as Kubernetes secrets.
+Azure IoT Operations uses Azure Key Vault as the managed vault solution on the cloud, and uses [Azure Key Vault Secret Store extension for Kubernetes](/azure/azure-arc/kubernetes/secret-store-extension) to sync the secrets down from the cloud and store them on the edge as Kubernetes secrets.
 
 >[!NOTE]
 >**Special instructions for AIO Internal Bugbash**:
@@ -28,7 +28,7 @@ Azure IoT Operations uses Azure Key Vault as the managed vault solution on the c
 
 ## Add and use secrets
 
-Secrets management for Azure IoT Operations uses Azure Secret Store to sync the secrets from an Azure Key Vault and store them on the edge as Kubernetes secrets. When you enabled secure settings during deployment, you selected an Azure Key Vault for secret management. It is in this Key Vault where all secrets to be used within Azure IoT Operations are stored. 
+Secrets management for Azure IoT Operations uses Secret Store extension to sync the secrets from an Azure Key Vault and store them on the edge as Kubernetes secrets. When you enabled secure settings during deployment, you selected an Azure Key Vault for secret management. It is in this Key Vault where all secrets to be used within Azure IoT Operations are stored. 
 
 > [!NOTE]
 > Azure IoT Operations instances work with only one Azure Key Vault, multiple key vaults per instance isn't supported.
@@ -37,7 +37,7 @@ Once the setup secrets management steps are completed, you can start adding secr
 
 Secrets are used in asset endpoints and dataflow endpoints for authentication. In this section, we use asset endpoints as an example, the same can be applied to dataflow endpoints. You have the following options when using a secret from the selected key vault:
 
-- **Create a new secret**: creates a secret reference in the Azure Key Vault and also automatically synchronizes the secret down to the edge using Azure Secret Store. Use this option if you didn't create the secret you require for this scenario in the key vault beforehand. 
+- **Create a new secret**: creates a secret reference in the Azure Key Vault and also automatically synchronizes the secret down to the edge using Secret Store extension. Use this option if you didn't create the secret you require for this scenario in the key vault beforehand. 
 
 - **Add from Azure Key Vault**: synchronizes an existing secret in key vault down to the edge if it wasn't synchronized before. Selecting this option shows you the list of secret references in the selected key vault. Use this option if you created the secret in the key vault beforehand.  
 
