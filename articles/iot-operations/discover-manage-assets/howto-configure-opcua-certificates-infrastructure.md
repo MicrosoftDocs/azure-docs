@@ -306,42 +306,38 @@ Like the previous examples, you use a dedicated Kubernetes secret to store the c
 
     ---
 
-1. Update the connector for OPC UA deployment to use the new `SecretProviderClass` source for application instance certificates by using the following command:
+1. Update the connector for OPC UA deployment to use the new `secret` source for application instance certificates by using the following command:
 
     # [Bash](#tab/bash)
 
     ```bash
-    TBD!!!!!!!!!!!!!!!!!!
-
-    az k8s-extension update \
-        --version 0.3.0-preview \
-        --name opc-ua-broker \
+   az k8s-extension update \
+        --version 0.7.0-preview \
+        --name azure-iot-operations-qlll2 \
         --release-train preview \
         --cluster-name <cluster-name> \
         --resource-group <azure-resource-group> \
         --cluster-type connectedClusters \
         --auto-upgrade-minor-version false \
-        --config securityPki.applicationCert=aio-opc-ua-broker-client-certificate \
-        --config securityPki.subjectName=<subjectName> \
-        --config securityPki.applicationUri=<applicationUri>
+        --config connectors.values.securityPki.applicationCert=aio-opc-ua-broker-client-certificate \
+        --config connectors.values.securityPki.subjectName=<subjectName> \
+        --config connectors.values.securityPki.applicationUri=<applicationUri>
     ```
 
     # [PowerShell](#tab/powershell)
 
     ```powershell
-    TBD!!!!!!!!!!!!!!!!!!
-
-    az k8s-extension update `
-        --version 0.3.0-preview `
-        --name opc-ua-broker `
+   az k8s-extension update `
+        --version 0.7.0-preview `
+        --name azure-iot-operations-qlll2 `
         --release-train preview `
         --cluster-name <cluster-name> `
         --resource-group <azure-resource-group> `
         --cluster-type connectedClusters `
         --auto-upgrade-minor-version false `
-        --config securityPki.applicationCert=aio-opc-ua-broker-client-certificate `
-        --config securityPki.subjectName=<subjectName> `
-        --config securityPki.applicationUri=<applicationUri>
+        --config connectors.values.securityPki.applicationCert=aio-opc-ua-broker-client-certificate `
+        --config connectors.values.securityPki.subjectName=<subjectName> `
+        --config connectors.values.securityPki.applicationUri=<applicationUri>
     ```
 
     ---
