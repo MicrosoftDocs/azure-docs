@@ -25,7 +25,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: Azure Spring Apps retirement announcement
-            url: ../enterprise/retirement-announcement.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
+            url: retirement-announcement.md
 
   # Card (optional)
   - title: Documentation for other plans

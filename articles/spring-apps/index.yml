@@ -21,7 +21,7 @@ highlightedContent:
     # Card
     - title: Retirement announcement
       itemType: overview
-      url: enterprise/retirement-announcement.md
+      url: basic-standard/retirement-announcement.md
     - title: What is Azure Spring Apps?
       itemType: overview
       url: enterprise/overview.md

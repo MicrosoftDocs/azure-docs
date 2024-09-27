@@ -38,7 +38,7 @@ The following section addresses several questions you might have about the migra
 
 ### Are there plans to retire any other Azure Spring Apps SKUs?
 
-Yes, other Azure Spring Apps plans are also retiring, with a three-year sunset period. For more information, see the [Azure Spring Apps retirement announcement](../enterprise/retirement-announcement.md).
+Yes, other Azure Spring Apps plans are also retiring, with a three-year sunset period. For more information, see the [Azure Spring Apps retirement announcement](../basic-standard/retirement-announcement.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json).
 
 ### What happens if I don't take any actions by March 30, 2025?
 
