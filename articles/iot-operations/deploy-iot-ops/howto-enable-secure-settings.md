@@ -63,13 +63,6 @@ Use the following steps to enable workload identity on an existing connected K3s
    #!/bin/bash
    az extension add --upgrade --source <PATH_TO_WHL_FILE>
    ```
-
-1. Export environment variables that the `az connectedk8s upgrade` command requires.
-
-   ```bash
-   export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
-   export HELMREGISTRY=azurearcfork8s.azurecr.io/public/azurearck8s/canary/stable/azure-arc-k8sagents:1.20.1
-   ```
  
 1. Use the [az connectedk8s upgrade](/cli/azure/connectedk8s#az-connectedk8s-upgrade) command to upgrade the Arc agent version to the private build that supports the workload identity feature.
 
