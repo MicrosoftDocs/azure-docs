@@ -159,7 +159,7 @@ Once you've subscribed to a workspace, here's how to connect:
 1. Select one of the icons to launch a session to Azure Virtual Desktop. You may be prompted to enter the password for your user account again, depending on how your admin has configured Azure Virtual Desktop.
 ::: zone-end
 
-::: zone pivot="remote-desktop-msi,avd-store"
+::: zone pivot="avd-store"
 ## Insider releases
 
 If you want to help us test new builds before they're released, you should download our Insider releases. Organizations can use the Insider releases to validate new versions for their users before they're generally available. For more information, see [Enable Insider releases](client-features-windows.md#enable-insider-releases).
