@@ -44,8 +44,10 @@ For the Stream Analytics job to access your Azure Data Explorer cluster using ma
 
 | Role          | Permissions                                                                         |
 |---------------|-------------------------------------------------------------------------------------|
-| Data ingestor | Can ingest data into all existing tables in the database, but can't query the data. |
-| Data monitor  | Can execute .show commands in the context of the database and its child entities.   |
+| Ingestor | Can ingest data into all existing tables in the database, but can't query the data. |
+| Monitor  | Can execute .show commands in the context of the database and its child entities.   |
+
+For more information about roles supported Azure Data Explorer, see [Role-based access control in Azure Data Explorer](/kusto/access-control/role-based-access-control?view=azure-data-explorer&preserve-view=true#roles-and-permissions).
 
 1. Select **Access control (IAM)**.
 
@@ -55,7 +57,7 @@ For the Stream Analytics job to access your Azure Data Explorer cluster using ma
 
     | Setting | Value |
     | --- | --- |
-    | Role | Data ingestor and Data monitor |
+    | Role | Ingestor and Monitor |
     | Assign access to | User, group, or service principal |
     | Members | \<Name of your Stream Analytics job> |
 

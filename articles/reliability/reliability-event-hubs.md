@@ -51,10 +51,6 @@ When you create availability zones in a region that supports them, availability 
 [Relocate Event Hubs to another region](../operational-excellence/relocation-event-hub.md).
 
 
-### Pricing
-Need Info. Any pricing considerations when using availability zones?
-
-
 ## Cross-region disaster recovery and business continuity
 
 [!INCLUDE [introduction to disaster recovery](includes/reliability-disaster-recovery-description-include.md)]
