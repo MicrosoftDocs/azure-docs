@@ -2,7 +2,7 @@
 title: Update Visual Studio's template deployment script to use Az PowerShell
 description: Update the Visual Studio template deployment script from AzureRM to Az PowerShell
 ms.topic: how-to
-ms.date: 06/23/2023
+ms.date: 09/26/2024
 ---
 
 # Update Visual Studio template deployment script to use Az PowerShell module
