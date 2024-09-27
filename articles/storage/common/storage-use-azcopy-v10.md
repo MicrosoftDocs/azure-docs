@@ -41,7 +41,7 @@ To learn more about these scenarios, see:
 - [Upload files to Azure Blob storage by using AzCopy](storage-use-azcopy-blobs-upload.md)
 - [Download blobs from Azure Blob Storage by using AzCopy](storage-use-azcopy-blobs-download.md)
 - [Copy blobs between Azure storage accounts by using AzCopy](storage-use-azcopy-blobs-copy.md)
-- [Synchronize with Azure Blob storage by using AzCopy](storage-use-azcopy-blobs-synchronize)
+- [Synchronize with Azure Blob storage by using AzCopy](storage-use-azcopy-blobs-synchronize.md)
 
 [!INCLUDE [storage-azcopy-change-support](includes/storage-azcopy-change-support.md)]
 
