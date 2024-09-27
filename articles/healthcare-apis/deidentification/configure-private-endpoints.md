@@ -23,6 +23,7 @@ For more information, see [What is Azure Private Link?](../../private-link/priva
 
 > [!IMPORTANT]
 > Before enabling Private Endpoint access to your de-identification service (preview), you will need to [create a support request](/azure/azure-portal/supportability/how-to-create-azure-support-request) to request access to this feature for your subscription.
+> Create the request under **Azure Health Data Services > General question > De-identification service > Configuration and management**
 
 - A de-identification service in your Azure subscription. If you don't have a de-identification service, follow the steps in [Quickstart: Deploy the de-identification service](quickstart.md).
 - Owner or contributor permissions for the de-identification service.
