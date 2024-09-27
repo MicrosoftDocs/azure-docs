@@ -184,7 +184,7 @@ You need to create an [app configuration policy for managed apps](/mem/intune/ap
 
 To create and apply an app configuration policy for managed apps, follow the steps in [App configuration policies for Intune App SDK managed apps](/mem/intune/apps/app-configuration-policies-managed-app) and use the following settings:
 
-- On the **Basics** tab, search for and select **Windows App** or **Remote Desktop**.
+- On the **Basics** tab, select **Select public apps**, then search for and select **Remote Desktop**. Selecting **Remote Desktop** applies to both Windows App and the Remote Desktop app.
 
 - On the **Settings** tab, expand **General configuration settings**, then enter the following name and value pairs for each redirection setting you want to configure exactly as shown. These values correspond to the RDP properties listed on [Supported RDP properties](/azure/virtual-desktop/rdp-properties#device-redirection), but the syntax is different: 
 
@@ -207,12 +207,8 @@ You need to create an [app protection policy](/mem/intune/apps/app-protection-po
 
 To create and apply an app protection policy, follow the steps in [How to create and assign app protection policies](/mem/intune/apps/app-protection-policies) and use the following settings. You need to create an app protection policy for each platform you want to target.
 
-- On the **Apps** tab, do the following, depending on whether you're targeting Windows App or the Remote Desktop app
-
-   - For Windows App on iOS/iPadOS, select **Select public apps**, then search for and select  **Windows App**.
-
-   - For the Remote Desktop app on Android, select **Select public apps**, then search for and select **Remote Desktop**.
-
+- On the **Apps** tab, select **Select public apps**, then search for and select **Remote Desktop**. Selecting **Remote Desktop** applies to both Windows App and the Remote Desktop app.
+  
 - On the **Data protection** tab, only the following settings are relevant to Windows App and the Remote Desktop app. The other settings don't apply as Windows App and the Remote Desktop app interact with the session host and not with data in the app. On mobile devices, unapproved keyboards are a source of keystroke logging and theft.
 
    - For iOS and iPadOS you can configure the following settings:
@@ -284,6 +280,4 @@ Now that you configure Intune to manage device redirection on personal devices, 
 
 ## Known issues
 
-Configuring redirection settings for Windows App and the Remote Desktop app on a client device using Microsoft Intune has the following limitation:
-
-- When you configure client device redirection for the Remote Desktop app or Windows App on iOS and iPadOS, multifactor authentication (MFA) requests might get stuck in a loop. A common scenario of this issue happens when the Remote Desktop app or Windows App is being run on an Intune enrolled iPhone and the same iPhone is being used to receive MFA requests from the Microsoft Authenticator app when signing into the Remote Desktop app or Windows App. To work around this issue, use the Remote Desktop app or Windows App on a different device (such as an iPad) from the device being used to receive MFA requests (such as an iPhone).
+When creating an App Configuration Policy or an App Protection Policy, Remote Desktop is still shown instead of Windows App. This will be updated soon.
