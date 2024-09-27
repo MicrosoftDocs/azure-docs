@@ -2631,6 +2631,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/migrate/migrate-v1.md",
+      "redirect_url": "/azure/migrate/migrate-services-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/mobile-apps/concepts/analytics.md",
       "redirect_url": "/azure/developer/mobile-apps/analytics",
       "redirect_document_id": false
