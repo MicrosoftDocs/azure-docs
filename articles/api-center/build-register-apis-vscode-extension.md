@@ -180,5 +180,5 @@ You can also export a specification using the Command Palette:
 ## Related content
 
 * [Azure API Center - key concepts](key-concepts.md)
-* [Enable platform API catalog in Visual Studio Code](enable-platform-api-catalog-vscode-extension.md)
+* [Enable and view platform API catalog in Visual Studio Code](enable-platform-api-catalog-vscode-extension.md)
 

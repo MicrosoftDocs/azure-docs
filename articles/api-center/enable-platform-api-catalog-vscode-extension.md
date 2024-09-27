@@ -4,21 +4,25 @@ description: Enable enterprise developers to view the enterprise's platform API 
 author: dlepow
 ms.service: azure-api-center
 ms.topic: how-to
-ms.date: 09/23/2024
+ms.date: 09/27/2024
 ms.author: danlep 
 ms.custom: 
 # Customer intent: As an API program manager, I want to enable an API catalog so that app developers in my organization can discover and consume the APIs in my organization's API center without needing to manage the API inventory itself.
 ---
 
-# Enable access to Azure API Center platform API catalog 
+# Enable and view Azure API Center platform API catalog 
 
 This article shows how to provide enterprise developers access to the Azure API Center platform API catalog (preview) in the Visual Studio Code extension for [Azure API Center](overview.md). Using the platform API catalog, developers can discover APIs in your Azure API center, view API definitions, and optionally generate API clients when they don't have access to manage the API center itself or add APIs to the inventory. Access to the platform API catalog is managed using Microsoft Entra ID and Azure role-based access control.
 
 ## Prerequisites
 
+### For API center administrators
+
 * An API center in your Azure subscription. If you haven't created one already, see [Quickstart: Create your API center](set-up-api-center.md).
 
 * Permissions to create an app registration in a Microsoft Entra tenant associated with your Azure subscription, and permissions to grant access to data in your API center. 
+
+### For app developers
 
 * [Azure API Center extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=apidev.azure-api-center)
 
@@ -29,7 +33,11 @@ The following Visual Studio Code extension is optional:
 
 * [Microsoft Kiota extension](https://marketplace.visualstudio.com/items?itemName=ms-graph.kiota) - to generate API clients
 
-## Create Microsoft Entra app registration
+## Steps for API center administrators to enable access to catalog
+
+The following sections provide steps for API center administrators to enable enterprise developers to access the platform API catalog.
+
+### Create Microsoft Entra app registration
 
 First, configure an app registration in your Microsoft Entra ID tenant. The app registration enables the Visual Studio Code extension for Azure API Center to access the platform API catalog on behalf of a signed-in user.
 
@@ -62,9 +70,9 @@ First, configure an app registration in your Microsoft Entra ID tenant. The app 
 
     :::image type="content" source="media/enable-platform-api-catalog-vscode-extension/configure-app-permissions.png" alt-text="Screenshot of required permissions in Microsoft Entra ID app registration in the portal." :::
 
-## Enable sign-in to platform API catalog by Microsoft Entra users and groups 
+### Enable sign-in to platform API catalog by Microsoft Entra users and groups 
 
-Developers in the enterprise must sign in to see the platform API catalog for your API center. To enable sign-in, assign the **Azure API Center Data Reader** role to users or groups in your organization, scoped to your API center.
+Enterprise developers must sign in with a Microsoft account to see the platform API catalog for your API center. If needed, add or invite developers to your Microsoft Entra tenant. Then, to enable sign-in, assign the **Azure API Center Data Reader** role to users or groups in your tenant, scoped to your API center.
 
 > [!IMPORTANT]
 > By default, you and other administrators of the API center don't have access to APIs in the API Center extension's platform API catalog. Be sure to assign the **Azure API Center Data Reader** role to yourself and other administrators.  
@@ -83,9 +91,11 @@ For detailed prerequisites and steps to assign a role to users and groups, see [
 > [!NOTE]
 > To streamline access configuration for new users, we recommend that you assign the role to a Microsoft Entra group and configure a dynamic group membership rule. To learn more, see [Create or update a dynamic group in Microsoft Entra ID](/entra/identity/users/groups-create-rule).
 
-## Steps to access the platform API catalog in Visual Studio Code 
+## Steps for enterprise developers to access the platform API catalog 
 
-Developers in the enterprise can follow these steps to connect and sign in to view a platform API catalog using the Visual Studio code extension.
+Developers can follow these steps to connect and sign in to view a platform API catalog using the Visual Studio Code extension. Settings to connect to the API center need to be provided by the API center administrator.
+
+### Connect to an API center
 
 1. Install the pre-release version of the [Azure API Center extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=apidev.azure-api-center) for Visual Studio Code. 
 
@@ -95,15 +105,15 @@ Developers in the enterprise can follow these steps to connect and sign in to vi
 
 1. Use the **Ctrl+Shift+P** keyboard shortcut to open the Command Palette. Type **Azure API Center: Connect to an API Center** and hit **Enter**.
 1. Answer the prompts to input the following information:
-    1. The runtime URL of your API center, in the format `<service name>.data.<region>.azure-apicenter.ms` (don't prefix with `https://`). Example: `contoso-apic.data.eastus.azure-apicenter.ms`.
-    1. The application (client) ID from the app registration configured in the previous section.
-    1. The directory (tenant) ID from the app registration configured in the previous section.
+    1. The runtime URL of your API center, in the format `<service name>.data.<region>.azure-apicenter.ms` (don't prefix with `https://`). Example: `contoso-apic.data.eastus.azure-apicenter.ms`. This runtime URL appears on the **Overview** page of the API center in the Azure portal.
+    1. The application (client) ID from the app registration configured by the administrator in the previous section.
+    1. The directory (tenant) ID from the app registration configured by the administrator in the previous section.
 
     > [!TIP]
-    > An API center administrator needs to provide these connection settings to developers, or provide a direct link in the following format:  
+    > An API center administrator needs to provide these connection details to developers, or provide a direct link in the following format:  
     > `vscode://apidev.azure-api-center?clientId=<Client ID>&tenantId=<tenant ID>&runtimeUrl=<service-name>.data.<region>.azure-apicenter.ms`
 
-    After you connect to the API center, the API center appears in the API Center platform API catalog. 
+    After you connect to the API center, the name of the API center appears in the API Center platform API catalog. 
 
 1. To view the APIs in the API center, under the API center name, select **Sign in to Azure**. Sign-in is allowed with a Microsoft account that is assigned the **Azure API Center Data Reader** role in the API center. 
 
@@ -115,7 +125,7 @@ Developers in the enterprise can follow these steps to connect and sign in to vi
 
 1. Repeat the preceding steps to connect to more API centers, if access is configured.
 
-## Discover and consume APIs in the catalog
+### Discover and consume APIs in the catalog
 
 The platform API catalog helps enterprise developers discover API details and start API client development. Developers can access the following features by right-clicking on an API definition in the platform API catalog:
 
