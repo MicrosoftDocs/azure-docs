@@ -5,6 +5,10 @@ items:
     items:
       - name: What is Azure Modeling and Simulation Workbench?
         href: modeling-simulation-workbench-overview.md
+  - name: Quickstarts
+    items:
+      - name: Add users
+        href: ./quickstart-add-users.md
   - name: Concepts
     items:
       - name: Workbench
