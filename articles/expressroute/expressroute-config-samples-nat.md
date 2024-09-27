@@ -4,7 +4,7 @@ description: This page provides router configuration samples for Cisco and Junip
 services: expressroute
 author: duongau
 ms.service: azure-expressroute
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/28/2023
 ms.author: duau
 ---

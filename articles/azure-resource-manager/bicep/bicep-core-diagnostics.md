@@ -143,7 +143,7 @@ If you need more information about a particular diagnostic code, select the **Fe
 | <a id='BCP136' />BCP136 | Error | Expected a loop item variable identifier at this location. |
 | <a id='BCP137' />BCP137 | Error | Loop expected an expression of type "{LanguageConstants.Array}" but the provided value is of type "{actualType}". |
 | <a id='BCP138' />BCP138 | Error | For-expressions aren't supported in this context. For-expressions may be used as values of resource, module, variable, and output declarations, or values of resource and module properties. |
-| <a id='BCP139' />BCP139 | Warning | A resource's scope must match the scope of the Bicep file for it to be deployable. You must use modules to deploy resources to a different scope. |
+| <a id='BCP083' />[BCP139](./diagnostics/bcp139.md) | Error | A resource's scope must match the scope of the Bicep file for it to be deployable. You must use modules to deploy resources to a different scope. |
 | <a id='BCP140' />BCP140 | Error | The multi-line string at this location isn't terminated. Terminate it with "'''. |
 | <a id='BCP141' />BCP141 | Error | The expression can't be used as a decorator as it isn't callable. |
 | <a id='BCP142' />BCP142 | Error | Property value for-expressions can't be nested. |
@@ -171,7 +171,7 @@ If you need more information about a particular diagnostic code, select the **Fe
 | <a id='BCP167' />BCP167 | Error | Expected the "{" character or the "if" keyword at this location. |
 | <a id='BCP168' />BCP168 | Error | Length must not be a negative value. |
 | <a id='BCP169' />BCP169 | Error | Expected resource name to contain {expectedSlashCount} "/" character(s). The number of name segments must match the number of segments in the resource type. |
-| <a id='BCP170' />BCP170 | Error | Expected resource name to not contain any "/" characters. Child resources with a parent resource reference (via the parent property or via nesting) must not contain a fully-qualified name. |
+| <a id='BCP170' />BCP170 | Error | Expected resource name to not contain any "/" characters. Child resources with a parent resource reference (via the parent property or via nesting) must not contain a fully qualified name. |
 | <a id='BCP171' />BCP171 | Error | Resource type "{resourceType}" isn't a valid child resource of parent "{parentResourceType}". |
 | <a id='BCP172' />BCP172 | Error | The resource type can't be validated due to an error in parent resource "{resourceName}". |
 | <a id='BCP173' />BCP173 | Error | The property "{property}" can't be used in an existing resource declaration. |
@@ -258,7 +258,7 @@ If you need more information about a particular diagnostic code, select the **Fe
 | <a id='BCP261' />BCP261 | Error | A using declaration must be present in this parameters file. |
 | <a id='BCP262' />BCP262 | Error | More than one using declaration is present. |
 | <a id='BCP263' />BCP263 | Error | The file specified in the using declaration path doesn't exist. |
-| <a id='BCP264' />BCP264 | Error | Resource type "{resourceTypeName}" is declared in multiple imported namespaces ({ToQuotedStringWithCaseInsensitiveOrdering(namespaces)}), and must be fully-qualified. |
+| <a id='BCP264' />BCP264 | Error | Resource type "{resourceTypeName}" is declared in multiple imported namespaces ({ToQuotedStringWithCaseInsensitiveOrdering(namespaces)}), and must be fully qualified. |
 | <a id='BCP265' />BCP265 | Error | The name "{name}" isn't a function. Did you mean "{knownFunctionNamespace}.{knownFunctionName}"? |
 | <a id='BCP266' />[BCP266](./diagnostics/bcp266.md) | Error | Expected a metadata identifier at this location. |
 | <a id='BCP267' />BCP267 | Error | Expected a metadata declaration after the decorator. |

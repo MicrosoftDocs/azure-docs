@@ -12,7 +12,7 @@ ms.custom: vmware-scenario-422, engagement-fy23
 
 # Set up an appliance for servers in a VMware environment
 
-This article describes how to set up the Azure Migrate appliance for assessment by using the [Azure Migrate: Discovery and assessment](../migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) tool.
+This article describes how to set up the Azure Migrate appliance for assessment by using the [Azure Migrate: Discovery and assessment](../migrate-services-overview.md) tool.
 
 The [Azure Migrate appliance](../migrate-appliance.md) is a lightweight appliance that the Azure Migrate: Discovery and assessment tool uses to discover servers running in vCenter Server and to send server configuration and performance metadata to Azure.
 
@@ -33,7 +33,7 @@ After you create the appliance, check if the appliance can connect to Azure Migr
 To set up the appliance by using an OVA template, you'll complete these steps, which are described in detail in this section:
 
 > [!NOTE]
-> OVA templates are not available for soverign clouds.
+> OVA templates are not available for sovereign clouds.
 
 > [!NOTE]
 > Do not clone or create a VM template out of an appliance deployed using OVA template. This scenario is unsupported and may result in deployment failures within the Migrate Service.
