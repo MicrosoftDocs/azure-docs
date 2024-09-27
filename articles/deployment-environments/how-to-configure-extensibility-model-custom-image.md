@@ -57,6 +57,8 @@ You can take one of the following approaches to use container images with ADE:
  
 Regardless of which approach you choose, you must specify the container image in your environment definition to deploy your Azure resources.
 
+### [Use a sample container image](#tab/sample/)
+
 ::: zone pivot="arm-bicep"
 ## Use a sample container image
 
@@ -97,7 +99,9 @@ templatePath: Pulumi.yaml
 You can find a few sample environment definitions in the [Environments folder](https://github.com/pulumi/azure-deployment-environments/tree/main/Environments).
 ::: zone-end
 
-## Create a custom container image
+### [Use a custom container image](#tab/custom/)
+
+## Use a custom container image
 
 Creating a custom container image allows you to customize your deployments to fit your requirements. You can create custom images based on the ADE sample images.
 
@@ -464,6 +468,7 @@ stackout=$(pulumi stack output --json | jq -r 'to_entries|.[]|{(.key): {type: "s
 echo "{\"outputs\": ${stackout:-{\}}}" > $ADE_OUTPUTS
 ```
 ::: zone-end
+---
 
 ## Build a custom image
 
