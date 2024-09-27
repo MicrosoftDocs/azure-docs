@@ -13,7 +13,7 @@ ms.date: 09/27/2024
 
 # Quickstart: Connect to desktop
 
-Once a workbench has been created, users can connect directly to the dashboard without visiting the portal. In this quickstart, you will connect to your Modeling and Simulation Workbench desktops and learn how to manage the desktop dashboard URLs.
+After you create a workbench, users can connect directly to the dashboard without visiting the portal. In this quickstart, you'll learn how to connect to your Modeling and Simulation Workbench desktops and learn how to manage the desktop dashboard URLs.
 
 If you don't have a service subscription, [create a free
 trial account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
@@ -22,11 +22,11 @@ trial account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 
 [!INCLUDE [prerequisite-mswb-chamber](includes/prerequisite-chamber.md)]
 
-* If using a public IP connector, your current public facing IP address must be on the allow-list.
+* If using a public IP connector, your current public facing IP address must be on the allowlist.
 
 ## Locate the desktop dashboard URL
 
-Each [connector](concept-connector.md) has a **Desktop dashboard** URL that opens the dashboard of all created VMs. The dashboard URL can be distributed to users directly so that they don't have to visit the Azure portal and navigate to the connector. You will need to navigate to the connector to obtain the dashboard URL.
+Each [connector](concept-connector.md) has a **Desktop dashboard** URL that opens the dashboard of all created VMs. The dashboard URL can be distributed to users directly so that they don't have to visit the Azure portal and navigate to the connector. You need to navigate to the connector to obtain the dashboard URL.
 
 > [!TIP]
 > From the resource group listing, you can select **Manage view** / **Show hidden types** to directly show all the nested resources of the workbench and select the connector from there without having to navigate the workbench hierarchy.
@@ -41,10 +41,10 @@ Each [connector](concept-connector.md) has a **Desktop dashboard** URL that open
 
 ## Open the desktop
 
-1. In the connector overview screen, the **Desktop dashboard** link is in the right column. Select the *copy* icon to copy the URL to your clipboard or click on it. Clicking the link will open a new tab or window.
+1. In the connector overview screen, the **Desktop dashboard** link is in the right column. Select the *copy* icon to copy the URL to your clipboard or select on it. Clicking the link opens a new tab or window.
     :::image type="content" source="media/quickstart-connect-desktop/connector-dashboard-url.png" alt-text="Screenshot of connector overview page with desktop dashboard URL highlighted in a red rectangle.":::
-1. The dashboard screen will open presenting all available VMs.
-1. Select a VM. If you have not previously installed the desktop client, you will be prompted to do so. There is also a web client which does not require a local client to be installed.
+1. The dashboard screen opens presenting all available VMs.
+1. Select a virtual machine (VM). If you don't have the desktop client installed, you're prompted to do so. There's also a web client which doesn't require a local client to be installed.
 
 ## Next step
 
