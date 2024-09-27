@@ -16,9 +16,7 @@ This document contains information about new features and other changes to the M
 
 ## v3 (latest)
 
-### [3.4.0]
-- CDN: Sep 30, 2024
-- npm: TBA
+### [3.4.0] (CDN: Sep 30, 2024, npm: TBA)
 
 #### New features (3.4.0)
 - Add support for PMTiles.
