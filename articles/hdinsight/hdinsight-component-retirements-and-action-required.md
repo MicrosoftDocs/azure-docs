@@ -25,11 +25,11 @@ HDInsight bundles open-source components and HDInsight platform into a package t
 
 ### HDInsight versions 
 
-| HDInsight version | VM OS | Release date| Support type | Support expiration date | Retirement date | High availability |
-| --- | --- | --- | --- | --- | --- | ---|
-| [HDInsight 5.1](./hdinsight-5x-component-versioning.md) |Ubuntu 18.0.4 LTS |November 1, 2023 | [Standard](hdinsight-component-versioning.md#support-options-for-hdinsight-versions) | Not announced |Not announced| Yes |
-| [HDInsight 5.0](./hdinsight-5x-component-versioning.md) |Ubuntu 18.0.4 LTS |March 11, 2022 | [Basic](hdinsight-component-versioning.md#support-options-for-hdinsight-versions) | March 31, 2025 | March 31, 2025| Yes |
-| HDInsight 4.0 |Ubuntu 18.0.4 LTS |September 24, 2018 | [Basic](hdinsight-component-versioning.md#support-options-for-hdinsight-versions) | March 31, 2025 | March 31, 2025 |Yes |
+| HDInsight version | VM OS | Release date| Support type | Support expiration date | Retirement date | High availability | Action Required|
+| --- | --- | --- | --- | --- | --- | ---|---|
+| [HDInsight 5.1](./hdinsight-5x-component-versioning.md) |Ubuntu 18.0.4 LTS |November 1, 2023 | [Standard](hdinsight-component-versioning.md#support-options-for-hdinsight-versions) | Not announced |Not announced| Yes |-|
+| [HDInsight 5.0](./hdinsight-5x-component-versioning.md) |Ubuntu 18.0.4 LTS |March 11, 2022 | [Basic](hdinsight-component-versioning.md#support-options-for-hdinsight-versions) | March 31, 2025 | March 31, 2025| Yes | ./hdinsight-5x-component-versioning.md|
+| HDInsight 4.0 |Ubuntu 18.0.4 LTS |September 24, 2018 | [Basic](hdinsight-component-versioning.md#support-options-for-hdinsight-versions) | March 31, 2025 | March 31, 2025 |Yes | https://azure.microsoft.com/en-us/updates/azure-hdinsight-40-will-be-retired-on-31-march-2025-migrate-your-hdinsight-clusters-to-51/ |
 
 
 **Support expiration** means that Microsoft no longer provides support for the specific HDInsight version. You might not be able to create clusters from the Azure portal. 
@@ -40,7 +40,7 @@ HDInsight bundles open-source components and HDInsight platform into a package t
 |Retirement Item | Retirement Date | Action Required by Customers| 
 |-|-|-|
 |[Basic and Standard A-series VMs Retirement](https://azure.microsoft.com/updates/basic-and-standard-aseries-vms-on-hdinsight-will-retire-on-31-august-2024/) |August 31, 2024 |[Av1-series retirement - Azure Virtual Machines](/azure/virtual-machines/sizes/migration-guides/av1-series-retirement) |
-|[Azure Monitor experience (preview)](https://azure.microsoft.com/en-us/updates/v2/hdinsight-azure-monitor-experience-retirement/) | February 01, 2025 |Azure Monitor Agent (AMA) migration guide for Azure HDInsight clusters |
+|[Azure Monitor experience (preview)](https://azure.microsoft.com/en-us/updates/v2/hdinsight-azure-monitor-experience-retirement/) | February 01, 2025 |[Azure Monitor Agent (AMA) migration guide for Azure HDInsight clusters](./azure-monitor-agent.md) |
 |Basic Load Balancer| | |
 |ADDS MFA | | |
 
