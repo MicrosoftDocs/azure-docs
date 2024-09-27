@@ -274,7 +274,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 ## 4. Deploy sample code
 
-In this step, you'll configure GitHub deployment using GitHub Actions. It's just one of many ways to deploy to App Service, but also a great way to have continuous integration in your deployment process. By default, every `git push` to your GitHub repository will kick off the build and deploy action.
+In this step, you configure GitHub deployment using GitHub Actions. It's just one of many ways to deploy to App Service, but also a great way to have continuous integration in your deployment process. By default, every `git push` to your GitHub repository kicks off the build and deploy action.
 
 :::row:::
     :::column span="2":::
@@ -366,7 +366,7 @@ In this step, you'll configure GitHub deployment using GitHub Actions. It's just
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
-## 4. Browse to the app
+## 5. Browse to the app
 
 :::row:::
     :::column span="2":::
@@ -388,7 +388,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
     :::column-end:::
 :::row-end:::
 
-## 5. Stream diagnostic logs
+## 6. Stream diagnostic logs
 
 Azure App Service captures all messages logged to the console to assist you in diagnosing issues with your application. The sample app outputs console log messages in each of its endpoints to demonstrate this capability. For example, the `get` endpoint outputs a message about the number of tasks retrieved from the database and an error message appears if something goes wrong.
 
@@ -414,7 +414,7 @@ Azure App Service captures all messages logged to the console to assist you in d
     :::column-end:::
 :::row-end:::
 
-## 6. Inspect deployed files using Kudu
+## 7. Inspect deployed files using Kudu
 
 Azure App Service provides a web-based diagnostics console named [Kudu](./resources-kudu.md) that lets you examine the server hosting environment for your web app. Using Kudu, you can view the files deployed to Azure, review the deployment history of the application, and even open an SSH session into the hosting environment.
 
@@ -438,7 +438,7 @@ Azure App Service provides a web-based diagnostics console named [Kudu](./resour
 :::row-end:::
 :::row:::
     :::column span="2":::
-        If you have deployed code to App Service using Git or zip deploy, you'll see a history of deployments of your web app.
+        If you deploy code to App Service using Git or zip deploy, you see a history of deployments of your web app.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-nodejs-mongodb-app/azure-portal-inspect-kudu-3.png" alt-text="A screenshot showing deployment history of an App Service app in JSON format." lightbox="./media/tutorial-nodejs-mongodb-app/azure-portal-inspect-kudu-3.png":::
@@ -454,14 +454,14 @@ Azure App Service provides a web-based diagnostics console named [Kudu](./resour
 :::row-end:::
 :::row:::
     :::column span="2":::
-        You can see the deployed folder structure and click to browse and view the files.
+        You can see the deployed folder structure and select to browse and view the files.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-nodejs-mongodb-app/azure-portal-inspect-kudu-5.png" alt-text="A screenshot of deployed files in the wwwroot directory." lightbox="./media/tutorial-nodejs-mongodb-app/azure-portal-inspect-kudu-5.png":::
     :::column-end:::
 :::row-end:::
 
-## 7. Clean up resources
+## 8. Clean up resources
 
 When you're finished, you can delete all of the resources from your Azure subscription by deleting the resource group.
 
@@ -567,14 +567,13 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 ## 4. Modify sample code and redeploy
 
-
 # [With GitHub Copilot](#tab/copilot)
 
 1. In the GitHub codespace, start a new chat session by clicking the **Chat** view, then clicking **+**. 
 
 1. Ask, "*@workspace How does the app connect to the database?*" Copilot might point you to the *app.js* file and the `mongoose.connect` call.
 
-1. Say, "*I have a connection string variable in Azure called AZURE_COSMOS_CONNECTIONSTRING.". Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps below and even tell you to make the change in [app.js](https://github.com/Azure-Samples/msdocs-nodejs-mongodb-azure-sample-app/blob/main/app.js).
+1. Say, "*I have a connection string variable in Azure called AZURE_COSMOS_CONNECTIONSTRING.*". Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps below and even tell you to make the change in [app.js](https://github.com/Azure-Samples/msdocs-nodejs-mongodb-azure-sample-app/blob/main/app.js).
 
 1. Open *app.js* in the explorer and add the code suggestion in the `getApp` method.
 
@@ -607,7 +606,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
-## 4. Browse to the app
+## 5. Browse to the app
 
 1. In the AZD output, find the URL of your app and navigate to it in the browser. The URL looks like this in the AZD output:
 
@@ -626,7 +625,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
-## 5. Stream diagnostic logs
+## 6. Stream diagnostic logs
 
 Azure App Service captures all messages logged to the console to assist you in diagnosing issues with your application. The sample app outputs console log messages in each of its endpoints to demonstrate this capability. For example, the `get` endpoint outputs a message about the number of tasks retrieved from the database and an error message appears if something goes wrong.
 
@@ -642,7 +641,7 @@ Learn more about logging in Java apps in the series on [Enable Azure Monitor Ope
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
-## 6. Clean up resources
+## 7. Clean up resources
 
 To delete all Azure resources in the current deployment environment, run `azd down` and follow the prompts.
 
@@ -680,7 +679,7 @@ You probably still need to make the connection string changes in your applicatio
 
 #### How much does this setup cost?
 
-Pricing for the create resources is as follows:
+Pricing for the created resources is as follows:
 
 - The App Service plan is created in **Basic** tier and can be scaled up or down. See [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/).
 - The Azure Cosmos DB server is created in a single region and can be distributed to other regions. See [Azure Cosmos DB pricing](https://azure.microsoft.com/pricing/details/cosmos-db/).
