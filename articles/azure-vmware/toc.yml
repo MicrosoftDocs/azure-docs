@@ -51,6 +51,8 @@ items:
     href: enable-sql-azure-hybrid-benefit.md
   - name: Save costs with a reserved instance
     href: reserved-instance.md
+  - name: Azure hybrid benefit for Windows Server, SQL Server, and Linux subscriptions
+    href: sql-server-hybrid-benefit.md
 - name: Architecture
   items:
   - name: Private clouds and clusters

@@ -12,6 +12,8 @@ ms.author: duau
 
 # Retrieve the current POP IP list for Azure Content Delivery Network
 
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
+
 <a name='retrieve-the-current-verizon-pop-ip-list-for-azure-cdn'></a>
 
 <a name='retrieve-the-current-edgio-pop-ip-list-for-azure-cdn'></a>
