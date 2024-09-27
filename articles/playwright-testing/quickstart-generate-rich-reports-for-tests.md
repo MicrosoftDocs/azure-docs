@@ -8,7 +8,7 @@ ms.custom: playwright-testing-preview
 
 # Quickstart: Troubleshoot tests with Microsoft Playwright Testing Preview
 
-In this quickstart, you learn how to troubleshoot your Playwright tests easily using reports and artifacts published on Microsoft Playwright Testing Preview. Additionally, this guide demonstrates how to utilize the reporting feature, regardless of whether you are running tests on the cloud-hosted browsers provided by the service.
+In this quickstart, you learn how to troubleshoot your Playwright tests easily using reports and artifacts published on Microsoft Playwright Testing Preview. Additionally, this guide demonstrates how to utilize the reporting feature, regardless of whether you're running tests on the cloud-hosted browsers provided by the service.
 
 After you complete this quickstart, you'll have a Microsoft Playwright Testing workspace to view test results and artifacts in the service portal.
 
@@ -51,7 +51,7 @@ To use the service, install the Microsoft Playwright Testing package.
 npm init @azure/microsoft-playwright-testing
 ```
 
-This generates `playwright.service.config.ts` file which serves to:
+This command generates `playwright.service.config.ts` file which serves to:
 
 - Direct and authenticate your Playwright client to the Microsoft Playwright Testing service.
 - Adds a reporter to publish test results and artifacts.
@@ -73,7 +73,7 @@ export default defineConfig(
   }
 );
 ```
-Setting this as `false` ensures that cloud-hosted browsers are not used to run the tests. The tests run on your local machine but the results and artifacts are published on the service. 
+Setting the value as `false` ensures that cloud-hosted browsers aren't used to run the tests. The tests run on your local machine but the results and artifacts are published on the service. 
 
 > [!TIP]
 > If you wish to accelerate your test run using cloud-hosted browser, you can set `useCloudHostedBrowsers` as true, This will run your tests on the service managed browsers.
@@ -113,7 +113,7 @@ We recommend that you use the `dotenv` module to manage your environment. With `
 
 ## Set up Authentication
 
-To publish test results and artifacts to your Microsoft Playwright Testing workspace, you need to authenticate the Playwright client where you're running the tests with the service. This could be your local dev machine or CI machine. 
+To publish test results and artifacts to your Microsoft Playwright Testing workspace, you need to authenticate the Playwright client where you're running the tests with the service. The client could be your local dev machine or CI machine. 
 
 The service offers two authentication methods: Microsoft Entra ID and Access Tokens.
 
@@ -141,7 +141,7 @@ You can generate an access token from your Playwright Testing workspace and use 
 > We strongly recommend using Microsoft Entra ID for authentication to the service. If you are using access tokens, see [How to Manage Access Tokens](./how-to-manage-access-tokens.md)
 
 ## Enable artifacts in Playwright configuration 
-In the `playwright.config.ts` file of your project, make sure you are collecting all the required artifacts.
+In the `playwright.config.ts` file of your project, make sure you're collecting all the required artifacts.
 ```typescript
   use: {
     trace: 'on-first-retry',
