@@ -1041,8 +1041,6 @@
     href: offboard.md
 - name: Troubleshoot
   items:
-  - name: Troubleshoot CEF/Syslog data collection
-    href: troubleshooting-cef-syslog.md
   - name: Troubleshoot AWS S3 connector issues
     href: aws-s3-troubleshoot.md
   - name: Troubleshoot SAP solution deployment
