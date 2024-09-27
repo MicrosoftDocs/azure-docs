@@ -444,14 +444,14 @@ trigger:
 
 variables:
   # Azure service connection established during pipeline creation
-  azureSubscription: <Name of your Azure subscription>
-  appName: <Name of the function app>
+  azureSubscription: <SUBSCRIPTION_NAME>
+  appName: <APP_NAME>
   # Agent VM image name
   vmImageName: 'windows-latest'
 
 - task: AzureFunctionApp@2 # Add this at the end of your file
   inputs:
-    azureSubscription: <Azure service connection>
+    azureSubscription: <AZURE_SERVICE_CONNECTION>
     appType: functionApp # this specifies a Windows-based function app
     appName: $(appName)
     package: $(System.ArtifactsDirectory)/**/*.zip
@@ -459,8 +459,8 @@ variables:
     #Uncomment the next lines to deploy to a deployment slot
     #Note that deployment slots is not supported for Linux Dynamic SKU
     #deployToSlotOrASE: true
-    #resourceGroupName: '<Resource Group Name>'
-    #slotName: '<Slot name>'
+    #resourceGroupName: '<RESOURCE_GROUP>'
+    #slotName: '<SLOT_NAME>'
 ```
 
 ### [Linux App](#tab/linux)
@@ -470,14 +470,14 @@ trigger:
 
 variables:
   # Azure service connection established during pipeline creation
-  azureSubscription: <Name of your Azure subscription>
-  appName: <Name of the function app>
+  azureSubscription: <SUBSCRIPTION_NAME>
+  appName: <APP_NAME>
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
 
 - task: AzureFunctionApp@2 # Add this at the end of your file
   inputs:
-    azureSubscription: <Azure service connection>
+    azureSubscription: <AZURE_SERVICE_CONNECTION>
     appType: functionAppLinux # This specifies a Linux-based function app
     #isFlexConsumption: true # Uncomment this line if you are deploying to a Flex Consumption app
     appName: $(appName)
@@ -486,8 +486,8 @@ variables:
     #Uncomment the next lines to deploy to a deployment slot
     #Note that deployment slots is not supported for Linux Dynamic SKU
     #deployToSlotOrASE: true
-    #resourceGroupName: '<Resource Group Name>'
-    #slotName: '<Slot name>'
+    #resourceGroupName: '<RESOURCE_GROUP>'
+    #slotName: '<SLOT_NAME>'
 ```
 
 The snippet assumes that the build steps in your YAML file produce the zip archive in the `$(System.ArtifactsDirectory)` folder on your agent.
@@ -496,10 +496,10 @@ If you opted to deploy to a [deployment slot](functions-deployment-slots.md), yo
 ```yaml
 - task: AzureAppServiceManage@0
   inputs:
-    azureSubscription: <Azure service connection>
-    WebAppName: <name of the Function app>
-    ResourceGroupName: <name of resource group>
-    SourceSlot: <slot name>
+    azureSubscription: <AZURE_SERVICE_CONNECTION>
+    WebAppName: <APP_NAME>
+    ResourceGroupName: <RESOURCE_GROUP>
+    SourceSlot: <SLOT_NAME>
     SwapWithProduction: true
 ```
 
@@ -519,9 +519,9 @@ trigger:
 
 variables:
   # Container registry service connection established during pipeline creation
-  dockerRegistryServiceConnection: <Docker registry service connection>
-  imageRepository: <Name of your image repository>
-  containerRegistry: <Name of the Azure container registry>
+  dockerRegistryServiceConnection: <DOCKER_REGISTRY_SERVICE_CONNECTION>
+  imageRepository: <IMAGE_REPOSITORY_NAME>
+  containerRegistry: <AZURE_CONTAINER_REGISTRY_NAME>
   dockerfilePath: '$(Build.SourcesDirectory)/Dockerfile'
   tag: '$(Build.BuildId)'
   
@@ -530,8 +530,8 @@ variables:
 
 - task: AzureFunctionAppContainer@1 # Add this at the end of your file
   inputs:
-    azureSubscription: '<Azure service connection>'
-    appName: '<Name of the function app>'
+    azureSubscription: '<AZURE_SERVICE_CONNECTION>'
+    appName: '<APP_NAME>'
     imageName: $(containerRegistry)/$(imageRepository):$(tag)
 ```
 
