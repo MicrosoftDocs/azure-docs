@@ -7,7 +7,8 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 07/25/2024
+ms.date: 09/23/2024
+ai-usage: ai-assisted
 ---
 
 # Copy and transform data in Snowflake using Azure Data Factory or Azure Synapse Analytics
@@ -403,6 +404,27 @@ To use this feature, create an [Azure Blob storage linked service](connector-azu
 ]
 ```
 
+When performing a staged copy from Snowflake, it is crucial to set the Sink Copy Behavior to **Merge Files**. This setting ensures that all partitioned files are correctly handled and merged, preventing the issue where only the last partitioned file is copied. 
+
+**Example Configuration**
+
+```json
+{
+    "type": "Copy",
+    "source": {
+        "type": "SnowflakeSource",
+        "query": "SELECT * FROM my_table"
+    },
+    "sink": {
+        "type": "AzureBlobStorage",
+        "copyBehavior": "MergeFiles"
+    }
+}
+```
+
+>[!NOTE]
+>Failing to set the Sink Copy Behavior to **Merge Files** may result in only the last partitioned file being copied.
+
 ### Snowflake as sink
 
 Snowflake connector utilizes Snowflake’s [COPY into [table]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html) command to achieve the best performance. It supports writing data to Snowflake on Azure.
@@ -673,6 +695,7 @@ The Snowflake connector offers new functionalities and is compatible with most f
 | Support Basic and Key pair authentication. | Support Basic authentication. | 
 | Script parameters are not supported in Script activity currently. As an alternative, utilize dynamic expressions for script parameters. For more information, see [Expressions and functions in Azure Data Factory and Azure Synapse Analytics](control-flow-expression-language-functions.md). | Support script parameters in Script activity. | 
 | Support BigDecimal in Lookup activity. The NUMBER type, as defined in Snowflake, will be displayed as a string in Lookup activity. | BigDecimal is not supported in Lookup activity.  | 
+| Legacy ```connectionstring``` property is deprecated in favor of required parameters **Account**, **Warehouse**, **Database**, **Schema**, and **Role** | In the legacy Snowflake connector, the `connectionstring` property was used to establish a connection. |
 
 To determine the version of the Snowflake connector used in your existing Snowflake linked service, check the ```type``` property. The legacy version is identified by ```"type": "Snowflake"```, while the latest V2 version is identified by ```"type": "SnowflakeV2"```.
 
