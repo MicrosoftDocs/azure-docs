@@ -5,29 +5,31 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: how-to
-ms.date: 08/24/2024
+ms.date: 09/26/2024
 #customer intent: As a network administrator, I want to learn about IP address management (IPAM) in Azure Virtual Network Manager so that I can manage IP addresses in my virtual networks.
 ---
 
 # What is IP address management (IPAM) in Azure Virtual Network Manager?
 
-In this article, you learn about the IP address management (IPAM) feature in Azure Virtual Network Manager and how it can help you manage IP addresses in your virtual networks. With Azure Virtual Network Manager's IP Address Management (IPAM), you can create pools for IP address planning, automatically assign nonoverlapping classless inter-domain routing (CIDR) addresses to Azure resources, and prevent address space conflicts across on-premises and multicloud environments.
+In this article, you learn about the IP address management (IPAM) feature in Azure Virtual Network Manager and how it can help you manage IP addresses in your virtual networks. With Azure Virtual Network Manager's IP Address Management (IPAM), you can create pools for IP address planning, automatically assign non-overlapping classless inter-domain routing (CIDR) addresses to Azure resources, and prevent address space conflicts across on-premises and multicloud environments.
 
 [!INCLUDE [virtual-network-manager-ipam](../../includes/virtual-network-manager-ipam.md)]
 
 ## What is IP address management (IPAM)?
 
-In Azure Virtual Network Manager, IP address management (IPAM) helps you centrally manage IP addresses in your virtual networks by using IP address pools. The following are some key features of IPAM in Azure Virtual Network Manager:
+In Azure Virtual Network Manager, IP address management (IPAM) helps you centrally manage IP addresses in your virtual networks using IP address pools. The following are some key features of IPAM in Azure Virtual Network Manager:
 
-- Create pools for IP address planning 
+- Create pools for IP address planning.
 
-- Automatically assign nonoverlapped CIDRs to Azure resources 
+- Automatically assign non-overlapped CIDRs to Azure resources.
 
-- Reserve IPs for specific demands 
+- Reserve IPs for specific needs.
 
-- Prevent Azure address space from overlapping on-premises and  multicloud environments. 
+- Prevent Azure address space from overlapping on-premises and cloud environments. 
 
-- Monitor IP/CIDR usages and allocations in a pool 
+- Monitor IP/CIDR usages and allocations in a pool.
+
+- Support for IPv4 and IPv6 address pools.
 
 ## How does IPAM work in Azure Virtual Network Manager?
 
@@ -39,11 +41,15 @@ The IPAM feature in Azure Virtual Network Manager works through the following ke
 
 ### Managing IP Address Pools
 
-IPAM allows network administrators to plan and organize IP address usage by defining pools with address spaces and respective sizes. These pools act as containers for groups of CIDRs, enabling logical grouping for specific networking purposes. You can create a structured hierarchy of pools, dividing a larger pool into smaller, more manageable pools, aiding in more granular control and organization of your network's IP address space. The IPAM service currently handles IPv4 addresses, with IPv6 management to be introduced in the future.
+IPAM allows network administrators to plan and organize IP address usage by creating pools with address spaces and respective sizes. These pools act as containers for groups of CIDRs, enabling logical grouping for specific networking purposes. You can create a structured hierarchy of pools, dividing a larger pool into smaller, more manageable pools, aiding in more granular control and organization of your network's IP address space. 
+
+There are two types of pools in IPAM:
+- Root pool: The first pool created in your instance is the root pool. This represents your entire IP address range.
+- Child pool: A child pool is a subset of the root pool or another child pool. You can create multiple child pools within a root pool or another child pool. You can have up to 7 layers of pools
 
 ### Allocating IP addresses to Azure resources
 
-When it comes to allocation, you can assign Azure resources with CIDRs, such as virtual networks, to a specific pool. This helps in identifying which CIDRs are currently in use1. There's also the option to allocate static CIDRs to a pool, useful for occupying CIDRs that are either not currently in use within Azure or are part of Azure resources not yet supported by the IPAM service1. Allocated CIDRs are released back to the pool if the associated resource is removed or deleted, ensuring efficient utilization and management of the IP space1.
+When it comes to allocation, you can assign Azure resources with CIDRs, such as virtual networks, to a specific pool. This helps in identifying which CIDRs are currently in use. There's also the option to allocate static CIDRs to a pool, useful for occupying CIDRs that are either not currently in use within Azure or are part of Azure resources not yet supported by the IPAM service. Allocated CIDRs are released back to the pool if the associated resource is removed or deleted, ensuring efficient utilization and management of the IP space.
 
 ### Delegating permissions for IP address management
 
@@ -59,7 +65,7 @@ Additionally, it shows details for pools and resources associated with pools, gi
 
 ### Simplifying resource creation
 
-When creating CIDR-supporting resources like virtual networks, CIDRs are automatically allocated from the selected pool, simplifying the resource creation process1. The system ensures that the automatically allocated CIDRs don't overlap within the pool, maintaining network integrity and preventing conflicts1.
+When creating CIDR-supporting resources like virtual networks, CIDRs are automatically allocated from the selected pool, simplifying the resource creation process. The system ensures that the automatically allocated CIDRs don't overlap within the pool, maintaining network integrity and preventing conflicts.
 
 ## Permission requirements for IPAM in Azure Virtual Network Manager
 
@@ -68,4 +74,4 @@ You need to have the Network Contributor role for the scope of the network manag
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn how to managed IP addresses in Azure Virtual Network Manager](./how-to-manage-ip-addresses-network-manager.md)
+> [Learn how to manage IP addresses in Azure Virtual Network Manager](./how-to-manage-ip-addresses-network-manager.md)
