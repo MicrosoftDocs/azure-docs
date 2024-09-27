@@ -1402,8 +1402,6 @@ groups:
   title: Remote Desktop clients for Windows
   prompt: "Choose the version of the Remote Desktop client for Windows you want to use:"
   pivots:
-  - id: remote-desktop-msi
-    title: Remote Desktop client (MSI)
   - id: avd-store
     title: Azure Virtual Desktop Store app
   - id: rd-store
