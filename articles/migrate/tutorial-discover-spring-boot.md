@@ -11,9 +11,6 @@ ms.custom: mvc, subject-rbac-steps, engagement-fy24, references_regions
 
 # Tutorial: Discover Spring Boot applications running in your datacenter (preview)
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
-
 
 This article describes how to discover Spring Boot applications running on servers in your datacenter, using Azure Migrate: Discovery and assessment tool. The discovery process is completely agentless; no agents are installed on the target servers.
 
@@ -149,7 +146,7 @@ After you save the script on the Linux server, follow these steps:
 
 > [!Note]
 > This script needs to be run after you connect to a Linux machine on its terminal that has met the networking pre-requisite and OS compatibility.  
-> Ensure that you have curl installed on the server. For Ubuntu, you can install it using the command `sudo apt-get install curl`, and for other OS (RHEL/CentOS), you can use the command `yum install curl`.  
+> Ensure that you have curl installed on the server. For Ubuntu, you can install it using the command `sudo apt-get install curl`, and for other OS (RHEL), you can use the command `yum install curl`.  
 
 > [!Important]
 > Don't edit the script unless you want to clean up the setup.
@@ -178,7 +175,7 @@ After you save the script on the Linux server, follow these steps:
 
 > [!Note]
 > - This script needs to be run after you connect to a Linux machine on its terminal that meets the networking prerequisites and OS compatibility. 
-> - Ensure that you have curl installed on the server. For Ubuntu, you can install it using the command `sudo apt-get install curl`, and for other OS (RHEL/CentOS), you can use the `yum install curl` command.
+> - Ensure that you have curl installed on the server. For Ubuntu, you can install it using the command `sudo apt-get install curl`, and for other OS (RHEL), you can use the `yum install curl` command.
 
 > [!Important]
 > Don't edit the script unless you want to clean up the setup.
