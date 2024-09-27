@@ -41,7 +41,7 @@ If you aren't sure whether your K3s cluster already has workload identity enable
 ```azurecli
 az connectedk8s show --name <CLUSTER_NAME> --resource-group <RESOURCE_GROUP> --query "{oidcIssuerEnabled:oidcIssuerProfile.enabled, workloadIdentityEnabled: securityProfile.workloadIdentity.enabled}"
 ```
-
+You can skip this section if workload identity is already set up.
 Use the following steps to enable workload identity on an existing connected K3s cluster:
 
 1. Download and install a preview version of the `connectedk8s` extension for Azure CLI. GitHub: [connectedk8s-1.10.0](https://github.com/AzureArcForKubernetes/azure-cli-extensions/blob/connectedk8s/public/cli-extensions/connectedk8s-1.10.0-py2.py3-none-any.whl).
