@@ -47,8 +47,3 @@ Uploaded files appear at the `/mount/datapipeline/datain` mount point. A Chamber
 ## Clean up resources
 
 The `/mount/datapipeline/` has a volume size of 1TB. You should move data imports out of this mount point regularly into [a chamber storage volume](./how-to-guide-manage-chamber-storage.md).
-
-## Next step
-
-> [!div class="nextstepaction"]
-> [Import data](./quickstart-import-data.md)
