@@ -11,6 +11,8 @@ items:
     items:
       - name: Add users
         href: ./quickstart-add-users.md
+      - name: Connect to desktop
+        href: ./quickstart-connect-desktop.md
   - name: Concepts
     items:
       - name: Workbench
