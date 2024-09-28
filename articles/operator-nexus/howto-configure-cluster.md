@@ -111,7 +111,7 @@ az networkcloud cluster create --name "$CLUSTER_NAME" --location "$LOCATION" \
 
 ## Cluster Identity
 
-The customer can assign managed identity to a Cluster starting with the 2024-06-01-preview API version. Both System-assigned and User-Assigned managed identities are supported.
+The customer can assign managed identity to a Cluster starting with the 2024-07-01 GA API version. Both System-assigned and User-Assigned managed identities are supported.
 
 Managed Identity can be assigned to the Cluster during creation or update operations by providing the following parameters:
 
@@ -212,7 +212,7 @@ passed and/or are available to meet the thresholds necessary for deployment to c
 > This capability is only visible during a new deployment (Green Field); existing cluster will not have the logs available retroactively.
 
 > [!NOTE]
-> The RAID controller is reset during cluster deployment wiping all data from the server's virtual disks. Any Baseboard Management Controller (BMC) virtual disk alerts can typically be ignored unless there are additonal physical disk and/or RAID controllers alerts.
+> The RAID controller is reset during Cluster deployment wiping all data from the server's virtual disks. Any Baseboard Management Controller (BMC) virtual disk alerts can typically be ignored unless there are additional physical disk and/or RAID controllers alerts.
 
 By default, the hardware validation process writes the results to the configured Cluster `analyticsWorkspaceId`.
 However, due to the nature of Log Analytics Workspace data collection and schema evaluation, there can be ingestion delay that can take several minutes or more.

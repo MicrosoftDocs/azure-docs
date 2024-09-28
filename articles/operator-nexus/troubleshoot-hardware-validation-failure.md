@@ -492,8 +492,8 @@ Expanding `result_detail` for a given category shows detailed results.
 
     * To troubleshoot server power-on failure attempt a flea drain. If problem persists engage vendor.
 
-* RAID Cleanup Failures
-    * RAID cleanup was added to HWV in release 3.13. As part of RAID cleanup the RAID controller configuration is reset. Dell server health check fails for RAID controller reset failure. A failed RAID cleanup action indicates an underlying hardware issue. The following example shows a failed RAID controller reset.
+* RAID cleanup failures
+    * As part of RAID cleanup, the RAID controller configuration is reset. Dell server health check fails for RAID controller reset failure. A failed RAID cleanup action indicates an underlying hardware issue. The following example shows a failed RAID controller reset.
 
     ```yaml
         {
