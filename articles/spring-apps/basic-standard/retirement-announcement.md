@@ -66,7 +66,7 @@ If customers are interested in obtaining or continuing Spring commercial support
 
 We recommend Azure Container Apps as the primary service for your migration of workloads running on Azure Spring Apps. Azure Container Apps is a fully managed serverless container service for polyglot apps and offers enhanced Java features to help you manage, monitor, and troubleshoot Java apps at scale.
 
-A one-click migration experience will be enabled for Azure Spring Apps Standard consumption and dedicated plan by mid-October, providing customers with a seamless transition from Azure Spring Apps to Azure Container Apps. For more information, see [the FAQ](https://aka.ms/DeprecatedASAConsunptionPlanFAQ).
+A one-click migration experience will be enabled for the Azure Spring Apps Standard consumption and dedicated plan by mid-October, providing customers with a seamless transition from Azure Spring Apps to Azure Container Apps. For more information, see [Migrate Azure Spring Apps Standard consumption and dedicated plan to Azure Container Apps](../consumption-dedicated/overview-migration.md).
 
 We're working on the migration experience from the Azure Spring Apps Basic, Standard, and Enterprise plans to Azure Container Apps, and the migration guidance will be available by March 2025.
 
