@@ -1,6 +1,6 @@
 ---
-title: Connect API Management instance to a private network | Microsoft Docs
-description: Learn how to integrate an Azure API Management instance in the Standard v2 tier with a virtual network to access backend APIs hosted within the network.
+title: Integrate API Management in private network - public IP | Microsoft Docs
+description: Learn how to integrate an Azure API Management instance in the Standard v2 or Premium v2 tier with a virtual network to access backend APIs in the network.
 author: dlepow
 ms.author: danlep
 ms.service: azure-api-management
@@ -10,22 +10,47 @@ ms.date: 05/20/2024
 
 # Integrate an Azure API Management instance with a private VNet for outbound connections
 
-[!INCLUDE [api-management-availability-standard-v2](../../includes/api-management-availability-standard-v2.md)] 
+[!INCLUDE [api-management-availability-standardv2-premiumv2](../../includes/api-management-availability-standardv2-premiumv2.md)] 
 
-This article guides you through the process of configuring *VNet integration* for your Azure API Management instance so that your API Management instance can make outbound requests to API backends that are isolated in the network.
+This article guides you through the process of configuring outbound *VNet integration* for your Azure API Management instance so that your API Management instance can make outbound requests to API backends that are isolated in the network.
 
-When an API Management instance is integrated with a virtual network for outbound requests, the API Management itself is not deployed in a VNet; the gateway and other endpoints remain publicly accessible. In this configuration, the API Management instance can reach both public and network-isolated backend services.
+When an API Management instance is integrated with a virtual network for outbound requests, the gateway and developer portal endpoints remain publicly accessible. In this configuration, the API Management instance can reach both public and network-isolated backend services.
 
 :::image type="content" source="./media/integrate-vnet-outbound/vnet-integration.svg" alt-text="Diagram of integrating API Management instance with a delegated subnet."  :::
 
+If you want to integrate your API Management instance with a virtual network to isolate both inbound and outbound trafficd, see [Integrate API Management in private network - private IP](integrate-vnet-internal.md).
+
 ## Prerequisites
 
-- An Azure API Management instance in the [Standard v2](v2-service-tiers-overview.md) pricing tier
-- A virtual network with a subnet where your API Management backend APIs are hosted
-   - The network must be deployed in the same region and subscription as your API Management instance.
-   - The subnet should be dedicated to VNet integration. 
-   - A minimum subnet size of `/26` or `/27` is recommended when creating a new subnet; `/28` can be used with an existing subnet. 
+- An Azure API Management instance in the [Standard v2 or Premium v2](v2-service-tiers-overview.md) pricing tier
 - (Optional) For testing, a sample backend API hosted within a different subnet in the virtual network. For example, see [Tutorial: Establish Azure Functions private site access](../azure-functions/functions-create-private-site-access.md).
+- A virtual network with a subnet where your API Management backend APIs are hosted. See the following sections for requirements and recommendations for the virtual network and subnet.
+
+### Network location
+
+* The virtual network must be in the same region and Azure subscription as the API Management instance.
+
+### Subnet requirements
+
+* The subnet can't be shared with another Azure resource.
+
+### Subnet size 
+
+* Minimum: /27 (32 addresses)
+* Recommended: /24 (256 addresses) - to accommodate scaling of API Management instance
+
+### Subnet delegation
+
+For access to the API Management instance only within the VNet using a private IP address, the subnet needs to be delegated to the **Microsoft.Web/serverFarms** service.
+
+:::image type="content" source="media/virtual-network-injection-workspaces-resources/delegate-external.png" alt-text="Screenshot showing subnet delegation to Microsoft.Web/serverFarms in the portal.":::
+
+
+> [!NOTE]
+> You might need to register the `Microsoft.Web/serverFarms` resource provider in the subscription so that you can delegate the subnet to the service.
+
+
+For more information about configuring subnet delegation, see [Add or remove a subnet delegation](../virtual-network/manage-subnet-delegation.md).
 
 ### Permissions
 
@@ -37,15 +62,16 @@ You must have at least the following role-based access control permissions on th
 | Microsoft.Network/virtualNetworks/subnets/read | Read a virtual network subnet definition |
 | Microsoft.Network/virtualNetworks/subnets/join/action | Joins a virtual network |
 
-### Register Microsoft.Web resource provider
+### Permissions
 
-Ensure that the subscription with the virtual network is registered for the `Microsoft.Web` resource provider. You can explicitly register the provider [by following this documentation](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
+You must have at least the following role-based access control permissions on the subnet or at a higher level to configure virtual network integration:
 
-## Delegate the subnet
+| Action | Description |
+|-|-|
+| Microsoft.Network/virtualNetworks/read | Read the virtual network definition |
+| Microsoft.Network/virtualNetworks/subnets/read | Read a virtual network subnet definition |
+| Microsoft.Network/virtualNetworks/subnets/join/action | Joins a virtual network |
 
-The subnet used for integration must be delegated to the **Microsoft.Web/serverFarms** service. The subnet can't be delegated to another service. In the subnet settings, in **Delegate subnet to a service**, select **Microsoft.Web/serverFarms**.
-
-:::image type="content" source="media/integrate-vnet-outbound/delegate-subnet.png" alt-text="Screenshot of delegating the subnet to a service in the portal.":::
 
 ## Enable VNet integration
 
