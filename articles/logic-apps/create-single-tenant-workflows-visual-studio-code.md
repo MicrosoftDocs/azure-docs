@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 01/10/2024
+ms.date: 09/27/2024
 ms.custom: engagement-fy23, devx-track-dotnet
 # Customer intent: As a logic apps developer, I want to create a Standard logic app workflow that runs in single-tenant Azure Logic Apps using Visual Studio Code.
 ---
@@ -331,19 +331,16 @@ Before you can create your logic app, create a local project so that you can man
 
    > [!NOTE]
    > 
-   > By default, in your **local.settings.json** file, the language worker runtime value for your 
-   > Standard logic app is **`dotnet`**. Previously, **`node`** was the default value. However, 
-   > **`dotnet`** is now the default value for all new and existing deployed Standard logic apps, 
-   > even for apps that had a different value. This change shouldn't affect your workflow's runtime, 
-   > and everything should work the same way as before. For more information, see the 
+   > The required **FUNCTIONS_WORKER_RUNTIME** app setting value for your Standard logic app was previously **node**. 
+   > but **dotnet** is now the value for all new and existing deployed Standard logic apps. This change shouldn't
+   > affect your workflow's runtime, so everything should work the same way as before. For more information, see the
    > [**FUNCTIONS_WORKER_RUNTIME** app setting](edit-app-settings-host-settings.md#reference-local-settings-json).
-   >
-   > The **APP_KIND** app setting for your Standard logic app is set to **workflowApp**, but in some 
-   > scenarios, this app setting is missing, for example, due to automation using Azure Resource Manager 
-   > templates or other scenarios where the setting isn't included. If certain actions don't work, 
-   > such as the **Execute JavaScript Code** action or the workflow stops working, check that the 
-   > **APP_KIND** app setting exists and is set to to **workflowApp**. For more information, see the 
-   > [**APP_KIND** app setting](edit-app-settings-host-settings.md#reference-local-settings-json).
+   > 
+   > The required **APP_KIND** app setting value for your Standard logic app is **workflowApp**, but in some scenarios, 
+   > this app setting might be missing, for example, due to automation using Azure Resource Manager templates or other
+   > scenarios where the setting isn't included. If certain actions don't work, such as the **Execute JavaScript Code**
+   > action, or if the workflow stops working, check that the **APP_KIND** app setting exists and is set to to **workflowApp**.
+   > For more information, see the [**APP_KIND** app setting](edit-app-settings-host-settings.md#reference-local-settings-json).
 
 <a name="convert-project-nuget"></a>
 
