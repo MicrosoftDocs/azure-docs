@@ -143,7 +143,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         1. *Runtime stack*: **Java 17**.
         1. *Java web server stack*: **Apache Tomcat 10.1**.
         1. **MySQL - Flexible Server** is selected for you by default as the database engine. If not, select it. Azure Database for MySQL is a fully managed MySQL database as a service on Azure, compatible with the latest community editions.
-        1. *Hosting plan*: **Basic**. When you're ready, you can [scale up](manage-scale-up.md) to a production pricing tier later.
+        1. *Hosting plan*: **Basic**. When you're ready, you can [scale up](manage-scale-up.md) to a production pricing tier.
         1. Select **Review + create**.
         1. After validation completes, select **Create**.
     :::column-end:::
@@ -171,7 +171,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 ## 3. Secure connection secrets
 
-The creation wizard generated the connectivity string for you already as an [app setting](configure-common.md#configure-app-settings). However, the security best practice is to keep secrets out of App Service completely. You'll move your secrets to key vault and change your app setting to a [Key Vault reference](app-service-key-vault-references.md) with the help of Service Connectors.
+The creation wizard generated the connectivity string for you already as an [app setting](configure-common.md#configure-app-settings). However, the security best practice is to keep secrets out of App Service completely. You'll move your secrets to a key vault and change your app setting to a [Key Vault reference](app-service-key-vault-references.md) with the help of Service Connectors.
 
 :::row:::
     :::column span="2":::

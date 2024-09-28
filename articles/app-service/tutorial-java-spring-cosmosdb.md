@@ -145,7 +145,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         1. *Runtime stack*: **Java 21**.
         1. *Java web server stack*: **Java SE (Embedded Web Server)**.
         1. *Engine*: **Cosmos DB API for MongoDB**. Cosmos DB is a fully managed NoSQL, relational, and vector database as a service on Azure.
-        1. *Hosting plan*: **Basic**. When you're ready, you can [scale up](manage-scale-up.md) to a production pricing tier later.
+        1. *Hosting plan*: **Basic**. When you're ready, you can [scale up](manage-scale-up.md) to a production pricing tier.
         1. Select **Review + create**.
         1. After validation completes, select **Create**.
     :::column-end:::
@@ -173,7 +173,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 ## 3. Secure connection secrets
 
-The creation wizard generated the connectivity string for you already as an [app setting](configure-common.md#configure-app-settings). However, the security best practice is to keep secrets out of App Service completely. You'll move your secrets to key vault and change your app setting to a [Key Vault reference](app-service-key-vault-references.md) with the help of Service Connectors.
+The creation wizard generated the connectivity string for you already as an [app setting](configure-common.md#configure-app-settings). However, the security best practice is to keep secrets out of App Service completely. You'll move your secrets to a key vault and change your app setting to a [Key Vault reference](app-service-key-vault-references.md) with the help of Service Connectors.
 
 :::row:::
     :::column span="2":::
@@ -216,7 +216,7 @@ The creation wizard generated the connectivity string for you already as an [app
         1. Select **Review + create**, then select **Create**. Wait for the key vault deployment to finish. You should see "Your deployment is complete."
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-java-spring-cosmosdb/azure-portal-secure-connection-secrets-3.png" alt-text="A screenshot showing how secure a key vault with a private endpoint." lightbox="./media/tutorial-java-spring-cosmosdb/azure-portal-secure-connection-secrets-3.png":::
+        :::image type="content" source="./media/tutorial-java-spring-cosmosdb/azure-portal-secure-connection-secrets-3.png" alt-text="A screenshot showing how to secure a key vault with a private endpoint." lightbox="./media/tutorial-java-spring-cosmosdb/azure-portal-secure-connection-secrets-3.png":::
     :::column-end:::
 :::row-end:::
 :::row:::

@@ -17,7 +17,7 @@ ms.collection: ce-skilling-ai-copilot
 
 [Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a secure Node.js app in Azure App Service that's connected to a [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/mongodb-introduction) database. When you're finished, you'll have an Express.js app running on Azure App Service on Linux.
 
-:::image type="content" source="./media/tutorial-nodejs-mongodb-app/azure-portal-browse-app-2.png" alt-text="Screenshot of Node.js application storing data in ComsosDB.":::
+:::image type="content" source="./media/tutorial-nodejs-mongodb-app/azure-portal-browse-app-2.png" alt-text="Screenshot of Node.js application storing data in Cosmos DB.":::
 
 In this tutorial, you learn how to:
 
@@ -144,7 +144,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         1. *Name*: **msdocs-expressjs-mongodb-XYZ**, where *XYZ* is any three random characters. 
         1. *Runtime stack*: **Node 20 LTS**.
         1. *Engine*: **Cosmos DB API for MongoDB**. Azure Cosmos DB is a cloud native database offering a 100% MongoDB compatible API. Note the database name that's generated for you (*\<app-name>-database*). You'll need it later.
-        1. *Hosting plan*: **Basic**. When you're ready, you can [scale up](manage-scale-up.md) to a production pricing tier later.
+        1. *Hosting plan*: **Basic**. When you're ready, you can [scale up](manage-scale-up.md) to a production pricing tier.
         1. Select **Review + create**.
         1. After validation completes, select **Create**.
     :::column-end:::
@@ -174,7 +174,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 ## 3. Secure connection secrets
 
-The creation wizard generated the connectivity string for you already as an [app setting](configure-common.md#configure-app-settings). However, the security best practice is to keep secrets out of App Service completely. You'll move your secrets to key vault and change your app setting to a [Key Vault reference](app-service-key-vault-references.md) with the help of Service Connectors.
+The creation wizard generated the connectivity string for you already as an [app setting](configure-common.md#configure-app-settings). However, the security best practice is to keep secrets out of App Service completely. You'll move your secrets to a key vault and change your app setting to a [Key Vault reference](app-service-key-vault-references.md) with the help of Service Connectors.
 
 :::row:::
     :::column span="2":::
@@ -217,7 +217,7 @@ The creation wizard generated the connectivity string for you already as an [app
         1. Select **Review + create**, then select **Create**. Wait for the key vault deployment to finish. You should see "Your deployment is complete."
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-nodejs-mongodb-app/azure-portal-secure-connection-secrets-3.png" alt-text="A screenshot showing how secure a key vault with a private endpoint." lightbox="./media/tutorial-nodejs-mongodb-app/azure-portal-secure-connection-secrets-3.png":::
+        :::image type="content" source="./media/tutorial-nodejs-mongodb-app/azure-portal-secure-connection-secrets-3.png" alt-text="A screenshot showing how to secure a key vault with a private endpoint." lightbox="./media/tutorial-nodejs-mongodb-app/azure-portal-secure-connection-secrets-3.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -563,6 +563,8 @@ The AZD template you use generated the connectivity variables for you already as
 
     `AZURE_COSMOS_CONNECTIONSTRING` contains the connection string to the Cosmos DB database in Azure. You need to use it in your code later. 
 
+1. For your convenience, the AZD template shows you the direct link to the app's app settings page. Find the link and open it in a new browser tab.
+
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 ## 4. Modify sample code and redeploy
@@ -587,7 +589,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 # [Without GitHub Copilot](#tab/nocopilot)
 
-1. From the explorer, open *app.js* see that the app creates a Mongoose connection using `MONGODB_URI` (Line 16).
+1. From the explorer, open *app.js* and see that the app creates a Mongoose connection using `MONGODB_URI` (Line 16).
 
 1. Change `process.env.MONGODB_URI` to `process.env.AZURE_COSMOS_CONNECTIONSTRING || process.env.MONGODB_URI`.
 
