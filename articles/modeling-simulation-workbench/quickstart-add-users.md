@@ -74,8 +74,3 @@ Resource group level privileges allow users to perform infrastructure level task
 
    > [!NOTE]
    > Allow at least five minutes for the provisioning of the users to propagate throughout the chamber, so they have a successful login experience.
-
-## Next step
-
-> [!div class="nextstepaction"]
-> [Next sequential article title](link.md)

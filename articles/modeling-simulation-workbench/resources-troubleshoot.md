@@ -30,8 +30,8 @@ A *not authorized error* while accessing the remote desktop dashboard URL indica
 
 #### Failing for all users
 
-- Review the [Create an application in Microsoft Entra ID](./quickstart-create-portal.md#create-an-application-in-microsoft-entra-id) article and verify your application registration is set up correctly.
-- Review the redirect URI registrations for the specific chamber and confirm the connector's redirects match those found with the application. If they don't match, re[register the redirect URIs](./how-to-guide-add-redirect-uris.md).
+- Review the [Create an application in Microsoft Entra ID](./get-started-modeling-simulation-workbench.md#create-an-application-in-microsoft-entra-id) article and verify your application registration is set up correctly.
+- Review the redirect URI registrations for the specific chamber and confirm the connector's redirects match those found with the application. If they don't match, [re-register the redirect URIs](./how-to-guide-add-redirect-uris.md).
 - Review the application registration secrets for Modeling and Simulation Workbench and check to see if your application client secret has expired. Complete the following steps if it's expired.
     1. Generate a new secret and make note of the client secret value.
     1. Update your Key Vault app secret value with the newly generated client **secret value.**

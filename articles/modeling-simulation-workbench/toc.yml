@@ -13,6 +13,8 @@ items:
         href: ./quickstart-add-users.md
       - name: Connect to desktop
         href: ./quickstart-connect-desktop.md
+      - name: Import Data
+        href: ./quickstart-import-data.md
   - name: Concepts
     items:
       - name: Workbench

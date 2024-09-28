@@ -49,4 +49,4 @@ Each [connector](concept-connector.md) has a **Desktop dashboard** URL that open
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Next sequential article title](link.md)
+> [Add users](./quickstart-add-users.md)
