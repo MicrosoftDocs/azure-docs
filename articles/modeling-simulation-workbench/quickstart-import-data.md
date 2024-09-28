@@ -13,7 +13,7 @@ ms.date: 09/28/2024
 
 # Quickstart: Import data
 
-After you create a Modeling and Simulation Workbench, you may need data from your local environment to be available. Modeling and Simulation Workbench [chambers](./concept-chambers.md) have no access to the internet or other Azure resources. In this quickstart, learn how to import data from your previous environment to the workbench chamber.
+After you create a Modeling and Simulation Workbench, you might need data from your local environment to be available. Modeling and Simulation Workbench [chambers](./concept-chambers.md) have no access to the internet or other Azure resources. In this quickstart, learn how to import data from your previous environment to the workbench chamber.
 
 If you don't have a service subscription,  [create a free trial account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -21,9 +21,9 @@ If you don't have a service subscription,  [create a free trial account](https:/
 
 [!INCLUDE [prerequisite-mswb-chamber](includes/prerequisite-chamber.md)]
 
-* If using a public IP connector, your current public facing IP address must be on the allowlist.
+* A current public facing IP address must be on the allowlist if using public connector.
 
-* The most recent version of [AzCopy](/azure/storage/common/storage-use-azcopy-v10?tabs=dnf), an Azure utility to manage data transfers to and from Azure. AzCopy is a standalone executable and does not require installation.
+* The most recent version of [AzCopy](/azure/storage/common/storage-use-azcopy-v10?tabs=dnf), an Azure utility to manage data transfers to and from Azure. AzCopy is a standalone executable and doesn't require installation.
 
 ## Import data
 
@@ -42,9 +42,7 @@ If you don't have a service subscription,  [create a free trial account](https:/
    >
    > Gigabyte-sized tarballs and zipped files are supported, up to a maximum of 200GB per file. Ensure that each individual file is less than the maximum allowed size.
 
-1. Confirm that the uploaded file resources with the source file name appears under **Chamber** > **Data Pipeline** > **File**.
-
-Uploaded files will appear at the `/mount/datapipeline/datain` mount point.  A Chamber Admin or Chamber User can access the files there.  The `/mount/datapipeline/` has a volume size of 1TB. If the combined imported dataset is larger than this, [create a chamber storage volume](./how-to-guide-manage-chamber-storage.md).
+Uploaded files appear at the `/mount/datapipeline/datain` mount point. A Chamber Admin or Chamber User can access the files there. The `/mount/datapipeline/` has a volume size of 1TB. If the combined imported dataset is larger than this, [create a chamber storage volume](./how-to-guide-manage-chamber-storage.md).
 
 ## Clean up resources
 
