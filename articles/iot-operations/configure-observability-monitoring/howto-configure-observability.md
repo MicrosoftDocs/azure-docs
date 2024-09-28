@@ -41,7 +41,11 @@ az provider register -n "Microsoft.AlertsManagement"
 
 The steps in this section deploy an [OpenTelemetry (OTel) Collector](https://opentelemetry.io/docs/collector/) and then install shared monitoring resources and configure your Arc enabled cluster to emit observability signals to these resources. The shared monitoring resources include Azure Managed Grafana, Azure Monitor Workspace, Azure Managed Prometheus, Azure Log Analytics, and Container Insights.
 
+### Deploy OpenTelemetry Collector
+
 [!INCLUDE [deploy-otel-collector.md](../includes/deploy-otel-collector.md)]
+
+### Deploy observability components
 
 1. Deploy the observability components by running one of the following commands. Use the subscription ID and resource group of the Arc-enabled cluster that you want to monitor.
 
