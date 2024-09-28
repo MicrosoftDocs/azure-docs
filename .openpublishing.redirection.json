@@ -4666,8 +4666,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/modeling-simulation-workbench/get-started-modeling-simulation-workbench.md",
-      "redirect_url": "/azure/modeling-simulation-workbench/quickstart-create-portal",
+      "source_path_from_root": "/articles/modeling-simulation-workbench/quickstart-create-portal.md",
+      "redirect_url": "/azure/modeling-simulation-workbench/get-started-modeling-simulation-workbench",
       "redirect_document_id": false
     },
     {

@@ -13,7 +13,7 @@ ms.date: 09/28/2024
 
 # Quickstart: Import data
 
-After you create a Modeling and Simulation Workbench, you might need data from your local environment to be available. Modeling and Simulation Workbench [chambers](./concept-chambers.md) have no access to the internet or other Azure resources. In this quickstart, learn how to import data from your previous environment to the workbench chamber.
+After you create a Modeling and Simulation Workbench, you might need data from your local environment to be available. Modeling and Simulation Workbench [chambers](./concept-chamber.md) have no access to the internet or other Azure resources. In this quickstart, learn how to import data from your previous environment to the workbench chamber.
 
 If you don't have a service subscription,  [create a free trial account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
