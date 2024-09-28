@@ -252,7 +252,7 @@ A backend application connects to a device through IoT Hub and can read and writ
 This section describes how to create a backend application that:
 
 * Creates a module
-* Retrieves and updates a module twin
+* Retrieve a module twin and update desired properties
 
 ### Install service SDK packages
 
@@ -298,7 +298,7 @@ registry.addModule({ deviceId: deviceId, moduleId: moduleId }, function(err) {
   }
 ```
 
-### Retrieve and update a module twin
+### Retrieve a module twin and update desired properties
 
 You can create a patch that contains tag and desired property updates for a module twin.
 

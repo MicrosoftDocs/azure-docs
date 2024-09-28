@@ -249,4 +249,4 @@ except KeyboardInterrupt:
 
 ### SDK service sample
 
-The Azure IoT SDK for Python provides a working sample of a service app that handles device twin tasks. For more information, see  [Registry Manager Query Sample](https://github.com/Azure/azure-iot-hub-python/blob/main/samples/iothub_registry_manager_query_sample.py).
+The Azure IoT SDK for Python provides a working sample of a service app that handles device twin tasks. For more information, see  [Test IoTHub Registry Manager](https://github.com/Azure/azure-iot-hub-python/blob/8c8f315e8b26c65c5517541a7838a20ef8ae668b/tests/test_iothub_registry_manager.py).
