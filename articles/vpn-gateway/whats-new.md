@@ -24,6 +24,7 @@ You can also find the latest VPN Gateway updates and subscribe to the RSS feed [
 
 | Type | Area | Name | Description | Date added | Limitations |
 |---|---|---|---|---|---|
+|SKU Consolidation | N/A | [VpnGw1-5 non-AZ VPN Gateway SKU](https://learn.microsoft.com/azure/vpn-gateway/gateway-sku-consolidation) | VpnGw1-5 non-AZ SKU will be deprecated on 30 Sep 2026. View the announcement [here](https://azure.microsoft.com/updates/v2/vpngw1-5-non-az-skus-will-be-retired-on-30-september-2026) | Sep 2024 | N/A
 | P2S VPN | P2S | [Azure VPN Client for Linux](#linux)| [Certificate](point-to-site-certificate-client-linux-azure-vpn-client.md) authentication, [Microsoft Entra ID ](point-to-site-entra-vpn-client-linux.md) authentication.| May 2024 | N/A|
 | P2S VPN | P2S | [Azure VPN Client for macOS](#macos) | Microsoft Entra ID authentication updates, additional features.  | Sept 2024 | N/A|
 | P2S VPN | P2S | [Azure VPN Client for Windows](#windows) | Microsoft Entra ID authentication updates, additional features.  | May 2024 | N/A|

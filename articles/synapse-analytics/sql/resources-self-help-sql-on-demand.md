@@ -4,10 +4,10 @@ description: This article contains information that can help you troubleshoot pr
 author: azaricstefan
 ms.author: stefanazaric
 ms.reviewer: whhender, wiassaf
-ms.date: 08/27/2024
+ms.topic: overview
 ms.service: azure-synapse-analytics
 ms.subservice: sql
-ms.topic: overview
+ms.date: 09/26/2024
 ---
 
 # Troubleshoot serverless SQL pool in Azure Synapse Analytics
@@ -1146,10 +1146,8 @@ If you get the error `CREATE DATABASE failed. User database limit has been alrea
 
 You don't need to use separate databases to isolate data for different tenants. All data is stored externally on a data lake and Azure Cosmos DB. The metadata like table, views, and function definitions can be successfully isolated by using schemas. Schema-based isolation is also used in Spark where databases and schemas are the same concepts.
 
-## Next steps
+## Related content
 
 - [Best practices for serverless SQL pool in Azure Synapse Analytics](best-practices-serverless-sql-pool.md)
 - [Azure Synapse Analytics frequently asked questions](../overview-faq.yml)
 - [Store query results to storage using serverless SQL pool in Azure Synapse Analytics](create-external-table-as-select.md)
-- [Synapse Studio troubleshooting](../troubleshoot/troubleshoot-synapse-studio.md)
-- [Troubleshoot a slow query on a dedicated SQL Pool](/troubleshoot/azure/synapse-analytics/dedicated-sql/troubleshoot-dsql-perf-slow-query)
