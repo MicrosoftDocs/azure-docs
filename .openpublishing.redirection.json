@@ -508,7 +508,7 @@
     {
       "source_path_from_root": "/articles/azure-maps/tutorial-iot-hub-maps.md",
       "redirect_url": "/azure/azure-maps",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-maps/about-creator.md",
@@ -4663,6 +4663,11 @@
     {
       "source_path_from_root": "/articles/modeling-simulation-workbench/how-to-guide-manage-storage.md",
       "redirect_url": "/azure/modeling-simulation-workbench/concept-storage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/modeling-simulation-workbench/quickstart-create-portal.md",
+      "redirect_url": "/azure/modeling-simulation-workbench/get-started-modeling-simulation-workbench",
       "redirect_document_id": false
     },
     {
