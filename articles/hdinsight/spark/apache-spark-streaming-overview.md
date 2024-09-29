@@ -1,7 +1,7 @@
 ---
 title: Spark Streaming in Azure HDInsight
 description: How to use Apache Spark Streaming applications on HDInsight Spark clusters.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 06/15/2024
@@ -9,7 +9,7 @@ ms.date: 06/15/2024
 
 # Overview of Apache Spark Streaming
 
-[Apache Spark](https://spark.apache.org/) Streaming provides data stream processing on HDInsight Spark clusters. With a guarantee that any input event is processed exactly once, even if a node failure occurs. A Spark Stream is a long-running job that receives input data from a wide variety of sources, including Azure Event Hubs. Also: Azure IoT Hub, Apache Kafka, Apache Flume, Twitter, `ZeroMQ`, raw TCP sockets, or from monitoring Apache Hadoop YARN filesystems. Unlike a solely event-driven process, a Spark Stream batches input data into time windows. Such as a 2-second slice, and then transforms each batch of data using map, reduce, join, and extract operations. The Spark Stream then writes the transformed data out to filesystems, databases, dashboards, and the console.
+[Apache Spark](https://spark.apache.org/) Streaming provides data stream processing on HDInsight Spark clusters. With a guarantee that any input event is processed exactly once, even if a node failure occurs. A Spark Stream is a long-running job that receives input data from a wide variety of sources, including Azure Event Hubs. Also: Azure IoT Hub, Apache Kafka, Apache Flume, X, `ZeroMQ`, raw TCP sockets, or from monitoring Apache Hadoop YARN filesystems. Unlike a solely event-driven process, a Spark Stream batches input data into time windows. Such as a 2-second slice, and then transforms each batch of data using map, reduce, join, and extract operations. The Spark Stream then writes the transformed data out to filesystems, databases, dashboards, and the console.
 
 :::image type="content" source="./media/apache-spark-streaming-overview/hdinsight-spark-streaming.png" alt-text="Stream Processing with HDInsight and Spark Streaming." border="false":::
 

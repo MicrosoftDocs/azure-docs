@@ -28,6 +28,8 @@ items:
       href: dynatrace-troubleshoot.md
 - name: Reference
   items:
+  - name: Azure CLI
+    href: /cli/azure/dynatrace
   - name: Python
     href: /python/api/overview/azure/dynatrace
   - name: JavaScript
@@ -38,5 +40,4 @@ items:
     href: /java/api/overview/azure/dynatrace
   - name: REST API
     href: /rest/api/dynatrace
-#  - name: Azure PowerShell
-#    href: 
+

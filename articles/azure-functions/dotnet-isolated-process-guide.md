@@ -3,7 +3,7 @@ title: Guide for running C# Azure Functions in an isolated worker process
 description: Learn how to use the .NET isolated worker model to run your C# functions in Azure, which lets you run your functions on currently supported versions of .NET and .NET Framework.
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 12/13/2023
+ms.date: 09/05/2024
 ms.custom:
   - template-concept
   - devx-track-dotnet
@@ -62,6 +62,17 @@ The following packages are required to run your .NET functions in an isolated wo
 
 + [Microsoft.Azure.Functions.Worker]
 + [Microsoft.Azure.Functions.Worker.Sdk]
+
+#### Version 2.x (Preview)
+
+The 2.x versions of the core packages change the supported framework assets and bring in support for new .NET APIs from these later versions. When using .NET 9 (Preview) or later, your app needs to reference version 2.0.0-preview1 or later of both packages.
+
+The initial preview versions are compatible with code written against version 1.x. However, during the preview period, newer versions may introduce behavior changes that could influence the code you write.
+
+When updating to the 2.x versions, please note the following changes:
+
+- Starting with version 2.0.0-preview2, [Microsoft.Azure.Functions.Worker.Sdk] adds default configurations for [SDK container builds](/dotnet/core/docker/publish-as-container).
+
 
 ### Extension packages
 
@@ -123,7 +134,7 @@ Dependency injection is simplified when compared to .NET in-process functions, w
 For a .NET isolated process app, you use the .NET standard way of call [ConfigureServices] on the host builder and use the extension methods on [IServiceCollection] to inject specific services. 
 
 The following example injects a singleton service dependency:  
- 
+
 ```csharp
 .ConfigureServices(services =>
 {
@@ -138,7 +149,9 @@ This code requires `using Microsoft.Extensions.DependencyInjection;`. To learn m
 Dependency injection can be used to interact with other Azure services. You can inject clients from the [Azure SDK for .NET](/dotnet/azure/sdk/azure-sdk-for-dotnet) using the [Microsoft.Extensions.Azure](https://www.nuget.org/packages/Microsoft.Extensions.Azure) package. After installing the package, [register the clients](/dotnet/azure/sdk/dependency-injection#register-clients) by calling `AddAzureClients()` on the service collection in `Program.cs`. The following example configures a [named client](/dotnet/azure/sdk/dependency-injection#configure-multiple-service-clients-with-different-names) for Azure Blobs:
 
 ```csharp
+using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.Azure;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
 var host = new HostBuilder()
@@ -194,7 +207,7 @@ The [`ILogger<T>`][ILogger&lt;T&gt;] in this example was also obtained through d
 
 ### Middleware
 
-.NET isolated also supports middleware registration, again by using a model similar to what exists in ASP.NET. This model gives you the ability to inject logic into the invocation pipeline, and before and after functions execute.
+The isolated worker model also supports middleware registration, again by using a model similar to what exists in ASP.NET. This model gives you the ability to inject logic into the invocation pipeline, and before and after functions execute.
 
 The [ConfigureFunctionsWorkerDefaults] extension method has an overload that lets you register your own middleware, as you can see in the following example.  
 
@@ -220,9 +233,15 @@ This middleware checks for the presence of a specific request header(x-correlati
 
 ### Customizing JSON serialization
 
-The isolated worker model uses `System.Text.Json` by default. You can customize the behavior of the serializer by configuring services as part of your `Program.cs` file. The following example shows this using `ConfigureFunctionsWebApplication`, but it will also work for `ConfigureFunctionsWorkerDefaults`:
+The isolated worker model uses `System.Text.Json` by default. You can customize the behavior of the serializer by configuring services as part of your `Program.cs` file. This section covers general-purpose serialization and will not influence [HTTP trigger JSON serialization with ASP.NET Core integration](#json-serialization-with-aspnet-core-integration), which must be configured separately.
+
+The following example shows this using `ConfigureFunctionsWebApplication`, but it will also work for `ConfigureFunctionsWorkerDefaults`:
 
 ```csharp
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+
 var host = new HostBuilder()
     .ConfigureFunctionsWebApplication((IFunctionsWorkerApplicationBuilder builder) =>
     {
@@ -237,11 +256,17 @@ var host = new HostBuilder()
         });
     })
     .Build();
+
+host.Run();
 ```
 
 You might wish to instead use JSON.NET (`Newtonsoft.Json`) for serialization. To do this, you would install the [`Microsoft.Azure.Core.NewtonsoftJson`](https://www.nuget.org/packages/Microsoft.Azure.Core.NewtonsoftJson) package. Then, in your service registration, you would reassign the `Serializer` property on the `WorkerOptions` configuration. The following example shows this using `ConfigureFunctionsWebApplication`, but it will also work for `ConfigureFunctionsWorkerDefaults`:
 
 ```csharp
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+
 var host = new HostBuilder()
     .ConfigureFunctionsWebApplication((IFunctionsWorkerApplicationBuilder builder) =>
     {
@@ -255,6 +280,8 @@ var host = new HostBuilder()
         });
     })
     .Build();
+
+host.Run();
 ```
 
 ## Methods recognized as functions
@@ -381,7 +408,7 @@ Each trigger and binding extension also has its own minimum version requirement,
 
 <sup>1</sup> For output scenarios in which you would use an SDK type, you should create and work with SDK clients directly instead of using an output binding. See [Register Azure clients](#register-azure-clients) for a dependency injection example.
 
-<sup>2</sup> The Cosmos DB trigger uses the [Azure Cosmos DB change feed](../cosmos-db/change-feed.md) and exposes change feed items as JSON-serializable types. The absence of SDK types is by-design for this scenario.
+<sup>2</sup> The Cosmos DB trigger uses the [Azure Cosmos DB change feed](/azure/cosmos-db/change-feed) and exposes change feed items as JSON-serializable types. The absence of SDK types is by-design for this scenario.
 
 > [!NOTE]
 > When using [binding expressions](./functions-bindings-expressions-patterns.md) that rely on trigger data, SDK types for the trigger itself cannot be used.
@@ -433,6 +460,27 @@ To enable ASP.NET Core integration for HTTP:
     }
     ```
 
+#### JSON serialization with ASP.NET Core integration
+
+ASP.NET Core has its own serialization layer, and it is not affected by [customizing general serialization configuration](#customizing-json-serialization). To customize the serialization behavior used for your HTTP triggers, you need to include an `.AddMvc()` call as part of service registration. The returned `IMvcBuilder` can be used to modify ASP.NET Core's JSON serialization settings. The following example shows how to configure JSON.NET (`Newtonsoft.Json`) for serialization using this approach:
+
+```csharp
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+
+var host = new HostBuilder()
+    .ConfigureFunctionsWebApplication()
+    .ConfigureServices(services =>
+    {
+        services.AddApplicationInsightsTelemetryWorkerService();
+        services.ConfigureFunctionsApplicationInsights();
+        services.AddMvc().AddNewtonsoftJson();
+    })
+    .Build();
+host.Run();
+```
+
 ### Built-in HTTP model
 
 In the built-in model, the system translates the incoming HTTP request message into an [HttpRequestData] object that is passed to the function. This object provides data from the request, including `Headers`, `Cookies`, `Identities`, `URL`, and optionally a message `Body`. This object is a representation of the HTTP request but isn't directly connected to the underlying HTTP listener or the received message. 
@@ -467,7 +515,7 @@ public class MyFunction {
 
 The logger can also be obtained from a [FunctionContext] object passed to your function. Call the [GetLogger&lt;T&gt;] or [GetLogger] method, passing a string value that is the name for the category in which the logs are written. The category is usually the name of the specific function from which the logs are written. To learn more about categories, see the [monitoring article](functions-monitoring.md#log-levels-and-categories).
 
-Use the methods of [`ILogger<T>`][ILogger&lt;T&gt;] and [`ILogger`][ILogger] to write various log levels, such as `LogWarning` or `LogError`. To learn more about log levels, see the [monitoring article](functions-monitoring.md#log-levels-and-categories). You can customize the log levels for components added to your code by registering filters as part of the `HostBuilder` configuration:
+Use the methods of [`ILogger<T>`][ILogger&lt;T&gt;] and [`ILogger`][ILogger] to write various log levels, such as `LogWarning` or `LogError`. To learn more about log levels, see the [monitoring article](functions-monitoring.md#log-levels-and-categories). You can customize the log levels for components added to your code by registering filters:
 
 ```csharp
 using Microsoft.Azure.Functions.Worker;
@@ -495,17 +543,22 @@ var host = new HostBuilder()
 As part of configuring your app in `Program.cs`, you can also define the behavior for how errors are surfaced to your logs. By default, exceptions thrown by your code can end up wrapped in an `RpcException`. To remove this extra layer, set the `EnableUserCodeException` property to "true" as part of configuring the builder:
 
 ```csharp
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.Extensions.Hosting;
+
 var host = new HostBuilder()
     .ConfigureFunctionsWorkerDefaults(builder => {}, options =>
     {
         options.EnableUserCodeException = true;
     })
     .Build();
+
+host.Run();
 ```
 
 ### Application Insights
 
-You can configure your isolated process application to emit logs directly to [Application Insights](../azure-monitor/app/app-insights-overview.md?tabs=net). This behavior replaces the default behavior of [relaying logs through the host](./configure-monitoring.md#custom-application-logs), and is recommended because it gives you control over how those logs are emitted. 
+You can configure your isolated process application to emit logs directly to [Application Insights](/azure/azure-monitor/app/app-insights-overview?tabs=net). This behavior replaces the default behavior of [relaying logs through the host](./configure-monitoring.md#custom-application-logs), and is recommended because it gives you control over how those logs are emitted. 
 
 #### Install packages
 
@@ -541,7 +594,7 @@ var host = new HostBuilder()
 host.Run();
 ```
 
-The call to `ConfigureFunctionsApplicationInsights()` adds an `ITelemetryModule`, which listens to a Functions-defined `ActivitySource`. This creates the dependency telemetry required to support distributed tracing. To learn more about `AddApplicationInsightsTelemetryWorkerService()` and how to use it, see [Application Insights for Worker Service applications](../azure-monitor/app/worker-service.md).
+The call to `ConfigureFunctionsApplicationInsights()` adds an `ITelemetryModule`, which listens to a Functions-defined `ActivitySource`. This creates the dependency telemetry required to support distributed tracing. To learn more about `AddApplicationInsightsTelemetryWorkerService()` and how to use it, see [Application Insights for Worker Service applications](/azure/azure-monitor/app/worker-service).
 
 #### Managing log levels
 
@@ -551,6 +604,11 @@ The call to `ConfigureFunctionsApplicationInsights()` adds an `ITelemetryModule`
 The rest of your application continues to work with `ILogger` and `ILogger<T>`. However, by default, the Application Insights SDK adds a logging filter that instructs the logger to capture only warnings and more severe logs. If you want to disable this behavior, remove the filter rule as part of service configuration:
 
 ```csharp
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
+
 var host = new HostBuilder()
     .ConfigureFunctionsWorkerDefaults()
     .ConfigureServices(services => {
@@ -614,7 +672,7 @@ Placeholders are a platform capability that improves cold start for apps targeti
     az functionapp config set -g <groupName> -n <appName> --net-framework-version <framework>
     ```
 
-    In this example, also replace `<framework>` with the appropriate version string, such as `v8.0`, `v7.0`, or `v6.0`, according to your target .NET version.
+    In this example, also replace `<framework>` with the appropriate version string, such as `v8.0`, according to your target .NET version.
         
 1. Make sure that your function app is configured to use a 64-bit process, which you can do by using this [az functionapp config set](/cli/azure/functionapp/config#az-functionapp-config-set) command:
 
@@ -692,7 +750,7 @@ You can create your function app and other required resources in Azure using one
 + [Deployment templates](./functions-infrastructure-as-code.md): You can use ARM templates and Bicep files to automate the deployment of the required resources to Azure. Make sure your template includes any [required settings](#deployment-requirements).
 + [Azure portal](./functions-create-function-app-portal.md): You can create the required resources in the [Azure portal](https://portal.azure.com).
 
-### Publish code project
+### Publish your application
 
 After creating your function app and other required resources in Azure, you can deploy the code project to Azure using one of these methods:
 
@@ -703,6 +761,24 @@ After creating your function app and other required resources in Azure, you can 
 + [Deployment templates](./functions-infrastructure-as-code.md#zip-deployment-package): You can use ARM templates or Bicep files to automate package deployments.
 
 For more information, see [Deployment technologies in Azure Functions](functions-deployment-technologies.md).
+
+#### Deployment payload
+
+Many of the deployment methods make use of a zip archive. If you are creating the zip archive yourself, it must follow the structure outlined in this section. If it does not, your app may experience errors at startup.
+
+The deployment payload should match the output of a `dotnet publish` command, though without the enclosing parent folder. The zip archive should be made from the following files:
+
+- `.azurefunctions/`
+- `extensions.json`
+- `functions.metadata`
+- `host.json`
+- `worker.config.json`
+- Your project executable (a console app)
+- Other supporting files and directories peer to that executable
+
+These files are generated by the build process, and they are not meant to be edited directly.
+
+When preparing a zip archive for deployment, you should only compress the contents of the output directory, not the enclosing directory itself. When the archive is extracted into the current working directory, the files listed above need to be immediately visible.
 
 ### Deployment requirements
 
@@ -785,7 +861,17 @@ Before a generally available release, a .NET version might be released in a _Pre
 
 While it might be possible to target a given release from a local Functions project, function apps hosted in Azure might not have that release available. Azure Functions can only be used with Preview or Go-live releases noted in this section.
 
-Azure Functions doesn't currently work with any "Preview" or "Go-live" .NET releases. See [Supported versions][supported-versions] for a list of generally available releases that you can use.
+Azure Functions currently can be used with the following "Preview" or "Go-live" .NET releases:
+
+| Operating system | .NET preview version |
+| - | - |
+| Linux | .NET 9 Preview 7<sup>1, 2</sup> |
+
+<sup>1</sup> To successfully target .NET 9, your project needs to reference the [2.x versions of the core packages](#version-2x-preview). If using Visual Studio, .NET 9 requires version 17.12 or later.
+
+<sup>2</sup> .NET 9 is not yet supported on the Flex Consumption SKU.
+
+See [Supported versions][supported-versions] for a list of generally available releases that you can use.
 
 ### Using a preview .NET SDK
 
@@ -794,11 +880,25 @@ To use Azure Functions with a preview version of .NET, you need to update your p
 1. Installing the relevant .NET SDK version in your development
 1. Changing the `TargetFramework` setting in your `.csproj` file
 
-When deploying to a function app in Azure, you also need to ensure that the framework is made available to the app. To do so on Windows, you can use the following CLI command. Replace `<groupName>` with the name of the resource group, and replace `<appName>` with the name of your function app. Replace `<framework>` with the appropriate version string, such as `v8.0`.
+When you deploy to your function app in Azure, you also need to ensure that the framework is made available to the app. During the preview period, some tools and experiences may not surface the new preview version as an option. If you do not see the preview version included in the Azure Portal, for example, you can use the REST API, Bicep templates, or the Azure CLI to configure the version manually.
+
+### [Windows](#tab/windows)
+
+For apps hosted on Windows, use the following Azure CLI command. Replace `<groupName>` with the name of the resource group, and replace `<appName>` with the name of your function app. Replace `<framework>` with the appropriate version string, such as `v8.0`.
 
 ```azurecli
 az functionapp config set -g <groupName> -n <appName> --net-framework-version <framework>
 ```
+
+### [Linux](#tab/linux)
+
+For apps hosted on Linux, use the following Azure CLI command. Replace `<groupName>` with the name of the resource group, and replace `<appName>` with the name of your function app. Replace `<version>` with the appropriate version string, such as `8.0`.
+
+```azurecli
+az functionapp config set -g <groupName> -n <appName> --linux-fx-version "dotnet-isolated|<version>"
+```
+
+---
 
 ### Considerations for using .NET preview versions
 

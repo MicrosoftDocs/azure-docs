@@ -4,7 +4,7 @@ titleSuffix: Azure DNS
 description: Quickstart - Learn how to create a DNS zone and record in Azure DNS. This is a step-by-step guide to create and manage your first DNS zone and record using the Azure CLI.
 services: dns
 author: greg-lindsay
-ms.service: dns
+ms.service: azure-dns
 ms.topic: quickstart
 ms.date: 11/30/2023
 ms.author: greglin

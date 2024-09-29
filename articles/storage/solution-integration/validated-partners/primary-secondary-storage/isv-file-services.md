@@ -119,7 +119,7 @@ This article compares several ISV solutions that provide files services in Azure
 | **Global file locking**                             | Yes                  | Yes (NetApp Global File Cache) | Yes                       | Yes                   | Yes                   | No                    | Yes                   |
 | **Namespace aggregation over backend sources**      | Yes                  | Yes                            | No                        | Yes                   | Yes                   | Yes                   | Yes                   |
 | **Caching of active data**                          | Yes                  | Yes                            | Yes                       | Yes                   | yes                   | Yes                   | Yes                   |
-| **Supported caching modes**                         | LRU, manually pinned | LRU                            | LRU, manually pinned      | Predictive            | LRU                   |                       | LRU                   |
+| **Supported caching modes**                         | LRU, manually pinned | LRU                            | LRU, manually pinned      | Predictive            | LRU                   | Linux page cache      | LRU                   |
 | **Encryption at rest**                              | Yes                  | Yes                            | Yes                       | Yes                   | Yes                   | Yes                   | No                    |
 | **Deduplication**                                   | Yes                  | Yes                            | Yes                       | No                    | No                    | Yes                   | No                    |
 | **Compression**                                     | Yes                  | Yes                            | Yes                       | No                    | No                    | No                    | No                    |
@@ -212,7 +212,7 @@ This article compares several ISV solutions that provide files services in Azure
 
 Learn more:
 
-- [Azure Disks](../../../../virtual-machines/managed-disks-overview.md)
+- [Azure Disks](/azure/virtual-machines/managed-disks-overview)
 - [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/)
 - [Verified partners for primary and secondary storage](./partner-overview.md)
 - [Storage migration overview](../../../common/storage-migration-overview.md)

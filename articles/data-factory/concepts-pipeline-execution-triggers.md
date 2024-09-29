@@ -5,7 +5,6 @@ description: This article provides information about how to execute a pipeline i
 author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
-ms.service: data-factory
 ms.subservice: orchestration
 ms.topic: conceptual
 ms.date: 01/05/2024
@@ -207,7 +206,7 @@ To have your schedule trigger kick off a pipeline run, include a pipeline refere
     "type": "ScheduleTrigger",
     "typeProperties": {
       "recurrence": {
-        "frequency": <<Minute, Hour, Day, Week, Year>>,
+        "frequency": <<Minute, Hour, Day, Week>>,
         "interval": <<int>>, // How often to fire
         "startTime": <<datetime>>,
         "endTime": <<datetime>>,

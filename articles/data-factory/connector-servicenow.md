@@ -4,11 +4,10 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from ServiceNow to supported sink data stores by using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 ms.author: jianleishen
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 06/17/2024
+ms.date: 08/23/2024
 ---
 
 # Copy data from ServiceNow using Azure Data Factory or Synapse Analytics
@@ -35,6 +34,13 @@ This ServiceNow connector is supported for the following capabilities:
 For a list of data stores that are supported as sources/sinks, see the [Supported data stores](connector-overview.md#supported-data-stores) table.
 
 The service provides a built-in driver to enable connectivity. Therefore you don't need to manually install any driver using this connector.
+
+**Please use the actual value instead of the displayed value in ServiceNow.**
+
+
+## Prerequisite
+
+To use this connector, you need to have a role with at least read access to *sys_db_object* and *sys_dictionary* tables in ServiceNow.
 
 ## Getting started
 
@@ -112,9 +118,6 @@ To copy data from ServiceNow, set the type property of the dataset to **ServiceN
 | type | The type property of the dataset must be set to: **ServiceNowV2Object** | Yes |
 | tableName | Name of the table. | Yes |
 
-> [!Note]
-> In copy activities, the tableName in dataset will be the name of the table instead of the label in ServiceNow.
-
 **Example**
 
 ```json
@@ -151,7 +154,6 @@ To copy data from ServiceNow, set the source type in the copy activity to **Serv
 | value | The constant value. |Yes when the expression type is Constant or Field |
 | operators | The operator value. For more information about operators, see *Operators available for choice fields containing strings* section in this [article](https://docs.servicenow.com/bundle/vancouver-platform-user-interface/page/use/common-ui-elements/reference/r_OpAvailableFiltersQueries.html).| Yes when the expression type is Unary or Binary |
 | operands | List of expressions on which operator is applied.| Yes when the expression type is Unary or Binary |
-
 
 **Example:**
 

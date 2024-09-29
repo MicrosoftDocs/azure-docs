@@ -4,7 +4,7 @@ titleSuffix: Azure Load Balancer
 description: Learn how to create a load balancer in one Azure subscription and attach a frontend IP address from another subscription in Azure Load Balancer.
 services: load-balancer
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: how-to
 ms.date: 06/18/2024
 ms.author: mbender

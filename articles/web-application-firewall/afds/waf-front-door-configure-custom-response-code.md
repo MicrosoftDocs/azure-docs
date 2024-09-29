@@ -3,8 +3,8 @@ title: Configure custom responses for Web Application Firewall with Azure Front 
 description: Learn how to configure a custom response code and message when Azure Web Application Firewall blocks a request.
 services: web-application-firewall
 author: vhorne
-ms.service: web-application-firewall
-ms.topic: article
+ms.service: azure-web-application-firewall
+ms.topic: how-to
 ms.date: 08/16/2022
 ms.author: victorh 
 ms.custom: devx-track-azurepowershell

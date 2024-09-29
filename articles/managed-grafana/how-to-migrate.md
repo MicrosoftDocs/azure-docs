@@ -2,7 +2,7 @@
 title: Migrate a self-hosted Grafana to Azure Managed Grafana
 titlesuffix: Azure Managed Grafana
 description: Learn how to migrate a self-hosted Grafana to Azure Managed Grafana and move your dashboards to Azure Managed Grafana.
-ms.service: managed-grafana
+ms.service: azure-managed-grafana
 ms.topic: how-to
 author: maud-lv
 ms.author: malev

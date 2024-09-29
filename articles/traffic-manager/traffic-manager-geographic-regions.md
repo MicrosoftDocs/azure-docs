@@ -4,9 +4,9 @@ description: This article lists Country/Region hierarchy used by Azure Traffic M
 services: traffic-manager
 author: greg-lindsay
 manager: kumud
-ms.service: traffic-manager
+ms.service: azure-traffic-manager
 ms.topic: conceptual
-ms.date: 04/27/2023
+ms.date: 08/08/2024
 ms.author: greglin
 ms.custom: template-concept
 ---

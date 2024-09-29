@@ -1,8 +1,9 @@
 ---
-title: Balance partition load across multiple instances - Azure Event Hubs | Microsoft Docs
+title: Balance partition load across multiple instances
 description: Describes how to balance partition load across multiple instances of your application using an event processor and the Azure Event Hubs SDK.  
-ms.topic: conceptual
-ms.date: 11/14/2022
+ms.topic: concept-article
+ms.date: 07/31/2024
+#customer intent: As a developer, I want to know how to run multiple instances of my processing client to read data from an event hub. 
 ---
 
 # Balance partition load across multiple instances of your application
@@ -78,7 +79,7 @@ When the checkpoint is performed to mark an event as processed, an entry in chec
 
 By default, the function that processes events is called sequentially for a given partition. Subsequent events and calls to this function from the same partition queue up behind the scenes as the event pump continues to run in the background on other threads. Events from different partitions can be processed concurrently and any shared state that is accessed across partitions have to be synchronized.
 
-## Next steps
+## Related content
 See the following quick starts:
 
 - [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)

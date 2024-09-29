@@ -1,7 +1,7 @@
 ---
 title: Run a failover during disaster recovery with Azure Site Recovery 
 description: How to fail over VMs/physical servers to Azure with Azure Site Recovery.
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: how-to
 ms.date: 12/10/2019
 ms.author: ankitadutta

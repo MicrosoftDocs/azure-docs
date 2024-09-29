@@ -7,6 +7,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-bicep, li
 ms.date: 06/29/2024
 ms.topic: how-to
 #Customer intent: As a developer, I want to learn about extension so that I can efficiently deploy Hybrid Runbook Workers.
+ms.service: azure-automation
 ---
 
 # Deploy an extension-based Windows or Linux User Hybrid Runbook Worker in Azure Automation
@@ -16,7 +17,7 @@ The extension-based onboarding is only for **User** Hybrid Runbook Workers. This
 For **System** Hybrid Runbook Worker onboarding, see [Deploy an agent-based Windows Hybrid Runbook Worker in Automation](./automation-windows-hrw-install.md) or [Deploy an agent-based Linux Hybrid Runbook Worker in Automation](./automation-linux-hrw-install.md). 
 
 
-You can use the user Hybrid Runbook Worker feature of Azure Automation to run runbooks directly on an Azure or non-Azure machine, including [Azure Arc-enabled servers](../azure-arc/servers/overview.md), [Arc-enabled VMware vSphere](../azure-arc/vmware-vsphere/overview.md), and [Arc-enabled SCVMM](../azure-arc/system-center-virtual-machine-manager/overview.md). From the machine or server that's hosting the role, you can run runbooks directly against it and against resources in the environment to manage those local resources.
+You can use the user Hybrid Runbook Worker feature of Azure Automation to run runbooks directly on an Azure or non-Azure machine, including [Azure Arc-enabled servers](/azure/azure-arc/servers/overview), [Arc-enabled VMware vSphere](/azure/azure-arc/vmware-vsphere/overview), and [Arc-enabled SCVMM](/azure/azure-arc/system-center-virtual-machine-manager/overview). From the machine or server that's hosting the role, you can run runbooks directly against it and against resources in the environment to manage those local resources.
 Azure Automation stores and manages runbooks and then delivers them to one or more chosen machines. After you successfully deploy a runbook worker, review [Run runbooks on a Hybrid Runbook Worker](automation-hrw-run-runbooks.md) to learn how to configure your runbooks to automate processes in your on-premises datacenter or other cloud environment.
 
 
@@ -29,7 +30,7 @@ Azure Automation stores and manages runbooks and then delivers them to one or mo
 
 - Two cores
 - 4 GB of RAM
-- **Non-Azure machines** must have the [Azure Connected Machine agent](../azure-arc/servers/agent-overview.md) installed. To install the `AzureConnectedMachineAgent`, see [Connect hybrid machines to Azure from the Azure portal](../azure-arc/servers/onboard-portal.md) for Arc-enabled servers. See [Install Arc agent for Arc-enabled VMware VMs](../azure-arc/vmware-vsphere/enable-guest-management-at-scale.md) to enable guest management for Arc-enabled VMware vSphere VMs and install [Arc agent for Arc-enabled SCVMM](../azure-arc/system-center-virtual-machine-manager/enable-guest-management-at-scale.md) to enable guest management for Arc-enabled SCVMM VMs.
+- **Non-Azure machines** must have the [Azure Connected Machine agent](/azure/azure-arc/servers/agent-overview) installed. To install the `AzureConnectedMachineAgent`, see [Connect hybrid machines to Azure from the Azure portal](/azure/azure-arc/servers/onboard-portal) for Arc-enabled servers. See [Install Arc agent for Arc-enabled VMware VMs](/azure/azure-arc/vmware-vsphere/enable-guest-management-at-scale) to enable guest management for Arc-enabled VMware vSphere VMs and install [Arc agent for Arc-enabled SCVMM](/azure/azure-arc/system-center-virtual-machine-manager/enable-guest-management-at-scale) to enable guest management for Arc-enabled SCVMM VMs.
 - The system-assigned managed identity must be enabled on the Azure virtual machine, Arc-enabled server, Arc-enabled VMware vSphere VM or Arc-enabled SCVMM VM.  If the system-assigned managed identity isn't enabled, it will be enabled as part of the adding process.
  
 ### Supported operating systems
@@ -220,7 +221,7 @@ You can also add machines to an existing hybrid worker group.
 
 1. Select the checkbox next to the machine(s) you want to add to the hybrid worker group. 
 
-   If you don't see your non-Azure machine listed, ensure Azure Arc Connected Machine agent is installed on the machine. To install the `AzureConnectedMachineAgent` see [Connect hybrid machines to Azure from the Azure portal](../azure-arc/servers/onboard-portal.md) for Arc-enabled servers. See [Install Arc agent for Arc-enabled VMs](../azure-arc/vmware-vsphere/enable-guest-management-at-scale.md) to enable guest management for Arc-enabled VMware vSphere and [Install Arc agent for Arc-enabled SCVMM](../azure-arc/system-center-virtual-machine-manager/enable-guest-management-at-scale.md) to enable guest management for Arc-enabled SCVMM VMs.
+   If you don't see your non-Azure machine listed, ensure Azure Arc Connected Machine agent is installed on the machine. To install the `AzureConnectedMachineAgent` see [Connect hybrid machines to Azure from the Azure portal](/azure/azure-arc/servers/onboard-portal) for Arc-enabled servers. See [Install Arc agent for Arc-enabled VMs](/azure/azure-arc/vmware-vsphere/enable-guest-management-at-scale) to enable guest management for Arc-enabled VMware vSphere and [Install Arc agent for Arc-enabled SCVMM](/azure/azure-arc/system-center-virtual-machine-manager/enable-guest-management-at-scale) to enable guest management for Arc-enabled SCVMM VMs.
 
 1. Select **Add** to add the machine to the group.
 
@@ -256,7 +257,7 @@ You can delete the Hybrid Runbook Worker from the portal.
 
 1. Select **Delete**.
 
-   You'll be presented with a warning in a dialog box **Delete Hybrid worker** that the selected hybrid worker would be deleted permanently. Select **Delete**. This operation will delete the extension for the **Extension based (V2)** worker or remove the **Agent based (V1)** entry from the portal. However, it leaves the stale hybrid worker on the VM. To manually uninstall the agent, see [Uninstall agent](../azure-monitor/agents/agent-manage.md#uninstall-agent).
+   You'll be presented with a warning in a dialog box **Delete Hybrid worker** that the selected hybrid worker would be deleted permanently. Select **Delete**. This operation will delete the extension for the **Extension based (V2)** worker or remove the **Agent based (V1)** entry from the portal. However, it leaves the stale hybrid worker on the VM. To manually uninstall the agent, see [Uninstall agent](/azure/azure-monitor/agents/agent-manage#uninstall-agent).
 
    :::image type="content" source="./media/extension-based-hybrid-runbook-worker-install/delete-machine-from-group.png" alt-text="Screenshot showing to delete virtual machine from existing group.":::
 
@@ -282,7 +283,7 @@ You can delete an empty Hybrid Runbook Worker group from the portal.
 
 ## Automatic upgrade of extension
 
-Hybrid Worker extension supports [Automatic upgrade](../virtual-machines/automatic-extension-upgrade.md) of minor versions by default. We recommend that you enable Automatic upgrades to take advantage of any security or feature updates without manual overhead. However, to prevent the extension from automatically upgrading (for example, if there is a strict change windows and can only be updated at specific time), you can opt out of this feature by setting the `enableAutomaticUpgrade`property in ARM, Bicep template, PowerShell cmdlets to *false*. Set the same property to *true* whenever you want to re-enable the Automatic upgrade.
+Hybrid Worker extension supports [Automatic upgrade](/azure/virtual-machines/automatic-extension-upgrade) of minor versions by default. We recommend that you enable Automatic upgrades to take advantage of any security or feature updates without manual overhead. However, to prevent the extension from automatically upgrading (for example, if there is a strict change windows and can only be updated at specific time), you can opt out of this feature by setting the `enableAutomaticUpgrade`property in ARM, Bicep template, PowerShell cmdlets to *false*. Set the same property to *true* whenever you want to re-enable the Automatic upgrade.
 
 ```powershell
 $extensionType = "HybridWorkerForLinux/HybridWorkerForWindows"
@@ -880,7 +881,7 @@ Review the parameters used in this template.
 
 **Prerequisites**
 
-You would require an Azure VM or Arc-enabled server. You can follow the steps [here](../azure-arc/servers/onboard-portal.md) to create an Arc connected machine.
+You would require an Azure VM or Arc-enabled server. You can follow the steps [here](/azure/azure-arc/servers/onboard-portal) to create an Arc connected machine.
 
 **Install and use Hybrid Worker extension**
 
@@ -1124,9 +1125,9 @@ To check the version of the extension-based Hybrid Runbook Worker:
 
 ## Monitor performance of Hybrid Workers using VM insights
 
-Using [VM insights](../azure-monitor/vm/vminsights-overview.md), you can monitor the performance of Azure VMs and Arc-enabled Servers deployed as Hybrid Runbook workers. Among multiple elements that are considered during performances, the VM insights monitors the key operating system performance indicators related to processor, memory, network adapter, and disk utilization.
-- For Azure VMs, see [How to chart performance with VM insights](../azure-monitor/vm/vminsights-performance.md).
-- For Arc-enabled servers, see [Tutorial: Monitor a hybrid machine with VM insights](../azure-arc/servers/learn/tutorial-enable-vm-insights.md).
+Using [VM insights](/azure/azure-monitor/vm/vminsights-overview), you can monitor the performance of Azure VMs and Arc-enabled Servers deployed as Hybrid Runbook workers. Among multiple elements that are considered during performances, the VM insights monitors the key operating system performance indicators related to processor, memory, network adapter, and disk utilization.
+- For Azure VMs, see [How to chart performance with VM insights](/azure/azure-monitor/vm/vminsights-performance).
+- For Arc-enabled servers, see [Tutorial: Monitor a hybrid machine with VM insights](/azure/azure-arc/servers/learn/tutorial-enable-vm-insights).
 
 ## Next steps
 
@@ -1134,10 +1135,10 @@ Using [VM insights](../azure-monitor/vm/vminsights-overview.md), you can monitor
 
 - To learn how to troubleshoot your Hybrid Runbook Workers, see [Troubleshoot Hybrid Runbook Worker issues](troubleshoot/extension-based-hybrid-runbook-worker.md).
 
-- To learn about Azure VM extensions, see [Azure VM extensions and features for Windows](../virtual-machines/extensions/features-windows.md) and [Azure VM extensions and features for Linux](../virtual-machines/extensions/features-linux.md).
+- To learn about Azure VM extensions, see [Azure VM extensions and features for Windows](/azure/virtual-machines/extensions/features-windows) and [Azure VM extensions and features for Linux](/azure/virtual-machines/extensions/features-linux).
 
-- To learn about VM extensions for Arc-enabled servers, see [VM extension management with Azure Arc-enabled servers](../azure-arc/servers/manage-vm-extensions.md).
+- To learn about VM extensions for Arc-enabled servers, see [VM extension management with Azure Arc-enabled servers](/azure/azure-arc/servers/manage-vm-extensions).
 
-- To learn about Azure management services for Arc-enabled VMware VMs, see [Install Arc agents at scale for your VMware VMs](../azure-arc/vmware-vsphere/enable-guest-management-at-scale.md).
+- To learn about Azure management services for Arc-enabled VMware VMs, see [Install Arc agents at scale for your VMware VMs](/azure/azure-arc/vmware-vsphere/enable-guest-management-at-scale).
 
-- To learn about Azure management services for Arc-enabled SCVMM VMs, see [Install Arc agents at scale for Arc-enabled SCVMM VMs](../azure-arc/system-center-virtual-machine-manager/enable-guest-management-at-scale.md).
+- To learn about Azure management services for Arc-enabled SCVMM VMs, see [Install Arc agents at scale for Arc-enabled SCVMM VMs](/azure/azure-arc/system-center-virtual-machine-manager/enable-guest-management-at-scale).

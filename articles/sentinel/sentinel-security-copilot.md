@@ -17,7 +17,7 @@ ms.date: 07/04/2024
 #Customer intent: As a SOC administer or analyst, understand how to use Microsoft Sentinel data with Copilot for Security.
 ---
 
-# Investigate Microsoft Sentinel incidents in Copilot for Security
+# Microsoft Sentinel incidents in Copilot for Security
 
 Microsoft Copilot for Security is a platform that helps you defend your organization at machine speed and scale. Microsoft Sentinel provides a plugin for Copilot to help analyze incidents and generate hunting queries.
 
@@ -25,6 +25,7 @@ Together with the iterative prompts using other sophisticated Copilot for Securi
 
 For more information on Copilot for Security, see the following articles:
 - [Get started with Microsoft Copilot for Security](/copilot/security/get-started-security-copilot)
+- [Manage plugins in Microsoft Copilot for Security](/copilot/security/manage-plugins#turn-plugins-on-or-off)
 - [Understand authentication in Microsoft Copilot for Security](/copilot/security/authentication)
 
 ## Integrate Microsoft Sentinel with Copilot for Security

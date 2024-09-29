@@ -32,7 +32,7 @@ Register a new app or use an existing Microsoft Entra application registration t
 
 To register a new app:
 
-1. Go to **Identity** > **Applications** > **App registrations**.
+1. In the Microsoft admin center, go to **Identity** > **Applications** > **App registrations**.
 
     :::image type="content" source="media/data-access/app-registration.png" alt-text="Screenshot of the Microsoft Entra admin center showing the App registrations page.":::
 
@@ -45,12 +45,11 @@ To register a new app:
 
 Configure the application ID URI to allow the Entra application to be used as global audience/scope when requesting an authentication token.
 
-1. Open your app in the Azure portal and under **Overview**, get the **Application ID URI**.
+1. In the Microsoft Entra admin center, in **Identity** > **Applications** > **App registrations**, open your application by selecting its **Display name**. In the pane that opens, under **Overview**, copy the **Application ID URI**. If instead of the application ID URI you see **Add an Application ID URI**, select this option, then select **Add** and **Save**.
 
     :::image type="content" source="media/data-access/get-application-id-uri.png" alt-text="Screenshot of the app in the Azure portal.":::
 
-1. Back in the Microsoft Entra admin center, in **Identity** > **Applications** > **App registrations**, open your application by selecting its **Display name**.
-1. In the pane that opens, select **Expose an API** and Ensure the **Application ID URI** value is: `api://<Entra application ID>` where `Entra application ID` must be the same Microsoft Entra application ID.
+1. Then select **Expose an API** in the app's left menu. Ensure the **Application ID URI** value is: `api://<Entra application ID>` where `Entra application ID` must be the same Microsoft Entra application ID.
 
     :::image type="content" source="media/data-access/app-registration.png" alt-text="Screenshot of the Microsoft Entra admin center showing the App registrations page.":::
 
@@ -81,8 +80,8 @@ In the Microsoft Entra admin center, go to your app and open the **Expose an API
 
 Split Experimentation workspace supports well-known roles to scope access control. Add the following roles in the Entra application.
 
-1. Go to the **App roles** menu and select **Create app role**.
-1. Select or enter the following information in the pane that opens to create a first role:
+1. Go to the **App roles** menu of your app and select **Create app role**.
+1. Select or enter the following information in the pane that opens to create an *ExperimentationDataOwner* role. This role gives the app full access to execute all operations on the Split Experimentation resource.
 
     - **Display name**: enter *ExperimentationDataOwner*
     - **Allowed member types**: select **Both (Users/Groups + Applications)**
@@ -92,7 +91,7 @@ Split Experimentation workspace supports well-known roles to scope access contro
 
     :::image type="content" source="media/data-access/create-app-role.png" alt-text="Screenshot of the Microsoft Entra admin center showing how to create an app role.":::
 
-1. Create a second role:
+1. Create an *ExperimentationDataReader* role. This role gives the app read access on the Split Experimentation resource, but doesn't allow it to make any changes.
 
     - **Display name**: enter *ExperimentationDataReader*
     - **Allowed member types**: select **Both (Users/Groups + Applications)**
@@ -104,8 +103,8 @@ Split Experimentation workspace supports well-known roles to scope access contro
 
 #### Choose an assignment requirement option
 
-1. Go to the **Overview** menu and select the link under to **Managed application in local directory**
-1. Open **Manage** > **Properties** and select your preferred option for the **Assignment required** setting.
+1. Go to the **Overview** menu of your app and select the link under **Managed application in local directory**. This opens your app in the Microsoft admin center **Identity** > **Enterprise Application** menu.
+1. Open **Manage** > **Properties** on the left and select your preferred option for the **Assignment required** setting.
     - **Yes**: means that only the entries explicitly defined under **Users and Groups** in the enterprise application can obtain a token and therefore access the associated Split Experimentation Workspace. This is the recommended option.
     - **No**: means that everyone in the same Entra tenant can obtain tokens and therefore may be allowed, via the Split Experimentation control plane opt-in setting, to access the associated Split Experimentation Workspace.
 
@@ -113,7 +112,7 @@ Split Experimentation workspace supports well-known roles to scope access contro
 
 #### Assign users and groups
 
-1. Go to the **Users and groups** menu and select **Add user/group**
+1. Go back to the **Users and groups** menu and select **Add user/group**
 
     :::image type="content" source="media/data-access/assign-users.png" alt-text="Screenshot of the Microsoft Entra admin center showing how to assign roles to users.":::
 1. Select a user or a group and select one of the roles you created for the Split Experimentation Workspace. 

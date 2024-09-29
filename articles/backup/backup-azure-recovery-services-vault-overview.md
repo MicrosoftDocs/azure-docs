@@ -1,9 +1,9 @@
 ---
 title: Overview of Recovery Services vaults
 description: An overview of Recovery Services vaults.
-ms.topic: conceptual
-ms.date: 03/26/2024
-ms.service: backup
+ms.topic: overview
+ms.date: 07/30/2024
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ms.custom: engagement-fy24
@@ -55,9 +55,9 @@ Read more about how to encrypt your backup data [using customer-managed keys](en
 
 ## Azure Advisor
 
-[Azure Advisor](../advisor/index.yml) is a personalized cloud consultant that helps optimize the use of Azure. It analyzes your Azure usage and provides timely recommendations to help optimize and secure your deployments. It provides recommendations in four categories: High Availability, Security, Performance, and Cost.
+[Azure Advisor](/azure/advisor/) is a personalized cloud consultant that helps optimize the use of Azure. It analyzes your Azure usage and provides timely recommendations to help optimize and secure your deployments. It provides recommendations in four categories: High Availability, Security, Performance, and Cost.
 
-Azure Advisor provides hourly [recommendations](../advisor/advisor-high-availability-recommendations.md#protect-your-virtual-machine-data-from-accidental-deletion) for VMs that aren't backed up, so you never miss backing up important VMs. You can also control the recommendations by snoozing them.  You can select the recommendation and enable backup on VMs in-line by specifying the vault (where backups will be stored) and the backup policy (schedule of backups and retention of backup copies).
+Azure Advisor provides hourly [recommendations](/azure/advisor/advisor-high-availability-recommendations#protect-your-virtual-machine-data-from-accidental-deletion) for VMs that aren't backed up, so you never miss backing up important VMs. You can also control the recommendations by snoozing them.  You can select the recommendation and enable backup on VMs in-line by specifying the vault (where backups will be stored) and the backup policy (schedule of backups and retention of backup copies).
 
 ![Screenshot shows the Azure Advisor page.](./media/backup-azure-recovery-services-vault-overview/azure-advisor.png)
 

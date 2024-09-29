@@ -3,7 +3,7 @@ title: 'Configure active-active S2S VPN connections'
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure active-active connections with VPN gateways using PowerShell.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 07/19/2023
 ms.author: cherylmc
@@ -145,10 +145,10 @@ Use the following cmdlets to show the two public IP addresses allocated for your
 
 ```azurepowershell-interactive
 PS D:\> $gw1pip1.IpAddress
-40.112.190.5
+198.51.100.5
 
 PS D:\> $gw1pip2.IpAddress
-138.91.156.129
+203.0.113.129
 
 PS D:\> $vnet1gw.BgpSettingsText
 {
@@ -158,7 +158,7 @@ PS D:\> $vnet1gw.BgpSettingsText
 }
 ```
 
-The order of the public IP addresses for the gateway instances and the corresponding BGP Peering Addresses are the same. In this example, the gateway VM with public IP of 40.112.190.5 uses 10.12.255.4 as its BGP Peering Address, and the gateway with 138.91.156.129 uses 10.12.255.5. This information is needed when you set up your on premises VPN devices connecting to the active-active gateway. The gateway is shown in the following diagram with all addresses:
+The order of the public IP addresses for the gateway instances and the corresponding BGP Peering Addresses are the same. In this example, the gateway VM with public IP of 198.51.100.5 uses 10.12.255.4 as its BGP Peering Address, and the gateway with 203.0.113.129 uses 10.12.255.5. This information is needed when you set up your on premises VPN devices connecting to the active-active gateway. The gateway is shown in the following diagram with all addresses:
 
 ![active-active gateway](./media/vpn-gateway-activeactive-rm-powershell/active-active-gw.png)
 
@@ -181,7 +181,7 @@ $RG5 = "TestAARG5"
 $Location5 = "West US"
 $LNGName51 = "Site5_1"
 $LNGPrefix51 = "10.52.255.253/32"
-$LNGIP51 = "131.107.72.22"
+$LNGIP51 = "192.0.2.13"
 $LNGASN5 = 65050
 $BGPPeerIP51 = "10.52.255.253"
 ```
@@ -228,10 +228,10 @@ The following example lists the parameters that you enter into the BGP configura
 - Site5 BGP IP         : 10.52.255.253
 - Prefixes to announce : (for example) 10.51.0.0/16 and 10.52.0.0/16
 - Azure VNet ASN       : 65010
-- Azure VNet BGP IP 1  : 10.12.255.4 for tunnel to 40.112.190.5
-- Azure VNet BGP IP 2  : 10.12.255.5 for tunnel to 138.91.156.129
-- Static routes        : Destination 10.12.255.4/32, nexthop the VPN tunnel interface to 40.112.190.5
-                         Destination 10.12.255.5/32, nexthop the VPN tunnel interface to 138.91.156.129
+- Azure VNet BGP IP 1  : 10.12.255.4 for tunnel to 198.51.100.5
+- Azure VNet BGP IP 2  : 10.12.255.5 for tunnel to 203.0.113.129
+- Static routes        : Destination 10.12.255.4/32, nexthop the VPN tunnel interface to 198.51.100.5
+                         Destination 10.12.255.5/32, nexthop the VPN tunnel interface to 203.0.113.129
 - eBGP Multihop        : Ensure the "multihop" option for eBGP is enabled on your device if needed
 ```
 
@@ -250,7 +250,7 @@ The gateway IP address, address prefix, and BGP peering address for the second l
 ```azurepowershell-interactive
 $LNGName52 = "Site5_2"
 $LNGPrefix52 = "10.52.255.254/32"
-$LNGIP52 = "131.107.72.23"
+$LNGIP52 = "192.0.2.14"
 $BGPPeerIP52 = "10.52.255.254"
 ```
 
@@ -279,10 +279,10 @@ Similarly, the following example lists the parameters you'll enter into the seco
 - Site5 BGP IP         : 10.52.255.254
 - Prefixes to announce : (for example) 10.51.0.0/16 and 10.52.0.0/16
 - Azure VNet ASN       : 65010
-- Azure VNet BGP IP 1  : 10.12.255.4 for tunnel to 40.112.190.5
-- Azure VNet BGP IP 2  : 10.12.255.5 for tunnel to 138.91.156.129
-- Static routes        : Destination 10.12.255.4/32, nexthop the VPN tunnel interface to 40.112.190.5
-                         Destination 10.12.255.5/32, nexthop the VPN tunnel interface to 138.91.156.129
+- Azure VNet BGP IP 1  : 10.12.255.4 for tunnel to 198.51.100.5
+- Azure VNet BGP IP 2  : 10.12.255.5 for tunnel to 203.0.113.129
+- Static routes        : Destination 10.12.255.4/32, nexthop the VPN tunnel interface to 198.51.100.5
+                         Destination 10.12.255.5/32, nexthop the VPN tunnel interface to 203.0.113.129
 - eBGP Multihop        : Ensure the "multihop" option for eBGP is enabled on your device if needed
 ```
 
@@ -470,4 +470,4 @@ This update can take up to 30 to  45 minutes.
 
 ## Next steps
 
-Once your connection is complete, you can add virtual machines to your virtual networks. See [Create a Virtual Machine](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for steps.
+Once your connection is complete, you can add virtual machines to your virtual networks. See [Create a Virtual Machine](/azure/virtual-machines/windows/quick-create-portal?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for steps.

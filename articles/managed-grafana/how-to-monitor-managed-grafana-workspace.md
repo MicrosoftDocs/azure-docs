@@ -3,7 +3,7 @@ title: 'How to monitor your Azure Managed Grafana instance with logs'
 description: Learn how to monitor your Azure Managed Grafana instance with logs.
 author: maud-lv 
 ms.author: malev 
-ms.service: managed-grafana 
+ms.service: azure-managed-grafana
 ms.topic: how-to 
 ms.custom: engagement-fy23
 ms.date: 2/28/2023
@@ -37,10 +37,10 @@ You can create up to five different diagnostic settings to send different logs t
 1. For **Diagnostic setting name**, enter a unique name.
 
 1. Select **allLogs** from the following options:
-   - **audit** streams all audit logs
+   - **audit** streams all audit logs (Currently not supported. Please see the following link for additional information about the types of logs available for the Microsoft.Dashboard/grafana resource type: [Supported logs for Microsoft.Dashboard/grafana](/azure/azure-monitor/reference/supported-logs/microsoft-dashboard-grafana-logs)).
    - **allLogs** streams all logs
    - **Grafana Login Events** streams all Grafana login events
-   - **AllMetrics** streams all metrics
+   - **AllMetrics** streams all metrics (Currently not supported. Please see the following link for additional information about metrics available for the Microsoft.Dashboard/grafana resource type: [Supported metrics for Microsoft.Dashboard/grafana](/azure/azure-monitor/reference/supported-metrics/microsoft-dashboard-grafana-metrics)).
 
 1. Under **Destination details**, select one or more destinations, fill out details and select **Save**.
 
@@ -49,7 +49,7 @@ You can create up to five different diagnostic settings to send different logs t
    | Log Analytics workspace | Send data to a Log Analytics workspace | Select the **subscription** containing an existing Log Analytics workspace, then select the **Log Analytics workspace**                                                          |
    | Storage account         | Archive data to a storage account      | Select the **subscription** containing an existing storage account, then select the **storage account**. Only storage accounts in the same region as the Grafana instance are displayed in the dropdown menu.                                                                          |
    | Event hub               | Stream to an event hub                 | Select a **subscription** and an existing Azure Event Hubs **namespace**. Optionally also choose an existing **event hub**. Lastly, choose an **event hub policy** from the list. Only event hubs in the same region as the Grafana instance are displayed in the dropdown menu. |
-   | Partner solution        | Send to a partner solution             | Select a **subscription** and a **destination**. For more information about available destinations, go to [partner destinations](../azure-monitor/partners.md).                 |
+   | Partner solution        | Send to a partner solution             | Select a **subscription** and a **destination**. For more information about available destinations, go to [partner destinations](/azure/azure-monitor/partners).                 |
 
    :::image type="content" source="media//monitoring-logs/monitoring-settings.png" alt-text="Screenshot of the Azure platform. Diagnostic settings configuration.":::
 

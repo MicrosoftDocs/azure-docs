@@ -15,7 +15,7 @@ ms.subservice: B2C
 ---
 # Sign-in options in Azure AD B2C
 
-Azure AD B2C offers several sign-up and sign-in methods for users of your applications. When users sign up for your application, you determine whether they'll use a username, email address, or phone number to create local accounts in your Azure AD B2C tenant. You can also federate with social identity providers (like Facebook, LinkedIn, and Twitter) and standard identity protocols (like OAuth 2.0, OpenID Connect, and more).
+Azure AD B2C offers several sign-up and sign-in methods for users of your applications. When users sign up for your application, you determine whether they'll use a username, email address, or phone number to create local accounts in your Azure AD B2C tenant. You can also federate with social identity providers (like Facebook, LinkedIn, and X) and standard identity protocols (like OAuth 2.0, OpenID Connect, and more).
 
 This article gives an overview of Azure AD B2C sign-in options.
 
