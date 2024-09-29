@@ -13,8 +13,8 @@ This article is one in a series of articles describing the [deployment path](ot-
 
 Several initial setup steps can be performed in the browser or via CLI.
 
-- Use the browser if you can connect physical cables from your switch to the sensor to identify your interfaces correctly.         Make sure to reconfigure your network adapter to match the default settings on the sensor.
-- Use the CLI if you know your networking details without needing to connect physical cables.      Use the CLI if you can only connect to the sensor via iLo / iDrac
+- Use the browser if you can connect physical cables from your switch to the sensor to identify your interfaces correctly. Make sure to reconfigure your network adapter to match the default settings on the sensor.
+- Use the CLI if you know your networking details without needing to connect physical cables. Use the CLI if you can only connect to the sensor via iLo / iDrac
 
 Configuring your setup via the CLI still requires you to complete the last few steps in the browser.
 
@@ -148,7 +148,7 @@ Use the **Certificates** tab to deploy an SSL/TLS certificate on your OT sensor.
     >
     > For more information, see [Manage SSL/TLS certificates](../how-to-manage-individual-sensors.md#manage-ssltls-certificates).
 
-1. In the **Validation of on-premises management console certificate** area, select **Mandatory** to validate an on-premises management console's certificate against a certificate revocation list (CRL), as [configured in your certificate](../best-practices/certificate-requirements.md#crt-file-requirements). 
+1. In the **Validation of on-premises management console certificate** area, select **Mandatory** to validate an on-premises management console's certificate against a certificate revocation list (CRL), as [configured in your certificate](../best-practices/certificate-requirements.md#crt-file-requirements).
 
     For more information, see [SSL/TLS certificate requirements for on-premises resources](../best-practices/certificate-requirements.md) and [Create SSL/TLS certificates for OT appliances](create-ssl-certificates.md).
 
@@ -177,7 +177,7 @@ Continue with [activating](#activate-your-ot-sensor) and [configuring SSL/TLS ce
     - **Username**: `admin`
     - **Password**: `admin`
 
-    When you enter your password, the password characters don't display on the screen. Make sure you enter them carefully. 
+    When you enter your password, the password characters don't display on the screen. Make sure you enter them carefully.
 
 1. At the prompt, enter a new password for the *admin* user. Your password must contain lowercase and uppercase alphabetic characters, numbers, and symbols.
 
@@ -187,7 +187,7 @@ Continue with [activating](#activate-your-ot-sensor) and [configuring SSL/TLS ce
 
     If you're logging in on subsequent occassions continue to step 4.
 
-1. To start the `Sensor Config` wizard, at the prompt type `network reconfigure`. If you are using the cyberx user, type `python3 -m cyberx.config.configure`.
+1. To start the `Sensor Config` wizard, at the prompt type `network reconfigure`. If you are using the cyberx user, type `ERSPAN=1 python3 -m cyberx.config.configure`.
 
 1. The `Sensor Config` screen shows the present set up of the interfaces. Ensure that one interface is set as the management interface. In this wizard, use the up or down arrows to navigate, and the **SPACE** bar to select an option. Press **ENTER** to advance to the next screen.
 
@@ -252,6 +252,5 @@ The sensor automatically creates a backup folder. To change the location of the 
 
 > [!div class="step-by-step"]
 > [« Validate an OT sensor software installation](post-install-validation-ot-software.md)
-
 > [!div class="step-by-step"]
 > [Configure proxy settings on an OT sensor »](../connect-sensors.md)
