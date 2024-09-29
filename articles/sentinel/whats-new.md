@@ -36,7 +36,7 @@ As of **February 2025**, any existing enrichment widgets that retrieve data from
 
 If your organization uses third-party enrichment widgets, we recommend disabling them in advance, by deleting the key vault you created for this purpose from its resource group. The key vault's name begins with "widgets".
 
-Enrichment widgets based on first-party data sources (Microsoft and others in-house) are not affected by this change, and will continue to function as before.
+Enrichment widgets based on first-party data sources are not affected by this change, and will continue to function as before. "First-party data sources" include any data that's already ingested into Microsoft Sentinel from external sources&mdash;in other words, anything in tables in your Log Analytics workspace&mdash;and Microsoft Defender Threat Intelligence.
 
 ### Pre-purchase plans now available for Microsoft Sentinel
 
