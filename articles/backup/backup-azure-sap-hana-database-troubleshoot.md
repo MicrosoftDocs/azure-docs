@@ -214,7 +214,7 @@ See the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [What 
 
 ### UserErrorRestoreTargetDirectoriesAbsent
 
-| **Error Message** | `PreRestoreDataParamsPrep: Target directory` does not exist. |
+| **Error Message** | `PreRestoreDataParamsPrep: Target directory` doesn't exist. |
 | --- | --- |
 | **Possible Causes** | Restore as files is failing due to *directory* that is selected for restore doesn't exist on the Target server or isn't accessible.
 | **Recommended action** | Verify the directory that you selected is available on the target server and ensure you have selected the correct target server at the time of restore. |
