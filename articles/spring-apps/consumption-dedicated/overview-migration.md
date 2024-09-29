@@ -12,11 +12,11 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 # Migrate Azure Spring Apps Standard consumption and dedicated plan to Azure Container Apps
 
-This article describes when and how to migrate Azure Spring Apps Standard consumption and dedicated plan to Azure Container Apps. To consolidate cloud-native benefits and streamline our offerings, the Azure Spring Apps service is retiring, including the Standard consumption and dedicated, Basic, Standard, and Enterprise plans. The Standard consumption and dedicated plan enters its six-month sunset period on September 30, 2024 and retires in March 2025.
+This article describes when and how to migrate Azure Spring Apps Standard consumption and dedicated plan (currently in Public Preview only) to Azure Container Apps. To consolidate cloud-native benefits and streamline our offerings, the Azure Spring Apps service is retiring, including the Standard consumption and dedicated (preview), Basic, Standard, and Enterprise plans. The Standard consumption and dedicated plan (preview) enters its six-month sunset period on September 30, 2024 and retires in March 2025.
 
 We recommend Azure Container Apps as the best destination for your migration. Azure Container Apps is a fully managed, serverless container platform for polyglot apps and offers enhanced Java features previously available in Azure Spring Apps.
 
-We've introduced a one-click migration feature to ease the transition from the Azure Spring Apps Standard consumption and dedicated plan to Azure Container Apps. Select **Migrate** in the Azure portal and confirm the action.
+We've introduced a migration feature to ease the transition from the Azure Spring Apps Standard consumption and dedicated plan (preview) to Azure Container Apps. Select **Migrate** in the Azure portal and confirm the action.
 
 :::image type="content" source="media/overview-migration/consumption-plan-migration-button.png" alt-text="Screenshot of the Azure portal that shows the Migrate button." lightbox="media/overview-migration/consumption-plan-migration-button.png":::
 
