@@ -46,7 +46,7 @@ For more information about Azure Container Apps, see [Azure Container Apps overv
 
 For the Azure Spring Apps Standard consumption and dedicated plan, new customers will no longer be able to sign up for the service after September 30, 2024, while existing customers will remain operational until this plan is retired on March 31, 2025.
 
-Migration experience will be enabled for the Azure Spring Apps Standard consumption and dedicated plan by mid-October, providing customers with a seamless transition from Azure Spring Apps to Azure Container Apps. For more information, see [Migrate Azure Spring Apps Standard consumption and dedicated plan to Azure Container Apps](../consumption-dedicated/overview-migration.md).
+Migration experience will be enabled for the Azure Spring Apps Standard consumption and dedicated plan by mid-October, providing customers with transition from Azure Spring Apps to Azure Container Apps. For more information, see [Migrate Azure Spring Apps Standard consumption and dedicated plan to Azure Container Apps](../consumption-dedicated/overview-migration.md).
 
 ## Migration guidance and tool for the Azure Spring Apps Basic, Standard, and Enterprise plans
 
