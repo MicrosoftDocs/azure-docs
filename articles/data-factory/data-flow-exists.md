@@ -5,7 +5,6 @@ description: Check for existing rows using the exists transformation in Azure Da
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
-ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse

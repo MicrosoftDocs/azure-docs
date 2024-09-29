@@ -3,17 +3,20 @@ title: How to create alerts for Azure Automation Update Management
 description: This article tells how to configure Azure alerts to notify about the status of update assessments or deployments.
 services: automation
 ms.subservice: update-management
-ms.date: 03/15/2021
-ms.topic: conceptual
+ms.date: 09/15/2024
+ms.topic: how-to
+ms.service: azure-automation
 ---
 
 # How to create alerts for Update Management
+
+[!INCLUDE [./automation-update-management-retirement-announcement.md](../includes/automation-update-management-retirement-announcement.md)]
 
 Alerts in Azure proactively notify you of results from runbook jobs, service health issues, or other scenarios related to your Automation account. Azure Automation does not include pre-configured alert rules, but you can create your own based on data that it generates. This article provides guidance on creating alert rules using the metrics included with Update Management
 
 ## Available metrics
 
-Azure Automation creates two distinct platform metrics related to Update Management that are collected and forwarded to Azure Monitor. These metric are available for analysis using [Metrics Explorer](../../azure-monitor/essentials/metrics-charts.md) and for alerting using a [metrics alert rule](../../azure-monitor/alerts/alerts-metric.md).
+Azure Automation creates two distinct platform metrics related to Update Management that are collected and forwarded to Azure Monitor. These metric are available for analysis using [Metrics Explorer](/azure/azure-monitor/essentials/metrics-charts) and for alerting using a [metrics alert rule](/azure/azure-monitor/alerts/alerts-metric).
 
 The two metrics emitted are:
 
@@ -29,7 +32,7 @@ When used for alerts, both metrics support dimensions that carry additional info
 
 ## Create alert
 
-Follow the steps below to set up alerts to let you know the status of an update deployment. If you are new to Azure alerts, see [Azure Alerts overview](../../azure-monitor/alerts/alerts-overview.md).
+Follow the steps below to set up alerts to let you know the status of an update deployment. If you are new to Azure alerts, see [Azure Alerts overview](/azure/azure-monitor/alerts/alerts-overview).
 
 1. In your Automation account, select **Alerts** under **Monitoring**, and then select **New alert rule**.
 
@@ -57,7 +60,7 @@ Follow the steps below to set up alerts to let you know the status of an update 
 
 ## Configure action groups for your alerts
 
-Once you have your alerts configured, you can set up an action group, which is a group of actions to use across multiple alerts. The actions can include email notifications, runbooks, webhooks, and much more. To learn more about action groups, see [Create and manage action groups](../../azure-monitor/alerts/action-groups.md).
+Once you have your alerts configured, you can set up an action group, which is a group of actions to use across multiple alerts. The actions can include email notifications, runbooks, webhooks, and much more. To learn more about action groups, see [Create and manage action groups](/azure/azure-monitor/alerts/action-groups).
 
 1. Select an alert and then select **Add action groups** under **Actions**. This will display the **Select an action group to attach to this alert rule** pane.
 
@@ -67,8 +70,8 @@ Once you have your alerts configured, you can set up an action group, which is a
 
 ## Next steps
 
-* Learn more about [alerts in Azure Monitor](../../azure-monitor/alerts/alerts-overview.md).
+* Learn more about [alerts in Azure Monitor](/azure/azure-monitor/alerts/alerts-overview).
 
-* Learn about [log queries](../../azure-monitor/logs/log-query-overview.md) to retrieve and analyze data from a Log Analytics workspace.
+* Learn about [log queries](/azure/azure-monitor/logs/log-query-overview) to retrieve and analyze data from a Log Analytics workspace.
 
-* [Azure Monitor best practices - Cost management](../../azure-monitor/best-practices-cost.md) describes how to control your costs by changing your data retention period, and how to analyze and alert on your data usage.
+* [Azure Monitor best practices - Cost management](/azure/azure-monitor/best-practices-cost) describes how to control your costs by changing your data retention period, and how to analyze and alert on your data usage.

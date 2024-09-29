@@ -3,12 +3,12 @@ title: Deploy Azure Container Apps with the az containerapp up command
 description: How to deploy a container app with the az containerapp up command
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom:
   - devx-track-azurecli
   - ignite-2023
 ms.topic: how-to
-ms.date: 11/08/2022
+ms.date: 07/24/2024
 ms.author: cshoe
 ---
 
@@ -138,7 +138,7 @@ Run the following command to deploy a container app from local source code:
 
 When the Dockerfile includes the EXPOSE instruction, the `up` command configures the container app's ingress and target port using the information in the Dockerfile. 
 
-If you've configured ingress through your Dockerfile or your app doesn't require ingress, you can omit the `ingress` option.
+If you configure ingress through your Dockerfile or your app doesn't require ingress, you can omit the `ingress` option.
 
 The output of the command includes the URL for the container app.
 
@@ -184,7 +184,7 @@ az containerapp up \
   --ingress external 
 ```
 
-If you've configured ingress through your Dockerfile or your app doesn't require ingress, you can omit the `ingress` option.
+If you configure ingress through your Dockerfile or your app doesn't require ingress, you can omit the `ingress` option.
 
 Because the `up` command creates a GitHub Actions workflow, rerunning it to deploy changes to your app's image has the unwanted effect of creating multiple workflows. Instead, push changes to your GitHub repository, and the GitHub workflow automatically builds and deploys your app. To change the workflow, edit the workflow file in GitHub.
 

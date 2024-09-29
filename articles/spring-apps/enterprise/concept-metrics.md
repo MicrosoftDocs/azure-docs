@@ -2,7 +2,7 @@
 title: Metrics for Azure Spring Apps
 description: Learn how to review metrics in Azure Spring Apps
 author: KarlErickson
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: conceptual
 ms.date: 06/27/2024
 ms.author: karler
@@ -214,7 +214,7 @@ The following table applies to the Tanzu Spring Cloud Gateway in Enterprise plan
 ## Next steps
 
 * [Quickstart: Monitoring Azure Spring Apps apps with logs, metrics, and tracing](../basic-standard/quickstart-logs-metrics-tracing.md)
-* [Analyze metrics with Azure Monitor metrics explorer](../../azure-monitor/essentials/analyze-metrics.md)
+* [Analyze metrics with Azure Monitor metrics explorer](/azure/azure-monitor/essentials/analyze-metrics)
 * [Analyze logs and metrics with diagnostics settings](./diagnostic-services.md)
 * [Tutorial: Monitor Spring app resources using alerts and action groups](./tutorial-alerts-action-groups.md)
 * [Quotas and Service Plans for Azure Spring Apps](./quotas.md)

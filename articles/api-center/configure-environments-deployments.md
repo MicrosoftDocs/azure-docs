@@ -2,7 +2,7 @@
 title: Tutorial - Add environments and deployments for APIs
 description: In this tutorial, augment the API inventory in your API center by adding information about API environments and deployments.
 author: dlepow
-ms.service: api-center
+ms.service: azure-api-center
 ms.topic: tutorial
 ms.date: 04/22/2024
 ms.author: danlep 

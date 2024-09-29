@@ -6,7 +6,7 @@ author: pauljewellmsft
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 11/30/2022
+ms.date: 08/05/2024
 ms.author: pauljewell
 ms.devlang: javascript
 ms.custom: devx-track-js, devguide-js

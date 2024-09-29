@@ -4,10 +4,12 @@ description: Learn how to set up labs to teach front-end development with React.
 author: emaher
 ms.topic: how-to
 ms.date: 05/16/2021
-ms.service: lab-services
+ms.service: azure-lab-services
 ---
 
 # Set up lab for React on Windows
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 

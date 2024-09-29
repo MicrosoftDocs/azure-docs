@@ -8,7 +8,7 @@ manager: femila
 ms.reviewer: rebpen
 ms.date: 02/21/2024
 ms.topic: quickstart
-ms.service: notification-hubs
+ms.service: azure-notification-hubs
 ms.custom: mode-ui
 ---
 

@@ -4,7 +4,7 @@ description: In this article, you'll learn how to create and manage backup polic
 ms.topic: how-to
 ms.date: 02/21/2024
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
-ms.service: backup
+ms.service: azure-backup
 ms.custom: engagement-fy24
 author: AbhishekMallick-MS
 ms.author: v-abhmallick

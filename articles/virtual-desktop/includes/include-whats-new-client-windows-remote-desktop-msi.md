@@ -2,7 +2,7 @@
 ms.topic: include
 author: sipastak
 ms.author: sipastak
-ms.date: 07/03/2024
+ms.date: 09/17/2024
 ---
 
 ## Supported client versions
@@ -11,21 +11,83 @@ The following table lists the current versions available for the public and Insi
 
 | Release | Latest version | Download |
 |--|--|--|
-| Public | 1.2.5454 | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) |
-| Insider | 1.2.5552 | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) |
+| Public | 1.2.5704 | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) |
+| Insider | 1.2.5704  | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) |
 
-## Updates for version 1.2.5552 (Insider)
+## Updates for version 1.2.5704 
 
-*Date published: July 2, 2024* 
+*Date published: September 18, 2024*   
 
 Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) 
+
+- Fixed an issue where initiating a screen capture while Teams is open as a RemoteApp caused the client to crash.  
+- Fixed an issue where the client crashed for users who have Windows N SKUs without the media framework. 
+- Addressed an issue that reduces the chance of encountering a “low virtual memory” error on reconnect attempts.
+- Made improvement where new session windows will not become the focused windows. 
+- Fixed a bug to ensure that  the **screen mode id** setting in RDP file is honored.
+- Fixed issue where Teams rendered into the wrong window when multiple Remote Desktop session windows were open. 
+
+> [!NOTE]
+> This version replaced the Insider version 1.2.5702, 1.2.5701, and 1.2.5699. It contains all changes made in noted versions and was promoted to public on September 18, 2024. 
+
+## Updates for version 1.2.5623 
+
+*Date published: September 4, 2024*   
+
+Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) 
+
+- Fixed an issue where the client crashed for users who have Windows N SKUs without the media framework.
+- Addressed an issue that reduces the chance of encountering a “low virtual memory” error on reconnect attempts.
+
+> [!NOTE]
+> This hotfix version replaced the public version 1.2.5620 and has the same release notes with the addition of the the above fixes. 
+
+## Updates for version 1.2.5620
+
+*Date published: August 13, 2024* 
+
+- Fixed an issue for [CVE-2024-38131](https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2024-38131).
+
+> [!NOTE]
+> This version replaced the Insider version 1.2.5617 and has the same release notes with the addition of the security release.  
+
+## Updates for version 1.2.5560
+
+*Date published: August 13, 2024* 
+
+- Fixed an issue for [CVE-2024-38131 ](https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2024-38131).
+
+
+## Updates for version 1.2.5617
+
+*Date published: July 23, 2024* 
+
+In this release, we made the following changes:
+
+- Stability and security improvements for printer redirections. 
+- Improved experience for SSO Lock Screen dialogs.   
+- Fixed an issue with SSO login failure. 
+- Fixed an issue causing the client to crash on disconnect. 
+
+## Updates for version 1.2.5559
+
+*Date published: July 17, 2024* 
+
+> [!NOTE]
+> This version replaced 1.2.5552 and has the same release notes. 
+
+## Updates for version 1.2.5552
+
+*Date published: July 2, 2024* 
 
 In this release, we made the following changes:
 
 - Fixed an issue where users who were connecting using [protocol launch](../uri-scheme.md) had to complete two MFA prompts.
 
 > [!NOTE]
-> This Insider release was originally version 1.2.5550, but we made this change and re-released it as 1.2.5552. This version contains all of the changes made in 1.2.5550. 
+>- This Insider release was originally version 1.2.5550, but we made a change to fix an issue with double MFA prompts and re-released as version 1.2.5552. This version contains all the changes made in 1.2.5550. 
+>- This version was released as a public version on July 2, 2024, but was replaced by version 1.2.5559 on July 17, 2024.  
+
 
 ## Updates for version 1.2.5550
 
@@ -39,8 +101,6 @@ In this release, we made the following changes:
 ## Updates for version 1.2.5454
 
 *Date published: June 11, 2024* 
-
-Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) 
 
 In this release, we made the following changes:
 
@@ -64,8 +124,6 @@ In this release, we made the following changes:
 
 *Date published: May 29, 2024* 
 
-Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) 
-
 In this release, we made the following changes:
 
 - Improved the graphics presentation latency.
@@ -88,8 +146,6 @@ In this release, we made the following changes:
 
 *Date published: April 17, 2024*
 
-Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1kB76), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1kGol), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1kB75)
-
 In this release, we made the following changes:
 
 - Fixed an issue that made the multifactor authentication (MFA) prompt appear twice when users tried to connect to a resource 
@@ -97,8 +153,6 @@ In this release, we made the following changes:
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
 
 ## Updates for version 1.2.5331
-
-Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1kHro), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1kK2T), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1kHrn)
 
 *Date published: April 18, 2024*
 

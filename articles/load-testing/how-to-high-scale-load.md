@@ -3,7 +3,7 @@ title: Configure high-scale load tests
 titleSuffix: Azure Load Testing
 description: Learn how to configure test engine instances in Azure Load Testing to run high-scale load tests. Monitor engine health metrics to find an optimal configuration for your load test.
 services: load-testing
-ms.service: load-testing
+ms.service: azure-load-testing
 ms.author: ninallam
 author: ninallam
 ms.date: 10/23/2023

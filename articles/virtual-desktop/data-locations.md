@@ -1,11 +1,11 @@
 ---
 title: Data locations for Azure Virtual Desktop - Azure
 description: A brief overview of which locations Azure Virtual Desktop's data and metadata are stored in.
-author: Heidilohr
+author: dknappettmsft
 ms.topic: conceptual
-ms.custom: references_regions
+ms.custom: references_regions, docs_inherited
 ms.date: 06/22/2022
-ms.author: helohr
+ms.author: daknappe
 ---
 # Data locations for Azure Virtual Desktop
 

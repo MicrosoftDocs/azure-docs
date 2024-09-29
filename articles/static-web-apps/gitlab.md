@@ -3,7 +3,7 @@ title: "Tutorial: Deploy GitLab repositories on Azure Static Web Apps"
 description: Use GitLab with Azure Static Web Apps
 services: static-web-apps
 author: craigshoemaker
-ms.service: static-web-apps
+ms.service: azure-static-web-apps
 ms.topic: quickstart
 ms.date: 06/24/2024
 ms.author: cshoe

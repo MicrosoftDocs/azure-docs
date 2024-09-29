@@ -2,10 +2,7 @@
 title: Configure the minimum TLS version for a Service Bus namespace using ARM
 titleSuffix: Service Bus
 description: Configure an Azure Service Bus namespace to use a minimum version of Transport Layer Security (TLS).
-services: service-bus
 author: EldertGrootenboer
-
-ms.service: service-bus-messaging
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.topic: article
 ms.date: 06/24/2024

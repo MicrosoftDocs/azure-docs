@@ -1,12 +1,11 @@
 ---
 title: Choose the right integration runtime configuration for your scenario
 description: Some recommended architectures for each integration runtime.
-ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
 author: lrtoyou1223
 ms.author: lle
-ms.date: 10/20/2023
+ms.date: 09/25/2024
 ---
 
 # Choose the right integration runtime configuration for your scenario

@@ -1,14 +1,16 @@
 ---
 title: Use Microsoft Teams on Azure Virtual Desktop - Azure
 description: How to use Microsoft Teams on Azure Virtual Desktop.
-author: Heidilohr
+author: dknappettmsft
 ms.topic: how-to
-ms.date: 06/27/2024
-ms.author: helohr
+ms.date: 08/28/2024
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
+
 # Use Microsoft Teams on Azure Virtual Desktop
 
-Microsoft Teams on Azure Virtual Desktop supports chat and collaboration. With media optimizations, it also supports calling and meeting functionality by redirecting it to the local device when using Windows App or the Remote Desktop client on a supported platform. You can still use Microsoft Teams on Azure Virtual Desktop with other clients without optimized calling and meetings. Teams chat and collaboration features are supported on all platforms.
+Microsoft Teams on Azure Virtual Desktop supports chat and collaboration. With media optimizations, it also supports calling and meeting functionality by redirecting it to the local device when using Windows App or the Remote Desktop client on a supported platform. You can still use Microsoft Teams on Azure Virtual Desktop on other platforms without optimized calling and meetings. Teams chat and collaboration features are supported on all platforms.
 
 There are two versions of Teams, *Classic Teams* and *[New Teams](/microsoftteams/new-teams-desktop-admin)*, and you can use either with Azure Virtual Desktop. New Teams has with feature parity with Classic Teams, but improves performance, reliability, and security.
 
@@ -118,6 +120,10 @@ After installing the WebRTC Redirector Service and the Teams desktop app, follow
    If media optimizations loaded, the audio devices and cameras available locally will be enumerated in the device menu. If the menu shows **Remote audio**, quit the Teams app and try again. If the devices still don't appear in the menu, check the Privacy settings on your local PC. Ensure the under **Settings** > **Privacy** > **App permissions - Microphone** the setting **"Allow apps to access your microphone"** is toggled **On**. Disconnect from the remote session, then reconnect and check the audio and video devices again. To join calls and meetings with video, you must also grant permission for apps to access your camera.
 
    If media optimizations don't load, uninstall then reinstall Teams and check again.
+
+## Publish Teams as a RemoteApp
+
+New Teams is installed as an `MSIX` package, which is a format used for applications from the Microsoft Store. The directory path for an application installed from the Microsoft Store includes the version number, which changes each time an application is updated. To publish new Teams as a RemoteApp, follow the steps in [Publish Microsoft Store applications](publish-applications-stream-remoteapp.md#publish-microsoft-store-applications), and for the path enter `shell:appsFolder\MSTeams_8wekyb3d8bbwe!MSTeams`.
 
 ## Enable registry keys for optional features
 

@@ -3,7 +3,7 @@ title: Code to cloud options in Azure Container Apps
 description: Learn about the different options to deploy a container app directly from your development environment.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: how-to
 ms.date: 01/26/2024
 ms.author: cshoe

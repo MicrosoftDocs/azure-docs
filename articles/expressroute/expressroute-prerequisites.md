@@ -3,7 +3,7 @@ title: 'Azure ExpressRoute: Prerequisites'
 description: This page provides a list of requirements to be met before you can order an Azure ExpressRoute circuit. It includes a checklist.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: conceptual
 ms.date: 06/15/2023
 ms.author: duau
@@ -39,14 +39,12 @@ To connect to Microsoft cloud services using ExpressRoute, you need to verify th
 If you plan to enable Microsoft 365 on ExpressRoute, review the following documents for more information about Microsoft 365 requirements.
 
 * [Azure ExpressRoute for Microsoft 365](/microsoft-365/enterprise/azure-expressroute)
-* [Routing with ExpressRoute for Microsoft 365](/microsoft-365/enterprise/azure-expressroute)
 * [High availability and failover with ExpressRoute](./designing-for-high-availability-with-expressroute.md)
 * [Microsoft 365 URLs and IP address ranges](/microsoft-365/enterprise/urls-and-ip-address-ranges)
 * [Network planning and performance tuning for Microsoft 365](/microsoft-365/enterprise/network-planning-and-performance)
 * [Network and migration planning for Microsoft 365](/microsoft-365/enterprise/network-and-migration-planning)
 * [Microsoft 365 integration with on-premises environments](/microsoft-365/enterprise/microsoft-365-integration)
 * [Stay up to date with Office 365 IP Address changes](/microsoft-365/enterprise/microsoft-365-ip-web-service)
-* ExpressRoute on Office 365 advanced training videos
 
 ## Next steps
 

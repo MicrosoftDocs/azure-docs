@@ -3,9 +3,9 @@ title: How to use gRPC in Azure Spring Apps
 description: Shows you how to use gRPC in Azure Spring Apps.
 author: KarlErickson
 ms.author: caihuarui
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 5/24/2023
+ms.date: 08/29/2024
 ms.custom: devx-track-java
 ---
 

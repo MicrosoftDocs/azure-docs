@@ -3,7 +3,7 @@ title: Enable zone-to-zone disaster recovery for Azure virtual machines
 description: This article describes when and how to use zone-to-zone disaster recovery for Azure virtual machines.
 author: ankitaduttaMSFT
 manager: aravindang
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: tutorial
 ms.date: 05/06/2024
 ms.author: ankitadutta
@@ -41,8 +41,10 @@ When you use zone-to-zone disaster recovery, Site Recovery doesn't move or store
 
 Learn more about [currently supported availability zones](../reliability/availability-zones-service-support.md#azure-regions-with-availability-zone-support).
 
-> [!Note]
+> [!NOTE]
 > Zone-to-zone disaster recovery isn't supported for VMs that have managed disks via zone-redundant storage (ZRS).
+>
+>Regions that don't support Azure availability zones also don't support Azure Site Recovery zone-to-zone replication. For Azure Site Recovery zone-to-zone replication to work, the region must support availability zones.
 
 ## Using availability zones for disaster recovery
 
