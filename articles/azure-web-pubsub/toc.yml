@@ -155,6 +155,8 @@
       items:
         - name: Build real time code streaming app
           href: socketio-build-realtime-code-streaming-app.md
+        - name: Build an app to publish data to Socket.IO clients with Python in Serverless Mode
+          href: socketio-serverless-tutorial-python.md
         - name: Build chat app with Azure Function in Serverless Mode
           href: socketio-serverless-tutorial.md
     - name: How-to guides

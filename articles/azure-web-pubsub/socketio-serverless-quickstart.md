@@ -97,7 +97,7 @@ We need to do two steps to deploy the sample app.
 
 ### Run Sample App
 
-After the code is deployd, visit the website to try the sample: 
+After the code is deployed, visit the website to try the sample: 
 
 ```bash
 https://<function-endpoint>/api/index
