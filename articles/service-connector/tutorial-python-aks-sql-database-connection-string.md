@@ -9,7 +9,7 @@ ms.service: service-connector
 ms.topic: tutorial
 ms.date: 07/23/2024
 zone_pivot_group_filename: service-connector/zone-pivot-groups.json
-zone_pivot_groups: howto-authtype
+zone_pivot_groups: aks-authtype
 ---
 
 # Tutorial: Connect an AKS app to Azure SQL Database (preview)
