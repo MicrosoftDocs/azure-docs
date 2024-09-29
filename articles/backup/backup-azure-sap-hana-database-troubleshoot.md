@@ -20,7 +20,7 @@ See the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [What 
 
 ### UserErrorHANAInternalRoleNotPresent
 
-| **Error message**      | `Azure Backup does not have required role  privileges to carry out Backup and Restore operations`    |
+| **Error message**      | `Azure Backup doesn't have required role  privileges to carry out Backup and Restore operations`    |
 | ---------------------- | ------------------------------------------------------------ |
 | **Possible causes**    | All operations fail with this error when the Backup user (AZUREWLBACKUPHANAUSER) doesn't have the **SAP_INTERNAL_HANA_SUPPORT** role assigned or the role might have been overwritten.                          |
 | **Recommended action** | Download and run the [pre-registration script](https://aka.ms/scriptforpermsonhana) on the SAP HANA instance, or manually assign the **SAP_INTERNAL_HANA_SUPPORT** role to the Backup user (AZUREWLBACKUPHANAUSER).<br><br>**Note**<br><br>If you're using HANA 2.0 SPS04 Rev 46 and later, this error doesn't occur as the use of the **SAP_INTERNAL_HANA_SUPPORT** role is deprecated in these HANA versions. |
@@ -69,7 +69,7 @@ See the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [What 
 
 ### UserErrorHANAPODoesNotExist
 
-**Error message** | `Database configured for backup does not exist.`
+**Error message** | `Database configured for backup doesn't exist.`
 --------- | --------------------------------
 **Possible causes** | If you delete a database that is configured for backup, all scheduled and on-demand backups on this database will fail.
 **Recommended action** | Verify if the database is deleted. Re-create the database or [stop protection](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) (with or without retain data) for the database.
