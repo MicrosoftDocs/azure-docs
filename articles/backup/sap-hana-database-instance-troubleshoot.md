@@ -2,7 +2,7 @@
 title: Troubleshoot SAP HANA databases instance backup errors
 description: This article describes how to troubleshoot common errors that might occur when you use Azure Backup to back up SAP HANA database instances.
 ms.topic: troubleshooting
-ms.date: 11/02/2023
+ms.date: 09/30/2024
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -157,6 +157,14 @@ Azure VM and retry the operation. For more information, see the [Azure workload 
 **Cause**:  The snapshot point-in-time restore operation failed as the underlying database on the target machine is protected with Azure Backup.
 
 **Recommended action**: Retry the restore operation after you stop protection of the databases on the target machine and ensure that the *Backint path is empty*. [Learn more about Backint path](https://aka.ms/HANABackupConfigurations).
+
+### UserErrorWLBackupFilesystemTypeNotSupported
+
+**Error code**: `UserErrorWLBackupFilesystemTypeNotSupported`
+
+**Error message**: File Systems `ext3` and `xfs` are currently supported. The operation fails for any other File System.
+
+**Recommended action**: Ensure that you're using the supported File System
 
 ## Appendix
 
