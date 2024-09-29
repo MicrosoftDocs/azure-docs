@@ -15,7 +15,7 @@ This tutorial guides you through how to publish data to Socket.IO clients in Ser
 
 Find full code samples that are used in this tutorial:
 
-- [Socket.IO Serverless Pyhon Sample](https://github.com/Azure/azure-webpubsub/tree/main/sdk/webpubsub-socketio-extension/examples/chat-serverless-javascript)
+- [Socket.IO Serverless Python Sample](https://github.com/Azure/azure-webpubsub/tree/main/sdk/webpubsub-socketio-extension/examples/chat-serverless-javascript)
 
 > [!IMPORTANT]
 > Default Mode needs a persistent server, you cannot integration Web PubSub for Socket.IO in default mode with Azure Function.
@@ -109,11 +109,11 @@ def index(req: func.HttpRequest) -> func.HttpResponse:
         return func.HttpResponse(f.read(), mimetype='text/html')
 ```
 
-Here's the explain of these functions:
+Here's the explanation of these functions:
 
 - `publish_data`: This function updates the NASDAQ index every second with a random change and broadcasts it to connected clients with Socket.IO Output Binding.
 
-- `negotiate`: This function responses a negotiation result to the client.
+- `negotiate`: This function response a negotiation result to the client.
 
 - `index`: This function returns a static HTML page.
 
