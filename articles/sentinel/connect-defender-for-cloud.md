@@ -61,7 +61,7 @@ Enabling **bi-directional sync** will automatically sync the status of original 
 
     The **Enable Microsoft Defender for all subscriptions** link button on the bar above the list will take you to your Microsoft Defender for Cloud Getting Started page, where you can choose on which subscriptions to enable Microsoft Defender for Cloud altogether. For example:
 
-    :::image type="content" source="./media/connect-defender-for-cloud/azure-defender-config.png" alt-text="Screenshot of Microsoft Defender for Cloud connector configuration"::: <!--this image is out of date-->
+    :::image type="content" source="./media/connect-defender-for-cloud/azure-defender-config.png" alt-text="Screenshot of Microsoft Defender for Cloud connector configuration"::: 
 
 1. You can select whether you want the alerts from Microsoft Defender for Cloud to automatically generate incidents in Microsoft Sentinel. Under **Create incidents**, select **Enabled** to turn on the default analytics rule that automatically [creates incidents from alerts](create-incidents-from-alerts.md). You can then edit this rule under **Analytics**, in the  **Active rules** tab.
 
@@ -69,8 +69,7 @@ Enabling **bi-directional sync** will automatically sync the status of original 
     > When configuring [custom analytics rules](detect-threats-custom.md) for alerts from Microsoft Defender for Cloud, consider the alert severity to avoid opening incidents for informational alerts. 
     >
     > Informational alerts in Microsoft Defender for Cloud don't represent a security risk on their own, and are relevant only in the context of an existing, open incident. For more information, see [Security alerts and incidents in Microsoft Defender for Cloud](../security-center/security-center-alerts-overview.md).
-    > 
-    
+    >
 
 ## Find and analyze your data
 
