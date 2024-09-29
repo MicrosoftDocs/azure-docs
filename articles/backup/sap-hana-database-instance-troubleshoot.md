@@ -158,6 +158,16 @@ Azure VM and retry the operation. For more information, see the [Azure workload 
 
 **Recommended action**: Retry the restore operation after you stop protection of the databases on the target machine and ensure that the *Backint path is empty*. [Learn more about Backint path](https://aka.ms/HANABackupConfigurations).
 
+### OperationCancelledBecauseSameOperationQueuedUserError
+
+**Error code**: `OperationCancelledBecauseSameOperationQueuedUserError`
+
+**Error message**: This error happens to prevent multiple backups triggering on the same database/datasource. The next backup should finish successfully once the concurrent task/backup  is completed. 
+
+**Cause**: In some cases, where there are large numbers of databases in the same container, backups will trigger and get queued. The queue will cause the backup to start with a delay. So, it'll not be evident from start time and end time which task is concurrent.
+
+**Recommended action**: You need to reduce frequency on certain databases or distribute it to another container instead of having a single container.
+
 ### UserErrorWLBackupFilesystemTypeNotSupported
 
 **Error code**: `UserErrorWLBackupFilesystemTypeNotSupported`
