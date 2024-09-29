@@ -266,12 +266,6 @@
     href: data-connectors-reference.md
   - name: All connectors
     items:
-    - name: '[Deprecated] Morphisec UTPP'
-      href: data-connectors/morphisec-utpp.md
-    - name: '[Deprecated] vArmour Application Controller'
-      href: data-connectors/varmour-application-controller.md
-    - name: 'WireX Network Forensics Platform'
-      href: data-connectors/wirex-network-forensics-platform.md
     - name: 1Password (using Azure Functions)
       href: data-connectors/1password.md
     - name: AbnormalSecurity (using Azure Functions)

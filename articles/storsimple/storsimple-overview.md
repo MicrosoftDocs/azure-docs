@@ -21,8 +21,8 @@ The following resources are available to help you migrate backup files or to cop
 |Resource   |Description   |
 |---------------------------|----------------------------|
 |[Azure StorSimple 8000 Series Copy Utility](https://aka.ms/storsimple-copy-utility)     |Microsoft is providing a read-only data copy utility to recover and migrate your backup files from StorSimple cloud snapshots. The StorSimple 8000 Series Copy Utility is designed to run in your environment. You can install and configure the Utility, and then use your Service Encryption Key to authenticate and download your metadata from the cloud.|
-|[Azure StorSimple 8000 Series Copy Utility documentation](https://aka.ms/storsimple-copy-utility-docs)    |Instructions for use of the Copy Utility. |
-|[StorSimple archived documentation](https://aka.ms/storsimple-archive-docs)   |Archived StorSimple articles from Microsoft technical documentation.   |
+|Azure StorSimple 8000 Series Copy Utility documentation    |Instructions for use of the Copy Utility. |
+|StorSimple archived documentation   |Archived StorSimple articles from Microsoft technical documentation.   |
 
 ## Copy data and then decommission your appliance
 
@@ -30,7 +30,7 @@ Use the following steps to copy data to your environment and then decommission y
 
 **Step 1: Copy backup files or live data to your own environment.**
 
-- **Backup files.** If you have backup files, use the Azure StorSimple 8000 Series Copy Utility to migrate backup files to your environment. For more information, see [Copy Utility documentation](https://aka.ms/storsimple-copy-utility-docs).
+- **Backup files.** If you have backup files, use the Azure StorSimple 8000 Series Copy Utility to migrate backup files to your environment.
 - **Live data.** If you have live data to copy, you can access and copy live data to your environment via iSCSI.
 
 **Step 2: Decommission your device.**
@@ -152,7 +152,3 @@ Use the following steps to create a support ticket for StorSimple data copy, dat
     ![Screenshot of the Review and create support request page in Azure portal.](./media/storsimple-overview/storsimple-support-review-details-6.png)
 
 Microsoft Support will use this information to reach out to you for additional details and diagnosis. A Support engineer will contact you as soon as possible to proceed with your request.
-
-## Next steps
-
-- [StorSimple 8000 series copy utility documentation](https://aka.ms/storsimple-copy-utility-docs).
