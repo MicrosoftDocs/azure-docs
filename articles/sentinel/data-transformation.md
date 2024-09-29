@@ -114,7 +114,7 @@ Ingestion-time data transformation currently has the following known issues for 
 
 - Data transformations using *workspace transformation DCRs* are supported only per table, and not per connector.
 
-    There can only be one workspace transformation DCR for an entire workspace. Within that DCR, each table can use a separate input stream with its own transformation. However, if you have two different MMA-based data connectors sending data to the *Syslog* table, they will both have to use the same input stream configuration in the DCR. Splitting data to multiple destinations (Log Analytics workspaces) with a workspace transformation DCR is not possible.
+    There can only be one workspace transformation DCR for an entire workspace. Within that DCR, each table can use a separate input stream with its own transformation. However, if you have two different MMA-based data connectors sending data to the *Syslog* table, they will both have to use the same input stream configuration in the DCR. Splitting data to multiple destinations (Log Analytics workspaces) with a workspace transformation DCR is not possible.<!--how to fix for AMA?-->
 
 - The following configurations are supported only via API:
 
@@ -130,10 +130,9 @@ Ingestion-time data transformation currently has the following known issues for 
 
 ## Related content
 
-[Get started configuring ingestion-time data transformation in Microsoft Sentinel](configure-data-transformation.md).
+For more information, see:
 
-Learn more about Microsoft Sentinel data connector types. For more information, see:
-
+- [Transform or customize data at ingestion time in Microsoft Sentinel (preview)](configure-data-transformation.md)
 - [Microsoft Sentinel data connectors](connect-data-sources.md)
 - [Find your Microsoft Sentinel data connector](data-connectors-reference.md)
 
