@@ -10,7 +10,7 @@ ms.topic: quickstart
 # Customer intent: As a Modeling and Simulation Workbench owner, I want to create and perform initial setup so that Modeling and Simulation Workbench chamber users can run EDA applications.
 ---
 
-# Quickstart - Create an Azure Modeling and Simulation Workbench (preview) in the Azure portal
+# Get started - Create an Azure Modeling and Simulation Workbench (preview) in the Azure portal
 
 Get started with Azure Modeling and Simulation Workbench (preview) by using the Azure portal. The Azure portal is a browser-based user interface to create Azure resources. This quickstart shows you how to use the Azure portal to deploy an Azure Modeling and Simulation Workbench, and perform initial setup to get users started on their development or collaboration activity.
 
