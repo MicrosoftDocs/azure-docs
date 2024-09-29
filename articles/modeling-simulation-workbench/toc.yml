@@ -13,7 +13,7 @@ items:
         href: ./quickstart-add-users.md
       - name: Connect to desktop
         href: ./quickstart-connect-desktop.md
-      - name: Import Data
+      - name: Import data
         href: ./quickstart-import-data.md
   - name: Concepts
     items:
@@ -77,12 +77,12 @@ items:
             href: ./how-to-guide-add-redirect-uris.md
   - name: Resources
     items:
-      - name: Troubleshoot
+      - name: Troubleshooting
         href: ./resources-troubleshoot.md
-      - name: Business continuity
-        items:
-          - name: Disaster recovery
-            href: ./disaster-recovery.md
+      - name: Known issues
+        href: ./troubleshooting-known-issues.md
+      - name: Business continuity and disaster recovery
+        href: ./disaster-recovery.md
       - name: Get support
         href: ./resources-get-support.md
       - name: AzCopy
