@@ -6,7 +6,7 @@ ms.service: azure-deployment-environments
 ms.custom: devx-track-azurecli, devx-track-bicep
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 09/25/2024
+ms.date: 09/28/2024
 ms.topic: how-to
 zone_pivot_groups: ade-extensibility-iac-framework
 
@@ -65,7 +65,7 @@ The main steps you'll follow when using a container image are:
     - For a private registry, give the DevCenter ACR permissions.
 1. Add your image location to the `runner` parameter in your environment definition
 1. Deploy environments that use your custom image.
-1. 
+ 
 The first step in the process is to choose the type of image you want to use. Select the corresponding tab to see the process.
 
 ### [Use a sample container image](#tab/sample/)
@@ -513,13 +513,13 @@ Select the appropriate tab to learn more about each approach.
 
 ### [Private registry](#tab/private-registry/)
 
-**Use a private registry with secured access**
+### Use a private registry with secured access
 
 By default, access to pull or push content from an Azure Container Registry is only available to authenticated users. You can further secure access to ACR by limiting access from certain networks and assigning specific roles.
 
 To create  an instance of ACR, which can be done through the Azure CLI, the Azure portal, PowerShell commands, and more, follow one of the [quickstarts](/azure/container-registry/container-registry-get-started-azure-cli).
 
-**1. Limit network access**
+#### Limit network access
 
 To secure network access to your ACR, you can limit access to your own networks, or disable public network access entirely. If you limit network access, you must enable the firewall exception *Allow trusted Microsoft services to access this container registry*.
 
@@ -536,7 +536,7 @@ To disable access from public networks:
 
    :::image type="content" source="media/how-to-configure-extensibility-bicep-container-image/container-registry-network-disable-public.png" alt-text="Screenshot of the ACR network settings, with Allow trusted Microsoft services to access this container registry and Save highlighted.":::
 
-**2. Assign the AcrPull role**
+#### Assign the AcrPull role
 
 Creating environments by using container images uses the ADE infrastructure, including projects and environment types. Each project has one or more project environment types, which need read access to the container image that defines the environment to be deployed. To access the images within your ACR securely, assign the AcrPull role to each project environment type. 
 
@@ -569,7 +569,7 @@ docker push {YOUR_REGISTRY}.azurecr.io/{YOUR_IMAGE_LOCATION}:{YOUR_TAG}
 ```
 ### [Public registry](#tab/public-registry/)
 
-**Use a public registry with anonymous pull**
+### Use a public registry with anonymous pull
 
 To set up your registry to have anonymous image pull enabled, run the following commands in the Azure CLI:
 

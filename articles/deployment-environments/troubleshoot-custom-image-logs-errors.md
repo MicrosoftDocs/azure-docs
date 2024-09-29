@@ -5,11 +5,9 @@ ms.service: azure-deployment-environments
 ms.topic: troubleshooting-general
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 09/23/2024
+ms.date: 09/28/2024
 ---
 # Troubleshooting Custom Image Deployment Errors
-
-# [Linux](#tab/linux)
 
 ADE stores error details for a failed deployment in the *$ADE_ERROR_LOG* file within the container. 
 
