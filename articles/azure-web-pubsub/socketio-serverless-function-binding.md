@@ -142,8 +142,6 @@ app.http('negotiate', {
 | connection | The name of the app setting that contains the Socket.IO connection string (defaults to `WebPubSubForSocketIOConnectionString`). |
 | userId | The userId of the connection. It applies to all sockets in the connection. It becomes the `sub` claim in the generated token. |
 
----
-
 # [Python Model v2](#tab/python-v2)
 
 A function always needs a trigger binding. We use HttpTrigger as an example in codes.
@@ -353,8 +351,6 @@ app.generic('newMessage', {
 | namespace | The namespace of the socket. Default: "/" |
 | eventName | The event name that the function triggers for. Some event names are predefined: `connect` for socket connect event. `connected` for socket connected event. `disconnected` for socket disconnected event. And other events are defined by user and it need to match the event name sent by client side. |
 | ParameterNames | The parameter name list of the event. The length of list should be consistent with event sent from client. And the name uses the [Binding expressions](../azure-functions/functions-bindings-expressions-patterns.md) and access by `context.bindings.<name>`. |
-
----
 
 # [Python Model v2](#tab/python-v2)
 
@@ -590,8 +586,6 @@ app.generic('newMessage', {
 | type | Must be `socketio` |
 | hub | The hub name that a client needs to connect to. |
 | connection | The name of the app setting that contains the Socket.IO connection string (defaults to `WebPubSubForSocketIOConnectionString`). |
-
----
 
 # [Python Model v2](#tab/python-v2)
 
