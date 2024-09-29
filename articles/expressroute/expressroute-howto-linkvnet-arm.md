@@ -76,7 +76,7 @@ $gw = Get-AzVirtualNetworkGateway -Name "ExpressRouteGw" -ResourceGroupName "MyR
 highAvailabilitySetup/New-AzHighAvailabilityVirtualNetworkGatewayConnections.ps1 -SubscriptionId $SubscriptionId -ResourceGroupName "MyRG" -Location "West EU" -Name1 "ERConnection1" -Name2 "ERConnection2" -Peer1 $circuit1.Peerings[0] -Peer2 $circuit2.Peerings[0] -RoutingWeight1 10 -RoutingWeight2 10 -VirtualNetworkGateway1 $gw
 ```
 
-If you want to create a new connection and use an existing one, you can use the following example:
+If you want to create a new connection and use an existing one, you can use the following example. This example creates a new connection to a second ExpressRoute circuit and uses an existing connection to the first ExpressRoute circuit.
 
 ```azurepowershell-interactive
 $SubscriptionId = Get-AzureSubscription -SubscriptionName "<SubscriptionName>"
@@ -84,7 +84,7 @@ $circuit1 = Get-AzExpressRouteCircuit -Name "MyCircuit1" -ResourceGroupName "MyR
 $gw = Get-AzVirtualNetworkGateway -Name "ExpressRouteGw" -ResourceGroupName "MyRG"
 $connection = Get-AzVirtualNetworkGatewayConnection -Name "ERConnection1" -ResourceGroupName "MyRG"
 
-highAvailabilitySetup/New-AzHighAvailabilityVirtualNetworkGatewayConnections.ps1 -SubscriptionId $SubscriptionId -ResourceGroupName "MyRG" -Location "West EU" -Name2 "ERConnection2" -Peer2 $circuit1.Peerings[0] -RoutingWeight2 10 -VirtualNetworkGateway1 $vng -ExistingVirtualNetworkGatewayConnection $connection
+highAvailabilitySetup/New-AzHighAvailabilityVirtualNetworkGatewayConnections.ps1 -SubscriptionId $SubscriptionId -ResourceGroupName "MyRG" -Location "West EU" -Name2 "ERConnection2" -Peer2 $circuit1.Peerings[0] -RoutingWeight2 10 -VirtualNetworkGateway1 $gw -ExistingVirtualNetworkGatewayConnection $connection
 ```
 
 # [**Standard Resiliency**](#tab/standard)
