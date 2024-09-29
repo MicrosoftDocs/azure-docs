@@ -174,6 +174,10 @@ This project will use [dependency injection in .NET Azure Functions](../azure-fu
         return response;
     }
     ```
+    > [!NOTE]
+    > In case of `Trigger Attribute` like **Schedule** of `Timer Trigger` or **QueueName** of `Service Bus Trigger` in an isolated function app (.NET6 or .NET8), a corresponding environment variable should be set with below syntax.
+    > 
+    > "my:AppConfig:Key": "@Microsoft.AppConfiguration(Endpoint=https://myAppConfigStore.azconfig.io;Id=myId;Secret=mySecret; Key=my:AppConfig:Key)"
     ---
 
 ## Test the function locally
