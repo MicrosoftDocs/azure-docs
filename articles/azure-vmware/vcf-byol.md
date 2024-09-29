@@ -27,9 +27,9 @@ Moving forward, VMware vDefend Firewall on AVS will become an **add-on service**
 ## Purchasing AVS VCF BYOL
 
 We offer three flexible commitments and pricing options for using your own VCF license on AVS. You can choose from pay-as-you-go, 1-year Reserved Instance (RI), and 3-year RI options. 
-To get a better idea of the costs involved, you can use the [Pricing Calculator]() and [Azure Migrate](https://learn.microsoft.com/en-us/azure/migrate/concepts-azure-vmware-solution-assessment-calculation) to estimate the price of the AVS nodes and your overall migration expenses. 
+To get a better idea of the costs involved, you can use the [Pricing Calculator]() and [Azure Migrate](https://learn.microsoft.com/azure/migrate/concepts-azure-vmware-solution-assessment-calculation) to estimate the price of the AVS nodes and your overall migration expenses. 
 
-To take advantage of the Reserved Instance (RI) pricing for the VCF license portability offering, simply purchase an RI under the Product Name- VCF BYOL. For example, if your private cloud uses AV36P nodes, you must [purchase the Reserved Instance](https://learn.microsoft.com/en-us/azure/azure-vmware/reserved-instance?toc=%2Fazure%2Fcost-management-billing%2Freservations%2Ftoc.json#buy-a-reservation) for the Product Name- AV36P VCF BYOL. To use the Pay-go pricing for the VCF license portability offering, simply [register your VCF license](#Register your VCF license with AVS). 
+To take advantage of the Reserved Instance (RI) pricing for the VCF license portability offering, simply purchase an RI under the Product Name- VCF BYOL. For example, if your private cloud uses AV36P nodes, you must [purchase the Reserved Instance](https://learn.microsoft.com/azure/azure-vmware/reserved-instance?toc=%2Fazure%2Fcost-management-billing%2Freservations%2Ftoc.json#buy-a-reservation) for the Product Name- AV36P VCF BYOL. To use the Pay-go pricing for the VCF license portability offering, simply [register your VCF license](#Register your VCF license with AVS). 
 
 :::image type="content" source="media/vcf-byol/ri-purchase.png" alt-text="Picture of what product type to select while purchasing reserved instance for VCF license portability offering" border="false":::
 
@@ -86,7 +86,7 @@ Sample Email to register portable VCF entitlements:
 
 ## Creating/scaling a Private Cloud
 
-You can create your AVS Private Cloud the same way as today regardless of your licensing method, that is, whether you bring your own VCF portable license or use the AVS-owned VCF license.[Learn more](https://learn.microsoft.com/en-us/azure/azure-vmware/plan-private-cloud-deployment). Your decision of licensing is a cost optimization choice and does not affect your deployment workflow.
+You can create your AVS Private Cloud the same way as today regardless of your licensing method, that is, whether you bring your own VCF portable license or use the AVS-owned VCF license.[Learn more](https://learn.microsoft.com/azure/azure-vmware/plan-private-cloud-deployment). Your decision of licensing is a cost optimization choice and does not affect your deployment workflow.
 
 For example, you want to deploy 10 nodes of AV36P node type.
 
@@ -118,7 +118,7 @@ If you are currently managing your own VCF licensing for AVS and wish to transit
 
 1. Create a support request to inform us of your intent to convert. In the future, this support-based conversion process will be available directly through the Azure portal for Azure VMware Solution. 
 
-2. Exchange RI- If you have any active RI with VCF BYOL, exchange them for non-VCF BYOL RI. For instance, you can [exchange your AV36P VCF BYOL RI for an AV36P](https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations). 
+2. Exchange RI- If you have any active RI with VCF BYOL, exchange them for non-VCF BYOL RI. For instance, you can [exchange your AV36P VCF BYOL RI for an AV36P](https://learn.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations). 
 
 ## Converting from non-BYOL to BYOL
 
