@@ -23,10 +23,10 @@ You can install the VMware Aria suite on Azure VMware Solution with your VCF sub
 
 # Before you begin
 
-- Review [Aria Product documentation](./https://docs.vmware.com/en/VMware-Aria-Suite/2019/Getting-Started-VMware-Aria-Suite/GUID-6531EC71-6AC0-4C22-BF38-1A5CD21825C6.html) to learn about deploying Aria Suite. 
--  Review the basic Azure VMware Solution Software-Defined Datacenter (SDDC) [tutorial series](./https://learn.microsoft.com/en-us/azure/azure-vmware/tutorial-network-checklist).
-- Ensure you understand Azure VMware Solution [identity concepts](./https://learn.microsoft.com/en-us/azure/azure-vmware/architecture-identity#vcenter-server-access-and-identity) to correctly configure the cloud account in Aria suite.
-- Review how to [Rotate the cloudadmin credentials for Azure VMware Solution](./https://learn.microsoft.com/en-us/azure/azure-vmware/tutorial-network-checklist). 
+- Review [Aria Product documentation](https://docs.vmware.com/en/VMware-Aria-Suite/2019/Getting-Started-VMware-Aria-Suite/GUID-6531EC71-6AC0-4C22-BF38-1A5CD21825C6.html) to learn about deploying Aria Suite. 
+-  Review the basic Azure VMware Solution Software-Defined Datacenter (SDDC) [tutorial series](https://learn.microsoft.com/en-us/azure/azure-vmware/tutorial-network-checklist).
+- Ensure you understand Azure VMware Solution [identity concepts](https://learn.microsoft.com/en-us/azure/azure-vmware/architecture-identity#vcenter-server-access-and-identity) to correctly configure the cloud account in Aria suite.
+- Review how to [Rotate the cloudadmin credentials for Azure VMware Solution](https://learn.microsoft.com/en-us/azure/azure-vmware/tutorial-network-checklist). 
 
 
 >[!NOTE] 
