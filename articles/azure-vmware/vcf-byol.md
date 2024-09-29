@@ -17,7 +17,7 @@ Now you can bring your own VMware Cloud Foundations (VCF) entitlements to Azure 
 
 ARIA is now included in the VCF bundle and fully supported by AVS for all VCF license portability customers. Simply bring your own ARIA binaries and licenses (procured from Broadcom) and self-install them on AVS. In this self-installation phase, you are responsible for managing the installation, configurations, upgrades, scaling, backup, restore, and security patches for the ARIA software. Experience seamless integration and support throughout your entire journey with ARIA on AVS. In the future, ARIA installation experience will be provided out-of-box with AVS. [Learn more about ARIA on AVS here](/articles/azure-vmware/vmware-aria-in-azure-vmware-solution.md). 
 
-Moving forward, VMware vDefend Firewall on AVS will become an **add-on service**. If you are using VCF license portability offering on their SDDCs, you must pre-purchase this Firewall add-on from Broadcom along with your VCF subscription to use the vDefend Firewall on AVS. Before using the software on AVS ensure you register your Firewall add-on with Microsoft. Detailed instructions on how to register your VCF license can be found further in the article. Soon, AVS will also offer the convenience of purchasing the Firewall add-on directly from Microsoft. 
+Moving forward, VMware vDefend Firewall on AVS will become an **add-on service**. If you are using VCF license portability offering on their SDDCs, you must prepurchase this Firewall add-on from Broadcom along with your VCF subscription to use the vDefend Firewall on AVS. Before using the software on AVS ensure you register your Firewall add-on with Microsoft. Detailed instructions on how to register your VCF license can be found further in the article. Soon, AVS will also offer the convenience of purchasing the Firewall add-on directly from Microsoft. 
 
 >[!IMPORTANT]
 >
@@ -29,7 +29,7 @@ Moving forward, VMware vDefend Firewall on AVS will become an **add-on service**
 We offer three flexible commitments and pricing options for using your own VCF license on AVS. You can choose from pay-as-you-go, 1-year Reserved Instance (RI), and 3-year RI options. 
 To get a better idea of the costs involved, you can use the [Pricing Calculator]() and [Azure Migrate](https://learn.microsoft.com/en-us/azure/migrate/concepts-azure-vmware-solution-assessment-calculation) to estimate the price of the AVS nodes and your overall migration expenses. 
 
-To take advantage of the Reserved Instance (RI) pricing for the VCF license portability offering, simply purchase an RI under the “Product Name” VCF BYOL. For example, if your private cloud uses AV36P nodes, you must [purchase the Reserved Instance](https://learn.microsoft.com/en-us/azure/azure-vmware/reserved-instance?toc=%2Fazure%2Fcost-management-billing%2Freservations%2Ftoc.json#buy-a-reservation) for the Product Name "AV36P VCF BYOL". To use the Pay-go pricing for the VCF license portability offering, simply [register your VCF license](#Register your VCF license with AVS). 
+To take advantage of the Reserved Instance (RI) pricing for the VCF license portability offering, simply purchase an RI under the Product Name- VCF BYOL. For example, if your private cloud uses AV36P nodes, you must [purchase the Reserved Instance](https://learn.microsoft.com/en-us/azure/azure-vmware/reserved-instance?toc=%2Fazure%2Fcost-management-billing%2Freservations%2Ftoc.json#buy-a-reservation) for the Product Name- AV36P VCF BYOL. To use the Pay-go pricing for the VCF license portability offering, simply [register your VCF license](#Register your VCF license with AVS). 
 
 :::image type="content" source="media/vcf-byol/ri-purchase.png" alt-text="Picture of what product type to select while purchasing reserved instance for VCF license portability offering" border="false":::
 
@@ -44,7 +44,7 @@ To request quota for VCF license portability offering, provide the following add
 - Number of hosts 
 - Host SKU type  
 - Add the following statement as is, by replacing "N" with the ‘Number of VCF BYOL cores’ you have purchased from Broadcom for license portability to Azure VMware Solutions:  
-**“I acknowledge that I have procured portable VCF license from Broadcom for "N" cores to use with Azure VMware Solutions.”**
+**"I acknowledge that I have procured portable VCF license from Broadcom for "N" cores to use with Azure VMware Solutions."**
 - Any other details, including Availability Zone requirements for integrating with other Azure services; for example, Azure NetApp Files, Azure Blob Storage
 
 :::image type="content" source="media/vcf-byol/quota-request-byol.png" alt-text="Picture of the quota request description for VCF license portability offering on AVS" border="false":::
@@ -77,7 +77,7 @@ Sample Email to register portable VCF entitlements:
 
 ** The VMware vDefend Firewall add-on CPU cores required on Azure VMware Solution depend on the planned feature usage: 
 - For NSX Distributed Firewall: same core count as VCF core count. 
-- For NSX Gateway Firewall it would be 64 cores (with default NSX Edges).
+- For NSX Gateway Firewall, it would be 64 cores (with default NSX Edges).
 - For both NSX Distributed and Gateway firewall, it will be combined core count of both.
 
 >[!NOTE] 
@@ -93,22 +93,22 @@ For example, you want to deploy 10 nodes of AV36P node type.
 **Scenario 1:**
 "I want to purchase my VCF subscription from Broadcom and use the license portability offering on AVS."
 
-1. Request for quota for AV36P nodes. Declare that you will be bringing your own VCF license and the number of cores you are entitled for license portability. 
+1. Create quota request for AV36P nodes. Declare that you will be bringing your own VCF license and the number of cores you are entitled for license portability. 
 
 2. Register your VCF entitlements via email to Microsoft.  
 
-3. (Optional) To use the Reserved Instance pricing purchase AV36P VCF BYOL Reserved Instance. You will be charged VCF BYOL Pay-go pricing without this step. 
+3. Optional- to use the Reserved Instance pricing purchase AV36P VCF BYOL Reserved Instance. You will be charged VCF BYOL Pay-go pricing without this step. 
 
 4. Create your Private Cloud with AV36P nodes. 
 
 **Scenario 2:**
 "I want to let AVS manage my license for all my AVS private cloud."
 
-1. Request for quota for AV36P node type. 
+1. Create quota request for AV36P node type. 
 
-2. (Optional) Purchase AV36P Reserved Instance.  
+2. Optional- Purchase AV36P Reserved Instance.  
 
-3. Create Cluster with AV36P node type. 
+3. Create your Private Cloud with AV36P nodes. 
 
 ## Converting BYOL to non-BYOL
 
@@ -118,10 +118,10 @@ If you are currently managing your own VCF licensing for AVS and wish to transit
 
 1. Create a support request to inform us of your intent to convert. In the future, this support-based conversion process will be available directly through the Azure portal for Azure VMware Solution. 
 
-2. If you have any active RI with VCF BYOL, exchange them for non-VCF BYOL RI. For instance, you can [exchange your AV36P VCF BYOL RI for an AV36P](https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations). 
+2. Exchange RI- If you have any active RI with VCF BYOL, exchange them for non-VCF BYOL RI. For instance, you can [exchange your AV36P VCF BYOL RI for an AV36P](https://learn.microsoft.com/en-us/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations). 
 
 ## Converting from non-BYOL to BYOL
 
 If you are an existing AVS customer using AVS-owned licensing deployments and wish to transition to the license portability (VCF BYOL) offering, you can also easily make the switch without any changes to your Private Cloud deployments.  
 
-Simply, register your VCF entitlements with us as in the steps mentioned above. You will need to purchase the VCF entitlements from Broadcom for all cores that match your current AVS deployment. For instance, if your Azure subscription has a Private Cloud with 100 AV36P nodes, you must purchase VCF subscription for atleast 3600 cores from Broadcom to convert to VCF BYOL offering.  
+Simply, register your VCF entitlements with Microsoft. You will need to purchase the VCF entitlements from Broadcom for all cores that match your current AVS deployment. For instance, if your Azure subscription has a Private Cloud with 100 AV36P nodes, you must purchase VCF subscription for atleast 3600 cores from Broadcom to convert to VCF BYOL offering.  
