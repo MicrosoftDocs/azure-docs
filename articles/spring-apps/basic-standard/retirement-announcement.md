@@ -42,19 +42,19 @@ Key Features of Azure Container Apps:
 
 For more information about Azure Container Apps, see [Azure Container Apps overview](../../container-apps/overview.md).
 
-## Migration support for the Azure Spring Apps Standard consumption and dedicated plan
+## Migration experience for the Azure Spring Apps Standard consumption and dedicated plan
 
 For the Azure Spring Apps Standard consumption and dedicated plan, new customers will no longer be able to sign up for the service after September 30, 2024, while existing customers will remain operational until this plan is retired on March 31, 2025.
 
-A one-click migration experience will be enabled for the Azure Spring Apps Standard consumption and dedicated plan by mid-October, providing customers with a seamless transition from Azure Spring Apps to Azure Container Apps. For more information, see [Migrate Azure Spring Apps Standard consumption and dedicated plan to Azure Container Apps](../consumption-dedicated/overview-migration.md).
+Migration experience will be enabled for the Azure Spring Apps Standard consumption and dedicated plan by mid-October, providing customers with a seamless transition from Azure Spring Apps to Azure Container Apps. For more information, see [Migrate Azure Spring Apps Standard consumption and dedicated plan to Azure Container Apps](../consumption-dedicated/overview-migration.md).
 
-## Migration support for the Azure Spring Apps Basic, Standard, and Enterprise plans
+## Migration guidance and tool for the Azure Spring Apps Basic, Standard, and Enterprise plans
 
 For the Azure Spring Apps Basic, Standard, and Enterprise plans, new customers will no longer be able to sign up for the service after March 31, 2025, while existing customers will remain operational until the plans are phased out on March 31, 2028.
 
 We encourage you to start testing out Azure Container Apps for your Java Spring workloads and get prepared for the migration when the retirement for the Basic, Standard, and Enterprise plans starts in mid-March 2025.
 
-Step-by-step migration guidance will be ready by the end of December 2024 and the migration tool will be available by mid-March 2025 before the retirement starts.
+Migration guidance will be ready by the end of December 2024 and the migration assessment tool will be available by mid-March 2025 before the retirement starts.
 
 ## What is the impact for customers using Tanzu Components with Azure Spring Apps Enterprise?
 
@@ -102,7 +102,7 @@ After March 31, 2028, Azure Spring Apps Basic, Standard and Enterprise plans wil
 
 ### Does Microsoft Container Apps offer feature parity with Azure Spring Apps?
 
-Most Java features work the same on Azure Container Apps, with some experiential differences. Managed Spring components, Java metrics, and diagnostics support are available for you to use on Azure Container Apps. For more information, see [Java on Azure Container Apps overview](../../container-apps/java-overview.md). If you have any questions, open a support ticket from the Azure portal or open an issue in the [azure-container-apps](https://github.com/microsoft/azure-container-apps/issues) repository on GitHub.
+Customers should be able to achieve most of the desired capabilities to host their Spring applications on ACA. Managed Spring components, Java metrics, and diagnostics support are available for you to use on Azure Container Apps. For more information, see [Java on Azure Container Apps overview](../../container-apps/java-overview.md). If you have any questions, open a support ticket from the Azure portal or open an issue in the [azure-container-apps](https://github.com/microsoft/azure-container-apps/issues) repository on GitHub.
 
 If you have interest in obtaining or continuing Spring commercial support and using Tanzu components, you can download the components and run them as JAR files on top of Azure Container Apps. Please work with your Broadcom sales to explore running Tanzu Platform Spring Essentials on top of Azure Container Apps.
 
