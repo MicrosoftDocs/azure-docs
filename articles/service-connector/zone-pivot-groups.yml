@@ -24,3 +24,5 @@ groups:
     title: Connection string
   - id: service-principal
     title: Service principal
+  - id: workload-id
+    title: Workload ID
