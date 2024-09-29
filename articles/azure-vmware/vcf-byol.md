@@ -43,7 +43,7 @@ To request quota for VCF license portability offering, provide the following add
 - Region Name 
 - Number of hosts 
 - Host SKU type  
-- Add the following statement as is, by replacing "N" with the ‘Number of VCF BYOL cores’ you purchased from Broadcom for license portability to Azure VMware Solutions:  
+- Add the following statement as is, by replacing "N" with the "Number of VCF BYOL cores" you purchased from Broadcom for license portability to Azure VMware Solutions:  
 **"I acknowledge that I have procured portable VCF license from Broadcom for "N" cores to use with Azure VMware Solutions."**
 - Any other details, including Availability Zone requirements for integrating with other Azure services; for example, Azure NetApp Files, Azure Blob Storage
 
@@ -124,4 +124,4 @@ If you are currently managing your own VCF licensing for AVS and wish to transit
 
 If you are an existing AVS customer using AVS-owned licensing deployments and wish to transition to the license portability (VCF BYOL) offering, you can also easily make the switch without any changes to your Private Cloud deployments.  
 
-Simply, register your VCF entitlements with Microsoft. You will need to purchase the VCF entitlements from Broadcom for all cores that match your current AVS deployment. For instance, if your Azure subscription has a Private Cloud with 100 AV36P nodes, you must purchase VCF subscription for atleast 3600 cores from Broadcom to convert to VCF BYOL offering.  
+Simply, register your VCF entitlements with Microsoft. You need to purchase the VCF entitlements from Broadcom for all cores that match your current AVS deployment. For instance, if your Azure subscription has a Private Cloud with 100 AV36P nodes, you must purchase VCF subscription for atleast 3600 cores from Broadcom to convert to VCF BYOL offering.  
