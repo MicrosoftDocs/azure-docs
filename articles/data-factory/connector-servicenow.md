@@ -205,7 +205,7 @@ To copy data from ServiceNow, set the source type in the copy activity to **Serv
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
-## Upgrade your ServiceNow linked service
+## <a name="upgrade-your-servicenow-linked-service"></a> Upgrade the ServiceNow
 
 Here are the steps that help you to upgrade your ServiceNow linked service:
 
