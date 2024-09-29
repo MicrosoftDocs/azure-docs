@@ -58,7 +58,7 @@ When deployed use the [application settings](../azure-functions/functions-how-to
 
 | Configuration Name | Description|
 |---------|----------|
-|WebPubSubForSocketIOConnectionString__endpoint| Required. The Endpoint of the service. E.g., https://mysocketio.webpubsub.azure.com|
+|WebPubSubForSocketIOConnectionString__endpoint| Required. The Endpoint of the service. For example, https://mysocketio.webpubsub.azure.com|
 |WebPubSubForSocketIOConnectionString__credential |  Defines how a token should be obtained for the connection. This setting should be set to `managedidentity` if your deployed Azure Function intends to use managed identity authentication. This value is only valid when a managed identity is available in the hosting environment.|
 |WebPubSubForSocketIOConnectionString__clientId | When `credential` is set to `managedidentity`, this property can be set to specify the user-assigned identity to be used when obtaining a token. The property accepts a client ID corresponding to a user-assigned identity assigned to the application. If not specified, the system-assigned identity is used.|
 
@@ -102,7 +102,7 @@ The attribute for input binding is `[SocketIONegotiation]`.
 |---------|---------|
 | Hub | The hub name that a client needs to connect to. |
 | Connection | The name of the app setting that contains the Socket.IO connection string (defaults to `WebPubSubForSocketIOConnectionString`). |
-| UserId | The userId of the connection. It applys to all sockets in the connection. It becomes the `sub` claim in the generated token. |
+| UserId | The userId of the connection. It applies to all sockets in the connection. It becomes the `sub` claim in the generated token. |
 
 # [JavaScript Model v4](#tab/javascript-v4)
 
@@ -140,7 +140,7 @@ app.http('negotiate', {
 | name | Variable name used in function code for input connection binding object |
 | hub | The hub name that a client needs to connect to. |
 | connection | The name of the app setting that contains the Socket.IO connection string (defaults to `WebPubSubForSocketIOConnectionString`). |
-| userId | The userId of the connection. It applys to all sockets in the connection. It becomes the `sub` claim in the generated token. |
+| userId | The userId of the connection. It applies to all sockets in the connection. It becomes the `sub` claim in the generated token. |
 
 ---
 
@@ -167,7 +167,7 @@ def negotiate(req: func.HttpRequest, negotiate) -> func.HttpResponse:
 | type | Must be `socketionegotiation` |
 | hub | The hub name that a client needs to connect to. |
 | connection | The name of the app setting that contains the Socket.IO connection string (defaults to `WebPubSubForSocketIOConnectionString`). |
-| userId | The userId of the connection. It applys to all sockets in the connection. It becomes the `sub` claim in the generated token. |
+| userId | The userId of the connection. It applies to all sockets in the connection. It becomes the `sub` claim in the generated token. |
 
 ---
 
@@ -242,7 +242,7 @@ The attribute for trigger binding is `[SocketIOTrigger]`.
 
 #### SocketIOAttribute
 
-`SocketIOAttribute` is an alternative of `ParameterNames`, which simplify the function definition. For example, the following two definitions have the same effection:
+`SocketIOAttribute` is an alternative of `ParameterNames`, which simplifies the function definition. For example, the following two definitions have the same effection:
 
 ```cs
 [FunctionName("SocketIOTriggerMessage")]
@@ -262,7 +262,7 @@ public static async Task NewMessage(
 }
 ```
 
-Note that `ParameterNames` and `[SocketIOParameter]` cannot be used together.
+Note that `ParameterNames` and `[SocketIOParameter]` can't be used together.
 
 # [JavaScript Model v4](#tab/javascript-v4)
 
@@ -461,9 +461,9 @@ The data structure of input binding arguments varies depending on the message ty
 
 | Property | Description |
 |---------|---------|
-| namespace | The namespace of the soceket. |
-| socketId | The unique identity of the soceket. |
-| claims | The claim of jwt of the client connection. Note, it's not the jwt when the service request the function, but the jwt when the Engine.IO client connects to the service. |
+| namespace | The namespace of the socket. |
+| socketId | The unique identity of the socket. |
+| claims | The claim of JWT of the client connection. Note, it's not the JWT when the service request the function, but the JWT when the Engine.IO client connects to the service. |
 | query | The query of the client connection. Note, it's not the query when the service request the function, but the query when the Engine.IO client connects to the service. |
 | headers | The headers of the client connection. Note, it's not the headers when the service request the function, but the headers when the Engine.IO client connects to the service. |
 | clientCertificates | The client certificate if it's enabled |
@@ -479,8 +479,8 @@ The data structure of input binding arguments varies depending on the message ty
 
 | Property | Description |
 |---------|---------|
-| namespace | The namespace of the soceket. |
-| socketId | The unique identity of the soceket. |
+| namespace | The namespace of the socket. |
+| socketId | The unique identity of the socket. |
 
 #### Disconnected
 
@@ -494,8 +494,8 @@ The data structure of input binding arguments varies depending on the message ty
 
 | Property | Description |
 |---------|---------|
-| namespace | The namespace of the soceket. |
-| socketId | The unique identity of the soceket. |
+| namespace | The namespace of the socket. |
+| socketId | The unique identity of the socket. |
 | reason | The connection close reason description. |
 
 #### Normal events
@@ -512,11 +512,11 @@ The data structure of input binding arguments varies depending on the message ty
 
 | Property | Description |
 |---------|---------|
-| namespace | The namespace of the soceket. |
-| socketId | The unique identity of the soceket. |
+| namespace | The namespace of the socket. |
+| socketId | The unique identity of the socket. |
 | payload | The message payload in Engine.IO protocol |
 | eventName | The event name of the request. |
-| parameters | List of parameters of the message emittion. |
+| parameters | List of parameters of the message. |
 
 ## Output Binding
 
