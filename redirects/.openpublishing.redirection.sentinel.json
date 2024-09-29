@@ -31,6 +31,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/sentinel/enable-enrichment-widgets.md",
+            "redirect_url": "/azure/sentinel/whats-new#third-party-enrichment-widgets-to-be-retired-in-february-2025",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/sentinel/automate-responses-with-playbooks.md#azure-logic-apps-basic-concepts",
             "redirect_url": "/azure/sentinel/playbooks/logic-apps-playbooks",
             "redirect_document_id": false
