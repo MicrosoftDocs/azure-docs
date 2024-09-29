@@ -522,4 +522,4 @@ This workflow creates alerts in Dynamics 365 Field Service, specifically when a 
 ## Related content
 
 - [Connect on-premises SAP systems to Azure](howto-connect-on-premises-sap-to-azure.md)
-- [Connecting Azure IoT Operations to Microsoft Fabric](../iot-operations/connect-to-cloud/howto-configure-destination-fabric.md)
+- [Connecting Azure IoT Operations to Microsoft Fabric](../iot-operations/process-data/howto-configure-destination-fabric.md)

@@ -3,7 +3,7 @@ title: Linter rule - no unused existing resources
 description: Linter rule - no unused existing resources
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 03/20/2024
+ms.date: 07/11/2024
 ---
 
 # Linter rule - no unused existing resources
@@ -23,7 +23,7 @@ To reduce confusion in your template, delete any [existing resources](./existing
 The following example fails this test because the existing resource **stg** is declared but never used:
 
 ```bicep
-resource stg 'Microsoft.Storage/storageAccounts@2022-09-01' existing = {
+resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' existing = {
   name: 'examplestorage'
 }
 ```

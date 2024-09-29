@@ -4,7 +4,7 @@ description: This article provides reference information for the azcopy copy com
 author: normesta
 ms.service: azure-storage
 ms.topic: reference
-ms.date: 05/31/2024
+ms.date: 07/09/2024
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.reviewer: zezha-msft
@@ -14,21 +14,22 @@ ms.reviewer: zezha-msft
 
 Copies source data to a destination location.  
 
+[!INCLUDE [storage-azcopy-change-support](includes/storage-azcopy-change-support.md)]
 
 ## Synopsis
 
 Copies source data to a destination location. The supported directions are:
 
 - local <-> Azure Blob (SAS or OAuth authentication)
-- local <-> Azure Files (Share/directory SAS authentication)
-- local <-> Azure Data Lake Storage Gen2 (SAS, OAuth, or SharedKey authentication)
+- local <-> Azure Files (Share/directory SAS authentication or OAuth authentication)
+- local <-> Azure Data Lake Storage (SAS, OAuth, or SharedKey authentication)
 - Azure Blob (SAS or public) -> Azure Blob (SAS or OAuth authentication)
-- Azure Data Lake Storage Gen2 (SAS or public) -> Azure Data Lake Storage Gen2 (SAS or OAuth authentication)
+- Azure Data Lake Storage (SAS or public) -> Azure Data Lake Storage (SAS or OAuth authentication)
 - Azure Blob (SAS or OAuth authentication) <-> Azure Blob (SAS or OAuth authentication) - See [Guidelines](./storage-use-azcopy-blobs-copy.md#guidelines).
-- Azure Data Lake Storage Gen2 (SAS or OAuth authentication) <-> Azure Data Lake Storage Gen2 (SAS or OAuth authentication)
-- Azure Data Lake Storage Gen2 (SAS or OAuth authentication) <-> Azure Blob (SAS or OAuth authentication)
+- Azure Data Lake Storage (SAS or OAuth authentication) <-> Azure Data Lake Storage (SAS or OAuth authentication)
+- Azure Data Lake Storage (SAS or OAuth authentication) <-> Azure Blob (SAS or OAuth authentication)
 - Azure Blob (SAS or public) -> Azure Files (SAS)
-- Azure Files (SAS) -> Azure Files (SAS)
+- Azure File (SAS or OAuth authentication) <-> Azure File (SAS or OAuth authentication)
 - Azure Files (SAS) -> Azure Blob (SAS or OAuth authentication)
 - AWS S3 (Access Key) -> Azure Block Blob (SAS or OAuth authentication)
 - Google Cloud Storage (Service Account Key) -> Azure Block Blob (SAS or OAuth authentication)
@@ -224,11 +225,11 @@ To copy files changed before or after the AzCopy job has started, AzCopy provide
 
 Copy a subset of files modified on or after the given date and time (in ISO8601 format) in a container by using the `include-after` flag.
 
-`azcopy cp "https://[srcaccount].blob.core.windows.net/[containername]?[SAS]" "https://[dstaccount].blob.core.windows.net/[containername]?[SAS]" --include-after='2020-08-19T15:04:00Z''"`
+`azcopy cp "https://[srcaccount].blob.core.windows.net/[containername]?[SAS]" "https://[dstaccount].blob.core.windows.net/[containername]?[SAS]" --include-after="2020-08-19T15:04:00Z"`
 
 Copy a subset of files modified on or before the given date and time (in ISO8601 format) in a container by using the `include-before` flag.
 
-`azcopy cp "https://[srcaccount].blob.core.windows.net/[containername]?[SAS]" "https://[dstaccount].blob.core.windows.net/[containername]?[SAS]" --include-before='2020-08-19T15:04:00Z'"`
+`azcopy cp "https://[srcaccount].blob.core.windows.net/[containername]?[SAS]" "https://[dstaccount].blob.core.windows.net/[containername]?[SAS]" --include-before="2020-08-19T15:04:00Z"`
 
 ## Options
 
@@ -318,7 +319,7 @@ Copy a subset of files modified on or before the given date and time (in ISO8601
 
 `--preserve-smb-permissions` will still preserve ACLs but Owner and Group is based on the user running AzCopy (default true)
 
-`--preserve-permissions`    False by default. Preserves ACLs between aware resources (Windows and Azure Files, or Azure Data Lake Storage Gen2 to Azure Data Lake Storage Gen2). For accounts that have a hierarchical namespace, your security principal must be the owning user of the target container or it must be assigned the Storage Blob Data Owner role, scoped to the target container, storage account, parent resource group, or subscription. For downloads, you'll also need the `--backup` flag to restore permissions where the new Owner won't be the user running AzCopy. This flag applies to both files and folders, unless a file-only filter is specified (for example, include-pattern).
+`--preserve-permissions`    False by default. Preserves ACLs between aware resources (Windows and Azure Files, or Azure Data Lake Storage to Azure Data Lake Storage). For accounts that have a hierarchical namespace, your security principal must be the owning user of the target container or it must be assigned the Storage Blob Data Owner role, scoped to the target container, storage account, parent resource group, or subscription. For downloads, you'll also need the `--backup` flag to restore permissions where the new Owner won't be the user running AzCopy. This flag applies to both files and folders, unless a file-only filter is specified (for example, include-pattern).
 
 `--preserve-posix-properties`    False by default. Preserves property info gleaned from `stat` or `statx` into object metadata.
 

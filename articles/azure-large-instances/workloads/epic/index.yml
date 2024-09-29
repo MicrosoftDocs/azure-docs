@@ -6,7 +6,7 @@ summary: Learn how to use Azure Large Instances for Epic.
 metadata:
   title: Azure Large Instances for Epic workload 
   description: Learn how to use ALI for Epic.
-  ms.service: baremetal-infrastructure
+  ms.service: azure-baremetal-infrastructure
   ms.topic: landing-page
   author: jjaygbay1
   ms.author: jacobjaygbay

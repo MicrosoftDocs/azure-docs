@@ -28,7 +28,7 @@ highlightedContent:
     # Card
     - title: Getting started with HPC VMs
       itemType: get-started
-      url: ../virtual-machines/set-up-hpc-vms.md?context=/azure/virtual-machines/context/context
+      url: /azure/virtual-machines/set-up-hpc-vms?context=/azure/virtual-machines/context/context
     # Card
     - title: Azure HPC Architecture
       itemType: architecture
@@ -61,17 +61,20 @@ conceptualContent:
               text: Digital image-based modeling on Azure
             - url: /azure/architecture/guide/hpc/hpc-deployments/
               itemType: overview
-              text: HPC Deployments              
+              text: HPC Migration Deployments
+            - url: /azure/high-performance-computing/lift-and-shift-overview/
+              itemType: overview
+              text: On-premises to cloud lift and shift migration guide
         # Card
         - title: Azure HPC Compute
           links:
-            - url: ../virtual-machines/sizes-hpc.md
+            - url: /azure/virtual-machines/sizes-hpc
               itemType: concept
               text: High Performance VMs 
-            - url: ../virtual-machines/sizes-gpu.md
+            - url: /azure/virtual-machines/sizes-gpu
               itemType: concept
-              text: GPU Accelarated VMs
-            - url: ../virtual-machines/hx-series.md
+              text: GPU Accelerated VMs
+            - url: /azure/virtual-machines/hx-series
               itemType: concept
               text: Memory Optimized VMs
         # Card
@@ -108,7 +111,7 @@ conceptualContent:
               itemType: overview
               text: Spot VMs             
         # Card
-        - title: Manage, Monitor and Control
+        - title: Manage, Monitor, and Control
           links:
             - url: /azure/azure-monitor/
               itemType: reference
@@ -128,7 +131,7 @@ conceptualContent:
 additionalContent:
   sections:
     - title: Take the next step # < 60 chars (Optional; Remove if not applicable.)
-      summary: See Azure HPC solutions, tutorials, guides and resources. # < 160 chars (Optional; Remove if not applicable.)
+      summary: See Azure HPC solutions, tutorials, guides, and resources. # < 160 chars (Optional; Remove if not applicable.)
       items:
       # Card
       - title: Landing Zone Accelerators
@@ -159,7 +162,7 @@ additionalContent:
           - url: /training/modules/run-parallel-tasks-in-azure-batch-with-the-azure-cli/
             text: Run Parallel Tasks in Azure Batch
           - url: /training/modules/azure-cyclecloud-high-performance-computing/
-            text: Create, customize and manage HPC Cluster using CycleCloud
+            text: Create, customize, and manage HPC Cluster using CycleCloud
           - url: /azure/virtual-machines/extensions/enable-infiniband
             text: Enable Inifiniband
          
@@ -231,7 +234,7 @@ additionalContent:
         - title: Azure HPC Partners
           #summary:
           links:
-            - text: "Deploying, Benchmarking & Visualising Workflows in a AMD HPC cluster in Azure"
+            - text: "Deploying, Benchmarking & Visualising Workflows in an AMD HPC cluster in Azure"
               url: https://www.youtube.com/watch?v=qUQFWbVnbsU
             - text: "HPC Technical Capabilities and Solutions for the Energy Industry Powered by Microsoft Azure Cloud"
               url: https://www.youtube.com/watch?v=NXOFG4aoD4g
@@ -256,15 +259,13 @@ additionalContent:
 
               
     - title: HPC Conferences # < 60 chars (optional)
-      summary: Learn more about product updates, event information and technology offers and more. # < 160 chars (optional)
+      summary: Learn more about product updates, event information, and technology offers and more. # < 160 chars (optional)
       items:
         # Card
-        - title: Microsoft HPC at Supercomputing 2022
+        - title: Microsoft HPC at Supercomputing 2024
           links:
-            - text: Microsoft at at SC22!
-              url: https://www.aka.ms/SC22
-            - text: Supercomputing 22 Website
-              url: https://sc22.supercomputing.org/
+            - text: Supercomputing 24 Website
+              url:  https://sc24.supercomputing.org/
         # Card
         - title: NVIDIA GTC (GPU Technology Conference)
           links:

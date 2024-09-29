@@ -3,10 +3,10 @@ title: 'Configure P2S VPN clients - certificate authentication - Azure VPN Clien
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure a Linux client to connect to Azure using a point-to-site connection, Open VPN, and the Azure VPN Client for Linux.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.custom: linux-related-content
 ms.topic: how-to
-ms.date: 06/05/2024
+ms.date: 09/06/2024
 ms.author: cherylmc
 ---
 
@@ -42,7 +42,7 @@ The basic workflow is as follows:
 
 1. Generate and install client certificates.
 1. Locate the VPN client profile configuration package that you generated in the [Configure server settings for P2S VPN Gateway connections - certificate authentication](vpn-gateway-howto-point-to-site-resource-manager-portal.md#profile-files) article.
-1. Download and configure Azure VPN Client for Linux.
+1. Download and configure the Azure VPN Client for Linux.
 1. Connect to Azure.
 
 ## Generate certificates
@@ -67,15 +67,11 @@ openssl x509 -req -days 365 -in "${USERNAME}Req.pem" -CA caCert.pem -CAkey caKey
 
 ## View VPN client profile configuration files
 
-When you generate a VPN client profile configuration package, all the necessary configuration settings for VPN clients are contained in a VPN client profile configuration zip file. The VPN client profile configuration files are specific to the P2S VPN gateway configuration for the virtual network. If there are any changes to the P2S VPN configuration after you generate the files, such as changes to the VPN protocol type or authentication type, you need to generate new VPN client profile configuration files and apply the new configuration to all of the VPN clients that you want to connect.
+When you generate and download a VPN client profile configuration package, all the necessary configuration settings for VPN clients are contained in a VPN client profile configuration zip file. The VPN client profile configuration files are specific to the P2S VPN gateway configuration for the virtual network. If there are any changes to the P2S VPN configuration after you generate the files, such as changes to the VPN protocol type or authentication type, you need to generate new VPN client profile configuration files and apply the new configuration to all of the VPN clients that you want to connect.
 
-Locate and unzip the VPN client profile configuration package you generated. For P2S **Certificate authentication** and with an **OpenVPN** tunnel type, you'll see the **AzureVPN** folder. In the AzureVPN folder, locate the **azurevpnconfig.xml** file. This file contains the settings you use to configure the VPN client profile.
+Locate and unzip the VPN client profile configuration package you generated and downloaded (listed in the [Prequisites](#prerequisites)). Open the **AzureVPN** folder. In this folder, you'll see either the **azurevpnconfig_cert.xml** file or the **azurevpnconfig.xml** file, depending on whether your P2S configuration includes multiple authentication types. The .xml file contains the settings you use to configure the VPN client profile.
 
-If you don't see the **azurevpnconfig.xml** file, verify the following items:
-
-* Verify that your VPN gateway is configured to use the OpenVPN tunnel type.
-* Verify your P2S configuration is set for certificate authentication.
-* If you're using Microsoft Entra ID authentication, you might not have an AzureVPN folder. See the [Microsoft Entra ID](point-to-site-entra-gateway.md) configuration article instead.
+If you don't see either file, or you don't have an **AzureVPN** folder, verify that your VPN gateway is configured to use the OpenVPN tunnel type and that certificate authentication is selected.
 
 ## Download the Azure VPN Client
 
@@ -109,7 +105,7 @@ For more information about the repository, see [Linux Software Repository for Mi
 1. On the bottom left of the page of the Linux VPN client, select **Import**.
 
    :::image type="content" source="./media/azure-vpn-client-certificate-linux/import.png" alt-text="Screenshot of Azure VPN Client for Linux with Import." lightbox="./media/azure-vpn-client-certificate-linux/import.png":::
-1. In the window, navigate to the **azurevpnconfig.xml** file, select it, then select **Open**.
+1. In the window, navigate to either the **azurevpnconfig.xml** or **azurevpnconfig_cert.xml** file, select it, then select **Open**.
 1. To add **Client Certificate Public Data**, use the file picker and locate the related **.pem** files.
 
    :::image type="content" source="./media/azure-vpn-client-certificate-linux/client-certificate-data.png" alt-text="Screenshot of Azure VPN Client for Linux with client certificate data selected." lightbox="./media/azure-vpn-client-certificate-linux/client-certificate-data.png":::

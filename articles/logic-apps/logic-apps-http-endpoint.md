@@ -24,9 +24,9 @@ This guide shows how to create a callable endpoint for your workflow by adding t
 
 * An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-* A logic app workflow where you want to use the request-based trigger to create the callable endpoint. You can start with either a blank workflow or an existing workflow where you can replace the current trigger. This example starts with a blank workflow.
+* A logic app workflow where you want to use the **Request** trigger to create the callable endpoint. You can start with either a blank workflow or an existing workflow where you can replace the current trigger. This example starts with a blank workflow.
 
-* To test the URL for the callable endpoint that you create, you'll need a tool or app such as [Postman](https://www.postman.com/downloads/).
+[!INCLUDE [api-test-http-request-tools-bullet](../../includes/api-test-http-request-tools-bullet.md)]
 
 ## Create a callable endpoint
 
@@ -110,9 +110,9 @@ Based on whether you have a Standard or Consumption logic app workflow, follow t
 
         :::image type="content" source="./media/logic-apps-http-endpoint/find-trigger-url-standard.png" alt-text="Screenshot shows Standard workflow and Overview page with workflow URL." lightbox="./media/logic-apps-http-endpoint/find-trigger-url-standard.png":::
 
-1. To test the callback URL that you now have for the Request trigger, use a tool or app such as [Postman](https://www.postman.com/downloads/), and send the request using the method that the Request trigger expects.
+1. To test the callback URL and trigger the workflow, send an HTTP request to the URL, including the method that the **Request** trigger expects, by using your HTTP request tool and its instructions.
 
-   This example uses the `POST` method:
+   This example uses the **POST** method with the copied URL, which looks like the following sample:
 
    `POST https://{logic-app-name}.azurewebsites.net:443/api/{workflow-name}/triggers/{trigger-name}/invoke?api-version=2022-05-01&sp=%2Ftriggers%2F{trigger-name}%2Frun&sv=1.0&sig={shared-access-signature}`
 
@@ -194,9 +194,9 @@ Based on whether you have a Standard or Consumption logic app workflow, follow t
 
         :::image type="content" source="./media/logic-apps-http-endpoint/find-trigger-url-consumption.png" alt-text="Screenshot shows Consumption logic app Overview page with workflow URL." lightbox="./media/logic-apps-http-endpoint/find-trigger-url-consumption.png":::
 
-1. To test the callback URL that you now have for the Request trigger, use a tool or app such as [Postman](https://www.postman.com/downloads/), and send the request using the method that the Request trigger expects.
+1. To test the callback URL and trigger the workflow, send an HTTP request to the URL, including the method that the **Request** trigger expects, by using your HTTP request tool.
 
-   This example uses the `POST` method:
+   This example uses the **POST** method with the copied URL, which looks like the following sample:
 
    `POST https://{server-name}.{region}.logic.azure.com/workflows/{workflow-ID}/triggers/{trigger-name}/paths/invoke/?api-version=2016-10-01&sp=%2Ftriggers%2F{trigger-name}%2Frun&sv=1.0&sig={shared-access-signature}`
 
@@ -206,11 +206,11 @@ Based on whether you have a Standard or Consumption logic app workflow, follow t
 
 ## Select expected request method
 
-By default, the Request trigger expects a `POST` request. However, you can specify a different method that the caller must use, but only a single method.
+By default, the **Request** trigger expects a `POST` request. However, you can specify a different method that the caller must use, but only a single method.
 
 ### [Standard](#tab/standard)
 
-1. In the Request trigger, open the **Advanced parameters** list, and select **Method**, which adds this property to the trigger.
+1. In the **Request** trigger, open the **Advanced parameters** list, and select **Method**, which adds this property to the trigger.
 
 1. From the **Method** list, select the method that the trigger should expect instead. Or, you can specify a custom method.
 
@@ -218,7 +218,7 @@ By default, the Request trigger expects a `POST` request. However, you can speci
 
 ### [Consumption](#tab/consumption)
 
-1. In the Request trigger, open the **Add new parameter** list, and select **Method**, which adds this property to the trigger.
+1. In the **Request** trigger, open the **Add new parameter** list, and select **Method**, which adds this property to the trigger.
 
 1. From the **Method** list, select the method that the trigger should expect instead. Or, you can specify a custom method.
 
@@ -234,9 +234,9 @@ When you want to accept parameter values through the endpoint's URL, you have th
 
 * [Accept values through GET parameters](#get-parameters) or URL parameters.
 
-  These values are passed as name-value pairs in the endpoint's URL. For this option, you need to use the GET method in your Request trigger. In a subsequent action, you can get the parameter values as trigger outputs by using the `triggerOutputs()` function in an expression.
+  These values are passed as name-value pairs in the endpoint's URL. For this option, you need to use the GET method in your **Request** trigger. In a subsequent action, you can get the parameter values as trigger outputs by using the `triggerOutputs()` function in an expression.
 
-* [Accept values through a relative path](#relative-path) for parameters in your Request trigger.
+* [Accept values through a relative path](#relative-path) for parameters in your **Request** trigger.
 
   These values are passed through a relative path in the endpoint's URL. You also need to explicitly [select the method](#select-method) that the trigger expects. In a subsequent action, you can get the parameter values as trigger outputs by referencing those outputs directly.
 
@@ -246,7 +246,7 @@ When you want to accept parameter values through the endpoint's URL, you have th
 
 ### [Standard](#tab/standard)
 
-1. In the Request trigger, open the **Advanced parameters**, add the **Method** property to the trigger, and select the **GET** method.
+1. In the **Request** trigger, open the **Advanced parameters**, add the **Method** property to the trigger, and select the **GET** method.
 
    For more information, see [Select expected request method](#select-method).
 
@@ -282,7 +282,7 @@ When you want to accept parameter values through the endpoint's URL, you have th
 
 #### Test your callable endpoint
 
-1. From the Request trigger, copy the workflow URL, and paste the URL into another browser window. In the URL, add the parameter name and value to the URL in the following format, and press Enter.
+1. From the **Request** trigger, copy the workflow URL, and paste the URL into another browser window. In the URL, add the parameter name and value to the URL in the following format, and press Enter.
 
    `...invoke/{parameter-name}/{parameter-value}?api-version=2022-05-01...`
 
@@ -301,7 +301,7 @@ When you want to accept parameter values through the endpoint's URL, you have th
 
 ### [Consumption](#tab/consumption)
 
-1. In the Request trigger, open the **Add new parameter list**, add the **Method** property to the trigger, and select the **GET** method.
+1. In the **Request** trigger, open the **Add new parameter list**, add the **Method** property to the trigger, and select the **GET** method.
 
    For more information, see [Select expected request method](#select-method).
 
@@ -337,7 +337,7 @@ When you want to accept parameter values through the endpoint's URL, you have th
 
 #### Test your callable endpoint
 
-1. From the Request trigger, copy the workflow URL, and paste the URL into another browser window. In the URL, add the parameter name and value following the question mark (`?`) to the URL in the following format, and press Enter.
+1. From the **Request** trigger, copy the workflow URL, and paste the URL into another browser window. In the URL, add the parameter name and value following the question mark (`?`) to the URL in the following format, and press Enter.
 
    `...invoke?{parameter-name=parameter-value}&api-version=2016-10-01...`
 
@@ -372,7 +372,7 @@ When you want to accept parameter values through the endpoint's URL, you have th
 
 ### [Standard](#tab/standard)
 
-1. In the Request trigger, open the **Advanced parameters** list, and select **Relative path**, which adds this property to the trigger.
+1. In the **Request** trigger, open the **Advanced parameters** list, and select **Relative path**, which adds this property to the trigger.
 
    ![Screenshot shows Standard workflow, Request trigger, and added property named Relative path.](./media/logic-apps-http-endpoint/add-relative-path-standard.png)
 
@@ -380,7 +380,7 @@ When you want to accept parameter values through the endpoint's URL, you have th
 
    ![Screenshot shows Standard workflow, Request trigger, and Relative path parameter value.](./media/logic-apps-http-endpoint/relative-path-url-standard.png)
 
-1. Under the Request trigger, [follow these general steps to add the action where you want to use the parameter value](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
+1. Under the **Request** trigger, [follow these general steps to add the action where you want to use the parameter value](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
    For this example, add the **Response** action.
 
@@ -400,11 +400,11 @@ When you want to accept parameter values through the endpoint's URL, you have th
 
 1. Save your workflow.
 
-   In the Request trigger, the callback URL is updated and now includes the relative path, for example:
+   In the **Request** trigger, the callback URL is updated and now includes the relative path, for example:
 
    `https://mystandardlogicapp.azurewebsites.net/api/Stateful-Workflow/triggers/When_a_HTTP_request_is_received/invoke/address/%7BpostalCode%7D?api-version=2022-05-01&sp=%2Ftriggers%2FWhen_a_HTTP_request_is_received%2Frun&sv=1.0&sig={shared-access-signature}`
 
-1. To test your callable endpoint, copy the updated callback URL from the Request trigger, paste the URL into another browser window, replace `%7BpostalCode%7D` in the URL with `123456`, and press Enter.
+1. To test the callable endpoint, copy the updated callback URL from the **Request** trigger, paste the URL into another browser window, replace `%7BpostalCode%7D` in the URL with `123456`, and press Enter.
 
    The browser returns a response with this text: `Postal Code: 123456`
 
@@ -417,7 +417,7 @@ When you want to accept parameter values through the endpoint's URL, you have th
 
 ### [Consumption](#tab/consumption)
 
-1. In the Request trigger, open the **Add new parameter** list, and select **Relative path**, which adds this property to the trigger.
+1. In the **Request** trigger, open the **Add new parameter** list, and select **Relative path**, which adds this property to the trigger.
 
    ![Screenshot shows Consumption workflow, Request trigger, and added property named Relative path.](./media/logic-apps-http-endpoint/add-relative-path-consumption.png)
 
@@ -425,7 +425,7 @@ When you want to accept parameter values through the endpoint's URL, you have th
 
    ![Screenshot shows Consumption workflow, Request trigger, and Relative path parameter value.](./media/logic-apps-http-endpoint/relative-path-url-consumption.png)
 
-1. Under the Request trigger, [follow these general steps to add the action where you want to use the parameter value](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
+1. Under the **Request** trigger, [follow these general steps to add the action where you want to use the parameter value](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
    For this example, add the **Response** action.
 
@@ -445,11 +445,11 @@ When you want to accept parameter values through the endpoint's URL, you have th
 
 1. Save your workflow.
 
-   In the Request trigger, the callback URL is updated and now includes the relative path, for example:
+   In the **Request** trigger, the callback URL is updated and now includes the relative path, for example:
 
    `https://prod-07.westus.logic.azure.com/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke/address/{postalCode}?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
 
-1. To test your callable endpoint, copy the updated callback URL from the Request trigger, paste the URL into another browser window, replace `{postalCode}` in the URL with `123456`, and press Enter.
+1. To test the callable endpoint, copy the updated callback URL from the **Request** trigger, paste the URL into another browser window, replace `{postalCode}` in the URL with `123456`, and press Enter.
 
    The browser returns a response with this text: `Postal Code: 123456`
 
@@ -470,7 +470,7 @@ After you create the endpoint, you can trigger the workflow by sending an HTTPS 
 
 ## Tokens generated from schema
 
-When you provide a JSON schema in the Request trigger, the workflow designer generates tokens for the properties in that schema. You can then use those tokens for passing data through your workflow.
+When you provide a JSON schema in the **Request** trigger, the workflow designer generates tokens for the properties in that schema. You can then use those tokens for passing data through your workflow.
 
 For example, if you add more properties, such as `"suite"`, to your JSON schema, tokens for those properties are available for you to use in the later steps for your workflow. Here's the complete JSON schema:
 
@@ -559,7 +559,7 @@ For nested workflows, the parent workflow continues to wait for a response until
 
 ### Construct the response
 
-In the response body, you can include multiple headers and any type of content. For example, the following response's header specifies that the response's content type is `application/json` and that the body contains values for the `town` and `postalCode` properties, based on the JSON schema described earlier in this topic for the Request trigger.
+In the response body, you can include multiple headers and any type of content. For example, the following response's header specifies that the response's content type is `application/json` and that the body contains values for the `town` and `postalCode` properties, based on the JSON schema described earlier in this topic for the **Request** trigger.
 
 ![Screenshot shows Response action and response content type.](./media/logic-apps-http-endpoint/content-for-response-action.png)
 

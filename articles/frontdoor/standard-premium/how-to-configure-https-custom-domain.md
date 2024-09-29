@@ -3,7 +3,7 @@ title: 'Configure HTTPS for your custom domain - Azure Front Door'
 description: In this article, you learn how to configure HTTPS on an Azure Front Door custom domain by using the Azure portal.
 services: frontdoor
 author: duongau
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 04/30/2024
 ms.author: duau
@@ -75,7 +75,7 @@ You can also choose to use your own TLS certificate. Your TLS certificate must m
 
 #### Prepare your key vault and certificate
 
-Create a separate Azure Key Vault instance in which you store your Azure Front Door TLS certificates. For more information, see [Create a Key Vault instance](../../key-vault/general/quick-create-portal.md). If you already have a certificate, you can upload it to your new Key Vault instance. Otherwise, you can create a new certificate through Key Vault from one of the certificate authority (CA) partners.
+Create a separate Azure Key Vault instance in which you store your Azure Front Door TLS certificates. For more information, see [Create a Key Vault instance](/azure/key-vault/general/quick-create-portal). If you already have a certificate, you can upload it to your new Key Vault instance. Otherwise, you can create a new certificate through Key Vault from one of the certificate authority (CA) partners.
 
 There are currently two ways to authenticate Azure Front Door to access your Key Vault:
 
@@ -103,13 +103,13 @@ Register the service principal for Azure Front Door as an app in your Microsoft 
     Azure public cloud:
 
      ```azurepowershell-interactive
-     New-MgServicePrincipal -ApplicationId '205478c0-bd83-4e1b-a9d6-db63a3e1e1c8'
+     New-MgServicePrincipal -AppId '205478c0-bd83-4e1b-a9d6-db63a3e1e1c8'
      ```
 
     Azure government cloud:
 
     ```azurepowershell-interactive
-     New-MgServicePrincipal -ApplicationId 'd4631ece-daab-479b-be77-ccb713491fc0'
+     New-MgServicePrincipal -AppId 'd4631ece-daab-479b-be77-ccb713491fc0'
      ```
 
 # [Azure CLI](#tab/cli)

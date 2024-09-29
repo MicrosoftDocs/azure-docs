@@ -2,10 +2,9 @@
 title: Deprecation of Azure Site Recovery data encryption feature
 description: Get details about the Azure Site Recovery data encryption feature. 
 author: ankitaduttaMSFT
-manager: rochakm
-ms.service: site-recovery
-ms.topic: conceptual
-ms.date: 03/02/2023
+ms.service: azure-site-recovery
+ms.topic: how-to
+ms.date: 09/06/2024
 ms.author: ankitadutta  
 ms.custom: engagement-fy23
 

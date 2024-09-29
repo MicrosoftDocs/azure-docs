@@ -3,7 +3,7 @@ title: "Tutorial: Configure Azure Front Door for Azure Static Web Apps"
 description: Learn how to set up Azure Front Door for Azure Static Web Apps
 services: static-web-apps
 author: craigshoemaker
-ms.service: static-web-apps
+ms.service: azure-static-web-apps
 ms.topic: how-to
 ms.date: 01/24/2023
 ms.author: cshoe

@@ -3,7 +3,7 @@ title: Create an Azure Managed Grafana workspace - Azure portal
 titleSuffix: Azure Managed Grafana
 description: In this quickstart, you learn how to create an Azure Managed Grafana workspace using the Azure portal.
 #customer intent: As a developer or data professional, I want to learn how to create an Azure Managed Grafana workspace so that I use Grafana within Azure.
-ms.service: managed-grafana
+ms.service: azure-managed-grafana
 ms.topic: quickstart
 author: maud-lv
 ms.author: malev
@@ -70,7 +70,7 @@ In this quickstart, you get started with Azure Managed Grafana by creating an Az
 
     :::image type="content" source="media/quickstart-portal/grafana-ui.png" alt-text="Screenshot of an Azure Managed Grafana instance.":::
 
-You can now start interacting with the Grafana application to configure data sources, create dashboards, reports and alerts. Suggested read: [Monitor Azure services and applications using Grafana](../azure-monitor/visualize/grafana-plugin.md).
+You can now start interacting with the Grafana application to configure data sources, create dashboards, reports and alerts. Suggested read: [Monitor Azure services and applications using Grafana](/azure/azure-monitor/visualize/grafana-plugin).
 
 ## Clean up resources
 

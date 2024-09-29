@@ -5,8 +5,8 @@ services: virtual-network
 author: mbender-ms
 ms.author: mbender
 ms.date: 08/24/2023
-ms.service: virtual-network
-ms.topic: conceptual
+ms.service: azure-virtual-network
+ms.topic: concept-article
 ---
 
 # What is IPv6 for Azure Virtual Network?
@@ -91,9 +91,7 @@ The current IPv6 for Azure Virtual Network release has the following limitations
 
 - VPN gateways currently support IPv4 traffic only, but they still can be deployed in a dual-stacked virtual network using Azure PowerShell and Azure CLI commands only.
 
-- Support for IPv6 in Application Gateway v2 is currently in public preview. For more information, see the [How to configure IPv6 Application Gateway](../../application-gateway/ipv6-application-gateway-portal.md) guides. Application Gateway v1 doesn't support a dual stack frontend.
-
-- The Azure platform (AKS, etc.) doesn't support IPv6 communication for Containers. 
+- The Azure platforms, such as Azure Container Instances and Azure Container Apps, do not support IPv6 communication for containers 
 
 - IPv6-only Virtual Machines or Virtual Machines Scale Sets aren't supported, each NIC must include at least one IPv4 IP configuration. 
 
@@ -110,6 +108,8 @@ The current IPv6 for Azure Virtual Network release has the following limitations
 - Azure Route Server currently [supports IPv4 traffic only](../../route-server/route-server-faq.md#does-azure-route-server-support-ipv6).
 
 - Azure Firewall doesn't currently support IPv6. It can operate in a dual stack virtual network using only IPv4, but the firewall subnet must be IPv4-only.
+
+- Azure Database for PostgreSQL - Flexible Server doesn't currently support IPv6. Even if the subnet for the Postgres Flexible Server doesn't have any IPv6 addresses assigned, it cannot be deployed if there are IPv6 addresses in the VNet.
 
 ## Pricing
 

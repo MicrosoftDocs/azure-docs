@@ -3,7 +3,7 @@ title: Configuration overview for Azure Static Web Apps
 description: Learn about the different ways to configure Azure Static Web Apps.
 services: static-web-apps
 author: craigshoemaker
-ms.service: static-web-apps
+ms.service: azure-static-web-apps
 ms.topic: conceptual
 ms.date: 06/25/2024
 ms.author: cshoe

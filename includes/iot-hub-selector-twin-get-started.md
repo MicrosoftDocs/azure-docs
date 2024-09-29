@@ -6,7 +6,6 @@ ms.topic: include
 ms.date: 02/17/2023
 ---
 > [!div class="op_single_selector"]
-> * [CLI](../articles/iot-hub/device-twins-cli.md)
 > * [.NET](../articles/iot-hub/device-twins-dotnet.md)
 > * [Python](../articles/iot-hub/device-twins-python.md)
 > * [Node.js](../articles/iot-hub/device-twins-node.md)

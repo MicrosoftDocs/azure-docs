@@ -3,21 +3,22 @@ title: Migrate an existing agent-based hybrid workers to extension-based-workers
 description: This article provides information on how to migrate an existing agent-based hybrid worker to extension based workers.
 services: automation
 ms.subservice: process-automation
-ms.date: 05/17/2024
+ms.date: 09/04/2024
 ms.custom: devx-track-azurecli, devx-track-bicep, devx-track-azurepowershell
 ms.topic: how-to
 #Customer intent: As a developer, I want to learn about extension so that I can efficiently migrate agent based hybrid workers to extension based workers.
+ms.service: azure-automation
 ---
 
 # Migrate the existing agent-based hybrid workers to extension-based hybrid workers
 
-> [!IMPORTANT]
->  Azure Automation Agent-based User Hybrid Runbook Worker (Windows and Linux) will retire on **31 August 2024** and wouldn't be supported after that date. You must complete migrating existing Agent-based User Hybrid Runbook Workers to Extension-based Workers before 31 August 2024. Moreover, starting **1 November 2023**, creating new Agent-based Hybrid Workers wouldn't be possible. [Learn more](migrate-existing-agent-based-hybrid-worker-to-extension-based-workers.md).
+> [!Important]
+> Azure Automation Agent-based User Hybrid Runbook Worker (Windows and Linux) has retired on **31 August 2024** and is no longer supported. Follow the guidelines in this article on how to migrate from an existing Agent-based User Hybrid Runbook Workers to Extension-based Hybrid Workers.
 
 This article describes the benefits of Extension-based User Hybrid Runbook Worker and how to migrate existing Agent-based User Hybrid Runbook Workers to Extension-based Hybrid Workers.
 
 There are two Hybrid Runbook Workers installation platforms supported by Azure Automation:
-- **Agent based hybrid runbook worker** (V1) -  The Agent-based hybrid runbook worker depends on the [Log Analytics Agent](../azure-monitor/agents/log-analytics-agent.md).
+- **Agent based hybrid runbook worker** (V1) -  The Agent-based hybrid runbook worker depends on the [Log Analytics Agent](/azure/azure-monitor/agents/log-analytics-agent).
 - **Extension based hybrid runbook worker** (V2) - The Extension-based hybrid runbook worker provides native integration of the hybrid runbook worker role through the Virtual machine (VM) extension framework. 
 
 The process of executing runbooks on Hybrid Runbook Workers remains the same for both.
@@ -47,14 +48,14 @@ The purpose of the Extension-based approach is to simplify the installation and 
 
 - Two cores
 - 4 GB of RAM
-- **Non-Azure machines** must have the [Azure Connected Machine agent](../azure-arc/servers/agent-overview.md) installed. To install the `AzureConnectedMachineAgent`, see [Connect hybrid machines to Azure from the Azure portal](../azure-arc/servers/onboard-portal.md) for Arc-enabled servers or see [Manage VMware virtual machines Azure Arc](../azure-arc/vmware-vsphere/manage-vmware-vms-in-azure.md#enable-guest-management) to enable guest management for Arc-enabled VMware vSphere VMs.
+- **Non-Azure machines** must have the [Azure Connected Machine agent](/azure/azure-arc/servers/agent-overview) installed. To install the `AzureConnectedMachineAgent`, see [Connect hybrid machines to Azure from the Azure portal](/azure/azure-arc/servers/onboard-portal) for Arc-enabled servers or see [Manage VMware virtual machines Azure Arc](/azure/azure-arc/vmware-vsphere/manage-vmware-vms-in-azure#enable-guest-management) to enable guest management for Arc-enabled VMware vSphere VMs.
 - The system-assigned managed identity must be enabled on the Azure virtual machine, Arc-enabled server or Arc-enabled VMware vSphere VM.  If the system-assigned managed identity isn't enabled, it will be enabled as part of the installation process through the Azure portal.
 
 ### Supported operating systems
 
 | Windows (x64)  | Linux (x64) |
 |---|---|
-| &#9679; Windows Server 2022 (including Server Core) <br> &#9679; Windows Server 2019 (including Server Core) <br> &#9679; Windows Server 2016, version 1709 and 1803 (excluding Server Core) <br> &#9679; Windows Server 2012, 2012 R2 (excluding Server Core) <br> &#9679; Windows 10 Enterprise (including multi-session) and Pro| &#9679; Debian GNU/Linux 8,9,10, and 11 <br> &#9679; Ubuntu 18.04 LTS, 20.04 LTS, and 22.04 LTS <br> &#9679; SUSE Linux Enterprise Server 15.2, and 15.3 <br> &#9679; Red Hat Enterprise Linux Server 7, 8, and 9 <br> &#9679; CentOS Linux 7 and 8 <br> &#9679; SUSE Linux Enterprise Server (SLES) 15 <br> &#9679; Rocky Linux 9 </br> &#9679; Oracle Linux 7 and 8 <br> *Hybrid Worker extension would follow support timelines of the OS vendor*. |
+| &#9679; Windows Server 2022 (including Server Core) <br> &#9679; Windows Server 2019 (including Server Core) <br> &#9679; Windows Server 2016, version 1709 and 1803 (excluding Server Core) <br> &#9679; Windows Server 2012, 2012 R2 (excluding Server Core) <br> &#9679; Windows 10 Enterprise (including multi-session) and Pro| &#9679; Debian GNU/Linux 8,9,10, and 11 <br> &#9679; Ubuntu 18.04 LTS, 20.04 LTS, and 22.04 LTS <br> &#9679; SUSE Linux Enterprise Server 15.2, and 15.3 <br> &#9679; Red Hat Enterprise Linux Server 7, 8, and 9 <br> &#9679; SUSE Linux Enterprise Server (SLES) 15 <br> &#9679; Rocky Linux 9 </br> &#9679; Oracle Linux 7 and 8 <br> *Hybrid Worker extension would follow support timelines of the OS vendor*. |
 
 ### Other Requirements
 
@@ -100,7 +101,7 @@ To install Hybrid worker extension on an existing agent based hybrid worker, ens
 
 1. Under **Process Automation**, select **Hybrid worker groups**, and then select your existing hybrid worker group to go to the **Hybrid worker group** page.
 1. Under **Hybrid worker group**, select **Hybrid Workers** > **+ Add** to go to the **Add machines as hybrid worker** page.
-1. Select the checkbox next to the existing Agent based (V1) Hybrid worker. If you don't see your agent-based Hybrid Worker listed, ensure Azure Arc Connected Machine agent is installed on the machine. To install the `AzureConnectedMachineAgent`, see [Connect hybrid machines to Azure from the Azure portal](../azure-arc/servers/onboard-portal.md) for Arc-enabled servers, or see [Manage VMware virtual machines Azure Arc](../azure-arc/vmware-vsphere/manage-vmware-vms-in-azure.md#enable-guest-management) to enable guest management for Arc-enabled VMware vSphere VMs.
+1. Select the checkbox next to the existing Agent based (V1) Hybrid worker. If you don't see your agent-based Hybrid Worker listed, ensure Azure Arc Connected Machine agent is installed on the machine. To install the `AzureConnectedMachineAgent`, see [Connect hybrid machines to Azure from the Azure portal](/azure/azure-arc/servers/onboard-portal) for Arc-enabled servers, or see [Manage VMware virtual machines Azure Arc](/azure/azure-arc/vmware-vsphere/manage-vmware-vms-in-azure#enable-guest-management) to enable guest management for Arc-enabled VMware vSphere VMs.
 
    :::image type="content" source="./media/migrate-existing-agent-based-hybrid-worker-extension-based-hybrid-worker/add-machines-hybrid-worker-inline.png" alt-text="Screenshot of adding machines as hybrid worker." lightbox="./media/migrate-existing-agent-based-hybrid-worker-extension-based-hybrid-worker/add-machines-hybrid-worker-expanded.png":::
 
@@ -685,7 +686,7 @@ Review the parameters used in this template.
 
 **Prerequisites**
 
-You would require an Azure VM or Arc-enabled server. You can follow the steps [here](../azure-arc/servers/onboard-portal.md) to create an Arc connected machine.
+You would require an Azure VM or Arc-enabled server. You can follow the steps [here](/azure/azure-arc/servers/onboard-portal) to create an Arc connected machine.
 
 **Install and use Hybrid Worker extension**
 
@@ -938,4 +939,4 @@ New-AzConnectedMachineExtension -ResourceGroupName <VMResourceGroupName> -Locati
 
 - To learn more about Hybrid Runbook Worker, see [Automation Hybrid Runbook Worker overview](automation-hybrid-runbook-worker.md).
 - To deploy Extension-based Hybrid Worker, see [Deploy an extension-based Windows or Linux User Hybrid Runbook Worker in Azure Automation](extension-based-hybrid-runbook-worker-install.md).
-- To learn about Azure VM extensions, see [Azure VM extensions and features for Windows](../virtual-machines/extensions/features-windows.md) and [Azure VM extensions and features for Linux](../virtual-machines/extensions/features-linux.md).
+- To learn about Azure VM extensions, see [Azure VM extensions and features for Windows](/azure/virtual-machines/extensions/features-windows) and [Azure VM extensions and features for Linux](/azure/virtual-machines/extensions/features-linux).

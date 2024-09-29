@@ -1,7 +1,6 @@
 ---
 description: This article answers common questions and explains how to troubleshoot Cloud Shell issues.
-ms.contributor: jahelmic
-ms.date: 11/08/2023
+ms.date: 08/29/2024
 ms.topic: troubleshooting
 tags: azure-resource-manager
 ms.custom: has-azure-ad-ps-ref
@@ -60,23 +59,30 @@ your anticipated usage date.
 ### I created some files in Cloud Shell, but they're gone. What happened?
 
 The machine that provides your Cloud Shell session is temporary and is recycled after your session
-is inactive for 20 minutes. Cloud Shell uses an Azure fileshare mounted to the `clouddrive` folder
-in your session. The fileshare contains the image file that contains your `$HOME` directory. Only
-files that you upload or create in the `clouddrive` folder are persisted across sessions. Any files
-created outside your `clouddrive` directory aren't persisted.
+is inactive for 20 minutes.
 
-Files stored in the `clouddrive` directory are visible in the Azure portal using Storage browser.
-However, any files created in the `$HOME` directory are stored in the image file and aren't visible
-in the portal.
+When you started Cloud Shell the first time, you were prompted to choose a storage option.
+
+- If you chose the **Mount storage account** option, Cloud Shell mounts an Azure fileshare to the
+  `clouddrive` folder in your session. Files stored in the `clouddrive` folder are visible in the
+  Azure portal using Storage browser. Files stored in the `clouddrive` folder persist across
+  sessions.
+
+- If you chose the **No storage account required** option, you can only write files to your `$HOME`
+  folder.
+
+In both scenarios, you can write files to the `$HOME` folder. However, the `$HOME` folder only
+exists in the Cloud Shell container image that you're currently using. Files in the `$HOME` folder
+aren't visible in the Storage browser and are deleted when your session ends.
 
 ### I create a file in the Azure: drive, but I don't see it. What happened?
 
-PowerShell users can use the `Azure:` drive to access Azure resources. The `Azure:` drive is created
-by a PowerShell provider that structures data as a file system drive. The `Azure:` drive is a
-virtual drive that doesn't allow you to create files.
+Cloud Shell loads a PowerShell provider for Azure that presents Azure resource data as a file system
+drive. PowerShell users can use the `Azure:` drive to access Azure resources. The `Azure:` drive is
+a virtual drive that doesn't allow you to create files.
 
 Files that you create a new file using other tools, such as `vim` or `nano` while your current
-location is the `Azure:` drive, are saved to your `$HOME` directory.
+location is the `Azure:` drive, are saved to your `$HOME` folder.
 
 ### I want to install a tool in Cloud Shell that requires `sudo`. Is that possible?
 
@@ -90,8 +96,10 @@ command that requires elevated permissions.
 - **Details**: When creating the Cloud Shell storage account for first-time users, it's
   unsuccessful due to an Azure Policy assignment placed by your admin. The error message includes:
 
-  > The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by
-  > one or more policies.
+  ```
+  The resource action 'Microsoft.Storage/storageAccounts/write' is disallowed by
+  one or more policies.
+  ```
 
 - **Resolution**: Contact your Azure administrator to remove or update the Azure Policy assignment
   denying storage creation.
@@ -111,6 +119,75 @@ command that requires elevated permissions.
   following domains:
   - `*.console.azure.com`
   - `*.servicebus.windows.net`
+  - `*.servicebus.usgovcloudapi.net` for Azure Government Cloud
+
+### Failed to request a terminal - Accessing Cloud Shell from a network that uses a private DNS resolver
+
+- **Details**: Cloud Shell uses Azure Relay for terminal connections. Cloud Shell can fail to
+  request a terminal due to DNS resolution problems. This failure can be caused when you launch a
+  Cloud Shell session from a host in a network that has a private DNS Zone for the servicebus
+  domain. This error can also occur if you're using a private on-premises DNS server.
+
+- **Resolution**: You can add a DNS record for the Azure Relay instance that Cloud Shell uses.
+
+  The following steps show you how to identify the DNS name of the Cloud Shell instance and how to
+  create a DNS record for that name.
+
+  1. Try to start Cloud Shell using your web browser. Use the browser's Developer Tools to find the
+     Azure Relay instance name. In Microsoft Edge or Google Chrome, hit the <kbd>F12</kbd> key to
+     open the Developer Tools. Select the **Network** tab. Find the **Search** box in the top right
+     corner. Search for `terminals?` to find the request for a Cloud Shell terminal. Select the one
+     of the request entries found by the search. In the **Headers** tab, find the hostname in the
+     **Request URL**. The name is similar to
+     `ccon-prod-<region-name>-aci-XX.servicebus.windows.net`. For Azure Government Cloud, the
+     hostname ends with `servicebus.usgovcloudapi.net`.
+
+     The following screenshot shows the Developer Tools in Microsoft Edge for a successful request
+     for a terminal. The hostname is `ccon-prod-southcentalus-aci-02.servicebus.windows.net`. In
+     your case, the request should be unsuccessful, but you can find the hostname you need to
+     resolve.
+
+     [![Screenshot of the browser developer tools.](media/faq-troubleshooting/devtools-small.png)](media/faq-troubleshooting/devtools-large.png#lightbox)
+
+     For information about accessing the Developer Tools in other browsers, see
+     [Capture a browser trace for troubleshooting][03].
+
+  1. From a host outside of your private network, run the `nslookup` command to find the IP address
+     of the hostname as found in the previous step.
+
+     ```bash
+     nslookup ccon-prod-southcentalus-aci-02.servicebus.windows.net
+     ```
+
+     The results should look similar to the following example:
+
+     ```Output
+     Server:         168.63.129.16
+     Address:        168.63.129.16
+
+     Non-authoritative answer:
+     ccon-prod-southcentralus-aci-02.servicebus.windows.net  canonical name = ns-sb2-prod-sn3-012.cloudapp.net.
+     Name:   ns-sb2-prod-sn3-012.cloudapp.net
+     Address: 40.84.152.91
+     ```
+
+  1. Add an A record for the public IP in the Private DNS Zone of your private network. For this
+     example, the DNS record would have the following properties:
+
+     - Name: ccon-prod-southcentralus-aci-02
+     - Type: A
+     - TTL: 1 hour
+     - IP Address: 40.84.152.91
+
+     For more information about creating DNS records in a private DNS zone, see
+     [Manage DNS record sets and records with Azure DNS][02].
+
+     > [!NOTE]
+     > This IP address is subject to change periodically. You might need to repeat this process to
+     > discover the new IP address.
+
+  Alternately, you can deploy your own private Cloud Shell instance. For more information, see
+  [Deploy Cloud Shell in a virtual network][01].
 
 ## Managing Cloud Shell
 
@@ -161,4 +238,9 @@ Use the following steps to delete your user settings.
   entry point is `ux.console.azure.us`; there's no corresponding `shell.azure.us`.
 - **Resolution**: Restrict access to `ux.console.azure.com` or `ux.console.azure.us` from your
   network. The Cloud Shell icon still exists in the Azure portal, but you can't connect to the
-  service.
+    service.
+
+<!-- link references -->
+[01]: /azure/cloud-shell/vnet/overview
+[02]: /azure/dns/dns-operations-recordsets-portal
+[03]: /azure/azure-portal/capture-browser-trace

@@ -17,12 +17,12 @@ Azure Resource Manager evaluates the dependencies between resources, and deploys
 An implicit dependency is created when one resource declaration references another resource in the same deployment. In the following example, `otherResource` gets a property from  `exampleDnsZone`. The resource named `otherResource` is implicitly dependent on `exampleDnsZone`.
 
 ```bicep
-resource exampleDnsZone 'Microsoft.Network/dnszones@2018-05-01' = {
+resource exampleDnsZone 'Microsoft.Network/dnsZones@2023-07-01-preview' = {
   name: 'myZone'
   location: 'global'
 }
 
-resource otherResource 'Microsoft.Example/examples@2023-05-01' = {
+resource otherResource 'Microsoft.Example/examples@2024-05-01' = {
   name: 'exampleResource'
   properties: {
     // get read-only DNS zone property
@@ -34,7 +34,7 @@ resource otherResource 'Microsoft.Example/examples@2023-05-01' = {
 A nested resource also has an implicit dependency on its containing resource.
 
 ```bicep
-resource myParent 'My.Rp/parentType@2023-05-01' = {
+resource myParent 'My.Rp/parentType@2024-05-01' = {
   name: 'myParent'
   location: 'West US'
 
@@ -49,7 +49,26 @@ A resource that includes the [parent](./child-resource-name-type.md) property ha
 
 The following example shows a storage account and file service. The file service has an implicit dependency on the storage account.
 
-:::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/child-resource-name-type/outsidedeclaration.bicep" range="1-13":::
+```bicep
+resource storage 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+  name: 'examplestorage'
+  location: resourceGroup().location
+  kind: 'StorageV2'
+  sku: {
+    name: 'Standard_LRS'
+  }
+}
+
+resource service 'Microsoft.Storage/storageAccounts/fileServices@2023-04-01' = {
+  name: 'default'
+  parent: storage
+}
+
+resource share 'Microsoft.Storage/storageAccounts/fileServices/shares@2023-04-01' = {
+  name: 'exampleshare'
+  parent: service
+}
+```
 
 When an implicit dependency exists, **don't add an explicit dependency**.
 
@@ -62,12 +81,12 @@ An explicit dependency is declared with the `dependsOn` property. The property a
 The following example shows a DNS zone named `otherZone` that depends on a DNS zone named `dnsZone`:
 
 ```bicep
-resource dnsZone 'Microsoft.Network/dnszones@2018-05-01' = {
+resource dnsZone 'Microsoft.Network/dnszones@2023-07-01-preview' = {
   name: 'demoeZone1'
   location: 'global'
 }
 
-resource otherZone 'Microsoft.Network/dnszones@2018-05-01' = {
+resource otherZone 'Microsoft.Network/dnszones@2023-07-01-preview' = {
   name: 'demoZone2'
   location: 'global'
   dependsOn: [

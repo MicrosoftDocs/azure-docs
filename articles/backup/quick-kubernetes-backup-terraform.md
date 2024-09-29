@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Configure backup for an Azure Kubernetes Service (AKS) cluster using Azure Backup via Terraform
 description: Learn how to quickly configure backup for a Kubernetes cluster using Terraform.
-ms.service: backup
+ms.service: azure-backup
 ms.topic: quickstart
 ms.date: 05/31/2024
 ms.custom: devx-track-terraform, devx-track-extended-azdevcli

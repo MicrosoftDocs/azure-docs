@@ -1,5 +1,5 @@
 ---
-ms.service: hpc-cache
+ms.service: azure-hpc-cache
 ms.topic: include
 ms.date: 02/16/2024
 author: ronhogue
