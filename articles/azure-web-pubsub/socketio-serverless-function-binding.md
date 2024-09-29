@@ -144,6 +144,33 @@ app.http('negotiate', {
 
 ---
 
+# [Python Model v2](#tab/python-v2)
+
+A function always needs a trigger binding. We use HttpTrigger as an example in codes.
+
+```python
+import azure.functions as func
+app = func.FunctionApp()
+
+@app.function_name(name="negotiate")
+@app.route(auth_level=func.AuthLevel.ANONYMOUS)
+@app.generic_input_binding(arg_name="negotiate", type="socketionegotiation", hub="hub")
+def negotiate(req: func.HttpRequest, negotiate) -> func.HttpResponse:
+    return func.HttpResponse(negotiate)
+```
+
+### Annotation
+
+| Property | Description |
+|---------|---------|
+| arg_name | The variable name of the argument in function to represent the input binding. |
+| type | Must be `socketionegotiation` |
+| hub | The hub name that a client needs to connect to. |
+| connection | The name of the app setting that contains the Socket.IO connection string (defaults to `WebPubSubForSocketIOConnectionString`). |
+| userId | The userId of the connection. It applys to all sockets in the connection. It becomes the `sub` claim in the generated token. |
+
+---
+
 ## Trigger Binding
 
 Azure Function uses trigger binding to trigger a function to process the events from the Web PubSub for Socket.IO.
@@ -212,8 +239,6 @@ The attribute for trigger binding is `[SocketIOTrigger]`.
 ### Binding Data
 
 `[SocketIOTrigger]` binds some variables to binding data. You can learn more about it from [Azure Functions binding expression patterns](../azure-functions/functions-bindings-expressions-patterns.md)
-
-
 
 #### SocketIOAttribute
 
@@ -331,6 +356,168 @@ app.generic('newMessage', {
 
 ---
 
+# [Python Model v2](#tab/python-v2)
+
+Function triggers for socket connect event.
+
+```python
+import azure.functions as func
+import json
+app = func.FunctionApp()
+
+@app.generic_trigger(arg_name="sio", type="socketiotrigger", data_type=DataType.STRING, hub="hub", eventName="connect")
+def connect(sio: str) -> str:
+    return json.dumps({'statusCode': 200})
+```
+
+Function triggers for socket connected event.
+
+```python
+import azure.functions as func
+import json
+app = func.FunctionApp()
+
+@app.generic_trigger(arg_name="sio", type="socketiotrigger", data_type=DataType.STRING, hub="hub", eventName="connected")
+def connected(sio: str) -> None:
+    print("connected")
+```
+
+Function triggers for socket disconnected event.
+
+```python
+import azure.functions as func
+import json
+app = func.FunctionApp()
+
+@app.generic_trigger(arg_name="sio", type="socketiotrigger", data_type=DataType.STRING, hub="hub", eventName="disconnected")
+def connected(sio: str) -> None:
+    print("disconnected")
+```
+
+Function triggers for normal messages from clients.
+
+```python
+import azure.functions as func
+import json
+app = func.FunctionApp()
+
+@app.generic_trigger(arg_name="sio", type="socketiotrigger", data_type=DataType.STRING, hub="hub", eventName="chat")
+def chat(sio: str) -> None:
+    # do something else
+```
+
+Function trigger for normal messages with callback.
+
+```python
+import azure.functions as func
+import json
+app = func.FunctionApp()
+
+@app.generic_trigger(arg_name="sio", type="socketiotrigger", data_type=DataType.STRING, hub="hub", eventName="chat")
+def chat(sio: str) -> str:
+    return json.dumps({'ack': ["param1"]})
+```
+
+### Configuration
+
+| Property | Description |
+|---------|---------|
+| arg_name | The variable name of the argument in function to represent the trigger binding. |
+| type | Must be `socketiotrigger` |
+| hub | The hub name that a client needs to connect to. |
+| data_type | Must be `DataType.STRING. |
+| namespace | The namespace of the socket. Default: "/" |
+| eventName | The event name that the function triggers for. Some event names are predefined: `connect` for socket connect event. `connected` for socket connected event. `disconnected` for socket disconnected event. And other events are defined by user and it need to match the event name sent by client side. |
+
+---
+
+### Request of Input Binding
+
+The data structure of input binding arguments varies depending on the message type.
+
+#### Connect
+
+```json
+{
+    "namespace": "",
+    "socketId": "",
+    "claims": {
+        "<claim-type>": [ "<claim-value>" ]
+    },
+    "query": {
+        "<query-key>": [ "<query-value>" ]
+    },
+    "headers":{
+        "<header-name>": [ "<header-value>" ]
+    },
+    "clientCertificates":{
+        {
+            "thumbprint": "",
+            "content": ""
+        }
+    }
+}
+```
+
+| Property | Description |
+|---------|---------|
+| namespace | The namespace of the soceket. |
+| socketId | The unique identity of the soceket. |
+| claims | The claim of jwt of the client connection. Note, it's not the jwt when the service request the function, but the jwt when the Engine.IO client connects to the service. |
+| query | The query of the client connection. Note, it's not the query when the service request the function, but the query when the Engine.IO client connects to the service. |
+| headers | The headers of the client connection. Note, it's not the headers when the service request the function, but the headers when the Engine.IO client connects to the service. |
+| clientCertificates | The client certificate if it's enabled |
+
+#### Connected
+
+```json
+{
+    "namespace": "",
+    "socketId": "",
+}
+```
+
+| Property | Description |
+|---------|---------|
+| namespace | The namespace of the soceket. |
+| socketId | The unique identity of the soceket. |
+
+#### Disconnected
+
+```json
+{
+    "namespace": "",
+    "socketId": "",
+    "reason": ""
+}
+```
+
+| Property | Description |
+|---------|---------|
+| namespace | The namespace of the soceket. |
+| socketId | The unique identity of the soceket. |
+| reason | The connection close reason description. |
+
+#### Normal events
+
+```json
+{
+    "namespace": "",
+    "socketId": "",
+    "payload": "",
+    "eventName": "",
+    "parameters": []
+}
+```
+
+| Property | Description |
+|---------|---------|
+| namespace | The namespace of the soceket. |
+| socketId | The unique identity of the soceket. |
+| payload | The message payload in Engine.IO protocol |
+| eventName | The event name of the request. |
+| parameters | List of parameters of the message emittion. |
+
 ## Output Binding
 
 The output binding currently support the following functionality:
@@ -401,6 +588,44 @@ app.generic('newMessage', {
 | Attribute property | Description |
 |---------|---------|
 | type | Must be `socketio` |
+| hub | The hub name that a client needs to connect to. |
+| connection | The name of the app setting that contains the Socket.IO connection string (defaults to `WebPubSubForSocketIOConnectionString`). |
+
+---
+
+# [Python Model v2](#tab/python-v2)
+
+A function always needs a trigger binding. We use TimerTrigger as an example in codes.
+
+```python
+import azure.functions as func
+from azure.functions.decorators.core import DataType
+import json
+
+app = func.FunctionApp()
+
+@app.timer_trigger(schedule="* * * * * *", arg_name="myTimer", run_on_startup=False,
+              use_monitor=False)
+@app.generic_output_binding(arg_name="sio", type="socketio", data_type=DataType.STRING, hub="hub")
+def new_message(myTimer: func.TimerRequest,
+                 sio: func.Out[str]) -> None:
+    sio.set(json.dumps({
+        'actionName': 'sendToNamespace',
+        'namespace': '/',
+        'eventName': 'update',
+        'parameters': [
+            "message"
+        ]
+    }))
+```
+
+### Annotation
+
+| Attribute property | Description |
+|---------|---------|
+| arg_name | The variable name of the argument in function to represent the output binding. |
+| type | Must be `socketio` |
+| data_type | Use `DataType.STRING` |
 | hub | The hub name that a client needs to connect to. |
 | connection | The name of the app setting that contains the Socket.IO connection string (defaults to `WebPubSubForSocketIOConnectionString`). |
 
