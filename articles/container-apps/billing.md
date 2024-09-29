@@ -3,7 +3,7 @@ title: Billing in Azure Container Apps
 description: Learn how billing is calculated in Azure Container Apps
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom:
   - ignite-2023
 ms.topic: conceptual

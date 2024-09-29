@@ -1,6 +1,6 @@
 ---
 author: clemensv
-ms.service: service-bus-relay
+ms.service: azure-relay
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: clemensv

@@ -2,7 +2,7 @@
 title: Pre-load files in Azure HPC Cache
 description: Use the cache priming feature to populate or preload cache contents before files are requested 
 author: ekpgh
-ms.service: hpc-cache
+ms.service: azure-hpc-cache
 ms.topic: how-to
 ms.date: 06/01/2022
 ms.author: rohogue

@@ -2,8 +2,8 @@
 title: Troubleshoot SAP HANA databases back up errors
 description: Describes how to troubleshoot common errors that might occur when you use Azure Backup to back up SAP HANA databases.
 ms.topic: troubleshooting
-ms.date: 07/07/2024
-ms.service: backup
+ms.date: 09/30/2024
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -14,7 +14,7 @@ This article provides troubleshooting information to back up SAP HANA databases 
 
 ## Prerequisites and Permissions
 
-Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [What the pre-registration script does](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) sections before configuring backups.
+See the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [What the preregistration script does](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) sections before configuring backups.
 
 ## Common user errors
 
@@ -78,8 +78,8 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 
 **Error message** |    `Azure Backup does not have enough privileges to carry out Backup and Restore operations.`
 ---------- | ---------
-**Possible causes** | Backup user (AZUREWLBACKUPHANAUSER) created by the pre-registration script doesn't have one or more of the following roles assigned:<ul><li>For MDC, DATABASE ADMIN and BACKUP ADMIN (for HANA 2.0 SPS05 and later) create new databases during restore.</li><li>For SDC, BACKUP ADMIN creates new databases during restore.</li><li>CATALOG READ to read the backup catalog.</li><li>SAP_INTERNAL_HANA_SUPPORT to access a few private tables. Only required for SDC and MDC versions prior to HANA 2.0 SPS04 Rev 46. It's not required for HANA 2.0 SPS04 Rev 46 and later. This is because we are getting the required information from public tables now with the fix from HANA team.</li></ul>
-**Recommended action** | To resolve the issue, add the required roles and permissions manually to the Backup user (AZUREWLBACKUPHANAUSER). Or, you can download and run the pre-registration script on the [SAP HANA instance](https://aka.ms/scriptforpermsonhana).
+**Possible causes** | Backup user (AZUREWLBACKUPHANAUSER) created by the pre-registration script doesn't have one or more of the following roles assigned:<ul><li>For MDC, DATABASE ADMIN and BACKUP ADMIN (for HANA 2.0 SPS05 and later) create new databases during restore.</li><li>For SDC, BACKUP ADMIN creates new databases during restore.</li><li>CATALOG READ to read the backup catalog.</li><li>SAP_INTERNAL_HANA_SUPPORT to access a few private tables. Only required for SDC and MDC versions prior to HANA 2.0 SPS04 Rev 46. It's not required for HANA 2.0 SPS04 Rev 46 and later. This is because we're getting the required information from public tables now with the fix from HANA team.</li></ul>
+**Recommended action** | To resolve the issue, add the required roles and permissions manually to the Backup user (AZUREWLBACKUPHANAUSER). Or, you can download and run the preregistration script on the [SAP HANA instance](https://aka.ms/scriptforpermsonhana).
 
 ### UserErrorDatabaseUserPasswordExpired
 
@@ -99,7 +99,7 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 
 **Error message** | `Unable to connect to the AAD service from the HANA system.`
 --------- | --------
-**Possible causes** | Firewall or proxy settings as Backup extension's plugin service account is not allowing the outbound connection to Microsoft Entra ID.
+**Possible causes** | Firewall or proxy settings as Backup extension's plugin service account isn't allowing the outbound connection to Microsoft Entra ID.
 **Recommended action** | Fix the firewall or proxy settings for the outbound connection to Microsoft Entra ID to succeed.
 
 ### UserErrorMisConfiguredSslCaStore
@@ -138,7 +138,7 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 
 **Error message** | `Pre-registration script not run.`
 --------- | --------
-**Possible causes** | The SAP HANA pre-registration script to set up the environment has not been run.
+**Possible causes** | The SAP HANA pre-registration script to set up the environment hasn't been run.
 **Recommended action** | Download and run the [pre-registration script](https://aka.ms/scriptforpermsonhana) on the SAP HANA instance.
 
 
@@ -160,14 +160,14 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 
 **Error message** | `Restored database name not in correct format.`
 --------- | --------
-**Possible causes** | The Restored database name that you have provided is not in the acceptable/expected format.
+**Possible causes** | The Restored database name that you have provided isn't in the acceptable/expected format.
 **Recommended action** | Ensure that the restored database name starts with a letter and shouldn't contain any symbol, other than digits or an underscore.<br>It can contain a maximum of 127 characters only and must not begin with "\_SYS_\".
 
 ### UserErrorDefaultSidAdmDirectoryChanged
 
 **Error message** | `Default sid-adm directory changed.`
 ------- | -------
-**Possible causes** | The default **sid-adm** directory was changed, and **HDBSetting.sh** is not available in this default directory.
+**Possible causes** | The default **sid-adm** directory was changed, and **HDBSetting.sh** isn't available in this default directory.
 **Recommended action** | If HXE is the SID, ensure that environment variable HOME is set to _/usr/sap/HXE/home_ as **sid-adm** user.
 
 ### UserErrorHDBsettingsScriptNotFound
@@ -182,7 +182,7 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 **Error message**      |   `Insufficient space on HANA machine to perform Configure Backup, Backup or Restore activities.`
 -------------------    |   --------------------------
 **Possible causes**    |   The disk space on your HANA machine is almost full or full causing the Configure Backup, Backup, or Restore activitie(s) to fail.
-**Recommended action** |   Check the disk space on your HANA machine to ensure that there is enough space for the Configure Backup, Backup, or Restore activitie(s) to complete successfully.
+**Recommended action** |   Check the disk space on your HANA machine to ensure that there's enough space for the Configure Backup, Backup, or Restore activitie(s) to complete successfully.
 
 ### CloudDosAbsoluteLimitReached
 
@@ -195,7 +195,7 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 
 **Error message** | `Operation is blocked as the vault has reached its maximum limit for such operations permitted in a span of 24 hours.`
 ------ | -----------
-**Possible causes** | When you've reached the maximum permissible limit for an operation in a span of 24 hours, this error appears. This error usually appears when there are at-scale operations such as modify policy or auto-protection. Unlike the case of CloudDosAbsoluteLimitReached, there isn't much you can do to resolve this state. In fact, Azure Backup service will retry the operations internally for all the items in question.<br><br> For example, if you've a large number of datasources protected with a policy and you try to modify that policy, it will trigger the configure protection jobs for each of the protected items and sometimes may hit the maximum limit permissible for such operations per day.
+**Possible causes** | When you've reached the maximum permissible limit for an operation in a span of 24 hours, this error appears. This error usually appears when there are at-scale operations such as modify policy or auto-protection. Unlike the case of CloudDosAbsoluteLimitReached, there isn't much you can do to resolve this state. In fact, Azure Backup service will retry the operations internally for all the items in question.<br><br> For example, if you have a large number of datasources protected with a policy and you try to modify that policy, it will trigger the configure protection jobs for each of the protected items and sometimes may hit the maximum limit permissible for such operations per day.
 **Recommended action** | Azure Backup service will automatically retry this operation after 24 hours.
 
 ### UserErrorInvalidBackint
@@ -203,7 +203,7 @@ Refer to the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [
 **Error message** | Found invalid hdbbackint executable.
 --- | ---
 **Possible cause** | 1. The operation to change Backint path from `/opt/msawb/bin` to `/usr/sap/<sid>/SYS/global/hdb/opt/hdbbackint` failed due to insufficient storage space in the new location. <br><br> 2. The *hdbbackint utility* located on `/usr/sap/<sid>/SYS/global/hdb/opt/hdbbackint` doesn't have executable permissions or correct ownership.
-**Recommended action** | 1. Ensure that there is free space available on `/usr/sap/<sid>/SYS/global/hdb/opt/hdbbackint` or the path where you want to save backups. <br><br> 2. Ensure that *sapsys* group has appropriate permissions on the `/usr/sap/<sid>/SYS/global/hdb/opt/hdbbackint` file by running the command `chmod 755`.
+**Recommended action** | 1. Ensure that there's free space available on `/usr/sap/<sid>/SYS/global/hdb/opt/hdbbackint` or the path where you want to save backups. <br><br> 2. Ensure that *sapsys* group has appropriate permissions on the `/usr/sap/<sid>/SYS/global/hdb/opt/hdbbackint` file by running the command `chmod 755`.
 
 ### UserErrorHanaSQLQueryFailed
 
@@ -278,7 +278,7 @@ Follow these steps to enable backups on the new VM:
 - The extension is already present on the VM, but not visible to any of the services
 - Run the pre-registration script. Based on the SID of the new VM, two scenarios can arise:
   - The original VM and the new VM have the same SID. The pre-registration script runs successfully.
-  - The original VM and the new VM have different SIDs. The pre-registration script fails. Contact support to get help in this scenario.
+  - The original VM and the new VM have different SIDs. The pre-registration script fails. Contact Microsoft support to get help in this scenario.
 - Discover the databases that you want to back up
 - Enable backups on these databases
 
@@ -339,6 +339,20 @@ These symptoms might arise for one or more of the following reasons:
 
 In the preceding scenarios, we recommend that you trigger a re-register operation on the VM.
 
-## Next steps
+## Back up SAP HANA database logs
+
+### Log backup isn't triggered despite the full backup's success.
+
+**Possible cause**: The values for SAP HANA database are incorrect to trigger log backup.
+
+**Recommended action**: Ensure that the following values for SAP HANA configuration are set correctly:
+
+- `enable_auto_log_backup`： Yes
+- `log_backup_using_backint`： True
+- `catalog_backup_using_backint`： True
+- `log_mode`： normal
+- `log_backup_timeout_s`： Same as Azure portal's log backup policy (frequency is in  seconds).
+
+## Next step
 
 - Review the [frequently asked questions](./sap-hana-faq-backup-azure-vm.yml) about the backup of SAP HANA databases on Azure VMs.

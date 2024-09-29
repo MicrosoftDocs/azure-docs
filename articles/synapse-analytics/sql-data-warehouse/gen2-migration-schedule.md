@@ -3,9 +3,9 @@ title: Migrate your dedicated SQL pool (formerly SQL DW) to Gen2
 description: Instructions for migrating an existing dedicated SQL pool (formerly SQL DW) to Gen2 and the migration schedule by region.
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: sngun
+ms.reviewer: whhender
 ms.date: 01/21/2020
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: article
 ms.custom:
@@ -116,7 +116,7 @@ For more information, see [Upgrade to Gen2](upgrade-to-latest-generation.md).
 
 - [Upgrade steps](upgrade-to-latest-generation.md)
 - [Maintenance windows](maintenance-scheduling.md)
-- [Resource health monitor](../../service-health/resource-health-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
+- [Resource health monitor](/azure/service-health/resource-health-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
 - [Review Before you begin a migration](upgrade-to-latest-generation.md#before-you-begin)
 - [Upgrade in-place and upgrade from a restore point](upgrade-to-latest-generation.md)
 - [Create a user-defined restore point](sql-data-warehouse-restore-points.md)

@@ -2,7 +2,7 @@
 title: Frequently asked questions about Azure Spring Apps | Microsoft Docs
 description: This article answers frequently asked questions about Azure Spring Apps.
 author: KarlErickson
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: conceptual
 ms.date: 04/23/2024
 ms.author: karler
@@ -71,7 +71,7 @@ We're not actively developing more capabilities for Service Binding. Instead, th
 
 ### How can I provide feedback and report issues?
 
-If you encounter any issues with Azure Spring Apps, create an [Azure Support Request](../../azure-portal/supportability/how-to-create-azure-support-request.md). To submit a feature request or provide feedback, go to [Azure Feedback](https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4).
+If you encounter any issues with Azure Spring Apps, create an [Azure Support Request](/azure/azure-portal/supportability/how-to-create-azure-support-request). To submit a feature request or provide feedback, go to [Azure Feedback](https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4).
 
 ### How do I get VMware Spring Runtime support (Enterprise plan only)
 
@@ -88,9 +88,9 @@ For the quickest way to get started with Azure Spring Apps, follow the instructi
 
 ### Where can I view my Spring application logs and metrics?
 
-Find metrics in the App Overview tab and the [Azure Monitor](../../azure-monitor/essentials/data-platform-metrics.md#metrics-explorer) tab.
+Find metrics in the App Overview tab and the [Azure Monitor](/azure/azure-monitor/essentials/data-platform-metrics#metrics-explorer) tab.
 
-Azure Spring Apps supports exporting Spring application logs and metrics to Azure Storage, Event Hubs, and [Log Analytics](../../azure-monitor/logs/data-platform-logs.md). The table name in Log Analytics is *AppPlatformLogsforSpring*. To learn how to enable it, see [Diagnostic services](diagnostic-services.md).
+Azure Spring Apps supports exporting Spring application logs and metrics to Azure Storage, Event Hubs, and [Log Analytics](/azure/azure-monitor/logs/data-platform-logs). The table name in Log Analytics is *AppPlatformLogsforSpring*. To learn how to enable it, see [Diagnostic services](diagnostic-services.md).
 
 ### Does Azure Spring Apps support distributed tracing?
 

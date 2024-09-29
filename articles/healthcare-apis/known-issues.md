@@ -3,7 +3,7 @@ title: Azure Health Data Services known issues
 description: Learn about the known issues of Azure Health Data Services.
 services: healthcare-apis
 author: kgaddam10
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 03/13/2024
@@ -20,9 +20,13 @@ Refer to the table for details about resolution dates or possible workarounds.
 
 |Issue | Date discovered | Workaround | Date resolved |
 | :------------------------------------- | :------------ | :------------- | :------------- |
-|FHIR Applications were down in EUS2 region|January 8, 2024 2 pm PST|--|January 8, 2024 4:15 pm PST|
-|API queries to FHIR service returned Internal Server error in UK south region |August 10, 2023 9:53 am PST|--|August 10, 2023 10:43 am PST|
-|FHIR resources aren't queryable by custom search parameters even after reindex is successful.| July 2023| Suggested workaround is to create support ticket to update the status of custom search parameters after reindex is successful.|--|
+|For FHIR instances created after August 15,2024, diagnostic logs aren't available in log analytics workspace. |September 19,2024 9:00 am PST| -- | -- |
+|For FHIR instances created after August 15,2024, changes in private link configuration at the workspace level causes FHIR service to be stuck in 'Updating' state. |September 24,2024 9:00 am PST| To fix this issue create support ticket with FHIR service team| -- |
+|Changes in private link configuration at the workspace level don't propagate to the child services.|September 4,2024 9:00 am PST| To fix this issue a service reprovisioning is required. To reprovision the service, reach out to FHIR service team| September 17,2024 9:00am PST|
+|Customers accessing the FHIR Service via a private endpoint are experiencing difficulties, specifically receiving a 403 error when making API calls from within the vNet. This problem affects FHIR instances provisioned after August 19th that utilize private link.|August 22,2024 11:00 am PST|-- | September 3,2024 9:00 am PST|
+|FHIR Applications were down in EUS2 region|January 8, 2024 2 pm PST|--|January 8,2024 4:15 pm PST|
+|API queries to FHIR service returned Internal Server error in UK south region |August 10,2023 9:53 am PST|--|August 10,2023 10:43 am PST|
+
 
 ## Related content
 

@@ -30,7 +30,7 @@ After the SDK completes the handshake at the signaling layer with the server, it
 The browser performs video encoding and packetization at the RTP(Real-time Transport Protocol) layer for transmission.
 The other participants in the call receive notifications from the server, indicating the availability of a video stream from the sender.
 Your application can decide whether to subscribe to the video stream or not. 
-If your application subscribes to the video stream from the server (for example, using [`createView`](/javascript/api/%40azure/communication-react/statefulcallclient?view=azure-node-latest&preserve-view=true#@azure-communication-react-statefulcallclient-createview) API), the server forwards the sender's video packets to the receiver.
+If your application subscribes to the video stream from the server (for example, using  [`createView`](/javascript/api/azure-communication-services/@azure/communication-calling/videostreamrenderer?view=azure-communication-services-js&preserve-view=true#@azure-communication-calling-videostreamrenderer-createview) API), the server forwards the sender's video packets to the receiver.
 The receiver's browser decodes and renders the incoming video.
 
 When you use ACS Web Calling SDK for video calls, the SDK and browser may adjust the video quality of the sender based on the available bandwidth.

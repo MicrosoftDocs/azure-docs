@@ -19,7 +19,7 @@ If the configured value is both an exact match for a single setting and a prefix
 
 ### Connection string
 
-To obtain a connection string for tables in Azure Table storage, follow the steps shown at [Manage storage account access keys](../articles/storage/common/storage-account-keys-manage.md). To obtain a connection string for tables in Azure Cosmos DB for Table, follow the steps shown at the [Azure Cosmos DB for Table FAQ](../articles/cosmos-db/table/table-api-faq.yml#what-is-the-connection-string-that-i-need-to-use-to-connect-to-the-api-for-table-).
+To obtain a connection string for tables in Azure Table storage, follow the steps shown at [Manage storage account access keys](../articles/storage/common/storage-account-keys-manage.md). To obtain a connection string for tables in Azure Cosmos DB for Table, follow the steps shown at the [Azure Cosmos DB for Table FAQ](/azure/cosmos-db/table/table-api-faq#what-is-the-connection-string-that-i-need-to-use-to-connect-to-the-api-for-table-).
 
 This connection string should be stored in an application setting with a name matching the value specified by the `connection` property of the binding configuration.
 

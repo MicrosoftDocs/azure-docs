@@ -3,7 +3,7 @@ title: Hive Warehouse Connector 2.0 APIs in Azure HDInsight
 description: Learn about how to use HWC 2.0 Supported APIs
 author: rishikeshmohanty
 ms.author: mohantyr
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.date: 01/04/2024
 ---
@@ -256,4 +256,4 @@ Complete the [Hive Warehouse Connector setup](./apache-hive-warehouse-connector.
 * [HWC and Apache Spark operations](./apache-hive-warehouse-connector-operations.md)
 * [Use Interactive Query with HDInsight](./apache-interactive-query-get-started.md)
 * [HWC integration with Apache Zeppelin](./apache-hive-warehouse-connector-zeppelin.md)
-* [Submitting Spark Applications via Spark-submit utility](https://spark.apache.org/docs/2.4.0/submitting-applications.html)
+* [Submitting Spark Applications via Spark-submit utility](https://archive.apache.org/dist/spark/docs/2.4.0/submitting-applications.html)

@@ -5,7 +5,7 @@ ms.date: 03/18/2024
 ms.topic: sample
 author: dlepow
 ms.author: danlep
-ms.service: api-management
+ms.service: azure-api-management
 ms.custom: subject-policy-compliancecontrols
 ---
 # Azure Policy Regulatory Compliance controls for Azure API Management

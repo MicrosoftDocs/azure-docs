@@ -3,7 +3,7 @@ title: TLS version supported by Azure Resource Manager
 description: Describes the deprecation of TLS versions prior to 1.2 in Azure Resource Manager
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 01/27/2024
+ms.date: 09/26/2024
 ---
 
 # Migrating to TLS 1.2 for Azure Resource Manager
@@ -24,7 +24,7 @@ Azure Resource Manager is the deployment and management service for Azure. You u
 
 ## Prepare for migration to TLS 1.2
 
-We recommend the following steps as you prepare to migrate your clients to TLS 1.2: 
+We recommend the following steps as you prepare to migrate your clients to TLS 1.2:
 
 * Update your operating system to the latest version.
 * Update your development libraries and frameworks to their latest versions. For example, Python 3.8 supports TLS 1.2.
@@ -56,7 +56,7 @@ For a more detailed guidance, see the [checklist to deprecate older TLS versions
 
 * [Solving the TLS 1.0 Problem, 2nd Edition](/security/engineering/solving-tls1-problem) – deep dive into migrating to TLS 1.2.
 * [How to enable TLS 1.2 on clients](/mem/configmgr/core/plan-design/security/enable-tls-1-2-client) – for Microsoft Configuration Manager.
-* [Configure Transport Layer Security (TLS) for a client application](../../storage/common/transport-layer-security-configure-client-version.md) – contains instructions to update TLS version in PowerShell 
+* [Configure Transport Layer Security (TLS) for a client application](../../storage/common/transport-layer-security-configure-client-version.md) – contains instructions to update TLS version in PowerShell.
 * [Enable support for TLS 1.2 in your environment for Microsoft Entra TLS 1.1 and 1.0 deprecation](/troubleshoot/azure/active-directory/enable-support-tls-environment) – contains information on updating TLS version for WinHTTP.
 * [Transport Layer Security (TLS) best practices with the .NET Framework](/dotnet/framework/network-programming/tls) – best practices when configuring security protocols for applications targeting .NET Framework.
 * [TLS best practices with the .NET Framework](https://github.com/dotnet/docs/issues/4675) – GitHub to ask questions about best practices with .NET Framework.

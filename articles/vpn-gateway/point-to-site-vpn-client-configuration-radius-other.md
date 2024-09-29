@@ -2,7 +2,7 @@
 title: 'Configure a VPN client for P2S RADIUS: other authentication methods'
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure a VPN client for point-to-site VPN configurations that use RADIUS authentication for methods other than certificate or password.
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: how-to
 author: cherylmc
 ms.author: cherylmc 

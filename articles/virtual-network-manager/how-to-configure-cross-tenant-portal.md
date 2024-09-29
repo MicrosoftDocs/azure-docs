@@ -1,16 +1,16 @@
 ---
-title: Configure a cross-tenant connection in Azure Virtual Network Manager Preview - Portal
+title: Configure a cross-tenant connection in Azure Virtual Network Manager - Portal
 description: Learn how to create cross-tenant connections in Azure Virtual Network Manager to support virtual networks across subscriptions and management groups in different tenants.
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network-manager
+ms.service: azure-virtual-network-manager
 ms.topic: how-to 
 ms.date: 05/07/2024
 ms.custom: template-how-to 
 # Customer intent: As a cloud admin, I need to manage multiple tenants from a single network manager so that I can easily manage all network resources governed by Azure Virtual Network Manager.
 ---
 
-# Configure a cross-tenant connection in Azure Virtual Network Manager Preview - portal
+# Configure a cross-tenant connection in Azure Virtual Network Manager - portal
 
 In this article, you'll learn how to create [cross-tenant connections](concept-cross-tenant.md) in Azure Virtual Network Manager by using the Azure portal. Cross-tenant support allows organizations to use a central network manager for managing virtual networks across tenants and subscriptions.
 

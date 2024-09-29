@@ -3,7 +3,7 @@ title: Azure Container Apps samples
 description: Learn how to use Azure Container Apps from existing samples 
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: conceptual
 ms.date: 05/31/2024
 ms.author: cshoe
@@ -22,3 +22,4 @@ Refer to the following samples to learn how to use Azure Container Apps in diffe
 | [ASP.NET Core front-end with two back-end APIs on Azure Container Apps](https://github.com/Azure-Samples/dotNET-FrontEnd-to-BackEnd-on-Azure-Container-Apps)<br /> | This sample demonstrates ASP.NET Core 6.0 can be used to build a cloud-native application hosted in Azure Container Apps. |
 | [ASP.NET Core front-end with two back-end APIs on Azure Container Apps (with Dapr)](https://github.com/Azure-Samples/dotNET-FrontEnd-to-BackEnd-with-DAPR-on-Azure-Container-Apps)<br /> | Demonstrates how ASP.NET Core 6.0 is used to build a cloud-native application hosted in Azure Container Apps using Dapr. |
 | [Deploy Drupal on Azure Container Apps](https://github.com/Azure-Samples/drupal-on-azure-container-apps) | Demonstrates how to deploy a Drupal site to Azure Container Apps, with Azure Database for MariaDB, and Azure Files to store static assets.|
+| [Launch Your First Java app](java-get-started.md?pivots=war) |A monolithic Java application called PetClinic built with Spring Framework. PetClinic is a well-known sample application provided by the Spring Framework community. |

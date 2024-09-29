@@ -437,4 +437,4 @@ A Python script is provided to you to create a VM. Depending on whether you are 
 
 ## Next steps
 
-[Common Az CLI commands for Linux virtual machines](../virtual-machines/linux/cli-manage.md)
+[Common Az CLI commands for Linux virtual machines](/azure/virtual-machines/linux/cli-manage)

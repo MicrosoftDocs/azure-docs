@@ -1,11 +1,10 @@
 ---
 title: Azure Virtual Machines disaster recovery - High Churn support
 description: Describes how to protect your Azure Virtual Machines having high churning workloads.
-services: site-recovery
 author: ankitaduttaMSFT
-ms.service: site-recovery
-ms.topic: conceptual
-ms.date: 05/31/2024
+ms.service: azure-site-recovery
+ms.topic: how-to
+ms.date: 09/18/2024
 ms.author: ankitadutta
 ---
 

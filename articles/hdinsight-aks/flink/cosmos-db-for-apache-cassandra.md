@@ -1,14 +1,17 @@
 ---
 title: Using Azure Cosmos DB for Apache Cassandra® with HDInsight on AKS for Apache Flink®
 description: Learn how to Sink Apache Kafka® message into Azure Cosmos DB for Apache Cassandra®, with Apache Flink® running on HDInsight on AKS.
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 04/02/2024
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Sink Apache Kafka® messages into Azure Cosmos DB for Apache Cassandra, with Apache Flink® on HDInsight on AKS
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 This example uses [Apache Flink](../flink/flink-overview.md) to sink [HDInsight for Apache Kafka](/azure/hdinsight/kafka/apache-kafka-introduction) messages into [Azure Cosmos DB for Apache Cassandra](/azure/cosmos-db/cassandra/introduction).
 
@@ -18,7 +21,7 @@ This example is prominent when Engineers prefer real-time aggregated data for an
 
 * [Apache Flink 1.17.0 on HDInsight on AKS](../flink/flink-create-cluster-portal.md)
 * [Apache Kafka 3.2 on HDInsight](../../hdinsight/kafka/apache-kafka-get-started.md)
-* [Azure Cosmos DB for Apache Cassandra](../../cosmos-db/cassandra/index.yml)
+* [Azure Cosmos DB for Apache Cassandra](/azure/cosmos-db/cassandra/)
 * An Ubuntu VM for maven project development environment in the same VNet as HDInsight on AKS cluster.
 
 ## Azure Cosmos DB for Apache Cassandra
@@ -27,8 +30,8 @@ Azure Cosmos DB for Apache Cassandra can be used as the data store for apps writ
 
 For more information, see the following links.
 
-* [Azure Cosmos DB for Apache Cassandra](../../cosmos-db/cassandra/introduction.md).
-* [Create a API for Cassandra account in Azure Cosmos DB](../../cosmos-db/cassandra/create-account-java.md).
+* [Azure Cosmos DB for Apache Cassandra](/azure/cosmos-db/cassandra/introduction).
+* [Create a API for Cassandra account in Azure Cosmos DB](/azure/cosmos-db/cassandra/create-account-java).
 
 :::image type="content" source="./media/cosmos-db-for-apache-cassandra/create-cosmos-db-account.png" alt-text="Screenshot showing how to create Azure Cosmos DB for Apache Cassandra on Azure portal." border="true" lightbox="./media/cosmos-db-for-apache-cassandra/create-cosmos-db-account.png":::
 
@@ -546,7 +549,7 @@ sshuser@hn0-flinkd:~$ python user.py | /usr/hdp/current/kafka-broker/bin/kafka-c
 
 ### Preferences
 
-* [Azure Cosmos DB for Apache Cassandra](../../cosmos-db/cassandra/introduction.md).
-* [Create a API for Cassandra account in Azure Cosmos DB](../../cosmos-db/cassandra/create-account-java.md)
+* [Azure Cosmos DB for Apache Cassandra](/azure/cosmos-db/cassandra/introduction).
+* [Create a API for Cassandra account in Azure Cosmos DB](/azure/cosmos-db/cassandra/create-account-java)
 * [Azure Samples ](https://github.com/Azure-Samples/azure-cosmos-db-cassandra-java-getting-started)
 * Apache, Apache Kafka, Kafka, Apache Flink, Flink, Apache Cassandra, Cassandra, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).
