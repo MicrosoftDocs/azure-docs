@@ -36,7 +36,7 @@ Before you audit and enforce backups for AKS clusters, see the following scenari
 
 * The built-in policy is currently supported only for Azure Kubernetes Service clusters. 
 
-* Users must take care to ensure that the necessary [prerequisites](azure-kubernetes-service-cluster-backup-concept.md#Backup Extension) are enabled before Policies 3 and 4 are assigned.
+* Users must take care to ensure that the necessary [prerequisites](azure-kubernetes-service-cluster-backup-concept.md#backup-extension) are enabled before Policies 3 and 4 are assigned.
 
 * Policies 3 and 4 can be assigned to a single region and subscription at a time. 
 
@@ -54,25 +54,25 @@ To assign Policy 3, follow these steps:
    
 3. Filter the list for **Category=Backup** and select the policy named *Install Azure Backup Extension in AKS clusters (Managed Cluster) with a given tag*.
    
-:::image type="content" source="./media/azure-kubernetes-service-cluster-backup-policy/policy-dashboard-inline.png" alt-text="Screenshot showing how to filter the list by category on Policy dashboard." lightbox="./media/azure-kubernetes-service-cluster-backup-policy/policy-dashboard-inline.png":::
+:::image type="content" source="./media/azure-kubernetes-service-cluster-backup-policy/policy-dashboard-inline.png" alt-text="Screenshot showing how to filter the list by category on Policy dashboard.":::
 
-5. Select the name of the policy. You're then redirected to the detailed definition for this policy.
+4. Select the name of the policy. You're then redirected to the detailed definition for this policy.
 
-:::image type="content" source="./media/azure-kubernetes-service-cluster-backup-policy/policy-definition-blade.png" alt-text="Screenshot showing the Policy Definition tab." lightbox="./media/azure-kubernetes-service-cluster-backup-policy/policy-definition-blade.png":::
+:::image type="content" source="./media/azure-kubernetes-service-cluster-backup-policy/policy-definition-blade.png" alt-text="Screenshot showing the Policy Definition tab.":::
 
-7. Select the **Assign** button at the top of the pane. This redirects you to the **Assign Policy** pane.
+5. Select the **Assign** button at the top of the pane. This redirects you to the **Assign Policy** pane.
    
-8. Under **Basics**, select the three dots next to the **Scope** field. It opens up a right context pane where you can select the subscription for the policy to be applied on. You can also optionally select a resource group, so that the policy is applied only for AKS clusters in a particular resource group.
+6. Under **Basics**, select the three dots next to the **Scope** field. It opens up a right context pane where you can select the subscription for the policy to be applied on. You can also optionally select a resource group, so that the policy is applied only for AKS clusters in a particular resource group.
 
-:::image type="content" source="media/azure-kubernetes-service-cluster-backup-policy/policy-assignment-basics.png" alt-text="Screenshot showing the Policy Assignment Basics tab." lightbox="media/azure-kubernetes-service-cluster-backup-policy/policy-assignment-basics.png":::
+:::image type="content" source="media/azure-kubernetes-service-cluster-backup-policy/policy-assignment-basics.png" alt-text="Screenshot showing the Policy Assignment Basics tab.":::
 
-8. In the **Parameters** tab, choose a location from the drop-down, and select the storage account to which the backup extension installed in the AKS cluster in the scope must be associated. You can also choose to specify a tag name and an array of tag values. An AKS cluster that contains any of the specified values for the given tag are excluded from the scope of the policy assignment.
+7. In the **Parameters** tab, choose a location from the drop-down, and select the storage account to which the backup extension installed in the AKS cluster in the scope must be associated. You can also choose to specify a tag name and an array of tag values. An AKS cluster that contains any of the specified values for the given tag are excluded from the scope of the policy assignment.
 
-:::image type="content" source="./media/azure-kubernetes-service-cluster-backup-policy/policy-assignment-parameters.png" alt-text="Screenshot showing the Policy Assignment Parameters pane." lightbox="./media/azure-kubernetes-service-cluster-backup-policy/policy-assignment-parameters.png":::
+:::image type="content" source="./media/azure-kubernetes-service-cluster-backup-policy/policy-assignment-parameters.png" alt-text="Screenshot showing the Policy Assignment Parameters pane.":::
 
-10. Ensure that **Effect** is set to deployIfNotExists.
+8. Ensure that **Effect** is set to deployIfNotExists.
    
-11. Navigate to **Review+create** and select **Create**.
+9. Navigate to **Review+create** and select **Create**.
 
 > [!NOTE]
 >
