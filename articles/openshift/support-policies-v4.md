@@ -47,7 +47,7 @@ Certain configurations for Azure Red Hat OpenShift 4 clusters can affect your cl
 
 ### Network and security
 
-* Unless you're using your own Network Security Group though the ["bring your own" Network Security Group feature](howto-bring-nsg.md), the ARO-provided Network Security Group can't be modified or replaced. Any attempt to modify or replace it will be reverted.
+* Unless you're using your own Network Security Group through the ["bring your own" Network Security Group feature](howto-bring-nsg.md), the ARO-provided Network Security Group can't be modified or replaced. Any attempt to modify or replace it will be reverted.
 * All cluster virtual machines must have direct outbound internet access, at least to the Azure Resource Manager (ARM) and service logging (Geneva) endpoints.  No form of HTTPS proxying is supported.
 * The Azure Red Hat OpenShift service accesses your cluster via Private Link Service.  Don't remove or modify service access.
 * Migrating from OpenShift SDN to OVN isn't supported.
