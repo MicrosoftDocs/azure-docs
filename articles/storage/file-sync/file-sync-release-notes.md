@@ -4,7 +4,7 @@ description: Release notes for Azure File Sync, which lets you centralize your o
 services: storage
 author: wmgries
 ms.service: azure-file-storage
-ms.topic: conceptual
+ms.topic: release-notes
 ms.date: 09/03/2024
 ms.author: wgries
 ---
