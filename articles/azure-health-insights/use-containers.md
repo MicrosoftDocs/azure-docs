@@ -1,7 +1,7 @@
 ---
 title: How to use Azure AI Health Insights containers
 titleSuffix: Azure AI Health Insights
-description: Learn how to use Project Health Insight models on premises using Docker containers.
+description: Learn how to use Azure AI Health Insight models on premises using Docker containers.
 services: azure-health-insights
 author: iBoonZ
 manager: urieinav
