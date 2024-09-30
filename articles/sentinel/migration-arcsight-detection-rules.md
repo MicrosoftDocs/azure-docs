@@ -113,9 +113,11 @@ SecurityEvent
 | where SubjectUserName =~ "AutoMatedService"
 | where isnotempty(SubjectDomainName)
 ```
-This rule assumes that Azure Monitoring Agent (AMA) collect the Windows Security Events. Therefore, the rule uses the Microsoft Sentinel SecurityEvent table.
+
+This rule assumes that Azure Monitoring Agent (AMA) collects the Windows Security Events. Therefore, the rule uses the Microsoft Sentinel [SecurityEvent](/azure/azure-monitor/reference/tables/securityevent) table.
 
 Consider these best practices:
+
 - To optimize your queries, avoid case-insensitive operators when possible: `=~`.
 - Use `==` if the value isn't case-sensitive.
 - Order the filters by starting with the `where` statement, which filters out the most data.
