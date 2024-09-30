@@ -12,10 +12,6 @@ ms.custom: references_regions, ai-usage
 
 # About ExpressRoute Metro
 
-> [!IMPORTANT]
-> ExpresRoute Metro is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 ExpressRoute facilitates the creation of private connections between your on-premises networks and Azure workloads in a designated peering locations. These locations are colocation facilities housing Microsoft Enterprise Edge (MSEE) devices, serving as the gateway to Microsoft's network.
 
 Within the peering location, two types of connections can be established:
