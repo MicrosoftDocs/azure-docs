@@ -358,6 +358,7 @@ Function triggers for socket connect event.
 
 ```python
 import azure.functions as func
+from azure.functions.decorators.core import DataType
 import json
 app = func.FunctionApp()
 
@@ -370,6 +371,7 @@ Function triggers for socket connected event.
 
 ```python
 import azure.functions as func
+from azure.functions.decorators.core import DataType
 import json
 app = func.FunctionApp()
 
@@ -382,6 +384,7 @@ Function triggers for socket disconnected event.
 
 ```python
 import azure.functions as func
+from azure.functions.decorators.core import DataType
 import json
 app = func.FunctionApp()
 
@@ -394,6 +397,7 @@ Function triggers for normal messages from clients.
 
 ```python
 import azure.functions as func
+from azure.functions.decorators.core import DataType
 import json
 app = func.FunctionApp()
 
@@ -406,6 +410,7 @@ Function trigger for normal messages with callback.
 
 ```python
 import azure.functions as func
+from azure.functions.decorators.core import DataType
 import json
 app = func.FunctionApp()
 
@@ -414,16 +419,18 @@ def chat(sio: str) -> str:
     return json.dumps({'ack': ["param1"]})
 ```
 
-### Configuration
+### Annotation
+
 
 | Property | Description |
 |---------|---------|
 | arg_name | The variable name of the argument in function to represent the trigger binding. |
 | type | Must be `socketiotrigger` |
 | hub | The hub name that a client needs to connect to. |
-| data_type | Must be `DataType.STRING. |
+| data_type | Must be `DataType.STRING` |
 | namespace | The namespace of the socket. Default: "/" |
 | eventName | The event name that the function triggers for. Some event names are predefined: `connect` for socket connect event. `connected` for socket connected event. `disconnected` for socket disconnected event. And other events are defined by user and it need to match the event name sent by client side. |
+
 
 ---
 
