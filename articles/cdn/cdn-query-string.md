@@ -13,6 +13,8 @@ ms.author: duau
 
 # Control Azure Content Delivery Network caching behavior with query strings - standard tier
 
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
+
 > [!div class="op_single_selector"]
 > - [Standard tier](cdn-query-string.md)
 > - [Premium tier](cdn-query-string-premium.md)

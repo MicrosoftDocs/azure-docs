@@ -11,7 +11,7 @@ metadata:
   author: greg-lindsay
   ms.author: greglin
   manager: kumudD
-  ms.date: 07/23/2024
+  ms.date: 09/27/2024
 
 # highlightedContent section (optional)
 # Maximum of 8 items
@@ -50,27 +50,6 @@ productDirectory:
       summary: Azure DNS provides reliable and secure name resolution for your Azure services using Azure infrastructure.
       imageSrc: ./media/dns.svg
       url: ../../dns/index.yml
-    - title: Azure Virtual Network Manager (AVNM)
-      summary: AVNM is a management service that enables you to group, configure, deploy, and manage virtual networks globally across subscriptions.
-      imageSrc: ./media/avnm.svg
-      url: ../../virtual-network-manager/index.yml
-    - title: Azure Bastion
-      summary: Azure Bastion is a fully managed PaaS service that enables you to securely connect to virtual machines via private IP address.
-      imageSrc: ./media/bastion.svg
-      url: ../../bastion/index.yml
-    - title: Route Server
-      summary: Azure Route Server simplifies dynamic routing between your network virtual appliance (NVA) and your Azure virtual network.
-      imageSrc: ./media/route-server.svg
-      url: ../../route-server/index.yml
-    - title: NAT Gateway
-      summary: Azure NAT Gateway is a fully managed and highly resilient Network Address Translation (NAT) service.
-      imageSrc: ./media/nat-gateway.svg
-      url: ../../nat-gateway/index.yml
-    - title: Traffic Manager
-      summary: Azure Traffic Manager is a DNS-based traffic load balancer.
-      imageSrc: ./media/traffic-manager.svg
-      url: ../../traffic-manager/index.yml
-
           
 # conceptualContent section (Optional; Remove if not applicable.)
 conceptualContent:
@@ -204,6 +183,27 @@ conceptualContent:
               itemType: reference
             - url: /azure/dns/dns-troubleshoot
               text: Azure DNS troubleshooting guide
+              itemType: reference
+        # Card 4
+        - title: Related services
+          links:
+            - url: ../../bastion/index.yml
+              text: Azure Bastion
+              itemType: reference
+            - url: ../../route-server/index.yml
+              text: Route Server
+              itemType: reference
+            - url: ../../nat-gateway/index.yml
+              text: NAT Gateway
+              itemType: reference
+            - url: ../../traffic-manager/index.yml
+              text: Traffic Manager
+              itemType: reference
+            - url: ../../private-link/private-endpoint-overview.md
+              text: Private Endpoint
+              itemType: reference
+            - url: ../../virtual-network/virtual-network-peering-overview.md
+              text: Virtual network peering
               itemType: reference
 
 # additionalContent section (optional)

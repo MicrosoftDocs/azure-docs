@@ -27,7 +27,7 @@ Azure Spring Apps provides built-in tools to monitor the status and health of yo
 
 ## Monitor app lifecycle events triggered by users in Azure Activity logs
 
-[Azure Activity logs](../../azure-monitor/essentials/activity-log.md) contain resource events emitted by operations taken on the resources in your subscription. The following details for application lifecycle events (such as start, stop, and restart) are added into Azure Activity Logs:
+[Azure Activity logs](/azure/azure-monitor/essentials/activity-log) contain resource events emitted by operations taken on the resources in your subscription. The following details for application lifecycle events (such as start, stop, and restart) are added into Azure Activity Logs:
 
 - The time the operation occurred.
 - The status of the operation.
@@ -41,7 +41,7 @@ To see the affected instances when you restart your app, navigate to your Azure 
 
 ## Monitor app lifecycle events in Azure Service Health
 
-[Azure Resource Health](../../service-health/resource-health-overview.md) helps you diagnose and get support for issues that may affect the availability of your service. These issues include service incidents, planned maintenance periods, and regional outages. Application restarting events are added into Azure Service Health. They include both unexpected incidents (for example, an unplanned app crash) and scheduled actions (for example, planned maintenance).
+[Azure Resource Health](/azure/service-health/resource-health-overview) helps you diagnose and get support for issues that may affect the availability of your service. These issues include service incidents, planned maintenance periods, and regional outages. Application restarting events are added into Azure Service Health. They include both unexpected incidents (for example, an unplanned app crash) and scheduled actions (for example, planned maintenance).
 
 ### Monitor unplanned app lifecycle events
 
