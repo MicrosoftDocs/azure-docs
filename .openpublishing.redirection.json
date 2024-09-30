@@ -4705,5 +4705,10 @@
       "redirect_url": "/azure/load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell",
       "redirect_document_id": false
     }
+    {
+      "source_path_from_root": "/articles/third-party-notices.md",
+      "redirect_url": "/azure-docs/ThirdPartyNotices.md",
+      "redirect_document_id": false
+    }
   ]
 }
