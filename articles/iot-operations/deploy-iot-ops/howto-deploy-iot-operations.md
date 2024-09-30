@@ -143,7 +143,7 @@ Azure IoT Operations requires a schema registry on your cluster. Schema registry
 
 Once the `create` command completes successfully, you have a working Azure IoT Operations instance running on your cluster. At this point, your instance is configured for most testing and evaluation scenarios. If you want to prepare your instance for production scenarios, continue to the next section to enable secure settings.
 
-### Enable secure settings (optional)
+### Set up AIO secret management and user assigned managed identity  (optional)
 
 Secret management for Azure IoT Operations uses Azure Secret Store to sync the secrets from an Azure Key Vault and store them on the edge as Kubernetes secrets.  
 
