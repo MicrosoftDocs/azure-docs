@@ -56,7 +56,7 @@ The highlighted code in the preceding sample shows an NSG flow log resource defi
 
 This quickstart assumes that you have a network security group that you can enable flow logging on.
 
-1. Save the Bicep file as **main.bicep** to your local computer.
+1. Save the [Bicep file](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.network/networkwatcher-flowLogs-create/main.bicep) as **main.bicep** to your local computer.
 1. Deploy the Bicep file using either Azure CLI or Azure PowerShell.
 
     # [Azure CLI](#tab/cli)
