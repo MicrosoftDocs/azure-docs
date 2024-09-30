@@ -10,7 +10,7 @@ ms.date: 9/30/2024
 
 # Use VMware Cloud Foundations (VCF) license portability on Azure VMware Solution
 
-This article discusses how to cost effectively modernize your VMware workloads by bringing your VMware Cloud Foundations (VCF) entitlements to Azure VMware Solutions and take advantage of incredible cost savings as you modernize your VMware workloads. With Azure VMware Solution, you access both the physical infrastructure and the licensing entitlements for the entire VMware software-defined datacenter (SDDC) stack, including vSphere, ESXi, NSX networking, NSX Firewall, and HCX. With the new VCF license portability option, you can apply your on-premises VCF entitlements, purchased from Broadcom, directly to the Azure VMware Solution infrastructure. This flexibility means you can seamlessly integrate your VMware assets into a fully managed, state-of-the-art Azure environment, maximizing efficiency and cutting costs. Upgrade with confidence and experience the power and flexibility of Azure VMware Solution today! 
+This article discusses how to modernize your VMware workloads by bringing your VMware Cloud Foundations (VCF) entitlements to Azure VMware Solutions and take advantage of incredible cost savings as you modernize your VMware workloads. With Azure VMware Solution, you access both the physical infrastructure and the licensing entitlements for the entire VMware software-defined datacenter (SDDC) stack, including vSphere, ESXi, NSX networking, NSX Firewall, and HCX. With the new VCF license portability option, you can apply your on-premises VCF entitlements, purchased from Broadcom, directly to the Azure VMware Solution infrastructure. This flexibility means you can seamlessly integrate your VMware assets into a fully managed, state-of-the-art Azure environment, maximizing efficiency and cutting costs. Upgrade with confidence and experience the power and flexibility of Azure VMware Solution today! 
 
 ## What's changing!
 
@@ -54,7 +54,7 @@ To request quota for VCF license portability offering, provide the following add
 
 ## Register your VCF license with Azure VMware Solution
 
-To get your quota request approved, customers must first register the VCF portable license details with Microsoft. Quota will be approved only after the entitlements are provided. Expect to receive a response in 1 to 2 business days. 
+To get your quota request approved, you must first register the VCF portable license details with Microsoft. Quota will be approved only after the entitlements are provided. Expect to receive a response in 1 to 2 business days. 
 
 ### How to register the VCF license keys:  
 
