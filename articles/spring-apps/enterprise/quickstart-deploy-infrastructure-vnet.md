@@ -12,8 +12,7 @@ ms.date: 08/28/2024
 
 # Quickstart: Provision Azure Spring Apps using an ARM template
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 **This article applies to:** ❌ Basic ✔️ Standard ✔️ Enterprise
 
@@ -50,13 +49,13 @@ The Enterprise deployment plan includes the following Tanzu components:
 
 The templates used in this quickstart are from the [Azure Spring Apps Reference Architecture](/previous-versions/azure/spring-apps/reference-architecture).
 
-### [Enterprise plan](#tab/azure-spring-apps-enterprise)
-
-:::code language="json" source="~/azure-spring-apps-reference-architecture/ARM/brownfield-deployment/azuredeploySpringEnterprise.json":::
-
 ### [Standard plan](#tab/azure-spring-apps-standard)
 
 :::code language="json" source="~/azure-spring-apps-reference-architecture/ARM/brownfield-deployment/azuredeploySpringStandard.json":::
+
+### [Enterprise plan](#tab/azure-spring-apps-enterprise)
+
+:::code language="json" source="~/azure-spring-apps-reference-architecture/ARM/brownfield-deployment/azuredeploySpringEnterprise.json":::
 
 ---
 
@@ -71,13 +70,13 @@ To deploy the template, use the following steps.
 
 First, select the following image to sign in to Azure and open a template. The template creates an Azure Spring Apps instance in an existing Virtual Network and a workspace-based Application Insights instance in an existing Azure Monitor Log Analytics Workspace.
 
-### [Enterprise plan](#tab/azure-spring-apps-enterprise)
-
-:::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-spring-apps-landing-zone-accelerator%2Freference-architecture%2FARM%2Fbrownfield-deployment%2fazuredeploySpringEnterprise.json":::
-
 ### [Standard plan](#tab/azure-spring-apps-standard)
 
 :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-spring-apps-landing-zone-accelerator%2Freference-architecture%2FARM%2Fbrownfield-deployment%2fazuredeploySpringStandard.json":::
+
+### [Enterprise plan](#tab/azure-spring-apps-enterprise)
+
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-spring-apps-landing-zone-accelerator%2Freference-architecture%2FARM%2Fbrownfield-deployment%2fazuredeploySpringEnterprise.json":::
 
 ---
 
