@@ -174,7 +174,17 @@ sections:
       - question: |
           Why West US region node is showing under East US region Recovery Services vault?
         answer: |
-           The Recovery Services vault shows all the nodes that are part of the SAP HANA System Replication. All the nodes are listed here as per the `hdbnsutil` output. However as per the expected behaviour, only configured node in this vault is registered.  
+           The Recovery Services vault shows all the nodes that are part of the SAP HANA System Replication. All the nodes are listed here as per the `hdbnsutil` output. However as per the expected behavior, only configured node in this vault is registered.  
+
+      - question: |
+          When a file starting with "hdbbackint" under "/var/tmp generated" and how it's used? 
+        answer: |
+          When you trigger the backup job using the `hdbbackint` Backint agent, it writes information to the `/var/tmp` directory. For example, if an error occurs during the backup process, the error message is written to a file in the `/var/tmp` directory. The file name gets created in the format `hdbbackint_<SID>.<random_string>`, where `<SID>` is the System ID of the SAP HANA instance and `<random_string>` is a randomly generated string.
+
+      - question: |
+          What happens if I delete the hdbbackint file in the /var/tmp?
+        answer: |
+          The backup process is not affected if you delete the `hdbbackint` file in the `/var/tmp` directory. However, it might remove any error messages that were written to the file during the backup process.  
 
   - name: Restore
     questions:
