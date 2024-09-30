@@ -69,7 +69,7 @@ You should use multiple private endpoints to establish multiple sessions between
    > [!NOTE]
    > Session disconnects may still show up as "All Paths Down" or "APD" events, which can be seen in the Events section of the ESXi Host at vCenter. You can also see them in the logs: it will show the identifier of a device or filesystem, and state it has entered the All Paths Down state.
 
-Each private endpoint will provide two sessions to Elastic SAN per host. The recommended number of sessions to Elastic SAN per host is 8, but because the maximum number of sessions an Elastic SAN datastore can handle is 128, the ideal number for your setup depends on the number of hosts in your private cloud. 
+Each private endpoint provides two sessions to Elastic SAN per host. The recommended number of sessions to Elastic SAN per host is 8, but because the maximum number of sessions an Elastic SAN datastore can handle is 128, the ideal number for your setup depends on the number of hosts in your private cloud. 
 
    > [!IMPORTANT]
    > You should configure all Private Endpoints before attaching a volume as a datastore. Adding Private Endpoints after a volume is attached as a datastore will require detaching the datastore and reconnecting it to the cluster.
