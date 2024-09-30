@@ -30,6 +30,7 @@ This document contains information about new features and other changes to the M
 
 #### Other changes (3.4.0)
 - Add `@types/geojson` as a dependency.
+- Update dependency @microsoft/applicationinsights-web to ^3.3.0
 
 ### [3.3.0] (Aug 8, 2024)
 
