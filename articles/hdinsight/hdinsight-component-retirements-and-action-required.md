@@ -3,7 +3,7 @@ title: Azure HDInsight component retirements and action required
 description: Learn about HDInsight retirement versions and its components in Azure HDInsight clusters.
 ms.service: azure-hdinsight
 ms.topic: conceptual
-ms.date: 09/27/2024
+ms.date: 09/30/2024
 ---
 
 # Azure HDInsight component retirements and action required
@@ -37,12 +37,11 @@ HDInsight bundles open-source components and HDInsight platform into a package t
 **Retirement** means that existing clusters of a HDInsight version continue to run as is. You can't create new clusters of this version through any means, which includes the CLI and SDKs. Other control plane features, such as manual scaling and autoscaling, not guaranteed to work after retirement date. Support isn't available for retired versions. 
 
 
-|Retirement Item | Retirement Date | Action Required by Customers| 
-|-|-|-|
-|[Basic and Standard A-series VMs Retirement](https://azure.microsoft.com/updates/basic-and-standard-aseries-vms-on-hdinsight-will-retire-on-31-august-2024/) |August 31, 2024 |[Av1-series retirement - Azure Virtual Machines](/azure/virtual-machines/sizes/migration-guides/av1-series-retirement) |
-|[Azure Monitor experience (preview)](https://azure.microsoft.com/updates/v2/hdinsight-azure-monitor-experience-retirement/) | February 01, 2025 |[Azure Monitor Agent (AMA) migration guide for Azure HDInsight clusters](./azure-monitor-agent.md) |
-|Basic Load Balancer| | |
-|ADDS MFA | | |
+|Retirement Item | Retirement Date | Action Required by Customers| Cluster creation requited?!
+|-|-|-|-|
+|[Basic and Standard A-series VMs Retirement](https://azure.microsoft.com/updates/basic-and-standard-aseries-vms-on-hdinsight-will-retire-on-31-august-2024/) |August 31, 2024 |[Av1-series retirement - Azure Virtual Machines](/azure/virtual-machines/sizes/migration-guides/av1-series-retirement) |N|
+|[Azure Monitor experience (preview)](https://azure.microsoft.com/updates/v2/hdinsight-azure-monitor-experience-retirement/) | February 01, 2025 |[Azure Monitor Agent (AMA) migration guide for Azure HDInsight clusters](./azure-monitor-agent.md) |Y|
+
 
 ## Next steps
 
