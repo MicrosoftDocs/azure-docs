@@ -120,7 +120,9 @@ Use the following steps to enable workload identity on an existing connected K3s
 1. Add the following content to the config.yaml file:
 
    ```yml
-   kube-apiserver-arg: 'service-account-issuer=<SERVICE_ACCOUNT_ISSUER>' 
+   kube-apiserver-arg:
+    - service-account-issuer=<SERVICE_ACCOUNT_ISSUER>
+    - service-account-max-token-expiration=24h 
    ```
 
 1. Save and exit the file editor.
