@@ -127,12 +127,10 @@ To learn from an example, see the [Data connector definitions reference example 
 
 ### Data connection rules
 
-There are currently two kinds of data connection rules to define your CCP data connector.
+There are currently two kinds of data connection rules possible for defining your CCP data connector.
 
-- `RestApiPoller` kind allows you to customize paging, authorization and expected request/response payloads for your data source. To learn from an `RestApiPoller` example, see the [Data connector connection rules RestApiPoller reference example](data-connector-connection-rules-reference.md#example-ccp-data-connector).
-- `GCP` kind allows you to decrease your development time by automatically configuring paging and expected response payloads for your Google Cloud Platform (GCP) data source. To learn from a `GCP` example, see [Data connector connection rules reference GCP example](data-connection-rules-reference-gcp.md)
-
-For more information on building this section, see the [Data connector connection rules reference](data-connector-connection-rules-reference.md).
+- `RestApiPoller` kind allows you to customize paging, authorization and expected request/response payloads for your data source. For more information, see [RestApiPoller data connector connection rules reference](data-connector-connection-rules-reference.md#example-ccp-data-connector).
+- `GCP` kind allows you to decrease your development time by automatically configuring paging and expected response payloads for your Google Cloud Platform (GCP) data source. For more information, see [GCP data connector connection rules reference](data-connection-rules-reference-gcp.md)
 
 Use an [API testing tool](#testing-apis) to call the data connector API to create the data connector which combines the connection rules and previous components. Verify the connector is now connected in the UI.
 
@@ -216,7 +214,7 @@ Finally, the CCP utilizes the credential objects in the data connector section.
 
 Manually package an Azure Resource Management (ARM) template using the [example template code samples](#example-arm-template) as your guide. These code samples are divided by ARM template sections which you must splice together.
 
-If you're creating a Google Cloud Platform (GCP) CCP data connector, package the deployment template using the [example GCP CCP template](https://github.com/austinmccollum/Azure-Sentinel/blob/patch-5/DataConnectors/Templates/Connector_GCP_CCP_template.json).
+If you're creating a Google Cloud Platform (GCP) CCP data connector, package the deployment template using the [example GCP CCP template](https://github.com/austinmccollum/Azure-Sentinel/blob/patch-5/DataConnectors/Templates/Connector_GCP_CCP_template.json). For information on how to fill out the GCP CCP template, see [GCP data connector connection rules reference](data-connection-rules-reference-gcp.md).
 
 In addition to the example templates, published solutions available in the Microsoft Sentinel content hub use the CCP for their data connectors. Review the following solutions as more examples of how to stitch the components together into an ARM template.
 
