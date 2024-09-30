@@ -180,6 +180,7 @@ callAgent.on('callsUpdated', e =>{
     e.added.foreach((call) => {
         if(call.id == mainMeetingCall.id){
              call.feature(SDK.Features.BreakoutRooms).on('breakoutRoomsUpdated', breakoutRoomsUpdatedListener);   
+       // subscribe to other events for breakout room call
         }
     }
 });
