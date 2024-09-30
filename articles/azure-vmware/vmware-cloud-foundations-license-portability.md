@@ -14,14 +14,14 @@ This article discusses how to modernize your VMware workloads by bringing your V
 
 ## What's changing!
 
-ARIA is part of the VCF bundle and fully supported by Azure VMware Solution for all VCF license portability customers. Simply bring your own ARIA binaries and licenses, procured from Broadcom, and self-install them on Azure VMware Solution. In this self-installation phase, you are responsible for managing the installation, configurations, upgrades, scaling, backup, restore, and security patches for the ARIA software. Experience seamless integration and support throughout your entire journey with ARIA on Azure VMware Solution. [Learn more about ARIA on Azure VMware Solution here](/articles/azure-vmware/vmware-aria-in-azure-vmware-solution.md). 
+ARIA is part of the VCF bundle and fully supported by Azure VMware Solution for all VCF license portability customers. Simply bring your own ARIA binaries and licenses, procured from Broadcom, and self-install them on Azure VMware Solution. In this self-installation phase, your're responsible for managing the installation, configurations, upgrades, scaling, backup, restore, and security patches for the ARIA software. Experience seamless integration and support throughout your entire journey with ARIA on Azure VMware Solution. [Learn more about ARIA on Azure VMware Solution here](/articles/azure-vmware/vmware-aria-in-azure-vmware-solution.md). 
 
-Moving forward, VMware vDefend Firewall on Azure VMware Solution becomes an **add-on service**. If you are using VCF license portability offering on their SDDCs, you must prepurchase this Firewall add-on from Broadcom along with your VCF subscription to use the vDefend Firewall on Azure VMware Solution. Prior to using the vDefend Firewall software on Azure VMware Solution ensure you register your Firewall add-on with Microsoft. For detailed instructions on how to register your VCF license, see [register your VCF license](#Register your VCF license with Azure VMware Solution). 
+Moving forward, VMware vDefend Firewall on Azure VMware Solution becomes an **add-on service**. If your're using VCF license portability offering on their SDDCs, you must prepurchase this Firewall add-on from Broadcom along with your VCF subscription to use the vDefend Firewall on Azure VMware Solution. Prior to using the vDefend Firewall software on Azure VMware Solution ensure you register your Firewall add-on with Microsoft. For detailed instructions on how to register your VCF license, see [register your VCF license](#Register your VCF license with Azure VMware Solution). 
 
 >[!IMPORTANT]
 >
 >VCF portable licenses are applied at the host level and must cover all the physical cores on a host. For example, if each host in Azure VMware Solution has 36 cores and you intend to have a Private Cloud with 3 nodes, the VCF portable license must cover 108 (3*36) cores. 
->In the current version, if you want to use your own license on an Azure subscription for the Azure VMware Solution workloads, all the nodes (cores) in that subscription including multiple Private Clouds need to be purchased through Broadcom and covered under your Broadcom VCF license portability contract. At the moment, you are required to bring VCF license entitlements that cover cores for all the nodes deployed within your Azure Subscription. In the future, an option to scale beyond your portable license entitlement will be offered.
+>In the current version, if you want to use your own license on an Azure subscription for the Azure VMware Solution workloads, all the nodes (cores) in that subscription including multiple Private Clouds need to be purchased through Broadcom and covered under your Broadcom VCF license portability contract. At the moment, your're required to bring VCF license entitlements that cover cores for all the nodes deployed within your Azure Subscription. In the future, an option to scale beyond your portable license entitlement will be offered.
 
 ## Purchasing VCF license portability offering on Azure VMware Solution
 
@@ -91,7 +91,7 @@ For example, you want to deploy 10 nodes of AV36P node type.
 **Scenario 1:**
 "I want to purchase my VCF subscription from Broadcom and use the license portability offering on Azure VMware Solution."
 
-1. Create quota request for AV36P nodes. Declare your own VCF portable license intent and the number of cores you are entitled for portability. 
+1. Create quota request for AV36P nodes. Declare your own VCF portable license intent and the number of cores your're entitled for portability. 
 
 2. Register your VCF entitlements via email to Microsoft.  
 
@@ -110,7 +110,7 @@ For example, you want to deploy 10 nodes of AV36P node type.
 
 ## Moving between the two VCF licensing methods
 
-If you are currently managing your own VCF licensing for Azure VMware Solution and wish to transition to Azure VMware Solution-owned licensing, you can easily make the switch without any changes to your Private Cloud.    
+If your're currently managing your own VCF licensing for Azure VMware Solution and wish to transition to Azure VMware Solution-owned licensing, you can easily make the switch without any changes to your Private Cloud.    
 
 **Steps:**
 
@@ -119,6 +119,6 @@ If you are currently managing your own VCF licensing for Azure VMware Solution a
 2. Exchange RI- If you have any active RI with VCF BYOL, exchange them for non-VCF BYOL RI. For instance, you can [exchange your AV36P VCF BYOL RI for an AV36P](https://learn.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations). 
 
 
-If you are an existing Azure VMware Solution customer using Azure VMware Solution-owned licensing deployments and wish to transition to the license portability (VCF BYOL) offering, you can also easily make the switch without any changes to your Private Cloud deployments.  
+If your're an existing Azure VMware Solution customer using Azure VMware Solution-owned licensing deployments and wish to transition to the license portability (VCF BYOL) offering, you can also easily make the switch without any changes to your Private Cloud deployments.  
 
 Simply, register your VCF entitlements with Microsoft. You need to purchase the VCF entitlements from Broadcom for all cores that match your current Azure VMware Solution deployment. For instance, if your Azure subscription has a Private Cloud with 100 AV36P nodes, you must purchase VCF subscription for atleast 3600 cores from Broadcom to convert to VCF BYOL offering.  
