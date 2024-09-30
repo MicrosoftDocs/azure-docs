@@ -3,7 +3,7 @@ title: Checkpoint and replay recovery concepts in Azure Stream Analytics
 description: This article describes checkpoint and replay job recovery concepts in Azure Stream Analytics.
 author: ajetasin
 ms.author: ajetasi
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: conceptual
 ms.date: 05/09/2022
 ---

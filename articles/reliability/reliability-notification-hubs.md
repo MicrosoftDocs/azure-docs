@@ -3,7 +3,7 @@ title: Reliability in Azure Notification Hubs
 description: Find out about reliability in Azure Notification Hubs. 
 author: sethmanheim
 ms.author: sethm
-ms.service: notification-hubs
+ms.service: azure-notification-hubs
 ms.topic: reliability-article
 ms.custom: subject-reliability, references_regions
 ms.date: 03/06/2024

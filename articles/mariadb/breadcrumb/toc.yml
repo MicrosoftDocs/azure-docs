@@ -1,7 +1,0 @@
-- name: Azure
-  tocHref: /azure/
-  topicHref: /azure/index
-  items:
-  - name: MariaDB
-    tocHref: /azure/security-center/
-    topicHref: /azure/mariadb/index

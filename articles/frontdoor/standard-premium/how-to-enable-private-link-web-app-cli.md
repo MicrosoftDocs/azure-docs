@@ -4,7 +4,7 @@ titleSuffix: Azure Private Link
 description: Learn how to connect your Azure Front Door Premium to a webapp privately using Azure CLI.
 services: frontdoor
 author: duongau
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 10/04/2022

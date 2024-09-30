@@ -4,9 +4,9 @@ description: This article contains important reference material you need when yo
 ms.date: 05/13/2024
 ms.custom: horz-monitor
 ms.topic: reference
-author: robb
+author: rboucher
 ms.author: robb
-ms.service: cache
+
 ---
 
 # Azure Cache for Redis monitoring data reference
@@ -23,13 +23,13 @@ For more details and information about the supported metrics for Microsoft.Cache
 The following table lists the metrics available for the Microsoft.Cache/redis resource type.
 
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
-[!INCLUDE [Microsoft.Cache/redis](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-cache-redis-metrics-include.md)]
+[!INCLUDE [Microsoft.Cache/redis](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-cache-redis-metrics-include.md)]
 
 ### Supported metrics for Microsoft.Cache/redisEnterprise
 The following table lists the metrics available for the Microsoft.Cache/redisEnterprise resource type.
 
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
-[!INCLUDE [Microsoft.Cache/redisEnterprise](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-cache-redisenterprise-metrics-include.md)]
+[!INCLUDE [Microsoft.Cache/redisEnterprise](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-cache-redisenterprise-metrics-include.md)]
 
 <a name="available-metrics-and-reporting-intervals"></a>
 <a name="create-your-own-metrics"></a>
@@ -85,7 +85,7 @@ The following list provides details and more information about the supported Azu
 
 - Geo-replication metrics
 
-  Geo-replication metrics are affected by monthly internal maintenance operations. The Azure Cache for Redis service periodically patches all caches with the latest platform features and improvements. During these updates, each cache node is taken offline, which temporarily disables the geo-replication link. If your geo replication link is unhealthy, check to see if it was caused by a patching event on either the geo-primary or geo-secondary cache by using **Diagnose and Solve Problems**  from the Resource menu in the portal. Depending on the amount of data in the cache, the downtime from patching can take anywhere from a few minutes to an hour. If the geo-replication link is unhealthy for over an hour, [file a support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
+  Geo-replication metrics are affected by monthly internal maintenance operations. The Azure Cache for Redis service periodically patches all caches with the latest platform features and improvements. During these updates, each cache node is taken offline, which temporarily disables the geo-replication link. If your geo replication link is unhealthy, check to see if it was caused by a patching event on either the geo-primary or geo-secondary cache by using **Diagnose and Solve Problems**  from the Resource menu in the portal. Depending on the amount of data in the cache, the downtime from patching can take anywhere from a few minutes to an hour. If the geo-replication link is unhealthy for over an hour, [file a support request](/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
   The [Geo-Replication Dashboard](cache-insights-overview.md#workbooks) workbook is a simple and easy way to view all Premium-tier geo-replication metrics in the same place. This dashboard pulls together metrics that are only emitted by the geo-primary or geo-secondary, so they can be viewed simultaneously.
 
@@ -117,7 +117,7 @@ The following list provides details and more information about the supported Azu
     - In caches on the Premium tier, this metric is only emitted _from the geo-secondary_ cache instance. On the geo-primary instance, this metric has no value.
     - This metric might indicate a disconnected/unhealthy replication status for several reasons, including: monthly patching, host OS updates, network misconfiguration, or failed geo-replication link provisioning.
     - A value of 0 doesn't mean that data on the geo-replica is lost. It just means that the link between geo-primary and geo-secondary is unhealthy.
-    - If the geo-replication link is unhealthy for over an hour, [file a support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
+    - If the geo-replication link is unhealthy for over an hour, [file a support request](/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
 - Gets
   - The number of get operations from the cache during the specified reporting interval. This value is the sum of the following values from the Redis INFO all command: `cmdstat_get`, `cmdstat_hget`, `cmdstat_hgetall`, `cmdstat_hmget`, `cmdstat_mget`, `cmdstat_getbit`, and `cmdstat_getrange`, and is equivalent to the sum of cache hits and misses during the reporting interval.
@@ -133,7 +133,11 @@ The following list provides details and more information about the supported Azu
 - Sets
   - The number of set operations to the cache during the specified reporting interval. This value is the sum of the following values from the Redis INFO all command: `cmdstat_set`, `cmdstat_hset`, `cmdstat_hmset`, `cmdstat_hsetnx`, `cmdstat_lset`, `cmdstat_mset`, `cmdstat_msetnx`, `cmdstat_setbit`, `cmdstat_setex`, `cmdstat_setrange`, and `cmdstat_setnx`.
 - Total Keys  
-  - The maximum number of keys in the cache during the past reporting time period. This number maps to `keyspace` from the Redis INFO command. Because of a limitation in the underlying metrics system for caches with clustering enabled, Total Keys return the maximum number of keys of the shard that had the maximum number of keys during the reporting interval.
+  - The maximum number of keys in the cache during the past reporting time period. This number maps to `keyspace` from the Redis INFO command.
+    
+  > [!IMPORTANT]
+  > Because of a limitation in the underlying metrics system for caches with clustering enabled, Total Keys return the maximum number of keys of the shard that had the maximum number of keys during the reporting interval.
+  
 - Total Operations
   - The total number of commands processed by the cache server during the specified reporting interval. This value maps to `total_commands_processed` from the Redis INFO command. When Azure Cache for Redis is used purely for pub/sub, there are no metrics for `Cache Hits`, `Cache Misses`, `Gets`, or `Sets`, but there are `Total Operations` metrics that reflect the cache usage for pub/sub operations.
 - Used Memory
@@ -147,10 +151,10 @@ The following list provides details and more information about the supported Azu
 [!INCLUDE [horz-monitor-ref-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
 
 ### Supported resource logs for Microsoft.Cache/redis
-[!INCLUDE [Microsoft.Cache/redis](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-cache-redis-logs-include.md)]
+[!INCLUDE [Microsoft.Cache/redis](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-cache-redis-logs-include.md)]
 
 ### Supported resource logs for Microsoft.Cache/redisEnterprise/databases
-[!INCLUDE [Microsoft.Cache/redis](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-cache-redisenterprise-databases-logs-include.md)]
+[!INCLUDE [Microsoft.Cache/redis](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-cache-redisenterprise-databases-logs-include.md)]
 
 [!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 

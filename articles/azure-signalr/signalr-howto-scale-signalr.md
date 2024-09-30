@@ -2,7 +2,7 @@
 title: Scale an instance of Azure SignalR Service
 description: Learn how to scale an Azure SignalR Service instance to add or reduce capacity, through Azure portal or Azure CLI.
 author: vicancy
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.topic: how-to
 ms.date: 07/18/2022
 ms.author: lianwei 

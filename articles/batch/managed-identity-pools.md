@@ -2,7 +2,7 @@
 title: Configure managed identities in Batch pools
 description: Learn how to enable user-assigned managed identities on Batch pools and how to use managed identities within the nodes.
 ms.topic: conceptual
-ms.date: 06/25/2024
+ms.date: 08/12/2024
 ms.devlang: csharp
 ms.custom:
 ---
@@ -69,43 +69,41 @@ To create a Batch pool with a user-assigned managed identity through the Azure p
 To create a Batch pool with a user-assigned managed identity with the [Batch .NET management library](/dotnet/api/overview/azure/batch#management-library), use the following example code:
 
 ```csharp
-var poolParameters = new Pool(name: "yourPoolName")
-    {
-        VmSize = "standard_d2_v3",
-        ScaleSettings = new ScaleSettings
-        {
-            FixedScale = new FixedScaleSettings
-            {
-                TargetDedicatedNodes = 1
-            }
-        },
-        DeploymentConfiguration = new DeploymentConfiguration
-        {
-            VirtualMachineConfiguration = new VirtualMachineConfiguration(
-                new ImageReference(
-                    "Canonical",
-                    "0001-com-ubuntu-server-jammy",
-                    "22_04-lts",
-                    "latest"),
-                "batch.node.ubuntu 22.04")
-        },
-        Identity = new BatchPoolIdentity
-        {
-            Type = PoolIdentityType.UserAssigned,
-            UserAssignedIdentities = new Dictionary<string, UserAssignedIdentities>
-            {
-                ["Your Identity Resource Id"] =
-                    new UserAssignedIdentities()
-            }
-        }
-    };
+var credential = new DefaultAzureCredential();
+ArmClient _armClient = new ArmClient(credential);
+        
+var batchAccountIdentifier = ResourceIdentifier.Parse("your-batch-account-resource-id");   
+BatchAccountResource batchAccount = _armClient.GetBatchAccountResource(batchAccountIdentifier);
 
-var pool = await managementClient.Pool.CreateWithHttpMessagesAsync(
-    poolName:"yourPoolName",
-    resourceGroupName: "yourResourceGroupName",
-    accountName: "yourAccountName",
-    parameters: poolParameters,
-    cancellationToken: default(CancellationToken)).ConfigureAwait(false);
+var poolName = "HelloWorldPool";
+var imageReference = new BatchImageReference()
+{
+    Publisher = "canonical",
+    Offer = "0001-com-ubuntu-server-jammy",
+    Sku = "22_04-lts",
+    Version = "latest"
+};
+string nodeAgentSku = "batch.node.ubuntu 22.04";
+
+var batchAccountPoolData = new BatchAccountPoolData()
+{
+    VmSize = "Standard_DS1_v2",
+    DeploymentConfiguration = new BatchDeploymentConfiguration()
+    {
+        VmConfiguration = new BatchVmConfiguration(imageReference, nodeAgentSku)
+    },
+    ScaleSettings = new BatchAccountPoolScaleSettings()
+    {
+        FixedScale = new BatchAccountFixedScaleSettings()
+        {
+            TargetDedicatedNodes = 1
+        }
+    }
+};
+
+ArmOperation<BatchAccountPoolResource> armOperation = batchAccount.GetBatchAccountPools().CreateOrUpdate(
+    WaitUntil.Completed, poolName, batchAccountPoolData);
+BatchAccountPoolResource pool = armOperation.Value;
 ```
 
 ## Use user-assigned managed identities in Batch nodes
@@ -121,7 +119,7 @@ see the following links:
 
 You can also manually configure your tasks so that the managed identities can directly access [Azure resources that support managed identities](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md).
 
-Within the Batch nodes, you can get managed identity tokens and use them to authenticate through Microsoft Entra authentication via the [Azure Instance Metadata Service](../virtual-machines/windows/instance-metadata-service.md).
+Within the Batch nodes, you can get managed identity tokens and use them to authenticate through Microsoft Entra authentication via the [Azure Instance Metadata Service](/azure/virtual-machines/windows/instance-metadata-service).
 
 For Windows, the PowerShell script to get an access token to authenticate is:
 

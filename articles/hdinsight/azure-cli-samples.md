@@ -1,9 +1,9 @@
 ---
 title: 'Azure HDInsight: Azure CLI samples'
 description: Azure CLI examples for common tasks in Azure HDInsight.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: sample
-ms.date: 09/19/2023
+ms.date: 09/06/2024
 ms.custom: devx-track-azurecli
 ---
 
@@ -22,9 +22,9 @@ This article provides sample scripts for common tasks. For each example, update 
 
 * Optional: Bash. The examples in this article use the Bash shell on Windows 10. See [Windows Subsystem for Linux Installation Guide for Windows 10](/windows/wsl/install-win10) for installation steps.  The examples work from a Windows Command prompt with some slight modifications.
 
-## az login
+## `az login`
 
-[Log in to Azure](/cli/azure/reference-index#az-login).
+[Sign in to Azure](/cli/azure/reference-index#az-login).
 
 ```azurecli
 az login
@@ -33,7 +33,7 @@ az login
 # az account set --subscription "SUBSCRIPTIONID"
 ```
 
-## az hdinsight create
+## `az hdinsight create`
 
 [Creates a new cluster](/cli/azure/hdinsight#az-hdinsight-create).
 
@@ -166,7 +166,7 @@ az hdinsight create \
     --cluster-configuration $clusterConfiguration
 ```
 
-## az hdinsight application create
+## `az hdinsight application create`
 
 [Create an application for a HDInsight cluster](/cli/azure/hdinsight/application#az-hdinsight-application-create).
 
@@ -233,7 +233,7 @@ az hdinsight application create \
     --sub-domain-suffix $subDomainSuffix
 ```
 
-## az hdinsight script-action execute
+## `az hdinsight script-action execute`
 
 [Execute script actions on the specified HDInsight cluster](/cli/azure/hdinsight/script-action#az-hdinsight-script-action-execute).
 

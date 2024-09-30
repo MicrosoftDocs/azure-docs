@@ -2,7 +2,7 @@
 title: Troubleshooting guide for Azure Spring Apps | Microsoft Docs
 description: Troubleshooting guide for Azure Spring Apps
 author: KarlErickson
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: troubleshooting
 ms.date: 04/23/2024
 ms.author: karler
@@ -74,7 +74,7 @@ When you're debugging application crashes, start by checking the running status 
 
    > "required memory 2728741K is greater than 2000M available for allocation"
 
-To learn more about Azure Log Analytics, see [Get started with Log Analytics in Azure Monitor](../../azure-monitor/logs/log-analytics-tutorial.md).
+To learn more about Azure Log Analytics, see [Get started with Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-tutorial).
 
 ### My application experiences high CPU usage or high memory usage
 
@@ -97,7 +97,7 @@ For more information, see [Metrics for Azure Spring Apps](./concept-metrics.md).
 
 If all instances are up and running, go to Azure Log Analytics to query your application logs and review your code logic. This review helps you see whether any of them might affect scale partitioning. For more information, see [Analyze logs and metrics with diagnostics settings](diagnostic-services.md).
 
-To learn more about Azure Log Analytics, see [Get started with Log Analytics in Azure Monitor](../../azure-monitor/logs/log-analytics-tutorial.md). Query the logs by using the [Kusto query language](/azure/kusto/query/).
+To learn more about Azure Log Analytics, see [Get started with Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-tutorial). Query the logs by using the [Kusto query language](/azure/kusto/query/).
 
 ### Checklist for deploying your Spring application to Azure Spring Apps
 
@@ -174,7 +174,7 @@ If you're migrating an existing Spring Cloud-based solution to Azure, be sure to
 
 You can also check the *Service Registry* client logs in Azure Log Analytics. For more information, see [Analyze logs and metrics with diagnostics settings](diagnostic-services.md)
 
-To learn more about Azure Log Analytics, see [Get started with Log Analytics in Azure Monitor](../../azure-monitor/logs/log-analytics-tutorial.md). Query the logs by using the [Kusto query language](/azure/kusto/query/).
+To learn more about Azure Log Analytics, see [Get started with Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-tutorial). Query the logs by using the [Kusto query language](/azure/kusto/query/).
 
 ### I want to inspect my application's environment variables
 
@@ -234,7 +234,7 @@ Check to see whether the `spring-boot-actuator` dependency is enabled in your ap
 </dependency>
 ```
 
-If your application logs can be archived to a storage account but not sent to Azure Log Analytics, check to see whether you set up your workspace correctly. For more information, see [Create a Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md). Also, be aware that the Basic plan doesn't provide a service-level agreement (SLA). For more information, see [Service Level Agreements (SLA) for Online Services](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_3/).
+If your application logs can be archived to a storage account but not sent to Azure Log Analytics, check to see whether you set up your workspace correctly. For more information, see [Create a Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace). Also, be aware that the Basic plan doesn't provide a service-level agreement (SLA). For more information, see [Service Level Agreements (SLA) for Online Services](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_3/).
 
 ## Enterprise plan
 

@@ -4,7 +4,7 @@ description: Learn how to use Azure Virtual WAN to create a site-to-site VPN con
 services: virtual-wan
 author: cherylmc
 
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 08/24/2023
 ms.author: cherylmc 
@@ -177,7 +177,7 @@ The device configuration file contains the settings to use when you're configuri
       },
       "vpnSiteConfiguration":{
         "Name":"VPN-over-INet-site",
-        "IPAddress":"13.75.195.234",
+        "IPAddress":"198.51.100.122",
         "LinkName":"VPN-over-INet"
       },
       "vpnSiteConnections":[{
@@ -188,8 +188,8 @@ The device configuration file contains the settings to use when you're configuri
         },
         "gatewayConfiguration":{
           "IpAddresses":{
-            "Instance0":"51.143.63.104",
-            "Instance1":"52.137.90.89"
+            "Instance0":"203.0.113.186",
+            "Instance1":"203.0.113.195"
           }
         },
         "connectionConfiguration":{

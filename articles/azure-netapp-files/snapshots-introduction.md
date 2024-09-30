@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 11/22/2022
+ms.date: 06/03/2024
 ms.author: anfdocs
 ---
 # How Azure NetApp Files snapshots work

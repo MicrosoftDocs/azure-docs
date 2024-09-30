@@ -186,6 +186,10 @@ the tree view, the Azure Policy extension opens the JSON that represents the pol
 all its Resource Manager property values. The extension can validate the opened Azure Policy JSON
 schema.
 
+> [!NOTE]
+> The VS Code extension will only show the latest version of the policy definition. For more
+> information about the versions of definitions, see the [definitions](../concepts/definition-structure-basics.md#version-preview).
+
 ### Export objects
 
 Objects from your subscriptions can be exported to a local JSON file. In either the **Resources** or

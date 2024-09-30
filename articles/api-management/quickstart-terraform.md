@@ -2,7 +2,7 @@
 title: Quickstart - Create Azure API Management instance - Terraform
 description: Use this quickstart to create an Azure API Management instance using Terraform.
 ms.topic: quickstart
-ms.service: api-management
+ms.service: azure-api-management
 ms.date: 12/12/2023
 ms.custom: devx-track-terraform, devx-track-azurecli, devx-track-azurepowershell
 author: TomArcherMsft

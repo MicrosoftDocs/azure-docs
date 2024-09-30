@@ -3,7 +3,7 @@ title: Apache Spark in Azure Synapse Analytics overview
 description: This article provides an introduction to Apache Spark in Azure Synapse Analytics and the different scenarios in which you can use Spark.
 author: juluczni
 ms.author: juluczni
-ms.service: synapse-analytics 
+ms.service: azure-synapse-analytics
 ms.topic: overview
 ms.subservice: spark
 ms.date: 12/06/2022

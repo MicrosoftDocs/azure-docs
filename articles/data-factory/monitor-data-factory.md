@@ -6,7 +6,6 @@ ms.custom: horz-monitor
 ms.topic: conceptual
 author: jonburchel
 ms.author: jburchel
-ms.service: data-factory
 ---
 
 # Monitor Azure Data Factory

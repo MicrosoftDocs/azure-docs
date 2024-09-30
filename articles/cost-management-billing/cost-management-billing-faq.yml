@@ -23,7 +23,7 @@ sections:
           See [Resolve past due balance for your Azure subscription](manage/resolve-past-due-balance.md).
       - question: How long does it take for my payment to be posted?
         answer: |
-          See [Wire transfer payment processing time](manage/pay-by-invoice.md#wire-transfer-payment-processing-time).
+          See [Wire transfer payment processing time](manage/pay-by-invoice.md#whats-the-processing-time-for-wire-transfer-payments).
       - question: How do I find my invoice?
         answer: |
           See [View and download your Microsoft Azure invoice](understand/download-azure-invoice.md).
@@ -351,7 +351,7 @@ sections:
           For issues with Power BI, log a ticket with the [Power BI support team](https://support.powerbi.com).
       - question: Why don't my resource tags show on my reports?
         answer: |
-          Resource tags are managed on the Azure portal. You can contact the Azure subscription team in the [Azure portal](https://portal.azure.com). Follow the steps in the [How to create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md) article.
+          Resource tags are managed on the Azure portal. You can contact the Azure subscription team in the [Azure portal](https://portal.azure.com). Follow the steps in the [How to create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request) article.
       - question: Why does my resource rate change every day?
         answer: |
           The resource rate shown in the detailed usage report is a calculated value. It represents the average monthly rate that was charged for the service. The resource rate is calculated from the average of your monthly commitment and your monthly overage charges for a unit of service. The portion of usage charged against your commitment and overage rates change to the day the month closes. Thus, the listed resource rate also changes during the month. The resource rate locks on the fifth day following the end of the month.

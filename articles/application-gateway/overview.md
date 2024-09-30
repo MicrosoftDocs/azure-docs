@@ -3,7 +3,7 @@ title: What is Azure Application Gateway
 description: Learn how you can use an Azure application gateway to manage web traffic to your application.
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: overview
 ms.custom: mvc
 ms.date: 09/27/2023

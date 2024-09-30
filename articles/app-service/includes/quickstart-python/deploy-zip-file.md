@@ -50,32 +50,13 @@ zip -r <file-name>.zip . -x '.??*'
 
 ### Upload the ZIP file to Azure
 
-Once you have a ZIP file, the file can be uploaded to Azure using either Azure CLI or an HTTP client like Postman or cURL.
+Once you have a ZIP file, the file can be uploaded to Azure using either Azure CLI or an HTTP client like cURL.
 
 #### [Azure CLI](#tab/deploy-instructions-zip-azcli)
 
 The [az webapp deploy](/cli/azure/webapp#az-webapp-deploy) command can be used to upload and deploy a zip file to Azure.
 
 [!INCLUDE [Azure CLI deploy commands](./deploy-zip-cli-commands.md)]
-
-#### [Postman](#tab/deploy-instructions-zip-postman)
-
-To use [Postman](https://www.postman.com/downloads/) to upload your ZIP file to Azure, you will need the deployment username and password for your App Service. These credentials can be obtained from the Azure portal.
-
-1. On the page for the web app, select **Deployment center** from the menu on the left side of the page.
-1. Select the **FTPS credentials** tab.
-1. The **Username** and **Password** are shown under the **Application scope** heading.  For zip file deployments, only use the part of the username after the `\` character that starts with a `$`, for example `$msdocs-python-webapp-quickstart-123`. These credentials will be needed when uploading your zip file with Postman.
-
-:::image type="content" source="../../media/quickstart-python/deploy-zip-azure-portal-get-username-600px.png" alt-text="A screenshot showing the location of the deployment credentials in the Azure portal." lightbox="../../media/quickstart-python/deploy-zip-azure-portal-get-username.png":::
-
-In Postman, upload your file using the following steps.
-
-| Instructions    | Screenshot |
-|:----------------|-----------:|
-| [!INCLUDE [Postman upload step 1](./deploy-zip-postman-1.md)] | :::image type="content" source="../../media/quickstart-python/deploy-zip-postman-1-240px.png" alt-text="A screenshot showing how to create a new POST request in Postman." lightbox="../../media/quickstart-python/deploy-zip-postman-1.png"::: |
-| [!INCLUDE [Postman upload step 2](./deploy-zip-postman-2.md)] | :::image type="content" source="../../media/quickstart-python/deploy-zip-postman-2-240px.png" alt-text="A screenshot showing how to configure basic authorization for a POST request in Postman." lightbox="../../media/quickstart-python/deploy-zip-postman-2.png"::: |
-| [!INCLUDE [Postman upload step 3](./deploy-zip-postman-3.md)] | :::image type="content" source="../../media/quickstart-python/deploy-zip-postman-3-240px.png" alt-text="A screenshot showing how to select a file for a POST request in Postman." lightbox="../../media/quickstart-python/deploy-zip-postman-3.png"::: |
-| [!INCLUDE [Postman upload step 4](./deploy-zip-postman-4.md)] | :::image type="content" source="../../media/quickstart-python/deploy-zip-postman-4-240px.png" alt-text="A screenshot showing how to send a POST request in Postman." lightbox="../../media/quickstart-python/deploy-zip-postman-4.png"::: |
 
 #### [cURL](#tab/deploy-instructions-zip-curl)
 

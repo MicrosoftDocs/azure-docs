@@ -1,8 +1,8 @@
 ---
 title: Customer enabled disaster recovery in Azure Center for SAP Solutions
 description: Find out about  Customer enabled disaster recovery in Azure Center for SAP Solutions
-author: sushantyadav-msft
-ms.author: sushantyadav
+author: jjaygbay1
+ms.author: jacobjaygbay
 ms.topic: overview
 ms.custom: subject-reliability, references_regions
 ms.service: sap-on-azure

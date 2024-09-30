@@ -5,7 +5,7 @@ ms.date: 02/06/2024
 ms.topic: reference
 author: ahartoon
 ms.author: anboisve
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.custom: subject-policy-reference
 ---
 # Azure Policy built-in definitions for Azure Stream Analytics

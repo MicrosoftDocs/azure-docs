@@ -3,7 +3,7 @@ title:  Stream Azure Spring Apps job logs in real time
 description: Learn how to use log streaming to view job logs in real time.
 author: KarlErickson
 ms.author: jiec
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 05/29/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli

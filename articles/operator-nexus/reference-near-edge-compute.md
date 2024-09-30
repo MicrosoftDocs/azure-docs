@@ -13,7 +13,7 @@ ms.custom: template-reference
 
 Azure Operator Nexus offers a group of on-premises cloud solutions. One of the on-premises offerings allows telco operators to run the network functions in a near-edge environment.
 
-In a near-edge environment (also known as an instance), the compute servers (also known as bare-metal machines) represent the physical machines on the rack. They run the CBL-Mariner operating system and provide support for running high-performance workloads.
+In a near-edge environment (also known as an instance), the compute servers (also known as bare-metal machines) represent the physical machines on the rack. They run the Azure Linux operating system and provide support for running high-performance workloads.
 
 <!-- ## Available SKUs
 
@@ -39,9 +39,9 @@ Azure Operator Nexus supports a range of geometries and configurations. This tab
 | Number of virtual CPUs (vCPUs) for tenant usage       | 96 vCPUs, with hyperthreading enabled per compute server. |
 | Number of vCPUs available for workloads | 2 to 48 vCPUs, with an even number of vCPUs only. No cross-NUMA (nonuniform memory access) virtual machines (VMs). |
 | CPU pinning                            | Default. |
-| RAM for running tenant workloads        | 448 GB (224 GB per NUMA).  |
-| Huge pages for tenant workloads        | All VMs are backed by 1-GB huge pages. |
-| Disk (ephemeral) per compute           | Up to 3.5 TB per compute host. |
+| RAM for running tenant workloads        | 448 GiB (224 GiB per NUMA).  |
+| Huge pages for tenant workloads        | All VMs are backed by 1GiB (1G) huge pages. |
+| Disk (ephemeral) per compute           | Up to 3.5 TB (3.18 TiB) per compute host. |
 | Data plane traffic path for workloads  | Single-root I/O virtualization (SR-IOV). |
 | Number of SR-IOV virtual functions (VFs)                   | Maximum of 32 virtual NICs (vNICs), with 30 VFs available for tenant workloads per NUMA. |
 | SR-IOV NIC support                     | Enabled on all 100G NIC ports on VMs, with VFs assigned out of Mellanox-supported VF link aggregation (VF LAG). The allocated VFs are from the same physical NIC and within the same NUMA boundary. NIC ports that provide VF LAG are connected to two different top-of-rack (ToR) switches for redundancy. <br><br>Support includes trunked VF receive-side scaling (RSS) with hardware queuing. Support also includes multiple queues on VMs. |

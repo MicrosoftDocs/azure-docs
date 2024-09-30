@@ -4,14 +4,16 @@ description: Learn how to deploy Azure SQL Edge using the Azure portal
 author: rwestMSFT
 ms.author: randolphwest
 ms.reviewer: kendalv
-ms.date: 09/14/2023
-ms.service: sql-edge
+ms.date: 09/21/2024
+ms.service: azure-sql-edge
 ms.topic: conceptual
 keywords: deploy SQL Edge
 ---
 # Deploy Azure SQL Edge
 
-> [!IMPORTANT]  
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
+
+> [!NOTE]  
 > Azure SQL Edge no longer supports the ARM64 platform.
 
 Azure SQL Edge is a relational database engine optimized for IoT and Azure IoT Edge deployments. It provides capabilities to create a high-performance data storage and processing layer for IoT applications and solutions. This quickstart shows you how to get started with creating an Azure SQL Edge module through Azure IoT Edge using the Azure portal.
@@ -211,7 +213,7 @@ You can connect and run SQL queries against your Azure SQL Edge instance from an
 
 In this quickstart, you deployed a SQL Edge Module on an IoT Edge device.
 
-## Next steps
+## Related content
 
 - [Machine Learning and Artificial Intelligence with ONNX in SQL Edge](onnx-overview.md)
 - [Building an end to end IoT Solution with SQL Edge using IoT Edge](tutorial-deploy-azure-resources.md)

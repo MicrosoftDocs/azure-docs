@@ -35,7 +35,7 @@ First party Microsoft services like Azure Site Recovery, Azure Backup, as well a
 - Live migration of application and data from on premises to cloud: Copy the on premises data and use REST APIs to write directly to an Azure page blob while the on premises VM continues to run. Once the target has caught up, you can quickly failover to Azure VM using that data. In this way, you can migrate your VMs and virtual disks from on premises to cloud with minimal downtime since the data migration occurs in the background while you continue to use the VM and the downtime needed for failover will be short (in minutes).
 - [SAS-based](../common/storage-sas-overview.md) shared access, which enables scenarios like multiple-readers and single-writer with support for concurrency control.
 
-Unmanaged disks are being retired, for details see [Migrate your Azure unmanaged disks by September 30, 2025](../../virtual-machines/unmanaged-disks-deprecation.md).
+Unmanaged disks are being retired, for details see [Migrate your Azure unmanaged disks by September 30, 2025](/azure/virtual-machines/unmanaged-disks-deprecation).
 
 ## Pricing
 
@@ -125,4 +125,4 @@ For the customers and developers who are interested in implementing their own cu
 
 Moreover, many enterprises have critical workloads already running in on-premises datacenters. For migrating the workload to the cloud, one of the main concerns would be the amount of downtime needed for copying the data, and the risk of unforeseen issues after the switchover. In many cases, the downtime can be a showstopper for migration to the cloud. Using the page blobs REST API, Azure addresses this problem by enabling cloud migration with minimal disruption to critical workloads.
 
-For examples on how to take a snapshot and how to restore a page blob from a snapshot, please refer to the [setup a backup process using incremental snapshots](../../virtual-machines/windows/incremental-snapshots.md) article.
+For examples on how to take a snapshot and how to restore a page blob from a snapshot, please refer to the [setup a backup process using incremental snapshots](/azure/virtual-machines/windows/incremental-snapshots) article.

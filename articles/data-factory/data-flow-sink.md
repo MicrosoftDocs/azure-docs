@@ -5,10 +5,9 @@ description: Learn how to configure a sink transformation in mapping data flow.
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
-ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.date: 10/20/2023
+ms.date: 09/25/2024
 ---
 
 # Sink transformation in mapping data flow

@@ -3,7 +3,7 @@ title: Template functions - string
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to work with strings.
 ms.topic: reference
 ms.custom: devx-track-arm-template
-ms.date: 01/31/2024
+ms.date: 07/02/2024
 ---
 
 # String functions for ARM templates
@@ -205,7 +205,7 @@ In Bicep, use the [contains](../bicep/bicep-functions-string.md#contains) functi
 
 ### Return value
 
-**True** if the item is found; otherwise, **False**.
+`True` if the item is found; otherwise, `False`.
 
 ### Examples
 
@@ -302,7 +302,7 @@ In Bicep, use the [empty](../bicep/bicep-functions-string.md#empty) function.
 
 ### Return value
 
-Returns **True** if the value is empty; otherwise, **False**.
+Returns `True` if the value is empty; otherwise, `False`.
 
 ### Examples
 
@@ -335,7 +335,7 @@ In Bicep, use the [endsWith](../bicep/bicep-functions-string.md#endswith) functi
 
 ### Return value
 
-**True** if the last character or characters of the string match the value; otherwise, **False**.
+`True` if the last character or characters of the string match the value; otherwise, `False`.
 
 ### Examples
 
@@ -841,7 +841,7 @@ In Bicep, use the [startsWith](../bicep/bicep-functions-string.md#startswith) fu
 
 ### Return value
 
-**True** if the first character or characters of the string match the value; otherwise, **False**.
+`True` if the first character or characters of the string match the value; otherwise, `False`.
 
 ### Examples
 
@@ -1142,28 +1142,29 @@ In Bicep, use the [uri](../bicep/bicep-functions-string.md#uri) function.
 | baseUri |Yes |string |The base uri string. Take care to observe the behavior about the handling of the trailing slash (`/`), as described following this table.  |
 | relativeUri |Yes |string |The relative uri string to add to the base uri string. |
 
-* If **baseUri** ends in a trailing slash, the result is **baseUri** followed by **relativeUri**.
+* If `baseUri` ends with a trailing slash, the result is simply `baseUri` followed by `relativeUri`. If `relativeUri` also begins with a leading slash, the trailing slash and the leading slash will be combined into one.
 
-* If **baseUri** doesn't end in a trailing slash one of two things
+* If `baseUri` doesn't end in a trailing slash one of two things
   happens.
 
-   * If **baseUri** has no slashes at all (aside from the `//` near
-     the front) the result is **baseUri** followed by **relativeUri**.
+   * If `baseUri` has no slashes at all (aside from the `//` near
+     the front) the result is `baseUri` followed by `relativeUri`.
 
-   * If **baseUri** has some slashes, but doesn't end with a slash,
-     everything from the last slash onward is removed from **baseUri**
-     and the result is **baseUri** followed by **relativeUri**.
+   * If `baseUri` has some slashes, but doesn't end with a slash,
+     everything from the last slash onward is removed from `baseUri`
+     and the result is `baseUri` followed by `relativeUri`.
 
 Here are some examples:
 
 ```
 uri('http://contoso.org/firstpath', 'myscript.sh') -> http://contoso.org/myscript.sh
 uri('http://contoso.org/firstpath/', 'myscript.sh') -> http://contoso.org/firstpath/myscript.sh
+uri('http://contoso.org/firstpath/', '/myscript.sh') -> http://contoso.org/firstpath/myscript.sh
 uri('http://contoso.org/firstpath/azuredeploy.json', 'myscript.sh') -> http://contoso.org/firstpath/myscript.sh
 uri('http://contoso.org/firstpath/azuredeploy.json/', 'myscript.sh') -> http://contoso.org/firstpath/azuredeploy.json/myscript.sh
 ```
 
-For complete details, the **baseUri** and **relativeUri** parameters are
+For complete details, the `baseUri` and `relativeUri` parameters are
 resolved as specified in
 [RFC 3986, section 5](https://tools.ietf.org/html/rfc3986#section-5).
 
