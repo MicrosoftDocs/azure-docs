@@ -7,7 +7,7 @@ author:   alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 09/27/2024
+ms.date: 09/30/2024
 ms.author: alkohli
 ---
 
@@ -214,7 +214,7 @@ Disposal of waste batteries and electrical and electronic equipment:
 
 This symbol on the product or its batteries or its packaging means that this product and any batteries it contains must not be disposed of with your household waste. Instead, it is your responsibility to hand it over to an applicable collection point for the recycling of batteries and electrical and electronic equipment. This separate collection and recycling helps to conserve natural resources and prevent potential negative consequences for human health and the environment due to the possible presence of hazardous substances in batteries and electrical and electronic equipment, which could be caused by inappropriate disposal. For more information about where to drop off your batteries and electrical and electronic waste, contact your local city/municipality office, your household waste disposal service, or the shop where you purchased this product. Contact erecycle@microsoft.com for additional information on WEEE.
 
-:::image type="content" source="media/azure-stack-edge-mini-r-safety/icon-ce-marking.png" alt-text="CE marking.":::
+:::image type="icon" source="media/azure-stack-edge-mini-r-safety/icon-ce-marking.png" alt-text="CE marking.":::
 
 This product contains coin cell battery(ies).
 
