@@ -228,7 +228,7 @@ As you progress, you'll complete these high-level tasks:
 
 1. To locally run webhook-based triggers and actions, such as the [built-in HTTP Webhook trigger](../connectors/connectors-native-webhook.md), in Visual Studio Code, you need to [set up forwarding for the callback URL](#webhook-setup).
 
-1. If you create your logic app resources with settings that support using [Application Insights](../azure-monitor/app/app-insights-overview.md), you can optionally enable diagnostics logging and tracing for your logic app resource. You can do so either when you create your logic app or after deployment. You need to have an Application Insights instance, but you can create this resource either [in advance](../azure-monitor/app/create-workspace-resource.md), when you create your logic app, or after deployment.
+1. If you create your logic app resources with settings that support using [Application Insights](/azure/azure-monitor/app/app-insights-overview), you can optionally enable diagnostics logging and tracing for your logic app resource. You can do so either when you create your logic app or after deployment. You need to have an Application Insights instance, but you can create this resource either [in advance](/azure/azure-monitor/app/create-workspace-resource), when you create your logic app, or after deployment.
 
 1. Install or use a tool that can send HTTP requests to test your solution, for example:
 
@@ -314,7 +314,8 @@ Before you can create your logic app, create a local project so that you can man
    > [!NOTE]
    > You might get an error named **azureLogicAppsStandard.createNewProject** with the error message, 
    > **Unable to write to Workspace Settings because azureFunctions.suppressProject is not a registered configuration**. 
-   > If you do, try installing the [Azure Functions extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions), either directly from the Visual Studio Marketplace or from inside Visual Studio Code.
+   > If you do, try installing the [Azure Functions extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions), 
+   > either directly from the Visual Studio Marketplace or from inside Visual Studio Code.
 
 1. If Visual Studio Code prompts you to open your project in the current Visual Studio Code or in a new Visual Studio Code window, select **Open in current window**. Otherwise, select **Open in new window**.
 
@@ -327,6 +328,22 @@ Before you can create your logic app, create a local project so that you can man
    ![Screenshot shows Explorer pane with project folder, workflow folder, and workflow.json file.](./media/create-single-tenant-workflows-visual-studio-code/local-project-created.png)
 
    [!INCLUDE [Visual Studio Code - logic app project structure](../../includes/logic-apps-single-tenant-project-structure-visual-studio-code.md)]
+
+   > [!NOTE]
+   > 
+   > By default, in your **local.settings.json** file, the language worker runtime value for your 
+   > Standard logic app is **`dotnet`**. Previously, **`node`** was the default value. However, 
+   > **`dotnet`** is now the default value for all new and existing deployed Standard logic apps, 
+   > even for apps that had a different value. This change shouldn't affect your workflow's runtime, 
+   > and everything should work the same way as before. For more information, see the 
+   > [**FUNCTIONS_WORKER_RUNTIME** app setting](edit-app-settings-host-settings.md#reference-local-settings-json).
+   >
+   > The **APP_KIND** app setting for your Standard logic app is set to **workflowApp**, but in some 
+   > scenarios, this app setting is missing, for example, due to automation using Azure Resource Manager 
+   > templates or other scenarios where the setting isn't included. If certain actions don't work, 
+   > such as the **Execute JavaScript Code** action or the workflow stops working, check that the 
+   > **APP_KIND** app setting exists and is set to to **workflowApp**. For more information, see the 
+   > [**APP_KIND** app setting](edit-app-settings-host-settings.md#reference-local-settings-json).
 
 <a name="convert-project-nuget"></a>
 
@@ -951,7 +968,7 @@ Deployment for the Standard logic app resource requires a hosting plan and prici
 
       ![Screenshot that shows the "Logic Apps (Standard)" pane and a prompt to create or select a storage account.](./media/create-single-tenant-workflows-visual-studio-code/create-storage-account.png)
 
-   1. If your logic app's creation and deployment settings support using [Application Insights](../azure-monitor/app/app-insights-overview.md), you can optionally enable diagnostics logging and tracing for your logic app. You can do so either when you deploy your logic app from Visual Studio Code or after deployment. You need to have an Application Insights instance, but you can create this resource either [in advance](../azure-monitor/app/create-workspace-resource.md), when you deploy your logic app, or after deployment.
+   1. If your logic app's creation and deployment settings support using [Application Insights](/azure/azure-monitor/app/app-insights-overview), you can optionally enable diagnostics logging and tracing for your logic app. You can do so either when you deploy your logic app from Visual Studio Code or after deployment. You need to have an Application Insights instance, but you can create this resource either [in advance](/azure/azure-monitor/app/create-workspace-resource), when you deploy your logic app, or after deployment.
 
       To enable logging and tracing now, follow these steps:
 
@@ -1283,9 +1300,9 @@ After you deploy a **Logic App (Standard)** resource from Visual Studio Code to 
 
 ## Enable or open Application Insights after deployment
 
-During workflow execution, your logic app emits telemetry along with other events. You can use this telemetry to get better visibility into how well your workflow runs and how the Logic Apps runtime works in various ways. You can monitor your workflow by using [Application Insights](../azure-monitor/app/app-insights-overview.md), which provides near real-time telemetry (live metrics). This capability can help you investigate failures and performance problems more easily when you use this data to diagnose issues, set up alerts, and build charts.
+During workflow execution, your logic app emits telemetry along with other events. You can use this telemetry to get better visibility into how well your workflow runs and how the Logic Apps runtime works in various ways. You can monitor your workflow by using [Application Insights](/azure/azure-monitor/app/app-insights-overview), which provides near real-time telemetry (live metrics). This capability can help you investigate failures and performance problems more easily when you use this data to diagnose issues, set up alerts, and build charts.
 
-If your logic app's creation and deployment settings support using [Application Insights](../azure-monitor/app/app-insights-overview.md), you can optionally enable diagnostics logging and tracing for your logic app. You can do so either when you deploy your logic app from Visual Studio Code or after deployment. You need to have an Application Insights instance, but you can create this resource either [in advance](../azure-monitor/app/create-workspace-resource.md), when you deploy your logic app, or after deployment.
+If your logic app's creation and deployment settings support using [Application Insights](/azure/azure-monitor/app/app-insights-overview), you can optionally enable diagnostics logging and tracing for your logic app. You can do so either when you deploy your logic app from Visual Studio Code or after deployment. You need to have an Application Insights instance, but you can create this resource either [in advance](/azure/azure-monitor/app/create-workspace-resource), when you deploy your logic app, or after deployment.
 
 To enable Application Insights on a deployed logic app or to review Application Insights data when already enabled, follow these steps:
 

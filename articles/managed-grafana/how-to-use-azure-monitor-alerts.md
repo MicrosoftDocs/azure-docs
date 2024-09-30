@@ -19,10 +19,10 @@ Both Azure Monitor and Grafana provide alerting functions.
 
 Grafana provides an alerting function for a number of [supported data sources](https://grafana.com/docs/grafana/latest/alerting/fundamentals/data-source-alerting/#data-sources-and-grafana-alerting). Alert rules are processed in your Azure Managed Grafana workspace and they share the same compute resources and query throttling limits with dashboard rendering. For more information about these limits, refer to [performance considerations and limitations](https://grafana.com/docs/grafana/latest/alerting/set-up/performance-limitations/#performance-considerations-and-limitations).
 
-Azure Monitor has its own [alert system](../azure-monitor/alerts/alerts-overview.md). It offers many advantages:
+Azure Monitor has its own [alert system](/azure/azure-monitor/alerts/alerts-overview). It offers many advantages:
 
 * Scalability: Azure Monitor alerts are evaluated in the Azure Monitor platform that's been architected to autoscale to your needs.
-* Compliance: Azure Monitor alerts and [action groups](../azure-monitor/alerts/action-groups.md) are governed by Azure's compliance standards on privacy, including unsubscribe support.
+* Compliance: Azure Monitor alerts and [action groups](/azure/azure-monitor/alerts/action-groups) are governed by Azure's compliance standards on privacy, including unsubscribe support.
 * Customized notifications and actions: Azure Monitor alerts use action groups to send notifications by email, SMS, voice, and push notifications. These events can be configured to trigger further actions implemented in Functions, Logic apps, webhook, and other supported action types.
 * Consistent resource management: Azure Monitor alerts are managed as Azure resources. They can be created, updated and viewed using Azure APIs and tools, such as ARM templates, Azure CLI or SDKs.
 
@@ -37,8 +37,8 @@ Define alert rules in Azure Monitor based on the type of alerts:
 
 | Alert Type      | Description                                      |
 |-----------------|-----------------------------------------------------------------------------------------|
-| Managed service for Prometheus | Use [Prometheus rule groups](../azure-monitor/essentials/prometheus-rule-groups.md). A set of [predefined Prometheus alert rules](../azure-monitor/containers/container-insights-metric-alerts.md) and [recording rules](../azure-monitor/essentials/prometheus-metrics-scrape-default.md#recording-rules) for AKS is available. |
-| Other metrics, logs, health | Create new [alert rules](../azure-monitor/alerts/alerts-create-new-alert-rule.md). |
+| Managed service for Prometheus | Use [Prometheus rule groups](/azure/azure-monitor/essentials/prometheus-rule-groups). A set of [predefined Prometheus alert rules](/azure/azure-monitor/containers/container-insights-metric-alerts) and [recording rules](/azure/azure-monitor/essentials/prometheus-metrics-scrape-default#recording-rules) for AKS is available. |
+| Other metrics, logs, health | Create new [alert rules](/azure/azure-monitor/alerts/alerts-create-new-alert-rule). |
 
 You can view alert state and conditions using the Azure Alert Consumption dashboard in your Azure Managed Grafana workspace.
 

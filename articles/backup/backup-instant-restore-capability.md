@@ -1,8 +1,8 @@
 ---
 title: Azure Instant Restore Capability
 description: Azure Instant Restore Capability and FAQs for VM backup stack, Resource Manager deployment model
-ms.topic: conceptual
-ms.date: 04/03/2024
+ms.topic: overview
+ms.date: 09/11/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---

@@ -1,5 +1,5 @@
 ---
-title: Use PowerShell to manage ACLs in Azure Data Lake Storage Gen2
+title: Use PowerShell to manage ACLs in Azure Data Lake Storage
 titleSuffix: Azure Storage
 description: Use PowerShell cmdlets to manage access control lists (ACL) in storage accounts that has hierarchical namespace (HNS) enabled.
 author: normesta
@@ -13,7 +13,7 @@ ms.devlang: powershell
 ms.custom: devx-track-azurepowershell
 ---
 
-# Use PowerShell to manage ACLs in Azure Data Lake Storage Gen2
+# Use PowerShell to manage ACLs in Azure Data Lake Storage
 
 This article shows you how to use PowerShell to get, set, and update the access control lists of directories and files.
 
@@ -64,7 +64,7 @@ Choose how you want your commands to obtain authorization to the storage account
 ### Option 1: Obtain authorization by using Microsoft Entra ID
 
 > [!NOTE]
-> If you're using Microsoft Entra ID to authorize access, then make sure that your security principal has been assigned the [Storage Blob Data Owner role](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner). To learn more about how ACL permissions are applied and the effects of changing them, see [Access control model in Azure Data Lake Storage Gen2](./data-lake-storage-access-control-model.md).
+> If you're using Microsoft Entra ID to authorize access, then make sure that your security principal has been assigned the [Storage Blob Data Owner role](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner). To learn more about how ACL permissions are applied and the effects of changing them, see [Access control model in Azure Data Lake Storage](./data-lake-storage-access-control-model.md).
 
 With this approach, the system ensures that your user account has the appropriate Azure role-based access control (Azure RBAC) assignments and ACL permissions.
 
@@ -127,7 +127,7 @@ The following image shows the output after getting the ACL of a directory.
 
 ![Get ACL output for directory](./media/data-lake-storage-directory-file-acl-powershell/get-acl.png)
 
-In this example, the owning user has read, write, and execute permissions. The owning group has only read and execute permissions. For more information about access control lists, see [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
+In this example, the owning user has read, write, and execute permissions. The owning group has only read and execute permissions. For more information about access control lists, see [Access control in Azure Data Lake Storage](data-lake-storage-access-control.md).
 
 ## Set ACLs
 
@@ -192,7 +192,7 @@ The following image shows the output after setting the ACL of a file.
 
 ![Get ACL output for file](./media/data-lake-storage-directory-file-acl-powershell/set-acl.png)
 
-In this example, the owning user and owning group have only read and write permissions. All other users have write and execute permissions. For more information about access control lists, see [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
+In this example, the owning user and owning group have only read and write permissions. All other users have write and execute permissions. For more information about access control lists, see [Access control in Azure Data Lake Storage](data-lake-storage-access-control.md).
 
 ### Set ACLs recursively
 
@@ -363,5 +363,5 @@ To see an example that sets ACLs recursively in batches by specifying a batch si
 
 - [Known issues](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
 - [Storage PowerShell cmdlets](/powershell/module/az.storage)
-- [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md)
-- [Access control lists (ACLs) in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md)
+- [Access control model in Azure Data Lake Storage](data-lake-storage-access-control.md)
+- [Access control lists (ACLs) in Azure Data Lake Storage](data-lake-storage-access-control.md)

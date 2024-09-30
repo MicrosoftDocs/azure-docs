@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: xuycao
 ms.service: azure-spring-apps
 ms.topic: conceptual
-ms.date: 03/21/2023
+ms.date: 08/29/2024
 ms.custom: devx-track-java
 ---
 

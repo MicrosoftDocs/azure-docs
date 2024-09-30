@@ -4,8 +4,10 @@ titleSuffix: Azure Communication Services
 description: "In this quickstart, you learn how to enable Message Analysis with Azure OpenAI"
 author: gelli
 manager: camilo.ramirez
+services: azure-communication-services
 ms.author: gelli
 ms.service: azure-communication-services
+ms.subservice: advanced-messaging
 ms.topic: quickstart 
 ms.date: 07/05/2024
 ---
@@ -22,7 +24,7 @@ Azure Communication Services enables you to receive Message Analysis results usi
 - [Register Event Grid Resource Provider](../../sms/handle-sms-events.md#register-an-event-grid-resource-provider).
 - [Create an Azure Communication Services resource](../../create-communication-resource.md).
 - [WhatsApp Channel under Azure Communication Services resource](../whatsapp/connect-whatsapp-business-account.md).
-- [Azure OpenAI resource](../../../../ai-services/openai/how-to/create-resource.md).
+- [Azure OpenAI resource](/azure/ai-services/openai/how-to/create-resource).
 
 ## Setup
 
@@ -89,4 +91,4 @@ If you want to clean up and remove a Communication Services subscription, you ca
 - [Message Analysis Transparency FAQ](../../../concepts/advanced-messaging/message-analysis/message-analysis-transparency-faq.md)
 - [Microsoft AI principles](https://www.microsoft.com/ai/responsible-ai)
 - [Microsoft responsible AI resources](https://www.microsoft.com/ai/responsible-ai-resources)
-- [Microsoft Azure Learning courses on responsible AI](https://learn.microsoft.com/training/paths/responsible-ai-business-principles)
+- [Microsoft Azure Learning courses on responsible AI](/training/paths/responsible-ai-business-principles)

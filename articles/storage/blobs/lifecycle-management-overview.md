@@ -186,7 +186,7 @@ The run conditions are based on age. Current versions use the last modified time
 
 ## Lifecycle policy runs
 
-The platform runs the lifecycle policy once a day. When you configure or edit a lifecycle policy., it can take up to 24 hours for changes to go into effect and for the first execution to start. The time taken for policy actions to complete depends on the number of blobs evaluated and operated on.
+When you configure or edit a lifecycle policy., it can take up to 24 hours for changes to go into effect and for the first execution to start. The time taken for policy actions to complete depends on the number of blobs evaluated and operated on.
 
 If you disable a policy, then no new policy runs will be scheduled, but if a run is already in progress, that run will continue until it completes and you're billed for any actions that are required to complete the run. See [Regional availability and pricing](#regional-availability-and-pricing).  
 

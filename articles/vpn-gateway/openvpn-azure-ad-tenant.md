@@ -8,6 +8,8 @@ ms.topic: how-to
 ms.date: 08/14/2024
 ms.author: cherylmc
 
+#Note that Audience values are not sensitive data. 
+
 ---
 
 # Configure P2S VPN Gateway for Microsoft Entra ID authentication – manually registered app
