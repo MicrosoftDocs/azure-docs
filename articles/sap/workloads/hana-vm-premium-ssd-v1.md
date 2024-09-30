@@ -74,7 +74,7 @@ Especially on smaller DBMS systems where your workload is handling a few hundred
 
 
 > [!NOTE]
-> For production scenarios, check whether a certain VM type is supported for SAP HANA by SAP in the [SAP documentation for IAAS](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html).
+> For production scenarios, check whether a certain VM type is supported for SAP HANA by SAP in the [SAP documentation for IAAS](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified&sort=Latest%20Certification&sortDesc=true).
 
 **Recommendation: The recommended configurations with Azure premium storage for production scenarios look like:**
 
