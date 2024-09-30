@@ -11,6 +11,8 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 # Quickstart: Enable and disable Eureka Server in Azure Spring Apps
 
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
+
 **This article applies to:** ✔️ Standard consumption and dedicated (Preview) ❌ Basic/Standard ❌ Enterprise
 
 This article describes how to enable and disable Eureka Server for service registration and discovery in Azure Spring Apps. Service registration and discovery are key requirements for maintaining a list of live app instances to call, and for routing and load balancing inbound requests. Configuring each client manually takes time and introduces the possibility of human error.
