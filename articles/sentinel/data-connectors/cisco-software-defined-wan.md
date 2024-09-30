@@ -82,7 +82,7 @@ Azure Monitor Agent will be used to collect the syslog data into Microsoft senti
 9. Select Next: Destination.
 10. Select Add destination and add Destination type, Subscription and Account or namespace.
 11. Select Add data source. Select Next: Review + create.
-12. Select Create. Wait for 20 minutes. In Microsoft Sentinel or Azure Monitor, verify that the Azure Monitor agent is running on your VM.
+12. Select Create. Wait for 20 minutes. In Microsoft Sentinel or Azure Monitor, verify that the Azure Monitor Agent is running on your VM.
 [Reference link](/azure/sentinel/forward-syslog-monitor-agent)
 
 2. Steps to ingest Netflow data to Microsoft sentinel

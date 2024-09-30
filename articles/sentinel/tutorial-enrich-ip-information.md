@@ -48,7 +48,7 @@ To complete this tutorial, make sure you have:
 
 - A (free) [VirusTotal account](https://www.virustotal.com/gui/my-apikey) will suffice for this tutorial. A production implementation requires a VirusTotal Premium account.
 
-- An Azure Monitor agent installed on at least one machine in your environment, so that incidents are generated and sent to Microsoft Sentinel.
+- An Azure Monitor Agent installed on at least one machine in your environment, so that incidents are generated and sent to Microsoft Sentinel.
 
 ## Create a playbook from a template
 

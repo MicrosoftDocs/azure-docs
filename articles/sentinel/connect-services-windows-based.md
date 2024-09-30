@@ -21,9 +21,9 @@ Some connectors based on the Azure Monitor Agent (AMA) are currently in **PREVIE
 
 The Azure Monitor Agent is currently supported only for Windows Security Events, Windows Forwarded Events, and Windows DNS Events. 
 
-The [Azure Monitor agent](/azure/azure-monitor/agents/azure-monitor-agent-overview) uses **Data collection rules (DCRs)** to define the data to collect from each agent. Data collection rules offer you two distinct advantages:
+The [Azure Monitor Agent](/azure/azure-monitor/agents/azure-monitor-agent-overview) uses **Data collection rules (DCRs)** to define the data to collect from each agent. Data collection rules offer you two distinct advantages:
 
-- **Manage collection settings at scale** while still allowing unique, scoped configurations for subsets of machines. They are independent of the workspace and independent of the virtual machine, which means they can be defined once and reused across machines and environments. See [Configure data collection for the Azure Monitor agent](/azure/azure-monitor/agents/azure-monitor-agent-data-collection).
+- **Manage collection settings at scale** while still allowing unique, scoped configurations for subsets of machines. They are independent of the workspace and independent of the virtual machine, which means they can be defined once and reused across machines and environments. See [Configure data collection for the Azure Monitor Agent](/azure/azure-monitor/agents/azure-monitor-agent-data-collection).
 
 - **Build custom filters** to choose the exact events you want to ingest. The Azure Monitor Agent uses these rules to filter the data *at the source* and ingest only the events you want, while leaving everything else behind. This can save you a lot of money in data ingestion costs!
 
@@ -68,7 +68,7 @@ See below how to create data collection rules.
     >
     > - The Windows Security Events connector offers two other [**pre-built event sets**](windows-security-event-id-reference.md) you can choose to collect: **Common** and **Minimal**.
     >
-    > - The Azure Monitor agent supports XPath queries for **[XPath version 1.0](/windows/win32/wes/consuming-events#xpath-10-limitations) only**.
+    > - The Azure Monitor Agent supports XPath queries for **[XPath version 1.0](/windows/win32/wes/consuming-events#xpath-10-limitations) only**.
 
 1. When you've added all the filter expressions you want, select **Next: Review + create**.
 
