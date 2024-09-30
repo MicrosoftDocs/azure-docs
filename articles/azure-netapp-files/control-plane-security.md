@@ -14,7 +14,7 @@ Learn about the different control plane security features in Azure NetApp Files 
 
 ## Control plane security concepts
 
-Azure NetApp Files operates within the Azure control plane, utilizing Azure Resource Manager (ARM) to manage resources efficiently. This integration allows for centralized management of all Azure resources, including Azure NetApp Files, through interfaces including APIs, PowerShell, CLI, or the Azure portal. With ARM, you can automate and script tasks, enhancing operational efficiency and reducing the likelihood of manual errors. 
+Azure NetApp Files operates within the Azure control plane, utilizing Azure Resource Manager (ARM) to manage resources efficiently. This integration allows for centralized management of all Azure resources, including Azure NetApp Files, through interfaces including APIs, PowerShell, CLI, or the Azure portal. With ARM, you can automate and script tasks, enhancing operational efficiency, and reducing the likelihood of manual errors. 
 
 The control plane also integrates with Azure’s security features, such as [identity and access management (IAM)](/entra/fundamentals/introduction-identity-access-management), to enforce access controls and compliance requirements. This integration ensures that only authorized users can access and manage resources, maintaining a secure environment. 
 
@@ -38,11 +38,11 @@ Managing Microsoft platform-managed keys or customer-managed keys involves contr
 - **Auditing and monitoring:** The control plane provides capabilities for auditing and monitoring key usage. This helps you track who accessed your keys and when, enhancing security and compliance.
 For more information, see [Configure customer-managed keys](configure-customer-managed-keys.md).
 
-## Network Security Groups (NSG) Management
+## Network Security Groups management
 
-Managing network security groups (NSGs) in Azure NetApp Files relies on the control plane to oversee and secure network traffic. The effects are as follows:
+Managing network security groups (NSGs) in Azure NetApp Files relies on the control plane to oversee and secure network traffic. Benefits include:
 
-- **Traffic management:** The control plane allows you to define and enforce NSG rules, which control the flow of network traffic to and from your Azure NetApp Files. Controlling network trafic ensures that only authorized traffic is allowed, enhancing security. 
+- **Traffic management:** The control plane allows you to define and enforce NSG rules, which control the flow of network traffic to and from your Azure NetApp Files. Controlling network traffic ensures that only authorized traffic is allowed, enhancing security. 
 - **Configuration and deployment:** Through the control plane, you can configure NSGs on the subnets where your Azure NetApp Files volumes are deployed, including establishing rules for inbound and outbound traffic based on IP addresses, ports, and protocols. 
 - **Integration with Azure Services:** The control plane facilitates the integration of NSGs with other Azure services, such as Azure Virtual Network and Azure Key Vault. This integration helps maintain a secure and compliant environment.
 - **Monitoring and auditing:** The control plane provides tools for monitoring and auditing network traffic. You can track which rules are being applied and adjust them as needed to ensure optimal security and performance. 
@@ -54,7 +54,7 @@ For more information, see [Guidelines for Azure NetApp Files network planning](a
 
 The control plane enables the configuration of User-Defined Routes (UDRs) on the subnets where Azure NetApp Files volumes are deployed. UDRs allow for precise control over the routing of network traffic, ensuring data packets are directed through specific paths such as Network Virtual Appliances (NVAs) for traffic inspection. By defining these routes, network performance can be optimized, and security can be enhanced by controlling how traffic flows within the Azure environment.
 
-For more information, see [Guidelines for Azure NetApp Files network planning](azure-network-files-netwrok-topologies.md) and the [UDR overview](../virtual-network/virtual-networks-udr-overview#user-defined.md).
+For more information, see [Guidelines for Azure NetApp Files network planning](azure-network-files-network-topologies.md) and the [UDR overview](../virtual-network/virtual-networks-udr-overview.md#user-defined).
 
 ## Resource lock management
 
@@ -64,20 +64,20 @@ Resource locking at the control plane layer ensures that your Azure NetApp Files
 
 ## Monitoring and audit logging
 
-Monitoring, auditing and logging are critical for maintaining security and compliance in your Azure NetApp Files environment. The control plane logs events related to storage operations, providing a comprehensive record of activities. This allows administrators to monitor and detect any suspicious activity, investigate security incidents, and establish accountability.
+Monitoring, auditing, and logging are critical for maintaining security and compliance in your Azure NetApp Files environment. The control plane logs events related to storage operations, providing a comprehensive record of activities. Logging allows administrators to monitor and detect any suspicious activity, investigate security incidents, and establish accountability.
 
 ### Monitoring capabilities
 
-- Azure Activity log:
-    - **Function:** Provides insights into subscription-level events, such as resource modifications or virtual machine startups. These insights aid in tracking changes and identifying unauthorized activities. To understand how Activity log works, see [Azure Activity log](../azure-monitor/essentials/activity-log.md).
+- **Azure Activity log:**
+    - **Function:** Provides insights into subscription-level events, such as resource modifications or virtual machine startups. These insights aid in tracking changes and identifying unauthorized activities. To understand how Activity log works, see [Azure Activity log](/azure/azure-monitor/essentials/activity-log).
     - **Use case:** Useful for auditing and compliance, ensuring that all actions within your Azure NetApp Files environment are logged and traceable. 
-- Azure NetApp Files metrics:
+- **Azure NetApp Files metrics:**
     - **Function:** Azure NetApp Files offers metrics on allocated storage, actual storage usage, volume I/OPS, and latency. These metrics help you understand usage patterns and volume performance. For more information, see [Metrics for Azure NetApp Files](azure-netapp-files-metrics.md).
 	- **Use case:** Metrics are essential for performance tuning and capacity planning, allowing you to optimize your storage resources effectively.
-- Azure Service Health:
-    - **Function:** Azure Service Health keeps you informed about the health of your Azure services, providing a personalized view of the status of your environment. For more information, see [Service Health portal classic experience overview](../service-health/service-health-overview.md).
+- **Azure Service Health:**
+    - **Function:** Azure Service Health keeps you informed about the health of your Azure services, providing a personalized view of the status of your environment. For more information, see [Service Health portal classic experience overview](/azure/service-health/service-health-overview).
     - **Use case:** Azure Service Health helps you stay updated on planned maintenance and health advisories, ensuring minimal disruption to your operations.
-- Audit Logging:
+- **Audit logging:**
     - **Scope:** The control plane logs all PUT, POST, and DELETE API operations against Azure NetApp Files. These logs include actions such as creating snapshots, modifying volumes, and deleting resources. For more information, see [Are Azure activity logs supported in Azure NetApp Files?](faq-security.md#are-azure-activity-logs-supported-on-azure-netapp-files)
     - **Details:** Logs capture detailed information about each operation, including who performed the action, when it was performed, and what changes were made. This level of detail is crucial for auditing and forensic investigations. For a complete list of API operations, see [Azure NetApp Files REST API](/rest/api/netapp).
 
