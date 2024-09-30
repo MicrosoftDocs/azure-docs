@@ -1,5 +1,5 @@
 ---
-title: Configure Kafka dataflow endpoints in Azure IoT Operations
+title: Configure Azure Event Hubs and Kafka dataflow endpoints in Azure IoT Operations
 description: Learn how to configure dataflow endpoints for Kafka in Azure IoT Operations.
 author: PatAltimore
 ms.author: patricka
@@ -11,7 +11,7 @@ ai-usage: ai-assisted
 #CustomerIntent: As an operator, I want to understand how to configure dataflow endpoints for Kafka in Azure IoT Operations so that I can send data to and from Kafka endpoints.
 ---
 
-# Configure Kafka dataflow endpoints
+# Configure Azure Event Hubs and Kafka dataflow endpoints
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
@@ -32,16 +32,28 @@ To create a dataflow endpoint for Kafka, you need to specify the Kafka broker ho
 
 If you're using Azure Event Hubs, create an Azure Event Hubs namespace and a Kafka-enabled event hub for each Kafka topic. 
 
-### Configure a Kafka dataflow endpoint
-
 To configure a dataflow endpoint for a Kafka endpoint, we suggest using the managed identity of the Azure Arc-enabled Kubernetes cluster. This approach is secure and eliminates the need for secret management.
 
 # [Portal](#tab/portal)
 
 1. In the IoT Operations portal, select the **Dataflow endpoints** tab.
-1. Under **Create new dataflow endpoint**, select **Microsoft Fabric OneLake** > **New**.
+1. Under **Create new dataflow endpoint**, select **Azure Event Hubs** > **New**.
 
-:::image type="content" source="media/howto-configure-kafka-endpoint/create-kafka-endpoint.png" alt-text="Screenshot using Azure Operations portal to create a Kafka dataflow endpoint.":::
+    :::image type="content" source="media/howto-configure-kafka-endpoint/create-event-hubs-endpoint.png" alt-text="Screenshot using Azure Operations portal to create an Azure Event Hubs dataflow endpoint.":::
+
+1. Enter the following settings for the endpoint:
+
+    | Setting              | Description                                                                                       |
+    | -------------------- | ------------------------------------------------------------------------------------------------- |
+    | Name                 | The name of the dataflow endpoint.                                     |
+    | Host                 | The hostname of the Kafka broker in the format `<HOST>.servicebus.windows.net`. |
+    | Authentication method| The method used for authentication. Choose *System assigned managed identity*, *User assigned managed identity*, *SASL*, or *X509 certificate*. |
+    | SASL type            | The type of SASL authentication. Choose *Plain*, *ScramSha256*, or *ScramSha512*. Required if using *SASL*. |
+    | Synced secret name   | The name of the secret. Required if using *SASL* or *X509*. |
+    | Username reference of token secret | The reference to the username in the SASL token secret. Required if using *SASL*. |
+    | X509 client certificate | The X.509 client certificate used for authentication. Required if using *X509*. |
+    | X509 intermediate certificates | The intermediate certificates for the X.509 client certificate chain. Required if using *X509*. |
+    | X509 client key | The private key corresponding to the X.509 client certificate. Required if using *X509*. |
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -55,12 +67,12 @@ To configure a dataflow endpoint for a Kafka endpoint, we suggest using the mana
     apiVersion: connectivity.iotoperations.azure.com/v1beta1
     kind: DataflowEndpoint
     metadata:
-      name: kafka
+      name: eventhubs
       namespace: azure-iot-operations
     spec:
       endpointType: Kafka
       kafkaSettings:
-        host: <NAMESPACE>.servicebus.windows.net:9093
+        host: <HOST>.servicebus.windows.net:9093
         authentication:
           method: SystemAssignedManagedIdentity
           systemAssignedManagedIdentitySettings: {}
@@ -68,8 +80,6 @@ To configure a dataflow endpoint for a Kafka endpoint, we suggest using the mana
           mode: Enabled
         consumerGroupId: mqConnector
     ```
-
----
 
 The Kafka topic, or individual event hub, is configured later when you create the dataflow. The Kafka topic is the destination for the dataflow messages.
 
@@ -99,13 +109,40 @@ kubectl create secret generic cs-secret -n azure-iot-operations \
 > [!TIP]
 > Scoping the connection string to the namespace (as opposed to individual event hubs) allows a dataflow to send and receive messages from multiple different event hubs and Kafka topics.
 
+---
+
 #### Limitations
 
 Azure Event Hubs [doesn't support all the compression types that Kafka supports](../../event-hubs/azure-event-hubs-kafka-overview.md#compression). Only GZIP compression is supported. Using other compression types might result in errors.
 
 ### Other Kafka brokers
 
-To configure a dataflow endpoint for non-Event-Hub Kafka brokers, set the host, TLS, authentication, and other settings as needed. For example:
+To configure a dataflow endpoint for non-Event-Hub Kafka brokers, set the host, TLS, authentication, and other settings as needed.
+
+# [Portal](#tab/portal)
+
+1. In the IoT Operations portal, select the **Dataflow endpoints** tab.
+1. Under **Create new dataflow endpoint**, select **Custom Kafka Broker** > **New**.
+
+    :::image type="content" source="media/howto-configure-kafka-endpoint/create-kafka-endpoint.png" alt-text="Screenshot using Azure Operations portal to create a Kafka dataflow endpoint.":::
+
+1. Enter the following settings for the endpoint:
+
+    | Setting              | Description                                                                                       |
+    | -------------------- | ------------------------------------------------------------------------------------------------- |
+    | Name                 | The name of the dataflow endpoint.                                     |
+    | Host                 | The hostname of the Kafka broker in the format `<HOST>.servicebus.windows.net`. |
+    | Authentication method| The method used for authentication. Choose *System assigned managed identity*, *User assigned managed identity*, *SASL*, or *X509 certificate*. |
+    | SASL type            | The type of SASL authentication. Choose *Plain*, *ScramSha256*, or *ScramSha512*. Required if using *SASL*. |
+    | Synced secret name   | The name of the secret. Required if using *SASL* or *X509*. |
+    | Username reference of token secret | The reference to the username in the SASL token secret. Required if using *SASL*. |
+    | X509 client certificate | The X.509 client certificate used for authentication. Required if using *X509*. |
+    | X509 intermediate certificates | The intermediate certificates for the X.509 client certificate chain. Required if using *X509*. |
+    | X509 client key | The private key corresponding to the X.509 client certificate. Required if using *X509*. |
+
+1. Select **Apply** to provision the endpoint.
+
+# [Kubernetes](#tab/kubernetes)
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1beta1
@@ -127,13 +164,19 @@ spec:
     consumerGroupId: mqConnector
 ```
 
-## Configure dataflow source or destination endpoint
+## Use the endpoint in a dataflow source or destination
 
 Once the endpoint is created, you can use it in a dataflow by specifying the endpoint name in the dataflow's source or destination settings.
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="media/howto-configure-fabric-endpoint/dataflow-mq-fabric.png" alt-text="Screenshot using Azure Operations portal to create a dataflow with an MQTT source and Azure Data Explorer destination.":::
+1. In the Azure IoT Operations Preview portal, create a new dataflow or edit an existing dataflow by selecting the **Dataflows** tab.
+1. In the editor, select the source or destination dataflow endpoint. Kafka endpoints can be used as both source and destination.
+1. Choose the Kafka dataflow endpoint that you created previously.
+
+    :::image type="content" source="media/howto-configure-kafka-endpoint/dataflow-mq-kafka.png" alt-text="Screenshot using Azure Operations portal to create a dataflow with an MQTT source and Azure Event Hubs destination.":::
+
+1. Specify the Kafka topic where messages are sent.
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -165,40 +208,24 @@ To customize the endpoint settings, see the following sections for more informat
 
 ### Available authentication methods
 
-Under `kafkaSettings.authentication`, you can configure the authentication method for the Kafka broker. Supported methods include SASL, X.509, system-assigned managed identity, user-assigned managed identity, and anonymous.
-
-```yaml
-kafkaSettings:
-  host: <KAFKA-HOST>:9093
-  authentication:
-    method: Sasl
-    saslSettings:
-      saslType: Plain
-      secretRef: <YOUR-TOKEN-SECRET-NAME>
-  # OR
-  authentication:
-    method: X509Certificate
-    x509CertificateSettings:
-      secretRef: <YOUR-X509-SECRET-NAME>
-  # OR
-  authentication:
-    method: SystemAssignedManagedIdentity
-    systemAssignedManagedIdentitySettings:
-      audience: https://<YOUR-EVENT-HUBS-NAMESPACE>.servicebus.windows.net
-  # OR
-  authentication:
-    method: UserAssignedManagedIdentity
-    userAssignedManagedIdentitySettings:
-      clientId: <ID>
-      tenantId: <ID>
-  # OR
-  authentication:
-    method: Anonymous
-    anonymousSettings:
-      {}
-```
+The following authentication methods are available for Kafka broker dataflow endpoints. 
 
 #### SASL
+
+# [Portal](#tab/portal)
+
+In the Azure IoT Operations portal dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **SASL**.
+
+Enter the following settings for the endpoint:
+
+| Setting                        | Description                                                                                       |
+| ------------------------------ | ------------------------------------------------------------------------------------------------- |
+| SASL type                      | The type of SASL authentication to use. Supported types are `Plain`, `ScramSha256`, and `ScramSha512`. |
+| Synced secret name             | The name of the Kubernetes secret that contains the SASL token.                                   |
+| Username reference or token secret | The reference to the username or token secret used for SASL authentication.                     |
+| Password reference of token secret | The reference to the password or token secret used for SASL authentication.                     |
+
+# [Kubernetes](#tab/kubernetes)
 
 To use SASL for authentication, update the `authentication` section of the Kafka settings to use the `Sasl` method and configure the `saslSettings` with the `saslType` and the `secretRef` with the name of the secret that contains the SASL token.
 
@@ -224,7 +251,24 @@ kubectl create secret generic sasl-secret -n azure-iot-operations \
   --from-literal=token='your-sasl-token'
 ```
 
+---
+
 #### X.509
+
+# [Portal](#tab/portal)
+
+In the Azure IoT Operations portal dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **X509 certificate**.
+
+Enter the following settings for the endpoint:
+
+| Setting               | Description                                                                                       |
+| --------------------- | ------------------------------------------------------------------------------------------------- |
+| Synced secret name   | The name of the secret. |
+| X509 client certificate | The X.509 client certificate used for authentication. |
+| X509 intermediate certificates | The intermediate certificates for the X.509 client certificate chain.  |
+| X509 client key       | The private key corresponding to the X.509 client certificate. |
+
+# [Kubernetes](#tab/kubernetes)
 
 To use X.509 for authentication, update the `authentication` section of the Kafka settings to use the `X509Certificate` method and configure the `x509CertificateSettings` with the `secretRef` with the name of the secret that contains the X.509 certificate.
 
@@ -244,11 +288,19 @@ kubectl create secret tls my-tls-secret -n azure-iot-operations \
   --key=path/to/key/file
 ```
 
+---
+
 #### System-assigned managed identity
 
 To use system-assigned managed identity for authentication, first assign a role to the Azure IoT Operation managed identity that grants permission to send and receive messages from Event Hubs, such as Azure Event Hubs Data Owner or Azure Event Hubs Data Sender/Receiver. To learn more, see [Authenticate an application with Microsoft Entra ID to access Event Hubs resources](../../event-hubs/authenticate-application.md#built-in-roles-for-azure-event-hubs).
 
-Then, update the `authentication` section of the DataflowEndpoint Kafka settings to use the `SystemAssignedManagedIdentity` method. In most cases, you can set the `systemAssignedManagedIdentitySettings` with an empty object.
+# [Portal](#tab/portal)
+
+In the Azure IoT Operations portal dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **System assigned managed identity**.
+
+# [Kubernetes](#tab/kubernetes)
+
+Update the `authentication` section of the DataflowEndpoint Kafka settings to use the `SystemAssignedManagedIdentity` method. In most cases, you can set the `systemAssignedManagedIdentitySettings` with an empty object.
 
 ```yaml
 kafkaSettings:
@@ -268,7 +320,17 @@ kafkaSettings:
       audience: <YOUR-AUDIENCE-OVERRIDE-VALUE>
 ```
 
+---
+
 #### User-assigned managed identity
+
+# [Portal](#tab/portal)
+
+In the Azure IoT Operations portal dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **User assigned managed identity**.
+
+Enter the user assigned managed identity client ID and tenant ID in the appropriate fields.
+
+# [Kubernetes](#tab/kubernetes)
 
 To use a user-assigned managed identity, specify the `UserAssignedManagedIdentity` authentication method.
 
@@ -282,6 +344,8 @@ kafkaSettings:
 ```
 
 <!-- TODO: Add link to WLIF docs -->
+
+---
 
 #### Anonymous
 
@@ -299,7 +363,16 @@ kafkaSettings:
 
 You can set advanced settings for the Kafka dataflow endpoint such as TLS, trusted CA certificate, Kafka messaging settings, batching, and CloudEvents. You can set these settings in the dataflow endpoint **Advanced** portal tab or within the dataflow endpoint custom resource.
 
+# [Portal](#tab/portal)
+
+In the IoT Operations portal, select the **Advanced** tab for the dataflow endpoint.
+
 :::image type="content" source="media/howto-configure-kafka-endpoint/kafka-advanced.png" alt-text="Screenshot using Azure Operations portal to set Kafka dataflow endpoint advanced settings.":::
+
+| Setting                  | Description                                                                                       |
+| ------------------------ | ------------------------------------------------------------------------------------------------- |
+
+# [Kubernetes](#tab/kubernetes)
 
 ### TLS settings
 
@@ -622,3 +695,5 @@ CloudEvent properties are passed through for messages that contain the required 
 | `time`            | No       | `ce-time`            | Generated as RFC 3339 in the target client                                    |
 | `datacontenttype` | No       | `ce-datacontenttype` | Changed to the output data content type after the optional transform stage    |
 | `dataschema`      | No       | `ce-dataschema`      | Schema defined in the schema registry                                         |
+
+---

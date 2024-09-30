@@ -192,15 +192,15 @@ Once you've configured the endpoint, you can use it in a dataflow as both a sour
 
 # [Portal](#tab/portal)
 
-1. In the Azure IoT Operations Preview portal, create a new dataflow or edit an existing dataflow by selecting the **Dataflows** tab. If creating a new dataflow, select a source for the dataflow.
+1. In the Azure IoT Operations Preview portal, create a new dataflow or edit an existing dataflow by selecting the **Dataflows** tab.
 1. In the editor, select the source or destination dataflow endpoint. MQTT broker endpoints can be used as both source and destination.
-1. Choose the MQTT broker Azure Data Explorer endpoint that you created previously.
+1. Choose the MQTT broker dataflow endpoint that you created previously.
 
     :::image type="content" source="media/howto-configure-dataflow-endpoint/create-dataflow-mq-mq.png" alt-text="Screenshot using Azure Operations portal to create a dataflow with an MQTT source and destination.":::
 
     Enter the following settings for the endpoint:
 
-    | Settings      | Description                                                                     |
+    | Setting     | Description                                                                     |
     | ------------- | ------------------------------------------------------------------------------- |
     | MQTT topic    | The topic to which the dataflow subscribes (if source) or publishes (if destination). |
     | Message schema| The schema that defines the structure of the messages being received (if source) or sent (if destination). You can select an existing schema or upload a new schema to the schema registry. |
@@ -235,7 +235,7 @@ spec:
 
 For more information about dataflow destination settings, see [Create a dataflow](howto-create-dataflow.md).
 
-For information on how to customize the MQTT endpoint settings, see the next sections in the article.
+To customize the MQTT endpoint settings, see the following sections for more information.
 
 ### Available authentication methods
 
@@ -245,7 +245,7 @@ The following authentication methods are available for MQTT broker dataflow endp
 
 Many MQTT brokers, like Event Grid, support X.509 authentication. Dataflows can present a client X.509 certificate and negotiate the TLS communication. 
 
-To use X.509 certificate authentication, you need to create a secret with the certificate and private key. The secret must be in the same namespace as the Kafka dataflow resource. Use the Kubernetes TLS secret containing the public certificate and private key. For example:
+To use X.509 certificate authentication, you need to create a secret with the certificate and private key. Use the Kubernetes TLS secret containing the public certificate and private key. For example:
 
 ```bash
 kubectl create secret tls my-tls-secret -n azure-iot-operations \

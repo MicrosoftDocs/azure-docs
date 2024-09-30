@@ -75,7 +75,7 @@ Once the endpoint is created, you can use it in a dataflow by specifying the end
 
     Enter the following settings for the endpoint:
 
-    | Settings      | Description                                                                                       |
+    | Setting     | Description                                                                                       |
     | ------------- | ------------------------------------------------------------------------------------------------- |
     | Folder name   | The name of the folder where the data should be stored.                                           |
     | Schema name   | The name of the schema that defines the structure of the data.                                     |

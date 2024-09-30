@@ -38,7 +38,7 @@ To configure a dataflow endpoint for Microsoft Fabric OneLake, we suggest using 
 
 1. Enter the following settings for the endpoint:
 
-    | Settings             | Description                                                   |
+    | Setting              | Description                                                   |
     | -------------------- | ------------------------------------------------------------- |
     | Host                 | The hostname of the Microsoft Fabric OneLake endpoint in the format `onelake.dfs.fabric.microsoft.com`. |
     | Lakehouse name       | The name of the lakehouse where the data should be stored.    |
@@ -47,6 +47,8 @@ To configure a dataflow endpoint for Microsoft Fabric OneLake, we suggest using 
     | Authentication method | The method used for authentication. Choose *System assigned managed identity* or *User assigned managed identity* |
     | Client ID             | The client ID of the user-assigned managed identity. Required if using *User assigned managed identity*. |
     | Tenant ID             | The tenant ID of the user-assigned managed identity. Required if using *User assigned managed identity*. |
+
+1. Select **Apply** to provision the endpoint.
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -95,13 +97,12 @@ Once the endpoint is created, you can use it in a dataflow by specifying the end
 
 1. Enter the following settings for the endpoint:
 
-| Settings             | Description                                                                                       |
-| -------------------- | ------------------------------------------------------------------------------------------------- |
-| Table or folder name | The name of the table or folder where the data is sent.                                   |
-| Schema name          | The name of the schema that defines the structure of the data.                                     |
-| Output schema        | The schema that matches the table schema in Microsoft Fabric OneLake. You can select an existing schema or upload a new one to the schema registry. |
+    | Setting            | Description                                                                                       |
+    | -------------------- | ------------------------------------------------------------------------------------------------- |
+    | Table or folder name | The name of the table or folder where the data is sent.                                   |
+    | Schema name          | The name of the schema that defines the structure of the data.                                     |
+    | Output schema        | The schema that matches the table schema in Microsoft Fabric OneLake. You can select an existing schema or upload a new one to the schema registry. |
 
-    
 # [Kubernetes](#tab/kubernetes)
 
 ```yaml
