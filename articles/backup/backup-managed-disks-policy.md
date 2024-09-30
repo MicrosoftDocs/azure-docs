@@ -51,25 +51,25 @@ To assign Policy 2, follow these steps:
 
 3. Filter the list for **Category=Backup** and select the policy named *Configure backup on Managed Disks with a given tag to an existing backup vault in the same location to a given scope*.
    
-:::image type="content" source="./media/backup-managed-disks-policy/policy-dashboard-inline.png" alt-text="Screenshot showing how to filter the list by category on Policy dashboard." lightbox="./media/backup-managed-disks-policy/policy-dashboard-inline.png":::
+:::image type="content" source="./media/backup-managed-disks-policy/policy-dashboard-inline.png" alt-text="Screenshot showing how to filter the list by category on Policy dashboard.":::
 
-5. Select the name of the policy. You're then redirected to the detailed definition for this policy.
+4. Select the name of the policy. You're then redirected to the detailed definition for this policy.
 
-:::image type="content" source="./media/backup-managed-disks-policy/policy-definition-blade.png" alt-text="Screenshot showing the Policy Definition pane." lightbox="./media/backup-managed-disks-policy/policy-definition-blade.png":::
+:::image type="content" source="./media/backup-managed-disks-policy/policy-definition-blade.png" alt-text="Screenshot showing the Policy Definition pane.":::
 
-6. Select the **Assign** button at the top of the pane. This redirects you to the **Assign Policy** pane.
+5. Select the **Assign** button at the top of the pane. This redirects you to the **Assign Policy** pane.
 
-7. Under **Basics**, select the three dots next to the **Scope** field. It opens up a right context pane where you can select the subscription for the policy to be applied on. You can also optionally select a resource group, so that the policy is applied only for Disks in a particular resource group.
+6. Under **Basics**, select the three dots next to the **Scope** field. It opens up a right context pane where you can select the subscription for the policy to be applied on. You can also optionally select a resource group, so that the policy is applied only for Disks in a particular resource group.
 
-:::image type="content" source="./media/backup-managed-disks-policy/policy-assignment-basics.png" alt-text="Screenshot showing the Policy Assignment Basics tab." lightbox="./media/backup-managed-disks-policy/policy-assignment-basics.png":::
+:::image type="content" source="./media/backup-managed-disks-policy/policy-assignment-basics.png" alt-text="Screenshot showing the Policy Assignment Basics tab.":::
 
-9. In the **Parameters** tab, choose a location from the drop-down, and select the vault, backup policy to which the Disks in the scope must be associated, and resource group where these disk snapshots are stored. You can also choose to specify a tag name and an array of tag values. A Disk that contains any of the specified values for the given tag is included in the scope of the policy assignment.
+7. In the **Parameters** tab, choose a location from the drop-down, and select the vault, backup policy to which the Disks in the scope must be associated, and resource group where these disk snapshots are stored. You can also choose to specify a tag name and an array of tag values. A Disk that contains any of the specified values for the given tag is included in the scope of the policy assignment.
 
-:::image type="content" source="./media/backup-managed-disks-policy/policy-assignment-parameters.png" alt-text="Screenshot showing the Policy Assignment Parameters pane." lightbox="./media/backup-managed-disks-policy/policy-assignment-parameters.png":::
+:::image type="content" source="./media/backup-managed-disks-policy/policy-assignment-parameters.png" alt-text="Screenshot showing the Policy Assignment Parameters pane.":::
 
-11. Ensure that **Effect** is set to deployIfNotExists.
+8. Ensure that **Effect** is set to deployIfNotExists.
 
-12. Navigate to **Review+create** and select **Create**.
+9. Navigate to **Review+create** and select **Create**.
 
 > [!NOTE]
 >
