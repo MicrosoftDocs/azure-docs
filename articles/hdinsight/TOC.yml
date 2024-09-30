@@ -370,7 +370,9 @@ items:
       - name: What's new in HDInsight 4.0
         href: ./hdinsight-version-release.md
       - name: Release notes
-        href: ./hdinsight-release-notes.md    
+        href: ./hdinsight-release-notes.md
+      - name: HDInsight retirements and action required
+        href: ./hdinsight-component-retirements-and-action-required.md 
       - name: Archived release notes for Azure HDInsight
         href: ./hdinsight-release-notes-archive.md 
     - name: Frequently asked questions (FAQ)
