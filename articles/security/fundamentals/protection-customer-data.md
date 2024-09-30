@@ -50,7 +50,7 @@ When you create your storage account, select one of the following replication op
 **Data destruction**: When customers delete data or leave Azure, Microsoft follows strict standards for deleting data and the physical destruction of decommissioned hardware. Microsoft executes a complete deletion of data on customer request and on contract termination. For more information, see [Data management at Microsoft](https://www.microsoft.com/trust-center/privacy/data-management).
 
 ## Customer data ownership
-Microsoft doesn't inspect, approve, or monitor applications that customers deploy to Azure. Moreover, Microsoft doesn't know what kind of data customers choose to store in Azure. Microsoft doesm't claim data ownership over the customer information entered into Azure.
+Microsoft doesn't inspect, approve, or monitor applications that customers deploy to Azure. Moreover, Microsoft doesn't know what kind of data customers choose to store in Azure. Microsoft doesn't claim data ownership over the customer information entered into Azure.
 
 ## Records management
 Azure established internal records-retention requirements for back-end data. Customers are responsible for identifying their own record retention requirements. For records that are stored in Azure, customers are responsible for extracting their data and retaining their content outside of Azure for a customer-specified retention period.
