@@ -1,6 +1,6 @@
 ### YamlMime:FAQ
 metadata:
-  title: FAQ - Backing up SQL Server databases on Azure VMs
+  title: FAQ - Backing up SQL Server databases on Azure Virtual Machines (VMs)
   description: Find answers to common questions about backing up SQL Server databases on Azure VMs with Azure Backup.
   ms.reviewer: vijayts
   ms.topic: faq
