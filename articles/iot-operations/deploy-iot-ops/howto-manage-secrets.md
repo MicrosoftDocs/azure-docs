@@ -35,14 +35,23 @@ Secrets management for Azure IoT Operations uses Secret Store extension to sync 
 
 Once the setup secrets management steps are completed, you can start adding secrets to Azure Key Vault, and sync them to the edge to be used in **Asset Endpoints** or **Dataflow Endpoints** using the [operations experience](https://iotoperations.azure.com) web UI.
 
-Secrets are used in asset endpoints and dataflow endpoints for authentication. In this section, we use asset endpoints as an example, the same can be applied to dataflow endpoints. You have the following options when using a secret from the selected key vault:
+Secrets are used in asset endpoints and dataflow endpoints for authentication. In this section, we use asset endpoints as an example, the same can be applied to dataflow endpoints. You have the option to directly create the secret in Azure Key Vault and have it automatically synchronized down to the edge, or use an existing secret reference from the key vault:
+
+:::image type="content" source="../deploy-iot-ops/media/howto-manage-secrets/use-secrets.png" alt-text="Screenshot that shows the Add from Azure Key Vault and Create new options when selecting a secret in operations experience." lightbox="../deploy-iot-ops/media/howto-manage-secrets/use-secrets.png":::
 
 - **Create a new secret**: creates a secret reference in the Azure Key Vault and also automatically synchronizes the secret down to the edge using Secret Store extension. Use this option if you didn't create the secret you require for this scenario in the key vault beforehand. 
 
-- **Add from Azure Key Vault**: synchronizes an existing secret in key vault down to the edge if it wasn't synchronized before. Selecting this option shows you the list of secret references in the selected key vault. Use this option if you created the secret in the key vault beforehand.  
+- **Add from Azure Key Vault**: synchronizes an existing secret in key vault down to the edge if it wasn't synchronized before. Selecting this option shows you the list of secret references in the selected key vault. Use this option if you created the secret in the key vault beforehand.
+
+When you add the username and password references to the asset endpoints or dataflow endpoints, you then need to give the synchronized secret a name. The secret references will be saved in the edge with this given name as one resource. In the example from the screenshot below, the username and password references are saved to the edge as *edp1secrets*.
+
+:::image type="content" source="../deploy-iot-ops/media/howto-manage-secrets/synced-secret-name.png" alt-text="Screenshot that shows the synced secret name field when username password is selected for authentication mode in operations experience." lightbox="../deploy-iot-ops/media/howto-manage-secrets/synced-secret-name.png":::
 
 ## Manage Synced Secrets
 
-You can use **Manage Secrets** for asset endpoints and dataflow endpoints to view or delete synced secrets. 
+You can use **Manage Secrets** for asset endpoints and dataflow endpoints to manage synchronized secrets. **Manage Secrets** shows the list of all current synchronized secrets at the edge for the resource you are viewing. A synced Secret represents one or multiple secret references, depending on the resource using it. Any operation applied to a synced secret will be applied to all secret references contained within the synced secret. 
 
-You can delete synced secrets as well. When you delete a synced secret, it only deletes the secret from the edge, and doesn't delete the secret from key vault. Before deleting a synced secret, make sure that all references to the secret from Azure IoT Operations components are removed.
+You can delete synced secrets as well in **Manage Secrets** . When you delete a synced secret, it only deletes the synced secret from the edge, and doesn't delete the contained secret reference from key vault. 
+
+> [!NOTE]
+> Before deleting a synced secret, make sure that all references to the secret from Azure IoT Operations components are removed.
