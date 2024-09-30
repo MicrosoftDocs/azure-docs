@@ -52,7 +52,7 @@ In this section, you see kwown issues with VMware Aria.
 
 - While adding the Azure VMware Solution vCenter Server as a data source, selecting "VMware vCenter" as the data source type leads to the following error: **"Global.settings is missing in CloudAdmin role"** , which prevents adding vCenter Server to VMware Aria Operations for Network. To resolve this error, select "VMC vCenter" as the data source type instead.
 - To add Azure VMware Solution NSX Manager as a data source in VMware Aria Operations for Network, go to Settings > Accounts and Data Sources, then click "Add Source." In the VMware Cloud (VMC) category, select "Azure VMware Solution NSX Manager."
-- The CloudAdmin role doesn't have write access to NSX IPFIX MP API: **/api/v1/ipfix/collectorconfigs/<id>**. As this API isn't allowed for CloudAdmin, VMware Aria Operations for Networks no longer supports IPFIX flow collection for logical switches created using Advanced Networking tab in NSX. 
+- The CloudAdmin role doesn't have write access to NSX IPFIX MP API: **/api/v1/ipfix/collectorconfigs/\<id\>**. As this API isn't allowed for CloudAdmin, VMware Aria Operations for Networks no longer supports IPFIX flow collection for logical switches created using Advanced Networking tab in NSX. 
 
 ### VMware Aria Automation Orchestrator
 
