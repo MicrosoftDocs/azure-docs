@@ -27,7 +27,7 @@ Learn more about how to create Auto Attendant using Teams Admin Center [here](/m
 ## Find Object ID for Auto Attendant
 
 After Auto Attendant is created, we need to find correlated Object ID to use it later for calls. Object ID is connected to Resource Account that was attached to Auto Attendant - open [Resource Accounts tab](https://admin.teams.microsoft.com/company-wide-settings/resource-accounts) in Teams Admin and find email of account.
-:::image type="content" source="../media/teams-call-queue-resource-account.PNG" alt-text="Screenshot of Resource Accounts in Teams Admin Portal.":::
+:::image type="content" source="../../media/teams-call-queue-resource-account.PNG" alt-text="Screenshot of Resource Accounts in Teams Admin Portal.":::
 All required information for Resource Account can be found in [Microsoft Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer) using this email in the search.
 
 ```console
