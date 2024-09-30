@@ -1,10 +1,10 @@
 ---
 title: Secure development best practices on Microsoft Azure
 description: Best practices to help you develop more secure code and deploy a more secure application in the cloud.
-author: TerryLanfear
+author: msmbaldwin
 manager: rkarlin
-ms.author: terrylan
-ms.date: 09/26/2023
+ms.author: mbaldwin
+ms.date: 09/29/2024
 ms.topic: article
 ms.service: security
 ms.subservice: security-develop
