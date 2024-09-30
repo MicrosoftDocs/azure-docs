@@ -71,7 +71,7 @@ We recommend testing your components with an API testing tool like one of the fo
 
 ## Build the data connector
 
-There are 4 components required to build the CCP data connector.
+There are four components required to build the CCP data connector.
 
 1. [Output table definition](#output-table-definition)
 1. [Data Collection Rule (DCR)](#data-collection-rule)
