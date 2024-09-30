@@ -412,15 +412,15 @@ The following example shows a multiline comment.
 param existingKeyVaultName string
 ```
 
-## Multiline strings
+## Multi-line strings
 
-You can break a string into multiple lines. Use three single quotation marks `'''` to start and end the multiline string.
+You can break a string into multiple lines. Use three single quotation marks `'''` to start and end the multi-line string.
 
-Characters within the multiline string are handled as is. Escape characters are unnecessary. You can't include `'''` in the multiline string. String interpolation isn't currently supported.
+Characters within the multi-line string are handled as is. Escape characters are unnecessary. You can't include `'''` in the multi-line string. String interpolation isn't currently supported.
 
 You can start your string right after the opening `'''` or include a new line. In either case, the resulting string doesn't include a new line. Depending on the line endings in your Bicep file, new lines are interpreted as `\r\n` or `\n`.
 
-The following example shows a multiline string.
+The following example shows a multi-line string.
 
 ```bicep
 var stringVar = '''
