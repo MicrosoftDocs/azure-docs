@@ -319,7 +319,7 @@ Navigate to the Azure Firewall frontend IP address in a browser to validate conn
 
 You should see the AKS store app. In this example, the Firewall public IP was `203.0.113.32`.
 
-:::image type="content" source="../aks/media/container-service-kubernetes-tutorials/aks-store-application.png" alt-text="Screenshot showing the Azure Store Front App opened in a local browser." lightbox="../aks/media/container-service-kubernetes-tutorials/aks-store-application.png":::
+:::image type="content" source="/azure/aks/media/container-service-kubernetes-tutorials/aks-store-application.png" alt-text="Screenshot showing the Azure Store Front App opened in a local browser." lightbox="/azure/aks/media/container-service-kubernetes-tutorials/aks-store-application.png":::
 
 On this page, you can view products, add them to your cart, and then place an order.
 
