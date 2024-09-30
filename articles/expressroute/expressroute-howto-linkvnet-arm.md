@@ -5,9 +5,9 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: how-to
-ms.date: 07/23/2023
+ms.date: 09/30/2024
 ms.author: duau
-ms.custom: devx-track-azurepowershell, template-tutorial
+ms.custom: devx-track-azurepowershell
 ---
 # Connect a virtual network to an ExpressRoute circuit using Azure PowerShell
 
@@ -48,14 +48,57 @@ This article helps you link virtual networks (VNets) to Azure ExpressRoute circu
 
 [!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
-## Connect a virtual network in the same subscription to a circuit
-You can connect a virtual network gateway to an ExpressRoute circuit by using the following cmdlet. Make sure that the virtual network gateway is created and is ready for linking before you run the cmdlet:
+## Connect a virtual network
+
+# [**Maximum Resiliency**](#tab/maximum)
+
+**Maximum resiliency** (Recommended): provides the highest level of resiliency to your virtual network. It provides two redundant connections from the virtual network gateway to two different ExpressRoute circuits in different ExpressRoute locations.
+
+### Clone the script
+
+To create maximum resiliency connections, clone the setup script from GitHub.
+
+```azurepowershell-interactive
+# Clone the setup script from GitHub.
+git clone https://github.com/Azure-Samples/azure-docs-powershell-samples/ 
+# Change to the directory where the script is located.
+CD azure-docs-powershell-samples/expressroute/
+```
+
+Run the **New-AzHighAvailabilityVirtualNetworkGatewayConnections.ps1** script to create high availability connections. The following example shows how to create two new connections to two ExpressRoute circuits.
+
+```azurepowershell-interactive
+$SubscriptionId = Get-AzureSubscription -SubscriptionName "<SubscriptionName>"
+$circuit1 = Get-AzExpressRouteCircuit -Name "MyCircuit1" -ResourceGroupName "MyRG"
+$circuit2 = Get-AzExpressRouteCircuit -Name "MyCircuit2" -ResourceGroupName "MyRG"
+$gw = Get-AzVirtualNetworkGateway -Name "ExpressRouteGw" -ResourceGroupName "MyRG"
+
+highAvailabilitySetup/New-AzHighAvailabilityVirtualNetworkGatewayConnections.ps1 -SubscriptionId $SubscriptionId -ResourceGroupName "MyRG" -Location "West EU" -Name1 "ERConnection1" -Name2 "ERConnection2" -Peer1 $circuit1.Peerings[0] -Peer2 $circuit2.Peerings[0] -RoutingWeight1 10 -RoutingWeight2 10 -VirtualNetworkGateway1 $gw
+```
+
+If you want to create a new connection and use an existing one, you can use the following example. This example creates a new connection to a second ExpressRoute circuit and uses an existing connection to the first ExpressRoute circuit.
+
+```azurepowershell-interactive
+$SubscriptionId = Get-AzureSubscription -SubscriptionName "<SubscriptionName>"
+$circuit1 = Get-AzExpressRouteCircuit -Name "MyCircuit1" -ResourceGroupName "MyRG"
+$gw = Get-AzVirtualNetworkGateway -Name "ExpressRouteGw" -ResourceGroupName "MyRG"
+$connection = Get-AzVirtualNetworkGatewayConnection -Name "ERConnection1" -ResourceGroupName "MyRG"
+
+highAvailabilitySetup/New-AzHighAvailabilityVirtualNetworkGatewayConnections.ps1 -SubscriptionId $SubscriptionId -ResourceGroupName "MyRG" -Location "West EU" -Name2 "ERConnection2" -Peer2 $circuit1.Peerings[0] -RoutingWeight2 10 -VirtualNetworkGateway1 $gw -ExistingVirtualNetworkGatewayConnection $connection
+```
+
+# [**Standard Resiliency**](#tab/standard)
+
+**Standard resiliency**: provides a single redundant connection from the virtual network gateway to a single ExpressRoute circuit.
+You can connect a virtual network gateway to an ExpressRoute circuit using the **New-AzVirtualNetworkGatewayConnection** cmdlet. Make sure that the virtual network gateway is created and is ready for linking before you run the cmdlet.
 
 ```azurepowershell-interactive
 $circuit = Get-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
 $gw = Get-AzVirtualNetworkGateway -Name "ExpressRouteGw" -ResourceGroupName "MyRG"
 $connection = New-AzVirtualNetworkGatewayConnection -Name "ERConnection" -ResourceGroupName "MyRG" -Location "East US" -VirtualNetworkGateway1 $gw -PeerId $circuit.Id -ConnectionType ExpressRoute
 ```
+
+---
 
 ## Connect a virtual network in a different subscription to a circuit
 You can share an ExpressRoute circuit across multiple subscriptions. The following figure shows a simple schematic of how sharing works for ExpressRoute circuits across multiple subscriptions.
