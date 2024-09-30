@@ -22,7 +22,7 @@ See the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [What 
 
 | **Error message**      | `Azure Backup doesn't have required role  privileges to carry out Backup and Restore operations`    |
 | ---------------------- | ------------------------------------------------------------ |
-| **Possible causes**    | All operations fail with this error when the Backup user (AZUREWLBACKUPHANAUSER) doesn't have the **SAP_INTERNAL_HANA_SUPPORT** role assigned or the role might have been overwritten.                          |
+| **Possible causes**    | All operations fail with this error when the Backup user (AZUREWLBACKUPHANAUSER) doesn't have the **SAP_INTERNAL_HANA_SUPPORT** role assigned or the role might be overwritten.                          |
 | **Recommended action** | Download and run the [pre-registration script](https://aka.ms/scriptforpermsonhana) on the SAP HANA instance, or manually assign the **SAP_INTERNAL_HANA_SUPPORT** role to the Backup user (AZUREWLBACKUPHANAUSER).<br><br>**Note**<br><br>If you're using HANA 2.0 SPS04 Rev 46 and later, this error doesn't occur as the use of the **SAP_INTERNAL_HANA_SUPPORT** role is deprecated in these HANA versions. |
 
 ### UserErrorInOpeningHanaOdbcConnection
