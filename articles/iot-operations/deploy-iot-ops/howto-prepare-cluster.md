@@ -14,7 +14,7 @@ ms.date: 09/26/2024
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-An Azure Arc-enabled Kubernetes cluster is a prerequisite for deploying Azure IoT Operations Preview. This article describes how to prepare a cluster before you [Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](howto-deploy-iot-operations.md). This article includes guidance for both Ubuntu, Windows, and cloud environments.
+An Azure Arc-enabled Kubernetes cluster is a prerequisite for deploying Azure IoT Operations Preview. This article describes how to prepare a cluster before you [Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](howto-deploy-iot-operations.md). This article includes guidance for both Ubuntu and Windows.
 
 > [!TIP]
 > The steps in this article prepare your cluster for a secure settings deployment, which is a longer but production-ready process. If you want to deploy Azure IoT Operations quickly and run a sample workload with only test settings, see the [Quickstart: Run Azure IoT Operations Preview in Github Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md) instead.
@@ -23,9 +23,11 @@ An Azure Arc-enabled Kubernetes cluster is a prerequisite for deploying Azure Io
 
 ## Prerequisites
 
-Azure IoT Operations should work on any Arc-enabled Kubernetes cluster that meets the [Azure Arc-enabled Kubernetes system requirements](/azure/azure-arc/kubernetes/system-requirements). Currently Azure IoT Operations doesn't support ARM64 architectures.
+Azure IoT Operations should work on any Arc-enabled Kubernetes cluster that meets the [Azure Arc-enabled Kubernetes system requirements](/azure/azure-arc/kubernetes/system-requirements). Currently Azure IoT Operations doesn't support Arm64 architectures.
 
-Microsoft supports AKS Edge Essentials for deployments on Windows and K3s for deployments on Ubuntu. For a list of specific hardware and software combinations that are tested and validated, see [Validated environments](../overview-iot-operations.md#validated-environments).
+Microsoft supports Azure Kubernetes Service (AKS) Edge Essentials for deployments on Windows and K3s for deployments on Ubuntu. For a list of specific hardware and software combinations that are tested and validated, see [Validated environments](../overview-iot-operations.md#validated-environments).
+
+If you want to deploy Azure IoT Operations to a multi-node solution, we recommend K3s on Ubuntu.
 
 To prepare your Azure Arc-enabled Kubernetes cluster, you need:
 
@@ -40,7 +42,7 @@ To prepare your Azure Arc-enabled Kubernetes cluster, you need:
   > [!NOTE]
   > **Special instructions for AIO Internal Bugbash**:
   >
-  > Official IoT Ops CLI releases are installed via extension index like so az extension add --upgrade --name azure-iot-ops mentioned below. However for bug bashes, we will distribute one-off release candidates intended to expose functionality to exercise internally. Use this for Bug Bash 2 on 9/27 and skip the az extension command below
+  > Official IoT Ops CLI releases are installed via extension index with the *az extension add --upgrade --name azure-iot-ops* command mentioned below. However for bug bashes, we will distribute one-off release candidates intended to expose functionality to exercise internally. Use this for Bug Bash 2 on 9/27 and skip the az extension command below
   >
   >``` bash
   >az storage blob download --auth-mode login --blob-url https://azedgecli.blob.core.windows.net/drop/azure_iot_ops-0.7.0a11-py3-none-any.whl -f ./azure_iot_ops-0.7.0a11-py3-none-any.whl
@@ -65,13 +67,14 @@ To prepare your Azure Arc-enabled Kubernetes cluster, you need:
 * Azure CLI version 2.64.0 or newer installed on your development machine. Use `az --version` to check your version and `az upgrade` to update if necessary. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
 > [!NOTE]
-   > **Special instructions for AIO Internal Bugbash**: 
+   > **Special instructions for AIO Internal Bugbash**:
    >
-   > Official IoT Ops CLI releases are installed via extension index like so az extension add --upgrade --name azure-iot-ops mentioned below. However for bug bashes, we will distribute one-off release candidates intended to expose functionality to exercise internally. Use this for Bug Bash 2 on 9/27 and skip the az extension command below
+   > Official IoT Ops CLI releases are installed via extension index with the *az extension add --upgrade --name azure-iot-ops* command mentioned below. However for bug bashes, we will distribute one-off release candidates intended to expose functionality to exercise internally. Use this for Bug Bash 2 on 9/27 and skip the az extension command below
+   >
    > ``` bash
    >    az storage blob download --auth-mode login --blob-url https://azedgecli.blob.core.windows.net/drop/azure_iot_ops-0.7.0a11-py3-none-any.whl -f ./azure_iot_ops-0.7.0a11-py3-none-any.whl
    >    az extension add --upgrade --source ./azure_iot_ops-0.7.0a11-py3-none-any.whl
-   > ```    
+   > ```
 
 * The latest version of the Azure IoT Operations extension for Azure CLI. Use the following command to add the extension or update it to the latest version:
 
@@ -118,7 +121,8 @@ The [AksEdgeQuickStartForAio.ps1](https://github.com/Azure/AKS-Edge/blob/main/to
    > [!NOTE]
    > **Special instructions for AIO Internal Bugbash**:
    >
-   > The instructions below for AksEdgeQuickStartForAio.ps1 from AKS-Edge GitHub repo are  for external customer consumption and will only work after AIO 0.7 is released. 
+   > The instructions below for AksEdgeQuickStartForAio.ps1 from AKS-Edge GitHub repo are for external customer consumption and will only work after AIO 0.7 is released.
+   >
    > For internal bug bashes, use this powershell script below instead
    >
    >```powershell
@@ -152,7 +156,7 @@ The [AksEdgeQuickStartForAio.ps1](https://github.com/Azure/AKS-Edge/blob/main/to
 
 On multi-node clusters with at least three nodes, you have the option of enabling fault tolerance for storage with [Azure Container Storage enabled by Azure Arc](/azure/azure-arc/container-storage/overview) when you deploy Azure IoT Operations.
 
-By default, Azure Kubernetes Service Edge Essentials clusters support Azure Container Storage. There are no additional steps to configure AKS Edge Essential clusters for fault tolerance.
+By default, Azure Kubernetes Service Edge Essentials clusters support Azure Container Storage. There are no extra steps to configure AKS Edge Essential clusters for fault tolerance.
 
 ### [Ubuntu](#tab/ubuntu)
 
@@ -241,7 +245,7 @@ To connect your cluster to Azure Arc:
 
    If at any point you get an error that says *Your device is required to be managed to access your resource*, run `az login` again and make sure that you sign in interactively with a browser.
 
-1. Set environment variables for your Azure subscription, location, a new resource group, and the cluster name as it will show up in your resource group.
+1. Set environment variables for your Azure subscription, location, a new resource group, and the cluster name as you want it to show up in your resource group.
 
    For the list of currently supported Azure regions, see [Supported regions](../overview-iot-operations.md#supported-regions).
 

@@ -14,6 +14,14 @@ ms.date: 09/10/2024
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
+## Supported environments
+
+Azure IoT Operations should work on any Arc-enabled Kubernetes cluster that meets the [Azure Arc-enabled Kubernetes system requirements](/azure/azure-arc/kubernetes/system-requirements). Currently Azure IoT Operations doesn't support ARM64 architectures.
+
+Microsoft supports Azure Kubernetes Service (AKS) Edge Essentials for deployments on Windows and K3s for deployments on Ubuntu. For a list of specific hardware and software combinations that are tested and validated, see [Validated environments](../overview-iot-operations.md#validated-environments).
+
+If you want to deploy Azure IoT Operations to a multi-node solution, we recommend K3s on Ubuntu.
+
 ## Choose your features
 
 Azure IoT Operations offers two deployment modes. You can choose to deploy with *test settings*, a basic subset of features that are simpler to get started with for evaluation scenarios. Or, you can choose to deploy with *secure settings*, the full feature set.
@@ -26,10 +34,9 @@ A deployment with only test settings enabled:
 * Is meant to enable the end-to-end quickstart sample for evaluation purposes, so does support the OPC PLC simulator and connect to cloud resources using system-assigned managed identity.
 * Can be upgraded to use secure settings.
 
-If you want to deploy Azure IoT Operations with test settings, follow these articles:
+To deploy Azure IoT Operations with test settings, you can use the steps in [Quickstart: Run Azure IoT Operations Preview in GitHub Codespaces](../get-started-end-to-end-sample/quickstart-deploy.md). Or, to deploy with test settings on AKS Edge Essentials or K3s on Ubuntu, follow the secure settings deployment articles and stop at the optional secure settings steps.
 
-1. Start with [Quickstart: Run Azure IoT Operations Preview in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md), then follow the rest of the articles in the end-to-end sample to test and evaluate Azure IoT Operations.
-1. If you want to upgrade your Azure IoT Operations instance to use secure settings, follow the steps in [Enable secure settings](./howto-enable-secure-settings.md).
+If you want to upgrade your Azure IoT Operations instance to use secure settings, follow the steps in [Enable secure settings](./howto-enable-secure-settings.md).
 
 ### Secure settings deployment
 
@@ -37,7 +44,7 @@ A deployment with secure settings enabled:
 
 * Includes the steps to enable secrets and user-assignment managed identity, which are important capabilities for developing a production-ready scenario. Secrets are used whenever Azure IoT Operations components connect to a resource outside of the cluster; for example, an OPC UA server or a dataflow endpoint.
 
-If you want to deploy Azure IoT Operations with secure settings, follow these articles:
+To deploy Azure IoT Operations with secure settings, follow these articles:
 
 1. Start with [Prepare your Azure Arc-enabled Kubernetes cluster](./howto-prepare-cluster.md) to configure and Arc-enable your cluster.
 1. Then, [Deploy Azure IoT Operations Preview](./howto-deploy-iot-operations.md).
