@@ -64,7 +64,7 @@ In this section, you create a virtual network for your Elastic SAN. Then you cre
 
 ## Configuration recommendations
 
-We recommend using multiple private endpoints to establish multiple sessions between Elastic SAN and each volume group you intend to connect to your SDDC. Because of how Elastic SAN handles sessions, having multiples comes with two benefits: increased performance thanks to parallelization, and increased reliability to handle single session disconnects due to unexpected factors like network glitches. With multiple sessions established, session disconnects are not a reason to be concerned – provided that the connection is re-established within a few seconds – the other sessions will help load-balance the traffic.
+You should use multiple private endpoints to establish multiple sessions between an Elastic SAN and each volume group you intend to connect to your SDDC. Because of how Elastic SAN handles sessions, having multiples comes with two benefits: increased performance thanks to parallelization, and increased reliability to handle single session disconnects due to unexpected factors like network glitches. When you establish multiple sessions, it mitigates the impact of session disconnects, as long as the connection re-established within a few seconds, your other sessions help load-balance traffic.
 
    > [!NOTE]
    > Session disconnects may still show up as "All Paths Down" or "APD" events, which can be seen in the Events section of the ESXi Host at vCenter. You can also see them in the logs: it will show the identifier of a device or filesystem, and state it has entered the All Paths Down state.
