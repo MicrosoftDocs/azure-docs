@@ -29,7 +29,7 @@ If the total blob size is less than or equal to 256 MB, the data is uploaded wit
 The following properties can be configured and tuned based on the needs of your app:
 
 - `BlockSize`: The maximum length of a transfer in bytes when uploading a block blob in chunks. Defaults to 4 MB.
-- `Concurrency`: The maximum number of subtransfers that may be used in parallel. Defaults to 5.
+- `Concurrency`: The maximum number of subtransfers that can be used in parallel. Defaults to 5.
 
 These configuration options are available when uploading using the following methods:
 
@@ -46,7 +46,7 @@ The [Upload](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/az
 
 The `BlockSize` argument is the maximum length of a transfer in bytes when uploading a block blob in chunks.
 
-To keep data moving efficiently, the client libraries may not always reach the `BlockSize` value for every transfer. Depending on the operation, the maximum supported value for transfer size can vary. For more information on transfer size limits for Blob storage, see the chart in [Scale targets for Blob storage](scalability-targets.md#scale-targets-for-blob-storage).
+To keep data moving efficiently, the client libraries might not always reach the `BlockSize` value for every transfer. Depending on the operation, the maximum supported value for transfer size can vary. For more information on transfer size limits for Blob storage, see the chart in [Scale targets for Blob storage](scalability-targets.md#scale-targets-for-blob-storage).
 
 #### Code example
 
@@ -85,7 +85,7 @@ You can learn how the client library handles buffering in the following sections
 
 #### Buffering during uploads
 
-The Storage REST layer doesn’t support picking up a REST upload operation where you left off; individual transfers are either completed or lost. To ensure resiliency for stream uploads, the Storage client libraries buffer data for each individual REST call before starting the upload. In addition to network speed limitations, this buffering behavior is a reason to consider a smaller value for `BlockSize`, even when uploading in sequence. Decreasing the value of `BlockSize` decreases the maximum amount of data that is buffered on each request and each retry of a failed request. If you're experiencing frequent timeouts during data transfers of a certain size, reducing the value of `BlockSize` reduces the buffering time, and may result in better performance.
+The Storage REST layer doesn’t support picking up a REST upload operation where you left off; individual transfers are either completed or lost. To ensure resiliency for stream uploads, the Storage client libraries buffer data for each individual REST call before starting the upload. In addition to network speed limitations, this buffering behavior is a reason to consider a smaller value for `BlockSize`, even when uploading in sequence. Decreasing the value of `BlockSize` decreases the maximum amount of data that is buffered on each request and each retry of a failed request. If you're experiencing frequent timeouts during data transfers of a certain size, reducing the value of `BlockSize` reduces the buffering time, and might result in better performance.
 
 ## Performance tuning for downloads
 
@@ -96,7 +96,7 @@ Properly tuning data transfer options is key to reliable performance for downloa
 The following properties can be tuned based on the needs of your app:
 
 - `BlockSize`: The maximum chunk size used for downloading a blob. Defaults to 4 MB.
-- `Concurrency`: The maximum number of subtransfers that may be used in parallel. Defaults to 5.
+- `Concurrency`: The maximum number of subtransfers that can be used in parallel. Defaults to 5.
 
 These options are available when downloading using the following methods:
 
