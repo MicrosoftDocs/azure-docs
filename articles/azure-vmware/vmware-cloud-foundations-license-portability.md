@@ -27,7 +27,7 @@ Moving forward, VMware vDefend Firewall on Azure VMware Solution becomes an **
 
 We offer three flexible commitments and pricing options for using your own VCF license on Azure VMware Solution. You can choose from pay-as-you-go, 1-year Reserved Instance (RI), and 3-year RI options. 
 
-To take advantage of the Reserved Instance (RI) pricing for the VCF license portability offering, purchase an RI under the Product Name- VCF BYOL. For example, if your private cloud uses AV36P nodes, you must [purchase the Reserved Instance](https://learn.microsoft.com/azure/azure-vmware/reserved-instance?toc=%2Fazure%2Fcost-management-billing%2Freservations%2Ftoc.json#buy-a-reservation) for the Product Name- AV36P VCF BYOL. To use the pay-as-you-go pricing for the VCF license portability offering, [register your VCF license](#Register your VCF license with Azure VMware Solution). 
+To take advantage of the Reserved Instance (RI) pricing for the VCF license portability offering, purchase an RI under the Product Name- VCF BYOL. For example, if your private cloud uses AV36P nodes, you must [purchase the Reserved Instance](/azure/azure-vmware/reserved-instance?toc=%2Fazure%2Fcost-management-billing%2Freservations%2Ftoc.json#buy-a-reservation) for the Product Name- AV36P VCF BYOL. To use the pay-as-you-go pricing for the VCF license portability offering, [register your VCF license](#Register your VCF license with Azure VMware Solution). 
 
 :::image type="content" source="media/vcf-byol/ri-purchase.png" alt-text="Picture of what product type to select while purchasing reserved instance for VCF license portability offering" border="false":::
 
@@ -84,7 +84,7 @@ Sample Email to register portable VCF entitlements:
 
 ## Creating/scaling a Private Cloud
 
-You can create your Azure VMware Solution Private Cloud the same way as today regardless of your licensing method, that is, whether you bring your own VCF portable license or use the Azure VMware Solution-owned VCF license.[Learn more](https://learn.microsoft.com/azure/azure-vmware/plan-private-cloud-deployment). Your decision of licensing is a cost optimization choice and doesn't affect your deployment workflow.
+You can create your Azure VMware Solution Private Cloud the same way as today regardless of your licensing method, that is, whether you bring your own VCF portable license or use the Azure VMware Solution-owned VCF license.[Learn more](/azure/azure-vmware/plan-private-cloud-deployment). Your decision of licensing is a cost optimization choice and doesn't affect your deployment workflow.
 
 For example, you want to deploy 10 nodes of AV36P node type.
 
@@ -116,7 +116,7 @@ If your're currently managing your own VCF licensing for Azure VMware Solution a
 
 1. Create a support request to inform us of your intent to convert. In the future, this support-based conversion process will be available directly through the Azure portal for Azure VMware Solution. 
 
-2. Exchange RI- If you have any active RI with VCF BYOL, exchange them for non-VCF BYOL RI. For instance, you can [exchange your AV36P VCF BYOL RI for an AV36P](https://learn.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations). 
+2. Exchange RI- If you have any active RI with VCF BYOL, exchange them for non-VCF BYOL RI. For instance, you can [exchange your AV36P VCF BYOL RI for an AV36P](/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations). 
 
 
 If your're an existing Azure VMware Solution customer using Azure VMware Solution-owned licensing deployments and wish to transition to the license portability (VCF BYOL) offering, you can also easily make the switch without any changes to your Private Cloud deployments by registering your VCF entitlements with Microsoft. 
