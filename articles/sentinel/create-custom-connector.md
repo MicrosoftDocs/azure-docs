@@ -45,7 +45,7 @@ Connectors created using the CCP are fully SaaS, without any requirements for se
 
 For more information, see [Create a codeless connector for Microsoft Sentinel](create-codeless-connector.md).
 
-## Connect with the Azure Monitor agent
+## Connect with the Azure Monitor Agent
 
 If your data source delivers events in text files, we recommend that you use the Azure Monitor Agent to create your custom connector.
 
