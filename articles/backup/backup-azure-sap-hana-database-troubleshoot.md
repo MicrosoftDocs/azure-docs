@@ -29,7 +29,7 @@ See the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [What 
 
 | **Error message**      | `Failed to connect to HANA system`                        |
 | ------------------ | ------------------------------------------------------------ |
-| **Possible causes**    | <ul><li>Connection to HANA instance failed</li><li>System DB is offline</li><li>Tenant DB is offline</li><li>Backup user (AZUREWLBACKUPHANAUSER) doesn't have enough permissions/privileges.</li></ul> |
+| **Possible causes**    | <ul><li>Connection to HANA instance failed</li><li>System  database (DB) is offline</li><li>Tenant DB is offline</li><li>Backup user (AZUREWLBACKUPHANAUSER) doesn't have enough permissions/privileges.</li></ul> |
 | **Recommended action** | Check if the system is running. If one or more databases is running, ensure that the required permissions are set. To do so, download and run the [pre-registration script](https://aka.ms/scriptforpermsonhana) on the SAP HANA instance. |
 
 ### UserErrorHanaInstanceNameInvalid
@@ -43,7 +43,7 @@ See the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [What 
 
 | **Error message**      | `Backup log chain is broken`                                    |
 | ------------------ | ------------------------------------------------------------ |
-| **Possible causes**    | HANA LSN Log chain break can be triggered for various reasons, including:<ul><li>Azure Storage call failure to commit backup.</li><li>The Tenant DB is offline.</li><li>Extension upgrade has terminated an in-progress Backup job.</li><li>Unable to connect to Azure Storage during backup.</li><li>SAP HANA has rolled back a transaction in the backup process.</li><li>A backup is complete, but catalog isn't yet updated with success in HANA system.</li><li>Backup failed from Azure Backup perspective, but success from the perspective of HANA — the log backup/catalog destination might have been updated from Backint-to-file system, or the Backint executable might have been changed.</li></ul> |
+| **Possible causes**    | HANA LSN Log chain break can be triggered for various reasons, including:<ul><li>Azure Storage call failure to commit backup.</li><li>The Tenant DB is offline.</li><li>Extension upgrade is terminated an in-progress Backup job.</li><li>Unable to connect to Azure Storage during backup.</li><li>SAP HANA has rolled back a transaction in the backup process.</li><li>A backup is complete, but catalog isn't yet updated with success in HANA system.</li><li>Backup failed from Azure Backup perspective, but success from the perspective of HANA — the log backup/catalog destination might have been updated from Backint-to-file system, or the Backint executable might have been changed.</li></ul> |
 | **Recommended action** | To resolve this issue, Azure Backup triggers an auto-heal Full backup. While this auto-heal backup is in progress, all log backups are triggered by HANA fail with **OperationCancelledBecauseConflictingAutohealOperationRunningUserError**. Once the auto-heal Full backup is complete, logs and all other backups start working as expected.<br>If you don't see an auto-heal full backup triggered or any successful backup (Full/Differential/ Incremental) in 24 hours, contact Microsoft support.</br> |
 
 ### UserErrorSDCtoMDCUpgradeDetected
