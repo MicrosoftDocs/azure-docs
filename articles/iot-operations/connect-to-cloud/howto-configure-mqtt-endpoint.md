@@ -5,7 +5,7 @@ author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 09/26/2024
+ms.date: 09/30/2024
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to understand how to configure dataflow endpoints for MQTT sources and destinations in Azure IoT Operations so that I can send data to and from MQTT brokers.
@@ -344,6 +344,8 @@ In the Azure IoT Operations portal dataflow endpoint settings page, select the *
 
 Enter the service audience.
 
+# [Kubernetes](#tab/kubernetes)
+
 ```yaml
 mqttSettings:
   authentication:
@@ -351,6 +353,8 @@ mqttSettings:
     serviceAccountTokenSettings:
       audience: <YOUR-SERVICE-ACCOUNT-AUDIENCE>
 ```
+
+---
 
 If the audience isn't specified, the default audience for the Azure IoT Operations MQTT broker is used.
 

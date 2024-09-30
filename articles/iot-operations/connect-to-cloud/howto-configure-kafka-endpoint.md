@@ -5,10 +5,10 @@ author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 09/18/2024
+ms.date: 09/30/2024
 ai-usage: ai-assisted
 
-#CustomerIntent: As an operator, I want to understand how to configure dataflow endpoints for Kafka in Azure IoT Operations so that I can send data to Kafka endpoints.
+#CustomerIntent: As an operator, I want to understand how to configure dataflow endpoints for Kafka in Azure IoT Operations so that I can send data to and from Kafka endpoints.
 ---
 
 # Configure Kafka dataflow endpoints
@@ -37,6 +37,9 @@ If you're using Azure Event Hubs, create an Azure Event Hubs namespace and a Kaf
 To configure a dataflow endpoint for a Kafka endpoint, we suggest using the managed identity of the Azure Arc-enabled Kubernetes cluster. This approach is secure and eliminates the need for secret management.
 
 # [Portal](#tab/portal)
+
+1. In the IoT Operations portal, select the **Dataflow endpoints** tab.
+1. Under **Create new dataflow endpoint**, select **Microsoft Fabric OneLake** > **New**.
 
 :::image type="content" source="media/howto-configure-kafka-endpoint/create-kafka-endpoint.png" alt-text="Screenshot using Azure Operations portal to create a Kafka dataflow endpoint.":::
 

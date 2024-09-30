@@ -204,6 +204,8 @@ fabricOneLakeSettings:
       audience: https://contoso.onelake.dfs.fabric.microsoft.com
 ```
 
+---
+
 #### User-assigned managed identity
 
 # [Portal](#tab/portal)
@@ -243,7 +245,6 @@ For example, to configure the maximum number of messages to 1000 and the maximum
 # [Portal](#tab/portal)
 
 In the IoT Operations portal, select the **Advanced** tab for the dataflow endpoint.
-
 
 :::image type="content" source="media/howto-configure-fabric-endpoint/fabric-advanced.png" alt-text="Screenshot using Azure Operations portal to set Azure Data Explorer advanced settings.":::
 
