@@ -33,6 +33,7 @@ The authorization mechanism must have the necessary permissions to upload a blob
 
 To upload a blob, call any of the following methods from the client object:
 
+- [Upload](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/blockblob#Client.Upload)
 - [UploadBuffer](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client.UploadBuffer)
 - [UploadFile](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client.UploadFile)
 - [UploadStream](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client.UploadStream)
@@ -71,8 +72,16 @@ You can define client library configuration options when uploading a blob. These
 
 You can set configuration options when uploading a blob to optimize performance. The following configuration options are available for upload operations:
 
-- `BlockSize`: The size of each block when uploading a block blob. The default value is 1 MiB.
-- `Concurrency`: The maximum number of parallel connections to use during upload. The default value is 1.
+- `BlockSize`: The size of each block when uploading a block blob. The default value is 4 MB.
+- `Concurrency`: The maximum number of parallel connections to use during upload. The default value is 5.
+
+These configuration options are available when uploading using the following methods:
+
+- [UploadBuffer](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client.UploadBuffer)
+- [UploadStream](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client.UploadStream)
+- [UploadFile](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client.UploadFile)
+
+The [Upload](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/blockblob#Client.Upload) method doesn't support these options, and uploads data in a single request.
 
 For more information on transfer size limits for Blob Storage, see [Scale targets for Blob storage](scalability-targets.md#scale-targets-for-blob-storage).
 
