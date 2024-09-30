@@ -5,7 +5,7 @@ description: Use Azure Blob Storage lifecycle management policies to create auto
 author: normesta
 
 ms.author: normesta
-ms.date: 05/01/2024
+ms.date: 09/30/2024
 ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.reviewer: yzheng
@@ -462,8 +462,6 @@ For more information about pricing, see [Block Blob pricing](https://azure.micro
 - A lifecycle management policy must be read or written in full. Partial updates are not supported.
 
 - Each rule can have up to 10 case-sensitive prefixes and up to 10 blob index tag conditions.
-
-- If you enable firewall rules for your storage account, lifecycle management requests may be blocked. You can unblock these requests by providing exceptions for trusted Microsoft services. For more information, see the **Exceptions** section in [Configure firewalls and virtual networks](../common/storage-network-security.md#exceptions).
 
 - A lifecycle management policy can't change the tier of a blob that uses an encryption scope.
 
