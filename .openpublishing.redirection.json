@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/defender-for-iot/organizations/eiot-sensor.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/eiot-sensor",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/storage/blobs/storage-blob-scalable-app-create-vm.md",
       "redirect_url": "/previous-versions/azure/storage/blobs/storage-blob-scalable-app-create-vm",
       "redirect_document_id": false
