@@ -13,7 +13,7 @@ You can use Azure App Service to create applications using Azure OpenAI and Open
 #### Prerequisites
 
 - An [Azure OpenAI resource](/azure/ai-services/openai/quickstart?pivots=programming-language-csharp&tabs=command-line%2Cpython#set-up) or an [OpenAI account](https://platform.openai.com/overview).
-- A Node.js Express application. Create the sample app using our [quickstart](/azure/quickstart-nodejs?tabs=linux&pivots=development-environment-vscode).
+- A Node.js Express application. Create the sample app using our [quickstart](/azure/app-service/quickstart-nodejs?tabs=linux&pivots=development-environment-vscode).
 
 ### Set up web app
 
