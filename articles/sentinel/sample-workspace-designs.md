@@ -72,7 +72,7 @@ Constoso's solution includes the following considerations:
 
 The resulting workspace design for Contoso is illustrated in the following image:
 
-:::image type="content" source="media/best-practices/contoso-solution.png" alt-text="Diagram of Contoso's solution, with a separate workspace for the Ops team." border="false"::: <!--update diagram to read microsoft sentinel-->
+:::image type="content" source="media/best-practices/contoso-solution.png" alt-text="Diagram of Contoso's solution, with a separate workspace for the Ops team." border="false":::
 
 The suggested solution includes:
 

@@ -32,6 +32,7 @@ Use the following steps to change the pricing tier of your workspace using the M
 1. Select **Ok** to confirm.
     
 # [Azure Resource Manager](#tab/azure-resource-manager)
+
 To set the pricing tier using an Azure Resource Manager template, set the following values:
 
 - `Microsoft.OperationsManagement/solutions` `sku` name to `Unified` 
@@ -41,7 +42,7 @@ For details on this template format, see [Microsoft.OperationalInsights workspac
 
 The following sample template configures Microsoft Sentinel simplified pricing with the 300 GB/day Commitment tier. To set the simplified pricing tier to pay-as-you-go, omit the `capacityReservationLevel` property value and change `capacityreservation` to `pergb2018`.
 
-<!--how to update for AMA?-->
+<!--how to update for AMA? check this with austin-->
 ```json
 { 
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#", 
