@@ -3,14 +3,14 @@
 title: Prevent subdomain takeovers with Azure DNS alias records and Azure App Service's custom domain verification
 description: Learn how to avoid the common high-severity threat of subdomain takeover
 services: security
-author: terrylanfear
+author: msmbaldwin
 manager: rkarlin
 
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 03/27/2024
-ms.author: terrylan
+ms.author: mbaldwin
 
 ---
 # Prevent dangling DNS entries and avoid subdomain takeover
