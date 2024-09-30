@@ -23,7 +23,7 @@ To use ASIM audit event parsers, deploy the parsers from the [Microsoft Sentinel
 | --- | --------------------------- | ---------- |
 | **Azure Activity administrative events** | Azure Activity events (in the `AzureActivity` table) in the category `Administrative`. | `ASimAuditEventAzureActivity` |
 | **Exchange 365 administrative events** | Exchange Administrative events collected using the Office 365 connector (in the `OfficeActivity` table). | `ASimAuditEventMicrosoftOffice365` |
-| **Windows Log clear event** | Windows Event 1102 collected using the Azure Monitor agent Security Events and WEF connectors (using the `SecurityEvent`, `WindowsEvent`, or `Event` tables). | `ASimAuditEventMicrosoftWindowsEvents` |
+| **Windows Log clear event** | Windows Event 1102 collected using the Azure Monitor Agent Security Events and WEF connectors (using the `SecurityEvent`, `WindowsEvent`, or `Event` tables). | `ASimAuditEventMicrosoftWindowsEvents` |
 
 ## Authentication parsers
 
@@ -77,7 +77,7 @@ To use ASIM File Activity parsers, deploy the parsers from the [Microsoft Sentin
         - Collected using the Azure Monitor Agent based WEF (Windows Event Forwarding) connector to the WindowsEvent table.
     - Reported using **Sysmon file activity events** (Events 11, 23, and 26):
         - Collected using the Azure Monitor Agent based WEF (Windows Event Forwarding) connector to the WindowsEvent table.
-        - Reported by **Microsoft Defender XDR for Endpoint**, collected using the Microsoft Defender XDR connector.
+        - Reported by **Microsoft Defender for Endpoint**, collected using the Microsoft Defender XDR connector.
 - **Microsoft Office 365 SharePoint and OneDrive events**, collected using the Office Activity connector.
 - **Azure Storage**, including Blob, File, Queue, and Table Storage.
 

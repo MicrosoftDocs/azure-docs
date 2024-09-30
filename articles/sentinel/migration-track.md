@@ -81,7 +81,7 @@ To monitor deployed resources and deploy new connectors, in the **Microsoft Sent
 - Current ingestion trends
 - Tables ingesting data
 - How much data each table is reporting
-- Endpoints reporting with Azure Monitoring Agent (AMA)
+- Endpoints reporting with Azure Monitor Agent (AMA)
 - Data collection rules in the resource group and the devices linked to the rules
 - Data connector health (changes and failures)
 - Health logs within the specified time range

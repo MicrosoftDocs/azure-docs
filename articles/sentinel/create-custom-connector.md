@@ -47,7 +47,7 @@ For more information, see [Create a codeless connector for Microsoft Sentinel](c
 
 ## Connect with the Azure Monitor agent
 
-If your data source delivers events in text files, we recommend that you use the Azure Monitor agent to create your custom connector.
+If your data source delivers events in text files, we recommend that you use the Azure Monitor Agent to create your custom connector.
 
 - For more information, see [Collect logs from a text file with Azure Monitor Agent](/azure/azure-monitor/agents/data-collection-log-text).
 

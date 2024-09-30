@@ -114,7 +114,7 @@ Ingestion-time data transformation currently has the following known issues for 
 
 - Data transformations using *workspace transformation DCRs* are supported only per table, and not per connector.
 
-    There can only be one workspace transformation DCR for an entire workspace. Within that DCR, each table can use a separate input stream with its own transformation. Splitting data to multiple destinations (Log Analytics workspaces) with a workspace transformation DCR is not possible. AMA-based data connectors use the transformation you define in the associated DCR and ignore the workspace transformation DCR.
+    There can only be one workspace transformation DCR for an entire workspace. Within that DCR, each table can use a separate input stream with its own transformation. Splitting data to multiple destinations (Log Analytics workspaces) with a workspace transformation DCR is not possible. AMA-based data connectors use the configuration you define in the associated DCR for input and output streams and transformations, and ignore the workspace transformation DCR.
 
 - The following configurations are supported only via API:
 
