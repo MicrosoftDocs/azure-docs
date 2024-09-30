@@ -6,27 +6,27 @@ ms.date: 09/26/2024
 ms.author: jiyoonlee
 ---
 
-In this quickstart you are going to learn how to start a call from Azure Communication Services user to Teams Call Queue. You are going to achieve it with the following steps:
+In this quickstart you are going to learn how to start a call from Azure Communication Services user to Teams Auto Attendant. You are going to achieve it with the following steps:
 
 1. Enable federation of Azure Communication Services resource with Teams Tenant.
-2. Select or create Teams Call Queue via Teams Admin Center.
-3. Get email address of Call Queue via Teams Admin Center.
-4. Get Object ID of the Call Queue via Graph API.
+2. Select or create Teams Auto Attendant via Teams Admin Center.
+3. Get email address of Auto Attendant via Teams Admin Center.
+4. Get Object ID of the Auto Attendant via Graph API.
 5. Start a call with Azure Communication Services Calling SDK.
 
 If you'd like to skip ahead to the end, you can download this quickstart as a sample on [GitHub](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/add-video-calling).
 
-[!INCLUDE [Enable interoperability in your Teams tenant](../../../../concepts/includes/enable-interoperability-for-teams-tenant.md)]
+[!INCLUDE [Enable interoperability in your Teams tenant](../../concepts/includes/enable-interoperability-for-teams-tenant.md)]
 
-## Create or select Teams Call Queue
+## Create or select Teams Auto Attendant
 
-Teams Call Queue is a feature in Microsoft Teams that efficiently distributes incoming calls among a group of designated users or agents. It's useful for customer support or call center scenarios. Calls are placed in a queue and assigned to the next available agent based on a predetermined routing method. Agents receive notifications and can handle calls using Teams' call controls. The feature offers reporting and analytics for performance tracking. It simplifies call handling, ensures a consistent customer experience, and optimizes agent productivity. You can select existing or create new Call Queue via [Teams Admin Center](https://aka.ms/teamsadmincenter).
+Teams Auto Attendant is system that provides an automated call handling system for incoming calls. It serves as a virtual receptionist, allowing callers to be automatically routed to the appropriate person or department without the need for a human operator. You can select existing or create new Auto Attendant via [Teams Admin Center](https://aka.ms/teamsadmincenter).
 
-Learn more about how to create Call Queue using Teams Admin Center [here](/microsoftteams/create-a-phone-system-call-queue?tabs=general-info).
+Learn more about how to create Auto Attendant using Teams Admin Center [here](/microsoftteams/create-a-phone-system-auto-attendant?tabs=general-info).
 
-## Find Object ID for Call Queue
+## Find Object ID for Auto Attendant
 
-After Call queue is created, we need to find correlated Object ID to use it later for calls. Object ID is connected to Resource Account that was attached to Call Queue - open [Resource Accounts tab](https://admin.teams.microsoft.com/company-wide-settings/resource-accounts) in Teams Admin and find email.
+After Auto Attendant is created, we need to find correlated Object ID to use it later for calls. Object ID is connected to Resource Account that was attached to Auto Attendant - open [Resource Accounts tab](https://admin.teams.microsoft.com/company-wide-settings/resource-accounts) in Teams Admin and find email of account.
 :::image type="content" source="../media/teams-call-queue-resource-account.PNG" alt-text="Screenshot of Resource Accounts in Teams Admin Portal.":::
 All required information for Resource Account can be found in [Microsoft Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer) using this email in the search.
 
@@ -42,10 +42,10 @@ In results we'll are able to find "ID" field
 ```
 
 To use in the calling App, we need to add a prefix to this ID. Currently, the following are supported:
-- Public cloud Call Queue: `28:orgid:<id>`
-- Government cloud Call Queue: `28:gcch:<id>`
+- Public cloud Auto Attendant: `28:orgid:<id>`
+- Government cloud Auto Attendant: `28:gcch:<id>`
 
-For example, we would have `28:orgid:31a011c2-2672-4dd0-b6f9-9334ef4999db` for a public cloud Call Queue.
+For example, we would have `28:orgid:31a011c2-2672-4dd0-b6f9-9334ef4999db` for a public cloud Auto Attendant.
 
 ## Prerequisites
 
@@ -249,6 +249,6 @@ You can build and run your app on iOS simulator by selecting **Product** > **Run
 Manual steps to setup the call:
 
 1. Launch the app using Xcode
-2. Enter the Call Queue Object ID (with prefix), and select the "Start Call" button. Application will start the outgoing call to the Call Queue with given object ID.
-3. Call is connected to the Call Queue.
-4. Communication Services user is routed through Call Queue based on it's configuration.
+2. Enter the Auto Attendant Object ID (with prefix), and select the "Start Call" button. Application will start the outgoing call to the Auto Attendant with given object ID.
+3. Call is connected to the Auto Attendant.
+4. Communication Services user is routed through Auto Attendant based on it's configuration.
