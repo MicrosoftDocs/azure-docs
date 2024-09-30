@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 09/27/2024
+ms.date: 09/30/2024
 ms.author: anfdocs
 ---
 # Understand Azure NetApp Files control plane security
@@ -31,12 +31,12 @@ A set of operations and services used to manage and control access to Azure NetA
 
 Managing Microsoft platform-managed keys or customer-managed keys involves control plane operations that affect the following:
 
-- Key management: The control plane allows you to manage the lifecycle of your encryption keys, including creation, rotation, and deletion. This ensures that you have full control over your data encryption keys.
-- Access control: Through the control plane, you can define and enforce access policies using Azure RBAC. This ensures that only authorized users and services can access or manage your keys.
-- Integration with Azure Key Vault: The control plane facilitates the integration of Azure NetApp Files with Azure Key Vault, where your customer-managed keys are stored. This integration ensures secure key storage and management. 
-- Encryption operations: For encryption and decryption operations, the control plane handles Azure Key Vault requests to unwrap the account encryption key so your data is securely encrypted and decrypted as needed. 
-- Auditing and monitoring: The control plane provides capabilities for auditing and monitoring key usage. This helps you track who accessed your keys and when, enhancing security and compliance.
-For more information please see, Configure customer-managed keys for Azure NetApp Files volume encryption.
+- **Key management:** The control plane allows you to manage the lifecycle of your encryption keys, including creation, rotation, and deletion. This ensures that you have full control over your data encryption keys.
+- **Access control:** Through the control plane, you can define and enforce access policies using Azure RBAC. This ensures that only authorized users and services can access or manage your keys.
+- **Integration with Azure Key Vault:** The control plane facilitates the integration of Azure NetApp Files with Azure Key Vault, where your customer-managed keys are stored. This integration ensures secure key storage and management. 
+- **Encryption operations:** For encryption and decryption operations, the control plane handles Azure Key Vault requests to unwrap the account encryption key so your data is securely encrypted and decrypted as needed. 
+- **Auditing and monitoring:** The control plane provides capabilities for auditing and monitoring key usage. This helps you track who accessed your keys and when, enhancing security and compliance.
+For more information, see [Configure customer-managed keys](configure-customer-managed-keys.md).
 
 ## Network Security Groups (NSG) Management
 
@@ -47,7 +47,7 @@ Managing network security groups (NSGs) in Azure NetApp Files relies on the cont
 - **Integration with Azure Services:** The control plane facilitates the integration of NSGs with other Azure services, such as Azure Virtual Network and Azure Key Vault. This integration helps maintain a secure and compliant environment.
 - **Monitoring and auditing:** The control plane provides tools for monitoring and auditing network traffic. You can track which rules are being applied and adjust them as needed to ensure optimal security and performance. 
 - **Policy Enforcement:** By using the control plane, you can enforce network policies across your Azure environment. This includes applying custom policies to meet specific security requirements and ensuring consistent policy enforcement.
-- 
+
 For more information, see [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md) and  [Azure NSGs](../virtual-network/network-security-groups-overview.md).
 
 ## Routing management
@@ -56,12 +56,11 @@ The control plane enables the configuration of User-Defined Routes (UDRs) on the
 
 For more information, see [Guidelines for Azure NetApp Files network planning](azure-network-files-netwrok-topologies.md) and the [UDR overview](../virtual-network/virtual-networks-udr-overview#user-defined.md).
 
-
 ## Resource lock management
 
 Resource locking at the control plane layer ensures that your Azure NetApp Files resources are protected from accidental or malicious deletions and modifications. Locking is particularly important for maintaining the integrity and stability of your storage environment.
 
-Resource locking protects subscriptions, resource groups, or resources from accidental or malicious user deletions and modifications. The lock overrides any user permissions. Unlike RBAC,  management locks apply a restriction across _all_ users and roles. Take careful consideration when locking any necessary resources to prevent changes after all configuration is in place.
+[Resource locking](../azure-resource-manager/management/lock-resources.md) protects subscriptions, resource groups, or resources from accidental or malicious user deletions and modifications. The lock overrides any user permissions. Unlike RBAC,  management locks apply a restriction across _all_ users and roles. Take careful consideration when locking any necessary resources to prevent changes after all configuration is in place.
 
 ## Monitoring and audit logging
 
@@ -69,28 +68,31 @@ Monitoring, auditing and logging are critical for maintaining security and compl
 
 ### Monitoring capabilities
 
-- Azure Activity og:
+- Azure Activity log:
     - **Function:** Provides insights into subscription-level events, such as resource modifications or virtual machine startups. These insights aid in tracking changes and identifying unauthorized activities. To understand how Activity log works, see [Azure Activity log](../azure-monitor/essentials/activity-log.md).
     - **Use case:** Useful for auditing and compliance, ensuring that all actions within your Azure NetApp Files environment are logged and traceable.  
--	Azure NetApp Files Metrics:
-o	Function: Offers metrics on allocated storage, actual storage usage, volume IOPS, and latency.  These metrics help you understand usage patterns and volume performance.  For more information about Azure NetApp Files metrics, see Metrics for Azure NetApp Files.
-o	Use Case: Essential for performance tuning and capacity planning, allowing you to optimize your storage resources effectively.
--	Azure Service Health:
-o	Function: Keeps you informed about the health of your Azure services, providing a personalized view of the status of your environment.  For more information, see Azure Service Health dashboard documentation.
-o	Use Case: Helps you stay updated on planned maintenance and health advisories, ensuring minimal disruption to your operations.
--	Audit Logging:
-o	Scope: The control plane logs all PUT, POST, and DELETE API operations against Azure NetApp Files.  This includes actions such as creating snapshots, modifying volumes, and deleting resources.  For more information, see Azure activity logs supported in Azure NetApp Files.
-o	Details Captured: Logs capture detailed information about each operation, including who performed the action, when it was performed, and what changes were made. This level of detail is crucial for auditing and forensic investigations.  For a complete list of API operations, see Azure NetApp Files REST API.
-Azure Policy
-When you use Azure Policy, the control plane ensures that your policies are enforced consistently across your environment. This helps maintain compliance with organizational standards and regulatory requirements.
-Azure Policy Integration
-1.	Enforcing Standards:
-o	Custom Policies: You can create custom Azure Policy definitions tailored to your specific needs for Azure NetApp Files.  These policies can enforce rules such as ensuring certain configurations, restricting the use of insecure protocols, or mandating encryption.  For more information about custom policy definitions, see Azure Policy definitions for Azure NetApp Files.
-o	Built-in Policies: Azure provides built-in policy definitions that you can use to enforce common standards.  For example, you can restrict the creation of unsecure volumes or audit existing volumes to ensure they meet your security requirements.  For more information about built-in policies, see Azure Policy definitions for Azure NetApp Files.
-2.	Policy Evaluation:
-o	Continuous Assessment: The control plane continuously evaluates your resources against the defined policies.  If a resource does not comply, the control plane can take actions such as denying the creation of the resource, auditing it, or applying specific configurations.
-o	Real-Time Enforcement: Policies are enforced in real-time, ensuring that any non-compliant actions are immediately addressed. This helps maintain the integrity and security of your environment.
-Next steps
+- Azure NetApp Files metrics:
+    - **Function:** Azure NetApp Files offers metrics on allocated storage, actual storage usage, volume I/OPS, and latency. These metrics help you understand usage patterns and volume performance. For more information, see [Metrics for Azure NetApp Files](azure-netapp-files-metrics.md).
+	- **Use case:** Metrics are essential for performance tuning and capacity planning, allowing you to optimize your storage resources effectively.
+- Azure Service Health:
+    - **Function:** Azure Service Health keeps you informed about the health of your Azure services, providing a personalized view of the status of your environment. For more information, see [Service Health portal classic experience overview](../service-health/service-health-overview.md).
+    - **Use case:** Azure Service Health helps you stay updated on planned maintenance and health advisories, ensuring minimal disruption to your operations.
+- Audit Logging:
+    - **Scope:** The control plane logs all PUT, POST, and DELETE API operations against Azure NetApp Files. These logs include actions such as creating snapshots, modifying volumes, and deleting resources. For more information, see [Are Azure activity logs supported in Azure NetApp Files?](faq-security.md#are-azure-activity-logs-supported-on-azure-netapp-files)
+    - **Details:** Logs capture detailed information about each operation, including who performed the action, when it was performed, and what changes were made. This level of detail is crucial for auditing and forensic investigations. For a complete list of API operations, see [Azure NetApp Files REST API](/rest/api/netapp).
+
+## Azure Policy
+
+When you use Azure Policy, the control plane ensures that your policies are enforced consistently across your environment. Azure Policy helps maintain compliance with organizational standards and regulatory requirements.
+
+### Azure Policy integration
+
+* **Enforcing standards:**
+    - **Custom policies:** You can create custom Azure Policy definitions tailored to your specific needs for Azure NetApp Files. These policies can enforce rules such as ensuring certain configurations, restricting the use of insecure protocols, or mandating encryption.  For more information about custom policy definitions, see [Built-in policy definitions for Azure NetApp Files](azure-policy-definitions.md#custom-policy-definitions).
+    - **Built-in policies:** Azure provides built-in policy definitions that you can use to enforce common standards. For example, you can restrict the creation of unsecure volumes or audit existing volumes to ensure they meet your security requirements. For more information about built-in policies, see [Custom policy definitions for Azure NetApp Files](azure-policy-definitions.md#built-in-policy-definitions).
+* **Policy evaluation:**
+    * **Continuous assessment:** The control plane continuously evaluates your resources against the defined policies. If a resource doesn't comply, the control plane can take actions such as denying resource creation, auditing it, or applying specific configurations.
+    - **Real-time enforcement:** Policies are enforced in real-time, ensuring any non-compliant actions are immediately addressed to maintain the integrity and security of your environment.
 
 ## More information 
 

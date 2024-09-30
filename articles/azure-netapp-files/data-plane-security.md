@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 09/27/2024
+ms.date: 09/30/2024
 ms.author: anfdocs
 ---
 
