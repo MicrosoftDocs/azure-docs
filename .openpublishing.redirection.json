@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/application-gateway/powershell-samples.md",
+      "redirect_url": "/previous-versions/azure/application-gateway/powershell-samples",
+      "redirect_document_id": false
+    },
+    {   
       "source_path": "articles/storage/blobs/storage-blob-scalable-app-create-vm.md",
       "redirect_url": "/previous-versions/azure/storage/blobs/storage-blob-scalable-app-create-vm",
       "redirect_document_id": false
@@ -4749,6 +4754,11 @@
     {
       "source_path_from_root": "/articles/load-balancer/load-balancer-ipv6-internet-cli.md",
       "redirect_url": "/azure/load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/third-party-notices.md",
+      "redirect_url": "/azure-docs/ThirdPartyNotices.md",
       "redirect_document_id": false
     }
   ]
