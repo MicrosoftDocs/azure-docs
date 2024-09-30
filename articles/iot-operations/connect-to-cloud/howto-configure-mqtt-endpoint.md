@@ -257,13 +257,13 @@ kubectl create secret tls my-tls-secret -n azure-iot-operations \
 
 In the Azure IoT Operations portal dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **X509 certificate**.
 
-1. Enter the following settings for the endpoint:
+Enter the following settings for the endpoint:
 
-    | Setting               | Description                                                                                       |
-    | --------------------- | ------------------------------------------------------------------------------------------------- |
-    | X509 client certificate | The X.509 client certificate used for authentication. |
-    | X509 intermediate certificates | The intermediate certificates for the X.509 client certificate chain.  |
-    | X509 client key       | The private key corresponding to the X.509 client certificate. |
+| Setting               | Description                                                                                       |
+| --------------------- | ------------------------------------------------------------------------------------------------- |
+| X509 client certificate | The X.509 client certificate used for authentication. |
+| X509 intermediate certificates | The intermediate certificates for the X.509 client certificate chain.  |
+| X509 client key       | The private key corresponding to the X.509 client certificate. |
 
 # [Kubernetes](#tab/kubernetes)
 

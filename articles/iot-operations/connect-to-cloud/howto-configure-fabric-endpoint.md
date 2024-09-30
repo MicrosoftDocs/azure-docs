@@ -34,7 +34,7 @@ To configure a dataflow endpoint for Microsoft Fabric OneLake, we suggest using 
 1. In the IoT Operations portal, select the **Dataflow endpoints** tab.
 1. Under **Create new dataflow endpoint**, select **Microsoft Fabric OneLake** > **New**.
 
-:::image type="content" source="media/howto-configure-fabric-endpoint/create-fabric-endpoint.png" alt-text="Screenshot using Azure Operations portal to create a Microsoft Fabric OneLake dataflow endpoint.":::
+    :::image type="content" source="media/howto-configure-fabric-endpoint/create-fabric-endpoint.png" alt-text="Screenshot using Azure Operations portal to create a Microsoft Fabric OneLake dataflow endpoint.":::
 
 1. Enter the following settings for the endpoint:
 
