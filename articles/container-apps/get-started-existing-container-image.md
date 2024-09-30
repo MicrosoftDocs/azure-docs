@@ -3,7 +3,7 @@ title: 'Quickstart: Deploy an existing container image with the command line'
 description: Deploy an existing container image to Azure Container Apps with the Azure CLI or PowerShell.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: quickstart
 ms.date: 08/31/2022
@@ -25,7 +25,7 @@ This article demonstrates how to deploy an existing container to Azure Container
 - An Azure account with an active subscription.
   - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
 - Install the [Azure CLI](/cli/azure/install-azure-cli).
-- Access to a public or private container registry, such as the [Azure Container Registry](../container-registry/index.yml).
+- Access to a public or private container registry, such as the [Azure Container Registry](/azure/container-registry/).
 
 [!INCLUDE [container-apps-create-cli-steps.md](../../includes/container-apps-create-cli-steps.md)]
 

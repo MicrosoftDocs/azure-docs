@@ -3,9 +3,9 @@ title: Enterprise-grade edge in Azure Static Web Apps
 description: Learn about Azure Static Web Apps enterprise-grade edge.
 services: static-web-apps
 author: craigshoemaker
-ms.service: static-web-apps
+ms.service: azure-static-web-apps
 ms.topic: how-to
-ms.date: 06/24/2024
+ms.date: 09/23/2024
 ms.author: cshoe
 ---
 
@@ -85,10 +85,13 @@ az staticwebapp enterprise-edge enable --name my-static-webapp --resource-group 
 
 ---
 
+## Considerations
+
+- Deleting a custom domain mapped to your account can take up to 48 hours to propagate.
+
 ## Limitations
 
 - Private Endpoint can't be used with enterprise-grade edge.
-- Custom domains configured using `A` records (DNS) aren't supported with enterprise-grade edge.
 
 ## Next steps
 

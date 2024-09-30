@@ -9,11 +9,11 @@ ms.author: yelevin
 
 # Ingest Microsoft Defender for Cloud alerts to Microsoft Sentinel
 
-[Microsoft Defender for Cloud](../defender-for-cloud/index.yml)'s integrated cloud workload protections allow you to detect and quickly respond to threats across hybrid and multicloud workloads.
+[Microsoft Defender for Cloud](/azure/defender-for-cloud/)'s integrated cloud workload protections allow you to detect and quickly respond to threats across hybrid and multicloud workloads.
 
-This connector allows you to ingest [security alerts from Defender for Cloud](../defender-for-cloud/alerts-reference.md) into Microsoft Sentinel, so you can view, analyze, and respond to Defender alerts, and the incidents they generate, in a broader organizational threat context.
+This connector allows you to ingest [security alerts from Defender for Cloud](/azure/defender-for-cloud/alerts-reference) into Microsoft Sentinel, so you can view, analyze, and respond to Defender alerts, and the incidents they generate, in a broader organizational threat context.
 
-As [Microsoft Defender for Cloud Defender plans](../defender-for-cloud/defender-for-cloud-introduction.md#protect-cloud-workloads) are enabled per subscription, this data connector is also enabled or disabled separately for each subscription.
+As [Microsoft Defender for Cloud Defender plans](/azure/defender-for-cloud/defender-for-cloud-introduction#protect-cloud-workloads) are enabled per subscription, this data connector is also enabled or disabled separately for each subscription.
 
 The new **Tenant-based Microsoft Defender for Cloud connector**, in PREVIEW, allows you to collect Defender for Cloud alerts over your entire tenant, without having to enable each subscription separately. It also leverages [Defender for Cloud's integration with Microsoft Defender XDR](ingest-defender-for-cloud-incidents.md) (formerly Microsoft 365 Defender) to ensure that all of your Defender for Cloud alerts are fully included in any incidents you receive through [Microsoft Defender XDR incident integration](microsoft-365-defender-sentinel-integration.md).
 

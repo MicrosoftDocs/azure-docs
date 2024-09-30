@@ -4,7 +4,7 @@ description: Configure a GraphQL resolver in Azure API Management for a field in
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
 ms.date: 05/02/2024
 ms.author: danlep
@@ -16,6 +16,8 @@ ms.author: danlep
 
 
 Configure a resolver to retrieve or set data for a GraphQL field in an object type specified in a GraphQL schema. The schema must be imported to API Management as a GraphQL API. 
+
+[!INCLUDE [api-management-workspace-availability](../../includes/api-management-workspace-availability.md)]
 
 Currently, API Management supports resolvers that can access the following data sources:
 

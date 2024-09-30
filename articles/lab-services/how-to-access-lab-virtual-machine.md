@@ -3,7 +3,7 @@ title: Access a lab virtual machine
 titleSuffix: Azure Lab Services
 description: Learn how to access a lab in Azure Lab Services. Use Teams, Canvas, or the Lab Services website to view, start, stop, and connect to a lab.
 services: lab-services
-ms.service: lab-services
+ms.service: azure-lab-services
 author: RoseHJM
 ms.author: rosemalcolm
 ms.topic: how-to
@@ -12,6 +12,8 @@ ms.date: 03/06/2024
 ---
 
 # Access a lab virtual machine in Azure Lab Services
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 This article shows you how to access your lab virtual machines (VMs) in Azure Lab Services. Use Teams, Canvas, or the Azure Lab Services website to view, start, stop, and connect to a lab virtual machine.
 
@@ -23,6 +25,8 @@ This article shows you how to access your lab virtual machines (VMs) in Azure La
 ## Access a lab virtual machine
 
 # [Lab Services website](#tab/lab-services-website)
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 In the Azure Lab Services website, you can view and manage your assigned lab virtual machines. To access the Azure Lab Services website:
 
@@ -53,6 +57,8 @@ Azure Lab Services supports different email account types when registering for a
 
 # [Teams](#tab/teams)
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 When you access a lab in Microsoft Teams, you're automatically registered for the lab, based on your team membership in Microsoft Teams.
 
 To access your lab in Teams:
@@ -68,6 +74,8 @@ To access your lab in Teams:
     You might see a message that the lab isn't available. This error can occur when the lab isn't published yet or if the Teams membership information still needs to synchronize.
 
 # [Canvas](#tab/canvas)
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 When you access a lab in [Canvas](https://www.instructure.com/canvas), you're automatically registered for the lab, based on your course membership in Canvas. Azure Lab Services supports test users in Canvas and the ability for the educator to act as another user.
 

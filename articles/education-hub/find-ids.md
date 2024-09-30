@@ -64,5 +64,5 @@ You must have an Azure account linked with the Education Hub.
 
 ## Related content
 
-- [Manage your academic grant by using the Overview page](hub-overview-page.md)
+- [Manage your academic sponsorship by using the Overview page](hub-overview-page.md)
 - [Learn about support options](educator-service-desk.md)

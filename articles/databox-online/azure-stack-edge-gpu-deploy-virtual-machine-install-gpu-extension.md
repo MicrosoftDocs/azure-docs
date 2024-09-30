@@ -14,10 +14,6 @@ ms.author: alkohli
 
 # Install GPU extension on VMs for your Azure Stack Edge Pro GPU device
 
-
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
-
 [!INCLUDE [applies-to-gpu-pro-pro2-and-pro-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-pro-2-pro-r-sku.md)]
 
 This article describes how to install GPU driver extension to install appropriate Nvidia drivers on the GPU VMs running on your Azure Stack Edge device. The article covers installation steps for installing a GPU extension using Azure Resource Manager templates on both Windows and Linux VMs.
@@ -468,7 +464,7 @@ Wed Dec 16 00:35:51 2020
 PS C:\Program Files\NVIDIA Corporation\NVSMI>
 ```
 
-For more information, see [Nvidia GPU driver extension for Windows](../virtual-machines/extensions/hpccompute-gpu-windows.md).
+For more information, see [Nvidia GPU driver extension for Windows](/azure/virtual-machines/extensions/hpccompute-gpu-windows).
 
 > [!NOTE]
 > After you finish installing the GPU driver and GPU extension, you no longer need to use a port with Internet access for compute.
@@ -549,7 +545,7 @@ Follow these steps to verify the driver installation:
     Administrator@VM1:~$
     ```
 
-For more information, see [Nvidia GPU driver extension for Linux](../virtual-machines/extensions/hpccompute-gpu-linux.md).
+For more information, see [Nvidia GPU driver extension for Linux](/azure/virtual-machines/extensions/hpccompute-gpu-linux).
 
 > [!NOTE]
 > After you finish installing the GPU driver and GPU extension, you no longer need to use a port with Internet access for compute.

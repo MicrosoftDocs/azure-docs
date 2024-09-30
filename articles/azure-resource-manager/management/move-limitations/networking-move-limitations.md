@@ -48,6 +48,10 @@ The following [private-link resources](../../../private-link/private-endpoint-ov
 
 All other private-link resources don't support move.
 
+> [!NOTE]
+> A private endpoint should be in succeeded state prior to attempting to move the resource.
+
+
 ## Next steps
 
 For commands to move resources, see [Move resources to new resource group or subscription](../move-resource-group-and-subscription.md).

@@ -2,12 +2,14 @@
 title: Azure Policies for Lab Services
 description: Learn how to use Azure Policy to use built-in policies for Azure Lab Services to make sure your labs are compliant with your requirements.
 ms.topic: conceptual
-author: ntrogh
-ms.author: nicktrog
+author: RoseHJM
+ms.author: rosemalcolm
 ms.date: 11/08/2022
 ---
 
 # Use policies to audit and manage Azure Lab Services
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 When teams create and run labs on Azure Lab Services, they might face varying requirements to the configuration of resources. Administrators might look for options to control cost, provide customization through templates, or restrict user permissions.
 

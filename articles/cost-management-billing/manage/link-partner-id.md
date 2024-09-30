@@ -27,7 +27,7 @@ Before you link your partner ID, your customer must give you access to their Azu
 
 - **Service principal**: Your customer can add an app or script from your organization in their directory and assign any Azure role. The identity of the app or script is known as a service principal.
 
-- **Azure Lighthouse**: Your customer can delegate a subscription (or resource group) so that your users can work on it from within your tenant. For more information, see [Azure Lighthouse](../../lighthouse/overview.md).
+- **Azure Lighthouse**: Your customer can delegate a subscription (or resource group) so that your users can work on it from within your tenant. For more information, see [Azure Lighthouse](/azure/lighthouse/overview).
 
 ## Link to a partner ID
 
@@ -163,9 +163,9 @@ You can't see the customer in the reports due to following reasons
 
 The link between the partner ID and the account is done for each customer tenant. Link the partner ID in each customer tenant.
 
-However, if you're managing customer resources through [Azure Lighthouse](../../lighthouse/overview.md), you should create the link in your service provider tenant, using an account that has access to the customer resources.
+However, if you're managing customer resources through [Azure Lighthouse](/azure/lighthouse/overview), you should create the link in your service provider tenant, using an account that has access to the customer resources.
 
-**How do I link my partner ID if my company uses [Azure Lighthouse](../../lighthouse/overview.md) to access customer resources?**
+**How do I link my partner ID if my company uses [Azure Lighthouse](/azure/lighthouse/overview) to access customer resources?**
 
 For Azure Lighthouse activities to be recognized, you need to associate your Partner ID with at least one user account that has access to each of your onboarded customer subscriptions. The association is needed in your service provider tenant, rather than in each customer tenant.
 
@@ -173,7 +173,7 @@ For simplicity, we recommend creating a service principal account in your tenant
 
 If you've already onboarded a customer, you can link the partner ID to a user account that already has permission to work in that customer's tenant so that you don't have to perform another deployment.
 
-For more information, see [Onboard a customer to Azure Lighthouse](../../lighthouse/how-to/onboard-customer.md).
+For more information, see [Onboard a customer to Azure Lighthouse](/azure/lighthouse/how-to/onboard-customer).
 
 **Does linking a partner ID work with Azure Stack?**
 

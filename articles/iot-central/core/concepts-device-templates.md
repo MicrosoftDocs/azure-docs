@@ -3,7 +3,7 @@ title: What are device templates in Azure IoT Central
 description: Device templates let you specify the behavior of the devices connected to your application. They also define a UI for the device in IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/05/2023
+ms.date: 07/12/2024
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -13,15 +13,15 @@ ms.custom: device-developer
 
 # What are device templates?
 
-A device template in Azure IoT Central is a blueprint that defines the characteristics and behaviors of a type of device that connects to your application. For example, the device template defines the telemetry that a device sends so that IoT Central can create visualizations that use the correct units and data types.
+A device template in Azure IoT Central is a blueprint that defines the characteristics and behaviors of a type of device that connects to your application. For example, the device template defines the telemetry that a device sends so that IoT Central can create visualizations that use the correct units and data types. Telemetry that matches the device template definition is referred to as *modeled* data. Telemetry that doesn't match the device template definition is referred to as *unmodeled* data.
 
-A solution builder adds device templates to an IoT Central application. A device developer writes the device code that implements the behaviors defined in the device template. To learn more about the data that a device exchanges with IoT Central, see [Telemetry, property, and command payloads](../../iot/concepts-message-payloads.md).
+A solution builder adds device templates to an IoT Central application. A device developer writes the device code that implements the behaviors defined in the device template. To learn more about how to create a device template or have one automatically generated, see [Create a device template in your Azure IoT Central application](howto-set-up-template.md). To learn more about the data that a device exchanges with IoT Central, see [Telemetry, property, and command payloads](../../iot/concepts-message-payloads.md).
 
 A device template includes the following sections:
 
 - _A device model_. This part of the device template defines how the device interacts with your application. Every device model has a unique ID. A device developer implements the behaviors defined in the model.
   - _Root component_. Every device model has a root component. The root component's interface describes capabilities that are specific to the device model.
-  - _Components_. A device model may include components in addition to the root component to describe device capabilities. Each component has an interface that describes the component's capabilities. Component interfaces may be reused in other device models. For example, several phone device models could use the same camera interface.
+  - _Components_. A device model can include components in addition to the root component to describe device capabilities. Each component has an interface that describes the component's capabilities. Component interfaces can be reused in other device models. For example, several phone device models could use the same camera interface.
   - _Inherited interfaces_. A device model contains one or more interfaces that extend the capabilities of the root component.
 - _Views_. This part of the device template lets the solution developer define visualizations to view data from the device, and forms to manage and control a device. Views don't affect the code that a device developer writes to implement the device model.
 
@@ -101,7 +101,7 @@ You can also mark a property as writable on an interface. A device can receive a
 
 Devices don't need to be connected to set property values. The updated values are transferred when the device next connects to the application. This behavior applies to both read-only and writable properties.
 
-Don't use properties to send telemetry from your device. For example, a readonly property such as `temperatureSetting=80` should mean that the device temperature has been set to 80, and the device is trying to get to, or stay at, this temperature.
+Don't use properties to send telemetry from your device. For example, a readonly property such as `temperatureSetting=80` should mean that the device temperature is set to 80, and the device is trying to get to, or stay at, this target temperature.
 
 For writable properties, the device application returns a desired state status code, version, and description to indicate whether it received and applied the property value.
 
@@ -249,6 +249,6 @@ A solution developer creates views that let operators monitor and manage connect
 - Tiles to let the operator call commands, including commands that expect a payload.
 - Tiles to display labels, images, or markdown text.
 
-## Next steps
+## Next step
 
 Now that you've learned about device templates, a suggested next step is to read [Telemetry, property, and command payloads](../../iot/concepts-message-payloads.md) to learn more about the data a device exchanges with IoT Central.

@@ -3,9 +3,9 @@ title: Using PowerShell to manage Traffic Manager in Azure
 description: With this learning path, get started using Azure PowerShell for Traffic Manager.
 services: traffic-manager
 author: greg-lindsay
-ms.service: traffic-manager
+ms.service: azure-traffic-manager
 ms.topic: how-to
-ms.date: 03/16/2017
+ms.date: 08/08/2024
 ms.author: greglin
 ms.custom: template-how-to, devx-track-azurepowershell
 ---

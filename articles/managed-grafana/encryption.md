@@ -3,7 +3,7 @@ title: Encryption in Azure Managed Grafana
 description: Learn how data is encrypted in Azure Managed Grafana.
 author: maud-lv
 ms.author: malev
-ms.service: managed-grafana
+ms.service: azure-managed-grafana
 ms.topic: conceptual
 ms.date: 03/23/2023
 ms.custom: concept, engagement-fy23
@@ -26,7 +26,7 @@ Azure Managed Grafana leverages encryption offered by Azure Cosmos DB and Azure 
 
 Data stored in Azure Cosmos DB and Azure Database for PostgreSQL is encrypted at rest on storage devices and in transport over the network.
 
-For more information, go to [Encryption at rest in Azure Cosmos DB](../cosmos-db/database-encryption-at-rest.md) and [Security in Azure Database for PostgreSQL - Flexible Server](../postgresql/flexible-server/concepts-security.md).
+For more information, go to [Encryption at rest in Azure Cosmos DB](/azure/cosmos-db/database-encryption-at-rest) and [Security in Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server/concepts-security).
 
 ## Server-side encryption
 

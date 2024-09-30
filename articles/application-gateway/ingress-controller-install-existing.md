@@ -3,10 +3,10 @@ title: Create an ingress controller with an existing Application Gateway
 description: This article provides information on how to deploy an Application Gateway Ingress Controller with an existing Application Gateway.
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.custom: devx-track-arm-template, devx-track-azurecli
 ms.topic: how-to
-ms.date: 02/07/2024
+ms.date: 9/17/2024
 ms.author: greglin
 ---
 
@@ -33,9 +33,9 @@ shared between one AKS cluster and/or other Azure components.
 
 This document assumes you already have the following tools and infrastructure installed:
 
-- [An AKS cluster](../aks/intro-kubernetes.md) with [Azure Container Networking Interface (CNI)](../aks/configure-azure-cni.md)
+- [An AKS cluster](/azure/aks/intro-kubernetes) with [Azure Container Networking Interface (CNI)](/azure/aks/configure-azure-cni)
 - [Application Gateway v2](./tutorial-autoscale-ps.md) in the same virtual network as the AKS cluster
-- [Microsoft Entra Workload ID](../aks/workload-identity-overview.md) configured for your AKS cluster
+- [Microsoft Entra Workload ID](/azure/aks/workload-identity-overview) configured for your AKS cluster
 - [Cloud Shell](https://shell.azure.com/) is the Azure shell environment, which has `az` CLI, `kubectl`, and `helm` installed. These tools are required for commands used to support configuring this deployment.
 
 **Backup your Application Gateway's configuration** before installing AGIC:
@@ -48,26 +48,20 @@ Gateway should that become necessary
 
 ## Install Helm
 
-[Helm](../aks/kubernetes-helm.md) is a package manager for Kubernetes, used to install the `application-gateway-kubernetes-ingress` package.
+[Helm](/azure/aks/kubernetes-helm) is a package manager for Kubernetes, used to install the `application-gateway-kubernetes-ingress` package.
 
 > [!NOTE]
-> If you use [Cloud Shell](https://shell.azure.com/), you don't need to install Helm.  Azure Cloud Shell comes with Helm version 3. Skip the first step and just add the AGIC Helm repository.
+> If you use [Cloud Shell](https://shell.azure.com/), you don't need to install Helm.  Azure Cloud Shell comes with Helm version 3.
 
-1. Install [Helm](../aks/kubernetes-helm.md) and run the following to add `application-gateway-kubernetes-ingress` helm package:
+Install [Helm](/azure/aks/kubernetes-helm) and run the following:
 
-    - *Kubernetes RBAC enabled* AKS cluster
+  - *Kubernetes RBAC enabled* AKS cluster
 
-    ```bash
-    kubectl create serviceaccount --namespace kube-system tiller-sa
-    kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller-sa
-    helm init --tiller-namespace kube-system --service-account tiller-sa
-    ```
-
-2. Add the AGIC Helm repository:
-    ```bash
-    helm repo add application-gateway-kubernetes-ingress https://appgwingress.blob.core.windows.net/ingress-azure-helm-package/
-    helm repo update
-    ```
+  ```bash
+  kubectl create serviceaccount --namespace kube-system tiller-sa
+  kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller-sa
+  helm init --tiller-namespace kube-system --service-account tiller-sa
+  ```
 
 ## Azure Resource Manager Authentication
 
@@ -78,10 +72,10 @@ these APIs.
 
 ## Set up Microsoft Entra Workload ID
 
-[Microsoft Entra Workload ID](../aks/workload-identity-overview.md) is an identity you assign to a software workload, to authenticate and access other services and resources. This identity enables your AKS pod to use this identity and authenticate with other Azure resources. For this configuration, we need authorization
+[Microsoft Entra Workload ID](/azure/aks/workload-identity-overview) is an identity you assign to a software workload, to authenticate and access other services and resources. This identity enables your AKS pod to use this identity and authenticate with other Azure resources. For this configuration, we need authorization
 for the AGIC pod to make HTTP requests to [ARM](../azure-resource-manager/management/overview.md).
 
-1. Use the Azure CLI [az account set](/cli/azure/account#az-account-set) command to set a specific subscription to be the current active subscription. Then use the [az identity create](/cli/azure/identity#az-identity-create) command to create a managed identity. The identity needs to be created in the [node resource group](../aks/concepts-clusters-workloads.md#node-resource-group). The node resource group is assigned a name by default, such as *MC_myResourceGroup_myAKSCluster_eastus*.
+1. Use the Azure CLI [az account set](/cli/azure/account#az-account-set) command to set a specific subscription to be the current active subscription. Then use the [az identity create](/cli/azure/identity#az-identity-create) command to create a managed identity. The identity needs to be created in the [node resource group](/azure/aks/concepts-clusters-workloads#node-resource-group). The node resource group is assigned a name by default, such as *MC_myResourceGroup_myAKSCluster_eastus*.
 
     ```azurecli-interactive
     az account set --subscription "subscriptionID"
@@ -206,12 +200,11 @@ kubectl apply -f $file -n $namespace
 
 ## Install Ingress Controller as a Helm Chart
 
-In the first few steps, we install Helm's Tiller on your Kubernetes cluster. Use [Cloud Shell](https://shell.azure.com/) to install the AGIC Helm package:
+In the first few steps, we installed Helm's Tiller on your Kubernetes cluster. Use [Cloud Shell](https://shell.azure.com/) to install the AGIC Helm package:
 
-1. Add the `application-gateway-kubernetes-ingress` helm repo and perform a helm update
+1. Perform a helm update
 
     ```bash
-    helm repo add application-gateway-kubernetes-ingress https://appgwingress.blob.core.windows.net/ingress-azure-helm-package/
     helm repo update
     ```
 
@@ -280,17 +273,18 @@ In the first few steps, we install Helm's Tiller on your Kubernetes cluster. Use
     > [!NOTE]
     > The `<identity-client-id>` is a property of the Microsoft Entra Workload ID you setup in the previous section. You can retrieve this information by running the following command: `az identity show -g <resourcegroup> -n <identity-name>`, where `<resourcegroup>` is the resource group hosting the infrastructure resources related to the AKS cluster, Application Gateway and managed identity.
 
-1. Install Helm chart `application-gateway-kubernetes-ingress` with the `helm-config.yaml` configuration from the previous step
+1. Install Helm chart with the `helm-config.yaml` configuration from the previous step
 
     ```bash
-    helm install -f <helm-config.yaml> application-gateway-kubernetes-ingress/ingress-azure
+    helm install agic-controller oci://mcr.microsoft.com/azure-application-gateway/charts/ingress-azure --version 1.7.5 -f helm-config.yaml
     ```
 
     Alternatively you can combine the `helm-config.yaml` and the Helm command in one step:
 
     ```bash
-    helm install ./helm/ingress-azure \
-         --name ingress-azure \
+    helm install oci://mcr.microsoft.com/azure-application-gateway/charts/ingress-azure \
+         --name agic-controller \
+         --version 1.7.5 \
          --namespace default \
          --debug \
          --set appgw.name=applicationgatewayABCD \
@@ -379,7 +373,8 @@ Apply the Helm changes:
       helm upgrade \
           --recreate-pods \
           -f helm-config.yaml \
-          ingress-azure application-gateway-kubernetes-ingress/ingress-azure
+          agic-controller
+          oci://mcr.microsoft.com/azure-application-gateway/charts/ingress-azure
       ```
 
 As a result, your AKS cluster has a new instance of `AzureIngressProhibitedTarget` called `prohibit-all-targets`:
@@ -418,8 +413,7 @@ Since Helm with `appgw.shared=true` and the default `prohibit-all-targets` block
 
 Let's assume that we already have a working AKS cluster, Application Gateway, and configured AGIC in our cluster. We have an Ingress for
 `prod.contoso.com` and are successfully serving traffic for it from the cluster. We want to add `staging.contoso.com` to our
-existing Application Gateway, but need to host it on a [VM](https://azure.microsoft.com/services/virtual-machines/). We
-are going to reuse the existing Application Gateway and manually configure a listener and backend pools for
+existing Application Gateway, but need to host it on a [VM](https://azure.microsoft.com/services/virtual-machines/). We're going to reuse the existing Application Gateway and manually configure a listener and backend pools for
 `staging.contoso.com`. But manually tweaking Application Gateway config (using
 [portal](https://portal.azure.com), [ARM APIs](/rest/api/resources/) or
 [Terraform](https://www.terraform.io/)) would conflict with AGIC's assumptions of full ownership. Shortly after we apply

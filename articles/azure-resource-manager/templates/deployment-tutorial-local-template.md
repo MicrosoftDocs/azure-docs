@@ -1,7 +1,7 @@
 ---
 title: Tutorial - Deploy a local Azure Resource Manager template
 description: Learn how to deploy an Azure Resource Manager template (ARM template) from your local computer
-ms.date: 10/05/2023
+ms.date: 09/26/2024
 ms.topic: tutorial
 ms.custom: devx-track-arm-template
 ---

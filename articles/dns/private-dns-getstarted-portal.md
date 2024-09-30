@@ -6,7 +6,7 @@ author: greg-lindsay
 ms.author: greglin
 ms.date: 06/20/2024
 ms.topic: quickstart
-ms.service: dns
+ms.service: azure-dns
 ms.custom: mode-ui
 #Customer intent: As an experienced network administrator, I want to create an  Azure private DNS zone, so I can resolve host names on my private virtual networks.
 ---

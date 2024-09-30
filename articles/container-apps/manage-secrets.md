@@ -3,7 +3,7 @@ title: Manage secrets in Azure Container Apps
 description: Learn to store and consume sensitive configuration values in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: how-to
 ms.date: 03/23/2023
 ms.author: cshoe
@@ -123,7 +123,7 @@ To reference a secret from Key Vault, you must first enable managed identity in 
 
 To enable managed identity in your container app, see [Managed identities](managed-identity.md).
 
-To grant access to Key Vault secrets, [create an access policy](../key-vault/general/assign-access-policy.md) in Key Vault for the managed identity you created. Enable the "Get" secret permission on this policy.
+To grant access to Key Vault secrets, [create an access policy](/azure/key-vault/general/assign-access-policy) in Key Vault for the managed identity you created. Enable the "Get" secret permission on this policy.
 
 # [Azure portal](#tab/azure-portal)
 

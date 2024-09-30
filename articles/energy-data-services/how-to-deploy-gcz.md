@@ -82,6 +82,8 @@ Through APIM we can add policies to secure, monitor, and manage the APIs.
 
 [!INCLUDE [Azure CLI](includes/how-to/how-to-deploy-gcz/deploy-gcz-apim-cli.md)]
 
+---
+
 ## Testing the GCZ service
 
 1. Download the API client collection from the [OSDU GitLab](https://community.opengroup.org/osdu/platform/consumption/geospatial/-/blob/master/docs/test-assets/postman/Geospatial%20Consumption%20Zone%20-%20Provider%20Postman%20Tests.postman_collection.json?ref_type=heads) and import it into your API client of choice (for example, Postman).

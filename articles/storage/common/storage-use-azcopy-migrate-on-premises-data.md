@@ -117,7 +117,7 @@ Copy the AzCopy command to a text editor. Update the parameter values of the AzC
 These examples assume that your folder is named `myFolder`, your storage account name is `mystorageaccount` and your container name is `mycontainer`.
 
 > [!NOTE]
-> The Linux example appends a SAS token. You'll need to provide one in your command. The current version of AzCopy V10 doesn't support Microsoft Entra authorization in cron jobs.
+> The Linux example appends a SAS token. You'll need to provide one in your command. To utilize Microsoft Entra authentication in cron jobs, ensure you configure the AZCOPY_AUTO_LOGIN_TYPE environment variable appropriately.
 
 # [Linux](#tab/linux)
 

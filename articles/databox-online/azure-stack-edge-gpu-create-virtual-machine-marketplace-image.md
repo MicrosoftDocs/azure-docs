@@ -16,9 +16,6 @@ ms.author: alkohli
 
 # Use Azure Marketplace image to create VM image for your Azure Stack Edge Pro GPU
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
-
 [!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 To deploy VMs on your Azure Stack Edge Pro GPU device, you need to create a VM image that you can use to create VMs. This article describes the steps that are required to create a VM image starting from an Azure Marketplace image. You can then use this VM image to deploy VMs on your Azure Stack Edge Pro GPU device.

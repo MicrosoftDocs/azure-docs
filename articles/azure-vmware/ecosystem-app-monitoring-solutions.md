@@ -13,7 +13,7 @@ A key objective of Azure VMware Solution is to maintain the performance and secu
 
 ## Microsoft solutions
 
-Microsoft recommends [Application Insights](../azure-monitor/app/app-insights-overview.md#application-insights-overview), a feature of [Azure Monitor](../azure-monitor/overview.md#azure-monitor-overview), to maximize the availability and performance of your applications and services.
+Microsoft recommends [Application Insights](/azure/azure-monitor/app/app-insights-overview#application-insights-overview), a feature of [Azure Monitor](/azure/azure-monitor/overview#azure-monitor-overview), to maximize the availability and performance of your applications and services.
 
 Learn how modern monitoring with Azure Monitor can transform your business by reviewing the [product overview, features, getting started guide and more](https://azure.microsoft.com/services/monitor).
 

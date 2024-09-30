@@ -1,7 +1,7 @@
 ---
 title: Reducer is slow in Azure HDInsight
 description: Reducer is slow in Azure HDInsight from possible data skewing.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: troubleshooting
 ms.date: 02/12/2024
 ---

@@ -6,7 +6,7 @@ ms.reviewer: amberb
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 02/26/2024
+ms.date: 08/21/2024
 ms.author: banders
 ---
 
@@ -127,7 +127,7 @@ If your enrollment still has credits, you see the following error that prevents 
 
 `Select another enrollment. This enrollment still has credits and can't be transitioned to a billing account.`
 
-If your new billing profile doesn't have the new plan enabled, you see the following error. You must enable the plan before you can transition your enrollment.
+If your new billing profile doesn't have the new plan enabled, you see the following error. You must enable the plan before you can transition your enrollment. Contact your Microsoft representative for assistance.
 
 `Select another Billing Profile. The current selection does not have Azure Plan and Azure dev test plan enabled on it.`
 
@@ -269,7 +269,7 @@ Support benefits don't transfer as part of the transition. Purchase a new suppor
 
 Charges and credits balance before the transition can be viewed in your Enterprise Agreement enrollment through the Azure portal.
 
-### When should the setup be completed?
+### When should the setup get completed?
 
 Complete the setup of your billing account before your Enterprise Agreement enrollment expires. If your enrollment expires, services in your Azure subscriptions continue to run without disruption. However, you're charged pay-as-you-go rates for the services.
 
@@ -283,7 +283,7 @@ The transition can't be reverted. Once the billing of your Azure subscriptions i
 
 ### Closing your browser during setup
 
-Before you select **Start transition**, you can close the browser. You can come back to the setup using the link you got in the email and start the transition. If you close the browser, after the transition is started, your transition will keep on running. Come back to the transition status page to monitor the latest status of your transition. You get an email when the transition is completed.
+Before you select **Start transition**, you can close the browser. You can come back to the setup using the link you got in the email and start the transition. If you close the browser, after the transition is started, your transition will keep on running. To monitor the latest status of your transition, return to the transition status page. You get an email when the transition is completed.
 
 ## Complete the setup in the Azure portal
 

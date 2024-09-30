@@ -3,7 +3,7 @@ title: Linter rule - outputs should not contain secrets
 description: Linter rule - outputs should not contain secrets
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 03/20/2024
+ms.date: 07/11/2024
 ---
 
 # Linter rule - outputs should not contain secrets
@@ -35,7 +35,7 @@ The following example fails because it uses a [`list*`](./bicep-functions-resour
 
 ```bicep
 param storageName string
-resource stg 'Microsoft.Storage/storageAccounts@2021-04-01' existing = {
+resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' existing = {
   name: storageName
 }
 

@@ -3,10 +3,10 @@ title: Create Azure HDInsight - Azure Data Lake Storage Gen2 - Azure CLI
 description: Learn how to use Azure Data Lake Storage Gen2 with Azure HDInsight clusters using Azure CLI.
 author: yeturis
 ms.author: sairamyeturi
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-azurecli
-ms.date: 08/21/2023
+ms.date: 07/24/2024
 ---
 
 # Create a cluster with Data Lake Storage Gen2 using Azure CLI
@@ -41,7 +41,7 @@ You can [download a sample template file](https://github.com/Azure-Samples/hdins
 The code snippet below does the following initial steps:
 
 1. Logs in to your Azure account.
-1. Sets the active subscription where the create operations will be done.
+1. Sets the active subscription where the created operations will be done.
 1. Creates a new resource group for the new deployment activities.
 1. Creates a user-assigned managed identity.
 1. Adds an extension to the Azure CLI to use features for Data Lake Storage Gen2.

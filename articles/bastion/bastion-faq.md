@@ -2,8 +2,8 @@
 title: 'Azure Bastion FAQ'
 description: Learn about frequently asked questions for Azure Bastion.
 author: cherylmc
-ms.service: bastion
-ms.topic: conceptual
+ms.service: azure-bastion
+ms.topic: faq
 ms.date: 04/01/2024
 ms.author: cherylmc
 ms.custom: references_regions
@@ -106,7 +106,7 @@ No, Bastion connectivity to Azure Virtual Desktop isn't supported.
 
 ### <a name="udr"></a>How do I handle deployment failures?
 
-Review any error messages and [raise a support request in the Azure portal](../azure-portal/supportability/how-to-create-azure-support-request.md) as needed. Deployment failures can result from [Azure subscription limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md). Specifically, customers might encounter a limit on the number of public IP addresses allowed per subscription that causes the Azure Bastion deployment to fail.
+Review any error messages and [raise a support request in the Azure portal](/azure/azure-portal/supportability/how-to-create-azure-support-request) as needed. Deployment failures can result from [Azure subscription limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md). Specifically, customers might encounter a limit on the number of public IP addresses allowed per subscription that causes the Azure Bastion deployment to fail.
 
 ### <a name="move-virtual-network"></a>Does Bastion support moving a VNet to another resource group?
 
@@ -229,7 +229,7 @@ Yes, existing sessions on the target Bastion resource will disconnect during mai
 
 ### I'm connecting to a VM using a JIT policy, do I need additional permissions?
 
-If user is connecting to a VM using a JIT policy, there are no additional permissions needed. For more information on connecting to a VM using a JIT policy, see [Enable just-in-time access on VMs](../defender-for-cloud/just-in-time-access-usage.yml).
+If user is connecting to a VM using a JIT policy, there are no additional permissions needed. For more information on connecting to a VM using a JIT policy, see [Enable just-in-time access on VMs](/azure/defender-for-cloud/just-in-time-access-usage).
 
 ## <a name="peering"></a>VNet peering FAQs
 
