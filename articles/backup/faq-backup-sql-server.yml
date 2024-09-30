@@ -19,7 +19,7 @@ sections:
   - name: Backup
     questions:
       - question: |
-          Can I use Azure Backup for IaaS VM as well as SQL Server on the same machine?
+          Can I use Azure Backup for IaaS VM and SQL Server on the same machine?
         answer: |
           Yes, you can have both VM backup and SQL backup on the same VM. In this case, we internally trigger copy-only full backup on the VM to not truncate the logs.
 
