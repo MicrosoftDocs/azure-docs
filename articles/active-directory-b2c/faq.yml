@@ -268,12 +268,9 @@ sections:
           No, Azure AD B2C tenants don't support [group-based assignment to Microsoft Entra Enterprise Applications](../active-directory/manage-apps/assign-user-or-group-access-portal.md).
           
       - question: |
-          What Azure AD B2C features are unavailable in Microsoft Azure Government?
+          Is Azure AD B2C available in Microsoft Azure Government?
         answer: |
-          The following AD B2C features are currently unavailable in Microsoft Azure Government:
-
-          * API connectors
-          * Conditional Access
+          No, Azure AD B2C is not available in Microsoft Azure Government.
 
       - question: |
           I am using rolling refresh tokens for my application and I am getting an invalid_grant error on redeeming newly acquired refresh tokens well within their set validity period. Why does this happen? 
