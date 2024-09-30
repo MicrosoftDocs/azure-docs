@@ -1,17 +1,16 @@
 ---
-title: Advance your cloud strategy using VMware Cloud Foundations (VCF) license portability on Azure VMware Solutions 
+title: Use VMware Cloud Foundations (VCF) license portability on Azure VMware Solution
 author: saloniyadav
 ms.author: saloniyadav
-description: Bring your own VMware Cloud Foundations (VCF) License on Azure VMware Solutions
+description: Bring your own VMware Cloud Foundations (VCF) License on Azure VMware Solution
 ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 9/30/2024
 ---
 
-# Advance your cloud strategy using VMware Cloud Foundations (VCF) license portability on Azure VMware Solutions 
+# Use VMware Cloud Foundations (VCF) license portability on Azure VMware Solution
 
-Now you can bring your own VMware Cloud Foundations (VCF) entitlements to Azure VMware Solutions (AVS) and take advantage of incredible cost savings as you modernize your VMware workloads. Currently with AVS, you get access to both the physical infrastructure and the licensing entitlements for the entire VMware software-defined datacenter (SDDC) stack, including vSphere, ESXi, NSX networking, NSX Firewall, and HCX. With the new VCF license portability option, you can use the offering to apply your on-prem VCF entitlements purchased from Broadcom directly to the AVS infrastructure. This means you can seamlessly integrate your existing VMware assets into a fully managed, state-of-the-art Azure environment, maximizing efficiency and cutting costs. Upgrade with confidence and experience the power and flexibility of Azure VMware Solutions today! 
-
+This article discusses how to cost effectively modernize your VMware workloads by bringing your VMware Cloud Foundations (VCF) entitlements to Azure VMware Solutions and take advantage of incredible cost savings as you modernize your VMware workloads. Currently with Azure VMware Solution, you access both the physical infrastructure and the licensing entitlements for the entire VMware software-defined datacenter (SDDC) stack, including vSphere, ESXi, NSX networking, NSX Firewall, and HCX. With the new VCF license portability option, you can apply your on-premises VCF entitlements, purchased from Broadcom, directly to the Azure VMware Solution infrastructure. This flexibility means you can seamlessly integrate your VMware assets into a fully managed, state-of-the-art Azure environment, maximizing efficiency and cutting costs. Upgrade with confidence and experience the power and flexibility of Azure VMware Solution today! 
 
 ## What's changing!
 
