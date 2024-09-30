@@ -38,7 +38,6 @@ Before you start configuring DCRs for data transformation:
 | **Built-in data types** <br>(Syslog, CommonSecurityLog, WindowsEvent, SecurityEvent) <br>using the Azure Monitor Agent | <li>Optional<li>If desired, added to the DCR that configures how this data is being ingested | Standard DCR |
 | **Built-in data types** <br>from most other sources | <li>Optional<li>If desired, added to the DCR attached to the Workspace where this data is being ingested | Workspace transformation DCR |
 
-<!--not sure that the commonsecuritylog is supported-->
 
 
 ## Configure your data transformation
