@@ -53,6 +53,8 @@ items:
     href: reserved-instance.md
   - name: Azure hybrid benefit for Windows Server, SQL Server, and Linux subscriptions
     href: sql-server-hybrid-benefit.md
+  - name: VMware Cloud Foundations (VCF) license portability on Azure VMware Solution
+    href: vcf-byol.md
 - name: Architecture
   items:
   - name: Private clouds and clusters
@@ -295,6 +297,8 @@ items:
       href: remove-arc-enabled-azure-vmware-solution-vsphere-resources-from-azure.md
   - name: Application performance monitoring solutions for Azure VMware Solution
     href: ecosystem-app-monitoring-solutions.md
+  - name: VMware ARIA in Azure VMware Solution
+    href: vmware-aria-in-azure-vmware-solution.md
   - name: Configure VMware Aria Operations
     href: vrealize-operations-for-azure-vmware-solution.md
 - name: Infrastructure automation and management
