@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/26/2024
+ms.date: 09/30/2024
 ---
 
 # Copy data from ServiceNow using Azure Data Factory or Synapse Analytics
@@ -207,7 +207,7 @@ To learn details about the properties, check [Lookup activity](control-flow-look
 
 ## <a name="upgrade-your-servicenow-linked-service"></a> Upgrade the ServiceNow
 
-Here are the steps that help you to upgrade your ServiceNow linked service:
+Here are the steps that help you to upgrade your ServiceNow:
 
 1. Create a new linked service by referring to [Linked service properties](#linked-service-properties).
 2. **Query** in source is upgraded to **Query builder**, which has the same usage as the condition builder in ServiceNow. Learn how to configure it referring to [ServiceNow as source](#servicenow-as-source).
