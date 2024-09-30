@@ -23,8 +23,6 @@ Microsoft Sentinel recognizes entities in alerts and incidents that are created 
 
 You can currently use up to three identifiers for a given entity when creating an entity mapping in Microsoft Sentinel. **Strong identifiers** alone are sufficient to uniquely identify an entity, whereas **weak identifiers** can do so only in combination with other identifiers. Learn more about [strong and weak identifiers](entities.md#strong-and-weak-identifiers). Most but not all identifiers in this table can be used when creating entity mappings in Microsoft Sentinel (see footnotes).
 
-<!--how to update for AMA?-->
-
 | Entity type | Identifiers | Strong identifiers | Weak identifiers |
 | - | - | - | - |
 | [**Account**](#account) | Name<br>*FullName \**<br>NTDomain<br>DnsDomain<br>UPNSuffix<br>Sid<br>AadTenantId<br>AadUserId<br>PUID<br>IsDomainJoined<br>*DisplayName \**<br>ObjectGuid | Name+UPNSuffix<br>AADUserId<br>Sid [\*\*](#strong-identifiers-of-an-account-entity)<br>Sid+*Host* [\*\*](#strong-identifiers-of-an-account-entity)<br>Name+*Host*+NTDomain [\*\*](#strong-identifiers-of-an-account-entity)<br>Name+NTDomain [\*\*](#strong-identifiers-of-an-account-entity)<br>Name+DnsDomain<br>PUID<br>ObjectGuid | Name |
@@ -142,7 +140,6 @@ The following section contains a more in-depth look at the full schemas of each 
 [Back to list of entity type schemas](#list-of-entity-type-schemas) | [Back to entity identifiers table](#entity-types-and-identifiers)
 
 ### Host
-<!--how to update for AMA?-->
 
 *Entity name: Host*
 

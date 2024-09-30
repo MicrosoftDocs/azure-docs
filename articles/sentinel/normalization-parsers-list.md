@@ -62,8 +62,6 @@ ASIM DNS parsers are available in every workspace. Microsoft Sentinel provides t
 | **Zscaler ZIA** | | `_Im_Dns_ZscalerZIAVxx` |
 ||||
 
-<!--how to update for AMA?-->
-
 Deploy the workspace deployed parsers version from the [Microsoft Sentinel GitHub repository](https://aka.ms/AsimDNS).
 
 ## File Activity parsers
@@ -120,7 +118,7 @@ To use ASIM Process Event parsers, deploy the parsers from the [Microsoft Sentin
 - **Security Events process termination (Event 4689)**, collected using the Azure Monitor Agent
 - **Sysmon process creation (Event 1)**, collected using the Azure Monitor Agent
 - **Sysmon process termination (Event 5)**, collected using the Azure Monitor Agent
-- **Microsoft Defender XDR for Endpoint process creation**
+- **Microsoft Defender for Endpoint process creation**
 
 ## Registry Event parsers
 

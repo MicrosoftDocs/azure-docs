@@ -42,7 +42,6 @@ For details on this template format, see [Microsoft.OperationalInsights workspac
 
 The following sample template configures Microsoft Sentinel simplified pricing with the 300 GB/day Commitment tier. To set the simplified pricing tier to pay-as-you-go, omit the `capacityReservationLevel` property value and change `capacityreservation` to `pergb2018`.
 
-<!--how to update for AMA? check this with austin-->
 ```json
 { 
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#", 
@@ -85,7 +84,6 @@ The following sample template configures Microsoft Sentinel simplified pricing w
 Only tenants that had Microsoft Sentinel enabled before July 2023 are able to revert back to classic pricing tiers. To make the switch back, set the `Microsoft.OperationsManagement/solutions` `sku` name to `capacityreservation` and set the `capacityReservationLevel` for both sections to the appropriate pricing tier. 
 
 The following sample template sets Microsoft Sentinel to the classic pricing tier of pay-as-you-go and sets the Log Analytic workspace to the 100 GB/day Commitment tier.
-<!--how to update for AMA?-->
 
 ```json
 { 
