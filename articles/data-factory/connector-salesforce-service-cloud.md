@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 04/01/2024
+ms.date: 08/21/2024
 ---
 
 # Copy data from and to Salesforce Service Cloud using Azure Data Factory or Azure Synapse Analytics
@@ -165,8 +165,8 @@ To copy data from and to Salesforce Service Cloud, set the type property of the 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to **SalesforceServiceCloudV2Object**.  | Yes |
-| objectApiName | The Salesforce Service Cloud object name to retrieve data from. | No for source (if "SOQLQuery" in source is specified), Yes for sink |
-| reportId | The ID of the Salesforce Service Cloud report to retrieve data from. It is not supported in sink. Note that there are [limitations](https://developer.salesforce.com/docs/atlas.en-us.api_analytics.meta/api_analytics/sforce_analytics_rest_api_limits_limitations.htm) when you use reports. | No for source (if "SOQLQuery" in source is specified), not support sink |
+| objectApiName | The Salesforce Service Cloud object name to retrieve data from. The applicable self-hosted integration runtime version is 5.44.8984.1 or above. | No for source (if "query" in source is specified), Yes for sink |
+| reportId | The ID of the Salesforce Service Cloud report to retrieve data from. It is not supported in sink. Note that there are [limitations](https://developer.salesforce.com/docs/atlas.en-us.api_analytics.meta/api_analytics/sforce_analytics_rest_api_limits_limitations.htm) when you use reports. The applicable self-hosted integration runtime version is 5.44.8984.1 or above. | No for source (if "query" in source is specified), not support sink |
 
 > [!IMPORTANT]
 > The "__c" part of **API Name** is needed for any custom object.
@@ -203,7 +203,7 @@ To copy data from Salesforce Service Cloud, set the source type in the copy acti
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to **SalesforceServiceCloudV2Source**. | Yes |
-| SOQLQuery | Use the custom query to read data. You can only use [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) query with limitations. For SOQL limitations, see this [article](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/queries.htm#SOQL%20Considerations). If query is not specified, all the data of the Salesforce object specified in "ObjectApiName/reportId" in dataset will be retrieved. | No (if "ObjectApiName/reportId" in the dataset is specified) |
+| query | Use the custom query to read data. You can only use [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) query with limitations. For SOQL limitations, see this [article](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/queries.htm#SOQL%20Considerations). If query is not specified, all the data of the Salesforce object specified in "objectApiName/reportId" in dataset will be retrieved. | No (if "objectApiName/reportId" in the dataset is specified) |
 | includeDeletedObjects | Indicates whether to query the existing records, or query all records including the deleted ones. If not specified, the default behavior is false. <br>Allowed values: **false** (default), **true**. | No |
 
 > [!IMPORTANT]
@@ -233,7 +233,7 @@ To copy data from Salesforce Service Cloud, set the source type in the copy acti
         "typeProperties": {
             "source": {
                 "type": "SalesforceServiceCloudV2Source",
-                "SOQLQuery": "SELECT Col_Currency__c, Col_Date__c, Col_Email__c FROM AllDataType__c",
+                "query": "SELECT Col_Currency__c, Col_Date__c, Col_Email__c FROM AllDataType__c",
                 "includeDeletedObjects": false
             },
             "sink": {
@@ -343,9 +343,9 @@ The Salesforce Service Cloud connector offers new functionalities and is compati
 
 |Salesforce Service Cloud |Salesforce Service Cloud (legacy)|
 |:---|:---|
-|Support SOQL within [Salesforce Bulk API 2.0](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/queries.htm#SOQL%20Considerations). <br>For SOQL queries:  <br>• GROUP BY, LIMIT, ORDER BY, OFFSET, or TYPEOF clauses are not supported. <br>• Aggregate Functions such as COUNT() are not supported, you can use Salesforce reports to implement them. <br>• Date functions in GROUP BY clauses are not supported, but they are supported in the WHERE clause. <br>• Compound address fields or compound geolocation fields are not supported. As an alternative, query the individual components of compound fields.  <br>• Parent-to-child relationship queries are not supported, whereas child-to-parent relationship queries are supported. |Support both SQL and SOQL syntax. |
-|Objects that contain binary fields are not supported.| Objects that contain binary fields are supported, like Attachment object.|
-|Support objects within Bulk API. For more information, see this [article](https://help.salesforce.com/s/articleView?id=000383508&type=1).|Support objects that are not supported by Bulk API, like CaseStatus.|
+|Support SOQL within [Salesforce Bulk API 2.0](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/queries.htm#SOQL%20Considerations). <br>For SOQL queries:  <br>• GROUP BY, LIMIT, ORDER BY, OFFSET, or TYPEOF clauses aren't supported. <br>• Aggregate Functions such as COUNT() aren't supported, you can use Salesforce reports to implement them. <br>• Date functions in GROUP BY clauses aren't supported, but they're supported in the WHERE clause. <br>• Compound address fields or compound geolocation fields aren't supported. As an alternative, query the individual components of compound fields.  <br>• Parent-to-child relationship queries aren't supported, whereas child-to-parent relationship queries are supported. |Support both SQL and SOQL syntax. |
+| Objects that contain binary fields aren't supported when specifying query. | Objects that contain binary fields are supported when specifying query.|
+| Support objects within Bulk API when specifying query. | Support objects that are unsupported with Bulk API when specifying query.|
 |Support report by selecting a report ID.|Support report query syntax, like `{call "<report name>"}`.|
 
 ## Related content

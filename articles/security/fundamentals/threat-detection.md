@@ -2,13 +2,13 @@
 title: Azure threat protection | Microsoft Docs
 description: Learn about built-in threat protection functionality for Azure, such as the Microsoft Entra ID Protection service. 
 services: security
-author: TerryLanfear
+author: msmbaldwin
 manager: rkarlin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 06/27/2024
-ms.author: terrylan
+ms.author: mbaldwin
 
 ---
 
@@ -68,7 +68,7 @@ PIM helps you:
 
 ## Azure Monitor logs
 
-[Azure Monitor logs](../../azure-monitor/logs/data-platform-logs.md) is a Microsoft cloud-based IT management solution that helps you manage and protect your on-premises and cloud infrastructure. Because Azure Monitor logs is implemented as a cloud-based service, you can have it up and running quickly with minimal investment in infrastructure services. New security features are delivered automatically, saving ongoing maintenance and upgrade costs.
+[Azure Monitor logs](/azure/azure-monitor/logs/data-platform-logs) is a Microsoft cloud-based IT management solution that helps you manage and protect your on-premises and cloud infrastructure. Because Azure Monitor logs is implemented as a cloud-based service, you can have it up and running quickly with minimal investment in infrastructure services. New security features are delivered automatically, saving ongoing maintenance and upgrade costs.
 
 ### Holistic security and compliance posture
 
@@ -77,7 +77,7 @@ PIM helps you:
 Azure Monitor logs help you quickly and easily understand the overall security posture of any environment, all within the context of IT Operations, including software update assessment, antimalware assessment, and configuration baselines. Security log data is readily accessible to streamline the security and compliance audit processes.
 
 ### Insight and analytics
-At the center of [Azure Monitor logs](../../azure-monitor/logs/log-query-overview.md) is the repository, which is hosted by Azure.
+At the center of [Azure Monitor logs](/azure/azure-monitor/logs/log-query-overview) is the repository, which is hosted by Azure.
 
 ![Insight and analytics diagram](./media/threat-detection/azure-threat-detection-fig4.png)
 
@@ -86,8 +86,8 @@ You collect data into the repository from connected sources by configuring data 
 Data sources and solutions each create separate record types with their own set of properties, but you can still analyze them together in queries to the repository. You can use the same tools and methods to work with a variety of data that's collected by various sources.
 
 Most of your interaction with Azure Monitor logs is through the Azure portal, which runs in any browser and provides you with access to configuration settings and multiple tools to analyze and act on collected data. From the portal, you can use:
-* [Log searches](../../azure-monitor/logs/log-query-overview.md) where you construct queries to analyze collected data.
-* [Dashboards](../../azure-monitor/visualize/tutorial-logs-dashboards.md), which you can customize with graphical views of your most valuable searches.
+* [Log searches](/azure/azure-monitor/logs/log-query-overview) where you construct queries to analyze collected data.
+* [Dashboards](/azure/azure-monitor/visualize/tutorial-logs-dashboards), which you can customize with graphical views of your most valuable searches.
 * [Solutions](/previous-versions/azure/azure-monitor/insights/solutions), which provide additional functionality and analysis tools.
 
 Solutions add functionality to Azure Monitor logs. They primarily run in the cloud and provide analysis of data that's collected in the log analytics repository. Solutions might also define new record types to be collected that can be analyzed with log searches or by using an additional user interface that the solution provides in the log analytics dashboard.

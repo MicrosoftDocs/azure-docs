@@ -2,7 +2,7 @@
 title: Policy definitions for tagging resources
 description: Describes the Azure Policy definitions that you can assign to ensure tag compliance.
 ms.topic: conceptual
-ms.date: 03/19/2024
+ms.date: 09/26/2024
 ---
 
 # Assign policy definitions for tag compliance

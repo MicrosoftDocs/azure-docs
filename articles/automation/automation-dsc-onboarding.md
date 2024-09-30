@@ -12,7 +12,7 @@ ms.custom:
 # Enable Azure Automation State Configuration
 
 > [!NOTE]
-> Before you enable Automation State Configuration, we would like you to know that a newer version of DSC is now generally available, managed by a feature of Azure Policy named [guest configuration](../governance/machine-configuration/overview.md). The guest configuration service combines features of DSC Extension, Azure Automation State Configuration, and the most commonly requested features from customer feedback. Guest configuration also includes hybrid machine support through [Arc-enabled servers](../azure-arc/servers/overview.md).
+> Before you enable Automation State Configuration, we would like you to know that a newer version of DSC is now generally available, managed by a feature of Azure Policy named [guest configuration](../governance/machine-configuration/overview.md). The guest configuration service combines features of DSC Extension, Azure Automation State Configuration, and the most commonly requested features from customer feedback. Guest configuration also includes hybrid machine support through [Arc-enabled servers](/azure/azure-arc/servers/overview).
 
 This topic describes how you can set up your machines for management with Azure Automation State Configuration. For details of this service, see [Azure Automation State Configuration overview](automation-dsc-overview.md).
 
@@ -55,7 +55,7 @@ You can use the [Register-AzAutomationDscNode](/powershell/module/az.automation/
 
 ### Register VMs across Azure subscriptions
 
-The best way to register VMs from other Azure subscriptions is to use the DSC extension in an Azure Resource Manager deployment template. Examples are provided in [Desired State Configuration extension with Azure Resource Manager templates](../virtual-machines/extensions/dsc-template.md).
+The best way to register VMs from other Azure subscriptions is to use the DSC extension in an Azure Resource Manager deployment template. Examples are provided in [Desired State Configuration extension with Azure Resource Manager templates](/azure/virtual-machines/extensions/dsc-template).
 
 ## Use DSC metaconfiguration to register hybrid machines
 

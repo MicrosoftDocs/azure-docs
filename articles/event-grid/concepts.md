@@ -33,7 +33,7 @@ The maximum allowed size for an event is 1 MB. Events over 64 KB are charged in 
 
 ## Other formats
 
-Event Grid also supports the proprietary [Event Grid schema](event-schema.md) format for [system events publishers](event-schema-api-management.md?tabs=cloud-event-schema). You can configure Event Grid to [deliver events using the CloudEvents](cloud-event-schema.md#event-grid-for-cloudevents) format.
+Event Grid also supports the proprietary [Event Grid schema](event-schema.md) format for [system events publishers](event-schema-api-management.md?tabs=cloud-event-schema). You can configure Event Grid to [deliver events using the CloudEvents](cloud-event-schema.md#configuration-for-cloudevents) format.
 
 ## Publishers
 

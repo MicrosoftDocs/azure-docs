@@ -3,8 +3,8 @@ title: Configure runbook input parameters in Azure Automation
 description: This article tells how to configure runbook input parameters, which allow data to be passed to a runbook when it's started.
 services: automation
 ms.subservice: process-automation
-ms.date: 08/18/2023
-ms.topic: conceptual 
+ms.date: 09/10/2024
+ms.topic: how-to
 ms.custom: devx-track-azurepowershell
 ms.service: azure-automation
 ---
@@ -178,7 +178,7 @@ In the label beneath the input box, you can see the properties that have been se
 
 #### Start a runbook using an SDK and assign parameters
 
-* **Azure Resource Manager method:** You can start a runbook using the SDK of a programming language. Below is a C# code snippet for starting a runbook in your Automation account. You can view all the code at our [GitHub repository](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/automation/Microsoft.Azure.Management.Automation/tests/TestSupport/AutomationTestBase.cs).
+* **Azure Resource Manager method:** You can start a runbook using the SDK of a programming language. Below is a C# code snippet for starting a runbook in your Automation account. You can view all the code at our [GitHub repository](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/automation/Azure.ResourceManager.Automation/tests/AutomationManagementTestBase.cs).
 
   ```csharp
   public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
@@ -198,7 +198,7 @@ In the label beneath the input box, you can see the properties that have been se
   }
   ```
 
-* **Azure classic deployment model method:** You can start a runbook by using the SDK of a programming language. Below is a C# code snippet for starting a runbook in your Automation account. You can view all the code at our [GitHub repository](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/automation/Microsoft.Azure.Management.Automation/tests/TestSupport/AutomationTestBase.cs).
+* **Azure classic deployment model method:** You can start a runbook by using the SDK of a programming language. Below is a C# code snippet for starting a runbook in your Automation account. You can view all the code at our [GitHub repository](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/automation/Azure.ResourceManager.Automation/tests/AutomationManagementTestBase.cs).
 
   ```csharp
   public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)

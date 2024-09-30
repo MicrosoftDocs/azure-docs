@@ -50,6 +50,10 @@ There are different explanations for why a call ended. Here are the meanings of 
 | 5000 | 0 | Call ended for this participant. Participant removed from the conversation by another participant. | Success | |
 | 5003 | 0 | Call ended successfully, as all callee endpoints declined the call. | Success | |
 | 5300 | 0 | Call ended for this participant. Participant removed from the conversation by another participant. | Success | |
+| 5317 | 0 | Target participant is removed due to participant role update. | ExpectedError | |
+| 5828 | 403 | The join is not authorized for the Rooms meeting since user is not part of invitee list.	 | UnexpectedClientError | |
+| 5829 | 403 | The join is not allowed for the Rooms meeting beyond end time or prior to start time of the meeting. | UnexpectedClientError | |
+| 5830 | 403 | Only Communication Services user is allowed to join the Rooms meeting. | ExpectedError | |
 | 7000 | 0 | Call ended by Azure Communication Services platform. | Success | |
 | 10003 | 487 | Call was accepted elsewhere, by another endpoint of this user. | Success | |
 | 10004 | 487 | Call was canceled on timeout, no callee endpoint accepted on time. Ensure that user saw the notification and try to initiate that call again. | ExpectedError | |

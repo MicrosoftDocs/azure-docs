@@ -110,7 +110,7 @@ The following table shows the Azure Storage client library for resource manageme
 | ------- | --------- | ------- | ------ |
 | **Azure.ResourceManager.Storage** | [Reference](/dotnet/api/azure.resourcemanager.storage) | [NuGet](https://www.nuget.org/packages/Azure.ResourceManager.Storage/) | [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.ResourceManager.Storage) |
 
-To learn more about using the Azure Storage management library for specific resource management scenarios, see the [Azure Storage management library developer guide for .NET](../blobs/storage-blob-dotnet-get-started.md).
+To learn more about using the Azure Storage management library for specific resource management scenarios, see the [Azure Storage management library developer guide for .NET](storage-srp-dotnet-get-started.md).
 
 ## [Java](#tab/java)
 

@@ -31,7 +31,7 @@ Verify the server properties, and make sure that it complies with [Azure require
 1. In **Protected Items**, click **Replicated Items**, and select the machine.
 2. In the **Replicated item** pane, there's a summary of machine information, health status, and the
    latest available recovery points. Click **Properties** to view more details.
-3. In **Compute and Network**, you can modify the Azure name, resource group, target size, [availability set](../virtual-machines/windows/tutorial-availability-sets.md), and managed disk settings
+3. In **Compute and Network**, you can modify the Azure name, resource group, target size, [availability set](/azure/virtual-machines/windows/tutorial-availability-sets), and managed disk settings
 4. You can view and modify network settings, including the network/subnet in which the Azure VM will be located after failover, and the IP address that will be assigned to it.
 5. In **Disks**, you can see information about the machine operating system and data disks.
 

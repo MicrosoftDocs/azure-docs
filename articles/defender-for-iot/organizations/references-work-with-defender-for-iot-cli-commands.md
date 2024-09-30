@@ -18,14 +18,13 @@ To access the Defender for IoT CLI, you'll need access to the sensor or on-premi
 
 ## Privileged user access for OT monitoring
 
-Use the *admin* user when using the Defender for IoT CLI, which is an administrative account with access to all CLI commands. On the on-premises management console, use either the *support* or the *cyberx* user.
+Use the *admin* user when using the Defender for IoT CLI, which is an administrative account with access to all CLI commands. On the on-premises management console, use the *cyberx* user.
 
 If you're using a legacy software version, you may have one or more of the following users:
 
 |Legacy scenario  |Description  |
 |---------|---------|
 |**Sensor versions earlier than 23.2.0**     |   In sensor versions earlier than [23.2.0](whats-new.md#default-privileged-user-is-now-admin-instead-of-support), the default *admin* user is named *support*. The *support* user is available and supported only on versions earlier than 23.2.0.<br><br>Documentation refers to the *admin* user to match the latest version of the software.    |
-|**Sensor software versions earlier than 23.1.x**     |   In sensor software versions earlier than [23.1.x](whats-new.md#july-2023), the *cyberx* and *cyberx_host* privileged users are also in use. <br><br>In newly installed versions 23.1.x and higher, the *cyberx* and *cyberx_host* users are available, but not enabled by default. <br><br>To enable these extra privileged users, such as to use the [Defender for IoT CLI](references-work-with-defender-for-iot-cli-commands.md), change their passwords. For more information, see [Recover privileged access to a sensor](manage-users-sensor.md#recover-privileged-access-to-a-sensor).      |
 
 Other CLI users cannot be added.
 
@@ -40,7 +39,7 @@ The following tables list the activities available by CLI and the privileged use
 |Service area  |Users  |Actions  |
 |---------|---------|---------|
 |Sensor health     |   *admin*, *cyberx*      | [Check OT monitoring services health](cli-ot-sensor.md#check-ot-monitoring-services-health)        |
-|Restart and shutdown     |  *admin*, *cyberx*, *cyberx_host*       | [Restart an appliance](cli-ot-sensor.md#restart-an-appliance)<br>[Shut down an appliance](cli-ot-sensor.md#shut-down-an-appliance)        |
+|Reboot and shutdown     |  *admin*, *cyberx*, *cyberx_host*       | [Restart an appliance](cli-ot-sensor.md#restart-an-appliance)<br>[Shut down an appliance](cli-ot-sensor.md#shut-down-an-appliance)        |
 |Software versions     |  *admin*, *cyberx*       |  [Show installed software version](cli-ot-sensor.md#show-installed-software-version)  <br>[Update software version](update-ot-software.md)     |
 |Date and time     |   *admin*, *cyberx*, *cyberx_host*          |  [Show current system date/time](cli-ot-sensor.md#show-current-system-datetime)       |
 |NTP     | *admin*, *cyberx*        | [Turn on NTP time sync](cli-ot-sensor.md#turn-on-ntp-time-sync)<br>[Turn off NTP time sync](cli-ot-sensor.md#turn-off-ntp-time-sync)        |
@@ -49,22 +48,15 @@ The following tables list the activities available by CLI and the privileged use
 
 |Service area  |Users  |Actions  |
 |---------|---------|---------|
-|Backup files     | *admin*, *cyberx*        | [List current backup files](cli-ot-sensor.md#list-current-backup-files)    <br>[Start an immediate, unscheduled backup](cli-ot-sensor.md#start-an-immediate-unscheduled-backup)    |
+|List backup files     | *admin*, *cyberx*        | [List current backup files](cli-ot-sensor.md#list-current-backup-files)    <br>[Start an immediate, unscheduled backup](cli-ot-sensor.md#start-an-immediate-unscheduled-backup)    |
 |Restore     | *admin*, *cyberx*        | [Restore data from the most recent backup](cli-ot-sensor.md#restore-data-from-the-most-recent-backup)        |
 |Backup disk space     |  *cyberx*       |  [Display backup disk space allocation](cli-ot-sensor.md#display-backup-disk-space-allocation)       |
-
-### TLS/SSL certificate commands
-
-|Service area  |Users  |Actions  |
-|---------|---------|---------|
-|Certificate management     | *cyberx*        | [Import TLS/SSL certificates to your OT sensor](cli-ot-sensor.md#import-tlsssl-certificates-to-your-ot-sensor)<br>[Restore the default self-signed certificate](cli-ot-sensor.md#restore-the-default-self-signed-certificate)        |
 
 ### Local user management commands
 
 |Service area  |Users  |Actions  |
 |---------|---------|---------|
 |Password management     | *cyberx*, *cyberx_host*        | [Change local user passwords](cli-ot-sensor.md#change-local-user-passwords)        |
-|  Sign-in configuration| *admin*, *cyberx*, *cyberx_host* |[Control user session timeouts](manage-users-sensor.md#control-user-session-timeouts) |
 | Sign-in configuration     | *cyberx*        | [Define maximum number of failed sign-ins](manage-users-sensor.md#define-maximum-number-of-failed-sign-ins)       |
 
 ### Network configuration commands
@@ -74,8 +66,6 @@ The following tables list the activities available by CLI and the privileged use
 | Network setting configuration | *cyberx_host* | [Change networking configuration or reassign network interface roles](cli-ot-sensor.md#change-networking-configuration-or-reassign-network-interface-roles) |
 |Network setting configuration     |  *admin*       |  [Validate and show network interface configuration](cli-ot-sensor.md#validate-and-show-network-interface-configuration)       |
 |Network connectivity     |  *admin*, *cyberx*       |  [Check network connectivity from the OT sensor](cli-ot-sensor.md#check-network-connectivity-from-the-ot-sensor)       |
-|Network connectivity      |  *cyberx*       | [Check network interface current load](cli-ot-sensor.md#check-network-interface-current-load) <br>[Check internet connection](cli-ot-sensor.md#check-internet-connection)         |
-|Network bandwidth limit     |    *cyberx*     | [Set bandwidth limit for the management network interface](cli-ot-sensor.md#set-bandwidth-limit-for-the-management-network-interface)        |
 |Physical interfaces management     | *admin*        | [Locate a physical port by blinking interface lights](cli-ot-sensor.md#locate-a-physical-port-by-blinking-interface-lights)        |
 |Physical interfaces management    | *admin*, *cyberx*        |     [List connected physical interfaces](cli-ot-sensor.md#list-connected-physical-interfaces)    |
 
@@ -84,13 +74,6 @@ The following tables list the activities available by CLI and the privileged use
 |Service area  |Users  |Actions  |
 |---------|---------|---------|
 | Capture filter management    |  *admin*, *cyberx*       | [Create a basic filter for all components](cli-ot-sensor.md#create-a-basic-filter-for-all-components)<br>[Create an advanced filter for specific components](cli-ot-sensor.md#create-an-advanced-filter-for-specific-components)  <br>[List current capture filters for specific components](cli-ot-sensor.md#list-current-capture-filters-for-specific-components)  <br> [Reset all capture filters](cli-ot-sensor.md#reset-all-capture-filters)   |
-
-### Alert commands
-
-|Service area  |Users  |Actions  |
-|---------|---------|---------|
-|Alert functionality testing     |  *cyberx*       |   [Trigger a test alert](cli-ot-sensor.md#trigger-a-test-alert)      |
-| Alert exclusion rules | *admin*, *cyberx* | [Show current alert exclusion rules](cli-ot-sensor.md#show-current-alert-exclusion-rules) <br>[Create a new alert exclusion rule](cli-ot-sensor.md#create-a-new-alert-exclusion-rule)<br>[Modify an alert exclusion rule](cli-ot-sensor.md#modify-an-alert-exclusion-rule)<br>[Delete an alert exclusion rule](cli-ot-sensor.md#delete-an-alert-exclusion-rule)
 
 ## Defender for IoT CLI access
 
@@ -104,15 +87,13 @@ Each CLI command on an OT network sensor or on-premises management console is su
 
 ## Access the system root as an *admin* user
 
-When signing in as the *admin* user, run the following command to access the host machine as the root user. Access the host machine as the root user enables you to run CLI commands that aren't available to the *admin* user. 
+When signing in as the *admin* user, run the following command to access the host machine as the root user. Access the host machine as the root user enables you to run CLI commands that aren't available to the *admin* user.
 
 Run:
 
 ```support bash
 system shell
 ```
-
-OT sensor versions earlier than [23.2.0](whats-new.md#default-privileged-user-is-now-admin-instead-of-support) include the *support* privileged user instead of the *admin* user. If you're using an older version of the sensor software, any commands that are listed as supported for the *admin* user are also supported for the legacy *support* user.
 
 ## Sign out of the CLI
 

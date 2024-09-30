@@ -4,7 +4,7 @@ description: Learn how to configure a custom response code and message when Azur
 services: web-application-firewall
 author: vhorne
 ms.service: azure-web-application-firewall
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/16/2022
 ms.author: victorh 
 ms.custom: devx-track-azurepowershell

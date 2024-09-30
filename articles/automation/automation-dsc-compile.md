@@ -12,7 +12,7 @@ ms.service: azure-automation
 # Compile DSC configurations in Azure Automation State Configuration
 
 > [!NOTE]
-> Before you enable Automation State Configuration, we would like you to know that a newer version of DSC is now generally available, managed by a feature of Azure Policy named [guest configuration](../governance/machine-configuration/overview.md). The guest configuration service combines features of DSC Extension, Azure Automation State Configuration, and the most commonly requested features from customer feedback. Guest configuration also includes hybrid machine support through [Arc-enabled servers](../azure-arc/servers/overview.md).
+> Before you enable Automation State Configuration, we would like you to know that a newer version of DSC is now generally available, managed by a feature of Azure Policy named [guest configuration](../governance/machine-configuration/overview.md). The guest configuration service combines features of DSC Extension, Azure Automation State Configuration, and the most commonly requested features from customer feedback. Guest configuration also includes hybrid machine support through [Arc-enabled servers](/azure/azure-arc/servers/overview).
 
 You can compile Desired State Configuration (DSC) configurations in Azure Automation State Configuration in the following ways:
 
@@ -27,7 +27,7 @@ You can compile Desired State Configuration (DSC) configurations in Azure Automa
   - Work with node and non-node data at scale
   - Significant performance improvement
 
-You can also use Azure Resource Manager templates with Azure Desired State Configuration (DSC) extension to push configurations to your Azure VMs. The Azure DSC extension uses the Azure VM Agent framework to deliver, enact, and report on DSC configurations running on Azure VMs. For compilation details using Azure Resource Manager templates, see [Desired State Configuration extension with Azure Resource Manager templates](../virtual-machines/extensions/dsc-template.md#details).
+You can also use Azure Resource Manager templates with Azure Desired State Configuration (DSC) extension to push configurations to your Azure VMs. The Azure DSC extension uses the Azure VM Agent framework to deliver, enact, and report on DSC configurations running on Azure VMs. For compilation details using Azure Resource Manager templates, see [Desired State Configuration extension with Azure Resource Manager templates](/azure/virtual-machines/extensions/dsc-template#details).
 
 ## Compile a DSC configuration in Azure State Configuration
 

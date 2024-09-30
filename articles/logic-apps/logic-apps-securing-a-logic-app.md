@@ -1698,7 +1698,7 @@ When the [managed identity](/entra/identity/managed-identities-azure-resources/o
 
 1. Before your logic app can use a managed identity, follow the steps in [Authenticate access to Azure resources by using managed identities in Azure Logic Apps](authenticate-with-managed-identity.md). These steps enable the managed identity on your logic app and set up that identity's access to the target Azure resource.
 
-1. Before an Azure function can use a managed identity, first [enable authentication for Azure functions](logic-apps-azure-functions.md#enable-authentication-functions).
+1. Before an Azure function can use a managed identity, first [enable authentication for Azure functions](call-azure-functions-from-workflows.md#enable-authentication-functions).
 
 1. In the trigger or action that supports using a managed identity, provide this information:
 
@@ -1744,9 +1744,11 @@ If your organization doesn't permit connecting to specific resources by using th
 
 ## Isolation guidance for logic apps
 
-You can use Azure Logic Apps in [Azure Government](../azure-government/documentation-government-welcome.md) supporting all impact levels in the regions described by the [Azure Government Impact Level 5 Isolation Guidance](../azure-government/documentation-government-impact-level-5.md). To meet these requirements, Azure Logic Apps supports the capability for you to create and run workflows in an environment with dedicated resources so that you can reduce the performance impact by other Azure tenants on your logic apps and avoid sharing computing resources with other tenants.
+* You can use Azure Logic Apps in [Azure Government](../azure-government/documentation-government-welcome.md) supporting all impact levels in the regions described by the [Azure Government Impact Level 5 Isolation Guidance](../azure-government/documentation-government-impact-level-5.md). To meet these requirements, Azure Logic Apps supports the capability for you to create and run workflows in an environment with dedicated resources so that you can reduce the performance impact by other Azure tenants on your logic apps and avoid sharing computing resources with other tenants.
 
-* To run your own code or perform XML transformation, [create and call an Azure function](../logic-apps/logic-apps-azure-functions.md), rather than use the [inline code capability](../logic-apps/logic-apps-add-run-inline-code.md) or provide [assemblies to use as maps](../logic-apps/logic-apps-enterprise-integration-maps.md), respectively. Also, set up the hosting environment for your function app to comply with your isolation requirements.
+* Standard logic app workflows can privately and securely communicate with an Azure virtual network through private endpoints that you set up for inbound traffic and virtual network integration for outbound traffic. For more information, review [Secure traffic between virtual networks and single-tenant Azure Logic Apps using private endpoints](secure-single-tenant-workflow-virtual-network-private-endpoint.md).
+
+* To run your own code or perform XML transformation, [create and call an Azure function](call-azure-functions-from-workflows.md), rather than use the [inline code capability](../logic-apps/logic-apps-add-run-inline-code.md) or provide [assemblies to use as maps](../logic-apps/logic-apps-enterprise-integration-maps.md), respectively. Also, set up the hosting environment for your function app to comply with your isolation requirements.
 
   For example, to meet Impact Level 5 requirements, create your function app with the [App Service plan](../azure-functions/dedicated-plan.md) using the [**Isolated** pricing tier](../app-service/overview-hosting-plans.md) along with an [App Service Environment (ASE)](../app-service/environment/intro.md) that also uses the **Isolated** pricing tier. In this environment, function apps run on dedicated Azure virtual machines and dedicated Azure virtual networks, which provide network isolation on top of compute isolation for your apps and maximum scale-out capabilities.
 
@@ -1754,34 +1756,16 @@ You can use Azure Logic Apps in [Azure Government](../azure-government/documenta
 
   * [Azure App Service plans](../app-service/overview-hosting-plans.md)
   * [Azure Functions networking options](../azure-functions/functions-networking-options.md)
-  * [Azure Dedicated Hosts for virtual machines](../virtual-machines/dedicated-hosts.md)
-  * [Virtual machine isolation in Azure](../virtual-machines/isolation.md)
+  * [Azure Dedicated Hosts for virtual machines](/azure/virtual-machines/dedicated-hosts)
+  * [Virtual machine isolation in Azure](/azure/virtual-machines/isolation)
   * [Deploy dedicated Azure services into virtual networks](../virtual-network/virtual-network-for-azure-services.md)
-
-* Based on whether you have Consumption or Standard logic app workflows, you have these options:
-
-  * Standard logic app workflows can privately and securely communicate with an Azure virtual network through private endpoints that you set up for inbound traffic and virtual network integration for outbound traffic. For more information, review [Secure traffic between virtual networks and single-tenant Azure Logic Apps using private endpoints](secure-single-tenant-workflow-virtual-network-private-endpoint.md).
-
-  * Consumption logic app workflows can run in an [integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md) where they can use dedicated resources and access resources protected by an Azure virtual network. However, the ISE resource retires on August 31, 2024, due to its dependency on Azure Cloud Services (classic), which retires at the same time.
-
-    > [!IMPORTANT]
-    >
-    > Some Azure virtual networks use private endpoints ([Azure Private Link](../private-link/private-link-overview.md)) 
-    > for providing access to Azure PaaS services, such as Azure Storage, Azure Cosmos DB, or Azure SQL Database, 
-    > partner services, or customer services that are hosted on Azure.
-    >
-    > To create Consumption logic app workflows that need access to virtual networks with private endpoints, 
-    > you *must create and run your Consumption workflows in an ISE*. Or, you can create Standard workflows instead, 
-    > which don't need an ISE. Instead, your workflows can communicate privately and securely with virtual networks 
-    > by using private endpoints for inbound traffic and virtual network integration for outbound traffic. For more information, see 
-    > [Secure traffic between virtual networks and single-tenant Azure Logic Apps using private endpoints](secure-single-tenant-workflow-virtual-network-private-endpoint.md).
 
 For more information about isolation, see the following documentation:
 
 * [Isolation in the Azure Public Cloud](../security/fundamentals/isolation-choices.md)
 * [Security for highly sensitive IaaS apps in Azure](/azure/architecture/reference-architectures/n-tier/high-security-iaas)
 
-## Next steps
+## Related contet
 
 * [Azure security baseline for Azure Logic Apps](security-baseline.md)
 * [Automate deployment for Azure Logic Apps](logic-apps-azure-resource-manager-templates-overview.md)
