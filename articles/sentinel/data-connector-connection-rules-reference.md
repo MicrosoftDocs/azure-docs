@@ -1,24 +1,18 @@
 ---
-title: Data connectors reference for the Codeless Connector Platform
+title: RestApiPoller data connector reference for the Codeless Connector Platform
 titleSuffix: Microsoft Sentinel
 description: This article provides reference JSON fields and properties for creating the RestApiPoller data connector type and its data connection rules as part of the Codeless Connector Platform.
 services: sentinel
 author: austinmccollum
 ms.topic: reference
-ms.date: 11/13/2023
+ms.date: 9/30/2024
 ms.author: austinmc
 
 ---
 
-# Data connector reference for the Codeless Connector Platform
+# RestApiPoller data connector reference for the Codeless Connector Platform
 
-To create a data connector with the Codeless Connector Platform (CCP), use this document as a supplement to the [Microsoft Sentinel REST API for Data Connectors](/rest/api/securityinsights/data-connectors) reference docs. Specifically this reference document expands on the following details:
-
-- The data connector kind, `RestApiPoller`, which is used for the CCP.
-- Authorization configuration
-- Data source request and response configuration options
-- Data stream paging options
-- Data collection rule map 
+To create a `RestApiPoller` data connector with the Codeless Connector Platform (CCP), use this reference as a supplement to the [Microsoft Sentinel REST API for Data Connectors](/rest/api/securityinsights/data-connectors) docs.
 
 Each `dataConnector` represents a specific *connection* of a Microsoft Sentinel data connector. One data connector might have multiple connections, which fetch data from different endpoints. The JSON configuration built using this reference document is used to complete the deployment template for the CCP data connector. 
 
@@ -47,7 +41,7 @@ For more information about the latest API version, see [Data Connectors - Create
 
 ## Request body
 
-The request body for the CCP data connector has the following structure:
+The request body for a `RestApiPoller` CCP data connector has the following structure:
 
 ```json
 {
@@ -66,7 +60,9 @@ The request body for the CCP data connector has the following structure:
 
 ```
 
-**RestApiPoller** represents the codeless API Poller connector.
+### RestApiPoller
+
+**RestApiPoller** represents an API Poller CCP data connector where you customize paging, authorization and request/response payloads for your data source.
 
 | Name | Required | Type | Description |
 | ---- | ---- | ---- | ---- |
