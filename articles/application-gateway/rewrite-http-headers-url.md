@@ -4,7 +4,7 @@ description: This article provides an overview of rewriting HTTP headers and URL
 author: greg-lindsay
 ms.service: azure-application-gateway
 ms.topic: conceptual
-ms.date: 09/10/2024
+ms.date: 09/30/2024
 ms.author: greglin
 ---
 
@@ -125,7 +125,7 @@ Application gateway supports the following server variables:
 | server_port               | The port of the server that accepted a request.              |
 | ssl_connection_protocol   | The protocol of an established TLS connection.               |
 | ssl_enabled               | "On" if the connection operates in TLS mode. Otherwise, an   empty string. |
-| uri_path                  | Identifies the specific resource in the host that the web   client wants to access. The variable refers to the original URL path, prior to any manipulation. This is the part of the request URI without the   arguments. Example: In the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, uri_path value is `/article.aspx` |
+| uri_path                  | Identifies the specific resource in the host that the web client wants to access. The variable refers to the original URL path, prior to any manipulation. This is the part of the request URI without the arguments. For example, in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, the uri_path value is `/article.aspx`. |
 
 ### Mutual authentication server variables
 

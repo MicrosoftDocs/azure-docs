@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: azure-application-gateway
 ms.topic: troubleshooting
-ms.date: 03/08/2024
+ms.date: 09/30/2024
 ms.author: greglin 
 ms.custom:
 ---
@@ -31,7 +31,7 @@ The status retrieved by any of these methods can be any one of the following sta
 The Application Gateway forwards a request to a server from the backend pool if its status is healthy. If all the servers in a backend pool are unhealthy or unknown, the clients could encounter problems accessing the backend application. Read further to understand the different messages reported by Backend Health, their causes, and their resolution.
 
 > [!NOTE]
-> If your user doesn't have permission to see backend health statuses, `No results.` will be shown.
+> If your user doesn't have permission to see backend health statuses, the output `No results.` is displayed.
 
 ## Backend health status: Unhealthy
 
@@ -164,7 +164,7 @@ To increase the timeout value, follow these steps:
 
 **Message:** Status code of the backend's HTTP response did not match the probe setting. Expected:{HTTPStatusCode0} Received:{HTTPStatusCode1}.
 
-**Cause:** After the TCP connection has been established and a TLS handshake is done (if TLS is enabled), Application Gateway will send the probe as an HTTP GET request to the backend server. As described earlier, the default probe will be to `<protocol>://127.0.0.1:<port>/`, and it considers response status codes in the range 200 through 399 as Healthy. If the server returns any other status code, it is marked as Unhealthy with this message.
+**Cause:** After the TCP connection has been established and a TLS handshake is done (if TLS is enabled), Application Gateway sends the probe as an HTTP GET request to the backend server. As described earlier, the default probe is set to `<protocol>://127.0.0.1:<port>/`, and it considers response status codes in the range 200 through 399 as Healthy. If the server returns any other status code, it is marked as Unhealthy with this message.
 
 **Solution:** Depending on the backend server's response code, you can take the following steps. A few of the common status codes are listed here:
 
@@ -177,7 +177,7 @@ To increase the timeout value, follow these steps:
 | Probe status code mismatch: Received 500 | Internal server error. Check the backend server's health and whether the services are running. |
 | Probe status code mismatch: Received 503 | Service unavailable. Check the backend server's health and whether the services are running. |
 
-Or, if you think the response is legitimate and you want Application Gateway to accept other status codes as Healthy, you can create a custom probe. This approach is useful in situations where the backend website needs authentication. Because the probe requests don't carry any user credentials, they will fail, and an HTTP 401 status code will be returned by the backend server.
+Or, if you think the response is legitimate and you want Application Gateway to accept other status codes as Healthy, you can create a custom probe. This approach is useful in situations where the backend website needs authentication. Because the probe requests don't carry any user credentials, they will fail, and an HTTP 401 status code is returned by the backend server.
 
 To create a custom probe, follow [these steps](./application-gateway-create-probe-portal.md).
 
@@ -220,7 +220,7 @@ For V1, verify the backend pool target's FQDN is same the Common Name (CN).
 **Tips:** To determine the Common Name (CN) of the backend server(s)’ certificate, you can use any of these methods. Also note, as per [**RFC 6125**](https://www.rfc-editor.org/rfc/rfc6125#section-6.4.4) if a SAN exists the SNI verification is done only against that field. The common name field is matched if there's no SAN in the certificate.
 
 * By using browser or any client:
-Access the backend server directly (not through Application Gateway) and click on the certificate padlock in the address bar to view the certificate details. You will find it under the “Issued To” section.
+Access the backend server directly (not through Application Gateway) and click on the certificate padlock in the address bar to view the certificate details. You can find it under the “Issued To” section.
 [ ![Screenshot that shows certificate details in a browser.](./media/application-gateway-backend-health-troubleshooting/browser-cert.png) ](./media/application-gateway-backend-health-troubleshooting/browser-cert.png#lightbox)
 
 * By logging into the backend server (Windows):
@@ -242,7 +242,7 @@ Run this OpenSSL command by specifying the right certificate filename ` openssl 
 **Solution:** The solution depends on which part of the certificate chain has expired on the backend server.
 
 For V2 SKU,
-* Expired Leaf (also known as Domain or Server) certificate – Renew the server certificate with certificate provider and install the new certificate on the backend server. Ensure that you have installed the complete certificate chain comprising of `Leaf (topmost) > Intermediate(s) > Root`. Based on the type of Certificate Authority (CA), you may take the following actions on your gateway.
+* Expired Leaf (also known as Domain or Server) certificate – Renew the server certificate with certificate provider and install the new certificate on the backend server. Ensure that you have installed the complete certificate chain comprised of `Leaf (topmost) > Intermediate(s) > Root`. Based on the type of Certificate Authority (CA), you may take the following actions on your gateway.
   * Publicly known CA: If the certificate issuer is a well-known CA, you need not take any action on the application gateway.
   * Private CA: If the leaf certificate is issued by a private CA, you need to check if the signing Root CA certificate has changed. In such cases, you must upload the new Root CA certificate (.CER) to the associated Backend setting of your gateway.
 
@@ -261,7 +261,7 @@ For V1 SKU,
 **Solution:** An Intermediate certificate is used to sign the Leaf certificate and is thus needed to complete the chain. Check with your Certificate Authority (CA) for the necessary Intermediate certificate(s) and install them on your backend server. This chain must start with the Leaf Certificate, then the Intermediate certificate(s), and finally, the Root CA certificate. We recommend installing the complete chain on the backend server, including the Root CA certificate. For reference, look at the certificate chain example under [Leaf must be topmost in chain](application-gateway-backend-health-troubleshooting.md#leaf-must-be-topmost-in-chain).
 
 > [!NOTE] 
-> A self-signed certificate which is NOT a Certificate Authority will also result in the same error. This is because application gateway considers such self-signed certificate as "Leaf" certificate and looks for its signing Intermediate certificate. You can follow this article to correctly [generate a self-signed certificate](./self-signed-certificates.md).
+> A self-signed certificate which is NOT a Certificate Authority also results in the same error. This is because application gateway considers such self-signed certificate as "Leaf" certificate and looks for its signing Intermediate certificate. You can follow this article to correctly [generate a self-signed certificate](./self-signed-certificates.md).
 
 These images show the difference between the self-signed certificates.
 [ ![Screenshot showing difference between self-signed certificates.](./media/application-gateway-backend-health-troubleshooting/self-signed-types.png) ](./media/application-gateway-backend-health-troubleshooting/self-signed-types.png#lightbox)
@@ -308,7 +308,7 @@ These images show the difference between the self-signed certificates.
 **Tips:** To identify and download the root certificate, you can use any of these methods.
 
 * Using a browser: Access the backend server directly (not through Application Gateway) and click on the certificate padlock in the address bar to view the certificate details. 
-   1.	Choose the root certificate in the chain and click on Export. By default, this will be a .CRT file. 
+   1.	Choose the root certificate in the chain and click on Export. By default, this is a .CRT file. 
    2.	Open that .CRT file.
    3.	Go to the Details tab and click on “Copy to File”,
    4.	On Certificate Export Wizard page, click Next,
@@ -366,7 +366,7 @@ OR </br>
 Check and fix the DNS servers to ensure it's serving a response for the given FDQN's DNS lookup. You must also check if the DNS servers are reachable through your application gateway's Virtual Network.
 
 ### Other reasons
-If the backend health is shown as Unknown, the portal view will resemble the following screenshot:
+If the backend health is shown as Unknown, the portal view resembles the following screenshot:
 
 ![Application Gateway backend health - Unknown](./media/application-gateway-backend-health-troubleshooting/appgwunknown.png)
 
@@ -393,7 +393,7 @@ This behavior can occur for one or more of the following reasons:
 
    a.	Follow steps 1a and 1b to determine your subnet.
    b.	Check to see if a UDR is configured. If there is, search for the resource on the search bar or under **All resources**.
-   c.	Check to see if there are any default routes (0.0.0.0/0) with the next hop not set as **Internet**. If the setting is either **Virtual Appliance** or **Virtual Network Gateway**, you must make sure that your virtual appliance, or the on-premises device, can properly route the packet back to the Internet destination without modifying the packet. If probes are routed through a virtual appliance and modified, the backend resource will display a **200** status code and the Application Gateway health status can display as **Unknown**. This doesn't indicate an error. Traffic should still be routing through the Application Gateway without issue.
+   c.	Check to see if there are any default routes (0.0.0.0/0) with the next hop not set as **Internet**. If the setting is either **Virtual Appliance** or **Virtual Network Gateway**, you must make sure that your virtual appliance, or the on-premises device, can properly route the packet back to the Internet destination without modifying the packet. If probes are routed through a virtual appliance and modified, the backend resource displays a **200** status code and the Application Gateway health status can display as **Unknown**. This doesn't indicate an error. Traffic should still be routing through the Application Gateway without issue.
    d.	Otherwise, change the next hop to **Internet**, select **Save**, and verify the backend health.
 
 3. Default route advertised by the ExpressRoute/VPN connection to the virtual network over BGP (Border Gateway Protocol):
@@ -419,7 +419,7 @@ This behavior can occur for one or more of the following reasons:
    Next hop: Azure Firewall private IP address
 
 > [!NOTE]
-> If the Application Gateway is not able to access the CRL endpoints, it will mark the backend health status as "unknown" and cause fast update failures. To prevent these issues, you must check that your Application Gateway subnet is able to access crl.microsoft.com and crl3.digicert.com. This can be done by configuring your Network Security Groups to send traffic to the CRL endpoints. 
+> If the application gateway is not able to access the CRL endpoints, it marks the backend health status as "unknown" and cause fast update failures. To prevent these issues, check that your application gateway subnet is able to access `crl.microsoft.com` and `crl3.digicert.com`. This can be done by configuring your Network Security Groups to send traffic to the CRL endpoints. 
 
 ## Next steps
 
