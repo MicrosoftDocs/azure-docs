@@ -1182,10 +1182,10 @@ groups:
   title: Azure Spring Apps plan
   prompt: Select an Azure Spring Apps plan
   pivots:
-  - id: sc-enterprise
-    title: Enterprise
   - id: sc-standard
     title: Basic/Standard
+  - id: sc-enterprise
+    title: Enterprise
 # Owner: karler
 - id: spring-apps-enterprise-or-consumption-plan-selection
   title: Azure Spring Apps plan
@@ -1200,10 +1200,10 @@ groups:
   title: Azure Spring Apps plan
   prompt: Select an Azure Spring Apps plan
   pivots:
-  - id: sc-enterprise
-    title: Enterprise
   - id: sc-standard
     title: Basic/Standard
+  - id: sc-enterprise
+    title: Enterprise
   - id: sc-consumption-plan
     title: Standard consumption and dedicated (Preview)
  # Owner: rahulmehta

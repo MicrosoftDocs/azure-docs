@@ -500,6 +500,7 @@
       "redirect_url": "/azure/azure-health-insights/overview",
       "redirect_document_id": false
     },
+    
     {
       "source_path_from_root": "/articles/azure-health-insights/response-info.md",
       "redirect_url": "/azure/azure-health-insights/overview",
@@ -508,6 +509,51 @@
     {
       "source_path_from_root": "/articles/azure-maps/tutorial-iot-hub-maps.md",
       "redirect_url": "/azure/azure-maps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-health-insights/oncophenotype/faq.md",
+      "redirect_url": "/azure/azure-health-insights/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-health-insights/oncophenotype/get-started.md",
+      "redirect_url": "/azure/azure-health-insights/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-health-insights/oncophenotype/inferences.md",
+      "redirect_url": "/azure/azure-health-insights/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-health-insights/oncophenotype/model-configuration.md",
+      "redirect_url": "/azure/azure-health-insights/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-health-insights/oncophenotype/overview.md",
+      "redirect_url": "/azure/azure-health-insights/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-health-insights/oncophenotype/patient-info.md",
+      "redirect_url": "/azure/azure-health-insights/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-health-insights/oncophenotype/support-and-help.md",
+      "redirect_url": "/azure/azure-health-insights/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-health-insights/oncophenotype/transparency-note.md",
+      "redirect_url": "/azure/azure-health-insights/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-health-insights/oncophenotype/index.yml",
+      "redirect_url": "/azure/azure-health-insights/overview",
       "redirect_document_id": false
     },
     {
