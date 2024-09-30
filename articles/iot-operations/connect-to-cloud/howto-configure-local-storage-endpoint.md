@@ -73,7 +73,7 @@ Once the endpoint is created, you can use it in a dataflow by specifying the end
 
     :::image type="content" source="media/howto-configure-local-storage-endpoint/dataflow-mq-local-storage.png" alt-text="Screenshot using Azure Operations portal to create a dataflow with an MQTT source and local storage.":::
 
-1. Enter the following settings for the endpoint:
+    Enter the following settings for the endpoint:
 
     | Settings      | Description                                                                                       |
     | ------------- | ------------------------------------------------------------------------------------------------- |
