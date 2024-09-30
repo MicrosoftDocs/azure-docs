@@ -80,6 +80,8 @@ The following code example shows how to specify data transfer options using the 
 
 :::code language="go" source="~/blob-devguide-go/cmd/upload-blob/upload_blob.go" id="snippet_upload_blob_transfer_options":::
 
+To learn more about tuning data transfer options, see [Performance tuning for uploads and downloads with Go](storage-blobs-tune-upload-download-go.md).
+
 [!INCLUDE [storage-dev-guide-code-samples-note-go](../../../includes/storage-dev-guides/storage-dev-guide-code-samples-note-go.md)]
 
 ## Resources
