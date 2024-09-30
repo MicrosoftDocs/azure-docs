@@ -122,6 +122,6 @@ In API Management, enable semantic caching by using Azure Redis Enterprise or an
 
 * [Blog: Introducing GenAI capabilities in Azure API Management](https://techcommunity.microsoft.com/t5/azure-integration-services-blog/introducing-genai-gateway-capabilities-in-azure-api-management/ba-p/4146525)
 * [Blog: Integrating Azure Content Safety with API Management for Azure OpenAI Endpoints](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/integrating-azure-content-safety-with-api-management-for-azure/ba-p/4202505)
-* [Training: Manage your generative AI APIs with Azure API Management[(/training/modules/api-management)
+* [Training: Manage your generative AI APIs with Azure API Management](/training/modules/api-management)
 * [Smart load balancing for OpenAI endpoints and Azure API Management](https://techcommunity.microsoft.com/t5/fasttrack-for-azure/smart-load-balancing-for-openai-endpoints-and-azure-api/ba-p/3991616)
 * [Authenticate and authorize access to Azure OpenAI APIs using Azure API Management](api-management-authenticate-authorize-azure-openai.md)
