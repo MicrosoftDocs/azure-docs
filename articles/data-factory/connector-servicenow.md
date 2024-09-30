@@ -205,9 +205,9 @@ To copy data from ServiceNow, set the source type in the copy activity to **Serv
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
-## <a name="upgrade-your-servicenow-linked-service"></a> Upgrade the ServiceNow
+## <a name="upgrade-your-servicenow-linked-service"></a> Upgrade the ServiceNow connector
 
-Here are the steps that help you to upgrade your ServiceNow:
+Here are the steps that help you to upgrade your ServiceNow connector:
 
 1. Create a new linked service by referring to [Linked service properties](#linked-service-properties).
 2. **Query** in source is upgraded to **Query builder**, which has the same usage as the condition builder in ServiceNow. Learn how to configure it referring to [ServiceNow as source](#servicenow-as-source).
