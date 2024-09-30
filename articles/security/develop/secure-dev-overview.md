@@ -55,8 +55,6 @@ applications and to help secure your applications on Azure:
 
 [Open Worldwide Application Security Project](https://www.owasp.org/) (OWASP) - OWASP is an online community that produces freely available articles, methodologies, documentation, tools, and technologies in the field of web application security.
 
-[Pushing Left, Like a Boss](https://wehackpurple.com/pushing-left-like-a-boss-part-1/) - A series of online articles that outline different types of application security activities that developers should complete to create more secure code.
-
 [Microsoft identity platform](../../active-directory/develop/index.yml) - The Microsoft identity platform is an evolution of the Microsoft Entra identity service and developer platform. It's a full-featured platform that consists of an authentication service, open-source libraries, application registration and configuration, full developer documentation, code samples, and other developer content. The Microsoft identity platform supports industry-standard protocols like OAuth 2.0 and OpenID Connect.
 
 [Azure security best practices and patterns](../fundamentals/best-practices-and-patterns.md) - A collection of security best practices to use when you design, deploy, and manage cloud solutions by using Azure. Guidance is intended to be a resource for IT pros. This might include designers, architects, developers, and testers who build and deploy secure Azure solutions.

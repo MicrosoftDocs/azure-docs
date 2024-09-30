@@ -4,7 +4,7 @@ description: This article discusses best practices to consider during the releas
 author: msmbaldwin
 manager: rkarlin
 ms.author: mbaldwin
-ms.date: 00/29/2024
+ms.date: 09/29/2024
 ms.topic: article
 ms.service: security
 ms.subservice: security-develop
