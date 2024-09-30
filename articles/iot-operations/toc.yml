@@ -51,8 +51,6 @@ items:
           href: discover-manage-assets/howto-configure-opcua-certificates-infrastructure.md
         - name: Configure OPC UA user authentication
           href: discover-manage-assets/howto-configure-opcua-authentication-options.md
-        - name: Configure an OPC PLC simulator
-          href: discover-manage-assets/howto-configure-opc-plc-simulator.md
     - name: Manage MQTT broker
       items:
       - name: MQTT broker overview
