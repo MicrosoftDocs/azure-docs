@@ -63,7 +63,7 @@ This command creates a JavaScript project. And enter the folder `SocketIOProject
     1. Run the command:
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.WebPubSubForSocketIO -v 1.0.0-beta.2
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.WebPubSubForSocketIO -v 1.0.0-beta.4
     ```
 
 1. Create a function for negotiation. The negotiation function used for generating endpoints and tokens for client to access the service.

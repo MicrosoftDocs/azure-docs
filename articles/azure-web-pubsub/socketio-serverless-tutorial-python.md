@@ -15,7 +15,7 @@ This tutorial guides you through how to publish data to Socket.IO clients in Ser
 
 Find full code samples that are used in this tutorial:
 
-- [Socket.IO Serverless Python Sample](https://github.com/Azure/azure-webpubsub/tree/main/sdk/webpubsub-socketio-extension/examples/chat-serverless-javascript)
+- [Socket.IO Serverless Python Sample](https://github.com/Azure/azure-webpubsub/tree/main/sdk/webpubsub-socketio-extension/examples/publish-only-python)
 
 > [!IMPORTANT]
 > Default Mode needs a persistent server, you cannot integration Web PubSub for Socket.IO in default mode with Azure Function.
