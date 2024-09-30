@@ -7,7 +7,7 @@ ms.date: 9/27/2024
 ms.custom: engagement-fy23
 ---
 
-## VMware Aria in Azure VMware Solution
+# VMware Aria in Azure VMware Solution
 
 This document provides an overview of VMware Aria suite in Azure VMware Solution (Azure VMware Solution).  
 
