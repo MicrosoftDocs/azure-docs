@@ -1,7 +1,7 @@
 ---
 author: jefmarti
 ms.service: azure-app-service
-ms.devlang: java
+ms.devlang: node
 ms.custom: linux-related-content
 ms.topic: article
 ms.date: 09/30/2024
@@ -12,8 +12,8 @@ You can use Azure App Service to create applications using Azure OpenAI and Open
 
 #### Prerequisites
 
-- An [Azure OpenAI resource](https://learn.microsoft.com/azure/ai-services/openai/quickstart?pivots=programming-language-csharp&tabs=command-line%2Cpython#set-up) or an [OpenAI account](https://platform.openai.com/overview).
-- A Node.js Express application. Create the sample app using our [quickstart](https://learn.microsoft.com/azure/app-service/quickstart-nodejs?tabs=linux&pivots=development-environment-vscode).
+- An [Azure OpenAI resource](/azure/ai-services/openai/quickstart?pivots=programming-language-csharp&tabs=command-line%2Cpython#set-up) or an [OpenAI account](https://platform.openai.com/overview).
+- A Node.js Express application. Create the sample app using our [quickstart](../../quickstart-nodejs?tabs=linux&pivots=development-environment-vscode).
 
 ### Set up web app
 
@@ -48,7 +48,7 @@ The previous code will add an input box to our index page to submit requests to 
 
 First, you need to grab the keys and endpoint values from Azure OpenAI, or OpenAI and add them as secrets for use in your application. Retrieve and save the values for later use to build the client.
 
-For Azure OpenAI, see [this documentation](https://learn.microsoft.com/azure/ai-services/openai/quickstart?pivots=programming-language-csharp&tabs=command-line%2Cpython#retrieve-key-and-endpoint) to retrieve the key and endpoint values. If you’re planning to use managed identity to secure your app you’ll only need the `deploymentName` and `apiVersion` values. 
+For Azure OpenAI, see [this documentation](/azure/ai-services/openai/quickstart?pivots=programming-language-csharp&tabs=command-line%2Cpython#retrieve-key-and-endpoint) to retrieve the key and endpoint values. If you’re planning to use managed identity to secure your app you’ll only need the `deploymentName` and `apiVersion` values. 
 
 Otherwise, you need each of the following:
 
@@ -63,9 +63,9 @@ For OpenAI, see this documentation to retrieve the API keys. For our application
 
 - `apiKey`
 
-Since we're deploying to App Service, we can secure these secrets in **Azure Key Vault** for protection. Follow the [Quickstart](https://learn.microsoft.com/en-us/azure/key-vault/secrets/quick-create-cli#create-a-key-vault) to set up your Key Vault and add the secrets you saved from earlier.
+Since we're deploying to App Service, we can secure these secrets in **Azure Key Vault** for protection. Follow the [Quickstart](/azure/key-vault/secrets/quick-create-cli#create-a-key-vault) to set up your Key Vault and add the secrets you saved from earlier.
 
-Next, we can use Key Vault references as app settings in our App Service resource to reference in our application. Follow the instructions in the [documentation](https://learn.microsoft.com/en-us/azure/app-service/app-service-key-vault-references?source=recommendations&tabs=azure-cli) to grant your app access to your Key Vault and to set up Key Vault references.
+Next, we can use Key Vault references as app settings in our App Service resource to reference in our application. Follow the instructions in the [documentation](../../app-service-key-vault-references.md?source=recommendations&tabs=azure-cli) to grant your app access to your Key Vault and to set up Key Vault references.
 
 Then, go to the portal Environment Variables page in your resource and add the following app settings:
 
