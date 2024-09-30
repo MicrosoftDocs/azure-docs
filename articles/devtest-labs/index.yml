@@ -27,6 +27,8 @@ landingContent:
             url: devtest-lab-concepts.md
           - text: Popular scenarios
             url: devtest-lab-guidance-get-started.md
+          - text: DevTest Labs Roadmap
+            url: devtest-labs-roadmap.md
       - linkListType: tutorial
         links:
           - text: Set up a lab

@@ -57,8 +57,6 @@ Now let's communicate to the cloud from your simulated device. Once a module ide
 
 To retrieve your module connection string, navigate to your [IoT hub](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Devices%2FIotHubs) then select **Devices**. Find and select **myFirstDevice** to open it and then select **myFirstModule** to open it. In **Module Identity Details**, copy the **Connection string (primary key)** and save it for the console app.
 
-:::image type="content" source="./media/module-twins-dotnet/module-identity-detail.png" alt-text="Screenshot that shows the 'Module Identity Details' page." lightbox="./media/module-twins-dotnet/module-identity-detail.png":::
-
 1. In Visual Studio, add a new project to your solution by selecting **File** > **New** > **Project**. In **Create a new project**, select **Console App (.NET Framework)**, and select **Next**.
 
 1. In **Configure your new project**, name the project *UpdateModuleTwinReportedProperties*, then select **Next**.
