@@ -127,14 +127,12 @@ To learn from an example, see the [Data connector definitions reference example 
 
 ### Data connection rules
 
-This portion defines the connection rules including:
-- polling
-- authentication
-- paging
+There are currently two kinds of data connection rules to define your CCP data connector.
+
+- `RestApiPoller` kind allows you to customize paging, authorization and expected request/response payloads for your data source. To learn from an `RestApiPoller` example, see the [Data connector connection rules RestApiPoller reference example](data-connector-connection-rules-reference.md#example-ccp-data-connector).
+- `GCP` kind allows you to decrease your development time by automatically configuring paging and expected response payloads for your Google Cloud Platform (GCP) data source. To learn from a `GCP` example, see [Data connector connection rules reference GCP example](data-connection-rules-reference-gcp.md)
 
 For more information on building this section, see the [Data connector connection rules reference](data-connector-connection-rules-reference.md).
-
-To learn from an example, see the [Data connector connection rules reference example](data-connector-connection-rules-reference.md#example-ccp-data-connector).
 
 Use an [API testing tool](#testing-apis) to call the data connector API to create the data connector which combines the connection rules and previous components. Verify the connector is now connected in the UI.
 
@@ -216,9 +214,11 @@ Finally, the CCP utilizes the credential objects in the data connector section.
 
 ## Create the deployment template
 
-Manually package an Azure Resource Management (ARM) template using the [example template code samples](#example-arm-template) as your guide. These code samples are divided by ARM template sections for you to splice together.
+Manually package an Azure Resource Management (ARM) template using the [example template code samples](#example-arm-template) as your guide. These code samples are divided by ARM template sections which you must splice together.
 
-In addition to the example template, published solutions available in the Microsoft Sentinel content hub use the CCP for their data connector. Review the following solutions as more examples of how to stitch the components together into an ARM template.
+If you're creating a Google Cloud Platform (GCP) CCP data connector, package the deployment template using the [example GCP CCP template](https://github.com/austinmccollum/Azure-Sentinel/blob/patch-5/DataConnectors/Templates/Connector_GCP_CCP_template.json).
+
+In addition to the example templates, published solutions available in the Microsoft Sentinel content hub use the CCP for their data connectors. Review the following solutions as more examples of how to stitch the components together into an ARM template.
 
 - [Ermes Browser Security](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Ermes%20Browser%20Security/Data%20Connectors/ErmesBrowserSecurityEvents_ccp)
 - [Palo Alto Prisma Cloud CWPP](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Palo%20Alto%20Prisma%20Cloud%20CWPP/Data%20Connectors/PaloAltoPrismaCloudCWPP_ccp)
@@ -226,6 +226,7 @@ In addition to the example template, published solutions available in the Micros
 - [Workday](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Workday/Data%20Connectors/Workday_ccp)
 - [Atlassian Jira](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/AtlassianJiraAudit/Data%20Connectors/JiraAuditAPISentinelConnector_ccpv2)
 - [Okta Single Sign-On](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Okta%20Single%20Sign-On/Data%20Connectors/OktaNativePollerConnectorV2)
+- [GCP audit logs](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Google%20Cloud%20Platform%20Audit%20Logs/Package/mainTemplate.json)
 
 ## Deploy the connector
 
