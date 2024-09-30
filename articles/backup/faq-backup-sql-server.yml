@@ -26,7 +26,7 @@ sections:
       - question: |
           Does the solution retry or auto-heal the backups?
         answer: |
-          Under some circumstances, the Azure Backup service triggers remedial backups. Auto-heal can happen for any of the six conditions mentioned below:
+          Under some circumstances, the Azure Backup service triggers remedial backups. Auto-heal can happen for any of the following six conditions:
           
           - If log or differential backup fails due to LSN Validation Error, next log or differential backup is instead converted to a full backup.
           - If no full backup has happened before a log or differential backup, that log or differential backup is instead converted to a full backup.
