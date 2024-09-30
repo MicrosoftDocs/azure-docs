@@ -35,6 +35,26 @@ Replace the license server name to a name without dashes. The name is irrelevant
 SERVER serverplaceholder 6045BDEB339C 1717
 ```
 
+## Synopsys license files upload failures due to missing port numbers
+
+Certain Synopsys EDA license files fail when uploaded to the Modeling and Simulation Workbench chamber license service without a port number.
+
+### Troubleshooting steps
+
+A Synopsys license file issued without a port number on the `VENDOR` line won't successfully upload unless edited by hand to include the port number. The port number can be found on the chamber license server overview page.
+
+A license file issued without a port number on the `VENDOR` line is shown.
+
+```INI
+VENDOR snpslmd /path/to/snpslmd
+```
+
+Add the license server port to the end of the `VENDOR` line. You don't need to update the tool file path, indicated in the example as */path/to/snpslmd* or any other content.
+
+```INI
+VENDOR snpslmd /path/to/snpslmd 27021
+```
+
 ## Users on public IP connector with IP on allowlist can't access workbench desktop or data pipeline
 
 A chamber with a public IP connector configured to allow users who's IP is listed after the first entry of the allowlist can't access the chamber either through the desktop or data pipeline using AzCopy. If the allowlist on a public IP connector contains overlapping networks, in some instances the preprocessor might fail to detect the overlapping networks before attempting to commit them to the active NSG. Failures aren't reported back to the user. Other NSG rules elsewhere - either before or after the interfering rule - might not be processed, defaulting to the "deny all" rule. Access to the connector might be blocked unexpectedly for users that previously had access and appear elsewhere in the list. Access is blocked for all connector interactions including desktop, data pipeline upload, and data pipeline download. The connector still responds to port queries, but doesn't allow interactions from an IP or IP range shown in the connector networking allowlist.
