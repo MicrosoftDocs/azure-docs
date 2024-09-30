@@ -171,6 +171,10 @@ sections:
         answer: |
           During the backup operation, the *backup job* connects to three Service Endpoints - `AzureBackup`, `AzureStorage`, and `Microsoft Entra ID. In this scenario, we recommend you to configure the Service Endpoint to `AzureStorage`, which helps to send the traffic from the Virtual Network to the Storage directly. For Azure Backup and Microsoft Entra ID, you can configure UDR over service tags so that the traffic travels to backbone network instead of on-premises.    
 
+      - question: |
+          Why West US region node is showing under East US region Recovery Services vault?
+        answer: |
+           The Recovery Services vault shows all the nodes that are part of the SAP HANA System Replication. All the nodes are listed here as per the `hdbnsutil` output. However as per the expected behaviour, only configured node in this vault is registered.  
 
   - name: Restore
     questions:
