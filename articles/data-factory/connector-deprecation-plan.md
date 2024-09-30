@@ -100,6 +100,18 @@ The following connector was deprecated.
 If legacy connectors are deprecated with no updated connectors available, you can still use the
 [ODBC Connector](connector-odbc.md) which enables you to continue using these data sources with their native ODBC drivers, or other alternatives. This can enable you to continue using them indefinitely into the future.
 
+## How to find your impacted objects in your data factory
+
+Here's the steps to get your objects which still rely on the deprecated connectors or connectors that have a precise end of support date. It is recommended to take action to upgrade those object to the new connector version before the end of the support date.
+
+1. Open your Azure Data Factory.
+2. Go to Manage – Linked services page.
+3. You should see the Linked Service that is still on legacy version with alert behind it.
+4. Click on the number under the 'Related' column will show you the related objects that utilize this particular Linked service.
+5. To learn more about the upgrade guidance and the comparison between the legacy and the new version, you can navigate to the connector upgrade section within each connector page. 
+
+:::image type="content" source="media/connector-deprecation-plan/linked-services-page.png" alt-text="Screenshot of the linked services page." lightbox="media/connector-deprecation-plan/linked-services-page.png":::
+
 ## Related content
 
 - [Azure Data Factory connectors overview](connector-overview.md)
