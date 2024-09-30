@@ -141,7 +141,7 @@ sections:
           Yes, you need a file path in a registered VM to download files. That path can be a network share too. Configure a network share from the unregistered VM to the registered VM and then choose the registered VM as target and the network share as the target file path. Once files are downloaded, you could simply unmount the network share from the registered VM and the files are now available in the unregistered VM.
 
       - question: |
-          Connecting the Azure environment to on-premises network using ExpressRoute and  configured forced tunneling directs all the traffic to the on-premises network. How can I configure the settings so that Azure SQL Server workload backup traffic will not pass through the on-premises network and directly connects to Recovery Services vault?
+          Connecting the Azure environment to on-premises network using ExpressRoute and  configured forced tunneling directs all the traffic to the on-premises network. How can I configure the settings so that Azure SQL Server workload backup traffic won't pass through the on-premises network and directly connects to Recovery Services vault?
         answer: |
           During the backup operation, the *backup job* connects to three Service Endpoints - `AzureBackup`, `AzureStorage`, and `Microsoft Entra ID. In this scenario, we recommend you to configure the Service Endpoint to `AzureStorage`, which helps to send the traffic from the Virtual Network to the Storage directly. For Azure Backup and Microsoft Entra ID, you can configure UDR over service tags so that the traffic travels to backbone network instead of on-premises.
 
