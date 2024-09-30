@@ -338,7 +338,7 @@ The following example creates a subscription named *Dev Team subscription* for t
 Replace the placeholder value `sampleAlias` as needed. For more information on these REST calls, see [Create](/rest/api/subscription/alias/create) and [Get](/rest/api/subscription/alias/get).
 
 ```json
-PUT  https://management.azure.com/providers/Microsoft.Subscription/aliases/sampleAlias?api-version=2021-10-01
+PUT https://management.azure.com/providers/Microsoft.Subscription/aliases/{{guid}}?api-version=2021-10-01api-version=2021-10-01
 ```
 
 ### Request body
