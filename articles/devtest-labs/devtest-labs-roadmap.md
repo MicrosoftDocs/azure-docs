@@ -1,6 +1,6 @@
 ---
 title: Roadmap for Azure DevTest Labs
-description: Learn about features coming soon and in development for Microsoft Dev Box.
+description: Learn about features in development and coming soon for Azure DevTest Labs.
 ms.service: azure-devtest-labs
 ms.topic: concept-article
 author: anishtrakru
@@ -22,7 +22,7 @@ Key DevTest Labs deliverables can be grouped under the following themes:
 
 ## Ready-to-test virtual machines
 
-The fundamental goal of DevTest Labs is to provide a seamless, intuitive experience that empowers development and testing teams. DevTest Labs enables you to swiftly access ready-to-test machines for deploying and validating the latest versions or features of any version of your application. Desktop and client-based applications. We're dedicated to advancing this vision by continuously investing in innovative technologies to enhance machine customization and optimize testing efficiency.  
+The fundamental goal of DevTest Labs is to provide a seamless, intuitive experience that empowers development and testing teams. DevTest Labs enables you to swiftly access ready-to-test machines for deploying and validating the latest versions or features of any version of your application. We're dedicated to advancing this vision by continuously investing in innovative technologies to enhance machine customization and optimize testing efficiency.  
 
 - **Hibernate VM:** Hibernating a machine preserves its exact state upon resumption, allowing developers to effortlessly troubleshoot issues identified during testing. 
 - **Lab-level Secrets:** Platform engineers and dev managers will be able to set up centralized secrets accessible to the entire team, streamlining virtual machine creation and management. 
@@ -42,7 +42,7 @@ DevTest Labs delivers a streamlined and optimized experience for end-users while
 
 ## Performance and Reliability 
 
-DevTest Labs aim to provide a seamless testing experience that is as responsive as a local machine, and we're consistently enhancing the reliability, speed, and performance of DevTest Labs through platform optimization 
+DevTest Labs aims to provide a seamless testing experience that is as responsive as a local machine, and we're consistently enhancing the reliability, speed, and performance of DevTest Labs through platform optimization. 
 
 **API and Portal Reliability:** We're continuing to invest in our API performance and aiming to attain higher reliability. 
 
