@@ -16,18 +16,13 @@ ms.date: 05/02/2024
 
 In this quickstart, you deploy a suite of IoT services to an Azure Arc-enabled Kubernetes cluster so that you can remotely manage your devices and workloads. Azure IoT Operations is a digital operations suite of services. This quickstart guides you through using Orchestrator to deploy these services to a Kubernetes cluster. At the end of the quickstart, you have a cluster that you can manage from the cloud that generates sample data to use in the following quickstarts.
 
-The services deployed in this quickstart include:
+The rest of the quickstarts in this end-to-end series build on this one to define sample assets, data processing pipelines, and visualizations.
 
-* [MQTT broker](../manage-mqtt-broker/overview-iot-mq.md)
-* [Connector for OPC UA](../discover-manage-assets/overview-opcua-broker.md)
-* [Azure Device Registry Preview](../discover-manage-assets/overview-manage-assets.md#store-assets-as-azure-resources-in-a-centralized-registry) including a schema registry
-* [Observability](../configure-observability-monitoring/howto-configure-observability.md)
-
-The rest of the quickstarts in this end-to-end series build on this one to define sample assets, data processing pipelines, and visualizations. If you want to deploy Azure IoT Operations to a cluster such as AKS Edge Essentials in order to run your own workloads, see [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md?tabs=aks-edge-essentials) and [Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-deploy-iot-operations.md).
+If you want to deploy Azure IoT Operations to a local cluster such as Azure Kubernetes Service Edge Essentials or K3s on Ubuntu, see [Deployment details](../deploy-iot-ops/overview-deploy.md).
 
 ## Before you begin
 
-This series of quickstarts is intended to help you get started with Azure IoT Operations as quickly as possible so that you can evaluate an end-to-end scenario. In a true development or production environment, these tasks would be performed by multiple teams working together and some tasks might require elevated permissions.
+This series of quickstarts is intended to help you get started with Azure IoT Operations as quickly as possible so that you can evaluate an end-to-end scenario. In a true development or production environment, multiple teams working together perform these tasks and some tasks might require elevated permissions.
 
 For the best new user experience, we recommend using an [Azure free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) so that you have owner permissions over the resources in these quickstarts. We also provide steps to use GitHub Codespaces as a virtual environment in which you can quickly begin deploying resources and running commands without installing new tools on your own machines.
 
@@ -45,13 +40,14 @@ Before you begin, prepare the following prerequisites:
 
 * Visual Studio Code installed on your development machine. For more information, see [Download Visual Studio Code](https://code.visualstudio.com/download).
 
+* **Microsoft/Authorization/roleAssignments/write** permissions at the resource group level.
+
 ## What problem will we solve?
 
 Azure IoT Operations is a suite of data services that run on Kubernetes clusters. You want these clusters to be managed remotely from the cloud, and able to securely communicate with cloud resources and endpoints. We address these concerns with the following tasks in this quickstart:
 
 1. Create a Kubernetes cluster and connect it to Azure Arc for remote management.
-1. Create an Azure Key Vault to manage secrets for your cluster.
-1. Configure your cluster with a secrets store and service principal to communicate with cloud resources.
+1. Create a schema registry.
 1. Deploy Azure IoT Operations to your cluster.
 
 ## Connect a Kubernetes cluster to Azure Arc
@@ -79,17 +75,17 @@ To connect your cluster to Azure Arc:
    > * Open the codespace in VS Code desktop, and then return to the browser terminal and rerun `az login`.
    > * Or, after you get the localhost error on the browser, copy the URL from the browser and run `curl "<URL>"` in a new terminal tab. You should see a JSON response with the message "You have logged into Microsoft Azure!."
 
-1. After signing in, Azure CLI displays all of your subscriptions and indicates your default subscription with an asterisk `*`. To continue with your default subscription, select `Enter`. Otherwise, type the number of the Azure subscription that you want to use.
+1. After you sign in, Azure CLI displays all of your subscriptions and indicates your default subscription with an asterisk `*`. To continue with your default subscription, select `Enter`. Otherwise, type the number of the Azure subscription that you want to use.
 
    > [!NOTE]
    > **Special instructions for AIO Internal Bugbash**:
    >
-   > Official IoT Ops CLI releases are installed via extension index like so az extension add --upgrade --name azure-iot-ops mentioned below.
+   > Codespaces come preloaded with the Azure CLI and the latest public release of the azure-iot-ops extension.
    > However for bug bashes, we will distribute one-off release candidates intended to expose functionality to exercise internally. Use this for Bug Bash 2 on 9/27:
    >
    > ``` bash
-   >    az storage blob download --auth-mode login --blob-url https://azedgecli.blob.core.windows.net/drop/azure_iot_ops-0.7.0a10-py3-none-any.whl -f ./azure_iot_ops-0.7.0a10-py3-none-any.whl
-   >    az extension add --upgrade --source ./azure_iot_ops-0.7.0a10-py3-none-any.whl
+   >    az storage blob download --auth-mode login --blob-url https://azedgecli.blob.core.windows.net/drop/azure_iot_ops-0.7.0a11-py3-none-any.whl -f ./azure_iot_ops-0.7.0a11-py3-none-any.whl
+   >    az extension add --upgrade --source ./azure_iot_ops-0.7.0a11-py3-none-any.whl
    > ```
 
 1. Register the required resource providers in your subscription:
@@ -145,6 +141,8 @@ This helper command checks connectivity to Azure Resource Manager and Microsoft 
 ## Create a storage account and schema registry
 
 Azure IoT Operations requires a schema registry on your cluster. Schema registry requires an Azure storage account so that it can synchronize schema information between cloud and edge.
+
+The command to create a schema registry in this section requires **Microsoft/Authorization/roleAssignments/write** permissions at the resource group level.
 
 Run the following CLI commands in your Codespaces terminal.
 

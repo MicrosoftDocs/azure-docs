@@ -6,7 +6,7 @@ ms.author: kgremban
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 02/27/2024
+ms.date: 09/26/2024
 
 # CustomerIntent: As an IT admin or operator, I want to be able to monitor and visualize data on the health of my industrial assets and edge environment.
 ---
@@ -114,6 +114,14 @@ The steps in this section install shared monitoring resources and configure your
    zipkin:
      enabled: false
    ```
+
+1. In the `otel-collector-values.yaml` file, make a note of the following values that you'll use when you deploy Azure IoT Operations on the cluster:
+
+   * **fullnameOverride**
+   * **grpc.endpoint**
+   * **check_interval**
+
+1. Save and close the file.
 
 1. Deploy the collector by running the following commands:
 

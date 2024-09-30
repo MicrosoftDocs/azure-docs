@@ -127,8 +127,13 @@
         },
         {
             "source_path_from_root": "/articles/iot-operations/manage-devices-assets/howto-configure-opc-plc-simulator.md",
-            "redirect_url": "/azure/iot-operations/discover-manage-assets/howto-configure-opc-plc-simulator",
-            "redirect_document_id": true
+            "redirect_url": "https://github.com/Azure-Samples/iot-edge-opc-plc/blob/main/README.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/discover-manage-assets/howto-configure-opc-plc-simulator.md",
+            "redirect_url": "https://github.com/Azure-Samples/iot-edge-opc-plc/blob/main/README.md",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/iot-operations/manage-devices-assets/howto-autodetect-opcua-assets-using-akri.md",

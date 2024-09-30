@@ -266,12 +266,6 @@
     href: data-connectors-reference.md
   - name: All connectors
     items:
-    - name: '[Deprecated] Morphisec UTPP'
-      href: data-connectors/morphisec-utpp.md
-    - name: '[Deprecated] vArmour Application Controller'
-      href: data-connectors/varmour-application-controller.md
-    - name: 'WireX Network Forensics Platform'
-      href: data-connectors/wirex-network-forensics-platform.md
     - name: 1Password (using Azure Functions)
       href: data-connectors/1password.md
     - name: AbnormalSecurity (using Azure Functions)
@@ -910,8 +904,6 @@
     items:
     - name: Overview
       href: entity-pages.md
-    - name: Enable enrichment widgets 
-      href: enable-enrichment-widgets.md
     - name: Create custom entity activities
       href: customize-entity-activities.md
   - name: Investigate large datasets
@@ -1041,8 +1033,6 @@
     href: offboard.md
 - name: Troubleshoot
   items:
-  - name: Troubleshoot CEF/Syslog data collection
-    href: troubleshooting-cef-syslog.md
   - name: Troubleshoot AWS S3 connector issues
     href: aws-s3-troubleshoot.md
   - name: Troubleshoot SAP solution deployment

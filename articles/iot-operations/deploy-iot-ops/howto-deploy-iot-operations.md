@@ -5,7 +5,7 @@ author: kgremban
 ms.author: kgremban
 ms.topic: how-to
 ms.custom: ignite-2023, devx-track-azurecli
-ms.date: 09/23/2024
+ms.date: 09/26/2024
 
 #CustomerIntent: As an OT professional, I want to deploy Azure IoT Operations to a Kubernetes cluster.
 ---
@@ -27,7 +27,7 @@ In this article, we discuss Azure IoT Operations *deployments* and *instances*, 
 
 * An Azure IoT Operations *instance* is the parent resource that bundles the suite of services that are defined in [What is Azure IoT Operations Preview?](../overview-iot-operations.md) like MQTT broker, dataflows, and OPC UA connector.
 
-When we talk about deploying Azure IoT Operations we mean the full set of components that make up a *deployment*. Once the deployment exists, you can view, manage, and update the *instance*.
+When we talk about deploying Azure IoT Operations, we mean the full set of components that make up a *deployment*. Once the deployment exists, you can view, manage, and update the *instance*.
 
 ## Prerequisites
 
@@ -38,7 +38,7 @@ Cloud resources:
 * An Azure key vault. To create a new key vault, use the [az keyvault create](/cli/azure/keyvault#az-keyvault-create) command:
 
   ```azurecli
-  az keyvault create --enable-rbac-authorization --name "<KEYVAULT_NAME>" --resource-group "<RESOURCE_GROUP>"
+  az keyvault create --enable-rbac-authorization --name "<NEW_KEYVAULT_NAME>" --resource-group "<RESOURCE_GROUP>"
   ```
 
 * Azure access permissions. For more information, see [Deployment details > Required permissions](overview-deploy.md#required-permissions).
@@ -83,12 +83,6 @@ The Azure portal deployment experience is a helper tool that generates a deploym
 
    If at any point you get an error that says *Your device is required to be managed to access your resource*, run `az login` again and make sure that you sign in interactively with a browser.
 
-   > [!NOTE]
-   > If you're using GitHub Codespaces in a browser, `az login` returns a localhost error in the browser window after logging in. To fix, either:
-   >
-   > * Open the codespace in VS Code desktop, and then run `az login` in the terminal. This opens a browser window where you can log in to Azure.
-   > * Or, after you get the localhost error on the browser, copy the URL from the browser and use `curl <URL>` in a new terminal tab. You should see a JSON response with the message "You have logged into Microsoft Azure!".
-
 ### Create a storage account and schema registry
 
 Azure IoT Operations requires a schema registry on your cluster. Schema registry requires an Azure storage account so that it can synchronize schema information between cloud and edge.
@@ -96,21 +90,24 @@ Azure IoT Operations requires a schema registry on your cluster. Schema registry
 1. Create a storage account with hierarchical namespace enabled.
 
    ```azurecli
-   az storage account create --name <STORAGE_ACCOUNT_NAME> --resource-group <RESOURCE_GROUP> --enable-hierarchical-namespace
+   az storage account create --name <NEW_STORAGE_ACCOUNT_NAME> --resource-group <RESOURCE_GROUP> --enable-hierarchical-namespace
    ```
 
 1. Create a schema registry that connects to your storage account.
 
    ```azurecli
-   az iot ops schema registry create --name <SCHEMA_REGISTRY> --resource-group <RESOURCE_GROUP> --registry-namespace <SCHEMA_REGISTRY_NAMESPACE> --sa-resource-id $(az storage account show --name <STORAGE_ACCOUNT_NAME> --resource-group <RESOURCE_GROUP> -o tsv --query id)
+   az iot ops schema registry create --name <NEW_SCHEMA_REGISTRY_NAME> --resource-group <RESOURCE_GROUP> --registry-namespace <NEW_SCHEMA_REGISTRY_NAMESPACE> --sa-resource-id $(az storage account show --name <STORAGE_ACCOUNT_NAME> --resource-group <RESOURCE_GROUP> -o tsv --query id)
    ```
+
+   >[!NOTE]
+   >This command requires that you have role assignment write permissions because it assigns a role to give schema registry access to the storage account. By default, the role is the built-in **Storage Blob Data Contributor** role, or you can create a custom role with restricted permissions to assign instead.
 
    Use the optional parameters to customize your schema registry, including:
 
    | Optional parameter | Value | Description |
    | --------- | ----- | ----------- |
-   | `--custom-role-id` | Role definition, ID | The schema registry needs read/write access to the storage account. Provide a custom role ID to use instead of the default **Storage Blob Data Contributor**. Format: `/subscriptions/<SUBSCRIPTION_ID>/providers/Microsoft.Authorization/roleDefinitions/<ROLE_ID>`. |
-   | `--sa-container` | string | Storage account container where schemas will be stored. If this container doesn't exist, it will be created. The default container name is **schemas**. |
+   | `--custom-role-id` | Role definition ID | Provide a custom role ID to assign to the schema registry instead of the default **Storage Blob Data Contributor** role. Format: `/subscriptions/<SUBSCRIPTION_ID>/providers/Microsoft.Authorization/roleDefinitions/<ROLE_ID>`. |
+   | `--sa-container` | string | Storage account container to store schemas. If this container doesn't exist, this command creates it. The default container name is **schemas**. |
 
 ### Deploy Azure IoT Operations
 
@@ -125,12 +122,14 @@ Azure IoT Operations requires a schema registry on your cluster. Schema registry
    | Optional parameter | Value | Description |
    | --------- | ----- | ----------- |
    | `--no-progress` |  | Disables the deployment progress display in the terminal. |
-   | `--enable-fault-tolerance` | `false`, `true` | Enables fault tolerance for Azure Arc Container Storage. At least 3 cluster nodes are required. |
+   | `--enable-fault-tolerance` | `false`, `true` | Enables fault tolerance for Azure Arc Container Storage. At least three cluster nodes are required. |
+   | `--ops-config` | `observability.metrics.openTelemetryCollectorAddress="<FULLNAMEOVERRIDE>.azure-iot-operations.svc.cluster.local:<GRPC_ENDPOINT>` | If you followed the optional prerequisites to prepare your cluster for observability, provide the OpenTelemetry (OTel) collector address you configured in the otel-collector-values.yaml file.<br><br>The sample values used in [Configure observability](../configure-observability-monitoring/howto-configure-observability.md) are **fullnameOverride=aio-otel-collector** and **grpc.enpoint=4317**. |
+   | `--ops-config` | `observability.metrics.exportInternalSeconds=<CHECK_INTERVAL>` | If you followed the optional prerequisites to prepare your cluster for observability, provide the **check_interval** value you configured in the otel-collector-values.yaml file.<br><br>The sample value used in [Configure observability](../configure-observability-monitoring/howto-configure-observability.md) is **check_interval=60**. |
 
 1. Deploy Azure IoT Operations. This command takes several minutes to complete:
 
    ```azurecli
-   az iot ops create --name <NAME> --cluster <CLUSTER_NAME> --resource-group <RESOURCE_GROUP>
+   az iot ops create --name <NEW_INSTANCE_NAME> --cluster <CLUSTER_NAME> --resource-group <RESOURCE_GROUP>
    ```
 
    Use the optional parameters to customize your instance, including:
@@ -150,19 +149,13 @@ Secret management for Azure IoT Operations uses Azure Secret Store to sync the s
 
 Azure secret requires a user-assigned managed identity with access to the Azure Key Vault where secrets are stored. Dataflows also requires a user-assigned managed identity to authenticate cloud connections.
 
-1. If you don't have an Azure Key Vault, create one by using the [az keyvault create](/cli/azure/keyvault#az-keyvault-create) command.
+1. Create an Azure Key Vault if you don't have one available. Use the [az keyvault create](/cli/azure/keyvault#az-keyvault-create) command.
 
    ```azurecli
    az keyvault create --resource-group "<RESOURCE_GROUP>" --location "<LOCATION>" --name "<KEYVAULT_NAME>" --enable-rbac-authorization 
    ```
 
-1. Give yourself **Secrets officer** permissions on the vault, so that you can create secrets:
-
-   ```azurecli
-   az role assignment create --role "Key Vault Secrets Officer" --assignee <CURRENT_USER> --scope /subscriptions/<SUBSCRIPTION>/resourcegroups/<RESOURCE_GROUP>/providers/Microsoft.KeyVault/vaults/<KEYVAULT_NAME> 
-   ```
-
-1. Create a user-assigned managed identity that has access to the Azure Key Vault.
+1. Create a user-assigned managed identity that will be assigned access to the Azure Key Vault.
 
    ```azurecli
    az identity create --name "<USER_ASSIGNED_IDENTITY_NAME>" --resource-group "<RESOURCE_GROUP>" --location "<LOCATION>" --subscription "<SUBSCRIPTION>" 
@@ -175,7 +168,7 @@ Azure secret requires a user-assigned managed identity with access to the Azure 
    * Adds a minimum secret provider class associated with the Azure IoT Operations instance.
 
    ```azurecli
-   az iot ops secretsync enable -n <AIO_NAME> -g <RESOURCE_GROUP> --mi-user-assigned <USER_ASSIGNED_MI_RESOURCE_ID> --kv-resource-id <KEYVAULT_RESOURCE_ID>
+   az iot ops secretsync enable --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> --mi-user-assigned <USER_ASSIGNED_MI_RESOURCE_ID> --kv-resource-id <KEYVAULT_RESOURCE_ID>
    ```
 
 1. Create a user-assigned managed identity which can be used for cloud connections. Don't use the same identity as the one used to set up secrets management.
@@ -188,7 +181,7 @@ Azure secret requires a user-assigned managed identity with access to the Azure 
 1. Run the following command to assign the identity to the Azure IoT Operations instance. This command also created a federated identity credential using the OIDC issuer of the indicated connected cluster and the Azure IoT Operations service account.
 
    ```azurecli
-   az iot ops identity assign -n <AIO_NAME> -g <RESOURCE_GROUP> --mi-user-assigned <USER_ASSIGNED_MI_RESOURCE_ID>
+   az iot ops identity assign --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> --mi-user-assigned <USER_ASSIGNED_MI_RESOURCE_ID>
    ```
 
 ### [Azure portal](#tab/portal)
@@ -278,7 +271,7 @@ Azure secret requires a user-assigned managed identity with access to the Azure 
 
    1. Copy and run the `az iot ops identity assign` command.
 
-1. Once all of the Azure CLI commands have completed successfully, you can close the **Install Azure IoT Operations** wizard.
+1. Once all of the Azure CLI commands complete successfully, you can close the **Install Azure IoT Operations** wizard.
 
 ---
 

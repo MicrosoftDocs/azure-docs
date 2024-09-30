@@ -31,44 +31,42 @@ The test settings are easier and quicker to get you started with a deployment, b
 
 ## Configure cluster for workload identity
 
-A workload identity is an identity you assign to a software workload (such as an application, service, script, or container) to authenticate and access other services and resources. The workload identity feature needs to be enabled on your cluster, so that the [Azure Secret Store](#enable-secure-settings-in-azure-iot-operations-preview-deployment) and Azure IoT Operations can access Microsoft Entra ID protected resources. To learn more, see [What are workload identities?](/entra/workload-id/workload-identities-overview).
+A workload identity is an identity you assign to a software workload (such as an application, service, script, or container) to authenticate and access other services and resources. The workload identity feature needs to be enabled on your cluster, so that the [Azure Key Vault Secret Store extension for Kubernetes](/azure/azure-arc/kubernetes/secret-store-extension) and Azure IoT Operations can access Microsoft Entra ID protected resources. To learn more, see [What are workload identities?](/entra/workload-id/workload-identities-overview).
 
 > [!NOTE]
 > This step only applies to Ubuntu + K3s clusters. The quickstart script for Azure Kubernetes Service (AKS) Edge Essentials used in [Prepare your Azure Arc-enabled Kubernetes cluster](./howto-prepare-cluster.md) enables workload identity by default. If you have an AKS Edge Essentials cluster, continue to the next section.
 
-If you aren't sure whether your K3s cluster already has workload identity enabled or not, run the following command to check:
+If you aren't sure whether your K3s cluster already has workload identity enabled or not, run the [az connectedk8s show](/cli/azure/connectedk8s#az-connectedk8s-show) command to check:
 
 ```azurecli
 az connectedk8s show --name <CLUSTER_NAME> --resource-group <RESOURCE_GROUP> --query "{oidcIssuerEnabled:oidcIssuerProfile.enabled, workloadIdentityEnabled: securityProfile.workloadIdentity.enabled}"
 ```
+> [!NOTE]
+>You can skip this section if workload identity is already set up.
 
 Use the following steps to enable workload identity on an existing connected K3s cluster:
 
-1. Download the `connectedk8s` cli version 1.10.0 whl file from GitHub: [connectedk8s-1.10.0](https://github.com/AzureArcForKubernetes/azure-cli-extensions/blob/connectedk8s/public/cli-extensions/connectedk8s-1.10.0-py2.py3-none-any.whl).
+1. Download and install a preview version of the `connectedk8s` extension for Azure CLI. GitHub: [connectedk8s-1.10.0](https://github.com/AzureArcForKubernetes/azure-cli-extensions/blob/connectedk8s/public/cli-extensions/connectedk8s-1.10.0-py2.py3-none-any.whl).
 
-1. Remove the existing connectedk8s cli extension if you already installed it.
+   ```bash
+   curl -L -o connectedk8s-1.10.0-py2.py3-none-any.whl https://github.com/AzureArcForKubernetes/azure-cli-extensions/raw/refs/heads/connectedk8s/public/cli-extensions/connectedk8s-1.10.0-py2.py3-none-any.whl   
+   ```
+
+1. Use the [az extension remove](/cli/azure/extension#az-extension-remove) command to remove the existing connectedk8s cli extension if you already installed it.
 
    ```azurecli
    #!/bin/bash
    az extension remove --name connectedk8s 
    ```
 
-1. Add the new connectedk8s cli source.
+1. Use the [az extension add](/cli/azure/extension#az-extension-add) command to add the new connectedk8s cli source.
 
    ```azurecli
    #!/bin/bash
-   az extension add --source <PATH_TO_WHL_FILE>
-   ```
-
-1. Export environment variables, and set the release tag to `0.1.15392-private`.
-
-   ```bash
-   export KUBECONFIG=/etc/rancher/k3s/k3s.yaml 
-   tag="0.1.15392-private" 
-   export HELMREGISTRY=azurearcfork8sdev.azurecr.io/merge/private/azure-arc-k8sagents:${tag}
+   az extension add --upgrade --source <PATH_TO_WHL_FILE>
    ```
  
-1. Upgrade the Arc agent version to the private build that supports the workload identity feature.
+1. Use the [az connectedk8s upgrade](/cli/azure/connectedk8s#az-connectedk8s-upgrade) command to upgrade the Arc agent version to the private build that supports the workload identity feature.
 
    ```azurecli
    #!/bin/bash   
@@ -76,7 +74,7 @@ Use the following steps to enable workload identity on an existing connected K3s
    # Variable block
    RESOURCE_GROUP="<RESOURCE_GROUP>"
    CLUSTER_NAME="<CLUSTER_NAME>"
-   RELEASE_TAG="0.1.15392-private"
+   RELEASE_TAG="1.20.1"
 
    # Update the Arc agent version
    az connectedk8s upgrade --resource-group $RESOURCE_GROUP \
@@ -84,7 +82,7 @@ Use the following steps to enable workload identity on an existing connected K3s
                            --agent-version $RELEASE_TAG
    ```
 
-1. Enable the workload identity feature on the cluster.
+1. Use the [az connectedk8s update](/cli/azure/connectedk8s#az-connectedk8s-update) command to enable the workload identity feature on the cluster.
 
    ```azurecli
    #!/bin/bash   
@@ -99,7 +97,7 @@ Use the following steps to enable workload identity on an existing connected K3s
                           --enable-oidc-issuer --enable-workload-identity 
    ```
 
-1. Get the cluster's issuer url. Take a note to add it later in K3s config file.
+1. Use the [az connectedk8s show](/cli/azure/connectedk8s#az-connectedk8s-show) command to to get the cluster's issuer url. Take a note to add it later in K3s config file.
 
    ```azurecli
    #!/bin/bash
@@ -122,8 +120,9 @@ Use the following steps to enable workload identity on an existing connected K3s
 1. Add the following content to the config.yaml file:
 
    ```yml
-   kube-apiserver-arg: 'service-account-issuer=<SERVICE_ACCOUNT_ISSUER>' 
-   kube-apiserver-arg: 'service-account-max-token-expiration=24h' 
+   kube-apiserver-arg:
+    - service-account-issuer=<SERVICE_ACCOUNT_ISSUER>
+    - service-account-max-token-expiration=24h 
    ```
 
 1. Save and exit the file editor.
@@ -136,9 +135,9 @@ Use the following steps to enable workload identity on an existing connected K3s
 
 ## Set up Secrets Management
 
-Secrets Management for Azure IoT Operations uses Azure Secret Store to sync the secrets from an Azure Key Vault and store them on the edge as Kubernetes secrets.  
+Secrets Management for Azure IoT Operations uses Secret Store extension to sync the secrets from an Azure Key Vault and store them on the edge as Kubernetes secrets.  
 
-Azure Secret Store requires a user-assigned managed identity with access to the Azure Key Vault where secrets are stored. To learn more, see [What are managed identities for Azure resources?](/entra/identity/managed-identities-azure-resources/overview).
+Secret Store extension requires a user-assigned managed identity with access to the Azure Key Vault where secrets are stored. To learn more, see [What are managed identities for Azure resources?](/entra/identity/managed-identities-azure-resources/overview).
 
 ### Create an Azure Key Vault
 
@@ -216,7 +215,7 @@ If you already have an Azure Key Vault with `Key Vault Secrets Officer` permissi
 
     ---
 
-### Create a user-assigned managed identity for Azure Secret Store
+### Create a user-assigned managed identity for Secret Store extension
 
 Use the [az identity create](/cli/azure/identity#az-identity-create) command to create the user-assigned managed identity.
 

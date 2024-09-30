@@ -4,7 +4,7 @@ description: Learn how to set up Azure App Service and Azure Functions to use Az
 author: cephalin
 
 ms.topic: article
-ms.date: 07/31/2023
+ms.date: 09/30/2024
 ms.author: cephalin
 ms.custom: AppServiceConnectivity
 ---
