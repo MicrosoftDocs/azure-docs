@@ -8,6 +8,7 @@ ms.date: 07/14/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
+zone_pivot_groups: acs-plat-web-ios-android-windows
 ms.custom: mode-other, devx-track-js
 ---
 
