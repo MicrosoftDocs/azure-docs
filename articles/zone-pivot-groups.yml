@@ -1160,6 +1160,14 @@ groups:
     title: Azure portal
   - id: front-door-cli
     title: Azure CLI
+- id: front-door-dev-exp-ps-cli
+  title: Front Door Developer experience
+  prompt: "Select the developer experience:"
+  pivots:
+  - id: front-door-ps
+    title: Azure PowerShell
+  - id: front-door-cli
+    title: Azure CLI
 # Owner: wiassaf
 - id: azure-sql-deployment-option-single-elastic
   title: Azure SQL deployment option, single or elastic
@@ -1656,3 +1664,14 @@ groups:
     title: Service Connector
   - id: manual
     title: Manual
+# Owner: rosemalcolm
+- id: ade-extensibility-iac-framework
+  title: IaC frameworks
+  prompt: Choose an IaC framework
+  pivots:
+  - id: arm-bicep
+    title: ARM and Bicep
+  - id: terraform
+    title: Terraform
+  - id: pulumi
+    title: Pulumi   

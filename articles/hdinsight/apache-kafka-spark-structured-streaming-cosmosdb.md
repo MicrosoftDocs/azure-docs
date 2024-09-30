@@ -13,7 +13,7 @@ Learn how to use [Apache Spark](https://spark.apache.org/) [Structured Streaming
 
 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is a globally distributed, multi-model database. This example uses an Azure Cosmos DB for NoSQL database model. For more information, see the [Welcome to Azure Cosmos DB](/azure/cosmos-db/introduction) document.
 
-Spark structured streaming is a stream processing engine built on Spark SQL. It allows you to express streaming computations the same as batch computation on static data. For more information on Structured Streaming, see the [Structured Streaming Programming Guide](https://spark.apache.org/docs/2.2.0/structured-streaming-programming-guide.html) at Apache.org.
+Spark structured streaming is a stream processing engine built on Spark SQL. It allows you to express streaming computations the same as batch computation on static data. For more information on Structured Streaming, see the [Structured Streaming Programming Guide](https://archive.apache.org/dist/spark/docs/2.2.0/structured-streaming-programming-guide.html) at Apache.org.
 
 > [!IMPORTANT]  
 > This example uses Spark 2.4 on HDInsight 4.0.

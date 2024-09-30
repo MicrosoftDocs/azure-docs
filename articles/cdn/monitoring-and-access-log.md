@@ -13,6 +13,8 @@ ms.custom: devx-track-azurepowershell
 
 # Real-time Monitoring, metrics, and access Logs for Azure CDN
 
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
+
 With Azure CDN from Microsoft, you can monitor resources in the following ways to help you troubleshoot, track, and debug issues.
 
 - Raw logs provide rich information about every request that CDN receives. Raw logs differ from activity logs. Activity logs provide visibility into the operations done on Azure resources.

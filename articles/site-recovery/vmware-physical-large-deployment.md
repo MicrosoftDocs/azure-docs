@@ -2,7 +2,7 @@
 title: Scale VMware/physical disaster recovery with Azure Site Recovery 
 description: Learn how to set up disaster recovery to Azure for large numbers of on-premises VMware VMs or physical servers with Azure Site Recovery.
 ms.service: azure-site-recovery
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/31/2023
 ms.author: ankitadutta
 author: ankitaduttaMSFT
@@ -46,7 +46,7 @@ The Deployment Planner helps you to gather information about your VMware on-prem
 
 - Run the Deployment Planner during a period that represents typical churn for your VMs. This will generate more accurate estimates and recommendations.
 - We recommend that you run the Deployment Planner on the configuration server machine, since the Planner calculates throughput from the server on which it's running. [Learn more](site-recovery-vmware-deployment-planner-run.md#get-throughput) about measuring throughput.
-- If you don't yet have a configuration server set up:
+- If you don't yet have a configuration server setup:
     - [Get an overview](vmware-physical-azure-config-process-server-overview.md) of Site Recovery components.
     - [Set up a configuration server](vmware-azure-deploy-configuration-server.md), in order to run the Deployment Planner on it.
 
@@ -126,7 +126,7 @@ Configuration server capacity is affected by the number of machines replicating,
  --- | --- | --- | ---
 8 vCPUs<br> 2 sockets * 4 cores @ 2.5 Ghz | 16 GB | 600 GB | Up to 550 machines<br> Assumes that each machine has three disks of 100 GB each.
 
-- These limits are based on a configuration server set up using an OVF template.
+- These limits are based on a configuration server setup using an OVF template.
 - The limits assume that you're not using the process server that's running by default on the configuration server.
 
 If you need to add a new configuration server, follow these instructions:
@@ -168,7 +168,7 @@ After planning capacity and deploying the required components and infrastructure
 
 1. Sort machines into batches. You enable replication for VMs within a batch, and then move on to the next batch.
 
-    - For VMware VMs, you can use the [recommended VM batch size](site-recovery-vmware-deployment-planner-analyze-report.md#recommended-vm-batch-size-for-initial-replication) in the Deployment Planner report.
+    - For VMware VMs, you can use the [recommended VM batch size](site-recovery-vmware-deployment-planner-analyze-report.md#recommended-virtual-machine-batch-size-for-initial-replication) in the Deployment Planner report.
     - For physical machines, we recommend you identify batches based on machines that have a similar size and amount of data, and on available network throughput. The aim is to batch machines that are likely to finish their initial replication in around the same amount of time.
     
 2. If disk churn for a machine is high, or exceeds limits in  Deployment thePlanner, you can move non-critical files you don't need to replicate (such as log dumps or temp files) off the machine. For VMware VMs, you can move these files to a separate disk, and then [exclude that disk](vmware-azure-exclude-disk.md) from replication.

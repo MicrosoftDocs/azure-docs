@@ -20,16 +20,23 @@ This article lists the Azure built-in roles. If you are looking for administrato
 The following table provides a brief description of each built-in role. Click the role name to see the list of `Actions`, `NotActions`, `DataActions`, and `NotDataActions` for each role. For information about what these actions mean and how they apply to the control and data planes, see [Understand Azure role definitions](/azure/role-based-access-control/role-definitions).
 
 
+## Privileged
+
+> [!div class="mx-tableFixed"]
+> | Built-in role | Description | ID |
+> | --- | --- | --- |
+> | <a name='contributor'></a>[Contributor](./built-in-roles/privileged.md#contributor) | Grants full access to manage all resources, but does not allow you to assign roles in Azure RBAC, manage assignments in Azure Blueprints, or share image galleries. | b24988ac-6180-42a0-ab88-20f7382dd24c |
+> | <a name='owner'></a>[Owner](./built-in-roles/privileged.md#owner) | Grants full access to manage all resources, including the ability to assign roles in Azure RBAC. | 8e3af657-a8ff-443c-a75c-2fe8c4bcb635 |
+> | <a name='reservations-administrator'></a>[Reservations Administrator](./built-in-roles/privileged.md#reservations-administrator) | Lets one read and manage all the reservations in a tenant | a8889054-8d42-49c9-bc1c-52486c10e7cd |
+> | <a name='role-based-access-control-administrator'></a>[Role Based Access Control Administrator](./built-in-roles/privileged.md#role-based-access-control-administrator) | Manage access to Azure resources by assigning roles using Azure RBAC. This role does not allow you to manage access using other ways, such as Azure Policy. | f58310d9-a9f6-439a-9e8d-f62e7b41a168 |
+> | <a name='user-access-administrator'></a>[User Access Administrator](./built-in-roles/privileged.md#user-access-administrator) | Lets you manage user access to Azure resources. | 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9 |
+
 ## General
 
 > [!div class="mx-tableFixed"]
 > | Built-in role | Description | ID |
 > | --- | --- | --- |
-> | <a name='contributor'></a>[Contributor](./built-in-roles/general.md#contributor) | Grants full access to manage all resources, but does not allow you to assign roles in Azure RBAC, manage assignments in Azure Blueprints, or share image galleries. | b24988ac-6180-42a0-ab88-20f7382dd24c |
-> | <a name='owner'></a>[Owner](./built-in-roles/general.md#owner) | Grants full access to manage all resources, including the ability to assign roles in Azure RBAC. | 8e3af657-a8ff-443c-a75c-2fe8c4bcb635 |
 > | <a name='reader'></a>[Reader](./built-in-roles/general.md#reader) | View all resources, but does not allow you to make any changes. | acdd72a7-3385-48ef-bd42-f606fba81ae7 |
-> | <a name='role-based-access-control-administrator'></a>[Role Based Access Control Administrator](./built-in-roles/general.md#role-based-access-control-administrator) | Manage access to Azure resources by assigning roles using Azure RBAC. This role does not allow you to manage access using other ways, such as Azure Policy. | f58310d9-a9f6-439a-9e8d-f62e7b41a168 |
-> | <a name='user-access-administrator'></a>[User Access Administrator](./built-in-roles/general.md#user-access-administrator) | Lets you manage user access to Azure resources. | 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9 |
 
 ## Compute
 
@@ -338,8 +345,10 @@ The following table provides a brief description of each built-in role. Click th
 > | <a name='api-management-workspace-api-product-manager'></a>[API Management Workspace API Product Manager](./built-in-roles/integration.md#api-management-workspace-api-product-manager) | Has read access to entities in the workspace and read and write access to entities for publishing APIs. This role should be assigned on the workspace scope. | 73c2c328-d004-4c5e-938c-35c6f5679a1f |
 > | <a name='api-management-workspace-contributor'></a>[API Management Workspace Contributor](./built-in-roles/integration.md#api-management-workspace-contributor) | Can manage the workspace and view, but not modify its members. This role should be assigned on the workspace scope. | 0c34c906-8d99-4cb7-8bb7-33f5b0a1a799 |
 > | <a name='api-management-workspace-reader'></a>[API Management Workspace Reader](./built-in-roles/integration.md#api-management-workspace-reader) | Has read-only access to entities in the workspace. This role should be assigned on the workspace scope. | ef1c2c96-4a77-49e8-b9a4-6179fe1d2fd2 |
+> | <a name='app-configuration-contributor'></a>[App Configuration Contributor](./built-in-roles/integration.md#app-configuration-contributor) | Grants permission for all management operations, except purge, for App Configuration resources. | fe86443c-f201-4fc4-9d2a-ac61149fbda0 |
 > | <a name='app-configuration-data-owner'></a>[App Configuration Data Owner](./built-in-roles/integration.md#app-configuration-data-owner) | Allows full access to App Configuration data. | 5ae67dd6-50cb-40e7-96ff-dc2bfa4b606b |
 > | <a name='app-configuration-data-reader'></a>[App Configuration Data Reader](./built-in-roles/integration.md#app-configuration-data-reader) | Allows read access to App Configuration data. | 516239f1-63e1-4d78-a4de-a74fb236a071 |
+> | <a name='app-configuration-reader'></a>[App Configuration Reader](./built-in-roles/integration.md#app-configuration-reader) | Grants permission for read operations for App Configuration resources. | 175b81b9-6e0d-490a-85e4-0d422273c10c |
 > | <a name='azure-api-center-compliance-manager'></a>[Azure API Center Compliance Manager](./built-in-roles/integration.md#azure-api-center-compliance-manager) | Allows managing API compliance in Azure API Center service. | ede9aaa3-4627-494e-be13-4aa7c256148d |
 > | <a name='azure-api-center-data-reader'></a>[Azure API Center Data Reader](./built-in-roles/integration.md#azure-api-center-data-reader) | Allows for access to Azure API Center data plane read operations. | c7244dfb-f447-457d-b2ba-3999044d1706 |
 > | <a name='azure-api-center-service-contributor'></a>[Azure API Center Service Contributor](./built-in-roles/integration.md#azure-api-center-service-contributor) | Allows managing Azure API Center service. | dd24193f-ef65-44e5-8a7e-6fa6e03f7713 |
@@ -500,7 +509,6 @@ The following table provides a brief description of each built-in role. Click th
 > | <a name='policy-insights-data-writer-preview'></a>[Policy Insights Data Writer (Preview)](./built-in-roles/management-and-governance.md#policy-insights-data-writer-preview) | Allows read access to resource policies and write access to resource component policy events. | 66bb4e9e-b016-4a94-8249-4c0511c2be84 |
 > | <a name='quota-request-operator'></a>[Quota Request Operator](./built-in-roles/management-and-governance.md#quota-request-operator) | Read and create quota requests, get quota request status, and create support tickets. | 0e5f05e5-9ab9-446b-b98d-1e2157c94125 |
 > | <a name='reservation-purchaser'></a>[Reservation Purchaser](./built-in-roles/management-and-governance.md#reservation-purchaser) | Lets you purchase reservations | f7b75c60-3036-4b75-91c3-6b41c27c1689 |
-> | <a name='reservations-administrator'></a>[Reservations Administrator](./built-in-roles/management-and-governance.md#reservations-administrator) | Lets one read and manage all the reservations in a tenant | a8889054-8d42-49c9-bc1c-52486c10e7cd |
 > | <a name='reservations-reader'></a>[Reservations Reader](./built-in-roles/management-and-governance.md#reservations-reader) | Lets one read all the reservations in a tenant | 582fc458-8989-419f-a480-75249bc5db7e |
 > | <a name='resource-policy-contributor'></a>[Resource Policy Contributor](./built-in-roles/management-and-governance.md#resource-policy-contributor) | Users with rights to create/modify resource policy, create support ticket and read resources/hierarchy. | 36243c78-bf99-498c-9df9-86d9f8d28608 |
 > | <a name='savings-plan-purchaser'></a>[Savings plan Purchaser](./built-in-roles/management-and-governance.md#savings-plan-purchaser) | Lets you purchase savings plans | 3d24a3a0-c154-4f6f-a5ed-adc8e01ddb74 |
