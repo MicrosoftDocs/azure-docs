@@ -367,8 +367,6 @@ items:
     items:
     - name: Releases
       items:
-      - name: What's new in HDInsight 4.0
-        href: ./hdinsight-version-release.md
       - name: Release notes
         href: ./hdinsight-release-notes.md
       - name: HDInsight retirements and action required
