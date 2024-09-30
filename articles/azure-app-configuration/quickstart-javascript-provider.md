@@ -68,8 +68,7 @@ Create a file named *app.js* in the *app-configuration-quickstart* directory and
 
 ### Sample 1: Load key-values with default selector
 
-In this sample, you connect to Azure App Configuration using a connection string and load key-values without specifying advanced options.
-By default, it loads all key-values with no label.
+In this sample, you connect to Azure App Configuration and load key-values without specifying advanced options. By default, it loads all key-values with no label. You can either use Azure credential or connection string to connect to Azure App Configuration.
 
 ### [Use Azure Credential (Recommended)](#tab/azurecredential)
 
