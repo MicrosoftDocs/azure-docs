@@ -418,6 +418,9 @@ This behavior can occur for one or more of the following reasons:
    Address Prefix: Backend pool subnet<br>
    Next hop: Azure Firewall private IP address
 
+> [!NOTE]
+> If the Application Gateway is not able to access the CRL endpoints, it will mark the backend health status as "unknown" and cause fast update failures. To prevent these issues, you must check that your Application Gateway subnet is able to access crl.microsoft.com and crl3.digicert.com. This can be done by configuring your Network Security Groups to send traffic to the CRL endpoints. 
+
 ## Next steps
 
 Learn more about [Application Gateway diagnostics and logging](./application-gateway-diagnostics.md).
