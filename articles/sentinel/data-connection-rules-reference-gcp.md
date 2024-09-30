@@ -12,10 +12,7 @@ ms.author: austinmc
 
 # GCP data connector reference for the Codeless Connector Platform
 
-To create a Google Cloud Platform (GCP) data connector with the Codeless Connector Platform (CCP), use this reference as a supplement to the [Microsoft Sentinel REST API for Data Connectors](/rest/api/securityinsights/data-connectors) docs.
-
-[GCP data connector REST API reference](/rest/api/securityinsights/data-connectors/create-or-update?view=rest-securityinsights-2024-01-01-preview&tabs=HTTP#gcpdataconnector)
-[Create GCP data connector REST API example][/rest/api/securityinsights/data-connectors/create-or-update?view=rest-securityinsights-2024-01-01-preview&tabs=HTTP#creates-or-updates-a-gcp-data-connector]
+To create a Google Cloud Platform (GCP) data connector with the Codeless Connector Platform (CCP), use this reference as a supplement to the [Microsoft Sentinel REST API for Data Connectors](/rest/api/securityinsights/data-connectors/create-or-update?view=rest-securityinsights-2024-01-01-preview&tabs=HTTP#gcpdataconnector) docs.
 
 Each `dataConnector` represents a specific *connection* of a Microsoft Sentinel data connector. One data connector might have multiple connections, which fetch data from different endpoints. The JSON configuration built using this reference document is used to complete the deployment template for the CCP data connector. 
 
@@ -145,3 +142,5 @@ Here's an example of all the components of the `GCP` CCP data connector JSON tog
     }
 }
 ```
+
+For more information, see [Create GCP data connector REST API example](/rest/api/securityinsights/data-connectors/create-or-update?view=rest-securityinsights-2024-01-01-preview&tabs=HTTP#creates-or-updates-a-gcp-data-connector).
