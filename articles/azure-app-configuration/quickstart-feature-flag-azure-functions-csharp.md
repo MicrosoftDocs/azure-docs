@@ -134,10 +134,10 @@ This project will use [dependency injection in .NET Azure Functions](../azure-fu
    Add a constructor used to obtain instances of `_featureManagerSnapshot` and `IConfigurationRefresherProvider` through dependency injection. From the `IConfigurationRefresherProvider`, you can obtain the instance of `IConfigurationRefresher`.
 
     ```csharp
-    private readonly IFeatureManagerSnapshot _featureManagerSnapshot;
+    private readonly IVariantFeatureManagerSnapshot _featureManagerSnapshot;
     private readonly IConfigurationRefresher _configurationRefresher;
 
-    public Function1(IFeatureManagerSnapshot featureManagerSnapshot, IConfigurationRefresherProvider refresherProvider)
+    public Function1(IVariantFeatureManagerSnapshot featureManagerSnapshot, IConfigurationRefresherProvider refresherProvider)
     {
         _featureManagerSnapshot = featureManagerSnapshot;
         _configurationRefresher = refresherProvider.Refreshers.First();

@@ -91,16 +91,16 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     using Microsoft.FeatureManagement;
     ```
 
-1. Update the constructor of the `Worker` service to obtain instances of `IConfigurationRefresher` and `IFeatureManager` through dependency injection.
+1. Update the constructor of the `Worker` service to obtain instances of `IConfigurationRefresher` and `IVariantFeatureManager` through dependency injection.
 
     ```csharp
     public class Worker : BackgroundService
     {
         private readonly ILogger<Worker> _logger;
         private readonly IConfigurationRefresher _refresher;
-        private readonly IFeatureManager _featureManager;
+        private readonly IVariantFeatureManager _featureManager;
 
-        public Worker(ILogger<Worker> logger, IConfigurationRefresher refresher, IFeatureManager featureManager)
+        public Worker(ILogger<Worker> logger, IConfigurationRefresher refresher, IVariantFeatureManager featureManager)
         {
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
             _refresher = refresher ?? throw new ArgumentNullException(nameof(refresher));

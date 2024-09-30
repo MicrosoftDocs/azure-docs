@@ -1,19 +1,17 @@
 ---
-title: 'Tutorial:  Run experiments with variant feature flags in Azure App Configuration'
+title: Tutorial for using variant feature flags in a .NET app | Microsoft Docs
 titleSuffix: Azure App configuration
-description: In this tutorial, you learn how to set up experiments in an App Configuration store using Split Experimentation Workspace.
+description: In this tutorial, you learn how to implement variant feature flags in a .NET app
 #customerintent: As a user of Azure App Configuration, I want to learn how I can run experiments with variant feature flags, using Split Experimentation Workspace and Application Insights.
-author: maud-lv
-ms.author: malev
+author: rossgrambo
+ms.author: rossgrambo
 ms.service: azure-app-configuration
 ms.devlang: csharp
-ms.custom:
-  - build-2024
 ms.topic: tutorial
-ms.date: 05/07/2024
+ms.date: 09/27/2024
 ---
 
-# Tutorial: Run experiments with variant feature flags (preview)
+# Tutorial: Using variant feature flags
 
 Running experiments on your application can help you make informed decisions to improve your app’s performance and user experience. In this guide, you learn how to set up and execute experimentations within an App Configuration store. You learn how to collect and measure data, using the capabilities of App Configuration, Application Insights (preview), and [Split Experimentation Workspace (preview)](../partner-solutions/split-experimentation/index.yml).
 
@@ -102,8 +100,9 @@ In this example, you create an ASP.NET web app named _Quote of the Day_. When th
 
     ```csharp
     <PackageReference Include="Microsoft.Azure.AppConfiguration.AspNetCore" Version="8.0.0-preview.2" />
-    <PackageReference Include="Microsoft.FeatureManagement.Telemetry.ApplicationInsights" Version="4.0.0" />
-    <PackageReference Include="Microsoft.FeatureManagement.AspNetCore" Version="4.0.0" />
+    <PackageReference Include="Microsoft.FeatureManagement.Telemetry.ApplicationInsights" Version="4.0.0-preview3" />
+    <PackageReference Include="Microsoft.FeatureManagement.Telemetry.ApplicationInsights.AspNetCore" Version="4.0.0-preview3" />
+    <PackageReference Include="Microsoft.FeatureManagement.AspNetCore" Version="4.0.0-preview3" />
     ```
 
 1. In *Program.cs*, under the line `var builder = WebApplication.CreateBuilder(args);`, add the App Configuration provider, which pulls down the configuration from Azure when the application starts. By default, the UseFeatureFlags method includes all feature flags with no label and sets a cache expiration time of 30 seconds.
@@ -135,7 +134,8 @@ In this example, you create an ASP.NET web app named _Quote of the Day_. When th
         {
             ConnectionString = builder.Configuration.GetConnectionString("AppInsights"),
             EnableAdaptiveSampling = false
-        });
+        })
+        .AddSingleton<ITelemetryInitializer, TargetingTelemetryInitializer>();
     ```
 
     This snippet performs the following actions.
@@ -144,7 +144,50 @@ In this example, you create an ASP.NET web app named _Quote of the Day_. When th
     * Adds a telemetry initializer that appends targeting information to outgoing telemetry.
     * Disables adaptive sampling. For more information about disabling adaptive sampling, go to [Troubleshooting](../partner-solutions/split-experimentation/troubleshoot.md#sampling-in-application-insights).
 
-1. Also in *Program.cs*, add the following using statements.
+1. In the root folder *QuoteOfTheDay*, create a new file named *ExampleTargetingContextAccessor.cs*. This creates a new class named `ExampleTargetingContextAccessor`. Paste the content below into the file.
+
+    ```csharp
+    using Microsoft.FeatureManagement.FeatureFilters;
+    
+    namespace QuoteOfTheDay
+    {
+        public class ExampleTargetingContextAccessor : ITargetingContextAccessor
+        {
+            private const string TargetingContextLookup = "ExampleTargetingContextAccessor.TargetingContext";
+            private readonly IHttpContextAccessor _httpContextAccessor;
+    
+            public ExampleTargetingContextAccessor(IHttpContextAccessor httpContextAccessor)
+            {
+                _httpContextAccessor = httpContextAccessor ?? throw new ArgumentNullException(nameof(httpContextAccessor));
+            }
+    
+            public ValueTask<TargetingContext> GetContextAsync()
+            {
+                HttpContext httpContext = _httpContextAccessor.HttpContext;
+                if (httpContext.Items.TryGetValue(TargetingContextLookup, out object value))
+                {
+                    return new ValueTask<TargetingContext>((TargetingContext)value);
+                }
+                List<string> groups = new List<string>();
+                if (httpContext.User.Identity.Name != null)
+                {
+                    groups.Add(httpContext.User.Identity.Name.Split("@", StringSplitOptions.None)[1]);
+                }
+                TargetingContext targetingContext = new TargetingContext
+                {
+                    UserId = httpContext.User.Identity.Name ?? "guest",
+                    Groups = groups
+                };
+                httpContext.Items[TargetingContextLookup] = targetingContext;
+                return new ValueTask<TargetingContext>(targetingContext);
+            }
+        }
+    }
+    ```
+
+    This class declares how FeatureManagement's targeting gets the context for a user. In this case, it reads `httpContext.User.Identity.Name` for the `UserId` and treats the domain of the email address as a `Group`.
+
+1. Navigate back to *Program.cs* and add the following using statements.
 
     ```csharp
     using Microsoft.FeatureManagement.Telemetry;
@@ -155,11 +198,13 @@ In this example, you create an ASP.NET web app named _Quote of the Day_. When th
 1. Under where `AddApplicationInsightsTelemetry` was called, add services to handle App Configuration Refresh, set up Feature Management, configure Feature Management Targeting, and enable Feature Management to publish telemetry events.
 
     ```csharp
+    builder.Services.AddHttpContextAccessor();
+    
     // Add Azure App Configuration and feature management services to the container.
     builder.Services.AddAzureAppConfiguration()
         .AddFeatureManagement()
-        .WithTargeting()
-        .AddApplicationInsightsTelemetry();
+        .WithTargeting<ExampleTargetingContextAccessor>()
+        .AddTelemetryPublisher<ApplicationInsightsTelemetryPublisher>();
     ```
 
 1. Under the line `var app = builder.Build();`, add a middleware that triggers App Configuration refresh when appropriate.

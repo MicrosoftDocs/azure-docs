@@ -77,7 +77,7 @@ You can use Visual Studio to create a new console app project.
 
     IFeatureDefinitionProvider featureDefinitionProvider = new ConfigurationFeatureDefinitionProvider(configuration);
 
-    IFeatureManager featureManager = new FeatureManager(
+    IVariantFeatureManager featureManager = new FeatureManager(
         featureDefinitionProvider, 
         new FeatureManagementOptions());
 
@@ -103,7 +103,7 @@ You can use Visual Studio to create a new console app project.
 
         IFeatureDefinitionProvider featureDefinitionProvider = new ConfigurationFeatureDefinitionProvider(configuration);
 
-        IFeatureManager featureManager = new FeatureManager(
+        IVariantFeatureManager featureManager = new FeatureManager(
             featureDefinitionProvider, 
             new FeatureManagementOptions());
 

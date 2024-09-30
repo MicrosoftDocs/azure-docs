@@ -177,7 +177,7 @@ The targeting filter evaluates a user's feature state based on the user's target
     }
     ```
 
-1. Open the *Program.cs* file and enable the targeting filter by calling the `WithTargeting` method. You pass in the type `ExampleTargetingContextAccessor` that the targeting filter will use to get the targeting context during feature flag evaluation. Add `HttpContextAccessor` to the service collection to allow `ExampleTargetingContextAccessor` to access the signed-in user information from the `HttpContext`.
+1. Open the *Program.cs* file and enable the targeting filter by calling the `WithTargeting()` method. This will add the [DefaultHttpTargetingContextAccessor](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/src/Microsoft.FeatureManagement.AspNetCore/DefaultHttpTargetingContextAccessor.cs) that the targeting filter will use to get the targeting context during feature flag evaluation. To customize how TargetingContext is accessed, you can use `.WithTargeting<T>()` where `T` is a custom implementation of `ITargetingContextAccessor` like in the [VariantServiceDemo example](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/examples/VariantServiceDemo/HttpContextTargetingContextAccessor.cs).
 
     ```csharp
     // Existing code in Program.cs
@@ -185,7 +185,7 @@ The targeting filter evaluates a user's feature state based on the user's target
 
     // Add feature management to the container of services
     builder.Services.AddFeatureManagement()
-                    .WithTargeting<ExampleTargetingContextAccessor>();
+                    .WithTargeting();
 
     // Add HttpContextAccessor to the container of services.
     builder.Services.AddHttpContextAccessor();
