@@ -438,7 +438,7 @@ Both the template and its versions can have tags. The tags are applied or inheri
 
 ## Link to template specs
 
-After creating a template spec, you can link to that template spec in a Bicep module. The template spec is deployed when you deploy the Bicep file containing that module. For more information, see [File in template spec](./modules.md#path-to-module).
+After creating a template spec, you can link to that template spec in a Bicep module. The template spec is deployed when you deploy the Bicep file containing that module. For more information, see [File in template spec](./modules.md#path-to-a-module).
 
 To create aliases for template specs intended for module linking, see [Aliases for modules](./bicep-config-modules.md#aliases-for-modules).
 

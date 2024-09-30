@@ -118,7 +118,7 @@ You can add one or more decorators for each of the following elements:
 * [func](#functions)
 * [type](#types)
 
-The decorators include:
+The following table lists the decorators.
 
 | Decorator | Apply to element | Apply to data type | Argument | Description |
 | --------- | ---- | ----------- | ------- |

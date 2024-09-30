@@ -49,7 +49,7 @@ You can use functionality that was imported from another file without restrictio
 
 ### Example
 
-exports.bicep
+*exports.bicep*
 
 ```bicep
 @export()
@@ -65,7 +65,7 @@ var myConstant = 'This is a constant value'
 func sayHello(name string) string => 'Hello ${name}!'
 ```
 
-main.bicep
+*main.bicep*
 
 ```bicep
 import * as myImports from 'exports.bicep'

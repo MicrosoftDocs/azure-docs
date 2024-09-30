@@ -105,7 +105,7 @@ The valid type expressions include:
     }
     ```
 
-  ### Recursion
+  #### Recursion
 
     Object types can use direct or indirect recursion if at least the leg of the path to the recursion point is optional. For example, the `myObjectType` definition in the following example is valid because the directly recursive `recursiveProp` property is optional:
 

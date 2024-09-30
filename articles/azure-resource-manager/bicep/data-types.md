@@ -18,8 +18,8 @@ Within Bicep, you can use these data types:
 * [bool](#booleans)
 * [int](#integers)
 * [object](#objects)
-* [secureObject is indicated by a decorator in Bicep](#secure-strings-and-objects)
-* [secureString is indicated by a decorator in Bicep](#secure-strings-and-objects)
+* [secureObject (indicated by a decorator in Bicep](#secure-strings-and-objects))
+* [secureString (indicated by a decorator in Bicep](#secure-strings-and-objects))
 * [string](#strings)
 
 ## Arrays
@@ -274,16 +274,16 @@ All strings in Bicep support interpolation. To inject an expression, surround it
 var storageName = 'storage${uniqueString(resourceGroup().id)}'
 ```
 
-### Multiline strings
+### Multi-line strings
 
-In Bicep, multiline strings are defined between three single quotation marks (`'''`) followed optionally by a newline (the opening sequence) and three single quotation marks (`'''` is the closing sequence). Characters that are entered between the opening and closing sequence are read verbatim. Escaping isn't necessary or possible.
+In Bicep, multi-line strings are defined between three single quotation marks (`'''`) followed optionally by a newline (the opening sequence) and three single quotation marks (`'''` is the closing sequence). Characters that are entered between the opening and closing sequence are read verbatim. Escaping isn't necessary or possible.
 
 > [!NOTE]
 > The Bicep parser reads all characters as is. Depending on the line endings of your Bicep file, newlines are interpreted as either `\r\n` or `\n`.
 >
-> Interpolation isn't currently supported in multiline strings. Because of this limitation, you might need to use the [`concat`](./bicep-functions-string.md#concat) function instead of using [interpolation](#strings).
+> Interpolation isn't currently supported in multi-line strings. Because of this limitation, you might need to use the [`concat`](./bicep-functions-string.md#concat) function instead of using [interpolation](#strings).
 >
-> Multiline strings containing `'''` aren't supported.
+> Multi-line strings that contain `'''` aren't supported.
 
 ```bicep
 // evaluates to "hello!"

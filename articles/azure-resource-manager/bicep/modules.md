@@ -63,7 +63,7 @@ module stgModule '../storageAccount.json' = {
 
 Use the symbolic name to reference the module in another part of the Bicep file. For example, you can use the symbolic name to get the output from a module. The symbolic name might contain a-z, A-Z, 0-9, and underscore (`_`). The name can't start with a number. A module can't have the same name as a parameter, variable, or resource.
 
-The path can be either a local file or a file in a registry. The local file can be either a Bicep file or an ARM template for JSON. For more information, see [Path to module](#path-to-module).
+The path can be either a local file or a file in a registry. The local file can be either a Bicep file or an ARM template for JSON. For more information, see [Path to a module](#path-to-a-module).
 
 The `name` property is required. It becomes the name of the nested deployment resource in the generated template.
 
