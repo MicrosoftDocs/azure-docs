@@ -70,9 +70,9 @@ az eventhubs eventhub create --name destinationeh --resource-group $RESOURCE_GRO
 # [PowerShell](#tab/powershell)
 
 ```powershell
-az eventhubs namespace create --name $CLUSTER_NAME.Substring(0, 24) --resource-group $RESOURCE_GROUP --disable-local-auth true
+az eventhubs namespace create --name $CLUSTER_NAME.Substring(0, [MATH]::Min($CLUSTER_NAME.Length, 24)) --resource-group $RESOURCE_GROUP --disable-local-auth true
 
-az eventhubs eventhub create --name destinationeh --resource-group $RESOURCE_GROUP --namespace-name $CLUSTER_NAME.Substring(0, 24) --retention-time 1 --partition-count 1 --cleanup-policy Delete
+az eventhubs eventhub create --name destinationeh --resource-group $RESOURCE_GROUP --namespace-name $CLUSTER_NAME.Substring(0, [MATH]::Min($CLUSTER_NAME.Length, 24)) --retention-time 1 --partition-count 1 --cleanup-policy Delete
 ```
 
 ---
@@ -92,7 +92,7 @@ az role assignment create --role "Azure Event Hubs Data Sender" --assignee $PRIN
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$EVENTHUBRESOURCE = $(az eventhubs namespace show --resource-group $RESOURCE_GROUP --namespace-name $CLUSTER_NAME.Substring(0, 24) --query id -o tsv)
+$EVENTHUBRESOURCE = $(az eventhubs namespace show --resource-group $RESOURCE_GROUP --namespace-name $CLUSTER_NAME.Substring(0, [MATH]::Min($CLUSTER_NAME.Length, 24)) --query id -o tsv)
 
 $PRINCIPAL = $(az k8s-extension list --resource-group $RESOURCE_GROUP --cluster-name $CLUSTER_NAME --cluster-type connectedClusters -o tsv --query "[?extensionType=='microsoft.iotoperations'].identity.principalId")
 
@@ -126,7 +126,7 @@ kubectl apply -f dataflow.yaml
 ```powershell
 Invoke-WebRequest -Uri https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/release-m2/samples/quickstarts/dataflow.yaml -OutFile dataflow.yaml
 
-(Get-Content dataflow.yaml) | ForEach-Object { $_ -replace '<NAMESPACE>', $CLUSTER_NAME.Substring(0, 24) } | Set-Content dataflow.yaml
+(Get-Content dataflow.yaml) | ForEach-Object { $_ -replace '<NAMESPACE>', $CLUSTER_NAME.Substring(0, [MATH]::Min($CLUSTER_NAME.Length, 24)) } | Set-Content dataflow.yaml
 
 kubectl apply -f dataflow.yaml
 ```
