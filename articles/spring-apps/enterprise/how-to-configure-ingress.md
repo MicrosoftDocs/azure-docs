@@ -11,6 +11,8 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 
 # Customize the ingress configuration in Azure Spring Apps
 
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
+
 **This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
 This article shows you how to set and update an application's ingress settings in Azure Spring Apps by using the Azure portal and Azure CLI.
