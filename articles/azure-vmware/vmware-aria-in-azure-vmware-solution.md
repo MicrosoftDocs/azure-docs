@@ -7,7 +7,7 @@ ms.date: 9/27/2024
 ms.custom: engagement-fy23
 ---
 
-## VMware Aria in Azure VMware Solution
+# VMware Aria in Azure VMware Solution
 
 This document provides an overview of VMware Aria suite in Azure VMware Solution (Azure VMware Solution).  
 
@@ -30,10 +30,10 @@ You can install the VMware Aria suite on Azure VMware Solution with your VMware 
 
 
 >[!NOTE] 
-> The "CloudAdmin" role in Azure VMware Solution has limited privileges. 
+> The ```CloudAdmin``` role in Azure VMware Solution has limited privileges. 
 
-## Known Limitations
-
+## Known limitations
+In this section, you see kwown issues with VMware Aria.
 ### VMware Aria Operations 
 
 - Management VMs are hidden from end-user visibility, hence their CPU, and memory utilization aren't included in the utilization of hosts, clusters, and upper level objects. As a result, the utilization of hosts and clusters might appear lower than expected and capacity remaining may appear higher than expected.
