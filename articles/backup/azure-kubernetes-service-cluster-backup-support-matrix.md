@@ -33,7 +33,7 @@ You can use [Azure Backup](./backup-overview.md) to help protect Azure Kubernete
 
 - Before you install the backup extension in an AKS cluster, ensure that the CSI drivers and snapshot are enabled for your cluster. If they're disabled, [enable these settings](/azure/aks/csi-storage-drivers#enable-csi-storage-drivers-on-an-existing-cluster).
 
-- Provide a new and empty blob container as input while installing backup extension in an AKS cluster for the first time. Don't use same blob contianer for more than one AKS cluster. 
+- Provide a new and empty blob container as input while installing backup extension in an AKS cluster for the first time. Don't use same blob container for more than one AKS cluster. 
 
 - AKS backups don't support in-tree volumes. You can back up only CSI driver-based volumes. You can [migrate from tree volumes to CSI driver-based persistent volumes](/azure/aks/csi-migrate-in-tree-volumes).
 
