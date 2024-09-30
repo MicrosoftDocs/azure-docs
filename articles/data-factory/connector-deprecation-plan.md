@@ -27,7 +27,7 @@ This article describes future deprecations for some connectors of Azure Data Fac
 | [Salesforce (legacy)](connector-salesforce-legacy.md)   | [Link](connector-salesforce.md#upgrade-the-salesforce-linked-service) | End of support announced and new version available | October 11, 2024 | January 10, 2025| 
 | [Salesforce Service Cloud (legacy)](connector-salesforce-service-cloud-legacy.md)   | [Link](connector-salesforce-service-cloud.md#upgrade-the-salesforce-service-cloud-linked-service) | End of support announced and new version available | October 11, 2024 |January 10, 2025 | 
 | [PostgreSQL (legacy)](connector-postgresql-legacy.md)   | [Link](connector-postgresql.md#upgrade-the-postgresql-linked-service)| End of support announced and new version available |October 31, 2024 | January 10, 2025  | 
-| [ServiceNow (legacy)](connector-servicenow-legacy.md)   | [Link](connector-servicenow.md#upgrade-the-servicenow) | End of support announced and new version available | December 31, 2024 | March 1, 2025  | 
+| [ServiceNow (legacy)](connector-servicenow-legacy.md)   | [Link](connector-servicenow.md#upgrade-your-servicenow-linked-service) | End of support announced and new version available | December 31, 2024 | March 1, 2025  | 
 | [Snowflake (legacy)](connector-snowflake-legacy.md)   | [Link](connector-snowflake.md#upgrade-the-snowflake-linked-service) | End of support announced and new version available | October 31, 2024 | January 10, 2025  | 
 | [Azure Database for MariaDB](connector-azure-database-for-mariadb.md) |/ | End of support announced |December 31, 2024 | December 31, 2024 | 
 | [Concur (Preview)](connector-concur.md) |/ | End of support announced | December 31, 2024 | December 31, 2024 | 
@@ -66,7 +66,7 @@ The following legacy connectors or legacy driver versions will be deprecated, bu
 - [PostgreSQL](connector-postgresql.md#upgrade-the-postgresql-linked-service)
 - [Salesforce](connector-salesforce.md#upgrade-the-salesforce-linked-service)
 - [Salesforce Service Cloud](connector-salesforce-service-cloud.md#upgrade-the-salesforce-service-cloud-linked-service)
-- [ServiceNow](connector-servicenow.md#upgrade-the-servicenow)
+- [ServiceNow](connector-servicenow.md#upgrade-your-servicenow-linked-service)
 - [Snowflake](connector-snowflake.md#upgrade-the-snowflake-linked-service)
 
 ## Connectors to be deprecated on December 31, 2024
