@@ -36,7 +36,7 @@ See the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [What 
 
 | **Error message**      | `The specified SAP HANA instance is either invalid or can't be found`  |
 | ------------------ | ------------------------------------------------------------ |
-| **Possible causes**    | <ul><li>The specified SAP HANA instance is either invalid or can't be found.</li><li>Multiple SAP HANA instances on a single Azure VM can't be backed up.</li></ul> |
+| **Possible causes**    | <ul><li>The specified SAP HANA instance is either invalid or can't be found.</li><li>Multiple SAP HANA instances on a single Azure Virtual Machine (VM) can't be backed up.</li></ul> |
 | **Recommended action** | <ul><li>Ensure that only one HANA instance is running on the Azure VM.</li><li> To resolve the issue, run the script from the _Discover DB_ pane (you can also find the script [here](https://aka.ms/scriptforpermsonhana)) with the correct SAP HANA instance.</li></ul> |
 
 ### UserErrorHANALSNValidationFailure
