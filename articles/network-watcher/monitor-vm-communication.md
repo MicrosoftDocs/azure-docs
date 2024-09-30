@@ -187,7 +187,7 @@ In this section, you view all the details of the connection monitor that you cre
 
 1. Select **myConnectionMonitor** to see the performance metrics of the connection monitor like round trip time and percentage of failed checks
   
-    :::image type="content" source="./media/monitor-vm-communication/connection-monitor-summary.png" alt-text="Screenshot shows the new connection monitor." lightbox="./media/monitor-vm-communication/connection-monitor-summary.png":::
+    :::image type="content" source="./media/monitor-vm-communication/connection-monitor-summary.png" alt-text="Screenshot that shows the summary page of the new connection monitor." lightbox="./media/monitor-vm-communication/connection-monitor-summary.png":::
 
 1. Select **Time Intervals** to adjust the time range to see the performance metrics for a specific time period. Available time intervals are **Last 1 hour**, **Last 6 hours**, **Last 24 hours**, **Last 7 days**, and **Last 30 days**. You can also select **Custom** to specify a custom time range.
 
