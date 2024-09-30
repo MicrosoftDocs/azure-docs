@@ -211,7 +211,7 @@ When no longer needed, use [az group delete](/cli/azure/group) to delete **myRes
 az group delete --name 'myResourceGroup' --yes
 ```
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
 > [Diagnose a virtual machine network routing problem](diagnose-vm-network-routing-problem.md)
