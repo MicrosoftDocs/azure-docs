@@ -154,7 +154,7 @@ scopes:
 
 #### Referencing Dapr secret store components
 
-Once you [create a Dapr secret store using one of the previous approaches](#creating-a-dapr-secret-store-component), you can reference that secret store from other Dapr components in the same environment. 
+Once you [create a Dapr secret store using one of the previous approaches](#creating-a-dapr-secret-store-component), you can reference that secret store from other Dapr components in the same environment. The following example demonstrates using Entra ID authentication.
 
 ```yaml
 componentType: pubsub.azure.servicebus.queue
@@ -192,8 +192,16 @@ componentType: pubsub.azure.servicebus.queue
 version: v1
 secretStoreComponent: "my-secret-store"
 metadata:
-  - name: connectionString
-    secretRef: sb-root-connectionstring
+  - name: namespaceName
+    # Required when using Azure Authentication.
+    # Must be a fully-qualified domain name
+    value: "[your_servicebus_namespace.servicebus.windows.net]"
+  - name: azureTenantId
+    value: "[your_tenant_id]"
+  - name: azureClientId 
+    value: "[your_client_id]"
+  - name: azureClientSecret
+    secretRef: azClientSecret
 scopes:
   - publisher-app
   - subscriber-app
@@ -212,8 +220,16 @@ resource daprComponent 'daprComponents@2022-03-01' = {
     secretStoreComponent: 'my-secret-store'
     metadata: [
       {
-        name: 'connectionString'
-        secretRef: 'sb-root-connectionstring'
+        name: 'namespaceName'
+        // Required when using Azure Authentication.
+        // Must be a fully-qualified domain name
+        value: '[your_servicebus_namespace.servicebus.windows.net]'
+        name: 'azureTenantId'
+        value: '[your_tenant_id]'
+        name: 'azureClientId' 
+        value: '[your_client_id]'
+        name: 'azureClientSecret'
+        secretRef: 'azClientSecret'
       }
     ]
     scopes: [
@@ -240,8 +256,14 @@ This resource defines a Dapr component called `dapr-pubsub` via ARM.
         "secretScoreComponent": "my-secret-store",
         "metadata": [
           {
-            "name": "connectionString",
-            "secretRef": "sb-root-connectionstring"
+            "name": "namespaceName",
+            "value": "[your_servicebus_namespace.servicebus.windows.net]",
+            "name": "azureTenantId",
+            "value": "[your_tenant_id]",
+            "name": "azureClientId",
+            "value": "[your_client_id]",
+            "name": "azureClientSecret",
+            "secretRef": "azClientSecret"
           }
         ],
         "scopes": ["publisher-app", "subscriber-app"]
