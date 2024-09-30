@@ -138,7 +138,7 @@ In this section, you create a Node.js app on your simulated device that updates 
 
    ![Azure portal module detail](./media/module-twins-node/module-detail.png)
 
-2. Similar to what you did in the previous section, create a directory for your device code and use NPM to initialize it and install the device SDK (**npm install -S azure-iot-device-amqp\@modules-preview**).
+2. Similar to what you did in the previous section, create a directory for your device code and use npm to initialize it and install the device SDK (**npm install -S azure-iot-device-amqp\@modules-preview**).
 
    > [!NOTE]
    > The npm install command may feel slow. Be patient; it's pulling down lots of code from the package repository.
