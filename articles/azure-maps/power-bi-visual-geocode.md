@@ -22,19 +22,19 @@ Geocoding is the process of taking an address and returning the corresponding la
 
 ## The location field
 
-The **Location** field in the Azure Maps Power BI Visual can accept multiple values, such as country/region, state, city, street address and zip code. By providing multiple sources of location information in the Location field, you help to guarantee more accurate results and eliminate ambiguity that would prevent a specific location to be determined. For example, there are over 20 different cities in the United States named *Franklin*.
+The **Location** field in the Azure Maps Power BI Visual can accept multiple values, such as country/region, state, city, street address, and zip code. Providing multiple sources of location information in the Location field enhances the accuracy of results and removes any ambiguity that might limit the identification of a specific location. For example, there are over 20 different cities in the United States named *Franklin*.
 
 ## Use geo-hierarchies to drill down
 
 When entering multiple values into the **Location** field, you create a geo-hierarchy. Geo-hierarchies enable the hierarchical drill-down features in the map, allowing you to drill down to different "levels" of location.
 
-:::image type="content" source="media/power-bi-visual/drill-down-buttons.png" alt-text="A screenshot showing the drill down buttons in Power BI desktop.":::
+:::image type="content" source="media/power-bi-visual/drill-down-buttons.png" alt-text="A screenshot showing the drill-down buttons in Power BI desktop.":::
 
 | Button  | Description |
 |:-:|-------------------------------------------------------------------------------------------|
 | 1 | The drill button on the far right, called Drill Mode, allows you to select a map Location and drill down into that specific location one level at a time. For example, if you turn on the drill-down option and select North America, you move down in the hierarchy to the next level--states in North America. For geocoding, Power BI sends Azure Maps country and state data for North America only. The button on the left goes back up one level. |
 | 2 | The double arrow drills to the next level of the hierarchy for all locations at once. For example, if you're currently looking at countries/regions and then use this option to move to the next level, states, Power BI displays state data for all countries/regions. For geocoding, Power BI sends Azure Maps state data (no country/region data) for all locations. This option is useful if each level of your hierarchy is unrelated to the level above it. |
-| 3 | Similar to the drill-down option, except that you don't need to select the map. It expands down to the next level of the hierarchy remembering the current level's context. For example, if you're currently looking at countries/regions and select this icon, you move down in the hierarchy to the next level--states. For geocoding, Power BI sends data for each state and its corresponding country/region to help Azure Maps geocode more accurately. In most maps, you'll either use this option or the drill-down option on the far right. This sends Azure as much information as possible and result in more accurate location information. |
+| 3 | Similar to the drill-down option, except that you don't need to select the map. It expands down to the next level of the hierarchy remembering the current level's context. For example, if you're currently looking at countries/regions and select this icon, you move down in the hierarchy to the next level--states. For geocoding, Power BI sends data for each state and its corresponding country/region to help Azure Maps geocode more accurately. In most maps, either use this option or the drill-down option on the far right. This sends Azure as much information as possible and result in more accurate location information. |
 
 ## Categorize geographic fields in Power BI
 
