@@ -111,8 +111,6 @@
       href: how-to-authenticate-client.md
     - name: Create an app registration with Azure Digital Twins access
       href: how-to-create-app-registration.md
-    - name: Integrate with Azure SignalR Service
-      href: how-to-integrate-azure-signalr.md
   - name: Connect input
     items:
     - name: Ingest telemetry from IoT Hub
