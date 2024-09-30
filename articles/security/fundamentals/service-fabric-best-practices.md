@@ -1,13 +1,13 @@
 ---
 title: Best practices for Azure Service Fabric security
 description: This article provides a set of best practices for Azure Service Fabric security.
-author: TerryLanfear
+author: msmbaldwin
 manager: rkarlin
-ms.author: terrylan
+ms.author: mbaldwin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 08/29/2023
+ms.date: 09/29/2024
 ---
 # Azure Service Fabric security best practices
 In addition to this article, please also review [Service Fabric security checklist](/azure/service-fabric/service-fabric-best-practices-security) for more information.

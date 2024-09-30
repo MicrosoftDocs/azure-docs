@@ -64,13 +64,9 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Configure container image to execute deployments
-            url: how-to-configure-extensibility-generic-container-image.md
-          - text: Configure an ARM/Bicep custom container image
-            url: how-to-configure-extensibility-bicep-container-image.md
-          - text: Configure a Terraform custom container image
-            url: how-to-configure-extensibility-terraform-container-image.md
-          - text: Configure a Pulumi custom container image
-            url: how-to-configure-extensibility-pulumi-container-image.md  
+            url: how-to-configure-extensibility-model-custom-image.md
+          - text: Troubleshoot custom image errors and warnings
+            url: troubleshoot-custom-image-logs-errors.md  
 
   # Card
   - title: Configure environment types

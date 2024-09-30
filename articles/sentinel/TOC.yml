@@ -904,8 +904,6 @@
     items:
     - name: Overview
       href: entity-pages.md
-    - name: Enable enrichment widgets 
-      href: enable-enrichment-widgets.md
     - name: Create custom entity activities
       href: customize-entity-activities.md
   - name: Investigate large datasets
