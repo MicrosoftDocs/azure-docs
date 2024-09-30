@@ -27,8 +27,6 @@ Each lab uses single public IP address and multiple ports.  All VMs, both the te
 
 The public IP addresses for each lab are listed in the **All labs** page of the Lab Services lab account.  For directions how to find the **All labs** page, see [View labs in a lab account](manage-labs-1.md#view-labs-in-a-lab-account).  
 
-:::image type="content" source="./media/how-to-configure-firewall-settings-1/all-labs-properties.png" alt-text="Screenshot of the all labs page of a lab account.":::
-
 >[!NOTE]
 >You won't see the public IP address if the template machine for your lab isn't published yet.
 
