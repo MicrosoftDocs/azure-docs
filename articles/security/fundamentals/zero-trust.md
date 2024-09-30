@@ -1,11 +1,11 @@
 ---
 title: Zero Trust security in Azure
 description: Learn about the guiding principles of Zero Trust and find resources to help you implement Zero Trust.
-author: TerryLanfear
+author: msmbaldwin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.author: terrylan
+ms.author: mbaldwin
 manager: rkarlin
 ms.date: 06/28/2024
 ---

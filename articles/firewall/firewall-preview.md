@@ -55,7 +55,7 @@ You can now configure a DNAT rule on Azure Firewall Policy with the private IP a
 This capability helps with connectivity between overlapped IP networks, which is a common scenario for enterprises when onboarding new partners to their network or merging with new acquisitions.
 This is also relevant for hybrid scenarios, connecting on-premises datacenters to Azure, where DNAT bridges the gap, enabling communication between private resources over nonroutable IP addresses.
 
-For more information, see [Filter inbound Internet or intranet traffic with Azure Firewall DNAT using the Azure portal](tutorial-firewall-dnat.md).
+For more information, see [Private IP DNAT Support and Scenarios with Azure Firewall](https://techcommunity.microsoft.com/t5/azure-network-security-blog/private-ip-dnat-support-and-scenarios-with-azure-firewall/ba-p/4230073).
 
 
 ## Next steps
