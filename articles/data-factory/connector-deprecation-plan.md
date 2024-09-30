@@ -110,7 +110,7 @@ Here's the steps to get your objects which still rely on the deprecated connecto
 4. Click on the number under the 'Related' column will show you the related objects that utilize this particular Linked service.
 5. To learn more about the upgrade guidance and the comparison between the legacy and the new version, you can navigate to the connector upgrade section within each connector page. 
 
-    :::image type="content" source="media/connector-deprecation-plan/linked-services-page.png" alt-text="Screenshot of the linked services page.":::
+:::image type="content" source="media/connector-deprecation-plan/linked-services-page.png" alt-text="Screenshot of the linked services page.":::
 
 ## Related content
 
