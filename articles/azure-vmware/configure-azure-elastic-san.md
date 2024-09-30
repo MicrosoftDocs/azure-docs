@@ -86,7 +86,7 @@ Start by providing an IP block for deploying external storage. Navigate to the *
 
 ## Connect Elastic SAN
 
-After you provide an External storage address block, you need to connect your private cloud express route with the private endpoint(s) you set up for your Elastic SAN volume group(s). Instructions on how to establish these connections can be found in the Tutorial, [Configure networking for your VMware private cloud in Azure](../azure-vmware/tutorial-configure-networking.md). 
+After you provide an External storage address block, you need to connect your private cloud express route with the private endpoint(s) you set up for your Elastic SAN volume group(s). To learn how to establish these connections, see [Configure networking for your VMware private cloud in Azure](../azure-vmware/tutorial-configure-networking.md). 
 
 > [!NOTE]
 > Connection to Elastic SAN from Azure VMWare Solution happens via private endpoints to provide the highest network security. Since your private cloud connects to Elastic SAN in Azure through an ExpressRoute virtual network gateway, you may experience intermittent connectivity issues during [gateway maintenance](/azure/expressroute/expressroute-about-virtual-network-gateways). 
