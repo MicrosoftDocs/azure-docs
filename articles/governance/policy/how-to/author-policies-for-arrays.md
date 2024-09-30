@@ -568,9 +568,9 @@ When using template functions, use the `current()` function to access the value 
 
 The `field()` function can also be used to access the value of the current array member as long as the **count** expression isn't inside an **existence condition** (`field()` function always refer to the resource evaluated in the **if** condition). The behavior of `field()` when referring to the evaluated array is based on the following concepts:
 
-1. Array aliases are resolved into a collection of values selected from all array members.
-1. `field()` functions referencing array aliases return an array with the selected values.
-1. Referencing the counted array alias inside the `where` condition returns a collection with a single value selected from the array member that is evaluated in the current iteration.
+- Array aliases are resolved into a collection of values selected from all array members.
+- `field()` functions referencing array aliases return an array with the selected values.
+- Referencing the counted array alias inside the `where` condition returns a collection with a single value selected from the array member that is evaluated in the current iteration.
 
 This behavior means that when referring to the counted array member with a `field()` function inside the `where` condition, **it returns an array with a single member**. While this behavior might not be intuitive, it's consistent with the idea that array aliases always return a collection of selected properties. Here's an example:
 
