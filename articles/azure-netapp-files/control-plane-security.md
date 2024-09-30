@@ -48,13 +48,13 @@ Managing network security groups (NSGs) in Azure NetApp Files relies on the cont
 - **Monitoring and auditing:** The control plane provides tools for monitoring and auditing network traffic. You can track which rules are being applied and adjust them as needed to ensure optimal security and performance. 
 - **Policy Enforcement:** By using the control plane, you can enforce network policies across your Azure environment. This includes applying custom policies to meet specific security requirements and ensuring consistent policy enforcement.
 
-For more information, see [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md) and  [Azure NSGs](../virtual-network/network-security-groups-overview.md).
+For more information, see [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md) and [Azure NSGs](../virtual-network/network-security-groups-overview.md).
 
 ## Routing management
 
 The control plane enables the configuration of User-Defined Routes (UDRs) on the subnets where Azure NetApp Files volumes are deployed. UDRs allow for precise control over the routing of network traffic, ensuring data packets are directed through specific paths such as Network Virtual Appliances (NVAs) for traffic inspection. By defining these routes, network performance can be optimized, and security can be enhanced by controlling how traffic flows within the Azure environment.
 
-For more information, see [Guidelines for Azure NetApp Files network planning](azure-network-files-network-topologies.md) and the [UDR overview](../virtual-network/virtual-networks-udr-overview.md#user-defined).
+For more information, see [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md) and the [UDR overview](../virtual-network/virtual-networks-udr-overview.md#user-defined).
 
 ## Resource lock management
 
