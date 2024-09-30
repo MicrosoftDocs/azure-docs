@@ -186,6 +186,8 @@ The improved exports experience currently has the following limitations.
 
 - Shared access service (SAS) key-based cross tenant export is only supported for Microsoft partners at the billing account scope. It isn't supported for other partner scenarios like any other scope, EA indirect contract, or Azure Lighthouse.
 
+- EA price sheet: Reservation prices are only available for the current month price sheet and cannot be retrieved for historical exports. To retain historical reservation prices, set up recurring exports.
+
 ## FAQ
 
 #### Why is file partitioning enabled in exports? 
@@ -196,6 +198,22 @@ The file partitioning is a feature that is activated by default to facilitate th
 
 In the new export experience, missing attributes such as subscription IDs will be set to null or empty, rather than using a default empty GUID (00000000-0000-0000-0000-000000000000), to more accurately indicate the absence of a value. This affects charges pertaining to unused reservations, unused savings plan and rounding adjustments.
 
+#### How much historical data can I retrieve using Exports?
+
+You can retrieve up to 13 months of historical data through the portal UI for all datasets, except for RI recommendations, which are limited to the current recommendation snapshot. To access data older than 13 months, you can use the REST API.
+
+- Cost and usage (Actual), Cost and usage (Amortized), Cost and usage (FOCUS): Up to 7 years of data.
+
+- Reservation transactions: Up to 7 years of data across all channels.
+
+- Reservation recommendations, Reservation details: Up to 13 months of data.
+
+- All available prices:
+
+  - MCA/MPA: Up to 13 months.
+  
+  - EA: Up to 25 months (starting from December 2022).
+  
 ## Next steps
 
 - Learn more about exports at [Tutorial: Create and manage exported data](tutorial-export-acm-data.md).
