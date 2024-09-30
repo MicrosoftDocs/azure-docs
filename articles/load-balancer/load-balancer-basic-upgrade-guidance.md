@@ -5,7 +5,7 @@ author: mbender-ms
 ms.service: azure-load-balancer
 ms.author: mbender
 ms.topic: conceptual
-ms.date: 09/27/2023
+ms.date: 09/30/2024
 ms.custom: template-concept
 # Customer intent: As an cloud engineer with Basic Load Balancer services, I need guidance and direction on migrating my workloads off Basic to Standard SKUs
 ---
@@ -67,7 +67,7 @@ Use these PowerShell scripts to help with upgrading from Basic to Standard SKU:
 
 When manually migrating from a Basic to Standard SKU Load Balancer, there are a couple key considerations to keep in mind:
 
-- It is not possible to mix Basic and Standard SKU IPs or Load Balancers. All Public IPs associated with a Load Balancer and its backend pool members must match.
+- It isn't possible to mix Basic and Standard SKU IPs or Load Balancers. All Public IPs associated with a Load Balancer and its backend pool members must match.
 - Public IP allocation method must be set to 'static' when a Public IP is disassociated from a Load Balancer or Virtual Machine, or the allocated IP will be lost. 
 - Standard SKU public IP addresses are secure by default, requiring that a Network Security Group explicitly allow traffic to any public IPs
 - Standard SKU Load Balancers block outbound access by default. To enable outbound access, a public load balancer needs an outbound rule for backend members. For private load balancers, either configure a NAT Gateway on the backend pool members' subnet or add instance-level public IP addresses to each backend member. 
@@ -85,7 +85,7 @@ Suggested order of operations for manually upgrading a Basic Load Balancer in co
     1. Health probes
     1. Load balancing rules - use the temporary frontend configuration
     1. NAT rules - use the temporary frontend configuration
-1. For public load balancers, if you do not have one already, [create a new Network Security Group](../virtual-network/tutorial-filter-network-traffic.md) with allow rules for the traffic coming through the Load Balancer rules
+1. For public load balancers, if you don't have one already, [create a new Network Security Group](../virtual-network/tutorial-filter-network-traffic.md) with allow rules for the traffic coming through the Load Balancer rules
 1. For Virtual Machine Scale Set backends, remove the Load Balancer association in the Networking settings and [update the instances](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-perform-manual-upgrades) 
 1. Delete the Basic Load Balancer 
    > [!NOTE]
@@ -100,7 +100,7 @@ Suggested order of operations for manually upgrading a Basic Load Balancer in co
 ## FAQ
 
 ### Will the Basic Load Balancer retirement impact Cloud Services Extended Support (CSES) deployments?
-No, this retirement will not impact your existing or new deployments on CSES. This means that you can still create and use Basic Load Balancers for CSES deployments. However, we advise using Standard SKU on ARM native resources (those that do not depend on CSES) when possible, because Standard has more advantages than Basic.
+No, this retirement won't impact your existing or new deployments on CSES. This means that you can still create and use Basic Load Balancers for CSES deployments. However, we advise using Standard SKU on Azure Resource Manager (ARM) native resources (those that don't depend on CSES) when possible, because Standard has more advantages than Basic.
 
 ## Next Steps
 
