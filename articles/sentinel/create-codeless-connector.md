@@ -129,7 +129,7 @@ To learn from an example, see the [Data connector definitions reference example 
 
 There are currently two kinds of data connection rules possible for defining your CCP data connector.
 
-- `RestApiPoller` kind allows you to customize paging, authorization and expected request/response payloads for your data source. For more information, see [RestApiPoller data connector connection rules reference](data-connector-connection-rules-reference.md#example-ccp-data-connector).
+- `RestApiPoller` kind allows you to customize paging, authorization and expected request/response payloads for your data source. For more information, see [RestApiPoller data connector connection rules reference](data-connector-connection-rules-reference.md).
 - `GCP` kind allows you to decrease your development time by automatically configuring paging and expected response payloads for your Google Cloud Platform (GCP) data source. For more information, see [GCP data connector connection rules reference](data-connection-rules-reference-gcp.md)
 
 Use an [API testing tool](#testing-apis) to call the data connector API to create the data connector which combines the connection rules and previous components. Verify the connector is now connected in the UI.
@@ -218,13 +218,17 @@ If you're creating a Google Cloud Platform (GCP) CCP data connector, package the
 
 In addition to the example templates, published solutions available in the Microsoft Sentinel content hub use the CCP for their data connectors. Review the following solutions as more examples of how to stitch the components together into an ARM template.
 
+**`RestApiPoller`** CCP data connector examples
 - [Ermes Browser Security](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Ermes%20Browser%20Security/Data%20Connectors/ErmesBrowserSecurityEvents_ccp)
 - [Palo Alto Prisma Cloud CWPP](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Palo%20Alto%20Prisma%20Cloud%20CWPP/Data%20Connectors/PaloAltoPrismaCloudCWPP_ccp)
 - [Sophos Endpoint Protection](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Sophos%20Endpoint%20Protection/Data%20Connectors/SophosEP_ccp)
 - [Workday](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Workday/Data%20Connectors/Workday_ccp)
 - [Atlassian Jira](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/AtlassianJiraAudit/Data%20Connectors/JiraAuditAPISentinelConnector_ccpv2)
 - [Okta Single Sign-On](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Okta%20Single%20Sign-On/Data%20Connectors/OktaNativePollerConnectorV2)
+
+**`GCP`** CCP data connector examples
 - [GCP audit logs](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Google%20Cloud%20Platform%20Audit%20Logs/Package/mainTemplate.json)
+- [GCP security command center](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Google%20Cloud%20Platform%20Security%20Command%20Center/Package/mainTemplate.json)
 
 ## Deploy the connector
 

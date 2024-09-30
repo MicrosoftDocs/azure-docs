@@ -20,7 +20,7 @@ For more information, see [Create a codeless connector for Microsoft Sentinel](c
 
 ## Build the GCP CCP data connector
 
-Just like other CCP data connectors, the GCP data connector requires [four components](create-codeless-connector.md#build-the-data-connector). However, a template is available [here](https://github.com/austinmccollum/Azure-Sentinel/blob/patch-5/DataConnectors/Templates/Connector_GCP_CCP_template.json) to ease the development. The first two components need to be built according to the instructions for all CCP data connectors. Find the information on building the first two components, see the [Output table definition](create-codeless-connector.md#output-table-definition) and [Data Collection Rule (DCR)](create-codeless-connector.md#data-collection-rule) sections.
+A sample GCP CCP data connector deployment template is available [here](https://github.com/austinmccollum/Azure-Sentinel/blob/patch-5/DataConnectors/Templates/Connector_GCP_CCP_template.json) to ease the development of connecting your data source. With most of the deployment template sections filled out, only the first two components need to be built. For more information on building the first two components, see the [Output table definition](create-codeless-connector.md#output-table-definition) and [Data Collection Rule (DCR)](create-codeless-connector.md#data-collection-rule) sections.
 
 ## Data Connectors - Create or update 
 

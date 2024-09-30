@@ -173,8 +173,8 @@ OAuth2 auth code grant
 ```json
 "auth": {
     "type": "OAuth2",
-    "ClientId": "[parameters('appId')]",
-    "ClientSecret": "[parameters('appSecret')]",
+    "ClientId": "[[parameters('appId')]",
+    "ClientSecret": "[[parameters('appSecret')]",
     "tokenEndpoint": "https://login.microsoftonline.com/{{tenantId}}/oauth2/v2.0/token",
     "authorizationEndpoint": "https://login.microsoftonline.com/{{tenantId}}/oauth2/v2.0/authorize",
     "authorizationEndpointHeaders": {},
@@ -195,8 +195,8 @@ Example:
 ```json
 "auth": {
     "type": "OAuth2",
-    "ClientId": "[parameters('appId')]",
-    "ClientSecret": "[parameters('appSecret')]",
+    "ClientId": "[[parameters('appId')]",
+    "ClientSecret": "[[parameters('appSecret')]",
     "tokenEndpoint": "https://login.microsoftonline.com/{{tenantId}}/oauth2/v2.0/token",
     "tokenEndpointHeaders": {
         "Accept": "application/json",
@@ -539,8 +539,8 @@ Here's an example of all the components of the CCP data connector JSON together.
       "dataType": "ExampleLogs",
       "auth": {
          "type": "Basic",
-         "password": "[parameters('username')]",
-         "userName": "[parameters('password')]"
+         "password": "[[parameters('username')]",
+         "userName": "[[parameters('password')]"
       },
       "request": {
          "apiEndpoint": "https://rest.contoso.com/example",
