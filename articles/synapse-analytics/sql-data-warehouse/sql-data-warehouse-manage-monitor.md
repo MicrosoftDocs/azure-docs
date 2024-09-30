@@ -99,7 +99,7 @@ To investigate further details about a single step, inspect the `operation_type`
 
 ### Step 3: Investigate SQL on the distributed databases
 
-Use the Request ID and the Step Index to retrieve details from [sys.dm_pdw_sql_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-sql-requests-transact-sql?view=aps-pdw-2016-au7), which contains execution information of the query step on all of the distributed databases.
+Use the Request ID and the Step Index to retrieve details from [sys.dm_pdw_sql_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-sql-requests-transact-sql?view=azure-sqldw-latest), which contains execution information of the query step on all of the distributed databases.
 
 ```sql
 -- Find the distribution run times for a SQL step.
