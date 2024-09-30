@@ -153,7 +153,7 @@ But as you'll see, we have more invalid connections we need to authorize.
 
 1. Enter "*Log Analytics*" as the **Connection name**.
 
-1. For **Workspace Key** and **Workspace ID**, copy and paste the key and ID from your Log Analytics workspace settings. They can be found in the **Agents management** page, inside the **Azure Monitor agent instructions** expander. <!--is this correct for AMA?-->
+1. For **Workspace ID**, copy and paste the ID from the **Overview** page of the Log Analytics workspace settings.
 
 1. Select **Update**.
 
