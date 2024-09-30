@@ -52,13 +52,11 @@ Within one device identity, you can create up to 20 module identities. To add an
 
 1. Enter the name *myFirstModule*. Save your module identity.
 
-   :::image type="content" source="./media/module-twins-portal-dotnet/add-module-identity.png" alt-text="Screenshot that shows the 'Module Identity Details' page." lightbox="./media/module-twins-portal-dotnet/add-module-identity.png":::
+1. Your new module identity appears at the bottom of the screen. Select it to see module identity details.
 
-    Your new module identity appears at the bottom of the screen. Select it to see module identity details.
+1. Save the **Connection string (primary key)**. You use it in the next section to set up your module on the device in a console app.
 
    :::image type="content" source="./media/module-twins-portal-dotnet/module-identity-details.png" alt-text="Screenshot that shows the Module Identity Details menu.":::
-
-Save the **Connection string (primary key)**. You use it in the next section to set up your module on the device in a console app.
 
 ## Update the module twin using .NET device SDK
 
