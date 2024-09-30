@@ -51,7 +51,12 @@ Object replication asynchronously copies block blobs in a container according to
 
 > [!IMPORTANT]
 > Because block blob data is replicated asynchronously, the source account and destination account are not immediately in sync. There's currently no SLA on how long it takes to replicate data to the destination account. You can check the replication status on the source blob to determine whether replication is complete. For more information, see [Check the replication status of a blob](object-replication-configure.md#check-the-replication-status-of-a-blob).
+### Soft-deleted Blobs
+Soft-deleted data in Azure Storage is not replicated when object replication is enabled. Object replication in Azure Storage only replicates active data that is not marked for deletion.
 
+Soft-deleted data is retained for recovery purposes and remains in the source storage account, but it is not considered part of the active data that object replication targets. If you restore the soft-deleted data, it will become part of the active data and may then be replicated according to the replication policy.
+
+In summary, soft-deleted data will not be replicated until it is restored and becomes part of the active data set.
 ### Blob versioning
 
 Object replication requires that blob versioning is enabled on both the source and destination accounts. When a replicated blob in the source account is modified, a new version of the blob is created in the source account that reflects the previous state of the blob, before modification. The current version in the source account reflects the most recent updates. Both the current version and any previous versions are replicated to the destination account. For more information about how write operations affect blob versions, see [Versioning on write operations](versioning-overview.md#versioning-on-write-operations).
