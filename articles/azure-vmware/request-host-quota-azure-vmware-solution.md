@@ -47,8 +47,8 @@ You need an Azure account in an Azure subscription that adheres to one of the fo
    > [!NOTE]
 - Azure VMware Solution requires a minimum of three hosts and recommends redundancy of N+1 hosts.
    > - Any unused quota expires after 30 days. A new request will need to be submitted for any additional quota.
-   > - **NEW** If requesting quota to leverage VMware Cloud Foundation (VCF) Bring Your Own License (BYOL) pricing, add the following statement as is, by replacing <N> with the Number of VCF BYOL cores you have purchased from Broadcom for license portability to Azure VMware Solutions.
-    ***"I acknowledge that I have procured portable VCF license from Broadcom for <N> cores to use with Azure VMware Solutions."***  
+   > - **NEW** If requesting quota to leverage Portable VMware Cloud Foundation (VCF) pricing, add the following statement as is, by replacing <N> with the Number of VCF cores you have purchased from Broadcom for license portability to Azure VMware Solution.
+    ***"I acknowledge that I have procured portable VCF license from Broadcom for <N> cores to use with Azure VMware Solution."***  
 1. Select **Review + Create** to submit the request.
 
 
@@ -102,8 +102,8 @@ Access the Azure portal using the **Admin On Behalf Of (AOBO)** procedure from P
       > [!NOTE]
 - Azure VMware Solution requires a minimum of three hosts and recommends redundancy of N+1 hosts.
       > - Any unused quota expires after 30 days. A new request will need to be submitted for any additional quota.
-      > - **NEW** If requesting quota to leverage VMware Cloud Foundation (VCF) Bring Your Own License (BYOL) pricing, add the following statement as is, by replacing <N> with the Number of VCF BYOL cores you have purchased from Broadcom for license portability to Azure VMware Solutions.
-        ***"I acknowledge that I have procured portable VCF license from Broadcom for <N> cores to use with Azure VMware Solutions."***  
+      > - **NEW** If requesting quota to leverage Portable VMware Cloud Foundation (VCF) pricing, add the following statement as is, by replacing <N> with the Number of VCF cores you have purchased from Broadcom for license portability to Azure VMware Solution.
+        ***"I acknowledge that I have procured portable VCF license from Broadcom for <N> cores to use with Azure VMware Solution."***  
       
    1. Select **Review + Create** to submit the request.
 
