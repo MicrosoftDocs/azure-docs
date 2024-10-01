@@ -122,7 +122,9 @@ Private endpoints prevent data exfiltration because the only thing you can reach
 
 ### Network Security Perimeter
 
-Azure [Network Security Perimeter](../private-link/network-security-perimeter-concepts.md) (NSP) is a service that provides a secure perimeter for communication of Platform as a Service (PaaS) services. These PaaS services can communicate with each other within the perimeter, and can also communicate with resources outside the perimeter using public inbound and outbound access rules. NSP rule enforcement is primarily using identity-based security which cannot be fully enforced in platform services that allow you do deploy your own code and use the identity to represent the platform. If you need to communicate with PaaS service that are part of an NSP you will need to add virtual network integration to you App Service or Function instances and communicate with the PaaS resources using private endpoints.
+Azure [Network Security Perimeter](../private-link/network-security-perimeter-concepts.md) (NSP) is a service that provides a secure perimeter for communication of Platform as a Service (PaaS) services. These PaaS services can communicate with each other within the perimeter, and can also communicate with resources outside the perimeter using public inbound and outbound access rules.
+
+NSP rule enforcement is primarily using identity-based security which cannot be fully enforced in platform services like App Services and Functions that allow you to deploy your own code and use the identity to represent the platform. If you need to communicate with PaaS services that are part of an NSP you will need to add virtual network integration to you App Service or Functions instances and communicate with the PaaS resources using private endpoints.
 
 ### Hybrid Connections
 
