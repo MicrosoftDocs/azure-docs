@@ -904,8 +904,6 @@
     items:
     - name: Overview
       href: entity-pages.md
-    - name: Enable enrichment widgets 
-      href: enable-enrichment-widgets.md
     - name: Create custom entity activities
       href: customize-entity-activities.md
   - name: Investigate large datasets
@@ -1119,8 +1117,10 @@
       href: dns-ama-fields.md
     - name: Data connector definitions API reference
       href: data-connector-ui-definitions-reference.md
-    - name: Data connectors API reference
+    - name: RestApiPoller data connectors API reference
       href: data-connector-connection-rules-reference.md
+    - name: GCP data connectors API reference
+      href: data-connection-rules-reference-gcp.md
     - name: Sample API requests for creating Data Collection Rules (DCRs)
       href: api-dcr-reference.md
     - name: Microsoft Purview Information Protection reference
