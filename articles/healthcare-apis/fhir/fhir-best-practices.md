@@ -10,7 +10,7 @@ ms.date: 10/01/2024
 ms.author: kesheth
 ---
 
-# Best practices for higher performance in FHIR service
+# Best practices for better3 performance in FHIR service
 
 **Note:** This document is scoped for Azure Health Data Services FHIR&reg; service customers.
 
@@ -33,7 +33,7 @@ In Azure FHIR service, bundles act as containers for multiple resources. Batch a
 
 1. **Do** tune the number of concurrent bundle requests to the FHIR server. A high number (>100) may lead to negative scaling and reduced processing throughput. The optimal concurrency is dependent on the complexity of the bundles and resources.
 1. **Do** generate load on Azure FHIR service in a linear manner and avoid burst operations to prevent performance degradation.
-1. **Consider** enabling parallel processing for batch and transaction bundles. By default, resources in bundles are processed sequentially. To enhance throughput, you can enable parallel resource processing by adding the HTTP header flag `x-bundle-processing-logic` and setting it to `parallel`. For more information, see the [batch bundle parallel processing documentation](). **Note**: Parallel bundle processing can enhance throughput when there isn't an implicit dependency on the order of resources within an HTTP operation.
+1. **Consider** enabling parallel processing for batch and transaction bundles. By default, resources in bundles are processed sequentially. To enhance throughput, you can enable parallel resource processing by adding the HTTP header flag `x-bundle-processing-logic` and setting it to `parallel`. For more information, see the [batch bundle parallel processing documentation](rest-api-capabilities#bundle-parallel-processing). **Note**: Parallel bundle processing can enhance throughput when there isn't an implicit dependency on the order of resources within an HTTP operation.
 1. **Consider** splitting resource entries across multiple bundles to increase parallelism, which can enhance throughput. Optimizing the number of resource entries in a bundle can reduce network time.
 1. **Consider** using smaller bundle sizes for complex operations. Smaller transaction bundles can reduce errors and support data consistency. Use separate transaction bundles for FHIR resources that don't depend on each other, and can be updated separately.
 1. **Avoid** submitting parallel bundle requests that attempt to update the same resources concurrently, which can cause delays in processing.
@@ -58,7 +58,7 @@ Logical Identifiers are considered "deterministic" because FHIR operations perfo
 
 ## Data extraction
 
-For data extraction, use the bulk `$export` operation as specified in the [HL7 FHIR Build Data Access specification]().
+For data extraction, use the bulk `$export` operation as specified in the [HL7 FHIR Build Data Access specification](https://www.hl7.org/fhir/uv/bulkdata/).
 1. **Do** use larger data blocks for system level exports when not using filters to maximize throughput. Azure FHIR service automatically splits them into parallel jobs.
 1. **Consider** splitting Patient, Group, and filtered system exports into small data blocks for export.
 
