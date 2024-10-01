@@ -32,7 +32,6 @@ Use the following steps to change the pricing tier of your workspace using the M
 1. Select **Ok** to confirm.
     
 # [Azure Resource Manager](#tab/azure-resource-manager)
-
 To set the pricing tier using an Azure Resource Manager template, set the following values:
 
 - `Microsoft.OperationsManagement/solutions` `sku` name to `Unified` 
