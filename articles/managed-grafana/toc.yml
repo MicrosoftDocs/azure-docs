@@ -98,7 +98,7 @@ items:
       href: how-to-create-api-keys.md
     - name: Monitor Azure Managed Grafana
       href: how-to-monitor-managed-grafana-workspace.md
-  - name: Migrate a Grafana instance
+  - name: Migrate to Azure Managed Grafana
     href: how-to-migrate.md
   - name: Transition to grafana.azure.com domain
     href: how-to-transition-domain.md

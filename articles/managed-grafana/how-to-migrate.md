@@ -1,7 +1,7 @@
 ---
-title: Migrate a self-hosted Grafana to Azure Managed Grafana
+title: Migrate to Azure Managed Grafana
 titlesuffix: Azure Managed Grafana
-description: Learn how to migrate a self-hosted or a cloud-managed Grafana to Azure Managed Grafana using the Azure portal or the Azure CLI.
+description: Learn how to migrate content from a self-hosted or a cloud-managed Grafana to Azure Managed Grafana using the Azure portal or the Azure CLI.
 ms.service: azure-managed-grafana
 ms.topic: how-to
 author: maud-lv
@@ -12,18 +12,25 @@ zone_pivot_groups: app-service-cli-portal
 # self-managed, self-hosted, Grafana Cloud
 --- 
 
-# Migrate a Grafana instance to Azure Managed Grafana
+# Migrate to Azure Managed Grafana
 
-This guide shows how to migrate a local or a cloud-managed Grafana instance to Azure Managed Grafana.
+This guide shows how to migrate content from a local or a cloud-managed Grafana instance to Azure Managed Grafana.
 
 Start by choosing one of the two methods below to complete your Grafana migration:
 
 * Using the Azure CLI: this is the fastest method, using the Azure CLI.
 * Using the Azure portal: this method uses a graphical interface.
-* 
+
 ::: zone pivot="experience-azcli"
 
-The following instructions show how to migrate a Grafana instance using the Azure CLI.
+The following instructions show how to migrate content from a Grafana instance to Azure Managed Grafana using the Azure CLI. The following elements can be migrated automatically using the command:
+
+*  data sources
+* folders
+* library panels
+* dashboards
+* snapshots
+* annotations
 
 ## Prerequisites
 
@@ -51,14 +58,6 @@ The following instructions show how to migrate a Grafana instance using the Azur
 
 ::: zone pivot="experience-azcli"
 
-In the guide below, we use the Azure CLI to copy data from a Grafana instance to an Azure Managed Grafana instance. The following elements can be migrated automatically using the command:
-*  data sources
-* folders
-* library panels
-* dashboards
-* snapshots
-* annotations
-
 ## Create a service account token
 
 1. In your existing Grafana workspace, create a new service account with Admin permissions by going to **Administration** > **Users and access** > **Service accounts** > **Add service account**.
@@ -73,7 +72,7 @@ In the guide below, we use the Azure CLI to copy data from a Grafana instance to
 
 ## Run the Grafana migrate command
 
-In the Azure CLI, run the `az grafana migrate` command. When running the command below, update the placeholders with:
+In the Azure CLI, run the [az grafana migrate](/cli/azure/grafana#az-grafana-migrate) command. When running the command below, update the placeholders with:
 
 * the name and resource group of the Azure Managed Grafana instance you want to migrate to (target)
 * the endpoint of the Grafana resource you're collecting data from (source)
@@ -91,14 +90,12 @@ Optional parameters for this command include:
 * `--folders-to-include`: Folders to include in backup or sync.
 * `--overwrite`: If you try to migrate a dashboard that already exists in your target Grafana instance, by default, Azure Managed Grafana skips the creation of the new data source to avoid creating a duplicate. The overwrite option lets you overwrite previous dashboards, library panels, and folders with the same uid or title.
 
-For more information, go to [az grafana migrate](/cli/azure/grafana#az-grafana-migrate).
-
 ## Finalize Grafana migration
 
-Go to your destination Grafana instance and check that you can find everything you migrated from your Grafana instance.
+Go to your target instance and check that you can find everything you migrated from your Grafana instance.
 
 > [!IMPORTANT]
-> If your data sources are set up using secrets, you need to manually reconfigure these secrets in your destination Grafana instance to successfully configure your data sources in Grafana.
+> If your data sources are set up using secrets, you need to manually reconfigure these secrets in your target instance to successfully configure your data sources in Grafana.
 
 ::: zone-end
 
