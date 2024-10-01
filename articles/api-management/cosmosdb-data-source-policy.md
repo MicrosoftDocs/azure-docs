@@ -13,7 +13,7 @@ ms.author: danlep
 
 # Cosmos DB data source for a resolver
 
-[!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-premiumv2-standardv2-basicv2.md)]
 
 The `cosmosdb-data-source` resolver policy resolves data for an object type and field in a GraphQL schema by using a [Cosmos DB](/azure/cosmos-db/introduction) data source. The schema must be imported to API Management as a GraphQL API. 
 
