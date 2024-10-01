@@ -150,7 +150,7 @@ Create dataflow endpoint for the AIO built-in MQTT broker. This endpoint is the 
 
 # [Bicep](#tab/bicep)
 
-```yaml
+```bicep
 resource MqttBrokerDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
   parent: aioInstance
   name: 'aiomq'
@@ -200,7 +200,7 @@ Create dataflow endpoint for the Azure Event Grid. This endpoint is the destinat
 
 # [Bicep](#tab/bicep)
 
-```yaml
+```bicep
 resource remoteMqttBrokerDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
   parent: aioInstance
   name: 'eventgrid'
@@ -253,7 +253,7 @@ Create two dataflows with the AIO MQTT broker endpoint as the source and the Azu
 
 # [Bicep](#tab/bicep)
 
-```yaml
+```bicep
 resource dataflow_1 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2024-08-15-preview' = {
   parent: defaultDataflowProfile
   name: 'local-to-remote'
@@ -369,6 +369,10 @@ To verify the MQTT bridge is working, deploy an MQTT client to the same namespac
 <!-- TODO: put this in the explore-iot-operations repo? -->
 <!-- TODO: make the service account part of the YAML? -->
 
+# [Bicep](#tab/bicep)
+Currently bicep does not apply to this
+
+# [Kubernetes](#tab/kuberenetes)
 ```yaml
 apiVersion: v1
 kind: Pod
