@@ -1,7 +1,7 @@
 ---
-title: Get started with module identity and module twins
+title: Get started with module identity and module identity twins
 titleSuffix: Azure IoT Hub
-description: Learn how to create module identities and update module twins using the Azure IoT Hub SDKs.
+description: Learn how to create module identities and update module identity twins using the Azure IoT Hub SDKs.
 author: kgremban
 ms.author: kgremban
 manager: lizross
@@ -13,9 +13,9 @@ zone_pivot_groups: iot-hub-howto-c2d-2
 ms.custom: mqtt, devx-track-csharp, devx-track-dotnet
 ---
 
-# Get started with IoT Hub module identity and module twin
+# Get started with IoT Hub module identities and module identity twins
 
-[Module identities and module twins](iot-hub-devguide-module-twins.md) are similar to Azure IoT Hub device identity and device twin, but provide finer granularity. While Azure IoT Hub device identity and device twin enable the back-end application to configure a device and provide visibility on the device's conditions, a module identity and module twin provide these capabilities for individual components of a device. On capable devices with multiple components, such as operating system devices or firmware devices, module identities and module twins allow for isolated configuration and conditions for each component.
+[Module identities and module identity twins](iot-hub-devguide-module-twins.md) are similar to Azure IoT Hub device identity and device twin, but provide finer granularity. While Azure IoT Hub device identity and device twin enable the back-end application to configure a device and provide visibility on the device's conditions, a module identity and module identity twin provide these capabilities for individual components of a device. On capable devices with multiple components, such as operating system devices or firmware devices, module identities and module identity twins allow for isolated configuration and conditions for each component.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -32,22 +32,6 @@ This article shows you how to develop two types of applications:
 * **An IoT hub**. Some SDK calls require the IoT Hub primary connection string, so make a note of the connection string.
 
 * **A registered device**. Some SDK calls require the device primary connection string, so make a note of the connection string.
-
-* **IoT Hub service connection string**
-
-  In this article, you create a back-end service that adds a device in the identity registry and then adds a module to that device. Your service requires the **registry write** permission. By default, every IoT hub is created with a shared access policy named **registryReadWrite** that grants this permission.
-
-  To get the IoT Hub connection string for the **registryReadWrite** policy, follow these steps:
-
-  1. In the Azure portal, select **Resource groups**. Select the resource group where your hub is located, and then select your hub from the list of resources.
-
-  1. On the left-side pane of your hub, select **Shared access policies**.
-
-  1. From the list of policies, select the **registryReadWrite** policy.
-
-  1. Select the copy icon for the **Primary connection string** and save the value.
-
-  For more information about IoT Hub shared access policies and permissions, see [Control access to IoT Hub with shared access signatures](/azure/iot-hub/authenticate-authorize-sas).
 
 * If your application uses the MQTT protocol, make sure that **port 8883** is open in your firewall. The MQTT protocol communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](../iot/iot-mqtt-connect-to-iot-hub.md#connecting-to-iot-hub).
 

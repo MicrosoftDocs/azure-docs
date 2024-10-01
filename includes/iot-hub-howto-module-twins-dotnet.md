@@ -1,7 +1,7 @@
 ---
-title: Get started with module identity and module twins (.NET)
+title: Get started with module identities and module identity twins (.NET)
 titleSuffix: Azure IoT Hub
-description: Learn how to create module identities and update module twins using the Azure IoT Hub SDK for .NET.
+description: Learn how to create module identities and update module identity twins using the Azure IoT Hub SDK for .NET.
 author: kgremban
 ms.author: kgremban
 ms.service: iot-hub
@@ -13,16 +13,16 @@ ms.custom: mqtt, devx-track-csharp, devx-track-dotnet
 
 ## Overview
 
-This article describes how to use the [Azure IoT SDK for .NET](https://github.com/Azure/azure-iot-sdk-csharp/blob/main/readme.md) to create device and backend service application code for module twins.
+This article describes how to use the [Azure IoT SDK for .NET](https://github.com/Azure/azure-iot-sdk-csharp/blob/main/readme.md) to create device and backend service application code for module identity twins.
 
 ## Create a device application
 
-Device applications can read and write module twin reported properties, and be notified of desired module twin property changes that are set by a backend application or IoT Hub.
+Device applications can read and write module identity twin reported properties, and be notified of desired module identity twin property changes that are set by a backend application or IoT Hub.
 
 This section describes how to use device application code to:
 
-* Retrieve module twin and examine reported properties
-* Update reported module twin properties
+* Retrieve module identity twin and examine reported properties
+* Update reported module identity twin properties
 * Create a module desired property update callback handler
 
 ### Add device NuGet Package
@@ -40,7 +40,7 @@ using Microsoft.Azure.Devices.Common.Exceptions;
 
 ### Connect to a device
 
-The [ModuleClient](/dotnet/api/microsoft.azure.devices.client.moduleclient) class exposes all the methods required to interact with module twins from the device.
+The [ModuleClient](/dotnet/api/microsoft.azure.devices.client.moduleclient) class exposes all the methods required to interact with module identity twins from the device.
 
 Connect to the device using the [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.client.moduleclient.createfromconnectionstring) method with the module connection string. The method connects using the default AMQP transport.
 
@@ -57,20 +57,20 @@ _moduleClient = ModuleClient.CreateFromConnectionString(ModuleConnectionString,
    null);
 ```
 
-### Retrieve a module twin and examine properties
+### Retrieve a module identity twin and examine properties
 
-Call [GetTwinAsync](/dotnet/api/microsoft.azure.devices.client.moduleclient.gettwinasync?#microsoft-azure-devices-client-moduleclient-gettwinasync) to retrieve the current module twin properties into a [Twin](/dotnet/api/microsoft.azure.devices.shared.twin?) object.
+Call [GetTwinAsync](/dotnet/api/microsoft.azure.devices.client.moduleclient.gettwinasync?#microsoft-azure-devices-client-moduleclient-gettwinasync) to retrieve the current module identity twin properties into a [Twin](/dotnet/api/microsoft.azure.devices.shared.twin?) object.
 
- This example retrieves and displays module twin properties.
+This example retrieves and displays module identity twin properties.
 
 ```csharp
 Console.WriteLine("Retrieving twin...");
 Twin twin = await _moduleClient.GetTwinAsync();
-Console.WriteLine("\tModule twin value received:");
+Console.WriteLine("\tModule identity twin value received:");
 Console.WriteLine(JsonConvert.SerializeObject(twin.Properties));
 ```
 
-### Update module twin reported properties
+### Update module identity twin reported properties
 
 To update a twin reported property:
 
@@ -97,15 +97,15 @@ catch (Exception ex)
 
 ### Create a desired property update callback handler
 
-Create a desired property update callback handler that executes when a desired property is changed in the module twin by passing the callback handler method name to [SetDesiredPropertyUpdateCallbackAsync](/dotnet/api/microsoft.azure.devices.client.moduleclient.setdesiredpropertyupdatecallbackasync).
-s
-For example, this call sets up the system to notify a method named`OnDesiredPropertyChangedAsync` whenever a desired module property is changed.
+Create a desired property update callback handler that executes when a desired property is changed in the module identity twin by passing the callback handler method name to [SetDesiredPropertyUpdateCallbackAsync](/dotnet/api/microsoft.azure.devices.client.moduleclient.setdesiredpropertyupdatecallbackasync).
+
+For example, this call sets up the system to notify a method named `OnDesiredPropertyChangedAsync` whenever a desired module property is changed.
 
 ```csharp
 await _moduleClient.SetDesiredPropertyUpdateCallbackAsync(OnDesiredPropertyChangedAsync, null);
 ```
 
-The module twin properties are passed to the callback method as a [TwinCollection](/dotnet/api/microsoft.azure.devices.shared.twincollection) and can be examined as `KeyValuePair` structures.
+The module identity twin properties are passed to the callback method as a [TwinCollection](/dotnet/api/microsoft.azure.devices.shared.twincollection) and can be examined as `KeyValuePair` structures.
 
 This example receives the desired property updates as a `TwinCollection`, then loops through and prints the `KeyValuePair` collection updates. After looping through the `KeyValuePair` collection, the code calls `UpdateReportedPropertiesAsync` to update the `DateTimeLastDesiredPropertyChangeReceived` reported property to keep the last updated time up to date.
 
@@ -133,11 +133,11 @@ private async Task OnDesiredPropertyChangedAsync(TwinCollection desiredPropertie
 
 ### SDK module sample
 
-The Azure IoT SDK for .NET provides a working sample of a device app that handles module twin tasks. For more information, see [TwinSample](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/device/samples/getting%20started/TwinSample).
+The Azure IoT SDK for .NET provides a working sample of a device app that handles module identity twin tasks. For more information, see [TwinSample](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/device/samples/getting%20started/TwinSample).
 
 ## Create a backend application
 
-The [RegistryManager](/dotnet/api/microsoft.azure.devices.registrymanager) class exposes all methods required to create a backend application to interact with module twins from the service.
+The [RegistryManager](/dotnet/api/microsoft.azure.devices.registrymanager) class exposes all methods required to create a backend application to interact with module identity twins from the service.
 
 This section describes how to create backend application code to:
 
@@ -151,7 +151,7 @@ Backend service applications require the **Microsoft.Azure.Devices** NuGet packa
 
 Connect a backend application to a device using [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.registrymanager.createfromconnectionstring).
 
-The SDK methods in this section require shared access policy permissions that includes the following:
+The SDK methods in this section require these shared access policy permissions:
 
 * **Registry Write** - required to add a module (or device) to the IoT Hub registry
 * **Service Connect** - required to add desired properties to a module
@@ -193,11 +193,11 @@ Console.WriteLine("Generated module key: {0}", module.Authentication.SymmetricKe
 
 ### Read and update module fields
 
- Call [GetModuleAsync](/dotnet/api/microsoft.azure.devices.registrymanager.getmoduleasync) to retrieve current module twin fields into a [Module](/dotnet/api/microsoft.azure.devices.module) object.
+ Call [GetModuleAsync](/dotnet/api/microsoft.azure.devices.registrymanager.getmoduleasync) to retrieve current module identity twin fields into a [Module](/dotnet/api/microsoft.azure.devices.module) object.
 
-The `Module` class includes [properties](/dotnet/api/microsoft.azure.devices.shared.twin?&#properties) that correspond to each section of a module. Use the `Module` class properties to view and update module twin fields. You can use the `Module` object properties to update multiple fields before writing the updates to the device using `UpdateModuleAsync`.
+The `Module` class includes [properties](/dotnet/api/microsoft.azure.devices.shared.twin?&#properties) that correspond to each section of a module. Use the `Module` class properties to view and update module identity twin fields. You can use the `Module` object properties to update multiple fields before writing the updates to the device using `UpdateModuleAsync`.
 
-After making module twin field updates, call [UpdateModuleAsync](/dotnet/api/microsoft.azure.devices.registrymanager.updatemoduleasync) to write `Module` object field updates back to a device. Use `try` and `catch` logic coupled with an error handler to catch incorrectly formatted patch errors from `UpdateModuleAsync`.
+After making module identity twin field updates, call [UpdateModuleAsync](/dotnet/api/microsoft.azure.devices.registrymanager.updatemoduleasync) to write `Module` object field updates back to a device. Use `try` and `catch` logic coupled with an error handler to catch incorrectly formatted patch errors from `UpdateModuleAsync`.
 
 This example retrieves a module into a `Module` object, updates the `module`, and then updates the module in IoT Hub using `UpdateModuleAsync`.
 
@@ -226,4 +226,4 @@ catch (Exception e)
 
 ### SDK service sample
 
-The Azure IoT SDK for .NET provides a working sample of a service app that handles module twin tasks. For more information, see [Registry Manager E2E Tests](https://github.com/Azure/azure-iot-sdk-csharp/blob/main/e2e/test/iothub/service/RegistryManagerE2ETests.cs).
+The Azure IoT SDK for .NET provides a working sample of a service app that handles module identity twin tasks. For more information, see [Registry Manager E2E Tests](https://github.com/Azure/azure-iot-sdk-csharp/blob/main/e2e/test/iothub/service/RegistryManagerE2ETests.cs).
