@@ -7,7 +7,8 @@ ms.topic: how-to
 author: maud-lv
 ms.author: malev
 ms.date: 12/06/2023
-# CustomerIntent: As a developer or data analyst, I want know how I can migrate my Grafana to Azure Managed Grafana.
+zone_pivot_groups: app-service-cli-portal
+# CustomerIntent: As a developer or data analyst, I want know how I can migrate my Grafana instance to Azure Managed Grafana.
 # self-managed, self-hosted, Grafana Cloud
 --- 
 
@@ -15,15 +16,67 @@ ms.date: 12/06/2023
 
 This guide shows how to migrate a self-managed Grafana to Azure Managed Grafana, by moving your data sources and dashboards to your new workspace.
 
-This guide walks you through the process of exporting self-hosted Grafana dashboards, importing them into Azure Managed Grafana, adding data source plugins, and configuring your data sources in your new workspace.
+When reading this guide, choose one of the two methods below to complete your Grafana migration:
+
+* Using the Azure CLI: this is the fastest method. Run an Azure CLI command and reconfigure the data source secrets.
+* Using the Azure portal: export Grafana dashboards, import them into Azure Managed Grafana, add and reconfigure your data source plugins.
+
+::: zone pivot="experience-azcli"
+
+## Prerequisites
+
+* A Grafana instance to migrate over to Azure Managed Grafana
+* [An Azure Managed Grafana workspace](./quickstart-managed-grafana-cli.md)
+* Minimum access required in both instances: Grafana Editor
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+
+::: zone-end
+
+::: zone pivot="experience-azp"
 
 > [!NOTE]
 > Some of the instructions presented in this tutorial vary slightly depending on the version of Grafana used. This tutorial was created using Grafana 10.
 
 ## Prerequisites
 
-* [An Azure Managed Grafana workspace](./how-to-permissions.md)
-* Minimum permissions: Grafana Editor
+* A Grafana instance to migrate over to Azure Managed Grafana
+* [An Azure Managed Grafana workspace](./quickstart-managed-grafana-cli.md)
+* Minimum access required in both instances: Grafana Editor
+
+::: zone-end
+
+::: zone pivot="experience-azcli"
+
+In the guide below, we leverage the Azure CLI to copy data from one Grafana instance to an Azure Managed Grafana instance.  The following elements can be migrated automatically using the command:
+*  data sources
+* folders
+* library panels
+* dashboards
+* snapshots
+* annotations
+
+## Create a service account token
+
+1. In your existing Grafana workspace, create a new service account with Admin permissions by going to **Administration** > **Users and access** > **Service accounts** > **Add service account**.
+
+    :::image type="content" source="media/migration/add-service-account.png" alt-text="Screenshot of the Grafana UI  showing the Add service account action." lightbox="media/migration/add-service-account.png":::
+
+    > [!TIP] 
+    > This step requires using Grafana service accounts. If you're migrating from an Azure Managed Grafana instance, [enable service accounts in Azure Managed Grafana](./how-to-service-accounts.md#enable-service-accounts).
+
+1. Enter a display name for the new service account, select the **Admin** role, **Apply** and **Create**.
+1. Once the service account has been created, select **Add token**, optionally set an expiration date and select **Generate token**. Remember to copy the token now as you will not be able to see it again once you leave this page.
+
+## Finalize Grafana data migration
+
+Go to your destination Grafana instance and check that that you can find everything you migrated from your Grafana instance.
+
+> [!IMPORTANT]
+> If your data sources are set up using secrets, you need to manually reconfigure these secrets in your destination Grafana instance to successfully configure your data sources in Grafana.
+
+::: zone-end
+
+::: zone pivot="experience-azp"
 
 ## Export your Grafana dashboards
 
@@ -74,6 +127,8 @@ Configure your new data sources in Azure Managed Grafana.
 1. Select a data source from the list.
 1. Fill out the required fields and select **Save & test** to save the configuration and verify that Grafana can connect to the data source.
 1. Repeat this process for each data source.
+
+::: zone-end
 
 ## Related content
 

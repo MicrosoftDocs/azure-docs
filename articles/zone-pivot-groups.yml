@@ -1677,3 +1677,12 @@ groups:
     title: Terraform
   - id: pulumi
     title: Pulumi   
+# Owner: malev
+- id: grafana-cli-portal
+  title: Experience
+  prompt: Choose an experience
+  pivots:
+  - id: experience-azcli
+    title: Azure CLI
+  - id: experience-azp
+    title: Azure portal
