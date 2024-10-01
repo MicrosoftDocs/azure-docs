@@ -3,7 +3,8 @@ title: Use Hive Catalog, Hive Read & Write demo on Apache Flink®
 description: Learn how to use Hive Catalog, Hive Read & Write demo on Apache Flink® on HDInsight on AKS
 ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 03/29/2024
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # How to use Hive Catalog with Apache Flink® on HDInsight on AKS

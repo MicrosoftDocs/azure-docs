@@ -72,14 +72,14 @@ Create an Azure Container Registry (ACR). ACR enables you to build, store, and m
 
 #### [Portal](#tab/azure-portal)
 
-1. To create the container registry, follow the [Azure Container Registry quickstart](../container-registry/container-registry-get-started-portal.md).
+1. To create the container registry, follow the [Azure Container Registry quickstart](/azure/container-registry/container-registry-get-started-portal).
 1. Once the deployment is complete, open your ACR instance and from the left menu, select **Settings > Access keys**.
 1. Take note of the **Login server** value listed on this page. You'll use this information in a later step.
 1. Switch **Admin user** to *Enabled*. This option lets you connect the ACR to Azure Container Apps using admin user credentials. Alternatively, you can leave it disabled and configure the container app to [pull images from the registry with a managed identity](../container-apps/managed-identity-image-pull.md).
 
 #### [Azure CLI](#tab/azure-cli)
 
-1. Create an ACR instance using the following command. It creates a basic tier registry named *myregistry* with admin user enabled that allows the container app to connect to the registry using admin user credentials. For more information, see [Azure Container Registry quickstart](../container-registry/container-registry-get-started-azure-cli.md).
+1. Create an ACR instance using the following command. It creates a basic tier registry named *myregistry* with admin user enabled that allows the container app to connect to the registry using admin user credentials. For more information, see [Azure Container Registry quickstart](/azure/container-registry/container-registry-get-started-azure-cli).
 
     ```azurecli
    az acr create 
@@ -175,7 +175,7 @@ In this quickstart, you:
 - Added the container image to Azure Container Apps
 - Browsed to the URL of the Azure Container Apps instance updated with the settings you configured in your App Configuration store.
 
-The managed identity enables one Azure resource to access another without you maintaining secrets. You can streamline access from Container Apps to other Azure resources. For more information, see how to [access App Configuration using the managed identity](howto-integrate-azure-managed-service-identity.md) and how to [[access Container Registry using the managed identity](../container-registry/container-registry-authentication-managed-identity.md)].
+The managed identity enables one Azure resource to access another without you maintaining secrets. You can streamline access from Container Apps to other Azure resources. For more information, see how to [access App Configuration using the managed identity](howto-integrate-azure-managed-service-identity.md) and how to [[access Container Registry using the managed identity](/azure/container-registry/container-registry-authentication-managed-identity)].
 
 To learn how to configure your ASP.NET Core web app to dynamically refresh configuration settings, continue to the next tutorial.
 

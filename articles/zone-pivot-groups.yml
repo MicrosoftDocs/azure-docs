@@ -779,6 +779,8 @@ groups:
     title: Python
   - id: openai-java
     title: Java
+  - id: openai-node
+    title: Node
 # Owner: msangapu
 - id: app-spaces-component-types
   title: App Spaces components
@@ -1160,6 +1162,14 @@ groups:
     title: Azure portal
   - id: front-door-cli
     title: Azure CLI
+- id: front-door-dev-exp-ps-cli
+  title: Front Door Developer experience
+  prompt: "Select the developer experience:"
+  pivots:
+  - id: front-door-ps
+    title: Azure PowerShell
+  - id: front-door-cli
+    title: Azure CLI
 # Owner: wiassaf
 - id: azure-sql-deployment-option-single-elastic
   title: Azure SQL deployment option, single or elastic
@@ -1174,10 +1184,10 @@ groups:
   title: Azure Spring Apps plan
   prompt: Select an Azure Spring Apps plan
   pivots:
-  - id: sc-enterprise
-    title: Enterprise
   - id: sc-standard
     title: Basic/Standard
+  - id: sc-enterprise
+    title: Enterprise
 # Owner: karler
 - id: spring-apps-enterprise-or-consumption-plan-selection
   title: Azure Spring Apps plan
@@ -1192,10 +1202,10 @@ groups:
   title: Azure Spring Apps plan
   prompt: Select an Azure Spring Apps plan
   pivots:
-  - id: sc-enterprise
-    title: Enterprise
   - id: sc-standard
     title: Basic/Standard
+  - id: sc-enterprise
+    title: Enterprise
   - id: sc-consumption-plan
     title: Standard consumption and dedicated (Preview)
  # Owner: rahulmehta
@@ -1552,17 +1562,6 @@ groups:
     title: New Maintenance Configuration
   - id: existing-mc
     title: Existing Maintenance Configuration
-# Owner: v-gjeronika
-- id: vmware-portal-bicep-terraform
-  title: Create a virtual machine on VMware vCenter using Azure Arc
-  prompt: Choose a method
-  pivots:
-  - id: portal
-    title: Azure portal
-  - id: bicep
-    title: Bicep
-  - id: terraform
-    title: Terraform
 # Owner: marymichael
 - id: web-apps-assessment-app-service
   title: Assess ASP.NET web apps for migration to Azure App Service
@@ -1581,15 +1580,6 @@ groups:
     title: ASP.NET
   - id: java
     title: Java
-# Owner: tejaswikolli-web
-- id: container-registry-zones
-  title: Container registry ide
-  prompt: Choose a scope option
-  pivots:
-  - id: development-environment-azure-portal
-    title: Portal
-  - id: development-environment-azure-cli
-    title: CLI
 # Owner: sethm
 - id: platform-select
   title: Platform
@@ -1676,3 +1666,14 @@ groups:
     title: Service Connector
   - id: manual
     title: Manual
+# Owner: rosemalcolm
+- id: ade-extensibility-iac-framework
+  title: IaC frameworks
+  prompt: Choose an IaC framework
+  pivots:
+  - id: arm-bicep
+    title: ARM and Bicep
+  - id: terraform
+    title: Terraform
+  - id: pulumi
+    title: Pulumi   

@@ -11,8 +11,7 @@ ms.date: 04/23/2024
 
 # Quickstart: Provision Azure Spring Apps using Terraform
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 **This article applies to:** ❌ Basic ✔️ Standard ✔️ Enterprise
 
@@ -49,13 +48,13 @@ For more customization including custom domain support, see the [Azure Spring Ap
 
 The configuration file used in this quickstart is from the [Azure Spring Apps reference architecture](/previous-versions/azure/spring-apps/reference-architecture).
 
-### [Enterprise plan](#tab/azure-spring-apps-enterprise)
-
-:::code language="hcl" source="~/azure-spring-apps-reference-architecture/terraform/brownfield-deployment/Enterprise/main.tf":::
-
 ### [Standard plan](#tab/azure-spring-apps-standard)
 
 :::code language="hcl" source="~/azure-spring-apps-reference-architecture/terraform/brownfield-deployment/Standard/main.tf":::
+
+### [Enterprise plan](#tab/azure-spring-apps-enterprise)
+
+:::code language="hcl" source="~/azure-spring-apps-reference-architecture/terraform/brownfield-deployment/Enterprise/main.tf":::
 
 ---
 
