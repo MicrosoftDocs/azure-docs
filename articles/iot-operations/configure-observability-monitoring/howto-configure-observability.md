@@ -47,7 +47,7 @@ The steps in this section deploy an [OpenTelemetry (OTel) Collector](https://ope
 
 ### Deploy observability components
 
-1. Deploy the observability components by running one of the following commands. Use the subscription ID and resource group of the Arc-enabled cluster that you want to monitor.
+- Deploy the observability components by running one of the following commands. Use the subscription ID and resource group of the Arc-enabled cluster that you want to monitor.
 
    > [!NOTE]
    > To discover other optional parameters you can set, see the [bicep file](https://github.com/Azure/azure-iot-operations/blob/main/tools/setup-3p-obs-infra/observability-full.bicep). The optional parameters can specify things like alternative locations for cluster resources.
