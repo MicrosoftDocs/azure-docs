@@ -43,6 +43,8 @@ This article shows you how to create:
 
 In this section, you create a Java console app that simulates a device. The app listens for the reboot direct method call from your IoT hub and immediately responds to that call. The app then sleeps for a while to simulate the reboot process before it uses a reported property to notify the **trigger-reboot** back-end app that the reboot is complete.
 
+[!INCLUDE [iot-authentication-device-connection-string.md](../../includes/iot-authentication-device-connection-string.md)]
+
 1. In the **dm-get-started** folder, create a Maven project called **simulated-device** using the following command at your command prompt:
 
     ```cmd/sh
@@ -276,6 +278,8 @@ In this section, you create a Java console app that:
 2. Displays the response.
 
 3. Polls the reported properties sent from the device to determine when the reboot is complete.
+
+[!INCLUDE [iot-authentication-service-connection-string.md](../../includes/iot-authentication-service-connection-string.md)]
 
 This console app connects to your IoT Hub to invoke the direct method and read the reported properties.
 
