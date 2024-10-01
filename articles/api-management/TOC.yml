@@ -108,8 +108,12 @@
     items:
     - name: Networking options
       href: virtual-network-concepts.md
-    - name: VNet injection (service) - requirements
+    - name: VNet injection (classic) - requirements
       href: virtual-network-injection-resources.md
+    - name: VNet integration (v2, public IP) - requirements
+      href: integrate-vnet-outbound.md
+    - name: VNet integration (v2, private IP) - requirements
+      href: integrate-vnet-internal.md
     - name: VNet integration (workspace gateway) - requirements
       href: virtual-network-workspaces-resources.md
     - name: Deploy to a VNet - external
@@ -120,8 +124,6 @@
       href: api-management-howto-integrate-internal-vnet-appgateway.md
     - name: Connect privately using private endpoint
       href: private-endpoint.md
-    - name: Integrate with VNet for outbound requests
-      href: integrate-vnet-outbound.md
     - name: Retrieve IP addresses
       href: api-management-howto-ip-addresses.md
     - name: Defend against DDoS attacks
