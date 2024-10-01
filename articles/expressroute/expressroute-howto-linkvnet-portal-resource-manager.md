@@ -197,7 +197,7 @@ The circuit user needs the resource ID and an authorization key from the circuit
 
 ## Configure ExpressRoute FastPath
 
-[FastPath](expressroute-about-virtual-network-gateways.md) improves data path performance such as packets per second and connections per second between your on-premises network and your virtual network.
+[FastPath](expressroute-about-virtual-network-gateways.md) improves data path performance such as packets per second and connections per second between your on-premises network and your virtual network. You can enable FastPath if your virtual network gateway is Ultra Performance or ErGw3AZ.
 
 ### Configure FastPath on a new connection
 
