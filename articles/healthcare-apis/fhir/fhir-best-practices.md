@@ -10,7 +10,7 @@ ms.date: 10/01/2024
 ms.author: kesheth
 ---
 
-# Best practices for better3 performance in FHIR service
+# Best practices for better performance in FHIR service
 
 **Note:** This document is scoped for Azure Health Data Services FHIR&reg; service customers.
 
@@ -49,9 +49,9 @@ Azure FHIR service is provisioned with predefined search parameters per resource
 After data ingestion, optimizing query performance is crucial. To ensure optimal performance:
 
 1. **Do** generate load on Azure FHIR service in a linear manner and, avoid burst operations to prevent performance degradation.
-1. **Consider** using the most selective search parameters (for instance, identifier) over parameters with low cardinality (for example, Gender) to optimize index usage.
+1. **Consider** using the most selective search parameters (for instance, `identifier`) over parameters with low cardinality to optimize index usage.
 1. **Consider** performing deterministic searches using logical identifiers. FHIR service provides two ways to identify a resource: logical identifiers and business identifiers.<br>
-Logical Identifiers are considered "deterministic" because FHIR operations performed with them are predictable. Business Identifiers are considered "conditional" because their operations have different behavior depending on the state of the system. We recommend using deterministic operations using logical identifiers.
+Logical Identifiers are considered "deterministic" because FHIR operations performed with them are predictable. Business Identifiers are considered "conditional" because their operations have different behavior depending on the state of the system. We recommend deterministic operations using logical identifiers.
 1. **Consider** using the `PUT` HTTP verb instead of POST where applicable. `PUT` requests can help maintain data integrity and optimize resource management. `POST` requests can lead to duplication of resources, poor data quality, and increase FHIR data size unnecessarily.
 1. **Avoid** the use of `_revinclude` in search queries, as they can result in unbounded result sets and higher latencies.
 1. **Avoid** using complex searches (for example: `_has`, or chained search parameters), as they impact query performance.
