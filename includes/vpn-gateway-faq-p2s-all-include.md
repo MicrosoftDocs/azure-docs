@@ -120,7 +120,7 @@ Azure supports Windows, Mac, and Linux for P2S VPN.
 
 Yes. If the gateway SKU that you're using supports RADIUS or IKEv2, you can enable these features on gateways that you already deployed by using Azure PowerShell or the Azure portal. The Basic SKU doesn't support RADIUS or IKEv2.
 
-### Why am I getting disconnected from my Azure VPN client? What can I do to reduce the frequency of disconnection?
+###  <a name="vpn-disconnect"></a>Why am I getting disconnected from my Azure VPN client? What can I do to reduce the frequency of disconnection?
 
 You may see one of the following messages: 
 - In Azure VPN client for Windows **ver. 3.4.0.0**: "Your authentication with Microsoft Entra is expired. You need to re-authenticate in Entra to acquire a new token. Authentication timeout can be tuned by your administrator." 
