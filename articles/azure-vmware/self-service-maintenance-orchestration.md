@@ -20,7 +20,7 @@ The Self-Service Maintenance orchestration feature provides customers with the f
 ## Prerequisites
 
 - An existing Azure VMware Solution private cloud.
-- A registered subscription the Microsoft. Azure VMware Solution AFEC flags named Early Access and Self Serve for Maintenance. You can find these flags under **Preview Features** on the Azure portal.
+- A registered subscription to the Microsoft Azure VMware Solution AFEC flags named Early Access and Self Serve for Maintenance. You can find these flags under **Preview Features** on the Azure portal.
  
 ## Reschedule maintenance through Azure VMware Solution maintenance
 
