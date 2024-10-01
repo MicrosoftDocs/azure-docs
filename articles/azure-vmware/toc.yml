@@ -116,7 +116,7 @@ items:
   - name: Vulnerability Management
     href: vulnerability-management.md
   - name: Rotate cloudadmin credentials
-    href: rotate-cloudadmin-credentials.md
+    href: rotate-cloudadmin-credentials.md service
   - name: Configure identity
     items:
     - name: Set an external identity source for vCenter Server
@@ -309,6 +309,8 @@ items:
     href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/vmware_private_cloud
   - name: Configure VMware Cloud Director Service in Azure VMware Solution
     href: configure-vmware-cloud-director-service-azure-vmware-solution.md
+  - name: Self service maintenance orchestration (public preview)
+    href: self-service-maintenance-orchestration.md
   - name: Enable VMware Cloud Director Service with Azure VMware solution
     href: enable-vmware-cds-with-azure.md
   - name: Deploy VMware Cloud Director Availability in Azure VMware Solution
