@@ -5,6 +5,12 @@
       "redirect_url": "/previous-versions/azure/application-gateway/powershell-samples",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/update-manager/troubleshooter-known-issues.md",
+      "redirect_url": "/azure/update-manager/troubleshoot",
+
+      "redirect_document_id": false
+    },
     {   
       "source_path": "articles/storage/blobs/storage-blob-scalable-app-create-vm.md",
       "redirect_url": "/previous-versions/azure/storage/blobs/storage-blob-scalable-app-create-vm",
