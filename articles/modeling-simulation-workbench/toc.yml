@@ -80,7 +80,7 @@ items:
       - name: Troubleshooting
         href: ./resources-troubleshoot.md
       - name: Known issues
-        href: ./troubleshooting-known-issues.md
+        href: ./troubleshoot-known-issues.md
       - name: Business continuity and disaster recovery
         href: ./disaster-recovery.md
       - name: Get support
