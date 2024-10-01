@@ -11,7 +11,7 @@ ms.custom: engagement-fy24
 
 # Self service maintenance orchestration (public preview)
 
-In this article, you learn about one of the advantages of Azure VMware Solution private cloud. The advantage is the managed platform, with Microsoft handling the lifecycle management of VMware software (ESXi, vCenter Server, and vSAN) and NSX appliances. Microsoft takes care of applying any patches, updates, or upgrades to ESXi, vCenter Server, vSAN, and NSX within your private cloud. 
+In this article, you learn about one of the advantages of Azure VMware Solution private cloud. The advantage is the managed platform where Microsoft handles the lifecycle management of VMware software (ESXi, vCenter Server, and vSAN) and NSX appliances. Microsoft also takes care of applying any patches, updates, or upgrades to ESXi, vCenter Server, vSAN, and NSX within your private cloud. 
 Regular upgrades of the Azure VMware Solution private cloud and VMware software ensure the latest security, stability, and feature sets are running in your private cloud. For more information, see [Host maintenance and lifecycle management](architecture-private-clouds.md).
 
 Microsoft schedules maintenance and notifies customers through Service Health notifications. The details of the planned maintenance are available under the planned maintenance section. Currently, customers must raise a support ticket if they wish to change a scheduled maintenance window.
@@ -35,11 +35,13 @@ The Self-Service Maintenance orchestration feature provides customers with the f
     
 1. Under the **Upcoming maintenance** tab, select the **Reschedule** option located on the right side.
 
-      :::image type="content" source="media/self-service-orchestration/upcoming-maintenance.png" alt-text="Screenshot that shows how to review upcoming maintenance schedule." lightbox="media/self-service-orchestration/upcoming-maintenance.png":::
+     :::image type="content" source="media/self-service-orchestration/reschedule-maintenance.png" alt-text="Screenshot that shows how to reschedule maintenance." lightbox="media/self-service-orchestration/reschedule-maintenance.png":::
+
+      
  
 1. Input the revised date and time, then select **Reschedule**. 
     
-      :::image type="content" source="media/self-service-orchestration/reschedule-maintenance.png" alt-text="Screenshot that shows how to reschedule maintenance." lightbox="media/self-service-orchestration/reschedule-maintenance.png":::
+      :::image type="content" source="media/self-service-orchestration/upcoming-maintenance.png" alt-text="Screenshot that shows how to review upcoming maintenance schedule." lightbox="media/self-service-orchestration/upcoming-maintenance.png":::
  
  After you’ve selected **Reschedule**, the system modifies the schedule to the new date and the new schedule is displayed to the portal.
 
