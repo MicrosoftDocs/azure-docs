@@ -78,6 +78,8 @@ landingContent:
         links:
           - text: Troubleshoot
             url: ./resources-troubleshoot.md
+          - text: Known issues
+            url: ./troubleshoot-known-issues.md
           - text: Business continuity
             url: ./disaster-recovery.md
           - text: Get support
