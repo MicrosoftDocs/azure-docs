@@ -164,6 +164,8 @@ spec:
     consumerGroupId: mqConnector
 ```
 
+---
+
 ## Use the endpoint in a dataflow source or destination
 
 Once the endpoint is created, you can use it in a dataflow by specifying the endpoint name in the dataflow's source or destination settings.
@@ -369,8 +371,20 @@ In the IoT Operations portal, select the **Advanced** tab for the dataflow endpo
 
 :::image type="content" source="media/howto-configure-kafka-endpoint/kafka-advanced.png" alt-text="Screenshot using Azure Operations portal to set Kafka dataflow endpoint advanced settings.":::
 
-| Setting                  | Description                                                                                       |
-| ------------------------ | ------------------------------------------------------------------------------------------------- |
+| Setting                        | Description                                                                                       |
+| ------------------------------ | ------------------------------------------------------------------------------------------------- |
+| Consumer group ID              | The ID of the consumer group for the Kafka endpoint. The consumer group ID is used to identify the consumer group that the dataflow uses to read messages from the Kafka topic. The consumer group ID must be unique within the Kafka broker. |
+| Compression                    | The compression type used for messages sent to Kafka topics. Supported types are `None`, `Gzip`, `Snappy`, and `Lz4`. Compression helps to reduce the network bandwidth and storage space required for data transfer. However, compression also adds some overhead and latency to the process. This setting takes effect only if the endpoint is used as a destination where the dataflow is a producer. |
+| Copy MQTT properties           | Whether to copy MQTT message properties to Kafka message headers. For more information, see [Copy MQTT properties](#copy-mqtt-properties). |
+| Kafka acknowledgement          | The level of acknowledgement requested from the Kafka broker. Supported values are `None`, `All`, `One`, and `Zero`. For more information, see [Kafka acknowledgements](#kafka-acknowledgements). |
+| Partition handling strategy    | The partition handling strategy controls how messages are assigned to Kafka partitions when sending them to Kafka topics.  Supported values are `Default`, `Static`, `Topic`, and `Property`. For more information, see [Partition handling strategy](#partition-handling-strategy). |
+| TLS mode enabled               | Enables TLS for the Kafka endpoint.                         |
+| Trusted CA certificate config map | The ConfigMap containing the trusted CA certificate for the Kafka endpoint. This ConfigMap should contain the CA certificate in PEM format. The ConfigMap must be in the same namespace as the Kafka dataflow resource. For more information, see [Trusted CA certificate](#trusted-ca-certificate). |
+| Batching enabled               | Enables batching. Batching allows you to group multiple messages together and compress them as a single unit, which can improve the compression efficiency and reduce the network overhead. This setting takes effect only if the endpoint is used as a destination where the dataflow is a producer. |
+| Batching latency               | The maximum time interval in milliseconds that messages can be buffered before being sent. If this interval is reached, then all buffered messages are sent as a batch, regardless of how many or how large they are. |
+| Maximum bytes                  | The maximum size in bytes that can be buffered before being sent. If this size is reached, then all buffered messages are sent as a batch, regardless of how many they are or how long they are buffered.             |
+| Message count                  | The maximum number of messages that can be buffered before being sent. If this number is reached, then all buffered messages are sent as a batch, regardless of how large they are or how long they are buffered.                 |
+| Cloud event attributes         | The CloudEvents attributes to include in the Kafka messages.                                      |
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -540,7 +554,7 @@ To disable copying MQTT properties, set the value to `Disabled`.
 
 The following sections describe how MQTT properties are translated to Kafka user headers and vice versa when the setting is enabled.
 
-#### Kafka endpoint is a destination
+##### Kafka endpoint is a destination
 
 When a Kafka endpoint is a dataflow destination, all MQTT v5 specification defined properties are translated Kafka user headers. For example, an MQTT v5 message with "Content Type" being forwarded to Kafka translates into the Kafka **user header** `"Content Type":{specifiedValue}`. Similar rules apply to other built-in MQTT properties, defined in the following table.
 
@@ -559,7 +573,7 @@ Dataflows never receive these properties from an MQTT Broker. Thus, a dataflow n
 * Topic Alias
 * Subscription Identifiers
 
-##### The Message Expiry Interval property
+###### The Message Expiry Interval property
 
 The [Message Expiry Interval](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901112) specifies how long a message can remain in an MQTT broker before being discarded.
 
@@ -575,7 +589,7 @@ Examples:
 * A dataflow receives an MQTT message with Message Expiry Interval = 3600 seconds. The corresponding destination is temporarily disconnected but is able to reconnect. 1,000 seconds pass before this MQTT Message is sent to the Target. In this case, the destination's message has its Message Expiry Interval set as 2600 (3600 - 1000) seconds.
 * The dataflow receives an MQTT message with Message Expiry Interval = 3600 seconds. The corresponding destination is temporarily disconnected but is able to reconnect. In this case, however, it takes 4,000 seconds to reconnect. The message expired and dataflow doesn't forward this message to the destination.
 
-#### Kafka endpoint is a dataflow source
+##### Kafka endpoint is a dataflow source
 
 > [!NOTE]
 > There's a known issue when using Event Hubs endpoint as a dataflow source where Kafka header gets corrupted as its translated to MQTT. This only happens if using Event Hub though the Event Hub client which uses AMQP under the covers. For for instance "foo"="bar", the "foo" is translated, but the value becomes"\xa1\x03bar".
@@ -590,7 +604,7 @@ When a Kafka endpoint is a dataflow source, Kafka user headers are translated to
 
 Kafka user header key/value pairs - provided they're all encoded in UTF-8 - are directly translated into MQTT user key/value properties.
 
-##### UTF-8 / Binary Mismatches
+###### UTF-8 / Binary Mismatches
 
 MQTT v5 can only support UTF-8 based properties. If dataflow receives a Kafka message that contains one or more non-UTF-8 headers, dataflow will:
 
@@ -599,14 +613,14 @@ MQTT v5 can only support UTF-8 based properties. If dataflow receives a Kafka me
 
 Applications that require binary transfer in Kafka Source headers => MQTT Target properties must first UTF-8 encode them - for example, via Base64.
 
-##### >=64KB property mismatches
+###### >=64KB property mismatches
 
 MQTT v5 properties must be smaller than 64 KB. If dataflow receives a Kafka message that contains one or more headers that is >= 64KB, dataflow will:
 
 * Remove the offending property or properties.
 * Forward the rest of the message on, following the previous rules.
 
-##### Property translation when using Event Hubs and producers that use AMQP
+###### Property translation when using Event Hubs and producers that use AMQP
 
 If you have a client forwarding messages a Kafka dataflow source endpoint doing any of the following actions:
 
