@@ -416,8 +416,6 @@ spec:
       name: aio-ca-trust-bundle-test-only # Default root CA cert
 ```
 
----
-
 Apply the deployment file with kubectl.
 
 ```bash
@@ -427,6 +425,7 @@ kubectl apply -f client.yaml
 ```output
 pod/mqtt-client created
 ```
+--- 
 
 ## Start a subscriber
 
