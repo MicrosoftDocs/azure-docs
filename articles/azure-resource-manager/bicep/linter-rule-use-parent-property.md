@@ -3,12 +3,12 @@ title: Linter rule - use parent property
 description: Linter rule - use parent property
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 10/01/2024
+ms.date: 10/03/2024
 ---
 
 # Linter rule - use parent property
 
-When defined outside of the parent resource, you use slashes to include the parent name in the name of the child resource. Setting the full resource name with parent resource name is not recommended. The `parent` property can be used to simplify the syntax. See [Full resource name outside parent](./child-resource-name-type.md#full-resource-name-outside-parent).
+When defined outside of the parent resource, you use slashes to include the parent name in the name of the child resource. Setting the full resource name with parent resource name isn't recommended. The `parent` property can be used to simplify the syntax. See [Full resource name outside parent](./child-resource-name-type.md#full-resource-name-outside-parent).
 
 ## Linter rule code
 
