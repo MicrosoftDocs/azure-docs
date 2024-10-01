@@ -23,12 +23,12 @@ items:
         href: deploy-iot-ops/howto-prepare-cluster.md
       - name: Deploy to a cluster
         href: deploy-iot-ops/howto-deploy-iot-operations.md
-      - name: Enable secure settings
-        href: deploy-iot-ops/howto-enable-secure-settings.md
       - name: Manage secrets
         href: deploy-iot-ops/howto-manage-secrets.md
       - name: Manage, update, or uninstall
         href: deploy-iot-ops/howto-manage-update-uninstall.md
+      - name: Enable secure settings
+        href: deploy-iot-ops/howto-enable-secure-settings.md
       - name: Certificate management
         href: deploy-iot-ops/concept-default-root-ca.md
     - name: Discover and manage assets
@@ -101,6 +101,8 @@ items:
           href: connect-to-cloud/concept-dataflow-conversions.md
         - name: Enrich data
           href: connect-to-cloud/concept-dataflow-enrich.md
+      - name: Use message schemas
+        href: connect-to-cloud/concept-schema-registry.md
       - name: Manage dataflow profile
         href: connect-to-cloud/howto-configure-dataflow-profile.md
     - name: Manage layered network
