@@ -806,7 +806,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | databaseaccounts | **Yes** | **Yes** | No |
+> | databaseaccounts | **Yes** | No | No |
 
 ## Microsoft.DomainRegistration
 
