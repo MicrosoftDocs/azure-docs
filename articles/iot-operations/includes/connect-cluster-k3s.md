@@ -58,7 +58,7 @@ ms.custom: include file, ignite-2023, devx-track-azurecli
 1. Create a k3s config file.
 
    ```bash
-   nano /etc/rancher/k3s/config.yaml
+   sudo nano /etc/rancher/k3s/config.yaml
    ```
 
 1. Add the following content to the `config.yaml` file, replacing the `<SERVICE_ACCOUNT_ISSUER>` placeholder with your cluster's issuer URL.
