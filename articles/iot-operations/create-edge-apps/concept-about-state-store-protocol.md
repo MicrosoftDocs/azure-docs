@@ -144,6 +144,12 @@ When a `SET` request succeeds, the state store returns the following payload:
 +OK<CR><LF>
 ```
 
+If a SET request fails because a condition check as specified in the NX or NEX set options that means the key cannot be set, the state store returns the following payload:
+
+```console
+-1<CR><LF>
+```
+
 #### `GET` response
 
 When a `GET` request is made on a nonexistent key, the state store returns the following payload:
@@ -177,6 +183,12 @@ The following output is an example of a successful `DEL` command:
 
 ```console
 :1<CR><LF>
+```
+
+If a VDEL request fails because the value specified does not match the value associated with the key, the state store returns the following payload:
+
+```console
+-1<CR><LF>
 ```
 
 ## Versioning and hybrid logical clocks
@@ -418,7 +430,7 @@ The following details are included in the message:
   * `SET` the value was modified. This operation can only occur as the result of a `SET` command from a state store client.
   * `DEL` the value was deleted. This operation can occur because of a `DEL` or `VDEL` command from a state store client.
 * `optionalFields`
-  * `VALUE` and `{MODIFIED-VALUE}`. `VALUE` is a string literal indicating that the next field, `{MODIFIED-VALUE}`, contains the value the key was changed to. This value is only sent in response to keys being modified because of a `SET` and is only included if the `KEYNOTIFY` request included the optional `GET` flag.
+  * `VALUE` and `{MODIFIED-VALUE}`. `VALUE` is a string literal indicating that the next field, `{MODIFIED-VALUE}`, contains the value the key was changed to. This value is only sent in response to keys being modified because of a `SET`.
 
 The following example output shows a notification message sent when the key `SOMEKEY` is modified to the value `abc`, with the `VALUE` included because the initial request specified the `GET` option:
 
