@@ -25,6 +25,7 @@ This how-to guide shows how to create an example integration workflow that runs 
   When you're ready, you can deploy your logic app to Azure where your workflow can run in the single-tenant Azure Logic Apps environment or in an App Service Environment v3 (Windows-based App Service plans only). You can also deploy and run your workflow anywhere that Kubernetes can run, including Azure, Azure Kubernetes Service, on premises, or even other cloud providers, due to the Azure Logic Apps containerized runtime. 
 
    > [!NOTE]
+   > 
    > Deploying your logic app to a Kubernetes cluster is currently in public preview. 
    
     For more information about single-tenant Azure Logic Apps, review [Single-tenant versus multitenant in Azure Logic Apps](single-tenant-overview-compare.md#resource-environment-differences).
@@ -331,14 +332,16 @@ Before you can create your logic app, create a local project so that you can man
 
    > [!NOTE]
    > 
-   > The required **FUNCTIONS_WORKER_RUNTIME** app setting value for your Standard logic app was previously **node**. 
-   > but **dotnet** is now the value for all new and existing deployed Standard logic apps. This change shouldn't
-   > affect your workflow's runtime, so everything should work the same way as before. For more information, see the
+   > The **FUNCTIONS_WORKER_RUNTIME** app setting is required for your Standard logic app, and the
+   > value was previously set to **node**. However, the required value is now **dotnet** for all new
+   > and existing deployed Standard logic apps. This change in value shouldn't affect your workflow's
+   > runtime, so everything should work the same way as before. For more information, see the
    > [**FUNCTIONS_WORKER_RUNTIME** app setting](edit-app-settings-host-settings.md#reference-local-settings-json).
    > 
-   > The required **APP_KIND** app setting value for your Standard logic app is **workflowApp**, but in some scenarios, 
-   > this app setting might be missing, for example, due to automation using Azure Resource Manager templates or other
-   > scenarios where the setting isn't included. If certain actions don't work, such as the **Execute JavaScript Code**
+   > The **APP_KIND** app setting is required for your Standard logic app, and the value
+   > must be **workflowApp**. Howeever, in some scenarios, this app setting might be missing,
+   > for example, due to automation using Azure Resource Manager templates or other scenarios
+   > where the setting isn't included. If certain actions don't work, such as the **Execute JavaScript Code**
    > action, or if the workflow stops working, check that the **APP_KIND** app setting exists and is set to to **workflowApp**.
    > For more information, see the [**APP_KIND** app setting](edit-app-settings-host-settings.md#reference-local-settings-json).
 
