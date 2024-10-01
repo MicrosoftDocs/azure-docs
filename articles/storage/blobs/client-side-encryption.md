@@ -7,7 +7,7 @@ author: normesta
 
 ms.service: azure-blob-storage
 ms.topic: article
-ms.date: 09/26/2024
+ms.date: 10/01/2024
 ms.author: normesta
 ms.reviewer: ozgun
 ms.devlang: csharp
