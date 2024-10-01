@@ -114,7 +114,7 @@ SecurityEvent
 | where isnotempty(SubjectDomainName)
 ```
 
-This rule assumes that Azure Monitoring Agent (AMA) collects the Windows Security Events. Therefore, the rule uses the Microsoft Sentinel [SecurityEvent](/azure/azure-monitor/reference/tables/securityevent) table.
+This rule assumes that the Azure Monitoring Agent (AMA) collects the Windows Security Events. Therefore, the rule uses the Microsoft Sentinel [SecurityEvent](/azure/azure-monitor/reference/tables/securityevent) table.
 
 Consider these best practices:
 
