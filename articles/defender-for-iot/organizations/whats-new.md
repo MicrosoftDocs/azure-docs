@@ -17,6 +17,18 @@ Features released earlier than nine months ago are described in the [What's new 
 
 [!INCLUDE [defender-iot-defender-reference](../includes/defender-for-iot-defender-reference.md)]
 
+## October 2024
+
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | [Improved OT sensor onboarding](#improved-ot-sensor-onboarding) |
+
+### Improved OT sensor onboarding
+
+If there are connection problems, during sensor onboarding, between the OT sensor and the Azure portal at the configuration stage, the process can't be completed until the connection problem is solved.
+
+We now support completing the configuration process without the need to solve the communication problem, allowing you to continue the onboarding of your OT sensor quickly and solve the problem at a later time. For more information, see [activate your OT sensor](ot-deploy/activate-deploy-sensor.md#activate-your-ot-sensor).
+
 ## July 2024
 
 |Service area  |Updates  |
