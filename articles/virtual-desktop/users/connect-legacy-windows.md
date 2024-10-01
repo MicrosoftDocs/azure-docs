@@ -2,7 +2,6 @@
 title: Connect to Azure Virtual Desktop with the legacy Remote Desktop clients for Windows - Azure Virtual Desktop
 description: Learn how to connect Connect to Azure Virtual Desktop with the legacy Remote Desktop clients for Windows.
 ms.topic: how-to
-zone_pivot_groups: azure-virtual-desktop-windows-clients
 author: dknappettmsft
 ms.author: daknappe
 ms.custom: "se-defect-target"
