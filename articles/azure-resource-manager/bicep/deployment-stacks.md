@@ -87,7 +87,7 @@ az stack group create \
   --name '<deployment-stack-name>' \
   --resource-group '<resource-group-name>' \
   --template-file '<bicep-file-name>' \
-  --action-on-unmanage 'detachAll'
+  --action-on-unmanage 'detachAll' \
   --deny-settings-mode 'none'
 ```
 
