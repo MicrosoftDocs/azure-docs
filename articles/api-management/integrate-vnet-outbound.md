@@ -89,14 +89,14 @@ This section will guide you through the process of enabling virtual network inte
 1. In the left menu, under **Deployment + Infrastructure**, select **Network**.
 1. On the **Outbound traffic** card, select **virtual network integration**.
 
-    :::image type="content" source="media/integrate-virtual network-outbound/integrate-virtual network.png" lightbox="media/integrate-virtual network-outbound/integrate-virtual network.png" alt-text="Screenshot of virtual network integration in the portal.":::
+    :::image type="content" source="media/integrate-vnet-outbound/integrate-vnet.png" lightbox="media/integrate-vnet-outbound/integrate-vnet.png" alt-text="Screenshot of virtual network integration in the portal.":::
 
 1. In the **Virtual network** blade, enable the **Virtual network** checkbox.
 1. Select the location of your API Management instance.
 1. In **Virtual network**, select the virtual network and the delegated subnet that you want to integrate. 
 1. Select **Apply**, and then select **Save**. The virtual network is integrated.
 
-    :::image type="content" source="media/integrate-virtual network-outbound/virtual network-settings.png" lightbox="media/integrate-virtual network-outbound/virtual network-settings.png" alt-text="Screenshot of virtual network settings in the portal.":::
+    :::image type="content" source="media/integrate-vnet-outbound/vnet-settings.png" lightbox="media/integrate-vnet-outbound/vnet-settings.png" alt-text="Screenshot of virtual network settings in the portal.":::
 
 ## (Optional) Test virtual network integration
 

@@ -69,7 +69,7 @@ The Standard v2 tier supports VNet integration to allow your API Management inst
 
 Outbound integration enables the API Management instance to reach both public and network-isolated backend services.
 
-:::image type="content" source="./media/integrate-vnet-outbound/vnet-integration.svg" alt-text="Diagram of integrating API Management instance with a delegated subnet."  :::
+:::image type="content" source="./media/integrate-vnet-outbound/vnet-integration.png" alt-text="Diagram of integrating API Management instance with a delegated subnet."  :::
 
 For more information, see [Integrate an Azure API Management instance with a private VNet for outbound connections](integrate-vnet-outbound.md).
 
