@@ -370,7 +370,8 @@ To verify the MQTT bridge is working, deploy an MQTT client to the same namespac
 <!-- TODO: make the service account part of the YAML? -->
 
 # [Bicep](#tab/bicep)
-Currently bicep does not apply to this
+
+Currently bicep does not apply to this.
 
 # [Kubernetes](#tab/kuberenetes)
 ```yaml
