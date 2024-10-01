@@ -5,7 +5,7 @@ services: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 09/30/2024
+ms.date: 10/14/2024
 # Customer intent: As a developer, I want to create a Standard workflow that can run in a hybrid, customer-managed environment and that can include on-premises systems, private clouds, and public clouds.
 ---
 
@@ -17,22 +17,33 @@ ms.date: 09/30/2024
 > This capability is in preview and is subject to the
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-For scenarios where you need to control and manage your own infrastructure, Azure Logic Apps supports creating hybrid logic apps, which are Standard workflows that run in a hybrid environment. This environment can include on-premises systems, private clouds, and public clouds. A hybrid logic app and workflow is powered by an Azure Logic Apps runtime that uses [Azure Container Apps extensibility]() and is hosted as an extension on the Azure Container Apps runtime as an on-premises resource. When you need to build an integration solution or workflow for a partially connected scenario that requires local processing, storage, and network access, a hybrid logic app provides the capability for you to meet the needs for this scenario.
+For scenarios where you need to control and manage your own infrastructure, Azure Logic Apps supports creating hybrid logic apps, which are Standard workflows that run in a hybrid environment. This environment can include on-premises systems, private clouds, and public clouds. A hybrid logic app and workflow is powered by the Azure Logic Apps runtime that is hosted on premises as an Azure Container Apps extension. When you need to build an integration solution or workflow for a partially connected scenario that requires local processing, storage, and network access, a hybrid logic app provides the capability for you to meet the needs for this scenario.
 
-The following architectural overview shows how a hybrid logic app fits into partially connected environment. This environment uses a SQL database for local storage and processing, a Server Message Block (SMB) file share to store artifacts used by your workflow, and [Azure Arc-enabled Azure Kubernetes (AKS) clusters](/azure-arc/kubernetes/overview) or [on-premises AKS *hyperconverged infrastructure* (HCI) clusters](/azure-stack/hci/overview) for hosting your hybrid logic app:
+The following architectural overview shows where hybrid logic apps and their workflows are hosted and run in a partially connected environment. This environment uses a SQL database for local storage and processing, a Server Message Block (SMB) file share to store artifacts used by your workflows, and Azure Arc-enabled Azure Kubernetes (AKS) clusters or on-premises AKS *hyperconverged infrastructure* (HCI) clusters to host your hybrid logic apps, which deploy as Azure container app resources:
 
-:::image type="content" source="media/create-standard-workflows-hybrid-environments/architecture-overview.png" alt-text="Diagram with architectural overview for how a hybrid logic app fits into a partially connected environment." border="false":::
+:::image type="content" source="media/create-standard-workflows-hybrid-environments/architecture-overview.png" alt-text="Diagram with architectural overview for where hybrid logic apps are hosted in a partially connected environment." border="false":::
+
+For more information, see the following documentation:
+
+- [What is Azure Kubernetes Service?](/azure/aks/what-is-aks)
+- [What is Azure Container Apps?](../container-apps/overview.md)
+- [Azure Container Apps on Azure Arc](../container-apps/azure-arc-overview.md)
+- [Azure Arc-enabled Azure Kubernetes (AKS) clusters](../azure-arc/kubernetes/overview.md)
+- [AKS hyperconverged infrastructure (HCI) clusters](/azure-stack/hci/overview)
+- [Custom locations on Azure Arc-enabled AKS](../azure-arc/platform/conceptual-custom-locations.md)
 
 ## Limitations
 
-The following capabilities currently aren't available in the preview release:
+- Hybrid logic apps are supported and available only in the [same regions as Azure Container Apps on Azure Arc-enabled AKS](../container-apps/azure-arc-overview.md#public-preview-limitations).
 
-- SAP access through the SAP built-in connector
-- XSLT 1.0 for custom code
-- Custom code support with .NET Framework
-- Managed identity authentication
-- File System connector
-- Connection creation with managed connectors in the Azure portal
+- The following capabilities currently aren't available in this preview release:
+
+  - SAP access through the SAP built-in connector
+  - XSLT 1.0 for custom code
+  - Custom code support with .NET Framework
+  - Managed identity authentication
+  - File System connector
+  - Connection creation with managed connectors in the Azure portal
 
 ## Prerequisites
 
@@ -48,7 +59,7 @@ The following capabilities currently aren't available in the preview release:
 
 ## Set up an AKS cluster
 
-To use [AKS](/azure/aks/what-is-aks) for deployment, you can create an AKS cluster or an [on-premises AKS HCI cluster](/azure-stack/hci/overview). Your AKS cluster requires inbound and outbound connectivity with the [SQL database that you use as the storage provider](#storage-provider).
+To use [AKS](/azure/aks/what-is-aks) for deployment, you can create an Azure Arc-enabled Kubernetes cluster or an [on-premises AKS HCI cluster](/azure-stack/hci/overview). Your AKS cluster requires inbound and outbound connectivity with the [SQL database that you use as the storage provider](#storage-provider).
 
 ### Create an AKS cluster
 
@@ -64,14 +75,14 @@ To create an AKS cluster as your deployment environment, you have the following 
 
   ```azurecli
   az login
-  az account set --subscription {Azure-subscription-ID}
+  az account set --subscription <Azure-subscription-ID>
   az provider register --namespace Microsoft.KubernetesConfiguration --wait
   az extension add --name k8s-extension --upgrade --yes
-  az group create --name {resource-group-name} --location '{Azure-region}'
-  az aks create --resource-group {resource-group-name} --name {cluster-name} --enable-aad --generate-ssh-keys --enable-cluster-autoscaler --max-count 6 --min-count 1 
+  az group create --name <Azure-resource-group-name> --location '<Azure-region>'
+  az aks create --resource-group <Azure-resource-group-name> --name <AKS-cluster-name> --enable-aad --generate-ssh-keys --enable-cluster-autoscaler --max-count 6 --min-count 1 
   ```
 
-- Run the following PowerShell commands as an administrator after you [download the provided unsigned PowerShell script]() to create an AKS cluster and an optional Log Analytics workspace for monitoring the logs from the Azure Logic Apps runtime:
+- Follow the steps in [Tutoral: Enable Azure Container Apps on Azure Arc-enabled Kubernetes](/azure/container-apps/azure-arc-enable-cluster), and then run the following PowerShell commands as an administrator to create an AKS cluster and an optional Log Analytics workspace for monitoring the logs from the Azure Logic Apps runtime:
 
   ```powershell
   Set-ExecutionPolicy -ExecutionPolicy Unrestricted
@@ -82,13 +93,12 @@ To create an AKS cluster as your deployment environment, you have the following 
   |-----------|----------|-------|-------------|
   | **SUBSCRIPTION** | Yes | <*Azure-subscription-ID*> | The GUID for your Azure subscription. |
   | **GROUP_NAME** | Yes | <*Azure-resource-group-name*> | The [Azure resource group](../azure-resource-manager/management/overview.md#terminology) where you create your container app and related resources. This name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <br><br>This example uses **Hybrid-Workflows-RG**. |
-  | **LOCATION** | Yes | <*Azure-region*> | The Azure datacenter region for your container app. <br><br>This example uses **North Central US**. |
+  | **LOCATION** | Yes | <*Azure-region*> | An Azure region that's [supported for Azure container apps on Azure Arc-enabled AKS](../container-apps/azure-arc-overview.md#public-preview-limitations). <br><br>This example uses **North Central US**. |
   | **LOGANALYTICS_WORKSPACE_NAME** | No | <*Log-Analytics-workspace-name*> | The name for the Log Analytics workspace resource to create for monitoring logs. |
 
   For more information, see the following documentation:
 
   - [Set-ExecutionPolicy](/powershell/module/microsoft.powershell.security/set-executionpolicy)
-  - [Tutoral: Enable Azure Container Apps on Azure Arc-enabled Kubernetes](/azure/container-apps/azure-arc-enable-cluster).
 
 ### Create an on-premises AKS HCI cluster
 
@@ -208,8 +218,8 @@ To test the connection between your AKS cluster and your SMB file share and chec
    | **Subscription** | Yes | <*Azure-subscription-name*> | Your Azure subscription name. <br><br>This example uses **Pay-As-You-Go**. |
    | **Resource Group** | Yes | <*Azure-resource-group-name*> | The [Azure resource group](../azure-resource-manager/management/overview.md#terminology) where you create your hybrid app and related resources. This name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <br><br>This example creates a resource group named **Hybrid-Workflows-RG**. |
    | **Logic App name** | Yes | <*logic-app-name*> | Your hybrid logic app name, which must be unique across regions and can contain only lowercase letters, numbers, or hyphens (**-**). <br><br>This example uses **fabrikam-workflows-hybrid**. |
-   | **Region** | Yes | <*Azure-region*> | The Azure datacenter region to use. <br><br>This example uses **North Central US**. |
-   | **Container App Connected Environment** | Yes | <*connected-environment-name*> | The AKS cluster that you created as the deployment environment for your hybrid logic app. |
+   | **Region** | Yes | <*Azure-region*> | An Azure region that's [supported for Azure container apps on Azure Arc-enabled AKS](../container-apps/azure-arc-overview.md#public-preview-limitations). <br><br>This example uses **North Central US**. |
+   | **Container App Connected Environment** | Yes | <*connected-environment-name*> | The AKS cluster that you created as the deployment environment for your hybrid logic app. For more information, see [Tutorial: Enable Azure Container Apps on Azure Arc-enabled Kubernetes](../container-apps/azure-arc-enable-cluster.md). |
    | **Configure storage settings** | Yes | Enabled or disabled | Continues to the **Storage** tab on the **Create Logic App (Hybrid)** page. |
 
 1. On the **Storage** page, provide the following information about the storage provider and SMB file share that you previously set up for your hybrid logic app:
@@ -264,7 +274,9 @@ Before you create and deploy with Visual Studio Code, complete the following req
 
 1. Provide the connection string for the SQL database that you set up for runtime storage.
 
-You can monitor the deployment status under Azure Activity logs. Azure creates and deploys your hybrid logic app as a [Container App resource](/azure/container-apps/overview) with **Hybrid Logic App** type. In this release, your hybrid logic app appears in the Azure portal under **Container Apps** and not **Logic apps**. You can create, edit, and manage workflows as usual from the Azure portal.
+1. To monitor deployment status and Azure activity logs, from the **View** menu, select **Output**. In the window that opens, select **Azure**.
+
+Azure creates and deploys your hybrid logic app as a [Container App resource](/azure/container-apps/overview) with **Hybrid Logic App** type. In this release, your hybrid logic app appears in the Azure portal under **Container Apps** and not **Logic apps**. You can create, edit, and manage workflows as usual from the Azure portal.
 
 ## Known issues and troubleshooting
 
@@ -279,7 +291,7 @@ In rare scenarios, you might notice a high memory footprint in your cluster. To 
 
 ### Managed connectors
 
-You must create connections for managed connectors through Visual Studio Code, not the Azure portal, for hybrid logic app workflows. In Visual Studio Code, connections are valid for seven days and requires reauthentication after that time.
+You must create connections for managed connectors through Visual Studio Code, not the Azure portal, for hybrid logic app workflows. In Visual Studio Code, connections are valid for seven days and requires reauthentication after that time. A connection key is used to authenticate the connection through Visual Studio Code. This key is valid only for seven days and requires reauthentication after this time period.
 
 ### Function-based triggers
 
