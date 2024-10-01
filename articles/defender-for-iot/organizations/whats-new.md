@@ -17,7 +17,7 @@ Features released earlier than nine months ago are described in the [What's new 
 
 [!INCLUDE [defender-iot-defender-reference](../includes/defender-for-iot-defender-reference.md)]
 
-## September 2024
+## October 2024
 
 |Service area  |Updates  |
 |---------|---------|
