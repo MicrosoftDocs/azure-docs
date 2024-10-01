@@ -14,6 +14,7 @@ Features released earlier than nine months ago are described in the [What's new 
 
 > [!NOTE]
 > Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
 
 [!INCLUDE [defender-iot-defender-reference](../includes/defender-for-iot-defender-reference.md)]
 
@@ -21,7 +22,11 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | - [Added protocol](#added-protocol)<br> - [Improved OT sensor onboarding](#improved-ot-sensor-onboarding) |
+| **OT networks** | - [Add wildcards to allowlist domain names](#add-wildcards-allowlist-domain-names)<br> - [Added protocol](#added-protocol) <br> - [Improved OT sensor onboarding](#improved-ot-sensor-onboarding) |
+
+### Add wildcards allowlist domain names
+
+When adding domain names to the FQDN allowlist use the `*` wildcard to include all sub-domains. For more information, see [allow internet connections on an OT network](how-to-accelerate-alert-incident-response.md#allow-internet-connections-on-an-ot-network).
 
 ### Added protocol
 
@@ -37,7 +42,7 @@ We now support completing the configuration process without the need to solve th
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | - [Security update](#security-update)  |
+| **OT networks** | - [Security update](#security-update) |
 
 ### Security update
 
