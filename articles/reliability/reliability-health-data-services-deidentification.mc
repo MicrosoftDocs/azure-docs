@@ -19,165 +19,192 @@ This article describes reliability support in the de-identification service (pre
 
 [!INCLUDE [introduction to disaster recovery](includes/reliability-disaster-recovery-description-include.md)]
 
+Each de-identification service (preview) is deployed to a single Azure region. In the event of a region-wide degredation or outage:
+- ARM control plane functionality will be limited to read-only for the duration of the outage. Your service metadata (such as resource properties) will be backed up outside of the region by Microsoft. Once the outage is over, you can read and write to the control plane.
+- All data plane requests will fail for the duration of the outage, such as de-identification or job API requests. No customer data will be lost, but there is the potential for job progress metadata to be lost. Once the outage is over, you can read and write to the data plane.
 
-<!-- 4. Cross-region disaster recovery ---------------------------------------
+### Disaster recovery tutorial
+You can assure high availability of your workloads even during a region-wide outage or degradation by deploying two or more de-identification services in an active-active configuration.
+In active-active disaster recovery architecture, de-identification services are deployed in two separate regions and Azure Front door is used to route traffic to both regions.
 
-Required. This section can be organized as your product demands, but try to keep the headings as listed below, as best you are able.
+With this example architecture:
 
-The include [!INCLUDE [introduction to disaster recovery](includes/reliability-disaster-recovery-description-include.md)] must be first in this SECTION.
-
-In the case of a region-wide disaster, Azure can provide protection from regional or large geography disasters with disaster recovery by making use of another region. 
-For more information on Azure disaster recovery architecture, see [Azure to Azure disaster recovery architecture](/azure/site-recovery/azure-to-azure-architecture.md).
-
-Give a high-level overview of how cross-region failover works for your service here.
-
-In the sections below, address the following for both multi and single region geographies, as appropriate:
-
-- If cross-region failover or responsibilities depend on region type (for example paired region vs. non-paired), provide detailed explanation. Refer to non-paired region recovery in section below.
-
-- Explain whether items are Microsoft responsible or customer responsible for setup and execution.
-
-- If service is deployed geographically, explain how this works. 
-
-- Explain how customer storage is handled, how much data loss occurs and whether R/W or only R/O for 00:__ (duration).
-
-- If this single offering fails over, indicate whether it continues to support primary region or only secondary region. 
-
--->
-
-### Plan for disaster recovery
-TODO: Add recommendations for planning for DR.
-
-<!-- 4E. Plan for disaster recovery ---------------------------
-Microsoft and its customers operate under the Shared responsibility model. This means that for customer-enabled DR (customer-responsible services), the customer must address DR for any service they deploy and control. 
-
-To ensure that recovery is proactive, customers should always pre-deploy secondaries because there is no guarantee of capacity at time of impact for those who have not pre-allocated. 
-
-In this section, provide details of customer knowledge required re: capacity planning and proactive deployments.
-
-In cases where Microsoft shares responsibility with the customer for outage detection and management, the customer needs to do the following:
-
-- Provide comprehensive How to for setup of DR, including prerequisite, recipe, format, instructions, diagrams, tools, and so on.  
-
-- Specify Active-Active or Active-Passive 
-
-- Provide details on how customer can minimize failover downtime (if due to Microsoft responsible).  
-
-This can be provided in another document, located under the Reliability node in your TOC. Provide the link here.
-
-
--->
-
-#### Set up disaster recovery and outage detection 
-
-To prepare for disaster recovery in a multi-region geography, you can use either an active-active or active-passive architecture. 
-
-##### Active-Active architecture
-
-In active-active disaster recovery architecture, identical web apps are deployed in two separate regions and Azure Front door is used to route traffic to both the active regions.
-
-:::image type="content" source="../app-service/media/overview-disaster-recovery/active-active-architecture.png" alt-text="Diagram that shows an active-active deployment of App Service.":::
-
-With this example architecture: 
-
-- Identical App Service apps are deployed in two separate regions, including pricing tier and instance count. 
-- Public traffic directly to the App Service apps is blocked. 
-- Azure Front Door is used to route traffic to both the active regions.
-- During a disaster, one of the regions becomes offline, and Azure Front Door routes traffic exclusively to the region that remains online. The RTO during such a geo-failover is near-zero.
-- Application files should be deployed to both web apps with a CI/CD solution. This ensures that the RPO is practically zero. 
-- If your application actively modifies the file system, the best way to minimize RPO is to only write to a [mounted Azure Storage share](../app-service/configure-connect-to-azure-storage.md) instead of writing directly to the web app's */home* content share. Then, use the Azure Storage redundancy features ([GZRS](../storage/common/storage-redundancy.md#geo-zone-redundant-storage) or [GRS](../storage/common/storage-redundancy.md#geo-redundant-storage)) for your mounted share, which has an [RPO of about 15 minutes](../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region).
-
-
-Steps to create an active-active architecture for your web app in App Service are summarized as follows: 
-
-1. Create two App Service plans in two different Azure regions. Configure the two App Service plans identically.
-
-1. Create two instances of your web app, with one in each App Service plan. 
-
-1. Create an Azure Front Door profile with:
-    - An endpoint.
-    - Two origin groups, each with a priority of 1. The equal priority tells Azure Front Door to route traffic to both regions equally (thus active-active).
-    - A route. 
-
-1. [Limit network traffic to the web apps only from the Azure Front Door instance](../app-service/app-service-ip-restrictions.md#restrict-access-to-a-specific-azure-front-door-instance). 
-
-1. Setup and configure all other back-end Azure service, such as databases, storage accounts, and authentication providers. 
-
-1. Deploy code to both the web apps with [continuous deployment](../app-service/deploy-continuous-deployment.md).
-
+- Identical de-identification services are deployed in two separate regions. 
+- Azure Front Door is used to route traffic to both regions.
+- During a disaster, one region becomes offline, and Azure Front Door routes traffic exclusively to the other region. The recovery time objective during such a geo-failover is near-zero.
+- Your application should be able to re-run jobs that were last observed as running but cannot be found. This ensures that the recovery point objective is limited to the job progress that is not available. 
 
 ####  RTO and RPO
 
-<!--- 4E1. RTO and RPO ---------------------------
-
-- Present RPO and RTO for each disaster recovery option.
-- Define customer Recovery Time Objective (RTO) and Recovery Point Objective (RPO) expectations for optimal setup. 
-
--->
+If you adopt the active-active configuration described above, you should expect a recovery time objective (RTO) of **5 minutes**. In any configuration, you should expect a recovery point objective (RPO) of **0 minutes** (no customer data will be lost).
 
 ### Validate disaster recovery plan
-TODO: Add validation methods here for DR.
+#### Prerequisites
 
-<!-- 4F. Validate disaster recovery plan ---------------------------
-    If it is possible for the customer to validate/test their DR plan, please describe here.
--->
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
+
+To complete this tutorial:
+
+[!INCLUDE [Azure-CLI-prepare-your-environment-no-header.md](~/reusable-content/Azure-CLI/Azure-CLI-prepare-your-environment-no-header.md)]
+
+#### Create a resource group
+
+You need two instances of a de-identification service (preview) in different Azure regions for this tutorial. The tutorial will use the [region pair](../availability-zones/cross-region-replication-azure.md#azure-paired-regions) East US/West US as your two regions, but feel free to choose your own regions.
+
+To make management and clean-up simpler, you use a single resource group for all resources in this tutorial. Consider using separate resource groups for each region/resource to further isolate your resources in a disaster recovery situation.
+
+Run the following command to create your resource group.
+
+```azurecli-interactive
+az group create --name my-deid --location eastus
+```
+
+#### Create de-identification services (preview)
+
+Follow the steps at [Quickstart: Deploy the de-identification service (preview)](/azure/healthcare-apis/deidentification/quickstart) to create two separate services, one in East US and one in West US.
+
+Note the service URL of each de-identification service so you can define the backend addresses when you deploy the Azure Front Door in the next step.
+
+#### Create an Azure Front Door
+
+A multi-region deployment can use an active-active or active-passive configuration. An active-active configuration distributes requests across multiple active regions. An active-passive configuration keeps running instances in the secondary region, but doesn't send traffic there unless the primary region fails. 
+Azure Front Door has a built-in feature that allows you to enable these configurations. For more information on designing apps for high availability and fault tolerance, see [Architect Azure applications for resiliency and availability](/azure/architecture/reliability/architect).
+
+#### Create an Azure Front Door profile
+
+You now create an [Azure Front Door Premium](../frontdoor/front-door-overview.md) to route traffic to your services. 
+
+Run [`az afd profile create`](/cli/azure/afd/profile#az-afd-profile-create) to create an Azure Front Door profile.
+
+> [!NOTE]
+> If you want to deploy Azure Front Door Standard instead of Premium, substitute the value of the `--sku` parameter with Standard_AzureFrontDoor. You can't deploy managed rules with WAF Policy if you choose the Standard tier. For a detailed comparison of the pricing tiers, see [Azure Front Door tier comparison](../frontdoor/standard-premium/tier-comparison.md).
+
+```azurecli-interactive
+az afd profile create --profile-name myfrontdoorprofile --resource-group my-deid --sku Premium_AzureFrontDoor
+```
+
+|Parameter  |Value  |Description  |
+|---------|---------|---------|
+|`profile-name`     |`myfrontdoorprofile`         |Name for the Azure Front Door profile, which is unique within the resource group.         |
+|`resource-group`     |`my-deid`         |The resource group that contains the resources from this tutorial.         |
+|`sku`     |`Premium_AzureFrontDoor`         |The pricing tier of the Azure Front Door profile.         |
 
 
-### Outage guidance
-TODO: Add outage guidance here for DR.
+### Add an endpoint
 
-<!-- 4G. Outage guidance -------------------------------- -->
+Run [`az afd endpoint create`](/cli/azure/afd/endpoint#az-afd-endpoint-create) to create an endpoint in your profile. You can create multiple endpoints in your profile after finishing the create experience.
 
+```azurecli-interactive
+az afd endpoint create --resource-group my-deid --endpoint-name myendpoint --profile-name myfrontdoorprofile --enabled-state Enabled
+```
 
-<!--
+|Parameter  |Value  |Description  |
+|---------|---------|---------|
+|`endpoint-name`     |`myendpoint`         |Name of the endpoint under the profile, which is unique globally.         |
+|`enabled-state`     |`Enabled`         |Whether to enable this endpoint.        |
 
-- Provide all guidance of what the customer can expect in region loss scenario. 
+#### Create an origin group
 
-- Specify whether recovery is automated or manual. 
+Run [`az afd origin-group create`](/cli/azure/afd/origin-group#az-afd-origin-group-create) to create an origin group that contains your two web apps.
 
+```azurecli-interactive
+az afd origin-group create --resource-group my-deid --origin-group-name myorigingroup --profile-name myfrontdoorprofile --probe-request-type GET --probe-protocol Http --probe-interval-in-seconds 60 --probe-path /health --sample-size 4 --successful-samples-required 3 --additional-latency-in-milliseconds 50
+```
 
--->
+|Parameter  |Value  |Description  |
+|---------|---------|---------|
+|`origin-group-name`     |`myorigingroup`         |Name of the origin group.         |
+|`probe-request-type`     |`GET`         |The type of health probe request that is made.        |
+|`probe-protocol`    |`Http`         |Protocol to use for health probe.        |
+|`probe-interval-in-seconds`     |`60`         |The number of seconds between health probes.        |
+|`probe-path`    |`/`         |The path relative to the origin that is used to determine the health of the origin.       |
+|`sample-size`     |`4`         |The number of samples to consider for load balancing decisions.        |
+|`successful-samples-required`     |`3`         |The number of samples within the sample period that must succeed.        |
+|`additional-latency-in-milliseconds`     |`50`         |The extra latency in milliseconds for probes to fall into the lowest latency bucket.        |
 
+### Add an origin to the group
 
-#### Notifications
-TODO: Add any notifications here for DR.
-<!-- 4G1. Notifications -------------------------------- -->
+Run [`az afd origin create`](/cli/azure/afd/origin#az-afd-origin-create) to add an origin to your origin group. For the `--host-name` parameter, replace the placeholder for `<web-app-east-us>` with your app name in that region. Notice the `--priority` parameter is set to `1`, which indicates all traffic is sent to your primary app.
 
+```azurecli-interactive
+az afd origin create --resource-group my-deid --host-name <service-url-east-us> --profile-name myfrontdoorprofile --origin-group-name myorigingroup --origin-name primarydeid --origin-host-header <service-url-east-us> --priority 1 --weight 1000 --enabled-state Enabled --https-port 443
+```
 
-<!-- In the case of disaster, explain:
-    
-- How customer detects outages.    
-- How the customer is notified or how customer can check service health. 
-- Explain how Microsoft detects and handles outages for this offering. 
+|Parameter  |Value  |Description  |
+|---------|---------|---------|
+|`host-name`     |`<service-url-east-us>`        |The hostname of the primary de-identification service.       |
+|`origin-name`     |`primarydeid`         |Name of the origin.         |
+|`origin-host-header`    |`<service-url-east-us>`         |The host header to send for requests to this origin. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default.         |
+|`priority`     |`1`         |Set this parameter to 1 to direct all traffic to the primary de-identification service.        |
+|`weight`     |`1000`         |Weight of the origin in given origin group for load balancing. Must be between 1 and 1000.         |
+|`enabled-state`    |`Enabled`         |Whether to enable this origin.         |
+|`https-port`    |`443`         |The port used for HTTPS requests to the origin.         |
 
--->
+Repeat this step to add your second origin. Pay attention to the `--priority` parameter. For this origin, it's set to `2`. This priority setting tells Azure Front Door to direct all traffic to the primary origin unless the primary goes down. If you set the priority for this origin to `1`, Azure Front Door treats both origins as active and direct traffic to both regions. Be sure to replace both instances of the placeholder for `<service-url-east-us>` with the service url.
 
+```azurecli-interactive
+az afd origin create --resource-group my-deid --host-name <service-url-west-us> --profile-name myfrontdoorprofile --origin-group-name myorigingroup --origin-name secondarydeid --origin-host-header <service-url-west-us> --priority 2 --weight 1000 --enabled-state Enabled --https-port 443
+```
+
+#### Add a route
+
+Run [`az afd route create`](/cli/azure/afd/route#az-afd-route-create) to map your endpoint to the origin group. This route forwards requests from the endpoint to your origin group.
+
+```azurecli-interactive
+az afd route create --resource-group my-deid --profile-name myfrontdoorprofile --endpoint-name myendpoint --forwarding-protocol MatchRequest --route-name route --https-redirect Enabled --origin-group myorigingroup --supported-protocols Https --link-to-default-domain Enabled 
+```
+
+|Parameter  |Value  |Description  |
+|---------|---------|---------|
+|`endpoint-name`     |`myendpoint`       |Name of the endpoint.       |
+|forwarding-protocol     |MatchRequest       |Protocol this rule uses when forwarding traffic to backends.       |
+|`route-name`     |`route`       |Name of the route.       |
+|https-redirect     |`Enabled`       |Whether to automatically redirect HTTP traffic to HTTPS traffic.       |
+|`supported-protocols`     |`Https`       |List of supported protocols for this route.       |
+|`link-to-default-domain`     |`Enabled`       |Whether this route is linked to the default endpoint domain.       |
+
+Allow about 15 minutes for this step to complete as it takes some time for this change to propagate globally. After this period, your Azure Front Door is fully functional.
+
+## Test the Front Door
+
+When you create the Azure Front Door Standard/Premium profile, it takes a few minutes for the configuration to be deployed globally. Once completed, you can access the frontend host you created.
+
+Run [`az afd endpoint show`](/cli/azure/afd/endpoint#az-afd-endpoint-show) to get the hostname of the Front Door endpoint.
+
+```azurecli-interactive
+az afd endpoint show --resource-group my-deid --profile-name myfrontdoorprofile --endpoint-name myendpoint --query "hostName"
+```
+
+In a browser, go to the endpoint hostname that the previous command returned: `<endpoint>.azurefd.net/health`. Your request should automatically get routed to the primary de-identification service in East US.
+
+To test instant global failover:
+
+1. Open a browser and go to the endpoint hostname: `<endpoint>.azurefd.net/health`.
+1. Follow the steps at [Configure private access](/azure/healthcare-apis/deidentification/configure-private-endpoints#configure-private-access) to disable public network access for the de-identification service in East US.
+1. Refresh your browser. You should see the same information page because traffic is now directed to the de-identification service in West US.
+
+    > [!TIP]
+    > You might need to refresh the page a few times for the failover to complete.
+
+1. Now disable public network access for the de-identification service in West US.
+1. Refresh your browser. This time, you should see an error message.
+1. Re-enable public network access for one of the de-identification services. Refresh your browser and you should see the health status again.
+
+You've now validated that you can access your apps through Azure Front Door and that failover functions as intended. Enable public network access on the other service if you're done with failover testing.
+
+#### Clean up resources
+
+In the preceding steps, you created Azure resources in a resource group. If you don't expect to need these resources in the future, delete the resource group by running the following command:
+
+```azurecli-interactive
+az group delete --name my-deid
+```
+
+This command might take a few minutes to complete.
 
 #### Initiate recovery
-<!-- 4G2. Initiate recovery -------------------------------- -->
-
-<!-- In the case of disaster, explain how the customer can initiate recovery or how customer can check service health. -->
-
-
-#### Post-disaster recovery configuration
-<!-- 4G3. Post-disaster recovery configuration -------------------------------- -->
-
-<!-- After disaster recovery has been completed, document any post recovery configurations that may be required.  -->
-
-## Additional guidance
-
-TODO: Add your additional guidance
-
-<!-- 5. Additional guidance ------------------------------------------------------------
-Provide any additional guidance here.
--->
+In the case of disaster, you can check the health status of your de-identification service (preview) by sending requests to `<service-url>/health`.
 
 ## Related content
-
-<!-- 6.Related content ---------------------------------------------------------------------
-Required: Include any related content that points to a relevant task to accomplish,
-or to a related topic. Use the blue box format for links.
--->
-
 
 - [Reliability in Azure](/azure/availability-zones/overview.md)
