@@ -72,7 +72,7 @@ To get your quota request approved, you must first register the VCF portable lic
 
 Sample Email to register portable VCF entitlements: 
 :::image type="content" source="media/vmware-cloud-foundations-license-portability/email-register-vcf.png" alt-text="Sample Email to register portable VCF." border="true":::
-:::image type="content" source="media/vmware-cloud-foundations-license-portability/email-register-vcf-vdefend.png" alt-text="Sample Email to register portable VCF." border="true":::
+:::image type="content" source="media/vmware-cloud-foundations-license-portability/email-register-vcf-vdefend.png" alt-text="Sample Email to register portable VCF with VMware vDefend Firewall." border="true":::
 
 ** The VMware vDefend Firewall add-on CPU cores required on Azure VMware Solution depend on the planned feature usage: 
 - For NSX Distributed Firewall: same core count as VCF core count. 
