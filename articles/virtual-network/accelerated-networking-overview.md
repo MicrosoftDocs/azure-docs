@@ -103,7 +103,7 @@ You can directly query the list of VM SKUs that support Accelerated Networking b
 If you use a custom image that supports Accelerated Networking, make sure you meet the following requirements.
 
 #### Device and driver support
-Any custom image supporting Accelerated Networking must include drivers that enable Single Root I/O Virtualization for the network interface cards (NIC) which are used on Azure platforms. This hardware list includes NVIDIA ConnectX-3, ConnectX-4 Lx, ConnectX-5 and the [Microsoft Azure Network Adapter (MANA)](https://learn.microsoft.com/en-us/azure/virtual-network/accelerated-networking-mana-overview). Download and install the latest versions of these drivers into your custom image.
+Any custom image supporting Accelerated Networking must include drivers that enable Single Root I/O Virtualization for the network interface cards (NIC) which are used on Azure platforms. This hardware list includes NVIDIA ConnectX-3, ConnectX-4 Lx, ConnectX-5 and the [Microsoft Azure Network Adapter (MANA)](https://learn.microsoft.com/en-us/azure/virtual-network/accelerated-networking-mana-overview).
 
 #### Dynamic binding and revocation of virtual function
 Accelerated Networking requires guest OS images to properly handle the virtual function being removed or added dynamically. Scenarios such as host maintenance or live migration will result in dynamic revocation of the virtual function and restoration after the maintenance event. Additionally, applications must ensure that they bind to the synthetic device and not the virtual function in order to maintain network connectivity during these events. 
