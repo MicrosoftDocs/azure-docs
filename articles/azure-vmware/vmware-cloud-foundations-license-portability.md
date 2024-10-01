@@ -49,6 +49,7 @@ To request quota for VCF license portability offering, provide the following add
 >
 >VCF portable license is applied at the host level and must cover all the physical cores on a host.
 >Hence, quota will be approved only for the maximum number of nodes which the VCF portable license covers. For example, if you have purchased 1000 cores for portability and requesting for AV36P, you can get a maximum of 27 nodes quota approved for your subscription.
+>
 >That is, 36 physical CPU cores per AV36P node. 27 nodes = 27\*36 = 972 cores. 28 nodes = 28\*36 = 1008 cores. If you have purchased 1000 cores for portability, you can only use up to 27 AV36P nodes under your portable VCF.
 
 ## Register your VCF license with Azure VMware Solution
