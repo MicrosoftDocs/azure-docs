@@ -34,6 +34,7 @@ Here are some of the benefits of using .NET feature management library:
   * Configuration values can change in real-time; feature flags can be consistent across the entire request
 * Simple to Complex Scenarios Covered
   * Toggle on/off features through declarative configuration file
+  * Service different variations of a feature to different users
   * Dynamically evaluate state of feature based on call to server
 * API extensions for ASP.NET Core and MVC framework
   * Routing
@@ -43,7 +44,7 @@ Here are some of the benefits of using .NET feature management library:
   The .NET feature management library is open source. For more information, visit the [GitHub repo](https://github.com/microsoft/FeatureManagement-Dotnet).
 
 ## Feature Flags
-Feature flags are composed of two parts, a name and a list of feature-filters that are used to turn on the feature.
+A feature flag with filters is composed of two parts, a name and a list of feature-filters that are used to turn on the feature.
 
 ### Feature Filters
 Feature filters define a scenario for when a feature should be enabled. When a feature is evaluated for whether it is on or off, its list of feature filters is traversed until one of the filters decides the feature should be enabled. At this point, the feature is considered enabled and traversal through the feature filters stops. If no feature filter indicates that the feature should be enabled, it's considered disabled.
@@ -209,6 +210,7 @@ The `AddFeatureManagement` method adds feature management services as singletons
 ``` C#
 services.AddScopedFeatureManagement();
 ```
+
 ## ASP.NET Core Integration
 
 The feature management library provides functionality in ASP.NET Core and MVC to enable common feature flag scenarios in web applications. These capabilities are available by referencing the [Microsoft.FeatureManagement.AspNetCore](https://www.nuget.org/packages/Microsoft.FeatureManagement.AspNetCore/) NuGet package.
@@ -463,7 +465,7 @@ The `IHttpContextAccessor` must be added to the dependency injection container o
 public void ConfigureServices(IServiceCollection services)
 {
     …
-    services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+    services.AddHttpContextAccessor();
     …
 }
 ```

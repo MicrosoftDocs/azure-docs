@@ -130,15 +130,37 @@ In this section, you will create a web application that allows users to sign in 
 
 1. Open *_Layout.cshtml* in the *Pages/Shared* directory. Insert a new `<feature>` tag in between the *Home* and *Privacy* navbar items, as shown in the highlighted lines below.
 
-    :::code language="html" source="../../includes/azure-app-configuration-navbar.md" range="15-38" highlight="13-17":::
+    :::code language="html" source="../../includes/azure-app-configuration-navbar.md" range="14-38" highlight="13-17":::
 
 ## Enable targeting for the web application
 
-The targeting filter evaluates a user's feature state based on the user's targeting context, which comprises the user ID and the groups the user belongs to. In this example, you use the signed-in user's email address as the user ID and the domain name of the email address as the group.
+The targeting filter evaluates a user's feature state based on the user's targeting context, which comprises the user ID and the groups the user belongs to. In this example, you can use the signed-in user's email address as the user ID and the domain name of the email address as the group.
 
-1. Add an *ExampleTargetingContextAccessor.cs* file with the following code. You implement the `ITargetingContextAccessor` interface to provide the targeting context for the signed-in user of the current request.
+There's two options for adding Targeting to your application:
 
-    ```csharp
+### Default Targeting Accessor
+
+Simply call `.WithTargeting()`, which will add a default implementation of `ITargetingContextAccessor`. The default uses `HttpContext.User.Identity.Name` as `UserId` and uses `HttpContext.User.Claims` of type `Role` for `Groups`. You can see how the accessor works by looking at the [DefaultHttpTargetingContextAccessor](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/src/Microsoft.FeatureManagement.AspNetCore/DefaultHttpTargetingContextAccessor.cs).
+
+    ``` C#
+    // Existing code in Program.cs
+    // ... ...
+
+    // Add feature management to the container of services
+    builder.Services.AddFeatureManagement()
+                    .WithTargeting();
+
+    // The rest of existing code in Program.cs
+    // ... ...
+    ```
+
+### Custom Targeting Accessor
+
+You can instead define your `ITargetingContextAccessor`, where you control how `UserId` and `Groups` are constructed. To do this:
+
+1. Add an *ExampleTargetingContextAccessor.cs* file with the following code. This implements the `ITargetingContextAccessor` interface to provide the targeting context for the signed-in user of the current request.
+
+    ``` C#
     using Microsoft.FeatureManagement.FeatureFilters;
 
     namespace TestFeatureFlags
@@ -177,7 +199,7 @@ The targeting filter evaluates a user's feature state based on the user's target
     }
     ```
 
-1. Open the *Program.cs* file and enable the targeting filter by calling the `WithTargeting()` method. This will add the [DefaultHttpTargetingContextAccessor](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/src/Microsoft.FeatureManagement.AspNetCore/DefaultHttpTargetingContextAccessor.cs) that the targeting filter will use to get the targeting context during feature flag evaluation. To customize how TargetingContext is accessed, you can use `.WithTargeting<T>()` where `T` is a custom implementation of `ITargetingContextAccessor` like in the [VariantServiceDemo example](https://github.com/microsoft/FeatureManagement-Dotnet/blob/main/examples/VariantServiceDemo/HttpContextTargetingContextAccessor.cs).
+1. Open the *Program.cs* file and enable the targeting filter by calling the `.WithTargeting<T>()` method, where `T` is your custom implementation of `ITargetingContextAccessor`. In this example, it is `.WithTargeting<ExampleTargetingContextAccessor>()`.
 
     ```csharp
     // Existing code in Program.cs
@@ -185,7 +207,7 @@ The targeting filter evaluates a user's feature state based on the user's target
 
     // Add feature management to the container of services
     builder.Services.AddFeatureManagement()
-                    .WithTargeting();
+                    .WithTargeting<ExampleTargetingContextAccessor>();
 
     // Add HttpContextAccessor to the container of services.
     builder.Services.AddHttpContextAccessor();
@@ -215,9 +237,10 @@ The targeting filter evaluates a user's feature state based on the user's target
 
     Now sign in as `testuser@contoso.com`, using the password you set when registering the account. The **Beta** item doesn't appear on the toolbar, because `testuser@contoso.com` is specified as an excluded user.
 
-    You can create more users with `@contoso.com` and `@contoso-xyz.com` email addresses to see the behavior of the group settings.
-
-    Users with `contoso-xyz.com` email addresses won't see the **Beta** item. While 50% of users with `@contoso.com` email addresses will see the **Beta** item, the other 50% won't see the **Beta** item.
+    If you used the `ExampleTargetingContextAccessor`
+    
+    * You can create more users with `@contoso.com` and `@contoso-xyz.com` email addresses to see the behavior of the group settings.
+    * Users with `contoso-xyz.com` email addresses won't see the **Beta** item. While 50% of users with `@contoso.com` email addresses will see the **Beta** item, the other 50% won't see the **Beta** item.
 
 ## Next steps
 
