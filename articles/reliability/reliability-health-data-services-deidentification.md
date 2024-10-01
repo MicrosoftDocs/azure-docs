@@ -108,7 +108,7 @@ az afd endpoint create --resource-group my-deid --endpoint-name myendpoint --pro
 Run [`az afd origin-group create`](/cli/azure/afd/origin-group#az-afd-origin-group-create) to create an origin group that contains your two web apps.
 
 ```azurecli-interactive
-az afd origin-group create --resource-group my-deid --origin-group-name myorigingroup --profile-name myfrontdoorprofile --probe-request-type GET --probe-protocol Http --probe-interval-in-seconds 60 --probe-path /health --sample-size 4 --successful-samples-required 3 --additional-latency-in-milliseconds 50
+az afd origin-group create --resource-group my-deid --origin-group-name myorigingroup --profile-name myfrontdoorprofile --probe-request-type GET --probe-protocol Https --probe-interval-in-seconds 60 --probe-path /health --sample-size 4 --successful-samples-required 3 --additional-latency-in-milliseconds 50
 ```
 
 |Parameter  |Value  |Description  |
