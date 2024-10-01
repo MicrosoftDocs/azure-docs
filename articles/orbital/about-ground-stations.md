@@ -5,6 +5,7 @@ ms.service: orbital
 ms.topic: how-to
 ms.custom: ga
 ms.date: 10/20/2023
+author: hrshelar
 ms.author: mosagie
 #Customer intent: As a satellite operator or user, I want to learn about Microsoft and partner ground stations.
 ---

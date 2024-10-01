@@ -10,7 +10,6 @@ ms.author: eliotgra
 ms.service: azure-government
 ms.topic: article
 ms.date: 05/30/2023
-ms.author: todorb
 ---
 
 # FedRAMP compliance program overview
