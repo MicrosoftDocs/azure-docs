@@ -13,11 +13,11 @@ ms.date: 09/23/2024
 
 Schema registry, a feature provided by Azure Device Registry Preview, is a synchronized repository in the cloud and at the edge. The schema registry stores the definitions of messages coming from edge assets, and then exposes an API to access those schemas at the edge. 
 
-The connector for OPC UA can create message schemas and add them to the schema registry or customers can upload schemas to the operations experience web UI.
+The connector for OPC UA can create message schemas and add them to the schema registry or customers can upload schemas to the operations experience web UI or using ARM/Bicep templates.
 
 Edge services use message schemas to filter and transform messages as they're routed across your industrial edge scenario.
 
-*Schemas* are documents that describe data to enable processing and contextualization. *Message schemas* describe the format of a message and its contents.
+*Schemas* are documents that describe the format of a message and its contents to enable processing and contextualization.
 
 ## Message schema definitions
 
@@ -87,11 +87,11 @@ Message schemas are used in all three phases of a dataflow: defining the source 
 
 ### Input schema
 
-Each dataflow source requires a message schema.
+Each dataflow source can optionally specify a message schema. If a schema is defined for a dataflow source, any incoming messages that don't match the schema are dropped. 
 
 Asset sources have a predefined message schema that was created by the connector for OPC UA.
 
-MQTT sources require an uploaded message schema. Currently, Azure IoT Operations supports JSON for input schemas. In the operations experience, you can select an existing schema or upload one while defining an MQTT source:
+Schemas can be uploaded for MQTT sources. Currently, Azure IoT Operations supports JSON for source schemas, also known as input schemas. In the operations experience, you can select an existing schema or upload one while defining an MQTT source:
 
 :::image type="content" source="./media/concept-schema-registry/upload-schema.png" alt-text="Screenshot that shows uploading a message schema in the operations experience portal.":::
 
@@ -101,6 +101,8 @@ The operations experience uses the input schema as a starting point for your dat
 
 ### Output schema
 
-Schemas are only used for dataflows that select local storage, Fabric, Azure Data Lake, or Azure Data Explorer as the destination endpoint. Currently, Azure IoT Operations supports Delta Parquey for outpus schema.
+Output schemas are associated with dataflow destinations are only used for dataflows that select local storage, Fabric, Azure Storage (ADLS Gen2), or Azure Data Explorer as the destination endpoint. Currently, Azure IoT Operations experience only supports Parquet output for output schemas.
+
+Note: The Delta schema format is used for both Parquet and Delta output.
 
 For these dataflows, the operations experience applies any transformations to the input schema then creates a new schema in Delta format. When the dataflow custom resource (CR) is created, it includes a `schemaRef` value that points to the generated schema stored in the schema registry.
