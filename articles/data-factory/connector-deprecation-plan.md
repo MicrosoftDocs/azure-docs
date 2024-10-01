@@ -7,7 +7,7 @@ ms.service: azure-data-factory
 ms.subservice: data-movement
 ms.topic: concept-article
 ms.custom: references_regions
-ms.date: 09/27/2024
+ms.date: 09/30/2024
 ---
 
 # Planned connector deprecations for Azure Data Factory
@@ -27,6 +27,7 @@ This article describes future deprecations for some connectors of Azure Data Fac
 | [Salesforce (legacy)](connector-salesforce-legacy.md)   | [Link](connector-salesforce.md#upgrade-the-salesforce-linked-service) | End of support announced and new version available | October 11, 2024 | January 10, 2025| 
 | [Salesforce Service Cloud (legacy)](connector-salesforce-service-cloud-legacy.md)   | [Link](connector-salesforce-service-cloud.md#upgrade-the-salesforce-service-cloud-linked-service) | End of support announced and new version available | October 11, 2024 |January 10, 2025 | 
 | [PostgreSQL (legacy)](connector-postgresql-legacy.md)   | [Link](connector-postgresql.md#upgrade-the-postgresql-linked-service)| End of support announced and new version available |October 31, 2024 | January 10, 2025  | 
+| [ServiceNow (legacy)](connector-servicenow-legacy.md)   | [Link](connector-servicenow.md#upgrade-your-servicenow-linked-service) | End of support announced and new version available | December 31, 2024 | March 1, 2025  | 
 | [Snowflake (legacy)](connector-snowflake-legacy.md)   | [Link](connector-snowflake.md#upgrade-the-snowflake-linked-service) | End of support announced and new version available | October 31, 2024 | January 10, 2025  | 
 | [Azure Database for MariaDB](connector-azure-database-for-mariadb.md) |/ | End of support announced |December 31, 2024 | December 31, 2024 | 
 | [Concur (Preview)](connector-concur.md) |/ | End of support announced | December 31, 2024 | December 31, 2024 | 
@@ -98,6 +99,18 @@ The following connector was deprecated.
 
 If legacy connectors are deprecated with no updated connectors available, you can still use the
 [ODBC Connector](connector-odbc.md) which enables you to continue using these data sources with their native ODBC drivers, or other alternatives. This can enable you to continue using them indefinitely into the future.
+
+## How to find your impacted objects in your data factory
+
+Here's the steps to get your objects which still rely on the deprecated connectors or connectors that have a precise end of support date. It is recommended to take action to upgrade those object to the new connector version before the end of the support date.
+
+1. Open your Azure Data Factory.
+2. Go to Manage – Linked services page.
+3. You should see the Linked Service that is still on legacy version with alert behind it.
+4. Click on the number under the 'Related' column will show you the related objects that utilize this particular Linked service.
+5. To learn more about the upgrade guidance and the comparison between the legacy and the new version, you can navigate to the connector upgrade section within each connector page. 
+
+:::image type="content" source="media/connector-deprecation-plan/linked-services-page.png" alt-text="Screenshot of the linked services page." lightbox="media/connector-deprecation-plan/linked-services-page.png":::
 
 ## Related content
 

@@ -41,13 +41,6 @@ ms.custom: include file, ignite-2023, devx-track-azurecli
    az extension add --upgrade --source connectedk8s-1.10.0-py2.py3-none-any.whl
    ```
 
-1. Export environment variables that the `az connectedk8s connect` command requires.
-
-   ```bash
-   export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
-   export HELMREGISTRY=azurearcfork8s.azurecr.io/public/azurearck8s/canary/stable/azure-arc-k8sagents:1.20.1
-   ```
-
 1. Use the [az connectedk8s connect](/cli/azure/connectedk8s#az-connectedk8s-connect) command to Arc-enable your Kubernetes cluster and manage it as part of your Azure resource group:
 
    ```azurecli
@@ -71,7 +64,9 @@ ms.custom: include file, ignite-2023, devx-track-azurecli
 1. Add the following content to the `config.yaml` file, replacing the `<SERVICE_ACCOUNT_ISSUER>` placeholder with your cluster's issuer URL.
 
    ```yml
-   kube-apiserver-arg: 'service-account-issuer=<SERVICE_ACCOUNT_ISSUER>'
+   kube-apiserver-arg:
+    - service-account-issuer=<SERVICE_ACCOUNT_ISSUER>
+    - service-account-max-token-expiration=24h
    ```
 
 1. Save the file and exit the nano editor.

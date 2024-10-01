@@ -57,6 +57,8 @@ This article shows you how to create two .NET (C#) console apps:
 
 In this section, you create a .NET console app that responds to a direct method called by the solution back end.
 
+[!INCLUDE [iot-authentication-device-connection-string.md](../../includes/iot-authentication-device-connection-string.md)]
+
 1. In Visual Studio, select **Create a new project**, and then choose the **Console App (.NET Framework)** project template. Select **Next** to continue.
 
 1. In **Configure your new project**, name the project *SimulateDeviceMethods* then select **Next**.
@@ -152,6 +154,8 @@ In this section, you create a .NET console app that responds to a direct method 
 [!INCLUDE [iot-hub-howto-schedule-jobs-shared-access-policy-text](../../includes/iot-hub-howto-schedule-jobs-shared-access-policy-text.md)]
 
 [!INCLUDE [iot-hub-include-find-registryrw-connection-string](../../includes/iot-hub-include-find-registryrw-connection-string.md)]
+
+[!INCLUDE [iot-authentication-service-connection-string.md](../../includes/iot-authentication-service-connection-string.md)]
 
 ## Schedule jobs for calling a direct method and sending device twin updates
 

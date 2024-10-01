@@ -335,8 +335,10 @@ The following example creates a subscription named *Dev Team subscription* for t
 
 ### [REST](#tab/rest)
 
+Replace the placeholder value `sampleAlias` as needed. For more information on these REST calls, see [Create](/rest/api/subscription/alias/create) and [Get](/rest/api/subscription/alias/get).
+
 ```json
-PUT  https://management.azure.com/providers/Microsoft.Subscription/aliases/sampleAlias?api-version=2021-10-01
+PUT https://management.azure.com/providers/Microsoft.Subscription/aliases/{{guid}}?api-version=2021-10-01api-version=2021-10-01
 ```
 
 ### Request body
@@ -371,7 +373,7 @@ You can do a GET on the same URL to get the status of the request.
 ### Request
 
 ```json
-GET https://management.azure.com/providers/Microsoft.Subscription/aliases/sampleAlias?api-version=2021-10-01
+GET https://management.azure.com/providers/Microsoft.Subscription/aliases/{{guid}}?api-version=2021-10-01
 ```
 
 ### Response
@@ -614,4 +616,4 @@ resource subToMG 'Microsoft.Management/managementGroups/subscriptions@2020-05-01
 * Now that you've created a subscription, you can grant that ability to other users and service principals. For more information, see [Grant access to create Azure Enterprise subscriptions (preview)](grant-access-to-create-subscription.md).
 * For more information about managing large numbers of subscriptions using management groups, see [Organize your resources with Azure management groups](../../governance/management-groups/overview.md).
 * To change the management group for a subscription, see [Move subscriptions](../../governance/management-groups/manage.md#move-management-groups-and-subscriptions).
-* For advanced subscription creation scenarios using REST API, see [Alias - Create](/rest/api/subscription/2021-10-01/alias/create).
+* For advanced subscription creation scenarios using REST API, see [Alias - Create](/rest/api/subscription/alias/).

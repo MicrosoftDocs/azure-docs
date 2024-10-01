@@ -2,13 +2,13 @@
 title: Introduction to Azure security | Microsoft Docs
 description: Introduce yourself to Azure Security, its various services, and how it works by reading this overview.
 services: security
-author: TerryLanfear
+author: msmbaldwin
 manager: rkarlin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 10/22/2023
-ms.author: terrylan
+ms.date: 09/22/2024
+ms.author: mbaldwin
 
 ---
 

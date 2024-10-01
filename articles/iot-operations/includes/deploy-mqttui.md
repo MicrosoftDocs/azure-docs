@@ -9,12 +9,6 @@ ms.author: dobett
 
 Verify data is flowing to the MQTT broker by using the **mosquitto_sub** tool. In this example, you run the **mosquitto_sub** tool inside your Kubernetes cluster:
 
-1. Run the following command to create a service account:
-
-    ```console
-    kubectl create serviceaccount mqtt-client -n azure-iot-operations
-    ```
-
 1. Run the following command to deploy a pod that includes the **mosquitto_pub** and **mosquitto_sub** tools that are useful for interacting with the MQTT broker in the cluster:
 
     <!-- TODO: Change branch to main before merging the release branch -->

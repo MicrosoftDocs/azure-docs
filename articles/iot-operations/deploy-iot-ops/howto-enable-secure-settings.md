@@ -41,6 +41,8 @@ If you aren't sure whether your K3s cluster already has workload identity enable
 ```azurecli
 az connectedk8s show --name <CLUSTER_NAME> --resource-group <RESOURCE_GROUP> --query "{oidcIssuerEnabled:oidcIssuerProfile.enabled, workloadIdentityEnabled: securityProfile.workloadIdentity.enabled}"
 ```
+> [!NOTE]
+>You can skip this section if workload identity is already set up.
 
 Use the following steps to enable workload identity on an existing connected K3s cluster:
 
@@ -62,13 +64,6 @@ Use the following steps to enable workload identity on an existing connected K3s
    ```azurecli
    #!/bin/bash
    az extension add --upgrade --source <PATH_TO_WHL_FILE>
-   ```
-
-1. Export environment variables that the `az connectedk8s upgrade` command requires.
-
-   ```bash
-   export KUBECONFIG=/etc/rancher/k3s/k3s.yaml
-   export HELMREGISTRY=azurearcfork8s.azurecr.io/public/azurearck8s/canary/stable/azure-arc-k8sagents:1.20.1
    ```
  
 1. Use the [az connectedk8s upgrade](/cli/azure/connectedk8s#az-connectedk8s-upgrade) command to upgrade the Arc agent version to the private build that supports the workload identity feature.
@@ -125,7 +120,9 @@ Use the following steps to enable workload identity on an existing connected K3s
 1. Add the following content to the config.yaml file:
 
    ```yml
-   kube-apiserver-arg: 'service-account-issuer=<SERVICE_ACCOUNT_ISSUER>' 
+   kube-apiserver-arg:
+    - service-account-issuer=<SERVICE_ACCOUNT_ISSUER>
+    - service-account-max-token-expiration=24h 
    ```
 
 1. Save and exit the file editor.

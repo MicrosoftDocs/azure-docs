@@ -20,20 +20,6 @@ This article shows you the most common deployment and runtime configuration for 
 
 ## Show Java version
 
-# [Windows](#tab/windows)
-
-To show the current Java version, run the following command in the [Cloud Shell](https://shell.azure.com):
-
-```azurecli-interactive
-az webapp config show --name <app-name> --resource-group <resource-group-name> --query "[javaVersion, javaContainer, javaContainerVersion]"
-```
-
-To show all supported Java versions, run the following command in the [Cloud Shell](https://shell.azure.com):
-
-```azurecli-interactive
-az webapp list-runtimes --os windows | grep java
-```
-
 # [Linux](#tab/linux)
 
 To show the current Java version, run the following command in the [Cloud Shell](https://shell.azure.com):
@@ -46,6 +32,20 @@ To show all supported Java versions, run the following command in the [Cloud She
 
 ```azurecli-interactive
 az webapp list-runtimes --os linux | grep "JAVA\|TOMCAT\|JBOSSEAP"
+```
+
+# [Windows](#tab/windows)
+
+To show the current Java version, run the following command in the [Cloud Shell](https://shell.azure.com):
+
+```azurecli-interactive
+az webapp config show --name <app-name> --resource-group <resource-group-name> --query "[javaVersion, javaContainer, javaContainerVersion]"
+```
+
+To show all supported Java versions, run the following command in the [Cloud Shell](https://shell.azure.com):
+
+```azurecli-interactive
+az webapp list-runtimes --os windows | grep java
 ```
 
 ---
@@ -200,13 +200,13 @@ Performance reports, traffic visualizations, and health checkups are available f
 
 ### Stream diagnostic logs
 
-# [Windows](#tab/windows)
-
-[!INCLUDE [Access diagnostic logs](../../includes/app-service-web-logs-access-no-h.md)]
-
 # [Linux](#tab/linux)
 
 [!INCLUDE [Access diagnostic logs](../../includes/app-service-web-logs-access-linux-no-h.md)]
+
+# [Windows](#tab/windows)
+
+[!INCLUDE [Access diagnostic logs](../../includes/app-service-web-logs-access-no-h.md)]
 
 ---
 
@@ -229,18 +229,6 @@ To learn more about the Java Profiler, visit the [Azure Application Insights doc
 ### Flight Recorder
 
 All Java runtimes on App Service come with the Java Flight Recorder. You can use it to record JVM, system, and application events and troubleshoot problems in your Java applications.
-
-# [Windows](#tab/windows)
-
-#### Timed Recording
-
-To take a timed recording, you need the PID (Process ID) of the Java application. To find the PID, open a browser to your web app's SCM site at `https://<your-site-name>.scm.azurewebsites.net/ProcessExplorer/`. This page shows the running processes in your web app. Find the process named "java" in the table and copy the corresponding PID (Process ID).
-
-Next, open the **Debug Console** in the top toolbar of the SCM site and run the following command. Replace `<pid>` with the process ID you copied earlier. This command starts a 30-second profiler recording of your Java application and generates a file named `timed_recording_example.jfr` in the `C:\home` directory.
-
-```
-jcmd <pid> JFR.start name=TimedRecording settings=profile duration=30s filename="C:\home\timed_recording_example.JFR"
-```
 
 # [Linux](#tab/linux)
 
@@ -275,6 +263,18 @@ Once the recording starts, you can dump the current recording data at any time u
 jcmd <pid> JFR.dump name=continuous_recording filename="/home/recording1.jfr"
 ```
 
+# [Windows](#tab/windows)
+
+#### Timed Recording
+
+To take a timed recording, you need the PID (Process ID) of the Java application. To find the PID, open a browser to your web app's SCM site at `https://<your-site-name>.scm.azurewebsites.net/ProcessExplorer/`. This page shows the running processes in your web app. Find the process named "java" in the table and copy the corresponding PID (Process ID).
+
+Next, open the **Debug Console** in the top toolbar of the SCM site and run the following command. Replace `<pid>` with the process ID you copied earlier. This command starts a 30-second profiler recording of your Java application and generates a file named `timed_recording_example.jfr` in the `C:\home` directory.
+
+```
+jcmd <pid> JFR.start name=TimedRecording settings=profile duration=30s filename="C:\home\timed_recording_example.JFR"
+```
+
 ---
 
 #### Analyze `.jfr` files
@@ -282,16 +282,6 @@ jcmd <pid> JFR.dump name=continuous_recording filename="/home/recording1.jfr"
 Use [FTPS](deploy-ftp.md) to download your JFR file to your local machine. To analyze the JFR file, download and install [Java Mission Control](https://www.oracle.com/java/technologies/javase/products-jmc8-downloads.html). For instructions on Java Mission Control, see the [JMC documentation](https://docs.oracle.com/en/java/java-components/jdk-mission-control/) and the [installation instructions](https://www.oracle.com/java/technologies/javase/jmc8-install.html).
 
 ### App logging
-
-# [Windows](#tab/windows)
-
-Enable [application logging](troubleshoot-diagnostic-logs.md#enable-application-logging-windows) through the Azure portal or [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config) to configure App Service to write your application's standard console output and standard console error streams to the local filesystem or Azure Blob Storage. Logging to the local App Service filesystem instance is disabled 12 hours after you enable it. If you need longer retention, configure the application to write output to a Blob storage container. 
-
-::: zone pivot="java-javase,java-tomcat"
-
-Your Java and Tomcat app logs can be found in the */home/LogFiles/Application/* directory.
-
-::: zone-end
 
 # [Linux](#tab/linux)
 
@@ -304,6 +294,16 @@ Your Java and Tomcat app logs can be found in the */home/LogFiles/Application/* 
 ::: zone-end
 
 Azure Blob Storage logging for Linux based apps can only be configured using [Azure Monitor](./troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor).
+
+# [Windows](#tab/windows)
+
+Enable [application logging](troubleshoot-diagnostic-logs.md#enable-application-logging-windows) through the Azure portal or [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config) to configure App Service to write your application's standard console output and standard console error streams to the local filesystem or Azure Blob Storage. Logging to the local App Service filesystem instance is disabled 12 hours after you enable it. If you need longer retention, configure the application to write output to a Blob storage container. 
+
+::: zone pivot="java-javase,java-tomcat"
+
+Your Java and Tomcat app logs can be found in the */home/LogFiles/Application/* directory.
+
+::: zone-end
 
 ---
 

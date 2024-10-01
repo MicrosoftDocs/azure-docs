@@ -28,8 +28,6 @@ As part of Azure IoT Operations, the connector for OPC UA is a native Kubernetes
 - Publishes JSON-encoded telemetry data from OPC UA servers in OPC UA PubSub format, using a JSON payload. By using this standard format for data exchange, you can reduce the risk of future compatibility issues.
 - Connects to Azure Arc-enabled services in the cloud.
 
-The connector for OPC UA includes an OPC UA simulation server that you can use to test your applications. To learn more, see [Configure an OPC PLC simulator to work with the connector for OPC UA](howto-configure-opc-plc-simulator.md).
-
 ### Other features
 
 The connector for OPC UA supports the following features as part of Azure IoT Operations:
