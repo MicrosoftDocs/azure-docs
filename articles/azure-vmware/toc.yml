@@ -297,8 +297,6 @@ items:
       href: remove-arc-enabled-azure-vmware-solution-vsphere-resources-from-azure.md
   - name: Application performance monitoring solutions for Azure VMware Solution
     href: ecosystem-app-monitoring-solutions.md
-  - name: VMware ARIA in Azure VMware Solution
-    href: vmware-aria-in-azure-vmware-solution.md
   - name: Configure VMware Aria Operations
     href: vrealize-operations-for-azure-vmware-solution.md
 - name: Infrastructure automation and management
