@@ -1,10 +1,10 @@
 ---
 title: Azure Government authorized reseller list
-description: Comprehensive list of Azure Government cloud solution providers, resellers, and distributors.
+description: Comprehensive list of all the authorized Azure Government cloud solution providers, resellers, and distributors.
 ms.service: azure-government
 ms.topic: article
 author: todorgb
-ms.author: todorb
+ms.author: eliotgra
 ms.date: 10/31/2023
 ---
 

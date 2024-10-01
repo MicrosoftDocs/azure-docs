@@ -1,12 +1,12 @@
 ---
 title: Configure the RF chain - Azure Orbital
-description: Learn more about how to configure modems.
+description: Learn more about how to configure modems, either managed modems or virtual RF functionality using the Azure Orbital Ground Station service.
 author: hrshelar
 ms.service: orbital
 ms.topic: how-to
 ms.custom: ga
 ms.date: 08/30/2022
-ms.author: hrshelar
+ms.author: mosagie
 #Customer intent: As a satellite operator or user, I want to understand how to use software modems to establish RF connections with my satellite.
 ---
 
