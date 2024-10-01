@@ -96,10 +96,11 @@ The following parameters are used by the App Configuration snapshot task:
 
 - **Tags**: A JSON object in the format of `{"tag1":"val1", "tag2":"val2"}`, which defines tags that are added to each snapshot created in your App Configuration store.
 
-## Next steps
-
-To learn how to pull configuration settings, checkout [pull settings from App Configuration with Azure pipelines](./pull-key-value-devops-pipeline.md)
-
 ## Troubleshooting
 
 If an unexpected error occurs, debug logs can be enabled by setting the pipeline variable `system.debug` to `true`.
+
+## Next step
+
+> [!div class="nextstepaction"]
+> [Pull settings from App Configuration with Azure pipelines](./pull-key-value-devops-pipeline.md)
