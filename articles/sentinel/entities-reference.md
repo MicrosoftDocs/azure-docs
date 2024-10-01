@@ -153,7 +153,7 @@ The following section contains a more in-depth look at the full schemas of each 
 | **NetBiosName** | String | The host name (pre-Windows 2000). |
 | **IoTDevice** | Entity ([IoT Device](#iot-device)) | The IoT Device entity (if this host represents an IoT Device). |
 | **AzureID** | String | The Azure resource ID of the VM, if known. |
-| **OMSAgentID** | String | The agent ID, if the host has an agent installed. |
+| **OMSAgentID** | String | The OMS agent ID, if the host has OMS agent installed. |
 | **OSFamily** | Enum? | One of the following values: <li>Linux<li>Windows<li>Android<li>IOS<li>Mac |
 | **OSVersion** | String | A free-text representation of the operating system.<br>This field is meant to hold specific versions the are more fine-grained than OSFamily, or future values not supported by OSFamily enumeration. |
 | **IsDomainJoined** | Bool | Indicates whether this host belongs to a domain. |
