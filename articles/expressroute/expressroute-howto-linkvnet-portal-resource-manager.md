@@ -58,7 +58,7 @@ This article helps you create a connection to link a virtual network (virtual ne
 
 4. Select the **Connection type** as **ExpressRoute** and then select **Next: Settings >**.
 
-    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/create-connection-basic-new.png" alt-text="Screenshot of create a connection basic page.":::
+    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/create-connection-basic.png" alt-text="Screenshot of create a connection basic page.":::
 
 5. Select the resiliency type for your connection. You can choose **Maximum resiliency** or **Standard resiliency**.
 
