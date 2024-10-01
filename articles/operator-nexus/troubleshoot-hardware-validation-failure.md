@@ -575,7 +575,7 @@ Expanding `result_detail` for a given category shows detailed results.
 
 * PXE Device Checks Considerations
     * This check validates the PXE device settings.
-    * Starting with release 3.13 HWV attempts to auto fix the BIOS boot configuration.
+    * Starting with the 2024-07-01 GA API version, HWV attempts to auto fix the BIOS boot configuration.
     * Failed `pxe_device_1_name` or `pxe_device_1_state` checks indicate a problem with the PXE configuration.
     * Failed settings need to be fixed to enable system boot during deployment.
 
