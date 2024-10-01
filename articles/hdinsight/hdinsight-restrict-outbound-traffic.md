@@ -3,7 +3,7 @@ title: Configure outbound network traffic restriction - Azure HDInsight
 description: Learn how to configure outbound network traffic restriction for Azure HDInsight clusters.
 ms.service: azure-hdinsight
 ms.topic: how-to
-ms.date: 05/23/2024
+ms.date: 10/01/2024
 ---
 
 # Configure outbound network traffic for Azure HDInsight clusters using Firewall
@@ -72,6 +72,8 @@ Create an application rule collection that allows the cluster to send and receiv
     | Rule_3 | * | https:443 | login.microsoftonline.com | Allows Windows login activity |
     | Rule_4 | * | https:443 | storage_account_name.blob.core.windows.net | Replace `storage_account_name` with your actual storage account name. Make sure ["secure transfer required"](../storage/common/storage-require-secure-transfer.md) is enabled on the storage account. If you are using Private endpoint to access storage accounts, this step is not needed and storage traffic is not forwarded to the firewall.|
     | Rule_5 | * | http:80 | azure.archive.ubuntu.com | Allows Ubuntu security updates to be installed on the cluster |
+    | Rule_6 | * | https:433 | pypi.org, pypi.python.org, files.pythonhosted.org | Allows Python package installations for Azure monitoring |
+   
 
    :::image type="content" source="./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png" alt-text="Title: Enter application rule collection details.":::
 
