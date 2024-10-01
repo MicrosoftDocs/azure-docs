@@ -7,7 +7,8 @@
     },
     {
       "source_path": "articles/update-manager/troubleshooter-known-issues.md",
-      "redirect_url": "/articles/update-manager/troubleshoot",
+      "redirect_url": "/azure/update-manager/troubleshoot",
+
       "redirect_document_id": false
     },
     {   
