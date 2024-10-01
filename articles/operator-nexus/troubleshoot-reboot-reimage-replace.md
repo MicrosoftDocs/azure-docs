@@ -64,6 +64,9 @@ Servers contain many physical components that can fail over time. It's important
 
 A hardware validation process is invoked to ensure the integrity of the physical host in advance of deploying the OS image. Like the reimage action, the tenant data isn't modified during replacement.
 
+> [!IMPORTANT]
+> Starting with the 2024-07-01 GA API version, the RAID controller is reset during BMM replace, wiping all data from the server's virtual disks. Baseboard Management Controller (BMC) virtual disk alerts triggered during BMM replace can be ignored unless there are additonal physical disk and/or RAID controllers alerts.
+
 As a best practice, first issue a `cordon` command to remove the bare metal machine from workload scheduling and then shut down the BMM in advance of physical repairs.
 
 When you're performing a physical hot swappable power supply repair, a replace action isn't required because the BMM host will continue to function normally after the repair.

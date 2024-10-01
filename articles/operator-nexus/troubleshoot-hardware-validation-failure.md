@@ -50,7 +50,7 @@ Expanding `result_detail` for a given category shows detailed results.
 * Memory/RAM Related Failure (memory_capacity_GB) (measured in GiB)
     * Memory specs are defined in the SKU. Memory below threshold value indicates missing or failed Dual In-Line Memory Module (DIMM). A failed DIMM would also be reflected in the `health_info` category. The following example shows a failed memory check.
 
-    ```json
+    ```yaml
         {
             "field_name": "memory_capacity_GB",
             "comparison_result": "Fail",
@@ -74,7 +74,7 @@ Expanding `result_detail` for a given category shows detailed results.
 * CPU Related Failure (cpu_sockets)
     * CPU specs are defined in the SKU. Failed `cpu_sockets` check indicates a failed CPU or CPU count mismatch. The following example shows a failed CPU check.
 
-    ```json
+    ```yaml
         {
             "field_name": "cpu_sockets",
             "comparison_result": "Fail",
@@ -98,7 +98,7 @@ Expanding `result_detail` for a given category shows detailed results.
 * Model Check Failure (Model)
     * Failed `Model` check indicates that wrong server is racked in the slot or there's a cabling mismatch. The following example shows a failed model check.
 
-    ```json
+    ```yaml
         {
             "field_name": "Model",
             "comparison_result": "Fail",
@@ -122,7 +122,7 @@ Expanding `result_detail` for a given category shows detailed results.
 * Serial Number Check Failure (Serial_Number)
     * The server's serial number, also referred as the service tag, is defined in the cluster. Failed `Serial_Number` check indicates a mismatch between the serial number in the cluster and the actual serial number of the machine. The following example shows a failed serial number check.
 
-    ```json
+    ```yaml
         {
             "field_name": "Serial_Number",
             "comparison_result": "Fail",
@@ -146,7 +146,7 @@ Expanding `result_detail` for a given category shows detailed results.
 * iDRAC License Check Failure
     * All iDRACs require a perpetual/production iDRAC datacenter or enterprise license. Trial licenses are valid for only 30 days. A failed `iDRAC License Check` indicates that the required iDRAC license is missing. The following examples show a failed iDRAC license check for a trial license and missing license respectively.
 
-    ```json
+    ```yaml
         {
             "field_name": "iDRAC License Check",
             "comparison_result": "Fail",
@@ -155,7 +155,7 @@ Expanding `result_detail` for a given category shows detailed results.
         }
     ```
 
-    ```json
+    ```yaml
         {
             "field_name": "iDRAC License Check",
             "comparison_result": "Fail",
@@ -171,7 +171,7 @@ Expanding `result_detail` for a given category shows detailed results.
 * Firmware Version Checks
     * Firmware version checks were introduced in release 3.9. The following example shows the expected log for release versions before 3.9.
 
-  ```json
+  ```yaml
       {
           "system_info": {
               "system_info_result": "Pass",
@@ -184,7 +184,7 @@ Expanding `result_detail` for a given category shows detailed results.
 
     * Firmware versions are determined based on the `cluster version` value in the cluster object. The following example shows a failed check due to indeterminate cluster version. If this problem is encountered, verify the version in the cluster object.
 
-  ```json
+  ```yaml
       {
           "system_info": {
               "system_info_result": "Fail",
@@ -197,10 +197,10 @@ Expanding `result_detail` for a given category shows detailed results.
 
 ### Drive info category
 
-* Disk Check Failure
+* Disk Checks Failure
     * Drive specs are defined in the SKU. Mismatched capacity values indicate incorrect drives or drives inserted in to incorrect slots. Missing capacity and type fetched values indicate drives that are failed, missing, or inserted in to incorrect slots.
 
-    ```json
+    ```yaml
         {
             "field_name": "Disk_0_Capacity_GB",
             "comparison_result": "Fail",
@@ -209,7 +209,7 @@ Expanding `result_detail` for a given category shows detailed results.
         }
     ```
 
-    ```json
+    ```yaml
         {
             "field_name": "Disk_0_Capacity_GB",
             "comparison_result": "Fail",
@@ -218,7 +218,7 @@ Expanding `result_detail` for a given category shows detailed results.
         }
     ```
 
-    ```json
+    ```yaml
         {
             "field_name": "Disk_0_Type",
             "comparison_result": "Fail",
@@ -244,7 +244,7 @@ Expanding `result_detail` for a given category shows detailed results.
 * Network Interface Cards (NIC) Check Failure
     * Dell server NIC specs are defined in the SKU. A mismatched link status indicates loose or faulty cabling or crossed cables. A mismatched model indicates incorrect NIC card is inserted in to slot. Missing link/model fetched values indicate NICs that are failed, missing, or inserted in to incorrect slots.
 
-    ```json
+    ```yaml
         {
             "field_name": "NIC.Slot.3-1-1_LinkStatus",
             "comparison_result": "Fail",
@@ -253,7 +253,7 @@ Expanding `result_detail` for a given category shows detailed results.
         }
     ```
 
-    ```json
+    ```yaml
         {
             "field_name": "NIC.Embedded.2-1-1_LinkStatus",
             "comparison_result": "Fail",
@@ -262,7 +262,7 @@ Expanding `result_detail` for a given category shows detailed results.
         }
     ```
 
-    ```json
+    ```yaml
         {
             "field_name": "NIC.Slot.3-1-1_Model",
             "comparison_result": "Fail",
@@ -271,7 +271,7 @@ Expanding `result_detail` for a given category shows detailed results.
         }
     ```
 
-    ```json
+    ```yaml
         {
             "field_name": "NIC.Slot.3-1-1_LinkStatus",
             "comparison_result": "Fail",
@@ -280,7 +280,7 @@ Expanding `result_detail` for a given category shows detailed results.
         }
     ```
 
-    ```json
+    ```yaml
         {
             "field_name": "NIC.Slot.3-1-1_Model",
             "comparison_result": "Fail",
@@ -310,7 +310,7 @@ Expanding `result_detail` for a given category shows detailed results.
 * NIC Check L2 Switch Information
     * HWV reports L2 switch information for each of the server interfaces. The switch connection ID (switch interface MAC) and switch port connection ID (switch interface label) are informational.
 
-    ```json
+    ```yaml
         {
             "field_name": "NIC.Slot.3-1-1_SwitchConnectionID",
             "comparison_result": "Info",
@@ -319,7 +319,7 @@ Expanding `result_detail` for a given category shows detailed results.
         }
     ```
 
-    ```json
+    ```yaml
         {
             "field_name": "NIC.Slot.3-1-1_SwitchPortConnectionID",
             "comparison_result": "Info",
@@ -331,7 +331,7 @@ Expanding `result_detail` for a given category shows detailed results.
 * Cabling Checks for Bonded Interfaces
     * Mismatched cabling is reported in the result_log. Cable check validates that that bonded NICs connect to switch ports with same Port ID. In the following example Peripheral Component Interconnect (PCI) 3/1 and 3/2 connect to "Ethernet1/1" and "Ethernet1/3" respectively on TOR, triggering a failure for HWV.
 
-  ```json
+  ```yaml
       {
           "network_info": {
               "network_info_result": "Fail",
@@ -357,7 +357,7 @@ Expanding `result_detail` for a given category shows detailed results.
 * iDRAC (BMC) MAC Address Check Failure
     * The iDRAC MAC address is defined in the cluster for each BMM. A failed `iDRAC_MAC` check indicates a mismatch between the iDRAC/BMC MAC in the cluster and the actual MAC address retrieved from the machine.
 
-    ```json
+    ```yaml
         {
             "field_name": "iDRAC_MAC",
             "comparison_result": "Fail",
@@ -371,7 +371,7 @@ Expanding `result_detail` for a given category shows detailed results.
 * Preboot execution environment (PXE) MAC Address Check Failure
     * The PXE MAC address is defined in the cluster for each BMM. A failed `PXE_MAC` check indicates a mismatch between the PXE MAC in the cluster and the actual MAC address retrieved from the machine.
 
-    ```json
+    ```yaml
         {
             "field_name": "NIC.Embedded.1-1_PXE_MAC",
             "comparison_result": "Fail",
@@ -387,7 +387,7 @@ Expanding `result_detail` for a given category shows detailed results.
 * Health Check Sensor Failure
     * Server health checks cover various hardware component sensors. A failed health sensor indicates a problem with the corresponding hardware component. The following examples indicate fan, drive, and CPU failures respectively.
 
-    ```json
+    ```yaml
         {
             "field_name": "System Board Fan1A",
             "comparison_result": "Fail",
@@ -396,7 +396,7 @@ Expanding `result_detail` for a given category shows detailed results.
         }
     ```
 
-    ```json
+    ```yaml
         {
             "field_name": "Solid State Disk 0:1:1",
             "comparison_result": "Fail",
@@ -405,7 +405,7 @@ Expanding `result_detail` for a given category shows detailed results.
         }
     ```
 
-    ```json
+    ```yaml
         {
             "field_name": "CPU.Socket.1",
             "comparison_result": "Fail",
@@ -427,9 +427,9 @@ Expanding `result_detail` for a given category shows detailed results.
     * To troubleshoot a server health failure engage vendor.
 
 * Health Check LifeCycle (LC) Log Failures
-    * Dell server health checks fail for recent Critical LC Log Alarms. The hardware validation plugin logs the alarm ID, name, and timestamp. Recent LC Log critical alarms indicate need for further investigation. The following example shows a failure for a critical backplane voltage alarm.
+    * Dell server health checks fail for recent Critical LC Log Alarms. The hardware validation plugin logs the alarm ID, name, and timestamp. Recent critical alarms indicate need for further investigation. The following example shows a failure for a critical backplane voltage alarm.
 
-    ```json
+    ```yaml
         {
             "field_name": "LCLog_Critical_Alarms",
             "comparison_result": "Fail",
@@ -439,8 +439,9 @@ Expanding `result_detail` for a given category shows detailed results.
     ```
 
     * Virtual disk errors typically indicate a RAID cleanup false positive condition and are logged due to the timing of raid cleanup and system power off pre HWV. The following example shows an LC log critical error on virtual disk 238. If multiple errors are encountered blocking deployment, delete cluster, wait two hours, then reattempt cluster deployment. If the failures aren't deployment blocking, wait two hours then run BMM replace.
+    * Virtual disk errors are allowlisted starting with release 3.13 and don't trigger a health check failure.
 
-    ```json
+    ```yaml
         {
             "field_name": "LCLog_Critical_Alarms",
             "comparison_result": "Fail",
@@ -461,10 +462,10 @@ Expanding `result_detail` for a given category shows detailed results.
 
     * If `Backplane Comm` critical errors are logged, perform flea drain. Engage vendor to troubleshoot any other LC log critical failures.
 
-* Health Check Server Power Action Failures
+* Health Check Server Power Control Action Failures
     * Dell server health checks fail for failed server power-up or failed iDRAC reset. A failed server control action indicates an underlying hardware issue. The following example shows failed power on attempt.
 
-    ```json
+    ```yaml
         {
             "field_name": "Server Control Actions",
             "comparison_result": "Fail",
@@ -473,7 +474,7 @@ Expanding `result_detail` for a given category shows detailed results.
         }
     ```
 
-    ```json
+    ```yaml
         "result_log": [
           "Server power up failed with: server OS is powered off after successful power on attempt",
         ]
@@ -491,10 +492,43 @@ Expanding `result_detail` for a given category shows detailed results.
 
     * To troubleshoot server power-on failure attempt a flea drain. If problem persists engage vendor.
 
+* RAID cleanup failures
+    * As part of RAID cleanup, the RAID controller configuration is reset. Dell server health check fails for RAID controller reset failure. A failed RAID cleanup action indicates an underlying hardware issue. The following example shows a failed RAID controller reset.
+
+    ```yaml
+        {
+            "field_name": "Server Control Actions",
+            "comparison_result": "Fail",
+            "expected": "Success",
+            "fetched": "Failed"
+        }
+    ```
+
+    ```yaml
+        "result_log": [
+          "RAID cleanup failed with: raid deletion failed after 2 attempts",
+        ]
+    ```
+
+    * To clear RAID in BMC webui:
+
+        `BMC` -> `Dashboard` -> `Storage` -> `Controllers` -> `Actions` -> `Reset Configuration`
+
+    * To clear RAID with racadm check for RAID controllers then clear config:
+
+    ```bash
+        racadm --nocertwarn -r $IP -u $BMC_USR -p $BMC_PWD storage get controllers | grep "RAID"
+        racadm --nocertwarn -r $IP -u $BMC_USR -p $BC_PWD storage resetconfig:RAID.SL.3-1         #substitute with RAID controller from get command
+        racadm --nocertwarn -r $IP -u $BMC_USR -p $BC_PWD jobqueue create RAID.SL.3-1 --realtime  #substitute with RAID controller from get command
+    ```
+
+    * To troubleshoot RAID cleanup failure check for any errors logged. For Dell R650/660, ensure that only slots 0 and 1 contain physical drives. For Dell R750/760, ensure that only slots 0 through 3 contain physical drives. For any other models, confirm there are no extra drives inserted based on SKU definition. All extra drives should be removed to align with the SKU. If the problem persists engage vendor.
+    * BMC virtual disk critical alerts triggered during HWV can be ignored.
+
 * Health Check Power Supply Failure and Redundancy Considerations
     * Dell server health checks warn when one power supply is missing or failed. Power supply "field_name" might be displayed as 0/PS0/Power Supply 0 and 1/PS1/Power Supply 1 for the first and second power supplies respectively. A failure of one power supply doesn't trigger an HWV device failure.
 
-    ```json
+    ```yaml
         {
             "field_name": "Power Supply 1",
             "comparison_result": "Warning",
@@ -503,7 +537,7 @@ Expanding `result_detail` for a given category shows detailed results.
         }
     ```
 
-    ```json
+    ```yaml
         {
             "field_name": "System Board PS Redundancy",
             "comparison_result": "Warning",
@@ -530,7 +564,7 @@ Expanding `result_detail` for a given category shows detailed results.
     * The `boot_device_name` check is currently informational.
     * Mismatched boot device name shouldn't trigger a device failure.
 
-    ```json
+    ```yaml
         {
             "field_name": "boot_device_name",
             "comparison_result": "Info",
@@ -539,12 +573,13 @@ Expanding `result_detail` for a given category shows detailed results.
         }
     ```
 
-* PXE Device Check Considerations
+* PXE Device Checks Considerations
     * This check validates the PXE device settings.
+    * Starting with the 2024-07-01 GA API version, HWV attempts to auto fix the BIOS boot configuration.
     * Failed `pxe_device_1_name` or `pxe_device_1_state` checks indicate a problem with the PXE configuration.
     * Failed settings need to be fixed to enable system boot during deployment.
 
-    ```json
+    ```yaml
         {
             "field_name": "pxe_device_1_name",
             "comparison_result": "Fail",
@@ -553,7 +588,7 @@ Expanding `result_detail` for a given category shows detailed results.
         }
     ```
 
-    ```json
+    ```yaml
         {
             "field_name": "pxe_device_1_state",
             "comparison_result": "Fail",
@@ -581,7 +616,7 @@ Expanding `result_detail` for a given category shows detailed results.
 * Device Login Check Considerations
     * The `device_login` check fails if the iDRAC isn't accessible or if the hardware validation plugin isn't able to sign-in.
 
-    ```json
+    ```yaml
         {
             "device_login": "Fail"
         }
@@ -598,24 +633,6 @@ Expanding `result_detail` for a given category shows detailed results.
     ```
 
     * To troubleshoot, ping the iDRAC from a jumpbox with access to the BMC network. If iDRAC pings check that passwords match.
-
-### Special considerations
-
-* Servers Failing Multiple Health and Network Checks
-    * Raid deletion is performed during cluster deploy and cluster delete actions for all releases inclusive of 3.12.
-    * If we observe servers getting powered off during hardware validation with multiple failed health and network checks, we need to reattempt cluster deployment.
-    * If issues persist, raid deletion needs to be performed manually on `control` nodes in the cluster.
-
-    * To clear raid in BMC webui:
-
-        `BMC` -> `Storage` -> `Virtual Disks` -> `Action` -> `Delete` -> `Apply Now`
-
-    * To clear raid with racadm:
-
-        ```bash
-        racadm --nocertwarn -r $IP -u $BMC_USR -p $BMC_PWD raid deletevd:Disk.Virtual.239:RAID.SL.3-1
-        racadm --nocertwarn -r $IP -u $BMC_USR -p $BMC_PWD jobqueue create RAID.SL.3-1 --realtime
-        ```
 
 ## Adding servers back into the Cluster after a repair
 
