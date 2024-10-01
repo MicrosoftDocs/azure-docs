@@ -82,7 +82,7 @@ To create an AKS cluster as your deployment environment, you have the following 
   az aks create --resource-group <Azure-resource-group-name> --name <AKS-cluster-name> --enable-aad --generate-ssh-keys --enable-cluster-autoscaler --max-count 6 --min-count 1 
   ```
 
-- Follow the steps in [Tutoral: Enable Azure Container Apps on Azure Arc-enabled Kubernetes](/azure/container-apps/azure-arc-enable-cluster), and then run the following PowerShell commands as an administrator to create an AKS cluster and an optional Log Analytics workspace for monitoring the logs from the Azure Logic Apps runtime:
+- Follow the steps in [Tutorial: Enable Azure Container Apps on Azure Arc-enabled Kubernetes](/azure/container-apps/azure-arc-enable-cluster), and then run the following PowerShell commands as an administrator to create an AKS cluster and an optional Log Analytics workspace for monitoring the logs from the Azure Logic Apps runtime:
 
   ```powershell
   Set-ExecutionPolicy -ExecutionPolicy Unrestricted
@@ -124,7 +124,7 @@ Hybrid workflows use SQL Server as the storage provider for Azure Logic Apps run
    - [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview)
    - [SQL Server enabled by Azure Arc](/sql/sql-server/azure-arc/overview)
 
-   For more informmation, see [Set up SQL storage for Standard logic app workflows](/azure/logic-apps/set-up-sql-db-storage-single-tenant-standard-workflows).
+   For more information, see [Set up SQL storage for Standard logic app workflows](/azure/logic-apps/set-up-sql-db-storage-single-tenant-standard-workflows).
 
 1. Get the connection string for the SQL Server database that you chose to use.
 
@@ -291,7 +291,7 @@ In rare scenarios, you might notice a high memory footprint in your cluster. To 
 
 ### Managed connectors
 
-You must create connections for managed connectors through Visual Studio Code, not the Azure portal, for hybrid logic app workflows. In Visual Studio Code, connections are valid for seven days and requires reauthentication after that time. A connection key is used to authenticate the connection through Visual Studio Code. This key is valid only for seven days and requires reauthentication after this time period.
+You must create connections for managed connectors through Visual Studio Code, not the Azure portal, for hybrid logic app workflows. In Visual Studio Code, connections are valid for seven days and require reauthentication after this time period. A connection key is used to authenticate the connection through Visual Studio Code. This key is valid only for seven days and requires reauthentication after this time period.
 
 ### Function-based triggers
 
