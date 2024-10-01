@@ -334,7 +334,9 @@ spec:
     destinationSettings:
       endpointRef: eventgrid
       dataDestination: telemetry/iot-mq
----
+```
+
+```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1beta1
 kind: Dataflow
 metadata:
