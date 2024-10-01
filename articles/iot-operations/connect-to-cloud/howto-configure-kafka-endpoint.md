@@ -142,6 +142,9 @@ To configure a dataflow endpoint for non-Event-Hub Kafka brokers, set the host, 
 
 1. Select **Apply** to provision the endpoint.
 
+> [!NOTE]
+> Currently, the Azure IoT Operations portal doesn't support using a Kafka dataflow endpoint as a source. You can create a dataflow with a source Kafka dataflow endpoint using the Kubernetes or Bicep.
+
 # [Kubernetes](#tab/kubernetes)
 
 ```yaml
