@@ -36,9 +36,9 @@ For more information, see [Ingest syslog and CEF messages to Microsoft Sentinel 
 
 1. Sign into your HANA database operating system as a user with sudo privileges.
 
-1. Install an agent on your machine and confirm that your machine is connected. For more information, see [Azure Monitor Agent](/azure/azure-monitor/agents/azure-monitor-agent-manage?tabs=azure-portal).
+1. Install an agent on your machine and confirm that your machine is connected. For more information, see [Install and manage Azure Monitor Agent](/azure/azure-monitor/agents/azure-monitor-agent-manage?tabs=azure-portal).
 
-1. Configure your agent to collect Syslog data. For more information, see [Azure Monitor Agent](/azure/azure-monitor/agents/data-collection-syslog).
+1. Configure your agent to collect Syslog data. For more information, see [Collect Syslog events with Azure Monitor Agent](/azure/azure-monitor/agents/data-collection-syslog).
 
     > [!TIP]
     > Because the facilities where HANA database events are saved can change between different distributions, we recommend that you add all facilities. Check them against your Syslog logs, and then remove any that aren't relevant.
