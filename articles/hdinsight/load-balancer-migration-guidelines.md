@@ -1,6 +1,6 @@
 ---
-title: Load balancer migration guidelines for Azure HDInsight on AKS
-description: Guidelines to perform load balancer migration for Azure HDInsight on AKS
+title: Load balancer migration guidelines for Azure HDInsight
+description: Guidelines to perform load balancer migration for Azure HDInsight.
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.date: 09/25/2024
