@@ -3,7 +3,7 @@ title: Linter rule - use parent property
 description: Linter rule - use parent property
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 07/11/2024
+ms.date: 10/01/2024
 ---
 
 # Linter rule - use parent property
@@ -23,7 +23,7 @@ The following example fails this test because of the name values for `service` a
 ```bicep
 param location string = resourceGroup().location
 
-resource storage 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource storage 'Microsoft.Storage/storageAccounts@2023-05-01' = {
   name: 'examplestorage'
   location: location
   kind: 'StorageV2'
@@ -32,14 +32,14 @@ resource storage 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   }
 }
 
-resource service 'Microsoft.Storage/storageAccounts/fileServices@2023-04-01' = {
+resource service 'Microsoft.Storage/storageAccounts/fileServices@2023-05-01' = {
   name: 'examplestorage/default'
   dependsOn: [
     storage
   ]
 }
 
-resource share 'Microsoft.Storage/storageAccounts/fileServices/shares@2023-04-01' = {
+resource share 'Microsoft.Storage/storageAccounts/fileServices/shares@2023-05-01' = {
   name: 'examplestorage/default/exampleshare'
   dependsOn: [
     service
@@ -52,7 +52,7 @@ You can fix the problem by using the `parent` property:
 ```bicep
 param location string = resourceGroup().location
 
-resource storage 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource storage 'Microsoft.Storage/storageAccounts@2023-05-01' = {
   name: 'examplestorage'
   location: location
   kind: 'StorageV2'
@@ -61,20 +61,20 @@ resource storage 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   }
 }
 
-resource service 'Microsoft.Storage/storageAccounts/fileServices@2023-04-01' = {
+resource service 'Microsoft.Storage/storageAccounts/fileServices@2023-05-01' = {
   parent: storage
   name: 'default'
 }
 
-resource share 'Microsoft.Storage/storageAccounts/fileServices/shares@2023-04-01' = {
+resource share 'Microsoft.Storage/storageAccounts/fileServices/shares@2023-05-01' = {
   parent: service
   name: 'exampleshare'
 }
 ```
 
-You can fix the issue automatically by selecting **Quick Fix** as shown on the following screenshot:
+You can fix the issue automatically by selecting **Quick Fix** as shown in the following screenshot:
 
-:::image type="content" source="./media/linter-rule-use-parent-property/bicep-linter-rule-use-parent-property-quick-fix.png" alt-text="Screenshot of use parent property quick fix.":::
+:::image type="content" source="./media/linter-rule-use-parent-property/bicep-linter-rule-use-parent-property-quick-fix.png" alt-text="Screenshot of use parent property Quick Fix.":::
 
 ## Next steps
 
