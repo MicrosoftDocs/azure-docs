@@ -78,8 +78,6 @@ The Azure Virtual Desktop app is available from the Microsoft Store. To download
 
 # [Remote Desktop Store app](#tab/rd-store)
 
-Select a tab for the version of the Remote Desktop client for Windows you want to use:
-
 > [!IMPORTANT]
 > We're no longer updating the Remote Desktop app for Windows with new features and support for Azure Virtual Desktop will be removed in the future.
 > 
