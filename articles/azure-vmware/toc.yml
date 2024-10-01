@@ -116,7 +116,7 @@ items:
   - name: Vulnerability Management
     href: vulnerability-management.md
   - name: Rotate cloudadmin credentials
-    href: rotate-cloudadmin-credentials.md service
+    href: rotate-cloudadmin-credentials.md
   - name: Configure identity
     items:
     - name: Set an external identity source for vCenter Server
