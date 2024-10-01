@@ -20,7 +20,9 @@ If you don't have a Microsoft Azure subscription, [create a free account](https:
 > [!TIP]
 > If you're new to ARM templates, you might consider learning Bicep instead. Bicep is a new language that offers the same capabilities as ARM templates but with an easier-to-use syntax. To start learning Bicep, see [Quickstart: Create Bicep files with Visual Studio Code](../bicep/quickstart-create-bicep-use-visual-studio-code.md).
 
-## Get tools
+## Get tools![image](https://github.com/user-attachments/assets/f303c351-e10c-4424-b606-eb385e1a9d47)
+![image](https://github.com/user-attachments/assets/ac23f62e-98a0-4766-b4a5-24166bea6366)
+
 
 Let's start by making sure you have the tools you need to create and deploy templates. Install these tools on your local machine.
 
@@ -119,8 +121,6 @@ When you deploy a template, you can specify a resource group to contain the reso
 
 > [!NOTE]
 > Samples for the Azure CLI are written for the bash shell. To run this sample in Windows PowerShell or the Command Prompt, you may need to remove the back slashes and write the command as one line such as:
-
-```az group create --name myResourceGroup --location "Central US"```
 
 # [PowerShell](#tab/azure-powershell)
 
