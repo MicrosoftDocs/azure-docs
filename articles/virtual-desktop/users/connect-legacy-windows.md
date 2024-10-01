@@ -11,8 +11,6 @@ ms.date: 09/24/2024
 
 # Connect to Azure Virtual Desktop with the legacy Remote Desktop clients for Windows
 
-# [Azure Virtual Desktop Store app](#tab/avd-store)
-
 > [!IMPORTANT]
 > The Azure Virtual Desktop store app is no longer available for download or installation. To ensure a seamless experience and avoid any disruption, users are encouraged to download Windows App. Windows App is the gateway to securely connect to any devices or apps across Azure Virtual Desktop, Windows 365, and Microsoft Dev Box. For more information, see [What is Windows App](/windows-app/overview).
 
