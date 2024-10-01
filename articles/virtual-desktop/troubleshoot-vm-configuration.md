@@ -70,6 +70,17 @@ Follow these instructions if you're having issues joining virtual machines (VMs)
 - Change the network interface's DNS server settings to **Custom** with the steps from [Change DNS servers](../virtual-network/virtual-network-network-interface.md#change-dns-servers) and specify the private IP addresses of the DNS servers on the virtual network.
 - Change the network interface's DNS server settings to **Inherit from virtual network** with the steps from [Change DNS servers](../virtual-network/virtual-network-network-interface.md#change-dns-servers), then change the virtual network's DNS server settings with the steps from [Change DNS servers](../virtual-network/manage-virtual-network.yml#change-dns-servers).
 
+### Error: Computer account reuse is blocked by policy
+
+**Cause:** You are attempting to reuse a computer account (host name), have applied Windows updates released on and after October 11, 2022 and the user account provided for the domain does not have sufficient permissions to reuse computer accounts.
+
+**Fix:** Take one of the following actions to resolve.
+- Use the same user account that was used to create the existing computer account object
+- Use an account that is a member of domain administrators
+- Use an account that is a member of the “Domain controller: Allow computer account re-use during domain join.” Group Policy setting. This setting requires the installation of Windows updates released on or after March 14, 2023, on ALL member computers and domain controllers.
+
+[Review additional guidance](https://support.microsoft.com/en-us/topic/kb5020276-netjoin-domain-join-hardening-changes-2b65a0f3-1f4c-42ef-ac0f-1caaf421baf8) for more information on the permissions changes for computer account reuse.
+
 ## Azure Virtual Desktop Agent and Azure Virtual Desktop Boot Loader aren't installed
 
 The recommended way to provision VMs is using the Azure portal creation template. The template automatically installs the Azure Virtual Desktop Agent and Azure Virtual Desktop Agent Boot Loader.
