@@ -75,7 +75,6 @@ You need to have the Network Contributor role for the scope of the network manag
 - When using IP address management, the **IPAM Pool User** role alone is sufficient for delegation. During the public preview, you also need to grant "Network Manager Read" access to ensure full discoverability of IP address pools and virtual networks across the Network Manager's scope. Without this role, users with only the **IPAM Pool User** role won't be able to see available pools and virtual networks.
 - When virtual networks are associated with an IPAM pool, peering sync may show as out of sync, even though peering is functioning correctly.
 - When a VNet is moved to a different subscription, the references in IPAM are not updated, leading to inconsistent management status.
-- When the `enableMultipleAddressPrefixesonSubnet` AFEC flag is disabled, subnets only support one address prefix, leading to errors when multiple subnet prefixes are required.
 - When multiple requests for the same VNet are made, it can result in duplicate allocations entries.
 ## Next steps
 
