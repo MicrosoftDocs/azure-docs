@@ -547,6 +547,8 @@ Here are some common swap errors:
 
 - Local cache initialization might fail when the app content exceeds the local disk quota specified for the local cache. For more information, see [Local cache overview](overview-local-cache.md).
 
+- During a site update operation, the following error may occur "_The slot cannot be changed because its configuration settings have been prepared for swap_". This can occur if either [swap with preview (multi-phase swap)](#swap-with-preview-multi-phase-swap) phase 1 has been completed but phase 2 has not yet been performed, or a swap has failed. To reset the state, either complete or cancel the swap operation. Refer to [swap with preview (multi-phase swap)](#swap-with-preview-multi-phase-swap).
+
 - During [custom warm-up](#Warm-up), the HTTP requests are made internally (without going through the external URL). They can fail with certain URL rewrite rules in *Web.config*. For example, rules for redirecting domain names or enforcing HTTPS can prevent warm-up requests from reaching the app code. To work around this issue, modify your rewrite rules by adding the following two conditions:
 
     ```xml
