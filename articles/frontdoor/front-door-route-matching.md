@@ -50,7 +50,7 @@ The decision of how to process the request depends on whether caching is enabled
 
 ## Route matching
 
-This section focuses on how Front Door matches to a routing rule. The basic concept is that Front Door always matches to the **most-specific request** looking only at the "left-hand side". Front Door first match based on protocol, then domain, and last the path.
+This section focuses on how Front Door matches to a routing rule. The basic concept is that Front Door always matches to the **most-specific request** looking only at the "left-hand side". Front Door first matches based on protocol, then domain, and last the path.
 
 ### Frontend host matching
 

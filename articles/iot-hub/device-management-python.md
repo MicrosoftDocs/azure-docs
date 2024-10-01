@@ -53,6 +53,8 @@ In this section, you:
 
 * Use the reported properties to enable device twin queries to identify devices and when they last rebooted.
 
+[!INCLUDE [iot-authentication-device-connection-string.md](../../includes/iot-authentication-device-connection-string.md)]
+
 In Azure Cloud Shell you used previously, or any other environment with Python, create the device code.
 
 1. At your command prompt, run the following command to install the **azure-iot-device** package:
@@ -159,6 +161,8 @@ In Azure Cloud Shell you used previously, or any other environment with Python, 
 ## Create a service app to trigger a reboot
 
 In this section, you create a Python console app that initiates a remote reboot on a device using a direct method. The app uses device twin queries to discover the last reboot time for that device.
+
+[!INCLUDE [iot-authentication-service-connection-string.md](../../includes/iot-authentication-service-connection-string.md)]
 
 In Azure Cloud Shell or any other environment with Python, create the console code.
 
