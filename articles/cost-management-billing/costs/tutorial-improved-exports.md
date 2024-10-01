@@ -262,8 +262,6 @@ In the export list, select the storage account name. On the storage account page
 
 In Storage Explorer, navigate to the container that you want to open and select the folder corresponding to the current month. A list of CSV files is shown. Select one and then select **Open**.
 
-:::image type="content" border="true" source="./media/tutorial-improved-exports/storage-explorer.png" alt-text="Screenshot showing example information in Storage Explorer.":::
-
 The file opens with the program or application set to open CSV file extensions. Here's an example in Excel.
 
 :::image type="content" border="true" source="./media/tutorial-improved-exports/example-export-data.png" alt-text="Screenshot showing exported CSV data in Excel.":::
@@ -321,15 +319,8 @@ Agreement types, scopes, and required roles are explained at [Understand and wor
 
 The exports experience currently has the following limitations.
 
-<<<<<<< HEAD
 - The new exports experience doesn't fully support the management group scope and it has feature limitations.
 - Azure MOSP billing scopes and subscriptions don’t support FOCUS datasets.
-=======
-- The new exports experience doesn't fully support the management group scope, and it has feature limitations.
-
-- Azure internal accounts and the Microsoft Online Service Program (MOSP), commonly referred to as pay-as-you-go, support only the 'Cost and Usage Details (Usage Only)' dataset for billing scopes and subscriptions. 
-
->>>>>>> 3578a79c8dd82d54326137e6d9cab9c4cb40422e
 - Shared access service (SAS) key-based cross tenant export is only supported for Microsoft partners at the billing account scope. It isn't supported for other partner scenarios like any other scope, EA indirect contract, or Azure Lighthouse.
 
 - EA price sheet: Reservation prices are only available for the current month price sheet and cannot be retrieved for historical exports. To retain historical reservation prices, set up recurring exports.
