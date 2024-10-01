@@ -15,7 +15,7 @@ The Log Analytics agent is [retired as of **31 August, 2024**](https://azure.mic
 
 ## Prerequisites
 
-Start with the [Azure Monitor documentation](/azure/azure-monitor/agents/azure-monitor-agent-migration) which provides an agent comparison and general information for this migration process. 
+Start with the [Azure Monitor documentation](/azure/azure-monitor/agents/azure-monitor-agent-migration) which provides an agent comparison and general information for this migration process.
 
 This article provides specific details and differences for Microsoft Sentinel.
 
@@ -25,7 +25,7 @@ Each organization will have different metrics of success and internal migration 
 
 **Include the following steps in your migration process**:
 
-1. Make sure that you've reviewed necessary prerequisites and other considerations as [documented here](/azure/azure-monitor/agents/azure-monitor-agent-migration#before-you-begin) in the Azure Monitor documentation.
+1. Make sure that you've reviewed necessary prerequisites and other considerations as documented in the Azure Monitor documentation. For more information, see [Before you begin](/azure/azure-monitor/agents/azure-monitor-agent-migration#before-you-begin).
 
 1. Run a proof of concept to test how the AMA sends data to Microsoft Sentinel, ideally in a development or sandbox environment.
 
