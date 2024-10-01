@@ -5,7 +5,7 @@ ms.topic: overview
 ms.custom: references_regions
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 04/17/2024
+ms.date: 09/17/2024
 ---
 # Prerequisites for Azure Virtual Desktop
 
@@ -93,7 +93,7 @@ To access desktops and applications from your session hosts, your users need to 
 You need to join session hosts that provide desktops and applications to the same Microsoft Entra tenant as your users, or an Active Directory domain (either AD DS or Microsoft Entra Domain Services).
 
 > [!NOTE]
-> For Azure Stack HCI, you can only join session hosts to an Active Directory Domain Services domain.
+> For Azure Stack HCI, you can only join session hosts to an Active Directory Domain Services domain. You can only join session hosts on Azure Stack HCI to an Active Directory Domain Services (AD DS) domain. This includes using [Microsoft Entra hybrid join](/entra/identity/devices/concept-hybrid-join), where you can benefit from some of the functionality provided by Microsoft Entra ID.
 
 To join session hosts to Microsoft Entra ID or an Active Directory domain, you need the following permissions:
 
@@ -176,7 +176,7 @@ Alternatively, for Azure Stack HCI you can use operating system images from:
 
 - Azure Marketplace. For more information, see [Create Azure Stack HCI VM image using Azure Marketplace images](/azure-stack/hci/manage/virtual-machine-image-azure-marketplace).
 - Azure Storage account. For more information, see [Create Azure Stack HCI VM image using image in Azure Storage account](/azure-stack/hci/manage/virtual-machine-image-storage-account).
-- A local share. For more information, see[Create Azure Stack HCI VM image using images in a local share](/azure-stack/hci/manage/virtual-machine-image-local-share).
+- A local share. For more information, see [Create Azure Stack HCI VM image using images in a local share](/azure-stack/hci/manage/virtual-machine-image-local-share).
 
 You can deploy a virtual machines (VMs) to be used as session hosts from these images with any of the following methods:
 

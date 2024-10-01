@@ -4,8 +4,8 @@ titleSuffix: Azure Lab Services
 description: Learn how to create an Azure Lab Services lab plan, view all lab plans, or delete a lab plan in the Azure portal.
 services: lab-services
 ms.service: azure-lab-services
-author: ntrogh
-ms.author: nicktrog
+author: RoseHJM
+ms.author: rosemalcolm
 ms.topic: how-to
 ms.date: 03/14/2023
 ---

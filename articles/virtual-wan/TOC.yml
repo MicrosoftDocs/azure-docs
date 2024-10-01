@@ -130,6 +130,8 @@
     href: hub-settings.md
   - name: Gateway settings
     href: gateway-settings.md
+  - name: Apply Zero Trust principles
+    href: /security/zero-trust/azure-virtual-wan?toc=%2fazure%2fvirtual-wan%2ftoc.json&bc=/azure/virtual-wan/breadcrumb/toc.json
   - name: Secured virtual hubs
     href: ../firewall-manager/secured-virtual-hub.md?toc=%2fazure%2fvirtual-wan%2ftoc.json&bc=/azure/virtual-wan/breadcrumb/toc.json
   - name: Security baseline
@@ -202,13 +204,13 @@
             href: virtual-wan-point-to-site-powershell.md
         - name: Generate self-signed certificates
           href: certificates-point-to-site.md
-      - name: Microsoft Entra authentication
+      - name: Microsoft Entra ID authentication
         items:
         - name: Configure a P2S VPN
           href: virtual-wan-point-to-site-azure-ad.md
         - name: Configure a tenant
           href: openvpn-azure-ad-tenant.md
-        - name: Configure Multi-Factor Authentication(MFA)
+        - name: Configure multifactor authentication (MFA)
           href: openvpn-azure-ad-mfa.md   
     - name: P2S client configuration
       items:
@@ -300,12 +302,8 @@
       href: manage-secure-access-resources-spoke-p2s.md
   - name: Monitoring
     items:
-    - name: Monitoring Virtual WAN
+    - name: Monitor Virtual WAN
       href: monitor-virtual-wan.md
-    - name: Monitoring - Best practices
-      href: monitoring-best-practices.md
-    - name: Monitoring - Data reference
-      href: monitor-virtual-wan-reference.md
     - name: Azure Monitor Insights
       href: azure-monitor-insights.md
     - name: BGP dashboard
@@ -332,6 +330,8 @@
     href: /cli/azure/network
   - name: Python SDK
     href: https://azuresdkdocs.blob.core.windows.net/$web/python/azure-mgmt-network/10.0.0/azure.mgmt.network.v2019_02_01.operations.html#azure.mgmt.network.v2019_02_01.operations.VirtualWansOperations
+  - name: Monitoring data reference
+    href: monitor-virtual-wan-reference.md
 - name: Resources
   items:
   - name: Pricing

@@ -20,7 +20,7 @@ This article shows how to connect Java applications deployed on Azure App Servic
 
 ## Configure Application Insights
 
-Azure Monitor Application Insights is a cloud native application monitoring service that enables customers to observe failures, bottlenecks, and usage patterns to improve application performance and reduce mean time to resolution (MTTR). With a few clicks or CLI commands, you can enable monitoring for your Node.js or Java apps, autocollecting logs, metrics, and distributed traces, eliminating the need for including an SDK in your app. For more information about the available app settings for configuring the agent, see the [Application Insights documentation](../azure-monitor/app/java-standalone-config.md).
+Azure Monitor Application Insights is a cloud native application monitoring service that enables customers to observe failures, bottlenecks, and usage patterns to improve application performance and reduce mean time to resolution (MTTR). With a few clicks or CLI commands, you can enable monitoring for your Node.js or Java apps, autocollecting logs, metrics, and distributed traces, eliminating the need for including an SDK in your app. For more information about the available app settings for configuring the agent, see the [Application Insights documentation](/azure/azure-monitor/app/java-standalone-config).
 
 # [Azure portal](#tab/portal)
 
@@ -49,16 +49,16 @@ To enable via the Azure CLI, you need to create an Application Insights resource
 
 3. Set the instrumentation key, connection string, and monitoring agent version as app settings on the web app. Replace `<instrumentationKey>` and `<connectionString>` with the values from the previous step.
 
-    # [Windows](#tab/windows)
-
-    ```azurecli
-    az webapp config appsettings set -n <webapp-name> -g <resource-group> --settings "APPINSIGHTS_INSTRUMENTATIONKEY=<instrumentationKey>" "APPLICATIONINSIGHTS_CONNECTION_STRING=<connectionString>" "ApplicationInsightsAgent_EXTENSION_VERSION=~3" "XDT_MicrosoftApplicationInsights_Mode=default" "XDT_MicrosoftApplicationInsights_Java=1"
-    ```
-
     # [Linux](#tab/linux)
     
     ```azurecli
     az webapp config appsettings set -n <webapp-name> -g <resource-group> --settings "APPINSIGHTS_INSTRUMENTATIONKEY=<instrumentationKey>" "APPLICATIONINSIGHTS_CONNECTION_STRING=<connectionString>" "ApplicationInsightsAgent_EXTENSION_VERSION=~3" "XDT_MicrosoftApplicationInsights_Mode=default"
+    ```
+
+    # [Windows](#tab/windows)
+
+    ```azurecli
+    az webapp config appsettings set -n <webapp-name> -g <resource-group> --settings "APPINSIGHTS_INSTRUMENTATIONKEY=<instrumentationKey>" "APPLICATIONINSIGHTS_CONNECTION_STRING=<connectionString>" "ApplicationInsightsAgent_EXTENSION_VERSION=~3" "XDT_MicrosoftApplicationInsights_Mode=default" "XDT_MicrosoftApplicationInsights_Java=1"
     ```
 
     ---
@@ -67,7 +67,7 @@ To enable via the Azure CLI, you need to create an Application Insights resource
 
 ## Configure New Relic
 
-# [Windows](#tab/windows)
+# [Linux](#tab/linux)
 
 1. Create a NewRelic account at [NewRelic.com](https://newrelic.com/signup)
 2. Download the Java agent from NewRelic. It has a file name similar to *newrelic-java-x.x.x.zip*.
@@ -95,7 +95,7 @@ To enable via the Azure CLI, you need to create an Application Insights resource
 
     ::: zone-end
 
-# [Linux](#tab/linux)
+# [Windows](#tab/windows)
 
 1. Create a NewRelic account at [NewRelic.com](https://newrelic.com/signup)
 2. Download the Java agent from NewRelic. It has a file name similar to *newrelic-java-x.x.x.zip*.
@@ -130,32 +130,6 @@ To enable via the Azure CLI, you need to create an Application Insights resource
 
 ## Configure AppDynamics
 
-# [Windows](#tab/windows)
-
-1. Create an AppDynamics account at [AppDynamics.com](https://www.appdynamics.com/community/register/)
-2. Download the Java agent from the AppDynamics website. The file name is similar to *AppServerAgent-x.x.x.xxxxx.zip*
-3. Use the [Kudu console](https://github.com/projectkudu/kudu/wiki/Kudu-console) to create a new directory */home/site/wwwroot/apm*.
-4. Upload the Java agent files into a directory under */home/site/wwwroot/apm*. The files for your agent should be in */home/site/wwwroot/apm/appdynamics*.
-5. In the Azure portal, browse to your application in App Service and create a new Application Setting.
-
-    ::: zone pivot="java-javase"
-    
-    Create an environment variable named `JAVA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` where `<app-name>` is your App Service name. If you already have an environment variable for `JAVA_OPTS`, append the `-javaagent:/...` option to the end of the current value.
-
-    ::: zone-end
-
-    ::: zone pivot="java-tomcat"
-
-    Create an environment variable named `CATALINA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` where `<app-name>` is your App Service name. If you already have an environment variable for `CATALINA_OPTS`, append the `-javaagent:/...` option to the end of the current value.
-
-    ::: zone-end
-
-    ::: zone pivot="java-jboss"
-
-    For **JBoss EAP**, `[TODO]`.
-
-    ::: zone-end
-
 # [Linux](#tab/linux)
 
 1. Create an AppDynamics account at [AppDynamics.com](https://www.appdynamics.com/community/register/)
@@ -182,24 +156,50 @@ To enable via the Azure CLI, you need to create an Application Insights resource
 
     ::: zone-end
 
+# [Windows](#tab/windows)
+
+1. Create an AppDynamics account at [AppDynamics.com](https://www.appdynamics.com/community/register/)
+2. Download the Java agent from the AppDynamics website. The file name is similar to *AppServerAgent-x.x.x.xxxxx.zip*
+3. Use the [Kudu console](https://github.com/projectkudu/kudu/wiki/Kudu-console) to create a new directory */home/site/wwwroot/apm*.
+4. Upload the Java agent files into a directory under */home/site/wwwroot/apm*. The files for your agent should be in */home/site/wwwroot/apm/appdynamics*.
+5. In the Azure portal, browse to your application in App Service and create a new Application Setting.
+
+    ::: zone pivot="java-javase"
+    
+    Create an environment variable named `JAVA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` where `<app-name>` is your App Service name. If you already have an environment variable for `JAVA_OPTS`, append the `-javaagent:/...` option to the end of the current value.
+
+    ::: zone-end
+
+    ::: zone pivot="java-tomcat"
+
+    Create an environment variable named `CATALINA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>` where `<app-name>` is your App Service name. If you already have an environment variable for `CATALINA_OPTS`, append the `-javaagent:/...` option to the end of the current value.
+
+    ::: zone-end
+
+    ::: zone pivot="java-jboss"
+
+    For **JBoss EAP**, `[TODO]`.
+
+    ::: zone-end
+
 ---
 
 ## Configure Datadog
 
-# [Windows](#tab/windows)
+# [Linux](#tab/linux)
 * The configuration options are different depending on which Datadog site your organization is using. See the official [Datadog Integration for Azure Documentation](https://docs.datadoghq.com/integrations/azure/)
 
-# [Linux](#tab/linux)
+# [Windows](#tab/windows)
 * The configuration options are different depending on which Datadog site your organization is using. See the official [Datadog Integration for Azure Documentation](https://docs.datadoghq.com/integrations/azure/)
 
 ---
 
 ## Configure Dynatrace
 
-# [Windows](#tab/windows)
+# [Linux](#tab/linux)
 * Dynatrace provides an [Azure Native Dynatrace Service](https://www.dynatrace.com/monitoring/technologies/azure-monitoring/). To monitor Azure App Services using Dynatrace, see the official [Dynatrace for Azure documentation](https://docs.datadoghq.com/integrations/azure/)
 
-# [Linux](#tab/linux)
+# [Windows](#tab/windows)
 * Dynatrace provides an [Azure Native Dynatrace Service](https://www.dynatrace.com/monitoring/technologies/azure-monitoring/). To monitor Azure App Services using Dynatrace, see the official [Dynatrace for Azure documentation](https://docs.datadoghq.com/integrations/azure/)
 
 ---

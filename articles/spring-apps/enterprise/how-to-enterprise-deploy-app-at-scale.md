@@ -5,10 +5,12 @@ author: karlerickson
 ms.author: xiading
 ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 07/05/2023
+ms.date: 08/28/2024
 ---
 
 # Scale out to deploy over 500 and up to 1000 application instances using Azure Spring Apps Enterprise
+
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 This article applies to ❌ Basic/Standard ✔️ Enterprise
 

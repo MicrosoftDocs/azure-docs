@@ -3,8 +3,8 @@ title: Configure networking for Azure Elastic SAN
 description: Learn how to secure Azure Elastic SAN volumes through access configuration.
 author: roygara
 ms.service: azure-elastic-san-storage
-ms.topic: conceptual
-ms.date: 05/29/2024
+ms.topic: how-to
+ms.date: 09/25/2024
 ms.author: rogarana
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 ---
@@ -193,7 +193,7 @@ Deploying a private endpoint for an Elastic SAN Volume group using PowerShell in
 1. Create the private endpoint using the subnet and the private link service connection as input.
 1. **(Optional)** *if you're using the two-step process (creation, then approval))*: The Elastic SAN Network Admin approves the connection.
 
-Use this sample code to create a private endpoint for your Elastic SAN volume group with PowerShell. Replace the values of `RgName`, `VnetName`, `SubnetName`, `EsanName`, `EsanVgName`, `PLSvcConnectionName`, `EndpointName`, and `Location` with your own values:
+Use this sample code to create a private endpoint for your Elastic SAN volume group with PowerShell. Replace the values of `RgName`, `VnetName`, `SubnetName`, `EsanName`, `EsanVgName`, `PLSvcConnectionName`, `EndpointName`, and `Location`(Region) with your own values:
 
 ```powershell
 # Set the resource group name.
@@ -430,7 +430,7 @@ You can manage virtual network rules for volume groups through the Azure portal,
     ```azurepowershell
     $rule = New-AzElasticSanVirtualNetworkRuleObject -VirtualNetworkResourceId $Subnet.Id -Action Allow
     
-    Add-AzElasticSanVolumeGroupNetworkRule -ResourceGroupName $RgName -ElasticSanName $sanName -VolumeGroupName $volGroupName -NetworkAclsVirtualNetworkRule $rule
+    Add-AzElasticSanVolumeGroupNetworkRule -ResourceGroupName $RgName -ElasticSanName $EsanName -VolumeGroupName $EsanVgName -NetworkAclsVirtualNetworkRule $rule
     ```
 
     > [!TIP]

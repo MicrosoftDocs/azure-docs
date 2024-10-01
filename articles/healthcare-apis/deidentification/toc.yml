@@ -6,6 +6,8 @@ items:
     items:
       - name: What is the de-identification service?
         href: overview.md
+      - name: Transparency Note
+        href: transparency-note.md
   - name: Quickstarts
     expanded: true
     items:
@@ -16,11 +18,19 @@ items:
   - name: How-to
     expanded: true
     items:
+      - name: Configure private endpoints
+        href: configure-private-endpoints.md
       - name: Use managed identities
         href: managed-identities.md
       - name: Use Azure role-based access control
         href: manage-access-rbac.md
+  - name: Concepts
+    expanded: true
+    items:
+      - name: Monitor the de-identification service
+        href: monitor-deidentification-service.md
   - name: Reference
+    expanded: true
     items:
       - name: REST API
         href: /rest/api/healthdata
@@ -32,3 +42,5 @@ items:
         href: /java/api/overview/azure/health-deidentification
       - name: JavaScript SDK
         href: /javascript/api/overview/azure/health-deidentification
+      - name: De-identification service monitoring data reference
+        href: monitor-deidentification-service-reference.md

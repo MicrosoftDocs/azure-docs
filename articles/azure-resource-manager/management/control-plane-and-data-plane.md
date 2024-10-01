@@ -3,7 +3,7 @@ title: Control plane and data plane operations
 description: Describes the difference between control plane and data plane operations. Control plane operations are handled by Azure Resource Manager. Data plane operations are handled by a service.
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 03/19/2024
+ms.date: 09/26/2024
 ---
 
 # Azure control plane and data plane
@@ -40,9 +40,9 @@ Azure Resource Manager handles all control plane requests. It automatically appl
 * [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md)
 * [Azure Policy](../../governance/policy/overview.md)
 * [Management Locks](lock-resources.md)
-* [Activity Logs](../../azure-monitor/essentials/activity-log.md)
+* [Activity Logs](/azure/azure-monitor/essentials/activity-log)
 
-After authenticating the request, Azure Resource Manager sends it to the resource provider, which completes the operation. Even during periods of unavailability for the control plane, you can still access the data plane of your Azure resources. For instance, you can continue to access and operate on data in your storage account resource via its separate storage URI `https://myaccount.blob.core.windows.net` even when `https://management.azure.com` is not available.
+After authenticating the request, Azure Resource Manager sends it to the resource provider, which completes the operation. Even during periods of unavailability for the control plane, you can still access the data plane of your Azure resources. For instance, you can continue to access and operate on data in your storage account resource via its separate storage URI `https://myaccount.blob.core.windows.net` even when `https://management.azure.com` isn't available.
 
 The control plane includes two scenarios for handling requests - "green field" and "brown field". Green field refers to new resources. Brown field refers to existing resources. As you deploy resources, Azure Resource Manager understands when to create new resources and when to update existing resources. You don't have to worry that identical resources will be created.
 

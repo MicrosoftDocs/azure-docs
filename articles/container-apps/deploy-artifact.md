@@ -10,7 +10,7 @@ ms.date: 02/27/2024
 ms.custom: ignite-2023
 ---
 
-# Quickstart: Deploy an artifact file to Azure Container Apps
+# Quickstart: Deploy an artifact file to Azure Container Apps (preview)
 
 In this quickstart, you learn to deploy a container app from a prebuilt artifact file. The example in this article deploys a Java application using a JAR file, which includes a Java-specific manifest file. Your job is to create a backend web API service that returns a static collection of music albums. After completing this quickstart, you can continue to [Communication between microservices](communicate-between-microservices.md) to learn how to deploy a front end application that calls the API.
 

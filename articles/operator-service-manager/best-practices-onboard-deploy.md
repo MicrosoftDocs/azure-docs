@@ -293,7 +293,10 @@ Delete publisher resources in the following order to make sure no orphaned resou
 
 ## Considerations if your NF runs cert-manager
 
-With release 1.0.2728-50 and later , AOSM now uses cert-manager to store and rotate certificates. As part of this change, AOSM deploys a cert-manager operator, and associate CRDs, in the azurehybridnetwork namespace. Since having multiple cert-manager operators, even deployed in separate namespaces, will watch across all namespaces, only one cert-manager can be effectively run on the cluster.
+> [!IMPORTANT]
+> This guidance applies only to certain releases. Check your version for proper behavior.
+
+From release 1.0.2728-50 to release Version 2.0.2777-132, AOSM uses cert-manager to store and rotate certificates. As part of this change, AOSM deploys a cert-manager operator, and associate CRDs, in the azurehybridnetwork namespace. Since having multiple cert-manager operators, even deployed in separate namespaces, will watch across all namespaces, only one cert-manager can be effectively run on the cluster.
 
 Any user trying to install cert-manager on the cluster, as part of a workload deployment, will get a deployment failure with an error that the CRD “exists and cannot be imported into the current release.”  To avoid this error, the recommendation is to skip installing cert-manager, instead take dependency on cert-manager operator and CRD already installed by AOSM.
 
@@ -310,3 +313,77 @@ For the cert-manager operator, our current deployed version is 1.14.5.  Users sh
 
 For the CRD resources, our current deployed version is 1.14.5.  Users should test for compatibility with this version.  Since management of a common cluster CRD is something typically handled by a cluster administrator, we are working to enable CRD resource upgrades via standard Nexus Add-on process. 
 
+## NfApp Sequential Ordering Behavior
+
+### Overview
+
+By default, containerized network function applications (NfApps) are installed or updated based on the sequential order in which they appear in the network function design version (NFDV). For delete, the NfApps are deleted in the reverse order sepcified. Where a publisher needs to define specific ordering of NfApps, different from the default, a dependsOnProfile is used to define a unique sequence for install, update and delete operations.
+
+### How to use dependsOnProfile
+
+A publisher can use the dependsOnProfile in the NFDV to control the sequence of helm executions for NfApps. Given the following example, on install operation the NfApps will be deployed in the following order: dummyApplication1, dummyApplication2, then dummyApplication. On update operation, the NfApps will be updated in the following order: dummyApplication2, dummyApplication1, then dummyApplication. On delete operation, the NfApps will be deleted in the following order: dummyApplication2, dummyApplication1, then dummyApplication.
+
+```json
+{
+    "location": "eastus",
+    "properties": {
+        "networkFunctionTemplate": {
+            "networkFunctionApplications": [
+                {
+                  "dependsOnProfile": {
+                        "installDependsOn": [
+                            "dummyApplication1",
+                            "dummyApplication2"
+                        ],
+                        "uninstallDependsOn": [
+                            "dummyApplication1"
+                        ],
+                        "updateDependsOn": [
+                            "dummyApplication1"
+                        ]
+                    },
+                    "name": "dummyApplication"
+                },
+                {
+                  "dependsOnProfile": {
+                        "installDependsOn": [
+                        ],
+                        "uninstallDependsOn": [
+                            "dummyApplication2"
+                        ],
+                        "updateDependsOn": [
+                            "dummyApplication2"
+                        ]
+                    },
+                    "name": "dummyApplication1"
+                },
+                {
+                    "dependsOnProfile": null,
+                    "name": "dummyApplication2"
+                }
+            ],
+            "nfviType": "AzureArcKubernetes"
+        },
+        "networkFunctionType": "ContainerizedNetworkFunction"
+    }
+}
+```
+
+### Common Errors
+
+As of today, if dependsOnProfile provided in the NFDV is invalid, the NF operation will fail with a validation error. The validation error message is shown in the operation status resource and looks similar to the following example.
+
+```json
+ {
+  "id": "/providers/Microsoft.HybridNetwork/locations/EASTUS2EUAP/operationStatuses/ca051ddf-c8bc-4cb2-945c-a292bf7b654b*C9B39996CFCD97AB3A121AE136ED47F67BB13946C573EF90628C47628BC5EF5F",
+  "name": "ca051ddf-c8bc-4cb2-945c-a292bf7b654b*C9B39996CFCD97AB3A121AE136ED47F67BB13946C573EF90628C47628BC5EF5F",
+  "resourceId": "/subscriptions/4a0479c0-b795-4d0f-96fd-c7edd2a2928f/resourceGroups/xinrui-publisher/providers/Microsoft.HybridNetwork/networkfunctions/testnfDependsOn02",
+  "status": "Failed",
+  "startTime": "2023-07-17T20:48:01.4792943Z",
+  "endTime": "2023-07-17T20:48:10.0191285Z",
+  "error": {
+    "code": "DependenciesValidationFailed",
+    "message": "CyclicDependencies: Circular dependencies detected at hellotest."
+  }
+}
+```
