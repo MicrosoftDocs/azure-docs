@@ -48,7 +48,7 @@ Create an application rule collection that allows the cluster to send and receiv
 
     :::image type="content" source="./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection.png" alt-text="Title: Add application rule collection.":::
 
-1. On the **Add application rule collection** screen, provide the following information:
+1. On the **`Add application rule collection`** screen, provide the following information:
 
     **Top section**
 
@@ -110,7 +110,7 @@ Create the network rules to correctly configure your HDInsight cluster.
 
 Create a route table with the following entries:
 
-* All IP addresses from [Health and management services](../hdinsight/hdinsight-management-ip-addresses.md#health-and-management-services-all-regions) with a next hop type of **Internet**. It should include 4 IPs of the generic regions as well as 2 IPs for your specific region. This rule is only needed if the ResourceProviderConnection is set to *Inbound*. If the ResourceProviderConnection is set to *Outbound* then these IPs are'nt needed in the UDR. 
+* All IP addresses from [Health and management services](../hdinsight/hdinsight-management-ip-addresses.md#health-and-management-services-all-regions) with a next hop type of **Internet**. It should include 4 IPs of the generic regions as well as 2 IPs for your specific region. This rule is only needed if the ResourceProviderConnection is set to *Inbound*. If the ResourceProviderConnection is set to *Outbound* then these IPs aren't needed in the UDR. 
 
 * One Virtual Appliance route for IP address 0.0.0.0/0 with the next hop being your Azure Firewall private IP address.
 
