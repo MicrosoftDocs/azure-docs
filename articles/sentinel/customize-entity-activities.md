@@ -143,6 +143,7 @@ At least one identifier is required in a query.
 | | Host_NetBiosName + Host_NTDomain | similar to fully qualified domain name (FQDN) |
 | | Host_NetBiosName + Host_DnsDomain | similar to fully qualified domain name (FQDN) |
 | | Host_AzureID | the Microsoft Entra object ID of the host in Microsoft Entra ID (if Microsoft Entra domain joined) |
+| | Host_OMSAgentID | the OMS Agent ID of the agent installed on a specific host (unique per host) 
 
 Based on the entity selected you will see the available identifiers. Clicking on the relevant identifiers will paste the identifier into the query, at the location of the cursor.
 
