@@ -50,11 +50,11 @@ sections:
           
       - question: Are there any size limitations on keys and values stored in App Configuration?
         answer: |
-          There's a limit of 10 KB for a single key-value, including attributes such as label, content-type, tags, and other metadata.
+          There's a limit of 10 KB for a single key-value, including attributes such as label, content-type, tags, and other metadata. There is no limit on the number of keys and labels as long as their total size is below the storage limit.
 
-          This limit should be sufficient for a single setting in most applications. If you find that your setting is larger than this limit, you may consider storing your data elsewhere, and [add a reference of that data](./howto-best-practices.md#references-to-external-data) in App Configuration.
+          This key-vaule limit should be sufficient for a single setting in most applications. If you find that your setting is larger than this limit, you may consider storing your data elsewhere, and [add a reference of that data](./howto-best-practices.md#references-to-external-data) in App Configuration.
 
-          For more information, see [Azure subscription and service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-app-configuration).
+          For a complete list of limits, see [Azure subscription and service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-app-configuration).
 
       - question: How should I store configurations for multiple environments (test, staging, production, and so on)?
         answer: |
@@ -88,9 +88,9 @@ sections:
           - **Throughput**: App Configuration stores in all tiers have a throughput allowance. Requests exceeding this allowance will receive an HTTP status code 429 response.
               Stores in the Free tier have no guaranteed throughput.
 
-              Stores in the Standard tier allow up to 300 requests per second (RPS) for read requests and up to 60 RPS for write requests.
+              Stores in the Standard tier allow a run rate of up to 300 requests per second (RPS) for read requests and up to 60 RPS for write requests.
 
-              Stores in the Premium tier allow up to 450 RPS for read requests and up to 100 RPS for write requests.
+              Stores in the Premium tier allow a run rate of up to 450 RPS for read requests and up to 100 RPS for write requests.
           - **Service level agreement**: The Free tier doesn't have an SLA. The Standard tier has an SLA of 99.9% availability and 99.95% availability with geo-replication enabled. The Premium tier has an SLA of 99.9% availability and 99.99% availability with geo-replication enabled.
           - **Features**: All tiers include functionalities, including encryption with Microsoft-managed keys, authentication via access key or Microsoft Entra ID, Azure role-based access control (RBAC), managed identity, service tags, and availability zone redundancy. The Standard and Premium tiers offer more functionalities, including Private Link support, encryption with customer-managed keys, soft delete protection, and geo-replication capability.
           - **Cost**: There's no cost to use a Free tier store.
@@ -121,7 +121,7 @@ sections:
         answer: |        
           App Configuration stores have different request quotas based on their tier. Free tier stores are limited to 1,000 requests per day, Standard tier stores to 30,000 requests per hour, and Premium tier stores have no request limits, ensuring uninterrupted access.
 
-          App Configuration stores have throughput allowances based on their tier. Free tier stores do not have guaranteed throughput. Standard tier stores support up to 300 requests per second (RPS) for read operations and up to 60 RPS for write operations. Premium tier stores support up to 450 RPS for read operations and up to 100 RPS for write operations.
+          App Configuration stores have throughput allowances based on their tier. Free tier stores do not have guaranteed throughput. Standard tier stores support a run rate of up to 300 requests per second (RPS) for read operations and up to 60 RPS for write operations. Premium tier stores support a run rate of up to 450 RPS for read operations and up to 100 RPS for write operations.
 
       - question: How do I estimate the number of requests my application may send to App Configuration?
         answer: |
@@ -131,7 +131,7 @@ sections:
 
           Secondly, let's estimate the requests for configuration loading/reloading. Your application loads all settings at the startup or whenever a sentinel key change is detected. Each request to App Configuration can retrieve up to 100 key-values, so it will take 10 (=1000/100) requests to load all settings. Given you have 50 application instances, you send 500 (=10x50) total requests when your application restarts or reloads its configuration.
 
-          Finally, let's put it together. Assuming you updated the sentinel key twice within an hour, your App Configuration store will thus receive 7,000 (=6,000+500x2) total requests for that hour. Note that out of these requests, only about 1,000 (=500x2) requests will use the available hourly quota. Update the numbers in this example to match your specific setup and design accordingly so you have a sufficient buffer against the hourly throttling limit.
+          Finally, let's put it together. Assuming you updated the sentinel key twice within an hour, your App Configuration store will thus receive 7,000 (=6,000+500x2) total requests for that hour. Note that out of these requests, only about 1,000 (=500x2) requests will use the available hourly quota for a Standard tier store. Update the numbers in this example to match your specific setup and design accordingly so you have a sufficient buffer against the hourly quota limit.
           
           †Free tier stores do not have frequent, repeated requests excluded from their daily limit.
 
