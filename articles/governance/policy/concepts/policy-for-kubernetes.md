@@ -606,6 +606,13 @@ Finally, to identify the AKS cluster version that you're using, follow the linke
 
 ### Add-on versions available per each AKS cluster version
 
+#### 1.7.1
+Introducing VAP and CEL. Validating Admission Policy (VAP) feature provides in-tree policy evaluation, reduces admission request latency, and improves reliability and availability. Common Expression Language (CEL) is a Kubernetes-native expression language that can be used to declare validation rules of a policy. The supported validation actions include Deny, Warn, and Audit. Custom policy authoring for CEL/VAP is allowed, and existing users will not have to convert their Rego to CEL as they will both be supported and be used to enforce policies. For more information, view the [Gatekeeper Documentation](https://open-policy-agent.github.io/gatekeeper/website/docs/validating-admission-policy/).
+
+- Released Sep 2024 
+- Kubernetes 1.30+ 
+- Gatekeeper 3.17.1 
+
 #### 1.7.0
 Introducing expansion, a shift left feature that lets you know up front whether your workload resources (Deployments, ReplicaSets, Jobs, etc.) will produce admissible pods. Expansion shouldn't change the behavior of your policies; rather, it just shifts Gatekeeper's evaluation of pod-scoped policies to occur at workload admission time rather than pod admission time. However, to perform this evaluation it must generate and evaluate a what-if pod that is based on the pod spec defined in the workload, which may have incomplete metadata. For instance, the what-if pod will not contain the proper owner references. Because of this small risk of policy behavior changing, we're introducing expansion as disabled by default. To enable expansion for a given policy definition, set `.policyRule.then.details.source` to `All`. Built-ins will be updated soon to enable parameterization of this field. If you test your policy definition and find that the what-if pod being generated for evaluation purposes is incomplete, you can also use a mutation with source `Generated` to mutate the what-if pods. For more information on this option, view the [Gatekeeper documentation](https://open-policy-agent.github.io/gatekeeper/website/docs/expansion#mutating-example).
 
