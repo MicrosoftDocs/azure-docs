@@ -115,7 +115,7 @@ You'll need to complete the following steps to enable the trusted Microsoft serv
 
 Similarly, you can use private access endpoints for your Azure Digital Twins instance to allow clients located in your virtual network to have secure REST API access to the instance over Private Link. Configuring a private access endpoint for your Azure Digital Twins instance enables you to secure your Azure Digital Twins instance and eliminate public exposure. Additionally, it helps avoid data exfiltration from your [Azure Virtual Network (VNet)](../virtual-network/virtual-networks-overview.md).
 
-The private access endpoint uses an IP address from your Azure VNet address space. Network traffic between a client on your private network and the Azure Digital Twins instance traverses over the VNet and a Private Link on the Microsoft backbone network, eliminating exposure to the public internet. Here's a visual representation of this system:
+The private access endpoint uses an IP address from your Azure VNet address space. Network traffic between a client on your private network and the Azure Digital Twins instance traverses over the VNet and a Private Link on the Microsoft backbone network, eliminating exposure to the public internet.
 
 :::image type="content" source="media/concepts-security/private-link.png" alt-text="Diagram showing a network that is a protected VNET with no public cloud access, connecting through Private Link to an Azure Digital Twins instance.":::
 
