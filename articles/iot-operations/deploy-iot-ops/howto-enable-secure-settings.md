@@ -48,38 +48,16 @@ Use the following steps to enable workload identity on an existing connected K3s
 
 1. Download and install a preview version of the `connectedk8s` extension for Azure CLI. GitHub: [connectedk8s-1.10.0](https://github.com/AzureArcForKubernetes/azure-cli-extensions/blob/connectedk8s/public/cli-extensions/connectedk8s-1.10.0-py2.py3-none-any.whl).
 
-   ```bash
-   curl -L -o connectedk8s-1.10.0-py2.py3-none-any.whl https://github.com/AzureArcForKubernetes/azure-cli-extensions/raw/refs/heads/connectedk8s/public/cli-extensions/connectedk8s-1.10.0-py2.py3-none-any.whl   
-   ```
-
-1. Use the [az extension remove](/cli/azure/extension#az-extension-remove) command to remove the existing connectedk8s cli extension if you already installed it.
-
+1. Remove the existing connected k8s cli if any
    ```azurecli
-   #!/bin/bash
    az extension remove --name connectedk8s 
    ```
 
-1. Use the [az extension add](/cli/azure/extension#az-extension-add) command to add the new connectedk8s cli source.
+1. Download and install a preview version of the `connectedk8s` extension for Azure CLI.
 
    ```azurecli
-   #!/bin/bash
-   az extension add --upgrade --source <PATH_TO_WHL_FILE>
-   ```
- 
-1. Use the [az connectedk8s upgrade](/cli/azure/connectedk8s#az-connectedk8s-upgrade) command to upgrade the Arc agent version to the private build that supports the workload identity feature.
-
-   ```azurecli
-   #!/bin/bash   
-
-   # Variable block
-   RESOURCE_GROUP="<RESOURCE_GROUP>"
-   CLUSTER_NAME="<CLUSTER_NAME>"
-   RELEASE_TAG="1.20.1"
-
-   # Update the Arc agent version
-   az connectedk8s upgrade --resource-group $RESOURCE_GROUP \
-                           --name $CLUSTER_NAME \
-                           --agent-version $RELEASE_TAG
+   curl -L -o connectedk8s-1.10.0-py2.py3-none-any.whl https://github.com/AzureArcForKubernetes/azure-cli-extensions/raw/refs/heads/connectedk8s/public/cli-extensions/connectedk8s-1.10.0-py2.py3-none-any.whl   
+   az extension add --upgrade --source connectedk8s-1.10.0-py2.py3-none-any.whl
    ```
 
 1. Use the [az connectedk8s update](/cli/azure/connectedk8s#az-connectedk8s-update) command to enable the workload identity feature on the cluster.
@@ -92,9 +70,7 @@ Use the following steps to enable workload identity on an existing connected K3s
    CLUSTER_NAME="<CLUSTER_NAME>"
 
    # Enable workload identity
-   az connectedk8s update --resource-group $RESOURCE_GROUP \
-                          --name $CLUSTER_NAME \
-                          --enable-oidc-issuer --enable-workload-identity 
+   az connectedk8s update --resource-group $RESOURCE_GROUP --name $CLUSTER_NAME --enable-oidc-issuer --enable-workload-identity 
    ```
 
 1. Use the [az connectedk8s show](/cli/azure/connectedk8s#az-connectedk8s-show) command to to get the cluster's issuer url. Take a note to add it later in K3s config file.
@@ -114,7 +90,7 @@ Use the following steps to enable workload identity on an existing connected K3s
 1. Create a K3s config file.
 
    ```bash
-   nano /etc/rancher/k3s/config.yaml
+   sudo nano /etc/rancher/k3s/config.yaml
    ```
 
 1. Add the following content to the config.yaml file:
@@ -154,10 +130,7 @@ If you already have an Azure Key Vault with `Key Vault Secrets Officer` permissi
     LOCATION="<LOCATION>"
 
     # Create the Key Vault
-    az keyvault create --name $KEYVAULT_NAME \
-                       --resource-group $RESOURCE_GROUP \
-                       --location $LOCATION \
-                       --enable-rbac-authorization
+    az keyvault create --name $KEYVAULT_NAME --resource-group $RESOURCE_GROUP --location $LOCATION --enable-rbac-authorization
     ```
     
     # [PowerShell](#tab/powershell)
@@ -191,9 +164,7 @@ If you already have an Azure Key Vault with `Key Vault Secrets Officer` permissi
     ASSIGNEE_ID=$(az ad signed-in-user show --query id -o tsv)
     
     # Assign the "Key Vault Secrets Officer" role
-    az role assignment create --role "Key Vault Secrets Officer" \
-                              --assignee $ASSIGNEE_ID \
-                              --scope /subscriptions/$SUBSCRIPTION_ID/resourcegroups/$RESOURCE_GROUP/providers/Microsoft.KeyVault/vaults/$KEYVAULT_NAME
+    az role assignment create --role "Key Vault Secrets Officer" --assignee $ASSIGNEE_ID --scope /subscriptions/$SUBSCRIPTION_ID/resourcegroups/$RESOURCE_GROUP/providers/Microsoft.KeyVault/vaults/$KEYVAULT_NAME
     ```
     
     # [PowerShell](#tab/powershell)
@@ -228,9 +199,7 @@ RESOURCE_GROUP="<RESOURCE_GROUP>"
 LOCATION="LOCATION"
 
 # Create the identity
-az identity create --name $USER_ASSIGNED_MI_NAME \
-                     --resource-group $RESOURCE_GROUP \
-                     --location $LOCATION
+az identity create --name $USER_ASSIGNED_MI_NAME --resource-group $RESOURCE_GROUP --location $LOCATION
 ```
 
 # [PowerShell](#tab/powershell)
@@ -261,7 +230,7 @@ Use the [az iot ops secretsync enable](/cli/azure/iot/ops) command to set up the
    
 ```azurecli
 # Variable block
-CLUSTER_NAME="<CLUSTER_NAME>"
+INSTANCE_NAME="<INSTANCE_NAME"
 RESOURCE_GROUP="<RESOURCE_GROUP>"
 USER_ASSIGNED_MI_NAME="<USER_ASSIGNED_MI_NAME>"
 KEYVAULT_NAME="<KEYVAULT_NAME>"
@@ -273,17 +242,14 @@ USER_ASSIGNED_MI_RESOURCE_ID=$(az identity show --name $USER_ASSIGNED_MI_NAME --
 KEYVAULT_RESOURCE_ID=$(az keyvault show --name $KEYVAULT_NAME --resource-group $RESOURCE_GROUP --query id --output tsv)
 
 #Enable secret synchronization
-az iot ops secretsync enable --name $CLUSTER_NAME \
-                             --resource-group $RESOURCE_GROUP \
-                             --mi-user-assigned $USER_ASSIGNED_MI_RESOURCE_ID \
-                             --kv-resource-id $KEYVAULT_RESOURCE_ID
+az iot ops secretsync enable --name $INSTANCE_NAME --resource-group $RESOURCE_GROUP --mi-user-assigned $USER_ASSIGNED_MI_RESOURCE_ID --kv-resource-id $KEYVAULT_RESOURCE_ID
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```azurecli
 # Variable block
-$CLUSTER_NAME="<CLUSTER_NAME>"
+INSTANCE_NAME="<INSTANCE_NAME"
 $RESOURCE_GROUP="<RESOURCE_GROUP>"
 $USER_ASSIGNED_MI_NAME="<USER_ASSIGNED_MI_NAME>"
 $KEYVAULT_NAME="<KEYVAULT_NAME>"
@@ -295,7 +261,7 @@ $USER_ASSIGNED_MI_RESOURCE_ID=$(az identity show --name $USER_ASSIGNED_MI_NAME -
 $KEYVAULT_RESOURCE_ID=$(az keyvault show --name $KEYVAULT_NAME --resource-group $RESOURCE_GROUP --query id --output tsv)
 
 # Enable secret synchronization
-az iot ops secretsync enable --name $CLUSTER_NAME `
+az iot ops secretsync enable --name $INSTANCE_NAME `
                              --resource-group $RESOURCE_GROUP `
                              --mi-user-assigned $USER_ASSIGNED_MI_RESOURCE_ID `
                              --kv-resource-id $KEYVAULT_RESOURCE_ID
@@ -320,9 +286,7 @@ Some Azure IoT Operations components like dataflow endpoints use user-assigned m
     LOCATION="LOCATION"
     
     # Create the identity
-    az identity create --name $USER_ASSIGNED_MI_NAME \
-                       --resource-group $RESOURCE_GROUP \
-                       --location $LOCATION
+    az identity create --name $USER_ASSIGNED_MI_NAME --resource-group $RESOURCE_GROUP --location $LOCATION
     ```
     
     # [PowerShell](#tab/powershell)
@@ -350,7 +314,7 @@ Some Azure IoT Operations components like dataflow endpoints use user-assigned m
        
     ```azurecli
     # Variable block
-    CLUSTER_NAME="<CLUSTER_NAME>"
+    INSTANCE_NAME="<INSTANCE_NAME"
     RESOURCE_GROUP="<RESOURCE_GROUP>"
     USER_ASSIGNED_MI_NAME="<USER_ASSIGNED_MI_NAME FOR CLOUD CONNECTIONS>"
     
@@ -358,16 +322,14 @@ Some Azure IoT Operations components like dataflow endpoints use user-assigned m
     USER_ASSIGNED_MI_RESOURCE_ID=$(az identity show --name $USER_ASSIGNED_MI_NAME --resource-group $RESOURCE_GROUP --query id --output tsv)
     
     #Assign the identity to the Azure IoT Operations instance
-    az iot ops identity assign --name $CLUSTER_NAME \
-                               --resource-group $RESOURCE_GROUP \
-                               --mi-user-assigned $USER_ASSIGNED_MI_RESOURCE_ID
+    az iot ops identity assign --name $INSTANCE_NAME --resource-group $RESOURCE_GROUP --mi-user-assigned $USER_ASSIGNED_MI_RESOURCE_ID
     ```
     
     # [PowerShell](#tab/powershell)
     
     ```azurecli
     # Variable block
-    $CLUSTER_NAME="<CLUSTER_NAME>"
+    $INSTANCE_NAME="<INSTANCE_NAME"
     $RESOURCE_GROUP="<RESOURCE_GROUP>"
     $USER_ASSIGNED_MI_NAME="<USER_ASSIGNED_MI_NAME FOR CLOUD CONNECTIONS>"
     
@@ -376,7 +338,7 @@ Some Azure IoT Operations components like dataflow endpoints use user-assigned m
     
     
     #Assign the identity to the Azure IoT Operations instance
-    az iot ops identity assign --name $CLUSTER_NAME `
+    az iot ops identity assign --name $INSTANCE_NAME `
                                --resource-group $RESOURCE_GROUP `
                                --mi-user-assigned $USER_ASSIGNED_MI_RESOURCE_ID
     ```
