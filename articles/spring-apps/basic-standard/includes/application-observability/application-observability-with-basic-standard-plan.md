@@ -102,7 +102,7 @@ Use the following steps to create a custom dashboard and pin various quickstart 
    This action opens the **Tile Gallery** page, from which you can select the tiles, and an empty grid where you can arrange the tiles.
 
 > [!NOTE]
-> You can allow other users to view your dashboard using a shared dashboard. For more information, see [Share an Azure dashboard](../../../../azure-portal/azure-portal-dashboard-share-access.md).
+> You can allow other users to view your dashboard using a shared dashboard. For more information, see [Share an Azure dashboard](/azure/azure-portal/azure-portal-dashboard-share-access).
 
 #### Basic monitoring
 

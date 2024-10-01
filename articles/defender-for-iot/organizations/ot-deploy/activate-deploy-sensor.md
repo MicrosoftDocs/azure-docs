@@ -131,6 +131,12 @@ If you've configured the initial settings [via the CLI](#configure-setup-via-the
 1. Select the terms and conditions option and then select **Activate**.
 1. Select **Next: Certificates**.
 
+If you have a connection problem between the cloud-based sensor and the Azure portal during the activation process that causes the activation to fail, a message appears below the Activate button. To solve the connectivity problem select **Learn more** and the **Cloud connectivity** pane opens. The pane lists the causes for the problem and recommendations to solve it.
+
+Even without solving the problem you're able to continue to the next stage, by selecting **Next: Certificates**.
+
+The only connection problem that must be fixed before moving to the next stage, is when a time drift is detected and the sensor isn't synchronized to the cloud. In this case the sensor must be correctly synchronized, as described in the recommendations, before moving to the next stage.
+
 ### Define SSL/TLS certificate settings
 
 Use the **Certificates** tab to deploy an SSL/TLS certificate on your OT sensor. We recommend that you use a [CA-signed certificate](create-ssl-certificates.md) for all production environments.

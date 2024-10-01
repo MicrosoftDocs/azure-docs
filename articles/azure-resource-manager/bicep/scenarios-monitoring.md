@@ -3,14 +3,14 @@ title: Create monitoring resources by using Bicep
 description: Describes how to create monitoring resources by using Bicep.
 ms.topic: how-to
 ms.custom: devx-track-bicep
-ms.date: 07/28/2023
+ms.date: 09/26/2024
 ---
 
 # Create monitoring resources by using Bicep
 
 Azure has a comprehensive suite of tools that can monitor your applications and services. You can programmatically create your monitoring resources using Bicep to automate the creation of rules, diagnostic settings, and alerts when provisioning your Azure infrastructure.
 
-Bringing your monitoring configuration into your Bicep code might seem unusual, considering that there are tools available inside the Azure portal to set up alert rules, diagnostic settings and dashboards.
+Bringing your monitoring configuration into your Bicep code might seem unusual, considering that there are tools available inside the Azure portal to set up alert rules, diagnostic settings, and dashboards.
 
 However, alerts and diagnostic settings are essentially the same as your other infrastructure resources. By including them in your Bicep code, you can deploy and test your alerting resources as you would for other Azure resources.
 
@@ -130,9 +130,9 @@ resource subscriptionActivityLog 'Microsoft.Insights/diagnosticSettings@2021-05-
 
 ## Alerts
 
-Alerts proactively notify you when issues are found within your Azure infrastructure and applications by monitoring data within Azure Monitor. By configuring your monitoring and alerting configuration within your Bicep code, you can automate the creation of these alerts alongside the infrastructure that you are provisioning in Azure.
+Alerts proactively notify you when issues are found within your Azure infrastructure and applications by monitoring data within Azure Monitor. By configuring your monitoring and alerting configuration within your Bicep code, you can automate the creation of these alerts alongside the infrastructure that you're provisioning in Azure.
 
-For more information about how alerts work in Azure see [Overview of alerts in Microsoft Azure](/azure/azure-monitor/alerts/alerts-overview).
+For more information about how alerts work in Azure, see [Overview of alerts in Microsoft Azure](/azure/azure-monitor/alerts/alerts-overview).
 
 The following sections demonstrate how you can configure different types of alerts using Bicep code.
 
@@ -140,7 +140,7 @@ The following sections demonstrate how you can configure different types of aler
 
 To be notified when alerts have been triggered, you need to create an action group. An action group is a collection of notification preferences that are defined by the owner of an Azure subscription. Action groups are used to notify users that an alert has been triggered, or to trigger automated responses to alerts.
 
-To create action groups in Bicep, you can use the type [Microsoft.Insights/actionGroups](/azure/templates/microsoft.insights/actiongroups?tabs=bicep). Here is an example:
+To create action groups in Bicep, you can use the type [Microsoft.Insights/actionGroups](/azure/templates/microsoft.insights/actiongroups?tabs=bicep). Here's an example:
 
 ```bicep
 param actionGroupName string = 'On-Call Team'
@@ -327,7 +327,7 @@ Smart detection alerts warn you of potential performance problems and failure an
 
 In Bicep, you can create portal dashboards by using the resource type [Microsoft.Portal/dashboards](/azure/templates/microsoft.portal/dashboards?tabs=bicep).
 
-For more information about creating dashboards with code, see [Programmatically create an Azure Dashboard](../../azure-portal/azure-portal-dashboards-create-programmatically.md).
+For more information about creating dashboards with code, see [Programmatically create an Azure Dashboard](/azure/azure-portal/azure-portal-dashboards-create-programmatically).
 
 ## Autoscale rules
 
@@ -335,7 +335,7 @@ To create an autoscaling setting, you define these using the resource type [Micr
 
 To target the resource that you want to apply the autoscaling setting to, you need to provide the target resource identifier of the resource that the setting should be added to.
 
-In this example, a *scale out* condition for the App Service plan based on the average CPU percentage over a 10 minute time period. If the App Service plan exceeds 70% average CPU consumption over 10 minutes, the autoscale engine scales out the plan by adding one instance.
+In this example, a *scale out* condition for the App Service plan based on the average CPU percentage over a 10-minute time period. If the App Service plan exceeds 70% average CPU consumption over 10 minutes, the autoscale engine scales out the plan by adding one instance.
 
 ```bicep
 param location string = resourceGroup().location
