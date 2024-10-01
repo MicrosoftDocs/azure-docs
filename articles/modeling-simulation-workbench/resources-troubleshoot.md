@@ -14,7 +14,7 @@ ms.date: 07/19/2023
 
 This troubleshooting guide contains general troubleshooting steps and information for Azure Modeling and Simulation Workbench. The content is organized by topic type.
 
-Additional troubleshooting steps for transient issues can be found on the [Known Issues] page.
+Additional troubleshooting steps for transient issues can be found on the [Known Issues](./troubleshoot-known-issues.md) page.
 
 ## Remote desktop troubleshooting
 

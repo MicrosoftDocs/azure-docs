@@ -1,5 +1,5 @@
 ---
-title: Known issues for Modeling and Simulation Workbench
+title: Known issues for Azure Modeling and Simulation Workbench
 description: "Troubleshooting guide for known issues on Azure Modeling and Simulation Workbench."
 author: yousefi-msft
 ms.author: yousefi
@@ -85,7 +85,7 @@ While uploading files into a chamber, you might see a file that isn't the expect
 
 The file isn't corrupt or truncated, but still uploading. The data pipeline isn't a single stage and files placed in the upload pipeline don't appear instantaneously in the */mount/datapipeline/datain* directory and are likely still completing. Check back later and verify the length or hash.
 
-## Azure VMs located in the same region as a workbench can't access a public ip connector
+## Azure VMs located in the same region as a workbench can't access a public IP connector
 
 Resources deployed outside of a workbench, in particular virtual machines (VM), can't access a chamber through a public IP connector if located in the same region. A VM deployed in the same region or even the same resource group as a workbench isn't able to connect to the chamber's connector. The VM's public facing IP address is on the allowlist. A locally installed version of AzCopy is unable to access the chamber's data pipeline. Errors include timeouts or not authorized.
 
