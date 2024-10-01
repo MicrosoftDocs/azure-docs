@@ -10,6 +10,11 @@ ms.custom: "include file"
 
 ---
 
+### What protocols I can use to send and receive events? 
+Producers or senders can use AMQP, Kafka, or HTTPS protocols to send events to an event hub. 
+
+Consumers or receivers use AMQP or Kafka to receive events from an event hub. Event Hubs support only the Pull model for consumers to receive events from it. Even when you use event handlers to handle events from an event hub, the event processor internally uses the pull model to receive events from the event hub.
+
 ### What ports do I need to open on the firewall? 
 You can use the following protocols with Azure Event Hubs to send and receive events:
 
