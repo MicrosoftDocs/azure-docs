@@ -55,6 +55,8 @@ This article shows you how to create two Python apps:
 
 In this section, you create a Python console app that responds to a direct method called by the cloud, which triggers a simulated **lockDoor** method.
 
+[!INCLUDE [iot-authentication-device-connection-string.md](../../includes/iot-authentication-device-connection-string.md)]
+
 1. At your command prompt, run the following command to install the **azure-iot-device** package:
 
     ```cmd/sh
@@ -163,6 +165,8 @@ To create a shared access policy that grants **service connect**, **registry rea
    :::image type="content" source="./media/iot-hub-python-python-schedule-jobs/get-connection-string.png" alt-text="Screenshot of how to get the primary connection string from an access policy in the IoT Hub of the Azure portal." lightbox="./media/iot-hub-python-python-schedule-jobs/get-connection-string.png":::
 
 For more information about IoT Hub shared access policies and permissions, see [Access control and permissions](./iot-hub-dev-guide-sas.md#access-control-and-permissions).
+
+[!INCLUDE [iot-authentication-service-connection-string.md](../../includes/iot-authentication-service-connection-string.md)]
 
 ## Schedule jobs for calling a direct method and updating a device twin's properties
 

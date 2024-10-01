@@ -1,6 +1,17 @@
 {
   "redirections": [
     {
+      "source_path": "articles/application-gateway/powershell-samples.md",
+      "redirect_url": "/previous-versions/azure/application-gateway/powershell-samples",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/update-manager/troubleshooter-known-issues.md",
+      "redirect_url": "/azure/update-manager/troubleshoot",
+
+      "redirect_document_id": false
+    },
+    {   
       "source_path": "articles/storage/blobs/storage-blob-scalable-app-create-vm.md",
       "redirect_url": "/previous-versions/azure/storage/blobs/storage-blob-scalable-app-create-vm",
       "redirect_document_id": false
@@ -2694,6 +2705,11 @@
     {
       "source_path_from_root": "/articles/migrate/prepare-isv-movere.md",
       "redirect_url": "/azure/migrate/whats-new#update-april-2024",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/migrate/migrate-v1.md",
+      "redirect_url": "/azure/migrate/migrate-services-overview",
       "redirect_document_id": false
     },
     {
