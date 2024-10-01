@@ -144,7 +144,6 @@ The platform API catalog helps enterprise developers discover API details and st
 Under certain conditions, a user might encounter the following error message after signing into the API Center platform API catalog and expanding the APIs list for an API center:
 
 `Error: Cannot read properties of undefined (reading 'nextLink')`
-`
 
 Check that the user is assigned the **Azure API Center Data Reader** role in the API center. If necessary, reassign the role to the user. Then, refresh the API Center platform API catalog in the Visual Studio Code extension.
 
