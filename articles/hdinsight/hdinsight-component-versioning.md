@@ -18,11 +18,11 @@ This table lists the versions of HDInsight that are available in the Azure porta
 | --- | --- | --- | --- | --- | --- | ---|
 | [HDInsight 5.1](./hdinsight-5x-component-versioning.md) |Ubuntu 18.0.4 LTS |November 1, 2023 | [Standard](hdinsight-component-versioning.md#support-options-for-hdinsight-versions) | Not announced |Not announced| Yes |
 | [HDInsight 5.0](./hdinsight-5x-component-versioning.md) |Ubuntu 18.0.4 LTS |March 11, 2022 | [Basic](hdinsight-component-versioning.md#support-options-for-hdinsight-versions) | March 31, 2025 | March 31, 2025| Yes |
-| [HDInsight 4.0](hdinsight-40-component-versioning.md) |Ubuntu 18.0.4 LTS |September 24, 2018 | [Basic](hdinsight-component-versioning.md#support-options-for-hdinsight-versions) | March 31, 2025 | March 31, 2025 |Yes |
+| HDInsight 4.0 |Ubuntu 18.0.4 LTS |September 24, 2018 | [Basic](hdinsight-component-versioning.md#support-options-for-hdinsight-versions) | March 31, 2025 | March 31, 2025 |Yes |
 
 **Support expiration** means that Microsoft no longer provides support for the specific HDInsight version. You might not be able to create clusters from the Azure portal.
 
-**Retirement** means that existing clusters of an HDInsight version continue to run as is. You can't create new clusters of this version through any means, which includes the CLI and SDKs. Other control plane features, such as manual scaling and autoscaling, not guaranteed to work after retirement date. Support isn't available for retired versions.
+**Retirement** means that existing clusters of a HDInsight version continue to run as is. You can't create new clusters of this version through any means, which includes the CLI and SDKs. Other control plane features, such as manual scaling and autoscaling, not guaranteed to work after retirement date. Support isn't available for retired versions.
 
 ### Spark versions supported in Azure HDInsight
 
@@ -36,7 +36,7 @@ Azure HDInsight supports the following Apache Spark versions.
 
 ## Support options for HDInsight versions
 
-Support defined as a time period that an HDInsight version supported by Microsoft Customer Service and Support. HDInsight offers two types of support: 
+Support defined as a time period that a HDInsight version supported by Microsoft Customer Service and Support. HDInsight offers two types of support: 
 - **Standard support**
 - **Basic support**
 

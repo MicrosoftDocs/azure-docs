@@ -126,7 +126,7 @@ Table below lists API endpoints in Azure vs. Azure Government for accessing and 
 ||API Management Portal|portal.azure-api.net|portal.azure-api.us||
 ||App Configuration|azconfig.io|azconfig.azure.us||
 ||App Service|azurewebsites.net|azurewebsites.us||
-||Azure AI Search|search.windows.net|search.windows.us||
+||Azure AI Search|search.windows.net|search.azure.us||
 ||Azure Functions|azurewebsites.net|azurewebsites.us||
 
 ## Service availability
@@ -288,7 +288,7 @@ The following Automation **features aren't currently available** in Azure Govern
 
 For feature variations and limitations, see [Azure Advisor in sovereign clouds](/azure/advisor/advisor-sovereign-clouds).
 
-### [Azure Lighthouse](../lighthouse/index.yml)
+### [Azure Lighthouse](/azure/lighthouse/)
 
 The following Azure Lighthouse **features aren't currently available** in Azure Government:
 

@@ -2,12 +2,14 @@
 title: Obtain insights using Backup center
 description: Learn how to analyze historical trends and gain deeper insights on your backups with Backup center. 
 ms.topic: how-to
-ms.date: 09/11/2024
+ms.date: 09/24/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
 # Obtain Insights using Backup center
+
+[!INCLUDE [backup-center-deprecation.md ](../../includes/backup-center-deprecation.md )]
 
 For analyzing historical trends and gaining deeper insights on your backups, Backup Center provides an interface to [Backup Reports](configure-reports.md), which uses [Azure Monitor Logs](/azure/azure-monitor/logs/data-platform-logs) and [Azure Workbooks](/azure/azure-monitor/visualize/workbooks-overview). Backup Reports offers the following capabilities:
 

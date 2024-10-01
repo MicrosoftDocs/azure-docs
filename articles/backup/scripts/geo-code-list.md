@@ -49,7 +49,7 @@ This sample XML provides you an insight about the geo-codes mapped with the resp
   <GeoCodeRegionNameMap GeoCode="gec" RegionName="Germany Central" />
   <GeoCodeRegionNameMap GeoCode="gne" RegionName="Germany Northeast" />
   <GeoCodeRegionNameMap GeoCode="krc" RegionName="Korea Central" />
-  <GeoCodeRegionNameMap GeoCode="frc" RegionName="France Central" />
+  <GeoCodeRegionNameMap GeoCode="fc" RegionName="France Central" />
   <GeoCodeRegionNameMap GeoCode="frs" RegionName="France South" />
   <GeoCodeRegionNameMap GeoCode="krs" RegionName="Korea South" />
   <GeoCodeRegionNameMap GeoCode="ugt" RegionName="USGov Texas" />

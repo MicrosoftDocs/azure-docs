@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/29/2024
+ms.date: 09/14/2024
 ms.author: jianleishen
 ---
 # Copy data from SharePoint Online List by using Azure Data Factory or Azure Synapse Analytics
@@ -72,15 +72,18 @@ The following properties are supported for a SharePoint Online List linked servi
 | type                | The type property must be set to: **SharePointOnlineList**.  | Yes          |
 | siteUrl             | The SharePoint Online site url, e.g. `https://contoso.sharepoint.com/sites/siteName`. | Yes          |
 | servicePrincipalId  | The Application (client) ID of the application registered in Microsoft Entra ID. | Yes          |
-| servicePrincipalCredentialType | Specify the credential type to use for service principal authentication. Allowed values are `ServicePrincipalKey` and `ServicePrincipalCert`. | No |
-| ***For ServicePrincipalKey*** | | |
-| servicePrincipalKey | The application's key. Mark this field as a **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). Refer to this [section](#grant-permission-for-using-service-principal-key) for more details including the permission settings. | No          |
+| servicePrincipalCredentialType | Specify the credential type to use for service principal authentication. Allowed values are `ServicePrincipalCert` and `ServicePrincipalKey`. | No |
 | ***For ServicePrincipalCert*** | | |
-| servicePrincipalEmbeddedCert | Specify the base64 encoded certificate of your application registered in Microsoft Entra ID, and ensure the certificate content type is **PKCS #12**. Mark this field as a **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). Refer to this [article](/sharepoint/dev/solution-guidance/security-apponly-azuread) for permission settings.| No |
+| servicePrincipalEmbeddedCert | Specify the base64 encoded certificate of your application registered in Microsoft Entra ID, and ensure the certificate content type is **PKCS #12**. Mark this field as a **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). You need to configure the permission settings referring this [article](/sharepoint/dev/solution-guidance/security-apponly-azuread).| No |
 | servicePrincipalEmbeddedCertPassword | Specify the password of your certificate if your certificate is secured with a password. Mark this field as a **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
+| ***For ServicePrincipalKey*** | | |
+| servicePrincipalKey | The application's key. Mark this field as a **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). Refer to this [section](#grant-permission-for-using-service-principal-key) for more details including the permission settings.| No          |
 |  |  |  |
 | tenantId            | The tenant ID under which your application resides.          | Yes          |
 | connectVia          | The [Integration Runtime](concepts-integration-runtime.md) to use to connect to the data store. If not specified, the default Azure Integration Runtime is used. | No           |
+
+>[!Note]
+>If you are using service principal key authentication, which is based on Azure ACS (Access Control Services), we recommend switching to the **service principal certificate authentication** due to the [ACS retirement plan](/sharepoint/dev/sp-add-ins/retirement-announcement-for-azure-acs).
 
 **Example 1: Using service principal key authentication**
 
@@ -135,6 +138,7 @@ The following properties are supported for a SharePoint Online List linked servi
     }
 }
 ```
+
 ### Grant permission for using service principal key
 
 The SharePoint List Online connector uses service principal authentication to connect to SharePoint. Follow these steps to set it up:
@@ -161,7 +165,7 @@ The SharePoint List Online connector uses service principal authentication to co
             ```
 
             :::image type="content" source="media/connector-sharepoint-online-list/sharepoint-online-grant-permission-admin.png" alt-text="Grant SharePoint Online site permission to your registered application when you have site admin role.":::
-            
+
         > [!NOTE]
         > In the context of configuring the SharePoint connector, the "App Domain" and "Redirect URL" refer to the SharePoint app that you have registered in Microsoft Entra ID to allow access to your SharePoint data. The "App Domain" is the domain where your SharePoint site is hosted. For example, if your SharePoint site is located at "https://contoso.sharepoint.com", then the "App Domain" would be "contoso.sharepoint.com". The "Redirect URL" is the URL that the SharePoint app will redirect to after the user has authenticated and granted permissions to the app. This URL should be a page on your SharePoint site that the app has permission to access. For example, you could use the URL of a page that displays a list of files in a library, or a page that displays the contents of a document.
 
@@ -295,7 +299,7 @@ You can copy file from SharePoint Online by using **Web activity** to authentica
     - Copy activity source:
         - **Request method**: GET
         - **Additional header**: use the following expression`@{concat('Authorization: Bearer ', activity('<Web-activity-name>').output.access_token)}`, which uses the Bearer token generated by the upstream Web activity as authorization header. Replace the Web activity name.
-    - Configure the copy activity sink as usual.
+    - Configure the copy activity sink for any supported sink destination.
 
 > [!NOTE]
 > Even if a Microsoft Entra application has `FullControl` permissions on SharePoint Online, you can't copy files from document libraries with IRM enabled.

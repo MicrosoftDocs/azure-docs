@@ -76,8 +76,8 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Microsoft Entra multifactor authentication](../../active-directory/authentication/concept-mfa-howitworks.md) | &#x2705; | &#x2705; |
 | [Azure Health Data Services](../../healthcare-apis/azure-api-for-fhir/index.yml) | &#x2705; | &#x2705; |
 | **Service** | **FedRAMP High** | **DoD IL2** |
-| [Azure Arc-enabled servers](../../azure-arc/servers/index.yml) | &#x2705; | &#x2705; |
-| [Azure Arc-enabled Kubernetes](../../azure-arc/kubernetes/index.yml) | &#x2705; | &#x2705; |
+| [Azure Arc-enabled servers](/azure/azure-arc/servers/) | &#x2705; | &#x2705; |
+| [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/) | &#x2705; | &#x2705; |
 | [Azure Cache for Redis](../../azure-cache-for-redis/index.yml) | &#x2705; | &#x2705; |
 | [Azure Cosmos DB](/azure/cosmos-db/) | &#x2705; | &#x2705; |
 | [Azure Container Apps](../../container-apps/index.yml) | &#x2705; | &#x2705; |
@@ -134,7 +134,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure AI services: Text Analytics](/azure/ai-services/language-service/concepts/migrate#do-i-need-to-migrate-to-the-language-service-if-i-am-using-text-analytics) <br> (part of [Azure AI Language](/azure/ai-services/language-service/)) | &#x2705; | &#x2705; |
 | [Azure AI services: Translator](/azure/ai-services/translator/) | &#x2705; | &#x2705; |
 | [Container Instances](/azure/container-instances/) | &#x2705; | &#x2705; |
-| [Container Registry](../../container-registry/index.yml) | &#x2705; | &#x2705; |
+| [Container Registry](/azure/container-registry/) | &#x2705; | &#x2705; |
 | [Content Delivery Network (CDN)](../../cdn/index.yml) | &#x2705; | &#x2705; |
 | [Cost Management and Billing](../../cost-management-billing/index.yml) | &#x2705; | &#x2705; |
 | [Customer Lockbox](../../security/fundamentals/customer-lockbox-overview.md) | &#x2705; | &#x2705; |
@@ -178,7 +178,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Key Vault](/azure/key-vault/) | &#x2705; | &#x2705; |
 | **Service** | **FedRAMP High** | **DoD IL2** |
 | [Lab Services](../../lab-services/index.yml) | &#x2705; | &#x2705; |
-| [Lighthouse](../../lighthouse/index.yml) | &#x2705; | &#x2705; |
+| [Lighthouse](/azure/lighthouse/) | &#x2705; | &#x2705; |
 | [Load Balancer](../../load-balancer/index.yml) | &#x2705; | &#x2705; |
 | [Logic Apps](../../logic-apps/index.yml) | &#x2705; | &#x2705; |
 | [Machine Learning](/azure/machine-learning/) | &#x2705; | &#x2705; |
@@ -290,8 +290,8 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Microsoft Entra ID Governance](/entra/) | &#x2705; | &#x2705; | | | |
 | [Microsoft Entra multifactor authentication](../../active-directory/authentication/concept-mfa-howitworks.md) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure API for FHIR](../../healthcare-apis/azure-api-for-fhir/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
-| [Azure Arc-enabled Kubernetes](../../azure-arc/kubernetes/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
-| [Azure Arc-enabled servers](../../azure-arc/servers/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
+| [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
+| [Azure Arc-enabled servers](/azure/azure-arc/servers/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** |
 | [Azure Cache for Redis](../../azure-cache-for-redis/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure Cosmos DB](/azure/cosmos-db/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
@@ -340,7 +340,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure AI services: Text Analytics](/azure/ai-services/language-service/concepts/migrate#do-i-need-to-migrate-to-the-language-service-if-i-am-using-text-analytics) </br> (part of [Azure AI Language](/azure/ai-services/language-service/)) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure AI services: Translator](/azure/ai-services/translator/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Container Instances](/azure/container-instances/)| &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| [Container Registry](../../container-registry/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Container Registry](/azure/container-registry/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Content Delivery Network (CDN)](../../cdn/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** |
 | [Cost Management and Billing](../../cost-management-billing/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
@@ -381,13 +381,13 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [IoT Hub](../../iot-hub/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Key Vault](/azure/key-vault/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Lab Services](../../lab-services/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
-| [Lighthouse](../../lighthouse/index.yml)| &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
+| [Lighthouse](/azure/lighthouse/)| &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Load Balancer](../../load-balancer/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Logic Apps](../../logic-apps/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Machine Learning](/azure/machine-learning/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Managed Applications](../../azure-resource-manager/managed-applications/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Media Services](/azure/media-services/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
-| [Microsoft Azure portal](../../azure-portal/index.yml) | &#x2705; | &#x2705; | &#x2705;| &#x2705; | &#x2705; |
+| [Microsoft Azure portal](/azure/azure-portal/) | &#x2705; | &#x2705; | &#x2705;| &#x2705; | &#x2705; |
 | **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** |
 | [Microsoft Azure Government portal](../documentation-government-get-started-connect-with-portal.md) | &#x2705; | &#x2705; | &#x2705;| &#x2705; | |
 | [Microsoft Defender for Cloud](/azure/defender-for-cloud/) (formerly Azure Security Center) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |

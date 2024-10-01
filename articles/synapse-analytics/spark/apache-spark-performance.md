@@ -179,6 +179,6 @@ MAX(AMOUNT) -> MAX(cast(AMOUNT as DOUBLE))
 ## Next steps
 
 - [Learn about Azure Synapse runtimes for Apache Spark](./apache-spark-version-support.md)
-- [Tuning Apache Spark](https://spark.apache.org/docs/2.4.5/tuning.html)
+- [Tuning Apache Spark](https://archive.apache.org/dist/spark/docs/2.4.5/tuning.html)
 - [How to Actually Tune Your Apache Spark Jobs So They Work](https://www.slideshare.net/ilganeli/how-to-actually-tune-your-spark-jobs-so-they-work)
 - [Kryo Serialization](https://github.com/EsotericSoftware/kryo)

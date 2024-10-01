@@ -139,5 +139,5 @@ Azure Update Manager can be used on-premises by using Azure Arc. Azure Arc is a 
 - [Check update compliance](view-updates.md) 
 - [Deploy updates now (on-demand) for single machine](deploy-updates.md) 
 - [Schedule recurring updates](scheduled-patching.md)
-- [An overview of Azure Arc-enabled servers](../azure-arc/servers/overview.md)
+- [An overview of Azure Arc-enabled servers](/azure/azure-arc/servers/overview)
 

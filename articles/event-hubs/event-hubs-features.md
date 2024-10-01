@@ -49,7 +49,7 @@ Event Hubs retains events for a configured retention time that applies across al
 
 If you need to archive events beyond the allowed retention period, you can have them automatically stored in Azure Storage or Azure Data Lake by turning on the [Event Hubs Capture feature](event-hubs-capture-overview.md). If you need to search or analyze such deep archives, you can easily import them into [Azure Synapse](store-captured-data-data-warehouse.md) or other similar stores and analytics platforms. 
 
-The reason for Event Hubs' limit on data retention based on time is to prevent large volumes of historic customer data getting trapped in a deep store that is only indexed by a timestamp and only allows for sequential access. The architectural philosophy here's that historic data needs richer indexing and more direct access than the real-time eventing interface that Event Hubs or Kafka provide. Event stream engines aren't well suited to play the role of data lakes or long-term archives for event sourcing. 
+The reason for Event Hubs' limit on data retention based on time is to prevent large volumes of historic customer data getting trapped in a deep store that is only indexed by a timestamp and only allows for sequential access. The architectural philosophy here's that historic data needs richer indexing and more direct access than the real-time eventing interface that Event Hubs or Kafka provide. Event streaming engines aren't well suited to play the role of data lakes or long-term archives for event sourcing. 
 
 > [!NOTE]
 > Event Hubs is a real-time event stream engine and is not designed to be used instead of a database and/or as a permanent store for infinitely held event streams. 
@@ -171,7 +171,7 @@ Azure Event Hubs enables you to define resource access policies such as throttli
 For more information, see [Resource governance for client applications with application groups](resource-governance-overview.md). 
 
 ## Apache Kafka support
-[The protocol support for **Apache Kafka** clients](azure-event-hubs-kafka-overview.md)  (versions >=1.0) provides endpoints that enable existing Kafka applications to use Event Hubs. Most existing Kafka applications can simply be reconfigured to point to an s namespace instead of a Kafka cluster bootstrap server. 
+[The protocol support for **Apache Kafka** clients](azure-event-hubs-kafka-overview.md)  (versions >=1.0) provides endpoints that enable existing Kafka applications to use Event Hubs. Most existing Kafka applications can be reconfigured to point to an s namespace instead of a Kafka cluster bootstrap server. 
 
 From the perspective of cost, operational effort, and reliability, Azure Event Hubs is a great alternative to deploying and operating your own Kafka and Zookeeper clusters and to Kafka-as-a-Service offerings not native to Azure. 
 

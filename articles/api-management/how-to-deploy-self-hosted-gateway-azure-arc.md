@@ -13,7 +13,7 @@ ms.date: 06/12/2023
 
 [!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
 
-With the integration between Azure API Management and [Azure Arc on Kubernetes](../azure-arc/kubernetes/overview.md), you can deploy the API Management gateway component as an [extension in an Azure Arc-enabled Kubernetes cluster](../azure-arc/kubernetes/extensions.md). 
+With the integration between Azure API Management and [Azure Arc on Kubernetes](/azure/azure-arc/kubernetes/overview), you can deploy the API Management gateway component as an [extension in an Azure Arc-enabled Kubernetes cluster](/azure/azure-arc/kubernetes/extensions). 
 
 Deploying the API Management gateway on an Azure Arc-enabled Kubernetes cluster expands API Management support for hybrid and multicloud environments. Enable the deployment using a cluster extension to make managing and applying policies to your Azure Arc-enabled cluster a consistent experience.
 
@@ -24,7 +24,7 @@ Deploying the API Management gateway on an Azure Arc-enabled Kubernetes cluster 
 
 ## Prerequisites
 
-* [Connect your Kubernetes cluster](../azure-arc/kubernetes/quickstart-connect-cluster.md) within a supported Azure Arc region.
+* [Connect your Kubernetes cluster](/azure/azure-arc/kubernetes/quickstart-connect-cluster) within a supported Azure Arc region.
 * Install the `k8s-extension` Azure CLI extension:
 
     ```azurecli
@@ -116,7 +116,7 @@ To enable monitoring of the self-hosted gateway, configure the following Log Ana
 
 * To learn more about the self-hosted gateway, see [Azure API Management self-hosted gateway overview](self-hosted-gateway-overview.md).
 * Learn more about the [observability capabilities of the Azure API Management gateways](observability.md).
-* Discover all [Azure Arc-enabled Kubernetes extensions](../azure-arc/kubernetes/extensions.md). 
-* Learn more about [Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/overview.md).
+* Discover all [Azure Arc-enabled Kubernetes extensions](/azure/azure-arc/kubernetes/extensions). 
+* Learn more about [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/overview).
 * Learn more about guidance to [run the self-hosted gateway on Kubernetes in production](how-to-self-hosted-gateway-on-kubernetes-in-production.md).
 * For configuration options, see the self-hosted gateway extension [reference](self-hosted-gateway-arc-reference.md).

@@ -51,7 +51,7 @@ Azure DDoS Protection identifies and mitigates DDoS attacks without any user int
 
 ### When to contact Microsoft support
 
-Azure DDoS Network Protection customers have access to the DDoS Rapid Response (DRR) team, who can help with attack investigation during an attack and post-attack analysis. For more information, including when you should engage the DRR team, see [DDoS Rapid Response](ddos-rapid-response.md). Azure DDoS IP Protection customers should create a request to connect with Microsoft support. To learn more, see [Create a support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
+Azure DDoS Network Protection customers have access to the DDoS Rapid Response (DRR) team, who can help with attack investigation during an attack and post-attack analysis. For more information, including when you should engage the DRR team, see [DDoS Rapid Response](ddos-rapid-response.md). Azure DDoS IP Protection customers should create a request to connect with Microsoft support. To learn more, see [Create a support request](/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
 ## Post-attack steps
 

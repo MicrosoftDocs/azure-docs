@@ -106,7 +106,7 @@ To sign by using Trusted Signing, you need to provide the details of your Truste
    }
    ```
 
-   The `"Endpoint"` URI value must be a URI that aligns with the region where you created your Trusted Signing account and certificate profile when you set up these resources. The table shows regions and their corresponding URIs.
+   The `"Endpoint"` URI value must be a URI that aligns with the region where you created your Trusted Signing account and certificate profile when you set up these resources. The table shows regions and their corresponding URIs.
 
    | Region       | Region class fields  | Endpoint URI value  |
    |--------------|-----------|------------|
@@ -148,7 +148,7 @@ To invoke SignTool to sign a file:
 1. Replace the placeholders in the following path with the specific values that you noted in step 1:
 
    ```console
-   & "<Path to SDK bin folder>\x64\signtool.exe" sign /v /debug /fd SHA256 /tr "http://timestamp.acs.microsoft.com" /td SHA256 /dlib "<Path to Trusted Signing dlib bin folder>\x64\Azure.CodeSigning.Dlib.dll" /dmdf "<Path to metadata file>\metadata.json" <File to sign> 
+   & "<Path to SDK bin folder>\x64\signtool.exe" sign /v /debug /fd SHA256 /tr "http://timestamp.acs.microsoft.com" /td SHA256 /dlib "<Path to Trusted Signing dlib bin folder>\x64\Azure.CodeSigning.Dlib.dll" /dmdf "<Path to metadata file>\metadata.json" <File to sign>
    ```
 
 - Both the x86 and the x64 version of SignTool are included in the Windows SDK. Be sure to reference the corresponding version of *Azure.CodeSigning.Dlib.dll*. The preceding example is for the x64 version of SignTool.

@@ -1,11 +1,9 @@
 ---
 title: Azure Traffic Manager with Azure Site Recovery | Microsoft Docs
 description: Describes how to use Azure Traffic Manager with Azure Site Recovery for disaster recovery and migration
-services: site-recovery
 author: ankitaduttaMSFT
-manager: rochakm
 ms.service: azure-site-recovery
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 12/14/2023
 ms.author: ankitadutta
 

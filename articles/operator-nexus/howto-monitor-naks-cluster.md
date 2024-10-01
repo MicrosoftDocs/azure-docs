@@ -42,7 +42,7 @@ Install latest version of the
 
 ## Monitor Nexus Kubernetes cluster – VM layer
 
-This how-to guide provides steps and utility scripts to [Arc connect](../azure-arc/servers/overview.md) the Nexus Kubernetes cluster Virtual Machines to Azure and enable monitoring agents for the collection of System logs from these VMs using [Azure Monitoring Agent](/azure/azure-monitor/agents/agents-overview).
+This how-to guide provides steps and utility scripts to [Arc connect](/azure/azure-arc/servers/overview) the Nexus Kubernetes cluster Virtual Machines to Azure and enable monitoring agents for the collection of System logs from these VMs using [Azure Monitoring Agent](/azure/azure-monitor/agents/agents-overview).
 The instructions further capture details on how to set up log data collection into a Log Analytics workspace.
 
 The following resources provide you with support:

@@ -12,10 +12,7 @@ ms.custom: engagement-fy23, linux-related-content
 
 # Support matrix for physical server discovery and assessment
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that's nearing end-of-life status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
-
-This article summarizes prerequisites and support requirements when you assess physical servers for migration to Azure by using the [Azure Migrate: Discovery and assessment](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) tool. If you want to migrate physical servers to Azure, see the [migration support matrix](migrate-support-matrix-physical-migration.md).
+This article summarizes prerequisites and support requirements when you assess physical servers for migration to Azure by using the [Azure Migrate: Discovery and assessment](migrate-services-overview.md) tool. If you want to migrate physical servers to Azure, see the [migration support matrix](migrate-support-matrix-physical-migration.md).
 
 To assess physical servers, you create a project and add the Azure Migrate: Discovery and assessment tool to the project. After you add the tool, you deploy the [Azure Migrate appliance](migrate-appliance.md). The appliance continuously discovers on-premises servers and sends servers metadata and performance data to Azure. After discovery is finished, you gather discovered servers into groups and run an assessment for a group.
 
