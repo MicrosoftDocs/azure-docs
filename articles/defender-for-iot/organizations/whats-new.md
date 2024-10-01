@@ -22,11 +22,15 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | - [Add wildcards to allowlist domain names](#add-wildcards-allowlist-domain-names) <br> - [Improved OT sensor onboarding](#improved-ot-sensor-onboarding) |
+| **OT networks** | - [Add wildcards to allowlist domain names](#add-wildcards-allowlist-domain-names)<br> - [Added protocol](#added-protocol) <br> - [Improved OT sensor onboarding](#improved-ot-sensor-onboarding) |
 
 ### Add wildcards allowlist domain names
 
 When adding domain names to the FQDN allowlist use the `*` wildcard to include all sub-domains. For more information, see [allow internet connections on an OT network](how-to-accelerate-alert-incident-response.md#allow-internet-connections-on-an-ot-network).
+
+### Added protocol
+
+We now support the OCPI protocol. See [the updated protocol list](concept-supported-protocols.md#supported-protocols-for-ot-device-discovery).
 
 ### Improved OT sensor onboarding
 
