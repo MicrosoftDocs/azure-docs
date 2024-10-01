@@ -83,7 +83,7 @@ Delta:
 
 ## How dataflows use message schemas
 
-Message schemas are used in all three phases of a dataflow: defining the source input, applying data tranformations, and creating the destination output.
+Message schemas are used in all three phases of a dataflow: defining the source input, applying data transformations, and creating the destination output.
 
 ### Input schema
 
