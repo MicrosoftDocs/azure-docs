@@ -27,12 +27,12 @@ We offer three flexible commitments and pricing options for using your own VCF l
 
 To take advantage of the Reserved Instance (RI) pricing for the VCF license portability offering, purchase an RI under the Product Name- VCF BYOL. For example, if your private cloud uses AV36P nodes, you must [purchase the Reserved Instance](/azure/azure-vmware/reserved-instance?toc=%2Fazure%2Fcost-management-billing%2Freservations%2Ftoc.json#buy-a-reservation) for the Product Name- AV36P VCF BYOL. To use the pay-as-you-go pricing for the VCF license portability offering, you only need to register your VCF license. 
 
-:::image type="content" source="media/vmware-cloud-foundations-license-portability/reserved-instance-purchase.png" alt-text="Picture of what product type to select while purchasing reserved instance for VCF license portability offering" border="true":::
+:::image type="content" source="media/vmware-cloud-foundations-license-portability/reserved-instance-purchase.png" alt-text="Picture of what product type to select while purchasing reserved instance for VCF license portability offering." border="true":::
 
 ## Request host quota with VCF license portability
 
 Existing: 
-:::image type="content" source="media/vmware-cloud-foundations-license-portability/quota-request-old.png" alt-text="Picture of the quota request description for existing Azure VMware Solution." border="false":::
+:::image type="content" source="media/vmware-cloud-foundations-license-portability/quota-request-old.png" alt-text="Picture of the quota request description for existing Azure VMware Solution." border="true":::
 
 To request quota for VCF license portability offering, provide the following additional information in the **Description** of the support ticket:
 
@@ -43,7 +43,7 @@ To request quota for VCF license portability offering, provide the following add
 **"I acknowledge that I have procured portable VCF license from Broadcom for "N" cores to use with Azure VMware Solutions."**
 - Any other details, including Availability Zone requirements for integrating with other Azure services; for example, Azure NetApp Files, Azure Blob Storage
 
-:::image type="content" source="media/vmware-cloud-foundations-license-portability/quota-request-byol.png" alt-text="Picture of the quota request description for VCF license portability offering on Azure VMware Solution" border="false":::
+:::image type="content" source="media/vmware-cloud-foundations-license-portability/quota-request-byol.png" alt-text="Picture of the quota request description for VCF license portability offering on Azure VMware Solution." border="false":::
 
 >[!NOTE]
 >
@@ -60,17 +60,18 @@ To get your quota request approved, you must first register the VCF portable lic
 - Email your VCF license entitlements (and VMware vDefender Firewall license entitlements if to enable vDefender Firewall on Azure VMware Solution) to the following email address:  registerAzure VMware Solutionvcfbyol@microsoft.com. 
 
 - VCF entitlement sample: 
-:::image type="content" source="media/vmware-cloud-foundations-license-portability/vcf-entitlements.png" alt-text="This image shows how to register your VCF portable license entitlements with Microsoft." border="false":::
+:::image type="content" source="media/vmware-cloud-foundations-license-portability/vcf-entitlements.png" alt-text="This image shows how to register your VCF portable license entitlements with Microsoft." border="true":::
 
 >[!NOTE]
 >
 >The "Qty" represents the number of cores eligible for VCF license portability. Your quota request should not surpass the number of nodes equivalent to your entitled cores from Broadcom. If your quota request exceeds the approved cores, the quota request will be granted only for the number of nodes that are fully covered by the entitled cores.
 
 - VCF entitlement With VMware vDefend entitlement sample: 
-:::image type="content" source="media/vmware-cloud-foundations-license-portability/vcf-vdefend-entitlements.png" alt-text="VCF entitlement With VMware vDefend entitlement" border="false":::
+:::image type="content" source="media/vmware-cloud-foundations-license-portability/vcf-vdefend-entitlements.png" alt-text="VCF entitlement With VMware vDefend entitlement." border="true":::
 
 Sample Email to register portable VCF entitlements: 
-:::image type="content" source="media/vmware-cloud-foundations-license-portability/email-register-vcf.png" alt-text="Sample Email to register portable VCF " border="false":::
+:::image type="content" source="media/vmware-cloud-foundations-license-portability/email-register-vcf.png" alt-text="Sample Email to register portable VCF." border="true":::
+:::image type="content" source="media/vmware-cloud-foundations-license-portability/email-register-vcf-vdefend.png" alt-text="Sample Email to register portable VCF." border="true":::
 
 ** The VMware vDefend Firewall add-on CPU cores required on Azure VMware Solution depend on the planned feature usage: 
 - For NSX Distributed Firewall: same core count as VCF core count. 
