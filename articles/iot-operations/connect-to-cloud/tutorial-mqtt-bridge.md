@@ -192,6 +192,8 @@ spec:
       serviceAccountTokenSettings: {}
 ```
 
+---
+
 This is the default configuration for the AIO MQTT broker endpoint. The authentication method is set to `ServiceAccountToken` to use the built-in service account token for authentication.
 
 ## Create an Azure Event Grid dataflow endpoint
@@ -242,6 +244,8 @@ spec:
     tls:
       mode: Enabled
 ```
+
+---
 
 Here, the authentication method is set to `SystemAssignedManagedIdentity` to use the managed identity of the AIO extension to authenticate with the Event Grid MQTT broker. This setting works because the AIO extension has the necessary permissions to publish and subscribe to the Event Grid topic space configured through Azure RBAC roles. Notice that no secrets, like username or password, are needed in the configuration.
 
@@ -348,6 +352,8 @@ spec:
       endpointRef: mq
       dataDestination: tutorial/cloud
 ```
+
+---
 
 Together, the two dataflows form an MQTT bridge, where you:
 
