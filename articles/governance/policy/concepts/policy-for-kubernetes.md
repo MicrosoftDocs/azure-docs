@@ -607,10 +607,11 @@ Finally, to identify the AKS cluster version that you're using, follow the linke
 ### Add-on versions available per each AKS cluster version
 
 #### 1.7.1
-Introducing VAP and CEL. Validating Admission Policy (VAP) feature provides in-tree policy evaluation, reduces admission request latency, and improves reliability and availability. Common Expression Language (CEL) is a Kubernetes-native expression language that can be used to declare validation rules of a policy. The supported validation actions include Deny, Warn, and Audit. Custom policy authoring for CEL/VAP is allowed, and existing users will not have to convert their Rego to CEL as they will both be supported and be used to enforce policies. For more information, view the [Gatekeeper Documentation](https://open-policy-agent.github.io/gatekeeper/website/docs/validating-admission-policy/).
+Introducing CEL and VAP. Common Expression Language (CEL) is a Kubernetes-native expression language that can be used to declare validation rules of a policy. Validating Admission Policy (VAP) feature provides in-tree policy evaluation, reduces admission request latency, and improves reliability and availability. The supported validation actions include Deny, Warn, and Audit. Custom policy authoring for CEL/VAP is allowed, and existing users will not have to convert their Rego to CEL as they will both be supported and be used to enforce policies. To use CEL/VAP, users need to enroll in the feature flag AKS-AzurePolicyK8sNativeValidation in the Microsoft.ContainerService namespace. For more information, view the [Gatekeeper Documentation](https://open-policy-agent.github.io/gatekeeper/website/docs/validating-admission-policy/).
 
+Security improvements.
 - Released Sep 2024 
-- Kubernetes 1.30+ 
+- Kubernetes 1.27+ (VAP generation is only supported on 1.30+)
 - Gatekeeper 3.17.1 
 
 #### 1.7.0
