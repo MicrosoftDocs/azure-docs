@@ -12,10 +12,7 @@ ms.cutom: engagement-fy25
 
 # Support matrix for Hyper-V assessment
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that's nearing end-of-life status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
-
-This article summarizes prerequisites and support requirements when you discover and assess on-premises servers running in a Hyper-V environment for migration to Azure by using the [Azure Migrate: Discovery and assessment](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) tool. If you want to migrate servers running on Hyper-V to Azure, see the [migration support matrix](migrate-support-matrix-hyper-v-migration.md).
+This article summarizes prerequisites and support requirements when you discover and assess on-premises servers running in a Hyper-V environment for migration to Azure by using the [Azure Migrate: Discovery and assessment](migrate-services-overview.md) tool. If you want to migrate servers running on Hyper-V to Azure, see the [migration support matrix](migrate-support-matrix-hyper-v-migration.md).
 
 To set up discovery and assessment of servers running on Hyper-V, you create a project and add the Azure Migrate: Discovery and assessment tool to the project. After the tool is added, you deploy the [Azure Migrate appliance](migrate-appliance.md). The appliance continuously discovers on-premises servers and sends server metadata and performance data to Azure. After discovery is complete, you gather discovered servers into groups and run an assessment for a group.
 

@@ -111,7 +111,7 @@ az networkcloud cluster create --name "$CLUSTER_NAME" --location "$LOCATION" \
 
 ## Cluster Identity
 
-The customer can assign managed identity to a Cluster starting with the 2024-07-01 GA API version. Both System-assigned and User-Assigned managed identities are supported.
+Starting with the 2024-07-01 API version, a customer can assign managed identity to a Cluster. Both System-assigned and User-Assigned managed identities are supported.
 
 Managed Identity can be assigned to the Cluster during creation or update operations by providing the following parameters:
 
@@ -311,7 +311,7 @@ Cluster create Logs can be viewed in the following locations:
 ## Update Cluster Identities via APIs
 
 Cluster managed identities can be assigned via CLI. The unassignment of the identities can be done via API calls.
-Note, `<APIVersion>` is the API version 2024-06-01-preview or newer.
+Note, `<APIVersion>` is the API version 2024-07-01 or newer.
 
 - To remove all managed identities, execute:
 
