@@ -425,6 +425,7 @@ kubectl apply -f client.yaml
 ```output
 pod/mqtt-client created
 ```
+
 --- 
 
 ## Start a subscriber
