@@ -247,6 +247,10 @@
         href: solutions-benefits-azure-netapp-files-sql-server.md
   - name: Security
     items:
+    - name: Understand data plane security 
+      href: data-plane-security.md
+    - name: Understand control plane security 
+      href: control-plane-security.md
     - name: Security baseline
       href: /security/benchmark/azure/baselines/azure-netapp-files-security-baseline?toc=/azure/azure-netapp-files/TOC.json
 - name: How-to guides
