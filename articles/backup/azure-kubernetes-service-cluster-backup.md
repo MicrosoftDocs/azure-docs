@@ -63,17 +63,17 @@ To create a backup policy:
    - **Backup Frequency**: Select the *backup frequency* (hourly or daily), and then choose the *retention duration* for the backups.
    - **Retention Setting**: A new backup policy has the *Default* rule defined by default. You can edit this rule and can’t delete it. The default rule defines the retention duration for all the operational tier backups taken. You can also create additional retention rules to store backups for a longer duration that are taken daily or weekly.
 
-   :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/retention-rules.png" alt-text="Screenshot that shows the retention settings.":::
+   :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/retention-rules.png" alt-text="Screenshot that shows the retention settings." lightbox="./media/azure-kubernetes-service-cluster-backup/retention-rules.png":::
 
    You can also create extra retention rules to store backups for a longer duration that are taken daily or weekly.
 
    > [!NOTE]
    >
    > - In addition to first successful backup of the day, you can define the retention rules for first successful backup of the week, month, and year. In terms of priority, the order is year, month, week, and day.
-   > - The backups stored in the *Vault Tier* can also copied in the secondary region (Azure Paired region) that you can use to restore AKS clusters to a secondary region when the primary region is unavailable. To opt for this feature, use a *Geo-redundant vault* with *Cross Region Restore* enabled.
+   > - You can copy backups in the secondary region (Azure Paired region) stored in the *Vault Tier*, which you can use to restore AKS clusters to a secondary region when the primary region is unavailable. To opt for this feature, use a *Geo-redundant vault* with *Cross Region Restore* enabled.
 
-1. When the backup frequency and retention settings are configured, select **Next**.
-1. On the **Review + create** tab, review the information, and then select **Create**.
+2. When the backup frequency and retention settings are configured, select **Next**.
+3. On the **Review + create** tab, review the information, and then select **Create**.
 
 ## Install Backup extension and configure backup
 
