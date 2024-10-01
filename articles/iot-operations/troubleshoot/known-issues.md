@@ -23,14 +23,16 @@ This article lists the known issues for Azure IoT Operations Preview.
 
 - The Azure storage account that you use for the schema registry must have public network access enabled.
 
-- When you use the `az iot ops delete` command to uninstall Azure IoT Operations, some custom Akri resources might not be deleted from the cluster. These Akri instances can cause issues if you redeploy Azure IoT Operations to the same cluster. You should manually delete any Akri instance custom resources from the cluster before you redeploy Azure IoT Operations.
-
 - If your deployment fails with the `"code":"LinkedAuthorizationFailed"` error, it means that you don't have **Microsoft.Authorization/roleAssignments/write** permissions on the resource group that contains your cluster.
 
   To resolve this issue, either request the required permissions or make the following adjustments to your deployment steps:
 
   - If deploying with an Azure Resource Manager template, set the `deployResourceSyncRules` parameter to `false`.
   - If deploying with the Azure CLI, include the `--disable-rsync-rules` flag with the [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init) command.
+
+- Directly editing **SecretProviderClass** and **SecretSync** custom resources in your Kubernetes cluster can the break secrets flow in Azure IoT Operations. For any operations related to secrets, use the operations experience UI.
+
+- By default, the `az iot ops check` command displays warning about missing dataflows until you create a dataflow.
 
 ## MQTT broker
 
