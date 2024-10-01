@@ -88,6 +88,8 @@ The module identity and module twin features are only available in the IoT Hub p
 
 ### Create UpdateModuleTwinReportedProperties console app
 
+[!INCLUDE [iot-authentication-device-connection-string.md](../../includes/iot-authentication-device-connection-string.md)]
+
 To create your app, follow these steps:
 
 1. Add the following `using` statements at the top of the **Program.cs** file:
