@@ -1,5 +1,5 @@
 ---
-title: Create a blob container with JavaScript
+title: Create a blob container with JavaScript/TypeScript
 titleSuffix: Azure Storage 
 description: Learn how to create a blob container in your Azure Storage account using the JavaScript client library.
 author: pauljewellmsft
@@ -12,7 +12,7 @@ ms.devlang: javascript
 ms.custom: devx-track-js, devguide-js
 ---
 
-# Create a blob container with JavaScript
+# Create a blob container with JavaScript/TypeScript
 
 [!INCLUDE [storage-dev-guide-selector-create-container](../../../includes/storage-dev-guides/storage-dev-guide-selector-create-container.md)]
 
@@ -40,24 +40,15 @@ Containers are created immediately beneath the storage account. It's not possibl
 
 The following example creates a container asynchronously from the BlobServiceClient:
 
-```javascript
-async function createContainer(blobServiceClient, containerName){
+### [JavaScript](#tab/javascript)
 
-  // anonymous access at container level
-  const options = {
-    access: 'container'
-  };
+:::code language="typescript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/create-container.js" id="snippet_create_container" :::
 
-  // creating client also creates container
-  const containerClient = await blobServiceClient.createContainer(containerName, options);
-  console.log(`container ${containerName} created`);
+### [TypeScript](#tab/typescript)
 
-  // do something with container
-  // ...
+:::code language="typescript" source="~/azure-storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/container-create.ts" id="snippet_create_container" :::
 
-  return containerClient;
-}
-```
+---
 
 ## Understand the root container
 
@@ -79,6 +70,6 @@ The Azure SDK for JavaScript contains libraries that build on top of the Azure R
 
 ### Code samples
 
-- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/create-container.js)
+- View [JavaScript](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/create-container.js) and [TypeScript](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/container-create.ts) code samples from this article (GitHub)
 
 [!INCLUDE [storage-dev-guide-resources-javascript](../../../includes/storage-dev-guides/storage-dev-guide-resources-javascript.md)]

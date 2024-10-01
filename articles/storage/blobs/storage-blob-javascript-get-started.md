@@ -1,7 +1,7 @@
 ---
-title: Get started with Azure Blob Storage and JavaScript
+title: Get started with Azure Blob Storage and JavaScript/TypeScript
 titleSuffix: Azure Storage
-description: Get started developing a JavaScript application that works with Azure Blob Storage. This article helps you set up a project and authorizes access to an Azure Blob Storage endpoint.
+description: Get started developing a JavaScript/TypeScript application that works with Azure Blob Storage. This article helps you set up a project and authorizes access to an Azure Blob Storage endpoint.
 services: storage
 author: pauljewellmsft
 ms.author: pauljewell
@@ -12,11 +12,11 @@ ms.date: 08/05/2024
 ms.custom: template-how-to, devx-track-js, devguide-js, passwordless-js
 ---
 
-# Get started with Azure Blob Storage and JavaScript
+# Get started with Azure Blob Storage and JavaScript/TypeScript
 
 [!INCLUDE [storage-dev-guide-selector-getting-started](../../../includes/storage-dev-guides/storage-dev-guide-selector-getting-started.md)]
 
-This article shows you how to connect to Azure Blob Storage by using the Azure Blob Storage client library v12 for JavaScript. Once connected, your code can operate on containers, blobs, and features of the Blob Storage service.
+This article shows you how to connect to Azure Blob Storage by using the Azure Blob Storage client library for JavaScript. Once connected, your code can operate on containers, blobs, and features of the Blob Storage service.
 
 The [sample code snippets](https://github.com/Azure-Samples/AzureStorageSnippets/tree/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide) are available in GitHub as runnable Node.js files.
 
