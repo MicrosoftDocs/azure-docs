@@ -185,11 +185,11 @@ Continue with [activating](#activate-your-ot-sensor) and [configuring SSL/TLS ce
 
 1. After changing the password, the `Sensor Config` wizard automatically starts. Continue to step 5.
 
-    If you're logging in on subsequent occassions continue to step 4.
+    If you're logging in on subsequent occasions continue to step 4.
 
 1. To start the `Sensor Config` wizard, at the prompt type `network reconfigure`. If you are using the cyberx user, type `ERSPAN=1 python3 -m cyberx.config.configure`.
 
-1. The `Sensor Config` screen shows the present set up of the interfaces. Ensure that one interface is set as the management interface. In this wizard, use the up or down arrows to navigate, and the **SPACE** bar to select an option. Press **ENTER** to advance to the next screen.
+1. The `Sensor Config` screen shows the present setup of the interfaces. Ensure that one interface is set as the management interface. In this wizard, use the up or down arrows to navigate, and the **SPACE** bar to select an option. Press **ENTER** to advance to the next screen.
 
     Select the interface you want to configure, for example:
 
@@ -203,7 +203,7 @@ Continue with [activating](#activate-your-ot-sensor) and [configuring SSL/TLS ce
 > If you select interfaces that are enabled but not connected, the sensor will show a *No traffic monitored* health notification in the Azure portal. If you connect more traffic sources after installation and want to monitor them with Defender for IoT, you can add them later via the [CLI](../references-work-with-defender-for-iot-cli-commands.md).
 >
 
-An interface can be set as either **Management**, **Monitor**, **Tunnel** or **Unused**. You may wish to set an interface as **Unused** as a temporary setting, to reset it, or if a mistake was made in the original set up.
+An interface can be set as either **Management**, **Monitor**, **Tunnel** or **Unused**. You may wish to set an interface as **Unused** as a temporary setting, to reset it, or if a mistake was made in the original setup.
 
 1. To configure a **Management** interface:
 
