@@ -46,8 +46,6 @@ az connectedk8s show --name <CLUSTER_NAME> --resource-group <RESOURCE_GROUP> --q
 
 Use the following steps to enable workload identity on an existing connected K3s cluster:
 
-1. Download and install a preview version of the `connectedk8s` extension for Azure CLI. GitHub: [connectedk8s-1.10.0](https://github.com/AzureArcForKubernetes/azure-cli-extensions/blob/connectedk8s/public/cli-extensions/connectedk8s-1.10.0-py2.py3-none-any.whl).
-
 1. Remove the existing connected k8s cli if any
    ```azurecli
    az extension remove --name connectedk8s 
