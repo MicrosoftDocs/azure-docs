@@ -97,7 +97,7 @@ GCP auth example:
 
 ## Request configuration
 
-The request section requires the GCP Pub/Sub information setup separately.
+The request section requires the `projectId` and `subscriptionNames` from the GCP Pub/Sub.
 
 GCP request example:
 ```json

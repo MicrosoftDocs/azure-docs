@@ -119,7 +119,7 @@ Build the data connector user interface with the [**Data Connector Definition** 
 Notes: 
 1)	The `kind` property for API polling connector should always be `Customizable`.
 2)	Since this is a type of API polling connector, set the `connectivityCriteria` type to `hasDataConnectors`
-3)	The example `instructionsSteps` include a button of type `ConnectionToggleButton`. This button helps trigger the deployment of data connector rules based on the connection parameters specified.
+3)	The example `instructionSteps` include a button of type `ConnectionToggleButton`. This button helps trigger the deployment of data connector rules based on the connection parameters specified.
 
 Use an [API testing tool](#testing-apis) to call the data connector definitions API to create the data connector UI in order to validate it in the data connectors gallery.
 
