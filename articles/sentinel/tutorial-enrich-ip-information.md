@@ -70,7 +70,7 @@ Microsoft Sentinel includes ready-made, out-of-the-box playbook templates that y
 
     1. Edit the **Playbook name** by adding to the end of the suggested name "*Get-VirusTotalIPReport*". This way you'll be able to tell which original template this playbook came from, while still ensuring that it has a unique name in case you want to create another playbook from this same template. Let's call it "*Get-VirusTotalIPReport-Tutorial-1*".
 
-    1. Leave the **ENable diagnostics logs in Log Analytics unchecked.
+    1. Leave the **Enable diagnostics logs in Log Analytics** option unchecked.
 
     1. Select **Next : Connections >**.
 
@@ -94,7 +94,7 @@ Microsoft Sentinel includes ready-made, out-of-the-box playbook templates that y
 
 ## Authorize logic app connections
 
-Recall that when we created the playbook from the template, we were told that the Azure Log Analytics Data Collector and Virus Total connections would be configured later. 
+Recall that when we created the playbook from the template, we were told that the Azure Log Analytics Data Collector and Virus Total connections would be configured later.
 
 :::image type="content" source="media/tutorial-enrich-ip-information/7-authorize-connectors.png" alt-text="Screenshot of review information from playbook creation wizard.":::
 
@@ -102,15 +102,15 @@ Here's where we do that.
 
 ### Authorize Virus Total connection
 
-1. Select the **For each** action to expand it and review its contents (the actions that will be performed for each IP address).
+1. Select the **For each** action to expand it and review its contents, which include the actions that will be performed for each IP address. For example:
 
     :::image type="content" source="media/tutorial-enrich-ip-information/8-for-each-loop.png" alt-text="Screenshot of for-each loop statement action in logic app designer.":::
 
-1. The first action item you see is labeled **Connections** and has an orange warning triangle. 
+1. The first action item you see is labeled **Connections** and has an orange warning triangle.
 
     If instead, that first action is labeled **Get an IP report (Preview)**, that means you already have an existing connection to Virus Total and you can go to the [next step](#next-step-condition).
 
-    1. Select the **Connections** action to open it. 
+    1. Select the **Connections** action to open it.
     1. Select the icon in the **Invalid** column for the displayed connection.
 
         :::image type="content" source="media/tutorial-enrich-ip-information/9-virus-total-invalid.png" alt-text="Screenshot of invalid Virus Total connection configuration.":::
@@ -243,7 +243,7 @@ If you're not going to continue to use this automation scenario, delete the play
 1. Mark the check box next to your automation rule in the list, and select **Delete** from the top banner.  
     (If you don't want to delete it, you can select **Disable** instead.)
 
-## Next steps
+## Related content
 
 Now that you've learned how to automate a basic incident enrichment scenario, learn more about automation and other scenarios you can use it in.
 
