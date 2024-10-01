@@ -140,7 +140,7 @@ When using a User-assigned identity, add the following role assignment to the UA
 
 1. Open the Azure Portal and locate the User-assigned identity in question.
 2. Under **Access control (IAM)**, click **Add role assignment**.
-3. Select **Role**: Managed Identity Operator. (See the permissions that the role provides [here](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles/identity#managed-identity-operator)).
+3. Select **Role**: Managed Identity Operator. (See the permissions that the role provides [managed-identity-operator](/azure/role-based-access-control/built-in-roles/identity#managed-identity-operator)).
 4. Assign access to: **User, group, or service principal**.
 5. Select **Member**: AFOI-NC-MGMT-PME-PROD application.
 6. Review and assign.
