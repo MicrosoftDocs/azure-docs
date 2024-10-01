@@ -3,7 +3,8 @@ title: Integration of Azure Data Explorer and Apache Flink®
 description: Integration of Azure Data Explorer and Apache Flink® in HDInsight on AKS
 ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 09/18/2023
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Integration of Azure Data Explorer and Apache Flink®  

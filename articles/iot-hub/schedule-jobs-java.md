@@ -62,6 +62,8 @@ This article shows you how to create two Java apps:
 
 [!INCLUDE [iot-hub-include-find-registryrw-connection-string](../../includes/iot-hub-include-find-registryrw-connection-string.md)]
 
+[!INCLUDE [iot-authentication-service-connection-string.md](../../includes/iot-authentication-service-connection-string.md)]
+
 ## Create the service app
 
 In this section, you create a Java console app that uses jobs to:
@@ -289,6 +291,8 @@ To create the app:
 ## Create a device app
 
 In this section, you create a Java console app that handles the desired properties sent from IoT Hub and implements the direct method call.
+
+[!INCLUDE [iot-authentication-device-connection-string.md](../../includes/iot-authentication-device-connection-string.md)]
 
 1. In the **iot-java-schedule-jobs** folder, create a Maven project called **simulated-device** using the following command at your command prompt. Note this is a single, long command:
 

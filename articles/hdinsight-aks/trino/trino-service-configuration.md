@@ -4,7 +4,8 @@ description: How to perform service configuration for Trino clusters for HDInsig
 ms.service: azure-hdinsight-on-aks
 ms.custom: devx-track-arm-template
 ms.topic: how-to
-ms.date: 10/19/2023
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Trino configuration management

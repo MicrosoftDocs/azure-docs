@@ -22,11 +22,18 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | - [Add wildcards to allowlist domain names](#add-wildcards-allowlist-domain-names) |
+
+| **OT networks** | - [Add wildcards to allowlist domain names](#add-wildcards-allowlist-domain-names) <br> - [Improved OT sensor onboarding](#improved-ot-sensor-onboarding) |
 
 ### Add wildcards allowlist domain names
 
 When adding domain names to the FQDN allowlist use the `*` wildcard to include all sub-domains. For more information, see [allow internet connections on an OT network](how-to-accelerate-alert-incident-response.md#allow-internet-connections-on-an-ot-network).
+
+### Improved OT sensor onboarding
+
+If there are connection problems, during sensor onboarding, between the OT sensor and the Azure portal at the configuration stage, the process can't be completed until the connection problem is solved.
+
+We now support completing the configuration process without the need to solve the communication problem, allowing you to continue the onboarding of your OT sensor quickly and solve the problem at a later time. For more information, see [activate your OT sensor](ot-deploy/activate-deploy-sensor.md#activate-your-ot-sensor).
 
 ## July 2024
 
