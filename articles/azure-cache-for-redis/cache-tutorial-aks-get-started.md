@@ -1,12 +1,8 @@
 ---
 title: 'Tutorial: Get started connecting an AKS application to a cache'
 description: In this tutorial, you learn how to connect your AKS-hosted application to an Azure Cache for Redis instance.
-
-
-
-
 ms.topic: tutorial
-ms.date: 08/15/2023
+ms.date: 10/01/2024
 #CustomerIntent: As a developer, I want to see how to use a Azure Cache for Redis instance with an AKS container so that I see how I can use my cache instance with a Kubernetes cluster.
 
 ---
@@ -19,6 +15,7 @@ In this tutorial, you adapt the [AKS sample voting application](https://github.c
 
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An Azure Kubernetes Service Cluster - For more information on creating a cluster, see [Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using the Azure portal](/azure/aks/learn/quick-kubernetes-deploy-portal).
+- An user assigned managed identity that you want to use to connect to your Azure Cache for Redis instance.
 
 > [!IMPORTANT]
 > This tutorial assumes that you are familiar with basic Kubernetes concepts like containers, pods and service.
@@ -30,17 +27,42 @@ In this tutorial, you adapt the [AKS sample voting application](https://github.c
     For this tutorial, use a Standard C1 cache.
     :::image type="content" source="media/cache-tutorial-aks-get-started/cache-new-instance.png" alt-text="Screenshot of creating a Standard C1 cache in the Azure portal":::
 
-1. On the **Advanced** tab, enable **Non-TLS port**.
-    :::image type="content" source="media/cache-tutorial-aks-get-started/cache-non-tls.png" alt-text="Screenshot of the Advanced tab with Non-TLS enabled during cache creation.":::
+1. Follow the steps through to create the cache. 
 
-1. Follow the steps through to create the cache.
+1. Once your Redis cache instance is created, navigate to the **Authentication** tab. Select the user assigned managed identity you want to use to connect to your Redis cache instance, then select **Save**.
 
-> [!IMPORTANT]
-> This tutorial uses a non-TLS port for demonstration, but we highly recommend that you use a TLS port for anything in production.
+1. Alternatively, you can navigate to Data Access Configuration on the Resource menu to create a new Redis user with your user assigned managed identity to connect to your cache.
 
-Creating the cache can take a few minutes. You can move to the next section while the process finishes.
+1. Take note of the user name for your Redis user from the portal. You use this user name with the AKS workload.
 
-## Install and connect to your AKS cluster
+## Configure your AKS cluster
+
+1. Follow these [steps](aks/workload-identity-deploy-cluster.md) to configure a workload identity for your AKS cluster. Complete the following steps:
+
+   - Enable OIDC issuer and workload identity
+   - Skip the step to create user assigned managed identity if you have already created your managed identity. If you create a new managed identity, ensure that you create a new Redis User for your managed identity and assign appropriate data access permissions.
+   - Create a Kubernetes Service account annotated with the client id of your user assigned managed identity
+   - Create a federated identity credential for your AKS cluster.
+
+## Configure your workload that connects to Azure Cache for Redis
+
+Next, set up the AKS workload to connect to Azure Cache for Redis after you have configured the AKS cluster.
+
+1. Download the code for the [sample app](https://github.com/Azure-Samples/azure-cache-redis-sample/connect-from-aks).
+
+1. Build and push docker image to your Azure Container Registry using [az acr build](https://learn.microsoft.com/en-us/cli/azure/acr?view=azure-cli-latest#az-acr-build) command
+
+```bash
+az acr build --image sample/connect-from-aks-sample:1.0 --registry yourcontainerregistry --file Dockerfile .
+```
+
+1. Attach your container registry to your AKS cluster using following command:
+
+```bash
+az aks update --name clustername --resource-group mygroup --attach-acr youracrname
+```
+
+## Deploy your workload
 
 In this section, you first install the Kubernetes CLI and then connect to an AKS cluster.
 
@@ -70,129 +92,94 @@ kubectl get nodes
 
 You should see similar output showing the list of your cluster nodes.
 
-```output
+```bash
 NAME                                STATUS   ROLES   AGE   VERSION
-aks-agentpool-21274953-vmss000001   Ready    agent   1d    v1.24.15
-aks-agentpool-21274953-vmss000003   Ready    agent   1d    v1.24.15
-aks-agentpool-21274953-vmss000006   Ready    agent   1d    v1.24.15
+aks-agentpool-21274953-vmss000001   Ready    agent   1d    v1.29.7
+aks-agentpool-21274953-vmss000003   Ready    agent   1d    v1.29.7
+aks-agentpool-21274953-vmss000006   Ready    agent   1d    v1.29.7
 ```
 
-## Update the voting application to use Azure Cache for Redis
+## Run your workload
 
-Use the [.yml file](https://github.com/Azure-Samples/azure-voting-app-redis/blob/master/azure-vote-all-in-one-redis.yaml) in the sample for reference.
+1. This is the pod specification file that you use to run our workload. Take note that the pod has the label "azure.workloadidentity/use: "true"" and is annotated with _serviceAccountName_ as required by AKS workload identity. Replace the value of CONNECTION_STRING, CACHE_NAME and USER_ASSIGNED_PRINCIPAL_ID environment variables that correspond with your cache and managed identity.
 
-Make the following changes to the deployment file before you save the file as _azure-vote-sample.yaml_.
-
-1. Remove the deployment and service named `azure-vote-back`. This deployment is used to deploy a Redis container to your cluster that is not required when using Azure Cache for Redis.
-
-2. Replace the value `REDIS` variable from "azure-vote-back" to the _hostname_ of the Azure Cache for Redis instance that you created earlier. This change indicates that your application should use Azure Cache for Redis instead of a Redis container.
-
-3. Define variable named `REDIS_PWD`, and set the value to the _access key_ for the Azure Cache for Redis instance that you created earlier.
-
-After all the changes, the deployment file should look like following file with your _hostname_ and _access key_. Save your file as _azure-vote-sample.yaml_.
-
-```YAML
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: azure-vote-front
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: azure-vote-front
-  strategy:
-    rollingUpdate:
-      maxSurge: 1
-      maxUnavailable: 1
-  minReadySeconds: 5 
-  template:
+    ```YAML
+    apiVersion: v1
+    kind: Pod
     metadata:
+      name: entrademo-pod
       labels:
-        app: azure-vote-front
+        azure.workload.identity/use: "true"  # Required. Only pods with this label can use workload identity.
     spec:
-      nodeSelector:
-        "kubernetes.io/os": linux
+      serviceAccountName: workload-identity-sa
       containers:
-      - name: azure-vote-front
-        image: mcr.microsoft.com/azuredocs/azure-vote-front:v1
-        ports:
-        - containerPort: 80
+      - name: entrademo-container
+        image: youracr.azurecr.io/connect-from-aks-sample:1.0
+        imagePullPolicy: Always
+        command: ["dotnet", "ConnectFromAKS.dll"] 
         resources:
-          requests:
-            cpu: 250m
           limits:
-            cpu: 500m
+            memory: "256Mi"
+            cpu: "500m"
+          requests:
+            memory: "128Mi"
+            cpu: "250m"
         env:
-        - name: REDIS
-          value: myrediscache.redis.cache.windows.net
-        - name: REDIS_PWD
-          value: myrediscacheaccesskey
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: azure-vote-front
-spec:
-  type: LoadBalancer
-  ports:
-  - port: 80
-  selector:
-    app: azure-vote-front
-```
+             - name: CONNECTION_OPTION
+               value: "MANAGED_IDENTITY" #ACCESS_KEY
+             - name: CONNECTION_STRING # Required when connecting with access key
+               value: "your connection string" 
+             - name: CACHE_NAME
+               value: "your cache name"
+      restartPolicy: Never
+    
+    ```
 
-## Deploy and test your application
+1. Save this file as podspec.yaml and then apply it to your AKS cluster by running the folloWing command:
 
-Run the following command to deploy this application to your AKS cluster:
+    ```bash
+    kubectl apply -f podspec.yaml
+    ```
+    
+   You get a response indicating your pod was created:
 
-```bash
-kubectl apply -f azure-vote-sample.yaml
-```
+    ```bash
+    pod/entrademo-pod created
+    ```
+    
+1. To test the application, run the following command to check if the pod is running:
 
-You get a response indicating your deployment and service was created:
+    ```bash
+    kubectl get pods
+    ```
+    
+    You see your pod running successfully like:
 
-```output
-deployment.apps/azure-vote-front created
-service/azure-vote-front created
-```
+    ```bash
+    NAME                       READY   STATUS      RESTARTS       AGE
+    entrademo-pod              0/1     Completed   0              42s
+    ```
 
-To test the application, run the following command to check if the pod is running:
+1. Because this is a console app, you need to check the logs of the pod to verify that it ran as expected using this command.
 
-```bash
-kubectl get pods
-```
+    ```bash
+    kubectl logs entrademo-app
+    ```
+    
+    You will see the following logs that indicates your pod has successfully connected to your Redis instance using user assigned managed identity
+    
+    ```bash
+    Connecting with managed identity..
+    Retrieved value from Redis: Hello, Redis!
+    Success! Previous value: Hello, Redis!
+    ```
 
-You see your pod running successfully like:
-
-```output
-NAME                                READY   STATUS                       RESTARTS   AGE
-azure-vote-front-7dd44597dd-p4cnq   1/1     Running                      0          68s
-```
-
-Run the following command to get the endpoint for your application:
-
-```bash
-kubectl get service azure-vote-front
-```
-
-You might see that the EXTERNAL-IP has status `<pending>` for a few minutes. Keep retrying until the status is replaced by an IP address.
-
-```output
-NAME                   TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)        AGE
-azure-vote-front       LoadBalancer   10.0.166.147   20.69.136.105   80:30390/TCP   90s
-```
-
-Once the External-IP is available, open a web browser to the External-IP address of your service and you see the application running as follows:
-
-:::image type="content" source="media/cache-tutorial-aks-get-started/cache-web-voting-app.png" alt-text="Screenshot of the voting application running in a browser with buttons for cats, dogs, and reset.":::
-
-## Clean up your deployment
+## Clean up your cluster
 
 To clean up your cluster, run the following commands:
 
 ```bash
-kubectl delete deployment azure-vote-front
-kubectl delete service azure-vote-front
+kubectl delete pod entrademo-pod
 ```
 
 [!INCLUDE [cache-delete-resource-group](includes/cache-delete-resource-group.md)]
@@ -200,4 +187,5 @@ kubectl delete service azure-vote-front
 ## Related content
 
 - [Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using the Azure portal](/azure/aks/learn/quick-kubernetes-deploy-portal)
-- [AKS sample voting application](https://github.com/Azure-Samples/azure-voting-app-redis/tree/master)
+- [Quickstart: Deploy and configure workload identity on an Azure Kubernetes Service (AKS) cluster](/azure/aks/workload-identity-deploy-cluster)
+- [Azure Cache for Redis Entra ID Authentication](/azure/azure-cache-for-redis/cache-azure-active-directory-for-authentication)
