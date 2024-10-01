@@ -128,7 +128,7 @@ You may see one of the following messages:
 
 The point-to-site connection disconnects because the current refresh token in the Azure VPN client, acquired from Entra ID, has expired or become invalid. This token is renewed approximately every hour. Entra tenant administrators can extend the sign-in frequency by adding conditional access policies. Please work with your Entra tenant administrators to extend the refresh token expiration interval. 
 
-For more details, refer to the: [VPN client error: Your authentication with Microsoft Entra expired](https://learn.microsoft.com/azure/vpn-gateway/vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems#entra-expired)
+For more details, refer to the: [VPN client error: Your authentication with Microsoft Entra expired](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems#entra-expired)
 
 ### <a name="removeconfig"></a>How do I remove the configuration of a P2S connection?
 
