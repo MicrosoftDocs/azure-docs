@@ -150,6 +150,14 @@ Create dataflow endpoint for the AIO built-in MQTT broker. This endpoint is the 
 
 # [Bicep](#tab/bicep)
 
+The MQTT broker and Azure Event Grid can be deployed as standard Azure resources since they have Azure Resource Provider (RPs) implementations. 
+
+A single Bicep template file from [Bicep File for MQTT-bridge dataflow Tutorial] (https://gist.github.com/david-emakenemi/7a72df52c2e7a51d2424f36143b7da85) deploys all necessary edge and cloud resources. Download the file to your local, and execute the following command in your terminal:
+
+```bash
+az stack group create --name MyDeploymentStack --resource-group $RESOURCE_GROUP --template-file /workspaces/explore-iot-operations/mqtt-bridge.bicep --action-on-unmanage 'deleteResources' --deny-settings-mode 'none' --yes
+```
+
 ```bicep
 resource MqttBrokerDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
   parent: aioInstance
@@ -285,7 +293,9 @@ resource dataflow_1 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflow
     ]
   }
 } 
+```
 
+```bicep
 resource dataflow_2 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2024-08-15-preview' = {
   parent: defaultDataflowProfile
   name: 'remote-to-local'
@@ -334,7 +344,9 @@ spec:
     destinationSettings:
       endpointRef: eventgrid
       dataDestination: telemetry/iot-mq
----
+```
+
+```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1beta1
 kind: Dataflow
 metadata:
