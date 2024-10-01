@@ -13,13 +13,13 @@ ms.date: 09/24/2024
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-The secure settings for Azure IoT Operations include the setup of Secrets Management and user-assigned managed identity for cloud connections, for example, an OPC UA server, or dataflow endpoints. 
+The secure settings for Azure IoT Operations include the setup of Secrets Management and user-assigned managed identity for cloud connections, for example, an OPC UA server, or dataflow endpoints.
 
-The test settings are easier and quicker to get you started with a deployment, but after your initial deployment you might want to start using the secure settings. This article provides instructions for enabling secure settings on an existing deployment.
+This article provides instructions for enabling secure settings if you didn't do so during your initial deployment.
 
 ## Prerequisites
 
-* An Azure IoT Operations instance deployed with test settings.
+* An Azure IoT Operations instance deployed with test settings. For example, if you followed the instructions in [Quickstart: Run Azure IoT Operations in Codespaces](../get-started-end-to-end-sample/quickstart-deploy.md).
 
 * Azure CLI installed on your development machine. This scenario requires Azure CLI version 2.64.0 or higher. Use `az --version` to check your version and `az upgrade` to update if necessary. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
