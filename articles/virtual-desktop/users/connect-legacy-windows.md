@@ -11,10 +11,10 @@ ms.date: 09/24/2024
 
 # Connect to Azure Virtual Desktop with the legacy Remote Desktop clients for Windows
 
-::: zone pivot="avd-store"
+# [Azure Virtual Desktop Store app](#tab/avd-store)
+
 > [!IMPORTANT]
 > The Azure Virtual Desktop store app is no longer available for download or installation. To ensure a seamless experience and avoid any disruption, users are encouraged to download the Windows App Windows App is the gateway to securely connect to any devices or apps across Azure Virtual Desktop, Windows 365, and Microsoft Dev Box. For more information, see [What is Windows App](/windows-app/overview).
-::: zone-end
 
 The Microsoft Remote Desktop client is used to connect to Azure Virtual Desktop to access your desktops and applications. This article shows you how to connect to Azure Virtual Desktop with the Remote Desktop client for Windows, which only allows you to subscribe to a feed made available to you by your organization administrators.
 
@@ -34,33 +34,38 @@ You can find a list of all the Remote Desktop clients you can use to connect to 
 
 If you want to connect to Remote Desktop Services or a remote PC instead of Azure Virtual Desktop, see [Connect to Remote Desktop Services with the Remote Desktop app for Windows](/windows-server/remote/remote-desktop-services/clients/windows).
 
-> [!TIP]
-> Select the version of the Remote Desktop client for Windows you want to use with the buttons at the top of this article.
-
 ## Prerequisites
 
-Before you can access your resources, you'll need to meet the prerequisites.
+Select a tab for the version of the Remote Desktop client for Windows you want to use:
 
-::: zone pivot="avd-store"
-- Internet access.
+# [Azure Virtual Desktop Store app](#tab/avd-store)
 
-- A device running one of the following supported versions of Windows:
-  - Windows 11
-  - Windows 10
-::: zone-end
-
-::: zone pivot="rd-store"
-Before you can access your resources, you'll need to meet the prerequisites. 
+To access your resources, you need: 
 
 - Internet access.
 
 - A device running one of the following supported versions of Windows:
   - Windows 11
   - Windows 10
-::: zone-end
 
-::: zone pivot="avd-store"
-## Download and install the Azure Virtual Desktop app
+# [Remote Desktop Store app](#tab/rd-store)
+
+To access your resources, you need: 
+
+- Internet access.
+
+- A device running one of the following supported versions of Windows:
+  - Windows 11
+  - Windows 10
+
+---
+
+
+## Download and install
+
+Select a tab for the version of the Remote Desktop client for Windows you want to use:
+
+# [Azure Virtual Desktop Store app](#tab/avd-store)
 
 The Azure Virtual Desktop app is available from the Microsoft Store. To download and install it, follow these steps:
 
@@ -72,9 +77,12 @@ The Azure Virtual Desktop app is available from the Microsoft Store. To download
 
 > [!IMPORTANT]
 > If you have the Azure Virtual Desktop app from the Microsoft Store and the Remote Desktop client (MSI) installed on the same device, you may see the message that begins **A version of this application called Azure Virtual Desktop was installed from the Microsoft Store**. Both apps are supported, and you have the option to choose **Continue anyway**, however it could be confusing to use the same remote resource across both apps. We recommend using only one version of the app at a time.
-::: zone-end
 
-::: zone pivot="rd-store"
+
+# [Remote Desktop Store app](#tab/rd-store)
+
+Select a tab for the version of the Remote Desktop client for Windows you want to use:
+
 > [!IMPORTANT]
 > We're no longer updating the Remote Desktop app for Windows with new features and support for Azure Virtual Desktop will be removed in the future.
 > 
@@ -87,11 +95,15 @@ The Remote Desktop app is available from the Microsoft Store. To download and in
 1. Select **Install** to start downloading the app and installing it.
 
 1. Once the app has finished downloading and installing, select **Open**.
-::: zone-end
+
+---
 
 ## Subscribe to a workspace
 
-::: zone pivot="avd-store"
+Select a tab for the version of the Remote Desktop client for Windows you want to use:
+
+# [Azure Virtual Desktop Store app](#tab/avd-store)
+
 A workspace combines all the desktops and applications that have been made available to you by your admin. To be able to see these in the Azure Virtual Desktop app, you need to subscribe to the workspace by following these steps:
 
 1. Open the **Azure Virtual Desktop** app on your device.
@@ -115,9 +127,9 @@ A workspace combines all the desktops and applications that have been made avail
 1. Sign in with your user account when prompted. After a few seconds, the workspace should show the desktops and applications that have been made available to you by your admin.
 
 Once you've subscribed to a workspace, its content will update automatically regularly and each time you start the client. Resources may be added, changed, or removed based on changes made by your admin.
-::: zone-end
 
-::: zone pivot="rd-store"
+# [Remote Desktop Store app](#tab/rd-store)
+
 A workspace combines all the desktops and applications that have been made available to you by your admin. To be able to see these in the Remote Desktop app, you need to subscribe to the workspace by following these steps:
 
 1. Open the **Remote Desktop** app on your device.
@@ -139,31 +151,37 @@ A workspace combines all the desktops and applications that have been made avail
 1. Sign in with your user account. After a few seconds, your workspaces should show the desktops and applications that have been made available to you by your admin.
 
 Once you've subscribed to a workspace, its content will update automatically regularly. Resources may be added, changed, or removed based on changes made by your admin.
-::: zone-end
+
+---
 
 ## Connect to your desktops and applications
 
+Select a tab for the version of the Remote Desktop client for Windows you want to use:
+
+# [Azure Virtual Desktop Store app](#tab/avd-store)
+
 Once you've subscribed to a workspace, here's how to connect:
 
-::: zone pivot="avd-store"
 1. Open the **Azure Virtual Desktop** app on your device.
 
 1. Double-click one of the icons to launch a session to Azure Virtual Desktop. You may be prompted to enter the password for your user account again, depending on how your admin has configured Azure Virtual Desktop.
 
 1. To pin your desktops and applications to the Start Menu, right-click one of the icons and select **Pin to Start Menu**, then confirm the prompt.
-::: zone-end
 
-::: zone pivot="rd-store"
+### Insider releases
+
+If you want to help us test new builds before they're released, you should download our Insider releases. Organizations can use the Insider releases to validate new versions for their users before they're generally available. For more information, see [Enable Insider releases](client-features-windows.md#enable-insider-releases).
+
+
+# [Remote Desktop Store app](#tab/rd-store)
+
+Once you've subscribed to a workspace, here's how to connect:
+
 1. Open the **Remote Desktop** app on your device.
 
 1. Select one of the icons to launch a session to Azure Virtual Desktop. You may be prompted to enter the password for your user account again, depending on how your admin has configured Azure Virtual Desktop.
-::: zone-end
 
-::: zone pivot="avd-store"
-## Insider releases
-
-If you want to help us test new builds before they're released, you should download our Insider releases. Organizations can use the Insider releases to validate new versions for their users before they're generally available. For more information, see [Enable Insider releases](client-features-windows.md#enable-insider-releases).
-::: zone-end
+---
 
 ## Next steps
 
