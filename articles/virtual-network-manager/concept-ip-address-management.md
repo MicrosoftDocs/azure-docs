@@ -68,14 +68,16 @@ When creating CIDR-supporting resources like virtual networks, CIDRs are automat
 
 ## Permission requirements for IPAM in Azure Virtual Network Manager
 
-You need to have the Network Contributor role for the scope of the network manager instance you want to create and manage.
+When using IP address management, the **IPAM Pool User** role alone is sufficient for delegation. During the public preview, you also need to grant **Network Manager Read** access to ensure full discoverability of IP address pools and virtual networks across the Network Manager's scope. Without this role, users with only the **IPAM Pool User** role won't be able to see available pools and virtual networks.
+
+Learn more about [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md).
 
 ## Known issues
 
-- When using IP address management, the **IPAM Pool User** role alone is sufficient for delegation. During the public preview, you also need to grant "Network Manager Read" access to ensure full discoverability of IP address pools and virtual networks across the Network Manager's scope. Without this role, users with only the **IPAM Pool User** role won't be able to see available pools and virtual networks.
 - When virtual networks are associated with an IPAM pool, peering sync may show as out of sync, even though peering is functioning correctly.
 - When a VNet is moved to a different subscription, the references in IPAM are not updated, leading to inconsistent management status.
 - When multiple requests for the same VNet are made, it can result in duplicate allocations entries.
+
 ## Next steps
 
 > [!div class="nextstepaction"]
