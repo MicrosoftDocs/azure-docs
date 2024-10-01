@@ -102,7 +102,7 @@ This article helps you create a connection to link a virtual network (virtual ne
     >
     > :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/same-location-warning.png" alt-text="Screenshot of warning in the Azure portal when selecting two ExpressRoute circuits in the same peering location.":::
 
-    **Standard resiliency**
+    **High/Standard resiliency**
 
     For high or standard resiliency, you only need to enter information for one connection. For high resiliency the connection you need to attach a metro circuit.  For standard resiliency the connection you need to attach a regular (non-metro) circuit.  
 
