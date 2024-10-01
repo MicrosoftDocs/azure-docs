@@ -12,9 +12,9 @@ ms.custom:  references_regions
 
 # What is IP address management (IPAM) in Azure Virtual Network Manager?
 
-In this article, you learn about the IP address management (IPAM) feature in Azure Virtual Network Manager and how it can help you manage IP addresses in your virtual networks. With Azure Virtual Network Manager's IP Address Management (IPAM), you can create pools for IP address planning, automatically assign nonoverlapping classless inter-domain routing (CIDR) addresses to Azure resources, and prevent address space conflicts across on-premises and multicloud environments.
-
 [!INCLUDE [virtual-network-manager-ipam](../../includes/virtual-network-manager-ipam.md)]
+
+In this article, you learn about the IP address management (IPAM) feature in Azure Virtual Network Manager and how it can help you manage IP addresses in your virtual networks. With Azure Virtual Network Manager's IP Address Management (IPAM), you can create pools for IP address planning, automatically assign nonoverlapping classless inter-domain routing (CIDR) addresses to Azure resources, and prevent address space conflicts across on-premises and multicloud environments.
 
 ## What is IP address management (IPAM)?
 
