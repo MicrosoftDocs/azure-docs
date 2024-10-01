@@ -29,6 +29,8 @@ items:
         href: deploy-iot-ops/howto-manage-secrets.md
       - name: Manage, update, or uninstall
         href: deploy-iot-ops/howto-manage-update-uninstall.md
+      - name: Certificate management
+        href: deploy-iot-ops/concept-default-root-ca.md
     - name: Discover and manage assets
       items:
       - name: Asset management overview

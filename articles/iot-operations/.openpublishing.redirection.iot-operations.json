@@ -480,5 +480,11 @@
             "redirect_url": "/azure/iot-operations/connect-to-cloud/howto-create-dataflow",
             "redirect_document_id": false
         }
+        ,
+        {
+            "source_path_from_root": "/articles/iot-operations/manage-mqtt-broker/concept-default-root-ca.md",
+            "redirect_url": "/azure/iot-operations/deploy-iot-ops/concept-default-root-ca",
+            "redirect_document_id": false
+        }
     ]
 }

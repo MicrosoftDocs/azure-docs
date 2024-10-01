@@ -1,28 +1,28 @@
 ---
-title: Certificate management for AIO internal communication
-description: Azure IoT Operations Preview uses TLS to encrypt communication. Learn about the default set up and also how to bring your own CA for production usecase.
+title: Certificate management for Azure IoT Operations Preview internal communication
+description: Azure IoT Operations Preview uses TLS to encrypt communication. Learn about the default setup and also how to bring your own CA for production.
 author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-mqtt-broker
 ms.topic: concept-article
-ms.date: 09/09/2024
+ms.date: 10/01/2024
 
-#CustomerIntent: As an operator, I want to configure AIO components to use TLS so that I have secure communication between all components.
+#CustomerIntent: As an operator, I want to configure Azure IoT Operations components to use TLS so that I have secure communication between all components.
 ---
 
-# Certificate management for AIO internal communication
+# Certificate management for Azure IoT Operations Preview internal communication
 
-All communication within AIO communications is encrypted using TLS. To help you get started, Azure IoT Operation is deployed with a default root CA and issuer for TLS server certificates. The default set up can be used for development and testing purposes. For production deployment, it is recommended to bring in your own CA issuer and use an enterprise PKI solution. 
+All communication within Azure IoT Operations Preview is encrypted using TLS. To help you get started, Azure IoT Operations is deployed with a default root CA and issuer for TLS server certificates. You can use the default setup for development and testing purposes. For a production deployment, we recommend using your own CA issuer and an enterprise PKI solution. 
 
 ## Default root CA and issuer for TLS server certificates
 
 To help you get started, Azure IoT Operations Preview is deployed with a default root CA and issuer for TLS server certificates. You can use this issuer for development and testing. Azure IoT Operations uses [cert-manager](https://cert-manager.io/docs/) to manage TLS certificates, and [trust-manager](https://cert-manager.io/docs/trust/) to distribute trust bundles to components. 
 
-* The CA certificate is self-signed and not trusted by any clients outside of Azure IoT Operations. The subject of the CA certificate is `CN=Azure IoT Operations Quickstart Root CA - Not for Production`. The CA certificate is automatically rotated by cert-manager. 
+* The CA certificate is self-signed and not trusted by any clients outside of Azure IoT Operations. The subject of the CA certificate is `CN=Azure IoT Operations Quickstart Root CA - Not for Production`. The CA certificate is automatically rotated by cert-manager.
 
-* The root CA certificate certificate is stored in a Kubernetes secret called `azure-iot-operations-aio-ca-certificate` under the `cert-manager` namespace.
+* The root CA certificate is stored in a Kubernetes secret called `azure-iot-operations-aio-ca-certificate` under the `cert-manager` namespace.
 
-* The public portion of the root CA certificate is stored in a ConfigMap called `azure-iot-operations-aio-ca-trust-bundle` under the `azure-iot-operations` namespace. You can retrieve the CA certificate CA certificate from the ConfigMap and inspect it with kubectl and openssl. The ConfigMap is kept updated by trust-manager when the CA certificate is rotated by cert-manager. 
+* The public portion of the root CA certificate is stored in a ConfigMap called `azure-iot-operations-aio-ca-trust-bundle` under the `azure-iot-operations` namespace. You can retrieve the CA certificate from the ConfigMap and inspect it with kubectl and openssl. The ConfigMap is kept updated by trust-manager when the CA certificate is rotated by cert-manager. 
 
     ```bash
     kubectl get configmap azure-iot-operations-aio-ca-trust-bundle -n azure-iot-operations -o "jsonpath={.data['ca\.crt']}" | openssl x509 -text -noout
