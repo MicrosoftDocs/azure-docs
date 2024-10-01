@@ -15,7 +15,7 @@ In this tutorial, you adapt the [AKS sample voting application](https://github.c
 
 - An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - An Azure Kubernetes Service Cluster - For more information on creating a cluster, see [Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using the Azure portal](/azure/aks/learn/quick-kubernetes-deploy-portal).
-- An user assigned managed identity that you want to use to connect to your Azure Cache for Redis instance.
+- A user assigned managed identity that you want to use to connect to your Azure Cache for Redis instance.
 
 > [!IMPORTANT]
 > This tutorial assumes that you are familiar with basic Kubernetes concepts like containers, pods and service.
@@ -27,7 +27,7 @@ In this tutorial, you adapt the [AKS sample voting application](https://github.c
     For this tutorial, use a Standard C1 cache.
     :::image type="content" source="media/cache-tutorial-aks-get-started/cache-new-instance.png" alt-text="Screenshot of creating a Standard C1 cache in the Azure portal":::
 
-1. Follow the steps through to create the cache. 
+1. Follow the steps through to create the cache.
 
 1. Once your Redis cache instance is created, navigate to the **Authentication** tab. Select the user assigned managed identity you want to use to connect to your Redis cache instance, then select **Save**.
 
@@ -40,27 +40,27 @@ In this tutorial, you adapt the [AKS sample voting application](https://github.c
 1. Follow these [steps](/azure/aks/workload-identity-deploy-cluster) to configure a workload identity for your AKS cluster. Complete the following steps:
 
    - Enable OIDC issuer and workload identity
-   - Skip the step to create user assigned managed identity if you have already created your managed identity. If you create a new managed identity, ensure that you create a new Redis User for your managed identity and assign appropriate data access permissions.
-   - Create a Kubernetes Service account annotated with the client id of your user assigned managed identity
+   - Skip the step to create user assigned managed identity if you already created your managed identity. If you create a new managed identity, ensure that you create a new Redis User for your managed identity and assign appropriate data access permissions.
+   - Create a Kubernetes Service account annotated with the client ID of your user assigned managed identity
    - Create a federated identity credential for your AKS cluster.
 
 ## Configure your workload that connects to Azure Cache for Redis
 
-Next, set up the AKS workload to connect to Azure Cache for Redis after you have configured the AKS cluster.
+Next, set up the AKS workload to connect to Azure Cache for Redis after you configure the AKS cluster.
 
 1. Download the code for the [sample app](https://github.com/Azure-Samples/azure-cache-redis-sample/connect-from-aks).
 
 1. Build and push docker image to your Azure Container Registry using [az acr build](/azure/acr?view=azure-cli-latest.md#az-acr-build) command
 
-```bash
-az acr build --image sample/connect-from-aks-sample:1.0 --registry yourcontainerregistry --file Dockerfile .
-```
+  ```bash
+  az acr build --image sample/connect-from-aks-sample:1.0 --registry yourcontainerregistry --file Dockerfile .
+  ```
 
 1. Attach your container registry to your AKS cluster using following command:
 
-```bash
-az aks update --name clustername --resource-group mygroup --attach-acr youracrname
-```
+    ```bash
+    az aks update --name clustername --resource-group mygroup --attach-acr youracrname
+    ```
 
 ## Deploy your workload
 
@@ -78,30 +78,30 @@ If you use Azure Cloud Shell, _kubectl_ is already installed, and you can skip t
 
 ### Connect to your AKS cluster
 
-Use the portal to copy the resource group and cluster name for your AKS cluster. To configure _kubectl_ to connect to your AKS cluster, use the following command with your resource group and cluster name:
+1. Use the portal to copy the resource group and cluster name for your AKS cluster. To configure _kubectl_ to connect to your AKS cluster, use the following command with your resource group and cluster name:
 
-```bash
- az aks get-credentials --resource-group myResourceGroup --name myClusterName
- ```
+   ```bash
+   az aks get-credentials --resource-group myResourceGroup --name myClusterName
+    ```
 
-Verify that you're able to connect to your cluster by running the following command:
+1. Verify that you're able to connect to your cluster by running the following command:
 
-```bash
-kubectl get nodes
-```
+    ```bash
+    kubectl get nodes
+    ```
 
-You should see similar output showing the list of your cluster nodes.
+    You should see similar output showing the list of your cluster nodes.
 
-```bash
-NAME                                STATUS   ROLES   AGE   VERSION
-aks-agentpool-21274953-vmss000001   Ready    agent   1d    v1.29.7
-aks-agentpool-21274953-vmss000003   Ready    agent   1d    v1.29.7
-aks-agentpool-21274953-vmss000006   Ready    agent   1d    v1.29.7
-```
+    ```bash
+    NAME                                STATUS   ROLES   AGE   VERSION
+    aks-agentpool-21274953-vmss000001   Ready    agent   1d    v1.29.7
+    aks-agentpool-21274953-vmss000003   Ready    agent   1d    v1.29.7
+    aks-agentpool-21274953-vmss000006   Ready    agent   1d    v1.29.7
+    ```
 
 ## Run your workload
 
-1. This is the pod specification file that you use to run our workload. Take note that the pod has the label "azure.workloadidentity/use: "true"" and is annotated with _serviceAccountName_ as required by AKS workload identity. Replace the value of CONNECTION_STRING, CACHE_NAME and USER_ASSIGNED_PRINCIPAL_ID environment variables that correspond with your cache and managed identity.
+  1. The following code describes the pod specification file that you use to run our workload. Take note that the pod has the label _azure.workloadidentity/use: "true"_ and is annotated with _serviceAccountName_ as required by AKS workload identity. Replace the value of CONNECTION_STRING, CACHE_NAME and USER_ASSIGNED_PRINCIPAL_ID environment variables that correspond with your cache and managed identity.
 
     ```YAML
     apiVersion: v1
@@ -140,39 +140,39 @@ aks-agentpool-21274953-vmss000006   Ready    agent   1d    v1.29.7
     ```bash
     kubectl apply -f podspec.yaml
     ```
-    
+
    You get a response indicating your pod was created:
 
     ```bash
     pod/entrademo-pod created
     ```
-    
+
 1. To test the application, run the following command to check if the pod is running:
 
     ```bash
     kubectl get pods
     ```
-    
+
     You see your pod running successfully like:
 
     ```bash
     NAME                       READY   STATUS      RESTARTS       AGE
     entrademo-pod              0/1     Completed   0              42s
-    ```
+   ```
 
-1. Because this is a console app, you need to check the logs of the pod to verify that it ran as expected using this command.
+1. Because this tutorial is a console app, you need to check the logs of the pod to verify that it ran as expected using this command.
 
     ```bash
     kubectl logs entrademo-app
     ```
-    
-    You will see the following logs that indicates your pod has successfully connected to your Redis instance using user assigned managed identity
-    
+
+    You see the following logs that indicate your pod successfully connected to your Redis instance using user assigned managed identity
+
     ```bash
     Connecting with managed identity..
     Retrieved value from Redis: Hello, Redis!
     Success! Previous value: Hello, Redis!
-    ```
+   ```
 
 ## Clean up your cluster
 
