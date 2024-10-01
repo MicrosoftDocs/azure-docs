@@ -21,7 +21,11 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | [Improved OT sensor onboarding](#improved-ot-sensor-onboarding) |
+| **OT networks** | - [Added protocol](#added-protocol)<br> - [Improved OT sensor onboarding](#improved-ot-sensor-onboarding) |
+
+### Added protocol
+
+We now support the OCPI protocol. See [the updated protocol list](concept-supported-protocols.md#supported-protocols-for-ot-device-discovery).
 
 ### Improved OT sensor onboarding
 
