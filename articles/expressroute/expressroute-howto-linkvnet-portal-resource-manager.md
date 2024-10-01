@@ -182,11 +182,14 @@ The circuit user needs the resource ID and an authorization key from the circuit
 1. In the **Settings** page, select **High Resiliency** or **Standard Resiliency**, and then select the *Virtual network gateway*. Check the **Redeem authorization** check box. Enter the *Authorization key* and the *Peer circuit URI* and give the connection a name.
  
     > [!NOTE]
-    > The *Peer Circuit URI* is the Resource ID of the ExpressRoute circuit (which you can find under the Properties Setting pane of the ExpressRoute Circuit).
+    > - Connecting to circuits in a different subscription isn't supported for Maximum Resiliency.
+    > - You can connect a virtual network to a Metro circuit in a different subscription when choosing High Resiliency.
+    > - You can connect a virtual network to a regular (non-metro) circuit in a different subscription when choosing Standard Resiliency.
+    > - The *Peer Circuit URI* is the Resource ID of the ExpressRoute circuit (which you can find under the Properties Setting pane of the ExpressRoute Circuit).
 
     :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/connection-settings.png" alt-text="Settings page":::
 
-1. Select **OK**. 
+1. Select **Review + create**. 
 
 1. Review the information in the **Summary** page and select **Create**.
 
