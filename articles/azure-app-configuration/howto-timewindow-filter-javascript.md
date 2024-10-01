@@ -15,7 +15,7 @@ ms.date: 09/26/2024
 
 In this tutorial, you use the time window filter to enable a feature on a schedule for a Node.js application. 
 
-The example used in this tutorial is based on the Node.js application introduced in the feature management [quickstart](./quickstart-feature-flag-javascript.md). Before proceeding further, complete the quickstart to create an ASP.NET Core application with a *Beta* feature flag. Once completed, you must [add a time window filter](./howto-timewindow-filter.md) to the *Beta* feature flag in your App Configuration store.
+The example used in this tutorial is based on the Node.js application introduced in the feature management [quickstart](./quickstart-feature-flag-javascript.md). Before proceeding further, complete the quickstart to create a Node.js application with a *Beta* feature flag. Once completed, you must [add a time window filter](./howto-timewindow-filter.md) to the *Beta* feature flag in your App Configuration store.
 
 ## Prerequisites
 
@@ -37,9 +37,20 @@ const fm = new FeatureManager(ffProvider);
 
 When you run the application the configuration provider will load the *Beta* feature flag from Azure App Configuration. The result of the `isEnabled("Beta")` method will be printed to the console. If your current time is earlier than the start time set for the time window filter, the *Beta* feature flag will be disabled by the time window filter.
 
+You will see the following console outputs.
+
+``` bash
+Beta is enabled: false
+Beta is enabled: false
+Beta is enabled: false
+Beta is enabled: false
+Beta is enabled: false
+Beta is enabled: false
+```
+
 Once the start time has passed, you'll notice that the *Beta* feature flag is enabled by the time window filter.
 
-You will see the following console outputs.
+You will see the console outputs change as the *Beta* is enabled.
 
 ``` bash
 Beta is enabled: false
