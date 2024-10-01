@@ -39,101 +39,15 @@ az provider register -n "Microsoft.AlertsManagement"
 
 ## Install observability components
 
-The steps in this section install shared monitoring resources and configure your Arc enabled cluster to emit observability signals to these resources. The shared monitoring resources include Azure Managed Grafana, Azure Monitor Workspace, Azure Managed Prometheus, Azure Log Analytics, and Container Insights. In this section, you also deploy an [OpenTelemetry (Otel) Collector](https://opentelemetry.io/docs/collector/)
+The steps in this section deploy an [OpenTelemetry (OTel) Collector](https://opentelemetry.io/docs/collector/) and then install shared monitoring resources and configure your Arc enabled cluster to emit observability signals to these resources. The shared monitoring resources include Azure Managed Grafana, Azure Monitor Workspace, Azure Managed Prometheus, Azure Log Analytics, and Container Insights.
 
-1. Clone or download the Azure IoT Operations repo to your local machine: [azure-iot-operations.git](https://github.com/Azure/azure-iot-operations.git).
+### Deploy OpenTelemetry Collector
 
-   > [!NOTE]
-   > The repo contains the deployment definition of Azure IoT Operations, and samples that include the sample dashboards used in this article.
+[!INCLUDE [deploy-otel-collector.md](../includes/deploy-otel-collector.md)]
 
-1. Browse to the following path in your local copy of the repo:
+### Deploy observability components
 
-   *azure-iot-operations\tools\setup-3p-obs-infra*
-
-1. Create a file called `otel-collector-values.yaml` and past the following code into it to define an OpenTelemetry Collector:
-
-   ```yml
-   File: otel-collector-values.yaml
-   mode: deployment
-   fullnameOverride: aio-otel-collector
-   image:
-     repository: otel/opentelemetry-collector
-     tag: 0.107.0
-   config:
-     processors:
-       memory_limiter:
-         limit_percentage: 80
-         spike_limit_percentage: 10
-         check_interval: '60s'
-     receivers:
-       jaeger: null
-       prometheus: null
-       zipkin: null
-       otlp:
-         protocols:
-           grpc:
-             endpoint: ':4317'
-           http:
-             endpoint: ':4318'
-     exporters:
-       prometheus:
-         endpoint: ':8889'
-         resource_to_telemetry_conversion:
-           enabled: true
-   service:
-     extensions:
-       - health_check
-     pipelines:
-       metrics:
-         receivers:
-           - otlp
-         exporters:
-           - prometheus
-       logs: null
-       traces: null
-     telemetry: null
-   extensions:
-     memory_ballast:
-       size_mib: 0
-   resources:
-   limits:
-     cpu: '100m'
-     memory: '512Mi'
-   ports:
-   metrics:
-     enabled: true
-     containerPort: 8889
-     servicePort: 8889
-     protocol: 'TCP'
-   jaeger-compact:
-     enabled: false
-   jaeger-grpc:
-     enabled: false
-   jaeger-thrift:
-     enabled: false
-   zipkin:
-     enabled: false
-   ```
-
-1. In the `otel-collector-values.yaml` file, make a note of the following values that you'll use when you deploy Azure IoT Operations on the cluster:
-
-   * **fullnameOverride**
-   * **grpc.endpoint**
-   * **check_interval**
-
-1. Save and close the file.
-
-1. Deploy the collector by running the following commands:
-
-   ```shell
-   kubectl get namespace azure-iot-operations || kubectl create namespace azure-iot-operations
-   helm repo add open-telemetry https://open-telemetry.github.io/opentelemetry-helm-charts
-
-   helm repo update
-   helm upgrade --install aio-observability open-telemetry/opentelemetry-collector -f otel-collector-values.yaml --namespace azure-iot-operations
-   ```
-
-1. Deploy the observability components by running one of the following commands. Use the subscription ID and resource group of the Arc-enabled cluster that you want to monitor.
+- Deploy the observability components by running one of the following commands. Use the subscription ID and resource group of the Arc-enabled cluster that you want to monitor.
 
    > [!NOTE]
    > To discover other optional parameters you can set, see the [bicep file](https://github.com/Azure/azure-iot-operations/blob/main/tools/setup-3p-obs-infra/observability-full.bicep). The optional parameters can specify things like alternative locations for cluster resources.
