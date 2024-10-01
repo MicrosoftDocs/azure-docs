@@ -25,11 +25,11 @@ The following architectural overview shows where hybrid logic apps and their wor
 
 For more information, see the following documentation:
 
-- [What is Azure Kubernetes Service?](/azure/aks/what-is-aks)
+- [What is Azure Kubernetes Service?](/aks/what-is-aks)
 - [What is Azure Container Apps?](../container-apps/overview.md)
 - [Azure Container Apps on Azure Arc](../container-apps/azure-arc-overview.md)
 - [Azure Arc-enabled Azure Kubernetes (AKS) clusters](/azure/azure-arc/kubernetes/overview)
-- [AKS hyperconverged infrastructure (HCI) clusters](/azure/azure-stack/hci/overview)
+- [AKS hyperconverged infrastructure (HCI) clusters](/azure-stack/hci/overview)
 - [Custom locations on Azure Arc-enabled AKS](/azure/azure-arc/platform/conceptual-custom-locations)
 
 ## Limitations
@@ -105,11 +105,11 @@ To create an AKS cluster as your deployment environment, you have the following 
 To create an on-premises AKS HCI cluster as your deployment environment, see the following documentation:
 
 - [Review deployment prerequisites for Azure Stack HCI](/azure-stack/hci/deploy/deployment-prerequisites)
-- [Create Kubernetes clusters using Azure CLI](/aks/hybrid/aks-create-clusters-cli)
-- [Quickstart: Create a local Kubernetes cluster on AKS enabled by Azure Arc using Windows Admin Center](/aks/hybrid/create-kubernetes-cluster)
-- [Set up an Azure Kubernetes Service host on Azure Stack HCI and Windows Server and deploy a workload cluster using PowerShell](/aks/hybrid/kubernetes-walkthrough-powershell)
+- [Create Kubernetes clusters using Azure CLI](/azure/aks/hybrid/aks-create-clusters-cli)
+- [Quickstart: Create a local Kubernetes cluster on AKS enabled by Azure Arc using Windows Admin Center](/azure/aks/hybrid/create-kubernetes-cluster)
+- [Set up an Azure Kubernetes Service host on Azure Stack HCI and Windows Server and deploy a workload cluster using PowerShell](/azure/aks/hybrid/kubernetes-walkthrough-powershell)
 
-For more information about AKS on-premises options, see [Overview of AKS on Windows Server and Azure Stack HCI, version 22H2](/aks/hybrid/overview).
+For more information about AKS on-premises options, see [Overview of AKS on Windows Server and Azure Stack HCI, version 22H2](/azure/aks/hybrid/overview).
 
 <a name="create-storage-provider"></a>
 
