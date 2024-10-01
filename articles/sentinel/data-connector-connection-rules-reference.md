@@ -82,9 +82,10 @@ The CCP supports the following authentication types:
 - [Basic](#basic-auth)
 - [APIKey](#apikey)
 - [OAuth2](#oauth2)
+- [Jwt](#jwt)
 
 > [!NOTE]
-> CCP OAuth2 implementation does not support certificate credentials.
+> CCP OAuth2 implementation does not support client certificate credentials.
 
 As a best practice, use parameters in the auth section instead of hard-coding credentials. For more information, see [Secure confidential input](create-codeless-connector.md#secure-confidential-input).
 
@@ -168,7 +169,7 @@ After the user returns to the client via the redirect URL, the application will 
 Auth code flow is for fetching data on behalf of a user's permissions and client credentials is for fetching data with application permissions. The data server grants access to the application. Since there is no user in client credentials flow, no authorization endpoint is needed, only a token endpoint.
 
 Example:
-OAuth2 auth code grant
+OAuth2 `authorization_code` grant type
 
 ```json
 "auth": {
@@ -192,6 +193,8 @@ OAuth2 auth code grant
 }
 ```
 Example:
+OAuth2 `client_credentials` grant type
+
 ```json
 "auth": {
     "type": "OAuth2",
@@ -205,6 +208,27 @@ Example:
     "TokenEndpointQueryParameters": {},
     "scope": "openid offline_access some_scope",
     "grantType": "client_credentials"
+}
+```
+
+#### Jwt
+
+Example:
+JSON web token (JWT)
+
+```json
+"auth": {
+    "type": "JwtToken",
+    "userName": {
+        "key":"username",
+        "value":"[[parameters('UserName')]"
+    },
+    "password": {
+        "key":"password",
+        "value":"[[parameters('Password')]"
+    },
+    "TokenEndpoint": {"https://token_endpoint.contoso.com"},
+    "IsJsonRequest": true
 }
 ```
 
