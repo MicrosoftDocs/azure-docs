@@ -329,7 +329,7 @@ After you deploy your hybrid logic app, confirm that your app is running correct
 
    For more information, see the following documentation:
 
-   - [az aks get-credentials](/cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials)
+   - [az aks get-credentials](/cli/azure/aks#az-aks-get-credentials)
    - [Command line tool (kubetctl)](https://kubernetes.io/docs/reference/kubectl/)
 
 ### AKS cluster doesn't have enough nodes
