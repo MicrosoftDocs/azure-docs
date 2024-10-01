@@ -148,6 +148,36 @@ example.region-1.ts.eventgrid.azure.net
 
 Create dataflow endpoint for the AIO built-in MQTT broker. This endpoint is the source for the dataflow that sends messages to Azure Event Grid.
 
+# [Bicep](#tab/bicep)
+
+```yaml
+resource MqttBrokerDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
+  parent: aioInstance
+  name: 'aiomq'
+  extendedLocation: {
+    name: customLocation.id
+    type: 'CustomLocation'
+  }
+  properties: {
+    endpointType: 'Mqtt'
+    mqttSettings: {
+      authentication: {
+        method: 'ServiceAccountToken'
+        serviceAccountTokenSettings: {
+          audience: 'aio-internal'
+        }
+      }
+      host: 'aio-broker:18883'
+      tls: {
+        mode: 'Enabled'
+        trustedCaCertificateConfigMapRef: 'azure-iot-operations-aio-ca-trust-bundle  '
+      }
+    }
+  }
+}
+```
+
+# [Kubernetes](#tab/kubernetes)
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1beta1
 kind: DataflowEndpoint
@@ -167,6 +197,34 @@ This is the default configuration for the AIO MQTT broker endpoint. The authenti
 ## Create an Azure Event Grid dataflow endpoint
 
 Create dataflow endpoint for the Azure Event Grid. This endpoint is the destination for the dataflow that sends messages to Azure Event Grid. Replace `<EVENT-GRID-HOSTNAME>` with the hostname you got from the previous step, include the port number `8883`.
+
+# [Bicep](#tab/bicep)
+
+```yaml
+resource remoteMqttBrokerDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
+  parent: aioInstance
+  name: 'eventgrid'
+  extendedLocation: {
+    name: customLocation.id
+    type: 'CustomLocation'
+  }
+  properties: {
+    endpointType: 'Mqtt'
+    mqttSettings: {
+      authentication: {
+        method: 'SystemAssignedManagedIdentity'
+        systemAssignedManagedIdentitySettings: {}
+      }
+      host: '<NAMESPACE>.<REGION>-1.ts.eventgrid.azure.net:8883'
+      tls: {
+        mode: 'Enabled'
+      }
+    }
+  }
+}
+```
+
+# [Kubernetes](#tab/kubernetes)
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1beta1
@@ -192,6 +250,68 @@ Since the Event Grid MQTT broker requires TLS, the `tls` setting is enabled. No 
 ## Create dataflows
 
 Create two dataflows with the AIO MQTT broker endpoint as the source and the Azure Event Grid endpoint as the destination, and vice versa. No need to configure transformation.
+
+# [Bicep](#tab/bicep)
+
+```yaml
+resource dataflow_1 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2024-08-15-preview' = {
+  parent: defaultDataflowProfile
+  name: 'local-to-remote'
+  extendedLocation: {
+    name: customLocation.id
+    type: 'CustomLocation'
+  }
+  properties: {
+    mode: 'Enabled'
+    operations: [
+      {
+        operationType: 'Source'
+        sourceSettings: {
+          endpointRef: MqttBrokerDataflowEndpoint.name
+          dataSources: array('tutorial/local')
+        }
+      }
+      {
+        operationType: 'Destination'
+        destinationSettings: {
+          endpointRef: remoteMqttBrokerDataflowEndpoint.name
+          dataDestination: 'telemetry/iot-mq'
+        }
+      }
+    ]
+  }
+} 
+
+resource dataflow_2 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2024-08-15-preview' = {
+  parent: defaultDataflowProfile
+  name: 'remote-to-local'
+  extendedLocation: {
+    name: customLocation.id
+    type: 'CustomLocation'
+  }
+  properties: {
+    mode: 'Enabled'
+    operations: [
+      {
+        operationType: 'Source'
+        sourceSettings: {
+          endpointRef: remoteMqttBrokerDataflowEndpoint.name
+          dataSources: array('telemetry/#')
+        }
+      }
+      {
+        operationType: 'Destination'
+        destinationSettings: {
+          endpointRef: MqttBrokerDataflowEndpoint.name
+          dataDestination: 'tutorial/cloud'
+        }
+      }
+    ]
+  }
+} 
+```
+
+# [Kubernetes](#tab/kubernetes)
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1beta1
