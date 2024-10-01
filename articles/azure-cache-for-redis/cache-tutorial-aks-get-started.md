@@ -37,7 +37,7 @@ In this tutorial, you adapt the [AKS sample voting application](https://github.c
 
 ## Configure your AKS cluster
 
-1. Follow these [steps](aks/workload-identity-deploy-cluster.md) to configure a workload identity for your AKS cluster. Complete the following steps:
+1. Follow these [steps](/azure/aks/workload-identity-deploy-cluster) to configure a workload identity for your AKS cluster. Complete the following steps:
 
    - Enable OIDC issuer and workload identity
    - Skip the step to create user assigned managed identity if you have already created your managed identity. If you create a new managed identity, ensure that you create a new Redis User for your managed identity and assign appropriate data access permissions.
@@ -50,7 +50,7 @@ Next, set up the AKS workload to connect to Azure Cache for Redis after you have
 
 1. Download the code for the [sample app](https://github.com/Azure-Samples/azure-cache-redis-sample/connect-from-aks).
 
-1. Build and push docker image to your Azure Container Registry using [az acr build](https://learn.microsoft.com/en-us/cli/azure/acr?view=azure-cli-latest#az-acr-build) command
+1. Build and push docker image to your Azure Container Registry using [az acr build](/azure/acr?view=azure-cli-latest.md#az-acr-build) command
 
 ```bash
 az acr build --image sample/connect-from-aks-sample:1.0 --registry yourcontainerregistry --file Dockerfile .
