@@ -163,6 +163,8 @@ To allow Windows systems without the necessary internet connectivity to still st
 
 For more information on this scenario, see the [**Log Analytics gateway** documentation](/azure/azure-monitor/agents/gateway).
 
+For additional installation options and further details, see the [**Azure Monitor Agent** documentation](/azure/azure-monitor/agents/azure-monitor-agent-windows-client).
+
 ### Determine the logs to send
 
 For the Windows DNS Server and Windows Firewall connectors, select the **Install solution** button. For the legacy Security Events connector, choose the **event set** you wish to send and select **Update**. For more information, see [Windows security event sets that can be sent to Microsoft Sentinel](windows-security-event-id-reference.md).
