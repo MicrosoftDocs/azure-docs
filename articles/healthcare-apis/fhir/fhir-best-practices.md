@@ -12,24 +12,24 @@ ms.author: kesheth
 
 # Best practices for higher performance in FHIR service
 
-**Note:** This document is scoped for Azure Health Data Services FHIR service customers.
+**Note:** This document is scoped for Azure Health Data Services FHIR&reg; service customers.
 
 ## Data ingestion
 
 ### Import operation
 
-Azure FHIR&reg; service supports data ingestion through the import operation, which offers two modes: initial mode, and incremental mode. For detailed guidance, refer to the [Importing data into the FHIR service](import-data.md) documentation.
+Azure FHIR service supports data ingestion through the import operation, which offers two modes: initial mode, and incremental mode. For detailed guidance, refer to the [Importing data into the FHIR service](import-data.md) documentation.
 
 **Consider** using the import operation over HTTP API requests to ingest the data into FHIR service. The import operation provides a high throughput and is a scalable method for loading data.
 To achieve optimal performance with the import operation, consider the following best practices.
 
 1. **Do** use large files while ingesting data. The optimal DNJSON file size for import is 50 MB or larger (or 20,000 resources or more, with no upper limit). Combining smaller files into larger ones can enhance performance.
-1. **Consider** importing all FHIR resource files in a single import operation for optimal performance. Aim for a total file size of 100 GB or more (or 100 million resources, no upper limit) in one operation. This helps reduce the overhead associated with managing multiple import jobs.
+1. **Consider** importing all FHIR resource files in a single import operation for optimal performance. Aim for a total file size of 100 GB or more (or 100 million resources, no upper limit) in one operation. Maximizing an import in this way helps reduce the overhead associated with managing multiple import jobs.
 1. **Consider** running multiple concurrent imports only if necessary, but limit parallel import jobs. A single large import is designed to consume all available system resources, and processing throughput doesn't increase with concurrent import jobs.
 
-### Buldles
+### Bundles
 
-In Azure FHIR service, bundles act as containers for multiple resources. Batch and transaction bundles enable users to submit sets of actions in a single HTTP request or response. To achieve higher throughput with bundle ingestion, consider the following:
+In Azure FHIR service, bundles act as containers for multiple resources. Batch and transaction bundles enable users to submit sets of actions in a single HTTP request or response. Consider the following to achieve higher throughput with bundle ingestion.
 
 1. **Do** tune the number of concurrent bundle requests to the FHIR server. A high number (>100) may lead to negative scaling and reduced processing throughput. The optimal concurrency is dependent on the complexity of the bundles and resources.
 1. **Do** generate load on Azure FHIR service in a linear manner and avoid burst operations to prevent performance degradation.
@@ -49,7 +49,7 @@ Azure FHIR service is provisioned with predefined search parameters per resource
 After data ingestion, optimizing query performance is crucial. To ensure optimal performance:
 
 1. **Do** generate load on Azure FHIR service in a linear manner and, avoid burst operations to prevent performance degradation.
-1. **Consider** using the most selective search parameters (for instance, identifier) over those with low cardinality (for example, Gender) to optimize index usage.
+1. **Consider** using the most selective search parameters (for instance, identifier) over parameters with low cardinality (for example, Gender) to optimize index usage.
 1. **Consider** performing deterministic searches using logical identifiers. FHIR service provides two ways to identify a resource: logical identifiers and business identifiers.<br>
 Logical Identifiers are considered "deterministic" because FHIR operations performed with them are predictable. Business Identifiers are considered "conditional" because their operations have different behavior depending on the state of the system. We recommend using deterministic operations using logical identifiers.
 1. **Consider** using the `PUT` HTTP verb instead of POST where applicable. `PUT` requests can help maintain data integrity and optimize resource management. `POST` requests can lead to duplication of resources, poor data quality, and increase FHIR data size unnecessarily.
@@ -59,8 +59,8 @@ Logical Identifiers are considered "deterministic" because FHIR operations perfo
 ## Data extraction
 
 For data extraction, use the bulk `$export` operation as specified in the [HL7 FHIR Build Data Access specification]().
-1. **Do** use larger data blocks for system level exports when not using filters to maximize throughput. Azure FHIR service will automatically split them into parallel jobs.
-1. **Consider** splitting patient, group and filtered system exports into small data blocks for export.
+1. **Do** use larger data blocks for system level exports when not using filters to maximize throughput. Azure FHIR service automatically splits them into parallel jobs.
+1. **Consider** splitting Patient, Group, and filtered system exports into small data blocks for export.
 
 For more information on export operations, see [Export your FHIR data](export-data.md).
 
