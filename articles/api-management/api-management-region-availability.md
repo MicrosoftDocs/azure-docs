@@ -6,7 +6,7 @@ author: dlepow
  
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 09/12/2024
+ms.date: 10/01/2024
 ms.author: danlep
 ms.custom: references_regions
 ---
@@ -15,7 +15,7 @@ ms.custom: references_regions
 
 [!INCLUDE [api-management-availability-basicv2-standardv2-premium-premiumv2](../../includes/api-management-availability-basicv2-standardv2-premium-premiumv2.md)]
 
-API Management [v2 tiers](v2-service-tiers-overview.md) and API Management [workspace gateways](workspaces-overview.md#workspace-gateway) are available in a subset of the regions where the classic tiers are available. For information about the classic tiers, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/).
+API Management [v2 tiers](v2-service-tiers-overview.md) and API Management [workspace gateways](workspaces-overview.md#workspace-gateway) are available in a subset of the regions where the classic tiers are available. For information about the availability of the API Management classic tiers, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/).
 
 
 ## Supported regions for v2 tiers and workspace gateways
@@ -35,19 +35,19 @@ Information in the following table is updated regularly.
 | East Asia | ✅ | ✅ | ✅ | ✅ |
 | France Central  | ✅ | ✅ | ✅ | ✅ |
 | Germany West Central  | ✅ | ✅ | ✅ |  |
-| Korea Central | ✅ | ✅ | ✅ | |
+| Korea Central | ✅ | ✅ | ✅ | | 
 | Japan East | ✅ | ✅ | ✅ | ✅ |
 | North Central US | ✅ | ✅ |  | ✅ |
 | North Europe | ✅ | ✅ | | ✅ |
-| Norway East | ✅ | ✅ | | |
-| South Africa North | ✅ | ✅ |  |  |
+| Norway East | ✅ | ✅ | ✅ | |
+| South Africa North | ✅ | ✅ | |  |
 | South Central US | ✅ | ✅ |  |  |
 | South India | ✅ | ✅ |  |  |
 | Southeast Asia | ✅ | ✅ | ✅ | ✅ |
 | Switzerland North | ✅ |✅ | | |
-| UK South | ✅  | ✅ | ✅ | ✅ |
+| UK South | ✅  | ✅ | | ✅ |
 | UK West | ✅  | ✅ | | |
-| West Europe  | ✅ | ✅ | ✅ |  |
+| West Europe  | ✅ | ✅ |  |  |
 | West US | ✅ | ✅ | | ✅ |
 | West US 2 | ✅ | ✅ | | |
 
