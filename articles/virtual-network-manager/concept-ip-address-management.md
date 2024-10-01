@@ -5,7 +5,8 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: how-to
-ms.date: 09/26/2024
+ms.date: 10/2/2024
+ms.custom:  references_regions
 #customer intent: As a network administrator, I want to learn about IP address management (IPAM) in Azure Virtual Network Manager so that I can manage IP addresses in my virtual networks.
 ---
 
@@ -56,9 +57,7 @@ When it comes to allocation, you can assign Azure resources with CIDRs, such as 
 With IPAM, you can delegate permission to other users to utilize the IPAM pools, ensuring controlled access and management while democratizing pool allocation. These permissions allow users to see the pools they have access to, aiding in choosing the right pool for their needs.
 
 Delegating permissions also allows others to view usage statistics and lists of resources associated with the pool. Within your network manager, complete usage statistics are available including:
-    - the total number of IPs in pool
-    - the number of used IPs
-    - the percentage of used IPs
+    - the total number of IPs in pool.
     - the percentage of allocated pool space.
     
 Additionally, it shows details for pools and resources associated with pools, giving a complete overview of the IP usages and aiding in better resource management and planning.
@@ -71,6 +70,13 @@ When creating CIDR-supporting resources like virtual networks, CIDRs are automat
 
 You need to have the Network Contributor role for the scope of the network manager instance you want to create and manage.
 
+## Known issues
+
+- When using IP address management, the **IPAM Pool User** role alone is sufficient for delegation. During the public preview, you also need to grant "Network Manager Read" access to ensure full discoverability of IP address pools and virtual networks across the Network Manager's scope. Without this role, users with only the **IPAM Pool User** role won't be able to see available pools and virtual networks.
+- When virtual networks are associated with an IPAM pool, peering sync may show as out of sync, even though peering is functioning correctly.
+- When a VNet is moved to a different subscription, the references in IPAM are not updated, leading to inconsistent management status.
+- When the `enableMultipleAddressPrefixesonSubnet` AFEC flag is disabled, subnets only support one address prefix, leading to errors when multiple subnet prefixes are required.
+- When multiple requests for the same VNet are made, it can result in duplicate allocations entries.
 ## Next steps
 
 > [!div class="nextstepaction"]
