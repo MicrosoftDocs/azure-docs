@@ -225,15 +225,17 @@ The following commands help you define variables and ensure your Container Apps 
     ```azurecli
     az containerapp show \
       --name $CONTAINER_APP_NAME \
-      --resource-group $RESOURCE_GROUP > app.yaml
+      --resource-group $RESOURCE_GROUP \
+      -o yaml > app.yaml
     ```
 
     # [PowerShell](#tab/powershell)
 
     ```azurecli
-    az containerapp create `
+    az containerapp show `
       --name $CONTAINER_APP_NAME `
-      --resource-group $RESOURCE_GROUP > app.yaml
+      --resource-group $RESOURCE_GROUP `
+      -o yaml > app.yaml
     ```
 
     ---
