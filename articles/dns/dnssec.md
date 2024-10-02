@@ -29,16 +29,16 @@ For a summary of RFCs, see [RFC9364](https://www.rfc-editor.org/rfc/rfc9364): DN
 
 DNS zones are secured with DNSSEC using a process called zone signing. Signing a zone with DNSSEC adds validation support without changing the basic mechanism of a DNS query and response. To sign a zone with DNSSEC, the zone's primary authoritative DNS server must support DNSSEC.
 
-[DNSSEC validation](#dnssec-validation) of DNS responses occurs by using digital signatures. Resource Record Signatures (RRSIGs) and other cryptographic records are added to the zone when it is signed. 
+[DNSSEC validation](#dnssec-validation) of DNS responses occurs by using digital signatures. Resource Record Signatures (RRSIGs) and other cryptographic records are added to the zone when it's signed. 
 
 The following figure shows DNS resource records in the zone contoso.com before and after zone signing.
 
-  ![A diagram showing how RRSIG records are added to a zone when it is signed with DNSSEC.](media/dnssec/rrsig-records2.png)
+  ![A diagram showing how RRSIG records are added to a zone when it's signed with DNSSEC.](media/dnssec/rrsig-records2.png)
 
 > [!NOTE]
-> DNSSEC-related resource records are not displayed in the Azure portal. For more information, see [View DNSSEC-related resource records](#view-dnssec-related-resource-records) 
+> DNSSEC-related resource records aren't displayed in the Azure portal. For more information, see [View DNSSEC-related resource records](#view-dnssec-related-resource-records) 
 
-If a DNS server is DNSSEC-aware, it can set the DNSSEC OK (DO) flag in a DNS query to a value of `1`. This tells the responding DNS server to include DNSSEC records with the response. The DNSSEC records can then be used to validate that the DNS response is genuine. In order for DNSSEC validation to work end-to-end, there must be an unbroken [chain of trust](#chain-of-trust).
+If a DNS server is DNSSEC-aware, it can set the DNSSEC OK (DO) flag in a DNS query to a value of `1`. This value tells the responding DNS server to include DNSSEC records with the response. The DNSSEC records can then be used to validate that the DNS response is genuine. In order for DNSSEC validation to work end-to-end, there must be an unbroken [chain of trust](#chain-of-trust).
 
 ## Why sign a zone with DNSSEC?
 
@@ -64,18 +64,18 @@ DNSSEC works to prevent DNS hijacking by performing validation on DNS responses.
 
 ## Chain of trust
 
- A chain of trust occurs when all the DNS servers involved in sending a response for a DNS query are able to validate that the response was not modified during transit. 
+ A chain of trust occurs when all the DNS servers involved in sending a response for a DNS query are able to validate that the response wasn't modified during transit. 
 
  Authoritative servers:
 - Authoritative DNS servers maintain a chain of trust by verifying the authenticity of the DNS zone in the DNS hierarchy. For example, if a parent zone doesn't have a delegation signer (DS) record for a child zone, it can't verify the DNSSEC status of the child zone and the chain of trust is broken.
 
 Recursive servers:
 - Recursive DNS servers (also called resolving or caching DNS servers) maintain a chain of trust through the use of DNSSEC trust anchors. A trust anchor is a public cryptographic key provided by an authoritative server and installed on a recursive server to support DNSSEC validation. The trust anchor is a DNSKEY record, or DS record containing a [hash](/dotnet/standard/security/ensuring-data-integrity-with-hash-codes) of a DNSKEY record. The DNSKEY record is created on an authoritative server when a zone is signed, and removed from the zone if the zone is unsigned. Trust anchors for parent zones must be manually installed on recursive DNS servers.
-    - If a recursive DNS server does not have a DNSSEC trust anchor for a given zone (or the zone's parent), it will not perform DNSSEC validation on that zone.
+    - If a recursive DNS server doesn't have a DNSSEC trust anchor for a given zone (or the zone's parent), it will not perform DNSSEC validation on that zone.
     - If a recursive DNS server has a DNSSEC trust anchor for a parent zone and it receives a query for a child zone, it checks to see if a DS record for the child zones is present in the parent zone. 
       - If the DS record is found, the recursive DNS server performs DNSSEC validation. 
-      - If the recursive DNS server determines that the parent zone does not have a DS record for the child zone, it assumes the child zone is insecure and does not perform DNSSEC validation.
-    - Recursive servers that have DNSSEC validation disabled or are not DNSSEC-aware do not perform validation.
+      - If the recursive DNS server determines that the parent zone doesn't have a DS record for the child zone, it assumes the child zone is insecure and doesn't perform DNSSEC validation.
+    - Recursive servers that have DNSSEC validation disabled or aren't DNSSEC-aware don't perform validation.
 
 ## DNSSEC validation
 
@@ -83,7 +83,7 @@ A recursive DNS server performs DNSSEC validation using its trust anchor (DNSKEY
 
   ![A diagram showing how DNSSEC validation works.](media/dnssec/dnssec-validation.png)
 
-If hash values are not the same, it replies with a SERVFAIL message. In this way, DNSSEC-capable resolving DNS servers with a valid trust anchor installed can protect against DNS hijacking. This protection doesn't require DNS client devices to be DNSSEC-aware.
+If hash values aren't the same, it replies with a SERVFAIL message. In this way, DNSSEC-capable resolving DNS servers with a valid trust anchor installed can protect against DNS hijacking. This protection doesn't require DNS client devices to be DNSSEC-aware.
 
 ## DNSSEC-related resource records
 
@@ -105,7 +105,7 @@ The following table provides a short description of DNSSEC-related records. For 
 To view DNSSEC-related records, use command line tools such as Resolve-DnsName or dig.exe. These tools are available using Cloud Shell, or locally if installed on your device. Be sure to set the DO flag in your query, which is done using the -dnssecok option in Resolve-DnsName or the +dnssec option in dig.exe. 
 
 > [!IMPORTANT]
-> Do not use the nslookup.exe command-line tool to query for DNSSEC-related records. The nslookup.exe tool uses an internal DNS client that isn't DNSSEC-aware. 
+> Don't use the nslookup.exe command-line tool to query for DNSSEC-related records. The nslookup.exe tool uses an internal DNS client that isn't DNSSEC-aware. 
 
 See the following examples:
 
@@ -209,21 +209,21 @@ This list is provided to help understand some of the common terms used when disc
 
 | Term | Description |
 | --- | --- |
-| Authenticated data (AD) bit | A data bit that indicates in a response that all data that is included in the answer and authority sections of the response has been authenticated by the DNS server according to the policies of that server. |
+| Authenticated data (AD) bit | A data bit that indicates in a response that all data included in the answer and authority sections of the response has been authenticated by the DNS server according to the policies of that server. |
 | Authentication chain | A chain of signed and validated DNS records that extends from a preconfigured trust anchor to some child zone in the DNS tree. |
-| DNS Extension (EDNS0) | A DNS record that carries extended DNS header information, such as the DO bit and maximum UDP packet size. |
+| DNS Extension (EDNS0) | A DNS record that carries extended DNS header information, such as the **DO bit** and maximum UDP packet size. |
 | DNS Security Extensions (DNSSEC) | Extensions to the DNS service that provide mechanisms for signing and for securely resolving DNS data. |
 | DNSSEC OK (DO) bit | A bit in the EDNS0 portion of a DNS request that signals that the client is DNSSEC-aware. |
-| Island of security | A signed zone that does not have an authentication chain from its delegating parent zone. |
-| Key signing key (KSK) | An authentication key that corresponds to a private key that is used to sign one or more other signing keys for a given zone. Typically, the private key that corresponds to a KSK signs a zone signing key (ZSK), which in turn has a corresponding private key that signs other zone data. Local policy can require that the ZSK be changed frequently, while the KSK can have a longer validity period in order to provide a more stable, secure entry point into the zone. Designating an authentication key as a KSK is purely an operational issue: DNSSEC validation does not distinguish between KSKs and other DNSSEC authentication keys. It is possible to use a single key as both a KSK and a ZSK. |
-| Non-validating security-aware stub resolver | A security-aware stub resolver that trusts one or more security-aware DNS servers to perform DNSSEC validation on its behalf. |
+| Island of security | A signed zone that doesn't have an authentication chain from its delegating parent zone. |
+| Key signing key (KSK) | An authentication key that corresponds to a private key that is used to sign one or more other signing keys for a given zone. Typically, the private key that corresponds to a KSK signs a zone signing key (ZSK), which in turn has a corresponding private key that signs other zone data. Local policy can require that the ZSK be changed frequently, while the KSK can have a longer validity period in order to provide a more stable, secure entry point into the zone. Designating an authentication key as a KSK is purely an operational issue: DNSSEC validation doesn't distinguish between KSKs and other DNSSEC authentication keys. It's possible to use a single key as both a KSK and a ZSK. |
+| Nonvalidating security-aware stub resolver | A security-aware stub resolver that trusts one or more security-aware DNS servers to perform DNSSEC validation on its behalf. |
 | secure entry point (SEP) key | A subset of public keys within the DNSKEY RRSet. A SEP key is used either to generate a DS RR or is distributed to resolvers that use the key as a trust anchor. |
 | Security-aware DNS server | A DNS server that implements the DNS security extensions as defined in RFCs 4033 [5], 4034 [6], and 4035 [7]. In particular, a security-aware DNS server is an entity that receives DNS queries, sends DNS responses, supports the EDNS0 [3] message size extension and the DO bit, and supports the DNSSEC record types and message header bits. |
 | Signed zone | A zone whose records are signed as defined by RFC 4035 [7] Section 2. A signed zone can contain DNSKEY, NSEC, NSEC3, NSEC3PARAM, RRSIG, and DS resource records. These resource records enable DNS data to be validated by resolvers. |
 | Signing key descriptor (SKD) | A collection of cryptographic keys and parameters that describe how to generate and maintain signing keys and signatures. An SKD is not the same as a signing key, but all signing keys are associated to an SKD. The unique identifier for an SKD is displayed as a GUID in DNSSEC properties of a signing key in DNS Manager, and this GUID is the value that must be provided for the KeyId parameter in Windows PowerShell in certain cmdlets, for example: Set-DnsServerSigningKey. |
 | Trust anchor | A preconfigured public key that is associated with a particular zone. A trust anchor enables a DNS resolver to validate signed DNSSEC resource records for that zone and to build authentication chains to child zones. |
 | Unsigned zone | Any DNS zone that has not been signed as defined by RFC 4035 [7] Section 2. |
-| Zone signing key (ZSK) | An authentication key that corresponds to a private key that is used to sign a zone. Typically, a zone signing key is part of the same DNSKEY RRSet as the key signing key whose corresponding private key signs this DNSKEY RRSet, but the zone signing key is used for a slightly different purpose and can differ from the key signing key in other ways, such as in validity lifetime. Designating an authentication key as a zone signing key is purely an operational issue; DNSSEC validation does not distinguish between zone signing keys and other DNSSEC authentication keys. It is possible to use a single key as both a key signing key and a zone signing key. |
+| Zone signing key (ZSK) | An authentication key that corresponds to a private key that is used to sign a zone. Typically, a zone signing key is part of the same DNSKEY RRSet as the key signing key whose corresponding private key signs this DNSKEY RRSet, but the zone signing key is used for a slightly different purpose and can differ from the key signing key in other ways, such as in validity lifetime. Designating an authentication key as a zone signing key is purely an operational issue; DNSSEC validation doesn't distinguish between zone signing keys and other DNSSEC authentication keys. It's possible to use a single key as both a key signing key and a zone signing key. |
 
 ## Next steps
 
