@@ -189,7 +189,7 @@ To get started, register for the feature using Azure portal or PowerShell.
 
 1. Sign in to the [Azure portal](https://portal.azure.com?azure-portal=true).
 2. Search for and select **Preview features**.
-3. Click the **Type** filter and select **Microsoft.Storage**.
+3. Select the **Type** filter and select **Microsoft.Storage**.
 4. Select **Azure Premium Files Metadata Cache Preview** and then select **Register**.
 
 ###### [Azure PowerShell](#tab/powershell)
