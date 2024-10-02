@@ -20,9 +20,9 @@ Use the following value in the [Bicep configuration file](bicep-config-linter.md
 
 To reduce confusion in your template, delete any variables that are defined but not used. This test finds all variables that aren't used anywhere in the template.
 
-You can use **Quick Fix** to remove the unused variables:
+Use **Quick Fix** to remove the unused variables:
 
-:::image type="content" source="./media/linter-rule-no-unused-variables/linter-rule-no-unused-variables-quick-fix.png" alt-text="The screenshot of No unused variables linter rule Quick Fix.":::
+:::image type="content" source="./media/linter-rule-no-unused-variables/linter-rule-no-unused-variables-quick-fix.png" alt-text="A screenshot of using Quick Fix for the no-unused-variables linter rule":::
 
 ## Next steps
 

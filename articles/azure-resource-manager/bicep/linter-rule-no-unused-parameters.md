@@ -20,9 +20,9 @@ Use the following value in the [Bicep configuration file](bicep-config-linter.md
 
 To reduce confusion in your template, delete any parameters that are defined but not used. This test finds all parameters that aren't used anywhere in the template. Eliminating unused parameters also makes it easier to deploy your template because you don't have to provide unnecessary values.
 
-You can use **Quick Fix** to remove the unused parameters:
+Use **Quick Fix** to remove the unused parameters:
 
-:::image type="content" source="./media/linter-rule-no-unused-parameters/linter-rule-no-unused-parameters-quick-fix.png" alt-text="The screenshot of No unused parameters linter rule Quick Fix.":::
+:::image type="content" source="./media/linter-rule-no-unused-parameters/linter-rule-no-unused-parameters-quick-fix.png" alt-text="A screenshot of using Quick Fix for the no-unused-parameters linter rule":::
 
 ## Next steps
 

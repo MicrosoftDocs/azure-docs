@@ -8,7 +8,7 @@ ms.date: 10/03/2024
 
 # Linter rule - use parent property
 
-When defined outside of the parent resource, you use slashes to include the parent name in the name of the child resource. Setting the full resource name with parent resource name isn't recommended. The `parent` property can be used to simplify the syntax. See [Full resource name outside parent](./child-resource-name-type.md#full-resource-name-outside-parent).
+When defined outside of the parent resource, you use slashes to include the parent name in the name of the child resource. Defining the full resource name with the parent resource name isn't recommended. The `parent` property can be used to simplify the syntax. See [Full resource name outside parent](./child-resource-name-type.md#full-resource-name-outside-parent).
 
 ## Linter rule code
 
@@ -72,9 +72,9 @@ resource share 'Microsoft.Storage/storageAccounts/fileServices/shares@2023-05-01
 }
 ```
 
-You can fix the issue automatically by selecting **Quick Fix** as shown in the following screenshot:
+Use **Quick Fix** to simplify the syntax:
 
-:::image type="content" source="./media/linter-rule-use-parent-property/bicep-linter-rule-use-parent-property-quick-fix.png" alt-text="Screenshot of use parent property Quick Fix.":::
+:::image type="content" source="./media/linter-rule-use-parent-property/bicep-linter-rule-use-parent-property-quick-fix.png" alt-text="A screenshot of using Quick Fix for the use-parent-property linter rule":::
 
 ## Next steps
 

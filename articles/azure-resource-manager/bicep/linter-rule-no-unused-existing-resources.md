@@ -28,9 +28,9 @@ resource stg 'Microsoft.Storage/storageAccounts@2023-05-01' existing = {
 }
 ```
 
-Use **Quick Fix** to remove the unused existing resource.
+Use **Quick Fix** to remove the unused existing resource:
 
-:::image type="content" source="./media/linter-rule-no-unused-existing-resources/linter-rule-no-unused-existing-resources-quick-fix.png" alt-text="The screenshot of No unused existing resources linter rule Quick Fix.":::
+:::image type="content" source="./media/linter-rule-no-unused-existing-resources/linter-rule-no-unused-existing-resources-quick-fix.png" alt-text="A screenshot using Quick Fix for the no-unused-existing-resources linter rule":::
 
 ## Next steps
 

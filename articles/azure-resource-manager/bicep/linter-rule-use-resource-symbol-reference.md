@@ -41,7 +41,7 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2023-05-01' existing 
   name: storageAccountName
 }
 
-resource cluster 'Microsoft.HDInsight/clusters@2023-08-15-preview' = {
+resource cluster 'Microsoft.HDInsight/clusters@2024-08-01-preview' = {
   name: clusterName
   location: location
   properties: {
@@ -94,7 +94,7 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2023-05-01' existing 
   name: storageAccountName
 }
 
-resource cluster 'Microsoft.HDInsight/clusters@2023-08-15-preview' = {
+resource cluster 'Microsoft.HDInsight/clusters@2024-08-01-preview' = {
   name: clusterName
   location: location
   properties: {
@@ -124,9 +124,9 @@ resource cluster 'Microsoft.HDInsight/clusters@2023-08-15-preview' = {
 }
 ```
 
-You can fix the issue automatically by selecting **Quick Fix** as shown in the following screenshot:
+Use **Quick Fix** to simplify the syntax:
 
-:::image type="content" source="./media/linter-rule-use-resource-symbol-reference/bicep-linter-rule-use-resource-symbol-reference-quick-fix.png" alt-text="Screenshot of use resource symbol reference Quick Fix." lightbox="./media/linter-rule-use-resource-symbol-reference/bicep-linter-rule-use-resource-symbol-reference-quick-fix.png":::
+:::image type="content" source="./media/linter-rule-use-resource-symbol-reference/bicep-linter-rule-use-resource-symbol-reference-quick-fix.png" alt-text="A screenshot of using Quick fix for the use-resource-symbol-reference linter rule" lightbox="./media/linter-rule-use-resource-symbol-reference/bicep-linter-rule-use-resource-symbol-reference-quick-fix.png":::
 
 ## Next steps
 
