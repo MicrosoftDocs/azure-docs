@@ -37,12 +37,12 @@ In this tutorial, you adapt the [AKS sample voting application](https://github.c
 
 ## Configure your AKS cluster
 
-1. Follow these [steps](/azure/aks/workload-identity-deploy-cluster) to configure a workload identity for your AKS cluster. Complete the following steps:
+Follow these [steps](/azure/aks/workload-identity-deploy-cluster) to configure a workload identity for your AKS cluster. Complete the following steps:
 
-   - Enable OIDC issuer and workload identity
-   - Skip the step to create user assigned managed identity if you already created your managed identity. If you create a new managed identity, ensure that you create a new Redis User for your managed identity and assign appropriate data access permissions.
-   - Create a Kubernetes Service account annotated with the client ID of your user assigned managed identity
-   - Create a federated identity credential for your AKS cluster.
+  - Enable OIDC issuer and workload identity
+  - Skip the step to create user assigned managed identity if you already created your managed identity. If you create a new managed identity, ensure that you create a new Redis User for your managed identity and assign appropriate data access permissions.
+  - Create a Kubernetes Service account annotated with the client ID of your user assigned managed identity
+  - Create a federated identity credential for your AKS cluster.
 
 ## Configure your workload that connects to Azure Cache for Redis
 
@@ -52,9 +52,9 @@ Next, set up the AKS workload to connect to Azure Cache for Redis after you conf
 
 1. Build and push docker image to your Azure Container Registry using [az acr build](/cli/azure/acr#az-acr-build) command.
 
-  ```bash
-  az acr build --image sample/connect-from-aks-sample:1.0 --registry yourcontainerregistry --file Dockerfile .
-  ```
+   ```bash
+    az acr build --image sample/connect-from-aks-sample:1.0 --registry yourcontainerregistry --file Dockerfile .
+   ```
 
 1. Attach your container registry to your AKS cluster using following command:
 
@@ -101,7 +101,7 @@ If you use Azure Cloud Shell, _kubectl_ is already installed, and you can skip t
 
 ## Run your workload
 
-  1. The following code describes the pod specification file that you use to run our workload. Take note that the pod has the label _azure.workloadidentity/use: "true"_ and is annotated with _serviceAccountName_ as required by AKS workload identity. Replace the value of CONNECTION_STRING, CACHE_NAME and USER_ASSIGNED_PRINCIPAL_ID environment variables that correspond with your cache and managed identity.
+1. The following code describes the pod specification file that you use to run our workload. Take note that the pod has the label _azure.workloadidentity/use: "true"_ and is annotated with _serviceAccountName_ as required by AKS workload identity. Replace the value of CONNECTION_STRING, CACHE_NAME and USER_ASSIGNED_PRINCIPAL_ID environment variables that correspond with your cache and managed identity.
 
    ```yml
     apiVersion: v1
