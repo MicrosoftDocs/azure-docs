@@ -34,7 +34,7 @@ spec:
         dataSources:
           - thermostats/+/telemetry/temperature/#
           - humidifiers/+/telemetry/humidity/#
-        serializationFormat: json
+        serializationFormat: Json
     - operationType: builtInTransformation
       name: my-transformation
       builtInTransformationSettings:
@@ -54,7 +54,7 @@ spec:
           - inputs:
               - '"Tag 10".Value'
             output: 'Tag 10'
-        serializationFormat: json
+        serializationFormat: Json
     - operationType: destination
       name: my-destination
       destinationSettings:
