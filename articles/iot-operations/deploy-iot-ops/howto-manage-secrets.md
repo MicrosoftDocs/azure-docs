@@ -15,11 +15,6 @@ ms.date: 09/24/2024
 
 Azure IoT Operations uses Azure Key Vault as the managed vault solution on the cloud, and uses [Azure Key Vault Secret Store extension for Kubernetes](/azure/azure-arc/kubernetes/secret-store-extension) to sync the secrets down from the cloud and store them on the edge as Kubernetes secrets.
 
->[!NOTE]
->**Special instructions for AIO Internal Bugbash**:
->
->Refer to [Test secrets and user-assigned managed identity](https://msazure.visualstudio.com/One/_wiki/wikis/AIO.wiki/710296/Test-Secrets-and-User-Assigned-Managed-Identity) for instructions on how to test secrets with the PLC simulator.
-
 ## Prerequisites
 
 * An Azure IoT Operations instance deployed with secure settings. If you deployed Azure IoT Operations with test settings and now want to use secrets, you need to first [enable secure settings](./howto-enable-secure-settings.md).
