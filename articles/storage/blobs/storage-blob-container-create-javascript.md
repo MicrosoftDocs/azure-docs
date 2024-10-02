@@ -6,7 +6,7 @@ author: pauljewellmsft
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 08/05/2024
+ms.date: 10/02/2024
 ms.author: pauljewell
 ms.devlang: javascript
 ms.custom: devx-track-js, devguide-js
@@ -27,7 +27,6 @@ Blobs in Azure Storage are organized into containers. Before you can upload a bl
 [!INCLUDE [storage-dev-guide-about-container-naming](../../../includes/storage-dev-guides/storage-dev-guide-about-container-naming.md)]
 
 ## Create a container
-
 
 To create a container, call the following method from the [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) class:
 
@@ -66,15 +65,15 @@ To create the root container, call any create method and specify the container n
 
 To learn more about creating a container using the Azure Blob Storage client library for JavaScript, see the following resources.
 
+### Code samples
+
+- View [JavaScript](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/create-container.js) and [TypeScript](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/container-create.ts) code samples from this article (GitHub)
+
 ### REST API operations
 
 The Azure SDK for JavaScript contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar JavaScript paradigms. The client library methods for creating a container use the following REST API operation:
 
 - [Create Container](/rest/api/storageservices/create-container) (REST API)
-
-### Code samples
-
-- View [JavaScript](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/create-container.js) and [TypeScript](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/container-create.ts) code samples from this article (GitHub)
 
 [!INCLUDE [storage-dev-guide-resources-javascript](../../../includes/storage-dev-guides/storage-dev-guide-resources-javascript.md)]
 

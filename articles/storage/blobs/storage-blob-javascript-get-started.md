@@ -88,7 +88,6 @@ An easy and secure way to authorize access and connect to Blob Storage is to obt
 
 The following example creates a `BlobServiceClient` object using `DefaultAzureCredential`:
 
-#### [JavaScript](#tab/javascript)
 
 ```javascript
 const accountName = "<account-name>";
@@ -99,24 +98,11 @@ const blobServiceClient = new BlobServiceClient(
 );
 ```
 
-#### [TypeScript](#tab/typescript)
-
-```typescript
-const accountName: string = "<account-name>";
-const accountURL: string = `https://${accountName}.blob.core.windows.net`;
-const blobServiceClient = new BlobServiceClient(
-  accountURL,
-  new DefaultAzureCredential()
-);
-```
-
----
+This code example can be used for JavaScript or TypeScript projects.
 
 ## [SAS token](#tab/sas-token)
 
 To use a shared access signature (SAS) token, append the token to the account URL string separated by a `?` delimiter. Then, create a `BlobServiceClient` object with the URL.
-
-#### [JavaScript](#tab/javascript)
 
 ```javascript
 const accountName = "<account-name>";
@@ -125,16 +111,7 @@ const accountURL = `https://${accountName}.blob.core.windows.net?${sasToken}`;
 const blobServiceClient = new BlobServiceClient(accountURL);
 ```
 
-#### [TypeScript](#tab/typescript)
-
-```typescript
-const accountName: string = "<account-name>";
-const sasToken: string = "<sas-token>";
-const accountURL: string = `https://${accountName}.blob.core.windows.net?${sasToken}`;
-const blobServiceClient = new BlobServiceClient(accountURL);
-```
-
----
+This code example can be used for JavaScript or TypeScript projects.
 
 To learn more about generating and managing SAS tokens, see the following articles:
 
@@ -150,8 +127,6 @@ To learn more about generating and managing SAS tokens, see the following articl
 
 To use a storage account shared key, provide the key as a string and initialize a `BlobServiceClient` object.
 
-#### [JavaScript](#tab/javascript)
-
 ```javascript
 const credential = new StorageSharedKeyCredential(accountName, accountKey);
 const blobServiceClient = new BlobServiceClient(
@@ -160,32 +135,13 @@ const blobServiceClient = new BlobServiceClient(
 );
 ```
 
-#### [TypeScript](#tab/typescript)
-
-```typescript
-const credential = new StorageSharedKeyCredential(accountName, accountKey);
-const blobServiceClient = new BlobServiceClient(
-  `https://${accountName}.blob.core.windows.net`,
-  credential
-```
-
----
+This code example can be used for JavaScript or TypeScript projects.
 
 You can also create a `BlobServiceClient` object using a connection string.
-
-#### [JavaScript](#tab/javascript)
 
 ```javascript
 const blobServiceClient = BlobServiceClient.fromConnectionString(connectionString);
 ```
-
-#### [TypeScript](#tab/typescript)
-
-```typescript
-const blobServiceClient = BlobServiceClient.fromConnectionString(connectionString);
-```
-
----
 
 For information about how to obtain account keys and best practice guidelines for properly managing and safeguarding your keys, see [Manage storage account access keys](../common/storage-account-keys-manage.md).
 
