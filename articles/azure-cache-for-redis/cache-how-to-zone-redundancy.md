@@ -13,7 +13,7 @@ ms.date: 08/05/2024
 
 In this article, you'll learn how to configure a zone-redundant Azure Cache instance using the Azure portal.
 
-Azure Cache for Redis Standard (Preview), Premium (Premium), and Enterprise tiers provide built-in redundancy by hosting each cache on two dedicated virtual machines (VMs). Even though these VMs are located in separate [Azure fault and update domains](/azure/virtual-machines/availability) and highly available, they're susceptible to data center-level failures. Azure Cache for Redis also supports zone redundancy in its Standard (preview), Premium (preview) and Enterprise tiers. A zone-redundant cache runs on VMs spread across multiple [Availability Zones](../reliability/availability-zones-overview.md). It provides higher resilience and availability.
+Azure Cache for Redis Standard (preview), Premium, and Enterprise tiers provide built-in redundancy by hosting each cache on two dedicated virtual machines (VMs). Even though these VMs are located in separate [Azure fault and update domains](/azure/virtual-machines/availability) and highly available, they're susceptible to data center-level failures. Azure Cache for Redis also supports zone redundancy in its Standard (preview), Premium and Enterprise tiers. A zone-redundant cache runs on VMs spread across multiple [Availability Zones](../reliability/availability-zones-overview.md). It provides higher resilience and availability.
 
 ## Prerequisites
 
@@ -41,6 +41,9 @@ To create a cache, follow these steps:
 
 1. For Standard or Premium tier cache, select **Advanced** in the Resource menu. To enable zone resiliency with automatic zone allocation, select **(Preview) Select zones automatically**.
 
+    > [!NOTE]
+    > On the Premium caches, only _automatic zone selection_ is in public preview. Manual selection of availability zones us unchanged. Manual selection is GA (General Availability).
+
    :::image type="content" source="media/cache-how-to-zone-redundancy/cache-availability-zone.png" alt-text="Screenshot showing the Advanced tab with a red box around Availability zones.:":::
 
    For an Enterprise tier cache, select **Advanced** in the Resource menu. For **Zone redundancy**, select **Zone redundant (recommended)**.
@@ -53,7 +56,7 @@ To create a cache, follow these steps:
     > Automatic Zone Allocation cannot be modified once enabled for a cache.
 
     > [!IMPORTANT]
-    > Enabling Automatic Zone Allocation is currently NOT supported for Geo Replicated caches or caches with VNET injection.
+    > Enabling Automatic Zone Allocation is currently NOT supported for Geo-replicated caches or caches with VNET injection.
 
 1. Availability zones can be selected manually for Premium tier caches. The count of availability zones must always be less than or equal to the Replica count for the cache.
 
