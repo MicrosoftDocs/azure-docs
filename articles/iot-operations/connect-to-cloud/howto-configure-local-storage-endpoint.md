@@ -140,7 +140,7 @@ spec:
   operationType: 'Destination'
   destinationSettings: {
     endpointRef: localStorageDataflowEndpoint.name
-    ataDestination: 'sensorData'
+    dataDestination: 'sensorData'
   }
 }
 ```
