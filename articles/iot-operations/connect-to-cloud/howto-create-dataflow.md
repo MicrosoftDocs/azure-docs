@@ -5,7 +5,7 @@ author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 10/01/2024
+ms.date: 10/02/2024
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to create a dataflow to connect data sources.
@@ -46,7 +46,7 @@ This article shows you how to create a dataflow with an example, including the s
 
 - An instance of [Azure IoT Operations Preview](../deploy-iot-ops/howto-deploy-iot-operations.md)
 - A [configured dataflow profile](howto-configure-dataflow-profile.md)
-- [Dataflow endpoints](howto-configure-dataflow-endpoint.md). For example, create a dataflow endpoint for the [built-in MQTT broker](./howto-configure-mqtt-endpoint.md#azure-iot-operations-built-in-mqtt-broker). You can use this endpoint for both the source and destination. Or, you can try other endpoints like Kafka, Event Hubs, or Azure Data Lake Storage. To learn how to configure each type of dataflow endpoint, see [Configure dataflow endpoints](howto-configure-dataflow-endpoint.md).
+- [Dataflow endpoints](howto-configure-dataflow-endpoint.md). For example, create a dataflow endpoint for the [local MQTT broker](./howto-configure-mqtt-endpoint.md#azure-iot-operations-local-mqtt-broker). You can use this endpoint for both the source and destination. Or, you can try other endpoints like Kafka, Event Hubs, or Azure Data Lake Storage. To learn how to configure each type of dataflow endpoint, see [Configure dataflow endpoints](howto-configure-dataflow-endpoint.md).
 
 ## Create dataflow
 
