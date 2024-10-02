@@ -13,7 +13,7 @@ ms.date: 09/27/2024
 
 # Reliability in the Azure Health Data Services de-identification service (preview)
 
-This article describes reliability support in the de-identification service (preview). For a more detailed overview of a reliability principles in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
+This article describes reliability support in the de-identification service (preview). For a more detailed overview of reliability principles in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 
 ## Cross-region disaster recovery
 
