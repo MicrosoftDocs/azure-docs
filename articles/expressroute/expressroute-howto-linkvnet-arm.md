@@ -87,7 +87,7 @@ $connection = Get-AzVirtualNetworkGatewayConnection -Name "ERConnection1" -Resou
 highAvailabilitySetup/New-AzHighAvailabilityVirtualNetworkGatewayConnections.ps1 -SubscriptionId $SubscriptionId -ResourceGroupName "MyRG" -Location "West EU" -Name2 "ERConnection2" -Peer2 $circuit1.Peerings[0] -RoutingWeight2 10 -VirtualNetworkGateway1 $gw -ExistingVirtualNetworkGatewayConnection $connection
 ```
 
-# [**Standard Resiliency**](#tab/standard)
+# [**Standard/High Resiliency**](#tab/standard)
 
 **Standard resiliency**: provides a single redundant connection from the virtual network gateway to a single ExpressRoute circuit.
 You can connect a virtual network gateway to an ExpressRoute circuit using the **New-AzVirtualNetworkGatewayConnection** cmdlet. Make sure that the virtual network gateway is created and is ready for linking before you run the cmdlet.
@@ -97,6 +97,9 @@ $circuit = Get-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
 $gw = Get-AzVirtualNetworkGateway -Name "ExpressRouteGw" -ResourceGroupName "MyRG"
 $connection = New-AzVirtualNetworkGatewayConnection -Name "ERConnection" -ResourceGroupName "MyRG" -Location "East US" -VirtualNetworkGateway1 $gw -PeerId $circuit.Id -ConnectionType ExpressRoute
 ```
+
+> [!NOTE]
+> For **High Resiliency**, you must connect to a Metro circuit instead of a Standard circuit.
 
 ---
 

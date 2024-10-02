@@ -779,6 +779,8 @@ groups:
     title: Python
   - id: openai-java
     title: Java
+  - id: openai-node
+    title: Node
 # Owner: msangapu
 - id: app-spaces-component-types
   title: App Spaces components
