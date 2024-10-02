@@ -5,7 +5,7 @@ author: kgremban
 ms.author: kgremban
 ms.topic: how-to
 ms.custom: ignite-2023, devx-track-azurecli
-ms.date: 09/26/2024
+ms.date: 10/02/2024
 
 #CustomerIntent: As an OT professional, I want to deploy Azure IoT Operations to a Kubernetes cluster.
 ---
@@ -112,7 +112,9 @@ The Azure portal deployment experience is a helper tool that generates a deploym
 
    1. Select **Select Azure Storage container**.
 
-   1. Schema registry requires an Azure Storage account with hierarchical namespace and public network access enabled. Choose a storage account from the list of hierarchical namespace-enabled accounts, or select **Create** to create one.
+   1. Choose a storage account from the list of hierarchical namespace-enabled accounts, or select **Create** to create one.
+
+      Schema registry requires an Azure Storage account with hierarchical namespace and public network access enabled. When creating a new storage account, choose a **General purpose v2** storage account type and set **Hierarchical namespace** to **Enabled**.
 
    1. Select a container in your storage account or select **Container** to create one.
 
@@ -152,13 +154,22 @@ The Azure portal deployment experience is a helper tool that generates a deploym
 
    1. If you chose to create a new schema registry on the previous tab, copy and run the `az iot ops schema registry create` command.
 
-   1. Copy and run the `az iot ops init` command.
+   1. Prepare your cluster for Azure IoT Operations deployment by deploying dependencies and foundational services, including schema registry. Copy and run the `az iot ops init` command.
 
-   1. Copy and run the `az iot ops create` command.
+      >[!TIP]
+      >The `init` command only needs to be run once per cluster. If you're reusing a cluster that already had Azure IoT Operations version 0.7.0 deployed on it, you can skip this step.
 
-   1. Copy and run the `az iot ops secretsync enable` command.
+      This command might take several minutes to complete. You can watch the progress in the deployment progress display in the terminal.
 
-   1. Copy and run the `az iot ops identity assign` command.
+      :::image type="content" source="./media/howto-deploy-iot-operations/az-iot-ops-init-progress.png" alt-text="A screenshot that shows the progress display for the `az iot ops init` command - portal deployment.":::
+
+   1. Deploy Azure IoT Operations to your cluster. Copy and run the `az iot ops create` command.
+
+      This command might take several minutes to complete.
+
+   1. Enable secret sync on your Azure IoT Operations instance. Copy and run the `az iot ops secretsync enable` command.
+
+   1. Assign a user-assigned managed identity to your Azure IoT Operations instance. Copy and run the `az iot ops identity assign` command.
 
 1. Once all of the Azure CLI commands complete successfully, you can close the **Install Azure IoT Operations** wizard.
 
@@ -204,15 +215,20 @@ Azure IoT Operations requires a schema registry on your cluster. Schema registry
 
 1. Prepare your cluster with the dependencies that Azure IoT Operations requires by running [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init).
 
+   >[!TIP]
+   >The `init` command only needs to be run once per cluster. If you're reusing a cluster that already had Azure IoT Operations version 0.7.0 deployed on it, you can skip this step.
+
    ```azurecli
    az iot ops init --cluster <CLUSTER_NAME> --resource-group <RESOURCE_GROUP> --sr-resource-id <SCHEMA_REGISTRY_RESOURCE_ID>
    ```
+
+   This command might take several minutes to complete. You can watch the progress in the deployment progress display in the terminal.
 
    Use the [optional parameters](/cli/azure/iot/ops#az-iot-ops-init-optional-parameters) to customize your cluster, including:
 
    | Optional parameter | Value | Description |
    | --------- | ----- | ----------- |
-   | `--no-progress` |  | Disables the deployment progress display in the terminal. |
+   | `--no-progress` |  | Disable the deployment progress display in the terminal. |
    | `--enable-fault-tolerance` | `false`, `true` | Enables fault tolerance for Azure Arc Container Storage. At least three cluster nodes are required. |
    | `--ops-config` | `observability.metrics.openTelemetryCollectorAddress=<FULLNAMEOVERRIDE>.azure-iot-operations.svc.cluster.local:<GRPC_ENDPOINT>` | If you followed the optional prerequisites to prepare your cluster for observability, provide the OpenTelemetry (OTel) collector address you configured in the otel-collector-values.yaml file.<br><br>The sample values used in [Configure observability](../configure-observability-monitoring/howto-configure-observability.md) are **fullnameOverride=aio-otel-collector** and **grpc.enpoint=4317**. |
    | `--ops-config` | `observability.metrics.exportInternalSeconds=<CHECK_INTERVAL>` | If you followed the optional prerequisites to prepare your cluster for observability, provide the **check_interval** value you configured in the otel-collector-values.yaml file.<br><br>The sample value used in [Configure observability](../configure-observability-monitoring/howto-configure-observability.md) is **check_interval=60**. |
@@ -223,13 +239,16 @@ Azure IoT Operations requires a schema registry on your cluster. Schema registry
    az iot ops create --name <NEW_INSTANCE_NAME> --cluster <CLUSTER_NAME> --resource-group <RESOURCE_GROUP>
    ```
 
+   This command might take several minutes to complete. You can watch the progress in the deployment progress display in the terminal.
+
    Use the optional parameters to customize your instance, including:
 
    | Optional parameter | Value | Description |
    | --------- | ----- | ----------- |
-   | `--no-progress` |  | Disables the deployment progress display in the terminal. |
+   | `--no-progress` |  | Disable the deployment progress display in the terminal. |
    | `--enable-rsync-rules` |  | Enable the resource sync rules on the instance to project resources from the edge to the cloud. |
    | `--add-insecure-listener` |  | Add an insecure 1883 port config to the default listener. *Not for production use*. |
+   | `--custom-location` | String | Provide a name for the custom location created for your cluster. The default value is **location-{hash(5)}**. |
    | `--broker-config-file` | Path to JSON file | Provide a configuration file for the MQTT broker. For more information, see [Advanced MQTT broker config](https://github.com/Azure/azure-iot-ops-cli-extension/wiki/Advanced-Mqtt-Broker-Config) and [Configure core MQTT broker settings](../manage-mqtt-broker/howto-configure-availability-scale.md). |
 
 Once the `create` command completes successfully, you have a working Azure IoT Operations instance running on your cluster. At this point, your instance is configured for most testing and evaluation scenarios. If you want to prepare your instance for production scenarios, continue to the next section to enable secure settings.
@@ -280,12 +299,12 @@ Azure secret requires a user-assigned managed identity with access to the Azure 
 While the deployment is in progress, you can watch the resources being applied to your cluster.
 
 If your terminal supports it, the `init` and `create` commands display the deployment progress.
-
+<!-- 
   :::image type="content" source="./media/howto-deploy-iot-operations/view-deployment-terminal.png" alt-text="A screenshot that shows the progress of an Azure IoT Operations deployment in a terminal.":::
 
   Once the **Deploy IoT Operations** phase begins, the text in the terminal becomes a link to view the deployment progress in the Azure portal.
 
-  :::image type="content" source="./media/howto-deploy-iot-operations/view-deployment-portal.png" alt-text="A screenshot that shows the progress of an Azure IoT Operations deployment in the Azure portal." lightbox="./media/howto-deploy-iot-operations/view-deployment-portal.png":::
+  :::image type="content" source="./media/howto-deploy-iot-operations/view-deployment-portal.png" alt-text="A screenshot that shows the progress of an Azure IoT Operations deployment in the Azure portal." lightbox="./media/howto-deploy-iot-operations/view-deployment-portal.png"::: -->
 
 Otherwise, or if you choose to disable the progress interface with `--no-progress` added to the commands, you can use kubectl commands to view the pods on your cluster:
 

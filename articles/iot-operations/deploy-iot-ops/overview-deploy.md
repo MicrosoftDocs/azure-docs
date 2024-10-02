@@ -86,6 +86,72 @@ Azure IoT Operations supports Azure Arc sites for organizing instances. A _site_
 
 For more information, see [What is Azure Arc site manager (preview)?](/azure/azure-arc/site-manager/overview)
 
+## Domain allowlist for Azure IoT Operations
+
+If you use enterprise firewalls or proxies to manage outbound traffic, add the following endpoints to your domain allowlist before deploying Azure IoT Operations Preview.
+
+Some of these domains are Arc-enabled Kubernetes endpoints. For more information about how those are used, see [Azure Arc network requirements](/azure/azure-arc/network-requirements-consolidated).
+
+```text
+nw-umwatson.events.data.microsoft.com 
+dc.services.visualstudio.com 
+github.com 
+sts.windows.net 
+login.windows.net 
+self.events.data.microsoft.com 
+mirror.enzu.com 
+ppa.launchpadcontent.net 
+msit-onelake.pbidedicated.windows.net 
+gcr.io 
+adhs.events.data.microsoft.com 
+gbl.his.arc.azure.cn 
+mcr.microsoft.com 
+onegetcdn.azureedge.net 
+graph.windows.net 
+pas.windows.net 
+agentserviceapi.guestconfiguration.azure.com 
+aka.ms 
+api.segment.io 
+download.microsoft.com 
+gbl.his.arc.azure.com 
+raw.githubusercontent.com 
+go.microsoft.com 
+global.metrics.azure.eaglex.ic.gov 
+gbl.his.arc.azure.us 
+management.azure.com 
+packages.microsoft.com 
+global.metrics.azure.microsoft.scloud 
+k8sconnectcsp.azureedge.net 
+www.powershellgallery.com 
+k8connecthelm.azureedge.net 
+login.microsoftonline.com 
+k8s.io 
+guestconfiguration.azure.com 
+ods.opinsights.azure.com 
+dp.kubernetesconfiguration.azure.com 
+login.microsoft.com 
+vault.azure.net 
+obo.arc.azure.com 
+data.mcr.microsoft.com 
+servicebus.windows.net 
+googleapis.com 
+quay.io 
+his.arc.azure.com 
+handler.control.monitor.azure.com 
+pkg.dev 
+docker.io 
+prod.hot.ingestion.msftcloudes.com 
+docker.com 
+prod.microsoftmetrics.com 
+oms.opinsights.azure.com 
+azureedge.net 
+monitoring.azure.com 
+guestnotificationservice.azure.com 
+blob.core.windows.net 
+azurecr.io
+graph.microsoft.com
+```
+
 ## Next steps
 
 [Prepare your Azure Arc-enabled Kubernetes cluster](./howto-prepare-cluster.md) to configure and Arc-enable a cluster for Azure IoT Operations.
