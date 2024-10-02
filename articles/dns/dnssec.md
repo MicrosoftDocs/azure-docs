@@ -5,7 +5,7 @@ author: greg-lindsay
 manager: KumuD
 ms.service: azure-dns
 ms.topic: article
-ms.date: 09/04/2024
+ms.date: 10/02/2024
 ms.author: greglin
 ---
 
@@ -20,6 +20,21 @@ The core DNSSEC extensions are specified in the following Request for Comments (
 * [RFC 4035](https://datatracker.ietf.org/doc/html/rfc4035): "Protocol Modifications for the DNS Security Extensions"
 
 For a summary of RFCs, see [RFC9364](https://www.rfc-editor.org/rfc/rfc9364): DNS Security Extensions (DNSSEC).
+
+## How DNSSEC works
+
+DNS zones are secured with DNSSEC using a process called zone signing. Signing a zone with DNSSEC adds validation support without changing the basic mechanism of a DNS query and response. To sign a zone with DNSSEC, the zone's primary authoritative DNS server must support DNSSEC.
+
+[DNSSEC validation](#dnssec-validation) of DNS responses occurs by using digital signatures. Resource Record Signatures (RRSIGs) and other cryptographic records are added to the zone when it is signed. 
+
+The following figure shows DNS resource records in the zone contoso.com before and after zone signing.
+
+  ![A diagram showing how RRSIG records are added to a zone when it is signed with DNSSEC.](media/dnssec/rrsig-records.png)
+
+> [!NOTE]
+> DNSSEC-related resource records are not displayed in the Azure portal. For more information, see [View DNSSEC-related resource records](#view-dnssec-related-resource-records) 
+
+If a DNS resolver is DNSSEC-aware, it can set the DNSSEC OK (DO) flag in the DNS query to 1. This tells the responding DNS server to include DNSSEC records to be in it's response. The resolver can then use the DNSSEC records to validate that the DNS response is genuine. In order for DNSSEC validation to work end-to-end, there must be an unbroken [chain of trust](#chain-of-trust).
 
 ## Why sign a zone with DNSSEC?
 
@@ -46,21 +61,6 @@ DNSSEC validation of DNS responses can prevent common types of DNS hijacking att
 The type of DNS resource record that is spoofed depends on the type of DNS hijacking attack. An MX record might be spoofed to redirect client emails, or a spoofed A record might send clients to a malicious web server.  
 
 DNSSEC works to prevent DNS hijacking by performing validation on DNS responses. Before you sign a zone with DNSSEC, be sure to understand [how DNSSEC works](#how-dnssec-works). When you are ready to sign a zone, see [How to sign your Azure Public DNS zone with DNSSEC (Preview)](dnssec-how-to.md).
-
-## How DNSSEC works
-
-DNS zones are secured with DNSSEC using a process called zone signing. Signing a zone with DNSSEC adds validation support without changing the basic mechanism of a DNS query and response. To sign a zone with DNSSEC, the zone's primary authoritative DNS server must support DNSSEC.
-
-[DNSSEC validation](#dnssec-validation) of DNS responses occurs by using digital signatures. Resource Record Signatures (RRSIGs) and other cryptographic records are added to the zone when it is signed. 
-
-The following figure shows DNS resource records in the zone contoso.com before and after zone signing.
-
-  ![A diagram showing how RRSIG records are added to a zone when it is signed with DNSSEC.](media/dnssec/rrsig-records.png)
-
-> [!NOTE]
-> DNSSEC-related resource records are not displayed in the Azure portal. For more information, see [View DNSSEC-related resource records](#view-dnssec-related-resource-records) 
-
-If a DNS resolver is DNSSEC-aware, it can set the DNSSEC OK (DO) flag in the DNS query to 1. This tells the responding DNS server to include DNSSEC records to be in it's response. The resolver can then use the DNSSEC records to validate that the DNS response is genuine. In order for DNSSEC validation to work end-to-end, there must be an unbroken [chain of trust](#chain-of-trust).
 
 ## Chain of trust
 
