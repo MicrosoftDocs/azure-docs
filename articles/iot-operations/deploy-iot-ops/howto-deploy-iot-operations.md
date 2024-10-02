@@ -161,15 +161,19 @@ The Azure portal deployment experience is a helper tool that generates a deploym
 
       This command might take several minutes to complete. You can watch the progress in the deployment progress display in the terminal.
 
-      :::image type="content" source="./media/howto-deploy-iot-operations/az-iot-ops-init-progress.png" alt-text="A screenshot that shows the progress display for the `az iot ops init` command - portal deployment.":::
-
    1. Deploy Azure IoT Operations to your cluster. Copy and run the `az iot ops create` command.
 
-      This command might take several minutes to complete.
+      This command might take several minutes to complete. You can watch the progress in the deployment progress display in the terminal.
 
-   1. Enable secret sync on your Azure IoT Operations instance. Copy and run the `az iot ops secretsync enable` command.
+   1. Enable secret sync on your Azure IoT Operations instance. Copy and run the `az iot ops secretsync enable` command. This command:
+
+      * Creates a federated identity credential using the user-assigned managed identity.
+      * Adds a role assignment to the user-assigned managed identity for access to the Azure Key Vault.
+      * Adds a minimum secret provider class associated with the Azure IoT Operations instance.
 
    1. Assign a user-assigned managed identity to your Azure IoT Operations instance. Copy and run the `az iot ops identity assign` command.
+   
+      This command also creates a federated identity credential using the OIDC issuer of the indicated connected cluster and the Azure IoT Operations service account.
 
 1. Once all of the Azure CLI commands complete successfully, you can close the **Install Azure IoT Operations** wizard.
 
@@ -229,7 +233,7 @@ Azure IoT Operations requires a schema registry on your cluster. Schema registry
    | Optional parameter | Value | Description |
    | --------- | ----- | ----------- |
    | `--no-progress` |  | Disable the deployment progress display in the terminal. |
-   | `--enable-fault-tolerance` | `false`, `true` | Enables fault tolerance for Azure Arc Container Storage. At least three cluster nodes are required. |
+   | `--enable-fault-tolerance` | `false`, `true` | Enable fault tolerance for Azure Arc Container Storage. At least three cluster nodes are required. |
    | `--ops-config` | `observability.metrics.openTelemetryCollectorAddress=<FULLNAMEOVERRIDE>.azure-iot-operations.svc.cluster.local:<GRPC_ENDPOINT>` | If you followed the optional prerequisites to prepare your cluster for observability, provide the OpenTelemetry (OTel) collector address you configured in the otel-collector-values.yaml file.<br><br>The sample values used in [Configure observability](../configure-observability-monitoring/howto-configure-observability.md) are **fullnameOverride=aio-otel-collector** and **grpc.enpoint=4317**. |
    | `--ops-config` | `observability.metrics.exportInternalSeconds=<CHECK_INTERVAL>` | If you followed the optional prerequisites to prepare your cluster for observability, provide the **check_interval** value you configured in the otel-collector-values.yaml file.<br><br>The sample value used in [Configure observability](../configure-observability-monitoring/howto-configure-observability.md) is **check_interval=60**. |
 
@@ -288,7 +292,7 @@ Azure secret requires a user-assigned managed identity with access to the Azure 
 
    You will need to grant the identity permission to whichever cloud resource this will be used for. 
 
-1. Run the following command to assign the identity to the Azure IoT Operations instance. This command also created a federated identity credential using the OIDC issuer of the indicated connected cluster and the Azure IoT Operations service account.
+1. Run the following command to assign the identity to the Azure IoT Operations instance. This command also creates a federated identity credential using the OIDC issuer of the indicated connected cluster and the Azure IoT Operations service account.
 
    ```azurecli
    az iot ops identity assign --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> --mi-user-assigned <USER_ASSIGNED_MI_RESOURCE_ID>
@@ -296,9 +300,7 @@ Azure secret requires a user-assigned managed identity with access to the Azure 
 
 ---
 
-While the deployment is in progress, you can watch the resources being applied to your cluster.
-
-If your terminal supports it, the `init` and `create` commands display the deployment progress.
+While the deployment is in progress, you can watch the resources being applied to your cluster. If your terminal supports it, the `init` and `create` commands display the deployment progress.
 <!-- 
   :::image type="content" source="./media/howto-deploy-iot-operations/view-deployment-terminal.png" alt-text="A screenshot that shows the progress of an Azure IoT Operations deployment in a terminal.":::
 

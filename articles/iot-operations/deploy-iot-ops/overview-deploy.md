@@ -5,7 +5,7 @@ author: kgremban
 ms.author: kgremban
 ms.topic: conceptual
 ms.custom:
-ms.date: 09/10/2024
+ms.date: 10/02/2024
 
 #CustomerIntent: As an IT professional, I want to understand the components and deployment details before I start using Azure IoT Operations.
 ---
@@ -16,7 +16,7 @@ ms.date: 09/10/2024
 
 ## Supported environments
 
-Azure IoT Operations should work on any Arc-enabled Kubernetes cluster that meets the [Azure Arc-enabled Kubernetes system requirements](/azure/azure-arc/kubernetes/system-requirements). Currently Azure IoT Operations doesn't support ARM64 architectures.
+Azure IoT Operations should work on any Arc-enabled Kubernetes cluster that meets the [Azure Arc-enabled Kubernetes system requirements](/azure/azure-arc/kubernetes/system-requirements). Currently Azure IoT Operations doesn't support Arm64 architectures.
 
 Microsoft supports Azure Kubernetes Service (AKS) Edge Essentials for deployments on Windows and K3s for deployments on Ubuntu. For a list of specific hardware and software combinations that are tested and validated, see [Validated environments](../overview-iot-operations.md#validated-environments).
 
@@ -28,7 +28,7 @@ Azure IoT Operations offers two deployment modes. You can choose to deploy with 
 
 A deployment with only test settings enabled:
 
-* Does not configure secrets or user-assigned managed identity capabilities.
+* Doesn't configure secrets or user-assigned managed identity capabilities.
 * Is meant to enable the end-to-end quickstart sample for evaluation purposes, so does support the OPC PLC simulator and connect to cloud resources using system-assigned managed identity.
 * Can be upgraded to use secure settings.
 
@@ -90,14 +90,12 @@ For more information, see [What is Azure Arc site manager (preview)?](/azure/azu
 
 If you use enterprise firewalls or proxies to manage outbound traffic, add the following endpoints to your domain allowlist before deploying Azure IoT Operations Preview.
 
-Some of these domains are Arc-enabled Kubernetes endpoints. For more information about how those are used, see [Azure Arc network requirements](/azure/azure-arc/network-requirements-consolidated).
+Additionally, allow the Arc-enabled Kubernetes endpoints in [Azure Arc network requirements](/azure/azure-arc/network-requirements-consolidated).
 
 ```text
 nw-umwatson.events.data.microsoft.com 
 dc.services.visualstudio.com 
 github.com 
-sts.windows.net 
-login.windows.net 
 self.events.data.microsoft.com 
 mirror.enzu.com 
 ppa.launchpadcontent.net 
@@ -105,7 +103,6 @@ msit-onelake.pbidedicated.windows.net
 gcr.io 
 adhs.events.data.microsoft.com 
 gbl.his.arc.azure.cn 
-mcr.microsoft.com 
 onegetcdn.azureedge.net 
 graph.windows.net 
 pas.windows.net 
@@ -113,30 +110,19 @@ agentserviceapi.guestconfiguration.azure.com
 aka.ms 
 api.segment.io 
 download.microsoft.com 
-gbl.his.arc.azure.com 
 raw.githubusercontent.com 
 go.microsoft.com 
 global.metrics.azure.eaglex.ic.gov 
 gbl.his.arc.azure.us 
-management.azure.com 
 packages.microsoft.com 
 global.metrics.azure.microsoft.scloud 
-k8sconnectcsp.azureedge.net 
-www.powershellgallery.com 
-k8connecthelm.azureedge.net 
-login.microsoftonline.com 
+www.powershellgallery.com
 k8s.io 
 guestconfiguration.azure.com 
 ods.opinsights.azure.com 
-dp.kubernetesconfiguration.azure.com 
-login.microsoft.com 
 vault.azure.net 
-obo.arc.azure.com 
-data.mcr.microsoft.com 
-servicebus.windows.net 
 googleapis.com 
 quay.io 
-his.arc.azure.com 
 handler.control.monitor.azure.com 
 pkg.dev 
 docker.io 
@@ -145,11 +131,9 @@ docker.com
 prod.microsoftmetrics.com 
 oms.opinsights.azure.com 
 azureedge.net 
-monitoring.azure.com 
-guestnotificationservice.azure.com 
+monitoring.azure.com
 blob.core.windows.net 
 azurecr.io
-graph.microsoft.com
 ```
 
 ## Next steps

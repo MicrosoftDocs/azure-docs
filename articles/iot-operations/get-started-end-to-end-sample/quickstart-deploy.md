@@ -5,7 +5,7 @@ author: kgremban
 ms.author: kgremban
 ms.topic: quickstart
 ms.custom: ignite-2023, devx-track-azurecli
-ms.date: 05/02/2024
+ms.date: 10/02/2024
 
 #CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
 ---
