@@ -182,7 +182,7 @@ This preview feature improves the following metadata APIs and can be used from b
 
 Currently this preview feature is only available for premium SMB file shares (file shares in the FileStorage storage account kind). There are no additional costs associated with using this feature.
 
-#### Register for the feature
+### Register for the feature
 To get started, register for the feature using Azure portal or PowerShell.
 
 # [Azure portal](#tab/portal)
