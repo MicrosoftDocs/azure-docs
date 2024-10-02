@@ -89,7 +89,7 @@ Event Hubs uses *Shared Access Signatures*, which are available at the namespace
 
 ## Event consumers
 
-Any entity that reads event data from an event hub is an *event consumer*. All Event Hubs consumers connect via the AMQP 1.0 session and events are delivered through the session as they become available. The client doesn't need to poll for data availability.
+Any entity that reads event data from an event hub is an *event consumer*. Consumers or receivers use AMQP or Apache Kafka to receive events from an event hub. Event Hubs supports only the pull model for consumers to receive events from it. Even when you use event handlers to handle events from an event hub, the event processor internally uses the pull model to receive events from the event hub.
 
 ### Consumer groups
 
@@ -177,6 +177,21 @@ From the perspective of cost, operational effort, and reliability, Azure Event H
 
 In addition to getting the same core functionality as of the Apache Kafka broker, you also get access to Azure Event Hubs features like automatic batching and archiving via [Event Hubs Capture](event-hubs-capture-overview.md), automatic scaling and balancing, disaster recovery, cost-neutral availability zone support, flexible and secure network integration, and multi-protocol support including the firewall-friendly AMQP-over-WebSockets protocol.
 
+## Protocols
+Producers or senders can use Advanced Messaging Queuing Protocol (AMQP), Kafka, or HTTPS protocols to send events to an event hub. 
+
+Consumers or receivers use AMQP or Kafka to receive events from an event hub. Event Hubs supports only the pull model for consumers to receive events from it. Even when you use event handlers to handle events from an event hub, the event processor internally uses the pull model to receive events from the event hub.
+
+#### AMQP
+You can use the **AMQP 1.0** protocol to send events to and receive events from Azure Event Hubs. AMQP provides reliable, performant, and secure communication for both sending and receiving events. You can use it for high-performance and real-time streaming and is supported by most Azure Event Hubs SDKs.
+
+#### HTTPS/REST API
+You can only send events to Event Hubs using HTTP POST requests. Event Hubs doesn't support receiving events over HTTPS. It's suitable for lightweight clients where a direct TCP connection isn't feasible. 
+
+#### Apache Kafka
+Azure Event Hubs has a built-in Kafka endpoint that supports Kafka producers and consumers. Applications that are built using Kafka can use Kafka protocol (version 1.0 or later) to send and receive events from Event Hubs without any code changes. 
+
+Azure SDKs abstract the underlying communication protocols and provide a simplified way to send and receive events from Event Hubs using languages like C#, Java, Python, JavaScript, etc.
 
 ## Next steps
 
