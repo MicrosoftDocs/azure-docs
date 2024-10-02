@@ -47,8 +47,6 @@ To use in the calling App, we need to add a prefix to this ID. Currently, the fo
 - Public cloud Auto Attendant: `28:orgid:<id>`
 - Government cloud Auto Attendant: `28:gcch:<id>`
 
-For example, we would have `28:orgid:31a011c2-2672-4dd0-b6f9-9334ef4999db` for a public cloud Auto Attendant.
-
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).

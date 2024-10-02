@@ -47,8 +47,6 @@ To use in the calling App, we need to add a prefix to this ID. Currently, the fo
 - Public cloud Call Queue: `28:orgid:<id>`
 - Government cloud Call Queue: `28:gcch:<id>`
 
-For example, we would have `28:orgid:31a011c2-2672-4dd0-b6f9-9334ef4999db` for a public cloud Call Queue.
-
 ## Prerequisites
 
 To complete this tutorial, you need the following prerequisites:
