@@ -191,6 +191,25 @@ If a VDEL request fails because the value specified does not match the value ass
 -1<CR><LF>
 ```
 
+#### `-ERR` responses
+
+The following is the current list of error strings. Your client application should handle *unknown error* strings to support updates to the state store.
+
+| Error string returned from state store | Explanation                                                                                                 |
+|----------------------------------------|-------------------------------------------------------------------------------------------------------------|
+| the requested timestamp is too far in the future; ensure that the client and broker system clocks are synchronized | Unexpected requested timestamp caused by the state store and client clocks are not in sync. |
+| a fencing token is required for this request                                                                       | Error occurs if a key is marked with a fencing token, but the client doesn't specify the fencing token. |
+| the requested fencing token timestamp is too far in the future; ensure that the client and broker system clocks are synchronized | Unexpected fencing token timestamp caused by the state store and client clocks are not in sync. |
+| the requested fencing token is a lower version that the fencing token protecting the resource             | Incorrect requested fencing token version. For more information, see [Versioning and hybrid logical clocks].(#versioning-and-hybrid-logical-clocks) |
+| the quota has been exceeded                                                                               | The state store has a quota of how many keys it can store, which is based on the memory profile of the MQTT broker that's specified. |
+| syntax error                                                                                              | The payload sent doesn't conform to state store's definition.                                               |
+| not authorized                                                                                            | Authorization error                                                                                          |
+| unknown command                                                                                           | Command isn't recognized.                                                                                   |
+| wrong number of arguments                                                                                 | Incorrect number of expected arguments.                                                                      |
+| missing timestamp                                                                                         | When clients do a SET, they must set the MQTT5 user property __ts as an HLC representing its timestamp.      |
+| malformed timestamp                                                                                       | The timestamp in the __ts or the fencing token isn't legal.                                                 |
+| the key length is zero                                                                                    | Keys can't be zero length in state store.                                                                   |
+
 ## Versioning and hybrid logical clocks
 
 This section describes how the state store handles versioning.
