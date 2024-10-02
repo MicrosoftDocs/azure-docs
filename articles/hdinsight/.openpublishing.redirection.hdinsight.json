@@ -300,6 +300,11 @@
         "redirect_document_id": false
     },
     {
+        "source_path_from_root": "/articles/hdinsight/hdinsight-version-release.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
+        "redirect_document_id": false
+    },
+    {
         "source_path_from_root": "/articles/hdinsight/hdinsight-apache-kafka-connect-vpn-gateway.md",
         "redirect_url": "/azure/hdinsight/kafka/apache-kafka-connect-vpn-gateway",
         "redirect_document_id": true

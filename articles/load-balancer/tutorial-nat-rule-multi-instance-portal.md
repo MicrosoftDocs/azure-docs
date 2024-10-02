@@ -6,7 +6,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-load-balancer
 ms.topic: tutorial
-ms.date: 09/27/2023
+ms.date: 09/30/2024
 ms.custom: template-tutorial
 ---
 

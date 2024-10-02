@@ -231,8 +231,14 @@ items:
       displayName: functions library, anomaly detection, univariate, change point
       href: /kusto/query/series-uv-change-points-fl?view=azure-data-explorer&preserve-view=true
     - name: time_weighted_avg_fl()
-      displayName: functions library, binning
+      displayName: functions library, binning, time weighted, time series, interpolation
       href: /kusto/query/time-weighted-avg-fl?view=azure-data-explorer&preserve-view=true
+    - name: time_weighted_avg2_fl()
+      displayName: functions library, binning, time weighted, time series, interpolation
+      href: /kusto/query/time-weighted-avg2-fl?view=azure-data-explorer&preserve-view=true
+    - name: time_weighted_val_fl()
+      displayName: functions library, binning, time weighted, time series, interpolation
+      href: /kusto/query/time-weighted-val-fl?view=azure-data-explorer&preserve-view=true
     - name: time_window_rolling_avg_fl()
       displayName: functions library, rolling, sliding
       href: /kusto/query/time-window-rolling-avg-fl?view=azure-data-explorer&preserve-view=true
@@ -1354,7 +1360,7 @@ items:
     displayName: count(predicate)
     href: /kusto/query/countif-aggregation-function?view=azure-data-explorer&preserve-view=true
   - name: dcount()
-    href: /kusto/query/dcount-aggfunction?view=azure-data-explorer&preserve-view=true
+    href: /kusto/query/dcount-aggregation-function?view=azure-data-explorer&preserve-view=true
   - name: dcountif()
     href: /kusto/query/dcountif-aggregation-function?view=azure-data-explorer&preserve-view=true
   - name: hll()

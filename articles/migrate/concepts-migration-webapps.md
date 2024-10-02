@@ -11,21 +11,21 @@ ms.custom: template-concept, engagement-fy23
 
 # Support matrix for web apps migration
 
-This article summarizes support settings and limitations for agentless migration of web apps to Azure App Service [Azure Migrate: Migration and modernization](migrate-services-overview.md#migration-and-modernization-tool) . If you're looking for information about assessing web apps for migration to Azure App Service, review the [assessment support matrix](concepts-azure-webapps-assessment-calculation.md).
+This article summarizes support settings and limitations for agentless migration of web apps to Azure App Service [Azure Migrate: Migration and modernization](migrate-services-overview.md) . If you're looking for information about assessing web apps for migration to Azure App Service, review the [assessment support matrix](concepts-azure-webapps-assessment-calculation.md).
 
 ## Migration options
 
-You can perform agentless migration of ASP.NET web apps at-scale to [Azure App Service](https://azure.microsoft.com/services/app-service/) using Azure Migrate. However, agent based migration is not supported.
+You can perform agentless migration of ASP.NET web apps at-scale to [Azure App Service](https://azure.microsoft.com/services/app-service/) using Azure Migrate. However, agent based migration isn't supported.
 
 ## Limitations
 
-- Currently, At-Scale Discovery, Assessment and Migration is supported for ASP.NET web apps deployed to on-premises IIS servers hosted on VMware Environment.
+- Currently, At-Scale Discovery, Assessment and Migration are supported for ASP.NET web apps deployed to on-premises IIS servers hosted on VMware Environment.
 - You can select up to five App Service Plans as part of single migration.
-- Currently, we do not support selecting existing App service plans during the migration flow.
+- Currently, we don't support selecting existing App service plans during the migration flow.
 - You can migrate web apps up to max 2 GB in size including content stored in mapped virtual directory.
-- Currently, we do not support migrating UNC directory content.
+- Currently, we don't support migrating UNC directory content.
 - You need Windows PowerShell 4.0 installed on VMs hosting the IIS web servers from which you plan to migrate ASP.NET web apps to Azure App Services.
-- Currently, the migration flow does not support VNet integrated scenarios.
+- Currently, the migration flow doesn't support VNet integrated scenarios.
 
 ## ASP.NET web apps migration requirements
 
@@ -43,7 +43,7 @@ Support | Details
 ## Next steps
 
 - Learn how to [perform at-scale agentless migration of ASP.NET web apps to Azure App Service](./tutorial-modernize-asp-net-appservice-code.md).
-- Once you have successfully completed migration, you may explore the following steps based on web app specific requirement(s):
+- Once you have successfully migrated, you can explore the following steps based on web app specific requirements:
   - [Map existing custom DNS name](../app-service/app-service-web-tutorial-custom-domain.md).
   - [Secure a custom DNS with a TLS/SSL binding](../app-service/configure-ssl-bindings.md).
   - [Securely connect to Azure resources](../app-service/tutorial-connect-overview.md).

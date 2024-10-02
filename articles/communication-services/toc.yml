@@ -289,6 +289,8 @@ items:
       href: tutorials/building-app-start.md
     - name: Build an authentication service using Azure Functions
       href: tutorials/trusted-service-tutorial.md
+    - name: Add Calling and Chat SDK in an Android application
+      href: quickstarts/voice-video-calling/get-started-android-calling-chat-sdk.md
     - name: Adding audio quality enhancements
       items:
         - name: Enabling audio effects

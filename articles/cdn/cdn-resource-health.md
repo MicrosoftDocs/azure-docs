@@ -13,6 +13,8 @@ ms.author: duau
 
 # Monitor the health of Azure Content Delivery Network resources
 
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
+
 Azure Content Delivery Network Resource health is a subset of [Azure resource health](/azure/service-health/resource-health-overview). You can use Azure resource health to monitor the health of Content Delivery Network resources and receive actionable guidance to troubleshoot problems.
 
 >[!IMPORTANT]

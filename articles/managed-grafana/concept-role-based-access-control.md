@@ -44,5 +44,5 @@ Assign a role, such as **Grafana viewer**, to a user, group, service principal o
 
 ## Related content
 
-* [Configure Grafana teams](how-to-sync-teams-with-azure-ad-groups.md)
+* [Configure Grafana teams](how-to-sync-teams-with-entra-groups.md)
 * [Set up authentication and permissions](how-to-authentication-permissions.md)

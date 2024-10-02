@@ -1,12 +1,10 @@
 ---
 title: About using ExpressRoute with Azure Site Recovery
 description: Describes how to use Azure ExpressRoute with the Azure Site Recovery service for disaster recovery and migration.
-services: site-recovery
 author: ankitaduttaMSFT
-manager: rochakm
 ms.service: azure-site-recovery
-ms.topic: conceptual
-ms.date: 10/13/2019
+ms.topic: concept-article
+ms.date: 09/18/2024
 ms.author: ankitadutta
 
 ---

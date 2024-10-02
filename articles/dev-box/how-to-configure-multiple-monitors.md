@@ -20,7 +20,7 @@ When you connect to your cloud-hosted developer machine in Microsoft Dev Box by 
 
 | Client | Multiple monitor support | Configure multiple monitors |
 |--|:-:|--|
-| Windows App | <sub>:::image type="icon" source="./media/how-to-configure-multiple-monitors/yes.svg" border="false":::</sub> | [Configure display settings in Windows App](/windows-app/display-settings?tabs=windows) |
+| Windows App (recommended) | <sub>:::image type="icon" source="./media/how-to-configure-multiple-monitors/yes.svg" border="false":::</sub> | [Configure display settings in Windows App](/windows-app/display-settings?tabs=windows) |
 | Microsoft Remote Desktop client| <sub>:::image type="icon" source="./media/how-to-configure-multiple-monitors/yes.svg" border="false":::</sub> | [Microsoft Remote Desktop client](/azure/dev-box/how-to-configure-multiple-monitors?branch=main&tabs=windows-app#configure-remote-desktop-to-use-multiple-monitors) |
 | Microsoft Store Remote Desktop client | <sub>:::image type="icon" source="./media/how-to-configure-multiple-monitors/no.svg" border="false":::</sub> | Does not support multiple monitors |
 | Remote Desktop Connection (MSTSC) | <sub>:::image type="icon" source="./media/how-to-configure-multiple-monitors/yes.svg" border="false":::</sub> | [Microsoft Remote Desktop Connection](/azure/dev-box/how-to-configure-multiple-monitors?branch=main&tabs=windows-connection#configure-remote-desktop-to-use-multiple-monitors) |
