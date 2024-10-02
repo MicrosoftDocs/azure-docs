@@ -21,6 +21,10 @@ The core DNSSEC extensions are specified in the following Request for Comments (
 
 For a summary of RFCs, see [RFC9364](https://www.rfc-editor.org/rfc/rfc9364): DNS Security Extensions (DNSSEC).
 
+> [!NOTE]
+> DNSSEC zone signing is currently in PREVIEW.<br> 
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 ## How DNSSEC works
 
 DNS zones are secured with DNSSEC using a process called zone signing. Signing a zone with DNSSEC adds validation support without changing the basic mechanism of a DNS query and response. To sign a zone with DNSSEC, the zone's primary authoritative DNS server must support DNSSEC.
@@ -37,10 +41,6 @@ The following figure shows DNS resource records in the zone contoso.com before a
 If a DNS server is DNSSEC-aware, it can set the DNSSEC OK (DO) flag in a DNS query to a value of `1`. This tells the responding DNS server to include DNSSEC records with the response. The DNSSEC records can then be used to validate that the DNS response is genuine. In order for DNSSEC validation to work end-to-end, there must be an unbroken [chain of trust](#chain-of-trust).
 
 ## Why sign a zone with DNSSEC?
-
-> [!NOTE]
-> DNSSEC zone signing is currently in PREVIEW.<br> 
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 DNSSEC validation of DNS responses can prevent common types of DNS hijacking attacks, also known as DNS redirection. DNS hijacking occurs when a client device is redirected to a malicious server by using incorrect (spoofed) DNS responses. An example of how DNS hijacking works is shown in the following figure.
 
@@ -70,13 +70,12 @@ DNSSEC works to prevent DNS hijacking by performing validation on DNS responses.
 - Authoritative DNS servers maintain a chain of trust by verifying the authenticity of the DNS zone in the DNS hierarchy. For example, if a parent zone doesn't have a delegation signer (DS) record for a child zone, it can't verify the DNSSEC status of the child zone and the chain of trust is broken.
 
 Recursive servers:
-- Recursive DNS servers, also called resolving or caching DNS servers, maintain a chain of trust through the use of DNSSEC trust anchors. A trust anchor is a public cryptographic key provided by an authoritative server and installed on a recursive server to support DNSSEC validation. The trust anchor is a DNSKEY record, or DS record containing a [hash](/dotnet/standard/security/ensuring-data-integrity-with-hash-codes) of a DNSKEY record. The DNSKEY record is created on an authoritative server when a zone is signed, and removed from the zone if the zone is unsigned. Trust anchors for parent zones must be manually installed on recursive DNS servers.
-    - If a recursive DNS server does not have a DNSSEC trust anchor for a given zone, it will not perform DNSSEC validation on that zone.
-    - If a recursive DNS server has a DNSSEC trust anchor for a parent zone and it receives a query for a child zone, it checks to see if a DS record for the child zones is present in the parent zone. If the DS record is found, the recursive DNS server performs DNSSEC validation. If the recursive DNS server determines that the parent zone does not have a DS record for the child zone, it assumes the child zone is insecure and does not perform DNSSEC validation.
+- Recursive DNS servers (also called resolving or caching DNS servers) maintain a chain of trust through the use of DNSSEC trust anchors. A trust anchor is a public cryptographic key provided by an authoritative server and installed on a recursive server to support DNSSEC validation. The trust anchor is a DNSKEY record, or DS record containing a [hash](/dotnet/standard/security/ensuring-data-integrity-with-hash-codes) of a DNSKEY record. The DNSKEY record is created on an authoritative server when a zone is signed, and removed from the zone if the zone is unsigned. Trust anchors for parent zones must be manually installed on recursive DNS servers.
+    - If a recursive DNS server does not have a DNSSEC trust anchor for a given zone (or the zone's parent), it will not perform DNSSEC validation on that zone.
+    - If a recursive DNS server has a DNSSEC trust anchor for a parent zone and it receives a query for a child zone, it checks to see if a DS record for the child zones is present in the parent zone. 
+      - If the DS record is found, the recursive DNS server performs DNSSEC validation. 
+      - If the recursive DNS server determines that the parent zone does not have a DS record for the child zone, it assumes the child zone is insecure and does not perform DNSSEC validation.
     - Recursive servers that have DNSSEC validation disabled or are not DNSSEC-aware do not perform validation.
-
-> [!NOTE]
-> Trust anchors can also be DS records. 
 
 ## DNSSEC validation
 
@@ -84,7 +83,7 @@ A recursive DNS server performs DNSSEC validation using its trust anchor (DNSKEY
 
   ![A diagram showing how DNSSEC validation works.](media/dnssec/dnssec-validation.png)
 
-If hash values are not the same, it replies with a SERVFAIL message. In this way, a DNSSEC-capable, resolving DNS server with a valid trust anchor installed can protect against DNS hijacking. This protection doesn't require DNS client devices to be DNSSEC-aware.
+If hash values are not the same, it replies with a SERVFAIL message. In this way, DNSSEC-capable resolving DNS servers with a valid trust anchor installed can protect against DNS hijacking. This protection doesn't require DNS client devices to be DNSSEC-aware.
 
 ## DNSSEC-related resource records
 
@@ -103,9 +102,14 @@ The following table provides a short description of DNSSEC-related records. For 
 
 ### View DNSSEC-related resource records
 
-To view DNSSEC-related records, use command line tools such as Resolve-DnsName or dig.exe. These tools are available using Cloud Shell, or locally if installed on your device. Be sure to set the DO flag in your query, which is done using the -dnssecok option in Resolve-DnsName or the +dnssec option in dig.exe. Do not use the nslookup.exe command-line tool to query for DNSSEC-related records. The nslookup.exe tool uses an internal DNS client that isn't DNSSEC-aware. See the following examples:
+To view DNSSEC-related records, use command line tools such as Resolve-DnsName or dig.exe. These tools are available using Cloud Shell, or locally if installed on your device. Be sure to set the DO flag in your query, which is done using the -dnssecok option in Resolve-DnsName or the +dnssec option in dig.exe. 
 
-``PowerShell
+> [!IMPORTANT]
+> Do not use the nslookup.exe command-line tool to query for DNSSEC-related records. The nslookup.exe tool uses an internal DNS client that isn't DNSSEC-aware. 
+
+See the following examples:
+
+```PowerShell
 PS C:\> resolve-dnsname server1.contoso.com -dnssecok
 
 Name                                      Type   TTL   Section    IPAddress
@@ -124,9 +128,9 @@ Expiration  : 9/20/2024 11:25:54 PM
 Signed      : 9/18/2024 9:25:54 PM
 Signer      : contoso.com
 Signature   : {193, 20, 122, 196…}
-``
+```
 
-``Cmd
+```Cmd
 C:\>dig server1.contoso.com +dnssec
 
 ; <<>> DiG 9.9.2-P1 <<>> server1.contoso.com +dnssec
@@ -148,9 +152,9 @@ server1.contoso.com. 3600   IN      RRSIG   A 13 3 3600 20240920232359 202409182
 ;; SERVER: 192.168.1.1#53(192.168.1.1)
 ;; WHEN: Thu Sep 19 15:23:45 2024
 ;; MSG SIZE  rcvd: 179
-``
+```
 
-``PowerShell
+```PowerShell
 PS C:\> resolve-dnsname contoso.com -Type dnskey -dnssecok
 
 Name                                 Type   TTL   Section    Flags  Protocol Algorithm      Key
@@ -172,7 +176,7 @@ Expiration  : 11/17/2024 9:00:15 PM
 Signed      : 9/18/2024 9:00:15 PM
 Signer      : contoso.com
 Signature   : {241, 147, 134, 121…}
-``
+```
 
 ```Cmd
 C:\>dig contoso.com dnskey
