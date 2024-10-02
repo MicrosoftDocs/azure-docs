@@ -62,6 +62,51 @@ This configuration creates a connection to the default MQTT broker with the foll
 > [!IMPORTANT]
 > If any of these default MQTT broker settings change, the dataflow endpoint must be updated to reflect the new settings. For example, if the default MQTT broker listener changes to use a different service name `my-mqtt-broker` and port 8885, you must update the endpoint to use the new host `host: my-mqtt-broker:8885`. Same applies to other settings like authentication and TLS.
 
+# [Bicep](#tab/bicep)
+
+This Bicep template file from [Bicep File for MQTT-bridge dataflow Tutorial](https://gist.github.com/david-emakenemi/7a72df52c2e7a51d2424f36143b7da85) deploys the necessary dataflow and dataflow enpoints for MQTT broker and Azure Event Grid.
+
+Download the file to your local, and make sure to replace the values for `customLocationName`, `aioInstanceName`, `eventGridHostName`.
+
+Next, deploy the resources using the [az stack group](https://learn.microsoft.com/azure/azure-resource-manager/bicep/deployment-stacks?tabs=azure-powershell) command in your terminal:
+
+```azurecli
+az stack group create --name MyDeploymentStack --resource-group $RESOURCE_GROUP --template-file /workspaces/explore-iot-operations/mqtt-bridge.bicep --action-on-unmanage 'deleteResources' --deny-settings-mode 'none' --yes
+```
+This endpoint is the source for the dataflow that sends messages to Azure Event Grid.
+
+```bicep
+resource MqttBrokerDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
+  parent: aioInstance
+  name: 'aiomq'
+  extendedLocation: {
+    name: customLocation.id
+    type: 'CustomLocation'
+  }
+  properties: {
+    endpointType: 'Mqtt'
+    mqttSettings: {
+      authentication: {
+        method: 'ServiceAccountToken'
+        serviceAccountTokenSettings: {
+          audience: 'aio-internal'
+        }
+      }
+      host: 'aio-broker:18883'
+      tls: {
+        mode: 'Enabled'
+        trustedCaCertificateConfigMapRef: 'azure-iot-operations-aio-ca-trust-bundle'
+      }
+    }
+  }
+}
+```
+
+- Host: `aio-broker:18883` through the [default MQTT broker listener](../manage-mqtt-broker/howto-configure-brokerlistener.md#default-brokerlistener)
+- Authentication: service account token (SAT) through the [default BrokerAuthentication resource](../manage-mqtt-broker/howto-configure-authentication.md#default-brokerauthentication-resource)
+- TLS: Enabled
+- Trusted CA certificate: The default CA certificate `azure-iot-operations-aio-ca-trust-bundle` from the [Default root CA](../manage-mqtt-broker/howto-configure-tls-auto.md#default-root-ca-and-issuer)
+
 ---
 
 ## How to configure a dataflow endpoint for MQTT brokers
@@ -104,7 +149,7 @@ To configure an Azure Event Grid MQTT broker endpoint, we recommend that you use
 
 1. Assign the managed identity to the Event Grid namespace or topic space with an appropriate role like `EventGrid TopicSpaces Publisher` or `EventGrid TopicSpaces Subscriber`.
 
-1. Create the DataflowEndpoint resource. For example:
+1. This endpoint is the destination for the dataflow that receives messages from the default MQTT Broker.
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1beta1
@@ -122,6 +167,40 @@ spec:
         {}
     tls:
       mode: Enabled
+```
+
+# [Bicep](#tab/bicep)
+
+1. Create an Event Grid namespace and enable MQTT.
+
+1. Get the managed identity of the Azure IoT Operations Arc extension.
+
+1. Assign the managed identity to the Event Grid namespace or topic space with an appropriate role like `EventGrid TopicSpaces Publisher` or `EventGrid TopicSpaces Subscriber`.
+
+1. This endpoint is the destination for the dataflow that receives messages from the default MQTT broker.
+
+```bicep
+resource remoteMqttBrokerDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
+  parent: aioInstance
+  name: 'eventgrid'
+  extendedLocation: {
+    name: customLocation.id
+    type: 'CustomLocation'
+  }
+  properties: {
+    endpointType: 'Mqtt'
+    mqttSettings: {
+      authentication: {
+        method: 'SystemAssignedManagedIdentity'
+        systemAssignedManagedIdentitySettings: {}
+      }
+      host: eventGridHostName
+      tls: {
+        mode: 'Enabled'
+      }
+    }
+  }
+}
 ```
 
 ---
@@ -184,6 +263,24 @@ spec:
       trustedCaCertificateConfigMapRef: <YOUR-CA-CERTIFICATE-CONFIG-MAP>
 ```
 
+# [Bicep](#tab/bicep)
+
+```bicep
+properties: {
+    endpointType: 'Mqtt'
+    mqttSettings: {
+      authentication: {
+        ...
+      }
+      host: 'MQTT-BROKER-HOST>:8883'
+      tls: {
+        mode: 'Enabled'
+        trustedCaCertificateConfigMapRef: '<YOUR CA CERTIFICATE CONFIG MAP>'
+      }
+    }
+  }
+```
+
 ---
 
 ## Use the endpoint in a dataflow source or destination
@@ -233,6 +330,38 @@ spec:
           - sensors/thermostats/temperature
 ```
 
+# [Bicep](#tab/bicep)
+
+```bicep
+resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2024-08-15-preview' = {
+  parent: defaultDataflowProfile
+  name: 'my-dataflow'
+  extendedLocation: {
+    name: customLocation.id
+    type: 'CustomLocation'
+  }
+  properties: {
+    mode: 'Enabled'
+    operations: [
+      {
+        operationType: 'Source'
+        sourceSettings: {
+          endpointRef: 'mqsource'
+          dataSources: array('thermostats/+/telemetry/temperature/#')
+        }
+      }
+      {
+        operationType: 'Destination'
+        destinationSettings: {
+          endpointRef: 'mqdestination'
+          dataDestination: 'sensors/thermostats/temperature'
+        }
+      }
+    ]
+  }
+} 
+```
+
 ---
 
 For more information about dataflow destination settings, see [Create a dataflow](howto-create-dataflow.md).
@@ -277,6 +406,18 @@ mqttSettings:
       secretRef: <YOUR-X509-SECRET-NAME>
 ```
 
+# [Bicep](#tab/bicep)
+
+```bicep
+mqttSettings: {
+  authentication: {
+    method: 'X509Certificate'
+      x509CertificateSettings:
+        secretRef: '<YOUR-X509-SECRET-NAME>'
+  }
+}
+```
+
 ---
 
 #### System-assigned managed identity
@@ -311,6 +452,18 @@ mqttSettings:
       audience: https://<AUDIENCE>
 ```
 
+# [Bicep](#tab/bicep)
+
+
+```bicep
+mqttSettings: {
+  authentication: {
+    method: 'SystemAssignedManagedIdentity'
+    systemAssignedManagedIdentitySettings: {}
+  }
+}
+```
+
 ---
 
 #### User-assigned managed identity
@@ -334,6 +487,20 @@ mqttSettings:
       tenantId: <ID>
 ```
 
+# [Bicep](#tab/bicep)
+
+```bicep
+mqttSettings: {
+  authentication: {
+    method: 'UserAssignedManagedIdentity'
+    userAssignedManagedIdentitySettings: {
+      cliendId: '<ID>'
+      tenantId: '<ID>'
+    }
+  }
+}
+```
+
 ---
 
 #### Kubernetes service account token (SAT)
@@ -354,6 +521,19 @@ mqttSettings:
     method: ServiceAccountToken
     serviceAccountTokenSettings:
       audience: <YOUR-SERVICE-ACCOUNT-AUDIENCE>
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+mqttSettings: {
+  authentication: {
+    method: 'ServiceAccountToken'
+    serviceAccountTokenSettings: {
+      audience: '<YOUR-SERVICE-ACCOUNT-AUDIENCE>'
+    }
+  }
+}
 ```
 
 ---
@@ -536,5 +716,14 @@ CloudEvent properties are passed through for messages that contain the required 
 | `time`            | No       | Generated as RFC 3339 in the target client                                    |
 | `datacontenttype` | No       | Changed to the output data content type after the optional transform stage    |
 | `dataschema`      | No       | Schema defined in the schema registry                                         |
+
+
+# [Bicep](#tab/bicep)
+
+TODO
+
+```bicep
+bicep here
+```
 
 ---
