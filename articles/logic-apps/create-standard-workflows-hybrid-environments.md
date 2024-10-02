@@ -25,7 +25,7 @@ The following architectural overview shows where hybrid logic apps and their wor
 
 For more information, see the following documentation:
 
-- [What is Azure Kubernetes Service?](/aks/what-is-aks)
+- [What is Azure Kubernetes Service?](/azure/aks/what-is-aks)
 - [What is Azure Container Apps?](../container-apps/overview.md)
 - [Azure Container Apps on Azure Arc](../container-apps/azure-arc-overview.md)
 - [Azure Arc-enabled Azure Kubernetes (AKS) clusters](/azure/azure-arc/kubernetes/overview)
