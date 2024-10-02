@@ -83,6 +83,14 @@ spec:
         # See destination configuration section
 ```
 
+# [Bicep](#tab/bicep)
+
+The overall structure of a dataflow configuration for Bicep is as follows:
+
+```bicep
+bicep here
+```
+
 ---
 
 <!-- TODO: link to API reference -->
@@ -114,6 +122,12 @@ You can use an [asset](../discover-manage-assets/overview-manage-assets.md) as t
 # [Kubernetes](#tab/kubernetes)
 
 Configuring an asset as a source is only available in the Azure IoT Operations portal.
+
+# [Bicep](#tab/bicep)
+
+```bicep
+bicep here
+```
 
 ---
 
@@ -193,6 +207,12 @@ sourceSettings:
 
 <!-- TODO: Details -->
 
+# [Bicep](#tab/bicep)
+
+```bicep
+bicep here
+```
+
 ---
 
 ## Configure transformation to process data
@@ -222,6 +242,12 @@ builtInTransformationSettings:
 ```
 
 <!-- TODO: link to API reference -->
+
+# [Bicep](#tab/bicep)
+
+```bicep
+bicep here
+```
 
 ---
 
@@ -270,6 +296,12 @@ The data from the source with the `deviceId` field matching `thermostat1` has th
 
 <!-- TODO: link to API reference -->
 
+# [Bicep](#tab/bicep)
+
+```bicep
+bicep here
+```
+
 ---
 
 You can load sample data into the DSS by using the [DSS set tool sample](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/dss_set).
@@ -306,6 +338,12 @@ If the `temperature` field is greater than 20, the data is passed to the next st
 
 <!-- TODO: link to API reference -->
 
+# [Bicep](#tab/bicep)
+
+```bicep
+bicep here
+```
+
 ---
 
 ### Map: Move data from one field to another
@@ -340,6 +378,12 @@ builtInTransformationSettings:
 ```
 
 <!-- TODO: link to API reference -->
+
+# [Bicep](#tab/bicep)
+
+```bicep
+bicep here
+```
 
 ---
 
@@ -377,6 +421,12 @@ To specify the schema, you can create a Schema CR with the schema definition.
     {"name": "location", "type": "string"}
   ]
 }
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+bicep here
 ```
 
 ---
@@ -462,6 +512,12 @@ spec:
 
 <!-- TODO: add links to examples in the reference docs -->
 
+# [Bicep](#tab/bicep)
+
+```bicep
+bicep here
+```
+
 ---
 
 ## Verify a dataflow is working
@@ -488,6 +544,12 @@ spec:
   mode: Disabled
 ```
 
+# [Bicep](#tab/bicep)
+
+```bicep
+bicep here
+```
+
 ---
 
 ### View dataflow health status and metrics
@@ -512,6 +574,12 @@ Select the dataflow you want to delete and select **Delete** from the toolbar.
 kubectl delete dataflow my-dataflow
 ```
 
+# [Bicep](#tab/bicep)
+
+```bicep
+bicep here
+```
+
 ---
 
 ### Export dataflow configuration
@@ -528,6 +596,12 @@ Select the dataflow you want to export and select **Export** from the toolbar.
 
 ```bash
 kubectl get dataflow my-dataflow -o yaml > my-dataflow.yaml
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+bicep here
 ```
 
 ---
