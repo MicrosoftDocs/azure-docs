@@ -77,7 +77,10 @@ Confidential GPU VMs run on specialized hardware and resizing is currently not s
 
 OS images for confidential VMs have to meet certain security and compatibility requirements. Qualified images support the secure mounting, attestation, optional [confidential OS disk encryption](confidential-vm-overview.md#confidential-os-disk-encryption), and isolation from underlying cloud infrastructure. These images include:
 
-- Ubuntu 22.04 LTS
+- Ubuntu Pro 22.04 LTS
+- Ubuntu Server 22.04 LTS
+- Ubuntu Pro 24.04 LTS
+- Ubuntu Server 24.04 LTS
 
 For more information about supported and unsupported VM scenarios, see [support for generation 2 VMs on Azure](/azure/virtual-machines/generation-2). 
 
