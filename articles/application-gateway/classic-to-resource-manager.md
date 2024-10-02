@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 09/30/2024
+ms.date: 10/02/2024
 ms.author: greglin
 ---
 
@@ -17,7 +17,7 @@ You can read more about Azure Resource Manager [features and benefits](../azure-
 Application gateway resources are **not** migrated automatically as part of VNet migration from classic to Resource Manager.
 As part of VNet migration process as documented at [IaaS resources migration page](/azure/virtual-machines/migration-classic-resource-manager-ps), if you have an application gateway resource present on the VNet that you're trying to migrate to Resource Manager deployment model, the automatic migration wouldn't be successful. 
 
-In order to migrate your application gateway resource to Resource Manager deployment model, you'll have to remove the Application Resource from the VNet before beginning migration and then recreate the application gateway resource once migration is complete.
+To migrate your application gateway resource to Resource Manager deployment model, you'll have to remove the Application Resource from the VNet before beginning migration and then recreate the application gateway resource once migration is complete.
 
 ## Creating a new application gateway resource 
 
@@ -43,7 +43,7 @@ Azure Resource Manager is the latest control plane of Azure responsible for crea
 
 ### Where can I find more information regarding classic to Azure Resource Manager migration?
 
-efer to [Frequently asked questions about classic to Azure Resource Manager migration](/azure/virtual-machines/migration-classic-resource-manager-faq)
+Refer to [Frequently asked questions about classic to Azure Resource Manager migration](/azure/virtual-machines/migration-classic-resource-manager-faq)
 
 ### How can I clean up my classic application gateway deployment?
 
