@@ -5,7 +5,7 @@ author: dlepow
 ms.author: danlep
 ms.service: azure-api-management
 ms.topic: how-to 
-ms.date: 10/01/2024
+ms.date: 10/02/2024
 ---
 
 # Integrate an Azure API Management instance with a private virtual network for outbound connections - public IP address
@@ -21,7 +21,7 @@ When an API Management instance is integrated with a virtual network for outboun
 If you want to configure *internal* virtual network integration for your API Management instance (inbound traffic to a private IP address, outbound traffic to network-isolated backends), see [Integrate API Management in private network - private IP address](integrate-vnet-internal.md).
 
 > [!IMPORTANT]
-> * External virtual network integration described in this article is available only for API Management instances in the Standard v2 and Premium v2 tiers. For networking options in the classic tiers, see [Use a virtual network with Azure API Management](virtual-network-concepts.md).
+> * External virtual network integration described in this article is available only for API Management instances in the Standard v2 and Premium v2 tiers. For networking options in the different tiers, see [Use a virtual network with Azure API Management](virtual-network-concepts.md).
 > * You can enable external virtual network integration when you create an API Management instance in the Standard v2 or Premium v2 tier, or on an existing instance.
 > * You can't change the virtual network integration type from internal to external or vice versa after the API Management instance is created. 
 
@@ -68,20 +68,10 @@ You must have at least the following role-based access control permissions on th
 | Microsoft.Network/virtualNetworks/subnets/read | Read a virtual network subnet definition |
 | Microsoft.Network/virtualNetworks/subnets/join/action | Joins a virtual network |
 
-### Permissions
-
-You must have at least the following role-based access control permissions on the subnet or at a higher level to configure virtual network integration:
-
-| Action | Description |
-|-|-|
-| Microsoft.Network/virtualNetworks/read | Read the virtual network definition |
-| Microsoft.Network/virtualNetworks/subnets/read | Read a virtual network subnet definition |
-| Microsoft.Network/virtualNetworks/subnets/join/action | Joins a virtual network |
-
 
 ## Enable virtual network integration
 
-This section will guide you through the process of enabling virtual network integration for an existing Azure API Management instance.
+This section guides you through the process of enabling external virtual network integration for an existing Azure API Management instance.
 
 
 

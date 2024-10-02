@@ -5,7 +5,7 @@ author: dlepow
 ms.author: danlep
 ms.service: azure-api-management
 ms.topic: how-to 
-ms.date: 10/01/2024
+ms.date: 10/02/2024
 ---
 
 # Integrate an Azure API Management instance with a private virtual network - private IP address
@@ -22,7 +22,7 @@ If you want to configure *external* virtual network integration for your API Man
 
 
 > [!IMPORTANT]
-> * Internal virtual network integration described in this article is available only for API Management instances in the Premium v2 tier. For networking options in the classic tiers, see [Use a virtual network with Azure API Management](virtual-network-concepts.md).
+> * Internal virtual network integration described in this article is available only for API Management instances in the Premium v2 tier. For networking options in the different tiers, see [Use a virtual network with Azure API Management](virtual-network-concepts.md).
 > * Currently, you configure internal virtual network integration when a Premium v2 instance is **created**. You can't enable internal virtual network integration on an existing Premium v2 instance. However, you can update the integrated subnet settings after the instance is created.
 > * You can't change the virtual network integration type from internal to external or vice versa after the API Management instance is created.
 
@@ -96,8 +96,8 @@ Learn how to [set up a private zone in Azure DNS](../dns/private-dns-getstarted-
 
 When you create an API Management instance in the Premium v2 tier, the following endpoints are assigned default hostnames:
 
-* **Gateway** - 
-* **Developer portal**
+* **Gateway** - example: `contoso-apim.azure-api.net`
+* **Developer portal** - example: `contoso-apim.portal.azure-api.net`
 
 ### Configure DNS records
 
