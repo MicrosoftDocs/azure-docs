@@ -27,22 +27,6 @@ To send data to local storage in Azure IoT Operations Preview, you can configure
 
 Use the local storage option to send data to a locally available persistent volume, through which you can upload data via Edge Storage Accelerator edge volumes.
 
-# [Portal](#tab/portal)
-
-1. In the operations experience portal, select the **Dataflow endpoints** tab.
-1. Under **Create new dataflow endpoint**, select **Local Storage** > **New**.
-
-    :::image type="content" source="media/howto-configure-local-storage-endpoint/create-local-storage-endpoint.png" alt-text="Screenshot using operations experience portal to create a Local Storage dataflow endpoint.":::
-
-    Enter the following settings for the endpoint:
-
-    | Setting               | Description                                                             |
-    | --------------------- | ------------------------------------------------------------------------------------------------- |
-    | Name                  | The name of the dataflow endpoint.                                      |
-    | Persistent volume claim name | The name of the PersistentVolumeClaim (PVC) to use for local storage.                        |
-
-1. Select **Apply** to provision the endpoint.
-
 # [Kubernetes](#tab/kubernetes)
 
 ```yaml
@@ -93,24 +77,6 @@ resource localStorageDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflo
 ## Configure dataflow destination
 
 Once the endpoint is created, you can use it in a dataflow by specifying the endpoint name in the dataflow's destination settings.
-
-# [Portal](#tab/portal)
-
-1. In the Azure IoT Operations Preview portal, create a new dataflow or edit an existing dataflow by selecting the **Dataflows** tab on the left. If creating a new dataflow, select a source for the dataflow.
-1. In the editor, select the destination dataflow endpoint.
-1. Choose the Local Storage endpoint that you created previously.
-
-    :::image type="content" source="media/howto-configure-local-storage-endpoint/dataflow-mq-local-storage.png" alt-text="Screenshot using operations experience portal to create a dataflow with an MQTT source and local storage.":::
-
-    Enter the following settings for the endpoint:
-
-    | Setting     | Description                                                                                       |
-    | ------------- | ------------------------------------------------------------------------------------------------- |
-    | Folder name   | The name of the folder where the data should be stored.                                           |
-    | Schema name   | The name of the schema that defines the structure of the data.                                     |
-    | Output schema | The schema that matches the source data. You can select an existing schema or upload a new one to the schema registry. |
-
-1. Select **Apply** to provision the dataflow.
 
 # [Kubernetes](#tab/kubernetes)
 

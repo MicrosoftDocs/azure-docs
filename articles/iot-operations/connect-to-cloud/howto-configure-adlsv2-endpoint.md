@@ -5,7 +5,7 @@ author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 09/23/2024
+ms.date: 10/02/2024
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to configure dataflow endpoints for Azure Data Lake Storage Gen2 in Azure IoT Operations so that I can send data to Azure Data Lake Storage Gen2.
@@ -26,28 +26,6 @@ To send data to Azure Data Lake Storage Gen2 in Azure IoT Operations Preview, yo
 ## Create an Azure Data Lake Storage Gen2 dataflow endpoint
 
 To configure a dataflow endpoint for Azure Data Lake Storage Gen2, we suggest using the managed identity of the Azure Arc-enabled Kubernetes cluster. This approach is secure and eliminates the need for secret management. Alternatively, you can authenticate with the storage account using an access token. When using an access token, you would need to create a Kubernetes secret containing the SAS token.
-
-# [Portal](#tab/portal)
-
-1. In the operations experience portal, select the **Dataflow endpoints** tab.
-1. Under **Create new dataflow endpoint**, select **Azure Data Lake Storage (2nd generation)** > **New**.
-
-    :::image type="content" source="media/howto-configure-adlsv2-endpoint/create-adls-endpoint.png" alt-text="Screenshot using operations experience portal to create a new ADLS V2 dataflow endpoint.":::
-
-1. Enter the following settings for the endpoint:
-
-    | Setting               | Description                                                                                       |
-    | --------------------- | ------------------------------------------------------------------------------------------------- |
-    | Name                  | The name of the dataflow endpoint.                                                              |
-    | Host                  | The hostname of the Azure Data Lake Storage Gen2 endpoint in the format `<account>.blob.core.windows.net`. Replace the account placeholder with the endpoint account name. |
-    | Authentication method | The method used for authentication. Choose *System assigned managed identity*, *User assigned managed identity*, or *Access token*.     |
-    | Client ID             | The client ID of the user-assigned managed identity. Required if using *User assigned managed identity*. |
-    | Tenant ID             | The tenant ID of the user-assigned managed identity. Required if using *User assigned managed identity*. |
-    | Access token secret name | The name of the Kubernetes secret containing the SAS token. Required if using *Access token*. |
-
-1. Select **Apply** to provision the endpoint.
-
-# [Kubernetes](#tab/kubernetes)
 
 ### Use managed identity authentication
 
@@ -94,21 +72,9 @@ If you need to override the system-assigned managed identity audience, see the [
             secretRef: my-sas
     ```
 
----
-
 ## Configure dataflow destination
 
 Once the endpoint is created, you can use it in a dataflow by specifying the endpoint name in the dataflow's destination settings. The following example is a dataflow configuration that uses the MQTT endpoint for the source and Azure Data Lake Storage Gen2 as the destination. The source data is from the MQTT topics `thermostats/+/telemetry/temperature/#` and `humidifiers/+/telemetry/humidity/#`. The destination sends the data to Azure Data Lake Storage table `telemetryTable`.
-
-# [Portal](#tab/portal)
-
-1. In the Azure IoT Operations Preview portal, create a new dataflow or edit an existing dataflow by selecting the **Dataflows** tab on the left. If creating a new dataflow, select a source for the dataflow.
-1. In the editor, select the destination dataflow endpoint.
-1. Choose the Azure Data Lake Storage Gen2 endpoint that you created previously.
-
-    :::image type="content" source="media/howto-configure-adlsv2-endpoint/dataflow-mq-adls.png" alt-text="Screenshot using operations experience portal to create a dataflow with an MQTT source and ADLS V2 destination.":::
-
-# [Kubernetes](#tab/kubernetes)
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1beta1
@@ -132,8 +98,6 @@ spec:
         dataDestination: telemetryTable
 ```
 
----
-
 For more information about dataflow destination settings, see [Create a dataflow](howto-create-dataflow.md).
 
 > [!NOTE]
@@ -150,14 +114,6 @@ The following authentication methods are available for Azure Data Lake Storage G
 Using the system-assigned managed identity is the recommended authentication method for Azure IoT Operations. Azure IoT Operations creates the managed identity automatically and assigns it to the Azure Arc-enabled Kubernetes cluster. It eliminates the need for secret management and allows for seamless authentication with the Azure Data Lake Storage Gen2 account.
 
 Before creating the dataflow endpoint, assign a role to the managed identity that has write permission to the storage account. For example, you can assign the *Storage Blob Data Contributor* role. To learn more about assigning roles to blobs, see [Authorize access to blobs using Microsoft Entra ID](../../storage/blobs/authorize-access-azure-active-directory.md).
-
-# [Portal](#tab/portal)
-
-In the operations experience portal dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **System assigned managed identity**.
-
-In most cases, you don't need to specify a service audience. Not specifying an audience creates a managed identity with the default audience scoped to your storage account.
-
-# [Kubernetes](#tab/kubernetes)
 
 In the *DataflowEndpoint* resource, specify the managed identity authentication method. In most cases, you don't need to specify other settings. Not specifying an audience creates a managed identity with the default audience scoped to your storage account.
 
@@ -177,8 +133,6 @@ datalakeStorageSettings:
     systemAssignedManagedIdentitySettings:
       audience: https://<account>.blob.core.windows.net
 ```
-
----
 
 #### Access token
 
@@ -202,14 +156,6 @@ kubectl create secret generic my-sas \
 -n azure-iot-operations
 ```
 
-# [Portal](#tab/portal)
-
-In the operations experience portal dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **Access token**.
-
-Enter the access token secret name you created in **Access token secret name**.
-
-# [Kubernetes](#tab/kubernetes)
-
 Create the *DataflowEndpoint* resource with the secret reference.
 
 ```yaml
@@ -220,17 +166,7 @@ datalakeStorageSettings:
       secretRef: my-sas
 ```
 
----
-
 #### User-assigned managed identity
-
-# [Portal](#tab/portal)
-
-In the operations experience portal dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **User assigned managed identity**.
-
-Enter the user assigned managed identity client ID and tenant ID in the appropriate fields.
-
-# [Kubernetes](#tab/kubernetes)
 
 To use a user-assigned managed identity, specify the `UserAssignedManagedIdentity` authentication method and provide the `clientId` and `tenantId` of the managed identity.
 
@@ -242,8 +178,6 @@ datalakeStorageSettings:
       clientId: <ID>
       tenantId: <ID>
 ```
-
----
 
 ## Advanced settings
 
@@ -258,14 +192,6 @@ Use the `batching` settings to configure the maximum number of messages and the 
 
 For example, to configure the maximum number of messages to 1000 and the maximum latency to 100 seconds, use the following settings:
 
-# [Portal](#tab/portal)
-
-In the operations experience portal, select the **Advanced** tab for the dataflow endpoint.
-
-:::image type="content" source="media/howto-configure-adlsv2-endpoint/adls-advanced.png" alt-text="Screenshot using operations experience portal to set ADLS V2 advanced settings.":::
-
-# [Kubernetes](#tab/kubernetes)
-
 Set the values in the dataflow endpoint custom resource.
 
 ```yaml
@@ -274,5 +200,3 @@ datalakeStorageSettings:
     latencySeconds: 100
     maxMessages: 1000
 ```
-
----
