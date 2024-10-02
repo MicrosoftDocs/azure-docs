@@ -305,10 +305,10 @@ fabricOneLakeSettings:
 fabricOneLakeSettings: {
       authentication: {
         method: 'SystemAssignedManagedIdentity'
-        systemAssignedManagedIdentitySettings: {}
+        systemAssignedManagedIdentitySettings: {
+            audience: 'https://contoso.onelake.dfs.fabric.microsoft.com'
+        }
       }
-      oneLakePathType: 'Tables'
-      host: 'https://msit-onelake.dfs.fabric.microsoft.com'
       ...
     }
 ```
@@ -384,6 +384,10 @@ fabricOneLakeSettings:
 ```
 
 # [Bicep](#tab/bicep)
+
+The bicep file has the values in the dataflow endpoint resource.
+
+<!-- TODO  Add a way for users to override the file with values using the az stack group command >
 
 ```bicep
 batching: {
