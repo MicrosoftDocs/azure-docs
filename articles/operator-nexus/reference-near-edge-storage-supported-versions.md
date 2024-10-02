@@ -74,9 +74,9 @@ This document is updated periodically with planned dates of the new Storage soft
 
 ### How do I upgrade to a new supported Purity version?
 
-Purity upgrades are initiated and supported by Pure. They are not initiated or supported by Nexus. Full details of the upgrade process are available in [Pure's documentation](https://support.purestorage.com/) (login required).
+Azure Operator Nexus software does not trigger or manage Purity upgrades. Purity upgrades are supported by Pure Storage and can be triggered either through a Pure engineer assisted process or through a self-service process in the Pure1 management portal.
 
-Pure support Purity upgrades through a Pure-engineer assisted process and through a self-service process. The self-service process is executed through the Pure1 management portal, allows the upgrade of Purity on multiple storage appliances in parallel, and requires a small configuration process on each appliance that will be upgraded using the self-service method. Please contact your Pure support representative for help enabling self-service upgrades.
+Full details of both upgrade processes, including the procedures for enabling and using self-service upgrade, are available in [Pure's documentation](https://support.purestorage.com/) (login required). Please contact your Pure support representative for further questions about Purity upgrades.
 
 ### What happens when a version reaches the end of support?
 
