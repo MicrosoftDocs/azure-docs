@@ -39,12 +39,12 @@ In this step, you create an IP address pool for your virtual network.
     | **Description** | Enter a description for the IP address pool. |
     | **Parent pool** | For creating a **root pool**, leave default of **None**. For creating a **child pool**, select the parent pool. |
 
-    :::image type="content" source="media/how-to-manage-ip-addresses/create-root-pool.png" alt-text="Screenshot of Create an ip address pool settings for a root pool" :::   
+    :::image type="content" source="media/how-to-manage-ip-addresses/create-root-pool.png" alt-text="Screenshot of Create an ip address pool settings for a root pool." :::   
     
 6. Select **Next** or the **IP addresses** tab.
 7. Under **Starting address**, enter the IP address range for the pool.
 
-    :::image type="content" source="media/how-to-manage-ip-addresses/set-pool-ip-range-thumb.png" alt-text="Screenshot of IP address range settings for a root pool" lightbox="media/how-to-manage-ip-addresses/set-pool-ip-range.png"::: 
+    :::image type="content" source="media/how-to-manage-ip-addresses/set-pool-ip-range-thumb.png" alt-text="Screenshot of IP address range settings for a root pool." lightbox="media/how-to-manage-ip-addresses/set-pool-ip-range.png"::: 
 
 8. Select **Review + create** and then **Create** to create the IP address pool.
 9. Repeat these steps for another root or child pool.
@@ -55,7 +55,7 @@ In this step, you associate an existing virtual network with an IP address pool 
 
 1. Browse to your network manager instance and select your IP address pool.
 2. From the left menu, select **Allocations** under **Settings** or select **Allocate**. 
-3. In the **Allocations** window, select **+ Create**>**Associate resources**. The **Associate resources** option allocates a CIDR to an existing virtual network.
+3. In the **Allocations** window, select **+ Create** > **Associate resources**. The **Associate resources** option allocates a CIDR to an existing virtual network.
    
     :::image type="content" source="media/how-to-manage-ip-addresses/pool-allocation-settings-associate-resource-thumb.png" alt-text="Screenshot of allocations page for associating resources." lightbox="media/how-to-manage-ip-addresses/pool-allocation-settings-associate-resource.png":::
 
@@ -76,7 +76,7 @@ In this step, you create a static CIDR block for a pool. This is helpful for all
 
 1. Browse to your IP address pool.
 2. Select **Allocate** or **Allocations** under **Settings**.
-3. In the **Allocations** window, select **+ Create**>**Allocate static CIDRs**.
+3. In the **Allocations** window, select **+ Create** > **Allocate static CIDRs**.
 4. In the **Allocate static CIDRs from pool** window, enter the following information:
    
     | Field | Description |
@@ -88,7 +88,7 @@ In this step, you create a static CIDR block for a pool. This is helpful for all
     :::image type="content" source="media/how-to-manage-ip-addresses/create-static-cidr-reservation.png" alt-text="Screenshot of Allocate static CIDR from pool window with address range for CIDR reservation.":::
     
 5. Select **Allocate**.
-6. 
+
 ## Review allocation usage
 
 In this step, you review the allocation usage of the IP address pool. This helps you understand how the CIDRs are being used in the pool, along with the percentage of the pool that is allocated and the compliance status of the pool.
@@ -121,7 +121,7 @@ In this step, you review the allocation usage of the IP address pool. This helps
 
 ## Delegating permissions for IP address management
 
-In this step, you delegate permissions to other users to manage IP address pools in your network manager using A[zure role-based access control (RBAC)](../role-based-access-control/check-access.md). This allows you to control access to the IP address pools and ensure that only authorized users can manage the pools.
+In this step, you delegate permissions to other users to manage IP address pools in your network manager using [Azure role-based access control (RBAC)](../role-based-access-control/check-access.md). This allows you to control access to the IP address pools and ensure that only authorized users can manage the pools.
 
 1. Browse to your IP address pool.
 2. In the left menu, select **Access control (IAM)**.
@@ -165,7 +165,6 @@ In this step, you create a virtual network with a nonoverlapping CIDR range by a
 
 8. Optionally create subnets referring to the selected pool.
 9.  Select **Review + create** and then **Create** to create the virtual network.
-10. Once the virtual network is created, you can
 
 ## Next steps
 
