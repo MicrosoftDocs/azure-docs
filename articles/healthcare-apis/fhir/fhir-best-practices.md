@@ -12,7 +12,8 @@ ms.author: kesheth
 
 # Best practices for better performance in FHIR service
 
-**Note:** This document is scoped for Azure Health Data Services FHIR&reg; service customers.
+> [!NOTE]
+> This document is scoped for Azure Health Data Services FHIR&reg; service customers.
 
 ## Data ingestion
 
