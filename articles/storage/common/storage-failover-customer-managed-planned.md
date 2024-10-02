@@ -70,7 +70,7 @@ The failover typically takes about an hour.
 
 After the failover is complete, the original primary region becomes the new secondary (1), and the original secondary region becomes the new primary (2). The URIs for the storage service endpoints for blobs, tables, queues, and files remain the same, but their DNS entries are changed to point to the new primary region (3). Users can resume writing data to the storage account in the new primary region, and the data is then copied asynchronously to the new secondary (4) as shown in the following image:
 
-:::image type="content" source="media/storage-failover-customer-managed-common/pre-failover-geo-redundant.png" alt-text="Diagram that shows the storage account status post-failover to secondary region." lightbox="media/storage-failover-customer-managed-common/pre-failover-geo-redundant.png":::
+:::image type="content" source="media/storage-failover-customer-managed-common/post-failover-geo-redundant.png" alt-text="Diagram that shows the storage account status post-failover to secondary region." lightbox="media/storage-failover-customer-managed-common/post-failover-geo-redundant.png":::
 
 While in the failover state, perform your disaster recovery testing.
 
@@ -128,7 +128,7 @@ The failback typically takes about an hour.
 
 After the failback is complete, the storage account is restored to its original redundancy configuration. Users can resume writing data to the storage account in the original primary region (1), while replication to the original secondary (2) continues as before the failover:
 
-:::image type="content" source="media/storage-failover-customer-managed-common/pre-failover-geo-zone-redundant.png" alt-text="Diagram that shows the redundancy configuration returns to its original state." lightbox="media/storage-failover-customer-managed-common/pre-failover-geo-zone-redundant.png":::
+:::image type="content" source="media/storage-failover-customer-managed-common/pre-failover-geo-redundant.png" alt-text="Diagram that shows the redundancy configuration returns to its original state." lightbox="media/storage-failover-customer-managed-common/pre-failover-geo-redundant.png":::
 
 ---
 
