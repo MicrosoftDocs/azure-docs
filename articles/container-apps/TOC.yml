@@ -381,6 +381,8 @@
           - name: Query managed component logs
             href: java-component-logs.md
             displayName: java
+          - name: Configure APM integration by Java agent
+            href: java-apm-agent-config.md
           - name: Create a highly available Eureka server component cluster
             href: java-eureka-server-highly-available.md
             displayName: java
