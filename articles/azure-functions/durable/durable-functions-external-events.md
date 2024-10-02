@@ -63,7 +63,7 @@ import azure.functions as func
 import azure.durable_functions as df
 
 def orchestrator_function(context: df.DurableOrchestrationContext):
-    approved = context.wait_for_external_event('Approval')
+    approved = yield context.wait_for_external_event('Approval')
     if approved:
         # approval granted - do the approved action
     else:
@@ -169,7 +169,7 @@ def orchestrator_function(context: df.DurableOrchestrationContext):
     event2 = context.wait_for_external_event('Event2')
     event3 = context.wait_for_external_event('Event3')
 
-    winner = context.task_any([event1, event2, event3])
+    winner = yield context.task_any([event1, event2, event3])
     if winner == event1:
         # ...
     elif winner == event2:
