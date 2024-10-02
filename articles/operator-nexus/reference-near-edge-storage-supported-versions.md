@@ -39,13 +39,13 @@ Each number in the version indicates general compatibility with the previous ver
 
 
 ## Release process
-1.	**End of support:** 
+1.	**End of support:**
     - Nexus will announce end of support for the oldest supported LTS version via release notes once the timeline for the new LTS version is available.
-    - Nexus will stop supporting the oldest supported LTS version shortly before adding support for new LTS version (that is before the next LTS version is ready for testing in labs).  
+    - Nexus will stop supporting the oldest supported LTS version shortly before adding support for new LTS version (that is before the next LTS version is ready for testing in labs).
 3.	**Introduction:** Nexus typically declares support for a new LTS release once the first patch release is available. This is to benefit from any critical fixes. Release cadence:
     - By default, the introduction of any new release support (LTS/patch) will be combined with Nexus runtime release.
-    - Introduction of a new LTS release may, in rare cases, require a specific upgrade ordering and a timeline. 
-    - Depending on severity of Common Vulnerabilities & Exposures (CVE) fixes or blocker issues, a Purity version may be verified and introduced outside of a runtime release. 
+    - Introduction of a new LTS release may, in rare cases, require a specific upgrade ordering and a timeline.
+    - Depending on severity of Common Vulnerabilities & Exposures (CVE) fixes or blocker issues, a Purity version may be verified and introduced outside of a runtime release.
 
 ## Supported Storage Software Versions (Purity)
 
@@ -71,6 +71,12 @@ Each number in the version indicates general compatibility with the previous ver
 ### How does Microsoft notify me of a new supported Purity version?
 
 This document is updated periodically with planned dates of the new Storage software versions supported and for retiring versions. All new versions and end of support announcements are also communicated in release notes.
+
+### How do I upgrade to a new supported Purity version?
+
+Purity upgrades are initiated and supported by Pure. They are not initiated or supported by Nexus. Full details of the upgrade process are available in [Pure's documentation](https://support.purestorage.com/) (login required).
+
+Pure support Purity upgrades through a Pure-engineer assisted process and through a self-service process. The self-service process is executed through the Pure1 management portal, allows the upgrade of Purity on multiple storage appliances in parallel, and requires a small configuration process on each appliance that will be upgraded using the self-service method. Please contact your Pure support representative for help enabling self-service upgrades.
 
 ### What happens when a version reaches the end of support?
 
