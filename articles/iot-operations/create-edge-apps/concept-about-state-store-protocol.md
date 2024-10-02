@@ -49,11 +49,11 @@ To communicate with the state store, clients must meet the following requirement
 - Use QoS 1 (Quality of Service level 1). QoS 1 is described in the [MQTT 5 specification](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Toc3901236).
 - Have a clock that is within one minute of the MQTT broker's clock.
 
-To communicate with the state store, clients must `PUBLISH` requests to the system topic `statestore/FA9AE35F-2F64-47CD-9BFF-08E2B32A0FE8/command/invoke`. Because the state store is part of Azure IoT Operations, it does an implicit `SUBSCRIBE` to this topic on startup.
+To communicate with the state store, clients must `PUBLISH` requests to the system topic `statestore/v1/FA9AE35F-2F64-47CD-9BFF-08E2B32A0FE8/command/invoke`. Because the state store is part of Azure IoT Operations, it does an implicit `SUBSCRIBE` to this topic on startup.
 
 To build a request, the following MQTT5 properties are required. If these properties aren't present or the request isn't of type QoS 1, the request fails.
 
-- [Response Topic](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Request_/_Response). The state store responds to the initial request using this value. As a best practice, format the response topic as `clients/{clientId}/services/statestore/_any_/command/invoke/response`. Setting the response topic as `statestore/FA9AE35F-2F64-47CD-9BFF-08E2B32A0FE8/command/invoke` or as one that begins with `clients/statestore/FA9AE35F-2F64-47CD-9BFF-08E2B32A0FE8` is not permitted on a state store request. The state store disconnects MQTT clients that use an invalid response topic.
+- [Response Topic](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Request_/_Response). The state store responds to the initial request using this value. As a best practice, format the response topic as `clients/{clientId}/services/statestore/_any_/command/invoke/response`. Setting the response topic as `statestore/v1/FA9AE35F-2F64-47CD-9BFF-08E2B32A0FE8/command/invoke` or as one that begins with `clients/statestore/v1/FA9AE35F-2F64-47CD-9BFF-08E2B32A0FE8` is not permitted on a state store request. The state store disconnects MQTT clients that use an invalid response topic.
 - [Correlation Data](https://docs.oasis-open.org/mqtt/mqtt/v5.0/os/mqtt-v5.0-os.html#_Correlation_Data). When the state store sends a response, it includes the correlation data of the initial request.
 
 The following diagram shows an expanded view of the request and response:
@@ -61,7 +61,7 @@ The following diagram shows an expanded view of the request and response:
 <!--
 sequenceDiagram
 
-      Client->>+State Store:Request<BR>PUBLISH statestore/FA9AE35F-2F64-47CD-9BFF-08E2B32A0FE8/command/invoke<BR>Response Topic:client-defined-response-topic<BR>Correlation Data:1234<BR>Payload(RESP3)
+      Client->>+State Store:Request<BR>PUBLISH statestore/v1/FA9AE35F-2F64-47CD-9BFF-08E2B32A0FE8/command/invoke<BR>Response Topic:client-defined-response-topic<BR>Correlation Data:1234<BR>Payload(RESP3)
       Note over State Store,Client: State Store Processes Request
       State Store->>+Client: Response<BR>PUBLISH client-defined-response-topic<br>Correlation Data:1234<BR>Payload(RESP3)
 -->
@@ -363,7 +363,7 @@ Clients can register with the state store to receive notifications of keys being
 
 ### KEYNOTIFY request messages
 
-State store clients request the state store monitor a given `keyName` for changes by sending a `KEYNOTIFY` message. Just like all state store requests, clients PUBLISH a QoS1 message with this message via MQTT5 to the state store system topic `statestore/FA9AE35F-2F64-47CD-9BFF-08E2B32A0FE8/command/invoke`.
+State store clients request the state store monitor a given `keyName` for changes by sending a `KEYNOTIFY` message. Just like all state store requests, clients PUBLISH a QoS1 message with this message via MQTT5 to the state store system topic `statestore/v1/FA9AE35F-2F64-47CD-9BFF-08E2B32A0FE8/command/invoke`.
 
 The request payload has the following form:
 
@@ -419,13 +419,13 @@ When a `keyName` being monitored via `KEYNOTIFY` is modified or deleted, the sta
 The topic is defined in the following example. The `clientId` is an upper-case hex encoded representation of the MQTT ClientId of the client that initiated the `KEYNOTIFY` request and `keyName` is a hex encoded representation of the key that changed.
 
 ```console
-clients/statestore/FA9AE35F-2F64-47CD-9BFF-08E2B32A0FE8/{clientId}/command/notify/{keyName}
+clients/statestore/v1/FA9AE35F-2F64-47CD-9BFF-08E2B32A0FE8/{clientId}/command/notify/{keyName}
 ```
 
 As an example, MQ publishes a `NOTIFY` message sent to `client-id1` with the modified key name `SOMEKEY` to the topic:
 
 ```console
-clients/statestore/FA9AE35F-2F64-47CD-9BFF-08E2B32A0FE8/636C69656E742D696431/command/notify/534F4D454B4559`
+clients/statestore/v1/FA9AE35F-2F64-47CD-9BFF-08E2B32A0FE8/636C69656E742D696431/command/notify/534F4D454B4559`
 ```
 
 A client using notifications should `SUBSCRIBE` to this topic and wait for the `SUBACK` to be received *before* sending any `KEYNOTIFY` requests so that no messages are lost.
