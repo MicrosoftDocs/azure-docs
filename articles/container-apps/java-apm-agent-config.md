@@ -123,7 +123,7 @@ The following commands help you define variables and ensure your Container Apps 
     
     RUN tdnf update -y && tdnf install -y curl ca-certificates
     
-    RUN curl -L https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.5.4/    applicationinsights-agent-3.5.4.jar > agent.jar
+    RUN curl -L https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.5.4/applicationinsights-agent-3.5.4.jar > agent.jar
     
     RUN echo "{\"connectionString\": \"${connectionString}\"}" > applicationinsights.json
     
