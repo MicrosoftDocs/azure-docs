@@ -44,7 +44,7 @@ ms.custom: include file, ignite-2023, devx-track-azurecli
 1. Use the [az connectedk8s connect](/cli/azure/connectedk8s#az-connectedk8s-connect) command to Arc-enable your Kubernetes cluster and manage it as part of your Azure resource group:
 
    ```azurecli
-   az connectedk8s connect --name $CLUSTER_NAME -l $LOCATION --resource-group $RESOURCE_GROUP --subscription $SUBSCRIPTION_ID --disable-auto-upgrade --enable-oidc-issuer --enable-workload-identity
+   az connectedk8s connect --name $CLUSTER_NAME -l $LOCATION --resource-group $RESOURCE_GROUP --subscription $SUBSCRIPTION_ID --enable-oidc-issuer --enable-workload-identity
    ```
 
 1. Get the cluster's issuer URL.
@@ -58,7 +58,7 @@ ms.custom: include file, ignite-2023, devx-track-azurecli
 1. Create a k3s config file.
 
    ```bash
-   nano /etc/rancher/k3s/config.yaml
+   sudo nano /etc/rancher/k3s/config.yaml
    ```
 
 1. Add the following content to the `config.yaml` file, replacing the `<SERVICE_ACCOUNT_ISSUER>` placeholder with your cluster's issuer URL.

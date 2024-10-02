@@ -27,7 +27,7 @@ Azure IoT Operations should work on any Arc-enabled Kubernetes cluster that meet
 
 Microsoft supports Azure Kubernetes Service (AKS) Edge Essentials for deployments on Windows and K3s for deployments on Ubuntu. For a list of specific hardware and software combinations that are tested and validated, see [Validated environments](../overview-iot-operations.md#validated-environments).
 
-If you want to deploy Azure IoT Operations to a multi-node solution, we recommend K3s on Ubuntu.
+If you want to deploy Azure IoT Operations to a multi-node solution, use K3s on Ubuntu.
 
 To prepare your Azure Arc-enabled Kubernetes cluster, you need:
 
@@ -55,7 +55,7 @@ To prepare your Azure Arc-enabled Kubernetes cluster, you need:
 
 * Hardware that meets the system requirements:
 
-  * Ensure that your machine has a minimum of 10-GB RAM, 4 vCPUs, and 40-GB free disk space.
+  * Ensure that your machine has a minimum of 10-GB available RAM, 4 available vCPUs, and 52-GB free disk space reserved for Azure IoT Operations.
   * [Azure Arc-enabled Kubernetes system requirements](/azure/azure-arc/kubernetes/system-requirements).
   * [AKS Edge Essentials requirements and support matrix](/azure/aks/hybrid/aks-edge-system-requirements).
   * [AKS Edge Essentials networking guidance](/azure/aks/hybrid/aks-edge-concept-networking).
@@ -151,12 +151,6 @@ The [AksEdgeQuickStartForAio.ps1](https://github.com/Azure/AKS-Edge/blob/main/to
    ```
 
    In the output of the `Get-AksEdgeDeploymentInfo` command, you should see that the cluster's Arc status is `Connected`.
-
-### Configure multi-node clusters for Azure Container Storage
-
-On multi-node clusters with at least three nodes, you have the option of enabling fault tolerance for storage with [Azure Container Storage enabled by Azure Arc](/azure/azure-arc/container-storage/overview) when you deploy Azure IoT Operations.
-
-By default, Azure Kubernetes Service Edge Essentials clusters support Azure Container Storage. There are no extra steps to configure AKS Edge Essential clusters for fault tolerance.
 
 ### [Ubuntu](#tab/ubuntu)
 
