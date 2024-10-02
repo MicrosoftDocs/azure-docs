@@ -81,6 +81,48 @@ To configure a dataflow endpoint for Microsoft Fabric OneLake, we suggest using 
           lakehouseName: <EXAMPLE-LAKEHOUSE-NAME>
     ```
 
+# [Bicep](#tab/bicep)
+
+This Bicep template file from [Bicep File for Microsoft Fabric OneLake dataflow Tutorial](https://gist.github.com/david-emakenemi/289a167c8fa393d3a7dce274a6eb21eb) deploys the necessary resources for dataflows to Fabric OneLake.
+
+1. Download the file to your local, and make sure to replace the values for `customLocationName`, `aioInstanceName`, `schemaRegistryName`, `opcuaSchemaName`, and `persistentVCName`.
+
+1. Next, deploy the resources using the [az stack group](/azure/azure-resource-manager/bicep/deployment-stacks?tabs=azure-powershell) command in your terminal:
+
+```azurecli
+az stack group create --name MyDeploymentStack --resource-group $RESOURCE_GROUP --template-file /workspaces/explore-iot-operations/<filename>.bicep --action-on-unmanage 'deleteResources' --deny-settings-mode 'none' --yes
+```
+This endpoint is the destination for the dataflow that receives messages to Fabric OneLake.
+
+```bicep
+resource oneLakeEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
+  parent: aioInstance
+  name: 'onelake-ep'
+  extendedLocation: {
+    name: customLocation.id
+    type: 'CustomLocation'
+  }
+  properties: {
+    endpointType: 'FabricOneLake'
+    fabricOneLakeSettings: {
+      authentication: {
+        method: 'SystemAssignedManagedIdentity'
+        systemAssignedManagedIdentitySettings: {}
+      }
+      oneLakePathType: 'Tables'
+      host: 'https://msit-onelake.dfs.fabric.microsoft.com'
+      names: {
+        lakehouseName: '<EXAMPLE-LAKEHOUSE-NAME>'
+        workspaceName: '<EXAMPLE-WORKSPACE-NAME>'
+      }
+      batching: {
+        latencySeconds: 5
+        maxMessages: 10000
+      }
+    }
+  }
+}
+```
 ---
 
 ## Configure dataflow destination
@@ -160,6 +202,51 @@ fabricOneLakeSettings:
   oneLakePathType: Files
 ```
 
+# [Bicep](#tab/bicep)
+
+```bicep
+resource dataflow_onelake 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2024-08-15-preview' = {
+  parent: defaultDataflowProfile
+  name: 'dataflow-onelake3'
+  extendedLocation: {
+    name: customLocation.id
+    type: 'CustomLocation'
+  }
+  properties: {
+    mode: 'Enabled'
+    operations: [
+      {
+        operationType: 'Source'
+        sourceSettings: {
+          endpointRef: defaultDataflowEndpoint.name
+          dataSources: array('azure-iot-operations/data/thermostat')
+        }
+      }
+      {
+        operationType: 'BuiltInTransformation'
+        builtInTransformationSettings: {
+          map: [
+            {
+              inputs: array('*')
+              output: '*'
+            }
+          ]
+          schemaRef: 'aio-sr://${opcuaSchemaName}:${opcuaSchemaVer}'
+          serializationFormat: 'Delta' // Can also be 'Parquet'
+        }
+      }
+      {
+        operationType: 'Destination'
+        destinationSettings: {
+          endpointRef: oneLakeEndpoint.name
+          dataDestination: 'opc'
+        }
+      }
+    ]
+  }
+}
+```
+
 ---
 
 For more information about dataflow destination settings, see [Create a dataflow](howto-create-dataflow.md).
@@ -205,6 +292,20 @@ fabricOneLakeSettings:
       audience: https://contoso.onelake.dfs.fabric.microsoft.com
 ```
 
+# [Bicep](#tab/bicep)
+
+```bicep
+fabricOneLakeSettings: {
+      authentication: {
+        method: 'SystemAssignedManagedIdentity'
+        systemAssignedManagedIdentitySettings: {}
+      }
+      oneLakePathType: 'Tables'
+      host: 'https://msit-onelake.dfs.fabric.microsoft.com'
+      ...
+    }
+```
+
 ---
 
 #### User-assigned managed identity
@@ -226,6 +327,21 @@ fabricOneLakeSettings:
     userAssignedManagedIdentitySettings:
       clientId: <ID>
       tenantId: <ID>
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+fabricOneLakeSettings: {
+      authentication: {
+        method: 'UserAssignedManagedIdentity'
+        userAssignedManagedIdentitySettings: {
+            clientId: '<clientId>'
+            tenantId: '<tenantId>'
+        }
+      }
+      ...
+    }
 ```
 
 ---
@@ -258,6 +374,15 @@ fabricOneLakeSettings:
   batching:
     latencySeconds: 100
     maxMessages: 1000
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+batching: {
+  latencySeconds: 5
+  maxMessages: 10000
+}
 ```
 
 ---
