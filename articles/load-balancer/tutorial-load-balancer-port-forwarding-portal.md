@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Create a single virtual machine inbound NAT rule - Azure portal"
+title: "Tutorial: Create an inbound NAT rule V1 - Azure portal"
 titleSuffix: Azure Load Balancer
 description: Learn to configure port forwarding using Azure Load Balancer and NAT gateway to create a connection to a single virtual machine in an Azure virtual network.
 author: mbender-ms
@@ -10,7 +10,10 @@ ms.date: 10/24/2023
 ms.custom: template-tutorial, engagement-fy23, FY23 content-maintenance
 ---
 
-# Tutorial: Create a single virtual machine inbound NAT rule using the Azure portal
+# Tutorial: Create Inbound NAT rule V1 using the Azure portal
+>[!Important]
+> On September 30, 2027, Inbound NAT rules v1 will be retired. If you are currently using Inbound NAT rules v1, make sure to upgrade to Inbound NAT rules v2 prior to the retirement date.
+
 
 Inbound NAT rules allow you to connect to virtual machines (VMs) in an Azure virtual network by using an Azure Load Balancer public IP address and port number. 
 
