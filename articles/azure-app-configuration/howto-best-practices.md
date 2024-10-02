@@ -5,7 +5,7 @@ services: azure-app-configuration
 author: zhenlan
 ms.service: azure-app-configuration
 ms.topic: conceptual
-ms.date: 09/11/2024
+ms.date: 10/01/2024
 ms.author: zhenlwa
 ms.custom: "devx-track-csharp, mvc"
 ---
