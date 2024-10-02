@@ -62,8 +62,11 @@ When you create or use Azure resources with API Management, you'll get charged b
 
 | Tiers | Description |
 | ----- | ----------- |
-| Consumption | Incurs no fixed costs. You are billed based on the number of API calls to the service above a certain threshold. |
-| Developer, Basic, Basic v2, Standard, Standard v2, and Premium | Incur monthly costs, based on the number of [units](./api-management-capacity.md) and [self-hosted gateways](./self-hosted-gateway-overview.md). Self-hosted gateways are free for the Developer tier. Different [upgrade](./upgrade-and-scale.md) options are available, depending on your service tier. |
+| Consumption | Incurs no fixed costs. You are billed based on the number of API requests to the service above a certain threshold. |
+| Developer, Basic, Standard, Premium | Incur monthly costs, based on the number of [units](./api-management-capacity.md), [workspaces](workspaces-overview.md), and [self-hosted gateways](./self-hosted-gateway-overview.md). Self-hosted gateways are free for the Developer tier.  |
+| Basic v2, Standard v2, Premium v2 | Incur monthly costs, based on the number of [units](./api-management-capacity.md). Above a certain threshold of API requests, additional requests are billed.  |
+
+Different [upgrade](./upgrade-and-scale.md) options are available, depending on your service tier.
 
 You may also incur additional charges when you use other Azure resources with API Management, like virtual networks, availability zones, and multi-region writes. At the end of your billing cycle, the charges for each meter are summed. Your bill or invoice shows a section for all API Management costs. There's a separate line item for each meter.
 
@@ -105,7 +108,7 @@ You can also [export your cost data](../cost-management-billing/costs/tutorial-e
 
 ### Scale using capacity units
 
-Except in the Consumption service tier, API Management supports scaling by adding or removing [*capacity units*](api-management-capacity.md). As the load increases on an API Management instance, adding capacity units may be more economical than upgrading to a higher service tier. The maximum number of units depends on the service tier.
+Except in the Consumption and Developer service tiers, API Management supports scaling by adding or removing [*capacity units*](api-management-capacity.md). As the load increases on an API Management instance, adding capacity units may be more economical than upgrading to a higher service tier. The maximum number of units depends on the service tier.
 
 Each capacity unit has a certain request processing capability that depends on the service’s tier. For example, a unit of the Basic tier has an estimated maximum throughput of approximately 1,000 requests per second. 
 
