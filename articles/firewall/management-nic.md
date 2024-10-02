@@ -51,6 +51,60 @@ Use the following steps:
 > [!NOTE]
 > If you remove all other IP address configurations on your firewall, the management IP address configuration is removed as well, and the firewall is deallocated. The public IP address assigned to the management IP address configuration can't be removed, but you can assign a different public IP address.
 
+## Convert a regular firewall to a forced tunnel mode firewall
+
+The following procedure shows you how to convert a regular firewall to a forced tunnel mode firewall with a Management subnet. This is done without deleting the original firewall. To avoid deleting it, you can use the following procedure to stop it, and then realloacate it with a Management IP address and subnet.
+
+1. Create the new `AzureFirewallManagementSubnet` subnet
+
+   1. Use the Azure portal to create the new subnet.
+   :::image type="content" source="media/management-nic/firewall-management-subnet.png" alt-text="Screenshot showing add a subnet.":::
+   1. Use the appropriate IP address range for the virtual network.
+1. Create the new management public IP address
+   1. Create it with the same properties as the existing firewalll public IP address: SKU, Tier, and Location.
+   :::image type="content" source="media/management-nic/firewall-management-ip.png" lightbox="media/management-nic/firewall-management-ip.png" alt-text="Screenshot showing the public IP address creation.":::
+   
+1. Stop the firewall
+
+   Use the information in [Azure Firewall FAQ](firewall-faq.yml#how-can-i-stop-and-start-azure-firewall) to stop the firewall:
+
+   ```azurepowershell
+   $azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
+   $azfw.Deallocate()
+   Set-AzFirewall -AzureFirewall $azfw
+   ```
+   
+
+1. Start the firewal with the management IP address and subnet
+
+   For example, start the firewall with one public IP address and a Management public IP address:
+
+   ```azurepowershell
+   $azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
+   $vnet = Get-AzVirtualNetwork -Name "VNet Name" -ResourceGroupName "RG Name" 
+   $pip = Get-AzPublicIpAddress -Name "azfwpublicip" -ResourceGroupName "RG Name"
+   $mgmtPip = Get-AzPublicIpAddress -Name "mgmtpip" -ResourceGroupName "RG Name" 
+   $azfw.Allocate($vnet, $pip, $mgmtPip)
+   $azfw | Set-AzFirewall
+   ```
+
+   Example to start a firewall with two public IP addresses and a Management public IP address:
+
+   ```azurepowershell
+   $azfw = Get-AzFirewall -Name "FW Name" -ResourceGroupName "RG Name"
+   $vnet = Get-AzVirtualNetwork -Name "VNet Name" -ResourceGroupName "RG Name" 
+   $pip1 = Get-AzPublicIpAddress -Name "azfwpublicip" -ResourceGroupName "RG Name"
+   $pip2 = Get-AzPublicIpAddress -Name "azfwpublicip2" -ResourceGroupName "RG Name"
+   $mgmtPip = Get-AzPublicIpAddress -Name "mgmtpip" -ResourceGroupName "RG Name" 
+   $azfw.Allocate($vnet,@($pip1,$pip2), $mgmtPip)
+   $azfw | Set-AzFirewall
+   ```
+   
+Now when you view the firewall in the Azure portal, you'll see the assigned Management public IP address:
+
+:::image type="content" source="media/management-nic/firewall-with-management-ip.png" lightbox="media/management-nic/firewall-with-management-ip.png" alt-text="Screenshot showing the firewall with a management IP address.":::
+   
+
 ## Related content
 
 - [Azure Firewall forced tunneling](forced-tunneling.md)
