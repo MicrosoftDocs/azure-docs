@@ -165,13 +165,13 @@ Use the policy to configure a single query request, read request, delete request
 
 | Attribute                                      | Description                                                                                 | Required                                           | Default |
 | ----------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
-| template    |  Used to set the templating mode for the `max-item-count`. Currently the only supported value is:<br /><br />- `liquid` - the `max-item-count` will use the liquid templating engine.   |  No   |  N/A |
+| template    |  Used to set the templating mode for the `max-item-count`. Currently the only supported value is:<br /><br />- `liquid` - the `max-item-count` uses the liquid templating engine.   |  No   |  N/A |
 
 #### continuation-token attribute
 
 | Attribute                                      | Description                                                                                 | Required                                           | Default |
 | ----------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
-| template    |  Used to set the templating mode for the continuation token. Currently the only supported value is:<br /><br />- `liquid` - the continuation token will use the liquid templating engine.   |  No   |  N/A |
+| template    |  Used to set the templating mode for the continuation token. Currently the only supported value is:<br /><br />- `liquid` - the continuation token uses the liquid templating engine.   |  No   |  N/A |
 
 ### read-request elements
 
@@ -212,7 +212,7 @@ Use the policy to configure a single query request, read request, delete request
 |----------|-----------------|--------------|
 |   id    |   Identifier of the item in the container.      |  Yes when `type` is `replace`.       |
 | [etag](#etag-attribute) | Entity tag for the item in the container, used for [optimistic concurrency control](/azure/cosmos-db/nosql/database-transactions-optimistic-concurrency#implementing-optimistic-concurrency-control-using-etag-and-http-headers).      |   No  |
-| [set-body](set-body-policy.md)  |  Sets the body in the write request. If not provided, the request payload will map arguments into JSON format.| No  |
+| [set-body](set-body-policy.md)  |  Sets the body in the write request. If not provided, the request payload maps arguments into JSON format.| No  |
 
 ### response elements
 
@@ -226,14 +226,14 @@ Use the policy to configure a single query request, read request, delete request
 | Attribute                                      | Description                                                                                 | Required                                           | Default |
 | ----------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
 |  data-type  | The data type of the partition key: `string`, `number`, `bool`, `none`, or `null`.  | No    | `string`    |
-| template    |  Used to set the templating mode for the partition key. Currently the only supported value is:<br /><br />- `liquid` - the partition key will use the liquid templating engine   |  No   |  N/A |
+| template    |  Used to set the templating mode for the partition key. Currently the only supported value is:<br /><br />- `liquid` - the partition key uses the liquid templating engine   |  No   |  N/A |
 
 #### etag attribute
 
 | Attribute                                      | Description                                                                                 | Required                                           | Default |
 | ----------------------------------------- | ------------------------------------------------------------------------------------------- | -------------------------------------------------- | ------- |
 |  type   | String. One of the following values:<br /><br />- `match` - the `etag` value must match the system-generated entity tag for the item<br /><br /> - `no-match` - the `etag` value isn't required to match the system-generated entity tag for the item        |   No        |    `match`   |
-| template    |  Used to set the templating mode for the etag. Currently the only supported value is:<br /><br />- `liquid` - the etag will use the liquid templating engine   |  No   |  N/A |
+| template    |  Used to set the templating mode for the etag. Currently the only supported value is:<br /><br />- `liquid` - the etag uses the liquid templating engine   |  No   |  N/A |
 
 ## Usage
 
