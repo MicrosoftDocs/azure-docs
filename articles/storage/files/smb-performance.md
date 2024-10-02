@@ -185,7 +185,7 @@ Currently this preview feature is only available for premium SMB file shares (fi
 #### Register for the feature
 To get started, register for the feature using Azure portal or PowerShell.
 
-###### [Azure portal](#tab/portal)
+# [Azure portal](#tab/portal)
 
 1. Sign in to the [Azure portal](https://portal.azure.com?azure-portal=true).
 2. Search for and select **Preview features**.
