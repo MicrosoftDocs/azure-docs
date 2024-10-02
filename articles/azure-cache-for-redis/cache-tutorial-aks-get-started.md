@@ -50,7 +50,7 @@ Next, set up the AKS workload to connect to Azure Cache for Redis after you conf
 
 1. Download the code for the [sample app](https://github.com/Azure-Samples/azure-cache-redis-sample/connect-from-aks).
 
-1. Build and push docker image to your Azure Container Registry using [az acr build](/azure/acr?view=azure-cli-latest.md#az-acr-build) command
+1. Build and push docker image to your Azure Container Registry using [az acr build](/cli/azure/acr#az-acr-build) command.
 
   ```bash
   az acr build --image sample/connect-from-aks-sample:1.0 --registry yourcontainerregistry --file Dockerfile .
@@ -103,7 +103,7 @@ If you use Azure Cloud Shell, _kubectl_ is already installed, and you can skip t
 
   1. The following code describes the pod specification file that you use to run our workload. Take note that the pod has the label _azure.workloadidentity/use: "true"_ and is annotated with _serviceAccountName_ as required by AKS workload identity. Replace the value of CONNECTION_STRING, CACHE_NAME and USER_ASSIGNED_PRINCIPAL_ID environment variables that correspond with your cache and managed identity.
 
-    ```YAML
+   ```yml
     apiVersion: v1
     kind: Pod
     metadata:
@@ -133,7 +133,7 @@ If you use Azure Cloud Shell, _kubectl_ is already installed, and you can skip t
                value: "your cache name"
       restartPolicy: Never
     
-    ```
+   ```
 
 1. Save this file as podspec.yaml and then apply it to your AKS cluster by running the folloWing command:
 
