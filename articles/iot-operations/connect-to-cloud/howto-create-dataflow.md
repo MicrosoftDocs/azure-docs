@@ -232,7 +232,7 @@ Key names in the distributed state store correspond to a dataset in the dataflow
 
 # [Portal](#tab/portal)
 
-Currently, the enrich operation is not available in the operations experience portal.
+Currently, the enrich operation isn't available in the operations experience portal.
 
 # [Kubernetes](#tab/kubernetes)
 

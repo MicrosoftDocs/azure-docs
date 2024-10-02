@@ -77,7 +77,7 @@ This configuration creates a connection to the default MQTT broker with the foll
 
 # [Bicep](#tab/bicep)
 
-This Bicep template file from [Bicep File for MQTT-bridge dataflow Tutorial](https://gist.github.com/david-emakenemi/7a72df52c2e7a51d2424f36143b7da85) deploys the necessary dataflow and dataflow enpoints for MQTT broker and Azure Event Grid.
+This Bicep template file from [Bicep File for MQTT-bridge dataflow Tutorial](https://gist.github.com/david-emakenemi/7a72df52c2e7a51d2424f36143b7da85) deploys the necessary dataflow and dataflow endpoints for MQTT broker and Azure Event Grid.
 
 Download the file to your local, and make sure to replace the values for `customLocationName`, `aioInstanceName`, `eventGridHostName`.
 
