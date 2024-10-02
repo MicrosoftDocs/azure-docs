@@ -171,7 +171,7 @@ Metadata caching is an enhancement for SMB Azure premium file shares aimed to im
 
 - Reduce metadata latency
 - Raise metadata scale limits.
-- Increase latency consistency, available IOPS, and boost network throughput.  
+- Increase latency consistency, available IOPS, and boost network throughput
 
 This preview feature improves the following metadata APIs and can be used from both Windows and Linux clients:
 
