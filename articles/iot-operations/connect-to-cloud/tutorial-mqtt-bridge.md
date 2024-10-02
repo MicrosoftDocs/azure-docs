@@ -144,21 +144,20 @@ Take note of the output value for `topicSpacesConfiguration.hostname` that is a 
 example.region-1.ts.eventgrid.azure.net
 ```
 
-## Deploy edge and cloud Azure resources via Bicep 
+## Create an AIO MQTT broker dataflow endpoint
 
-The dataflows and dataflow endpoints for MQTT broker and Azure Event Grid can be deployed as standard Azure resources since they have Azure Resource Provider (RPs) implementations. This Bicep template file from [Bicep File for MQTT-bridge dataflow Tutorial](https://gist.github.com/david-emakenemi/7a72df52c2e7a51d2424f36143b7da85) deploys all necessary edge and cloud resources. Download the file to your local, and make sure to replace the values for customLocationName, schemaRegistryName, aioInstanceName with yours.
+# [Bicep](#tab/bicep)
+
+The dataflow and dataflow endpoints for MQTT broker and Azure Event Grid can be deployed as standard Azure resources since they have Azure Resource Provider (RPs) implementations. This Bicep template file from [Bicep File for MQTT-bridge dataflow Tutorial](https://gist.github.com/david-emakenemi/7a72df52c2e7a51d2424f36143b7da85) deploys all necessary edge and cloud resources. 
+
+Download the file to your local, and make sure to replace the values for `customLocationName`, `schemaRegistryName`, `aioInstanceName` with yours.
 
 Next, execute the following command in your terminal:
 
 ```azurecli
 az stack group create --name MyDeploymentStack --resource-group $RESOURCE_GROUP --template-file /workspaces/explore-iot-operations/mqtt-bridge.bicep --action-on-unmanage 'deleteResources' --deny-settings-mode 'none' --yes
 ```
-
-## Create an AIO MQTT broker dataflow endpoint
-
-Create dataflow endpoint for the AIO built-in MQTT broker. This endpoint is the source for the dataflow that sends messages to Azure Event Grid.
-
-# [Bicep](#tab/bicep)
+This endpoint is the source for the dataflow that sends messages to Azure Event Grid.
 
 ```bicep
 resource MqttBrokerDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
@@ -188,6 +187,9 @@ resource MqttBrokerDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowE
 ```
 
 # [Kubernetes](#tab/kubernetes)
+
+Create dataflow endpoint for the AIO built-in MQTT broker. This endpoint is the source for the dataflow that sends messages to Azure Event Grid.
+
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1beta1
 kind: DataflowEndpoint
@@ -208,9 +210,9 @@ This is the default configuration for the AIO MQTT broker endpoint. The authenti
 
 ## Create an Azure Event Grid dataflow endpoint
 
-Create dataflow endpoint for the Azure Event Grid. This endpoint is the destination for the dataflow that sends messages to Azure Event Grid. Replace `<EVENT-GRID-HOSTNAME>` with the hostname you got from the previous step, include the port number `8883`.
-
 # [Bicep](#tab/bicep)
+
+Since you already deployed the resources in the previous section, there's no additional deployment needed. However, this endpoint is the destination for the dataflow that sends messages to Azure Event Grid. Replace `<EVENT-GRID-HOSTNAME>` with the hostname you got from the previous step, include the port number `8883`.
 
 ```bicep
 resource remoteMqttBrokerDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
@@ -238,6 +240,8 @@ resource remoteMqttBrokerDataflowEndpoint 'Microsoft.IoTOperations/instances/dat
 
 # [Kubernetes](#tab/kubernetes)
 
+Create dataflow endpoint for the Azure Event Grid. This endpoint is the destination for the dataflow that sends messages to Azure Event Grid. Replace `<EVENT-GRID-HOSTNAME>` with the hostname you got from the previous step, include the port number `8883`.
+
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1beta1
 kind: DataflowEndpoint
@@ -263,9 +267,9 @@ Since the Event Grid MQTT broker requires TLS, the `tls` setting is enabled. No 
 
 ## Create dataflows
 
-Create two dataflows with the AIO MQTT broker endpoint as the source and the Azure Event Grid endpoint as the destination, and vice versa. No need to configure transformation.
-
 # [Bicep](#tab/bicep)
+
+Here. there are two dataflows with the AIO MQTT broker endpoint as the source and the Azure Event Grid endpoint as the destination, and vice versa. No need to configure transformation.
 
 ```bicep
 resource dataflow_1 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2024-08-15-preview' = {
@@ -328,6 +332,8 @@ resource dataflow_2 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflow
 ```
 
 # [Kubernetes](#tab/kubernetes)
+
+Create two dataflows with the AIO MQTT broker endpoint as the source and the Azure Event Grid endpoint as the destination, and vice versa. No need to configure transformation.
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1beta1
