@@ -52,7 +52,7 @@ sections:
         answer: |
           There's a limit of 10 KB for a single key-value, including attributes such as label, content-type, tags, and other metadata. There is no limit on the number of keys and labels as long as their total size is below the storage limit.
 
-          This key-vaule limit should be sufficient for a single setting in most applications. If you find that your setting is larger than this limit, you may consider storing your data elsewhere, and [add a reference of that data](./howto-best-practices.md#references-to-external-data) in App Configuration.
+          This key-value limit should be sufficient for a single setting in most applications. If you find that your setting is larger than this limit, you may consider storing your data elsewhere, and [add a reference of that data](./howto-best-practices.md#references-to-external-data) in App Configuration.
 
           For a complete list of limits, see [Azure subscription and service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-app-configuration).
 
@@ -88,9 +88,11 @@ sections:
           - **Throughput**: App Configuration stores in all tiers have a throughput allowance. Requests exceeding this allowance will receive an HTTP status code 429 response.
               Stores in the Free tier have no guaranteed throughput.
 
-              Stores in the Standard tier allow a run rate of up to 300 requests per second (RPS) for read requests and up to 60 RPS for write requests.
+              Stores in the Standard tier allow a run rate† of up to 300 requests per second (RPS) for read requests and up to 60 RPS for write requests.
 
-              Stores in the Premium tier allow a run rate of up to 450 RPS for read requests and up to 100 RPS for write requests.
+              Stores in the Premium tier allow a run rate† of up to 450 RPS for read requests and up to 100 RPS for write requests.
+
+              †The run rate is typically measured as the average number of requests handled by an App Configuration store without throttling over a specified period.
           - **Service level agreement**: The Free tier doesn't have an SLA. The Standard tier has an SLA of 99.9% availability and 99.95% availability with geo-replication enabled. The Premium tier has an SLA of 99.9% availability and 99.99% availability with geo-replication enabled.
           - **Features**: All tiers include functionalities, including encryption with Microsoft-managed keys, authentication via access key or Microsoft Entra ID, Azure role-based access control (RBAC), managed identity, service tags, and availability zone redundancy. The Standard and Premium tiers offer more functionalities, including Private Link support, encryption with customer-managed keys, soft delete protection, and geo-replication capability.
           - **Cost**: There's no cost to use a Free tier store.
