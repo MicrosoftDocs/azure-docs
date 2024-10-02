@@ -176,8 +176,7 @@ The following commands help you define variables and ensure your Container Apps 
     az containerapp env create \
       --name $ENVIRONMENT_NAME \
       --resource-group $RESOURCE_GROUP \
-      --location "$LOCATION" \
-      --query "properties.provisioningState"
+      --location "$LOCATION"
     ```
 
     # [PowerShell](#tab/powershell)
@@ -186,8 +185,7 @@ The following commands help you define variables and ensure your Container Apps 
     az containerapp env create `
       --name $ENVIRONMENT_NAME `
       --resource-group $RESOURCE_GROUP `
-      --location "$LOCATION" `
-      --query "properties.provisioningState"
+      --location "$LOCATION"
     ```
 
     ---
@@ -202,9 +200,7 @@ The following commands help you define variables and ensure your Container Apps 
     az containerapp create \
       --name $CONTAINER_APP_NAME \
       --environment $ENVIRONMENT_NAME \
-      --resource-group $RESOURCE_GROUP \
-      --location "$LOCATION" \
-      --query "properties.provisioningState"
+      --resource-group $RESOURCE_GROUP
     ```
 
     # [PowerShell](#tab/powershell)
@@ -213,9 +209,7 @@ The following commands help you define variables and ensure your Container Apps 
     az containerapp create `
       --name $CONTAINER_APP_NAME `
       --environment $ENVIRONMENT_NAME `
-      --resource-group $RESOURCE_GROUP `
-      --location "$LOCATION" `
-      --query "properties.provisioningState"
+      --resource-group $RESOURCE_GROUP
     ```
 
     ---
