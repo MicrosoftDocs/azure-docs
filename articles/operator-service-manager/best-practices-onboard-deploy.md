@@ -243,7 +243,7 @@ Consider the following high-availability and disaster recovery requirements:
 
 ## Troubleshooting considerations
 
-During installation and upgrade by default, atomic and wait options are set to `true`, and the operation timeout is set to `27 minutes`. During onboarding, we recommend that you set the atomic flag to `false` to prevent the Helm rollback upon failure. The optimal way to accomplish that is in the ARM template of the NF.
+During installation and upgrade by default, atomic and wait options are set to `true`, and the operation timeout is set to `27 minutes`. During initial onboarding, only while you are still debugging and developing artifacts, we recommend that you set the atomic flag to `false.` This prevents a helm rollback upon failure and retains any logs or errors which may otherwise be lost. The optimal way to accomplish that is in the ARM template of the NF.
 
 In the ARM template, add the following section:
 
@@ -268,6 +268,9 @@ The component name is defined in the NFDV:
               id: acrArtifactStore.id
             }
 </pre>
+
+> [!IMPORTANT]
+> Make sure atomic and wait are set back to `true` after initial onboarding is complete.
 
 ## Cleanup considerations
 
