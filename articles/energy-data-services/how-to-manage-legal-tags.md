@@ -14,7 +14,7 @@ In this article, you'll know what legal tags are and how to manage them in your 
 
 A legal tag is the entity that represents the legal status of data ingestion while [entitlement service](concepts-entitlements.md) defines access to data for a given user(s) in the Azure Data Manager for Energy instance. A user may have access to manage the data within a data partition however, they may not be able to do so until certain legal requirements are fulfilled. Legal tag is a collection of required properties that governs how data can be [ingested](concepts-csv-parser-ingestion.md) into your Azure Data Manager for Energy instance.
 
-The Azure Data Manager for Energy instance allows creation of legal tags only for countries that are allowed as per the configuration file [DefaultCountryCodes.json](https://community.opengroup.org/osdu/platform/security-and-compliance/legal/-/blob/master/legal-core/src/main/resources/DefaultCountryCode.json?ref_type=heads) at a data partition level. This file is defined by OSDU and can not be edited.
+The Azure Data Manager for Energy instance allows creation of legal tags only for `countryOfOrigin` that are allowed as per the configuration file [DefaultCountryCodes.json](https://community.opengroup.org/osdu/platform/security-and-compliance/legal/-/blob/master/legal-core/src/main/resources/DefaultCountryCode.json?ref_type=heads) at a data partition level. This file is defined by OSDU and can not be edited.
 
 ## Create a legal tag
 Run the below curl command in Azure Cloud Bash to create a legal tag for a given data partition of your Azure Data Manager for Energy instance.
