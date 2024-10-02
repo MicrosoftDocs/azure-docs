@@ -150,7 +150,7 @@ example.region-1.ts.eventgrid.azure.net
 
 The dataflow and dataflow endpoints for MQTT broker and Azure Event Grid can be deployed as standard Azure resources since they have Azure Resource Provider (RPs) implementations. This Bicep template file from [Bicep File for MQTT-bridge dataflow Tutorial](https://gist.github.com/david-emakenemi/7a72df52c2e7a51d2424f36143b7da85) deploys the necessary dataflow and dataflow enpoints.
 
-Download the file to your local, and make sure to replace the values for `customLocationName`, `schemaRegistryName`, `aioInstanceName` with yours.
+Download the file to your local, and make sure to replace the values for `customLocationName`, `aioInstanceName`, `eventGridHostName` with yours.
 
 Next, execute the following command in your terminal:
 
@@ -179,7 +179,7 @@ resource MqttBrokerDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowE
       host: 'aio-broker:18883'
       tls: {
         mode: 'Enabled'
-        trustedCaCertificateConfigMapRef: 'azure-iot-operations-aio-ca-trust-bundle  '
+        trustedCaCertificateConfigMapRef: 'azure-iot-operations-aio-ca-trust-bundle'
       }
     }
   }

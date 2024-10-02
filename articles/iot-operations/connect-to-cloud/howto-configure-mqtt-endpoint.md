@@ -64,7 +64,16 @@ This configuration creates a connection to the default MQTT broker with the foll
 
 # [Bicep](#tab/bicep)
 
-Bicep Here
+This Bicep template file from [Bicep File for MQTT-bridge dataflow Tutorial](https://gist.github.com/david-emakenemi/7a72df52c2e7a51d2424f36143b7da85) deploys the necessary dataflow and dataflow enpoints for MQTT broker and Azure Event Grid.
+
+Download the file to your local, and make sure to replace the values for `customLocationName`, `aioInstanceName`, `eventGridHostName`.
+
+Next, deploy the resources using the [az stack group](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/deployment-stacks?tabs=azure-powershell) command in your terminal:
+
+```azurecli
+az stack group create --name MyDeploymentStack --resource-group $RESOURCE_GROUP --template-file /workspaces/explore-iot-operations/mqtt-bridge.bicep --action-on-unmanage 'deleteResources' --deny-settings-mode 'none' --yes
+```
+This endpoint is the source for the dataflow that sends messages to Azure Event Grid.
 
 ```bicep
 resource MqttBrokerDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
@@ -86,12 +95,17 @@ resource MqttBrokerDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowE
       host: 'aio-broker:18883'
       tls: {
         mode: 'Enabled'
-        trustedCaCertificateConfigMapRef: 'azure-iot-operations-aio-ca-trust-bundle  '
+        trustedCaCertificateConfigMapRef: 'azure-iot-operations-aio-ca-trust-bundle'
       }
     }
   }
 }
 ```
+
+- Host: `aio-broker:18883` through the [default MQTT broker listener](../manage-mqtt-broker/howto-configure-brokerlistener.md#default-brokerlistener)
+- Authentication: service account token (SAT) through the [default BrokerAuthentication resource](../manage-mqtt-broker/howto-configure-authentication.md#default-brokerauthentication-resource)
+- TLS: Enabled
+- Trusted CA certificate: The default CA certificate `azure-iot-operations-aio-ca-trust-bundle` from the [Default root CA](../manage-mqtt-broker/howto-configure-tls-auto.md#default-root-ca-and-issuer)
 
 ---
 
@@ -135,7 +149,7 @@ To configure an Azure Event Grid MQTT broker endpoint, we recommend that you use
 
 1. Assign the managed identity to the Event Grid namespace or topic space with an appropriate role like `EventGrid TopicSpaces Publisher` or `EventGrid TopicSpaces Subscriber`.
 
-1. Create the DataflowEndpoint resource. For example:
+1. This endpoint is the destination for the dataflow that receives messages from the default MQTT Broker.
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1beta1
@@ -157,10 +171,36 @@ spec:
 
 # [Bicep](#tab/bicep)
 
-TODO
+1. Create an Event Grid namespace and enable MQTT.
+
+1. Get the managed identity of the Azure IoT Operations Arc extension.
+
+1. Assign the managed identity to the Event Grid namespace or topic space with an appropriate role like `EventGrid TopicSpaces Publisher` or `EventGrid TopicSpaces Subscriber`.
+
+1. This endpoint is the destination for the dataflow that receives messages from the default MQTT broker.
 
 ```bicep
-bicep here
+resource remoteMqttBrokerDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
+  parent: aioInstance
+  name: 'eventgrid'
+  extendedLocation: {
+    name: customLocation.id
+    type: 'CustomLocation'
+  }
+  properties: {
+    endpointType: 'Mqtt'
+    mqttSettings: {
+      authentication: {
+        method: 'SystemAssignedManagedIdentity'
+        systemAssignedManagedIdentitySettings: {}
+      }
+      host: eventGridHostName
+      tls: {
+        mode: 'Enabled'
+      }
+    }
+  }
+}
 ```
 
 ---
@@ -228,7 +268,19 @@ spec:
 TODO
 
 ```bicep
-bicep here
+properties: {
+    endpointType: 'Mqtt'
+    mqttSettings: {
+      authentication: {
+        ...
+      }
+      host: 'MQTT-BROKER-HOST>:8883'
+      tls: {
+        mode: 'Enabled'
+        trustedCaCertificateConfigMapRef: '<YOUR CA CERTIFICATE CONFIG MAP>'
+      }
+    }
+  }
 ```
 
 ---
