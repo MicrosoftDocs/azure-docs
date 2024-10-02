@@ -7,7 +7,7 @@ ms.author: kgremban
 ms.service: iot-hub
 ms.devlang: csharp
 ms.topic: include
-ms.date: 09/03/2024
+ms.date: 10/02/2024
 ms.custom: mqtt, devx-track-csharp, devx-track-dotnet
 ---
 
@@ -34,22 +34,17 @@ Device client applications written in C# require the **Microsoft.Azure.Devices.C
 Add these `using` statements to use the device library.
 
 ```csharp
-using Microsoft.Azure.Devices;
-using Microsoft.Azure.Devices.Common.Exceptions;
+using Microsoft.Azure.Devices.Client;
+using Microsoft.Azure.Devices.Shared;
 ```
 
 ### Connect to a device
 
 The [ModuleClient](/dotnet/api/microsoft.azure.devices.client.moduleclient) class exposes all the methods required to interact with module identity twins from the device.
 
-Connect to the device using the [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.client.moduleclient.createfromconnectionstring) method with the module connection string. The method connects using the default AMQP transport.
+Connect to the device using the [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.client.moduleclient.createfromconnectionstring) method with the module connection string. `CreateFromConnectionString` connects using the default AMQP transport.
 
 ```csharp
-using Microsoft.Azure.Devices.Client;
-using Microsoft.Azure.Devices.Shared;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-
 static string ModuleConnectionString = "{Device module connection string}";
 private static ModuleClient _moduleClient = null;
 
@@ -83,10 +78,10 @@ For example:
 ```csharp
 try
 {
-Console.WriteLine("Sending sample start time as reported property");
-TwinCollection reportedProperties = new TwinCollection();
-reportedProperties["DateTimeLastAppLaunch"] = DateTime.UtcNow;
-await _moduleClient.UpdateReportedPropertiesAsync(reportedProperties);
+  Console.WriteLine("Sending sample start time as reported property");
+  TwinCollection reportedProperties = new TwinCollection();
+  reportedProperties["DateTimeLastAppLaunch"] = DateTime.UtcNow;
+  await _moduleClient.UpdateReportedPropertiesAsync(reportedProperties);
 }
 catch (Exception ex)
 {
@@ -141,11 +136,21 @@ The [RegistryManager](/dotnet/api/microsoft.azure.devices.registrymanager) class
 
 This section describes how to create backend application code to:
 
+* Add a module
 * Read and update module fields
 
 ### Add service NuGet Package
 
 Backend service applications require the **Microsoft.Azure.Devices** NuGet package.
+
+### Service using statements
+
+Add these `using` statements to use the service library.
+
+```csharp
+using Microsoft.Azure.Devices;
+using Microsoft.Azure.Devices.Shared;
+```
 
 ### Connect to IoT hub
 
@@ -159,7 +164,6 @@ The SDK methods in this section require these shared access policy permissions:
 As a parameter to `CreateFromConnectionString`, supply a shared access policy connection string that includes these permissions. For more information about shared access policies, see [Control access to IoT Hub with shared access signatures](/azure/iot-hub/authenticate-authorize-sas).
 
 ```csharp
-using Microsoft.Azure.Devices;
 static RegistryManager registryManager;
 static string connectionString = "{IoT hub shared access policy connection string}";
 registryManager = RegistryManager.CreateFromConnectionString(connectionString);
@@ -195,11 +199,11 @@ Console.WriteLine("Generated module key: {0}", module.Authentication.SymmetricKe
 
  Call [GetModuleAsync](/dotnet/api/microsoft.azure.devices.registrymanager.getmoduleasync) to retrieve current module identity twin fields into a [Module](/dotnet/api/microsoft.azure.devices.module) object.
 
-The `Module` class includes [properties](/dotnet/api/microsoft.azure.devices.shared.twin?&#properties) that correspond to each section of a module. Use the `Module` class properties to view and update module identity twin fields. You can use the `Module` object properties to update multiple fields before writing the updates to the device using `UpdateModuleAsync`.
+The `Module` class includes [properties](/dotnet/api/microsoft.azure.devices.shared.twin?&#properties) that correspond to sections of an identity module twin. Use the `Module` class properties to view and update module identity twin fields. You can use the `Module` object properties to update multiple fields before writing the updates to the device using `UpdateModuleAsync`.
 
 After making module identity twin field updates, call [UpdateModuleAsync](/dotnet/api/microsoft.azure.devices.registrymanager.updatemoduleasync) to write `Module` object field updates back to a device. Use `try` and `catch` logic coupled with an error handler to catch incorrectly formatted patch errors from `UpdateModuleAsync`.
 
-This example retrieves a module into a `Module` object, updates the `module`, and then updates the module in IoT Hub using `UpdateModuleAsync`.
+This example retrieves a module into a `Module` object, updates the `module` `LastActivityTime` property, and then updates the module in IoT Hub using `UpdateModuleAsync`.
 
 ```csharp
 // Retrieve the module
@@ -221,8 +225,8 @@ catch (Exception e)
 
 ### Other module API
 
-* [GetModulesOnDeviceAsync](/dotnet/api/microsoft.azure.devices.registrymanager.getmodulesondeviceasync) - Retrieves the module identities on a device.
-* [RemoveModuleAsync](/dotnet/api/microsoft.azure.devices.registrymanager.removemoduleasync) - Deletes a previously registered module from a device.
+* [GetModulesOnDeviceAsync](/dotnet/api/microsoft.azure.devices.registrymanager.getmodulesondeviceasync) - Retrieves the module identities on a device
+* [RemoveModuleAsync](/dotnet/api/microsoft.azure.devices.registrymanager.removemoduleasync) - Deletes a previously registered module from a device
 
 ### SDK service sample
 

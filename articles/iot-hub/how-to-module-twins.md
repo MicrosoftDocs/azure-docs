@@ -15,14 +15,14 @@ ms.custom: mqtt, devx-track-csharp, devx-track-dotnet
 
 # Get started with IoT Hub module identities and module identity twins
 
-[Module identities and module identity twins](iot-hub-devguide-module-twins.md) are similar to Azure IoT Hub device identity and device twin, but provide finer granularity. While Azure IoT Hub device identity and device twin enable the back-end application to configure a device and provide visibility on the device's conditions, a module identity and module identity twin provide these capabilities for individual components of a device. On capable devices with multiple components, such as operating system devices or firmware devices, module identities and module identity twins allow for isolated configuration and conditions for each component.
+[Module identities and module identity twins](iot-hub-devguide-module-twins.md) are similar to Azure IoT Hub device identities and device twins, but provide finer granularity. While Azure IoT Hub device identities and device twins enable the back-end application to configure a device and provide visibility on the device's conditions, a module identity and module identity twin provide these capabilities for individual components of a device. On capable devices with multiple components, such as operating system devices or firmware devices, module identities and module identity twins allow for isolated configuration and conditions for each component.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 This article shows you how to develop two types of applications:
 
-* Device apps can handle requests to update module desired properties and respond with changes to reported properties.
-* Service apps that can set new desired properties.
+* Device apps that view and update reported properties and handle requests to update module desired properties.
+* Service apps that can add modules and read and set new desired properties.
 
 > [!NOTE]
 > This article is meant to complement [Azure IoT SDKs](iot-hub-devguide-sdks.md) samples that are referenced from within this article. You can use SDK tools to build both device and back-end applications.
