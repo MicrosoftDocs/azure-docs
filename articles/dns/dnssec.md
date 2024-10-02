@@ -29,12 +29,12 @@ DNS zones are secured with DNSSEC using a process called zone signing. Signing a
 
 The following figure shows DNS resource records in the zone contoso.com before and after zone signing.
 
-  ![A diagram showing how RRSIG records are added to a zone when it is signed with DNSSEC.](media/dnssec/rrsig-records.png)
+  ![A diagram showing how RRSIG records are added to a zone when it is signed with DNSSEC.](media/dnssec/rrsig-records2.png)
 
 > [!NOTE]
 > DNSSEC-related resource records are not displayed in the Azure portal. For more information, see [View DNSSEC-related resource records](#view-dnssec-related-resource-records) 
 
-If a DNS resolver is DNSSEC-aware, it can set the DNSSEC OK (DO) flag in the DNS query to 1. This tells the responding DNS server to include DNSSEC records to be in it's response. The resolver can then use the DNSSEC records to validate that the DNS response is genuine. In order for DNSSEC validation to work end-to-end, there must be an unbroken [chain of trust](#chain-of-trust).
+If a DNS server is DNSSEC-aware, it can set the DNSSEC OK (DO) flag in a DNS query to a value of `1`. This tells the responding DNS server to include DNSSEC records with the response. The DNSSEC records can then be used to validate that the DNS response is genuine. In order for DNSSEC validation to work end-to-end, there must be an unbroken [chain of trust](#chain-of-trust).
 
 ## Why sign a zone with DNSSEC?
 
@@ -67,17 +67,16 @@ DNSSEC works to prevent DNS hijacking by performing validation on DNS responses.
  A chain of trust occurs when all the DNS servers involved in sending a response for a DNS query are able to validate that the response was not modified during transit. 
 
  Authoritative servers:
-- Authoritative DNS servers maintain a chain of trust by verifying the authenticiy of the DNS zone in the DNS hierarchy. For example, if a parent zone doesn't have a delegation signer (DS) record for a child zone, it can't verify the DNSSEC status of the child zone and the chain of trust is broken.
+- Authoritative DNS servers maintain a chain of trust by verifying the authenticity of the DNS zone in the DNS hierarchy. For example, if a parent zone doesn't have a delegation signer (DS) record for a child zone, it can't verify the DNSSEC status of the child zone and the chain of trust is broken.
 
 Recursive servers:
-- Recursive DNS servers, also called resolving or caching DNS servers, maintain a chain of trust through the use of DNSSEC trust anchor, also known as a DNSKEY record. The DNSKEY is a public cryptographic key for a signed zone, provided by the zone's authoritative server. 
-    - If a recursive DNS server does not have a DNSSEC trust anchor, it will not perform DNSSEC validation.
-    - If a recursive DNS server has a DNSSEC trust anchor for either a child zone or a parent zone, the recursive DNS server verifies that a DS record for the child zone is present in the parent zone and then performs DNSSEC validation. 
-    - If the recursive DNS server determines that the parent zone does not have a DS record for the child zone, it assumes the child zone is insecure and does not perform DNSSEC validation.
-    - In some cases, a recursive server can have DNSSEC validation disabled or servers are not DNSSEC-aware.
+- Recursive DNS servers, also called resolving or caching DNS servers, maintain a chain of trust through the use of DNSSEC trust anchors. A trust anchor is a public cryptographic key provided by an authoritative server and installed on a recursive server to support DNSSEC validation. The trust anchor is a DNSKEY record, or DS record containing a [hash](/dotnet/standard/security/ensuring-data-integrity-with-hash-codes) of a DNSKEY record. The DNSKEY record is created on an authoritative server when a zone is signed, and removed from the zone if the zone is unsigned. Trust anchors for parent zones must be manually installed on recursive DNS servers.
+    - If a recursive DNS server does not have a DNSSEC trust anchor for a given zone, it will not perform DNSSEC validation on that zone.
+    - If a recursive DNS server has a DNSSEC trust anchor for a parent zone and it receives a query for a child zone, it checks to see if a DS record for the child zones is present in the parent zone. If the DS record is found, the recursive DNS server performs DNSSEC validation. If the recursive DNS server determines that the parent zone does not have a DS record for the child zone, it assumes the child zone is insecure and does not perform DNSSEC validation.
+    - Recursive servers that have DNSSEC validation disabled or are not DNSSEC-aware do not perform validation.
 
 > [!NOTE]
-> Trust anchors can also be DS records. The DS record contains a [hash](/dotnet/standard/security/ensuring-data-integrity-with-hash-codes) of a DNSKEY record.
+> Trust anchors can also be DS records. 
 
 ## DNSSEC validation
 
@@ -85,7 +84,7 @@ A recursive DNS server performs DNSSEC validation using its trust anchor (DNSKEY
 
   ![A diagram showing how DNSSEC validation works.](media/dnssec/dnssec-validation.png)
 
-If hash values are not the same, it replies with a SERVFAIL message. In this way, a DNSSEC-capable, resolving DNS server with a valid trust anchor installed protects against DNS hijacking whether or not DNS clients are DNSSEC-aware.
+If hash values are not the same, it replies with a SERVFAIL message. In this way, a DNSSEC-capable, resolving DNS server with a valid trust anchor installed can protect against DNS hijacking. This protection doesn't require DNS client devices to be DNSSEC-aware.
 
 ## DNSSEC-related resource records
 
