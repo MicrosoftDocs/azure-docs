@@ -83,6 +83,15 @@ To create an AKS cluster as your deployment environment, you have the following 
   az aks create --resource-group <Azure-resource-group-name> --name <AKS-cluster-name> --enable-aad --generate-ssh-keys --enable-cluster-autoscaler --max-count 6 --min-count 1 
   ```
 
+  | Command | Parameter | Required | Value | Description |
+  |---------|-----------|----------|-------|-------------|
+  | **`az account set`** | **`subscription`** | Yes | <*Azure-subscription-ID*> | The GUID for your Azure subscription. <br><br>For more information, see [**az account set**](/cli/azure/account#az-account-set). |
+  | **`az group create`** | **`name`** | Yes | <*Azure-resource-group-name*> | The [Azure resource group](../azure-resource-manager/management/overview.md#terminology) where you create your container app and related resources. This name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <br><br>This example uses **Hybrid-Workflows-RG**. <br><br>For more information, see [**az group create**](/cli/azure/group#az-group-create). |
+  | **`az group create`** | **`location`** | Yes | <*Azure-region*> | An Azure region that is [supported for Azure container apps on Azure Arc-enabled AKS](../container-apps/azure-arc-overview.md#public-preview-limitations). <br><br>This example uses **North Central US**. <br><br>For more information, see [**az group create**](/cli/azure/group#az-group-create). |
+  | **`az aks create`** | **`name`** | Yes | <*Azure-resource-group-name*> | The [Azure resource group](../azure-resource-manager/management/overview.md#terminology) where you create your container app and related resources. This name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <br><br>This example uses **Hybrid-Workflows-RG**. <br><br>For more information, see [**az aks create**](/cli/azure/aks#az-aks-create). |
+  | **`az aks create`** | **`max count`** | No | The maximum number of nodes to use for the autoscaler when you include the **`enable-cluster-autoscaler`** option. This value ranges from **1** to **1,000**. <br><br>For more information, see [**az aks create**](/cli/azure/aks#az-aks-create). |
+  | **`az aks create`** | **`min count`** | No | The minimum number of nodes to use for the autoscaler when you include the **`enable-cluster-autoscaler`** option. This value ranges from **1** to **1,000**. <br><br>For more information, see [**az aks create**](/cli/azure/aks#az-aks-create). |
+
 - Follow the steps in [Tutorial: Enable Azure Container Apps on Azure Arc-enabled Kubernetes](/azure/container-apps/azure-arc-enable-cluster), and then run the following PowerShell commands as an administrator to create an AKS cluster and an optional Log Analytics workspace for monitoring the logs from the Azure Logic Apps runtime:
 
   ```powershell
@@ -97,9 +106,7 @@ To create an AKS cluster as your deployment environment, you have the following 
   | **LOCATION** | Yes | <*Azure-region*> | An Azure region that is [supported for Azure container apps on Azure Arc-enabled AKS](../container-apps/azure-arc-overview.md#public-preview-limitations). <br><br>This example uses **North Central US**. |
   | **LOGANALYTICS_WORKSPACE_NAME** | No | <*Log-Analytics-workspace-name*> | The name for the Log Analytics workspace resource to create for monitoring logs. |
 
-  For more information, see the following documentation:
-
-  - [Set-ExecutionPolicy](/powershell/module/microsoft.powershell.security/set-executionpolicy)
+  For more information, see [Set-ExecutionPolicy](/powershell/module/microsoft.powershell.security/set-executionpolicy).
 
 ### Create an on-premises AKS HCI cluster
 
