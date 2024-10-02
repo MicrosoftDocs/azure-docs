@@ -45,9 +45,9 @@ You need an Azure account in an Azure subscription that adheres to one of the fo
    - Any other details, including Stretched Cluster, Availability Zone requirements for integrating with other Azure services; for example, Azure NetApp Files, Azure Blob Storage.
       
    > [!NOTE]
-- Azure VMware Solution requires a minimum of three hosts and recommends redundancy of N+1 hosts.
+   > - Azure VMware Solution requires a minimum of three hosts and recommends redundancy of N+1 hosts.
    > - Any unused quota expires after 30 days. A new request will need to be submitted for any additional quota.
-   > - **NEW** If requesting quota to leverage Portable VMware Cloud Foundation (VCF) pricing, add the following statement as is, by replacing \<N\> with the Number of VCF cores you have purchased from Broadcom for license portability to Azure VMware Solution.
+   > - **NEW** If requesting quota to leverage Portable [VMware Cloud Foundation (VCF)](https://review.learn.microsoft.com/en-us/azure/azure-vmware/vmware-cloud-foundations-license-portability?branch=pr-en-us-287534#register-your-vcf-license-with-azure-vmware-solution) pricing, add the following statement as is, by replacing \<N\> with the Number of VCF cores you have purchased from Broadcom for license portability to Azure VMware Solution.
     ***"I acknowledge that I have procured portable VCF license from Broadcom for \<N\> cores to use with Azure VMware Solution."***  
 1. Select **Review + Create** to submit the request.
 
@@ -95,15 +95,15 @@ Access the Azure portal using the **Admin On Behalf Of (AOBO)** procedure from P
    1. In the **Description** of the support ticket, on the **Details** tab, provide information for:
    
    - Region Name
-- Number of hosts
-- Any other details, including Availability Zone requirements for integrating with other Azure services; for example, Azure NetApp Files, Azure Blob Storage.
-- Is intended to host multiple customers?
+   - Number of hosts
+   - Any other details, including Availability Zone requirements for integrating with other Azure services; for example, Azure NetApp Files, Azure Blob Storage.
+   - Is intended to host multiple customers?
 
       > [!NOTE]
-- Azure VMware Solution requires a minimum of three hosts and recommends redundancy of N+1 hosts.
+     > - Azure VMware Solution requires a minimum of three hosts and recommends redundancy of N+1 hosts.
       > - Any unused quota expires after 30 days. A new request will need to be submitted for any additional quota.
-      > - **NEW** If requesting quota to leverage Portable VMware Cloud Foundation (VCF) pricing, add the following statement as is, by replacing \<N\> with the Number of VCF cores you have purchased from Broadcom for license portability to Azure VMware Solution.
-        ***"I acknowledge that I have procured portable VCF license from Broadcom for \<N\> cores to use with Azure VMware Solution."***  
+      > - **NEW** If requesting quota to leverage Portable [VMware Cloud Foundation (VCF)](https://review.learn.microsoft.com/en-us/azure/azure-vmware/vmware-cloud-foundations-license-portability?branch=pr-en-us-287534#register-your-vcf-license-with-azure-vmware-solution) pricing, add the following statement as is, by replacing \<N\> with the Number of VCF cores you have purchased from Broadcom for license portability to Azure VMware Solution.
+        ***"I acknowledge that I have procured portable VCF license from Broadcom for \<N\> cores to use with Azure VMware Solution."***
       
    1. Select **Review + Create** to submit the request.
 
