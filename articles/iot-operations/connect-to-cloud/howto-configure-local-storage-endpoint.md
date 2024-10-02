@@ -70,6 +70,7 @@ Next, deploy the resources using the [az stack group](/azure/azure-resource-mana
 ```azurecli
 az stack group create --name MyDeploymentStack --resource-group $RESOURCE_GROUP --template-file /workspaces/explore-iot-operations/mqtt-bridge.bicep --action-on-unmanage 'deleteResources' --deny-settings-mode 'none' --yes
 ```
+This endpoint is the destination for the dataflow that receives messages to Local storage.
 
 ```bicep
 resource localStorageDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
