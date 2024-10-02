@@ -5,7 +5,7 @@ author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 09/30/2024
+ms.date: 10/02/2024
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to understand how to configure dataflow endpoints for MQTT sources and destinations in Azure IoT Operations so that I can send data to and from MQTT brokers.
@@ -29,9 +29,9 @@ Azure IoT Operations provides a built-in MQTT broker that you can use with dataf
 # [Portal](#tab/portal)
 
 1. In the IoT Operations portal, select the **Dataflow endpoints**.
-1. The built-in MQTT broker endpoint is already created with default settings. You can view or edit the endpoint settings by selecting the **default** dataflow endpoint in the list.
+1. The built-in MQTT broker endpoint is already created with default settings. You can view the endpoint settings by selecting the **default** dataflow endpoint in the list.
 
-    :::image type="content" source="media/default-mqtt-endpoint.png" alt-text="Screenshot using Azure Operations portal to view default MQTT dataflow endpoint.":::
+    :::image type="content" source="media/howto-configure-mqtt-endpoint/default-mqtt-endpoint.png" alt-text="Screenshot using Azure Operations portal to view default MQTT dataflow endpoint.":::
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -162,7 +162,7 @@ For other MQTT brokers, you can configure the endpoint, TLS, authentication, and
     | --------------------- | ------------------------------------------------------------------------------------------------- |
     | Name                  | The name of the dataflow endpoint                                                                 |
     | Host                  | The hostname of the MQTT broker endpoint in the format `<hostname>.<port>`. |
-    | Authentication method | The method used for authentication. Choose *System assigned managed identity*, *User assigned managed identity*, or *Service account token*.     |
+    | Authentication method | The method used for authentication. Choose *System assigned managed identity*, *User assigned managed identity*, or *Service account token*. |
     | Service audience      | The audience for the service account token. Required if using service account token. |
     | Client ID             | The client ID of the user-assigned managed identity. Required if using *User assigned managed identity*. |
     | Tenant ID             | The tenant ID of the user-assigned managed identity. Required if using *User assigned managed identity*. |
@@ -176,12 +176,12 @@ For other MQTT brokers, you can configure the endpoint, TLS, authentication, and
 spec:
   endpointType: Mqtt
   mqttSettings:
-    host: <MQTT-BROKER-HOST>:8883
+    host: <HOST>:<PORT>
     authentication:
       ...
     tls:
       mode: Enabled
-      trustedCaCertificateConfigMapRef: <YOUR CA CERTIFICATE CONFIG MAP>
+      trustedCaCertificateConfigMapRef: <YOUR-CA-CERTIFICATE-CONFIG-MAP>
 ```
 
 ---
@@ -192,20 +192,22 @@ Once you've configured the endpoint, you can use it in a dataflow as both a sour
 
 # [Portal](#tab/portal)
 
-1. In the Azure IoT Operations Preview portal, create a new dataflow or edit an existing dataflow by selecting the **Dataflows** tab.
-1. In the editor, select the source or destination dataflow endpoint. MQTT broker endpoints can be used as both source and destination.
-1. Choose the MQTT broker dataflow endpoint that you created previously.
+1. In the Azure IoT Operations Preview portal, create a new dataflow or edit an existing dataflow by selecting the **Dataflows** tab. If creating a new dataflow, select **Create dataflow** and replace `<new-dataflow>` with a name for the dataflow.
+1. In the editor, select **MQTT** as the source dataflow endpoint.
 
-    :::image type="content" source="media/howto-configure-dataflow-endpoint/create-dataflow-mq-mq.png" alt-text="Screenshot using Azure Operations portal to create a dataflow with an MQTT source and destination.":::
-
-    Enter the following settings for the endpoint:
+    Enter the following settings for the source endpoint:
 
     | Setting     | Description                                                                     |
     | ------------- | ------------------------------------------------------------------------------- |
     | MQTT topic    | The topic to which the dataflow subscribes (if source) or publishes (if destination). |
     | Message schema| The schema that defines the structure of the messages being received (if source) or sent (if destination). You can select an existing schema or upload a new schema to the schema registry. |
 
+1. Select the dataflow endpoint for the destination. Choose an existing MQTT dataflow endpoint. For example, the default MQTT Broker endpoint or a custom MQTT broker endpoint.
+1. Select **Proceed** to configure the destination settings.
+1. Enter the MQTT topic to which the dataflow publishes messages.
 1. Select **Apply** to provision the dataflow.
+
+    :::image type="content" source="media/howto-configure-mqtt-endpoint/create-dataflow-mq-mq.png" alt-text="Screenshot using Azure Operations portal to create a dataflow with an MQTT source and destination.":::
 
 # [Kubernetes](#tab/kubernetes)
 

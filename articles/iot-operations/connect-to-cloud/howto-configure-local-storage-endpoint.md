@@ -5,7 +5,7 @@ author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 09/26/2024
+ms.date: 10/02/2024
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to configure a local storage dataflow endpoint so that I can create a dataflow.
@@ -34,7 +34,7 @@ Use the local storage option to send data to a locally available persistent volu
 
     :::image type="content" source="media/howto-configure-local-storage-endpoint/create-local-storage-endpoint.png" alt-text="Screenshot using Azure Operations portal to create a Local Storage dataflow endpoint.":::
 
-1. Enter the following settings for the endpoint:
+    Enter the following settings for the endpoint:
 
     | Setting               | Description                                                             |
     | --------------------- | ------------------------------------------------------------------------------------------------- |
