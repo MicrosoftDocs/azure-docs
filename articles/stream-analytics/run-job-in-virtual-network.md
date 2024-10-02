@@ -34,7 +34,7 @@ If you're interested in enabling VNet integration in your region, **fill out thi
 - An existing **Azure Virtual Network** or [create one](../virtual-network/quick-create-portal.md). 
 
     > [!IMPORTANT]
-    > ASA VNET injected jobs use an internal container injection technology provided by Azure networking.  At this time, Azure Networking recommends that all customers set up Azure NAT Gateway for security and reliability.   
+    > ASA VNET injected jobs use an internal container injection technology provided by Azure networking.  Azure Networking requires that all customers set up Azure NAT Gateway on subnets for security and reliability.   
     > 
     > Azure NAT Gateway is a fully managed and highly resilient Network Address Translation (NAT) service.  Azure NAT Gateway simplifies outbound Internet connectivity for virtual networks.  When configured on a subnet, all outbound connectivity uses the NAT gateway's static public IP addresses.
 
