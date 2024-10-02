@@ -45,6 +45,9 @@ spec:
 
 If not specified, Azure IoT Operations automatically scales the dataflow profile based on the dataflow configuration. The number of instances is determined by the number of dataflows and the shared subscription configuration.
 
+> [!IMPORTANT]
+> Currently in public preview, adjusting the instance count may result in message loss. At this time, it's recommended to not adjust the instance count.
+
 ## Configure log level, node tolerations, diagnostic settings, and other deployment-wide settings
 
 You can configure other deployment-wide settings such as log level, node tolerations, and diagnostic settings.

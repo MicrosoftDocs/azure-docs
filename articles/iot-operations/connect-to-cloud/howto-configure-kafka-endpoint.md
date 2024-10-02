@@ -672,6 +672,8 @@ Properties =
 
 The dataflow endpoint discards packets that contain the `"float-value"` field.
 
+Not all event data properties including propertyEventData.correlationId are not forwarded. For more information, see [Event User Properites](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/interop#event-user-properties),
+
 ### CloudEvents
 
 [CloudEvents](https://cloudevents.io/) are a way to describe event data in a common way. The CloudEvents settings are used to send or receive messages in the CloudEvents format. You can use CloudEvents for event-driven architectures where different services need to communicate with each other in the same or different cloud providers.
