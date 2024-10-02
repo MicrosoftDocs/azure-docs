@@ -66,6 +66,7 @@ When you disable access key authentication for a cache, all existing client conn
 ### Before you disable access keys:
 
 - Ensure that Microsoft Entra authentication is enabled and you have at least one Redis User configured.
+- Ensure all applications connecting to your cache instance switch to using Microsoft Entra Authentication.
 - Ensure that the metrics _Connected Clients_ and _Connected Clients Using Microsoft Entra Token_ have the same values. If the values for these two metrics are not the same, that means there are still some connections that were created using access keys and not Entra Token.
 - Consider disabling access during the scheduled maintenance window for your cache instance.
 - Disabling access keys is only available for Basic, Standard, and Premium tier caches.
