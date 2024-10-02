@@ -192,7 +192,7 @@ To get started, register for the feature using Azure portal or PowerShell.
 3. Select the **Type** filter and select **Microsoft.Storage**.
 4. Select **Azure Premium Files Metadata Cache Preview** and then select **Register**.
 
-###### [Azure PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/powershell)
 
 To register your subscription using Azure PowerShell, run the following commands. Replace `<your-subscription-id>` and `<your-tenant-id>` with your own values. 
 
