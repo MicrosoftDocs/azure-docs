@@ -37,7 +37,7 @@ ms.service: dev-box
    | Setting | Value | Description |
    |---|---|---|
    | **Project level catalog** | Select to enable Project Admins to attach catalogs to projects. | Project-level catalogs enable you to provide customizations for each development team. |
-   | **Allow Microsoft hosted network in projects** | Select to enable Project Admins to specify that dev boxes created from a pool deploy to a Microsoft-hosted network.  | [Microsoft-hosted networks](/windows-365/enterprise/deployment-options) are isolated networks that are managed by Microsoft. Using a Microsoft hosted network can reduce administrative overhead.   |
+   | **Allow Microsoft hosted network in projects** | Select to enable Project Admins to specify that dev boxes created from a pool deploy to a Microsoft-hosted network.  | [Microsoft-hosted networks](/windows-365/enterprise/deployment-options#microsoft-hosted-network) are isolated networks managed by Microsoft. Using a Microsoft hosted network can reduce administrative overhead.   |
    | **Azure Monitor Agent** | Select to enable all dev boxes in the dev center to install the Azure Monitor Agent. | The [Azure Monitor Agent](/azure/azure-monitor/agents/azure-monitor-agent-overview) collects monitoring data from the dev box and sends it to Azure Monitor. |
 
    :::image type="content" source="../media/create-dev-center-ama-mhn-steps/create-dev-center-settings.png" alt-text="Screenshot that shows the Settings tab on the pane for creating a dev center." lightbox="../media/create-dev-center-ama-mhn-steps/create-dev-center-settings.png":::
@@ -53,3 +53,4 @@ ms.service: dev-box
    :::image type="content" source="../media/create-dev-center-ama-mhn-steps/notifications-pane.png" alt-text="Screenshot that shows the Notifications pane in the Azure portal." lightbox="../media/create-dev-center-ama-mhn-steps/notifications-pane.png":::
 
 1. When the deployment completes, select **Go to resource**. Confirm that the dev center page appears.
+1. 
