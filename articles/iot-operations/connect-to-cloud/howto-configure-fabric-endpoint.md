@@ -92,6 +92,7 @@ This Bicep template file from [Bicep File for Microsoft Fabric OneLake dataflow 
 ```azurecli
 az stack group create --name MyDeploymentStack --resource-group $RESOURCE_GROUP --template-file /workspaces/explore-iot-operations/<filename>.bicep --action-on-unmanage 'deleteResources' --deny-settings-mode 'none' --yes
 ```
+
 This endpoint is the destination for the dataflow that receives messages to Fabric OneLake.
 
 ```bicep
@@ -246,6 +247,8 @@ resource dataflow_onelake 'Microsoft.IoTOperations/instances/dataflowProfiles/da
   }
 }
 ```
+
+The `BuiltInTransformation` in this Bicep file transforms the data flowing through the dataflow pipeline. It applies a pass-through operation, mapping all input fields `(inputs: array('*'))` directly to the output `(output: '*')`, without altering the data. It also references the defined OPC-UA schema to ensure the data is structured according to the OPC UA protocol. The transformation then serializes the data in Delta format (or Parquet if specified). This step ensures that the data adheres to the required schema and format before being sent to the destination.
 
 ---
 
