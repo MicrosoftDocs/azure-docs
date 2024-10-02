@@ -473,43 +473,9 @@ Managing modules in Azure Functions written in PowerShell can be approached in t
 
 The Managed Dependencies feature allows Azure Functions to automatically download and manage PowerShell modules specified in the `requirements.psd1` file. This is enabled by default in new PowerShell function apps.
 
-#### Enabling Managed Dependencies
+#### Configuring requirements.psd1
 
-To enable managed dependencies, set the `managedDependency` property to `true` in the `host.json` file:
-
-```json
-{
-  "managedDependency": {
-    "enabled": true
-  }
-}
-```
-
-#### Target Specific Versions
-
-When targeting specific module versions, it’s important to follow both steps below to ensure the correct module version is loaded:
-
-1. **Specify the module version in `requirements.psd1`:**
-
-    ```powershell
-    @{
-      'Az.Accounts' = '1.9.5'
-    }
-    ```
-
-2. **Add an import statement to `profile.ps1`:**
-
-    ```powershell
-    Import-Module Az.Accounts -RequiredVersion '1.9.5'
-    ```
-
-This ensures the specified version is loaded when your function starts.
-
-#### Dependency Management Considerations
-
-- **Internet Access**: Managed dependencies require access to `https://www.powershellgallery.com` to download modules. Ensure that your environment allows this access.
-- **License Acceptance**: Modules that require license acceptance are not supported by managed dependencies.
-- **Flex Consumption Plan**: Managed dependencies are not supported in the Flex Consumption plan. Use custom modules instead.
+Content Here
 
 #### Dependency Management App Settings
 
@@ -571,7 +537,47 @@ PSFunctionApp
  | - requirements.psd1
 ```
 
-Modules in the `Modules` folder are automatically available to the runtime.
+When you start your function app, the PowerShell language worker adds this `Modules` folder to the `$env:PSModulePath` so that you can rely on module autoloading just as you would in a regular PowerShell script.
+
+### Troubleshooting Managed Dependencies
+
+#### Enabling Managed Dependencies
+
+In order for Managed Dependencies to function, the feature must be enabled in host.json:
+
+```json
+{
+  "managedDependency": {
+          "enabled": true
+       }
+}
+```
+
+#### Target Specific Versions
+
+When targeting specific module versions, it’s important to follow both steps below to ensure the correct module version is loaded:
+
+1. **Specify the module version in `requirements.psd1`:**
+
+    ```powershell
+    @{
+      'Az.Accounts' = '1.9.5'
+    }
+    ```
+
+2. **Add an import statement to `profile.ps1`:**
+
+    ```powershell
+    Import-Module Az.Accounts -RequiredVersion '1.9.5'
+    ```
+
+This ensures the specified version is loaded when your function starts. 
+
+#### Dependency Management Considerations
+
+- **Internet Access**: Managed dependencies require access to `https://www.powershellgallery.com` to download modules. Ensure that your environment allows this access.
+- **License Acceptance**: Modules that require license acceptance are not supported by managed dependencies.
+- **Flex Consumption Plan**: Managed dependencies are not supported in the Flex Consumption plan. Use custom modules instead.
 
 ## Concurrency
 
