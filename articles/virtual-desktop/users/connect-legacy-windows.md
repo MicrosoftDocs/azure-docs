@@ -74,6 +74,8 @@ The Azure Virtual Desktop app is available from the Microsoft Store. To download
 
 > [!IMPORTANT]
 > If you have the Azure Virtual Desktop app from the Microsoft Store and the Remote Desktop client (MSI) installed on the same device, you may see the message that begins **A version of this application called Azure Virtual Desktop was installed from the Microsoft Store**. Both apps are supported, and you have the option to choose **Continue anyway**, however it could be confusing to use the same remote resource across both apps. We recommend using only one version of the app at a time.
+> If you have the Remote Desktop client (MSI) and the Azure Virtual Desktop app from the Microsoft Store installed on the same device, you may see the message that begins **A version of this application called Azure Virtual Desktop was installed from the Microsoft Store**. Both apps are supported, and you have the option to choose **Continue anyway**,
+however we recommend using Windows App for the most up-to-date experience.
 
 
 # [Remote Desktop Store app](#tab/rd-store)
