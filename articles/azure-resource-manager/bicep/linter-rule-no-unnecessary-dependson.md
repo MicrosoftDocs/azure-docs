@@ -3,7 +3,7 @@ title: Linter rule - no unnecessary dependsOn entries
 description: Linter rule - no unnecessary dependsOn entries
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 09/27/2024
+ms.date: 10/03/2024
 ---
 
 # Linter rule - no unnecessary dependsOn entries
@@ -69,9 +69,9 @@ resource webApplication 'Microsoft.Web/sites@2023-12-01' = {
 }
 ```
 
-Use **Quick Fix** to remove the unnecessary dependsOn entry.
+Use **Quick Fix** to remove the unnecessary dependsOn entry:
 
-:::image type="content" source="./media/linter-rule-no-unnecessary-dependson/linter-rule-no-unnecessary-dependson-quick-fix.png" alt-text="The screenshot of No unnecessary dependsOn linter rule with Quick Fix.":::
+:::image type="content" source="./media/linter-rule-no-unnecessary-dependson/linter-rule-no-unnecessary-dependson-quick-fix.png" alt-text="A screenshot of using Quick Fix for the no-unnecessary-dependson linter rule":::
 
 ## Next steps
 
