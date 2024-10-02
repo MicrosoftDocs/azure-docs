@@ -40,7 +40,7 @@ The IPAM feature in Azure Virtual Network Manager works through the following ke
 - Delegating IP address management permissions
 - Simplifying resource creation
 
-### Managing IP Address Pools
+### Manage IP address pools
 
 IPAM allows network administrators to plan and organize IP address usage by creating pools with address spaces and respective sizes. These pools act as containers for groups of CIDRs, enabling logical grouping for specific networking purposes. You can create a structured hierarchy of pools, dividing a larger pool into smaller, more manageable pools, aiding in more granular control and organization of your network's IP address space. 
 
@@ -57,8 +57,8 @@ When it comes to allocation, you can assign Azure resources with CIDRs, such as 
 With IPAM, you can delegate permission to other users to utilize the IPAM pools, ensuring controlled access and management while democratizing pool allocation. These permissions allow users to see the pools they have access to, aiding in choosing the right pool for their needs.
 
 Delegating permissions also allows others to view usage statistics and lists of resources associated with the pool. Within your network manager, complete usage statistics are available including:
-    - the total number of IPs in pool.
-    - the percentage of allocated pool space.
+    - The total number of IPs in pool.
+    - The percentage of allocated pool space.
     
 Additionally, it shows details for pools and resources associated with pools, giving a complete overview of the IP usages and aiding in better resource management and planning.
 
