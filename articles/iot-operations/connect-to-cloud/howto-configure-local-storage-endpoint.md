@@ -59,6 +59,11 @@ spec:
 
 The PersistentVolumeClaim (PVC) must be in the same namespace as the *DataflowEndpoint*.
 
+# [Bicep](#tab/bicep)
+
+```bicep
+bicep here
+```
 ---
 
 ## Configure dataflow destination
@@ -105,6 +110,11 @@ spec:
         endpointRef: esa
 ```
 
+# [Bicep](#tab/bicep)
+
+```bicep
+bicep here
+```
 ---
 
 For more information about dataflow destination settings, see [Create a dataflow](howto-create-dataflow.md).
