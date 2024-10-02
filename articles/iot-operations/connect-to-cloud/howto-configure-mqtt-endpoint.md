@@ -265,8 +265,6 @@ spec:
 
 # [Bicep](#tab/bicep)
 
-TODO
-
 ```bicep
 properties: {
     endpointType: 'Mqtt'
@@ -332,10 +330,34 @@ spec:
 
 # [Bicep](#tab/bicep)
 
-TODO
-
 ```bicep
-bicep here
+resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2024-08-15-preview' = {
+  parent: defaultDataflowProfile
+  name: 'my-dataflow'
+  extendedLocation: {
+    name: customLocation.id
+    type: 'CustomLocation'
+  }
+  properties: {
+    mode: 'Enabled'
+    operations: [
+      {
+        operationType: 'Source'
+        sourceSettings: {
+          endpointRef: 'mqsource'
+          dataSources: array('thermostats/+/telemetry/temperature/#')
+        }
+      }
+      {
+        operationType: 'Destination'
+        destinationSettings: {
+          endpointRef: 'mqdestination'
+          dataDestination: 'sensors/thermostats/temperature'
+        }
+      }
+    ]
+  }
+} 
 ```
 
 ---
@@ -384,10 +406,14 @@ mqttSettings:
 
 # [Bicep](#tab/bicep)
 
-TODO
-
 ```bicep
-bicep here
+mqttSettings: {
+  authentication: {
+    method: 'X509Certificate'
+      x509CertificateSettings:
+        secretRef: '<YOUR-X509-SECRET-NAME>'
+  }
+}
 ```
 
 ---
@@ -426,10 +452,14 @@ mqttSettings:
 
 # [Bicep](#tab/bicep)
 
-TODO
 
 ```bicep
-bicep here
+mqttSettings: {
+  authentication: {
+    method: 'SystemAssignedManagedIdentity'
+    systemAssignedManagedIdentitySettings: {}
+  }
+}
 ```
 
 ---
@@ -457,10 +487,16 @@ mqttSettings:
 
 # [Bicep](#tab/bicep)
 
-TODO
-
 ```bicep
-bicep here
+mqttSettings: {
+  authentication: {
+    method: 'UserAssignedManagedIdentity'
+    userAssignedManagedIdentitySettings: {
+      cliendId: '<ID>'
+      tenantId: '<ID>'
+    }
+  }
+}
 ```
 
 ---
@@ -487,10 +523,15 @@ mqttSettings:
 
 # [Bicep](#tab/bicep)
 
-TODO
-
 ```bicep
-bicep here
+mqttSettings: {
+  authentication: {
+    method: 'ServiceAccountToken'
+    serviceAccountTokenSettings: {
+      audience: '<YOUR-SERVICE-ACCOUNT-AUDIENCE>'
+    }
+  }
+}
 ```
 
 ---
