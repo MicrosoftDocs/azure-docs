@@ -59,7 +59,7 @@ API Management offers both managed and self-hosted gateways:
 The following tables compare features available in the following API Management gateways:
 
 * **Classic** - the managed gateway available in the Developer, Basic, Standard, and Premium service tiers (formerly grouped as *dedicated* tiers)
-* **V2** - the managed gateway available in the Basic v2 and Standard v2 tiers
+* **V2** - the managed gateway available in the Basic v2, Standard v2, and Premium v2 tiers
 * **Consumption** - the managed gateway available in the Consumption tier
 * **Self-hosted** - the optional self-hosted gateway available in select service tiers
 * **Workspace** - the managed gateway available in a [workspace](workspaces-overview.md) in select service tiers
@@ -72,7 +72,7 @@ The following tables compare features available in the following API Management 
 ### Infrastructure
 
 | Feature support  | Classic  | V2  | Consumption | Self-hosted  | Workspace |
-| --- | --- | ----- | ----- | ---------- |
+| --- | --- | ----- | ----- | ---------- |  ----- |
 | [Custom domains](configure-custom-domain.md) | ✔️ | ✔️ | ✔️ | ✔️ | ❌ |
 | [Built-in cache](api-management-howto-cache.md) | ✔️ | ✔️ | ❌ | ❌ | ✔️ |
 | [External Redis-compatible cache](api-management-howto-cache-external.md) | ✔️ | ✔️ |✔️ | ✔️ | ❌ |
@@ -111,7 +111,7 @@ The following tables compare features available in the following API Management 
 | [Pass-through WebSocket](websocket-api.md) |  ✔️ |  ✔️ | ❌ | ✔️ | ❌ |
 | [Pass-through gRPC](grpc-api.md)  |  ❌ | ❌ | ❌ | ✔️ | ❌ |
 | [OData](import-api-from-odata.md)  |  ✔️ |  ✔️ | ✔️ | ✔️ | ✔️ |
-| [Azure OpenAI](azure-openai-api-from-specification.md) | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| [Azure OpenAI and LLM](azure-openai-api-from-specification.md) | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
 | [Circuit breaker in backend](backends.md#circuit-breaker)  |  ✔️ | ✔️ | ❌ | ✔️ | ✔️ |
 | [Load-balanced backend pool](backends.md#load-balanced-pool)  |  ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
 
@@ -119,13 +119,15 @@ The following tables compare features available in the following API Management 
 
 ### Policies
 
-Managed and self-hosted gateways support all available [policies](api-management-policies.md) in policy definitions with the following exceptions.
+Managed and self-hosted gateways support all available [policies](api-management-policies.md) in policy definitions with the following exceptions. See the policy reference for details about each policy.
 
 | Feature support  | Classic  |  V2  | Consumption | Self-hosted<sup>1</sup>  | Workspace |
 | --- | --- | ----- | ----- | ---------- | ----- |
 | [Dapr integration](api-management-policies.md#integration-and-external-communication) |  ❌ | ❌ |❌ | ✔️ | ❌ |
 | [GraphQL resolvers](api-management-policies.md#graphql-resolvers) and [GraphQL validation](api-management-policies.md#content-validation)|  ✔️ | ✔️ |✔️ | ❌ | ❌ |
 | [Get authorization context](get-authorization-context-policy.md) |  ✔️ |  ✔️ |✔️ | ❌ | ❌ |
+| [Authenticate with managed identity](authentication-managed-identity-policy.md) |  ✔️ |  ✔️ |✔️ | ✔️ | ❌ |
+| [Azure OpenAI and LLM semantic caching](api-management-policies.md#caching) |  ❌ | ❌ |❌ | ✔️ | ❌ |
 | [Quota and rate limit](api-management-policies.md#rate-limiting-and-quotas) |  ✔️ | ✔️<sup>2</sup> | ✔️<sup>3</sup> | ✔️<sup>4</sup> | ✔️ |
 
 <sup>1</sup> Configured policies that aren't supported by the self-hosted gateway are skipped during policy execution.<br/>
