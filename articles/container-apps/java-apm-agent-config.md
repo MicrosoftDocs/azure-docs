@@ -176,7 +176,8 @@ The following commands help you define variables and ensure your Container Apps 
     az containerapp env create \
       --name $ENVIRONMENT_NAME \
       --resource-group $RESOURCE_GROUP \
-      --location "$LOCATION"
+      --location "$LOCATION" \
+      --query "properties.provisioningState"
     ```
 
     # [PowerShell](#tab/powershell)
@@ -185,7 +186,8 @@ The following commands help you define variables and ensure your Container Apps 
     az containerapp env create `
       --name $ENVIRONMENT_NAME `
       --resource-group $RESOURCE_GROUP `
-      --location "$LOCATION"
+      --location "$LOCATION" `
+      --query "properties.provisioningState"
     ```
 
     ---
@@ -200,7 +202,8 @@ The following commands help you define variables and ensure your Container Apps 
     az containerapp create \
       --name $CONTAINER_APP_NAME \
       --environment $ENVIRONMENT_NAME \
-      --resource-group $RESOURCE_GROUP
+      --resource-group $RESOURCE_GROUP \
+      --query "properties.provisioningState"
     ```
 
     # [PowerShell](#tab/powershell)
@@ -209,7 +212,8 @@ The following commands help you define variables and ensure your Container Apps 
     az containerapp create `
       --name $CONTAINER_APP_NAME `
       --environment $ENVIRONMENT_NAME `
-      --resource-group $RESOURCE_GROUP
+      --resource-group $RESOURCE_GROUP `
+      --query "properties.provisioningState"
     ```
 
     ---
@@ -301,7 +305,8 @@ The following commands help you define variables and ensure your Container Apps 
     az containerapp update \
       --name $CONTAINER_APP_NAME \
       --resource-group $RESOURCE_GROUP \ 
-      --yaml app.yaml
+      --yaml app.yaml \
+      --query "properties.provisioningState"
     ```
 
     # [PowerShell](#tab/powershell)
@@ -310,7 +315,8 @@ The following commands help you define variables and ensure your Container Apps 
     az containerapp update `
       --name $CONTAINER_APP_NAME `
       --resource-group $RESOURCE_GROUP `
-      --yaml app.yaml
+      --yaml app.yaml `
+      --query "properties.provisioningState"
     ```
 
     ---
