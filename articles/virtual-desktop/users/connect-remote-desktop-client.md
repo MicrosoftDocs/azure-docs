@@ -69,7 +69,7 @@ Here's how to install the Remote Desktop client for Windows using the MSI instal
 > [!IMPORTANT]
 > If you have the Remote Desktop client (MSI) and the Azure Virtual Desktop app from the Microsoft Store installed on the same device, you may see the message that begins **A version of this application called Azure Virtual Desktop was installed from the Microsoft Store**. Both apps are supported, and you have the option to choose **Continue anyway**, however it could be confusing to use the same remote resource across both apps. We recommend using only one version of the app at a time.
 
-# [macOS](#tab/macos-avd)
+# [macOS](#tab/macos)
 
 Before you can connect to your devices and apps from macOS, you need:
 
@@ -82,7 +82,7 @@ Before you can connect to your devices and apps from macOS, you need:
 >[!NOTE]
 >The macOS Remote Desktop client currently isn't distributed in the China region in the App Store.
 
-# [iOS/iPadOS](#tab/ios-ipados-avd)
+# [iOS/iPadOS](#tab/ios-ipados)
 
 Before you can connect to your devices and apps from iOS or iPadOS, you need:
 
@@ -93,7 +93,7 @@ Before you can connect to your devices and apps from iOS or iPadOS, you need:
 - Download and install the Remote Desktop client from the [App Store](https://apps.apple.com/app/microsoft-remote-desktop/id714464092).
 
 
-# [Android/Chrome OS](#tab/web-android)
+# [Android/Chrome OS](#tab/android)
 
 Before you can connect to your devices and apps from Android or Chrome OS, you need:
 
@@ -175,7 +175,7 @@ To connect to your desktops and applications:
 
 If you want to help us test new builds before they're released, you should download our Insider releases. Organizations can use the Insider releases to validate new versions for their users before they're generally available. For more information, see [Enable Insider releases](client-features-windows.md#enable-insider-releases).
 
-# [macOS](#tab/macos-avd)
+# [macOS](#tab/macos)
 
 ### Subscribe to a workspace
 
@@ -217,7 +217,7 @@ If you want to help us test new builds before they're released, you should downl
 > [!IMPORTANT]
 > The Remote Desktop app is changing to Windows App. To ensure you can validate the upcoming Windows App update before it's released into the store, the Windows App preview is now available in the [Remote Desktop Beta channels](client-features-macos.md#test-the-beta-client) where you can test the experience of updating from Remote Desktop to Windows App. To learn more about Windows App, see [Get started with Windows App to connect to devices and apps](/windows-app/get-started-connect-devices-desktops-apps).
 
-# [iOS/iPadOS](#tab/ios-ipados-avd)
+# [iOS/iPadOS](#tab/ios-ipados)
 
 ### Subscribe to a workspace
 
@@ -259,7 +259,7 @@ If you want to help us test new builds before they're released, you should downl
 > [!IMPORTANT]
 > The Remote Desktop app is changing to Windows App. To ensure you can validate the upcoming Windows App update before it's released into the store, the Windows App preview is now available in the [Remote Desktop Beta channels](client-features-ios-ipados.md#test-the-beta-client) where you can test the experience of updating from Remote Desktop to Windows App. To learn more about Windows App, see [Get started with Windows App to connect to devices and apps](/windows-app/get-started-connect-devices-desktops-apps).
 
-# [Android/Chrome OS](#tab/web-android)
+# [Android/Chrome OS](#tab/android)
 
 ### Subscribe to a workspace
 
