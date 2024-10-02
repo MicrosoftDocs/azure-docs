@@ -167,27 +167,60 @@ The load was generated against a single 128 GiB file. With SMB Multichannel enab
 
 ## Metadata caching for premium SMB file shares
 
-Metadata caching is an enhancement for SMB Azure premium file shares aimed to reduce metadata latency, increase available IOPS, and boost network throughput. This preview feature improves the following metadata APIs and can be used from both Windows and Linux clients:
+Metadata caching is an enhancement for SMB Azure premium file shares aimed to improve the following:
+
+- Reduce metadata latency
+- Raise metadata scale limits.
+- Increase latency consistency, available IOPS, and boost network throughput.  
+
+This preview feature improves the following metadata APIs and can be used from both Windows and Linux clients:
 
 - Create
 - Open
 - Close
 - Delete
 
-To onboard, [sign up for the public preview](https://aka.ms/PremiumFilesMetadataCachingPreview) and we'll provide you with additional details. Currently this preview feature is only available for premium SMB file shares (file shares in the FileStorage storage account kind). There are no additional costs associated with using this feature.
+Currently this preview feature is only available for premium SMB file shares (file shares in the FileStorage storage account kind). There are no additional costs associated with using this feature.
+
+#### Register for the feature
+To get started, register for the feature using Azure portal or PowerShell.
+
+###### [Azure portal](#tab/portal)
+
+1. Sign in to the [Azure portal](https://portal.azure.com?azure-portal=true).
+2. Search for and select **Preview features**.
+3. Click the **Type** filter and select **Microsoft.Storage**.
+4. Select **Azure Premium Files Metadata Cache Preview** and click **Register**.
+
+###### [Azure PowerShell](#tab/powershell)
+
+To register your subscription using Azure PowerShell, run the following commands. Replace `<your-subscription-id>` and `<your-tenant-id>` with your own values. 
+
+```azurepowershell-interactive
+Connect-AzAccount -SubscriptionId <your-subscription-id> -TenantId <your-tenant-id> 
+Register-AzProviderFeature -FeatureName AzurePremiumFilesMetadataCacheFeature -ProviderNamespace Microsoft.Storage 
+```
+---
 
 ### Regional availability
 
-Currently the metadata caching preview is only available in the following Azure regions.
+Currently the metadata caching preview is only available in the following Azure regions. To request addition region support please [sign up for the public preview](https://aka.ms/PremiumFilesMetadataCachingPreview)
 
-- Australia East
-- Brazil South East
-- France South
-- Germany West Central
+- Australia Central
+- Jio India West
+- India South
+- Mexico Central
+- Norway East
+- Poland Central
+- South Africa North
+- Spain Central
+- Sweden Central
 - Switzerland North
-- UAE Central
 - UAE North
-- US West Central
+- US West 3
+
+> [!TIP]
+> As we extend region support for the Metadata Cache feature, Premium File Storage Accounts in those regions will be automatically onboarded for all subsciptions registered with the Metadata Caching feature.
 
 ### Performance improvements with metadata caching
 
