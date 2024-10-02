@@ -284,7 +284,7 @@ The following commands help you define variables and ensure your Container Apps 
       template:
         containers:
         - name: test-java-app
-          image: croff.azurecr.io/apps/test-java-app:1.0.0
+          image: mcr.microsoft.com/azurespringapps/samples/hello-world:0.0.1
           resources:
             cpu: 0.5
             ephemeralStorage: 2Gi
