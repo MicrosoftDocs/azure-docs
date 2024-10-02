@@ -125,6 +125,7 @@ Configuring an asset as a source is only available in the Azure IoT Operations p
 
 # [Bicep](#tab/bicep)
 
+TODO for bicep
 ```bicep
 bicep here
 ```
@@ -600,6 +601,7 @@ kubectl get dataflow my-dataflow -o yaml > my-dataflow.yaml
 
 # [Bicep](#tab/bicep)
 
+TODO for bicep
 ```bicep
 bicep here
 ```
