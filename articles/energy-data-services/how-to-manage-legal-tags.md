@@ -10,7 +10,7 @@ ms.custom: template-how-to
 ---
 
 # How to manage legal tags
-In this article, you'll know what are legal tags and how to manage them in your Azure Data Manager for Energy instance. 
+In this article, you'll know what legal tags are and how to manage them in your Azure Data Manager for Energy instance. 
 
 A Legal tag is the entity that represents the legal status of data ingestion while [entitlement service](concepts-entitlements.md) defines access to data for a given user(s) in the Azure Data Manager for Energy instance. A user may have access to manage the data within a data partition however, they may not be able to do so-until certain legal requirements are fulfilled. Legal tag is a collection of required properties that governs how data can be [ingested](concepts-csv-parser-ingestion.md) into your Azure Data Manager for Energy instance.
 
