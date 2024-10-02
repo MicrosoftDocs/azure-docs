@@ -52,11 +52,11 @@ In this section, learn how to use the Azure App Configuration snapshot task in a
         > ![Screenshot shows the Edit button for an existing pipeline.](./media/existing-pipeline-show-assistant.png)
 1. Search for the **Azure App Configuration snapshot** Task.
     > [!div class="mx-imgBorder"]
-    > ![Screenshot shows the to Add Task dialog with Azure App Configuration snapshot in search box.](./media/add-azure-app-configuration-snapshot-task.png)
-1. Configure the necessary parameters for the task to create a snapshot in an App Configuration store. Explanation of the parameters are available in the **Parameters** section below and in tooltips next to each parameter.
+    > ![Screenshot shows the Add Task dialog with Azure App Configuration snapshot in search box.](./media/add-azure-app-configuration-snapshot-task.png)
+1. Configure the necessary parameters for the task to create a snapshot in an App Configuration store. Explanations of the parameters are available in the **Parameters** section below and in tooltips next to each parameter.
     > [!div class="mx-imgBorder"]
-    > ![Screenshot shows the app configuration snapshot task parameters](./media/azure-app-configuration-snapshot-parameters.png)
-1. Save and queue a build. The build log will display any failures that occured during the execution of the task.
+    > ![Screenshot shows the app configuration snapshot task parameters.](./media/azure-app-configuration-snapshot-parameters.png)
+1. Save and queue a build. The build log will display any failures that occurred during the execution of the task.
 
 ## Use in releases
 
@@ -65,7 +65,7 @@ In this section, learn how to use the Azure App Configuration snapshot task in a
 1. Navigate to the release pipeline page by selecting, **Pipelines** > **Releases**. For more information about release pipelines go to [Create your first pipeline](/azure/devops/pipelines/release).
 1. Choose an existing release pipeline. If you don’t have one, select **+ New** to create a new one.
 1. Select the **Edit** button in the top-right corner to edit the release pipeline.
-1. From the **Tasks** dropdown, choose the **Stage** to which you want to add the task. More information about stages can be found in [Add stages, dependecies, & conditions](/azure/devops/pipelines/release/environments).
+1. From the **Tasks** dropdown, choose the **Stage** to which you want to add the task. More information about stages can be found in [Add stages, dependencies, & conditions](/azure/devops/pipelines/release/environments).
     > [!div class="mx-imgBorder"]
     > ![Screenshot shows the selected stage in the Tasks dropdown.](./media/pipeline-stage-tasks.png)
 1. Click **+** next to the job to which you want to add a new task.
