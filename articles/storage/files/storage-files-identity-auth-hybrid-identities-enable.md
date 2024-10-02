@@ -4,7 +4,7 @@ description: Learn how to enable identity-based Kerberos authentication for hybr
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 08/19/2024
+ms.date: 10/02/2024
 ms.author: kendownie
 ms.custom: engagement-fy23
 recommendations: false
@@ -22,6 +22,7 @@ For more information on supported options and considerations, see [Overview of A
 > You can only use one AD method for identity-based authentication with Azure Files. If Microsoft Entra Kerberos authentication for hybrid identities doesn't fit your requirements, you might be able to use [on-premises Active Directory Domain Service (AD DS)](storage-files-identity-auth-active-directory-enable.md) or [Microsoft Entra Domain Services](storage-files-identity-auth-domain-services-enable.md) instead. The configuration steps and supported scenarios are different for each method.
 
 ## Applies to
+
 | File share type | SMB | NFS |
 |-|:-:|:-:|
 | Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
@@ -30,12 +31,29 @@ For more information on supported options and considerations, see [Overview of A
 
 ## Prerequisites
 
-Before you enable Microsoft Entra Kerberos authentication over SMB for Azure file shares, make sure you've completed the following prerequisites. If some of your client machines don't meet the requirements described in this section, we recommend that you complete the steps in this article and then [Configure a cloud trust](storage-files-identity-auth-hybrid-cloud-trust.md) between on premises AD DS and Microsoft Entra ID to allow those machines to access file shares.
+Before you enable Microsoft Entra Kerberos authentication over SMB for Azure file shares, make sure you've completed the following prerequisites. 
 
-> [!NOTE]
-> Your Azure storage account can't authenticate with both Microsoft Entra ID and a second method like AD DS or Microsoft Entra Domain Services. If you've already chosen another AD method for your storage account, you must disable it before enabling Microsoft Entra Kerberos.
+### Minimum prerequisites
 
-The Microsoft Entra Kerberos functionality for hybrid identities is only available on the following operating systems:
+The following prerequisites are mandatory. Without these, you can't authenticate using Microsoft Entra ID.
+
+- Your Azure storage account can't authenticate with both Microsoft Entra ID and a second method like AD DS or Microsoft Entra Domain Services. If you've already chosen another AD method for your storage account, you must disable it before enabling Microsoft Entra Kerberos.
+
+- This feature doesn't currently support user accounts that you create and manage solely in Microsoft Entra ID. User accounts must be [hybrid user identities](../../active-directory/hybrid/whatis-hybrid-identity.md), which means you'll also need AD DS and either [Microsoft Entra Connect](../../active-directory/hybrid/whatis-azure-ad-connect.md) or [Microsoft Entra Connect cloud sync](../../active-directory/cloud-sync/what-is-cloud-sync.md). You must create these accounts in Active Directory and sync them to Microsoft Entra ID. To assign Azure Role-Based Access Control (RBAC) permissions for the Azure file share to a user group, you must create the group in Active Directory and sync it to Microsoft Entra ID.
+
+- The WinHTTP Web Proxy Auto-Discovery Service (`WinHttpAutoProxySvc`) and IP Helper service (`iphlpsvc`) are required. Their state should be set to running.
+
+- You must disable multifactor authentication (MFA) on the Microsoft Entra app representing the storage account.
+
+- This feature doesn't currently support cross-tenant access for B2B users or guest users. Users from an Entra tenant other than the one configured won't be able to access the file share.
+
+- With Microsoft Entra Kerberos, the Kerberos ticket encryption is always AES-256. But you can set the SMB channel encryption that best fits your needs.
+
+### Prerequisites for modern authentication flow
+
+The following prerequisites are mandatory for the modern authentication flow. If some or all of your legacy client machines don't meet these, you'll have to first configure the modern authentication flow as described in this article and then [Configure a cloud trust](storage-files-identity-auth-hybrid-cloud-trust.md) to allow legacy clients to access file shares.
+
+Operating system requirements:
 
   - Windows 11 Enterprise/Pro single or multi-session.
   - Windows 10 Enterprise/Pro single or multi-session, versions 2004 or later with the latest cumulative updates installed, especially the [KB5007253 - 2021-11 Cumulative Update Preview for Windows 10](https://support.microsoft.com/topic/november-22-2021-kb5007253-os-builds-19041-1387-19042-1387-19043-1387-and-19044-1387-preview-d1847be9-46c1-49fc-bf56-1d469fc1b3af).
@@ -43,17 +61,7 @@ The Microsoft Entra Kerberos functionality for hybrid identities is only availab
 
 To learn how to create and configure a Windows VM and log in by using Microsoft Entra ID-based authentication, see [Log in to a Windows virtual machine in Azure by using Microsoft Entra ID](../../active-directory/devices/howto-vm-sign-in-azure-ad-windows.md).
 
-Clients must be Microsoft Entra joined or [Microsoft Entra hybrid joined](../../active-directory/devices/hybrid-join-plan.md). Microsoft Entra Kerberos isn’t supported on clients joined to Microsoft Entra Domain Services or joined to AD only.
-
-The WinHTTP Web Proxy Auto-Discovery Service (`WinHttpAutoProxySvc`) and IP Helper service (`iphlpsvc`) are required for Microsoft Entra Kerberos authentication. Their state should be set to running.
-
-This feature doesn't currently support user accounts that you create and manage solely in Microsoft Entra ID. User accounts must be [hybrid user identities](../../active-directory/hybrid/whatis-hybrid-identity.md), which means you'll also need AD DS and either [Microsoft Entra Connect](../../active-directory/hybrid/whatis-azure-ad-connect.md) or [Microsoft Entra Connect cloud sync](../../active-directory/cloud-sync/what-is-cloud-sync.md). You must create these accounts in Active Directory and sync them to Microsoft Entra ID. To assign Azure Role-Based Access Control (RBAC) permissions for the Azure file share to a user group, you must create the group in Active Directory and sync it to Microsoft Entra ID.
-
-This feature doesn't currently support cross-tenant access for B2B users or guest users. Users from an Entra tenant other than the one configured won't be able to access the file share.
-
-You must disable multifactor authentication (MFA) on the Microsoft Entra app representing the storage account.
-
-With Microsoft Entra Kerberos, the Kerberos ticket encryption is always AES-256. But you can set the SMB channel encryption that best fits your needs.
+Clients must be Microsoft Entra joined or [Microsoft Entra hybrid joined](../../active-directory/devices/hybrid-join-plan.md). The modern authentication flow isn’t supported on clients joined to Microsoft Entra Domain Services or joined to AD only.
 
 ## Regional availability
 
