@@ -38,7 +38,7 @@ For example, you can use the default MQTT broker dataflow endpoint. You can use 
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="media/howto-configure-dataflow-endpoint/create-dataflow-mq-mq.png" alt-text="Screenshot using Azure Operations portalportal to create a dataflow from MQTT to MQTT.":::
+:::image type="content" source="media/howto-configure-dataflow-endpoint/create-dataflow-mq-mq.png" alt-text="Screenshot using operations experience portalportal to create a dataflow from MQTT to MQTT.":::
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -68,7 +68,7 @@ Similarly, you can create multiple dataflows that use the same MQTT endpoint for
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="media/howto-configure-dataflow-endpoint/create-dataflow-mq-kafka.png" alt-text="Screenshot using Azure Operations portal to create a dataflow from MQTT to Kafka":::
+:::image type="content" source="media/howto-configure-dataflow-endpoint/create-dataflow-mq-kafka.png" alt-text="Screenshot using operations experience portal to create a dataflow from MQTT to Kafka":::
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -98,31 +98,31 @@ Similar to the MQTT example, you can create multiple dataflows that use the same
 
 ## Manage dataflow endpoints
 
-You can manage dataflow endpoints in the Azure IoT Operations portal or by using the Kubernetes CLI.
+You can manage dataflow endpoints in the operations experience portal or by using the Kubernetes CLI.
 
-:::image type="content" source="media/howto-configure-dataflow-endpoint/manage-dataflow-endpoints.png" alt-text="Screenshot using Azure Operations portal to view dataflow endpoint list.":::
+:::image type="content" source="media/howto-configure-dataflow-endpoint/manage-dataflow-endpoints.png" alt-text="Screenshot using operations experience portal to view dataflow endpoint list.":::
 
 
 ### View
 
-You can view the health, metrics, configuration, and associated dataflows of an endpoint in the Azure IoT Operations portal.
+You can view the health, metrics, configuration, and associated dataflows of an endpoint in the operations experience portal.
 
 
 <!-- TODO: link to relevant observability docs -->
 
 ### Edit
 
-You can edit an endpoint in the Azure IoT Operations portal. Be cautious if the endpoint is in use by a dataflow.
+You can edit an endpoint in the operations experience portal. Be cautious if the endpoint is in use by a dataflow.
 
-:::image type="content" source="media/howto-configure-dataflow-endpoint/edit-dataflow-endpoint.png" alt-text="Screenshot using Azure Operations portal to modify a dataflow":::
+:::image type="content" source="media/howto-configure-dataflow-endpoint/edit-dataflow-endpoint.png" alt-text="Screenshot using operations experience portal to modify a dataflow":::
 
 ### Delete
 
-You can delete an endpoint in the Azure IoT Operations portal or using the `kubectl` command. Be cautious if the endpoint is in use by a dataflow.
+You can delete an endpoint in the operations experience portal or using the `kubectl` command. Be cautious if the endpoint is in use by a dataflow.
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="media/howto-configure-dataflow-endpoint/delete-dataflow-endpoint.png" alt-text="Screenshot using Azure Operations portal to delete a dataflow endpoint.":::
+:::image type="content" source="media/howto-configure-dataflow-endpoint/delete-dataflow-endpoint.png" alt-text="Screenshot using operations experience portal to delete a dataflow endpoint.":::
 
 # [Kubernetes](#tab/kubernetes)
 

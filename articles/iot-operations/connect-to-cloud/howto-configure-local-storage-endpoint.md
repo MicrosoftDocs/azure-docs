@@ -29,10 +29,10 @@ Use the local storage option to send data to a locally available persistent volu
 
 # [Portal](#tab/portal)
 
-1. In the IoT Operations portal, select the **Dataflow endpoints** tab.
+1. In the operations experience portal, select the **Dataflow endpoints** tab.
 1. Under **Create new dataflow endpoint**, select **Local Storage** > **New**.
 
-    :::image type="content" source="media/howto-configure-local-storage-endpoint/create-local-storage-endpoint.png" alt-text="Screenshot using Azure Operations portal to create a Local Storage dataflow endpoint.":::
+    :::image type="content" source="media/howto-configure-local-storage-endpoint/create-local-storage-endpoint.png" alt-text="Screenshot using operations experience portal to create a Local Storage dataflow endpoint.":::
 
     Enter the following settings for the endpoint:
 
@@ -71,7 +71,7 @@ Once the endpoint is created, you can use it in a dataflow by specifying the end
 1. In the editor, select the destination dataflow endpoint.
 1. Choose the Local Storage endpoint that you created previously.
 
-    :::image type="content" source="media/howto-configure-local-storage-endpoint/dataflow-mq-local-storage.png" alt-text="Screenshot using Azure Operations portal to create a dataflow with an MQTT source and local storage.":::
+    :::image type="content" source="media/howto-configure-local-storage-endpoint/dataflow-mq-local-storage.png" alt-text="Screenshot using operations experience portal to create a dataflow with an MQTT source and local storage.":::
 
     Enter the following settings for the endpoint:
 

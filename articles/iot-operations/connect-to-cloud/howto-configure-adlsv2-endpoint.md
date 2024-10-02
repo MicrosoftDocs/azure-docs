@@ -29,10 +29,10 @@ To configure a dataflow endpoint for Azure Data Lake Storage Gen2, we suggest us
 
 # [Portal](#tab/portal)
 
-1. In the IoT Operations portal, select the **Dataflow endpoints** tab.
+1. In the operations experience portal, select the **Dataflow endpoints** tab.
 1. Under **Create new dataflow endpoint**, select **Azure Data Lake Storage (2nd generation)** > **New**.
 
-    :::image type="content" source="media/howto-configure-adlsv2-endpoint/create-adls-endpoint.png" alt-text="Screenshot using Azure Operations portal to create a new ADLS V2 dataflow endpoint.":::
+    :::image type="content" source="media/howto-configure-adlsv2-endpoint/create-adls-endpoint.png" alt-text="Screenshot using operations experience portal to create a new ADLS V2 dataflow endpoint.":::
 
 1. Enter the following settings for the endpoint:
 
@@ -106,7 +106,7 @@ Once the endpoint is created, you can use it in a dataflow by specifying the end
 1. In the editor, select the destination dataflow endpoint.
 1. Choose the Azure Data Lake Storage Gen2 endpoint that you created previously.
 
-    :::image type="content" source="media/howto-configure-adlsv2-endpoint/dataflow-mq-adls.png" alt-text="Screenshot using Azure Operations portal to create a dataflow with an MQTT source and ADLS V2 destination.":::
+    :::image type="content" source="media/howto-configure-adlsv2-endpoint/dataflow-mq-adls.png" alt-text="Screenshot using operations experience portal to create a dataflow with an MQTT source and ADLS V2 destination.":::
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -153,7 +153,7 @@ Before creating the dataflow endpoint, assign a role to the managed identity tha
 
 # [Portal](#tab/portal)
 
-In the Azure IoT Operations portal dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **System assigned managed identity**.
+In the operations experience portal dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **System assigned managed identity**.
 
 In most cases, you don't need to specify a service audience. Not specifying an audience creates a managed identity with the default audience scoped to your storage account.
 
@@ -204,7 +204,7 @@ kubectl create secret generic my-sas \
 
 # [Portal](#tab/portal)
 
-In the Azure IoT Operations portal dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **Access token**.
+In the operations experience portal dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **Access token**.
 
 Enter the access token secret name you created in **Access token secret name**.
 
@@ -226,7 +226,7 @@ datalakeStorageSettings:
 
 # [Portal](#tab/portal)
 
-In the Azure IoT Operations portal dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **User assigned managed identity**.
+In the operations experience portal dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **User assigned managed identity**.
 
 Enter the user assigned managed identity client ID and tenant ID in the appropriate fields.
 
@@ -260,9 +260,9 @@ For example, to configure the maximum number of messages to 1000 and the maximum
 
 # [Portal](#tab/portal)
 
-In the IoT Operations portal, select the **Advanced** tab for the dataflow endpoint.
+In the operations experience portal, select the **Advanced** tab for the dataflow endpoint.
 
-:::image type="content" source="media/howto-configure-adlsv2-endpoint/adls-advanced.png" alt-text="Screenshot using Azure Operations portal to set ADLS V2 advanced settings.":::
+:::image type="content" source="media/howto-configure-adlsv2-endpoint/adls-advanced.png" alt-text="Screenshot using operations experience portal to set ADLS V2 advanced settings.":::
 
 # [Kubernetes](#tab/kubernetes)
 

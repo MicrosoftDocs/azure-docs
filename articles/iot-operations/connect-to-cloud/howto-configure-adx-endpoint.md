@@ -58,10 +58,10 @@ Create the dataflow endpoint resource with your cluster and database information
 
 # [Portal](#tab/portal)
 
-1. In the IoT Operations portal, select the **Dataflow endpoints** tab.
+1. In the operations experience portal, select the **Dataflow endpoints** tab.
 1. Under **Create new dataflow endpoint**, select **Azure Data Explorer** > **New**.
 
-    :::image type="content" source="media/howto-configure-adx-endpoint/create-adx-endpoint.png" alt-text="Screenshot using Azure Operations portal to create an Azure Data Explorer dataflow endpoint.":::
+    :::image type="content" source="media/howto-configure-adx-endpoint/create-adx-endpoint.png" alt-text="Screenshot using operations experience portal to create an Azure Data Explorer dataflow endpoint.":::
 
 1. Enter the following settings for the endpoint:
 
@@ -103,7 +103,7 @@ Once the endpoint is created, you can use it in a dataflow by specifying the end
 1. In the editor, select the destination dataflow endpoint.
 1. Choose the Azure Data Explorer endpoint that you created previously.
 
-    :::image type="content" source="media/howto-configure-adx-endpoint/dataflow-mq-adx.png" alt-text="Screenshot using Azure Operations portal to create a dataflow with an MQTT source and a Azure Data Explorer destination.":::
+    :::image type="content" source="media/howto-configure-adx-endpoint/dataflow-mq-adx.png" alt-text="Screenshot using operations experience portal to create a dataflow with an MQTT source and a Azure Data Explorer destination.":::
 
 1. Specify an output schema for the data. The schema must match the table schema in Azure Data Explorer. You can select an existing schema or upload a new schema to the schema registry.
 1. Select **Apply** to provision the dataflow.
@@ -153,7 +153,7 @@ Before you create the dataflow endpoint, assign a role to the managed identity t
 
 # [Portal](#tab/portal)
 
-In the Azure IoT Operations portal dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **System assigned managed identity**.
+In the operations experience portal dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **System assigned managed identity**.
 
 In most cases, you don't need to specify a service audience. Not specifying an audience creates a managed identity with the default audience scoped to your storage account.
 
@@ -184,7 +184,7 @@ dataExplorerSettings:
 
 # [Portal](#tab/portal)
 
-In the Azure IoT Operations portal dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **User assigned managed identity**.
+In the operations experience portal dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **User assigned managed identity**.
 
 Enter the user assigned managed identity client ID and tenant ID in the appropriate fields.
 
@@ -218,9 +218,9 @@ For example, to configure the maximum number of messages to 1000 and the maximum
 
 # [Portal](#tab/portal)
 
-In the IoT Operations portal, select the **Advanced** tab for the dataflow endpoint.
+In the operations experience portal, select the **Advanced** tab for the dataflow endpoint.
 
-:::image type="content" source="media/howto-configure-adx-endpoint/adx-advanced.png" alt-text="Screenshot using Azure Operations portal to set Azure Data Explorer advanced settings.":::
+:::image type="content" source="media/howto-configure-adx-endpoint/adx-advanced.png" alt-text="Screenshot using operations experience portal to set Azure Data Explorer advanced settings.":::
 
 # [Kubernetes](#tab/kubernetes)
 

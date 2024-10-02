@@ -54,9 +54,9 @@ Once you have dataflow endpoints, you can use them to create a dataflow. Recall 
 
 # [Portal](#tab/portal)
 
-To create a dataflow in the Azure IoT Operations portal, select **Dataflow** > **Create dataflow**.
+To create a dataflow in the operations experience portal, select **Dataflow** > **Create dataflow**.
 
-:::image type="content" source="media/howto-create-dataflow/create-dataflow.png" alt-text="Screenshot using Azure Operations portal to create a dataflow.":::
+:::image type="content" source="media/howto-create-dataflow/create-dataflow.png" alt-text="Screenshot using operations experience portal to create a dataflow.":::
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -103,11 +103,11 @@ To configure a source for the dataflow, specify the endpoint reference and data 
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="media/howto-create-dataflow/dataflow-source-mqtt.png" alt-text="Screenshot using Azure Operations portal to select MQTT source endpoint.":::
+:::image type="content" source="media/howto-create-dataflow/dataflow-source-mqtt.png" alt-text="Screenshot using operations experience portal to select MQTT source endpoint.":::
 
 ### Use Asset as a source
 
-You can use an [asset](../discover-manage-assets/overview-manage-assets.md) as the source for the dataflow. This is only available in the Azure IoT Operations portal.
+You can use an [asset](../discover-manage-assets/overview-manage-assets.md) as the source for the dataflow. This is only available in the operations experience portal.
 
 1. Under **Source details**, select **Asset**.
 1. Select the asset you want to use as the source endpoint.
@@ -115,13 +115,13 @@ You can use an [asset](../discover-manage-assets/overview-manage-assets.md) as t
 
     A list of datapoints for the selected asset is displayed.
 
-    :::image type="content" source="media/howto-create-dataflow/dataflow-source-asset.png" alt-text="Screenshot using Azure Operations portal to select an asset as the source endpoint.":::
+    :::image type="content" source="media/howto-create-dataflow/dataflow-source-asset.png" alt-text="Screenshot using operations experience portal to select an asset as the source endpoint.":::
 
 1. Select **Apply** to use the asset as the source endpoint.
 
 # [Kubernetes](#tab/kubernetes)
 
-Configuring an asset as a source is only available in the Azure IoT Operations portal.
+Configuring an asset as a source is only available in the operations experience portal.
 
 # [Bicep](#tab/bicep)
 
@@ -140,7 +140,7 @@ bicep here
 1. Enter the **MQTT Topic** that you want to listen to for incoming messages.
 1. Choose a **Message schema** from the dropdown list or upload a new schema. If the source data has optional fields or fields with different types, specify a deserialization schema to ensure consistency. For example, the data might have fields that aren't present in all messages. Without the schema, the transformation can't handle these fields as they would have empty values. With the schema, you can specify default values or ignore the fields.
 
-    :::image type="content" source="media/howto-create-dataflow/dataflow-source-mqtt.png" alt-text="Screenshot using Azure Operations portal to select MQTT as the source endpoint.":::
+    :::image type="content" source="media/howto-create-dataflow/dataflow-source-mqtt.png" alt-text="Screenshot using operations experience portal to select MQTT as the source endpoint.":::
 
 1. Select **Apply**.
 
@@ -226,9 +226,9 @@ The transformation operation is where you can transform the data from the source
 
 # [Portal](#tab/portal)
 
-In the Azure IoT Operations portal, select **Dataflow** > **Add transform (optional)**.
+In the operations experience portal, select **Dataflow** > **Add transform (optional)**.
 
-:::image type="content" source="media/howto-configure-dataflow-endpoint/dataflow-transform.png" alt-text="Screenshot using IoT Operations portal to add a transform to a dataflow.":::
+:::image type="content" source="media/howto-configure-dataflow-endpoint/dataflow-transform.png" alt-text="Screenshot using operations experience portal to add a transform to a dataflow.":::
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -265,7 +265,7 @@ Key names in the distributed state store correspond to a dataset in the dataflow
 1. Select or upload a reference dataset schema.
 1. Add an enrich condition and description.
 
-    :::image type="content" source="media/howto-create-dataflow/dataflow-enrich.png" alt-text="Screenshot using IoT Operations portal to add an enrich transform.":::
+    :::image type="content" source="media/howto-create-dataflow/dataflow-enrich.png" alt-text="Screenshot using operations experience portal to add an enrich transform.":::
 
 1. Select **Apply**.
 
@@ -319,7 +319,7 @@ To filter the data on a condition, you can use the `filter` stage. The condition
 1. Choose the datapoints to include in the dataset.
 1. Add a filter condition and description.
 
-    :::image type="content" source="media/howto-create-dataflow/dataflow-filter.png" alt-text="Screenshot using IoT Operations portal to add a filter transform.":::
+    :::image type="content" source="media/howto-create-dataflow/dataflow-filter.png" alt-text="Screenshot using operations experience portal to add a filter transform.":::
 
 1. Select **Apply**.
 
@@ -353,12 +353,12 @@ To map the data to another field with optional conversion, you can use the `map`
 
 # [Portal](#tab/portal)
 
-In the IoT Operations portal, mapping is separated into **Compute**, **New property** and **Rename** transforms.
+In the operations experience portal, mapping is separated into **Compute**, **New property** and **Rename** transforms.
 
 1. Under **Transform (optional)**, select one of the  **Compute**, **New property** or **Rename** transforms and then select **Add**.
 1. Enter the required fields and expressions.
 
-    :::image type="content" source="media/howto-create-dataflow/dataflow-map.png" alt-text="Screenshot using IoT Operations portal to add a map transform.":::
+    :::image type="content" source="media/howto-create-dataflow/dataflow-map.png" alt-text="Screenshot using operations experience portal to add a map transform.":::
 
 1. Select **Apply**.
 
@@ -442,7 +442,7 @@ To configure a destination for the dataflow, specify the endpoint reference and 
 
 1. Select the dataflow endpoint to use as the destination.
 
-    :::image type="content" source="media/howto-create-dataflow/dataflow-destination.png" alt-text="Screenshot using Azure Operations portal to select MQTT destination endpoint.":::
+    :::image type="content" source="media/howto-create-dataflow/dataflow-destination.png" alt-text="Screenshot using operations experience portal to select MQTT destination endpoint.":::
 
 1. Select **Proceed** to configure the destination.
 1. Add the mapping details based on they type of destination.
@@ -528,15 +528,15 @@ Follow [Tutorial: Bi-directional MQTT bridge to Azure Event Grid](tutorial-mqtt-
 
 ## Manage dataflows
 
-After you've created a dataflow, you can manage it using the Azure IoT Operations portal or by updating the Dataflow CR.
+After you've created a dataflow, you can manage it using the operations experience portal or by updating the Dataflow CR.
 
 ### Enable/disable dataflow
 
-To enable or disable a dataflow, you can use the Azure IoT Operations portal or by updating the Dataflow custom resource.
+To enable or disable a dataflow, you can use the operations experience portal or by updating the Dataflow custom resource.
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="media/howto-create-dataflow/dataflow-enable.png" alt-text="Screenshot using Azure Operations portal to disable a dataflow.":::
+:::image type="content" source="media/howto-create-dataflow/dataflow-enable.png" alt-text="Screenshot using operations experience portal to disable a dataflow.":::
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -555,19 +555,19 @@ bicep here
 
 ### View dataflow health status and metrics
 
-You can view the health status and metrics of the dataflow in the Azure IoT Operations portal.
+You can view the health status and metrics of the dataflow in the operations experience portal.
 
 <!-- TODO: link to relevant observability docs -->
 
 ### Delete dataflow
 
-To delete a dataflow, you can use the Azure IoT Operations portal or by deleting the Dataflow custom resource.
+To delete a dataflow, you can use the operations experience portal or by deleting the Dataflow custom resource.
 
 # [Portal](#tab/portal)
 
 Select the dataflow you want to delete and select **Delete** from the toolbar.
 
-:::image type="content" source="media/howto-create-dataflow/delete-dataflow.png" alt-text="Screenshot using Azure Operations portal to delete a dataflow.":::
+:::image type="content" source="media/howto-create-dataflow/delete-dataflow.png" alt-text="Screenshot using operations experience portal to delete a dataflow.":::
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -585,13 +585,13 @@ bicep here
 
 ### Export dataflow configuration
 
-To export the dataflow configuration, you can use the Azure IoT Operations portal or by exporting the Dataflow custom resource.
+To export the dataflow configuration, you can use the operations experience portal or by exporting the Dataflow custom resource.
 
 # [Portal](#tab/portal)
 
 Select the dataflow you want to export and select **Export** from the toolbar.
 
-:::image type="content" source="media/howto-create-dataflow/dataflow-export.png" alt-text="Screenshot using IoT Operations portal to export a dataflow.":::
+:::image type="content" source="media/howto-create-dataflow/dataflow-export.png" alt-text="Screenshot using operations experience portal to export a dataflow.":::
 
 # [Kubernetes](#tab/kubernetes)
 

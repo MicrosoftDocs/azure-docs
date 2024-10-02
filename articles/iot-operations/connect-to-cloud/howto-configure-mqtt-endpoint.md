@@ -22,16 +22,29 @@ MQTT dataflow endpoints are used for MQTT sources and destinations. You can conf
 - An instance of [Azure IoT Operations Preview](../deploy-iot-ops/howto-deploy-iot-operations.md)
 - A [configured dataflow profile](howto-configure-dataflow-profile.md)
 
-## Azure IoT Operations built-in MQTT broker
+## Azure IoT Operations Local MQTT broker
 
-Azure IoT Operations provides a built-in MQTT broker that you can use with dataflows.
+Azure IoT Operations provides a built-in MQTT broker that you can use with dataflows. When you deploy Azure IoT Operations, a *default* MQTT broker dataflow endpoint is created with default settings. You can use this endpoint as a source or destination for dataflows.
+
+You can also create new local MQTT broker endpoints with custom settings. For example, you can create a new MQTT broker endpoint using a different port, authentication, or other settings.
 
 # [Portal](#tab/portal)
 
-1. In the IoT Operations portal, select the **Dataflow endpoints**.
-1. The built-in MQTT broker endpoint is already created with default settings. You can view the endpoint settings by selecting the **default** dataflow endpoint in the list.
+1. In the operations experience portal, select the **Dataflow endpoints**.
+1. Under **Create new dataflow endpoint**, select **Azure IoT Operations Local MQTT** > **New**.
 
-    :::image type="content" source="media/howto-configure-mqtt-endpoint/default-mqtt-endpoint.png" alt-text="Screenshot using Azure Operations portal to view default MQTT dataflow endpoint.":::
+    :::image type="content" source="media/howto-configure-mqtt-endpoint/local-mqtt-endpoint.png" alt-text="Screenshot using operations experience portal to create a new local MQTT dataflow endpoint.":::
+
+    Enter the following settings for the endpoint:
+
+    | Setting              | Description                                                                                       |
+    | -------------------- | ------------------------------------------------------------------------------------------------- |
+    | Name                 | The name of the dataflow endpoint.                                                        |
+    | Host                 | The hostname and port of the MQTT broker. Use the format `<hostname>:<port>`                                |
+    | Authentication method | The method used for authentication. Choose *System assigned managed identity*, or *X509 certificate* |
+    | X509 client certificate | The X.509 client certificate used for authentication. Required if using *X509 certificate*. |
+    | X509 client key       | The private key corresponding to the X.509 client certificate. Required if using *X509 certificate*. |
+    | X509 intermediate certificates | The intermediate certificates for the X.509 client certificate chain. Required if using *X509 certificate*. |
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -121,12 +134,12 @@ To configure an Azure Event Grid MQTT broker endpoint, we recommend that you use
 
 # [Portal](#tab/portal)
 
-1. In the IoT Operations portal, select the **Dataflow endpoints** tab.
+1. In the operations experience portal, select the **Dataflow endpoints** tab.
 1. Under **Create new dataflow endpoint**, select **Azure Event Grid MQTT** > **New**.
 
-    :::image type="content" source="media/howto-configure-mqtt-endpoint/event-grid-endpoint.png" alt-text="Screenshot using Azure Operations portal to create an Azure Event Grid endpoint.":::
+    :::image type="content" source="media/howto-configure-mqtt-endpoint/event-grid-endpoint.png" alt-text="Screenshot using operations experience portal to create an Azure Event Grid endpoint.":::
 
-1. Enter the following settings for the endpoint:
+    Enter the following settings for the endpoint:
 
     | Setting              | Description                                                                                       |
     | -------------------- | ------------------------------------------------------------------------------------------------- |
@@ -230,10 +243,10 @@ For other MQTT brokers, you can configure the endpoint, TLS, authentication, and
 
 # [Portal](#tab/portal)
 
-1. In the IoT Operations portal, select the **Dataflow endpoints** tab.
+1. In the operations experience portal, select the **Dataflow endpoints** tab.
 1. Under **Create new dataflow endpoint**, select **Custom MQTT Broker** > **New**.
 
-    :::image type="content" source="media/howto-configure-mqtt-endpoint/custom-mqtt-broker.png" alt-text="Screenshot using Azure Operations portal to create a custom MQTT broker endpoint.":::
+    :::image type="content" source="media/howto-configure-mqtt-endpoint/custom-mqtt-broker.png" alt-text="Screenshot using operations experience portal to create a custom MQTT broker endpoint.":::
 
 1. Enter the following settings for the endpoint:
 
@@ -304,7 +317,7 @@ Once you've configured the endpoint, you can use it in a dataflow as both a sour
 1. Enter the MQTT topic to which the dataflow publishes messages.
 1. Select **Apply** to provision the dataflow.
 
-    :::image type="content" source="media/howto-configure-mqtt-endpoint/create-dataflow-mq-mq.png" alt-text="Screenshot using Azure Operations portal to create a dataflow with an MQTT source and destination.":::
+    :::image type="content" source="media/howto-configure-mqtt-endpoint/create-dataflow-mq-mq.png" alt-text="Screenshot using operations experience portal to create a dataflow with an MQTT source and destination.":::
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -386,7 +399,7 @@ kubectl create secret tls my-tls-secret -n azure-iot-operations \
 
 # [Portal](#tab/portal)
 
-In the Azure IoT Operations portal dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **X509 certificate**.
+In the operations experience portal dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **X509 certificate**.
 
 Enter the following settings for the endpoint:
 
@@ -430,7 +443,7 @@ Then, configure the endpoint with system-assigned managed identity settings. In 
 
 # [Portal](#tab/portal)
 
-In the Azure IoT Operations portal dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **System assigned managed identity**.
+In the operations experience portal dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **System assigned managed identity**.
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -470,7 +483,7 @@ mqttSettings: {
 
 # [Portal](#tab/portal)
 
-In the Azure IoT Operations portal dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **User assigned managed identity**.
+In the operations experience portal dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **User assigned managed identity**.
 
 Enter the user assigned managed identity client ID and tenant ID in the appropriate fields.
 
@@ -509,7 +522,7 @@ To use Kubernetes service account token (SAT) for authentication, you don't need
 
 # [Portal](#tab/portal)
 
-In the Azure IoT Operations portal dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **Service account token**.
+In the operations experience portal dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **Service account token**.
 
 Enter the service audience.
 
@@ -560,9 +573,9 @@ You can set advanced settings for the MQTT broker dataflow endpoint such as TLS,
 
 # [Portal](#tab/portal)
 
-In the IoT Operations portal, select the **Advanced** tab for the dataflow endpoint.
+In the operations experience portal, select the **Advanced** tab for the dataflow endpoint.
 
-:::image type="content" source="media/howto-configure-mqtt-endpoint/mqtt-advanced.png" alt-text="Screenshot using Azure Operations portal to set Kafka dataflow endpoint advanced settings.":::
+:::image type="content" source="media/howto-configure-mqtt-endpoint/mqtt-advanced.png" alt-text="Screenshot using operations experience portal to set Kafka dataflow endpoint advanced settings.":::
 
 | Setting                  | Description                                                                                       |
 | ------------------------ | ------------------------------------------------------------------------------------------------- |
