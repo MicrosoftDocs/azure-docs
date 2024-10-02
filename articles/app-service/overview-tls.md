@@ -29,7 +29,7 @@ Transport Layer Security (TLS) is a widely adopted security protocol designed to
 
 For incoming requests to your web app, App Service supports TLS versions 1.0, 1.1, 1.2, and 1.3.  
 
-### Setting Minimum TLS Version
+### Set Minimum TLS Version
 Follow these steps to change the Minimum TLS version of your App Service resource:
 1. Browse to your app in the [Azure portal](https://portal.azure.com/) 
 1. In the left menu, select **configuration** and then select the **General settings** tab. 
@@ -38,7 +38,7 @@ Follow these steps to change the Minimum TLS version of your App Service resourc
 
 ### Minimum TLS Version with Azure Policy 
 
-You can use Azure Policy to help audit your resources when it comes to minimum TLS version. You can refer to [App Service apps should use the latest TLS version policy definition](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff0e6e85b-9b9f-4a4b-b67b-f730d42f1b0b) and change the values to your desired minimum TLS version. For similar policy definitions for other App Service resources, refer to [List of built-in policy definitions - Azure Policy for App Service](../governance/policy/samples/built-in-policies#app-service). 
+You can use Azure Policy to help audit your resources when it comes to minimum TLS version. You can refer to [App Service apps should use the latest TLS version policy definition](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff0e6e85b-9b9f-4a4b-b67b-f730d42f1b0b) and change the values to your desired minimum TLS version. For similar policy definitions for other App Service resources, refer to [List of built-in policy definitions - Azure Policy for App Service](../governance/policy/samples/built-in-policies.md#app-service). 
 
 ### Minimum TLS Version and SCM Minimum TLS Version 
 
