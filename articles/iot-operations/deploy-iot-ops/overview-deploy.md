@@ -20,8 +20,6 @@ Azure IoT Operations should work on any Arc-enabled Kubernetes cluster that meet
 
 Microsoft supports Azure Kubernetes Service (AKS) Edge Essentials for deployments on Windows and K3s for deployments on Ubuntu. For a list of specific hardware and software combinations that are tested and validated, see [Validated environments](../overview-iot-operations.md#validated-environments).
 
-If you want to deploy Azure IoT Operations to a multi-node solution, we recommend K3s on Ubuntu.
-
 ## Choose your features
 
 Azure IoT Operations offers two deployment modes. You can choose to deploy with *test settings*, a basic subset of features that are simpler to get started with for evaluation scenarios. Or, you can choose to deploy with *secure settings*, the full feature set.
@@ -55,18 +53,17 @@ The following table described Azure IoT Operations deployment and management tas
 
 | Task | Required permission | Comments |
 | ---- | ------------------- | -------- |
-| Deploy Azure IoT Operations | **Contributor** permissions at the subscription level. |  |
-| Create secrets in Key Vault | **Key Vault Secrets Officer** permissions at the resource level. | Only required for secure settings deployment. |
-| Enable resource sync rules on an Azure IoT Operations instance | **Microsoft/Authorization/roleAssignments/write** permissions at the resource group level. | Resource sync rules are disabled by default, but can be enabled during instance creation. |
+| Deploy Azure IoT Operations | **Contributor** role at the subscription level. |  |
+| Register resource providers | **Contributor** role at the subscription level. | Only required to do once per subscription. |
 | Create a schema registry. | **Microsoft/Authorization/roleAssignments/write** permissions at the resource group level. |  |
+| Create secrets in Key Vault | **Key Vault Secrets Officer** role at the resource level. | Only required for secure settings deployment. |
+| Enable resource sync rules on an Azure IoT Operations instance | **Microsoft/Authorization/roleAssignments/write** permissions at the resource group level. | Resource sync rules are disabled by default, but can be enabled during instance creation. |
 
-> [!TIP]
->
-> * If you use the Azure CLI to assign roles, use the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command to give permissions. For example, `az role assignment create --assignee sp_name --role "Role Based Access Control Administrator" --scope subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyResourceGroup`
->
-> * If you use the Azure portal to assign privileged admin roles to a user or principal, you're prompted to restrict access using conditions. For this scenario, select the **Allow user to assign all roles** condition in the **Add role assignment** page.
->
->   :::image type="content" source="./media/howto-deploy-iot-operations/add-role-assignment-conditions.png" alt-text="Screenshot that shows assigning users highly privileged role access in the Azure portal.":::
+If you use the Azure CLI to assign roles, use the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command to give permissions. For example, `az role assignment create --assignee sp_name --role "Role Based Access Control Administrator" --scope subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyResourceGroup`
+
+If you use the Azure portal to assign privileged admin roles to a user or principal, you're prompted to restrict access using conditions. For this scenario, select the **Allow user to assign all roles** condition in the **Add role assignment** page.
+
+:::image type="content" source="./media/howto-deploy-iot-operations/add-role-assignment-conditions.png" alt-text="Screenshot that shows assigning users highly privileged role access in the Azure portal.":::
 
 ## Included components
 
@@ -76,10 +73,12 @@ Azure IoT Operations is a suite of data services that run on Azure Arc-enabled e
   * Dataflows
   * MQTT Broker
   * Connector for OPC UA
+  * Akri
 
 * Installed dependencies
   * [Azure Device Registry](../discover-manage-assets/overview-manage-assets.md#store-assets-as-azure-resources-in-a-centralized-registry)
   * [Azure Container Storage enabled by Azure Arc](/azure/azure-arc/container-storage/overview)
+  * Secret Sync Controller
 
 ## Organize instances by using sites
 
