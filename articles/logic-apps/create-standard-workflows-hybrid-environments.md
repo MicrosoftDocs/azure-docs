@@ -2,6 +2,7 @@
 title: Create Standard workflows for hybrid environments
 description: Create an example Standard workflow that runs in customer-managed, hybrid, on-premises, and multiple cloud environments.
 services: azure-logic-apps
+ms.service: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
