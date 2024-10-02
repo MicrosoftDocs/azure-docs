@@ -204,7 +204,7 @@ Register-AzProviderFeature -FeatureName AzurePremiumFilesMetadataCacheFeature -P
 
 ### Regional availability
 
-Currently the metadata caching preview is only available in the following Azure regions. To request addition region support please [sign up for the public preview](https://aka.ms/PremiumFilesMetadataCachingPreview)
+Currently the metadata caching preview is only available in the following Azure regions. To request additional region support, [sign up for the public preview](https://aka.ms/PremiumFilesMetadataCachingPreview).
 
 - Australia Central
 - Jio India West
