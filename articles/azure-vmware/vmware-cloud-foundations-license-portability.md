@@ -32,7 +32,7 @@ To take advantage of the Reserved Instance (RI) pricing for the VCF license port
 ## Request host quota with VCF license portability
 
 Existing: 
-:::image type="content" source="media/vmware-cloud-foundations-license-portability/quota-request-old.png" alt-text="Picture of quota request description for existing Azure VMware Solution." border="true":::
+:::image type="content" source="media/vmware-cloud-foundations-license-portability/quota-request-old.png" alt-text="Screenshot of quota request description for existing Azure VMware Solution." border="true":::
 
 To request quota for VCF license portability offering, provide the following additional information in the **Description** of the support ticket:
 
