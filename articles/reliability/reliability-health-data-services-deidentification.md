@@ -106,7 +106,7 @@ az afd endpoint create --resource-group my-deid --endpoint-name myendpoint --pro
 Run [`az afd origin-group create`](/cli/azure/afd/origin-group#az-afd-origin-group-create) to create an origin group that contains your two de-identification services.
 
 ```azurecli-interactive
-az afd origin-group create --resource-group my-deid --origin-group-name myorigingroup --profile-name myfrontdoorprofile --probe-request-type GET --probe-protocol Https --probe-interval-in-seconds 60 --probe-path /health --sample-size 4 --successful-samples-required 3 --additional-latency-in-milliseconds 50 --enable-health-probe
+az afd origin-group create --resource-group my-deid --origin-group-name myorigingroup --profile-name myfrontdoorprofile --probe-request-type GET --probe-protocol Https --probe-interval-in-seconds 60 --probe-path /health --sample-size 1 --successful-samples-required 1 --additional-latency-in-milliseconds 50 --enable-health-probe
 ```
 
 |Parameter  |Value  |Description  |
@@ -116,8 +116,8 @@ az afd origin-group create --resource-group my-deid --origin-group-name myorigin
 |`probe-protocol`    |`Https`         |Protocol to use for health probe.        |
 |`probe-interval-in-seconds`     |`60`         |The number of seconds between health probes.        |
 |`probe-path`    |`/health`         |The path relative to the origin that is used to determine the health of the origin.       |
-|`sample-size`     |`4`         |The number of samples to consider for load balancing decisions.        |
-|`successful-samples-required`     |`3`         |The number of samples within the sample period that must succeed.        |
+|`sample-size`     |`1`         |The number of samples to consider for load balancing decisions.        |
+|`successful-samples-required`     |`1`         |The number of samples within the sample period that must succeed.        |
 |`additional-latency-in-milliseconds`     |`50`         |The extra latency in milliseconds for probes to fall into the lowest latency bucket.        |
 |`enable-health-probe` | | Switch to control the status of the health probe. |
 
