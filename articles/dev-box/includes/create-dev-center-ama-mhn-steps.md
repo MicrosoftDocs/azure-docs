@@ -1,7 +1,7 @@
 ---
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 09/26/2024
+ms.date: 10/02/2024
 ms.topic: include
 ms.service: dev-box
 ---
@@ -28,17 +28,17 @@ ms.service: dev-box
 
    :::image type="content" source="../media/create-dev-center-ama-mhn-steps/create-dev-center-basics.png" alt-text="Screenshot that shows the Basics tab on the pane for creating a dev center." lightbox="../media/create-dev-center-ama-mhn-steps/create-dev-center-basics.png":::
 
-   The Dev Box quick start catalog contains tasks and scripts that you can use to configure your dev box during the final stage of the creation process. You can attach a quick start catalog to a dev center later. For more information, see [Create reusable dev box customizations](../how-to-customize-dev-box-setup-tasks.md
+   The Dev Box quick start catalog contains tasks and scripts that you can use to configure your dev box during the final stage of the creation process. You can attach a quick start catalog to a dev center later. For more information, see [Create reusable dev box customizations](../how-to-customize-dev-box-setup-tasks.md).
 
    For a list of the currently supported Azure locations with capacity, see [Frequently asked questions about Microsoft Dev Box](https://aka.ms/devbox_acom).
 
 1. On the **Settings** tab, enter the following values:
 
-   | Setting | Value |
-   |---|---|
-   | **Project level catalog** | Select to enable Project Admins to attach catalogs to projects. |
-   | **Allow Microsoft hosted network in projects** | Select to enable Project Admins to specify that dev boxes created from a pool deploy to a Microsoft hosted network.  |
-   | **Azure Monitor Agent** | Select to enable all dev boxes in the dev center to install the Azure Monitor agent. |
+   | Setting | Value | Description |
+   |---|---|---|
+   | **Project level catalog** | Select to enable Project Admins to attach catalogs to projects. | Project-level catalogs enable you to provide customizations for each development team. |
+   | **Allow Microsoft hosted network in projects** | Select to enable Project Admins to specify that dev boxes created from a pool deploy to a Microsoft hosted network.  | Microsoft hosted networks are isolated networks that are managed by Microsoft. Using a Microsoft hosted network can reduce administrative overhead.   |
+   | **Azure Monitor Agent** | Select to enable all dev boxes in the dev center to install the Azure Monitor agent. | The Azure Monitor agent collects monitoring data from the dev box and sends it to Azure Monitor. |
 
    :::image type="content" source="../media/create-dev-center-ama-mhn-steps/create-dev-center-settings.png" alt-text="Screenshot that shows the Settings tab on the pane for creating a dev center." lightbox="../media/create-dev-center-ama-mhn-steps/create-dev-center-settings.png":::
 
