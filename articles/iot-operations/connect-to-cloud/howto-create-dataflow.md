@@ -83,14 +83,6 @@ spec:
         # See destination configuration section
 ```
 
-# [Bicep](#tab/bicep)
-
-The overall structure of a dataflow configuration for Bicep is as follows:
-
-```bicep
-bicep here
-```
-
 ---
 
 <!-- TODO: link to API reference -->
@@ -102,8 +94,6 @@ Review the following sections to learn how to configure the operation types of t
 To configure a source for the dataflow, specify the endpoint reference and data source. You can specify a list of data sources for the endpoint.
 
 # [Portal](#tab/portal)
-
-:::image type="content" source="media/howto-create-dataflow/dataflow-source-mqtt.png" alt-text="Screenshot using operations experience portal to select MQTT source endpoint.":::
 
 ### Use Asset as a source
 
@@ -122,13 +112,6 @@ You can use an [asset](../discover-manage-assets/overview-manage-assets.md) as t
 # [Kubernetes](#tab/kubernetes)
 
 Configuring an asset as a source is only available in the operations experience portal.
-
-# [Bicep](#tab/bicep)
-
-TODO for bicep
-```bicep
-bicep here
-```
 
 ---
 
@@ -189,7 +172,7 @@ To specify the schema, create the file and store it in the schema registry.
 > [!NOTE]
 > The only supported serialization format is JSON. The schema is optional.
 
-<!-- TODO: link to schema registry docs -->
+For more information about schema registry, see [Understand message schemas](concept-schema-registry.md).
 
 #### Shared subscriptions
 
@@ -208,12 +191,6 @@ sourceSettings:
 
 <!-- TODO: Details -->
 
-# [Bicep](#tab/bicep)
-
-```bicep
-bicep here
-```
-
 ---
 
 ## Configure transformation to process data
@@ -228,7 +205,7 @@ The transformation operation is where you can transform the data from the source
 
 In the operations experience portal, select **Dataflow** > **Add transform (optional)**.
 
-:::image type="content" source="media/howto-configure-dataflow-endpoint/dataflow-transform.png" alt-text="Screenshot using operations experience portal to add a transform to a dataflow.":::
+:::image type="content" source="media/howto-create-dataflow/dataflow-transform.png" alt-text="Screenshot using operations experience portal to add a transform to a dataflow.":::
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -244,11 +221,6 @@ builtInTransformationSettings:
 
 <!-- TODO: link to API reference -->
 
-# [Bicep](#tab/bicep)
-
-```bicep
-bicep here
-```
 
 ---
 
@@ -260,14 +232,7 @@ Key names in the distributed state store correspond to a dataset in the dataflow
 
 # [Portal](#tab/portal)
 
-1. Under **Transform (optional)**, select **Enrich** > **Add**.
-1. Choose the datapoints to include in the dataset.
-1. Select or upload a reference dataset schema.
-1. Add an enrich condition and description.
-
-    :::image type="content" source="media/howto-create-dataflow/dataflow-enrich.png" alt-text="Screenshot using operations experience portal to add an enrich transform.":::
-
-1. Select **Apply**.
+Currently, the enrich operation is not available in the operations experience portal.
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -296,12 +261,6 @@ If the dataset has a record with the `asset` field, similar to:
 The data from the source with the `deviceId` field matching `thermostat1` has the `location` and `manufacturer` fields available in `filter` and `map` stages.
 
 <!-- TODO: link to API reference -->
-
-# [Bicep](#tab/bicep)
-
-```bicep
-bicep here
-```
 
 ---
 
@@ -339,12 +298,6 @@ If the `temperature` field is greater than 20, the data is passed to the next st
 
 <!-- TODO: link to API reference -->
 
-# [Bicep](#tab/bicep)
-
-```bicep
-bicep here
-```
-
 ---
 
 ### Map: Move data from one field to another
@@ -353,12 +306,12 @@ To map the data to another field with optional conversion, you can use the `map`
 
 # [Portal](#tab/portal)
 
-In the operations experience portal, mapping is separated into **Compute**, **New property** and **Rename** transforms.
+In the operations experience portal, mapping is currently supported using **Compute** transforms.
 
-1. Under **Transform (optional)**, select one of the  **Compute**, **New property** or **Rename** transforms and then select **Add**.
+1. Under **Transform (optional)**, select **Compute** > **Add**.
 1. Enter the required fields and expressions.
 
-    :::image type="content" source="media/howto-create-dataflow/dataflow-map.png" alt-text="Screenshot using operations experience portal to add a map transform.":::
+    :::image type="content" source="media/howto-create-dataflow/dataflow-compute.png" alt-text="Screenshot using operations experience portal to add a compute transform.":::
 
 1. Select **Apply**.
 
@@ -379,12 +332,6 @@ builtInTransformationSettings:
 ```
 
 <!-- TODO: link to API reference -->
-
-# [Bicep](#tab/bicep)
-
-```bicep
-bicep here
-```
 
 ---
 
@@ -407,9 +354,9 @@ builtInTransformationSettings:
   schemaRef: aio-sr://<NAMESPACE>/<SCHEMA>:<VERSION>
 ```
 
-To specify the schema, you can create a Schema CR with the schema definition.
+To specify the schema, you can create a Schema custom resource with the schema definition.
 
-<!-- TODO: link to schema registry docs -->
+For more information about schema registry, see [Understand message schemas](concept-schema-registry.md).
 
 
 ```json
@@ -424,12 +371,6 @@ To specify the schema, you can create a Schema CR with the schema definition.
 }
 ```
 
-# [Bicep](#tab/bicep)
-
-```bicep
-bicep here
-```
-
 ---
 
 Supported serialization formats are JSON, Parquet, and Delta.
@@ -442,12 +383,10 @@ To configure a destination for the dataflow, specify the endpoint reference and 
 
 1. Select the dataflow endpoint to use as the destination.
 
-    :::image type="content" source="media/howto-create-dataflow/dataflow-destination.png" alt-text="Screenshot using operations experience portal to select MQTT destination endpoint.":::
+    :::image type="content" source="media/howto-create-dataflow/dataflow-destination.png" alt-text="Screenshot using operations experience portal to select Event Hubs destination endpoint.":::
 
 1. Select **Proceed** to configure the destination.
-1. Add the mapping details based on they type of destination.
-
-
+1. Add the mapping details based on the type of destination.
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -513,75 +452,11 @@ spec:
 
 <!-- TODO: add links to examples in the reference docs -->
 
-# [Bicep](#tab/bicep)
-
-```bicep
-bicep here
-```
-
 ---
 
 ## Verify a dataflow is working
 
 Follow [Tutorial: Bi-directional MQTT bridge to Azure Event Grid](tutorial-mqtt-bridge.md) to verify the dataflow is working.
-
-
-## Manage dataflows
-
-After you've created a dataflow, you can manage it using the operations experience portal or by updating the Dataflow CR.
-
-### Enable/disable dataflow
-
-To enable or disable a dataflow, you can use the operations experience portal or by updating the Dataflow custom resource.
-
-# [Portal](#tab/portal)
-
-:::image type="content" source="media/howto-create-dataflow/dataflow-enable.png" alt-text="Screenshot using operations experience portal to disable a dataflow.":::
-
-# [Kubernetes](#tab/kubernetes)
-
-```yaml
-spec:
-  mode: Disabled
-```
-
-# [Bicep](#tab/bicep)
-
-```bicep
-bicep here
-```
-
----
-
-### View dataflow health status and metrics
-
-You can view the health status and metrics of the dataflow in the operations experience portal.
-
-<!-- TODO: link to relevant observability docs -->
-
-### Delete dataflow
-
-To delete a dataflow, you can use the operations experience portal or by deleting the Dataflow custom resource.
-
-# [Portal](#tab/portal)
-
-Select the dataflow you want to delete and select **Delete** from the toolbar.
-
-:::image type="content" source="media/howto-create-dataflow/delete-dataflow.png" alt-text="Screenshot using operations experience portal to delete a dataflow.":::
-
-# [Kubernetes](#tab/kubernetes)
-
-```bash
-kubectl delete dataflow my-dataflow
-```
-
-# [Bicep](#tab/bicep)
-
-```bicep
-bicep here
-```
-
----
 
 ### Export dataflow configuration
 
@@ -597,13 +472,6 @@ Select the dataflow you want to export and select **Export** from the toolbar.
 
 ```bash
 kubectl get dataflow my-dataflow -o yaml > my-dataflow.yaml
-```
-
-# [Bicep](#tab/bicep)
-
-TODO for bicep
-```bicep
-bicep here
 ```
 
 ---

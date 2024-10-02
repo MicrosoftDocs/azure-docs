@@ -64,7 +64,7 @@ spec:
 
 ---
 
-Similarly, you can create multiple dataflows that use the same MQTT endpoint for different topics.
+Similarly, you can create multiple dataflows that use the same MQTT endpoint for other endpoints and topics. For example, you can use the same MQTT endpoint for a dataflow that sends data to sends data to Kafka.
 
 # [Portal](#tab/portal)
 
@@ -95,6 +95,3 @@ spec:
 ---
 
 Similar to the MQTT example, you can create multiple dataflows that use the same Kafka endpoint for different topics, or the same Data Lake endpoint for different tables.
-
-
----
