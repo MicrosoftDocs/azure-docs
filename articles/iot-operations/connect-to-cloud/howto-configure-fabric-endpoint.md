@@ -248,7 +248,11 @@ resource dataflow_onelake 'Microsoft.IoTOperations/instances/dataflowProfiles/da
 }
 ```
 
-The `BuiltInTransformation` in this Bicep file transforms the data flowing through the dataflow pipeline. It applies a pass-through operation, mapping all input fields `(inputs: array('*'))` directly to the output `(output: '*')`, without altering the data. It also references the defined OPC-UA schema to ensure the data is structured according to the OPC UA protocol. The transformation then serializes the data in Delta format (or Parquet if specified). This step ensures that the data adheres to the required schema and format before being sent to the destination.
+The `BuiltInTransformation` in this Bicep file transforms the data flowing through the dataflow pipeline. It applies a pass-through operation, mapping all input fields `(inputs: array('*'))` directly to the output `(output: '*')`, without altering the data. 
+
+It also references the defined OPC-UA schema to ensure the data is structured according to the OPC UA protocol. The transformation then serializes the data in Delta format (or Parquet if specified).
+
+This step ensures that the data adheres to the required schema and format before being sent to the destination.
 
 ---
 
