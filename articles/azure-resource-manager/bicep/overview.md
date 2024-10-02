@@ -89,7 +89,7 @@ Bicep provides the following advantages:
   ```bicep
   param location string = resourceGroup().location
   
-  resource mystore 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+  resource mystore 'Microsoft.Storage/storageAccounts@2023-05-01' = {
     name: 'mystorageaccount'
     location: location
     sku: {
