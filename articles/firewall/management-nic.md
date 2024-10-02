@@ -53,7 +53,7 @@ Use the following steps:
 
 ## Convert a regular firewall to a forced tunnel mode firewall
 
-The following procedure shows you how to convert a regular firewall to a forced tunnel mode firewall with a Management subnet. This is done without deleting the original firewall. To avoid deleting it, you can use the following procedure to stop it, and then realloacate it with a Management IP address and subnet.
+The following procedure shows you how to convert a regular firewall to a forced tunnel mode firewall with a Management subnet. This is done without deleting the original firewall. To avoid deleting it, you can use the following procedure to stop it, and then reallocate it with a Management IP address and subnet.
 
 1. Create the new `AzureFirewallManagementSubnet` subnet
 
@@ -61,7 +61,7 @@ The following procedure shows you how to convert a regular firewall to a forced 
    :::image type="content" source="media/management-nic/firewall-management-subnet.png" alt-text="Screenshot showing add a subnet.":::
    1. Use the appropriate IP address range for the virtual network.
 1. Create the new management public IP address
-   1. Create it with the same properties as the existing firewalll public IP address: SKU, Tier, and Location.
+   1. Create it with the same properties as the existing firewall public IP address: SKU, Tier, and Location.
    :::image type="content" source="media/management-nic/firewall-management-ip.png" lightbox="media/management-nic/firewall-management-ip.png" alt-text="Screenshot showing the public IP address creation.":::
    
 1. Stop the firewall
@@ -75,7 +75,7 @@ The following procedure shows you how to convert a regular firewall to a forced 
    ```
    
 
-1. Start the firewal with the management IP address and subnet
+1. Start the firewall with the management IP address and subnet
 
    For example, start the firewall with one public IP address and a Management public IP address:
 
@@ -100,7 +100,7 @@ The following procedure shows you how to convert a regular firewall to a forced 
    $azfw | Set-AzFirewall
    ```
    
-Now when you view the firewall in the Azure portal, you'll see the assigned Management public IP address:
+Now when you view the firewall in the Azure portal, you see the assigned Management public IP address:
 
 :::image type="content" source="media/management-nic/firewall-with-management-ip.png" lightbox="media/management-nic/firewall-with-management-ip.png" alt-text="Screenshot showing the firewall with a management IP address.":::
    
