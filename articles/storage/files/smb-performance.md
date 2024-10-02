@@ -170,7 +170,7 @@ The load was generated against a single 128 GiB file. With SMB Multichannel enab
 Metadata caching is an enhancement for SMB Azure premium file shares aimed to improve the following:
 
 - Reduce metadata latency
-- Raise metadata scale limits.
+- Raise metadata scale limits
 - Increase latency consistency, available IOPS, and boost network throughput
 
 This preview feature improves the following metadata APIs and can be used from both Windows and Linux clients:
