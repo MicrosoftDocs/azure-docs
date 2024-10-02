@@ -85,9 +85,9 @@ To configure a dataflow endpoint for Microsoft Fabric OneLake, we suggest using 
 
 This Bicep template file from [Bicep File for Microsoft Fabric OneLake dataflow Tutorial](https://gist.github.com/david-emakenemi/289a167c8fa393d3a7dce274a6eb21eb) deploys the necessary resources for dataflows to Fabric OneLake.
 
-Download the file to your local, and make sure to replace the values for `customLocationName`, `aioInstanceName`, `schemaRegistryName`, `opcuaSchemaName`, and `persistentVCName`.
+1. Download the file to your local, and make sure to replace the values for `customLocationName`, `aioInstanceName`, `schemaRegistryName`, `opcuaSchemaName`, and `persistentVCName`.
 
-Next, deploy the resources using the [az stack group](/azure/azure-resource-manager/bicep/deployment-stacks?tabs=azure-powershell) command in your terminal:
+1. Next, deploy the resources using the [az stack group](/azure/azure-resource-manager/bicep/deployment-stacks?tabs=azure-powershell) command in your terminal:
 
 ```azurecli
 az stack group create --name MyDeploymentStack --resource-group $RESOURCE_GROUP --template-file /workspaces/explore-iot-operations/mqtt-bridge.bicep --action-on-unmanage 'deleteResources' --deny-settings-mode 'none' --yes
@@ -203,6 +203,7 @@ fabricOneLakeSettings:
 ```
 
 # [Bicep](#tab/bicep)
+
 ```bicep
 resource dataflow_onelake 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2024-08-15-preview' = {
   parent: defaultDataflowProfile
