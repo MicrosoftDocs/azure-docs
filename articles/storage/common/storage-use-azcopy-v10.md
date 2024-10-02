@@ -107,10 +107,10 @@ You can install AzCopy by using a Linux package that is hosted on the [Linux Sof
    rm packages-microsoft-prod.rpm
    ```
 
-1. Update the package index files.
+4. Update the package index files.
 
    ```bash
-   sudo zypper refresh
+   sudo zypper --gpg-auto-import-keys refresh
    ```
    
 5. Install AzCopy.
