@@ -13,6 +13,8 @@ ms.author: duau
 
 # Migrate between content delivery network providers
 
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
+
 Content Delivery Network services can provide resiliency and add benefits for different types of workloads. Switching between content delivery network providers is a common practice when your web delivery requirements changes or when a different service is better suited for your business needs.
 
 The purpose of this article is to share best practices when migrating from one content delivery network service to another. In this article we talk about the different Azure Content Delivery Network services, how to compare these products and best practices to consider when performing the migration.

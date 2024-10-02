@@ -3,6 +3,7 @@ title: Event schema compatibility
 description: When a subscription is created, an outgoing event schema is defined. The following table shows you the compatibility allowed when creating a subscription. 
 ms.topic: concept-article
 ms.date: 09/25/2024
+ms.custom: FY25Q1-Linter
 #customer intent: As a developer, I want to know hw to validate a Webhook endpoint using the CloudEvents v1.0 schema.
 ---
 

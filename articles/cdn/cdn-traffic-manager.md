@@ -13,6 +13,8 @@ ms.author: duau
 
 # Failover across multiple endpoints with Azure Traffic Manager
 
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
+
 When you configure Azure Content Delivery Network, you can select the optimal provider and pricing tier for your needs.
 
 Azure Content Delivery Network, with its globally distributed infrastructure, by default creates local and geographic redundancy and global load balancing to improve service availability and performance.

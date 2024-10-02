@@ -37,6 +37,8 @@ Identity registry operations use the job system when the operation:
 
 Instead of a single API call waiting or blocking on the result of the operation, the operation asynchronously creates a job for that IoT hub. The operation then immediately returns a **JobProperties** object.
 
+[!INCLUDE [iot-authentication-service-connection-string.md](../../includes/iot-authentication-service-connection-string.md)]
+
 The following C# code snippet shows how to create an export job:
 
 ```csharp

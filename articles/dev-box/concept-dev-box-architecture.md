@@ -42,9 +42,11 @@ Once the dev box is running, dev box users can [remotely connect](#user-connecti
 
 The *hosted on behalf of* architecture lets Microsoft services, after they're delegated appropriate and scoped permissions to a virtual network by a subscription owner, attach hosted Azure services to a customer subscription. This connectivity model lets a Microsoft service provide software-as-a-service and user licensed services as opposed to standard consumption-based services.
 
-Microsoft Dev Box uses the *hosted on-behalf* architecture, which means that the dev boxes exist in a subscription owned by Microsoft. Therefore, Microsoft incurs the costs for running and managing this infrastructure. Dev boxes are deployed in a subscription managed by Microsoft and connected to the customer's VNET. 
+Microsoft Dev Box uses the *hosted on-behalf* architecture, which means that the dev boxes exist in a subscription owned by Microsoft. Therefore, Microsoft incurs the costs for running and managing this infrastructure. Dev boxes are deployed in a subscription managed by Microsoft and connected to the customer's virtual network. 
 
 Microsoft Dev Box manages the capacity and in-region availability in the Microsoft Dev Box subscriptions. Microsoft Dev Box determines the Azure region to host your dev boxes based on the network connection you select when creating a dev box pool.
+
+Microsoft Dev Box encrypts the disk by default to protect your data. You don't need to enable BitLocker, and doing so can prevent you from accessing your dev box.
 
 For more information about data storage and protection in Azure services see: [Azure customer data protection](/azure/security/fundamentals/protection-customer-data). 
 
