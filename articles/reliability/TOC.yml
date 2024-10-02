@@ -302,6 +302,12 @@
       href: /azure/devops/organizations/security/data-protection?view=azure-devops.md&preserve-view=true#data-availability&toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Elastic SAN
       href: reliability-elastic-san.md
+    - name: Azure Health Data Services
+      items:
+      - name: Workspace services (FHIR, DICOM, MedTech)
+        href: /azure/healthcare-apis/business-continuity-disaster-recovery
+      - name: De-identification service
+        href: reliability-health-data-services-deidentification.md
     - name: Azure HDInsight on AKS
       href: reliability-hdinsight-on-aks.md
     - name: Azure Health Data Services - Azure API for FHIR

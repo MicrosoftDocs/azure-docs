@@ -4769,7 +4769,7 @@
     },
     {
       "source_path_from_root": "/articles/third-party-notices.md",
-      "redirect_url": "/azure-docs/ThirdPartyNotices.md",
+      "redirect_url": "https://github.com/MicrosoftDocs/azure-docs/blob/main/ThirdPartyNotices.md",
       "redirect_document_id": false
     }
   ]
