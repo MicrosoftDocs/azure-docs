@@ -27,10 +27,10 @@ The following architectural overview shows where hybrid logic apps and their wor
 For more information, see the following documentation:
 
 - [What is Azure Kubernetes Service?](/azure/aks/what-is-aks)
-- [What is Azure Container Apps?](../container-apps/overview.md)
-- [Azure Container Apps on Azure Arc](../container-apps/azure-arc-overview.md)
 - [Azure Arc-enabled Azure Kubernetes (AKS) clusters](/azure/azure-arc/kubernetes/overview)
 - [AKS hyperconverged infrastructure (HCI) clusters](/azure-stack/hci/overview)
+- [What is Azure Container Apps?](../container-apps/overview.md)
+- [Azure Container Apps on Azure Arc](../container-apps/azure-arc-overview.md)
 - [Custom locations on Azure Arc-enabled AKS](/azure/azure-arc/platform/conceptual-custom-locations)
 
 ## Limitations
@@ -50,7 +50,7 @@ For more information, see the following documentation:
 
 - An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- Visual Studio Code and [prerequisites](create-single-tenant-workflows-visual-studio-code.md#prerequisites).
+- Visual Studio Code, Azure Logic Apps (Standard) extension for Visual Studio Code, and [related prerequisites](create-single-tenant-workflows-visual-studio-code.md#prerequisites).
 
   > [!TIP]
   > 
@@ -58,21 +58,21 @@ For more information, see the following documentation:
   > basic Standard workflow before you try to deploy in a hybrid environment. This test 
   > run helps isolate any errors that might exist in your Standard workflow project.
 
-## Set up an AKS cluster
+## Set up an Azure Kubernetes cluster
 
-To use [AKS](/azure/aks/what-is-aks) for deployment, you can create an Azure Arc-enabled Kubernetes cluster or an [on-premises AKS HCI cluster](/azure-stack/hci/overview). Your AKS cluster requires inbound and outbound connectivity with the [SQL database that you use as the storage provider](#create-storage-provider).
+To host your hybrid logic app as on-premises resource, you can create an [Azure Arc-enabled Kubernetes cluster](/azure/azure-arc/kubernetes/overview) or an [on-premises AKS HCI cluster](/azure-stack/hci/overview). Your cluster requires inbound and outbound connectivity with the [SQL database that you use as the storage provider](#create-storage-provider).
 
-### Create an AKS cluster
+### Create an Azure Arc-enabled Kubernetes cluster
 
-To create an AKS cluster as your deployment environment, you have the following options:
+Choose one of the following options to create and set up your Arc-enabled Kubernetes cluster as the deployment environment:
 
-- [Follow the steps for the Azure portal](/azure/aks/learn/quick-kubernetes-deploy-portal).
+- In the Azure portal, [follow these steps to create the cluster](/azure/aks/learn/quick-kubernetes-deploy-portal) and then [follow these steps to connect the cluster to Azure Arc](/azure/azure-arc/kubernetes/quickstart-connect-cluster).
 
-- Run the following commands using Azure Cloud Shell in the Azure portal or using [Azure CLI installed on your local computer](/cli/azure/install-azure-cli):
+- Run the following commands by using Azure Cloud Shell in the Azure portal or by using [Azure CLI installed on your local computer](/cli/azure/install-azure-cli):
 
   > [!NOTE]
   >
-  > Change the **max-count** and **min-count** node values based on your load requirements.
+  > Make sure to change the **max-count** and **min-count** node values based on your load requirements.
 
   ```azurecli
   az login
@@ -86,31 +86,32 @@ To create an AKS cluster as your deployment environment, you have the following 
   | Command | Parameter | Required | Value | Description |
   |---------|-----------|----------|-------|-------------|
   | **`az account set`** | **`subscription`** | Yes | <*Azure-subscription-ID*> | The GUID for your Azure subscription. <br><br>For more information, see [**az account set**](/cli/azure/account#az-account-set). |
-  | **`az group create`** | **`name`** | Yes | <*Azure-resource-group-name*> | The [Azure resource group](../azure-resource-manager/management/overview.md#terminology) where you create your container app and related resources. This name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <br><br>This example uses **Hybrid-Workflows-RG**. <br><br>For more information, see [**az group create**](/cli/azure/group#az-group-create). |
+  | **`az group create`** | **`name`** | Yes | <*Azure-resource-group-name*> | The [Azure resource group](../azure-resource-manager/management/overview.md#terminology) where you create your container app and related resources. This name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <br><br>This example uses **Hybrid-RG**. <br><br>For more information, see [**az group create**](/cli/azure/group#az-group-create). |
   | **`az group create`** | **`location`** | Yes | <*Azure-region*> | An Azure region that is [supported for Azure container apps on Azure Arc-enabled AKS](../container-apps/azure-arc-overview.md#public-preview-limitations). <br><br>This example uses **North Central US**. <br><br>For more information, see [**az group create**](/cli/azure/group#az-group-create). |
-  | **`az aks create`** | **`name`** | Yes | <*Azure-resource-group-name*> | The [Azure resource group](../azure-resource-manager/management/overview.md#terminology) where you create your container app and related resources. This name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <br><br>This example uses **Hybrid-Workflows-RG**. <br><br>For more information, see [**az aks create**](/cli/azure/aks#az-aks-create). |
-  | **`az aks create`** | **`max count`** | No | The maximum number of nodes to use for the autoscaler when you include the **`enable-cluster-autoscaler`** option. This value ranges from **1** to **1,000**. <br><br>For more information, see [**az aks create**](/cli/azure/aks#az-aks-create). |
-  | **`az aks create`** | **`min count`** | No | The minimum number of nodes to use for the autoscaler when you include the **`enable-cluster-autoscaler`** option. This value ranges from **1** to **1,000**. <br><br>For more information, see [**az aks create**](/cli/azure/aks#az-aks-create). |
+  | **`az aks create`** | **`name`** | Yes | <*Azure-resource-group-name*> | The [Azure resource group](../azure-resource-manager/management/overview.md#terminology) where you create your container app and related resources. This name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <br><br>This example uses **Hybrid-RG**. <br><br>For more information, see [**az aks create**](/cli/azure/aks#az-aks-create). |
+  | **`az aks create`** | **`max count`** | No | <*max-nodes-value*> | The maximum number of nodes to use for the autoscaler when you include the **`enable-cluster-autoscaler`** option. This value ranges from **1** to **1000**. <br><br>For more information, see [**az aks create**](/cli/azure/aks#az-aks-create). |
+  | **`az aks create`** | **`min count`** | No | <*min-nodes-value*> | The minimum number of nodes to use for the autoscaler when you include the **`enable-cluster-autoscaler`** option. This value ranges from **1** to **1000**. <br><br>For more information, see [**az aks create**](/cli/azure/aks#az-aks-create). |
 
-- Follow the steps in [Tutorial: Enable Azure Container Apps on Azure Arc-enabled Kubernetes](/azure/container-apps/azure-arc-enable-cluster), and then run the following PowerShell commands as an administrator to create an AKS cluster and an optional Log Analytics workspace for monitoring the logs from the Azure Logic Apps runtime:
+- [Follow these steps in "Tutorial: Enable Azure Container Apps on Azure Arc-enabled Kubernetes"](/azure/container-apps/azure-arc-enable-cluster), and then run the following PowerShell commands as an administrator to create the Azure Arc-enabled Kubernetes cluster and an optional Log Analytics workspace to monitor the logs from the Azure Logic Apps runtime:
 
   ```powershell
   Set-ExecutionPolicy -ExecutionPolicy Unrestricted
-  C:\EnvironmentSetup.ps1 -SUBSCRIPTION <Azure-subscription-ID> -GROUP_NAME <Azure-resource-group-name> -LOCATION '<Azure-region>' -KUBE_CLUSTER_NAME <AKS-cluster-name> -LOGANALYTICS_WORKSPACE_NAME <Log-Analytics-workspace-name>
+  C:\EnvironmentSetup.ps1 -SUBSCRIPTION <Azure-subscription-ID> -GROUP_NAME <Azure-resource-group-name> -LOCATION '<Azure-region>' -KUBE_CLUSTER_NAME <cluster-name> -LOGANALYTICS_WORKSPACE_NAME <Log-Analytics-workspace-name>
   ```
 
   | Parameter | Required | Value | Description |
   |-----------|----------|-------|-------------|
-  | **SUBSCRIPTION** | Yes | <*Azure-subscription-ID*> | The GUID for your Azure subscription. |
-  | **GROUP_NAME** | Yes | <*Azure-resource-group-name*> | The [Azure resource group](../azure-resource-manager/management/overview.md#terminology) where you create your container app and related resources. This name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <br><br>This example uses **Hybrid-Workflows-RG**. |
+  | **SUBSCRIPTION** | Yes | <*Azure-subscription-ID*> | The ID for your Azure subscription. |
+  | **GROUP_NAME** | Yes | <*Azure-resource-group-name*> | The [Azure resource group](../azure-resource-manager/management/overview.md#terminology) where you create your container app and related resources. This name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <br><br>This example uses **Hybrid-RG**. |
   | **LOCATION** | Yes | <*Azure-region*> | An Azure region that is [supported for Azure container apps on Azure Arc-enabled AKS](../container-apps/azure-arc-overview.md#public-preview-limitations). <br><br>This example uses **North Central US**. |
+  | **KUBE_CLUSTER_NAME** | Yes | <*cluster-name*> | The name for your Azure Arc-enabled Kubernetes cluster. |
   | **LOGANALYTICS_WORKSPACE_NAME** | No | <*Log-Analytics-workspace-name*> | The name for the Log Analytics workspace resource to create for monitoring logs. |
 
   For more information, see [Set-ExecutionPolicy](/powershell/module/microsoft.powershell.security/set-executionpolicy).
 
 ### Create an on-premises AKS HCI cluster
 
-To create an on-premises AKS HCI cluster as your deployment environment, see the following documentation:
+To create and set up an on-premises AKS HCI cluster instead as the deployment environment, see the following documentation:
 
 - [Review deployment prerequisites for Azure Stack HCI](/azure-stack/hci/deploy/deployment-prerequisites)
 - [Create Kubernetes clusters using Azure CLI](/azure/aks/hybrid/aks-create-clusters-cli)
@@ -123,7 +124,7 @@ For more information about AKS on-premises options, see [Overview of AKS on Wind
 
 ## Create SQL Server storage provider
 
-Hybrid workflows use SQL Server as the storage provider for Azure Logic Apps runtime storage.
+Hybrid logic app workflows use a SQL database as the storage provider for the data used by workflows and the Azure Logic Apps runtime, for example, workflow run history, inputs, outputs, and so on.
 
 1. Set up any of the following SQL Server editions:
 
@@ -132,21 +133,21 @@ Hybrid workflows use SQL Server as the storage provider for Azure Logic Apps run
    - [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview)
    - [SQL Server enabled by Azure Arc](/sql/sql-server/azure-arc/overview)
 
-   For more information, see [Set up SQL storage for Standard logic app workflows](/azure/logic-apps/set-up-sql-db-storage-single-tenant-standard-workflows).
+   For more information, see [Set up SQL database storage for Standard logic app workflows](/azure/logic-apps/set-up-sql-db-storage-single-tenant-standard-workflows).
 
-1. Get the connection string for the SQL Server database that you chose to use.
+1. Find and save the connection string for the SQL database that you created.
 
 <a name="set-up-smb-file-share"></a>
 
 ## Set up SMB file share for artifacts storage
 
-To store artifacts such as maps, schemas, and assemblies for your container app resource, you need to have a file share that uses the [Server Message Block (SMB) protocol](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview). This file share requires inbound and outbound connectivity with your AKS cluster. If you enabled Azure virtual network restrictions, make sure that your file share exists in the same virtual network as your AKS cluster or in a peered virtual network.
+To store artifacts such as maps, schemas, and assemblies for your container app resource, you need to have a file share that uses the [Server Message Block (SMB) protocol](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview). This file share requires inbound and outbound connectivity with your cluster. If you enabled Azure virtual network restrictions, make sure that your file share exists in the same virtual network as your cluster or in a peered virtual network.
 
-To set up your file share, you must have administrator access. To create and deploy from Visual Studio Code, make sure that the local computer with Visual Studio Code can access the file share. 
+To set up your file share, you need to have administrator access. To create and deploy from Visual Studio Code, make sure that the local computer with Visual Studio Code can access the file share. 
 
-### Set up SMB file share on Windows
+### Set up your SMB file share on Windows
 
-Make sure that your SMB file share exists in the same virtual network as the AKS cluster where you mount your file share.
+Make sure that your SMB file share exists in the same virtual network as the cluster where you mount your file share.
 
 1. In Windows, go to the folder that you want to share, open the shortcut menu, select **Properties**.
 
@@ -158,11 +159,11 @@ Make sure that your SMB file share exists in the same virtual network as the AKS
 
    If your local computer isn't connected to a domain, replace the computer name in the network path with the IP address.
 
-1. Save the IP address for later use as the host name.
+1. Save the IP address to use later as the host name.
 
-### Set up SMB file share on Azure Files in Azure portal
+### Set up Azure Files as your SMB file share
 
-Alternatively, for testing purposes, you can use [Azure Files as an SMB file share](/azure/storage/files/files-smb-protocol). Make sure that your SMB file share exists in the same virtual network as the AKS cluster where you mount your file share.
+Alternatively, for testing purposes, you can use [Azure Files as an SMB file share](/azure/storage/files/files-smb-protocol). Make sure that your SMB file share exists in the same virtual network as the cluster where you mount your file share.
 
 1. In the [Azure portal](https://portal.azure.com), [create an Azure storage account](/azure/storage/files/storage-how-to-create-file-share?tabs=azure-portal#create-a-storage-account).
 
@@ -176,9 +177,14 @@ Alternatively, for testing purposes, you can use [Azure Files as an SMB file sha
 
 1. On the **Overview** page toolbar, select **Connect**. On the **Connect** pane, select **Show script**.
 
-1. Copy the file share's host name, for example, **mystorage.file.core.windows.net**, file share path, username without **`localhost\`**, and password. Save these values somewhere safe for later use.
+1. Copy the following values and save them somewhere safe for later use:
 
-1. On the **Overview** page toolbar, select **+ Add directory**, and provide a name to use for the directory. Save this name for later use.
+   - File share's host name, for example, **mystorage.file.core.windows.net**
+   - File share path
+   - Username without **`localhost\`**
+   - Password
+
+1. On the **Overview** page toolbar, select **+ Add directory**, and provide a name to use for the directory. Save this name to use later.
 
 You need these saved values to provide your SMB file share information when you deploy your container app resource.
 
@@ -186,11 +192,11 @@ For more information, see [Create an SMB Azure file share](/azure/storage/files/
 
 ## Confirm SMB file share connection
 
-To test the connection between your AKS cluster and your SMB file share and check that your file share is correctly set up, follow these steps:
+To test the connection between your Arc-enabled Kubernetes cluster and your SMB file share and check that your file share is correctly set up, follow these steps:
 
-- If your SMB file share isn't on the same AKS cluster, confirm that the ping operation works from your AKS cluster to the virtual machine that has your SMB file share. To check that the ping operation works, follow these steps:
+- If your SMB file share isn't on the same cluster, confirm that the ping operation works from your cluster to the virtual machine that has your SMB file share. To check that the ping operation works, follow these steps:
 
-  1. In your AKS cluster, create a test [pod](/azure/aks/core-aks-concepts#pods) that runs any Linux image, such as BusyBox or Ubuntu.
+  1. In your cluster, create a test [pod](/azure/aks/core-aks-concepts#pods) that runs any Linux image, such as BusyBox or Ubuntu.
 
   1. Go to the container in your pod, and install the **iputils-ping** package by running the following Linux commands:
 
@@ -211,7 +217,7 @@ To test the connection between your AKS cluster and your SMB file share and chec
 
 - To confirm that artifacts correctly upload, connect to the SMB file share path, and check whether artifact files exist in the correct folder that you specify during deployment. 
 
-## Create hybrid logic app in Azure portal
+## Create your hybrid logic app in the Azure portal
 
 1. In the [Azure portal](https://portal.azure.com) search box, enter **logic apps**, and select **Logic apps**.
 
@@ -224,11 +230,15 @@ To test the connection between your AKS cluster and your SMB file share and chec
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
    | **Subscription** | Yes | <*Azure-subscription-name*> | Your Azure subscription name. <br><br>This example uses **Pay-As-You-Go**. |
-   | **Resource Group** | Yes | <*Azure-resource-group-name*> | The [Azure resource group](../azure-resource-manager/management/overview.md#terminology) where you create your hybrid app and related resources. This name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <br><br>This example creates a resource group named **Hybrid-Workflows-RG**. |
-   | **Logic App name** | Yes | <*logic-app-name*> | Your hybrid logic app name, which must be unique across regions and can contain only lowercase letters, numbers, or hyphens (**-**). <br><br>This example uses **fabrikam-workflows-hybrid**. |
+   | **Resource Group** | Yes | <*Azure-resource-group-name*> | The [Azure resource group](../azure-resource-manager/management/overview.md#terminology) where you create your hybrid app and related resources. This name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <br><br>This example creates a resource group named **Hybrid-RG**. |
+   | **Logic App name** | Yes | <*logic-app-name*> | Your hybrid logic app name, which must be unique across regions and can contain only lowercase letters, numbers, or hyphens (**-**). <br><br>This example uses **my-hybrid-logic-app**. |
    | **Region** | Yes | <*Azure-region*> | An Azure region that is [supported for Azure container apps on Azure Arc-enabled AKS](../container-apps/azure-arc-overview.md#public-preview-limitations). <br><br>This example uses **North Central US**. |
-   | **Container App Connected Environment** | Yes | <*connected-environment-name*> | The AKS cluster that you created as the deployment environment for your hybrid logic app. For more information, see [Tutorial: Enable Azure Container Apps on Azure Arc-enabled Kubernetes](../container-apps/azure-arc-enable-cluster.md). |
+   | **Container App Connected Environment** | Yes | <*connected-environment-name*> | The Arc-enabled Kubernetes cluster that you created as the deployment environment for your hybrid logic app. For more information, see [Tutorial: Enable Azure Container Apps on Azure Arc-enabled Kubernetes](../container-apps/azure-arc-enable-cluster.md). |
    | **Configure storage settings** | Yes | Enabled or disabled | Continues to the **Storage** tab on the **Create Logic App (Hybrid)** page. |
+
+   The following example shows the hybrid logic app creation page in the Azure portal with sample values:
+
+   :::image type="content" source="media/create-standard-workflows-hybrid-environments/create-hybrid-logic-app-portal.png" alt-text="":::
 
 1. On the **Storage** page, provide the following information about the storage provider and SMB file share that you previously set up for your hybrid logic app:
 
@@ -248,7 +258,7 @@ To test the connection between your AKS cluster and your SMB file share and chec
 
    For more information about app settings and host settings, see [Edit app settings and host settings](edit-app-settings-host-settings.md).
 
-## Create hybrid logic app in Visual Studio Code
+## Create your hybrid logic app in Visual Studio Code
 
 Before you create and deploy with Visual Studio Code, complete the following requirements:
 
@@ -293,7 +303,7 @@ Azure creates and deploys your hybrid logic app as a [Container App resource](/a
 - Hybrid logic apps appear in the Azure portal under the **Container Apps** resource list and not the **Logic apps** resource list.
 - To reflect changes in the designer after you save your workflow, you might have to occasionally refresh the designer.
 
-### AKS clusters
+### Arc-enabled Kubernetes clusters
 
 In rare scenarios, you might notice a high memory footprint in your cluster. To prevent this issue, either scale out or add autoscale for node pools.
 
@@ -340,7 +350,7 @@ After you deploy your hybrid logic app, confirm that your app is running correct
    - [az aks get-credentials](/cli/azure/aks#az-aks-get-credentials)
    - [Command line tool (kubetctl)](https://kubernetes.io/docs/reference/kubectl/)
 
-### AKS cluster doesn't have enough nodes
+### Cluster doesn't have enough nodes
 
 If you ran the previous command and get a warning similar to the following example, your cluster doesn't have enough nodes for processing:
 
