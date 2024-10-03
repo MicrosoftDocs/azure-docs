@@ -6,13 +6,17 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: linux-related-content
 ms.topic: overview
-ms.date: 09/27/2024
+ms.date: 10/03/2024
 ms.author: anfdocs
 ---
 
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
+
+* [Storage with cool access enhancement: ](manage-cool-access.md) cool access tiering policy
+
+    You now have the option to limit tiering to only snapshot copies. 
   
 ## September 2024 
 

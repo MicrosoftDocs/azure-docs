@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 08/20/2024
+ms.date: 10/03/2024
 ms.author: anfdocs
 ---
 
@@ -44,26 +44,11 @@ You must register for cool access before you can enable it at the capacity pool 
 
 ### Register the feature 
 
-Azure NetApp Files storage with cool access is generally available. Before using cool access for the first time, you must register for the feature with the service level you intend to use it for. 
+Azure NetApp Files storage with cool access is generally available. Before using cool access for the first time, you must register for the feature with the service level you intend to use it for. Registration is not required for the Standard service level. 
 
 # [Standard](#tab/standard)
 
-After registration, the feature is enabled and works in the background. No UI control is required. 
-
-1. Register the feature: 
-
-    ```azurepowershell-interactive
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFCoolAccess
-    ```
-
-2. Check the status of the feature registration: 
-
-    > [!NOTE]
-    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is **Registered** before continuing.
-    ```azurepowershell-interactive
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFCoolAccess
-    ```
-You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
+No registration is required to use cool access at the Standard service level. 
 
 # [Premium](#tab/premium)
 
@@ -137,6 +122,13 @@ Azure NetApp Files storage with cool access can be enabled during the creation o
         * *Cool access is **disabled**:*     
             * You can set a cool access retrieval policy if cool access is disabled only if there's existing data on the cool tier. 
             * Once you disable the cool access setting on the volume, the cool access retrieval policy remains the same.    
+    
+    * **Cool Access Tiering Policy** 
+
+        Select either `SnapshotOnly` or `Auto`. 
+        
+        * The `SnapshotOnly` policy limits cool-tiered data to snapshot copies not associated with the active file system. 
+        * The `Auto` policy encompasses both snapshot copy data and data in the active file system. 
 
     :::image type="content" source="./media/manage-cool-access/cool-access-new-volume.png" alt-text="Screenshot that shows the Create a Volume page. Under the basics tab, the Enable Cool Access checkbox is selected. The options for the cool access retrieval policy are displayed. " lightbox="./media/manage-cool-access/cool-access-new-volume.png"::: 
 
