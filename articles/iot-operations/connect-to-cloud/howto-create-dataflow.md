@@ -58,6 +58,8 @@ To create a dataflow in the operations experience portal, select **Dataflow** > 
 
 :::image type="content" source="media/howto-create-dataflow/create-dataflow.png" alt-text="Screenshot using operations experience portal to create a dataflow.":::
 
+# [Bicep](#tab/bicep)
+
 # [Kubernetes](#tab/kubernetes)
 
 The overall structure of a dataflow configuration is as follows:
@@ -109,6 +111,8 @@ You can use an [asset](../discover-manage-assets/overview-manage-assets.md) as t
 
 1. Select **Apply** to use the asset as the source endpoint.
 
+# [Bicep](#tab/bicep)
+
 # [Kubernetes](#tab/kubernetes)
 
 Configuring an asset as a source is only available in the operations experience portal.
@@ -126,6 +130,8 @@ Configuring an asset as a source is only available in the operations experience 
     :::image type="content" source="media/howto-create-dataflow/dataflow-source-mqtt.png" alt-text="Screenshot using operations experience portal to select MQTT as the source endpoint.":::
 
 1. Select **Apply**.
+
+# [Bicep](#tab/bicep)
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -207,6 +213,8 @@ In the operations experience portal, select **Dataflow** > **Add transform (opti
 
 :::image type="content" source="media/howto-create-dataflow/dataflow-transform.png" alt-text="Screenshot using operations experience portal to add a transform to a dataflow.":::
 
+# [Bicep](#tab/bicep)
+
 # [Kubernetes](#tab/kubernetes)
 
 ```yaml
@@ -233,6 +241,8 @@ Key names in the distributed state store correspond to a dataset in the dataflow
 # [Portal](#tab/portal)
 
 Currently, the enrich operation isn't available in the operations experience portal.
+
+# [Bicep](#tab/bicep)
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -282,6 +292,8 @@ To filter the data on a condition, you can use the `filter` stage. The condition
 
 1. Select **Apply**.
 
+# [Bicep](#tab/bicep)#
+
 # [Kubernetes](#tab/kubernetes)
 
 For example, you could use the `temperature` field in the source data to filter the data:
@@ -315,6 +327,8 @@ In the operations experience portal, mapping is currently supported using **Comp
 
 1. Select **Apply**.
 
+# [Bicep](#tab/bicep)
+
 # [Kubernetes](#tab/kubernetes)
 
 For example, you could use the `temperature` field in the source data to convert the temperature to Celsius and store it in the `temperatureCelsius` field. You could also enrich the source data with the `location` field from the contextualization dataset:
@@ -344,6 +358,8 @@ If you want to serialize the data before sending it to the destination, you need
 # [Portal](#tab/portal)
 
 Specify the **Output** schema when you add the destination dataflow endpoint.
+
+# [Bicep](#tab/bicep)
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -388,6 +404,8 @@ To configure a destination for the dataflow, specify the endpoint reference and 
 1. Select **Proceed** to configure the destination.
 1. Add the mapping details based on the type of destination.
 
+# [Bicep](#tab/bicep)
+
 # [Kubernetes](#tab/kubernetes)
 
 For example, to configure a destination using the MQTT endpoint created earlier and a static MQTT topic, use the following configuration:
@@ -398,13 +416,8 @@ destinationSettings:
   dataDestination: factory
 ```
 
-If you've created storage endpoints like Microsoft Fabric, use the data destination field to specify the table or container name:
-
-```yaml
-destinationSettings:
-  endpointRef: adls
-  dataDestination: telemetryTable
-```
+> [!IMPORTANT]
+> If you've created storage endpoints like Microsoft Fabric, storage endpoints require a schema reference. Use bicep to specify the schema reference.
 
 ## Example
 
@@ -467,6 +480,8 @@ To export the dataflow configuration, you can use the operations experience port
 Select the dataflow you want to export and select **Export** from the toolbar.
 
 :::image type="content" source="media/howto-create-dataflow/dataflow-export.png" alt-text="Screenshot using operations experience portal to export a dataflow.":::
+
+# [Bicep](#tab/bicep)
 
 # [Kubernetes](#tab/kubernetes)
 
