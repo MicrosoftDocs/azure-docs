@@ -6,7 +6,7 @@ ms.service: orbital
 ms.topic: conceptual
 ms.custom: ga
 ms.date: 07/13/2022
-ms.author: hrshelar
+ms.author: mosagie
 #Customer intent: As a satellite operator or user, I want to understand how to use the contact profile so that I can take passes using Azure Orbital Ground Station.
 ---
 
