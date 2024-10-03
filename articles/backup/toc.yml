@@ -260,8 +260,10 @@
         href: backup-azure-manage-windows-server.md
     - name: Backup vault
       items:
-      - name: Create and manage
+      - name: Create and delete
         href: create-manage-backup-vault.md
+      - name: Manage
+        href: manage-backup-vault.md
   - name: Backup center
     items:
     - name: Monitor and Operate
