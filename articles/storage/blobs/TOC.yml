@@ -995,6 +995,8 @@ items:
             href: storage-blob-properties-metadata-go.md
         - name: Client library configuration options
           items:
+          - name: Performance tuning for uploads and downloads
+            href: storage-blobs-tune-upload-download-go.md
           - name: Implement a retry policy
             href: storage-retry-policy-go.md
     - name: Test with a storage emulator

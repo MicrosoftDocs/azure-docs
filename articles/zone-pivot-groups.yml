@@ -779,6 +779,8 @@ groups:
     title: Python
   - id: openai-java
     title: Java
+  - id: openai-node
+    title: Node
 # Owner: msangapu
 - id: app-spaces-component-types
   title: App Spaces components
@@ -1182,10 +1184,10 @@ groups:
   title: Azure Spring Apps plan
   prompt: Select an Azure Spring Apps plan
   pivots:
-  - id: sc-enterprise
-    title: Enterprise
   - id: sc-standard
     title: Basic/Standard
+  - id: sc-enterprise
+    title: Enterprise
 # Owner: karler
 - id: spring-apps-enterprise-or-consumption-plan-selection
   title: Azure Spring Apps plan
@@ -1200,10 +1202,10 @@ groups:
   title: Azure Spring Apps plan
   prompt: Select an Azure Spring Apps plan
   pivots:
-  - id: sc-enterprise
-    title: Enterprise
   - id: sc-standard
     title: Basic/Standard
+  - id: sc-enterprise
+    title: Enterprise
   - id: sc-consumption-plan
     title: Standard consumption and dedicated (Preview)
  # Owner: rahulmehta
@@ -1664,3 +1666,14 @@ groups:
     title: Service Connector
   - id: manual
     title: Manual
+# Owner: rosemalcolm
+- id: ade-extensibility-iac-framework
+  title: IaC frameworks
+  prompt: Choose an IaC framework
+  pivots:
+  - id: arm-bicep
+    title: ARM and Bicep
+  - id: terraform
+    title: Terraform
+  - id: pulumi
+    title: Pulumi   

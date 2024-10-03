@@ -64,6 +64,8 @@ The service connection string should look similar to the following example:
 
 Note down the service connection string, you need it later in this tutorial.
 
+[!INCLUDE [iot-authentication-service-connection-string.md](../../includes/iot-authentication-service-connection-string.md)]
+
 ## Download the web app from GitHub
 
 Download or clone the web app sample from GitHub: [web-apps-node-iot-hub-data-visualization](https://github.com/Azure-Samples/web-apps-node-iot-hub-data-visualization.git).

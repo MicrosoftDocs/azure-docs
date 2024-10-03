@@ -3,13 +3,13 @@
 title: Security technical capabilities in Azure - Microsoft Azure
 description: Introduction to security services in Azure that help you protect you data, resources, and applications in the cloud.
 services: security
-author: TerryLanfear
+author: msmbaldwin
 manager: rkarlin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 06/28/2024
-ms.author: terrylan
+ms.author: mbaldwin
 
 ---
 # Azure security technical capabilities
