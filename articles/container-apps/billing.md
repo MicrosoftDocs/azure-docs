@@ -122,7 +122,7 @@ Code interpreter sessions are billed based on running duration for the number al
 
 Custom container sessions are billed using the [Dedicated plan](#dedicated-plan), based on the amount of compute resources used to run the session pool and active sessions.
 
-Each custom container session pool runs on dedicated *E16* compute instances. The number of instances allocated to the session pool is based on the number of active and ready sessions in the pool. To view the number of instances currently allocated to a session pool, use the following Azure CLI command to retrieve the pool's `nodeCount` property:
+Each custom container session pool runs on dedicated *E16* compute instances. The number of instances allocated to the session pool is based on the number of active and ready sessions in the pool. To view the number of instances currently allocated to a session pool, use the following Azure CLI command to retrieve the pool's `nodeCount` property. Replace the `<PLACEHOLDERS>` with your values.
 
 ```bash
 az containerapp sessionpool show --resource-group <RESOURCE_GROUP> --name <POOL_NAME> --query "properties.nodeCount"
