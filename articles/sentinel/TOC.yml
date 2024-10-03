@@ -566,10 +566,6 @@
       href: data-connectors/sailpoint-identitynow.md
     - name: Salesforce Service Cloud (using Azure Functions)
       href: data-connectors/salesforce-service-cloud.md
-    - name: Security Events via Legacy Agent
-      href: data-connectors/security-events-via-legacy-agent.md
-    - name: SecurityBridge Threat Detection for SAP
-      href: data-connectors/securitybridge-threat-detection-for-sap.md
     - name: SenservaPro (Preview)
       href: data-connectors/senservapro.md
     - name: SentinelOne (using Azure Functions)
