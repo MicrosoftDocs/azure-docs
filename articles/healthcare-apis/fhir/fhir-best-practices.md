@@ -12,13 +12,7 @@ ms.author: kesheth
 
 # Best practices for better performance in FHIR service
 
-This document provides guidance on best practices with the Azure Health Data Services FHIR&reg; service. These are grouped into the following categories.
-
-* Data ingestion
-* Query performance optimization
-* Data extraction
-
-Each category describes practices you should **Do**, **Consider**, or **Avoid** to better the performance of your FHIR service.
+This document provides guidance on best practices with the Azure Health Data Services FHIR&reg; service. You'll find practices you should **Do**, **Consider**, or **Avoid** to better the performance of your FHIR service.
 
 > [!NOTE]
 > This document is scoped for Azure Health Data Services FHIR service customers.
