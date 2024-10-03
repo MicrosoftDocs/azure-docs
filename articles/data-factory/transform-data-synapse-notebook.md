@@ -5,8 +5,8 @@ description: Learn how to process or transform data by running a Synapse noteboo
 ms.custom: synapse
 author: nabhishek
 ms.author: jejiang
-ms.topic: conceptual
-ms.date: 01/05/2024
+ms.date: 10/03/2024
+ms.subservice: orchestration
 ---
 
 # Transform data by running a Synapse Notebook
