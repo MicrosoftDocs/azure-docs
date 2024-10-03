@@ -147,7 +147,7 @@
         href: https://azure.microsoft.com/pricing/details/virtual-machines/linux/#DC1s-C8s%20v2
       - name: Regions
         href: https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machine
-  - name: Confidential Services
+  - name: Confidential services
     expanded: true
     items:
     - name: SQL Always Encrypted with Secure Enclaves # x-link to SQL docs #done
