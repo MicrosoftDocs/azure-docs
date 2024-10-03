@@ -7,6 +7,7 @@ author: nabhishek
 ms.author: jejiang
 ms.date: 10/03/2024
 ms.subservice: orchestration
+ms.topic: conceptual
 ---
 
 # Transform data by running a Synapse Notebook
