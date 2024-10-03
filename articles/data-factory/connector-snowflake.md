@@ -712,7 +712,7 @@ To perform an in-place upgrade, you need to edit the existing linked service pay
            "typeProperties": { 
                "authenticationType": "Basic", 
                "connectionString": "jdbc:snowflake://<fake_account>.snowflakecomputing.com/?user=FAKE_USER&db=FAKE_DB&warehouse=FAKE_DW&schema=PUBLIC", 
-               "encryptedCredential": "<placeholder>" 
+               "encryptedCredential": "<your_encrypted_credential_value>" 
            }, 
            "connectVia": { 
                "referenceName": "AzureIntegrationRuntime", 
