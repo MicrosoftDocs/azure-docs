@@ -17,7 +17,7 @@ ms.date: 10/03/2024
 
 ### Enterprise tier E1 SKU GA
 
-The E1 SKU, which is intended primarily for dev/test scenarios, is now generally available (GA). The E1 sku runs on smaller, burstable virtual machines. As a result, E1 offers variable performance depending on how much CPU is consumed. Unlike other Enterprise offerings, you can't scale E1 out. However, you can scale up to a larger SKU. The E1 SKU also doesn't support active geo-replication.
+The E1 SKU, part of the Enterprise tier, is now in General Availability (GA). The E1 SKU doesn't scale out and is intended primarily for dev/test scenarios. The E1 SKU also doesn't support active geo-replication.
 
 ## August 2024
 
@@ -45,7 +45,7 @@ You are able to manually trigger an upgrade to the latest version of Redis softw
 
 ### Enterprise tier E1 (preview) SKU
 
-The E1 SKU is intended primarily for dev/test scenarios. It runs on smaller [burstable virtual machines](/azure/virtual-machines/b-series-cpu-credit-model/b-series-cpu-credit-model). As a result, E1 offers variable performance depending on how much CPU is consumed. Unlike other Enterprise offerings, it isn't possible to scale E1 out. However, it is still possible to scale up to a larger SKU. The E1 SKU also does not support [active geo-replication](cache-how-to-active-geo-replication.md).
+The E1 SKU is intended primarily for dev/test scenarios. It runs on smaller [burstable virtual machines](/azure/virtual-machines/b-series-cpu-credit-model/b-series-cpu-credit-model). As a result, E1 offers variable performance depending on how much CPU is consumed. Unlike other Enterprise offerings, it isn't possible to scale out E1. However, it's still possible to scale up to a larger SKU. The E1 SKU also doesn't support [active geo-replication](cache-how-to-active-geo-replication.md).
 
 
 ### .NET Output cache and HybridCache
