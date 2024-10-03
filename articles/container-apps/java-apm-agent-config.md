@@ -12,17 +12,17 @@ ms.author: kuzhong
 
 # Tutorial: Configure APM integration for Java applications in Azure Container Apps
 
-Third party APM solutions are useful especially when you want to hava a better obersability on your applications running online. Configuring APM integration for Java applications can be easily done with the help of APM Java agent and init containers in Azure Container Apps without modifying your app image. In this tutorial, you will learn how to:
+Third party APM (Application Performance Management) solutions are useful especially when you need obersability on your applications running online. You can configure APM integration for Java applications in Azure Container Apps easily by Java agent and init containers without modifying your app image. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Prepare an image to setup Java agent and push to Azure Container Registry
+> * Prepare an image to set up Java agent and push to Azure Container Registry
 > * Create a Container Apps environment and a Container App as the target Java app
-> * Configure init containers and volume mounts to setup Application Insights integration
+> * Configure init containers and volume mounts to set up Application Insights integration
 
 ## Prerequisites
 
-- Hava an instance of [Application Insights](https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview)
-- Hava an instance of Azure Container Registry or other container image registries
+- Have an instance of [Application Insights](https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview)
+- Have an instance of Azure Container Registry or other container image registries
 - Install [Docker](https://www.docker.com/) to build image
 - Install the latest version of the [Azure CLI](/cli/azure/install-azure-cli)
 
@@ -90,7 +90,7 @@ The following commands help you define variables and ensure your Container Apps 
 
     ---
 
-## Prepare an image to setup Java agent and push to Azure Container Registry
+## Prepare an image to set up Java agent and push to Azure Container Registry
 
 1. Retrieve the connection string of Application Insights.
 
@@ -220,7 +220,7 @@ The following commands help you define variables and ensure your Container Apps 
 
     Once created, the command returns a "Succeeded" message.
 
-## Configure init containers and volume mounts to setup Application Insights integration
+## Configure init containers and volume mounts to set up Application Insights integration
 
 1. Get current configurations of running Container App.
 
@@ -244,7 +244,7 @@ The following commands help you define variables and ensure your Container Apps 
 
     ---
 
-    YAML File `app.yaml` will be created in current directory.
+    YAML File `app.yaml` is created in current directory.
 
 2. Edit the app YAML file.
 
@@ -258,7 +258,7 @@ The following commands help you define variables and ensure your Container Apps 
           storageType: EmptyDir
     ```
 
-    - Init container with volume mount to setup Java agent
+    - Init container with volume mount to set up Java agent
   
     ```yaml
     properties:
@@ -325,7 +325,7 @@ The following commands help you define variables and ensure your Container Apps 
 
 ## Other APM solutions
 
-Other than [Azure Monitor Application Insights](https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview), there are other popular APM solutions in the community. If you want to intergrate your Azure Container App with other APM providers, just simply replace the Java agent JAR and related config files.
+Other than [Azure Monitor Application Insights](https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview), there are other popular APM solutions in the community. If you want to intergrate your Azure Container App with other APM providers, just replace the Java agent JAR and related config files.
 
 - [AppDynamics](https://docs.appdynamics.com/appd/21.x/21.4/en/application-monitoring/install-app-server-agents/java-agent/install-the-java-agent)
 - [Dynatrace](https://docs.dynatrace.com/docs/setup-and-configuration/technology-support/application-software/java)
