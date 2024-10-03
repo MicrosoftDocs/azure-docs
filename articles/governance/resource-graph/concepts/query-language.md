@@ -220,7 +220,7 @@ To support the _Open Query_ portal experience, Azure Resource Graph Explorer has
 The scope of the subscriptions or [management groups](../../management-groups/overview.md) from
 which resources are returned by a query defaults to a list of subscriptions based on the context of
 the authorized user. If a management group or a subscription list isn't defined, the query scope is
-all resources, and includes [Azure Lighthouse](../../../lighthouse/overview.md) delegated
+all resources, and includes [Azure Lighthouse](/azure/lighthouse/overview) delegated
 resources.
 
 The list of subscriptions or management groups to query can be manually defined to change the scope

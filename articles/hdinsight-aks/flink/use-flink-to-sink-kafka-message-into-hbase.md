@@ -3,7 +3,8 @@ title: Write messages to Apache HBase® with Apache Flink® DataStream API
 description: Learn how to write messages to Apache HBase with Apache Flink DataStream API.
 ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 05/01/2024
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Write messages to Apache HBase® with Apache Flink® DataStream API

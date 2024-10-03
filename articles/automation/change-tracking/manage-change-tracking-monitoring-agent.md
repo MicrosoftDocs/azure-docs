@@ -4,8 +4,8 @@ description: This article tells how to use change tracking and inventory to trac
 services: automation
 ms.subservice: change-inventory-management
 ms.custom: linux-related-content
-ms.date: 07/17/2023
-ms.topic: conceptual
+ms.date: 09/19/2024
+ms.topic: how-to
 ms.service: azure-automation
 ---
 

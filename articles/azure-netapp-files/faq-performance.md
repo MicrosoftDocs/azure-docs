@@ -78,7 +78,7 @@ Jumbo frames aren't supported with Azure virtual machines.
 - [Performance benchmark test recommendations for Azure NetApp Files](azure-netapp-files-performance-metrics-volumes.md)
 - [Performance benchmarks for Linux](performance-benchmarks-linux.md)
 - [Performance impact of Kerberos on NFSv4.1 volumes](performance-impact-kerberos.md)
-- [How to create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md)
+- [How to create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request)
 - [Networking FAQs](faq-networking.md)
 - [Security FAQs](faq-security.md)
 - [NFS FAQs](faq-nfs.md)

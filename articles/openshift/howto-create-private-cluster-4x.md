@@ -272,8 +272,6 @@ You can find the cluster console URL by running the following command, which loo
 
 Launch the console URL in a browser and sign in using the `kubeadmin` credentials.
 
-![Screenshot that shows the Azure Red Hat OpenShift login screen.](media/aro4-login.png)
-
 ## Install the OpenShift CLI
 
 Once you're signed into the OpenShift Web Console, select the **?** at the top right and then on **Command Line Tools**. Download the release appropriate to your machine.

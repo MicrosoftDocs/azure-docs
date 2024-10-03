@@ -3,7 +3,8 @@ title: Write event messages into Azure Data Lake Storage Gen2 with Apache Flink�
 description: Learn how to write event messages into Azure Data Lake Storage Gen2 with Apache Flink® DataStream API.
 ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 03/29/2024
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Write event messages into Azure Data Lake Storage Gen2 with Apache Flink® DataStream API

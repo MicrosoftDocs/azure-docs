@@ -194,7 +194,7 @@ To create a Container Instance resource with availability zone enabled, you'll n
 4. To verify the container group deployed successfully into an availability zone, view the container group details with the [az container show][az-container-show] command:
     
     ```azurecli
-    az containershow --name acilinuxcontainergroup --resource-group myResourceGroup
+    az container show --name acilinuxpublicipcontainergroup --resource-group myResourceGroup
     ```
 
 ### Zonal failover support

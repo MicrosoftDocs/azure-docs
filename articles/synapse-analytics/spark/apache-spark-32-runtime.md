@@ -18,11 +18,10 @@ Azure Synapse Analytics supports multiple runtimes for Apache Spark. This docume
 
 > [!CAUTION]
 > Deprecation and disablement notification for Azure Synapse Runtime for Apache Spark 3.2
-> * End of Support was announced for Azure Synapse Runtime for Apache Spark 3.2 July 8, 2023. 
-> * Effective July 8, 2024, Azure Synapse discontinued official support for Spark 3.2 Runtimes. The Synapse Spark Team is moving forward with the 3.2 __job disablement__ process September 12, 2024, beginning with partial pools and jobs disablement. We will continue with further full disablement on October 31st, 2024.
-* In accordance with the Synapse runtime for Apache Spark lifecycle policy, Azure Synapse runtime for Apache Spark 3.2 will be retired as of July 8, 2024. Existing workflows will continue to run but security updates and bug fixes will no longer be available. Metadata will temporarily remain in the Synapse workspace.
-* **We strongly recommend that you upgrade your Apache Spark 3.2 workloads to [Azure Synapse Runtime for Apache Spark 3.4 (GA)](./apache-spark-34-runtime.md) before July 8, 2024.** 
-
+> * End of Support was announced for Azure Synapse Runtime for Apache Spark 3.2 July 8, 2023. In accordance with the Synapse runtime for Apache Spark lifecycle policy, Azure Synapse runtime for Apache Spark 3.2 retired as of July 8, 2024. Existing workflows will continue to run but security updates and bug fixes will no longer be available. Metadata will temporarily remain in the Synapse workspace.
+> * Effective July 8, 2024, Azure Synapse discontinued official support for Spark 3.2 Runtimes. However, based on requests received from multiple customers, we have extended the usage of this runtime until **October 31st, 2024,** and **job disablement** will start soon after that.
+> * **We strongly recommend that you upgrade your Apache Spark 3.2 workloads to** **[Azure Synapse Runtime for Apache Spark 3.4](./apache-spark-34-runtime.md).**
+> * For up-to-date information, a detailed list of changes, and specific release notes for Spark runtimes, check and subscribe to **[Spark Runtimes Releases and Updates](https://github.com/microsoft/synapse-spark-runtime)**.
 ## Component versions
 
 |  Component   | Version   |  
@@ -47,6 +46,7 @@ To check the libraries included in Azure Synapse Runtime for Apache Spark 3.2 fo
 
 - [Azure Synapse Analytics](../overview-what-is.md)
 - [Apache Spark Documentation](https://spark.apache.org/docs/3.2.1/)
+
 - [Apache Spark Concepts](apache-spark-concepts.md)
 
 ## Migration between Apache Spark versions - support

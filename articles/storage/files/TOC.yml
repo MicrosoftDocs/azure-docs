@@ -169,6 +169,8 @@
       href: authorize-oauth-rest.md
   - name: Enable threat protection
     href: ../common/azure-defender-storage-configure.md?toc=/azure/storage/files/toc.json
+  - name: Configure root squash (NFS shares)
+    href: nfs-root-squash.md    
 - name: Data protection
   items:
   - name: Data protection overview
@@ -371,7 +373,7 @@
       - name: Data Movement library
         href: https://github.com/Azure/azure-storage-net-data-movement
       - name: Storage Resource Provider library
-        href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.Management.Storage
+        href: https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.ResourceManager.Storage
     - name: Java
       items:
       - name: Azure Storage client library version 12.x (preview)

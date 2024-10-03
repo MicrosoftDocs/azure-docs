@@ -22,7 +22,7 @@ Azure Backup and Azure Database Services have come together to build an enterpri
 
 To perform the backup operation:
 
-1. Grant permissions to the backup vault MSI on the target ARM resource (PostgreSQL-Flexible server), establishing access and control. 
+1. Grant permissions to the backup vault MSI on the target ARM resource (PostgreSQL-Flexible server), establishing access, and control. 
 1. Configure backup policies, specify scheduling, retention, and other parameters. 
 
 Once the configuration is complete:
@@ -46,6 +46,14 @@ For successful backup operations, the vault MSI needs the following permissions:
 1. *Backup*:
     1. *PostgreSQL Flexible Server Long Term Retention Backup* role on the server.
     1. *Reader* role on the resource group of the server.
+
+## Understand pricing
+
+You incur charges for:
+
+- **Protected instance fee**: Azure Backup for PostgreSQL - Flexible servers charges a *protected instance fee* as per the size of the database. When you configure backup for a PostgreSQL Flexible server, a protected instance is created. Each instance is charged on the basis of its size (in GBs) on a per unit (250 GB) basis. 
+
+- **Backup Storage fee**: Azure Backup for PostgreSQL - Flexible servers store backups in Vault Tier. Restore points stored in the vault-standard tier are charged a separate fee called Backup Storage fee as per the total data stored (in GBs) and redundancy type enable on the Backup Vault. 
 
 ## Next steps
 

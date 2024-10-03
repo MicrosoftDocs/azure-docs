@@ -18,7 +18,6 @@ Azure Elastic storage area network (SAN) addresses the problem of workload optim
 
 The following prerequisites are required to continue.
 
-- Register for the preview by filling out the [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR8FVh9RJVPdOk_mdTpp--pZUN0RKUklROEc4UE1RRFpRMkhNVFAySTM1TC4u).
 - Verify you have a Dev/Test private cloud in a [region that Elastic SAN is available in](../storage/elastic-san/elastic-san-create.md).
 - Know the availability zone your private cloud is in. 
 	- In the UI, select an Azure VMware Solution host.

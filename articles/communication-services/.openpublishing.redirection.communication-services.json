@@ -460,6 +460,11 @@
             "source_path_from_root": "/articles/communication-services/concepts/advanced-messaging/message-analysis.md",
             "redirect_url": "/articles/communication-services/concepts/advanced-messaging/message-analysis/message-analysis.md",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/communication-services/concepts/telephony/outbound-calling.md",
+            "redirect_url": "/azure/communication-services/concepts/telephony/toll-free-calling",
+            "redirect_document_id": false
         }
     ]
 }

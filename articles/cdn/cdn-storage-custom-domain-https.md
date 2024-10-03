@@ -12,6 +12,8 @@ ms.custom: mvc
 
 # Tutorial: Access storage blobs using an Azure Content Delivery Network custom domain over HTTPS
 
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
+
 After you've integrated your Azure Storage account with Azure Content Delivery Network, you can add a custom domain and enable HTTPS on that domain for your custom blob storage endpoint.
 
 > [!NOTE]  

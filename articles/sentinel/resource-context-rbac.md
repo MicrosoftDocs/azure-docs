@@ -95,7 +95,7 @@ If you have multiple teams, make sure that you have separate log forwarding VMs 
 For example, separating your VMs ensures that Syslog events that belong to Team A are collected using the collector VM A.
 
 > [!TIP]
-> - When using an on-premises VM or another cloud VM, such as AWS, as your log forwarder, ensure that it has a resource ID by implementing [Azure Arc](../azure-arc/servers/overview.md).
+> - When using an on-premises VM or another cloud VM, such as AWS, as your log forwarder, ensure that it has a resource ID by implementing [Azure Arc](/azure/azure-arc/servers/overview).
 > - To scale your log forwarding VM environment, consider creating a [VM scale set](https://techcommunity.microsoft.com/t5/azure-sentinel/scaling-up-syslog-cef-collection/ba-p/1185854) to collect your CEF and Sylog logs.
 
 

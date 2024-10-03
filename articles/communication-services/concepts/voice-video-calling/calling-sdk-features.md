@@ -102,6 +102,7 @@ The following list presents the set of features that are currently available in 
 |      | Noise suppression          | ✔️   | ✔️       | ✔️              | ✔️                 |
 |      | Automatic gain control (AGC)        | ❌   | ✔️       | ✔️              | ✔️                 |
 | Notifications <sup>4</sup>    | [Push notifications](../../how-tos/calling-sdk/push-notifications.md)          | ✔️  | ✔️       | ✔️              | ✔️                 |
+| Custom context    | Add [User-to-User (UUI)](../../how-tos/calling-sdk/call-context.md) or custom headers to a call                                                                    | ✔️   | ❌       | ❌              | ❌                 |
 
 <sup>1</sup> The capability to Mute Others is currently in public preview.
 

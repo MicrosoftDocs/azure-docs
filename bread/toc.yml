@@ -124,25 +124,6 @@ items:
   - name: Synapse Analytics
     tocHref: /azure/synapse-analytics/
     topicHref: /azure/synapse-analytics/
-  - name: Azure Arc
-    tocHref: /azure/azure-arc/
-    topicHref: /azure/azure-arc/
-    items:
-    - name: Azure Arc-enabled data services
-      tocHref: /azure/azure-arc/data/
-      topicHref: /azure/azure-arc/index
-    - name: Azure Arc-enabled Kubernetes
-      tocHref: /azure/azure-arc/kubernetes/
-      topicHref: /azure/azure-arc/index
-    - name: Azure Arc-enabled VMWare
-      tocHref: /azure/azure-arc/vmware-vsphere/
-      topicHref: /azure/azure-arc/index
-    - name: Arc-enabled servers
-      tocHref: /azure/azure-arc/servers/
-      topicHref: /azure/azure-arc/servers/
-    - name: Azure Container Storage enabled by Azure Arc
-      tocHref: /azure/azure-arc/container-storage/
-      topicHref: /azure/azure-arc/container-storage/index
   - name: Automation
     tocHref: /azure/automation/
     topicHref: /azure/automation/
@@ -180,9 +161,6 @@ items:
   - name: Azure HPC Cache
     tocHref: /azure/hpc-cache/
     topicHref: /azure/hpc-cache/
-  - name: Azure Lighthouse
-    tocHref: /azure/lighthouse/
-    topicHref: /azure/lighthouse/
   - name: Azure Managed Grafana
     tocHref: /azure/managed-grafana/
     topicHref: /azure/managed-grafana/
@@ -199,9 +177,6 @@ items:
   - name: Azure Remote Rendering
     tocHref: /azure/remote-rendering/
     topicHref: /azure/remote-rendering/
-  - name: Container Registry
-    tocHref: /azure/container-registry/
-    topicHref: /azure/container-registry/
   - name: Functions
     tocHref: /azure/azure-functions/
     topicHref: /azure/azure-functions/
@@ -227,9 +202,6 @@ items:
   - name: Azure VMware Solution by CloudSimple
     tocHref: /azure/vmware-cloudsimple/
     topicHref: /azure/vmware-cloudsimple/
-  - name: Azure portal documentation
-    tocHref: /azure/azure-portal/
-    topicHref: /azure/azure-portal/
   - name: Azure portal documentation
     tocHref: /power-bi
     topicHref: /azure/azure-portal/index
@@ -449,9 +421,6 @@ items:
   - name: Connectors
     tocHref: /azure/connectors/
     topicHref: /azure/connectors/
-  - name: Kubernetes Fleet Manager
-    tocHref: /azure/kubernetes-fleet/
-    topicHref: /azure/kubernetes-fleet/
   - name: OpenShift
     tocHref: /azure/openshift/
     topicHref: /azure/openshift/
@@ -1014,9 +983,6 @@ items:
   - name: Operator Insights
     tocHref: /azure/operator-insights/
     topicHref: /azure/operator-insights/index
-  - name: Microsoft Copilot in Azure
-    tocHref: /azure/copilot/
-    topicHref: /azure/copilot/
   - name: Operator Call Protection
     tocHref: /azure/operator-call-protection/
     topicHref: /azure/operator-call-protection/

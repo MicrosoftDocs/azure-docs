@@ -23,7 +23,7 @@ For information about monitoring a volume’s capacity, see [Monitor the capacit
 * Volume resize operations are nearly instantaneous but not always immediate. There can be a short delay for the volume's updated size to appear in the portal. Verify the size from a host perspective before re-attempting the resize operation.
 
 >[!IMPORTANT]
->If you are using a capacity pool with a size of 2 TiB or smaller and have `ANFStdToBasicNetworkFeaturesRevert` and `ANFBasicToStdNetworkFeaturesUpgrade` AFECs enabled and want to change the capacity pool's QoS type from auto to manual, you must [perform the operation with the REST API](#resizing-the-capacity-pool-or-a-volume-using-rest-api) using the `2023-07-01` API version or later.
+>If you are using a capacity pool with a size of 2 TiB or smaller and have the `ANFStdToBasicNetworkFeaturesRevert` and `ANFBasicToStdNetworkFeaturesUpgrade` AFECs enabled and want to change the capacity pool's QoS type from auto to manual, you must [perform the operation with the REST API](#resizing-the-capacity-pool-or-a-volume-using-rest-api) using the `2023-07-01` API version or later.
 
 ## Resize the capacity pool using the Azure portal 
 

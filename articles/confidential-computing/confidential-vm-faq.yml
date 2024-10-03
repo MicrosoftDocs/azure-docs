@@ -167,7 +167,7 @@ sections:
         answer: |
           You might receive the error **Operation could not be completed as it results in exceeding approved standard DCasv5/ECasv5 Family Cores Quota**.
           This Azure Resource Manager template (ARM template) error means the deployment failed because of a lack of Azure compute cores. 
-          Azure free trial subscriptions don't have a large enough core quota for confidential VMs. [Create a support request to increase your quota](../azure-portal/supportability/per-vm-quota-requests.md).  
+          Azure free trial subscriptions don't have a large enough core quota for confidential VMs. [Create a support request to increase your quota](/azure/azure-portal/supportability/per-vm-quota-requests).  
           
       - question: |
           What's the difference between DCasv5-series/DCesv5-series and ECasv5-series/ECesv5-series VMs?
