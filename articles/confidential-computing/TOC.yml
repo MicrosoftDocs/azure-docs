@@ -148,6 +148,7 @@
       - name: Regions
         href: https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machine
   - name: Confidential Services
+    expanded: true
     items:
     - name: SQL Always Encrypted with Secure Enclaves # x-link to SQL docs #done
       href: /sql/relational-databases/security/encryption/configure-always-encrypted-enclaves
