@@ -60,6 +60,8 @@ The following instructions show how to migrate a Grafana instance using the Azur
 
 ## Create a service account token
 
+Start by creating a service account token to grant the necessary permissions to access and export content from your Grafana instance.
+
 ### [Azure CLI](#tab/azure-cli)
 
 1. Create a service account with Admin permissions in the Grafana resource you want to collect content from (source) by running the `az grafana service-account create` command in the Azure CLI. When running the command below, replace the `<azure-managed-grafana-name>` and `<service-account-name>` placeholders with the name of your source Grafana instance.
