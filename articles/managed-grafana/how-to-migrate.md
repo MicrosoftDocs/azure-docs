@@ -85,12 +85,12 @@ The following instructions show how to migrate a Grafana instance using the Azur
     ```azurecli
     az grafana service-account token create --name <azure-managed-grafana-name> --service-account <service-account-name> --token <token-name>
     ```
-    Tokens have an unlimited expiry date by default. Optionally use the `--time-to-live` option to set an expiry time to disable the token after a given time. For more information, go to [Create a new token](how-to-service-accounts.md#azure-clitabazure-cli-2).
+    Tokens have an unlimited expiry date by default. Optionally use the `--time-to-live` option to set an expiry time to disable the token after a given time. For more information, go to [Create a new token](how-to-service-accounts.md#tabpanel_3_azure-cli).
 ---
 
 ## Run the Grafana migrate command
 
-In the Azure CLI, run the [az grafana migrate](/cli/azure/grafana#az-grafana-migrate) command. When running the command below, replace the placeholders `<target-grafana>` `<target-grafana-resource-group>` `<--src-endpoint>`, `<source-grafana-endpoint>`and `<source-token> with the name and resource group of the Azure Managed Grafana instance you want to migrate to (target), the endpoint of the Grafana resource you're collecting content from (source), and the service account token you created earlier.
+In the Azure CLI, run the [az grafana migrate](/cli/azure/grafana#az-grafana-migrate) command. When running the command below, replace the placeholders `<target-grafana>` `<target-grafana-resource-group>` `<--src-endpoint>`, `<source-grafana-endpoint>`and `<source-token>` with the name and resource group of the Azure Managed Grafana instance you want to migrate to (target), the endpoint of the Grafana resource you're collecting content from (source), and the service account token you created earlier.
 
 ```azurecli
 az grafana migrate --name <target-grafana> --resource-group <target-grafana-resource-group> --src-endpoint <source-grafana-endpoint> --src-token-or-key <source-token>
@@ -109,7 +109,7 @@ Optional parameters for this command include:
 Go to your target instance and check that you can find everything you migrated from your Grafana instance.
 
 > [!IMPORTANT]
-> If your data sources are set up using secrets, you need to manually reconfigure these secrets in your target instance to successfully configure your data sources in Grafana.
+> If your data sources are set up using secrets, you need to manually reconfigure these secrets in your target instance to successfully configure your data sources.
 
 ::: zone-end
 
