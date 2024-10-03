@@ -4,7 +4,8 @@ description: Take an existing normalized database schema from Azure SQL Database
 author: kromerm
 ms.author: makromer
 ms.topic: conceptual
-ms.date: 05/15/2024
+ms.date: 10/03/2024
+ms.subservice: data-flows
 ---
 
 # Migrate normalized database schema from Azure SQL Database to Azure Cosmos DB denormalized container
