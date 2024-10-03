@@ -4,7 +4,7 @@ description: Learn about ways to improve performance and throughput for premium 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 09/09/2024
+ms.date: 10/03/2024
 ms.author: kendownie
 ms.custom: references_regions
 ---
@@ -167,7 +167,7 @@ The load was generated against a single 128 GiB file. With SMB Multichannel enab
 
 ## Metadata caching for premium SMB file shares
 
-Metadata caching is an enhancement for SMB Azure premium file shares aimed to improve the following:
+Metadata caching is an enhancement for premium SMB Azure file shares aimed to improve the following:
 
 - Reduce metadata latency
 - Raised metadata scale limits
@@ -219,7 +219,7 @@ Currently the metadata caching preview is only available in the following Azure 
 - US West 3
 
 > [!TIP]
-> As we extend region support for the Metadata Cache feature, Premium File Storage Accounts in those regions will be automatically onboarded for all subsciptions registered with the Metadata Caching feature.
+> As we extend region support for the Metadata Cache feature, premium file storage accounts in those regions will be automatically onboarded for all subscriptions registered with the Metadata Caching feature.
 
 ### Performance improvements with metadata caching
 
