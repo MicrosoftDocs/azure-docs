@@ -58,7 +58,7 @@ To create a cache, follow these steps:
     > [!IMPORTANT]
     > Enabling Automatic Zone Allocation (preview) is currently NOT supported for Geo-replicated caches or caches with VNET injection.
 
-1. Availability zones can be selected manually for Premium tier caches. The count of availability zones must always be less than or equal to the Replica count for the cache.
+1. Availability zones can be selected manually for Premium tier caches. The number of availability zones must always be less than or equal to the total number of nodes for the cache. 
 
    :::image type="content" source="media/cache-how-to-zone-redundancy/cache-premium-replica-count.png" alt-text="Screenshot showing Availability zones set to one and Replica count set to three.":::
 
@@ -86,7 +86,7 @@ Zone redundancy is available only in Azure regions that have Availability Zones.
 
 ### Why can't I select all three zones during cache create?
 
-A Premium cache has one primary and one replica node by default. To configure zone redundancy for more than two Availability Zones, you need to add [more replicas](cache-how-to-multi-replicas.md) to the cache you're creating.
+A Premium cache has one primary and one replica node by default. To configure zone redundancy for more than two Availability Zones, you need to add [more replicas](cache-how-to-multi-replicas.md) to the cache you're creating. The total number of availability zones must not exceed the combined count of nodes within the cache, including both the primary and replica nodes.
 
 ### Can I update my existing Standard or Premium cache to use zone redundancy?
 
