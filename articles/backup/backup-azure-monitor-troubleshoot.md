@@ -23,7 +23,8 @@ This article provides troubleshooting steps that help you resolve error massages
 
 For further information, browse the logs at:
 
-    ```<AzureBackup_agent_install_folder>\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider*
+    ```
+    <AzureBackup_agent_install_folder>\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider*
     ```
 
 For example:
