@@ -109,6 +109,8 @@ To customize the endpoint settings, see the following sections for more informat
 
 The following authentication methods are available for Azure Data Lake Storage Gen2 endpoints.
 
+For more information about enabling secure settings by configuring an Azure Key Vault and enabling workload identities, see [Enable secure settings in Azure IoT Operations Preview deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
+
 #### System-assigned managed identity
 
 Using the system-assigned managed identity is the recommended authentication method for Azure IoT Operations. Azure IoT Operations creates the managed identity automatically and assigns it to the Azure Arc-enabled Kubernetes cluster. It eliminates the need for secret management and allows for seamless authentication with the Azure Data Lake Storage Gen2 account.
