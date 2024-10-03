@@ -266,12 +266,6 @@
     href: data-connectors-reference.md
   - name: All connectors
     items:
-    - name: '[Deprecated] Morphisec UTPP'
-      href: data-connectors/morphisec-utpp.md
-    - name: '[Deprecated] vArmour Application Controller'
-      href: data-connectors/varmour-application-controller.md
-    - name: 'WireX Network Forensics Platform'
-      href: data-connectors/wirex-network-forensics-platform.md
     - name: 1Password (using Azure Functions)
       href: data-connectors/1password.md
     - name: AbnormalSecurity (using Azure Functions)
@@ -572,10 +566,6 @@
       href: data-connectors/sailpoint-identitynow.md
     - name: Salesforce Service Cloud (using Azure Functions)
       href: data-connectors/salesforce-service-cloud.md
-    - name: Security Events via Legacy Agent
-      href: data-connectors/security-events-via-legacy-agent.md
-    - name: SecurityBridge Threat Detection for SAP
-      href: data-connectors/securitybridge-threat-detection-for-sap.md
     - name: SenservaPro (Preview)
       href: data-connectors/senservapro.md
     - name: SentinelOne (using Azure Functions)
@@ -910,8 +900,6 @@
     items:
     - name: Overview
       href: entity-pages.md
-    - name: Enable enrichment widgets 
-      href: enable-enrichment-widgets.md
     - name: Create custom entity activities
       href: customize-entity-activities.md
   - name: Investigate large datasets
@@ -1041,8 +1029,6 @@
     href: offboard.md
 - name: Troubleshoot
   items:
-  - name: Troubleshoot CEF/Syslog data collection
-    href: troubleshooting-cef-syslog.md
   - name: Troubleshoot AWS S3 connector issues
     href: aws-s3-troubleshoot.md
   - name: Troubleshoot SAP solution deployment
@@ -1127,8 +1113,10 @@
       href: dns-ama-fields.md
     - name: Data connector definitions API reference
       href: data-connector-ui-definitions-reference.md
-    - name: Data connectors API reference
+    - name: RestApiPoller data connectors API reference
       href: data-connector-connection-rules-reference.md
+    - name: GCP data connectors API reference
+      href: data-connection-rules-reference-gcp.md
     - name: Sample API requests for creating Data Collection Rules (DCRs)
       href: api-dcr-reference.md
     - name: Microsoft Purview Information Protection reference

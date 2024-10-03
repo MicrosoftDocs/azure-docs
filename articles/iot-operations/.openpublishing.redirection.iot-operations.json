@@ -111,11 +111,6 @@
             "redirect_document_id": true
         },
         {
-            "source_path_from_root": "/articles/iot-operations/manage-devices-assets/overview-akri.md",
-            "redirect_url": "/azure/iot-operations/discover-manage-assets/overview-akri",
-            "redirect_document_id": true
-        },
-        {
             "source_path_from_root": "/articles/iot-operations/manage-devices-assets/howto-manage-assets-remotely.md",
             "redirect_url": "/azure/iot-operations/discover-manage-assets/howto-manage-assets-remotely",
             "redirect_document_id": true
@@ -132,18 +127,48 @@
         },
         {
             "source_path_from_root": "/articles/iot-operations/manage-devices-assets/howto-configure-opc-plc-simulator.md",
-            "redirect_url": "/azure/iot-operations/discover-manage-assets/howto-configure-opc-plc-simulator",
-            "redirect_document_id": true
+            "redirect_url": "https://github.com/Azure-Samples/iot-edge-opc-plc/blob/main/README.md",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/discover-manage-assets/howto-configure-opc-plc-simulator.md",
+            "redirect_url": "https://github.com/Azure-Samples/iot-edge-opc-plc/blob/main/README.md",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/iot-operations/manage-devices-assets/howto-autodetect-opcua-assets-using-akri.md",
-            "redirect_url": "/azure/iot-operations/discover-manage-assets/howto-autodetect-opcua-assets-using-akri",
-            "redirect_document_id": true
+            "redirect_url": "/azure/iot-operations/discover-manage-assets/overview-manage-assets",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/iot-operations/manage-devices-assets/concept-akri-architecture.md",
-            "redirect_url": "/azure/iot-operations/discover-manage-assets/concept-akri-architecture",
-            "redirect_document_id": true
+            "redirect_url": "/azure/iot-operations/discover-manage-assets/overview-manage-assets",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/manage-devices-assets/overview-akri.md",
+            "redirect_url": "/azure/iot-operations/discover-manage-assets/overview-manage-assets",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/discover-manage-assets/concept-akri-architecture.md",
+            "redirect_url": "/azure/iot-operations/discover-manage-assets/overview-manage-assets",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/discover-manage-assets/howto-autodetect-opcua-assets-using-akri.md",
+            "redirect_url": "/azure/iot-operations/discover-manage-assets/overview-manage-assets",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/discover-manage-assets/overview-akri.md",
+            "redirect_url": "/azure/iot-operations/discover-manage-assets/overview-manage-assets",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/iot-operations/reference/observability-metrics-akri.md",
+            "redirect_url": "/azure/iot-operations/reference/observability-metrics-opcua-broker",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/iot-operations/manage-mqtt-connectivity/overview-iot-mq.md",
@@ -157,7 +182,7 @@
         },
         {
             "source_path_from_root": "/articles/iot-operations/manage-mqtt-connectivity/howto-manage-secrets.md",
-            "redirect_url": "/azure/iot-operations/manage-mqtt-broker/overview-iot-mq",
+            "redirect_url": "/azure/iot-operations/deploy-iot-ops/howto-manage-secrets",
             "redirect_document_id": false
         },
         {
@@ -453,6 +478,12 @@
         {
             "source_path_from_root": "/articles/iot-operations/view-analyze-telemetry/tutorial-upload-mqtt-lakehouse.md",
             "redirect_url": "/azure/iot-operations/connect-to-cloud/howto-create-dataflow",
+            "redirect_document_id": false
+        }
+        ,
+        {
+            "source_path_from_root": "/articles/iot-operations/manage-mqtt-broker/concept-default-root-ca.md",
+            "redirect_url": "/azure/iot-operations/deploy-iot-ops/concept-default-root-ca",
             "redirect_document_id": false
         }
     ]

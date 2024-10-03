@@ -23,7 +23,7 @@ Azure Front Door and Azure CDN are both Azure services that offer global content
 
 The following table provides a comparison between Azure Front Door and Azure CDN services.
 
-| Features and optimizations | Front Door Standard | Front Door Premium | Front Door Classic | Azure CDN Standard Microsoft | Azure CDN Standard Edgio | Azure CDN Premium Edgio |
+| Features and optimizations | Front Door Standard | Front Door Premium | Front Door (classic) | CDN Standard from Microsoft (classic) | CDN Standard from Edgio | CDN Premium from Edgio |
 | --- | --- | --- | --- | --- | --- | --- |
 | **Delivery and acceleration** | | | | | | |
 | Static file delivery | &check; | &check; | &check; | &check; | &check; | &check; |
@@ -75,9 +75,21 @@ The following table provides a comparison between Azure Front Door and Azure CDN
 | Compression encodings | gzip, brotli | gzip, brotli | gzip, brotli | gzip, brotli | gzip, deflate, bzip2 | gzip, deflate, bzip2, brotli |
 | Azure Policy integration | &check; | &check; | &check; |  |  |  |
 | Azure Advisory integration | &check; | &check; |  | &check; | &check; | &check; |
-| Managed Identities with Azure Key Vault | &check; | &check; |  |  |  |  |
+| Managed Identities with Azure Key Vault | &check; | &check; |  | &check; |  |  |
 | **Pricing** | | | | | | |
 | Simplified pricing | &check; | &check; |  | &check; | &check; | &check; |
+
+## Services on retirement path
+The following table lists services that are on retirement path, frequently asked questions regarding retirement, and migration guidance.
+
+| Details | Front Door (classic) | CDN Standard from Microsoft (classic) | CDN Standard from Akamai |
+| --- | --- | --- | --- |
+| Retirement Date | March 31, 2027 | September 30, 2027 | December 31, 2023 |
+| Date till new resources can be created | March 31, 2025 | September 30, 2025 | Service is already retired |
+| Documentation | [Azure update](https://azure.microsoft.com/updates/azure-front-door-classic-will-be-retired-on-31-march-2027/), [FAQ](classic-retirement-faq.md) | [Azure update](https://azure.microsoft.com/updates/v2/Azure-CDN-Standard-from-Microsoft-classic-will-be-retired-on-30-September-2027), [FAQ](../cdn/classic-cdn-retirement-faq.md) | [FAQ](../cdn/akamai-retirement-faq.md)|
+| Migration | [Considerations](tier-migration.md), [Step-by-step instructions](migrate-tier.md) | [Considerations](../cdn/tier-migration.md), [Step-by-step instructions](../cdn/migrate-tier.md) | Service is already retired |
+
+
 
 ## Next steps
 

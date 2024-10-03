@@ -116,6 +116,8 @@
       href: push-kv-devops-pipeline.md
     - name: Pull using Azure Pipelines
       href: pull-key-value-devops-pipeline.md
+    - name: Create snapshots using Azure Pipelines
+      href: create-snapshot-devops-pipeline.md
     - name: Push using GitHub Actions
       href: push-kv-github-action.md
     - name: Build project using exported configuration
@@ -324,6 +326,8 @@
         href: https://azure.github.io/azure-sdk-for-java/springboot.html
     - name: Python
       items:
+      - name: Feature reference
+        href: ./feature-management-python-reference.md
       - name: API reference
         href: https://microsoft.github.io/FeatureManagement-Python/html/index.html
   - name: Deployment

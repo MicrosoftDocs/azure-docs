@@ -44,6 +44,8 @@ In this section, you:
 
 * Use the reported properties to enable device twin queries to identify devices and when they were last rebooted.
 
+[!INCLUDE [iot-authentication-device-connection-string.md](../../includes/iot-authentication-device-connection-string.md)]
+
 To create the simulated device app, follow these steps:
 
 1. Open Visual Studio and select **Create a new project**, then find and select the **Console App (.NET Framework)** project template, then select **Next**.
@@ -155,6 +157,9 @@ To create the simulated device app, follow these steps:
 ## Create a service app to trigger a reboot
 
 In this section, you create a .NET console app, using C#, that initiates a remote reboot on a device using a direct method. The app uses device twin queries to discover the last reboot time for that device.
+
+[!INCLUDE [iot-authentication-service-connection-string.md](../../includes/iot-authentication-service-connection-string.md)]
+
 
 1. Open Visual Studio and select **Create a new project**.
 
