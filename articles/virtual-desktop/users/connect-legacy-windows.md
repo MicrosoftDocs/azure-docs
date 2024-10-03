@@ -73,9 +73,7 @@ The Azure Virtual Desktop app is available from the Microsoft Store. To download
 1. Once the app has finished downloading and installing, select **Open**. The first time the app runs, it will install the *Azure Virtual Desktop (HostApp)* dependency automatically.
 
 > [!IMPORTANT]
-> If you have the Azure Virtual Desktop app from the Microsoft Store and the Remote Desktop client (MSI) installed on the same device, you may see the message that begins **A version of this application called Azure Virtual Desktop was installed from the Microsoft Store**. Both apps are supported, and you have the option to choose **Continue anyway**, however it could be confusing to use the same remote resource across both apps. We recommend using only one version of the app at a time.
-> If you have the Remote Desktop client (MSI) and the Azure Virtual Desktop app from the Microsoft Store installed on the same device, you may see the message that begins **A version of this application called Azure Virtual Desktop was installed from the Microsoft Store**. Both apps are supported, and you have the option to choose **Continue anyway**,
-however we recommend using Windows App for the most up-to-date experience.
+> If you have the Remote Desktop client (MSI) and the Azure Virtual Desktop app from the Microsoft Store installed on the same device, you may see the message that begins **A version of this application called Azure Virtual Desktop was installed from the Microsoft Store**. Both apps are supported, and you have the option to choose **Continue anyway**, however we recommend using [Windows App](/windows-app/overview) for the most up-to-date experience.
 
 
 # [Remote Desktop Store app](#tab/rd-store)
@@ -83,7 +81,7 @@ however we recommend using Windows App for the most up-to-date experience.
 > [!IMPORTANT]
 > We're no longer updating the Remote Desktop app for Windows with new features and support for Azure Virtual Desktop will be removed in the future.
 > 
-> For the best Azure Virtual Desktop experience that includes the latest features and updates, we recommend you download the Remote Desktop client (MSI) instead.
+> To ensure a seamless experience and avoid any disruption, users are encouraged to download Windows App. Windows App is the gateway to securely connect to any devices or apps across Azure Virtual Desktop, Windows 365, and Microsoft Dev Box. For more information, see [What is Windows App](/windows-app/overview).
 
 The Remote Desktop app is available from the Microsoft Store. To download and install it, follow these steps:
 
