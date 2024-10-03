@@ -85,7 +85,7 @@ The following instructions show how to migrate a Grafana instance using the Azur
     ```azurecli
     az grafana service-account token create --name <azure-managed-grafana-name> --service-account <service-account-name> --token <token-name>
     ```
-    Tokens have an unlimited expiry date by default. Optionally use the `--time-to-live` option to set an expiry time to disable the token after a given time. For more information, go to [Create a new token](how-to-service-accounts.md#tabpanel_3_azure-cli).
+    Tokens have an unlimited expiry date by default. Optionally use the `--time-to-live` option to set an expiry time to disable the token after a given time. For more information, go to [Create a new token](how-to-service-accounts.md?add-a-service-account-token-and-review-tokens.md?tabs=azure-cli#add-a-service-account-token-and-review-tokens).
 ---
 
 ## Run the Grafana migrate command
