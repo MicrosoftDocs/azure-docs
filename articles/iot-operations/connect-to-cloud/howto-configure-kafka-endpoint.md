@@ -666,7 +666,7 @@ Properties =
 
 The dataflow endpoint discards packets that contain the `"float-value"` field.
 
-Not all event data properties including propertyEventData.correlationId are not forwarded. For more information, see [Event User Properites](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/interop#event-user-properties),
+Not all event data properties including propertyEventData.correlationId are not forwarded. For more information, see [Event User Properties](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/interop#event-user-properties),
 
 ### CloudEvents
 
