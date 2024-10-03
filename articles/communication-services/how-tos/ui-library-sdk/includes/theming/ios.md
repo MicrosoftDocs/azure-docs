@@ -60,7 +60,7 @@ let callCompositeOptions = CallCompositeOptions(theme: CustomThemeOptions())
 
 ### Font color
 
-The `foregroundOnPrimaryColor` allows you to programmatically update the font color that appears on elements using the primary color. You can use this  method when you want to match a specific theme or brand guidelines. By invoking `foregroundOnPrimaryColor`, you should ensure that the text remains legible and visually appealing by selecting an appropriate contrasting font color for the primary-colored components.
+The `foregroundOnPrimaryColor` allows you to programmatically update the font color that appears on elements using the primary color. You can use this method when you want to match a specific theme or brand guidelines. By invoking `foregroundOnPrimaryColor`, you should ensure that the text remains legible and visually appealing by selecting an appropriate contrasting font color for the primary-colored components.
 
 ```swift
 struct CustomColorTheming: ThemeOptions {    

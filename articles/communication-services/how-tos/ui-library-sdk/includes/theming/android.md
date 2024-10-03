@@ -21,6 +21,7 @@ Theming on Android is handled via XML resource files. We expose the following re
     <public name="azure_communication_ui_calling_primary_color_tint10" type="attr" />
     <public name="azure_communication_ui_calling_primary_color_tint20" type="attr" />
     <public name="azure_communication_ui_calling_primary_color_tint30" type="attr" />
+    <public name="azure_communication_ui_calling_foreground_on_primary_color" type="attr" />
 </resources>
 ```
 
@@ -32,6 +33,7 @@ You can implement a theme like the following one in your apps to supply the prim
     <item name="azure_communication_ui_calling_primary_color_tint10">#882BD8</item>
     <item name="azure_communication_ui_calling_primary_color_tint20">#E0C7F4</item>
     <item name="azure_communication_ui_calling_primary_color_tint30">#ECDEF9</item>
+    <item name="azure_communication_ui_calling_foreground_on_primary_color">#00FF00</item>
 </style>
 ```
 
@@ -82,24 +84,4 @@ To enable night mode programmatically, Android provides the following function. 
 
 ### Font color
 
-The `foregroundOnPrimaryColor` allows you to programmatically update the font color that appears on elements using the primary color. You can use this  method when you want to match a specific theme or brand guidelines. By invoking `foregroundOnPrimaryColor`, you should ensure that the text remains legible and visually appealing by selecting an appropriate contrasting font color for the primary-colored components.
-
-#### [Kotlin](#tab/kotlin)
-
-```kotlin
-val callComposite: CallComposite =
-        CallCompositeBuilder()
-            .theme(R.style.MyCompany_CallComposite)
-            .build()
-```
-
-#### [Java](#tab/java)
-
-```java
-CallComposite callComposite = 
-    new CallCompositeBuilder()
-        .theme(R.style.MyCompany_CallComposite)
-        .build();
-```
-
-----
+The `azure_communication_ui_calling_foreground_on_primary_color` allows you to configure the font color that appears on elements using the primary color. You can use this setting when you want to match a specific theme or brand guidelines. By changing `azure_communication_ui_calling_foreground_on_primary_color`, you should ensure that the text remains legible and visually appealing by selecting an appropriate contrasting font color for the primary-colored components.
