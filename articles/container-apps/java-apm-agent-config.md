@@ -12,7 +12,7 @@ ms.author: kuzhong
 
 # Tutorial: Configure APM integration for Java applications in Azure Container Apps
 
-Third party APM (Application Performance Management) solutions are useful especially when you need obersability on your applications running online. You can configure APM integration for Java applications in Azure Container Apps easily by Java agent and init containers without modifying your app image. In this tutorial, you learn how to:
+Third party APM (Application Performance Management) solutions are useful especially when you need observability on your applications running online. You can configure APM integration for Java applications in Azure Container Apps easily by Java agent and init containers without modifying your app image. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Prepare an image to set up Java agent and push to Azure Container Registry
@@ -325,7 +325,7 @@ The following commands help you define variables and ensure your Container Apps 
 
 ## Other APM solutions
 
-Other than [Azure Monitor Application Insights](https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview), there are other popular APM solutions in the community. If you want to intergrate your Azure Container App with other APM providers, just replace the Java agent JAR and related config files.
+Other than [Azure Monitor Application Insights](https://learn.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview), there are other popular APM solutions in the community. If you want to integrate your Azure Container App with other APM providers, just replace the Java agent JAR and related config files.
 
 - [AppDynamics](https://docs.appdynamics.com/appd/21.x/21.4/en/application-monitoring/install-app-server-agents/java-agent/install-the-java-agent)
 - [Dynatrace](https://docs.dynatrace.com/docs/setup-and-configuration/technology-support/application-software/java)
