@@ -5,6 +5,7 @@ author: jonburchel
 ms.topic: quickstart
 ms.date: 05/15/2024
 ms.author: jburchel
+ms.subservice: data-movement
 ---
 
 # Introductory training modules for Azure Data Factory
