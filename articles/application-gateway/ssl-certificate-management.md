@@ -66,6 +66,11 @@ There are two primary scenarios when deleting a certificate from portal:
 | Port | The port associated with the listener gets updated to reflect the new state. | 
 | Frontend IP | The frontend IP of the gateway gets updated to reflect the new state. | 
 
+### Deletion of a listener with an SSL certificate
+
+When a listener with an associated SSL certificate is deleted, the SSL certificate itself is not deleted. The certificate will remain in the Application Gateway configuration and can be assigned to another listener. 
+
+
 ### Bulk update
 The bulk operation feature is helpful for large gateways having multiple SSL certificates for separate listeners. Similar to individual certificate management, this option also allows you to change the type from "Uploaded" to "Key Vault" or vice-versa (if required). This utility is also helpful in recovering a gateway when facing misconfigurations for multiple certificate objects simultaneously.
 
@@ -85,6 +90,8 @@ To use the Bulk update option,
 `The listener associated with this certificate is configured as the redirection target for another listener. You will need to either remove this redirection or delete the redirected listener first to allow deletion of this certificate.`
 
 1. The Application Gateway requires at least one active Listener and Rule combination. You thus cannot delete the certificate of a HTTPS listener, if no other active listener exists. This is also true if there are only HTTPS listeners on your gateway, and all of them are referencing the same certificate. Such operations are prevented because deletion of a certificate leads to deletion of all dependent sub resources. 
+
+1. If a certificate is deleted in KeyVault but the reference to the certificate in Application Gateway is not deleted, the Application Gateway will appear in a failed state. To fix this, you must delete all the certificates without an associated listener one by one. To prevent this isssue, certificates must be deleted first on Application Gateway, then on KeyVault. 
 
 
 ## Next steps
