@@ -79,3 +79,27 @@ The Android resource system handles the night theme. Night mode on Android is a 
 To enable night mode programmatically, Android provides the following function. However, this configuration applies globally to the application. There's no reliable way to set night mode for a single activity. To enforce a dark theme, use the following setting in your applications:
 
 `AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)`
+
+### Font color
+
+The `foregroundOnPrimaryColor` allows you to programmatically update the font color that appears on elements using the primary color. You can use this  method when you want to match a specific theme or brand guidelines. By invoking `foregroundOnPrimaryColor`, you should ensure that the text remains legible and visually appealing by selecting an appropriate contrasting font color for the primary-colored components.
+
+#### [Kotlin](#tab/kotlin)
+
+```kotlin
+val callComposite: CallComposite =
+        CallCompositeBuilder()
+            .theme(R.style.MyCompany_CallComposite)
+            .build()
+```
+
+#### [Java](#tab/java)
+
+```java
+CallComposite callComposite = 
+    new CallCompositeBuilder()
+        .theme(R.style.MyCompany_CallComposite)
+        .build();
+```
+
+----
