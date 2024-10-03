@@ -156,7 +156,7 @@ Configure notifications to generate emails when a Warning or Critical alert occu
 
 By default, Email notifications are **On**. Select **Off** to stop the email notifications.
 
-On the **Notify** control, choose **Per Alert** if don't want grouping or don't have many items that could generate alerts. Every alert results in one notification (the default setting), and a resolution email is sent immediately.
+On the **Notify** control, choose **Per Alert** if you don't want grouping or don't have many items that could generate alerts. Every alert results in one notification (the default setting), and a resolution email is sent immediately.
 
 If you select **Hourly Digest**, an email is sent to the recipients explaining the unresolved alerts generated in the last hour. A resolution email is sent out at the end of the hour.
 
