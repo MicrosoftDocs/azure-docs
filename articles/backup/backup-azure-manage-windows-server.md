@@ -2,7 +2,7 @@
 title: Manage Azure Recovery Services vaults and servers
 description: In this article, learn how to use the Recovery Services vault Overview dashboard to monitor and manage your Recovery Services vaults. 
 ms.topic: how-to
-ms.date: 09/11/2024
+ms.date: 10/10/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -41,6 +41,8 @@ To monitor alerts, or view management data about a Recovery Services vault, open
 The Recovery Services vault **Overview** dashboard provides tiles for Monitoring and Usage information. The tiles in the Monitoring section display Critical and Warning alerts, and In progress and Failed jobs. Select a particular alert or job to open the Backup Alerts or Backup Jobs menu, filtered for that job or alert.
 
 ![Backup dashboard tasks](./media/backup-azure-manage-windows-server/monitor-dashboard-tiles-warning.png)
+
+[!INCLUDE [Classic alerts deprecation for Azure Backup.](../../includes/backup-azure-classic-alerts-deprecation.md)]
 
 The Monitoring section shows the results of predefined **Backup Alerts** and **Backup Jobs** queries. The Monitoring tiles provide up-to-date information about:
 
