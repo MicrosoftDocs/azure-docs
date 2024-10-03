@@ -292,7 +292,7 @@ To filter the data on a condition, you can use the `filter` stage. The condition
 
 1. Select **Apply**.
 
-# [Bicep](#tab/bicep)#
+# [Bicep](#tab/bicep)
 
 # [Kubernetes](#tab/kubernetes)
 
