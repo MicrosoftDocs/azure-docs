@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 07/05/2024
+ms.date: 09/06/2024
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -20,7 +20,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 ## Latest version
 
-[!INCLUDE [Network Watcher agent version](~/reusable-content/ce-skilling/azure/includes/virtual-machines-extensions-network-watcher-agent-version.md)].
+[!INCLUDE [Network Watcher agent version](../../includes/network-watcher-agent-version.md)].
 
 ### Identify latest version
 

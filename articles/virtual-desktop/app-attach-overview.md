@@ -21,7 +21,7 @@ The following table compares MSIX app attach with app attach:
 | Applications can only run on the host pool in which they're added. | Applications can run on any session host running a Windows client operating system in the same Azure region as the application package. |
 | To update the application, you must delete and recreate the application with another version of the package. You should update the application in a maintenance window. | Applications can be upgraded to a new application version with a new disk image without the need for a maintenance window. |
 | Users can't run two versions of the same application on the same session host. | Users can run two versions of the same application concurrently on the same session host. |
-| Telemetry for usage and health is now available through Azure Log Analytics. | Telemetry for usage and health is available through Azure Log Analytics. |
+| Telemetry for usage and health is not available through Azure Log Analytics. | Telemetry for usage and health is available through Azure Log Analytics. |
 
 You can use the following application package types and file formats:
 

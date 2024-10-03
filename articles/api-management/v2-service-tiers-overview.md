@@ -87,7 +87,7 @@ The following API Management capabilities are currently unavailable in the v2 ti
 * Zone redundancy 
 * Multi-region deployment 
 * Multiple custom domain names 
-* Capacity metric
+* Capacity metric - replaced by CPU Percentage of Gateway and Memory Percentage of Gateway metrics
 * Autoscaling
 * Inbound connection using a private endpoint
 * Injection in a VNet in external mode or internal mode

@@ -13,7 +13,7 @@ This article lists and briefly describes key terms and concepts related to Azure
 
 ## Alerts
 
-Any active Azure Monitor alerts that you've configured on the subscription and classified as [severity 0](#severity-0-alerts) will appear in the Overview page. To learn how to set up alerts, see [Azure Monitor Log Alerts](../azure-monitor/alerts/alerts-log.md).
+Any active Azure Monitor alerts that you've configured on the subscription and classified as [severity 0](#severity-0-alerts) will appear in the Overview page. To learn how to set up alerts, see [Azure Monitor Log Alerts](/azure/azure-monitor/alerts/alerts-log).
 
 ## Available sessions
 
@@ -284,7 +284,7 @@ The following table lists the required Windows Event Logs for Azure Virtual Desk
 - If you encounter a problem, check out our [troubleshooting guide](troubleshoot-insights.md) for help and known issues.
 
 
-You can also set up Azure Advisor to help you figure out how to resolve or prevent common issues. Learn more at [Introduction to Azure Advisor](../advisor/advisor-overview.md).
+You can also set up Azure Advisor to help you figure out how to resolve or prevent common issues. Learn more at [Introduction to Azure Advisor](/azure/advisor/advisor-overview).
 
 If you need help or have any questions, check out our community resources:
 

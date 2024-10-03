@@ -52,7 +52,7 @@ Once the JSON file is generated in the destination path mentioned above, generat
 ```powershell
 $keyDestination = 'C:\keyDetails.blob'
 [io.file]::WriteAllBytes($keyDestination, [System.Convert]::FromBase64String($encryptionObject.OsDiskKeyAndSecretDetails.KeyBackupData))
-Restore-AzureKeyVaultKey -VaultName '<target_key_vault_name>' -InputFile $keyDestination
+Restore-AzKeyVaultKey -VaultName '<target_key_vault_name>' -InputFile $keyDestination
 ```
 
 ## Restore secret

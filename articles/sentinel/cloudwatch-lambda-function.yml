@@ -48,10 +48,8 @@ procedureSection:
           :::image type="content" source="media/cloudwatch-lambda-function/lambda-other-permissions-policies.png" alt-text="Screenshot of the AWS Management Console Add permissions policies screen." lightbox="media/cloudwatch-lambda-function/lambda-other-permissions-policies.png":::
       - |
         Return to the function, select **Code**, and paste the code link under **Code source**.
-
-          :::image type="content" source="media/cloudwatch-lambda-function/lambda-code-source.png" alt-text="Screenshot of the AWS Management Console Code source screen." lightbox="media/cloudwatch-lambda-function/lambda-code-source.png":::
       - |  
-        Fill the parameters as required. 
+        The default values for the parameters are set using environment variables. If necessary, you can manually adjust these values directly in the code. 
       - |  
         Select **Deploy**, and then select **Test**.
       - |  

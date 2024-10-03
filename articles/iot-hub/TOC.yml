@@ -284,19 +284,8 @@
           displayName: file upload, upload files
           href: how-to-file-upload.md
         - name: Get started with device twins
-          items:
-            - name: .NET
-              displayName: device twins
-              href: device-twins-dotnet.md
-            - name: Python
-              displayName: device twins
-              href: device-twins-python.md
-            - name: Node.js
-              displayName: device twins
-              href: device-twins-node.md
-            - name: Java
-              displayName: device twins
-              href: device-twins-java.md
+          displayName: device twins
+          href: how-to-device-twins.md   
         - name: Get started with module twins
           items:
             - name: Portal

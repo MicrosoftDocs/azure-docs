@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 08/20/2024
+ms.date: 09/05/2024
 ms.author: anfdocs
 ms.custom: references_regions
 ---
@@ -16,13 +16,16 @@ Using Azure NetApp Files storage with cool access, you can configure inactive da
 
 Most cold data is associated with unstructured data. It can account for more than 50% of the total storage capacity in many storage environments. Infrequently accessed data associated with productivity software, completed projects, and old datasets are an inefficient use of a high-performance storage. 
 
-Azure NetApp Files supports cool access with three [service levels](azure-netapp-files-service-levels.md) (Standard, Premium and Ultra).
+Azure NetApp Files supports cool access with three [service levels](azure-netapp-files-service-levels.md) (Standard, Premium, and Ultra).
 
 The following diagram illustrates an application with a volume enabled for cool access.
 
 :::image type="content" source="./media/cool-access-introduction/cool-access-explainer.png" alt-text="Diagram of cool access tiering showing cool volumes being moved to the cool tier." lightbox="./media/cool-access-introduction/cool-access-explainer.png" border="false":::
 
-In the initial write, data blocks are assigned a "warm" temperature value (in the diagram, red data blocks) and exist on the "hot" tier. As the data resides on the volume, a temperature scan monitors the activity of each block. When a data block is inactive, the temperature scan decreases the value of the block until it has been inactive for the number of days specified in the cooling period. The cooling period can be between 2 and 183 days; it has a default value of 31 days. Once marked "cold,"  the tiering scan collects blocks and packages them into 4-MB objects, which are moved to Azure storage fully transparently. To the application and users, those cool blocks still appear online. Tiered data appears to be online and continues to be available to users and applications by transparent and automated retrieval from the cool tier.
+In the initial write, data blocks are assigned a "warm" temperature value (in the diagram, red data blocks) and exist on the "hot" tier. As the data resides on the volume, a temperature scan monitors the activity of each block. When a data block is inactive, the temperature scan decreases the value of the block until it has been inactive for the number of days specified in the coolness period. The coolness period can be between 2 and 183 days; it has a default value of 31 days. Once marked "cold," the tiering scan collects blocks and packages them into 4-MB objects, which are moved to Azure storage fully transparently. To the application and users, those cool blocks still appear online. Tiered data appears to be online and continues to be available to users and applications by transparent and automated retrieval from the cool tier.
+
+>[!NOTE]
+>When you enable cool access, data that satisfies the conditions set by the coolness period moves to the cool tier. For example, if the coolness period is set to 30 days, any data that has been cool for at least 30 days moves to the cool tier _when_ you enable cool access. 
 
 By `Default` (unless cool access retrieval policy is configured otherwise), data blocks on the cool tier that are read randomly again become "warm" and are moved back to the hot tier. Once marked as _warm_, the data blocks are again subjected to the temperature scan. However, large sequential reads (such as index and antivirus scans) on inactive data in the cool tier don't "warm" the data nor do they trigger inactive data to be moved back to the hot tier.
 
@@ -63,6 +66,7 @@ Azure NetApp Files storage with cool access is supported for the following regio
 * South Central US
 * South India
 * Southeast Asia
+* Spain Central
 * Switzerland North 
 * Switzerland West 
 * Sweden Central
@@ -77,83 +81,6 @@ Azure NetApp Files storage with cool access is supported for the following regio
 * West US
 * West US 2
 * West US 3
-
-## Effects of cool access on data
-
-This section describes a large-duration, large-dataset warming test. It shows an example scenario of a dataset where 100% of the data is in the cool tier and how it warms over time.   
-
-Typical randomly accessed data starts as part of a working set (read, modify, and write). As data loses relevance, it becomes "cool" and is eventually tiered off to the cool tier.  
-
-Cool data might become hot again. It’s not typical for the entire working set to start as cold, but some scenarios do exist, for example, audits, year-end processing, quarter-end processing, lawsuits, and end-of-year licensure reviews.  
-
-This scenario provides insight to the warming performance behavior of a 100% cooled dataset. The insight applies whether it's a small percentage or the entire dataset.
-
-### 4k random-read test
-
-This section describes a 4k random-read test across 160 files totaling 10 TB of data.   
-
-#### Setup 
-
-**Capacity pool size:** 100-TB capacity pool <br>
-**Volume allocated capacity:** 100-TB volumes <br>
-**Working Dataset:** 10 TB <br>
-**Service Level:** Standard storage with cool access <br>
-**Volume Count/Size:** 1 <br>
-**Client Count:** Four standard 8-s clients <br>
-**OS:** RHEL 8.3 <br>
-**Mount Option:** `rw,nconnect=8,hard,rsize=262144,wsize=262144,vers=3,tcp,bg,hard`
-
-#### Methodology
-
-This test was set up via FIO to run a 4k random-read test across 160 files that total 10 TB of data. FIO was configured to randomly read each block across the entire working dataset. (It can read any block any number of times as part of the test instead of touching each block once). This script was called once every 5 minutes and then a data point collected on performance. When blocks are randomly read, they're moved to the hot tier.
-
-This test had a large dataset and ran several days starting the worst-case most-aged data (all caches dumped). The time component of the X axis has been removed because the total time to rewarm varies due to the dataset size. This curve could be in days, hours, minutes, or even seconds depending on the dataset. 
-
-#### Results
-
-The following chart shows a test that ran over 2.5 days on the 10-TB working dataset that has been 100% cooled and the buffers cleared (absolute worst-case aged data). 
-
-:::image type="content" source="./media/cool-access-introduction/cool-access-test-chart.png" alt-text="Diagram that shows cool access read IOPS warming cooled tier, long duration, and 10-TB working set. The y-axis is titled IOPS, ranging from 0 to 140,000 in increments of 20,000. The x-axis is titled Behavior Over Time. A line charting Read IOPs is roughly flat until the right-most third of the x-axis where growth is exponential." lightbox="./media/cool-access-introduction/cool-access-test-chart.png"::: 
-
-### 64k sequential-read test
-
-#### Setup 
-
-**Capacity pool size:** 100-TB capacity pool <br>
-**Volume allocated capacity:** 100-TB volumes <br>
-**Working Dataset:** 10 TB <br>
-**Service Level:** Standard storage with cool access <br>
-**Volume Count/Size:** 1 <br>
-**Client Count:** One large client <br>
-**OS:** RHEL 8.3 <br>
-**Mount Option:** `rw,nconnect=8,hard,rsize=262144,wsize=262144,vers=3,tcp,bg,hard` <br>
-
-#### Methodology
-
-Sequentially read blocks aren't rewarmed to the hot tier. However, small dataset sizes might see performance improvements because of caching (no performance change guarantees). 
- 
-This test provides the following data points: 
-* 100% hot tier dataset 
-* 100% cool tier dataset 
-
-This test ran for 30 minutes to obtain a stable performance number.  
-
-#### Results
-
-The following table summarizes the test results: 
-
-| 64-k sequential | Read throughput | 
-|-|-|
-| Hot data | 1,683 MB/s |
-| Cool data | 899 MB/s |
-
-### Test conclusions 
-
-Data read from the cool tier experiences a performance hit. If you size your time to cool off correctly, then you might not experience a performance hit at all. You might have little cool tier access, and a 30-day window is perfect for keeping warm data warm.
-
-You should avoid a situation that churns blocks between the hot tier and the cool tier. For instance, you set a workload for data to cool seven days, and you randomly read a large percentage of the dataset every 11 days.
-
-In summary, if your working set is predictable, you can save cost by moving infrequently accessed data blocks to the cool tier. The 7 to 30 day wait range before cooling provides a large window for working sets that are rarely accessed after they're dormant or don't require the hot-tier speeds when they're accessed.
 
 ## Metrics 
 
@@ -175,7 +102,7 @@ Billing calculation for a capacity pool is at the hot-tier rate for the data tha
 
 ### Examples of billing structure
 
-Assume that you created a 4 TiB Standard capacity pool. The billing structure is at the Standard capacity tier rate for the entire 4 TiB. 
+Assume that you created a 4-TiB Standard capacity pool. The billing structure is at the Standard capacity tier rate for the entire 4 TiB. 
 
 When you create volumes in the capacity pool and start tiering data to the cool tier, the following scenarios explain the applicable billing structure: 
 
@@ -334,3 +261,4 @@ Your first twelve-month savings:
 
 * [Manage Azure NetApp Files storage with cool access](manage-cool-access.md)
 * [Metrics for Azure NetApp Files](azure-netapp-files-metrics.md)
+* [Performance considerations for Azure NetApp Files storage with cool access](performance-considerations-cool-access.md)

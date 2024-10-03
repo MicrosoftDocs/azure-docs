@@ -4,7 +4,7 @@ description: Create an Azure Data Factory and then use the copy data tool to cop
 author: dearandyxu
 ms.author: yexu
 ms.topic: quickstart
-ms.date: 10/20/2023
+ms.date: 09/25/2024
 ms.custom: mode-other
 ---
 

@@ -2,13 +2,13 @@
 title: Best practices for secure PaaS deployments - Microsoft Azure
 description: "Learn best practices for designing, building, and managing secure cloud applications on Azure and understand the security advantages of PaaS versus other cloud service models."
 services: security
-author: TerryLanfear
+author: msmbaldwin
 manager: rkarlin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 06/27/2024
-ms.author: terrylan
+ms.author: mbaldwin
 
 ---
 # Securing PaaS deployments
@@ -131,7 +131,7 @@ Web applications are increasingly targets of malicious attacks that exploit comm
 ## Monitor the performance of your applications
 Monitoring is the act of collecting and analyzing data to determine the performance, health, and availability of your application. An effective monitoring strategy helps you understand the detailed operation of the components of your application. It helps you increase your uptime by notifying you of critical issues so that you can resolve them before they become problems. It also helps you detect anomalies that might be security related.
 
-Use [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) to monitor availability, performance, and usage of your application, whether it's hosted in the cloud or on-premises. By using Application Insights, you can quickly identify and diagnose errors in your application without waiting for a user to report them. With the information that you collect, you can make informed choices on your application's maintenance and improvements.
+Use [Azure Application Insights](/azure/azure-monitor/app/app-insights-overview) to monitor availability, performance, and usage of your application, whether it's hosted in the cloud or on-premises. By using Application Insights, you can quickly identify and diagnose errors in your application without waiting for a user to report them. With the information that you collect, you can make informed choices on your application's maintenance and improvements.
 
 Application Insights has extensive tools for interacting with the data that it collects. Application Insights stores its data in a common repository. It can take advantage of shared functionality such as alerts, dashboards, and deep analysis with the Kusto query language.
 

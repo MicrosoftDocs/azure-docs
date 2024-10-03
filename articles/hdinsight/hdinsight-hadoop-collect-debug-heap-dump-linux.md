@@ -4,7 +4,7 @@ description: Enable heap dumps for Apache Hadoop services from Linux-based HDIns
 ms.service: azure-hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive, linux-related-content
-ms.date: 09/19/2023
+ms.date: 09/06/2024
 ---
 
 # Enable heap dumps for Apache Hadoop services on Linux-based HDInsight

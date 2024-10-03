@@ -376,8 +376,6 @@ Azure IoT Hub SDKs also support this functionality in the service client's regis
 ```csharp
     // Create an export job
  
-    using RegistryManager srcRegistryManager = RegistryManager.CreateFromConnectionString(hubConnectionString);
- 
     JobProperties jobProperties = JobProperties.CreateForExportJob(
         outputBlobContainerUri: blobContainerUri,
         excludeKeysInExport: false,
@@ -391,8 +389,6 @@ Azure IoT Hub SDKs also support this functionality in the service client's regis
 ```csharp
     // Create an import job
     
-    using RegistryManager destRegistryManager = RegistryManager.CreateFromConnectionString(hubConnectionString);
- 
     JobProperties jobProperties = JobProperties.CreateForImportJob(
         inputBlobContainerUri: blobContainerUri,
         outputBlobContainerUri: blobContainerUri,
@@ -407,7 +403,7 @@ Azure IoT Hub SDKs also support this functionality in the service client's regis
 
 ```python
 # see note below
-iothub_job_manager = IoTHubJobManager("<IoT Hub connection string>")
+iothub_job_manager = IoTHubJobManager("<IoT Hub connection information>")
 
 # Create an import job
 result = iothub_job_manager.create_import_export_job(JobProperties(

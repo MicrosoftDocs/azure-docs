@@ -5,12 +5,14 @@ services: cdn
 author: duongau
 manager: kumudd
 ms.service: azure-cdn
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/20/2024
 ms.author: duau
 ---
 
 # HTTP variables for Azure CDN rules engine
+
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
 
 HTTP variables provide the means through which you can retrieve HTTP request and response metadata. This metadata can then be used to dynamically alter a request or a response. The use of HTTP variables is restricted to the following rules engine features:
 

@@ -59,7 +59,6 @@ The RosettaNet connector is available only for Consumption logic app workflows.
 | Logic app | Environment | Connector version |
 |-----------|-------------|-------------------|
 | **Consumption** | Multitenant Azure Logic Apps | Managed connector, which appears in the designer under the **Standard** label. The **RosettaNet** connector provides only actions, but you can use any trigger that works for your scenario. For more information, review the following documentation: <br><br>- [RosettaNet connector operations](#rosettanet-operations) <br>- [B2B protocol limits for message sizes](logic-apps-limits-and-config.md#b2b-protocol-limits) <br>- [Managed connectors in Azure Logic Apps](../connectors/managed.md) |
-| **Consumption** | Integration service environment (ISE) | Built-in connector, which appears in the designer with the **CORE** label. The **RosettaNet** connector provides only actions, but you can use any trigger that works for your scenario. For more information, review the following documentation: <br><br>- [RosettaNet connector operations](#rosettanet-operations) <br>- [ISE message limits](logic-apps-limits-and-config.md#message-size-limits) <br>- [Managed connectors in Azure Logic Apps](../connectors/managed.md) |
 
 <a name="rosettanet-operations"></a>
 

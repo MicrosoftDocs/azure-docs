@@ -5,9 +5,10 @@ titleSuffix: Azure Virtual WAN
 author: cherylmc
 ms.service: azure-virtual-wan
 ms.topic: how-to
-ms.date: 11/21/2023
+ms.date: 09/24/2024
 ms.author: cherylmc
 
+#Note that Audience values are not sensitive data. 
 ---
 
 # Configure a Microsoft Entra tenant for P2S User VPN OpenVPN protocol connections

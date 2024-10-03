@@ -49,7 +49,7 @@ Storage account scale targets apply at the storage account level. There are two 
 | Management write operations | 10 per second/1200 per hour | 10 per second/1200 per hour |
 | Management list operations | 100 per 5 minutes | 100 per 5 minutes |
 
-<sup>1</sup> With a quota increase, you can create up to 500 storage accounts with standard endpoints per region. For more information, see [Increase Azure Storage account quotas](../../quotas/storage-account-quota-requests.md).
+<sup>1</sup> With a quota increase, you can create up to 500 storage accounts with standard endpoints per region. For more information, see [Increase Azure Storage account quotas](/azure/quotas/storage-account-quota-requests).
 <sup>2</sup> General-purpose version 2 storage accounts support higher capacity limits and higher limits for ingress by request. To request an increase in account limits, contact [Azure Support](https://azure.microsoft.com/support/faq/).
 
 ### Azure file share scale targets

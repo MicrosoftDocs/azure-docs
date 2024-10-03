@@ -14,14 +14,35 @@ Features released earlier than nine months ago are described in the [What's new 
 
 > [!NOTE]
 > Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
 
 [!INCLUDE [defender-iot-defender-reference](../includes/defender-for-iot-defender-reference.md)]
+
+## October 2024
+
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | - [Add wildcards to allowlist domain names](#add-wildcards-allowlist-domain-names)<br> - [Added protocol](#added-protocol) <br> - [Improved OT sensor onboarding](#improved-ot-sensor-onboarding) |
+
+### Add wildcards allowlist domain names
+
+When adding domain names to the FQDN allowlist use the `*` wildcard to include all sub-domains. For more information, see [allow internet connections on an OT network](how-to-accelerate-alert-incident-response.md#allow-internet-connections-on-an-ot-network).
+
+### Added protocol
+
+We now support the OCPI protocol. See [the updated protocol list](concept-supported-protocols.md#supported-protocols-for-ot-device-discovery).
+
+### Improved OT sensor onboarding
+
+If there are connection problems, during sensor onboarding, between the OT sensor and the Azure portal at the configuration stage, the process can't be completed until the connection problem is solved.
+
+We now support completing the configuration process without the need to solve the communication problem, allowing you to continue the onboarding of your OT sensor quickly and solve the problem at a later time. For more information, see [activate your OT sensor](ot-deploy/activate-deploy-sensor.md#activate-your-ot-sensor).
 
 ## July 2024
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | - [Security update](#security-update)  |
+| **OT networks** | - [Security update](#security-update) |
 
 ### Security update
 
@@ -1167,7 +1188,7 @@ For more information, see [Manage your device inventory from the Azure portal](h
 
 ### Use Azure Monitor workbooks with Microsoft Defender for IoT (Public preview)
 
-[Azure Monitor workbooks](../../azure-monitor/visualize/workbooks-overview.md) provide graphs and dashboards that visually reflect your data, and are now available directly in Microsoft Defender for IoT with data from [Azure Resource Graph](../../governance/resource-graph/index.yml).
+[Azure Monitor workbooks](/azure/azure-monitor/visualize/workbooks-overview) provide graphs and dashboards that visually reflect your data, and are now available directly in Microsoft Defender for IoT with data from [Azure Resource Graph](../../governance/resource-graph/index.yml).
 
 In the Azure portal, use the new Defender for IoT **Workbooks** page to view workbooks created by Microsoft and provided out-of-the-box, or create custom workbooks of your own.
 

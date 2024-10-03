@@ -3,16 +3,15 @@ title: Manage pre-scripts and post-scripts in your Update Management deployment 
 description: This article tells how to configure and manage pre-scripts and post-scripts for update deployments.
 services: automation
 ms.subservice: update-management
-ms.date: 08/30/2024
-ms.topic: conceptual 
+ms.date: 09/15/2024
+ms.topic: how-to 
 ms.custom: devx-track-azurepowershell
 ms.service: azure-automation
 ---
 
 # Manage pre-scripts and post-scripts
 
-[!INCLUDE [./log-analytics-retirement-announcement.md](../includes/log-analytics-retirement-announcement.md)]
-
+[!INCLUDE [./automation-update-management-retirement-announcement.md](../includes/automation-update-management-retirement-announcement.md)]
 
 Pre-scripts and post-scripts are runbooks to run in your Azure Automation account before (pre-task) and after (post-task) an update deployment. Pre-scripts and post-scripts run in the Azure context, not locally. Pre-scripts run at the beginning of the update deployment. On Windows, post-scripts run at the end of the deployment and after any reboots that are configured. For Linux, post-scripts run after the end of the deployment, not after the machine reboots. 
 

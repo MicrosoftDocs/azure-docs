@@ -130,7 +130,7 @@ Here's a list of queries you can use to see the logs:
 
 The entries may be long. Export to CSV for a closer look.
 
-For more information about querying, see [Overview of log queries in Azure Monitor](../azure-monitor/logs/log-query-overview.md).
+For more information about querying, see [Overview of log queries in Azure Monitor](/azure/azure-monitor/logs/log-query-overview).
 
 ## See the logs in VS Code extension
 
