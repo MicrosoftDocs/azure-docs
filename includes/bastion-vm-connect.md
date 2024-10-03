@@ -2,7 +2,7 @@
  author: cherylmc
  ms.service: azure-bastion
  ms.topic: include
- ms.date: 08/16/2022
+ ms.date: 10/03/2024
  ms.author: cherylmc
 ---
 
@@ -29,4 +29,4 @@
    > [!NOTE]
    > When you connect, the desktop of the VM will look different from the example screenshot.
 
-Using keyboard shortcut keys while you're connected to a VM might not result in the same behavior as shortcut keys on a local computer. For example, when you're connected to a Windows VM from a Windows client, Ctrl+Alt+End is the keyboard shortcut for Ctrl+Alt+Delete on a local computer. To do this from a Mac while you're connected to a Windows VM, the keyboard shortcut is Fn+Ctrl+Alt+Backspace.
+Using keyboard shortcut keys while you're connected to a VM might not result in the same behavior as shortcut keys on a local computer. For example, when you're connected to a Windows VM from a Windows client, Ctrl+Alt+End is the keyboard shortcut for Ctrl+Alt+Delete on a local computer. To do this from a Mac while you're connected to a Windows VM, the keyboard shortcut is fn+control+option+delete.
