@@ -23,15 +23,15 @@ This article provides troubleshooting steps that help you resolve error massages
 
 For further information, browse the logs at:
 
-    ```
-    <AzureBackup_agent_install_folder>\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider*
-    ```
+```PATH
+ <AzureBackup_agent_install_folder>\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider*
+```
 
 For example:
 
-    ```
-    C:\Program Files\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider0.errlog
-    ```
+```EXAMPLE
+ C:\Program Files\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider0.errlog
+```
 
 ## Next steps
 
