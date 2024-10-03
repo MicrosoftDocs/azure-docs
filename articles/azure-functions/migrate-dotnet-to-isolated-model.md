@@ -249,7 +249,8 @@ When you [changed your package references in a previous step](#package-reference
         )]IReadOnlyList<Document> testDocuments)
 ```
 
-After upgrade the input binding will be 
+**After migration**:
+
 ```csharp
    [Function("TestUpdate")]
     public async Task Run([CosmosDBTrigger(
