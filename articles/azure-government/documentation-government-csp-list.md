@@ -10,9 +10,9 @@ ms.date: 10/31/2023
 
 # Azure Government authorized reseller list
 
-Beginning with the launch of [Azure Government services in the Cloud Solution Provider (CSP) program)](https://azure.microsoft.com/blog/announcing-microsoft-azure-government-services-in-the-cloud-solution-provider-program/), we work with the partner community to bring them the benefits of this channel. Our goal is to enable the partner community to resell Azure Government and help them grow their business while providing customers with cloud services they need.
+From the launch of [Azure Government services in the Cloud Solution Provider (CSP) program)](https://azure.microsoft.com/blog/announcing-microsoft-azure-government-services-in-the-cloud-solution-provider-program/), Microsoft worked with the partner community to bring them the benefits of this channel. The goal is to enable the partner community to resell Azure Government and help them grow their business while providing customers with cloud services they need.
 
-Below you can find a list of all the authorized Cloud Solution Providers (CSPs), Agreement for Online Services for Government (AOS-G), and Licensing Solution Providers (LSP) that can transact Azure Government. We update this list as new partners are onboarded. 
+The following tables contain lists of all the authorized Cloud Solution Providers (CSPs), Agreement for Online Services for Government (AOS-G), and Licensing Solution Providers (LSP) that can transact Azure Government. We update this list as new partners are onboarded. 
 
 ## Approved direct CSPs
 
