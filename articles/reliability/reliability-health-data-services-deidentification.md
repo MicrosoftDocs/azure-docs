@@ -19,12 +19,12 @@ This article describes reliability support in the de-identification service (pre
 
 [!INCLUDE [introduction to disaster recovery](includes/reliability-disaster-recovery-description-include.md)]
 
-Each de-identification service (preview) is deployed to a single Azure region. In the event of a region-wide degredation or outage:
+Each de-identification service (preview) is deployed to a single Azure region. If an entire region is not available or performance is significantly degraded::
 - ARM control plane functionality is limited to read-only during the outage. Your service metadata (such as resource properties) is always backed up outside of the region by Microsoft. Once the outage is over, you can read and write to the control plane.
-- All data plane requests fail during the outage, such as de-identification or job API requests. No customer data is lost, but there is the potential for job progress metadata to be lost. Once the outage is over, you can read and write to the data plane.
+- All data plane requests fail during the outage, such as de-identification or job API requests. No customer data is lost, but there's the potential for job progress metadata to be lost. Once the outage is over, you can read and write to the data plane.
 
 ### Disaster recovery tutorial
-If an entire Azure region is not available, you can still assure high availability of your workloads. You can deploy two or more de-identification services in an active-active configuration, with Azure Front door used to route traffic to both regions.
+If an entire Azure region isn't available, you can still assure high availability of your workloads. You can deploy two or more de-identification services in an active-active configuration, with Azure Front door used to route traffic to both regions.
 
 With this example architecture:
 
@@ -90,7 +90,7 @@ az afd profile create --profile-name myfrontdoorprofile --resource-group my-deid
 
 ### Add an Azure Front Door endpoint
 
-Run [`az afd endpoint create`](/cli/azure/afd/endpoint#az-afd-endpoint-create) to create an endpoint in your Azure Front Door profile. This endpoint will route requests to your services. You can create multiple endpoints in your profile after finishing the create experience.
+Run [`az afd endpoint create`](/cli/azure/afd/endpoint#az-afd-endpoint-create) to create an endpoint in your Azure Front Door profile. This endpoint routes requests to your services. You can create multiple endpoints in your profile after you finish this guide.
 
 ```azurecli-interactive
 az afd endpoint create --resource-group my-deid --endpoint-name myendpoint --profile-name myfrontdoorprofile --enabled-state Enabled
@@ -145,7 +145,7 @@ Repeat this step to add your second origin. For the `--host-name` and `--origin-
 az afd origin create --resource-group my-deid --host-name <service-url-west-us-2> --profile-name myfrontdoorprofile --origin-group-name myorigingroup --origin-name deid2 --origin-host-header <service-url-west-us-2> --priority 1 --weight 1000 --enabled-state Enabled --https-port 443
 ```
 
-Pay attention to the `--priority` parameters in both commands. Because both origins are set to priority `1`, Azure Front Door treats both origins as active and direct traffic to both regions. If the priority for one origin is set to `2`, Azure Front Door will treat that origin as secondary and will direct all traffic to the other origin unless it goes down.
+Pay attention to the `--priority` parameters in both commands. Because both origins are set to priority `1`, Azure Front Door treats both origins as active and direct traffic to both regions. If the priority for one origin is set to `2`, Azure Front Door treats that origin as secondary and directs all traffic to the other origin unless it goes down.
 
 #### Add an Azure Front Door route
 
@@ -203,7 +203,7 @@ az group delete --name my-deid
 This command might take a few minutes to complete.
 
 #### Initiate recovery
-In the case of disaster, you can check the health status of your de-identification service (preview) by sending requests to `<service-url>/health`.
+To check the recovery status of your service, you can send requests to `<service-url>/health`.
 
 ## Related content
 
