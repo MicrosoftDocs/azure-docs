@@ -86,7 +86,7 @@ Before you start the tasks of registering for, handling, and showing a Windows n
    }
    ```
 
-### Register for push notifications
+## Register for push notifications
 
 To register for push notifications, call `RegisterForPushNotificationAsync()` on a `CallAgent` instance with the WNS registration channel obtained on application initialization.
 

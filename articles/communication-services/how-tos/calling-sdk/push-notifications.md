@@ -16,13 +16,11 @@ zone_pivot_groups: acs-plat-web-ios-android-windows
 
 # Enable push notifications for calls
 
-In this article, you learn how to enable push notifications for Azure Communication Services calls. Setting up the push notifications lets your users know when they have an incoming call, which they can then answer.
+Push notifications send information from your application to users' devices. You can use push notifications to show a dialog, play a sound, or display incoming call into the app's UI layer.
 
-## Overview of push notifications
+In this article, you learn how to enable push notifications for Azure Communication Services calls. Communication Services provides integrations with [Azure Event Grid](../../../event-grid/overview.md) and [Azure Notification Hubs](../../../notification-hubs/notification-hubs-push-notification-overview.md) that enable you to add push notifications to your apps.
 
-Push notifications send information from your application to users' devices. You can use push notifications to show a dialog, play a sound, or display incoming call into the app UI layer. Azure Communication Services provides integrations with [Azure Event Grid](../../../event-grid/overview.md) and [Azure Notification Hubs](../../../notification-hubs/notification-hubs-push-notification-overview.md) that enable you to add push notifications to your apps.
-
-### TTL token
+## Overview of TTL tokens
 
 The time-to-live (TTL) token is a setting that determines the length of time that a notification token stays valid before becoming invalid. This setting is useful for applications where user engagement doesn't require daily interaction but remains critical over longer periods.
 

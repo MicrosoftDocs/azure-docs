@@ -42,7 +42,7 @@ implementation 'com.google.firebase:firebase-core:16.0.8'
 implementation 'com.google.firebase:firebase-messaging:20.2.4'
 ```
 
-In your project level's *build.gradle* file, add the following line in the `dependencies` section if it's not already there:
+In your project level's `build.gradle` file, add the following line in the `dependencies` section if it's not already there:
 
 ```groovy
 classpath 'com.google.gms:google-services:4.3.3'

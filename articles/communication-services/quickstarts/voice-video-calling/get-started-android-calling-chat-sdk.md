@@ -45,7 +45,9 @@ Specify the version of the Calling and Chat SDKs for Android in your application
     }
    ```
 
-The example uses the latest release version of the Chat SDK package `com.azure.android:azure-communication-chat`, but you can use any version. However, the version of the Trouter package `com.microsoft:trouter-client-android` that's included with the Chat SDK package `com.azure.android:azure-communication-chat` needs to be excluded. When the application is built, it will use the Trouter package version included by the Calling SDK package `com.azure.android:azure-communication-calling`.
+The example uses the latest release version of the Chat SDK package `com.azure.android:azure-communication-chat`, but you can use any version.
+
+The version of the Trouter package `com.microsoft:trouter-client-android` that's included with the Chat SDK package `com.azure.android:azure-communication-chat` needs to be excluded. When the application is built, it will use the Trouter package version included by the Calling SDK package `com.azure.android:azure-communication-calling`.
 
 ## Related content
 

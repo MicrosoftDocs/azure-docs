@@ -34,7 +34,7 @@ You're not going to create tests during this quickstart. Feel free to clear the 
 
 To access the device's microphone, you need to update your app's information property list by using `NSMicrophoneUsageDescription`. You set the associated value to a string that will be included in the dialog that the system uses to request access from the user.
 
-Right-click the *Info.plist* entry of the project tree, and then select **Open As** > **Source Code**. Add the following lines in the top-level `<dict>` section, and then save the file.
+Right-click the **Info.plist** entry of the project tree, and then select **Open As** > **Source Code**. Add the following lines in the top-level `<dict>` section, and then save the file.
 
 ```xml
 <key>NSMicrophoneUsageDescription</key>
@@ -43,14 +43,14 @@ Right-click the *Info.plist* entry of the project tree, and then select **Open A
 
 ### Set up the app framework
 
-Open your project's *ContentView.swift* file. Add an `import` declaration to the top of the file to import the `AzureCommunicationCalling` library. In addition, import `AVFoundation`. You'll need it for audio permission requests in the code.
+Open your project's `ContentView.swift` file. Add an `import` declaration to the top of the file to import the `AzureCommunicationCalling` library. In addition, import `AVFoundation`. You'll need it for audio permission requests in the code.
 
 ```swift
 import AzureCommunicationCalling
 import AVFoundation
 ```
 
-## Initialize CallAgent
+### Initialize CallAgent
 
 To create a `CallAgent` instance from `CallClient`, you have to use a `callClient.createCallAgent` method that asynchronously returns a `CallAgent` object after it's initialized.
 
