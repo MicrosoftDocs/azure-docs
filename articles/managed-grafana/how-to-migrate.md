@@ -60,7 +60,9 @@ The following instructions show how to migrate a Grafana instance using the Azur
 
 ## Create a service account token
 
-1. In your existing Grafana workspace, create a new service account with Admin permissions by going to **Administration** > **Users and access** > **Service accounts** > **Add service account**.
+### [Portal](#tab/azure-portal)
+
+1. In the Grafana resource want to collect content from (source), create a new service account with Admin permissions by going to **Administration** > **Users and access** > **Service accounts** > **Add service account**.
 
     :::image type="content" source="media/migration/add-service-account.png" alt-text="Screenshot of the Grafana UI  showing the Add service account action." lightbox="media/migration/add-service-account.png":::
 
@@ -69,6 +71,23 @@ The following instructions show how to migrate a Grafana instance using the Azur
 
 1. Enter a display name for the new service account, select the **Admin** role, **Apply**, and **Create**.
 1. Once the service account has been created, select **Add token**, optionally set an expiration date, and select **Generate token**. Remember to copy the token now as you won't be able to see it again once you leave this page.
+
+### [Azure CLI](#tab/azure-cli)
+
+1. Create a service account token with Admin permissions in the Grafana resource want to collect content from (source) with the `az grafana service-account create` command. When running the command below, replace the `<azure-managed-grafana-name>` and `<service-account-name>` placeholders with the name of source Grafana instance.
+
+    ```azurecli
+    az grafana service-account create --name <azure-managed-grafana-name> --service-account <service-account-name> --role Admin
+    ```
+
+1. Create a service account token `az grafana service-account token create` and replace the `<azure-managed-grafana-name>`, `<service-account-name>` and `<token-name>` placeholders with your own information.
+
+    ```azurecli
+    az grafana service-account token create --name <azure-managed-grafana-name> --service-account <service-account-name> --token <token-name> --time-to-live 15d
+    ```
+    ```
+    Tokens have an unlimited expiry date by default. Optionally use the `--time-to-live` option to set an expiry time to disable the token after a given time. For more information, go to [Create a new token](how-to-service-accounts.md#azure-clitabazure-cli-2).
+---
 
 ## Run the Grafana migrate command
 
@@ -79,7 +98,7 @@ In the Azure CLI, run the [az grafana migrate](/cli/azure/grafana#az-grafana-mig
 * the service account token you created earlier 
 
 ```azure-cli
-az grafana migrate --name <target-grafana> --resource-group <target-grafana-resource-group>--src-endpoint <source-grafana-endpoint> --src-token-or-key <source-token>
+az grafana migrate --name <target-grafana> --resource-group <target-grafana-resource-group> --src-endpoint <source-grafana-endpoint> --src-token-or-key <source-token>
 ```
 The Azure CLI output lists all the elements that were migrated over to your Azure Managed Grafana instance. 
 
