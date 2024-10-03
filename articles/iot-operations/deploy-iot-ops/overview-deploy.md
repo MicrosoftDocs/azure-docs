@@ -5,7 +5,7 @@ author: kgremban
 ms.author: kgremban
 ms.topic: conceptual
 ms.custom:
-ms.date: 09/10/2024
+ms.date: 10/02/2024
 
 #CustomerIntent: As an IT professional, I want to understand the components and deployment details before I start using Azure IoT Operations.
 ---
@@ -16,7 +16,7 @@ ms.date: 09/10/2024
 
 ## Supported environments
 
-Azure IoT Operations should work on any Arc-enabled Kubernetes cluster that meets the [Azure Arc-enabled Kubernetes system requirements](/azure/azure-arc/kubernetes/system-requirements). Currently Azure IoT Operations doesn't support ARM64 architectures.
+Azure IoT Operations should work on any Arc-enabled Kubernetes cluster that meets the [Azure Arc-enabled Kubernetes system requirements](/azure/azure-arc/kubernetes/system-requirements). Currently Azure IoT Operations doesn't support Arm64 architectures.
 
 Microsoft supports Azure Kubernetes Service (AKS) Edge Essentials for deployments on Windows and K3s for deployments on Ubuntu. For a list of specific hardware and software combinations that are tested and validated, see [Validated environments](../overview-iot-operations.md#validated-environments).
 
@@ -28,7 +28,7 @@ Azure IoT Operations offers two deployment modes. You can choose to deploy with 
 
 A deployment with only test settings enabled:
 
-* Does not configure secrets or user-assigned managed identity capabilities.
+* Doesn't configure secrets or user-assigned managed identity capabilities.
 * Is meant to enable the end-to-end quickstart sample for evaluation purposes, so does support the OPC PLC simulator and connect to cloud resources using system-assigned managed identity.
 * Can be upgraded to use secure settings.
 
@@ -85,6 +85,56 @@ Azure IoT Operations is a suite of data services that run on Azure Arc-enabled e
 Azure IoT Operations supports Azure Arc sites for organizing instances. A _site_ is a cluster resource in Azure like a resource group, but sites typically group instances by physical location and make it easier for OT users to locate and manage assets. An IT administrator creates sites and scopes them to a subscription or resource group. Then, any Azure IoT Operations deployed to an Arc-enabled cluster is automatically collected in the site associated with its subscription or resource group
 
 For more information, see [What is Azure Arc site manager (preview)?](/azure/azure-arc/site-manager/overview)
+
+## Domain allowlist for Azure IoT Operations
+
+If you use enterprise firewalls or proxies to manage outbound traffic, add the following endpoints to your domain allowlist before deploying Azure IoT Operations Preview.
+
+Additionally, allow the Arc-enabled Kubernetes endpoints in [Azure Arc network requirements](/azure/azure-arc/network-requirements-consolidated).
+
+```text
+nw-umwatson.events.data.microsoft.com 
+dc.services.visualstudio.com 
+github.com 
+self.events.data.microsoft.com 
+mirror.enzu.com 
+ppa.launchpadcontent.net 
+msit-onelake.pbidedicated.windows.net 
+gcr.io 
+adhs.events.data.microsoft.com 
+gbl.his.arc.azure.cn 
+onegetcdn.azureedge.net 
+graph.windows.net 
+pas.windows.net 
+agentserviceapi.guestconfiguration.azure.com 
+aka.ms 
+api.segment.io 
+download.microsoft.com 
+raw.githubusercontent.com 
+go.microsoft.com 
+global.metrics.azure.eaglex.ic.gov 
+gbl.his.arc.azure.us 
+packages.microsoft.com 
+global.metrics.azure.microsoft.scloud 
+www.powershellgallery.com
+k8s.io 
+guestconfiguration.azure.com 
+ods.opinsights.azure.com 
+vault.azure.net 
+googleapis.com 
+quay.io 
+handler.control.monitor.azure.com 
+pkg.dev 
+docker.io 
+prod.hot.ingestion.msftcloudes.com 
+docker.com 
+prod.microsoftmetrics.com 
+oms.opinsights.azure.com 
+azureedge.net 
+monitoring.azure.com
+blob.core.windows.net 
+azurecr.io
+```
 
 ## Next steps
 

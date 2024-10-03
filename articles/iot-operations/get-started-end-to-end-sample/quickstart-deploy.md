@@ -5,7 +5,7 @@ author: kgremban
 ms.author: kgremban
 ms.topic: quickstart
 ms.custom: ignite-2023, devx-track-azurecli
-ms.date: 05/02/2024
+ms.date: 10/02/2024
 
 #CustomerIntent: As a < type of user >, I want < what? > so that < why? >.
 ---
@@ -170,17 +170,21 @@ Run the following CLI commands in your Codespaces terminal.
 1. Initialize your cluster for Azure IoT Operations.
 
    >[!TIP]
-   >This command only needs to be run once per cluster. If you're reusing a cluster that already had Azure IoT Operations version 0.7.0 deployed on it, you can skip this step.
+   >The `init` command only needs to be run once per cluster. If you're reusing a cluster that already had Azure IoT Operations version 0.7.0 deployed on it, you can skip this step.
 
    ```azurecli
    az iot ops init --cluster $CLUSTER_NAME --resource-group $RESOURCE_GROUP --sr-resource-id $(az iot ops schema registry show --name $SCHEMA_REGISTRY --resource-group $RESOURCE_GROUP -o tsv --query id)
    ```
+
+   This command might take several minutes to complete. You can watch the progress in the deployment progress display in the terminal.
 
 1. Deploy Azure IoT Operations. This command takes several minutes to complete:
 
    ```azurecli
    az iot ops create --cluster $CLUSTER_NAME --resource-group $RESOURCE_GROUP --name ${CLUSTER_NAME}-instance
    ```
+
+   This command might take several minutes to complete. You can watch the progress in the deployment progress display in the terminal.
 
    If you get an error that says *Your device is required to be managed to access your resource*, run `az login` again and make sure that you sign in interactively with a browser.
 
