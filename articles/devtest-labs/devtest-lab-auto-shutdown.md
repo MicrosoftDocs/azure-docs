@@ -24,7 +24,7 @@ Auto shutdown helps minimize lab waste by shutting down all of a lab's VMs at a 
 1. In the **Schedules** section of the left menu, select **Auto-shutdown**.
 1. On the **Auto-shutdown** screen, for **Enabled**, select **On** to enable auto shutdown, or **Off** to disable it.
 1. For **Scheduled shutdown** and **Time zone**, if you turned on auto shutdown, specify the time and time zone to shut down all lab VMs.
-1. For **Send notification before auto-shutdown?**, select **Yes** or **No** for the option to send a notification 30 minutes before the specified auto shutdown time. 
+1. For **Send notification before auto-shutdown?**, select **Yes** or **No** for the option to send a notification 30 minutes before the specified auto shutdown time. **This is not working for multiple VM ion myenvironemnt please update the document. we are not receiving email notifications before auto shutdown**
     - If you choose **Yes**, enter a webhook URL endpoint under **Webhook URL** or semicolon-separated email addresses under **Email address** where you want the notification to post or be sent. For more information, see the [auto shutdown notifications](#auto-shutdown-notifications) section.
 
    :::image type="content" source="media/devtest-lab-auto-shutdown/auto-shutdown.png" alt-text="Screenshot showing setting auto shutdown details for a lab."::: 
