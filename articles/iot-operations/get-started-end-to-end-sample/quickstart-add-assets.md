@@ -42,12 +42,12 @@ This quickstart uses the OPC PLC simulator to generate sample data. To deploy th
 <!-- TODO: Change branch to main before merging the release branch -->
 
 ```console
-kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/release-m2/samples/quickstarts/opc-plc-deployment.yaml
+kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/quickstarts/opc-plc-deployment.yaml
 ```
 
 The following snippet shows the YAML file that you applied:
 
-:::code language="yaml" source="~/azure-iot-operations-samples-m2/samples/quickstarts/opc-plc-deployment.yaml":::
+:::code language="yaml" source="~/azure-iot-operations-samples/samples/quickstarts/opc-plc-deployment.yaml":::
 
 > [!CAUTION]
 > This configuration isn't secure. Don't use this configuration in a production environment.
