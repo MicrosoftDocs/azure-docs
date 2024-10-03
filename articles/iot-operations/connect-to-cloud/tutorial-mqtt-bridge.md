@@ -5,14 +5,16 @@ author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-data-flows
 ms.topic: tutorial
-ms.date: 08/23/2024
+ms.date: 10/01/2024
 
 #CustomerIntent: As an operator, I want to understand how to create a bi-directional MQTT bridge to Azure Event Grid so that I can send and receive messages between devices and services.
 ---
 
 # Tutorial: Bi-directional MQTT bridge to Azure Event Grid
 
-In this tutorial, you set up a bi-directional MQTT bridge between an Azure IoT Operations (AIO) MQTT broker and Azure Event Grid. To keep the tutorial simple, use the default settings for the AIO MQTT broker and Azure Event Grid endpoints, and no transformation is applied.
+[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+
+In this tutorial, you set up a bi-directional MQTT bridge between an Azure IoT Operations MQTT broker and Azure Event Grid. To keep the tutorial simple, use the default settings for the Azure IoT Operations MQTT broker and Azure Event Grid endpoints, and no transformation is applied.
 
 ## Prerequisites
 
@@ -66,7 +68,7 @@ By setting the `topic-spaces-configuration`, this command creates a namespace wi
 * MQTT broker **enabled**
 * Maximum client sessions per authentication name as **3**.
 
-The max client sessions option allows AIO MQTT to spawn multiple instances and still connect. To learn more, see [multi-session support](../../event-grid/mqtt-establishing-multiple-sessions-per-client.md).
+The max client sessions option allows Azure IoT Operations MQTT to spawn multiple instances and still connect. To learn more, see [multi-session support](../../event-grid/mqtt-establishing-multiple-sessions-per-client.md).
 
 ## Create a topic space
 
@@ -82,14 +84,14 @@ az eventgrid namespace topic-space create \
 
 By using the `#` wildcard in the topic template, you can publish to any topic under the `telemetry` topic space. For example, `telemetry/temperature` or `telemetry/humidity`.
 
-## Give AIO access to the Event Grid topic space
+## Give Azure IoT Operations access to the Event Grid topic space
 
-Using Azure CLI, find the principal ID for the AIO Arc extension. The command stores the principal ID in a variable for later use.
+Using Azure CLI, find the principal ID for the Azure IoT Operations Arc extension. The command stores the principal ID in a variable for later use.
 
 ```azurecli
 export PRINCIPAL_ID=$(az k8s-extension list \
-  --resource-group jlian-bash-7-30 \
-  --cluster-name friendly-couscous-p74x5x57qp2xgg \
+  --resource-group $RESOURCE_GROUP \
+  --cluster-name <CLUSTER-NAME> \
   --cluster-type connectedClusters \
   --query "[?extensionType=='microsoft.iotoperations'].identity.principalId | [0]" -o tsv)
 echo $PRINCIPAL_ID
@@ -101,7 +103,7 @@ Take note of the output value for `identity.principalId`, which is a GUID value 
 d84481ae-9181-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
-Then, use Azure CLI to assign publisher and subscriber roles to AIO MQTT for the topic space you created.
+Then, use Azure CLI to assign publisher and subscriber roles to Azure IoT Operations MQTT for the topic space you created.
 
 Assign the publisher role:
 
@@ -142,9 +144,51 @@ Take note of the output value for `topicSpacesConfiguration.hostname` that is a 
 example.region-1.ts.eventgrid.azure.net
 ```
 
-## Create an AIO MQTT broker dataflow endpoint
+## Create an Azure IoT Operations MQTT broker dataflow endpoint
 
-Create dataflow endpoint for the AIO built-in MQTT broker. This endpoint is the source for the dataflow that sends messages to Azure Event Grid.
+# [Bicep](#tab/bicep)
+
+The dataflow and dataflow endpoints for MQTT broker and Azure Event Grid can be deployed as standard Azure resources since they have Azure Resource Provider (RPs) implementations. This Bicep template file from [Bicep File for MQTT-bridge dataflow Tutorial](https://gist.github.com/david-emakenemi/7a72df52c2e7a51d2424f36143b7da85) deploys the necessary dataflow and dataflow endpoints.
+
+Download the file to your local, and make sure to replace the values for `customLocationName`, `aioInstanceName`, `eventGridHostName` with yours.
+
+Next, execute the following command in your terminal:
+
+```azurecli
+az stack group create --name MyDeploymentStack --resource-group $RESOURCE_GROUP --template-file /workspaces/explore-iot-operations/mqtt-bridge.bicep --action-on-unmanage 'deleteResources' --deny-settings-mode 'none' --yes
+```
+This endpoint is the source for the dataflow that sends messages to Azure Event Grid.
+
+```bicep
+resource MqttBrokerDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
+  parent: aioInstance
+  name: 'aiomq'
+  extendedLocation: {
+    name: customLocation.id
+    type: 'CustomLocation'
+  }
+  properties: {
+    endpointType: 'Mqtt'
+    mqttSettings: {
+      authentication: {
+        method: 'ServiceAccountToken'
+        serviceAccountTokenSettings: {
+          audience: 'aio-internal'
+        }
+      }
+      host: 'aio-broker:18883'
+      tls: {
+        mode: 'Enabled'
+        trustedCaCertificateConfigMapRef: 'azure-iot-operations-aio-ca-trust-bundle'
+      }
+    }
+  }
+}
+```
+
+# [Kubernetes](#tab/kubernetes)
+
+Create dataflow endpoint for the Azure IoT Operations built-in MQTT broker. This endpoint is the source for the dataflow that sends messages to Azure Event Grid.
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1beta1
@@ -160,11 +204,43 @@ spec:
       serviceAccountTokenSettings: {}
 ```
 
-This is the default configuration for the AIO MQTT broker endpoint. The authentication method is set to `ServiceAccountToken` to use the built-in service account token for authentication.
+---
+
+This is the default configuration for the Azure IoT Operations MQTT broker endpoint. The authentication method is set to `ServiceAccountToken` to use the built-in service account token for authentication.
 
 ## Create an Azure Event Grid dataflow endpoint
 
-Create dataflow endpoint for the Azure Event Grid. This endpoint is the destination for the dataflow that sends messages to Azure Event Grid. Replace `example.region-1.ts.eventgrid.azure.net` with the hostname you got from the previous step, include the port number `8883`.
+# [Bicep](#tab/bicep)
+
+Since you already deployed the resources in the previous section, there's no additional deployment needed. However, this endpoint is the destination for the dataflow that sends messages to Azure Event Grid. Replace `<EVENT-GRID-HOSTNAME>` with the hostname you got from the previous step. Include the port number `8883`.
+
+```bicep
+resource remoteMqttBrokerDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
+  parent: aioInstance
+  name: 'eventgrid'
+  extendedLocation: {
+    name: customLocation.id
+    type: 'CustomLocation'
+  }
+  properties: {
+    endpointType: 'Mqtt'
+    mqttSettings: {
+      authentication: {
+        method: 'SystemAssignedManagedIdentity'
+        systemAssignedManagedIdentitySettings: {}
+      }
+      host: '<NAMESPACE>.<REGION>-1.ts.eventgrid.azure.net:8883'
+      tls: {
+        mode: 'Enabled'
+      }
+    }
+  }
+}
+```
+
+# [Kubernetes](#tab/kubernetes)
+
+Create dataflow endpoint for the Azure Event Grid. This endpoint is the destination for the dataflow that sends messages to Azure Event Grid. Replace `<EVENT-GRID-HOSTNAME>` with the hostname you got from the previous step. Include the port number `8883`.
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1beta1
@@ -175,7 +251,7 @@ metadata:
 spec:
   endpointType: Mqtt
   mqttSettings:
-    host: example.region-1.ts.eventgrid.azure.net:8883
+    host: <EVENT-GRID-HOSTNAME>:8883
     authentication:
       method: SystemAssignedManagedIdentity
       systemAssignedManagedIdentitySettings: {}
@@ -183,13 +259,81 @@ spec:
       mode: Enabled
 ```
 
-Here, the authentication method is set to `SystemAssignedManagedIdentity` to use the managed identity of the AIO extension to authenticate with the Event Grid MQTT broker. This setting works because the AIO extension has the necessary permissions to publish and subscribe to the Event Grid topic space configured through Azure RBAC roles. Notice that no secrets, like username or password, are needed in the configuration.
+---
+
+Here, the authentication method is set to `SystemAssignedManagedIdentity` to use the managed identity of the Azure IoT Operations extension to authenticate with the Event Grid MQTT broker. This setting works because the Azure IoT Operations extension has the necessary permissions to publish and subscribe to the Event Grid topic space configured through Azure RBAC roles. Notice that no secrets, like username or password, are needed in the configuration.
 
 Since the Event Grid MQTT broker requires TLS, the `tls` setting is enabled. No need to provide a trusted CA certificate, as the Event Grid MQTT broker uses a widely trusted certificate authority.
 
 ## Create dataflows
 
-Create two dataflows with the AIO MQTT broker endpoint as the source and the Azure Event Grid endpoint as the destination, and vice versa. No need to configure transformation.
+# [Bicep](#tab/bicep)
+
+In this example, there are two dataflows with the Azure IoT Operations MQTT broker endpoint as the source and the Azure Event Grid endpoint as the destination, and vice versa. No need to configure transformation.
+
+```bicep
+resource dataflow_1 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2024-08-15-preview' = {
+  parent: defaultDataflowProfile
+  name: 'local-to-remote'
+  extendedLocation: {
+    name: customLocation.id
+    type: 'CustomLocation'
+  }
+  properties: {
+    mode: 'Enabled'
+    operations: [
+      {
+        operationType: 'Source'
+        sourceSettings: {
+          endpointRef: MqttBrokerDataflowEndpoint.name
+          dataSources: array('tutorial/local')
+        }
+      }
+      {
+        operationType: 'Destination'
+        destinationSettings: {
+          endpointRef: remoteMqttBrokerDataflowEndpoint.name
+          dataDestination: 'telemetry/iot-mq'
+        }
+      }
+    ]
+  }
+} 
+```
+
+```bicep
+resource dataflow_2 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2024-08-15-preview' = {
+  parent: defaultDataflowProfile
+  name: 'remote-to-local'
+  extendedLocation: {
+    name: customLocation.id
+    type: 'CustomLocation'
+  }
+  properties: {
+    mode: 'Enabled'
+    operations: [
+      {
+        operationType: 'Source'
+        sourceSettings: {
+          endpointRef: remoteMqttBrokerDataflowEndpoint.name
+          dataSources: array('telemetry/#')
+        }
+      }
+      {
+        operationType: 'Destination'
+        destinationSettings: {
+          endpointRef: MqttBrokerDataflowEndpoint.name
+          dataDestination: 'tutorial/cloud'
+        }
+      }
+    ]
+  }
+} 
+```
+
+# [Kubernetes](#tab/kubernetes)
+
+Create two dataflows with the Azure IoT Operations MQTT broker endpoint as the source and the Azure Event Grid endpoint as the destination, and vice versa. No need to configure transformation.
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1beta1
@@ -227,25 +371,33 @@ spec:
       dataDestination: tutorial/cloud
 ```
 
+---
+
 Together, the two dataflows form an MQTT bridge, where you:
 
 * Use the Event Grid MQTT broker as the remote broker
-* Use the local AIO MQTT broker as the local broker
+* Use the local Azure IoT Operations MQTT broker as the local broker
 * Use TLS for both remote and local brokers
 * Use system-assigned managed identity for authentication to the remote broker
 * Use Kubernetes service account for authentication to the local broker
 * Use the topic map to map the `tutorial/local` topic to the `telemetry/iot-mq` topic on the remote broker
 * Use the topic map to map the `telemetry/#` topic on the remote broker to the `tutorial/cloud` topic on the local broker
 
-When you publish to the `tutorial/local` topic on the local AIO MQTT broker, the message is bridged to the `telemetry/iot-mq` topic on the remote Event Grid MQTT broker. Then, the message is bridged back to the `tutorial/cloud` topic (because the `telemetry/#` wildcard topic captures it) on the local AIO MQTT broker. Similarly, when you publish to the `telemetry/iot-mq` topic on the remote Event Grid MQTT broker, the message is bridged to the `tutorial/cloud` topic on the local AIO MQTT broker.
+When you publish to the `tutorial/local` topic on the local Azure IoT Operations MQTT broker, the message is bridged to the `telemetry/iot-mq` topic on the remote Event Grid MQTT broker. Then, the message is bridged back to the `tutorial/cloud` topic (because the `telemetry/#` wildcard topic captures it) on the local Azure IoT Operations MQTT broker. Similarly, when you publish to the `telemetry/iot-mq` topic on the remote Event Grid MQTT broker, the message is bridged to the `tutorial/cloud` topic on the local Azure IoT Operations MQTT broker.
 
 ## Deploy MQTT client
 
-To verify the MQTT bridge is working, deploy an MQTT client to the same namespace as AIO. In a new file named `client.yaml`, specify the client deployment:
+To verify the MQTT bridge is working, deploy an MQTT client to the same namespace as Azure IoT Operations. In a new file named `client.yaml`, specify the client deployment:
 
 
 <!-- TODO: put this in the explore-iot-operations repo? -->
 <!-- TODO: make the service account part of the YAML? -->
+
+# [Bicep](#tab/bicep)
+
+Currently, bicep doesn't apply to deploy MQTT client.
+
+# [Kubernetes](#tab/kubernetes)
 
 ```yaml
 apiVersion: v1
@@ -293,6 +445,8 @@ kubectl apply -f client.yaml
 pod/mqtt-client created
 ```
 
+---
+
 ## Start a subscriber
 
 Use `kubectl exec` to start a shell in the mosquitto client pod.
@@ -301,7 +455,7 @@ Use `kubectl exec` to start a shell in the mosquitto client pod.
 kubectl exec --stdin --tty mqtt-client -n azure-iot-operations -- sh
 ```
 
-Inside the shell, start a subscriber to the AIO broker on the `tutorial/#` topic space with `mosquitto_sub`.
+Inside the shell, start a subscriber to the Azure IoT Operations broker on the `tutorial/#` topic space with `mosquitto_sub`.
 
 ```bash
 mosquitto_sub --host aio-broker --port 18883 \
@@ -339,11 +493,11 @@ In the subscriber shell, you see the messages you published.
 
 <!-- TODO: add actual mosquitto output -->
 
-Here, you see the messages are published to the local AIO broker to the `tutorial/local` topic, bridged to Event Grid MQTT broker, and then bridged back to the local AIO broker again on the `tutorial/cloud` topic. The messages are then delivered to the subscriber. In this example, the round trip time is about 80 ms.
+Here, you see the messages are published to the local Azure IoT Operations broker to the `tutorial/local` topic, bridged to Event Grid MQTT broker, and then bridged back to the local Azure IoT Operations broker again on the `tutorial/cloud` topic. The messages are then delivered to the subscriber. In this example, the round trip time is about 80 ms.
 
 ## Check Event Grid metrics to verify message delivery
 
-You can also check the Event Grid metrics to verify the messages are delivered to the Event Grid MQTT broker. In the Azure portal, go to the Event Grid namespace you created. Under **Metrics** > **MQTT: Successful Published Messages**. You should see the number of messages published and delivered increase as you publish messages to the local AIO broker.
+You can also check the Event Grid metrics to verify the messages are delivered to the Event Grid MQTT broker. In the Azure portal, go to the Event Grid namespace you created. Under **Metrics** > **MQTT: Successful Published Messages**. You should see the number of messages published and delivered increase as you publish messages to the local Azure IoT Operations broker.
 
 :::image type="content" source="media/tutorial-connect-event-grid/event-grid-metrics.png" alt-text="Screenshot of the metrics view in Azure portal to show successful MQTT messages.":::
 
@@ -352,9 +506,9 @@ You can also check the Event Grid metrics to verify the messages are delivered t
 
 ## Next steps
 
-In this tutorial, you learned how to configure AIO for bi-directional MQTT bridge with Azure Event Grid MQTT broker. As next steps, explore the following scenarios:
+In this tutorial, you learned how to configure Azure IoT Operations for bi-directional MQTT bridge with Azure Event Grid MQTT broker. As next steps, explore the following scenarios:
 
-* To use an MQTT client to publish messages directly to the Event Grid MQTT broker, see [Publish MQTT messages to Event Grid MQTT broker](../../event-grid/mqtt-publish-and-subscribe-cli.md). Give the client a [publisher permission binding](../../event-grid/mqtt-access-control.md) to the topic space you created, and you can publish messages to any topic under the `telemetry`, like `telemetry/temperature` or `telemetry/humidity`. All of these messages are bridged to the `tutorial/cloud` topic on the local AIO broker.
+* To use an MQTT client to publish messages directly to the Event Grid MQTT broker, see [Publish MQTT messages to Event Grid MQTT broker](../../event-grid/mqtt-publish-and-subscribe-cli.md). Give the client a [publisher permission binding](../../event-grid/mqtt-access-control.md) to the topic space you created, and you can publish messages to any topic under the `telemetry`, like `telemetry/temperature` or `telemetry/humidity`. All of these messages are bridged to the `tutorial/cloud` topic on the local Azure IoT Operations broker.
 * To set up routing rules for the Event Grid MQTT broker, see [Configure routing rules for Event Grid MQTT broker](../../event-grid/mqtt-routing.md). You can use routing rules to route messages to different topics based on the topic name, or to filter messages based on the message content.
 
 ## Related content

@@ -5,13 +5,15 @@ author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 09/05/2024
+ms.date: 09/20/2024
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to configure dataflow endpoints for Azure Data Explorer in Azure IoT Operations so that I can send data to Azure Data Explorer.
 ---
 
 # Configure dataflow endpoints for Azure Data Explorer
+
+[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
 To send data to Azure Data Explorer in Azure IoT Operations Preview, you can configure a dataflow endpoint. This configuration allows you to specify the destination endpoint, authentication method, table, and other settings.
 
@@ -21,7 +23,7 @@ To send data to Azure Data Explorer in Azure IoT Operations Preview, you can con
 - A [configured dataflow profile](howto-configure-dataflow-profile.md)
 - An **Azure Data Explorer cluster**. Follow the **Full cluster** steps in the [Quickstart: Create an Azure Data Explorer cluster and database](/azure/data-explorer/create-cluster-and-database). The *free cluster* option doesn't work for this scenario.
 
-## Create an Azure Data Explorer dataflow endpoint
+## Create an Azure Data Explorer database
 
 1. In the Azure portal, create a database in your Azure Data Explorer *full* cluster.
 
@@ -50,44 +52,70 @@ To send data to Azure Data Explorer in Azure IoT Operations Preview, you can con
 
 1. In your Azure Data Explorer database, under **Security + networking** select **Permissions** > **Add** > **Ingestor**. Search for the Azure IoT Operations extension name then add it.
 
-1. Create the dataflow endpoint resource with your cluster and database information.
+## Create an Azure Data Explorer dataflow endpoint
 
-    ```yaml
-    apiVersion: connectivity.iotoperations.azure.com/v1beta1
-    kind: DataflowEndpoint
-    metadata:
-      name: adx
-      namespace: azure-iot-operations
-    spec:
-      endpointType: DataExplorer
-      dataExplorerSettings:
-        host: <your cluster>.westeurope.kusto.windows.net
-        database: <your database>
-        authentication:
-          method: SystemAssignedManagedIdentity
-          systemAssignedManagedIdentitySettings: {}
-    ```
-    
+Create the dataflow endpoint resource with your cluster and database information. We suggest using the managed identity of the Azure Arc-enabled Kubernetes cluster. This approach is secure and eliminates the need for secret management.
+
+```yaml
+apiVersion: connectivity.iotoperations.azure.com/v1beta1
+kind: DataflowEndpoint
+metadata:
+  name: adx
+  namespace: azure-iot-operations
+spec:
+  endpointType: DataExplorer
+  dataExplorerSettings:
+    host: <cluster>.<region>.kusto.windows.net
+    database: <database-name>
+    authentication:
+      method: SystemAssignedManagedIdentity
+      systemAssignedManagedIdentitySettings: {}
+```
+
 ## Configure dataflow destination
 
 Once the endpoint is created, you can use it in a dataflow by specifying the endpoint name in the dataflow's destination settings.
 
-> [!NOTE]
-> Using the Azure Data Explorer endpoint as a source in a dataflow isn't supported. You can use the endpoint as a destination only.
+```yaml
+apiVersion: connectivity.iotoperations.azure.com/v1beta1
+kind: Dataflow
+metadata:
+  name: my-dataflow
+  namespace: azure-iot-operations
+spec:
+  profileRef: default
+  mode: Enabled
+  operations:
+    - operationType: Source
+      sourceSettings:
+        endpointRef: mq
+        dataSources:
+          - thermostats/+/telemetry/temperature/#
+          - humidifiers/+/telemetry/humidity/#
+    - operationType: Destination
+      destinationSettings:
+        endpointRef: adx
+        dataDestination: database-name
+```
 
 For more information about dataflow destination settings, see [Create a dataflow](howto-create-dataflow.md).
+
+> [!NOTE]
+> Using the Azure Data Explorer endpoint as a source in a dataflow isn't supported. You can use the endpoint as a destination only.
 
 To customize the endpoint settings, see the following sections for more information.
 
 ### Available authentication methods
 
-The following authentication methods are available.
+The following authentication methods are available for Azure Data Explorer endpoints.
 
 #### System-assigned managed identity
 
+Using the system-assigned managed identity is the recommended authentication method for Azure IoT Operations. Azure IoT Operations creates the managed identity automatically and assigns it to the Azure Arc-enabled Kubernetes cluster. It eliminates the need for secret management and allows for seamless authentication with Azure Data Explorer.
+
 Before you create the dataflow endpoint, assign a role to the managed identity that grants permission to write to the Azure Data Explorer database. For more information on adding permissions, see [Manage Azure Data Explorer cluster permissions](/azure/data-explorer/manage-cluster-permissions).
 
-Then, create the *DataflowEndpoint* resource and specify the managed identity authentication method. In most cases, you don't need to specify other settings. This configuration creates a managed identity with the default audience `https://api.kusto.windows.net`.
+In the *DataflowEndpoint* resource, specify the managed identity authentication method. In most cases, you don't need to specify other settings. This configuration creates a managed identity with the default audience `https://api.kusto.windows.net`.
 
 ```yaml
 dataExplorerSettings:
@@ -115,11 +143,13 @@ dataExplorerSettings:
   authentication:
     method: UserAssignedManagedIdentity
     userAssignedManagedIdentitySettings:
-      clientId: <id>
-      tenantId: <id>
+      clientId: <ID>
+      tenantId: <ID>
 ```
 
-### Batching
+## Advanced settings
+
+You can set advanced settings for the Azure Data Explorer endpoint, such as the batching latency and message count. 
 
 Use the `batching` settings to configure the maximum number of messages and the maximum latency before the messages are sent to the destination. This setting is useful when you want to optimize for network bandwidth and reduce the number of requests to the destination.
 
@@ -128,7 +158,9 @@ Use the `batching` settings to configure the maximum number of messages and the 
 | `latencySeconds` | The maximum number of seconds to wait before sending the messages to the destination. The default value is 60 seconds. | No |
 | `maxMessages` | The maximum number of messages to send to the destination. The default value is 100000 messages. | No |
 
-For example, to configure the maximum number of messages to 1000 and the maximum latency to 100 seconds, use the following settings.
+For example, to configure the maximum number of messages to 1000 and the maximum latency to 100 seconds, use the following settings:
+
+Set the values in the dataflow endpoint custom resource.
 
 ```yaml
 dataExplorerSettings:

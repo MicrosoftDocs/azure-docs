@@ -5,7 +5,7 @@ author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 08/29/2024
+ms.date: 09/17/2024
 
 #CustomerIntent: As an operator, I want to understand how to configure source and destination endpoints so that I can create a dataflow.
 ---
@@ -32,25 +32,15 @@ To get started, use the following table to choose the endpoint type to configure
 
 Think of each dataflow endpoint as a bundle of configuration settings that contains where the data should come from or go to (the `host` value), how to authenticate with the endpoint, and other settings like TLS configuration or batching preference. So you just need to create it once and then you can reuse it in multiple dataflows where these settings would be the same.
 
-To make it easier to reuse endpoints, the MQTT or Kafka topic filter is not part of the endpoint configuration. Instead, you specify the topic filter in the dataflow configuration. This means you can use the same endpoint for multiple dataflows that use different topic filters. 
+To make it easier to reuse endpoints, the MQTT or Kafka topic filter isn't part of the endpoint configuration. Instead, you specify the topic filter in the dataflow configuration. This means you can use the same endpoint for multiple dataflows that use different topic filters. 
 
-For example, you only need to create a dataflow endpoint for the built-in MQTT broker once:
+For example, you can use the default MQTT broker dataflow endpoint. You can use it for both the source and destination with different topic filters:
 
-```yaml
-apiVersion: connectivity.iotoperations.azure.com/v1beta1
-kind: DataflowEndpoint
-metadata:
-  name: mq
-  namespace: azure-iot-operations
-spec:
-  endpointType: Mqtt
-  mqttSettings:
-    authentication:
-      method: ServiceAccountToken
-      serviceAccountTokenSettings: {}
-```
+# [Portal](#tab/portal)
 
-Then, in a dataflow configuration, you can use it for both the source and destination, with different topic filters:
+:::image type="content" source="media/howto-configure-dataflow-endpoint/create-dataflow-mq-mq.png" alt-text="Screenshot using operations experience portal to create a dataflow from MQTT to MQTT.":::
+
+# [Kubernetes](#tab/kubernetes)
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1beta1
@@ -72,7 +62,15 @@ spec:
         dataDestination: example/topic/2
 ```
 
-Similarly, you can create multiple dataflows that use the same MQTT endpoint for different topics.
+---
+
+Similarly, you can create multiple dataflows that use the same MQTT endpoint for other endpoints and topics. For example, you can use the same MQTT endpoint for a dataflow that sends data to a Kafka endpoint.
+
+# [Portal](#tab/portal)
+
+:::image type="content" source="media/howto-configure-dataflow-endpoint/create-dataflow-mq-kafka.png" alt-text="Screenshot using operations experience portal to create a dataflow from MQTT to Kafka.":::
+
+# [Kubernetes](#tab/kubernetes)
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1beta1
@@ -94,26 +92,6 @@ spec:
         dataDestination: example/topic/4
 ```
 
-Similar to the MQTT example, you can create multiple dataflows that use the same Kafka endpoint for different topics, or the same Data Lake endpoint for different tables, and so on.
+---
 
-## Manage dataflow endpoints
-
-You can manage dataflow endpoints in the Azure IoT Operations portal or by using the Kubernetes CLI.
-
-### View
-
-You can view the health, metrics, configuration, and associated dataflows of an endpoint in the Azure IoT Operations portal.
-
-<!-- TODO: link to relevant observability docs -->
-
-### Edit
-
-You can edit an endpoint in the Azure IoT Operations portal. Be cautious if the endpoint is in use by a dataflow.
-
-### Delete
-
-You can delete an endpoint in the Azure IoT Operations portal. Be cautious if the endpoint is in use by a dataflow.
-
-```bash
-kubectl delete dataflowendpoint my-endpoint
-```
+Similar to the MQTT example, you can create multiple dataflows that use the same Kafka endpoint for different topics, or the same Data Lake endpoint for different tables.
