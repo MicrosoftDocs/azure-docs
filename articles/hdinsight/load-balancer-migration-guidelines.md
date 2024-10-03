@@ -66,7 +66,7 @@ To upgrade your existing custom virtual network to integrate Azure standard load
  
     > [!NOTE]
     > You could associate an existing NAT gateway and NSG or the newly created ones.
-    > Follow this doccument [Quickstart: Create a NAT gateway - Azure portal](/azure/nat-gateway/quickstart-create-nat-gateway-portal), and [Create, change, or delete an Azure network security group](/azure/virtual-network/manage-network-security-group?tabs=network-security-group-portal#create-a-network-security-group) to create a new NAT gateway and a new network security group.
+    > Follow this document [Quickstart: Create a NAT gateway - Azure portal](/azure/nat-gateway/quickstart-create-nat-gateway-portal), and [Create, change, or delete an Azure network security group](/azure/virtual-network/manage-network-security-group?tabs=network-security-group-portal#create-a-network-security-group) to create a new NAT gateway and a new network security group.
     > 
     > You can refer to this document [Control network traffic in Azure HDInsight](./control-network-traffic.md#hdinsight-with-network-security-groups) to set up correct NSG rules.
     
@@ -82,7 +82,7 @@ To upgrade your existing custom virtual network to integrate Azure standard load
     > [!NOTE]
     > If you are unable to find the NAT gateway, see, [FAQ of the NAT gateway (Azure NAT Gateway frequently asked questions](/azure/nat-gateway/faq#are-basic-sku-resources--basic-load-balancer-and-basic-public-ip-addresses--compatible-with-a-nat-gateway). 
 
-### Scenario 2: The existing subnet has HDInsight clusters with basic load balancers.
+### Scenario 2: The existing subnet has HDInsight clusters with basic load balancers
 
 **Approach 1:** The most recommended way is to associate a NAT gateway to the subnet along with network security group.
 
@@ -96,7 +96,7 @@ To associate with a NAT Gateway, perform the following steps.
 
     > [!NOTE]
     > You could associate an existing NAT gateway and NSG or the newly created ones.
-    > Follow thi document [Quickstart: Create a NAT gateway - Azure portal](/azure/nat-gateway/quickstart-create-nat-gateway-portal), and [Create, change, or delete an Azure network security group](/azure/virtual-network/manage-network-security-group?tabs=network-security-group-portal#create-a-network-security-group) to create a new NAT gateway and a new network security group.
+    > Follow this document [Quickstart: Create a NAT gateway - Azure portal](/azure/nat-gateway/quickstart-create-nat-gateway-portal), and [Create, change, or delete an Azure network security group](/azure/virtual-network/manage-network-security-group?tabs=network-security-group-portal#create-a-network-security-group) to create a new NAT gateway and a new network security group.
     > 
     > You can refer to this document [Control network traffic in Azure HDInsight](./control-network-traffic.md#hdinsight-with-network-security-groups) to set up correct NSG rules.
 
@@ -111,7 +111,7 @@ To associate with a NAT Gateway, perform the following steps.
 1. Re-create the clusters with the subnet.
 
     
-    :::image type="content" source="./media/load-balancer-migration-guidelines/viritual-network.png" alt-text="Screenshot showing virtual network." border="true" lightbox="./media/load-balancer-migration-guidelines/viritual-network.png":::
+    :::image type="content" source="./media/load-balancer-migration-guidelines/virtual-network.png" alt-text="Screenshot showing virtual network." border="true" lightbox="./media/load-balancer-migration-guidelines/viritual-network.png":::
 
 **Approach 2:** Select option other than **Associate a NAT gateway to the subnet** provided in [Use Source Network Address Translation (SNAT) for outbound connections](/azure/load-balancer/load-balancer-outbound-connections), and follow the instruction for the selected option.
 
