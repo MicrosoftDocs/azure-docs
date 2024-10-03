@@ -55,7 +55,7 @@ The Usage tiles provide:
 * The number of Backup items configured for the vault.
 * The Azure storage (separated by LRS and GRS) consumed by the vault.
 
-Select the tiles (except Backup Storage) to open the associated menu. In the image above, the Backup Alerts tile shows three Critical alerts. Selecting the Critical alerts row in the Backup Alerts tile, opens the Backup Alerts filtered for Critical alerts.
+Select the tiles (except Backup Storage) to open the associated menu. In the image above, the Backup Alerts tile shows three Critical alerts. Select the Critical alerts row in the Backup Alerts tile to open the Backup Alerts filtered for Critical alerts.
 
 ![Backup alerts menu filtered for critical alerts](./media/backup-azure-manage-windows-server/critical-backup-alerts.png)
 
@@ -156,7 +156,7 @@ Configure notifications to generate emails when a Warning or Critical alert occu
 
 By default, Email notifications are **On**. Select **Off** to stop the email notifications.
 
-On the **Notify** control, choose **Per Alert** if don't want grouping or don't have many items that could generate alerts. Every alert results in one notification (the default setting), and a resolution email is sent immediately.
+On the **Notify** control, choose **Per Alert** if you don't want grouping or don't have many items that could generate alerts. Every alert results in one notification (the default setting), and a resolution email is sent immediately.
 
 If you select **Hourly Digest**, an email is sent to the recipients explaining the unresolved alerts generated in the last hour. A resolution email is sent out at the end of the hour.
 
@@ -172,11 +172,11 @@ The list of Backup Items, organized by Backup Management Type, opens.
 
 ![List of Backup items](./media/backup-azure-manage-windows-server/list-backup-items.png)
 
-To explore a specific type of protected instance, select the item in the Backup Management Type column. For example, in the above image, there are two Azure virtual machines protected in this vault. Selecting **Azure Virtual Machine**, opens the list of protected virtual machines in this vault.
+To explore a specific type of protected instance, select the item in the Backup Management Type column. For example, in the above image, there are two Azure virtual machines protected in this vault. Select **Azure Virtual Machine** to open the list of protected virtual machines in this vault.
 
 ![List of protected virtual machines](./media/backup-azure-manage-windows-server/list-of-protected-virtual-machines.png)
 
-The list of virtual machines has helpful data: the associated Resource Group, previous [Backup Pre-Check](#backup-pre-check-status), Last Backup Status, and date of the most recent Restore Point. The ellipsis, in the last column, opens the menu to trigger common tasks. The helpful data provided in columns, is different for each backup type.
+The list of virtual machines has helpful data: the associated Resource Group, previous [Backup Pre-Check](#backup-pre-check-status), Last Backup Status, and date of the most recent Restore Point. The ellipsis, in the last column, opens the menu to trigger common tasks. The helpful data provided in columns is different for each backup type.
 
 ![Open ellipsis menu for common tasks](./media/backup-azure-manage-windows-server/ellipsis-menu.png)
 
@@ -268,22 +268,8 @@ The Backup Storage tile in the dashboard shows the storage consumed in Azure. St
 * Cloud LRS storage usage associated with the vault
 * Cloud GRS storage usage associated with the vault
 
-## Troubleshooting monitoring issues
-
-**Issue:** Jobs and/or alerts from the Azure Backup agent don't appear in the portal.
-
-**Troubleshooting steps:** The process, ```OBRecoveryServicesManagementAgent```, sends the job and alert data to the Azure Backup service. Occasionally this process can become stuck or shutdown.
-
-1. To verify the process isn't running, open **Task Manager**, and check ```OBRecoveryServicesManagementAgent``` is running.
-
-2. If the process isn't running, open **Control Panel**, and browse the list of services. Start or restart **Microsoft Azure Recovery Services Management Agent**.
-
-    For further information, browse the logs at:<br/>
-   `<AzureBackup_agent_install_folder>\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider*`
-    For example:<br/>
-   `C:\Program Files\Microsoft Azure Recovery Services Agent\Temp\GatewayProvider0.errlog`
-
 ## Next steps
 
-* [Restore Windows Server or Windows Client from Azure](backup-azure-restore-windows-server.md)
-* To learn more about Azure Backup, see [Azure Backup Overview](./backup-overview.md)
+* [Restore Windows Server or Windows Client from Azure](backup-azure-restore-windows-server.md).
+* [Troubleshoot monitoring issues](backup-azure-monitor-troubleshoot.md).
+* To learn more about Azure Backup, see [Azure Backup Overview](./backup-overview.md).

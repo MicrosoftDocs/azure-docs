@@ -843,6 +843,8 @@
       href: azure-kubernetes-service-backup-troubleshoot.md
     - name: Data recovery from Microsoft Azure Backup Server
       href: backup-azure-alternate-dpm-server-troubleshoot.md
+    - name: Monitoring and  alerts
+      href:  backup-azure-monitor-troubleshoot.md
 - name: Reference
   items:
   - name: Archived release notes
