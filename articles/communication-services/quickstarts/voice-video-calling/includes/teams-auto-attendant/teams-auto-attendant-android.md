@@ -418,9 +418,9 @@ private void createAgent() {
 
 The app can now be launched using the "Run App" button on the toolbar. 
 
-Manual steps to setup the call:
+Manual steps to set up the call:
 
 1. Launch the app using Android Studio.
 2. Enter the Auto Attendant Object ID (with prefix), and select the "Start Call" button. Application will start the outgoing call to the Auto Attendant with given object ID.
 3. Call is connected to the Auto Attendant.
-4. Communication Services user is routed through Auto Attendant based on it's configuration.
+4. Communication Services user is routed through Auto Attendant based on its configuration.

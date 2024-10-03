@@ -434,9 +434,9 @@ The call state must be changed using the `OnStateChangedAsync` action.
 
 You can build and run the code on Visual Studio. For solution platforms, we support `ARM64`, `x64`, and `x86`. 
 
-Manual steps to setup the call:
+Manual steps to set up the call:
 
 1. Launch the app using Visual Studio.
 2. Enter the Call Queue Object ID (with prefix), and select the "Start Call" button. Application will start the outgoing call to the Call Queue with given object ID.
 3. Call is connected to the Call Queue.
-4. Communication Services user is routed through Call Queue based on it's configuration.
+4. Communication Services user is routed through Call Queue based on its configuration.

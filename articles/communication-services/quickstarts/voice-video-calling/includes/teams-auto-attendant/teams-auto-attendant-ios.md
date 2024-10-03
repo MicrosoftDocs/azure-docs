@@ -246,9 +246,9 @@ You can build and run your app on iOS simulator by selecting **Product** > **Run
 
 
 
-Manual steps to setup the call:
+Manual steps to set up the call:
 
 1. Launch the app using Xcode
 2. Enter the Auto Attendant Object ID (with prefix), and select the "Start Call" button. Application will start the outgoing call to the Auto Attendant with given object ID.
 3. Call is connected to the Auto Attendant.
-4. Communication Services user is routed through Auto Attendant based on it's configuration.
+4. Communication Services user is routed through Auto Attendant based on its configuration.

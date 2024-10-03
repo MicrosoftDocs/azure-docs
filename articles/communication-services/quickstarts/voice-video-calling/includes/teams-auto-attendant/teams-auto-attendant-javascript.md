@@ -471,4 +471,4 @@ Manual steps to setup the call:
 3. Click on the "Initialize Call Agent" buttons.
 4. Enter the Auto Attendant Object ID, and select the "Start Call" button. Application will start the outgoing call to the Auto Attendant with given object ID.
 5. Call is connected to the Auto Attendant.
-6. Communication Services user is routed through Auto Attendant based on it's configuration.
+6. Communication Services user is routed through Auto Attendant based on its configuration.
