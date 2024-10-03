@@ -16,7 +16,7 @@ This document provides guidance on best practices with the Azure Health Data Ser
 
 * Data ingestion
 * Query performance optimization
-* Data extraction.
+* Data extraction
 
 Each category describes practices you should **Do**, **Consider**, or **Avoid** to better the performance of your FHIR service.
 
