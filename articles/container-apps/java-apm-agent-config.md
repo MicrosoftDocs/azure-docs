@@ -97,7 +97,7 @@ The following commands help you define variables and ensure your Container Apps 
     # [Bash](#tab/bash)
 
     ```azurecli
-    CONNECTION_STRING=(az monitor app-insights component show \
+    CONNECTION_STRING=$(az monitor app-insights component show \
       --ids $APP_INSIGHTS_RESOURCE_ID \
       --query connectionString)
     ```
