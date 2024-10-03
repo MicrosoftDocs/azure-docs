@@ -191,6 +191,8 @@ To create and configure the Microsoft Entra Kerberos Trusted Domain Object, you'
 
 You'll use the Azure AD Hybrid Authentication Management PowerShell module to set up a Trusted Domain Object in the on-premises AD domain and register trust information with Microsoft Entra ID. This creates an in-bound trust relationship into the on-premises AD, which enables Microsoft Entra ID to trust on-premises AD.
 
+You only have to set up the Trusted Domain Object once per domain. If you've already done this for your domain, you can skip this section and proceed to [Configure the clients to retrieve Kerberos tickets](#configure-the-clients-to-retrieve-kerberos-tickets).
+
 #### Install the Azure AD Hybrid Authentication Management PowerShell module
 
 1. Start a Windows PowerShell session with the **Run as administrator** option.
@@ -203,7 +205,7 @@ You'll use the Azure AD Hybrid Authentication Management PowerShell module to se
     - Installs the PowerShellGet module.
     - Installs the Azure AD Hybrid Authentication Management PowerShell module.
         - The Azure AD Hybrid Authentication Management PowerShell uses the AzureADPreview module, which provides advanced Microsoft Entra management features.
-        - To protect against unnecessary installation conflicts with the Azure AD PowerShell module, this command includes the `–AllowClobber` option flag.
+        - To protect against unnecessary installation conflicts with the Azure AD PowerShell module, this command includes the `-AllowClobber` option flag.
 
 ```powershell
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
@@ -310,18 +312,18 @@ Install-Module -Name AzureADHybridAuthenticationManagement -AllowClobber
 
     ```output
     ID                  : XXXXX
-    UserAccount         : CN=krbtgt-AzureAD, CN=Users, DC=aadsqlmi, DC=net
-    ComputerAccount     : CN=AzureADKerberos, OU=Domain Controllers, DC=aadsqlmi, DC=net
+    UserAccount         : CN=krbtgt-AzureAD, CN=Users, DC=contoso, DC=com
+    ComputerAccount     : CN=AzureADKerberos, OU=Domain Controllers, DC=contoso, DC=com
     DisplayName         : XXXXXX_XXXXX
-    DomainDnsName       : aadsqlmi.net
+    DomainDnsName       : contoso.com
     KeyVersion          : 53325
-    KeyUpdatedOn        : 2/24/2022 9:03:15 AM
-    KeyUpdatedFrom      : ds-aad-auth-dem.aadsqlmi.net
+    KeyUpdatedOn        : 2/24/2024 9:03:15 AM
+    KeyUpdatedFrom      : ds-aad-auth-dem.contoso.com
     CloudDisplayName    : XXXXXX_XXXXX
-    CloudDomainDnsName  : aadsqlmi.net
+    CloudDomainDnsName  : contoso.com
     CloudId             : XXXXX
     CloudKeyVersion     : 53325
-    CloudKeyUpdatedOn   : 2/24/2022 9:03:15 AM
+    CloudKeyUpdatedOn   : 2/24/2024 9:03:15 AM
     CloudTrustDisplay   : Microsoft.AzureAD.Kdc.Service.TrustDisplay
     ```
 
