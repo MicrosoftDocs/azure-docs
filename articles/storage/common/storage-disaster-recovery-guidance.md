@@ -28,7 +28,7 @@ Microsoft strives to ensure that Azure services are always available. However, u
 - [Failover](#plan-for-failover)
 - [Designing applications for high availability](#design-for-high-availability)
 
-This article describes the options available for globally redundant storage accounts, and provides recommendations for developing highly available applications and testing your disaster recovery plan.
+This article describes the options available for geo-redundant storage accounts, and provides recommendations for developing highly available applications and testing your disaster recovery plan.
 
 ## Choose the right redundancy option
 
@@ -42,9 +42,9 @@ By comparison, zone-redundant storage (ZRS) retains a copy of a storage account 
 
 ### Geo-redundant storage and failover
 
-Geo-redundant storage (GRS), geo-zone-redundant storage (GZRS), and read-access geo-zone-redundant storage (RA-GZRS) are examples of globally redundant storage options. When configured to use globally redundant storage (GRS, GZRS, and RA-GZRS), Azure copies your data asynchronously to a secondary geographic region. These regions are located hundreds, or even thousands of miles away. This level of redundancy allows you to recover your data if there's an outage throughout the entire primary region.
+Geo-redundant storage (GRS), geo-zone-redundant storage (GZRS), and read-access geo-zone-redundant storage (RA-GZRS) are examples of geographically redundant storage options. When configured to use geo-redundant storage (GRS, GZRS, and RA-GZRS), Azure copies your data asynchronously to a secondary geographic region. These regions are located hundreds, or even thousands of miles away. This level of redundancy allows you to recover your data if there's an outage throughout the entire primary region.
 
-Unlike LRS and ZRS, globally redundant storage also provides support for an unplanned failover to a secondary region if there's an outage in the primary region. During the failover process, DNS (Domain Name System) entries for your storage account service endpoints are automatically updated such that the secondary region's endpoints become the new primary endpoints. Once the unplanned failover is complete, clients can begin writing to the new primary endpoints.
+Unlike LRS and ZRS, geo-redundant storage also provides support for an unplanned failover to a secondary region if there's an outage in the primary region. During the failover process, DNS (Domain Name System) entries for your storage account service endpoints are automatically updated such that the secondary region's endpoints become the new primary endpoints. Once the unplanned failover is complete, clients can begin writing to the new primary endpoints.
 
 Read-access geo-redundant storage (RA-GRS) and read-access geo-zone-redundant storage (RA-GZRS) also provide geo-redundant storage, but offer the added benefit of read access to the secondary endpoint. These options are ideal for applications designed for high availability business-critical applications. If the primary endpoint experiences an outage, applications configured for read access to the secondary region can continue to operate. Microsoft recommends RA-GZRS for maximum availability and durability of your storage accounts.
 
@@ -211,7 +211,7 @@ The following features and services aren't supported for customer-managed failov
 - Azure File Sync doesn't support customer-managed account failover. Storage accounts used as cloud endpoints for Azure File Sync shouldn't be failed over. Failover disrupts file sync and might cause the unexpected data loss of newly tiered files. For more information, see [Best practices for disaster recovery with Azure File Sync](../file-sync/file-sync-disaster-recovery-best-practices.md#geo-redundancy) for details.
 - A storage account containing premium block blobs can't be failed over. Storage accounts that support premium block blobs don't currently support geo-redundancy.
 - Customer-managed failover isn't supported for either the source or the destination account in an [object replication policy](../blobs/object-replication-overview.md).
-- Network File System (NFS) 3.0 (NFSv3) isn't supported for storage account failover. You can't create a storage account configured for global-redundancy with NFSv3 enabled.
+- Network File System (NFS) 3.0 (NFSv3) isn't supported for storage account failover. You can't create a storage account configured for geo-redundancy with NFSv3 enabled.
 
 The following table can be used to reference feature support.
 
