@@ -56,7 +56,7 @@ To create a cache, follow these steps:
     > Automatic Zone Allocation cannot be modified once enabled for a cache.
 
     > [!IMPORTANT]
-    > Enabling Automatic Zone Allocation is currently NOT supported for Geo-replicated caches or caches with VNET injection.
+    > Enabling Automatic Zone Allocation (preview) is currently NOT supported for Geo-replicated caches or caches with VNET injection.
 
 1. Availability zones can be selected manually for Premium tier caches. The count of availability zones must always be less than or equal to the Replica count for the cache.
 
