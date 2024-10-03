@@ -6,7 +6,7 @@ ms.date: 07/17/2023
 ms.author: ruslanzdor
 ---
 
-In this quickstart you are going to learn how to start a call from Azure Communication Services user to Teams Call Queue. You are going to achieve it with the following steps:
+In this quickstart you're going to learn how to start a call from Azure Communication Services user to Teams Call Queue. You're going to achieve it with the following steps:
 
 1. Enable federation of Azure Communication Services resource with Teams Tenant.
 2. Select or create Teams Call Queue via Teams Admin Center.
@@ -464,11 +464,11 @@ Use the `webpack-dev-server` to build and run your app. Run the following comman
 npx webpack serve --config webpack.config.js
 ```
 
-Manual steps to setup the call:
+Manual steps to set up the call:
 
 1. Open your browser and navigate to http://localhost:8080/.
 2. Enter a valid user access token. Refer to the [user access token documentation](../../../manage-teams-identity.md) if you don't already have access tokens available to use.
 3. Click on the "Initialize Call Agent" buttons.
 4. Enter the Call Queue Object ID, and select the "Start Call" button. Application will start the outgoing call to the call queue with given object ID.
 5. Call is connected to the Call Queue.
-6. Communication Services user is routed through Call Queue based on it's configuration.
+6. Communication Services user is routed through Call Queue based on its configuration.
