@@ -60,12 +60,10 @@ In case that you want to revoke an identity you need to follow [this process](..
 [!INCLUDE [Enable push notifications Windows](./includes/push-notifications/push-notifications-windows.md)]
 ::: zone-end
 
-## Next steps
+## Related content
+
 - [Learn how to subscribe to events](./events.md)
 - [Learn how to manage calls](./manage-calls.md)
 - [Learn how to manage video](./manage-video.md)
-
-## Related topics
-
 - [Migrate Android SDK push notifications to FCM v1](../../tutorials/call-chat-migrate-android-push-fcm-v1.md)
 - [Register for Android SDK push notifications using FCM v1](../../tutorials/call-chat-register-android-push-fcm-v1.md)
