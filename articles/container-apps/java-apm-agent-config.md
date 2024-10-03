@@ -21,7 +21,7 @@ APM (Application Performance Management) is useful when you need observability o
 
 ## Prerequisites
 
-- Have an instance of [Application Insights](https://learn.microsoft.com/azure/azure-monitor/app/app-insights-overview)
+- Have an instance of [Application Insights](../azure-monitor/app/app-insights-overview.md)
 - Have an instance of Azure Container Registry or other container image registries
 - Install [Docker](https://www.docker.com/) to build image
 - Install the latest version of the [Azure CLI](/cli/azure/install-azure-cli)
@@ -325,7 +325,7 @@ The following commands help you define variables and ensure your Container Apps 
 
 ## Other APM solutions
 
-Other than [Azure Monitor Application Insights](https://learn.microsoft.com/azure/azure-monitor/app/app-insights-overview), there are other popular APM solutions in the community. If you want to integrate your Azure Container App with other APM providers, just replace the Java agent JAR and related config files.
+Other than [Azure Monitor Application Insights](../azure-monitor/app/java-standalone-config.md), there are other popular APM solutions in the community. If you want to integrate your Azure Container App with other APM providers, just replace the Java agent JAR and related config files.
 
 - [AppDynamics](https://docs.appdynamics.com/appd/21.x/21.4/en/application-monitoring/install-app-server-agents/java-agent/install-the-java-agent)
 - [Dynatrace](https://docs.dynatrace.com/docs/setup-and-configuration/technology-support/application-software/java)
