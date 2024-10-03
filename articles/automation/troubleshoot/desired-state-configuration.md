@@ -10,6 +10,8 @@ ms.custom: linux-related-content
 
 # Troubleshoot Azure Automation State Configuration issues
 
+[!INCLUDE [aadsc-eol](~/includes/dsc-automation/aadsc-eol.md)]
+
 This article provides information on troubleshooting and resolving issues that arise while you compile or deploy configurations in Azure Automation State Configuration. For general information about the State Configuration feature, see [Azure Automation State Configuration overview](../automation-dsc-overview.md).
 
 ## Diagnose an issue
@@ -105,7 +107,7 @@ The following are the possible causes:
 
 - A bad or expired certificate. See [Re-register a node](../automation-dsc-onboarding.md#re-register-a-node).
 
-- A proxy configuration that isn't allowing access to ***.azure-automation.net**. For more information, see [Configuration of private networks](../automation-dsc-overview.md#network-planning). 
+- A proxy configuration that isn't allowing access to ***.azure-automation.net**. For more information, see [Configuration of private networks](../automation-dsc-overview.md#network-planning).
 
 - When you disable local authentication in Azure Automation. See [Disable local authentication](../disable-local-authentication.md). To fix it, see [re-enable local authentication](../disable-local-authentication.md#re-enable-local-authentication).
 

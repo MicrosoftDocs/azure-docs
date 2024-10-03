@@ -11,8 +11,7 @@ ms.date: 07/17/2019
 
 # Remediate noncompliant Azure Automation State Configuration servers
 
-> [!NOTE]
-> Before you enable Automation State Configuration, we would like you to know that a newer version of DSC is now generally available, managed by a feature of Azure Policy named [guest configuration](../governance/machine-configuration/overview.md). The guest configuration service combines features of DSC Extension, Azure Automation State Configuration, and the most commonly requested features from customer feedback. Guest configuration also includes hybrid machine support through [Arc-enabled servers](/azure/azure-arc/servers/overview).
+[!INCLUDE [aadsc-eol](~/includes/dsc-automation/aadsc-eol.md)]
 
 When servers are registered with Azure Automation State Configuration,
 the configuration mode is set to `ApplyOnly`, `ApplyAndMonitor`, or `ApplyAndAutoCorrect`. If the mode isn't set to `ApplyAndAutoCorrect`,
@@ -36,7 +35,7 @@ Update-DscConfiguration -Wait -Verbose
 
 ## Correct drift of Linux virtual machines
 
-For Linux virtual machines, you don't have the option of using the `Run` command. You can only correct drift for these machines by repeating the registration process. 
+For Linux virtual machines, you don't have the option of using the `Run` command. You can only correct drift for these machines by repeating the registration process.
 
 For Azure nodes, you can correct drift from the Azure portal or using Az module cmdlets. Details about this process are documented in [Enable a VM using Azure portal](automation-dsc-onboarding.md#enable-a-vm-using-azure-portal).
 

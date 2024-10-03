@@ -12,6 +12,8 @@ ms.service: azure-automation
 
 # How to remove a configuration and node from Automation State Configuration
 
+[!INCLUDE [aadsc-eol](~/includes/dsc-automation/aadsc-eol.md)]
+
 This article covers how to unregister a node managed by Automation State Configuration, and safely remove a PowerShell Desired State Configuration (DSC) configuration from managed nodes. For both Windows and Linux nodes, you need to [unregister the node](#unregister-a-node) and [Delete a configuration from the node](#delete-a-configuration-from-the-node). For Linux nodes only, you can optionally delete the DSC packages from the nodes as well. See [Remove the DSC package from a Linux node](#remove-the-dsc-package-from-a-linux-node).
 
 ## Unregister a node

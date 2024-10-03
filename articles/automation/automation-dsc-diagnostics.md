@@ -4,15 +4,14 @@ description: This article tells how to send Desired State Configuration reportin
 services: automation
 ms.subservice: desired-state-config
 ms.date: 08/20/2024
-ms.topic: how-to 
+ms.topic: how-to
 ms.custom: devx-track-azurepowershell
 ms.service: azure-automation
 ---
 
 # Integrate Azure Automation State Configuration with Azure Monitor Logs
 
-> [!NOTE]
-> Before you enable Automation State Configuration, we would like you to know that a newer version of DSC is now generally available, managed by a feature of Azure Policy named [guest configuration](../governance/machine-configuration/overview.md). The guest configuration service combines features of DSC Extension, Azure Automation State Configuration, and the most commonly requested features from customer feedback. Guest configuration also includes hybrid machine support through [Arc-enabled servers](/azure/azure-arc/servers/overview).
+[!INCLUDE [aadsc-eol](~/includes/dsc-automation/aadsc-eol.md)]
 
 Azure Automation State Configuration retains node status data for 30 days. You can send node status data to [Azure Monitor Logs](/azure/azure-monitor/logs/data-platform-logs) if you prefer to retain this data for a longer period. Compliance status is visible in the Azure portal or with PowerShell, for nodes and for individual DSC resources in node configurations.
 
@@ -49,7 +48,7 @@ To begin importing data from Azure Automation State Configuration into Azure Mon
     {
         Connect-AzAccount
     }
-    
+
     # If you have multiple subscriptions, set the one to use
     # Select-AzSubscription -SubscriptionId "<SUBSCRIPTIONID>"
     ```
@@ -66,7 +65,7 @@ To begin importing data from Azure Automation State Configuration into Azure Mon
    ```powershell
    # Find the ResourceId for the Automation account
    $AutomationResourceId = (Get-AzResource `
-      -ResourceType 'Microsoft.Automation/automationAccounts' | 
+      -ResourceType 'Microsoft.Automation/automationAccounts' |
       WHERE {$_.Name -eq $automationAccount}).ResourceId
    ```
 
@@ -75,7 +74,7 @@ To begin importing data from Azure Automation State Configuration into Azure Mon
    ```powershell
     # Find the ResourceId for the Log Analytics workspace
     $WorkspaceResourceId = (Get-AzResource `
-        -ResourceType 'Microsoft.OperationalInsights/workspaces' | 
+        -ResourceType 'Microsoft.OperationalInsights/workspaces' |
         WHERE {$_.Name -eq $law}).ResourceId
    ```
 
@@ -147,7 +146,7 @@ To learn more about constructing log queries to find data, see [Overview of log 
 One advantage of using Azure Monitor Logs is that you can search for failed checks across nodes. To find all instances of DSC resources that have failed, use the following query:
 
 ```kusto
-AzureDiagnostics 
+AzureDiagnostics
 | where Category == "DscNodeStatus"
 | where OperationName == "DscResourceStatusData"
 | where ResultType == "Failed"
@@ -158,8 +157,8 @@ AzureDiagnostics
 To visualize your DSC node status history over time, you can use this query:
 
 ```kusto
-AzureDiagnostics 
-| where ResourceProvider == "MICROSOFT.AUTOMATION" 
+AzureDiagnostics
+| where ResourceProvider == "MICROSOFT.AUTOMATION"
 | where Category == "DscNodeStatus"
 | where ResultType != "started"
 | summarize count() by ResultType

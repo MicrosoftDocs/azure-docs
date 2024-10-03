@@ -7,6 +7,8 @@ ms.custom: devx-track-azurepowershell
 ---
 # Azure Automation state configuration to machine configuration migration planning
 
+[!INCLUDE [aadsc-eol](~/includes/dsc-automation/aadsc-eol.md)]
+
 Machine configuration is the latest implementation of functionality that has been provided by Azure
 Automation State Configuration (also known as Azure Automation Desired State Configuration, or
 AADSC). When possible, you should plan to move your content and machines to the new service. This

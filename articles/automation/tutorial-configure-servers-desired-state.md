@@ -11,6 +11,8 @@ ms.service: azure-automation
 
 # Configure machines to a desired state
 
+[!INCLUDE [aadsc-eol](~/includes/dsc-automation/aadsc-eol.md)]
+
 Azure Automation State Configuration allows you to specify configurations for your servers and ensure that those servers are in the specified state over time.
 
 > [!div class="checklist"]
@@ -66,7 +68,7 @@ configuration TestConfig {
 
 > [!NOTE]
 > Configuration names in Azure Automation must be limited to no more than 100 characters.
-> 
+>
 > In more advanced scenarios where you require multiple modules to be imported that provide DSC Resources,
 > make sure each module has a unique `Import-DscResource` line in your configuration.
 

@@ -11,8 +11,7 @@ ms.service: azure-automation
 
 # Get started with Azure Automation State Configuration
 
-> [!NOTE]
-> Before you enable Automation State Configuration, we would like you to know that a newer version of DSC is now generally available, managed by a feature of Azure Policy named [guest configuration](../governance/machine-configuration/overview.md). The guest configuration service combines features of DSC Extension, Azure Automation State Configuration, and the most commonly requested features from customer feedback. Guest configuration also includes hybrid machine support through [Arc-enabled servers](/azure/azure-arc/servers/overview).
+[!INCLUDE [aadsc-eol](~/includes/dsc-automation/aadsc-eol.md)]
 
 This article provides a step-by-step guide for doing the most common tasks with Azure Automation State Configuration, such as creating, importing, and compiling configurations, enabling machines to manage, and viewing reports. For an overview State Configuration, see [State Configuration overview](automation-dsc-overview.md). For Desired State Configuration (DSC) documentation, see [Windows PowerShell Desired State Configuration Overview](/powershell/dsc/overview).
 
@@ -199,7 +198,7 @@ The DSC node can take any of the following six values as follows:
 
 >[!NOTE]
 >- **RefreshFrequencyMins** - It defines the frequency of node contacting the agent service and can be provided as part of onboarding to DSC. It takes a maximum value of 10080 minutes.
->- Node will be marked as **Unresponsive** if the node does not contact the agent service for 1440 minutes (1 Day). We recommend that you use **RefreshFrequencyMins** value < 1440 minutes, else the node would show in a false **Unresponsive** state. 
+>- Node will be marked as **Unresponsive** if the node does not contact the agent service for 1440 minutes (1 Day). We recommend that you use **RefreshFrequencyMins** value < 1440 minutes, else the node would show in a false **Unresponsive** state.
 
 ## View reports for managed nodes
 

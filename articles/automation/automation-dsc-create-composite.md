@@ -14,8 +14,7 @@ ms.service: azure-automation
 
 > **Applies to:** :heavy_check_mark: Windows PowerShell 5.1
 
-> [!NOTE]
-> Before you enable Automation State Configuration, we would like you to know that a newer version of DSC is now generally available, managed by a feature of Azure Policy named [guest configuration](../governance/machine-configuration/overview.md). The guest configuration service combines features of DSC Extension, Azure Automation State Configuration, and the most commonly requested features from customer feedback. Guest configuration also includes hybrid machine support through [Arc-enabled servers](/azure/azure-arc/servers/overview).
+[!INCLUDE [aadsc-eol](~/includes/dsc-automation/aadsc-eol.md)]
 
 > [!IMPORTANT]
 > This article refers to a solution that is maintained by the Open Source community and support is only available in the form of GitHub collaboration, not from Microsoft.
@@ -29,15 +28,15 @@ This article, explains on creating **scenarios** that manage groups of settings,
 - Manage firewall settings
 - Manage password settings
 
-We recommend that you package the configuration as a [Composite Resource](/powershell/dsc/resources/authoringresourcecomposite) before you share it with others as creating composite resources for the first time can be a tedious effort. 
- 
+We recommend that you package the configuration as a [Composite Resource](/powershell/dsc/resources/authoringresourcecomposite) before you share it with others as creating composite resources for the first time can be a tedious effort.
+
 ## Community project - CompositeResource
 
-A [CompositeResource](https://github.com/microsoft/compositeresource) is a community maintained solution that 
+A [CompositeResource](https://github.com/microsoft/compositeresource) is a community maintained solution that
 has been created to resolve this challenge. Composite Resource automates the process of creating a new module from your configuration.
 
 
-## Create a composite resource module 
+## Create a composite resource module
 
 Follow the steps to create a composite resource module:
 

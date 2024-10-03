@@ -14,15 +14,14 @@ ms.service: azure-automation
 
 > **Applies to:** :heavy_check_mark: Windows PowerShell 5.1
 
-> [!NOTE]
-> Before you enable Automation State Configuration, we would like you to know that a newer version of DSC is now generally available, managed by a feature of Azure Policy named [guest configuration](../governance/machine-configuration/overview.md). The guest configuration service combines features of DSC Extension, Azure Automation State Configuration, and the most commonly requested features from customer feedback. Guest configuration also includes hybrid machine support through [Arc-enabled servers](/azure/azure-arc/servers/overview).
+[!INCLUDE [aadsc-eol](~/includes/dsc-automation/aadsc-eol.md)]
 
 > [!IMPORTANT]
 >  The article refers to a solution that is maintained by the Open Source community. Support is only available in the form of GitHub collaboration, not from Microsoft.
 
-This article explains how to create configuration from existing servers for an Azure Automation state configuration. To create configurations from an existing servers is a challenging task as you need to know the right settings and the order they must be applied to ensure that configuration is successful.  
+This article explains how to create configuration from existing servers for an Azure Automation state configuration. To create configurations from an existing servers is a challenging task as you need to know the right settings and the order they must be applied to ensure that configuration is successful.
 
-## Community project: ReverseDSC 
+## Community project: ReverseDSC
 
  The [ReverseDSC](https://github.com/microsoft/reversedsc) is a community maintained solution created to work in this area beginning with the SharePoint. The solution builds on the [SharePointDSC resource](https://github.com/powershell/sharepointdsc) and extends it to orchestrate by [gathering information](https://github.com/Microsoft/sharepointDSC.reverse#how-to-use) from existing servers running SharePoint.
 
