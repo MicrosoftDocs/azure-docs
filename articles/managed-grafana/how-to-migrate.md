@@ -60,18 +60,6 @@ The following instructions show how to migrate a Grafana instance using the Azur
 
 ## Create a service account token
 
-### [Portal](#tab/azure-portal)
-
-1. In the Grafana resource want to collect content from (source), create a new service account with Admin permissions by going to **Administration** > **Users and access** > **Service accounts** > **Add service account**.
-
-    :::image type="content" source="media/migration/add-service-account.png" alt-text="Screenshot of the Grafana UI  showing the Add service account action." lightbox="media/migration/add-service-account.png":::
-
-    > [!TIP] 
-    > This step requires using Grafana service accounts. If you're migrating from an Azure Managed Grafana instance, [enable service accounts in Azure Managed Grafana](./how-to-service-accounts.md#enable-service-accounts).
-
-1. Enter a display name for the new service account, select the **Admin** role, **Apply**, and **Create**.
-1. Once the service account has been created, select **Add token**, optionally set an expiration date, and select **Generate token**. Remember to copy the token now as you won't be able to see it again once you leave this page.
-
 ### [Azure CLI](#tab/azure-cli)
 
 1. Create a service account with Admin permissions in the Grafana resource you want to collect content from (source) by running the `az grafana service-account create` command in the Azure CLI. When running the command below, replace the `<azure-managed-grafana-name>` and `<service-account-name>` placeholders with the name of your source Grafana instance.
@@ -86,6 +74,19 @@ The following instructions show how to migrate a Grafana instance using the Azur
     az grafana service-account token create --name <azure-managed-grafana-name> --service-account <service-account-name> --token <token-name>
     ```
     Tokens have an unlimited expiry date by default. Optionally use the `--time-to-live` option to set an expiry time to disable the token after a given time. For more information, go to [Create a new token](how-to-service-accounts.md?add-a-service-account-token-and-review-tokens.md?tabs=azure-cli#add-a-service-account-token-and-review-tokens).
+
+### [Portal](#tab/azure-portal)
+
+1. In the Grafana resource want to collect content from (source), create a new service account with Admin permissions by going to **Administration** > **Users and access** > **Service accounts** > **Add service account**.
+
+    :::image type="content" source="media/migration/add-service-account.png" alt-text="Screenshot of the Grafana UI  showing the Add service account action." lightbox="media/migration/add-service-account.png":::
+
+    > [!TIP] 
+    > This step requires using Grafana service accounts. If you're migrating from an Azure Managed Grafana instance, [enable service accounts in Azure Managed Grafana](./how-to-service-accounts.md#enable-service-accounts).
+
+1. Enter a display name for the new service account, select the **Admin** role, **Apply**, and **Create**.
+1. Once the service account has been created, select **Add token**, optionally set an expiration date, and select **Generate token**. Remember to copy the token now as you won't be able to see it again once you leave this page.
+
 ---
 
 ## Run the Grafana migrate command
