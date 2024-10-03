@@ -233,6 +233,7 @@ The following table outlines the support scope of flow logs.
 | ExpressRoute gateway | Not supported | Supported |
 | Virtual machine scale sets | Supported | Supported |
 | VPN gateway | Not supported | Supported |
+| Private Endpoints | Not supported | Supported |
 
 ## Availability
 
