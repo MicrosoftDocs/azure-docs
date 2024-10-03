@@ -85,16 +85,16 @@
         href: skr-flow-confidential-containers-azure-container-instance.md
       - name: SKR Policy Examples
         href: skr-policy-examples.md
- - name: Confidential VMs Secure Key Release (SKR)
-    items:
-    - name: SKR Concept
-      href: concept-skr-attestation.md
-    - name: SKR with AMD SEV-SNP based Confidential VMs
-      href: skr-flow-confidential-vm-sev-snp.md
-    - name: SKR with Confidential containers on Azure Container Instance
-      href: skr-flow-confidential-containers-azure-container-instance.md
-    - name: SKR Policy Examples
-      href: skr-policy-examples.md  
+   - name: Confidential VMs Secure Key Release (SKR)
+      items:
+      - name: SKR Concept
+        href: concept-skr-attestation.md
+      - name: SKR with AMD SEV-SNP based Confidential VMs
+        href: skr-flow-confidential-vm-sev-snp.md
+      - name: SKR with Confidential containers on Azure Container Instance
+        href: skr-flow-confidential-containers-azure-container-instance.md
+      - name: SKR Policy Examples
+        href: skr-policy-examples.md  
   - name: Virtual Machines with App Enclaves
     items:
     - name: App enclaves overview
