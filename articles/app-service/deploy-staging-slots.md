@@ -547,7 +547,7 @@ Here are some common swap errors:
 
 - Local cache initialization might fail when the app content exceeds the local disk quota specified for the local cache. For more information, see [Local cache overview](overview-local-cache.md).
 
-- During a site update operation, the following error may occur "_The slot cannot be changed because its configuration settings have been prepared for swap_". This can occur if either [swap with preview (multi-phase swap)](#swap-with-preview-multi-phase-swap) phase 1 has been completed but phase 2 has not yet been performed, or a swap has failed. There are two ways resolve the issue:
+- During a site update operation, the following error may occur "_The slot cannot be changed because its configuration settings have been prepared for swap_". This can occur if either [swap with preview (multi-phase swap)](#swap-with-preview-multi-phase-swap) phase 1 has been completed but phase 2 has not yet been performed, or a swap has failed. There are two ways to resolve this issue:
 
     1. Cancel the swap operation which will reset the site back to the old state
     1. Complete the swap operation which will update site to the desired new state

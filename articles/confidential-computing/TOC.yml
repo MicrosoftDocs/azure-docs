@@ -67,6 +67,8 @@
         href: quick-create-portal.md
       - name: Create VM through the Azure Marketplace
         href: quick-create-marketplace.md
+      - name: Create Hardened VMSS via Azure CLI
+        href: vmss-deployment-from-hardened-linux-image.md
     - name: Image hardening techniques for deployment
       items:
       - name: Harden a Linux image to remove sudo users
@@ -145,30 +147,21 @@
         href: https://azure.microsoft.com/pricing/details/virtual-machines/linux/#DC1s-C8s%20v2
       - name: Regions
         href: https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machine
-  - name: SQL Always Encrypted with Secure Enclaves # x-link to SQL docs #done
-    href: /sql/relational-databases/security/encryption/configure-always-encrypted-enclaves
-  - name: SQL on Confidential Virtual Machines #done
-    href: /azure/azure-sql/virtual-machines/windows/sql-vm-create-confidential-vm-how-to
-  - name: Confidential Databricks
-    href: https://techcommunity.microsoft.com/t5/azure-confidential-computing/confidential-vm-option-for-azure-databricks-preview/ba-p/3827982#:~:text=Azure%20Databricks%20now%20supports%20using%20Confidential%20computing%20VM,Azure%20Databricks%20workload%20securely%20%26%20confidentially%20on%20Azure
-  - name: Confidential Azure Data Explorer (PREVIEW) #done
-    href: https://techcommunity.microsoft.com/t5/azure-data-explorer-blog/confidential-vm-option-for-azure-data-explorer-public-preview/ba-p/3827343
-  - name: Azure Virtual Desktop (AVD) Confidential Desktop #done #GA
-    href: /azure/virtual-desktop/whats-new#confidential-virtual-machines-and-trusted-launch-virtual-machines-are-now-generally-available-in-azure-virtual-desktop
-  - name: Azure Confidential Ledger #done
-    href: /azure/confidential-ledger/overview
-  - name: Deploy a virtual machine scale set using hardened image
-    href: vmss-deployment-from-hardened-linux-image.md
-  - name: Secure Key Release (SKR) with Azure Key Vault
+  - name: Confidential services
+    expanded: true
     items:
-    - name: SKR with Azure Confidential Computing Concept
-      href: concept-skr-attestation.md
-    - name: SKR with AMD SEV-SNP based Confidential VMs
-      href: skr-flow-confidential-vm-sev-snp.md
-    - name: SKR with Confidential containers on Azure Container Instance
-      href: skr-flow-confidential-containers-azure-container-instance.md
-    - name: SKR Policy Examples
-      href: skr-policy-examples.md  
+    - name: SQL Always Encrypted with Secure Enclaves # x-link to SQL docs #done
+      href: /sql/relational-databases/security/encryption/configure-always-encrypted-enclaves
+    - name: SQL on Confidential Virtual Machines #done
+      href: /azure/azure-sql/virtual-machines/windows/sql-vm-create-confidential-vm-how-to
+    - name: Confidential Databricks
+      href: https://techcommunity.microsoft.com/t5/azure-confidential-computing/confidential-vm-option-for-azure-databricks-preview/ba-p/3827982#:~:text=Azure%20Databricks%20now%20supports%20using%20Confidential%20computing%20VM,Azure%20Databricks%20workload%20securely%20%26%20confidentially%20on%20Azure
+    - name: Confidential Azure Data Explorer (PREVIEW) #done
+      href: https://techcommunity.microsoft.com/t5/azure-data-explorer-blog/confidential-vm-option-for-azure-data-explorer-public-preview/ba-p/3827343
+    - name: Azure Virtual Desktop (AVD) Confidential Desktop #done #GA
+      href: /azure/virtual-desktop/whats-new#confidential-virtual-machines-and-trusted-launch-virtual-machines-are-now-generally-available-in-azure-virtual-desktop
+    - name: Azure Confidential Ledger #done
+      href: /azure/confidential-ledger/overview
   - name: Partner Solutions
     items:
     - name: Overview
