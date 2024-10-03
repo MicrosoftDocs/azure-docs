@@ -235,7 +235,10 @@ When you [changed your package references in a previous step](#package-reference
 1. Consult each binding's reference documentation for the types it allows you to bind to. In some cases, you might need to change the type. For output bindings, if the in-process model version used an `IAsyncCollector<T>`, you can replace this with binding to an array of the target type: `T[]`. You can also consider replacing the output binding with a client object for the service it represents, either as the binding type for an input binding if available, or by [injecting a client yourself](./dotnet-isolated-process-guide.md#register-azure-clients).
 
 1. If your function includes an `IBinder` parameter, remove it. Replace the functionality with a client object for the service it represents, either as the binding type for an input binding if available, or by [injecting a client yourself](./dotnet-isolated-process-guide.md#register-azure-clients).
-1. If your function uses a change feed trigger, post-migration input documents are of type `IReadOnlyList<JsonNode>` instead of `IReadOnlyList<Document>`. You can see the required update in these examples:
+1. If your function uses a change feed trigger, post-migration input documents are of type `IReadOnlyList<JsonNode>` instead of `IReadOnlyList<Document>`.
+JsonNode should be used for cases where you want a generic bag of properties but the trigger now supports any .NET type, not just JsonNode
+
+You can see the required update in these examples:
 
 **Before migration:**
 
