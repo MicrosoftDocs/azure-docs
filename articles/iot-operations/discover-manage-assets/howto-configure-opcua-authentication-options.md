@@ -17,11 +17,13 @@ ms.date: 09/16/2024
 
 In this article, you learn how to configure OPC UA user authentication options. These options provide more control over how the connector for OPC UA authenticates with OPC UA servers in your environment.
 
+Currently, the connector for OPC UA supports user authentication with a username and password. You store and manage the username and password values in Azure Key Vault. Azure IoT Operations then synchronizes these values to your Kubernetes cluster where you can use them securely.
+
 To learn more, see [OPC UA applications - user authentication](https://reference.opcfoundation.org/Core/Part2/v105/docs/5.2.3).
 
 ## Prerequisites
 
-A deployed instance of Azure IoT Operations Preview. To deploy Azure IoT Operations for demonstration and exploration purposes, see [Quickstart: Run Azure IoT Operations Preview in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md).
+A deployed instance of Azure IoT Operations Preview with [Manage Synced Secrets](../deploy-iot-ops/howto-manage-secrets.md#manage-synced-secrets) enabled.
 
 ## Features supported
 
@@ -32,26 +34,23 @@ A deployed instance of Azure IoT Operations Preview. To deploy Azure IoT Operati
 
 ## Configure username and password authentication
 
-First, configure the secrets for the username and password in Azure Operator Experience. 
+To configure the secrets for the *username* and *password* values in the [operations experience](https://iotoperations.azure.com) web UI:
 
-Step 1: Navigate to the Asset EndPoint Profile from the left side menu 
+1. Navigate to your list of asset endpoints:
 
-![image](https://github.com/user-attachments/assets/0ef75d0f-f4c1-46bf-95e0-e6076a0b28df)
+    :::image type="content" source="media/howto-configure-opcua-authentication-options/asset-endpoint-list.png" alt-text="Screenshot that shows the list of asset endpoints.":::
 
-Step 2: Select Create asset endpoint 
-![image](https://github.com/user-attachments/assets/59e0d03c-4db0-4e8d-9740-54843c9b4a40)
+1. Select **Create asset endpoint**.
 
+1. Select **Username password** as the authentication mode:
 
-Step 3: Under User authentication mode select username and password 
+    :::image type="content" source="media/howto-configure-opcua-authentication-options/authentication-mode.png" alt-text="Screenshot that shows the username and password authentication mode selected.":::
 
-Step 4: Insert the usernama and password reference from AKV and click on Create
+1. Enter a synced secret name and then select the username and password references from the linked Azure Key Vault:
 
-Step 5: In case you don't have the reference, click on Select. You will see a list of available AKV references and you can select one.
-![image](https://github.com/user-attachments/assets/468dc6aa-db55-48ee-880b-5746f04cff28)
+    :::image type="content" source="media/howto-configure-opcua-authentication-options/select-from-key-vault.png" alt-text="Screenshot that shows the username and password references from Azure Key Vault.":::
 
+    > [!TIP]
+    > You have the option to create new secrets in Azure Key Vault if you haven't already added them.
 
-Alternatively, you can create a new reference 
-![image](https://github.com/user-attachments/assets/fb4534ad-d5d4-4424-92de-0e499b8cd764)
-
-Step 6: Click Apply 
-
+1. Select **Apply**.
