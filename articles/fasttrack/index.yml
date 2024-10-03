@@ -164,9 +164,6 @@ conceptualContent:
         # Card
         - title: "Java Series"
           links:
-            - url: 
-              itemType: video
-              text: 
             - url: https://learn-video.azurefd.net/vod/player?id=9c675d7c-6342-445d-83ec-3db1cad6dcc2
               itemType: video
               text: Azure Java App Types
