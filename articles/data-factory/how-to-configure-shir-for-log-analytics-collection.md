@@ -6,7 +6,8 @@ author: jonburchel
 ms.subservice: 
 ms.custom: synapse
 ms.topic: how-to
-ms.date: 01/05/2024
+ms.date: 10/03/2024
+ms.subservice: integration-runtime
 ms.author: jburchel
 ---
 

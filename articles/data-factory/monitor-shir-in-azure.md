@@ -6,7 +6,8 @@ author: jonburchel
 ms.subservice: 
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 01/05/2024
+ms.date: 10/03/2024
+ms.subservice: intgegration-runtime
 ms.author: jburchel
 ---
 
