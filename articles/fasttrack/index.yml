@@ -157,10 +157,12 @@ conceptualContent:
               text: Introduction to Kusto Query Language (KQL)
             - url: https://aka.ms/ftalive-202311-mdfc
               itemType: video
-              text: Microsoft Defender for Cloud (multi-cloud environments)
+              text: Microsoft Defender for Cloud (multicloud environments)
             # Possible additions - MDfC & MDfE
+    - title: "New Series'"
+      items:
         # Card
-        - title: "Java Series *NEW*"
+        - title: "Java Series"
           links:
             - url: 
               itemType: video
