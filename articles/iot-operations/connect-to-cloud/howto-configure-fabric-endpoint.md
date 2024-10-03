@@ -226,7 +226,7 @@ For more information about dataflow destination settings, see [Create a dataflow
 
 ### Available authentication methods
 
-The following authentication methods are available for Microsoft Fabric OneLake dataflow endpoints.
+The following authentication methods are available for Microsoft Fabric OneLake dataflow endpoints. For more information about enabling secure settings by configuring an Azure Key Vault and enabling workload identities, see [Enable secure settings in Azure IoT Operations Preview deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
 
 #### System-assigned managed identity
 
