@@ -26,7 +26,6 @@ Since the Azure extension runs asynchronously, steps to track its progress are p
 [Check status of VM setup][11].
 
 > [!NOTE]
-
 > Deploying DSC to a Linux node uses the **/tmp** folder. Modules such as `nxautomation` are
 > temporarily downloaded for verification before installing them in their appropriate locations. To
 > ensure that modules install correctly, the Log Analytics agent for Linux needs read/write
