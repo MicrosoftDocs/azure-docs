@@ -372,25 +372,6 @@ resource opcuaSchemaInstance 'Microsoft.DeviceRegistry/schemaRegistries/schemas/
 }
 ```
 
-When the dataflow resource is created, it includes a schemaRef value that points to the generated schema stored in the schema registry. It can be referenced in transformations which creates a new schema in Delta format.
-
-Currently, Azure IoT Operations experience only supports Parquet output for output schemas.
-
-Note: The Delta schema format is used for both Parquet and Delta output.
-
-```bicep
-{
-  operationType: 'BuiltInTransformation'
-  builtInTransformationSettings: {
-    // ..
-    schemaRef: 'aio-sr://${opcuaSchemaName}:${opcuaSchemaVer}'
-    serializationFormat: 'Parquet' // can also be 'Delta' 
-  }
-}
-```
-
-For more information about schema registry, see [Understand message schemas](concept-schema-registry.md).
-
 # [Kubernetes](#tab/kubernetes)
 
 ```yaml
@@ -537,24 +518,24 @@ Specify the **Output** schema when you add the destination dataflow endpoint.
 
 # [Bicep](#tab/bicep)
 
+When the dataflow resource is created, it includes a schemaRef value that points to the generated schema stored in the schema registry. It can be referenced in transformations which creates a new schema in Delta format.
+
+Currently, Azure IoT Operations experience only supports Parquet output for output schemas.
+
+Note: The Delta schema format is used for both Parquet and Delta output.
+
 ```bicep
- {
+{
   operationType: 'BuiltInTransformation'
   builtInTransformationSettings: {
-    // ...
+    // ..
     schemaRef: 'aio-sr://${opcuaSchemaName}:${opcuaSchemaVer}'
     serializationFormat: 'Parquet' // can also be 'Delta' 
   }
 }
 ```
 
-To specify the schema, you can create a Schema custom resource with the schema definition.
-
 For more information about schema registry, see [Understand message schemas](concept-schema-registry.md).
-
-Currently, Azure IoT Operations experience only supports Parquet output for output schemas.
-
-Note: The Delta schema format is used for both Parquet and Delta output.
 
 # [Kubernetes](#tab/kubernetes)
 
