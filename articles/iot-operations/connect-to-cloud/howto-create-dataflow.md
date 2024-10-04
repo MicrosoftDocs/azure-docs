@@ -796,6 +796,8 @@ Select the dataflow you want to export and select **Export** from the toolbar.
 
 # [Bicep](#tab/bicep)
 
+This does not currently apply to Bicep.
+
 # [Kubernetes](#tab/kubernetes)
 
 ```bash
