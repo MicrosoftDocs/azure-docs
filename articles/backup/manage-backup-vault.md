@@ -22,19 +22,19 @@ A Backup vault is a storage entity in Azure that houses backup data for certain 
 
 This section explains how to use the Backup vault **Overview** dashboard to monitor and manage your Backup vaults. The overview pane contains two tiles: **Jobs** and **Instances**.
 
-![Overview dashboard](./media/backup-vault-overview/overview-dashboard.png)
+:::image type="content" source="./media/backup-vault-overview/overview-dashboard.png" alt-text="Screenshot shows the Overview dashboard.":::
 
 ### Manage Backup instances
 
 In the **Jobs** tile, you get a summarized view of all backup and restore related jobs in your Backup vault. Selecting any of the numbers in this tile allows you to view more information on jobs for a particular datasource type, operation type, and status.
 
-![Backup instances](./media/backup-vault-overview/backup-instances.png)
+:::image type="content" source="./media/backup-vault-overview/backup-instances.png" alt-text="Screenshot shows the Backup instances.":::
 
 ### Manage Backup jobs
 
 In the **Backup Instances** tile, you get a summarized view of all backup instances in your Backup vault. Selecting any of the numbers in this tile allows you to view more information on backup instances for a particular datasource type and protection status.
 
-![Backup jobs](./media/backup-vault-overview/backup-jobs.png)
+:::image type="content" source="./media/backup-vault-overview/backup-jobs.png" alt-text="Screenshot shows the Backup jobs.":::
 
 ## Move a Backup vault across Azure subscriptions/resource groups
 
