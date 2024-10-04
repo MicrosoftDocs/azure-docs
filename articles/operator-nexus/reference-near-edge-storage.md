@@ -21,7 +21,11 @@ This table lists the available SKUs for the storage appliance in the near-edge A
 
 | SKU                     | Description                            |
 | ----------------------- | ------------------------------------- |
-| Pure x70r3-91           | Storage appliance model x70r3-91 provided by Pure Storage |
+| Pure x20r4-22           | Storage appliance model x20r4-22 provided by Pure Storage |
+| Pure x20r4-45           | Storage appliance model x20r4-45 provided by Pure Storage |
+| Pure x70r4-91           | Storage appliance model x70r4-91 provided by Pure Storage |
+| Pure x70r4-183          | Storage appliance model x70r4-183 provided by Pure Storage |
+| Pure x70r4-366          | Storage appliance model x70r4-366 provided by Pure Storage |
 
 ## Storage connectivity
 
