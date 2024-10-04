@@ -477,11 +477,12 @@ To filter the data on a condition, you can use the `filter` stage. The condition
 For example, you could use the `temperature` field in the source data to filter the data:
 
 ```bicep
-```bicep
 builtInTransformationSettings: {
-  // TODO: Add bicep template to filter data
+  filter: [
+    // TODO
+  ]
 }
-```
+
 ```
 
 # [Kubernetes](#tab/kubernetes)
@@ -524,7 +525,7 @@ For example, you could use the `temperature` field in the source data to convert
 ```bicep
 builtInTransformationSettings: {
   map: [
-      // TODO: Add bicep template to move data from one field to another
+    // TODO
   ]
 }
 
