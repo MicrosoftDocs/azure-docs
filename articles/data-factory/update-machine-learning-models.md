@@ -8,6 +8,7 @@ ms.reviewer: jburchel
 ms.custom: synapse, devx-track-arm-template
 ms.topic: conceptual
 ms.date: 05/15/2024
+ms.subservice: authoring
 ---
 
 # Update Machine Learning Studio (classic) models by using Update Resource activity
@@ -91,7 +92,7 @@ If the web service is the new type of web service that exposes an Azure Resource
 https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearning/webServices/{web-service-name}?api-version=2016-05-01-preview
 ```
 
-You can get values for place holders in the URL when querying the web service on the [Machine Learning Studio (classic) Web Services Portal](https://services.azureml.net/).
+You can get values for place holders in the URL when querying the web service on the [Azure Machine Learning Studio](https://ml.azure.com/).
 
 The new type of update resource endpoint requires service principal authentication. To use service principal authentication, register an application entity in Microsoft Entra ID and grant it the **Contributor** or **Owner** role of the subscription or the resource group where the web service belongs to. The See [how to create service principal and assign permissions to manage Azure resource](../active-directory/develop/howto-create-service-principal-portal.md). Make note of the following values, which you use to define the linked service:
 
