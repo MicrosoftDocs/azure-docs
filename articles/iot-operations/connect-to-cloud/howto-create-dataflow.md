@@ -550,16 +550,39 @@ To specify the schema, you can create a Schema custom resource with the schema d
 
 For more information about schema registry, see [Understand message schemas](concept-schema-registry.md).
 
-
 ```json
 {
-  "type": "record",
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "name": "Temperature",
-  "fields": [
-    {"name": "deviceId", "type": "string"},
-    {"name": "temperatureCelsius", "type": "float"}
-    {"name": "location", "type": "string"}
-  ]
+  "description": "Schema for representing an asset's key attributes",
+  "type": "object",
+  "required": [ "deviceId", "asset_name"],
+  "properties": {
+    "deviceId": {
+      "type": "string"
+    },
+    "temperature": {
+      "type": "double"
+    },
+    "serial_number": {
+      "type": "string"
+    },
+    "production_date": {
+      "type": "string",
+      "description": "Event duration"
+    },
+    "asset_name": {
+      "type": "string",
+      "description": "Name of asset"
+    },
+    "location": {
+      "type": "string",
+    },
+    "manufacturer": {
+      "type": "string",
+      "description": "Name of manufacturer"
+    }
+  }
 }
 ```
 
