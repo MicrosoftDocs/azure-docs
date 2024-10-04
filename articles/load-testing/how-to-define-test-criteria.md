@@ -157,6 +157,9 @@ When your test runs, the managed identity that's associated with your load testi
 
 ### Define load test fail criteria for server metrics
 
+>[!IMPORTANT]
+>Azure Load Testing doesn't support configuring failure criteria on server-side metrics from Azure Pipelines/Github Actions.
+
 In this section, you configure test failure criteria on server-side metrics for a load test in the Azure portal.
 
 1.	In the [Azure portal](https://portal.azure.com), go to your Azure Load Testing resource.
