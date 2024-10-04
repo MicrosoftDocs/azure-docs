@@ -179,6 +179,32 @@ Content-Type: `application/json`
 }
 ```
 
+## Frequently asked questions
+
+**When I call any POST API, then it gives a 500 internal server error. While Get operations all work.**
+
+The FHIR service in Azure Health Data Services has a storage limit of 4 TB for structured storage. If users encounter issues with their account, it may be due to reaching this storage limit.
+
+For optimal performance and scalability, use the Hyperscale option for FHIR services in Azure Health Data Services.
+
+**How can I delete a service and then re-add it with the same settings?**
+
+It is not possible to replicate a service with the exact same settings. 
+
+*	Create standard ARM templates with the configurations.
+
+*	Create a service and add configuration as per requirement.
+
+
+**Can I delete multiple patient observations or all patient resources in a single API call?**
+
+The $bulk-delete operation allows you to delete resources from the FHIR server asynchronously. You can execute the $bulk-delete operation either at the system level or for specific resource types.
+[Bulk-delete](./fhir-bulk-delete.md)
+
+If customers want to delete all resources that reference Patient, they can use a conditional delete.
+ [Conditional delete](./rest-api-capabilities.md#conditional-delete)
+
+
 ## Related content
 
 [Overview of FHIR search](overview-of-search.md)

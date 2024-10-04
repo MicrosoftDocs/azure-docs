@@ -84,6 +84,12 @@ One way to check the status of your `$export` operation is to go to your storage
 > [!NOTE] 
 > In the FHIR service, the default time for an `$export` operation to idle in a bad state is 10 minutes before the service stops the operation and moves to a new job.
 
+## Frequently asked questions
+
+**Do users have a process for handling deleted data during the incremental export of FHIR data into Databricks? How can users identify deleted items from the storage account?**
+
+The best option is to process the full data from the storage account and identify deleted items by their updated timestamp.
+
 ## Next steps
 
 In this article, you've learned about exporting FHIR resources by using the `$export` operation. For information about how to set up and use other options for export, see:

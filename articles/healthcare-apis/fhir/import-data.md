@@ -252,8 +252,16 @@ Solution: Assign the **Storage Blob Data Contributor** role to the FHIR server. 
 The `import` operation fails and returns `500 Internal Server Error`. The response body contains diagnostic content
 
 **import operation failed for reason: The database '****' has reached its size quota. Partition or delete data, drop indexes, or consult the documentation for possible resolutions.**
+
 Cause: You reached the storage limit of the FHIR service.
+
 Solution: Reduce the size of your data or consider Azure API for FHIR, which has a higher storage limit.
+
+**import operation failed for reason: Input string was not in the correct format**
+
+Cause: An NDJSON Patient resource was submitted in Blob storage. After a POST request to {{fhirUrl}}/$import, a GET request to the callback link from the Content-Location header resulted in a 500 Internal Server Error.
+
+Solution: Verify the configuration for import and export. The storage account version should be the same for both.
 
 ### 423 Locked
 
@@ -275,6 +283,26 @@ Solution: Reduce the size of your data or consider Azure API for FHIR, which has
 **Cause:** The FHIR Service is configured with Initial import mode which blocked other operations.
 
 **Solution:** Switch off the FHIR service's Initial import mode, or select Incremental mode.
+
+## Frequently asked questions
+
+**Does the FHIR service only allow user to post 500 resource types, or is it possible to increase that number?**
+
+This is caused by a known limit.see [Supported FHIR Features](fhir-features-supported.md)
+
+As a solution, it was suggested to utilize a FHIR Loader tool.
+[fhir-loader](https://github.com/microsoft/fhir-loader/blob/main/readme.md)
+
+**Is it possible to maximize the DTUs on the FHIR service to handle the increased load, as it is currently returning an out-of-memory error?**
+
+We cannot increase the DTUs for the customer, as DTUs are allocated at the server level and cannot be adjusted for a single customer. We believe the best option is for the customer to reduce the size of their JSON payloads.
+
+**Encountering errors while trying to import data into the storage account**
+
+Check the configuration regrading import ([Configure FHIR import settings](configure-import-data.md)) 
+
+Verify the storage account name and ensure it is spelled correctly.
+
 
 ## Limitations
 - The maximum number of files allowed for each `import` operation is 10,000.

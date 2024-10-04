@@ -52,6 +52,20 @@ The Azure portal provides a web interface with guided workflows, making it an ef
 
 1. Validate the deployment. Fetch the capability statement from your new FHIR service. Fetch a capability statement by browsing to `https://<WORKSPACE-NAME>-<FHIR-SERVICE-NAME>.fhir.azurehealthcareapis.com/metadata`.
 
+
+## Troubleshoot FHIR service deployment
+
+**What should I do if I accidentally deployed the Azure API for FHIR into the wrong subscription, deleted it, and am now facing a deployment failure in the correct subscription with a message stating that the resource name is not available?**
+
+If soft delete is enabled for the resources
+* Go to the 'Managed Deleted Resources' section under the resource category.
+* Choose the resource you want to permanently delete.
+* Click on 'Purge' to permanently delete the selected resource.
+
+If soft delete is not enabled, wait until the resource is fully deleted. Once the resource is deleted, you can recreate it.
+
+If deployed to the wrong subscription, we can move the resource to the desired subscription instead of deleting and recreating it. [Move Azure resources](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
+
 ## Related content
 
 [Access the FHIR service by using Postman](../fhir/use-postman.md)
