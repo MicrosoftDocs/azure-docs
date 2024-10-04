@@ -10,9 +10,9 @@ ms.author: rifox
 
 ### Create the Xcode project
 
-In Xcode, create a new iOS project and select the **Single View App** template. This quickstart uses the [SwiftUI framework](https://developer.apple.com/xcode/swiftui/), so you should set **Language** to **Swift** and set **Interface** to **SwiftUI**.
+In Xcode, create a new iOS project and select the **Single View App** template. This article uses the [SwiftUI framework](https://developer.apple.com/xcode/swiftui/), so you should set **Language** to **Swift** and set **Interface** to **SwiftUI**.
 
-You're not going to create tests during this quickstart. Feel free to clear the **Include Tests** checkbox.
+You're not going to create tests in this article. Feel free to clear the **Include Tests** checkbox.
 
 :::image type="content" source="../../../../quickstarts/voice-video-calling/media/ios/xcode-new-ios-project.png" alt-text="Screenshot that shows the window for creating a project within Xcode.":::
 
@@ -27,7 +27,9 @@ You're not going to create tests during this quickstart. Feel free to clear the 
         pod 'AzureCommunicationCalling', '~> 1.0.0'
     end
     ```
+
 2. Run `pod install`.
+
 3. Open `.xcworkspace` by using Xcode.
 
 ### Request access to the microphone
