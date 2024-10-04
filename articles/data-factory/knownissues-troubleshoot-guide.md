@@ -1,11 +1,11 @@
 ---
 title: ADF Known issues
-titleSuffix: Azure Data Factory
 description: Learn about the currently known issues with Azure Data Factory and their possible workarounds or resolutions.
 author: sveldurthi
 ms.author: sveldurthi
 ms.reviewer: brianwan
 ms.date: 10/02/2024
+ms.date: 09/26/2024
 ms.service: azure-data-factory
 ms.topic: conceptual
 ---
