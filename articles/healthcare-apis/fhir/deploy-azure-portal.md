@@ -64,7 +64,7 @@ If soft delete is enabled for the resources
 
 If soft delete is not enabled, wait until the resource is fully deleted. Once the resource is deleted, you can recreate it.
 
-If deployed to the wrong subscription, we can move the resource to the desired subscription instead of deleting and recreating it. [Move Azure resources](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
+If deployed to the wrong subscription, we can move the resource to the desired subscription instead of deleting and recreating it. [Move Azure Resources](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
 
 ## Related content
 

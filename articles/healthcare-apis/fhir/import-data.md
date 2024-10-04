@@ -288,10 +288,10 @@ Solution: Verify the configuration for import and export. The storage account ve
 
 **Does the FHIR service only allow user to post 500 resource types, or is it possible to increase that number?**
 
-This is caused by a known limit.see [Supported FHIR Features](fhir-features-supported.md)
+This is caused by a known limit. [Supported FHIR Features](fhir-features-supported.md)
 
 As a solution, it was suggested to utilize a FHIR Loader tool.
-[fhir-loader](https://github.com/microsoft/fhir-loader/blob/main/readme.md)
+[FHIR-Loader](https://github.com/microsoft/fhir-loader/blob/main/readme.md)
 
 **Is it possible to maximize the DTUs on the FHIR service to handle the increased load, as it is currently returning an out-of-memory error?**
 
@@ -299,7 +299,7 @@ We cannot increase the DTUs for the customer, as DTUs are allocated at the serve
 
 **Encountering errors while trying to import data into the storage account**
 
-Check the configuration regrading import ([Configure FHIR import settings](configure-import-data.md)) 
+Check the configuration regrading import [Configure FHIR import settings](configure-import-data.md)
 
 Verify the storage account name and ensure it is spelled correctly.
 

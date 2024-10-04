@@ -163,7 +163,6 @@ _count=3 : This specifies the TOTAL number of records to be returned per page of
 
 _sort=-_lastUpdated : This sorts the results by newest first. This is what gets the behavior to be like $lastn. Combined with _count with would return the most recent X results.
 
-
 **What should I do if I encounter an authorization failure with the Azure Health Data Services FHIR API using OKTA?**
 
 Check if the FHIR SMART user role has been added. If it has, remove it, as this could introduce an additional authentication layer that may cause the issue.
