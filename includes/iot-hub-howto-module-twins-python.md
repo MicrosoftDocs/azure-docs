@@ -17,19 +17,19 @@ This article describes how to use the [Azure IoT SDK for Python](https://github.
 
 ## Install packages
 
-The azure-iot-device library must be installed to create device applications.
+The **azure-iot-device** library must be installed to create device applications.
 
 ```cmd/sh
 pip install azure-iot-device
 ```
 
-The azure-iot-hub library must be installed to create backend service applications.
+The **azure-iot-hub** library must be installed to create backend service applications.
 
 ```cmd/sh
 pip install azure-iot-hub
 ```
 
-The msrest library is used to catch HTTPOperationError exceptions.
+The **msrest** library is used to catch HTTPOperationError exceptions.
 
 ```cmd/sh
 pip install msrest
@@ -57,13 +57,11 @@ from azure.iot.device.aio import IoTHubDeviceClient
 
 ### Connect to a device
 
-This section shows how to connect an application to a device using a device primary key that includes a shared access key.
-
 The [IoTHubModuleClient](/python/api/azure-iot-device/azure.iot.device.iothubmoduleclient) class contains methods that can be used to work with module identity twins.
 
 To connect an application to a device:
 
-1. Call [create_from_connection_string](/python/api/azure-iot-device/azure.iot.device.iothubmoduleclient?#azure-iot-device-iothubmoduleclient-create-from-connection-string) to add the device connection string
+1. Call [create_from_connection_string](/python/api/azure-iot-device/azure.iot.device.iothubmoduleclient?#azure-iot-device-iothubmoduleclient-create-from-connection-string) to add the module identity connection string
 1. Call [connect](/python/api/azure-iot-device/azure.iot.device.iothubmoduleclient?#azure-iot-device-iothubmoduleclient-connect) to connect the device client to an Azure IoT hub
 
 ```python
@@ -73,7 +71,7 @@ from azure.iot.device.aio import IoTHubDeviceClient
 
 # substitute the device connection string in conn_str
 # and add it to the IoTHubDeviceClient object
-conn_str = "{IOT hub device connection string}"
+conn_str = "{Device module identity connection string}"
 device_client = IoTHubDeviceClient.create_from_connection_string(conn_str)
 
 # connect the application to the device
@@ -82,9 +80,7 @@ await device_client.connect()
 
 ### Retrieve a device twin and examine reported properties
 
-You can retrieve and examine device module properties.
-
-Call [get_twin](/python/api/azure-iot-device/azure.iot.device.iothubmoduleclient?#azure-iot-device-iothubmoduleclient-get-twin) to get the module identity twin from the Azure IoT Hub service. The twin information is placed into a variable that can be printed or examined.
+Call [get_twin](/python/api/azure-iot-device/azure.iot.device.iothubmoduleclient?#azure-iot-device-iothubmoduleclient-get-twin) to retrieve the module identity twin from the Azure IoT Hub service. The twin information is placed into a variable that can be printed or examined.
 
 This example retrieves the device twin and uses the `print` command to view the device twin in JSON format.
 
@@ -95,16 +91,18 @@ print("Twin document:")
 print("{}".format(twin))
 ```
 
-### Patch reported device twin properties
+### Patch device reported twin properties
 
-You can apply a patch to update device reported properties in JSON format.
+You can apply a patch to update module identity twin reported properties in JSON format.
 
 To apply a patch to update reported properties:
 
 1. Assign a reported property JSON patch to a variable.
-1. Call [patch_twin_reported_properties](/python/api/azure-iot-device/azure.iot.device.iothubmoduleclient?#azure-iot-device-iothubmoduleclient-patch-twin-reported-properties) to apply the JSON patch to reported properties. This is a synchronous call, meaning that this function does not return until the patch is sent to the service and acknowledged.
+1. Call [patch_twin_reported_properties](/python/api/azure-iot-device/azure.iot.device.iothubmoduleclient?#azure-iot-device-iothubmoduleclient-patch-twin-reported-properties) to apply the JSON patch to reported properties.
 
 If `patch_twin_reported_properties` returns an error, this function raises the corresponding error.
+
+For example:
 
 ```python
 # create the reported properties patch
@@ -116,7 +114,7 @@ await device_client.patch_twin_reported_properties(reported_properties)
 
 ### Incoming desired properties patch handler
 
-Call [on_twin_desired_properties_patch_received](/python/api/azure-iot-device/azure.iot.device.iothubmoduleclient?#azure-iot-device-iothubmoduleclient-on-twin-desired-properties-patch-received) to create a handler function or coroutine that is called when a twin desired properties patch is received. The handler takes one argument, which is the twin patch in the form of a JSON dictionary object.
+Call [on_twin_desired_properties_patch_received](/python/api/azure-iot-device/azure.iot.device.iothubmoduleclient?#azure-iot-device-iothubmoduleclient-on-twin-desired-properties-patch-received) to create a handler function or coroutine that is called when a module identity twin desired properties patch is received. The handler takes one argument, which is the twin patch in the form of a JSON dictionary object.
 
 This example sets up a desired properties patch handler named `twin_patch_handler`.
 
@@ -149,8 +147,6 @@ The Azure IoT SDK for Python includes the following samples:
 * [receive_twin_desired_properties](https://github.com/Azure/azure-iot-sdk-python/blob/main/samples/async-hub-scenarios/receive_twin_desired_properties_patch.py) - Receive and update desired properties.
 
 ## Create a backend application
-
-A backend application connects to a device through IoT Hub and can read module reported and desired properties, and write module desired properties.
 
 This section describes how to create a backend application to:
 
@@ -190,9 +186,9 @@ iothub_registry_manager = IoTHubRegistryManager.from_connection_string(IOTHUB_CO
 
 ### Create a module
 
-Use [create_module_with_sas](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?#azure-iot-hub-iothubregistrymanager-create-module-with-sas) to create a module using a shared access key.
+Use [create_module_with_sas](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?#azure-iot-hub-iothubregistrymanager-create-module-with-sas) to create a device identity module using a shared access key.
 
-This example creates a new module named `myFirstModule` for device `myFirstDevice`. If the module already exists, the code calls [get_module](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?#azure-iot-hub-iothubregistrymanager-get-module) to retrieve the module identity for the device from IoT Hub.
+This example creates a new module named `myFirstModule` for device `myFirstDevice`. If the module already exists, the code calls [get_module](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?#azure-iot-hub-iothubregistrymanager-get-module) to retrieve the device identity module from IoT Hub.
 
 ```python
 DEVICE_ID = "myFirstDevice"

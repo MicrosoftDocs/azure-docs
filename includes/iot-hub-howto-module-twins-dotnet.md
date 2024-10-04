@@ -42,10 +42,13 @@ using Microsoft.Azure.Devices.Shared;
 
 The [ModuleClient](/dotnet/api/microsoft.azure.devices.client.moduleclient) class exposes all the methods required to interact with module identity twins from the device.
 
-Connect to the device using the [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.client.moduleclient.createfromconnectionstring) method with the module connection string. `CreateFromConnectionString` connects using the default AMQP transport.
+Connect to the device using the [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.client.moduleclient.createfromconnectionstring) method with the module connection string.
+For example:
+
+Calling `CreateFromConnectionString` without a transport parameter connects using the default AMQP transport.
 
 ```csharp
-static string ModuleConnectionString = "{Device module connection string}";
+static string ModuleConnectionString = "{Device module identity connection string}";
 private static ModuleClient _moduleClient = null;
 
 _moduleClient = ModuleClient.CreateFromConnectionString(ModuleConnectionString, 
@@ -128,7 +131,10 @@ private async Task OnDesiredPropertyChangedAsync(TwinCollection desiredPropertie
 
 ### SDK module sample
 
-The Azure IoT SDK for .NET provides a working sample of a device app that handles module identity twin tasks. For more information, see [TwinSample](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/device/samples/getting%20started/TwinSample).
+The Azure IoT SDK for .NET provides working samples of device apps that handle module identity twin tasks. For more information, see:
+
+* [TwinSample](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/device/samples/getting%20started/TwinSample)
+* [Device Client Tests](https://github.com/Azure/azure-iot-sdk-csharp/blob/main/iothub/device/tests/DeviceClientTests.cs)
 
 ## Create a backend application
 
@@ -162,6 +168,8 @@ The SDK methods in this section require these shared access policy permissions:
 * **Service Connect** - required to add desired properties to a module
 
 As a parameter to `CreateFromConnectionString`, supply a shared access policy connection string that includes these permissions. For more information about shared access policies, see [Control access to IoT Hub with shared access signatures](/azure/iot-hub/authenticate-authorize-sas).
+
+For example:
 
 ```csharp
 static RegistryManager registryManager;
@@ -199,7 +207,7 @@ Console.WriteLine("Generated module key: {0}", module.Authentication.SymmetricKe
 
  Call [GetModuleAsync](/dotnet/api/microsoft.azure.devices.registrymanager.getmoduleasync) to retrieve current module identity twin fields into a [Module](/dotnet/api/microsoft.azure.devices.module) object.
 
-The `Module` class includes [properties](/dotnet/api/microsoft.azure.devices.shared.twin?&#properties) that correspond to sections of an identity module twin. Use the `Module` class properties to view and update module identity twin fields. You can use the `Module` object properties to update multiple fields before writing the updates to the device using `UpdateModuleAsync`.
+The `Module` class includes `properties` that correspond to sections of an identity module twin. Use the Module class properties to view and update module identity twin fields. You can use the `Module` object properties to update multiple fields before writing the updates to the device using `UpdateModuleAsync`.
 
 After making module identity twin field updates, call [UpdateModuleAsync](/dotnet/api/microsoft.azure.devices.registrymanager.updatemoduleasync) to write `Module` object field updates back to a device. Use `try` and `catch` logic coupled with an error handler to catch incorrectly formatted patch errors from `UpdateModuleAsync`.
 

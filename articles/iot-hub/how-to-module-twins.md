@@ -22,16 +22,16 @@ ms.custom: mqtt, devx-track-csharp, devx-track-dotnet
 This article shows you how to develop two types of applications:
 
 * Device apps that view and update reported properties and handle requests to update module desired properties.
-* Service apps that can add modules and read and set new desired properties.
+* Service apps that can add modules, and read and set desired properties.
 
 > [!NOTE]
 > This article is meant to complement [Azure IoT SDKs](iot-hub-devguide-sdks.md) samples that are referenced from within this article. You can use SDK tools to build both device and back-end applications.
 
 ## Prerequisites
 
-* **An IoT hub**. Some SDK calls require the IoT Hub primary connection string, so make a note of the connection string.
-
-* **A registered device**. Some SDK calls require the device primary connection string, so make a note of the connection string.
+* An IoT hub
+* An IoT hub device
+* An IoT hub device module identity
 
 * If your application uses the MQTT protocol, make sure that **port 8883** is open in your firewall. The MQTT protocol communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](../iot/iot-mqtt-connect-to-iot-hub.md#connecting-to-iot-hub).
 
