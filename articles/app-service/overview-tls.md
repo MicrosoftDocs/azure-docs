@@ -9,6 +9,10 @@ author: msangapu-msft
 ms.custom: UpdateFrequency3
 ms.collection: ce-skilling-ai-copilot
 ---
+
+> [!NOTE]
+> Customers may be aware of [the retirement notification of TLS 1.0 and 1.1 for interactions with Azure services](https://azure.microsoft.com/en-us/updates/azure-support-tls-will-end-by-31-october-2024-2/). This retirement does not affect applications running on App Service or Azure Functions.  Applications on either App Service or Azure Functions configured to accept TLS 1.0 or TLS 1.1 for incoming requests will continue to run unaffected.
+
 # Azure App Service TLS overview
 
 ## What does TLS do in App Service?
