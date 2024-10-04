@@ -5,6 +5,8 @@ author: yelevin
 ms.topic: how-to
 ms.date: 11/09/2021
 ms.author: yelevin
+appliesto: 
+  - Microsoft Sentinel in the Azure portal
 ---
 
 # Tutorial: Investigate incidents with UEBA data

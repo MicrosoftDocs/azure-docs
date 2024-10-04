@@ -5,6 +5,8 @@ author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
 ms.date: 01/01/2023
+appliesto: 
+  - Microsoft Sentinel in the Azure portal
 ---
 
 # Understand Microsoft Sentinel's incident investigation and case management capabilities

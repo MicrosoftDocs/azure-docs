@@ -5,6 +5,8 @@ author: yelevin
 ms.author: yelevin
 ms.topic: how-to
 ms.date: 05/08/2023
+appliesto: 
+  - Microsoft Sentinel in the Azure portal
 ---
 
 # Audit and track changes to incident tasks in Microsoft Sentinel

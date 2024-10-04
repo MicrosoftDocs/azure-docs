@@ -5,6 +5,8 @@ author: yelevin
 ms.author: yelevin
 ms.topic: conceptual
 ms.date: 11/14/2022
+appliesto: 
+  - Microsoft Sentinel in the Azure portal
 ---
 
 # Use tasks to manage incidents in Microsoft Sentinel

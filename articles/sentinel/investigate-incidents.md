@@ -5,6 +5,8 @@ author: yelevin
 ms.author: yelevin
 ms.topic: how-to
 ms.date: 01/17/2023
+appliesto: 
+  - Microsoft Sentinel in the Azure portal
 ---
 
 # Navigate and investigate incidents in Microsoft Sentinel

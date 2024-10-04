@@ -5,6 +5,8 @@ author: yelevin
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: yelevin
+appliesto: 
+  - Microsoft Sentinel in the Azure portal
 ---
 
 # Advanced multistage attack detection in Microsoft Sentinel

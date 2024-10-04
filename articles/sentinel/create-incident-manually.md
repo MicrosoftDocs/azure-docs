@@ -5,6 +5,8 @@ author: yelevin
 ms.author: yelevin
 ms.topic: how-to
 ms.date: 08/17/2022
+appliesto: 
+  - Microsoft Sentinel in the Azure portal
 ---
 
 # Create your own incidents manually in Microsoft Sentinel

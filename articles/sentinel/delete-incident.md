@@ -5,6 +5,8 @@ author: yelevin
 ms.author: yelevin
 ms.topic: how-to
 ms.date: 08/22/2022
+appliesto: 
+  - Microsoft Sentinel in the Azure portal
 ---
 
 # Delete incidents in Microsoft Sentinel
