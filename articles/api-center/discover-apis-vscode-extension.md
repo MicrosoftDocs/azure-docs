@@ -18,17 +18,13 @@ API developers in your organization can discover and consume APIs in your [API c
 
 * **Consume APIs** - Generate API SDK clients in their favorite language including JavaScript, TypeScript, .NET, Python, and Java, using the Microsoft Kiota engine that generates SDKs for Microsoft Graph, GitHub, and more. 
 
-
+API developers can also take advantage of features in the extension to [register APIs](build-register-apis-vscode-extension.md) in the API center and ensure [API governance](govern-apis-vscode-extension.md).
 
 > [!TIP]
-> Optionally enable a [platform API catalog](enable-platform-api-catalog-vscode-extension.md) for your API center in Visual Studio Code so that app developers in your organization can discover APIs in a centralized location. The platform API catalog is a read-only view of the API inventory.
-
-## Prerequisites
+> If you want enterprise app developers to discover APIs in a centralized location, optionally enable a [platform API catalog](enable-platform-api-catalog-vscode-extension.md) for your API center in Visual Studio Code. The platform API catalog is a read-only view of the API inventory.
 
 [!INCLUDE [vscode-extension-basic-prerequisites](includes/vscode-extension-basic-prerequisites.md)]  
     
-The following Visual Studio Code extensions are optional and needed only for certain scenarios as indicated:
-
 * [REST client extension](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) - to send HTTP requests and view the responses in Visual Studio Code directly
 * [Microsoft Kiota extension](https://marketplace.visualstudio.com/items?itemName=ms-graph.kiota) - to generate API clients
 
@@ -41,9 +37,6 @@ API center resources appear in the tree view on the left-hand side. Expand an AP
 :::image type="content" source="media/discover-apis-vscode-extension/explore-api-centers.png" alt-text="Screenshot of API Center tree view in Visual Studio Code." lightbox="media/discover-apis-vscode-extension/explore-api-centers.png":::
 
 Search for APIs within an API Center by using the search icon shown in the **Apis** tree view item.
-
-> [!TIP]
-> Optionally enable a [platform API catalog](enable-platform-api-catalog-vscode-extension.md) for your API center in Visual Studio Code so that app developers in your organization can discover APIs in a centralized location. The platform API catalog is a read-only view of the API inventory.
 
 ## View API documentation
 

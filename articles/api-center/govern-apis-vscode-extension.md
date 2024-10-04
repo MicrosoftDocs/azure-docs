@@ -7,21 +7,21 @@ ms.topic: how-to
 ms.date: 09/23/2024
 ms.author: danlep 
 ms.custom: 
-# Customer intent: As an API developer, I want to use my Visual Studio Code environment to govern APIs in my organization's API center.
+# Customer intent: As an API developer, I want to use my Visual Studio Code environment to check API compliance in my organization's API center.
 ---
 
 # Govern APIs with the Azure API Center extension for Visual Studio Code
 
-To maximize success of your API governance efforts, it's critical to shift-left governance early into the API development cycle. This approach allows developers to create APIs correctly from the beginning, saving them from wasted development effort mitigating non-compliant APIs later in the development process. API Center's Visual Studio Code experience includes critical capabilities for API developers including:
+To maximize success of your API governance efforts, it's critical to shift-left governance early into the API development cycle. This approach allows developers to create APIs correctly from the beginning, saving them from wasted development effort and mitigating non-compliant APIs later in the development process. 
+
+The Azure API Center extension for Visual Studio Code includes the following governance capabilities for API developers:
  
 * Evaluating API designs against API style guides as the API is developed in Visual Studio Code. 
-* Early detection of breaking changes ensures that APIs remain reliable and function as expected, preserving the trust of end-users and stakeholders. 
+* Early detection of breaking changes so that APIs remain reliable and function as expected, preserving the trust of end-users and stakeholders. 
 
 [!INCLUDE [vscode-extension-basic-prerequisites](includes/vscode-extension-basic-prerequisites.md)]  
 
-The following Visual Studio Code extensions are optional and needed only for certain scenarios as indicated:
-
-* [Spectral extension](https://marketplace.visualstudio.com/items?itemName=stoplight.spectral) - to run shift-left API design conformance checks in Visual Studio Code
+* [Spectral extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=stoplight.spectral) - to run shift-left API design conformance checks in Visual Studio Code
 * [Optic CLI](https://github.com/opticdev/optic) - to detect breaking changes between API specification documents
 
 [!INCLUDE [vscode-extension-setup](includes/vscode-extension-setup.md)]  
@@ -35,7 +35,7 @@ To ensure design conformance with organizational standards as you build APIs, th
 
 Once an active API style guide is set, opening any OpenAPI or AsyncAPI-based specification file will trigger a local linting operation in Visual Studio Code. Results are displayed both inline in the editor, as well as in the Problems window (**View** > **Problems** or **Ctrl+Shift+M**).
 
-:::image type="content" source="media/build-register-apis-vscode-extension/local-linting.png" alt-text="Screenshot of local-linting in Visual Studio Code." lightbox="media/build-register-apis-vscode-extension/local-linting.png":::
+:::image type="content" source="media/govern-apis-vscode-extension/local-linting.png" alt-text="Screenshot of local-linting in Visual Studio Code." lightbox="media/build-register-apis-vscode-extension/local-linting.png":::
 
 ## Breaking change detection
 
@@ -47,7 +47,7 @@ When introducing new versions of your API, it's important to ensure that changes
 
 Visual Studio Code will open a diff view between the two API specifications. Any breaking changes are displayed both inline in the editor, as well as in the Problems window (**View** > **Problems** or **Ctrl+Shift+M**).
 
-:::image type="content" source="media/build-register-apis-vscode-extension/breaking-changes.png" alt-text="Screenshot of breaking changes detected in Visual Studio Code." lightbox="media/build-register-apis-vscode-extension/breaking-changes.png":::
+:::image type="content" source="media/govern-apis-vscode-extension/breaking-changes.png" alt-text="Screenshot of breaking changes detected in Visual Studio Code." lightbox="media/build-register-apis-vscode-extension/breaking-changes.png":::
 
 
 ## Related content
