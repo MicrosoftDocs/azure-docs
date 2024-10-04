@@ -401,6 +401,10 @@ Currently, the enrich operation isn't available in the operations experience por
 
 # [Bicep](#tab/bicep)
 
+```bicep
+
+```
+
 # [Kubernetes](#tab/kubernetes)
 
 For example, you could use the `deviceId` field in the source data to match the `asset` field in the dataset:
@@ -521,8 +525,6 @@ Specify the **Output** schema when you add the destination dataflow endpoint.
 When the dataflow resource is created, it includes a schemaRef value that points to the generated schema stored in the schema registry. It can be referenced in transformations which creates a new schema in Delta format.
 
 Currently, Azure IoT Operations experience only supports Parquet output for output schemas.
-
-Note: The Delta schema format is used for both Parquet and Delta output.
 
 ```bicep
 {
