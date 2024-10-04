@@ -3,7 +3,7 @@ title: Linter rule - use recent API versions
 description: Linter rule - use recent API versions
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 10/03/2024
+ms.date: 10/09/2024
 ---
 
 # Linter rule - use recent API versions
@@ -23,7 +23,7 @@ The rule includes a configuration property named `maxAllowedAgeInDays`, with a d
 
 ## Solution
 
-Use the most recent API version or one that is no older than 730 days.
+Use the most recent API version or one that isn't older than 730 days.
 
 Use **Quick Fix** to use the latest API version:
 

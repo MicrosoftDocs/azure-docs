@@ -1,9 +1,9 @@
 ---
 title: Create Bicep files by using Visual Studio Code
-description: Describes how to create Bicep files by using Visual Studio Code
+description: Learn how to use Visual Studio Code to create Bicep files.
 ms.topic: how-to
 ms.custom: devx-track-bicep
-ms.date: 07/18/2024
+ms.date: 10/09/2024
 ---
 
 # Create Bicep files by using Visual Studio Code
@@ -18,7 +18,7 @@ To set up your environment for Bicep development, see [Install Bicep tools](inst
 
 Visual Studio Code comes with several Bicep commands.
 
-Open or create a Bicep file in VS Code, select the **View** menu and then select **Command Palette**. You can also use **F1** or the key combination <kbd>Ctrl+Shift+P</kbd> to bring up the command palette. Type **Bicep** to list the Bicep commands.
+Open or create a Bicep file in VS Code, select the **View** menu, and then select **Command Palette**. You can also use **F1** or the key combination <kbd>Ctrl+Shift+P</kbd> to bring up the command palette. Type **Bicep** to list the Bicep commands.
 
 :::image type="content" source="./media/visual-studio-code/visual-studio-code-bicep-commands.png" alt-text="Screenshot of Visual Studio Code Bicep commands in the command palette.":::
 
@@ -41,7 +41,7 @@ These commands are also shown in the context menu when you right-click a Bicep f
 
 When you right-click a JSON file:
 
-:::image type="content" source="./media/visual-studio-code/visual-studio-code-bicep-context-menu-json.png" alt-text="Screenshot of Visual Studio Code Bicep commands in the context menu for ARM JSON templates.":::
+:::image type="content" source="./media/visual-studio-code/visual-studio-code-bicep-context-menu-json.png" alt-text="Screenshot of Visual Studio Code Bicep commands in the context menu for ARM JSON templates":::
 
 ### Build ARM template
 
@@ -119,15 +119,15 @@ You can also open the visualizer side-by-side with the Bicep file.
 
 When your Bicep file uses modules that are published to a registry, the restore command gets copies of all the required modules from the registry. It stores those copies in a local cache. For more information, see [restore](./bicep-cli.md#restore).
 
-## View type document
+## View documentation
 
-From Visual Studio Code, you can open the template reference for the resource type you're working on. To do so, hover your cursor over the resource symbolic name, and then select **View type document**.
+From Visual Studio Code, you can open the template reference for the resource type you're working on. To do so, hover your cursor over the resource symbolic name, and then select **View Documentation**.
 
 :::image type="content" source="./media/visual-studio-code/visual-studio-code-bicep-view-type-document.png" alt-text="Screenshot of Visual Studio Code Bicep view type document.":::
 
 ## Go to definition
 
-When defining a [module](./modules.md), regardless of the types of the referenced file - whether it's a local file, module registry file, template spec, you can open the referenced file by selecting or highlighting the module path and then press **[F12]**. If the referenced file is an [Azure Verified Modules(AVM)](https://aka.ms/avm), you can toggle between compiled JSON or Bicep file. To be able to open the Bicep file of a private registry module, ensure that the module is published to the registry with the `WithSource` switch enabled. For more information, see [Publish files to registry](./private-module-registry.md#publish-files-to-registry). The Visual Studio Code Bicep extension version 0.27.1 or newer is required for opening Bicep file from private module registry.
+When defining a [module](./modules.md), regardless of the types of the referenced file - whether it's a local file, module registry file, or a template spec, you can open the referenced file by selecting or highlighting the module path and then press **[F12]**. If the referenced file is an [Azure Verified Modules(AVM)](https://aka.ms/avm), you can toggle between compiled JSON or Bicep file. To be able to open the Bicep file of a private registry module, ensure that the module is published to the registry with the `WithSource` switch enabled. For more information, see [Publish files to registry](./private-module-registry.md#publish-files-to-registry). The Visual Studio Code Bicep extension version 0.27.1 or newer is required for opening Bicep file from private module registry.
 
 ## Paste as Bicep
 
@@ -137,7 +137,7 @@ By using this feature, you can paste:
 
 - Full ARM JSON templates.
 - Single resource or multiple resources.
-- JSON values, such as objects, arrays, and strings. A string with double-quotes is converted to single-quotes.
+- JSON values, such as objects, arrays, and strings. A string with double quotation marks converts to one with single quotation marks.
 
 For example, you can start with the following Bicep file:
 
@@ -197,7 +197,7 @@ You can undo the decompilation by using <kbd>Ctrl+Z</kbd>. The original JSON app
 
 ## Troubleshoot
 
-The `Problems` pane summarizes the errors and warning in your Bicep file.
+The `Problems` pane summarizes the errors and warning in your Bicep file:
 
 :::image type="content" source="./media/visual-studio-code/visual-studio-code-bicep-problems-pane.png" alt-text="Screenshot of Visual Studio Code Bicep problems pane.":::
 
