@@ -421,7 +421,7 @@ builtInTransformationSettings: {
 
 ## Passthrough operation
 
-For example, you could apply a mapping operation that takes all the input fields (inputs: array('*')) and maps them to the output (output: '*'), essentially passing through all fields. 
+For example, you could apply a mapping operation that takes all the input fields and maps them to the output field, essentially passing through all fields. 
 
 ```bicep
 builtInTransformationSettings: {
