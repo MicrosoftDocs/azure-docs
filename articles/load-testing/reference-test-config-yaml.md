@@ -33,7 +33,7 @@ A load test configuration uses the following keys:
 | `failureCriteria` | object | N |  | List of load test fail criteria. See [failureCriteria](#failurecriteria-configuration) for more details. |
 | `autoStop` | string or object | N |  | Automatically stop the load test when the error percentage exceeds a value.<br/>Possible values:<br/>- `disable`: don't stop a load test automatically.<br/>- *object*: see [autostop](#autostop-configuration) configuration for more details. |
 | `properties` | object | N |  | <ul><li>If `testType: JMX`: JMeter user property file references.</li><li>If `testType: Locust`: Locust configuration file references.</li></ul> See [properties](#properties-configuration) for more details. |
-| `zipArtifacts` | array of string| N |  | Specifies the list of zip artifact files. For files other than JMeter scripts and user properties for JMeter-based tests and Locust script and configuration files for Locust-based tests, if the file size exceeds 50 MB, compress them into a ZIP file. Ensure that the ZIP file remains below 50 MB in size. Only 5 ZIP artifacts are allowed with a maximum of 1000 files in each and uncompressed size of 1 GB. Only applies when `testType: JMX`. |
+| `zipArtifacts` | array of string| N |  | Specifies the list of zip artifact files. For files other than JMeter scripts and user properties for JMeter-based tests and Locust script and configuration files for Locust-based tests, if the file size exceeds 50 MB, compress them into a ZIP file. Ensure that the ZIP file remains below 50 MB in size. Only 5 ZIP artifacts are allowed with a maximum of 1000 files in each and uncompressed size of 1 GB. Only applies for `testType: JMX` and `testType: Locust`. |
 | `splitAllCSVs` | boolean | N | False | Split the input CSV files evenly across all test engine instances. For more information, see [Read a CSV file in load tests](./how-to-read-csv-data.md#split-csv-input-data-across-test-engines). |
 | `secrets` | object | N |  | List of secrets that the Apache JMeter or Locust script references. See [secrets](#secrets-configuration) for more details. |
 | `env` | object | N |  | List of environment variables that the Apache JMeter script or Locust references. See [environment variables](#env-configuration) for more details. |
@@ -171,7 +171,7 @@ testId: SampleTest
 displayName: Sample Test
 description: Load test website home page
 testPlan: SampleTest.py
-testType: JMX
+testType: Locust
 engineInstances: 1
 properties:
   userPropertyFile: 'locust.conf'
