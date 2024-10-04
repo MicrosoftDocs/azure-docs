@@ -132,7 +132,7 @@ To specify fail criteria in the YAML configuration file:
 ---
 ### Access app component for test criteria on server metrics
 
-When you set failure criteria on a metric in your app component, your load testing resource uses a [managed identity](./how-to-use-a-managed-identity.md) for accessing that component. After you configure the manage identity, you need to grant the managed identity of your load testing resource permissions to read these values from the app component.
+When you set failure criteria on a metric in your app component, your load testing resource uses a [managed identity](./how-to-use-a-managed-identity.md) for accessing that component. After you configure the managed identity, you need to grant the managed identity of your load testing resource permissions to read these values from the app component.
 
 To grant your Azure load testing resource permissions to read the metrics from your app component:
 
@@ -146,7 +146,7 @@ To grant your Azure load testing resource permissions to read the metrics from y
    
 4.	On the **Members** tab, under **Assign access to**, select **Managed Identity**.
    
-5.	Select **Select members**, search for and select the managed identity for the load testing resource, and then select **Next**.
+5.	Click on **Select members**, search and select the managed identity for the load testing resource, and then select **Next**.
 If you're using a system-assigned managed identity, the managed identity name matches that of your Azure load testing resource.
 
 6.	Select **Review + assign** to assign the identity the permission.
