@@ -662,8 +662,16 @@
       href: offline-backup-server-previous-versions.md
   - name: Monitor and Alerts
     items:
-    - name: Using Backup center
+    - name: Monitoring
       href: backup-azure-monitoring-built-in-monitor.md
+    - name: Review backup estate
+      items:
+      - name: View protectable resources
+        href: ../business-continuity-center/tutorial-view-protectable-resources.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json
+      - name: View protected items
+        href: ../business-continuity-center/tutorial-view-protected-items-and-perform-actions.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json
+      - name: Review security posture
+        href: ../business-continuity-center/tutorial-review-security-posture.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json#view-security-level
     - name: Using Azure Monitor alerts
       href: move-to-azure-monitor-alerts.md
     - name: Using Azure Monitor metrics
