@@ -5,9 +5,8 @@ description: Learn about the currently known issues with Azure Data Factory and 
 author: sveldurthi
 ms.author: sveldurthi
 ms.reviewer: brianwan
-ms.date: 18/09/2024
+ms.date: 10/02/2024
 ms.service: azure-data-factory
-ms.subservice: overview
 ms.topic: conceptual
 ---
 
@@ -17,7 +16,7 @@ This page lists the known issues in Azure Data factory. Before submitting [an Az
 
 |ADF Component|Known Issue |Status|
 |:---------|:---------|:---------|
-|Snow Flake Connector Issue|[Intermittent data retrieval issue with LookUp using the Snowflake Connector V2](#Intermittent-data-retrieval-issue-with-LookUp-using-the-Snowflake-Connector-v2)|Has workaround|
+|Snow Flake Connector Issue|[Intermittent data retrieval issue with LookUp using the Snowflake Connector V2](#intermittent-data-retrieval-issue-with-lookup-using-the-snowflake-connector-v2)|Has workaround|
 
 
 ## Recently ADF Closed known issues
@@ -32,4 +31,4 @@ Intermittently, lookup queries against Snowflake return no values even when resu
 
 **Workaround**: Add an If-condition activity after the Lookup to check its output. If the Lookup returns data, proceed without further action. If no data is returned, re-execute the Lookup activity.
 
-:::image type="content" source="media/known-issue/snowflakercs.png" alt-text="Snowflake v2 Known issue":::
+:::image type="content" source="media/known-issue/snowflake-rcs.png" alt-text="Snowflake v2 Known issue":::
