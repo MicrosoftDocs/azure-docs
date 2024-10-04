@@ -135,7 +135,7 @@ kubectl apply -f dataflow.yaml
 
 ## Verify data is flowing
 
-To verify that data is flowing to the cloud, you can view your Event Hubs instance in the Azure portal.
+To verify that data is flowing to the cloud, you can view your Event Hubs instance in the Azure portal. You may need to wait for several minutes for the dataflow to start and for messages to flow to the event hub.
 
 If messages are flowing to the instance, you can see the count on incoming messages on the instance **Overview** page:
 
