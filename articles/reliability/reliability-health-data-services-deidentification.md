@@ -19,12 +19,12 @@ This article describes reliability support in the de-identification service (pre
 
 [!INCLUDE [introduction to disaster recovery](includes/reliability-disaster-recovery-description-include.md)]
 
-Each de-identification service (preview) is deployed to a single Azure region. In the event of a region-wide degredation or outage:
+Each de-identification service (preview) is deployed to a single Azure region. If an entire region is not available or performance is significantly degraded::
 - ARM control plane functionality is limited to read-only during the outage. Your service metadata (such as resource properties) is always backed up outside of the region by Microsoft. Once the outage is over, you can read and write to the control plane.
-- All data plane requests fail during the outage, such as de-identification or job API requests. No customer data is lost, but there is the potential for job progress metadata to be lost. Once the outage is over, you can read and write to the data plane.
+- All data plane requests fail during the outage, such as de-identification or job API requests. No customer data is lost, but there's the potential for job progress metadata to be lost. Once the outage is over, you can read and write to the data plane.
 
 ### Disaster recovery tutorial
-If an entire Azure region is not available, you can still assure high availability of your workloads. You can deploy two or more de-identification services in an active-active configuration, with Azure Front door used to route traffic to both regions.
+If an entire Azure region isn't available, you can still assure high availability of your workloads. You can deploy two or more de-identification services in an active-active configuration, with Azure Front door used to route traffic to both regions.
 
 With this example architecture:
 
@@ -47,7 +47,7 @@ To complete this tutorial:
 
 #### Create a resource group
 
-You need two instances of a de-identification service (preview) in different Azure regions for this tutorial. The tutorial uses the [region pair](../availability-zones/cross-region-replication-azure.md#azure-paired-regions) East US/West US as your two regions, but feel free to choose your own regions.
+You need two instances of a de-identification service (preview) in different Azure regions for this tutorial. The tutorial uses the East US and West US 2 regions, but feel free to choose your own regions.
 
 To make management and clean-up simpler, you use a single resource group for all resources in this tutorial. Consider using separate resource groups for each region/resource to further isolate your resources in a disaster recovery situation.
 
@@ -59,7 +59,7 @@ az group create --name my-deid --location eastus
 
 #### Create de-identification services (preview)
 
-Follow the steps at [Quickstart: Deploy the de-identification service (preview)](/azure/healthcare-apis/deidentification/quickstart) to create two separate services, one in East US and one in West US.
+Follow the steps at [Quickstart: Deploy the de-identification service (preview)](/azure/healthcare-apis/deidentification/quickstart) to create two separate services, one in East US and one in West US 2.
 
 Note the service URL of each de-identification service so you can define the backend addresses when you deploy the Azure Front Door in the next step.
 
@@ -88,9 +88,9 @@ az afd profile create --profile-name myfrontdoorprofile --resource-group my-deid
 |`sku`     |`Premium_AzureFrontDoor`         |The pricing tier of the Azure Front Door profile.         |
 
 
-### Add an endpoint
+### Add an Azure Front Door endpoint
 
-Run [`az afd endpoint create`](/cli/azure/afd/endpoint#az-afd-endpoint-create) to create an endpoint in your profile. You can create multiple endpoints in your profile after finishing the create experience.
+Run [`az afd endpoint create`](/cli/azure/afd/endpoint#az-afd-endpoint-create) to create an endpoint in your Azure Front Door profile. This endpoint routes requests to your services. You can create multiple endpoints in your profile after you finish this guide.
 
 ```azurecli-interactive
 az afd endpoint create --resource-group my-deid --endpoint-name myendpoint --profile-name myfrontdoorprofile --enabled-state Enabled
@@ -101,7 +101,7 @@ az afd endpoint create --resource-group my-deid --endpoint-name myendpoint --pro
 |`endpoint-name`     |`myendpoint`         |Name of the endpoint under the profile, which is unique globally.         |
 |`enabled-state`     |`Enabled`         |Whether to enable this endpoint.        |
 
-#### Create an origin group
+#### Create an Azure Front Door origin group
 
 Run [`az afd origin-group create`](/cli/azure/afd/origin-group#az-afd-origin-group-create) to create an origin group that contains your two de-identification services.
 
@@ -121,12 +121,12 @@ az afd origin-group create --resource-group my-deid --origin-group-name myorigin
 |`additional-latency-in-milliseconds`     |`50`         |The extra latency in milliseconds for probes to fall into the lowest latency bucket.        |
 |`enable-health-probe` | | Switch to control the status of the health probe. |
 
-### Add origins to the group
+### Add origins to the Azure Front Door origin group
 
 Run [`az afd origin create`](/cli/azure/afd/origin#az-afd-origin-create) to add an origin to your origin group. For the `--host-name` and `--origin-host-header` parameters, replace the placeholder value `<service-url-east-us>` with your East US service URL, leaving out the scheme (`https://`). You should have a value like `abcdefghijk.api.eastus.deid.azure.com`.
 
 ```azurecli-interactive
-az afd origin create --resource-group my-deid --host-name <service-url-east-us> --profile-name myfrontdoorprofile --origin-group-name myorigingroup --origin-name primarydeid --origin-host-header <service-url-east-us> --priority 1 --weight 1000 --enabled-state Enabled --https-port 443
+az afd origin create --resource-group my-deid --host-name <service-url-east-us> --profile-name myfrontdoorprofile --origin-group-name myorigingroup --origin-name deid1 --origin-host-header <service-url-east-us> --priority 1 --weight 1000 --enabled-state Enabled --https-port 443
 ```
 
 |Parameter  |Value  |Description  |
@@ -139,15 +139,15 @@ az afd origin create --resource-group my-deid --host-name <service-url-east-us> 
 |`enabled-state`    |`Enabled`         |Whether to enable this origin.         |
 |`https-port`    |`443`         |The port used for HTTPS requests to the origin.         |
 
-Repeat this step to add your second origin. For the `--host-name` and `--origin-host-header` parameters, replace the placeholder value `<service-url-west-us>` with your West US service URL, leaving out the scheme (`https://`).
+Repeat this step to add your second origin. For the `--host-name` and `--origin-host-header` parameters, replace the placeholder value `<service-url-west-us-2>` with your West US 2 service URL, leaving out the scheme (`https://`).
  
 ```azurecli-interactive
-az afd origin create --resource-group my-deid --host-name <service-url-west-us> --profile-name myfrontdoorprofile --origin-group-name myorigingroup --origin-name deid2 --origin-host-header <service-url-west-us> --priority 1 --weight 1000 --enabled-state Enabled --https-port 443
+az afd origin create --resource-group my-deid --host-name <service-url-west-us-2> --profile-name myfrontdoorprofile --origin-group-name myorigingroup --origin-name deid2 --origin-host-header <service-url-west-us-2> --priority 1 --weight 1000 --enabled-state Enabled --https-port 443
 ```
 
-Pay attention to the `--priority` parameters in both commands. Because both origins are set to priority `1`, Azure Front Door treats both origins as active and direct traffic to both regions. If the priority for one origin is set to `2`, Azure Front Door will treat that origin as secondary and will direct all traffic to the other origin unless it goes down.
+Pay attention to the `--priority` parameters in both commands. Because both origins are set to priority `1`, Azure Front Door treats both origins as active and direct traffic to both regions. If the priority for one origin is set to `2`, Azure Front Door treats that origin as secondary and directs all traffic to the other origin unless it goes down.
 
-#### Add a route
+#### Add an Azure Front Door route
 
 Run [`az afd route create`](/cli/azure/afd/route#az-afd-route-create) to map your endpoint to the origin group. This route forwards requests from the endpoint to your origin group.
 
@@ -181,12 +181,12 @@ To test instant global failover:
 
 1. Open a browser and go to the endpoint hostname: `<endpoint>.azurefd.net/health`.
 1. Follow the steps at [Configure private access](/azure/healthcare-apis/deidentification/configure-private-endpoints#configure-private-access) to disable public network access for the de-identification service in East US.
-1. Refresh your browser. You should see the same information page because traffic is now directed to the de-identification service in West US.
+1. Refresh your browser. You should see the same information page because traffic is now directed to the de-identification service in West US 2.
 
     > [!TIP]
     > You might need to refresh the page a few times for the failover to complete.
 
-1. Now disable public network access for the de-identification service in West US.
+1. Now disable public network access for the de-identification service in West US 2.
 1. Refresh your browser. This time, you should see an error message.
 1. Re-enable public network access for one of the de-identification services. Refresh your browser and you should see the health status again.
 
@@ -203,7 +203,7 @@ az group delete --name my-deid
 This command might take a few minutes to complete.
 
 #### Initiate recovery
-In the case of disaster, you can check the health status of your de-identification service (preview) by sending requests to `<service-url>/health`.
+To check the recovery status of your service, you can send requests to `<service-url>/health`.
 
 ## Related content
 
