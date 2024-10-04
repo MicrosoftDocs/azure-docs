@@ -537,6 +537,25 @@ Specify the **Output** schema when you add the destination dataflow endpoint.
 
 # [Bicep](#tab/bicep)
 
+```bicep
+ {
+  operationType: 'BuiltInTransformation'
+  builtInTransformationSettings: {
+    // ...
+    schemaRef: 'aio-sr://${opcuaSchemaName}:${opcuaSchemaVer}'
+    serializationFormat: 'Parquet' // can also be 'Delta' 
+  }
+}
+```
+
+To specify the schema, you can create a Schema custom resource with the schema definition.
+
+For more information about schema registry, see [Understand message schemas](concept-schema-registry.md).
+
+Currently, Azure IoT Operations experience only supports Parquet output for output schemas.
+
+Note: The Delta schema format is used for both Parquet and Delta output.
+
 # [Kubernetes](#tab/kubernetes)
 
 
@@ -584,6 +603,48 @@ To configure a destination for the dataflow, specify the endpoint reference and 
 1. Add the mapping details based on the type of destination.
 
 # [Bicep](#tab/bicep)
+
+For example, to configure a destination using the Microsoft Fabric OneLake endpoint and a static MQTT topic, use the following configuration:
+
+```bicep
+resource oneLakeEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
+  parent: aioInstance
+  name: 'onelake-ep'
+  extendedLocation: {
+    name: customLocation.id
+    type: 'CustomLocation'
+  }
+  properties: {
+    endpointType: 'FabricOneLake'
+    fabricOneLakeSettings: {
+      authentication: {
+        method: 'SystemAssignedManagedIdentity'
+        systemAssignedManagedIdentitySettings: {}
+      }
+      oneLakePathType: 'Tables'
+      host: 'https://msit-onelake.dfs.fabric.microsoft.com'
+      names: {
+        lakehouseName: '<EXAMPLE-LAKEHOUSE-NAME>'
+        workspaceName: '<EXAMPLE-WORKSPACE-NAME>'
+      }
+      batching: {
+        latencySeconds: 5
+        maxMessages: 10000
+      }
+    }
+  }
+}
+```
+
+```bicep
+{
+  operationType: 'Destination'
+  destinationSettings: {
+    endpointRef: oneLakeEndpoint.name
+    dataDestination: 'sensorData'
+  }
+}
+```
 
 # [Kubernetes](#tab/kubernetes)
 
