@@ -18,7 +18,7 @@ The Microsoft Remote Desktop client is used to connect to Azure Virtual Desktop 
 There are three versions of the Remote Desktop client for Windows, which are all supported for connecting to Azure Virtual Desktop:
 
 - Standalone download as an MSI installer. This is the most common version of the Remote Desktop client for Windows.
-- Azure Virtual Desktop app from the Microsoft Store. This is a preview version of the Remote Desktop client for Windows.
+- Azure Virtual Desktop app from the Microsoft Store. This is a preview version of the Remote Desktop client for Windows, but it's no longer available to download. You can still use it to connect to Azure Virtual Desktop if it's already installed.
 - Remote Desktop app from the Microsoft Store. This version is no longer being developed. 
 
 This article shows you how to connect to Azure Virtual Desktop with the Azure Virtual Desktop app and the Remote Desktop app. We recommend connecting to Azure Virtual Desktop with the Remote Desktop client using the MSI installer. To connect using the MSI installer, see [Connect to Azure Virtual Desktop with the Remote Desktop client](connect-remote-desktop-client.md?tab=windows). 
@@ -64,7 +64,7 @@ Select a tab for the version of the Remote Desktop client for Windows you want t
 
 # [Azure Virtual Desktop Store app](#tab/avd-store)
 
-The Azure Virtual Desktop app is available from the Microsoft Store. To download and install it, follow these steps:
+To download and install the Azure Virtual Desktop app, follow these steps:
 
 1. Go to the [Azure Virtual Desktop Store app in the Microsoft Store](https://aka.ms/AVDStoreClient).
 
@@ -73,7 +73,8 @@ The Azure Virtual Desktop app is available from the Microsoft Store. To download
 1. Once the app has finished downloading and installing, select **Open**. The first time the app runs, it will install the *Azure Virtual Desktop (HostApp)* dependency automatically.
 
 > [!IMPORTANT]
-> If you have the Remote Desktop client (MSI) and the Azure Virtual Desktop app from the Microsoft Store installed on the same device, you may see the message that begins **A version of this application called Azure Virtual Desktop was installed from the Microsoft Store**. Both apps are supported, and you have the option to choose **Continue anyway**, however we recommend using [Windows App](/windows-app/overview) for the most up-to-date experience.
+>- The Azure Virtual Desktop app from the Microsoft Store is a preview version of the Remote Desktop client for Windows, but it's no longer available to download. You can still use it to connect to Azure Virtual Desktop if it's already installed.
+>- If you have the Remote Desktop client (MSI) and the Azure Virtual Desktop app from the Microsoft Store installed on the same device, you may see the message that begins **A version of this application called Azure Virtual Desktop was installed from the Microsoft Store**. Both apps are supported, and you have the option to choose **Continue anyway**, however we recommend using [Windows App](/windows-app/overview) for the most up-to-date experience.
 
 
 # [Remote Desktop Store app](#tab/rd-store)
@@ -107,7 +108,7 @@ A workspace combines all the desktops and applications that have been made avail
 
    - If you selected **Subscribe**, sign in with your user account when prompted, for example `user@contoso.com`. After a few seconds, your workspaces should show the desktops and applications that have been made available to you by your admin.
    
-     If you see the message **No workspace is associated with this email address**, your admin might not have set up email discovery, or you are using an Azure environment that is not Azure cloud, such as Azure for US Government. Try the steps to **Subscribe with URL** instead.
+     If you see the message **No workspace is associated with this email address**, your admin might not have set up email discovery, or you're using an Azure environment that isn't Azure cloud, such as Azure for US Government. Try the steps to **Subscribe with URL** instead.
 
    - If you selected **Subscribe with URL**, in the **Email or Workspace URL** box, enter the relevant URL from the following table. After a few seconds, the message **We found Workspaces at the following URLs** should be displayed.
 

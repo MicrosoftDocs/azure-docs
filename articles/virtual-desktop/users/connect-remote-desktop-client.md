@@ -80,7 +80,10 @@ Before you can connect to your devices and apps from macOS, you need:
 - Download and install the Remote Desktop client from the [Mac App Store](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12).
 
 >[!NOTE]
->The macOS Remote Desktop client currently isn't distributed in the China region in the App Store.
+>- The macOS Remote Desktop client currently isn't distributed in the China region in the App Store.
+
+> [!IMPORTANT]
+> In version 11.0.0 and above, the Remote Desktop client has a new name, Windows App. For more information on the Windows App update, see [What is Windows App](/windows-app/overview). If you're using macOS/iOS/iPadOS, you should reference [Get started with Windows App](/windows-app/get-started-connect-devices-desktops-apps) to connect to desktops and apps moving forward.
 
 # [iOS/iPadOS](#tab/ios-ipados)
 
@@ -92,6 +95,8 @@ Before you can connect to your devices and apps from iOS or iPadOS, you need:
 
 - Download and install the Remote Desktop client from the [App Store](https://apps.apple.com/app/microsoft-remote-desktop/id714464092).
 
+> [!IMPORTANT]
+> In version 11.0.0 and above, the Remote Desktop client has a new name, Windows App. For more information on the Windows App update, see [What is Windows App](/windows-app/overview). If you're using macOS/iOS/iPadOS, you should reference [Get started with Windows App](/windows-app/get-started-connect-devices-desktops-apps) to connect to desktops and apps moving forward.
 
 # [Android/Chrome OS](#tab/android)
 
@@ -147,7 +152,7 @@ A workspace combines all the desktops and applications that have been made avail
 
    - If you selected **Subscribe**, sign in with your user account when prompted, for example `user@contoso.com`. After a few seconds, your workspaces should show the desktops and applications that have been made available to you by your admin.
    
-     If you see the message **No workspace is associated with this email address**, your admin might not have set up email discovery, or you are using an Azure environment that is not Azure cloud, such as Azure for US Government. Try the steps to **Subscribe with URL** instead.
+     If you see the message **No workspace is associated with this email address**, your admin might not have set up email discovery, or you're using an Azure environment that isn't Azure cloud, such as Azure for US Government. Try the steps to **Subscribe with URL** instead.
    
    - If you selected **Subscribe with URL**, in the **Email or Workspace URL** box, enter the relevant URL from the following table. After a few seconds, the message **We found Workspaces at the following URLs** should be displayed.
 
@@ -317,7 +322,7 @@ When you sign in to the Remote Desktop Web client, you'll see your workspaces. A
 
 1. Select one of the icons to launch a session to Azure Virtual Desktop. You may be prompted to enter the password for your user account again, depending on how your admin has configured Azure Virtual Desktop.
 
-1. A prompt for **Access local resources** may be displayed asking you confirm which local resources you want to be available in the remote session. Make your selection, then select **Allow**.
+1. A prompt for **Access local resources** may be displayed asking you to confirm which local resources you want to be available in the remote session. Make your selection, then select **Allow**.
 
 >[!TIP]
 >If you've already signed in to the web browser with a different Microsoft Entra account than the one you want to use for Azure Virtual Desktop, you should either sign out or use a private browser window.
