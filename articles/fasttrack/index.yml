@@ -157,8 +157,34 @@ conceptualContent:
               text: Introduction to Kusto Query Language (KQL)
             - url: https://aka.ms/ftalive-202311-mdfc
               itemType: video
-              text: Microsoft Defender for Cloud (multi-cloud environments)
+              text: Microsoft Defender for Cloud (multicloud environments)
             # Possible additions - MDfC & MDfE
+    - title: "New Series'"
+      items:
+        # Card
+        - title: "Java Series"
+          links:
+            - url: https://aka.ms/ftalive-20241004-JavaAppTypes
+              itemType: video
+              text: Azure Java App Types
+            - url: https://aka.ms/ftalive-20241004-JavaAppsOnAKS
+              itemType: video
+              text: Azure Java Apps on AKS
+            - url: https://aka.ms/ftalive-20241004-JavaAppsOnContainers
+              itemType: video
+              text: Azure Java Apps on Containers
+            - url: https://aka.ms/ftalive-20241004-JavaAppsSpringApps
+              itemType: video
+              text: Azure Java Apps Spring Apps
+            - url: https://aka.ms/ftalive-20241004-JavaAppsWebApps
+              itemType: video
+              text: Azure Java Apps Web Apps
+            - url: https://aka.ms/ftalive-20241004-JavaAppsCodeAssessment
+              itemType: video
+              text: Azure Java Apps Code Assessment
+            - url: https://aka.ms/ftalive-20241004-JavaAppMigrations
+              itemType: video
+              text: Azure Java App Migrations
             
 # additionalContent section
 # Card with summary style

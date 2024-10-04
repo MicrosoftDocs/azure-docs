@@ -45,7 +45,7 @@ Event Grid on Kubernetes offers a good level of feature parity with Azure Event 
 5. Only CloudEvents schema is supported. The supported schema value is "[CloudEventSchemaV1_0](/rest/api/eventgrid/controlplane-preview/event-subscriptions/create-or-update#eventdeliveryschema)". Cloud Events schema is extensible and based on open standards.
 6. Labels ([properties.labels](/rest/api/eventgrid/controlplane-preview/event-subscriptions/create-or-update#request-body)) aren't applicable to Event Grid on Kubernetes. Hence, they aren't available.
 7. [Delivery with resource identity](/rest/api/eventgrid/controlplane-preview/event-subscriptions/create-or-update#deliverywithresourceidentity) isn't supported. So, all properties for [Event Subscription Identity](/rest/api/eventgrid/controlplane-preview/event-subscriptions/create-or-update#eventsubscriptionidentity) aren't supported.
-8. [Destination endpoint validation](../webhook-event-delivery.md#endpoint-validation-with-event-grid-events) isn't supported yet.
+8. [Destination endpoint validation](../end-point-validation-cloud-events-schema.md) isn't supported yet.
 
 ## Event filtering in event subscriptions
 The other important aspect of configuring an event subscription is selecting the events that are meant to be delivered to a destination. For more information, see [Event Filtering](filter-events.md).

@@ -166,7 +166,7 @@ The response provides you with CallConnection object that you can use to take fu
 2. `ParticipantsUpdated` event that contains the latest list of participants in the call.
 ![Sequence diagram for placing an outbound call.](media/make-call-flow.png)
 
-In the case where the call fails, you will receive a `CallDisconnected` and `CreateCallFailed` event with error codes for further troubleshooting.
+In the case where the call fails, you will receive a `CallDisconnected` and `CreateCallFailed` event with error codes for further troubleshooting (see [this page](./../../resources/troubleshooting/voice-video-calling/troubleshooting-codes.md) for more information on Call Automation error codes).
 
 ## Connect to a call (in preview)
 

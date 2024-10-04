@@ -6,7 +6,7 @@ author: gargi-sinha
 manager: martinco
 ms.service: active-directory
 ms.topic: how-to
-ms.date: 01/26/2024
+ms.date: 10/03/2024
 ms.author: gasinh
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -16,7 +16,7 @@ zone_pivot_groups: b2c-policy-type
 
 # Configure Trusona Authentication Cloud with Azure Active Directory B2C
 
-In this sample tutorial, you'll learn how to integrate Azure AD B2C authentication with [Trusona Authentication Cloud](https://www.trusona.com/customers/authentication-cloud). It's a cloud-based service enabling users to authenticate with a **tap-and-go** experience, without the need for any kind of mobile authenticator app.
+In this sample tutorial, you learn how to integrate Azure AD B2C authentication with [Trusona Authentication Cloud](https://www.trusona.com/customers/authentication-cloud). It's a cloud-based service enabling users to authenticate with a **tap-and-go** experience, without the need for any kind of mobile authenticator app.
 
 Benefits of integrating Trusona Authentication Cloud with Azure AD B2C include:
 -	Deliver strong authentication with a better user experience
@@ -50,7 +50,7 @@ To get started, you need:
 
 ## Scenario description
 
-Web Authentication standard - WebAuthn implements modern operating systems and browsers to support authentication via finger print, Windows hello, or external FIDO devices such as USB, Bluetooth and OTP.
+Web Authentication standard - WebAuthn implements modern operating systems and browsers to support authentication via finger print, Windows hello, or external FIDO devices such as USB, Bluetooth, and One Time Password (OTP).
 
 In this scenario, Trusona acts as an Identity Provider (IdP) for Azure AD B2C to enable passwordless authentication. The following components make up the solution:
 -	An Azure AD B2C combined sign-in and sign-up policy.
@@ -60,16 +60,16 @@ In this scenario, Trusona acts as an Identity Provider (IdP) for Azure AD B2C to
 
 | Steps | Description |
 |:------|:------|
-|1. | A user attempts to sign in to the web application via their browser.|
-|2.| The web application redirects to Azure AD B2C sign-up and sign-in policy.|
-|3. | Azure AD B2C redirects the user for authentication to the Trusona Authentication Cloud OpenID Connect (OIDC) IdP.|
-|4. | The user is presented with a sign-in web page that asks for their username – typically an email address.|
-|5. | The user enters their email address and selects the **Continue** button. If the user's account isn't found in the Trusona Authentication Cloud, then a response is sent to the browser that initiates a WebAuthn registration process on the device. Otherwise a response is sent to the browser that begins a WebAuthn authentication process.|
-|6. | The user is asked to select a credential to use. The passkey is associated with the domain of the web application or a hardware security key. Once the user selects a credential, the OS requests the user to use a biometric, passcode, or PIN to confirm their identity. This unlocks the Secure Enclave/Trusted Execution environment, which generates an authentication assertion signed by the private key associated with the selected credential.|
-|7. | The authentication assertion is returned to the Trusona cloud service for verification.|
-|8. | Once verified, Trusona Authentication Cloud (IdP) creates an OIDC ID token and then forwards it to Azure AD B2C (Service Provider). Azure AD B2C validates the signature of the token and the issuer against the values in the Trusona’s OpenID discovery document. These details were configured during IdP setup. Once verified, Azure AD B2C issues an OIDC id_token (depending on the scope) and redirects the user back to the initiating application with the token. 
-|9. | The web application (or the developer libraries it uses to implement authentication) retrieves the token and verifies the authenticity of the Azure AD B2C token. If that’s the case, it extracts the claims and pass them to the web application to consume. 
-|10. | Upon verification, user is granted/denied access. |
+|1. |A user attempts to sign in to the web application via their browser.|
+|2.|The web application redirects to Azure AD B2C sign-up and sign-in policy.|
+|3. |Azure AD B2C redirects the user for authentication to the Trusona Authentication Cloud OpenID Connect (OIDC) IdP.|
+|4. |The user is presented with a sign-in web page that asks for their username – typically an email address.|
+|5. |The user enters their email address and selects the **Continue** button. If the user's account isn't found in the Trusona Authentication Cloud, then a response is sent to the browser that initiates a WebAuthn registration process on the device. Otherwise a response is sent to the browser that begins a WebAuthn authentication process.|
+|6. |The user is asked to select a credential to use. The passkey is associated with the domain of the web application or a hardware security key. Once the user selects a credential, the OS requests the user to use a biometric, passcode, or PIN to confirm their identity. User approval unlocks the Secure Enclave/Trusted Execution environment, which generates an authentication assertion signed by the private key associated with the selected credential.|
+|7. |The authentication assertion is returned to the Trusona cloud service for verification.|
+|8. |Once verified, Trusona Authentication Cloud (IdP) creates an OIDC ID token and then forwards it to Azure AD B2C (Service Provider). Azure AD B2C validates the signature of the token and the issuer against the values in the Trusona’s OpenID discovery document. These details were configured during IdP setup. Once verified, Azure AD B2C issues an OIDC id_token (depending on the scope) and redirects the user back to the initiating application with the token.|
+|9. |The web application (or the developer libraries it uses to implement authentication) retrieves the token and verifies the authenticity of the Azure AD B2C token. If that’s the case, it extracts the claims and pass them to the web application to consume.|
+|10. |Upon verification, user is granted/denied access.|
 
 ## Step 1: Onboard with Trusona Authentication Cloud
 
@@ -98,12 +98,12 @@ To register a web application in your Azure AD B2C tenant, use our new unified a
 1. Under **Supported account types**, select **Accounts in any identity provider or organizational directory (for authenticating users with user flows)**.
 1. Under **Redirect URI**, select **Web**, and then enter `https://jwt.ms` in the URL text box.
 
-   The redirect URI is the endpoint to which the authorization server, Azure AD B2C in this case sends the user to. After completing its interaction with the user, an access token or authorization code is sent upon successful authorization. In a production application, it's typically a publicly accessible endpoint where your app is running, like `https://contoso.com/auth-response`. For testing purposes like this tutorial, you can set it to `https://jwt.ms`, a Microsoft-owned web application that displays the decoded contents of a token (the contents of the token never leave your browser). During app development, you might add the endpoint where your application listens locally, like `https://localhost:5000`. You can add and modify redirect URIs in your registered applications at any time.
+   The redirect URI is the endpoint to which the authorization server, Azure AD B2C in this case sends the user to. After completing its interaction with the user, an access token or authorization code is sent upon successful authorization. In a production application, it's typically a publicly accessible endpoint where your app is running, like `https://contoso.com/auth-response`. For testing purposes like this tutorial, you can set it to `https://jwt.ms`, a Microsoft-owned web application that displays the decoded contents of a token (the contents of the token never leave your browser). During app development, you might add the endpoint where your application listens locally, like `https://localhost:5000`. You can add and modify redirect Uniform Resource Identifiers (URI) in your registered applications at any time.
 
    The following restrictions apply to redirect URIs:
 
     * The reply URL must begin with the scheme `https`, unless you use a localhost redirect URL.
-    * The reply URL is case-sensitive. Its case must match the case of the URL path of your running application. For example, if your application includes as part of its path `.../abc/response-oidc`,  don't specify `.../ABC/response-oidc` in the reply URL. Because the web browser treats paths as case-sensitive, cookies associated with `.../abc/response-oidc` may be excluded if redirected to the case-mismatched `.../ABC/response-oidc` URL.
+    * The reply URL is case-sensitive. Its case must match the case of the URL path of your running application. For example, if your application includes as part of its path `.../abc/response-oidc`,  don't specify `.../ABC/response-oidc` in the reply URL. Because the web browser treats paths as case-sensitive, cookies associated with `.../abc/response-oidc` might be excluded if redirected to the case-mismatched `.../ABC/response-oidc` URL.
     * The reply URL should include or exclude the trailing forward slash as your application expects it. For example, `https://contoso.com/auth-response` and `https://contoso.com/auth-response/` might be treated as nonmatching URLs in your application.
 
 1. Under **Permissions**, select the **Grant admin consent to openid and offline_access permissions** check box.
@@ -119,6 +119,9 @@ If you register this app and configure it with `https://jwt.ms/` app for testing
 1. Select **Save**.
 
 ::: zone pivot="b2c-user-flow"
+
+>[!NOTE]
+>Enable implicit flow only for testing purposes. Don’t enable implicit flow in production.
 
 ## Step 3: Configure Trusona Authentication Cloud as an IdP in Azure AD B2C
 
@@ -198,7 +201,7 @@ You should now see Trusona as a **new OpenID Connect Identity Provider** listed 
  
    b. **Reply URL**: Select the redirect URL, for example, `https://jwt.ms`.
    
-2. Select **Run user flow**. You should be redirected to the Trusona Authentication Cloud. The user is presented with a sign-in web page that asks for their username – typically an email address. If the user's account isn't found in Trusona Authentication Cloud,  then a response is sent to the browser that initiates a WebAuthn registration process on the device.  Otherwise a response is sent to the browser that begins a WebAuthn authentication process. The user is asked to select a credential to use. The passkey is associated with the domain of the web application or a hardware security key. Once the user selects a credential, the OS requests the user to use a biometric, passcode, or PIN to confirm their identity. This unlocks the Secure Enclave/Trusted Execution environment, which generates an authentication assertion signed by the private key associated with the selected credential. Azure AD B2C validates the Trusona authentication response and issues an OIDC token. It redirects the user back to the initiating application, for example, `https://jwt.ms`, which displays the contents of the token returned by Azure AD B2C.
+2. Select **Run user flow**. You should be redirected to the Trusona Authentication Cloud. The user is presented with a sign-in web page that asks for their username – typically an email address. If the user's account isn't found in Trusona Authentication Cloud,  then a response is sent to the browser that initiates a WebAuthn registration process on the device. Otherwise a response is sent to the browser that begins a WebAuthn authentication process. The user is asked to select a credential to use. The passkey is associated with the domain of the web application or a hardware security key. Once the user selects a credential, the OS requests the user to use a biometric, passcode, or PIN to confirm their identity. User approval unlocks the Secure Enclave/Trusted Execution environment, which generates an authentication assertion signed by the private key associated with the selected credential. Azure AD B2C validates the Trusona authentication response and issues an OIDC token. It redirects the user back to the initiating application, for example, `https://jwt.ms`, which displays the contents of the token returned by Azure AD B2C.
 ::: zone-end
 
 ::: zone pivot="b2c-custom-policy"
@@ -232,7 +235,7 @@ Store the client secret that you previously generated in [step 1](#step-1-onboar
 >[!TIP]
 >You should have the Azure AD B2C policy configured at this point. If not, follow the [instructions](tutorial-create-user-flows.md?pivots=b2c-custom-policy#custom-policy-starter-pack) on how to set up your Azure AD B2C tenant and configure policies.
 
-To enable users to sign in using Trusona Authentication Cloud, you need to define Trusona as a claims provider that Azure AD B2C can communicate with through an endpoint. The endpoint provides a set of claims that are used by Azure AD B2C to verify a specific user has authenticated using a passkey or a hardware security key available on their device, proving the user’s identity.
+To enable users to sign in using Trusona Authentication Cloud, you need to define Trusona as a claims provider that Azure AD B2C can communicate with through an endpoint. The endpoint provides a set of claims that are used by Azure AD B2C to verify a specific user authentication using a passkey or a hardware security key available on their device, proving the user’s identity.
 
 Use the following steps to add Trusona as a claims provider: 
 
@@ -320,7 +323,7 @@ Use the following steps to add Trusona as a claims provider:
 
 ## Step 5: Add a user journey
 
-At this point, you've set up the IdP, but it's not yet available in any of the sign-in pages. If you've your own custom user journey continue to [Step 6](#step-6-add-the-idp-to-a-user-journey), otherwise, create a duplicate of an existing template user journey as follows:
+At this point, you set up the IdP, but it's not yet available in any of the sign-in pages. If you have your own custom user journey continue to [Step 6](#step-6-add-the-idp-to-a-user-journey), otherwise, create a duplicate of an existing template user journey as follows:
 
 1. Open the `LocalAccounts/TrustFrameworkBase.xml` file from the starter pack.
 
@@ -474,7 +477,7 @@ In the following example, for the `Trusona Authentication Cloud` user journey, t
 
 2. A sign in screen is shown; at the bottom should be a button to use **Trusona Authentication Cloud** authentication.
 
-1. You should be redirected to Trusona Authentication Cloud. The user is presented with a sign-in web page that asks for their username – typically an email address. If the user's account isn't found in the Trusona Authentication Cloud, then a response is sent to the browser that initiates a WebAuthn registration process on the device. Otherwise a response is sent to the browser that begins a WebAuthn authentication process. The user is asked to select a credential to use. The passkey is associated with the domain of the web application or a hardware security key. Once the user selects a credential, the OS requests the user to use a biometric, passcode, or PIN to confirm their identity. This unlocks the Secure Enclave/Trusted Execution environment, which generates an authentication assertion signed by the private key associated with the selected credential.
+1. You should be redirected to Trusona Authentication Cloud. The user is presented with a sign-in web page that asks for their username – typically an email address. If the user's account isn't found in the Trusona Authentication Cloud, then a response is sent to the browser that initiates a WebAuthn registration process on the device. Otherwise a response is sent to the browser that begins a WebAuthn authentication process. The user is asked to select a credential to use. The passkey is associated with the domain of the web application or a hardware security key. Once the user selects a credential, the OS requests the user to use a biometric, passcode, or PIN to confirm their identity. User approval unlocks the Secure Enclave/Trusted Execution environment, which generates an authentication assertion signed by the private key associated with the selected credential.
 
 1. If the sign-in process is successful, your browser is redirected to `https://jwt.ms`, which displays the contents of the token returned by Azure AD B2C.
 

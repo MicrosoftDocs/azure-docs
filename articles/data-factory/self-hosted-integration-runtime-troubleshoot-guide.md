@@ -776,9 +776,7 @@ how to collect the network trace, understand how to use it, and [analyze the Mic
     
             :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/find-conversation.png" alt-text="Screenshot of the TCP conversation.":::
     
-        1. Get the conversation between the client and the Data Factory server below by removing the filter.
-    
-            :::image type="content" source="media/self-hosted-integration-runtime-troubleshoot-guide/get-conversation.png" alt-text="Screenshot of conversation details.":::
+        1. Get the conversation between the client and the Data Factory server by removing the filter.
     
     - An analysis of the Netmon trace you've collected shows that the Time to Live (TTL)) total is 64. According to the values mentioned in the [IP Time to Live (TTL) and Hop Limit Basics](https://packetpushers.net/ip-time-to-live-and-hop-limit-basics/) article, extracted in the following list, you can see that it's the Linux System that resets the package and causes the disconnection.
     

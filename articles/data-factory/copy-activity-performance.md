@@ -8,7 +8,7 @@ manager: shwang
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 10/20/2023
+ms.date: 09/25/2024
 ---
 # Copy activity performance and scalability guide
 
