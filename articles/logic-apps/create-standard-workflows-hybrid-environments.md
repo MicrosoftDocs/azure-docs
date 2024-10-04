@@ -110,7 +110,7 @@ az aks create --resource-group <Azure-resource-group-name> --name <AKS-cluster-n
    Set-ExecutionPolicy -ExecutionPolicy Unrestricted
    ```
 
-  For more information, see [Set-ExecutionPolicy](/powershell/module/microsoft.powershell.security/set-executionpolicy).
+   For more information, see [Set-ExecutionPolicy](/powershell/module/microsoft.powershell.security/set-executionpolicy).
 
 1. [Follow the steps in "Tutorial: Enable Azure Container Apps on Azure Arc-enabled Kubernetes"](/azure/container-apps/azure-arc-enable-cluster) using PowerShell, but use the following commands and parameter values specific to Azure Logic Apps to create the Azure Arc-enabled Kubernetes cluster and an optional Log Analytics workspace to monitor the logs from the Azure Logic Apps runtime.
 
