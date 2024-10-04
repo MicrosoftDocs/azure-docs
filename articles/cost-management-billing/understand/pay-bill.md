@@ -7,7 +7,7 @@ ms.reviewer: lishepar
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 08/06/2024
+ms.date: 10/04/2024
 ms.author: banders
 ---
 
@@ -43,7 +43,7 @@ Here's a table that summarizes payment methods for agreement types:
 
 ## Reserve Bank of India
 
-As of October 2021, automatic payments in India might block some credit card transactions, especially transactions that exceed 5,000 INR. Because of this situation, you might need to make payments manually in the Azure portal. This directive doesn't affect the total amount you're charged for your Azure usage.
+As of October 2021, automatic payments in India might block some credit card transactions, especially transactions that exceed 5,000 INR. Because of this situation, you might need to make payments for your Microsoft Online Subscription Program (MOSP) account manually in the Azure portal. This directive doesn't affect the total amount you're charged for your Azure usage.
 
 As of June 2022, the Reserve Bank of India increased the limit of e-mandates on cards for recurring payments from 5,000 to 15,000 INR. Learn more about this directive on the [Reserve Bank of India website](https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=11668&Mode=0).
 
