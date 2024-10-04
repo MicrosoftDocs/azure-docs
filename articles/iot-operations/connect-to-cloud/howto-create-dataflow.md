@@ -60,7 +60,41 @@ To create a dataflow in the operations experience portal, select **Dataflow** > 
 
 # [Bicep](#tab/bicep)
 
-TODO
+The overall structure of a dataflow configuration is as follows:
+
+```bicep
+resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2024-08-15-preview' = {
+  parent: defaultDataflowProfile
+  name: 'my-dataflow'
+  extendedLocation: {
+    name: customLocation.id
+    type: 'CustomLocation'
+  }
+  properties: {
+    mode: 'Enabled'
+    operations: [
+      {
+        operationType: 'Source'
+        sourceSettings: {
+          // See source configuration section
+        }
+      }
+      {
+        operationType: 'BuiltInTransformation'
+        builtInTransformationSettings: {
+          // See transformation configuration section
+        }
+      }
+      {
+        operationType: 'Destination'
+        destinationSettings: {
+          // See destination configuration section
+        }
+      }
+    ]
+  }
+}
+```
 
 # [Kubernetes](#tab/kubernetes)
 
