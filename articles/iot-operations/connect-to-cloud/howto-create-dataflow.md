@@ -5,7 +5,7 @@ author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 10/03/2024
+ms.date: 10/04/2024
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to create a dataflow to connect data sources.
@@ -393,7 +393,10 @@ Supported serialization formats are JSON, Parquet, and Delta.
 
 ## Configure destination with a dataflow endpoint to send data
 
-To configure a destination for the dataflow, specify the endpoint reference and data destination. You can specify a list of data destinations for the endpoint which are MQTT or Kafka topics.
+To configure a destination for the dataflow, specify the endpoint reference and data destination. You can specify a list of data destinations for the endpoint.
+
+> [!IMPORTANT]
+> Storage endpoints require a schema reference. If you've created storage destination endpoints for Microsoft Fabric OneLake, ADLS Gen 2, Azure Data Explorer and Local Storage, use bicep to specify the schema reference.
 
 # [Portal](#tab/portal)
 
@@ -415,9 +418,6 @@ destinationSettings:
   endpointRef: mq
   dataDestination: factory
 ```
-
-> [!IMPORTANT]
-> If you've created storage endpoints like Microsoft Fabric, storage endpoints require a schema reference. Use bicep to specify the schema reference.
 
 ## Example
 
