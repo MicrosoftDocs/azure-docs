@@ -419,7 +419,7 @@ builtInTransformationSettings: {
 
 ```
 
-## Passthrough operation
+### Passthrough operation
 
 For example, you could apply a mapping operation that takes all the input fields and maps them to the output field, essentially passing through all fields. 
 
