@@ -658,9 +658,9 @@
       href: backup-azure-backup-server-import-export.md
     - name: Offline Backup for DPM and MABS (previous versions)
       href: offline-backup-server-previous-versions.md
-  - name: Monitor and Alerts
+  - name: Monitoring
     items:
-    - name: Monitoring
+    - name: Using Backup center
       href: backup-azure-monitoring-built-in-monitor.md
     - name: Review backup estate
       items:
@@ -670,6 +670,12 @@
         href: ../business-continuity-center/tutorial-view-protected-items-and-perform-actions.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json
       - name: Review security posture
         href: ../business-continuity-center/tutorial-review-security-posture.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json#view-security-level
+    - name: Monitor backup estate
+      items:
+      - name: jobs
+        href: ../business-continuity-center/tutorial-monitor-operate.md?toc=/azure/backup/toc.json&bc=/azure/backup/breadcrumb/toc.json   
+      - name: Alerts
+        href: backup-azure-monitoring-alerts.md  
     - name: Using Azure Monitor alerts
       href: move-to-azure-monitor-alerts.md
     - name: Using Azure Monitor metrics
