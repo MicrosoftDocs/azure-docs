@@ -405,7 +405,16 @@ This example shows how you could use the `deviceId` field in the source data to 
 
 ```bicep
 builtInTransformationSettings: {
-  // TODO: Add bicep template to enrich data
+  datasets: [
+    {
+      key: 'assetDataset'
+      inputs: [
+        '$source.deviceId',                // Reference to the device ID from the source
+        '$context(assetDataset).asset'     // Reference to the asset from the dataset context
+      ]
+      expression: '$1 == $2'                // Expression to evaluate the inputs
+    }
+  ]
 }
 ```
 
@@ -479,10 +488,14 @@ For example, you could use the `temperature` field in the source data to filter 
 ```bicep
 builtInTransformationSettings: {
   filter: [
-    // TODO
+    {
+      inputs: [
+        'temperature ? $last' // Reference to the last temperature value, if available
+      ]
+      expression: '$1 > 20'   // Expression to filter based on the temperature value
+    }
   ]
 }
-
 ```
 
 # [Kubernetes](#tab/kubernetes)
@@ -525,10 +538,21 @@ For example, you could use the `temperature` field in the source data to convert
 ```bicep
 builtInTransformationSettings: {
   map: [
-    // TODO
+    {
+      inputs: [
+        'temperature'                     // Reference to the temperature input
+      ]
+      output: 'temperatureCelsius'        // Output variable for the converted temperature
+      expression: '($1 - 32) * 5/9'       // Expression to convert Fahrenheit to Celsius
+    }
+    {
+      inputs: [
+        '$context(assetDataset).location'  // Reference to the location from the dataset context
+      ]
+      output: 'location'                   // Output variable for the location
+    }
   ]
 }
-
 ```
 
 # [Kubernetes](#tab/kubernetes)
