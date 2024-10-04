@@ -1,8 +1,8 @@
 ---
 title: Network planning for Oracle Database@Azure
+description: Learn about Network planning for Oracle Database@Azure. 
 author: jjaygbay1
 ms.author: jacobjaygbay
-description: Learn about topologies and constraints for Oracle Database@Azure. 
 ms.topic: conceptual
 ms.service: oracle-on-azure
 ms.custom: engagement-fy23

@@ -4,7 +4,8 @@ description: Learn how to use a solution template to replicate multiple objects 
 author: dearandyxu
 ms.author: yexu
 ms.topic: conceptual
-ms.date: 10/20/2023
+ms.date: 10/03/2024
+ms.subservice: data-movement
 ---
 
 # Replicate multiple objects from SAP via SAP CDC

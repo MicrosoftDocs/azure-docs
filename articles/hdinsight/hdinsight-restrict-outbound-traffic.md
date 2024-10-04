@@ -3,7 +3,7 @@ title: Configure outbound network traffic restriction - Azure HDInsight
 description: Learn how to configure outbound network traffic restriction for Azure HDInsight clusters.
 ms.service: azure-hdinsight
 ms.topic: how-to
-ms.date: 05/23/2024
+ms.date: 10/01/2024
 ---
 
 # Configure outbound network traffic for Azure HDInsight clusters using Firewall
@@ -44,11 +44,11 @@ Create an application rule collection that allows the cluster to send and receiv
 
 1. Select the new firewall **Test-FW01** from the Azure portal.
 
-1. Navigate to **Settings** > **Rules** > **Application rule collection** > **+ Add application rule collection**.
+1. Navigate to **Settings** > **Rules** > **Application rule collection** > **+ `Add application rule collection`**.
 
     :::image type="content" source="./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection.png" alt-text="Title: Add application rule collection.":::
 
-1. On the **Add application rule collection** screen, provide the following information:
+1. On the **`Add application rule collection`** screen, provide the following information:
 
     **Top section**
 
@@ -70,8 +70,10 @@ Create an application rule collection that allows the cluster to send and receiv
     | --- | --- | --- | --- | --- |
     | Rule_2 | * | https:443 | login.windows.net | Allows Windows login activity |
     | Rule_3 | * | https:443 | login.microsoftonline.com | Allows Windows login activity |
-    | Rule_4 | * | https:443 | storage_account_name.blob.core.windows.net | Replace `storage_account_name` with your actual storage account name. Make sure ["secure transfer required"](../storage/common/storage-require-secure-transfer.md) is enabled on the storage account. If you are using Private endpoint to access storage accounts, this step is not needed and storage traffic is not forwarded to the firewall.|
+    | Rule_4 | * | https:443 | storage_account_name.blob.core.windows.net | Replace `storage_account_name` with your actual storage account name. Make sure ["secure transfer required"](../storage/common/storage-require-secure-transfer.md) is enabled on the storage account. If you're using Private endpoint to access storage accounts, this step isn't needed and storage traffic isn't forwarded to the firewall.|
     | Rule_5 | * | http:80 | azure.archive.ubuntu.com | Allows Ubuntu security updates to be installed on the cluster |
+    | Rule_6 | * | https:433 | pypi.org, pypi.python.org, files.pythonhosted.org | Allows Python package installations for Azure monitoring |
+   
 
    :::image type="content" source="./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png" alt-text="Title: Enter application rule collection details.":::
 
@@ -97,7 +99,7 @@ Create the network rules to correctly configure your HDInsight cluster.
 
     | Name | Protocol | Source Addresses | Service Tags | Destination Ports | Notes |
     | --- | --- | --- | --- | --- | --- |
-    | Rule_6 | TCP | * | SQL | 1433, 11000-11999 | If you are using the default sql servers provided by HDInsight, configure a network rule in the Service Tags section for SQL that will allow you to log and audit SQL traffic. Unless you configured Service Endpoints for SQL Server on the HDInsight subnet, which will bypass the firewall. If you are using custom SQL server for Ambari, Oozie, Ranger and Hive metastore then you only need to allow the traffic to your own custom SQL Servers. Refer to [Azure SQL Database and Azure Synapse Analytics connectivity architecture](/azure/azure-sql/database/connectivity-architecture) to see why 11000-11999 port range is also needed in addition to 1433. |
+    | Rule_6 | TCP | * | SQL | 1433, 11000-11999 | If you're using the default sql servers provided by HDInsight, configure a network rule in the Service Tags section for SQL that will allow you to log and audit SQL traffic. Unless you configured Service Endpoints for SQL Server on the HDInsight subnet, which will bypass the firewall. If you're using custom SQL server for Ambari, Oozie, Ranger and Hive metastore then you only need to allow the traffic to your own custom SQL Servers. Refer to [Azure SQL Database and Azure Synapse Analytics connectivity architecture](/azure/azure-sql/database/connectivity-architecture) to see why 11000-11999 port range is also needed in addition to 1433. |
     | Rule_7 | TCP | * | Azure Monitor | * | (optional) Customers who plan to use auto scale feature should add this rule. |
     
    :::image type="content" source="./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-network-rule-collection.png" alt-text="Title: Enter application rule collection.":::
@@ -108,7 +110,7 @@ Create the network rules to correctly configure your HDInsight cluster.
 
 Create a route table with the following entries:
 
-* All IP addresses from [Health and management services](../hdinsight/hdinsight-management-ip-addresses.md#health-and-management-services-all-regions) with a next hop type of **Internet**. It should include 4 IPs of the generic regions as well as 2 IPs for your specific region. This rule is only needed if the ResourceProviderConnection is set to *Inbound*. If the ResourceProviderConnection is set to *Outbound* then these IPs are not needed in the UDR. 
+* All IP addresses from [Health and management services](../hdinsight/hdinsight-management-ip-addresses.md#health-and-management-services-all-regions) with a next hop type of **Internet**. It should include 4 IPs of the generic regions as well as 2 IPs for your specific region. This rule is only needed if the ResourceProviderConnection is set to *Inbound*. If the ResourceProviderConnection is set to *Outbound* then these IPs aren't needed in the UDR. 
 
 * One Virtual Appliance route for IP address 0.0.0.0/0 with the next hop being your Azure Firewall private IP address.
 
@@ -160,7 +162,7 @@ Once you've completed the logging setup, if you're using Log Analytics, you can 
 AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 ```
 
-Integrating Azure Firewall with Azure Monitor logs is useful when first getting an application working. Especially when you aren't aware of all of the application dependencies. You can learn more about Azure Monitor logs from [Analyze log data in Azure Monitor](/azure/azure-monitor/logs/log-query-overview)
+Integrating Azure Firewall with Azure Monitor logs is useful when first getting an application working. Especially when you'ren't aware of all of the application dependencies. You can learn more about Azure Monitor logs from [Analyze log data in Azure Monitor](/azure/azure-monitor/logs/log-query-overview)
 
 To learn about the scale limits of Azure Firewall and request increases, see [this](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits) document or refer to the [FAQs](../firewall/firewall-faq.yml).
 
