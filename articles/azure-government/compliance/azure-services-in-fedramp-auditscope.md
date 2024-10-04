@@ -1,8 +1,8 @@
 ---
 title: Azure and other Microsoft cloud services compliance scope
-description: This article tracks FedRAMP and DoD compliance scope for Azure, Dynamics 365, Microsoft 365, and Power Platform cloud services across Azure, Azure Government, and Azure Government Secret cloud environments.
+description: FedRAMP & DoD compliance scope for Azure, Dynamics 365, Microsoft 365, and Power Platform for Azure, Azure Government, & Azure Government Secret.
 author: gjain
-ms.author: gjain
+ms.author: eliotgra
 ms.topic: article
 ms.service: azure-government
 ms.custom: references_regions
