@@ -17,7 +17,7 @@ A guide to understand and use RefStrings for diagnosing and resolving issues wit
 
 ## Prerequisites
 
-* You must have an Azure Front Door profile. To create a profile, see [Creating an Azure Front Door profile](learn.microsoft.com/en-us/azure/frontdoor/create-front-door-portal).
+* You must have an Azure Front Door profile. To create a profile, see [Creating an Azure Front Door profile](create-front-door-portal.md).
 
 
 ## What is a RefString?
@@ -74,32 +74,32 @@ Azure Front Door uses a RefString to manage 4xx and 5xx errors. The following ar
 
 1.	Select the **Diagnose and solve problems** menu.
  
-    :::image type="content" source="media/refstring/refstring-step-one-portal.png" alt-text="Diagnosing using RefString step one" lightbox="media/refrtring/refstring-step-one-portal.png":::
+    :::image type="content" source="media/refstring/refstring-step-one-portal.png" alt-text="Diagnosing using RefString step one" lightbox="media/refstring/refstring-step-one-portal.png":::
 
 1.	Scroll down and select **Connectivity** under the **Common problems** section.
 
-    :::image type="content" source="media/refstring/refstring-step-two-portal.png" alt-text="Diagnosing using RefString step two" lightbox="media/refrtring/refstring-step-two-portal.png":::
+    :::image type="content" source="media/refstring/refstring-step-two-portal.png" alt-text="Diagnosing using RefString step two" lightbox="media/refstring/refstring-step-two-portal.png":::
 
 1.	In the box **What issue are you having?** select **Select a problem subtype** and choose **4xx and 5xx errors** on the drop down-menu, then select the **Next**.
 
-    :::image type="content" source="media/refstring/refstring-step-three-portal.png" alt-text="Diagnosing using RefString step three" lightbox="media/refrtring/refstring-step-three-portal.png":::
+    :::image type="content" source="./media/refstring/refstring-step-three-portal.png" alt-text="Diagnosing using RefString step three" lightbox="media/refstring/refstring-step-three-portal.png":::
  
 1.	Enter your RefString in the box within the **4xx and 5xx errors** section. You input the Restring given to you from your request under the **Tracking Reference – RefString** field.
 
-    :::image type="content" source="media/refstring/refstring-step-four-portal.png" alt-text="Diagnosing using RefString step four" lightbox="media/refrtring/refstring-step-four-portal.png":::
+    :::image type="content" source="media/refstring/refstring-step-four-portal.png" alt-text="Diagnosing using RefString step four" lightbox="media/refstring/refstring-step-four-portal.png":::
 
 1. Finally, select **Run Diagnostics** to identify the cause of the issue, which explains the failure if it's a known problem.
 
     An example of a result displaying an issue: 
 
-    :::image type="content" source="media/refstring/refstring-example.png" alt-text="Diagnosis example using RefString" lightbox="media/refrtring/refstring-example.png":::
+    :::image type="content" source="media/refstring/refstring-example.png" alt-text="Diagnosis example using RefString" lightbox="media/refstring/refstring-example.png":::
 
     > [!NOTE] 
     > The diagnostic capabilities may require up to 15 minutes to deliver results. We ask for your patience that you allow the process to finish before taking further action.
 
 ### Alternative option
 
-If you choose not to use the diagnostic tool, you can include a RefString when submitting a support ticket. Additionally, you can enable the **Access Logs** feature to receive updates on RefString data directly in the Azure portal. For more information on tracking references and access log parameters, see [Monitor metrics and logs in Azure Front Door](https://learn.microsoft.com/en-us/azure/frontdoor/front-door-diagnostics?pivots=front-door-standard-premium#access-log). 
+If you choose not to use the diagnostic tool, you can include a RefString when submitting a support ticket. Additionally, you can enable the **Access Logs** feature to receive updates on RefString data directly in the Azure portal. For more information on tracking references and access log parameters, see [Monitor metrics and logs in Azure Front Door](front-door-diagnostics.md#access-log). 
 
 This article highlights specific fields in access logs that help identify various types of errors:
 
@@ -121,5 +121,5 @@ This article highlights specific fields in access logs that help identify variou
 
 ## Next steps
 
-* To learn more about navigating common issues, see [Front Door Troubleshooting Issues](https://learn.microsoft.com/en-us/azure/frontdoor/troubleshoot-issues). 
-* For answers to common questions, see [Azure Front Door FAQ](https://learn.microsoft.com/en-us/azure/frontdoor/front-door-faq).
+* To learn more about navigating common issues, see [Front Door Troubleshooting Issues](troubleshoot-issues.md). 
+* For answers to common questions, see [Azure Front Door FAQ](front-door-faq.yml).
