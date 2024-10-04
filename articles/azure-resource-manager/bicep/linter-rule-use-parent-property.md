@@ -3,7 +3,7 @@ title: Linter rule - use parent property
 description: Linter rule - use parent property
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 10/03/2024
+ms.date: 10/09/2024
 ---
 
 # Linter rule - use parent property
