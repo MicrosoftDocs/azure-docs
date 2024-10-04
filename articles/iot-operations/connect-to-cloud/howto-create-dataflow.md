@@ -60,6 +60,15 @@ To create a dataflow in the operations experience portal, select **Dataflow** > 
 
 # [Bicep](#tab/bicep)
 
+This Bicep template file from [Bicep File to create Dataflow](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/dataflow.bicep) deploys the necessary resources for dataflows.
+
+1. Download the file to your local, and make sure to replace the values for `customLocationName`, `aioInstanceName`, `schemaRegistryName`, `opcuaSchemaName`, and `persistentVCName`.
+
+1. Next, deploy the resources using the [az stack group](/azure/azure-resource-manager/bicep/deployment-stacks?tabs=azure-powershell) command in your terminal:
+
+```azurecli
+az stack group create --name MyDeploymentStack --resource-group $RESOURCE_GROUP --template-file /workspaces/explore-iot-operations/<filename>.bicep --action-on-unmanage 'deleteResources' --deny-settings-mode 'none' --yes
+```
 The overall structure of a dataflow configuration for Bicep is as follows:
 
 ```bicep
@@ -171,10 +180,10 @@ Configuring an asset as a source is only available in the operations experience 
 
 # [Bicep](#tab/bicep)
 
-To configure a source using an MQTT endpoint, use the following configuration:
+The MQTT endpoint is configured as a source in the Bicep template file, using the following configuration
 
 ```bicep
- {
+{
   operationType: 'Source'
   sourceSettings: {
     endpointRef: defaultDataflowEndpoint.name
@@ -187,11 +196,12 @@ To configure a source using an MQTT endpoint, use the following configuration:
 
 Datasources allow you to specify multiple MQTT or Kafka topics without needing to modify the endpoint configuration. This means the same endpoint can be reused across multiple dataflows, even if the topics vary. To learn more, see [Reuse dataflow endpoints](./howto-configure-dataflow-endpoint.md#reuse-endpoints).
 
+<!-- TODO: Put the right article link here -->
+For more information about creating an MQTT endpoint as a dataflow source, see [MQTT Endpoint](concept-schema-registry.md).
+
 #### Specify schema to deserialize data
 
-If the source data has optional fields or fields with different types, specify a deserialization schema to ensure consistency. For example, the data might have fields that aren't present in all messages. Without the schema, the transformation can't handle these fields as they would have empty values. With the schema, you can specify default values or ignore the fields.
-
-The following configuration demonstrates how to define a schema in your Bicep file. This schema will ensure proper deserialization of asset data. In this example, the schema defines fields such as `asset_id`, `asset_name`, `location`, `temperature`, `manufacturer`, `production_date`, and `serial_number`. Each field is assigned a specific data type (e.g., `string`) and marked as non-nullable. This ensures all incoming messages contain these fields with valid data. Such structure maintains consistency and enables the system to handle structured input more reliably.
+Schemas are documents that describe the format of a message and its contents to enable processing and contextualization. You can upload schemas using the ARM/Bicep templates. The following configuration demonstrates how to define a schema in your Bicep file. In this example, the schema defines fields such as `asset_id`, `asset_name`, `location`, `temperature`, `manufacturer`, `production_date`, and `serial_number`. Each field is assigned a specific data type (e.g., `string`) and marked as non-nullable. This ensures all incoming messages contain these fields with valid data.
 
 ```bicep
 var assetDeltaSchema = '''
@@ -253,9 +263,6 @@ Once the schema is registered, it can be referenced in transformations to ensure
   }
 }
 ```
-
-> [!NOTE]
-> The only supported serialization format is Delta or Parquet. The schema is optional.
 
 For more information about schema registry, see [Understand message schemas](concept-schema-registry.md).
 
@@ -340,6 +347,20 @@ In the operations experience portal, select **Dataflow** > **Add transform (opti
 :::image type="content" source="media/howto-create-dataflow/dataflow-transform.png" alt-text="Screenshot using operations experience portal to add a transform to a dataflow.":::
 
 # [Bicep](#tab/bicep)
+
+```bicep
+{
+  operationType: 'BuiltInTransformation'
+  builtInTransformationSettings: {
+    map: [
+      // ...
+    ]
+    filter: [
+      // ...
+    ]
+  }
+}
+```
 
 # [Kubernetes](#tab/kubernetes)
 
