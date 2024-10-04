@@ -73,7 +73,7 @@ The FX-series runs on the Intel® Xeon® Gold 6246R (Cascade Lake) processors. I
 | Standard_FX36mds | 36 | 756 | 1512 | 300000 | 3086 |
 | Standard_FX48mds | 48 | 1008 | 2016 | 400000 | 3871 |
 
-[View the FX-series family page](/azure/virtual-machines/sizes/compute-optimized/fx-family.md).
+[View the FX-series family page](/azure/virtual-machines/sizes/compute-optimized/fx-series).
 
 ## Memory optimized
 
