@@ -20,8 +20,9 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 >
-> * Install the Slurm workload manager on the controller node
-> * Take an inventory of all deployed VMs
+> * Create a cluster for Slurm
+> * Create an inventory of VMs
+> * Designate a controller and compute nodes and install Slurm on each
 
 <!-- 4. Free account links 
 ----------------------------------------------------------------
@@ -40,42 +41,7 @@ TODO: Add the free account information if it exists
 
 ## Sign in to the Azure portal and navigate to your workbench
 
-TODO: add your instructions
-
-<!-- If signing in requires more than one step, then use this section. If it's just a single
-step, include that step in the first section that requires it.
-
--->
-
-<!-- 7. Task H2s ------------------------------------------------------------------------------
-
-Required: Tutorials are prescriptive and guide the customer through an end-to-end scenario. Make sure to use specific naming for setting up accounts and configuring technology.
-
-Multiple procedures should be organized in H2 level sections. A section contains a major grouping of steps that help users complete a scenario. Each section is represented as an H2 in the article.
-
-Avoid linking off to other content - include whatever the customer needs to complete the scenario in the article. For example, if the customer needs to set permissions, include the permissions they need to set, and the specific settings in the Tutorial procedure. Don't
-send the customer to another article to read about it.
-
-In a break from tradition, do not link to reference topics in the Tutorial when using cmdlets or code. Provide customers what they need to know in the Tutorial to successfully complete the Tutorial.
-
-For portal-based procedures, minimize bullets and numbering.
-
-For the CLI or PowerShell based procedures, don't use bullets or numbering.
-
-* Each H2 should be a major step in the scenario.
-* Phrase each H2 title as "<verb> * <noun>" to describe what they'll do in the step.
-* Don't start with a gerund.
-* Don't number the H2s.
-* Begin each H2 with a brief explanation for context.
-* Provide a ordered list of procedural steps.
-* Provide a code block, diagram, or screenshot if appropriate
-* An image, code block, or other graphical element comes after numbered step it illustrates.
-* If necessary, optional groups of steps can be added into a section.
-* If necessary, alternative groups of steps can be added into a section.
-
--->
-
-## Create a Slurm cluster
+## Create a cluster for Slurm
 
 Slurm requires one node to serve as the controller and a set of worker nodes. The controller is traditionally a modestly sized VM as it isn't used for workloads and is left deployed between jobs, while the worker nodes are sized for the workload.
 
