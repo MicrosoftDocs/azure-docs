@@ -180,13 +180,13 @@ Configuring an asset as a source is only available in the operations experience 
 
 # [Bicep](#tab/bicep)
 
-The MQTT endpoint is configured as a source in the Bicep template file, using the following configuration
+The MQTT endpoint is configured in the Bicep template file. This endpoint serves as a source for the dataflow, using the following configuration:
 
 ```bicep
 {
   operationType: 'Source'
   sourceSettings: {
-    endpointRef: defaultDataflowEndpoint.name
+    endpointRef: MqttBrokerDataflowEndpoint.name
     dataSources: array('azure-iot-operations/data/thermostat')
   }
 }
