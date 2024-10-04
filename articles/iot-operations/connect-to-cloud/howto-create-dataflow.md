@@ -60,7 +60,7 @@ To create a dataflow in the operations experience portal, select **Dataflow** > 
 
 # [Bicep](#tab/bicep)
 
-The overall structure of a dataflow configuration is as follows:
+The overall structure of a dataflow configuration for Bicep is as follows:
 
 ```bicep
 resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2024-08-15-preview' = {
@@ -149,6 +149,8 @@ You can use an [asset](../discover-manage-assets/overview-manage-assets.md) as t
 
 # [Bicep](#tab/bicep)
 
+Configuring an asset as a source is only available in the operations experience portal.
+
 # [Kubernetes](#tab/kubernetes)
 
 Configuring an asset as a source is only available in the operations experience portal.
@@ -168,6 +170,94 @@ Configuring an asset as a source is only available in the operations experience 
 1. Select **Apply**.
 
 # [Bicep](#tab/bicep)
+
+To configure a source using an MQTT endpoint, use the following configuration:
+
+```bicep
+ {
+  operationType: 'Source'
+  sourceSettings: {
+    endpointRef: defaultDataflowEndpoint.name
+    dataSources: array('azure-iot-operations/data/thermostat')
+  }
+}
+```
+
+`dataSources`: This is an array of MQTT topic(s) that define where the data will be sourced from. In this example,     `azure-iot-operations/data/thermostat` refers to a specific topic where thermostat data is being published.
+
+Datasources allow you to specify multiple MQTT or Kafka topics without needing to modify the endpoint configuration. This means the same endpoint can be reused across multiple dataflows, even if the topics vary. To learn more, see [Reuse dataflow endpoints](./howto-configure-dataflow-endpoint.md#reuse-endpoints).
+
+#### Specify schema to deserialize data
+
+If the source data has optional fields or fields with different types, specify a deserialization schema to ensure consistency. For example, the data might have fields that aren't present in all messages. Without the schema, the transformation can't handle these fields as they would have empty values. With the schema, you can specify default values or ignore the fields.
+
+The following configuration demonstrates how to define a schema in your Bicep file. This schema will ensure proper deserialization of asset data. In this example, the schema defines fields such as `asset_id`, `asset_name`, `location`, `temperature`, `manufacturer`, `production_date`, and `serial_number`. Each field is assigned a specific data type (e.g., `string`) and marked as non-nullable. This ensures all incoming messages contain these fields with valid data. Such structure maintains consistency and enables the system to handle structured input more reliably.
+
+```bicep
+var assetDeltaSchema = '''
+{
+    "$schema": "Delta/1.0",
+    "type": "object",
+    "properties": {
+        "type": "struct",
+        "fields": [
+            { "name": "asset_id", "type": "string", "nullable": false, "metadata": {} },
+            { "name": "asset_name", "type": "string", "nullable": false, "metadata": {} },
+            { "name": "location", "type": "string", "nullable": false, "metadata": {} },
+            { "name": "manufacturer", "type": "string", "nullable": false, "metadata": {} },
+            { "name": "production_date", "type": "string", "nullable": false, "metadata": {} },
+            { "name": "serial_number", "type": "string", "nullable": false, "metadata": {} },
+            { "name": "temperature", "type": "double", "nullable": false, "metadata": {} }
+        ]
+    }
+}
+'''
+```
+
+To register the schema with the Azure Schema Registry, use the following Bicep configuration. This configuration creates a schema definition and assigns it a version within the schema registry, allowing it to be referenced later in your data transformations.
+
+```bicep
+param opcuaSchemaName string = 'opcua-output-delta'
+param opcuaSchemaVer string = '1'
+
+resource opcSchema 'Microsoft.DeviceRegistry/schemaRegistries/schemas@2024-09-01-preview' = {
+  parent: schemaRegistry
+  name: opcuaSchemaName
+  properties: {
+    displayName: 'OPC UA Delta Schema'
+    description: 'This is a OPC UA delta Schema'
+    format: 'Delta/1.0'
+    schemaType: 'MessageSchema'
+  }
+}
+
+resource opcuaSchemaInstance 'Microsoft.DeviceRegistry/schemaRegistries/schemas/schemaVersions@2024-09-01-preview' = {
+  parent: opcSchema
+  name: opcuaSchemaVer
+  properties: {
+    description: 'Schema version'
+    schemaContent: opcuaSchemaContent
+  }
+}
+```
+
+Once the schema is registered, it can be referenced in transformations to ensure that the source data is correctly deserialized. In the configuration below, the schemaRef points to the specific schema version to be used, and the serializationFormat defines how the data will be serialized during the transformation process. 
+
+```bicep
+{
+  operationType: 'BuiltInTransformation'
+  builtInTransformationSettings: {
+    // ..
+    schemaRef: 'aio-sr://${opcuaSchemaName}:${opcuaSchemaVer}'
+    serializationFormat: 'Parquet' // can also be 'Delta' 
+  }
+}
+```
+
+> [!NOTE]
+> The only supported serialization format is Delta or Parquet. The schema is optional.
+
+For more information about schema registry, see [Understand message schemas](concept-schema-registry.md).
 
 # [Kubernetes](#tab/kubernetes)
 
