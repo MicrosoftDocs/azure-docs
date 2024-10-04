@@ -41,7 +41,8 @@ a new module from your configuration.
 
 Follow the steps to create a composite resource module:
 
-1. Ensure the configuration script is loaded in your PowerShell session by [dot sourcing][10] the script.
+1. Ensure the configuration script is loaded in your PowerShell session by [dot sourcing][10] the
+   script.
 1. Rather than running the configuration to generate a **MOF** file, use the command provided by the
    **CompositeResource** module to automate a conversion. The command loads the contents of your
    configuration, gets the list of parameters, and generates a new module. After you generate a
