@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot Azure Front Door with RefString 
-description: This article provides information about what a RefString is and how to gather them 
+description: This article provides information about what a RefString is and how to gather them.
 author: Alej-b23 
 ms.author: pagonzalez 
 ms.service: azure-frontdoor 
@@ -27,7 +27,7 @@ RefStrings can help you troubleshoot and resolve issues with Azure Front Door, s
 > [!NOTE] 
 > If you encounter an error page from Microsoft services, it will already include a RefString for the request that generated the error page. In such cases, you can skip directly to the diagnostic step. 
 
-## How to gather a RefString?
+## How to gather a RefString
 
 To gather a RefString, you need to capture the HTTP response headers of the requests and look for the header named **X-Azure-Ref**. This header contains the RefString, encoded in Base64. You can use different methods to capture the HTTP response headers, depending on your preference and situation. Here are a few examples of how to obtain a RefString from various browsers and applications:
 
@@ -69,32 +69,32 @@ To learn more about viewing and capturing network traffic with Fiddler, see [Web
 
 ---
 
-## How to use a RefString with some of our troubleshooting tools?
+## How to use a RefString with some of our troubleshooting tools
 Azure Front Door uses a RefString to manage 4xx and 5xx errors. The following are the steps to use the diagnostic tool with a RefString for tracking and diagnosing connectivity issues:
 
 1.	Navigate to your Azure Front Door Profile.
 
 1.	Select the **Diagnose and solve problems** menu.
  
-    :::image type="content" source="media/refstring/refstring-step-one-portal.png" alt-text="Diagnosing using RefString step one" lightbox="media/refstring/refstring-step-one-portal.png":::
+    :::image type="content" source="media/refstring/refstring-step-one-portal.png" alt-text="Screenshot showing the first step in diagnosing problems using a RefString." lightbox="media/refstring/refstring-step-one-portal.png":::
 
 1.	Scroll down and select **Connectivity** under the **Common problems** section.
 
-    :::image type="content" source="media/refstring/refstring-step-two-portal.png" alt-text="Diagnosing using RefString step two" lightbox="media/refstring/refstring-step-two-portal.png":::
+    :::image type="content" source="media/refstring/refstring-step-two-portal.png" alt-text="Screenshot showing the second step in diagnosing problems using a RefString." lightbox="media/refstring/refstring-step-two-portal.png":::
 
 1.	In the box **What issue are you having?** select **Select a problem subtype** and choose **4xx and 5xx errors** on the drop down-menu, then select the **Next**.
 
-    :::image type="content" source="./media/refstring/refstring-step-three-portal.png" alt-text="Diagnosing using RefString step three" lightbox="media/refstring/refstring-step-three-portal.png":::
+    :::image type="content" source="./media/refstring/refstring-step-three-portal.png" alt-text="Screenshot showing the third step in diagnosing problems using a RefString." lightbox="media/refstring/refstring-step-three-portal.png":::
  
 1.	Enter your RefString in the box within the **4xx and 5xx errors** section. You input the Restring given to you from your request under the **Tracking Reference – RefString** field.
 
-    :::image type="content" source="media/refstring/refstring-step-four-portal.png" alt-text="Diagnosing using RefString step four" lightbox="media/refstring/refstring-step-four-portal.png":::
+    :::image type="content" source="media/refstring/refstring-step-four-portal.png" alt-text="Screenshot showing the fourth step in diagnosing problems using a RefString." lightbox="media/refstring/refstring-step-four-portal.png":::
 
 1. Finally, select **Run Diagnostics** to identify the cause of the issue, which explains the failure if it's a known problem.
 
     An example of a result displaying an issue: 
 
-    :::image type="content" source="media/refstring/refstring-example.png" alt-text="Diagnosis example using RefString" lightbox="media/refstring/refstring-example.png":::
+    :::image type="content" source="media/refstring/refstring-example.png" alt-text="Screenshot showing an example of the diagnosis at work using a RefString." lightbox="media/refstring/refstring-example.png":::
 
     > [!NOTE] 
     > The diagnostic capabilities may require up to 15 minutes to deliver results. We ask for your patience that you allow the process to finish before taking further action.
