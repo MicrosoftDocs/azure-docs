@@ -21,11 +21,11 @@ Pipeline runs are typically instantiated by passing arguments to parameters that
 
 ### An Azure Functions app pipeline throws an error with private endpoint connectivity
  
-You have Data Factory and a function app running on a private endpoint in Azure. You're trying to run a pipeline that interacts with the function app. You've tried three different methods, but one returns error "Bad Request," and the other two methods return "103 Error Forbidden."
+You have a data factory and a function app running on a private endpoint in Azure. You're trying to run a pipeline that interacts with the function app. You've tried three different methods, but one returns error "Bad Request," and the other two methods return "103 Error Forbidden."
 
 **Cause**
 
-Data Factory currently doesn't support a private endpoint connector for function apps. Azure Functions rejects calls because it's configured to allow only connections from a private link.
+Azure Data Factory currently doesn't support a private endpoint connector for function apps. Azure Functions rejects calls because it's configured to allow only connections from a private link.
 
 **Resolution**
 
@@ -45,7 +45,7 @@ Refresh the browser and apply the correct monitoring filters.
  
  **Cause**
  
-If a folder you're copying contains files with different schemas, such as variable number of columns, different delimiters, quote char settings, or some data issue, the Data Factory pipeline might throw this error:
+If a folder you're copying contains files with different schemas, such as variable number of columns, different delimiters, quote char settings, or some data issue, the pipeline might throw this error:
 
 `
 Operation on target Copy_sks  failed: Failure happened on 'Sink' side.
@@ -57,7 +57,7 @@ Source=Microsoft.DataTransfer.Common,'
 
 **Resolution**
 
-Select the **Binary Copy** option while creating the Copy activity. This way, for bulk copies or migrating your data from one data lake to another, Data Factory won't open the files to read the schema. Instead, Data Factory treats each file as binary and copy it to the other location.
+Select the **Binary Copy** option while creating the Copy activity. This way, for bulk copies or migrating your data from one data lake to another, Data Factory won't open the files to read the schema. Instead, Azure Data Factory treats each file as binary and copies it to the other location.
 
 ### A pipeline run fails when you reach the capacity limit of the integration runtime for data flow
 
@@ -115,7 +115,7 @@ Azure Data Factory evaluates the outcome of all leaf-level activities. Pipeline 
 
 **Cause**
 
-You might need to monitor failed Data Factory pipelines in intervals, say 5 minutes. You can query and filter the pipeline runs from a data factory by using the endpoint. 
+You might need to monitor failed Azure Data Factory pipelines in intervals, say 5 minutes. You can query and filter the pipeline runs from a data factory by using the endpoint.
 
 **Resolution**
 * You can set up an Azure logic app to query all of the failed pipelines every 5 minutes, as described in [Query By Factory](/rest/api/datafactory/pipelineruns/querybyfactory). Then, you can report incidents to your ticketing system.
@@ -152,7 +152,7 @@ Known Facts about *ForEach*
  **Resolution**
  
 * **Concurrency Limit:**  If your pipeline has a concurrency policy, verify that there are no old pipeline runs in progress. 
-* **Monitoring limits**: Go to the ADF authoring canvas, select your pipeline, and determine if it has a concurrency property  assigned to it. If it does, go to the Monitoring view, and make sure there's nothing in the past 45 days that's in progress. If there's something in progress, you can cancel it and the new pipeline run should  start.
+* **Monitoring limits**: Go to the authoring canvas, select your pipeline, and determine if it has a concurrency property  assigned to it. If it does, go to the Monitoring view, and make sure there's nothing in the past 45 days that's in progress. If there's something in progress, you can cancel it and the new pipeline run should  start.
 
 * **Transient  Issues:** It's possible that your run was impacted by a transient network issue, credential failures, services outages etc.  If this happens, Azure Data Factory has an internal recovery process that monitors all the runs and starts them when it notices something went wrong. You can rerun pipelines and activities as described [here.](monitor-visually.md#rerun-pipelines-and-activities). You can rerun activities if you had canceled activity or had a failure as per [Rerun from activity failures.](monitor-visually.md#rerun-from-failed-activity) This process happens every one  hour, so if your run is stuck for more than an hour, create a support case.
 
@@ -199,7 +199,7 @@ It's a user error because JSON payload that hits management.azure.com is corrupt
 
 **Resolution**
 
-Perform network tracing of your API call from ADF portal using Microsoft Edge/Chrome browser **Developer tools**. You'll see offending JSON payload, which could be due to a special character(for example $), spaces, and other types of user input. Once you fix the string expression, you'll proceed with rest of  ADF usage calls in the browser.
+Perform network tracing of your API call from ADF portal using Microsoft Edge/Chrome browser **Developer tools**. You'll see offending JSON payload, which could be due to a special character (for example, ```$```), spaces, and other types of user input. Once you fix the string expression, you'll proceed with rest of  ADF usage calls in the browser.
 
 ### ForEach activities don't run in parallel mode
 
@@ -272,8 +272,8 @@ Input  **execute pipeline**  activity for pipeline parameter  as  *@createArray(
 
 For more troubleshooting help, try these resources:
 
-*  [Data Factory blog](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/bg-p/AzureDataFactoryBlog)
-*  [Data Factory feature requests](/answers/topics/azure-data-factory.html)
+*  [Azure Data Factory blog](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/bg-p/AzureDataFactoryBlog)
+*  [Azure Data Factory feature requests](/answers/topics/azure-data-factory.html)
 *  [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Microsoft Q&A question page](/answers/topics/azure-data-factory.html)
-*  [X information about Data Factory](https://x.com/hashtag/DataFactory)
+*  [X information about Azure Data Factory](https://x.com/hashtag/DataFactory)

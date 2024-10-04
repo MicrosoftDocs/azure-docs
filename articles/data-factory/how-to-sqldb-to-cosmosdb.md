@@ -14,9 +14,9 @@ This guide explains how to take an existing normalized database schema in Azure 
 
 SQL schemas are typically modeled using third normal form, resulting in normalized schemas that provide high levels of data integrity and fewer duplicate data values. Queries can join entities together across tables for reading. Azure Cosmos DB is optimized for super-quick transactions and querying within a collection or container via denormalized schemas with data self-contained inside a document.
 
-Using Azure Data Factory, we build a pipeline that uses a single Mapping Data Flow to read from two Azure SQL Database normalized tables that contain primary and foreign keys as the entity relationship. ADF will join those tables into a single stream using the data flow Spark engine, collect joined rows into arrays and produce individual cleansed documents for insert into a new Azure Cosmos DB container.
+Using Azure Data Factory, we build a pipeline that uses a single Mapping Data Flow to read from two Azure SQL Database normalized tables that contain primary and foreign keys as the entity relationship. Data factory will join those tables into a single stream using the data flow Spark engine, collect joined rows into arrays and produce individual cleansed documents for insert into a new Azure Cosmos DB container.
 
-This guide builds a new container on the fly called "orders" that will use the ```SalesOrderHeader``` and ```SalesOrderDetail``` tables from the standard SQL Server [Adventure Works sample database](/sql/samples/adventureworks-install-configure?tabs=ssms). Those tables represent sales transactions joined by ```SalesOrderID```. Each unique detail records have its own primary key of ```SalesOrderDetailID```. The relationship between header and detail is ```1:M```. We join on ```SalesOrderID``` in ADF and then roll each related detail record into an array called "detail".
+This guide builds a new container on the fly called "orders" that will use the ```SalesOrderHeader``` and ```SalesOrderDetail``` tables from the standard SQL Server [Adventure Works sample database](/sql/samples/adventureworks-install-configure?tabs=ssms). Those tables represent sales transactions joined by ```SalesOrderID```. Each unique detail record has its own primary key of ```SalesOrderDetailID```. The relationship between header and detail is ```1:M```. We join on ```SalesOrderID``` in ADF and then roll each related detail record into an array called "detail".
 
 The representative SQL query for this guide is:
 
@@ -33,7 +33,7 @@ The representative SQL query for this guide is:
 FROM SalesLT.SalesOrderHeader o;
 ```
 
-The resulting Azure Cosmos DB container embeds the inner query into a single document and look like this:
+The resulting Azure Cosmos DB container embeds the inner query into a single document and looks like this:
 
 :::image type="content" source="media/data-flow/cosmosb3.png" alt-text="Collection":::
 
@@ -45,7 +45,7 @@ The resulting Azure Cosmos DB container embeds the inner query into a single doc
 
 3. In the data flow activity, select **New mapping data flow**.
 
-4. We construct this data flow graph below
+4. We construct this data flow graph:
 
    :::image type="content" source="media/data-flow/cosmosb1.png" alt-text="Data Flow Graph":::
 
@@ -61,7 +61,7 @@ The resulting Azure Cosmos DB container embeds the inner query into a single doc
 
 9. Now, let's go to the sales header source. Add a Join transformation. For the right-side select "MakeStruct". Leave it set to inner join and choose ```SalesOrderID``` for both sides of the join condition.
 
-10. Select on the Data Preview tab in the new join that you added so that you can see your results up to this point. You should see all of the header rows joined with the detail rows. This is the result of the join being formed from the ```SalesOrderID```. Next, we combine the details from the common rows into the details struct and aggregate the common rows.
+10. Select the Data Preview tab in the new join that you added so that you can see your results up to this point. You should see all of the header rows joined with the detail rows. This is the result of the join being formed from the ```SalesOrderID```. Next, we combine the details from the common rows into the details struct and aggregate the common rows.
 
     :::image type="content" source="media/data-flow/cosmosb4.png" alt-text="Join":::
 
@@ -91,7 +91,7 @@ The resulting Azure Cosmos DB container embeds the inner query into a single doc
 
     :::image type="content" source="media/data-flow/cosmosb7.png" alt-text="Screenshot shows the Mapping tab.":::
 
-20. Select on data preview to make sure that you're seeing these 32 rows set to insert as new documents into your new container:
+20. Select data preview to make sure that you're seeing these 32 rows set to insert as new documents into your new container:
 
     :::image type="content" source="media/data-flow/cosmosb8.png" alt-text="Screenshot shows the Data preview tab.":::
 

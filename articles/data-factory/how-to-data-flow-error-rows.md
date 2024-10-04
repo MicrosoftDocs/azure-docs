@@ -20,7 +20,7 @@ There are two primary methods to graceful handle errors when writing data to you
 * Alternatively, use the following steps to provide logging of columns that don't fit into a target string column, allowing your data flow to continue.
 
 > [!NOTE]
-> When enabling automatic error row handling, as opposed to the following method of writing your own error handling logic, there will be a small performance penalty incurred by and additional step taken by ADF to perform a 2-phase operation to trap errors.
+> When enabling automatic error row handling, as opposed to the following method of writing your own error handling logic, there will be a small performance penalty incurred by and additional step taken by the data factory to perform a 2-phase operation to trap errors.
 
 ## Scenario
 
