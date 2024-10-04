@@ -18,7 +18,7 @@ Now, you can use Azure Business Continuity Center to monitor your jobs and repli
 
 ## Supported scenarios
 
-Learn about the [supported and unsupported scenarios](../azure/business-continuity-center/business-continuity-center-support-matrix.md#supported-scenarios).
+Learn about the [supported and unsupported scenarios](../business-continuity-center/business-continuity-center-support-matrix.md#supported-scenarios).
 
 ## Backup instances
 
