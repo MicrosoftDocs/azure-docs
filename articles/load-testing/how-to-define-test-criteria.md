@@ -138,9 +138,9 @@ To grant your Azure load testing resource permissions to read the metrics from y
 
 1.	In the [Azure portal](https://portal.azure.com), go to your app component.
    
-2.	On the left pane, select **Access Control(IAM)**, then select **+ Add**, and then select **Add role assignment**.
+2.	On the left pane, select **Access Control (IAM)**, then select **+ Add**, and then select **Add role assignment**.
 
-    :::image type="content" source="media/how-to-define-test-criteria/add-role-assignment.png" alt-text="Screenshot of the Access Control(IAM) in the application component on which failure criteria is to be set":::
+    :::image type="content" source="media/how-to-define-test-criteria/add-role-assignment.png" alt-text="Screenshot of the Access Control(IAM) in the application component on which failure criteria is to be set.":::
    
 3.	On the **Role **tab, under** Job functions roles**, search for **Monitoring Reader** or **Monitoring Contributor**.
    
