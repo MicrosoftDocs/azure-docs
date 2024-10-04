@@ -3,7 +3,8 @@ title: Use private endpoints to create an Azure Data Factory pipeline
 description: This tutorial provides step-by-step instructions for using the Azure portal to create a data factory with a pipeline. The pipeline uses the copy activity to copy data from Azure Blob storage to an Azure SQL database.
 author: jianleishen
 ms.topic: tutorial
-ms.date: 05/15/2024
+ms.date: 10/03/2024
+ms.subservice: data-movement
 ms.author: jianleishen
 ai-usage: ai-assisted
 ---

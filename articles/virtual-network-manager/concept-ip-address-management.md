@@ -77,6 +77,7 @@ Learn more about [Azure role-based access control (Azure RBAC)](../role-based-ac
 - When virtual networks are associated with an IPAM pool, peering sync may show as out of sync, even though peering is functioning correctly.
 - When a VNet is moved to a different subscription, the references in IPAM are not updated, leading to inconsistent management status.
 - When multiple requests for the same VNet are made, it can result in duplicate allocations entries.
+- When entering an IP address space, the address space entered must be a valid address range (valid starting address and valid size), else a failure will be encountered when sending a request. Currently, the portal does not validate CIDR input prior to sending requests.
 
 ## Next steps
 
