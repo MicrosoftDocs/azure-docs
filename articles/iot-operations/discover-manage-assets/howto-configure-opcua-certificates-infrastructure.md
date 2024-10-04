@@ -40,7 +40,7 @@ To connect to an asset, first you need to establish the application authenticati
     > [!TIP]
     > Typically, an OPC UA server has an interface that lets you export its application instance certificate. This interface isn't standardized. For servers such as KEPServerEx, there's a Windows-based configuration UI for certificates management. Other servers might have a web interface or use operating system folders to store the certificates. Refer to the user manual of your server to find out how to export the application instance certificate. After you have the certificate, make sure it's either DER or PEM encoded. Typically stored in files with either the .der or .crt extension. If the certificate isn't in one of those file formats, use a tool such as `openssl` to transform the certificate into the required format.
 
-1. Add the OPC UA server's application instance certificate in the trusted certificates list. This list implemented as a kubernetes native secret, named: *aio-opc-ua-broker-trust-list* which is created when Azure IoT Operations is deployed.
+1. Add the OPC UA server's application instance certificate to the trusted certificates list. This list is implemented as a Kubernetes native secret named *aio-opc-ua-broker-trust-list* that's created when you deploy Azure IoT Operations.
 
     # [Bash](#tab/bash)
 
@@ -86,7 +86,7 @@ To trust a CA, complete the following steps:
 
 1. Get the CA certificate public key encode in DER or PEM format. These certificates are typically stored in files with either the .der or .crt extension. Get the CA's CRL. This list is typically in a file with the .crl. Check the documentation for your OPC UA server for details.
 
-1. Save the CA certificate and the CRL in the *aio-opc-ua-broker-trust-list* kubernetes native secret.
+1. Save the CA certificate and the CRL in the *aio-opc-ua-broker-trust-list* Kubernetes native secret.
 
     # [Bash](#tab/bash)
 
@@ -148,7 +148,7 @@ If your OPC UA server uses a certificate issued by a CA, but you don't want to t
 
 1. Trust the OPC UA server's application instance certificate by following the first three steps in the previous section.
 
-1. Besides the certificate itself, the connector for OPC UA needs the CA certificate to properly validate the issuer chain of the OPC UA server's certificate. Add the CA certificate and its certificate revocation list (CRL) to a separate list called `aio-opc-ua-broker-issuer-list` implemented as a kubernetes secret.
+1. Besides the certificate itself, the connector for OPC UA needs the CA certificate to properly validate the issuer chain of the OPC UA server's certificate. Add the CA certificate and its certificate revocation list (CRL) to a separate list called *aio-opc-ua-broker-issuer-list* that's implemented as a Kubernetes secret.
 
     1. Save the CA certificate and the CRL in the `aio-opc-ua-broker-issuer-list` secret.
 
@@ -251,7 +251,7 @@ The following example references the following items:
 
 Like the previous examples, you use a dedicated Kubernetes secret to store the certificates and CRLs. To configure the enterprise grade application instance certificate, complete the following steps:
 
-1. Save the certificates and the CRL in `aio-opc-ua-broker-client-certificate` secret by using the following command:
+1. Save the certificates and the CRL in the *aio-opc-ua-broker-client-certificate* secret by using the following command:
 
     # [Bash](#tab/bash)
 
@@ -277,7 +277,7 @@ Like the previous examples, you use a dedicated Kubernetes secret to store the c
 
     ---
 
-2. If you use the CA to issue certificates for your OPC UA Broker, configure `aio-opc-ua-broker-issuer-list` secret. Use a Kubernetes client such as `kubectl` to configure the secrets `enterprise-grade-ca-1.der` and `enterprise-grade-ca-1.crl`
+2. If you use the CA to issue certificates for your OPC UA broker, configure the *aio-opc-ua-broker-issuer-list* secret. Use a Kubernetes client such as `kubectl` to configure the secrets *enterprise-grade-ca-1.der* and *enterprise-grade-ca-1.crl*:
 
     # [Bash](#tab/bash)
 
