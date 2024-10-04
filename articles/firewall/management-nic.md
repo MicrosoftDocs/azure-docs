@@ -24,9 +24,9 @@ By default, the service associates a system-provided route table to the Manageme
 
 :::image type="content" source="media/management-nic/firewall-management-nic.png" alt-text="Screenshot showing the firewall management NIC dialog.":::
 
-## Enabling the Management NIC on existing firewalls
+## Enable the Management NIC on existing firewalls
 
-For Standard and Premium firewall versions, the Firewall Management NIC must be manually enabled during the create process as shown above, but all Basic Firewall versions and all Secured Hub firewalls always have a Management NIC enabled. 
+For Standard and Premium firewall versions, the Firewall Management NIC must be manually enabled during the create process as shown previously, but all Basic Firewall versions and all Secured Hub firewalls always have a Management NIC enabled. 
 
 For a pre-existing firewall, you must stop the firewall and then restart it with the Firewall Management NIC enabled to support Forced tunneling and Packet capture (preview). Stopping/starting the firewall can be used to enable the Firewall Management NIC without the need to delete an existing firewall and redeploy a new one. You should always start/stop the firewall during maintenance hours to avoid disruptions, including when attempting to enable the Firewall Management NIC. 
 
@@ -82,6 +82,7 @@ Now when you view the firewall in the Azure portal, you see the assigned Managem
 
 > [!NOTE]
 > If you remove all other IP address configurations on your firewall, the management IP address configuration is removed as well, and the firewall is deallocated. The public IP address assigned to the management IP address configuration can't be removed, but you can assign a different public IP address.
+
 ## Related content
 
 - [Azure Firewall forced tunneling](forced-tunneling.md)
