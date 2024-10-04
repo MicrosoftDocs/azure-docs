@@ -34,9 +34,9 @@ TODO: Add the free account information if it exists
 
 ## Prerequisites
 
-[!INCLUDE [prerequisite-chamber](../includes/prerequisite-chamber.md)]
+[!INCLUDE [prerequisite-chamber](./includes/prerequisite-chamber.md)]
 
-[!INCLUDE [prerequisite-user-chamber-admin](../../includes/prerequisite-user-chamber-admin.md)]
+[!INCLUDE [prerequisite-user-chamber-admin](./includes/prerequisite-user-chamber-admin.md)]
 
 ## Sign in to the Azure portal and navigate to your workbench
 
