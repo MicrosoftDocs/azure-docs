@@ -419,6 +419,23 @@ builtInTransformationSettings: {
 
 ```
 
+## Passthrough operation
+
+For example, you could apply a mapping operation that takes all the input fields (inputs: array('*')) and maps them to the output (output: '*'), essentially passing through all fields. 
+
+```bicep
+builtInTransformationSettings: {
+  map: [
+    {
+      inputs: array('*')
+      output: '*'
+    }
+  ]
+  schemaRef: 'aio-sr://${opcuaSchemaName}:${opcuaSchemaVer}'
+  serializationFormat: 'Delta' // Can also be 'Parquet'
+}
+```
+
 # [Kubernetes](#tab/kubernetes)
 
 For example, you could use the `deviceId` field in the source data to match the `asset` field in the dataset:
