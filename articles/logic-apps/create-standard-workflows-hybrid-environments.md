@@ -251,7 +251,7 @@ To test the connection between your Arc-enabled Kubernetes cluster and your SMB 
 
    The following example shows the hybrid logic app creation page in the Azure portal with sample values:
 
-   :::image type="content" source="media/create-standard-workflows-hybrid-environments/create-hybrid-logic-app-portal.png" alt-text="":::
+   :::image type="content" source="media/create-standard-workflows-hybrid-environments/create-hybrid-logic-app-portal.png" alt-text="Screenshot shows Azure portal and hybrid logic app creation page.":::
 
 1. On the **Storage** page, provide the following information about the storage provider and SMB file share that you previously set up for your hybrid logic app:
 
