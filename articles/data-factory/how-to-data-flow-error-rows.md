@@ -51,7 +51,7 @@ This video walks through an example of setting-up error row handling logic in yo
 
     :::image type="content" source="media/data-flow/error2.png" alt-text="complete data flow":::
 
-5. If you choose the error row handling option in the sink transformation and set "Output error rows", ADF automatically generates a CSV file output of your row data along with the driver-reported error messages. You don't need to add that logic manually to your data flow with that alternative option. You incur a small performance penalty with this option so that ADF can implement a 2-phase methodology to trap errors and log them.
+5. If you choose the error row handling option in the sink transformation and set "Output error rows", Azure Data Factory automatically generates a CSV file output of your row data along with the driver-reported error messages. You don't need to add that logic manually to your data flow with that alternative option. You incur a small performance penalty with this option so that ADF can implement a 2-phase methodology to trap errors and log them.
 
     :::image type="content" source="media/data-flow/error-row-3.png" alt-text="complete data flow with error rows":::
 
