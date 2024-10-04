@@ -5,6 +5,8 @@ author: yelevin
 ms.author: yelevin
 ms.topic: how-to
 ms.date: 11/24/2022
+appliesto: 
+  - Microsoft Sentinel in the Azure portal
 ---
 
 # Work with incident tasks in Microsoft Sentinel

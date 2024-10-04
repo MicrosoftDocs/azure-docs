@@ -906,14 +906,6 @@
         href: work-with-tasks.md
       - name: Audit and track changes to incident tasks
         href: audit-track-tasks.md
-    - name: Entities
-      items:
-      - name: Overview
-        href: entity-pages.md
-      - name: Enable enrichment widgets 
-        href: enable-enrichment-widgets.md
-      - name: Create custom entity activities
-        href: customize-entity-activities.md
     - name: Collaborate in Microsoft Teams
       href: collaborate-in-microsoft-teams.md
   - name: Defender portal
@@ -922,8 +914,14 @@
       href: /defender-xdr/incidents-overview?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
     - name: Alerts, incidents, and correlation
       href: /defender-xdr/alerts-incidents-correlation?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
-    - name: Entities
-      items:
+  - name: Entities
+    items:
+    - name: Overview
+      href: entity-pages.md
+    - name: Create custom entity activities
+      href: customize-entity-activities.md
+    - name: Entity pages in the Defender portal
+      items: 
       - name: User
         href: /defender-xdr/investigate-users?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
       - name: Device

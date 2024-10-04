@@ -5,6 +5,8 @@ author: yelevin
 ms.topic: how-to
 ms.date: 03/30/2022
 ms.author: yelevin
+appliesto: 
+  - Microsoft Sentinel in the Azure portal
 ---
 
 # Collaborate in Microsoft Teams (Public preview)
