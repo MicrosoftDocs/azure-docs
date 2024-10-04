@@ -24,12 +24,6 @@ In this tutorial, you learn how to:
 > * Create an inventory of VMs
 > * Designate a controller and compute nodes and install Slurm on each
 
-<!-- 4. Free account links 
-----------------------------------------------------------------
-
-Required, if a free trial account exists Because Tutorials are intended to help new customers use the product or service to complete a top task, include a link to a free trial before the first H2. You can find listed examples in the  [tutorials pattern](article-tutorial.md)
--->
-
 If you don’t have a Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## Prerequisites
