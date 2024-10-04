@@ -20,15 +20,19 @@ ms.date: 10/14/2024
 
 For scenarios where you need to control and manage your own infrastructure, Azure Logic Apps supports creating hybrid logic apps, which are Standard workflows that run in a hybrid environment. This environment can include on-premises systems, private clouds, and public clouds. A hybrid logic app and workflow is powered by the Azure Logic Apps runtime that is hosted on premises as an Azure Container Apps extension. When you need to build an integration solution or workflow for a partially connected scenario that requires local processing, storage, and network access, a hybrid logic app provides the capability for you to meet the needs for this scenario.
 
-The following architectural overview shows where hybrid logic apps and their workflows are hosted and run in a partially connected environment. This environment uses a SQL database for local storage and processing, a Server Message Block (SMB) file share to store artifacts used by your workflows, and Azure Arc-enabled Azure Kubernetes (AKS) clusters or on-premises AKS *hyperconverged infrastructure* (HCI) clusters to host your hybrid logic apps, which deploy as Azure container app resources:
+The following architectural overview shows where hybrid logic apps and their workflows are hosted and run in a partially connected environment. This environment includes the following resources to host and work with your hybrid logic apps, which deploy as Azure container app resources:
+
+- Either Azure Arc-enabled Kubernetes clusters or Azure Arc-enabled Kubernetes clusters on Azure Stack *hyperconverged infrastructure* (HCI)
+- A SQL database for local storage and processing
+- A Server Message Block (SMB) file share to store artifacts used by your workflows
 
 :::image type="content" source="media/create-standard-workflows-hybrid-environments/architecture-overview.png" alt-text="Diagram with architectural overview for where hybrid logic apps are hosted in a partially connected environment." border="false":::
 
 For more information, see the following documentation:
 
 - [What is Azure Kubernetes Service?](/azure/aks/what-is-aks)
-- [Azure Arc-enabled Azure Kubernetes (AKS) clusters](/azure/azure-arc/kubernetes/overview)
-- [AKS hyperconverged infrastructure (HCI) clusters](/azure-stack/hci/overview)
+- [Azure Arc-enabled Azure Kubernetes Service (AKS) clusters](/azure/azure-arc/kubernetes/overview)
+- [Azure Arc-enabled Kubernetes clusters on Azure Stack hyperconverged infrastructure (HCI)](/azure-stack/hci/overview)
 - [What is Azure Container Apps?](../container-apps/overview.md)
 - [Azure Container Apps on Azure Arc](../container-apps/azure-arc-overview.md)
 - [Custom locations on Azure Arc-enabled AKS](/azure/azure-arc/platform/conceptual-custom-locations)
@@ -58,67 +62,76 @@ For more information, see the following documentation:
   > basic Standard workflow before you try to deploy in a hybrid environment. This test 
   > run helps isolate any errors that might exist in your Standard workflow project.
 
-## Set up an Azure Kubernetes cluster
+## Create an Azure Arc-enabled Kubernetes cluster
 
-To host your hybrid logic app as on-premises resource, you can create an [Azure Arc-enabled Kubernetes cluster](/azure/azure-arc/kubernetes/overview) or an [on-premises AKS HCI cluster](/azure-stack/hci/overview). Your cluster requires inbound and outbound connectivity with the [SQL database that you use as the storage provider](#create-storage-provider).
+To host your hybrid logic app as on-premises resource, you can create an [Azure Arc-enabled Kubernetes cluster](/azure/azure-arc/kubernetes/overview) or an [Azure Arc-enabled Kubernetes cluster on Azure Stack HCI infrastructure](/azure-stack/hci/overview). Your cluster requires inbound and outbound connectivity with the [SQL database that you use as the storage provider](#create-storage-provider).
 
-### Create an Azure Arc-enabled Kubernetes cluster
+### Create a Kubernetes cluster and connect to Azure Arc
 
 Choose one of the following options to create and set up your Arc-enabled Kubernetes cluster as the deployment environment:
 
-- In the Azure portal, [follow these steps to create the cluster](/azure/aks/learn/quick-kubernetes-deploy-portal) and then [follow these steps to connect the cluster to Azure Arc](/azure/azure-arc/kubernetes/quickstart-connect-cluster).
+##### Azure portal
 
-- Run the following commands by using Azure Cloud Shell in the Azure portal or by using [Azure CLI installed on your local computer](/cli/azure/install-azure-cli):
+1. [Follow these steps to create an AKS cluster](/azure/aks/learn/quick-kubernetes-deploy-portal).
 
-  > [!NOTE]
-  >
-  > Make sure to change the **max-count** and **min-count** node values based on your load requirements.
+1. [Follow these steps to connect the cluster to Azure Arc](/azure/azure-arc/kubernetes/quickstart-connect-cluster).
 
-  ```azurecli
-  az login
-  az account set --subscription <Azure-subscription-ID>
-  az provider register --namespace Microsoft.KubernetesConfiguration --wait
-  az extension add --name k8s-extension --upgrade --yes
-  az group create --name <Azure-resource-group-name> --location '<Azure-region>'
-  az aks create --resource-group <Azure-resource-group-name> --name <AKS-cluster-name> --enable-aad --generate-ssh-keys --enable-cluster-autoscaler --max-count 6 --min-count 1 
-  ```
+##### Azure Cloud Shell or Azure CLI
 
-  | Command | Parameter | Required | Value | Description |
-  |---------|-----------|----------|-------|-------------|
-  | **`az account set`** | **`subscription`** | Yes | <*Azure-subscription-ID*> | The GUID for your Azure subscription. <br><br>For more information, see [**az account set**](/cli/azure/account#az-account-set). |
-  | **`az group create`** | **`name`** | Yes | <*Azure-resource-group-name*> | The [Azure resource group](../azure-resource-manager/management/overview.md#terminology) where you create your container app and related resources. This name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <br><br>This example uses **Hybrid-RG**. <br><br>For more information, see [**az group create**](/cli/azure/group#az-group-create). |
-  | **`az group create`** | **`location`** | Yes | <*Azure-region*> | An Azure region that is [supported for Azure container apps on Azure Arc-enabled AKS](../container-apps/azure-arc-overview.md#public-preview-limitations). <br><br>This example uses **North Central US**. <br><br>For more information, see [**az group create**](/cli/azure/group#az-group-create). |
-  | **`az aks create`** | **`name`** | Yes | <*Azure-resource-group-name*> | The [Azure resource group](../azure-resource-manager/management/overview.md#terminology) where you create your container app and related resources. This name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <br><br>This example uses **Hybrid-RG**. <br><br>For more information, see [**az aks create**](/cli/azure/aks#az-aks-create). |
-  | **`az aks create`** | **`max count`** | No | <*max-nodes-value*> | The maximum number of nodes to use for the autoscaler when you include the **`enable-cluster-autoscaler`** option. This value ranges from **1** to **1000**. <br><br>For more information, see [**az aks create**](/cli/azure/aks#az-aks-create). |
-  | **`az aks create`** | **`min count`** | No | <*min-nodes-value*> | The minimum number of nodes to use for the autoscaler when you include the **`enable-cluster-autoscaler`** option. This value ranges from **1** to **1000**. <br><br>For more information, see [**az aks create**](/cli/azure/aks#az-aks-create). |
+Run the following commands either by using Azure Cloud Shell in the Azure portal or by using [Azure CLI installed on your local computer](/cli/azure/install-azure-cli):
 
-- [Follow these steps in "Tutorial: Enable Azure Container Apps on Azure Arc-enabled Kubernetes"](/azure/container-apps/azure-arc-enable-cluster), and then run the following PowerShell commands as an administrator to create the Azure Arc-enabled Kubernetes cluster and an optional Log Analytics workspace to monitor the logs from the Azure Logic Apps runtime:
+> [!NOTE]
+>
+> Make sure to change the **max-count** and **min-count** node values based on your load requirements.
 
-  ```powershell
-  Set-ExecutionPolicy -ExecutionPolicy Unrestricted
-  C:\EnvironmentSetup.ps1 -SUBSCRIPTION <Azure-subscription-ID> -GROUP_NAME <Azure-resource-group-name> -LOCATION '<Azure-region>' -KUBE_CLUSTER_NAME <cluster-name> -LOGANALYTICS_WORKSPACE_NAME <Log-Analytics-workspace-name>
-  ```
+```azurecli
+az login
+az account set --subscription <Azure-subscription-ID>
+az provider register --namespace Microsoft.KubernetesConfiguration --wait
+az extension add --name k8s-extension --upgrade --yes
+az group create --name <Azure-resource-group-name> --location '<Azure-region>'
+az aks create --resource-group <Azure-resource-group-name> --name <AKS-cluster-name> --enable-aad --generate-ssh-keys --enable-cluster-autoscaler --max-count 6 --min-count 1 
+```
 
-  | Parameter | Required | Value | Description |
-  |-----------|----------|-------|-------------|
-  | **SUBSCRIPTION** | Yes | <*Azure-subscription-ID*> | The ID for your Azure subscription. |
-  | **GROUP_NAME** | Yes | <*Azure-resource-group-name*> | The [Azure resource group](../azure-resource-manager/management/overview.md#terminology) where you create your container app and related resources. This name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <br><br>This example uses **Hybrid-RG**. |
-  | **LOCATION** | Yes | <*Azure-region*> | An Azure region that is [supported for Azure container apps on Azure Arc-enabled AKS](../container-apps/azure-arc-overview.md#public-preview-limitations). <br><br>This example uses **North Central US**. |
-  | **KUBE_CLUSTER_NAME** | Yes | <*cluster-name*> | The name for your Azure Arc-enabled Kubernetes cluster. |
-  | **LOGANALYTICS_WORKSPACE_NAME** | No | <*Log-Analytics-workspace-name*> | The name for the Log Analytics workspace resource to create for monitoring logs. |
+| Command | Parameter | Required | Value | Description |
+|---------|-----------|----------|-------|-------------|
+| **`az account set`** | **`subscription`** | Yes | <*Azure-subscription-ID*> | The GUID for your Azure subscription. <br><br>For more information, see [**az account set**](/cli/azure/account#az-account-set). |
+| **`az group create`** | **`name`** | Yes | <*Azure-resource-group-name*> | The [Azure resource group](../azure-resource-manager/management/overview.md#terminology) where you create your container app and related resources. This name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <br><br>This example uses **Hybrid-RG**. <br><br>For more information, see [**az group create**](/cli/azure/group#az-group-create). |
+| **`az group create`** | **`location`** | Yes | <*Azure-region*> | An Azure region that is [supported for Azure container apps on Azure Arc-enabled Kubernetes](../container-apps/azure-arc-overview.md#public-preview-limitations). <br><br>This example uses **East US**. <br><br>For more information, see [**az group create**](/cli/azure/group#az-group-create). |
+| **`az aks create`** | **`name`** | Yes | <*Azure-resource-group-name*> | The [Azure resource group](../azure-resource-manager/management/overview.md#terminology) where you create your container app and related resources. This name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <br><br>This example uses **Hybrid-RG**. <br><br>For more information, see [**az aks create**](/cli/azure/aks#az-aks-create). |
+| **`az aks create`** | **`max count`** | No | <*max-nodes-value*> | The maximum number of nodes to use for the autoscaler when you include the **`enable-cluster-autoscaler`** option. This value ranges from **1** to **1000**. <br><br>For more information, see [**az aks create**](/cli/azure/aks#az-aks-create). |
+| **`az aks create`** | **`min count`** | No | <*min-nodes-value*> | The minimum number of nodes to use for the autoscaler when you include the **`enable-cluster-autoscaler`** option. This value ranges from **1** to **1000**. <br><br>For more information, see [**az aks create**](/cli/azure/aks#az-aks-create). |
+
+##### PowerShell
+
+1. Run the following PowerShell command as an administrator:
+
+   ```powershell
+   Set-ExecutionPolicy -ExecutionPolicy Unrestricted
+   ```
 
   For more information, see [Set-ExecutionPolicy](/powershell/module/microsoft.powershell.security/set-executionpolicy).
 
-### Create an on-premises AKS HCI cluster
+1. [Follow the steps in "Tutorial: Enable Azure Container Apps on Azure Arc-enabled Kubernetes"](/azure/container-apps/azure-arc-enable-cluster) using PowerShell, but use the following commands and parameter values specific to Azure Logic Apps to create the Azure Arc-enabled Kubernetes cluster and an optional Log Analytics workspace to monitor the logs from the Azure Logic Apps runtime.
 
-To create and set up an on-premises AKS HCI cluster instead as the deployment environment, see the following documentation:
+   | Parameter | Required | Value | Description |
+   |-----------|----------|-------|-------------|
+   | **SUBSCRIPTION** | Yes | <*Azure-subscription-ID*> | The ID for your Azure subscription. |
+   | **GROUP_NAME** | Yes | <*Azure-resource-group-name*> | The [Azure resource group](../azure-resource-manager/management/overview.md#terminology) where you create your container app and related resources. This name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <br><br>This example uses **Hybrid-RG**. |
+   | **LOCATION** | Yes | **'**<*Azure-region*>**'** | An Azure region that is [supported for Azure container apps on Azure Arc-enabled Kubernetes](../container-apps/azure-arc-overview.md#public-preview-limitations). <br><br>This example uses **East US**. |
+   | **KUBE_CLUSTER_NAME** | Yes | <*cluster-name*> | The name for your cluster. |
+   | **LOGANALYTICS_WORKSPACE_NAME** | No | <*Log-Analytics-workspace-name*> | The name for the Log Analytics workspace resource to create for monitoring logs. |
+
+### Create an AKS cluster on Azure Stack HCI
+
+To create and set up an AKS cluster on Azure Stack HCI instead as the deployment environment, see the following documentation:
 
 - [Review deployment prerequisites for Azure Stack HCI](/azure-stack/hci/deploy/deployment-prerequisites)
 - [Create Kubernetes clusters using Azure CLI](/azure/aks/hybrid/aks-create-clusters-cli)
 - [Quickstart: Create a local Kubernetes cluster on AKS enabled by Azure Arc using Windows Admin Center](/azure/aks/hybrid/create-kubernetes-cluster)
 - [Set up an Azure Kubernetes Service host on Azure Stack HCI and Windows Server and deploy a workload cluster using PowerShell](/azure/aks/hybrid/kubernetes-walkthrough-powershell)
 
-For more information about AKS on-premises options, see [Overview of AKS on Windows Server and Azure Stack HCI, version 22H2](/azure/aks/hybrid/overview).
+For more information about AKS on Azure Stack HCI options, see [Overview of AKS on Windows Server and Azure Stack HCI, version 22H2](/azure/aks/hybrid/overview).
 
 <a name="create-storage-provider"></a>
 
@@ -232,7 +245,7 @@ To test the connection between your Arc-enabled Kubernetes cluster and your SMB 
    | **Subscription** | Yes | <*Azure-subscription-name*> | Your Azure subscription name. <br><br>This example uses **Pay-As-You-Go**. |
    | **Resource Group** | Yes | <*Azure-resource-group-name*> | The [Azure resource group](../azure-resource-manager/management/overview.md#terminology) where you create your hybrid app and related resources. This name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <br><br>This example creates a resource group named **Hybrid-RG**. |
    | **Logic App name** | Yes | <*logic-app-name*> | Your hybrid logic app name, which must be unique across regions and can contain only lowercase letters, numbers, or hyphens (**-**). <br><br>This example uses **my-hybrid-logic-app**. |
-   | **Region** | Yes | <*Azure-region*> | An Azure region that is [supported for Azure container apps on Azure Arc-enabled AKS](../container-apps/azure-arc-overview.md#public-preview-limitations). <br><br>This example uses **North Central US**. |
+   | **Region** | Yes | <*Azure-region*> | An Azure region that is [supported for Azure container apps on Azure Arc-enabled AKS](../container-apps/azure-arc-overview.md#public-preview-limitations). <br><br>This example uses **East US**. |
    | **Container App Connected Environment** | Yes | <*connected-environment-name*> | The Arc-enabled Kubernetes cluster that you created as the deployment environment for your hybrid logic app. For more information, see [Tutorial: Enable Azure Container Apps on Azure Arc-enabled Kubernetes](../container-apps/azure-arc-enable-cluster.md). |
    | **Configure storage settings** | Yes | Enabled or disabled | Continues to the **Storage** tab on the **Create Logic App (Hybrid)** page. |
 
