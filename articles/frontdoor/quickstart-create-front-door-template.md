@@ -15,11 +15,11 @@ ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 
 [!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
 
-This quickstart describes how to use an Azure Resource Manager template (ARM Template) to create an Azre Front Door (classic) to set up high availability for a web endpoint.
+This quickstart describes how to use an Azure Resource Manager template (ARM Template) to create an Azure Front Door (classic) to set up high availability for a web endpoint.
 
 [!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
-If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
+If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template opens in the Azure portal.
 
 :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.network%2Ffront-door-create-basic%2Fazuredeploy.json":::
 
@@ -32,7 +32,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/front-door-create-basic).
 
-In this quickstart, you'll create a Front Door configuration with a single backend and a single default path matching `/*`.
+In this quickstart, you create a Front Door configuration with a single backend and a single default path matching `/*`.
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/front-door-create-basic/azuredeploy.json":::
 
@@ -86,7 +86,7 @@ Azure PowerShell is used to deploy the template. In addition to Azure PowerShell
 
 1. Select the resource group that you created in the previous section. The default resource group name is the project name with **rg** appended.
 
-1. Select the Front Door you created previously and click on the **Frontend host** link. The link will open a web browser redirecting you to your backend FQDN you defined during creation.
+1. Select the Front Door you created previously and select on the **Frontend host** link. The link opens a web browser redirecting you to your backend FQDN you defined during creation.
 
     :::image type="content" source="./media/quickstart-create-front-door-template/front-door-overview.png" alt-text="Front Door portal overview":::
 

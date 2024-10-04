@@ -26,6 +26,8 @@ This quickstart shows you how to use the Azure portal to set up high availabilit
 
 ## Create two instances of a web app
 
+[test](front-door-diagnostics.md#access-log)
+
 To complete this quickstart, you need two instances of a web application running in different Azure regions. The web application instances operate in *Active/Active* mode, which means that they can both handle traffic simultaneously. This setup is different from *Active/Stand-By* mode, where one instance serves as a backup for the other.
 
 To follow this quickstart, you need two web apps that run in different Azure regions. If you don't have them already, you can use these steps to create example web apps.

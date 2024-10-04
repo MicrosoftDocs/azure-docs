@@ -151,7 +151,7 @@ Once the deployment is successful, you can test it by following the steps in the
 
 ## Test the Front Door
 
-Run the follow commands to obtain the hostname for the Front Door.
+Run the following commands to obtain the hostname for the Front Door.
 
 ```azurepowershell-interactive
 # Gets Front Door in resource group and output the hostname of the frontend domain.
@@ -159,7 +159,7 @@ $fd = Get-AzFrontDoor -ResourceGroupName myResourceGroupFD
 $fd.FrontendEndpoints[0].Hostname
 ```
 
-Open a web browser and enter the hostname obtain from the commands. The Front Door will direct your request to one of the backend resources. 
+Open a web browser and enter the hostname obtain from the commands. Azure Front Door directs your request to one of the backend resources. 
 
 :::image type="content" source="./media/quickstart-create-front-door-powershell/front-door-test-page.png" alt-text="Front Door test page":::
 
