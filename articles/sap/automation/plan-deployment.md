@@ -57,7 +57,7 @@ The control plane provides the following services:
 
 The control plane is defined by using two configuration files, one for the deployer and one for the SAP Library.
 
-The deployment configuration file defines the region, environment name, and virtual network information. For example:
+The deployer configuration file defines the region, environment name, and virtual network information. For example:
 
 ```tfvars
 # Deployer Configuration File

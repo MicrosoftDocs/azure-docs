@@ -6,7 +6,7 @@ author: gargi-sinha
 manager: martinco
 ms.service: active-directory
 ms.topic: how-to
-ms.date: 06/21/2024
+ms.date: 10/03/2024
 ms.author: gasinh
 ms.reviewer: kengaderdus
 ms.subservice: B2C
@@ -65,7 +65,7 @@ The following diagram illustrates the implementation.
 
 1. User opens Azure AD B2C sign in page on their mobile or web application, and then signs in or signs up.
 2. Azure AD B2C redirects the user to Asignio using an OpenID Connect (OIDC) request.
-3. The user is redirected to the Asignio web application for biometric sign in. If the user hasn't registered their Asignio Signature, they can use an SMS One-Time-Password (OTP) to authenticate. After authentication, user receives a registration link to create their Asignio Signature.
+3. The user is redirected to the Asignio web application for biometric sign in. If the user didn't register their Asignio Signature, they can use an SMS One-Time-Password (OTP) to authenticate. After authentication, user receives a registration link to create their Asignio Signature.
 4. The user authenticates with Asignio Signature and facial verification, or voice and facial verification.
 5. The challenge response goes to Asignio. 
 6. Asignio returns the OIDC response to Azure AD B2C sign in.
@@ -76,11 +76,11 @@ The following diagram illustrates the implementation.
 
 Configurating an application with Asignio is with the Asignio Partner Administration site. 
 
-1. Go to asignio.com [Asignio Partner Administration](https://partner.asignio.com) page to request access for your organization. 
+1. To request access for your organization, go to asignio.com [Asignio Partner Administration](https://partner.asignio.com) page. 
 2. With credentials, sign into Asignio Partner Administration.
 3. Create a record for the Azure AD B2C application using your Azure AD B2C tenant. When you use Azure AD B2C with Asignio, Azure AD B2C manages connected applications. Asignio apps represent apps in the Azure portal.
 4. In the Asignio Partner Administration site, generate a Client ID and Client Secret. 
-5. Note and store Client ID and Client Secret. You'll use them later. Asignio doesn't store Client Secrets.
+5. Note and store Client ID and Client Secret. You use them later. Asignio doesn't store Client Secrets.
 6. Enter the redirect URI in your site the user is returned to after authentication. Use the following URI pattern.
 
 `[https://<your-b2c-domain>.b2clogin.com/<your-b2c-domain>.onmicrosoft.com/oauth2/authresp]`.
@@ -98,6 +98,9 @@ For this tutorial, you're registering  `https://jwt.ms`, a Microsoft web applica
 ### Register a web application and enable ID token implicit grant
 
 Complete [Tutorial: Register a web application in Azure Active Directory B2C](tutorial-register-applications.md?tabs=app-reg-ga)
+
+>[!NOTE]
+>Enable implicit flow only for testing purposes. Don’t enable implicit flow in production.
 
 ## Configure Asignio as an identity provider in Azure AD B2C
 
