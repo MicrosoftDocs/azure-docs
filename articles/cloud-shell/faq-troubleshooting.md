@@ -89,6 +89,11 @@ location is the `Azure:` drive, are saved to your `$HOME` folder.
 No. Your user account in Cloud Shell is an unprivileged account. You can't use `sudo` or run any
 command that requires elevated permissions.
 
+### I want to reset current Cloud Shell. How to do?
+
+Switch to the Poweshell option from Azure Portal, and run the `Dismount-CloudDrive` command, which
+will terminate the current session, then reload Azure Portal again.
+
 ## Troubleshoot errors
 
 ### Storage Dialog - Error: 403 RequestDisallowedByPolicy
