@@ -1,24 +1,24 @@
 ---
-title: 'Quickstart: Set up high availability with Azure Front Door - Azure PowerShell'
+title: 'Quickstart: Create an Azure Front Door (classic) using Azure PowerShell'
 description: This quickstart will show you how to use Azure Front Door to create a high availability and high-performance global web application using Azure PowerShell.
 services: front-door
 author: duongau
 ms.author: duau
 manager: KumudD
-ms.date: 04/19/2021
+ms.date: 10/04/2024
 ms.topic: quickstart
 ms.service: azure-frontdoor
 ms.custom: devx-track-azurepowershell, mode-api
 #Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ---
 
-# Quickstart: Create a Front Door for a highly available global web application using Azure PowerShell
+# Quickstart: Create an Azure Front Door (classic)  using Azure PowerShell
 
 [!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
 
-Get started with Azure Front Door by using Azure PowerShell to create a highly available and high-performance global web application.
+Get started with Azure Front Door (classic) by using Azure PowerShell to create a highly available and high-performance global web application.
 
-The Front Door directs web traffic to specific resources in a backend pool. You defined the frontend domain, add resources to a backend pool, and create a routing rule. This article uses a simple configuration of one backend pool with two web app resources and a single routing rule using default path matching "/*".
+The Azure Front Door directs web traffic to specific resources in a backend pool. You defined the frontend domain, add resources to a backend pool, and create a routing rule. This article uses a simple configuration of one backend pool with two web app resources and a single routing rule using default path matching "/*".
 
 :::image type="content" source="media/quickstart-create-front-door/environment-diagram.png" alt-text="Diagram of Front Door environment diagram using PowerShell." border="false":::
 
