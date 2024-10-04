@@ -401,7 +401,21 @@ Currently, the enrich operation isn't available in the operations experience por
 
 # [Bicep](#tab/bicep)
 
+For example, you could use the `deviceId` field in the source data to match the `asset` field in the dataset:
+
 ```bicep
+builtInTransformationSettings: {
+  datasets: [
+    {
+      key: 'assetDataset'
+      inputs: [
+        '$source.deviceId', // Reference to the device ID from the source
+        '$context(assetDataset).asset' // Reference to the asset from the dataset context
+      ]
+      expression: '$1 == $2' // Expression to evaluate the inputs
+    }
+  ]
+}
 
 ```
 
@@ -455,6 +469,22 @@ To filter the data on a condition, you can use the `filter` stage. The condition
 
 # [Bicep](#tab/bicep)
 
+For example, you could use the `temperature` field in the source data to filter the data:
+
+```bicep
+builtInTransformationSettings: {
+  filter: [
+    {
+      inputs: [
+        'temperature ? $last' // Reference to the last temperature value, if available
+      ]
+      expression: '$1 > 20' // Expression to filter based on the temperature value
+    }
+  ]
+}
+
+```
+
 # [Kubernetes](#tab/kubernetes)
 
 For example, you could use the `temperature` field in the source data to filter the data:
@@ -489,6 +519,29 @@ In the operations experience portal, mapping is currently supported using **Comp
 1. Select **Apply**.
 
 # [Bicep](#tab/bicep)
+
+For example, you could use the `temperature` field in the source data to convert the temperature to Celsius and store it in the `temperatureCelsius` field. You could also enrich the source data with the `location` field from the contextualization dataset:
+
+```bicep
+builtInTransformationSettings: {
+  map: [
+    {
+      inputs: [
+        'temperature' // Reference to the temperature input
+      ]
+      output: 'temperatureCelsius' // Output variable for the converted temperature
+      expression: '($1 - 32) * 5/9' // Expression to convert Fahrenheit to Celsius
+    }
+    {
+      inputs: [
+        '$context(assetDataset).location' // Reference to the location from the dataset context
+      ]
+      output: 'location' // Output variable for the location
+    }
+  ]
+}
+
+```
 
 # [Kubernetes](#tab/kubernetes)
 
