@@ -14,11 +14,9 @@ ms.date: 09/06/2024
 
 A guide to understand and use RefStrings for diagnosing and resolving issues with Azure Front Door.
 
-
 ## Prerequisites
 
 * You must have an Azure Front Door profile. To create a profile, see [Creating an Azure Front Door profile](create-front-door-portal.md).
-
 
 ## What is a RefString?
 
@@ -32,6 +30,8 @@ RefStrings can help you troubleshoot and resolve issues with Azure Front Door, s
 ## How to gather a RefString?
 
 To gather a RefString, you need to capture the HTTP response headers of the requests and look for the header named **X-Azure-Ref**. This header contains the RefString, encoded in Base64. You can use different methods to capture the HTTP response headers, depending on your preference and situation. Here are a few examples of how to obtain a RefString from various browsers and applications:
+
+#### [Microsoft Edge Browser](#tab/edge)
 
 1. Open the browser's developer tools by pressing `F12` or `Ctrl+Shift+I`.
 
@@ -66,6 +66,8 @@ To obtain headers with cURL, use the **-I** or **—include** option to include 
 1. Switch to the Raw view, locate the **X-Azure-Ref** header in the response headers, copy its value, and decode it using a Base64 decoder.
 
 To learn more about viewing and capturing network traffic with Fiddler, see [Web Debugging - Capture Network Traffic](https://www.telerik.com/fiddler/usecases/web-debugging). 
+
+---
 
 ## How to use a RefString with some of our troubleshooting tools?
 Azure Front Door uses a RefString to manage 4xx and 5xx errors. The following are the steps to use the diagnostic tool with a RefString for tracking and diagnosing connectivity issues:
