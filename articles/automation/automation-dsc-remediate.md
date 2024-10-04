@@ -11,7 +11,7 @@ ms.date: 07/17/2019
 
 # Remediate noncompliant Azure Automation State Configuration servers
 
-[!INCLUDE [aadsc-eol](~/includes/dsc-automation/aadsc-eol.md)]
+[!INCLUDE [azure-automation-dsc-end-of-life](~/includes/dsc-automation/azure-automation-dsc-end-of-life.md)]
 
 When servers are registered with Azure Automation State Configuration,
 the configuration mode is set to `ApplyOnly`, `ApplyAndMonitor`, or `ApplyAndAutoCorrect`. If the mode isn't set to `ApplyAndAutoCorrect`,

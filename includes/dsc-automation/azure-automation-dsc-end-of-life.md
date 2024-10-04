@@ -9,7 +9,6 @@ ms.author: sewhee
 ---
 
 > [!NOTE]
-
 > Azure Automation State Configuration will be retired on September 30, 2027, please transition to
 > [Azure Machine Configuration][azmc] by that date. For more information, see the [blog post][blog]
 > announcement. The Azure Machine Configuration service combines features of DSC Extension, Azure

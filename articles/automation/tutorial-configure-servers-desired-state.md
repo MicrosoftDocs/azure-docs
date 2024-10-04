@@ -11,7 +11,7 @@ ms.service: azure-automation
 
 # Configure machines to a desired state
 
-[!INCLUDE [aadsc-eol](~/includes/dsc-automation/aadsc-eol.md)]
+[!INCLUDE [azure-automation-dsc-end-of-life](~/includes/dsc-automation/azure-automation-dsc-end-of-life.md)]
 
 Azure Automation State Configuration allows you to specify configurations for your servers and ensure that those servers are in the specified state over time.
 

@@ -12,7 +12,7 @@ ms.service: azure-automation
 
 # Configure a VM with Desired State Configuration
 
-[!INCLUDE [aadsc-eol](~/includes/dsc-automation/aadsc-eol.md)]
+[!INCLUDE [azure-automation-dsc-end-of-life](~/includes/dsc-automation/azure-automation-dsc-end-of-life.md)]
 
 > [!CAUTION]
 > Azure Automation DSC for Linux has retired. For more information, see the [announcement](https://azure.microsoft.com/updates/migrate-from-linux-dsc-extension-to-the-guest-configuration-feature-of-azure-policy-by-may-1-2025/#:~:text=The%20DSC%20extension%20for%20Linux%20machines%20in%20Azure%2C,no%20longer%20be%20supported%20after%2030%20September%202023.).

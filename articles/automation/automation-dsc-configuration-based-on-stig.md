@@ -13,7 +13,7 @@ ms.service: azure-automation
 
 > Applies To: Windows PowerShell 5.1
 
-[!INCLUDE [aadsc-eol](~/includes/dsc-automation/aadsc-eol.md)]
+[!INCLUDE [azure-automation-dsc-end-of-life](~/includes/dsc-automation/azure-automation-dsc-end-of-life.md)]
 
 Creating configuration content for the first time can be challenging.
 In many cases, the goal is to automate configuration of servers following a "baseline" that hopefully aligns to an industry recommendation.

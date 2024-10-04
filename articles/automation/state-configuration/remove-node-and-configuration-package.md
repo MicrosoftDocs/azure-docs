@@ -12,7 +12,7 @@ ms.service: azure-automation
 
 # How to remove a configuration and node from Automation State Configuration
 
-[!INCLUDE [aadsc-eol](~/includes/dsc-automation/aadsc-eol.md)]
+[!INCLUDE [azure-automation-dsc-end-of-life](~/includes/dsc-automation/azure-automation-dsc-end-of-life.md)]
 
 This article covers how to unregister a node managed by Automation State Configuration, and safely
 removes a PowerShell Desired State Configuration (DSC) configuration from managed nodes. For both

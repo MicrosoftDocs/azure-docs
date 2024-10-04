@@ -10,7 +10,7 @@ ms.service: azure-automation
 ---
 # Compose DSC configurations
 
-[!INCLUDE [aadsc-eol](~/includes/dsc-automation/aadsc-eol.md)]
+[!INCLUDE [azure-automation-dsc-end-of-life](~/includes/dsc-automation/azure-automation-dsc-end-of-life.md)]
 
 When you need to manage resource with more than a single desired state configuration (DSC), the best path is to use [composite resources](/powershell/dsc/resources/authoringresourcecomposite). A composite resource is a nested and parameterized configuration being used as a DSC resource within another configuration. Use of composite resources allows you to create complex configurations while allowing the underlying composite resources to be individually managed and built.
 

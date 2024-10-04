@@ -14,7 +14,7 @@ ms.service: azure-automation
 
 **Applies to:** :heavy_check_mark: Windows PowerShell 5.1
 
-[!INCLUDE [aadsc-eol](~/includes/dsc-automation/aadsc-eol.md)]
+[!INCLUDE [azure-automation-dsc-end-of-life](~/includes/dsc-automation/azure-automation-dsc-end-of-life.md)]
 
 > [!IMPORTANT]
 > This article refers to a solution that is maintained by the Open Source community. Support is only available in the form of GitHub collaboration, and not from Microsoft.

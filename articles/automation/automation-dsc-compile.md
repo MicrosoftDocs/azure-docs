@@ -11,7 +11,7 @@ ms.service: azure-automation
 
 # Compile DSC configurations in Azure Automation State Configuration
 
-[!INCLUDE [aadsc-eol](~/includes/dsc-automation/aadsc-eol.md)]
+[!INCLUDE [azure-automation-dsc-end-of-life](~/includes/dsc-automation/azure-automation-dsc-end-of-life.md)]
 
 You can compile Desired State Configuration (DSC) configurations in Azure Automation State Configuration in the following ways:
 

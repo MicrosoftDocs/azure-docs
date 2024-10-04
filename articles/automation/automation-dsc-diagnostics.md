@@ -11,7 +11,7 @@ ms.service: azure-automation
 
 # Integrate Azure Automation State Configuration with Azure Monitor Logs
 
-[!INCLUDE [aadsc-eol](~/includes/dsc-automation/aadsc-eol.md)]
+[!INCLUDE [azure-automation-dsc-end-of-life](~/includes/dsc-automation/azure-automation-dsc-end-of-life.md)]
 
 Azure Automation State Configuration retains node status data for 30 days. You can send node status data to [Azure Monitor Logs](/azure/azure-monitor/logs/data-platform-logs) if you prefer to retain this data for a longer period. Compliance status is visible in the Azure portal or with PowerShell, for nodes and for individual DSC resources in node configurations.
 
