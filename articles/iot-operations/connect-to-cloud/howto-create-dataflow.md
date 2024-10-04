@@ -199,73 +199,6 @@ Datasources allow you to specify multiple MQTT or Kafka topics without needing t
 <!-- TODO: Put the right article link here -->
 For more information about creating an MQTT endpoint as a dataflow source, see [MQTT Endpoint](concept-schema-registry.md).
 
-#### Specify schema to deserialize data
-
-Schemas are documents that describe the format of a message and its contents to enable processing and contextualization. You can upload schemas using the ARM/Bicep templates. The following configuration demonstrates how to define a schema in your Bicep file. In this example, the schema defines fields such as `asset_id`, `asset_name`, `location`, `temperature`, `manufacturer`, `production_date`, and `serial_number`. Each field is assigned a specific data type (e.g., `string`) and marked as non-nullable. This ensures all incoming messages contain these fields with valid data.
-
-```bicep
-var assetDeltaSchema = '''
-{
-    "$schema": "Delta/1.0",
-    "type": "object",
-    "properties": {
-        "type": "struct",
-        "fields": [
-            { "name": "asset_id", "type": "string", "nullable": false, "metadata": {} },
-            { "name": "asset_name", "type": "string", "nullable": false, "metadata": {} },
-            { "name": "location", "type": "string", "nullable": false, "metadata": {} },
-            { "name": "manufacturer", "type": "string", "nullable": false, "metadata": {} },
-            { "name": "production_date", "type": "string", "nullable": false, "metadata": {} },
-            { "name": "serial_number", "type": "string", "nullable": false, "metadata": {} },
-            { "name": "temperature", "type": "double", "nullable": false, "metadata": {} }
-        ]
-    }
-}
-'''
-```
-
-To register the schema with the Azure Schema Registry, use the following Bicep configuration. This configuration creates a schema definition and assigns it a version within the schema registry, allowing it to be referenced later in your data transformations.
-
-```bicep
-param opcuaSchemaName string = 'opcua-output-delta'
-param opcuaSchemaVer string = '1'
-
-resource opcSchema 'Microsoft.DeviceRegistry/schemaRegistries/schemas@2024-09-01-preview' = {
-  parent: schemaRegistry
-  name: opcuaSchemaName
-  properties: {
-    displayName: 'OPC UA Delta Schema'
-    description: 'This is a OPC UA delta Schema'
-    format: 'Delta/1.0'
-    schemaType: 'MessageSchema'
-  }
-}
-
-resource opcuaSchemaInstance 'Microsoft.DeviceRegistry/schemaRegistries/schemas/schemaVersions@2024-09-01-preview' = {
-  parent: opcSchema
-  name: opcuaSchemaVer
-  properties: {
-    description: 'Schema version'
-    schemaContent: opcuaSchemaContent
-  }
-}
-```
-
-Once the schema is registered, it can be referenced in transformations to ensure that the source data is correctly deserialized. In the configuration below, the schemaRef points to the specific schema version to be used, and the serializationFormat defines how the data will be serialized during the transformation process. 
-
-```bicep
-{
-  operationType: 'BuiltInTransformation'
-  builtInTransformationSettings: {
-    // ..
-    schemaRef: 'aio-sr://${opcuaSchemaName}:${opcuaSchemaVer}'
-    serializationFormat: 'Parquet' // can also be 'Delta' 
-  }
-}
-```
-
-For more information about schema registry, see [Understand message schemas](concept-schema-registry.md).
-
 # [Kubernetes](#tab/kubernetes)
 
 For example, to configure a source using an MQTT endpoint and two MQTT topic filters, use the following configuration:
@@ -297,14 +230,39 @@ spec:
 
 To specify the schema, create the file and store it in the schema registry.
 
-```yaml
+```json
 {
-  "type": "record",
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "name": "Temperature",
-  "fields": [
-    {"name": "deviceId", "type": "string"},
-    {"name": "temperature", "type": "float"}
-  ]
+  "description": "Schema for representing an asset's key attributes",
+  "type": "object",
+  "required": [ "deviceId", "asset_name"],
+  "properties": {
+    "deviceId": {
+      "type": "string"
+    },
+    "temperature": {
+      "type": "double"
+    },
+    "serial_number": {
+      "type": "string"
+    },
+    "production_date": {
+      "type": "string",
+      "description": "Event duration"
+    },
+    "asset_name": {
+      "type": "string",
+      "description": "Name of asset"
+    },
+    "location": {
+      "type": "string",
+    },
+    "manufacturer": {
+      "type": "string",
+      "description": "Name of manufacturer"
+    }
+  }
 }
 ```
 
@@ -361,6 +319,77 @@ In the operations experience portal, select **Dataflow** > **Add transform (opti
   }
 }
 ```
+
+#### Specify output schema to transform data
+
+The following configuration demonstrates how to define an output schema in your Bicep file. In this example, the schema defines fields such as `asset_id`, `asset_name`, `location`, `temperature`, `manufacturer`, `production_date`, and `serial_number`. Each field is assigned a specific data type (e.g., `string`) and marked as non-nullable. This ensures all incoming messages contain these fields with valid data.
+
+```bicep
+var assetDeltaSchema = '''
+{
+    "$schema": "Delta/1.0",
+    "type": "object",
+    "properties": {
+        "type": "struct",
+        "fields": [
+            { "name": "asset_id", "type": "string", "nullable": false, "metadata": {} },
+            { "name": "asset_name", "type": "string", "nullable": false, "metadata": {} },
+            { "name": "location", "type": "string", "nullable": false, "metadata": {} },
+            { "name": "manufacturer", "type": "string", "nullable": false, "metadata": {} },
+            { "name": "production_date", "type": "string", "nullable": false, "metadata": {} },
+            { "name": "serial_number", "type": "string", "nullable": false, "metadata": {} },
+            { "name": "temperature", "type": "double", "nullable": false, "metadata": {} }
+        ]
+    }
+}
+'''
+```
+
+To register the schema with the Azure Schema Registry, use the following Bicep configuration. This configuration creates a schema definition and assigns it a version within the schema registry, allowing it to be referenced later in your data transformations.
+
+```bicep
+param opcuaSchemaName string = 'opcua-output-delta'
+param opcuaSchemaVer string = '1'
+
+resource opcSchema 'Microsoft.DeviceRegistry/schemaRegistries/schemas@2024-09-01-preview' = {
+  parent: schemaRegistry
+  name: opcuaSchemaName
+  properties: {
+    displayName: 'OPC UA Delta Schema'
+    description: 'This is a OPC UA delta Schema'
+    format: 'Delta/1.0'
+    schemaType: 'MessageSchema'
+  }
+}
+
+resource opcuaSchemaInstance 'Microsoft.DeviceRegistry/schemaRegistries/schemas/schemaVersions@2024-09-01-preview' = {
+  parent: opcSchema
+  name: opcuaSchemaVer
+  properties: {
+    description: 'Schema version'
+    schemaContent: opcuaSchemaContent
+  }
+}
+```
+
+When the dataflow resource is created, it includes a schemaRef value that points to the generated schema stored in the schema registry. It can be referenced in transformations which creates a new schema in Delta format.
+
+Currently, Azure IoT Operations experience only supports Parquet output for output schemas.
+
+Note: The Delta schema format is used for both Parquet and Delta output.
+
+```bicep
+{
+  operationType: 'BuiltInTransformation'
+  builtInTransformationSettings: {
+    // ..
+    schemaRef: 'aio-sr://${opcuaSchemaName}:${opcuaSchemaVer}'
+    serializationFormat: 'Parquet' // can also be 'Delta' 
+  }
+}
+```
+
+For more information about schema registry, see [Understand message schemas](concept-schema-registry.md).
 
 # [Kubernetes](#tab/kubernetes)
 
