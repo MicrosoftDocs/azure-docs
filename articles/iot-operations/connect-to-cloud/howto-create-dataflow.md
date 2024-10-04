@@ -345,7 +345,7 @@ var assetDeltaSchema = '''
 '''
 ```
 
-To register the schema with the Azure Schema Registry, use the following Bicep configuration. This configuration creates a schema definition and assigns it a version within the schema registry, allowing it to be referenced later in your data transformations.
+The following Bicep configuration registers the schema with the Azure Schema Registry. This configuration creates a schema definition and assigns it a version within the schema registry, allowing it to be referenced later in your data transformations.
 
 ```bicep
 param opcuaSchemaName string = 'opcua-output-delta'
@@ -401,22 +401,12 @@ Currently, the enrich operation isn't available in the operations experience por
 
 # [Bicep](#tab/bicep)
 
-For example, you could use the `deviceId` field in the source data to match the `asset` field in the dataset:
+This example shows how you could use the `deviceId` field in the source data to match the `asset` field in the dataset:
 
 ```bicep
 builtInTransformationSettings: {
-  datasets: [
-    {
-      key: 'assetDataset'
-      inputs: [
-        '$source.deviceId', // Reference to the device ID from the source
-        '$context(assetDataset).asset' // Reference to the asset from the dataset context
-      ]
-      expression: '$1 == $2' // Expression to evaluate the inputs
-    }
-  ]
+  // TODO: Add bicep template to enrich data
 }
-
 ```
 
 ### Passthrough operation
@@ -431,8 +421,6 @@ builtInTransformationSettings: {
       output: '*'
     }
   ]
-  schemaRef: 'aio-sr://${opcuaSchemaName}:${opcuaSchemaVer}'
-  serializationFormat: 'Delta' // Can also be 'Parquet'
 }
 ```
 
@@ -489,17 +477,11 @@ To filter the data on a condition, you can use the `filter` stage. The condition
 For example, you could use the `temperature` field in the source data to filter the data:
 
 ```bicep
+```bicep
 builtInTransformationSettings: {
-  filter: [
-    {
-      inputs: [
-        'temperature ? $last' // Reference to the last temperature value, if available
-      ]
-      expression: '$1 > 20' // Expression to filter based on the temperature value
-    }
-  ]
+  // TODO: Add bicep template to filter data
 }
-
+```
 ```
 
 # [Kubernetes](#tab/kubernetes)
@@ -542,19 +524,7 @@ For example, you could use the `temperature` field in the source data to convert
 ```bicep
 builtInTransformationSettings: {
   map: [
-    {
-      inputs: [
-        'temperature' // Reference to the temperature input
-      ]
-      output: 'temperatureCelsius' // Output variable for the converted temperature
-      expression: '($1 - 32) * 5/9' // Expression to convert Fahrenheit to Celsius
-    }
-    {
-      inputs: [
-        '$context(assetDataset).location' // Reference to the location from the dataset context
-      ]
-      output: 'location' // Output variable for the location
-    }
+      // TODO: Add bicep template to move data from one field to another
   ]
 }
 
