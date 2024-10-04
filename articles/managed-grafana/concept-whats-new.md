@@ -21,7 +21,7 @@ ms.date: 02/22/2024
 
 ## September 2023
 
-* [Microsoft Entra groups](how-to-sync-teams-with-azure-ad-groups.md) is available in preview in Azure Managed Grafana.
+* [Microsoft Entra groups](how-to-sync-teams-with-entra-groups.md) is available in preview in Azure Managed Grafana.
 
 * [Plugin management](how-to-manage-plugins.md) is available in preview. This feature lets you manage installed Grafana plugins directly within an Azure Managed Grafana workspace.
 

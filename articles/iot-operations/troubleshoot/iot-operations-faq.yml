@@ -6,7 +6,7 @@ metadata:
   ms.author: patricka
   ms.topic: faq
   ms.custom: references_regions
-  ms.date: 07/31/2024
+  ms.date: 09/10/2024
 
 title: Azure IoT Operations frequently asked questions
 summary: |
@@ -15,6 +15,9 @@ summary: |
 sections:
   - name: General
     questions:
+    - question: |
+         How do I share feedback with the Azure IoT Operations product team?
+      answer: Share your feedback on the [Azure IoT Operations public feedback forum](https://feedback.azure.com/d365community/forum/20152d6e-6a76-ee11-8179-000d3a1abe9e).
     - question: |
          Is message persistence supported?
       answer: Currently, message persistence isn't supported in the preview version of Azure IoT Operations.
@@ -26,7 +29,7 @@ sections:
       answer: Yes, Azure IoT Operations workloads on K3s and HCI/AKS-Arc multi-node clusters support distribution of Azure IoT Operations workloads across multi-nodes setups in the preview version.
     - question: |
          Can I migrate my IoT Edge workloads to Azure IoT Operations?
-      answer: Currently, there's no documented migration path from IoT Edge to Azure IoT Operations. If you have any feature asks for Azure IoT Operations as part of your migration plans, relay your requests back to us.
+      answer: Currently, there's no documented migration path from IoT Edge to Azure IoT Operations. If you have any feature asks for Azure IoT Operations as part of your migration plans, share your requests on the [Azure IoT Operations public feedback forum](https://feedback.azure.com/d365community/forum/20152d6e-6a76-ee11-8179-000d3a1abe9e).
     - question: |
          Can I just upgrade my preview version to the general availability version?
       answer: You can't upgrade from the preview to the general availability version directly. You need to redeploy.

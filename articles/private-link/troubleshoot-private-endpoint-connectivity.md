@@ -50,7 +50,7 @@ Review these steps to make sure all the usual configurations are as expected to 
         
        :::image type="content" source="./media/private-endpoint-tsg/vnet-dns-configuration.png" alt-text="Screenshot of virtual network and DNS configuration.":::
     
-1. Use [Azure Monitor](../azure-monitor/overview.md) to see if data is flowing.
+1. Use [Azure Monitor](/azure/azure-monitor/overview) to see if data is flowing.
 
     a. On the private endpoint resource, select **Metrics**.
 

@@ -12,7 +12,7 @@ ms.author: sudhirsneha
 
 # Quickstart: Install Hybrid Worker extension on Virtual Machines using the Azure portal
 
-The Azure Automation User Hybrid Worker enables the execution of PowerShell and Python scripts directly on machines for managing guest workloads or as a gateway to environments that aren't accessible from Azure. You can configure Windows and Linux Azure Virtual Machine. [Azure Arc-enabled Server](../../azure-arc/servers/overview.md), [Arc-enabled VMware vSphere VM](../../azure-arc/vmware-vsphere/overview.md), and [Azure Arc-enabled SCVMM](../../azure-arc/system-center-virtual-machine-manager/overview.md) as User Hybrid Worker by installing Hybrid Worker extension.
+The Azure Automation User Hybrid Worker enables the execution of PowerShell and Python scripts directly on machines for managing guest workloads or as a gateway to environments that aren't accessible from Azure. You can configure Windows and Linux Azure Virtual Machine. [Azure Arc-enabled Server](/azure/azure-arc/servers/overview), [Arc-enabled VMware vSphere VM](/azure/azure-arc/vmware-vsphere/overview), and [Azure Arc-enabled SCVMM](/azure/azure-arc/system-center-virtual-machine-manager/overview) as User Hybrid Worker by installing Hybrid Worker extension.
 
 This quickstart shows you how to install Azure Automation Hybrid Worker extension on an Azure Virtual Machine through the Extensions blade on Azure portal. 
 

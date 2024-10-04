@@ -128,8 +128,8 @@ IP ranges between the Docker network bridge and your virtual network.
 Docker Hub limits the number of image pulls. Ensure that your workload doesn't
 [exceed published rate limits](https://docs.docker.com/docker-hub/download-rate-limit/) for Docker
 Hub-based images. It's recommended to use
-[Azure Container Registry](../container-registry/container-registry-intro.md) directly or leverage
-[Artifact cache in ACR](../container-registry/container-registry-artifact-cache.md).
+[Azure Container Registry](/azure/container-registry/container-registry-intro) directly or leverage
+[Artifact cache in ACR](/azure/container-registry/container-registry-artifact-cache).
 
 ### Azure region dependency
 

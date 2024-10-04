@@ -1,8 +1,8 @@
 ---
 title: Security in Azure Operator 5G Core Preview
 description: Review the security features embedded in Azure Operator 5G Core Preview.
-author: SarahBoris
-ms.author: sboris
+author: HollyCl
+ms.author: HollyCl
 ms.service: azure-operator-5g-core
 ms.topic: concept-article #required; leave this attribute/value as-is.
 ms.date: 03/21/2024

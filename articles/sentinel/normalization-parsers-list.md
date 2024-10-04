@@ -92,8 +92,8 @@ ASIM Network Session parsers are available in every workspace. Microsoft Sentine
 | **AppGate SDP** | IP connection logs collected using Syslog. | `_Im_NetworkSession_AppGateSDPVxx` |
 | **AWS VPC logs** | Collected using the AWS S3 connector. | `_Im_NetworkSession_AWSVPCVxx` |
 | **Azure Firewall logs** | |`_Im_NetworkSession_AzureFirewallVxx`|
-| **Azure Monitor VMConnection** | Collected as part of the Azure Monitor [VM Insights solution](../azure-monitor/vm/vminsights-overview.md). | `_Im_NetworkSession_VMConnectionVxx`  |
-| **Azure Network Security Groups (NSG) logs** | Collected as part of the Azure Monitor [VM Insights solution](../azure-monitor/vm/vminsights-overview.md). | `_Im_NetworkSession_AzureNSGVxx` |
+| **Azure Monitor VMConnection** | Collected as part of the Azure Monitor [VM Insights solution](/azure/azure-monitor/vm/vminsights-overview). | `_Im_NetworkSession_VMConnectionVxx`  |
+| **Azure Network Security Groups (NSG) logs** | Collected as part of the Azure Monitor [VM Insights solution](/azure/azure-monitor/vm/vminsights-overview). | `_Im_NetworkSession_AzureNSGVxx` |
 | **Checkpoint Firewall-1** | Collected using CEF. | `_Im_NetworkSession_CheckPointFirewallVxx` |
 | **Cisco ASA** | Collected using the CEF connector. | `_Im_NetworkSession_CiscoASAVxx` |
 | **Cisco Meraki** | Collected using the Cisco Meraki API connector. | `_Im_NetworkSession_CiscoMerakiVxx` |

@@ -56,7 +56,7 @@ To add a new or existing virtual network to your storage account, follow these s
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-1. Sign in to the Azure portal.
+1. Sign in to Azure.
 
    ```azurepowershell-interactive
    Connect-AzAccount
@@ -140,7 +140,7 @@ To add a new or existing virtual network to your storage account, follow these s
 
 # [Azure CLI](#tab/azure-cli)
 
-1. Sign in to the Azure portal.
+1. Sign in to Azure.
 
    ```azurecli-interactive
    az login

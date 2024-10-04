@@ -3,7 +3,8 @@ title: Apache Flink® Application Mode cluster on HDInsight on AKS
 description: Learn about  Flink® Application Mode cluster on HDInsight on AKS.
 ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 03/21/2024
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Apache Flink Application Mode cluster on HDInsight on AKS

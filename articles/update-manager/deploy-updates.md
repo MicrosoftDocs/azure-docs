@@ -89,7 +89,7 @@ To install one-time updates on a single VM:
 
 1. On the **Install one-time updates** page, the selected machine appears. Choose the machine, select **Next**, and follow the procedure from step 4 listed in **From Overview pane** of [Install updates on a single VM](#install-updates-on-a-single-vm).
 
-   A notification informs you when the activity starts, and another tells you when it's finished. After it's successfully finished, you can view the installation operation results in **History**. You can view the status of the operation at any time from the [Azure activity log](../azure-monitor/essentials/activity-log.md).
+   A notification informs you when the activity starts, and another tells you when it's finished. After it's successfully finished, you can view the installation operation results in **History**. You can view the status of the operation at any time from the [Azure activity log](/azure/azure-monitor/essentials/activity-log).
 
 # [From a selected VM](#tab/singlevm-deploy-home)
 
@@ -140,7 +140,7 @@ You can schedule updates.
 
 ----
 
-A notification informs you when the activity starts, and another tells you when it's finished. After it's successfully finished, you can view the installation operation results in **History**. You can view the status of the operation at any time from the [Azure activity log](../azure-monitor/essentials/activity-log.md).
+A notification informs you when the activity starts, and another tells you when it's finished. After it's successfully finished, you can view the installation operation results in **History**. You can view the status of the operation at any time from the [Azure activity log](/azure/azure-monitor/essentials/activity-log).
 
 ## View update history for a single VM
 

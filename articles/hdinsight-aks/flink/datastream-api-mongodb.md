@@ -3,7 +3,8 @@ title: Use DataStream API for MongoDB as a source and sink with Apache Flink®
 description: Learn how to use Apache Flink® DataStream API on HDInsight on AKS for MongoDB as a source and sink.
 ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 03/22/2024
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Use Apache Flink® DataStream API on HDInsight on AKS for MongoDB as a source and sink  

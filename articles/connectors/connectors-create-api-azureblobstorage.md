@@ -393,13 +393,11 @@ The steps to add and use an Azure Blob action differ based on whether you want t
 
 You can add network security to an Azure storage account by [restricting access with a firewall and firewall rules](../storage/common/storage-network-security.md). However, this setup creates a challenge for Azure and other Microsoft services that need access to the storage account. Local communication in the data center abstracts the internal IP addresses, so just permitting traffic through IP addresses might not be enough to successfully allow communication across the firewall. Based on which Azure Blob Storage connector you use, the following options are available:
 
-- To access storage accounts behind firewalls using the Azure Blob Storage managed connector in Consumption and ISE-based logic apps, review the following documentation:
+- To access storage accounts behind firewalls using the Azure Blob Storage managed connector in Consumption logic apps, see the following documentation:
 
   - [Access storage accounts in same region with system-managed identities](#access-blob-storage-in-same-region-with-system-managed-identities)
 
   - [Access storage accounts in other regions](#access-storage-accounts-in-other-regions)
-
-- To access storage accounts behind firewalls using the ISE-versioned Azure Blob Storage connector that's only available in an ISE-based logic app, review [Access storage accounts through trusted virtual network](#access-storage-accounts-through-trusted-virtual-network).
 
 - To access storage accounts behind firewalls in Standard logic apps, review the following documentation:
 
@@ -412,6 +410,7 @@ You can add network security to an Azure storage account by [restricting access 
 If you don't use managed identity authentication, logic app workflows can't directly access storage accounts behind firewalls when both the logic app resource and storage account exist in the same region. As a workaround, put your logic app resource in a different region than your storage account. Then, give access to the [outbound IP addresses for the managed connectors in your region](/connectors/common/outbound-ip-addresses#azure-logic-apps).
 
 > [!NOTE]
+>
 > This solution doesn't apply to the Azure Table Storage connector and Azure Queue Storage connector. 
 > Instead, to access your Table Storage or Queue Storage, [use the built-in HTTP trigger and action](../logic-apps/logic-apps-http-endpoint.md).
 
@@ -439,7 +438,7 @@ To add your outbound IP addresses to the storage account firewall, follow these 
 
 - Your logic app and storage account exist in different regions.
 
-  You don't have to create a private endpoint. You can just permit traffic through the ISE outbound IPs on the storage account.
+  Create a private endpoint on your storage account for access.
 
 ### Access storage accounts through virtual network integration
 
@@ -449,7 +448,7 @@ To add your outbound IP addresses to the storage account firewall, follow these 
 
 - Your logic app and storage account exist in different regions.
 
-  You don't have to create a private endpoint. You can just permit traffic through the ISE outbound IPs on the storage account.
+  Create a private endpoint on your storage account for access.
 
 ### Access Blob Storage in same region with system-managed identities
 

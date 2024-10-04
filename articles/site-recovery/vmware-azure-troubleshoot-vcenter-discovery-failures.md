@@ -4,9 +4,9 @@ description: This article describes how to troubleshooting VMware vCenter discov
 author: ankitaduttaMSFT
 manager: gaggupta
 ms.service: azure-site-recovery
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.author: ankitadutta
-ms.date: 05/27/2021
+ms.date: 09/06/2024
 
 ---
 # Troubleshoot vCenter Server discovery failures

@@ -169,7 +169,7 @@ $acr = New-AzContainerRegistry -ResourceGroupName $ResourceGroup -Name $ACRName 
 
 ## Build your application
 
-With [ACR tasks](../container-registry/container-registry-tasks-overview.md), you can build and push the docker image for the album API without installing Docker locally.
+With [ACR tasks](/azure/container-registry/container-registry-tasks-overview), you can build and push the docker image for the album API without installing Docker locally.
 
 ### Build the container with ACR
 

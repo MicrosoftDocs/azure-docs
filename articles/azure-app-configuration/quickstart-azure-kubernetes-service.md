@@ -241,7 +241,7 @@ Add following key-values to the App Configuration store and leave **Label** and 
          --namespace azappconfig-system \
          --create-namespace
     ```
-
+    
     > [!TIP]
     > The App Configuration Kubernetes Provider is also available as an AKS extension. This integration allows for seamless installation and management via the Azure CLI, ARM templates, or Bicep templates. Utilizing the AKS extension facilitates automatic minor/patch version updates, ensuring your system is always up-to-date. For detailed installation instructions, please refer to the [Azure App Configuration extension for Azure Kubernetes Service](/azure/aks/azure-app-configuration).
 
@@ -261,10 +261,10 @@ Add following key-values to the App Configuration store and leave **Label** and 
           key: mysettings.json
       auth:
         workloadIdentity:
-          managedIdentityClientId: <your-managed-identity-client-id>
+          serviceAccountName: <your-service-account-name>
     ```
 
-    Replace the value of the `endpoint` field with the endpoint of your Azure App Configuration store. Follow the steps in [use workload identity](./reference-kubernetes-provider.md#use-workload-identity) and update the `auth` section with the client ID of the user-assigned managed identity you created.
+    Replace the value of the `endpoint` field with the endpoint of your Azure App Configuration store. Proceed to the next step to update the `auth` section with your authentication information.
     
     > [!NOTE]
     > `AzureAppConfigurationProvider` is a declarative API object. It defines the desired state of the ConfigMap created from the data in your App Configuration store with the following behavior:
@@ -272,6 +272,8 @@ Add following key-values to the App Configuration store and leave **Label** and 
     > - The ConfigMap will fail to be created if a ConfigMap with the same name already exists in the same namespace.
     > - The ConfigMap will be reset based on the present data in your App Configuration store if it's deleted or modified by any other means.
     > - The ConfigMap will be deleted if the App Configuration Kubernetes Provider is uninstalled.
+
+1. Follow the [instructions to use the workload identity](./reference-kubernetes-provider.md#use-workload-identity) to authenticate with your App Configuration store. Update the *appConfigurationProvider.yaml* file by replacing the `serviceAccountName` field with the name of the service account you created. For more information on other authentication methods, refer to the examples in the [Authentication](./reference-kubernetes-provider.md#authentication) section.
 
 1. Update the *deployment.yaml* file in the *Deployment* directory to use the ConfigMap `configmap-created-by-appconfig-provider` as a mounted data volume. It is important to ensure that the `volumeMounts.mountPath` matches the `WORKDIR` specified in your *Dockerfile* and the *config* directory created before.
    
@@ -369,6 +371,10 @@ Ensure that you specify the correct key-value selectors to match the expected da
 #### How can I customize the installation of the Azure App Configuration Kubernetes Provider?
 
 You can customize the installation by providing additional Helm values when installing the Azure App Configuration Kubernetes Provider. For example, you can set the log level, configure the provider to run on a specific node, or disable the workload identity. Refer to the [installation guide](./reference-kubernetes-provider.md#installation) for more information.
+
+#### Why am I unable to authenticate with Azure App Configuration using workload identity after upgrading the provider to version 2.0.0?
+
+Starting with version 2.0.0, a user-provided service account is required for authenticating with Azure App Configuration [using workload identity](./reference-kubernetes-provider.md#use-workload-identity). This change enhances security through namespace isolation. Previously, a Kubernetes provider’s service account was used for all namespaces. For updated instructions, see the documentation on using workload identity. If you need time to migrate when upgrading to version 2.0.0, you can temporarily set `workloadIdentity.globalServiceAccountEnabled=true` during provider installation. Please note that support for using the provider’s service account will be deprecated in a future release.
 
 ## Clean up resources
 

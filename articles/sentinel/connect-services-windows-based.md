@@ -21,9 +21,9 @@ Some connectors based on the Azure Monitor Agent (AMA) are currently in **PREVIE
 
 The Azure Monitor Agent is currently supported only for Windows Security Events, Windows Forwarded Events, and Windows DNS Events. 
 
-The [Azure Monitor agent](../azure-monitor/agents/azure-monitor-agent-overview.md) uses **Data collection rules (DCRs)** to define the data to collect from each agent. Data collection rules offer you two distinct advantages:
+The [Azure Monitor agent](/azure/azure-monitor/agents/azure-monitor-agent-overview) uses **Data collection rules (DCRs)** to define the data to collect from each agent. Data collection rules offer you two distinct advantages:
 
-- **Manage collection settings at scale** while still allowing unique, scoped configurations for subsets of machines. They are independent of the workspace and independent of the virtual machine, which means they can be defined once and reused across machines and environments. See [Configure data collection for the Azure Monitor agent](../azure-monitor/agents/azure-monitor-agent-data-collection.md).
+- **Manage collection settings at scale** while still allowing unique, scoped configurations for subsets of machines. They are independent of the workspace and independent of the virtual machine, which means they can be defined once and reused across machines and environments. See [Configure data collection for the Azure Monitor agent](/azure/azure-monitor/agents/azure-monitor-agent-data-collection).
 
 - **Build custom filters** to choose the exact events you want to ingest. The Azure Monitor Agent uses these rules to filter the data *at the source* and ingest only the events you want, while leaving everything else behind. This can save you a lot of money in data ingestion costs!
 
@@ -33,7 +33,7 @@ See below how to create data collection rules.
 
 - You must have read and write permissions on the Microsoft Sentinel workspace.
 
-- To collect events from any system that is not an Azure virtual machine, the system must have [**Azure Arc**](../azure-monitor/agents/azure-monitor-agent-manage.md) installed and enabled *before* you enable the Azure Monitor Agent-based connector.
+- To collect events from any system that is not an Azure virtual machine, the system must have [**Azure Arc**](/azure/azure-monitor/agents/azure-monitor-agent-manage) installed and enabled *before* you enable the Azure Monitor Agent-based connector.
 
   This includes:
 
@@ -60,9 +60,9 @@ See below how to create data collection rules.
 
 1. In the **Resources** tab, select **+Add resource(s)** to add machines to which the Data Collection Rule will apply. The **Select a scope** dialog will open, and you will see a list of available subscriptions. Expand a subscription to see its resource groups, and expand a resource group to see the available machines. You will see Azure virtual machines and Azure Arc-enabled servers in the list. You can mark the check boxes of subscriptions or resource groups to select all the machines they contain, or you can select individual machines. Select **Apply** when you've chosen all your machines. At the end of this process, the Azure Monitor Agent will be installed on any selected machines that don't already have it installed.
 
-1. On the **Collect** tab, choose the events you would like to collect: select **All events** or **Custom** to specify other logs or to filter events using [XPath queries](../azure-monitor/agents/data-collection-windows-events.md#filter-events-using-xpath-queries) (see note below). Enter expressions in the box that evaluate to specific XML criteria for events to collect, then select **Add**. You can enter up to 20 expressions in a single box, and up to 100 boxes in a rule.
+1. On the **Collect** tab, choose the events you would like to collect: select **All events** or **Custom** to specify other logs or to filter events using [XPath queries](/azure/azure-monitor/agents/data-collection-windows-events#filter-events-using-xpath-queries) (see note below). Enter expressions in the box that evaluate to specific XML criteria for events to collect, then select **Add**. You can enter up to 20 expressions in a single box, and up to 100 boxes in a rule.
 
-    Learn more about [data collection rules](../azure-monitor/essentials/data-collection-rule-overview.md) from the Azure Monitor documentation.
+    Learn more about [data collection rules](/azure/azure-monitor/essentials/data-collection-rule-overview) from the Azure Monitor documentation.
 
     > [!NOTE]
     >
@@ -139,7 +139,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/m
 }
 ```
 
-See this [complete description of data collection rules](../azure-monitor/essentials/data-collection-rule-overview.md) from the Azure Monitor documentation.
+See this [complete description of data collection rules](/azure/azure-monitor/essentials/data-collection-rule-overview) from the Azure Monitor documentation.
 
 ## Log Analytics Agent (Legacy)
 
@@ -165,9 +165,9 @@ The Log Analytics agent will be [retired on **31 August, 2024**](https://azure.m
 
 To allow Windows systems without the necessary internet connectivity to still stream events to Microsoft Sentinel, download and install the **Log Analytics Gateway** on a separate machine, using the **Download Log Analytics Gateway** link on the **Agents Management** page, to act as a proxy.  You still need to install the Log Analytics agent on each Windows system whose events you want to collect.
 
-For more information on this scenario, see the [**Log Analytics gateway** documentation](../azure-monitor/agents/gateway.md).
+For more information on this scenario, see the [**Log Analytics gateway** documentation](/azure/azure-monitor/agents/gateway).
 
-For additional installation options and further details, see the [**Log Analytics agent** documentation](../azure-monitor/agents/agent-windows.md).
+For additional installation options and further details, see the [**Log Analytics agent** documentation](/azure/azure-monitor/agents/agent-windows).
 
 ### Determine the logs to send
 

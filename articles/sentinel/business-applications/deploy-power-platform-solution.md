@@ -6,7 +6,10 @@ author: batamig
 ms.service: microsoft-sentinel
 ms.topic: how-to
 ms.date: 02/28/2024
-#CustomerIntent: As a security engineer, I want to ingest Power Platform activity logs into Microsoft Sentinel for security monitoring, detect related threats, and respond to incidents.
+
+
+#Customer intent: As a security administrator, I want to deploy and configure the Microsoft Sentinel solution for Power Platform so that I can monitor and detect suspicious activities in my Power Platform environment.
+
 ---
 
 # Deploy the Microsoft Sentinel solution for Microsoft Power Platform 

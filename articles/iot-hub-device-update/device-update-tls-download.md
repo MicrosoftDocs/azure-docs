@@ -51,6 +51,10 @@ The Device Update for IoT Hub samples also have functions to parse the URL that 
 
 Finally, you may also need to make changes to your own implementation, such as changing the HTTPS header buffer to manage the update URL format that your device will receive from Device Update.
 
+## Certificate information
+
+The certificate used to enable the TLS connection is issued by: **Microsoft Azure RSA TLS Issuing CA 03**. Devices that download content over TLS from the Device Update service will need to be provisioned with one or more certificates that have Microsoft Azure RSA TLS Issuing CA 03 as their root.
+
 ## Next steps
 
 [Troubleshoot common issues](troubleshoot-device-update.md)

@@ -10,9 +10,9 @@ ms.date: 09/23/2022
 
 # Start/Stop VMs v2 overview
 
-The Start/Stop VMs v2 feature starts or stops Azure Virtual Machines instances across multiple subscriptions. It starts or stops virtual machines on user-defined schedules, provides insights through [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md), and send optional notifications by using [action groups](../../azure-monitor/alerts/action-groups.md). For most scenarios, Start/Stop VMs can manage virtual machines deployed and managed both by Azure Resource Manager and by Azure Service Manager (classic), which is [deprecated](/azure/virtual-machines/classic-vm-deprecation).
+The Start/Stop VMs v2 feature starts or stops Azure Virtual Machines instances across multiple subscriptions. It starts or stops virtual machines on user-defined schedules, provides insights through [Azure Application Insights](/azure/azure-monitor/app/app-insights-overview), and send optional notifications by using [action groups](/azure/azure-monitor/alerts/action-groups). For most scenarios, Start/Stop VMs can manage virtual machines deployed and managed both by Azure Resource Manager and by Azure Service Manager (classic), which is [deprecated](/azure/virtual-machines/classic-vm-deprecation).
 
-This new version of Start/Stop VMs v2 provides a decentralized low-cost automation option for customers who want to optimize their VM costs. It offers all of the same functionality as the original version that was available with Azure Automation, but it's designed to take advantage of newer technology in Azure. The Start/Stop VMs v2 relies on multiple Azure services and it will be charged based on the service that are deployed and consumed.
+This new version of Start/Stop VMs v2 provides a decentralized low-cost automation option for customers who want to optimize their VM costs. It offers all of the same functionality as the original version that was available with Azure Automation, but it's designed to take advantage of newer technology in Azure. The Start/Stop VMs v2 relies on multiple Azure services and it will be charged based on the services that are deployed and consumed.
 
 ## Important Start/Stop VMs v2 Updates
 
@@ -75,9 +75,7 @@ An Azure Storage account, which is required by Functions, is also used by Start/
 
    - Uses Azure Queue Storage to support the Azure Functions queue-based triggers.
 
-All trace logging data from the function app execution is sent to your connected Application Insights instance. You can view the telemetry data stored in Application Insights from a set of pre-defined visualizations presented in a shared [Azure dashboard](../../azure-portal/azure-portal-dashboards.md).
-
-:::image type="content" source="media/overview/shared-dashboard-sml.png" alt-text="Start/Stop VMs shared status dashboard":::
+All trace logging data from the function app execution is sent to your connected Application Insights instance. You can view the telemetry data stored in Application Insights from a set of pre-defined visualizations presented in a shared [Azure dashboard](/azure/azure-portal/azure-portal-dashboards).
 
 Email notifications are also sent as a result of the actions performed on the VMs.
 

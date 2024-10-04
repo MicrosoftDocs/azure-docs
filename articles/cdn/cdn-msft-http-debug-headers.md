@@ -12,6 +12,8 @@ ms.author: duau
 
 # Debug HTTP header for Azure CDN from Microsoft
 
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
+
 The debug response header, `X-Cache`, provides details as to what layer of the CDN stack the content was served from. This header is specific to Azure CDN from Microsoft.
 
 ### Response header format

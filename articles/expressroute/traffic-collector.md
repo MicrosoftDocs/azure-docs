@@ -13,7 +13,7 @@ ms.custom: references_regions
 
 # Azure ExpressRoute Traffic Collector
 
-ExpressRoute Traffic Collector enables sampling of network flows sent over your ExpressRoute circuits. Flow logs get sent to a [Log Analytics workspace](../azure-monitor/logs/log-analytics-overview.md) where you can create your own log queries for further analysis. You can also export the data to any visualization tool or SIEM (Security Information and Event Management) of your choice. Flow logs can be enabled for both private peering and Microsoft peering with ExpressRoute Traffic Collector.
+ExpressRoute Traffic Collector enables sampling of network flows sent over your ExpressRoute circuits. Flow logs get sent to a [Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-overview) where you can create your own log queries for further analysis. You can also export the data to any visualization tool or SIEM (Security Information and Event Management) of your choice. Flow logs can be enabled for both private peering and Microsoft peering with ExpressRoute Traffic Collector.
 
 :::image type="content" source="./media/traffic-collector/main-diagram.png" alt-text="Diagram of ExpressRoute traffic collector in an Azure environment.":::
 
@@ -109,7 +109,7 @@ Note: If your desired region is not yet supported, you can deploy ExpressRoute T
 
 ## Pricing
 
-| Zone | Gateway per hour | Data processed per GB |
+| Zone | Collector Instance Uptime | Data processed per GB |
 | ---- | ---------------- | --------------------- |
 | Zone 1 | $0.60/hour | $0.10/GB |
 | Zone 2 | $0.80/hour | $0.20/GB |

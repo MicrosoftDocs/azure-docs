@@ -21,13 +21,13 @@ If those options don't solve the problem, contact [Dynatrace support](https://s
 
 - To set up the Azure Native Dynatrace Service, you must have **Owner** or **Contributor** access on the Azure subscription. Ensure you have the appropriate access before starting the setup.
 
-- Create fails because Last Name is empty. The issue happens when the user info in Microsoft Entra ID is incomplete and doesn't contain Last Name. Contact your Azure tenant's global administrator to rectify the issue and try again.
+- Create fails because Last Name is empty. The issue happens when the user info in Microsoft Entra ID is incomplete and doesn't contain Last Name. Contact your Azure tenant's administrator to rectify the issue and try again.
 
 ## Logs not being emitted or limit reached issue
 
-- Resource doesn't support sending logs. Only resource types with monitoring log categories can be configured to send logs.  For more information, see [supported categories](../../azure-monitor/essentials/resource-logs-categories.md).
+- Resource doesn't support sending logs. Only resource types with monitoring log categories can be configured to send logs.  For more information, see [supported categories](/azure/azure-monitor/essentials/resource-logs-categories).
 
-- Limit of five diagnostic settings reached. This displays the message of Limit reached against the resource. Each Azure resource can have a maximum of five diagnostic settings. For more information, see [diagnostic settings](../../azure-monitor/essentials/diagnostic-settings.md?tabs=portal) You can go ahead and remove the other destinations to make sure each resource is sending data to at max five destinations.
+- Limit of five diagnostic settings reached. This displays the message of Limit reached against the resource. Each Azure resource can have a maximum of five diagnostic settings. For more information, see [diagnostic settings](/azure/azure-monitor/essentials/diagnostic-settings?tabs=portal) You can go ahead and remove the other destinations to make sure each resource is sending data to at max five destinations.
 
 - Export of Metrics data isn't supported currently by the partner solutions under Azure Monitor diagnostic settings. 
 

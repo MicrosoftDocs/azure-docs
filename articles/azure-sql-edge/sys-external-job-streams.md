@@ -3,7 +3,7 @@ title: sys.external_job_streams (Transact-SQL) - Azure SQL Edge
 description: Learn about using sys.external_job_streams in Azure SQL Edge
 author: rwestMSFT
 ms.author: randolphwest
-ms.date: 09/14/2023
+ms.date: 09/21/2024
 ms.service: azure-sql-edge
 ms.topic: reference
 keywords:
@@ -12,7 +12,9 @@ keywords:
 ---
 # sys.external_job_streams (Transact-SQL)
 
-> [!IMPORTANT]  
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
+
+> [!NOTE]  
 > Azure SQL Edge no longer supports the ARM64 platform.
 
 Returns a row each for the input or output external stream object mapped to an external streaming job.
@@ -53,7 +55,7 @@ INNER JOIN sys.external_streaming_jobs sj
 
 The visibility of the metadata in catalog views is limited to securables that a user either owns or on which the user has been granted some permission. For more information, see [Metadata Visibility Configuration](/sql/relational-databases/security/metadata-visibility-configuration/).
 
-## See also
+## Related content
 
 - [Catalog Views (Transact-SQL)](/sql/relational-databases/system-catalog-views/catalog-views-transact-sql/)
 - [System Views (Transact-SQL)](/sql/t-sql/language-reference/)

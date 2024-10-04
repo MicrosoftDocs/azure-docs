@@ -69,6 +69,16 @@ landingContent:
             url: how-to-troubleshoot-repair-dev-box.md      
 
   # Card
+  - title: Provide secure access
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Configure conditional access policies
+            url: how-to-configure-intune-conditional-access-policies.md
+          - text: Enable single sign-on for dev box
+            url: how-to-enable-single-sign-on.md  
+
+  # Card
   - title: Create custom dev boxes
     linkLists:
       - linkListType: how-to-guide

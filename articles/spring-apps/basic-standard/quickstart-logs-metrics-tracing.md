@@ -12,14 +12,13 @@ zone_pivot_groups: programming-languages-spring-apps
 
 # Quickstart: Monitoring Azure Spring Apps apps with logs, metrics, and tracing
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 **This article applies to:** ✔️ Basic/Standard ❌ Enterprise
 
 ::: zone pivot="programming-language-csharp"
 
-With the built-in monitoring capability in Azure Spring Apps, you can debug and monitor complex issues. Azure Spring Apps integrates Steeltoe [distributed tracing](https://docs.steeltoe.io/api/v3/tracing/) with Azure's [Application Insights](../../azure-monitor/app/app-insights-overview.md). This integration provides powerful logs, metrics, and distributed tracing capability from the Azure portal.
+With the built-in monitoring capability in Azure Spring Apps, you can debug and monitor complex issues. Azure Spring Apps integrates Steeltoe [distributed tracing](https://docs.steeltoe.io/api/v3/tracing/) with Azure's [Application Insights](/azure/azure-monitor/app/app-insights-overview). This integration provides powerful logs, metrics, and distributed tracing capability from the Azure portal.
 
 The following procedures explain how to use Log Streaming, Log Analytics, Metrics, and Distributed Tracing with the sample app that you deployed in the preceding quickstarts.
 
@@ -79,7 +78,7 @@ Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyVal
 
 1. Edit the query to remove the Where clauses that limit the display to warning and error logs.
 
-1. Select **Run**. You're shown logs. For more information, see [Get started with log queries in Azure Monitor](../../azure-monitor/logs/get-started-queries.md).
+1. Select **Run**. You're shown logs. For more information, see [Get started with log queries in Azure Monitor](/azure/azure-monitor/logs/get-started-queries).
 
    :::image type="content" source="media/quickstart-logs-metrics-tracing/logs-query-steeltoe.png" alt-text="Screenshot of the Azure portal that shows the Logs Analytics query result." lightbox="media/quickstart-logs-metrics-tracing/logs-query-steeltoe.png":::
 
@@ -121,7 +120,7 @@ Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyVal
 
 ::: zone pivot="programming-language-java"
 
-With the built-in monitoring capability in Azure Spring Apps, you can debug and monitor complex issues. Azure Spring Apps integrates [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) with Azure's [Application Insights](../../azure-monitor/app/app-insights-overview.md). This integration provides powerful logs, metrics, and distributed tracing capability from the Azure portal. The following procedures explain how to use Log Streaming, Log Analytics, Metrics, and Distributed tracing with deployed PetClinic apps.
+With the built-in monitoring capability in Azure Spring Apps, you can debug and monitor complex issues. Azure Spring Apps integrates [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) with Azure's [Application Insights](/azure/azure-monitor/app/app-insights-overview). This integration provides powerful logs, metrics, and distributed tracing capability from the Azure portal. The following procedures explain how to use Log Streaming, Log Analytics, Metrics, and Distributed tracing with deployed PetClinic apps.
 
 ## Prerequisites
 
@@ -193,7 +192,7 @@ Use the following steps to get the logs using the Azure Toolkit for IntelliJ:
 
    :::image type="content" source="media/quickstart-logs-metrics-tracing/logs-entry.png" alt-text="Screenshot of the Azure portal that shows the Queries page with Run highlighted." lightbox="media/quickstart-logs-metrics-tracing/logs-entry.png":::
 
-1. Then you're shown filtered logs. For more information, see [Get started with log queries in Azure Monitor](../../azure-monitor/logs/get-started-queries.md).
+1. Then you're shown filtered logs. For more information, see [Get started with log queries in Azure Monitor](/azure/azure-monitor/logs/get-started-queries).
 
    :::image type="content" source="media/quickstart-logs-metrics-tracing/logs-query.png" alt-text="Screenshot of the Azure portal that shows the query result of filtered logs." lightbox="media/quickstart-logs-metrics-tracing/logs-query.png":::
 

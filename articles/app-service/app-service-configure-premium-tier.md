@@ -114,5 +114,5 @@ New-AzAppServicePlan -ResourceGroupName <resource_group_name> `
 ## More resources
 
 * [Scale up an app in Azure](manage-scale-up.md)
-* [Scale instance count manually or automatically](../azure-monitor/autoscale/autoscale-get-started.md)
+* [Scale instance count manually or automatically](/azure/azure-monitor/autoscale/autoscale-get-started)
 * [Tutorial: Run a load test to identify performance bottlenecks in a web app](../load-testing/tutorial-identify-bottlenecks-azure-portal.md)
