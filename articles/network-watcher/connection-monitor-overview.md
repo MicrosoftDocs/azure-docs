@@ -458,6 +458,10 @@ There are several reasons to migrate from Network Performance Monitor and Connec
 | Support for Linux | Performance monitoring supports Linux. Service Connectivity Monitor and ExpressRoute don't support Linux. | Available | Available |
 | Support for public, government, Mooncake, and air-gapped cloud | Available | Available | Available|
 
+> [!NOTE]  
+> For cross-region usage of Connection Monitor, you need to deploy it on both regions.
+
+
 ## Related content
     
 - To learn how to create a connection monitor, see [Monitor network communication between two virtual machines using the Azure portal](monitor-vm-communication.md). 
