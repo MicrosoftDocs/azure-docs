@@ -30,8 +30,7 @@ In this tutorial, you learn how to:
 Required, if a free trial account exists Because Tutorials are intended to help new customers use the product or service to complete a top task, include a link to a free trial before the first H2. You can find listed examples in the  [tutorials pattern](article-tutorial.md)
 -->
 
-If you don’t have a \<service\> subscription, create a free trial account...
-TODO: Add the free account information if it exists
+If you don’t have a Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## Prerequisites
 
