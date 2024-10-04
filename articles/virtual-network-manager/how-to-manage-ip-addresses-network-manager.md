@@ -14,7 +14,7 @@ ms.custom:  references_regions
 
 [!INCLUDE [virtual-network-manager-ipam](../../includes/virtual-network-manager-ipam.md)]
 
-Azure Virtual Network Manager allows you to manage IP addresses by creating and assigning IP address pools to your virtual networks. This article shows you how to create and assign IP address pools to your virtual networks with IP address management (IPAM) in Azure Virtual Network Manager.
+Azure Virtual Network Manager allows you to manage IP addresses by creating and assigning IP address pools to your virtual networks. This article shows you how to create and assign IP address pools to your virtual networks with IP address management in Azure Virtual Network Manager.
 
 ## Prerequisites
 
@@ -72,7 +72,7 @@ In this step, you associate an existing virtual network with an IP address pool 
 
 ## Create static CIDR blocks for a pool
 
-In this step, you create a static CIDR block for a pool. This is helpful for allocating a space that is outside of Azure or Azure resources not supported by IPAM. For example, you can allocate a CIDR in the pool to the address space in your on-premises environment. Likewise, you can also use this for a space that is used by a Virtual WAN hub or Azure VMware Private Cloud.
+In this step, you create a static CIDR block for a pool. This is helpful for allocating a space that is outside of Azure or Azure resources not supported by IP address manager. For example, you can allocate a CIDR in the pool to the address space in your on-premises environment. Likewise, you can also use this for a space that is used by a Virtual WAN hub or Azure VMware Private Cloud.
 
 1. Browse to your IP address pool.
 2. Select **Allocate** or **Allocations** under **Settings**.
@@ -137,7 +137,7 @@ In this step, you delegate permissions to other users to manage IP address pools
 
 ## Create a virtual network with a nonoverlapping CIDR range
 
-In this step, you create a virtual network with a nonoverlapping CIDR range by allowing IPAM to automatically provide a nonoverlapping CIDR.
+In this step, you create a virtual network with a nonoverlapping CIDR range by allowing IP address manager to automatically provide a nonoverlapping CIDR.
 
 1. In the Azure portal, search for and select **Virtual networks**.
 2. Select **+ Create**.
