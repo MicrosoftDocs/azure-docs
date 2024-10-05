@@ -62,9 +62,9 @@ To create a dataflow in the operations experience portal, select **Dataflow** > 
 
 This Bicep template file from [Bicep File to create Dataflow](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/dataflow.bicep) deploys the necessary resources for dataflows.
 
-1. Download the file to your local, and make sure to replace the values for `customLocationName`, `aioInstanceName`, `schemaRegistryName`, `opcuaSchemaName`, and `persistentVCName`.
+1. Download the file to your local, and replace the values for `customLocationName`, `aioInstanceName`, `schemaRegistryName`, `opcuaSchemaName`, and `persistentVCName`.
 
-1. Next, deploy the resources using the [az stack group](/azure/azure-resource-manager/bicep/deployment-stacks?tabs=azure-powershell) command in your terminal:
+2. Next, deploy the resources using the [az stack group](/azure/azure-resource-manager/bicep/deployment-stacks?tabs=azure-powershell) command in your terminal:
 
 ```azurecli
 az stack group create --name MyDeploymentStack --resource-group $RESOURCE_GROUP --template-file /workspaces/explore-iot-operations/<filename>.bicep --action-on-unmanage 'deleteResources' --deny-settings-mode 'none' --yes
@@ -186,18 +186,22 @@ The MQTT endpoint is configured in the Bicep template file. This endpoint serves
 {
   operationType: 'Source'
   sourceSettings: {
-    endpointRef: MqttBrokerDataflowEndpoint.name
-    dataSources: array('azure-iot-operations/data/thermostat')
+    endpointRef: MqttBrokerDataflowEndpoint.name // Reference to the 'mq' endpoint
+    dataSources: [
+        'azure-iot-operations/data/thermostat', // MQTT topic for thermostat temperature data
+        'humidifiers/+/telemetry/humidity/#'  // MQTT topic for humidifier humidity data
+        
+    ]
   }
 }
 ```
 
-`dataSources`: This is an array of MQTT topic(s) that define where the data will be sourced from. In this example,     `azure-iot-operations/data/thermostat` refers to a specific topic where thermostat data is being published.
+`dataSources`: This is an array of MQTT topic(s) that define where the data will be sourced from. In this example,     `azure-iot-operations/data/thermostat` refers to one of the topics in the dataSources array where thermostat data is being published.
 
 Datasources allow you to specify multiple MQTT or Kafka topics without needing to modify the endpoint configuration. This means the same endpoint can be reused across multiple dataflows, even if the topics vary. To learn more, see [Reuse dataflow endpoints](./howto-configure-dataflow-endpoint.md#reuse-endpoints).
 
 <!-- TODO: Put the right article link here -->
-For more information about creating an MQTT endpoint as a dataflow source, see [MQTT Endpoint](concept-schema-registry.md).
+For more information about creating an MQTT endpoint as a dataflow source, see [MQTT Endpoint](howto-configure-mqtt-endpoint.md).
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -589,8 +593,6 @@ Specify the **Output** schema when you add the destination dataflow endpoint.
 
 When the dataflow resource is created, it includes a schemaRef value that points to the generated schema stored in the schema registry. It can be referenced in transformations which creates a new schema in Delta format.
 
-Currently, Azure IoT Operations experience only supports Parquet output for output schemas.
-
 ```bicep
 {
   operationType: 'BuiltInTransformation'
@@ -675,7 +677,7 @@ To configure a destination for the dataflow, specify the endpoint reference and 
 
 # [Bicep](#tab/bicep)
 
-For example, to configure a destination using the Microsoft Fabric OneLake endpoint and a static MQTT topic, use the following configuration:
+Here is an example of configuring Fabric OneLake as a destination with a static MQTT topic, after deploying Microsoft's Fabric OneLake dataflow endpoint:
 
 ```bicep
 resource oneLakeEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
@@ -711,8 +713,8 @@ resource oneLakeEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@20
 {
   operationType: 'Destination'
   destinationSettings: {
-    endpointRef: oneLakeEndpoint.name
-    dataDestination: 'sensorData'
+    endpointRef: oneLakeEndpoint.name // oneLake endpoint
+    dataDestination: 'sensorData' // static MQTT topic
   }
 }
 ```
@@ -791,7 +793,7 @@ Select the dataflow you want to export and select **Export** from the toolbar.
 
 # [Bicep](#tab/bicep)
 
-This does not currently apply to Bicep.
+TODO.
 
 # [Kubernetes](#tab/kubernetes)
 
