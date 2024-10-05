@@ -1,15 +1,15 @@
 ---
-title: Manage access key authentication for an Azure App Configuration instance
+title: Access Azure App Configuration using access keys
 titleSuffix: Azure App Configuration
 description: Learn how to manage access key authentication for an Azure App Configuration instance.
 ms.service: azure-app-configuration
 author: maud-lv
 ms.author: malev
 ms.topic: how-to
-ms.date: 04/05/2024
+ms.date: 10/05/2024
 ---
 
-# Manage access key authentication for an Azure App Configuration instance
+# Access Azure App Configuration using access keys
 
 Every request to an Azure App Configuration resource must be authenticated. By default, requests can be authenticated with either Microsoft Entra credentials, or by using an access key. Of these two types of authentication schemes, Microsoft Entra ID provides superior security and ease of use over access keys, and is recommended by Microsoft. To require clients to use Microsoft Entra ID to authenticate requests, you can disable the usage of access keys for an Azure App Configuration resource. If you want to use access keys to authenticate the request, it's recommended to rotate access keys periodically to enhance security. See [recommendations for protecting application secrets](/azure/well-architected/security/application-secrets) to learn more.
 
