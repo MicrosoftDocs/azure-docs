@@ -6,14 +6,14 @@ manager: ericl
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.date: 06/01/2023
+ms.date: 10/05/2024
 ms.author: juergent
 ms.custom: references_regions
 ---
 
 # SAP workload configurations with Azure Availability Zones
 
-Additionally to the deployment of the different SAP architecture layers in Azure availability sets,  [Azure Availability Zones](../../availability-zones/az-overview.md) can be used for SAP workload deployments as well. An Azure Availability Zone is defined as: "Unique physical locations within a region. Each zone is made up of one or more datacenters equipped with independent power, cooling, and networking". Azure Availability Zones aren't available in all regions. For Azure regions that provide Availability Zones, check the [Azure region map](https://azure.microsoft.com/global-infrastructure/geographies/). This map is going to show you which regions provide or are announced to provide Availability Zones. 
+Deployment of the different SAP architecture layers across [Azure Availability Zones](../../availability-zones/az-overview.md) is the recommended architecture for SAP workload deployments. An Azure Availability Zone is defined as: "Unique physical locations within a region. Each zone is made up of one or more datacenters equipped with independent power, cooling, and networking". Azure Availability Zones aren't available in all regions. For Azure regions that provide Availability Zones, check the [Azure region map](https://azure.microsoft.com/global-infrastructure/geographies/). This map is going to show you which regions provide or are announced to provide Availability Zones. Most of the Azure regions that are equipped to host larger SAP workload are providing Availability Zones. New Azure regions are providing Availability Zones from the start. A number of older regions were and are getting retrofitted with Availability Zones. 
 
 As of the typical SAP NetWeaver or S/4HANA architecture, you need to protect three different layers:
 
@@ -23,8 +23,8 @@ As of the typical SAP NetWeaver or S/4HANA architecture, you need to protect thr
 
 The major differences between deploying your critical VMs through availability sets or Availability Zones are:
 
-- Deploying with an availability set is lining up the VMs within the set in a single zone or datacenter (whatever applies for the specific region). As a result the deployment through the availability set isn't protected by power, cooling or networking issues that affect the datacenter(s) of the zone as a whole. On the plus side, the VMs are aligned with update and fault domains within that zone or datacenter. Specifically for the SAP ASCS or DBMS layer where we protect two VMs per availability set, the alignment with fault domains prevents that both VMs are ending up on the same host hardware.
-- On deploying VMs through Azure Availability Zones and choosing different zones (maximum of three possible), is going to deploy the VMs across the different physical locations and with that adds protection from power, cooling or networking issues that affect the datacenter(s) of the zone as a whole. However, as you deploy more than one VM of the same VM family into the same Availability Zone, there's no protection from those VMs ending up on the same host or same fault domain. As a result, deploying through Availability Zones is ideal for the SAP ASCS and DBMS layer where we usually look at two VMs each. For the SAP application layer, which can be drastically more than two VMs, you might need to fall back to a different deployment model (see later)
+- Deploying with an availability set is lining up the VMs within the set in a single zone or datacenter (whatever applies for the specific region). As a result the deployment through the availability set isn't protected by power, cooling or networking issues that affect the datacenter(s) of the zone as a whole. Using availability sets, there is also no forced alignment between a VM and its disks. Means, the disks can be in any datacenter of the Azure region, indpendent of the zonal structure of the region. On the plus side, the VMs are aligned with update and fault domains within that zone or datacenter. Specifically for the SAP ASCS or DBMS layer where we protect two VMs per availability set, the alignment with fault domains prevents that both VMs are ending up on the same host hardware.
+- On deploying VMs through Azure Availability Zones and choosing different zones (maximum of three possible), is going to deploy the VMs across the different physical locations and with that adds protection from power, cooling or networking issues that affect the datacenter(s) of the zone as a whole. VMs and their related disks are also co-located in the same Availability Zone. However, as you deploy more than one VM of the same VM family into the same Availability Zone, there's no protection from those VMs ending up on the same host or same fault domain. As a result, deploying through Availability Zones is ideal for the SAP ASCS and DBMS layer where we usually look at two VMs each. For the SAP application layer, which can be drastically more than two VMs, you might need to fall back to a different deployment model (see later)
 
 Your motivation for a deployment across Azure Availability Zones should be that you, on top of covering failure of a single critical VM or ability to reduce downtime for software patching within a critical, want to protect from larger infrastructure issues that might affect the availability of one or multiple Azure datacenters.
 
