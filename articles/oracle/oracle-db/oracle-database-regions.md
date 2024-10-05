@@ -18,7 +18,7 @@ Learn what Azure regions offer Oracle Database@Azure.
 
 | Azure region   | OCI region  | Oracle Exadata Database@Azure | Oracle Autonomous Database@Azure |
 |----------------|--------------------------|-------------------|-------------------|
-| Australia East | Australia East (Sydney)  | ✓  |                                  |
+| Australia East | Australia East (Sydney)  | ✓  |          ✓                         |
 
 
 ## Europe, Middle East, Africa (EMEA) 
