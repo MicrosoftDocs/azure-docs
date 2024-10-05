@@ -178,15 +178,17 @@ This project will use [dependency injection in .NET Azure Functions](../azure-fu
 
 ## Test the function locally
 
-1. Set an environment variable named **ConnectionString**, and set it to the access key to your App Configuration store. If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
+1. Set an environment variable named **ConnectionString**, and set it to the access key to your App Configuration store. 
 
+    If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
+    
     ```cmd
         setx ConnectionString "connection-string-of-your-app-configuration-store"
     ```
 
-    If you use Windows PowerShell, run the following command:
+    If you use PowerShell, run the following command:
 
-    ```azurepowershell
+    ```powershell
         $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
     ```
 
