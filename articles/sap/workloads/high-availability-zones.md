@@ -90,47 +90,7 @@ In making these decisions, also take into account SAP's network latency recommen
 
 This deployment architecture is called active/active because you deploy your active SAP application servers across two or three zones. The SAP Central Services instance that uses enqueue replication will be deployed between two zones. The same is true for the DBMS layer, which will be deployed across the same zones as SAP Central Service. When considering this configuration, you need to find the two Availability Zones in your region that offer cross-zone network latency that's acceptable for your workload and your synchronous DBMS replication. You also want to be sure the delta between network latency within the zones you selected and the cross-zone network latency isn't too large.
 
-Nature of the SAP architecture is that, unless you configure it differently, users and batch jobs can be executed in the different application instances. The side effect of this fact with the active/active deployment is that batch jobs might be executed by any SAP application instances independent on whether those run in the same zone with the active DBMS or not. If the difference in network latency between the difference zones is small compared to network latency within a zone, the difference in run times of batch jobs might not be significant. However, the larger the difference of network latency within a zone, compared to across zone network traffic is, the run time of batch jobs can be impacted more if the job got executed in a zone where the DBMS instance isn't active. It's on you as a customer to decide what acceptable differences in run time are. And with that what the tolerable network latency for cross zones traffic is for your workload.
-
-Azure regions where such an active/active deployment could be possible without significant large differences in run time and throughput within the application layer deployed across different Availability Zones, list like:
-
-- Australia East (two of the three zones)
-- Brazil South (all three zones)
-- Central India (all three zones)
-- Central US (all three zones)
-- East Asia (all three zones)
-- East US (two of the three zones)
-- East US2 (all three zones)
-- Germany West Central (all three zones)
-- Israel Central (all three zones)
-- Italy North (two of the three zones)
-- Korea Central (all three zones)
-- Poland Central (all three zones)
-- Qatar Central (all three zones)
-- North Europe (all three zones)
-- Norway East (two of the three zones)
-- South Africa North (two of the three)
-- South Central US (all three zones)
-- Southeast Asia (all three zones)
-- Sweden Central (all three zones)
-- Switzerland North (all three zones)
-- UAE North (all three zones)
-- UK South (two of the three zones)
-- West Europe (two of the three zones)
-- West US2 (all three zones)
-- West US3 (all three zones)
-
-The region list provided doesn't relief you as a customer to test your workload to decide whether an active/active deployment architecture is possible.
-
-Azure regions where the active/active SAP deployment architecture across zones might not be possible, list like:
-
-- Canada Central
-- France Central
-- Japan East
-
-Though for your individual workload, it might work. Therefore, you should test before you decide for an architecture. Azure is constantly working to improve quality and latency of its networks. Measurements conducted years back might not reflect current conditions anymore.
-
-Dependent on what you're willing to tolerate on run time differences other regions not listed could qualify as well.
+Nature of the SAP architecture is that, unless you configure it differently with e.g. using Logon Groups, RFC Server Groups, Batch Server Groups, etc, users and batch jobs can be executed in the different application instances. The side effect of this fact with the active/active deployment is that batch jobs might be executed by any SAP application instances independent on whether those run in the same zone with the active DBMS or not. If the difference in network latency between the difference zones is small compared to network latency within a zone, the difference in run times of batch jobs might not be significant. However, the larger the difference of network latency within a zone, compared to across zone network traffic is, the run time of batch jobs can be impacted more if the job got executed in a zone where the DBMS instance isn't active. It's on you as a customer to decide what acceptable differences in run time are. And with that what the tolerable network latency for cross zones traffic is for your workload. Purely from a technical point of view, the network latencies between Azure Availability Zones within an Azure region work for the architecture of NetWeaver, S/4HANA, or other SAP applications.
 
 A simplified schema of an active/active deployment across two zones could look like this:
 
