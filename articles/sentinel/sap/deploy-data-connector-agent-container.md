@@ -255,7 +255,7 @@ This procedure describes how to create a key vault to store your agent configura
 
     |Permission model  |Permissions required  |
     |---------|---------|
-    |**Azure role-based access control**     |  Key Vault Secrets Officer    |
+    |**Azure role-based access control**     |  Key Vault Contributor    |
     |**Vault access policy**     |  `get`, `list`, `set`, `delete`     |
 
     Use the options in the portal to assign the permissions, or run one of the following commands to assign key vault secrets permissions to the user, substituting actual names for the `<placeholder>` values:
@@ -263,7 +263,7 @@ This procedure describes how to create a key vault to store your agent configura
     - **Azure role-based access control permission model**:
 
         ```Azure CLI
-        az role assignment create --role "Key Vault Secrets Officer" --assignee <UserPrincipalName> --scope /subscriptions/<KeyVaultSubscriptionId>/resourceGroups/<KeyVaultResourceGroupName>/providers/Microsoft.KeyVault/vaults/<KeyVaultName>
+        az role assignment create --role "Key Vault Contributor" --assignee <UserPrincipalName> --scope /subscriptions/<KeyVaultSubscriptionId>/resourceGroups/<KeyVaultResourceGroupName>/providers/Microsoft.KeyVault/vaults/<KeyVaultName>
         ```
 
     - **Vault access policy permission model**:
