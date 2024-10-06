@@ -43,7 +43,7 @@ You can use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to crea
 
 ## Connect to an App Configuration store
 
-You can connect to your App Configuration store using Microsoft Entra ID (recommended), or a connection string
+You can connect to your App Configuration store using Microsoft Entra ID (recommended), or a connection string.
 
 1. Add NuGet package references by running the following command:
 
@@ -85,7 +85,7 @@ You can connect to your App Configuration store using Microsoft Entra ID (recomm
 1. Connect to your App Configuration store by calling the `AddAzureAppConfiguration` method in the `Program.cs` file.
 
     ### [Microsoft Entra ID](#tab/entra-id)
-    You can use any token credentials to authenticate to your App Configuration store as appropriate. In this example, you use the `DefaultAzureCredential`. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role and allow sufficient time for the permission to propagate before running your application.
+    You use the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application. You may replace the `DefaultAzureCredential` with another token credential as appropriate.
 
     ```csharp
     var builder = new ConfigurationBuilder();
@@ -169,7 +169,7 @@ You can connect to your App Configuration store using Microsoft Entra ID (recomm
     ```
 
     ![Quickstart app launch local](./media/quickstarts/dotnet-core-app-run.png)
-    
+
 ## Clean up resources
 
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
