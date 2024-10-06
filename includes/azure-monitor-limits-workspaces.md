@@ -4,7 +4,7 @@ description: "include file"
 services: azure-monitor
 author: rboucher
 ms.topic: "include"
-ms.date: 010/06/2024
+ms.date: 10/06/2024
 ms.author: robb
 ms.custom: "include file"
 ---
