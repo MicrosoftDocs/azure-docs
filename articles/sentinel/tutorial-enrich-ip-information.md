@@ -54,7 +54,7 @@ To complete this tutorial, make sure you have:
 
 Microsoft Sentinel includes ready-made, out-of-the-box playbook templates that you can customize and use to automate a large number of basic SecOps objectives and scenarios. Let's find one to enrich the IP address information in our incidents.
 
-1. In Microsoft Sentinel, in either the [Azure portal](https://portal.azure.com) or the [Defender portal](https://security.microsoft.com/), select **Configuration** > **Automation**.
+1. In Microsoft Sentinel, select **Configuration** > **Automation**.
 
 1. From the **Automation** page, select the **Playbook templates (Preview)** tab.
 
