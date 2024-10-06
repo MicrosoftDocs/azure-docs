@@ -85,7 +85,7 @@ You can connect to your App Configuration store using Microsoft Entra ID (recomm
 1. Connect to your App Configuration store by calling the `AddAzureAppConfiguration` method in the `Program.cs` file.
 
     ### [Microsoft Entra ID](#tab/entra-id)
-    You use the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application. You may replace the `DefaultAzureCredential` with another token credential as appropriate.
+    You use the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application.
 
     ```csharp
     var builder = new ConfigurationBuilder();
@@ -119,19 +119,19 @@ You can connect to your App Configuration store using Microsoft Entra ID (recomm
     If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
     ```cmd
-        setx Endpoint "endpoint-of-your-app-configuration-store"
+    setx Endpoint "endpoint-of-your-app-configuration-store"
     ```
 
     If you use PowerShell, run the following command:
 
     ```powershell
-        $Env:Endpoint = "endpoint-of-your-app-configuration-store"
+    $Env:Endpoint = "endpoint-of-your-app-configuration-store"
     ```
 
     If you use macOS or Linux, run the following command:
 
     ```bash
-        export Endpoint='endpoint-of-your-app-configuration-store'
+    export Endpoint='endpoint-of-your-app-configuration-store'
     ```
 
     ### [Connection string](#tab/connection-string)
@@ -140,19 +140,19 @@ You can connect to your App Configuration store using Microsoft Entra ID (recomm
     If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
     ```cmd
-        setx ConnectionString "connection-string-of-your-app-configuration-store"
+    setx ConnectionString "connection-string-of-your-app-configuration-store"
     ```
 
    If you use PowerShell, run the following command:
 
     ```powershell
-        $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
+    $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
     ```
 
     If you use macOS or Linux, run the following command:
 
     ```bash
-        export ConnectionString='connection-string-of-your-app-configuration-store'
+    export ConnectionString='connection-string-of-your-app-configuration-store'
     ```
     ---
 
