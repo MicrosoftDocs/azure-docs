@@ -1,6 +1,6 @@
 ---
 title: Access Azure App Configuration using Microsoft Entra ID
-description: Enable Azure RBAC to authorize access to your Azure App Configuration instance.
+description: Use Microsoft Entra ID and Azure role-based access control (RBAC) to access your Azure App Configuration store.
 author: zhenlan
 ms.author: zhenlwa
 ms.date: 10/05/2024
@@ -14,9 +14,9 @@ Azure App Configuration supports authorization of requests to App Configuration 
 ## Overview
 Accessing an App Configuration store using Microsoft Entra ID involves two steps:
 
-1. **Authentication**: Acquire a token of the security principal from Microsoft Entra ID for App Configuration. For more details, see [Microsoft Entra authentication](./rest-api-authentication-azure-ad.md) in App Configuration.
+1. **Authentication**: Acquire a token of the security principal from Microsoft Entra ID for App Configuration. For more information, see [Microsoft Entra authentication](./rest-api-authentication-azure-ad.md) in App Configuration.
 
-1. **Authorization**: Pass the token as part of a request to an App Configuration store. To authorize access to the specified App Configuration store, the serurity principal must be assigned the appropriate roles in advance. For more information, see [Microsoft Entra authorization](./rest-api-authorization-azure-ad.md) in App Configuration.
+1. **Authorization**: Pass the token as part of a request to an App Configuration store. To authorize access to the specified App Configuration store, the security principal must be assigned the appropriate roles in advance. For more information, see [Microsoft Entra authorization](./rest-api-authorization-azure-ad.md) in App Configuration.
 
 ## Azure built-in roles for Azure App Configuration
 Azure provides the following built-in roles for authorizing access to App Configuration using Microsoft Entra ID:
@@ -55,7 +55,7 @@ Follow these steps to assign App Configuration Data roles to your credential.
    
    If you don't have permission to assign roles, the **Add role assignment** option will be disabled. Only users with *Owner* or *User Access Administrator* roles can make role assignments.
 2. On the **Role** tab, select the **App Configuration Data Reader** role (or another App Configuration role as appropriate) and then select **Next**.
-3. On the **Members** tab, follow the wizard to select the credential you are granting access to and then select **Next**.
+3. On the **Members** tab, follow the wizard to select the credential you're granting access to and then select **Next**.
 4. Finally, on the **Review + assign** tab, select **Review + assign** to assign the role.
 
 ## Next steps
