@@ -15,9 +15,8 @@ The Log Analytics agent is [retired as of 31 August, 2024](https://azure.microso
 
 ## Prerequisites
 
-Start with the [Azure Monitor documentation](/azure/azure-monitor/agents/azure-monitor-agent-migration), which provides an agent comparison and general information for this migration process.
+- Start with the [Azure Monitor documentation](/azure/azure-monitor/agents/azure-monitor-agent-migration), which provides an agent comparison and general information for this migration process. This article provides specific details and differences for Microsoft Sentinel.
 
-This article provides specific details and differences for Microsoft Sentinel.
 
 ## Recommended migration plan
 
@@ -29,23 +28,27 @@ Each organization will have different metrics of success and internal migration 
 
 1. Run a proof of concept to test how the AMA sends data to Microsoft Sentinel, ideally in a development or sandbox environment.
 
+    1. In Microsoft Sentinel, install the **Windows Security Events** Microsoft Sentinel solution. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
+
     1. To connect your Windows machines to the [Windows Security Event connector](data-connectors/windows-security-events-via-ama.md), start with the **Windows Security Events via AMA** data connector page in Microsoft Sentinel. For more information, see [Windows agent-based connections](connect-services-windows-based.md).
 
-    1. Go to the **Security Events via Legacy Agent** data connector page. On the **Instructions** tab, under **Configuration** > **Step 2** > **Select which events to stream**, select **None**. This configures your system so that you won't receive any security events through the MMA/OMS, but other data sources relying on this agent will continue to work. This step affects all machines reporting to your current Log Analytics workspace.
+    1. Continue with the **Security Events via Legacy Agent** data connector page. On the **Instructions** tab, under **Configuration** > **Step 2** > **Select which events to stream**, select **None**. This configures your system so that you won't receive any security events through the MMA/OMS, but other data sources relying on this agent will continue to work. This step affects all machines reporting to your current Log Analytics workspace.
 
     > [!IMPORTANT]
-    > Ingesting data from the same source using two different types of agents will result in double ingestion charges and duplicate events in the Microsoft Sentinel workspace. 
+    > Ingesting data from the same source using two different types of agents will result in double ingestion charges and duplicate events in the Microsoft Sentinel workspace.
     >
     > If you need to keep both data connectors running simultaneously, we recommend that you do so only for a limited time for a benchmarking, or test comparison activity, ideally in a separate test workspace.
     >
 
 1. Measure the success of your proof of concept.
 
-    To help with this step, use the **AMA migration tracker** workbook, which displays the servers reporting to your workspaces, and whether they have the legacy MMA, the AMA, or both agents installed. You can also use this workbook to view the DCRs collecting events from your machines, and which events they are collecting.
+    To help with this step, use the**AMA migration tracker** workbook, which displays the servers reporting to your workspaces, and whether they have the legacy MMA, the AMA, or both agents installed. You can also use this workbook to view the DCRs collecting events from your machines, and which events they are collecting.
 
-    For example:
+    Make sure to select you subscription and resource group at the top of the workbook to show data for your environment. For example:
 
     :::image type="content" source="media/ama-migrate/migrate-workbook.png" alt-text="Screenshot of the AMA migration tracker workbook." lightbox="media/ama-migrate/migrate-workbook.png" :::
+
+    For more information, see [Visualize and monitor your data by using workbooks in Microsoft Sentinel](monitor-your-data.md).
 
     Success criteria should include a statistical analysis and comparison of the quantitative data ingested by the MMA/OMS and AMA agents on the same host:
 
