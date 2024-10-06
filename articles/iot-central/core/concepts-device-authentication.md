@@ -68,7 +68,7 @@ To connect a device with device SAS token to your application:
     az iot central device compute-device-key --primary-key <enrollment group primary key> --device-id <device ID>
     ```
 
-1. Use the generated device token when the device connects to your IoT Central application. Do this for each device, using a unique <device ID> for each device, generating a unique device key for each device.
+1. Use the generated device token when the device connects to your IoT Central application. Do this for each device, using a unique ```<device ID>``` for each device, to generate a unique device key for each device.
 
 > [!NOTE]
 > To use existing SAS keys in your enrollment groups, disable the **Auto generate keys** toggle and manually enter your SAS keys.
