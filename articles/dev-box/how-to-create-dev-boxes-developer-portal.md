@@ -8,6 +8,8 @@ author: RoseHJM
 ms.author: rosemalcolm
 ms.date: 01/03/2024
 ms.topic: how-to
+
+# customer intent: As a developer, I want to learn what tasks I can perform through the developer portal so that I can manage my dev boxes.
 ---
 
 # Manage a dev box by using the Microsoft Dev Box developer portal
@@ -39,7 +41,7 @@ You can also create a dev box through the Azure CLI dev center extension. For mo
 
 After you create your dev box, you can connect to it through a remote application or via the browser.
 
-A **Remote Desktop client application** provides the highest performance and best user experience for heavy workloads. Remote Desktop also supports multi-monitor configuration. For more information, see [Tutorial: Use a Remote Desktop client to connect to a dev box](./tutorial-connect-to-dev-box-with-remote-desktop-app.md).
+A remote desktop client application like Windows App provides the highest performance and best user experience for heavy workloads. Windows App also supports multi-monitor configuration. For more information, see [Get started with Windows App](/windows-app/get-started-connect-devices-desktops-apps?context=/azure/dev-box/context/context&pivots=dev-box).
 
 You can use the **browser** for lighter workloads. When you access your dev box via your phone or laptop, you can use the browser. The browser is useful for tasks such as a quick bug fix or a review of a GitHub pull request. For more information, see the [steps for using a browser to connect to a dev box](./quickstart-create-dev-box.md#connect-to-a-dev-box).
 

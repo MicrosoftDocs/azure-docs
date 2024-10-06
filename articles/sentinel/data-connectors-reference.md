@@ -339,7 +339,6 @@ For more information about the codeless connector platform, see [Create a codele
 - [Microsoft Purview Information Protection](data-connectors/microsoft-purview-information-protection.md)
 - [Network Security Groups](data-connectors/network-security-groups.md)
 - [Microsoft 365](data-connectors/microsoft-365.md)
-- [Security Events via Legacy Agent](data-connectors/security-events-via-legacy-agent.md)
 - [Windows Security Events via AMA](data-connectors/windows-security-events-via-ama.md)
 - [Azure Service Bus](data-connectors/azure-service-bus.md)
 - [Azure Stream Analytics](data-connectors/azure-stream-analytics.md)
@@ -454,10 +453,6 @@ For more information about the codeless connector platform, see [Create a codele
 ## Secure Practice
 
 - [MailRisk by Secure Practice (using Azure Functions)](data-connectors/mailrisk-by-secure-practice.md)
-
-## SecurityBridge
-
-- [SecurityBridge Threat Detection for SAP](data-connectors/securitybridge-threat-detection-for-sap.md)
 
 ## Senserva, LLC
 

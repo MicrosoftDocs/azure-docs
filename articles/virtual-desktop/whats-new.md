@@ -5,7 +5,7 @@ ms.topic: release-notes
 ms.custom: references_regions
 author: sipastak
 ms.author: sipastak
-ms.date: 09/19/2024
+ms.date: 10/03/2024
 ---
 
 # What's new in Azure Virtual Desktop?
@@ -22,9 +22,25 @@ Make sure to check back here often to keep up with new updates.
 > [!TIP]
 > See [What's new in documentation](whats-new-documentation.md), where we highlight new and updated articles for Azure Virtual Desktop.
 
+## October 2024
+
+Here's what changed in October 2024:
+
+### Windows 11, version 24H2 images are now available in Azure Marketplace
+
+Windows 11 Enterprise and Windows 11 Enterprise multi-session are now available in the Azure Marketplace.  The following updated images are available Windows 11 + Windows 365 apps and Windows 11. The portal will be updated later this month to allow the convenient selection of 24H2 images.  
+
+For additional information to configure languages other than English, see [Install language packs on Windows 11 Enterprise VMs in Azure Virtual Desktop](windows-11-language-packs.md). 
+
 ## September 2024
 
 Here's what changed in September 2024:
+
+### Relayed RDP Shortpath (TURN) for public networks is now available 
+
+This enhancement allows UDP connections via relays using the Traversal Using Relays around NAT (TURN) protocol, extending the functionality of RDP Shortpath on public networks for everyone. 
+
+For detailed configuration guidance, including prerequisites and default configurations, see [Configure RDP Shortpath for Azure Virtual Desktop](configure-rdp-shortpath.md).
 
 ### Windows App is now available
 
