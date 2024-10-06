@@ -42,7 +42,7 @@ Each organization will have different metrics of success and internal migration 
 
 1. Measure the success of your proof of concept.
 
-    To help with this step, use the**AMA migration tracker** workbook, which displays the servers reporting to your workspaces, and whether they have the legacy MMA, the AMA, or both agents installed. You can also use this workbook to view the DCRs collecting events from your machines, and which events they are collecting.
+    To help with this step, use the **AMA migration tracker** workbook, which displays the servers reporting to your workspaces, and whether they have the legacy MMA, the AMA, or both agents installed. You can also use this workbook to view the DCRs collecting events from your machines, and which events they are collecting.
 
     Make sure to select you subscription and resource group at the top of the workbook to show data for your environment. For example:
 
