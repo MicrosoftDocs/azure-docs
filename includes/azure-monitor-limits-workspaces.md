@@ -4,7 +4,7 @@ description: "include file"
 services: azure-monitor
 author: rboucher
 ms.topic: "include"
-ms.date: 04/23/2024
+ms.date: 010/06/2024
 ms.author: robb
 ms.custom: "include file"
 ---
@@ -78,7 +78,7 @@ ms.custom: "include file"
 
 | Category | Limit | Comments |
 |:---|:---|:---|
-| Maximum columns in a table         | 500 | **AzureDiagnostics** -- columns above the limit are added to dynamic 'AdditionalFields' column <br> **Custom log created by Data collector API** -- columns above the limit are added to dynamic 'AdditionalFields' column <br> **Custom log** -- contact support for more |
+| Maximum columns in a table         | 500 | **AzureDiagnostics** -- columns above the limit are added to the dynamic 'AdditionalFields' column <br> **Custom log created by Data collector API** -- columns above the limit are added to the dynamic 'AdditionalFields' column <br> **Custom log** -- contact support for more |
 | Maximum number of custom log tables | 500 | Contact support for more |
 | Maximum characters for column name | 45 | |
 
@@ -86,7 +86,7 @@ ms.custom: "include file"
 
 Azure Monitor is a high-scale data service that serves thousands of customers sending Terabytes of data daily at a growing pace. To isolate and prevent interruptions in multitenancy service from sudden ingestion bursts, a default ingestion volume rate limit is placed in workspaces and set to 500 MB per minute compressed, which is translated to approximately **6 GB per minute uncompressed**. This limit applies to data ingested from Azure resources via [Diagnostic settings](../articles/azure-monitor/essentials/diagnostic-settings.md). The limit doesn't apply to data ingested from [agents](../articles/azure-monitor/agents/agents-overview.md), or Data Collection Rules.
 
-When ingested volume rate from Azure resources to workspace reach 80% of rate limit in your workspace, an event is sent to the `Operation` table in your workspace every 6 hours while the threshold is exceeded. When volume rate limit is reached, a retry mechanism attempts to ingest the data four times in a period of 12 hours and drop it if fails, an event is sent to the `Operation` table in your workspace every 6 hours while the threshold is exceeded. 
+When the ingested volume rate reaches 80% of the rate limit set in workspace, an event is sent to the `Operation` table in your workspace every 6 hours while the threshold is exceeded. When volume rate limit is reached, a retry mechanism attempts to ingest the data four times in a period of 12 hours and drop it if fails, an event is sent to the `Operation` table in your workspace every 6 hours while the threshold is exceeded. 
 
 If your ingestion volume rate continues to exceed threshold or you're expecting to reach it sometime soon, **you can request to increase this limit by opening a support request**.
 
