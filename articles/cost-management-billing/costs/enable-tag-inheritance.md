@@ -113,7 +113,7 @@ Let's look at another example where a resource tag gets overridden. In the follo
 
 After the tag inheritance setting is updated, it takes about 8-24 hours for the child resource usage records to get updated. Any update to the setting or the tags being inherited takes effect for the current month.
 
-As an example:  If the tag inheritance setting is enabled on October 20, child resource usage records are updated from October 1 using the tags that existed on October 20. 
+For example, if the tag inheritance setting is enabled on October 20, child resource usage records are updated from October 1 using the tags that existed on October 20. 
  
 > [!NOTE]
 > If there are purchases or resources that don’t emit usage at a subscription scope, they will not have the subscription tags applied even if the setting is enabled.
