@@ -1,6 +1,6 @@
 ---
 title: Difference between Azure Synapse (formerly SQL DW) and Azure Synapse Analytics workspaces
-description: Learn about the history and difference between Azure Synapse (formerly SQL DW) and Azure Synapse Analytics workspaces
+description: Learn about the history and difference between Azure Synapse (formerly SQL DW) and Azure Synapse Analytics workspaces.
 author: WilliamDAssafMSFT 
 ms.author: wiassaf
 ms.service: azure-synapse-analytics
