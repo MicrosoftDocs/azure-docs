@@ -19,11 +19,11 @@ This best practices article provides both users and administrators guidance on h
 
 ## Control costs with chamber idle mode
 
-When a chamber won't be used in the immediate future, [place it into idle mode](./how-to-guide-chamber-idle.md). Idling a chamber significantly reduces costs. For more information, see the [pricing guide](/pricing/details/modeling-and-simulation-workbench/#pricing). Idle mode doesn't delete your VMs or storage, but does terminate desktop sessions and chamber license servers.
+When a chamber won't be used in the immediate future, [place it into idle mode](./how-to-guide-chamber-idle.md). Idling a chamber significantly reduces costs. For more information, see the [pricing guide](https://azure.microsoft.com/pricing/details/modeling-and-simulation-workbench/#pricing). Idle mode doesn't delete your VMs or storage, but does terminate desktop sessions and chamber license servers.
 
 ## Review user allocation to chambers to control cost
 
-Modeling and Simulation Workbench prices chamber access through 10-Pack user connectivity. If your user count increases beyond a multiple of 10, another user pack is added. Review your user allocations to ensure your costs are optimized. For more information, see the [pricing guide](/pricing/details/modeling-and-simulation-workbench/#pricing).
+Modeling and Simulation Workbench prices chamber access through 10-Pack user connectivity. If your user count increases beyond a multiple of 10, another user pack is added. Review your user allocations to ensure your costs are optimized. For more information, see the [pricing guide](https://azure.microsoft.com/pricing/details/modeling-and-simulation-workbench/#pricing).
 
 ## Use an Azure naming resource convention
 
