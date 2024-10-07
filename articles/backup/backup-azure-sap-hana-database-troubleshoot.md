@@ -2,7 +2,7 @@
 title: Troubleshoot SAP HANA databases back up errors
 description: Describes how to troubleshoot common errors that might occur when you use Azure Backup to back up SAP HANA databases.
 ms.topic: troubleshooting
-ms.date: 09/30/2024
+ms.date: 10/01/2024
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -218,6 +218,13 @@ See the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and [What 
 | --- | --- |
 | **Possible Causes** | Restore as files is failing due to *directory* that is selected for restore doesn't exist on the Target server or isn't accessible.
 | **Recommended action** | Verify the directory that you selected is available on the target server and ensure you have selected the correct target server at the time of restore. |
+
+### JobCancelledOnExtensionUpgrade
+
+| Error message | The Backup job was canceled because the workload backup extension service restarted for an upgrade. |
+| --- | --- |
+| **Possible cause** | The backup and restore job fails due to automatic Extension upgrade when the backup/restore operation is in progress. |
+| **Recommended action** | Wait for the extension upgrade to complete. HANA then re-triggers the failed log backups, if any. <br><br> However, the failed Full/ Differential/ Incremental backups won't be re-triggered by Azure Backup and you need to manually retrigger this operation. |
 
 ## Restore checks
 
