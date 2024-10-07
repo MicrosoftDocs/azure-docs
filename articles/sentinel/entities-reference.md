@@ -166,7 +166,7 @@ The following section contains a more in-depth look at the full schemas of each 
 - **NetBiosName + DnsDomain**
 - **AzureID**
 - **OMSAgentID**
-- ***IoTDevice***
+- **IoTDevice**
 
 #### Weak identifiers of a host entity
 

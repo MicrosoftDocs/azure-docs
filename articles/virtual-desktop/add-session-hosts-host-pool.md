@@ -290,7 +290,7 @@ Select the relevant tab for your scenario and follow the steps.
 
    :::image type="content" source="media/add-session-hosts-host-pool/agent-install-token.png" alt-text="Screenshot that shows the box for entering a registration token." lightbox="media/add-session-hosts-host-pool/agent-install-token.png":::
 
-1. Run the `Microsoft.RDInfra.RDAgentBootLoader.Installer-x64.msi` file to install the remaining components.
+1. Run the `Microsoft.RDInfra.RDAgentBootLoader.Installer-x64-<version>.msi` file to install the remaining components.
 
 1. Follow the prompts and complete the installation.
 
