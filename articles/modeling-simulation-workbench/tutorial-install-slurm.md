@@ -86,6 +86,7 @@ Slurm installation requires that you have a technical inventory of the compute n
 Configuring Slurm requires an inventory of nodes. From the controller node:
 
 1. Open a terminal in your desktop by selecting the terminal icon from the menu bar at the top.
+
 :::image type="content" source="media/tutorial-slurm/open-terminal.png" alt-text="Screenshot of desktop with terminal button highlighted in red.":::
 
 1. Execute the following commands to print a list of all VMs in the chamber. In this example, we have one controller and five nodes. The command prints the IP addresses in the first column and the hostnames in the second. From the naming, you can see the controller node and the compute nodes.
