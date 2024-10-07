@@ -3,7 +3,7 @@ items:
   href: index.yml
 - name: Overview
   items:
-  - name: What is Azure Migrate
+  - name: What is Azure Migrate?
     href: migrate-services-overview.md
   - name: What's new
     href: whats-new.md
