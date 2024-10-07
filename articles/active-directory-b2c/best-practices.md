@@ -5,7 +5,7 @@ description: Recommendations and best practices to consider when working with Az
 
 author: kengaderdus
 ms.author: kengaderdus
-manager: CelesteDG
+manager: mwongerapz
 ms.service: active-directory
 
 ms.topic: concept-article
