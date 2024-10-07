@@ -6,7 +6,7 @@ ms.date: 07/10/2024
 ms.topic: conceptual
 ---
 
-# What are preview features 
+# What are preview features? 
 
 This article describes what preview features are, what limitations apply to them, and how to identify them. 
 
