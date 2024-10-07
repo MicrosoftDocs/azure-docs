@@ -387,6 +387,8 @@ items:
       href: ./hdinsight-hadoop-collect-debug-heap-dump-linux.md
     - name: Get help on the Microsoft Q&A question page
       href: /answers/topics/azure-hdinsight.html
+    - name: Preview features
+      href: ./what-are-preview-features.md
     - name: Pricing calculator
       href: https://azure.microsoft.com/pricing/calculator/
     - name: Windows tools for HDInsight
