@@ -58,13 +58,13 @@ To create and deploy your confidential VM using an ARM template through the Azur
     az group create -n $resourceGroup -l $region
     ```
 
-1. Deploy your VM to Azure using an ARM template with a custom parameter file. For TDX deployments here is an example template: https://aka.ms/TDXtemplate.
+1. Deploy your VM to Azure using an ARM template with a custom parameter file and [template file](https://github.com/Azure/confidential-computing-cvm/tree/main/cvm_deployment/templates).
 
     ```azurecli-interactive
     az deployment group create `
      -g $resourceGroup `
      -n $deployName `
-     -u "https://aka.ms/CVMTemplate" `
+     -u "<json-template-file-path>" `
      -p "<json-parameter-file-path>" `
      -p vmLocation=$region `
         vmName=$vmName

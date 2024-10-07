@@ -153,7 +153,6 @@ The following steps for setting up [AKS Edge Essentials](/azure/aks/hybrid/aks-e
    az provider register -n "Microsoft.ExtendedLocation"
    az provider register -n "Microsoft.Kubernetes"
    az provider register -n "Microsoft.KubernetesConfiguration"
-   az provider register -n "Microsoft.IoTOperationsOrchestrator"
    az provider register -n "Microsoft.IoTOperations"
    az provider register -n "Microsoft.DeviceRegistry"
    ```

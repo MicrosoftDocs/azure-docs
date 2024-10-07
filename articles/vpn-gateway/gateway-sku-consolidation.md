@@ -62,6 +62,11 @@ Yes. The new pricing timeline is:
 
 Yes, you can deploy AZ SKUs in all regions. If a region doesn't currently support availability zones, you can still create VPN Gateway AZ SKUs, but the deployment will remain regional. When the region supports availability zones, we'll enable zone redundancy for the gateways
 
+### Can I migrate my Gen 1 gateway to Gen 2 gateway?
+
+* As part of the Basic IP to Standard IP migration, the gateways will be upgraded to Gen2. This upgrade will occur automatically when you initiate the migration.
+* For gateways already using Standard IP, we will migrate them to Gen2 separately before Sep 30, 2026. This will be done seamlessly during regular updates, with no downtime involved. 
+
 ### Will there be downtime during migrating my Non-AZ gateways?
 
 No. This migration is seamless and there's no expected downtime during migration.
