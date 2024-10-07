@@ -8,8 +8,6 @@ items:
   - name: What is Azure Synapse?
     href: overview-what-is.md
     displayName: overview
-  - name: What's new?
-    href: whats-new.md
   - name: Terminology 
     href: overview-terminology.md
   - name: FAQ 
@@ -55,6 +53,8 @@ items:
     displayName: get, started
 - name: Workspace
   items:
+  - name: What's the difference between Azure Synapse (formerly SQL DW) and Azure Synapse Analytics workspaces?
+    href: sql/overview-difference-between-formerly-sql-dw-workspace.md
   - name: Quickstarts
     items:
     - name: Create a workspace
