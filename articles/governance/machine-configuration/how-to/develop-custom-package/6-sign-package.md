@@ -8,12 +8,14 @@ ms.custom: linux-related-content
 
 # How to sign machine configuration packages
 
-Machine configuration custom policies use SHA256 hash to validate the policy package hasn't
+Machine configuration custom policies use a SHA256 hash to validate that the policy package hasn't
 changed. Optionally, customers may also use a certificate to sign packages and force the machine
 configuration extension to only allow signed content.
 
-To enable this scenario, there are two steps you need to complete. Run the cmdlet to sign the
-content package, and append a tag to the machines that should require code to be signed.
+To enable this scenario, there are two steps you need to complete:
+
+1. Run the cmdlet to sign the content package.
+1. Append a tag to the machines that should require code to be signed.
 
 ## Signature validation using a code signing certificate
 
@@ -24,7 +26,7 @@ testing purposes to follow along with the example.
 
 ## Windows signature validation
 
-```azurepowershell-interactive
+```powershell
 # How to create a self sign cert and use it to sign Machine Configuration
 # custom policy package
 
@@ -34,26 +36,35 @@ $codeSigningParams = @{
     DnsName       = 'GCEncryptionCertificate'
     HashAlgorithm = 'SHA256'
 }
-$mycert = New-SelfSignedCertificate @codeSigningParams
+$certificate = New-SelfSignedCertificate @codeSigningParams
 
 # Export the certificates
-$mypwd = ConvertTo-SecureString -String "Password1234" -Force -AsPlainText
-$mycert | Export-PfxCertificate -FilePath C:\demo\GCPrivateKey.pfx -Password $mypwd
-$mycert | Export-Certificate -FilePath "C:\demo\GCPublicKey.cer" -Force
+$privateKey = @{
+    Cert     = $certificate
+    Password = Read-Host "Enter password for private key" -AsSecureString
+    FilePath = '<full-path-to-export-private-key-pfx-file>'
+}
+$publicKey = @{
+    Cert     = $certificate
+    FilePath = '<full-path-to-export-public-key-cer-file>'
+    Force    = $true
+}
+Export-PfxCertificate @privateKey
+Export-Certificate    @publicKey
 
 # Import the certificate
 $importParams = @{
-    FilePath          = 'C:\demo\GCPrivateKey.pfx'
-    Password          = $mypwd
+    FilePath          = $privateKey.FilePath
+    Password          = $privateKey.Password
     CertStoreLocation = 'Cert:\LocalMachine\My'
 }
 Import-PfxCertificate @importParams
 
 # Sign the policy package
-$certToSignThePackage = Get-ChildItem -Path cert:\LocalMachine\My |
-    Where-Object { $_.Subject-eq "CN=GCEncryptionCertificate" }
+$certToSignThePackage = Get-ChildItem -Path Cert:\LocalMachine\My |
+    Where-Object { $_.Subject -eq "CN=GCEncryptionCertificate" }
 $protectParams = @{
-    Path        = 'C:\demo\AuditWindowsService.zip'
+    Path        = '<path-to-package-to-sign>'
     Certificate = $certToSignThePackage
     Verbose     = $true
 }
@@ -62,22 +73,26 @@ Protect-GuestConfigurationPackage @protectParams
 
 ## Linux signature validation
 
-```azurepowershell-interactive
+```powershell
 # generate gpg key
 gpg --gen-key
 
+$emailAddress      = '<email-id-used-to-generate-gpg-key>'
+$publicGpgKeyPath  = '<full-path-to-export-public-key-gpg-file>'
+$privateGpgKeyPath = '<full-path-to-export-private-key-gpg-file>'
+
 # export public key
-gpg --output public.gpg --export <email-id-used-to-generate-gpg-key>
+gpg --output $publicGpgKeyPath --export $emailAddress
 
 # export private key
-gpg --output private.gpg --export-secret-key <email-id-used-to-generate-gpg-key>
+gpg --output $privateGpgKeyPath --export-secret-key $emailAddress
 
 # Sign linux policy package
 Import-Module GuestConfiguration
 $protectParams = @{
-    Path              = './not_installed_application_linux.zip'
-    PrivateGpgKeyPath = './private.gpg'
-    PublicGpgKeyPath  = './public.gpg'
+    Path              = '<path-to-package-to-sign>'
+    PrivateGpgKeyPath = $privateGpgKeyPath
+    PublicGpgKeyPath  = $publicGpgKeyPath
     Verbose           = $true
 }
 Protect-GuestConfigurationPackage
@@ -85,28 +100,37 @@ Protect-GuestConfigurationPackage
 
 Parameters of the `Protect-GuestConfigurationPackage` cmdlet:
 
-- **Path**: Full path of the machine configuration package.
+- **Path**: Full path to the machine configuration package.
 - **Certificate**: Code signing certificate to sign the package. This parameter is only supported
   when signing content for Windows.
+- **PrivateGpgKeyPath**: Full path to the private key `.gpg` file. This parameter is only supported
+  when signing content for Linux.
+- **PublicGpgKeyPath**: Full path to the public key `.gpg` file. This parameter is only supported
+  when signing content for Linux.
+
 
 ## Certificate requirements
 
-The machine configuration agent expects the certificate public key to be present in "Trusted Publishers" on Windows machines and in the path `/usr/local/share/ca-certificates/gc`
-on Linux machines. For the node to verify signed content, install the certificate public key on the
-machine before applying the custom policy. This process can be done using any technique inside the
-VM or by using Azure Policy. An example template is available
-[to deploy a machine with a certificate][01]. The Key Vault access policy must allow the Compute
-resource provider to access certificates during deployments. For detailed steps, see
+The machine configuration agent expects the certificate public key to be present in "Trusted
+Publishers" on Windows machines and in the path `/usr/local/share/ca-certificates/gc` on Linux
+machines. For the node to verify signed content, install the certificate public key on the machine
+before applying the custom policy.
+
+You can install the certificate public key using normal tools inside the VM or by using Azure
+Policy. An [example template using Azure Policy][01] shows how you can deploy a machine with a
+certificate. The Key Vault access policy must allow the Compute resource provider to access
+certificates during deployments. For detailed steps, see
 [Set up Key Vault for virtual machines in Azure Resource Manager][02].
 
 Following is an example to export the public key from a signing certificate, to import to the
 machine.
 
 ```azurepowershell-interactive
-$Cert = Get-ChildItem -Path cert:\LocalMachine\My |
-    Where-Object { $_.Subject-eq "CN=mycert3" } |
+$Cert = Get-ChildItem -Path Cert:\LocalMachine\My |
+    Where-Object { $_.Subject-eq 'CN=<CN-of-your-signing-certificate>' } |
     Select-Object -First 1
-$Cert | Export-Certificate -FilePath "$env:temp\DscPublicKey.cer" -Force
+
+$Cert | Export-Certificate -FilePath '<path-to-export-public-key-cer-file>' -Force
 ```
 
 ## Tag requirements
