@@ -122,7 +122,7 @@ Ingestion-time data transformation currently has the following known issues for 
 
     - Standard DCRs for custom log ingestion to a standard table.
 
-- It make take up to 60 minutes for the data transformation configurations to apply.
+- It may take up to 60 minutes for the data transformation configurations to apply.
 
 - KQL syntax: Not all operators are supported. For more information, see [**KQL limitations** and **Supported KQL features**](/azure/azure-monitor/essentials/data-collection-transformations-structure#kql-limitations) in the Azure Monitor documentation.
 
