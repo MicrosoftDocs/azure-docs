@@ -5,7 +5,7 @@ author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 10/04/2024
+ms.date: 10/07/2024
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to create a dataflow to connect data sources.
@@ -60,16 +60,16 @@ To create a dataflow in the operations experience portal, select **Dataflow** > 
 
 # [Bicep](#tab/bicep)
 
-This Bicep template file from [Bicep File to create Dataflow](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/dataflow.bicep) deploys the necessary resources for dataflows.
+The [Bicep File to create Dataflow](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/dataflow.bicep) deploys the necessary resources for dataflows.
 
-1. Download the file to your local, and replace the values for `customLocationName`, `aioInstanceName`, `schemaRegistryName`, `opcuaSchemaName`, and `persistentVCName`.
+1. Download the template file and replace the values for `customLocationName`, `aioInstanceName`, `schemaRegistryName`, `opcuaSchemaName`, and `persistentVCName`.
+1. Deploy the resources using the [az stack group](/azure/azure-resource-manager/bicep/deployment-stacks?tabs=azure-powershell) command in your terminal:
 
-2. Next, deploy the resources using the [az stack group](/azure/azure-resource-manager/bicep/deployment-stacks?tabs=azure-powershell) command in your terminal:
+    ```azurecli
+    az stack group create --name MyDeploymentStack --resource-group $RESOURCE_GROUP --template-file /workspaces/explore-iot-operations/<filename>.bicep --action-on-unmanage 'deleteResources' --deny-settings-mode 'none' --yes
+    ```
 
-```azurecli
-az stack group create --name MyDeploymentStack --resource-group $RESOURCE_GROUP --template-file /workspaces/explore-iot-operations/<filename>.bicep --action-on-unmanage 'deleteResources' --deny-settings-mode 'none' --yes
-```
-The overall structure of a dataflow configuration for Bicep is as follows:
+ The overall structure of a dataflow configuration for Bicep is as follows:
 
 ```bicep
 resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2024-08-15-preview' = {
@@ -180,7 +180,7 @@ Configuring an asset as a source is only available in the operations experience 
 
 # [Bicep](#tab/bicep)
 
-The MQTT endpoint is configured in the Bicep template file. This endpoint serves as a source for the dataflow, using the following configuration:
+The MQTT endpoint is configured in the Bicep template file. For example, the following endpoint is a source for the dataflow.
 
 ```bicep
 {
@@ -196,9 +196,9 @@ The MQTT endpoint is configured in the Bicep template file. This endpoint serves
 }
 ```
 
-`dataSources`: This is an array of MQTT topic(s) that define where the data will be sourced from. In this example,     `azure-iot-operations/data/thermostat` refers to one of the topics in the dataSources array where thermostat data is being published.
+The `dataSources` setting is an array of MQTT topics that define the data source. In this example, `azure-iot-operations/data/thermostat` refers to one of the topics in the dataSources array where thermostat data is published.
 
-Datasources allow you to specify multiple MQTT or Kafka topics without needing to modify the endpoint configuration. This means the same endpoint can be reused across multiple dataflows, even if the topics vary. To learn more, see [Reuse dataflow endpoints](./howto-configure-dataflow-endpoint.md#reuse-endpoints).
+Datasources allow you to specify multiple MQTT or Kafka topics without needing to modify the endpoint configuration. This means the same endpoint can be reused across multiple dataflows, even if the topics vary. For more information, see [Reuse dataflow endpoints](./howto-configure-dataflow-endpoint.md#reuse-endpoints).
 
 <!-- TODO: Put the right article link here -->
 For more information about creating an MQTT endpoint as a dataflow source, see [MQTT Endpoint](howto-configure-mqtt-endpoint.md).
@@ -324,9 +324,9 @@ In the operations experience portal, select **Dataflow** > **Add transform (opti
 }
 ```
 
-#### Specify output schema to transform data
+### Specify output schema to transform data
 
-The following configuration demonstrates how to define an output schema in your Bicep file. In this example, the schema defines fields such as `asset_id`, `asset_name`, `location`, `temperature`, `manufacturer`, `production_date`, and `serial_number`. Each field is assigned a specific data type (e.g., `string`) and marked as non-nullable. This ensures all incoming messages contain these fields with valid data.
+The following configuration demonstrates how to define an output schema in your Bicep file. In this example, the schema defines fields such as `asset_id`, `asset_name`, `location`, `temperature`, `manufacturer`, `production_date`, and `serial_number`. Each field is assigned a data type and marked as non-nullable. The assignment ensures all incoming messages contain these fields with valid data.
 
 ```bicep
 var assetDeltaSchema = '''
@@ -677,7 +677,7 @@ To configure a destination for the dataflow, specify the endpoint reference and 
 
 # [Bicep](#tab/bicep)
 
-Here is an example of configuring Fabric OneLake as a destination with a static MQTT topic, after deploying Microsoft's Fabric OneLake dataflow endpoint:
+The following is an example of configuring Fabric OneLake as a destination with a static MQTT topic.
 
 ```bicep
 resource oneLakeEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
