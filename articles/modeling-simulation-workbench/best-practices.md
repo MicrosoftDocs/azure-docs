@@ -1,6 +1,6 @@
 ---
 title: Best practices for using and administering Azure Modeling and Simulation Workbench
-description: Learn best practices and helpful guidance when working with Azure Modeling and Simulation Workbench
+description: Learn best practices and helpful guidance when working with Azure Modeling and Simulation Workbench.
 author: yousefi-msft
 ms.author: yousefi
 ms.service: modeling-simulation-workbench
