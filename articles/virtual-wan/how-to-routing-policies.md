@@ -264,7 +264,7 @@ When a Virtual hub is configured with a Private Routing policy Virtual WAN adver
 * Prefixes learned from one ExpressRoute circuit aren't advertised to other ExpressRoute circuits unless Global Reach is enabled. If you want to enable ExpressRoute to ExpressRoute transit through a security solution deployed in the hub, open a support case. For more information, see [Enabling connectivity across ExpressRoute circuits](#expressroute).
 
 ## Key routing scenarios
-The following section describes a few key routing scenarios and considerations when configuring routing intent on a Virtual WAN hub.
+The following section describes a few key routing scenarios and routing behaviors when configuring routing intent on a Virtual WAN hub.
 
 ###  <a name="expressroute"></a> Transit connectivity between ExpressRoute circuits with routing intent
 
