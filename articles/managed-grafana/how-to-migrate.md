@@ -14,11 +14,9 @@ zone_pivot_groups: grafana-cli-portal
 
 # Migrate to Azure Managed Grafana
 
-This guide shows how to migrate content from a local or a cloud-managed Grafana instance to Azure Managed Grafana.
-
 ::: zone pivot="experience-azcli"
 
-The following instructions show how to migrate content from a Grafana instance to Azure Managed Grafana using the Azure CLI. This is the fastest migration method. The following elements can be migrated automatically:
+This guide shows how to migrate content from a local or a cloud-managed Grafana instance to Azure Managed Grafana using the Azure CLI. The following elements can be migrated automatically:
 
 * data sources
 * folders
@@ -38,7 +36,10 @@ The following instructions show how to migrate content from a Grafana instance t
 
 ::: zone pivot="experience-gui"
 
-The following instructions show how to migrate a Grafana instance using the Azure platform.
+The following instructions show how to migrate content from a Grafana instance to Azure Managed Grafana using the Azure platform.
+
+> [!TIP]
+> Consider migrating content [using the Azure CLI](how-to-migrate.md?pivots=experience-azcli), which is the quickest method.
 
 > [!NOTE]
 > Some of the instructions presented in this tutorial vary slightly depending on the version of Grafana used. This tutorial was created using Grafana 10.
