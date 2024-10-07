@@ -123,7 +123,7 @@ Optionally, select the **Use custom colors** toggle switch to toggle On/Off cust
 
 :::image type="content" source="media/power-bi-visual/data-bound-reference-layer/data-bound-reference-layer-unmapped-objects.png" lightbox="media/power-bi-visual/data-bound-reference-layer/data-bound-reference-layer-unmapped-objects.png" alt-text="A screenshot showing the Data-Bound Refence Layer example in Power BI desktop with unmapped objects showing in a different color.":::
 
-### Conditional Formatting
+## Conditional Formatting
 
 Conditional formatting can be applied to data to dynamically change the appearance of shapes on a map based on the provided data. For instance, gradient colors can visualize various data values such as population density, sales performance, or other metrics. This is a powerful tool for combining spatial and business data to create interactive and visually compelling reports.
 
