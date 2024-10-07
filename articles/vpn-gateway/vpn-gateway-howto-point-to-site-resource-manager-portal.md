@@ -48,6 +48,7 @@ You can use the following values to create a test environment, or refer to these
 * **Generation:** Generation2
 * **Gateway subnet address range:** 10.1.255.0/27
 * **Public IP address name:** VNet1GWpip
+* **Public IP address name 2:** VNet1GWpip2 - for active-active mode gateways.
 
 **Connection type and client address pool**
 
@@ -113,7 +114,7 @@ The client address pool is a range of private IP addresses that you specify. The
 
 1. On the **Point-to-site configuration** page, in the **Address pool** box, add the private IP address range that you want to use. VPN clients dynamically receive an IP address from the range that you specify. The minimum subnet mask is 29 bit for active/passive and 28 bit for active/active configuration.
 
-1. Next, configure the tunnel and authentication type.
+If your VPN gateway is configured with an availability zone SKU (AZ) and is in active-active mode, point-to-site VPN configurations require three public IP addresses. You can use the example value **VNet1GWpip3**.
 
 ## <a name="type"></a>Specify tunnel and authentication type
 
