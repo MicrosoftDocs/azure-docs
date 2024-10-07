@@ -281,17 +281,49 @@ Before you create and deploy with Visual Studio Code, complete the following req
 
 1. In Visual Studio Code, on the Activity Bar, select the Azure icon.
 
-1. In the **Workspace** section toolbar, select the Azure Logic Apps icon, and then select **Deploy to logic app**.
+1. In the **Workspace** section, from the toolbar, select the Azure Logic Apps icon, and then select **Create new project**.
 
-1. Select your Azure subscription.
+1. Browse to the location where you want to create the folder for your hybrid logic app project. Create your project folder, select the folder, and then choose **Select**.
 
-1. Browse to the folder where you want to save your hybrid logic app project. Create a folder for your project, select that folder, and then select **Select**.
+1. From the workflow type list, select **Stateful Workflow** or **Stateless Workflow**. Provide a name for your workflow.
 
-1. From the list that appears, select **Create new Logic App (Standard) in Azure**. Provide a globally unique hybrid logic app name that uses only lowercase alphanumeric characters or hyphens.
+   This example selects **Stateful Workflow** and uses **my-stateful-workflow** as the name.
+
+1. From the list that appears, select **Open in current window**.
+
+   Visual Studio Code creates and opens your logic app project to show the **workflow.json** file.
+
+1. From the list that appears, select **Use connectors from Azure**.
+
+1. From the subscription list, select your Azure subscription.
+
+1. From the resource group list, select **Create new resource group**. Provide a name for your resource group.
+
+   This example uses **Hybrid-RG**.
+
+1. From the location list, select an Azure region that is [supported for Azure container apps on Azure Arc-enabled AKS](../container-apps/azure-arc-overview.md#public-preview-limitations).
+
+   This example uses **East US**.
+
+1. In the **Explorer** window, open the shortcut menu for the **workflow.json** file, and select **Open Designer**.
+
+1. Build your workflow as usual by adding a trigger and actions. For more information, see [Build a workflow with a trigger and actions](create-workflow-with-trigger-or-action.md).
+
+## Deploy your hybrid logic app from Visual Studio Code
+
+After you finish building your workflow, you can deploy your logic app to your partially connected environment.
+
+1. In the **Explorer** window, open the shortcut menu for the workflow node, which is **my-stateful-workflow** in this example, and select **Deploy to logic app**.
+
+1. From the subscription list, select your Azure subscription.
+
+1. From the available logic apps list, select **Create new Logic App (Standard) in Azure**. Provide a globally unique hybrid logic app name that uses only lowercase alphanumeric characters or hyphens.
 
    This example uses **my-hybrid-logic-app**.
 
-1. From the region list that appears, select the same Azure region where you have your connected environment.
+1. From the location list that appears, select the same Azure region where you have your connected environment.
+
+   This example uses **East US**.
 
 1. From the hosting plan list, select **Hybrid**.
 
@@ -305,9 +337,11 @@ Before you create and deploy with Visual Studio Code, complete the following req
 
 1. Provide the connection string for the SQL database that you set up for runtime storage.
 
+   Visual Studio Code starts the deployment process for your hybrid logic app, which is created and deployed as a [Container App resource](/azure/container-apps/overview) with **Hybrid Logic App** type.
+
 1. To monitor deployment status and Azure activity logs, from the **View** menu, select **Output**. In the window that opens, select **Azure**.
 
-Azure creates and deploys your hybrid logic app as a [Container App resource](/azure/container-apps/overview) with **Hybrid Logic App** type. In this release, your hybrid logic app appears in the Azure portal under **Container Apps** and not **Logic apps**. You can create, edit, and manage workflows as usual from the Azure portal.
+In this release, your hybrid logic app appears in the Azure portal under **Container Apps** and not **Logic apps**. You can create, edit, and manage workflows as usual from the Azure portal.
 
 ## Known issues and troubleshooting
 
@@ -409,5 +443,3 @@ To check the CSI SMB Driver pods status, from the Windows command prompt, run th
 **`kubectl --namespace=kube-system get pods --selector="app.kubernetes.io/name=csi-driver-smb" --watch`**
 
 For more information, see [Container Storage Interface (CSI) drivers on Azure Kubernetes Service (AKS)](/azure/aks/csi-storage-drivers).
-
-## Related content
