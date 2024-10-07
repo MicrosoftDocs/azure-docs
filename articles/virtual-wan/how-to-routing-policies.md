@@ -375,11 +375,11 @@ When private routing policies are configured for dual-role NVAs, Virtual WAN aut
 
 For **active-passive NVA configurations** where only one instance of the NVAs is advertising a route for a specific prefix to Virtual WAN (or the AS-PATH length of routes learnt from one of the instances is always the shortest), Virtual WAN ensures that outbound traffic from an Azure Virtual Network is always routed to the active (or preferred) NVA instance.
 
-:::image type="content" source="./media/routing-policies/active-passive-nva.png"alt-text="Screenshot showing routing patterns for active-passive NVAs"lightbox="./media/routing-policies/active-passive-nva.png":::
+:::image type="content" source="./media/routing-policies/active-passive-network-virtual-appliance.png"alt-text="Screenshot showing routing patterns for active-passive NVAs."lightbox="./media/routing-policies/active-passive-nva.png":::
 
 For **active-active NVA configurations** (multiple NVA instances advertise the same prefix with the same AS-PATH length), Azure automatically performs ECMP to route traffic from Azure to on-premises. Azure's software-defined networking platform doesn't guarantee flow-level symmetry, meaning the inbound flow to Azure and outbound flow from Azure can land on different instances of the NVA. This results in asymmetric routing which is dropped by stateful firewall inspection. Therefore, it isn't recommended to use active-active connectivity patterns where an NVA is behaving as a dual-role NVA unless the NVA can support asymmetric forwarding or support session sharing/synchronization. For more information on whether your NVA supports asymmetric forwarding or session state sharing/synchronization, reach out to your NVA provider.  
 
-:::image type="content" source="./media/routing-policies/active-active-nva.png"alt-text="Screenshot showing routing patterns for active-active NVAs"lightbox="./media/routing-policies/active-active-nva.png":::
+:::image type="content" source="./media/routing-policies/active-active-network-virtual-appliance.png"alt-text="Screenshot showing routing patterns for active-active NVAs."lightbox="./media/routing-policies/active-active-nva.png":::
 
 ## Configuring routing intent through Azure portal
 
@@ -429,11 +429,11 @@ The following steps describe how to configure routing intent and routing policie
 
 5. If you want to configure an Internet Traffic Routing Policy, select **Azure Firewall**, **Network Virtual Appliance** or **SaaS solution**. Under **Next Hop Resource**, select the relevant next hop resource.
 
-    :::image type="content" source="./media/routing-policies/public-routing-policy-nva.png"alt-text="Screenshot showing how to configure public routing policies for NVA"lightbox="./media/routing-policies/public-routing-policy-nva.png":::
+    :::image type="content" source="./media/routing-policies/public-routing-policy-nva.png"alt-text="Screenshot showing how to configure public routing policies for NVA."lightbox="./media/routing-policies/public-routing-policy-nva.png":::
 
 6. To apply your routing intent and routing policies configuration, click **Save**.
 
-    :::image type="content" source="./media/routing-policies/save-nva.png"alt-text="Screenshot showing how to save routing policies configurations"lightbox="./media/routing-policies/save-nva.png":::
+    :::image type="content" source="./media/routing-policies/save-nva.png"alt-text="Screenshot showing how to save routing policies configurations."lightbox="./media/routing-policies/save-nva.png":::
 
 7. Repeat for all hubs you would like to configure routing policies for.
 
