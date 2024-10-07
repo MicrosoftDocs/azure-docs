@@ -197,7 +197,8 @@ To configure the service principal, use the [Microsoft Graph PowerShell SDK](/po
 
 ## Create a Kerberos Server object
 
-If your session hosts meet the following criteria, you must [Create a Kerberos Server object](../active-directory/authentication/howto-authentication-passwordless-security-key-on-premises.md#create-a-kerberos-server-object):
+If your session hosts meet the following criteria, you must create a Kerberos Server Object. The following document gives an explaination and steps on how to create a Kerberos Server Object:
+[Create a Kerberos Server object](../active-directory/authentication/howto-authentication-passwordless-security-key-on-premises.md#):
 
 - Your session host is Microsoft Entra hybrid joined. You must have a Kerberos Server object to complete authentication to a domain controller.
 
