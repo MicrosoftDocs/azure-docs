@@ -1,13 +1,13 @@
 ---
 title: Migrate to Azure Managed Grafana
 titlesuffix: Azure Managed Grafana
-description: Learn how to migrate content from a self-hosted or a cloud-managed Grafana to Azure Managed Grafana using the Azure portal or the Azure CLI.
+description: Learn how to migrate content from a self-hosted or a cloud-managed Grafana to Azure Managed Grafana using the Grafana UI or the Azure CLI.
 ms.service: azure-managed-grafana
 ms.topic: how-to
 author: maud-lv
 ms.author: malev
-ms.date: 12/06/2023
-zone_pivot_groups: app-service-cli-portal
+ms.date: 10/07/2024
+zone_pivot_groups: grafana-cli-portal
 # CustomerIntent: As a developer or data analyst, I want know how I can migrate my Grafana instance to Azure Managed Grafana.
 # self-managed, self-hosted, Grafana Cloud
 --- 
@@ -19,13 +19,13 @@ This guide shows how to migrate content from a local or a cloud-managed Grafana 
 Start by choosing one of the two methods below to complete your Grafana migration:
 
 * Using the Azure CLI: this is the fastest method, using the Azure CLI.
-* Using the Azure portal: this method uses a graphical interface.
+* Using the Grafana UI: this method uses a graphical interface.
 
 ::: zone pivot="experience-azcli"
 
 The following instructions show how to migrate content from a Grafana instance to Azure Managed Grafana using the Azure CLI. The following elements can be migrated automatically using the command:
 
-*  data sources
+* data sources
 * folders
 * library panels
 * dashboards
@@ -36,12 +36,12 @@ The following instructions show how to migrate content from a Grafana instance t
 
 * A Grafana instance to migrate over to Azure Managed Grafana
 * [An Azure Managed Grafana workspace](./quickstart-managed-grafana-cli.md)
-* Minimum access required in both instances: Grafana Editor
+* Minimum access required in both instances: Grafana Owner
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ::: zone-end
 
-::: zone pivot="experience-azp"
+::: zone pivot="experience-gui"
 
 The following instructions show how to migrate a Grafana instance using the Azure platform.
 
@@ -52,7 +52,7 @@ The following instructions show how to migrate a Grafana instance using the Azur
 
 * A Grafana instance to migrate over to Azure Managed Grafana
 * [An Azure Managed Grafana workspace](./quickstart-managed-grafana-cli.md)
-* Minimum access required in both instances: Grafana Editor
+* Minimum access required in both instances: Grafana Owner
 
 ::: zone-end
 
@@ -61,23 +61,6 @@ The following instructions show how to migrate a Grafana instance using the Azur
 ## Create a service account token
 
 Start by creating a service account token to grant the necessary permissions to access and export content from your Grafana instance.
-
-### [Azure CLI](#tab/azure-cli)
-
-1. Create a service account with Admin permissions in the Grafana resource you want to collect content from (source) by running the `az grafana service-account create` command in the Azure CLI. When running the command below, replace the `<azure-managed-grafana-name>` and `<service-account-name>` placeholders with the name of your source Grafana instance.
-
-    ```azurecli
-    az grafana service-account create --name <azure-managed-grafana-name> --service-account <service-account-name> --role Admin
-    ```
-
-1. Create a service account token with `az grafana service-account token create` and replace the `<azure-managed-grafana-name>`, `<service-account-name>` and `<token-name>` placeholders with the name of the source Grafana instance used in the previous step, the name of the service account you just created, and a name for your new token.
-
-    ```azurecli
-    az grafana service-account token create --name <azure-managed-grafana-name> --service-account <service-account-name> --token <token-name>
-    ```
-    Tokens have an unlimited expiry date by default. Optionally use the `--time-to-live` option to set an expiry time to disable the token after a given time. For more information, go to [Create a new token](how-to-service-accounts.md?add-a-service-account-token-and-review-tokens.md?tabs=azure-cli#add-a-service-account-token-and-review-tokens).
-
-### [Portal](#tab/azure-portal)
 
 1. In the Grafana resource want to collect content from (source), create a new service account with Admin permissions by going to **Administration** > **Users and access** > **Service accounts** > **Add service account**.
 
@@ -89,11 +72,9 @@ Start by creating a service account token to grant the necessary permissions to 
 1. Enter a display name for the new service account, select the **Admin** role, **Apply**, and **Create**.
 1. Once the service account has been created, select **Add token**, optionally set an expiration date, and select **Generate token**. Remember to copy the token now as you won't be able to see it again once you leave this page.
 
----
-
 ## Run the Grafana migrate command
 
-In the Azure CLI, run the [az grafana migrate](/cli/azure/grafana#az-grafana-migrate) command. When running the command below, replace the placeholders `<target-grafana>` `<target-grafana-resource-group>` `<--src-endpoint>`, `<source-grafana-endpoint>`and `<source-token>` with the name and resource group of the Azure Managed Grafana instance you want to migrate to (target), the endpoint of the Grafana resource you're collecting content from (source), and the service account token you created earlier.
+In the Azure CLI, run the [az grafana migrate](/cli/azure/grafana#az-grafana-migrate) command. When running the command below, replace the placeholders `<target-grafana>` `<target-grafana-resource-group>` `<--src-endpoint>`, `<source-grafana-endpoint>`and `<source-token>` with the name and resource group of the Azure Managed Grafana instance you want to migrate to (target), the endpoint of the Grafana you're collecting content from (source), and the service account token you created earlier.
 
 ```azurecli
 az grafana migrate --name <target-grafana> --resource-group <target-grafana-resource-group> --src-endpoint <source-grafana-endpoint> --src-token-or-key <source-token>
@@ -116,7 +97,7 @@ Go to your target instance and check that you can find everything you migrated f
 
 ::: zone-end
 
-::: zone pivot="experience-azp"
+::: zone pivot="experience-gui"
 
 ## Export your Grafana dashboards
 

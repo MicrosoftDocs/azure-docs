@@ -1684,5 +1684,5 @@ groups:
   pivots:
   - id: experience-azcli
     title: Azure CLI
-  - id: experience-azp
-    title: Azure portal
+  - id: experience-gui
+    title: Grafana UI
