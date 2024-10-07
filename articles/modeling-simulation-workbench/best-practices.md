@@ -66,7 +66,7 @@ Application registrations are authentication brokers for the Modeling and Simula
 
 ### Delete redirect URIs when deleting connectors
 
-Connectors generate two distinct redirect URIs when created. Anytime you are deleting or rebuilding a connector, delete the associated redirect URI from the application registration.
+Connectors generate two distinct redirect URIs when created. Anytime you're deleting or rebuilding a connector, delete the associated redirect URI from the application registration.
 
 [Describe a best practice.]
 
