@@ -34,8 +34,8 @@ You need to complete the following tasks before deploying Application Gateway fo
     az provider register --namespace Microsoft.NetworkFunction
     az provider register --namespace Microsoft.ServiceNetworking
 
-    # Install Azure CLI extensions.
-    az extension add --name alb
+    # Install Azure CLI extensions (alb is currently in preview)
+    az extension add --name alb --allow-preview true
     ```
 
 2. Set an AKS cluster for your workload.
