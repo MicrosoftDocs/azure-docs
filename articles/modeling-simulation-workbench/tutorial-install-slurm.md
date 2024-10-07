@@ -34,7 +34,7 @@ If you don’t have an Azure subscription, [create a free account](https://azure
 
 ## Sign in to the Azure portal and navigate to your workbench
 
-If you aren't already signed into the Azure portal, go to [https://portal.azure.com](https://portal.azure.com). Navigate to your workbench, then the chamber where you'll create your Slurm cluster.
+If you aren't already signed into the Azure portal, go to [portal.azure.com](https://portal.azure.com). Navigate to your workbench, then to the chamber you want to create your Slurm cluster.
 
 ## Create a cluster for Slurm
 
@@ -45,7 +45,7 @@ Slurm requires one node to serve as the controller and a set of compute nodes wh
 1. From the chamber overview page, select **Chamber VM** from the **Settings** menu, then either the **+ Create** button on action menu along the top or the blue **Create chamber VM** button in center of the page.
     :::image type="content" source="media/tutorial-slurm/create-chamber-vm.png" alt-text="Screenshot of chamber VM overview page with Chamber VM in Settings and the create options on the page highlighted by red outlines.":::
 1. On the **Create chamber VM** page:
-    * Enter a **Name** for the VM. We recommend choosing a name that indicates it is the controller node.
+    * Enter a **Name** for the VM. We recommend choosing a name that indicates it's the controller node.
     * Select a VM size. For the controller, you can select the smallest VM available. The *D4s_v4* is currently the smallest.
     * Leave the **Chamber VM image type** and **Chamber VM count** as the default of *Semiconductor* and *1*.
     * Select **Review + create**.
@@ -100,7 +100,7 @@ Configuring Slurm requires an inventory of nodes. From the controller node:
     10.163.4.9 wrkldvmslurm-nod034b970    
     ```
 
-1. Create a file with just the worker nodes, one host per line and call it *slurm_worker.txt*. For the remaining steps of this tutorial, you'll use this list to configure the compute nodes from your controller. In some steps, the nodes need to be in a comma-delimited format. In those instances, we use a command-line shortcut to format the list without having to create a new file. To create *slurm_worker.txt*, remove the IP addresses in the first column, and the controller node which is listed first.
+1. Create a file with just the worker nodes, one host per line and call it *slurm_worker.txt*. For the remaining steps of this tutorial, use this list to configure the compute nodes from your controller. In some steps, the nodes need to be in a comma-delimited format. In those instances, we use a command-line shortcut to format the list without having to create a new file. To create *slurm_worker.txt*, remove the IP addresses in the first column, and the controller node which is listed first.
 
 ### Gather technical specifications about the compute nodes
 
@@ -172,7 +172,7 @@ mysql_secure_installation
 
 The *mysql_secure_installation* script asks for more configuration.
 
-* The default database password isn't set. Hit **Enter** when asked for current password.
+* The default database password isn't set. Hit <kbd>Enter</kbd> when asked for current password.
 * Enter *Y* when asked to set root password. Create a new, secure root password for MariaDB, take note of it for later, then reenter to confirm. You need this password when you configure the Slurm controller in the following step.
 * Enter *Y* for the remaining questions for:
   * Reloading privileged tables
@@ -192,7 +192,12 @@ sudo /usr/sdw/slurm/sdwChamberSlurm.sh CONTROLLER <databaseSecret> <clusterNodes
 For this example, we use the list of nodes we created in the previous steps and substitute our values collected during discovery. The `paste` command is used to reformat the list of worker nodes into the comma-delimited format without needing to create a new file.
 
 ```bash
-$ sudo /usr/sdw/slurm/sdwChamberSlurm.sh CONTROLLER <databasepassword> `paste -d, -s ./slurm_nodes.txt` 4 1 2 2 13593564
+sudo /usr/sdw/slurm/sdwChamberSlurm.sh CONTROLLER <databasepassword> `paste -d, -s ./slurm_nodes.txt` 4 1 2 2 13593564
+```
+
+The output should be similar to:
+
+```bash
 Last metadata expiration check: 4:00:15 ago on Thu 03 Oct 2024 01:52:40 PM UTC.
 Package bzip2-devel-1.0.6-26.el8.x86_64 is already installed.
 Package gcc-8.5.0-18.2.el8_8.x86_64 is already installed..
@@ -240,8 +245,12 @@ END
 Using the same file of the node hostnames that you previously used, execute the bash script you created on the node.
 
 ```bash
-$ for host in `cat ./slurm_nodes.txt`; do ssh $host sudo sh ~/node-munge.sh; done
+for host in `cat ./slurm_nodes.txt`; do ssh $host sudo sh ~/node-munge.sh; done
+```
 
+Your output should be similar to:
+
+```bash
 Last metadata expiration check: 4:02:25 ago on Thu 03 Oct 2024 09:35:58 PM UTC.
 Dependencies resolved.
 ================================================================================
