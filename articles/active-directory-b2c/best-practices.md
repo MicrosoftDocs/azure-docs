@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: concept-article
-ms.date: 02/05/2024
+ms.date: 10/07/2024
 ms.subservice: B2C
 
 
@@ -68,7 +68,7 @@ Test and automate your Azure AD B2C implementation.
 | Functional and UI testing | Test the user flows end-to-end. Add synthetic tests every few minutes using Selenium, VS Web Test, etc. |
 | Pen-testing | Before going live with your solution, perform penetration testing exercises to verify all components are secure, including any third-party dependencies. Verify you've secured your APIs with access tokens and used the right authentication protocol for your application scenario. Learn more about [Penetration testing](../security/fundamentals/pen-testing.md) and the [Microsoft Cloud Unified Penetration Testing Rules of Engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1). |
 | A/B Testing | Flight your new features with a small, random set of users before rolling out to your entire population. With JavaScript enabled in Azure AD B2C, you can integrate with A/B testing tools like Optimizely, Clarity, and others. |
-| Load testing | Azure AD B2C can scale, but your application can scale only if all of its dependencies can scale. Load-test your APIs and CDN. Learn more about [Resilience through developer best practices](../active-directory/architecture/resilience-b2c-developer-best-practices.md).|
+| Load testing | Azure AD B2C can scale, but your application can scale only if all of its dependencies can scale. We recommend that you load-test your policy in production mode, that's set the `DeploymentMode` attribute to `Production` in your custom policy file's `<TrustFrameworkPolicy>` element. This setting ensures your performance during the test matches the production level performance. Load-test your APIs and CDN. Learn more about [Resilience through developer best practices](../active-directory/architecture/resilience-b2c-developer-best-practices.md).|
 | Throttling |  Azure AD B2C throttles traffic if too many requests are sent from the same source in a short period of time. Use several traffic sources while load testing, and handle the `AADB2C90229` error code gracefully in your applications. |
 | Automation | Use continuous integration and delivery (CI/CD) pipelines to automate testing and deployments, for example, [Azure DevOps](deploy-custom-policies-devops.md). |
 
