@@ -17,6 +17,26 @@ The Modeling and Simulation Workbench is a secure, cloud-based platform for coll
 
 This Known Issues guide provides troubleshooting and advisory information for resolving or acknowledging issues to be addressed. Where applicable, workaround or mitigation steps are provided.
 
+## Cadence dependencies
+
+When a Chamber Admin is attempting installation of some recent releases of Cadence tools, some users report missing dependencies on Modeling and Simulation Workbench. To fix this issue, install missing dependencies.
+
+### Troubleshooting steps
+
+During installation, the Cadence dependency checker `checkSysConf` reports that the following packages are missing from Modeling and Simulation Workbench VMs. Some of those packages are installed, but fail the dependency check due to other dependencies.
+
+* `xterm`
+* `motif`
+* `libXp`
+* `apr`
+* `apr-util`
+
+A Chamber Admin can install these packages with the following command in a terminal:
+
+```bash
+sudo yum install motif apr apr-util xterm
+```
+
 ## EDA license upload failures on server name
 
 When uploading Electronic Design Automation (EDA) license files with server names that contain a dash ("-") symbol, the chamber license file server fails to process the file. For some license files, the `SERVER` line server name isn't being parsed correctly. The parser fails to tokenize this line in order to reformat for the chamber license server environment.
