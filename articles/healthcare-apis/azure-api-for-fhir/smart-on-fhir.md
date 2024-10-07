@@ -159,9 +159,11 @@ These fields are meant to provide guidance to the app, but they don't convey any
 Notice that the SMART on FHIR app launcher updates the **Launch URL** information at the bottom of the page.<br>
 
 Select **Launch** to start the sample app.
+
 </details>
-     
+
 ## Migrate from SMART on FHIR Proxy to SMART on FHIR (Enhanced)
+
 [!INCLUDE [Migrate from SMART on FHIR Proxy to Enhanced](../includes/smart-on-fhir-proxy-migration.md)]
 
 ## Next steps
