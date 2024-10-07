@@ -19,7 +19,7 @@ The Azure Communication Services UI Library is a set of components, icons, and c
 
 In this article, you learn how to change the theme for UI Library components as you configure an application.
 
-The UI Library is fully documented for developers on a separate site. The documentation is interactive and helps you understand how the APIs work by giving you the ability to try them directly from a webpage. For more information, see the [UI Library documentation](https://azure.github.io/communication-ui-library/?path=/docs/overview--page).
+The UI Library is fully documented for developers on a separate site. The documentation is interactive and helps you understand how the APIs work by giving you the ability to try them directly from a webpage. For more information, see the [UI Library documentation](../../concepts/ui-library/ui-library-overview.md).
 
 ## Prerequisites
 

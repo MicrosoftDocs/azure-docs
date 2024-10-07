@@ -7,7 +7,7 @@ author: pauljewellmsft
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 05/22/2024
+ms.date: 08/05/2024
 ms.author: pauljewell
 ms.devlang: golang
 ms.custom: devx-track-go, devguide-go
@@ -74,3 +74,5 @@ The Azure SDK for Go contains libraries that build on top of the Azure REST API,
 
 - [Soft delete for containers](soft-delete-container-overview.md)
 - [Enable and manage soft delete for containers](soft-delete-container-enable.md)
+
+[!INCLUDE [storage-dev-guide-next-steps-go](../../../includes/storage-dev-guides/storage-dev-guide-next-steps-go.md)]

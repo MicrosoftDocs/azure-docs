@@ -2,7 +2,7 @@
 title: Migrate Azure API Management to availability zones
 description: Learn how to migrate your Azure API Management instances to availability zones for zone redundancy.
 author: shaunjacob 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 07/07/2022
 ms.author: anaharris
@@ -10,7 +10,7 @@ ms.custom: references_regions, subject-reliability
 
 ---
 
-# Migrate Azure API Management to availability zones
+# Migrate Azure API Management to availability zone support
 
 The Azure API Management service supports [zone redundancy](../reliability/availability-zones-overview.md), which provides resiliency and high availability to a service instance in a specific Azure region. With zone redundancy, the gateway and the control plane of your API Management instance (management API, developer portal, Git configuration) are replicated across datacenters in physically separated zones, so they're resilient to a zone failure.
 
@@ -36,7 +36,7 @@ There are no downtime requirements for any of the migration options.
 
 * When you're migrating an API Management instance that's deployed in an external or internal virtual network to availability zones, you must specify a new public IP address resource. In an internal virtual network, the public IP address is used only for management operations, not for API requests. [Learn more about IP addresses of API Management](../api-management/api-management-howto-ip-addresses.md).
 
-* Migrating to availability zones or changing the configuration of availability zones triggers a public [IP address change](../api-management/api-management-howto-ip-addresses.md#changes-to-the-ip-addresses).
+* Migrating to availability zones or changing the configuration of availability zones triggers a public and private [IP address change](../api-management/api-management-howto-ip-addresses.md#changes-to-the-ip-addresses).
 
 * When you're enabling availability zones in a region, you configure API Management scale [units](../api-management/upgrade-and-scale.md) that you can distribute evenly across the zones. For example, if you configure two zones, you can configure two units, four units, or another multiple of two units.
 

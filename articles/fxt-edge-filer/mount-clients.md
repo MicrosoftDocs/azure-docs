@@ -2,7 +2,7 @@
 title: Mount clients on the Microsoft Azure FXT Edge Filer cluster 
 description: How NFS client machines can mount the Azure FXT Edge Filer hybrid storage cache
 author: femila
-ms.service: fxt-edge-filer
+ms.service: azure-fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
 ms.author: femila

@@ -23,7 +23,7 @@ This quickstart shows you how to connect Azure Spring Apps to other Cloud resour
 
 - An Azure account with an active subscription. [Create an Azure account for free](https://azure.microsoft.com/free).
 - An app deployed to [Azure Spring Apps](../spring-apps/enterprise/quickstart.md) in a [region supported by Service Connector](./concept-region-support.md).
-- A target resource to connect Azure Spring Apps to. For example, a [Azure Key Vault](../key-vault/general/quick-create-portal.md).
+- A target resource to connect Azure Spring Apps to. For example, a [Azure Key Vault](/azure/key-vault/general/quick-create-portal).
 
 ## Sign in to Azure
 

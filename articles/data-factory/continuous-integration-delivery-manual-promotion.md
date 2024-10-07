@@ -1,7 +1,6 @@
 ---
 title: Manual promotion of Resource Manager templates 
 description: Learn how to manually promote a Resource Manager template to multiple environments with continuous integration and delivery in Azure Data Factory.
-ms.service: data-factory
 ms.subservice: ci-cd
 author: nabhishek
 ms.author: abnarain

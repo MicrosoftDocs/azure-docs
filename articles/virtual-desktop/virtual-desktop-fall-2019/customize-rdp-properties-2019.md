@@ -1,11 +1,11 @@
 ---
 title: Customize RDP Properties with PowerShell Azure Virtual Desktop (classic) - Azure
 description: How to customize RDP Properties for Azure Virtual Desktop (classic) with PowerShell cmdlets.
-author: Heidilohr
+author: dknappettmsft
 ms.topic: how-to
 ms.date: 03/30/2020
-ms.author: helohr
-manager: femila
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
 # Customize Remote Desktop Protocol properties for an Azure Virtual Desktop (classic) host pool
 

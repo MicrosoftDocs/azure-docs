@@ -1,164 +1,150 @@
 ---
-title: "Quickstart: Your first REST API query"
-description: In this quickstart, you follow the steps to call the Resource Graph endpoint for REST API and run your first query.
-ms.date: 07/09/2021
+title: Run Azure Resource Graph query using REST API
+description: In this quickstart, you run an Azure Resource Graph query using REST API and Azure CLI.
+ms.date: 07/18/2024
 ms.topic: quickstart
 ---
-# Quickstart: Run your first Resource Graph query using REST API
 
-The first step to using Azure Resource Graph with REST API is to check that you have a tool for
-calling REST APIs available. This quickstart then walks you through the process of running a query
-and retrieving the results by calling the Azure Resource Graph REST API endpoint.
+# Quickstart: Run Resource Graph query using REST API
 
-At the end of this process, you'll have the tools for calling REST API endpoints and run your first
-Resource Graph query.
+This quickstart describes how to run an Azure Resource Graph query with REST API and view the results. The REST API elements are a URI that includes the API version and request body that contains the query. The examples use Azure CLI to sign into Azure and that authenticates your account to run `az rest` commands.
+
+If you're unfamiliar with REST API, start by reviewing [Azure REST API Reference](/rest/api/azure/)
+to get a general understanding of REST API, specifically request URI and request body. For the Azure Resource Graph specifications, see [Azure Resource Graph REST API](/rest/api/azureresourcegraph/resourcegraph/operation-groups).
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account
-before you begin.
+- If you don't have an Azure account, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- Latest version of [PowerShell](/powershell/scripting/install/installing-powershell) or Bash shell like Git Bash.
+- Latest version of [Azure CLI](/cli/azure/install-azure-cli).
+- [Visual Studio Code](https://code.visualstudio.com/).
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+## Connect to Azure
 
-## Getting started with REST API
+From a Visual Studio Code terminal session, connect to Azure. If you have more than one subscription, run the commands to set context to your subscription. Replace `{subscriptionID}` with your Azure subscription ID.
 
-If you're unfamiliar with REST API, start by reviewing [Azure REST API Reference](/rest/api/azure/)
-to get a general understanding of REST API, specifically request URI and request body. This article
-uses these concepts to provide directions for working with Azure Resource Graph and assumes a
-working knowledge of them. Tools such as [ARMClient](https://github.com/projectkudu/ARMClient) and
-others may handle authorization automatically and are recommended for beginners.
+```azurecli
+az login
 
-For the Azure Resource Graph specs, see
-[Azure Resource Graph REST API](/rest/api/azure-resourcegraph/).
-
-### REST API and PowerShell
-
-If you don't already have a tool for making REST API calls, consider using PowerShell for these
-instructions. The following code sample gets a header for authenticating with Azure. Generate an
-authentication header, sometimes called a **Bearer token**, and provide the REST API URI to connect
-to with any parameters or a **Request Body**:
-
-```azurepowershell-interactive
-# Log in first with Connect-AzAccount if not using Cloud Shell
-
-$azContext = Get-AzContext
-$azProfile = [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile
-$profileClient = New-Object -TypeName Microsoft.Azure.Commands.ResourceManager.Common.RMProfileClient -ArgumentList ($azProfile)
-$token = $profileClient.AcquireAccessToken($azContext.Subscription.TenantId)
-$authHeader = @{
-    'Content-Type'='application/json'
-    'Authorization'='Bearer ' + $token.AccessToken
-}
-
-# Invoke the REST API
-$restUri = "https://management.azure.com/subscriptions/$($azContext.Subscription.Id)?api-version=2020-01-01"
-$response = Invoke-RestMethod -Uri $restUri -Method Get -Headers $authHeader
+# Run these commands if you have multiple subscriptions
+az account list --output table
+az account set --subscription {subscriptionID}
 ```
 
-The `$response` variable holds the result of the `Invoke-RestMethod` cmdlet, which can be parsed
-with cmdlets such as
-[ConvertFrom-Json](/powershell/module/microsoft.powershell.utility/convertfrom-json). If the REST
-API service endpoint expects a **Request Body**, provide a JSON formatted variable to the `-Body`
-parameter of `Invoke-RestMethod`.
+Use `az login` even if you're using PowerShell because the examples use Azure CLI [az rest](/cli/azure/reference-index#az-rest) commands.
 
-## Run your first Resource Graph query
+## Review the REST API syntax
 
-With the REST API tools added to your environment of choice, it's time to try out a simple
-subscription-based Resource Graph query. The query returns the first five Azure resources with the
-**Name** and **Resource Type** of each resource. To query by
-[management group](../management-groups/overview.md), use `managementgroups` instead of
-`subscriptions`. To query the entire tenant, omit both the `managementgroups` and `subscriptions`
-properties from the request body.
+There are two elements to run REST API commands: the REST API URI and the request body. For information, go to [Resources](/rest/api/azureresourcegraph/resourcegraph/resources/resources). To query by [management group](../management-groups/overview.md), use `managementGroups` instead of `subscriptions`. To query the entire tenant, omit both the `managementGroups` and `subscriptions` properties from the request body.
 
-In the request body of each REST API call, there's a variable that is used that you need to replace
-with your own value:
+The following example shows the REST API URI syntax to run a query for an Azure subscription.
 
-- `{subscriptionID}` - Replace with your subscription ID
+```http
+POST https://management.azure.com/providers/Microsoft.ResourceGraph/resources?api-version=2022-10-01
+```
 
-1. Run your first Azure Resource Graph query using the REST API and the `resources` endpoint:
+A request body is needed to run a query with REST API. The following example is the JSON to create a request body file.
 
-   - REST API URI
+```json
+{
+  "subscriptions": [
+    "{subscriptionID}"
+  ],
+  "query": "Resources | project name, type | limit 5"
+}
+```
 
-     ```http
-     POST https://management.azure.com/providers/Microsoft.ResourceGraph/resources?api-version=2021-03-01
-     ```
+## Run Resource Graph query
 
-   - Request Body
+The examples use the same `az rest` command but you change the request body to get different results. The examples list resources, order resources by the `name` property, and order resources by the `name` property and limit the number of results.
 
-     ```json
-     {
-         "subscriptions": [
-             "{subscriptionID}"
-         ],
-         "query": "Resources | project name, type | limit 5"
-     }
-     ```
+To run all the query examples, use the following `az rest` command for your shell environment:
 
-   > [!NOTE]
-   > As this query example doesn't provide a sort modifier such as `order by`, running this query
-   > multiple times is likely to yield a different set of resources per request.
+# [PowerShell](#tab/powershell)
 
-1. Update the call to the `resouces` endpoint and change the **query** to `order by` the **Name**
-   property:
+```powershell
+az rest --method post --uri https://management.azure.com/providers/Microsoft.ResourceGraph/resources?api-version=2022-10-01 --body `@request-body.json
+```
 
-   - REST API URI
+In PowerShell, the backtick (``` ` ```) is needed to escape the `at sign` (`@`) to specify a filename for the request body.
 
-     ```http
-     POST https://management.azure.com/providers/Microsoft.ResourceGraph/resources?api-version=2021-03-01
-     ```
+# [Bash](#tab/bash)
 
-   - Request Body
+```bash
+az rest --method post --uri https://management.azure.com/providers/Microsoft.ResourceGraph/resources?api-version=2022-10-01 --body @request-body.json
+```
 
-     ```json
-     {
-         "subscriptions": [
-             "{subscriptionID}"
-         ],
-         "query": "Resources | project name, type | limit 5 | order by name asc"
-     }
-     ```
+In a Bash shell like Git Bash, the backtick isn't needed to escape the `at sign` (`@`)  to specify a filename for the request body.
 
-   > [!NOTE]
-   > Just as with the first query, running this query multiple times is likely to yield a different
-   > set of resources per request. The order of the query commands is important. In this example,
-   > the `order by` comes after the `limit`. This command order first limits the query results and
-   > then orders them.
+---
 
-1. Update the call to the `resources` endpoint and change the **query** to first `order by` the
-   **Name** property and then `limit` to the top five results:
+In each request body example, replace `{subscriptionID}` with your Azure subscription ID. Run the following command to get your Azure subscription ID for the request body:
 
-   - REST API URI
+```azurecli
+az account show --query id --output tsv
+```
 
-     ```http
-     POST https://management.azure.com/providers/Microsoft.ResourceGraph/resources?api-version=2021-03-01
-     ```
+### List resources
 
-   - Request Body
+In Visual Studio Code, create a new file named _request-body.json_. Copy and paste the following JSON into the file and save the file.
 
-     ```json
-     {
-         "subscriptions": [
-             "{subscriptionID}"
-         ],
-         "query": "Resources | project name, type | order by name asc | limit 5"
-     }
-     ```
+The query returns five Azure resources with the `name` and `resource type` of each resource.
 
-When the final query is run several times, assuming that nothing in your environment is changing,
-the results returned are consistent and ordered by the **Name** property, but still limited to the
-top five results.
+```json
+{
+  "subscriptions": [
+    "{subscriptionID}"
+  ],
+  "query": "Resources | project name, type | limit 5"
+}
+```
 
-For more examples of REST API calls for Azure Resource Graph, see the
-[Azure Resource Graph REST Examples](/rest/api/azureresourcegraph/resourcegraph(2021-03-01)/resources/resources#examples).
+Because this query example doesn't provide a sort modifier like `order by`, running this query multiple times yields a different set of resources per request.
+
+### Order by name property
+
+Update _request-body.json_ with the following code that changes the query to `order by` the `name` property. Save the file and use the `az rest` command to run the query.
+
+```json
+{
+  "subscriptions": [
+    "{subscriptionID}"
+  ],
+  "query": "Resources | project name, type | limit 5 | order by name asc"
+}
+```
+
+If you run this query multiple times, it yields a different set of resources per request.
+
+The order of the query commands is important. In this example, the `order by` comes after the `limit`. This command order limits the query results to five resources and then orders them.
+
+### Order by name property and limit results
+
+Update _request-body.json_ with the following code to `order by` the `name` property and then `limit` to the top five results. Save the file and use the same `az rest` command to run the query.
+
+
+```json
+{
+  "subscriptions": [
+    "{subscriptionID}"
+  ],
+  "query": "Resources | project name, type | order by name asc | limit 5"
+}
+```
+
+If the query is run several times, assuming that nothing in your environment changed, the results returned are consistent and ordered by the `name` property, but limited to the top five results.
 
 ## Clean up resources
 
-REST API has no libraries or modules to uninstall. If you installed a tool like _ARMClient_ to make the calls and no longer need it, you may uninstall the tool now.
+Sign out of your Azure CLI session.
+
+```azurecli
+az logout
+```
 
 ## Next steps
 
-In this quickstart, you've called the Resource Graph REST API endpoint and run your first query. To
-learn more about the Resource Graph language, continue to the query language details page.
+In this quickstart, you used the Azure Resource Graph REST API endpoint to run a query. To learn more about the Resource Graph language, continue to the query language details page.
 
 > [!div class="nextstepaction"]
-> [Get more information about the query language](./concepts/query-language.md)
+> [Understanding the Azure Resource Graph query language](./concepts/query-language.md)

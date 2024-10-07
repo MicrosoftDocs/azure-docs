@@ -18,7 +18,7 @@ You can also create custom artifacts that aren't available in the public artifac
 
 This article shows you how to add an artifact repository to your lab by using the Azure portal, an Azure Resource Management (ARM) template, or Azure PowerShell. You can also use an Azure PowerShell or Azure CLI script to automate adding an artifact repository to a lab.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Prerequisites
 To add an artifact repository to a lab, you need to know the Git HTTPS clone URL and the personal access token for the GitHub or Azure Repos repository that has the artifact files.

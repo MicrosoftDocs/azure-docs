@@ -4,7 +4,7 @@ description: Learn about database templates
 author: gsaurer
 ms.author: gesaur
 ms.reviewer: wiassaf
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: database-editor
 ms.topic: overview
 ms.date: 10/16/2023

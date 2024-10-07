@@ -4,7 +4,7 @@ titleSuffix: Azure Virtual Network
 description: Learn about the ways a public IP address is used with Azure Firewall and how to change the configuration.
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to 
 ms.date: 08/24/2023
@@ -104,10 +104,11 @@ In this section, you add a public IP configuration to Azure Firewall. For more i
 
 ## Advanced configuration
 
-This example is a simple deployment of Azure Firewall. For advanced configuration and setup, see [Tutorial: Deploy and configure Azure Firewall and policy by using the Azure portal](../../firewall/tutorial-firewall-deploy-portal-policy.md). You can associate an Azure firewall with a network address translation (NAT) gateway to extend the extensibility of source network address translation (SNAT). A NAT gateway can be used to provide outbound connectivity associated with the firewall. With this configuration, all inbound traffic uses the public IP address or addresses of the NAT gateway. Traffic egresses through the Azure firewall public IP address or addresses.  For more information, see [Scale SNAT ports with Azure Virtual Network NAT](../../firewall/integrate-with-nat-gateway.md).
+This example is a simple deployment of Azure Firewall. For advanced configuration and setup, see [Tutorial: Deploy and configure Azure Firewall and policy by using the Azure portal](../../firewall/tutorial-firewall-deploy-portal-policy.md). When associated with multiple public IPs, Azure Firewall randomly selects the first source Public IP for outbound connectivity and only uses the next available Public IP after no more connections can be made from the current public IP due to SNAT port exhaustion. You can associate a [network address translation (NAT) gateway](/azure/nat-gateway/nat-overview) to a Firewall subnet to extend the scalability of source network address translation (SNAT). With this configuration, all outbound traffic uses the public IP address or addresses of the NAT gateway. For more information, see [Scale SNAT ports with Azure Virtual Network NAT](../../firewall/integrate-with-nat-gateway.md).
 
 > [!NOTE]
-> Azure firewall uses the Standard SKU load balancer. Protocols other than Transmission Control Protocol (TCP) and User Datagram Protocol (UDP) in network filter rules are unsupported for SNAT to the public IP of the firewall. 
+> . It is recommended to instead use [NAT Gateway] to provide dynamic scalability of your outbound connectivity.
+Protocols other than Transmission Control Protocol (TCP) and User Datagram Protocol (UDP) in network filter rules are unsupported for SNAT to the public IP of the firewall. 
 > You can integrate an Azure firewall with the Standard SKU load balancer to protect backend pool resources. If you associate the firewall with a public load balancer, configure ingress traffic to be directed to the firewall public IP address. Configure egress via a user-defined route to the firewall public IP address. For more information and setup instructions, see [Integrate Azure Firewall with Azure Standard Load Balancer](../../firewall/integrate-lb.md). 
 
 ## Next steps

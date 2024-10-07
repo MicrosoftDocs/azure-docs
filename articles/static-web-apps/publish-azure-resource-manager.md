@@ -3,7 +3,7 @@ title: "Tutorial: Publish Azure Static Web Apps using an ARM template"
 description: Create and deploy an ARM Template for Static Web Apps
 services: static-web-apps
 author: petender
-ms.service: static-web-apps
+ms.service: azure-static-web-apps
 ms.custom: devx-track-arm-template
 ms.topic:  tutorial
 ms.date: 07/13/2021

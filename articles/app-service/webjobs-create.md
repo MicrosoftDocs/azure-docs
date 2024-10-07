@@ -17,26 +17,22 @@ adobe-target-content: ./webjobs-create-ieux
 
 # Run background tasks with WebJobs in Azure App Service
 
-=======
-> [!NOTE]
-> WebJobs for **Windows container**, **Linux code**, and **Linux container** is in preview. WebJobs for Windows code is generally available and not in preview.
-
-
-[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
-
 Deploy WebJobs by using the [Azure portal](https://portal.azure.com) to upload an executable or script. You can run background tasks in the Azure App Service.
 
 If instead of the Azure App Service, you're using Visual Studio to develop and deploy WebJobs, see [Deploy WebJobs using Visual Studio](webjobs-dotnet-deploy-vs.md).
+
+> [!NOTE]
+> WebJobs for **Windows container**, **Linux code**, and **Linux container** is in preview. WebJobs for Windows code is generally available and not in preview.
 
 ## Overview
 
 WebJobs is a feature of [Azure App Service](index.yml) that enables you to run a program or script in the same instance as a web app. All app service plans support WebJobs. There's no extra cost to use WebJobs.
 
+[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
+
 You can use the Azure WebJobs SDK with WebJobs to simplify many programming tasks. For more information, see [What is the WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).
 
 Azure Functions provides another way to run programs and scripts. For a comparison between WebJobs and Functions, see [Choose between Flow, Logic Apps, Functions, and WebJobs](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md).
-
-
 
 ## WebJob types
 

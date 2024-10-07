@@ -2,15 +2,15 @@
 title: Azure infrastructure availability - Azure security
 description: This article provides information about what Microsoft does to secure the Azure infrastructure and provide maximum availability of customers' data.
 services: security
-author: TerryLanfear
+author: msmbaldwin
 manager: rkarlin
 
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 01/20/2023
-ms.author: terrylan
+ms.date: 06/28/2024
+ms.author: mbaldwin
 
 ---
 

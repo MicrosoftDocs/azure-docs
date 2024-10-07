@@ -5,7 +5,10 @@ author: batamig
 ms.author: bagol
 ms.topic: how-to
 ms.date: 08/19/2022
-#Customer.intent: As a security operator, I want to monitor the SAP audit logs and easily manage the logs, so I can reduce noise without compromising security value.
+
+
+#Customer intent: As a security analyst, I want to configure SAP audit log monitoring rules so that I can detect and respond to security anomalies efficiently.
+
 ---
 
 # Configure SAP audit log monitoring rules

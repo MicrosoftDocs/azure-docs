@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: how-to
-ms.date: 01/11/2024
+ms.date: 09/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -43,7 +43,7 @@ The following flows aren't supported:
 When using the ROPC flow, consider the following limitations:
 
 - ROPC doesn’t work when there's any interruption to the authentication flow that needs user interaction. For example, when a password expires or needs to be changed, [multifactor authentication](multi-factor-authentication.md) is required, or when more information needs to be collected during sign-in (for example, user consent).
-- ROPC supports local accounts only. Users can’t sign in with [federated identity providers](add-identity-provider.md) like Microsoft, Google+, Twitter, AD-FS, or Facebook.
+- ROPC supports local accounts only. Users can’t sign in with [federated identity providers](add-identity-provider.md) like Microsoft, Google+, X, AD-FS, or Facebook.
 - [Session Management](session-behavior.md), including [keep me signed-in (KMSI)](session-behavior.md#enable-keep-me-signed-in-kmsi), isn't applicable.
 
 
@@ -55,7 +55,7 @@ When using the ROPC flow, consider the following limitations:
 
 ##  Create a resource owner user flow
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as the **global administrator** of your Azure AD B2C tenant.
+1. Sign in to the [Azure portal](https://portal.azure.com) as the [External ID User Flow Administrator](/entra/identity/role-based-access-control/permissions-reference#external-id-user-flow-administrator) of your Azure AD B2C tenant.
 1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Select **User flows**, and select **New user flow**.

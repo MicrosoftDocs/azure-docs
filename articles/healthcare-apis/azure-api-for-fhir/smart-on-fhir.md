@@ -2,7 +2,7 @@
 title: SMART on FHIR - Azure API for FHIR
 description: This tutorial describes how to enable SMART on FHIR applications with the Azure API for FHIR.
 services: healthcare-apis
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: tutorial
 ms.author: kesheth

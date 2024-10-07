@@ -1,7 +1,6 @@
 ---
 title: Customize the setup for an Azure-SSIS Integration Runtime
 description: This article describes how to use the custom setup interface for an Azure-SSIS Integration Runtime to install additional components or change settings
-ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
 author: chugugrace
@@ -40,7 +39,7 @@ The following limitations apply only to standard custom setups:
 
 ## Prerequisites
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 To customize your Azure-SSIS IR, you need the following items:
 
@@ -129,17 +128,17 @@ If you select the **Install Azure PowerShell** type for your express custom setu
 
 If you select the **Install licensed component** type for your express custom setup, you can then select an integrated component from our ISV partners in the **Component name** drop-down list:
 
-* If you select the **SentryOne's Task Factory** component, you can install the [Task Factory](https://www.solarwinds.com/resources/it-glossary/ssis-components) suite of components from SentryOne on your Azure-SSIS IR by entering the product license key that you purchased from them in the **License key** box. The current integrated version is **2020.21.2**.
+* If you select the **SentryOne's Task Factory** component, you can install the [Task Factory](https://www.solarwinds.com/resources/it-glossary/ssis-components) suite of components from SentryOne on your Azure-SSIS IR by entering the product license key that you purchased from them in the **License key** box. The current integrated version is **2021.18.1**.
 
 * If you select the **oh22's HEDDA.IO** component, you can install the [HEDDA.IO](https://github.com/oh22is/HEDDA.IO/tree/master/SSIS-IR) data quality/cleansing component from oh22 on your Azure-SSIS IR. To do so, you need to purchase their service beforehand. The current integrated version is **1.0.14**.
 
 * If you select the **oh22's SQLPhonetics.NET** component, you can install the [SQLPhonetics.NET](https://appsource.microsoft.com/product/web-apps/oh22.sqlphonetics-ssis) data quality/matching component from oh22 on your Azure-SSIS IR. To do so, enter the product license key that you purchased from them beforehand in the **License key** text box. The current integrated version is **1.0.45**.
    
-* If you select the **KingswaySoft's SSIS Integration Toolkit** component, you can install the [SSIS Integration Toolkit](https://www.kingswaysoft.com/products/ssis-integration-toolkit-for-microsoft-dynamics-365) suite of connectors for CRM/ERP/marketing/collaboration apps, such as Microsoft Dynamics/SharePoint/Project Server, Oracle/Salesforce Marketing Cloud, etc. from KingswaySoft on your Azure-SSIS IR by entering the product license key that you purchased from them in the **License key** box. The current integrated version is **21.2**.
+* If you select the **KingswaySoft's SSIS Integration Toolkit** component, you can install the [SSIS Integration Toolkit](https://www.kingswaysoft.com/products/ssis-integration-toolkit-for-microsoft-dynamics-365) suite of connectors for CRM/ERP/marketing/collaboration apps, such as Microsoft Dynamics/SharePoint/Project Server, Oracle/Salesforce Marketing Cloud, etc. from KingswaySoft on your Azure-SSIS IR by entering the product license key that you purchased from them in the **License key** box. The current integrated version is **23.1**.
 
-* If you select the **KingswaySoft's SSIS Productivity Pack** component, you can install the [SSIS Productivity Pack](https://www.kingswaysoft.com/products/ssis-productivity-pack) suite of components from KingswaySoft on your Azure-SSIS IR by entering the product license key that you purchased from them in the **License key** box. The current integrated version is **21.2**.
+* If you select the **KingswaySoft's SSIS Productivity Pack** component, you can install the [SSIS Productivity Pack](https://www.kingswaysoft.com/products/ssis-productivity-pack) suite of components from KingswaySoft on your Azure-SSIS IR by entering the product license key that you purchased from them in the **License key** box. The current integrated version is **23.1**.
 
-* If you select the **Theobald Software's Xtract IS** component, you can install the [Xtract IS](https://theobald-software.com/en/xtract-is/) suite of connectors for SAP system (ERP, S/4HANA, BW) from Theobald Software on your Azure-SSIS IR by dragging & dropping/uploading the product license file that you purchased from them into the **License file** box. The current integrated version is **6.5.13.18**.
+* If you select the **Theobald Software's Xtract IS** component, you can install the [Xtract IS](https://theobald-software.com/en/xtract-is/) suite of connectors for SAP system (ERP, S/4HANA, BW) from Theobald Software on your Azure-SSIS IR by dragging & dropping/uploading the product license file that you purchased from them into the **License file** box. The current integrated version is **6.9.3.26**.
 
 * If you select the **AecorSoft's Integration Service** component, you can install the [Integration Service](https://www.aecorsoft.com/en/products/integrationservice) suite of connectors for SAP and Salesforce systems from AecorSoft on your Azure-SSIS IR. To do so, enter the product license key that you purchased from them beforehand in the **License key** text box. The current integrated version is **3.0.00**.
 

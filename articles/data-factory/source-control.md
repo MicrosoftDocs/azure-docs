@@ -1,7 +1,6 @@
 ---
 title: Source control
 description: Learn how to configure source control in Azure Data Factory.
-ms.service: data-factory
 ms.subservice: ci-cd
 author: nabhishek
 ms.author: abnarain
@@ -142,7 +141,7 @@ For more info about connecting Azure Repos to your organization's Active Directo
 
 ## Author with GitHub integration
 
-Visual authoring with GitHub integration supports source control and collaboration for work on your data factory pipelines. You can associate a data factory with a GitHub account repository for source control, collaboration, versioning. A single GitHub account can have multiple repositories, but a GitHub repository can be associated with only one data factory. If you don't have a GitHub account or repository, follow [these instructions](https://github.com/join) to create your resources.
+Visual authoring with GitHub integration supports source control and collaboration for work on your data factory pipelines. You can associate a data factory with a GitHub account repository for source control, collaboration, versioning. A single GitHub account can host multiple repositories, and each repository can be associated with multiple data factories. By configuring each data factory to use a different branch within the same repository, you can maintain separate environments (such as development, staging, and production) while managing their configurations independently. If you don't have a GitHub account or repository, follow [these instructions](https://github.com/join) to create your resources.
 
 The GitHub integration with Data Factory supports both public GitHub (that is, [https://github.com](https://github.com)), GitHub Enterprise Cloud and GitHub Enterprise Server. You can use both public and private GitHub repositories with Data Factory as long you have read and write permission to the repository in GitHub. To connect with a public repository, select the **Use Link Repository option**, as they aren't visible in the dropdown menu of **Repository name**. ADF’s GitHub enterprise server integration only works with [officially supported versions of GitHub enterprise server.](https://docs.github.com/en/enterprise-server@3.1/admin/all-releases)  
 

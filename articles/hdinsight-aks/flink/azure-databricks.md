@@ -1,9 +1,10 @@
 ---
 title: Incorporate Apache Flink® DataStream into Azure Databricks Delta Lake Table
 description: Learn about incorporate Apache Flink® DataStream into Azure Databricks Delta Lake Table.
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 04/10/2024
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Incorporate Apache Flink® DataStream into Azure Databricks Delta Lake Tables

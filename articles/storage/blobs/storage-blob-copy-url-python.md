@@ -5,7 +5,7 @@ description: Learn how to copy a blob from a source object URL in Azure Storage 
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 11/20/2023
+ms.date: 08/05/2024
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: python
@@ -22,13 +22,23 @@ The client library methods covered in this article use the [Put Blob From URL](/
 
 To learn about copying blobs using asynchronous APIs, see [Copy a blob from a source object URL asynchronously](#copy-a-blob-from-a-source-object-url-asynchronously).
 
-## Prerequisites
+[!INCLUDE [storage-dev-guide-prereqs-python](../../../includes/storage-dev-guides/storage-dev-guide-prereqs-python.md)]
 
-- This article assumes you already have a project set up to work with the Azure Blob Storage client library for Python. To learn about setting up your project, including package installation, adding `import` statements, and creating an authorized client object, see [Get started with Azure Blob Storage and Python](storage-blob-python-get-started.md).
-- To use asynchronous APIs in your code, see the requirements in the [Asynchronous programming](storage-blob-python-get-started.md#asynchronous-programming) section.
-- The [authorization mechanism](../common/authorize-data-access.md) must have permissions to perform a copy operation. To learn more, see the authorization guidance for the following REST API operation:
-    - [Put Blob From URL](/rest/api/storageservices/put-blob-from-url#authorization)
-    - [Put Block From URL](/rest/api/storageservices/put-block-from-url#authorization)
+## Set up your environment
+
+[!INCLUDE [storage-dev-guide-project-setup-python](../../../includes/storage-dev-guides/storage-dev-guide-project-setup-python.md)]
+
+#### Add import statements
+
+Add the following `import` statements:
+
+:::code language="python" source="~/azure-storage-snippets/blobs/howto/python/blob-devguide-py/blob_devguide_copy_put_from_url.py" id="Snippet_imports":::
+
+#### Authorization
+
+The authorization mechanism must have the necessary permissions to perform a copy operation. For authorization with Microsoft Entra ID (recommended), you need Azure RBAC built-in role **Storage Blob Data Contributor** or higher. To learn more, see the authorization guidance for [Put Blob From URL (REST API)](/rest/api/storageservices/put-blob-from-url#authorization) or [Put Block From URL (REST API)](/rest/api/storageservices/put-block-from-url#authorization).
+
+[!INCLUDE [storage-dev-guide-create-client-python](../../../includes/storage-dev-guides/storage-dev-guide-create-client-python.md)]
 
 ## About copying blobs from a source object URL
 
@@ -101,6 +111,10 @@ With this basic setup in place, you can implement other examples in this article
 
 To learn more about copying blobs using the Azure Blob Storage client library for Python, see the following resources.
 
+### Code samples
+
+- View [synchronous](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob_devguide_copy_put_from_url.py) or [asynchronous](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob_devguide_copy_put_from_url_async.py) code samples from this article (GitHub)
+
 ### REST API operations
 
 The Azure SDK for Python contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar Python paradigms. The client library methods covered in this article use the following REST API operations:
@@ -108,8 +122,6 @@ The Azure SDK for Python contains libraries that build on top of the Azure REST 
 - [Put Blob From URL](/rest/api/storageservices/put-blob-from-url) (REST API)
 - [Put Block From URL](/rest/api/storageservices/put-block-from-url) (REST API)
 
-### Code samples
-
-- View [synchronous](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob_devguide_copy_put_from_url.py) or [asynchronous](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/python/blob-devguide-py/blob_devguide_copy_put_from_url_async.py) code samples from this article (GitHub)
-
 [!INCLUDE [storage-dev-guide-resources-python](../../../includes/storage-dev-guides/storage-dev-guide-resources-python.md)]
+
+[!INCLUDE [storage-dev-guide-next-steps-python](../../../includes/storage-dev-guides/storage-dev-guide-next-steps-python.md)]

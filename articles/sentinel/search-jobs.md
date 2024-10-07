@@ -15,7 +15,7 @@ ms.collection: usx-security
 
 Use a search job when you start an investigation to find specific events in logs up to seven years ago. You can search events across all your logs, including events in Analytics, Basic, and Archived log plans. Filter and look for events that match your criteria.
 
-- For more information on search job concepts and limitations, see [Start an investigation by searching large datasets](investigate-large-datasets.md) and [Search jobs in Azure Monitor](../azure-monitor/logs/search-jobs.md).
+- For more information on search job concepts and limitations, see [Start an investigation by searching large datasets](investigate-large-datasets.md) and [Search jobs in Azure Monitor](/azure/azure-monitor/logs/search-jobs).
 
 - Search jobs across certain data sets might incur extra charges. For more information, see [Microsoft Sentinel pricing page](billing.md).
 
@@ -81,4 +81,4 @@ To learn more, see the following articles.
 
 - [Hunt with bookmarks](bookmarks.md)
 - [Restore archived logs](restore.md)
-- [Configure data retention and archive policies in Azure Monitor Logs (Preview)](../azure-monitor/logs/data-retention-archive.md)
+- [Configure data retention and archive policies in Azure Monitor Logs (Preview)](/azure/azure-monitor/logs/data-retention-configure)

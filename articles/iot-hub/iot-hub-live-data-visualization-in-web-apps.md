@@ -24,7 +24,7 @@ The web application sample for this tutorial is written in Node.js. The steps in
 
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-* An IoT hub in your Azure subscription. If you don't have a hub yet, you can follow the steps to create an IoT hub using the [CLI](iot-hub-create-using-cli.md) or the [Azure portal](iot-hub-create-through-portal.md).
+* An IoT hub in your Azure subscription. If you don't have a hub yet, you can follow the steps in [Create an IoT hub](create-hub.md).
 
 * A device registered in your IoT hub. If you don't have a device in your IoT hub, follow the steps in [Register a device](create-connect-device.md#register-a-device).
 
@@ -63,6 +63,8 @@ The service connection string should look similar to the following example:
 ```
 
 Note down the service connection string, you need it later in this tutorial.
+
+[!INCLUDE [iot-authentication-service-connection-string.md](../../includes/iot-authentication-service-connection-string.md)]
 
 ## Download the web app from GitHub
 

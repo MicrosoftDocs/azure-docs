@@ -3,7 +3,7 @@ title: Azure Load Balancer components
 description: Overview of Azure Load Balancer components.
 services: load-balancer
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: conceptual
 ms.date: 06/18/2024
 ms.author: mbender
@@ -39,7 +39,7 @@ The group of virtual machines or instances in a virtual machine scale set that i
 
 Load balancer instantly reconfigures itself via automatic reconfiguration when you scale instances up or down. Adding or removing VMs from the backend pool reconfigures the load balancer without other operations. The scope of the backend pool is any virtual machine in a single virtual network. 
 
-Backend pools support addition of instances via [network interface or IP addresses](backend-pool-management.md). VMs do not need a public IP address in order to be attached to backend pool of a public load balancer. Also, you can attach VMs to the backend pool of a load balancer even if they are in a stopped state. 
+Backend pools support addition of instances via [network interface or IP addresses](backend-pool-management.md). VMs do not need a public IP address in order to be attached to backend pool of a public load balancer. VMs can be attached to the backend pool of a load balancer even if they are in a stopped state. You can also configure multiple backend pools with different groups of instances to a single load balancer. By creating multiple load balancing rules, each targeting a different backend pool, you can configure traffic to distribute to different sets of backend resources based on the load balancer frontend port and protocol.
 
 When considering how to design your backend pool, design for the least number of individual backend pool resources to optimize the length of management operations. There's no difference in data plane performance or scale.
 
@@ -94,8 +94,6 @@ An inbound NAT rule forwards incoming traffic sent to frontend IP address and po
 :::image type="content" source="./media/load-balancer-components/inboundnatrules.png" alt-text="Inbound NAT rule reference diagram" border="false":::
 
 *Figure: Inbound NAT rules*
-
-Inbound NAT rules in the context of Virtual Machine Scale Sets are inbound NAT pools. Learn more about [Load Balancer components and virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#azure-virtual-machine-scale-sets-with-azure-load-balancer).
 
 ## Outbound rules
 

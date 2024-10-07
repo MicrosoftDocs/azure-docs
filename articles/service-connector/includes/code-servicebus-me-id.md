@@ -22,7 +22,7 @@ ms.author: wchi
     
     string namespace = Environment.GetEnvironmentVariable("AZURE_SERVICEBUS_FULLYQUALIFIEDNAMESPACE");
     
-    // Uncomment the following lines according to the authentication type.
+    // Uncomment the following lines corresponding to the authentication type you want to use.
     // system-assigned managed identity
     // var credential = new DefaultAzureCredential();
     
@@ -64,7 +64,7 @@ ms.author: wchi
     import com.azure.messaging.servicebus.*;
     import com.azure.identity.*;
 
-    // Uncomment the following lines according to the authentication type.
+    // Uncomment the following lines corresponding to the authentication type you want to use.
     // for system-managed identity
     // DefaultAzureCredential defaultCredential = new DefaultAzureCredentialBuilder().build();
 
@@ -123,7 +123,7 @@ ms.author: wchi
     from azure.servicebus import ServiceBusMessage
     from azure.identity import ManagedIdentityCredential, ClientSecretCredential
     
-    # Uncomment the following lines according to the authentication type.
+    # Uncomment the following lines corresponding to the authentication type you want to use.
     # system-assigned managed identity
     # cred = ManagedIdentityCredential()
     
@@ -167,7 +167,7 @@ ms.author: wchi
 		panic("AZURE_SERVICEBUS_FULLYQUALIFIEDNAMESPACE environment variable not found")
 	}
 
-	// Uncomment the following lines according to the authentication type.
+	// Uncomment the following lines corresponding to the authentication type you want to use.
     // For system-assigned identity.
     // cred, err := azidentity.NewDefaultAzureCredential(nil)
     
@@ -206,7 +206,7 @@ ms.author: wchi
     import { DefaultAzureCredential,ClientSecretCredential } from "@azure/identity";
     const { ServiceBusClient } = require("@azure/service-bus");
     
-    // Uncomment the following lines according to the authentication type.
+    // Uncomment the following lines corresponding to the authentication type you want to use.
     // for system-assigned managed identity
     // const credential = new DefaultAzureCredential();
     

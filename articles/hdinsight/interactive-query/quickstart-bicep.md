@@ -3,7 +3,7 @@ title: 'Quickstart: Create Interactive Query cluster using Bicep - Azure HDInsig
 description: This quickstart shows how to use Bicep to create an Interactive Query cluster in Azure HDInsight.
 author: reachnijel
 ms.author: nijelsf
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ms.date: 10/16/2023
@@ -14,7 +14,7 @@ ms.date: 10/16/2023
 
 In this quickstart, you use a Bicep to create an [Interactive Query](./apache-interactive-query-get-started.md) cluster in Azure HDInsight. Interactive Query (also called Apache Hive LLAP, or [Low Latency Analytical Processing](https://cwiki.apache.org/confluence/display/Hive/LLAP)) is an Azure HDInsight [cluster type](../hdinsight-hadoop-provision-linux-clusters.md#cluster-type).
 
-[!INCLUDE [About Bicep](../../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites
 

@@ -12,11 +12,11 @@ ms.date: 01/04/2024
 
 # Quickstart: Create and deploy a Consumption logic app workflow in multi-tenant Azure Logic Apps with an ARM template
 
-[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 
 [Azure Logic Apps](logic-apps-overview.md) is a cloud service that helps you create and run automated workflows that integrate data, apps, cloud-based services, and on-premises systems by choosing from [hundreds of connectors](/connectors/connector-reference/connector-reference-logicapps-connectors). This quickstart focuses on the process for deploying an Azure Resource Manager template (ARM template) to create a basic [Consumption logic app workflow](logic-apps-overview.md#resource-environment-differences) that checks the status for Azure on an hourly schedule and runs in [multi-tenant Azure Logic Apps](logic-apps-overview.md#resource-environment-differences).
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites, and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 

@@ -15,6 +15,8 @@ ms.custom: mvc, devx-track-azurepowershell
 
 # Tutorial: Add a custom domain to your endpoint
 
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
+
 This tutorial shows how to add a custom domain to an Azure Content Delivery Network endpoint.
 
 The endpoint name in your content delivery network profile is a subdomain of azureedge.net. By default when delivering content, the content delivery network profile domain gets included in the URL.
@@ -29,7 +31,7 @@ In this tutorial, you learn how to:
 > - Add a custom domain with your content delivery network endpoint.
 > - Verify the custom domain.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 

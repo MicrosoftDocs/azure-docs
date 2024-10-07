@@ -5,7 +5,7 @@
   - name: Azure Table storage overview
     href: table-storage-overview.md
   - name: Choose Table storage or Azure Cosmos DB for Table
-    href: ../../cosmos-db/table-support.md
+    href: /azure/cosmos-db/table-support
     maintainContext: true
   expanded: true
 - name: Quickstarts
@@ -15,31 +15,31 @@
 - name: Samples
   items:
   - name: .NET
-    href: ../../cosmos-db/tutorial-develop-table-dotnet.md
+    href: /azure/cosmos-db/tutorial-develop-table-dotnet
     maintainContext: true
   - name: F#
     href: /dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
     maintainContext: true
   - name: Java
-    href: ../../cosmos-db/table-storage-how-to-use-java.md
+    href: /azure/cosmos-db/table-storage-how-to-use-java
     maintainContext: true
   - name: Node.js
-    href: ../../cosmos-db/table-storage-how-to-use-nodejs.md
+    href: /azure/cosmos-db/table-storage-how-to-use-nodejs
     maintainContext: true
   - name: C++
-    href: ../../cosmos-db/table-storage-how-to-use-c-plus.md
+    href: /azure/cosmos-db/table-storage-how-to-use-c-plus
     maintainContext: true
   - name: PHP
-    href: ../../cosmos-db/table-storage-how-to-use-php.md
+    href: /azure/cosmos-db/table-storage-how-to-use-php
     maintainContext: true
   - name: Python
-    href: ../../cosmos-db/table-storage-how-to-use-python.md
+    href: /azure/cosmos-db/table-storage-how-to-use-python
     maintainContext: true
   - name: Go
-    href: ../../cosmos-db/table-storage-how-to-use-go.md
+    href: /azure/cosmos-db/table-storage-how-to-use-go
     maintainContext: true
   - name: Ruby
-    href: ../../cosmos-db/table-storage-how-to-use-ruby.md
+    href: /azure/cosmos-db/table-storage-how-to-use-ruby
     maintainContext: true
   - name: PowerShell
     href: ./table-storage-how-to-use-powershell.md
@@ -95,7 +95,7 @@
     href: table-storage-design-modeling.md
   - name: Table design patterns
     href: table-storage-design-patterns.md
-  - name: Monitoring Table storage
+  - name: Monitor Table Storage
     href: monitor-table-storage.md
 - name: How-to
   items:
@@ -238,7 +238,7 @@
       href: /python/api/overview/azure/storage#management
     - name: JavaScript SDK
       href: /javascript/api/overview/azure/storage#management
-  - name: Monitoring Azure Table storage reference
+  - name: Monitoring Table Storage data reference
     href: monitor-table-storage-reference.md
   - name: Scalability and performance targets
     items:

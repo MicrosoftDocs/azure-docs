@@ -3,7 +3,7 @@ title: Back up Azure blobs within a storage account using Azure PowerShell
 description: Learn how to back up all Azure blobs within a storage account using Azure PowerShell.
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell
-ms.date: 05/30/2024
+ms.date: 07/24/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -108,7 +108,7 @@ blobBkpPolicy       Microsoft.DataProtection/backupVaults/backupPolicies
 
 $blobBkpPol = Get-AzDataProtectionBackupPolicy -ResourceGroupName "testBkpVaultRG" -VaultName $TestBkpVault.Name -Name "blobBkpPolicy"
 ```
-# [Vaulted Backup (preview)](#tab/vaulted-backup)
+# [Vaulted Backup](#tab/vaulted-backup)
 
 [!INCLUDE [blob-vaulted-backup-create-policy-ps.md](../../includes/blob-vaulted-backup-create-policy-ps.md)]
 
@@ -138,7 +138,7 @@ blobrg-PSTestSA-3df6ac08-9496-4839-8fb5-8b78e594f166 Microsoft.DataProtection/ba
 > [!IMPORTANT]
 > Once a storage account is configured for blobs backup, a few capabilities are affected, such as change feed and delete lock. [Learn more](blob-backup-configure-manage.md#effects-on-backed-up-storage-accounts).
 
-# [Vaulted Backup (preview)](#tab/vaulted-backup)
+# [Vaulted Backup](#tab/vaulted-backup)
 
 [!INCLUDE [blob-vaulted-backup-prepare-request-ps.md](../../includes/blob-vaulted-backup-prepare-request-ps.md)]
 

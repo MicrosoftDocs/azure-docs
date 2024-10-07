@@ -3,7 +3,7 @@ title: Enable graphical remote desktop for Linux labs
 titleSuffix: Azure Lab Services
 description: Learn how to enable remote desktop for Linux virtual machines in a lab in Azure Lab Services, and about options for best performance.
 services: lab-services
-ms.service: lab-services
+ms.service: azure-lab-services
 ms.custom: linux-related-content
 author: RoseHJM
 ms.author: rosemalcolm
@@ -13,6 +13,8 @@ ms.date: 03/12/2024
 ---
 
 # Enable graphical remote desktop for Linux virtual machines in Azure Lab Services
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 When you create a lab from a Linux image, Azure Lab Services automatically enables Secure Shell (SSH). A lab creator can connect to the template virtual machine (VM) from the command line. After you publish the template VM, students can also connect to their VMs using SSH.
 
@@ -31,7 +33,7 @@ Performance over a remote desktop connection varies by distribution, version, GU
 Another option to consider is [nested virtualization](concept-nested-virtualization-template-vm.md). Students can connect to a Windows lab host VM using RDP, and then use Linux on nested VMs. This approach might help improve performance.
 
 > [!IMPORTANT]
-> Some marketplace images already have a graphical desktop environment and remote desktop server installed. For example, the [Data Science Virtual Machine for Linux (Ubuntu)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=Data%20science%20Virtual%20machine&page=1&filters=microsoft%3Blinux) already has [XFCE and X2Go Server installed and configured to accept client connections](../machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro.md#x2go).
+> Some marketplace images already have a graphical desktop environment and remote desktop server installed. For example, the [Data Science Virtual Machine for Linux (Ubuntu)](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=Data%20science%20Virtual%20machine&page=1&filters=microsoft%3Blinux) already has [XFCE and X2Go Server installed and configured to accept client connections](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro#x2go).
 
 ## Choose setup options
 

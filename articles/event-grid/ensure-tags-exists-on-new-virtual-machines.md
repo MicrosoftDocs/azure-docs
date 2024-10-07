@@ -2,10 +2,9 @@
 title: Integrate Azure Automation with Event Grid | Microsoft Docs
 description: Learn how to automatically add a tag when a new VM is created and send a notification to Microsoft Teams.
 keywords: automation, runbook, teams, event grid, virtual machine, VM
-services: automation,event-grid
 author: eamonoreilly
 
-ms.service: automation
+ms.service: azure-automation
 ms.topic: tutorial
 ms.date: 07/07/2020
 ms.author: eamono

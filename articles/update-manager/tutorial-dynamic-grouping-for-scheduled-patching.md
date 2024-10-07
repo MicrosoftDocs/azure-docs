@@ -2,7 +2,7 @@
 title: Schedule updates on Dynamic scoping.
 description: In this tutorial, you learn how to group machines, dynamically apply the updates at scale.
 ms.service: azure-update-manager
-ms.date: 09/18/2023
+ms.date: 08/22/2024
 ms.topic: tutorial 
 author: SnehaSudhirG
 ms.author: sudhirsneha

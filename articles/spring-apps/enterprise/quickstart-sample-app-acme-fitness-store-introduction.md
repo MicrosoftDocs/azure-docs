@@ -4,19 +4,15 @@ titleSuffix: Azure Spring Apps Enterprise plan
 description: Describes the sample app used in this series of quickstarts for deployment to the Azure Spring Apps Enterprise plan.
 author: KarlErickson
 ms.author: asirveda # external contributor: paly@vmware.com
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: quickstart
-ms.date: 05/31/2022
+ms.date: 06/27/2024
 ms.custom: devx-track-java
 ---
 
 # Introduction to the Fitness Store sample app
 
-> [!NOTE]
-> The first 50 vCPU hours and 100 GB hours of memory are free each month. For more information, see [Price Reduction - Azure Spring Apps does more, costs less!](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/price-reduction-azure-spring-apps-does-more-costs-less/ba-p/3614058) on the [Apps on Azure Blog](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/bg-p/AppsonAzureBlog).
-
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 **This article applies to:** ❌ Basic/Standard ✔️ Enterprise
 

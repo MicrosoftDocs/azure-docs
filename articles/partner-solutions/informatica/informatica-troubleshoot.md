@@ -3,31 +3,21 @@ title: Troubleshooting your Informatica deployment
 description: This article provides information about getting support and troubleshooting an Informatica integration.
 
 ms.topic: overview
-ms.date: 04/02/2024
+ms.date: 07/05/2024
 
 ---
 
-# Troubleshooting Intelligent Data Management Cloud (Preview) - Azure Native ISV Service
+# Troubleshooting Intelligent Data Management Cloud - Azure Native ISV Service
 
-You can get support for your Informatica deployment through a **New Support request**. The procedure for creating the request is here. In addition, we included other troubleshooting for problems you might experience in creating and using an Intelligent Data Management Cloud (Preview) - Azure Native ISV Service resource.
+In this article, you see how to troubleshoot problems you might experience in creating and using an Intelligent Data Management Cloud - Azure Native ISV Service resource.
 
-## Getting support  
+For information on contacting support, see [Get support for Informatica Intelligent Data Management Cloud](informatica-get-support.md#get-support-for-informatica-intelligent-data-management-cloud).
 
-1. To contact support about an Informatica resource, select the resource in the Resource menu.
-
-1. Select the **New Support request** in Resource menu on the left.
-
-1. Select **Raise a support ticket** and fill out the details.
-
-    :::image type="content" source="media/informatica-troubleshoot/informatica-support-request.png" alt-text="Screenshot of a new Informatica support ticket.":::
-
-## Troubleshooting
-
-### Unable to create an Informatica resource as not a subscription owner  
+## Unable to create an Informatica resource as not a subscription owner  
 
 The Informatica integration must be set up by users who have _Owner_ access on the Azure subscription. Ensure you have the appropriate _Owner_ access before starting to set up this integration.
 
-### Unable to create an Informatica resource when the details are not present in User profile
+## Unable to create an Informatica resource when the details are not present in User profile
 
 User profile needs to be updated with Key business information for Informatica resource creation. You can update by:
 

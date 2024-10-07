@@ -3,7 +3,7 @@ title: 'Configure NAT on VPN Gateway'
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure NAT for Azure VPN Gateway.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 05/02/2023
 ms.author: cherylmc 
@@ -112,4 +112,4 @@ The connections and the NAT rules are specified in the sample topology shown in 
 
 ## Next steps
 
-Once your connection is complete, you can add virtual machines to your virtual networks. See [Create a Virtual Machine](../virtual-machines/windows/quick-create-portal.md) for steps.
+Once your connection is complete, you can add virtual machines to your virtual networks. See [Create a Virtual Machine](/azure/virtual-machines/windows/quick-create-portal) for steps.

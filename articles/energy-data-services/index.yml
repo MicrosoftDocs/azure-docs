@@ -44,6 +44,8 @@ landingContent:
             url: concepts-csv-parser-ingestion.md
           - text: Index and search workflows
             url: concepts-index-and-search.md
+          - text: Syncing Reference data values
+            url: concepts-reference-data-values.md
       - linkListType: whats-new
         links:
           - text: Release notes
@@ -96,6 +98,8 @@ landingContent:
             url: how-to-add-more-data-partitions.md
           - text: How to generate auth token
             url: how-to-generate-auth-token.md
+          - text: How to deploy Geospatial Consumption Zone (GCZ)
+            url: how-to-deploy-gcz.md
           - text: How to deploy OSDU Admin UI
             url: how-to-deploy-osdu-admin-ui.md
       - linkListType: concept

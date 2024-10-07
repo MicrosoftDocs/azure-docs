@@ -3,9 +3,9 @@ title: 'Configure Azure VPN Client optional settings'
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure optional configuration settings for the Azure VPN Client. Settings include DNS suffixes, custom DNS servers, custom routes, and VPN client forced tunneling.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 05/15/2024
+ms.date: 09/06/2024
 ms.author: cherylmc
 
 ---
@@ -26,15 +26,21 @@ The steps in this article assume that you have configured your P2S gateway and h
 
 ## Working with VPN client profile configuration files
 
-The steps in this article require you to modify and import the Azure VPN Client profile configuration file. To work with VPN client profile configuration files (xml files), use the following steps:
+The steps in this article require you to modify and import the Azure VPN Client profile configuration file. The following profile configuration files are generated, depending on the authentication types configured for your P2S VPN gateway.
+
+* **azurevpnconfig.xml**: This file is generated when only one authentication type is selected.
+* **azurevpnconfig_aad.xml**: This file is generated for Microsoft Entra ID authentication when there are multiple authentication types selected.
+* **azurevpnconfig_cert.xml**: This file is generated for Certificate authentication when there are multiple authentication types selected.
+
+To work with VPN client profile configuration files (xml files), use the following steps:
 
 1. Locate the profile configuration file and open it using the editor of your choice.
 1. Using the examples in the following sections, modify the file as necessary, then save your changes.
 1. Import the file to configure the Azure VPN client. You can import the file for the Azure VPN Client using these methods:
 
-   * **Azure VPN Client interface**: Open the Azure VPN Client and click **+** and then **Import**. Locate the modified xml file, configure any additional settings in the Azure VPN Client interface (if necessary), then click **Save**.
+   * **Azure VPN Client interface**: Open the Azure VPN Client and click **+** and then **Import**. Locate the modified .xml file, configure any additional settings in the Azure VPN Client interface (if necessary), then click **Save**.
 
-   * **Command-line prompt**: Place the downloaded *azurevpnconfig.xml* file in the *%userprofile%\AppData\Local\Packages\Microsoft.AzureVpn_8wekyb3d8bbwe\LocalState* folder, then run the following command: `azurevpn -i azurevpnconfig.xml`. To force the import, use the **-f** switch.
+   * **Command-line prompt**: Place the appropriate downloaded configuration xml file in the *%userprofile%\AppData\Local\Packages\Microsoft.AzureVpn_8wekyb3d8bbwe\LocalState* folder, then run the command that corresponds to the configuration file name. For example, `azurevpn -i azurevpnconfig_aad.xml`. To force the import, use the **-f** switch.
 
 ## DNS
 
@@ -96,7 +102,7 @@ You can configure forced tunneling in order to direct all traffic to the VPN tun
 
 * **Advertise custom routes:** You can advertise custom routes `0.0.0.0/1` and `128.0.0.0/1`. For more information, see [Advertise custom routes for P2S VPN clients](vpn-gateway-p2s-advertise-custom-routes.md).
 
-* **Profile XML:** You can modify the downloaded profile xml file and add the **\<includeroutes>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</includeroutes>** tags. Make sure to update the version number to **2**.
+* **Profile XML:** You can modify the downloaded profile xml file and add the **\<includeroutes>\<route>\<destination>\<mask> \</destination>\</mask>\</route>\</includeroutes>** tags.
 
    ```xml
   <azvpnprofile>

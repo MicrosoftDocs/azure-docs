@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 11/19/2021
+ms.date: 06/18/2024
 ms.author: anfdocs
 ---
 # Add hosts to a multiple-host SAP HANA system using application volume group for SAP HANA

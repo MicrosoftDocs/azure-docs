@@ -57,6 +57,12 @@ In the sidebar menu, look under the section **SAP resources**:
 
 :::image type="content" source="media/configure-virtual-instance/sap-resources.png" lightbox="media/configure-virtual-instance/sap-resources.png" alt-text="Screenshot of VIS resource in Azure portal, showing SAP resources pages in the sidebar menu for ASCS, App server, and Database instances.":::
 
+## View Manage identity under VIS
+
+You can view and create/delete the manage identity under the VIS.
+
+:::image type="content" source="media/configure-virtual-instance/manage-identity-under-vis.png" lightbox="media/configure-virtual-instance/manage-identity-under-vis.png" alt-text="Screenshot of Manage Identity view under VIS in Azure portal.":::
+
 ## Default Instance Numbers
 
 If you've deployed an SAP system using Azure Center for SAP solutions, the following list shows the default values of instance numbers configured during deployment:
@@ -139,7 +145,7 @@ To delete a VIS:
 1. [Open the VIS in the Azure portal](#open-vis-in-portal).
 1. On the overview page's menu, select **Delete**.
 
-    :::image type="content" source="media/configure-virtual-instance/delete-vis-button.png" lightbox="media/configure-virtual-instance/delete-vis-button.png" alt-text="Screenshot of VIS resource in the Azure portal, showing delete button in the overview page's menu..":::
+    :::image type="content" source="media/configure-virtual-instance/delete-vis-button.png" lightbox="media/configure-virtual-instance/delete-vis-button.png" alt-text="Screenshot of VIS resource in the Azure portal, showing delete button in the overview page's menu.":::
 
 1. In the deletion pane, make sure that you want to delete this VIS and related resources. You can see a count for each type of resource to be deleted.
     

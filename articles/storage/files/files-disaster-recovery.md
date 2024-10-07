@@ -4,7 +4,7 @@ description: Learn how to recover your data in Azure Files. Understand the conce
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
-ms.date: 04/15/2024
+ms.date: 08/05/2024
 ms.author: kendownie
 ---
 
@@ -14,6 +14,20 @@ Microsoft strives to ensure that Azure services are always available. However, u
 
 > [!IMPORTANT]
 > Azure File Sync only supports storage account failover if the Storage Sync Service is also failed over. This is because Azure File Sync requires the storage account and Storage Sync Service to be in the same Azure region. If only the storage account is failed over, sync and cloud tiering operations will fail until the Storage Sync Service is failed over to the secondary region. If you want to fail over a storage account containing Azure file shares that are being used as cloud endpoints in Azure File Sync, see [Azure File Sync disaster recovery best practices](../file-sync/file-sync-disaster-recovery-best-practices.md) and [Azure File Sync server recovery](../file-sync/file-sync-server-recovery.md).
+
+## Customer-managed planned failover (preview) 
+
+Customer-managed planned failover can also be utilized in multiple scenarios, including planned disaster recovery testing, a proactive approach to large scale disasters, or to recover from non-storage related outages. 
+
+During the planned failover process, the primary and secondary regions are swapped. The original primary region is demoted and becomes the new secondary region. At the same time, the original secondary region is promoted and becomes the new primary. After the failover completes, users can proceed to access data in the new primary region and administrators can validate their disaster recovery plan. The storage account must be available in both the primary and secondary regions before a planned failover can be initiated. 
+
+Data loss isn't expected during the planned failover and failback process as long as the primary and secondary regions are available throughout the entire process. For more detail, see the [Anticipating data loss and inconsistencies](../common/storage-disaster-recovery-guidance.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&bc=%2Fazure%2Fstorage%2Fblobs%2Fbreadcrumb%2Ftoc.json#anticipate-data-loss-and-inconsistencies) section.
+
+To understand the effect of this type of failover on your users and applications, it's helpful to know what happens during every step of the planned failover and failback processes. For details about how this process works, see [How customer-managed (planned) failover works](../common/storage-failover-customer-managed-planned.md). 
+
+[!INCLUDE [storage-failover.planned-preview](../../../includes/storage-failover.planned-preview.md)]
+
+[!INCLUDE [storage-failover-user-unplanned-preview-lst](../../../includes/storage-failover-user-unplanned-preview-lst.md)]
 
 ## Recovery metrics and costs
 
@@ -76,7 +90,7 @@ Write access is restored for geo-redundant accounts once the DNS entry has been 
 > [!IMPORTANT]
 > After the failover is complete, the storage account is configured to be locally redundant in the new primary endpoint/region. To resume replication to the new secondary, configure the account for geo-redundancy again.
 >
-> Keep in mind that converting a locally redundant storage account to use geo-redundancy incurs both cost and time. For more information, see [Important implications of account failover](../common/storage-initiate-account-failover.md#important-implications-of-account-failover).
+> Keep in mind that converting a locally redundant storage account to use geo-redundancy incurs both cost and time. For more information, see [The time and cost of failing over](../common/storage-disaster-recovery-guidance.md#the-time-and-cost-of-failing-over).
 
 ### Anticipate data loss
 

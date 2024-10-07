@@ -3,14 +3,13 @@ metadata:
   title: Azure Relay FAQs | Microsoft Docs
   description: This article provides answers to some of the frequently asked questions about the Azure Relay service.
   ms.topic: faq
-  ms.service: service-bus-relay
   ms.date: 08/10/2023
 title: Azure Relay FAQs
 summary: |
   This article answers some frequently asked questions (FAQs) about [Azure Relay](https://azure.microsoft.com/services/service-bus/). For general Azure pricing and support information, see the [Azure Support FAQs](https://azure.microsoft.com/support/faq/).
   
   
-  [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+  [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
   
 
 sections:
@@ -70,6 +69,7 @@ sections:
           | Relay endpoints per service namespace |Namespace |- |10,000 |
           | Message size for [NetOnewayRelayBinding](/dotnet/api/microsoft.servicebus.netonewayrelaybinding) and [NetEventRelayBinding](/dotnet/api/microsoft.servicebus.neteventrelaybinding) relays |Namespace |Incoming messages that exceed these quotas are rejected and an exception is received by the calling code. |64 KB |
           | Message size for [HttpRelayTransportBindingElement](/dotnet/api/microsoft.servicebus.httprelaytransportbindingelement) and [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) relays |Namespace |No limit on message size. |Unlimited |
+          | Number of virtual network and IP filter rules | Namespace |- | 128 |
 
       - question: |
           Does Relay have any usage quotas?

@@ -1,7 +1,7 @@
 ---
 author: baanders
 description: include file for the access permissions step in Azure Digital Twins setup
-ms.service: digital-twins
+ms.service: azure-digital-twins
 ms.topic: include
 ms.date: 7/17/2020
 ms.author: baanders

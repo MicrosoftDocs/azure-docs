@@ -2,7 +2,7 @@
 title: Mount the Avere vFXT - Azure
 description: Learn how to connect clients to your vFXT cluster in Avere vFXT for Azure and how to load-balance client traffic among your cluster nodes.
 author: ekpgh
-ms.service: avere-vfxt
+ms.service: azure-avere-vfxt
 ms.topic: how-to
 ms.date: 12/16/2019
 ms.author: rohogue

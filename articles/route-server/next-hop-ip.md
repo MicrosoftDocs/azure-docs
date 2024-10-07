@@ -4,7 +4,7 @@ titleSuffix: Azure Route Server
 description: Learn how to use the next hop IP support in Azure Route Server to peer with network virtual appliances (NVAs) behind an internal load balancer.
 author: halkazwini
 ms.author: halkazwini
-ms.service: route-server
+ms.service: azure-route-server
 ms.topic: concept-article
 ms.date: 02/13/2024
 

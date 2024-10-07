@@ -7,13 +7,13 @@ author: greg-lindsay
 ms.author: greglin
 ms.date: 11/06/2022
 ms.topic: quickstart
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template
 ---
 
 # Deploy an Azure Application Gateway with an IPv6 frontend - ARM template
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template opens in the Azure portal.
 

@@ -30,18 +30,19 @@ Azure Active Directory B2C [user flows and custom policies](user-flow-overview.m
 
 - Support requests for public preview features can be submitted through regular support channels.
 
-## User flows
-|Feature  |User flow  |Custom policy  |Notes  |
-|---------|:---------:|:---------:|---------|
-| [Sign-up and sign-in](add-sign-up-and-sign-in-policy.md) with email and password. | GA | GA| |
-| [Sign-up and sign-in](add-sign-up-and-sign-in-policy.md) with username and password.| GA | GA | |
-| [Profile editing flow](add-profile-editing-policy.md) | GA | GA | |
-| [Self-Service password reset](add-password-reset-policy.md) | GA| GA| Available in China cloud, but only for custom policies. |
-| [Force password reset](force-password-reset.md) | GA | GA | Available in China cloud, but only for custom policies. |
-| [Phone sign-up and sign-in](phone-authentication-user-flows.md) | GA | GA | Available in China cloud, but only for custom policies. |
-| [Smart lockout](threat-management.md) | GA | GA | |
-| [Conditional Access and Identity Protection](conditional-access-user-flow.md) | GA | GA | Not available for SAML applications. Limited CA features are available in China cloud. Identity Protection is not available in China cloud. |
-| [CAPTCHA](add-captcha.md) | Preview | Preview | You can enable it during sign-up or sign-in for Local accounts. |
+## Feature availability
+| Feature | User flow | Custom policy | User flow in China | Custom policy in China | Notes |
+|---|:---:|:---:|---|---|---|
+| [Sign-up and sign-in](add-sign-up-and-sign-in-policy.md) with email and password. | GA | GA | GA | GA |  |
+| [Sign-up and sign-in](add-sign-up-and-sign-in-policy.md) with username and password. | GA | GA | GA | GA |  |
+| [Profile editing flow](add-profile-editing-policy.md) | GA | GA | GA | GA |  |
+| [Self-Service password reset](add-password-reset-policy.md) | GA | GA | GA | GA |  |
+| [Force password reset](force-password-reset.md) | GA | GA | NA | GA |  |
+| [Phone sign-up and sign-in](phone-authentication-user-flows.md) | GA | GA | NA | GA |  |
+| [Smart lockout](threat-management.md) | GA | GA | NA | NA |  |
+| [Conditional Access](conditional-access-user-flow.md) | GA | GA | NA | Limited availability | Not available for SAML applications.  |
+| [Identity Protection](conditional-access-identity-protection-overview.md) | GA | GA | NA | NA |  |
+| [CAPTCHA](add-captcha.md) | Preview | Preview | NA | NA | You can enable it during sign-up or sign-in for Local accounts. |
 
 ## OAuth 2.0 application authorization flows
 
@@ -119,16 +120,16 @@ The following table summarizes the Security Assertion Markup Language (SAML) app
 |[QQ](identity-provider-qq.md) | Preview | GA | |
 |[Salesforce](identity-provider-salesforce.md) | GA | GA | |
 |[Salesforce (SAML protocol)](identity-provider-salesforce-saml.md) | NA | GA | |
-|[Twitter](identity-provider-twitter.md) | GA | GA | |
 |[WeChat](identity-provider-wechat.md) | Preview | GA | Available in China cloud, but only for custom policies. |
 |[Weibo](identity-provider-weibo.md) | Preview | GA | |
+|[X](identity-provider-twitter.md) | GA | GA | |
 
 ## Generic identity providers
 
 |Feature  |User flow  |Custom policy  |Notes  |
 |---------|:---------:|:---------:|---------|
 |[OAuth2](oauth2-technical-profile.md) | NA | GA | For example, [Google](identity-provider-google.md), [GitHub](identity-provider-github.md), and [Facebook](identity-provider-facebook.md).|
-|[OAuth1](oauth1-technical-profile.md) | NA | GA | For example, [Twitter](identity-provider-twitter.md). |
+|[OAuth1](oauth1-technical-profile.md) | NA | GA | For example, [X](identity-provider-twitter.md). |
 |[OpenID Connect](openid-connect-technical-profile.md) | GA | GA | For example, [Microsoft Entra ID](identity-provider-azure-ad-single-tenant.md).  |
 |[SAML2](identity-provider-generic-saml.md) | NA | GA | For example, [Salesforce](identity-provider-salesforce-saml.md) and [AD-FS](identity-provider-adfs.md). |
 | WSFED | NA | NA | |

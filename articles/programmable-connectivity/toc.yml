@@ -23,6 +23,8 @@
     href: azure-programmable-connectivity-network-apis.md
   - name: Locations and partners
     href: azure-programmable-connectivity-locations-partners.md
+  - name: Availability and redundancy
+    href: azure-programmable-connectivity-availability.md
 - name: Quickstarts
   expanded: true
   items:
@@ -37,4 +39,4 @@
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Blog
-    href: https://techcommunity.microsoft.com/t5/azure-for-operators-blog/azure-programmable-connectivity-empowering-the-next-generation/ba-p/4063967 
+    href: https://techcommunity.microsoft.com/t5/azure-for-operators-blog/azure-programmable-connectivity-empowering-the-next-generation/ba-p/4063967

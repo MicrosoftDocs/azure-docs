@@ -31,7 +31,7 @@ Users must migrate their environment's [Time Series Model variables](./concepts-
 
 ## Migrate Time Series Model and saved queries
 
-To help users migrate their [Time Series Model variables](./concepts-variables.md) and saved queries, there is a built-in tool available through the [Azure Time Series Insights Explorer](https://insights.timeseries.azure.com). Navigate to the environment you wish to migrate and follow the steps below. **You can complete the migration partially and return to complete it at a later time, however, none of the updates can be reverted.**
+To help users migrate their [Time Series Model variables](./concepts-variables.md) and saved queries, there is a built-in tool available through the Azure Time Series Insights Explorer. Navigate to the environment you wish to migrate and follow the steps below. **You can complete the migration partially and return to complete it at a later time, however, none of the updates can be reverted.**
 
 > [!NOTE]
 > You must be a Contributor to the environment to make updates to the Time Series Model and saved queries. If you are not a Contributor, you will only be able to migrate your personal saved queries. Please review [environment access policies](./concepts-access-policies.md) and your access level before proceeding.

@@ -13,13 +13,25 @@
       - name: Build your first static web app
         expanded: true
         items:
-          - name: Visual Studio Code
-            href: getting-started.md
-          - name: Azure portal
-            href: get-started-portal.md
-            displayName: github, devops
-          - name: Azure CLI
-            href: get-started-cli.md
+          - name: Web frameworks
+            href: deploy-web-framework.md
+          - name: Developer tools
+            items:
+                - name: Visual Studio Code
+                  href: getting-started.md
+                - name: Azure portal
+                  href: get-started-portal.md
+                  displayName: github, devops
+                - name: Azure CLI
+                  href: get-started-cli.md
+- name: Scenarios
+  items:
+  - name: Build a site with a web framework
+    items:
+    - name: 1 - Pick a web framework
+      href: deploy-web-framework.md
+    - name: 2 - Add authentication
+      href: add-authentication.md
 - name: Frameworks & libraries
   items:
   - name: Overview
@@ -148,6 +160,11 @@
   - name: Overview
     href: local-development.md
     displayName: swa cli
+- name: Relocation
+  items:
+  - name: Relocate to another region
+    href: ../operational-excellence/relocation-static-web-apps.md?toc=/azure/static-web-apps/toc.json
+    displayName: swa cli
 - name: Traffic management
   items:
   - name: Split traffic
@@ -166,6 +183,9 @@
     href: deployment-token-management.md
   - name: Publish with an ARM template
     href: publish-azure-resource-manager.md
+  - name: Publish with a Bicep template
+    href: publish-bicep.md
+    displayName: bicep, AZD, Azure Developer CLI
   - name: Deploy with external source control providers
     href: external-providers.md
     displayName: Jenkins, Jekyll

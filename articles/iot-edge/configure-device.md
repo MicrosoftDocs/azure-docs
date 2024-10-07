@@ -3,7 +3,7 @@ title: Configure Azure IoT Edge device settings
 description: This article shows you how to configure Azure IoT Edge device settings and options using the config.toml file.
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/06/2024
+ms.date: 06/27/2024
 ms.topic: how-to
 ms.service: iot-edge
 services: iot-edge
@@ -461,7 +461,7 @@ auto_generated_edge_ca_expiry_days = 90
 This setting manages autorenewal of the Edge CA certificate. Autorenewal applies when the Edge CA is configured as *quickstart* or when the Edge CA has an issuance `method` set. Edge CA certificates loaded from files generally can't be autorenewed as the Edge runtime doesn't have enough information to renew them.
 
 > [!IMPORTANT]
-> Renewal of an Edge CA requires all server certificates issued by that CA to be regenerated. This regeneration is done by restarting all modules. The time of Edge CA renewal can't be guaranteed. If random module restarts are unacceptable for your use case, disable autorenewal.
+> Renewal of an Edge CA requires all server certificates issued by that CA to be regenerated. This regeneration is done by restarting all modules. The time of Edge CA renewal can't be guaranteed. If random module restarts are unacceptable for your use case, disable autorenewal by not including the [edge_ca.auto_renew] section.
 
 ```toml
 [edge_ca.auto_renew]

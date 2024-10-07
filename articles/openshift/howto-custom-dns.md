@@ -4,7 +4,7 @@ description: Discover how to add a custom DNS resolver on all of your nodes in A
 author: johnmarco
 ms.author: johnmarc
 ms.service: azure-redhat-openshift
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/02/2021
 #Customer intent: As an operator or developer, I need a custom DNS configured for an Azure Red Hat OpenShift cluster
 ---

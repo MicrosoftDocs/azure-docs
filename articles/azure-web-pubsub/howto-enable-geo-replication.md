@@ -117,6 +117,9 @@ Update **webpubsub** extension to the latest version, then run:
 
 ----
 
+> [!NOTE]
+> * The replica count is currently limited to a maximum of 8 per primary resource.
+
 ## Pricing and resource unit
 Each replica has its **own** `unit` and `autoscale settings`.
 

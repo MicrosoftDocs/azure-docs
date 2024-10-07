@@ -4,7 +4,7 @@ titleSuffix: Azure Front Door
 description: This article shows you how to use Azure Front Door to deliver high-bandwidth content by caching blobs from Azure Storage.
 services: frontdoor
 author: duongau
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 08/22/2023
 ms.author: duau

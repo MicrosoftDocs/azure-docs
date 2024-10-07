@@ -4,7 +4,7 @@ description: Recommendations on choosing the ideal number of data warehouse unit
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.date: 04/17/2024
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 ---
@@ -121,7 +121,7 @@ To change DWUs:
 
 #### PowerShell
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 To change the DWUs, use the [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) PowerShell cmdlet. The following example sets the service level objective to DW1000 for the database MySQLDW that is hosted on server MyServer.
 

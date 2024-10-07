@@ -12,9 +12,8 @@ ms.date: 04/12/2024
 
 You can use diagnostic settings to route your Trusted Signing account platform metrics, resource logs, and activity log to various destinations. For each Azure resource that you use, you must configure a separate diagnostic setting. Similarly, each Trust Signing account should have its own settings configured.
 
-Currently, you can choose from four log routing options for Trusted Signing in Azure:
+Currently, you can choose from three log routing options for Trusted Signing in Azure:
 
-- **Log Analytics workspace**: A Log Analytics workspace serves as a distinct environment for log data. Each workspace has its own data repository and configuration. It’s the designated destination for your data. If you haven’t already set up a workspace, create one before you proceed. For more information, see the [Log Analytics workspace overview](/azure/azure-monitor/logs/log-analytics-workspace-overview).
 - **Azure Storage account**: An Azure Storage account houses all your Storage data objects, including blobs, files, queues, and tables. It offers a unique namespace for your Storage data, and it's accessible globally via HTTP or HTTPS.
 
   To set up your storage account:

@@ -32,6 +32,8 @@
           href: quickstart-openshift-arm-bicep-template.md
         - name: Upgrade an Azure Red Hat OpenShift cluster
           href: howto-upgrade.md
+        - name: Deploy large Azure Red Hat OpenShift clusters
+          href: howto-large-clusters.md
         - name: Use spot nodes
           href: howto-spot-nodes.md
         - name: Deploy infrastructure nodes
@@ -106,9 +108,9 @@
             - name: Configure Resource Health alerts
               href : howto-monitor-alerts.md
             - name: Configure Azure Monitor container insights for Azure Red Hat OpenShift 4
-              href : ../azure-monitor/insights/container-insights-enable-arc-enabled-clusters.md
+              href: /azure/azure-monitor/insights/container-insights-enable-arc-enabled-clusters
             - name: Disable Azure Monitor container insights in Azure Red Hat OpenShift 4 
-              href: ../azure-monitor/insights/container-insights-enable-arc-enabled-clusters.md#delete-extension-instance
+              href: /azure/azure-monitor/insights/container-insights-enable-arc-enabled-clusters#delete-extension-instance
             - name: Configure Azure Monitor managed service for Prometheus remote write   
               href: howto-remotewrite-prometheus.md
     - name: Develop and run applications

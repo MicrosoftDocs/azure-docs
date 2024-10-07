@@ -1,7 +1,7 @@
 ---
 title: Apache Spark core concepts
 description: Introduction to core concepts for Apache Spark in Azure Synapse Analytics.
-ms.service: synapse-analytics 
+ms.service: azure-synapse-analytics
 ms.subservice: spark
 ms.topic: overview
 author: guyhay
@@ -93,7 +93,7 @@ The following article describes how to request an increase in workspace vCore qu
 - Select "Azure Synapse Analytics" as the service type.
 - In the Quota details window, select Apache Spark (vCore) per workspace
 
-[Request a capacity increase via the Azure portal](../../azure-portal/supportability/per-vm-quota-requests.md)
+[Request a capacity increase via the Azure portal](/azure/azure-portal/supportability/per-vm-quota-requests)
 
 ### Spark pool level
 

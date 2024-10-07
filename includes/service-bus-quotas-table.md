@@ -1,14 +1,11 @@
 ---
 title: include file
 description: include file
-services: service-bus-messaging
 author: spelluru
-ms.service: service-bus-messaging
+ms.service: azure-service-bus
 ms.topic: include
 ms.date: 08/14/2023
 ms.author: spelluru
-ms.custom: "include file"
-
 ---
 
 The following table lists quota information specific to Azure Service Bus messaging. For information about pricing and other quotas for Service Bus, see [Service Bus pricing](https://azure.microsoft.com/pricing/details/service-bus/).
@@ -34,6 +31,7 @@ The following table lists quota information specific to Azure Service Bus messag
 | Number of shared access authorization rules per namespace, queue, or topic |Entity, namespace |Maximum number of rules per entity type: 12. <br /><br /> Rules that are configured on a Service Bus namespace apply to all types: queues, topics. |Subsequent requests for creation of additional rules are rejected, and an exception is received by the calling code. |
 | Number of messages per transaction | Transaction | 100 <br /><br /> For both **Send()** and **SendAsync()** operations. | Additional incoming messages are rejected, and an exception stating "Can't send more than 100 messages in a single transaction" is received by the calling code. |
 | Maximum number of messages deleted in DeleteMessagesAsync call | Entity | 4000 | 
+| Maximum number of messages returned in PeekMessagesAsync call | Entity | 250 | 
 | Number of virtual network and IP filter rules | Namespace |  128 |&nbsp; |
 
 [Azure portal]: https://portal.azure.com

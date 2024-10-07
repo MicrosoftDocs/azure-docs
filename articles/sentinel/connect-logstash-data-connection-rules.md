@@ -1,10 +1,10 @@
 ---
 title: Use Logstash to stream logs with pipeline transformations via DCR-based API
 description: Use Logstash to forward logs from external data sources into custom and standard tables in Microsoft Sentinel, and to configure the output with DCRs. 
-author: limwainstein
+author: yelevin
 ms.topic: how-to
-ms.date: 11/07/2022
-ms.author: lwainstein
+ms.date: 07/14/2024
+ms.author: yelevin
 ---
 
 # Use Logstash to stream logs with pipeline transformations via DCR-based API
@@ -41,9 +41,7 @@ The Logstash engine is composed of three components:
 - Output plugins: Customized sending of collected and processed data to various destinations.
 
 > [!NOTE]
-> - Microsoft supports only the Microsoft Sentinel-provided Logstash output plugin discussed here. The current plugin is named **[microsoft-sentinel-log-analytics-logstash-output-plugin](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/microsoft-sentinel-log-analytics-logstash-output-plugin)**, v1.2.0. You can [open a support ticket](https://portal.azure.com/#create/Microsoft.Support) for any issues regarding the output plugin.
->
->   This version, v1.2.0, now supports Managed Identity authentication on both Azure VMs and Azure Arc-connected machines. For more version information, see the [changelog](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/microsoft-sentinel-log-analytics-logstash-output-plugin/CHANGELOG.md). Older versions do not support managed identity.
+> - Microsoft supports only the Microsoft Sentinel-provided Logstash output plugin discussed here. The current plugin is named **[microsoft-sentinel-log-analytics-logstash-output-plugin](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/microsoft-sentinel-log-analytics-logstash-output-plugin)**, v1.1.0. You can [open a support ticket](https://portal.azure.com/#create/Microsoft.Support) for any issues regarding the output plugin.
 >
 > - Microsoft does not support third-party Logstash output plugins for Microsoft Sentinel, or any other Logstash plugin or component of any type.
 >
@@ -51,7 +49,7 @@ The Logstash engine is composed of three components:
 
 The Microsoft Sentinel output plugin for Logstash sends JSON-formatted data to your Log Analytics workspace, using the Log Analytics Log Ingestion API. The data is ingested into custom logs or standard table.
 
-- Learn more about the [Logs ingestion API](../azure-monitor/logs/logs-ingestion-api-overview.md).
+- Learn more about the [Logs ingestion API](/azure/azure-monitor/logs/logs-ingestion-api-overview).
 
 ## Deploy the Microsoft Sentinel output plugin in Logstash
 
@@ -212,39 +210,39 @@ In this section, you create resources to use for your DCR, in one of these scena
 
 #### Create DCR resources for ingestion into a custom table
 
-To ingest the data to a custom table, follow these steps (based on the [Send data to Azure Monitor Logs using REST API (Azure portal) tutorial](../azure-monitor/logs/tutorial-logs-ingestion-portal.md)):  
+To ingest the data to a custom table, follow these steps (based on the [Send data to Azure Monitor Logs using REST API (Azure portal) tutorial](/azure/azure-monitor/logs/tutorial-logs-ingestion-portal)):  
 
-1. Review the [prerequisites](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#prerequisites).
-1. [Configure the application](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#create-azure-ad-application).
-1. [Add a custom log table](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#create-new-table-in-log-analytics-workspace). 
-1. [Parse and filter sample data](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#parse-and-filter-sample-data) using [the sample file you created in the previous section](#create-a-sample-file).
-1. [Collect information from the DCR](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#collect-information-from-the-dcr).
-1. [Assign permissions to the DCR](../azure-monitor/logs/tutorial-logs-ingestion-portal.md#assign-permissions-to-the-dcr).
+1. Review the [prerequisites](/azure/azure-monitor/logs/tutorial-logs-ingestion-portal#prerequisites).
+1. [Configure the application](/azure/azure-monitor/logs/tutorial-logs-ingestion-portal#create-azure-ad-application).
+1. [Add a custom log table](/azure/azure-monitor/logs/tutorial-logs-ingestion-portal#create-new-table-in-log-analytics-workspace). 
+1. [Parse and filter sample data](/azure/azure-monitor/logs/tutorial-logs-ingestion-portal#parse-and-filter-sample-data) using [the sample file you created in the previous section](#create-a-sample-file).
+1. [Collect information from the DCR](/azure/azure-monitor/logs/tutorial-logs-ingestion-portal#collect-information-from-the-dcr).
+1. [Assign permissions to the DCR](/azure/azure-monitor/logs/tutorial-logs-ingestion-portal#assign-permissions-to-the-dcr).
 
     Skip the Send sample data step.
 
-If you come across any issues, see the [troubleshooting steps](../azure-monitor/logs/tutorial-logs-ingestion-code.md#troubleshooting).
+If you come across any issues, see the [troubleshooting steps](/azure/azure-monitor/logs/tutorial-logs-ingestion-code#troubleshooting).
 
 #### Create DCR resources for ingestion into a standard table
 
-To ingest the data to a standard table like Syslog or CommonSecurityLog, you use a process based on the [Send data to Azure Monitor Logs using REST API (Resource Manager templates) tutorial](../azure-monitor/logs/tutorial-logs-ingestion-api.md). While the tutorial explains how to ingest data into a custom table, you can easily adjust the process to ingest data into a standard table. The steps below indicate relevant changes in the steps. 
+To ingest the data to a standard table like Syslog or CommonSecurityLog, you use a process based on the [Send data to Azure Monitor Logs using REST API (Resource Manager templates) tutorial](/azure/azure-monitor/logs/tutorial-logs-ingestion-api). While the tutorial explains how to ingest data into a custom table, you can easily adjust the process to ingest data into a standard table. The steps below indicate relevant changes in the steps. 
  
-1. Review the [prerequisites](../azure-monitor/logs/tutorial-logs-ingestion-api.md#prerequisites).
-1. [Collect workspace details](../azure-monitor/logs/tutorial-logs-ingestion-api.md#collect-workspace-details).
-1. [Configure an application](../azure-monitor/logs/tutorial-logs-ingestion-api.md#create-azure-ad-application). 
+1. Review the [prerequisites](/azure/azure-monitor/logs/tutorial-logs-ingestion-api#prerequisites).
+1. [Collect workspace details](/azure/azure-monitor/logs/tutorial-logs-ingestion-api#collect-workspace-details).
+1. [Configure an application](/azure/azure-monitor/logs/tutorial-logs-ingestion-api#create-azure-ad-application). 
     
     Skip the Create new table in Log Analytics workspace step. This step isn't relevant when ingesting data into a standard table, because the table is already defined in Log Analytics.
 
-1. [Create the DCR](../azure-monitor/logs/tutorial-logs-ingestion-api.md#create-data-collection-rule). In this step: 
+1. [Create the DCR](/azure/azure-monitor/logs/tutorial-logs-ingestion-api#create-data-collection-rule). In this step: 
     - Provide [the sample file you created in the previous section](#create-a-sample-file). 
     - Use the sample file you created to define the `streamDeclarations` property. Each of the fields in the sample file should have a corresponding column with the same name and the appropriate type (see the [example](#example-dcr-that-ingests-data-into-the-syslog-table) below). 
     - Configure the value of the `outputStream` property with the name of the standard table instead of the custom table. Unlike custom tables, standard table names don't have the `_CL` suffix.  
     - The prefix of the table name should be `Microsoft-` instead of `Custom-`. In our example, the `outputStream` property value is `Microsoft-Syslog`.  
-1. [Assign permissions to a DCR](../azure-monitor/logs/tutorial-logs-ingestion-api.md#assign-permissions-to-a-dcr).
+1. [Assign permissions to a DCR](/azure/azure-monitor/logs/tutorial-logs-ingestion-api#assign-permissions-to-a-dcr).
 
     Skip the Send sample data step.
 
-If you come across any issues, see the [troubleshooting steps](../azure-monitor/logs/tutorial-logs-ingestion-code.md#troubleshooting).
+If you come across any issues, see the [troubleshooting steps](/azure/azure-monitor/logs/tutorial-logs-ingestion-code#troubleshooting).
 
 ##### Example: DCR that ingests data into the Syslog table
 
@@ -466,10 +464,10 @@ The following table lists the firewall requirements for scenarios where Azure vi
 - Ingestion into standard tables is limited only to [standard tables supported for custom logs ingestion](data-transformation.md#data-transformation-support-for-custom-data-connectors).
 - The columns of the input stream in the `streamDeclarations` property must start with a letter. If you start a column with other characters (for example `@` or `_`), the operation fails.
 - The `TimeGenerated` datetime field is required. You must include this field in the KQL transform.
-- For additional possible issues, review the [troubleshooting section](../azure-monitor/logs/tutorial-logs-ingestion-code.md#troubleshooting) in the tutorial. 
+- For additional possible issues, review the [troubleshooting section](/azure/azure-monitor/logs/tutorial-logs-ingestion-code#troubleshooting) in the tutorial. 
 
 ## Next steps
 
 In this article, you learned how to use Logstash to connect external data sources to Microsoft Sentinel. To learn more about Microsoft Sentinel, see the following articles:
 - Learn how to [get visibility into your data and potential threats](get-visibility.md).
-- Get started detecting threats with Microsoft Sentinel, using [built-in](detect-threats-built-in.md) or [custom](detect-threats-custom.md) rules.
+- Get started [detecting threats with Microsoft Sentinel](detect-threats-built-in.md).

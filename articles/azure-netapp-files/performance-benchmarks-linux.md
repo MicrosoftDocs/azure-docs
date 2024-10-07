@@ -6,7 +6,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: linux-related-content
 ms.topic: conceptual
-ms.date: 09/29/2021
+ms.date: 03/24/2024
 ms.author: anfdocs
 ---
 # Azure NetApp Files performance benchmarks for Linux
@@ -19,7 +19,7 @@ This section describes performance benchmarks of Linux workload throughput and w
 
 ### Linux workload throughput  
 
-The graph below represents a 64-kibibyte (KiB) sequential workload and a 1 TiB working set. It shows that a single Azure NetApp Files volume can handle between ~1,600 MiB/s pure sequential writes and ~4,500 MiB/s pure sequential reads.  
+This graph represents a 64 kibibyte (KiB) sequential workload and a 1 TiB working set. It shows that a single Azure NetApp Files volume can handle between ~1,600 MiB/s pure sequential writes and ~4,500 MiB/s pure sequential reads.  
 
 The graph illustrates decreases in 10% at a time, from pure read to pure write. It demonstrates what you can expect when using varying read/write ratios (100%:0%, 90%:10%, 80%:20%, and so on).
 
@@ -27,7 +27,7 @@ The graph illustrates decreases in 10% at a time, from pure read to pure write. 
 
 ### Linux workload IOPS  
 
-The following graph represents a 4-kibibyte (KiB) random workload and a 1 TiB working set. The graph shows that an Azure NetApp Files volume can handle between ~130,000 pure random writes and ~460,000 pure random reads.  
+The following graph represents a 4-KiB random workload and a 1 TiB working set. The graph shows that an Azure NetApp Files volume can handle between ~130,000 pure random writes and ~460,000 pure random reads.  
 
 This graph illustrates decreases in 10% at a time, from pure read to pure write. It demonstrates what you can expect when using varying read/write ratios (100%:0%, 90%:10%, 80%:20%, and so on).
 
@@ -37,7 +37,7 @@ This graph illustrates decreases in 10% at a time, from pure read to pure write.
 
 The graphs in this section show the validation testing results for the client-side mount option with NFSv3. For more information, see [`nconnect` section of Linux mount options](performance-linux-mount-options.md#nconnect).
 
-The graphs compare the advantages of `nconnect` to a non-`connected` mounted volume. In the graphs, FIO generated the workload from a single D32s_v4 instance in the us-west2 Azure region using a 64-KiB sequential workload – the largest I/O size supported by Azure NetApp Files at the time of the testing represented here. Azure NetApp Files now supports larger I/O sizes. For more details, see [`rsize` and `wsize` section of Linux mount options](performance-linux-mount-options.md#rsize-and-wsize).
+The graphs compare the advantages of `nconnect` to a non-`connected` mounted volume. In the graphs, FIO generated the workload from a single D32s_v4 instance in the us-west2 Azure region using a 64-KiB sequential workload – the largest I/O size supported by Azure NetApp Files at the time of the testing represented here. Azure NetApp Files now supports larger I/O sizes. For more information, see [`rsize` and `wsize` section of Linux mount options](performance-linux-mount-options.md#rsize-and-wsize).
 
 ### Linux read throughput  
 
@@ -47,7 +47,7 @@ The following graphs show 64-KiB sequential reads of ~3,500 MiB/s reads with `nc
 
 ### Linux write throughput  
 
-The following graphs show sequential writes. They indicate that `nconnect` has no noticeable benefit for sequential writes. 1,500 MiB/s is roughly both the sequential write volume upper limit and the D32s_v4 instance egress limit.
+The following graphs show sequential writes. They indicate that `nconnect` has no noticeable benefit for sequential writes. The sequential write volume upper limit is approximately 1,500 MiB/s; the D32s_v4 instance egress limit is also approximately 1,500 MiB/s.
 
 ![Linux write throughput](./media/performance-benchmarks-linux/performance-benchmarks-linux-write-throughput.png)  
 

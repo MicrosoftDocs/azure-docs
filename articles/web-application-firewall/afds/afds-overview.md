@@ -3,7 +3,7 @@ title: What is Azure Web Application Firewall on Azure Front Door?
 description: Learn how Azure Web Application Firewall on Azure Front Door protects your web applications from malicious attacks.
 services: web-application-firewall
 author: sowmyam2019
-ms.service: web-application-firewall
+ms.service: azure-web-application-firewall
 ms.topic: conceptual
 ms.date: 10/04/2023
 ms.author: victorh
@@ -119,6 +119,9 @@ The WAF platform manages and dynamically updates bot signatures. You can set cus
 If bot protection is enabled, incoming requests that match bot rules are blocked, allowed, or logged based on the configured action. Bad bots are blocked, good bots are allowed, and unknown bots are logged by default. You can set custom actions to block, allow, log, or JS challenge for different types of bots. You can access WAF logs from a storage account, event hub, log analytics, or send logs to a partner solution.
 
 The Bot Manager 1.1 rule set is available on Azure Front Door premium version.
+
+For more information, see [Azure WAF’s Bot Manager 1.1 and JavaScript Challenge: Navigating the Bot Threat Terrain](https://techcommunity.microsoft.com/t5/azure-network-security-blog/azure-waf-s-bot-manager-1-1-and-javascript-challenge-navigating/ba-p/4249652).
+
 
 ## Configuration
 

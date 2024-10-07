@@ -17,7 +17,7 @@ Microsoft Azure Government delivers a dedicated cloud with world-class security 
 
 This quickstart shows how to use PowerShell to access and start managing resources in Azure Government. If you don't have an Azure Government subscription, create a [free account](https://azure.microsoft.com/global-infrastructure/government/request/) before you begin.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Prerequisites
 

@@ -18,85 +18,15 @@ This article describes how to set up, view, and manage [Azure Monitor resource l
 
 ![Resource logging to Storage, Event Hubs, or Azure Monitor logs](./media/analysis-services-logging/aas-logging-overview.png)
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## What's logged?
 
 You can select **Engine**, **Service**, and **Metrics** log categories. For a listing of what's logged for each category, see [Supported resource logs for Microsoft.AnalysisServices/servers](monitor-analysis-services-reference.md#supported-resource-logs-for-microsoftanalysisservicesservers).
 
-## Set up diagnostics logging
+## Set up diagnostic settings
 
-### Azure portal
-
-1. In [Azure portal](https://portal.azure.com) > server, click **Diagnostic settings** in the left navigation, and then click **Turn on diagnostics**.
-
-    ![Screenshot showing Turn on diagnostics in the Azure portal.](./media/analysis-services-logging/aas-logging-turn-on-diagnostics.png)
-
-2. In **Diagnostic settings**, specify the following options: 
-
-    * **Name**. Enter a name for the logs to create.
-
-    * **Archive to a storage account**. To use this option, you need an existing storage account to connect to. See [Create a storage account](/azure/storage/common/storage-account-create). Follow the instructions to create a Resource Manager, general-purpose account, then select your storage account by returning to this page in the portal. It may take a few minutes for newly created storage accounts to appear in the drop-down menu.
-    * **Stream to an event hub**. To use this option, you need an existing Event Hub namespace and event hub to connect to. To learn more, see [Create an Event Hubs namespace and an event hub using the Azure portal](/azure/event-hubs/event-hubs-create). Then return to this page in the portal to select the Event Hub namespace and policy name.
-    * **Send to Azure Monitor (Log Analytics workspace)**. To use this option, either use an existing workspace or [create a new workspace](/azure/azure-monitor/logs/quick-create-workspace) resource in the portal. For more information on viewing your logs, see [View logs in Log Analytics workspace](#view-logs-in-log-analytics-workspace) in this article.
-
-    * **Engine**. Select this option to log xEvents. If you're archiving to a storage account, you can select the retention period for the resource logs. Logs are autodeleted after the retention period expires.
-    * **Service**. Select this option to log service level events. If you are archiving to a storage account, you can select the retention period for the resource logs. Logs are autodeleted after the retention period expires.
-    * **Metrics**. Select this option to store verbose data in [Metrics](analysis-services-monitor.md#server-metrics). If you are archiving to a storage account, you can select the retention period for the resource logs. Logs are autodeleted after the retention period expires.
-
-3. Click **Save**.
-
-    If you receive an error that says "Failed to update diagnostics for \<workspace name>. The subscription \<subscription id> is not registered to use microsoft.insights." follow the [Troubleshoot Azure Diagnostics](../azure-monitor/essentials/resource-logs.md) instructions to register the account, then retry this procedure.
-
-    If you want to change how your resource logs are saved at any point in the future, you can return to this page to modify settings.
-
-### PowerShell
-
-Here are the basic commands to get you going. If you want step-by-step help on setting up logging to a storage account by using PowerShell, see the tutorial later in this article.
-
-To enable metrics and resource logging by using PowerShell, use the following commands:
-
-- To enable storage of resource logs in a storage account, use this command:
-
-   ```powershell
-   Set-AzDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
-   ```
-
-   The storage account ID is the resource ID for the storage account where you want to send the logs.
-
-- To enable streaming of resource logs to an event hub, use this command:
-
-   ```powershell
-   Set-AzDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your service bus rule id] -Enabled $true
-   ```
-
-   The Azure Service Bus rule ID is a string with this format:
-
-   ```powershell
-   {service bus resource ID}/authorizationrules/{key name}
-   ``` 
-
-- To enable sending resource logs to a Log Analytics workspace, use this command:
-
-   ```powershell
-   Set-AzDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
-   ```
-
-- You can obtain the resource ID of your Log Analytics workspace by using the following command:
-
-   ```powershell
-   (Get-AzOperationalInsightsWorkspace).ResourceId
-   ```
-
-You can combine these parameters to enable multiple output options.
-
-### REST API
-
-Learn how to [change diagnostics settings by using the Azure Monitor REST API](/rest/api/monitor/). 
-
-### Resource Manager template
-
-Learn how to [enable diagnostics settings at resource creation by using a Resource Manager template](../azure-monitor/essentials/resource-manager-diagnostic-settings.md). 
+To learn how to set up diagnostic settings using the Azure portal, Azure CLI, PowerShell, or Azure Resource Manager, see [Create diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/create-diagnostic-settings).
 
 ## Manage your logs
 

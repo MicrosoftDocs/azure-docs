@@ -395,7 +395,7 @@ The **Readonly** user input type is used to provide a readonly field to display 
 
 #### Paragraph
 
-The **Paragraph** user input type is used to provide a field that shows text only in a paragraph tag.  For example, &lt;p&gt;text&lt;/p&gt;. A **Paragraph** user input type `OutputClaim` of self-asserted technical profile, must set the `Required` attribute `false` (default).
+The **Paragraph** user input type is used to provide a field that shows text only in a paragraph tag.  For example, &lt;p&gt;text&lt;/p&gt;. A **Paragraph** user input type `OutputClaim` of self-asserted technical profile, must set the `Required` attribute `false` (default). This user input type is only supported in self-asserted page layouts. Unified sign-in and sign-up pages (unifiedssp) might not display this properly.
 
 ![Using claim type with paragraph](./media/claimsschema/paragraph.png)
 

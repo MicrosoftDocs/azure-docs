@@ -1,7 +1,7 @@
 ---
 title: Data Lake Storage and WANdisco LiveData Platform for Azure
 titleSuffix: Azure Storage
-description: Learn how to migrate petabytes of on-premises Hadoop data to Azure Data Lake Storage Gen2 file systems without interrupting data operations or requiring downtime.
+description: Learn how to migrate petabytes of on-premises Hadoop data to Azure Data Lake Storage file systems without interrupting data operations or requiring downtime.
 author: normesta
 
 ms.topic: how-to
@@ -12,9 +12,9 @@ ms.service: azure-data-lake-storage
 ms.custom: references_regions
 ---
 
-# Migrate on-premises Hadoop data to Azure Data Lake Storage Gen2 with WANdisco LiveData Platform for Azure
+# Migrate on-premises Hadoop data to Azure Data Lake Storage with WANdisco LiveData Platform for Azure
 
-[WANdisco LiveData Platform for Azure](https://docs.wandisco.com/live-data-platform/docs/landing/) migrates petabytes of on-premises Hadoop data to Azure Data Lake Storage Gen2 file systems without interrupting data operations or requiring downtime. The platform's continuous checks prevent data from being lost while keeping it consistent at both ends of transference even while it undergoes modification.
+[WANdisco LiveData Platform for Azure](https://docs.wandisco.com/live-data-platform/docs/landing/) migrates petabytes of on-premises Hadoop data to Azure Data Lake Storage file systems without interrupting data operations or requiring downtime. The platform's continuous checks prevent data from being lost while keeping it consistent at both ends of transference even while it undergoes modification.
 
 The platform consists of two services. [LiveData Migrator for Azure](https://cirata.com/products/data-integration) migrates actively used data from on-premises environments to Azure storage, and [LiveData Plane for Azure](https://cirata.com/products/data-integration) ensures that all modified or ingested data is replicated consistently.
 
@@ -93,7 +93,7 @@ To perform a migration:
 
 3. Configure Kerberos details, if applicable.
 
-4. Define the target Azure Data Lake Storage Gen2-enabled storage account.
+4. Define the target Azure Data Lake Storage-enabled storage account.
 
    > [!div class="mx-imgBorder"]
    > ![Create a LiveData Migrator target](./media/migrate-gen2-wandisco-live-data-platform/create-target.png)
@@ -126,7 +126,7 @@ LiveData Plane for Azure consistently replicates data changes across all environ
 
 ## Test drive or Trial
 
-From [LiveData Platform for Azure's Marketplace page](https://azuremarketplace.microsoft.com/marketplace/apps/wandisco.ldma?tab=Overview), you have two options:
+From [LiveData Platform for Azure's Marketplace page](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/wandisco.livedata-pipeline-azure-mp?tab=Overview), you have two options:
 
 - The **Get It Now** button launches the service in your subscription. From there, you may use your own Hadoop cluster or WANdisco's Trial cluster.
 
@@ -134,13 +134,13 @@ From [LiveData Platform for Azure's Marketplace page](https://azuremarketplace.m
 
 ## Next Steps
 
-- [Plan and create a migration in LiveData Migrator for Azure](https://azuremarketplace.microsoft.com/marketplace/apps/wandisco.ldma).
+- [Plan and create a migration in LiveData Migrator for Azure](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/wandisco.livedata-pipeline-azure-mp?tab=Overview).
 
 ## See also
 
-- [LiveData Migrator for Azure on Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/wandisco.ldma?tab=Overview)
+- [LiveData Migrator for Azure on Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/wandisco.livedata-pipeline-azure-mp?tab=Overview)
 
-- [LiveData Migrator for Azure plans and pricing](https://azuremarketplace.microsoft.com/marketplace/apps/wandisco.ldma?tab=PlansAndPricee)
+- [LiveData Migrator for Azure plans and pricing](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/wandisco.livedata-pipeline-azure-mp?tab=Overview)
 
 - [LiveData Platform for Azure Frequently Asked Questions](https://docs.wandisco.com/live-data-platform/docs/faq/)
 

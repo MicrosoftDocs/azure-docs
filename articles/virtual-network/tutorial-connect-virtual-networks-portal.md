@@ -2,7 +2,7 @@
 title: 'Tutorial: Connect virtual networks with VNet peering - Azure portal'
 description: In this tutorial, you learn how to connect virtual networks with virtual network peering using the Azure portal.
 author: asudbring
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: tutorial
 ms.date: 06/17/2024
 ms.author: allensu
@@ -32,7 +32,7 @@ In this tutorial, you learn how to:
 
 Sign in to the [Azure portal](https://portal.azure.com).
 
-[!INCLUDE [virtual-network-create-with-bastion.md](../../includes/virtual-network-create-with-bastion.md)]
+[!INCLUDE [virtual-network-create-with-bastion.md](~/reusable-content/ce-skilling/azure/includes/virtual-network-create-with-bastion.md)]
    
 Repeat the previous steps to create a second virtual network with the following values:
 
@@ -49,13 +49,13 @@ Repeat the previous steps to create a second virtual network with the following 
 
 <a name="peer-virtual-networks"></a>
 
-[!INCLUDE [virtual-network-create-network-peer.md](../../includes/virtual-network-create-network-peer.md)]
+[!INCLUDE [virtual-network-create-network-peer.md](~/reusable-content/ce-skilling/azure/includes/virtual-network-create-network-peer.md)]
 
 ## Create virtual machines
 
 Create a virtual machine in each virtual network to test the communication between them.
 
-[!INCLUDE [create-test-virtual-machine-linux.md](../../includes/create-test-virtual-machine-linux.md)]
+[!INCLUDE [create-test-virtual-machine-linux.md](~/reusable-content/ce-skilling/azure/includes/create-test-virtual-machine-linux.md)]
 
 Repeat the previous steps to create a second virtual machine in the second virtual network with the following values:
 
@@ -120,7 +120,7 @@ Use `ping` to test the communication between the virtual machines.
 
 1. Close the Bastion connection to **vm-2**.
 
-[!INCLUDE [portal-clean-up.md](../../includes/portal-clean-up.md)]
+[!INCLUDE [portal-clean-up.md](~/reusable-content/ce-skilling/azure/includes/portal-clean-up.md)]
 
 ## Next steps
 

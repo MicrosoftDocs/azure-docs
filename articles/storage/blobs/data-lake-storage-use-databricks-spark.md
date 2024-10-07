@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: Azure Data Lake Storage Gen2, Azure Databricks & Spark'
+title: 'Tutorial: Azure Data Lake Storage, Azure Databricks & Spark'
 titleSuffix: Azure Storage
-description: This tutorial shows how to run Spark queries on an Azure Databricks cluster to access data in an Azure Data Lake Storage Gen2 storage account.
+description: This tutorial shows how to run Spark queries on an Azure Databricks cluster to access data in an Azure Data Lake Storage storage account.
 author: normesta
 
 ms.service: azure-data-lake-storage
@@ -13,9 +13,9 @@ ms.custom: py-fresh-zinc
 #Customer intent: As an data scientist, I want to connect my data in Azure Storage so that I can easily run analytics on it.
 ---
 
-# Tutorial: Azure Data Lake Storage Gen2, Azure Databricks & Spark
+# Tutorial: Azure Data Lake Storage, Azure Databricks & Spark
 
-This tutorial shows you how to connect your Azure Databricks cluster to data stored in an Azure storage account that has Azure Data Lake Storage Gen2 enabled. This connection enables you to natively run queries and analytics from your cluster on your data.
+This tutorial shows you how to connect your Azure Databricks cluster to data stored in an Azure storage account that has Azure Data Lake Storage enabled. This connection enables you to natively run queries and analytics from your cluster on your data.
 
 In this tutorial, you will:
 
@@ -27,9 +27,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-- Create a storage account that has a hierarchical namespace (Azure Data Lake Storage Gen2)
+- Create a storage account that has a hierarchical namespace (Azure Data Lake Storage)
 
-  See [Create a storage account to use with Azure Data Lake Storage Gen2](create-data-lake-storage-account.md).
+  See [Create a storage account to use with Azure Data Lake Storage](create-data-lake-storage-account.md).
 
 - Make sure that your user account has the [Storage Blob Data Contributor role](assign-azure-role-data-access.md) assigned to it.
 
@@ -37,7 +37,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 - Create a service principal, create a client secret, and then grant the service principal access to the storage account.
 
-  See [Tutorial: Connect to Azure Data Lake Storage Gen2](/azure/databricks/getting-started/connect-to-azure-storage) (Steps 1 through 3). After completing these steps, make sure to paste the tenant ID, app ID, and client secret values into a text file. You use them later in this tutorial.
+  See [Tutorial: Connect to Azure Data Lake Storage](/azure/databricks/getting-started/connect-to-azure-storage) (Steps 1 through 3). After completing these steps, make sure to paste the tenant ID, app ID, and client secret values into a text file. You use them later in this tutorial.
 
 ## Create an Azure Databricks workspace, cluster, and notebook
 
@@ -61,11 +61,11 @@ If you want to learn about the information captured in the on-time reporting per
 
 ## Ingest data
 
-In this section, you upload the *.csv* flight data into your Azure Data Lake Storage Gen2 account and then mount the storage account to your Databricks cluster. Finally, you use Databricks to read the *.csv* flight data and write it back to storage in Apache parquet format.
+In this section, you upload the *.csv* flight data into your Azure Data Lake Storage account and then mount the storage account to your Databricks cluster. Finally, you use Databricks to read the *.csv* flight data and write it back to storage in Apache parquet format.
 
 ### Upload the flight data into your storage account
 
-Use AzCopy to copy your *.csv* file into your Azure Data Lake Storage Gen2 account. You use the `azcopy make` command to create a container in your storage account. Then you use the `azcopy copy` command to copy the *csv* data you just downloaded to a directory in that container.
+Use AzCopy to copy your *.csv* file into your Azure Data Lake Storage account. You use the `azcopy make` command to create a container in your storage account. Then you use the `azcopy copy` command to copy the *csv* data you just downloaded to a directory in that container.
 
 In the following steps, you need to enter names for the container you want to create, and the directory and blob that you want to upload the flight data to in the container. You can use the suggested names in each step or specify your own observing the [naming conventions for containers, directories, and blobs](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
@@ -103,7 +103,7 @@ In the following steps, you need to enter names for the container you want to cr
 
 ### Mount your storage account to your Databricks cluster
 
-In this section, you mount your Azure Data Lake Storage Gen2 cloud object storage to the Databricks File System (DBFS). You use the Azure AD service principle you created previously for authentication with the storage account. For more information, see [Mounting cloud object storage on Azure Databricks](/azure/databricks/dbfs/mounts).
+In this section, you mount your Azure Data Lake Storage cloud object storage to the Databricks File System (DBFS). You use the Azure AD service principle you created previously for authentication with the storage account. For more information, see [Mounting cloud object storage on Azure Databricks](/azure/databricks/dbfs/mounts).
 
 1. Attach your notebook to your cluster.
 
@@ -132,10 +132,10 @@ In this section, you mount your Azure Data Lake Storage Gen2 cloud object storag
 1. In this code block:
    - In `configs`, replace the `<appId>`, `<clientSecret>`, and `<tenantId>` placeholder values with the application ID, client secret, and tenant ID you copied when you created the service principal in the prerequisites.
 
-   - In the `source` URI, replace the `<storage-account-name>`, `<container-name>`, and `<directory-name>` placeholder values with the name of your Azure Data Lake Storage Gen2 storage account and the name of the container and directory you specified when you uploaded the flight data to the storage account.
+   - In the `source` URI, replace the `<storage-account-name>`, `<container-name>`, and `<directory-name>` placeholder values with the name of your Azure Data Lake Storage storage account and the name of the container and directory you specified when you uploaded the flight data to the storage account.
 
       > [!NOTE]
-      > The scheme identifier in the URI, `abfss`, tells Databricks to use the Azure Blob File System driver with Transport Layer Security (TLS). To learn more about the URI, see [Use the Azure Data Lake Storage Gen2 URI](/azure/storage/blobs/data-lake-storage-introduction-abfs-uri#uri-syntax).
+      > The scheme identifier in the URI, `abfss`, tells Databricks to use the Azure Blob File System driver with Transport Layer Security (TLS). To learn more about the URI, see [Use the Azure Data Lake Storage URI](/azure/storage/blobs/data-lake-storage-introduction-abfs-uri#uri-syntax).
 
 1. Make sure your cluster has finished starting up before proceeding.
 
@@ -145,7 +145,7 @@ The container and directory where you uploaded the flight data in your storage a
 
 ### Use Databricks Notebook to convert CSV to Parquet
 
-Now that the *csv* flight data is accessible through a DBFS mount point, you can use an Apache Spark DataFrame to load it into your workspace and write it back in Apache parquet format to your Azure Data Lake Storage Gen2 object storage.
+Now that the *csv* flight data is accessible through a DBFS mount point, you can use an Apache Spark DataFrame to load it into your workspace and write it back in Apache parquet format to your Azure Data Lake Storage object storage.
 
 - A Spark DataFrame is a two-dimensional labeled data structure with columns of potentially different types. You can use a DataFrame to easily read and write data in various supported formats. With a DataFrame, you can load data from cloud object storage and perform analysis and transformations on it inside your compute cluster without affecting the underlying data in cloud object storage. To learn more, see [Work with PySpark DataFrames on Azure Databricks](/azure/databricks/getting-started/dataframes-python).
 
@@ -172,7 +172,7 @@ Before proceeding to the next section, make sure that all of the parquet data ha
 
 ## Explore data
 
-In this section, you use the [Databricks file system utility](/azure/databricks/dev-tools/databricks-utils#--file-system-utility-dbutilsfs) to explore your Azure Data Lake Storage Gen2 object storage using the DBFS mount point you created in the previous section.
+In this section, you use the [Databricks file system utility](/azure/databricks/dev-tools/databricks-utils#--file-system-utility-dbutilsfs) to explore your Azure Data Lake Storage object storage using the DBFS mount point you created in the previous section.
 
 In a new cell, paste the following code to get a list of the files at the mount point. The first command outputs a list of files and directories. The second command displays the output in tabular format for easier reading.
 
@@ -208,7 +208,7 @@ As a convenience, you can use the help command to learn detail about other comma
 dbutils.fs.help("rm")
 ```
 
-With these code samples, you've explored the hierarchical nature of HDFS using data stored in a storage account with Azure Data Lake Storage Gen2 enabled.
+With these code samples, you've explored the hierarchical nature of HDFS using data stored in a storage account with Azure Data Lake Storage enabled.
 
 ## Query the data
 
@@ -291,15 +291,15 @@ percent_delayed_flights.show()
 
 In this tutorial, you:
 
-- Created Azure resources, including an Azure Data Lake Storage Gen2 storage account and Azure AD service principal, and assigned permissions to access the storage account.
+- Created Azure resources, including an Azure Data Lake Storage storage account and Azure AD service principal, and assigned permissions to access the storage account.
 
 - Created an Azure Databricks workspace, notebook, and compute cluster.
 
-- Used AzCopy to upload unstructured *.csv* flight data to the Azure Data Lake Storage Gen2 storage account.
+- Used AzCopy to upload unstructured *.csv* flight data to the Azure Data Lake Storage storage account.
 
-- Used Databricks File System utility functions to mount your Azure Data Lake Storage Gen2 storage account and explore its hierarchical file system.
+- Used Databricks File System utility functions to mount your Azure Data Lake Storage storage account and explore its hierarchical file system.
 
-- Used Apache Spark DataFrames to transform your *.csv* flight data to Apache parquet format and store it back to your Azure Data Lake Storage Gen2 storage account.
+- Used Apache Spark DataFrames to transform your *.csv* flight data to Apache parquet format and store it back to your Azure Data Lake Storage storage account.
 
 - Used DataFrames to explore the flight data and perform a simple query.
 

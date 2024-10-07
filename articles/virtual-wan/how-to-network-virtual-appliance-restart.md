@@ -2,7 +2,7 @@
 title: 'Azure Virtual WAN: Restart a Network Virtual Appliance (NVA) in the hub'
 description: Learn how to restart a Network Virtual Appliance in the Virtual WAN hub.
 author: wtnlee
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 04/08/2024
 ms.author: wellee

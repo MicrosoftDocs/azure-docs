@@ -264,7 +264,7 @@ Note the VMs under the new Lab have the same specs as the ones under the old Lab
 
      After that, you'll have a new disk under the new region.
 
-   1. Swap the OS disk of the Compute VM under the new lab with the new disk. To learn how, see the article, "[Change the OS disk used by an Azure VM using PowerShell](../virtual-machines/windows/os-disk-swap.md)".
+   1. Swap the OS disk of the Compute VM under the new lab with the new disk. To learn how, see the article, "[Change the OS disk used by an Azure VM using PowerShell](/azure/virtual-machines/windows/os-disk-swap)".
 
 ## Move a schedule
 

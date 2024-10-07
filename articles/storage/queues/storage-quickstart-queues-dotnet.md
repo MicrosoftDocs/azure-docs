@@ -142,7 +142,7 @@ These example code snippets show you how to perform the following actions with t
 
 ### Authorize access and create a client object
 
-[!INCLUDE [default-azure-credential-sign-in](../../../includes/passwordless/default-azure-credential-sign-in.md)]
+[!INCLUDE [default-azure-credential-sign-in](~/reusable-content/ce-skilling/azure/includes/passwordless/default-azure-credential-sign-in.md)]
 
 Once authenticated, you can create and authorize a `QueueClient` object using `DefaultAzureCredential` to access queue data in the storage account. `DefaultAzureCredential` automatically discovers and uses the account you signed in with in the previous step.
 

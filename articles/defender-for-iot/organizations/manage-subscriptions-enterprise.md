@@ -29,7 +29,7 @@ Before performing the procedures in this article, make sure that you have:
 
     For more information, see [Enterprise IoT security in Microsoft Defender XDR](concept-enterprise.md#enterprise-iot-security-in-microsoft-defender-xdr).
 
-- Access to the Microsoft Defender Portal as a [Global administrator](../../active-directory/roles/permissions-reference.md#global-administrator)
+- Access to the Microsoft Defender Portal as a [Security administrator](../../active-directory/roles/permissions-reference.md#security-administrator)
 
 ## Obtain a standalone, Enterprise IoT trial license
 
@@ -82,11 +82,11 @@ Use the following procedure to calculate how many devices you need to monitor if
 
 For example:
 
-- If in Microsoft Defender XDR **Device inventory**, you have *1206* IoT devices.
+- If in Microsoft Defender XDR **Device inventory**, you have *1204* IoT devices.
 - Round down to *1200* devices.
-- You have 320 ME5 licenses, which cover **1200** devices
+- You have 240 ME5 licenses, which cover **1200** devices
 
-You need another **6** standalone devices to cover the gap.
+You need another **4** standalone devices to cover the gap.
 
 For more information, see the [Defender for Endpoint Device discovery overview](/microsoft-365/security/defender-endpoint/device-discovery).
 

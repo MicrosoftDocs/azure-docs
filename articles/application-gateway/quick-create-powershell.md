@@ -7,7 +7,7 @@ author: greg-lindsay
 ms.author: greglin
 ms.date: 05/30/2024
 ms.topic: quickstart
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.custom: devx-track-azurepowershell, mvc, mode-api
 ---
 
@@ -29,9 +29,9 @@ You can also complete this quickstart using [Azure CLI](quick-create-cli.md) or 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Azure PowerShell version 1.0.0 or later](/powershell/azure/install-azure-powershell) (if you run Azure PowerShell locally).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Connect to Azure
 

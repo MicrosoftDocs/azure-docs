@@ -4,7 +4,7 @@ description: Azure PowerShell Script Sample - Route traffic for high availabilit
 services: traffic-manager
 author: greg-lindsay
 manager: Kumud
-ms.service: traffic-manager
+ms.service: azure-traffic-manager
 ms.devlang: powershell
 ms.topic: article
 ms.date: 04/27/2023
@@ -18,11 +18,11 @@ This script creates a resource group, two app service plans, two web apps, a tra
 
 If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](/powershell/azure/), and then run `Connect-AzAccount` to create a connection with Azure.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Sample script
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 [!code-powershell[main](../../../powershell_scripts/traffic-manager/direct-traffic-for-increased-application-availability/direct-traffic-for-increased-application-availability.ps1 "Route traffic for high availability")]
 

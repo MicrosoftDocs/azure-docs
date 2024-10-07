@@ -18,6 +18,8 @@ IoT Edge supports the [*transparent* and *translation* gateway patterns](../../i
 
 :::image type="content" source="media/how-to-connect-iot-edge-transparent-gateway/edge-transparent-gateway.png" alt-text="Diagram that shows IoT Edge as a transparent gateway." border="false":::
 
+[!INCLUDE [iot-authentication-device-connection-string](../../../includes/iot-authentication-device-connection-string.md)]
+
 For simplicity, this article uses virtual machines to host the downstream and gateway devices. In a real scenario, the downstream device and gateway would run on physical devices on your local network.
 
 This article shows how to implement the scenario by using the IoT Edge 1.4 runtime.

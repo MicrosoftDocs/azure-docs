@@ -4,7 +4,7 @@ description: Learn to use the Azure SQL output binding in Azure Functions.
 author: JetterMcTedder
 ms.topic: reference
 ms.custom: build-2023, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
-ms.date: 6/20/2024
+ms.date: 6/26/2024
 ms.author: bspendolini
 ms.reviewer: glenga
 zone_pivot_groups: programming-languages-set-functions
@@ -862,6 +862,8 @@ The following example shows a SQL output binding in a function.json file and a P
 
 # [v2](#tab/python-v2)
 
+The following is sample python code for the function_app.py file:
+
 ```python
 import json
 import logging
@@ -965,6 +967,8 @@ CREATE TABLE dbo.RequestLog (
 ```
 
 # [v2](#tab/python-v2)
+
+The following is sample python code for the function_app.py file:
 
 ```python
 from datetime import datetime

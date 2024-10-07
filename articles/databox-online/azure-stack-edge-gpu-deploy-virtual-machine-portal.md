@@ -134,7 +134,7 @@ Follow these steps to create a VM after you've created a VM image.
     |Username     | Use the default username **azureuser** for the admin to sign in to the VM.        |
     |Authentication type    | Choose from an SSH public key or a user-defined password.       |
     |SSH public key | Displayed when you select the **SSH public key** authentication type. Paste in the SSH public key. |
-    |Password     | Displayed when you select the **Password** authentication type. Enter a password to sign in to the VM. The password must be at least 12 characters long and meet the defined [complexity requirements](../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-). |
+    |Password     | Displayed when you select the **Password** authentication type. Enter a password to sign in to the VM. The password must be at least 12 characters long and meet the defined [complexity requirements](/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm-). |
     |Confirm password    | Enter the password again.        |
 
     ![Screenshot showing the Basics tab in the Add Virtual Machine wizard for Azure Stack Edge. The Basics tab and the Next: Disks button are highlighted.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-basics-1.png)
@@ -173,7 +173,7 @@ Follow these steps to create a VM after you've created a VM image.
 
 1. If you want to use the `cloud-init` utility to customize the new VM on its first boot, on the **Advanced** tab, paste your `cloud-init` script into the **Custom data** box under **Custom data and cloud init**. 
 
-    For more information about using `cloud-init`, see [Cloud-init overview](../virtual-machines/linux/tutorial-automate-vm-deployment.md#cloud-init-overview).
+    For more information about using `cloud-init`, see [Cloud-init overview](/azure/virtual-machines/linux/tutorial-automate-vm-deployment#cloud-init-overview).
 
     ![Screenshot that shows the Advanced tab of the Create a new virtual machine wizard, with a cloud init script in the Custom data box highlighted.](media/azure-stack-edge-gpu-deploy-virtual-machine-portal/add-virtual-machine-advanced-tab-with-cloud-init-script.png)
 

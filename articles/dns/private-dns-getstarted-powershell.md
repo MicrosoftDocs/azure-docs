@@ -6,7 +6,7 @@ author: greg-lindsay
 ms.author: greglin
 ms.date: 11/30/2023
 ms.topic: quickstart
-ms.service: dns
+ms.service: azure-dns
 ms.custom: devx-track-azurepowershell, mode-api
 #Customer intent: As an experienced network administrator, I want to create an  Azure private DNS zone, so I can resolve host names on my private virtual networks.
 ---
@@ -15,7 +15,7 @@ ms.custom: devx-track-azurepowershell, mode-api
 
 This article walks you through the steps to create your first private DNS zone and record using Azure PowerShell.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 A DNS zone is used to host the DNS records for a particular domain. To start hosting your domain in Azure DNS, you need to create a DNS zone for that domain name. Each DNS record for your domain is then created inside this DNS zone. To publish a private DNS zone to your virtual network, you specify the list of virtual networks that are allowed to resolve records within the zone.  These are called *linked* virtual networks. When autoregistration is enabled, Azure DNS also updates the zone records whenever a virtual machine is created, changes its' IP address, or is deleted.
 
@@ -27,7 +27,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 If you prefer, you can complete this quickstart using [Azure CLI](private-dns-getstarted-cli.md).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
 ## Create the resource group
 

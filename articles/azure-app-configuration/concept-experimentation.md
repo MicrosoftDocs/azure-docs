@@ -1,6 +1,6 @@
 ---
 title: Experimentation in Azure App Configuration
-description: Experimentation in Azure App Configuration
+description: This document introduces experimentation in Azure App Configuration, scenarios for using Split Experimentation, and more.
 author: maud-lv
 ms.author: malev
 ms.service: azure-app-configuration
@@ -8,6 +8,7 @@ ms.custom:
   - build-2024
 ms.topic: conceptual
 ms.date: 05/08/2024
+ms.collection: ce-skilling-ai-copilot
 ---
 
 # Experimentation (preview)
@@ -62,25 +63,72 @@ The results help you to conclude the learnings and outcomes into actionable item
 
 ## Scenarios for using experimentation
 
-- **Intelligent applications (e.g., AI-based features)**
-Accelerate General AI (Gen AI) adoption and optimize AI models and use cases through rapid experimentation. Use Experimentation to iterate quickly on AI models, test different scenarios, and determine effective approaches.
-It helps enhance agility in adapting AI solutions to evolving user needs and market trends, and facilitate understanding of the most effective approaches for scaling AI initiatives.
+### Release defense
 
-- **CI, CD and continuous experimentation (Gradual feature rollouts and version updates)**
-Ensure seamless transitions and maintain or improve key metrics with each version update while managing feature releases. Utilize experimentation to gradually roll out new features to subsets of users using feature flags, monitor performance metrics, and collect feedback for iterative improvements.
-It's beneficial to reduce the risk of introducing bugs or performance issues to the entire user base. It enables data-driven decision-making during version rollouts and feature flag management, leading to improved product quality and user satisfaction.
+Objective: Ensure smooth transitions and maintain or improve key metrics with each release.
 
-- **User experience optimization (UI A/B testing)**
-Optimize business metrics by comparing different UI variations and determining the most effective design. Conduct A/B tests using experimentation to test UI elements, measure user interactions, and analyze performance metrics.
-The best return here's improved user experience by implementing UI changes based on empirical evidence.
+Approach: Employ experimentation to gradually roll out new features, monitor performance metrics, and collect feedback for iterative improvements.
 
-- **Personalization and targeting experiments**
-Deliver personalized content and experiences tailored to user preferences and behaviors. Use experimentation to test personalized content, measure engagement, and iterate on personalization strategies.
-Results are increased user engagement, conversion rates, and customer loyalty through relevant and personalized experiences. These results, in turn drive revenue growth and customer retention by targeting audiences with tailored messages and offers.
+Benefits:
 
-- **Performance optimization experiments**
-Improve application performance and provide an efficient user experience through performance optimization experiments. Conduct experiments to test performance enhancements, measure key metrics, and implement successful optimizations.
-Here, experimentation enhances application scalability, reliability, and responsiveness through proactive performance improvements. It optimizes resource utilization and infrastructure costs by implementing efficient optimizations.
+* Minimizes the risk of widespread issues by using guardrail metrics to detect and address problems early in the rollout.
+* Helps maintain or improve key performance and user satisfaction metrics by making informed decisions based on real-time data.
+ 
+### Test hypotheses
+
+Objective: Validate assumptions and hypotheses to make informed decisions about product features, user behaviors, or business strategies.
+
+Approach: Use experimentation to test specific hypotheses by creating different feature versions or scenarios, then analyze user interactions and performance metrics to determine outcomes.
+
+Benefits:
+
+* Provides evidence-based insights that reduce uncertainty and guide strategic decision-making.
+* Enables faster iteration and innovation by confirming or refuting hypotheses with real user data.
+* Enhances product development by focusing efforts on ideas that are proven to work, ultimately leading to more successful and user-aligned features.
+  
+### A/B testing
+
+Objective: Optimize business metrics by comparing different UI variations and determining the most effective design.
+
+Approach: Conduct A/B tests using experimentation to test UI elements, measure user interactions, and analyze performance metrics.
+
+Benefits:
+* Improves user experience by implementing UI changes based on empirical evidence.
+* Increases conversion rates, engagement levels, and overall effectiveness of digital products or services.
+ 
+### For intelligent applications (for example, AI-based features)
+
+Objective: Accelerate Generative AI (Gen AI) adoption and optimize AI models and use cases through rapid experimentation.
+
+Approach: Use experimentation to iterate quickly on AI models, test different scenarios, and determine effective approaches.
+
+Benefits:
+
+* Enhances agility in adapting AI solutions to evolving user needs and market trends.
+* Facilitates understanding of the most effective approaches for scaling AI initiatives.
+* Improves accuracy and performance of AI models based on real-world data and feedback.
+ 
+### Personalization and targeting experiments
+
+Objective: Deliver personalized content and experiences tailored to user preferences and behaviors.
+
+Approach: Leverage experimentation to test personalized content, measure engagement, and iterate on personalization strategies.
+
+Benefits:
+
+* Increases user engagement, conversion rates, and customer loyalty through relevant and personalized experiences.
+* Drives revenue growth and customer retention by targeting audiences with tailored messages and offers.
+ 
+### Performance optimization experiments
+
+Objective: Improve application performance and user experience through performance optimization experiments.
+
+Approach: Conduct experiments to test performance enhancements, measure key metrics, and implement successful optimizations.
+
+Benefits:
+
+* Enhances application scalability, reliability, and responsiveness through proactive performance improvements.
+* Optimizes resource utilization and infrastructure costs by implementing efficient optimizations.
 
 ## Experiment operations
 

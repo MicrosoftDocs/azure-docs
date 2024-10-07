@@ -135,7 +135,7 @@ Client certificate authentication is a mutual certificate-based authentication, 
 
 #### Option 1: Use Azure Key Vault (recommended)
 
-To create a certificate, you can use [Azure Key Vault](../key-vault/certificates/create-certificate.md), which has options for self-signed certificates and integrations with certificate issuer providers for signed certificates. Recommended settings include:
+To create a certificate, you can use [Azure Key Vault](/azure/key-vault/certificates/create-certificate), which has options for self-signed certificates and integrations with certificate issuer providers for signed certificates. Recommended settings include:
 - **Subject**: `CN=<yourapiname>.<tenantname>.onmicrosoft.com`
 - **Content Type**: `PKCS #12`
 - **Lifetime Acton Type**: `Email all contacts at a given percentage lifetime` or `Email all contacts a given number of days before expiry`
@@ -143,7 +143,7 @@ To create a certificate, you can use [Azure Key Vault](../key-vault/certificates
 - **Key Size**: `2048`
 - **Exportable Private Key**: `Yes` (in order to be able to export `.pfx` file)
 
-You can then [export the certificate](../key-vault/certificates/how-to-export-certificate.md).
+You can then [export the certificate](/azure/key-vault/certificates/how-to-export-certificate).
 
 #### Option 2: prepare a self-signed certificate using PowerShell module
 

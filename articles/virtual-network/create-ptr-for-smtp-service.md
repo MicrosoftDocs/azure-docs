@@ -5,7 +5,7 @@ description: Describes how to configure reverse lookup zones for an SMTP banner 
 services: virtual-network
 author: asudbring
 manager: dcscontentpm
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: how-to
 ms.tgt_pltfrm: virtual-network
 ms.date: 10/31/2018

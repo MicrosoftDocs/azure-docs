@@ -18,7 +18,7 @@ the SDK detects this issue and throws an createView timeout error.
 
 This error is unexpected from SDK's perspective. This error indicates a discrepancy between signaling and media transport.
 ## How to detect using SDK
-When there's a `create view timeout` issue, the [`createView`](/javascript/api/%40azure/communication-react/statefulcallclient?view=azure-node-latest&preserve-view=true#@azure-communication-react-statefulcallclient-createview) API throws an error.
+When there's a `create view timeout` issue, the  [`createView`](/javascript/api/azure-communication-services/@azure/communication-calling/videostreamrenderer?view=azure-communication-services-js&preserve-view=true#@azure-communication-calling-videostreamrenderer-createview) API throws an error.
 
 | Error            | Details                                               |
 |------------------|-------------------------------------------------------|
@@ -30,12 +30,12 @@ When there's a `create view timeout` issue, the [`createView`](/javascript/api/%
 ## Reasons behind createView timeout failures and how to mitigate the issue
 ### The video sender's browser is in the background
 Some mobile devices don't send any video frames when the browser is in the background or a user locks the screen.
-The [`createView`](/javascript/api/%40azure/communication-react/statefulcallclient?view=azure-node-latest&preserve-view=true#@azure-communication-react-statefulcallclient-createview) API detects no incoming video frames and considers this situation a subscription failure, therefore, it throws a createView timeout error.
+The  [`createView`](/javascript/api/azure-communication-services/@azure/communication-calling/videostreamrenderer?view=azure-communication-services-js&preserve-view=true#@azure-communication-calling-videostreamrenderer-createview) API detects no incoming video frames and considers this situation a subscription failure, therefore, it throws a createView timeout error.
 No further detailed information is available because currently the SDK doesn't support notifying receivers that the sender's browser is in the background.
 
 Your application can implement its own detection mechanism and notify the participants in a call when the sender's browser goes back to foreground.
 The participants can subscribe the video again.
-A feasible but less elegant approach for handling this createView timeout error is to continuously retry invoking the [`createView`](/javascript/api/%40azure/communication-react/statefulcallclient?view=azure-node-latest&preserve-view=true#@azure-communication-react-statefulcallclient-createview) API until it succeeds.
+A feasible but less elegant approach for handling this createView timeout error is to continuously retry invoking the  [`createView`](/javascript/api/azure-communication-services/@azure/communication-calling/videostreamrenderer?view=azure-communication-services-js&preserve-view=true#@azure-communication-calling-videostreamrenderer-createview) API until it succeeds.
 
 ### The video sender dropped from the call unexpectedly
 Some users might end the call by terminating the browser process instead of by hanging up.
@@ -50,7 +50,7 @@ If the video sender has network issues during the time other participants are su
 This error is unexpected on the video receiver's side.
 For example, if the sender experiences a temporary network disconnection, other participants are unable to receive video frames from the sender. 
 
-A workaround approach for handling this createView timeout error is to continuously retry invoking [`createView`](/javascript/api/%40azure/communication-react/statefulcallclient?view=azure-node-latest&preserve-view=true#@azure-communication-react-statefulcallclient-createview) API until it succeeds when this network event is happening.
+A workaround approach for handling this createView timeout error is to continuously retry invoking  [`createView`](/javascript/api/azure-communication-services/@azure/communication-calling/videostreamrenderer?view=azure-communication-services-js&preserve-view=true#@azure-communication-calling-videostreamrenderer-createview) API until it succeeds when this network event is happening.
 
 ### The video receiver has network issues
 Similar to the sender's network issues, if a video receiver has network issues the video subscription may fail.

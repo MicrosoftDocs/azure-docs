@@ -1,9 +1,9 @@
 ---
 title: Switch replication appliance in Azure Site Recovery - Modernized
 description: This article describes show to switch between different replication appliances while replicating VMware VMs to Azure in Azure Site Recovery- Modernized
-ms.service: site-recovery
-ms.topic: article
-ms.date: 12/04/2023
+ms.service: azure-site-recovery
+ms.topic: how-to
+ms.date: 07/08/2024
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ---

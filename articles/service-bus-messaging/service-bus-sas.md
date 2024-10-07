@@ -14,14 +14,13 @@ This article discusses *Shared Access Signatures (SAS)*, how they work, and how 
 SAS guards access to Service Bus based on authorization rules that are configured either on a namespace, or a messaging entity (queue, or topic). An authorization rule has a name, is associated with specific rights, and carries a pair of cryptographic keys. You use the rule's name and key via the Service Bus SDK or in your own code to generate a SAS token. A client can then pass the token to Service Bus to prove authorization for the requested operation.
 
 > [!NOTE]
-> Azure Service Bus supports authorizing access to a Service Bus namespace and its entities using Microsoft Entra ID. Authorizing users or applications using OAuth 2.0 token returned by Microsoft Entra ID provides superior security and ease of use over shared access signatures (SAS). With Microsoft Entra ID, there is no need to store the tokens in your code and risk potential security vulnerabilities.
->
-> Microsoft recommends using Microsoft Entra ID with your Azure Service Bus applications when possible. For more information, see the following articles:
-> - [Authenticate and authorize an application with Microsoft Entra ID to access Azure Service Bus entities](authenticate-application.md).
-> - [Authenticate a managed identity with Microsoft Entra ID to access Azure Service Bus resources](service-bus-managed-service-identity.md)
+> Azure Service Bus supports authorizing access to a Service Bus namespace and its entities using Microsoft Entra ID. Authorizing users or applications using OAuth 2.0 token returned by Microsoft Entra ID provides superior security and ease of use over shared access signatures (SAS). SAS Keys lack fine grained access control, are difficult to manage/rotate and do not have the audit capabilities to associate its use with a specific user or service principal. For these reasons we recommend using Microsoft Entra ID.
 > 
-> You can disable local or SAS key authentication for a Service Bus namespace and allow only Microsoft Entra authentication. For step-by-step instructions, see [Disable local authentication](disable-local-authentication.md).
+> Microsoft recommends using Microsoft Entra ID with your Azure Service Bus applications when possible. For more information, see the following articles:
+- [Authenticate and authorize an application with Microsoft Entra ID to access Azure Service Bus entities](authenticate-application.md).
+- [Authenticate a managed identity with Microsoft Entra ID to access Azure Service Bus resources](service-bus-managed-service-identity.md)
 
+> You can disable local or SAS key authentication for a Service Bus namespace and allow only Microsoft Entra authentication. For step-by-step instructions, see [Disable local authentication](disable-local-authentication.md).
 ## Overview of SAS
 
 Shared Access Signatures are a claims-based authorization mechanism using simple tokens. When you use SAS, keys are never passed on the wire. Keys are used to cryptographically sign information that can later be verified by the service. SAS can be used similar to a username and password scheme where the client is in immediate possession of an authorization rule name and a matching key. SAS can also be used similar to a federated security model, where the client receives a time-limited and signed access token from a security token service without ever coming into possession of the signing key.

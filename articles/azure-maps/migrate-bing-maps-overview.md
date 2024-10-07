@@ -2,12 +2,12 @@
 title: Migrate from Bing Maps to Azure Maps overview
 titleSuffix: Microsoft Azure Maps
 description: Overview for the migration guides that show how to migrate code from Bing Maps to Azure Maps.
-author: eriklindeman
-ms.author: eriklind
+author: jkebeck
+ms.author: jokebeck
 ms.date: 05/16/2024
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: general
 ---
 
 # Migrate from Bing Maps to Azure Maps overview

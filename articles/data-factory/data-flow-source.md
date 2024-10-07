@@ -4,10 +4,9 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to set up a source transformation in a mapping data flow in Azure Data Factory or Azure Synapse Analytics pipelines.
 author: kromerm
 ms.author: makromer
-ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.date: 10/20/2023
+ms.date: 09/25/2024
 ---
 
 # Source transformation in mapping data flows

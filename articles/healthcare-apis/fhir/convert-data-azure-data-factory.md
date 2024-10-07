@@ -2,7 +2,7 @@
 title: Transform HL7v2 data to FHIR R4 with $convert-data in the FHIR service for Azure Health Data Services
 description: Learn how to transform HL7v2 data into FHIR R4 by using Azure Data Factory’s $convert-data operation. Explore prerequisites, configuration, and pipeline creation for data conversion and storage with Azure Data Lake Storage Gen2 capabilities.
 author: msjasteppe
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: how-to
 ms.date: 05/13/2024
@@ -17,25 +17,25 @@ In this article, we detail how to use [Azure Data Factory (ADF)](../../data-fact
 
 ## Prerequisites
 
-Before getting started, do these steps:
+Before getting started, follow these steps.
 
 1. Deploy an instance of the [FHIR service](fhir-portal-quickstart.md). The FHIR service is used to invoke the [`$convert-data`](convert-data-overview.md) operation.
 2. By default, the ADF pipeline in this scenario uses the [predefined templates provided by Microsoft](convert-data-configuration.md#default-templates) for conversion. If your use case requires customized templates, set up your [Azure Container Registry instance to host your own templates](convert-data-configuration.md#host-your-own-templates) to be used for the conversion operation. 
 3. Create storage accounts with [Azure Data Lake Storage Gen2 (ADLS Gen2) capabilities](../../storage/blobs/create-data-lake-storage-account.md) by enabling a hierarchical namespace and container to store the data to read from and write to.
 
-   You can create and use either one or separate ADLS Gen2 accounts and containers to:
-   - Store the HL7v2 data to be transformed (for example: the source account and container the pipeline reads the data to be transformed from).
-   - Store the transformed FHIR R4 bundles (for example: the destination account and container the pipeline writes the transformed result to).
-   - Store the errors encountered during the transformation (for example: the destination account and container the pipeline writes execution errors to).
+   You can create and use one or separate ADLS Gen2 accounts and containers to:
+   - Store the HL7v2 data to be transformed (for example: the source account and container from which the pipeline reads the data to be transformed).
+   - Store the transformed FHIR R4 bundles (for example: the destination account and container to which the pipeline writes the transformed result).
+   - Store the errors encountered during the transformation (for example: the destination account and container to which the pipeline writes execution errors).
 
-4. Create an instance of [ADF](../../data-factory/quickstart-create-data-factory.md), which serves as a business logic orchestrator. Ensure that a [system-assigned managed identity](../../data-factory/data-factory-service-identity.md) is enabled. 
+4. Create an instance of [ADF](../../data-factory/quickstart-create-data-factory.md), which serves to orchestrate business logic. Ensure that a [system-assigned managed identity](../../data-factory/data-factory-service-identity.md) is enabled. 
 5. Add the following [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) assignments to the ADF system-assigned managed identity:
    * **FHIR Data Converter** role to [grant permission to the FHIR service](../../healthcare-apis/configure-azure-rbac.md#assign-roles-for-the-fhir-service).
    * **Storage Blob Data Contributor** role to [grant permission to the ADLS Gen2 account](../../storage/blobs/assign-azure-role-data-access.md?tabs=portal).
 
 ## Configure an Azure Data Factory pipeline  
 
-In this example, an ADF [pipeline](../../data-factory/concepts-pipelines-activities.md?tabs=data-factory) is used to transform HL7v2 data and persist transformed FHIR R4 bundle in a JSON file within the configured destination ADLS Gen2 account and container.  
+In this example, an ADF [pipeline](../../data-factory/concepts-pipelines-activities.md?tabs=data-factory) is used to transform HL7v2 data, and persist a transformed FHIR R4 bundle in a JSON file within the configured destination ADLS Gen2 account and container.  
  
 1. From the Azure portal, open your Azure Data Factory instance and select **Launch Studio** to begin. 
 
@@ -43,7 +43,7 @@ In this example, an ADF [pipeline](../../data-factory/concepts-pipelines-activ
 
 ## Create a pipeline
 
-Azure Data Factory pipelines are a collection of activities that perform a task. This section details the creation of a pipeline that performs the task of transforming HL7v2 data to FHIR R4 bundles. Pipeline execution can be in an improvised fashion or regularly based on defined triggers. 
+Azure Data Factory pipelines are a collection of activities that perform a task. This section details the creation of a pipeline that performs the task of transforming HL7v2 data to FHIR R4 bundles. Pipeline execution can be done manually, or regularly based on defined triggers. 
 
 1. Select **Author** from the navigation menu. In the **Factory Resources** pane, select the **+** to add a new resource. Select **Pipeline** and then **Template gallery** from the menu.
 
@@ -63,33 +63,33 @@ Azure Data Factory pipelines are a collection of activities that perform a t
 
    If needed, you can make any modifications to the pipelines/activities to fit your scenario (for example: if you don't intend to persist the results in a destination ADLS Gen2 storage account, you can modify the pipeline to remove the **Write converted result to ADLS Gen2** pipeline altogether).
 
-4. Select the **Parameters** tab and provide values based your configuration/setup. Some of the values are based on the resources setup as part of the [prerequisites](#prerequisites).
+4. Select the **Parameters** tab and provide values based your configuration. Some of the values are based on the resources setup as part of the [prerequisites](#prerequisites).
 
    :::image type="content" source="media/convert-data/convert-data-with-azure-data-factory/input-pipeline-parameters.png" alt-text="Screenshot showing the pipeline parameters options." lightbox="media/convert-data/convert-data-with-azure-data-factory/input-pipeline-parameters.png"::: 
 
    * **fhirService** – Provide the URL of the FHIR service to target for the `$convert-data` operation. For example: `https://**myservice-fhir**.fhir.azurehealthcareapis.com/`
-   * **acrServer** – Provide the name of the ACR server to pull the Liquid templates to use for conversion. By default, option is set to `microsofthealth`, which contains the predefined template collection published by Microsoft. To use your own template collection, replace this value with your ACR instance that hosts your templates and is registered to your FHIR service. 
-   * **templateReference** – Provide the reference to the image within the ACR that contains the Liquid templates to use for conversion. By default, this option is set to `hl7v2templates:default` to pull the latest published Liquid templates for HL7v2 conversion by Microsoft. To use your own template collection, replace this value with the reference to the image within your ACR that hosts your templates and is registered to your FHIR service.
+   * **acrServer** – Provide the name of the ACR server to pull the Liquid templates to use for conversion. The default option is set to `microsofthealth`, which contains the predefined template collection published by Microsoft. To use your own template collection, replace this value with your ACR instance that hosts your templates and is registered to your FHIR service. 
+   * **templateReference** – Provide the reference to the image within the ACR that contains the Liquid templates to use for conversion. The default option is set to `hl7v2templates:default` to pull the latest published Liquid templates for HL7v2 conversion by Microsoft. To use your own template collection, replace this value with the reference to the image within your ACR that hosts your templates and is registered to your FHIR service.
    * **inputStorageAccount** – The primary endpoint of the ADLS Gen2 storage account containing the input HL7v2 data to transform. For example: `https://**mystorage**.blob.core.windows.net`.
-   * **inputStorageFolder** – The container and folder path within the configured. For example: `**mycontainer**/**myHL7v2folder**`.
+   * **inputStorageFolder** – The configured container and folder path. For example: `**mycontainer**/**myHL7v2folder**`.
 
    > [!NOTE]
-   > This can be a static folder path or can be left blank here and dynamically configured when setting up storage account triggers for this pipeline execution (refer to the section titled [Executing a pipeline](#executing-a-pipeline)).
+   > This can be a static folder path, or can be left blank and dynamically configured when setting up storage account triggers for this pipeline execution (refer to the section titled [Executing a pipeline](#executing-a-pipeline)).
 
    * **inputStorageFile** – The name of the file within the configured container.
    * **inputStorageAccount** and **inputStorageFolder** that contains the HL7v2 data to transform. For example: `**myHL7v2file**.hl7`.
 
    > [!NOTE]
-   > This can be a static folder path or can be left blank here and dynamically configured when setting up storage account triggers for this pipeline execution (refer to the section titled [Executing a pipeline](#executing-a-pipeline)).
+   > This can be a static folder path, or can be left blank and dynamically configured when setting up storage account triggers for this pipeline execution (refer to the section titled [Executing a pipeline](#executing-a-pipeline)).
 
    * **outputStorageAccount** – The primary endpoint of the ADLS Gen2 storage account to store the transformed FHIR bundle. For example: `https://**mystorage**.blob.core.windows.net`.
    * **outputStorageFolder** – The container and folder path within the configured **outputStorageAccount** to which the transformed FHIR bundle JSON files are written to.
    * **rootTemplate** – The root template to use while transforming the provided HL7v2 data. For example: ADT_A01, ADT_A02, ADT_A03, ADT_A04, ADT_A05, ADT_A08, ADT_A11, ADT_A13, ADT_A14, ADT_A15, ADT_A16, ADT_A25, ADT_A26, ADT_A27, ADT_A28, ADT_A29, ADT_A31, ADT_A47, ADT_A60, OML_O21, ORU_R01, ORM_O01, VXU_V04, SIU_S12, SIU_S13, SIU_S14, SIU_S15, SIU_S16, SIU_S17, SIU_S26, MDM_T01, MDM_T02.
 
    > [!NOTE]
-   > This can be a static folder path or can be left blank here and dynamically configured when setting up storage account triggers for this pipeline execution (refer to the section titled [Executing a pipeline](#executing-a-pipeline)).
+   > This can be a static folder path, or can be left blank and dynamically configured when setting up storage account triggers for this pipeline execution (refer to the section titled [Executing a pipeline](#executing-a-pipeline)).
 
-   * **errorStorageFolder** - The container and folder path within the configured **outputStorageAccount** to which the errors encountered during execution are written to. For example: `**mycontainer**/**myerrorfolder**`.
+   * **errorStorageFolder** - The container and folder path within the configured **outputStorageAccount** to which the errors encountered during execution are written. For example: `**mycontainer**/**myerrorfolder**`.
 
 5. You can configure more pipeline settings under the **Settings** tab based on your requirements.
 
@@ -117,7 +117,7 @@ Azure Data Factory pipelines are a collection of activities that perform a t
 
 ## Executing a pipeline
 
-You can execute (or run) a pipeline either manually or by using a trigger. There are different types of triggers that can be created to help automate your pipeline execution. For example:
+You can execute (or run) a pipeline either manually, or by using a trigger. There are different types of triggers that can be created to help automate your pipeline execution. For example:
 
 * **Manual trigger**
 * **Schedule trigger**
@@ -129,13 +129,13 @@ For more information on the different trigger types and how to configure them, s
 By setting triggers, you can simulate batch transformation of HL7v2 data. The pipeline executes automatically based on the configured trigger parameters without requiring individual invocation of the `$convert-data` operation for each input message.
 
 > [!IMPORTANT]
-> In a scenario with batch processing of HL7v2 messages, this template does not take sequencing into account, so post processing will be needed if sequencing is a requirement.
+> In a scenario with batch processing of HL7v2 messages, this template does not take sequencing into account. Post processing will be needed if sequencing is a requirement.
 
 ## Create a new storage event trigger
 
-In the following example, a storage event trigger is used. The storage event trigger automatically triggers the pipeline whenever a new HL7v2 data blob file to be processed is uploaded to the ADLS Gen2 storage account.
+In the following example, a storage event trigger is used. The storage event trigger automatically triggers the pipeline whenever a new HL7v2 data blob file is uploaded for processing to the ADLS Gen2 storage account.
 
-To configure the pipeline to automatically run whenever a new HL7v2 blob file in the source ADLS Gen2 storage account is available to transform, follow these steps:
+To configure the pipeline to automatically run whenever a new HL7v2 blob file in the source ADLS Gen2 storage account is available to transform, follow these steps.
 
 1. Select **Author** from the navigation menu. Select the pipeline configured in the previous section and select **Add trigger** and **New/Edit** from the menu bar. 
    
@@ -176,7 +176,7 @@ After the trigger is published, it can be triggered manually using the **Trigg
 
 ## Monitoring pipeline runs
 
-Trigger runs and their associated pipeline runs can be viewed in the **Monitor** tab. Here, users can browse when each pipeline ran, how long it took to execute, and potentially debug any problems that arose. 
+Triggered runs and their associated pipeline runs can be viewed in the **Monitor** tab. Here, users can browse when each pipeline ran, how long it took to execute, and potentially debug any problems that arose. 
 
 :::image type="content" source="media/convert-data/convert-data-with-azure-data-factory/monitor-pipeline-runs.png" alt-text="Screenshot showing monitoring Azure Data Factory pipeline runs." lightbox="media/convert-data/convert-data-with-azure-data-factory/monitor-pipeline-runs.png":::
 
@@ -190,7 +190,7 @@ Successful pipeline executions result in the transformed FHIR R4 bundles as JSON
 
 ### Errors
 
-Errors encountered during conversion, as part of the pipeline execution, result in error details captured as JSON file in the configured error destination ADLS Gen2 storage account and container. For information on how to troubleshoot `$convert-data`, see [Troubleshoot $convert-data](convert-data-troubleshoot.md).
+Errors encountered during conversion as part of the pipeline execution result in error details captured as a JSON file in the configured error destination ADLS Gen2 storage account and container. For information on how to troubleshoot `$convert-data`, see [Troubleshoot $convert-data](convert-data-troubleshoot.md).
 
 :::image type="content" source="media/convert-data/convert-data-with-azure-data-factory/pipeline-errors.png" alt-text="Screenshot showing Azure Data Factory errors." lightbox="media/convert-data/convert-data-with-azure-data-factory/pipeline-errors.png":::
 

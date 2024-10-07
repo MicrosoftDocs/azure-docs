@@ -2,9 +2,8 @@
 title: Dependency analysis in Azure Migrate Discovery and assessment
 description: Describes how to use dependency analysis for assessment using Azure Migrate Discovery and assessment.
 ms.topic: conceptual
-author: vineetvikram
-ms.author: vivikram
-ms.manager: abhemraj
+author: v-sreedevank
+ms.author: v-sreedevank
 ms.service: azure-migrate
 ms.date: 12/07/2023
 ms.custom: engagement-fy24
@@ -51,7 +50,7 @@ After discovery of dependency data begins, polling begins:
 
 ## Agent-based analysis
 
-For agent-based analysis, Azure Migrate: Discovery and assessment uses the [Service Map](/previous-versions/azure/azure-monitor/vm/service-map) solution in Azure Monitor. You install the [Microsoft Monitoring Agent/Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md) and the [Dependency agent](../azure-monitor/vm/vminsights-dependency-agent-maintenance.md), on each server you want to analyze.
+For agent-based analysis, Azure Migrate: Discovery and assessment uses the [Service Map](/previous-versions/azure/azure-monitor/vm/service-map) solution in Azure Monitor. You install the [Microsoft Monitoring Agent/Log Analytics agent](/azure/azure-monitor/agents/log-analytics-agent) and the [Dependency agent](/azure/azure-monitor/vm/vminsights-dependency-agent-maintenance), on each server you want to analyze.
 
 ### Dependency data
 
@@ -69,7 +68,7 @@ The differences between agentless visualization and agent-based visualization ar
 --- | --- | ---
 **Support** | Generally Available for VMware VMs, Hyper-V VMs, Physical servers, or servers running on other public clouds like AWS and GCP. | In general availability (GA).
 **Agent** | No agents needed on servers you want to analyze. | Agents required on each on-premises server that you want to analyze.
-**Log Analytics** | Not required. | Azure Migrate uses the [Service Map](/previous-versions/azure/azure-monitor/vm/service-map) solution in [Azure Monitor logs](../azure-monitor/logs/log-query-overview.md) for dependency analysis.<br/><br/> You associate a Log Analytics workspace with a project. The workspace must reside in the East US, Southeast Asia, or West Europe regions. The workspace must be in a region in which [Service Map is supported](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all). You can monitor Azure VMs in any region. The VMs themselves aren't limited to the regions supported by the Log Analytics workspace.
+**Log Analytics** | Not required. | Azure Migrate uses the [Service Map](/previous-versions/azure/azure-monitor/vm/service-map) solution in [Azure Monitor logs](/azure/azure-monitor/logs/log-query-overview) for dependency analysis.<br/><br/> You associate a Log Analytics workspace with a project. The workspace must reside in the East US, Southeast Asia, or West Europe regions. The workspace must be in a region in which [Service Map is supported](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all). You can monitor Azure VMs in any region. The VMs themselves aren't limited to the regions supported by the Log Analytics workspace.
 **Process** | Captures TCP connection data. After discovery, it gathers data at intervals of five minutes. | Service Map agents installed on a server gather data about TCP processes, and inbound/outbound connections for each process.
 **Data** | Source server name, process, application name.<br/><br/> Destination server name, process, application name, and port. | Source server name, process, application name.<br/><br/> Destination server name, process, application name, and port.<br/><br/> Number of connections, latency, and data transfer information are gathered and available for Log Analytics queries. 
 **Visualization** | Dependency map of single server can be viewed over a duration of one hour to 30 days. | Dependency map of a single server.<br/><br/> Dependency map of a group of servers.<br/><br/>  Map can be viewed over an hour only.<br/><br/> Add and remove servers in a group from the map view.

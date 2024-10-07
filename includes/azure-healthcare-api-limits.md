@@ -3,7 +3,7 @@ title: "Azure Healthcare APIs limits include file"
 description: "Limits for Azure Healthcare APIs include file"
 services: healthcare-apis
 author: stevewohl
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.topic: "include"
 ms.date: 03/15/2022
 ms.author: v-stevewohl

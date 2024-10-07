@@ -7,7 +7,7 @@ author: greg-lindsay
 ms.author: greglin
 ms.date: 05/30/2024
 ms.topic: quickstart
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.custom: devx-track-terraform
 content_well_notification: 
   - AI-contribution

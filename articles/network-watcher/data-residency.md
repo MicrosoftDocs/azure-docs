@@ -3,7 +3,7 @@ title: Data residency for Azure Network Watcher
 description: Learn about data residency for the Azure Network Watcher.
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: concept-article
 ms.date: 05/14/2024
 ms.custom: references_regions

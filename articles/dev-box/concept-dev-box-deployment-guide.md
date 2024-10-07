@@ -39,7 +39,7 @@ Each of these roles has specific responsibilities during the deployment of Micro
  
 - **Developer**: self-serve one or more dev boxes within their assigned projects.
     - Create and manage a dev box based on project dev box pool from the developer portal
-    - Connect to a dev box by using remote desktop or from the browser
+    - Connect to a dev box by using a Remote Desktop client like Windows App
 
 :::image type="content" source="media/overview-what-is-microsoft-dev-box/dev-box-roles.png" alt-text="Diagram that shows roles and responsibilities for Dev Box platform engineers, team leads, and developers." lightbox="media/overview-what-is-microsoft-dev-box/dev-box-roles.png" border="false":::
 
@@ -107,6 +107,8 @@ When you have the following requirements, you need to use Azure network connecti
 - User management not in Microsoft Entra ID
 
 When connecting to resources on-premises through Microsoft Entra hybrid joins, work with your Azure network topology expert. Best practice is to implement a [hub-and-spoke network topology](/azure/cloud-adoption-framework/ready/azure-best-practices/hub-spoke-network-topology). The hub is the central point that connects to your on-premises network; you can use an Express Route, a site-to-site VPN, or a point-to-site VPN. The spoke is the virtual network that contains the dev boxes. You peer the dev box virtual network to the on-premises connected virtual network to provide access to on-premises resources. Hub and spoke topology can help you manage network traffic and security.
+
+Network planning should include an estimate of the number of IP addresses you'll need, and their distribution across VNETs. Additional free IP addresses are necessary for the Azure Network connection health check. You need 1 additional IP address per dev box, and two IP addresses for the health check and Dev Box infrastructure.
 
 Learn more about [Microsoft Dev Box networking requirements](./concept-dev-box-network-requirements.md?tabs=W365).
 
@@ -248,11 +250,11 @@ Microsoft Dev Box uses Microsoft Intune to manage your dev boxes. Use Microsoft 
 
 #### Device configuration
 
-After a dev box is provisioned, you can manage it like any other Windows device in Microsoft Intune. For example, you can create [device configuration profiles](/mem/intune/configuration/device-profiles) to turn different settings on and off in Windows, or push apps and updates to your users’ dev boxes.
+After a dev box is provisioned, you can manage it like any other Windows device in Microsoft Intune. For example, you can create [device configuration profiles](/mem/intune/configuration/device-profiles) to turn different settings on and off in Windows, or push apps and updates to your users' dev boxes.
 
 #### Configure conditional access policies
 
-You can use Intune to configure conditional access policies to control access to dev boxes. For Dev Box, it’s common to configure conditional access policies to restrict who can access dev box, what they can do, and where they can access from. To configure conditional access policies, you can use Microsoft Intune to create dynamic device groups and conditional access policies.
+You can use Intune to configure conditional access policies to control access to dev boxes. For Dev Box, it's common to configure conditional access policies to restrict who can access dev box, what they can do, and where they can access from. To configure conditional access policies, you can use Microsoft Intune to create dynamic device groups and conditional access policies.
 
 Some usage scenarios for conditional access in Microsoft Dev Box include: 
 
@@ -262,15 +264,9 @@ Some usage scenarios for conditional access in Microsoft Dev Box include:
 
 Learn how you can [configure conditional access policies for Dev Box](./how-to-configure-intune-conditional-access-policies.md).
 
-#### Back up and restore a dev box
-
-Microsoft Intune provides backup functionality for dev boxes. It automatically sets regular restore points, and enables you to create a manual restore point, just as you would for a [Cloud PC](/windows-365/enterprise/create-manual-restore-point).
-
-Restore functionality for dev boxes is provided by sharing Cloud PC restore points to a storage account. For more information, see: [Share Cloud PC restore points to an Azure Storage Account](/windows-365/enterprise/share-restore-points-storage) 
-
 #### Privilege management
 
-You can configure Microsoft Intune Endpoint Privilege Management (EPM) for dev boxes so that dev box users don't need local administrative privileges. Microsoft Intune Endpoint Privilege Management allows your organization’s users to run as a standard user (without administrator rights) and complete tasks that require elevated privileges. Tasks that commonly require administrative privileges are application installs (like Microsoft 365 Applications), updating device drivers, and running certain Windows diagnostics.
+You can configure Microsoft Intune Endpoint Privilege Management (EPM) for dev boxes so that dev box users don't need local administrative privileges. Microsoft Intune Endpoint Privilege Management allows your organization's users to run as a standard user (without administrator rights) and complete tasks that require elevated privileges. Tasks that commonly require administrative privileges are application installs (like Microsoft 365 Applications), updating device drivers, and running certain Windows diagnostics.
 
 Learn more about how to [configure Microsoft Intune Endpoint Privilege for Microsoft Dev Box](./how-to-elevate-privilege-dev-box.md).
 

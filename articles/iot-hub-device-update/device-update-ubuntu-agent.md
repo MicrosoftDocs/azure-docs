@@ -43,7 +43,7 @@ Prepare a device automatically or manually.
 
 ### Use the automated Deploy to Azure button
 
-For convenience, this tutorial uses a [cloud-init](../virtual-machines/linux/using-cloud-init.md)-based [Azure Resource Manager template](../azure-resource-manager/templates/overview.md) to help you quickly set up an Ubuntu 18.04 LTS virtual machine. It installs both the Azure IoT Edge runtime and the Device Update package agent. Then it automatically configures the device with provisioning information by using the device connection string for an IoT Edge device (prerequisite) that you supply. The Resource Manager template also avoids the need to start an SSH session to complete setup.
+For convenience, this tutorial uses a [cloud-init](/azure/virtual-machines/linux/using-cloud-init)-based [Azure Resource Manager template](../azure-resource-manager/templates/overview.md) to help you quickly set up an Ubuntu 18.04 LTS virtual machine. It installs both the Azure IoT Edge runtime and the Device Update package agent. Then it automatically configures the device with provisioning information by using the device connection string for an IoT Edge device (prerequisite) that you supply. The Resource Manager template also avoids the need to start an SSH session to complete setup.
 
 1. To begin, select the button:
 

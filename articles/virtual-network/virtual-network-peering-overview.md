@@ -4,7 +4,7 @@ titlesuffix: Azure Virtual Network
 description: Learn about virtual network peering in Azure, including how it enables you to connect networks in Azure Virtual Network.
 services: virtual-network
 author: asudbring
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: conceptual
 ms.date: 02/22/2024
 ms.author: allensu

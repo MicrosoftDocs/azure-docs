@@ -62,10 +62,6 @@
     items:
     - name: Create cross-region load balancer - Portal
       href: tutorial-cross-region-portal.md
-    - name: Create cross-region load balancer - PowerShell
-      href: tutorial-cross-region-powershell.md
-    - name: Create cross-region load balancer - Azure CLI
-      href: tutorial-cross-region-cli.md
     - name: Deploy cross-region load balancer - ARM template
       href: tutorial-deploy-cross-region-load-balancer-template.md
   - name: Gateway load balancer
@@ -132,7 +128,7 @@
     href: instance-metadata-service-load-balancer.md
   - name: Health monitoring
     items:
-    - name: Monitor load balancer
+    - name: Monitor Load Balancer
       href: monitor-load-balancer.md
     - name: Monitoring data reference
       href: monitor-load-balancer-reference.md

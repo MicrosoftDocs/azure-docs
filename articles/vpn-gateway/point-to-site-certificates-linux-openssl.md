@@ -3,7 +3,7 @@ title: 'Generate and export certificates for point-to-site: Linux - OpenSSL'
 description: Learn how to create a self-signed root certificate, export the public key, and generate client certificates using OpenSSL.
 titleSuffix: Azure VPN Gateway
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 06/24/2024

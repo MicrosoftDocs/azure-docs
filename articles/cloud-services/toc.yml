@@ -84,16 +84,20 @@
         href: cloud-services-python-how-to-use-service-management.md
       - name: Mitigating speculative execution
         href: mitigate-se.md
-      - name: Guest OS patches
-        href: cloud-services-guestos-msrc-releases.md
-      - name: Guest OS retirement
+      - name: Guest OS
         items:
-        - name: Retirement policy
-          href: cloud-services-guestos-retirement-policy.md
-        - name: Family 1 retirement notice
-          href: cloud-services-guestos-family1-retirement.md
-      - name: Guest OS release news
-        href: cloud-services-guestos-update-matrix.md
+        - name: Guest OS patches
+          href: cloud-services-guestos-msrc-releases.md
+        - name: Guest OS retirement
+          items:
+          - name: Retirement policy
+            href: cloud-services-guestos-retirement-policy.md
+          - name: Family 1 retirement notice
+            href: cloud-services-guestos-family1-retirement.md
+          - name: Family 2, 3, 4 retirement notice
+            href: cloud-services-guestos-family-2-3-4-retirement.md
+        - name: Guest OS release news
+          href: cloud-services-guestos-update-matrix.md
       - name: Cloud Services Role config XPath cheat sheet
         href: cloud-services-role-config-xpath.md
     - name: Manage certificates

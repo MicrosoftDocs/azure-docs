@@ -3,7 +3,7 @@ title: 'About forced tunneling for site-to-site'
 description: Learn about forced tunneling methods for VPN Gateway site-to-site connections.
 titleSuffix: Azure VPN Gateway
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: conceptual
 ms.date: 09/22/2023
 ms.author: cherylmc

@@ -3,8 +3,8 @@ title: 'Tutorial: Route network traffic with a route table - Azure portal'
 titlesuffix: Azure Virtual Network
 description: In this tutorial, learn how to route network traffic with a route table using the Azure portal.
 author: asudbring
-ms.service: virtual-network
-ms.date: 08/21/2023
+ms.service: azure-virtual-network
+ms.date: 07/29/2024
 ms.author: allensu
 ms.topic: tutorial
 ms.custom: template-tutorial
@@ -36,7 +36,7 @@ In this tutorial, you learn how to:
 
 Sign in to the [Azure portal](https://portal.azure.com).
 
-[!INCLUDE [virtual-network-create-with-bastion.md](../../includes/virtual-network-create-with-bastion.md)]
+[!INCLUDE [virtual-network-create-with-bastion.md](~/reusable-content/ce-skilling/azure/includes/virtual-network-create-with-bastion.md)]
 
 ## Create subnets
 
@@ -54,12 +54,16 @@ A **DMZ** and **Private** subnet are needed for this tutorial. The **DMZ** subne
 
     | Setting | Value |
     | ------- | ----- |
+    | Subnet purpose | Leave the default of **Default**. |
     | Name | Enter **subnet-private**. |
-    | Subnet address range | Enter **10.0.2.0/24**. |
+    | **IPv4** |
+    | IPv4 address range | Leave the default of **10.0.0.0/16**. |
+    | Starting address | Enter **10.0.2.0**. |
+    | Size | Leave the default of **/24 (256 addresses)**. |
 
     :::image type="content" source="./media/tutorial-create-route-table-portal/create-private-subnet.png" alt-text="Screenshot of private subnet creation in virtual network.":::
 
-1. Select **Save**.
+1. Select **Add**.
 
 1. Select **+ Subnet**.
 
@@ -67,16 +71,20 @@ A **DMZ** and **Private** subnet are needed for this tutorial. The **DMZ** subne
 
     | Setting | Value |
     | ------- | ----- |
+    | Subnet purpose | Leave the default of **Default**. |
     | Name | Enter **subnet-dmz**. |
-    | Subnet address range | Enter **10.0.3.0/24**. |
+    | **IPv4** |
+    | IPv4 address range | Leave the default of **10.0.0.0/16**. |
+    | Starting address | Enter **10.0.3.0**. |
+    | Size | Leave the default of **/24 (256 addresses)**. |
 
     :::image type="content" source="./media/tutorial-create-route-table-portal/create-dmz-subnet.png" alt-text="Screenshot of DMZ subnet creation in virtual network.":::
 
-1. Select **Save**.
+1. Select **Add**.
 
 ## Create an NVA virtual machine
 
-Network virtual appliances (NVAs) are virtual machines that help with network functions, such as routing and firewall optimization. In this section, create an NVA using an **Ubuntu 22.04** virtual machine.
+Network virtual appliances (NVAs) are virtual machines that help with network functions, such as routing and firewall optimization. In this section, create an NVA using an **Ubuntu 24.04** virtual machine.
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
@@ -94,7 +102,7 @@ Network virtual appliances (NVAs) are virtual machines that help with network fu
     | Region | Select **(US) East US 2**. |
     | Availability options | Select **No infrastructure redundancy required**. |
     | Security type | Select **Standard**. |
-    | Image | Select **Ubuntu Server 22.04 LTS - x64 Gen2**. |
+    | Image | Select **Ubuntu Server 24.04 LTS - x64 Gen2**. |
     | VM architecture | Leave the default of **x64**. |
     | Size | Select a size. |
     | **Administrator account** |   |
@@ -146,7 +154,7 @@ The public virtual machine is used to simulate a machine in the public internet.
     | Region | Select **(US) East US 2**. |
     | Availability options | Select **No infrastructure redundancy required**. |
     | Security type | Select **Standard**. |
-    | Image | Select **Ubuntu Server 22.04 LTS - x64 Gen2**. |
+    | Image | Select **Ubuntu Server 24.04 LTS - x64 Gen2**. |
     | VM architecture | Leave the default of **x64**. |
     | Size | Select a size. |
     | **Administrator account** |   |
@@ -191,7 +199,7 @@ The public virtual machine is used to simulate a machine in the public internet.
     | Region | Select **(US) East US 2**. |
     | Availability options | Select **No infrastructure redundancy required**. |
     | Security type | Select **Standard**. |
-    | Image | Select **Ubuntu Server 22.04 LTS - x64 Gen2**. |
+    | Image | Select **Ubuntu Server 24.04 LTS - x64 Gen2**. |
     | VM architecture | Leave the default of **x64**. |
     | Size | Select a size. |
     | **Administrator account** |   |
@@ -230,9 +238,9 @@ In this section, you turn on IP forwarding for the network interface of the **vm
 
 1. In **Virtual machines**, select **vm-nva**.
 
-1. In **vm-nva**, select **Networking** from the **Settings** section.
+1. In **vm-nva**, expand **Networking** then select **Network settings**.
 
-1. Select the name of the interface next to **Network Interface:**. The name begins with **vm-nva** and has a random number assigned to the interface. The name of the interface in this example is **vm-nva124**.
+1. Select the name of the interface next to **Network Interface:**. The name begins with **vm-nva** and has a random number assigned to the interface. The name of the interface in this example is **vm-nva313**.
 
     :::image type="content" source="./media/tutorial-create-route-table-portal/nva-network-interface.png" alt-text="Screenshot of network interface of NVA virtual machine.":::
 
@@ -252,7 +260,7 @@ In this section, turn on IP forwarding for the operating system of the **vm-nva*
 
 1. In **Virtual machines**, select **vm-nva**.
 
-1. Select **Bastion** in the **Operations** section.
+1. Select **Connect**, then **Connect via Bastion** in the **Overview** section.
 
 1. Enter the username and password you entered when the virtual machine was created.
 
@@ -313,7 +321,7 @@ In this section, create a route in the route table that you created in the previ
 
 1. Select **route-table-public**.
 
-1. In **Settings** select **Routes**.
+1. Expand **Settings** then select **Routes**.
 
 1. Select **+ Add** in **Routes**.
 
@@ -354,7 +362,7 @@ Test routing of network traffic from **vm-public** to **vm-private**. Test routi
 
 1. In **Virtual machines**, select **vm-public**.
 
-1. Select **Bastion** in the **Operations** section.
+1. Select **Connect** then **Connect via Bastion** in the **Overview** section.
 
 1. Enter the username and password you entered when the virtual machine was created.
 
@@ -389,7 +397,7 @@ Test routing of network traffic from **vm-public** to **vm-private**. Test routi
 
 1. In **Virtual machines**, select **vm-private**.
 
-1. Select **Bastion** in the **Operations** section.
+1. Select **Connect** then **Connect via Bastion** in the **Overview** section.
 
 1. Enter the username and password you entered when the virtual machine was created.
 
@@ -417,7 +425,7 @@ Test routing of network traffic from **vm-public** to **vm-private**. Test routi
 
 1. Close the Bastion session.
 
-[!INCLUDE [portal-clean-up.md](../../includes/portal-clean-up.md)]
+[!INCLUDE [portal-clean-up.md](~/reusable-content/ce-skilling/azure/includes/portal-clean-up.md)]
 
 ## Next steps
 

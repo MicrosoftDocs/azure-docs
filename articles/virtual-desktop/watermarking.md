@@ -41,6 +41,7 @@ You'll need the following things before you can use watermarking:
    - Windows App for:
       - Windows
       - macOS
+      - iOS and iPadOS
       - Web browser
 
 - [Azure Virtual Desktop Insights](azure-monitor.md) configured for your environment.
@@ -109,7 +110,7 @@ To enable watermarking using Microsoft Intune:
 
 To enable watermarking using Group Policy:
 
-1. Follow the steps to make the [Administrative template for Azure Virtual Desktop](administrative-template.md?tabs=group-policy-domain) available.
+1. Follow the steps to make the [Administrative template for Azure Virtual Desktop](administrative-template.md?tabs=group-policy-domain) available in Group Policy.
 
 1. Open the **Group Policy Management** console on device you use to manage the Active Directory domain, then create or edit a policy that targets the computers providing a remote session you want to configure.
 

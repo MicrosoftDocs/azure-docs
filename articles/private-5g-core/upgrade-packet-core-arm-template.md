@@ -4,7 +4,7 @@ titleSuffix: Azure Private 5G Core
 description: In this how-to guide, you'll learn how to upgrade a packet core instance using an Azure Resource Manager template (ARM template). 
 author: robswain
 ms.author: robswain
-ms.service: private-5g-core
+ms.service: azure-private-5g-core
 ms.topic: how-to
 ms.date: 05/16/2022
 ms.custom: template-how-to, devx-track-arm-template
@@ -14,7 +14,7 @@ ms.custom: template-how-to, devx-track-arm-template
 
 Each Azure Private 5G Core site contains a packet core instance, which is a cloud-native implementation of the 3GPP standards-defined 5G Next Generation Core (5G NGC or 5GC). You'll need to periodically upgrade your packet core instances to get access to the latest Azure Private 5G Core features and maintain support for your private mobile network. In this how-to guide, you'll learn how to upgrade a packet core instance using an Azure Resource Manager template (ARM template).
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 If your deployment contains multiple sites, we recommend upgrading the packet core in a single site first and ensuring the upgrade is successful before upgrading the packet cores in the remaining sites.
 
@@ -69,7 +69,7 @@ To use Azure Resource Health to confirm the packet core instance is healthy:
 1. Select **Resource Health** under the **Help** section on the left side.
 1. Check that the resource is healthy and there are no unexpected alerts.
 1. If there are any unexpected alerts, follow the recommended steps listed to recover the system.
-1. To learn more about health and the status types that may appear, see [Resource Health overview](../service-health/resource-health-overview.md).
+1. To learn more about health and the status types that may appear, see [Resource Health overview](/azure/service-health/resource-health-overview).
 
 
 ## Upgrade the packet core instance

@@ -33,7 +33,7 @@ Before you begin, make sure that:
 4. You've reviewed the:
 
     - Supported [managed disk sizes in Azure object size limits](data-box-heavy-limits.md#azure-object-size-limits).
-    - [Introduction to Azure managed disks](../virtual-machines/managed-disks-overview.md). 
+    - [Introduction to Azure managed disks](/azure/virtual-machines/managed-disks-overview). 
 
 ## Connect to Data Box Heavy
 

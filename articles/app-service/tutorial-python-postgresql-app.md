@@ -12,7 +12,7 @@ zone_pivot_groups: app-service-portal-azd
 
 # Deploy a Python (Django or Flask) web app with PostgreSQL in Azure
 
-In this tutorial, you'll deploy a data-driven Python web app (**[Django](https://www.djangoproject.com/)** or **[Flask](https://flask.palletsprojects.com/)**) to **[Azure App Service](./overview.md#app-service-on-linux)** with the **[Azure Database for PostgreSQL](../postgresql/index.yml)** relational database service. Azure App Service supports [Python](https://www.python.org/downloads/) in a Linux server environment.
+In this tutorial, you'll deploy a data-driven Python web app (**[Django](https://www.djangoproject.com/)** or **[Flask](https://flask.palletsprojects.com/)**) to **[Azure App Service](./overview.md#app-service-on-linux)** with the **[Azure Database for PostgreSQL](/azure/postgresql/)** relational database service. Azure App Service supports [Python](https://www.python.org/downloads/) in a Linux server environment.
 
 :::image type="content" border="False" source="./media/tutorial-python-postgresql-app/python-postgresql-app-architecture-240px.png" lightbox="./media/tutorial-python-postgresql-app/python-postgresql-app-architecture.png" alt-text="An architecture diagram showing an App Service with a PostgreSQL database in Azure.":::
 
@@ -262,7 +262,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 
 ## 2. Verify connection settings
 
-The creation wizard generated the connectivity variables for you already as [app settings](configure-common.md#configure-app-settings). App settings are one way to keep connection secrets out of your code repository. When you're ready to move your secrets to a more secure location, here's an [article on storing in Azure Key Vault](../key-vault/certificates/quick-create-python.md).
+The creation wizard generated the connectivity variables for you already as [app settings](configure-common.md#configure-app-settings). App settings are one way to keep connection secrets out of your code repository. When you're ready to move your secrets to a more secure location, here's an [article on storing in Azure Key Vault](/azure/key-vault/certificates/quick-create-python).
 
 ### [Flask](#tab/flask)
 

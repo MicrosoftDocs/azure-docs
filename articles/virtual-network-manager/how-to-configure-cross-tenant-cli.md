@@ -3,7 +3,7 @@ title: Configure a cross-tenant connection in Azure Virtual Network Manager Prev
 description: Learn how to connect Azure subscriptions in Azure Virtual Network Manager by using cross-tenant connections for the management of virtual networks across subscriptions.
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network-manager
+ms.service: azure-virtual-network-manager
 ms.topic: how-to 
 ms.date: 03/22/2024
 ms.custom: template-how-to, devx-track-azurecli

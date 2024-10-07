@@ -1,11 +1,11 @@
 ---
 title: Technical details and requirements for migrating to Azure Cloud Services (extended support)
 description: Provides technical details and requirements for migrating from Azure Cloud Services (classic) to Azure Cloud Services (extended support)
-ms.service: cloud-services-extended-support
+ms.service: azure-cloud-services-extended-support
 ms.subservice: classic-to-arm-migration
 ms.reviwer: mimckitt
 ms.topic: how-to
-ms.date: 02/06/2020
+ms.date: 07/24/2024
 author: hirenshah1
 ms.author: hirshah
 
@@ -19,9 +19,9 @@ This article discusses the technical details regarding the migration tool as per
 
 
 ### Extensions and plugin migration 
-- All enabled and supported extensions will be migrated. 
+- All enabled and supported extensions are migrated. 
 - Disabled extensions won't be migrated. 
-- Plugins are a legacy concept and should be removed before migration. They're supported for migration and but after migration, if extension needs to be enabled, plugin needs to be removed first before installing the extension. Remote desktop plugins and extensions are most impacted by this. 	
+- Plugins are a legacy concept and should be removed before migration. They're supported for migration, but after migration, if extension needs to be enabled, the plugin needs to be removed before installing the extension. This limitation affects remote desktop plugins and extensions the most.
  
 ### Certificate migration
 - In Cloud Services (extended support), certificates are stored in a Key Vault. As part of migration, we create a Key Vault for the customers having the Cloud Service name and transfer all certificates from Azure Service Manager to Key Vault. 
@@ -29,11 +29,11 @@ This article discusses the technical details regarding the migration tool as per
 
 ### Service Configuration and Service Definition files
 - The .cscfg and .csdef files need to be updated for Cloud Services (extended support) with minor changes. 
-- The names of resources like virtual network and VM SKU are different. See [Translation of resources and naming convention post migration](#translation-of-resources-and-naming-convention-post-migration)
+- The names of resources like virtual network and virtual machine (VM) SKU are different. See [Translation of resources and naming convention post migration](#translation-of-resources-and-naming-convention-post-migration)
 - Customers can retrieve their new deployments through [PowerShell](/powershell/module/az.cloudservice/?preserve-view=true&view=azps-5.4.0#cloudservice) and [REST API](/rest/api/compute/cloudservices/get). 
 
 ### Cloud Service and deployments
-- Each Cloud Services (extended support) deployment is an independent Cloud Service. Deployment are no longer grouped into a cloud service using slots.
+- Each Cloud Services (extended support) deployment is an independent Cloud Service. Deployments are no longer grouped into a cloud service using slots.
 - If you have two slots in your Cloud Service (classic), you need to delete one slot (staging) and use the migration tool to move the other (production) slot to Azure Resource Manager. 
 - The public IP address on the Cloud Service deployment remains the same after migration to Azure Resource Manager and is exposed as a Basic SKU IP (dynamic or static) resource. 
 - The DNS name and domain (cloudapp.net) for the migrated cloud service remains the same. 
@@ -45,20 +45,20 @@ This article discusses the technical details regarding the migration tool as per
 
 ### Migration of deployments not in a virtual network
 - In late 2018, Azure started automatically creating new deployments (without customer specified virtual network) into a platform created “default” virtual network. These default virtual networks are hidden from customers.   
-- As part of the migration, this default virtual network will be exposed to customers once in Azure Resource Manager. To manage or update the deployment in Azure Resource Manager, customers need to add this virtual network information in the NetworkConfiguration section of the .cscfg file.    
+- As part of the migration, this default virtual network is exposed to customers once in Azure Resource Manager. To manage or update the deployment in Azure Resource Manager, customers need to add this virtual network information in the NetworkConfiguration section of the .cscfg file.    
 - The default virtual network, when migrated to Azure Resource Manager, is placed in the same resource group as the Cloud Service.
 - Cloud Services created before this time (before end of 2018) won't be in any virtual network and can't be migrated using the tool. Consider redeploying these Cloud Services directly in Azure Resource Manager. Another approach is to migrate via creating new Staging deployment and VIPSwap Check more details [here](./non-vnet-migration.md)
-- To check if a deployment is eligible to migrate, run the validate API on the deployment. The result of Validate API will contain error message explicitly mentioning if this deployment is eligible to migrate.     
+- To check if a deployment is eligible to migrate, run the validate API on the deployment. The result of Validate API contains error message explicitly mentioning if this deployment is eligible to migrate.     
 
 ### Load Balancer   
 - For a Cloud Service using a public endpoint, a platform created load balancer associated with the Cloud Service is exposed inside the customer’s subscription in Azure Resource Manager. The load balancer is a read-only resource, and updates are restricted only through the Service Configuration (.cscfg) and Service Definition (.csdef) files. 
 
 ### Key Vault
-- As part of migration, Azure automatically creates a new Key Vault and migrates all the certificates to it. The tool does not allow you to use an existing Key Vault. 
+- As part of migration, Azure automatically creates a new Key Vault and migrates all the certificates to it. The tool doesn't allow you to use an existing Key Vault. 
 - Cloud Services (extended support) requires a Key Vault located in the same region and subscription. This Key Vault is automatically created as part of the migration. 
 
 ## Resources and features not available for migration
-These are top scenarios involving combinations of resources, features and Cloud Services. This list isn't exhaustive. 
+This list contains the top scenarios involving combinations of resources, features, and Cloud Services. This list isn't exhaustive. 
 
 | Resource | Next steps / work-around | 
 |---|---|
@@ -66,7 +66,7 @@ These are top scenarios involving combinations of resources, features and Cloud 
 | Alerts | Migration goes through but alerts are dropped. [Recreate the rules](./enable-alerts.md) after migration on Cloud Services (extended support). | 
 | VPN Gateway | Remove the VPN Gateway before beginning migration and then recreate the VPN Gateway once migration is complete. | 
 | Express Route Gateway (in the same subscription as Virtual Network only) | Remove the Express Route Gateway before beginning migration and then recreate the Gateway once migration is complete. | 
-| Quota	 | Quota is not migrated. [Request new quota](../azure-resource-manager/templates/error-resource-quota.md#solution) on Azure Resource Manager prior to migration for the validation to be successful. | 
+| Quota	 | Quota isn't migrated. [Request new quota](../azure-resource-manager/templates/error-resource-quota.md#solution) on Azure Resource Manager prior to migration for the validation to be successful. | 
 | Affinity Groups | Not supported. Remove any affinity groups before migration.  | 
 | Virtual networks using [virtual network peering](../virtual-network/virtual-network-peering-overview.md)| Before migrating a virtual network that is peered to another virtual network, delete the peering, migrate the virtual network to Resource Manager and re-create peering. This can cause downtime depending on the architecture. | 
 | Virtual networks that contain App Service environments | Not supported | 
@@ -81,15 +81,15 @@ These are top scenarios involving combinations of resources, features and Cloud 
 
 | Configuration / Scenario	| Next steps / work-around | 
 |---|---|
-| Migration of some older deployments not in a virtual network | Some Cloud Service deployments not in a virtual network aren't supported for migration. <br><br> 1. Use the validate API to check if the deployment is eligible to migrate. <br> 2. If eligible, the deployments will be moved to Azure Resource Manager under a virtual network with prefix of “DefaultRdfeVnet” | 
+| Migration of some older deployments not in a virtual network | Some Cloud Service deployments not in a virtual network aren't supported for migration. <br><br> 1. Use the validate API to check if the deployment is eligible to migrate. <br> 2. If eligible, the deployments move to Azure Resource Manager under a virtual network with prefix of “DefaultRdfeVnet” | 
 | Migration of deployments containing both production and staging slot deployment using dynamic IP addresses | Migration of a two slot Cloud Service requires deletion of the staging slot. Once the staging slot is deleted, migrate the production slot as an independent Cloud Service (extended support) in Azure Resource Manager. Then redeploy the staging environment as a new Cloud Service (extended support) and make it swappable with the first one. | 
 | Migration of deployments containing both production and staging slot deployment using Reserved IP addresses | Not supported. | 
 | Migration of production and staging deployment in different virtual network|Migration of a two slot cloud service requires deleting the staging slot. Once the staging slot is deleted, migrate the production slot as an independent cloud service (extended support) in Azure Resource Manager. A new Cloud Services (extended support) deployment can then be linked to the migrated deployment with swappable property enabled. Deployments files of the old staging slot deployment can be reused to create this new swappable deployment. | 
 | Migration of empty Cloud Service (Cloud Service with no deployment) | Not supported. | 
-| Migration of deployment containing the remote desktop plugin and the remote desktop extensions | Option 1: Remove the remote desktop plugin before migration. This requires changes to deployment files. The migration will then go through. <br><br> Option 2: Remove remote desktop extension and migrate the deployment. Post-migration, remove the plugin and install the extension. This requires changes to deployment files. <br><br> Remove the plugin and extension before migration. [Plugins aren't recommended](./deploy-prerequisite.md#required-service-definition-file-csdef-updates) for use on Cloud Services (extended support).| 
-| Virtual networks with both PaaS and IaaS deployment |Not Supported <br><br> Move either the PaaS or IaaS deployments into a different virtual network. This will cause downtime. | 
+| Migration of deployment containing the remote desktop plugin and the remote desktop extensions | Option 1: Remove the remote desktop plugin before migration. This requires changes to deployment files. The migration then goes through. <br><br> Option 2: Remove remote desktop extension and migrate the deployment. Post-migration, remove the plugin and install the extension. This requires changes to deployment files. <br><br> Remove the plugin and extension before migration. [Plugins aren't recommended](./deploy-prerequisite.md#required-definition-file-updates) for use on Cloud Services (extended support).| 
+| Virtual networks with both PaaS and IaaS deployment |Not Supported <br><br> Move either the PaaS or IaaS deployments into a different virtual network. This causes downtime. | 
 Cloud Service deployments using legacy role sizes (such as Small or ExtraLarge). | The role sizes need to be updated before migration. Update all deployment artifacts to reference these new modern role sizes. For more information, see [Available VM sizes](available-sizes.md)|
-| Migration of Cloud Service to different virtual network | Not supported <br><br> 1. Move the deployment to a different classic virtual network before migration. This will cause downtime. <br> 2. Migrate the new virtual network to Azure Resource Manager. <br><br> Or <br><br> 1. Migrate the virtual network to Azure Resource Manager <br>2. Move the Cloud Service to a new virtual network. This will cause downtime. | 
+| Migration of Cloud Service to different virtual network | Not supported <br><br> 1. Move the deployment to a different classic virtual network before migration. This causes downtime. <br> 2. Migrate the new virtual network to Azure Resource Manager. <br><br> Or <br><br> 1. Migrate the virtual network to Azure Resource Manager <br>2. Move the Cloud Service to a new virtual network. This causes downtime. | 
 | Cloud Service in a virtual network but doesn't have an explicit subnet assigned | Not supported. Mitigation involves moving the role into a subnet, which requires a role restart (downtime) | 
 
 ## Translation of resources and naming convention post migration
@@ -98,13 +98,13 @@ As part of migration, the resource names are changed, and few Cloud Services fea
 | Cloud Services (classic) <br><br> Resource name | Cloud Services (classic) <br><br> Syntax| Cloud Services (extended support) <br><br> Resource name| Cloud Services (extended support) <br><br> Syntax | 
 |---|---|---|---|
 | Cloud Service | `cloudservicename` | Not associated| Not associated |
-| Deployment (portal created) <br><br> Deployment (non-portal created)  | `deploymentname` | Cloud Services (extended support) | `cloudservicename` |  
+| Deployment (portal created) <br><br> Deployment (nonportal created)  | `deploymentname` | Cloud Services (extended support) | `cloudservicename` |  
 | Virtual Network | `vnetname` <br><br> `Group resourcegroupname vnetname` <br><br> Not associated |  Virtual Network (not portal created) <br><br> Virtual Network (portal created) <br><br> Virtual Networks (Default) | `vnetname` <br><br> `group-resourcegroupname-vnetname` <br><br> `VNet-cloudservicename`|
 | Not associated | Not associated | Key Vault | `KV-cloudservicename` | 
 | Not associated | Not associated | Resource Group for Cloud Service Deployments | `cloudservicename-migrated` | 
 | Not associated | Not associated | Resource Group for Virtual Network | `vnetname-migrated` <br><br> `group-resourcegroupname-vnetname-migrated`|
 | Not associated | Not associated | Public IP (Dynamic) | `cloudservicenameContractContract` | 
-| Reserved IP Name | `reservedipname` | Reserved IP (non-portal created) <br><br> Reserved IP (portal created) | `reservedipname` <br><br> `group-resourcegroupname-reservedipname` | 
+| Reserved IP Name | `reservedipname` | Reserved IP (nonportal created) <br><br> Reserved IP (portal created) | `reservedipname` <br><br> `group-resourcegroupname-reservedipname` | 
 | Not associated| Not associated | Load Balancer | `LB-cloudservicename`|
 
 
@@ -117,10 +117,10 @@ As part of migration, the resource names are changed, and few Cloud Services fea
 - Contact support to help migrate or roll back the deployment from the backend. 
 
 ### Migration failed in an operation. 
-- If validate failed, it is because the deployment or virtual network contains an unsupported scenario/feature/resource. Use the list of unsupported scenarios to find the work-around in the documents.  
+- If validation failed, it is because the deployment or virtual network contains an unsupported scenario/feature/resource. Use the list of unsupported scenarios to find the work-around in the documents.  
 - Prepare operation first does validation including some expensive validations (not covered in validate). Prepare failure could be due to an unsupported scenario. Find the scenario and the work-around in the public documents. Abort needs to be called to go back to the original state and unlock the deployment for updates and delete operations.
 - If abort failed, retry the operation. If retries fail, then contact support.
-- If commit failed, retry the operation. If retry fail, then contact support. Even in commit failure, there should be no data plane issue to your deployment. Your deployment should be able to handle customer traffic without any issue. 
+- If the commit failed, retry the operation. If retry fail, then contact support. Even in commit failure, there should be no data plane issue to your deployment. Your deployment should be able to handle customer traffic without any issue. 
 
 ### Portal refreshed after Prepare. Experience restarted and Commit or Abort not visible anymore. 
 - Portal stores the migration information locally and therefore after refresh, it will start from validate phase even if the Cloud Service is in the prepare phase.  
@@ -128,7 +128,7 @@ As part of migration, the resource names are changed, and few Cloud Services fea
 - Customers can use PowerShell or REST API to abort or commit. 
 
 ### How much time can the operations take?<br>
-Validate is designed to be quick. Prepare is longest running and takes some time depending on total number of role instances being migrated. Abort and commit can also take time but will take less time compared to prepare. All operations will time out after 24 hrs.
+Validate is designed to be quick. Prepare is longest running and takes some time depending on total number of role instances being migrated. Abort and commit can also take time but takes less time compared to prepare. All operations will time out after 24 hrs.
 
 ## Next steps
 For assistance migrating your Cloud Services (classic) deployment to Cloud Services (extended support) see our [Support and troubleshooting](support-help.md) landing page.

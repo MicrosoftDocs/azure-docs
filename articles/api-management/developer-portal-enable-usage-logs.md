@@ -4,7 +4,7 @@ description: Enable logs to monitor usage of the developer portal in Azure API M
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.custom: 
 ms.topic: how-to
 ms.date: 05/23/2024
@@ -35,10 +35,7 @@ To configure a diagnostic setting for developer portal usage logs:
     1. **Diagnostic setting name**: Enter a descriptive name.
     1. **Category groups**: Optionally make a selection for your scenario. 
     1. Under **Categories**: Select **Logs related to Developer Portal usage**. Optionally select other categories as needed.
-    1. Under **Destination details**, select one or more options and specify details for the destination. For example, archive logs to a storage account or stream them to an event hub. [Learn more](../azure-monitor/essentials/diagnostic-settings.md)
-        > [!NOTE]
-        > Currently, the **Send to Log Analytics workspace** destination isn't supported for developer portal usage logs.
-
+    1. Under **Destination details**, select one or more options and specify details for the destination. For example, archive logs to a storage account or stream them to an event hub. [Learn more](/azure/azure-monitor/essentials/diagnostic-settings)
     1. Select **Save**. 
  
 ## View diagnostic log data
@@ -56,7 +53,7 @@ If you send logs to a storage account, you can access the data in the Azure port
        
 ## Related content
 
-* [Overview of log queries in Azure Monitor](../azure-monitor/logs/log-query-overview.md).
+* [Overview of log queries in Azure Monitor](/azure/azure-monitor/logs/log-query-overview).
 
 * [Developer portal audit log schema reference](developer-portal-audit-log-schema-reference.md). 
 

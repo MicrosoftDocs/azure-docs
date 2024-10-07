@@ -3,7 +3,7 @@ title: Migrate from job and pool lifetime statistics to logs in Azure Batch
 description: Learn how to migrate your Batch monitoring approach from using job and pool lifetime statistics API to using logs and plan for feature end of support.
 author: harperche
 ms.author: harpercheng
-ms.service: batch
+ms.service: azure-batch
 ms.topic: how-to
 ms.date: 10/06/2022
 ---
@@ -46,4 +46,4 @@ The Azure portal has various options to enable monitoring and logs. System logs 
 
 ## Next steps
 
-For more information, see the Batch [Job](/rest/api/batchservice/job) or [Pool](/rest/api/batchservice/pool) API. For Azure Monitor logs, see [this article](../azure-monitor/logs/data-platform-logs.md).
+For more information, see the Batch [Job](/rest/api/batchservice/job) or [Pool](/rest/api/batchservice/pool) API. For Azure Monitor logs, see [this article](/azure/azure-monitor/logs/data-platform-logs).

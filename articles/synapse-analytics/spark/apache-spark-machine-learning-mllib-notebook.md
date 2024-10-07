@@ -2,8 +2,8 @@
 title: 'Tutorial: Build a machine learning app with Apache Spark MLlib'
 description: A tutorial on how to use Apache Spark MLlib to create a machine learning app that analyzes a dataset by using classification through logistic regression.
 author: NelGson
-ms.service:  synapse-analytics
-ms.reviewer: sngun 
+ms.service: azure-synapse-analytics
+ms.reviewer: whhender 
 ms.topic: tutorial
 ms.subservice: machine-learning
 ms.date: 02/29/2024

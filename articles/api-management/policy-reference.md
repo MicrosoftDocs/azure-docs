@@ -4,7 +4,7 @@ description: Lists Azure Policy built-in policy definitions for Azure API Manage
 ms.date: 02/06/2024
 author: dlepow
 ms.author: danlep
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: reference
 ms.custom: subject-policy-reference
 ---

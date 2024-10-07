@@ -5,7 +5,7 @@ author: anaharris-ms
 ms.author: anaharris
 ms.topic: reliability-article
 ms.custom: subject-reliability
-ms.service: backup
+ms.service: azure-backup
 ms.date: 10/18/2023
 ---
 

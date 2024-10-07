@@ -2,10 +2,10 @@
 title: Manage your Azure Automation account
 description: This article tells how to delete and your Automation account across the different configuration scenarios and restore a deleted Automation account
 services: automation
-ms.service: automation
+ms.service: azure-automation
 ms.subservice: process-automation
-ms.date: 06/04/2021
-ms.topic: conceptual 
+ms.date: 09/09/2024
+ms.topic: how-to 
 ---
 
 # Manage your Azure Automation account

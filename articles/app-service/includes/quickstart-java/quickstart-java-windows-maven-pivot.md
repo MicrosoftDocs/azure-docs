@@ -1,6 +1,6 @@
 ---
 author: cephalin
-ms.service: app-service
+ms.service: azure-app-service
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 06/30/2022
@@ -24,7 +24,7 @@ JBoss EAP is only available on the Linux version of App Service. Select the **Li
 ---
 
 If Maven isn't your preferred development tool, check out our similar tutorials for Java developers:
-+ [Gradle](../../configure-language-java.md?pivots=platform-linux#gradle)
++ [Gradle](../../configure-language-java-deploy-run.md?pivots=platform-linux#gradle)
 + [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/create-hello-world-web-app)
 + [Eclipse](/azure/developer/java/toolkit-for-eclipse/create-hello-world-web-app)
 + [Visual Studio Code](https://code.visualstudio.com/docs/java/java-webapp)
@@ -77,9 +77,9 @@ JBoss EAP is only available on the Linux version of App Service. Select the **Li
 > The Maven plugin supports **Java 17** and **Tomcat 10.0**. For more information about latest support, see [Java 17 and Tomcat 10.0 are available on Azure App Service](https://devblogs.microsoft.com/java/java-17-and-tomcat-10-0-available-on-azure-app-service/).
 
 
-The deployment process to Azure App Service will use your Azure credentials from the Azure CLI automatically. If the Azure CLI is not installed locally, then the Maven plugin will authenticate with Oauth or device login. For more information, see [authentication with Maven plugins](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication).
+The deployment process to Azure App Service uses your Azure credentials from the Azure CLI automatically. If the Azure CLI isn't installed locally, then the Maven plugin authenticates with Oauth or device sign-in. For more information, see [authentication with Maven plugins](https://github.com/microsoft/azure-maven-plugins/wiki/Authentication).
 
-Run the Maven command below to configure the deployment. This command will help you to set up the App Service operating system, Java version, and Tomcat version.
+Run the following Maven command to configure the deployment. This command helps you set up the App Service operating system, Java version, and Tomcat version.
 
 ```azurecli-interactive
 mvn com.microsoft.azure:azure-webapp-maven-plugin:2.11.0:config
@@ -94,7 +94,7 @@ mvn com.microsoft.azure:azure-webapp-maven-plugin:2.11.0:config
 1. When prompted with **Pricing Tier** option, select **P1v2**.
 1. Finally, press enter on the last prompt to confirm your selections.
 
-    Your summary output will look similar to the snippet shown below.
+    Your summary output should look similar to the following snippet:
 
     ```
     Please confirm webapp properties
@@ -156,7 +156,7 @@ JBoss EAP is only available on the Linux version of App Service. Select the **Li
 
 ---
 
-After you've confirmed your choices, the plugin adds the above plugin element and requisite settings to your project's `pom.xml` file that configure your web app to run in Azure App Service.
+After you confirm your choices, the plugin adds the above plugin element and requisite settings to your project's `pom.xml` file that configure your web app to run in Azure App Service.
 
 The relevant portion of the `pom.xml` file should look similar to the following example.
 
@@ -178,7 +178,7 @@ The relevant portion of the `pom.xml` file should look similar to the following 
 </build>           
 ```
 
-You can modify the configurations for App Service directly in your `pom.xml`. Some common configurations are listed below:
+You can modify the configurations for App Service directly in your `pom.xml`. Some common configurations are listed in the following table:
 
 Property | Required | Description | Version
 ---|---|---|---
@@ -186,7 +186,7 @@ Property | Required | Description | Version
 `<subscriptionId>` | false | Specify the subscription ID. | 0.1.0+
 `<resourceGroup>` | true | Azure Resource Group for your Web App. | 0.1.0+
 `<appName>` | true | The name of your Web App. | 0.1.0+
-`<region>` | false | Specifies the region where your Web App will be hosted; the default value is **centralus**. All valid regions at [Supported Regions](https://azure.microsoft.com/global-infrastructure/services/?products=app-service) section. | 0.1.0+
+`<region>` | false | Specifies the region your app should be hosted; the default value is **centralus**. All valid regions at [Supported Regions](https://azure.microsoft.com/global-infrastructure/services/?products=app-service) section. | 0.1.0+
 `<pricingTier>` | false | The pricing tier for your Web App. The default value is **P1v2** for production workload, while **B2** is the recommended minimum for Java dev/test. For more information, see [App Service Pricing](https://azure.microsoft.com/pricing/details/app-service/linux/)| 0.1.0+
 `<runtime>` | false | The runtime environment configuration. For more information, see [Configuration Details](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details). | 0.1.0+
 `<deployment>` | false | The deployment configuration. For more information, see [Configuration Details](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Web-App:-Configuration-Details). | 0.1.0+
@@ -214,7 +214,7 @@ JBoss EAP is only available on the Linux version of App Service. Select the **Li
 
 -----
 
-Once deployment is completed, your application will be ready at `http://<appName>.azurewebsites.net/` (`http://helloworld-1590394316693.azurewebsites.net` in the demo). Open the url with your local web browser, you should see
+Once deployment is completed, your app is ready at `http://<appName>.azurewebsites.net/` (`http://helloworld-1590394316693.azurewebsites.net` in the demo). Open the url with your local web browser, you should see
 
 # [Java SE](#tab/javase)
 
@@ -230,7 +230,7 @@ JBoss EAP is only available on the Linux version of App Service. Select the **Li
 
 ---
 
-**Congratulations!** You've deployed your first Java app to App Service.
+**Congratulations!** You deployed your first Java app to App Service.
 
 > [!div class="nextstepaction"]
 > [I ran into an issue](https://www.research.net/r/javae2e?tutorial=app-service-linux-quickstart&step=deploy)
@@ -243,4 +243,4 @@ In the preceding steps, you created Azure resources in a resource group. If you 
 az group delete --name <your resource group name; for example: helloworld-1558400876966-rg> --yes
 ```
 
-This command may take a minute to run.
+This command might take a minute to run.

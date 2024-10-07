@@ -212,7 +212,12 @@
         },
         {
             "source_path": "concepts-for-java-memory-management.md",
-            "redirect_url": "/azure/spring-apps/enterprise/concepts-for-java-memory-management",
+            "redirect_url": "/azure/spring-apps/basic-standard/concepts-for-java-memory-management",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "enterprise/concepts-for-java-memory-management.md",
+            "redirect_url": "/azure/spring-apps/basic-standard/concepts-for-java-memory-management",
             "redirect_document_id": true
         },
         {

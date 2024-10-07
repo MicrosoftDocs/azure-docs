@@ -3,7 +3,7 @@ title: 'Monitor S2S VPN BGP routes - BGP dashboard'
 titleSuffix: Azure Virtual WAN
 description: Learn how to monitor BGP peers for site-to-site VPNs using the BGP dashboard.
 author: cherylmc
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: conceptual
 ms.date: 06/06/2022
 ms.author: cherylmc

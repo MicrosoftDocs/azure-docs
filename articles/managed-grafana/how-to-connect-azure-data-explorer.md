@@ -4,7 +4,7 @@ titlesuffix: Azure Managed Grafana
 description: In this guide, learn how to connect an Azure Data Explorer datasource to Grafana and learn about the authentication methods available for Azure Data Explorer.
 author: maud-lv
 ms.author: malev
-ms.service: managed-grafana
+ms.service: azure-managed-grafana
 ms.custom: devx-track-azurecli
 zone_pivot_groups: azure-red-hat-openshift-service-principal
 ms.topic: how-to

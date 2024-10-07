@@ -1,9 +1,9 @@
 ---
 author: AbhishekMallick-MS
-ms.service: backup
+ms.service: azure-backup
 ms.custom: devx-track-azurepowershell
 ms.topic: include
-ms.date: 05/30/2024
+ms.date: 07/01/2024
 ms.author: v-abhmallick
 ---
 
@@ -42,4 +42,4 @@ To  restore from vaulted blob backup, run the following commands:
 
 6. Restore specific blobs based on the prefix match in each container.
 
-Learn [how to restore specific blobs from vaulted backup](/powershell/module/az.dataprotection/start-azdataprotectionbackupinstancerestore?view=azps-11.6.0&preserve-view=true#example-10-trigger-vaulted-backup-conatiners-itemlevelrestore-with-prefixmatch-for-azureblob).
+To restore specific blobs from vaulted backup, see [this example](/powershell/module/az.dataprotection/start-azdataprotectionbackupinstancerestore?view=azps-11.6.0&preserve-view=true#example-10-trigger-vaulted-backup-conatiners-itemlevelrestore-with-prefixmatch-for-azureblob).

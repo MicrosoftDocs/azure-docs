@@ -16,6 +16,8 @@ ms.custom: devx-track-azurepowershell, devx-track-dotnet
 
 # Manage expiration of Azure Blob storage in Azure Content Delivery Network
 
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
+
 > [!div class="op_single_selector"]
 > - [Azure web content](cdn-manage-expiration-of-cloud-service-content.md)
 > - [Azure Blob storage](cdn-manage-expiration-of-blob-content.md)
@@ -81,7 +83,7 @@ The preferred method for setting a blob's `Cache-Control` header is to use cachi
 
 ## Setting Cache-Control headers by using Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 [Azure PowerShell](/powershell/azure/) is one of the quickest and most powerful ways to administer your Azure services. Use the `Get-AzStorageBlob` cmdlet to get a reference to the blob, then set the `.ICloudBlob.Properties.CacheControl` property.
 

@@ -3,7 +3,7 @@ title: Upgrade from Azure Front Door Standard to Premium
 description: This article shows you how to upgrade from an Azure Front Door Standard to an Azure Front Door Premium profile.
 services: frontdoor
 author: duongau
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: conceptual
 ms.date: 05/26/2023
 ms.author: duau

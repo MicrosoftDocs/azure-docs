@@ -1,234 +1,312 @@
 ---
-title:  Add, update, or delete a payment method
-description: This article describes how to add, update, or delete a payment method used to pay for an Azure subscription.
+title: Add, update, or delete a payment method
+description: This article describes how to add, update, or delete a payment method for an Azure subscription.
 author: bandersmsft
 ms.reviewer: lishepar
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 09/13/2023
+ms.date: 07/31/2024
 ms.author: banders
 ---
 
 # Add, update, or delete a payment method
 
-This document applies to customers who signed up for Azure online with a credit card.
+This article applies to customers who signed up for Azure online by using a credit card.
 
-In the Azure portal, you can change your default payment method to a new credit card and update your credit card details. You can also delete a payment method used to pay for an Azure subscription.
+In the Azure portal, you can change your default payment method to a new credit card and update your credit card details. You can also delete a payment method that you use to pay for an Azure subscription. To make these changes, you need these credentials:
 
-- For a Microsoft Online Service Program (pay-as-you-go) account, you must be an [Account Administrator](add-change-subscription-administrator.md#whoisaa). 
-- For a Microsoft Customer Agreement, you must have the correct [MCA permissions](understand-mca-roles.md) to make these changes.
+- For a Microsoft Online Subscription Program (pay-as-you-go) account, you must be an [account administrator](add-change-subscription-administrator.md#whoisaa).
+- For a Microsoft Customer Agreement account, you must have the correct [Microsoft Customer Agreement permissions](understand-mca-roles.md).
 
-The supported payment methods for Microsoft Azure are credit cards, debit cards, and wire transfer. To get approved to pay by wire transfer, see [Pay for your Azure subscription wire transfer](pay-by-invoice.md).
-
->[!NOTE]
-> Azure doesn't support virtual or prepaid cards.
-> Credit cards are accepted and debit cards are accepted by most countries or regions.
->   - Hong Kong Special Administrative Region and Brazil only support credit cards.
->   - India supports debit and credit cards through Visa and Mastercard.
-
-With a Microsoft Customer Agreement, your payment methods are associated with billing profiles. Learn how to [check access to a Microsoft Customer Agreement](#check-the-type-of-your-account).
-
-When you create a new subscription, you can specify a new credit card. When you do so, no other subscriptions get associated with the new credit card. However, if you later make any of the following changes, *all subscriptions* use the payment method you select.
-  - Make a payment method active with the **Set active** option
-  - Use the **Replace** payment option for any subscription
-  - Change the default payment method
+The supported payment methods for Azure are credit card, debit card, and wire transfer. Azure doesn't support virtual or prepaid cards. To get approved to pay by wire transfer, see [Pay for your Azure subscription by wire transfer](pay-by-invoice.md).
 
 > [!NOTE]
-> The Reserve Bank of India has new regulations, [Tokenisation – Card Transactions: Permitting Card-on-File Tokenisation (CoFT) Services](https://rbi.org.in/Scripts/BS_CircularIndexDisplay.aspx?Id=12159), for storing credit card information that may affect credit card users in India. To summarize, customers in India can't store credit card information in Azure for recurring charges. Instead, they must enter their credit card information each time they want to pay for Azure services. For more information, see [Reserve Bank of India](../understand/pay-bill.md#reserve-bank-of-india).
+> Most countries/regions accept credit cards and debit cards. Here's some specific information:
+>
+> - Hong Kong Special Administrative Region and Brazil support only credit cards.
+> - India supports credit and debit cards through Visa and Mastercard.
+>
+> The Reserve Bank of India has a [regulation for storing credit card information](https://rbi.org.in/Scripts/BS_CircularIndexDisplay.aspx?Id=12159) that might affect credit card users in India. To summarize, customers in India can't store credit card information in Azure for recurring charges. Instead, they must enter their credit card information each time they want to pay for Azure services. For more information, see [Reserve Bank of India](../understand/pay-bill.md#reserve-bank-of-india).
+
+If you get an error after you add a credit card, see [Troubleshoot a declined card](../troubleshoot-billing/troubleshoot-declined-card.md).
 
 <a id="addcard"></a>
 
 ## Manage pay-as-you-go credit cards
 
-The following sections apply to customers who have a Microsoft Online Services Program billing account. Learn how to [check your billing account type](#check-the-type-of-your-account). If your billing account type is Microsoft Online Services Program, payment methods are associated with individual Azure subscriptions. If you get an error after you add the credit card, see [Credit card declined at Azure sign-up](../troubleshoot-billing/troubleshoot-declined-card.md).
+The following sections apply to customers who have a Microsoft Online Subscription Program billing account. You can [check your billing account type](#check-the-type-of-your-account). If your billing account type is Microsoft Online Subscription Program, payment methods are associated with individual Azure subscriptions.
 
-### Change credit card for all subscriptions by adding a new credit card
+### Change the credit card for all subscriptions by adding a new credit card
 
-You can change the default credit of your Azure subscription to a new credit card or previously saved credit card in the Azure portal. You must be the Account Administrator to change the credit card.
+You can change the default credit card for your Azure subscription to a new card or a previously saved card in the Azure portal. You must be the account administrator to change the credit card.
 
-If multiple subscriptions have the same active payment method, then changing the default payment method on any of the subscriptions also updates the active payment method for the others.
+If multiple subscriptions have the same active payment method, changing the default payment method on any of the subscriptions also updates the active payment method for the others.
 
-You can change your subscription's default credit card to a new one by following these steps:
+To change your subscription's default credit card to a new one:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as the Account Administrator.
-1. Search for **Cost Management + Billing**.  
-    :::image type="content" source="./media/change-credit-card/search.png" alt-text="Screenshot showing Search." lightbox="./media/change-credit-card/search.png" :::
-1. Select the subscription you'd like to add the credit card to.
+1. Sign in to the [Azure portal](https://portal.azure.com) as the account administrator.
+1. Search for and select **Cost Management + Billing**.  
+
+    :::image type="content" source="./media/change-credit-card/search.png" alt-text="Screenshot that shows a search for Cost Management and Billing in the Azure portal." lightbox="./media/change-credit-card/search.png" :::
+1. Select the subscription where you want to add the credit card.
 1. Select **Payment methods**.  
-    :::image type="content" source="./media/change-credit-card/payment-methods-blade-x.png" alt-text="Screenshot showing Manage payment methods option selected." lightbox="./media/change-credit-card/payment-methods-blade-x.png" :::
-1. In the top-left corner, select **Add payment method** to add a card. A credit card form appears.
-1. Enter credit card details.  
-    :::image type="content" source="./media/change-credit-card/sub-add-new-default.png" alt-text="Screenshot showing adding a new card." lightbox="./media/change-credit-card/sub-add-new-default.png" :::
-1. To make this card your default payment method, select **Make this my default payment method** above the form. This card becomes the active payment instrument for all subscriptions using the same card as the selected subscription.
+
+    :::image type="content" source="./media/change-credit-card/payment-methods-blade-x.png" alt-text="Screenshot that shows the pane for managing payment methods." lightbox="./media/change-credit-card/payment-methods-blade-x.png" :::
+1. In the upper-left corner, select **Add payment method**. A form for adding a credit card appears.
+1. Enter details for the credit card.  
+
+    :::image type="content" source="./media/change-credit-card/sub-add-new-default.png" alt-text="Screenshot that shows the pane for adding credit card details." lightbox="./media/change-credit-card/sub-add-new-default.png" :::
+1. To make this card your default payment method, select **Make this my default payment method**. This card becomes the active payment instrument for all subscriptions that use the same card as the selected subscription.
 1. Select **Next**.
 
-### Replace credit card for a subscription to a previously saved credit card
+### Replace the credit card for a subscription to a previously saved credit card
 
-You can also replace a subscription's default credit card to one that is already saved to your account by following these steps. This procedure changes the credit card for all other subscriptions.
+You can replace a subscription's default credit card to one that's already saved to your account by using the following steps. This procedure changes the credit card for all other subscriptions.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as the Account Administrator.
-1. Search for **Cost Management + Billing**.  
-    :::image type="content" source="./media/change-credit-card/search.png" alt-text="Screenshot showing Search for Cost Management + Billing." lightbox="./media/change-credit-card/search.png" :::
-1. Select the subscription you'd like to add the credit card to.
+1. Sign in to the [Azure portal](https://portal.azure.com) as the account administrator.
+1. Search for and select **Cost Management + Billing**.  
+
+    :::image type="content" source="./media/change-credit-card/search.png" alt-text="Screenshot that shows a search for Cost Management and Billing." lightbox="./media/change-credit-card/search.png" :::
+1. Select the subscription where you want to add the credit card.
 1. Select **Payment methods**.
-    :::image type="content" source="./media/change-credit-card/payment-methods-blade-x.png" alt-text="Screenshot showing Manage payment methods option." lightbox="./media/change-credit-card/payment-methods-blade-x.png" :::
-1. Select **Replace** to change the current credit card to one you select.
-    :::image type="content" source="./media/change-credit-card/replace-credit-card.png" alt-text="Screenshot showing the Replace option." lightbox="./media/change-credit-card/replace-credit-card.png" :::
-1. In the **Replace default payment method**, select another credit card to replace the default credit card and then select **Next**.
-    :::image type="content" source="./media/change-credit-card/replace-default-payment-method.png" alt-text="Screenshot showing the Replace default payment method box." lightbox="./media/change-credit-card/replace-default-payment-method.png" :::
-1. After a few moments, you'll see confirmation that your payment method was changed.
+
+    :::image type="content" source="./media/change-credit-card/payment-methods-blade-x.png" alt-text="Screenshot that shows the portal pane for managing payment methods." lightbox="./media/change-credit-card/payment-methods-blade-x.png" :::
+1. Select **Replace** to change the current credit card.
+
+    :::image type="content" source="./media/change-credit-card/replace-credit-card.png" alt-text="Screenshot that shows the button for replacing a credit card." lightbox="./media/change-credit-card/replace-credit-card.png" :::
+1. On the **Replace default payment method** pane, select a credit card to replace the default one, and then select **Next**.
+
+    :::image type="content" source="./media/change-credit-card/replace-default-payment-method.png" alt-text="Screenshot that shows the pane for replacing the default payment method." lightbox="./media/change-credit-card/replace-default-payment-method.png" :::
+1. After a few moments, you get a confirmation that you changed your payment method.
 
 ### Edit credit card details
 
-If your credit card gets renewed and the number stays the same, update the existing credit card details like the expiration date. If your credit card number changes because the card is lost, stolen, or expired, follow the steps in the [Add a credit card as a payment method](#addcard) section. You don't need to update the CVV.
+If your credit card is renewed and the number stays the same, use the following steps to update the existing card details (like the expiration date). If your credit card number changes because the card is lost, stolen, or expired, follow the steps in the [Add a credit card as a payment method](#addcard) section. You don't need to update the CVV.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as the Account Administrator.
-1. Search for **Cost Management + Billing**.
-    :::image type="content" source="./media/change-credit-card/search.png" alt-text="Screenshot of Search." lightbox="./media/change-credit-card/search.png" :::
+1. Sign in to the [Azure portal](https://portal.azure.com) as the account administrator.
+1. Search for and select **Cost Management + Billing**.
+
+    :::image type="content" source="./media/change-credit-card/search.png" alt-text="Screenshot of a search for Cost Management and Billing." lightbox="./media/change-credit-card/search.png" :::
 1. Select **Payment methods**.
-    :::image type="content" source="./media/change-credit-card/payment-methods-blade-x.png" alt-text="Screenshot showing Manage payment methods." lightbox="./media/change-credit-card/payment-methods-blade-x.png" :::
-1. On the right side of the page, for the credit card that you want to edit, select the ellipsis (`...`) at the end of the row. Select **Edit**. 
-    :::image type="content" source="./media/change-credit-card/edit-card-x.png" alt-text="Screenshot showing Edit navigation." lightbox="./media/change-credit-card/edit-card-x.png" :::
+
+    :::image type="content" source="./media/change-credit-card/payment-methods-blade-x.png" alt-text="Screenshot of the pane for managing payment methods." lightbox="./media/change-credit-card/payment-methods-blade-x.png" :::
+1. For the credit card that you want to edit, select the ellipsis (**...**) at the end of the row. Then select **Edit**.
+
+    :::image type="content" source="./media/change-credit-card/edit-card-x.png" alt-text="Screenshot that shows the Edit command for a credit card." lightbox="./media/change-credit-card/edit-card-x.png" :::
 1. Update the credit card details.  
-    :::image type="content" source="./media/change-credit-card/edit-payment-method.png" alt-text="Screenshot showing Edit payment method." lightbox="./media/change-credit-card/edit-payment-method.png" :::
+
+    :::image type="content" source="./media/change-credit-card/edit-payment-method.png" alt-text="Screenshot of the pane for editing a payment method." lightbox="./media/change-credit-card/edit-payment-method.png" :::
 1. Select **Next**.
 
 ## Manage Microsoft Customer Agreement credit cards
 
-The following sections apply to customers who have a Microsoft Customer Agreement and signed up for Azure online with a credit card. You must have the correct [MCA permissions](understand-mca-roles.md). [Learn how to check if you have a Microsoft Customer Agreement](#check-the-type-of-your-account).
+The following sections apply to customers who have a Microsoft Customer Agreement and who signed up for Azure online by using a credit card. To check if you have a Microsoft Customer Agreement, see [Check the type of your account](#check-the-type-of-your-account) later in this article.
 
-### Change default credit card
+If you have a Microsoft Customer Agreement, your credit card is associated with a billing profile. To change the payment method for a billing profile, one of these conditions must apply:
 
-If you have a Microsoft Customer Agreement, your credit card is associated with a billing profile. To change the payment method for a billing profile, you must be the person who signed up for Azure and created the billing account or you must have the correct [MCA permissions](understand-mca-roles.md).
+- You're the person who signed up for Azure and created the billing account.
+- You have the correct [Microsoft Customer Agreement permissions](understand-mca-roles.md).
 
-If you'd like to change your billing profile's default payment method to wire transfer, see [Pay for Azure subscriptions by invoice](pay-by-invoice.md).
-
-To change your credit card, follow these steps:
+### Change the default credit card
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Search on **Cost Management + Billing**.
-1. In the menu on the left, select **Billing profiles**.
+1. Search for and select **Cost Management + Billing**.
+1. On the left menu, select **Billing profiles**.
 1. Select a billing profile.
-1. In the menu on the left, select **Payment methods**.  
-    :::image type="content" source="./media/change-credit-card/payment-methods-tab-mca.png" alt-text="Screenshot showing payment methods in menu." lightbox="./media/change-credit-card/payment-methods-tab-mca.png" :::
+1. On the left menu, select **Payment methods**.  
+
+    :::image type="content" source="./media/change-credit-card/payment-methods-tab-mca.png" alt-text="Screenshot that shows the pane for viewing payment methods in the Azure portal." lightbox="./media/change-credit-card/payment-methods-tab-mca.png" :::
 1. In the **Default payment method** section, select **Replace**.  
-    :::image type="content" source="./media/change-credit-card/change-payment-method-mca.png" alt-text="Screenshot showing Replace." lightbox="./media/change-credit-card/change-payment-method-mca.png" :::
-1. In the new area on the right, either select an existing card from the drop-down, if available, or add a new one by selecting the blue **Add payment method** link.
+
+    :::image type="content" source="./media/change-credit-card/change-payment-method-mca.png" alt-text="Screenshot that shows the Replace option." lightbox="./media/change-credit-card/change-payment-method-mca.png" :::
+1. On the **Replace default payment method** pane, either select an existing card from the dropdown list or add a new one by selecting the blue **Add payment method** link.
 
 ### Add a new credit card
 
-1. Search for **Cost Management + Billing**.  
-    :::image type="content" source="./media/change-credit-card/search.png" alt-text="Screenshot showing Search." lightbox="./media/change-credit-card/search.png" :::
-1. Select the subscription you'd like to add the credit card to.
+1. Search for and select **Cost Management + Billing**.  
+
+    :::image type="content" source="./media/change-credit-card/search.png" alt-text="Screenshot that shows a search for Cost Management and Billing in the portal." lightbox="./media/change-credit-card/search.png" :::
+1. Select the subscription where you want to add the credit card.
 1. Select **Payment methods**.  
-    :::image type="content" source="./media/change-credit-card/payment-methods-blade-x.png" alt-text="Screenshot showing Manage payment methods option selected." lightbox="./media/change-credit-card/payment-methods-blade-x.png" :::
-1. In the top-left corner, select **Add payment method** to add a card. A credit card form appears.
-1. Enter credit card details.  
-    :::image type="content" source="./media/change-credit-card/sub-add-new-card-billing-profile.png" alt-text="Screenshot showing adding a new credit card as a payment method." lightbox="./media/change-credit-card/sub-add-new-card-billing-profile.png" :::
-1. To make this card your default payment method, select **Make this my default payment method** above the form. This card becomes the active payment instrument for all subscriptions using the same card as the selected subscription.
+
+    :::image type="content" source="./media/change-credit-card/payment-methods-blade-x.png" alt-text="Screenshot that shows the pane for viewing payment methods in the portal." lightbox="./media/change-credit-card/payment-methods-blade-x.png" :::
+1. In the upper-left corner, select **Add payment method**. A form for adding a credit card appears.
+1. Enter details for the credit card.  
+
+    :::image type="content" source="./media/change-credit-card/sub-add-new-card-billing-profile.png" alt-text="Screenshot that shows the pane for adding a new credit card as a payment method." lightbox="./media/change-credit-card/sub-add-new-card-billing-profile.png" :::
+1. To make this card your default payment method, select **Make this my default payment method**. This card becomes the active payment instrument for all subscriptions that use the same card as the selected subscription.
 1. Select **Next**.
 
 ### Edit a credit card
 
-You can edit credit card details (such as updating the expiration date) in the Azure portal. 
-
-To edit a credit card, follow these steps:
+You can edit credit card details (such as updating the expiration date) in the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Search on **Cost Management + Billing**.
-1. In the menu on the left, select **Billing profiles**.
+1. Search for and select **Cost Management + Billing**.
+1. On the left menu, select **Billing profiles**.
 1. Select a billing profile.
-1. In the menu on the left, select **Payment methods**.  
-    :::image type="content" source="./media/change-credit-card/payment-methods-tab-mca.png" alt-text="Screenshot showing the payment methods in menu." lightbox="./media/change-credit-card/payment-methods-tab-mca.png" :::
-1. In the **Your credit cards**  section, find the credit card you want to edit.
-1. Select the ellipsis (`...`) at the end of the row.  
-    :::image type="content" source="./media/change-credit-card/edit-delete-credit-card-mca.png" alt-text="Screenshot showing the ellipsis." lightbox="./media/change-credit-card/edit-delete-credit-card-mca.png" :::
-1. To edit your credit card details, select **Edit** from the context menu.
+1. On the left menu, select **Payment methods**.  
+
+    :::image type="content" source="./media/change-credit-card/payment-methods-tab-mca.png" alt-text="Screenshot that shows the pane for viewing payment methods." lightbox="./media/change-credit-card/payment-methods-tab-mca.png" :::
+1. In the **Your credit cards**  section, find the credit card that you want to edit.
+1. Select the ellipsis (**...**) at the end of the row.  
+
+    :::image type="content" source="./media/change-credit-card/edit-delete-credit-card-mca.png" alt-text="Screenshot that shows the ellipsis for actions related to a credit card." lightbox="./media/change-credit-card/edit-delete-credit-card-mca.png" :::
+1. To edit your credit card details, select **Edit** from the menu.
 
 ## Delete an Azure billing payment method
 
-The following information helps you delete a payment method, like a credit card, from different types of Azure subscriptions. You can delete a payment method for:
+The following information helps you delete a payment method, like a credit card, from these types of Azure subscriptions:
 
-- Microsoft Customer Agreement (MCA)
-- Microsoft Online Services Program (MOSP) also referred to as pay-as-you-go
+- Microsoft Customer Agreement
+- Microsoft Online Subscription Program (pay-as-you-go)
 
-Whatever your Azure subscription type, you must cancel it so that you can delete its associated payment method.
+Whatever your Azure subscription type, you must cancel it to delete its associated payment method.
 
-Removing a payment method for other Azure subscription types like Microsoft Partner Agreement and Enterprise Agreement isn't supported.
+Removing a payment method for other Azure subscription types, like Microsoft Partner Agreement and Enterprise Agreement, isn't supported.
 
-### Delete an MCA payment method
+### Delete a Microsoft Customer Agreement payment method
 
 Only the user who created the Microsoft Customer Agreement account can delete a payment method.
 
-To delete a payment method for a Microsoft Customer Agreement, do the following steps.
+To delete a payment method for a Microsoft Customer Agreement:
 
-1. Sign in to the Azure portal at https://portal.azure.com/.
-1. Navigate to **Cost Management + Billing**.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Search for and select **Cost Management + Billing**.
 1. If necessary, select a billing scope.
-1. In the left menu list under **Billing**, select **Billing profiles**.  
-    :::image type="content" source="./media/change-credit-card/billing-profiles.png" alt-text="Example screenshot showing Billing profiles in the Azure portal." lightbox="./media/change-credit-card/billing-profiles.png" :::
-1. In the list of billing profiles, select the one where the payment method is being used.  
-    :::image type="content" source="./media/change-credit-card/select-billing-profile.png" alt-text="Example screenshot showing the list of billing profiles." :::
-1. In the left menu list, under **Settings**, select **Payment methods**.
-1. On the payment methods page for your billing profile, a table of payment methods is shown under the **Your credit cards** section. Find the credit card that you want to delete, select the ellipsis (**…**), and then select **Delete**.  
-    :::image type="content" source="./media/change-credit-card/delete-credit-card.png" alt-text="Example screenshot showing where to delete a credit card." :::
-1. The Delete a payment method page appears. Azure checks if the payment method is in use.
-    - When the payment method isn't being used, the **Delete** option is enabled. Select it to delete the credit card information.
-    - If the payment method is being used, it must be replaced or detached. Continue reading the following sections. They explain how to **detach** the payment method that's in use by your subscription.
+1. On the left menu, under **Billing**, select **Billing profiles**.  
 
-### Detach payment method used by an MCA billing profile
+    :::image type="content" source="./media/change-credit-card/billing-profiles.png" alt-text="Example screenshot that shows selecting the resource for billing profiles in the Azure portal." lightbox="./media/change-credit-card/billing-profiles.png" :::
+1. In the list of billing profiles, select the profile that's using the payment method.  
 
-If your payment method is being used by an MCA billing profile, the following message appears.
+    :::image type="content" source="./media/change-credit-card/select-billing-profile.png" alt-text="Example screenshot of the pane that lists billing profiles." :::
+1. On the left menu, under **Settings**, select **Payment methods**.
+1. A table of payment methods appears under **Your Credit Cards**. Find the credit card that you want to delete, select the ellipsis (**...**), and then select **Delete**.  
 
-:::image type="content" source="./media/change-credit-card/payment-method-in-use-microsoft-customer-agreement.png" alt-text="Example screenshot showing that a payment method is in use by a Microsoft Customer Agreement." :::
+    :::image type="content" source="./media/change-credit-card/delete-credit-card.png" alt-text="Example screenshot that shows selections for deleting a credit card." :::
+1. The **Delete a payment method** pane appears. Azure checks if the payment method is in use:
+    - If the payment method isn't in use, the **Delete** option is available. Select it to delete the credit card information.
+    - If the payment method is in use, it must be replaced or detached. Continue reading the following sections. They explain how to detach the payment method.
 
-To detach a payment method, a list of conditions must be met. If any conditions aren't met, instructions appear explaining how to meet the condition. A link also appears that takes you to the location where you can resolve the condition.
+### Detach a Microsoft Customer Agreement payment method
 
-When all the conditions are all satisfied, you can detach the payment method from the billing profile.
+If a Microsoft Customer Agreement billing profile is using your payment method, the following message appears.
 
-> [!NOTE]
-> When the default payment method is detached, the billing profile is put into an _inactive_ state. Anything deleted in this process will not be able to be recovered. After a billing profile is set to inactive, you must sign up for a new Azure subscription to create new resources.
+:::image type="content" source="./media/change-credit-card/payment-method-in-use-microsoft-customer-agreement.png" alt-text="Example screenshot showing that a Microsoft Customer Agreement account is using a payment method." :::
 
-#### To detach a payment method
+To detach a payment method, you must meet a list of conditions. If you don't meet a condition, the following information appears:
 
-1. In the Delete a payment method area, select the **Detach the current payment method** link.
-1. If all conditions are met, select **Detach**. Otherwise, continue to the next step.
-1. If Detach is unavailable, a list of conditions is shown. Take the actions listed. Select the link shown in the Detach the default payment method area. Here's an example of a corrective action that explains the actions you need to take.  
-    :::image type="content" source="./media/change-credit-card/azure-subscriptions.png" alt-text="Example screenshot showing a corrective action needed to detach a payment method for MCA." :::
-1. When you select the corrective action link, you're redirected to the Azure page where you take action. Take whatever correction action is needed.
-1. If necessary, complete all other corrective actions.
-1. Navigate back to **Cost Management + Billing** > **Billing profiles** > **Payment methods**. Select **Detach**. At the bottom of the Detach the default payment method page, select **Detach**.
+- Instructions on how to meet the condition.
+- A link that takes you to the location where you can resolve the problem.
+
+When you fully satisfy all the conditions, you can detach the payment method from the billing profile.
 
 > [!NOTE]
-> - After you cancel a subscription, it can take up to 90 days for the subscription to be deleted.
-> - You can only delete a payment method after all previous charges for a billing profile are settled. If you are in an active billing period, you must wait until the end of the billing period to delete your payment method. **Ensure all other detach conditions are met while waiting for your billing period to end**.
+> When you detach the default payment method, the billing profile enters an *inactive* state. Anything deleted in this process can't be recovered. After a billing profile becomes inactive, you must sign up for a new Azure subscription to create new resources.
 
-### Delete a pay-as-you-go (MOSP) payment method
+#### Detach payment method errors
 
-You must be an account administrator to delete a payment method.
+If you're having problems trying to detach (remove) a payment method, one of the following reasons is likely the cause.
 
-If your payment method is in use by a subscription, do the following steps.
+##### Outstanding charges
 
-1. Sign in to the Azure portal at https://portal.azure.com/.
-1. Navigate to **Cost Management + Billing**.
+Outstanding (past-due) charges prevent you from detaching your payment method.
+
+To view your outstanding charges:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Search for and select **Cost Management + Billing**.
+1. Select your billing account.
+1. Under **Billing**, select **Invoices**.
+1. In the list of invoices, view the **Status** information. You must pay invoices that have a **Past Due** status.
+
+   :::image type="content" source="./media/change-credit-card/past-due.png" alt-text="Screenshot that shows past-due invoices." lightbox="./media/change-credit-card/past-due.png":::
+
+After you pay outstanding charges, you can detach your payment method.
+
+##### Recurring charges set to automatically renew
+
+Recurring charges prevent you from detaching your payment method. Examples of recurring charges include:
+
+- Azure support agreements.
+- Active Azure subscriptions.
+- Reservations set to automatically renew.
+- Savings plans set to automatically renew.
+
+To stop recurring charges from automatically renewing:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Search for and select **Cost Management + Billing**.
+1. Select your billing account.
+1. Under **Billing**, select **Recurring charges**.
+1. On the **Recurring charges** pane, select a charge, select the ellipsis (**...**) on the right side of the row, and then select **Cancel**.
+
+   :::image type="content" source="./media/change-credit-card/recurring-charges.png" alt-text="Screenshot that shows the pane for recurring charges." lightbox="./media/change-credit-card/recurring-charges.png":::
+
+After you remove all recurring charges, you can detach your payment method.
+
+##### Pending charges
+
+You can't detach your payment method if there are any pending charges. Here's a typical example of pending charges:
+
+1. A billing cycle begins on June 1.
+2. You use Azure services from June 1 to June 10.
+3. You cancel your subscription on June 10.
+4. You pay your invoice on June 12 for the month of May and are paid in full. However, you still have pending charges for June 1 to June 10.
+
+In this example, you aren't billed for your June usage until the following month (August). So, you can't detach your payment method until you pay the invoice for June, which isn't available until August.
+
+To view pending charges:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Search for and select **Cost Management + Billing**.
+1. Select your billing account.
+1. Under **Billing**, select **Invoices**.
+1. On the **Invoices** pane, check for charges that appear with a **Due on *date*** status. These items are pending charges.
+
+   :::image type="content" source="./media/change-credit-card/due-on.png" alt-text="Screenshot of invoices that have pending charges." lightbox="./media/change-credit-card/due-on.png":::
+
+After you pay all pending charges, you can detach your payment method.
+
+#### Steps for detaching a payment method
+
+1. In the Azure portal, go to **Cost Management + Billing** > **Billing profiles** > **Payment methods** > **Delete a payment method**. Then select the **Detach the current payment method** link.
+1. If you meet all conditions, select **Detach**. Otherwise, continue to the next step.
+1. If **Detach** is unavailable, a list of unmet conditions appears in the **Detach the default payment method** area, along with the actions that you need to take to correct them.
+
+    :::image type="content" source="./media/change-credit-card/azure-subscriptions.png" alt-text="Example screenshot that shows a corrective action needed to detach a payment method for a Microsoft Customer Agreement account." :::
+1. For each unmet condition, select the link. The link directs you to the Azure portal area where you can take the corrective action. Complete all corrective actions.
+1. Go back to **Cost Management + Billing** > **Billing profiles** > **Payment methods**. Select **Detach**. At the bottom of the **Detach the default payment method** pane, select **Detach**.
+
+> [!NOTE]
+> You can detach a payment method only after you settle all previous charges for a billing profile. If you're in an active billing period, you must wait until the end of the billing period to detach your payment method. Ensure that you meet all other detach conditions while you wait for your billing period to end.
+
+### Delete a Microsoft Online Subscription Program payment method
+
+You must be an account administrator to delete a Microsoft Online Subscription Program (pay-as-you-go) payment method.
+
+If a subscription is using your payment method, take the following steps:
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Search for and select **Cost Management + Billing**.
 1. If necessary, select a billing scope.
-1. In the left menu list under **Billing**, select **Payment methods**.
-1. In the Payment methods area, on the row that the payment method is on, select the ellipsis (**...**) symbol and then select **Delete**.
-    :::image type="content" source="./media/change-credit-card/delete-mosp-payment-method.png" alt-text="Example screenshot showing a corrective action needed to detach a payment method for MOSP." :::
-1. In the Delete a payment method area, select **Delete** if all conditions are met. If Delete is unavailable, continue to the next step.
-1. A list of conditions is shown. Take the actions listed. Select the link shown in the Delete a payment method area.  
-    :::image type="content" source="./media/change-credit-card/payment-method-in-use-mosp.png" alt-text="Example screenshot showing that a payment method is in use by a pay-as-you-go subscription." :::
-1. When you select the corrective action link, you're redirected to the Azure page where you take action. Take whatever correction action is needed.
-1. If necessary, complete all other corrective actions.
-1. Navigate back to **Cost Management + Billing** > **Billing profiles** > **Payment methods** and delete the payment method.
+1. On the left menu, under **Billing**, select **Payment methods**.
+1. On the **Payment methods** pane, select the ellipsis (**...**) next to the row for the payment method, and then select **Delete**.
 
-> [!NOTE]
-> After you cancel a subscription, it can take up to 90 days for the subscription to be deleted.
+    :::image type="content" source="./media/change-credit-card/delete-mosp-payment-method.png" alt-text="Example screenshot that shows selections for deleting a payment method for a Microsoft Online Subscription Program account." :::
+1. On the **Delete a payment method** pane, select **Delete** if you meet all conditions. Otherwise, continue to the next step.
+1. If **Delete** is unavailable, a list of unmet conditions appears, along with the actions that you need to take to correct them.
 
-## Troubleshooting
+    :::image type="content" source="./media/change-credit-card/payment-method-in-use-mosp.png" alt-text="Example screenshot that shows that a pay-as-you-go subscription is using a payment method." :::
+1. For each unmet condition, select the link. The link directs you to the Azure portal area where you can take the corrective action. Complete all corrective actions.
+1. Go back to **Cost Management + Billing** > **Billing profiles** > **Payment methods** and delete the payment method.
 
-Azure doesn't support virtual or prepaid cards. If you're getting errors when adding or updating a valid credit card, try opening your browser in private mode.
+After you cancel a subscription, it can take up to 90 days for the subscription to be deleted.
+
+## Check the type of your account
+
+[!INCLUDE [billing-check-mca](../../../includes/billing-check-account-type.md)]
 
 ## Frequently asked questions
 
@@ -236,34 +314,30 @@ The following sections answer commonly asked questions about changing your credi
 
 ### Why do I keep getting a "session has expired" error message?
 
-If you get the `Your login session has expired. Please click here to log back in` error message even if you've already logged out and back in, try again with a private browsing session.
+If you already tried signing out and back in, yet you're still getting an error message that says your session has expired, try using a private browsing session.
 
 ### How do I use a different card for each subscription?
 
-As noted previously, when you create a new subscription, you can specify a new credit card. When you do so, no other subscriptions get associated with the new credit card. You can add multiple new subscriptions, each with a unique credit card. However, if you later make any of the following changes, *all subscriptions* use the payment method you select.
+If you specify a new credit card during the process of creating a subscription, no other subscriptions are associated with that credit card. You can add multiple new subscriptions, each with a unique credit card. However, if you later make any of the following changes, *all subscriptions* use the selected payment method:
 
-- Make a payment method active with the **Set active** option
-- Use the **Replace** payment option for any subscription
-- Change the default payment method
+- Make a payment method active by using the **Set active** option.
+- Use the **Replace** payment option for any subscription.
+- Change the default payment method.
 
 ### How do I make payments?
 
 If you set up a credit card as your payment method, we automatically charge your card after each billing period. You don't need to do anything.
 
-If you're [paying by invoice](pay-by-invoice.md), send your payment to the location listed at the bottom of your invoice.
+If you're [paying by invoice](pay-by-invoice.md), send your payment to the location shown at the bottom of your invoice.
 
 ### How do I change the tax ID?
 
-To add or update tax ID, update your profile in the  [Azure portal](https://portal.azure.com), then select **Tax record**. This tax ID is used for tax exemption calculations and appears on your invoice.
-
-## Check the type of your account
-
-[!INCLUDE [billing-check-mca](../../../includes/billing-check-account-type.md)]
+To add or update a tax ID, update your profile in the [Azure portal](https://portal.azure.com), and then select **Tax record**. The tax ID is used for tax exemption calculations and appears on your invoice.
 
 ## Need help? Contact us.
 
-If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
+If you have questions or need help, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-## Next steps
+## Related content
 
 - Learn about [Azure reservations](../reservations/save-compute-costs-reservations.md) to see if they can save you money.

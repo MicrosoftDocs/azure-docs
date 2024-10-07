@@ -4,7 +4,7 @@ description: Learn how to save and configure your API Management service configu
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 08/05/2022
 ms.author: danlep

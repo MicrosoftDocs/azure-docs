@@ -3,8 +3,8 @@ title: Performance best practices and configuration guidelines - Azure SQL Edge
 description: Learn about performance best practices and configuration guidelines in Azure SQL Edge
 author: rwestMSFT
 ms.author: randolphwest
-ms.date: 09/14/2023
-ms.service: sql-edge
+ms.date: 09/21/2024
+ms.service: azure-sql-edge
 ms.topic: conceptual
 keywords:
   - SQL Edge
@@ -12,7 +12,9 @@ keywords:
 ---
 # Performance best practices and configuration guidelines
 
-> [!IMPORTANT]  
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
+
+> [!NOTE]  
 > Azure SQL Edge no longer supports the ARM64 platform.
 
 Azure SQL Edge offers several features and capabilities that can be used to improve the performance of your SQL Edge deployment. This article provides some best practices and recommendations to maximize performance.

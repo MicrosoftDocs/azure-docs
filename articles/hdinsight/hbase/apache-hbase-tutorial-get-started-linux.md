@@ -1,7 +1,7 @@
 ---
 title: Tutorial - Use Apache HBase in Azure HDInsight
 description: Follow this Apache HBase tutorial to start using hadoop on HDInsight. Create tables from the HBase shell and query them using Hive.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive, linux-related-content
 ms.date: 05/10/2024

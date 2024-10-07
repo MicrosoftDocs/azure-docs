@@ -27,7 +27,7 @@ Azure file shares can be mounted in Linux distributions using either the Server 
 
 ### Regional availability
 
-[!INCLUDE [files-nfs-regional-availability](../../../includes/files-nfs-regional-availability.md)]
+[!INCLUDE [files-nfs-regional-availability](~/reusable-content/ce-skilling/azure/includes/files-nfs-regional-availability.md)]
 
 ## Prerequisites
 
