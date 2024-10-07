@@ -1,5 +1,5 @@
 ---
-title: What are preview features in Azure HDInsight
+title: What are preview features in Azure HDInsight?
 description: Learn what preview features are and how to identify them in Azure HDInsight.
 ms.service: azure-hdinsight
 ms.date: 07/10/2024
@@ -27,4 +27,8 @@ Preview features come with some disclaimers. Preview features:
 ## How to identify a preview feature
 
 These features have a **Preview** label in the documentation.
+
+## Next steps
+
+* [Azure HDInsight release notes](./hdinsight-release-notes.md)
 
