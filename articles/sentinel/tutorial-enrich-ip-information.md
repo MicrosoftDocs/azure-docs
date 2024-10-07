@@ -62,7 +62,7 @@ Microsoft Sentinel includes ready-made, out-of-the-box playbook templates that y
     
 1. Select **Create playbook** from the details pane. For example:
 
-    :::image type="content" source="media/restore/select-virus-total.png" alt-text="Screenshot of the IP Enrichment - Virus Total Report - Entity Trigger template selected":::
+    :::image type="content" source="media/restore/select-virus-total.png" alt-text="Screenshot of the IP Enrichment - Virus Total Report - Entity Trigger template selected.":::
 
 1. The **Create playbook** wizard will open. In the **Basics** tab:
 
