@@ -64,17 +64,10 @@ Select a tab for the version of the Remote Desktop client for Windows you want t
 
 # [Azure Virtual Desktop Store app](#tab/avd-store)
 
-To download and install the Azure Virtual Desktop app, follow these steps:
-
-1. Go to the [Azure Virtual Desktop Store app in the Microsoft Store](https://aka.ms/AVDStoreClient).
-
-1. Select **Install** to start downloading the app and installing it.
-
-1. Once the app has finished downloading and installing, select **Open**. The first time the app runs, it will install the *Azure Virtual Desktop (HostApp)* dependency automatically.
+The Azure Virtual Desktop app from the Microsoft Store is a preview version of the Remote Desktop client for Windows, but it's no longer available to download. You can still use it to connect to Azure Virtual Desktop if it's already installed.
 
 > [!IMPORTANT]
->- The Azure Virtual Desktop app from the Microsoft Store is a preview version of the Remote Desktop client for Windows, but it's no longer available to download. You can still use it to connect to Azure Virtual Desktop if it's already installed.
->- If you have the Remote Desktop client (MSI) and the Azure Virtual Desktop app from the Microsoft Store installed on the same device, you may see the message that begins **A version of this application called Azure Virtual Desktop was installed from the Microsoft Store**. Both apps are supported, and you have the option to choose **Continue anyway**, however we recommend using [Windows App](/windows-app/overview) for the most up-to-date experience.
+> If you have the Remote Desktop client (MSI) and the Azure Virtual Desktop app from the Microsoft Store installed on the same device, you may see the message that begins **A version of this application called Azure Virtual Desktop was installed from the Microsoft Store**. Both apps are supported, and you have the option to choose **Continue anyway**, however we recommend using [Windows App](/windows-app/overview) for the most up-to-date experience.
 
 
 # [Remote Desktop Store app](#tab/rd-store)
