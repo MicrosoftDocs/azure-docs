@@ -3,7 +3,7 @@ items:
   href: index.yml
 - name: Overview
   items:
-  - name: What is Azure Migrate?
+  - name: What is Azure Migrate
     href: migrate-services-overview.md
   - name: What's new
     href: whats-new.md
@@ -182,7 +182,7 @@ items:
   - name: Migrate
     items: 
     - name: Pre-requisites
-    - name: Agent-less migration
+    - name: Agentless migration
     - name: Agent-based migration
     - name: Webapp migration
     - name: Limitations
