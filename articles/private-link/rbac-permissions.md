@@ -30,7 +30,7 @@ Microsoft.Network and the specific resource provider you are deploying, for exam
 
 ## Private endpoint
 
-This section lists the granular permissions required to deploy a private endpoint.
+This section lists the granular permissions required to deploy a private endpoint, manage [private endpoint subnet policies](../private-link/disable-private-endpoint-network-policy.md), and deploy dependent resources
 
 | Action                                                              | Description                                                                      |
 | ---------                                                           | -------------                                                                 |
@@ -38,8 +38,8 @@ This section lists the granular permissions required to deploy a private endpoin
 | Microsoft.Resources/subscriptions/resourcegroups/resources/read     | Read the resources for the resource group                                     |
 | Microsoft.Network/virtualNetworks/read                              | Read the virtual network definition                                            |
 | Microsoft.Network/virtualNetworks/subnets/read                      | Read a virtual network subnet definition                                      |
-| Microsoft.Network/virtualNetworks/subnets/write                     | Creates a virtual network subnet or updates an existing virtual network subnet|
-| Microsoft.Network/virtualNetworks/subnets/join/action               | Joins a virtual network                                                       |
+| Microsoft.Network/virtualNetworks/subnets/write                     | Creates a virtual network subnet or updates an existing virtual network subnet. <br/> *Not explicitly needed to deploy a private endpoint, but necessary for managing private endpoint subnet policies* |
+| Microsoft.Network/virtualNetworks/subnets/join/action               | Allow a private endpoint to join a virtual network                              |
 | Microsoft.Network/privateEndpoints/read                             | Read a private endpoint resource                                             |
 | Microsoft.Network/privateEndpoints/write                            | Creates a new private endpoint, or updates an existing private endpoint       |
 | Microsoft.Network/locations/availablePrivateEndpointTypes/read      | Read available private endpoint resources                                     |
@@ -78,7 +78,7 @@ Here is the JSON format of the above permissions. Input your own roleName, descr
 
 ## Private link service
 
-This section lists the granular permissions required to deploy a private link service.
+This section lists the granular permissions required to deploy a private link service, manage [private link service subnet policies](../private-link/disable-private-link-service-network-policy.md), and deploy dependent resources
 
 | Action | Description   |
 | --------- | ------------- |
@@ -86,14 +86,14 @@ This section lists the granular permissions required to deploy a private link se
 | Microsoft.Resources/subscriptions/resourcegroups/resources/read     | Read the resources for the resource group                                     |
 | Microsoft.Network/virtualNetworks/read                              | Read the virtual network definition                                            |
 | Microsoft.Network/virtualNetworks/subnets/read                      | Read a virtual network subnet definition                                      |
-| Microsoft.Network/virtualNetworks/subnets/write                     | Creates a virtual network subnet or updates an existing virtual network subnet|
-| Microsoft.Network/privateLinkServices/read | Read a private link service resource|
-| Microsoft.Network/privateLinkServices/write | Creates a new private link service, or updates an existing private link service|
+| Microsoft.Network/virtualNetworks/subnets/write                     | Creates a virtual network subnet or updates an existing virtual network subnet. <br/> *Not explicitly needed to deploy a private link service, but necessary for managing private link subnet policies* |
+| Microsoft.Network/privateLinkServices/read                          | Read a private link service resource|
+| Microsoft.Network/privateLinkServices/write                         | Creates a new private link service, or updates an existing private link service|
 | Microsoft.Network/privateLinkServices/privateEndpointConnections/read | Read a private endpoint connection definition |
 | Microsoft.Network/privateLinkServices/privateEndpointConnections/write | Creates a new private endpoint connection, or updates an existing private endpoint connection|
-| Microsoft.Network/networkSecurityGroups/join/action | Joins a network security group |
-| Microsoft.Network/loadBalancers/read | Read a load balancer definition |
-| Microsoft.Network/loadBalancers/write | Creates a load balancer or updates an existing load balancer |
+| Microsoft.Network/networkSecurityGroups/join/action                 | Joins a network security group |
+| Microsoft.Network/loadBalancers/read                                | Read a load balancer definition |
+| Microsoft.Network/loadBalancers/write                               | Creates a load balancer or updates an existing load balancer |
 
 ```JSON
 {
@@ -136,7 +136,7 @@ Typically, a network administrator creates a private endpoint. Depending on your
 
 |Approval method     |Minimum RBAC permissions  |
 |---------|---------|
-|Automatic     | `Microsoft.Network/virtualNetworks/**`<br/>`Microsoft.Network/virtualNetworks/subnets/**`<br/>`Microsoft.Network/privateEndpoints/**`<br/>`Microsoft.Network/networkinterfaces/**`<br/>`Microsoft.Network/locations/availablePrivateEndpointTypes/read`<br/>`Microsoft.ApiManagement/service/**`<br/>`Microsoft.ApiManagement/service/privateEndpointConnections/**`        |
+|Automatic     | `Microsoft.Network/virtualNetworks/**`<br/>`Microsoft.Network/virtualNetworks/subnets/**`<br/>`Microsoft.Network/privateEndpoints/**`<br/>`Microsoft.Network/networkinterfaces/**`<br/>`Microsoft.Network/locations/availablePrivateEndpointTypes/read`<br/>|
 |Manual     | `Microsoft.Network/virtualNetworks/**`<br/>`Microsoft.Network/virtualNetworks/subnets/**`<br/>`Microsoft.Network/privateEndpoints/**`<br/>`Microsoft.Network/networkinterfaces/**`<br/>`Microsoft.Network/locations/availablePrivateEndpointTypes/read`           |
 
 ## Next steps
