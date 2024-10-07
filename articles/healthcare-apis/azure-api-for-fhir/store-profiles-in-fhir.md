@@ -118,7 +118,7 @@ PUT https://myAzureAPIforFHIR.azurehealthcareapis.com/StructureDefinition?url=ht
   ],
     "description" : "Defines constraints and extensions on the AllergyIntolerance resource for the minimal set of data to query and retrieve allergy information.",
 ```
-For more examples, see the [US Core sample REST file](https://github.com/microsoft/fhir-server/blob/main/docs/rest/PayerDataExchange/USCore.http) on the open-source site that walks through storing US Core profiles. To get the most up to date profiles, you should get the profiles directly from HL7 and the implementation guide that defines them.
+For more examples, see the [US Core sample REST file](https://github.com/microsoft/fhir-server/blob/main/docs/rest/PayerDataExchange/USCore.http) on the open-source site that walks through storing US Core profiles. To get the most up-to-date profiles, you should get the profiles directly from HL7 and the implementation guide that defines them.
 
 ### Viewing profiles
 
