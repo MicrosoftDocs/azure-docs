@@ -7,7 +7,7 @@ keywords: 'Azure, SQL Server, SAP, AlwaysOn, Always On'
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.date: 11/14/2022
+ms.date: 10/07/2024
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -80,12 +80,9 @@ For SQL Server, the NTFS block size for disks containing SQL Server data and log
 
 To avoid that the restore or creation of databases is initializing the data files by zeroing the content of the files, make sure that the user context the SQL Server service is running in has the User Right **Perform volume maintenance tasks**. For more information, see [Database instant file initialization](/sql/relational-databases/databases/database-instant-file-initialization).
 
-## SQL Server 2014 and more recent - Storing Database Files directly on Azure Blob Storage
+## SQL Server 2014 and more recent versions - Storing Database Files directly on Azure Blob Storage
  SQL Server 2014 and later releases open the possibility to store database files directly on Azure Blob Store without the 'wrapper' of a VHD around them. This functionality was meant to address shortcomings of Azure block storage years back. These days, it isn't recommended to use this deployment method and instead choose either Azure premium storage v1, premium storage v2, or Ultra disk. Dependent on the requirements.
  
-## SQL Server 2014 Buffer Pool Extension
-SQL Server 2014 introduced a new feature, which is called [Buffer Pool Extension](/sql/database-engine/configure-windows/buffer-pool-extension). This functionality though tested under SAP workload on Azure didn't provide improvement in hosting workload. Therefore, it shouldn't be considered 
-
 ## Backup/Recovery considerations for SQL Server
 Deploying SQL Server into Azure, you need to review your backup architecture. Even if the system isn't a production system, the SAP database hosted by SQL Server must be backed up periodically. Since Azure Storage keeps three images, a backup is now less important in respect to compensating a storage crash. The priority reason for maintaining a proper backup and recovery plan is more that you can compensate for logical/manual errors by providing point in time recovery capabilities. The goal is to either use backups to restore the database back to a certain point in time. Or to use the backups in Azure to seed another system by copying the existing database. 
 
@@ -121,7 +118,7 @@ Latin1-General, binary code point comparison sort for Unicode Data, SQL Server S
 If the result is different, STOP any deployment and investigate why the setup command didn't work as expected. Deployment of SAP NetWeaver applications onto SQL Server instance with different SQL Server codepages than the one mentioned is **NOT** supported for NetWeaver deployments.
 
 ## SQL Server High-Availability for SAP in Azure
-Using SQL Server in Azure IaaS deployments for SAP, you have several different possibilities to add to deploy the DBMS layer highly available. Azure provides different up-time SLAs for a single VM using different Azure block storages, a pair of VMs deployed in an Azure availability set, or a pair of VMs deployed across Azure Availability Zones. For production systems, we expect you to deploy a pair of VMs within an virtual machine scale set with flexible orchestration across two availability zones. See [comparison of different deployment types for SAP workload](./sap-high-availability-architecture-scenarios.md#comparison-of-different-deployment-types-for-sap-workload) for more information. One VM will run the active SQL Server Instance. The other VM will run the passive instance
+Using SQL Server in Azure IaaS deployments for SAP, you have several different possibilities to add to deploy the database layer highly available. Azure provides different up-time SLAs for a single VM using different Azure block storages, a pair of VMs deployed in an Azure availability set, or a pair of VMs deployed across Azure Availability Zones. For production systems, we expect you to deploy a pair of VMs within an virtual machine scale set with flexible orchestration across two availability zones. See [comparison of different deployment types for SAP workload](./sap-high-availability-architecture-scenarios.md#comparison-of-different-deployment-types-for-sap-workload) for more information. One VM will run the active SQL Server Instance. The other VM will run the passive instance
 
 ### SQL Server Clustering using Windows Scale-out File Server or Azure shared disk
 With Windows Server 2016, Microsoft introduced [Storage Spaces Direct](/windows-server/storage/storage-spaces/storage-spaces-direct-overview). Based on Storage Spaces, Direct Deployment, SQL Server FCI clustering is supported in general. Azure also offers [Azure shared disks](/azure/virtual-machines/disks-shared-enable?tabs=azure-cli) that could be used for Windows clustering. **For SAP workload, we aren't supporting these HA options.** 
@@ -133,7 +130,7 @@ The SQL Server log shipping functionality was hardly used in Azure to achieve hi
 
 - Disaster Recovery scenarios from one Azure region into another Azure region
 - Disaster Recovery configuration from on-premises into an Azure region
-- Cut-over scenarios from on-premises to Azure. In those cases, log shipping is used to synchronize the new DBMS deployment in Azure with the ongoing production system on-premises. At the time of cutting over, production is shut down and it's made sure that the last and latest transaction log backups got transferred to the Azure DBMS deployment. Then the Azure DBMS deployment is opened up for production.  
+- Cut-over scenarios from on-premises to Azure. In those cases, log shipping is used to synchronize the new database deployment in Azure with the ongoing production system on-premises. At the time of cutting over, production is shut down and it's made sure that the last and latest transaction log backups got transferred to the Azure database deployment. Then the Azure database deployment is opened up for production.  
 
 
 ### SQL Server Always On
@@ -174,7 +171,7 @@ Most customers are using the SQL Server Always On functionality for disaster rec
 Many customers are using SQL Server [Transparent Data Encryption (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption) when deploying their SAP SQL Server databases in Azure. The SQL Server TDE functionality is fully supported by SAP (see SAP Note [#1380493](https://launchpad.support.sap.com/#/notes/1380493)). 
 
 ### Applying SQL Server TDE
-In cases where you perform a heterogeneous migration from another DBMS, running on-premises, to Windows/SQL Server running in Azure, you should create your empty target database in SQL Server ahead of time. As next step you would apply SQL Server TDE functionality against this empty database. Reason you want to perform in this sequence is that the process of encrypting the empty database can take quite a while. The SAP import processes would then import the data into the encrypted database during the downtime phase. The overhead of importing into an encrypted database has a way lower time impact than encrypting the database after the export phase in the down time phase. Negative experiences were made when trying to apply TDE with SAP workload running on top of the database. Therefore, recommendation is treating the deployment of TDE as an activity that needs to be done with no or low SAP workload on the particular database. From SQL Server 2016 on, you can stop and resume the TDE scan that performs the initial encryption. The document [Transparent Data Encryption (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption) describes the command and details.
+In cases where you perform a heterogeneous migration from another database, running on-premises, to Windows/SQL Server running in Azure, you should create your empty target database in SQL Server ahead of time. As next step you would apply SQL Server TDE functionality against this empty database. Reason you want to perform in this sequence is that the process of encrypting the empty database can take quite a while. The SAP import processes would then import the data into the encrypted database during the downtime phase. The overhead of importing into an encrypted database has a way lower time impact than encrypting the database after the export phase in the down time phase. Negative experiences were made when trying to apply TDE with SAP workload running on top of the database. Therefore, recommendation is treating the deployment of TDE as an activity that needs to be done with no or low SAP workload on the particular database. From SQL Server 2016 on, you can stop and resume the TDE scan that performs the initial encryption. The document [Transparent Data Encryption (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption) describes the command and details.
 
 In cases where you move SAP SQL Server databases from on-premises into Azure, we recommend testing on which infrastructure you can get the encryption applied fastest. For this case, keep these facts in mind:
 
@@ -201,7 +198,7 @@ In this section, we suggest a set of minimum configurations for different sizes 
 
 An example of a configuration for a little SQL Server instance with a database size between 50 GB – 250 GB could look like
 
-| Configuration | DBMS VM | Comments |
+| Configuration | Database VM | Comments |
 | --- | --- | --- |
 | VM Type | E4s_v3/v4/v5 (4 vCPU/32 GiB RAM) | |
 | Accelerated Networking | Enable | |
@@ -213,14 +210,14 @@ An example of a configuration for a little SQL Server instance with a database s
 | Disk aggregation | Storage Spaces if desired | |
 | File system | NTFS | |
 | Format block size | 64 KB | |
-| # and type of data disks | Premium storage v1: 2 x P10 (RAID0) <br /> Premium storage v2: 2 x 150 GiB (RAID0) - default IOPS and throughput | Cache = Read Only for premium storage v1 |
-| # and type of log disks | Premium storage v1: 1 x P20 <br /> Premium storage v2: 1 x 128 GiB - default IOPS and throughput | Cache = NONE |
+| # and type of data disks | Premium storage v1: 2 x P10 (RAID0) <br /> Premium storage v2: 2 x 150 GiB (RAID0) - default IOPS and throughput or equivalent Premium SSD v2 | Cache = Read Only for premium storage v1 |
+| # and type of log disks | Premium storage v1: 1 x P20 <br /> Premium storage v2: 1 x 128 GiB - default IOPS and throughput or equivalent Premium SSD v2 | Cache = NONE |
 | SQL Server max memory parameter | 90% of Physical RAM | Assuming single instance |
 
 
 An example of a configuration or a small SQL Server instance with a database size between 250 GB – 750 GB, such as a smaller SAP Business Suite system, could look like
 
-| Configuration | DBMS VM | Comments |
+| Configuration | Database VM | Comments |
 | --- | --- | --- | 
 | VM Type | E16s_v3/v4/v5 (16 vCPU/128 GiB RAM) | |
 | Accelerated Networking | Enable | |
@@ -232,13 +229,13 @@ An example of a configuration or a small SQL Server instance with a database siz
 | Disk aggregation | Storage Spaces if desired | |
 | File system | NTFS | |
 | Format block size | 64 KB | |
-| # and type of data disks | Premium storage v1: 4 x P20 (RAID0) <br /> Premium storage v2: 4 x 100 GiB - 200 GiB (RAID0) - default IOPS and 25 MB/sec extra throughput per disk | Cache = Read Only for premium storage v1 |
-| # and type of log disks | Premium storage v1: 1 x P20 <br /> Premium storage v2: 1 x 200 GiB - default IOPS and throughput | Cache = NONE |
+| # and type of data disks | Premium storage v1: 4 x P20 (RAID0) <br /> Premium storage v2: 4 x 100 GiB - 200 GiB (RAID0) - default IOPS and 25 MB/sec extra throughput per disk or equivalent Premium SSD v2 | Cache = Read Only for premium storage v1 |
+| # and type of log disks | Premium storage v1: 1 x P20 <br /> Premium storage v2: 1 x 200 GiB - default IOPS and throughput or equivalent Premium SSD v2 | Cache = NONE |
 | SQL Server max memory parameter | 90% of Physical RAM | Assuming single instance |
 
 An example of a configuration for a medium SQL Server instance with a database size between 750 GB – 2,000 GB, such as a medium SAP Business Suite system, could look like
 
-| Configuration | DBMS VM | Comments |
+| Configuration | Database VM | Comments |
 | --- | --- | --- | 
 | VM Type | E64s_v3/v4/v5 (64 vCPU/432 GiB RAM) | |
 | Accelerated Networking | Enable | |
@@ -250,13 +247,13 @@ An example of a configuration for a medium SQL Server instance with a database s
 | Disk aggregation | Storage Spaces if desired | |
 | File system | NTFS | |
 | Format block size | 64 KB | |
-| # and type of data disks | Premium storage v1: 4 x P30 (RAID0) <br /> Premium storage v2: 4 x 250 GiB - 500 GiB - plus 2,000 IOPS and 75 MB/sec throughput per disk | Cache = Read Only for premium storage v1 |
-| # and type of log disks | Premium storage v1: 1 x P20 <br /> Premium storage v2: 1 x 400 GiB - default IOPS and 75MB/sec extra throughput | Cache = NONE |
+| # and type of data disks | Premium storage v1: 4 x P30 (RAID0) <br /> Premium storage v2: 4 x 250 GiB - 500 GiB - plus 2,000 IOPS and 75 MB/sec throughput per disk or equivalent Premium SSD v2 | Cache = Read Only for premium storage v1 |
+| # and type of log disks | Premium storage v1: 1 x P20 <br /> Premium storage v2: 1 x 400 GiB - default IOPS and 75MB/sec extra throughput or equivalent Premium SSD v2 | Cache = NONE |
 | SQL Server max memory parameter | 90% of Physical RAM |  Assuming single instance |
 
 An example of a configuration for a larger SQL Server instance with a database size between 2,000 GB and 4,000 GB, such as a larger SAP Business Suite system, could look like
 
-| Configuration | DBMS VM | Comments |
+| Configuration | Database VM | Comments |
 | --- | --- | --- | 
 | VM Type | E96(d)s_v5 (96 vCPU/672 GiB RAM) | |
 | Accelerated Networking | Enable | |
@@ -268,14 +265,14 @@ An example of a configuration for a larger SQL Server instance with a database s
 | Disk aggregation | Storage Spaces if desired | |
 | File system | NTFS | |
 | Format block size | 64 KB | |
-| # and type of data disks | Premium storage v1: 4 x P30 (RAID0) <br /> Premium storage v2: 4 x 500 GiB - 800 GiB - plus 2500 IOPS and 100 MB/sec throughput per disk | Cache = Read Only for premium storage v1 |
-| # and type of log disks | Premium storage v1: 1 x P20 <br /> Premium storage v2: 1 x 400 GiB - plus 1,000 IOPS and 75MB/sec extra throughput | Cache = NONE |
+| # and type of data disks | Premium storage v1: 4 x P30 (RAID0) <br /> Premium storage v2: 4 x 500 GiB - 800 GiB - plus 2500 IOPS and 100 MB/sec throughput per disk or equivalent Premium SSD v2 | Cache = Read Only for premium storage v1 |
+| # and type of log disks | Premium storage v1: 1 x P20 <br /> Premium storage v2: 1 x 400 GiB - plus 1,000 IOPS and 75MB/sec extra throughput or equivalent Premium SSD v2 | Cache = NONE |
 | SQL Server max memory parameter | 90% of Physical RAM | Assuming single instance |
 
 
 An example of a configuration for a large SQL Server instance with a database size of 4 TB+, such as a large globally used SAP Business Suite system, could look like
 
-| Configuration | DBMS VM | Comments |
+| Configuration | Database VM | Comments |
 | --- | --- | ---  |
 | VM Type | M-Series (1.0 to 4.0 TB RAM)  | |
 | Accelerated Networking | Enable | |
@@ -287,13 +284,13 @@ An example of a configuration for a large SQL Server instance with a database si
 | Disk aggregation | Storage Spaces if desired  | |
 | File system | NTFS | |
 | Format block size | 64 KB | |
-| # and type of data disks | Premium storage v1: 4+ x P40 (RAID0) <br /> Premium storage v2: 4+ x 1,000 GiB - 4,000 GiB - plus 4,500 IOPS and 125 MB/sec throughput per disk | Cache = Read Only for premium storage v1 |
-| # and type of log disks | Premium storage v1: 1 x P30 <br /> Premium storage v2: 1 x 500 GiB - plus 2,000 IOPS and 125 MB/sec throughput | Cache = NONE |
+| # and type of data disks | Premium storage v1: 4+ x P40 (RAID0) <br /> Premium storage v2: 4+ x 1,000 GiB - 4,000 GiB - plus 4,500 IOPS and 125 MB/sec throughput per disk or equivalent Premium SSD v2 | Cache = Read Only for premium storage v1 |
+| # and type of log disks | Premium storage v1: 1 x P30 <br /> Premium storage v2: 1 x 500 GiB - plus 2,000 IOPS and 125 MB/sec throughput or equivalent Premium SSD v2 | Cache = NONE |
 | SQL Server max memory parameter | 95% of Physical RAM | Assuming single instance |
 
-As an example, this configuration is the DBMS VM configuration of an SAP Business Suite on SQL Server. This VM hosts the 30TB database of the single global SAP Business Suite instance of a global company with over $200B annual revenue and over 200K full time employees. The system runs all the financial processing, sales and distribution processing and many more business processes out of different areas, including North American payroll. The system is running in Azure since the beginning of 2018 using Azure M-series VMs as DBMS VMs. As high availability the system is using Always on with one synchronous replica in another Availability Zone of the same Azure region and another asynchronous replica in another Azure region. The NetWeaver application layer is deployed in Ev4 VMs. 
+As an example, this configuration is the Database VM configuration of an SAP Business Suite on SQL Server. This VM hosts the 30TB database of the single global SAP Business Suite instance of a global company with over $200B annual revenue and over 200K full time employees. The system runs all the financial processing, sales and distribution processing and many more business processes out of different areas, including North American payroll. The system is running in Azure since the beginning of 2018 using Azure M-series VMs as database VMs. As high availability the system is using Always on with one synchronous replica in another Availability Zone of the same Azure region and another asynchronous replica in another Azure region. The NetWeaver application layer is deployed in Ev4 VMs. 
 
-| Configuration | DBMS VM | Comments |
+| Configuration | Database VM | Comments |
 | --- | --- | --- |
 | VM Type | M192dms_v2  (192 vCPU/4,196 GiB RAM)  | |
 | Accelerated Networking | Enabled | |
@@ -305,22 +302,22 @@ As an example, this configuration is the DBMS VM configuration of an SAP Busines
 | Disk aggregation | Storage Spaces | |
 | File system | NTFS | |
 | Format block size | 64 KB | |
-| # and type of data disks | Premium storage v1: 16 x P40 | Cache = Read Only |
-| # and type of log disks | Premium storage v1: 1 x P60  | Using Write Accelerator |
-| # and type of tempdb disks | Premium storage v1: 1 x P30 | No caching |
+| # and type of data disks | Premium storage v1: 16 x P40 or equivalent Premium SSD v2 | Cache = Read Only |
+| # and type of log disks | Premium storage v1: 1 x P60  or equivalent Premium SSD v2 | Using Write Accelerator |
+| # and type of tempdb disks | Premium storage v1: 1 x P30 or equivalent Premium SSD v2 | No caching |
 | SQL Server max memory parameter | 95% of Physical RAM | |
 
 
 
 ## <a name="9053f720-6f3b-4483-904d-15dc54141e30"></a>General SQL Server for SAP on Azure Summary
-There are many recommendations in this guide and we recommend you read it more than once before planning your Azure deployment. In general, though, be sure to follow the top general DBMS on Azure-specific recommendations:
+There are many recommendations in this guide and we recommend you read it more than once before planning your Azure deployment. In general, though, be sure to follow the top SQL Server on Azure-specific recommendations:
 
-1. Use the latest DBMS release, like SQL Server 2019, that has the most advantages in Azure. 
+1. Use the latest SQLServer release, like SQL Server 2022, that has the most advantages in Azure. 
 2. Carefully plan your SAP system landscape in Azure to balance the data file layout and Azure restrictions:
    * Don't have too many disks, but have enough to ensure you can reach your required IOPS.
       * Only stripe across disks if you need to achieve a higher throughput.
 3. Never install software or put any files that require persistence on the D:\ drive as it's non-permanent and anything on this drive can be lost at a Windows reboot or VM restart.
-6. Use your DBMS vendor's HA/DR solution to replicate database data.
+6. Use your SQL Server Always On solution to replicate database data.
 7. Always use Name Resolution, don't rely on IP addresses.
 8. Using SQL Server TDE, apply the latest SQL Server patches.
 10. Be careful using SQL Server images from the Azure Marketplace. If you use the SQL Server one, you must change the instance collation before installing any SAP NetWeaver system on it.
