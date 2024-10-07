@@ -10,7 +10,7 @@ items:
 
 - name: Get Started
   items:
-  - name: Check for pre-requisites
+  - name: Check for prerequisites
   - name: Create an Azure Migrate project
     href: create-manage-projects.md
   - name: Create a project - ARM template
@@ -51,7 +51,7 @@ items:
             href: deploy-appliance-script-government.md
       - name: Appliance configuration
         items:
-          - name: Pre-requisites check and appliance registration
+          - name: Prerequisites check and appliance registration
           - name: Enable DNS resolution for private endpoint
           - name: Provide server credentials
             href: add-server-credentials.md
@@ -82,13 +82,13 @@ items:
     - name: Identify roles and features
     - name: Dependency analysis 
       items:
-      - name: Pre-requisites and limits
+      - name: Prerequisites and limits
       - name: Enable dependency mapping
       - name: Visualize dependencies
       - name: Identify and tag applications
 - name: Create Business case
   items:
-  - name: Pre-requisites
+  - name: Prerequisites
   - name: Overview
   - name: Build a business case
   - name: Customize on-premises benchmarks 
@@ -99,7 +99,7 @@ items:
   - name: Assessments
     items:
     - name: Overview # talk about what is an assessment - types of assessments- Scope creation - Readiness/costing/right-sizing
-    - name: Pre-requisites
+    - name: Prerequisites
     - name: Cost and savings calculations # provide details about cost calculations, Reservations & savings plan calculations, Environment based calculations, license cost.
     - name: Retail vs. negotiated pricing
     - name: Performance-based assessments # help users understand how perf data is used in depth
@@ -128,40 +128,40 @@ items:
         - name: Review assessment report
       - name: Azure SQL assessment
         items:
-        - name: Pre-requisites
+        - name: Prerequisites
         - name: Create an Azure SQL assessment
         - name: Customize assessment settings
         - name: Azure SQL Readiness criteria
         - name: Review assessment report
       - name: Webapp assessment
         items:
-        - name: Pre-requisites
+        - name: Prerequisites
         - name: Create a Webapp assessment
         - name: Customize assessment settings
         - name: Azure Webapp Readiness criteria
         - name: Review assessment report
       - name: AVS assessment
         items:
-        - name: Pre-requisites
+        - name: Prerequisites
         - name: Create an AVS assessment
         - name: Customize assessment settings
         - name: Azure AVS Readiness criteria
         - name: Review assessment report
       - name: SAP assessment
         items:
-        - name: Pre-requisites
+        - name: Prerequisites
         - name: Create an AVS assessment
         - name: Customize assessment settings
         - name: Azure AVS Readiness criteria
         - name: Review assessment report
   - name: Software recommendations
     items:
-    - name: Pre-requisites
+    - name: Prerequisites
     - name: Review recommendations
     - name: Limitations
   - name: Migration wave planning 
     items:
-      - name: Pre-requisites
+      - name: Prerequisites
       - name: Create a migration plan
       - name: Support matrix
       - name: Create custom pre-migration tasks 
@@ -181,8 +181,8 @@ items:
   items:
   - name: Migrate
     items: 
-    - name: Pre-requisites
-    - name: Agent-less migration
+    - name: Prerequisites
+    - name: Agentless migration
     - name: Agent-based migration
     - name: Webapp migration
     - name: Limitations
