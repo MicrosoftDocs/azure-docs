@@ -32,6 +32,8 @@ Azure AD B2C is **generally available worldwide** with the option for **data res
 
 If you enable [Go-Local add-on](#go-local-add-on), you can store your data exclusively in a specific country/region.
 
+> [!NOTE]
+> Azure AD B2C is generally available in the Microsoft Azure global cloud and Microsoft Azure operated by 21Vianet. Azure AD B2C is not available in Microsoft Azure Government.
 
 ## Region availability
 

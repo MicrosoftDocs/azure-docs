@@ -2,7 +2,7 @@
 title: Environment variables and app settings reference
 description: Describes the commonly used environment variables, and which ones can be modified with app settings.
 ms.topic: article
-ms.date: 09/14/2023
+ms.date: 09/27/2024
 author: cephalin
 ms.author: cephalin
 ---

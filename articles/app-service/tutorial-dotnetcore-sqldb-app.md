@@ -21,13 +21,15 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a secure-by-default App Service, SQL Database, and Redis cache architecture
-> * Deploy a sample data-driven ASP.NET Core app
-> * Use connection strings and app settings
-> * Generate database schema by uploading a migrations bundle
-> * Stream diagnostic logs from Azure
-> * Manage the app in the Azure portal
-> * Provision and deploy by using Azure Developer CLI
-> * Use passwordless SQL connectivity by using a managed identity
+> * Secure connection secrets using a managed identity and Key Vault references.
+> * Deploy a sample ASP.NET Core app to App Service from a GitHub repository.
+> * Acces App Service connection strings and app settings in the application code.
+> * Make updates and redeploy the application code.
+> * Generate database schema by uploading a migrations bundle.
+> * Stream diagnostic logs from Azure.
+> * Manage the app in the Azure portal.
+> * Provision the same architecture and deploy by using Azure Developer CLI.
+> * Optimize your development workflow with GitHub Codespaces and GitHub Copilot.
 
 ## Prerequisites
 
@@ -144,7 +146,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         1. *Runtime stack*: **.NET 8 (LTS)**.
         1. *Engine*: **SQLAzure**. Azure SQL Database is a fully managed platform as a service (PaaS) database engine that's always running on the latest stable version of the SQL Server.
         1. *Add Azure Cache for Redis?*: **Yes**.
-        1. *Hosting plan*: **Basic**. When you're ready, you can [scale up](manage-scale-up.md) to a production pricing tier later.
+        1. *Hosting plan*: **Basic**. When you're ready, you can [scale up](manage-scale-up.md) to a production pricing tier.
         1. Select **Review + create**.
         1. After validation completes, select **Create**.
     :::column-end:::
@@ -174,7 +176,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 
 ## 3. Secure connection secrets
 
-The creation wizard generated the connectivity string for you already as [.NET connection strings](configure-common.md#configure-connection-strings) and [app settings](configure-common.md#configure-app-settings). However, the security best practice is to keep secrets out of App Service completely. You'll move your secrets to key vault and change your app setting to [Key Vault references](app-service-key-vault-references.md) with the help of Service Connectors.
+The creation wizard generated the connectivity string for you already as [.NET connection strings](configure-common.md#configure-connection-strings) and [app settings](configure-common.md#configure-app-settings). However, the security best practice is to keep secrets out of App Service completely. You'll move your secrets to a key vault and change your app setting to [Key Vault references](app-service-key-vault-references.md) with the help of Service Connectors.
 
 > [!TIP]
 > To use passwordless authentication, see [How do I change the SQL Database connection to use a managed identity instead?](#how-do-i-change-the-sql-database-connection-to-use-a-managed-identity-instead)
@@ -222,7 +224,7 @@ The creation wizard generated the connectivity string for you already as [.NET c
         1. Select **Review + create**, then select **Create**. Wait for the key vault deployment to finish. You should see "Your deployment is complete."
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-secure-connection-secrets-3.png" alt-text="A screenshot showing how secure a key vault with a private endpoint." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-secure-connection-secrets-3.png":::
+        :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-secure-connection-secrets-3.png" alt-text="A screenshot showing how to secure a key vault with a private endpoint." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-secure-connection-secrets-3.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -283,8 +285,8 @@ The creation wizard generated the connectivity string for you already as [.NET c
     :::column span="2":::
         **Step 8:** To verify your changes: 
         1. From the left menu, select **Environment variables > Connection strings** again.
-        1. Next to **AZURE_SQL_CONNECTIONSTRING**, select **Show value**. The value should be `@Microsoft.KeyValut(...)`, which means that it's a [key vault reference](app-service-key-vault-references.md) because the secret is now managed in the key vault.
-        1. To verify the Redis connection string, select the **App setting** tab. Next to **AZURE_REDIS_CONNECTIONSTRING**, select **Show value**. The value should be `@Microsoft.KeyValut(...)` too.
+        1. Next to **AZURE_SQL_CONNECTIONSTRING**, select **Show value**. The value should be `@Microsoft.KeyVault(...)`, which means that it's a [key vault reference](app-service-key-vault-references.md) because the secret is now managed in the key vault.
+        1. To verify the Redis connection string, select the **App setting** tab. Next to **AZURE_REDIS_CONNECTIONSTRING**, select **Show value**. The value should be `@Microsoft.KeyVault(...)` too.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-secure-connection-secrets-8.png" alt-text="A screenshot showing how to see the value of the .NET connection string in Azure." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-secure-connection-secrets-8.png":::
@@ -336,7 +338,7 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
         1. Ask, "*@workspace How does the app connect to the database and the cache?*" Copilot might give you some explanation about the `MyDatabaseContext` class and how it's configured in *Program.cs*. 
         1. Ask, "In production mode, I want the app to use the connection string called AZURE_SQL_CONNECTIONSTRING for the database and the app setting called AZURE_REDIS_CONNECTIONSTRING*." Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps below and even tell you to make the change in the *Program.cs* file. 
         1. Open *Program.cs* in the explorer and add the code suggestion.
-        GitHub Copilot doesn't give you the same response every time, and it's not always correct. You might need to ask more questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace)
+        GitHub Copilot doesn't give you the same response every time, and it's not always correct. You might need to ask more questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace).
     :::column-end:::
     :::column:::
         :::image type="content" source="media/tutorial-dotnetcore-sqldb-app/github-copilot-1.png" alt-text="A screenshot showing how to ask a question in a new GitHub Copilot chat session." lightbox="media/tutorial-dotnetcore-sqldb-app/github-copilot-1.png":::
@@ -360,7 +362,7 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
         1. Highlight the `dotnet publish` step and select :::image type="icon" source="media/quickstart-dotnetcore/github-copilot-in-editor.png" border="false":::.
         1. Ask Copilot, "*Install dotnet ef, then create a migrations bundle in the same output folder.*"
         1. If the suggestion is acceptable, select **Accept**.
-        GitHub Copilot doesn't give you the same response every time, and it's not always correct. You might need to ask more questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace)
+        GitHub Copilot doesn't give you the same response every time, and it's not always correct. You might need to ask more questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace).
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/github-copilot-2.png" alt-text="A screenshot showing the use of GitHub Copilot in a GitHub workflow file." lightbox="./media/tutorial-dotnetcore-sqldb-app/github-copilot-2.png":::
@@ -570,6 +572,8 @@ The dev container already has the [Azure Developer CLI](/azure/developer/azure-d
     - **Key vault**: Accessible only from behind its private endpoint. Used to manage secrets for the App Service app.
     - **Private DNS zones**: Enable DNS resolution of the key vault, the database server, and the Redis cache in the virtual network.
 
+    Once the command finishes creating resources and deploying the application code the first time, the deployed sample app doesn't work yet because you must make small changes to make it connect to the database in Azure.
+
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 ## 3. Verify connection strings
@@ -599,7 +603,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 # [With GitHub Copilot](#tab/copilot)
 
-1. Back in the GitHub codespace of your sample fork, start a new chat session by selecting the **Chat** view, then selecting **+**. 
+1. In the GitHub codespace, start a new chat session by selecting the **Chat** view, then selecting **+**. 
 
 1. Ask, "*@workspace How does the app connect to the database and the cache?*" Copilot might give you some explanation about the `MyDatabaseContext` class and how it's configured in *Program.cs*.
 
@@ -607,11 +611,11 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 1. Open *Program.cs* in the explorer and add the code suggestion.
 
-    GitHub Copilot doesn't give you the same response every time, and it's not always correct. You might need to ask more questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace)
+    GitHub Copilot doesn't give you the same response every time, and it's not always correct. You might need to ask more questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace).
 
 # [Without GitHub Copilot](#tab/nocopilot)
 
-1. Back in the GitHub codespace of your sample fork, from the explorer, open *Program.cs*.
+1. From the explorer, open *Program.cs*.
 
 1. In the `contextIntialized()` method, find the commented code (lines 12-21) and uncomment it. 
 
@@ -834,7 +838,7 @@ A few tips for you when you talk to GitHub Copilot:
 - To let GitHub Copilot have access to all of the files in the repository when preparing its answers, begin your question with `@workspace`. For more information, see [Use the @workspace agent](https://github.blog/2024-03-25-how-to-use-github-copilot-in-your-ide-tips-tricks-and-best-practices/#10-use-the-workspace-agent).
 - In the chat session, GitHub Copilot can suggest changes and (with `@workspace`) even where to make the changes, but it's not allowed to make the changes for you. It's up to you to add the suggested changes and test it.
 
-Here are some other things you can say to fine-tune the answer you get.
+Here are some other things you can say to fine-tune the answer you get:
 
 * I want this code to run only in production mode.
 * I want this code to run only in Azure App Service and not locally.

@@ -12,6 +12,8 @@ ms.author: duau
 
 # Restrict Azure CDN content by country/region
 
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
+
 When a user requests your content, the content is served to users in all locations. You might want to restrict access to your content by country/region.
 
 With the *geo-filtering* feature, you can create rules on specific paths on your CDN endpoint. You can set the rules to allow or block content in selected countries/regions.

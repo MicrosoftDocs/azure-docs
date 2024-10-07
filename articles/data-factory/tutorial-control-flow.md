@@ -5,7 +5,8 @@ author: ssabat
 ms.author: susabat
 ms.reviewer: jburchel
 ms.topic: tutorial
-ms.date: 08/11/2023
+ms.date: 10/03/2024
+ms.subservice: orchestration
 ---
 
 # Branching and chaining activities in a Data Factory pipeline
