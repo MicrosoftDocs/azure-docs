@@ -225,7 +225,7 @@ The following table can be used to reference feature support.
 | **Storage Actions**              | Supported<sup>1</sup> | Supported<sup>1</sup> | 
 | **Point-in-time restore (PITR)** | Unsupported         | Supported           |
 
-<sup>1</sup> If you initiate a customer-managed planned or unplanned failover, storage tasks can't operate on the account until it reverts to the original primary region. [Learn more](../../reliability/reliability-storage-actions.md#cross-region-disaster-recovery-and-business-continuity).
+<sup>1</sup> If you initiate a customer-managed planned or unplanned failover, storage tasks can't operate on the account until it fails back to the original primary region. [Learn more](../../reliability/reliability-storage-actions.md#cross-region-disaster-recovery-and-business-continuity).
 
 ### Failover isn't for account migration
 
