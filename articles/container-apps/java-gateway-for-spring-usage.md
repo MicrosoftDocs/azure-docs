@@ -3,7 +3,7 @@ title: Configure settings for the Gateway for Spring component in Azure Containe
 description: Learn to configure the Gateway for Spring component in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: conceptual
 ms.date: 09/30/2024
 ms.author: wenhaozhang

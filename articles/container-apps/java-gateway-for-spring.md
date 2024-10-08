@@ -3,7 +3,7 @@ title: "Tutorial: Connect to a managed Gateway for Spring in Azure Container App
 description: Learn how to connect a Gateway for Spring to your container app.
 services: container-apps
 author: wenhaozhang
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: devx-track-azurecli, devx-track-extended-java
 ms.topic: tutorial
 ms.date: 09/30/2024
