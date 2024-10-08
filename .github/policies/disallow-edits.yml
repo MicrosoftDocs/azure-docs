@@ -14,7 +14,7 @@ configuration:
               
               - includesModifiedFiles:
                   files:
-                    - articles/active-directory-b2c/*
+                    - articles/aks/*
               - includesModifiedFiles:
                   files:
                     - articles/defender-for-cloud/*
