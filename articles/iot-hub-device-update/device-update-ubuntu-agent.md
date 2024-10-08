@@ -41,7 +41,7 @@ In this tutorial, you'll learn how to:
 
 ### Use the automated Deploy to Azure button
 
-For convenience, this tutorial uses a [cloud-init](/azure/virtual-machines/linux/using-cloud-init)-based [Azure Resource Manager template](../azure-resource-manager/templates/overview.md) to help you quickly set up an Ubuntu 22.04 LTS virtual machine. It installs both the Azure IoT Edge runtime and the Device Update package agent. Then it automatically configures the device with provisioning information by using the device connection string for an IoT Edge device (prerequisite) that you supply. The Resource Manager template also avoids the need to start an SSH session to complete setup.
+For convenience, this tutorial uses a [cloud-init](/azure/virtual-machines/linux/using-cloud-init)-based [Azure Resource Manager template](../azure-resource-manager/templates/overview.md) to help you quickly set up an Ubuntu 22.04 LTS VM(Virtual Machine). It installs both the Azure IoT Edge runtime and the Device Update package agent. Then it automatically configures the device with provisioning information by using the device connection string for an IoT Edge device (prerequisite) that you supply. The Resource Manager template also avoids the need to start an SSH session to complete setup.
 
 1. To begin, select the button:
 
@@ -56,15 +56,15 @@ For convenience, this tutorial uses a [cloud-init](/azure/virtual-machines/linux
    * **Admin Username**: A username, which is provided root privileges on deployment.
    * **Device Connection String**: A [device connection string](../iot-edge/how-to-provision-single-device-linux-symmetric.md#view-registered-devices-and-retrieve-provisioning-information) for a device that was created within your intended [IoT hub](../iot-hub/about-iot-hub.md).
    * **VM Size**: The [size](../cloud-services/cloud-services-sizes-specs.md) of the virtual machine to be deployed.
-   * **Ubuntu OS Version**: The version of the Ubuntu OS to be installed on the base virtual machine. Leave the default value unchanged because it will be set to Ubuntu 22.04-LTS already.
+   * **Ubuntu OS Version**: The version of the Ubuntu OS to be installed on the base virtual machine. Leave the default value unchanged because it is set to Ubuntu 22.04-LTS already.
    * **Authentication Type**: Choose **sshPublicKey** or **password** based on your preference.
    * **Admin Password or Key**: The value of the SSH Public Key or the value of the password based on the choice of authentication type.
 
    After all the boxes are filled in, select the checkbox at the bottom of the page to accept the terms. Select **Purchase** to begin the deployment.
 
-1. Verify that the deployment has completed successfully. Allow a few minutes after deployment completes for the post-installation and configuration to finish installing IoT Edge and the device package update agent.
+1. Verify that the deployment is completed successfully. Allow a few minutes after deployment completes for the post-installation and configuration to finish installing IoT Edge and the device package update agent.
 
-   A virtual machine resource should have been deployed into the selected resource group. Note the machine name, which is in the format `vm-0000000000000`. Also note the associated **DNS name**, which is in the format `<dnsLabelPrefix>`.`<location>`.cloudapp.azure.com.
+   A virtual machine resource should be deployed into the selected resource group. Note the machine name, which is in the format `vm-0000000000000`. Also note the associated **DNS name**, which is in the format `<dnsLabelPrefix>`.`<location>`.cloudapp.azure.com.
 
    You can obtain the **DNS name** from the **Overview** section of the newly deployed virtual machine in the Azure portal.
 
@@ -81,7 +81,7 @@ For convenience, this tutorial uses a [cloud-init](/azure/virtual-machines/linux
    sudo apt-get install deviceupdate-agent
    ```
 
-2. Open the configuration details (See how to [set up configuration file here](device-update-configuration-file.md) with the command below. Set your connectionType as 'AIS' and connectionData as empty string. Please note that all values with the 'Place value here' tag must be set. See [Configuring a DU agent](./device-update-configuration-file.md#example-du-configjson-file-contents).
+2. Open the configuration details (See how to [set up configuration file here](device-update-configuration-file.md) with the command below. Set your connectionType as 'AIS' and connectionData as empty string. Note that all values with the 'Place value here' tag must be set. See [Configuring a Device Update agent](./device-update-configuration-file.md#example-du-configjson-file-contents).
 
    ```bash
    sudo nano /etc/adu/du-config.json
