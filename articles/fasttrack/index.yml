@@ -164,25 +164,25 @@ conceptualContent:
         # Card
         - title: "Java Series"
           links:
-            - url: https://learn-video.azurefd.net/vod/player?id=9c675d7c-6342-445d-83ec-3db1cad6dcc2
+            - url: https://aka.ms/ftalive-20241004-JavaAppTypes
               itemType: video
               text: Azure Java App Types
-            - url: https://learn-video.azurefd.net/vod/player?id=90fb2002-0939-457a-8227-4c963561043f
+            - url: https://aka.ms/ftalive-20241004-JavaAppsOnAKS
               itemType: video
               text: Azure Java Apps on AKS
-            - url: https://learn-video.azurefd.net/vod/player?id=f71de079-ebb5-4258-84eb-622f70df10ba
+            - url: https://aka.ms/ftalive-20241004-JavaAppsOnContainers
               itemType: video
               text: Azure Java Apps on Containers
-            - url: https://learn-video.azurefd.net/vod/player?id=464cdc01-600a-4685-b3ae-f9772759be9c
+            - url: https://aka.ms/ftalive-20241004-JavaAppsSpringApps
               itemType: video
               text: Azure Java Apps Spring Apps
-            - url: https://learn-video.azurefd.net/vod/player?id=72993cc5-d359-457b-8f22-69ea2944f641
+            - url: https://aka.ms/ftalive-20241004-JavaAppsWebApps
               itemType: video
               text: Azure Java Apps Web Apps
-            - url: https://learn-video.azurefd.net/vod/player?id=4ea12aec-2861-459f-b20b-3f1ddd14ef91
+            - url: https://aka.ms/ftalive-20241004-JavaAppsCodeAssessment
               itemType: video
               text: Azure Java Apps Code Assessment
-            - url: https://learn-video.azurefd.net/vod/player?id=2417354f-255c-4030-a629-30dff210a38d
+            - url: https://aka.ms/ftalive-20241004-JavaAppMigrations
               itemType: video
               text: Azure Java App Migrations
             

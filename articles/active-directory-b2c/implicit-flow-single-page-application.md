@@ -6,12 +6,12 @@ description: Learn how to add single-page sign-in using the OAuth 2.0 implicit f
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: concept-article
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer building a single-page application (SPA) with a JavaScript framework, I want to implement OAuth 2.0 implicit flow for sign-in using Azure AD B2C, so that I can securely authenticate users without server-to-server exchange and handle user flows like sign-up and profile management.

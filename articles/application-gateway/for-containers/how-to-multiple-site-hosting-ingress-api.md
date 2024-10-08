@@ -194,7 +194,7 @@ status:
 Now we're ready to send some traffic to our sample application, via the FQDN assigned to the frontend. Use the following command to get the FQDN.
 
 ```bash
-fqdn=$(kubectl get ingress ingress-01 -n test-infra -o jsonpath='{.status.loadBalancer.ingress[0].hostname}'')
+fqdn=$(kubectl get ingress ingress-01 -n test-infra -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')
 ```
 
 Next, specify the server name indicator using the curl command, `contoso.com` for the frontend FQDN should return a response from the backend-v1 service.
