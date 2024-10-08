@@ -222,7 +222,7 @@ To delete a service account token, select a service account and under **Tokens**
 To delete a service account, run the `az grafana service-account token delete` command. Replace the placeholders `<azure-managed-grafana-name>`, `<service-account-name>` and `<token-name>` with your own information.
 
 ```azurecli-interactive
-az grafana service-account token delete --name <azure-managed-grafana-name> --service-account <service-account-name> --toke <token-name>
+az grafana service-account token delete --name <azure-managed-grafana-name> --service-account <service-account-name> --token <token-name>
 ```
 
 ---
