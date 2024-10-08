@@ -23,9 +23,8 @@ configuration:
                   pattern: articles/dedicated-hsm/*
               - filesMatchPattern:
                   pattern: articles/key-vault/*
-              - includesModifiedFiles:
-                  files: 
-                    - articles/payment-hsm/*
+              - filesMatchPattern:
+                  pattern: articles/payment-hsm/*
               - filesMatchPattern:
                   pattern: articles/postgresql/*
               - filesMatchPattern:
