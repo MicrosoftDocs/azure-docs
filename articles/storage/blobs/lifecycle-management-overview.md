@@ -187,16 +187,14 @@ The run conditions are based on age. Current versions use the last modified time
 
 When you add or edit the rules of a lifecycle policy, it can take up to 24 hours for changes to go into effect and for the first execution to start. 
 
-A policy is scheduled to run once per day (_per 24 hours_) but only if there are no runs in progress. The time required for a run to complete depends on the number of blobs evaluated and operated on. Runs can take longer if the number of requests being made by the policy run along with other workloads reach the request limit of the account. All requests made to storage account, including requests made by policy runs, accrue to the same request limit. 
+A policy is scheduled to run once per day (_per 24 hours_) but only if there are no runs in progress.
 
-> [!NOTE]
-> For scale limits such as maximum requests rates, see the following articles:
->
-> - [Scalability and performance targets for Blob storage](scalability-targets.md)
-> - [Scalability and performance targets for standard storage accounts](../common/scalability-targets-standard-account.md) 
-> - [Scalability targets for premium block blob storage accounts](scalability-targets-premium-block-blobs.md)
->
-> To request an increase in account limits, contact [Azure Support](https://azure.microsoft.com/support/faq/).
+The time required for a run to complete depends on the number of blobs evaluated and operated on. Runs can take longer if the number of requests being made per second reaches the request per second limit of the account. All requests made to storage account, including requests made by policy runs, accrue to the same limit on requests per second. To view scale limits, see the following articles:
+- [Scalability and performance targets for Blob storage](scalability-targets.md)
+- [Scalability and performance targets for standard storage accounts](../common/scalability-targets-standard-account.md) 
+- [Scalability targets for premium block blob storage accounts](scalability-targets-premium-block-blobs.md)
+
+To request an increase in account limits, contact [Azure Support](https://azure.microsoft.com/support/faq/).
 
 If a run takes longer than 24 hours to complete, then that run continues without interruption. After the run completes, it is scheduled to run again within 24 hours.
 If you edit, delete, or disable a rule while a run is in progress, then that run terminates within 15 minutes, and runs again within 24 hours. If you disable or delete all of the rules in a policy, then the policy becomes inactive, and no new runs will be scheduled. 
