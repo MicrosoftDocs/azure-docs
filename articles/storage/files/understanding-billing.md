@@ -102,7 +102,7 @@ Currently, these SKUs are generally available in a limited subset of regions:
 - Southeast Asia
 
 ### Provisioning detail
-When you create a provisioned v2 file share, you specify how much storage, IOPS, and throughput capacity your file share will have. File shares are limited based on the following attributes:
+When you create a provisioned v2 file share, you specify the provisioned capacity for the file share in terms of storage, IOPS, and throughput. File shares are limited based on the following attributes:
 
 | Item | HDD value |
 |-|-|
@@ -140,7 +140,7 @@ Share credits have three states:
 - Declining, when the file share is using more than the provisioned IOPS and in the bursting mode.
 - Constant, when the files share is using exactly the provisioned IOPS and there are either no credits accrued or used.
 
-A new file share starts with the full number of credits in its burst bucket. Burst credits won't accrue if the share IOPS fall below the provisioned limit due to throttling by the server. The following formulas are used to determine the burst IOPS limit and the number of credits possible for a file share:
+A new file share starts with the full number of credits in its burst bucket. Burst credits don't accrue if the share IOPS fall below the provisioned limit due to throttling by the server. The following formulas are used to determine the burst IOPS limit and the number of credits possible for a file share:
 
 | Item | HDD formula |
 |-|-|
@@ -170,7 +170,7 @@ Some value-added services for Azure Files use snapshots as part of their value p
 Deleted file shares in storage accounts with soft-delete enabled are billed based on the used storage capacity of the deleted share for the duration of the soft-delete period. To ensure that a deleted file share can always be restored, the provisioned storage, IOPS, and throughput of the share count against the storage account's limits until the file share is purged, however are not billed. For more information on soft-delete, see [How to enable soft delete on Azure file shares](storage-files-enable-soft-delete.md).
 
 ### Provisioned v1 billing meters
-File shares provisioned using the provisioned v2 billing model will be billed against the following five billing meters:
+File shares provisioned using the provisioned v2 billing model are billed against the following five billing meters:
 
 1. **Provisioned Storage**: The amount of storage provisioned in GiB.
 2. **Provisioned IOPS**: The amount of IOPS (IO / sec) provisioned.
@@ -178,7 +178,7 @@ File shares provisioned using the provisioned v2 billing model will be billed ag
 4. **Overflow Snapshot Usage**: Any amount of differential snapshot usage in GiB that does not fit within the provisioned storage capacity. See [provisioned v2 snapshots](#provisioned-v2-snapshots) for more information.
 5. **Soft-Deleted Usage**: Used storage capacity in GiB for soft-deleted file shares. See [provisioned v2 soft-delete](#provisioned-v2-soft-delete) for more information.
 
-Consumption against the provisioned v2 billing meters are emitted hourly in terms of hourly units. This means that if you look at an hourly billing report, you will see the quantities provisioned or used. For example, for a share with 1024 GiB provisioned, you should see:
+Consumption against the provisioned v2 billing meters are emitted hourly in terms of hourly units. For example, for a share with 1024 GiB provisioned, you should see:
 
 - 1,024 units against the **Provisioned Storage** meter for an individual hour.
 - 24,576 units against the **Provisioned Storage** meter if aggregated for a day.
@@ -237,7 +237,7 @@ Share credits have three states:
 - Declining, when the file share is using more than the provisioned IOPS and in the bursting mode.
 - Constant, when the files share is using exactly the provisioned IOPS and there are either no credits accrued or used.
 
-A new file share starts with the full number of credits in its burst bucket. Burst credits won't accrue if the share IOPS fall below the provisioned limit due to throttling by the server. The following formulas are used to determine the burst IOPS limit and the number of credits possible for a file share:
+A new file share starts with the full number of credits in its burst bucket. Burst credits don't accrue if the share IOPS fall below the provisioned limit due to throttling by the server. The following formulas are used to determine the burst IOPS limit and the number of credits possible for a file share:
 
 | Item | Formula |
 |-|-|
@@ -268,12 +268,12 @@ Snapshots are always differential from the live share and from each other. In th
 Deleted file shares in storage accounts with soft-delete enabled are billed based on the used storage capacity of the deleted share for the duration of the soft-delete period. The soft-deleted usage storage capacity is emitted against the used snapshot storage meter. For more information on soft-delete, see [How to enable soft delete on Azure file shares](storage-files-enable-soft-delete.md).
 
 ### Provisioned v1 billing meters
-File shares provisioned using the provisioned v1 billing model will be billed against the following two meters:
+File shares provisioned using the provisioned v1 billing model are billed against the following two meters:
 
 1. **Premium Provisioned**: The amount of storage provisioned in GiB.
 2. **Premium Snapshots**: The amount of used snapshots and used soft-deleted capacity.
 
-Consumption against the provisioned v1 billing meters are emitted hourly in terms of monthly units. This means if you look at an hourly billing report, you will see quantities much smaller than the ones might expect to see. For example, for a share with 1024 GiB provisioned, you should see:
+Consumption against the provisioned v1 billing meters are emitted hourly in terms of monthly units. For example, for a share with 1024 GiB provisioned, you should see:
 
 - A variable number of units for an individual hour depending on the number of days in the month:
     - 28 day month (normal February): 1.5238 units against the **Premium Provisioned** meter.
@@ -378,7 +378,7 @@ Snapshots are always differential from the live share and from each other. In th
 Deleted file shares in storage accounts with soft-delete enabled are billed based on the used storage capacity of the deleted file share for the duration of the soft-delete period. The soft-deleted used storage capacity is emitted against the normal used storage meter. This means that you won't see a separate line item on your bill representing soft-deleted file shares for your pay-as-you-go storage account. This also means that soft-deleted file share usage counts against reservations that are purchased for pay-as-you-go file shares.
 
 ### Pay-as-you-go billing meters
-File shares created using the pay-as-you-go billing model will be billed against the following meters:
+File shares created using the pay-as-you-go billing model are billed against the following meters:
 
 - **Data Stored**: The used storage including the live shares, differential snapshots, and soft-deleted file shares in GiB.
 - **Metadata**: The size of the file system metadata associated with files and directories such as access control lists (ACLs) and other properties in GiB. This billing meter is only used for file shares in the hot or cool access tiers.
@@ -389,7 +389,7 @@ File shares created using the pay-as-you-go billing model will be billed against
 - **Data Retrieval**: The amount of data read from the file share in GiB. This meter is only used for file shares in the cool access tier.
 - **Geo-Replication Data Transfer**: If the file share has the Geo or GeoZone redundancy, the amount of data written to the file share replicated to the secondary region in GiB.
 
-Consumption against the **Data Stored** and **Metadata** billing meters are emitted hourly in terms of monthly units. This means if you look at an hourly billing report, you will see quantities much smaller than the ones might expect to see. For example, for a share with 1024 used GiB, you should see:
+Consumption against the **Data Stored** and **Metadata** billing meters are emitted hourly in terms of monthly units. For example, for a share with 1024 used GiB, you should see:
 
 - A variable number of units for an individual hour depending on the number of days in the month:
     - 28 day month (normal February): 1.5238 units against the **Data Stored** meter.
@@ -446,7 +446,7 @@ When considering the costs of using Azure Backup, consider the following:
 - **Azure Files costs.** Azure Backup increases the costs of Azure Files in the following ways:
     - **Differential costs from Azure file share snapshots.** Azure Backup automates taking Azure file share snapshots on an administrator-defined schedule. Snapshots are always differential; however, the added cost added depends on the length of time snapshots are kept and the amount of churn on the file share during that time. This dictates how different the snapshot is from the live file share and therefore how much extra data is stored by Azure Files.
 
-    - **Transaction costs from restore operations.** Restore operations from the snapshot to the live share will cause transactions. For standard file shares, this means that reads from snapshots/writes from restores will be billed as normal file share transactions. For provisioned file shares, these operations are counted against the provisioned IOPS for the file share.
+    - **Transaction costs from restore operations.** Restore operations from the snapshot to the live share will cause transactions. For standard file shares, this means that reads from snapshots/writes from restores are billed as normal file share transactions. For provisioned file shares, these operations are counted against the provisioned IOPS for the file share.
 
 ### Microsoft Defender for Storage
 Microsoft Defender supports Azure Files as part of its Microsoft Defender for Storage product. Microsoft Defender for Storage detects unusual and potentially harmful attempts to access or exploit your Azure file shares over SMB or FileREST. Microsoft Defender for Storage is enabled on the subscription level for all file shares in storage accounts in that subscription.
