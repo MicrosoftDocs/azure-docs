@@ -32,10 +32,10 @@ Setup involves three major steps required to access **FHIR Service** from **Post
 
 ## Register a client application in Microsoft Entra ID
 1. In the [Azure portal](https://ms.portal.azure.com), select Microsoft Entra ID.
-[![Screenshot shows the Azure portal's Microsoft Entra ID section](media/postman/Microsoft-Entra-Id.png)](media/postman/Microsoft-Entra-Id#lightbox)
+[![Screenshot shows the Azure portal's Microsoft Entra ID section](media/postman/Microsoft-Entra-Id.png)](media/postman/Microsoft-Entra-Id.png#lightbox)
 
 2. Select **App registrations** under **Manage** section.
-[![Screenshot shows the App registrations menu under the Manage section of Microsoft Entra ID.](media/postman/app-registration-1.png)](media/postman/app-registration-1#lightbox)
+[![Screenshot shows the App registrations menu under the Manage section of Microsoft Entra ID.](media/postman/app-registration-1.png)](media/postman/app-registration-1.png#lightbox)
 3. Select **+ New registrations**.
 
 4. Enter a name for app registration.  Under Supported account types, select **Accounts in this organization directory only**. Leave the other options as they are, and then select **Register**.
