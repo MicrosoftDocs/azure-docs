@@ -35,8 +35,8 @@ To sign your zone with DNSSEC using the Azure portal:
     ![Screenshot of selecting the DNSSEC checkbox.](./media/dnssec-how-to/sign-dnssec.png)
 
 4. When you are prompted to confirm that you wish to enable DNSSEC, select **OK**.<br>
-    
-    <img src="./media/dnssec-how-to/confirm-dnssec.png" alt="Screenshot of confirming DNSSEC signing." width="60%">
+
+    ![Screenshot of confirming DNSSEC signing.](./media/dnssec-how-to/confirm-dnssec.png)
 
 5. Wait for zone signing to complete. After the zone is signed, review the **DNSSEC delegation information** that is displayed. Notice that the status is: **Signed but not delegated**.
 
@@ -80,31 +80,51 @@ az network dns dnssec-config show --resource-group "your-resource-group" --zone-
 
 2. Obtain the delegation information and use it to create a DS record in the parent zone.
 
+You can use the following Azure CLI command to display the DS record information:
+
 ```azurepowershell-interactive
-az network dns zone show --name "mysecdomain.com" --resource-group "dns-rg" | jq '.signingKeys[] | select(.delegationSignerInfo != null) | .delegationSignerInfo[] | {keyTag: .record | split(" "), algorithm: .record | split(" "), digestType: .digestAlgorithmType, digest: .digestValue}'
+az network dns zone show --name "adatum.com" --resource-group "your-resource-group" | jq '.signingKeys[] | select(.delegationSignerInfo != null) | .delegationSignerInfo'
+```
+Sample output:
 
 ```
+  {
+    "digestAlgorithmType": 2,
+    "digestValue": "0B9E68FC1711B4AC4EC0FCE5E673EDB0AFDC18F27EA94861CDF08C7100EA776C",
+    "record": "26767 13 2 0B9E68FC1711B4AC4EC0FCE5E673EDB0AFDC18F27EA94861CDF08C7100EA776C"
+  }
+```
+
+Alternatively, you can also obtain DS information by using dig.exe on the command line:
+
+```Cmd
+dig adatum.com DS +dnssec
+```
+
+Sample output:
+
+```Cmd
+;; ANSWER SECTION:
+adatum.com.        86400   IN      DS      26767 13 2 0B9E68FC1711B4AC4EC0FCE5E673EDB0AFDC18F27EA94861CDF08C71 00EA776C
+```
+In these examples, the DS values are:
+- Key Tag: 26767
+- Algorithm: 13
+- Digest Type: 2
+- Digest: 0B9E68FC1711B4AC4EC0FCE5E673EDB0AFDC18F27EA94861CDF08C7100EA776C
 
 
-    1. If the parent zone is a top level domain (for example: `.com`) or you don't own the parent zone, you must add the DS record at your registrar. Each registrar has its own process. The registrar might ask for values such as the Key Tag, Algorithm, Digest Type, and Key Digest. In the example shown here, these values are:
+3. If the parent zone is a top level domain (for example: `.com`) or you don't own the parent zone, you must add the DS record at your registrar. Each registrar has its own process.
 
-        **Key Tag**: 4535<br>
-        **Algorithm**: 13<br>
-        **Digest Type**: 2<br>
-        **Digest**: 7A1C9811A965C46319D94D1D4BC6321762B632133F196F876C65802EC5089001
+4. If you own the parent zone, you can add a DS record directly to the parent yourself. The following example shows how to add a DS record to the DNS zone **adatum.com** for the child zone **secure.adatum.com** when both zones are signed and hosted using Azure Public DNS:
 
-    2. If you own the parent zone, you can add a DS record directly to the parent yourself. The following example shows how to add a DS record to the DNS zone **adatum.com** for the child zone **secure.adatum.com** when both zones are hosted using Azure Public DNS:
-
-        [ ![Screenshot of adding a DS record to the parent zone.](./media/dnssec-how-to/ds-add.png) ](./media/dnssec-how-to/ds-add.png#lightbox) 
-        [ ![Screenshot of a DS record in the parent zone.](./media/dnssec-how-to/ds-added.png) ](./media/dnssec-how-to/ds-added.png#lightbox)
-
-7. When the DS record has been uploaded to the parent zone, select the DNSSEC information page for your zone and verify that **Signed and delegation established** is displayed. Your DNS zone is now fully DNSSEC signed.
-
-    [ ![Screenshot of a fully signed and delegated zone.](./media/dnssec-how-to/delegated.png) ](./media/dnssec-how-to/delegated.png#lightbox)
+```azurepowershell-interactive
+az network dns record-set ds add-record --resource-group "your-resource-group" --zone-name "adatum.com" --record-set-name "secure" --key-tag <key-tag> --algorithm <algorithm> --digest <digest> --digest-type <digest-type>
+```
 
 # [PowerShell](#tab/sign-powershell)
 
-Sign a zone using PowerShell:
+1. Sign and verify your zone using PowerShell:
 
 ```PowerShell
 # Connect to your Azure account (if not already connected)
@@ -114,11 +134,41 @@ Connect-AzAccount
 Select-AzSubscription -SubscriptionId "your-subscription-id"
 
 # Enable DNSSEC for the DNS zone
-Enable-AzDnsDnssec -ResourceGroupName "your-resource-group" -ZoneName "adatum.com"
+New-AzDnsDnssecConfig -ResourceGroupName "your-resource-group" -ZoneName "adatum.com"
 
 # Verify the DNSSEC configuration
 Get-AzDnsDnssecConfig -ResourceGroupName "your-resource-group" -ZoneName "adatum.com"
 ```
+
+2. Obtain the delegation information and use it to create a DS record in the parent zone.
+
+```PowerShell
+Get-AzDnsDnssecConfig -ResourceGroupName "dns-rg" -ZoneName "adatum.com" | Select-Object -ExpandProperty SigningKey | Select-Object -ExpandProperty delegationSignerInfo
+```
+
+Example output:
+
+```
+DigestAlgorithmType DigestValue                                                      Record
+------------------- -----------                                                      ------
+                  2 0B9E68FC1711B4AC4EC0FCE5E673EDB0AFDC18F27EA94861CDF08C7100EA776C 26767 13 2 0B9E68FC1711B4AC4EC0FCE5E673EDB0AFDC18F27EA94861CDF08C7100EA776C
+```
+
+In these examples, the DS values are:
+- Key Tag: 26767
+- Algorithm: 13
+- Digest Type: 2
+- Digest: 0B9E68FC1711B4AC4EC0FCE5E673EDB0AFDC18F27EA94861CDF08C7100EA776C
+
+3. If the parent zone is a top level domain (for example: `.com`) or you don't own the parent zone, you must add the DS record at your registrar. Each registrar has its own process.
+
+4. If you own the parent zone, you can add a DS record directly to the parent yourself. The following example shows how to add a DS record to the DNS zone **adatum.com** for the child zone **secure.adatum.com** when both zones are signed and hosted using Azure Public DNS. Replace <key-tag>, <algorithm>, <digest>, and <digest-type> with the appropriate values from the DS record you queried previously.
+
+```PowerShell
+$dsRecord = New-AzDnsRecordConfig -DnsRecordType DS -KeyTag <key-tag> -Algorithm <algorithm> -Digest <digest> -DigestType <digest-type>
+New-AzDnsRecordSet -ResourceGroupName "dns-rg" -ZoneName "adatum.com" -Name "secure" -RecordType DS -Ttl 3600 -DnsRecords $dsRecord
+```
+
 
 ## Next steps
 
