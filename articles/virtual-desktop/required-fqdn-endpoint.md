@@ -122,7 +122,7 @@ Select the relevant tab based on which cloud you're using.
 | `privacy.microsoft.com` | TCP | 443 | Privacy statement | All |
 | `query.prod.cms.rt.microsoft.com` | TCP | 443 | Download an MSI to update the client. Required for automatic updates. | [Windows Desktop](users/connect-windows.md) |
 | `graph.microsoft.com` | TCP | 443 | Service traffic | All |
-| `windows.cloud.microsoft.com` | TCP | 443 | Connection center | All |
+| `windows.cloud.microsoft` | TCP | 443 | Connection center | All |
 | `windows365.microsoft.com` | TCP | 443 | Service traffic | All |
 
 # [Azure for US Government](#tab/azure-for-us-government)
@@ -138,7 +138,7 @@ Select the relevant tab based on which cloud you're using.
 | `privacy.microsoft.com` | TCP | 443 | Privacy statement | All |
 | `query.prod.cms.rt.microsoft.com` | TCP | 443 | Download an MSI to update the client. Required for automatic updates. | [Windows Desktop](users/connect-windows.md) |
 | `graph.microsoft.com` | TCP | 443 | Service traffic | All |
-| `windows.cloud.microsoft.com` | TCP | 443 | Connection center | All |
+| `windows.cloud.microsoft` | TCP | 443 | Connection center | All |
 | `windows365.microsoft.com` | TCP | 443 | Service traffic | All |
 
 ---
