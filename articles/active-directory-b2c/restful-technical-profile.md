@@ -6,12 +6,12 @@ description: Define a RESTful technical profile in a custom policy in Azure Acti
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: reference
 ms.date: 01/22/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer customer-facing apps with Azure Active Directory B2C, I want to learn how to define a REST technical profile, so that I can send and receive data from external services.

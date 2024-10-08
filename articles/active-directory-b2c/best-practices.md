@@ -6,11 +6,11 @@ description: Recommendations and best practices to consider when working with Az
 author: kengaderdus
 ms.author: kengaderdus
 manager: mwongerapz
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: concept-article
 ms.date: 10/07/2024
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As an application developer integrating Azure Active Directory B2C, I want recommendations and best practices for integrating Azure AD B2C into my application environment, so that I can ensure a secure and efficient integration with Azure AD B2C.
