@@ -28,12 +28,27 @@ To use an Enterprise CA to generate a certificate to use with Azure Firewall Pre
 - an [Azure Key Vault](premium-certificates.md#azure-key-vault) 
 - a Managed Identity with Read permissions to **Certificates and Secrets** defined in the Key Vault Access Policy 
 
+## Create a new Subordinate Certificate Template
+
+1. Run `certtmpl.msc` to open the Certificate Template Console.
+2. Find the "Subordinate Certification Authority" template in the console.
+3. Right-click on the "Subordinate Certification Authority" template and select "Duplicate Template".
+4. In the "Properties of New Template" window, go to the "Compatibility" tab and set the appropriate compatibility settings or leave them as default.
+5. Go to the "General" tab, set the "Template Display Name" (e.g., "My Subordinate CA"), and adjust the validity period if necessary. Optionally, check the "Publish certificate in Active Directory" checkbox.
+6. In the "Settings" tab, ensure the required users and groups have read and enrol permissions.
+7. Navigate to the "Extensions" tab, select "Key Usage", and click "Edit".
+   - Ensure that the "Digital signature", "Certificate signing", and "CRL signing" checkboxes are checked.
+   - Check the "Make this extension critical" checkbox and click "OK".
+:::image type="content" source="media/premium-deploy-certificates-enterprise-ca/certificate-template-key-usage-extension.png" alt-text="Screenshot of certificate template key usage extensions":::
+8. Click "OK" to save the new certificate template.
+9. Ensure the new template is enabled so it can be used to issue certificates.
+
 ## Request and export a certificate
 
 1. Access the web enrollment site on the Root CA, usually `https://<servername>/certsrv` and select **Request a Certificate**.
 1. Select **Advanced Certificate Request**.
 1. Select **Create and Submit a Request to this CA**.
-1. Fill out the form using the Subordinate Certification Authority template.
+1. Fill out the form using the Subordinate Certification Authority template created in previous section.
    :::image type="content" source="media/premium-deploy-certificates-enterprise-ca/advanced-certificate-request.png" alt-text="Screenshot of advanced certificate request":::
 1. Submit the request and install the certificate.
 1. Assuming this request is made from a Windows Server using Internet Explorer, open **Internet Options**.
