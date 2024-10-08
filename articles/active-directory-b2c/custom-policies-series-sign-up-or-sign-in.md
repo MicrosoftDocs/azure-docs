@@ -6,14 +6,14 @@ description: Learn how to configure a sign-up and sign-in flow for a local accou
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: how-to
 ms.custom: b2c-docs-improvements
 ms.date: 10/11/2024
 ms.author: kengaderdus
 ms.reviewer: yoelh
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer, I want to set up a sign-up and sign-in flow for a local account using Azure Active Directory B2C custom policy, so that users can create and sign in to their accounts in my application.

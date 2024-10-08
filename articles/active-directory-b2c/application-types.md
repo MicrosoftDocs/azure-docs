@@ -5,10 +5,20 @@ description: Learn about the types of applications you can use with Azure Active
 
 author: kengaderdus
 manager: CelesteDG
+<<<<<<< HEAD
 ms.service: azure-active-directory
 ms.topic: concept-article
 ms.date: 10/11/2024
 ms.subservice: B2C
+=======
+
+ms.service: active-directory
+
+ms.topic: concept-article
+ms.date: 10/11/2024
+ms.author: kengaderdus
+ms.subservice: b2c
+>>>>>>> dd8ef5b667a2235a489a1df129e1ae3177e0f22f
 
 
 

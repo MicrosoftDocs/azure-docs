@@ -5,11 +5,11 @@ description: Tutorial to configure Azure AD B2C with Microsoft Dynamics 365 Frau
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: how-to
 ms.date: 01/26/2024
 ms.author: gasinh
-ms.subservice: B2C
+ms.subservice: b2c
 
 # Customer intent: I'm a developer, and I want to integrate Microsoft Dynamics 365 Fraud Protection with Azure Active Directory B2C. I need to assess risk during attempts to create fraudulent accounts and sign-ins, and then block or challenge suspicious attempts.
 ---
