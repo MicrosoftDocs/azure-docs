@@ -181,16 +181,13 @@ AIA:
 - `www.microsoft.com`
 
 CRL:
-- `crl.microsoft.com`
 - `crl3.digicert.com`
 - `crl4.digicert.com`
 - `crl.digicert.cn`
 - `cdp.geotrust.com`
-- `mscrl.microsoft.com`
 - `www.microsoft.com`
 
 OCSP:
-- `ocsp.msocsp.com`
 - `ocsp.digicert.com`
 - `ocsp.digicert.cn`
 - `oneocsp.microsoft.com`
@@ -216,9 +213,11 @@ To determine if the **Microsoft ECC Root Certificate Authority 2017** and **Micr
 
 1. Open a terminal window on your system.
 1. Run the following command:
+
     ```bash
     keytool -list -keystore $JAVA_HOME/jre/lib/security/cacerts
     ```
+
     - `$JAVA_HOME` refers to the path to the Java home directory.
     - If you're unsure of the path, you can find it by running the following command:
     
@@ -238,12 +237,13 @@ To determine if the **Microsoft ECC Root Certificate Authority 2017** and **Micr
         ...
     ```
 
-
 1. To add a root certificate to the trusted root certificate store in Java, you can use the `keytool` utility. The following example adds the **Microsoft RSA Root Certificate Authority 2017** root certificate:
+
     ```bash
     keytool -import -file microsoft-ecc-root-ca.crt -alias microsoft-rsa-root-ca -keystore $JAVA_HOME/jre/lib/security/cacerts
     keytool -import -file microsoft-rsa-root-ca.crt -alias microsoft-rsa-root-ca -keystore $JAVA_HOME/jre/lib/security/cacerts
     ```
+
     > [!NOTE]
     > In this example, `microsoft-ecc-root-ca.crt` and `microsoft-rsa-root-ca.crt` are the names of the files that contain the **Microsoft ECC Root Certificate Authority 2017** and **Microsoft RSA Root Certificate Authority 2017** root certificates, respectively.
 
@@ -251,11 +251,12 @@ To determine if the **Microsoft ECC Root Certificate Authority 2017** and **Micr
 
 The CA/Browser Forum updated the Baseline Requirements to require all publicly trusted Public Key Infrastructures (PKIs) to end usage of the SHA-1 hash algorithms for Online Certificate Standard Protocol (OCSP) on May 31, 2022. Microsoft updated all remaining OCSP Responders that used the SHA-1 hash algorithm to use the SHA-256 hash algorithm. View the [Sunset for SHA-1 OCSP signing article](../fundamentals/ocsp-sha-1-sunset.md) for additional information.
 
-Microsoft updated Azure services to use TLS certificates from a different set of Root Certificate Authorities (CAs) on February 15, 2021, to comply with changes set forth by the CA/Browser Forum Baseline Requirements. Some services finalized these updates in 2022. View the [Azure TLS certificate changes article](../fundamentals/tls-certificate-changes.md) for additional information. 
+Microsoft updated Azure services to use TLS certificates from a different set of Root Certificate Authorities (CAs) on February 15, 2021, to comply with changes set forth by the CA/Browser Forum Baseline Requirements. Some services finalized these updates in 2022. View the [Azure TLS certificate changes article](../fundamentals/tls-certificate-changes.md) for additional information.
 
 ### Article change log
 
-- October 8, 2024: Removed the following CAs.
+- October 8, 2024: Removed the following CAs and CDP endpoints: crl.microsoft.com, mscrl.microsoft.com, and ocsp.msocsp.com.
+
     | Certificate Authority | Serial Number<br>Thumbprint |
     |---- |---- |
     |[Baltimore CyberTrust Root](https://cacerts.digicert.com/BaltimoreCyberTrustRoot.crt) | 0x20000b9<br>D4DE20D05E66FC53FE1A50882C78DB2852CAE474 |
@@ -284,8 +285,8 @@ Microsoft updated Azure services to use TLS certificates from a different set of
     |[Microsoft Azure TLS Issuing CA 06](https://www.microsoft.com/pkiops/certs/Microsoft%20Azure%20TLS%20Issuing%20CA%2006.cer)| 0x02e79171fb8021e93fe2d983834c50c0<br>30E01761AB97E59A06B41EF20AF6F2DE7EF4F7B0|
     |[Microsoft Azure TLS Issuing CA 06](https://crt.sh/?d=2616330106)|0x3300000020a2f1491a37fbd31f000000000020<br>8F1FD57F27C828D7BE29743B4D02CD7E6E5F43E6|
 
-- July 17, 2023: Added 16 new subordinate Certificate Authorities
-- February 7, 2023: Added eight new subordinate Certificate Authorities
+- July 17, 2023: Added 16 new subordinate Certificate Authorities.
+- February 7, 2023: Added eight new subordinate Certificate Authorities.
 
 ## Next steps
 
