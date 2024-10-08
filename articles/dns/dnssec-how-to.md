@@ -171,9 +171,7 @@ $dsRecord = New-AzDnsRecordConfig -DnsRecordType DS -KeyTag <key-tag> -Algorithm
 New-AzDnsRecordSet -ResourceGroupName "dns-rg" -ZoneName "adatum.com" -Name "secure" -RecordType DS -Ttl 3600 -DnsRecords $dsRecord
 ```
 
-* * *
-
-<a id="next-steps"> </a> 
+---
 
 ## Next steps
 
