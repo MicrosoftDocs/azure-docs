@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Install the Slurm Workload Manager on Azure Modeling and Simulation Workbench"
-description: "Learn how to install the Slurm Workload Manager in the Azure Modeling and Simulation Workbench"
+description: "Learn how to install the Slurm Workload Manager in the Azure Modeling and Simulation Workbench."
 author: yousefi-msft
 ms.author: yousefi
 ms.service: modeling-simulation-workbench
@@ -43,7 +43,7 @@ Slurm requires one node to serve as the controller and a set of compute nodes wh
 ### Create the Slurm controller node
 
 1. From the chamber overview page, select **Chamber VM** from the **Settings** menu, then either the **+ Create** button on action menu along the top or the blue **Create chamber VM** button in center of the page.
-    :::image type="content" source="media/tutorial-slurm/create-chamber-vm.png" alt-text="Screenshot of chamber VM overview page with Chamber VM in Settings and the create options on the page highlighted by red outlines.":::
+    :::image type="content" source="media/tutorial-slurm/create-chamber-vm.png" alt-text="Screenshot of chamber VM overview page with Chamber VM in Settings and the create options on the page highlighted by red outlines."  lightbox="media/tutorial-slurm/create-chamber-vm.png":::
 1. On the **Create chamber VM** page:
     * Enter a **Name** for the VM. We recommend choosing a name that indicates it's the controller node.
     * Select a VM size. For the controller, you can select the smallest VM available. The *D4s_v4* is currently the smallest.
