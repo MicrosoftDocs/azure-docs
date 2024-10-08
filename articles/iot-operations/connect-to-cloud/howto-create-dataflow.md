@@ -5,7 +5,7 @@ author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 10/07/2024
+ms.date: 10/08/2024
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to create a dataflow to connect data sources.
@@ -54,9 +54,9 @@ Once you have dataflow endpoints, you can use them to create a dataflow. Recall 
 
 # [Portal](#tab/portal)
 
-To create a dataflow in the operations experience portal, select **Dataflow** > **Create dataflow**.
+To create a dataflow in [operations experience](https://iotoperations.azure.com/), select **Dataflow** > **Create dataflow**.
 
-:::image type="content" source="media/howto-create-dataflow/create-dataflow.png" alt-text="Screenshot using operations experience portal to create a dataflow.":::
+:::image type="content" source="media/howto-create-dataflow/create-dataflow.png" alt-text="Screenshot using operations experience to create a dataflow.":::
 
 # [Bicep](#tab/bicep)
 
@@ -144,7 +144,7 @@ To configure a source for the dataflow, specify the endpoint reference and data 
 
 ### Use Asset as a source
 
-You can use an [asset](../discover-manage-assets/overview-manage-assets.md) as the source for the dataflow. This is only available in the operations experience portal.
+You can use an [asset](../discover-manage-assets/overview-manage-assets.md) as the source for the dataflow. This is only available in the operations experience.
 
 1. Under **Source details**, select **Asset**.
 1. Select the asset you want to use as the source endpoint.
@@ -152,17 +152,17 @@ You can use an [asset](../discover-manage-assets/overview-manage-assets.md) as t
 
     A list of datapoints for the selected asset is displayed.
 
-    :::image type="content" source="media/howto-create-dataflow/dataflow-source-asset.png" alt-text="Screenshot using operations experience portal to select an asset as the source endpoint.":::
+    :::image type="content" source="media/howto-create-dataflow/dataflow-source-asset.png" alt-text="Screenshot using operations experience to select an asset as the source endpoint.":::
 
 1. Select **Apply** to use the asset as the source endpoint.
 
 # [Bicep](#tab/bicep)
 
-Configuring an asset as a source is only available in the operations experience portal.
+Configuring an asset as a source is only available in the operations experience.
 
 # [Kubernetes](#tab/kubernetes)
 
-Configuring an asset as a source is only available in the operations experience portal.
+Configuring an asset as a source is only available in the operations experience.
 
 ---
 
@@ -174,7 +174,7 @@ Configuring an asset as a source is only available in the operations experience 
 1. Enter the **MQTT Topic** that you want to listen to for incoming messages.
 1. Choose a **Message schema** from the dropdown list or upload a new schema. If the source data has optional fields or fields with different types, specify a deserialization schema to ensure consistency. For example, the data might have fields that aren't present in all messages. Without the schema, the transformation can't handle these fields as they would have empty values. With the schema, you can specify default values or ignore the fields.
 
-    :::image type="content" source="media/howto-create-dataflow/dataflow-source-mqtt.png" alt-text="Screenshot using operations experience portal to select MQTT as the source endpoint.":::
+    :::image type="content" source="media/howto-create-dataflow/dataflow-source-mqtt.png" alt-text="Screenshot using operations experience to select MQTT as the source endpoint.":::
 
 1. Select **Apply**.
 
@@ -304,9 +304,9 @@ The transformation operation is where you can transform the data from the source
 
 # [Portal](#tab/portal)
 
-In the operations experience portal, select **Dataflow** > **Add transform (optional)**.
+In the operations experience, select **Dataflow** > **Add transform (optional)**.
 
-:::image type="content" source="media/howto-create-dataflow/dataflow-transform.png" alt-text="Screenshot using operations experience portal to add a transform to a dataflow.":::
+:::image type="content" source="media/howto-create-dataflow/dataflow-transform.png" alt-text="Screenshot using operations experience to add a transform to a dataflow.":::
 
 # [Bicep](#tab/bicep)
 
@@ -401,7 +401,7 @@ Key names in the distributed state store correspond to a dataset in the dataflow
 
 # [Portal](#tab/portal)
 
-Currently, the enrich operation isn't available in the operations experience portal.
+Currently, the enrich operation isn't available in the operations experience.
 
 # [Bicep](#tab/bicep)
 
@@ -481,7 +481,7 @@ To filter the data on a condition, you can use the `filter` stage. The condition
 1. Choose the datapoints to include in the dataset.
 1. Add a filter condition and description.
 
-    :::image type="content" source="media/howto-create-dataflow/dataflow-filter.png" alt-text="Screenshot using operations experience portal to add a filter transform.":::
+    :::image type="content" source="media/howto-create-dataflow/dataflow-filter.png" alt-text="Screenshot using operations experience to add a filter transform.":::
 
 1. Select **Apply**.
 
@@ -526,12 +526,12 @@ To map the data to another field with optional conversion, you can use the `map`
 
 # [Portal](#tab/portal)
 
-In the operations experience portal, mapping is currently supported using **Compute** transforms.
+In the operations experience, mapping is currently supported using **Compute** transforms.
 
 1. Under **Transform (optional)**, select **Compute** > **Add**.
 1. Enter the required fields and expressions.
 
-    :::image type="content" source="media/howto-create-dataflow/dataflow-compute.png" alt-text="Screenshot using operations experience portal to add a compute transform.":::
+    :::image type="content" source="media/howto-create-dataflow/dataflow-compute.png" alt-text="Screenshot using operations experience to add a compute transform.":::
 
 1. Select **Apply**.
 
@@ -671,7 +671,7 @@ To configure a destination for the dataflow, specify the endpoint reference and 
 
 1. Select the dataflow endpoint to use as the destination.
 
-    :::image type="content" source="media/howto-create-dataflow/dataflow-destination.png" alt-text="Screenshot using operations experience portal to select Event Hubs destination endpoint.":::
+    :::image type="content" source="media/howto-create-dataflow/dataflow-destination.png" alt-text="Screenshot using operations experience to select Event Hubs destination endpoint.":::
 
 1. Select **Proceed** to configure the destination.
 1. Add the mapping details based on the type of destination.
@@ -784,13 +784,13 @@ Follow [Tutorial: Bi-directional MQTT bridge to Azure Event Grid](tutorial-mqtt-
 
 ### Export dataflow configuration
 
-To export the dataflow configuration, you can use the operations experience portal or by exporting the Dataflow custom resource.
+To export the dataflow configuration, you can use the operations experience or by exporting the Dataflow custom resource.
 
 # [Portal](#tab/portal)
 
 Select the dataflow you want to export and select **Export** from the toolbar.
 
-:::image type="content" source="media/howto-create-dataflow/dataflow-export.png" alt-text="Screenshot using operations experience portal to export a dataflow.":::
+:::image type="content" source="media/howto-create-dataflow/dataflow-export.png" alt-text="Screenshot using operations experience to export a dataflow.":::
 
 # [Bicep](#tab/bicep)
 
