@@ -103,10 +103,10 @@ This transition is done in line with the announcement of retirement of Azure bas
          1. Create a new NAT gateway and a new network security group or use the existing ones.
          
             > [!NOTE]
-          > You could associate an existing NAT gateway and NSG or use the newly created ones.
-          > Follow this document [Quickstart: Create a NAT gateway - Azure portal](/azure/nat-gateway/quickstart-create-nat-gateway-portal), and [Create, change, or delete an Azure network security group](/azure/virtual-network/manage-network-security-group?tabs=network-security-group-portal#create-a-network-security-group) to create a new NAT gateway and a new network security group.
-          > 
-          > You can refer to this document [Control network traffic in Azure HDInsight](./control-network-traffic.md#hdinsight-with-network-security-groups) to set up correct NSG rules.
+            > You could associate an existing NAT gateway and NSG or use the newly created ones.
+            > Follow this document [Quickstart: Create a NAT gateway - Azure portal](/azure/nat-gateway/quickstart-create-nat-gateway-portal), and [Create, change, or delete an Azure network security group](/azure/virtual-network/manage-network-security-group?tabs=network-security-group-portal#create-a-network-security-group) to create a new NAT gateway and a new network security group.
+            > 
+            > You can refer to this document [Control network traffic in Azure HDInsight](./control-network-traffic.md#hdinsight-with-network-security-groups) to set up correct NSG rules.
            
           1. Associate the subnet with the NAT gateway and network security group.
 
