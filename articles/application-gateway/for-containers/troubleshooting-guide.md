@@ -3,8 +3,7 @@ title: Troubleshoot Application Gateway for Containers
 description: Learn how to troubleshoot common issues with Application Gateway for Containers.
 services: application-gateway
 author: greglin
-ms.service: azure-application-gateway
-ms.subservice: appgw-for-containers
+ms.service: azure-appgw-for-containers
 ms.topic: troubleshooting
 ms.date: 9/16/2024
 ms.author: greglin
