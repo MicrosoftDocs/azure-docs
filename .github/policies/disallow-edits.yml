@@ -119,7 +119,7 @@ configuration:
         then:
           - addReply:
               reply: >-
-                @${issueAuthor} - You are adding content to a folder path that has been removed from this repository. 
+                @${issueAuthor} - You tried to add content to a folder path that has been removed from this repository. Your pull request will be automatically closed. Submit your changes to the updated repository, which can be identified by clicking the Edit this Document link at the top of any published article for that product or service. 
           - if:
               - or:
                   - activitySenderHasPermission:
