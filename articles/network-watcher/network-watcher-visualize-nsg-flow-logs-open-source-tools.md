@@ -3,13 +3,15 @@ title: Visualize NSG flow logs - Elastic Stack
 titleSuffix: Azure Network Watcher
 description: Manage and analyze network security group Flow Logs in Azure using Network Watcher and Elastic Stack.
 author: halkazwini
+ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 07/30/2024
-ms.author: halkazwini
+ms.date: 09/26/2024
 ---
 
 # Visualize Azure Network Watcher NSG flow logs using open source tools
+
+[!INCLUDE [NSG flow logs retirement](../../includes/network-watcher-nsg-flow-logs-retirement.md)]
 
 Network security group flow logs provide information that can be used understand ingress and egress IP traffic on network security groups. These flow logs show outbound and inbound flows on a per rule basis, the NIC the flow applies to, 5-tuple information about the flow (Source/Destination IP, Source/Destination Port, Protocol), and if the traffic was allowed or denied.
 

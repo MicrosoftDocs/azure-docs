@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 04/25/2024
+ms.date: 09/20/2024
 ms.custom: generated
 ---
 
@@ -134,7 +134,7 @@ Gives user permission to view and download debug snapshots collected with the Ap
 
 ## Grafana Admin
 
-Perform all Grafana operations, including the ability to manage data sources, create dashboards, and manage role assignments within Grafana.
+Manage server-wide settings and manage access to resources such as organizations, users, and licenses.
 
 [Learn more](/azure/managed-grafana/concept-role-based-access-control)
 
@@ -154,7 +154,7 @@ Perform all Grafana operations, including the ability to manage data sources, cr
   "assignableScopes": [
     "/"
   ],
-  "description": "Built-in Grafana admin role",
+  "description": "Manage server-wide settings and manage access to resources such as organizations, users, and licenses.",
   "id": "/providers/Microsoft.Authorization/roleDefinitions/22926164-76b3-42b3-bc55-97df8dab3e41",
   "name": "22926164-76b3-42b3-bc55-97df8dab3e41",
   "permissions": [
@@ -175,7 +175,7 @@ Perform all Grafana operations, including the ability to manage data sources, cr
 
 ## Grafana Editor
 
-View and edit a Grafana instance, including its dashboards and alerts.
+Create, edit, delete, or view dashboards; create, edit, or delete folders; and edit or view playlists.
 
 [Learn more](/azure/managed-grafana/concept-role-based-access-control)
 
@@ -195,7 +195,7 @@ View and edit a Grafana instance, including its dashboards and alerts.
   "assignableScopes": [
     "/"
   ],
-  "description": "Built-in Grafana Editor role",
+  "description": "Create, edit, delete, or view dashboards; create, edit, or delete folders; and edit or view playlists.",
   "id": "/providers/Microsoft.Authorization/roleDefinitions/a79a5197-3a5c-4973-a920-486035ffd60f",
   "name": "a79a5197-3a5c-4973-a920-486035ffd60f",
   "permissions": [
@@ -216,7 +216,7 @@ View and edit a Grafana instance, including its dashboards and alerts.
 
 ## Grafana Limited Viewer
 
-View a Grafana home page.
+View home page.
 
 [Learn more](/azure/managed-grafana/concept-role-based-access-control)
 
@@ -233,30 +233,31 @@ View a Grafana home page.
 
 ```json
 {
-    "id": "/providers/Microsoft.Authorization/roleDefinitions/41e04612-9dac-4699-a02b-c82ff2cc3fb5",
-    "properties": {
-        "roleName": "Grafana Limited Viewer",
-        "description": "View home page.",
-        "assignableScopes": [
-            "/"
-        ],
-        "permissions": [
-            {
-                "actions": [],
-                "notActions": [],
-                "dataActions": [
-                    "Microsoft.Dashboard/grafana/ActAsGrafanaLimitedViewer/action"
-                ],
-                "notDataActions": []
-            }
-        ]
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "View home page.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/41e04612-9dac-4699-a02b-c82ff2cc3fb5",
+  "name": "41e04612-9dac-4699-a02b-c82ff2cc3fb5",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Dashboard/grafana/ActAsGrafanaLimitedViewer/action"
+      ],
+      "notDataActions": []
     }
+  ],
+  "roleName": "Grafana Limited Viewer",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
 }
 ```
 
 ## Grafana Viewer
 
-View a Grafana instance, including its dashboards and alerts.
+View dashboards, playlists, and query data sources.
 
 [Learn more](/azure/managed-grafana/concept-role-based-access-control)
 
@@ -276,7 +277,7 @@ View a Grafana instance, including its dashboards and alerts.
   "assignableScopes": [
     "/"
   ],
-  "description": "Built-in Grafana Viewer role",
+  "description": "View dashboards, playlists, and query data sources.",
   "id": "/providers/Microsoft.Authorization/roleDefinitions/60921a7e-fef1-4a43-9b16-a26c52ad4769",
   "name": "60921a7e-fef1-4a43-9b16-a26c52ad4769",
   "permissions": [
@@ -329,6 +330,7 @@ Can read all monitoring data and edit monitoring settings. See also [Get started
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/workbooktemplates/* |  |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/privateLinkScopes/* |  |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/privateLinkScopeOperationStatuses/* |  |
+> | [Microsoft.Monitor](../permissions/monitor.md#microsoftmonitor)/accounts/* |  |
 > | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/write | Creates a new workspace or links to an existing workspace by providing the customer id from the existing workspace. |
 > | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/intelligencepacks/* | Read/write/delete log analytics solution packs. |
 > | [Microsoft.OperationalInsights](../permissions/monitor.md#microsoftoperationalinsights)/workspaces/savedSearches/* | Read/write/delete log analytics saved searches. |
@@ -341,6 +343,7 @@ Can read all monitoring data and edit monitoring settings. See also [Get started
 > | [Microsoft.AlertsManagement](../permissions/monitor.md#microsoftalertsmanagement)/smartGroups/* |  |
 > | [Microsoft.AlertsManagement](../permissions/monitor.md#microsoftalertsmanagement)/migrateFromSmartDetection/* |  |
 > | [Microsoft.AlertsManagement](../permissions/monitor.md#microsoftalertsmanagement)/investigations/* |  |
+> | [Microsoft.AlertsManagement](../permissions/monitor.md#microsoftalertsmanagement)/prometheusRuleGroups/* |  |
 > | [Microsoft.Monitor](../permissions/monitor.md#microsoftmonitor)/investigations/* |  |
 > | **NotActions** |  |
 > | *none* |  |
@@ -385,6 +388,7 @@ Can read all monitoring data and edit monitoring settings. See also [Get started
         "Microsoft.Insights/workbooktemplates/*",
         "Microsoft.Insights/privateLinkScopes/*",
         "Microsoft.Insights/privateLinkScopeOperationStatuses/*",
+        "Microsoft.Monitor/accounts/*",
         "Microsoft.OperationalInsights/workspaces/write",
         "Microsoft.OperationalInsights/workspaces/intelligencepacks/*",
         "Microsoft.OperationalInsights/workspaces/savedSearches/*",
@@ -397,6 +401,7 @@ Can read all monitoring data and edit monitoring settings. See also [Get started
         "Microsoft.AlertsManagement/smartGroups/*",
         "Microsoft.AlertsManagement/migrateFromSmartDetection/*",
         "Microsoft.AlertsManagement/investigations/*",
+        "Microsoft.AlertsManagement/prometheusRuleGroups/*",
         "Microsoft.Monitor/investigations/*"
       ],
       "notActions": [],

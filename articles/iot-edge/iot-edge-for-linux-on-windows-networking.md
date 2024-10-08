@@ -83,8 +83,6 @@ It's possible to configure the EFLOW virtual machine to use a specific DNS serve
 
 To check the DNS servers assigned to the EFLOW VM, from inside the EFLOW VM, use the command: `resolvectl status`. The command's output shows a list of the DNS servers configured for each interface. In particular, it's important to check the *eth0* interface status, which is the default interface for the EFLOW VM communication. Also, make sure to check the IP addresses of the **Current DNS Server**s and **DNS Servers** fields of the list. If there's no IP address, or the IP address isn't a valid DNS server IP address, then the DNS service won't work.
 
-![Screenshot of console showing sample output from resolvectl command.](./media/iot-edge-for-linux-on-windows-networking/resolvctl-status.png)
-
 ### Static MAC Address
 Hyper-V allows you to create virtual machines with a **static** or **dynamic** MAC address. During EFLOW virtual machine creation, the MAC address is randomly generated and stored locally to keep the same MAC address across virtual machine or Windows host reboots.  To query the EFLOW virtual machine MAC address, you can use the following command.
 

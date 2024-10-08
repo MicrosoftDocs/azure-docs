@@ -13,9 +13,6 @@ ms.custom: vmware-scenario-422, engagement-fy23, linux-related-content
 
 This article provides an overview of the changes performed when you [migrate VMware VMs to Azure via the agentless migration](./tutorial-migrate-vmware.md) method using the Migration and modernization tool.
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
-
 Before you migrate your on-premises VM to Azure, you may require a few changes to make the VM ready for Azure. These changes are important to ensure that the migrated VM can boot successfully in Azure and connectivity to the Azure VM can be established-.
 Azure Migrate automatically handles these configuration changes for the following operating system versions for both Linux and Windows. This process is called *Hydration*.
 
@@ -159,7 +156,7 @@ The preparation script executes the following changes based on the OS type of th
 
    Once the root partition is discovered, the script will use the following files to determine the Linux Operating System distribution and version.
 
-   - RHEL/CentOS: etc/redhat-release
+   - RHEL: etc/redhat-release
    - OL: etc/oracle-release
    - SLES: etc/SuSE-release
    - Ubuntu: etc/lsb-release

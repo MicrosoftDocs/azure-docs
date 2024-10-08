@@ -563,6 +563,9 @@
       - name: Use stable VM image
         displayName: linter
         href: linter-rule-use-stable-vm-image.md
+      - name: What-if short-circuiting
+        displayName: linter
+        href: linter-rule-what-if-short-circuiting.md
   - name: Deploy
     items:
     - name: What-if check
@@ -608,6 +611,10 @@
     items:
     - name: All codes
       href: bicep-core-diagnostics.md
+    - name: BCP007
+      href: diagnostics/bcp007.md
+    - name: BCP009
+      href: diagnostics/bcp009.md
     - name: BCP018
       href: diagnostics/bcp018.md
     - name: BCP033
@@ -630,6 +637,10 @@
       href: diagnostics/bcp057.md
     - name: BCP062
       href: diagnostics/bcp062.md
+    - name: BCP063
+      href: diagnostics/bcp063.md
+    - name: BCP071
+      href: diagnostics/bcp071.md
     - name: BCP072
       href: diagnostics/bcp072.md
     - name: BCP073
@@ -638,20 +649,54 @@
       href: diagnostics/bcp077.md
     - name: BCP078
       href: diagnostics/bcp078.md
+    - name: BCP082
+      href: diagnostics/bcp082.md
     - name: BCP083
       href: diagnostics/bcp083.md
     - name: BCP088
       href: diagnostics/bcp088.md
     - name: BCP089
       href: diagnostics/bcp089.md
+    - name: BCP124
+      href: diagnostics/bcp124.md
+    - name: BCP125
+      href: diagnostics/bcp125.md
+    - name: BCP126
+      href: diagnostics/bcp126.md
+    - name: BCP127
+      href: diagnostics/bcp127.md
+    - name: BCP128
+      href: diagnostics/bcp128.md
+    - name: BCP129
+      href: diagnostics/bcp129.md
+    - name: BCP132
+      href: diagnostics/bcp132.md
+    - name: BCP139
+      href: diagnostics/bcp139.md
+    - name: BCP147
+      href: diagnostics/bcp147.md
+    - name: BCP152
+      href: diagnostics/bcp152.md
+    - name: BCP153
+      href: diagnostics/bcp153.md
+    - name: BCP166
+      href: diagnostics/bcp166.md
     - name: BCP192
       href: diagnostics/bcp192.md
+    - name: BCP266
+      href: diagnostics/bcp266.md
     - name: BCP288
       href: diagnostics/bcp288.md
+    - name: BCP290
+      href: diagnostics/bcp290.md
+    - name: BCP292
+      href: diagnostics/bcp292.md
     - name: BCP294
       href: diagnostics/bcp294.md
     - name: BCP302
       href: diagnostics/bcp302.md
+    - name: BCP311
+      href: diagnostics/bcp311.md
     - name: BCP327
       href: diagnostics/bcp327.md
     - name: BCP328

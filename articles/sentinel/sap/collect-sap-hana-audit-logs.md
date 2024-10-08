@@ -20,7 +20,7 @@ This article explains how to collect audit logs from your SAP HANA database.
 
 ## Prerequisites
 
-SAP HANA logs are sent over Syslog. Make sure that your AMA agent or your Log Analytics agent (legacy) is configured to collect Syslog files. For more information, see:
+SAP HANA logs are sent over Syslog. Make sure that your Azure Monitor Agent is configured to collect Syslog files. For more information, see:
 
 For more information, see [Ingest syslog and CEF messages to Microsoft Sentinel with the Azure Monitor Agent](../connect-cef-syslog-ama.md).
 
@@ -32,19 +32,13 @@ For more information, see [Ingest syslog and CEF messages to Microsoft Sentinel 
     - [Recommendations for Auditing](https://help.sap.com/viewer/742945a940f240f4a2a0e39f93d3e2d4/2.0.05/en-US/5c34ecd355e44aa9af3b3e6de4bbf5c1.html)
     - [SAP HANA Security Guide for SAP HANA Platform](https://help.sap.com/docs/SAP_HANA_PLATFORM/b3ee5778bc2e4a089d3299b82ec762a7/4f7cde1125084ea3b8206038530e96ce.html)
 
-2. Check your operating system Syslog files for any relevant HANA database events.
+1. Check your operating system Syslog files for any relevant HANA database events.
 
-3. Sign into your HANA database operating system as a user with sudo privileges.
+1. Sign into your HANA database operating system as a user with sudo privileges.
 
-4. Install an agent on your machine and confirm that your machine is connected. For more information, see:
+1. Install an agent on your machine and confirm that your machine is connected. For more information, see [Install and manage Azure Monitor Agent](/azure/azure-monitor/agents/azure-monitor-agent-manage?tabs=azure-portal).
 
-    - [Azure Monitor Agent](/azure/azure-monitor/agents/azure-monitor-agent-manage?tabs=azure-portal)
-    - [Log Analytics Agent](/azure/azure-monitor/agents/agent-linux) (legacy)
-
-5. Configure your agent to collect Syslog data. For more information, see:
-
-    - [Azure Monitor Agent](/azure/azure-monitor/agents/data-collection-syslog)
-    - [Log Analytics Agent](/azure/azure-monitor/agents/data-sources-syslog) (legacy)
+1. Configure your agent to collect Syslog data. For more information, see [Collect Syslog events with Azure Monitor Agent](/azure/azure-monitor/agents/data-collection-syslog).
 
     > [!TIP]
     > Because the facilities where HANA database events are saved can change between different distributions, we recommend that you add all facilities. Check them against your Syslog logs, and then remove any that aren't relevant.

@@ -6,7 +6,7 @@ metadata:
   author: greg-lindsay
   ms.service: azure-dns
   ms.topic: faq
-  ms.date: 11/30/2023
+  ms.date: 09/23/2024
   ms.author: greglin
 title: Azure Private DNS FAQ
 summary: The following are frequently asked questions about Azure private DNS.
@@ -91,7 +91,7 @@ sections:
       - question: |
           What are the usage limits for Azure DNS Private zones?
         answer: |
-          Refer to [Azure DNS limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-dns-limits) for details on the usage limits for Azure DNS private zones.
+          Refer to [Azure DNS limits](../azure-resource-manager/management/azure-subscription-service-limits.md#private-dns) for details on the usage limits for Azure DNS private zones.
           
       - question: |
           Why don’t my existing private DNS zones show up in new portal experience?

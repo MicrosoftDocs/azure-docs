@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 02/23/2024
+ms.date: 09/04/2024
 ---
 
 # Copy and transform data in Microsoft Fabric Warehouse using Azure Data Factory or Azure Synapse Analytics
@@ -23,6 +23,7 @@ This Microsoft Fabric Warehouse connector is supported for the following capabil
 | Supported capabilities|IR | Managed private endpoint|
 |---------| --------| --------|
 |[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;|✓ |
+|[Mapping data flow](concepts-data-flow-overview.md) (source/sink)|&#9312; |✓ |
 |[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|✓ |
 |[GetMetadata activity](control-flow-get-metadata-activity.md)|&#9312; &#9313;|✓ |
 |[Script activity](transform-data-using-script.md)|&#9312; &#9313;|✓ |
@@ -512,6 +513,47 @@ To use this feature, create an [Azure Blob Storage linked service](connector-azu
     }
 ]
 ```
+
+## Mapping data flow properties
+
+When transforming data in mapping data flow, you can read and write to tables from Microsoft Fabric Warehouse. 
+For more information, see the [source transformation](data-flow-source.md) and [sink transformation](data-flow-sink.md) in mapping data flows.
+
+### Microsoft Fabric Warehouse as the source
+Settings specific to Microsoft Fabric Warehouse are available in the Source Options tab of the source transformation.
+
+| Name                     | Description                                                  | Required | Allowed Values | Data flow script property |
+| :--------------------------- | :----------------------------------------------------------- | :------- |:-------------------- |:------- |
+| Input                          | Select whether you point your source at a table (equivalent of Select * from tablename) or enter a custom SQL query or retrieve data from a Stored Procedure. Query: If you select Query in the input field, enter a SQL query for your source. This setting overrides any table that you've chosen in the dataset. **Order By** clauses aren't supported here, but you can set a full SELECT FROM statement. You can also use user-defined table functions. **select * from udfGetData()** is a UDF in SQL that returns a table. This query will produce a source table that you can use in your data flow. Using queries is also a great way to reduce rows for testing or for lookups.SQL Example: ```Select * from MyTable where customerId > 1000 and customerId < 2000``` | Yes      | Table or Query or Stored Procedure    | format: 'table' |
+| Batch size               | Enter a batch size to chunk large data into reads. In data flows, this setting will be used to set Spark columnar caching. This is an option field, which will use Spark defaults if it is left blank. | No       | Numeral values | batchSize: 1234|
+| Isolation Level          | The default for SQL sources in mapping data flow is read uncommitted. You can change the isolation level here to one of these values:•	Read Committed  • Read Uncommitted • Repeatable Read • Serializable • None (ignore isolation level) | Yes       | •	Read Committed  • Read Uncommitted • Repeatable Read • Serializable • None (ignore isolation level) | isolationLevel|
+
+>[!NOTE]
+>Read via staging is not supported. CDC support for Microsoft Fabric Warehouse source is currently not available.
+
+### Microsoft Fabric Warehouse as the sink
+Settings specific to Microsoft Fabric Warehouse are available in the Settings tab of the sink transformation.
+
+| Name                     | Description                                                  | Required | Allowed Values | Data flow script property |
+| :--------------------------- | :----------------------------------------------------------- | :------- |:-------------------- |:------- |
+| Update method                         | Determines what operations are allowed on your database destination. The default is to only allow inserts. To update, upsert, or delete rows, an alter-row transformation is required to tag rows for those actions. For updates, upserts and deletes, a key column or columns must be set to determine which row to alter. | Yes      | true or false    | insertable deletable upsertable updateable |
+| Table action              | Determines whether to recreate or remove all rows from the destination table prior to writing.• None: No action will be done to the table. • Recreate: The table will get dropped and recreated. Required if creating a new table dynamically.• Truncate: All rows from the target table will get removed. | No       | None or recreate or truncate | recreate: true truncate: true |
+| Enable staging          | The staging storage is configured in [Execute Data Flow activity](control-flow-execute-data-flow-activity.md). When you use managed identity authentication for your storage linked service, learn the needed configurations for [Azure Blob](connector-azure-blob-storage.md#managed-identity) and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) respectively.If your Azure Storage is configured with VNet service endpoint, you must use managed identity authentication with "allow trusted Microsoft service" enabled on storage account, refer to [Impact of using VNet Service Endpoints with Azure storage](/azure/azure-sql/database/vnet-service-endpoint-rule-overview#impact-of-using-virtual-network-service-endpoints-with-azure-storage).| No       | true or false |staged: true |
+| Batch size               | Controls how many rows are being written in each bucket. Larger batch sizes improve compression and memory optimization, but risk out of memory exceptions when caching data. | No       | Numeral values | batchSize: 1234|
+| Use sink schema             | By default, a temporary table will be created under the sink schema as staging. You can alternatively uncheck the **Use sink schema** option and instead, in **Select user DB schema**, specify a schema name under which Data Factory will create a staging table to load upstream data and automatically clean them up upon completion. Make sure you have create table permission in the database and alter permission on the schema. | No       | true or false | stagingSchemaName|
+| Pre and Post SQL scripts   | Enter multi-line SQL scripts that will execute before (pre-processing) and after (post-processing) data is written to your Sink database| No       | SQL scripts | preSQLs:['set IDENTITY_INSERT mytable ON'] postSQLs:['set IDENTITY_INSERT mytable OFF'],|
+
+### Error row handling
+By default, a data flow run will fail on the first error it gets. You can choose to Continue on error that allows your data flow to complete even if individual rows have errors. The service provides different options for you to handle these error rows.
+ 
+Transaction Commit: Choose whether your data gets written in a single transaction or in batches. Single transaction will provide better performance and no data written will be visible to others until the transaction completes. Batch transactions have worse performance but can work for large datasets.
+ 
+Output rejected data: If enabled, you can output the error rows into a csv file in Azure Blob Storage or an Azure Data Lake Storage Gen2 account of your choosing. This will write the error rows with three additional columns: the SQL operation like INSERT or UPDATE, the data flow error code, and the error message on the row.
+ 
+Report success on error: If enabled, the data flow will be marked as a success even if error rows are found.
+
+>[!NOTE]
+>For Microsoft Fabric Warehouse Linked Service, the supported authentication type for Service Principal is 'Key'; 'Certificate' authentication is not supported.
 
 ## Lookup activity properties
 

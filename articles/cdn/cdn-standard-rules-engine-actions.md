@@ -12,6 +12,8 @@ ms.author: duau
 
 # Actions in the Standard rules engine for Azure Content Delivery Network
 
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
+
 In the [Standard rules engine](cdn-standard-rules-engine.md) for Azure Content Delivery Network, a rule consists of one or more match conditions and an action. This article provides detailed descriptions of the actions you can use in the Standard rules engine for Azure Content Delivery Network.
 
 The second part of a rule is an action. An action defines the behavior that's applied to the request type that a match condition or set of match conditions identifies.

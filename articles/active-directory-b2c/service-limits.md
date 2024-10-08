@@ -5,11 +5,11 @@ description: Reference for service limits and restrictions for Azure Active Dire
 author: kengaderdus
 ms.author: kengaderdus
 manager: CelesteDG
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: reference
 ms.date: 05/11/2024
-ms.subservice: B2C
+ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
 
 

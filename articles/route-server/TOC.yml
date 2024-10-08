@@ -6,14 +6,14 @@
     href: overview.md
 - name: Quickstarts
   items:
-  - name: Configure a Route Server - Portal
-    href: quickstart-configure-route-server-portal.md
-  - name: Configure a Route Server - PowerShell
-    href: quickstart-configure-route-server-powershell.md
-  - name: Configure a Route Server - CLI
-    href: quickstart-configure-route-server-cli.md
-  - name: Configure a Route Server - ARM template
-    href: quickstart-configure-template.md
+  - name: Create a Route Server - Portal
+    href: quickstart-create-route-server-portal.md
+  - name: Create a Route Server - PowerShell
+    href: quickstart-create-route-server-powershell.md
+  - name: Create a Route Server - CLI
+    href: quickstart-create-route-server-cli.md
+  - name: Create a Route Server - ARM template
+    href: quickstart-create-route-server-template.md
   expanded: true
 - name: Tutorials
   items:
