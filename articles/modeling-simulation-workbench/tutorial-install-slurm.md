@@ -75,6 +75,7 @@ Slurm installation is performed from the controller node.
 1. Navigate to the connector. From the **Settings** menu of the chamber, select **Connector**. Select the sole connector that appears in the resource list.
     :::image type="content" source="media/tutorial-slurm/connector-overview.png" alt-text="Screenshot of connector overview page with Connector in Settings and the target connector highlighted with a red rectangle.":::
 1. From the connector page, select the **Desktop dashboard** URL.
+    :::image type="content" source="media/tutorial-slurm/connector-desktop-dashboard-url.png" alt-text="Screenshot of connector overview page with desktop dashboard URL highlighted in red rectangle.":::
 1. The desktop dashboard opens. Select your controller VM.
 
 ## Create an inventory of VMs
