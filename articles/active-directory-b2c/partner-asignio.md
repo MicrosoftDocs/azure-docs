@@ -4,12 +4,12 @@ titleSuffix: Azure AD B2C
 description: Learn how to configure Azure Active Directory B2C with Asignio for multifactor authentication
 author: gargi-sinha
 manager: martinco
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: how-to
-ms.date: 10/03/2024
+ms.date: 10/11/2024
 ms.author: gasinh
 ms.reviewer: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
 
 # Customer intent: As a developer integrating Asignio with Azure AD B2C for multifactor authentication. I want to configure an application with Asignio and set it up as an identity provider (IdP) in Azure AD B2C, so I can provide a passwordless, soft biometric, and multifactor authentication experience to customers.
@@ -95,12 +95,10 @@ Learn more: [Application types that can be used in Active Directory B2C](applica
 
 For this tutorial, you're registering  `https://jwt.ms`, a Microsoft web application with decoded token contents that don't leave your browser.
 
-### Register a web application and enable ID token implicit grant
+### Register a web application
 
-Complete [Tutorial: Register a web application in Azure Active Directory B2C](tutorial-register-applications.md?tabs=app-reg-ga)
+Complete the steps in [Tutorial: Register a web application in Azure Active Directory B2C](tutorial-register-applications.md?tabs=app-reg-ga) article.
 
->[!NOTE]
->Enable implicit flow only for testing purposes. Don’t enable implicit flow in production.
 
 ## Configure Asignio as an identity provider in Azure AD B2C
 
