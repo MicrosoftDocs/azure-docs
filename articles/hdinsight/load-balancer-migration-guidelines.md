@@ -60,7 +60,7 @@ This transition is done in line with the announcement of retirement of Azure bas
 
      **Approach 2: Use the existing subnet**
 
-      * To upgrade your existing custom virtual network to integrate with Azure standard load balancer (which HDInsight clusters use by default now), see, [Use Source Network Address Translation (SNAT) for outbound connections](/azure/load-balancer/load-balancer-outbound-connections) to provide outbound connectivity for the cluster. 
+      To upgrade your existing custom virtual network to integrate with Azure standard load balancer (which HDInsight clusters use by default now), see, [Use Source Network Address Translation (SNAT) for outbound connections](/azure/load-balancer/load-balancer-outbound-connections) to provide outbound connectivity for the cluster. 
 
       The most recommended way is to attach a network security group and a NAT gateway to the subnet. Since the existing subnet which has HDInsight clusters with Azure basic load balancers can't be associated with an NAT gateway due to incompatibility with basic load balancer, there are two scenarios:
 
@@ -90,6 +90,7 @@ This transition is done in line with the announcement of retirement of Azure bas
             #### Case 2: Existing subnet has HDInsight clusters with Azure Basic load balancers
             
             Consider one of these methods:
+
 
             * **Approach 1:** The most recommended way is to associate a NAT gateway to the subnet along with network security group.
 
