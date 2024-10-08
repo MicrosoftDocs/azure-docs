@@ -1,13 +1,13 @@
 ---
 title: Create Standard logic apps for hybrid deployment
-description: Create and deploy an example Standard logic app workflow on your own managed infrastructure, including on-premises, private cloud, and public cloud environments.
+description: Create and deploy an example Standard logic app workflow on your own managed infrastructure, which can include on-premises, private cloud, and public cloud environments.
 services: azure-logic-apps
 ms.service: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 10/14/2024
-# Customer intent: As a developer, I want to create a Standard workflow that can run in a customer-managed environment and that can include on-premises systems, private clouds, and public clouds.
+# Customer intent: As a developer, I want to create a Standard logic app workflow that can run on customer-managed infrastructure, which can include on-premises systems, private clouds, and public clouds.
 ---
 
 # Create Standard logic app workflows for hybrid deployment on your own infrastructure (Preview)
@@ -18,32 +18,17 @@ ms.date: 10/14/2024
 > This capability is in preview and is subject to the
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-For scenarios where you need to use, control, and manage your own infrastructure, you can create Standard logic apps workflows for hybrid deployment using Azure Logic Apps. Your infrastructure can include on-premises systems, private clouds, and public clouds. In the hybrid deployment model, your Standard logic app workflow is powered by the Azure Logic Apps runtime that is hosted on premises as an Azure Container Apps extension. This hybrid deployment model provides the capabilities for you to build and host integration solutions for partially connected scenarios that require local processing, storage, and network access.
+For scenarios where you need to use, control, and manage your own infrastructure, you can create Standard logic app workflows using the hybrid deployment model in Azure Logic Apps. This model provides capabilities for you to build and host integration solutions for partially connected environments that require local processing, storage, and network access. Your infrastructure can include on-premises systems, private clouds, and public clouds. With the hybrid model, your Standard logic app workflow is powered by the Azure Logic Apps runtime that is hosted on premises as an Azure Container Apps extension. 
 
-The following architectural overview shows where Standard logic apps and their workflows are hosted and run in the hybrid deployment model. The partially connected environment includes the following resources for hosting and working with your Standard logic apps, which deploy as Azure Container Apps resources:
+For an architectural overview that shows where Standard logic app workflows are hosted and run in a partially connected environment, see [Set up infrastructure requirements for hybrid deployment for Standard logic apps](set-up-standard-workflows-hybrid-deployment-requirements.md).
 
-- Either Azure Arc-enabled Kubernetes clusters or Azure Arc-enabled Kubernetes clusters on Azure Stack *hyperconverged infrastructure* (HCI)
-- A SQL database to locally store workflow run history, inputs, and outputs for processing
-- A Server Message Block (SMB) file share to locally store artifacts used by your workflows
-
-:::image type="content" source="media/create-standard-workflows-hybrid-deployment/architecture-overview.png" alt-text="Diagram with architectural overview for where Standard logic apps are hosted in a partially connected environment." border="false":::
-
-This how-to guide shows you how to create and deploy a Standard logic app workflow using the hybrid deployment model after you set up the necessary on-premises resources to host your app.
-
-For more information, see the following documentation:
-
-- [What is Azure Kubernetes Service?](/azure/aks/what-is-aks)
-- [Azure Arc-enabled Azure Kubernetes Service (AKS) clusters](/azure/azure-arc/kubernetes/overview)
-- [Azure Arc-enabled Kubernetes clusters on Azure Stack hyperconverged infrastructure (HCI)](/azure-stack/hci/overview)
-- [What is Azure Container Apps?](../container-apps/overview.md)
-- [Azure Container Apps on Azure Arc](../container-apps/azure-arc-overview.md)
-- [Custom locations on Azure Arc-enabled AKS](/azure/azure-arc/platform/conceptual-custom-locations)
+This how-to guide shows how to create and deploy a Standard logic app workflow using the hybrid deployment model after you set up the necessary on-premises resources for hosting your app.
 
 ## Limitations
 
-- Hybrid deployment for Standard logic apps is currently available and supported only for [Azure Arc-enabled Azure Kubernetes Service (AKS) clusters](/azure/azure-arc/kubernetes/overview) and [Azure Arc-enabled Kubernetes clusters on Azure Stack hyperconverged infrastructure (HCI)](/azure-stack/hci/overview).
+- Hybrid deployment is currently available and supported only for [Azure Arc-enabled Azure Kubernetes Service (AKS) clusters](/azure/azure-arc/kubernetes/overview) and [Azure Arc-enabled Kubernetes clusters on Azure Stack hyperconverged infrastructure (HCI)](/azure-stack/hci/overview).
 
-- Hybrid deployment for Standard logic apps is available and supported only in the [same regions as Azure Container Apps on Azure Arc-enabled AKS](../container-apps/azure-arc-overview.md#public-preview-limitations).
+- Hybrid deployment is available and supported only in the [same regions as Azure Container Apps on Azure Arc-enabled AKS](../container-apps/azure-arc-overview.md#public-preview-limitations).
 
 - The following capabilities currently aren't available in this preview release:
 
@@ -68,21 +53,21 @@ For more information, see the following documentation:
 
 - An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- Visual Studio Code, Azure Logic Apps (Standard) extension for Visual Studio Code, and [related prerequisites](create-single-tenant-workflows-visual-studio-code.md#prerequisites).
+- The following on-premises resources, which must all exist within the same network for the required connectivity:
+
+  - An Azure Kubernetes Service cluster that's connected to Azure Arc
+  - A SQL database to locally store workflow run history, inputs, and outputs for processing
+  - A Server Message Block (SMB) file share to locally store artifacts used by your workflows
+
+  To meet these requirements, [set up these on-premises resources to support hybrid deployment for Standard logic apps](set-up-standard-workflows-hybrid-deployment-requirements.md).
+
+- For Visual Studio Code, you need the Azure Logic Apps (Standard) extension for Visual Studio Code, and [set up the related prerequisites](create-single-tenant-workflows-visual-studio-code.md#prerequisites).
 
   > [!TIP]
   > 
   > If you have a new Visual Studio Code installation, confirm that you can locally run a 
   > basic Standard workflow before you try deploying to your own infrastructure. This test 
   > run helps isolate any errors that might exist in your Standard workflow project.
-
-- The following on-premises resources, which must all exist within the same network for the necessary connectivity:
-
-  - An Azure Kubernetes Service cluster that's connected to Azure Arc
-  - A SQL database to locally store workflow run history, inputs, and outputs for processing
-  - A Server Message Block (SMB) file share to locally store artifacts used by your workflows
-
-  To meet these requirements, [set up these resources required by hybrid deployment model for Standard logic apps](set-up-standard-workflows-hybrid-deployment-requirements.md).
 
 ## Create your Standard logic app in the Azure portal
 

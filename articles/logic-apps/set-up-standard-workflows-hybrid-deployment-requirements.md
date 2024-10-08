@@ -1,18 +1,39 @@
 ---
-title: Set up requirements for deploying Standard logic apps to your infrastructure
-description: Set up the prerequisites for deploying Standard logic app workflows that use the hybrid deployment model to your own managed infrastructure.
+title: Set up your own infrastructure for Standard workflows
+description: Set up the requirements for your own managed infrastructure to deploy and host Standard logic app workflows using the hybrid deployment model.
 services: azure-logic-apps
 ms.service: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 10/14/2024
-# Customer intent: As a developer, I need to set up the environment where I can deploy Standard logic app workflows to my own infrastructure, which can include on-premises systems, private clouds, and public clouds.
+# Customer intent: As a developer, I need to set up the requirements to host and run Standard logic app workflows on infrastructure that my organization owns, which can include on-premises systems, private clouds, and public clouds.
 ---
 
-# Set up requirements for Standard logic app deployment on your own infrastructure (Preview)
+# Set up your own infrastructure for Standard logic apps using hybrid deployment (Preview)
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
+
+Azure Logic Apps supports scenarios where you need to use your own managed infrastructure to deploy and host Standard logic app workflows by offering a hybrid deployment model. This model provides the capabilities for hosting integration solutions in partially connected environments that require local processing, storage, and network access. Standard logic app workflows are powered by the Azure Logic Apps runtime that is hosted on premises as an Azure Container Apps extension.
+
+The following architectural overview shows where Standard logic app workflows are hosted and run in the hybrid model. The partially connected environment includes the following resources for hosting and working with your Standard logic apps, which deploy as Azure Container Apps resources:
+
+- Either Azure Arc-enabled Kubernetes clusters or Azure Arc-enabled Kubernetes clusters on Azure Stack *hyperconverged infrastructure* (HCI)
+- A SQL database to locally store workflow run history, inputs, and outputs for processing
+- A Server Message Block (SMB) file share to locally store artifacts used by your workflows
+
+:::image type="content" source="media/set-up-standard-workflows-hybrid-deployment-requirements/architecture-overview.png" alt-text="Diagram with architectural overview for where Standard logic apps are hosted in a partially connected environment." border="false":::
+
+For more information, see the following documentation:
+
+- [What is Azure Kubernetes Service?](/azure/aks/what-is-aks)
+- [Azure Arc-enabled Azure Kubernetes Service (AKS) clusters](/azure/azure-arc/kubernetes/overview)
+- [Azure Arc-enabled Kubernetes clusters on Azure Stack hyperconverged infrastructure (HCI)](/azure-stack/hci/overview)
+- [What is Azure Container Apps?](../container-apps/overview.md)
+- [Azure Container Apps on Azure Arc](../container-apps/azure-arc-overview.md)
+- [Custom locations on Azure Arc-enabled AKS](/azure/azure-arc/platform/conceptual-custom-locations)
+
+This how-to guide shows how to set up the necessary on-premises resources in your infrastructure so that you can create, deploy, and host a Standard logic app workflow using the hybrid deployment model.
 
 ## Create an Azure Arc-enabled Kubernetes cluster
 
@@ -94,7 +115,7 @@ For more information about AKS on Azure Stack HCI options, see [Overview of AKS 
 
 ## Create SQL Server storage provider
 
-Standard logic app workflows in the hybrid deployent model use a SQL database as the storage provider for the data used by workflows and the Azure Logic Apps runtime, for example, workflow run history, inputs, outputs, and so on. 
+Standard logic app workflows in the hybrid deployment model use a SQL database as the storage provider for the data used by workflows and the Azure Logic Apps runtime, for example, workflow run history, inputs, outputs, and so on. 
 
 Your SQL database requires inbound and outbound connectivity with your AKS cluster, so these resources must exist in the same network.
 
