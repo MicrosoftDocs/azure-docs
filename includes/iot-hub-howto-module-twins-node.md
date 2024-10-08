@@ -242,7 +242,7 @@ You can set up a listener for a single property change. In this example, the cod
 
 #### Complete example
 
-This example encapsulates the principles of this section, including callback function nesting.
+This example encapsulates the principles of this section, including multi-level callback function nesting.
 
 ```javascript
 var Client = require('azure-iot-device').Client;

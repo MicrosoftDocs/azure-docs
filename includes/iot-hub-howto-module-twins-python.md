@@ -138,7 +138,7 @@ The `twin_patch_handler` receives and prints JSON desired property updates.
 
 ### SDK device samples
 
-The Azure IoT SDK for Python includes the following samples:
+The Azure IoT SDK for Python provides a working sample of a device apps that handle device identity module twin tasks:
 
 * [get_twin](https://github.com/Azure/azure-iot-sdk-python/blob/main/samples/async-hub-scenarios/get_twin.py) - Connect to a device and retrieve twin information.
 * [update_twin_reported_properties](https://github.com/Azure/azure-iot-sdk-python/blob/main/samples/async-hub-scenarios/update_twin_reported_properties.py) - Update twin reported properties.
@@ -216,4 +216,4 @@ except KeyboardInterrupt:
 
 ### SDK service sample
 
-The Azure IoT SDK for Python provides a working sample of a service app that handles device twin tasks. For more information, see  [Test IoTHub Registry Manager](https://github.com/Azure/azure-iot-hub-python/blob/8c8f315e8b26c65c5517541a7838a20ef8ae668b/tests/test_iothub_registry_manager.py).
+The Azure IoT SDK for Python provides a working sample of a service app that handles device identity module twin tasks. For more information, see  [Test IoTHub Registry Manager](https://github.com/Azure/azure-iot-hub-python/blob/8c8f315e8b26c65c5517541a7838a20ef8ae668b/tests/test_iothub_registry_manager.py).
