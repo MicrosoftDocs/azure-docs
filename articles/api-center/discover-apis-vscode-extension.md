@@ -4,7 +4,7 @@ description: API developers can use the Azure API Center extension for Visual St
 author: dlepow
 ms.service: azure-api-center
 ms.topic: how-to
-ms.date: 10/02/2024
+ms.date: 10/08/2024
 ms.author: danlep 
 ms.custom: 
 # Customer intent: As an API developer, I want to use my Visual Studio Code environment to discover and consume APIs in my organizations API center.
