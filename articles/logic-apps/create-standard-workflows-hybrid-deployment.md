@@ -41,7 +41,9 @@ For more information, see the following documentation:
 
 ## Limitations
 
-- Hybrid deployment for Standard logic apps is only available and supported in the [same regions as Azure Container Apps on Azure Arc-enabled AKS](../container-apps/azure-arc-overview.md#public-preview-limitations).
+- Hybrid deployment for Standard logic apps is currently available and supported only for [Azure Arc-enabled Azure Kubernetes Service (AKS) clusters](/azure/azure-arc/kubernetes/overview) and [Azure Arc-enabled Kubernetes clusters on Azure Stack hyperconverged infrastructure (HCI)](/azure-stack/hci/overview).
+
+- Hybrid deployment for Standard logic apps is available and supported only in the [same regions as Azure Container Apps on Azure Arc-enabled AKS](../container-apps/azure-arc-overview.md#public-preview-limitations).
 
 - The following capabilities currently aren't available in this preview release:
 
@@ -111,7 +113,7 @@ After you meet the prerequisites, create your Standard logic app for hybrid depl
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
-   | **SQL connection string** | Yes | <*sql-server-connection-string*> | The SQL Server connection string that you previously saved. For more information, see [Create SQL Server storage provider](#create-storage-provider). |
+   | **SQL connection string** | Yes | <*sql-server-connection-string*> | The SQL Server connection string that you previously saved. For more information, see [Create SQL Server storage provider](set-up-standard-workflows-hybrid-deployment-requirements.md#create-storage-provider). |
    | **Host name** | Yes | <*file-share-host-name*> | The host name for your SMB file share. |
    | **File share path** | Yes | <*file-share-path*> | The file share path for your SMB file share. |
    | **User name** | Yes | <*file-share-user-name*> | The user name for your SMB file share. |
