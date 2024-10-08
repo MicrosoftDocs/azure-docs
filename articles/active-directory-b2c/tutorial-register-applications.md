@@ -4,11 +4,11 @@ titleSuffix: Azure AD B2C
 description: Follow this tutorial to learn how to register a web application in Azure Active Directory B2C using the Azure portal.
 author: garrodonnell
 manager: CelesteDG
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: tutorial
 ms.date: 11/13/2023
 ms.author: godonnell
-ms.subservice: B2C
+ms.subservice: b2c
 
 #Customer intent: As a developer or IT admin, I want to register my web application in Azure AD B2C so that I can enable my users to sign up, sign in, and manage their profiles.
 

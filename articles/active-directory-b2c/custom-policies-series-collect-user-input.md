@@ -6,14 +6,14 @@ description: Learn how to collect user inputs from a user and manipulate them by
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: how-to
 ms.custom: b2c-docs-improvements
 ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.reviewer: yoelh
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer using Azure Active Directory B2C, I want to collect and manipulate user inputs by writing a custom policy, so that I can customize the user interface and process the inputs as claims in a JWT token.

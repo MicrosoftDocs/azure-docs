@@ -5,12 +5,12 @@ description: Specify the ClaimsProvider element of a custom policy in Azure Acti
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: reference
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer integrating with Azure Active Directory B2C, I want to understand how claims providers work and how to configure their technical profiles, so that I can communicate with different parties and leverage their capabilities.
