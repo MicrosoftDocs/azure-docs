@@ -15,7 +15,7 @@ ms.custom:
 This article shows how to provide enterprise developers access to the Azure API Center platform API catalog (preview) in the Visual Studio Code extension for [Azure API Center](overview.md). Using the platform API catalog, developers can discover APIs in your Azure API center, view API definitions, and optionally generate API clients when they don't have access to manage the API center itself or add APIs to the inventory. Access to the platform API catalog is managed using Microsoft Entra ID and Azure role-based access control.
 
 > [!TIP]
-> API developers with access to manage an Azure API center can use additional Visual Studio Code extension features to [register](build-register-apis-vscode-extension.md), [govern](govern-apis-vscode-extension.md), and [discover](di) APIs. 
+> API developers with access to manage an Azure API center can use additional Visual Studio Code extension features to [register](build-register-apis-vscode-extension.md), [govern](govern-apis-vscode-extension.md), and [discover](discover-apis-vscode-extension.md) APIs. 
 
 ## Prerequisites
 

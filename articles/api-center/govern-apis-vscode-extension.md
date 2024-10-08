@@ -37,7 +37,7 @@ To ensure design conformance with organizational standards as you build APIs, th
 
 Once an active API style guide is set, opening any OpenAPI or AsyncAPI-based specification file triggers a local linting operation in Visual Studio Code. Results are displayed both inline in the editor and in the Problems window (**View** > **Problems** or **Ctrl+Shift+M**).
 
-:::image type="content" source="media/govern-apis-vscode-extension/local-linting.png" alt-text="Screenshot of local-linting in Visual Studio Code." lightbox="media/build-register-apis-vscode-extension/local-linting.png":::
+:::image type="content" source="media/govern-apis-vscode-extension/local-linting.png" alt-text="Screenshot of local-linting in Visual Studio Code." lightbox="media/govern-apis-vscode-extension/local-linting.png":::
 
 ## Breaking change detection
 
@@ -49,7 +49,7 @@ When introducing new versions of your API, it's important to ensure that changes
 
 Visual Studio Code opens a diff view between the two API specifications. Any breaking changes are displayed both inline in the editor and in the Problems window (**View** > **Problems** or **Ctrl+Shift+M**).
 
-:::image type="content" source="media/govern-apis-vscode-extension/breaking-changes.png" alt-text="Screenshot of breaking changes detected in Visual Studio Code." lightbox="media/build-register-apis-vscode-extension/breaking-changes.png":::
+:::image type="content" source="media/govern-apis-vscode-extension/breaking-changes.png" alt-text="Screenshot of breaking changes detected in Visual Studio Code." lightbox="media/govern-apis-vscode-extension/breaking-changes.png":::
 
 
 ## Related content
