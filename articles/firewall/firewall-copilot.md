@@ -53,7 +53,7 @@ For more information about writing effective Copilot for Security prompts, see [
 2.	Go to [Microsoft Copilot for Security](https://go.microsoft.com/fwlink/?linkid=2247989) and sign in with your credentials.
 1. In the prompt bar, select the **Sources** icon.
 
-       :::image type="content" source="media/firewall-copilot/copilot-prompts-bar-sources.png" alt-text="Screenshot of the prompt bar in Microsoft Copilot for Security with the Sources icon highlighted.":::
+  :::image type="content" source="media/firewall-copilot/copilot-prompts-bar-sources.png" alt-text="Screenshot of the prompt bar in Microsoft Copilot for Security with the Sources icon highlighted.":::
 
 
    In the **Manage sources** pop-up window that appears, confirm that the **Azure Firewall** toggle is turned on, then close the window. No additional configuration is necessary, as long as structured logs are being sent to a Log Analytics workspace and you have the right RBAC permissions, Copilot will find the data it needs to answer your questions.
