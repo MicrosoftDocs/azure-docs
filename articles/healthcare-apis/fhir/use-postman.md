@@ -87,7 +87,7 @@ After registering a new application, you can find the Application (client) ID an
 >Use  grant_type of client_credentials when trying to obtain an access token for the FHIR service using tools such as Postman or REST Client. 
 
 ## Assign FHIR Data Contributor role in Azure
-This section shows the steps to assign **FHIR Data Contruibutor** role to a registered application for the FHIR® service in Azure Health Data Services.
+This section shows the steps to assign **FHIR Data Contributor** role to a registered application for the FHIR® service in Azure Health Data Services.
 
 1. In the Azure portal, navigate to your FHIR service. 
 2. In the left-hand menu, select the **Access Control (IAM)** blade.Click on + Add and then select Add role assignment.If the option for adding a role assignment is unavailable, ask your Azure administrator to assign you permission to perform this step.
