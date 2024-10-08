@@ -1,0 +1,65 @@
+name: GitOps.PullRequestIssueManagement
+description: GitOps.PullRequestIssueManagement primitive
+resource: repository
+
+configuration:
+  resourceManagementConfiguration:
+    eventResponderTasks:
+      - description: Close PRs that contain content for services that have been migrated out of the azure-docs-pr repository.
+        if:
+          - payloadType: Pull_Request
+          - isAction:
+              action: Opened
+          - or:
+              - "includesModifiedFiles": {
+                   files: [
+                     "/articles/aks*",
+                    "/articles/defender-for-cloud*",
+                    "/articles/attestation*",
+                    "/articles/confidential-ledger*",
+                    "/articles/dedicated-hsm*",
+                    "/articles/key-vault*",
+                    "/articles/payment-hsm*",
+                    "/articles/postgresql*",
+                    "/articles/cosmos-db*",
+                    "/articles/dms*",
+                    "/articles/mariadb*",
+                    "/articles/mysql*",
+                    "/articles/managed-instance-apache-cassandra*",
+                    "/articles/virtual-machines*",
+                    "/articles/virtual-machines-scale-sets*",
+                    "/articles/container-instances*",
+                    "/articles/service-fabric*",
+                    "/articles/machine-learning*",
+                    "/articles/ai-studio*",
+                    "/articles/ai-services*",
+                    "/articles/genomics*",
+                    "/articles/open-datasets*",
+                    "/articles/search*",
+                    "/articles/azure-monitor*",
+                    "/articles/advisor*",
+                    "/articles/chaos-studio*",
+                    "/articles/service-health*",
+                    "/articles/azure-arc*",
+                    "/articles/azure-linux*",
+                    "/articles/azure-portal*",
+                    "/articles/copilot*",
+                    "/articles/lighthouse*",
+                    "/articles/quotas*",
+                     "/articles/container-registry*",
+                     "/articles/kubernetes-fleet*"
+              
+        then:
+          - addReply:
+              reply: >-
+                @${issueAuthor} - You are adding content to a folder path that has been removed from this repository. 
+          - if:
+              - or:
+                  - activitySenderHasPermission:
+                      permission: None
+                  - activitySenderHasPermission:
+                       permission: Read
+                  - activitySenderHasPermission:
+                       permission: Write
+            then:
+              - closePullRequest
