@@ -66,11 +66,11 @@ The following list details the gateway component properties you can configure fo
 | `spring.cloud.gateway.loadbalancer.use404` |   | `false` |  
 | `spring.cloud.gateway.discovery.locator.enabled` | Flag that enables DiscoveryClient gateway integration. | `false` |
 | `spring.cloud.gateway.discovery.locator.filters` |    |    |
-| `spring.cloud.gateway.discovery.locator.include-expression` | SpEL expression that will evaluate whether to include a service in gateway integration or not, defaults to: true. | `true` |
-| `spring.cloud.gateway.discovery.locator.lower-case-service-id` | Option to lower case serviceId in predicates and filters, defaults to false. Useful with eureka when it automatically uppercases serviceId. so MYSERIVCE, would match /myservice/** | `false` | 
+| `spring.cloud.gateway.discovery.locator.include-expression` | SpEL expression that evaluates whether to include a service in gateway integration or not, defaults to: true. | `true` |
+| `spring.cloud.gateway.discovery.locator.lower-case-service-id` | Option to lower case serviceId in predicates and filters, defaults to false. Useful with Eureka when it automatically uppercases serviceId. So MYSERIVCE, would match /myservice/** | `false` | 
 | `spring.cloud.gateway.discovery.locator.predicates` |    |    |
-| `spring.cloud.gateway.discovery.locator.route-id-prefix` | The prefix for the routeId, defaults to discoveryClient.getClass().getSimpleName() + "_". Service Id will be appended to create the routeId. |    |
-| `spring.cloud.gateway.discovery.locator.url-expression` | SpEL expression that create the uri for each route, defaults to: 'lb://'+serviceId. | `'lb://'+serviceId` |
+| `spring.cloud.gateway.discovery.locator.route-id-prefix` | The prefix for the routeId, defaults to discoveryClient.getClass().getSimpleName() + "_". Service ID is appended to create the routeId. |    |
+| `spring.cloud.gateway.discovery.locator.url-expression` | SpEL expression that creates the uri for each route, defaults to: 'lb://'+serviceId. | `'lb://'+serviceId` |
 | `spring.cloud.gateway.filter.add-request-header.enabled` | Enables the add-request-header filter. | `true` |
 | `spring.cloud.gateway.filter.add-request-parameter.enabled` | Enables the add-request-parameter filter. | `true` | 
 | `spring.cloud.gateway.filter.add-response-header.enabled` | Enables the add-response-header filter. | `true` |
@@ -174,14 +174,14 @@ The following list details the gateway component properties you can configure fo
 | `spring.cloud.gateway.x-forwarded.proto-append` | If appending X-Forwarded-Proto as a list is enabled. | `true` | 
 | `spring.cloud.gateway.x-forwarded.proto-enabled`  | If X-Forwarded-Proto is enabled. | `true` |
 | `spring.cloud.gateway.httpclient.compression` | Enables compression for Netty HttpClient. | `false` |
-| `spring.cloud.gateway.httpclient.connect-timeout` |  The connect timeout in millis, the default is 30s. |    |
+| `spring.cloud.gateway.httpclient.connect-timeout` |  The connected timeout in millis, the default is 30s. |    |
 | `spring.cloud.gateway.httpclient.max-header-size` | The max response header size. |    |
 | `spring.cloud.gateway.httpclient.max-initial-line-length` | The max initial line length. |    |
 | `spring.cloud.gateway.httpclient.pool.acquire-timeout` | Only for type FIXED, the maximum time in millis to wait for acquiring. |    |
 | `spring.cloud.gateway.httpclient.pool.eviction-interval`| Perform regular eviction checks in the background at a specified interval. Disabled by default ({@link Duration#ZERO}) | `0` |
 | `spring.cloud.gateway.httpclient.pool.max-connections` | Only for type FIXED, the maximum number of connections before starting pending acquisition on existing ones. |    |
-| `spring.cloud.gateway.httpclient.pool.max-idle-time` | Time in millis after which the channel will be closed. If NULL, there is no max idle time. |    |
-| `spring.cloud.gateway.httpclient.pool.max-life-time` | Duration after which the channel will be closed. If NULL, there is no max life time. |    |
+| `spring.cloud.gateway.httpclient.pool.max-idle-time` | Time in millis after which the channel will be closed. If NULL, there's no max idle time. |    |
+| `spring.cloud.gateway.httpclient.pool.max-life-time` | Duration after which the channel will be closed. If NULL, there's no max life time. |    |
 | `spring.cloud.gateway.httpclient.pool.metrics` | Enables channel pools metrics to be collected and registered in Micrometer. Disabled by default. | `false` |
 | `spring.cloud.gateway.httpclient.pool.name` | The channel pool map name, defaults to proxy. | `proxy` |
 | `spring.cloud.gateway.httpclient.pool.type` | Type of pool for HttpClient to use, defaults to ELASTIC. |    |
@@ -208,7 +208,7 @@ The following list details the gateway component properties you can configure fo
 
 ## Route file format
 
-The Gateway for Spring component supports defining routes through properties with id, uri, predicates, and filters. Below is an example YAML file that demonstrates how to configure these properties.
+The Gateway for Spring component supports defining routes through properties with id, uri, predicates, and filters. Following is an example YAML file that demonstrates how to configure these properties.
 
   ```yaml
     springCloudGatewayRoutes:
