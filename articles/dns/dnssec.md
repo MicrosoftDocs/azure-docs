@@ -43,7 +43,7 @@ Resource Record Signatures (RRSIGs) and other cryptographic records are added to
 [DNSSEC validation](#dnssec-validation) of DNS responses occurs by using these digital signatures with an unbroken [chain of trust](#chain-of-trust).
 
 > [!NOTE]
-> DNSSEC-related resource records aren't displayed in the Azure portal. For more information, see [View DNSSEC-related resource records](#view-dnssec-related-resource-records).
+> DNSSEC-related resource records aren't displayed in the Azure portal. For more information, see [View DNSSEC-related resource records](#view-dnssec-related-resource-records). 
 
 ## Why sign a zone with DNSSEC?
 
@@ -69,22 +69,27 @@ DNSSEC works to prevent DNS hijacking by performing validation on DNS responses.
 
 ## DNSSEC validation
 
-If a DNS server is DNSSEC-aware, it can set the DNSSEC OK (DO) flag in a DNS query to a value of `1`. This value tells the responding DNS server to include DNSSEC records with the response. The DNSSEC records can then be used to validate that the DNS response is genuine. 
+If a DNS server is DNSSEC-aware, it can set the DNSSEC OK (DO) flag in a DNS query to a value of `1`. This value tells the responding DNS server to include DNSSEC-related resource records with the response. These DNSSEC records are Resource Record Signature (RRSIG) records that are used to validate that the DNS response is genuine. 
 
-A recursive DNS server performs DNSSEC validation using its trust anchor (DNSKEY). The server uses its DNSKEY to decrypt digital signatures in DNSSEC-related resource records, and then computes and compares hash values. If hash values are the same, it provides a reply to the DNS client with the DNS data that it requested, such as a host (A) resource record. 
+A recursive DNS server performs DNSSEC validation on RRSIG records using a trust anchor (DNSKEY). The server uses a DNSKEY to decrypt digital signatures in RRSIG records (and other DNSSEC-related records), and then computes and compares hash values. If hash values are the same, it provides a reply to the DNS client with the DNS data that it requested, such as a host address (A) record. See the following diagram:
 
   ![A diagram showing how DNSSEC validation works.](media/dnssec/dnssec-validation.png)
 
-If hash values aren't the same, it replies with a SERVFAIL message. In this way, DNSSEC-capable resolving DNS servers with a valid trust anchor installed can protect against DNS hijacking. This protection doesn't require DNS client devices to be DNSSEC-aware.
+If hash values aren't the same, the recursive DNS server replies with a SERVFAIL message. In this way, DNSSEC-capable resolving DNS servers with a valid trust anchor installed can protect against DNS hijacking. This protection doesn't require DNS client devices to be DNSSEC-aware.
+
+> [!NOTE]
+> DNSSEC validation is not performed by the default Azure-provided resolver.
+
+### Trust anchors and DNSSEC validation
+
+A recursive DNS server can have any number of trust anchors, or no trust anchors. Trust anchors can be added for a single DNS zone, or any parent zone. If a recursive DNS server has a root (.) trust anchor, then it can perform DNSSEC validation on any DNS zone. 
 
 The DNSSEC validation process works with trust anchors as follows:
   - If a recursive DNS server doesn't have a DNSSEC trust anchor for a zone or the zone's parent hierarchical namespace, it will not perform DNSSEC validation on that zone.
   - If a recursive DNS server has a DNSSEC trust anchor for a zone's parent namespace and it receives a query for the child zone, it checks to see if a DS record for the child zones is present in the parent zone. 
     - If the DS record is found, the recursive DNS server performs DNSSEC validation. 
     - If the recursive DNS server determines that the parent zone doesn't have a DS record for the child zone, it assumes the child zone is insecure and doesn't perform DNSSEC validation.
-
-> [!NOTE]
-> The default Azure-provided DNS resolver does not perform DNSSEC validation. 
+  - If multiple recursive DNS servers are involved in a DNS response (including forwarders), each server must be able to perform DNSSEC validation on the response so that there is an unbroken chain of trust.
 
 ## Chain of trust
 

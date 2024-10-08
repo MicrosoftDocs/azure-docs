@@ -150,7 +150,7 @@ Get-AzDnsDnssecConfig -ResourceGroupName "dns-rg" -ZoneName "adatum.com" | Selec
 
 Example output:
 
-```
+```PowerShell
 DigestAlgorithmType DigestValue                                                      Record
 ------------------- -----------                                                      ------
                   2 0B9E68FC1711B4AC4EC0FCE5E673EDB0AFDC18F27EA94861CDF08C7100EA776C 26767 13 2 0B9E68FC1711B4AC4EC0FCE5E673EDB0AFDC18F27EA94861CDF08C7100EA776C
@@ -171,6 +171,9 @@ $dsRecord = New-AzDnsRecordConfig -DnsRecordType DS -KeyTag <key-tag> -Algorithm
 New-AzDnsRecordSet -ResourceGroupName "dns-rg" -ZoneName "adatum.com" -Name "secure" -RecordType DS -Ttl 3600 -DnsRecords $dsRecord
 ```
 
+* * *
+
+<a id="next-steps"> </a> 
 
 ## Next steps
 
