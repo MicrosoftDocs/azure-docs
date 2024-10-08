@@ -1,3 +1,4 @@
+```yaml
 name: GitOps.PullRequestIssueManagement
 description: GitOps.PullRequestIssueManagement primitive
 resource: repository
@@ -11,44 +12,43 @@ configuration:
           - isAction:
               action: Opened
           - or:
-              - "includesModifiedFiles": {
-                   files: [
-                     "/articles/aks*",
-                    "/articles/defender-for-cloud*",
-                    "/articles/attestation*",
-                    "/articles/confidential-ledger*",
-                    "/articles/dedicated-hsm*",
-                    "/articles/key-vault*",
-                    "/articles/payment-hsm*",
-                    "/articles/postgresql*",
-                    "/articles/cosmos-db*",
-                    "/articles/dms*",
-                    "/articles/mariadb*",
-                    "/articles/mysql*",
-                    "/articles/managed-instance-apache-cassandra*",
-                    "/articles/virtual-machines*",
-                    "/articles/virtual-machines-scale-sets*",
-                    "/articles/container-instances*",
-                    "/articles/service-fabric*",
-                    "/articles/machine-learning*",
-                    "/articles/ai-studio*",
-                    "/articles/ai-services*",
-                    "/articles/genomics*",
-                    "/articles/open-datasets*",
-                    "/articles/search*",
-                    "/articles/azure-monitor*",
-                    "/articles/advisor*",
-                    "/articles/chaos-studio*",
-                    "/articles/service-health*",
-                    "/articles/azure-arc*",
-                    "/articles/azure-linux*",
-                    "/articles/azure-portal*",
-                    "/articles/copilot*",
-                    "/articles/lighthouse*",
-                    "/articles/quotas*",
-                     "/articles/container-registry*",
-                     "/articles/kubernetes-fleet*"
-              
+              - includesModifiedFiles:
+                  files: 
+                    - "/articles/aks*"
+                    - "/articles/defender-for-cloud*"
+                    - "/articles/attestation*"
+                    - "/articles/confidential-ledger*"
+                    - "/articles/dedicated-hsm*"
+                    - "/articles/key-vault*"
+                    - "/articles/payment-hsm*"
+                    - "/articles/postgresql*"
+                    - "/articles/cosmos-db*"
+                    - "/articles/dms*"
+                    - "/articles/mariadb*"
+                    - "/articles/mysql*"
+                    - "/articles/managed-instance-apache-cassandra*"
+                    - "/articles/virtual-machines*"
+                    - "/articles/virtual-machines-scale-sets*"
+                    - "/articles/container-instances*"
+                    - "/articles/service-fabric*"
+                    - "/articles/machine-learning*"
+                    - "/articles/ai-studio*"
+                    - "/articles/ai-services*"
+                    - "/articles/genomics*"
+                    - "/articles/open-datasets*"
+                    - "/articles/search*"
+                    - "/articles/azure-monitor*"
+                    - "/articles/advisor*"
+                    - "/articles/chaos-studio*"
+                    - "/articles/service-health*"
+                    - "/articles/azure-arc*"
+                    - "/articles/azure-linux*"
+                    - "/articles/azure-portal*"
+                    - "/articles/copilot*"
+                    - "/articles/lighthouse*"
+                    - "/articles/quotas*"
+                    - "/articles/container-registry*"
+                    - "/articles/kubernetes-fleet*"
         then:
           - addReply:
               reply: >-
@@ -58,8 +58,11 @@ configuration:
                   - activitySenderHasPermission:
                       permission: None
                   - activitySenderHasPermission:
-                       permission: Read
+                      permission: Read
                   - activitySenderHasPermission:
-                       permission: Write
+                      permission: Write
             then:
               - closePullRequest
+```
+
+This should be valid YAML. If you need any further adjustments or have any other requests, just let me know!
