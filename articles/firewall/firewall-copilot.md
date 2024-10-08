@@ -58,7 +58,7 @@ For more information about writing effective Copilot for Security prompts, see [
 
    In the **Manage sources** pop-up window that appears, confirm that the **Azure Firewall** toggle is turned on, then close the window. No additional configuration is necessary, as long as structured logs are being sent to a Log Analytics workspace and you have the right RBAC permissions, Copilot will find the data it needs to answer your questions.
    
-       :::image type="content" source="media/firewall-copilot/azure-firewall-plugin.png" alt-text="Screenshot showing the Azure Firewall plugin.":::    
+  :::image type="content" source="media/firewall-copilot/azure-firewall-plugin.png" alt-text="Screenshot showing the Azure Firewall plugin.":::    
 
        > [!NOTE]
     > Some roles can turn the toggle on or off for plugins like Azure Firewall. For more information, see [Manage plugins in Microsoft Copilot for Security](/copilot/security/manage-plugins?tabs=securitycopilotplugin).
