@@ -4,12 +4,22 @@ description: Learn about new and updated articles to the Azure Virtual Desktop d
 ms.topic: release-notes
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 09/05/2024
+ms.date: 10/08/2024
 ---
 
 # What's new in documentation for Azure Virtual Desktop
 
 We update documentation for Azure Virtual Desktop regularly. In this article, we highlight articles for new features and where there are significant updates to existing articles. To learn what's new in the service, see [What's new for Azure Virtual Desktop](whats-new.md).
+
+## September 2024
+
+In September 2024, we made the following changes to the documentation:
+
+- Updated [Enable GPU acceleration for Azure Virtual Desktop](graphics-enable-gpu-acceleration.md) for the support of the High Efficiency Video Coding (HEVC), also known as H.265, which is in preview.
+
+- Updated [Use Microsoft OneDrive with a RemoteApp](onedrive-remoteapp.md), which is generally available.
+
+- Published a new article where you can learn [What's new in the Azure Virtual Desktop SxS Network Stack](whats-new-sxs.md).
 
 ## August 2024
 
