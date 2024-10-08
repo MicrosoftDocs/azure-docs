@@ -51,8 +51,6 @@ Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Wi
 
 *Date published: September 4, 2024*   
 
-Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) 
-
 - Fixed an issue where the client crashed for users who have Windows N SKUs without the media framework.
 - Addressed an issue that reduces the chance of encountering a “low virtual memory” error on reconnect attempts.
 
