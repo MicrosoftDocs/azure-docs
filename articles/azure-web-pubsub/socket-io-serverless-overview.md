@@ -1,5 +1,5 @@
 ---
-title: Overview Socket.IO Serverless Mode
+title: Overview of Web PubSub for Socket.IO Serverless Mode
 description: Get an overview of Azure's support for the open-source Socket.IO library on serverless mode.
 keywords: Socket.IO, Socket.IO on Azure, serverless, multi-node Socket.IO, scaling Socket.IO, socketio, azure socketio
 author: zackliu
@@ -29,5 +29,7 @@ This article provides you with an overview of the Serverless Mode of Web PubSub 
 
 > [!div class="nextstepaction"]
 > [Tutorial: Build chat app with Azure Function in Serverless Mode](./socketio-serverless-tutorial.md)
+>
 > [Serverless Protocols](./socketio-serverless-protocol.md)
+>
 > [Serverless Function Binding](./socketio-serverless-function-binding.md)

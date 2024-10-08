@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Build chat app with Azure Function in Socket.IO Serverless Mode'
-description: In this article, you will familiar with the samples of using Web PubSub for Socket.IO with Azure Function in Serverless Mode.
+description: In this article, you can familiar with the samples of using Web PubSub for Socket.IO with Azure Function in Serverless Mode.
 keywords: Socket.IO, serverless, azure function, Socket.IO on Azure, multi-node Socket.IO, scaling Socket.IO, socketio, azure socketio
 author: zackliu
 ms.author: chenyl
@@ -15,7 +15,7 @@ In this article, you'll learn how to build a chat app using Web PubSub for Socke
 
 The project source uses Bicep to deploy the infrastructure on Azure, and Azure Functions Core Tools to deploy the code to the Function App.
 
-## Prerequest
+## Prerequisites
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
@@ -103,7 +103,7 @@ After the code is deployed, visit the website to try the sample:
 https://<function-endpoint>/api/index
 ```
 
-:::image type="content" source="./media/socketio-serverless-quickstart/chatsample.png" alt-text="Screenshot of the serverless chat app.":::
+:::image type="content" source="./media/socket-io-serverless-quickstart/chat-sample.png" alt-text="Screenshot of the serverless chat app.":::
 
 ## Next steps
 Next, you can follow the tutorial to write the app step by step:

@@ -1,5 +1,5 @@
 ---
-title: Socket.IO Serverless Mode Specification
+title: Web PubSub for Socket.IO Serverless Mode Specification
 description: Get the specification of Socket.IO Serverless
 keywords: Socket.IO, Socket.IO on Azure, serverless, multi-node Socket.IO, scaling Socket.IO, socketio, azure socketio
 author: zackliu
@@ -45,7 +45,7 @@ Explanations of the previous sample:
 
 When a client attempts to connect to the service, the process is divided into two distinct steps: establishing an Engine.IO (physical) connection and connecting to a namespace, which is referred to as a socket in Socket.IO terminology. The authentication process differs between these two steps:
 
-1. **Engine.IO connection**: During this step, the service authenticates the client using an access token to determine whether to accept the connection. If the corresponding hub is configured to allow anonymous mode, the Engine.IO connection can proceed without validating the access token. However, for security reasons, we recommend to disable anonymous mode in production environments.
+1. **Engine.IO connection**: During this step, the service authenticates the client using an access token to determine whether to accept the connection. If the corresponding hub is configured to allow anonymous mode, the Engine.IO connection can proceed without validating the access token. However, for security reasons, we recommend disabling anonymous mode in production environments.
 
     - The Engine.IO connection url follows the format. But in most cases, it should be handled by Socket.IO client library.
 
@@ -155,7 +155,7 @@ The application which is used to request a token must use the resource `https://
 
 #### Token for Engine.IO connection
 
-Different from the RESTful API, Engine.IO connection doesn't use the Entra ID token directly. Instead, you must make a RESTful call to the service to get a token and use the returned token as the access token for client.
+Different from the RESTful API, Engine.IO connection doesn't use the Microsoft Entra ID token directly. Instead, you must make a RESTful call to the service to get a token and use the returned token as the access token for client.
 
 ```Http
 POST {endpoint}/api/hubs/{hub}/:generateToken?api-version=2024-01-01
