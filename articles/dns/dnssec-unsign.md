@@ -22,13 +22,13 @@ This article shows you how to remove Domain Name System Security Extensions (DNS
 > [!IMPORTANT]
 > Removing DNSSEC from your DNS zone requires that you first remove the delegation signer (DS) record from the parent zone, and wait for the time-to-live (TTL) of the DS record to expire. After the DS record TTL has expired, you can safely unsign the zone.
 
-# [Azure portal](#tab/sign-portal)
+## [Azure portal](#tab/sign-portal)
 
 To unsign your zone using the Azure portal:
 
 1. 
 
-# [Azure CLI](#tab/sign-cli)
+## [Azure CLI](#tab/sign-cli)
 
 Sign a zone using the Azure CLI:
 
@@ -36,7 +36,7 @@ Sign a zone using the Azure CLI:
 commands here
 ```
 
-# [PowerShell](#tab/sign-powershell)
+## [PowerShell](#tab/sign-powershell)
 
 Sign a zone using PowerShell:
 

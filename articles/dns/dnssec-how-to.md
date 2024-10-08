@@ -23,7 +23,7 @@ Also see: [DNSSEC overview (Preview)](dnssec.md)
 
 To protect your DNS zone with DNSSEC, you must first sign the zone. The zone signing process creates a delegation signer (DS) record that must then be added to the parent zone.
 
-# [Azure portal](#tab/sign-portal)
+## [Azure portal](#tab/sign-portal)
 
 To sign your zone with DNSSEC using the Azure portal:
 
@@ -62,7 +62,7 @@ To sign your zone with DNSSEC using the Azure portal:
 
     [ ![Screenshot of a fully signed and delegated zone.](./media/dnssec-how-to/delegated.png) ](./media/dnssec-how-to/delegated.png#lightbox)
 
-# [Azure CLI](#tab/sign-cli)
+## [Azure CLI](#tab/sign-cli)
 
 1. Sign a zone using the Azure CLI:
 
@@ -124,7 +124,7 @@ In these examples, the DS values are:
 az network dns record-set ds add-record --resource-group "your-resource-group" --zone-name "adatum.com" --record-set-name "secure" --key-tag <key-tag> --algorithm <algorithm> --digest <digest> --digest-type <digest-type>
 ```
 
-# [PowerShell](#tab/sign-powershell)
+## [PowerShell](#tab/sign-powershell)
 
 1. Sign and verify your zone using PowerShell:
 
@@ -164,7 +164,7 @@ In these examples, the DS values are:
 
 3. If the parent zone is a top level domain (for example: `.com`) or you don't own the parent zone, you must add the DS record at your registrar. Each registrar has its own process.
 
-4. If you own the parent zone, you can add a DS record directly to the parent yourself. The following example shows how to add a DS record to the DNS zone **adatum.com** for the child zone **secure.adatum.com** when both zones are signed and hosted using Azure Public DNS. Replace <key-tag>, <algorithm>, <digest>, and <digest-type> with the appropriate values from the DS record you queried previously.
+4. If you own the parent zone, you can add a DS record directly to the parent yourself. The following example shows how to add a DS record to the DNS zone **adatum.com** for the child zone **secure.adatum.com** when both zones are signed and hosted using Azure Public DNS. Replace \<key-tag\>, \<algorithm\>, \<digest\>, and \<digest-type\> with the appropriate values from the DS record you queried previously.
 
 ```PowerShell
 $dsRecord = New-AzDnsRecordConfig -DnsRecordType DS -KeyTag <key-tag> -Algorithm <algorithm> -Digest <digest> -DigestType <digest-type>
