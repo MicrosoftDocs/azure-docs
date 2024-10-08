@@ -13,6 +13,10 @@ items:
   expanded: true
 - name: Concepts
   items: 
+  - name: Storage task conditions
+    href: storage-tasks/storage-task-conditions.md
+  - name: Storage task operations
+    href: storage-tasks/storage-task-operations.md
   - name: Properties, operators, and operations
     href: storage-tasks/storage-task-properties-operators-operations.md
   - name: Storage task authorization
