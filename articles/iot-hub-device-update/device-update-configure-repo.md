@@ -19,7 +19,7 @@ Following this document, learn how to configure a package repository using [OSCo
 
 ## Prerequisites
 
-You need an Azure account with an [IoT Hub](../iot-hub/iot-concepts-and-iot-hub.md) and Microsoft Azure Portal or Azure CLI to interact with devices via your IoT Hub. Follow the next steps to get started:
+You need an Azure account with an [IoT Hub](../iot-hub/iot-concepts-and-iot-hub.md) and Microsoft Azure portal or Azure CLI to interact with devices via your IoT Hub. Follow the next steps to get started:
 - Create a Device Update account and instance in your IoT Hub. See [how to create it](create-device-update-account.md).
 - Install the [IoT Hub Identity Service](https://azure.github.io/iot-identity-service/installation.html) (or skip if [IoT Edge 1.2](../iot-edge/how-to-provision-single-device-linux-symmetric.md?preserve-view=true&tabs=azure-portal%2cubuntu&view=iotedge-2020-11#install-iot-edge) or higher is already installed on the device).
 - Install the Device Update agent on the device. See [how to](device-update-agent-provisioning.md#on-iot-edge-enabled-devices).
