@@ -46,7 +46,6 @@ Any entity trying to access Microsoft Entra identity services via the TLS/SSL pr
 |---- |---- |
 | [DigiCert Basic RSA CN CA G2](https://crt.sh/?d=2545289014) | 0x02f7e1f982bad009aff47dc95741b2f6<br>4D1FA5D1FB1AC3917C08E43F65015E6AEA571179 |
 | [DigiCert Cloud Services CA-1](https://crt.sh/?d=12624881) | 0x019ec1c6bd3f597bb20c3338e551d877<br>81B68D6CD2F221F8F534E677523BB236BBA1DC56 |
-| [DigiCert Cloud Services CA-1](https://crt.sh/?d=3439320284) | 0f171a48c6f223809218cd2ed6ddc0e8<br>B3F6B64A07BB9611F47174407841F564FB991F29 |
 | [DigiCert SHA2 Secure Server CA](https://crt.sh/?d=3422153451) | 0x02742eaa17ca8e21c717bb1ffcfd0ca0<br>626D44E704D1CEABE3BF0D53397464AC8080142C |
 | [DigiCert TLS Hybrid ECC SHA384 2020 CA1](https://crt.sh/?d=3422153452) | 0x0a275fe704d6eecb23d5cd5b4b1a4e04<br>51E39A8BDB08878C52D6186588A0FA266A69CF28 |
 | [DigiCert TLS RSA SHA256 2020 CA1](https://crt.sh/?d=4385364571) | 0x06d8d904d5584346f68a2fa754227ec4<br>1C58A3A8518E8759BF075B76B750D4F2DF264FCD |
@@ -88,7 +87,6 @@ Any entity trying to access Microsoft Entra identity services via the TLS/SSL pr
 | [**DigiCert Global Root CA**](https://cacerts.digicert.com/DigiCertGlobalRootCA.crt) | 0x083be056904246b1a1756ac95991c74a<br>A8985D3A65E5E5C4B2D7D66D40C6DD2FB19C5436 |
 | └ [DigiCert Basic RSA CN CA G2](https://crt.sh/?d=2545289014) | 0x02f7e1f982bad009aff47dc95741b2f6<br>4D1FA5D1FB1AC3917C08E43F65015E6AEA571179 |
 | └ [DigiCert Cloud Services CA-1](https://crt.sh/?d=12624881) | 0x019ec1c6bd3f597bb20c3338e551d877<br>81B68D6CD2F221F8F534E677523BB236BBA1DC56 |
-| └ [DigiCert Cloud Services CA-1](https://crt.sh/?d=3439320284) | 0f171a48c6f223809218cd2ed6ddc0e8<br>B3F6B64A07BB9611F47174407841F564FB991F29 |
 | └ [DigiCert SHA2 Secure Server CA](https://crt.sh/?d=3422153451) | 0x02742eaa17ca8e21c717bb1ffcfd0ca0<br>626D44E704D1CEABE3BF0D53397464AC8080142C |
 | └ [DigiCert TLS Hybrid ECC SHA384 2020 CA1](https://crt.sh/?d=3422153452) | 0x0a275fe704d6eecb23d5cd5b4b1a4e04<br>51E39A8BDB08878C52D6186588A0FA266A69CF28 |
 | └ [DigiCert TLS RSA SHA256 2020 CA1](https://crt.sh/?d=4385364571) | 0x06d8d904d5584346f68a2fa754227ec4<br>1C58A3A8518E8759BF075B76B750D4F2DF264FCD |
@@ -262,6 +260,7 @@ Microsoft updated Azure services to use TLS certificates from a different set of
     |[Baltimore CyberTrust Root](https://cacerts.digicert.com/BaltimoreCyberTrustRoot.crt) | 0x20000b9<br>D4DE20D05E66FC53FE1A50882C78DB2852CAE474 |
     |[Microsoft RSA TLS CA 01](https://crt.sh/?d=3124375355) | 0x0f14965f202069994fd5c7ac788941e2<br>703D7A8F0EBF55AAA59F98EAF4A206004EB2516A |
     |[Microsoft RSA TLS CA 02](https://crt.sh/?d=3124375356) | 0x0fa74722c53d88c80f589efb1f9d4a3a<br>B0C2D2D13CDD56CDAA6AB6E2C04440BE4A429C75 |
+    |[DigiCert Cloud Services CA-1](https://crt.sh/?d=3439320284) | 0f171a48c6f223809218cd2ed6ddc0e8<br>B3F6B64A07BB9611F47174407841F564FB991F29 |
 
 - July 22, 2024: Added Entrust CAs from a parallel Microsoft 365 article to provide a comprehensive list.
 - June 27, 2024: Removed the following CAs, which were superseded by both versions of Microsoft Azure ECC TLS Issuing CAs 03, 04, 07, 08.

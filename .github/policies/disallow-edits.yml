@@ -10,129 +10,80 @@ configuration:
           - payloadType: Pull_Request
           - isAction:
               action: Opened
-          - or:
-              - includesModifiedFiles:
-                  files:
-                    - articles/aks/*
-              - includesModifiedFiles:
-                  files:
-                    - articles/defender-for-cloud/*
-              - includesModifiedFiles:
-                  files: 
-                    - articles/attestation/*
-              - includesModifiedFiles:
-                  files: 
-                    - articles/confidential-ledger/*
-              - includesModifiedFiles:
-                  files: 
-                    - articles/dedicated-hsm/*
-              - includesModifiedFiles:
-                  files:
-                    - articles/key-vault/*
-              - includesModifiedFiles:
-                  files: 
-                    - articles/payment-hsm/*
-              - includesModifiedFiles:
-                  files: 
-                    - articles/postgresql/*
-              - includesModifiedFiles:
-                  files: 
-                    - articles/cosmos-db/*
-              - includesModifiedFiles:
-                  files: 
-                    - articles/dms/*
-              - includesModifiedFiles:
-                  files: 
-                    - articles/mariadb/*
-              - includesModifiedFiles:
-                  files: 
-                    - articles/mysql/*
-              - includesModifiedFiles:
-                  files:   
-                    - articles/managed-instance-apache-cassandra/*
-              - includesModifiedFiles:
-                  files:   
-                    - articles/virtual-machines/*
-              - includesModifiedFiles:
-                  files:   
-                    - articles/virtual-machines-scale-sets/*
-              - includesModifiedFiles:
-                  files:   
-                    - articles/container-instances/*
-              - includesModifiedFiles:
-                  files:   
-                    - articles/service-fabric/*
-              - includesModifiedFiles:
-                  files:   
-                    - articles/machine-learning/*
-              - includesModifiedFiles:
-                  files:   
-                    - articles/ai-studio/*
-              - includesModifiedFiles:
-                  files:   
-                    - articles/ai-services/*
-              - includesModifiedFiles:
-                  files:   
-                    - articles/genomics/*
-              - includesModifiedFiles:
-                  files:   
-                    - articles/open-datasets/*
-              - includesModifiedFiles:
-                  files:   
-                    - articles/search/*
-              - includesModifiedFiles:
-                  files:   
-                    - articles/azure-monitor/*
-              - includesModifiedFiles:
-                  files:  
-                    - articles/advisor/*
-              - includesModifiedFiles:
-                  files:   
-                    - articles/chaos-studio/*
-              - includesModifiedFiles:
-                  files:  
-                    - articles/service-health/*
-              - includesModifiedFiles:
-                  files:  
-                    - articles/azure-arc/*
-              - includesModifiedFiles:
-                  files:   
-                    - articles/azure-linux/*
-              - includesModifiedFiles:
-                  files:   
-                    - articles/azure-portal/*
-              - includesModifiedFiles:
-                  files:   
-                    - articles/copilot/*
-              - includesModifiedFiles:
-                  files:   
-                    - articles/lighthouse/*
-              - includesModifiedFiles:
-                  files:  
-                    - articles/quotas/*
-              - includesModifiedFiles:
-                  files:   
-                    - articles/container-registry/*
-              - includesModifiedFiles:
-                  files:  
-                    - articles/kubernetes-fleet/*
+          - or:              
+              - filesMatchPattern:
+                  pattern: articles/aks/*
+              - filesMatchPattern:
+                  pattern: articles/defender-for-cloud/*
+              - filesMatchPattern:
+                  pattern: articles/attestation/*
+              - filesMatchPattern:
+                  pattern: articles/confidential-ledger/*
+              - filesMatchPattern:
+                  pattern: articles/dedicated-hsm/*
+              - filesMatchPattern:
+                  pattern: articles/key-vault/*
+              - filesMatchPattern:
+                  pattern: articles/payment-hsm/*
+              - filesMatchPattern:
+                  pattern: articles/postgresql/*
+              - filesMatchPattern:
+                  pattern: articles/cosmos-db/*
+              - filesMatchPattern:
+                  pattern: articles/dms/*
+              - filesMatchPattern:
+                  pattern: articles/mariadb/*
+              - filesMatchPattern:
+                  pattern: articles/mysql/*
+              - filesMatchPattern:
+                  pattern: articles/managed-instance-apache-cassandra/*
+              - filesMatchPattern:
+                  pattern: articles/virtual-machines/*
+              - filesMatchPattern:
+                  pattern: articles/virtual-machines-scale-sets/*
+              - filesMatchPattern:
+                  pattern: articles/container-instances/*
+              - filesMatchPattern:
+                  pattern: articles/service-fabric/*
+              - filesMatchPattern:
+                  pattern: articles/machine-learning/*
+              - filesMatchPattern:
+                  pattern: articles/ai-studio/*
+              - filesMatchPattern:
+                  pattern: articles/ai-services/*
+              - filesMatchPattern:
+                  pattern: articles/genomics/*
+              - filesMatchPattern:
+                  pattern: articles/open-datasets/*
+              - filesMatchPattern:
+                  pattern: articles/search/*
+              - filesMatchPattern:
+                  pattern: articles/azure-monitor/*
+              - filesMatchPattern:
+                  pattern: articles/advisor/*
+              - filesMatchPattern:
+                  pattern: articles/chaos-studio/*
+              - filesMatchPattern:
+                  pattern: articles/service-health/*
+              - filesMatchPattern:
+                  pattern: articles/azure-arc/*
+              - filesMatchPattern:
+                  pattern: articles/azure-linux/*
+              - filesMatchPattern:
+                  pattern: articles/azure-portal/*
+              - filesMatchPattern:
+                  pattern: articles/copilot/*
+              - filesMatchPattern:
+                  pattern: articles/lighthouse/*
+              - filesMatchPattern:
+                  pattern: articles/quotas/*
+              - filesMatchPattern:
+                  pattern: articles/container-registry/*
+              - filesMatchPattern:
+                  pattern: articles/kubernetes-fleet/*
         then:
           - addReply:
               reply: >-
-                @${issueAuthor} - You tried to add content to a folder path that has been removed from this repository. Your pull request will be automatically closed. Submit your changes to the updated repository, which can be identified by clicking the Edit this Document link at the top of any published article for that product or service. 
-          - if:
-              - or:
-                  - activitySenderHasPermission:
-                      permission: None
-                  - activitySenderHasPermission:
-                      permission: Read
-                  - activitySenderHasPermission:
-                      permission: Write
-                  - activitySenderHasPermission:
-                      permission: Triage
-                  - activitySenderHasPermission:
-                      permission: Maintain
-                  - activitySenderHasPermission:
-                      permission: Admin
-            then:
-              - closePullRequest
+                @${issueAuthor} - You tried to add content to a folder path that has been removed from this repository. Your pull request will be automatically closed. Submit your changes to the updated repository, which can be identified by clicking the Edit this Document link at the top of any published article for that product or service.
+          - closePullRequest
+          
