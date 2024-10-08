@@ -4,12 +4,12 @@ description:  This article discusses how to use Azure Active Directory B2C to si
 
 author: kengaderdus
 manager: CelesteDG
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: reference
-ms.date: 01/11/2024
+ms.date: 10/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 ms.custom: "b2c-support"
 
 
@@ -100,15 +100,20 @@ Record the **Application (client) ID** to use later, when you configure the web 
 
 ### Step 2.4: Enable the implicit grant flow
 
-In your own environment, if your SPA app uses MSAL.js 1.3 or earlier and the implicit grant flow or you configure [https://jwt.ms/](https://jwt.ms/) app for testing a user flow or custom policy, you need to enable the implicit grant flow in the app registration:
+You can enable implicit grant flow for two reasons, when you’re using MSAL.js version 1.3 or earlier version or when you use an app registration to [test a user flow for testing purposes](add-sign-up-and-sign-in-policy.md?pivots=b2c-user-flow#test-the-user-flow).
 
-1. In the left menu, under **Manage**, select **Authentication**.
+Use these steps to enable implicit grant flow for your app:
+
+1. Select the app registration you created.
+
+1. Under **Manage**, select **Authentication**.
 
 1. Under **Implicit grant and hybrid flows**, select both the **Access tokens (used for implicit flows)** and **ID tokens (used for implicit and hybrid flows)** check boxes.
 
 1. Select **Save**.
 
-If your app uses MSAL.js 2.0 or later, don't enable implicit flow grant as MSAL.js 2.0+ supports the authorization code flow with PKCE. The SPA app in this article uses PKCE flow, and so you don't need to enable implicit grant flow.   
+> [!NOTE]
+> If your app uses MSAL.js 2.0 or later, don't enable implicit grant flow as MSAL.js 2.0+ supports the [OAuth 2.0 Authorization code flow (with PKCE)](./authorization-code-flow.md). If you enable implicit grant to test a user flow, make sure you disable the implicit grant flow settings before you deploy your app to production.  
 
 ### Step 2.5: Grant permissions
 

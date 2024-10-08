@@ -24,6 +24,9 @@ In this tutorial, you learn how to create a pod in an Azure Kubernetes (AKS) clu
 > * Deploy the application to a pod in the AKS cluster and test the connection.
 > * Clean up resources.
 
+> [!WARNING]
+> Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable. See the [tutorial using a managed identity](tutorial-python-aks-openai-workload-identity.md).
+
 ## Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
@@ -88,7 +91,7 @@ In this tutorial, you learn how to create a pod in an Azure Kubernetes (AKS) clu
         --capacity 1
     ```
 
-1. Create an Azure Container Registry (ACR) resource with the [az acr create](/cli/azure/acr#az-acr-create) command, or referring to [this tutorial](../container-registry/container-registry-get-started-portal.md). The registry hosts the container image of the sample application, which the AKS pod definition consumes.
+1. Create an Azure Container Registry (ACR) resource with the [az acr create](/cli/azure/acr#az-acr-create) command, or referring to [this tutorial](/azure/container-registry/container-registry-get-started-portal). The registry hosts the container image of the sample application, which the AKS pod definition consumes.
 
     ```azurecli-interactive
     az acr create \

@@ -5,6 +5,10 @@ author: batamig
 ms.author: bagol
 ms.topic: reference
 ms.date: 03/26/2023
+
+
+#Customer intent: As a security administrator, I want to monitor SAP security parameters so that I can detect and respond to suspicious configuration changes effectively.
+
 ---
 
 # Monitored SAP security parameters for detecting suspicious configuration changes

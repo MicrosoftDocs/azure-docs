@@ -1,5 +1,5 @@
 ---
-title: About Azure CDN from Microsoft (classic) to Azure Front Door migration (preview)
+title: About Azure CDN from Microsoft (classic) to Azure Front Door migration
 description: This article explains the migration process and changes expected when changing from Azure CDN from Microsoft (classic) to Azure Front Door Standard or Premium tier.
 services: frontdoor
 author: duongau
@@ -9,11 +9,9 @@ ms.date: 06/25/2024
 ms.author: duau
 ---
 
-# About Azure CDN from Microsoft (classic) to Azure Front Door migration (preview)
+# About Azure CDN from Microsoft (classic) to Azure Front Door migration
 
-> [!IMPORTANT]
-> Azure CDN from Microsoft to Azure Front Door migration is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
 
 Azure Front Door Standard and Premium tier were released in March 2022 as the next generation content delivery network service. The newer tiers combine the capabilities of Azure Front Door (classic), Microsoft CDN (classic), and Web Application Firewall (WAF). With features such as Private Link integration, enhanced rules engine and advanced diagnostics you have the ability to secure and accelerate your web applications to bring a better experience to your customers.
 

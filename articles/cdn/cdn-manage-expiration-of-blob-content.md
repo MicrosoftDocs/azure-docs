@@ -16,6 +16,8 @@ ms.custom: devx-track-azurepowershell, devx-track-dotnet
 
 # Manage expiration of Azure Blob storage in Azure Content Delivery Network
 
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
+
 > [!div class="op_single_selector"]
 > - [Azure web content](cdn-manage-expiration-of-cloud-service-content.md)
 > - [Azure Blob storage](cdn-manage-expiration-of-blob-content.md)

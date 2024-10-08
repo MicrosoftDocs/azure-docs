@@ -4,7 +4,7 @@ description: Secure Azure Database for PostgreSQL connectivity with managed iden
 ms.devlang: java
 author: KarlErickson
 ms.topic: tutorial
-ms.author: karler
+ms.author: edburns
 ms.service: azure-container-apps
 ms.date: 06/04/2024
 ms.custom: devx-track-azurecli, devx-track-extended-java, devx-track-java, devx-track-javaee, devx-track-javaee-quarkus, passwordless-java, service-connector, devx-track-javaee-quarkus-aca
@@ -187,7 +187,7 @@ cd quarkus-quickstarts/hibernate-orm-panache-quickstart
        --location $LOCATION
    ```
 
-1. Create a container app with your app image by running the following command. Replace the placeholders with your values. To find the container registry admin account details, see [Authenticate with an Azure container registry](../container-registry/container-registry-authentication.md)
+1. Create a container app with your app image by running the following command. Replace the placeholders with your values. To find the container registry admin account details, see [Authenticate with an Azure container registry](/azure/container-registry/container-registry-authentication)
 
    ```azurecli-interactive
    CONTAINER_IMAGE_NAME=quarkus-postgres-passwordless-app:v1

@@ -7,7 +7,7 @@ author: vhorne
 ms.service: azure-web-application-firewall
 ms.date: 11/14/2019
 ms.author: victorh
-ms.topic: article 
+ms.topic: how-to
 ms.custom: devx-track-azurepowershell
 ---
 

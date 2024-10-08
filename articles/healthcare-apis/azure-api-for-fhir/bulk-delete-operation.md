@@ -11,7 +11,7 @@ ms.author: kesheth
 
 # Bulk delete in Azure API for FHIR
 
-[!INCLUDE [bulk-delete operation common content](../includes/fhir-bulk-delete-operation.md)]
+[!INCLUDE[bulk-delete operation common content](../includes/fhir-bulk-delete-operation.md)]
 
 ## Related content
 
@@ -19,4 +19,4 @@ ms.author: kesheth
 
 [FHIR REST API capabilities for Azure Health Data Services FHIR service](fhir-rest-api-capabilities.md)
 
-[!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]
+[!INCLUDE[FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]

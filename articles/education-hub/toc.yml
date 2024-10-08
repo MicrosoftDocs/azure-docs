@@ -28,8 +28,6 @@
       href: get-started-education-hub.md
     - name: Set up a lab
       href: set-up-lab.md
-    - name: Allocate credit to an educator
-      href: it-admin-allocate-credit.md
   - name: Azure Dev Tools for Teaching
     items:
     - name: Enroll or renew a subscription

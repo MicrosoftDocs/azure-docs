@@ -437,7 +437,10 @@ _ = await incomingCall.AcceptAsync(acceptCallOptions);
 
 ### Remote participant and remote video streams
 
-All remote participants are available through the `RemoteParticipants` collection on a call instance. Once the call is connected, we can access the remote participants of the call and handle the remote video streams. 
+All remote participants are available through the `RemoteParticipants` collection on a call instance. Once the call becomes connected (`CallState.Connected`), we can access the remote participants of the call and handle the remote video streams. 
+
+> [!NOTE]
+> When a user joins a call, they can access the current remote participants through the `RemoteParticipants` collection. The `RemoteParticipantsUpdated` event will not trigger for these existing participants. This event will only trigger when a remote participant joins or leaves the call while the user is already in the call. 
 
 ```C#
 

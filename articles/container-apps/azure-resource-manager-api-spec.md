@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: reference
-ms.date: 08/30/2024
+ms.date: 09/11/2024
 ms.author: cshoe
 ms.custom: build-2023
 ---
@@ -71,7 +71,6 @@ The following example ARM template snippet deploys a Container Apps environment.
 {
   "location": "East US",
   "properties": {
-    "daprAIConnectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://northcentralus-0.in.applicationinsights.azure.com/",
     "appLogsConfiguration": {
       "logAnalyticsConfiguration": {
         "customerId": "string",

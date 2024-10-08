@@ -5,7 +5,7 @@ services: storage-mover
 author: stevenmatthew
 ms.author: shaas
 ms.service: azure-storage-mover
-ms.topic: conceptual
+ms.topic: release-notes
 ms.date: 09/06/2023
 ---
 

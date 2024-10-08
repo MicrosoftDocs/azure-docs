@@ -62,7 +62,7 @@ In order to use diagnostic logging, you'll first need a Log Analytics workspace 
     
 1. Select **Save**.
 
-For more information, see [Log Analytics workspace overview](../azure-monitor/logs/log-analytics-workspace-overview.md).
+For more information, see [Log Analytics workspace overview](/azure/azure-monitor/logs/log-analytics-workspace-overview).
 
 ## Next steps
 

@@ -115,6 +115,13 @@ landingContent:
         links:
           - text: Monitor Azure Firewall logs and metrics
             url: tutorial-diagnostics.md
+# Card
+  - title: Manage Azure Firewall
+    linkLists:
+      - linkListType: overview
+        links:
+         - text: Azure Firewall Manager
+           url: ../firewall-manager/index.yml
 
 # Card
   - title: Backup Azure Firewall and policy
@@ -145,7 +152,6 @@ landingContent:
         links:
          - text: Azure network security
            url: ../networking/security/index.yml
-
 # Card
   - title: Reference
     linkLists:

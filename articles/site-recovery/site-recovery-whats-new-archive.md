@@ -1,7 +1,7 @@
 ---
 title: Archive for What's new in Azure Site Recovery
 description: An archive for features and updates in the Azure Site Recovery service.
-ms.topic: conceptual
+ms.topic: overview
 ms.author: ankitadutta
 ms.service: azure-site-recovery
 author: ankitaduttaMSFT
