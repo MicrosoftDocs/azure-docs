@@ -11,7 +11,7 @@ ms.author: greglin
 
 # DNSSEC overview (Preview)
 
-This article provides a overview of how DNSSEC works and includes an introduction to [DNSSEC terminology](#dnssec-terminology). Benefits of DNSSEC zone signing are described and examples are provided for viewing DNSSEC related resource records. When you are ready to sign your Azure public DNS zone, see the following how-to guides:
+This article provides a overview of Domain Name System Security Extensions (DNSSEC) and includes an introduction to [DNSSEC terminology](#dnssec-terminology). Benefits of DNSSEC zone signing are described and examples are provided for viewing DNSSEC related resource records. When you are ready to sign your Azure public DNS zone, see the following how-to guides:
 
 - [How to sign your Azure Public DNS zone with DNSSEC (Preview)](dnssec-how-to.md).
 - [How to unsign your Azure Public DNS zone (Preview)](dnssec-unsign.md)
@@ -22,7 +22,7 @@ This article provides a overview of how DNSSEC works and includes an introductio
 
 ## What is DNSSEC?
 
-Domain Name System Security Extensions (DNSSEC) is a suite of extensions that add security to the Domain Name System (DNS) protocol by enabling DNS responses to be validated as genuine. DNSSEC provides origin authority, data integrity, and authenticated denial of existence. With DNSSEC, the DNS protocol is much less susceptible to certain types of attacks, particularly DNS spoofing attacks.
+DNSSEC is a suite of extensions that add security to the Domain Name System (DNS) protocol by enabling DNS responses to be validated as genuine. DNSSEC provides origin authority, data integrity, and authenticated denial of existence. With DNSSEC, the DNS protocol is much less susceptible to certain types of attacks, particularly DNS spoofing attacks.
 
 The core DNSSEC extensions are specified in the following Request for Comments (RFCs):
 
@@ -87,14 +87,11 @@ Recursive servers:
 - Recursive DNS servers (also called resolving or caching DNS servers) maintain a chain of trust through the use of DNSSEC trust anchors. 
 - The trust anchor is a DNSKEY record, or DS record containing a [hash](/dotnet/standard/security/ensuring-data-integrity-with-hash-codes) of a DNSKEY record. The DNSKEY record is created on an authoritative server when a zone is signed, and removed from the zone if the zone is unsigned. 
 - Trust anchors must be manually installed on recursive DNS servers. 
-- If a trust anchor for a parent zone is present, a recursive server can validate all child zones in the hierarchical namespace. To support DNSSEC validation of all DNSSEC-signed DNS zones, you can install a trust anchor for the root (.) zone.
+- If a trust anchor for a parent zone is present, a recursive server can validate all child zones in the hierarchical namespace. This includes forwarded queries. To support DNSSEC validation of all DNSSEC-signed DNS zones, you can install a trust anchor for the root (.) zone.
 - Recursive servers that have DNSSEC validation disabled or aren't DNSSEC-aware don't perform validation.
 
-The DNSSEC validation process works with trust anchors as follows:
-  - If a recursive DNS server doesn't have a DNSSEC trust anchor for a zone or the zone's parent hierarchical namespace, it will not perform DNSSEC validation on that zone.
-  - If a recursive DNS server has a DNSSEC trust anchor for a zone's parent namespace and it receives a query for the child zone, it checks to see if a DS record for the child zones is present in the parent zone. 
-    - If the DS record is found, the recursive DNS server performs DNSSEC validation. 
-    - If the recursive DNS server determines that the parent zone doesn't have a DS record for the child zone, it assumes the child zone is insecure and doesn't perform DNSSEC validation.
+> [!NOTE]
+> The default Azure DNS resolver does not perform DNSSEC validation. Validation of DNSSEC-signed Azure public zones requires external
 
 ## DNSSEC validation
 
@@ -103,6 +100,12 @@ A recursive DNS server performs DNSSEC validation using its trust anchor (DNSKEY
   ![A diagram showing how DNSSEC validation works.](media/dnssec/dnssec-validation.png)
 
 If hash values aren't the same, it replies with a SERVFAIL message. In this way, DNSSEC-capable resolving DNS servers with a valid trust anchor installed can protect against DNS hijacking. This protection doesn't require DNS client devices to be DNSSEC-aware.
+
+The DNSSEC validation process works with trust anchors as follows:
+  - If a recursive DNS server doesn't have a DNSSEC trust anchor for a zone or the zone's parent hierarchical namespace, it will not perform DNSSEC validation on that zone.
+  - If a recursive DNS server has a DNSSEC trust anchor for a zone's parent namespace and it receives a query for the child zone, it checks to see if a DS record for the child zones is present in the parent zone. 
+    - If the DS record is found, the recursive DNS server performs DNSSEC validation. 
+    - If the recursive DNS server determines that the parent zone doesn't have a DS record for the child zone, it assumes the child zone is insecure and doesn't perform DNSSEC validation.
 
 ## DNSSEC-related resource records
 
@@ -121,7 +124,7 @@ The following table provides a short description of DNSSEC-related records. For 
 
 ### View DNSSEC-related resource records
 
-To view DNSSEC-related records, use command line tools such as Resolve-DnsName or dig.exe. These tools are available using Cloud Shell, or locally if installed on your device. Be sure to set the DO flag in your query, which is done using the -dnssecok option in Resolve-DnsName or the +dnssec option in dig.exe. 
+DNSSEC-related records are not displayed in the Azure portal. To view DNSSEC-related records, use command line tools such as Resolve-DnsName or dig.exe. These tools are available using Cloud Shell, or locally if installed on your device. Be sure to set the DO flag in your query by using the `-dnssecok` option in Resolve-DnsName or the `+dnssec` option in dig.exe. 
 
 > [!IMPORTANT]
 > Don't use the nslookup.exe command-line tool to query for DNSSEC-related records. The nslookup.exe tool uses an internal DNS client that isn't DNSSEC-aware. 
