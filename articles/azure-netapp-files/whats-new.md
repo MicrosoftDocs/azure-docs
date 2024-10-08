@@ -6,7 +6,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: linux-related-content
 ms.topic: overview
-ms.date: 09/27/2024
+ms.date: 10/07/2024
 ms.author: anfdocs
 ---
 
@@ -14,9 +14,9 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
  
-[Edit network features - no downtime](configure-network-features.md)
+* [Edit network features - no downtime](configure-network-features.md#no-downtime)
 
-<!-- PLR info pending -->
+    The edit network feature option in Azure NetApp Files is now a non-disruptive operation. This feature is currently in preview in the Austria East, Central India, North Central US, and Switzerland North regions.
  
 ## September 2024 
 
