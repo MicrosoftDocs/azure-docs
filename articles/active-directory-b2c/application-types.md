@@ -5,11 +5,9 @@ description: Learn about the types of applications you can use with Azure Active
 
 author: kengaderdus
 manager: CelesteDG
-
 ms.service: active-directory
-
 ms.topic: concept-article
-ms.date: 01/11/2024
+ms.date: 10/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 
@@ -94,11 +92,12 @@ To take advantage of this flow, your application can use an authentication libra
 
 ### Implicit grant flow
 
-Some libraries, like [MSAL.js 1.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib), only support the [implicit grant flow](implicit-flow-single-page-application.md) or your application is implemented to use implicit flow. In these cases, Azure AD B2C supports the [OAuth 2.0 implicit flow](implicit-flow-single-page-application.md). The implicit grant flow allows the application to get **ID** and **Access** tokens. Unlike the authorization code flow, implicit grant flow doesn't return a **Refresh token**.
-
-We **don't recommended** this approach.  
+Some libraries, like [MSAL.js 1.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib), only support the [implicit grant flow](implicit-flow-single-page-application.md) or your application is implemented to use implicit flow. In these cases, Azure AD B2C supports the [OAuth 2.0 implicit flow](implicit-flow-single-page-application.md). The implicit grant flow allows the application to get **ID** and **Access** tokens. Unlike the authorization code flow, implicit grant flow doesn't return a **Refresh token**. 
 
 This authentication flow doesn't include application scenarios that use cross-platform JavaScript frameworks such as Electron and React-Native. Those scenarios require further capabilities for interaction with the native platforms.
+
+> [!WARNING]
+> Microsoft recommends you do *not* use the implicit grant flow. The recommended way of supporting SPAs is [OAuth 2.0 Authorization code flow (with PKCE)](./authorization-code-flow.md). Certain configurations of this flow requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows aren't viable. For more information, see the [security concerns with implicit grant flow](/entra/identity-platform/v2-oauth2-implicit-grant-flow#security-concerns-with-implicit-grant-flow).
 
 ## Web APIs
 

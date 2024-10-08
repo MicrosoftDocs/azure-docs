@@ -10,7 +10,7 @@ ms.service: active-directory
 
 ms.topic: how-to
 ms.custom: b2c-docs-improvements
-ms.date: 01/11/2024
+ms.date: 10/11/2024
 ms.author: kengaderdus
 ms.reviewer: yoelh
 ms.subservice: B2C

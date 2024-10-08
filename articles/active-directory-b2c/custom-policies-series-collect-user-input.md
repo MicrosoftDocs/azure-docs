@@ -10,7 +10,7 @@ ms.service: active-directory
 
 ms.topic: how-to
 ms.custom: b2c-docs-improvements
-ms.date: 01/11/2024
+ms.date: 10/11/2024
 ms.author: kengaderdus
 ms.reviewer: yoelh
 ms.subservice: B2C
@@ -42,7 +42,8 @@ In this article, you learn how to write a custom policy that collects user input
 
 - If you don't have one already, [create an Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
 
-- [Register a web application](tutorial-register-applications.md), and [enable ID token implicit grant](tutorial-register-applications.md#enable-id-token-implicit-grant). For the Redirect URI, use https://jwt.ms. 
+- [Register a web application](tutorial-register-applications.md).
+ 
 - You must have [Visual Studio Code (VS Code)](https://code.visualstudio.com/) installed in your computer. 
 
 - Complete the steps in [Write your first Azure AD B2C custom policy - Hello World!](custom-policies-series-hello-world.md). This article is a part of [Create and run your own custom policies how-to guide series](custom-policies-series-overview.md). 
