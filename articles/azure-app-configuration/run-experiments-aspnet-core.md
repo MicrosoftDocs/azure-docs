@@ -178,7 +178,9 @@ In the [variants tutorial](./use-variant-feature-flags-aspnet-core.md), you crea
 1. In the command prompt, in the *QuoteOfTheDay* folder, run: `dotnet build`.
 1. Run: `dotnet run --launch-profile https`.
 1. Look for a message in the format `Now listening on: https://localhost:{port}` in the output of the application. Navigate to the included link in your browser.
-1. Login as `usera@contoso.com` or `userb@contoso.com` and click the like button!
+1. Login as `usera@contoso.com` or `userb@contoso.com` and click the heart icon!
+ 
+   :::image type="content" source="./media/run-experiments-aspnet-core/heart.png" alt-text="Screenshot of the Quote of the day app, highlighting the heart icon.":::
 
 ## Enable telemetry and create an experiment in your variant feature flag
 
