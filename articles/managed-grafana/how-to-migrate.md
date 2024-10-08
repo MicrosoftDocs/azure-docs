@@ -29,7 +29,7 @@ This guide shows how to migrate content from a local or a cloud-managed Grafana 
 
 * A Grafana instance to migrate over to Azure Managed Grafana
 * [An Azure Managed Grafana workspace](./quickstart-managed-grafana-cli.md)
-* Minimum access required in both instances: Grafana Owner
+* Minimum access required in both instances: Grafana Admin
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ::: zone-end
@@ -48,7 +48,7 @@ The following instructions show how to migrate content from a Grafana instance t
 
 * A Grafana instance to migrate over to Azure Managed Grafana
 * [An Azure Managed Grafana workspace](./quickstart-managed-grafana-cli.md)
-* Minimum access required in both instances: Grafana Owner
+* Minimum access required in both instances: Grafana Admin
 
 ::: zone-end
 
