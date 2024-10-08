@@ -1,6 +1,6 @@
 ---
-title: Create Standard workflows for hybrid deployment
-description: Create an example Standard workflow for hybrid deployment on your own managed infrastructure, including on-premises, private cloud, and public cloud environments.
+title: Create Standard logic apps for hybrid deployment
+description: Create and deploy an example Standard logic app workflow on your own managed infrastructure, including on-premises, private cloud, and public cloud environments.
 services: azure-logic-apps
 ms.service: azure-logic-apps
 ms.suite: integration
@@ -10,7 +10,7 @@ ms.date: 10/14/2024
 # Customer intent: As a developer, I want to create a Standard workflow that can run in a customer-managed environment and that can include on-premises systems, private clouds, and public clouds.
 ---
 
-# Create Standard workflows for hybrid deployment on your own infrastructure (Preview)
+# Create Standard logic app workflows for hybrid deployment on your own infrastructure (Preview)
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
@@ -18,15 +18,17 @@ ms.date: 10/14/2024
 > This capability is in preview and is subject to the
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-For scenarios where you need to control and manage your own infrastructure, Azure Logic Apps supports creating Standard logic apps workflows for hybrid deployment. Your infrastructure can include on-premises systems, private clouds, and public clouds. In the hybrid deployment model, your Standard logic app workflow is powered by the Azure Logic Apps runtime that is hosted on premises as an Azure Container Apps extension. When you need to build an integration solution or workflow for a partially connected scenario that requires local processing, storage, and network access, the hybrid deployment model provides the capability for you to meet the needs for this scenario.
+For scenarios where you need to use, control, and manage your own infrastructure, you can create Standard logic apps workflows for hybrid deployment using Azure Logic Apps. Your infrastructure can include on-premises systems, private clouds, and public clouds. In the hybrid deployment model, your Standard logic app workflow is powered by the Azure Logic Apps runtime that is hosted on premises as an Azure Container Apps extension. This hybrid deployment model provides the capabilities for you to build and host integration solutions for partially connected scenarios that require local processing, storage, and network access.
 
-The following architectural overview shows where Standard logic apps and their workflows are hosted and run in a partially connected environment. This environment includes the following resources to host and work with your Standard logic apps, which deploy as Azure container app resources:
+The following architectural overview shows where Standard logic apps and their workflows are hosted and run in the hybrid deployment model. The partially connected environment includes the following resources for hosting and working with your Standard logic apps, which deploy as Azure Container Apps resources:
 
 - Either Azure Arc-enabled Kubernetes clusters or Azure Arc-enabled Kubernetes clusters on Azure Stack *hyperconverged infrastructure* (HCI)
-- A SQL database for local storage and processing
-- A Server Message Block (SMB) file share to store artifacts used by your workflows
+- A SQL database to locally store workflow run history, inputs, and outputs for processing
+- A Server Message Block (SMB) file share to locally store artifacts used by your workflows
 
 :::image type="content" source="media/create-standard-workflows-hybrid-deployment/architecture-overview.png" alt-text="Diagram with architectural overview for where Standard logic apps are hosted in a partially connected environment." border="false":::
+
+This how-to guide shows you how to create and deploy a Standard logic app workflow using the hybrid deployment model after you set up the necessary on-premises resources to host your app.
 
 For more information, see the following documentation:
 
@@ -46,8 +48,19 @@ For more information, see the following documentation:
   - SAP access through the SAP built-in connector
   - XSLT 1.0 for custom code
   - Custom code support with .NET Framework
-  - Managed identity authentication, so to set up authentication for managed connectors in your workflows, [follow these steps to set up connection authentication](azure-arc-enabled-logic-apps-create-deploy-workflows.md#set-up-connection-authentication).
+  - Managed identity authentication
   - File System connector
+
+- You must create connections for managed connectors in your workflow through Visual Studio Code, not the Azure portal. To set up authentication for managed connectors, [follow these steps to set up connection authentication](azure-arc-enabled-logic-apps-create-deploy-workflows.md#set-up-connection-authentication).
+
+- Some function-based triggers, such as Azure Blob, Cosmos DB, and Event Hubs require a connection to the Azure storage account assocated with your Standard logic app. If you use any function-based triggers, in your Standard logic app's environment variables in the Azure portal or in your logic app project's **local.settings.json** file in Visual Studio Code, add the following app setting and provide your storage account connection string:
+
+  ```json
+  "Values": {
+    "name": "AzureWebJobsStorage",
+    "value": "{storage-account-connection-string}"
+  }
+  ```
 
 ## Prerequisites
 
@@ -61,179 +74,17 @@ For more information, see the following documentation:
   > basic Standard workflow before you try deploying to your own infrastructure. This test 
   > run helps isolate any errors that might exist in your Standard workflow project.
 
-## Create an Azure Arc-enabled Kubernetes cluster
+- The following on-premises resources, which must all exist within the same network for the necessary connectivity:
 
-To deploy and host your Standard logic app as on-premises resource, create an [Azure Arc-enabled Kubernetes cluster](/azure/azure-arc/kubernetes/overview) or an [Azure Arc-enabled Kubernetes cluster on Azure Stack HCI infrastructure](/azure-stack/hci/overview). Your cluster requires inbound and outbound connectivity with the [SQL database that you use as the storage provider](#create-storage-provider).
+  - An Azure Kubernetes Service cluster that's connected to Azure Arc
+  - A SQL database to locally store workflow run history, inputs, and outputs for processing
+  - A Server Message Block (SMB) file share to locally store artifacts used by your workflows
 
-### Create a Kubernetes cluster and connect to Azure Arc
-
-Choose one of the following options to create and set up your Arc-enabled Kubernetes cluster for the deployment environment:
-
-##### [Portal](#tab/azure-portal)
-
-1. [Follow these steps to create an AKS cluster](/azure/aks/learn/quick-kubernetes-deploy-portal).
-
-1. [Follow these steps to connect the cluster to Azure Arc](/azure/azure-arc/kubernetes/quickstart-connect-cluster).
-
-##### [Azure CLI](#tab/azure-cli)
-
-Run the following commands either by using Azure Cloud Shell in the Azure portal or by using [Azure CLI installed on your local computer](/cli/azure/install-azure-cli):
-
-> [!NOTE]
->
-> Make sure to change the **max-count** and **min-count** node values based on your load requirements.
-
-```azurecli
-az login
-az account set --subscription <Azure-subscription-ID>
-az provider register --namespace Microsoft.KubernetesConfiguration --wait
-az extension add --name k8s-extension --upgrade --yes
-az group create --name <Azure-resource-group-name> --location '<Azure-region>'
-az aks create --resource-group <Azure-resource-group-name> --name <AKS-cluster-name> --enable-aad --generate-ssh-keys --enable-cluster-autoscaler --max-count 6 --min-count 1 
-```
-
-| Command | Parameter | Required | Value | Description |
-|---------|-----------|----------|-------|-------------|
-| **`az account set`** | **`subscription`** | Yes | <*Azure-subscription-ID*> | The GUID for your Azure subscription. <br><br>For more information, see [**az account set**](/cli/azure/account#az-account-set). |
-| **`az group create`** | **`name`** | Yes | <*Azure-resource-group-name*> | The [Azure resource group](../azure-resource-manager/management/overview.md#terminology) where you create your container app and related resources. This name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <br><br>This example uses **Hybrid-RG**. <br><br>For more information, see [**az group create**](/cli/azure/group#az-group-create). |
-| **`az group create`** | **`location`** | Yes | <*Azure-region*> | An Azure region that is [supported for Azure container apps on Azure Arc-enabled Kubernetes](../container-apps/azure-arc-overview.md#public-preview-limitations). <br><br>This example uses **East US**. <br><br>For more information, see [**az group create**](/cli/azure/group#az-group-create). |
-| **`az aks create`** | **`name`** | Yes | <*Azure-resource-group-name*> | The [Azure resource group](../azure-resource-manager/management/overview.md#terminology) where you create your container app and related resources. This name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <br><br>This example uses **Hybrid-RG**. <br><br>For more information, see [**az aks create**](/cli/azure/aks#az-aks-create). |
-| **`az aks create`** | **`max count`** | No | <*max-nodes-value*> | The maximum number of nodes to use for the autoscaler when you include the **`enable-cluster-autoscaler`** option. This value ranges from **1** to **1000**. <br><br>For more information, see [**az aks create**](/cli/azure/aks#az-aks-create). |
-| **`az aks create`** | **`min count`** | No | <*min-nodes-value*> | The minimum number of nodes to use for the autoscaler when you include the **`enable-cluster-autoscaler`** option. This value ranges from **1** to **1000**. <br><br>For more information, see [**az aks create**](/cli/azure/aks#az-aks-create). |
-
-##### [Azure PowerShell](#tab/azure-powershell)
-
-1. Run the following PowerShell command as an administrator:
-
-   ```powershell
-   Set-ExecutionPolicy -ExecutionPolicy Unrestricted
-   ```
-
-   For more information, see [Set-ExecutionPolicy](/powershell/module/microsoft.powershell.security/set-executionpolicy).
-
-1. [Follow the steps in "Tutorial: Enable Azure Container Apps on Azure Arc-enabled Kubernetes"](/azure/container-apps/azure-arc-enable-cluster) using PowerShell, but use the following commands and parameter values specific to Azure Logic Apps to create the Azure Arc-enabled Kubernetes cluster and an optional Log Analytics workspace to monitor the logs from the Azure Logic Apps runtime.
-
-   | Parameter | Required | Value | Description |
-   |-----------|----------|-------|-------------|
-   | **SUBSCRIPTION** | Yes | <*Azure-subscription-ID*> | The ID for your Azure subscription. |
-   | **GROUP_NAME** | Yes | <*Azure-resource-group-name*> | The [Azure resource group](../azure-resource-manager/management/overview.md#terminology) where you create your container app and related resources. This name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <br><br>This example uses **Hybrid-RG**. |
-   | **LOCATION** | Yes | **'**<*Azure-region*>**'** | An Azure region that is [supported for Azure container apps on Azure Arc-enabled Kubernetes](../container-apps/azure-arc-overview.md#public-preview-limitations). <br><br>This example uses **East US**. |
-   | **KUBE_CLUSTER_NAME** | Yes | <*cluster-name*> | The name for your cluster. |
-   | **LOGANALYTICS_WORKSPACE_NAME** | No | <*Log-Analytics-workspace-name*> | The name for the Log Analytics workspace resource to create for monitoring logs. |
-
----
-
-### Create an AKS cluster on Azure Stack HCI
-
-To create and set up an AKS cluster on Azure Stack HCI instead as the deployment environment, see the following documentation:
-
-- [Review deployment prerequisites for Azure Stack HCI](/azure-stack/hci/deploy/deployment-prerequisites)
-- [Create Kubernetes clusters using Azure CLI](/azure/aks/hybrid/aks-create-clusters-cli)
-- [Quickstart: Create a local Kubernetes cluster on AKS enabled by Azure Arc using Windows Admin Center](/azure/aks/hybrid/create-kubernetes-cluster)
-- [Set up an Azure Kubernetes Service host on Azure Stack HCI and Windows Server and deploy a workload cluster using PowerShell](/azure/aks/hybrid/kubernetes-walkthrough-powershell)
-
-For more information about AKS on Azure Stack HCI options, see [Overview of AKS on Windows Server and Azure Stack HCI, version 22H2](/azure/aks/hybrid/overview).
-
-<a name="create-storage-provider"></a>
-
-## Create SQL Server storage provider
-
-Standard logic app workflows in the hybrid deployent model use a SQL database as the storage provider for the data used by workflows and the Azure Logic Apps runtime, for example, workflow run history, inputs, outputs, and so on.
-
-1. Set up any of the following SQL Server editions:
-
-   - SQL Server on premises
-   - [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview)
-   - [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview)
-   - [SQL Server enabled by Azure Arc](/sql/sql-server/azure-arc/overview)
-
-   For more information, see [Set up SQL database storage for Standard logic app workflows](/azure/logic-apps/set-up-sql-db-storage-single-tenant-standard-workflows).
-
-1. Find and save the connection string for the SQL database that you created.
-
-<a name="set-up-smb-file-share"></a>
-
-## Set up SMB file share for artifacts storage
-
-To store artifacts such as maps, schemas, and assemblies for your container app resource, you need to have a file share that uses the [Server Message Block (SMB) protocol](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview). This file share requires inbound and outbound connectivity with your cluster. If you enabled Azure virtual network restrictions, make sure that your file share exists in the same virtual network as your cluster or in a peered virtual network.
-
-To set up your file share, you need to have administrator access. To create and deploy from Visual Studio Code, make sure that the local computer with Visual Studio Code can access the file share. 
-
-### Set up your SMB file share on Windows
-
-Make sure that your SMB file share exists in the same virtual network as the cluster where you mount your file share.
-
-1. In Windows, go to the folder that you want to share, open the shortcut menu, select **Properties**.
-
-1. On the **Sharing** tab, select **Share**.
-
-1. In the box that opens, select a person who you want to have access to the file share.
-
-1. Select **Share**, and copy the link for the network path.
-
-   If your local computer isn't connected to a domain, replace the computer name in the network path with the IP address.
-
-1. Save the IP address to use later as the host name.
-
-### Set up Azure Files as your SMB file share
-
-Alternatively, for testing purposes, you can use [Azure Files as an SMB file share](/azure/storage/files/files-smb-protocol). Make sure that your SMB file share exists in the same virtual network as the cluster where you mount your file share.
-
-1. In the [Azure portal](https://portal.azure.com), [create an Azure storage account](/azure/storage/files/storage-how-to-create-file-share?tabs=azure-portal#create-a-storage-account).
-
-1. From the storage account menu, under **Data storage**, select **File shares**.
-
-1. From the **File shares** page toolbar, select **+ File share**, and provide the required information for your SMB file share.
-
-1. After deployment completes, select **Go to resource**.
-
-1. On the file share menu, select **Overview**, if not selected.
-
-1. On the **Overview** page toolbar, select **Connect**. On the **Connect** pane, select **Show script**.
-
-1. Copy the following values and save them somewhere safe for later use:
-
-   - File share's host name, for example, **mystorage.file.core.windows.net**
-   - File share path
-   - Username without **`localhost\`**
-   - Password
-
-1. On the **Overview** page toolbar, select **+ Add directory**, and provide a name to use for the directory. Save this name to use later.
-
-You need these saved values to provide your SMB file share information when you deploy your container app resource.
-
-For more information, see [Create an SMB Azure file share](/azure/storage/files/storage-how-to-create-file-share?tabs=azure-portal).
-
-## Confirm SMB file share connection
-
-To test the connection between your Arc-enabled Kubernetes cluster and your SMB file share and check that your file share is correctly set up, follow these steps:
-
-- If your SMB file share isn't on the same cluster, confirm that the ping operation works from your cluster to the virtual machine that has your SMB file share. To check that the ping operation works, follow these steps:
-
-  1. In your cluster, create a test [pod](/azure/aks/core-aks-concepts#pods) that runs any Linux image, such as BusyBox or Ubuntu.
-
-  1. Go to the container in your pod, and install the **iputils-ping** package by running the following Linux commands:
-
-     ```
-     apt-get update
-     apt-get install iputils-ping
-     ```
-
-- To confirm that your SMB file share is correctly set up, follow these steps:
-
-  1. In your test pod with the same Linux image, create a folder that has the path named **mnt/smb**.
-
-  1. Go to the root or home directory that contains the **mnt** folder.
-
-  1. Run the following command:
-
-     **`- mount -t cifs //{ip-address-smb-computer}/{file-share-name}/mnt/smb -o username={user-name}, password={password}`**
-
-- To confirm that artifacts correctly upload, connect to the SMB file share path, and check whether artifact files exist in the correct folder that you specify during deployment. 
+  To meet these requirements, [set up these resources required by hybrid deployment model for Standard logic apps](set-up-standard-workflows-hybrid-deployment-requirements.md).
 
 ## Create your Standard logic app in the Azure portal
 
-To create Standard logic app workflows for the hybrid deployent model, follow these steps:
+After you meet the prerequisites, create your Standard logic app for hybrid deployent by following these steps:
 
 1. In the [Azure portal](https://portal.azure.com) search box, enter **logic apps**, and select **Logic apps**.
 
@@ -268,19 +119,22 @@ To create Standard logic app workflows for the hybrid deployent model, follow th
 
 1. When you finish, select **Review + create**. Confirm the provided information, and select **Create**.
 
-   Azure creates and deploys your logic app as a [Container App resource](/azure/container-apps/overview). In this release, your logic app appears in the Azure portal under **Container Apps** and not **Logic apps**. You can create, edit, and manage workflows as usual from the Azure portal.
+   Azure currently creates and deploys your logic app as a [Container App resource](/azure/container-apps/overview). In this preview release, your logic app appears in the Azure portal under **Container Apps** and not **Logic apps**. You can create, edit, and manage workflows as usual from the Azure portal. Your Container Apps connected environment in the Azure portal lists the logic app as having **Hybrid Logic App** type.
 
 1. To review the app settings, on the container app menu, under **Settings**, select **Containers**, and then select the **Environment variables** tab.
 
    For more information about app settings and host settings, see [Edit app settings and host settings](edit-app-settings-host-settings.md).
 
-## Create your logic app in Visual Studio Code
+## Create your Standard logic app in Visual Studio Code
 
-Before you create and deploy with Visual Studio Code, complete the following requirements:
+After you meet the prerequisites, but before you create your Standard logic app for hybrid deployent in Visual Studio Code, confirm the f
 
-- Confirm that your SMB file share server is accessible.
-- Confirm that port 445 is open on the computer where you run Visual Studio Code.
-- Run Visual Studio Code as administrator.
+1. Confirm that the following conditions are met:
+
+   - Your SMB file share server is accessible.
+   - Port 445 is open on the computer where you run Visual Studio Code.
+
+1. Run Visual Studio Code as administrator.
 
 1. In Visual Studio Code, on the Activity Bar, select the Azure icon.
 
@@ -350,28 +204,13 @@ In this release, your Standard logic app appears in the Azure portal under **Con
 
 ### Azure portal
 
-- Standard logic apps for hybrid deployment appear in the Azure portal in the **Container Apps** resource list and not the **Logic apps** resource list.
+- Standard logic apps for hybrid deployment currently appear in the Azure portal in the **Container Apps** resource list and not the **Logic apps** resource list.
 
 - To reflect changes in the designer after you save your workflow, you might have to occasionally refresh the designer.
 
 ### Arc-enabled Kubernetes clusters
 
 In rare scenarios, you might notice a high memory footprint in your cluster. To prevent this issue, either scale out or add autoscale for node pools.
-
-### Managed connectors
-
-You must create connections for managed connectors in your workflow through Visual Studio Code, not the Azure portal. To set up authentication for managed connectors, [follow these steps to set up connection authentication](azure-arc-enabled-logic-apps-create-deploy-workflows.md#set-up-connection-authentication).
-
-### Function-based triggers
-
-Some function-based triggers, such as Azure Blob, Cosmos DB, and Event Hubs require a connection to your Azure storage account. If you use any function-based triggers, in your project's **local.settings.json** file or Standard logic app's environment variables in the Azure portal, add the following app setting and provide your storage account connection string:
-
-```json
-"Values": {
-    "name": "AzureWebJobsStorage",
-    "value": "{storage-account-connection-string}"
-}
-```
 
 ### Function host isn't running
 
@@ -447,3 +286,7 @@ To check the CSI SMB Driver pods status, from the Windows command prompt, run th
 **`kubectl --namespace=kube-system get pods --selector="app.kubernetes.io/name=csi-driver-smb" --watch`**
 
 For more information, see [Container Storage Interface (CSI) drivers on Azure Kubernetes Service (AKS)](/azure/aks/csi-storage-drivers).
+
+## Related content
+
+- [Set up requirements for Standard logic app deployment on your own infrastructure](set-up-standard-workflows-hybrid-deployment-requirements.md)
