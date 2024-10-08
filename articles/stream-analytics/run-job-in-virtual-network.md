@@ -53,9 +53,9 @@ The scale operation affects the real, available supported instances for a given 
 
 - Make sure the subnet range doesn't collide with ASA’s subnet range.  Avoid IP range 10.0.0.0 to 10.0.255.255 as it's used by ASA. 
 - Reserve: 
-    - 5 IP addresses for Azure Networking 
-    - 1 IP address is required to facilitate features such as sample data, test connection and metadata discovery for jobs associated with this subnet. 
-    - 2 IP addresses are required for every 6 SU or 1 SU V2 (ASA’s V2 pricing structure is launching July 1, 2023, see [here](https://aka.ms/AzureStreamAnalyticsisLaunchingaNewCompetitivePricingModel) for details)  
+    - Five IP addresses for Azure Networking 
+    - One IP address is required to facilitate features such as sample data, test connection and metadata discovery for jobs associated with this subnet. 
+    - Two IP addresses are required for every six SU or one SU V2 (ASA’s V2 pricing structure is launching July 1, 2023, see [here](https://aka.ms/AzureStreamAnalyticsisLaunchingaNewCompetitivePricingModel) for details)  
 
 When you indicate VNET integration with your Azure Stream Analytics job, Azure portal will automatically delegate the subnet to the ASA service.  Azure portal will undelegate the subnet in the following scenarios: 
 
