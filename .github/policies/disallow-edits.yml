@@ -128,5 +128,11 @@ configuration:
                       permission: Read
                   - activitySenderHasPermission:
                       permission: Write
+                  - activitySenderHasPermission:
+                      permission: Triage
+                  - activitySenderHasPermission:
+                      permission: Maintain
+                  - activitySenderHasPermission:
+                      permission: Admin
             then:
               - closePullRequest
