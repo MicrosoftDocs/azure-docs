@@ -9,8 +9,8 @@ ms.author: kengaderdus
 ms.date: 01/11/2024
 ms.custom: mvc
 ms.topic: how-to
-ms.service: active-directory
-ms.subservice: B2C
+ms.service: azure-active-directory
+ms.subservice: b2c
 
 
 #Customer intent: As a developer integrating a web API with Azure Active Directory B2C, I want to register my application in the Azure portal, so that it can accept and respond to requests from client applications with access tokens.
