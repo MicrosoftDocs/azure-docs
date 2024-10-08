@@ -6,12 +6,12 @@ description: Notes for developers on configuring and maintaining Azure AD B2C wi
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: reference
 ms.date: 10/10/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer using Azure Active Directory B2C, I want to understand the available features and their availability, so that I can make informed decisions about which features to use in my application development.

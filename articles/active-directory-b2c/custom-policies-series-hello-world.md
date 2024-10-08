@@ -6,14 +6,14 @@ description: Learn how to write your first custom policy. A custom that shows of
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: how-to
 ms.custom: b2c-docs-improvements
 ms.date: 10/11/2024
 ms.author: kengaderdus
 ms.reviewer: yoelh
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer creating a custom policy for Azure Active Directory B2C, I want to learn how to configure the signing and encryption keys, build the custom policy file, upload the policy file to Azure portal, and test the custom policy, so that I can customize user flows to meet my business specific needs.

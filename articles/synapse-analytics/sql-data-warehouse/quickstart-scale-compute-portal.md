@@ -21,7 +21,7 @@ If you don't have an Azure subscription, create a [free Azure account](https://a
 
 > [!NOTE]  
 > This article applies to dedicated SQL pools (formerly SQL DW). This content does not apply to dedicated SQL pools in an Azure Synapse Analytics workspace. For similar instructions for dedicated SQL pools (formerly SQL DW), see [Quickstart: Scale compute for an Azure Synapse dedicated SQL pool in a Synapse workspace with the Azure portal](quickstart-scale-compute-workspace-portal.md).
-> For more on the differences between dedicated SQL pools (formerly SQL DW) and dedicated SQL pools in Azure Synapse Workspaces, read [What's the difference between Azure Synapse (formerly SQL DW) and Azure Synapse Analytics Workspace](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/what-s-the-difference-between-azure-synapse-formerly-sql-dw-and/ba-p/3597772).
+> For more on the differences between dedicated SQL pools (formerly SQL DW) and dedicated SQL pools in Azure Synapse Workspaces, read [What's the difference between Azure Synapse (formerly SQL DW) and Azure Synapse Analytics Workspace](../sql/overview-difference-between-formerly-sql-dw-workspace.md).
 
 
 ## Sign in to the Azure portal

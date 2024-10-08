@@ -6,14 +6,14 @@ description: Learn how to make an HTTP call to external API by using Azure Activ
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: how-to
 ms.custom: b2c-docs-improvements, devx-track-js
 ms.date: 10/11/2024
 ms.author: kengaderdus
 ms.reviewer: yoelh
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer integrating customer-facing apps with Azure Active Directory B2C custom policy, I want to learn how to call a REST API from my custom policy, so that I can send and receive data from external services.
