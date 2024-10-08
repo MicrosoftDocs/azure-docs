@@ -4,11 +4,11 @@ titleSuffix: Azure AD B2C
 description: Learn how to enable custom domains in your redirect URLs for Azure Active Directory B2C, so that my users have a seamless experience. 
 author: kengaderdus
 manager: CelesteDG
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: how-to
 ms.date: 03/01/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 ms.custom: "b2c-support"
 zone_pivot_groups: b2c-policy-type
 
