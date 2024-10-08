@@ -200,7 +200,7 @@ For example:
      };
     ```
 
-1. This code sets up a desired properties change event listener that triggers for any changes within the `properties.desired.climate` property grouping. If there's a desired property change within this group, min and max temperature change messages are displayed to the console:
+1. This code sets up a desired property change event listener that triggers for any changes within the `properties.desired.climate` property grouping. If there's a desired property change within this group, min and max temperature change messages are displayed to the console:
 
     ```javascript
     twin.on('properties.desired.climate', function (delta) {
@@ -242,7 +242,7 @@ You can set up a listener for a single property change. In this example, the cod
 
 #### Complete example
 
-This example encapsulates the principles of this section, including callback funcation nesting.
+This example encapsulates the principles of this section, including callback function nesting.
 
 ```javascript
 var Client = require('azure-iot-device').Client;
@@ -296,7 +296,7 @@ client.open(function(err) {
 
 ### Device SDK samples
 
-The Azure IoT SDK for Node.js provides working samples of a device apps that handle module identity twin tasks. For more information, see:
+The Azure IoT SDK for Node.js provides working samples of device apps that handle module identity twin tasks. For more information, see:
 
 * [Module Identity Twin](https://github.com/Azure/azure-iot-sdk-node/blob/main/e2etests/test/module_twin.js)
 * [Module Test Helper](https://github.com/Azure/azure-iot-sdk-node/blob/main/e2etests/test/module_test_helper.js)
