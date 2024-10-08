@@ -135,7 +135,7 @@ Formula changes:
 | Burst limit | `MIN(MAX(4000, 3 * ProvisionedGiB), 100000)` | `MIN(MAX(10000, 3 * ProvisionedGiB), 100000)` |
 
 For more information, see:
-- [The provisioned model for premium Azure file shares](understanding-billing.md#provisioned-model)
+- [The provisioned model for premium Azure file shares](understanding-billing.md#provisioned-v1-model)
 - [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/)
 
 #### NFSv4.1 protocol support is generally available
@@ -157,7 +157,7 @@ Formula changes:
 | Throughput (MiB/sec) | <ul><li>Ingress: `40 + CEILING(0.04 * ProvisionedGiB)`</li><li>Egress: `60 + CEILING(0.06 * ProvisionedGiB)`</li></ul> | `100 + CEILING(0.04 * ProvisionedGiB) + CEILING(0.06 * ProvisionedGiB)` |
 
 For more information, see:
-- [The provisioned model for premium Azure file shares](understanding-billing.md#provisioned-model)
+- [The provisioned model for premium Azure file shares](understanding-billing.md#provisioned-v1-model)
 - [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/)
 
 ### 2021 quarter 3 (July, August, September)
