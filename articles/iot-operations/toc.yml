@@ -59,6 +59,18 @@ items:
           href: discover-manage-assets/howto-configure-opcua-certificates-infrastructure.md
         - name: Configure OPC UA user authentication
           href: discover-manage-assets/howto-configure-opcua-authentication-options.md
+      - name: Connect to media sources
+        items:
+        - name: What is the media connector?
+          href: discover-manage-assets/overview-media-connector.md
+        - name: Use the media connector
+          href: discover-manage-assets/howto-use-media-connector.md
+      - name: Control ONVIF assets
+        items:
+        - name: What is the connector for ONVIF?
+          href: discover-manage-assets/overview-onvif-connector.md
+        - name: Use the connector for ONVIF
+          href: discover-manage-assets/howto-use-onvif-connector.md
     - name: Manage MQTT broker
       items:
       - name: Broker overview

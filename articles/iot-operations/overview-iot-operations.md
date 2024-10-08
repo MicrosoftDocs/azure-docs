@@ -75,12 +75,11 @@ Azure IoT Operations uses the Azure Device Registry to store information about l
 
 ## Automatic asset discovery
 
-Automatic asset discovery using Akri services is not available in the current version of Azure IoT Operations. To learn more, see the [Release notes](https://github.com/Azure/azure-iot-operations/releases) for the current version.
+Automatic asset discovery using Akri services, Azure Device Registry, the connector for OPC UA, the connection for ONVIF (preview), and the media connector (preview) is available in the current version of Azure IoT Operations. Currently, there are no user configurable scenarios for Akri in the operations experience web UI.
 
-> [!NOTE]
-> Some Akri services are still deployed as part of the current Azure IoT Operations release, but they don't support any user configurable scenarios.
+To learn more, see the [release notes](https://github.com/Azure/azure-iot-operations/releases) for the current version.
 
-If you're using a previous version of Azure IoT Operations, you can find the Akri documentation on the [previous versions site](/previous-versions/azure/iot-operations/discover-manage-assets/overview-akri).
+If you're using a previous preview version of Azure IoT Operations, you can find the Akri documentation on the [previous versions site](/previous-versions/azure/iot-operations/discover-manage-assets/overview-akri).
 
 ## Publish and subscribe with MQTT
 
