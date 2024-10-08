@@ -5,12 +5,12 @@ description: Specify the sub journeys element of a custom policy in Azure Active
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: reference
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer implementing user journeys in Azure AD B2C, I want to understand how to use sub journeys to organize and simplify the flow of orchestration steps, so that I can create reusable step sequences and implement branching to better represent the business logic.
