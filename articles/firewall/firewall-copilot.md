@@ -60,7 +60,7 @@ For more information about writing effective Copilot for Security prompts, see [
    
   :::image type="content" source="media/firewall-copilot/azure-firewall-plugin.png" alt-text="Screenshot showing the Azure Firewall plugin.":::    
 
-       > [!NOTE]
+  > [!NOTE]
     > Some roles can turn the toggle on or off for plugins like Azure Firewall. For more information, see [Manage plugins in Microsoft Copilot for Security](/copilot/security/manage-plugins?tabs=securitycopilotplugin).
 
 
