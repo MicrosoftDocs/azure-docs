@@ -144,7 +144,7 @@ To configure a source for the dataflow, specify the endpoint reference and data 
 
 ### Use Asset as a source
 
-You can use an [asset](../discover-manage-assets/overview-manage-assets.md) as the source for the dataflow. This is only available in the operations experience.
+You can use an [asset](../discover-manage-assets/overview-manage-assets.md) as the source for the dataflow. Using an asset as a source is only available in the operations experience.
 
 1. Under **Source details**, select **Asset**.
 1. Select the asset you want to use as the source endpoint.
@@ -678,7 +678,7 @@ To configure a destination for the dataflow, specify the endpoint reference and 
 
 # [Bicep](#tab/bicep)
 
-The following is an example of configuring Fabric OneLake as a destination with a static MQTT topic.
+The following example configures Fabric OneLake as a destination with a static MQTT topic.
 
 ```bicep
 resource oneLakeEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
@@ -794,7 +794,7 @@ Select the dataflow you want to export and select **Export** from the toolbar.
 
 # [Bicep](#tab/bicep)
 
-Bicep is infrastructure as code, so no export is required. This [Bicep File to create Dataflow](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/dataflow.bicep) provides a template to quickly set up and configure dataflows.
+Bicep is infrastructure as code and no export is required. Use the [Bicep template file to create a dataflow](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/dataflow.bicep) to quickly set up and configure dataflows.
 
 # [Kubernetes](#tab/kubernetes)
 
