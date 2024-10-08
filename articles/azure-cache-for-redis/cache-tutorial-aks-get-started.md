@@ -35,6 +35,10 @@ In this tutorial, you adapt the [AKS sample voting application](https://github.c
 
 1. Take note of the user name for your Redis user from the portal. You use this user name with the AKS workload.
 
+## Run sample locally
+
+To run this sample locally, configure your user principal as a Redis User on your Redis instance. The code sample will use your user principal through (DefaultAzureCredential)[https://learn.microsoft.com/en-us/dotnet/azure/sdk/authentication/?tabs=command-line#use-defaultazurecredential-in-an-application] to connect to Redis instance. 
+
 ## Configure your AKS cluster
 
 Follow these [steps](/azure/aks/workload-identity-deploy-cluster) to configure a workload identity for your AKS cluster. Complete the following steps:
@@ -101,7 +105,7 @@ If you use Azure Cloud Shell, _kubectl_ is already installed, and you can skip t
 
 ## Run your workload
 
-1. The following code describes the pod specification file that you use to run our workload. Take note that the pod has the label _azure.workloadidentity/use: "true"_ and is annotated with _serviceAccountName_ as required by AKS workload identity. Replace the value of CONNECTION_STRING, CACHE_NAME and USER_ASSIGNED_PRINCIPAL_ID environment variables that correspond with your cache and managed identity.
+1. The following code describes the pod specification file that you use to run our workload. Take note that the pod has the label _azure.workloadidentity/use: "true"_ and is annotated with _serviceAccountName_ as required by AKS workload identity. When using access key authentication, replace the value of AUTHENTICATION_TYPE, REDIS_HOSTNAME and REDIS_ACCESSKEY environment variables.
 
    ```yml
     apiVersion: v1
@@ -125,12 +129,14 @@ If you use Azure Cloud Shell, _kubectl_ is already installed, and you can skip t
             memory: "128Mi"
             cpu: "250m"
         env:
-             - name: CONNECTION_OPTION
-               value: "MANAGED_IDENTITY" #ACCESS_KEY
-             - name: CONNECTION_STRING # Required when connecting with access key
-               value: "your connection string" 
-             - name: CACHE_NAME
-               value: "your cache name"
+             - name: AUTHENTICATION_TYPE
+               value: "MANAGED_IDENTITY" # change to ACCESS_KEY to authenticate using access key
+             - name: REDIS_HOSTNAME
+               value: "your redis hostname"
+             - name: REDIS_ACCESSKEY
+               value: "your access key" 
+             - name: REDIS_PORT
+               value: "6380"
       restartPolicy: Never
     
    ```
