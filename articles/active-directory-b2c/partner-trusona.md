@@ -6,7 +6,7 @@ author: gargi-sinha
 manager: martinco
 ms.service: active-directory
 ms.topic: how-to
-ms.date: 10/03/2024
+ms.date: 10/11/2024
 ms.author: gasinh
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -110,18 +110,22 @@ To register a web application in your Azure AD B2C tenant, use our new unified a
 1. Select **Register**.
 
 ### Enable ID token implicit grant
-If you register this app and configure it with `https://jwt.ms/` app for testing a user flow or custom policy, you need to enable the implicit grant flow in the app registration:
 
-1. In the left menu, under **Manage**, select **Authentication**.
+You can enable implicit grant flow to use this app registration to [test a user flow for testing purposes](add-sign-up-and-sign-in-policy.md?pivots=b2c-user-flow#test-the-user-flow).
 
-1. Under **Implicit grant and hybrid flows**, select **ID tokens (used for implicit and hybrid flows)** check boxes.
+1. Select the app registration you created.
+
+1. Under **Manage**, select **Authentication**.
+
+1. Under **Implicit grant and hybrid flows**, select both the **Access tokens (used for implicit flows)** and **ID tokens (used for implicit and hybrid flows)** check boxes.
 
 1. Select **Save**.
 
-::: zone pivot="b2c-user-flow"
 
->[!NOTE]
->Enable implicit flow only for testing purposes. Don’t enable implicit flow in production.
+> [!NOTE]
+> If you enable implicit grant to test a user flow, make sure you disable the implicit grant flow settings before you deploy your app to production.
+
+::: zone pivot="b2c-user-flow"
 
 ## Step 3: Configure Trusona Authentication Cloud as an IdP in Azure AD B2C
 
