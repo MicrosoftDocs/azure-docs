@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Build chat app with Azure Function in Socket.IO Serverless Mode'
-description: In this article, you can familiar with the samples of using Web PubSub for Socket.IO with Azure Function in Serverless Mode.
+description: In this article, you familiar with the samples of using Web PubSub for Socket.IO with Azure Function in Serverless Mode.
 keywords: Socket.IO, serverless, azure function, Socket.IO on Azure, multi-node Socket.IO, scaling Socket.IO, socketio, azure socketio
 author: zackliu
 ms.author: chenyl
