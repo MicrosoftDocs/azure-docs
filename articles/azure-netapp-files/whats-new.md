@@ -13,7 +13,11 @@ ms.author: anfdocs
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
-  
+ 
+[Edit network features - no downtime](configure-network-features.md)
+
+<!-- PLR info pending -->
+ 
 ## September 2024 
 
 * [Dynamic service level change enhancement:](dynamic-change-volume-service-level.md) shortened wait time for changing to lower service levels
