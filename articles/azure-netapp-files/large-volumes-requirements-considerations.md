@@ -6,7 +6,7 @@ author: b-ahibbard
 ms.service: azure-netapp-files
 ms.custom: references_regions
 ms.topic: conceptual
-ms.date: 07/22/2024
+ms.date: 10/07/2024
 ms.author: anfdocs
 ---
 # Requirements and considerations for large volumes
@@ -69,7 +69,23 @@ The following requirements and considerations apply to large volumes. For perfor
     For the latest performance benchmark numbers conducted on Azure NetApp Files Large volumes, see [Azure NetApp Files large volume performance benchmarks for Linux](performance-large-volumes-linux.md) and [Benefits of using Azure NetApp Files for Electronic Design Automation (EDA)](solutions-benefits-azure-netapp-files-electronic-design-automation.md).
 
 
-* Large volumes aren't currently supported with cool access.
+* <a name="cool-access"></a> To use large volumes with cool access, you must first register the feature:
+
+    1. Register the feature: 
+    
+        ```azurepowershell-interactive
+        Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFLargeVolumes  
+        ```
+    
+    2. Check the status of the feature registration: 
+    
+        ```azurepowershell-interactive
+        Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFLargeVolumes 
+        ```
+        > [!NOTE]
+        > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is **Registered** before continuing.
+    
+    You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
 ## About 64-bit file IDs
 

@@ -6,14 +6,18 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: linux-related-content
 ms.topic: overview
-ms.date: 09/27/2024
+ms.date: 10/07/2024
 ms.author: anfdocs
 ---
 
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
-  
+
+* [Cool access support for large volumes](large-volumes-requirements-considerations.md#cool-access)
+
+    Azure NetApp Files storage with [cool access](cool-access-introductio.md) is now available with large volumes.
+
 ## September 2024 
 
 * [Dynamic service level change enhancement:](dynamic-change-volume-service-level.md) shortened wait time for changing to lower service levels
