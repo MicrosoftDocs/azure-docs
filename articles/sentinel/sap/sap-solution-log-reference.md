@@ -38,7 +38,7 @@ For more information, see [Microsoft Sentinel solution for SAP applications - fu
 
 The Microsoft Sentinel solution for SAP applications collects logs from the application, OS, and data layers, providing comprehsive protection for your SAP system:
 
-- **Application layer**: Microsoft Sentinel monitors activities within the ABAP layer, which is the primary application layer in SAP systems, responsible for executing business logic and processing transactions. For example, Microsoft Sentinel collects logs from this later that include user actions like sign-ins, password changes, and access to reports or files.
+- **Application layer**: Microsoft Sentinel monitors activities within the ABAP layer, which is the primary application layer in SAP systems, responsible for executing business logic and processing transactions. For example, Microsoft Sentinel collects logs that include user actions like sign-ins, password changes, and access to reports or files.
 
     In addition to security monitoring, logs collected at the application layer can also be used for compliance and auditing purposes.
 
@@ -577,7 +577,7 @@ To have this log sent to Microsoft Sentinel, you must [add it manually to the **
 
 ### HANA DB Audit Trail
 
-To have this log sent to Microsoft Sentinel, you must [deploy a Microsoft Management Agent](../connect-syslog.md) to gather Syslog data from the machine running HANA DB.
+The HANA DB Audit Trail is an example of a database level log collection. To have this log sent to Microsoft Sentinel, you must [deploy Azure Monitor Agent](../connect-cef-syslog-ama.md) to gather Syslog data from the machine running HANA DB.
 
 - **Microsoft Sentinel function for querying this log**: SAPSyslog
 

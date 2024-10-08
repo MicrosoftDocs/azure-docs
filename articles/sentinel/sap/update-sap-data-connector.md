@@ -68,7 +68,9 @@ To turn off automatic updates for a container or containers, open the */opt/sapc
 
 To manually update the connector agent, make sure that you have the most recent versions of the relevant deployment scripts from the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP).
 
-On the data connector agent machine, run:
+For more information, see [Microsoft Sentinel solution for SAP applications data connector agent update file reference](reference-update.md).
+
+**On the data connector agent machine, run**:
 
 ```bash
 wget -O sapcon-instance-update.sh https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-instance-update.sh && bash ./sapcon-instance-update.sh

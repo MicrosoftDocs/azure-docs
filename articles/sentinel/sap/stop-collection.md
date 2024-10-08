@@ -5,7 +5,7 @@ description: Learn about how to stop Microsoft Sentinel from collecting data fro
 author: batamig
 ms.author: bagol
 ms.topic: how-to
-ms.date: 09/12/2024
+ms.date: 10/08/2024
 ai-usage: ai-assisted
 appliesto:
     - Microsoft Sentinel in the Azure portal
@@ -28,7 +28,7 @@ Before you stop the data collection from your SAP applications, ensure you have 
 - The SAP data connector agent
 - The machine or container where the data connector agent is running
 
-We recommend that you back up your current configuration and logs before making any changes.
+We recommend that you back up your current configuration and logs before making any changes. <!--is this correct?-->
 
 
 ## Stop log ingestion and disable the connector
@@ -39,7 +39,7 @@ To stop ingesting SAP logs into the Microsoft Sentinel workspace, and to stop th
 docker stop sapcon-[SID/agent-name]
 ```
 
-To stop ingesting a specific SID for a multi-SID container, make sure that you also delete the SID from the connector page UI in Microsoft Sentinel:
+To stop ingesting a specific SID for a multi-SID container, make sure that you also delete the SID from the connector page UI in Microsoft Sentinel: This option is available only if you [deployed the agent via the portal](deploy-data-connector-agent-container.md#deploy-the-data-connector-agent-from-the-portal-preview).
 
 1. In Microsoft Sentinel, select **Configuration > Data connectors** and search for **Microsoft Sentinel for SAP**.
 1. Select the data connector row and then select **Open connector page** in the side pane.
@@ -55,7 +55,7 @@ docker start sapcon-[SID]
 
 ## Remove the user role and any optional CR installed on your ABAP system
 
-If you're turning off the SAP data connector agent and stopping log ingestion from your SAP system, we recommend that you also remove the user role and optional CRs installed on your ABAP system.
+If you're turning off the SAP data connector agent and stopping log ingestion from your SAP system, you might want to also remove the user role and optional CRs installed on your ABAP system.
 
 To do so, import the deletion CR *NPLK900259* into your ABAP system. For more information, see the [SAP documentation](https://help.sap.com/docs/ABAP_PLATFORM_NEW/4a368c163b08418890a406d413933ba7/e15d9acae75c11d2b451006094b9ea64.html?locale=en-US&version=LATEST).
 

@@ -75,7 +75,7 @@ The following table describes each overall section in the `systemconfig.json` fi
   "secrets": "AZURE_KEY_VAULT|DOCKER_FIXED",
   # Storage location of SAP credentials and Log Analytics workspace ID and key
   # AZURE_KEY_VAULT - store in an Azure Key Vault. Requires keyvault option and intprefix option
-  # DOCKER_FIXED - store in systemconfig.ini file. Requires user, passwd, loganalyticswsid and publickey options
+  # DOCKER_FIXED - store in systemconfig.json file. Requires user, passwd, loganalyticswsid and publickey options
 
   "keyvault": "<vaultname>",
   # Azure Keyvault name, in case secrets = AZURE_KEY_VAULT

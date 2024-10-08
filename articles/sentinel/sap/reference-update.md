@@ -15,7 +15,7 @@ ms.collection: usx-security
 
 The Microsoft Sentinel SAP data connector agent container users an [update script](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP)) to simplify the update process. 
 
-This article describes the configurable parameters available in the update script.
+This article describes the configurable parameters available in the update script. For more information, see [Update the Microsoft Sentinel for SAP applications data connector agent](update-sap-data-connector.md).
 
 Content in this article is intended for your **SAP BASIS** teams.
 

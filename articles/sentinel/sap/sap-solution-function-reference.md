@@ -14,7 +14,12 @@ ms.collection: usx-security
 
 # Microsoft Sentinel solution for SAP applications - functions reference
 
-This article describes the functions that are available in your workspace after you install the Microsoft Sentinel solution for SAP applications. Find these functions in the Microsoft Sentinel **Logs** page to use in your KQL queries, listed under **Workspace functions**.
+This article describes a selection of functions that are available in your workspace after you install the Microsoft Sentinel solution for SAP applications. Discover more functions by browsing in Microsoft Sentinel and loading the function code.
+
+Find functions as follows:
+
+- In the Azure portal, in the **General > Logs** page, on the **Functions** tab, and listed under **Workspace functions**.
+- In the Defender portal, in the **Investigation & response > Advanced hunting** page, on the **Functions** tab, and listed under **Sentinel workspace functions**.
 
 Content in this article is intended for your **security** teams.
 
@@ -204,6 +209,8 @@ The **SAPAuditLogConfiguration** function returns the following data:
 For more information, see [Available watchlists](sap-solution-security-content.md#available-watchlists).
 
 ## SAPAuditLogAnomalies
+
+<!--ask ofer whether we're comfortable mentioning machine learning here-->
 
 The **SAPAuditLogAnomalies** function uses Microsoft Sentinel's underlying Kusto database's built-in machine learning capabilities to help detect anomalous events observed on the SAP audit log.
 
