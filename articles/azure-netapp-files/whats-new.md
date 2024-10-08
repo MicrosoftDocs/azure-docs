@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.custom: linux-related-content
 ms.topic: overview
 ms.date: 10/07/2024
+ms.custom: references_regions
 ms.author: anfdocs
 ---
 
