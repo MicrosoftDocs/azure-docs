@@ -12,9 +12,8 @@ configuration:
               action: Opened
           - or:
               
-              - includesModifiedFiles:
-                  files:
-                    - articles/aks/*
+              - filesMatchPattern:
+                  pattern: articles/aks/*
               - includesModifiedFiles:
                   files:
                     - articles/defender-for-cloud/*
