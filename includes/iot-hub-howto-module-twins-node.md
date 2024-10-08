@@ -110,7 +110,7 @@ client.open(function(err) {
 
 Call [getTwin](/javascript/api/azure-iot-device/client?#azure-iot-device-client-gettwin-1) to retrieve current module identity twin information into a [Twin](/javascript/api/azure-iot-device/twin) object.
 
-Device code can then access the twin properties.
+Device code can then access the module identity twin properties.
 
 For example:
 
@@ -306,7 +306,7 @@ The Azure IoT SDK for Node.js provides working samples of a device apps that han
 
 This section describes how to create a backend application that retrieves a module identity twin and update desired properties.
 
-### Install service SDK packages
+### Install service SDK package
 
 Run this command to install **azure-iothub** on your development machine:
 

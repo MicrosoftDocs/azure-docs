@@ -41,9 +41,9 @@ Device applications can read and write module identity twin reported properties,
 
 This section describes how to use device application code to:
 
-* Retrieve module identity twin and examine reported properties
-* Update reported module identity twin properties
-* Create a module desired property update callback handler
+* Retrieve a module identity twin and examine reported properties
+* Update module identity twin reported properties
+* Create a module identity twin desired property update callback handler
 
 ### Import statements
 
@@ -78,9 +78,9 @@ device_client = IoTHubDeviceClient.create_from_connection_string(conn_str)
 await device_client.connect()
 ```
 
-### Retrieve a device twin and examine reported properties
+### Retrieve a module identity twin and examine reported properties
 
-Call [get_twin](/python/api/azure-iot-device/azure.iot.device.iothubmoduleclient?#azure-iot-device-iothubmoduleclient-get-twin) to retrieve the module identity twin from the Azure IoT Hub service. The twin information is placed into a variable that can be printed or examined.
+Call [get_twin](/python/api/azure-iot-device/azure.iot.device.iothubmoduleclient?#azure-iot-device-iothubmoduleclient-get-twin) to retrieve the module identity twin from the Azure IoT Hub service. The twin information is placed into a variable that can be examined.
 
 This example retrieves the device twin and uses the `print` command to view the device twin in JSON format.
 
@@ -91,7 +91,7 @@ print("Twin document:")
 print("{}".format(twin))
 ```
 
-### Patch device reported twin properties
+### Update module identity twin reported properties
 
 You can apply a patch to update module identity twin reported properties in JSON format.
 
@@ -99,8 +99,6 @@ To apply a patch to update reported properties:
 
 1. Assign a reported property JSON patch to a variable.
 1. Call [patch_twin_reported_properties](/python/api/azure-iot-device/azure.iot.device.iothubmoduleclient?#azure-iot-device-iothubmoduleclient-patch-twin-reported-properties) to apply the JSON patch to reported properties.
-
-If `patch_twin_reported_properties` returns an error, this function raises the corresponding error.
 
 For example:
 
@@ -112,7 +110,7 @@ print("Setting reported temperature to {}".format(reported_properties["temperatu
 await device_client.patch_twin_reported_properties(reported_properties)
 ```
 
-### Incoming desired properties patch handler
+### Create a module identity twin desired property update callback handler
 
 Call [on_twin_desired_properties_patch_received](/python/api/azure-iot-device/azure.iot.device.iothubmoduleclient?#azure-iot-device-iothubmoduleclient-on-twin-desired-properties-patch-received) to create a handler function or coroutine that is called when a module identity twin desired properties patch is received. The handler takes one argument, which is the twin patch in the form of a JSON dictionary object.
 
@@ -148,10 +146,7 @@ The Azure IoT SDK for Python includes the following samples:
 
 ## Create a backend application
 
-This section describes how to create a backend application to:
-
-* Create a module
-* Update desired properties
+This section describes how to create a backend application to retrieve and update module identity twin desired properties.
 
 The [IoTHubRegistryManager](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager) class exposes all methods required to create a backend application to interact with module identity twins from the service.
 
@@ -184,38 +179,14 @@ IOTHUB_CONNECTION_STRING = "{IoT hub shared access policy connection string}"
 iothub_registry_manager = IoTHubRegistryManager.from_connection_string(IOTHUB_CONNECTION_STRING)
 ```
 
-### Create a module
+### Retrieve and update module identity twin desired properties
 
-Use [create_module_with_sas](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?#azure-iot-hub-iothubregistrymanager-create-module-with-sas) to create a device identity module using a shared access key.
+You can update desired properties from a backend application using [update_module_twin](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?#azure-iot-hub-iothubregistrymanager-update-module-twin).
 
-This example creates a new module named `myFirstModule` for device `myFirstDevice`. If the module already exists, the code calls [get_module](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?#azure-iot-hub-iothubregistrymanager-get-module) to retrieve the device identity module from IoT Hub.
+To retrieve and update module identity twin desired properties:
 
-```python
-DEVICE_ID = "myFirstDevice"
-MODULE_ID = "myFirstModule"
-
-try:
-    # CreateModule - let IoT Hub assign keys
-    primary_key = ""
-    secondary_key = ""
-    managed_by = ""
-    new_module = iothub_registry_manager.create_module_with_sas(
-        DEVICE_ID, MODULE_ID, managed_by, primary_key, secondary_key
-    )
-except HttpOperationError as ex:
-    if ex.response.status_code == 409:
-        # 409 indicates a conflict. This happens because the module already exists.
-        new_module = iothub_registry_manager.get_module(DEVICE_ID, MODULE_ID)
-    else:
-        raise
-```
-
-### Update desired properties
-
-You can update both module identity twin tags and desired properties from a backend application at the same time using [update_module_twin](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?#azure-iot-hub-iothubregistrymanager-update-module-twin).
-
-1. Call [get_module_twin](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?#azure-iot-hub-iothubregistrymanager-get-module-twin) to get the current version of the module identity twin
-1. Use the [Twin](/python/api/azure-iot-hub/azure.iot.hub.protocol.models.twin(class)) class to add module tags and properties in JSON format.
+1. Call [get_module_twin](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?#azure-iot-hub-iothubregistrymanager-get-module-twin) to get the current version of the module identity twin.
+1. Use the [Twin](/python/api/azure-iot-hub/azure.iot.hub.protocol.models.twin(class)) class to add desired properties in JSON format.
 1. Call `update_module_twin` to apply the patch to the device twin. You can also use [replace_module_twin](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?#azure-iot-hub-iothubregistrymanager-replace-module-twin) to replace desired properties and tags for a module identity twin.
 
 This example updates the `telemetryInterval` desired property to `122`.
