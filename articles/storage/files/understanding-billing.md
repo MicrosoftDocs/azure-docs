@@ -1,6 +1,6 @@
 ---
 title: Understand Azure Files billing
-description: Learn how to interpret the provisioned v2, provisioned v1, and pay-as-you-go billing models for SMB and NFS Azure file shares. Understand total cost of ownership, storage reservations, and burst credits.
+description: Learn how to interpret the provisioned and pay-as-you-go billing models for Azure Files. Understand total cost of ownership, storage reservations, and burst credits.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: conceptual
@@ -16,7 +16,7 @@ Azure Files supports two different media tiers of storage, SSD and HDD, which al
 
 Azure Files has multiple pricing models including provisioned and pay-as-you-go options:
 
-- **Provisioned billing models**: In a provisioned billing model, the primary costs of the file share are based on the amount of storage, IOPS (input/output operations per second), and throughput you provision when you create or update your file share, regardless of how much you use. Azure Files has two different provisioned models *provisioned v2* and *provisioned v1*.
+- **Provisioned billing models**: In a provisioned billing model, the primary costs of the file share are based on the amount of storage, IOPS (input and output operations per second), and throughput you provision when you create or update your file share, regardless of how much you use. Azure Files has two different provisioned models *provisioned v2* and *provisioned v1*.
     - **Provisioned v2**: In the provisioned v2 model, you have the ability to separately provision storage, IOPS, and throughput, although we provide a recommendation for you to help you with first time provisioning.
     - **Provisioned v1**: In the provisioned v1 model, you provision the amount of storage you need for the share while IOPS and throughput are determined based on how much storage you provision. The provisioned v1 model for Azure Files is only available for SSD file shares.
     
@@ -48,7 +48,7 @@ Azure Files uses the base-2 units of measurement to represent storage capacity: 
 | GiB     | 1024 MiB (1,073,741,824 bytes)     | gibibyte |
 | TiB     | 1024 GiB (1,099,511,627,776 bytes) | tebibyte |
 
-Although the base-2 units of measure are commonly used by most operating systems and tools to measure storage quantities, they're frequently mislabeled as the base-10 units, which you might be more familiar with: KB, MB, GB, and TB. Although the reasons for the mislabeling vary, the common reason why operating systems like Windows mislabel the storage units is because many operating systems began using these acronyms before they were standardized by the IEC, BIPM, and NIST.
+Although the base-2 units of measure are commonly used by most operating systems and tools to measure storage quantities, they're frequently mislabeled as the base-10 units, which you might be more familiar with: KB, MB, GB, and TB. Although the reasons for the mislabeling vary, the common reason why operating systems like Windows mislabel the storage units is because many operating systems began using these acronyms before they were standardized by the IEC (International Electrotechnical Commission), BIPM (International Bureau of Weights and Measures), and NIST (US National Institute of Standards and Technology).
 
 The following table shows how common operating systems measure and label storage:
 
@@ -69,14 +69,14 @@ If you're migrating to Azure Files from on-premises or comparing Azure Files to 
 
 - **How do you achieve storage resiliency and redundancy?** With Azure Files, storage resiliency and redundancy are included in the product offering. All tiers and redundancy levels ensure that data is highly available and at least three copies of your data are accessible. When considering other file storage options, consider whether storage resiliency and redundancy is built in or something you must assemble yourself.
 
-- **What do you need to manage?** With Azure Files, the basic unit of management is a storage account. Other solutions might require additional management, such as operating system updates or virtual resource management such as VMs, disks, and network IP addresses.
+- **What do you need to manage?** With Azure Files, the basic unit of management is a storage account. Other solutions might require extra management, such as operating system updates or virtual resource management such as VMs, disks, and network IP addresses.
 
 - **What are the costs of value-added products?** Azure Files supports integrations with multiple first- and third-party [value-added services](#value-added-services). Value-added services such as Azure Backup, Azure File Sync, and Microsoft Defender for Storage provide backup, replication and caching, and security functionality for Azure Files. Value-added solutions, whether on-premises or in the cloud, have their own licensing and product costs, but are often considered part of the total cost of ownership for file storage.
 
 ## Provisioned v2 model
 The provisioned v2 model for Azure Files pairs predictability of total cost of ownership with flexibility, allowing you to create a file share that meets your exact storage and performance requirements. When you create a new provisioned v2 file share, you specify how much storage, IOPS, and throughput your file share needs. The amount of each quantity that you provision determines your total bill. 
 
-The amount of storage, IOPS, and throughput you provision are the guaranteed limits of your file share's usage. For example, if you provision a 2 TiB share, when you have added 2 TiB of data to your share, your share will be full and you will not be able to add additional data unless you increase the size of your share, or delete some of the data. Credit-based IOPS bursting provides additional flexibility around usage, on a best-effort basis, while credits remain.
+The amount of storage, IOPS, and throughput you provision are the guaranteed limits of your file share's usage. For example, if you provision a 2 TiB share, when you have added 2 TiB of data to your share, your share will be full and you will not be able to add more data unless you increase the size of your share, or delete some of the data. Credit-based IOPS bursting provides additional flexibility around usage, on a best-effort basis, while credits remain.
 
 The amount of storage, IOPS, and throughput you provision can be dynamically scaled up or down as your needs change, however, you can only decrease a provisioned quantity only after 24 hours have elapsed since your last quantity increase. Storage, IOPS, and throughput changes are effective within a few minutes after a provisioning change.  
 
@@ -162,7 +162,7 @@ The following table illustrates a few examples of these formulas for various pro
 ### Provisioned v2 snapshots
 Azure Files supports snapshots, which are similar to volume shadow copies (VSS) on Windows File Server. For more information on share snapshots, see [Overview of snapshots for Azure Files](storage-snapshots-files.md).
 
-Snapshots are always differential from the live share and from each other. In the provisioned v2 billing model, if the total differential size of all snapshots fits within the excess provisioned storage space of the file share, there is no additional cost for snapshot storage. If the size of the live share data plus the differential snapshot data is greater than the provisioned storage of the share, the excess used capacity of the snapshots is billed against the **Overflow Snapshot Usage** meter. The formula for determining the amount of overflow is: `MAX((LiveShareUsedGiB + SnapshotDifferentialUsedGiB) - ProvisionedStorageGiB, 0)`
+Snapshots are always differential from the live share and from each other. In the provisioned v2 billing model, if the total differential size of all snapshots fits within the excess provisioned storage space of the file share, there is no extra cost for snapshot storage. If the size of the live share data plus the differential snapshot data is greater than the provisioned storage of the share, the excess used capacity of the snapshots is billed against the **Overflow Snapshot Usage** meter. The formula for determining the amount of overflow is: `MAX((LiveShareUsedGiB + SnapshotDifferentialUsedGiB) - ProvisionedStorageGiB, 0)`
 
 Some value-added services for Azure Files use snapshots as part of their value proposition. See [value-added services for Azure Files](#value-added-services) for more information.
 
@@ -191,7 +191,7 @@ Consumption against the provisioned v2 billing meters are emitted hourly in term
 ## Provisioned v1 model
 The provisioned v1 method provides storage, IOPS and throughput in a fixed ratio to each other, similar to how storage is purchased in an on-premises storage solution. When you create a new provisioned v1 file share, you specify how much storage your share needs, and IOPS and throughput are computed values. The provisioned v1 model for Azure Files is only available for SSD file shares. 
 
-The amount of storage you provision determines the guaranteed storage, IOPS, and throughput limits of your file share's usage. For example, if you provision a 2 TiB share, when you have added 2 TiB of data to your share, your share will be full and you will not be able to add additional data unless you increase the size of your share, or delete some of the data. Credit-based IOPS bursting provides additional flexibility around usage, on a best-effort basis, while credits remain.
+The amount of storage you provision determines the guaranteed storage, IOPS, and throughput limits of your file share's usage. For example, if you provision a 2 TiB share, when you have added 2 TiB of data to your share, your share will be full and you will not be able to add more data unless you increase the size of your share, or delete some of the data. Credit-based IOPS bursting provides additional flexibility around usage, on a best-effort basis, while credits remain.
 
 Unlike purchasing storage on-premises, provisioned v1 file shares can be dynamically scaled up or down as your needs change, however, you can only decrease the provisioned storage only after 24 hours have elapsed since your last storage increase. Storage, IOPS, and throughput changes are effective within a few minutes after a provisioning change.
 
