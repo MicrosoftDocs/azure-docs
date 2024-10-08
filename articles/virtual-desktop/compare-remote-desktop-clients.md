@@ -5,7 +5,7 @@ ms.topic: concept-article
 zone_pivot_groups: remote-desktop-clients
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 07/16/2024
+ms.date: 10/08/2024
 ---
 
 # Compare Remote Desktop app features across platforms and devices
@@ -609,11 +609,19 @@ The following table shows which security features are available on each platform
 | Feature | Windows<br />(MSI) | Windows<br />(AVD Store) | Windows<br />(RD Store) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
 |--|:-:|:-:|:-:|:-:|:-:|:-:|:-:|
 | Screen capture protection | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |  <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
-| Watermarking | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |  <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
+| Watermarking | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |  <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
 
 ::: zone-end
 
-::: zone pivot="windows-365,dev-box"
+::: zone pivot="windows-365"
+| Feature | Windows<br />(MSI) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
+|--|:-:|:-:|:-:|:-:|:-:|
+| Screen capture protection | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
+| Watermarking | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> |
+
+::: zone-end
+
+::: zone pivot="dev-box"
 | Feature | Windows<br />(MSI) | macOS | iOS/<br />iPadOS | Android/<br />Chrome OS | Web browser |
 |--|:-:|:-:|:-:|:-:|:-:|
 | Screen capture protection | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/yes.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> | <sub>:::image type="icon" source="media/no.svg" border="false":::</sub> |
