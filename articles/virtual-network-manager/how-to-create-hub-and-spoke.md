@@ -67,7 +67,15 @@ This section guides you through how to create a hub-and-spoke configuration with
 
     :::image type="content" source="media/how-to-create-hub-and-spoke/topology.png" alt-text="Screenshot of Add Topology screen for hub and spoke topology.":::
 
-1. Select **Delete existing peerings** checkbox if you want to remove all previously created VNet peering between virtual networks in the network group defined in this configuration,  and then select **Select a hub**.
+1. Select **Delete existing peerings** checkbox if you want to remove all previously created VNet peerings between virtual networks in the network group defined in this configuration, and then select **Select a hub**.
+
+   > [ !WARNING]
+   > When implementing the virtual network manager with this option enabled, make sure you have mapped all peerings, which are outside of virtual network manager connectivity configuration,
+   > across all vNETs in case you need to recreate them as those will be deleted as well.
+   
+   > [ !WARNING]
+   > Deletion of existing peerings bypasses blueprint protection!
+
 1. On the **Select a hub** page, Select a virtual network that acts as the hub virtual network and select **Select**.
     
     :::image type="content" source="media/how-to-create-hub-and-spoke/select-hub.png" alt-text="Screenshot of Select a hub list.":::
