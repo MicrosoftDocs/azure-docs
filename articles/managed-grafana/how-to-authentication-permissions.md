@@ -33,7 +33,7 @@ To enable a system-assigned managed identity:
     > [!NOTE]
     > Disabling a system-assigned managed identity is irreversible. Each time you enable a system-assigned managed identity, Azure creates a new identity.
 
-    :::image type="content" source="media/authentication/system-assigned-managed-identity.jpg" alt-text="Screenshot of the Azure portal. Enabling a system-assigned managed identity.":::
+    :::image type="content" source="media/authentication/system-assigned-managed-identity.png" alt-text="Screenshot of the Azure portal. Enabling a system-assigned managed identity.":::
 
 1. Under permissions, select **Azure role assignments** and assign the **Monitoring Reader** role to this managed identity on the target subscription.
 
@@ -57,7 +57,7 @@ To assign a user-assigned managed identity:
 1. Once the identity is successfully added, open it by selecting its name and go to **Azure role assignments** to assign it the **Monitoring Reader** role on the target subscription. 
 1. When done, select **Save**
 
-    :::image type="content" source="media/authentication/user-assigned-managed-identity.jpg" alt-text="Screenshot of the Azure portal. Enabling a user-assigned managed identity.":::
+    :::image type="content" source="media/authentication/user-assigned-managed-identity.png" alt-text="Screenshot of the Azure portal. Enabling a user-assigned managed identity.":::
 
     > [!NOTE]
     > You can only assign one user-assigned managed identity per Azure Managed Grafana instance.
