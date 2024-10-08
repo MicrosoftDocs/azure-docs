@@ -130,6 +130,3 @@ configuration:
                       permission: Write
             then:
               - closePullRequest
-```
-
-This should be valid YAML. If you need any further adjustments or have any other requests, just let me know!
