@@ -6,12 +6,12 @@ description: Learn how to integrate a sample online payment app in Azure AD B2C 
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: how-to
 ms.date: 09/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer integrating Azure AD B2C with Twilio Verify API, I want a walkthrough on how to integrate a sample online payment app with Twilio Verify API, so that I can comply with PSD2 transaction requirements through dynamic linking and strong customer authentication.
