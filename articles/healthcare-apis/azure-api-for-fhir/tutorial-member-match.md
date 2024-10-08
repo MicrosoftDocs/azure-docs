@@ -10,7 +10,7 @@ author: expekesheth
 ms.date: 09/27/2023
 ---
 
-# Using the $member-match operation for Azure API for FHIR
+# Use the $member-match operation for Azure API for FHIR
 
 [!INCLUDE[retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 
