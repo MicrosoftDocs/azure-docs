@@ -33,10 +33,10 @@ items:
         href: ./concept-vm-offerings.md
       - name: Storage
         href: ./concept-storage.md
-  # - name: Tutorials
-  #   items:
-  #     - name: Create an Azure Modeling and Simulation Workbench
-  #       href: ./quickstart-create-portal.md
+  - name: Tutorials
+    items:
+      - name: Create a Slurm cluster
+        href: ./tutorial-install-slurm.md
   - name: How-to guides
     items:
       - name: Manage users
@@ -81,6 +81,8 @@ items:
         href: ./resources-troubleshoot.md
       - name: Known issues
         href: ./troubleshoot-known-issues.md
+      - name: Best practices
+        href: ./best-practices.md
       - name: Business continuity and disaster recovery
         href: ./disaster-recovery.md
       - name: Get support
