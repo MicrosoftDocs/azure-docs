@@ -13,109 +13,109 @@ configuration:
           - or:
               - includesModifiedFiles:
                   files:
-                    - /articles/aks*
+                    - /articles/aks/*
               - includesModifiedFiles:
                   files:
-                    - /articles/defender-for-cloud**
+                    - /articles/defender-for-cloud/*
               - includesModifiedFiles:
                   files: 
-                    - /articles/attestation*
+                    - /articles/attestation/*
               - includesModifiedFiles:
                   files: 
-                    - /articles/confidential-ledger*
+                    - /articles/confidential-ledger/*
               - includesModifiedFiles:
                   files: 
-                    - /articles/dedicated-hsm*
+                    - /articles/dedicated-hsm/*
               - includesModifiedFiles:
                   files:
-                    - /articles/key-vault*
+                    - /articles/key-vault/*
               - includesModifiedFiles:
                   files: 
-                    - /articles/payment-hsm*
+                    - /articles/payment-hsm/*
               - includesModifiedFiles:
                   files: 
-                    - /articles/postgresql*
+                    - /articles/postgresql/*
               - includesModifiedFiles:
                   files: 
-                    - /articles/cosmos-db*
+                    - /articles/cosmos-db/*
               - includesModifiedFiles:
                   files: 
-                    - /articles/dms*
+                    - /articles/dms/*
               - includesModifiedFiles:
                   files: 
-                    - /articles/mariadb*
+                    - /articles/mariadb/*
               - includesModifiedFiles:
                   files: 
-                    - /articles/mysql*
+                    - /articles/mysql/*
               - includesModifiedFiles:
                   files:   
-                    - /articles/managed-instance-apache-cassandra*
+                    - /articles/managed-instance-apache-cassandra/*
               - includesModifiedFiles:
                   files:   
-                    - /articles/virtual-machines*
+                    - /articles/virtual-machines/*
               - includesModifiedFiles:
                   files:   
-                    - /articles/virtual-machines-scale-sets*
+                    - /articles/virtual-machines-scale-sets/*
               - includesModifiedFiles:
                   files:   
-                    - /articles/container-instances*
+                    - /articles/container-instances/*
               - includesModifiedFiles:
                   files:   
-                    - /articles/service-fabric*
+                    - /articles/service-fabric/*
               - includesModifiedFiles:
                   files:   
-                    - /articles/machine-learning*
+                    - /articles/machine-learning/*
               - includesModifiedFiles:
                   files:   
-                    - /articles/ai-studio*
+                    - /articles/ai-studio/*
               - includesModifiedFiles:
                   files:   
-                    - /articles/ai-services*
+                    - /articles/ai-services/*
               - includesModifiedFiles:
                   files:   
-                    - /articles/genomics*
+                    - /articles/genomics/*
               - includesModifiedFiles:
                   files:   
-                    - /articles/open-datasets*
+                    - /articles/open-datasets/*
               - includesModifiedFiles:
                   files:   
-                    - /articles/search*
+                    - /articles/search/*
               - includesModifiedFiles:
                   files:   
-                    - /articles/azure-monitor*
+                    - /articles/azure-monitor/*
               - includesModifiedFiles:
                   files:  
-                    - /articles/advisor*
+                    - /articles/advisor/*
               - includesModifiedFiles:
                   files:   
-                    - /articles/chaos-studio*
+                    - /articles/chaos-studio/*
               - includesModifiedFiles:
                   files:  
-                    - /articles/service-health*
+                    - /articles/service-health/*
               - includesModifiedFiles:
                   files:  
-                    - /articles/azure-arc*
+                    - /articles/azure-arc/*
               - includesModifiedFiles:
                   files:   
-                    - /articles/azure-linux*
+                    - /articles/azure-linux/*
               - includesModifiedFiles:
                   files:   
-                    - /articles/azure-portal*
+                    - /articles/azure-portal/*
               - includesModifiedFiles:
                   files:   
-                    - /articles/copilot*
+                    - /articles/copilot/*
               - includesModifiedFiles:
                   files:   
-                    - /articles/lighthouse*
+                    - /articles/lighthouse/*
               - includesModifiedFiles:
                   files:  
-                    - /articles/quotas*
+                    - /articles/quotas/*
               - includesModifiedFiles:
                   files:   
-                    - /articles/container-registry*
+                    - /articles/container-registry/*
               - includesModifiedFiles:
                   files:  
-                    - /articles/kubernetes-fleet*
+                    - /articles/kubernetes-fleet/*
         then:
           - addReply:
               reply: >-
