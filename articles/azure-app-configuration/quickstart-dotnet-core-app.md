@@ -47,7 +47,7 @@ You can connect to your App Configuration store using Microsoft Entra ID (recomm
 
 1. Add NuGet package references by running the following command:
 
-    ### [Microsoft Entra ID](#tab/entra-id)
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
     ```dotnetcli
     dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration
     dotnet add package Azure.Identity
@@ -68,7 +68,7 @@ You can connect to your App Configuration store using Microsoft Entra ID (recomm
 1. Open the *Program.cs* file, and add the following namespaces:
 
 
-    ### [Microsoft Entra ID](#tab/entra-id)
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
     ```csharp
     using Microsoft.Extensions.Configuration;
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
@@ -84,7 +84,7 @@ You can connect to your App Configuration store using Microsoft Entra ID (recomm
 
 1. Connect to your App Configuration store by calling the `AddAzureAppConfiguration` method in the `Program.cs` file.
 
-    ### [Microsoft Entra ID](#tab/entra-id)
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
     You use the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application.
 
     ```csharp
@@ -113,7 +113,7 @@ You can connect to your App Configuration store using Microsoft Entra ID (recomm
 
 1. Set an environment variable.
 
-    ### [Microsoft Entra ID](#tab/entra-id)
+    ### [Microsoft Entra ID (recommended)](#tab/entra-id)
     Set the environment variable named **Endpoint** to the endpoint of your App Configuration store found under the *Overview* of your store in the Azure portal.
 
     If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
@@ -168,7 +168,7 @@ You can connect to your App Configuration store using Microsoft Entra ID (recomm
     dotnet run
     ```
 
-    ![Quickstart app launch local](./media/quickstarts/dotnet-core-app-run.png)
+    :::image type="content" source="./media/quickstarts/dotnet-core-app-run.png" alt-text="Screenshot of a terminal window showing the app running locally.":::
 
 ## Clean up resources
 

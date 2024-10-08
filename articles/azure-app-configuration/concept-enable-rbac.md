@@ -36,7 +36,7 @@ All requests for [control plane](../azure-resource-manager/management/control-pl
 > [!NOTE]
 > After a role assignment is made for an identity, allow up to 15 minutes for the permission to propagate before accessing data stored in App Configuration using this identity.
 
-## Authentication with Token Credentials
+## Authentication with token credentials
 
 To enable your application to authenticate with Microsoft Entra ID, the Azure Identity library supports various token credentials for Microsoft Entra ID authentication. For example, you might choose Visual Studio Credential when developing your application in Visual Studio, Workload Identity Credential when your application runs on Kubernetes, or Managed Identity Credential when your application is deployed in Azure services like Azure Functions.
 
@@ -44,7 +44,7 @@ To enable your application to authenticate with Microsoft Entra ID, the Azure Id
 
 The `DefaultAzureCredential` is a preconfigured [chain of token credentials](/dotnet/azure/sdk/authentication/credential-chains#defaultazurecredential-overview) that automatically attempts an ordered sequence of the most common authentication methods. Using the `DefaultAzureCredential` allows you to keep the same code in both local development and Azure environments. However, it's important to know which credential is being used in each environment, as you need to grant the appropriate roles for authorization to work. For example, authorize your own account when you expect the `DefaultAzureCredential` to fall back to your user identity during local development. Similarly, enable managed identity in Azure Functions and assign it the necessary role when you expect the `DefaultAzureCredential` to fall back to the `ManagedIdentityCredential` when your Function App runs in Azure.
 
-### Assign App Configuration Data Roles
+### Assign App Configuration data roles
 
 Regardless of which credential you use, you must assign it the appropriate roles before it can access your App Configuration store. If your application only needs to read data from your App Configuration store, assign it the *App Configuration Data Reader* role. If your application also needs to write data to your App Configuration store, assign it the *App Configuration Data Owner* role.
 
