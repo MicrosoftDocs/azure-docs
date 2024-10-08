@@ -10,11 +10,11 @@ author: expekesheth
 ms.date: 09/27/2023
 ---
 
-# Write Azure web application to read FHIR data in Azure API for FHIR
+# Write an Azure web application to read FHIR data in Azure API for FHIR
 
 [!INCLUDE[retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 
-Now that you're able to connect to your FHIR&reg; server and POST data, you’re ready to write a web application that will read FHIR data. In this final step of the tutorial, we walk through writing and accessing the web application.
+Once you're able to connect to your FHIR&reg; server and POST data, you’re ready to write a web application that will read FHIR data. In this final step of the tutorial, we walk through writing and accessing the web application.
 
 ## Create web application
 In Azure, select **Create a resource** and select **Web App**. Make sure to name your web application whatever you specified in the redirect URI for your client application, or go back and update the redirect URI with the new name. 
@@ -23,7 +23,7 @@ In Azure, select **Create a resource** and select **Web App**. Make sure to name
 
 Once the web application is available, select **Go to resource**. Select **App Service Editor (Preview)** under Development Tools on the right and then select **Go**. Selecting **Go** opens up the App Service Editor. Right select in the grey space under *Explore* and create a new file called **index.html**.
 
-The following is the code that you can input into **index.html**. You’ll need to update the following items.
+The following is code you can input into **index.html**. You’ll need to update the following items.
 * **clientId** - Update with your client application ID. This ID is the same ID you pulled when retrieving your token
 * **authority** - Update with your Microsoft Entra tenant ID
 * **FHIRendpoint** - Update the FHIRendpoint to have your FHIR service name

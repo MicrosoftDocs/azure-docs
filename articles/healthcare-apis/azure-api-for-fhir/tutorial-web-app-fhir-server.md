@@ -12,7 +12,7 @@ ms.custom: devx-track-js
 
 ---
 
-# Deploy JavaScript app to read data from Azure API for FHIR
+# Deploy a JavaScript app to read data from Azure API for FHIR
 
 [!INCLUDE[retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 

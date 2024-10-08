@@ -15,7 +15,7 @@ ms.author: kesheth
 
 In the [store profiles in Azure API for FHIR](store-profiles-in-fhir.md) article, you walked through the basics of FHIR profiles and storing them. This article guides you through how to use `$validate` for validating resources against profiles. Validating a resource against a profile means checking if the resource conforms to the profile, including the specifications listed in `Resource.meta.profile` or in an Implementation Guide (IG).
 
-`$validate` is an operation in Fast Healthcare Interoperability Resources (FHIR&reg;) that allows you to ensure that a FHIR resource conforms to the base resource requirements or a specified profile. This operation ensures that the data in Azure API for FHIR  has the expected attributes and values. For information on validate operation, visit [HL7 FHIR Specification](https://www.hl7.org/fhir/resource-operation-validate.html). Per the specification, Mode can be specified with `$validate`, such as create and update.
+`$validate` is an operation in Fast Healthcare Interoperability Resources (FHIR&reg;) that allows you to ensure that a FHIR resource conforms to the base resource requirements or a specified profile. This operation ensures that the data in Azure API for FHIR  has the expected attributes and values. For information on validate operation, visit the [HL7 FHIR Specification](https://www.hl7.org/fhir/resource-operation-validate.html). Per the specification, `Mode` (such as `create` and `update`) can be specified with `$validate`.
 
 - `create`: Azure API for FHIR checks that the profile content is unique from the existing resources and that it's acceptable to be created as a new resource.
 - `update`: Checks that the profile is an update against the nominated existing resource (that is no changes are made to the immutable fields).
@@ -26,10 +26,10 @@ There are different ways provided for you to validate resource.
 - Validate a new resource with validate operation.
 - Validate on resource CREATE/UPDATE using a header.
 
-Azure API for FHIR always returns an `OperationOutcome` as the validation results for `$validate` operation. Azure API for FHIR service does two step validation once a resource is passed into `$validate` endpoint. The first step is a basic validation to ensure resource can be parsed. During resource parsing, individual errors need to be fixed before proceeding to next step. Once a resource is successfully parsed, full validation is conducted as the second step.
+Azure API for FHIR always returns an `OperationOutcome` as the validation results for a `$validate` operation. Azure API for FHIR service does two step validation once a resource is passed into a `$validate` endpoint. The first step is a basic validation to ensure the resource can be parsed. During resource parsing, individual errors need to be fixed before proceeding to next step. Once a resource is successfully parsed, full validation is conducted as the second step.
 
 > [!NOTE]
-> Any `Valuesets` that are to be used for validation must be uploaded to the FHIR server. This includes any `Valuesets` which are part of the FHIR specification, as well as any `ValueSets` defined in Implementation Guides. Only fully expanded `Valuesets`, which contain a full list of all codes are supported. Any `ValueSet` definitions which reference external sources are not supported.
+> Any `Valuesets` that are to be used for validation must be uploaded to the FHIR server. This includes any `Valuesets` which are part of the FHIR specification, as well as any `ValueSets` defined in Implementation Guides. Only fully expanded `Valuesets` which contain a full list of all codes are supported. Any `ValueSet` definitions which reference external sources are not supported.
 
 ## Validating an existing resource
 
@@ -55,7 +55,7 @@ In this example, you're validating the existing Patient resource `a6e11662-def8-
     ]
 }
 ```
-If the resource isn't valid, you get an error code and an error message with details on why the resource is invalid. An example `OperationOutcome` gets returned with error messages and could look like the following code example.
+If the resource isn't valid, you get an error code and an error message with details on why the resource is invalid. An `OperationOutcome` gets returned with error messages, and could look like the following code example.
 
 ```json
 {
@@ -116,7 +116,7 @@ For example,
 
 This request validates the resource. Resources aren't created in FHIR service on validation. You need to send a POST request without `$validate` to create a resource.
 
-## Validate on resource CREATE/ UPDATE using header.
+## Validate on a resource CREATE/UPDATE using a header
 
 By default, Azure API for FHIR is configured to opt out of validation on resource `Create/Update`. This capability allows validation on `Create/Update`, using the `x-ms-profile-validation` header. Set `x-ms-profile-validation` to true for validation.
 
