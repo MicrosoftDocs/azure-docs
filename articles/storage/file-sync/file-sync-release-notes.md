@@ -99,7 +99,7 @@ Azure File Sync support for system-assigned managed identities will be in previe
 **Sync performance improvements**  
 Sync performance has significantly improved for file share migrations and when metadata-only is changed (for example, ACL changes). Performance numbers will be posted when they are available.
 
-**Support for Windows Server 2025**
+**Support for Windows Server 2025**  
 The Azure File Sync agent is now supported on Windows Server 2025.
 
 **Miscellaneous reliability and telemetry improvements for cloud tiering and sync**
