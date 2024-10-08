@@ -247,6 +247,13 @@ To deploy your data connector agent via the portal, you need:
 
 If you don't have these prerequisites, [deploy the SAP data connector agent from the command line](deploy-command-line.md) instead.
 
+If you want to ingest Netweaver/ABAP logs over a secure connection using Secure Network Communications (SNC), you need:
+
+- The path to the `sapgenpse` binary and `libsapcrypto.so` library
+- The details of your client certificate
+
+For more information, see [Configure your system to use SNC for secure connections](preparing-sap.md#configure-your-system-to-use-snc-for-secure-connections).
+
 **To deploy the data connector agent**:
 
 1. Sign in to the newly created VM on which you're installing the agent, as a user with sudo privileges.
@@ -268,7 +275,7 @@ If you don't have these prerequisites, [deploy the SAP data connector agent from
     |**Agent name**     |  Enter an agent name, including any of the following characters: <ul><li> a-z<li> A-Z<li>0-9<li>_ (underscore)<li>. (period)<li>- (dash)</ul>       |
     |**Subscription** / **Key vault**     |   Select the **Subscription** and **Key vault** from their respective drop-downs.      |
     |**NWRFC SDK zip file path on the agent VM**     |  Enter the path in your VM that contains the SAP NetWeaver Remote Function Call (RFC) Software Development Kit (SDK) archive (.zip file). <br><br>Make sure that this path includes the SDK version number in the following syntax: `<path>/NWRFC<version number>.zip`. For example: `/src/test/nwrfc750P_12-70002726.zip`.       |
-    |**Enable SNC connection support**     |Select to ingest NetWeaver/ABAP logs over a secure connection using Secure Network Communications (SNC).  <br><br>If you select this option, enter the path that contains the `sapgenpse` binary and `libsapcrypto.so` library, under **SAP Cryptographic Library path on the agent VM**.     <br><br>If you want to use an SNC connection, make sure to select **Enable SNC connection support** at this stage as you can't go back and enable an SNC connection after you finish deploying the agent.     |
+    |**Enable SNC connection support**     |Select to ingest NetWeaver/ABAP logs over a [secure connection using SNC](preparing-sap.md#configure-your-system-to-use-snc-for-secure-connections).  <br><br>If you select this option, enter the path that contains the `sapgenpse` binary and `libsapcrypto.so` library, under **SAP Cryptographic Library path on the agent VM**.     <br><br>If you want to use an SNC connection, make sure to select **Enable SNC connection support** at this stage as you can't go back and enable an SNC connection after you finish deploying the agent.    |
     |**Authentication to Azure Key Vault**     |   To authenticate to your key vault using a managed identity, leave the default **Managed Identity** option selected.  To authenticate to your key vault using a registered application, select **Application Identity**. <br><br>You must have the managed identity or registered application set up ahead of time. For more information, see [Create a virtual machine and configure access to your credentials](#create-a-virtual-machine-and-configure-access-to-your-credentials).     |
 
     For example:
@@ -334,7 +341,7 @@ If you don't have these prerequisites, [deploy the SAP data connector agent from
 1. On the **Authentication** tab, enter the following details:
 
     - For basic authentication, enter the user and password.
-    - If you selected an SNC connection [when you set up the agent](#deploy-the-data-connector-agent-from-the-portal-preview), select **SNC** and enter the certificate details.
+    - If you selected an SNC connection [when you set up the agent](#deploy-the-data-connector-agent-from-the-portal-preview), select **SNC** and enter the certificate details. 
 
 1. Select **Next: Logs**.
 
@@ -354,7 +361,7 @@ After you deploy the SAP data connector agent, check your agent's health and con
 
 ## Next step
 
-Once the connector is deployed, proceed to deploy Microsoft Sentinel solution for SAP applications content:
+Once the connector is deployed, proceed to configure the Microsoft Sentinel solution for SAP applications content:
 
 > [!div class="nextstepaction"]
 > [Enable SAP detections and threat protection](deployment-solution-configuration.md)

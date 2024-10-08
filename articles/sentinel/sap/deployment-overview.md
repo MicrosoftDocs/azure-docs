@@ -39,7 +39,7 @@ Microsoft Sentinel supports a few options for storing your agent configuration i
 - An **Azure Key Vault** accessed through a Microsoft Entra ID **registered-application service principal**
 - A plaintext **configuration file**
 
-You can also always authenticate using SAP's Secure Network Communication (SNC) and X.509 certificates. While using SNC provides a higher level of authentication security, it might not be practical for all scenarios.
+You can also authenticate using SAP's Secure Network Communication (SNC) and X.509 certificates. While using SNC provides a higher level of authentication security, it might not be practical for all scenarios.
 
 ### Security content
 

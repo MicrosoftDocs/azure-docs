@@ -5,12 +5,12 @@ description: Learn about approaches to solving errors when working with custom p
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: troubleshooting
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 ms.custom: b2c-docs-improvements
 zone_pivot_groups: b2c-policy-type
 

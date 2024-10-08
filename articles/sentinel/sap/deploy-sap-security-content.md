@@ -26,8 +26,8 @@ Content in this article is relevant for your **security** team.
 
 To deploy the Microsoft Sentinel solution for SAP applications from the content hub, you need:
 
-- A Microsoft Sentinel instance.
-- A defined Microsoft Sentinel workspace, and read and write permissions to the workspace. For more information, see [Roles and permissions in Microsoft Sentinel](../roles.md).
+- A Log Analytics workspace enabled for Microsoft Sentinel.
+- Read and write permissions to the workspace. For more information, see [Roles and permissions in Microsoft Sentinel](../roles.md). <!--make them all like this-->
 
 Make sure that you also review the [prerequisites for deploying Microsoft Sentinel solution for SAP applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md), especially [Azure prerequisites](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#azure-prerequisites).
 
