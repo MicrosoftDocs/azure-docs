@@ -109,7 +109,7 @@ If the virtual network is in a different subscription than your ASA job, you mus
 
 ## Limitations 
 
-- VNET jobs require a minimum of 1 SU V2 (new pricing model) or 6 SUs (current) 
+- VNET jobs require a minimum of one SU V2 (new pricing model) or six SUs (current) 
 - Make sure the subnet range doesn't collide with ASA subnet range (that is, don't use subnet range 10.0.0.0/16). 
 - ASA job(s) and the virtual network must be in the same region. 
 - The delegated subnet can only be used by Azure Stream Analytics. 
