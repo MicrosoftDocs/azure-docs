@@ -69,23 +69,7 @@ The following requirements and considerations apply to large volumes. For perfor
     For the latest performance benchmark numbers conducted on Azure NetApp Files Large volumes, see [Azure NetApp Files large volume performance benchmarks for Linux](performance-large-volumes-linux.md) and [Benefits of using Azure NetApp Files for Electronic Design Automation (EDA)](solutions-benefits-azure-netapp-files-electronic-design-automation.md).
 
 
-* <a name="cool-access"></a> To use large volumes with cool access, you must first register the feature:
-
-    1. Register the feature: 
-    
-        ```azurepowershell-interactive
-        Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFLargeVolumes  
-        ```
-    
-    2. Check the status of the feature registration: 
-    
-        ```azurepowershell-interactive
-        Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFLargeVolumes 
-        ```
-        > [!NOTE]
-        > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is **Registered** before continuing.
-    
-    You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
+* Large volumes are supported with cool access. You must be [registered to use cool access](manage-cool-access.md#register-the-feature) before creating a cool access-enabled large volume. 
 
 ## About 64-bit file IDs
 
@@ -131,6 +115,14 @@ Once your [regional capacity quota](regional-capacity-quota.md) has increased, y
 ### Register the feature 
 
 If this is your first time using large volumes, register the feature with the [large volumes sign-up form](https://aka.ms/anflargevolumessignup).
+
+Check the status of the feature registration: 
+    
+  ```azurepowershell-interactive
+  Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFLargeVolumes 
+  ```
+    
+You can also use [Azure CLI command](/cli/azure/feature) `az feature show` to register the feature and display the registration status. 
 
 ## Next steps
 
