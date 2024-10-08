@@ -83,7 +83,7 @@ Before you can connect to your devices and apps from macOS, you need:
 >- The macOS Remote Desktop client currently isn't distributed in the China region in the App Store.
 
 > [!IMPORTANT]
-> In version 11.0.0 and above, the Remote Desktop client has a new name, Windows App. For more information on the Windows App update, see [What is Windows App](/windows-app/overview). If you're using macOS/iOS/iPadOS, you should reference [Get started with Windows App](/windows-app/get-started-connect-devices-desktops-apps) to connect to desktops and apps moving forward.
+> In version 11.0.0 and above, the Remote Desktop client has a new name, Windows App. For more information on the Windows App update, see [What is Windows App](/windows-app/overview). If you're using macOS or iOS/iPadOS, you should reference [Get started with Windows App](/windows-app/get-started-connect-devices-desktops-apps) to connect to desktops and apps moving forward.
 
 # [iOS/iPadOS](#tab/ios-ipados)
 
@@ -96,7 +96,7 @@ Before you can connect to your devices and apps from iOS or iPadOS, you need:
 - Download and install the Remote Desktop client from the [App Store](https://apps.apple.com/app/microsoft-remote-desktop/id714464092).
 
 > [!IMPORTANT]
-> In version 11.0.0 and above, the Remote Desktop client has a new name, Windows App. For more information on the Windows App update, see [What is Windows App](/windows-app/overview). If you're using macOS/iOS/iPadOS, you should reference [Get started with Windows App](/windows-app/get-started-connect-devices-desktops-apps) to connect to desktops and apps moving forward.
+> In version 11.0.0 and above, the Remote Desktop client has a new name, Windows App. For more information on the Windows App update, see [What is Windows App](/windows-app/overview). If you're using macOS or iOS/iPadOS, you should reference [Get started with Windows App](/windows-app/get-started-connect-devices-desktops-apps) to connect to desktops and apps moving forward.
 
 # [Android/Chrome OS](#tab/android)
 
