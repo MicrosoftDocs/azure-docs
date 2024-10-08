@@ -100,17 +100,19 @@ The general layer section of the **Format** pane are common settings that apply 
 >
 > For more information on the range scaling option, see **Range scaling** in the properties table of the [Add a bubble layer] article.
 
-## Data-Bound Refence Layer
+## Data-Bound Reference Layer
 
-The Data-Bound Refence Layer enables the association of data with specific shapes in the reference layer based on common attributes.
+The Data-Bound Reference Layer enables the association of data with specific shapes in the reference layer based on common attributes.
 
-To use the Data-Bound Refence Layer, drag your business data (such as location data) to the Location field of the Azure Maps Visual.
+To use the Data-Bound Reference layer, drag the column containing unique identifiers (can be location data or not) to the Location field of the Azure Maps Visual.
 
 :::image type="content" source="media/power-bi-visual/data-bound-reference-layer/location-field.png" alt-text="A screenshot showing the location field in Power BI desktop.":::
 
-The Azure Maps Visual automatically maps your data points to the shapes in the reference layer using a *key matching* mechanism. It identifies a common property, such as a name or ID, between your data and the reference layer shapes to establish a connection
+Azure Maps matches these identifiers with the corresponding properties in the uploaded spatial file, automatically linking your data to the shapes on the map.
 
-:::image type="content" source="media/power-bi-visual/data-bound-reference-layer/data-bound-reference-layer.png"  lightbox="media/power-bi-visual/data-bound-reference-layer/data-bound-reference-layer.png" alt-text="A screenshot showing the Data-Bound Refence Layer example in Power BI desktop.":::
+In scenarios with multiple properties, Azure Maps identifies a common property in each shape and compares its value with the selected data column in the Location field. It then uses the property that has the highest number of matches with the selected data column.
+
+:::image type="content" source="media/power-bi-visual/data-bound-reference-layer/data-bound-reference-layer.png"  lightbox="media/power-bi-visual/data-bound-reference-layer/data-bound-reference-layer.png" alt-text="A screenshot showing the Data-Bound Reference Layer example in Power BI desktop.":::
 
 If one or more shapes in the reference layer can't be automatically mapped to any data point, you can manage these unmapped objects by following these steps:
 
@@ -121,13 +123,24 @@ If one or more shapes in the reference layer can't be automatically mapped to an
 
 Optionally, select the **Use custom colors** toggle switch to toggle On/Off custom fill and border colors for unmapped objects to make them visually distinct on the map.
 
-:::image type="content" source="media/power-bi-visual/data-bound-reference-layer/data-bound-reference-layer-unmapped-objects.png" lightbox="media/power-bi-visual/data-bound-reference-layer/data-bound-reference-layer-unmapped-objects.png" alt-text="A screenshot showing the Data-Bound Refence Layer example in Power BI desktop with unmapped objects showing in a different color.":::
+:::image type="content" source="media/power-bi-visual/data-bound-reference-layer/data-bound-reference-layer-unmapped-objects.png" lightbox="media/power-bi-visual/data-bound-reference-layer/data-bound-reference-layer-unmapped-objects.png" alt-text="A screenshot showing the Data-Bound Reference Layer example in Power BI desktop with unmapped objects showing in a different color.":::
 
 ## Conditional Formatting
 
 Conditional formatting can be applied to data to dynamically change the appearance of shapes on a map based on the provided data. For instance, gradient colors can visualize various data values such as population density, sales performance, or other metrics. This is a powerful tool for combining spatial and business data to create interactive and visually compelling reports.
 
 :::image type="content" source="media/power-bi-visual/data-bound-reference-layer/conditional-formatting.png" alt-text="A screenshot showing the Conditional Formatting controls for points, lines, polygons, and unmanaged objects in the reference layer control in Power BI desktop.":::
+
+There are several ways to set colors to the shapes. The following table shows the priorities used:
+
+| Priority | Source                        | Description                                                     |
+|----------|-------------------------------|-----------------------------------------------------------------|
+| 1        | Preset style in spatial files | Color and style as defined in the spatial file                  |
+| 2        | Unmapped object colors        | Custom colors used when the geometry isn’t data-bound           |
+| 3        | Legend colors                 | Colors provided by Legend/Series                                |
+| 4        | Conditional formatting colors | Colors provided by conditional formatting                       |
+| 5        | Custom formatting colors      | User defined custom styles in the Reference Layer options in the formatting pane |
+| 6        | Default colors                | Default colors defined in the Azure Maps visual                 |
 
 ## Next steps
 
