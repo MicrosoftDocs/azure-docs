@@ -127,7 +127,7 @@
       href: dns-alias-appservice.md
     - name: Manage DNSSEC
       items:
-      - name: Sign a DNS zone with DNSSEC
+      - name: Sign a DNS zone
         href: dnssec-how-to.md
       - name: Unsign a DNS zone
         href: dnssec-unsign.md

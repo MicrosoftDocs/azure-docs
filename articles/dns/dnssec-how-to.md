@@ -12,6 +12,8 @@ ms.author: greglin
 
 This article shows you how to sign your DNS zone with Domain Name System Security Extensions (DNSSEC).
 
+Also see: [DNSSEC overview (Preview)](dnssec.md)
+
 ## Prerequisites
 
 * The DNS zone must be hosted by Azure Public DNS. For more information, see [Manage DNS zones](/azure/dns/dns-operations-dnszones-portal).

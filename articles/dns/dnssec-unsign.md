@@ -4,7 +4,7 @@ description: Learn how to remove DNSSEC from your Azure public DNS zone.
 author: greg-lindsay
 ms.service: azure-dns
 ms.topic: how-to
-ms.date: 09/04/2024
+ms.date: 10/08/2024
 ms.author: greglin
 ---
 
