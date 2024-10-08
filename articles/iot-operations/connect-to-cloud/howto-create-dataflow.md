@@ -591,7 +591,8 @@ Specify the **Output** schema when you add the destination dataflow endpoint.
 
 # [Bicep](#tab/bicep)
 
-When the dataflow resource is created, it includes a schemaRef value that points to the generated schema stored in the schema registry. It can be referenced in transformations which creates a new schema in Delta format.
+When the dataflow resource is created, it includes a `schemaRef` value that points to the generated schema stored in the schema registry. It can be referenced in transformations which creates a new schema in Delta format. 
+This [Bicep File to create Dataflow](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/dataflow.bicep) provides a streamlined approach to provisioning the dataflow with schema integration.
 
 ```bicep
 {
@@ -599,7 +600,7 @@ When the dataflow resource is created, it includes a schemaRef value that points
   builtInTransformationSettings: {
     // ..
     schemaRef: 'aio-sr://${opcuaSchemaName}:${opcuaSchemaVer}'
-    serializationFormat: 'Parquet' // can also be 'Delta' 
+    serializationFormat: 'Parquet' 
   }
 }
 ```
@@ -793,7 +794,7 @@ Select the dataflow you want to export and select **Export** from the toolbar.
 
 # [Bicep](#tab/bicep)
 
-TODO.
+Bicep is infrastructure as code, so no export is required. This [Bicep File to create Dataflow](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/dataflow.bicep) provides a template to quickly set up and configure dataflows.
 
 # [Kubernetes](#tab/kubernetes)
 
