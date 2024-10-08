@@ -1,4 +1,3 @@
-```yaml
 name: GitOps.PullRequestIssueManagement
 description: GitOps.PullRequestIssueManagement primitive
 resource: repository
@@ -13,42 +12,110 @@ configuration:
               action: Opened
           - or:
               - includesModifiedFiles:
+                  files:
+                    - /articles/aks*
+              - includesModifiedFiles:
+                  files:
+                    - /articles/defender-for-cloud**
+              - includesModifiedFiles:
                   files: 
-                    - "/articles/aks*"
-                    - "/articles/defender-for-cloud*"
-                    - "/articles/attestation*"
-                    - "/articles/confidential-ledger*"
-                    - "/articles/dedicated-hsm*"
-                    - "/articles/key-vault*"
-                    - "/articles/payment-hsm*"
-                    - "/articles/postgresql*"
-                    - "/articles/cosmos-db*"
-                    - "/articles/dms*"
-                    - "/articles/mariadb*"
-                    - "/articles/mysql*"
-                    - "/articles/managed-instance-apache-cassandra*"
-                    - "/articles/virtual-machines*"
-                    - "/articles/virtual-machines-scale-sets*"
-                    - "/articles/container-instances*"
-                    - "/articles/service-fabric*"
-                    - "/articles/machine-learning*"
-                    - "/articles/ai-studio*"
-                    - "/articles/ai-services*"
-                    - "/articles/genomics*"
-                    - "/articles/open-datasets*"
-                    - "/articles/search*"
-                    - "/articles/azure-monitor*"
-                    - "/articles/advisor*"
-                    - "/articles/chaos-studio*"
-                    - "/articles/service-health*"
-                    - "/articles/azure-arc*"
-                    - "/articles/azure-linux*"
-                    - "/articles/azure-portal*"
-                    - "/articles/copilot*"
-                    - "/articles/lighthouse*"
-                    - "/articles/quotas*"
-                    - "/articles/container-registry*"
-                    - "/articles/kubernetes-fleet*"
+                    - /articles/attestation*
+              - includesModifiedFiles:
+                  files: 
+                    - /articles/confidential-ledger*
+              - includesModifiedFiles:
+                  files: 
+                    - /articles/dedicated-hsm*
+              - includesModifiedFiles:
+                  files:
+                    - /articles/key-vault*
+              - includesModifiedFiles:
+                  files: 
+                    - /articles/payment-hsm*
+              - includesModifiedFiles:
+                  files: 
+                    - /articles/postgresql*
+              - includesModifiedFiles:
+                  files: 
+                    - /articles/cosmos-db*
+              - includesModifiedFiles:
+                  files: 
+                    - /articles/dms*
+              - includesModifiedFiles:
+                  files: 
+                    - /articles/mariadb*
+              - includesModifiedFiles:
+                  files: 
+                    - /articles/mysql*
+              - includesModifiedFiles:
+                  files:   
+                    - /articles/managed-instance-apache-cassandra*
+              - includesModifiedFiles:
+                  files:   
+                    - /articles/virtual-machines*
+              - includesModifiedFiles:
+                  files:   
+                    - /articles/virtual-machines-scale-sets*
+              - includesModifiedFiles:
+                  files:   
+                    - /articles/container-instances*
+              - includesModifiedFiles:
+                  files:   
+                    - /articles/service-fabric*
+              - includesModifiedFiles:
+                  files:   
+                    - /articles/machine-learning*
+              - includesModifiedFiles:
+                  files:   
+                    - /articles/ai-studio*
+              - includesModifiedFiles:
+                  files:   
+                    - /articles/ai-services*
+              - includesModifiedFiles:
+                  files:   
+                    - /articles/genomics*
+              - includesModifiedFiles:
+                  files:   
+                    - /articles/open-datasets*
+              - includesModifiedFiles:
+                  files:   
+                    - /articles/search*
+              - includesModifiedFiles:
+                  files:   
+                    - /articles/azure-monitor*
+              - includesModifiedFiles:
+                  files:  
+                    - /articles/advisor*
+              - includesModifiedFiles:
+                  files:   
+                    - /articles/chaos-studio*
+              - includesModifiedFiles:
+                  files:  
+                    - /articles/service-health*
+              - includesModifiedFiles:
+                  files:  
+                    - /articles/azure-arc*
+              - includesModifiedFiles:
+                  files:   
+                    - /articles/azure-linux*
+              - includesModifiedFiles:
+                  files:   
+                    - /articles/azure-portal*
+              - includesModifiedFiles:
+                  files:   
+                    - /articles/copilot*
+              - includesModifiedFiles:
+                  files:   
+                    - /articles/lighthouse*
+              - includesModifiedFiles:
+                  files:  
+                    - /articles/quotas*
+              - includesModifiedFiles:
+                  files:   
+                    - /articles/container-registry*
+              - includesModifiedFiles:
+                  files:  
+                    - /articles/kubernetes-fleet*
         then:
           - addReply:
               reply: >-
