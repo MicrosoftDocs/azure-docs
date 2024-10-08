@@ -40,7 +40,7 @@ Resource Record Signatures (RRSIGs) and other cryptographic records are added to
 
   ![A diagram showing how RRSIG records are added to a zone when it's signed with DNSSEC.](media/dnssec/rrsig-records.png)
 
-[DNSSEC validation](#dnssec-validation) of DNS responses occurs by using these digital signatures.
+[DNSSEC validation](#dnssec-validation) of DNS responses occurs by using these digital signatures with an unbroken [chain of trust](#chain-of-trust).
 
 > [!NOTE]
 > DNSSEC-related resource records aren't displayed in the Azure portal. For more information, see [View DNSSEC-related resource records](#view-dnssec-related-resource-records).
