@@ -145,6 +145,7 @@ Keep these other considerations in mind when using Flex Consumption plan during 
 + **Scale**: The lowest maximum scale in preview is `40`. The highest currently supported value is `1000`. 
 + **Managed dependencies**: [Managed dependencies in PowerShell](functions-reference-powershell.md#dependency-management) aren't supported by Flex Consumption. You must instead [define your own custom modules](functions-reference-powershell.md#custom-modules).
 + **Diagnostic settings**: Diagnostic settings are not currently supported.
++ **Certificates**: Loading certificates with the WEBSITE_LOAD_CERTIFICATES app setting is currently not supported.
  
 ## Related articles 
 
