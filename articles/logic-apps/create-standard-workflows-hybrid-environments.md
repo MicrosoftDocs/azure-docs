@@ -70,13 +70,13 @@ To host your hybrid logic app as on-premises resource, you can create an [Azure 
 
 Choose one of the following options to create and set up your Arc-enabled Kubernetes cluster as the deployment environment:
 
-##### Azure portal
+##### [Portal](#tab/azure-portal)
 
 1. [Follow these steps to create an AKS cluster](/azure/aks/learn/quick-kubernetes-deploy-portal).
 
 1. [Follow these steps to connect the cluster to Azure Arc](/azure/azure-arc/kubernetes/quickstart-connect-cluster).
 
-##### Azure Cloud Shell or Azure CLI
+##### [Azure CLI](#tab/azure-cli)
 
 Run the following commands either by using Azure Cloud Shell in the Azure portal or by using [Azure CLI installed on your local computer](/cli/azure/install-azure-cli):
 
@@ -102,7 +102,7 @@ az aks create --resource-group <Azure-resource-group-name> --name <AKS-cluster-n
 | **`az aks create`** | **`max count`** | No | <*max-nodes-value*> | The maximum number of nodes to use for the autoscaler when you include the **`enable-cluster-autoscaler`** option. This value ranges from **1** to **1000**. <br><br>For more information, see [**az aks create**](/cli/azure/aks#az-aks-create). |
 | **`az aks create`** | **`min count`** | No | <*min-nodes-value*> | The minimum number of nodes to use for the autoscaler when you include the **`enable-cluster-autoscaler`** option. This value ranges from **1** to **1000**. <br><br>For more information, see [**az aks create**](/cli/azure/aks#az-aks-create). |
 
-##### PowerShell
+##### [Azure PowerShell](#tab/azure-powershell)
 
 1. Run the following PowerShell command as an administrator:
 
@@ -121,6 +121,8 @@ az aks create --resource-group <Azure-resource-group-name> --name <AKS-cluster-n
    | **LOCATION** | Yes | **'**<*Azure-region*>**'** | An Azure region that is [supported for Azure container apps on Azure Arc-enabled Kubernetes](../container-apps/azure-arc-overview.md#public-preview-limitations). <br><br>This example uses **East US**. |
    | **KUBE_CLUSTER_NAME** | Yes | <*cluster-name*> | The name for your cluster. |
    | **LOGANALYTICS_WORKSPACE_NAME** | No | <*Log-Analytics-workspace-name*> | The name for the Log Analytics workspace resource to create for monitoring logs. |
+
+---
 
 ### Create an AKS cluster on Azure Stack HCI
 
