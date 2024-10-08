@@ -290,7 +290,7 @@ For more information, see [Configure your system to use SNC for secure connectio
 
     To run the commands in this step, you must be a resource group owner on your Microsoft Sentinel workspace. If you aren't a resource group owner on your workspace, this procedure can also be performed after the agent deployment is complete.
 
-    Under **Just a few more steps before we finish**, copy the *Role assignment commands* from step 1 and run them on your agent VM, replacing the `Object_ID` placeholder with your VM identity object ID. For example:
+    Under **Just a few more steps before we finish**, copy the *Role assignment commands* from step 1 and run them on your agent VM, replacing the `[Object_ID]` placeholder with your VM identity object ID. For example:
 
     :::image type="content" source="media/deploy-data-connector-agent-container/finish-agent-deployment-role.png" alt-text="Screenshot of the Copy icon for the command from step 1.":::
 
@@ -330,7 +330,7 @@ For more information, see [Configure your system to use SNC for secure connectio
 1. In the Microsoft Sentinel solution for SAP application's data connector page, in the **Configuration** area, select **Add new system (Preview)**, and then enter the following details: <!--From Naomi - It is not clear how to connect to an SAP system using ASCS. When selecting ABAP server, the solution will not connect to the SAP system, and there is no indication in the documentation what using the Message Server is, since this does not align to the SAP terminology. Update the documentation to align the terminology with SAP terms, and make it clearer what this configuration is used for - use scenarios and examples here.-->
 
     - Under **Select an agent**, select the agent you created earlier.
-    - Under **System identifier**, select the server type and provide the server details.
+    - Under **System identifier**, select the server type and provide the server details, including the ABAP Application server IP address/FQDN, the system ID and number, and the client ID.
 
     When you're done, select  **Next: Authentication**.
 
@@ -343,9 +343,11 @@ For more information, see [Configure your system to use SNC for secure connectio
     - For basic authentication, enter the user and password.
     - If you selected an SNC connection [when you set up the agent](#deploy-the-data-connector-agent-from-the-portal-preview), select **SNC** and enter the certificate details. 
 
-1. Select **Next: Logs**.
+    When you're done, select **Next: Logs**.
 
-1. On the **Logs** tab, select the logs you want to ingest from SAP, and then select **Next: Review and create**.
+1. On the **Logs** tab, select the logs you want to ingest from SAP, and then select **Next: Review and create**. For example:
+
+    :::image type="content" source="media/deploy-data-connector-agent-container/logs-page.png" alt-text="Screenshot of the Logs tab in the Add new system side pane.":::
 
 1. Review the settings you defined. Select **Previous** to modify any settings, or select **Deploy** to deploy the system.
 
@@ -361,7 +363,7 @@ After you deploy the SAP data connector agent, check your agent's health and con
 
 ## Next step
 
-Once the connector is deployed, proceed to configure the Microsoft Sentinel solution for SAP applications content:
+Once the connector is deployed, proceed to configure the Microsoft Sentinel solution for SAP applications content. Specifically, configuring details in the watchlists is an essential step in enabling detections and threat protection.
 
 > [!div class="nextstepaction"]
 > [Enable SAP detections and threat protection](deployment-solution-configuration.md)

@@ -236,7 +236,7 @@ If you attempt to retrieve an audit log without the [required configurations](pr
 
 - Using a compatibility mode called *XAL* on older versions
 - Using a version not recently patched
-- Without the required change request installed <!--this doesn't quite make sense-->
+- Without any changes made for connecting to the Microsoft Sentinel data connector agent. For more information, see [Configure your SAP system for the Microsoft Sentinel solution](preparing-sap.md).
 
 While your system should automatically switch to compatibility mode if needed, you may need to switch it manually. To switch to compatibility mode manually:
 
