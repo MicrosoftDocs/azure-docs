@@ -16,7 +16,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 * [Cool access support for large volumes](large-volumes-requirements-considerations.md#cool-access)
 
-    Azure NetApp Files storage with [cool access](cool-access-introductio.md) is now available with large volumes.
+    Azure NetApp Files storage with [cool access](cool-access-introduction.md) is now available with large volumes.
 
 ## September 2024 
 
