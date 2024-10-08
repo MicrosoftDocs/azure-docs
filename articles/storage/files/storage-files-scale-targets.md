@@ -6,6 +6,7 @@ ms.service: azure-file-storage
 ms.topic: conceptual
 ms.date: 08/12/2024
 ms.author: kendownie
+ms.custom: references_regions
 ---
 
 # Scalability and performance targets for Azure Files and Azure File Sync

@@ -6,6 +6,7 @@ ms.service: azure-file-storage
 ms.topic: conceptual
 ms.date: 10/08/2024
 ms.author: kendownie
+ms.custom: references_regions
 ---
 
 # Understand Azure Files billing models
@@ -172,11 +173,11 @@ Deleted file shares in storage accounts with soft-delete enabled are billed base
 ### Provisioned v1 billing meters
 File shares provisioned using the provisioned v2 billing model are billed against the following five billing meters:
 
-1. **Provisioned Storage**: The amount of storage provisioned in GiB.
-2. **Provisioned IOPS**: The amount of IOPS (IO / sec) provisioned.
-3. **Provisioned Throughput MiBPS**: The amount of throughput provisioned in MiB / sec.
-4. **Overflow Snapshot Usage**: Any amount of differential snapshot usage in GiB that does not fit within the provisioned storage capacity. See [provisioned v2 snapshots](#provisioned-v2-snapshots) for more information.
-5. **Soft-Deleted Usage**: Used storage capacity in GiB for soft-deleted file shares. See [provisioned v2 soft-delete](#provisioned-v2-soft-delete) for more information.
+- **Provisioned Storage**: The amount of storage provisioned in GiB.
+- **Provisioned IOPS**: The amount of IOPS (IO / sec) provisioned.
+- **Provisioned Throughput MiBPS**: The amount of throughput provisioned in MiB / sec.
+- **Overflow Snapshot Usage**: Any amount of differential snapshot usage in GiB that does not fit within the provisioned storage capacity. See [provisioned v2 snapshots](#provisioned-v2-snapshots) for more information.
+- **Soft-Deleted Usage**: Used storage capacity in GiB for soft-deleted file shares. See [provisioned v2 soft-delete](#provisioned-v2-soft-delete) for more information.
 
 Consumption against the provisioned v2 billing meters are emitted hourly in terms of hourly units. For example, for a share with 1024 GiB provisioned, you should see:
 
@@ -270,8 +271,8 @@ Deleted file shares in storage accounts with soft-delete enabled are billed base
 ### Provisioned v1 billing meters
 File shares provisioned using the provisioned v1 billing model are billed against the following two meters:
 
-1. **Premium Provisioned**: The amount of storage provisioned in GiB.
-2. **Premium Snapshots**: The amount of used snapshots and used soft-deleted capacity.
+- **Premium Provisioned**: The amount of storage provisioned in GiB.
+- **Premium Snapshots**: The amount of used snapshots and used soft-deleted capacity.
 
 Consumption against the provisioned v1 billing meters are emitted hourly in terms of monthly units. For example, for a share with 1024 GiB provisioned, you should see:
 
