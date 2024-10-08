@@ -2,15 +2,12 @@
 title: Application types supported by Azure AD B2C
 titleSuffix: Azure AD B2C
 description: Learn about the types of applications you can use with Azure Active Directory B2C.
-
 author: kengaderdus
 manager: CelesteDG
 ms.service: azure-active-directory
 ms.topic: concept-article
 ms.date: 10/11/2024
 ms.subservice: b2c
-
-
 
 #Customer intent: As a developer building an application that requires user authentication, I want to understand the different types of applications that can be used with Azure Active Directory B2C, so that I can choose the appropriate authentication method for my application.
 
