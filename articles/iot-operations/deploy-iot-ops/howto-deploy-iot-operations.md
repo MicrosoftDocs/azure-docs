@@ -250,7 +250,7 @@ Azure IoT Operations requires a schema registry on your cluster. Schema registry
    | Optional parameter | Value | Description |
    | --------- | ----- | ----------- |
    | `--no-progress` |  | Disable the deployment progress display in the terminal. |
-   | `--enable-rsync-rules` |  | Enable the resource sync rules on the instance to project resources from the edge to the cloud. |
+   | `--enable-rsync` |  | Enable the resource sync rules on the instance to project resources from the edge to the cloud. |
    | `--add-insecure-listener` |  | Add an insecure 1883 port config to the default listener. *Not for production use*. |
    | `--custom-location` | String | Provide a name for the custom location created for your cluster. The default value is **location-{hash(5)}**. |
    | `--broker-config-file` | Path to JSON file | Provide a configuration file for the MQTT broker. For more information, see [Advanced MQTT broker config](https://github.com/Azure/azure-iot-ops-cli-extension/wiki/Advanced-Mqtt-Broker-Config) and [Configure core MQTT broker settings](../manage-mqtt-broker/howto-configure-availability-scale.md). |

@@ -1,0 +1,89 @@
+name: GitOps.PullRequestIssueManagement
+description: GitOps.PullRequestIssueManagement primitive
+resource: repository
+
+configuration:
+  resourceManagementConfiguration:
+    eventResponderTasks:
+      - description: Close PRs that contain content for services that have been migrated out of the azure-docs-pr repository.
+        if:
+          - payloadType: Pull_Request
+          - isAction:
+              action: Opened
+          - or:              
+              - filesMatchPattern:
+                  pattern: articles/aks/*
+              - filesMatchPattern:
+                  pattern: articles/defender-for-cloud/*
+              - filesMatchPattern:
+                  pattern: articles/attestation/*
+              - filesMatchPattern:
+                  pattern: articles/confidential-ledger/*
+              - filesMatchPattern:
+                  pattern: articles/dedicated-hsm/*
+              - filesMatchPattern:
+                  pattern: articles/key-vault/*
+              - filesMatchPattern:
+                  pattern: articles/payment-hsm/*
+              - filesMatchPattern:
+                  pattern: articles/postgresql/*
+              - filesMatchPattern:
+                  pattern: articles/cosmos-db/*
+              - filesMatchPattern:
+                  pattern: articles/dms/*
+              - filesMatchPattern:
+                  pattern: articles/mariadb/*
+              - filesMatchPattern:
+                  pattern: articles/mysql/*
+              - filesMatchPattern:
+                  pattern: articles/managed-instance-apache-cassandra/*
+              - filesMatchPattern:
+                  pattern: articles/virtual-machines/*
+              - filesMatchPattern:
+                  pattern: articles/virtual-machines-scale-sets/*
+              - filesMatchPattern:
+                  pattern: articles/container-instances/*
+              - filesMatchPattern:
+                  pattern: articles/service-fabric/*
+              - filesMatchPattern:
+                  pattern: articles/machine-learning/*
+              - filesMatchPattern:
+                  pattern: articles/ai-studio/*
+              - filesMatchPattern:
+                  pattern: articles/ai-services/*
+              - filesMatchPattern:
+                  pattern: articles/genomics/*
+              - filesMatchPattern:
+                  pattern: articles/open-datasets/*
+              - filesMatchPattern:
+                  pattern: articles/search/*
+              - filesMatchPattern:
+                  pattern: articles/azure-monitor/*
+              - filesMatchPattern:
+                  pattern: articles/advisor/*
+              - filesMatchPattern:
+                  pattern: articles/chaos-studio/*
+              - filesMatchPattern:
+                  pattern: articles/service-health/*
+              - filesMatchPattern:
+                  pattern: articles/azure-arc/*
+              - filesMatchPattern:
+                  pattern: articles/azure-linux/*
+              - filesMatchPattern:
+                  pattern: articles/azure-portal/*
+              - filesMatchPattern:
+                  pattern: articles/copilot/*
+              - filesMatchPattern:
+                  pattern: articles/lighthouse/*
+              - filesMatchPattern:
+                  pattern: articles/quotas/*
+              - filesMatchPattern:
+                  pattern: articles/container-registry/*
+              - filesMatchPattern:
+                  pattern: articles/kubernetes-fleet/*
+        then:
+          - addReply:
+              reply: >-
+                @${issueAuthor} - You tried to add content to a folder path that has been removed from this repository. Your pull request will be automatically closed. Submit your changes to the updated repository, which can be identified by clicking the Edit this Document link at the top of any published article for that product or service.
+          - closePullRequest
+          

@@ -5,11 +5,11 @@ description: Learn how to integrate Azure AD B2C authentication with Experian fo
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: how-to
 ms.date: 01/26/2024
 ms.author: gasinh
-ms.subservice: B2C
+ms.subservice: b2c
 
 # Customer intent: I'm an Azure AD B2C administrator, and I want to integrate Experian CrossCore with Azure AD B2C. I need to verify user identification and perform risk analysis based on user attributes during sign-up.
 ---

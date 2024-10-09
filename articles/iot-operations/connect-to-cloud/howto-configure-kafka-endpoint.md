@@ -36,10 +36,10 @@ To configure a dataflow endpoint for a Kafka endpoint, we suggest using the mana
 
 # [Portal](#tab/portal)
 
-1. In the operations experience portal, select the **Dataflow endpoints** tab.
+1. In the [operations experience](https://iotoperations.azure.com/), select the **Dataflow endpoints** tab.
 1. Under **Create new dataflow endpoint**, select **Azure Event Hubs** > **New**.
 
-    :::image type="content" source="media/howto-configure-kafka-endpoint/create-event-hubs-endpoint.png" alt-text="Screenshot using operations experience portal to create an Azure Event Hubs dataflow endpoint.":::
+    :::image type="content" source="media/howto-configure-kafka-endpoint/create-event-hubs-endpoint.png" alt-text="Screenshot using operations experience to create an Azure Event Hubs dataflow endpoint.":::
 
 1. Enter the following settings for the endpoint:
 
@@ -108,7 +108,7 @@ kubectl create secret generic cs-secret -n azure-iot-operations \
 
 #### Limitations
 
-Azure Event Hubs [doesn't support all the compression types that Kafka supports](../../event-hubs/azure-event-hubs-kafka-overview.md#compression). Only GZIP compression is supported. Using other compression types might result in errors.
+Azure Event Hubs [doesn't support all the compression types that Kafka supports](../../event-hubs/azure-event-hubs-kafka-overview.md#compression). Only GZIP compression is supported in Azure Event Hubs premium and dedicated tiers currently. Using other compression types might result in errors.
 
 ### Other Kafka brokers
 
@@ -116,10 +116,10 @@ To configure a dataflow endpoint for non-Event-Hub Kafka brokers, set the host, 
 
 # [Portal](#tab/portal)
 
-1. In the operations experience portal, select the **Dataflow endpoints** tab.
+1. In the [operations experience](https://iotoperations.azure.com/), select the **Dataflow endpoints** tab.
 1. Under **Create new dataflow endpoint**, select **Custom Kafka Broker** > **New**.
 
-    :::image type="content" source="media/howto-configure-kafka-endpoint/create-kafka-endpoint.png" alt-text="Screenshot using operations experience portal to create a Kafka dataflow endpoint.":::
+    :::image type="content" source="media/howto-configure-kafka-endpoint/create-kafka-endpoint.png" alt-text="Screenshot using operations experience to create a Kafka dataflow endpoint.":::
 
 1. Enter the following settings for the endpoint:
 
@@ -138,7 +138,7 @@ To configure a dataflow endpoint for non-Event-Hub Kafka brokers, set the host, 
 1. Select **Apply** to provision the endpoint.
 
 > [!NOTE]
-> Currently, the operations experience portal doesn't support using a Kafka dataflow endpoint as a source. You can create a dataflow with a source Kafka dataflow endpoint using the Kubernetes or Bicep.
+> Currently, the operations experience doesn't support using a Kafka dataflow endpoint as a source. You can create a dataflow with a source Kafka dataflow endpoint using the Kubernetes or Bicep.
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -175,7 +175,7 @@ Once the endpoint is created, you can use it in a dataflow by specifying the end
 1. Choose the Kafka dataflow endpoint that you created previously.
 1. Specify the Kafka topic where messages are sent.
 
-    :::image type="content" source="media/howto-configure-kafka-endpoint/dataflow-mq-kafka.png" alt-text="Screenshot using operations experience portal to create a dataflow with an MQTT source and Azure Event Hubs destination.":::
+    :::image type="content" source="media/howto-configure-kafka-endpoint/dataflow-mq-kafka.png" alt-text="Screenshot using operations experience to create a dataflow with an MQTT source and Azure Event Hubs destination.":::
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -213,7 +213,7 @@ The following authentication methods are available for Kafka broker dataflow end
 
 # [Portal](#tab/portal)
 
-In the operations experience portal dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **SASL**.
+In the operations experience dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **SASL**.
 
 Enter the following settings for the endpoint:
 
@@ -256,7 +256,7 @@ kubectl create secret generic sasl-secret -n azure-iot-operations \
 
 # [Portal](#tab/portal)
 
-In the operations experience portal dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **X509 certificate**.
+In the operations experience dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **X509 certificate**.
 
 Enter the following settings for the endpoint:
 
@@ -295,7 +295,7 @@ To use system-assigned managed identity for authentication, first assign a role 
 
 # [Portal](#tab/portal)
 
-In the operations experience portal dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **System assigned managed identity**.
+In the operations experience dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **System assigned managed identity**.
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -325,7 +325,7 @@ kafkaSettings:
 
 # [Portal](#tab/portal)
 
-In the operations experience portal dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **User assigned managed identity**.
+In the operations experience dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **User assigned managed identity**.
 
 Enter the user assigned managed identity client ID and tenant ID in the appropriate fields.
 
@@ -364,9 +364,9 @@ You can set advanced settings for the Kafka dataflow endpoint such as TLS, trust
 
 # [Portal](#tab/portal)
 
-In the operations experience portal, select the **Advanced** tab for the dataflow endpoint.
+In the operations experience, select the **Advanced** tab for the dataflow endpoint.
 
-:::image type="content" source="media/howto-configure-kafka-endpoint/kafka-advanced.png" alt-text="Screenshot using operations experience portal to set Kafka dataflow endpoint advanced settings.":::
+:::image type="content" source="media/howto-configure-kafka-endpoint/kafka-advanced.png" alt-text="Screenshot using operations experience to set Kafka dataflow endpoint advanced settings.":::
 
 | Setting                        | Description                                                                                       |
 | ------------------------------ | ------------------------------------------------------------------------------------------------- |
@@ -455,7 +455,7 @@ The compression field enables compression for the messages sent to Kafka topics.
 | Value | Description |
 | ----- | ----------- |
 | `None` | No compression or batching is applied. None is the default value if no compression is specified. |
-| `Gzip` | GZIP compression and batching are applied. GZIP is a general-purpose compression algorithm that offers a good balance between compression ratio and speed. GZIP is the only compression method supported by Azure Event Hubs. |
+| `Gzip` | GZIP compression and batching are applied. GZIP is a general-purpose compression algorithm that offers a good balance between compression ratio and speed. Only [GZIP compression is supported in Azure Event Hubs premium and dedicated tiers](../../event-hubs/azure-event-hubs-kafka-overview.md#compression) currently. |
 | `Snappy` | Snappy compression and batching are applied. Snappy is a fast compression algorithm that offers moderate compression ratio and speed. |
 | `Lz4` | LZ4 compression and batching are applied. LZ4 is a fast compression algorithm that offers low compression ratio and high speed. |
 
