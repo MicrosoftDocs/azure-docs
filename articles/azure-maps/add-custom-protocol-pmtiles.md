@@ -42,7 +42,7 @@ Next, initialize the MapLibre PMTiles protocol.
       });
 ```
 
-## Add PMTiles Protocol
+## Add PMTiles protocol
 
 To add the PMTiles protocol, hook the data source with the specified protocol URL schema. The following sample uses the [Overture] building dataset to add building data over the basemap.
 
@@ -51,7 +51,7 @@ const PMTILES_URL = "https://overturemaps-tiles-us-west-2-beta.s3.amazonaws.com/
 protocol.add(new pmtiles.PMTiles(PMTILES_URL));
 ```
 
-## Add PMTiles as a Map Source
+## Add PMTiles as a map source
 
 PMTiles are added as a map source during the map event. Once added, the specified URL schema is available to the Azure Maps Web SDK. In the following sample, the PMTiles URL is added as a `VectorTileSource`.
 
@@ -68,7 +68,7 @@ PMTiles are added as a map source during the map event. Once added, the specifie
 > [!NOTE]
 > Using the `pmtiles://` protocol automatically creates the `minzoom` and `maxzoom` properties for the source.
 
-## Enrich Map with Overture data
+## Enhance map with Overture data
 
 Overture provides a unified and comprehensive [data schema] designed to organize and structure geospatial data effectively. This schema is divided into different themes, each representing a specific type of geospatial information.
 
