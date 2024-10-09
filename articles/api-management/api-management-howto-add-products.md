@@ -1,21 +1,22 @@
 ---
 title: Tutorial - Create and publish a product in Azure API Management
 description: In this tutorial, you create and publish a product in Azure API Management. Once it's published, developers can begin to use the product's APIs.
-
-author: dlepow
-ms.service: azure-api-management
 ms.topic: tutorial
-ms.date: 01/18/2022
-ms.author: danlep
+ms.date: 10/09/2024
 ms.custom: devdivchpfy22, devx-track-azurecli 
+ms.service: azure-api-management
+author: dlepow
+ms.author: danlep
 ms.devlang: azurecli
-
+zone_pivot_groups: api-management-howto-add-products
 ---
 # Tutorial: Create and publish a product
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 In Azure API Management, a [*product*](api-management-terminology.md#term-definitions) contains one or more APIs, a usage quota, and the terms of use. After a product is published, developers can [subscribe](api-management-subscriptions.md) to the product and begin to use the product's APIs.  
+
+:::zone pivot="interactive"
 
 In this tutorial, you learn how to:
 
@@ -25,7 +26,6 @@ In this tutorial, you learn how to:
 > * Access product APIs
 
 :::image type="content" source="media/api-management-howto-add-products/added-product-1.png" alt-text="API Management products in portal":::
-
 
 ## Prerequisites
 
@@ -207,3 +207,100 @@ Advance to the next tutorial:
 
 > [!div class="nextstepaction"]
 > [Create blank API and mock API responses](mock-api-responses.md)
+
+:::zone-end
+
+:::zone pivot="terraform"
+
+# Quickstart: Use Terraform to configure Azure API Management
+
+In this quickstart, you use Terraform to create an Azure API Management instance, an API, a product, a group, and associations between the product and the API, and the product and the group. Azure API Management is a fully managed service that helps developers publish, secure, transform, maintain, and monitor APIs. It provides a unified management experience and full observability across all internal and external APIs. The service is scalable and helps protect your APIs from unauthorized access with keys, tokens, IP filtering, and more. It's used to connect applications and services through APIs, allowing different software systems to communicate with each other.
+
+[!INCLUDE [About Terraform](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
+
+> [!div class="checklist"]
+> * Generate a random name for the resource group.
+> * Create a resource group in a specified location with the generated name.
+> * Generate a random name for the API Management service.
+> * Create an API Management service with the generated name, in the created resource group.
+> * Generate a random name for the API.
+> * Generate a random content value.
+> * Create an API with the generated name and content value, in the created resource group and API Management service.
+> * Generate a random name for the product.
+> * Create a product with the generated name, in the created resource group and API Management service.
+> * Generate a random name for the group.
+> * Create a group with the generated name, in the created resource group and API Management service.
+> * Associate the created API with the created product.
+> * Associate the created group with the created product.
+> * Output the names of the created resource group, API Management service, API, product, and group.
+> * Output the ID, gateway URL, and public IP addresses of the created API Management service.
+> * Output the IDs, state, and version outputs of the created APIs.
+> * Output the ID of the created product.
+> * Output the ID of the association between the created product and API.
+> * Output the ID of the association between the created product and group.
+> * Specify the required version of Terraform and the required providers.
+> * Define variables for the resource group name prefix, resource group location, and the content format and value for the API definition import.
+
+## Prerequisites
+
+- Create an Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+- [Install and configure Terraform.](/azure/developer/terraform/quickstart-configure)
+
+## Implement the Terraform code
+
+> [!NOTE]
+> The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-azure-api-management-create-with-api). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/tree/master/quickstart/101-azure-api-management-create-with-api/TestRecord.md).
+> 
+> See more [articles and sample code showing how to use Terraform to manage Azure resources](/azure/terraform).
+
+1. Create a directory in which to test and run the sample Terraform code and make it the current directory.
+
+1. Create a file named `main.tf` and insert the following code:
+:::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-api-management-create-with-api/main.tf":::
+
+1. Create a file named `outputs.tf` and insert the following code:
+:::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-api-management-create-with-api/outputs.tf":::
+
+1. Create a file named `providers.tf` and insert the following code:
+:::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-api-management-create-with-api/providers.tf":::
+
+1. Create a file named `variables.tf` and insert the following code:
+:::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-api-management-create-with-api/variables.tf":::
+
+## Initialize Terraform
+
+[!INCLUDE [terraform-init.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-init.md)]
+
+## Create a Terraform execution plan
+
+[!INCLUDE [terraform-plan.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-plan.md)]
+
+## Apply a Terraform execution plan
+
+[!INCLUDE [terraform-apply-plan.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-apply-plan.md)]
+
+## Verify the results
+
+### [Azure CLI](#tab/azure-cli)
+
+Run [`az apim show`](/cli/azure/apim#az-apim-show) to view the Azure API Management.
+
+The placeholders in the code block that must be changed are `<resource_group_name_prefix>`, `<resource_group_location>`, `<open_api_spec_content_format>`, and `<open_api_spec_content_value>`.
+
+---
+
+## Clean up resources
+
+[!INCLUDE [terraform-plan-destroy.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-plan-destroy.md)]
+
+## Troubleshoot Terraform on Azure
+
+[Troubleshoot common problems when using Terraform on Azure](/azure/developer/terraform/troubleshoot).
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [See more articles about Azure API Management](/search/?terms=Azure%20api%20management%20and%20terraform).
+
+:::zone-end
