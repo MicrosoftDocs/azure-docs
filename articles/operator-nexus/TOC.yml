@@ -147,7 +147,7 @@
                 - name: Cluster Upgrades
                   href: howto-cluster-runtime-upgrade.md
                 - name: Cluster Upgrades With PauseRack Startegy
-                  href: howto-cluster-runtime-upgrade-with-pauserack-strategy.md  
+                  href: howto-cluster-runtime-upgrade-with-pauserack-strategy.md
                 - name: Credential Rotation
                   href: howto-credential-rotation.md
                 - name: Credential Manager Key Vault
@@ -300,6 +300,23 @@
       href: troubleshoot-bare-metal-machine-provisioning.md
     - name: Troubleshoot Nexus Kubernetes Cluster pods
       href: troubleshoot-nexus-kubernetes-cluster-pods.md
+    - name: Azure Resource Health
+      expanded: false
+      items:
+        - name: Cluster Managers
+          expanded: false
+        - name: Clusters
+          expanded: false
+          items:
+            - name: Troubleshoot Cluster Heartbeat Connection Status Disconnected
+              href: troubleshoot-cluster-heartbeat-connection-status-disconnected.md
+            - name: Troubleshoot ETCD Cluster Possible Quorum Lost
+              href: troubleshoot-etcd-cluster-possible-quorum-lost.md
+        - name: BareMetal Machines
+          expanded: false
+          items:
+            - name: Troubleshoot BMM Not In Ready State
+              href: troubleshoot-bmm-not-ready-state.md
 
 - name: FAQ
   href: azure-operator-nexus-faq.md
