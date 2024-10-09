@@ -86,8 +86,8 @@ This section covers the Azure PowerShell steps in [Tutorial: Enable Azure Contai
 
 > [!NOTE]
 >
-> You can find all the steps from this section in the PowerShell script named **EnvironmentSetup.ps1**, which is 
-> exists in the [GitHub repo named **Azure/logicapps**](https://github.com/Azure/logicapps/tree/master/scripts/hybrid). 
+> You can find all the steps from this section in the PowerShell script named **EnvironmentSetup.ps1**, which exists 
+> in the [GitHub repo named **Azure/logicapps**](https://github.com/Azure/logicapps/tree/master/scripts/hybrid). 
 > You're welcome to modify and use this script to meet your requirements and scenarios.
 
 1. Set the execution policy by running the following Azure PowerShell command as an administrator:
