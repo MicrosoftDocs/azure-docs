@@ -28,6 +28,25 @@ Confidential Containers offer several key benefits:
 
 - Increased Efficiency: Confidential Containers can streamline the development and deployment of applications by providing a secure and efficient environment for running sensitive workloads.
 
+
+
+## Typical use cases
+
+The table below describes the most common use cases for deploying confidential containers.
+
+|Use case  |Industry  |Example  |
+|---------|---------|---------|
+|**Regulator compliance**<br>Meeting strict data protection and privacy regulations. |Government, Finance, Healthcare |A healthcare provider using confidential containers to process and store patient data in compliance with HIPAA regulations. |
+|Sensitive data processing |Any dealing with confidential information |A technology company using confidential containers to develop and test new software features without risk of intellectual property theft. |
+|Multi-tenancy environments |SaaS providers, Cloud service providers |A cloud service provider offering isolated environments for different clients within the same infrastructure. |
+|Secure collaboration |Research, defense, inter-organizational projects |Multiple research institutions collaborating on a sensitive project, each with their own isolated environment. |
+|Temporary secure environments |Cyber security, forensics | A cybersecurity firm using confidential containers to safely analyze and reverse-engineer malicious software. |
+|High-value transactions |Finance, cryptocurrency |A cryptocurrency exchange using confidential containers to manage wallets and process transactions. |
+
+
+
+
+
 ## How Confidential Containers work
 
 At the core of Confidential Containers lies the Confidential Virtual Machine (CVM). This specialized virtual machine, operating within a Trusted Execution Environment (TEE), establishes a secure enclave for applications and their associated data. TEEs, hardware-based isolated environments fortified with enhanced security features, ensure that even if the host system is compromised, the data residing within the CVM remains protected.
