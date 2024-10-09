@@ -24,10 +24,10 @@ The [Microsoft Azure Storage Explorer](https://azure.microsoft.com/features/stor
 ### Getting Started with Storage Explorer
 1. Open the Azure Storage Explorer desktop application.
 
-1. You'll be prompted to add an Azure account; in the dropdown choose the "Azure US Government" option:
+2. You'll be prompted to add an Azure account; in the dropdown choose the "Azure US Government" option:
 
     ![storage1](./media/documentation-government-get-started-connect-with-storage-img1.png)
-1. Sign in to your Azure Government account and you can see all of your resources. The Storage Explorer should look similar to the screenshot below. Click on your Storage Account to see the blob containers, file shares, Queues, and Tables. 
+3. Sign in to your Azure Government account and you can see all of your resources. The Storage Explorer should look similar to the screenshot below. Click on your Storage Account to see the blob containers, file shares, Queues, and Tables. 
 
     ![storage2](./media/documentation-government-get-started-connect-with-storage-img2.png)
    
