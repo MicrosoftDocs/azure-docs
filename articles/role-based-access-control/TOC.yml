@@ -171,6 +171,8 @@
     items:
     - name: Built-in roles
       href: built-in-roles.md
+    - name: Privileged
+      href: built-in-roles/privileged.md
     - name: General
       href: built-in-roles/general.md
     - name: Compute

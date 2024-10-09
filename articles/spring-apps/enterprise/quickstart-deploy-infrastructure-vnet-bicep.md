@@ -11,8 +11,7 @@ ms.date: 08/28/2024
 
 # Quickstart: Provision Azure Spring Apps using Bicep
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 **This article applies to:** ❌ Basic ✔️ Standard ✔️ Enterprise
 
@@ -47,13 +46,13 @@ To deploy the cluster, use the following steps.
 
 First, create an *azuredeploy.bicep* file with the following contents:
 
-### [Enterprise plan](#tab/azure-spring-apps-enterprise)
-
-:::code language="bicep" source="~/azure-spring-apps-reference-architecture/Bicep/brownfield-deployment/azuredeploySpringEnterprise.bicep":::
-
 ### [Standard plan](#tab/azure-spring-apps-standard)
 
 :::code language="bicep" source="~/azure-spring-apps-reference-architecture/Bicep/brownfield-deployment/azuredeploySpringStandard.bicep":::
+
+### [Enterprise plan](#tab/azure-spring-apps-enterprise)
+
+:::code language="bicep" source="~/azure-spring-apps-reference-architecture/Bicep/brownfield-deployment/azuredeploySpringEnterprise.bicep":::
 
 ---
 

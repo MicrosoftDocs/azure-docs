@@ -5,7 +5,7 @@ author: rolyon
 manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
-ms.date: 06/25/2024
+ms.date: 09/30/2024
 ms.author: rolyon
 ---
 
@@ -54,6 +54,7 @@ Privileged administrator roles are roles that grant privileged administrator acc
 | --- | --- |
 | [Owner](built-in-roles.md#owner) | <ul><li>Grants full access to manage all resources</li><li>Assign roles in Azure RBAC</li></ul> |
 | [Contributor](built-in-roles.md#contributor) | <ul><li>Grants full access to manage all resources</li><li>Can't assign roles in Azure RBAC</li><li>Can't manage assignments in Azure Blueprints or share image galleries</li></ul> |
+| [Reservations Administrator](built-in-roles.md#reservations-administrator) | <ul><li>Manage all the reservations in a tenant</li><li>Assign roles in Azure RBAC for reservations</li></ul> |
 | [Role Based Access Control Administrator](built-in-roles.md#role-based-access-control-administrator) | <ul><li>Manage user access to Azure resources</li><li>Assign roles in Azure RBAC</li><li>Assign themselves or others the Owner role</li><li>Can't manage access using other ways, such as Azure Policy</li></ul> |
 | [User Access Administrator](built-in-roles.md#user-access-administrator) | <ul><li>Manage user access to Azure resources</li><li>Assign roles in Azure RBAC</li><li>Assign themselves or others the Owner role</li></ul> |
 

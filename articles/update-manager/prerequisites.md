@@ -5,7 +5,7 @@ ms.service: azure-update-manager
 ms.custom: linux-related-content
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 07/14/2024
+ms.date: 09/24/2024
 ms.topic: overview
 ---
 
@@ -16,6 +16,8 @@ This article summarizes the prerequisites, the extensions for Azure VM extension
 ## Prerequisites
 
 Azure Update Manager is an out of the box, zero onboarding service. Before you start using this service, consider the following list: 
+
+**Linux Machines** - Python (version 2.7 or later) must be installed on Linux machines.
 
 ### Arc-enabled servers
 Arc-enabled servers must be connected to Azure Arc to use Azure Update Manager. For more information, see [how to enable Arc on non-Azure machines](https://aka.ms/onboard-to-arc-aum-migration).

@@ -132,7 +132,7 @@ As an example:
 
 ### Tenant-Scoped requests - Audit Log
 
-For tenant-scoped Customer Lockbox requests, log entries are wrriten to the [Entra Audit Log](/entra/identity/monitoring-health/concept-audit-logs). These Log entries are created by the Access Reviews service with activities such as:
+For tenant-scoped Customer Lockbox requests, log entries are written to the [Entra Audit Log](/entra/identity/monitoring-health/concept-audit-logs). These Log entries are created by the Access Reviews service with activities such as:
 
 - **Create request**
 - **Request approved**

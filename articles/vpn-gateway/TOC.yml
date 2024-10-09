@@ -33,6 +33,8 @@
     href: vpn-gateway-about-vpn-gateway-settings.md
   - name: About gateway SKUs
     href: about-gateway-skus.md
+  - name: About gateway SKU consolidation
+    href: gateway-sku-consolidation.md
   - name: About active-active mode gateways
     href: about-active-active-gateways.md
   - name: About VPN devices
@@ -195,7 +197,7 @@
           href: point-to-site-entra-register-custom-app.md
         - name: Configure access based on users and groups
           href: point-to-site-entra-users-access.md
-        - name: Configure Multi-Factor Authentication (MFA)
+        - name: Configure multifactor authentication (MFA)
           href: openvpn-azure-ad-mfa.md
       - name: VPN client configuration
         items:

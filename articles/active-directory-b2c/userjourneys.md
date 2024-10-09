@@ -5,12 +5,12 @@ description: Specify the UserJourneys element of a custom policy in Azure Active
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 
 ms.topic: reference
 ms.date: 01/17/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer integrating Azure AD B2C into an application, I want to understand how custom policy user journeys work so that I can design the steps that a users goes through for the relying party application to obtain the desired claims for a user.  

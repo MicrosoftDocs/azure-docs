@@ -2,13 +2,15 @@
 title: Monitor and operate backups and disaster recovery using Backup center
 description: This article explains how to monitor and operate backups and disaster recovery at-scale using Backup center.
 ms.topic: how-to
-ms.date: 12/08/2022
+ms.date: 09/24/2024
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
 # Monitor and operate backups and disaster recovery using Backup center
+
+[!INCLUDE [backup-center-deprecation.md ](../../includes/backup-center-deprecation.md )]
 
 As a backup admin, you can use Backup center as a single pane of glass to monitor your jobs and backup inventory on a day-to-day basis. You can also use Backup center to perform your regular operations, such as responding to on-demand backup requests, restoring backups, creating backup policies, and so on.
 

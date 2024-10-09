@@ -34,7 +34,7 @@ If you're interested in enabling VNet integration in your region, **fill out thi
 - An existing **Azure Virtual Network** or [create one](../virtual-network/quick-create-portal.md). 
 
     > [!IMPORTANT]
-    > ASA VNET injected jobs use an internal container injection technology provided by Azure networking.  At this time, Azure Networking recommends that all customers set up Azure NAT Gateway for security and reliability.   
+    > ASA VNET injected jobs use an internal container injection technology provided by Azure networking.  Azure Networking requires that all customers set up Azure NAT Gateway on subnets for security and reliability.   
     > 
     > Azure NAT Gateway is a fully managed and highly resilient Network Address Translation (NAT) service.  Azure NAT Gateway simplifies outbound Internet connectivity for virtual networks.  When configured on a subnet, all outbound connectivity uses the NAT gateway's static public IP addresses.
 
@@ -53,9 +53,9 @@ The scale operation affects the real, available supported instances for a given 
 
 - Make sure the subnet range doesn't collide with ASA’s subnet range.  Avoid IP range 10.0.0.0 to 10.0.255.255 as it's used by ASA. 
 - Reserve: 
-    - 5 IP addresses for Azure Networking 
-    - 1 IP address is required to facilitate features such as sample data, test connection and metadata discovery for jobs associated with this subnet. 
-    - 2 IP addresses are required for every 6 SU or 1 SU V2 (ASA’s V2 pricing structure is launching July 1, 2023, see [here](https://aka.ms/AzureStreamAnalyticsisLaunchingaNewCompetitivePricingModel) for details)  
+    - Five IP addresses for Azure Networking 
+    - One IP address is required to facilitate features such as sample data, test connection and metadata discovery for jobs associated with this subnet. 
+    - Two IP addresses are required for every six SU or one SU V2 (ASA’s V2 pricing structure is launching July 1, 2023, see [here](https://aka.ms/AzureStreamAnalyticsisLaunchingaNewCompetitivePricingModel) for details)  
 
 When you indicate VNET integration with your Azure Stream Analytics job, Azure portal will automatically delegate the subnet to the ASA service.  Azure portal will undelegate the subnet in the following scenarios: 
 
@@ -109,7 +109,7 @@ If the virtual network is in a different subscription than your ASA job, you mus
 
 ## Limitations 
 
-- VNET jobs require a minimum of 1 SU V2 (new pricing model) or 6 SUs (current) 
+- VNET jobs require a minimum of one SU V2 (new pricing model) or six SUs (current) 
 - Make sure the subnet range doesn't collide with ASA subnet range (that is, don't use subnet range 10.0.0.0/16). 
 - ASA job(s) and the virtual network must be in the same region. 
 - The delegated subnet can only be used by Azure Stream Analytics. 

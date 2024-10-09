@@ -93,7 +93,7 @@ spec:
       sources:
       - serviceAccountToken:
           path: mqtt-client-token
-          audience: aio-mq
+          audience: aio-internal
           expirationSeconds: 86400
 
   # Certificate chain for the application to validate the MQTT broker              
@@ -108,16 +108,16 @@ spec:
     - name: mqtt-client-token
       mountPath: /var/run/secrets/tokens/
     - name: aio-ca-trust-bundle
-      mountPath: /var/run/certs/aio-mq-ca-cert/
+      mountPath: /var/run/certs/aio-internal-ca-cert/
     env:
     - name: hostname
-      value: "aio-mq-dmqtt-frontend"
+      value: "aio-broker"
     - name: tcpPort
-      value: "8883"
+      value: "18883"
     - name: useTls
       value: "true"
     - name: caFile
-      value: "/var/run/certs/aio-mq-ca-cert/ca.crt"
+      value: "/var/run/certs/aio-internal-ca-cert/ca.crt"
     - name: satAuthFile
       value: "/var/run/secrets/tokens/mqtt-client-token"
 ```

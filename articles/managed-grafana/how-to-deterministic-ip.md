@@ -70,10 +70,11 @@ This example demonstrates how to disable public access to Azure Data Explorer an
 
 1. Open an Azure Data Explorer Cluster instance in the Azure portal, and under **Settings**, select **Networking**.
 1. In the **Public Access** tab, select **Disabled** to disable public access to the data source.
-1. Under **Firewall**, check the box  **Add your client IP address ('88.126.99.17')** and under **Address range**, enter the IP addresses found in your Azure Managed Grafana workspace.
-1. Select **Save** to finish adding the Azure Managed Grafana outbound IP addresses to the allowlist.
 
-    :::image type="content" source="media/deterministic-ips/add-ip-data-source-firewall.png" alt-text="Screenshot of the Azure platform. Add Azure Managed Grafana outbound IPs to datasource firewall allowlist.":::
+   :::image type="content" source="media/deterministic-ips/add-ip-data-source-firewall.png" alt-text="Screenshot of the Azure platform. Add Disable public network access.":::
+
+1. Under **Firewall**, check the box  **Add your client IP address** and under **Address range**, enter the IP addresses found in your Azure Managed Grafana workspace.
+1. Select **Save** to finish adding the Azure Managed Grafana outbound IP addresses to the allowlist.
 
 You have limited access to your data source by disabling public access, activating a firewall and allowing access from Azure Managed Grafana IP addresses.
 
@@ -87,7 +88,7 @@ Check if the Azure Managed Grafana endpoint can still access your data source.
 
 1. Go to **Configuration > Data Source > Azure Data Explorer Datasource > Settings** and at the bottom of the page, select **Save & test**:
    - If the message "Success" is displayed, Azure Managed Grafana can access your data source.
-   - If the following error message is displayed, Azure Managed Grafana can't access the data source: `Post "https://<Azure-Data-Explorer-URI>/v1/rest/query": dial tcp 13.90.24.175:443: i/o timeout`. Make sure that you've entered the IP addresses correctly in the data source firewall allowlist.
+   - If the following error message is displayed, Azure Managed Grafana can't access the data source: `Post "https://<Azure-Data-Explorer-URI>/v1/rest/query": dial tcp ...: i/o timeout`. Make sure that you've entered the IP addresses correctly in the data source firewall allowlist.
 
 ### [Azure CLI](#tab/azure-cli)
 
