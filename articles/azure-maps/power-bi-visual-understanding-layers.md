@@ -125,6 +125,94 @@ Optionally, select the **Use custom colors** toggle switch to toggle On/Off cust
 
 :::image type="content" source="media/power-bi-visual/data-bound-reference-layer/data-bound-reference-layer-unmapped-objects.png" lightbox="media/power-bi-visual/data-bound-reference-layer/data-bound-reference-layer-unmapped-objects.png" alt-text="A screenshot showing the Data-Bound Reference Layer example in Power BI desktop with unmapped objects showing in a different color.":::
 
+<!----------------------------------------------------------------------------
+### Key matching example
+
+#### Semantic model
+
+| Datapoint   | Country | City     | Office name |
+|-------------|---------|----------|-------------|
+| Datapoint_1 | US      | New York | Office C    |
+| Datapoint_1 | US      | Seattle  | Office A    |
+| Datapoint_1 | US      | LA       | Office B    |
+
+#### Reference layer data (take GeoJSON as an example)
+
+```json
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Office A",
+        "shape": "Shape_1",
+        "id": "Office A"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          ...
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Office B",
+        "shape": "Shape_2",
+        "id": "Office B"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          ...
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Office C",
+        "shape": "Shape_3"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          ...
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Office D",
+        "shape": "Shape_4"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          ...
+        ]
+      }
+    }
+  ]
+}
+```
+
+#### the mapping results
+
+|                 | Location bucket|Mapping result                                                                  |
+|-----------------|----------------|--------------------------------------------------------------------------------|
+| Case 1          | Office name    | Shape_1 ↔ Datapoint_2                                                          |
+|                 |                | Shape_2 ↔ Datapoint_3                                                          |
+|                 |                | Shape_3 ↔ Datapoint_1                                                          |
+|                 |                | Shape_4 ↔ x (Since there’s no datapoint with Office name “Office D”)           |
+| Case 2          | City           | Nothing is mapped, since there’s no property that contains matched City names. |
+
+Note that there is a property “id” also has “Office x” values that is not being used, but instead the property “name” is used for data mapping since it has 3 datapoints matched and “id” only has 2 datapoints matched.
+
+---------------------------------------------------------------------------------------------------------------------------->
+
 ## Conditional Formatting
 
 Conditional formatting can be applied to data to dynamically change the appearance of shapes on a map based on the provided data. For instance, gradient colors can visualize various data values such as population density, sales performance, or other metrics. This is a powerful tool for combining spatial and business data to create interactive and visually compelling reports.
@@ -141,6 +229,12 @@ There are several ways to set colors to the shapes. The following table shows th
 | 4        | Conditional formatting colors | Colors provided by conditional formatting                       |
 | 5        | Custom formatting colors      | User defined custom styles in the Reference Layer options in the formatting pane |
 | 6        | Default colors                | Default colors defined in the Azure Maps visual                 |
+
+> [!TIP]
+>
+> The Azure Maps Power BI Visual can only perform geocoding on valid location data such as geographical coordinates, addresses, or place names. If no valid location data is uploaded, data layers that depend on geocoded locations, such as heat maps or bubble layers, won’t display on the map.
+>
+> The Data-Bound Reference Layer will appear on the map as long as the data column contains unique identifiers that match properties in the spatial file, but to ensure correct results, your data column must include valid geographic information.
 
 ## Next steps
 
