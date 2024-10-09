@@ -62,7 +62,7 @@ To assign a user-assigned managed identity:
     > [!NOTE]
     > You can only assign one user-assigned managed identity per Azure Managed Grafana instance.
 
-### Use service principals
+### Use a service principal
 
 Azure Managed Grafana can also access data sources using service principals for authentication, using client IDs and secrets.
 
