@@ -86,7 +86,7 @@ After you meet the prerequisites, create your Standard logic app for hybrid depl
    |----------|----------|-------|-------------|
    | **Subscription** | Yes | <*Azure-subscription-name*> | Your Azure subscription name. <br><br>This example uses **Pay-As-You-Go**. |
    | **Resource Group** | Yes | <*Azure-resource-group-name*> | The [Azure resource group](../azure-resource-manager/management/overview.md#terminology) where you create your hybrid app and related resources. This name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <br><br>This example creates a resource group named **Hybrid-RG**. |
-   | **Logic App name** | Yes | <*logic-app-name*> | Your logic app name, which must be unique across regions and can contain only lowercase letters, numbers, or hyphens (**-**). <br><br>This example uses **my-hybrid-logic-app**. |
+   | **Logic App name** | Yes | <*logic-app-name*> | Your logic app name, which must be unique across regions and can contain only lowercase letters, numbers, or hyphens (**-**). <br><br>This example uses **my-logic-app-hybrid**. |
    | **Region** | Yes | <*Azure-region*> | An Azure region that is [supported for Azure container apps on Azure Arc-enabled AKS](../container-apps/azure-arc-overview.md#public-preview-limitations). <br><br>This example uses **East US**. |
    | **Container App Connected Environment** | Yes | <*connected-environment-name*> | The Arc-enabled Kubernetes cluster that you created as the deployment environment for your logic app. For more information, see [Tutorial: Enable Azure Container Apps on Azure Arc-enabled Kubernetes](../container-apps/azure-arc-enable-cluster.md). |
    | **Configure storage settings** | Yes | Enabled or disabled | Continues to the **Storage** tab on the **Create Logic App (Hybrid)** page. |
@@ -107,7 +107,18 @@ After you meet the prerequisites, create your Standard logic app for hybrid depl
 
 1. When you finish, select **Review + create**. Confirm the provided information, and select **Create**.
 
-   Azure currently creates and deploys your logic app as a [Container App resource](/azure/container-apps/overview). In this preview release, your logic app appears in the Azure portal under **Container Apps** and not **Logic apps**. You can create, edit, and manage workflows as usual from the Azure portal. Your Container Apps connected environment in the Azure portal lists the logic app as having **Hybrid Logic App** type.
+1. After Azure completes deployment, select **Go to resource**.
+
+   :::image type="content" source="media/create-standard-workflows-hybrid-deployment/logic-app-hybrid-portal.png" alt-text="Screenshot shows Azure portal with Standard logic app for hybrid deployment created as a Container app.":::
+
+   From this view in the Azure portal, you can create, edit, and manage workflows as usual.
+
+   > [!NOTE]
+   >
+   > Several known issues exist in the portal around how you find your Standard logic app, which is created 
+   > as a container app in this release. Your Standard logic app is also labeled differently from Standard 
+   > logic apps deployed to single-tenant Azure and App Service environment v3. For more information, see 
+   > [Known issues and troubleshooting - Azure portal](#known-issues-portal).
 
 1. To review the app settings, on the container app menu, under **Settings**, select **Containers**, and then select the **Environment variables** tab.
 
@@ -154,7 +165,7 @@ After you meet the prerequisites, but before you create your Standard logic app 
 
 ## Deploy your logic app from Visual Studio Code
 
-After you finish building your workflow, you can deploy your logic app to your partially connected environment.
+After you finish building your workflow, you can deploy your logic app to your Container Apps connected environment.
 
 1. In the **Explorer** window, open the shortcut menu for the workflow node, which is **my-stateful-workflow** in this example, and select **Deploy to logic app**.
 
@@ -162,7 +173,7 @@ After you finish building your workflow, you can deploy your logic app to your p
 
 1. From the available logic apps list, select **Create new Logic App (Standard) in Azure**. Provide a globally unique logic app name that uses only lowercase alphanumeric characters or hyphens.
 
-   This example uses **my-hybrid-logic-app**.
+   This example uses **my-logic-app-hybrid**.
 
 1. From the location list that appears, select the same Azure region where you have your connected environment.
 
@@ -180,17 +191,30 @@ After you finish building your workflow, you can deploy your logic app to your p
 
 1. Provide the connection string for the SQL database that you set up for runtime storage.
 
-   Visual Studio Code starts the deployment process for your logic app, which is created and deployed as a [Container App resource](/azure/container-apps/overview).
+   Visual Studio Code starts the deployment process for your Standard logic app.
 
 1. To monitor deployment status and Azure activity logs, from the **View** menu, select **Output**. In the window that opens, select **Azure**.
 
-In this release, your Standard logic app appears in the Azure portal under **Container Apps** and not **Logic apps**. You can create, edit, and manage workflows as usual from the Azure portal.
+After deployment completes, you can go to the Azure portal to view your logic app workflow.
+
+> [!NOTE]
+>
+> Several known issues exist in the portal around how you find your Standard logic app, which is created 
+> as a container app in this release. Your Standard logic app is also labeled differently from Standard 
+> logic apps deployed to single-tenant Azure and App Service environment v3. For more information, see 
+> [Known issues and troubleshooting - Azure portal](#known-issues-portal).
 
 ## Known issues and troubleshooting
 
+<a name="known-issues-portal">
+
 ### Azure portal
 
-- Standard logic apps for hybrid deployment currently appear in the Azure portal in the **Container Apps** resource list and not the **Logic apps** resource list.
+- Your Standard logic app is deployed as a [Container App resource](/azure/container-apps/overview), but the type appears as **Logic App (Hybrid)**.
+
+- Your Standard logic app is listed in **Container Apps** resource list, not the **Logic apps** resource list.
+
+- Your Container Apps connected environment lists your Standard logic app as having an **App Type** named **Hybrid Logic App**.
 
 - To reflect changes in the designer after you save your workflow, you might have to occasionally refresh the designer.
 
