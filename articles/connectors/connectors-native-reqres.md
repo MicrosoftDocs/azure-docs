@@ -365,7 +365,7 @@ To enable schema validation for stateless workflows, make sure that the **host.j
 ```json
 "extensions": {
    "workflow": {
-     "Settings": {
+      "Settings": {
         "Runtime.StatelessFlowEvaluateTriggerCondition" :"true"
       }
    }
