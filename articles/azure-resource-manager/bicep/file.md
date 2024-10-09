@@ -458,6 +458,7 @@ For multiple-line declaration samples, see [arrays](./data-types.md#arrays) and 
 * User-defined functions aren't supported at the moment. An experimental feature is currently accessible. For more information, see [User-defined functions in Bicep](./user-defined-functions.md).
 * Some Bicep features require a corresponding change to the intermediate language (Azure Resource Manager JSON templates). We announce these features as available after all the required updates are deployed to global Azure. If you use a different environment, such as Azure Stack, there might be a delay in the availability of the feature. The Bicep feature is available only after the intermediate language is also updated in that environment.
 
-## Next steps
+## Related content
 
-For an introduction to Bicep, see [What is Bicep?](./overview.md). For Bicep data types, see [Data types](./data-types.md).
+* For an introduction to Bicep, see [What is Bicep?](./overview.md).
+* For Bicep data types, see [Data types](./data-types.md).
