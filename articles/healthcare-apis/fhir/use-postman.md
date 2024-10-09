@@ -17,21 +17,21 @@ This article shows the steps to access the FHIR&reg; service in Azure Health Dat
 
 - **FHIR service deployed in Azure**. For more information, see [Deploy a FHIR service](fhir-portal-quickstart.md). 
 - **Postman installed locally**. For more information, see [Get Started with Postman](https://www.getpostman.com/).
-- **User Access Administrator** role for you to be able to do role assignments.
+- **User Access Administrator** role for role assignments on FHIR service.
 
 ## Setup Steps
 
-Setup involves three major steps required to access **FHIR Service** from **Postman**.
+To access **FHIR service** from **Postman** application, review the steps
 
 - #### Register a client application(App Registration) in Microsoft Entra ID.
 
-- #### Assign **FHIR Data Contributor** role in Azure.
+- #### Assign **FHIR Data Contributor** role under the **FHIR service**.
 
-- #### Create Workspace, collection and environment in Postman.
+- #### Setup Postman - Create Workspace, collection and environment.
 
 
 ## Register a client application in Microsoft Entra ID
-1. In the [Azure portal](https://ms.portal.azure.com), select Microsoft Entra ID.
+1. In the [Azure portal](https://ms.portal.azure.com), select **Microsoft Entra ID** tile.
 [![Screenshot shows the Azure portal's Microsoft Entra ID section](media/postman/Microsoft-Entra-Id.png)](media/postman/Microsoft-Entra-Id.png#lightbox)
 
 2. Select **App registrations** under **Manage** section.
@@ -62,31 +62,22 @@ After registering a new application, you can find the Application (client) ID an
 [![Screenshot that shows the "Add a platform" section with "Mobile and desktop applications" selected and a custom redirect URI added.](media/postman/Add-Platform-2.png)](media/postman/Add-Platform-2.png#lightbox)
 
 ### Certificates & secrets
-1. Select **Certificates & Secrets** and select **New Client Secret**. Select Recommended 6 months in the Expires field. This new secret will be valid for six months. You can also choose different values such as:
 
-* 03 months
-* 12 months
-* 24 months
-* Custom start date and end date.
-
->[!NOTE]
->It is important that you save the secret value, not the secret ID.
-
-2. Click on **Certificates and secrets**. Click **+New client secret**.
+1. Click on **Certificates and secrets**. Click **+New client secret**.
 
 [![Screenshot that shows the form for creating a new client secret in the Certificates & Secrets section.](media/postman/Create-client-Secret.png)](media/postman/Create-client-Secret.png#lightbox)
 
-3. Under **Add a client secret**, enter a name for the secret in the **Description** field. Click **Add**.
+2. Under **Add a client secret**, enter a name for the secret in the **Description** field. The guidance is to set 6 months for secret expiration. Click **Add**.
 
 [![Screenshot that shows the "Add a client secret" form,to enter a name for the secret in the Description field,](media/postman/Add-Secret-Description.png)](media/postman/Add-Secret-Description.png#lightbox)
 
-4. Copy the secret **Value** and securely store it somewhere (you will need this when you configure your Postman environment).
+3. It is important that you save the **secret value**, not the secret ID.
 
 [![Screenshot that shows the newly created client secret's value.](media/postman/Client-secret-value.png)](media/postman/Client-secret-value.png#lightbox)
 >[!NOTE]
 >Use  grant_type of client_credentials when trying to obtain an access token for the FHIR service using tools such as Postman or REST Client. 
 
-## Assign FHIR Data Contributor role in Azure
+## Assign FHIR Data Contributor role in **FHIR service**
 This section shows the steps to assign **FHIR Data Contributor** role to a registered application for the FHIR® service in Azure Health Data Services.
 
 1. In the Azure portal, navigate to your FHIR service. 
@@ -105,7 +96,8 @@ This section shows the steps to assign **FHIR Data Contributor** role to a regis
 6. Under the **Review + assign** tab, click **Review + assign**.
 [![Screenshot that shows the final "Review + assign" tab with the button to complete the role assignment process ](media/postman/Review-and-Assign-Role.png)](media/postman/Review-and-Assign-Role.png#lightbox)
 
-## Create a workspace, collection, and environment
+## Setup Postman - Create Workspace, collection and environment.
+
 
 If you're new to Postman, follow these steps to create a workspace, collection, and environment. 
  
