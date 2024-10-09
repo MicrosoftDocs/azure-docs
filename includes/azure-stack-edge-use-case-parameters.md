@@ -17,7 +17,7 @@ Azure Stack Edge devices are only available to customers with the following use 
 
 Devices are available for customers who utilize Azure Stack Edge as an infrastructure platform to validate their solution. Partner workloads may not be supported on all devices. For details, consult your Azure Stack Edge partner. 
 
-If you already use Azure Stack Edge to run validated workloads, we support you, your solutions, and your end customers.
+Approved, validated partner workloads:
 
 - [Azure Private MEC / Azure Private 5G Core](https://azure.microsoft.com/products/private-5g-core/#overview>) offers simple, scalable, and secure deployment of private 5G core networks within the Azure private multi-access edge compute solution. There's an additional screening process to be approved as an Azure PMEC customer.
 - [Azure Orbital Cloud Access](https://azure.microsoft.com/solutions/space/#overview) for Azure Government solutions enables connectivity from the cloud wherever businesses and public sector organizations need it. Azure Orbital Cloud Access provides low-latency, one hop access to the cloud from anywhere on the planet, making it easier to bring satellite-based communications into your enterprise cloud operation.
