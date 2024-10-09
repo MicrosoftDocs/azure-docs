@@ -14,6 +14,10 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+* [Migrate on-premises volumes](migrate-on-premises-volumes.md) (Preview)
+
+    <!-- What's new pending -->
+
 ## September 2024 
 
 * [Reserved capacity](reservations.md) is now generally available (GA)

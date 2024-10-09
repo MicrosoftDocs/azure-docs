@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 09/25/2024
+ms.date: 10/10/2024
 ms.author: anfdocs
 ---
 # Migrate on-premises volumes to Azure NetApp Files 
@@ -14,7 +14,7 @@ Azure NetApp Files enables you to peer and migrate on-premises volumes in NetApp
 
 ## Considerations 
 
-* You must be running ONTAP 9.8 or later, on your on-premises storage cluster. 
+* On your on-premises storage cluster, you must be running ONTAP 9.8 or later, 
 * SnapMirror license entitlement needs to be obtained and applied to the on-premises cluster. Work with the account team so they can get the Azure Technology Specialist involved in getting this license applied to the cluster, even if you already have the license. 
 * Ensure your [network topology](azure-netapp-files-network-topologies.md). is supported for Azure NetApp Files and that you have established connectivity from your on-premises storage to Azure NetApp Files. 
     * You must be using Standard network features to peer and migrate on-premises volumes to Azure NetApp Files. 
