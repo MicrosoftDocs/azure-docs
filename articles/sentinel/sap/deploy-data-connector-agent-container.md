@@ -38,7 +38,7 @@ Before you deploy the data connector agent:
 ## Watch a demo video
 
 Watch one of the following video demonstrations of the deployment process described in this article.
-<!--can we recommend 1 only?-->
+
 A deep dive on the portal options:
 <br><br>
 > [!VIDEO https://www.youtube.com/embed/bg0vmUvcQ5Q?si=hugWYn1wjlq4seCR]
@@ -240,19 +240,21 @@ While deployment is also supported from the command line, we recommend that you 
 
 **Prerequisites**:
 
-To deploy your data connector agent via the portal, you need:
+- To deploy your data connector agent via the portal, you need:
 
-- Authentication via a managed identitiy or a registered application
-- Credentials stored in an Azure Key Vault
+    - Authentication via a managed identitiy or a registered application
+    - Credentials stored in an Azure Key Vault
 
-If you don't have these prerequisites, [deploy the SAP data connector agent from the command line](deploy-command-line.md) instead.
+    If you don't have these prerequisites, [deploy the SAP data connector agent from the command line](deploy-command-line.md) instead.
 
-If you want to ingest Netweaver/ABAP logs over a secure connection using Secure Network Communications (SNC), you need:
+- To deploy the data connector agent, you also need sudo or root privileges on the data connector agent machine.
 
-- The path to the `sapgenpse` binary and `libsapcrypto.so` library
-- The details of your client certificate
+- If you want to ingest Netweaver/ABAP logs over a secure connection using Secure Network Communications (SNC), you need:
 
-For more information, see [Configure your system to use SNC for secure connections](preparing-sap.md#configure-your-system-to-use-snc-for-secure-connections).
+    - The path to the `sapgenpse` binary and `libsapcrypto.so` library
+    - The details of your client certificate
+
+    For more information, see [Configure your system to use SNC for secure connections](preparing-sap.md#configure-your-system-to-use-snc-for-secure-connections).
 
 **To deploy the data connector agent**:
 
@@ -294,7 +296,7 @@ For more information, see [Configure your system to use SNC for secure connectio
 
     :::image type="content" source="media/deploy-data-connector-agent-container/finish-agent-deployment-role.png" alt-text="Screenshot of the Copy icon for the command from step 1.":::
 
-    To find your VM identity object ID in Azure, go to **Enterprise application** > **All applications**, and select your VM or application name. Copy the value of the **Object ID** field to use with your copied command.
+    To find your VM identity object ID in Azure, go to **Enterprise application** > **All applications**, and select your VM or application name. Copy the value of the **Object ID** field to use with your copied command. <!--check this with Dvir-->
 
     These commands assign the **Microsoft Sentinel Business Applications Agent Operator** and **Reader** Azure roles to your VM's managed or application identity, including only the scope of the specified agent's data in the workspace.
 
@@ -319,7 +321,7 @@ For more information, see [Configure your system to use SNC for secure connectio
     > The table displays the agent name and health status for only those agents you deploy via the Azure portal. Agents deployed using the command line aren't displayed here. For more information, see the [**Command line** tab](deploy-data-connector-agent-container.md?tabs=command-line) instead.
     >
 
-1. On the VM where you plan to install the agent, open a terminal and run the **Agent deployment command** that you'd copied in the previous step.
+1. On the VM where you plan to install the agent, open a terminal and run the **Agent deployment command** that you'd copied in the previous step. This step requires sudo or root privileges on the data connector agent machine.
 
     The script updates the OS components and installs the Azure CLI,  Docker software, and other required utilities, such as jq, netcat, and curl.
 
