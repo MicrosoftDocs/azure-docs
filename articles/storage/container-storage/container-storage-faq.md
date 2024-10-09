@@ -59,6 +59,22 @@ ms.custom: references_regions
   **Does Azure Container Storage use the capacity from Ephemeral OS disks for ephemeral disk storage pool?**  
   No, Azure Container Storage only discovers and uses the capacity from ephemeral data disks for ephemeral disk storage pool.
 
+* <a id="azure-container-storage-installation"></a>
+  **I encountered installation issues due to Azure Policy. What is the recommended approach?**
+  
+  If you’re experiencing installation issues with Azure Container Storage in your AKS cluster, it may be due to Azure Policy restrictions. To resolve this, 
+  you’ll need to add the `acstor` namespace to the exclusion list of your Azure Policy. Azure Policy is used to create and enforce rules for managing resources 
+  within Azure, including AKS clusters. In some cases, policies may block the creation of Azure Container Storage pods and components. You can find more details 
+  on working with Azure Policy for Kubernetes by consulting [Azure Policy for Kubernetes](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/policy-for-kubernetes).
+  To resolve this, follow these steps:
+   - [Create your Azure Kubernetes cluster](https://learn.microsoft.com/en-us/azure/storage/container-storage/install-container-storage-aks)
+   - Enable Azure Policy for AKS
+   - Create a policy that you suspect is blocking the installation of Azure Container Storage
+   - Attempt to install Azure Container Storage in the AKS cluster
+   - Check the logs for the gatekeeper-controller pod to confirm any policy violations
+   - Add the `acstor` namespace to the exclusion list of the policy
+   - Attempt to install Azure Container Storage in the AKS cluster again
+  
 ## See also
 
 - [What is Azure Container Storage?](container-storage-introduction.md)
