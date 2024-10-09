@@ -70,7 +70,7 @@ If you use PowerShell, define the name of the newly added adapter hardware as `M
 
 ### Attach a SPAN virtual interface to the virtual switch with PowerShell
 
-1. Select the newly added SPAN virtual switch you'd configured [earlier](#configure-a-traffic-mirroring-port-with-hyper-v), and run the following command to add a new network adapter:
+1. Select the newly added SPAN virtual switch you created when you [configured the traffic mirroring port](#configure-a-traffic-mirroring-port-with-hyper-v), and run the following command to add a new network adapter:
 
     ```powershell
     ADD-VMNetworkAdapter -VMName VK-C1000V-LongRunning-650 -Name Monitor -SwitchName vSwitch_Span
@@ -108,7 +108,7 @@ If you use PowerShell, define the name of the newly added adapter hardware as `M
 
 ## Turn on Microsoft NDIS capture extensions with PowerShell
 
-Turn on support for [Microsoft NDIS Capture Extensions](/windows-hardware/drivers/network/capturing-extensions) for the virtual switch you'd [created earlier](#configure-a-traffic-mirroring-port-with-hyper-v).
+Turn on support for [Microsoft NDIS Capture Extensions](/windows-hardware/drivers/network/capturing-extensions) for the virtual switch you created when you [configured the traffic mirroring port](#configure-a-traffic-mirroring-port-with-hyper-v).
 
 **To enable Microsoft NDIS capture extensions for your new virtual switch**:
 
@@ -118,7 +118,7 @@ Enable-VMSwitchExtension -VMSwitchName vSwitch_Span -Name "Microsoft NDIS Captur
 
 ## Turn on Microsoft NDIS capture extensions with Hyper-V Manager
 
-Turn on support for [Microsoft NDIS Capture Extensions](/windows-hardware/drivers/network/capturing-extensions) for the virtual switch you'd [created earlier](#configure-a-traffic-mirroring-port-with-hyper-v).
+Turn on support for [Microsoft NDIS Capture Extensions](/windows-hardware/drivers/network/capturing-extensions) for the virtual switch you created when you [configured the traffic mirroring port](#configure-a-traffic-mirroring-port-with-hyper-v).
 
 **To enable Microsoft NDIS capture extensions for your new virtual switch**:
 
