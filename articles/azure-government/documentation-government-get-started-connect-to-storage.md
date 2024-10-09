@@ -24,13 +24,13 @@ The [Microsoft Azure Storage Explorer](https://azure.microsoft.com/features/stor
 ### Getting Started with Storage Explorer
 1. Open the Azure Storage Explorer desktop application.
 
-2. You'll be prompted to add an Azure account; in the dropdown choose the "Azure US Government" option:
+1. You'll be prompted to add an Azure account; in the dropdown choose the "Azure US Government" option:
 
     ![storage1](./media/documentation-government-get-started-connect-with-storage-img1.png)
-3. Sign in to your Azure Government account and you can see all of your resources. The Storage Explorer should look similar to the screenshot below. Click on your Storage Account to see the blob containers, file shares, Queues, and Tables. 
+1. Sign in to your Azure Government account and you can see all of your resources. The Storage Explorer should look similar to the screenshot below. Click on your Storage Account to see the blob containers, file shares, Queues, and Tables. 
 
     ![storage2](./media/documentation-government-get-started-connect-with-storage-img2.png)
-
+   
 For more information about Azure Storage Explorer, see [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
 ## Connecting to the Storage API 
@@ -137,39 +137,6 @@ These endpoint differences must be taken into account when you connect to storag
     for blob in generator:
         print("\t Blob name: " + blob.name)
     ```
-
-#### PHP
-1. Download the [Azure Storage SDK for PHP](https://github.com/Azure/azure-sdk-for-php).
-2. The code below accesses Azure Table Storage using the Azure Storage API.
-   In the `connectionString` variable, you'll notice that there's a `TableEndpoint` parameter. 
-   Depending on which service you're using, you must define the parameter and set it to the endpoint for that service:
-   
-   - BlobEndpoint= //ends with 'blob.core.usgovcloudapi.net'
-   - QueueEndpoint= //ends with 'queue.core.usgovcloudapi.net'
-   - TableEndpoint= //ends with 'table.core.usgovcloudapi.net'
-     >[!Note]
-     > You can find these endpoints by navigating to your Storage Account from the [portal](https://portal.azure.us). 
-     > **Paste** in your storage account name, key, and service endpoint in the `connectionString` variable. 
-     >
-    
-     ```php
-     <?php
-     require_once "vendor/autoload.php";
-     use WindowsAzure\Common\ServicesBuilder;
-     use MicrosoftAzure\Storage\Common\ServiceException; 
-     $connectionString = 'DefaultEndpointsProtocol=http;AccountName=<accountname>;AccountKey=<accountkey>;TableEndpoint=http://<storageaccountname>.table.core.usgovcloudapi.net/';
-
-     $tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
-     try {
-     // Create table.
-     $tableRestProxy->createTable("test");
-     }
-     catch(ServiceException $e){
-     $code = $e->getCode();
-     $error_message = $e->getMessage();
-     }
-     ?>
-     ```
 
 ## Next steps
 
