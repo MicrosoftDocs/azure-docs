@@ -24,9 +24,8 @@ This article provides step-by-step instructions on how to stop the ingestion of 
 
 Before you stop the data collection from your SAP applications, ensure you have administrative access to:
 
-- The Microsoft Sentinel workspace
-- The SAP data connector agent
-- The machine or container where the data connector agent is running
+- The Log Analytics workspace that's enabled for Microsoft Sentinel. For more information, see [Roles and permissions in Microsoft Sentinel](../roles.md).
+- The SAP data connector agent machine or container.
 
 We recommend that you back up your current configuration and logs before making any changes. <!--is this correct?-->
 

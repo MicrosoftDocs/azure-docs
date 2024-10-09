@@ -210,7 +210,7 @@ If you see errors that you're missing a required SAP change request, make sure y
 
 ### No data is showing in the SAP table data log
 
-This solution allows SAP systems with versions for SAP BASIS 7.5 SP12 and above to reflect table data log changes in the `ABAPTableDataLog_CL` table. 
+In SAP systems with versions for SAP BASIS 7.5 SP12 and above, Microsoft Sentinel can reflect table data log changes in the `ABAPTableDataLog_CL` table. 
 
 If no data is showing in the `ABAPTableDataLog_CL` table, verify that the SAP system from which you're extracting the data contains the relevant change requests (transports). For more information, see [Configure support for extra data retrieval (recommended)](preparing-sap.md#configure-support-for-extra-data-retrieval-recommended).
 

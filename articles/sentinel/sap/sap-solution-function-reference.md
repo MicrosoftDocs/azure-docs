@@ -210,8 +210,6 @@ For more information, see [Available watchlists](sap-solution-security-content.m
 
 ## SAPAuditLogAnomalies
 
-<!--ask ofer whether we're comfortable mentioning machine learning here-->
-
 The **SAPAuditLogAnomalies** function uses Microsoft Sentinel's underlying Kusto database's built-in machine learning capabilities to help detect anomalous events observed on the SAP audit log.
 
 The **SAPAuditLogAnomalies** function was developed for the *SAP - (Experimental) Dynamic Anomaly based Audit Log Monitor Alerts* analytics rule. While it's original design is to alert on recent anomalies, it can also help to highlight historical anomalies. For more information, see [Sample uses](#sample).
@@ -274,7 +272,7 @@ We recommend restricting the size of the learned database to be under 100 millio
     SAPAuditLogAnomalies(LearningTime = 14d, DetectingTime=0h, SelectedSystems= dynamic(["BIP"]))
     ```
 
-For more information, see [Built-in SAP analytics rules for monitoring the SAP audit log](sap-solution-security-content.md#monitor-the-sap-audit-log).
+For more information, see [Built-in SAP analytics rules for monitoring the SAP audit log](sap-solution-security-content.md#monitor-the-sap-audit-log) and [Anomaly detection on the SAP audit log using the Microsoft Sentinel for SAP solution](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/anomaly-detection-on-the-sap-audit-log-using-the-microsoft/ba-p/3418709) (blog).
 
 ## SAPAuditLogConfigRecommend
 
