@@ -39,7 +39,7 @@ This how-to guide shows how to create and deploy a Standard logic app workflow u
   - Managed identity authentication
   - File System connector
 
-- You must create connections for managed connectors in your workflow through Visual Studio Code, not the Azure portal. To set up authentication for managed connectors, [follow these steps to set up connection authentication](azure-arc-enabled-logic-apps-create-deploy-workflows.md#set-up-connection-authentication).
+- Although you can create connections for managed connectors in your workflow through Azure portal and Visual Studio Code, to set up authentication for managed connectors, [follow these steps to set up authentication in Visual Studio Code](azure-arc-enabled-logic-apps-create-deploy-workflows.md#set-up-connection-authentication).
 
 - Some function-based triggers, such as Azure Blob, Cosmos DB, and Event Hubs require a connection to the Azure storage account associated with your Standard logic app. If you use any function-based triggers, in your Standard logic app's environment variables in the Azure portal or in your logic app project's **local.settings.json** file in Visual Studio Code, add the following app setting and provide your storage account connection string:
 

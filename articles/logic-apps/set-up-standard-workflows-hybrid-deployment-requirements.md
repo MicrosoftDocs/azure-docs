@@ -180,7 +180,7 @@ This section covers the Azure PowerShell steps in [Tutorial: Enable Azure Contai
    1. Confirm that the SMB driver is installed by running the following **kubectl** command, which should list **smb.csi.k8s.io**:
 
       ```azurepowershell
-      kubectl get csidrivers
+      kubectl get csidriver
       ```
 
       For more information, see [kubectl get](https://kubernetes.io/docs/reference/kubectl/generated/kubectl_get/).
