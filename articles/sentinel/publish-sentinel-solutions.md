@@ -43,7 +43,7 @@ Follow the below steps to create the offer and configure the top level attribute
     1. **Offer ID entered here should be the same as Offer ID mentioned in the SolutionMetadata.json file in your solution folder in GitHub** - https://github.com/Azure/Azure-Sentinel/blob/\<Your Branch\>/Solutions/\<Your Solution\>/SolutionMetadata.json 
     1. Recommended naming convention for offer ID is azure-sentinel-solution-\<your-solution-name\> (ex- azure-sentinel-solution-ciscoumbrella). 
     
-[!INCLUDE [reference-to-feature-availability](includes/pre-register.md)]
+[!INCLUDE [reference-to-feature-availability](includes/partner-cant-change-details.md)]
 
 :::image type="content" source="media/sentinel-partner-content/partner-center-new-azure-application.png" alt-text="Screenshot of offer id and offer name configuration":::   
 
