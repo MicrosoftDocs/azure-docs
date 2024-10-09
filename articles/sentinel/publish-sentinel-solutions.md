@@ -41,7 +41,7 @@ Follow the below steps to create the offer and configure the top level attribute
 
 1. Enter offer ID, offer alias, and select the publisher ID using which you want to publish Sentinel solutions (in case you have multiple accounts). Offer ID and offer alias are only visible to you in your partner center account (not visible to customers). The offer ID is part of the solution URL in Azure Marketplace once your solution is successfully published (ex- https://azuremarketplace.microsoft.com/marketplace/apps/\<*You offer ID*\>?tab=Overview)
     1. **Offer ID entered here should be the same as Offer ID mentioned in the SolutionMetadata.json file in your solution folder in GitHub** - https://github.com/Azure/Azure-Sentinel/blob/\<Your Branch\>/Solutions/\<Your Solution\>/SolutionMetadata.json 
-    1. Recommended naming convention for offer ID is azure-sentinel-solution-<your-solution-name> (ex- azure-sentinel-solution-ciscoumbrella). 
+    1. Recommended naming convention for offer ID is azure-sentinel-solution-\<your-solution-name\> (ex- azure-sentinel-solution-ciscoumbrella). 
     
 [!INCLUDE [reference-to-feature-availability](includes/pre-register.md)]
 
@@ -80,7 +80,7 @@ Follow the below steps to configure the properties under the *Offer listing* tab
     1. Type of content included in your solution. For example, **Data Connectors**: 1, **Parsers**: 1, Workbooks: 1, **Analytic Rules**: 10, **Hunting Queries**: 10. 
 1. **Search keywords** – You can list upto three search keywords that customers can use to find your solution in the Marketplace. 
     1. You must add the GUID *f1de974b-f438-4719-b423-8bf704ba2aef* as one of your search keywords. **If this keyword is not added, your solution would not show up in Sentinel.** 
-    1. We strongly recommend that you include the word Sentinel (can be Sentinel, <Your product name> for Sentinel etc.) as one of the search keywords. These keywords are commonly used by customers to find Sentinel solutions in Azure Marketplace.
+    1. We strongly recommend that you include the word Sentinel (can be Sentinel, \<Your product name\> for Sentinel etc.) as one of the search keywords. These keywords are commonly used by customers to find Sentinel solutions in Azure Marketplace.
     1. Here you can use your company name, product name, or any other text that you think is relevant for your solution.
 1. **Privacy policy link** – Working link to the privacy policy page of your company that applies to the solution that you're publishing.
 1. **Product information links** – By clicking on "Add a link", you can add one or more links that are relevant for your solution. You can add a link to your company page, product details page etc. 
