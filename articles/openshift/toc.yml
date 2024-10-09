@@ -26,6 +26,12 @@
   items:
     - name: Frequently asked questions
       href: openshift-faq.yml
+    - name: Confidential containers
+      items:
+        - name: Use confidential containers to protect senstive data
+          href: confidential-containers.md
+        - name: Deploy confidential containers
+          href: howto-confidential-containers.md
     - name: Cluster operations
       items:
         - name: Deploy an Azure Red Hat OpenShift cluster with an ARM template or Bicep
@@ -36,8 +42,6 @@
           href: howto-large-clusters.md
         - name: Use spot nodes
           href: howto-spot-nodes.md
-        - name: Use confidential containers
-          href: confidential-containers.md
         - name: Deploy infrastructure nodes
           href: howto-infrastructure-nodes.md
         - name: Use GPU workloads

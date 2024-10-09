@@ -1,6 +1,6 @@
 ---
 title: Use confidential containers to protect sensitive data
-description: Discover how to utilize confidential containers to protect senstive data.
+description: Discover how to utilize confidential containers to protect sensitive data.
 author: johnmarco
 ms.author: johnmarc
 ms.service: azure-redhat-openshift
@@ -11,7 +11,7 @@ ms.date: 10/09/2024
 
 Confidential Containers offer a robust solution to protect sensitive data within cloud environments. By leveraging hardware-based trusted execution environments (TEEs), these containers provide a secure enclave within the host system, isolating applications and their data from potential threats. This isolation ensures that even if the host system is compromised, the confidential data remains protected.
 
-This articles describes the benefits of using confidential containers to safeguard senstive data and explains how confidential containers function within Azure Red Hat OpenShift.
+This articles describes the benefits of using confidential containers to safeguard sensitive data and explains how confidential containers function within Azure Red Hat OpenShift.
 
 
 ## Benefits of Using Confidential Containers
@@ -22,7 +22,7 @@ Confidential Containers offer several key benefits:
 
 - Regulatory Compliance: Industries such as healthcare, finance, and government are subject to stringent data privacy regulations. Confidential Containers can help organizations meet these compliance requirements by providing a robust mechanism for protecting sensitive data.
 
-- Improved Trust and Confidence: Confidential Containers can foster trust between cloud service providers and their customers by demonstrating a commitment to data security and privacy.
+- Improved Trust and Confidence: Confidential Containers can foster trust between cloud service providers and their customers by demonstrating commitment to data security and privacy.
 
 - Reduced Risk of Data Breaches: The use of Confidential Containers can significantly reduce the risk of data breaches, which can have devastating consequences for organizations.
 
