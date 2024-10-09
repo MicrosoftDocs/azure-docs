@@ -357,7 +357,6 @@ The **Request** trigger creates a manually callable endpoint that handles *only*
    > change your storage account and copy your workflow to the new storage account, the URL for 
    > the **Request** trigger also changes to reflect the new storage account. The same workflow has a different URL.
 
----
 
 ### Schema validation for stateless workflows
 
