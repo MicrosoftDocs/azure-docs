@@ -60,7 +60,6 @@ ASIM DNS parsers are available in every workspace. Microsoft Sentinel provides t
 | **Sysmon for Windows**  (event 22) | Collected using:<br>- Azure Monitor Agent <br>- The Log Analytics Agent (legacy)<br><br>For both agents, both collecting to the<br> `Event` and `WindowsEvent` tables are supported. | `_Im_Dns_MicrosoftSysmonVxx` |
 | **Vectra AI** | |`_Im_Dns_VectraIAVxx`  |
 | **Zscaler ZIA** | | `_Im_Dns_ZscalerZIAVxx` |
-||||
 
 Deploy the workspace deployed parsers version from the [Microsoft Sentinel GitHub repository](https://aka.ms/AsimDNS).
 
