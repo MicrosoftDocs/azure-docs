@@ -11,7 +11,7 @@ ms.topic: how-to
 
 # Socket.IO Serverless Mode Specification (Preview)
 
-This document describes the details of serverless support. As the Socket.IO supports including the serverless supports highly depends on the Web PubSub service's existing interface, it introduces many complicated transforming and mapping. For most users, we suggest using Azure Function bindings together with Serverless Mode. You can walk through a tutorial [Tutorial: Build chat app with Azure Function in Serverless Mode](./socketio-serverless-tutorial.md)
+This document describes the details of serverless support. As the Socket.IO supports including the serverless supports highly depends on the Web PubSub service's existing interface, it introduces many complicated transforming and mapping. For most users, we suggest using Azure Function bindings together with Serverless Mode. You can walk through a tutorial [Tutorial: Build chat app with Azure Function in Serverless Mode](./socket-io-serverless-tutorial.md)
 
 ## Lifetime workflow
 

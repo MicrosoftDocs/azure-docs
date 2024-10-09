@@ -88,7 +88,7 @@ We need to do two steps to deploy the sample app.
     func azure functionapp publish <function-app-name>
     ```
 
-- Configure the Web PubSub for Socket.IO to add a hub setting which can send request to the Function App. As per the limitation of Function App's Webhook provider, you need to get an extension key populated by Function. Get more details in [Trigger Binding](./socketio-serverless-function-binding.md#trigger-binding). And as we use identity-based authentication, in the hub settings, you need to assign the target resource, which is the clientId of the Service Principal created before.
+- Configure the Web PubSub for Socket.IO to add a hub setting which can send request to the Function App. As per the limitation of Function App's Webhook provider, you need to get an extension key populated by Function. Get more details in [Trigger Binding](./socket-io-serverless-function-binding.md#trigger-binding). And as we use identity-based authentication, in the hub settings, you need to assign the target resource, which is the clientId of the Service Principal created before.
 
     ```bash
     code=$(az functionapp keys list -g <resource-group> -n <function-name> --query systemKeys.socketio_extension -o tsv)
@@ -109,4 +109,4 @@ https://<function-endpoint>/api/index
 Next, you can follow the tutorial to write the app step by step:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Build chat app with Azure Function in Serverless Mode](./socketio-serverless-tutorial.md)
+> [Tutorial: Build chat app with Azure Function in Serverless Mode](./socket-io-serverless-tutorial.md)

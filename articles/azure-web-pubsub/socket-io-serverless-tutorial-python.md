@@ -47,24 +47,24 @@ You should follow the steps to initiate a local Azure Function project.
     func init SocketIOProject --worker-runtime python
     ```
 
-This command creates a Python-based Function project. And enter the folder `SocketIOProject` to run the following commands.
+    This command creates a Python-based Function project. And enter the folder `SocketIOProject` to run the following commands.
 
 1. Currently, the Function Bundle doesn't include Socket.IO Function Binding, so you need to manually add the package.
 
     1. To eliminate the function bundle reference, edit the host.json file and remove the following lines.
 
-    ```json
-    "extensionBundle": {
-        "id": "Microsoft.Azure.Functions.ExtensionBundle",
-        "version": "[4.*, 5.0.0)"
-    }
-    ```
+        ```json
+        "extensionBundle": {
+            "id": "Microsoft.Azure.Functions.ExtensionBundle",
+            "version": "[4.*, 5.0.0)"
+        }
+        ```
 
     1. Run the command:
 
-    ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.WebPubSubForSocketIO -v 1.0.0-beta.4
-    ```
+        ```bash
+        func extensions install -p Microsoft.Azure.WebJobs.Extensions.WebPubSubForSocketIO -v 1.0.0-beta.4
+        ```
 
 1. Replace the content in `function_app.py` with the codes:
 
@@ -109,18 +109,18 @@ This command creates a Python-based Function project. And enter the folder `Sock
             return func.HttpResponse(f.read(), mimetype='text/html')
     ```
 
-Here's the explanation of these functions:
+    Here's the explanation of these functions:
 
-- `publish_data`: This function updates the NASDAQ index every second with a random change and broadcasts it to connected clients with Socket.IO Output Binding.
+    - `publish_data`: This function updates the NASDAQ index every second with a random change and broadcasts it to connected clients with Socket.IO Output Binding.
 
-- `negotiate`: This function response a negotiation result to the client.
+    - `negotiate`: This function response a negotiation result to the client.
 
-- `index`: This function returns a static HTML page.
+    - `index`: This function returns a static HTML page.
 
 
-Then add a `index.html` file
+    Then add a `index.html` file
 
-Create the index.html file with the content:
+    Create the index.html file with the content:
 
     ```html
     <!DOCTYPE html>
@@ -234,28 +234,28 @@ Create the index.html file with the content:
     </html>
     ```
 
-The key part in the `index.html`:
+    The key part in the `index.html`:
 
-    ```javascript
-    async function init() {
-        const negotiateResponse = await fetch(`/api/negotiate`);
-        if (!negotiateResponse.ok) {
-            console.log("Failed to negotiate, status code =", negotiateResponse.status);
-            return;
+        ```javascript
+        async function init() {
+            const negotiateResponse = await fetch(`/api/negotiate`);
+            if (!negotiateResponse.ok) {
+                console.log("Failed to negotiate, status code =", negotiateResponse.status);
+                return;
+            }
+            const negotiateJson = await negotiateResponse.json();
+            socket = io(negotiateJson.endpoint, {
+                path: negotiateJson.path,
+                query: { access_token: negotiateJson.token}
+            });
+
+            socket.on('update', (index) => {
+                updateIndexCore(index);
+            });
         }
-        const negotiateJson = await negotiateResponse.json();
-        socket = io(negotiateJson.endpoint, {
-            path: negotiateJson.path,
-            query: { access_token: negotiateJson.token}
-        });
+        ```
 
-        socket.on('update', (index) => {
-            updateIndexCore(index);
-        });
-    }
-    ```
-
-It first negotiates with the Function App to get the Uri and the path to the service. And register a callback to update index.
+    It first negotiates with the Function App to get the Uri and the path to the service. And register a callback to update index.
 
 ## How to run the App locally
 
@@ -288,9 +288,9 @@ Azure Functions requires a storage account to work even running in local. Choose
 
 Update the project to use the Azure Blob Storage connection string.
 
-    ```bash
-    func settings add AzureWebJobsStorage "<storage-connection-string>"
-    ```
+```bash
+func settings add AzureWebJobsStorage "<storage-connection-string>"
+```
 
 ---
 
@@ -298,17 +298,17 @@ Update the project to use the Azure Blob Storage connection string.
 
 Add connection string to the Function APP:
 
-    ```bash
-    func settings add WebPubSubForSocketIOConnectionString "<connection string>"
-    ```
+```bash
+func settings add WebPubSubForSocketIOConnectionString "<connection string>"
+```
 
 ### Run Sample App
 
 After tunnel tool is running, you can run the Function App locally:
 
-    ```bash
-    func start
-    ```
+```bash
+func start
+```
 
 And visit the webpage at `http://localhost:7071/api/index`. 
 
@@ -318,4 +318,4 @@ And visit the webpage at `http://localhost:7071/api/index`.
 Next, you can try to use Bicep to deploy the app online with identity-based authentication:
 
 > [!div class="nextstepaction"]
-> [Quickstart: Build chat app with Azure Function in Socket.IO Serverless Mode](./socketio-serverless-quickstart.md)
+> [Quickstart: Build chat app with Azure Function in Socket.IO Serverless Mode](./socket-io-serverless-quickstart.md)
