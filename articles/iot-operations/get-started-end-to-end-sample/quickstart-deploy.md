@@ -40,7 +40,7 @@ Before you begin, prepare the following prerequisites:
 
 * Visual Studio Code installed on your development machine. For more information, see [Download Visual Studio Code](https://code.visualstudio.com/download).
 
-* **Microsoft/Authorization/roleAssignments/write** permissions at the resource group level.
+* **Microsoft.Authorization/roleAssignments/write** permissions at the resource group level.
 
 ## What problem will we solve?
 
@@ -131,7 +131,7 @@ This helper command checks connectivity to Azure Resource Manager and Microsoft 
 
 Azure IoT Operations requires a schema registry on your cluster. Schema registry requires an Azure storage account so that it can synchronize schema information between cloud and edge.
 
-The command to create a schema registry in this section requires **Microsoft/Authorization/roleAssignments/write** permissions at the resource group level.
+The command to create a schema registry in this section requires **Microsoft.Authorization/roleAssignments/write** permissions at the resource group level.
 
 Run the following CLI commands in your Codespaces terminal.
 
