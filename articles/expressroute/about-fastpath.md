@@ -89,7 +89,7 @@ FastPath Private endpoint/Private Link connectivity is supported for the followi
 > * FastPath supports a max of 100Gbps connectivity to a single Availability Zone.
 
 > [!IMPORTANT]
-> For more information about supported scenarios and to enroll in the limited GA offering, complete this [Microsoft Form](https://aka.ms/FastPathLimitedGA). Once Microsoft has reached out to you, [enable Private Link over FastPath](expressroute-howto-linkvnet-arm.md#fastpath-virtual-network-peering-user-defined-routes-udrs-and-private-link-support-for-expressroute-direct-connections) by running the commands in Step 2.
+> For more information about supported scenarios and to enroll in the limited GA offering, complete this [Microsoft Form](https://aka.ms/FPlimitedga). Once Microsoft has reached out to you, [enable Private Link over FastPath](expressroute-howto-linkvnet-arm.md#fastpath-virtual-network-peering-user-defined-routes-udrs-and-private-link-support-for-expressroute-direct-connections) by running the commands in Step 2.
 
 ## Next steps
 
