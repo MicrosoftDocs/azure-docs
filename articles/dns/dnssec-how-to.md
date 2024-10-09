@@ -46,7 +46,7 @@ To sign your zone with DNSSEC using the Azure portal:
 
 6. Copy the delegation information and use it to create a DS record in the parent zone. 
 
-    1. If the parent zone is a top level domain (for example: `.com`) or you don't own the parent zone, you must add the DS record at your registrar. Each registrar has its own process. The registrar might ask for values such as the Key Tag, Algorithm, Digest Type, and Key Digest. In the example shown here, these values are:
+    1. If the parent zone is a top level domain (for example: `.com`), you must add the DS record at your registrar. Each registrar has its own process. The registrar might ask for values such as the Key Tag, Algorithm, Digest Type, and Key Digest. In the example shown here, these values are:
 
         **Key Tag**: 4535<br>
         **Algorithm**: 13<br>
@@ -59,6 +59,8 @@ To sign your zone with DNSSEC using the Azure portal:
 
         [ ![Screenshot of adding a DS record to the parent zone.](./media/dnssec-how-to/ds-add.png) ](./media/dnssec-how-to/ds-add.png#lightbox) 
         [ ![Screenshot of a DS record in the parent zone.](./media/dnssec-how-to/ds-added.png) ](./media/dnssec-how-to/ds-added.png#lightbox)
+
+    3. If you don't own the parent zone, send the DS record to the owner of the parent zone with instructions to add it into their zone.
 
 7. When the DS record has been uploaded to the parent zone, select the DNSSEC information page for your zone and verify that **Signed and delegation established** is displayed. Your DNS zone is now fully DNSSEC signed.
 
@@ -118,13 +120,15 @@ In these examples, the DS values are:
 - Digest: 0B9E68FC1711B4AC4EC0FCE5E673EDB0AFDC18F27EA94861CDF08C7100EA776C
 
 
-3. If the parent zone is a top level domain (for example: `.com`) or you don't own the parent zone, you must add the DS record at your registrar. Each registrar has its own process.
+3. If the parent zone is a top level domain (for example: `.com`), you must add the DS record at your registrar. Each registrar has its own process.
 
 4. If you own the parent zone, you can add a DS record directly to the parent yourself. The following example shows how to add a DS record to the DNS zone **adatum.com** for the child zone **secure.adatum.com** when both zones are signed and hosted using Azure Public DNS:
 
 ```azurepowershell-interactive
 az network dns record-set ds add-record --resource-group "your-resource-group" --zone-name "adatum.com" --record-set-name "secure" --key-tag <key-tag> --algorithm <algorithm> --digest <digest> --digest-type <digest-type>
 ```
+
+5. If you don't own the parent zone, send the DS record to the owner of the parent zone with instructions to add it into their zone.
 
 ## [PowerShell](#tab/sign-powershell)
 
@@ -164,7 +168,7 @@ In these examples, the DS values are:
 - Digest Type: 2
 - Digest: 0B9E68FC1711B4AC4EC0FCE5E673EDB0AFDC18F27EA94861CDF08C7100EA776C
 
-3. If the parent zone is a top level domain (for example: `.com`) or you don't own the parent zone, you must add the DS record at your registrar. Each registrar has its own process.
+3. If the parent zone is a top level domain (for example: `.com`), you must add the DS record at your registrar. Each registrar has its own process.
 
 4. If you own the parent zone, you can add a DS record directly to the parent yourself. The following example shows how to add a DS record to the DNS zone **adatum.com** for the child zone **secure.adatum.com** when both zones are signed and hosted using Azure Public DNS. Replace \<key-tag\>, \<algorithm\>, \<digest\>, and \<digest-type\> with the appropriate values from the DS record you queried previously.
 
@@ -172,7 +176,7 @@ In these examples, the DS values are:
 $dsRecord = New-AzDnsRecordConfig -DnsRecordType DS -KeyTag <key-tag> -Algorithm <algorithm> -Digest <digest> -DigestType <digest-type>
 New-AzDnsRecordSet -ResourceGroupName "dns-rg" -ZoneName "adatum.com" -Name "secure" -RecordType DS -Ttl 3600 -DnsRecords $dsRecord
 ```
-
+5. If you don't own the parent zone, send the DS record to the owner of the parent zone with instructions to add it into their zone.
 ---
 
 ## Next steps
