@@ -28,8 +28,6 @@ Confidential Containers offer several key benefits:
 
 - Increased Efficiency: Confidential Containers can streamline the development and deployment of applications by providing a secure and efficient environment for running sensitive workloads.
 
-
-
 ## Typical use cases
 
 The table below describes the most common use cases for deploying confidential containers.
@@ -37,15 +35,15 @@ The table below describes the most common use cases for deploying confidential c
 |Use case  |Industry  |Example  |
 |---------|---------|---------|
 |**Regulator compliance**<br>Meeting strict data protection and privacy regulations. |Government, Finance, Healthcare |A healthcare provider using confidential containers to process and store patient data in compliance with HIPAA regulations. |
-|Sensitive data processing |Any dealing with confidential information |A technology company using confidential containers to develop and test new software features without risk of intellectual property theft. |
-|Multi-tenancy environments |SaaS providers, Cloud service providers |A cloud service provider offering isolated environments for different clients within the same infrastructure. |
-|Secure collaboration |Research, defense, inter-organizational projects |Multiple research institutions collaborating on a sensitive project, each with their own isolated environment. |
-|Temporary secure environments |Cyber security, forensics | A cybersecurity firm using confidential containers to safely analyze and reverse-engineer malicious software. |
-|High-value transactions |Finance, cryptocurrency |A cryptocurrency exchange using confidential containers to manage wallets and process transactions. |
-
-
-
-
+|**Sensitive data processing**<br>Protecting intellectual property, trade secrets, or sensitive business data. |Any dealing with confidential information |A technology company using confidential containers to develop and test new software features without risk of intellectual property theft. |
+|**Multi-tenancy environments**<br>Hosting multiple clients' applications and data with strong isolation. |SaaS providers, Cloud service providers |A cloud service provider offering isolated environments for different clients within the same infrastructure. |
+|**Secure collaboration**<br>Enabling secure data sharing and processing between multiple parties. |Research, defense, inter-organizational projects |Multiple research institutions collaborating on a sensitive project, each with their own isolated environment. |
+|**Temporary secure environments**<br>Creating isolated environments for analyzing potential malware or performing security audits. |Cybersecurity, forensics | A cybersecurity firm using confidential containers to safely analyze and reverse-engineer malicious software. |
+|**High-value transactions**<br>Processing high-value financial transactions with enhanced security. |Finance, cryptocurrency |A cryptocurrency exchange using confidential containers to manage wallets and process transactions. |
+|**Secure AI/ML model training**<br>Training AI models on sensitive data without exposing the data. |AI/ML, Any industry using sensitive data for AI |A financial institution training fraud detection models on customer transaction data. |
+|**Confidential edge computing**<br>Processing sensitive data at the edge with enhanced security. |IoT, manufacturing, smart cities |A smart city initiative using CoCo for processing citizen data collected from various IoT devices. |
+|**Secure DevOps environments**<br>Creating isolated environments for development, testing, and staging. |Software development, IT |A software company using confidential containers to isolate different stages of their CI/CD pipeline. |
+|**Disaster recovery and business continuity**<br>Creating secure, isolated backup environments for critical systems and data. |Any industry requiring high availability and data protection |A financial institution using confidential containers to maintain an isolated, up-to-date copy of their core banking systems. |
 
 ## How Confidential Containers work
 
