@@ -11,7 +11,7 @@ ms.author: greglin
 
 # DNSSEC overview (Preview)
 
-This article provides a overview of Domain Name System Security Extensions (DNSSEC) and includes an introduction to [DNSSEC terminology](#dnssec-terminology). Benefits of DNSSEC zone signing are described and examples are provided for viewing DNSSEC related resource records. When you are ready to sign your Azure public DNS zone, see the following how-to guides:
+This article provides an overview of Domain Name System Security Extensions (DNSSEC) and includes an introduction to [DNSSEC terminology](#dnssec-terminology). Benefits of DNSSEC zone signing are described and examples are provided for viewing DNSSEC related resource records. When you are ready to sign your Azure public DNS zone, see the following how-to guides:
 
 - [How to sign your Azure Public DNS zone with DNSSEC (Preview)](dnssec-how-to.md).
 - [How to unsign your Azure Public DNS zone (Preview)](dnssec-unsign.md)
@@ -99,7 +99,7 @@ The DNSSEC validation process works with trust anchors as follows:
 
 ### Authoritative servers  
 
-Authoritative DNS servers maintain a chain of trust through the use of delegation signer (DS) records. DS records are used to verify the authenticity of child zones zone in the DNS hierarchy. 
+Authoritative DNS servers maintain a chain of trust through the use of delegation signer (DS) records. DS records are used to verify the authenticity of child zones in the DNS hierarchy. 
  - In order for DNSSEC validation to occur on a signed zone, the parent of the signed zone must also be signed. The parent zone also must have a DS record for the child zone.
  - During the validation process, a zone's parent is queried for the DS record. If the DS record is not present, or the DS record data in the parent does not match the DNSKEY data in the child zone, the chain of trust is broken and validation fails.
 
