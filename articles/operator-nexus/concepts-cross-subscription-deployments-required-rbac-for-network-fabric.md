@@ -9,75 +9,66 @@ ms.date: 09/17/2024
 ms.custom: template-concept
 ---
 
-# Overview
+# Managing Azure Network Fabric Resources Across Subscriptions
 
-This document provides a detailed analysis of cross-subscription deployments involving Network Fabric and Isolation Domains, with a focus on role-based access control (RBAC) and the permissions required for successful operations. It examines how resources within different subscriptions—referred to as Subscription A and Subscription B—interact, highlighting the key configurations and limitations encountered during testing.
+## Overview
 
-The tests were conducted across multiple environments to evaluate scenarios where Network Fabric and Isolation Domains were deployed in distinct subscriptions. The aim was to assess whether specific user roles (e.g., Contributor, Reader, and custom roles) could perform actions such as creating Route Policies, IP Prefixes, and ACLs, while following least-privilege access principles.
+This document outlines the requirements and behaviors associated with managing Nexus Network Fabric (NNF) resources in Azure when dealing with multiple subscriptions. It describes various scenarios involving different levels of access permissions that can affect operations across subscriptions. This document also covers the linked access check implementation, which ensures that proper permissions and access controls are enforced when managing Network Fabric (NNF) resources across multiple subscriptions, verifying that the required cross-subscription links have the necessary authorizations in place.
 
-This document also provides a comprehensive guide to the required permissions for cross-subscription resource management and explains the scenarios where deployments succeeded or failed based on RBAC permissions. Additionally, a table is provided summarizing the necessary roles and permissions for deploying Nexus resources in different subscriptions.
+## Scenarios
 
-## Test bed for Cross-subscription deployments and RBAC permissions
+### Limited access in Subscription A
 
-The test bed used for evaluating cross-subscription deployments of Network Fabric (NF) and Isolation Domains (ID) was designed to simulate real-world scenarios, focusing on permissions and role-based access control (RBAC). Below are the details of the environment setup and configurations used during testing:
+In this scenario, the user has access to two subscriptions: **Subscription A** and **Subscription B**. In **Subscription A**, the user has only `read` access to the Network Fabric (NNF) resources.
 
-### Subscriptions
+**Outcome:** When the user tries to create or manage any NNF resource in **Subscription B** by referencing the NNF resource from **Subscription A**, the operation fails with a `LinkedAuthorizationFailed` error. This failure occurs because the user does not have the necessary `Join` access to the NNF resource.
 
-- **Subscription A (Primary subscription):** Hosts core resources, including Network Fabric. It includes Isolation Domains, Route Policies, IP Prefixes, and IP Communities.  
+### Sufficient Access in Both Subscriptions
 
-- **Subscription B (Secondary subscription):** Contains connected resources like Route Policies, IP Prefixes, and External Networks. It is used for testing cross-subscription resource sharing and policy implementation.
+In this scenario, the user has access to both **Subscription A** and **Subscription B**, with either `Contributor` or `Owner` permissions in both subscriptions.
 
-### Resources
+**Outcome**: When the user tries to create or manage Network Fabric (NNF) resources in **Subscription B** by referencing NNF resources in **Subscription A**, the operation succeeds. This confirms that sufficient permissions enable successful resource management across subscriptions.
 
-- **Network Fabric (NF):** Connects Isolation Domains and External Networks, defining route policies.  
+### No Access to Subscription A
 
-- **Isolation Domains (L2 & L3):** Virtual network segments isolating traffic between networks.  
+In this scenario, the user has no access to **Subscription A**, where the Network Fabric (NNF) resources are deployed, but has Contributor or Owner rights in **Subscription B**.
 
-- **Route Policies:** Govern traffic routing within and across subscriptions.  
+Outcome:
+When the user tries to create or manage NNF resources in **Subscription B** by referencing NNF resources in **Subscription A**, the operation fails with an AuthorizationFailed error. This occurs because the user lacks either the required Read access to **Subscription A** along with Join access to the referenced resource, or Write access to **Subscription A** along with Join access to the referenced resource.
 
-- **Access Control Lists (ACLs):** Define allowed and denied traffic.  
+>[!NOTE]
+>Network Fabric cannot be created in a different subscription than the referenced Network Fabric Controller (NFC).
 
-- **IP Prefixes and Communities:** Used for address space definition and resource grouping for network control.
+## Permissions Overview
 
-### User Roles and RBAC
+To effectively manage NNF resources across Azure subscriptions, users must have the appropriate permissions. The following permissions are essential:
 
-- **Contributor:** Full resource management access, without role assignment.  
+### Subscription-level permissions
 
-- **Reader:** Read-only access to resources.  
+- **Read access:** Users must have read access to view NNF resources within the subscription.
+- **Contributor access:** Users can create and manage resources, including configuring settings and deleting resources.
+- **Owner access:** Users have full control over the subscription, including the ability to manage permissions for other users.
 
-- **Custom Roles:** Grant specific permissions, such as "Join" resources or limited management abilities.
+### Resource-level permissions
 
-### Test cases and results
+- **Join access:** Users must have Join access to the specific NNF resources they wish to reference. For example, when a user tries to create an L2 or L3 isolation domain in **Subscription B** while referencing an NNF resource in **Subscription A**, the user must have Join access on the NNF resource.
 
-| Test Case | Subscription A | User RBAC (Target Resource) | Subscription B | User RBAC (Connected Resource) | Expected Result | Result | Remarks |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | NF + IP Prefix, IP Community | Contributor | Route Policy | Contributor | Failure | Failure | Route Policy creation failed (LinkedAuthorizationFailed) |
-| 2 | NF + IP Prefix, IP Community | Contributor | Route Policy | Custom: Reader/Join | Success | Success | Successfully created Route Policy |
-| 3 | NF + IP Prefix, IP Community | Contributor | Route Policy | Custom: Reader/Join | Failure | Failure | AuthorizationFailed error |
-| 4 | NF + IP Prefix, IP Community | Contributor | Route Policy | Custom: Writer/Join | Success | Success | Successfully created Route Policy |
-| 5 | NF + IP Prefix, IP Community | Contributor | Route Policy | Custom: Reader/Writer | Success | Success | Successfully created Route Policy |
-| 6 | NF + IP Prefix, IP Community | Contributor | Route Policy | Contributor | Success | Success | Successfully created Route Policy |
-| 7 | NF + IP Prefix, IP Community | Contributor | Route Policy | Custom: Reader/Join | Failure | Failure | AuthorizationFailed error |
-| 8 | NF + IP Prefix, IP Community | Contributor | Route Policy | Custom: Writer/Join | Success | Success | Successfully created Route Policy |
-| 9 | NF + IP Prefix, IP Community | Contributor | Route Policy | Custom: Reader/Writer | Failure | Failure | LinkedAuthorizationFailed error |
-| 10 | NF + IP Prefix, IP Community | Contributor | Route Policy | Custom: Reader/Writer | Failure | Failure | LinkedAuthorizationFailed error |
-| 11 | NF + L3 + Route Policy | Contributor | IP Prefix, IP Community | Contributor | Failure | Failure | Reader tried to enable L3 but failed (AuthorizationFailed) |
-| 12 | NF + L3 + Route Policy | Contributor | IP Prefix, IP Community | Custom: Reader/Join | Failure | Failure | Reader+Join tried enabling L3 but failed |
-| 13 | NF + L3 + Route Policy | Contributor | IP Prefix, IP Community | Custom: Reader/Join | Failure | Failure | Failed to create IP Prefix (AuthorizationFailed) |
-| 14 | NF + L3 + Route Policy | Contributor | IP Prefix, IP Community | Custom: Reader/Writer | Success | Success | Successfully created Route Policy |
-| 15 | NF + L3 + Route Policy | Contributor | IP Prefix, IP Community | Custom: Writer/Join | Success | Success | Successfully created Route Policy |
-| 16 | NF + L3 + Route Policy | Contributor | IP Prefix, IP Community | Custom: Reader/Writer | Failure | Failure | LinkedAuthorizationFailed error |
-| 17 | NFC & NF | Contributor | NF | Contributor | None of the above | None of the above | Test completed |
-| 18 | NF + Isolation Domain | Contributor | Isolation Domain (L2 & L3) | Contributor | Success | Success | Test completed |
-| 19 | NF + Isolation Domain + Route Policy | Contributor | Route Policy | Contributor | Success | Success | Test completed |
-| 20 | NF + NNI + Route Policy | Contributor | Route Policy | Contributor | Success | Success | Test completed |
-| 21 | NFC & NF | Reader | NF | Contributor | Failure | Failure | Test completed |
-| 22 | NF + Isolation Domain | Reader | Isolation Domain (L2 & L3) | Contributor | Failure | Failure | Test completed |
-| 23 | NF + Isolation Domain + Route Policy | Reader | L3 Isolation Domain + Route Policy | Contributor | Failure | Failure | Test completed |
-| 24 | NF + Isolation Domain + Route Policy | Reader | Route Policy | Contributor | Failure | Failure | Test completed |
-| 25 | NF + NNI + Route Policy | Reader | Route Policy | Contributor | Failure | Failure | Test completed |
-| 26 | NF + Isolation Domain + External Networks + ACL | Contributor | Isolation Domain + External Networks + ACL | Contributor | Success | Success | Test completed |
-| 27 | NF + Isolation Domain | Reader | Isolation Domain (L2 & L3) | Contributor / Only POST Action | Success | Success | Test completed |
-| 28 | NF + Isolation Domain | Reader | Isolation Domain (L2 & L3) | Reader / Only POST Action | Failure | Failure | Test completed |
-| 29 | NF + Isolation Domain + External Networks + ACL | Contributor | Isolation Domain + External Networks + ACL | Contributor | Success | Success | Test completed |
-| 30 | NF + Isolation Domain + External Networks + ACL | Reader | Isolation Domain (RBAC-Read) + External Networks (RBAC-Write) + ACL (Write) | Reader | Failure | Failure | Test completed |
+## Resource Management Considerations
+
+### Resource Creation
+
+- Ensure that users have the necessary subscription-level permissions before attempting to create NNF resources.
+
+- When referencing resources from another subscription, confirm that the user has both read access to that subscription and Join access to the specific NNF resource.
+
+### Resource Configuration
+
+- Users with 'Contributor` or `Owner` access can configure NNF resources. However, they must have the appropriate permissions for each specific configuration action.
+
+### Resource Deletion
+
+- Deleting NNF resources typically requires `Contributor`, `Owner` or `Delete` access on the resource. Users should be aware of any dependencies that may prevent deletion.
+
+### Cross-Subscription Management
+
+- When managing NNF resources across multiple subscriptions, it’s crucial to maintain a clear understanding of the permissions structure to avoid `AuthorizationFailed` and `LinkedAuthorizationFailed` errors.
