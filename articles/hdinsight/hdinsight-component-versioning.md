@@ -36,7 +36,7 @@ Azure HDInsight supports the following Apache Spark versions.
 
 ## Support options for HDInsight versions
 
-Support is defined as a time period that an HDInsight version supported by Microsoft Customer Service and Support. HDInsight offers two types of support: 
+Support is defined as a time period that a HDInsight version supported by Microsoft Customer Service and Support. HDInsight offers two types of support: 
 - **Standard support**
 - **Basic support**
 
