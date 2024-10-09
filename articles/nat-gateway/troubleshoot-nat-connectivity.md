@@ -183,7 +183,7 @@ NAT gateway is deployed in your Azure virtual network but unexpected IP addresse
 
   * It isn't necessary to reboot a virtual machine in a subnet configured to NAT gateway. However, if a virtual machine is rebooted, the connection state is flushed. When the connection state is flushed, all connections begin using the NAT gateway resource's IP address or addresses. This behavior is a side effect of the virtual machine reboot and not an indicator that a reboot is required.
 
-  * If you're still having trouble, [open a support case](#more-troubleshooting-guidance) for further troubleshooting.
+  * If your investigation is inconclusive, open a support case to [further troubleshoot](#more-troubleshooting-guidance).
 
 * Custom routes directing 0.0.0.0/0 traffic to an NVA will take precedence over NAT gateway for routing traffic to the internet. To have NAT gateway route traffic to the internet instead of the NVA, [remove the custom route](/azure/virtual-network/manage-route-table#delete-a-route) for 0.0.0.0/0 traffic going to the virtual appliance. The 0.0.0.0/0 traffic resumes using the default route to the internet and NAT gateway is used instead.
 
