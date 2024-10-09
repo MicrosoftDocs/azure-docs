@@ -6,7 +6,7 @@ ms.reviewer: bshy
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: overview
-ms.date: 08/28/2023
+ms.date: 09/17/2024
 ms.author: banders
 ---
 
@@ -100,6 +100,7 @@ For more information, see [Self-service exchanges and refunds for Azure Reservat
 - **Azure Dedicated Host** - Only the compute costs are included with the Dedicated host.
 - **Azure Disk Storage reservations** - A reservation only covers premium SSDs of P30 size or greater. It doesn't cover any other disk types or sizes smaller than P30.
 - **Azure Backup Storage reserved capacity** - A capacity reservation lowers storage costs of backup data in a Recovery Services Vault.
+- **Azure NetApp Files** - A capacity reservation covers matching capacity pools in the selected service level and region. When using capacity pools configured with [cool access](../../azure-netapp-files/manage-cool-access.md), only "hot" tier consumption is covered by the reservation benefit. 
 
 Software plans:
 
@@ -111,7 +112,7 @@ For Windows virtual machines and SQL Database, the reservation discount doesn't 
 
 ## Need help? Contact us.
 
-If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
+If you have questions or need help, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## Next steps
 
@@ -127,6 +128,7 @@ If you have questions or need help,  [create a support request](https://go.micro
     - [Azure Cosmos DB resources with Azure Cosmos DB reserved capacity](/azure/cosmos-db/cosmos-db-reserved-capacity)
     - [SQL Database compute resources with Azure SQL Database reserved capacity](/azure/azure-sql/database/reserved-capacity-overview)
     - [Azure Cache for Redis resources with Azure Cache for Redis reserved capacity](../../azure-cache-for-redis/cache-reserved-pricing.md)
-Learn more about reservations for software plans:
+
+- Learn more about reservations for software plans:
     - [Red Hat software plans from Azure Reservations](/azure/virtual-machines/linux/prepay-suse-software-charges)
     - [SUSE software plans from Azure Reservations](/azure/virtual-machines/linux/prepay-suse-software-charges)

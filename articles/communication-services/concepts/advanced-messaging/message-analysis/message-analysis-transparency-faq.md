@@ -9,6 +9,7 @@ ms.author: gelli
 ms.date: 07/15/2024
 ms.topic: conceptual
 ms.service: azure-communication-services
+ms.subservice: advanced-messaging
 ---
 
 # Message Analysis: Responsible AI transparency FAQ 

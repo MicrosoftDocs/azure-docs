@@ -13,7 +13,7 @@ ms.custom: references_regions
 
 # Azure ExpressRoute Traffic Collector
 
-ExpressRoute Traffic Collector enables sampling of network flows sent over your ExpressRoute circuits. Flow logs get sent to a [Log Analytics workspace](../azure-monitor/logs/log-analytics-overview.md) where you can create your own log queries for further analysis. You can also export the data to any visualization tool or SIEM (Security Information and Event Management) of your choice. Flow logs can be enabled for both private peering and Microsoft peering with ExpressRoute Traffic Collector.
+ExpressRoute Traffic Collector enables sampling of network flows sent over your ExpressRoute circuits. Flow logs get sent to a [Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-overview) where you can create your own log queries for further analysis. You can also export the data to any visualization tool or SIEM (Security Information and Event Management) of your choice. Flow logs can be enabled for both private peering and Microsoft peering with ExpressRoute Traffic Collector.
 
 :::image type="content" source="./media/traffic-collector/main-diagram.png" alt-text="Diagram of ExpressRoute traffic collector in an Azure environment.":::
 
@@ -102,14 +102,14 @@ Note: If your desired region is not yet supported, you can deploy ExpressRoute T
 | ------ | ----------- |
 | North American | <ul><li>Canada East</li><li>Canada Central</li><li>Central US</li><li>Central US EUAP</li><li>North Central US</li><li>South Central US</li><li>West Central US</li><li>East US</li><li>East US 2</li><li>West US</li><li>West US 2</li><li>West US 3</li></ul> |
 | South America | <ul><li>Brazil South</li><li>Brazil Southeast</li></ul> |
-| Europe | <ul><li>West Europe</li><li>North Europe</li><li>UK South</li><li>UK West</li><li>France Central</li><li>France South</li><li>Germany North</li><li>Germany West Central</li><li>Sweden Central</li><li>Sweden South</li><li>Switzerland North</li><li>Switzerland West</li><li>Norway East</li><li>Norway West</li></ul> |
-| Asia | <ul><li>East Asia</li><li>Southeast Asia</li><li>Central India</li><li>South India</li><li>Japan West</li><li>Korea South</li><li>UAE North</li></ul> |
+| Europe | <ul><li>West Europe</li><li>North Europe</li><li>UK South</li><li>UK West</li><li>France Central</li><li>France South</li><li>Germany North</li><li>Germany West Central</li><li>Sweden Central</li><li>Sweden South</li><li>Switzerland North</li><li>Switzerland West</li><li>Norway East</li><li>Norway West</li><li>Italy North</li><li>Poland Central</li></ul> |
+| Asia | <ul><li>East Asia</li><li>Southeast Asia</li><li>Central India</li><li>South India</li><li>Japan West</li><li>Korea South</li><li>UAE North</li><li>UAE Central</li></ul> |
 | Africa | <ul><li>South Africa North</li><li>South Africa West</li></ul> |
 | Pacific | <ul><li>Australia Central</li><li>Australia Central 2</li><li>Australia East</li><li>Australia Southeast</li></ul> |
 
 ## Pricing
 
-| Zone | Gateway per hour | Data processed per GB |
+| Zone | Collector Instance Uptime | Data processed per GB |
 | ---- | ---------------- | --------------------- |
 | Zone 1 | $0.60/hour | $0.10/GB |
 | Zone 2 | $0.80/hour | $0.20/GB |

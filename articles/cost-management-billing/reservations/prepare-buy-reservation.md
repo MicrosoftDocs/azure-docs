@@ -93,6 +93,7 @@ You can purchase reservations from Azure portal, APIs, PowerShell, CLI. Read the
 - [Defender for Cloud - Pre-Purchase](/azure/defender-for-cloud/prepurchase-plan?toc=/azure/cost-management-billing/reservations/toc.json)
 - [Disk Storage](/azure/virtual-machines/disks-reserved-capacity)
 - [Microsoft Fabric](fabric-capacity.md)
+- [Microsoft Sentinel - Pre-Purchase](../../sentinel/billing-pre-purchase-plan.md?toc=/azure/cost-management-billing/reservations/toc.json)
 - [SAP HANA Large Instances](prepay-hana-large-instances-reserved-capacity.md)
 - [Software plans](/azure/virtual-machines/linux/prepay-suse-software-charges?toc=/azure/cost-management-billing/reservations/toc.json)
 - [SQL Database](/azure/azure-sql/database/reserved-capacity-overview?toc=/azure/cost-management-billing/reservations/toc.json)

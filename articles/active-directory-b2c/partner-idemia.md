@@ -5,11 +5,11 @@ description: Learn to integrate Azure AD B2C authentication with IDEMIA Mobile I
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: how-to
 ms.date: 01/26/2024
 ms.author: gasinh
-ms.subservice: B2C
+ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
 
 # Customer intent: I'm an Azure AD B2C administrator, and I want to configure IDEMIA Mobile ID integration with Azure AD B2C. I want users to authenticate using biometric authentication services and benefit from a trusted, government-issued digital ID.

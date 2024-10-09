@@ -31,7 +31,7 @@ The cache's **Overview** page shows graphs for some basic cache statistics - cac
 
 ![screenshot of three line graphs showing the statistics mentioned above for a sample cache](media/hpc-cache-overview-stats.png)
 
-These charts are part of Azure's built-in monitoring and analytics tools. Learn more about these capabilities from the [Azure Monitor documentation](../azure-monitor/essentials/monitor-azure-resource.md).
+These charts are part of Azure's built-in monitoring and analytics tools. Learn more about these capabilities from the [Azure Monitor documentation](/azure/azure-monitor/essentials/monitor-azure-resource).
 
 ## Metrics page
 
@@ -69,5 +69,5 @@ These values can be useful when debugging connection issues between clients and 
 
 ## Next steps
 
-* Learn more about [Azure metrics and statistics tools](../azure-monitor/index.yml)
+* Learn more about [Azure metrics and statistics tools](/azure/azure-monitor/)
 * [Manage the cache](hpc-cache-manage.md)

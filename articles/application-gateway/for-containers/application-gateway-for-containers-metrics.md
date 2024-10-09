@@ -3,8 +3,7 @@ title: Azure Monitor metrics for Application Gateway for Containers
 description: Learn how to use metrics to monitor performance of Application Gateway for Containers
 services: application-gateway
 author: greg-lindsay
-ms.service: azure-application-gateway
-ms.subservice: appgw-for-containers
+ms.service: azure-appgw-for-containers
 ms.topic: concept-article
 ms.date: 02/27/2024
 ms.author: greglin
@@ -12,7 +11,7 @@ ms.author: greglin
 ---
 # Metrics for Application Gateway for Containers
 
-Application Gateway for Containers publishes data points to [Azure Monitor](../../azure-monitor/overview.md) for the performance of your Application Gateway for Containers and backend instances. These data points are called metrics, and are numerical values in an ordered set of time-series data. Metrics describe some aspect of your application gateway at a particular time. If there are requests flowing through the Application Gateway, it measures and sends its metrics in 60-second intervals. If there are no requests flowing through the Application Gateway or no data for a metric, the metric isn't reported. For more information, see [Azure Monitor metrics](../../azure-monitor/essentials/data-platform-metrics.md).
+Application Gateway for Containers publishes data points to [Azure Monitor](/azure/azure-monitor/overview) for the performance of your Application Gateway for Containers and backend instances. These data points are called metrics, and are numerical values in an ordered set of time-series data. Metrics describe some aspect of your application gateway at a particular time. If there are requests flowing through the Application Gateway, it measures and sends its metrics in 60-second intervals. If there are no requests flowing through the Application Gateway or no data for a metric, the metric isn't reported. For more information, see [Azure Monitor metrics](/azure/azure-monitor/essentials/data-platform-metrics).
 
 ## Metrics supported by Application Gateway for Containers
 

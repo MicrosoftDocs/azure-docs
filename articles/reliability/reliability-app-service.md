@@ -183,7 +183,7 @@ To prepare for availability zone failure, you should over-provision capacity of 
 
 ### Zone down experience
 
-Traffic is routed to all of your available App Service instances. In the case when a zone goes down, the App Service platform will detect lost instances and automatically attempt to find new replacement instances and spread traffic as needed. If you have [autoscale](../app-service/manage-scale-up.md) configured, and if it decides more instances are needed, autoscale will also issue a request to App Service to add more instances. Note that [autoscale behavior is independent of App Service platform behavior](../azure-monitor/autoscale/autoscale-overview.md) and that your autoscale instance count specification doesn't need to be a multiple of three. 
+Traffic is routed to all of your available App Service instances. In the case when a zone goes down, the App Service platform will detect lost instances and automatically attempt to find new replacement instances and spread traffic as needed. If you have [autoscale](../app-service/manage-scale-up.md) configured, and if it decides more instances are needed, autoscale will also issue a request to App Service to add more instances. Note that [autoscale behavior is independent of App Service platform behavior](/azure/azure-monitor/autoscale/autoscale-overview) and that your autoscale instance count specification doesn't need to be a multiple of three. 
 
 >[!NOTE] 
 >There's no guarantee that requests for additional instances in a zone-down scenario will succeed. The back filling of lost instances occurs on a best-effort basis. The recommended solution is to create and configure your App Service plans to account for losing a zone as described in the next section.
@@ -198,7 +198,7 @@ You cannot migrate existing App Service instances or environment resources from 
 
 ### Pricing
 
-There's no additional cost associated with enabling availability zones. Pricing for a zone redundant App Service is the same as a single zone App Service. You'll be charged based on your App Service plan SKU, the capacity you specify, and any instances you scale to based on your autoscale criteria. If you enable availability zones but specify a capacity less than three, the platform will enforce a minimum instance count of three and charge you for those three instances. For pricing information for App Service Environment v3, see [Pricing](../app-service/environment/overview.md#pricing).
+For multi-tenant environments using App Service Premium v2 or Premium v3 plans, there's no additional cost associated with enabling availability zones as long as you have three or more instances in your App Service plan. You'll be charged based on your App Service plan SKU, the capacity you specify, and any instances you scale to based on your autoscale criteria. If you enable availability zones but specify a capacity less than three, the platform will enforce a minimum instance count of three and charge you for those three instances. App Service Environment v3 has a different pricing model for availability zones. For pricing information for App Service Environment v3, see [Pricing](../app-service/environment/overview.md#pricing).
 
 ## Cross-region disaster recovery and business continuity
 
@@ -241,7 +241,7 @@ To avoid the limitations of backup and restore methods, configure your CI/CD pip
 
 #### Outage detection, notification, and management
 
-- It's recommended that you set up monitoring and alerts for your web apps to for timely notifications during a disaster. For more information, see [Application Insights availability tests](../azure-monitor/app/availability-overview.md).
+- It's recommended that you set up monitoring and alerts for your web apps to for timely notifications during a disaster. For more information, see [Application Insights availability tests](/azure/azure-monitor/app/availability-overview).
 
 - To manage your application resources in Azure, use an infrastructure-as-Code (IaC) mechanism. In a complex deployment across multiple regions, to manage the regions independently and to keep the configuration synchronized across regions in a reliable manner requires a predictable, testable, and repeatable process. Consider an IaC tool such as [Azure Resource Manager templates](../azure-resource-manager/management/overview.md) or [Terraform](/azure/developer/terraform/overview).
 

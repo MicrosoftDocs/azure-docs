@@ -14,7 +14,7 @@ ms.custom: template-concept, engagement-fy23
 
 Azure Load Balancer exposes the following diagnostic capabilities:
 
-* **Multi-dimensional metrics and alerts**: Provides multi-dimensional diagnostic capabilities through [Azure Monitor](../azure-monitor/overview.md) for standard load balancer configurations. You can monitor, manage, and troubleshoot your standard load balancer resources.
+* **Multi-dimensional metrics and alerts**: Provides multi-dimensional diagnostic capabilities through [Azure Monitor](/azure/azure-monitor/overview) for standard load balancer configurations. You can monitor, manage, and troubleshoot your standard load balancer resources.
 
 * **Resource health**: The Resource Health status of your load balancer is available in the **Resource health** page under **Monitor**. This automatic check informs you of the current availability of your load balancer resource.
 
@@ -75,7 +75,7 @@ To view the metrics for your standard load balancer resources:
 
 ### Retrieve multi-dimensional metrics programmatically via APIs
 
-For API guidance for retrieving multi-dimensional metric definitions and values, see [Azure Monitoring REST API walkthrough](../azure-monitor/essentials/rest-api-walkthrough.md#retrieve-metric-definitions). These metrics can be written to a storage account by adding a [diagnostic setting](../azure-monitor/essentials/diagnostic-settings.md) for the 'All Metrics' category. 
+For API guidance for retrieving multi-dimensional metric definitions and values, see [Azure Monitoring REST API walkthrough](/azure/azure-monitor/essentials/rest-api-walkthrough#retrieve-metric-definitions). These metrics can be written to a storage account by adding a [diagnostic setting](/azure/azure-monitor/essentials/diagnostic-settings) for the 'All Metrics' category. 
 
 ### <a name = "DiagnosticScenarios"></a>Common diagnostic scenarios and recommended views
 
@@ -343,7 +343,7 @@ To view the health of your public standard load balancer resources:
 
    *Figure: Resource health status*
  
-A generic description of a resource health status is available in the [resource health documentation](../service-health/resource-health-overview.md). 
+A generic description of a resource health status is available in the [resource health documentation](/azure/service-health/resource-health-overview). 
 
 ### Resource health alerts
 

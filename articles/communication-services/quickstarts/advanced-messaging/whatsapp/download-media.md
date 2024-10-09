@@ -9,6 +9,7 @@ ms.author: memontic
 ms.date: 07/24/2024
 ms.topic: quickstart
 ms.service: azure-communication-services
+ms.subservice: advanced-messaging
 ---
 
 # Quickstart: Download WhatsApp message media

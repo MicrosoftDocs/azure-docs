@@ -3,7 +3,7 @@ title: Filling time gaps and imputing missing values - Azure SQL Edge
 description: Learn about filling time gaps and imputing missing values in Azure SQL Edge
 author: rwestMSFT
 ms.author: randolphwest
-ms.date: 09/14/2023
+ms.date: 09/21/2024
 ms.service: azure-sql-edge
 ms.topic: conceptual
 keywords:
@@ -12,7 +12,9 @@ keywords:
 ---
 # Fill time gaps and imputing missing values
 
-> [!IMPORTANT]  
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
+
+> [!NOTE]  
 > Azure SQL Edge no longer supports the ARM64 platform.
 
 When dealing with time series data, it's often possible that the time series data has missing values for the attributes. It's also possible that, because of the nature of the data, or because of interruptions in data collection, there are time *gaps* in the dataset.
@@ -187,7 +189,7 @@ timestamp               OrigVoltageVals  ImputedVoltage  OrigPressureVals  Imput
 > [!NOTE]  
 > The above query uses the `FIRST_VALUE()` function to replace missing values with the next observed value. The same result can be achieved by using the `LAST_VALUE()` function with a `ORDER BY <ordering_column> DESC` clause.
 
-## Next steps
+## Related content
 
 - [FIRST_VALUE (Transact-SQL)](/sql/t-sql/functions/first-value-transact-sql?toc=%2fazure%2fazure-sql-edge%2ftoc.json)
 - [LAST_VALUE (Transact-SQL)](/sql/t-sql/functions/last-value-transact-sql?toc=%2fazure%2fazure-sql-edge%2ftoc.json)

@@ -3,8 +3,7 @@ title: Release notes for ALB Controller
 description: This article lists updates made to the Application Gateway for Containers ALB Controller.
 services: application-gateway
 author: greglin
-ms.service: azure-application-gateway
-ms.subservice: appgw-for-containers
+ms.service: azure-appgw-for-containers
 ms.topic: release-notes
 ms.date: 5/9/2024
 ms.author: greglin
@@ -27,12 +26,13 @@ Instructions for new or existing deployments of ALB Controller are found in the 
 
 | ALB Controller Version | Gateway API Version | Kubernetes Version | Release Notes |
 | ---------------------- | ------------------- | ------------------ | ------------- |
-| 1.0.2| v1 | v1.26, v1.27, v1.28, v1.29 | ECDSA + RSA certificate support for both Ingress and Gateway API, Ingress fixes, Server-sent events support |
+| 1.2.3| v1.1 | v1.26, v1.27, v1.28, v1.29, v1.30 | Gateway API v1.1, gRPC support, frontend mutual authentication, readiness probe fixes, custom health probe port and TLS mode  |
 
 ## Release history
 
 | ALB Controller Version | Gateway API Version | Kubernetes Version | Release Notes |
 | ---------------------- | ------------------- | ------------------ | ------------- |
+| 1.0.2| v1 | v1.26, v1.27, v1.28, v1.29 | ECDSA + RSA certificate support for both Ingress and Gateway API, Ingress fixes, Server-sent events support |
 | 1.0.0| v1 | v1.26, v1.27, v1.28 | General Availability! URL redirect for both Gateway and Ingress API, v1beta1 -> v1 of Gateway API, quality improvements<br/>Breaking Changes: TLS Policy for Gateway API [PolicyTargetReference](https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io%2fv1alpha2.PolicyTargetReferenceWithSectionName)<br/>Listener is now referred to as [SectionName](https://gateway-api.sigs.k8s.io/reference/spec/#gateway.networking.k8s.io/v1.SectionName)<br/>Fixes: Request timeout of 3 seconds, [HealthCheckPolicy interval](https://github.com/Azure/AKS/issues/4086), [pod crash for missing API fields](https://github.com/Azure/AKS/issues/4087) |
 | 0.6.3 | v1beta1 | v1.25 | Hotfix to address handling of Application Gateway for Containers frontends during controller restart in managed scenario |
 | 0.6.2 | - | - | Skipped release |

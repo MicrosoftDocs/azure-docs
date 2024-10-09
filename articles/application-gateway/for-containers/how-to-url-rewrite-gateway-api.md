@@ -3,10 +3,9 @@ title: URL Rewrite for Azure Application Gateway for Containers - Gateway API
 description: Learn how to rewrite URLs in Gateway API for Application Gateway for Containers.
 services: application gateway
 author: greg-lindsay
-ms.service: azure-application-gateway
-ms.subservice: appgw-for-containers
+ms.service: azure-appgw-for-containers
 ms.topic: conceptual
-ms.date: 02/27/2024
+ms.date: 09/16/2024
 ms.author: greglin
 ---
 
@@ -30,20 +29,19 @@ The following figure illustrates an example of a request destined for _contoso.c
 
 1. If following the BYO deployment strategy, ensure you set up your Application Gateway for Containers resources and [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md).
 2. If following the ALB managed deployment strategy, ensure you provision your [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) and provision the Application Gateway for Containers resources via the  [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
-3. Deploy sample HTTP application
+3. Deploy sample HTTP application:
 
-    Apply the following deployment.yaml file on your cluster to deploy a sample TLS certificate to demonstrate redirect capabilities.
-  
+   Apply the following deployment.yaml file on your cluster to create a sample web application to demonstrate traffic splitting / weighted round robin support.
+
     ```bash
-    kubectl apply -f https://trafficcontrollerdocs.blob.core.windows.net/examples/https-scenario/ssl-termination/deployment.yaml
+    kubectl apply -f https://trafficcontrollerdocs.blob.core.windows.net/examples/traffic-split-scenario/deployment.yaml
     ```
+  
+   This command creates the following on your cluster:
 
-    This command creates the following on your cluster:
-
-    - A namespace called `test-infra`
-    - One service called `echo` in the `test-infra` namespace
-    - One deployment called `echo` in the `test-infra` namespace
-    - One secret called `listener-tls-secret` in the `test-infra` namespace
+   - A namespace called `test-infra`
+   - Two services called `backend-v1` and `backend-v2` in the `test-infra` namespace
+   - Two deployments called `backend-v1` and `backend-v2` in the `test-infra` namespace
 
 ## Deploy the required Gateway API resources
 

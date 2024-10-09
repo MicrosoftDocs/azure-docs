@@ -5,6 +5,10 @@ author: batamig
 ms.author: bagol
 ms.topic: troubleshooting
 ms.date: 01/09/2023
+
+
+#Customer intent: As an SAP BASIS team member, I want to troubleshoot issues with my Microsoft Sentinel for SAP applications data connector so that I can ensure accurate and timely data ingestion and monitoring.
+
 ---
 
 # Troubleshooting your Microsoft Sentinel solution for SAP® applications deployment

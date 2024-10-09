@@ -106,7 +106,7 @@ To sign by using Trusted Signing, you need to provide the details of your Truste
    }
    ```
 
-   The `"Endpoint"` URI value must be a URI that aligns with the region where you created your Trusted Signing account and certificate profile when you set up these resources. The table shows regions and their corresponding URIs.
+   The `"Endpoint"` URI value must be a URI that aligns with the region where you created your Trusted Signing account and certificate profile when you set up these resources. The table shows regions and their corresponding URIs.
 
    | Region       | Region class fields  | Endpoint URI value  |
    |--------------|-----------|------------|
@@ -121,11 +121,11 @@ To sign by using Trusted Signing, you need to provide the details of your Truste
 
 ### Authentication
 
-This Task performs authentication using [DefaultAzureCredential](https://learn.microsoft.com/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet), which attempts a series of authentication methods in order. If one method fails, it attempts the next one until authentication is successful.
+This Task performs authentication using [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential), which attempts a series of authentication methods in order. If one method fails, it attempts the next one until authentication is successful.
 
 Each authentication method can be disabled individually to avoid unnecessary attempts.
 
-For example, when authenticating with [EnvironmentCredential](https://learn.microsoft.com/dotnet/api/azure.identity.environmentcredential?view=azure-dotnet) specifically, disable the other credentials with the following inputs:
+For example, when authenticating with [EnvironmentCredential](/dotnet/api/azure.identity.environmentcredential) specifically, disable the other credentials with the following inputs:
 
 ExcludeEnvironmentCredential: false
 ExcludeManagedIdentityCredential: true
@@ -136,7 +136,7 @@ ExcludeAzureCliCredential: true
 ExcludeAzurePowershellCredential: true
 ExcludeInteractiveBrowserCredential: true
 
-Similarly, if using for example an [AzureCliCredential](https://learn.microsoft.com/dotnet/api/azure.identity.azureclicredential?view=azure-dotnet) , then we want to skip over attempting to authenticate with the several methods that come before it in order.
+Similarly, if using for example an [AzureCliCredential](/dotnet/api/azure.identity.azureclicredential) , then we want to skip over attempting to authenticate with the several methods that come before it in order.
 
 
 ### Use SignTool to sign a file
@@ -148,7 +148,7 @@ To invoke SignTool to sign a file:
 1. Replace the placeholders in the following path with the specific values that you noted in step 1:
 
    ```console
-   & "<Path to SDK bin folder>\x64\signtool.exe" sign /v /debug /fd SHA256 /tr "http://timestamp.acs.microsoft.com" /td SHA256 /dlib "<Path to Trusted Signing dlib bin folder>\x64\Azure.CodeSigning.Dlib.dll" /dmdf "<Path to metadata file>\metadata.json" <File to sign> 
+   & "<Path to SDK bin folder>\x64\signtool.exe" sign /v /debug /fd SHA256 /tr "http://timestamp.acs.microsoft.com" /td SHA256 /dlib "<Path to Trusted Signing dlib bin folder>\x64\Azure.CodeSigning.Dlib.dll" /dmdf "<Path to metadata file>\metadata.json" <File to sign>
    ```
 
 - Both the x86 and the x64 version of SignTool are included in the Windows SDK. Be sure to reference the corresponding version of *Azure.CodeSigning.Dlib.dll*. The preceding example is for the x64 version of SignTool.

@@ -4,8 +4,7 @@ metadata:
   description: Find answers to frequently asked questions about Azure Application Gateway for Containers.
   services: application-gateway
   author: greglin
-  ms.service: azure-application-gateway
-  ms.subservice: appgw-for-containers
+  ms.service: azure-appgw-for-containers
   ms.topic: concept-article
   ms.date: 02/27/2024
   ms.author: greglin
@@ -23,7 +22,7 @@ sections:
         answer: Application Gateway for Containers stores and processes data in the region of its deployed resource(s). Configuration data may be replicated to its region pair, where applicable, for resiliency.
 
       - question: How does Application Gateway for Containers handle routine maintenance?
-        answer: Routine maintenance and updates are designed to not be service impacting and require no customer intervention. For updates that might break existing configurations or cause existing product functionality changes, notifications are published via [Azure Service Health](../../service-health/alerts-activity-log-service-notifications-portal.md). These notifications are also sent via email to subscription service administrators.
+        answer: Routine maintenance and updates are designed to not be service impacting and require no customer intervention. For updates that might break existing configurations or cause existing product functionality changes, notifications are published via [Azure Service Health](/azure/service-health/alerts-activity-log-service-notifications-portal). These notifications are also sent via email to subscription service administrators.
 
       - question: Does Application Gateway for Containers support FIPS?
         answer: Yes, Application Gateway for Containers can run in a FIPS 140-2 approved mode of operation, commonly referred to as "FIPS mode". FIPS mode calls a FIPS 140-2 validated cryptographic module that ensures FIPS-compliant algorithms for encryption, hashing, and signing are used. Please open a support case via the Azure portal to request FIPS mode to be enabled if required. 

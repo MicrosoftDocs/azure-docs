@@ -59,17 +59,9 @@ There are three tabbed sections in this workbook:
 
         :::image type="content" source="media/monitor-data-connector-health/data-health-workbook-2.png" alt-text="data connector health monitoring workbook anomalies page" lightbox="media/monitor-data-connector-health/data-health-workbook-2.png":::
 
-- The **Agent info** tab shows you information about the health of the Log Analytics agents installed on your various machines, whether Azure VM, other cloud VM, on-premises VM, or physical. You can monitor the following:
+- The **Agent info** tab shows you information about the health of the agents installed on your various machines, whether Azure VM, other cloud VM, on-premises VM, or physical. Monitor system location, heartbeat status and latency, available memory and disk space, and agent operations.
 
-   - System location
-
-   - Heartbeat status and latency
-
-   - Available memory and disk space
-
-   - Agent operations
-
-    In this section you must select the tab that describes your machines’ environment: choose the **Azure-managed machines** tab if you want to view only the Azure Arc-managed machines; choose the **All machines** tab to view both managed and non-Azure machines with the Log Analytics agent installed.
+    In this section you must select the tab that describes your machines’ environment: choose the **Azure-managed machines** tab if you want to view only the Azure Arc-managed machines; choose the **All machines** tab to view both managed and non-Azure machines with the Azure Monitor Agent installed.
 
     :::image type="content" source="media/monitor-data-connector-health/data-health-workbook-3.png" alt-text="data connector health monitoring workbook agent info page" lightbox="media/monitor-data-connector-health/data-health-workbook-3.png":::
 
@@ -89,6 +81,7 @@ The *SentinelHealth* data table is currently supported only for the following da
 - [Microsoft Defender for Endpoint](connect-microsoft-defender-advanced-threat-protection.md)
 - [Threat Intelligence - TAXII](connect-threat-intelligence-taxii.md)
 - [Threat Intelligence Platforms](connect-threat-intelligence-tip.md)
+- Any connector based on [Codeless Connector Platform](create-codeless-connector.md)
 
 ### Understanding SentinelHealth table events
 
@@ -163,7 +156,7 @@ lastestStatus
 
 ### Configure alerts and automated actions for health issues
 
-While you can use the Microsoft Sentinel [analytics rules](automate-incident-handling-with-automation-rules.md) to configure automation in Microsoft Sentinel logs, if you want to be notified and take immediate action for health drifts in your data connectors, we recommend that you use [Azure Monitor alert rules](../azure-monitor/alerts/alerts-overview.md).
+While you can use the Microsoft Sentinel [analytics rules](automate-incident-handling-with-automation-rules.md) to configure automation in Microsoft Sentinel logs, if you want to be notified and take immediate action for health drifts in your data connectors, we recommend that you use [Azure Monitor alert rules](/azure/azure-monitor/alerts/alerts-overview).
 
 For example:
 
@@ -173,7 +166,7 @@ For example:
 
 1. For the rule actions, select an existing action group or create a new one as needed to configure push notifications or other automated actions such as triggering a Logic App, Webhook, or Azure Function in your system.
 
-For more information, see [Azure Monitor alerts overview](../azure-monitor/alerts/alerts-overview.md) and [Azure Monitor alerts log](../azure-monitor/alerts/alerts-log.md).
+For more information, see [Azure Monitor alerts overview](/azure/azure-monitor/alerts/alerts-overview) and [Azure Monitor alerts log](/azure/azure-monitor/alerts/alerts-log).
 
 ## Next steps
 

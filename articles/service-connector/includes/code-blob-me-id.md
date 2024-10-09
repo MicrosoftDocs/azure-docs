@@ -89,8 +89,8 @@ var blobServiceClient = new BlobServiceClient(
         .buildClient();
     ```
 
-### [springBoot](#tab/springBoot)
-Authentication type is not supported for Spring Boot.
+### [SpringBoot](#tab/springBoot)
+Refer to [Upload a file to an Azure Blob Storage](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-storage?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json) and set up your Spring application. The configuration properties (of Spring Cloud Azure 4.0 and above) are added to Spring Apps by Service Connector. For more information about configuration properties, see [Azure Storage Blob Properties](https://microsoft.github.io/spring-cloud-azure/current/reference/html/appendix.html#azure_storage_blob_proeprties).
 
 ### [Python](#tab/python)
 1. Install dependencies

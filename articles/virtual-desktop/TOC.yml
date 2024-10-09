@@ -271,9 +271,6 @@
         - name: Add session hosts to a host pool
           displayName: deploy, get started, virtual machines, vms, azure stack hci, azure extended zones
           href: add-session-hosts-host-pool.md
-        - name: Enable GPU acceleration
-          displayName: graphics, multimedia, videos, cad, session hosts, 3D, rendering
-          href: enable-gpu-acceleration.md
         - name: Customize session host images
           items:
           - name: Create custom images with Custom image templates
@@ -296,9 +293,14 @@
           - name: Windows 11 Enterprise images
             displayName: languages, language packs
             href: windows-11-language-packs.md
-        - name: Configure default chroma value
-          displayName: graphics, multimedia, videos, cad, session hosts, 3D, rendering
-          href: configure-default-chroma-value.md
+        - name: Graphics performance
+          items:
+          - name: Enable GPU acceleration
+            displayName: graphics, multimedia, videos, cad, session hosts, 3D, rendering, avc, h.264, high efficiency video coding, hevc, h.265
+            href: graphics-enable-gpu-acceleration.md
+          - name: Increase chroma value to 4:4:4
+            displayName: graphics, multimedia, videos, cad, session hosts, 3D, rendering
+            href: graphics-chroma-value-increase-4-4-4.md
       - name: Applications
         items:
         - name: Publish applications with RemoteApp

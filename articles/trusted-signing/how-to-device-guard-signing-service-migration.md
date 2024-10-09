@@ -41,7 +41,7 @@ This guide outlines the steps needed to migrate to Trusted Signing. **Read the e
 
 
 > [!IMPORTANT] 
-> Migration isn't possible without creating a Trusted Signing account, Private Trust identity validation, and Private Trust CI policy signing certificate profile using these steps: [Quickstart: Set up Trusted Signing | Microsoft Learn](https://learn.microsoft.com/azure/trusted-signing/quickstart?tabs=registerrp-portal%2Caccount-portal%2Ccertificateprofile-portal%2Cdeleteresources-portal).
+> Migration isn't possible without creating a Trusted Signing account, Private Trust identity validation, and Private Trust CI policy signing certificate profile using these steps: [Quickstart: Set up Trusted Signing](/azure/trusted-signing/quickstart?tabs=registerrp-portal%2Caccount-portal%2Ccertificateprofile-portal%2Cdeleteresources-portal).
 
 
 ## Scenario 1: Signed CI Policy Migration and Deployment
@@ -71,15 +71,15 @@ Sample:
 ConvertFrom-CIPolicy -XmlFilePath <xmlCIPolicyFilePath> -BinaryFilePath <binaryCIPolicyFilePath>
 
 ```
-4.	Sign the generated policy .bin file with Trusted Signing using the following instructions: [Sign a CI policy | Microsoft Learn](https://learn.microsoft.com/azure/trusted-signing/how-to-sign-ci-policy).
-5.	Deploy this signed policy .bin file. For more information, refer to [Deploy Windows Defender Application Control polices](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/deploy-windows-defender-application-control-policies-using-group-policy).
+4.	Sign the generated policy .bin file with Trusted Signing using the following instructions: [Sign a CI policy](/azure/trusted-signing/how-to-sign-ci-policy).
+5.	Deploy this signed policy .bin file. For more information, refer to [Deploy Windows Defender Application Control polices](/windows/security/threat-protection/windows-defender-application-control/deploy-windows-defender-application-control-policies-using-group-policy).
 6.	Reboot the machine and confirm the Code Integrity event 3099 shows that the policy is activated.
     - Open Event Viewer (Select Start, type Event Viewer) &rarr; Applications and Services Logs &rarr; Microsoft &rarr; Windows &rarr; CodeIntegrity &rarr; Operational
     - Filter by event ID 3099
 >[!NOTE]
 > If you don't see event 3099, DON'T proceed to step 7. Restart from No.1 and make sure your CI policy file is well formed and successfully signed. 
->  - Well formed: Compare the xml with the [default CI policy xml](https://learn.microsoft.com/windows/security/application-security/application-control/windows-defender-application-control/design/example-wdac-base-policies) to verify the format.
->  - Successfully signed: To verify, use SignTool; refer to this [link](https://docs.microsoft.com/windows/win32/seccrypto/using-signtool-to-verify-a-file-signature).
+>  - Well formed: Compare the xml with the [default CI policy xml](/windows/security/application-security/application-control/windows-defender-application-control/design/example-wdac-base-policies) to verify the format.
+>  - Successfully signed: To verify, use SignTool; refer to this [link](/windows/win32/seccrypto/using-signtool-to-verify-a-file-signature).
     
 7. Run the command to delete this CI policy: `del SiPolicy.p7b` from both folders: C:\Windows\System32\CodeIntegrity and S:\EFI\Microsoft\Boot.  
     1. If there's no S: drive, run the command:   
@@ -97,7 +97,7 @@ ConvertFrom-CIPolicy -XmlFilePath <xmlCIPolicyFilePath> -BinaryFilePath <binaryC
 ### Step 1: Determine your new EKUs 
 
 1. Since Trusted Signing is a new service it has different EKUs than DGSSv2. Therefore, you need to get the new EKUs added to your policy. You need to get your EKU from the Trusted Signing account to add to your CI policy’s EKU section. The two ways to do so are: 
-    1. Using the steps in [Sign a CI policy | Microsoft Learn](https://learn.microsoft.com/azure/trusted-signing/how-to-sign-ci-policy) run the command Get-AzCodeSigningCustomerEkuto get the customer EKU. 
+    1. Using the steps in [Sign a CI policy](/azure/trusted-signing/how-to-sign-ci-policy) run the command Get-AzCodeSigningCustomerEkuto get the customer EKU. 
     2. Within your Trusted Signing account, select “Certificate Profiles”, then select your Private Trust certificate profile. You'll see information on the profile like the screenshot below. The ‘Enhanced key usage’ listed is your customer EKU.
     
  :::image type="content" source="media/trusted-signing-select-eku.png" alt-text="Screenshot that shows eku." lightbox="media/trusted-signing-select-eku.png":::
@@ -118,7 +118,7 @@ private string CalculateEkuValue(string CustomerEku)
 
 ### Step 2: Deploy and test the new CI policy
 
-1. Now that you have your two EKUs, it is time to edit your CI policy. If you have an existing CI policy, you can proceed to the next section. To create a new one go to: [Policy creation for common WDAC usage scenarios - Windows Security | Microsoft Learn](https://learn.microsoft.com/windows/security/application-security/application-control/windows-defender-application-control/design/common-wdac-use-cases).
+1. Now that you have your two EKUs, it is time to edit your CI policy. If you have an existing CI policy, you can proceed to the next section. To create a new one go to: [Policy creation for common WDAC usage scenarios - Windows Security](/windows/security/application-security/application-control/windows-defender-application-control/design/common-wdac-use-cases).
 2. Add the new EKU in the EKU section of your policy, using the two EKU values from Step 1. 
 ```
 <EKU ID="ID_EKU_ACS" FriendlyName="ACS EKU -Customer EKU" Value="function EKU"/> 
@@ -155,15 +155,15 @@ Sample:
 ConvertFrom-CIPolicy -XmlFilePath <xmlCIPolicyFilePath> -BinaryFilePath <binaryCIPolicyFilePath> 
 ```
 
-5. If you would like to sign this policy, following these instructions [Sign a CI policy | Microsoft Learn](https://learn.microsoft.com/azure/trusted-signing/how-to-sign-ci-policy)to sign the policy using Trusted Signing. 
+5. If you would like to sign this policy, following these instructions [Sign a CI policy](/azure/trusted-signing/how-to-sign-ci-policy)to sign the policy using Trusted Signing. 
 
-6. Deploy this signed policy .bin file; refer to this [link](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/windows-defender-application-control-deployment-guide) for instructions. 
+6. Deploy this signed policy .bin file; refer to this [link](/windows/security/threat-protection/windows-defender-application-control/windows-defender-application-control-deployment-guide) for instructions. 
 
 7. Reboot the machine and confirm that Code Integrity event 3099 is showing, which means the new CI policy is activated.
 > [!NOTE]
 > If you don't see event 3099, DON'T proceed to step 8. Restart from No.1 and make sure your CI policy file is well formed and successfully signed.  
         1. Well formed: Compare the xml with the default CI policy xml to verify the format. 
-        2. Successfully signed: To verify, use SignTool; refer to this [link](https://docs.microsoft.com/windows/win32/seccrypto/using-signtool-to-verify-a-file-signature). 
+        2. Successfully signed: To verify, use SignTool; refer to this [link](/windows/win32/seccrypto/using-signtool-to-verify-a-file-signature). 
 8. Reboot the machine again to ensure a successful boot. 
 9. Reboot the machine twice more, to ensure the CI policy is properly enabled, before moving on or deploying this change to other machines. 
 
@@ -173,10 +173,10 @@ ConvertFrom-CIPolicy -XmlFilePath <xmlCIPolicyFilePath> -BinaryFilePath <binaryC
 1. Verify that any files signed with Trusted Signing still behave as expected.  
 2. Sign a catalog file with Trusted Signing and make sure it can run on your test machine with the Trusted Signing (new) CI policy. 
     1. To sign catalog files with Trusted Signing, refer to the steps in: 
-        1. [Quickstart: Set up Trusted Signing | Microsoft Learn](https://learn.microsoft.com/azure/trusted-signing/quickstart?tabs=registerrp-portal%2Caccount-portal%2Ccertificateprofile-portal%2Cdeleteresources-portal) to set up a Private Trust certificate profile.
-        2. [Set up signing integrations to use Trusted Signing | Microsoft Learn](https://learn.microsoft.com/azure/trusted-signing/how-to-signing-integrations) to sign the files using Private Trust in the Trusted Signing service.
+        1. [Quickstart: Set up Trusted Signing](/azure/trusted-signing/quickstart?tabs=registerrp-portal%2Caccount-portal%2Ccertificateprofile-portal%2Cdeleteresources-portal) to set up a Private Trust certificate profile.
+        2. [Set up signing integrations to use Trusted Signing](/azure/trusted-signing/how-to-signing-integrations) to sign the files using Private Trust in the Trusted Signing service.
     
-    2. To sign MSIX packages with Trusted Signing, refer to instructions on how to sign MSIX packages with [MSIX Packaging Tool](https://learn.microsoft.com/windows/msix/packaging-tool/tool-overview) or SignTool - directly through Trusted Signing. 
+    2. To sign MSIX packages with Trusted Signing, refer to instructions on how to sign MSIX packages with [MSIX Packaging Tool](/windows/msix/packaging-tool/tool-overview) or SignTool - directly through Trusted Signing. 
         1. To sign with Trusted Signing in the MSIX Packaging Tool you need to join the MSIX Insiders program. 
 
 3. After confirming the CI policy is activated on this machine and all scenarios work as expected, repeat steps on the rest of the desired machines in your environment.  
@@ -192,7 +192,11 @@ If isolation is desired, deploy a new CI policy by following steps outlined in S
 
 ## Related content
 
-- [Understand Windows Defender Application Control (WDAC) policy rules and file rules](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/select-types-of-rules-to-create).
-- [Deploy catalog files to support Windows Defender Application Control (Windows 10) - Windows security](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/deploy-catalog-files-to-support-windows-defender-application-control#:~:text=%20Deploy%20catalog%20files%20to%20support%20Windows%20Defender,signing%20certificate%20to%20a%20Windows%20Defender...%20More%20).
-- [Example Windows Defender Application Control (WDAC) base policies (Windows 10) - Windows security | Microsoft Docs](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/example-wdac-base-policies)
-- [Use multiple Windows Defender Application Control Policies (Windows 10)](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/deploy-multiple-windows-defender-application-control-policies#deploying-multiple-policies-locally)
+- [Understand Windows Defender Application Control (WDAC) policy rules and file rules](/windows/security/threat-protection/windows-defender-application-control/select-types-of-rules-to-create).
+- [Deploy catalog files to support Windows Defender Application Control (Windows 10) - Windows security](/windows/security/threat-protection/windows-defender-application-control/deploy-catalog-files-to-support-windows-defender-application-control#:~:text=%20Deploy%20catalog%20files%20to%20support%20Windows%20Defender,signing%20certificate%20to%20a%20Windows%20Defender...%20More%20).
+- [Example Windows Defender Application Control (WDAC) base policies (Windows 10) - Windows security | Microsoft Docs](/windows/security/threat-protection/windows-defender-application-control/example-wdac-base-policies)
+- [Use multiple Windows Defender Application Control Policies (Windows 10)](/windows/security/threat-protection/windows-defender-application-control/deploy-multiple-windows-defender-application-control-policies#deploying-multiple-policies-locally)
+- Need help with the migration: Contact us via:
+    - Support + troubleshooting (on Azure portal)
+    - [Microsoft Q&A](https://learn.microsoft.com/answers/tags/509/trusted-signing) (use the tag **Azure Trusted Signing**) 
+    - [Stack Overflow](https://stackoverflow.com/questions/tagged/trusted-signing) (use the tag **trusted-signing**).
