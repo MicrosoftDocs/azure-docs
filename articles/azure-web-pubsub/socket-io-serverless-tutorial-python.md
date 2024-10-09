@@ -187,7 +187,7 @@ You should follow the steps to initiate a local Azure Function project.
     </head>
     <body>
         <div class="container">
-            <div class="nasdaq-title">NASDAQ</div>
+            <div class="nasdaq-title">STOCK INDEX</div>
             <div id="nasdaqIndex" class="index-value">14,000.00</div>
         </div>
 
