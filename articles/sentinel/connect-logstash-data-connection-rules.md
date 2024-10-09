@@ -472,7 +472,7 @@ The following table lists the firewall requirements for scenarios where Azure vi
 - Renames the plugin to microsoft-sentinel-log-analytics-logstash-output-plugin.
  
 #### 1.0.0
-- Initial release for output plugin for logstash to Microsoft Sentinel. This is done with the Log Analytics DCR based API.
+- The initial release for the Logstash output plugin for Microsoft Sentinel. This plugin uses Data Collection Rules (DCRs) with Azure Monitor's Logs Ingestion API.
 ## Known issues
  
 When using Logstash installed on a Docker image of Lite Ubuntu, the following warning may appear:
