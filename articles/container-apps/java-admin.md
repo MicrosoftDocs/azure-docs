@@ -171,7 +171,7 @@ Now that you have an existing environment, you can create your container app and
 1. Update the Admin for Spring Java component.
 
     ```azurecli
-    az containerapp env java-component admin-for-spring create \
+    az containerapp env java-component admin-for-spring update \
       --environment $ENVIRONMENT \
       --resource-group $RESOURCE_GROUP \
       --name $JAVA_COMPONENT_NAME \
