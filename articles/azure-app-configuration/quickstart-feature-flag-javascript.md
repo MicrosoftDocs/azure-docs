@@ -59,51 +59,6 @@ In this tutorial, you create a Node.js console app and load the feature flag fro
 
 1. Create a file named *app.js* in the *feature-management-quickstart* directory and copy the following code.
 
-    ### [Use Azure Credential (Recommended)](#tab/azurecredential)
-
-    ``` javascript
-    const sleepInMs = require("util").promisify(setTimeout);
-    const { load } = require("@azure/app-configuration-provider");
-    const { getDefaultAzureCredential } = require("@azure/identity");
-    const { FeatureManager, ConfigurationMapFeatureFlagProvider} = require("@microsoft/feature-management")
-    const endpoint = process.env.AZURE_APPCONFIG_ENDPOINT;
-
-    async function run() {
-        // Connect to Azure App Configuration using an endpoint with credential.
-        // To learn more about Azure credential, please refer to
-        // https://learn.microsoft.com/javascript/api/overview/azure/identity-readme#defaultazurecredential
-        const settings = await load(endpoint, getDefaultAzureCredential(), {
-            featureFlagOptions: {
-                enabled: true,
-                // Note: selectors must be explicitly provided for feature flags.
-                selectors: [{
-                    keyFilter: "*"
-                }],
-                refresh: {
-                    enabled: true,
-                    refreshIntervalInMs: 10_000
-                }
-            }
-        });
-
-        // Create a feature flag provider which uses a map as feature flag source
-        const ffProvider = new ConfigurationMapFeatureFlagProvider(settings);
-        // Create a feature manager which will evaluate the feature flag
-        const fm = new FeatureManager(ffProvider);
-
-        while (true) {
-            await settings.refresh(); // Refresh to get the latest feature flag settings
-            const isEnabled = await fm.isEnabled("Beta"); // Evaluate the feature flag
-            console.log(`Beta is enabled: ${isEnabled}`);
-            await sleepInMs(5000);
-        }
-    }
-
-    run().catch(console.error);
-    ```
-
-    ### [Use Connection String](#tab/connectionstring)
-
     ``` javascript
     const sleepInMs = require("util").promisify(setTimeout);
     const { load } = require("@azure/app-configuration-provider");
@@ -142,11 +97,45 @@ In this tutorial, you create a Node.js console app and load the feature flag fro
     run().catch(console.error);
     ```
 
-    ---
-
 ## Run the application
 
-1. Run your script:
+1. Set an environment variable named **AZURE_APPCONFIG_CONNECTION_STRING**, and set it to the connection string of your App Configuration store. At the command line, run the following command:
+
+    ### [Windows command prompt](#tab/windowscommandprompt)
+
+    To run the app locally using the Windows command prompt, run the following command and replace `<app-configuration-store-connection-string>` with the connection string of your app configuration store:
+
+    ```cmd
+    setx AZURE_APPCONFIG_CONNECTION_STRING "<app-configuration-store-connection-string>"
+    ```
+
+    ### [PowerShell](#tab/powershell)
+
+    If you use Windows PowerShell, run the following command and replace `<app-configuration-store-connection-string>` with the connection string of your app configuration store:
+
+    ```azurepowershell
+    $Env:AZURE_APPCONFIG_CONNECTION_STRING = "<app-configuration-store-connection-string>"
+    ```
+
+    ### [macOS](#tab/unix)
+
+    If you use macOS, run the following command and replace `<app-configuration-store-connection-string>` with the connection string of your app configuration store:
+
+    ```console
+    export AZURE_APPCONFIG_CONNECTION_STRING='<app-configuration-store-connection-string>'
+    ```
+
+    ### [Linux](#tab/linux)
+
+    If you use Linux, run the following command and replace `<app-configuration-store-connection-string>` with the connection string of your app configuration store:
+
+    ```console
+    export AZURE_APPCONFIG_CONNECTION_STRING='<app-configuration-store-connection-string>'
+    ```
+
+    ---
+
+1. Run the following command to run the app locally:
 
     ``` console
     node app.js
