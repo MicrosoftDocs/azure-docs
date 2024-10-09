@@ -42,13 +42,13 @@ To unsign a zone using the Azure portal:
 
     ![Screenshot of the disable DNSSEC pane.](./media/dnssec-how-to/disable-pane.png)
 
-6. The domain is now successfully unsigned.
+6. The zone is now unsigned.
 
 ## [Azure CLI](#tab/sign-cli)
 
 Unsign a DNSSEC-signed zone using the Azure CLI:
 
-1. To unsign a signed zone, issue the following commands. Replace the values for resource group and zone name with your resource group and zone name.
+1. To unsign a signed zone, issue the following commands. Replace the values for subscription ID, resource group, and zone name with your values.
 
 ```azurepowershell-interactive
 # Ensure you are logged in to your Azure account
@@ -68,7 +68,7 @@ az network dns dnssec-config show --resource-group "your-resource-group" --zone-
 
 ## [PowerShell](#tab/sign-powershell)
 
-1. Unsign and a zone and view the zone status using PowerShell:
+1. Use the following commands to remove DNSSEC signing from your zone and view the zone status using PowerShell. Replace the values for subscription ID, resource group, and zone name with your values.
 
 ```PowerShell
 # Connect to your Azure account (if not already connected)
