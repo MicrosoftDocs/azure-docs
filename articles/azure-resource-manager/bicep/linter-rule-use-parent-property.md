@@ -1,13 +1,12 @@
 ---
 title: Linter rule - use parent property
 description: Linter rule - use parent property
-ms.topic: conceptual
-ms.date: 01/30/2023
+ms.topic: reference
+ms.custom: devx-track-bicep
+ms.date: 07/11/2024
 ---
 
 # Linter rule - use parent property
-
-When defined outside of the parent resource, you format name of the child resource with slashes to include the parent name. Setting the full resource name isn't the recommended approach. The syntax can be simplified by using the `parent` property. For more information, see [Full resource name outside parent](./child-resource-name-type.md#full-resource-name-outside-parent).
 
 When defined outside of the parent resource, you use slashes to include the parent name in the name of the child resource. Setting the full resource name with parent resource name is not recommended. The `parent` property can be used to simplify the syntax. See [Full resource name outside parent](./child-resource-name-type.md#full-resource-name-outside-parent).
 
@@ -24,7 +23,7 @@ The following example fails this test because of the name values for `service` a
 ```bicep
 param location string = resourceGroup().location
 
-resource storage 'Microsoft.Storage/storageAccounts@2021-02-01' = {
+resource storage 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   name: 'examplestorage'
   location: location
   kind: 'StorageV2'
@@ -33,14 +32,14 @@ resource storage 'Microsoft.Storage/storageAccounts@2021-02-01' = {
   }
 }
 
-resource service 'Microsoft.Storage/storageAccounts/fileServices@2021-02-01' = {
+resource service 'Microsoft.Storage/storageAccounts/fileServices@2023-04-01' = {
   name: 'examplestorage/default'
   dependsOn: [
     storage
   ]
 }
 
-resource share 'Microsoft.Storage/storageAccounts/fileServices/shares@2021-02-01' = {
+resource share 'Microsoft.Storage/storageAccounts/fileServices/shares@2023-04-01' = {
   name: 'examplestorage/default/exampleshare'
   dependsOn: [
     service
@@ -53,7 +52,7 @@ You can fix the problem by using the `parent` property:
 ```bicep
 param location string = resourceGroup().location
 
-resource storage 'Microsoft.Storage/storageAccounts@2021-02-01' = {
+resource storage 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   name: 'examplestorage'
   location: location
   kind: 'StorageV2'
@@ -62,12 +61,12 @@ resource storage 'Microsoft.Storage/storageAccounts@2021-02-01' = {
   }
 }
 
-resource service 'Microsoft.Storage/storageAccounts/fileServices@2021-02-01' = {
+resource service 'Microsoft.Storage/storageAccounts/fileServices@2023-04-01' = {
   parent: storage
   name: 'default'
 }
 
-resource share 'Microsoft.Storage/storageAccounts/fileServices/shares@2021-02-01' = {
+resource share 'Microsoft.Storage/storageAccounts/fileServices/shares@2023-04-01' = {
   parent: service
   name: 'exampleshare'
 }

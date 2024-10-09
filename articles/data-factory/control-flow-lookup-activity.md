@@ -4,11 +4,10 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to use the Lookup Activity in Azure Data Factory and Azure Synapse Analytics to look up a value from an external source. This output can be further referenced by succeeding activities. 
 author: jianleishen
 ms.author: jianleishen
-ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 05/31/2022
+ms.date: 01/05/2024
 ---
 
 # Lookup activity in Azure Data Factory and Azure Synapse Analytics
@@ -404,7 +403,7 @@ Here are some limitations of the Lookup activity and suggested workarounds.
 | The Lookup activity has a maximum of 5,000 rows, and a maximum size of 4 MB. | Design a two-level pipeline where the outer pipeline iterates over an inner pipeline, which retrieves data that doesn't exceed the maximum rows or size. |
 | | |
 
-## Next steps
+## Related content
 See other control flow activities supported by Azure Data Factory and Synapse pipelines: 
 
 - [Execute Pipeline activity](control-flow-execute-pipeline-activity.md)

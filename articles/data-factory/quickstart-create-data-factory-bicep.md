@@ -1,14 +1,13 @@
 ---
 title: Create an Azure Data Factory using Bicep
 description: Create a sample Azure Data Factory pipeline using Bicep.
-ms.service: data-factory
-ms.subservice: tutorials
 tags: azure-resource-manager
 author: jonburchel 
+ms.subservice: data-movement
 ms.author: jburchel 
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
-ms.date: 08/19/2022
+ms.custom: subject-armqs, mode-arm, devx-track-bicep
+ms.date: 05/15/2024
 ---
 
 # Quickstart: Create an Azure Data Factory using Bicep
@@ -17,7 +16,7 @@ ms.date: 08/19/2022
 
 This quickstart describes how to use Bicep to create an Azure data factory. The pipeline you create in this data factory **copies** data from one folder to another folder in an Azure blob storage. For a tutorial on how to **transform** data using Azure Data Factory, see [Tutorial: Transform data using Spark](transform-data-using-spark.md).
 
-[!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 > [!NOTE]
 > This article does not provide a detailed introduction of the Data Factory service. For an introduction to the Azure Data Factory service, see [Introduction to Azure Data Factory](introduction.md).
@@ -190,7 +189,7 @@ You can also use the Azure portal to delete the resource group.
 1. Select **Delete resource group**.
 1. A tab will appear. Enter the resource group name and select **Delete**.
 
-## Next steps
+## Related content
 
 In this quickstart, you created an Azure Data Factory using Bicep and validated the deployment. To learn more about Azure Data Factory and Bicep, continue on to the articles below.
 

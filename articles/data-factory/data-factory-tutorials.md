@@ -3,10 +3,9 @@ title: Azure Data Factory tutorials
 description: A list of tutorials demonstrating Azure Data Factory concepts
 author: kromerm
 ms.author: makromer
-ms.service: data-factory
-ms.subservice: tutorials
 ms.topic: tutorial
-ms.date: 08/03/2022
+ms.subservice: authoring
+ms.date: 01/05/2024
 ---
 
 # Azure Data Factory tutorials
@@ -85,5 +84,5 @@ Below is a list of tutorials to help explain and walk through a series of Data F
 
 [Microsoft Purview](turorial-push-lineage-to-purview.md)
 
-## Next steps
+## Related content
 Learn more about Data Factory [pipelines](concepts-pipelines-activities.md) and [data flows](concepts-data-flow-overview.md).

@@ -1,0 +1,67 @@
+### YamlMime:Landing
+
+title: Azure AI Health Insights
+summary: Azure AI Health Insights
+metadata:
+  title: Azure AI Health Insights
+  description: This article contains documentation regarding the different Health Decision Models of Azure Health Insights
+  ms.service: Azure AI Health Insights
+  ms.topic: landing-page 
+  author: iBoonZ
+  ms.author: behoorne
+  ms.date: 05/05/2024
+
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | tutorial | overview | quickstart | reference | sample | tutorial | video | whats-new 
+
+landingContent:
+  - title: About Azure AI Health Insights
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure AI Health Insights?
+            url: overview.md
+      - linkListType: quickstart
+        links:
+          - text: Deploy using the portal
+            url: deploy-portal.md
+      - linkListType: how-to-guide
+        links:
+          - text: How to Use Azure AI Health Insights with containers 
+            url: use-containers.md
+          - text: How to configure the containers 
+            url: configure-containers.md
+  - title: Radiology Insights
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: About Radiology Insights
+            url: radiology-insights/overview.md
+      - linkListType: concept
+        links:
+          - text: Model configuration
+            url: radiology-insights/model-configuration.md
+          - text: Inference information
+            url: radiology-insights/inferences.md
+      - linkListType: quickstart
+        links:
+          - text: Get started
+            url: radiology-insights/get-started.md
+  - title: Trial Matcher
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: About Trial Matcher
+            url: trial-matcher/overview.md
+      - linkListType: concept
+        links:
+          - text: Model configuration
+            url: trial-matcher/model-configuration.md
+          - text: Patient information
+            url: trial-matcher/patient-info.md
+          - text: Inference information
+            url: trial-matcher/inferences.md
+      - linkListType: quickstart
+        links:
+          - text: Get started
+            url: trial-matcher/get-started.md

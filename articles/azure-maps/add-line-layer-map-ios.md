@@ -2,15 +2,21 @@
 title: Add a line layer to iOS maps
 titleSuffix: Microsoft Azure Maps
 description: Learn how to add lines to maps. See examples that use the Azure Maps iOS SDK to add line layers to maps and to customize lines with symbols and color gradients.
-author: stevemunk
-ms.author: v-munksteve
+author: sinnypan
+ms.author: sipa
 ms.date: 11/23/2021
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: ios-sdk
 ---
 
 # Add a line layer to the map in the iOS SDK (Preview)
+
+> [!NOTE]
+>
+> **Azure Maps iOS SDK retirement**
+>
+> The Azure Maps Native SDK for iOS is now deprecated and will be retired on 3/31/25. To avoid service disruptions, migrate to the Azure Maps Web SDK by 3/31/25. For more information, see [The Azure Maps iOS SDK migration guide](ios-sdk-migration-guide.md).
 
 A line layer can be used to render `LineString` and `MultiLineString` features as paths or routes on the map. A line layer can also be used to render the outline of `Polygon` and `MultiPolygon` features. A data source is connected to a line layer to provide it with data to render.
 
@@ -19,7 +25,7 @@ A line layer can be used to render `LineString` and `MultiLineString` features a
 
 ## Prerequisites
 
-Be sure to complete the steps in the [Quickstart: Create an iOS app](quick-ios-app.md) document. Code blocks in this article can be inserted into the  `viewDidLoad` function of `ViewController`.
+Be sure to complete the steps in the [Quickstart: Create an iOS app] document. Code blocks in this article can be inserted into the  `viewDidLoad` function of `ViewController`.
 
 ## Add a line layer
 
@@ -53,7 +59,7 @@ The following screenshot shows the above code rendering a line in a line layer.
 
 ## Data-driven line style
 
-The following code creates two line features and adds a speed limit value as a property to each line. A line layer uses a data-drive style expression color the lines based on the speed limit value. Since the line data overlays along roads, the code below adds the line layer below the label layer so that road labels can still clearly be read.
+The following code creates two line features and adds a speed limit value as a property to each line. A line layer uses a data-drive style expression color the lines based on the speed limit value. Since the line data overlays along roads, the following code adds the line layer below the label layer so that road labels remain visible.
 
 ```swift
 // Create a data source and add it to the map.
@@ -105,7 +111,7 @@ let layer = LineLayer(source: source, options: [
 map.layers.insertLayer(layer, below: "labels")
 ```
 
-The following screenshot shows the above code rendering two lines in a line layer with their color being retrieved from a data driven style expression based on a property in the line features.
+The following screenshot shows the above code that renders two lines in a line layer with their color retrieved from a data driven style expression based on a property in the line features.
 
 :::image type="content" source="./media/ios-sdk/add-line-layer-map-ios/data-driven.png" alt-text="Add a line layer to a map.":::
 
@@ -169,7 +175,7 @@ The following screenshot shows the above code displaying a line rendered using a
 
 ## Add symbols along a line
 
-This sample shows how to add arrow icons along a line on the map. When using a symbol layer, set the `symbolPlacement` option to `.line`. This option will render the symbols along the line and rotate the icons (0 degrees = right).
+This sample shows how to add arrow icons along a line on the map. When using a symbol layer, set the `symbolPlacement` option to `.line`. This option renders the symbols along the line and rotates the icons (0 degrees = right).
 
 ```swift
 // Create a data source and add it to the map.
@@ -233,14 +239,19 @@ For this sample, the following image was loaded into the assets folder of the ap
 |:------------------------------------------------------------------------------------:|
 |                           `purple-arrow-right.png`                                   |
 
-The screenshot below shows the above code displaying a line with arrow icons displayed along it.
+The following screenshot shows the above code displaying a line with arrow icons displayed along it.
 
-:::image type="content" source="./media/ios-sdk/add-line-layer-map-ios/symbol.png" alt-text="A line with purple arrow icons displayed along it pointing to the right.":::
+:::image type="content" source="./media/ios-sdk/add-line-layer-map-ios/symbol.png" alt-text="A line with purple arrow icons displayed along it pointing in the direction of the route.":::
 
 ## Additional information
 
 See the following articles for more code samples to add to your maps:
 
-* [Create a data source](create-data-source-ios-sdk.md)
-* [Use data-driven style expressions](data-driven-style-expressions-ios-sdk.md)
-* [Add a polygon layer](add-polygon-layer-map-ios.md)
+* [Create a data source]
+* [Use data-driven style expressions]
+* [Add a polygon layer]
+
+[Quickstart: Create an iOS app]: quick-ios-app.md
+[Create a data source]: create-data-source-ios-sdk.md
+[Use data-driven style expressions]: data-driven-style-expressions-ios-sdk.md
+[Add a polygon layer]: add-polygon-layer-map-ios.md

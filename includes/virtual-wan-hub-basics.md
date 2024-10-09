@@ -1,8 +1,8 @@
 ---
 ms.author: cherylmc
 author: cherylmc
-ms.date: 10/19/2022
-ms.service: virtual-wan
+ms.date: 07/28/2023
+ms.service: azure-virtual-wan
 ms.topic: include
 ---
 
@@ -17,6 +17,5 @@ ms.topic: include
    * **Region**: Select the region in which you want to deploy the virtual hub.
    * **Name**: The name by which you want the virtual hub to be known.
    * **Hub private address space**: The hub's address range in CIDR notation. The minimum address space is /24 to create a hub.
-   * **Virtual hub capacity**: Select from the dropdown. For more information, see [Virtual hub settings](../articles/virtual-wan/hub-settings.md).
-   * **Hub routing preference**: This field is only available as part of the virtual hub routing preference preview and can only be viewed in the [preview portal](https://portal.azure.com/?feature.customRouterAsn=true&feature.virtualWanRoutingPreference=true#home). See [Virtual hub routing preference](../articles/virtual-wan/about-virtual-hub-routing-preference.md) for more information.
-   * **Router ASN**: Unless necessary, leave the default.
+   * **Virtual hub capacity**: Select from the dropdown. For more information, see [Virtual hub settings](/azure/virtual-wan/hub-settings).
+   * **Hub routing preference**: Leave as default. For more information, see [Virtual hub routing preference](/azure/virtual-wan/about-virtual-hub-routing-preference).

@@ -3,9 +3,9 @@ title: Monitor workload - Azure portal
 description: Monitor Synapse SQL using the Azure portal
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: sngun
+ms.reviewer: whhender
 ms.date: 09/13/2022
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 ---
@@ -16,7 +16,7 @@ This article describes how to use the Azure portal to monitor your workload. Thi
 
 ## Prerequisites
 
-- Azure subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- Azure subscription: If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 - SQL pool: We will be collecting logs for a SQL pool. If you don't have a SQL pool provisioned, see the instructions in [Create a SQL pool](./load-data-from-azure-blob-storage-using-copy.md).
 
 ## Create a Log Analytics workspace
@@ -27,17 +27,13 @@ In the Azure portal, navigate to the page for Log Analytics workspaces, or use t
 
 :::image type="content" source="./media/sql-data-warehouse-monitor-workload-portal/add_analytics_workspace_2.png" alt-text="Screenshot shows the Log Analytics workspace where you can enter values.":::
 
-For more information on workspaces, see [Create a Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md).
+For more information on workspaces, see [Create a Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace).
 
 ## Turn on Resource logs
 
-Configure diagnostic settings to emit logs from your SQL pool. Logs consist of telemetry views equivalent to the most commonly used performance troubleshooting DMVs. Currently the following views are supported:
+Configure diagnostic settings to emit logs from your SQL pool. Logs consist of telemetry views equivalent to the most commonly used performance troubleshooting DMVs.
 
-- [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
-- [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
-- [sys.dm_pdw_dms_workers](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-dms-workers-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
-- [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
-- [sys.dm_pdw_sql_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-sql-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+For a list of views that are currently supported, see [Dynamic Management Views](../monitor-synapse-analytics-reference.md#dynamic-management-views-dmvs).
 
 :::image type="content" source="./media/sql-data-warehouse-monitor-workload-portal/enable_diagnostic_logs.png" alt-text="Screenshot of the page to create a diagnostic setting in the Azure portal.":::
 
@@ -64,7 +60,7 @@ For details on the capabilities of log queries using Kusto, see [Kusto Query Lan
 
 ## Sample log queries
 
-Set the [scope of your queries](../../azure-monitor/logs/scope.md) to the Log Analytics workspace resource.
+Set the [scope of your queries](/azure/azure-monitor/logs/scope) to the Log Analytics workspace resource.
 
 ```Kusto
 //List all queries
@@ -92,4 +88,4 @@ AzureDiagnostics
 
 ## Next steps
 
-- Now that you have set up and configured Azure monitor logs, [customize Azure dashboards](../../azure-portal/azure-portal-dashboards.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) to share across your team.
+- Now that you have set up and configured Azure monitor logs, [customize Azure dashboards](/azure/azure-portal/azure-portal-dashboards?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) to share across your team.

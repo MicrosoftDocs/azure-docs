@@ -1,13 +1,11 @@
 ---
-title: Data tool to copy new and updated files incrementally 
+title: Data tool to copy new and updated files incrementally
 description: Create an Azure data factory and then use the Copy Data tool to incrementally load new files based on LastModifiedDate.
 author: dearandyxu
 ms.author: yexu
-ms.service: data-factory
-ms.subservice: tutorials
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 09/26/2022
+ms.date: 10/03/2024
+ms.subservice: data-movement
 ---
 
 # Incrementally copy new and changed files based on LastModifiedDate by using the Copy Data tool
@@ -69,7 +67,7 @@ Prepare your Blob storage for the tutorial by completing these steps:
 9. After the data factory is created, the data factory home page appears.
 10. To open the Azure Data Factory user interface (UI) on a separate tab, select **Open** on the **Open Azure Data Factory Studio** tile:
 
-    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Open Azure Data Factory Studio tile.":::
+    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/data-factory/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Open Azure Data Factory Studio tile.":::
 
 ## Use the Copy Data tool to create a pipeline
 
@@ -162,7 +160,7 @@ Prepare your Blob storage for the tutorial by completing these steps:
 
     :::image type="content" source="./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs8.png" alt-text="Scan files by using Azure Storage Explorer":::
 
-## Next steps
+## Related content
 Go to the following tutorial to learn how to transform data by using an Apache Spark cluster on Azure:
 
 > [!div class="nextstepaction"]

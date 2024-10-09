@@ -2,11 +2,11 @@
 title: azcopy remove
 description: This article provides reference information for the azcopy remove command.
 author: normesta
-ms.service: storage
+ms.service: azure-storage
 ms.topic: reference
-ms.date: 05/26/2022
+ms.date: 05/31/2024
 ms.author: normesta
-ms.subservice: common
+ms.subservice: storage-common-concepts
 ms.reviewer: zezha-msft
 ---
 
@@ -52,7 +52,7 @@ Remove specified version IDs of a blob from Azure Storage. Ensure that source is
 
 `azcopy rm "https://[srcaccount].blob.core.windows.net/[containername]/[blobname]" "/path/to/dir" --list-of-versions="/path/to/dir/[versionidsfile]"`
 
-Remove specific blobs and virtual directories by putting their relative paths (NOT URL-encoded) in a file:
+Remove specific blobs and virtual directories by putting their relative paths (NOT URL-encoded) in a text file (For example: `list.txt`) using the `--list-of-files` flag. In the text file, each blob and virtual directory is written on a separate line. The `--list-of-files` flag may incur performance costs due to additional transactions to retrieve object properties. For more more information about the APIs that AzCopy uses and to estimate costs, see [Estimate the cost of using AzCopy to transfer blobs](../blobs/azcopy-cost-estimation.md).
 
 `azcopy rm "https://[account].blob.core.windows.net/[container]/[path/to/parent/dir]" --recursive=true --list-of-files=/usr/bar/list.txt`
 
@@ -66,33 +66,41 @@ Remove a single directory from a Blob Storage account that has a hierarchical na
 
 ## Options
 
+`--cpk-by-name`    (string)        Client provided key by name let clients making requests against Azure Blob Storage an option to provide an encryption key on a per-request basis. Provided key name will be fetched from Azure Key Vault and will be used to encrypt the data.
+
+`--cpk-by-value`    False by default. Client provided key by name let clients making requests against Azure Blob Storage an option to provide an encryption key on a per-request basis. Provided key and its hash will be fetched from environment variables `CPK_ENCRYPTION_KEY` and `CPK_ENCRYPTION_KEY_SHA256`.
+
 `--delete-snapshots`    (string)    By default, the delete operation fails if a blob has snapshots. Specify 'include' to remove the root blob and all its snapshots; alternatively specify 'only' to remove only the snapshots but keep the root blob.
 
-`--dry-run`    Prints the path files that would be removed by the command. This flag doesn't trigger the removal of the files.
+`--dry-run`    False by default. Prints the path files that would be removed by the command. This flag doesn't trigger the removal of the files.
 
 `--exclude-path`    (string)    Exclude these paths when removing. This option doesn't support wildcard characters (*). Checks relative path prefix. For example: myFolder;myFolder/subDirName/file.pdf
 
 `--exclude-pattern`    (string)    Exclude files where the name matches the pattern list. For example: *.jpg;*.pdf;exactName
 
-`--force-if-read-only`    When deleting an Azure Files file or folder, force the deletion to work even if the existing object has its read-only attribute set
+`--force-if-read-only`    False by default. When deleting an Azure Files file or folder, force the deletion to work even if the existing object has its read-only attribute set
 
 `--from-to`    (string)    Optionally specifies the source destination combination. For Example: BlobTrash, FileTrash, BlobFSTrash
 
 `-h`, `--help`    help for remove
 
+`--include-after`    (string)      Include only those files modified on or after the given date and time. The value should be in ISO8601 format. If no timezone is specified, the value is assumed to be in the local timezone of the machine running AzCopy (For example: '2020-08-19T15:04:00Z' for a UTC time, or '2020-08-19' for midnight (00:00) in the local timezone). As of AzCopy 10.5, this flag applies only to files, not folders, so folder properties won't be copied when using this flag with `--preserve-smb-info` or `--preserve-smb-permission`s.
+
+`--include-before`    (string)     Include only those files modified before or on the given date and time. The value should be in ISO8601 format. If no timezone is specified, the value is assumed to be in the local timezone of the machine running AzCopy (For example: '2020-08-19T15:04:00Z' for a UTC time, or '2020-08-19' for midnight (00:00) in the local timezone). As of AzCopy 10.7, this flag applies only to files, not folders, so folder properties won't be copied when using this flag with `--preserve-smb-info` or `--preserve-smb-permissions`.
+
 `--include-path`    (string)    Include only these paths when removing. This option doesn't support wildcard characters (*). Checks relative path prefix. For example: myFolder;myFolder/subDirName/file.pdf
 
 `--include-pattern`    (string)    Include only files where the name matches the pattern list. For example: *.jpg;*.pdf;exactName
 
-`--list-of-files`    (string)    Defines the location of a file which contains the list of files and directories to be deleted. The relative paths should be delimited by line breaks, and the paths should NOT be URL-encoded.
+`--list-of-files`    (string)    Defines the location of a text file which contains the list of files and directories to be deleted. The relative paths should be delimited by line breaks, and the paths should NOT be URL-encoded.
 
-`--list-of-versions`    (string)    Specifies a file where each version ID is listed on a separate line. Ensure that the source must point to a single blob and all the version IDs specified in the file using this flag must belong to the source blob only. Specified version IDs of the given blob will get deleted from Azure Storage.
-
-`--log-level`    (string)    Define the log verbosity for the log file. Available levels include: INFO(all requests/responses), WARNING(slow responses), ERROR(only failed requests), and NONE(no output logs). (default 'INFO') (default "INFO")
+`--list-of-versions`    (string)    Specifies a text file where each version ID is listed on a separate line. Ensure that the source must point to a single blob and all the version IDs specified in the file using this flag must belong to the source blob only. Specified version IDs of the given blob will get deleted from Azure Storage.
 
 `--permanent-delete`    (string)    This is a preview feature that PERMANENTLY deletes soft-deleted snapshots/versions. Possible values include 'snapshots', 'versions', 'snapshotsandversions', 'none'. (default "none")
 
-`--recursive`    Look into subdirectories recursively when syncing between directories.
+`--trailing-dot`  Enabled by default to treat file share related operations in a safe manner. Available options: `Enable`, `Disable`. Choose `Disable` to go back to legacy (potentially unsafe) treatment of trailing dot files where the file service will trim any trailing dots in paths. This can result in potential data corruption if the transfer contains two paths that differ only by a trailing dot (For example `mypath` and `mypath.`). If this flag is set to `Disable` and AzCopy encounters a trailing dot file, it will warn customers in the scanning log but will not attempt to abort the operation. If the destination does not support trailing dot files (Windows or Blob Storage), AzCopy will fail if the trailing dot file is the root of the transfer and skip any trailing dot paths encountered during enumeration.
+
+`--recursive`    False by default. Look into subdirectories recursively when syncing between directories.
 
 ## Options inherited from parent commands
 
@@ -100,7 +108,9 @@ Remove a single directory from a Blob Storage account that has a hierarchical na
 
 `--output-type`    (string)    Format of the command's output. The choices include: text, json. The default value is 'text'. (default "text")
 
-`--trusted-microsoft-suffixes`    (string)    Specifies additional domain suffixes where Azure Active Directory login tokens may be sent.  The default is '*.core.windows.net;*.core.chinacloudapi.cn;*.core.cloudapi.de;*.core.usgovcloudapi.net;*.storage.azure.net'. Any listed here are added to the default. For security, you should only put Microsoft Azure domains here. Separate multiple entries with semi-colons.
+`--trusted-microsoft-suffixes`    (string)    Specifies additional domain suffixes where Microsoft Entra login tokens may be sent.  The default is '*.core.windows.net;*.core.chinacloudapi.cn;*.core.cloudapi.de;*.core.usgovcloudapi.net;*.storage.azure.net'. Any listed here are added to the default. For security, you should only put Microsoft Azure domains here. Separate multiple entries with semi-colons.
+
+`--log-level`    (string)    Define the log verbosity for the log file. Available levels include: INFO(all requests/responses), WARNING(slow responses), ERROR(only failed requests), and NONE(no output logs). (default 'INFO') (default "INFO")
 
 ## See also
 

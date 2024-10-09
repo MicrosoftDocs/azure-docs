@@ -3,10 +3,9 @@ title: Assert data transformation in mapping data flow
 description: Set assertions for mapping data flows
 author: kromerm
 ms.author: makromer
-ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.date: 08/03/2022
+ms.date: 01/05/2024
 ---
 
 # Assert transformation in mapping data flow
@@ -106,7 +105,7 @@ source1, source2 assert(expectTrue(CountryRegion == 'United States', false, 'non
 
 ```    
 
-## Next steps
+## Related content
 
 * Use the [Select transformation](data-flow-select.md) to select and validate columns.
 * Use the [Derived column transformation](data-flow-derived-column.md) to transform column values.

@@ -2,12 +2,10 @@
 title: 'Configure custom IPsec/IKE connection policies for S2S VPN & VNet-to-VNet: PowerShell'
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure IPsec/IKE custom policy for S2S or VNet-to-VNet connections with Azure VPN Gateways using PowerShell.
-services: vpn-gateway
 author: cherylmc
-
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 01/30/2023
+ms.date: 05/29/2024
 ms.author: cherylmc 
 ms.custom: devx-track-azurepowershell
 
@@ -20,7 +18,7 @@ This article walks you through the steps to configure a custom IPsec/IKE policy 
 
 The instructions in this article help you set up and configure IPsec/IKE policies as shown in the following diagram.
 
-:::image type="content" source="./media/vpn-gateway-ipsecikepolicy-rm-powershell/ipsecikepolicy.png" alt-text="Diagram showing IPsec/IKE policy architecture." border="false":::
+:::image type="content" source="./media/ipsec-ike-policy-howto/policy-diagram.png" alt-text="Diagram showing IPsec/IKE policies for both VNet-to-VNet and Site-to-Site VPN gateways." lightbox="./media/ipsec-ike-policy-howto/policy-diagram.png":::
 
 1. Create a virtual network and a VPN gateway.
 1. Create a local network gateway for cross premises connection, or another virtual network and gateway for VNet-to-VNet connection.
@@ -39,6 +37,11 @@ The following table lists the supported configurable cryptographic algorithms an
 [!INCLUDE [Algorithm and keys table](../../includes/vpn-gateway-ipsec-ike-algorithm-include.md)]
 
 [!INCLUDE [Important requirements table](../../includes/vpn-gateway-ipsec-ike-requirements-include.md)]
+
+> [!NOTE]
+> IKEv2 Integrity is used for both Integrity and PRF(pseudo-random function). 
+> If IKEv2 Encryption  algorithm specified is GCM*, the value passed in IKEv2 Integrity is used for PRF only and implicitly we set IKEv2 Integrity to GCM*. In all other cases, the value passed in IKEv2 Integrity is used for both IKEv2 Integrity and PRF.
+>
 
 #### Diffie-Hellman groups
 
@@ -179,7 +182,7 @@ The steps of creating a VNet-to-VNet connection with an IPsec/IKE policy are sim
 
 See [Create a VNet-to-VNet connection](vpn-gateway-vnet-vnet-rm-ps.md) for more detailed steps for creating a VNet-to-VNet connection.
 
-### Step 1 - Create the second virtual network and VPN gateway
+### Step 1: Create the second virtual network and VPN gateway
 
 #### 1. Declare your variables
 
@@ -224,7 +227,7 @@ New-AzVirtualNetworkGateway -Name $GWName2 -ResourceGroupName $RG2 -Location $Lo
 
 It can take about 45 minutes or more to create the VPN gateway.
 
-### Step 2 - Create a VNet-toVNet connection with the IPsec/IKE policy
+### Step 2: Create a VNet-toVNet connection with the IPsec/IKE policy
 
 Similar to the S2S VPN connection, create an IPsec/IKE policy, then apply the policy to the new connection. If you used Azure Cloud Shell, your connection may have timed out. If so, re-connect and state the necessary variables again.
 

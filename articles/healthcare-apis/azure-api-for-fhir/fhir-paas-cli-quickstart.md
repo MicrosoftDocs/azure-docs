@@ -1,23 +1,25 @@
 ---
 title: 'Quickstart: Deploy Azure API for FHIR using Azure CLI'
-description: In this quickstart, you'll learn how to deploy Azure API for FHIR in Azure using the Azure CLI.
+description: In this quickstart, you learn how to deploy Azure API for FHIR in Azure using the Azure CLI.
 services: healthcare-apis
 author: expekesheth
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 06/03/2022
+ms.date: 09/27/2023
 ms.author: kesheth
 ms.custom: devx-track-azurecli, mode-api
 ---
 
 # Quickstart: Deploy Azure API for FHIR using Azure CLI
 
-In this quickstart, you'll learn how to deploy Azure API for FHIR in Azure using the Azure CLI.
+[!INCLUDE[retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+In this quickstart, you learn how to deploy Azure API for FHIR in Azure using the Azure CLI.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE[quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE[azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Add Azure Health Data Services (for example, HealthcareAPIs) extension
 
@@ -25,7 +27,7 @@ In this quickstart, you'll learn how to deploy Azure API for FHIR in Azure using
 az extension add --name healthcareapis
 ```
 
-Get a list of commands for HealthcareAPIs:
+To get a list of commands for HealthcareAPIs:
 
 ```azurecli-interactive
 az healthcareapis --help
@@ -33,7 +35,7 @@ az healthcareapis --help
 
 ## Create Azure Resource Group
 
-Pick a name for the resource group that will contain the Azure API for FHIR and create it:
+Pick a name for the resource group that contains the Azure API for FHIR and create it:
 
 ```azurecli-interactive
 az group create --name "myResourceGroup" --location westus2
@@ -47,7 +49,7 @@ az healthcareapis create --resource-group myResourceGroup --name nameoffhiraccou
 
 ## Fetch FHIR API capability statement
 
-Obtain a capability statement from the FHIR API with:
+Obtain a capability statement from the FHIR API with the following command:
 
 ```azurecli-interactive
 curl --url "https://nameoffhiraccount.azurehealthcareapis.com/metadata"
@@ -55,7 +57,7 @@ curl --url "https://nameoffhiraccount.azurehealthcareapis.com/metadata"
 
 ## Clean up resources
 
-If you're not going to continue to use this application, delete the resource group with the following steps:
+If you're not going to continue to use this application, delete the resource group with the following steps.
 
 ```azurecli-interactive
 az group delete --name "myResourceGroup"
@@ -63,7 +65,7 @@ az group delete --name "myResourceGroup"
 
 ## Next steps
 
-In this quickstart guide, you've deployed the Azure API for FHIR into your subscription. For information about how to register applications and the Azure API for FHIR configuration settings, see
+In this quickstart guide, you deployed the Azure API for FHIR into your subscription. For information about how to register applications, and the Azure API for FHIR configuration settings, see the following.
 
 
 >[!div class="nextstepaction"]
@@ -87,4 +89,4 @@ In this quickstart guide, you've deployed the Azure API for FHIR into your subsc
 >[!div class="nextstepaction"]
 >[Configure Private Link](configure-private-link.md)
 
-FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
+[!INCLUDE[FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]

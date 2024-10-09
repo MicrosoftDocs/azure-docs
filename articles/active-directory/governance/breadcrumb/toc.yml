@@ -1,7 +1,0 @@
-- name: Azure
-  tocHref: /azure/
-  topicHref: /azure/index
-  items:
-  - name: Governance
-    tocHref: /graph/
-    topicHref: /azure/active-directory/governance/index

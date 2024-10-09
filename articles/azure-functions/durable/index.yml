@@ -4,12 +4,12 @@ title: Azure Durable Functions documentation # <60 chars
 summary: Durable Functions is an extension of Azure Functions that lets you write stateful functions in a serverless compute environment. # < 160 chars
 
 metadata:
-  title: Azure Durable Functions documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Durable Functions is an extension of Azure Functions that lets you write stateful functions in a serverless compute environment. # Required; article description that is displayed in search results. < 160 chars.
+  title: Azure Durable Functions documentation
+  description: Durable Functions is an extension of Azure Functions that lets you write stateful functions in a serverless compute environment.
   ms.service: azure-functions 
-  ms.topic: landing-page # Required
+  ms.topic: landing-page
   author: ggailey777 
-  ms.author: azfundocs 
+  ms.author: glenga 
   ms.date: 10/04/2019 
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -40,11 +40,11 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Create durable functions (C#)
-            url: durable-functions-create-first-csharp.md
-          - text: Create your first function (JavaScript)
+          - text: Create a Durable Functions app (C#)
+            url: durable-functions-isolated-create-first-csharp.md
+          - text: Create a Durable Functions app (JavaScript)
             url: quickstart-js-vscode.md
-          - text: Create your first function (Python)
+          - text: Create a Durable Functions app (Python)
             url: quickstart-python-vscode.md
       - linkListType: learn
         links:
@@ -83,7 +83,7 @@ landingContent:
           - text: Function chaining
             url: durable-functions-sequence.md
           - text: Async HTTP APIs
-            url: durable-functions-create-first-csharp.md
+            url: durable-functions-isolated-create-first-csharp.md
           - text: Fan-out/fan-in
             url: durable-functions-cloud-backup.md
           - text: Monitors

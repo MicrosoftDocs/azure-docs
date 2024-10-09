@@ -4,11 +4,9 @@ description:  This tutorial provides step-by-step instructions for using Azure D
 author: kromerm
 ms.author: makromer
 ms.reviewer: makromer
-ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 09/26/2022
+ms.date: 05/15/2024
 ---
 
 # Transform data using mapping data flows
@@ -86,7 +84,11 @@ In this step, you'll create a pipeline that contains a Data Flow activity.
 
 ## Build transformation logic in the data flow canvas
 
-Once you create your Data Flow, you'll be automatically sent to the data flow canvas. In this step, you'll build a data flow that takes the moviesDB.csv in ADLS storage and aggregates the average rating of comedies from 1910 to 2000. You'll then write this file back to the ADLS storage.
+Once you create your Data Flow, you'll be automatically sent to the data flow canvas. In case you are not redirected to data flow canvas, in the panel below the canvas, go to **Settings** and select **Open**, located beside data flow field. This will open the dataflow canvas.
+
+:::image type="content" source="media/tutorial-data-flow/open-data-flow-from-pipeline.png" alt-text="Screenshot showing how to open the data flow editor from the pipeline editor.":::
+
+In this step, you'll build a data flow that takes the moviesDB.csv in ADLS storage and aggregates the average rating of comedies from 1910 to 2000. You'll then write this file back to the ADLS storage.
 
 1. In the data flow canvas, add a source by clicking on the **Add Source** box.
 
@@ -193,7 +195,7 @@ You can debug a pipeline before you publish it. In this step, you're going to tr
 
 If you followed this tutorial correctly, you should have written 83 rows and 2 columns into your sink folder. You can verify the data is correct by checking your blob storage.
 
-## Next steps
+## Related content
 
 The pipeline in this tutorial runs a data flow that aggregates the average rating of comedies from 1910 to 2000 and writes the data to ADLS. You learned how to:
 

@@ -1,5 +1,5 @@
 ---
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: include
 ms.date: 10/25/2018
 ---

@@ -2,12 +2,11 @@
 title: Premium block blob storage accounts
 titleSuffix: Azure Storage
 description: Achieve lower and consistent latencies for Azure Storage workloads that require fast and consistent response times.
-author: jimmart-dev
+author: akashdubey-ms
 
-ms.author: jammart
+ms.author: akashdubey
 ms.date: 10/14/2021
-ms.service: storage
-ms.subservice: blobs
+ms.service: azure-blob-storage
 ms.topic: conceptual
 
 ---
@@ -28,7 +27,7 @@ Premium block blob storage accounts are ideal for workloads that require fast an
 
 ## Cost effectiveness
 
-Premium block blob storage accounts have a higher storage cost but a lower transaction cost as compared to standard general-purpose v2 accounts. If your applications and workloads execute a large number of transactions, premium blob blob storage can be cost-effective, especially if the workload is write-heavy.
+Premium block blob storage accounts have a higher storage cost but a lower transaction cost as compared to standard general-purpose v2 accounts. If your applications and workloads execute a large number of transactions, premium block blob storage can be cost-effective, especially if the workload is write-heavy.
 
 In most cases, workloads executing more than 35 to 40 transactions per second per terabyte (TPS/TB) are good candidates for this type of account. For example, if your workload executes 500 million read operations and 100 million write operations in a month, then you can calculate the TPS/TB as follows:
 
@@ -43,7 +42,7 @@ In most cases, workloads executing more than 35 to 40 transactions per second pe
 > [!NOTE]
 > Prices differ per operation and per region. Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/) to compare pricing between standard and premium performance tiers.
 
-The following table demonstrates the cost-effectiveness of premium block blob storage accounts. The numbers in this table are based on a Azure Data Lake Storage Gen2 enabled premium block blob storage account (also referred to as the [premium tier for Azure Data Lake Storage](premium-tier-for-data-lake-storage.md)). Each column represents the number of transactions in a month. Each row represents the percentage of transactions that are read transactions. Each cell in the table shows the percentage of cost reduction associated with a read transaction percentage and the number of transactions executed.
+The following table demonstrates the cost-effectiveness of premium block blob storage accounts. The numbers in this table are based on an Azure Data Lake Storage enabled premium block blob storage account (also referred to as the [premium tier for Azure Data Lake Storage](premium-tier-for-data-lake-storage.md)). Each column represents the number of transactions in a month. Each row represents the percentage of transactions that are read transactions. Each cell in the table shows the percentage of cost reduction associated with a read transaction percentage and the number of transactions executed.
 
 For example, assuming that your account is in the East US 2 region, the number of transactions with your account exceeds 90M, and 70% of those transactions are read transactions, premium block blob storage accounts are more cost-effective.
 
@@ -55,10 +54,10 @@ For example, assuming that your account is in the East US 2 region, the number o
 
 ## Premium scenarios
 
-This section contains real-world examples of how some of our Azure Storage partners use premium block blob storage. Some of them also enable Azure Data Lake Storage Gen2 which introduces a hierarchical file structure that can further enhance transaction performance in certain scenarios.
+This section contains real-world examples of how some of our Azure Storage partners use premium block blob storage. Some of them also enable Azure Data Lake Storage which introduces a hierarchical file structure that can further enhance transaction performance in certain scenarios.
 
 > [!TIP]
-> If you have an analytics use case, we highly recommend that you use Azure Data Lake Storage Gen2 along with a premium block blob storage account.
+> If you have an analytics use case, we highly recommend that you use Azure Data Lake Storage along with a premium block blob storage account.
 
 This section contains the following examples:
 
@@ -110,11 +109,11 @@ In almost every industry, there is a need for enterprises to query and analyze t
 
 Data scientists, analysts, and developers can derive time-sensitive insights faster by running queries on data that is stored in a premium block blob storage account. Executives can load their dashboards much more quickly when the data that appears in those dashboards comes from a premium block blob storage account instead of a standard general-purpose v2 account.
 
-In one scenario, analysts needed to analyze telemetry data from millions of devices quickly to better understand how their products are used, and to make product release decisions. Storing data in SQL databases is expensive. To reduce cost, and to increase queryable surface area, they used an Azure Data Lake Storage Gen2 enabled premium block blob storage account and performed computation in Presto and Spark to produce insights from hive tables. This way, even rarely accessed data has all of the same power of compute as frequently accessed data.
+In one scenario, analysts needed to analyze telemetry data from millions of devices quickly to better understand how their products are used, and to make product release decisions. Storing data in SQL databases is expensive. To reduce cost, and to increase queryable surface area, they used an Azure Data Lake Storage enabled premium block blob storage account and performed computation in Presto and Spark to produce insights from hive tables. This way, even rarely accessed data has all of the same power of compute as frequently accessed data.
 
-To close the gap between SQL's subsecond performance and Presto's input output operations per second (IOPs) to external storage, consistency and speed are critical, especially when dealing with small optimized row columnar (ORC) files. A premium block blob storage account when used with Data Lake Storage Gen2, has repeatedly demonstrated a 3X performance improvement over a standard general-purpose v2 account in this scenario. Queries executed fast enough to feel local to the compute machine.
+To close the gap between SQL's subsecond performance and Presto's input output operations per second (IOPs) to external storage, consistency and speed are critical, especially when dealing with small optimized row columnar (ORC) files. A premium block blob storage account when used with Data Lake Storage, has repeatedly demonstrated a 3X performance improvement over a standard general-purpose v2 account in this scenario. Queries executed fast enough to feel local to the compute machine.
 
-In another case, a partner stores and queries logs that are generated from their security solution. The logs are generated by using Databricks, and then and stored in a Data Lake Storage Gen2 enabled premium block blob storage account. End users query and search this data by using Azure Data Explorer. They chose this type of account to increase stability and increase the performance of interactive queries. They also set the life cycle management `Delete Action` policy to a few days, which helps to reduce costs. This policy prevents them from keeping the data forever. Instead, data is deleted once it is no longer needed.
+In another case, a partner stores and queries logs that are generated from their security solution. The logs are generated by using Databricks, and then and stored in a Data Lake Storage enabled premium block blob storage account. End users query and search this data by using Azure Data Explorer. They chose this type of account to increase stability and increase the performance of interactive queries. They also set the life cycle management `Delete Action` policy to a few days, which helps to reduce costs. This policy prevents them from keeping the data forever. Instead, data is deleted once it is no longer needed.
 
 ### Data processing pipelines
 
@@ -128,19 +127,19 @@ In some cases, we've seen partners use multiple standard storage accounts to sto
 
 IoT has become a significant part of our daily lives. IoT is used to track car movements, control lights, and monitor our health. It also has industrial applications. For example, companies use IoT to enable their smart factory projects, improve agricultural output, and on oil rigs for predictive maintenance. Premium block blob storage accounts add significant value to these scenarios.
 
-We have partners in the mining industry. They use a Data Lake Storage Gen2 enable premium block blob storage account along with HDInsight (Hbase) to ingest time series sensor data from multiple mining equipment types, with a very taxing load profile. Premium block blob storage has helped to satisfy their need for high sample rate ingestion. It's also cost effective, because premium block blob storage is cost optimized for workloads that perform a large number of write transactions, and this workload generates a large number of small write transactions (in the tens of thousands per second).
+We have partners in the mining industry. They use a Data Lake Storage enable premium block blob storage account along with HDInsight (Hbase) to ingest time series sensor data from multiple mining equipment types, with a very taxing load profile. Premium block blob storage has helped to satisfy their need for high sample rate ingestion. It's also cost effective, because premium block blob storage is cost optimized for workloads that perform a large number of write transactions, and this workload generates a large number of small write transactions (in the tens of thousands per second).
 
 ### Machine Learning
 
 In many cases, a lot of data has to be processed to train a machine learning model. To complete this processing, compute machines must run for a long time. Compared to storage costs, compute costs usually account for a much larger percentage of your bill, so reducing the amount of time that your compute machines run can lead to significant savings. The low latency that you get by using premium block blob storage can significantly reduce this time and your bill.
 
-We have partners that deploy data processing pipelines to spark clusters where they run machine learning training and inference. They store spark tables (parquet files) and checkpoints to a premium block blob storage account. Spark checkpoints can create a huge number of nested files and folders. Their directory listing operations are fast because they combined the low latency of a premium block blob storage account with the hierarchical data structure made available with Data Lake Storage Gen2.
+We have partners that deploy data processing pipelines to spark clusters where they run machine learning training and inference. They store spark tables (parquet files) and checkpoints to a premium block blob storage account. Spark checkpoints can create a huge number of nested files and folders. Their directory listing operations are fast because they combined the low latency of a premium block blob storage account with the hierarchical data structure made available with Data Lake Storage.
 
-We also have partners in the semiconductor industry with use cases that intersect IoT and machine learning. IoT devices attached to machines in the manufacturing plant take images of semiconductor wafers and send those to their account. Using deep learning inference, the system can inform the on-premises machines if there is an issue with the production and if an action needs to be taken. They mush be able to load and process images quickly and reliably. Using Data Lake Storage Gen2 enabled premium block blob storage account helps to make this possible.
+We also have partners in the semiconductor industry with use cases that intersect IoT and machine learning. IoT devices attached to machines in the manufacturing plant take images of semiconductor wafers and send those to their account. Using deep learning inference, the system can inform the on-premises machines if there is an issue with the production and if an action needs to be taken. They mush be able to load and process images quickly and reliably. Using Data Lake Storage enabled premium block blob storage account helps to make this possible.
 
 ### Real-time streaming analytics
 
-To support interactive analytics in near real time, a system must ingest and process large amounts of data, and then make that data available to downstream systems. Using a Data Lake Storage Gen2 enabled premium block blob storage account is perfect for these types of scenarios.
+To support interactive analytics in near real time, a system must ingest and process large amounts of data, and then make that data available to downstream systems. Using a Data Lake Storage enabled premium block blob storage account is perfect for these types of scenarios.
 
 Companies in the media and entertainment industry can generate a large number of logs and telemetry data in a short amount of time as they broadcast an event. Some of our partners rely on multiple content delivery network (CDN) partners for streaming. They must make near real-time decisions about which CDN partners to allocate traffic to. Therefore, data needs to be available for querying a few seconds after it is ingested. To facilitate this quick decision making, they use data stored within premium block blob storage, and process that data in Azure Data Explorer (ADX). All of the telemetry that is uploaded to storage is transformed in ADX, where it can be stored in a familiar format that operators and executives can query quickly and reliably.
 
@@ -167,7 +166,7 @@ To create a premium block blob storage account, make sure to choose the **Premiu
 > [!NOTE]
 > Some Blob Storage features aren't yet supported or have partial support in premium block blob storage accounts. Before choosing premium, review the [Blob Storage feature support in Azure Storage accounts](storage-feature-support-in-storage-accounts.md) article to determine whether the features that you intend to use are fully supported in your account. Feature support is always expanding so make sure to periodically review this article for updates.
 
-If your storage account is going to be used for analytics, we highly recommend that you use Azure Data Lake Storage Gen2 along with a premium block blob storage account. To unlock Azure Data Lake Storage Gen2 capabilities, enable the **Hierarchical namespace** setting in the **Advanced** tab of the **Create storage account** page.
+If your storage account is going to be used for analytics, we highly recommend that you use Azure Data Lake Storage along with a premium block blob storage account. To unlock Azure Data Lake Storage capabilities, enable the **Hierarchical namespace** setting in the **Advanced** tab of the **Create storage account** page.
 
 The following image shows this setting in the **Create storage account** page.
 
@@ -181,6 +180,6 @@ For complete guidance, see [Create a storage account](../common/storage-account-
 ## See also
 
 - [Storage account overview](../common/storage-account-overview.md)
-- [Introduction to Azure Data Lake Storage Gen2](data-lake-storage-introduction.md)
-- [Create a storage account to use with Azure Data Lake Storage Gen2](create-data-lake-storage-account.md)
+- [Introduction to Azure Data Lake Storage](data-lake-storage-introduction.md)
+- [Create a storage account to use with Azure Data Lake Storage](create-data-lake-storage-account.md)
 - [Premium tier for Azure Data Lake Storage](premium-tier-for-data-lake-storage.md)

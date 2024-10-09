@@ -4,11 +4,10 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about the mapping data flow New Branch Transformation in Azure Data Factory and Synapse Analytics
 author: kromerm
 ms.author: makromer
-ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/04/2022
+ms.date: 05/15/2024
 ---
 
 # Union transformation in mapping data flow
@@ -47,6 +46,6 @@ If you choose "union by position", each column value will drop into the original
 
 :::image type="content" source="media/data-flow/unionoutput.png" alt-text="Union output":::
 
-## Next steps
+## Related content
 
 Explore similar transformations including [Join](data-flow-join.md) and [Exists](data-flow-exists.md).

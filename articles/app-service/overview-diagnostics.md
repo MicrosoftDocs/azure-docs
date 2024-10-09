@@ -4,8 +4,10 @@ description: Learn how you can troubleshoot issues with your app in Azure App Se
 keywords: app service, azure app service, diagnostics, support, web app, troubleshooting, self-help
 
 ms.topic: article
-ms.date: 10/18/2019
-ms.custom: seodec18
+ms.date: 06/29/2023
+ms.author: msangapu
+author: msangapu-msft
+ms.custom: UpdateFrequency3
 
 ---
 # Azure App Service diagnostics overview
@@ -105,7 +107,7 @@ To review tailored best practice recommendations, check out the Resiliency Score
 
 ### Investigate application code issues (only for Windows app)
 
-Because many app issues are related to issues in your application code, App Service diagnostics integrates with [Application Insights](../azure-monitor/app/app-insights-overview.md) to highlight exceptions and dependency issues to correlate with the selected downtime. Application Insights has to be enabled separately.
+Because many app issues are related to issues in your application code, App Service diagnostics integrates with [Application Insights](/azure/azure-monitor/app/app-insights-overview) to highlight exceptions and dependency issues to correlate with the selected downtime. Application Insights has to be enabled separately.
 
 ![Application Insights](./media/app-service-diagnostics/application-insights-7.png)
 

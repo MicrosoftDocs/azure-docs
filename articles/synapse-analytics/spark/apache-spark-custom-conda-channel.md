@@ -2,7 +2,7 @@
 title: Create custom Conda channel for package management
 description: Learn how to create a custom Conda channel for package management
 author: shuaijunye
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.date: 07/07/2022
 ms.author: shuaijunye
@@ -45,7 +45,7 @@ conda env update --prune -f base_environment.yml
 ## Mount the storage account onto your machine
 Next, we will mount the Azure Data Lake Storage  Gen2 account onto your local machine. This process can also be done with a WASB account; however, we will go through an example for the  ADLSg2 account 
  
-For more information on how to mount the storage account on your local machine, you can visit [this page](https://github.com/Azure/azure-storage-fuse#blobfuse ). 
+For more information on how to mount the storage account on your local machine, you can visit [this page](https://github.com/Azure/azure-storage-fuse#blobfuse). 
 
 1. You can install blobfuse from the Linux Software Repository for Microsoft products.
 

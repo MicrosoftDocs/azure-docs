@@ -1,7 +1,7 @@
 ---
 title: SWIFT CSP-CSCF v2020 blueprint sample controls
 description: Control mapping of the SWIFT CSP-CSCF v2020 blueprint sample. Each control is mapped to one or more Azure Policy definitions that assist with assessment.
-ms.date: 09/08/2021
+ms.date: 09/07/2023
 ms.topic: sample
 ---
 # Control mapping of the SWIFT CSP-CSCF v2020 blueprint sample
@@ -32,11 +32,7 @@ audit requirements** built-in policy initiative.
 
 ## 1.2 and 5.1 Account Management
 
-This blueprint helps you review accounts that may not comply with your organization's account
-management requirements. This blueprint assigns [Azure Policy](../../../policy/overview.md)
-definitions that audit external accounts with read, write and owner permissions on a subscription
-and deprecated accounts. By reviewing the accounts audited by these policies, you can take
-appropriate action to ensure account management requirements are met.
+This blueprint helps you review accounts that may not comply with your organization's account management requirements. This blueprint assigns [Azure Policy](../../../policy/overview.md) definitions that audit external accounts with read, write and owner permissions on a subscription and deprecated accounts. By reviewing the accounts audited by these policies, you can take appropriate action to ensure account management requirements are met.
 
 - Deprecated accounts should be removed from your subscription
 - Deprecated accounts with owner permissions should be removed from your subscription
@@ -91,12 +87,7 @@ separation of duties.
 
 ## 1.3, 5.1, and 6.4 Least Privilege | Review of User Privileges
 
-[Azure role-based access control (Azure RBAC)](../../../../role-based-access-control/overview.md)
-helps you manage who has access to resources in Azure. Using the Azure portal, you can review who
-has access to Azure resources and their permissions. This blueprint assigns
-[Azure Policy](../../../policy/overview.md) definitions to audit accounts that should be prioritized
-for review. Reviewing these account indicators can help you ensure least privilege controls are
-implemented.
+[Azure role-based access control (Azure RBAC)](../../../../role-based-access-control/overview.md) helps you manage who has access to resources in Azure. Using the Azure portal, you can review who has access to Azure resources and their permissions. This blueprint assigns [Azure Policy](../../../policy/overview.md) definitions to audit accounts that should be prioritized for review. Reviewing these account indicators can help you ensure least privilege controls are implemented.
 
 - A maximum of 3 owners should be designated for your subscription
 - Show audit results from Windows VMs that are not joined to the specified domain
@@ -210,12 +201,7 @@ been configured.
 
 ## 1.1 User-Installed Software
 
-Adaptive application control in Azure Security Center is an intelligent, automated end-to-end
-application filtering solution that can block or prevent specific software from running on your
-virtual machines. Application control can help you enforce and monitor compliance with software
-restriction policies. This blueprint assigns an [Azure Policy](../../../policy/overview.md)
-definition that helps you monitor virtual machines where an application allowlist is recommended
-but has not yet been configured.
+Adaptive application control in Azure Security Center is an intelligent, automated end-to-end application filtering solution that can block or prevent specific software from running on your virtual machines. Application control can help you enforce and monitor compliance with software restriction policies. This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that helps you monitor virtual machines where an application allowlist is recommended but has not yet been configured.
 
 - Adaptive application controls for defining safe applications should be enabled on your machines
 - Virtual machines should be migrated to new Azure Resource Manager resources

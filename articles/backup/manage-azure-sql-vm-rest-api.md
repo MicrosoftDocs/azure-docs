@@ -1,11 +1,12 @@
 ---
 title: Manage SQL server databases in Azure VMs with REST API
 description: Learn how to use REST API to manage and monitor SQL server databases in Azure VM that are backed up by Azure Backup.
-ms.topic: conceptual
-ms.date: 08/11/2022
-author: v-amallick
-ms.service: backup
-ms.author: v-amallick
+ms.topic: how-to
+ms.date: 09/11/2024
+ms.service: azure-backup
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
+
 ---
 
 # Manage SQL server databases in Azure VMs with REST API

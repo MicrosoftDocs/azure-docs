@@ -3,8 +3,7 @@ title: 'Quickstart: Deploy an existing container image in the Azure portal'
 description: Deploy an existing container image to Azure Container Apps using the Azure portal.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
-ms.custom: event-tier1-build-2022
+ms.service: azure-container-apps
 ms.topic: quickstart
 ms.date: 12/13/2021
 ms.author: cshoe

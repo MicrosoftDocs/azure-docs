@@ -7,13 +7,19 @@ ms.assetid: c23af2d8-d370-4b1f-9b3e-8782321ddccb
 ms.topic: article
 ms.date: 03/29/2022
 ms.author: madsd
-ms.custom: seodec18
-
 ---
 # Autoscaling and App Service Environment v1
 
 > [!IMPORTANT]
-> This article is about App Service Environment v1. [App Service Environment v1 will be retired on 31 August 2024](https://azure.microsoft.com/updates/app-service-environment-v1-and-v2-retirement-announcement/). There's a new version of App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version, start with the [Introduction to the App Service Environment](overview.md). If you're currently using App Service Environment v1, please follow the steps in [this article](migration-alternatives.md) to migrate to the new version.
+> This article is about App Service Environment v1. [App Service Environment v1 and v2 are retired as of 31 August 2024](https://aka.ms/postEOL/ASE). There's a new version of App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version, start with the [Introduction to the App Service Environment](overview.md). If you're currently using App Service Environment v1, please follow the steps in [this article](upgrade-to-asev3.md) to migrate to the new version.
+>
+> As of 31 August 2024, [Service Level Agreement (SLA) and Service Credits](https://aka.ms/postEOL/ASE/SLA) no longer apply for App Service Environment v1 and v2 workloads that continue to be in production since they are retired products. Decommissioning of the App Service Environment v1 and v2 hardware has begun, and this may affect the availability and performance of your apps and data.
+>
+> You must complete migration to App Service Environment v3 immediately or your apps and resources may be deleted. We will attempt to auto-migrate any remaining App Service Environment v1 and v2 on a best-effort basis using the [in-place migration feature](migrate.md), but Microsoft makes no claim or guarantees about application availability after auto-migration. You may need to perform manual configuration to complete the migration and to optimize your App Service plan SKU choice to meet your needs. If auto-migration isn't feasible, your resources and associated app data will be deleted. We strongly urge you to act now to avoid either of these extreme scenarios.
+>
+> If you need additional time, we can offer a one-time 30-day grace period for you to complete your migration. For more information and to request this grace period, review the [grace period overview](./auto-migration.md#grace-period), and then go to [Azure portal](https://portal.azure.com) and visit the Migration blade for each of your App Service Environments.
+>
+> For the most up-to-date information on the App Service Environment v1/v2 retirement, see the [App Service Environment v1 and v2 retirement update](https://github.com/Azure/app-service-announcements/issues/469).
 >
 
 Azure App Service environments support *autoscaling*. You can autoscale individual worker pools based on metrics or schedule.
@@ -23,11 +29,12 @@ Azure App Service environments support *autoscaling*. You can autoscale individu
 Autoscaling optimizes your resource utilization by automatically growing and shrinking an App Service environment to fit your budget and or load profile.
 
 ## Configure worker pool autoscale
+
 You can access the autoscale functionality from the **Settings** tab of the worker pool.
 
 ![Settings tab of the worker pool.][settings-scale]
 
-From there, the interface should be fairly familiar since it is the same experience that you see when you scale an App Service plan. 
+From there, the interface should be fairly familiar since it is the same experience that you see when you scale an App Service plan.
 
 ![Manual scale settings.][scale-manual]
 
@@ -46,11 +53,13 @@ After you define a profile, you can add autoscale rules to scale up or down the 
  Any worker pool or front-end metrics can be used to define autoscale rules. These metrics are the same metrics you can monitor in the resource blade graphs or set alerts for.
 
 ## Autoscale example
+
 Autoscale of an App Service environment can best be illustrated by walking through a scenario.
 
 This article explains all the necessary considerations when you set up autoscale. The article walks you through the interactions that come into play when you factor in autoscaling App Service environments that are hosted in App Service Environment.
 
 ### Scenario introduction
+
 Frank is a sysadmin for an enterprise who has migrated a portion of the workloads that they manage to an App Service environment.
 
 The App Service environment is configured to manual scale as follows:
@@ -98,6 +107,7 @@ Frank is very familiar with the application. They know that the peak hours for l
 | **Cool down (minutes):** 20 |**Cool down (minutes):** 10 |
 
 ### App Service plan inflation rate
+
 App Service plans that are configured to autoscale do so at a maximum rate per hour. This rate
 can be calculated based on the values provided on the autoscale rule.
 
@@ -128,8 +138,8 @@ App Service plan, the formula would resolve to:
 
 ![App Service plan inflation rate for weekends based on Autoscale – Scale Down rule.][Equation4]
 
-The production App Service plan can grow at a maximum rate of eight instances/hour 
-during the week and four instances/hour during the weekend. It can release instances 
+The production App Service plan can grow at a maximum rate of eight instances/hour
+during the week and four instances/hour during the weekend. It can release instances
 at a maximum rate of four instances/hour during the week and six instances/hour during weekends.
 
 If multiple App Service plans are being hosted in a worker pool, you have to calculate the *total inflation rate* as the sum of the inflation rate for all the App Service plans that are being hosting in that worker pool.
@@ -137,6 +147,7 @@ If multiple App Service plans are being hosted in a worker pool, you have to cal
 ![Total inflation rate calculation for multiple App Service plans hosted in a worker pool.][ASP-Total-Inflation]
 
 ### Use the App Service plan inflation rate to define worker pool autoscale rules
+
 Worker pools that host App Service plans that are configured to autoscale need to
 be allocated a buffer of capacity. The buffer allows for the autoscale operations to grow and shrink the
 App Service plan as needed. The minimum buffer would be the calculated Total App Service Plan Inflation Rate.
@@ -192,11 +203,12 @@ Decrease count can be adjusted to something between 1/2X or 1X the App Service P
 Rate for scale down.
 
 ### Autoscale for front-end pool
+
 Rules for front-end autoscale are simpler than for worker pools. Primarily, you should  
 make sure that duration of the measurement and the cooldown timers consider that scale
 operations on an App Service plan are not instantaneous.
 
-For this scenario, Frank knows that the error rate increases after front ends 
+For this scenario, Frank knows that the error rate increases after front ends
 reach 80% CPU utilization and sets the autoscale rule to increase instances as follows:
 
 ![Autoscale settings for front-end pool.][Front-End-Scale]

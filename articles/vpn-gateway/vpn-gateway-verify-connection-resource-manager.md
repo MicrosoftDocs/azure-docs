@@ -3,11 +3,11 @@ title: 'Verify a gateway connection'
 titleSuffix: Azure VPN Gateway
 description: Learn how to verify a virtual network VPN Gateway connection.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
+ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 06/13/2022
 ms.author: cherylmc
-
 ---
 # Verify a connection for VPN Gateway
 
@@ -37,4 +37,4 @@ To verify your VPN gateway connection for the classic deployment model using Pow
 
 ## Next steps
 
-* You can add virtual machines to your virtual networks. See [Create a Virtual Machine](../virtual-machines/windows/quick-create-portal.md) for steps.
+* You can add virtual machines to your virtual networks. See [Create a Virtual Machine](/azure/virtual-machines/windows/quick-create-portal) for steps.

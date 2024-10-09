@@ -1,14 +1,14 @@
 - name: Concepts
   expanded: true
   items:
+  - name: Defender EASM documentation
+    href: index.yml 
   - name: Overview
-    href: index.md
+    href: overview.md
   - name: Understanding inventory assets
     href: understanding-inventory-assets.md
   - name: What is Discovery?
     href: what-is-discovery.md
-  - name: Data Connections overview (preview)
-    href: data-connections-overview.md
 - name: How-to
   items:
   - name: Understanding asset details
@@ -17,8 +17,14 @@
     href: understanding-dashboards.md
   - name: Using and managing discovery
     href: using-and-managing-discovery.md
+  - name: Modifying inventory assets 
+    href: modifying-inventory-assets.md
+  - name: Policy engine automation
+    href: policy-engine.md 
   - name: Understand billable assets
     href: understanding-billable-assets.md
+  - name: Leveraging data connections
+    href: data-connections.md
   - name: Inventory filters 
     expanded: true
     items: 
@@ -48,3 +54,8 @@
   items:
   - name: Discovering your attack surface
     href: discovering-your-attack-surface.md
+
+- name: Integrations
+  items: 
+  - name: Copilot for Security and Defender EASM
+    href: easm-copilot.md

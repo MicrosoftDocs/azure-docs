@@ -1,16 +1,15 @@
 ---
-title: Branching and chaining activities in a pipeline using Azure portal
+title: Copy data and send email notifications on success and failure
 description: Learn how to control flow of data in Azure Data Factory pipeline by using the Azure portal.
 author: ssabat
 ms.author: susabat
 ms.reviewer: jburchel
-ms.service: data-factory
-ms.subservice: tutorials
 ms.topic: tutorial
-ms.date: 10/25/2022
+ms.date: 10/03/2024
+ms.subservice: orchestration
 ---
 
-# Branching and chaining activities in an Azure Data Factory pipeline using the Azure portal
+# Copy data and send email notifications on success and failure
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
@@ -53,14 +52,14 @@ This tutorial uses Azure portal. You can use other mechanisms to interact with A
     3. Upload **input.txt** file to the container.
 
 ## Create email workflow endpoints
-To trigger sending an email from the pipeline, you use [Logic Apps](../logic-apps/logic-apps-overview.md) to define the workflow. For details on creating a Logic App workflow, see [How to create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+To trigger sending an email from the pipeline, you use [Azure Logic Apps](../logic-apps/logic-apps-overview.md) to define the workflow. For more information about creating a logic app workflow, see [Create an example Consumption logic app workflow](../logic-apps/quickstart-create-example-consumption-workflow.md).
 
 ### Success email workflow
-Create a Logic App workflow named `CopySuccessEmail`. Define the workflow trigger as `When an HTTP request is received`, and add an action of `Office 365 Outlook – Send an email`.
+Create a Consumption logic app workflow named `CopySuccessEmail`. Add the Request trigger named **When an HTTP request is received**, and add the **Office 365 Outlook** action named **Send an email**. If prompted, sign in to your Office 365 Outlook account.
 
 :::image type="content" source="media/tutorial-control-flow-portal/success-email-workflow.png" alt-text="Shows a screenshot of the Success email workflow.":::
 
-For your request trigger, fill in the `Request Body JSON Schema` with the following JSON:
+For the Request trigger, fill in the **Request Body JSON Schema** box with the following JSON:
 
 ```json
 {
@@ -82,13 +81,13 @@ For your request trigger, fill in the `Request Body JSON Schema` with the follow
 }
 ```
 
-The Request in the Logic App Designer should look like the following image:
+The Request trigger in the workflow designer should look like the following image:
 
-:::image type="content" source="media/tutorial-control-flow-portal/logic-app-designer-request.png" alt-text="Shows a screenshot of the Logic App designer - request.":::
+:::image type="content" source="media/tutorial-control-flow-portal/logic-app-designer-request.png" alt-text="Shows a screenshot of the workflow designer with Request trigger.":::
 
-For the **Send Email** action, customize how you wish to format the email, utilizing the properties passed in the request Body JSON schema. Here is an example:
+For the **Send an email** action, customize how you wish to format the email, utilizing the properties passed in the request Body JSON schema. Here is an example:
 
-:::image type="content" source="media/tutorial-control-flow-portal/send-email-action-2.png" alt-text="Shows a screenshot of the Logic App designer - send email action.":::
+:::image type="content" source="media/tutorial-control-flow-portal/send-email-action-2.png" alt-text="Shows a screenshot of the workflow designer with the action named Send an email.":::
 
 Save the workflow. Make a note of your HTTP Post request URL for your success email workflow:
 
@@ -98,9 +97,9 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 ```
 
 ### Fail email workflow
-Follow the same steps to create another Logic Apps workflow of **CopyFailEmail**. In the request trigger, the `Request Body JSON schema` is the same. Change the format of your email like the `Subject` to tailor toward a failure email. Here is an example:
+Follow the same steps to create another logic app workflow named `CopyFailEmail`. In the Request trigger, the **Request Body JSON schema** value is the same. Change the format of your email like the `Subject` to tailor toward a failure email. Here is an example:
 
-:::image type="content" source="media/tutorial-control-flow-portal/fail-email-workflow-2.png" alt-text="Shows a screenshot of the Logic App designer - fail email workflow.":::
+:::image type="content" source="media/tutorial-control-flow-portal/fail-email-workflow-2.png" alt-text="Shows a screenshot of the workflow designer with the fail email workflow.":::
 
 Save the workflow. Make a note of your HTTP Post request URL for your failure email workflow:
 
@@ -168,8 +167,8 @@ In this step, you create a pipeline with one Copy activity and two Web activitie
 1. In the properties window for the pipeline, switch to the **Parameters** tab, and use the **New** button to add the following three parameters of type String: sourceBlobContainer, sinkBlobContainer, and receiver.
 
     - **sourceBlobContainer** - parameter in the pipeline consumed by the source blob dataset.
-    - **sinkBlobContainer** – parameter in the pipeline consumed by the sink blob dataset
-    - **receiver** – this parameter is used by the two Web activities in the pipeline that send success or failure emails to the receiver whose email address is specified by this parameter.
+    - **sinkBlobContainer** - parameter in the pipeline consumed by the sink blob dataset
+    - **receiver** - this parameter is used by the two Web activities in the pipeline that send success or failure emails to the receiver whose email address is specified by this parameter.
 
    :::image type="content" source="./media/tutorial-control-flow-portal/pipeline-parameters.png" alt-text="Shows a screenshot of the New pipeline menu.":::
 1. In the **Activities** toolbox, search for **Copy** and drag-drop the **Copy** activity to the pipeline designer surface.
@@ -244,10 +243,10 @@ In this step, you create a pipeline with one Copy activity and two Web activitie
         ```
         The message body contains the following properties:
 
-       - Message – Passing value of `@{activity('Copy1').output.dataWritten`. Accesses a property of the previous copy activity and passes the value of dataWritten. For the failure case, pass the error output instead of `@{activity('CopyBlobtoBlob').error.message`.
-       - Data Factory Name – Passing value of `@{pipeline().DataFactory}` This is a system variable, allowing you to access the corresponding data factory name. For a list of system variables, see [System Variables](control-flow-system-variables.md) article.
-       - Pipeline Name – Passing value of `@{pipeline().Pipeline}`. This is also a system variable, allowing you to access the corresponding pipeline name.
-       - Receiver – Passing value of "\@pipeline().parameters.receiver"). Accessing the pipeline parameters.
+       - Message - Passing value of `@{activity('Copy1').output.dataWritten`. Accesses a property of the previous copy activity and passes the value of dataWritten. For the failure case, pass the error output instead of `@{activity('CopyBlobtoBlob').error.message`.
+       - Data Factory Name - Passing value of `@{pipeline().DataFactory}` This is a system variable, allowing you to access the corresponding data factory name. For a list of system variables, see [System Variables](control-flow-system-variables.md) article.
+       - Pipeline Name - Passing value of `@{pipeline().Pipeline}`. This is also a system variable, allowing you to access the corresponding pipeline name.
+       - Receiver - Passing value of "\@pipeline().parameters.receiver"). Accessing the pipeline parameters.
 
          :::image type="content" source="./media/tutorial-control-flow-portal/web-activity1-settings.png" alt-text="Shows a screenshot of the settings for the first Web activity.":::         
 1. Connect the **Copy** activity to the **Web** activity by dragging the green checkbox button next to the Copy activity and dropping on the Web activity.
@@ -332,7 +331,7 @@ In this step, you create a pipeline with one Copy activity and two Web activitie
 
     :::image type="content" source="./media/tutorial-control-flow-portal/activity-run-error.png" alt-text="Activity run error":::
 
-## Next steps
+## Related content
 You performed the following steps in this tutorial:
 
 > [!div class="checklist"]

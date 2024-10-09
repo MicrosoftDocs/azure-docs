@@ -46,8 +46,8 @@ A workspace combines all the desktops and applications that have been made avail
    | Azure environment | Workspace URL |
    |--|--|
    | Azure cloud *(most common)* | `https://rdweb.wvd.microsoft.com` |
-   | Azure US Gov | `https://rdweb.wvd.azure.us/api/arm/feeddiscovery` |
-   | Azure China 21Vianet | `https://rdweb.wvd.azure.cn/api/arm/feeddiscovery` |
+   | Azure for US Government | `https://rdweb.wvd.azure.us/api/arm/feeddiscovery` |
+   | Azure operated by 21Vianet | `https://rdweb.wvd.azure.cn/api/arm/feeddiscovery` |
 
 1. Tap **Next**.
 

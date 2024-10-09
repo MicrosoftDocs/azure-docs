@@ -1,15 +1,13 @@
 ---
 title: Use Azure portal to monitor a managed app
 description: Shows how to use the Azure portal to monitor availability and alerts for a managed application.
-author: davidsmatlak
-
-ms.topic: conceptual
-ms.date: 10/04/2018
-ms.author: davidsmatlak
+ms.topic: how-to
+ms.date: 06/24/2024
 ---
+
 # Monitor a deployed instance of a managed application
 
-After you've deployed a managed application to your Azure subscription, you may want to check the status of the application. This article shows options in the Azure portal for checking the status. You can monitor the availability of the resources in your managed application. You can also set up and view alerts.
+After you deploy a managed application to your Azure subscription, you might want to check the status of the application. This article shows options in the Azure portal for checking the status. You can monitor the availability of the resources in your managed application. You can also set up and view alerts.
 
 ## View resource health
 
@@ -31,7 +29,7 @@ After you've deployed a managed application to your Azure subscription, you may 
 
    ![Select alerts](./media/monitor-managed-application-portal/select-alerts.png)
 
-1. If you have alert rules configured, you see information about alerts that have been raised.
+1. If you have alert rules configured, you see information about alerts that were raised.
 
    ![View alerts](./media/monitor-managed-application-portal/view-alerts.png)
 
@@ -39,9 +37,9 @@ After you've deployed a managed application to your Azure subscription, you may 
 
    ![Create alert](./media/monitor-managed-application-portal/create-new-alert.png)
 
-You can create alerts for your managed application instance or the resources in the managed application. For information about creating alerts, see [Overview of alerts in Microsoft Azure](../../azure-monitor/alerts/alerts-overview.md).
+You can create alerts for your managed application instance or the resources in the managed application. For information about creating alerts, see [Overview of alerts in Microsoft Azure](/azure/azure-monitor/alerts/alerts-overview).
 
 ## Next steps
 
-* For managed application examples, see [Sample projects for Azure managed applications](sample-projects.md).
-* To deploy a managed application, see [Deploy service catalog app through Azure portal](deploy-service-catalog-quickstart.md).
+- For managed application examples, see [Sample projects for Azure managed applications](sample-projects.md).
+- To deploy a managed application, see [Deploy service catalog app through Azure portal](deploy-service-catalog-quickstart.md).

@@ -1,20 +1,22 @@
 ---
 title: Restore Key Vault key & secret for encrypted VM
 description: Learn how to restore Key Vault key and secret in Azure Backup using PowerShell
-ms.topic: conceptual
-ms.date: 08/28/2017 
+ms.topic: how-to
 ms.custom: devx-track-azurepowershell
+ms.date: 02/28/2023 
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 # Restore Key Vault key and secret for encrypted VMs using Azure Backup
 
 This article talks about using Azure VM Backup to perform restore of encrypted Azure VMs, if your key and secret don't exist in the key vault. These steps can also be used if you want to maintain a separate copy of the key (Key Encryption Key) and secret (BitLocker Encryption Key) for the restored VM.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Prerequisites
 
 * **Backup encrypted VMs** - Encrypted Azure VMs have been backed up using Azure Backup. Refer to the article [Manage backup and restore of Azure VMs using PowerShell](backup-azure-vms-automation.md) for details about how to back up encrypted Azure VMs.
-* **Configure Azure Key Vault** – Ensure that key vault to which keys and secrets need to be restored is already present. Refer to the article [Get Started with Azure Key Vault](../key-vault/general/overview.md) for details about key vault management.
+* **Configure Azure Key Vault** – Ensure that key vault to which keys and secrets need to be restored is already present. Refer to the article [Get Started with Azure Key Vault](/azure/key-vault/general/overview) for details about key vault management.
 * **Restore disk** - Ensure that you've triggered the restore job for restoring disks for encrypted VM using [PowerShell steps](backup-azure-vms-automation.md#restore-an-azure-vm). This is because this job generates a JSON file in your storage account containing keys and secrets for the encrypted VM to be restored.
 
 ## Get key and secret from Azure Backup
@@ -50,7 +52,7 @@ Once the JSON file is generated in the destination path mentioned above, generat
 ```powershell
 $keyDestination = 'C:\keyDetails.blob'
 [io.file]::WriteAllBytes($keyDestination, [System.Convert]::FromBase64String($encryptionObject.OsDiskKeyAndSecretDetails.KeyBackupData))
-Restore-AzureKeyVaultKey -VaultName '<target_key_vault_name>' -InputFile $keyDestination
+Restore-AzKeyVaultKey -VaultName '<target_key_vault_name>' -InputFile $keyDestination
 ```
 
 ## Restore secret
@@ -64,7 +66,7 @@ $secretdata = $encryptionObject.OsDiskKeyAndSecretDetails.SecretData
 $Secret = ConvertTo-SecureString -String $secretdata -AsPlainText -Force
 $secretname = 'B3284AAA-DAAA-4AAA-B393-60CAA848AAAA'
 $Tags = @{'DiskEncryptionKeyEncryptionAlgorithm' = 'RSA-OAEP';'DiskEncryptionKeyFileName' = 'B3284AAA-DAAA-4AAA-B393-60CAA848AAAA.BEK';'DiskEncryptionKeyEncryptionKeyURL' = $encryptionObject.OsDiskKeyAndSecretDetails.KeyUrl;'MachineName' = 'vm-name'}
-Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secretname -SecretValue $Secret -ContentType  'Wrapped BEK' -Tags $Tags
+Set-AzKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secretname -SecretValue $Secret -ContentType  'Wrapped BEK' -Tags $Tags
 ```
 
 **Use these cmdlets if your Linux VM is encrypted using BEK and KEK.**
@@ -74,7 +76,7 @@ $secretdata = $encryptionObject.OsDiskKeyAndSecretDetails.SecretData
 $Secret = ConvertTo-SecureString -String $secretdata -AsPlainText -Force
 $secretname = 'B3284AAA-DAAA-4AAA-B393-60CAA848AAAA'
 $Tags = @{'DiskEncryptionKeyEncryptionAlgorithm' = 'RSA-OAEP';'DiskEncryptionKeyFileName' = 'LinuxPassPhraseFileName';'DiskEncryptionKeyEncryptionKeyURL' = <Key_url_of_newly_restored_key>;'MachineName' = 'vm-name'}
-Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secretname -SecretValue $Secret -ContentType  'Wrapped BEK' -Tags $Tags
+Set-AzKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secretname -SecretValue $Secret -ContentType  'Wrapped BEK' -Tags $Tags
 ```
 
 Use the JSON file generated above to get secret name and value and feed it to set secret cmdlet to put the secret (BEK) back in the key vault. Use these cmdlets if your **VM is encrypted using BEK** only.
@@ -82,7 +84,7 @@ Use the JSON file generated above to get secret name and value and feed it to se
 ```powershell
 $secretDestination = 'C:\secret.blob'
 [io.file]::WriteAllBytes($secretDestination, [System.Convert]::FromBase64String($encryptionObject.OsDiskKeyAndSecretDetails.KeyVaultSecretBackupData))
-Restore-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -InputFile $secretDestination -Verbose
+Restore-AzKeyVaultSecret -VaultName '<target_key_vault_name>' -InputFile $secretDestination -Verbose
   ```
 
 > [!NOTE]
@@ -118,7 +120,7 @@ $secretname = 'B3284AAA-DAAA-4AAA-B393-60CAA848AAAA'
 $secretdata = $rp1.KeyAndSecretDetails.SecretData
 $Secret = ConvertTo-SecureString -String $secretdata -AsPlainText -Force
 $Tags = @{'DiskEncryptionKeyEncryptionAlgorithm' = 'RSA-OAEP';'DiskEncryptionKeyFileName' = 'B3284AAA-DAAA-4AAA-B393-60CAA848AAAA.BEK';'DiskEncryptionKeyEncryptionKeyURL' = 'https://mykeyvault.vault.azure.net:443/keys/KeyName/84daaac999949999030bf99aaa5a9f9';'MachineName' = 'vm-name'}
-Set-AzureKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secretname -SecretValue $secret -Tags $Tags -SecretValue $Secret -ContentType  'Wrapped BEK'
+Set-AzKeyVaultSecret -VaultName '<target_key_vault_name>' -Name $secretname -SecretValue $secret -Tags $Tags -SecretValue $Secret -ContentType  'Wrapped BEK'
 ```
 
 > [!NOTE]

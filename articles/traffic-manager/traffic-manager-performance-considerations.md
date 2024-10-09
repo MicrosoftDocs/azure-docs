@@ -1,15 +1,13 @@
 ---
-title: Performance considerations for Azure Traffic Manager | Microsoft Docs
+title: Performance considerations for Azure Traffic Manager
 description: Understand performance on Traffic Manager and how to test performance of your website when using Traffic Manager
 services: traffic-manager
-documentationcenter: ''
 author: greg-lindsay
-ms.service: traffic-manager
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 01/27/2023
+ms.service: azure-traffic-manager
+ms.topic: conceptual
+ms.date: 08/08/2024
 ms.author: greglin
+ms.custom: template-concept
 ---
 
 # Performance considerations for Traffic Manager

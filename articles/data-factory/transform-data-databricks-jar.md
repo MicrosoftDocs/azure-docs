@@ -2,13 +2,12 @@
 title: Transform data with Databricks Jar
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to process or transform data by running a Databricks Jar within an Azure Data Factory or Synapse Analytics pipeline.
-ms.service: data-factory
-ms.subservice: tutorials
 ms.custom: synapse
 ms.topic: conceptual
 ms.author: abnarain
 author: nabhishek
-ms.date: 09/22/2022
+ms.date: 10/03/2024
+ms.subservice: orchestration
 ---
 
 # Transform data by running a Jar activity in Azure Databricks
@@ -135,6 +134,6 @@ For more information, see the [Databricks documentation](/azure/databricks/dev-t
    As an example, to copy a JAR to dbfs:
    `dbfs cp SparkPi-assembly-0.1.jar dbfs:/docs/sparkpi.jar`
 
-## Next steps
+## Related content
 
 For an eleven-minute introduction and demonstration of this feature, watch the [video](/Shows/Azure-Friday/Execute-Jars-and-Python-scripts-on-Azure-Databricks-using-Data-Factory/player).

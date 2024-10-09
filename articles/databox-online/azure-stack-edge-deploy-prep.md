@@ -7,12 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 07/23/2021
+ms.date: 02/27/2024
 ms.author: alkohli
 ms.custom: subject-rbac-steps
 # Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro FPGA so I can use it to transfer data to Azure. 
 ---
-# Tutorial: Prepare to deploy Azure Stack Edge Pro FPGA  
+# Tutorial: Prepare to deploy Azure Stack Edge Pro FPGA
+
+[!INCLUDE [Azure Stack Edge Pro FPGA end-of-life](../../includes/azure-stack-edge-fpga-eol.md)]
 
 This is the first tutorial in the series of deployment tutorials that are required to completely deploy Azure Stack Edge Pro FPGA. This tutorial describes how to prepare the Azure portal to deploy an Azure Stack Edge resource. 
 
@@ -57,7 +59,7 @@ Before you begin, make sure that:
 
   * To assign the Contributor role to a user at resource group scope, you must have the Owner role at subscription scope.
 
-  For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+  For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
 * Resource providers: The following resource providers are registered: 
 
@@ -71,7 +73,7 @@ Before you begin, make sure that:
 
   For information on how to register, see [Register resource provider](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
 
-* You have admin or user access to Azure Active Directory Graph API. For more information, see [Azure Active Directory Graph API](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
+* You have admin or user access to Azure AD Graph API. For more information, see [Azure Active Directory Graph API](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
 
 * You have your Microsoft Azure storage account with access credentials.
 
@@ -114,9 +116,9 @@ To create a new Azure Stack Edge resource for an existing device, take the follo
 
 1. Select **+ Create a resource**. Search for and select **Azure Stack Edge**. Then select **Create**.
 
-1. Select the subscription for the Azure Stack Edge Pro FPGA device and the country to ship the device to in **Ship to**.
+1. Select the subscription for the Azure Stack Edge Pro FPGA device and the country/region to ship the device to in **Ship to**.
 
-   ![Select the subscription and ship-to country for your device](media/azure-stack-edge-deploy-prep/create-fpga-existing-resource-01.png)
+   ![Select the subscription and ship-to country/region for your device](media/azure-stack-edge-deploy-prep/create-fpga-existing-resource-01.png)
 
 
 1. In the list of device types that is displayed, select **Azure Stack Edge Pro - FPGA**. Then choose **Select**. 

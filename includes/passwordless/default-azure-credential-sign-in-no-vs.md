@@ -3,14 +3,14 @@ title: "include file"
 description: "include file"
 services: storage
 author: pauljewellmsft
-ms.service: storage
+ms.service: azure-storage
 ms.topic: include
 ms.date: 12/15/2022
 ms.author: pauljewell
 ms.custom: include file
 ---
 
-Make sure you're authenticated with the same Azure AD account you assigned the role to. You can authenticate via Azure CLI, Visual Studio Code, or Azure PowerShell.
+Make sure you're authenticated with the same Microsoft Entra account you assigned the role to. You can authenticate via Azure CLI, Visual Studio Code, or Azure PowerShell.
 
 ### [Azure CLI](#tab/sign-in-azure-cli)
 

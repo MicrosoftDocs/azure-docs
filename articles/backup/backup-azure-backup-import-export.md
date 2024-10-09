@@ -3,40 +3,32 @@ title: Offline seeding workflow for MARS using customer-owned disks with Azure I
 description: Learn how you can use Azure Backup to send data off the network by using the Azure Import/Export service. This article explains the offline seeding of the initial backup data by using the Azure Import/Export service.
 ms.reviewer: saurse
 ms.topic: how-to
-ms.date: 12/05/2022
-author: jyothisuri
-ms.author: jsuri
+ms.date: 05/24/2024
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
+
 # Offline seeding for MARS using customer-owned disks with Azure Import/Export
 
 This article describes how to send the initial full backup data from MARS to Azure using customer-owned disks instead of sending it via the network. Learn about [sending the initial full backup data from DPM/MABS to Azure using customer-owned disks](backup-azure-backup-server-import-export.md).
 
 Azure Backup has several built-in efficiencies that save network and storage costs during the initial full backups of data to Azure. Initial full backups typically transfer large amounts of data and require more network bandwidth when compared to subsequent backups that transfer only the deltas/incrementals. Through the process of offline seeding, Azure Backup can use disks to upload the offline backup data to Azure.
 
-In this article, you'll learn about:
+## Offline-seeding flow
 
-> [!div class="checklist"]
-> - Offline-seeding process
-> - Supported configurations
-> - Prerequisites
-> - Workflow
-> - How to initiate offline backup
-> - How to prepare SATA drives and ship to Azure
-> - How to update the tracking and shipping details on the Azure import job
+The Azure Backup offline-seeding process is tightly integrated with the [Azure Import/Export service](../import-export/storage-import-export-service.md). You can use this service to transfer initial backup data to Azure by using disks. If you have terabytes (TBs) of initial backup data that need to be transferred over a high-latency and low-bandwidth network, you can use the offline-seeding workflow to ship the initial backup copy, on one or more hard drives to an Azure datacenter. 
 
-## Offline-seeding process
-
-The Azure Backup offline-seeding process is tightly integrated with the [Azure Import/Export service](../import-export/storage-import-export-service.md). You can use this service to transfer initial backup data to Azure by using disks. If you have terabytes (TBs) of initial backup data that need to be transferred over a high-latency and low-bandwidth network, you can use the offline-seeding workflow to ship the initial backup copy, on one or more hard drives to an Azure datacenter. The following image provides an overview of the steps in the workflow.
-
-  :::image type="content" source="./media/backup-azure-backup-import-export/offlinebackupworkflowoverview.png" alt-text="Screenshot shows the overview of offline import workflow process.":::
-
-The offline backup process involves these steps:
+To perform the offline backup:
 
 1. Instead of sending the backup data over the network, write the backup data to a staging location.
 1. Use the *AzureOfflineBackupDiskPrep* utility to write the data in the staging location to one or more SATA disks.
 1. As part of the preparatory work, the *AzureOfflineBackupDiskPrep* utility creates an Azure import job. Send the SATA drives to the nearest Azure datacenter, and reference the import job to connect the activities.
 1. At the Azure datacenter, the data on the disks is copied to an Azure storage account.
 1. Azure Backup copies the backup data from the storage account to the Recovery Services vault, and incremental backups are scheduled.
+
+The following diagram provides an overview of the offline-seeding flow:
+
+  :::image type="content" source="./media/backup-azure-backup-import-export/offlinebackupworkflowoverview.png" alt-text="Diagram shows the overview of offline import workflow process.":::
 
 >[!Note]
 >Ensure that you use the latest MARS agent (version 2.0.9250.0 or higher) before following the below sections. [Learn more](backup-azure-mars-troubleshoot.md#mars-offline-seeding-using-customer-owned-disks-importexport-is-not-working).
@@ -64,7 +56,7 @@ Before you start the offline backup workflow, complete the following prerequisit
 * Azure PowerShell 3.7.0 is required on the computer running the Azure Backup Agent. Download and [install the 3.7.0 version of Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/v3.7.0-March2017).
 * On the computer running the Azure Backup Agent, make sure that Microsoft Edge or Internet Explorer 11 is installed and JavaScript is enabled.
 * Create an Azure storage account in the same subscription as the Recovery Services vault.
-* Make sure you have the [necessary permissions](../active-directory/develop/howto-create-service-principal-portal.md) to create the Azure Active Directory application. The offline backup workflow creates an Azure Active Directory application in the subscription associated with the Azure storage account. The goal of the application is to provide Azure Backup with secure and scoped access to the Azure Import/Export service, which is required for the offline backup workflow.
+* Ensure that you have the [necessary permissions](/entra/identity/role-based-access-control/permissions-reference#application-administrator) to create the Microsoft Entra application. The Offline Backup workflow creates a Microsoft Entra application in the subscription associated with the **Azure Storage account**. This application allows the **Azure Backup Service** a *secure and scoped access* to the **Azure Import Service**, required for the Offline Backup workflow.
 * Register the *Microsoft.DataBox* resource provider with the subscription that contains the Azure storage account. To register the resource provider:
     1. On the main menu, select **Subscriptions**.
     1. If you're subscribed to multiple subscriptions, select the subscription you plan to use for the offline backup. If you use only one subscription, then your subscription appears.
@@ -106,7 +98,7 @@ This section describes the offline backup workflow so that your data can be deli
   
    After you fill in the boxes, select **Next**. Save the **Staging Location** and the **Azure Import Job Name** information. It's required to prepare the disks.
 
-1. When prompted, sign in to your Azure subscription. You must sign in so that Azure Backup can create the Azure Active Directory application. Enter the required permissions to access the Azure Import/Export service.
+1. When prompted, sign in to your Azure subscription. You must sign in so that Azure Backup can create the Microsoft Entra application. Enter the required permissions to access the Azure Import/Export service.
 
     :::image type="content" source="./media/backup-azure-backup-import-export/azure-login.png" alt-text="Screenshot showing the Azure subscription sign-in page.":::
 

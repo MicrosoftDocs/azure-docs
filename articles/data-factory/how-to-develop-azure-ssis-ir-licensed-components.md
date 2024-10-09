@@ -1,18 +1,16 @@
 ---
 title: Install licensed components for Azure-SSIS integration runtime
 description: Learn how an ISV can develop and install paid or licensed custom components for the Azure-SSIS integration runtime and proxy with Self-hosted integration runtime
-ms.service: data-factory
 ms.subservice: integration-services
 author: chugugrace
 ms.author: chugu
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 08/09/2022
+ms.date: 05/15/2024
 ---
 
 # Install paid or licensed custom components for the Azure-SSIS integration runtime
 
-[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]]
 
 This article describes how an ISV can develop and install paid or licensed custom components for SQL Server Integration Services (SSIS) packages that run in Azure in the Azure-SSIS integration runtime, and proxy with self-hosted integration runtime.
 
@@ -86,14 +84,14 @@ To enable your custom/3rd party data flow components to access data on premises 
    
    1. Installs all assemblies referenced by your custom/3rd party data flow component assemblies in the global assembly cache (GAC).
 
-Here are examples from our partners, [Theobald Software](https://kb.theobald-software.com/xtract-is/XIS-for-Azure-SHIR) and [Aecorsoft](https://www.aecorsoft.com/blog/2020/11/8/using-azure-data-factory-to-bring-sap-data-to-azure-via-self-hosted-ir-and-ssis-ir), who have adapted their data flow components to use our express custom setup and self-hosted IR as a proxy for Azure-SSIS IR.
+Here's an example from our partner, [Aecorsoft](https://www.aecorsoft.com/blog/2020/11/8/using-azure-data-factory-to-bring-sap-data-to-azure-via-self-hosted-ir-and-ssis-ir), who has adapted their data flow components to use our express custom setup and self-hosted IR as a proxy for Azure-SSIS IR.
 
 
 ## ISV partners
 
 You can find a list of ISV partners who have adapted their components and extensions for the Azure-SSIS IR at the end of this blog post - [Enterprise Edition, Custom Setup, and 3rd Party Extensibility for SSIS in ADF](https://techcommunity.microsoft.com/t5/SQL-Server-Integration-Services/Enterprise-Edition-Custom-Setup-and-3rd-Party-Extensibility-for/ba-p/388360).
 
-## Next steps
+## Related content
 
 -   [Custom setup for the Azure-SSIS integration runtime](how-to-configure-azure-ssis-ir-custom-setup.md)
 

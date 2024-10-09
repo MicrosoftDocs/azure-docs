@@ -8,6 +8,8 @@
     href: select-move-tool.md
   - name: Common questions
     href: common-questions.md
+  - name: What's new
+    href: whats-new.md
 - name: Tutorials
   items:
   - name: Move Azure VMs to another region
@@ -48,6 +50,8 @@
   items:
   - name: Migration in the Cloud Adoption Framework
     href: /azure/cloud-adoption-framework/migrate/
+  - name: Azure services relcoation guidance overview
+    href: /azure/operational-excellence/overview-relocation
   - name: Resource Manager template
     href: /azure/templates/microsoft.migrate/allversions
   - name: Azure Roadmap

@@ -4,11 +4,10 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about array functions in mapping data flow.
 author: kromerm
 ms.author: makromer
-ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/03/2022
+ms.date: 01/05/2024
 ---
 
 # Array functions in mapping data flow
@@ -51,7 +50,7 @@ Array functions perform transformations on data structures that are arrays. Thes
 | [union](data-flow-expressions-usage.md#union) | Returns a union set of distinct items from 2 arrays.|
 |||
 
-## Next steps
+## Related content
 
 - List of all [aggregate functions](data-flow-aggregate-functions.md).
 - List of all [cached lookup functions](data-flow-cached-lookup-functions.md).

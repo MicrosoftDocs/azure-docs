@@ -1,8 +1,9 @@
 ---
 title: Linter rule - no hardcoded locations
 description: Linter rule - no hardcoded locations
-ms.topic: conceptual
-ms.date: 1/6/2022
+ms.topic: reference
+ms.custom: devx-track-bicep
+ms.date: 07/11/2024
 ---
 
 # Linter rule - no hardcoded locations
@@ -24,24 +25,29 @@ Rather than using a hardcoded string or variable value, use a parameter, the str
 The following example fails this test because the resource's `location` property uses a string literal:
 
 ```bicep
-  resource stg 'Microsoft.Storage/storageAccounts@2021-02-01' = {
+  resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
       location: 'westus'
   }
 ```
+
 You can fix it by creating a new `location` string parameter (which may optionally have a default value - resourceGroup().location is frequently used as a default):
 
 ```bicep
   param location string = resourceGroup().location
-  resource stg 'Microsoft.Storage/storageAccounts@2021-02-01' = {
+  resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
       location: location
   }
 ```
+
+Use **Quick Fix** to create a location parameter and replace the string literal with the parameter name. See the following screenshot:
+
+:::image type="content" source="./media/linter-rule-no-hardcoded-location/linter-rule-no-hardcoded-location-quick-fix.png" alt-text="The screenshot of No hardcoded location linter rule warning with quickfix.":::
 
 The following example fails this test because the resource's `location` property uses a variable with a string literal.
 
 ```bicep
   var location = 'westus'
-  resource stg 'Microsoft.Storage/storageAccounts@2021-02-01' = {
+  resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
       location: location
   }
 ```
@@ -50,7 +56,7 @@ You can fix it by turning the variable into a parameter:
 
 ```bicep
   param location string = 'westus'
-  resource stg 'Microsoft.Storage/storageAccounts@2021-02-01' = {
+  resource stg 'Microsoft.Storage/storageAccounts@2023-04-01' = {
       location: location
   }
 ```
@@ -65,11 +71,13 @@ module m1 'module1.bicep' = {
   }
 }
 ```
+
 where module1.bicep is:
+
 ```bicep
 param location string
 
-resource storageaccount 'Microsoft.Storage/storageAccounts@2021-02-01' = {
+resource storageaccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   name: 'storageaccount'
   location: location
   kind: 'StorageV2'
@@ -80,6 +88,7 @@ resource storageaccount 'Microsoft.Storage/storageAccounts@2021-02-01' = {
 ```
 
 You can fix the failure by creating a new parameter for the value:
+
 ```bicep
 param location string // optionally with a default value
 module m1 'module1.bicep' = {

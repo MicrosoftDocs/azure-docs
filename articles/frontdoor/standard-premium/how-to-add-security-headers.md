@@ -3,9 +3,9 @@ title: Configure security headers with Azure Front Door Standard/Premium Rule Se
 description: This article provides guidance on how to use rule set to configure security headers. 
 services: frontdoor
 author: duongau
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: how-to
-ms.date: 02/18/2021
+ms.date: 08/31/2023
 ms.author: yuajia
 ---
 
@@ -13,7 +13,7 @@ ms.author: yuajia
 
 This article shows how to implement security headers to prevent browser-based vulnerabilities like HTTP Strict-Transport-Security (HSTS), X-XSS-Protection, Content-Security-Policy, or X-Frame-Options. Security-based attributes can also be defined with cookies.
 
-The following example shows you how to add a Content-Security-Policy header to all incoming requests that matches the path in the Route. Here, we only allow scripts from our trusted site, **https://apiphany.portal.azure-api.net** to run on our application.
+The following example shows you how to add a Content-Security-Policy header to all incoming requests that matches the path in the Route. Here, we only allow scripts from our trusted site, **https://contoso.azure-api.net** to run on our application.
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ The following example shows you how to add a Content-Security-Policy header to a
 
 1. Set the operator to **Append** to add this header as a response to all of the incoming requests for this route.
 
-1. Add the header name: **Content-Security-Policy** and define the values this header should accept. In this scenario, we choose *"script-src 'self' https://apiphany.portal.azure-api.net"*.
+1. Add the header name: **Content-Security-Policy** and define the values this header should accept. In this scenario, we choose *"script-src 'self' https://contoso.azure-api.net"*.
 
 1. Once you've added all of the rules you'd like to your configuration, don't forget to associate the rule set with a route. This step is *required* to allow the rule set to take action. 
 

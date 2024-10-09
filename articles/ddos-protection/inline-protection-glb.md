@@ -2,15 +2,11 @@
 title: Inline L7 DDoS Protection with Gateway Load Balancer and partner NVAs
 description: Learn how to create and enable inline L7 DDoS Protection with Gateway Load Balancer and Partner NVAs
 services: ddos-protection
-documentationcenter: na
 author: AbdullahBell
-ms.service: ddos-protection
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
+ms.service: azure-ddos-protection
+ms.topic: how-to
 ms.author: abell
-ms.date: 10/12/2022
-ms.custom: ignite-fall-2021, ignite-2022
+ms.date: 11/06/2023
 ---
 
 # Inline L7 DDoS Protection with Gateway Load Balancer and Partner NVAs

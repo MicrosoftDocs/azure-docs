@@ -1,9 +1,9 @@
 ---
-title: 'Deploy & configure Azure Firewall Basic (preview) and policy using the Azure portal'
-description: In this how-to, you learn how to deploy and configure Azure Firewall Basic (preview) and policy rules using the Azure portal. 
+title: 'Deploy & configure Azure Firewall Basic and policy using the Azure portal'
+description: In this how-to, you learn how to deploy and configure Azure Firewall Basic and policy rules using the Azure portal. 
 services: firewall
 author: vhorne
-ms.service: firewall
+ms.service: azure-firewall
 ms.topic: how-to
 ms.date: 09/12/2022
 ms.author: victorh
@@ -11,11 +11,7 @@ ms.custom: mvc
 #Customer intent: As an administrator new to this service, I want to control outbound network access from resources located in an Azure subnet.
 ---
 
-# Deploy and configure Azure Firewall Basic (preview) and policy using the Azure portal
-
-> [!IMPORTANT]
-> Azure Firewall Basic is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+# Deploy and configure Azure Firewall Basic and policy using the Azure portal
 
 Azure Firewall Basic provides the essential protection SMB customers need at an affordable price point. This solution is recommended for SMB customer environments with less than 250 Mbps throughput requirements. It is recommended to deploy the [Standard SKU](tutorial-firewall-deploy-portal-policy.md) for environments with more than 250 Mbps throughput requirements and the [Premium SKU](premium-portal.md) for advanced threat protection. 
 
@@ -29,11 +25,14 @@ One way you can control both inbound and outbound network access from an Azure s
 
 Network traffic is subjected to the configured firewall rules when you route your network traffic to the firewall as the subnet default gateway.
 
-For this how-to, you create a simplified single VNet with three subnets for easy deployment. The Firewall Basic Preview has a mandatory requirement to be configured with a management NIC.
+For this how-to, you create a simplified single VNet with three subnets for easy deployment. Firewall Basic has a mandatory requirement to be configured with a management NIC.
 
 * **AzureFirewallSubnet** - the firewall is in this subnet.
 * **AzureFirewallManagementSubnet** - for service management traffic.
 * **Workload-SN** - the workload server is in this subnet. This subnet's network traffic goes through the firewall.
+
+> [!NOTE]
+> As the Azure Firewall Basic has limited traffic compared to the Azure Firewall Standard or Premium SKU, it requires the **AzureFirewallManagementSubnet** to separate customer traffic from Microsoft management traffic to ensure no disruptions on it. This management traffic is needed for updates and health metrics communication that occurs automatically to and from Microsoft only. No other connections are allowed on this IP.
 
 For production deployments, a [hub and spoke model](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) is recommended, where the firewall is in its own VNet. The workload servers are in peered VNets in the same region with one or more subnets.
 
@@ -54,22 +53,11 @@ If you prefer, you can complete this procedure using [Azure PowerShell](deploy-p
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-### Enable Firewall Basic
-
-For the preview, you must enable the Firewall Basic feature on your subscription.
-
-```azurepowershell
-Connect-AzAccount
-Select-AzSubscription -Subscription "subscription_id or subscription_name"
-Register-AzProviderFeature -FeatureName AzureFirewallBasic -ProviderNamespace Microsoft.Network
-Register-AzResourceProvider -ProviderNamespace Microsoft.Network
-```
-
 ## Create a resource group
 
 The resource group contains all the resources for the how-to.
 
-1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 2. On the Azure portal menu, select **Resource groups** or search for and select *Resource groups* from any page. Then select **Create**.
 4. For **Subscription**, select your subscription.
 1. For **Resource group name**, enter *Test-FW-RG*.
@@ -92,7 +80,7 @@ Deploy the firewall and create associated network infrastructure.
    |Resource group     |**Test-FW-RG** |
    |Name     |**Test-FW01**|
    |Region     |Select the same location that you used previously|
-   |Firewall Tier|**Basic (Preview)**|
+   |Firewall Tier|**Basic**|
    |Firewall management|**Use a Firewall Policy to manage this firewall**|
    |Firewall policy|**Add new**:<br>**fw-test-pol**<br>Your selected region<br>Policy tier should default to **Basic** 
    |Choose a virtual network     |**Create new**<br> Name: **Test-FW-VN**<br>Address space: **10.0.0.0/16**<br>Subnet address space: **10.0.0.0/26**|

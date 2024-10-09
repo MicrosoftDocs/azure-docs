@@ -3,9 +3,9 @@ title: Understand Azure Data Share pricing
 description: Learn how Azure Data Share pricing works
 author:  sidontha
 ms.author: sidontha
-ms.service: data-share
+ms.service: azure-data-share
 ms.topic: conceptual
-ms.date: 11/15/2022
+ms.date: 12/19/2023
 ---
 
 # Understand Azure Data Share pricing

@@ -4,13 +4,11 @@ description: This quickstart article describes how to create a Traffic Manager p
 services: traffic-manager
 author: greg-lindsay
 ms.author: greglin
-manager: twooley
-ms.date: 07/18/2022
+
+ms.date: 02/18/2023
 ms.topic: quickstart
-ms.service: traffic-manager
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: na
-ms.custom: mode-ui
+ms.service: azure-traffic-manager
+ms.custom: template-quickstart, mode-ui
 #Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ---
 
@@ -20,7 +18,7 @@ This quickstart describes how to create a Traffic Manager profile that delivers 
 
 In this quickstart, you'll read about two instances of a web application. Each of them is running in a different Azure region. You'll create a Traffic Manager profile based on [endpoint priority](traffic-manager-routing-methods.md#priority-traffic-routing-method). The profile directs user traffic to the primary site running the web application. Traffic Manager continuously monitors the web application. If the primary site is unavailable, it provides automatic failover to the backup site.
 
-:::image type="content" source="./media/quickstart-create-traffic-manager-profile/environment-diagram.png" alt-text="Diagram of Traffic Manager deployment environment." border="false":::
+:::image type="content" source="./media/quickstart-create-traffic-manager-profile/environment-diagram.png" alt-text="Diagram of Traffic Manager deployment environment." lightbox="./media/quickstart-create-traffic-manager-profile/environment-diagram.png":::
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now.
 
@@ -45,6 +43,8 @@ For this quickstart, you'll need two instances of a web application deployed in 
     | Region                  | Select **East US**. |
     | Windows Plan            | Select **Create new** and enter *myAppServicePlanEastUS* in the text box. |
     | Sku and size            | Select **Standard S1 100 total ACU, 1.75-GB memory**. |
+
+    :::image type="content" source="./media/quickstart-create-traffic-manager-profile/traffic-manager-web-app.png" alt-text="Screenshot of creating a web app.":::
    
 1. Select the **Monitoring** tab, or select **Next** to the **Monitoring** tab. Under **Monitoring**, set **Application Insights > Enable Application Insights** to **No**.
 
@@ -68,6 +68,8 @@ Create a Traffic Manager profile that directs user traffic based on endpoint pri
     | Subscription | Select the subscription you want the traffic manager profile applied to. |
     | Resource group | Select *myResourceGroupTM1*.|
     | Location |This setting refers to the location of the resource group. It has no effect on the Traffic Manager profile that will be deployed globally.|
+
+    :::image type="content" source="./media/quickstart-create-traffic-manager-profile/traffic-manager-profile.png" alt-text="Screenshot of Traffic Manager profile.":::
 
 1. Select **Create**.
 

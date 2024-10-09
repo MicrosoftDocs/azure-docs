@@ -6,7 +6,7 @@ ms.date: 10/25/2022
 ---
 
 # Subscribe to events published by Tribal Group
-This article describes steps to subscribe to events published by [Tribal Group's Edge Education Platform](https://www.tribalgroup.com/solutions/cloud-and-data-services/tribal-edge). 
+This article describes steps to subscribe to events published by [Tribal Group's Edge Education Platform](https://www.tribalgroup.com/solutions/cloud-and-data-services/tribal-cloud-services). 
 
 
 ## Prerequisites
@@ -25,7 +25,7 @@ Following are the prerequisites that your system needs to meet before attempting
 4. [Activate partner topic](#activate-a-partner-topic) so that your events start flowing to your partner topic.
 5. [Subscribe to events](#subscribe-to-events).
 
-[!INCLUDE [register-event-grid-provider](includes/register-event-grid-provider.md)]
+[!INCLUDE [register-provider](./includes/register-provider.md)]
 
 [!INCLUDE [authorize-verified-partner-to-create-topic](includes/authorize-verified-partner-to-create-topic.md)]
 

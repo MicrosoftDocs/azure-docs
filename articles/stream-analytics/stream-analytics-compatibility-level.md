@@ -1,10 +1,9 @@
 ---
 title: Azure Stream Analytics compatibility levels
 description: Learn how to set a compatibility level for an Azure Stream Analytics job and major changes in the latest compatibility level
-author: enkrumah
-ms.author: ebnkruma
-ms.service: stream-analytics
-ms.custom: ignite-2022
+author: AliciaLiMicrosoft 
+ms.author: ali 
+ms.service: azure-stream-analytics
 ms.topic: conceptual
 ms.date: 03/18/2021
 ---
@@ -112,6 +111,13 @@ Using the prefix "system" for any user-defined functions results in error.
 **Previous levels:** Array and Object types were supported as a key property.
 
 **1.2 level:** Array and Object types are no longer supported as a key property.
+
+### Deserializing boolean type in JSON, AVRO and PARQUET
+
+**Previous levels:** Azure Stream Analytics deserializes Boolean value into type BIGINT - false maps to 0 and true maps to 1. The output only creates boolean values in JSON, AVRO, and PARQUET if you explicitly convert events to BIT.
+For example, a pass-through query like `SELECT value INTO output1 FROM input1` reading a JSON `{ "value": true }` from input1 will write into the output1 a JSON value `{ "value": 1 }`.
+
+**1.2 level:** Azure Stream Analytics deserializes Boolean value into type BIT. False maps to 0 and true maps to 1. A pass-through query like `SELECT value INTO output1 FROM input1` reading a JSON `{ "value": true }` from input1 will write into the output1 a JSON value `{ "value": true }`. You can cast value to type BIT in the query to ensure they appear as true and false in the output for formats supporting boolean type.
 
 ## Compatibility level 1.1
 

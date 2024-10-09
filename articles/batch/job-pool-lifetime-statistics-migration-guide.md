@@ -3,7 +3,7 @@ title: Migrate from job and pool lifetime statistics to logs in Azure Batch
 description: Learn how to migrate your Batch monitoring approach from using job and pool lifetime statistics API to using logs and plan for feature end of support.
 author: harperche
 ms.author: harpercheng
-ms.service: batch
+ms.service: azure-batch
 ms.topic: how-to
 ms.date: 10/06/2022
 ---
@@ -14,7 +14,7 @@ The Azure Batch lifetime statistics API for jobs and pools will be retired on *A
 
 ## About the feature
 
-Currently, you can use API to retrieve lifetime statistics for [jobs](/rest/api/batchservice/job/get-all-lifetime-statistics#http) and [pools](/rest/api/batchservice/pool/get-all-lifetime-statistics#pools) in Batch. The API collects statistical data from when the Batch account was created for all jobs and pools created for the lifetime of the Batch account.
+Currently, you can use API to retrieve lifetime statistics for jobs and pools in Batch. The API collects statistical data from when the Batch account was created for all jobs and pools created for the lifetime of the Batch account.
 
 To make statistical data available to customers, the Batch service performs aggregation and roll-ups on a periodic basis. Due to these lifetime stats APIs being rarely exercised by Batch customers, these APIs are being retired as alternatives exist.
 
@@ -46,4 +46,4 @@ The Azure portal has various options to enable monitoring and logs. System logs 
 
 ## Next steps
 
-For more information, see the Batch [Job](/rest/api/batchservice/job) or [Pool](/rest/api/batchservice/pool) API. For Azure Monitor logs, see [this article](../azure-monitor/logs/data-platform-logs.md).
+For more information, see the Batch [Job](/rest/api/batchservice/job) or [Pool](/rest/api/batchservice/pool) API. For Azure Monitor logs, see [this article](/azure/azure-monitor/logs/data-platform-logs).

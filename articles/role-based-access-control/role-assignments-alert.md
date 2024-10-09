@@ -6,8 +6,7 @@ author: rolyon
 manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: how-to
-ms.workload: identity
-ms.date: 10/30/2022
+ms.date: 11/15/2023
 ms.author: rolyon
 ---
 
@@ -21,7 +20,7 @@ To create an alert rule, you must have:
 
 -	Access to an Azure subscription 
 -	Permission to create resource groups and resources within the subscription
--	[Log Analytics configured](../azure-monitor/logs/quick-create-workspace.md) so it has access to the AzureActivity table
+-	[Log Analytics configured](/azure/azure-monitor/logs/quick-create-workspace) so it has access to the AzureActivity table
 
 ## Estimate costs before using Azure Monitor
 
@@ -52,6 +51,7 @@ To get notified of privileged role assignments, you create an alert rule in Azur
     | where CategoryValue =~ "Administrative" and
         OperationNameValue =~ "Microsoft.Authorization/roleAssignments/write" and
         (ActivityStatusValue =~ "Start" or ActivityStatus =~ "Started")
+    | extend Properties_d = todynamic(Properties)
     | extend RoleDefinition = extractjson("$.Properties.RoleDefinitionId",tostring(Properties_d.requestbody),typeof(string))
     | extend PrincipalId = extractjson("$.Properties.PrincipalId",tostring(Properties_d.requestbody),typeof(string))
     | extend PrincipalType = extractjson("$.Properties.PrincipalType",tostring(Properties_d.requestbody),typeof(string))
@@ -91,7 +91,7 @@ To get notified of privileged role assignments, you create an alert rule in Azur
 
     An action group defines the actions and notifications that are executed when the alert is triggered.
 
-    When you create an action group, you must specify the resource group to put the action group within. Then, select the notifications (Email/SMS message/Push/Voice action) to invoke when the alert rule triggers. You can skip the **Actions** and **Tag** tabs. For more information, see [Create and manage action groups in the Azure portal](../azure-monitor/alerts/action-groups.md).
+    When you create an action group, you must specify the resource group to put the action group within. Then, select the notifications (Email/SMS message/Push/Voice action) to invoke when the alert rule triggers. You can skip the **Actions** and **Tag** tabs. For more information, see [Create and manage action groups in the Azure portal](/azure/azure-monitor/alerts/action-groups).
 
 1. On the **Details** tab, select the resource group to save the alert rule.
 
@@ -107,7 +107,7 @@ To get notified of privileged role assignments, you create an alert rule in Azur
 
 Once you've created an alert rule, you can test that it fires. 
 
-1. Assign the Contributor, Owner, or User Access Administrator role at subscription scope. For more information, see [Assign Azure roles using the Azure portal](role-assignments-portal.md).
+1. Assign the Contributor, Owner, or User Access Administrator role at subscription scope. For more information, see [Assign Azure roles using the Azure portal](role-assignments-portal.yml).
 
 1. Wait a few minutes to receive the alert based on the aggregation granularity and the frequency of evaluation of the log query.
 
@@ -133,5 +133,5 @@ Follow these steps to delete the role assignment alert rule and stop additional 
 
 ## Next steps
 
-- [Create, view, and manage activity log alerts by using Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
+- [Create, view, and manage activity log alerts by using Azure Monitor](/azure/azure-monitor/alerts/alerts-activity-log)
 - [View activity logs for Azure RBAC changes](change-history-report.md)

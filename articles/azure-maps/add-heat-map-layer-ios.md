@@ -2,15 +2,21 @@
 title: Add a heat map layer to iOS maps
 titleSuffix: Microsoft Azure Maps
 description: Learn how to create a heat map. See how to use the Azure Maps iOS SDK to add a heat map layer to a map. Find out how to customize heat map layers.
-author: stevemunk
-ms.author: v-munksteve
+author: sinnypan
+ms.author: sipa
 ms.date: 11/23/2021
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: ios-sdk
 ---
 
 # Add a heat map layer in the iOS SDK (Preview)
+
+> [!NOTE]
+>
+> **Azure Maps iOS SDK retirement**
+>
+> The Azure Maps Native SDK for iOS is now deprecated and will be retired on 3/31/25. To avoid service disruptions, migrate to the Azure Maps Web SDK by 3/31/25. For more information, see [The Azure Maps iOS SDK migration guide](ios-sdk-migration-guide.md).
 
 Heat maps, also known as point density maps, are a type of data visualization. They're used to represent the density of data using a range of colors and show the data "hot spots" on a map. Heat maps are a great way to render datasets with large number of points.
 
@@ -25,17 +31,17 @@ You can use heat maps in many different scenarios, including:
 > [!TIP]
 > Heat map layers by default render the coordinates of all geometries in a data source. To limit the layer so that it only renders point geometry features, set the `filter` option of the layer to `NSPredicate(format: "%@ == \"Point\"", NSExpression.geometryTypeAZMVariable)`. If you want to include MultiPoint features as well, use `NSCompoundPredicate`.
 
-[Internet of Things Show - Heat Maps and Image Overlays in Azure Maps](/shows/internet-of-things-show/heat-maps-and-image-overlays-in-azure-maps/player?format=ny)
+[Internet of Things Show - Heat Maps and Image Overlays in Azure Maps]
 
 ## Prerequisites
 
-Be sure to complete the steps in the [Quickstart: Create an iOS app](quick-ios-app.md) document. Code blocks in this article can be inserted into the  `viewDidLoad` function of `ViewController`.
+Be sure to complete the steps in the [Quickstart: Create an iOS app] document. Code blocks in this article can be inserted into the  `viewDidLoad` function of `ViewController`.
 
 ## Add a heat map layer
 
 To render a data source of points as a heat map, pass your data source into an instance of the `HeatMapLayer` class, and add it to the map.
 
-The following code sample loads a GeoJSON feed of earthquakes from the past week and renders them as a heat map. Each data point is rendered with a radius of 10 points at all zoom levels. To ensure a better user experience, the heat map is below the label layer so the labels stay clearly visible. The data in this sample is from the [USGS Earthquake Hazards Program](https://earthquake.usgs.gov/).
+The following code sample loads a GeoJSON feed of earthquakes from the past week and renders them as a heat map. Each data point is rendered with a radius of 10 points at all zoom levels. To ensure a better user experience, the heat map is below the label layer so the labels stay clearly visible. The data in this sample is from the [USGS Earthquake Hazards Program].
 
 ```swift
 // Create a data source.
@@ -116,7 +122,7 @@ NSExpression(
 - `sourceLayer`: If the data source connected to the layer is a vector tile source, a source layer within the vector tiles must be specified.
 - `visible`: Hides or shows the layer.
 
-This following is an example of a heat map where a liner interpolation expression is used to create a smooth color gradient. The `mag` property defined in the data is used with an exponential interpolation to set the weight or relevance of each data point.
+The following example demonstrates a heat map using a liner interpolation expression to create a smooth color gradient. The `mag` property defined in the data is used with an exponential interpolation to set the weight or relevance of each data point.
 
 ```swift
 let layer = HeatMapLayer(source: source, options: [
@@ -209,5 +215,11 @@ The following video shows a map running the above code, which scales the radius 
 
 For more code examples to add to your maps, see the following articles:
 
-- [Create a data source](create-data-source-ios-sdk.md)
-- [Use data-driven style expressions](data-driven-style-expressions-ios-sdk.md)
+- [Create a data source]
+- [Use data-driven style expressions]
+
+[Internet of Things Show - Heat Maps and Image Overlays in Azure Maps]: /shows/internet-of-things-show/heat-maps-and-image-overlays-in-azure-maps/player?format=ny
+[Quickstart: Create an iOS app]: quick-ios-app.md
+[USGS Earthquake Hazards Program]: https://earthquake.usgs.gov
+[Create a data source]: create-data-source-ios-sdk.md
+[Use data-driven style expressions]: data-driven-style-expressions-ios-sdk.md

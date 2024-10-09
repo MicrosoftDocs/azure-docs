@@ -1,13 +1,12 @@
 ---
 title: Switch activity in Azure Data Factory 
 description: The Switch activity allows you to control the processing flow based on a condition.
-author: chez-charlie
-ms.author: chez
+author: kromerm
+ms.author: makromer
 ms.reviewer: jburchel
-ms.service: data-factory
 ms.subservice: orchestration
 ms.topic: conceptual
-ms.date: 10/25/2022
+ms.date: 09/26/2024
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -21,11 +20,11 @@ The Switch activity provides the same functionality that a switch statement prov
 
 To use a Switch activity in a pipeline, complete the following steps:
 1. Search for _Switch_ in the pipeline Activities pane, and add a Switch activity to the pipeline canvas.
-1. Select the Switch activity on the canvas if it is not already selected, and its  **Activities** tab, to edit its details.
+1. Select the Switch activity on the canvas if it isn't already selected, and its  **Activities** tab, to edit its details.
 1. Enter an expression for the Switch to evaluate.  This can be any combination of dynamic [expressions, functions](control-flow-expression-language-functions.md), [system variables](control-flow-system-variables.md), or [outputs from other activities](how-to-expression-language-functions.md#examples-of-using-parameters-in-expressions).
-1. Select **Add case** to add additional cases.  If no case matches, the Default case activity will be used.
+1. Select **Add case** to add more cases.  If no case matches, the Default case activity is used.
 1. Enter the value for the new case.
-1. Select the Edit button to add activities that will be executed when the expression evaluates to the matched case.
+1. Select the Edit button to add activities that are executed when the expression evaluates to the matched case.
 
 :::image type="content" source="media/control-flow-switch-activity/switch-activity-ui.png" alt-text="Shows the UI for a Switch activity with numbered indications of each step to configure it.":::
 
@@ -84,7 +83,7 @@ defaultActivities | Set of activities that are executed when the expression eval
 
 ## Example
 
-The pipeline in this example copies data from an input folder to an output folder. The output folder is determined by the value of pipeline parameter: routeSelection.
+The pipeline in this example copies data from an input folder to an output folder. The pipeline parameter **routeSelection** determines the output folder.
 
 > [!NOTE]
 > This section provides JSON definitions and sample PowerShell commands to run the pipeline. For a walkthrough with step-by-step instructions to create a Data Factory pipeline by using Azure PowerShell and JSON definitions, see [tutorial: create a data factory by using Azure PowerShell](quickstart-create-data-factory-powershell.md).
@@ -293,9 +292,9 @@ The pipeline sets the **folderPath** to the value of either **outputPath1** or *
 
 ### PowerShell commands
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
-These commands assume that you've saved the JSON files into the folder: C:\ADF. 
+These commands assume you saved the JSON files into the folder: C:\ADF.
 
 ```powershell
 Connect-AzAccount
@@ -336,7 +335,7 @@ Write-Host "\nActivity 'Error' section:" -foregroundcolor "Yellow"
 $result.Error -join "`r`n"
 ```
 
-## Next steps
+## Related content
 
 See other control flow activities supported by Data Factory: 
 

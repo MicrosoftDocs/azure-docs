@@ -3,8 +3,8 @@ title: Using Microsoft Sentinel with Azure Web Application Firewall
 description: This article shows you how to use Microsoft Sentinel with Azure Web Application Firewall (WAF)
 services: web-application-firewall
 author: TreMansdoerfer
-ms.service: web-application-firewall
-ms.date: 08/16/2022
+ms.service: azure-web-application-firewall
+ms.date: 06/19/2023
 ms.author: victorh
 ms.topic: how-to
 ---
@@ -33,13 +33,13 @@ WAF log analytics are broken down into the following categories:
 
 The following WAF workbook examples show sample data:
 
-:::image type="content" source="media//waf-sentinel/waf-actions-filter.png" alt-text="WAF actions filter":::
+:::image type="content" source="media/waf-sentinel/waf-actions-filter.png" lightbox="media/waf-sentinel/waf-actions-filter.png" alt-text="Screenshot of WAF actions filter.":::
 
-:::image type="content" source="media//waf-sentinel/top-50-event-trigger.png" alt-text="Top 50 events":::
+:::image type="content" source="media/waf-sentinel/top-50-event-trigger.png" lightbox="media/waf-sentinel/top-50-event-trigger.png" alt-text="Screenshot of top 50 events.":::
 
-:::image type="content" source="media//waf-sentinel/attack-events.png" alt-text="Attack events":::
+:::image type="content" source="media/waf-sentinel/attack-events.png" lightbox="media/waf-sentinel/attack-events.png" alt-text="Screenshot of attack events.":::
 
-:::image type="content" source="media//waf-sentinel/top-10-attacking-ip-address.png" alt-text="Top 10 attacking IP addresses":::
+:::image type="content" source="media/waf-sentinel/top-10-attacking-ip-address.png" lightbox="media/waf-sentinel/top-10-attacking-ip-address.png" alt-text="Screenshot of top 10 attacking IP addresses.":::
 
 ## Launch a WAF workbook
 
@@ -68,11 +68,17 @@ To enable log analytics for each resource, go to your individual Azure Front Doo
 
 1. Select an already active workspace or create a new workspace. 
 
-1. On the left side panel under **Configuration** select **Data Connectors**.
+1. In Microsoft Sentinel, under **Content management**, select **Content hub**.
+ 
+1. Find and select the **Azure Web Application Firewall** solution.
 
-1. Search for **Azure web application firewall** and select **Azure web application firewall (WAF)**. Select **Open connector** page on the bottom right.
+1. On the toolbar at the top of the page, select **Install/Update**.
 
-   :::image type="content" source="media//waf-sentinel/data-connectors.png" alt-text="Data connectors":::
+1. In Microsoft Sentinel, on the left-hand side under **Configuration**, select **Data Connectors**.
+
+1. Search for and select **Azure Web Application Firewall (WAF)**. Select **Open connector page** on the bottom right.
+
+   :::image type="content" source="media//waf-sentinel/web-application-firewall-data-connector.png" alt-text="Screenshot of the data connector in Microsoft Sentinel.":::
 
 1. Follow the instructions under **Configuration** for each WAF resource that you want to have log analytic data for if you haven't done so previously.
 
@@ -94,4 +100,4 @@ The automation section of these rules can help you automatically respond to the 
 ## Next steps
 
 - [Learn more about Microsoft Sentinel](../sentinel/overview.md)
-- [Learn more about Azure Monitor Workbooks](../azure-monitor/visualize/workbooks-overview.md)
+- [Learn more about Azure Monitor Workbooks](/azure/azure-monitor/visualize/workbooks-overview)

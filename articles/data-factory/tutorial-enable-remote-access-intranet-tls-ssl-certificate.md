@@ -3,10 +3,9 @@ title: Enable remote access from intranet with TLS/SSL certificate (Advanced)
 description: This tutorial provides steps for setting up a self-hosted integration runtime with multiple on-premises machines and enabling remote access from intranet with TLS/SSL certificate (Advanced) to secure communication between integration runtime nodes.
 author: lrtoyou1223
 ms.author: lle
-ms.service: data-factory
-ms.subservice: tutorials
 ms.topic: tutorial
-ms.date: 09/26/2022
+ms.date: 10/03/2024
+ms.subservice: data-movement
 ---
 
 # Enable remote access from intranet with TLS/SSL certificate (Advanced)
@@ -88,7 +87,7 @@ In this tutorial, you will learn how to set up a self-hosted integration runtime
         1. Export the generated certificate with the private key via PowerShell (with elevated privileges):
         
             ```Powershell
-            $CertPassword = ConvertTo-SecureString -String “Password” -Force –AsPlainText
+            $CertPassword = ConvertTo-SecureString -String “Password” -Force -AsPlainText
             Export-PfxCertificate -Cert
             cert:\LocalMachine\My\CEB5B4372AA7BF877E56BCE27542F9F0A1AD197F -FilePath C:\self-signedcertificate.pfx -Password $CertPassword            
             ```

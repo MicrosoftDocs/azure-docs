@@ -7,6 +7,8 @@ ms.date: 06/26/2020
 
 # Lab setup guide
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 In this guide, you'll learn how to create a lab for students at your school.
 
 The process for publishing a lab to your students can take up to several hours. The amount of setup time depends on the number of virtual machines (VMs) that you want to create in your lab. Allow at least a day to ensure that the lab is working properly and to allow enough time to publish your students' VMs.
@@ -96,7 +98,7 @@ After you understand the requirements for your class's lab, you're ready to set 
     - [Create a lab in Canvas](how-to-configure-canvas-for-lab-plans.md)
 
 1. **Customize images and publish lab VMs**. To connect to a special VM called the template VM, see:
-    - [Create and manage a template VM](./tutorial-setup-lab.md#publish-a-lab)
+    - [Create and manage a template VM](./tutorial-setup-lab.md#publish-lab)
     - [Use a compute gallery](./how-to-use-shared-image-gallery.md)
 
     > [!NOTE]
@@ -111,19 +113,19 @@ After you understand the requirements for your class's lab, you're ready to set 
 
 1. **Add and manage lab users**. To add users to your lab, see:
    - [Add users to the lab](./tutorial-setup-lab.md#add-users-to-the-lab)
-   - [Send invitations to users](./tutorial-setup-lab.md#send-invitation-emails-to-users)
+   - [Send invitations to users](./tutorial-setup-lab.md#send-invitation-emails)
    - [Manage Lab Services user lists in Teams](./how-to-manage-labs-within-teams.md#manage-lab-user-lists-in-teams)
 
-    For information about the types of accounts that students can use, see [Student accounts](./how-to-configure-student-usage.md#student-accounts).
+    For information about the types of accounts that students can use, see [Student accounts](./how-to-access-lab-virtual-machine.md#user-account-types).
   
 1. **Set cost controls**. To set a schedule, establish quotas, and enable automatic shutdown, see the following tutorials:
 
-   - [Set a schedule](./tutorial-setup-lab.md#set-a-schedule-for-the-lab)
+   - [Set a schedule](./tutorial-setup-lab.md#add-a-lab-schedule)
 
         > [!NOTE]
         > Depending on the operating system you've installed, a VM might take several minutes to start. To ensure that a lab VM is ready for use during your scheduled hours, we recommend that you start it 30 minutes in advance.
 
-   - [Set quotas for users](./how-to-configure-student-usage.md#set-quotas-for-users) and [set additional quotas for specific users](./how-to-configure-student-usage.md#set-additional-quotas-for-specific-users)
+   - [Set quotas for users](./how-to-manage-lab-users.md#set-quotas-for-users) and [set additional quotas for specific users](./how-to-manage-lab-users.md#set-additional-quotas-for-specific-users)
   
    - [Enable automatic shutdown on disconnect](./how-to-enable-shutdown-disconnect.md)
 

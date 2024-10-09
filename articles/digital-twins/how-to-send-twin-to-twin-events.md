@@ -1,5 +1,4 @@
 ---
-# Mandatory fields.
 title: Set up twin-to-twin event handling
 titleSuffix: Azure Digital Twins
 description: Learn how to create a function in Azure for propagating events through the twin graph.
@@ -7,13 +6,12 @@ author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 06/21/2022
 ms.topic: how-to
-ms.service: digital-twins
-ms.custom: contperf-fy22q3 
+ms.service: azure-digital-twins
+ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
 # manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
@@ -27,7 +25,7 @@ To set up this twin-to-twin event handling, you'll create an [Azure function](..
 
 To set up twin-to-twin handling, you'll need an Azure Digital Twins instance to work with. For instructions on how to create an instance, see [Set up an Azure Digital Twins instance and authentication](./how-to-set-up-instance-portal.md). The instance should contain at least two twins that you want to send data between.
 
-Optionally, you may want to set up [automatic telemetry ingestion through IoT Hub](how-to-ingest-iot-hub-data.md) for your twins as well. This process isn't required to send data from twin to twin, but it's an important piece of a complete solution where the twin graph is driven by live telemetry.
+Optionally, you may want to set up [automatic telemetry ingestion through IoT Hub](how-to-ingest-iot-hub-data.md) for your twins as well. This process isn't required to send data from twin to twin, but it's an important piece of a complete solution where the twin graph is driven by live device telemetry.
 
 ## Send twin events to an endpoint
 
@@ -85,7 +83,7 @@ Now, your function can receive events through your Event Grid topic. The data fl
 
 The last step is to verify that the flow is working, by updating a twin and checking that related twins are updated according to the logic in your Azure function.
 
-To kick off the process, update the twin that's the source of the event flow. You can use the [Azure CLI](/cli/azure/dt/twin#az-dt-twin-update), [Azure Digital Twins SDK](how-to-manage-twin.md#update-a-digital-twin), or [Azure Digital Twins REST APIs](how-to-use-postman-with-digital-twins.md?tabs=data-plane) to make the update.
+To kick off the process, update the twin that's the source of the event flow. You can use the [Azure CLI](/cli/azure/dt/twin#az-dt-twin-update), [Azure Digital Twins SDK](how-to-manage-twin.md#update-a-digital-twin), or [Azure Digital Twins REST APIs](how-to-use-apis.md?tabs=data-plane) to make the update.
 
 Next, query your Azure Digital Twins instance for the related twin. You can use the [Azure CLI](/cli/azure/dt/twin#az-dt-twin-query), or the [Azure Digital Twins REST APIs and SDK](how-to-query-graph.md#run-queries-with-the-api). Verify that the twin received the data and updated as expected.
 

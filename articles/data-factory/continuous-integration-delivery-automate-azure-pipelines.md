@@ -1,14 +1,13 @@
 ---
 title: Automate continuous integration
 description: Learn how to automate continuous integration in Azure Data Factory with Azure Pipelines pipelines releases.
-ms.service: data-factory
 ms.subservice: ci-cd
 author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 10/25/2022 
-ms.custom: devx-track-azurepowershell
+ms.date: 09/25/2024
+ms.custom:
 ---
 
 # Automate continuous integration using Azure Pipelines releases
@@ -47,30 +46,30 @@ The following is a guide for setting up an Azure Pipelines release that automate
 
 1.  Add an Azure Resource Manager Deployment task:
 
-    a.  In the stage view, select **View stage tasks**.
+    1. In the stage view, select **View stage tasks**.
 
-    :::image type="content" source="media/continuous-integration-delivery/continuous-integration-image14.png" alt-text="Stage view":::
+       :::image type="content" source="media/continuous-integration-delivery/continuous-integration-image14.png" alt-text="Stage view":::
 
-    b.  Create a new task. Search for **ARM Template Deployment**, and then select **Add**.
+    1. Create a new task. Search for **ARM Template Deployment**, and then select **Add**.
 
-    c.  In the Deployment task, select the subscription, resource group, and location for the target data factory. Provide credentials if necessary.
+    1. In the Deployment task, select the subscription, resource group, and location for the target data factory. Provide credentials if necessary.
 
-    d.  In the **Action** list, select **Create or update resource group**.
+    1. In the **Action** list, select **Create or update resource group**.
 
-    e.  Select the ellipsis button (**…**) next to the **Template** box. Browse for the Azure Resource Manager template that is generated in your publish branch of the configured git repository. Look for the file `ARMTemplateForFactory.json` in the &lt;FactoryName&gt; folder of the adf_publish branch.
+    1. Select the ellipsis button (**…**) next to the **Template** box. Browse for the Azure Resource Manager template that is generated in your publish branch of the configured git repository. Look for the file `ARMTemplateForFactory.json` in the &lt;FactoryName&gt; folder of the adf_publish branch. For more details about using linked ARM templates, see [Deploying linked ARM templates with VSTS](/archive/blogs/najib/deploying-linked-arm-templates-with-vsts) and [Using linked templates](continuous-integration-delivery-linked-templates.md#using-linked-templates).
 
-    f.  Select **…** next to the **Template parameters** box to choose the parameters file. Look for the file `ARMTemplateParametersForFactory.json` in the &gt;FactoryName&lt; folder of the adf_publish branch.
+    1. Select **…** next to the **Template parameters** box to choose the parameters file. Look for the file `ARMTemplateParametersForFactory.json` in the &gt;FactoryName&lt; folder of the adf_publish branch.
 
-    g.  Select **…** next to the **Override template parameters** box, and enter the desired parameter values for the target data factory. For credentials that come from Azure Key Vault, enter the secret's name between double quotation marks. For example, if the secret's name is cred1, enter **"$(cred1)"** for this value.
+    1. Select **…** next to the **Override template parameters** box, and enter the desired parameter values for the target data factory. For credentials that come from Azure Key Vault, enter the secret's name between double quotation marks. For example, if the secret's name is cred1, enter **"$(cred1)"** for this value.
 
-    h. Select **Incremental** for the **Deployment mode**.
+    1. Select **Incremental** for the **Deployment mode**.
 
-    > [!WARNING]
-    > In Complete deployment mode, resources that exist in the resource group but aren't specified in the new Resource Manager template will be **deleted**. For more information, please refer to [Azure Resource Manager Deployment Modes](../azure-resource-manager/templates/deployment-modes.md)
+       > [!WARNING]
+       > In Complete deployment mode, resources that exist in the resource group but aren't specified in the new Resource Manager template will be **deleted**. For more information, please refer to [Azure Resource Manager Deployment Modes](../azure-resource-manager/templates/deployment-modes.md)
 
-    :::image type="content" source="media/continuous-integration-delivery/continuous-integration-image9.png" alt-text="Data Factory Prod Deployment":::
+       :::image type="content" source="media/continuous-integration-delivery/continuous-integration-image9.png" alt-text="Data Factory Prod Deployment":::
 
-1.  Save the release pipeline.
+1. Save the release pipeline.
 
 1. To trigger a release, select **Create release**. To automate the creation of releases, see [Azure DevOps release triggers](/azure/devops/pipelines/release/triggers)
 
@@ -122,7 +121,7 @@ The Azure Key Vault task might fail with an Access Denied error if the correct p
 
 ## Updating active triggers
 
-Install the latest Azure PowerShell modules by following instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
+Install the latest Azure PowerShell modules by following instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).
 
 >[!WARNING]
 >If you do not use latest versions of PowerShell and Data Factory module, you may run into deserialization errors while running the commands. 
@@ -152,7 +151,7 @@ The data factory team has provided a [sample pre- and post-deployment script](co
 >[!WARNING]
 >Make sure to use **PowerShell Core** in ADO task to run the script
 
-## Next steps
+## Related content
 
 - [Continuous integration and delivery overview](continuous-integration-delivery.md)
 - [Manually promote a Resource Manager template to each environment](continuous-integration-delivery-manual-promotion.md)

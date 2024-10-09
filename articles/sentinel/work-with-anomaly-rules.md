@@ -1,43 +1,57 @@
 ---
-title: Work with anomaly detection analytics rules in Microsoft Sentinel | Microsoft Docs
+title: Work with anomaly detection analytics rules in Microsoft Sentinel
 description: This article explains how to view, create, manage, assess, and fine-tune anomaly detection analytics rules in Microsoft Sentinel.
 author: yelevin
 ms.topic: how-to
-ms.date: 11/02/2022
+ms.date: 03/17/2024
 ms.author: yelevin
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
+ms.collection: usx-security
 ---
 
 # Work with anomaly detection analytics rules in Microsoft Sentinel
 
 Microsoft Sentinel’s [customizable anomalies feature](soc-ml-anomalies.md) provides [built-in anomaly templates](detect-threats-built-in.md#anomaly) for immediate value out-of-the-box. These anomaly templates were developed to be robust by using thousands of data sources and millions of events, but this feature also enables you to change thresholds and parameters for the anomalies easily within the user interface. Anomaly rules are enabled, or activated, by default, so they will generate anomalies out-of-the-box. You can find and query these anomalies in the **Anomalies** table in the **Logs** section.
 
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
+
 ## View customizable anomaly rule templates
 
-You can now find anomaly rules displayed in a grid in the **Anomalies** tab in the **Analytics** page. The list can be filtered by the following criteria:
+You can now find anomaly rules displayed in a grid in the **Anomalies** tab in the **Analytics** page.
 
-- **Status** - whether the rule is enabled or disabled.
+1. For users of Microsoft Sentinel in the Azure portal, select **Analytics** from the Microsoft Sentinel navigation menu.
 
-- **Tactics** - the MITRE ATT&CK framework tactics covered by the anomaly.
+    For users of the unified security operations platform in the Microsoft Defender portal, select **Microsoft Sentinel > Configuration > Analytics** from the Microsoft Defender navigation menu.
 
-- **Techniques** - the MITRE ATT&CK framework techniques covered by the anomaly.
+1. On the **Analytics** page, select the **Anomalies** tab.
 
-- **Data sources** - the type of logs that need to be ingested and analyzed for the anomaly to be defined.
+1. To filter the list by one or more of the following criteria, select **Add filter** and choose accordingly.
 
-When you select a rule, you will see the following information in the details pane:
+    - **Status** - whether the rule is enabled or disabled.
 
-- **Description** explains how the anomaly works and the data it requires.
+    - **Tactics** - the MITRE ATT&CK framework tactics covered by the anomaly.
 
-- **Tactics and techniques** are the MITRE ATT&CK framework tactics and techniques covered by the anomaly.
+    - **Techniques** - the MITRE ATT&CK framework techniques covered by the anomaly.
 
-- **Parameters** are the configurable attributes for the anomaly.
+    - **Data sources** - the type of logs that need to be ingested and analyzed for the anomaly to be defined.
 
-- **Threshold** is a configurable value that indicates the degree to which an event must be unusual before an anomaly is created.
+1. Select a rule and view the following information in the details pane:
 
-- **Rule frequency** is the time between log processing jobs that find the anomalies.
+    - **Description** explains how the anomaly works and the data it requires.
 
-- **Rule status** tells you whether the rule runs in **Production** or **Flighting** (staging) mode when enabled.
+    - **Tactics and techniques** are the MITRE ATT&CK framework tactics and techniques covered by the anomaly.
 
-- **Anomaly version** shows the version of the template that is used by a rule. If you want to change the version used by a rule that is already active, you must recreate the rule.
+    - **Parameters** are the configurable attributes for the anomaly.
+
+    - **Threshold** is a configurable value that indicates the degree to which an event must be unusual before an anomaly is created.
+
+    - **Rule frequency** is the time between log processing jobs that find the anomalies.
+
+    - **Rule status** tells you whether the rule runs in **Production** or **Flighting** (staging) mode when enabled.
+
+    - **Anomaly version** shows the version of the template that is used by a rule. If you want to change the version used by a rule that is already active, you must recreate the rule.
 
 The rules that come with Microsoft Sentinel out of the box cannot be edited or deleted. To customize a rule, you must first create a duplicate of the rule, and then customize the duplicate. [See the complete instructions](#tune-anomaly-rules).
 
@@ -50,13 +64,13 @@ The rules that come with Microsoft Sentinel out of the box cannot be edited or d
 >
 > 1. You can submit feedback to Microsoft on your experience with customizable anomalies.
 
-
-
 ## Assess the quality of anomalies
 
 You can see how well an anomaly rule is performing by reviewing a sample of the anomalies created by a rule over the last 24-hour period. 
 
-1. From the Microsoft Sentinel navigation menu, select **Analytics**.
+1. For users of Microsoft Sentinel in the Azure portal, select **Analytics** from the Microsoft Sentinel navigation menu.
+
+    For users of the unified security operations platform in the Microsoft Defender portal, select **Microsoft Sentinel > Configuration > Analytics** from the Microsoft Defender navigation menu.
 
 1. On the **Analytics** page, select the **Anomalies** tab.
 

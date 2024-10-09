@@ -1,9 +1,9 @@
 ---
-author: alkohli
+author: stevenmatthew
 ms.service: databox  
 ms.topic: include
 ms.date: 10/15/2020
-ms.author: alkohli
+ms.author: shaas
 ---
 
 Here are the sizes of the Azure objects that can be written. Make sure that all the files that are uploaded conform to these limits.

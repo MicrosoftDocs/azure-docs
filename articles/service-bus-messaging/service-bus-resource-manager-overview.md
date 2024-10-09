@@ -1,13 +1,12 @@
 ---
 title: Create Azure Service Bus resources using templates
 description: Use Azure Resource Manager templates to automate the creation of Service Bus resources
-documentationcenter: .net
 author: spelluru
 ms.topic: article
 ms.tgt_pltfrm: dotnet
+ms.custom: devx-track-arm-template
 ms.date: 09/20/2021
 ms.author: spelluru 
-ms.custom: devx-track-azurepowershell
 ---
 
 # Create Service Bus resources using Azure Resource Manager templates
@@ -19,7 +18,7 @@ Azure Resource Manager templates help you define the resources to deploy for a s
 > [!NOTE]
 > The examples in this article show how to use Azure Resource Manager to create a Service Bus namespace and messaging entity (queue). For other template examples, visit the [Azure Quickstart Templates gallery][Azure Quickstart Templates gallery] and search for **Service Bus**.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Service Bus Resource Manager templates
 

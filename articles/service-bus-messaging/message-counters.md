@@ -3,7 +3,7 @@ title: Azure Service Bus - message count
 description: Retrieve the count of messages held in queues and subscriptions by using Azure Resource Manager and the Azure Service Bus NamespaceManager APIs.
 ms.topic: article
 ms.date: 12/20/2022 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-arm-template
 ms.devlang: azurecli
 ---
 
@@ -19,6 +19,8 @@ This article shows you different ways of getting message counts for a queue or s
 | TransferDeadLetterMessageCount | Number of messages that failed to transfer into another queue or topic and have been moved into the transfer dead-letter queue. |
 
 If an application wants to scale resources based on the length of the queue, it should do so with a measured pace. The acquisition of the message counters is an expensive operation inside the message broker, and executing it frequently directly and adversely impacts the entity performance.
+
+Another useful metric to consider for scaling is the time between when the latest message was sent and when it was processed, also known as "critical time". This is helpful for scenarios where a queue may have thousands of messages in it, but the processing is fast enough to keep up, giving a "critical time" of only a couple of seconds, which may be more than enough for something like an email sending endpoint. Third-party libraries like [NServiceBus](https://docs.particular.net/nservicebus/operations/opentelemetry#meters-emitted-meters) emit this and other useful metrics via OpenTelemetry.
 
 > [!NOTE]
 > The messages that are sent to a Service Bus topic are forwarded to subscriptions for that topic. So, the active message count on the topic itself is 0, as those messages have been successfully forwarded to the subscription. Get the message count at the subscription and verify that it's greater than 0. Even though you see messages at the subscription, they are actually stored in a storage owned by the topic. If you look at the subscriptions, then they would have non-zero message count (which add up to 323 MB of space for this entire entity).
@@ -108,3 +110,5 @@ Try the samples in the language of your choice to explore Azure Service Bus feat
 Find samples for the older .NET and Java client libraries below:
 - [Azure Service Bus client library samples for .NET (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/)
 - [Azure Service Bus client library samples for Java (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus)
+
+[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]

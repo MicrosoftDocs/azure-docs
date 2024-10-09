@@ -5,16 +5,15 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 09/30/2022
+ms.date: 09/03/2024
 ms.custom: engagement-fy23
-tags: connectors
 ---
 
 # Connect to Azure Service Bus from workflows in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-This article shows how to access Azure Service Bus from a workflow in Azure Logic Apps with the Service Bus connector. You can then create automated workflows that run when triggered by events in a service bus or run actions to manage service bus items, for example:
+This guide shows how to access Azure Service Bus from a workflow in Azure Logic Apps using the Service Bus connector. You can then create automated workflows that run when triggered by events in a service bus or run actions to manage service bus items, for example:
 
 * Monitor when messages arrive (auto-complete) or are received (peek-lock) in queues, topics, and topic subscriptions.
 * Send messages.
@@ -33,9 +32,8 @@ The Service Bus connector has different versions, based on [logic app workflow t
 
 | Logic app | Environment | Connector version |
 |-----------|-------------|-------------------|
-| **Consumption** | Multi-tenant Azure Logic Apps | Managed connector (Standard class). For more information, review the following documentation: <br><br>- [Service Bus managed connector reference](/connectors/servicebus/) <br>- [Managed connectors in Azure Logic Apps](managed.md) |
-| **Consumption** | Integration service environment (ISE) | Managed connector (Standard class) and ISE version, which has different message limits than the Standard class. For more information, review the following documentation: <br><br>- [SQL Server managed connector reference](/connectors/sql) <br>- [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) <br>- [Managed connectors in Azure Logic Apps](managed.md) |
-| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Managed connector (Azure-hosted) and built-in connector, which is [service provider based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). The built-in version usually provides better performance, capabilities, pricing, and so on. <br><br>For more information, review the following documentation: <br><br>- [Service Bus managed connector reference](/connectors/servicebus/) <br>- [Service Bus built-in connector operations](#built-in-connector-operations) section later in this article <br>- [Built-in connectors in Azure Logic Apps](built-in.md) |
+| **Consumption** | Multitenant Azure Logic Apps | Managed connector, which appears in the connector gallery under **Runtime** > **Shared**. <br><br>**Note**: Service Bus managed connector triggers follow the [*long polling trigger* pattern](#service-bus-managed-triggers), which means that the trigger periodically checks for messages in the queue or topic subscription. For more information, review the following documentation: <br><br>- [Service Bus managed connector reference](/connectors/servicebus/) <br>- [Managed connectors in Azure Logic Apps](managed.md) |
+| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Managed connector (Azure-hosted), which appears in the connector gallery under **Runtime** > **Shared**, and built-in connector, which appears in the connector gallery under **Runtime** > **In App** and is [service provider based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). <br><br>The Service Bus managed connector triggers follow the [*long polling trigger* pattern](#service-bus-managed-triggers), which means that the trigger periodically checks for messages in the queue or topic subscription. <br><br>Service Bus built-in connector non-session triggers follow the [*push trigger* pattern](introduction.md#triggers), while session triggers provide polling capabilities. The built-in version usually provides better performance, capabilities, pricing, and so on. <br><br>For more information, review the following documentation: <br><br>- [Service Bus managed connector reference](/connectors/servicebus/) <br>- [Service Bus built-in connector operations](/azure/logic-apps/connectors/built-in/reference/servicebus) <br>- [Built-in connectors in Azure Logic Apps](built-in.md) |
 
 ## Prerequisites
 
@@ -53,19 +51,21 @@ The Service Bus connector has different versions, based on [logic app workflow t
 
 * If your logic app resource uses a managed identity for authenticating access to your Service Bus namespace and messaging entity, make sure that you've assigned role permissions at the corresponding levels. For example, to access a queue, the managed identity requires a role that has the necessary permissions for that queue.
 
-  Each managed identity that accesses a *different* messaging entity should have a separate connection to that entity. If you use different Service Bus actions to send and receive messages, and those actions require different permissions, make sure to use different connections.
+  * Each logic app resource should use only one managed identity, even if the logic app's workflow accesses different messaging entities.
 
-  For more information about managed identities, review [Authenticate access to Azure resources with managed identities in Azure Logic Apps](../logic-apps/create-managed-service-identity.md).
+  * Each managed identity that accesses a queue or topic subscription should use its own Service Bus API connection.
+
+  * Service Bus operations that exchange messages with different messaging entities and require different permissions should use their own Service Bus API connections.
+
+  For more information about managed identities, see [Authenticate access to Azure resources with managed identities in Azure Logic Apps](../logic-apps/create-managed-service-identity.md).
+
+* By default, the Service Bus built-in connector operations are *stateless*. To run these operations in stateful mode, see [Enable stateful mode for stateless built-in connectors](../connectors/enable-stateful-affinity-built-in-connectors.md).
 
 ## Considerations for Azure Service Bus operations
 
 ### Infinite loops
 
 [!INCLUDE [Warning about creating infinite loops](../../includes/connectors-infinite-loops.md)]
-
-### Peek-lock
-
-In Standard logic app workflows, peek-lock operations are available only for *stateless* workflows, not stateful workflows.
 
 ### Limit on saved sessions in connector cache
 
@@ -82,6 +82,8 @@ When you create a Consumption logic app workflow, you can select the **Correlate
 ### Large message support
 
 Large message support is available only for Standard workflows when you use the Service Bus built-in connector operations. For example, you can receive and large messages using the built-in triggers and actions respectively.
+
+For the Service Bus managed connector, the maximum message size is limited to 1 MB, even when you use a premium tier Service Bus namespace.
 
 ### Increase timeout for receiving and sending messages
 
@@ -104,9 +106,10 @@ In Standard workflows that use the Service Bus built-in operations, you can incr
 }
 ```
 
-To increase the timeout for sending a message, [add the `ServiceProviders.ServiceBus.MessageSenderOperationTimeout` app setting](../logic-apps/edit-app-settings-host-settings.md).
+To increase the timeout for sending a message, [add the **ServiceProviders.ServiceBus.MessageSenderOperationTimeout** app setting](../logic-apps/edit-app-settings-host-settings.md).
 
-### Service Bus triggers
+<a name="service-bus-managed-triggers"></a>
+### Service Bus managed connector triggers
 
 * For the Service Bus managed connector, all triggers are *long-polling*. This trigger type processes all the messages and then waits 30 seconds for more messages to appear in the queue or topic subscription. If no messages appear in 30 seconds, the trigger run is skipped. Otherwise, the trigger continues reading messages until the queue or topic subscription is empty. The next trigger poll is based on the recurrence interval specified in the trigger's properties.
 
@@ -135,9 +138,64 @@ To increase the timeout for sending a message, [add the `ServiceProviders.Servic
   > To find the optimal value for your scenario, start testing with a value of 1 or 2 for the `maximumWaitingRuns` property. 
   > To change the maximum waiting runs value, review [Change waiting runs limit](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs).
 
-<a name="permissions-connection-string"></a>
+### Service Bus built-in connector triggers
 
-## Step 1 - Check access to Service Bus namespace
+For the Service Bus built-in connector, non-session triggers follow the [*push trigger* pattern](introduction.md#triggers), while session-based triggers provide polling capability. Currently, the configuration settings for the Service Bus built-in trigger are shared between the [Azure Functions host extension](../azure-functions/functions-bindings-service-bus.md#hostjson-settings), which is defined in your logic app's [**host.json** file](../logic-apps/edit-app-settings-host-settings.md), and the trigger settings defined in your logic app's workflow, which you can set up either through the designer or code view. This section covers both settings locations.
+
+* In Standard workflows, some triggers, such as the **When messages are available in a queue** trigger, can return one or more messages. When these triggers fire, they return between one and the number of messages. For this type of trigger and where the **Maximum message count** parameter isn't supported, you can still control the number of messages received by using the **maxMessageBatchSize** property in the **host.json** file. To find this file, see [Edit host and app settings for Standard logic apps](../logic-apps/edit-app-settings-host-settings.md).
+
+  
+  ```json
+  "extensions": {
+    "serviceBus": {
+        "maxMessageBatchSize": 25
+    }
+  }
+  ```
+
+* You can also enable concurrency on the Service Bus trigger, either through the designer or in code:
+
+  ```json
+  "runtimeConfiguration": {
+      "concurrency": {
+          "runs": 100
+      }
+  }
+  ```
+
+  When you set up concurrency using a batch, keep the number of concurrent runs larger than the overall batch size. That way, read messages don't go into a waiting state and are always picked up when they're read. In some cases, the trigger can have up to twice the batch size.
+
+* If you enable concurrency, the **SplitOn** limit is reduced to 100 items. This behavior is true for all triggers, not just the Service Bus trigger. Make sure the specified batch size is less than this limit on any trigger where you enable concurrency.
+
+* [Some scenarios exist where the trigger can exceed the concurrency settings](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs-limit). Rather than fail these runs, Azure Logic Apps queues them in a waiting state until they can be started. The [**maximumWaitingRuns** setting](../logic-apps/edit-app-settings-host-settings.md#trigger-concurrency) controls the number of runs allowed in the waiting state:
+
+  ```json
+  "runtimeConfiguration": {
+      "concurrency": {
+          "runs": 100,
+          "maximumWaitingRuns": 50
+      }
+  }
+  ```
+
+  With the Service Bus trigger, make sure that you carefully test these changes so that runs don't wait longer than the message lock timeout. For more information about the default values, see [Concurrency and de-batching limits here](../logic-apps/logic-apps-limits-and-config.md#concurrency-and-debatching).
+
+* If you enable concurrency, a 30-second delay exists between batch reads, by default. This delay slows down the trigger to achieve the following goals:
+
+  - Reduce the number of storage calls sent to check the number of runs on which to apply concurrency.
+
+  - Mimic the behavior of the Service Bus managed connector trigger, which has a 30-second long poll when no messages are found.
+
+  You can change this delay, but make sure that you carefully test any changes to the default value:
+
+  ```json
+  "workflow": {
+      "settings": {
+          "Runtime.ServiceProviders.FunctionTriggers.DynamicListenerEnableDisableInterval": "00:00:30"
+      }
+  }
+
+## Step 1: Check access to Service Bus namespace
 
 To confirm that your logic app resource has permissions to access your Service Bus namespace, use the following steps:
 
@@ -147,7 +205,7 @@ To confirm that your logic app resource has permissions to access your Service B
 
    ![Screenshot showing the Azure portal, Service Bus namespace, and 'Shared access policies' selected.](./media/connectors-create-api-azure-service-bus/azure-service-bus-namespace.png)
 
-## Step 2 - Get connection authentication requirements
+## Step 2: Get connection authentication requirements
 
 Later, when you add a Service Bus trigger or action for the first time, you're prompted for connection information, including the connection authentication type. Based on your logic app workflow type, Service Bus connector version, and selected authentication type, you'll need the following items:
 
@@ -158,7 +216,7 @@ Later, when you add a Service Bus trigger or action for the first time, you're p
 | Authentication type | Required information |
 |---------------------|----------------------|
 | **Access Key** | The connection string for your Service Bus namespace. For more information, review [Get connection string for Service Bus namespace](#get-connection-string) |
-| **Azure AD Integrated** | The endpoint URL for your Service Bus namespace. For more information, review [Get endpoint URL for Service Bus namespace](#get-endpoint-url). |
+| **Microsoft Entra integrated** | The endpoint URL for your Service Bus namespace. For more information, review [Get endpoint URL for Service Bus namespace](#get-endpoint-url). |
 | **Logic Apps Managed Identity** | The endpoint URL for your Service Bus namespace. For more information, review [Get endpoint URL for Service Bus namespace](#get-endpoint-url). |
 
 <a name="built-in-connector-auth"></a>
@@ -168,12 +226,14 @@ Later, when you add a Service Bus trigger or action for the first time, you're p
 | Authentication type | Required information |
 |---------------------|----------------------|
 | **Connection String** | The connection string for your Service Bus namespace. For more information, review [Get connection string for Service Bus namespace](#get-connection-string) |
-| **Active Directory OAuth** | - The fully qualified name for your Service Bus namespace, for example, **<*your-Service-Bus-namespace*>.servicebus.windows.net**. For more information, review [Get fully qualified name for Service Bus namespace](#get-fully-qualified-namespace). For the other property values, review [Azure Active Directory Open Authentication](../logic-apps/logic-apps-securing-a-logic-app.md#azure-active-directory-oauth-authentication). |
+| **Active Directory OAuth** | - The fully qualified name for your Service Bus namespace, for example, **<*your-Service-Bus-namespace*>.servicebus.windows.net**. For more information, review [Get fully qualified name for Service Bus namespace](#get-fully-qualified-namespace). For the other property values, see [OAuth with Microsoft Entra ID](../logic-apps/logic-apps-securing-a-logic-app.md#oauth-microsoft-entra). |
 | **Managed identity** | The fully qualified name for your Service Bus namespace, for example, **<*your-Service-Bus-namespace*>.servicebus.windows.net**. For more information, review [Get fully qualified name for Service Bus namespace](#get-fully-qualified-namespace). |
 
 <a name="get-connection-string"></a>
 
 ### Get connection string for Service Bus namespace
+
+To create a connection when you add a Service Bus trigger or action, you need to have the connection string for your Service Bus namespace. The connection string starts with the **sb://** prefix.
 
 1. In the [Azure portal](https://portal.azure.com), open your Service Bus *namespace*.
 
@@ -181,14 +241,14 @@ Later, when you add a Service Bus trigger or action for the first time, you're p
 
 1. On the **Shared access policies** pane, select **RootManageSharedAccessKey**.
 
-1. Next to your primary connection string, select the copy button.
+1. Next to the primary or secondary connection string, select the copy button.
 
    ![Screenshot showing the Service Bus namespace connection string and the copy button selected.](./media/connectors-create-api-azure-service-bus/find-service-bus-connection-string.png)
 
    > [!NOTE]
    >
    > To check that the string is for the namespace, not a specific messaging entity, search the 
-   > connection string for the `EntityPath` parameter. If you find this parameter, the connection 
+   > connection string for the `EntityPath` parameter. If you find this parameter, the connection 
    > string is for a specific entity, and isn't the correct string to use with your workflow.
 
 1. Save the connection string for later use.
@@ -197,13 +257,13 @@ Later, when you add a Service Bus trigger or action for the first time, you're p
 
 ### Get endpoint URL for Service Bus namespace
 
+If you use the Service Bus managed connector, you need this endpoint URL if you select either authentication type for **Microsoft Entra integrated** or **Logic Apps Managed Identity**. The endpoint URL starts with the **sb://** prefix.
+
 1. In the [Azure portal](https://portal.azure.com), open your Service Bus *namespace*.
 
 1. On the namespace menu, under **Settings**, select **Properties**.
 
-1. In the **Properties** section, find the **Service bus endpoint** property, and copy the URL.
-
-1. Save the URL for later use.
+1. Under **Properties**, next to the **Service Bus endpoint**, copy the endpoint URL, and save for later use when you have to provide the service bus endpoint URL.
 
 <a name="get-fully-qualified-namespace"></a>
 
@@ -227,15 +287,11 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
 
 ### [Consumption](#tab/consumption)
 
-1. In the [Azure portal](https://portal.azure.com), and open your blank logic app workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app resource with blank workflow in the designer.
 
-1. On the designer, under the search box, select **Standard**. In the search box, enter **azure service bus**.
-
-1. From the triggers list, select the trigger that you want.
+1. In the designer, [follow these general steps to add the Azure Service Bus trigger that you want](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=consumption#add-trigger). 
 
    This example continues with the trigger named **When a message is received in a queue (auto-complete)**.
-
-   ![Screenshot showing Azure portal, Consumption workflow designer, and Service Bus trigger selected.](./media/connectors-create-api-azure-service-bus/select-trigger-consumption.png)
 
 1. If prompted, provide the following information for your connection. When you're done, select **Create**.
 
@@ -243,6 +299,7 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
    |----------|----------|-------------|
    | **Connection name** | Yes | A name for your connection |
    | **Authentication Type** | Yes | The type of authentication to use for accessing your Service Bus namespace. For more information, review [Managed connector authentication](#managed-connector-auth). |
+   | **Connection String** | Yes | The connection string that you copied and saved earlier. |
 
    For example, this connection uses access key authentication and provides the connection string for a Service Bus namespace:
 
@@ -278,17 +335,13 @@ The steps to add and use a Service Bus trigger differ based on whether you want 
 
 #### Built-in connector trigger
 
-1. In the [Azure portal](https://portal.azure.com), and open your blank logic app workflow in the designer.
+By default, the Service Bus built-in connector is a stateless connector. To run this connector's operations in stateful mode, see [Enable stateful mode for stateless built-in connectors](enable-stateful-affinity-built-in-connectors.md). Also, Service Bus built-in non-session triggers follow the [*push trigger* pattern](introduction.md#triggers), while session-based triggers provide polling capabilty.
 
-1. On the designer, select **Choose an operation**.
+1. In the [Azure portal](https://portal.azure.com), and open your Standard logic app resource with blank workflow in the designer.
 
-1. On the **Add a trigger** pane, under the search box, select **Built-in**. In the search box, enter **service bus**.
-
-1. From the triggers list, select the trigger that you want.
+1. In the designer, [follow these general steps to add the Azure Service Bus built-in trigger that you want](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger).
 
    This example continues with the trigger named **When messages are available in a queue**.
-
-   ![Screenshot showing Azure portal, Standard workflow designer, and Service Bus built-in trigger selected.](./media/connectors-create-api-azure-service-bus/select-trigger-built-in-standard.png)
 
 1. If prompted, provide the following information for your connection. When you're done, select **Create**.
 
@@ -296,6 +349,7 @@ The steps to add and use a Service Bus trigger differ based on whether you want 
    |----------|----------|-------------|
    | **Connection name** | Yes | A name for your connection |
    | **Authentication Type** | Yes | The type of authentication to use for accessing your Service Bus namespace. For more information, review [Built-in connector authentication](#built-in-connector-auth). |
+   | **Connection String** | Yes | The connection string that you copied and saved earlier. |
 
    For example, this connection uses connection string authentication and provides the connection string for a Service Bus namespace:
 
@@ -310,12 +364,6 @@ The steps to add and use a Service Bus trigger differ based on whether you want 
 
    ![Screenshot showing Standard workflow, Service Bus built-in trigger, and example trigger information.](./media/connectors-create-api-azure-service-bus/service-bus-trigger-built-in-standard.png)
 
-   > [!NOTE]
-   >
-   > This Service Bus trigger follows the *push trigger* pattern, which means that the trigger waits and listens 
-   > for events or data that meet the specified condition before running a workflow. The trigger doesn't check 
-   > for events or data based on a specified schedule. For more information, review [Triggers](apis-list.md#triggers).
-
 1. Add any actions that your workflow needs.
 
    For example, you can add an action that sends email when a new message arrives. When your trigger checks your queue and finds a new message, your workflow runs your selected actions for the found message.
@@ -326,24 +374,21 @@ The steps to add and use a Service Bus trigger differ based on whether you want 
 
 #### Managed connector trigger
 
-1. In the [Azure portal](https://portal.azure.com), and open your blank logic app workflow in the designer.
+Service Bus managed triggers follow the [*long polling trigger* pattern](#service-bus-managed-triggers).
 
-1. On the designer, select **Choose an operation**.
+1. In the [Azure portal](https://portal.azure.com), and open your Standard logic app resource and blank workflow in the designer.
 
-1. On the **Add a trigger** pane, under the search box, select **Azure**. In the search box, enter **azure service bus**.
-
-1. From the triggers list, select the trigger that you want.
+1. In the designer, [follow these general steps to add the Azure Service Bus managed trigger that you want](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger).
 
    This example continues with the trigger named **When a message is received in a queue (auto-complete)**.
 
-   ![Screenshot showing Azure portal, Standard workflow designer, and Service Bus managed connector trigger selected.](./media/connectors-create-api-azure-service-bus/select-trigger-managed-standard.png)
-
-1. If prompted, provide the following information for your connection. When you're done, select **Create**.
+1. In the connection box, provide the following information. When you're done, select **Create**.
 
    | Property | Required | Description |
    |----------|----------|-------------|
    | **Connection name** | Yes | A name for your connection |
    | **Authentication Type** | Yes | The type of authentication to use for accessing your Service Bus namespace. For more information, review [Managed connector authentication](#managed-connector-auth). |
+   | **Connection String** | Yes | The connection string that you copied and saved earlier. |
 
    For example, this connection uses access key authentication and provides the connection string for a Service Bus namespace:
 
@@ -381,17 +426,11 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
 
 ### [Consumption](#tab/consumption)
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app and workflow in the designer.
 
-1. Under the trigger or action where you want to add the action, select **New step**.
-
-   Or, to add an action between steps, move your pointer over the connecting arrow. Select the plus sign (**+**) that appears, and then select **Add an action**.
-
-1. Under the **Choose an operation** search box, select **Standard**. In the search box, enter **azure service bus**. From the actions list, select the action that you want.
+1. In the designer, [follow these general steps to add the Azure Service Bus action that you want](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
    This example continues with the **Send message** action.
-
-   ![Screenshot showing Azure portal, Consumption workflow designer, and Service Bus connector action selected.](./media/connectors-create-api-azure-service-bus/select-action-consumption.png)
 
 1. If prompted, provide the following information for your connection. When you're done, select **Create**.
 
@@ -399,6 +438,7 @@ The following steps use the Azure portal, but with the appropriate Azure Logic A
    |----------|----------|-------------|
    | **Connection name** | Yes | A name for your connection |
    | **Authentication Type** | Yes | The type of authentication to use for accessing your Service Bus namespace. For more information, review [Managed connector authentication](#managed-connector-auth). |
+   | **Connection String** | Yes | The connection string that you copied and saved earlier. |
 
    For example, this connection uses access key authentication and provides the connection string for a Service Bus namespace:
 
@@ -434,19 +474,13 @@ The steps to add and use a Service Bus action differ based on whether you want t
 
 #### Built-in connector action
 
-1. In the [Azure portal](https://portal.azure.com), and open your logic app workflow in the designer.
+The built-in Service Bus connector is a stateless connector, by default. To run this connector's operations in stateful mode, see [Enable stateful mode for stateless built-in connectors](enable-stateful-affinity-built-in-connectors.md).
 
-1. Under the trigger or action where you want to add the action, select the plus sign (**+**), and then select **Add an action**.
+1. In the [Azure portal](https://portal.azure.com), and open your Standard logic app resource and workflow in the designer.
 
-   Or, to add an action between existing steps, select the plus sign (**+**) on the connecting arrow, and then select **Add an action**.
-
-1. On the **Add an action** pane, under the search box, select **Built-in**. In the search box, enter **service bus**.
-
-1. From the actions list, select the action that you want.
+1. In the designer, [follow these general steps to add the Azure Service Bus built-in action that you want](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
    This example continues with the action named **Send message**.
-
-   ![Screenshot showing Azure portal, Standard workflow designer, and Service Bus built-in action selected.](./media/connectors-create-api-azure-service-bus/select-action-built-in-standard.png)
 
 1. If prompted, provide the following information for your connection. When you're done, select **Create**.
 
@@ -454,6 +488,7 @@ The steps to add and use a Service Bus action differ based on whether you want t
    |----------|----------|-------------|
    | **Connection name** | Yes | A name for your connection |
    | **Authentication Type** | Yes | The type of authentication to use for accessing your Service Bus namespace. For more information, review [Built-in connector authentication](#built-in-connector-auth). |
+   | **Connection String** | Yes | The connection string that you copied and saved earlier. |
 
    For example, this connection uses connection string authentication and provides the connection string for a Service Bus namespace:
 
@@ -479,19 +514,11 @@ The steps to add and use a Service Bus action differ based on whether you want t
 
 #### Managed connector action
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource and workflow in the designer.
 
-1. Under the trigger or action where you want to add the action, select **New step**.
-
-   Or, to add an action between steps, move your pointer over the connecting arrow. Select the plus sign (**+**) that appears, and then select **Add an action**.
-
-1. Under the **Choose an operation** search box, select **Azure**. In the search box, enter **azure service bus**.
-
-1. From the actions list, select the action that you want.
+1. In the designer, [follow these general steps to add the Azure Service Bus managed action that you want](../logic-apps/create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
    This example continues with the action named **Send message**.
-
-   ![Screenshot showing Azure portal, Standard workflow designer, and Service Bus managed action selected.](./media/connectors-create-api-azure-service-bus/select-action-managed-standard.png)
 
 1. If prompted, provide the following information for your connection. When you're done, select **Create**.
 
@@ -499,6 +526,7 @@ The steps to add and use a Service Bus action differ based on whether you want t
    |----------|----------|-------------|
    | **Connection name** | Yes | A name for your connection |
    | **Authentication Type** | Yes | The type of authentication to use for accessing your Service Bus namespace. For more information, review [Managed connector authentication](#managed-connector-auth). |
+   | **Connection String** | Yes | The connection string that you copied and saved earlier. |
 
    For example, this connection uses access key authentication and provides the connection string for a Service Bus namespace:
 
@@ -524,29 +552,27 @@ The steps to add and use a Service Bus action differ based on whether you want t
 
 ---
 
-<a name="built-in-connector-operations"></a>
-
-## Service Bus built-in connector operations
-
-The Service Bus built-in connector is available only for Standard logic app workflows and provides the following triggers and actions:
-
-| Trigger | Description |
-|-------- |-------------|
-| When messages are available in a queue | Start a workflow when one or more messages are available in a queue. |
-| When messages are available in a topic subscription | Start a workflow when one or more messages are available in a topic subscription. |
-
-These Service Bus triggers follow the *push trigger* pattern, which means that the trigger waits and listens for events or data that meet the specified condition before running a workflow. The trigger doesn't check for events or data based on a specified schedule. For more information, review [Triggers](apis-list.md#triggers).
-
-| Action | Description |
-|--------|-------------|
-| Send message | Send a message to a queue or topic. |
-| Send multiple messages | Send more than one message to a queue or topic. |
-
 <a name="built-in-connector-app-settings"></a>
 
 ## Service Bus built-in connector app settings
 
 In a Standard logic app resource, the Service Bus built-in connector includes app settings that control various thresholds, such as timeout for sending messages and number of message senders per processor core in the message pool. For more information, review [Reference for app settings - local.settings.json](../logic-apps/edit-app-settings-host-settings.md#reference-local-settings-json).
+
+<a name="read-messages-dead-letter-queues"></a>
+
+## Read messages from dead-letter queues with Service Bus built-in triggers
+
+In Standard workflows, to read a message from a dead-letter queue in a queue or a topic subscription, follow these steps using the specified triggers:
+
+1. In your blank workflow, based on your scenario, add the Service Bus *built-in* connector trigger named **When messages are available in a queue** or **When a message are available in a topic subscription (peek-lock)**.
+
+1. In the trigger, set the following parameter values to specify your queue or topic subscription's default dead-letter queue, which you can access like any other queue:
+
+   * **When messages are available in a queue** trigger: Set the **Queue name** parameter to **queuename/$deadletterqueue**.
+
+   * **When a message are available in a topic subscription (peek-lock)** trigger: Set the **Topic name** parameter to **topicname/Subscriptions/subscriptionname/$deadletterqueue**.
+
+   For more information, see [Service Bus dead-letter queues overview](../service-bus-messaging/service-bus-dead-letter-queues.md#path-to-the-dead-letter-queue).
 
 ## Troubleshooting
 
@@ -554,27 +580,42 @@ In a Standard logic app resource, the Service Bus built-in connector includes ap
 
 If a Service Bus trigger's polling interval is small, such as 10 seconds, updates to your workflow might not take effect for up to 10 minutes. To work around this problem, you can disable the logic app resource, make the changes, and then enable the logic app resource again.
 
-### No session available
+### No session available or might be locked by another receiver
 
 Occasionally, operations such as completing a message or renewing a session produce the following error:
 
 ``` json
 {
   "status": 400,
-  "message": "No session available to complete the message with the lock token 'ce440818-f26f-4a04-aca8-555555555555'. clientRequestId: facae905-9ba4-44f4-a42a-888888888888",
   "error": {
     "message": "No session available to complete the message with the lock token 'ce440818-f26f-4a04-aca8-555555555555'."
   }
 }
 ```
 
+Occasionally, a session-based trigger might fail with the following error:
+
+``` json
+{
+  "status": 400,
+  "error": {
+    "message": "Communication with the Service Bus namespace 'xxxx' and 'yyyy' entity failed. The requested session 'zzzz' cannot be accepted. It may be locked by another receiver."
+  }
+}
+```
+
 The Service Bus connector uses in-memory cache to support all operations associated with the sessions. The Service Bus message receiver is cached in the memory of the role instance (virtual machine) that receives the messages. To process all requests, all calls for the connection get routed to this same role instance. This behavior is required because all the Service Bus operations in a session require the same receiver that receives the messages for a specific session.
 
-The chance exists that requests might not get routed to the same role instance, due to reasons such as an infrastructure update, connector deployment, and so on. If this event happens, requests fail because the receiver that performs the operations in the session isn't available in the role instance that serves the request.
+Due to reasons such as an infrastructure update, connector deployment, and so on, the possibility exists for requests to not get routed to the same role instance. If this event happens, requests fail for one of the following reasons:
+
+- The receiver that performs the operations in the session isn't available in the role instance that serves the request.
+
+ - The new role instance tries to obtain the session, which either timed out in the old role instance or wasn't closed.
 
 As long as this error happens only occasionally, the error is expected. When the error happens, the message is still preserved in the service bus. The next trigger or workflow run tries to process the message again.
 
 ## Next steps
 
-* [Managed connectors in Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
-* [Built-in connectors in Azure Logic Apps](built-in.md)
+* [Managed connectors for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
+* [Built-in connectors for Azure Logic Apps](built-in.md)
+* [What are connectors in Azure Logic Apps](introduction.md)

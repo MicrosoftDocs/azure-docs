@@ -2,28 +2,30 @@
 title: Web App Tutorial - Write Web Application - Azure API for FHIR
 description: This tutorial walks through an example of deploying a simple web application. This section of the tutorial walks through writing the web application.
 services: healthcare-apis
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: tutorial
 ms.author: kesheth
 author: expekesheth
-ms.date: 06/03/2022
+ms.date: 09/27/2023
 ---
 
-# Write Azure web application to read FHIR data in Azure API for FHIR
+# Write an Azure web application to read FHIR data in Azure API for FHIR
 
-Now that you're able to connect to your FHIR server and POST data, you’re ready to write a web application that will read FHIR data. In this final step of the tutorial, we’ll walk through writing and accessing the web application.
+[!INCLUDE[retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
+
+Once you're able to connect to your FHIR&reg; server and POST data, you’re ready to write a web application that will read FHIR data. In this final step of the tutorial, we walk through writing and accessing the web application.
 
 ## Create web application
-In Azure, select **Create a resource** and select **Web App**. Make sure to name your web application whatever you specified in the redirect URI for your client application or go back and update the redirect URI with the new name. 
+In Azure, select **Create a resource** and select **Web App**. Make sure to name your web application whatever you specified in the redirect URI for your client application, or go back and update the redirect URI with the new name. 
 
 ![Create Web Application](media/tutorial-web-app/create-web-app.png)
 
-Once the web application is available, **Go to resource**. Select **App Service Editor (Preview)** under Development Tools on the right and then select **Go**. Selecting Go will open up the App Service Editor. Right select in the grey space under *Explore* and create a new file called **index.html**.
+Once the web application is available, select **Go to resource**. Select **App Service Editor (Preview)** under Development Tools on the right and then select **Go**. Selecting **Go** opens up the App Service Editor. Right select in the grey space under *Explore* and create a new file called **index.html**.
 
-Included is the code that you can input into **index.html**. You’ll need to update the following items:
-* **clientId** - Update with your client application ID. This ID will be the same ID you pulled when retrieving your token
-* **authority** - Update with your Azure AD tenant ID
+The following is code you can input into **index.html**. You’ll need to update the following items.
+* **clientId** - Update with your client application ID. This ID is the same ID you pulled when retrieving your token
+* **authority** - Update with your Microsoft Entra tenant ID
 * **FHIRendpoint** - Update the FHIRendpoint to have your FHIR service name
 * **scopes** - Update to reflect the full URL for your audience
 
@@ -144,14 +146,9 @@ From here, you can go back to your web application resource and open the URL fou
 
 ## Next Steps
 
-You’ve successfully deployed the Azure API for FHIR, registered a public client application, tested access, and created a small web application. Check out the Azure API for FHIR supported features as a next step.
+You’ve successfully deployed the Azure API for FHIR, registered a public client application, tested access, and created a small web application. As a next step, check out the Azure API for FHIR supported features.
 
 >[!div class="nextstepaction"]
 >[Supported Features](fhir-features-supported.md)
 
-FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
-
-
-
-
-
+[!INCLUDE[FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]

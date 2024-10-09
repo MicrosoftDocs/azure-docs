@@ -1,30 +1,30 @@
 ---
 title: Plan to manage costs for Azure Logic Apps
 description: Learn how to plan for and manage costs for Azure Logic Apps by using cost analysis in the Azure portal.
-ms.service: logic-apps
+ms.service: azure-logic-apps
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.custom: subject-cost-optimization
-ms.date: 08/20/2022
+ms.date: 01/10/2024
 
-# Note for Azure service writer: Links to Cost Management articles are full URLS with the ?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn campaign suffix. Leave those URLs intact. They're used to measure traffic to Cost Management articles. 
+# Note for Azure service writer: Links to Cost Management articles are full URLS with the ?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn campaign suffix. Leave those URLs intact. They're used to measure traffic to Cost Management articles.
 ---
 
 # Plan and manage costs for Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-This article helps you plan and manage costs for Azure Logic Apps. Before you create or add any resources using this service, estimate your costs by using the Azure pricing calculator. After you start using Logic Apps resources, you can set budgets and monitor costs by using [Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn). To identify areas where you might want to act, you can also review forecasted costs and monitor spending trends.
+This article helps you plan and manage costs for Azure Logic Apps. Before you create or add any resources using this service, estimate your costs by using the Azure pricing calculator. After you start using Azure Logic Apps resources, you can set budgets and monitor costs by using [Microsoft Cost Management](../cost-management-billing/cost-management-billing-overview.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn). To identify areas where you might want to act, you can also review forecasted costs and monitor spending trends.
 
-Keep in mind that costs for Logic Apps are only part of the monthly costs in your Azure bill. Although this article explains how to estimate and manage costs for Logic Apps, you're billed for all the Azure services and resources that are used in your Azure subscription, including any third-party services. After you're familiar with managing costs for Logic Apps, you can apply similar methods to manage costs for all the Azure services used in your subscription.
+Keep in mind that costs for Azure Logic Apps are only part of the monthly costs in your Azure bill. Although this article explains how to estimate and manage costs for Azure Logic Apps, you're billed for all the Azure services and resources that are used in your Azure subscription, including any third-party services. After you're familiar with managing costs for Azure Logic Apps, you can apply similar methods to manage costs for all the Azure services used in your subscription.
 
 ## Prerequisites
 
 <!--Note for Azure service writer: This section covers prerequisites for the Cost Management's Cost Analysis feature. Add other prerequisites needed for your service after the Cost Management prerequisites. -->
 
-[Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) supports most Azure account types. To view all the supported account types, see [Understand Cost Management data](../cost-management-billing/costs/understand-cost-mgt-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn). To view cost data, you need at least read access for your Azure account.
+[Microsoft Cost Management](../cost-management-billing/cost-management-billing-overview.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) supports most Azure account types. To view all the supported account types, see [Understand Cost Management data](../cost-management-billing/costs/understand-cost-mgt-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn). To view cost data, you need at least read access for your Azure account.
 
-For information about assigning access to Azure Cost Management data, see [Assign access to data](../cost-management-billing/costs/assign-access-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+For information about assigning access to Microsoft Cost Management data, see [Assign access to data](../cost-management-billing/costs/assign-access-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
 <!--Note for Azure service writer: If you have other prerequisites for your service, add them here -->
 
@@ -32,35 +32,31 @@ For information about assigning access to Azure Cost Management data, see [Assig
 
 ## Understand the billing model
 
-Azure Logic Apps runs on Azure infrastructure that [accrues costs](https://azure.microsoft.com/pricing/details/logic-apps/) when you deploy new resources. Make sure that you understand the [billing model for the Logic Apps service along with related Azure resources](logic-apps-pricing.md), and manage costs due to these dependencies when you make changes to deployed resources.
+Azure Logic Apps runs on Azure infrastructure that [accrues costs](https://azure.microsoft.com/pricing/details/logic-apps/) when you deploy new resources. Make sure that you understand the [billing model for Azure Logic Apps along with related Azure resources](logic-apps-pricing.md), and manage costs due to these dependencies when you make changes to deployed resources.
 
 <a name="typical-costs"></a>
 
 ### Costs that typically accrue with Azure Logic Apps
 
-The Azure Logic Apps service applies different pricing models, based on the resources that you create and use:
+Azure Logic Apps applies different pricing models, based on the resources that you create and use:
 
-* Logic app resources that you create and run in multi-tenant Azure Logic Apps use a [consumption (pay-for-use) pricing model](../logic-apps/logic-apps-pricing.md#consumption-pricing).
+* Logic app resources that you create and run in multitenant Azure Logic Apps use a [consumption (pay-for-use) pricing model](../logic-apps/logic-apps-pricing.md#consumption-pricing).
 
 * Logic app resources that you create and run in single-tenant Azure Logic Apps use a [hosting plan pricing model](../logic-apps/logic-apps-pricing.md#standard-pricing).
-
-* Logic app resources that you create and run in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) use the [ISE pricing model](../logic-apps/logic-apps-pricing.md#ise-pricing).
 
 Here are other resources that incur costs when you create them for use with logic apps:
 
 * An [integration account](../logic-apps/logic-apps-pricing.md#integration-accounts) is a separate resource that you create and link to logic apps for building B2B integrations. Integration accounts use a [fixed pricing model](../logic-apps/logic-apps-pricing.md#integration-accounts) where the rate is based on the integration account type or *tier* that you use.
 
-* An [ISE](../logic-apps/logic-apps-pricing.md#ise-pricing) is a separate resource that you create as a deployment location for logic apps that need direct access to resources in a virtual network. ISEs use the [ISE pricing model](../logic-apps/logic-apps-pricing.md#ise-pricing) where the rate is based on the ISE SKU that you create and other settings. However, data retention and storage consumption don't incur costs.
-
-* A [custom connector](../logic-apps/logic-apps-pricing.md#consumption-pricing) is a separate resource that you create for a REST API that has no prebuilt connector for you to use in your logic apps. Custom connector executions use a [consumption pricing model](../logic-apps/logic-apps-pricing.md#consumption-pricing) except when you use them in an ISE.
+* A [custom connector](../logic-apps/logic-apps-pricing.md#consumption-pricing) is a separate resource that you create for a REST API that has no prebuilt connector for you to use in your logic apps. Custom connector executions use the [Consumption pricing model](../logic-apps/logic-apps-pricing.md#consumption-pricing).
 
 <a name="storage-operations-costs"></a>
 
 #### Storage operations and costs
 
-Azure Logic Apps uses [Azure Storage](../storage/index.yml) for any storage operations. With multi-tenant Azure Logic Apps, any storage usage and costs are attached to the logic app. [Data retention and storage consumption](../logic-apps/logic-apps-pricing.md#storage-operations) accrue costs using a [fixed pricing model](../logic-apps/logic-apps-pricing.md#storage-operations). For example, inputs and outputs from run history are kept in behind-the-scenes storage, which differs from storage resources that you independently create, manage, and access from your logic app.
+Azure Logic Apps uses [Azure Storage](../storage/index.yml) for any storage operations. With multitenant Azure Logic Apps, any storage usage and costs are attached to the logic app. [Data retention and storage consumption](../logic-apps/logic-apps-pricing.md#storage-operations) accrue costs using a [fixed pricing model](../logic-apps/logic-apps-pricing.md#storage-operations). For example, inputs and outputs from run history are kept in behind-the-scenes storage, which differs from storage resources that you independently create, manage, and access from your logic app.
 
-With single-tenant Azure Logic Apps, you can use your own Azure [storage account](../azure-functions/storage-considerations.md#storage-account-requirements). This capability gives you more control and flexibility with your Logic Apps data. When *stateful* workflows run their operations, the Azure Logic Apps runtime makes storage transactions. For example, queues are used for scheduling, while tables and blobs are used for storing workflow states. Storage costs change based on your workflow's content. Different triggers, actions, and payloads result in different storage operations and needs. Storage transactions follow the [Azure Storage pricing model](https://azure.microsoft.com/pricing/details/storage/). Storage costs are separately listed in your Azure billing invoice.
+With single-tenant Azure Logic Apps, you can use your own Azure [storage account](../azure-functions/storage-considerations.md#storage-account-requirements). This capability gives you more control and flexibility with your Azure Logic Apps data. When *stateful* workflows run their operations, the Azure Logic Apps runtime makes storage transactions. For example, queues are used for scheduling, while tables and blobs are used for storing workflow states. Storage costs change based on your workflow's content. Different triggers, actions, and payloads result in different storage operations and needs. Storage transactions follow the [Azure Storage pricing model](https://azure.microsoft.com/pricing/details/storage/). Storage costs are separately listed in your Azure billing invoice.
 
 For single-tenant Azure Logic Apps, you can get some idea about the number of storage operations that a workflow might run and their cost by using the [Logic Apps Storage calculator](https://logicapps.azure.com/calculator). You can either select a sample workflow or use an existing workflow definition. The first calculation estimates the number of storage operations in your workflow. You can then use these numbers to estimate possible costs using the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/). For more information, review [Estimate storage needs and costs for workflows in single-tenant Azure Logic Apps](estimate-storage-costs.md).
 
@@ -70,17 +66,13 @@ For single-tenant Azure Logic Apps, you can get some idea about the number of st
 
 <!--Note to Azure service writer: You might need to sync with your product team to identify resources that continue to exist after those ones for your service are deleted. If you're certain that no resources can exist after those for your service are deleted, then omit this section. -->
 
-After you delete a logic app, the Logic Apps service won't create or run new workflow instances. However, all in-progress and pending runs continue until they finish. Depending on the number of these runs, this process might take some time. For more information, see [Manage logic apps](manage-logic-apps-with-azure-portal.md#delete-logic-apps).
+After you delete a logic app, Azure Logic Apps won't create or run new workflow instances. However, all in-progress and pending runs continue until they finish. Depending on the number of these runs, this process might take some time. For more information, see [Manage logic apps](manage-logic-apps-with-azure-portal.md#delete-logic-apps).
 
 If you have these resources after deleting a logic app, these resources continue to exist and accrue costs until you delete them:
 
 * Azure resources that you create and manage independently from the logic app that connects to those resources, for example, Azure function apps, event hubs, event grids, and so on
 
 * Integration accounts
-
-* Integration service environments (ISEs)
-
-  If you [delete an ISE](ise-manage-integration-service-environment.md#delete-ise), the associated Azure virtual network, subnets, and other related resources continue to exist. After you delete the ISE, you might have to wait up to a specific number of hours before you can try deleting the virtual network or subnets.
 
 ### Using Monetary Credit with Azure Logic Apps
 
@@ -108,7 +100,7 @@ Before you create resources with Azure Logic Apps, estimate your costs by using 
 
 ## Create budgets and alerts
 
-To help you proactively manage costs for your Azure account or subscription, you can create [budgets](../cost-management-billing/costs/tutorial-acm-create-budgets.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) and [alerts](../cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) by using the [Azure Cost Management and Billing](../cost-management-billing/cost-management-billing-overview.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) service and capabilities.  Budgets and alerts are created for Azure subscriptions and resource groups, so they're useful as part of an overall cost monitoring strategy.
+To help you proactively manage costs for your Azure account or subscription, you can create [budgets](../cost-management-billing/costs/tutorial-acm-create-budgets.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) and [alerts](../cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) by using the [Microsoft Cost Management and Billing](../cost-management-billing/cost-management-billing-overview.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) service and capabilities.  Budgets and alerts are created for Azure subscriptions and resource groups, so they're useful as part of an overall cost monitoring strategy.
 
 Based on spending compared to budget and cost thresholds, alerts automatically notify stakeholders about spending anomalies and overspending risks. If you want more granularity in your monitoring, you can also create budgets that use filters for specific resources or services in Azure. Filters help make sure that you don't accidentally create new resources that cost you extra money. For more information about the filter options, see [Group and filter options](../cost-management-billing/costs/group-filter.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
@@ -122,7 +114,7 @@ After you start incurring costs for resources that create or start using in Azur
 
 * [Monitor logic app executions and storage usage](#monitor-billing-metrics) by using Azure Monitor
 
-* Run [cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) by using [Azure Cost Management and Billing](../cost-management-billing/cost-management-billing-overview.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+* Run [cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) by using [Microsoft Cost Management and Billing](../cost-management-billing/cost-management-billing-overview.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 
 <a name="monitor-billing-metrics"></a>
 
@@ -177,9 +169,9 @@ Using Azure Monitor, you can view these metrics for a specific logic app:
 
 <a name="run-cost-analysis"></a>
 
-### Run cost analysis by using Azure Cost Management and Billing
+### Run cost analysis by using Microsoft Cost Management and Billing
 
-To review costs for the Logic Apps service based on a specific scope, for example, an Azure subscription, you can use the [cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) capabilities in [Azure Cost Management and Billing](../cost-management-billing/cost-management-billing-overview.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+To review costs for Azure Logic Apps based on a specific scope, for example, an Azure subscription, you can use the [cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) capabilities in [Microsoft Cost Management and Billing](../cost-management-billing/cost-management-billing-overview.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
 1. In the Azure portal, open the scope that you want, such as your Azure subscription. From the left menu, under **Cost Management**, select **Cost analysis**.
 
@@ -201,7 +193,7 @@ To review costs for the Logic Apps service based on a specific scope, for exampl
 
    ![Screenshot that shows Azure portal and cost analysis pane with filter selections.](./media/plan-manage-costs/cost-analysis-add-service-name-filter.png)
 
-   For example, here is the result for the Logic Apps service:
+   For example, here is the result for Azure Logic Apps:
 
    ![Screenshot that shows Azure portal and cost analysis pane with results filtered on "logic apps".](./media/plan-manage-costs/cost-analysis-total-actual-costs-service.png)
 
@@ -222,7 +214,7 @@ To help you reduce costs on your logic aps and related resources, try these opti
 
 * If possible, use [built-in triggers and actions](../connectors/built-in.md), which cost less to run per execution than [managed connector triggers and actions](../connectors/managed.md).
 
-  For example, you might be able to reduce costs when accessing other resources by using the [HTTP action](../connectors/connectors-native-http.md) or by calling a function that you created by using the [Azure Functions service](../azure-functions/functions-overview.md) and using the [built-in Azure Functions action](../logic-apps/logic-apps-azure-functions.md). However, using Azure Functions also incurs costs, so make sure that you compare your options.
+  For example, you might be able to reduce costs when accessing other resources by using the [HTTP action](../connectors/connectors-native-http.md) or by calling a function that you created by using the [Azure Functions service](../azure-functions/functions-overview.md) and using the [built-in Azure Functions action](call-azure-functions-from-workflows.md). However, using Azure Functions also incurs costs, so make sure that you compare your options.
 
 * [Specify precise trigger conditions](logic-apps-workflow-actions-triggers.md#trigger-conditions) for running a workflow.
 
@@ -230,15 +222,13 @@ To help you reduce costs on your logic aps and related resources, try these opti
 
 * If a trigger has a polling version and a webhook version, try the webhook version, which waits for the specified event to happen before firing, rather than regularly checking for the event.
 
-* Call your logic app through another service so that the trigger fires only when the workflow should run.
+* Call your logic app through another service, such as Azure Functions or Azure Service Bus, so that the trigger fires only when the workflow should run.
 
-  For example, you can call your logic app from a function that you create and run using the Azure Functions service. For example, see [Call or trigger logic apps by using Azure Functions and Azure Service Bus](logic-apps-scenario-function-sb-trigger.md).
-
-* [Disable logic apps](manage-logic-apps-with-azure-portal.md#disable-or-enable-logic-apps) that don't have to constantly run, or [delete logic apps](manage-logic-apps-with-azure-portal.md#delete-logic-apps) that you no longer need at all. If possible, disable any other resources that you don't need constantly active.
+* [Disable logic apps](manage-logic-apps-with-azure-portal.md#disable-enable-logic-apps) that don't have to constantly run, or [delete logic apps](manage-logic-apps-with-azure-portal.md#delete-logic-apps) that you no longer need at all. If possible, disable any other resources that you don't need constantly active.
 
 ## Next steps
 
-* [Optimize your cloud investment with Azure Cost Management](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+* [Optimize your cloud investment with Microsoft Cost Management](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 * [Manage costs using cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 * [Prevent unexpected costs](../cost-management-billing/understand/analyze-unexpected-charges.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 * Take the [Cost Management](/training/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guided learning course

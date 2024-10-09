@@ -4,8 +4,9 @@ description: Describes how to customize assessments created with Azure Migrate
 author: rashi-ms
 ms.author: rajosh
 ms.manager: abhemraj
+ms.service: azure-migrate
 ms.topic: how-to
-ms.date: 10/26/2022
+ms.date: 3/22/2024
 ms.custom: engagement-fy23
 
 ---
@@ -16,7 +17,7 @@ This article describes how to customize assessments created by Azure Migrate Dis
 
 [Azure Migrate](migrate-services-overview.md) provides a central hub to track discovery, assessment, and migration of your on-premises apps and workloads, and private/public cloud VMs, to Azure. The hub provides Azure Migrate tools for assessment and migration, as well as third-party independent software vendor (ISV) offerings.
 
-You can use the Azure Migrate Discovery and assessment tool to create assessments for on-premises VMware VMs and Hyper-V VMs, in preparation for migration to Azure. The Discovery and assessment tool assesses on-premises servers for migration to Azure IaaS virtual machines and Azure VMware Solution (AVS). 
+You can use the Azure Migrate Discovery and assessment tool to create assessments for on-premises VMware VMs and Hyper-V VMs, in preparation for migration to Azure. The Discovery and assessment tool assesses on-premises servers for migration to Azure IaaS virtual machines and Azure VMware Solution. 
 
 ## About assessments
 
@@ -25,14 +26,14 @@ Assessments that you create with the Discovery and assessment tool are a point-i
 **Assessment Type** | **Details**
 --- | --- 
 **Azure VM** | Assessments to migrate your on-premises servers to Azure virtual machines. <br/><br/> You can assess your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md), [Hyper-V VMs](how-to-set-up-appliance-hyper-v.md), and [physical servers](how-to-set-up-appliance-physical.md) for migration to Azure using this assessment type.[Learn more](concepts-assessment-calculation.md).
-**Azure VMware Solution (AVS)** | Assessments to migrate your on-premises servers to [Azure VMware Solution (AVS)](../azure-vmware/introduction.md). <br/><br/> You can assess your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md) for migration to Azure VMware Solution (AVS) using this assessment type.[Learn more](concepts-azure-vmware-solution-assessment-calculation.md).
+**Azure VMware Solution (AVS)** | Assessments to migrate your on-premises servers to [Azure VMware Solution](../azure-vmware/introduction.md). <br/><br/> You can assess your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md) for migration to Azure VMware Solution using this assessment type.[Learn more](concepts-azure-vmware-solution-assessment-calculation.md).
 
 Sizing criteria options in Azure Migrate assessments:
 
 **Sizing criteria** | **Details** | **Data**
 --- | --- | ---
-**Performance-based** | Assessments that make recommendations based on collected performance data. | **Azure VM assessment**: VM size recommendation is based on CPU and memory utilization data.<br/><br/> Disk type recommendation (standard HDD/SSD or premium-managed disks) is based on the IOPS and throughput of the on-premises disks.<br/><br/>**Azure SQL assessment**: The Azure SQL configuration is based on performance data of SQL instances and databases, which includes CPU utilization, Memory utilization, IOPS (Data and Log files), throughput, and latency of IO operations<br/><br/>**Azure VMware Solution (AVS) assessment**: AVS nodes recommendation is based on CPU and memory utilization data.
-**As-is on-premises** | Assessments that don't use performance data to make recommendations. | **Azure VM assessment**: VM size recommendation is based on the on-premises VM size<br/><br> The recommended disk type is based on what you select in the storage type setting for the assessment.<br/><br/> **Azure VMware Solution (AVS) assessment**: AVS nodes recommendation is based on the on-premises VM size.
+**Performance-based** | Assessments that make recommendations based on collected performance data. | **Azure VM assessment**: VM size recommendation is based on CPU and memory utilization data.<br/><br/> Disk type recommendation (standard HDD/SSD or premium-managed disks) is based on the IOPS and throughput of the on-premises disks.<br/><br/>**Azure SQL assessment**: The Azure SQL configuration is based on performance data of SQL instances and databases, which includes CPU utilization, Memory utilization, IOPS (Data and Log files), throughput, and latency of IO operations<br/><br/>**Azure VMware Solution (AVS) assessment**: Azure VMware Solution nodes recommendation is based on CPU and memory utilization data.
+**As-is on-premises** | Assessments that don't use performance data to make recommendations. | **Azure VM assessment**: VM size recommendation is based on the on-premises VM size<br/><br> The recommended disk type is based on what you select in the storage type setting for the assessment.<br/><br/> **Azure VMware Solution (AVS) assessment**: Azure VMware Solution nodes recommendation is based on the on-premises VM size.
 
 ## How is an assessment done?
 
@@ -44,7 +45,7 @@ An assessment done in Azure Migrate Discovery and assessment has three stages. A
 --- | ---
 **Target location** | The Azure location to which you want to migrate.<br/> Azure VM assessment currently supports these target regions: Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, Central India, Central US, China East, China North, East Asia, East US, East US2, Germany Central, Germany Northeast, Japan East, Japan West, Korea Central, Korea South, North Central US, North Europe, South Central US, Southeast Asia, South India, UK South, UK West, US Gov Arizona, US Gov Texas, US Gov Virginia, West Central US, West Europe, West India, West US, and West US2.
 **Storage type** | You can use this property to specify the type of disks you want to move to, in Azure.<br/><br/> For as-on-premises sizing, you can specify the target storage type either as Premium-managed disks, Standard SSD-managed disks or Standard HDD-managed disks. For performance-based sizing, you can specify the target disk type either as Automatic, Premium-managed disks, Standard HDD-managed disks, or Standard SSD-managed disks.<br/><br/> When you specify the storage type as automatic, the disk recommendation is done based on the performance data of the disks (IOPS and throughput). If you specify the storage type as premium/standard, the assessment will recommend a disk SKU within the storage type selected. If you want to achieve a single instance VM SLA of 99.9%, you may want to specify the storage type as Premium-managed disks. This ensures that all disks in the assessment are recommended as Premium-managed disks. Azure
-**Reserved Instances (RI)** | This property helps you specify if you have [Reserved Instances](https://azure.microsoft.com/pricing/reserved-vm-instances/) in Azure, cost estimations in the assessment are then done taking into RI discounts. Reserved instances are currently only supported for Pay-As-You-Go offer in Azure Migrate.
+**Reserved Instances (RI)** | This property helps you specify if you have [Reserved Instances](https://azure.microsoft.com/pricing/reserved-vm-instances/) in Azure, cost estimations in the assessment are then done taking into RI discounts. Reserved instances are currently only supported for pay-as-you-go offer in Azure Migrate.
 **Sizing criterion** | The criterion to be used to right-size VMs for Azure. You can either do *performance-based* sizing or size the VMs *as on-premises*, without considering the performance history.
 **Performance history** | The duration to consider for evaluating the performance data of machines. This property is only applicable when sizing criterion is *performance-based*.
 **Percentile utilization** | The percentile value of the performance sample set to be considered for right-sizing. This property is only applicable when sizing is *performance-based*.
@@ -54,29 +55,29 @@ An assessment done in Azure Migrate Discovery and assessment has three stages. A
 **Currency** | Billing currency.
 **Discount (%)** | Any subscription-specific discount you receive on top of the Azure offer.<br/> The default setting is 0%.
 **VM uptime** | If your VMs are not going to be running 24x7 in Azure, you can specify the duration (number of days per month and number of hours per day) for which they would be running and the cost estimations would be done accordingly.<br/> The default value is 31 days per month and 24 hours per day.
-**Azure Hybrid Benefit** | Specify whether you have software assurance and are eligible for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/). If set to Yes, non-Windows Azure prices are considered for Windows VMs. By default, Azure Hybrid Benefit is set to Yes.
+**Azure Hybrid Benefit** | Specify whether you have software assurance and are eligible for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/). If the setting is enabled, Azure prices for selected operating systems are not considered for VM costing.
 
-## What's in an Azure VMware Solution (AVS) assessment?
+## What's in an Azure VMware Solution assessment?
 
-Here's what's included in an AVS assessment:
+Here's what's included in an Azure VMware Solution assessment:
 
 
 | **Property** | **Details** |
 | - | - |
-| **Target location** | Specifies the AVS private cloud location to which you want to migrate.<br/><br/> AVS Assessment currently supports these target regions: East US, West Europe, and West US. |
-| **Storage type** | Specifies the storage engine to be used in AVS.<br/><br/> Note that AVS assessments only support vSAN as a default storage type. |
-**Reserved Instances (RIs)** | This property helps you specify Reserved Instances in AVS. RIs are currently not supported for AVS nodes. |
-**Node type** | Specifies the [AVS Node type](../azure-vmware/concepts-private-clouds-clusters.md) used to map the on-premises VMs. Note that default node type is AV36. <br/><br/> Azure Migrate will recommend a required number of nodes for the VMs to be migrated to AVS. |
-**FTT Setting, RAID Level** | Specifies the applicable Failure to Tolerate (FTT) and Raid combinations. The selected FTT option combined with the on-premises VM disk requirement will determine the total vSAN storage required in AVS. |
-**Sizing criterion** | Sets the criteria to be used to _right-size_ VMs for AVS. You can opt for _performance-based_ sizing or _as on-premises_ without considering the performance history. |
+| **Target location** | Specifies the Azure VMware Solution private cloud location to which you want to migrate.<br/><br/> Azure VMware Solution Assessment currently supports these target regions: East US, West Europe, and West US. |
+| **Storage type** | Specifies the storage engine to be used in Azure VMware Solution.<br/><br/> Note that Azure VMware Solution assessments only support vSAN as a default storage type. |
+**Reserved Instances (RIs)** | This property helps you specify Reserved Instances in Azure VMware Solution. RIs are currently not supported for Azure VMware Solution nodes. |
+**Node type** | Specifies the [Azure VMware Solution Node type](../azure-vmware/architecture-private-clouds.md) used to map the on-premises VMs. Note that default node type is AV36. <br/><br/> Azure Migrate will recommend a required number of nodes for the VMs to be migrated to Azure VMware Solution. |
+**FTT Setting, RAID Level** | Specifies the applicable Failure to Tolerate (FTT) and Raid combinations. The selected FTT option combined with the on-premises VM disk requirement will determine the total vSAN storage required in Azure VMware Solution. |
+**Sizing criterion** | Sets the criteria to be used to _right-size_ VMs for Azure VMware Solution. You can opt for _performance-based_ sizing or _as on-premises_ without considering the performance history. |
 **Performance history** | Sets the duration to consider in evaluating the performance data of machines. This property is applicable only when the sizing criteria is _performance-based_. |
 **Percentile utilization** | Specifies the percentile value of the performance sample set to be considered for right-sizing. This property is applicable only when the sizing is performance-based.|
 **Comfort factor** | Azure Migrate considers a buffer (comfort factor) during assessment. This buffer is applied on top of machine utilization data for VMs (CPU, memory, disk, and network). The comfort factor accounts for issues such as seasonal usage, short performance history, and likely increases in future usage.<br/><br/> For example, a 10-core VM with 20% utilization normally results in a 2-core VM. However, with a comfort factor of 2.0x, the result is a 4-core VM instead. |
 **Offer** | Displays the [Azure offer](https://azure.microsoft.com/support/legal/offer-details/) you're enrolled in. Azure Migrate estimates the cost accordingly.|
 **Currency** | Shows the billing currency for your account. |
 **Discount (%)** | Lists any subscription-specific discount you receive on top of the Azure offer. The default setting is 0%. |
-**Azure Hybrid Benefit** | Specifies whether you have software assurance and are eligible for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Although this has no impact on the Azure VMware solution's pricing due to the node-based price, customers can still apply their on-premises OS licenses (Microsoft-based) in AVS using Azure Hybrid Benefits. Other software OS vendors such as RHEL, for example, will have to provide their own licensing terms.  |
-**vCPU Oversubscription** | Specifies the ratio of number of virtual cores tied to 1 physical core in the AVS node. The default value in the calculations is 4 vCPU : 1 physical core in AVS. <br/><br/> API users can set this value as an integer. Note that vCPU Oversubscription > 4:1 may begin to cause performance degradation but can be used for web server type workloads. |
+**Azure Hybrid Benefit** | Specifies whether you have software assurance and are eligible for [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Although this has no impact on the Azure VMware solution's pricing due to the node-based price, customers can still apply their on-premises OS licenses (Microsoft-based) in Azure VMware Solution using Azure Hybrid Benefits. Other software OS vendors such as RHEL, for example, will have to provide their own licensing terms.  |
+**vCPU Oversubscription** | Specifies the ratio of number of virtual cores tied to 1 physical core in the Azure VMware Solution node. The default value in the calculations is 4 vCPU : 1 physical core in Azure VMware Solution. <br/><br/> API users can set this value as an integer. Note that vCPU Oversubscription > 4:1 may begin to cause performance degradation but can be used for web server type workloads. |
 
 ## What properties are used to create and customize an Azure SQL assessment?
 
@@ -115,4 +116,4 @@ You can also edit the assessment properties when you're creating an assessment.
 
 - [Learn more](concepts-assessment-calculation.md) about how Azure VM assessments are calculated.
 - [Learn more](concepts-azure-sql-assessment-calculation.md) about how Azure SQL assessments are calculated.
-- [Learn more](concepts-azure-vmware-solution-assessment-calculation.md) about how AVS assessments are calculated.
+- [Learn more](concepts-azure-vmware-solution-assessment-calculation.md) about how Azure VMware Solution assessments are calculated.

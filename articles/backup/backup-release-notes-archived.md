@@ -1,11 +1,11 @@
 ---
 title: Azure Backup release notes - Archive
 description: Learn about past features releases in Azure Backup.
-ms.topic: conceptual
-ms.date: 01/27/2022
-author: v-amallick
-ms.service: backup
-ms.author: v-amallick
+ms.topic: release-notes
+ms.date: 07/30/2024
+ms.service: azure-backup
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Archived release notes in Azure Backup
@@ -33,7 +33,7 @@ This article lists all the past releases of features and improvements from Azure
 
 ## Azure Disk Backup (in preview)
 
-Azure Disk Backup offers a turnkey solution that provides snapshot lifecycle management for [Azure Managed Disks](../virtual-machines/managed-disks-overview.md) by automating periodic creation of snapshots and retaining it for a configured duration using backup policy. You can manage the disk snapshots with zero infrastructure cost and without the need for custom scripting or any management overhead. This is a crash-consistent backup solution that takes point-in-time backup of a managed disk using [incremental snapshots](../virtual-machines/disks-incremental-snapshots.md) with support for multiple backups per day. It's also an agent-less solution and doesn't impact production application performance. It supports backup and restore of both OS and data disks (including shared disks), whether or not they're currently attached to a running Azure virtual machine.
+Azure Disk Backup offers a turnkey solution that provides snapshot lifecycle management for [Azure Managed Disks](/azure/virtual-machines/managed-disks-overview) by automating periodic creation of snapshots and retaining it for a configured duration using backup policy. You can manage the disk snapshots with zero infrastructure cost and without the need for custom scripting or any management overhead. This is a crash-consistent backup solution that takes point-in-time backup of a managed disk using [incremental snapshots](/azure/virtual-machines/disks-incremental-snapshots) with support for multiple backups per day. It's also an agent-less solution and doesn't impact production application performance. It supports backup and restore of both OS and data disks (including shared disks), whether or not they're currently attached to a running Azure virtual machine.
 
 For more information, see [Azure Disk Backup (in preview)](disk-backup-overview.md).
 

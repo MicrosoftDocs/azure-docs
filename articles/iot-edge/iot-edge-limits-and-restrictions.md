@@ -1,9 +1,9 @@
 ---
-title: Limits and restrictions - Azure IoT Edge | Microsoft Docs 
-description: Description of the limits and restrictions when using IoT Edge.
-author: raisalitch
-ms.author: ralitchf
-ms.date: 11/7/2022
+title: Azure IoT Edge limits and restrictions
+description: Understand the limits and restrictions when using Azure IoT Edge
+author: PatAltimore
+ms.author: patricka
+ms.date: 06/05/2024
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -11,7 +11,7 @@ services: iot-edge
 
 # Understand Azure IoT Edge limits and restrictions
 
-[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 This article explains the limits and restrictions when using IoT Edge.
 
@@ -59,8 +59,8 @@ IoT Hub has the following restrictions for IoT Edge automatic deployments:
 
 IoT Edge certificates have the following restrictions:
 
-* The common name (CN) can't be the same as the "hostname" that will be used in the configuration file on the IoT Edge device.
-* The name used by clients to connect to IoT Edge can't be the same as the common name used in the edge CA certificate.
+* The common name (CN) can't be the same as the *hostname* that is used in the configuration file on the IoT Edge device.
+* The name used by clients to connect to IoT Edge can't be the same as the common name used in the Edge CA certificate.
 
 For more information, see [Certificates for device security](iot-edge-certs.md).
 
@@ -75,12 +75,12 @@ For more information, see [TPM attestation device requirements](how-to-provision
 IoT Edge and IoT Hub routing syntax is almost identical.
 Supported query syntax:
 
-* [Message routing query based on message properties](../iot-hub/iot-hub-devguide-routing-query-syntax.md#message-routing-query-based-on-message-properties)
-* [Message routing query based on message body](../iot-hub/iot-hub-devguide-routing-query-syntax.md#message-routing-query-based-on-message-body)
+* [Message routing query based on message properties](../iot-hub/iot-hub-devguide-routing-query-syntax.md#query-based-on-message-properties)
+* [Message routing query based on message body](../iot-hub/iot-hub-devguide-routing-query-syntax.md#query-based-on-message-body)
 
 Not supported query syntax:
 
-* [Message routing query based on device twin](../iot-hub/iot-hub-devguide-routing-query-syntax.md#message-routing-query-based-on-device-twin)
+* [Message routing query based on device twin](../iot-hub/iot-hub-devguide-routing-query-syntax.md#query-based-on-device-or-module-twin)
 
 ### Restart policies
 
@@ -108,7 +108,9 @@ Changes made in `config.toml` to `edgeAgent` environment variables like the `hos
 
 ### NTLM Authentication
 
-IoT Edge does not currently support network proxies that use NTLM authentication. Users may consider bypassing the proxy by adding the required endpoints to the firewall allow-list.
+NTLM authentication is not supported. Proxies configured with NTLM authentication won't work.
+
+IoT Edge has limited support for proxy authentication. Proxies configured for username and password authentication only are supported.
 
 ## Next steps
 

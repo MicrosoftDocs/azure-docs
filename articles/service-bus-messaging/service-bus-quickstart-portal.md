@@ -3,15 +3,16 @@ title: Use the Azure portal to create a Service Bus queue
 description: In this quickstart, you learn how to create a Service Bus namespace and a queue in the namespace by using the Azure portal.
 author: spelluru
 ms.author: spelluru
-ms.date: 10/20/2022
+ms.date: 11/28/2023
 ms.topic: quickstart
 ms.custom: mode-ui
 ---
 
 # Use Azure portal to create a Service Bus namespace and a queue
-This quickstart shows you how to create a Service Bus namespace and a queue using the [Azure portal][Azure portal]. It also shows you how to get authorization credentials that a client application can use to send/receive messages to/from the queue. 
 
-[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+This quickstart shows you how to create a Service Bus namespace and a queue using the [Azure portal]. It also shows you how to get authorization credentials that a client application can use to send/receive messages to/from the queue.
+
+[!INCLUDE [howto-service-bus-queues](./includes/service-bus-queues.md)]
 
 ## Prerequisites
 
@@ -29,7 +30,6 @@ In this article, you created a Service Bus namespace and a queue in the namespac
 - [JavaScript](service-bus-nodejs-how-to-use-queues.md)
 - [Python](service-bus-python-how-to-use-queues.md)
 - [Go](service-bus-go-how-to-use-queues.md)
-- [PHP](service-bus-php-how-to-use-queues.md)
 
 [free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Azure portal]: https://portal.azure.com/

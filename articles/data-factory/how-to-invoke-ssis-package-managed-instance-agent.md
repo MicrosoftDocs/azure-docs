@@ -1,17 +1,16 @@
 ---
 title: Run SSIS packages using Azure SQL Managed Instance Agent
 description: Learn how to run SSIS packages by using Azure SQL Managed Instance Agent. 
-ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.author: lle
 author: lrtoyou1223
-ms.date: 08/09/2022
+ms.date: 05/15/2024
 ---
 
 # Run SSIS packages by using Azure SQL Managed Instance Agent
 
-[!INCLUDE[appliesto-adf-asa-preview-md](includes/appliesto-adf-asa-preview-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article describes how to run a SQL Server Integration Services (SSIS) package by using Azure SQL Managed Instance Agent. This feature provides behaviors that are similar to when you schedule SSIS packages by using SQL Server Agent in your on-premises environment.
 
@@ -156,5 +155,5 @@ To cancel package execution from a SQL Managed Instance Agent job, take the foll
 
 1. Stop the corresponding operation based on **executionId**.
 
-## Next steps
+## Related content
 You can also schedule SSIS packages by using Azure Data Factory. For step-by-step instructions, see [Azure Data Factory event trigger](how-to-create-event-trigger.md).

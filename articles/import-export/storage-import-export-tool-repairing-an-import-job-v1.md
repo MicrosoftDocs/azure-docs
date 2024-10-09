@@ -1,12 +1,12 @@
 ---
 title: Repairing an Azure Import/Export import job - v1 | Microsoft Docs
 description: Learn how to repair an import job that was created and run using the Azure Import/Export service.
-author: alkohli
+author: stevenmatthew
 services: storage
 ms.service: azure-import-export
 ms.topic: how-to
 ms.date: 03/14/2022
-ms.author: alkohli
+ms.author: shaas
 ---
 
 # Repairing an import job
@@ -14,7 +14,7 @@ ms.author: alkohli
 > [!IMPORTANT]
 > Job repair is no longer supported by the Azure Import/Export tool. In version 1.5.0.300 and later, you'll need to fix the issues in your blob import and then [create a new import job](storage-import-export-data-to-blobs.md?tabs=azure-portal#step-2-create-an-import-job).
 
-The Microsoft Azure Import/Export service may fail to copy some of your files or parts of a file to the Windows Azure Blob service. Some reasons for failures include:  
+The Microsoft Azure Import/Export service might fail to copy some of your files or parts of a file to the Windows Azure Blob service. Some reasons for failures include:  
   
 -   Corrupted files  
   
@@ -32,7 +32,7 @@ The following parameters can be specified with **RepairImport**:
 |-|-|  
 |**/r:**<RepairFile\>|**Required.** Path to the repair file, which tracks the progress of the repair, and allows you to resume an interrupted repair. Each drive must have one and only one repair file. When you start a repair for a given drive, pass in the path to a repair file, which doesn't yet exist. To resume an interrupted repair, you should pass in the name of an existing repair file. Always specify the repair file corresponding to the target drive.|  
 |**/logdir:**<LogDirectory\>|**Optional.** The log directory. Verbose log files are written to this directory. If no log directory is specified, the current directory is used as the log directory.|  
-|**/d:**<TargetDirectories\>|**Required.** One or more semicolon-separated directories that contain the original files that were imported. The import drive may also be used, but isn't required if alternate locations of original files are available.|  
+|**/d:**<TargetDirectories\>|**Required.** One or more semicolon-separated directories that contain the original files that were imported. The import drive might also be used, but isn't required if alternate locations of original files are available.|  
 |**/bk:**<BitLockerKey\>|**Optional.** Specify the BitLocker key if you want the tool to unlock an encrypted drive where the original files are available.|  
 |**/sn:**<StorageAccountName\>|**Required.** The name of the storage account for the import job.|  
 |**/sk:**<StorageAccountKey\>|**Required** if and only if a container SAS isn't specified. The account key for the storage account for the import job.|  
@@ -66,10 +66,10 @@ In the following example of a copy log file, one 64-K piece of a file was corrup
 </DriveLog>  
 ```
   
-When this copy log is passed to the Azure Import/Export Tool, the tool tries to finish the import for this file by copying the missing contents across the network. Following the example above, the tool looks for the original file `\animals\koala.jpg` within the two directories `C:\Users\bob\Pictures` and `X:\BobBackup\photos`. If the file `C:\Users\bob\Pictures\animals\koala.jpg` exists, the Azure Import/Export Tool copies the missing range of data to the corresponding blob `http://bobmediaaccount.blob.core.windows.net/pictures/animals/koala.jpg`.  
+When this copy log is passed to the Azure Import/Export Tool, the tool tries to finish the import for this file by copying the missing contents across the network. Following the previously supplied example, the tool looks for the original file `\animals\koala.jpg` within the two directories `C:\Users\bob\Pictures` and `X:\BobBackup\photos`. If the file `C:\Users\bob\Pictures\animals\koala.jpg` exists, the Azure Import/Export Tool copies the missing range of data to the corresponding blob `http://bobmediaaccount.blob.core.windows.net/pictures/animals/koala.jpg`.  
   
 ## Resolving conflicts when using RepairImport  
-In some situations, the tool may not be able to find or open the necessary file for one of the following reasons: the file couldn't be found, the file isn't accessible, the file name is ambiguous, or the content of the file is no longer correct.  
+In some situations, the tool might not be able to find or open the necessary file for one of the following reasons: the file couldn't be found or isn't accessible, the file name is ambiguous, or the content of the file is no longer correct.  
   
 An ambiguous error could occur if the tool is trying to locate `\animals\koala.jpg` and there's a file with that name under both `C:\Users\bob\pictures` and `X:\BobBackup\photos`. That is, both `C:\Users\bob\pictures\animals\koala.jpg` and `X:\BobBackup\photos\animals\koala.jpg` exist on the import job drives.  
   
@@ -79,7 +79,7 @@ The `/PathMapFile` option allows you to resolve these errors. You can specify th
 WAImportExport.exe RepairImport /r:C:\WAImportExport\9WM35C2V.rep /d:C:\Users\bob\Pictures;X:\BobBackup\photos /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /CopyLogFile:C:\WAImportExport\9WM35C2V.log /PathMapFile:C:\WAImportExport\9WM35C2V_pathmap.txt  
 ```
   
-The tool will then write the problematic file paths to `9WM35C2V_pathmap.txt`, one on each line. For instance, the file may contain the following entries after running the command:  
+The tool writes the problematic file paths to `9WM35C2V_pathmap.txt`, one on each line. For instance, the file might contain the following entries after running the command:  
  
 ```
 \animals\koala.jpg  

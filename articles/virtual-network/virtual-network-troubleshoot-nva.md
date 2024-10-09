@@ -1,24 +1,18 @@
 ---
-title: Troubleshooting network virtual appliance issues in Azure | Microsoft Docs
+title: Troubleshooting network virtual appliance issues in Azure
 description: Troubleshoot Network Virtual Appliance (NVA) issues in Azure and validate basic Azure Platform requirements for NVA configurations.
 services: virtual-network
-documentationcenter: na
 author: asudbring
 manager: dcscontentpm
-editor: ''
-tags: azure-resource-manager
-
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
 ms.date: 10/26/2018
 ms.author: allensu
 ---
 
 # Network virtual appliance issues in Azure
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 You may experience VM or VPN connectivity issues and errors when using a third party Network Virtual Appliance (NVA) in Microsoft Azure. This article provides basic steps to help you validate basic Azure Platform requirements for NVA configurations.
 
@@ -27,7 +21,7 @@ Technical support for third-party NVAs and their integration with the Azure plat
 > [!NOTE]
 > If you have a connectivity or routing problem that involves an NVA, you should [contact the vendor of the NVA](https://mskb.pkisolutions.com/kb/2984655) directly.
 
-[!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+[!INCLUDE [support-disclaimer](~/reusable-content/ce-skilling/azure/includes/support-disclaimer.md)]
 
 ## Checklist for troubleshooting with NVA vendor
 
@@ -78,7 +72,7 @@ Use PowerShell
    NetworkSecurityGroup : null
    ```
 
-**Check for NSG when using Standard SKU Pubilc IP**
+**Check for NSG when using Standard SKU Public IP**
 When using a Standard SKU and Public IPs, there must be an NSG created and an explicit rule to allow the traffic to the NVA.
 
 **Check whether the traffic can be routed to the NVA**

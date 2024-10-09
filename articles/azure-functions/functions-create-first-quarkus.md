@@ -1,12 +1,13 @@
 ---
 title: Deploy serverless Java apps with Quarkus on Azure Functions
 description: Learn how to develop, build, and deploy a serverless Java app by using Quarkus on Azure Functions.
+author: KarlErickson
 ms.author: edburns
 ms.service: azure-functions
-ms.topic: how-to
+ms.topic: quickstart
 ms.date: 01/10/2023
 ms.devlang: java
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-quarkus-functions, devx-track-javaee-quarkus-functions
+ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-quarkus, devx-track-javaee-quarkus-functions, devx-track-extended-java
 ---
 
 # Deploy serverless Java apps with Quarkus on Azure Functions
@@ -16,7 +17,7 @@ In this article, you'll develop, build, and deploy a serverless Java app to Azur
 ## Prerequisites
 
 * The [Azure CLI](/cli/azure/overview) installed on your own computer. 
-* An [Azure account](https://azure.microsoft.com/). [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+* An [Azure account](https://azure.microsoft.com/). [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 * [Java JDK 17](/azure/developer/java/fundamentals/java-support-on-azure) with `JAVA_HOME` configured appropriately. This article was written with Java 17 in mind, but Azure Functions and Quarkus also support older versions of Java.
 * [Apache Maven 3.8.1+](https://maven.apache.org).
 
@@ -27,7 +28,12 @@ Use the following command to clone the sample Java project for this article. The
 
 ```bash
 git clone https://github.com/Azure-Samples/quarkus-azure
+cd quarkus-azure
+git checkout 2023-01-10
+cd functions-quarkus
 ```
+
+If you see a message about being in **detached HEAD** state, this message is safe to ignore. Because this article does not require any commits, detached HEAD state is appropriate.
 
 Explore the sample function. Open the *functions-quarkus/src/main/java/io/quarkus/GreetingFunction.java* file. 
 
@@ -40,7 +46,7 @@ public String funqyHello() {
 }
 ```
 
-Azure Functions Java has its own set of Azure-specific annotations, but these annotations aren't necessary when you're using Quarkus on Azure Functions in a simple capacity as we're doing here. For more information about Azure Functions Java annotations, see the [Azure Functions Java developer guide](/azure/azure-functions/functions-reference-java).
+Azure Functions Java has its own set of Azure-specific annotations, but these annotations aren't necessary when you're using Quarkus on Azure Functions in a simple capacity as we're doing here. For more information about Azure Functions Java annotations, see the [Azure Functions Java developer guide](./functions-reference-java.md).
 
 Unless you specify otherwise, the function's name is the same as the method name. You can also use the following command to define the function name with a parameter to the annotation:
 
@@ -293,13 +299,13 @@ Sign in to [the portal](https://aka.ms/publicportal) and ensure that you've sele
 
 Now that you've opened your Azure function in the portal, here are more features that you can access from the portal:
 
-* Monitor the performance of your Azure function. For more information, see [Monitoring Azure Functions](/azure/azure-functions/monitor-functions).
-* Explore telemetry. For more information, see [Analyze Azure Functions telemetry in Application Insights](/azure/azure-functions/analyze-telemetry-data).
-* Set up logging. For more information, see [Enable streaming execution logs in Azure Functions](/azure/azure-functions/streaming-logs).
+* Monitor the performance of your Azure function. For more information, see [Monitoring Azure Functions](./monitor-functions.md).
+* Explore telemetry. For more information, see [Analyze Azure Functions telemetry in Application Insights](./analyze-telemetry-data.md).
+* Set up logging. For more information, see [Enable streaming execution logs in Azure Functions](./streaming-logs.md).
 
 ## Clean up resources
 
-If you don't need these resources, you can delete them by running the following command in Azure Cloud Shell or on your local terminal:
+If you don't need these resources, you can delete them by running the following command:
 
 ```azurecli
 az group delete --name <yourResourceGroupName> --yes
@@ -316,7 +322,7 @@ In this article, you learned how to:
 
 To learn more about Azure Functions and Quarkus, see the following articles and references:
 
-* [Azure Functions Java developer guide](/azure/azure-functions/functions-reference-java)
-* [Quickstart: Create a Java function in Azure using Visual Studio Code](/azure/azure-functions/create-first-function-vs-code-java)
-* [Azure Functions documentation](/azure/azure-functions/)
+* [Azure Functions Java developer guide](./functions-reference-java.md)
+* [Quickstart: Create a Java function in Azure using Visual Studio Code](./create-first-function-vs-code-java.md)
+* [Azure Functions documentation](./index.yml)
 * [Quarkus guide to deploying on Azure](https://quarkus.io/guides/deploying-to-azure-cloud)

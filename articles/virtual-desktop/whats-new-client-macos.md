@@ -1,10 +1,10 @@
 ---
 title: What's new in the Remote Desktop client for macOS - Azure Virtual Desktop
 description: Learn about recent changes to the Remote Desktop client for macOS
-ms.topic: conceptual
-author: heidilohr
-ms.author: helohr
-ms.date: 01/04/2023
+ms.topic: release-notes
+author: sipastak
+ms.author: sipastak
+ms.date: 08/02/2024
 ---
 
 # What's new in the Remote Desktop client for macOS

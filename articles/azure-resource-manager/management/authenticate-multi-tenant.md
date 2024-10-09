@@ -2,7 +2,8 @@
 title: Authenticate across tenants
 description: Describes how Azure Resource Manager handles authentication requests across tenants.
 ms.topic: conceptual
-ms.date: 10/11/2019
+ms.custom: devx-track-arm-template
+ms.date: 09/26/2024
 ---
 
 # Authenticate requests across tenants
@@ -18,7 +19,7 @@ The request has the following authentication header values:
 | Authorization | Primary token | Bearer &lt;primary-token&gt; |
 | x-ms-authorization-auxiliary | Auxiliary tokens | Bearer &lt;auxiliary-token1&gt;, EncryptedBearer &lt;auxiliary-token2&gt;, Bearer &lt;auxiliary-token3&gt; |
 
-The auxiliary header can hold up to three auxiliary tokens. 
+The auxiliary header can hold up to three auxiliary tokens.
 
 In the code of your multi-tenant app, get the authentication token for other tenants and store them in the auxiliary headers. The user or application must have been invited as a guest to the other tenants.
 
@@ -31,4 +32,4 @@ When the request references a resource from different tenant, Resource Manager c
 ## Next steps
 
 * To learn about authentication requests, see [Authentication flows and application scenarios](../../active-directory/develop/authentication-flows-app-scenarios.md).
-* For more information about tokens, see [Azure Active Directory access tokens](../../active-directory/develop/access-tokens.md).
+* For more information about tokens, see [Microsoft Entra access tokens](../../active-directory/develop/access-tokens.md).

@@ -4,17 +4,19 @@ description: Describes the configuration set pattern.
 author: johndowns
 ms.author: jodowns
 ms.topic: conceptual
-ms.date: 11/30/2021
+ms.custom: devx-track-bicep
+ms.date: 09/26/2024
 ---
+
 # Configuration set pattern
 
 Rather than define lots of individual parameters, create predefined sets of values. During deployment, select the set of values to use.
 
 ## Context and problem
 
-A single Bicep file often defines many resources. Each resource might need to use a different configuration depending on the environment you're deploying it to. For example, you might build a Bicep file that deploys an App Service plan and app, and a storage account. Each of these resources has multiple options that affect its cost, availability, and resiliency. For production environments, you want to use one set of configuration that prioritize high availability and resiliency. For non-production environments, you want to use a different set of configuration that prioritizes cost reduction.
+A single Bicep file often defines many resources. Each resource might need to use a different configuration depending on the environment you're deploying it to. For example, you might build a Bicep file that deploys an App Service plan and app, and a storage account. Each of these resources has multiple options that affect its cost, availability, and resiliency. For production environments, you want to use one set of configuration that prioritizes high availability and resiliency. For non-production environments, you want to use a different set of configuration that prioritizes cost reduction.
 
-You could create parameters for each configuration setting, but this has some drawbacks:
+You could create parameters for each configuration setting, but this approach has some drawbacks:
 
 - This approach creates a burden on your template users, since they need to understand the values to use for each resource, and the impact of setting each parameter.
 - The number of parameters in your template increases with each new resource you define.

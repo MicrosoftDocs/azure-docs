@@ -3,11 +3,14 @@ title: Query Azure Automation Update Management logs
 description: This article tells how to query the logs for Update Management in your Log Analytics workspace.
 services: automation
 ms.subservice: update-management
-ms.date: 12/13/2022
-ms.topic: conceptual
+ms.date: 09/15/2024
+ms.topic: how-to
+ms.service: azure-automation
 ---
 
 # Query Update Management logs
+
+[!INCLUDE [./automation-update-management-retirement-announcement.md](../includes/automation-update-management-retirement-announcement.md)]
 
 In addition to the details that are provided during Update Management deployment, you can search the logs stored in your Log Analytics workspace. To search the logs from your Automation account, select **Update management** and open the Log Analytics workspace associated with your deployment.
 
@@ -24,7 +27,7 @@ A record with a type of `Update` is created that represents updates available an
 
 | Property | Description |
 |----------|-------------|
-| TenantId| Unique identifier representing your organization's instance of Azure Active Directory.  |
+| TenantId| Unique identifier representing your organization's instance of Microsoft Entra ID.  |
 | SourceSystem | The source system for the record. The value is `OperationsManager`. |
 | TimeGenerated | Date and time of record creation. |
 | SourceComputerId | Unique identifier representing the source computer. |
@@ -76,7 +79,7 @@ A record with a type of `UpdateRunProgress` is created that provides update depl
 
 | Property | Description |
 |----------|-------------|
-| TenantId | Unique identifier representing your organization's instance of Azure Active Directory.|
+| TenantId | Unique identifier representing your organization's instance of Microsoft Entra ID.|
 | SourceSystem | Source system for the record. The value is `OperationsManager`. |
 | TimeGenerated | Date and time of record creation. |
 | MG | Unique identifier for the management group or Log Analytics workspace. |
@@ -87,7 +90,7 @@ A record with a type of `UpdateRunProgress` is created that provides update depl
 | SucceededOnRetry | Value indicating if the update execution failed on the first attempt and the current operation is a retry attempt. |
 | ErrorResult | Windows Update error code generated if an update fails to install. |
 | UpdateRunName| Name of the update schedule.| 
-| InstallationStatus | The possible installation states of an update on the client computer,<br> `NotStarted` - job not triggered yet.<br> `Failed` - job started but failed with an exception.<br> `InProgress` - job in progress.<br> `MaintenanceWindowExceeded` - if execution was remaining but maintenance window interval reached.<br> `Succeeded` - job succeeded.<br> `InstallFailed` - update failed to install successfully.<br> `NotIncluded` - the corresponding update's classification doesn't match with customer's entries in input classification list.<br> `Excluded` - user enters a KBID in excluded list. While patching, if KBID in excluded list matches with the system detected update KB ID, it is marked as excluded.  |
+| InstallationStatus | The possible installation states of an update on the client computer,<br> `NotStarted` - job not triggered yet.<br> `Failed` - job started but failed with an exception.<br> `InProgress` - job in progress.<br> `MaintenanceWindowExceeded` - if execution was remaining but maintenance window interval reached.<br> `Succeeded` - job succeeded.<br> `Install Failed` - update failed to install successfully.<br> `NotIncluded` - the corresponding update's classification doesn't match with customer's entries in input classification list.<br> `Excluded` - user enters a KBID in excluded list. While patching, if KBID in excluded list matches with the system detected update KB ID, it is marked as excluded.  |
 | Computer | Fully-qualified domain name of reporting machine. |
 | Title | The title of the update. |
 | Product | The products for which the update is applicable. |
@@ -112,7 +115,7 @@ A record with a type of `UpdateSummary` is created that provides update summary 
 
 | Property | Description |
 |----------|-------------|
-| TenantId| Unique identifier representing your organization's instance of Azure Active Directory.|
+| TenantId| Unique identifier representing your organization's instance of Microsoft Entra ID.|
 | SourceSystem | Source system for the record. The value is `OpsManager`. |
 | TimeGenerated | Date and time of record creation. |
 | MG | Unique identifier for the management group or Log Analytics workspace. |
@@ -171,7 +174,7 @@ On a Windows computer, you can review the following information to verify agent 
 
 1. Open the Windows Event Log. Go to **Application and Services Logs\Operations Manager** and search for Event ID 3000 and Event ID 5002 from the source **Service Connector**. These events indicate that the computer has registered with the Log Analytics workspace and is receiving configuration.
 
-If the agent can't communicate with Azure Monitor logs and the agent is configured to communicate with the internet through a firewall or proxy server, confirm the firewall or proxy server is properly configured. To learn how to verify the firewall or proxy server is properly configured, see [Network configuration for Windows agent](../../azure-monitor/agents/agent-windows.md) or [Network configuration for Linux agent](../../azure-monitor/vm/monitor-virtual-machine.md).
+If the agent can't communicate with Azure Monitor logs and the agent is configured to communicate with the internet through a firewall or proxy server, confirm the firewall or proxy server is properly configured. To learn how to verify the firewall or proxy server is properly configured, see [Network configuration for Windows agent](/azure/azure-monitor/agents/agent-windows) or [Network configuration for Linux agent](/azure/azure-monitor/vm/monitor-virtual-machine).
 
 > [!NOTE]
 > If your Linux systems are configured to communicate with a proxy or Log Analytics Gateway and you're enabling Update Management, update the `proxy.conf` permissions to grant the omiuser group read permission on the file by using the following commands:
@@ -181,7 +184,7 @@ If the agent can't communicate with Azure Monitor logs and the agent is configur
 
 Newly added Linux agents show a status of **Updated** after an assessment has been performed. This process can take up to 6 hours.
 
-To confirm that an Operations Manager management group is communicating with Azure Monitor logs, see [Validate Operations Manager integration with Azure Monitor logs](../../azure-monitor/agents/om-agents.md#validate-operations-manager-integration-with-azure-monitor).
+To confirm that an Operations Manager management group is communicating with Azure Monitor logs, see [Validate Operations Manager integration with Azure Monitor logs](/azure/azure-monitor/agents/om-agents#validate-operations-manager-integration-with-azure-monitor).
 
 ### Single Azure VM Assessment queries (Windows)
 
@@ -386,5 +389,5 @@ Update
 
 ## Next steps
 
-* For details of Azure Monitor logs, see [Azure Monitor logs](../../azure-monitor/logs/log-query-overview.md).
+* For details of Azure Monitor logs, see [Azure Monitor logs](/azure/azure-monitor/logs/log-query-overview).
 * For help with alerts, see [Configure alerts](configure-alerts.md).

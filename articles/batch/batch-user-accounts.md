@@ -2,16 +2,17 @@
 title: Run tasks under user accounts
 description: Learn the types of user accounts and how to configure them.
 ms.topic: how-to
-ms.date: 04/13/2021
-ms.custom: seodec18
-ms.devlang: csharp, java, python
+ms.date: 08/27/2024
+ms.custom:
+ms.devlang: csharp
+# ms.devlang: csharp, java, python
 ---
 # Run tasks under user accounts in Batch
 
 > [!NOTE]
 > The user accounts discussed in this article are different from user accounts used for Remote Desktop Protocol (RDP) or Secure Shell (SSH), for security reasons.
 >
-> To connect to a node running the Linux virtual machine configuration via SSH, see [Install and configure xrdp to use Remote Desktop with Ubuntu](../virtual-machines/linux/use-remote-desktop.md). To connect to nodes running Windows via RDP, see [How to connect and sign on to an Azure virtual machine running Windows](../virtual-machines/windows/connect-logon.md).
+> To connect to a node running the Linux virtual machine configuration via SSH, see [Install and configure xrdp to use Remote Desktop with Ubuntu](/azure/virtual-machines/linux/use-remote-desktop). To connect to nodes running Windows via RDP, see [How to connect and sign on to an Azure virtual machine running Windows](/azure/virtual-machines/windows/connect-logon).
 >
 > To connect to a node running the  via RDP, see [Enable Remote Desktop Connection for a Role in Azure Cloud Services](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md).
 
@@ -128,7 +129,7 @@ A named user account exists on all nodes in the pool and is available to all tas
 
 A named user account is useful when you want to run all tasks in a job under the same user account, but isolate them from tasks running in other jobs at the same time. For example, you can create a named user for each job, and run each job's tasks under that named user account. Each job can then share a secret with its own tasks, but not with tasks running in other jobs.
 
-You can also use a named user account to run a task that sets permissions on external resources such as file shares. With a named user account, you control the user identity and can use that user identity to set permissions.  
+You can also use a named user account to run a task that sets permissions on external resources such as file shares. With a named user account, you control the user identity and can use that user identity to set permissions.
 
 Named user accounts enable password-less SSH between Linux nodes. You can use a named user account with Linux nodes that need to run multi-instance tasks. Each node in the pool can run tasks under a user account defined on the whole pool. For more information about multi-instance tasks, see [Use multi\-instance tasks to run MPI applications](batch-mpi.md).
 
@@ -158,8 +159,8 @@ pool = batchClient.PoolOperations.CreatePool(
 // Add named user accounts.
 pool.UserAccounts = new List<UserAccount>
 {
-    new UserAccount("adminUser", "xyz123", ElevationLevel.Admin),
-    new UserAccount("nonAdminUser", "123xyz", ElevationLevel.NonAdmin),
+    new UserAccount("adminUser", "A1bC2d", ElevationLevel.Admin),
+    new UserAccount("nonAdminUser", "A1bC2d", ElevationLevel.NonAdmin),
 };
 
 // Commit the pool.
@@ -176,19 +177,19 @@ List<NodeAgentSku> nodeAgentSkus =
     batchClient.PoolOperations.ListNodeAgentSkus().ToList();
 
 // Define a delegate specifying properties of the VM image to use.
-Func<ImageReference, bool> isUbuntu1404 = imageRef =>
+Func<ImageReference, bool> isUbuntu1804 = imageRef =>
     imageRef.Publisher == "Canonical" &&
     imageRef.Offer == "UbuntuServer" &&
-    imageRef.Sku.Contains("14.04");
+    imageRef.Sku.Contains("20.04-LTS");
 
 // Obtain the first node agent SKU in the collection that matches
-// Ubuntu Server 14.04. 
+// Ubuntu Server 20.04.
 NodeAgentSku ubuntuAgentSku = nodeAgentSkus.First(sku =>
-    sku.VerifiedImageReferences.Any(isUbuntu1404));
+    sku.VerifiedImageReferences.Any(isUbuntu2004));
 
 // Select an ImageReference from those available for node agent.
 ImageReference imageReference =
-    ubuntuAgentSku.VerifiedImageReferences.First(isUbuntu1404);
+    ubuntuAgentSku.VerifiedImageReferences.First(isUbuntu2004);
 
 // Create the virtual machine configuration to use to create the pool.
 VirtualMachineConfiguration virtualMachineConfiguration =
@@ -207,7 +208,7 @@ pool.UserAccounts = new List<UserAccount>
 {
     new UserAccount(
         name: "adminUser",
-        password: "xyz123",
+        password: "A1bC2d",
         elevationLevel: ElevationLevel.Admin,
         linuxUserConfiguration: new LinuxUserConfiguration(
             uid: 12345,
@@ -216,7 +217,7 @@ pool.UserAccounts = new List<UserAccount>
             )),
     new UserAccount(
         name: "nonAdminUser",
-        password: "123xyz",
+        password: "A1bC2d",
         elevationLevel: ElevationLevel.NonAdmin,
         linuxUserConfiguration: new LinuxUserConfiguration(
             uid: 45678,
@@ -250,11 +251,11 @@ batchClient.poolOperations().createPool(addParameter);
 users = [
     batchmodels.UserAccount(
         name='pool-admin',
-        password='******',
+        password='A1bC2d',
         elevation_level=batchmodels.ElevationLevel.admin)
     batchmodels.UserAccount(
         name='pool-nonadmin',
-        password='******',
+        password='A1bC2d',
         elevation_level=batchmodels.ElevationLevel.non_admin)
 ]
 pool = batchmodels.PoolAddParameter(

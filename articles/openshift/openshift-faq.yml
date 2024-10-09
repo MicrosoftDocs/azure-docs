@@ -6,13 +6,19 @@ metadata:
   ms.author: johnmarc
   ms.service: azure-redhat-openshift
   ms.topic: faq
-  ms.date: 01/12/2023
+  ms.date: 08/08/2024
 title: Azure Red Hat OpenShift FAQ
 summary: This article answers frequently asked questions (FAQs) about Microsoft Azure Red Hat OpenShift.
 
 sections:
   - name: Installation and upgrade
     questions:
+      - question: Where can I find information about pricing and service level agreements?
+        answer: |
+          For pricing information, see [Azure Red Hat OpenShift pricing](https://azure.microsoft.com/en-us/pricing/details/openshift/).
+
+          For Service Level Agreement (SLA) information, see [Service Level Agreements for online services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
+
       - question: Which Azure regions are supported?
         answer: |
           For a list of supported regions for Azure Red Hat OpenShift 4.x, see [Available regions](https://azure.microsoft.com/global-infrastructure/services/?products=openshift&regions=all).
@@ -24,8 +30,8 @@ sections:
       - question: What is the maximum number of pods in an Azure Red Hat OpenShift cluster?  What is the maximum number of pods per node in Azure Red Hat OpenShift?
         answer: |
           The actual number of supported pods depends on an application’s memory, CPU, and storage requirements.
-          
-          Azure Red Hat OpenShift 4.x has a 250 pod-per-node limit and a 60 compute node limit. These limits cap the maximum number of pods supported in a cluster to 250&times;60 = 15,000.
+                 
+          Azure Red Hat OpenShift 4.x has a 250 pod-per-node limit and a 250 compute node limit. These limits cap the maximum number of pods supported in a cluster to 250&times;250 = 62,500. These limits are the same for clusters created using [User Defined Routing (UDR)](howto-create-private-cluster-4x.md#create-a-private-cluster-without-a-public-ip-address) and running version 4.11 or higher.
           
       - question: Can a cluster have compute nodes across multiple Azure regions?
         answer: No. All nodes in an Azure Red Hat OpenShift cluster must originate in the same Azure region.
@@ -45,7 +51,7 @@ sections:
 
       - question: Are infrastructure nodes available?
         answer: |
-          On Azure Red Hat OpenShift 4.x clusters, infrastructure nodes aren't currently available.
+          Yes, ARO allows you to use infrastructure machine sets to create machines that only host infrastructure components, such as the default router, the integrated container registry, and the components for cluster metrics and monitoring. See [Deploy infrastructure nodes in an ARO cluster](howto-infrastructure-nodes.md) to learn more.
           
           ## How do I handle cluster upgrades?
           
@@ -78,7 +84,7 @@ sections:
         answer: |
           There are by default five fault domains when using Virtual Machine Scale Sets in Azure. Each virtual machine instance in a scale set will get placed into one of these fault domains. This ensures that applications deployed to the compute nodes in a cluster will get placed in separate fault domains.
           
-          For more information, see [Choosing the right number of fault domains for Virtual Machine Scale Set](../virtual-machine-scale-sets/virtual-machine-scale-sets-manage-fault-domains.md).
+          For more information, see [Choosing the right number of fault domains for Virtual Machine Scale Set](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-fault-domains).
           
       - question: Is there a way to manage pod placement?
         answer: |
@@ -98,6 +104,15 @@ sections:
           - [Exposing a registry](https://docs.openshift.com/container-platform/4.6/registry/securing-exposing-registry.html)
           - [Accessing the registry](https://docs.openshift.com/container-platform/4.6/registry/accessing-the-registry.html)
           
+      - question: Can I move/migrate my cluster between Azure tenants?
+        answer: Moving your ARO cluster between tenants is currently unsupported.
+
+      - question: Can I move my ARO clusters from the current Azure subscription to another?
+        answer: Moving your ARO cluster and its associated resources between subscriptions isn't supported.
+
+      - question: Can I move my ARO clusters or ARO infrastructure resources to other resource groups or rename them?
+        answer: Moving or renaming your ARO cluster and its associated resources isn't supported.
+
   - name: Networking
     questions:
       - question: Can I deploy a cluster into an existing virtual network?
@@ -126,9 +141,9 @@ sections:
       - question: Can an admin manage users and quotas?
         answer: Yes. An Azure Red Hat OpenShift administrator can manage users and quotas in addition to accessing all user created projects.
 
-      - question: Can I restrict a cluster to only certain Azure AD users?
+      - question: Can I restrict a cluster to only certain Microsoft Entra users?
         answer: |
-          Yes. You can restrict which Azure AD users can sign in to a cluster by configuring the Azure AD Application. For details, see [How to: Restrict your app to a set of users](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md).
+          Yes. You can restrict which Microsoft Entra users can sign in to a cluster by configuring the Microsoft Entra Application. For details, see [How to: Restrict your app to a set of users](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md).
           
       - question: Can I restrict users from creating projects?
         answer: |
@@ -184,7 +199,7 @@ sections:
         answer: |
           Azure Disk (Premium_LRS) is configured as the default storage class. For additional storage providers, and for configuration details (including Azure File), see the Red Hat documentation on [persistent storage](https://docs.openshift.com/container-platform/4.6/storage/understanding-persistent-storage.html).
           
-          ## Does ARO store any customer data outside of the cluster's region?
-          
+      - question: Does ARO store any customer data outside of the cluster's region?
+        answer: |  
           No. All data created in an ARO cluster is maintained within the cluster's region.
           

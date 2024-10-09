@@ -2,8 +2,7 @@
 title: About Azure Automanage Machine Best Practices
 description: Learn about Azure Automanage machine best practices.
 author: mmccrory
-ms.service: automanage
-ms.workload: infrastructure
+ms.service: azure-automanage
 ms.topic: overview
 ms.date: 9/07/2022
 ms.author: memccror
@@ -11,6 +10,12 @@ ms.custom: overview
 ---
 
 # Azure Automanage machine best practices
+
+> [!CAUTION]
+> On September 30, 2027, the Azure Automanage Best Practices service will be retired. As a result, attempting to create a new configuration profile or onboarding a new subscription to the service will result in an error. Learn more [here](https://aka.ms/automanagemigration/) about how to migrate to Azure Policy before that date. 
+
+> [!IMPORTANT]
+> On 31 August 2024, both Automation Update Management and the Log Analytics agent it uses will be retired. Migrate to Azure Update Manager before that. Refer to guidance on migrating to Azure Update Manager [here](/azure/update-manager/guidance-migration-automation-update-management-azure-update-manager?WT.mc_id=Portal-Microsoft_Azure_Automation). [Migrate Now](https://portal.azure.com/).
 
 This article covers information about Azure Automanage machine best practices, which have the following benefits:
 
@@ -39,14 +44,14 @@ There are several prerequisites to consider before trying to enable Azure Automa
 - Machines must be in a [supported region](#supported-regions)
 - User must have correct [permissions](#required-rbac-permissions)
 - Automanage does not support Sandbox subscriptions at this time
-- Automanage does not support [Trusted Launch VMs](../virtual-machines/trusted-launch.md)
+- Automanage does not support [Trusted Launch VMs](/azure/virtual-machines/trusted-launch)
 
 ### Supported regions
 
 Please visit [this page](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?regions=all&products=all) to view which regions Automanage supports.
 
 > [!NOTE]
-> If the machine is connected to a log analytics workspace, the log analytics workspace must be located in one of the supported regions listed above.
+> If the machine is connected to a Log Analytics workspace, the Log Analytics workspace must be located in one of the supported regions listed above.
 
 ### Required RBAC permissions
 To onboard, Automanage requires slightly different RBAC roles depending on whether you are enabling Automanage for the first time in a subscription.

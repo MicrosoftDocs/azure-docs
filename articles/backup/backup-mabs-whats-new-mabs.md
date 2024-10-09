@@ -1,13 +1,96 @@
 ---
 title: What's new in Microsoft Azure Backup Server
 description: Microsoft Azure Backup Server gives you enhanced backup capabilities for protecting VMs, files and folders, workloads, and more.
-ms.topic: conceptual
-ms.date: 07/27/2021
+ms.service: azure-backup
+ms.topic: release-notes
+ms.date: 09/11/2024
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
-# What's new in Microsoft Azure Backup Server (MABS)
+# What's new in Microsoft Azure Backup Server (MABS)?
 
-## What’s new in MABS v3 UR2
+Microsoft Azure Backup Server gives you enhanced backup capabilities to protect VMs, files and folders, workloads, and more.
+
+## What's new in MABS V4 Update Rollup 1 Refresh (UR1 Refresh)?
+
+Microsoft Azure Backup Server version 4 (MABS V4) Update *Rollup 1 Refresh* includes critical bug fixes and feature enhancements. For information about the bugs fixed and the installation instructions of MABS V4 UR1 Refresh, see [KB article 5033756](https://support.microsoft.com/home/contact?SourceApp=smcivr2).
+ 
+> [!IMPORTANT]
+> MABS V4 UR1 Refresh supersedes MABS V4 UR1 that has the same feature enhancements, but fixes the known issues in MABS V4 UR1. [Learn more](backup-mabs-release-notes-v3.md).
+
+The following table lists the new features added in MABS V4 UR1:
+
+| Feature | Supportability |
+| --- | --- |
+| Item-level recovery for VMware VMs running Windows directly from online recovery points.    |   Use MARS version *2.0.9251.0* or above for this feature. |
+| Windows and Basic SMTP Authentication for MABS email reports and alerts.      |   This enables MABS to send reports and alerts using any vendor supporting SMTP Basic Authentication. [Learn more](/system-center/dpm/monitor-dpm?view=sc-dpm-2022&preserve-view=true#configure-email-for-dpm). <br><br>   Note that if you're using Microsoft 365 SMTP with a MABS V4 private fix, re-enter the credential using Basic Authentication. |
+| Fall back to crash-consistent backups for VMware VMs.     |     Use a registry key for VMware VMs when backups fail with ApplicationQuiesceFault. [Learn more](backup-azure-backup-server-vmware.md#applicationquiescefault).   |
+| Experience improvements for MABS backups to Azure. |  |
+| List online recovery points for a data source along with the expiry time and soft-delete status.  |  To view the list of recovery points along with their expiration dates, right-click a data source and select **List recovery points**. |
+| Stop protection and retaining data using the policy duration for immutable vaults directly from the console.    |    This helps you save the backup costs when stopping protection for a data source backed up to an immutable vault. [Learn more](backup-azure-security-feature.md#immutability-support).
+
+## What's new in MABS V4 Update Rollup 1 (UR1)?
+
+**Microsoft Azure Backup Server version 4 (MABS V4) Update Rollup 1** includes critical bug fixes and feature enhancements. To view the list of bugs fixed and the installation instructions for MABS V4 UR1, see [KB article 5032421](https://support.microsoft.com/help/5032421/).
+
+> [!IMPORTANT]
+> We're temporarily pausing the release of Update Rollup 1 for Microsoft Azure Backup Server V4 due to the known issue - **Hyper-V scheduled backups take a long time to complete because each backup job triggers a consistency check.**
+>
+> Error message: The replica of Microsoft Hyper-V RCT on `<Machine Name>` is not consistent with the protected data source. DPM has detected changes in file locations or volume configurations of protected objects since the data source was configured for protection. (ID 30135).
+>
+> Resolution: This will be resolved in the new version planned to be released soon.
+>
+> - If you haven't installed UR1 for MABS V4 already, wait for the new release.
+> - If you have already installed UR1 for MABS V4, this new build will install on top of UR1 for MABS V4 to fix the known issues.
+>
+> For additional information, reach out to Microsoft Support.
+
+The following table lists the new features added in MABS V4 UR1:
+
+| Feature | Supportability |
+| --- | --- |
+| Item-level recovery for VMware VMs running Windows directly from online recovery points. |  Note that you need *MARS version 2.0.9251.0 or above* to use this feature.   | 
+| Windows and Basic SMTP Authentication for MABS email reports and alerts.    |  This enables MABS to send reports and alerts using any vendor supporting SMTP Basic Authentication. [Learn more](/system-center/dpm/monitor-dpm?view=sc-dpm-2022&preserve-view=true#configure-email-for-dpm).            <br><br>     Note that if you are using Microsoft 365 SMTP with a MABS V4 private fix, re-enter the credential using Basic Authentication.       | 
+| Fall back to crash consistent backups for VMware VMs.    |     Use a registry key for VMware VMs when backups fail with ApplicationQuiesceFault. [Learn more](backup-azure-backup-server-vmware.md#applicationquiescefault).  |
+| **Experience improvements for MABS backups to Azure.** |                 |
+| List online recovery points for a data source along with the expiry time and soft-delete status. |     To view the list of recovery points along with their expiration dates, right-click a data source and select **List recovery points**.    |
+| Stop protection and retaining data using the policy duration for immutable vaults directly from the console.  |  This helps you to save the backup costs when stopping protection for a data source backed up to an immutable vault. [Learn more](backup-azure-security-feature.md#immutability-support).      |
+
+## What's new in MABS V4 RTM
+
+Microsoft Azure Backup Server version 4 (MABS V4) includes critical bug fixes and the support for Windows Server 2022, SQL 2022, Azure Stack HCI 22H2, and other features and enhancements. To view the list of bugs fixed and the installation instructions for MABS V4, see [KB article 5024199](https://support.microsoft.com/help/5024199/).
+
+The following table lists the included features in MABS V4:
+
+| Supported feature | Description |
+| --- | --- |
+| Windows Server 2022 support | You can install MABS V4 on and protect Windows Server 2022. To use MABS V4 with *WS2022*, you can either upgrade your operation system (OS) to *WS2022* before installing/upgrading to MABS V4, or you can upgrade your OS after installing/upgrading V4 on *WS2019*. <br><br> MABS V4 is a full release, and can be installed directly on Windows Server 2022, Windows Server 2019, or can be upgraded from MABS V3. Learn more [about the installation prerequisites](backup-azure-microsoft-azure-backup.md#software-package) before you upgrade to or install Backup Server V4. |
+| SQL Server 2022 support | You can install MABS V4 with SQL 2022 as the MABS database. You can upgrade the SQL Server from SQL 2017 to SQL 2022, or install it fresh. You can also back up SQL 2022 workload with MABS V4. |
+| Private Endpoint Support | With MABS V4, you can use private endpoints to send your online backups to Azure Backup Recovery Services vault. [Learn more](backup-azure-private-endpoints-concept.md). |
+| Azure Stack HCI 22H2 support | MABS V4 now supports protection of workloads running in Azure Stack HCI from V1 to 22H2. [Learn more](back-up-azure-stack-hyperconverged-infrastructure-virtual-machines.md). |
+| VMware 8.0 support | MABS V4 can now back up VMware VMs running on VMware 8.0. MABS V4 supports VMware, version 6.5 to 8.0. [Learn more](backup-azure-backup-server-vmware.md). <br><br> Note that MABS V4 doesn't support the DataSets feature added in vSphere 8.0. |
+| Item-level recovery from online recovery points for Hyper-V and Stack HCI VMs running Windows Server | With MABS V4, you can perform item-level recovery of files and folders from your online recovery point for VMs running Windows Server on Hyper-V or Stack HCI without downloading the entire recovery point. <br><br> Go to the *Recovery* pane, select a *VM online recovery point* and double-click the *recoverable item* to browse and recover its contents at a file/folder level. <br><br> [Learn more](back-up-hyper-v-virtual-machines-mabs.md). |
+| Parallel Restore of VMware and Hyper-V VMs | MABS V4 supports parallel restore of [VMware](restore-azure-backup-server-vmware.md) and [Hyper-V](back-up-hyper-v-virtual-machines-mabs.md) virtual machines. With earlier versions of MABS, restore of VMware VM and Hyper-V virtual machine was restricted to only one restore job at a time. With MABS V4, by default you can restore *eight* VMs in parallel and this number can be increased using a registry key. |
+| Parallel online backup jobs - limit enhancement | MABS V4 supports increasing the maximum parallel online backup jobs from *eight* to a configurable limit based on your hardware and network limitations through a registry key for faster online backups. [Learn more](backup-azure-microsoft-azure-backup.md). |
+| Faster Item Level Recoveries | MABS V4 moves away from File Catalog for online backup of file/folder workloads. File Catalog was necessary to restore individual files and folders from online recovery points, but increased backup time by uploading file metadata. <br><br> MABS V4 uses an *iSCSI mount* to provide faster individual file restores and reduces backup time, because file metadata doesn't need to be uploaded. |
+
+## What's new in MABS V3 UR2 Hotfix?
+
+This update contains the following enhancement to improve the backup time. For more information on the enhancements and the installation, see the [KB article](https://support.microsoft.com/topic/hotfix-for-update-rollup-2-for-microsoft-azure-backup-server-v3-3ef522f7-c307-47e2-827d-8e14f1e84017).
+
+**Removed File Catalog dependency for online backup of file/folder workloads**: This update removes the dependency of MABS V3 on File Catalog (list of files in a recovery point maintained in the cloud) which was needed to restore individual files and folders from the online recovery points. This Hotfix allows MABS V3 UR2 to use a modern *iSCSI mount* method to provide individual file restoration.
+
+**Advantages**:
+
+- Reduces the backup time by up to *15%* because file catalog metadata (list of files in a recovery point) isn't generated during the backup operation.
+- - Item-level recovery errors due to inconsistent file catalog metadata are avoided because *iSCSI mounts* are used.
+- - After the recovery point is mounted, file browsing during item-level recovery is faster for recovery points with many files and folders.
+
+> [!NOTE]
+> We recommend that you update your MABS V3 installation to Hotfix for Update Rollup 2 to benefit from the enhancement. Ensure that you also update your MARS Agent to the latest version (2.0.9262.0 or higher).
+
+## What’s new in MABS v3 UR2?
 
 Microsoft Azure Backup Server (MABS) version 3 UR2 supports the following new features/feature updates.
 
@@ -15,7 +98,7 @@ For information about the UR2 issues fixes and the installation instructions, se
 
 ### Support for Azure Stack HCI
 
-With MABS v3 UR2, you can backup Virtual Machines on Azure Stack HCI. [Learn more](./back-up-azure-stack-hyperconverged-infrastructure-virtual-machines.md).
+With MABS v3 UR2, you can back up Virtual Machines on Azure Stack HCI. [Learn more](./back-up-azure-stack-hyperconverged-infrastructure-virtual-machines.md).
 
 ### Support for VMware 7.0
 
@@ -33,12 +116,12 @@ MABS v3 UR2 supports optimized volume migration. The optimized volume migration 
 
 MABS v3 UR2 supports Offline backup using Azure Data Box. With Microsoft Azure Data Box integration, you can overcome the challenge of moving terabytes of backup data from on-premises to Azure storage. Azure Data Box saves the effort required to procure your own Azure-compatible disks and connectors or to provision temporary storage as a staging location. Microsoft also handles the end-to-end transfer logistics, which you can track through the Azure portal. [Learn more](./offline-backup-azure-data-box-dpm-mabs.md).
 
-## What's new in MABS V3 UR1
+## What's new in MABS V3 UR1?
 
 Microsoft Azure Backup Server (MABS) version 3 UR1 is the latest update, and includes critical bug fixes and other features and enhancements. To view the list of bugs fixed and the installation instructions for MABS V3 UR1, see KB article [4534062](https://support.microsoft.com/help/4534062).
 
->[!NOTE]
->Support for the 32 bit protection agent is deprecated with MABS v3 UR1. See [32 Bit protection agent deprecation](#32-bit-protection-agent-deprecation).
+> [!NOTE]
+> Support for the 32 bit protection agent is deprecated with MABS v3 UR1. See [32 Bit protection agent deprecation](#32-bit-protection-agent-deprecation).
 
 ### Faster backups with tiered storage using SSDs
 
@@ -55,11 +138,11 @@ With MABS V3 UR1, you can back up the ReFS volumes and workloads deployed on the
 * Exchange: Exchange 2019, 2016.
 * SharePoint: SharePoint 2019, 2016 with latest SP.
 
->[!NOTE]
+> [!NOTE]
 > Backup of Hyper-V VMs stored on an ReFS volume is supported with MABS V3
 
->[IMPORTANT]
->We've identified a few issues with backup of deduplicated ReFS volumes. We're working on fixing these, and will update this section as soon as we have a fix available. Until then, we're removing the support for backup of deduplicated ReFS volumes from MABSv3 UR1.
+> [!IMPORTANT]
+> We've identified a few issues with backup of deduplicated ReFS volumes. We're working on fixing these, and will update this section as soon as we have a fix available. Until then, we're removing the support for backup of deduplicated ReFS volumes from MABSv3 UR1.
 
 ### Azure VMware Solution protection support
 
@@ -82,8 +165,8 @@ With MABS V3 UR1, an additional a layer of authentication is added for critical 
 
 MABS v3 UR1 improves the experience of offline backup with Azure Import/Export Service. For more information, see the updated steps [here](./backup-azure-backup-server-import-export.md).
 
->[!NOTE]
->From MABS v3 UR2, MABS can perform offline backup using Azure Data Box. [Learn more](./offline-backup-azure-data-box-dpm-mabs.md).
+> [!NOTE]
+> From MABS v3 UR2, MABS can perform offline backup using Azure Data Box. [Learn more](./offline-backup-azure-data-box-dpm-mabs.md).
 
 ### New cmdlet parameter
 
@@ -91,12 +174,12 @@ MABS V3 UR1 includes a new parameter **[-CheckReplicaFragmentation]**. The new p
 
 ### 32-Bit protection agent deprecation
 
-With MABS v3 UR1, support for 32-bit protection agent is no longer supported. You won't be able to protect 32-bit workloads after upgrading the MABS v3 server to UR1. Any existing 32-bit protection agents will be in a disabled state and scheduled backups will fail with the **agent is disabled** error. If you want to retain backup data for these agents, you can stop the protection with the retain data option. Otherwise, the protection agent can be removed.
+With MABS v3 UR1, support for 32-bit protection agent is no longer supported. You won't be able to protect 32-bit workloads after upgrading the MABS v3 server to UR1. Any existing 32-bit protection agents will be in a disabled state and scheduled backups will fail with the **agent is disabled** error. If you want to retain the backup data for these agents, you can stop the protection with the retained data option. Otherwise, the protection agent can be removed.
 
->[!NOTE]
->Review the [updated protection matrix](./backup-mabs-protection-matrix.md) to learn the supported workloads for protection with MABS UR 1.
+> [!NOTE]
+> Review the [updated protection matrix](./backup-mabs-protection-matrix.md) to learn the supported workloads for protection with MABS UR 1.
 
-## What's new in MABS V3 RTM
+## What's new in MABS V3 RTM?
 
 Microsoft Azure Backup Server version 3 (MABS V3) includes critical bug fixes, Windows Server 2019 support, SQL 2017 support, and other features and enhancements. To view the list of bugs fixed and the installation instructions for MABS V3, see KB article [4457852](https://support.microsoft.com/help/4457852/microsoft-azure-backup-server-v3).
 

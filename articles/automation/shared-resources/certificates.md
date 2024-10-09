@@ -3,9 +3,10 @@ title: Manage certificates in Azure Automation
 description: This article tells how to work with certificates for access by runbooks and DSC configurations.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 01/04/2023
-ms.topic: conceptual 
-ms.custom: devx-track-azurepowershell
+ms.date: 09/10/2024
+ms.topic: how-to 
+ms.custom: devx-track-azurepowershell, devx-track-python
+ms.service: azure-automation
 ---
 
 # Manage certificates in Azure Automation
@@ -26,7 +27,8 @@ The cmdlets in the following table create and manage Automation certificates wit
 |[Remove-AzAutomationCertificate](/powershell/module/Az.Automation/Remove-AzAutomationCertificate)|Removes a certificate from Automation.|
 |[Set-AzAutomationCertificate](/powershell/module/Az.Automation/Set-AzAutomationCertificate)|Sets the properties for an existing certificate, including uploading the certificate file and setting the password for a **.pfx** file.|
 
-The [Add-AzureCertificate](/powershell/module/servicemanagement/azure.service/add-azurecertificate) cmdlet can also be used to upload a service certificate for the specified cloud service.
+The [Add-AzureCertificate](/powershell/module/servicemanagement/azure/add-azureaccount) cmdlet can also be used to upload a service certificate for the specified cloud service.
+
 
 ## Internal cmdlets to access certificates
 
@@ -142,7 +144,7 @@ The following example shows how to access certificates in Python 2 runbooks.
 
 ```python
 # get a reference to the Azure Automation certificate
-cert = automationassets.get_automation_certificate("AzureRunAsCertificate")
+cert = automationassets.get_automation_certificate("MyCertificate")
 
 # returns the binary cert content  
 print cert
@@ -154,7 +156,7 @@ The following example shows how to access certificates in Python 3 runbooks (pre
 
 ```python
 # get a reference to the Azure Automation certificate
-cert = automationassets.get_automation_certificate("AzureRunAsCertificate")
+cert = automationassets.get_automation_certificate("MyCertificate")
 
 # returns the binary cert content  
 print (cert)

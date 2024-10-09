@@ -2,22 +2,22 @@
 title: Migrate cluster to a newer version
 titleSuffix: Azure HDInsight
 description: Learn guidelines to migrate your Azure HDInsight cluster to a newer version.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 10/25/2022
+ms.date: 02/21/2024
 ---
 # Migrate HDInsight cluster to a newer version
 
 To take advantage of the latest HDInsight features, we recommend that HDInsight clusters be regularly migrated to latest version. HDInsight doesn't support in-place upgrades where an existing cluster is upgraded to a newer component version. You must create a new cluster with the desired component and platform version and then migrate your applications to use the new cluster. Follow the below guidelines to migrate your HDInsight cluster versions.
 
 > [!NOTE]  
-> For information on supported versions of HDInsight, see [HDInsight component versions](hdinsight-component-versioning.md#supported-hdinsight-versions).
+> If you are creating a Hive cluster with a primary storage container, copy it from an existing HDInsight cluster. Don'tt copy the complete content. Copy only the data folders which are configured.
 
 ## Migration tasks
 
 The workflow to upgrade HDInsight Cluster is as follows.
-:::image type="content" source="./media/hdinsight-upgrade-cluster/upgrade-workflow-diagram.png" alt-text="HDInsight upgrade workflow diagram" border="false":::
+:::image type="content" source="./media/hdinsight-upgrade-cluster/upgrade-workflow-diagram.png" alt-text="HDInsight upgrade workflow diagram." border="false":::
 
 1. Read each section of this document to understand changes that may be required when upgrading your HDInsight cluster.
 2. Create a cluster as a test/quality assurance environment. For more information on creating a cluster, see [Learn how to create Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md)
@@ -40,7 +40,7 @@ The following documents provide guidance on how to migrate specific workloads:
 * [Migrate Kafka](./kafka/migrate-versions.md)
 * [Migrate Hive/Interactive Query](./interactive-query/apache-hive-migrate-workloads.md)
 
-## Backup and restore
+## Back up and restore
 
 For more information about database backup and restore, see [Recover a database in Azure SQL Database by using automated database backups](/azure/azure-sql/database/recovery-using-backups).
 
@@ -51,14 +51,16 @@ As mentioned above, Microsoft recommends that HDInsight clusters be regularly mi
 * The cluster version is [Retired](hdinsight-retired-versions.md) or if you're having a cluster issue that would be resolved with a newer version.
 * The root cause of a cluster issue is determined to relate an undersized VM. [View Microsoft's recommended node configuration](hdinsight-supported-node-configuration.md).
 * A customer opens a support case and the Microsoft engineering team determines the issue has already been fixed in a newer cluster version.
-* A default metastore database (Ambari, Hive, Oozie, Ranger) has reached its utilization limit. Microsoft will ask you to recreate the cluster using a [custom metastore](hdinsight-use-external-metadata-stores.md#custom-metastore) database.
+* A default metastore database (Ambari, Hive, Oozie, Ranger) has reached its utilization limit. Microsoft asks you to recreate the cluster using a [custom metastore](hdinsight-use-external-metadata-stores.md#custom-metastore) database.
 * The root cause of a cluster issue is due to an **Unsupported Operation**. Here are some of the common unsupported operations:
      * **Moving or Adding a service in Ambari**. See the information on the cluster services in Ambari, one of the actions available from the Service Actions menu is **Move [Service Name]**. Another action is **Add [Service Name]**. Both of these options are unsupported.
      * **Python package corruption**. HDInsight clusters depend on the built-in Python environments, Python 2.7 and Python 3.5. Directly installing custom packages in those default built-in environments may cause unexpected library version changes and break the cluster. Learn how to [safely install custom external Python packages](./spark/apache-spark-python-package-installation.md#safely-install-external-python-packages) for your Spark applications.
      * **Third-party software**. Customers have the ability to install third-party software on their HDInsight clusters; however, we'll recommend recreating the cluster if it breaks the existing functionality.
      * **Multiple workloads on the same cluster**. In HDInsight 4.0, the Hive Warehouse Connector needs separate clusters for Spark and Interactive Query workloads. [Follow these steps to set up both clusters in Azure HDInsight](interactive-query/apache-hive-warehouse-connector.md). Similarly, integrating [Spark with HBASE](hdinsight-using-spark-query-hbase.md) requires two  different clusters.
-     * **Custom Ambari DB password changed**. The Ambari DB password is set during cluster creation and there's no current mechanism to update it. If a customer deploys the cluster with a [custom Ambari DB](hdinsight-custom-ambari-db.md), they'll have the ability to change the DB password on the SQL DB; however, there's no way to update this password for a running HDInsight cluster.
-
+     * **Custom Ambari DB password changed**. The Ambari DB password is set during cluster creation and there's no current mechanism to update it. If a customer deploys the cluster with a [custom Ambari DB](hdinsight-custom-ambari-db.md), they have the ability to change the DB password on the SQL DB; however, there's no way to update this password for a running HDInsight cluster.
+     * **Modifying HDInsight Load Balancers**. The HDInsight load balancers that are automatically deployed for Ambari and SSH access **should not** be modified or deleted. If you modify the HDInsight load balancer(s) and it breaks the cluster functionality, you will be advised to redeploy the cluster.
+     * **Reusing Ranger 4.X Databases in 5.X**. HDInsight 5.1 has [Apache Ranger version 2.3.0](https://cwiki.apache.org/confluence/display/RANGER/Apache+Ranger+2.3.0+-+Release+Notes) which is major version upgrade from 1.2.0 in HDInsight 4.X clusters. Reuse of an HDInsight 4.X Ranger database in HDInsight 5.1 would prevent the Ranger service from starting due to differences in the DB schema. You would need to create an empty Ranger database to successfully deploy HDInsight 5.1 ESP clusters.
+       
 ## Next steps
 
 * [Learn how to create Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md)

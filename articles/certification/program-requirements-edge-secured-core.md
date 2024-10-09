@@ -1,40 +1,24 @@
 ---
 title: Edge Secured-core Certification Requirements
 description: Edge Secured-core Certification program requirements
-author: cbroad
-ms.author: cbroad
+author: sufenfong
+ms.author: sufon
 ms.topic: conceptual 
-ms.date: 06/21/2021
-ms.custom: Edge Secured-core Certification Requirements
-ms.service: certification
-zone_pivot_groups: app-service-platform-windows-linux
+ms.date: 02/20/2024
+ms.custom: Edge Secured-core Certification Requirements, linux-related-content
+ms.service: azure-certified-device
+zone_pivot_groups: app-service-platform-windows-linux-sphere-rtos
 ---
 
-# Azure Certified Device - Edge Secured-core #
+# Edge Secured-Core certification requirements
 
-## Edge Secured-Core certification requirements ##
-
-### Program purpose ###
-Edge Secured-core is an incremental certification in the Azure Certified Device program for IoT devices running a full operating system, such as Linux or Windows 10 IoT.This program enables device partners to differentiate their devices by meeting an additional set of security criteria. Devices meeting this criteria enable these promises:
-
-1. Hardware-based device identity 
-2. Capable of enforcing system integrity 
-3. Stays up to date and is remotely manageable
-4. Provides data at-rest protection
-5. Provides data in-transit protection
-6. Built in security agent and hardening
-
-## Preview Program Support
-While in public preview, we are supporting a small number of partners to pre-validate devices against the Edge Secured-core program requirements.  If you would like to participate in the Edge Secured-core public preview, please contact iotcert@microsoft.com
-
-Overview content
 ::: zone pivot="platform-windows"
 
 ## Windows IoT OS Support
-Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 1903 or greater
-* [Windows 10 IoT Enterprise Lifecycle](/lifecycle/products/windows-10-iot-enterprise)
-> [!Note]
-> The Windows secured-core tests require you to download and run the following package (https://aka.ms/Scforwiniot) from an Administrator Command Prompt on the IoT device being validated.
+Edge Secured-core requires a version of Windows IoT that has at least five years of support from Microsoft remaining in its support lifecycle, at time of certification such as:
+* [Windows 10 IoT Enterprise LTSC 2021 Lifecycle](/lifecycle/products/windows-10-iot-enterprise-ltsc-2021)
+* [Windows 11 IoT Enterprise Lifecycle](/lifecycle/products/windows-11-iot-enterprise)
+* [Windows 11 IoT Enterprise LTSC 2024](/windows/iot/iot-enterprise/whats-new/windows-11-iot-enterprise-ltsc-2024)
 
 ## Windows IoT Hardware/Firmware Requirements
 > [!Note]
@@ -43,7 +27,7 @@ Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 190
 > * Trusted Platform Module (TPM) 2.0
 > * <b>For Intel systems:</b> Intel Virtualization Technology for Directed I/O (VT-d), Intel Trusted Execution Technology (TXT), and SINIT ACM driver package must be included in the Windows system image (for DRTM)
 > * <b>For AMD systems:</b> AMD IOMMU and AMD-V virtualization, and SKINIT package must be integrated in the Windows system image (for DRTM)
-> * Kernel DMA Protection (also known as Memory Access Protection)
+> * Kernel Direct Memory Access Protection (also known as Memory Access Protection)
 
 ---
 </br>
@@ -51,12 +35,9 @@ Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 190
 |Name|SecuredCore.Hardware.Identity|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the test is to validate the device identity is rooted in hardware and can be the primary authentication method with Azure IoT Hub Device Provisioning Service (DPS).|
-|Target Availability|2022|
-|Requirements dependency|TPM v2.0 device|
-|Validation Type|Manual/Tools|
-|Validation|Devices will be enrolled to DPS using the TPM authentication mechanism during testing.|
-|Resources|Azure IoT Hub Device Provisioning Service: <ul><li>[Quickstart - Provision a simulated TPM device to Microsoft Azure IoT Hub](../iot-dps/quick-create-simulated-device-tpm.md) </li><li>[TPM Attestation Concepts](../iot-dps/concepts-tpm-attestation.md)</li></ul>|
+|Description|The device identity must be rooted in hardware.|
+|Purpose|Protects against cloning and masquerading of the device root identity, which is key in underpinning trust in upper software layers extended through a chain-of-trust. Provide an attestable, immutable and cryptographically secure identity.|
+|Dependencies|Trusted Platform Module (TPM) v2.0 device|
 
 ---
 </br>
@@ -64,12 +45,9 @@ Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 190
 |Name|SecuredCore.Hardware.MemoryProtection|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the test is to validate that DMA is not enabled on externally accessible ports.|
-|Target Availability|2022|
-|Requirements dependency|Only if DMA capable ports exist|
-|Validation Type|Manual/Tools|
-|Validation|If DMA capable external ports exist on the device, toolset to validate that the IOMMU or SMMU is enabled and configured for those ports.|
-|Resources||
+|Description|All Direct Memory Access (DMA) enabled externally accessible ports must sit behind an enabled and appropriately configured Input-output Memory Management Unit (IOMMU) or System Memory Management Unit (SMMU).|
+|Purpose|Protects against drive-by and other attacks that seek to use other DMA controllers to bypass CPU memory integrity protections.|
+|Dependencies|Enabled and appropriately configured input/output Memory Management Unit (IOMMU) or System Memory Management Unit (SMMU)|
 
 ---
 </br>
@@ -77,12 +55,10 @@ Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 190
 |Name|SecuredCore.Firmware.Protection|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the test is to ensure that device has adequate mitigations from Firmware security threats.|
-|Target Availability|2022|
-|Requirements dependency|DRTM + UEFI|
-|Validation Type|Manual/Tools|
-|Validation|Device to be validated through [Edge Secured-core Agent](https://aka.ms/Scforwiniot) toolset to confirm it is protected from firmware security threats through one of the following approaches: <ul><li>DRTM + UEFI Management Mode mitigations</li><li>DRTM + UEFI Management Mode hardening</li></ul> |
-|Resources| <ul><li>https://trustedcomputinggroup.org/</li><li>[Intel's DRTM based computing whitepaper](https://www.intel.com/content/dam/www/central-libraries/us/en/documents/drtm-based-computing-whitepaper.pdf)</li><li>[AMD Security whitepaper](https://www.amd.com/system/files/documents/amd-security-white-paper.pdf)</li></ul> |
+|Description|The device boot sequence must support Dynamic Root of Trust for Measurement (DRTM) alongside UEFI Management Mode mitigations.|
+|Purpose|Protects against firmware weaknesses, untrusted code, and rootkits that seek to exploit early and privileged boot stages to bypass OS protections.|
+|Dependencies|DRTM + UEFI|
+|Resources| <ul><li>[Trusted Computing Group](https://trustedcomputinggroup.org/)</li><li>[Intel's DRTM based computing whitepaper](https://www.intel.com/content/dam/www/central-libraries/us/en/documents/drtm-based-computing-whitepaper.pdf)</li><li>[AMD Security whitepaper](https://www.amd.com/system/files/documents/amd-security-white-paper.pdf)</li></ul>|
 
 ---
 </br>
@@ -90,12 +66,9 @@ Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 190
 |Name|SecuredCore.Firmware.SecureBoot|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the test is to validate the boot integrity of the device.|
-|Target Availability|2022|
-|Requirements dependency|UEFI|
-|Validation Type|Manual/Tools|
-|Validation|Device to be validated through [Edge Secured-core Agent](https://aka.ms/Scforwiniot) toolset to ensure that firmware and kernel signatures are validated every time the device boots. <ul><li>UEFI: Secure boot is enabled</li></ul>|
-|Resources||
+|Description|UEFI Secure Boot must be enabled.|
+|Purpose|Ensures that the firmware and OS kernel, executed as part of the boot sequence, have first been signed by a trusted authority and retain integrity.|
+|Dependencies|UEFI|
 
 ---
 </br>
@@ -103,27 +76,22 @@ Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 190
 |Name|SecuredCore.Firmware.Attestation|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the test is to ensure the device can remotely attest to the Microsoft Azure Attestation service.|
-|Target Availability|2022|
-|Requirements dependency|Azure Attestation Service|
-|Validation Type|Manual/Tools|
-|Validation|Device to be validated through toolset to ensure that platform boot logs and measurements of boot activity can be collected and remotely attested to the Microsoft Azure Attestation service.|
-|Resources| [Microsoft Azure Attestation](../attestation/index.yml) |
+|Description|The device identity, along with its platform boot logs and measurements, must be remotely attestable to the Microsoft Azure Attestation (MAA) service.|
+|Purpose|Enables services to establish the trustworthiness of the device. Allows for reliable security posture monitoring and other trust scenarios such as the release of access credentials.|
+|Dependencies|Microsoft Azure Attestation service|
+|Resources| [Microsoft Azure Attestation](/azure/attestation/)|
 
 ---
 
-## Windows IoT configuration requirements
+## Windows IoT Configuration requirements
 ---
 </br>
 
 |Name|SecuredCore.Encryption.Storage|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the test to validate that sensitive data can be encrypted on non-volatile storage.|
-|Target Availability|2022|
-|Validation Type|Manual/Tools|
-|Validation|Device to be validated through [Edge Secured-core Agent](https://aka.ms/Scforwiniot) toolset to ensure Secure-boot and BitLocker is enabled and bound to PCR7.|
-|Resources||
+|Description|Sensitive and private data must be encrypted at rest using BitLocker or similar, with encryption keys backed by hardware protection.|
+|Purpose|Protects against exfiltration of sensitive or private data by unauthorized actors or tampered software.|
 
 ---
 </br>
@@ -131,12 +99,10 @@ Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 190
 |Name|SecuredCore.Encryption.TLS|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the test is to validate support for required TLS versions and cipher suites.|
-|Target Availability|2022|
-|Requirements dependency|Windows 10 IoT Enterprise Version 1903 or greater. Note: other requirements may require greater versions for other services. |
-|Validation Type|Manual/Tools|
-Validation|Device to be validated through toolset to ensure the device supports a minimum TLS version of 1.2 and supports the following required TLS cipher suites.<ul><li>TLS_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_RSA_WITH_AES_128_CBC_SHA256</li><li>TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256</li><li>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_DHE_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256</li><li>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256</li></ul>|
-|Resources| [TLS support in IoT Hub](../iot-hub/iot-hub-tls-support.md) <br /> [TLS Cipher suites in Windows 10](/windows/win32/secauthn/tls-cipher-suites-in-windows-10-v1903) |
+|Description|The OS must support a minimum Transport Layer Security (TLS) version of 1.2 and have the following TLS cipher suites available and enabled:<ul><li>TLS_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_RSA_WITH_AES_128_CBC_SHA256</li><li>TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256</li><li>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_DHE_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256</li><li>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256</li></ul>|
+|Purpose|Ensures that applications are able to use end-to-end encryption protocols and ciphers without known weaknesses, that are supported by Azure Services.|
+|Dependencies|Windows 10 IoT Enterprise Version 1903 or greater. Note: other requirements might require greater versions for other services.|
+|Resources| [TLS cipher suites in Windows](/windows/win32/secauthn/cipher-suites-in-schannel)|
 
 ---
 </br>
@@ -144,12 +110,10 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Name|SecuredCore.Protection.CodeIntegrity|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of this test is to validate that code integrity is available on this device.|
-|Target Availability|2022|
-|Requirements dependency|HVCI is enabled on the device.|
-|Validation Type|Manual/Tools|
-|Validation|Device to be validated through [Edge Secured-core Agent](https://aka.ms/Scforwiniot) toolset to ensure that HVCI is enabled on the device.|
-|Resources| [Hypervisor-protected Code Integrity enablement](/windows-hardware/design/device-experiences/oem-hvci-enablement) |
+|Description|The OS must have virtualization-based code integrity features enabled (VBS + HVCI).|
+|Purpose|Protects against modified/malicious code from within the kernel by ensuring that only code with verifiable integrity is able to run.|
+|Dependencies|VBS + HVCI is enabled on the device.|
+|Resources| [Hypervisor-protected Code Integrity enablement](/windows-hardware/design/device-experiences/oem-hvci-enablement)|
 
 ---
 </br>
@@ -157,11 +121,8 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Name|SecuredCore.Protection.NetworkServices|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the test is to validate that services listening for input from the network are not running with elevated privileges.|
-|Target Availability|2022|
-|Validation Type|Manual/Tools|
-|Validation|Device to be validated through [Edge Secured-core Agent](https://aka.ms/Scforwiniot) toolset to ensure that 3rd party services accepting network connections are not running with elevated LocalSystem and LocalService privileges. <ol><li>Exceptions may apply</li></ol>|
-|Resources||
+|Description|Services listening for input from the network must not run with elevated privileges. Exceptions may apply for security-related services.|
+|Purpose|Limits the exploitability of compromised networked services.|
 
 ---
 
@@ -171,42 +132,36 @@ Validation|Device to be validated through toolset to ensure the device supports 
 
 |Name|SecuredCore.Built-in.Security|
 |:---|:---|
-|Status|Coming Soon June 2022|
-|Description|The purpose of the test is to make sure devices can report security information and events by sending data to Azure Defender for IoT. <br>Note: Download and deploy security agent from GitHub|
-|Target Availability|2022|
-|Validation Type|Manual/Tools|
-|Validation	|Device must generate security logs and alerts. Device logs and alerts messages to Azure Security Center.<ol><li>Device must have the Azure Defender microagent running</li><li>Configuration_Certification_Check must report TRUE in the module twin</li><li>Validate alert messages from Azure Defender for IoT.</li></ol>|
-|Resources|[Azure Docs IoT Defender for IoT](../defender-for-iot/how-to-configure-agent-based-solution.md)|
+|Status|Required|
+|Description|Devices must be able to send security logs and alerts to a cloud-native security monitoring solution, such as Microsoft Defender for Endpoint.|
+|Purpose|Enables fleet posture monitoring, diagnosis of security threats, and protects against latent and in-progress attacks.|
+|Resources| [Defender for Endpoint](/microsoft-365/security/defender-endpoint/configure-endpoints-script)|
 
 ---
 </br>
 
 |Name|SecuredCore.Protection.Baselines|
 |:---|:---|
-|Status|Coming Soon June 2022|
-|Description|The purpose of the test is to validate that the system conforms to a baseline security configuration.|
-|Target Availability|2022|
-|Requirements dependency|Azure Defender for IoT|
-|Validation Type|Manual/Tools|
-|Validation|Device to be validated through toolset to ensure that Defender IOT system configurations benchmarks have been run.|
-|Resources| https://techcommunity.microsoft.com/t5/microsoft-security-baselines/bg-p/Microsoft-Security-Baselines <br> https://www.cisecurity.org/cis-benchmarks/ |
+|Status|Required|
+|Description|The system is able to successfully apply a baseline security configuration.|
+|Purpose|Ensures a secure-by-default configuration posture, reducing the risk of compromise through incorrectly configured security-sensitive settings.|
+|Resources|[Microsoft Security Baselines](https://techcommunity.microsoft.com/t5/microsoft-security-baselines/bg-p/Microsoft-Security-Baselines)<br>[CIS Benchmarks List](https://www.cisecurity.org/cis-benchmarks)|
+
+|Name|SecuredCore.Protection.Update Resiliency|
+|:---|:---|
+|Status|Required|
+|Description|The device must be restorable to the last known good state if an update causes issues.|
+|Purpose|Ensures that devices can be restored to a functional, secure, and updatable state.|
+
+
 
 ## Windows IoT Policy Requirements
----
-Some requirements of this program are based on a business agreement between your company and Microsoft. The following requirements are not validated through our test harness, but are required by your company in certifying the device.
-
----
-</br>
 
 |Name|SecuredCore.Policy.Protection.Debug|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the test is to validate that debug functionality on the device is disabled.|
-|Target Availability|2022|
-|Requirements dependency||
-|Validation Type|Manual/Tools|
-|Validation|Device to be validated through toolset to ensure that debug functionality requires authorization to enable.|
-|Resources||
+|Description|Debug functionality on the device must be disabled or require authorization to enable.|
+|Purpose|Ensures that software and hardware protections cannot be bypassed through debugger intervention and back-channels.|
 
 ---
 </br>
@@ -214,12 +169,8 @@ Some requirements of this program are based on a business agreement between your
 |Name|SecuredCore.Policy.Manageability.Reset|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of this test is to validate the device against two use cases: a) Ability to perform a reset (remove user data, remove user configs), b) Restore device to last known good in the case of an update causing issues.|
-|Target Availability|2022|
-|Requirements dependency||
-|Validation Type|Manual/Tools|
-|Validation|Device to be validated through a combination of toolset and submitted documentation that the device supports this functionality. The device manufacturer can determine whether to implement these capabilities to support remote reset or only local reset.|
-|Resources||
+|Description|It must be possible to reset the device (remove user data, remove user configs).|
+|Purpose|Protects against exfiltration of sensitive or private data during device ownership or lifecycle transitions.|
 
 ---
 </br>
@@ -227,11 +178,8 @@ Some requirements of this program are based on a business agreement between your
 |Name|SecuredCore.Policy.Updates.Duration|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of this policy is to ensure that the device remains secure.|
-|Target Availability|2022|
-|Validation Type|Manual|
-|Validation|Commitment from submission that devices certified will be required to keep devices up to date for 60 months from date of submission. Specifications available to the purchaser and devices itself in some manner should indicate the duration for which their software will be updated.|
-|Resources||
+|Description|Software updates must be provided for at least 60 months from date of submission.|
+|Purpose|Ensures a minimum period of continuous security.|
 
 ---
 </br>
@@ -239,11 +187,9 @@ Some requirements of this program are based on a business agreement between your
 |Name|SecuredCore.Policy.Vuln.Disclosure|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of this policy is to ensure that there is a mechanism for collecting and distributing reports of vulnerabilities in the product.|
-|Target Availability|2022|
-|Validation Type|Manual|
-|Validation|Documentation on the process for submitting and receiving vulnerability reports for the certified devices will be reviewed.|
-|Resources||
+|Description|A mechanism for collecting and distributing reports of vulnerabilities in the product must be available.|
+|Purpose|Provides a clear path for discovered vulnerabilities to be reported, assessed, and disclosed, enabling effective risk management and timely fixes.|
+|Resources|[MSRC Portal](https://msrc.microsoft.com/report/vulnerability/new)|
 
 ---
 </br>
@@ -251,11 +197,8 @@ Some requirements of this program are based on a business agreement between your
 |Name|SecuredCore.Policy.Vuln.Fixes|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of this policy is to ensure that vulnerabilities that are high/critical (using CVSS 3.0) are addressed within 180 days of the fix being available.|
-|Target Availability|2022|
-|Validation Type|Manual|
-|Validation|Documentation on the process for submitting and receiving vulnerability reports for the certified devices will be reviewed.|
-|Resources||
+|Description|Vulnerabilities that are high/critical (using Common Vulnerability Scoring System 3.0) must be addressed within 180 days of the fix being available.|
+|Purpose|Ensures that high-impact vulnerabilities are addressed in a timely manner, reducing likelihood and impact of a successful exploit.|
 
 ---
 </br>
@@ -264,28 +207,18 @@ Some requirements of this program are based on a business agreement between your
 ::: zone pivot="platform-linux"
 
 ## Linux OS Support
-OS Support is determined through underlying requirements of Azure services and our ability to validate scenarios.
-
-The Edge Secured-core program for Linux is enabled through the IoT Edge runtime which is supported based on [Tier 1 and Tier 2 operating systems](../iot-edge/support.md).
-
-## IoT Edge
-Edge Secured-core validation on Linux based devices is executed through a container run on the IoT Edge runtime. For this reason, all devices that are certifying Edge Secured-core must have the IoT Edge runtime installed.
+>[!Note]
+> Linux is not yet supported. The below represent expected requirements. Please fill out this [form](https://forms.office.com/r/HSAtk0Ghru) if you are interested in certifying a Linux device.
 
 ## Linux Hardware/Firmware Requirements
->[!Note]
-> * Hardware must support TPM v2.0, SRTM, Secure-boot or UBoot.
-> * Firmware will be submitted to Microsoft for vulnerability and configuration evaluation.
 
 ---
 |Name|SecuredCore.Hardware.Identity|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the test is to validate the device identify is rooted in hardware.|
-|Target Availability|2022|
-|Requirements dependency|TPM v2.0 device|
-|Validation Type|Manual/Tools|
-|Validation|Device to be validated through toolset to ensure that the device has a TPM present and that it can be provisioned through DPS using TPM endorsement key.|
-|Resources|[Setup auto provisioning with DPS](../iot-dps/quick-setup-auto-provision.md)|
+|Description|The device identity must be rooted in hardware.|
+|Purpose|Protects against cloning and masquerading of the device root identity, which is key in underpinning trust in upper software layers extended through a chain-of-trust. Provide an attestable, immutable and cryptographically secure identity.|
+|Dependencies|Trusted Platform Module (TPM) v2.0 </br><sup>or *other supported method</sup>|
 
 ---
 </br>
@@ -293,23 +226,20 @@ Edge Secured-core validation on Linux based devices is executed through a contai
 |Name|SecuredCore.Hardware.MemoryProtection|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the test is to validate that DMA is not enabled on externally accessible ports.|
-|Target Availability|2022|
-|Validation Type|Manual/Tools|
-|Validation|If DMA capable external ports exist on the device, toolset to validate that the IOMMU or SMMU is enabled and configured for those ports.|
-|Resources||
-
-</br>
+|Description|All DMA-enabled externally accessible ports must sit behind an enabled and appropriately configured Input-output Memory Management Unit (IOMMU) or System Memory Management Unit (SMMU).|
+|Purpose|Protects against drive-by and other attacks that seek to use other DMA controllers to bypass CPU memory integrity protections.|
+|Dependencies|Enabled and appropriately configured Input-output Memory Management Unit (IOMMU) or System Memory Management Unit (SMMU)|
 
 ---
+</br>
+
+
 |Name|SecuredCore.Firmware.Protection|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the test is to ensure that device has adequate mitigations from Firmware security threats.|
-|Target Availability|2022|
-|Validation Type|Manual/Tools|
-|Validation|Device to be validated through toolset to confirm it is protected from firmware security threats through one of the following approaches: <ul><li>Approved FW that does SRTM + runtime firmware hardening</li><li>Firmware scanning and evaluation by approved Microsoft 3rd party</li></ul> |
-|Resources| https://trustedcomputinggroup.org/ |
+|Description|The device boot sequence must support either: <ul><li>Approved firmware with SRTM support + runtime firmware hardening</li><li>Firmware scanning and evaluation by approved Microsoft third party</li></ul>|
+|Purpose|Protects against firmware weaknesses, untrusted code, and rootkits that seek to exploit early and privileged boot stages to bypass OS protections.|
+|Resources| [Trusted Computing Group](https://trustedcomputinggroup.org/) |
 
 ---
 </br>
@@ -317,11 +247,8 @@ Edge Secured-core validation on Linux based devices is executed through a contai
 |Name|SecuredCore.Firmware.SecureBoot|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the test is to validate the boot integrity of the device.|
-|Target Availability|2022|
-|Validation Type|Manual/Tools|
-|Validation|Device to be validated through toolset to ensure that firmware and kernel signatures are validated every time the device boots. <ul><li>UEFI: Secure boot is enabled</li><li>Uboot: Verified boot is enabled</li></ul>|
-|Resources||
+|Description|Either:<ul><li>UEFI: Secure boot must be enabled</li><li>Uboot: Verified boot must be enabled</li></ul>|
+|Purpose|Ensures that the firmware and OS kernel, executed as part of the boot sequence, have first been signed by a trusted authority and retain integrity.|
 
 ---
 </br>
@@ -329,11 +256,10 @@ Edge Secured-core validation on Linux based devices is executed through a contai
 |Name|SecuredCore.Firmware.Attestation|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the test is to ensure the device can remotely attest to the Microsoft Azure Attestation service.|
-|Target Availability|2022|
-|Validation Type|Manual/Tools|
-|Validation|Device to be validated through toolset to ensure that platform boot logs and measurements of boot activity can be collected and remotely attested to the Microsoft Azure Attestation service.|
-|Resources| [Microsoft Azure Attestation](../attestation/index.yml) |
+|Description|The device identity, along with its platform boot logs and measurements, must be remotely attestable to the Microsoft Azure Attestation (MAA) service.|
+|Purpose|Enables services to establish the trustworthiness of the device. Allows for reliable security posture monitoring and other trust scenarios such as the release of access credentials.|
+|Dependencies|Trusted Platform Module (TPM) 2.0 </br><sup>or *supported OP-TEE based application chained to a HWRoT (Secure Element or Secure Enclave)</sup>|
+|Resources| [Microsoft Azure Attestation](/azure/attestation/)|
 
 ---
 </br>
@@ -341,11 +267,9 @@ Edge Secured-core validation on Linux based devices is executed through a contai
 |Name|SecuredCore.Hardware.SecureEnclave|
 |:---|:---|
 |Status|Optional|
-|Description|The purpose of the test to validate the existence of a secure enclave and that the enclave is accessible from a secure agent.|
-|Target Availability|2022|
-|Validation Type|Manual/Tools|
-|Validation|Device to be validated through toolset to ensure the Azure Security Agent can communicate with the secure enclave|
-|Resources|https://github.com/openenclave/openenclave/blob/master/samples/BuildSamplesLinux.md|
+|Description|The device must feature a secure enclave capable of performing security functions.|
+|Purpose|Ensures that sensitive cryptographic operations (those key to device identity and chain-of-trust) are isolated and protected from the primary OS and some forms of side-channel attack.|
+
 
 ## Linux Configuration Requirements
 
@@ -353,11 +277,8 @@ Edge Secured-core validation on Linux based devices is executed through a contai
 |Name|SecuredCore.Encryption.Storage|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the test to validate that sensitive data can be encrypted on non-volatile storage.|
-|Target Availability|2022|
-|Validation Type|Manual/Tools|
-|Validation|Device to be validated through toolset to ensure storage encryption is enabled and default algorithm is XTS-AES, with key length 128 bits or higher.|
-|Resources||
+|Description|Sensitive and private data must be encrypted at rest using dm-crypt or similar, supporting XTS-AES as the default algorithm with a key length of 128 bits or higher, with encryption keys backed by hardware protection.|
+|Purpose|Protects against exfiltration of sensitive or private data by unauthorized actors or tampered software.|
 
 ---
 </br>
@@ -365,11 +286,8 @@ Edge Secured-core validation on Linux based devices is executed through a contai
 |Name|SecuredCore.Encryption.TLS|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the test is to validate support for required TLS versions and cipher suites.|
-|Target Availability|2022|
-|Validation Type|Manual/Tools|
-Validation|Device to be validated through toolset to ensure the device supports a minimum TLS version of 1.2 and supports the following required TLS cipher suites.<ul><li>TLS_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_RSA_WITH_AES_128_CBC_SHA256</li><li>TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256</li><li>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_DHE_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256</li><li>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256</li></ul>|
-|Resources| [TLS support in IoT Hub](../iot-hub/iot-hub-tls-support.md) <br /> |
+|Description|The OS must support a minimum Transport Layer Security (TLS) version of 1.2 and have the following TLS cipher suites available and enabled:<ul><li>TLS_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_RSA_WITH_AES_128_CBC_SHA256</li><li>TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256</li><li>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_DHE_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256</li><li>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256</li></ul>|
+|Purpose|Ensure that applications are able to use end-to-end encryption protocols and ciphers without known weaknesses, that are supported by Azure Services.|
 
 ---
 </br>
@@ -377,11 +295,8 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Name|SecuredCore.Protection.CodeIntegrity|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of this test is to validate that code integrity is available on this device.|
-|Target Availability|2022|
-|Validation Type|Manual/Tools|
-|Validation|Device to be validated through toolset to ensure that code integrity is enabled by validating dm-verity and IMA|
-|Resources||
+|Description|The OS must have dm-verity and IMA code integrity features enabled, with code operating under least privilege.|
+|Purpose|Protects against modified/malicious code, ensuring that only code with verifiable integrity is able to run.|
 
 ---
 </br>
@@ -389,23 +304,17 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Name|SecuredCore.Protection.NetworkServices|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the test is to validate that applications accepting input from the network are not running with elevated privileges.|
-|Target Availability|2022|
-|Validation Type|Manual/Tools|
-|Validation|Device to be validated through toolset to ensure that services accepting network connections are not running with SYSTEM or root privileges.|
-|Resources||
-
+|Description|Services listening for input from the network must not run with elevated privileges, such as SYSTEM or root. Exceptions may apply for security-related services.|
+|Purpose|Limits the exploitability of compromised networked services.|
 
 ## Linux Software/Service Requirements
 ---
 |Name|SecuredCore.Built-in.Security|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the test is to make sure devices can report security information and events by sending data to Azure Defender for IoT. <br>Note: Download and deploy security agent from GitHub|
-|Target Availability|2022|
-|Validation Type|Manual/Tools|
-|Validation	|Device must generate security logs and alerts. Device logs and alerts messages to Azure Security Center.<ol><li>Device must have the Azure Defender microagent running</li><li>Configuration_Certification_Check must report TRUE in the module twin</li><li>Validate alert messages from Azure Defender for IoT.</li></ol>|
-|Resources|[Azure Docs IoT Defender for IoT](../defender-for-iot/how-to-configure-agent-based-solution.md)|
+|Description|Devices must be able to send security logs and alerts to a cloud-native security monitoring solution, such as Microsoft Defender for Endpoint.|
+|Purpose|Enables fleet posture monitoring, diagnosis of security threats, and protects against latent and in-progress attacks.|
+|Resources| [Defender for Endpoint](/microsoft-365/security/defender-endpoint/configure-endpoints-script)|
 
 ---
 </br>
@@ -413,11 +322,9 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Name|SecuredCore.Manageability.Configuration|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the test is to validate the devices supports Remote administration via OSConfig.|
-|Target Availability|2022|
-|Validation Type|Manual/Tools|
-|Validation|Device to be validated through toolset to ensure the device supports the ability to be remotely manageable and configured by OSConfig.|
-|Resources||
+|Description|The device must support auditing and setting of system configuration (and certain management actions such as reboot) through Azure. Note: Use of other system management toolchains (e.g. Ansible) by operators aren't prohibited, but the device must include the azure-osconfig agent for Azure management.|
+|Purpose|Enables the application of security baselines as part of a secure-by-default configuration posture, reducing the risk of compromise through incorrectly configured security-sensitive settings.|
+|Dependency|azure-osconfig|
 
 ---
 </br>
@@ -425,11 +332,17 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Name|SecuredCore.Update|
 |:---|:---|
 |Status|Audit|
-|Description|The purpose of the test is to validate the device can receive and update its firmware and software.|
-|Target Availability|2022|
-|Validation Type|Manual/Tools|
-|Validation|Partner confirmation that they were able to send an update to the device through Azure Device update and other approved services.|
-|Resources|[Device Update for IoT Hub](../iot-hub-device-update/index.yml)|
+|Description|The device must be able to receive and update its firmware and software through Azure Device Update or other approved services.|
+|Purpose|Enables continuous security and renewable trust.|
+
+---
+</br>
+
+|Name|SecuredCore.UpdateResiliency|
+|:---|:---|
+|Status|Required|
+|Description|The device must be restorable to the last known good state if an update causes issues.|
+|Purpose|Ensures that devices can be restored to a functional, secure, and updatable state.|
 
 ---
 </br>
@@ -437,11 +350,9 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Name|SecuredCore.Protection.Baselines|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the test is to validate that the system conforms to a baseline security configuration.|
-|Target Availability|2022|
-|Validation Type|Manual/Tools|
-|Validation|Device to be validated through toolset to ensure that Defender IOT system configurations benchmarks have been run.|
-|Resources| https://techcommunity.microsoft.com/t5/microsoft-security-baselines/bg-p/Microsoft-Security-Baselines <br> https://www.cisecurity.org/cis-benchmarks/ |
+|Description|The system is able to successfully apply a baseline security configuration.|
+|Purpose|Ensures a secure-by-default configuration posture, reducing the risk of compromise through incorrectly configured security-sensitive settings.|
+|Resources|<ul><li>[Microsoft Security Baselines](https://techcommunity.microsoft.com/t5/microsoft-security-baselines/bg-p/Microsoft-Security-Baselines)</li><li>[CIS Benchmarks List](https://www.cisecurity.org/cis-benchmarks/)</li><li>[Linux Security Baseline](../governance/policy/samples/guest-configuration-baseline-linux.md)</li></ul>|
 
 ---
 </br>
@@ -449,12 +360,8 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Name|SecuredCore.Protection.SignedUpdates|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the test is to validate that updates must be signed.|
-|Target Availability|2022|
-|Validation Type|Manual/Tools|
-|Validation|Device to be validated through toolset to ensure that updates to the operating system, drivers, application software, libraries, packages and firmware will not be applied unless properly signed and validated.
-|Resources||
-
+|Description|Updates to the operating system, drivers, application software, libraries, packages, and firmware must be signed.|
+|Purpose|Prevents unauthorized or malicious code from being installed during the update process.|
 
 
 ## Linux Policy Requirements
@@ -462,11 +369,8 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Name|SecuredCore.Policy.Protection.Debug|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of the test is to validate that debug functionality on the device is disabled.|
-|Target Availability|2022|
-|Validation Type|Manual/Tools|
-|Validation|Device to be validated through toolset to ensure that debug functionality requires authorization to enable.|
-|Resources||
+|Description|Debug functionality on the device must be disabled or require authorization to enable.|
+|Purpose|Ensures that software and hardware protections cannot be bypassed through debugger intervention and back-channels.|
 
 ---
 </br>
@@ -474,11 +378,8 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Name|SecuredCore.Policy.Manageability.Reset|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of this test is to validate the device against two use cases: a) Ability to perform a reset (remove user data, remove user configs), b) Restore device to last known good in the case of an update causing issues.|
-|Target Availability|2022|
-|Validation Type|Manual/Tools|
-|Validation|Device to be validated through a combination of toolset and submitted documentation that the device supports this functionality. The device manufacturer can determine whether to implement these capabilities to support remote reset or only local reset.|
-|Resources||
+|Description|It must be possible to reset the device (remove user data, remove user configs).|
+|Purpose|Protects against exfiltration of sensitive or private data during device ownership or lifecycle transitions.|
 
 ---
 </br>
@@ -486,11 +387,8 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Name|SecuredCore.Policy.Updates.Duration|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of this policy is to ensure that the device remains secure.|
-|Target Availability|2022|
-|Validation Type|Manual|
-|Validation|Commitment from submission that devices certified will be required to keep devices up to date for 60 months from date of submission. Specifications available to the purchaser and devices itself in some manner should indicate the duration for which their software will be updated.|
-|Resources||
+|Description|Software updates must be provided for at least 60 months from date of submission.|
+|Purpose|Ensures a minimum period of continuous security.|
 
 ---
 </br>
@@ -498,11 +396,8 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Name|SecuredCore.Policy.Vuln.Disclosure|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of this policy is to ensure that there is a mechanism for collecting and distributing reports of vulnerabilities in the product.|
-|Target Availability|2022|
-|Validation Type|Manual|
-|Validation|Documentation on the process for submitting and receiving vulnerability reports for the certified devices will be reviewed.|
-|Resources||
+|Description|A mechanism for collecting and distributing reports of vulnerabilities in the product must be available.|
+|Purpose|Provides a clear path for discovered vulnerabilities to be reported, assessed, and disclosed, enabling effective risk management and timely fixes.|
 
 ---
 </br>
@@ -510,11 +405,239 @@ Validation|Device to be validated through toolset to ensure the device supports 
 |Name|SecuredCore.Policy.Vuln.Fixes|
 |:---|:---|
 |Status|Required|
-|Description|The purpose of this policy is to ensure that vulnerabilities that are high/critical (using CVSS 3.0) are addressed within 180 days of the fix being available.|
-|Target Availability|2022|
-|Validation Type|Manual|
-|Validation|Documentation on the process for submitting and receiving vulnerability reports for the certified devices will be reviewed.|
-|Resources||
+|Description|Vulnerabilities that are high/critical (using Common Vulnerability Scoring System 3.0) must be addressed within 180 days of the fix being available.|
+|Purpose|Ensures that high-impact vulnerabilities are addressed in a timely manner, reducing likelihood and impact of a successful exploit.|
+
+</br>
+::: zone-end
+<!---------------------------------------------->
+<!---------------------------------------------->
+<!---------------------------------------------->
+::: zone pivot="platform-sphere"
+
+## Azure Sphere Platform Support
+The Mediatek MT3620AN must be included in your design. More guidance for building secured Azure Sphere applications can be found within the [Azure Sphere application notes](/azure-sphere/app-notes/app-notes-overview).
+
+
+## Azure Sphere Hardware/Firmware Requirements
+
+---
+|Name|SecuredCore.Hardware.Identity|
+|:---|:---|
+|Status|Required|
+|Description|The device identity must be rooted in hardware.|
+|Purpose|Protects against cloning and masquerading of the device root identity, which is key in underpinning trust in upper software layers extended through a chain-of-trust. Provide an attestable, immutable and cryptographically secure identity.|
+|Dependencies| Azure Sphere meets this requirement as MT3620 includes the integrated Pluton security processor.|
+
+---
+</br>
+
+|Name|SecuredCore.Hardware.MemoryProtection|
+|:---|:---|
+|Status|Required|
+|Description|All DMA-enabled externally accessible ports must sit behind an enabled and appropriately configured Input-output Memory Management Unit (IOMMU) or System Memory Management Unit (SMMU).|
+|Purpose|Protects against drive-by and other attacks that seek to use other DMA controllers to bypass CPU memory integrity protections.|
+|Dependencies| Azure Sphere meets this requirement through a securely configurable peripheral firewall.|
+
+---
+</br>
+
+|Name|SecuredCore.Firmware.Protection|
+|:---|:---|
+|Status|Required|
+|Description|The device boot sequence must protect against firmware security threats.|
+|Purpose|Protects against firmware weaknesses, persistent untrusted code, and rootkits that seek to exploit early and privileged boot stages to bypass OS protections.|
+|Dependencies| Azure Sphere meets this requirement through a Microsoft-managed, hardened, and authenticated boot chain.|
+
+---
+</br>
+
+|Name|SecuredCore.Firmware.SecureBoot|
+|:---|:---|
+|Status|Required|
+|Description|The device boot sequence must be authenticated.|
+|Purpose|Ensures that the firmware and OS kernel, executed as part of the boot sequence, have first been signed by a trusted authority and retain integrity.|
+|Dependencies| Azure Sphere meets this requirement through a Microsoft-managed authenticated boot chain.</li></ul>|
+
+---
+</br>
+
+|Name|SecuredCore.Firmware.Attestation|
+|:---|:---|
+|Status|Required|
+|Description|The device identity, along with its platform boot logs and measurements, must be remotely attestable to a Microsoft Azure Attestation (MAA) service.|
+|Purpose|Enables services to establish the trustworthiness of the device. Allows for reliable security posture monitoring and other trust scenarios such as the release of access credentials.|
+|Dependencies| Azure Sphere meets this requirement through the Device Authentication and Attestation (DAA) service provided as part of the Azure Sphere Security Service (AS3).|
+
+---
+</br>
+
+|Name|SecuredCore.Hardware.SecureEnclave|
+|:---|:---|
+|Status|Required|
+|Description|The device must feature a secure enclave capable of performing security functions.|
+|Purpose|Ensures that sensitive cryptographic operations (those key to device identity and chain-of-trust) are isolated and protected from the primary OS and some forms of side-channel attack.|
+|Dependencies| Azure Sphere meets this requirement as MT3260 includes the Pluton security processor.|
+
+## Azure Sphere OS Configuration Requirements
+
+---
+|Name|SecuredCore.Encryption.Storage|
+|:---|:---|
+|Status|Required|
+|Description|Sensitive and private data must be encrypted at rest, with encryption keys backed by hardware protection.|
+|Purpose|Protects against exfiltration of sensitive or private data by unauthorized actors or tampered software.|
+|Dependencies| Azure Sphere enables this requirement to be met using the Pluton security processor, in-package non-volatile memory, and customer-exposed wolfCrypt APIs.|
+
+---
+</br>
+
+|Name|SecuredCore.Encryption.TLS|
+|:---|:---|
+|Status|Required|
+|Description|The OS must support a minimum Transport Layer Security (TLS) version of 1.2 and have secure TLS cipher suites available.|
+|Purpose|Ensures that applications are able to use end-to-end encryption protocols and ciphers without known weaknesses, that are supported by Azure Services.|
+|Dependencies| Azure Sphere meets this requirement through a Microsoft-managed wolfSSL library using only secure TLS cipher suites, backed by Device Authentication and Attestation (DAA) certificates.|
+
+---
+</br>
+
+|Name|SecuredCore.Protection.CodeIntegrity|
+|:---|:---|
+|Status|Required|
+|Description|The OS must feature code integrity support, with code operating under least privilege.|
+|Purpose|Protects against modified/malicious code, ensuring that only code with verifiable integrity is able to run.|
+|Dependencies| Azure Sphere meets this requirement through the Microsoft-managed and hardened OS with read-only filesystem stored on in-package non-volatile memory storage and executed in on-die RAM, with restricted/contained and least-privileged workloads.|
+
+---
+</br>
+
+|Name|SecuredCore.Protection.NetworkServices|
+|:---|:---|
+|Status|Required|
+|Description|Services listening for input from the network must not run with elevated privileges, such as SYSTEM or root. Exceptions may apply for security-related services.|
+|Purpose|Limits the exploitability of compromised networked services.|
+|Dependencies| Azure Sphere meets this requirement through restricted/contained and least-privileged workloads.|
+
+---
+</br>
+
+|Name|SecuredCore.Protection.NetworkFirewall|
+|:---|:---|
+|Status|Required|
+|Description|Applications can't connect to endpoints that haven't been authorized.|
+|Purpose|Limits the exploitability of compromised or malicious applications for upstream network traffic and remote access/control.|
+|Dependencies| Azure Sphere meets this requirement through a securely configurable network firewall and Device Authentication and Attestation (DAA) certificates.|
+
+## Azure Sphere Software/Service Requirements
+---
+|Name|SecuredCore.Built-in.Security|
+|:---|:---|
+|Status|Required|
+|Description|Devices must be able to send security logs and alerts to a cloud-native security monitoring solution.|
+|Purpose|Enables fleet posture monitoring, diagnosis of security threats, and protects against latent and in-progress attacks.|
+|Dependencies| Azure Sphere meets this requirement through integration of Azure Sphere Security Service (AS3) telemetry with Azure Monitor and the ability for applications to send security logs and alerts via Azure services.|
+|Resources|[Collect and interpret error data - Azure Sphere](/azure-sphere/deployment/interpret-error-data?tabs=cliv2beta)</br>[Configure crash dumps - Azure Sphere](/azure-sphere/deployment/configure-crash-dumps)|
+
+---
+</br>
+
+|Name|SecuredCore.Manageability.Configuration|
+|:---|:---|
+|Status|Required|
+|Description|The device must support auditing and setting of system configuration (and certain management actions) through Azure.|
+|Purpose|Enables the application of security baselines as part of a secure-by-default configuration posture, reducing the risk of compromise through incorrectly configured security-sensitive settings.|
+|Dependencies| Azure Sphere meets this requirement through secure customer application configuration manifests, underpinned by a Microsoft-managed, and hardened OS.
+
+---
+</br>
+
+|Name|SecuredCore.Update|
+|:---|:---|
+|Status|Required|
+|Description|The device must be able to receive and update its firmware and software.|
+|Purpose|Enables continuous security and renewable trust.|
+|Dependencies| Azure Sphere meets this requirement through a Microsoft-managed and automatically updated OS, with customer application updates delivered remotely via the Azure Sphere Security Service (AS3).|
+
+---
+</br>
+
+|Name|SecuredCore.Protection.Baselines|
+|:---|:---|
+|Status|Required|
+|Description|The system is able to successfully apply a baseline security configuration.|
+|Purpose|Ensures a secure-by-default configuration posture, reducing the risk of compromise through incorrectly configured security-sensitive settings.|
+|Dependencies| Azure Sphere meets this requirement through a Microsoft-managed and hardened OS.|
+
+---
+</br>
+
+|Name|SecuredCore.Protection.Update Resiliency|
+|:---|:---|
+|Status|Required|
+|Description|The device must be restorable to the last known good state if an update causes issues.|
+|Purpose|Ensures that devices can be restored to a functional, secure, and updatable state.|
+|Dependencies| Azure Sphere meets this requirement through a built-in rollback mechanism for updates.|
+
+---
+</br>
+
+|Name|SecuredCore.Protection.SignedUpdates|
+|:---|:---|
+|Status|Required|
+|Description|Updates to the operating system, drivers, application software, libraries, packages, and firmware must be signed.|
+|Purpose|Prevents unauthorized or malicious code from being installed during the update process.|
+|Dependencies| Azure Sphere meets this requirement.|
+
+## Azure Sphere Policy Requirements
+---
+|Name|SecuredCore.Policy.Protection.Debug|
+|:---|:---|
+|Status|Required|
+|Description|Debug functionality on the device must be disabled or require authorization to enable.|
+|Purpose|Ensures that the software and hardware protections cannot be bypassed through debugger intervention and back-channels.|
+|Dependencies| Azure Sphere OS meets this requirement as debug functionality requires a signed capability that is only provided to the device OEM owner.|
+
+---
+</br>
+
+|Name|SecuredCore.Policy.Manageability.Reset|
+|:---|:---|
+|Status|Required|
+|Description|It must be possible to reset the device (remove user data, remove user configs).|
+|Purpose|Protects against exfiltration of sensitive or private data during device ownership or lifecycle transitions.|
+|Dependencies| The Azure Sphere OS enables OEM applications to implement reset functionality.|
+
+---
+</br>
+
+|Name|SecuredCore.Policy.Updates.Duration|
+|:---|:---|
+|Status|Required|
+|Description|Software updates must be provided for at least 60 months from date of submission.|
+|Purpose|Ensures a minimum period of continuous security.|
+|Dependencies| The Azure Sphere OS meets this requirement as Microsoft provides OS security updates, and the AS3 service enables OEMs to provide application software updates. |
+
+---
+</br>
+
+|Name|SecuredCore.Policy.Vuln.Disclosure|
+|:---|:---|
+|Status|Required|
+|Description|A mechanism for collecting and distributing reports of vulnerabilities in the product must be available.|
+|Purpose|Provides a clear path for discovered vulnerabilities to be reported, assessed, and disclosed, enabling effective risk management and timely fixes.|
+|Dependencies| Azure Sphere OS vulnerabilities can be reported to Microsoft Security Response Center (MSRC) and are published to customers through the Azure Sphere “What’s New” page, and through Mitre’s CVE database.|
+|Resources|<ul><li>[Report an issue and submission guidelines](https://www.microsoft.com/msrc/faqs-report-an-issue)</li><li>[What's new - Azure Sphere](/azure-sphere/product-overview/whats-new)</li><li>[Azure Sphere CVEs](/azure-sphere/deployment/azure-sphere-cves)</li></ul>|
+
+---
+</br>
+
+|Name|SecuredCore.Policy.Vuln.Fixes|
+|:---|:---|
+|Status|Required|
+|Description|Vulnerabilities that are high/critical (using Common Vulnerability Scoring System 3.0) must be addressed within 180 days of the fix being available.|
+|Purpose|Ensures that high-impact vulnerabilities are addressed in a timely manner, reducing likelihood and impact of a successful exploit.|
+|Dependencies| Azure Sphere OS meets this requirement as Microsoft provides OS security updates meeting the above requirement. The AS3 service enables OEMs to provide application software updates meeting this requirement.|
 
 </br>
 ::: zone-end

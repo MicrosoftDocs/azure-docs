@@ -1,14 +1,15 @@
 ---
-title: 'Tutorial: Host a static website on Blob storage
-titleSuffix: Azure Storage'
+title: 'Tutorial: Host a static website on Blob storage'
+titleSuffix: Azure Storage
 description: Learn how to configure a storage account for static website hosting, and deploy a static website to Azure Storage.
-author: normesta
-ms.service: storage
-ms.subservice: blobs
+author: stevenmatthew
+ms.service: azure-blob-storage
 ms.topic: tutorial
 ms.date: 11/04/2021
-ms.author: normesta
+ms.author: shaas
 ms.reviewer: dineshm
+ms.custom: ai-video-demo
+ai-usage: ai-assisted
 #Customer intent: I want to host files for a static website in Blob storage and access the website from an Azure endpoint.
 ---
 
@@ -23,6 +24,11 @@ In this tutorial, you learn how to:
 > - Deploy a Hello World website
 
 [!INCLUDE [static websites vs static web apps](../../../includes/storage-blob-static-website-vs-static-web-app.md)]
+
+This video shows you how to host a static website on Blob Storage.
+> [!VIDEO 61affe70-baf4-4b65-ba95-0a9d3e272032]
+
+The steps in the video are also described in the following sections.
 
 ## Prerequisites
 
@@ -40,15 +46,11 @@ After you install Visual Studio Code, install the Azure Storage preview extensio
 
     ![Install the Azure Storage extension in VS Code](media/storage-blob-static-website-host/install-extension-vs-code.png)
 
-## Sign in to the Azure portal
-
-Sign in to the [Azure portal](https://portal.azure.com/) to get started.
-
 ## Configure static website hosting
 
 The first step is to configure your storage account to host a static website in the Azure portal. When you configure your account for static website hosting, Azure Storage automatically creates a container named *$web*. The *$web* container will contain the files for your static website.
 
-1. Open the [Azure portal](https://portal.azure.com/) in your web browser.
+1. Sign in to the [Azure portal](https://portal.azure.com) in your web browser.
 1. Locate your storage account and display the account overview.
 1. Select **Static website** to display the configuration page for static websites.
 1. Select **Enabled** to enable static website hosting for the storage account.

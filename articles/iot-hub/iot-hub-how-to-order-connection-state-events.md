@@ -1,13 +1,13 @@
 ---
 title: Order device connection events from Azure IoT Hub w/Azure Cosmos DB
 description: This article describes how to order and record device connection events from Azure IoT Hub using Azure Cosmos DB to maintain the latest connection state.
-services: iot-hub
+author: kgremban
+
+ms.author: kgremban
 ms.service: iot-hub
-ms.custom: ignite-2022
-author: ash2017
-ms.topic: conceptual
+ms.custom: devx-track-azurecli
+ms.topic: how-to
 ms.date: 04/11/2019
-ms.author: asrastog 
 ---
 
 # Order device connection events from Azure IoT Hub using Azure Cosmos DB
@@ -31,11 +31,13 @@ The sequence number is a string representation of a hexadecimal number. You can 
 
 ## Prerequisites
 
-* An active Azure Cosmos DB for NoSQL account. If you haven't created one yet, see [Create a database account](../cosmos-db/create-sql-api-java.md#create-a-database-account) for a walkthrough.
+* An active Azure Cosmos DB for NoSQL account. If you haven't created one yet, see [Create a database account](/azure/cosmos-db/create-sql-api-java#create-a-database-account) for a walkthrough.
 
-* A collection in your database. See [Add a collection](../cosmos-db/create-sql-api-java.md#add-a-container) for a walkthrough. When you create your collection, use `/id` for the partition key.
+* A collection in your database. See [Add a collection](/azure/cosmos-db/create-sql-api-java#add-a-container) for a walkthrough. When you create your collection, use `/id` for the partition key.
 
-* An IoT Hub in Azure. If you haven't created one yet, see [Get started with IoT Hub](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp) for a walkthrough.
+* An Azure subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+* An IoT hub in your Azure subscription. If you don't have a hub yet, you can follow the steps in [Create an IoT hub](create-hub.md).
 
 ## Create a logic app
 
@@ -284,7 +286,7 @@ If you don't want to lose the work on your logic app, disable it instead of dele
 
 ### Cosmos DB
 
-To remove an Azure Cosmos DB account from the Azure portal, go to your resource and select **Delete account** from the top menu bar. See detailed instructions for [deleting an Azure Cosmos DB account](../cosmos-db/how-to-manage-database-account.md).
+To remove an Azure Cosmos DB account from the Azure portal, go to your resource and select **Delete account** from the top menu bar. See detailed instructions for [deleting an Azure Cosmos DB account](/azure/cosmos-db/how-to-manage-database-account).
 
 ## Next steps
 

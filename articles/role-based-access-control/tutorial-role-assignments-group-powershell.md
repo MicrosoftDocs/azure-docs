@@ -1,22 +1,14 @@
 ---
 title: "Tutorial: Grant a group access to Azure resources using Azure PowerShell - Azure RBAC"
 description: Learn how to grant a group access to Azure resources using Azure PowerShell and Azure role-based access control (Azure RBAC) in this tutorial.
-services: active-directory
-documentationCenter: ''
 author: rolyon
 manager: amycolannino
-editor: ''
-
 ms.service: role-based-access-control
-ms.devlang: ''
+ms.custom: devx-track-azurepowershell, has-azure-ad-ps-ref, azure-ad-ref-level-one-done
 ms.topic: tutorial
-ms.tgt_pltfrm: ''
-ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
-
 #Customer intent: As a dev or devops, I want step-by-step instructions for how to grant permissions for groups to resources so that they can perform their job.
-
 ---
 
 # Tutorial: Grant a group access to Azure resources using Azure PowerShell
@@ -32,14 +24,15 @@ In this tutorial, you learn how to:
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
+[!INCLUDE [az-powershell-update](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Prerequisites
 
 To complete this tutorial, you will need:
 
-- Permissions to create groups in Azure Active Directory (or have an existing group)
+- Permissions to create groups in Microsoft Entra ID (or have an existing group)
 - [Azure Cloud Shell](../cloud-shell/quickstart-powershell.md)
+- [Microsoft Graph PowerShell SDK](/powershell/microsoftgraph/installation)
 
 ## Role assignments
 
@@ -56,17 +49,17 @@ In Azure RBAC, to grant access, you create a role assignment. A role assignment 
 
 To assign a role, you need a user, group, or service principal. If you don't already have a group, you can create one.
 
-- In Azure Cloud Shell, create a new group using the [New-AzureADGroup](/powershell/module/azuread/new-azureadgroup) command.
+- In Azure Cloud Shell, create a new group using the [New-MgGroup](/powershell/module/microsoft.graph.groups/new-mggroup) command.
 
    ```azurepowershell
-   New-AzureADGroup -DisplayName "RBAC Tutorial Group" `
-     -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
+   New-MgGroup -DisplayName "RBAC Tutorial Group" -MailEnabled:$false `
+      -SecurityEnabled:$true -MailNickName "NotSet"
    ```
 
-   ```Example
-   ObjectId                             DisplayName         Description
-   --------                             -----------         -----------
-   11111111-1111-1111-1111-111111111111 RBAC Tutorial Group
+   ```output
+   DisplayName         Id                                   MailNickname Description GroupTypes
+   -----------         --                                   ------------ ----------- ----------
+   RBAC Tutorial Group 11111111-1111-1111-1111-111111111111 NotSet                   {}
    ```
 
 If you don't have permissions to create groups, you can try the [Tutorial: Grant a user access to Azure resources using Azure PowerShell](tutorial-role-assignments-user-powershell.md) instead.
@@ -105,16 +98,16 @@ You use a resource group to show how to assign a role at a resource group scope.
 
 To grant access for the group, you use the [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) command to assign a role. You must specify the security principal, role definition, and scope.
 
-1. Get the object ID of the group using the [Get-AzureADGroup](/powershell/module/azuread/new-azureadgroup) command.
+1. Get the object ID of the group using the [Get-MgGroup](/powershell/module/microsoft.graph.groups/get-mggroup) command.
 
     ```azurepowershell
-    Get-AzureADGroup -SearchString "RBAC Tutorial Group"
+    Get-MgGroup -Filter "DisplayName eq 'RBAC Tutorial Group'"
     ```
 
-    ```Example
-    ObjectId                             DisplayName         Description
-    --------                             -----------         -----------
-    11111111-1111-1111-1111-111111111111 RBAC Tutorial Group
+    ```output
+    DisplayName         Id                                   MailNickname Description GroupTypes
+    -----------         --                                   ------------ ----------- ----------
+    RBAC Tutorial Group 11111111-1111-1111-1111-111111111111 NotSet                   {}
     ```
 
 1. Save the group object ID in a variable.
@@ -282,10 +275,10 @@ To clean up the resources created by this tutorial, delete the resource group an
     
 1. When asked to confirm, type **Y**. It will take a few seconds to delete.
 
-1. Delete the group using the [Remove-AzureADGroup](/powershell/module/azuread/remove-azureadgroup) command.
+1. Delete the group using the [Remove-MgGroup](/powershell/module/microsoft.graph.groups/remove-mggroup) command.
 
     ```azurepowershell
-    Remove-AzureADGroup -ObjectId $groupId
+    Remove-MgGroup -GroupID $groupId
     ```
     
     If you receive an error when you try to delete the group, you can also delete the group in the portal.

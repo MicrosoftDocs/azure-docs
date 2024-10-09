@@ -4,8 +4,10 @@ description: Describes the logical parameter pattern.
 author: johndowns
 ms.author: jodowns
 ms.topic: conceptual
-ms.date: 12/01/2021
+ms.custom: devx-track-bicep
+ms.date: 09/26/2024
 ---
+
 # Logical parameter pattern
 
 Use parameters to specify the logical definition of a resource, or even of multiple resources. The Bicep file converts the logical parameter to deployable resource definitions. By following this pattern, you can separate *what's* deployed from *how* it's deployed.

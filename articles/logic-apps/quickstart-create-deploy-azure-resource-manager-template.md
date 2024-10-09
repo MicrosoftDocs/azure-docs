@@ -5,22 +5,22 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: quickstart
-ms.custom: mvc, subject-armqs, devx-track-azurepowershell, mode-arm
-ms.date: 08/20/2022
+ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template
+ms.date: 01/04/2024
 #Customer intent: As a developer, I want to create and deploy an automated workflow in multi-tenant Azure Logic Apps with Azure Resource Manager templates (ARM templates).
 ---
 
 # Quickstart: Create and deploy a Consumption logic app workflow in multi-tenant Azure Logic Apps with an ARM template
 
-[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 
 [Azure Logic Apps](logic-apps-overview.md) is a cloud service that helps you create and run automated workflows that integrate data, apps, cloud-based services, and on-premises systems by choosing from [hundreds of connectors](/connectors/connector-reference/connector-reference-logicapps-connectors). This quickstart focuses on the process for deploying an Azure Resource Manager template (ARM template) to create a basic [Consumption logic app workflow](logic-apps-overview.md#resource-environment-differences) that checks the status for Azure on an hourly schedule and runs in [multi-tenant Azure Logic Apps](logic-apps-overview.md#resource-environment-differences).
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites, and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.logic%2Flogic-app-create%2Fazuredeploy.json)
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.logic%2Flogic-app-create%2Fazuredeploy.json":::
 
 ## Prerequisites
 
@@ -58,7 +58,7 @@ Follow the option that you want to use for deploying the quickstart template:
 
 1. To sign in with your Azure account and open the quickstart template in the Azure portal, select the following image:
 
-   [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.logic%2Flogic-app-create%2Fazuredeploy.json)
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.logic%2Flogic-app-create%2Fazuredeploy.json":::
 
 1. In the portal, on the **Create a logic app using a template** page, enter or select the following values:
 
@@ -83,7 +83,7 @@ Follow the option that you want to use for deploying the quickstart template:
 #### [CLI](#tab/azure-cli)
 
 ```azurecli-interactive
-read -p "Enter a project name name to use for generating resource names:" projectName &&
+read -p "Enter a project name to use for generating resource names:" projectName &&
 read -p "Enter the location, such as 'westus':" location &&
 templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.logic/logic-app-create/azuredeploy.json" &&
 resourceGroupName="${projectName}rg" &&
@@ -239,7 +239,7 @@ To view the logic app workflow, you can use the Azure portal, run a script that 
 ```azurecli-interactive
 echo "Enter your logic app name:" &&
 read logicAppName &&
-az logic workflow show --name $logicAppName &&
+az logic workflow show --resource-group $resourceGroupName --name $logicAppName &&
 echo "Press [ENTER] to continue ..."
 ```
 
@@ -249,7 +249,7 @@ For more information, see [Azure CLI: az logic workflow show](/cli/azure/logic/w
 
 ```azurepowershell-interactive
 $logicAppName = Read-Host -Prompt "Enter your logic app name"
-Get-AzLogicApp -Name $logicAppName
+Get-AzLogicApp -ResourceGroupName $resourceGroupName -Name $logicAppName 
 Write-Host "Press [ENTER] to continue..."
 ```
 

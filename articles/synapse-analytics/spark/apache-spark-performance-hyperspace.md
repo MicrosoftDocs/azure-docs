@@ -1,14 +1,14 @@
 ---
 title: Hyperspace indexes for Apache Spark
 description: Performance optimization for Apache Spark using Hyperspace indexes
-services: synapse-analytics 
-author: juluczni
-ms.author: juluczni
-ms.service: synapse-analytics 
+author: ekote
+ms.author: eskot 
+ms.reviewer: whhender, whhender
+ms.service: azure-synapse-analytics
 ms.topic: conceptual 
 ms.subservice: spark
-ms.date: 02/15/2022
-ms.reviewer: euang
+ms.custom: devx-track-python
+ms.date: 02/10/2023
 zone_pivot_groups: programming-languages-spark-all-minus-sql-r
 ---
 
@@ -16,7 +16,7 @@ zone_pivot_groups: programming-languages-spark-all-minus-sql-r
 
 Hyperspace introduces the ability for Apache Spark users to create indexes on their datasets, such as CSV, JSON, and Parquet, and use them for potential query and workload acceleration.
 
-In this article, we highlight the basics of Hyperspace, emphasize its simplicity, and show how it can be used by just about anyone.
+In this article, we highlight the basics of Hyperspace, emphasize its simplicity, and show how just about anyone can use it.
 
 Disclaimer: Hyperspace helps accelerate your workloads or queries under two circumstances:
 
@@ -29,11 +29,14 @@ This document is also available in notebook form, for [Python](https://github.co
 
 ## Setup
 
-To begin with, start a new Spark session. Since this document is a tutorial merely to illustrate what Hyperspace can offer, you will make a configuration change that allows us to highlight what Hyperspace is doing on small datasets. 
+>[!Note]
+> Hyperspace is supported in Azure Synapse Runtime for Apache Spark 3.1 (unsupported), and Azure Synapse Runtime for Apache Spark 3.2 (End of Support announced). However, it should be noted that Hyperspace is not supported in Azure Synapse Runtime for Apache Spark 3.3 (GA).
+
+To begin with, start a new Spark session. Since this document is a tutorial merely to illustrate what Hyperspace can offer, you'll make a configuration change that allows us to highlight what Hyperspace is doing on small datasets. 
 
 By default, Spark uses broadcast join to optimize join queries when the data size for one side of join is small (which is the case for the sample data we use in this tutorial). Therefore, we disable broadcast joins so that later when we run join queries, Spark uses sort-merge join. This is mainly to show how Hyperspace indexes would be used at scale for accelerating join queries.
 
-The output of running the following cell shows a reference to the successfully created Spark session and prints out '-1' as the value for the modified join config, which indicates that broadcast join is successfully disabled.
+The output of running the following cell shows a reference to the successfully created Spark session and prints '-1' as the value for the modified join config, which indicates that broadcast join is successfully disabled.
 
 :::zone pivot = "programming-language-scala"
 
@@ -89,7 +92,7 @@ res3: org.apache.spark.sql.SparkSession = org.apache.spark.sql.SparkSession@297e
 
 To prepare your environment, you'll create sample data records and save them as Parquet data files. Parquet is used for illustration, but you can also use other formats such as CSV. In the subsequent cells, you'll see how you can create several Hyperspace indexes on this sample dataset and make Spark use them when running queries.
 
-The example records correspond to two datasets: department and employee. You should configure the "empLocation" and "deptLocation" paths so that on the storage account they point to your desired location to save generated data files.
+The example records correspond to two datasets: department and employee. You should configure the "emp_Location" and "dept_Location" paths so that on the storage account they point to your desired location to save generated data files.
 
 The output of running the following cell shows contents of our datasets as lists of triplets followed by references to dataFrames created to save the content of each dataset in our preferred location.
 
@@ -127,10 +130,10 @@ import spark.implicits._
 val empData: DataFrame = employees.toDF("empId", "empName", "deptId")
 val deptData: DataFrame = departments.toDF("deptId", "deptName", "location")
 
-val empLocation: String = "/<yourpath>/employees.parquet"       //TODO ** customize this location path **
-val deptLocation: String = "/<yourpath>/departments.parquet"     //TODO ** customize this location path **
-empData.write.mode("overwrite").parquet(empLocation)
-deptData.write.mode("overwrite").parquet(deptLocation)
+val emp_Location: String = "/<yourpath>/employees.parquet"       //TODO ** customize this location path **
+val dept_Location: String = "/<yourpath>/departments.parquet"     //TODO ** customize this location path **
+empData.write.mode("overwrite").parquet(emp_Location)
+deptData.write.mode("overwrite").parquet(dept_Location)
 ```
 
 ::: zone-end
@@ -215,10 +218,10 @@ var employeeSchema = new StructType(new List<StructField>()
 DataFrame empData = spark.CreateDataFrame(employees, employeeSchema); 
 DataFrame deptData = spark.CreateDataFrame(departments, departmentSchema); 
 
-string empLocation = "/<yourpath>/employees.parquet";       //TODO ** customize this location path **
-string deptLocation = "/<yourpath>/departments.parquet";     //TODO ** customize this location path **
-empData.Write().Mode("overwrite").Parquet(empLocation);
-deptData.Write().Mode("overwrite").Parquet(deptLocation);
+string emp_Location = "/<yourpath>/employees.parquet";       //TODO ** customize this location path **
+string dept_Location = "/<yourpath>/departments.parquet";     //TODO ** customize this location path **
+empData.Write().Mode("overwrite").Parquet(emp_Location);
+deptData.Write().Mode("overwrite").Parquet(dept_Location);
 
 ```
 
@@ -232,8 +235,8 @@ employees: Seq[(Int, String, Int)] = List((7369,SMITH,20), (7499,ALLEN,30), (752
 
 empData: org.apache.spark.sql.DataFrame = [empId: int, empName: string ... 1 more field]  
 deptData: org.apache.spark.sql.DataFrame = [deptId: int, deptName: string ... 1 more field]  
-empLocation: String = /your-path/employees.parquet  
-deptLocation: String = /your-path/departments.parquet  
+emp_Location: String = /your-path/employees.parquet  
+dept_Location: String = /your-path/departments.parquet  
 ```
 
 Let's verify the contents of the Parquet files we created to make sure they contain expected records in the correct format. Later, we'll use these data files to create Hyperspace indexes and run sample queries.
@@ -243,9 +246,9 @@ Running the following cell produces an output that displays the rows in employee
 :::zone pivot = "programming-language-scala"
 
 ```scala
-// empLocation and deptLocation are the user defined locations above to save parquet files
-val empDF: DataFrame = spark.read.parquet(empLocation)
-val deptDF: DataFrame = spark.read.parquet(deptLocation)
+// emp_Location and dept_Location are the user defined locations above to save parquet files
+val empDF: DataFrame = spark.read.parquet(emp_Location)
+val deptDF: DataFrame = spark.read.parquet(dept_Location)
 
 // Verify the data is available and correct
 empDF.show()
@@ -274,9 +277,9 @@ dept_DF.show()
 
 ```csharp
 
-// empLocation and deptLocation are the user-defined locations above to save parquet files
-DataFrame empDF = spark.Read().Parquet(empLocation);
-DataFrame deptDF = spark.Read().Parquet(deptLocation);
+// emp_Location and dept_Location are the user-defined locations above to save parquet files
+DataFrame empDF = spark.Read().Parquet(emp_Location);
+DataFrame deptDF = spark.Read().Parquet(dept_Location);
 
 // Verify the data is available and correct
 empDF.Show();
@@ -335,7 +338,7 @@ After indexes are created, you can perform several actions:
 * **Vacuum if an index is no longer required.** You can vacuum an index, which forces a physical deletion of the index contents and associated metadata completely from Hyperspace's metadata.
 
 Refresh if the underlying data changes, you can refresh an existing index to capture that.
-Delete if the index is not needed, you can perform a soft-delete that is, index is not physically deleted but is marked as 'deleted' so it is no longer used in your workloads.
+Delete if the index isn't needed, you can perform a soft-delete that is, index isn't physically deleted but is marked as 'deleted' so it's no longer used in your workloads.
 
 The following sections show how such index management operations can be done in Hyperspace.
 
@@ -499,11 +502,11 @@ hyperspace.CreateIndex(deptDF, deptIndexConfig2);
 
 ## List indexes
 
-The code that follows shows how you can list all available indexes in a Hyperspace instance. It uses "indexes" API that returns information about existing indexes as a Spark DataFrame so you can perform additional operations. 
+The code that follows shows how you can list all available indexes in a Hyperspace instance. It uses "indexes" API that returns information about existing indexes as a Spark DataFrame so you can perform more operations. 
 
 For instance, you can invoke valid operations on this DataFrame for checking its content or analyzing it further (for example filtering specific indexes or grouping them according to some desired property).
 
-The following cell uses DataFrame's 'show' action to fully print the rows and show details of our indexes in a tabular form. For each index, you can see all information Hyperspace has stored about it in the metadata. You will immediately notice the following:
+The following cell uses DataFrame's 'show' action to fully print the rows and show details of our indexes in a tabular form. For each index, you can see all information Hyperspace has stored about it in the metadata. You'll immediately notice the following:
 
 * config.indexName, config.indexedColumns, config.includedColumns, and status.status are the fields that a user normally refers to.
 * dfSignature is automatically generated by Hyperspace and is unique for each index. Hyperspace uses this signature internally to maintain the index and exploit it at query time.
@@ -553,7 +556,7 @@ Results in:
 
 You can drop an existing index by using the "deleteIndex" API and providing the index name. Index deletion does a soft delete: It mainly updates index's status in the Hyperspace metadata from "ACTIVE" to "DELETED". This will exclude the dropped index from any future query optimization and Hyperspace no longer picks that index for any query. 
 
-However, index files for a deleted index still remain available (since it is a soft-delete), so that the index could be restored if user asks for.
+However, index files for a deleted index still remain available (since it's a soft-delete), so that the index could be restored if user asks for.
 
 The following cell deletes index with name "deptIndex2" and lists Hyperspace metadata after that. The output should be similar to above cell for "List Indexes" except for "deptIndex2", which now should have its status changed into "DELETED".
 
@@ -763,8 +766,8 @@ spark.DisableHyperspace();
 Results in:
 
 ```console
-res48: org.apache.spark.sql.Spark™Session = org.apache.spark.sql.SparkSession@39fe1ddb  
-res51: org.apache.spark.sql.Spark™Session = org.apache.spark.sql.SparkSession@39fe1ddb
+res48: org.apache.spark.sql.Spark&trade;Session = org.apache.spark.sql.SparkSession@39fe1ddb  
+res51: org.apache.spark.sql.Spark&trade;Session = org.apache.spark.sql.SparkSession@39fe1ddb
 ```
 
 ## Index usage
@@ -779,8 +782,8 @@ The following cell enables Hyperspace and creates two DataFrames containing your
 // Enable Hyperspace
 spark.enableHyperspace
 
-val empDFrame: DataFrame = spark.read.parquet(empLocation)
-val deptDFrame: DataFrame = spark.read.parquet(deptLocation)
+val empDFrame: DataFrame = spark.read.parquet(emp_Location)
+val deptDFrame: DataFrame = spark.read.parquet(dept_Location)
 
 empDFrame.show(5)
 deptDFrame.show(5)
@@ -812,8 +815,8 @@ dept_DF.show(5)
 // Enable Hyperspace
 spark.EnableHyperspace();
 
-DataFrame empDFrame = spark.Read().Parquet(empLocation);
-DataFrame deptDFrame = spark.Read().Parquet(deptLocation);
+DataFrame empDFrame = spark.Read().Parquet(emp_Location);
+DataFrame deptDFrame = spark.Read().Parquet(dept_Location);
 
 empDFrame.Show(5);
 deptDFrame.Show(5);
@@ -825,7 +828,7 @@ deptDFrame.Show(5);
 Results in:
 
 ```console
-res53: org.apache.spark.sql.Spark™Session = org.apache.spark.sql.Spark™Session@39fe1ddb  
+res53: org.apache.spark.sql.Spark&trade;Session = org.apache.spark.sql.Spark&trade;Session@39fe1ddb  
 empDFrame: org.apache.spark.sql.DataFrame = [empId: int, empName: string ... 1 more field]  
 deptDFrame: org.apache.spark.sql.DataFrame = [deptId: int, deptName: string ... 1 more field]  
 ```
@@ -845,7 +848,7 @@ deptDFrame: org.apache.spark.sql.DataFrame = [deptId: int, deptName: string ... 
 
 &nbsp;
 &nbsp;
-This only shows the top 5 rows
+This only shows the top five rows
 &nbsp;
 &nbsp;
 
@@ -1389,9 +1392,9 @@ val extraDepartments = Seq(
       (60, "Human Resources", "San Francisco"))
 
 val extraDeptData: DataFrame = extraDepartments.toDF("deptId", "deptName", "location")
-extraDeptData.write.mode("Append").parquet(deptLocation)
+extraDeptData.write.mode("Append").parquet(dept_Location)
 
-val deptDFrameUpdated: DataFrame = spark.read.parquet(deptLocation)
+val deptDFrameUpdated: DataFrame = spark.read.parquet(dept_Location)
 
 deptDFrameUpdated.show(10)
 
@@ -1427,11 +1430,11 @@ var extraDepartments = new List<GenericRow>()
     new GenericRow(new object[] {50, "Inovation", "Seattle"}),
     new GenericRow(new object[] {60, "Human Resources", "San Francisco"})
 };
-	
+    
 DataFrame extraDeptData = spark.CreateDataFrame(extraDepartments, departmentSchema);
-extraDeptData.Write().Mode("Append").Parquet(deptLocation);
+extraDeptData.Write().Mode("Append").Parquet(dept_Location);
 
-DataFrame deptDFrameUpdated = spark.Read().Parquet(deptLocation);
+DataFrame deptDFrameUpdated = spark.Read().Parquet(dept_Location);
 
 deptDFrameUpdated.Show(10);
 
@@ -1782,9 +1785,9 @@ appendData.Write().Mode("Append").Parquet(testDataLocation);
 
 ::: zone-end
 
-Hybrid scan is disabled by default. Therefore, you will see that because we appended new data, Hyperspace will decide *not* to use the index.
+Hybrid scan is disabled by default. Therefore, you'll see that because we appended new data, Hyperspace will decide *not* to use the index.
 
-In the output, you will see no plan differences (hence, no highlighting).
+In the output, you'll see no plan differences (hence, no highlighting).
 
 :::zone pivot = "programming-language-scala"
 
@@ -1993,9 +1996,9 @@ productIndex2:abfss://datasets@hyperspacebenchmark.dfs.core.windows.net/hyperspa
 
 When you're ready to update your indexes but don't want to rebuild your entire index, Hyperspace supports updating indexes in an incremental manner using the `hs.refreshIndex("name", "incremental")` API. This will eliminates the need for a full rebuild of index from scratch, utilizing previously created index files as well as updating indexes on only the newly added data.
 
-Of course, be sure to use the complementary `optimizeIndex` API (shown below) periodically to make sure you do not see performance regressions. We recommend calling optimize at least once for every 10 times you call `refreshIndex(..., "incremental")`, assuming the data you added/removed is < 10% of the original dataset. For instance, if your original dataset is 100 GB, and you've added/removed data in increments/decrements of 1 GB, you can call `refreshIndex` 10 times before calling `optimizeIndex`. Please note that this example is simply used for illustration and you have to adapt this for your workloads.
+Of course, be sure to use the complementary `optimizeIndex` API (shown below) periodically to make sure you don't see performance regressions. We recommend calling optimize at least once for every 10 times you call `refreshIndex(..., "incremental")`, assuming the data you added/removed is < 10% of the original dataset. For instance, if your original dataset is 100 GB, and you've added/removed data in increments/decrements of 1 GB, you can call `refreshIndex` 10 times before calling `optimizeIndex`. Note that this example is for illustration and you have to adapt this for your workloads.
 
-In the example below, notice the addition of a Sort node in the query plan when indexes are used. This is because partial indexes are created on the appended data files, causing Spark to introduce a `Sort`. Please also note that `Shuffle` i.e. Exchange is still eliminated from the plan, giving you the appropriate acceleration.
+In the example below, notice the addition of a Sort node in the query plan when indexes are used. This is because partial indexes are created on the appended data files, causing Spark to introduce a `Sort`. Also note that `Shuffle` that is, Exchange is still eliminated from the plan, giving you the appropriate acceleration.
 
 :::zone pivot = "programming-language-scala"
 
@@ -2076,9 +2079,9 @@ Project [name#820, qty#821, date#822, qty#827, date#828]
 
 ## Optimize index layout
 
-After calling incremental refreshes multiple times on newly appended data (e.g. if the user writes to data in small batches or in case of streaming scenarios), the number of index files tend to become large affecting the performance of the index (large number of small files problem). Hyperspace provides `hyperspace.optimizeIndex("indexName")` API to optimize the index layout and reduce the large files problem.
+After calling incremental refreshes multiple times on newly appended data (for example, if the user writes to data in small batches or in streaming scenarios), the number of index files tend to become large affecting the performance of the index (large number of small files problem). Hyperspace provides `hyperspace.optimizeIndex("indexName")` API to optimize the index layout and reduce the large files problem.
 
-In the plan below, notice that Hyperspace has removed the additional Sort node in the query plan. Optimize can help avoiding sorting for any index bucket which contains only one file. However, this will only be true if ALL the index buckets have at most 1 file per bucket, after `optimizeIndex`.
+In the plan below, notice that Hyperspace has removed the extra Sort node in the query plan. Optimize can help avoiding sorting for any index bucket that contains only one file. However, this will only be true if ALL the index buckets have at most one file per bucket, after `optimizeIndex`.
 
 :::zone pivot = "programming-language-scala"
 

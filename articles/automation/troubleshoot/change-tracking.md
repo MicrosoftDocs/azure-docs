@@ -3,11 +3,15 @@ title: Troubleshoot Azure Automation Change Tracking and Inventory issues
 description: This article tells how to troubleshoot and resolve issues with the Azure Automation Change Tracking and Inventory feature.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 02/15/2021
+ms.custom: linux-related-content
+ms.date: 08/30/2024
 ms.topic: troubleshooting
+ms.service: azure-automation
 ---
 
 # Troubleshoot Change Tracking and Inventory issues
+
+[!INCLUDE [./log-analytics-retirement-announcement.md](../includes/log-analytics-retirement-announcement.md)]
 
 This article describes how to troubleshoot and resolve Azure Automation Change Tracking and Inventory issues. For general information about Change Tracking and Inventory, see [Change Tracking and Inventory overview](../change-tracking/overview.md).
 
@@ -29,7 +33,7 @@ The machine has already been deployed to another workspace for Change Tracking.
 
 ### Resolution
 
-1. Make sure that your machine is reporting to the correct workspace. For guidance on how to verify this, see [Verify agent connectivity to Azure Monitor](../../azure-monitor/agents/agent-windows.md#verify-agent-connectivity-to-azure-monitor). Also make sure that this workspace is linked to your Azure Automation account. To confirm, go to your Automation account and select **Linked workspace** under **Related Resources**.
+1. Make sure that your machine is reporting to the correct workspace. For guidance on how to verify this, see [Verify agent connectivity to Azure Monitor](/azure/azure-monitor/agents/agent-windows#verify-agent-connectivity-to-azure-monitor). Also make sure that this workspace is linked to your Azure Automation account. To confirm, go to your Automation account and select **Linked workspace** under **Related Resources**.
 
 1. Make sure that the machines show up in the Log Analytics workspace linked to your Automation account. Run the following query in the Log Analytics workspace.
 
@@ -132,16 +136,15 @@ Here are possible causes specific to this issue:
 Verify that the daemon for the Log Analytics agent for Linux (**omsagent**) is running on your machine. Run the following query in the Log Analytics workspace that's linked to your Automation account.
 
 ```loganalytics
-Copy
 Heartbeat
 | summarize by Computer, Solutions
 ```
 
-If you don't see your machine in query results, it hasn't recently checked in. There's probably a local configuration issue and you should reinstall the agent. For information about installation and configuration, see [Collect log data with the Log Analytics agent](../../azure-monitor/agents/log-analytics-agent.md).
+If you don't see your machine in query results, it hasn't recently checked in. There's probably a local configuration issue and you should reinstall the agent. For information about installation and configuration, see [Collect log data with the Log Analytics agent](/azure/azure-monitor/agents/log-analytics-agent).
 
-If your machine shows up in the query results, verify the scope configuration. See [Targeting monitoring solutions in Azure Monitor](../../azure-monitor/insights/solution-targeting.md).
+If your machine shows up in the query results, verify the scope configuration. See [Targeting monitoring solutions in Azure Monitor](/previous-versions/azure/azure-monitor/insights/solution-targeting).
 
-For more troubleshooting of this issue, see [Issue: You are not seeing any Linux data](../../azure-monitor/agents/agent-linux-troubleshoot.md#issue-you-arent-seeing-any-linux-data).
+For more troubleshooting of this issue, see [Issue: You are not seeing any Linux data](/azure/azure-monitor/agents/agent-linux-troubleshoot#issue-you-arent-seeing-any-linux-data).
 
 ##### Log Analytics agent for Linux not configured correctly
 
@@ -156,5 +159,5 @@ Microsoft Defender for Cloud's FIM feature might be incorrectly validating the i
 If you don't see your problem here or you can't resolve your issue, try one of the following channels for additional support:
 
 * Get answers from Azure experts through [Azure Forums](https://azure.microsoft.com/support/forums/).
-* Connect with [@AzureSupport](https://twitter.com/azuresupport), the official Microsoft Azure account for improving customer experience. Azure Support connects the Azure community to answers, support, and experts.
+* Connect with [@AzureSupport](https://x.com/azuresupport), the official Microsoft Azure account for improving customer experience. Azure Support connects the Azure community to answers, support, and experts.
 * File an Azure support incident. Go to the [Azure Support site](https://azure.microsoft.com/support/options/), and select **Get Support**.

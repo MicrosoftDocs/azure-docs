@@ -1,15 +1,15 @@
 ---
-title: CREATE TABLE AS SELECT (CTAS) 
+title: CREATE TABLE AS SELECT (CTAS)
 description: Explanation and examples of the CREATE TABLE AS SELECT (CTAS) statement in dedicated SQL pool (formerly SQL DW) for developing solutions.
 author: joannapea
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: conceptual
-ms.subservice: sql-dw 
-ms.date: 06/09/2022
 ms.author: joanpo
 ms.reviewer: wiassaf
-ms.custom: seoapril2019, azure-synapse
+ms.date: 06/09/2022
+ms.service: azure-synapse-analytics
+ms.subservice: sql-dw
+ms.topic: conceptual
+ms.custom:
+  - azure-synapse
 ---
 
 # CREATE TABLE AS SELECT (CTAS)
@@ -18,7 +18,7 @@ This article explains the CREATE TABLE AS SELECT (CTAS) T-SQL statement in dedic
 
 ## CREATE TABLE AS SELECT
 
-The [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (CTAS) statement is one of the most important T-SQL features available. CTAS is a parallel operation that creates a new table based on the output of a SELECT statement. CTAS is the simplest and fastest way to create and insert data into a table with a single command.
+The [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) statement is one of the most important T-SQL features available. CTAS is a parallel operation that creates a new table based on the output of a SELECT statement. CTAS is the simplest and fastest way to create and insert data into a table with a single command.
 
 ## SELECT...INTO vs. CTAS
 

@@ -4,6 +4,7 @@ description: Describes how to assess large numbers of servers in Hyper-V environ
 author: rashi-ms
 ms.author: rajosh
 ms.manager: abhemraj
+ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 05/02/2022
 
@@ -90,4 +91,4 @@ In this article, you:
 > * Created an Azure Migrate project and ran assessments
 > * Reviewed assessments in preparation for migration.
 
-Now, [learn how](concepts-assessment-calculation.md) assessments are calculated, and how to [modify assessments](how-to-modify-assessment.md)
+Now, [learn how](concepts-assessment-calculation.md) assessments are calculated, and how to [modify assessments](how-to-modify-assessment.md).

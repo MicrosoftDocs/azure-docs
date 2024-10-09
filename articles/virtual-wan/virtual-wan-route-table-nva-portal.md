@@ -3,10 +3,9 @@ title: 'Virtual WAN: Create virtual hub route table to NVA: Azure portal'
 description: Virtual WAN virtual hub route table to steer traffic to a network virtual appliance using the portal.
 services: virtual-wan
 author: cherylmc
-
-ms.service: virtual-wan
-ms.topic: conceptual
-ms.date: 08/19/2021
+ms.service: azure-virtual-wan
+ms.topic: how-to
+ms.date: 08/24/2023
 ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to create a route table using the portal.
 ---
@@ -15,7 +14,7 @@ ms.author: cherylmc
 
 This article shows you how to steer traffic from a branch (on-premises site) connected to the Virtual WAN hub to a Spoke virtual network (VNet) via a Network Virtual Appliance (NVA).
 
-![Virtual WAN diagram](./media/virtual-wan-route-table-nva/vwanroute.png)
+:::image type="content" source="./media/virtual-wan-route-table-nva/vwanroute.png" alt-text="Screenshot of Virtual WAN diagram." lightbox="./media/virtual-wan-route-table-nva/vwanroute.png":::
 
 ## Before you begin
 
@@ -25,7 +24,7 @@ Verify that you have met the following criteria:
 
     * A private IP address must be assigned to the NVA network interface.
 
-    * The NVA is not deployed in the virtual hub. It must be deployed in a separate virtual network.
+    * The NVA isn't deployed in the virtual hub. It must be deployed in a separate virtual network.
 
     *  The NVA virtual network may have one or many virtual networks connected to it. In this article, we refer to the NVA virtual network as an 'indirect spoke VNet'. These virtual networks can be connected to the NVA VNet by using VNet peering. The VNet Peering links are depicted by black arrows in the above figure between VNet 1, VNet 2, and NVA VNet.
 *  You have created two virtual networks. They will be used as spoke VNets.
@@ -34,7 +33,7 @@ Verify that you have met the following criteria:
 
     * Ensure there are no virtual network gateways in any of the VNets.
 
-    * The VNets do not require a gateway subnet.
+    * The VNets don't require a gateway subnet.
 
 ## <a name="signin"></a>1. Sign in
 
@@ -99,7 +98,7 @@ Repeat the following procedure for each virtual network that you want to connect
     * **Connection name** - Name your connection.
     * **Hubs** - Select the hub you want to associate with this connection.
     * **Subscription** - Verify the subscription.
-    * **Virtual network** - Select the virtual network you want to connect to this hub. The virtual network cannot have an already existing virtual network gateway.
+    * **Virtual network** - Select the virtual network you want to connect to this hub. The virtual network can't have an already existing virtual network gateway.
 4. Click **OK** to create the connection.
 
 ## Next steps

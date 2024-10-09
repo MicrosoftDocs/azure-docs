@@ -2,18 +2,15 @@
 title: Azure network architecture
 description: This article provides a general description of the Microsoft Azure infrastructure network.
 services: security
-documentationcenter: na
-author: TerryLanfear
+author: msmbaldwin
 manager: rkarlin
 
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
-ms.service: virtual-machines
-ms.subservice: networking
+ms.service: security
+ms.subservice: security-fundamentals
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/08/2020
-ms.author: terrylan
+ms.date: 06/27/2024
+ms.author: mbaldwin
 
 ---
 

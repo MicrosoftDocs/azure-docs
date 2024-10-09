@@ -1,15 +1,13 @@
 ---
 title: Azure Synapse workspace access control overview
 description: This article describes the mechanisms used to control access to an Azure Synapse workspace and the resources and code artifacts it contains.
-services: synapse-analytics
 author: meenalsri
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: overview
 ms.subservice: security
 ms.date: 3/07/2022
 ms.author: mesrivas
 ms.reviewer: wiassaf
-ms.custom: ignite-fall-2021
 ---
 # Azure Synapse access control 
 
@@ -39,7 +37,7 @@ Azure roles are used to control management of:
 
 To *create* these resources, you need to be an Azure Owner or Contributor on the resource group. To *manage* them once created, you need to be an Azure Owner or Contributor on either the resource group or the individual resources. 
 
-An Azure Owner or Contributor can enable or disable Azure AD-only authentication for Azure Synapse workspaces. For more information on Azure AD-only authentication, see [Disabling local authentication in Azure Synapse Analytics](../sql/active-directory-authentication.md).
+An Azure Owner or Contributor can enable or disable Microsoft Entra-only authentication for Azure Synapse workspaces. For more information on Microsoft Entra-only authentication, see [Disabling local authentication in Azure Synapse Analytics](../sql/active-directory-authentication.md).
 
 ### Develop and execute code in Azure Synapse 
 Synapse supports two development models.
@@ -47,7 +45,7 @@ Synapse supports two development models.
 - **Synapse live development**. You develop and debug code in Synapse Studio and then **publish** it to save and execute.  The Synapse service is the source of truth for code editing and execution.  Any unpublished work is lost when you close Synapse Studio.  
 - **Git-enabled development**. You develop and debug code in Synapse Studio and **commit** changes to a working branch of a Git repo. Work from one or more branches is integrated into a collaboration branch, from where you **publish** it to the service. The Git repo is the source of truth for code editing, while the service is the source of truth for execution. Changes must be committed to the Git repo or published to the service before closing Synapse Studio. [Learn more](../cicd/continuous-integration-delivery.md) about using Synapse Analytics with Git.
 
-In both development models, any user with access to Synapse Studio can create code artifacts. However, you need additional permissions to publish artifacts to the service, read published artifacts, to commit changes to Git, to execute code, and to access linked data protected by credentials.
+In both development models, any user with access to Synapse Studio can create code artifacts. However, you need additional permissions to publish artifacts to the service, read published artifacts, to commit changes to Git, to execute code, and to access linked data protected by credentials. Users must have the Azure Contributor (Azure RBAC) or higher role on the Synapse workspace to configure, edit settings and disconnect a Git repository with Synapse.
 
 ### Azure Synapse roles
 
@@ -73,7 +71,7 @@ When working with dedicated and serverless SQL pools, data plane access is contr
 
 The creator of a workspace is assigned as the Active Directory Admin on the workspace. After creation, this role can be assigned to a different user or to a security group in the Azure portal.
 
-**Serverless SQL pools**: Synapse Administrators are granted `db_owner` (`DBO`) permissions on the serverless SQL pool, 'Built-in'. To grant other users access to serverless SQL pools, Synapse administrators need to run SQL scripts on each serverless pool.  
+**Serverless SQL pools**: Synapse Administrators are granted `db_owner` (`DBO`) permissions on the serverless SQL pool, 'Built-in'. To grant other users access to the serverless SQL pool, Synapse administrators need to run SQL scripts on the serverless pool.  
 
 **Dedicated SQL pools**: Synapse Administrators have full access to data in dedicated SQL pools, and the ability to grant access to other users. Synapse Administrators can also perform configuration and maintenance activities on dedicated pools, except for dropping databases. Active Directory Admin permission is granted to the creator of the workspace and the workspace MSI.  Permission to access dedicated SQL pools isn't otherwise granted automatically. To grant other users or groups access to dedicated SQL pools, the Active Directory Admin or Synapse Administrator must run SQL scripts against each dedicated SQL pool.
 
@@ -93,7 +91,7 @@ Serverless SQL pools and Apache Spark tables store their data in an ADLS Gen2 co
 To simplify managing access control, you can use security groups to assign roles to individuals and groups. Security groups can be created to mirror personas or job functions in your organization that need access to Synapse resources or artifacts.  These persona-based security groups can then be assigned one or more Azure roles, Synapse roles, SQL permissions, or Git permissions. With well-chosen security groups, it's easy to assign a user the required permissions by adding them to the appropriate security group. 
 
 >[!Note]
->If using security groups to manage access, there is additional latency introduced by Azure Active Directory before changes take effect. 
+>If using security groups to manage access, there is additional latency introduced by Microsoft Entra ID before changes take effect. 
 
 ## Access control enforcement in Synapse Studio
 

@@ -3,11 +3,11 @@ title: "include file"
 description: "include file"
 services: app-service
 author: msangapu-msft
-ms.service: app-service
+ms.service: azure-app-service
 ms.topic: "include"
 ms.date: 12/14/2021
 ms.author: msangapu
-ms.custom: "include file, devx-track-azurecli"
+ms.custom: include file
 ---
 
 You can automate management of custom domains with scripts by using the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/).

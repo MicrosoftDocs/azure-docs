@@ -4,13 +4,15 @@ description: Reference for the quota policy available for use in Azure API Manag
 services: api-management
 author: dlepow
 
-ms.service: api-management
-ms.topic: reference
-ms.date: 09/27/2022
+ms.service: azure-api-management
+ms.topic: article
+ms.date: 07/23/2024
 ms.author: danlep
 ---
 
 # Set usage quota by subscription
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 The `quota` policy enforces a renewable or lifetime call volume and/or bandwidth quota, on a per subscription basis.  When the quota is exceeded, the caller receives a `403 Forbidden` response status code, and the response includes a `Retry-After` header whose value is the recommended retry interval in seconds.
 
@@ -34,9 +36,9 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 
 | Attribute           | Description                                                                                               | Required                                                         | Default |
 | -------------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | ------- |                                            
-| bandwidth      | The maximum total number of kilobytes allowed during the time interval specified in the `renewal-period`. | Either `calls`, `bandwidth`, or both together must be specified. | N/A     |
-| calls          | The maximum total number of calls allowed during the time interval specified in the `renewal-period`.     | Either `calls`, `bandwidth`, or both together must be specified. | N/A     |
-| renewal-period | The length in seconds of the fixed window after which the quota resets. The start of each period is calculated relative to the start time of the subscription. When `renewal-period` is set to `0`, the period is set to infinite.| Yes | N/A     |
+| bandwidth      | The maximum total number of kilobytes allowed during the time interval specified in the `renewal-period`. Policy expressions aren't allowed. | Either `calls`, `bandwidth`, or both together must be specified. | N/A     |
+| calls          | The maximum total number of calls allowed during the time interval specified in the `renewal-period`. Policy expressions aren't allowed.    | Either `calls`, `bandwidth`, or both together must be specified. | N/A     |
+| renewal-period | The length in seconds of the fixed window after which the quota resets. The start of each period is calculated relative to the start time of the subscription. When `renewal-period` is set to `0`, the period is set to infinite. Policy expressions aren't allowed.| Yes | N/A     |
 
 ## Elements
 
@@ -51,31 +53,30 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 | Attribute           | Description                                                                                               | Required                                                         | Default |
 | -------------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | ------- |                       
 | name           | The name of the API for which to apply the call quota limit.                                                | Either `name` or `id` must be specified.      | N/A     |
-| id           | The ID of the API for which to apply the call quota.                                                | Either `name` or `id` must be specified.      | N/A     |
-| bandwidth      | The maximum total number of kilobytes allowed during the time interval specified in the `renewal-period`. | Either `calls`, `bandwidth`, or both together must be specified. | N/A     |
-| calls          | The maximum total number of calls allowed during the time interval specified in the `renewal-period`.     | Either `calls`, `bandwidth`, or both together must be specified. | N/A     |
-| renewal-period | The length in seconds of the fixed window after which the quota resets. The start of each period is calculated relative to the start time of the subscription. When `renewal-period` is set to `0`, the period is set to infinite.| Yes |  N/A     |
+| id           | The ID of the API for which to apply the call quota limit.                                                | Either `name` or `id` must be specified.      | N/A     |
+| bandwidth      | The maximum total number of kilobytes allowed during the time interval specified in the `renewal-period`. Policy expressions aren't allowed. | Either `calls`, `bandwidth`, or both together must be specified. | N/A     |
+| calls          | The maximum total number of calls allowed during the time interval specified in the `renewal-period`. Policy expressions aren't allowed.    | Either `calls`, `bandwidth`, or both together must be specified. | N/A     |
+| renewal-period | The length in seconds of the fixed window after which the quota resets. The start of each period is calculated relative to the start time of the subscription. When `renewal-period` is set to `0`, the period is set to infinite. Policy expressions aren't allowed.| Yes |  N/A     |
 
 ## operation attributes
 
 | Attribute           | Description                                                                                               | Required                                                         | Default |
 | -------------- | --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | ------- |                       
-| name           | The name of the operation for which to apply the rate limit.                                                | Either `name` or `id` must be specified.      | N/A     |
-| id           | The ID of the operation for which to apply the rate limit.                                                | Either `name` or `id` must be specified.      | N/A     |
-| bandwidth      | The maximum total number of kilobytes allowed during the time interval specified in the `renewal-period`. | Either `calls`, `bandwidth`, or both together must be specified. | N/A     |
-| calls          | The maximum total number of calls allowed during the time interval specified in the `renewal-period`.     | Either `calls`, `bandwidth`, or both together must be specified. | N/A     |
-| renewal-period | The length in seconds of the fixed window after which the quota resets. The start of each period is calculated relative to the start time of the subscription. When `renewal-period` is set to `0`, the period is set to infinite.| Yes |  N/A     |
+| name           | The name of the operation for which to apply the call quota limit.                                                | Either `name` or `id` must be specified.      | N/A     |
+| id           | The ID of the operation for which to apply the call quota limit.                                                | Either `name` or `id` must be specified.      | N/A     |
+| bandwidth      | The maximum total number of kilobytes allowed during the time interval specified in the `renewal-period`. Policy expressions aren't allowed. | Either `calls`, `bandwidth`, or both together must be specified. | N/A     |
+| calls          | The maximum total number of calls allowed during the time interval specified in the `renewal-period`. Policy expressions aren't allowed.    | Either `calls`, `bandwidth`, or both together must be specified. | N/A     |
+| renewal-period | The length in seconds of the fixed window after which the quota resets. The start of each period is calculated relative to the start time of the subscription. When `renewal-period` is set to `0`, the period is set to infinite. Policy expressions aren't allowed.| Yes |  N/A     |
 
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) product
--  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 
 ### Usage notes
 
 * This policy can be used only once per policy definition.
-* [Policy expressions](api-management-policy-expressions.md) can't be used in attribute values for this policy.
 * This policy is only applied when an API is accessed using a subscription key.
 
 
@@ -96,6 +97,6 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 
 ## Related policies
 
-* [API Management access restriction policies](api-management-access-restriction-policies.md)
+* [Rate limiting and quotas](api-management-policies.md#rate-limiting-and-quotas)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

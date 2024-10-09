@@ -6,9 +6,9 @@ ms.date: 11/02/2021
 author: shsagir
 ms.author: shsagir
 ms.reviewer: shsagir
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: data-explorer
-ms.custom: ignite-fall-2021, mode-ui
+ms.custom: mode-ui
 ---
 
 # Quickstart: Create a Data Explorer pool using the Azure portal (Preview)
@@ -24,7 +24,7 @@ If you don't have an Azure subscription, [create a free account before you begin
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- You'll need an Azure subscription. If needed, [create a free Azure account](https://azure.microsoft.com/free/)
 - [Synapse workspace](../quickstart-create-workspace.md)
 
 ## Sign in to the Azure portal

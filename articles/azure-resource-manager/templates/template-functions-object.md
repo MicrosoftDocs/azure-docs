@@ -1,8 +1,9 @@
 ---
 title: Template functions - objects
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) for working with objects.
-ms.topic: conceptual
-ms.date: 09/16/2022
+ms.topic: reference
+ms.custom: devx-track-arm-template
+ms.date: 05/21/2024
 ---
 
 # Object functions for ARM templates
@@ -43,7 +44,7 @@ In Bicep, use the [contains](../bicep/bicep-functions-object.md#contains) functi
 
 ### Example
 
-The following example shows how to use contains with different types:
+The following example shows how to use `contains` with different types:
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/contains.json":::
 
@@ -153,7 +154,7 @@ An array or object with the common elements.
 
 ### Example
 
-The following example shows how to use intersection with arrays and objects.
+The following example shows how to use `intersection` with arrays and objects.
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/intersection.json":::
 
@@ -168,7 +169,7 @@ The output from the preceding example with the default values is:
 
 `items(object)`
 
-Converts a dictionary object to an array.
+Converts a dictionary object to an array. See [toObject](template-functions-lambda.md#toobject) about converting an array to an object.
 
 In Bicep, use the [items](../bicep/bicep-functions-object.md#items).
 
@@ -326,7 +327,7 @@ The JSON data type from the specified string, or an empty value when **null** is
 
 ### Remarks
 
-If you need to include a parameter value or variable in the JSON object, use the [concat](template-functions-string.md#concat) function to create the string that you pass to the function.
+If you need to include a parameter value or variable in the JSON object, use the [format](template-functions-string.md#format) function to create the string that you pass to the function.
 
 You can also use [null()](#null) to get a null value.
 
@@ -368,7 +369,7 @@ An int.
 
 ### Example
 
-The following example shows how to use length with an array and string:
+The following example shows how to use `length` with an array and string:
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/length.json":::
 
@@ -408,6 +409,137 @@ The output from the preceding example is:
 | ---- | ---- | ----- |
 | emptyOutput | Bool | True |
 
+## objectKeys
+
+`objectKeys(object)`
+
+Returns the keys from an object, where an object is a collection of key-value pairs.
+
+In Bicep, use the [objectKeys](../templates/template-functions-object.md#objectkeys) function.
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| object |Yes |object |The object, which is a collection of key-value pairs. |
+
+### Return value
+
+An array.
+
+### Example
+
+The following example shows how to use `objectKeys` with an object:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "variables": {
+    "obj": {
+      "a": 1,
+      "b": 2
+    }
+  },
+  "resources": [],
+  "outputs": {
+    "keyArray": {
+      "type": "array",
+      "value": "[objectKeys(variables('obj'))]"
+    }
+  }
+}
+```
+
+The output from the preceding example is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| keyArray | Array | [ "a", "b" ] |
+
+[!INCLUDE [JSON object ordering](../../../includes/resource-manager-object-ordering-arm-template.md)]
+
+## shallowMerge
+
+`shallowMerge(inputArray)`
+
+Combines an array of objects, where only the top-level objects are merged. This means that if the objects being merged contain nested objects, those nested object aren't deeply merged; instead, they're replaced entirely by the corresponding property from the merging object.
+
+In Bicep, use the [shallowMerge](../bicep/bicep-functions-object.md#shallowmerge) function.
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| inputArray |Yes |array |An array of objects. |
+
+### Return value
+
+An object.
+
+### Example
+
+The following example shows how to use `shallowMerge`:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "variables": {
+    "firstArray": [
+      {
+        "one": "a"
+      },
+      {
+        "two": "b"
+      },
+      {
+        "two": "c"
+      }
+    ],
+    "secondArray": [
+      {
+        "one": "a",
+        "nested": {
+          "a": 1,
+          "nested": {
+            "c": 3
+          }
+        }
+      },
+      {
+        "two": "b",
+        "nested": {
+          "b": 2
+        }
+      }
+    ]
+  },
+  "resources": [],
+  "outputs": {
+    "firstOutput": {
+      "type": "object",
+      "value": "[shallowMerge(variables('firstArray'))]"
+    },
+    "secondOutput": {
+      "type": "object",
+      "value": "[shallowMerge(variables('secondArray'))]"
+    }
+  }
+}
+```
+
+The output from the preceding example with the default values is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| firstOutput | object | {"one":"a","two":"c"}|
+| secondOutput | object | {"one":"a","nested":{"b":2},"two":"b"} |
+
+**firstOutput** shows the properties from the merging objects are combined into a new object. If there are conflicting properties (i.e., properties with the same name), the property from the last object being merged usually takes precedence.
+
+**secondOutput** shows the shallow merge doesn't recursively merge these nested objects. Instead, the entire nested object is replaced by the corresponding property from the merging object.
+
 ## union
 
 `union(arg1, arg2, arg3, ...)`
@@ -432,13 +564,15 @@ An array or object.
 
 The union function uses the sequence of the parameters to determine the order and values of the result.
 
-For arrays, the function iterates through each element in the first parameter and adds it to the result if it isn't already present. Then, it repeats the process for the second parameter and any additional parameters. If a value is already present, it's earlier placement in the array is preserved.
+For arrays, the function iterates through each element in the first parameter and adds it to the result if it isn't already present. Then, it repeats the process for the second parameter and any additional parameters. If a value is already present, its earlier placement in the array is preserved.
 
 For objects, property names and values from the first parameter are added to the result. For later parameters, any new names are added to the result. If a later parameter has a property with the same name, that value overwrites the existing value. The order of the properties isn't guaranteed.
 
+The union function merges not only the top-level elements but also recursively merging any nested arrays and objects within them. See the second example in the following section.
+
 ### Example
 
-The following example shows how to use union with arrays and objects:
+The following example shows how to use `union` with arrays and objects:
 
 :::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/union.json":::
 
@@ -448,6 +582,77 @@ The output from the preceding example with the default values is:
 | ---- | ---- | ----- |
 | objectOutput | Object | {"one": "a", "two": "b", "three": "c2", "four": "d", "five": "e"} |
 | arrayOutput | Array | ["one", "two", "three", "four"] |
+
+The following example shows the deep merge capability:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "variables": {
+    "firstObject": {
+      "property": {
+        "one": "a",
+        "two": "b",
+        "three": "c1"
+      },
+      "nestedArray": [
+        1,
+        2
+      ]
+    },
+    "secondObject": {
+      "property": {
+        "three": "c2",
+        "four": "d",
+        "five": "e"
+      },
+      "nestedArray": [
+        3,
+        4
+      ]
+    },
+    "firstArray": [
+      [
+        "one",
+        "two"
+      ],
+      [
+        "three"
+      ]
+    ],
+    "secondArray": [
+      [
+        "three"
+      ],
+      [
+        "four",
+        "two"
+      ]
+    ]
+  },
+  "resources": [],
+  "outputs": {
+    "objectOutput": {
+      "type": "Object",
+      "value": "[union(variables('firstObject'), variables('secondObject'))]"
+    },
+    "arrayOutput": {
+      "type": "Array",
+      "value": "[union(variables('firstArray'), variables('secondArray'))]"
+    }
+  }
+}
+```
+
+The output from the preceding example is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| objectOutput | Object |{"property":{"one":"a","two":"b","three":"c2","four":"d","five":"e"},"nestedArray":[3,4]}|
+| arrayOutput | Array |[["one","two"],["three"],["four","two"]]|
+
+If nested arrays were merged, then the value of **objectOutput.nestedArray** would be [1, 2, 3, 4], and the value of **arrayOutput** would be [["one", "two", "three"], ["three", "four", "two"]].
 
 ## Next steps
 

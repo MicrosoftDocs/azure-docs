@@ -1,14 +1,14 @@
 ---
-author: v-tcassi
+author: PatAltimore
 ms.service: iot-edge
 ms.topic: include
-ms.date: 01/05/2023
-ms.author: v-tcassi
+ms.date: 06/10/2024
+ms.author: patricka
 ---
 
 ## Create a release pipeline for continuous deployment
 
-In this section, you create a release pipeline that is configured to run automatically when your build pipeline drops artifacts, and it will show deployment logs in Azure Pipelines.
+In this section, you create a release pipeline that is configured to run automatically when your build pipeline drops artifacts, and it shows deployment logs in Azure Pipelines.
 
 Create a new pipeline, and add a new stage:
 
@@ -24,7 +24,7 @@ Create a new pipeline, and add a new stage:
 
    You can also rename your release pipeline by selecting the "New release pipeline" text at the top.
 
-4. Link the release to the build artifacts that are published by the build pipeline. Click **Add** in artifacts area.
+4. Link the release to the build artifacts that are published by the build pipeline. Select **Add** in artifacts area.
 
    ![Click add in the artifacts area of the interface](media/iot-edge-create-release-pipeline-for-continuous-deployment/add-artifacts.png)
 
@@ -32,7 +32,7 @@ Create a new pipeline, and add a new stage:
 
    ![On the add an artifact page, select Add to create the artifact](media/iot-edge-create-release-pipeline-for-continuous-deployment/add-artifact.png)
 
-6. Open the artifact triggers and select the toggle to enable the continuous deployment trigger. Now, a new release will be created each time a new build is available.
+6. Open the artifact triggers and select the toggle to enable the continuous deployment trigger. Now, a new release is created each time a new build is available.
 
    ![Open the artifact triggers and toggle to enable the continuous deployment trigger](media/iot-edge-create-release-pipeline-for-continuous-deployment/add-trigger.png)
 
@@ -52,7 +52,7 @@ Create a new pipeline, and add a new stage:
     | Default platform | Select the appropriate operating system for your modules based on your targeted IoT Edge device. |
     | Output path| Put the path `$(System.DefaultWorkingDirectory)/Drop/drop/configs/deployment.json`. This path is the final IoT Edge deployment manifest file. |
 
-    These configurations help replace the module image URLs in the `deployment.template.json` file. The **Generate deployment manifest** also helps replace the variables with the exact value you defined in the `deployment.template.json` file. In VS/VS Code, you are specifying the actual value in a `.env` file. In Azure Pipelines, you set the value in **Release Pipeline Variables** tab. Move to **Variables** tab and configure the name and value as following:
+    These configurations help replace the module image URLs in the `deployment.template.json` file. The **Generate deployment manifest** also helps replace the variables with the exact value you defined in the `deployment.template.json` file. In Visual Studio/Visual Studio Code, you are specifying the actual value in a `.env` file. In Azure Pipelines, you set the value in **Release Pipeline Variables** tab. Move to **Variables** tab and configure the name and value as following:
 
     * **ACR_ADDRESS**: Your Azure Container Registry **Login server** value. You can retrieve the Login server from the Overview page of your container registry in the Azure portal.
     * **ACR_PASSWORD**: Your Azure Container Registry password.

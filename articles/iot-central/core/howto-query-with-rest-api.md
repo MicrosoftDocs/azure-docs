@@ -1,9 +1,10 @@
 ---
 title: Use the REST API to query devices in Azure IoT Central
-description: How to use the IoT Central REST API to query devices in an application
+description: How to use the IoT Central REST API to query devices in an application, including filters, aggregation, and sorting.
+titleSuffix: Azure IoT Central
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/14/2022
+ms.date: 05/19/2023
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -15,7 +16,6 @@ services: iot-central
 The IoT Central REST API lets you develop client applications that integrate with IoT Central applications. You can use the REST API to query devices in your IoT Central application. The following are examples of how you can use the query REST API:
 
 - Get the last 10 telemetry values reported by a device.
-- Get the last 24 hours of data from devices that are in the same room. Room is a device or cloud property.
 - Find all devices that are in an error state and have outdated firmware.
 - Telemetry trends from devices, averaged in 10-minute windows.
 - Get the current firmware version of all your thermostat devices.
@@ -27,8 +27,6 @@ A device can group the properties, telemetry, and commands it supports into _com
 Every IoT Central REST API call requires an authorization header. To learn more, see [How to authenticate and authorize IoT Central REST API calls](howto-authorize-rest-api.md).
 
 For the reference documentation for the IoT Central REST API, see [Azure IoT Central REST API reference](/rest/api/iotcentral/).
-
-[!INCLUDE [iot-central-postman-collection](../../../includes/iot-central-postman-collection.md)]
 
 To learn how to query devices by using the IoT Central UI, see [How to use data explorer to analyze device data.](../core/howto-create-analytics.md)
 
@@ -44,11 +42,11 @@ The query is in the request body and looks like the following example:
 
 ```json
 {
-  "query": "SELECT $id, $ts, temperature, humidity FROM dtmi:azurertos:devkit:hlby5jgib2o WHERE WITHIN_WINDOW(P1D)"
+  "query": "SELECT $id, $ts, temperature, humidity FROM dtmi:eclipsethreadx:devkit:hlby5jgib2o WHERE WITHIN_WINDOW(P1D)"
 }
 ```
 
-The `dtmi:azurertos:devkit:hlby5jgib2o` value in the `FROM` clause is a *device template ID*. To find a device template ID, navigate to the **Devices** page in your IoT Central application and hover over a device that uses the template. The card includes the device template ID:
+The `dtmi:eclipsethreadx:devkit:hlby5jgib2o` value in the `FROM` clause is a *device template ID*. To find a device template ID, navigate to the **Devices** page in your IoT Central application and hover over a device that uses the template. The card includes the device template ID:
 
 :::image type="content" source="media/howto-query-with-rest-api/show-device-template-id.png" alt-text="Screenshot that shows how to find the device template ID in the page URL.":::
 
@@ -102,18 +100,16 @@ The following sections describe these clauses in more detail.
 The `SELECT` clause lists the data values to include in the query output and can include the following items:
 
 - Telemetry. Use the telemetry names from the device template.
-- Reported properties. Use the property names from the device template.
-- Cloud properties. Use the cloud property names from the device template.
 - `$id`. The device ID.
 - `$provisioned`. A boolean value that shows if the device is provisioned yet.
 - `$simulated`. A boolean value that shows if the device is a simulated device.
 - `$ts`. The timestamp associated with a telemetry value.
 
-If your device template uses components such as the **Device information** component, then you reference telemetry or properties defined in the component as follows:
+If your device template uses components, then you reference telemetry defined in the component as follows:
 
 ```json
 {
-  "query": "SELECT deviceInformation.model, deviceInformation.swVersion FROM dtmi:azurertos:devkit:hlby5jgib2o"
+  "query": "SELECT ComponentName.TelemetryName FROM dtmi:eclipsethreadx:devkit:hlby5jgib2o"
 }
 ```
 
@@ -125,8 +121,7 @@ The following limits apply in the `SELECT` clause:
 
 - There's no wildcard operator.
 - You can't have more than 15 items in the select list.
-- In a single query, you either select telemetry or properties but not both. A property query can include both reported properties and cloud properties.
-- A property-based query will return a maximum of 1,000 records. A telemetry data-based query can return up to 10,000 records.  
+- A query returns a maximum of 10,000 records.  
 
 ### Aliases
 
@@ -134,7 +129,7 @@ Use the `AS` keyword to define an alias for an item in the `SELECT` clause. The 
 
 ```json
 {
-  "query": "SELECT $id as ID, $ts as timestamp, temperature as t, pressure as p FROM dtmi:azurertos:devkit:hlby5jgib2o WHERE WITHIN_WINDOW(P1D) AND t > 0 AND p > 50"
+  "query": "SELECT $id as ID, $ts as timestamp, temperature as t, pressure as p FROM dtmi:eclipsethreadx:devkit:hlby5jgib2o WHERE WITHIN_WINDOW(P1D) AND t > 0 AND p > 50"
 }
 ```
 
@@ -168,11 +163,11 @@ Use the `TOP` to limit the number of results the query returns. For example, the
 
 ```json
 {
-    "query": "SELECT TOP 10 $id as ID, $ts as timestamp, temperature, humidity FROM dtmi:azurertos:devkit:hlby5jgib2o"
+    "query": "SELECT TOP 10 $id as ID, $ts as timestamp, temperature, humidity FROM dtmi:eclipsethreadx:devkit:hlby5jgib2o"
 }
 ```
 
-If you don't use `TOP`, the query returns a maximum of 10,000 results for a telemetry data-based query and 1,000 for a property-based query.
+If you don't use `TOP`, the query returns a maximum of 10,000 results.
 
 To sort the results before `TOP` limits the number of results, use [ORDER BY](#order-by-clause).
 
@@ -196,7 +191,7 @@ To get telemetry received by your application within a specified time window, us
 
 ```json
 {
-  "query": "SELECT $id, $ts, temperature, humidity FROM dtmi:azurertos:devkit:hlby5jgib2o WHERE WITHIN_WINDOW(P1D)"
+  "query": "SELECT $id, $ts, temperature, humidity FROM dtmi:eclipsethreadx:devkit:hlby5jgib2o WHERE WITHIN_WINDOW(P1D)"
 }
 ```
 
@@ -204,23 +199,20 @@ The time window value uses the [ISO 8601 durations format](https://en.wikipedia.
 
 | Example | Description                |
 | ------- | -------------------------- |
-| PT10M   | Past 10 minutes           |
+| PT10M   | Past 10 minutes            |
 | P1D     | Past day                   |
-| P2DT12H | Past 2 days and 12 hours |
+| P2DT12H | Past 2 days and 12 hours   |
 | P1W     | Past week                  |
 | PT5H    | Past five hours            |
 | '2021-06-13T13:00:00Z/2021-06-13T15:30:00Z' | Specific time range |
 
-> [!NOTE]
-> You can only use time windows when you're querying for telemetry.
-
 ### Value comparisons
 
-You can get telemetry or property values based on specific values. For example, the following query returns all messages where the temperature is greater than zero, the pressure is greater than 50, and the device ID is one of **sample-002** and **sample-003**:
+You can get telemetry based on specific values. For example, the following query returns all messages where the temperature is greater than zero, the pressure is greater than 50, and the device ID is one of **sample-002** and **sample-003**:
 
 ```json
 {
-  "query": "SELECT $id, $ts, temperature AS t, pressure AS p FROM dtmi:azurertos:devkit:hlby5jgib2o WHERE WITHIN_WINDOW(P1D) AND t > 0 AND p > 50 AND $id IN ['sample-002', 'sample-003']"
+  "query": "SELECT $id, $ts, temperature AS t, pressure AS p FROM dtmi:eclipsethreadx:devkit:hlby5jgib2o WHERE WITHIN_WINDOW(P1D) AND t > 0 AND p > 50 AND $id IN ['sample-002', 'sample-003']"
 }
 ```
 
@@ -235,9 +227,8 @@ The following operators are supported:
 The following limits apply in the `WHERE` clause:
 
 - You can use a maximum of 10 operators in a single query.
-- In a telemetry query, the `WHERE` clause can only contain telemetry and device metadata filters.
-- In a property query, the `WHERE` clause can only contain reported properties, cloud properties, and device metadata filters.
-- In a telemetry query, you can retrieve up to 10,000 records. In property query, you can retrieve up to 1,000 records. 
+- In a query, the `WHERE` clause can only contain telemetry and device metadata filters.
+- In a query, you can retrieve up to 10,000 records.
 
 ## Aggregations and GROUP BY clause
 
@@ -245,7 +236,7 @@ Aggregation functions let you calculate values such as average, maximum, and min
 
 ```json
 {
-  "query": "SELECT AVG(temperature), AVG(pressure) FROM dtmi:azurertos:devkit:hlby5jgib2o WHERE WITHIN_WINDOW(P1D) AND $id='{{DEVICE_ID}}' GROUP BY WINDOW(PT10M)"
+  "query": "SELECT AVG(temperature), AVG(pressure) FROM dtmi:eclipsethreadx:devkit:hlby5jgib2o WHERE WITHIN_WINDOW(P1D) AND $id='{{DEVICE_ID}}' GROUP BY WINDOW(PT10M)"
 }
 ```
 
@@ -286,7 +277,7 @@ The `ORDER BY` clause lets you sort the query results by a telemetry value, the 
 
 ```json
 {
-  "query": "SELECT $id as ID, $ts as timestamp, temperature, humidity FROM dtmi:azurertos:devkit:hlby5jgib2o ORDER BY timestamp DESC"
+  "query": "SELECT $id as ID, $ts as timestamp, temperature, humidity FROM dtmi:eclipsethreadx:devkit:hlby5jgib2o ORDER BY timestamp DESC"
 }
 ```
 
@@ -299,11 +290,9 @@ The current limits for queries are:
 
 - No more than 15 items in the `SELECT` clause list.
 - No more than 10 logical operations in the `WHERE` clause.
-- Queries return a maximum of 10,000 records.
 - The maximum length of a query string is 350 characters.
 - You can't use the wildcard (`*`) in the `SELECT` clause list.
-- Telemetry-based query can retrieve up to 10,000 records. 
-- Property-based query can retrieve up to 1,000 records. 
+- Queries can retrieve up to 10,000 records.
 
 ## Next steps
 

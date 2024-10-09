@@ -3,9 +3,10 @@ title: Use source control integration in Azure Automation
 description: This article tells you how to synchronize Azure Automation source control with other repositories.
 services: automation
 ms.subservice: process-automation
-ms.date: 11/22/2021
-ms.topic: conceptual 
+ms.date: 09/10/2024
+ms.topic: how-to 
 ms.custom: devx-track-azurepowershell
+ms.service: azure-automation
 ---
 
 # Use source control integration
@@ -36,10 +37,13 @@ Azure Automation supports three types of source control:
 >
 > :::image type="content" source="./media/source-control-integration/user-assigned-managed-identity.png" alt-text="Screenshot that displays the user-assigned Managed Identity."::: 
 > 
-> If you have both a Run As account and managed identity enabled, then managed identity is given preference. If you want to use a Run As account instead, you can [create an Automation variable](./shared-resources/variables.md) of BOOLEAN type named `AUTOMATION_SC_USE_RUNAS` with a value of `true`.
+> If you have both a Run As account and managed identity enabled, then managed identity is given preference.
+
+> [!Important]
+> Azure Automation Run As Account will retire on **September 30, 2023** and will be replaced with Managed Identities. Before that date, you need to [migrate from a Run As account to Managed identities](migrate-run-as-accounts-managed-identity.md).
 
 > [!NOTE]
-> According to [this](/azure/devops/organizations/accounts/change-application-access-policies?view=azure-devops#application-connection-policies) Azure DevOps documentation, **Third-party application access via OAuth** policy is defaulted to **off** for all new organizations. So if you try to configure source control in Azure Automation with **Azure Devops (Git)** as source control type without enabling **Third-party application access via OAuth** under Policies tile of Organization Settings in Azure DevOps then you might get **SourceControl securityToken is invalid** error. Hence to avoid this error, make sure you first enable **Third-party application access via OAuth** under Policies tile of Organization Settings in Azure DevOps. 
+> According to [this](/azure/devops/organizations/accounts/change-application-access-policies#application-connection-policies) Azure DevOps documentation, **Third-party application access via OAuth** policy is defaulted to **off** for all new organizations. So if you try to configure source control in Azure Automation with **Azure DevOps (Git)** as source control type without enabling **Third-party application access via OAuth** under Policies tile of Organization Settings in Azure DevOps then you might get **SourceControl securityToken is invalid** error. Hence to avoid this error, make sure you first enable **Third-party application access via OAuth** under Policies tile of Organization Settings in Azure DevOps. 
 
 ## Configure source control
 
@@ -55,7 +59,7 @@ This example uses Azure PowerShell to show how to assign the Contributor role in
 
     ```powershell
     New-AzRoleAssignment `
-        -ObjectId <automation-Identity-object-id> `
+        -ObjectId <automation-Identity-Object(Principal)-Id> `
         -Scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}" `
         -RoleDefinitionName "Contributor"
     ```
@@ -81,18 +85,19 @@ Use this procedure to configure source control using the Azure portal.
     |Repository     | Name of the repository or project. The first 200 repositories are retrieved. To search for a repository, type the name in the field and click **Search on GitHub**.|
     |Branch     | Branch from which to pull the source files. Branch targeting isn't available for the TFVC source control type.          |
     |Folder path     | Folder that contains the runbooks to synchronize, for example, **/Runbooks**. Only runbooks in the specified folder are synchronized. Recursion isn't supported.        |
-    |Auto Sync<sup>1</sup>     | Setting that turns on or off automatic synchronization when a commit is made in the source control repository.        |
+    |Auto Sync<sup>1</sup>     | Setting that turns on or off automatic synchronization when a commit is made in the source control repository or GitHub repo.        |
     |Publish Runbook     | Setting of On if runbooks are automatically published after synchronization from source control, and Off otherwise.           |
     |Description     | Text specifying additional details about the source control.        |
 
-    <sup>1</sup> To enable Auto Sync when configuring source control integration with Azure DevOps, you must be a Project Administrator.</br>
+    <sup>1 To enable Auto Sync when configuring the source control integration with Azure DevOps, you must be the Project Administrator or the GitHub repo owner. Collaborators can only configure Source Control without Auto Sync.</sup></br>
     Auto Sync does not work with Automation Private Link. If you enable the Private Link, the source control webhook invocations will fail as it is outside the network.
 
    :::image type="content" source="./media/source-control-integration/source-control-summary-inline.png" alt-text="Screenshot that describes the Source control summary." lightbox="./media/source-control-integration/source-control-summary-expanded.png":::
 
    
 > [!NOTE]
-> The login for your source control repository might be different from your login for the Azure portal. Ensure that you are logged in with the correct account for your source control repository when configuring source control. If there is a doubt, open a new tab in your browser, log out from **dev.azure.com**, **visualstudio.com**, or **github.com**, and try reconnecting to source control. 
+> - The login for your source control repository might be different from your login for the Azure portal. Ensure that you are logged in with the correct account for your source control repository when configuring source control. If there is a doubt, open a new tab in your browser, log out from **dev.azure.com**, **visualstudio.com**, or **github.com**, and try reconnecting to source control. 
+> - Cross-tenant authentication isn't supported.
 
 ### Configure source control in PowerShell
 
@@ -103,7 +108,7 @@ The following subsections illustrate PowerShell creation of the source control c
 #### Create source control connection for GitHub
 
 ```powershell-interactive
-New-AzAutomationSourceControl -Name SCGitHub -RepoUrl https://github.com/<accountname>/<reponame>.git -SourceType GitHub -FolderPath "/MyRunbooks" -Branch master -AccessToken <secureStringofPAT> -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName>
+New-AzAutomationSourceControl -Name SCGitHub -RepoUrl https://github.com/<accountname>/<reponame>.git -SourceType GitHub -FolderPath "/MyRunbooks" -Branch main -AccessToken <secureStringofPAT> -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName>
 ```
 
 #### Create source control connection for Azure DevOps (Git)
@@ -112,7 +117,7 @@ New-AzAutomationSourceControl -Name SCGitHub -RepoUrl https://github.com/<accoun
 > Azure DevOps (Git) uses a URL that accesses **dev.azure.com** instead of **visualstudio.com**, used in earlier formats. The older URL format `https://<accountname>.visualstudio.com/<projectname>/_git/<repositoryname>` is deprecated but still supported. The new format is preferred.
 
 ```powershell-interactive
-New-AzAutomationSourceControl -Name SCReposGit -RepoUrl https://dev.azure.com/<accountname>/<adoprojectname>/_git/<repositoryname> -SourceType VsoGit -AccessToken <secureStringofPAT> -Branch master -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName> -FolderPath "/Runbooks"
+New-AzAutomationSourceControl -Name SCReposGit -RepoUrl https://dev.azure.com/<accountname>/<adoprojectname>/_git/<repositoryname> -SourceType VsoGit -AccessToken <secureStringofPAT> -Branch main -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName> -FolderPath "/Runbooks"
 ```
 
 #### Create source control connection for Azure DevOps (TFVC)
@@ -230,5 +235,4 @@ Currently, you can't use the Azure portal to update the PAT in source control. W
 
 ## Next steps
 
-* For integrating source control in Azure Automation, see [Azure Automation: Source Control Integration in Azure Automation](https://azure.microsoft.com/blog/azure-automation-source-control-13/).  
 * For integrating runbook source control with Visual Studio Codespaces, see [Azure Automation: Integrating Runbook Source Control using Visual Studio Codespaces](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/).

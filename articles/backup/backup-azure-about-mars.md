@@ -1,24 +1,17 @@
 ---
 title: About the MARS Agent
 description: Learn how the MARS Agent supports the backup scenarios
-ms.topic: conceptual
-ms.date: 11/28/2022
-ms.service: backup
-ms.custom: engagement-fy23
-author: jyothisuri
-ms.author: jsuri
+ms.topic: overview
+ms.date: 08/13/2024
+ms.service: azure-backup
+ms.custom: engagement-fy24
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # About the Microsoft Azure Recovery Services (MARS) agent for Azure Backup
 
 Azure Backup uses the Microsoft Azure Recovery Services (MARS) agent to back up and recover files, folders, and the volume or system state from an on-premises computer to Azure.
-
-In this article, you'll learn about:
-
-> [!div class="checklist"]
-> - Backup scenarios
-> - Recovery scenarios
-> - Backup process
 
 ## Backup scenarios
 
@@ -46,7 +39,7 @@ The MARS agent supports the following recovery scenarios:
 
 | Server | Recovery scenario | Description |
 | --- | --- | --- |
-| **Same Server** |  | The server on which the backup was originally created. |
+| **Same Server** |  | Server on which the backup was originally created. |
 |   | **Files and Folders** | Choose the individual files and folders that you want to restore. |
 |   | **Volume Level** | Choose the volume and recovery point that you want to restore, and then restore it to the same location or an alternate location on the same machine.  Create a copy of existing files, overwrite existing files, or skip recovering existing files. |
 |  | **System Level** | Choose the system state and recovery point to restore to the same machine at a specified location. |
@@ -57,11 +50,13 @@ The MARS agent supports the following recovery scenarios:
 
 ## Backup process
 
-1. From the Azure portal, create a [Recovery Services vault](install-mars-agent.md#create-a-recovery-services-vault), and choose files, folders, and the system state from the **Backup goals**.
-2. [Download the Recovery Services vault credentials and agent installer](./install-mars-agent.md#download-the-mars-agent) to an on-premises machine.
+To back up files, folders, and the volume or system state from an on-premises computer to Azure using Microsoft Azure Recovery Services (MARS) agent:
 
-3. [Install the agent](./install-mars-agent.md#install-and-register-the-agent) and use the downloaded vault credentials to register the machine to the Recovery Services vault.
-4. From the agent console on the client, [configure the backup](./backup-windows-with-mars-agent.md#create-a-backup-policy) to specify what to back up, when to back up (the schedule), how long the backups should be retained in Azure (the retention policy) and start protecting.
+1. From the Azure portal, create a [Recovery Services vault](install-mars-agent.md#create-a-recovery-services-vault), and choose files, folders, and the system state from the **Backup goals**.
+2. [Configure your Recovery Services vault to securely save the backup passphrase to Azure Key vault](save-backup-passphrase-securely-in-azure-key-vault.md).
+3. [Download the Recovery Services vault credentials and agent installer](./install-mars-agent.md#download-the-mars-agent) to an on-premises machine.
+4. [Install the agent](./install-mars-agent.md#install-and-register-the-agent) and use the downloaded vault credentials to register the machine to the Recovery Services vault.
+5. From the agent console on the client, [configure the backup](./backup-windows-with-mars-agent.md#create-a-backup-policy) to specify what to back up, when to back up (the schedule), how long the backups should be retained in Azure (the retention policy) and start protecting.
 
 
 The following diagram shows the backup flow:
@@ -69,6 +64,8 @@ The following diagram shows the backup flow:
 ![Diagra shows the bacup flow of Azure Backup agent.](./media/backup-try-azure-backup-in-10-mins/backup-process.png)
 
 ### Additional information
+
+To proceed with the backup operation, review the following additional details:
 
 - The **Initial Backup** (first backup) runs according to your backup settings.  The MARS agent uses VSS to take a point-in-time snapshot of the volumes selected for backup. The agent only uses the Windows System Writer operation to capture the snapshot. It doesn't use any application VSS writers, and doesn't capture app-consistent snapshots. After VSS agent takes the snapshot, the MARS agent creates a virtual hard disk (VHD) in the cache folder you specified during the backup configuration. The agent also stores checksums for each data block.
 

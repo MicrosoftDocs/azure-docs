@@ -4,11 +4,10 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about cached lookup functions in mapping data flow.
 author: kromerm
 ms.author: makromer
-ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/03/2022
+ms.date: 01/05/2024
 ---
 
 # Cached lookup functions in mapping data flow
@@ -31,7 +30,7 @@ The following functions are only available when using a cached lookup when you'v
 | [outputs](data-flow-expressions-usage.md#outputs) | Returns the entire output row set of the results of the cache sink|
 |||
 
-## Next steps
+## Related content
 
 - List of all [aggregate functions](data-flow-aggregate-functions.md).
 - List of all [array functions](data-flow-array-functions.md).

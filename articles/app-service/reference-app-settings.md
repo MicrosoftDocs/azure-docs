@@ -2,10 +2,14 @@
 title: Environment variables and app settings reference
 description: Describes the commonly used environment variables, and which ones can be modified with app settings.
 ms.topic: article
-ms.date: 11/01/2022
+ms.date: 09/27/2024
+author: cephalin
+ms.author: cephalin
 ---
 
 # Environment variables and app settings in Azure App Service
+
+[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
 
 In [Azure App Service](overview.md), certain settings are available to the deployment or runtime environment as environment variables. Some of these settings can be customized when you set them manually as [app settings](configure-common.md#configure-app-settings). This reference shows the variables you can use or customize.
 
@@ -31,10 +35,10 @@ The following environment variables are related to the app environment in genera
 | `WEBSITE_NPM_DEFAULT_VERSION` | Default npm version the app is using. ||
 | `WEBSOCKET_CONCURRENT_REQUEST_LIMIT` | Read-only. Limit for websocket's concurrent requests. For **Standard** tier and above, the value is `-1`, but there's still a per VM limit based on your VM size (see [Cross VM Numerical Limits](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits)). ||
 | `WEBSITE_PRIVATE_EXTENSIONS` | Set to `0` to disable the use of private site extensions. ||
-| `WEBSITE_TIME_ZONE` | By default, the time zone for the app is always UTC. You can change it to any of the valid values that are listed in [TimeZone](/previous-versions/windows/it-pro/windows-vista/cc749073(v=ws.10)). If the specified value isn't recognized, UTC is used. | `Atlantic Standard Time` |
+| `WEBSITE_TIME_ZONE` | By default, the time zone for the app is always UTC. You can change it to any of the valid values that are listed in [Default Time Zones](/windows-hardware/manufacture/desktop/default-time-zones). If the specified value isn't recognized, UTC is used. | `Atlantic Standard Time` |
 | `WEBSITE_ADD_SITENAME_BINDINGS_IN_APPHOST_CONFIG` | After slot swaps, the app may experience unexpected restarts. This is because after a swap, the hostname binding configuration goes out of sync, which by itself doesn't cause restarts. However, certain underlying storage events (such as storage volume failovers) may detect these discrepancies and force all worker processes to restart. To minimize these types of restarts, set the app setting value to `1`on all slots (default is`0`). However, don't set this value if you're running a Windows Communication Foundation (WCF) application. For more information, see [Troubleshoot swaps](deploy-staging-slots.md#troubleshoot-swaps)||
 | `WEBSITE_PROACTIVE_AUTOHEAL_ENABLED` | By default, a VM instance is proactively "autohealed" when it's using more than 90% of allocated memory for more than 30 seconds, or when 80% of the total requests in the last two minutes take longer than 200 seconds. If a VM instance has triggered one of these rules, the recovery process is an overlapping restart of the instance. Set to `false` to disable this recovery behavior. The default is `true`. For more information, see [Proactive Auto Heal](https://azure.github.io/AppService/2017/08/17/Introducing-Proactive-Auto-Heal.html). ||
-| `WEBSITE_PROACTIVE_CRASHMONITORING_ENABLED` | Whenever the w3wp.exe process on a VM instance of your app crashes due to an unhandled exception for more than three times in 24 hours, a debugger process is attached to the main worker process on that instance, and collects a memory dump when the worker process crashes again. This memory dump is then analyzed and the call stack of the thread that caused the crash is logged in your App Service’s logs. Set to `false` to disable this automatic monitoring behavior. The default is `true`. For more information, see [Proactive Crash Monitoring](https://azure.github.io/AppService/2021/03/01/Proactive-Crash-Monitoring-in-Azure-App-Service.html). ||
+| `WEBSITE_PROACTIVE_CRASHMONITORING_ENABLED` | Whenever the w3wp.exe process on a VM instance of your app crashes due to an unhandled exception for more than three times in 24 hours, a debugger process is attached to the main worker process on that instance, and collects a memory dump when the worker process crashes again. This memory dump is then analyzed and the call stack of the thread that caused the crash is logged in your App Service's logs. Set to `false` to disable this automatic monitoring behavior. The default is `true`. For more information, see [Proactive Crash Monitoring](https://azure.github.io/AppService/2021/03/01/Proactive-Crash-Monitoring-in-Azure-App-Service.html). ||
 | `WEBSITE_DAAS_STORAGE_SASURI` | During crash monitoring (proactive or manual), the memory dumps are deleted by default. To save the memory dumps to a storage blob container, specify the SAS URI.  ||
 | `WEBSITE_CRASHMONITORING_ENABLED` | Set to `true` to enable [crash monitoring](https://azure.github.io/AppService/2020/08/11/Crash-Monitoring-Feature-in-Azure-App-Service.html) manually. You must also set `WEBSITE_DAAS_STORAGE_SASURI` and `WEBSITE_CRASHMONITORING_SETTINGS`. The default is `false`. This setting has no effect if remote debugging is enabled. Also, if this setting is set to `true`, [proactive crash monitoring](https://azure.github.io/AppService/2020/08/11/Crash-Monitoring-Feature-in-Azure-App-Service.html) is disabled. ||
 | `WEBSITE_CRASHMONITORING_SETTINGS` | A JSON with the following format:`{"StartTimeUtc": "2020-02-10T08:21","MaxHours": "<elapsed-hours-from-StartTimeUtc>","MaxDumpCount": "<max-number-of-crash-dumps>"}`. Required to configure [crash monitoring](https://azure.github.io/AppService/2020/08/11/Crash-Monitoring-Feature-in-Azure-App-Service.html) if `WEBSITE_CRASHMONITORING_ENABLED` is specified. To only log the call stack without saving the crash dump in the storage account, add `,"UseStorageAccount":"false"` in the JSON. ||
@@ -43,7 +47,8 @@ The following environment variables are related to the app environment in genera
 | `WEBSITE_CONTENTSHARE` | When you use specify a custom storage account with `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`, App Service creates a file share in that storage account for your app. To use a custom name, set this variable to the name you want. If a file share with the specified name doesn't exist, App Service creates it for you. | `myapp123` |
 | `WEBSITE_SCM_ALWAYS_ON_ENABLED` | Read-only. Shows whether Always On is enabled (`1`) or not (`0`). ||
 | `WEBSITE_SCM_SEPARATE_STATUS` | Read-only. Shows whether the Kudu app is running in a separate process (`1`) or not (`0`). ||
-
+| `WEBSITE_DNS_ATTEMPTS` | Number of times to try name resolve. ||
+| `WEBSITE_DNS_TIMEOUT` | Number of seconds to wait for name resolve ||
 <!-- 
 WEBSITE_PROACTIVE_STACKTRACING_ENABLED
 WEBSITE_CLOUD_NAME
@@ -88,6 +93,7 @@ The following environment variables are related to app deployment. For variables
 | `WEBSITE_RUN_FROM_PACKAGE`| Set to `1` to run the app from a local ZIP package, or set to the URL of an external URL to run the app from a remote ZIP package. For more information, see [Run your app in Azure App Service directly from a ZIP package](deploy-run-package.md). |
 | `WEBSITE_USE_ZIP` | Deprecated. Use `WEBSITE_RUN_FROM_PACKAGE`. |
 | `WEBSITE_RUN_FROM_ZIP` | Deprecated. Use `WEBSITE_RUN_FROM_PACKAGE`. | 
+| `SCM_MAX_ZIP_PACKAGE_COUNT`| Your app keeps 5 of the most recent zip files deployed using [zip deploy](deploy-zip.md). You can keep more or less by setting the app setting to a different number. |
 | `WEBSITE_WEBDEPLOY_USE_SCM` | Set to `false` for WebDeploy to stop using the Kudu deployment engine. The default is `true`. To deploy to Linux apps using Visual Studio (WebDeploy/MSDeploy), set it to `false`. |
 | `MSDEPLOY_RENAME_LOCKED_FILES` | Set to `1` to attempt to rename DLLs if they can't be copied during a WebDeploy deployment. This setting isn't applicable if `WEBSITE_WEBDEPLOY_USE_SCM` is set to `false`. |
 | `WEBSITE_DISABLE_SCM_SEPARATION` | By default, the main app and the Kudu app run in different sandboxes. When you stop the app, the Kudu app is still running, and you can continue to use Git deploy and MSDeploy. Each app has its own local files. Turning off this separation (setting to `true`) is a legacy mode that's no longer fully supported. |
@@ -191,7 +197,7 @@ This section shows the configurable runtime settings for each supported language
 | `AZURE_TOMCAT90_HOME` | Read-only. For native Windows apps, path to the Tomcat 9 installation. | |
 | `AZURE_SITE_HOME` | The value added to the Java args as `-Dsite.home`. The default is the value of `HOME`. | |
 | `HTTP_PLATFORM_PORT` | Added to Java args as `-Dport.http`. The following environment variables used by different Java web frameworks are also set to this value: `SERVER_PORT`, `MICRONAUT_SERVER_PORT`, `THORNTAIL_HTTP_PORT`, `RATPACK_PORT`, `QUARKUS_HTTP_PORT`, `PAYARAMICRO_PORT`. ||
-| `AZURE_LOGGING_DIR` | Native Windows apps only. Added to Java args as `-Dsite.logdir`. The default is `%HOME%\LogFiles\`. ||
+| `AZURE_LOGGING_DIR` | For Windows Apps, added to Java args as `-Dsite.logdir`. The default is `%HOME%\LogFiles\`. Default value in Linux is `AZURE_LOGGING_DIR=/home/LogFiles`. ||
 
 <!-- 
 WEBSITE_JAVA_COPY_ALL
@@ -227,14 +233,11 @@ APPSVC_REMOTE_DEBUGGING_BREAK | debugArgs+=" -debugWait" -->
 | Setting name | Description | Example|
 |-|-|-|
 | `PHP_Extensions` | Comma-separated list of PHP extensions. | `extension1.dll,extension2.dll,Name1=value1` |
-| `PHP_ZENDEXTENSIONS` | For Windows native apps, set to the path of the XDebug extension, such as `D:\devtools\xdebug\2.6.0\php_7.2\php_xdebug-2.6.0-7.2-vc15-nts.dll`. For Linux apps, set to `xdebug` to use the XDebug version of the PHP container. ||
+| `PHP_ZENDEXTENSIONS` | For Linux apps, set to `xdebug` to use the XDebug version of the PHP container. ||
 | `PHP_VERSION` | Read-only. The selected PHP version. ||
-| `PORT` | Read-only. Port that Apache server listens to in the container. ||
+| `WEBSITE_PORT` | Read-only. Port that Apache server listens to in the container. ||
 | `WEBSITE_ROLE_INSTANCE_ID` | Read-only. ID of the current instance. ||
 | `WEBSITE_PROFILER_ENABLE_TRIGGER` | Set to `TRUE` to add `xdebug.profiler_enable_trigger=1` and `xdebug.profiler_enable=0` to the default `php.ini`. ||
-| `WEBSITE_ENABLE_PHP_ACCESS_LOGS` | Set to `TRUE` to log requests to the server (`CustomLog \dev\stderr combined` is added to `/etc/apache2/apache2.conf`). ||
-| `APACHE_SERVER_LIMIT` | Apache specific variable. The default is `1000`. ||
-| `APACHE_MAX_REQ_WORKERS` | Apache specific variable. The default is `256`. ||
 
 <!-- 
 ZEND_BIN_PATH
@@ -266,24 +269,24 @@ APACHE_RUN_GROUP | RUN sed -i 's!User ${APACHE_RUN_GROUP}!Group www-data!g' /etc
 > [!div class="mx-tdCol5BreakAll"]
 > |Application Setting | Scope | Value | Max | Description
 > |-------------|-------------|-------------|---------------|--------------------|
-> |WEBSITES_ENABLE_APP_SERVICE_STORAGE|Web App|true|-|When set to TRUE, file contents are preserved during restarts. |
-> |WP_MEMORY_LIMIT|WordPress|128M|512M|Frontend or general wordpress PHP memory limit (per script). Can't be more than PHP_MEMORY_LIMIT|
-> |WP_MAX_MEMORY_LIMIT|WordPress|256M|512M|Admin dashboard PHP memory limit (per script). Generally Admin dashboard/ backend scripts takes lot of memory compared to frontend scripts. Can't be more than PHP_MEMORY_LIMIT.|
-> |PHP_MEMORY_LIMIT|PHP|512M|512M|Memory limits for general PHP script. It can only be decreased.|
-> |FILE_UPLOADS|PHP|On|-|Can be either On or Off. Note that values are case sensitive. Enables or disables file uploads. |
-> |UPLOAD_MAX_FILESIZE|PHP|50M|256M	Max file upload size limit. Can be increased up to 256M.|
-> |POST_MAX_SIZE|PHP|128M|256M|Can be increased up to 256M. Generally should be more than UPLOAD_MAX_FILESIZE.|
-> |MAX_EXECUTION_TIME|PHP|120|120|Can only be decreased. Please break down the scripts if it is taking more than 120 seconds. Added to avoid bad scripts from slowing the system.|
-> |MAX_INPUT_TIME|PHP|120|120|Max time limit for parsing the input requests. Can only be decreased.|
-> |MAX_INPUT_VARS|PHP|10000|10000|-|
-> |DATABASE_HOST|Database|-|-|Database host used to connect to WordPress.|
-> |DATABASE_NAME|Database|-|-|Database name used to connect to WordPress.|
-> |DATABASE_USERNAME|Database|-|-|Database username used to connect to WordPress.|
-> |DATABASE_PASSWORD|Database|-|-|Database password used to connect to the MySQL database. To change the MySQL database password, see [update admin password](../mysql/single-server/how-to-create-manage-server-portal.md#update-admin-password). Whenever the MySQL database password is changed, the Application Settings also need to be updated. |
-> |WORDPRESS_ADMIN_EMAIL|Deployment only|-|-|WordPress admin email.|
-> |WORDPRESS_ADMIN_PASSWORD|Deployment only|-|-|WordPress admin password. This is only for deployment purposes. Modifying this value has no effect on the WordPress installation. To change the WordPress admin password, see [resetting your password](https://wordpress.org/support/article/resetting-your-password/#to-change-your-password).|
-> |WORDPRESS_ADMIN_USER|Deployment only|-|-|WordPress admin username|
-> |WORDPRESS_ADMIN_LOCALE_CODE|Deployment only|-|-|Database username used to connect to WordPress.|
+> |`WEBSITES_ENABLE_APP_SERVICE_STORAGE`|Web App|true|-|When set to TRUE, file contents are preserved during restarts.  |
+> |`WP_MEMORY_LIMIT`|WordPress|128M|512M|Frontend or general wordpress PHP memory limit (per script). Can't be more than PHP_MEMORY_LIMIT|
+> |`WP_MAX_MEMORY_LIMIT`|WordPress|256M|512M|Admin dashboard PHP memory limit (per script). Generally Admin dashboard/ backend scripts takes lot of memory compared to frontend scripts. Can't be more than PHP_MEMORY_LIMIT.|
+> |`PHP_MEMORY_LIMIT`|PHP|512M|512M|Memory limits for general PHP script. It can only be decreased.|
+> |`FILE_UPLOADS`|PHP|On|-|Can be either On or Off. Note that values are case sensitive. Enables or disables file uploads. |
+> |`UPLOAD_MAX_FILESIZE`|PHP|50M|256M	Max file upload size limit. Can be increased up to 256M.|
+> |`POST_MAX_SIZE`|PHP|128M|256M|Can be increased up to 256M. Generally should be more than UPLOAD_MAX_FILESIZE.|
+> |`MAX_EXECUTION_TIME`|PHP|120|120|Can only be decreased. Please break down the scripts if it is taking more than 120 seconds. Added to avoid bad scripts from slowing the system.|
+> |`MAX_INPUT_TIME`|PHP|120|120|Max time limit for parsing the input requests. Can only be decreased.|
+> |`MAX_INPUT_VARS`|PHP|10000|10000|-|
+> |`DATABASE_HOST`|Database|-|-|Database host used to connect to WordPress.|
+> |`DATABASE_NAME`|Database|-|-|Database name used to connect to WordPress.|
+> |`DATABASE_USERNAME`|Database|-|-|Database username used to connect to WordPress.|
+> |`DATABASE_PASSWORD`|Database|-|-|Database password used to connect to the MySQL database. To change the MySQL database password, see [update admin password](/azure/mysql/single-server/how-to-create-manage-server-portal#update-admin-password). Whenever the MySQL database password is changed, the Application Settings also need to be updated. |
+> |`WORDPRESS_ADMIN_EMAIL`|Deployment only|-|-|WordPress admin email.|
+> |`WORDPRESS_ADMIN_PASSWORD`|Deployment only|-|-|WordPress admin password. This is only for deployment purposes. Modifying this value has no effect on the WordPress installation. To change the WordPress admin password, see [resetting your password](https://wordpress.org/support/article/resetting-your-password/#to-change-your-password).|
+> |`WORDPRESS_ADMIN_USER`|Deployment only|-|-|WordPress admin username|
+> |`WORDPRESS_ADMIN_LOCALE_CODE`|Deployment only|-|-|Database username used to connect to WordPress.|
 
 ## Domain and DNS
 
@@ -333,8 +336,9 @@ For more information on custom containers, see [Run a custom container in Azure]
 
 | Setting name| Description | Example |
 |-|-|-|
-| `WEBSITES_ENABLE_APP_SERVICE_STORAGE` | Set to `true` to enable the `/home` directory to be shared across scaled instances. The default is `true` for custom containers. ||
+| `WEBSITES_ENABLE_APP_SERVICE_STORAGE` | For Linux custom containers: set to `true` to enable the `/home` directory to be shared across scaled instances. The default is `false` for Linux custom containers.<br/><br/>For Windows containers: set to `true` to enable the `c:\home` directory to be shared across scaled instances. The default is `true` for Windows containers.||
 | `WEBSITES_CONTAINER_START_TIME_LIMIT` | Amount of time in seconds to wait for the container to complete start-up before restarting the container. Default is `230`. You can increase it up to the maximum of `1800`. ||
+| `WEBSITES_CONTAINER_STOP_TIME_LIMIT` | Amount of time in seconds to wait for the container to terminate gracefully. Default is `5`. You can increase to a maximum of `120` ||
 | `DOCKER_REGISTRY_SERVER_URL` | URL of the registry server, when running a custom container in App Service. For security, this variable isn't passed on to the container. | `https://<server-name>.azurecr.io` |
 | `DOCKER_REGISTRY_SERVER_USERNAME` | Username to authenticate with the registry server at `DOCKER_REGISTRY_SERVER_URL`. For security, this variable isn't passed on to the container. ||
 | `DOCKER_REGISTRY_SERVER_PASSWORD` | Password to authenticate with the registry server at `DOCKER_REGISTRY_SERVER_URL`. For security, this variable isn't passed on to the container. ||
@@ -343,8 +347,7 @@ For more information on custom containers, see [Run a custom container in Azure]
 | `WEBSITES_WEB_CONTAINER_NAME` | In a Docker Compose app, only one of the containers can be internet accessible. Set to the name of the container defined in the configuration file to override the default container selection. By default, the internet accessible container is the first container to define port 80 or 8080, or, when no such container is found, the first container defined in the configuration file. |  |
 | `WEBSITES_PORT` | For a custom container, the custom port number on the container for App Service to route requests to. By default, App Service attempts automatic port detection of ports 80 and 8080. This setting isn't injected into the container as an environment variable. ||
 | `WEBSITE_CPU_CORES_LIMIT` | By default, a Windows container runs with all available cores for your chosen pricing tier. To reduce the number of cores, set to the number of desired cores limit. For more information, see [Customize the number of compute cores](configure-custom-container.md?pivots=container-windows#customize-the-number-of-compute-cores).||
-| `WEBSITE_MEMORY_LIMIT_MB` | By default all Windows Containers deployed in Azure App Service are limited to 1 GB RAM. Set to the desired memory limit in MB. The cumulative total of this setting across apps in the same plan must not exceed the amount allowed by the chosen pricing tier. For more information, see [Customize container memory](configure-custom-container.md?pivots=container-windows#customize-container-memory). ||
-| `CONTAINER_WINRM_ENABLED` | For a Windows containerized app, set to `1` to enable Windows Remote Management (WIN-RM). ||
+| `WEBSITE_MEMORY_LIMIT_MB` | By default all Windows Containers deployed in Azure App Service have a memory limit configured depending on the App Service Plan SKU. Set to the desired memory limit in MB. The cumulative total of this setting across apps in the same plan must not exceed the amount allowed by the chosen pricing tier. For more information, see [Customize container memory](configure-custom-container.md?pivots=container-windows#customize-container-memory). ||
 
 <!-- 
 CONTAINER_ENCRYPTION_KEY
@@ -420,7 +423,7 @@ The following are 'fake' environment variables that don't exist if you enumerate
 | `WEBSITE_LOCAL_CACHE_READWRITE_OPTION` | Read-write options of the local cache. Available options are: <br/>- `ReadOnly`: Cache is read-only.<br/>- `WriteButDiscardChanges`: Allow writes to local cache but discard changes made locally. |
 | `WEBSITE_LOCAL_CACHE_SIZEINMB` | Size of the local cache in MB. Default is `1000` (1 GB). |
 | `WEBSITE_LOCALCACHE_READY` | Read-only flag indicating if the app using local cache. |
-| `WEBSITE_DYNAMIC_CACHE` | Due to network file shared nature to allow access for multiple instances, the dynamic cache improves performance by caching the recently accessed files locally on an instance. Cache is invalidated when file is modified. The cache location is `%SYSTEMDRIVE%\local\DynamicCache` (same `%SYSTEMDRIVE%\local` quota is applied). By default, full content caching is enabled (set to `1`), which includes both file content and directory/file metadata (timestamps, size, directory content). To conserve local disk use, set to `2` to cache only directory/file metadata (timestamps, size, directory content). To turn off caching, set to `0`. |
+| `WEBSITE_DYNAMIC_CACHE` | Due to network file shared nature to allow access for multiple instances, the dynamic cache improves performance by caching the recently accessed files locally on an instance. Cache is invalidated when file is modified. The cache location is `%SYSTEMDRIVE%\local\DynamicCache` (same `%SYSTEMDRIVE%\local` quota is applied). To enable full content caching, set to `1`, which includes both file content and directory/file metadata (timestamps, size, directory content). To conserve local disk use, set to `2` to cache only directory/file metadata (timestamps, size, directory content). To turn off caching, set to `0`. For Windows apps and for [Linux apps created with the WordPress template](quickstart-wordpress.md), the default is `1`. For all other Linux apps, the default is `0`. |
 | `WEBSITE_READONLY_APP` | When using dynamic cache, you can disable write access to the app root (`D:\home\site\wwwroot` or `/home/site/wwwroot`)  by setting this variable to `1`. Except for the `App_Data` directory, no exclusive locks are allowed, so that deployments don't get blocked by locked files. |
 
 <!-- 
@@ -459,6 +462,7 @@ The following environment variables are related to [hybrid connections](app-serv
 | `WEBSITE_VNET_ROUTE_ALL` | By default, if you use [regional VNet Integration](./overview-vnet-integration.md#regional-virtual-network-integration), your app only routes RFC1918 traffic into your VNet. Set to `1` to route all outbound traffic into your VNet and be subject to the same NSGs and UDRs. The setting lets you access non-RFC1918 endpoints through your VNet, secure all outbound traffic leaving your app, and force tunnel all outbound traffic to a network appliance of your own choosing. |
 | `WEBSITE_PRIVATE_IP` | Read-only. IP address associated with the app when [integrated with a VNet](./overview-vnet-integration.md). For Regional VNet Integration, the value is an IP from the address range of the delegated subnet, and for Gateway-required VNet Integration, the value is an IP from the address range of the point-to-site address pool configured on the Virtual Network Gateway. This IP is used by the app to connect to the resources through the VNet. Also, it can change within the described address range. |
 | `WEBSITE_PRIVATE_PORTS` | Read-only. In VNet integration, shows which ports are useable by the app to communicate with other nodes. |
+| `WEBSITE_CONTENTOVERVNET` | If you are mounting an Azure File Share on the App Service and the Storage account is restricted to a VNET, ensure to enable this setting with a value of `1`. |
 
 <!-- | WEBSITE_SLOT_POLL_WORKER_FOR_CHANGE_NOTIFICATION | Poll worker before pinging the site to detect when change notification has been processed. |
 WEBSITE_SPECIAL_CACHE
@@ -481,7 +485,7 @@ The following environment variables are related to [key vault references](app-se
 | Setting name | Description |
 |-|-|
 | `WEBSITE_KEYVAULT_REFERENCES` | Read-only. Contains information (including statuses) for all Key Vault references that are currently configured in the app. |
-| `WEBSITE_SKIP_CONTENTSHARE_VALIDATION` | If you set the shared storage connection of your app (using `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`) to a Key Vault reference, the app can't resolve the key vault reference at app creation or update if one of the following conditions is true: <br/>- The app accesses the key vault with a system-assigned identity.<br/>- The app accesses the key vault with a user-assigned identity, and the key vault is [locked with a VNet](../key-vault/general/overview-vnet-service-endpoints.md).<br/>To avoid errors at create or update time, set this variable to `1`. |
+| `WEBSITE_SKIP_CONTENTSHARE_VALIDATION` | If you set the shared storage connection of your app (using `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`) to a Key Vault reference, the app can't resolve the key vault reference at app creation or update if one of the following conditions is true: <br/>- The app accesses the key vault with a system-assigned identity.<br/>- The app accesses the key vault with a user-assigned identity, and the key vault is [locked with a VNet](/azure/key-vault/general/overview-vnet-service-endpoints).<br/>To avoid errors at create or update time, set this variable to `1`. |
 | `WEBSITE_DELAY_CERT_DELETION` | This env var can be set to 1 by users in order to ensure that a certificate that a worker process is dependent upon isn't deleted until it exits. |
 <!-- | `WEBSITE_ALLOW_DOUBLE_ESCAPING_URL` | TODO | -->
 
@@ -586,7 +590,7 @@ The following environment variables are related to [health checks](monitor-insta
 | Setting name | Description |
 |-|-|
 | `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` | The maximum number of failed pings before removing the instance. Set to a value between `2` and `100`. When you're scaling up or out, App Service pings the Health check path to ensure new instances are ready. For more information, see [Health check](monitor-instances-health-check.md).|
-| `WEBSITE_HEALTHCHECK_MAXUNHEALTHYWORKERPERCENT` | To avoid overwhelming healthy instances, no more than half of the instances will be excluded. For example, if an App Service Plan is scaled to four instances and three are unhealthy, at most two will be excluded. The other two instances (one healthy and one unhealthy) will continue to receive requests. In the worst-case scenario where all instances are unhealthy, none will be excluded. To override this behavior, set to a value between `0` and `100`. A higher value means more unhealthy instances will be removed. The default is `50` (50%). |
+| `WEBSITE_HEALTHCHECK_MAXUNHEALTHYWORKERPERCENT` | To avoid overwhelming healthy instances, no more than half of the instances will be excluded. For example, if an App Service Plan is scaled to four instances and three are unhealthy, at most two will be excluded. The other two instances (one healthy and one unhealthy) will continue to receive requests. In the worst-case scenario where all instances are unhealthy, none will be excluded. To override this behavior, set to a value between `1` and `100`. A higher value means more unhealthy instances will be removed. The default is `50` (50%). |
 
 ## Push notifications
 
@@ -599,8 +603,8 @@ The following environment variables are related to the [push notifications](/pre
 | `WEBSITE_PUSH_TAGS_REQUIRING_AUTH` | Read-only. Contains a list of tags in  the notification registration that requires user authentication. |
 | `WEBSITE_PUSH_TAGS_DYNAMIC` | Read-only. Contains a list of tags in the notification registration that were added automatically. | 
 
->[!NOTE]
-> This article contains references to the term *whitelist*, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
+> [!NOTE]
+> This article contains references to a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
 <!-- 
 ## WellKnownAppSettings
@@ -669,7 +673,7 @@ The following environment variables are related to [WebJobs](webjobs-create.md).
         // NOTE: This is set on all sites, irrespective of whether it is a Functions site, because the EnvSettings module depends 
         // upon it to decide when to inject the app-settings.|
 | `WEBSITE_PLACEHOLDER_PING_PATH` | This env var can be used to set a special warmup ping path on placeholder template sites. |
-| ` WEBSITE_PLACEHOLDER_DISABLE_AUTOSPECIALIZATION` | This env var can be used to disabe specialization from being enabled automatically for a given placeholder template site. |
+| ` WEBSITE_PLACEHOLDER_DISABLE_AUTOSPECIALIZATION` | This env var can be used to disable specialization from being enabled automatically for a given placeholder template site. |
 | `WEBSITE_FUNCTIONS_STARTUPCONTEXT_CACHE` | This env var is set only during specialization of a placeholder, to indicate to the Functions Runtime that
         // some function-app related data needed at startup, like secrets, are available in a file at the path specified
         // by this env var. |

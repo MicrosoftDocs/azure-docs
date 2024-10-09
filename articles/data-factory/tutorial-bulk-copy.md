@@ -3,11 +3,10 @@ title: Copy data in bulk with PowerShell
 description: Use Azure Data Factory with Copy Activity to copy data from a source data store to a destination data store in bulk.
 author: jianleishen
 ms.author: jianleishen
-ms.service: data-factory
-ms.subservice: tutorials
 ms.topic: tutorial
-ms.custom: seo-lt-2019
-ms.date: 09/26/2022
+ms.custom: devx-track-azurepowershell
+ms.date: 10/03/2024
+ms.subservice: data-movement
 ---
 
 # Copy multiple tables in bulk by using Azure Data Factory using PowerShell
@@ -40,9 +39,9 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ## Prerequisites
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
-* **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps).
+* **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).
 * **Azure Storage account**. The Azure Storage account is used as staging blob storage in the bulk copy operation. 
 * **Azure SQL Database**. This database contains the source data. 
 * **Azure Synapse Analytics**. This data warehouse holds the data copied over from the SQL Database. 
@@ -407,7 +406,7 @@ This pipeline performs two steps:
             "activities":[
                 { 
                     "name": "LookupTableList",
-                    "description": "Retrieve the table list from Azure SQL dataabse",
+                    "description": "Retrieve the table list from Azure SQL database",
                     "type": "Lookup",
                     "typeProperties": {
                         "source": {
@@ -567,7 +566,7 @@ This pipeline performs two steps:
 
 3. Connect to your sink Azure Synapse Analytics and confirm that data has been copied from Azure SQL Database properly.
 
-## Next steps
+## Related content
 
 You performed the following steps in this tutorial: 
 

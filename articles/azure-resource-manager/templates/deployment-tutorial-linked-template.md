@@ -1,9 +1,8 @@
 ---
 title: Tutorial - Deploy a linked template
 description: Learn how to deploy a linked template
-ms.date: 02/12/2021
+ms.date: 09/26/2024
 ms.topic: tutorial
-ms.author: jgao
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -27,7 +26,7 @@ You can separate the storage account resource into a linked template:
 
 :::code language="json" source="~/resourcemanager-templates/get-started-deployment/linked-template/linkedStorageAccount.json":::
 
-The following template is the main template. The highlighted `Microsoft.Resources/deployments` object shows how to call a linked template. The linked template cannot be stored as a local file or a file that is only available on your local network. You can either provide a URI value of the linked template that includes either HTTP or HTTPS,  or use the _relativePath_ property to deploy a remote linked template at a location relative to the parent template. One option is to place both the main template and the linked template in a storage account.
+The following template is the main template. The highlighted `Microsoft.Resources/deployments` object shows how to call a linked template. The linked template can't be stored as a local file or a file that is only available on your local network. You can either provide a URI value of the linked template that includes either HTTP or HTTPS,  or use the _relativePath_ property to deploy a remote linked template at a location relative to the parent template. One option is to place both the main template and the linked template in a storage account.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-deployment/linked-template/azuredeploy.json" highlight="34-52":::
 
@@ -96,7 +95,7 @@ Write-Host "Press [ENTER] to continue ..."
 
 ## Deploy template
 
-To deploy templates in a storage account, generate a SAS token and supply it to the _-QueryString_ parameter. Set the expiry time to allow enough time to complete the deployment. The blobs containing the templates are accessible to only the account owner. However, when you create a SAS token for a blob, the blob is accessible to anyone with that SAS token. If another user intercepts the URI and the SAS token, that user is able to access the template. A SAS token is a good way of limiting access to your templates, but you should not include sensitive data like passwords directly in the template.
+To deploy templates in a storage account, generate a SAS token and supply it to the _-QueryString_ parameter. Set the expiry time to allow enough time to complete the deployment. The blobs containing the templates are accessible to only the account owner. However, when you create a SAS token for a blob, the blob is accessible to anyone with that SAS token. If another user intercepts the URI and the SAS token, that user is able to access the template. A SAS token is a good way of limiting access to your templates, but you shouldn't include sensitive data like passwords directly in the template.
 
 If you haven't created the resource group, see [Create resource group](./deployment-tutorial-local-template.md#create-resource-group).
 

@@ -1,9 +1,9 @@
 ---
-author: cynthn
-ms.service: virtual-machines
+author: jushiman
+ms.service: azure-virtual-machines
 ms.topic: include
-ms.date: 11/09/2018    
-ms.author: cynthn
+ms.date: 11/09/2018
+ms.author: jushiman
 ---
 | Resource | Limit |
 | --- | --- |

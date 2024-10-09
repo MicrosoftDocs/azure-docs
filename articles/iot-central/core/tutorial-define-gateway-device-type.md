@@ -1,25 +1,24 @@
 ---
-title: Tutorial - Define a new gateway device type in Azure IoT Central | Microsoft Docs
+title: Tutorial - Define an Azure IoT Central gateway device type
 description: This tutorial shows you, as a builder, how to define a new IoT gateway device type in your Azure IoT Central application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/26/2022
+ms.date: 04/17/2024
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-manager: peterpr
+
+#customer intent: As a solution builder, I want to define a gateway device so that my leaf devices can connect to my application.
 ---
 
-# Tutorial - Define a new IoT gateway device type in your Azure IoT Central application
-
-This tutorial shows you how to use a gateway device template to define a gateway device in your IoT Central application. You then configure several downstream devices that connect to your IoT Central application through the gateway device.
+# Tutorial: Define a new IoT gateway device type in your Azure IoT Central application
 
 In this tutorial, you create a **Smart Building** gateway device template. A **Smart Building** gateway device has relationships with other downstream devices.
 
 :::image type="content" source="media/tutorial-define-gateway-device-type/gatewaypattern.png" alt-text="Diagram that shows the relationship between a gateway device and its downstream devices." border="false":::
 
-As well as enabling downstream devices to communicate with your IoT Central application, a gateway device can also:
+A gateway device can also:
 
 * Send its own telemetry, such as temperature.
 * Respond to writable property updates made by an operator. For example, an operator could change the telemetry send interval.
@@ -28,7 +27,6 @@ As well as enabling downstream devices to communicate with your IoT Central appl
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
->
 > * Create downstream device templates
 > * Create a gateway device template
 > * Publish the device template
@@ -42,13 +40,13 @@ To complete the steps in this tutorial, you need:
 
 ## Create downstream device templates
 
-This tutorial uses device templates for an **S1 Sensor** device and an **RS40 Occupancy Sensor** device to generate simulated downstream devices.
+This tutorial uses device templates for an **Onset Hobo MX-100 Temp Sensor** device and an **RS40 Occupancy Sensor** device to generate simulated downstream devices.
 
-To create a device template for an **S1 Sensor** device:
+To create a device template for an **Onset Hobo MX-100 Temp Sensor** device:
 
 1. In the left pane, select **Device Templates**. Then select **+ New** to start adding the template.
 
-1. Scroll down until you can see the tile for the **Minew S1** device. Select the tile and then select **Next: Review**.
+1. Scroll down until you can see the tile for the **Onset Hobo MX-100 Temp Sensor** device. Select the tile and then select **Next: Review**.
 
 1. On the **Review** page, select **Create** to add the device template to your application.
 
@@ -66,7 +64,7 @@ You now have device templates for the two downstream device types:
 
 ## Create a gateway device template
 
-In this tutorial you create a device template for a gateway device from scratch. You use this template later to create a simulated gateway device in your application.
+In this tutorial, you create a device template for a gateway device from scratch. You use this template later to create a simulated gateway device in your application.
 
 To add a new gateway device template to your application:
 
@@ -94,7 +92,7 @@ Next you add relationships to the templates for the downstream device templates:
 
 1. In the **Smart Building gateway device** template, select **Relationships**.
 
-1. Select **+ Add relationship**. Enter **Environmental Sensor** as the display name, and select **S1 Sensor** as the target.
+1. Select **+ Add relationship**. Enter **Environmental Sensor** as the display name, and select **Hobo MX-100** as the target.
 
 1. Select **+ Add relationship** again. Enter **Occupancy Sensor** as the display name, and select **RS40 Occupancy Sensor** as the target.
 
@@ -148,7 +146,7 @@ To publish the gateway device template:
 
 After a device template is published, it's visible on the **Devices** page and to the operator. The operator can use the template to create device instances or establish rules and monitoring. Editing a published template could affect behavior across the application.
 
-To learn more about modifying a device template after it's published, see [Edit an existing device template](howto-edit-device-template.md).
+To learn more about modifying a device template after you publish it, see [Edit an existing device template](howto-edit-device-template.md).
 
 ## Create the simulated devices
 
@@ -170,7 +168,7 @@ To create simulated downstream devices:
 
 1. Keep the generated **Device ID** and **Device name**. Make sure that the **Simulated** switch is **Yes**. Select **Create**.
 
-1. On the **Devices** page, select **S1 Sensor** in the list of device templates.
+1. On the **Devices** page, select **Hobo MX-100** in the list of device templates.
 
 1. Select **+ New** to start adding a new device.
 
@@ -182,7 +180,7 @@ To create simulated downstream devices:
 
 Now that you have the simulated devices in your application, you can create the relationships between the downstream devices and the gateway device:
 
-1. On the **Devices** page, select **S1 Sensor** in the list of device templates, and then select your simulated **S1 Sensor** device.
+1. On the **Devices** page, select **Hobo MX-100** in the list of device templates, and then select your simulated **Hobo MX-100** device.
 
 1. Select **Attach to gateway**.
 
@@ -192,9 +190,9 @@ Now that you have the simulated devices in your application, you can create the 
 
 1. On the **Devices** page, select **RS40 Occupancy Sensor** in the list of device templates, and then select your simulated **RS40 Occupancy Sensor** device.
 
-1. Select **Connect to gateway**.
+1. Select **Attach to gateway**.
 
-1. On the **Connect to a gateway** dialog, select the **Smart Building gateway device** template, and then select the simulated instance you created previously.
+1. On the **Attach to a gateway** dialog, select the **Smart Building gateway device** template, and then select the simulated instance you created previously.
 
 1. Select **Attach**.
 
@@ -210,7 +208,7 @@ When you connect a downstream device, you can modify the provisioning payload to
 
 ```json
 {
-  "modelId": "dtmi:rigado:S1Sensor;2",
+  "modelId": "dtmi:rigado:HoboMX100;2",
   "iotcGateway":{
     "iotcGatewayId": "gateway-device-001"
   }
@@ -314,16 +312,7 @@ print(registration_result.status)
 
 [!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
 
-## Next steps
-
-In this tutorial, you learned how to:
-
-* Create a new IoT gateway as a device template.
-* Create cloud properties.
-* Create customizations.
-* Define a visualization for the device telemetry.
-* Add relationships.
-* Publish your device template.
+## Next step
 
 Next you can learn how to:
 

@@ -4,17 +4,19 @@ description: Reference for the set-backend-service policy available for use in D
 services: api-management
 author: dlepow
 
-ms.service: api-management
-ms.topic: reference
-ms.date: 12/07/2022
+ms.service: azure-api-management
+ms.topic: article
+ms.date: 03/18/2024
 ms.author: danlep
 ---
 
 # Send request to a service
 
+[!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
+
 The `set-backend-service` policy sets the target URL for the current request to `http://localhost:3500/v1.0/invoke/{app-id}[.{ns-name}]/method/{method-name}`, replacing template parameters with values specified in the policy statement.
 
-The policy assumes that Dapr runs in a sidecar container in the same pod as the gateway. Upon receiving the request, Dapr runtime performs service discovery and actual invocation, including possible protocol translation between HTTP and gRPC, retries, distributed tracing, and error handling. Learn more about [Dapr integration with API Management](api-management-dapr-policies.md).
+The policy assumes that Dapr runs in a sidecar container in the same pod as the gateway. Upon receiving the request, Dapr runtime performs service discovery and actual invocation, including possible protocol translation between HTTP and gRPC, retries, distributed tracing, and error handling. Learn more about [Dapr integration with API Management](self-hosted-gateway-enable-dapr.md).
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
@@ -29,9 +31,9 @@ The policy assumes that Dapr runs in a sidecar container in the same pod as the 
 | Attribute        | Description                     | Required | Default |
 |------------------|---------------------------------|----------|---------|
 | backend-id       | Must be set to "dapr".           | Yes      | N/A     |
-| dapr-app-id      | Name of the target microservice. Used to form the [appId](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/service_invocation_api.md) parameter in Dapr.| Yes | N/A |
-| dapr-method      | Name of the method or a URL to invoke on the target microservice. Maps to the [method-name](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/service_invocation_api.md) parameter in Dapr.| Yes | N/A |
-| dapr-namespace   | Name of the namespace the target microservice is residing in. Used to form the [appId](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/service_invocation_api.md) parameter in Dapr.| No | N/A |
+| dapr-app-id      | Name of the target microservice. Used to form the [appId](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/service_invocation_api.md) parameter in Dapr. Policy expressions are allowed. | Yes | N/A |
+| dapr-method      | Name of the method or a URL to invoke on the target microservice. Maps to the [method-name](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/service_invocation_api.md) parameter in Dapr. Policy expressions are allowed. | Yes | N/A |
+| dapr-namespace   | Name of the namespace the target microservice is residing in. Used to form the [appId](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/service_invocation_api.md) parameter in Dapr. Policy expressions are allowed. | No | N/A |
 
 ## Usage
 
@@ -41,7 +43,7 @@ The policy assumes that Dapr runs in a sidecar container in the same pod as the 
 
 ### Usage notes
 
-Dapr support must be [enabled](api-management-dapr-policies.md#enable-dapr-support-in-the-self-hosted-gateway) in the self-hosted gateway.
+Dapr support must be [enabled](self-hosted-gateway-enable-dapr.md) in the self-hosted gateway.
 
 ## Example
 
@@ -69,6 +71,6 @@ The `forward-request` policy is shown here for clarity. The policy is typically 
 
 ## Related policies
 
-* [API Management Dapr integration policies](api-management-dapr-policies.md)
+* [Integration and external communication](api-management-policies.md#integration-and-external-communication)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

@@ -1,47 +1,86 @@
-- name: Azure Automanage Machine Configuration documentation
+items:
+- name: Azure Machine Configuration documentation
   href: index.yml
+
 - name: Overview
   expanded: true
   items:
-  - name: What is Azure Automanage Machine Configuration?
-    href: ./overview.md
-  - name: What's new with the guest configuration agent?
-    href: ./agent-notes.md
+    - name: What is Azure Machine Configuration?
+      href: ./overview.md
+    # Planned, not yet written
+    # - name: Glossary
+    #   href: ./glossary.md
+
+- name: What's new in Machine Configuration
+  items:
+    - name: What's new in the agent
+      href: ./whats-new/agent.md
+    # Planned, not yet written
+    # - name: What's new in the service
+    #   href: ./whats-new/service.md
+    # - name: What's new in the PowerShell module
+    #   href: ./whats-new/module.md
+    - name: What's new in docs
+      href: ./whats-new/docs.md
+    - name: Migrating from Azure Automation DSC
+      href: ./whats-new/migrating-from-azure-automation.md
+    - name: Behavioral changes for PowerShell DSC
+      href: ./whats-new/psdsc-in-machine-configuration.md
+
+- name: How-to guides
+  items:
+    - name: Develop a custom package
+      items:
+        - name: Overview
+          href: ./how-to/develop-custom-package/overview.md
+        - name: 1. Setup authoring environment
+          href: ./how-to/develop-custom-package/1-set-up-authoring-environment.md
+        - name: 2. Create a custom package
+          href: ./how-to/develop-custom-package/2-create-package.md
+        - name: 3. Test a custom package
+          href: ./how-to/develop-custom-package/3-test-package.md
+        - name: 4. Publish a custom package
+          href: ./how-to/develop-custom-package/4-publish-package.md
+        - name: 5. Access a custom package
+          href: ./how-to/develop-custom-package/5-access-package.md
+        - name: 6. Sign a custom package
+          href: ./how-to/develop-custom-package/6-sign-package.md
+    # Planned, not written
+    # - name: Update a custom configuration
+    #   href: ./how-to/update-configuration.md
+    - name: Create a custom policy definition
+      href: ./how-to/create-policy-definition.md
+    - name: Assign a configuration
+      items:
+        - name: Overview
+          href: ./how-to/assign-configuration/overview.md
+        - name: Using an ARM template
+          href: ./how-to/assign-configuration/azure-resource-manager.md
+        - name: Using Bicep
+          href: ./how-to/assign-configuration/bicep.md
+        - name: Using Terraform
+          href: ./how-to/assign-configuration/terraform.md
+
 - name: Concepts
   items:
-  - name: Understand machine configuration assignments
-    href: ./machine-configuration-assignments.md
-  - name: Azure Automation DSC to machine configuration migration planning
-    href: ./machine-configuration-azure-automation-migration.md
-  - name: Planning a change from DSC extension for Linux to machine configuration
-    href: ./machine-configuration-dsc-extension-migration.md
-  - name: Remediation options for machine configuration
-    href: ./machine-configuration-policy-effects.md
-  - name: Changes to behavior in PowerShell DSC for machine configuration
-    href: ./machine-configuration-custom.md
-- name: Quickstarts
-  items:
-  - name: How to setup a machine configuration authoring environment
-    href: ./machine-configuration-create-setup.md
-  - name: How to create custom machine configuration package artifacts
-    href: ./machine-configuration-create.md
-  - name: How to test machine configuration package artifacts
-    href: ./machine-configuration-create-test.md
-  - name: How to publish custom machine configuration package artifacts
-    href: ./machine-configuration-create-publish.md
-  - name: How to sign machine configuration packages
-    href: ./machine-configuration-create-signing.md
-  - name: Understand machine configuration assignment resources
-    href: ./machine-configuration-assignments.md
-  - name: How to create a machine configuration assignment using templates
-    href: ./machine-configuration-create-assignment.md
-  - name: How to create custom machine configuration policy definitions
-    href: ./machine-configuration-create-definition.md
-  - name: Remediation options for machine configuration
-    href: ./machine-configuration-policy-effects.md
-  - name: Changes to behavior in PowerShell DSC for machine configuration
-    href: ./machine-configuration-custom.md
-  - name:  Azure Automation state configuration to machine configuration migration planning
-    href: ./machine-configuration-azure-automation-migration.md
-  - name: Planning a change from DSC extension for Linux to machine configuration
-    href: ./machine-configuration-dsc-extension-migration.md
+    - name: Assignments
+      href: ./concepts/assignments.md
+    # Planned, not written
+    # - name: Packages
+    #   href: ./concepts/packages.md
+    # - name: Policy definitions
+    #   href: ./concepts/policy-definitions.md
+    - name: Remediation options
+      href: ./concepts/remediation-options.md
+
+# Planned, not written
+# - name: Configuration samples
+#   items:
+#     - name: Setting the timezone
+#       href: ./samples/timezone.md
+#     - name: Managing a file
+#       href: ./samples/file-management.md
+#     - name: Managing a service
+#       href: ./samples/service-management.md
+#     - name: Installing a package
+#       href: ./samples/install-package.md

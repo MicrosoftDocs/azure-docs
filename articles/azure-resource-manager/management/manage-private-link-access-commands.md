@@ -2,7 +2,8 @@
 title: Manage resource management private links
 description: Use APIs to manage existing resource management private links
 ms.topic: conceptual
-ms.date: 06/16/2022
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.date: 09/26/2024
 ---
 
 # Manage resource management private links
@@ -16,21 +17,27 @@ If you need to create a resource management private link, see [Use portal to cre
 To **get a specific** resource management private link, send the following request:
 
 # [Azure CLI](#tab/azure-cli)
+
   ### Example
+
   ```azurecli
   # Login first with az login if not using Cloud Shell
   az resourcemanagement private-link show --resource-group PrivateLinkTestRG --name NewRMPL
   ```
-   
+
 # [PowerShell](#tab/azure-powershell)
+
   ### Example
+
   ```azurepowershell-interactive
   # Login first with Connect-AzAccount if not using Cloud Shell
   Get-AzResourceManagementPrivateLink -ResourceGroupName PrivateLinkTestRG -Name NewRMPL
   ```
-   
+
 # [REST](#tab/REST)
+
   REST call
+
   ```http
     GET https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Authorization/resourceManagementPrivateLinks/{rmplName}?api-version=2020-05-01 
   ```
@@ -52,20 +59,25 @@ The operation returns:
 ---
 
 To **get all** resource management private links in a subscription, use:
+
 # [Azure CLI](#tab/azure-cli)
+
   ```azurecli
   # Login first with az login if not using Cloud Shell
   az resourcemanagement private-link list
   ```
-   
+
 # [PowerShell](#tab/azure-powershell)
+
   ```azurepowershell-interactive
   # Login first with Connect-AzAccount if not using Cloud Shell
   Get-AzResourceManagementPrivateLink
   ```
-   
+
 # [REST](#tab/REST)
+
   REST call
+
   ```http
   GET
   https://management.azure.com/subscriptions/{subscriptionID}/providers/Microsoft.Authorization/resourceManagementPrivateLinks?api-version=2020-05-01
@@ -100,21 +112,27 @@ To **get all** resource management private links in a subscription, use:
 
 To **delete a specific** resource management private link, use:
 # [Azure CLI](#tab/azure-cli)
+
   ### Example
+
   ```azurecli
   # Login first with az login if not using Cloud Shell
   az resourcemanagement private-link delete --resource-group PrivateLinkTestRG --name NewRMPL
   ```
-   
+
 # [PowerShell](#tab/azure-powershell)
+
   ### Example
+
   ```azurepowershell-interactive
   # Login first with Connect-AzAccount if not using Cloud Shell
   Remove-AzResourceManagementPrivateLink -ResourceGroupName PrivateLinkTestRG -Name NewRMPL
   ```
-   
+
 # [REST](#tab/REST)
+
   REST call
+
   ```http
   DELETE
   https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Authorization/resourceManagementPrivateLinks/{rmplName}?api-version=2020-05-01
@@ -127,22 +145,29 @@ To **delete a specific** resource management private link, use:
 ## Private link association
 
 To **get a specific** private link association for a management group, use:
+
 # [Azure CLI](#tab/azure-cli)
+
   ### Example
+
   ```azurecli
   # Login first with az login if not using Cloud Shell
   az private-link association show --management-group-id fc096d27-0434-4460-a3ea-110df0422a2d --name 1d7942d1-288b-48de-8d0f-2d2aa8e03ad4
   ```
-   
+
 # [PowerShell](#tab/azure-powershell)
+
   ### Example
+
   ```azurepowershell-interactive
   # Login first with Connect-AzAccount if not using Cloud Shell
   Get-AzPrivateLinkAssociation -ManagementGroupId fc096d27-0434-4460-a3ea-110df0422a2d -Name 1d7942d1-288b-48de-8d0f-2d2aa8e03ad4 | fl
   ```
-   
+
 # [REST](#tab/REST)
+
   REST call
+
   ```http
   GET
   https://management.azure.com/providers/Microsoft.Management/managementGroups/{managementGroupID}/providers/Microsoft.Authorization/privateLinkAssociations?api-version=2020-05-01 
@@ -170,21 +195,27 @@ To **get a specific** private link association for a management group, use:
 ---
 
 To **delete** a private link association, use:
+
 # [Azure CLI](#tab/azure-cli)
+
   ### Example
+
   ```azurecli
   # Login first with az login if not using Cloud Shell
   az private-link association delete --management-group-id 24f15700-370c-45bc-86a7-aee1b0c4eb8a --name 1d7942d1-288b-48de-8d0f-2d2aa8e03ad4
   ```
-   
+
 # [PowerShell](#tab/azure-powershell)
+
   ### Example
+
   ```azurepowershell-interactive
   # Login first with Connect-AzAccount if not using Cloud Shell
   Remove-AzPrivateLinkAssociation -ManagementGroupId 24f15700-370c-45bc-86a7-aee1b0c4eb8a -Name 1d7942d1-288b-48de-8d0f-2d2aa8e03ad4
   ```
-   
+
 # [REST](#tab/REST)
+
   REST call
 
   ```http
@@ -195,7 +226,6 @@ To **delete** a private link association, use:
 The operation returns: `Status 200 OK`.
 
 ---
-
 
 ## Next steps
 

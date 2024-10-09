@@ -6,8 +6,7 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 08/11/2021
 ms.topic: how-to
-ms.service: storage
-ms.subservice: blobs 
+ms.service: azure-blob-storage
 ms.custom: devx-track-azurecli
 ---
 
@@ -21,9 +20,9 @@ When you complete the steps described in this article, you see that the event da
 
 ![Screenshot of the Azure Event Grid Viewer that shows event data that has been sent to the web app.](./media/storage-blob-event-quickstart/view-results.png)
 
-[!INCLUDE [quickstarts-free-trial-note.md](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note.md](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.0.70 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -74,7 +73,7 @@ The deployment may take a few minutes to complete. After the deployment has succ
 
 You should see the site with no messages currently displayed.
 
-[!INCLUDE [event-grid-register-provider-cli.md](../../../includes/event-grid-register-provider-cli.md)]
+[!INCLUDE [register-provider-cli.md](../../event-grid/includes/register-provider-cli.md)]
 
 ## Subscribe to your storage account
 

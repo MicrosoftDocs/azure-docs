@@ -1,9 +1,9 @@
 ---
 title: Geofencing and geospatial aggregation with Azure Stream Analytics
 description: This article describes how to use Azure Stream Analytics for geofencing and geospatial aggregation.
-ms.service: stream-analytics
-author: enkrumah
-ms.author: ebnkruma
+ms.service: azure-stream-analytics
+author: AliciaLiMicrosoft 
+ms.author: ali 
 ms.topic: how-to
 ms.date: 04/02/2019
 ---
@@ -107,7 +107,7 @@ SELECT count(*) as NumberOfRequests, RegionsRefDataInput.RegionName
 FROM UserRequestStreamDataInput
 JOIN RegionsRefDataInput 
 ON st_within(UserRequestStreamDataInput.FromLocation, RegionsRefDataInput.Geofence) = 1
-GROUP BY RegionsRefDataInput.RegionName, hoppingwindow(minute, 1, 15)
+GROUP BY RegionsRefDataInput.RegionName, hoppingwindow(minute, 15, 1)
 ```
 
 This query outputs a count of requests every minute for the last 15 minutes by each region within the city. This information can be displayed easily by Power BI dashboard, or can be broadcasted to all drivers as SMS text messages through integration with services like Azure functions.

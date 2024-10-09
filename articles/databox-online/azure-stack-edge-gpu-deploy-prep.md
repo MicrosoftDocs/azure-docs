@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 02/23/2022
+ms.date: 06/02/2023
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro GPU so I can use it to compute at the edge and to transfer data to Azure. 
 ---
@@ -71,7 +71,7 @@ Before you begin, make sure that:
         - Search for the specific resource provider, for example, `Microsoft.DataBoxEdge`, and register the resource provider. 
     - To create a Storage account resource, again you need contributor or higher access scoped at the resource group level. Azure Storage is by default a registered resource provider.
 - To create an order in the Azure Edge Hardware Center, you need to make sure that the `Microsoft.EdgeOrder` provider is registered. For information on how to register, go to [Register resource provider](azure-stack-edge-gpu-manage-access-power-connectivity-mode.md#register-resource-providers).
-- You have admin or user access to Azure Active Directory Graph API for generating activation key or credential operations such as share creation that uses a storage account. For more information, see [Azure Active Directory Graph API](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
+- You have admin or user access to Azure AD Graph API for generating activation key or credential operations such as share creation that uses a storage account. For more information, see [Azure Active Directory Graph API](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
 
 ### For the Azure Stack Edge Pro GPU device
 
@@ -98,6 +98,7 @@ Before you begin, make sure that:
 
     - A minimum of 10-Mbps download bandwidth to ensure the device stays updated.
     - A minimum of 20-Mbps dedicated upload and download bandwidth to transfer files.
+    - A minimum of 100-Mbps is required for the internet connection on AP5GC networks.
 
 ## Create a new resource
 

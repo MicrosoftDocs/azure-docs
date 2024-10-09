@@ -4,13 +4,15 @@ description: Reference for the set-header policy available for use in Azure API 
 services: api-management
 author: dlepow
 
-ms.service: api-management
-ms.topic: reference
-ms.date: 12/08/2022
+ms.service: azure-api-management
+ms.topic: article
+ms.date: 03/18/2024
 ms.author: danlep
 ---
 
 # Set header
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 The `set-header` policy assigns a value to an existing HTTP response and/or request header or adds a new response and/or request header.
 
@@ -30,25 +32,25 @@ The `set-header` policy assigns a value to an existing HTTP response and/or requ
 
 |Name|Description|Required|Default|
 |----------|-----------------|--------------|-------------|
-|exists-action|Specifies  action to take when the header is already specified. This attribute must have one of the following values.<br /><br /> -   `override` - replaces the value of the existing header.<br />-   `skip` - does not replace the existing header value.<br />-   `append` - appends the value to the existing header value.<br />-   `delete` - removes the header from the request.<br /><br /> When set to `override`, enlisting multiple entries with the same name results in the header being set according to all entries (which will be listed multiple times); only listed values will be set in the result.|No|`override`|
-|name|Specifies name of the header to be set.|Yes|N/A|
+|exists-action|Specifies  action to take when the header is already specified. This attribute must have one of the following values.<br /><br /> -   `override` - replaces the value of the existing header.<br />-   `skip` - does not replace the existing header value.<br />-   `append` - appends the value to the existing header value.<br />-   `delete` - removes the header from the request.<br /><br /> When set to `override`, enlisting multiple entries with the same name results in the header being set according to all entries (which will be listed multiple times); only listed values will be set in the result. <br/><br/>Policy expressions are allowed.|No|`override`|
+|name|Specifies name of the header to be set. Policy expressions are allowed.|Yes|N/A|
 
 
 ## Elements
 
 |Name|Description|Required|
 |----------|-----------------|--------------|
-|value|Specifies the value of the header to be set. For multiple headers with the same name, add additional `value` elements.|No|
+|value|Specifies the value of the header to be set. Policy expressions are allowed. For multiple headers with the same name, add additional `value` elements.|No|
 
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, backend, on-error
-- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
+- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 
 ### Usage notes
 
- Multiple values of a header are concatenated to a CSV string, for example: 
+Multiple values of a header are concatenated to a CSV string, for example: 
 
 `headerName: value1,value2,value3`
 
@@ -57,13 +59,18 @@ Exceptions include standardized headers whose values:
 - may contain date (`Cookie`, `Set-Cookie`, `Warning`),
 - contain date (`Date`, `Expires`, `If-Modified-Since`, `If-Unmodified-Since`, `Last-Modified`, `Retry-After`).
 
-In case of those exceptions, multiple header values will not be concatenated into one string and will be passed as separate headers, for example:
+In case of those exceptions, multiple header values won't be concatenated into one string and will be passed as separate headers, for example:
 
 ```
 User-Agent: value1
 User-Agent: value2
 User-Agent: value3
 ```
+
+The following limitations apply:
+
+- Removal of `Server` header isn't supported.
+- Headers: `Connection`, `ContentLength`, `KeepAlive`, `TransferEncoding` cannot be modified or deleted. 
 
 ## Examples
 
@@ -96,6 +103,6 @@ This example shows how to apply policy at the API level to supply context inform
 
 ## Related policies
 
-- [API Management transformation policies](api-management-transformation-policies.md)
+- [Transformation](api-management-policies.md#transformation)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

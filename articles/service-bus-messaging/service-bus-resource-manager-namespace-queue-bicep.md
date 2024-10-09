@@ -1,20 +1,19 @@
 ---
 title: Create Azure Service Bus namespace and queue using Bicep
 description: 'Quickstart: Create a Service Bus namespace and a queue using Bicep'
-documentationcenter: .net
 author: spelluru
 ms.author: spelluru
 ms.date: 08/24/2022
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
-ms.custom: subject-bicepqs, mode-arm
+ms.custom: subject-bicepqs, mode-arm, devx-track-bicep
 ---
 
 # Quickstart: Create a Service Bus namespace and a queue using a Bicep file
 
 This article shows how to use a Bicep file that creates a Service Bus namespace and a queue within that namespace. The article explains how to specify which resources are deployed and how to define parameters that are specified when the deployment is executed. You can use this Bicep file for your own deployments, or customize it to meet your requirements.
 
-[!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites
 

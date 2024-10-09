@@ -1,12 +1,13 @@
 ---
 title: Add a Bubble layer to Android maps | Microsoft Azure Maps
 description: Learn how to render points on maps as circles with fixed sizes. See how to use the Azure Maps Android SDK to add and customize bubble layers for this purpose.
-author: stevemunk
-ms.author: v-munksteve
+author: sinnypan
+ms.author: sipa
 ms.date: 2/26/2021
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: android-sdk
+ms.custom: devx-track-java
 zone_pivot_groups: azure-maps-android
 ---
 
@@ -14,12 +15,18 @@ zone_pivot_groups: azure-maps-android
 
 This article shows you how to render point data from a data source as a bubble layer on a map. Bubble layers render points as circles on the map with a fixed pixel radius.
 
+> [!NOTE]
+>
+> **Azure Maps Android SDK retirement**
+>
+> The Azure Maps Native SDK for Android is now deprecated and will be retired on 3/31/25. To avoid service disruptions, migrate to the Azure Maps Web SDK by 3/31/25. For more information, see [The Azure Maps Android SDK migration guide](android-sdk-migration-guide.md).
+
 > [!TIP]
 > Bubble layers by default will render the coordinates of all geometries in a data source. To limit the layer so that it only renders point geometry features, set the `filter` option of the layer to `eq(geometryType(), "Point")`. If you want to include MultiPoint features as well, set the `filter` option of the layer to `any(eq(geometryType(), "Point"), eq(geometryType(), "MultiPoint"))`.
 
 ## Prerequisites
 
-Be sure to complete the steps in the [Quickstart: Create an Android app](quick-android-map.md) document. Code blocks in this article can be inserted into the maps `onReady` event handler.
+Complete the steps in the [Quickstart: Create an Android app] article. Code blocks in this article can be inserted into the maps `onReady` event handler.
 
 ## Add a bubble layer
 
@@ -172,16 +179,23 @@ The following screenshot shows the above code rendering a point in a bubble laye
 See the following articles for more code samples to add to your maps:
 
 > [!div class="nextstepaction"]
-> [Create a data source](create-data-source-android-sdk.md)
+> [Create a data source]
 
 > [!div class="nextstepaction"]
-> [Cluster point data](clustering-point-data-android-sdk.md)
+> [Cluster point data]
 
 > [!div class="nextstepaction"]
-> [Add a symbol layer](how-to-add-symbol-to-android-map.md)
+> [Add a symbol layer]
 
 > [!div class="nextstepaction"]
-> [Use data-driven style expressions](data-driven-style-expressions-android-sdk.md)
+> [Use data-driven style expressions]
 
 > [!div class="nextstepaction"]
-> [Display feature information](display-feature-information-android.md)
+> [Display feature information]
+
+[Quickstart: Create an Android app]: quick-android-map.md
+[Create a data source]: create-data-source-android-sdk.md
+[Cluster point data]: clustering-point-data-android-sdk.md
+[Add a symbol layer]: how-to-add-symbol-to-android-map.md
+[Use data-driven style expressions]: data-driven-style-expressions-android-sdk.md
+[Display feature information]: display-feature-information-android.md

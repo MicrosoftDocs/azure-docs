@@ -14,7 +14,7 @@ keywords: pull secret, aro, openshift, red hat
 
 This guide covers adding or updating your Red Hat pull secret for an existing Azure Red Hat OpenShift (ARO) 4.x cluster.
 
-If you're creating a cluster for the first time, you can add your pull secret when you create your cluster. For more information about creating an ARO cluster with a Red Hat pull secret, see [Create an Azure Red Hat OpenShift 4 cluster](tutorial-create-cluster.md#get-a-red-hat-pull-secret-optional).
+If you're creating a cluster for the first time, you can add your pull secret when you create your cluster. For more information about creating an ARO cluster with a Red Hat pull secret, see [Create an Azure Red Hat OpenShift 4 cluster](create-cluster.md#get-a-red-hat-pull-secret-optional).
 
 ## Before you begin
 
@@ -131,10 +131,17 @@ This section walks through updating that pull secret with additional values from
 Run the following command to update your pull secret.
 
 > [!NOTE]
-> Running this command will cause your cluster nodes to restart one by one as they're updated.
+> In ARO 4.9 or older, running this command will cause your cluster nodes to restart one by one as they're updated.
+> In ARO 4.10 version or later a restart will not be triggered.
 
 ```console
 oc set data secret/pull-secret -n openshift-config --from-file=.dockerconfigjson=./pull-secret.json
+```
+
+### Verify that pull secret is in place
+
+```
+oc exec -n openshift-apiserver $(oc get pod -n openshift-apiserver -o jsonpath="{.items[0].metadata.name}") -- cat /var/lib/kubelet/config.json
 ```
 
 After the secret is set, you're ready to enable Red Hat Certified Operators.

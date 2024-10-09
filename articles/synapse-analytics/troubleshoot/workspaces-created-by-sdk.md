@@ -4,7 +4,7 @@ description: Steps to resolve workspaces created by SDK unable to launch Synapse
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.topic: troubleshooting
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: troubleshooting
 ms.date: 11/24/2020
 ---

@@ -2,11 +2,10 @@
 title: Troubleshoot SAP HANA databases instance backup errors
 description: This article describes how to troubleshoot common errors that might occur when you use Azure Backup to back up SAP HANA database instances.
 ms.topic: troubleshooting
-ms.date: 10/05/2022
-author: v-amallick
-ms.service: backup
-ms.custom: ignite-2022
-ms.author: v-amallick
+ms.date: 09/30/2024
+ms.service: azure-backup
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Troubleshoot SAP HANA snapshot backup jobs on Azure Backup
@@ -145,6 +144,38 @@ Azure VM and retry the operation. For more information, see the [Azure workload 
 
 **Recommended action**: Upgrade the VM or use a compatible target vm for restore. For more information, see the [SAP HANA database backup troubleshooting article](https://aka.ms/HANASnapshotTSGuide).
 
+### UserErrorSnasphotRestoreContextMissingForDBRecovery 
+ 
+**Error message**: Snapshot based point in time restore operation could not be started because one of the previous restore steps is not complete
+
+**Cause**: Snapshot attach and mount or SystemDB recovery isn't done on the target VM.
+
+**Recommended action**:  Retry the operation after completing a snapshot attach and mount operation on the target machine. 
+
+### UserErrorInvalidScenarioForSnapshotPointInTimeRecovery 
+
+**Cause**:  The snapshot point-in-time restore operation failed as the underlying database on the target machine is protected with Azure Backup.
+
+**Recommended action**: Retry the restore operation after you stop protection of the databases on the target machine and ensure that the *Backint path is empty*. [Learn more about Backint path](https://aka.ms/HANABackupConfigurations).
+
+### OperationCancelledBecauseSameOperationQueuedUserError
+
+**Error code**: `OperationCancelledBecauseSameOperationQueuedUserError`
+
+**Error message**: This error happens to prevent multiple backups triggering on the same database/datasource. The next backup should finish successfully once the concurrent task/backup  is completed. 
+
+**Cause**: In some cases, where there are large numbers of databases in the same container, backups will trigger and get queued. The queue will cause the backup to start with a delay. So, it'll not be evident from start time and end time which task is concurrent.
+
+**Recommended action**: You need to reduce frequency on certain databases or distribute it to another container instead of having a single container.
+
+### UserErrorWLBackupFilesystemTypeNotSupported
+
+**Error code**: `UserErrorWLBackupFilesystemTypeNotSupported`
+
+**Error message**: File Systems `ext3` and `xfs` are currently supported. The operation fails for any other File System.
+
+**Recommended action**: Ensure that you're using the supported File System
+
 ## Appendix
 
 **Perform restoration actions in SAP HANA studio**
@@ -155,4 +186,4 @@ Azure VM and retry the operation. For more information, see the [Azure workload 
 
 ## Next steps
 
-Learn about [Azure Backup service to back up database instances (preview)](sap-hana-db-about.md#using-the-azure-backup-service-to-back-up-database-instances-preview).
+Learn about [Azure Backup service to back up database instances](sap-hana-db-about.md#using-the-azure-backup-service-to-back-up-database-instances).

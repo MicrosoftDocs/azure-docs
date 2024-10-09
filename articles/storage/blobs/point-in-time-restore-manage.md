@@ -5,11 +5,10 @@ description: Learn how to use point-in-time restore to restore a set of block bl
 services: storage
 author: normesta
 
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 01/29/2021
 ms.author: normesta
-ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -41,7 +40,7 @@ Before you enable and configure point-in-time restore, enable its prerequisites 
 To configure point-in-time restore with the Azure portal, follow these steps:
 
 1. Navigate to your storage account in the Azure portal.
-1. Under **Settings**, choose **Data Protection**.
+1. Under **Data management**, choose **Data Protection**.
 1. Select **Turn on point-in-time** restore. When you select this option, soft delete for blobs, versioning, and change feed are also enabled.
 1. Set the maximum restore point for point-in-time restore, in days. This number must be at least one day less than the retention period specified for blob soft delete.
 1. Save your changes.

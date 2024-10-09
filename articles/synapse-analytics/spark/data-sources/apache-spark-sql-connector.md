@@ -1,10 +1,9 @@
 ---
 title: Azure SQL and SQL Server 
 description: This article provides information on how to use the  connector for moving data between Azure MS SQL and serverless Apache Spark pools.
-services: synapse-analytics 
-author: eskot
+author: ekote
 ms.author: eskot 
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: overview
 ms.subservice: spark
 ms.date: 05/19/2020 
@@ -14,7 +13,7 @@ ms.custom: has-adal-ref
 # Azure SQL Database and SQL Server connector for Apache Spark
 The Apache Spark connector for Azure SQL Database and SQL Server enables these databases to act as input data sources and output data sinks for Apache Spark jobs. It allows you to use real-time transactional data in big data analytics and persist results for ad-hoc queries or reporting.
 
-Compared to the built-in JDBC connector, this connector provides the ability to bulk insert data into SQL databases. It can outperform row-by-row insertion with 10x to 20x faster performance. The Spark connector for SQL Server and Azure SQL Database also supports Azure Active Directory (Azure AD) [authentication](/sql/connect/spark/connector#azure-active-directory-authentication), enabling you to connect securely to your Azure SQL databases from Azure Synapse Analytics. 
+Compared to the built-in JDBC connector, this connector provides the ability to bulk insert data into SQL databases. It can outperform row-by-row insertion with 10x to 20x faster performance. The Spark connector for SQL Server and Azure SQL Database also supports Microsoft Entra [authentication](/sql/connect/spark/connector#azure-active-directory-authentication), enabling you to connect securely to your Azure SQL databases from Azure Synapse Analytics. 
 
 This article covers how to use the DataFrame API to connect to SQL databases using the MS SQL connector. This article provides detailed examples using the PySpark API. For all of the supported arguments and samples for connecting to SQL databases using the MS SQL connector, see [Azure Data SQL samples](https://github.com/microsoft/sql-server-samples#azure-data-sql-samples-repository).
 
@@ -36,7 +35,7 @@ password = mssparkutils.credentials.getSecret('azure key vault name','secret nam
 ```
 
 > [!NOTE]
-> Currently, there is no linked service or AAD pass-through support with the Azure SQL connector.
+> Currently, there is no linked service or Microsoft Entra pass-through support with the Azure SQL connector.
 
 ## Use the Azure SQL and SQL Server connector
 
@@ -85,7 +84,9 @@ except ValueError as error :
     print("Connector write failed", error)
 ```
 
-## Azure Active Directory authentication
+<a name='azure-active-directory-authentication'></a>
+
+## Microsoft Entra authentication
 
 ### Python example with service principal
 ```python
@@ -139,6 +140,18 @@ jdbc_df = spark.read \
         .load()
 ```
 
+> [!IMPORTANT]
+> - A required dependency must be installed in order to authenticate using Active Directory. 
+> - The format of `user` when using ActiveDirectoryPassword should be the UPN format, for example `username@domainname.com`. 
+>   - For **Scala**, the `com.microsoft.aad.adal4j` artifact will need to be installed.
+>   - For **Python**, the `adal` library will need to be installed.  This is available via pip.
+> - Check the [sample notebooks](https://github.com/microsoft/sql-spark-connector/tree/master/samples) for examples and for latest drivers and versions, visit [Apache Spark connector: SQL Server & Azure SQL](/sql/connect/spark/connector).
+
+## Support
+
+The Apache Spark Connector for Azure SQL and SQL Server is an open-source project. This connector does not come with any Microsoft support. For issues with or questions about the connector, create an Issue in this project repository. The connector community is active and monitoring submissions.
+
 ## Next steps
 - [Learn more about the SQL Server and Azure SQL connector](/sql/connect/spark/connector)
+- Visit the [SQL Spark connector GitHub repository](https://github.com/microsoft/sql-spark-connector).
 - [View Azure Data SQL Samples](https://github.com/microsoft/sql-server-samples)

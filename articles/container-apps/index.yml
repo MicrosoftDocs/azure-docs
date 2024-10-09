@@ -7,11 +7,11 @@ metadata:
   title: Azure Container Apps documentation
   description: Azure Container Apps allows you to run containerized applications without worrying about orchestration or infrastructure.
   ms.topic: landing-page
-  ms.service: container-apps
-  ms.custom: event-tier1-build-2022, ignite-2022
+  ms.service: azure-container-apps
+  ms.custom: build-2023
   author: craigshoemaker
   ms.author: cshoe
-  ms.date: 11/08/2021
+  ms.date: 05/24/2023
 landingContent:
   - title: About Azure Container Apps
     linkLists:
@@ -21,6 +21,10 @@ landingContent:
             url: overview.md
           - text: Compare container options in Azure
             url: compare-options.md
+          - text: Learn to develop with .NET
+            url: dotnet-overview.md
+          - text: Learn to develop with Java
+            url: java-overview.md
   - title: Get started
     linkLists:
       - linkListType: quickstart
@@ -43,6 +47,8 @@ landingContent:
             url: microservices.md
           - text: Observability
             url: observability.md
+          - text: Jobs
+            url: jobs.md
   - title: Common tasks
     linkLists:
       - linkListType: how-to-guide
@@ -53,8 +59,8 @@ landingContent:
             url: manage-secrets.md
           - text: Manage revisions
             url: revisions-manage.md
-          - text: Set up HTTP ingress
-            url: ingress.md
+          - text: Set up ingress
+            url: ingress-how-to.md
           - text: Connect multiple apps
             url: connect-apps.md
           - text: Use a custom VNET 
@@ -63,6 +69,8 @@ landingContent:
             url: quotas.md
       - linkListType: concept
         links:
+          - text: What's new in Dapr?
+            url: whats-new.md
           - text: Dapr integration
             url: dapr-overview.md
   - title: Apps and microservices
@@ -71,5 +79,3 @@ landingContent:
         links:
           - text: Microservices with Dapr
             url: microservices-dapr.md
-          - text: Background processing
-            url: background-processing.md

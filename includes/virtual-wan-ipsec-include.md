@@ -3,7 +3,7 @@
  description: include file
  services: virtual-wan
  author: cherylmc
- ms.service: virtual-wan
+ ms.service: azure-virtual-wan
  ms.topic: include
  ms.date: 12/07/2021
  ms.author: cherylmc
@@ -64,3 +64,10 @@ The following sections list the supported policy combinations when Azure is the 
 * AES_128, SHA_256, PFS_1
 * AES_128, SHA_256, PFS_2
 * AES_128, SHA_256, PFS_14
+
+### SA Lifetime Values
+
+These life time values apply for both initiator and responder
+
+* SA Lifetime in seconds: 3600 seconds
+* SA Lifetime in Bytes: 102,400,000 KB

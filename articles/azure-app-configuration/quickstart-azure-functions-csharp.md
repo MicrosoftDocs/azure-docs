@@ -7,7 +7,7 @@ ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-other
 ms.topic: quickstart
-ms.date: 06/02/2021
+ms.date: 03/20/2023
 ms.author: zhenlwa
 #Customer intent: As an Azure Functions developer, I want to manage all my app settings in one place using Azure App Configuration.
 ---
@@ -17,23 +17,18 @@ In this quickstart, you incorporate the Azure App Configuration service into an 
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/dotnet).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+- An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 - [Visual Studio](https://visualstudio.microsoft.com/vs) with the **Azure development** workload.
 - [Azure Functions tools](../azure-functions/functions-develop-vs.md), if you don't have it installed with Visual Studio already.
 
-## Create an App Configuration store
+## Add a key-value
 
-[!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
+Add the following key-value to the App Configuration store and leave **Label** and **Content Type** with their default values. For more information about how to add key-values to a store using the Azure portal or the CLI, go to [Create a key-value](./quickstart-azure-app-configuration-create.md#create-a-key-value).
 
-7. Select **Configuration Explorer** > **+ Create** > **Key-value** to add the following key-value pairs:
-
-    | Key | Value |
-    |---|---|
-    | TestApp:Settings:Message | Data from Azure App Configuration |
-
-    Leave **Label** and **Content Type** empty for now.
-
-8. Select **Apply**.
+| Key                        | Value                               |
+| -------------------------- | ----------------------------------- |
+| *TestApp:Settings:Message* | *Data from Azure App Configuration* |
 
 ## Create a Functions app
 
@@ -183,22 +178,24 @@ This project will use [dependency injection in .NET Azure Functions](../azure-fu
 
 ## Test the function locally
 
-1. Set an environment variable named **ConnectionString**, and set it to the access key to your App Configuration store. If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
+1. Set an environment variable named **ConnectionString**, and set it to the access key to your App Configuration store. 
+
+    If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
     ```cmd
-        setx ConnectionString "connection-string-of-your-app-configuration-store"
+    setx ConnectionString "connection-string-of-your-app-configuration-store"
     ```
 
-    If you use Windows PowerShell, run the following command:
+    If you use PowerShell, run the following command:
 
-    ```azurepowershell
-        $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
+    ```powershell
+    $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
     ```
 
     If you use macOS or Linux, run the following command:
 
     ```bash
-        export ConnectionString='connection-string-of-your-app-configuration-store'
+    export ConnectionString='connection-string-of-your-app-configuration-store'
     ```
 
 2. Press F5 to test your function. If prompted, accept the request from Visual Studio to download and install **Azure Functions Core (CLI)** tools. You might also need to enable a firewall exception so that the tools can handle HTTP requests.

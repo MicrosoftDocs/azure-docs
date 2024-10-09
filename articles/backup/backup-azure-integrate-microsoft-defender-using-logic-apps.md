@@ -4,9 +4,9 @@ description: Learn how to integrate Microsoft Defender for Cloud and Azure Backu
 ms.topic: how-to
 ms.custom: references_regions
 ms.date: 12/30/2022
-ms.service: backup
-author: jyothisuri
-ms.author: jsuri
+ms.service: azure-backup
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
 ---
 
 # Solution sample to integrate Microsoft Defender's ransomware alerts to preserve Azure Backup recovery points
@@ -33,7 +33,7 @@ This sample solution demonstrates integration of Azure Backup with Microsoft Def
 ## Prerequisites
 
 - [Enable Azure Backup for Azure virtual machines](tutorial-backup-vm-at-scale.md).
-- [Enable Microsoft Defender for Servers Plan 2 for the Subscription](../defender-for-cloud/enable-enhanced-security.md#enable-enhanced-security-features-on-a-subscription).
+- [Enable Microsoft Defender for Servers Plan 2 for the Subscription](/azure/defender-for-cloud/enable-enhanced-security#enable-enhanced-security-features-on-a-subscription).
 
 ## Deploy Azure Logic Apps
 
@@ -57,7 +57,7 @@ To deploy Azure Logic Apps, follow these steps:
      - Security Reader
 
      >[!Note]
-     >To further tighten the security, we recommend you create a custom role and assign that to the Managed Identity instead of the above built-in roles. This ensures that all the calls run with least privileges. For more information on custom role, see the [Github article](https://github.com/Azure/Microsoft-Defender-for-Cloud/tree/main/Workflow%20automation/Protect%20Azure%20VM%20Backup%20from%20Ransomware).
+     >To further tighten the security, we recommend you create a custom role and assign that to the Managed Identity instead of the above built-in roles. This ensures that all the calls run with least privileges. For more information on custom role, see the [GitHub article](https://github.com/Azure/Microsoft-Defender-for-Cloud/tree/main/Workflow%20automation/Protect%20Azure%20VM%20Backup%20from%20Ransomware).
 
    - **Managed Identity Subscription**: Enter the name of a Subscription that the Managed Identity should reside in.
    - **Managed Identity Resource Group**: Enter the name of a resource group that the Managed Identity should reside in.
@@ -79,13 +79,13 @@ To authorize the API connection to Office 365, follow these steps:
 4. Select **Authorize**. 
 
    >[!Note]
-   >Ensure that you authenticate against Azure AD.
+   >Ensure that you authenticate against Microsoft Entra ID.
 
 5. Select **Save**.
 
 ## Trigger the logic app
 
-You can trigger the deployed logic app *manually* or *automatically* using [workflow automation](../defender-for-cloud/workflow-automation.md).
+You can trigger the deployed logic app *manually* or *automatically* using [workflow automation](/azure/defender-for-cloud/workflow-automation).
 
 ### Trigger manually
 
@@ -104,7 +104,7 @@ To trigger the logic app manually, follow these steps:
 
 ### Trigger using workflow automation via Azure portal
 
-Workflow automation ensures that during a security alert, your backups corresponding to the VM facing this issue changes to **Stop backup and retain data** state, thus suspend policy and pause recovery point pruning. You can also use Azure Policy to deploy [workflow automation](../defender-for-cloud/workflow-automation.md).
+Workflow automation ensures that during a security alert, your backups corresponding to the VM facing this issue changes to **Stop backup and retain data** state, thus suspend policy and pause recovery point pruning. You can also use Azure Policy to deploy [workflow automation](/azure/defender-for-cloud/workflow-automation).
 
 >[!Note]
 >The minimum role required to deploy the workflow automation are:

@@ -28,8 +28,11 @@ Ingest time parsing enables transforming events to a normalized schema as they a
 Normalized data can be stored in Microsoft Sentinel's native normalized tables, or in a custom table that uses an ASIM schema. A custom table that has a schema close to, but not identical, to an ASIM schema, also provides the performance benefits of ingest time normalization.
 
 Currently, ASIM supports the following native normalized tables as a destination for ingest time normalization:
+- [**ASimAuditEventLogs**](/azure/azure-monitor/reference/tables/asimauditeventlogs) for the [Audit Event](normalization-schema-audit.md) schema.
+- **ASimAuthenticationEventLogs** for the [Authentication](normalization-schema-authentication.md) schema.
 - [**ASimDnsActivityLogs**](/azure/azure-monitor/reference/tables/asimdnsactivitylogs) for the [DNS](normalization-schema-dns.md) schema.
 - [**ASimNetworkSessionLogs**](/azure/azure-monitor/reference/tables/asimnetworksessionlogs) for the [Network Session](normalization-schema-network.md) schema 
+- [**ASimWebSessionLogs**](/azure/azure-monitor/reference/tables/asimwebsessionlogs) for the [Web Session](normalization-schema-web.md) schema.
 
 The advantage of native normalized tables is that they are included by default in the ASIM unifying parsers. Custom normalized tables can be included in the unifying parsers, as discussed in [Manage Parsers](normalization-manage-parsers.md).
 
@@ -52,9 +55,9 @@ Learn more about writing parsers in [Developing ASIM parsers](normalization-deve
 
 ## Implementing ingest time normalization
  
-To normalize data at ingest, you will need to use a [Data Collection Rule (DCR)](../azure-monitor/essentials/data-collection-rule-overview.md). The procedure for implementing the DCR depends on the method used to ingest the data. For more information, refer to the article [Transform or customize data at ingestion time in Microsoft Sentinel](configure-data-transformation.md).
+To normalize data at ingest, you will need to use a [Data Collection Rule (DCR)](/azure/azure-monitor/essentials/data-collection-rule-overview). The procedure for implementing the DCR depends on the method used to ingest the data. For more information, refer to the article [Transform or customize data at ingestion time in Microsoft Sentinel](configure-data-transformation.md).
 
-A [KQL](kusto-overview.md) transformation query is the core of a DCR. The KQL version used in DCRs is slightly different than the version used elsewhere in Microsoft Sentinel to accommodate for requirements of pipeline event processing. Therefore, you will need to modify any query-time parser to use it in a DCR. For more information on the differences, and how to convert a query-time parser to an ingest-time parser, read about the [DCR KQL limitations](../azure-monitor/essentials/data-collection-transformations-structure.md#kql-limitations).
+A [KQL](kusto-overview.md) transformation query is the core of a DCR. The KQL version used in DCRs is slightly different than the version used elsewhere in Microsoft Sentinel to accommodate for requirements of pipeline event processing. Therefore, you will need to modify any query-time parser to use it in a DCR. For more information on the differences, and how to convert a query-time parser to an ingest-time parser, read about the [DCR KQL limitations](/azure/azure-monitor/essentials/data-collection-transformations-structure#kql-limitations).
 
 
 ## <a name="next-steps"></a>Next steps

@@ -1,14 +1,13 @@
 ---
 title: Quickstart - Create Intel SGX VM in the Azure Portal
 description: Get started with your deployments by learning how to quickly create an Intel SGX VM in the Azure Portal
-author: mamccrea
-ms.service: virtual-machines
+author: ju-shim
+ms.service: azure-virtual-machines
 ms.subservice: workloads
-ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 11/1/2021
-ms.author: mamccrea
-ms.custom: ignite-fall-2021, mode-ui
+ms.author: jushiman
+ms.custom: mode-ui, linux-related-content
 ---
 
 
@@ -70,7 +69,7 @@ If you don't have an Azure subscription, [create an account](https://azure.micro
    * **Authentication type**: Select **SSH public key** if you're creating a Linux VM. 
 
         > [!NOTE]
-        > You have the choice of using an SSH public key or a Password for authentication. SSH is more secure. For instructions on how to generate an SSH key, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
+        > You have the choice of using an SSH public key or a Password for authentication. SSH is more secure. For instructions on how to generate an SSH key, see [Create SSH keys on Linux and Mac for Linux VMs in Azure](/azure/virtual-machines/linux/mac-create-ssh-keys).
 
     * **Username**: Enter the Administrator name for the VM.
 
@@ -103,7 +102,7 @@ If you don't have an Azure subscription, [create an account](https://azure.micro
 1. In the **Review + create** pane, select **Create**.
 
 > [!NOTE]
-> Proceed to the next section and continue with this tutorial if you deployed a Linux VM. If you deployed a Windows VM, [follow these steps to connect to your Windows VM](../virtual-machines/windows/connect-logon.md) and then [install the OE SDK on Windows](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Windows.md).
+> Proceed to the next section and continue with this tutorial if you deployed a Linux VM. If you deployed a Windows VM, [follow these steps to connect to your Windows VM](/azure/virtual-machines/windows/connect-logon) and then [install the OE SDK on Windows](https://github.com/openenclave/openenclave/blob/master/docs/GettingStartedDocs/install_oe_sdk-Windows.md).
 
 
 ## Connect to the Linux VM
@@ -119,13 +118,13 @@ You can find the Public IP address of your VM in the Azure portal, under the Ove
 :::image type="content" source="media/quick-create-portal/public-ip-virtual-machine.png" alt-text="IP address in Azure portal":::
 
 
-For more information about connecting to Linux VMs, see [Create a Linux VM on Azure using the Portal](../virtual-machines/linux/quick-create-portal.md).
+For more information about connecting to Linux VMs, see [Create a Linux VM on Azure using the Portal](/azure/virtual-machines/linux/quick-create-portal).
 
 ## Install Azure DCAP Client
 
-[Azure Data Center Attestation Primitives (DCAP)](https://learn.microsoft.com/azure/security/fundamentals/trusted-hardware-identity-management#what-is-the-azure-dcap-library), a replacement for Intel Quote Provider Library (QPL), fetches quote generation collateral and quote validation collateral directly from the THIM Service.
+[Azure Data Center Attestation Primitives (DCAP)](../security/fundamentals/trusted-hardware-identity-management.md#what-is-the-azure-dcap-library), a replacement for Intel Quote Provider Library (QPL), fetches quote generation collateral and quote validation collateral directly from the THIM Service.
 
-The [Trusted Hardware Identity Management (THIM)](https://learn.microsoft.com/azure/security/fundamentals/trusted-hardware-identity-management) service handles cache management of certificates for all trusted execution environments (TEE) residing in Azure and provides trusted computing base (TCB) information to enforce a minimum baseline for attestation solutions. 
+The [Trusted Hardware Identity Management (THIM)](../security/fundamentals/trusted-hardware-identity-management.md) service handles cache management of certificates for all trusted execution environments (TEE) residing in Azure and provides trusted computing base (TCB) information to enforce a minimum baseline for attestation solutions. 
 
 DCsv3 and DCdsv3 only support [ECDSA-based Attestation](https://www.intel.com/content/www/us/en/developer/tools/software-guard-extensions/attestation-services.html) and the users are required to install [Azure DCAP](https://github.com/Microsoft/Azure-DCAP-Client) client to interact with THIM and fetch TEE collateral for quote generation during attestation process. DCsv2 continues to support [EPID-based Attestation](https://www.intel.com/content/www/us/en/developer/tools/software-guard-extensions/attestation-services.html). 
 
@@ -144,4 +143,4 @@ Discover how you can build confidential computing applications, by continuing to
 > [!div class="nextstepaction"]
 > [Building Open Enclave SDK Samples](https://github.com/openenclave/openenclave/blob/master/samples/README.md)
 
-Microsoft Azure Attestation is free and ECDSA-based attestation framework, for remotely verifying the trustworthiness of multiple TEEs and integrity of the binaries running inside it. Learn [more](../attestation/overview.md)
+Microsoft Azure Attestation is free and ECDSA-based attestation framework, for remotely verifying the trustworthiness of multiple TEEs and integrity of the binaries running inside it. Learn [more](/azure/attestation/overview)

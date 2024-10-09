@@ -3,7 +3,7 @@ title: Azure Policy extension for Visual Studio Code
 description: Learn how to use the Azure Policy extension for Visual Studio Code to look up Azure Resource Manager aliases.
 ms.date: 04/12/2022
 ms.topic: how-to
-ms.custom: timwarner
+ms.custom: devx-track-arm-template
 ---
 # Use Azure Policy extension for Visual Studio Code
 
@@ -186,6 +186,10 @@ the tree view, the Azure Policy extension opens the JSON that represents the pol
 all its Resource Manager property values. The extension can validate the opened Azure Policy JSON
 schema.
 
+> [!NOTE]
+> The VS Code extension will only show the latest version of the policy definition. For more
+> information about the versions of definitions, see the [definitions](../concepts/definition-structure-basics.md#version-preview).
+
 ### Export objects
 
 Objects from your subscriptions can be exported to a local JSON file. In either the **Resources** or
@@ -251,17 +255,17 @@ example:
 >
 > The evaluation feature does not work on macOS and Linux installations of the extension.
 
-### Create policy definition from constraint template
+### Create policy definition from a constraint template or mutation template
 
 The VS Code extension can create a policy definition from an existing
 [Open Policy Agent](https://www.openpolicyagent.org/) (OPA) GateKeeper v3
-[constraint template](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates). The YAML Ain't Markup Language (YAML)
+[constraint template](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates) or an existing [mutation template](https://open-policy-agent.github.io/gatekeeper/website/docs/mutation/). The YAML Ain't Markup Language (YAML)
 file must be open in VS Code for the Command Palette to be an option.
 
 1. Open a valid OPA GateKeeper v3 constraint template YAML file.
 
 1. From the menu bar, go to **View** > **Command Palette**, and enter **Azure Policy for Kubernetes:
-   Create Policy Definition from Constraint Template**.
+   Create Policy Definition from Constraint Template Or Mutation**.
 
 1. Select the appropriate _sourceType_ value.
 

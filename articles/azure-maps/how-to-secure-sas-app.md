@@ -2,14 +2,13 @@
 title: How to secure an Azure Maps application with a SAS token
 titleSuffix: Azure Maps
 description: Create an Azure Maps account secured with SAS token authentication.
-author: stack111
-ms.author: dstack
+author: pbrasil
+ms.author: peterbr
 ms.date: 06/08/2022
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
-manager: philema
-ms.custom: subject-rbac-steps, kr2b-contr-experiment
+ms.subservice: authentication
+ms.custom: subject-rbac-steps, devx-track-azurecli
 ---
 
 # Secure an Azure Maps account with a SAS token
@@ -21,7 +20,7 @@ This article describes how to create an Azure Maps account with a securely store
 - An Azure subscription. If you don't already have an Azure account, [sign up for a free one](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - **Owner** role permission on the Azure subscription. You need the **Owner** permissions to:
 
-  - Create a key vault in [Azure Key Vault](../key-vault/general/basic-concepts.md).
+  - Create a key vault in [Azure Key Vault](/azure/key-vault/general/basic-concepts).
   - Create a user-assigned managed identity.
   - Assign the managed identity a role.
   - Create an Azure Maps account.
@@ -34,7 +33,7 @@ A SAS token credential grants the access level it specifies to anyone who holds 
 
 This scenario safely stores a SAS token as a secret in Key Vault, and distributes the token into a public client. Application lifecycle events can generate new SAS tokens without interrupting active connections that use existing tokens.
 
-For more information about configuring Key Vault, see the [Azure Key Vault developer's guide](../key-vault/general/developers-guide.md).
+For more information about configuring Key Vault, see the [Azure Key Vault developer's guide](/azure/key-vault/general/developers-guide).
 
 The following example scenario uses two Azure Resource Manager (ARM) template deployments to do the following steps:
 
@@ -62,7 +61,7 @@ The following steps describe how to create and configure an Azure Maps account w
    az provider register --namespace Microsoft.Maps
    ```
 
-1. Retrieve your Azure Active Directory (Azure AD) object ID.
+1. Retrieve your Microsoft Entra object ID.
 
     ```azurecli
     $id = $(az rest --method GET --url 'https://graph.microsoft.com/v1.0/me?$select=id' --headers 'Content-Type=application/json' --query "id")
@@ -171,6 +170,12 @@ The following steps describe how to create and configure an Azure Maps account w
    ```
 
 1. Create a template file *azuredeploy.json* to provision the Azure Maps account, role assignment, and SAS token.
+
+    > [!NOTE]
+    >
+    > **Azure Maps Gen1 pricing tier retirement**
+    >
+    > Gen1 pricing tier is now deprecated and will be retired on 9/15/26. Gen2 pricing tier replaces Gen1 (both S0 and S1) pricing tier. If your Azure Maps account has Gen1 pricing tier selected, you can switch to Gen2 pricing before it’s retired, otherwise it will automatically be updated. For more information, see [Manage the pricing tier of your Azure Maps account].
 
     ```json
     {
@@ -305,7 +310,7 @@ The following steps describe how to create and configure an Azure Maps account w
             {
                 "name": "[parameters('accountName')]",
                 "type": "Microsoft.Maps/accounts",
-                "apiVersion": "2021-12-01-preview",
+                "apiVersion": "2023-06-01",
                 "location": "[parameters('location')]",
                 "sku": {
                     "name": "[parameters('pricingTier')]"
@@ -353,7 +358,7 @@ The following steps describe how to create and configure an Azure Maps account w
                     "expiry" : "[variables('sasParameters').expiry]"
                 },
                 "properties": {
-                    "value": "[listSas(variables('accountId'), '2021-12-01-preview', variables('sasParameters')).accountSasToken]"
+                    "value": "[listSas(variables('accountId'), '2023-06-01', variables('sasParameters')).accountSasToken]"
                 }
             }
         ]
@@ -407,9 +412,9 @@ az rest --method GET --url 'https://us.atlas.microsoft.com/search/address/json?a
 
 ## Real-world example
 
-You can run requests to Azure Maps APIs from most clients, like C#, Java, or JavaScript. [Postman](https://learning.postman.com/docs/sending-requests/generate-code-snippets) converts an API request into a basic client code snippet in almost any programming language or framework you choose. You can use this generated code snippet in your front-end applications.
+You can run requests to Azure Maps APIs from most clients, like C#, Java, or JavaScript. API development platforms like [bruno](https://www.usebruno.com) or [Postman](https://learning.postman.com/docs/sending-requests/generate-code-snippets) can convert an API request into a basic client code snippet in almost any programming language or framework you choose. You can use the generated code snippets in your front-end applications.
 
-The following small JavaScript code example shows how you could use your SAS token with the JavaScript [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#supplying_request_options) to get and return Azure Maps information. The example uses the Azure Maps [Get Search Address](/rest/api/maps/search/get-search-address) API version 1.0. Supply your own value for `<your SAS token>`.
+The following small JavaScript code example shows how you could use your SAS token with the JavaScript [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#supplying_request_options) to get and return Azure Maps information. The example uses [Get Search Address](/rest/api/maps/search/get-search-address) API version 1.0. Supply your own value for `<your SAS token>`.
 
 For this sample to work, make sure to run it from within the same origin as the `allowedOrigins` for the API call. For example, if you provide `https://contoso.com` as the `allowedOrigins` in the API call, the HTML page that hosts the JavaScript script should be `https://contoso.com`.
 
@@ -448,12 +453,14 @@ Deploy a quickstart ARM template to create an Azure Maps account that uses a SAS
 
 For more detailed examples, see:
 > [!div class="nextstepaction"]
-> [Authentication scenarios for Azure AD](../active-directory/develop/authentication-vs-authorization.md)
+> [Authentication scenarios for Microsoft Entra ID](../active-directory/develop/authentication-vs-authorization.md)
 
 Find the API usage metrics for your Azure Maps account:
 > [!div class="nextstepaction"]
 > [View usage metrics](how-to-view-api-usage.md)
 
-Explore samples that show how to integrate Azure AD with Azure Maps:
+Explore samples that show how to integrate Microsoft Entra ID with Azure Maps:
 > [!div class="nextstepaction"]
 > [Azure Maps samples](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples)
+
+[Manage the pricing tier of your Azure Maps account]: how-to-manage-pricing-tier.md

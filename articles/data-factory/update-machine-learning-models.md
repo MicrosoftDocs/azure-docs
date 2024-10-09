@@ -5,18 +5,17 @@ titleSuffix: Azure Data Factory & Azure Synapse
 author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
-ms.service: data-factory
-ms.subservice: tutorials
-ms.custom: synapse
+ms.custom: synapse, devx-track-arm-template
 ms.topic: conceptual
-ms.date: 09/26/2022
+ms.date: 05/15/2024
+ms.subservice: authoring
 ---
 
 # Update Machine Learning Studio (classic) models by using Update Resource activity
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-[!INCLUDE[ML Studio (classic) retirement](../../includes/machine-learning-studio-classic-deprecation.md)] 
+[!INCLUDE[ML Studio (classic) retirement](~/reusable-content/ce-skilling/azure/includes/machine-learning-studio-classic-deprecation.md)] 
 
 > [!NOTE] 
 > Since Machine Learning Studio (classic) resources can no longer be created after 1 Dec, 2021, users are encouraged to use [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) with the [Machine Learning Execute Pipeline activity](transform-data-machine-learning-service.md) rather than using the Update Resource activity to update Machine Learning Studio (classic) models.
@@ -93,9 +92,9 @@ If the web service is the new type of web service that exposes an Azure Resource
 https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resource-group-name}/providers/Microsoft.MachineLearning/webServices/{web-service-name}?api-version=2016-05-01-preview
 ```
 
-You can get values for place holders in the URL when querying the web service on the [Machine Learning Studio (classic) Web Services Portal](https://services.azureml.net/).
+You can get values for place holders in the URL when querying the web service on the [Azure Machine Learning Studio](https://ml.azure.com/).
 
-The new type of update resource endpoint requires service principal authentication. To use service principal authentication, register an application entity in Azure Active Directory (Azure AD) and grant it the **Contributor** or **Owner** role of the subscription or the resource group where the web service belongs to. The See [how to create service principal and assign permissions to manage Azure resource](../active-directory/develop/howto-create-service-principal-portal.md). Make note of the following values, which you use to define the linked service:
+The new type of update resource endpoint requires service principal authentication. To use service principal authentication, register an application entity in Microsoft Entra ID and grant it the **Contributor** or **Owner** role of the subscription or the resource group where the web service belongs to. The See [how to create service principal and assign permissions to manage Azure resource](../active-directory/develop/howto-create-service-principal-portal.md). Make note of the following values, which you use to define the linked service:
 
 - Application ID
 - Application key
@@ -269,7 +268,7 @@ The pipeline has two activities: **AzureMLBatchExecution** and **AzureMLUpdateRe
     }
 }
 ```
-## Next steps
+## Related content
 See the following articles that explain how to transform data in other ways:
 
 * [U-SQL activity](transform-data-using-data-lake-analytics.md)

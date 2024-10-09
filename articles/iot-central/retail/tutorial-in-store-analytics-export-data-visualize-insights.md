@@ -1,14 +1,15 @@
 ---
-title: 'Tutorial - Export data and visualize insights in Azure IoT Central'
-description: 'In this tutorial, learn how to export data from IoT Central, and visualize insights in a Power BI dashboard.'
-services: iot-central
-ms.service: iot-central
-ms.subservice: iot-central-retail
-ms.topic: tutorial
-ms.custom: [iot-storeAnalytics-checkout, iot-p0-scenario]
+title: Tutorial - Visualize data from Azure IoT Central
+description: In this tutorial, learn how to export data from IoT Central, and visualize insights in a Power BI dashboard.
 ms.author: dobett
 author: dominicbetts
-ms.date: 06/07/2022
+ms.date: 03/27/2024
+services: iot-central
+ms.service: iot-central
+ms.topic: tutorial
+ms.custom: [iot-storeAnalytics-checkout, iot-p0-scenario]
+
+# Customer intent: Learn how to export data from IoT Central and visualize insights in a Power BI dashboard.
 ---
 
 # Tutorial: Export data from Azure IoT Central and visualize insights in Power BI
@@ -17,7 +18,6 @@ In the two previous tutorials, you created and customized an IoT Central applica
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
-
 > * Configure an IoT Central application to export telemetry to an event hub.
 > * Use Logic Apps to send data from an event hub to a Power BI streaming dataset.
 > * Create a Power BI dashboard to visualize data in the streaming dataset.
@@ -27,7 +27,6 @@ In this tutorial, you learn how to:
 To complete this tutorial, you need:
 
 * To complete the previous two tutorials, [Create an in-store analytics application in Azure IoT Central](./tutorial-in-store-analytics-create-app.md) and [Customize the dashboard and manage devices in Azure IoT Central](./tutorial-in-store-analytics-customize-dashboard.md).
-* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 * A Power BI account. If you don't have a Power BI account, sign up for a [free Power BI Pro trial](https://app.powerbi.com/signupredirect?pbi_source=web) before you begin.
 
 ## Create a resource group
@@ -106,7 +105,7 @@ The data export may take a few minutes to start sending telemetry to your event 
 
 ## Create the Power BI datasets
 
-Your Power BI dashboard will display data from your retail monitoring application. In this solution, you use Power BI streaming datasets as the data source for the Power BI dashboard. In this section, you define the schema of the streaming datasets so that the logic app can forward data from the event hub. The following steps show you how to create two streaming datasets for the environmental sensors and one streaming dataset for the occupancy sensor:
+Your Power BI dashboard displays data from your retail monitoring application. In this solution, you use Power BI streaming datasets as the data source for the Power BI dashboard. In this section, you define the schema of the streaming datasets so that the logic app can forward data from the event hub. The following steps show you how to create two streaming datasets for the environmental sensors and one streaming dataset for the occupancy sensor:
 
 1. Sign in to your **Power BI** account.
 1. Select **Workspaces**, and then select **Create a workspace**.
@@ -126,7 +125,7 @@ Your Power BI dashboard will display data from your retail monitoring applicatio
 1. Select **Create** and then **Done**.
 1. Create another streaming dataset called **Zone 2 sensor** with the same schema and settings as the **Zone 1 sensor** streaming dataset.
 
-You now have two streaming datasets. The logic app will route telemetry from the two environmental sensors connected to your **In-store analytics - checkout** application to these two datasets:
+You now have two streaming datasets. The logic app routes telemetry from the two environmental sensors connected to your **In-store analytics - checkout** application to these two datasets:
 
 :::image type="content" source="media/tutorial-in-store-analytics-visualize-insights/dataset-1.png" alt-text="Screenshot that shows the zone one sensor dataset definition in Power B I.":::
 
@@ -171,7 +170,7 @@ The following steps show you how to create the logic app in the Azure portal:
 1. Sign in to the [Azure portal](https://portal.azure.com) and select **Create a resource** at the top left of the screen.
 1. In **Search the Marketplace**, enter _Logic App_, and then press **Enter**.
 1. On the **Logic App** page, select **Create**.
-1. On the **Logic App** create page:
+1. On the **Create** page:
     * Enter a unique name for your logic app such as _yourname-retail-store-analysis_.
     * Select the same **Subscription** you used to create your IoT Central application.
     * Select the **retail-store-analysis** resource group.
@@ -427,10 +426,3 @@ If you want to keep the application but reduce the costs associated with it, dis
 You can delete the event hub and logic app in the Azure portal by deleting the resource group called **retail-store-analysis**.
 
 You can delete your Power BI datasets and dashboard by deleting the workspace from the Power BI settings page for the workspace.
-
-## Next Steps
-
-These three tutorials have shown you an end-to-end solution that uses the **In-store analytics - checkout** IoT Central application template. You've connected devices to the application, used IoT Central to monitor the devices, and used Power BI to build a dashboard to view insights from the device telemetry. A recommended next step is to explore one of the other IoT Central application templates:
-
-> [!div class="nextstepaction"]
-> [Build energy solutions with IoT Central](../energy/overview-iot-central-energy.md)

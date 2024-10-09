@@ -1,6 +1,6 @@
 ---
 author: craigshoemaker
-ms.service: app-service
+ms.service: azure-app-service
 ms.topic: include
 ms.date: 10/25/2021
 ms.author: cshoe
@@ -22,7 +22,7 @@ az containerapp show \
 # [PowerShell](#tab/powershell)
 
 ```powershell
-(Get-AzContainerApp -Name <CONTAINER_APP_NAME> -ResourceGroupName <RESOURCE_GROUP_NAME>).IngressFqdn
+(Get-AzContainerApp -Name <CONTAINER_APP_NAME> -ResourceGroupName <RESOURCE_GROUP_NAME>).Configuration.IngressFqdn
 ```
 
 ---

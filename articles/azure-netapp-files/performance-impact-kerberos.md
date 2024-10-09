@@ -1,18 +1,11 @@
 ---
 title: Performance impact of Kerberos on Azure NetApp Files NFSv4.1 volumes | Microsoft Docs
-description: Describes the available security options, the tested performance vectors, and the expected performance impact of kerberos on Azure NetApp Files NFSv4.1 volumes.  
+description: Describes the available security options, the tested performance vectors, and the expected performance impact of kerberos on Azure NetApp Files NFSv4.1 volumes.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/22/2022
+ms.date: 02/07/2024
 ms.author: anfdocs
 ---
 # Performance impact of Kerberos on Azure NetApp Files NFSv4.1 volumes
@@ -50,7 +43,7 @@ There are two areas of focus: light load and upper limit. The following lists de
 
 * Average IOPS decreased by 53%
 * Average throughput decreased by 53% 
-* Average latency increased by 3.2 ms
+* Average latency increased by 0.2 ms
 
 **Performance impact of krb5i:**
 

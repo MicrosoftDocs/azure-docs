@@ -1,18 +1,25 @@
 ---
 title: Show traffic data on Android maps | Microsoft Azure Maps
-description: In this article you'll learn, how to display traffic data on a map using the Microsoft Azure Maps Android SDK.
-author: stevemunk
-ms.author: v-munksteve
+description: This article demonstrates how to display traffic data on a map using the Microsoft Azure Maps Android SDK.
+author: sinnypan
+ms.author: sipa
 ms.date: 2/26/2021
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: android-sdk
+ms.custom: devx-track-java
 zone_pivot_groups: azure-maps-android
 ---
 
 # Show traffic data on the map (Android SDK)
 
 Flow data and incidents data are the two types of traffic data that can be displayed on the map. This guide shows you how to display both types of traffic data. Incidents data consists of point and line-based data for things such as constructions, road closures, and accidents. Flow data shows metrics about the flow of traffic on the road.
+
+> [!NOTE]
+>
+> **Azure Maps Android SDK retirement**
+>
+> The Azure Maps Native SDK for Android is now deprecated and will be retired on 3/31/25. To avoid service disruptions, migrate to the Azure Maps Web SDK by 3/31/25. For more information, see [The Azure Maps Android SDK migration guide](android-sdk-migration-guide.md).
 
 ## Prerequisites
 
@@ -198,7 +205,7 @@ The following table shows all the traffic incident categories that can be used w
 | `IncidentCategory.WIND` | `"wind"` | High winds that may make driving difficult for vehicles with a large side profile or high center of gravity. |
 | `IncidentCategory.FLOODING` | `"flooding"` | Flooding occurring on road. |
 | `IncidentCategory.DETOUR` | `"detour"` | Traffic being directed to take a detour. |
-| `IncidentCategory.CLUSTER` | `"cluster"` | A cluster of traffic incidents of different categories. Zooming in the map will result in the cluster breaking apart into its individual incidents. |
+| `IncidentCategory.CLUSTER` | `"cluster"` | A cluster of traffic incidents of different categories. Zooming in the map results in the cluster breaking apart into its individual incidents. |
 | `IncidentCategory.BROKEN_DOWN_VEHICLE` | `"brokenDownVehicle"` | Broken down vehicle on or beside road. |
 
 The following table shows all the traffic incident magnitudes that can be used within the `incidentMagnitudeFilter` option.

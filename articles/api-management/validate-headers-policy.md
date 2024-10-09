@@ -4,13 +4,15 @@ description: Reference for the validate-headers policy available for use in Azur
 services: api-management
 author: dlepow
 
-ms.service: api-management
-ms.topic: reference
-ms.date: 12/05/2022
+ms.service: azure-api-management
+ms.topic: article
+ms.date: 07/23/2024
 ms.author: danlep
 ---
 
 # Validate headers
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 The `validate-headers` policy validates the response headers against the API schema.
 
@@ -33,9 +35,9 @@ The `validate-headers` policy validates the response headers against the API sch
 
 | Attribute         | Description                                            | Required | Default |
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
-| specified-header-action | [Action](#actions) to perform for response headers specified in the API schema.  |  Yes     | N/A   |
-| unspecified-header-action | [Action](#actions) to perform for response headers that aren’t specified in the API schema.  |  Yes     | N/A   |
-| errors-variable-name | Name of the variable in `context.Variables` to log validation errors to.  |   No    | N/A   |
+| specified-header-action | [Action](#actions) to perform for response headers specified in the API schema. Policy expressions are allowed. |  Yes     | N/A   |
+| unspecified-header-action | [Action](#actions) to perform for response headers that aren’t specified in the API schema. Policy expressions are allowed. |  Yes     | N/A   |
+| errors-variable-name | Name of the variable in `context.Variables` to log validation errors to. Policy expressions aren't allowed. |   No    | N/A   |
 
 ## Elements
 
@@ -48,8 +50,12 @@ The `validate-headers` policy validates the response headers against the API sch
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) outbound, on-error
-- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
+- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
+
+### Usage notes
+
+- This policy can only be used once in a policy section.
 
 [!INCLUDE [api-management-validation-policy-common](../../includes/api-management-validation-policy-common.md)]
 
@@ -64,6 +70,6 @@ The `validate-headers` policy validates the response headers against the API sch
 
 ## Related policies
 
-* [API Management validation policies](validation-policies.md)
+* [Content validation](api-management-policies.md#content-validation)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

@@ -3,7 +3,7 @@ title: Application gateway components
 description: This article provides information about the various components in an application gateway
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: greglin
@@ -48,14 +48,14 @@ A port is where a listener listens for the client request. You can configure por
 
 ### Protocols
 
-Application Gateway supports four protocols: HTTP, HTTPS, HTTP/2, and WebSocket:
+Application Gateway supports web protocols HTTP, HTTPS, HTTP/2, and WebSocket with its Layer 7 proxy. The TLS and TCP protocols are supported with its Layer 4 proxy ([Preview](tcp-tls-proxy-overview.md)) and can be configured on the same resource. 
 >[!NOTE]
 >HTTP/2 protocol support is available to clients connecting to application gateway listeners only. The communication to backend server pools is always over HTTP/1.1. By default, HTTP/2 support is disabled. You can choose to enable it.
 
-- Specify between the HTTP and HTTPS protocols in the listener configuration.
+- Choose between the HTTP, HTTPS, TLS or TCP protocols in the listener configuration.
 - Support for [WebSockets and HTTP/2 protocols](features.md#websocket-and-http2-traffic) is provided natively, and [WebSocket support](application-gateway-websocket.md) is enabled by default. There's no user-configurable setting to selectively enable or disable WebSocket support. Use WebSockets with both HTTP and HTTPS listeners.
 
-Use an HTTPS listener for TLS termination. An HTTPS listener offloads the encryption and decryption work to your application gateway, so your web servers aren't burdened by the overhead.
+Use an HTTPS or TLS listener for TLS termination. An HTTPS/TLS listener offloads the encryption and decryption work to your application gateway, so your servers aren't burdened by the computation overhead.
 
 ### Custom error pages
 
@@ -139,6 +139,8 @@ If you use internal IPs as backend pool members, you must use [virtual network p
 An application gateway can also communicate with on-premises servers when they're connected by Azure ExpressRoute or VPN tunnels if traffic is allowed.
 
 You can create different backend pools for different types of requests. For example, create one backend pool for general requests, and then another backend pool for requests to the microservices for your application.
+
+After you add virtual machine scale sets as a backend pool member, you need to upgrade virtual machine scale sets instances. Until you upgrade scale sets instances, the backend will be unhealthy.
 
 ## Health probes
 

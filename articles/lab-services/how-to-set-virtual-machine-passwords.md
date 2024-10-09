@@ -7,6 +7,8 @@ ms.date: 06/26/2020
 
 # Set or reset virtual machine passwords
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 A lab owner (educator) sets the password for VMs at the time of creating the lab or after creating the lab on the **Template** page.
 
 ## Set password at the time of lab creation
@@ -26,10 +28,10 @@ By enabling the **Use same password for all virtual machines** option on this pa
     ![Set password dialog box](./media/how-to-set-virtual-machine-passwords/set-password.png)
 
 > [!NOTE]
-> Reset password option is not available for labs created without a template using the [April 2022 Updates](lab-services-whats-new.md).
+> Reset password option is not available for [lab plans](./concept-lab-accounts-versus-lab-plans.md) created without a template.
 
 ## Next steps
 
-To learn about other student usage options you (as a lab owner) can configure, see the following article: [Configure student usage](how-to-configure-student-usage.md).
+To learn about other student usage options you (as a lab owner) can configure, see the following article: [Configure student usage](how-to-manage-lab-users.md).
 
 To learn about how students can reset passwords for their VMs, see [Set or reset password for virtual machines in labs (students)](how-to-set-virtual-machine-passwords-student.md).

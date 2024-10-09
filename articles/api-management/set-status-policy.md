@@ -4,13 +4,16 @@ description: Reference for the set-status policy available for use in Azure API 
 services: api-management
 author: dlepow
 
-ms.service: api-management
-ms.topic: reference
-ms.date: 12/08/2022
+ms.service: azure-api-management
+ms.topic: article
+ms.date: 07/23/2024
 ms.author: danlep
 ---
 
 # Set status code
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 
 The `set-status` policy sets the HTTP status code to the specified value.
 
@@ -28,15 +31,15 @@ The `set-status` policy sets the HTTP status code to the specified value.
 
 | Attribute       | Description                                                | Required | Default |
 | --------------- | ---------------------------------------------------------- | -------- | ------- |
-| code  | Integer. The HTTP status code to return.                            | Yes      | N/A     |
-| reason | String. A description of the reason for returning the status code. | Yes      | N/A     |
+| code  | Integer. The HTTP status code to return. Policy expressions are allowed.                            | Yes      | N/A     |
+| reason | String. A description of the reason for returning the status code. Policy expressions are allowed. | Yes      | N/A     |
 
 
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, backend, on-error
-- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
+- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 
 ## Example
 
@@ -56,9 +59,8 @@ This example shows how to return a 401 response if the authorization token is in
 ```
 
 
-
 ## Related policies
 
-* [API Management advanced policies](api-management-advanced-policies.md)
+* [Transformation](api-management-policies.md#transformation)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

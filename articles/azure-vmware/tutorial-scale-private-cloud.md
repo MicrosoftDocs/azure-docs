@@ -3,7 +3,7 @@ title: Tutorial - Scale clusters in a private cloud
 description: In this tutorial, you use the Azure portal to scale an Azure VMware Solution private cloud.
 ms.topic: tutorial
 ms.service: azure-vmware
-ms.date: 10/27/2022
+ms.date: 6/7/2024
 ms.custom: engagement-fy23
 
 #Customer intent: As a VMware administrator, I want to learn how to scale an Azure VMware Solution private cloud in the Azure portal.
@@ -15,7 +15,7 @@ To get the most out of your Azure VMware Solution private cloud experience, scal
 
 [!INCLUDE [azure-vmware-solutions-limits](includes/azure-vmware-solutions-limits.md)]
 
-In this tutorial, you'll use the Azure portal to:
+In this tutorial, learn how to use the Azure portal to:
 
 > [!div class="checklist"]
 > * Add a cluster to an existing private cloud
@@ -23,31 +23,41 @@ In this tutorial, you'll use the Azure portal to:
 
 ## Prerequisites
 
-You'll need an existing private cloud to complete this tutorial. If you haven't created a private cloud, follow the [create a private cloud tutorial](tutorial-create-private-cloud.md) to create one.
+You need an existing private cloud to complete this tutorial. If you don't already have a private cloud created, follow the [create a private cloud tutorial](tutorial-create-private-cloud.md) to create one.
+
+If you are planning on using the AV64 SKU, define a network for the management and control plane. In your Azure VMware Solution private cloud, under **Manage**, select **Clusters** > **Add a cluster**. Then add the **Address block for AV64 clusters** (one /23 network or three /25 networks) under the **Extended address block** tab and select **Save**.
+
+   :::image type="content" source="media/tutorial-scale-private-cloud/ss1-extended-address-block.png" alt-text="Screenshot showing how to add an AV64 extended address block to an Azure VMware Solution private cloud." lightbox="media/tutorial-scale-private-cloud/ss1-extended-address-block.png" border="true":::
 
 ## Add a new cluster
 
-1. In your Azure VMware Solution private cloud, under **Manage**, select **Clusters** > **Add a cluster**.
+1. In your Azure VMware Solution private cloud, under **Manage**, select **Clusters** > **Add a cluster**. Then select the required SKU from **Size of host** and specify the **Number of hosts** for the cluster. **Prices listed in image are for illustration only.**
+
+We do not allow the mixing of AV36, AV36P, or AV52 SKUs within the same cluster. We only allow the addition of AV64 clusters to existing private clouds that are built with the AV36, AV36P, or AV52 SKUs in certain regions. [For more information](introduction.md#azure-vmware-solution-private-cloud-extension-with-av64-node-size).
 
    :::image type="content" source="media/tutorial-scale-private-cloud/ss2-select-add-cluster.png" alt-text="Screenshot showing how to add a cluster to an Azure VMware Solution private cloud." lightbox="media/tutorial-scale-private-cloud/ss2-select-add-cluster.png" border="true":::
 
-1. Use the slider to select the number of hosts and then select **Save**.
-
-   :::image type="content" source="media/tutorial-scale-private-cloud/ss3-configure-new-cluster.png" alt-text="Screenshot showing how to configure a new cluster." lightbox="media/tutorial-scale-private-cloud/ss3-configure-new-cluster.png" border="true":::
-
-   The deployment of the new cluster begins.
+2. The deployment of the new cluster will begin.
 
 ## Scale a cluster
 
+> [!NOTE]
+> Scaling down a cluster successfully requires all objects (VM/vmdk/iso/etc) on a vSAN datastore to be configured with a storage policy below or equal to [RAID level requirements](configure-storage-policy.md). 
+
 1. In your Azure VMware Solution private cloud, under **Manage**, select **Clusters**.
 
-1. Select the cluster you want to scale, select **More** (...), then select **Edit**.
+2. Select the cluster you want to scale, select **More** (...), then select **Edit**.
 
    :::image type="content" source="media/tutorial-scale-private-cloud/ss4-select-scale-private-cloud-2.png" alt-text="Screenshot showing where to edit an existing cluster." lightbox="media/tutorial-scale-private-cloud/ss4-select-scale-private-cloud-2.png" border="true":::
 
-1. Use the slider to select the number of hosts and then select **Save**.
+3. Select **Add Host** to add a host to the cluster. Repeat that to reach the desired number of hosts, and then select **Save**.
+
+   :::image type="content" source="media/tutorial-scale-private-cloud/ss5-add-hosts-to-cluster.png" alt-text="Screenshot showing how to add additional hosts to an existing cluster." lightbox="media/tutorial-scale-private-cloud/ss5-add-hosts-to-cluster.png" border="true":::
 
    The addition of hosts to the cluster begins.
+
+   >[!NOTE] 
+   >The hosts will be added to the cluster in parallel.
 
 ## Next steps
 

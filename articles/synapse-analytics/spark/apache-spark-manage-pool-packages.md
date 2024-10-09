@@ -2,7 +2,7 @@
 title: Manage Spark pool level libraries for Apache Spark
 description: Learn how to add and manage libraries on Spark pool level in Azure Synapse Analytics.
 author: shuaijunye
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.date: 09/21/2022
 ms.author: shuaijunye
@@ -99,8 +99,7 @@ dependencies:
   - matplotlib
   - koalas==1.7.0
 ```
-For details on creating an environment from this environment.yml file, see [Creating an environment from an environment.yml file](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#activating-an-environment
-).
+For details on creating an environment from this environment.yml file, see [Creating an environment from an environment.yml file](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#activating-an-environment).
 
 ## Next steps
 - View the default libraries: [Apache Spark version support](apache-spark-version-support.md)

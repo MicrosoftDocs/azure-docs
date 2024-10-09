@@ -3,10 +3,9 @@ title: Troubleshoot the Azure Data Lake Storage connectors
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to troubleshoot issues with the Azure Data Lake Storage Gen1 and Gen2 connectors in Azure Data Factory and Azure Synapse Analytics. 
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 11/08/2022
+ms.date: 09/26/2024
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
 ---
@@ -50,7 +49,7 @@ This article provides suggestions to troubleshoot common problems with the Azure
     `Failed to get access token by using service principal.  
     ADAL Error: service_unavailable, The remote server returned an error: (503) Server Unavailable.`
 
-- **Cause**: When the Service Token Server (STS) that's owned by Azure Active Directory is not available, that means it's too busy to handle requests, and it returns HTTP error 503. 
+- **Cause**: When the Service Token Server (STS) that's owned by Microsoft Entra ID is not available, that means it's too busy to handle requests, and it returns HTTP error 503. 
 
 - **Resolution**: Rerun the copy activity after several minutes.
 
@@ -131,14 +130,14 @@ This article provides suggestions to troubleshoot common problems with the Azure
 
     1. If you use service principal or managed identity authentication, grant service principal or managed identity appropriate permissions to do copy. For source, at least the **Storage Blob Data Reader** role. For sink, at least the **Storage Blob Data Contributor** role. For more information, see [Copy and transform data in Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#service-principal-authentication).
 
-## Next steps
+## Related content
 
 For more troubleshooting help, try these resources:
 
 - [Connector troubleshooting guide](connector-troubleshoot-guide.md)
-- [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
+- [Data Factory blog](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/bg-p/AzureDataFactoryBlog)
 - [Data Factory feature requests](/answers/topics/azure-data-factory.html)
 - [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 - [Microsoft Q&A page](/answers/topics/azure-data-factory.html)
 - [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
-- [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)
+- [X information about Data Factory](https://x.com/hashtag/DataFactory)

@@ -1,10 +1,9 @@
 ---
 title: Bicep comparison operators
 description: Describes Bicep comparison operators that compare values.
-author: mumian
-ms.author: jgao
-ms.topic: conceptual
-ms.date: 09/07/2021
+ms.topic: reference
+ms.custom: devx-track-bicep
+ms.date: 06/23/2023
 ---
 
 # Bicep comparison operators
@@ -186,7 +185,7 @@ The string is `true` because lowercase letters are less than uppercase letters.
 
 `operand1 == operand2`
 
-Evaluates if the values are equal.
+Evaluates if the values are equal. The comparison is case-sensitive.
 
 ### Operands
 
@@ -208,7 +207,7 @@ param firstInt int = 5
 param secondInt int = 5
 
 param firstString string = 'demo'
-param secondString string = 'demo'
+param secondString string = 'Demo'
 
 param firstBool bool = true
 param secondBool bool = true
@@ -220,11 +219,11 @@ output boolEqual bool = firstBool == secondBool
 
 Output from the example:
 
-| Name | Type | Value |
-| ---- | ---- | ---- |
-| `intEqual` | boolean | true |
-| `stringEqual` | boolean | true |
-| `boolEqual` | boolean | true |
+| Name | Type | Value | Note |
+| ---- | ---- | ----- | ---- |
+| `intEqual` | boolean | true | |
+| `stringEqual` | boolean | false | The result is `false` because the comparison is case-sensitive. |
+| `boolEqual` | boolean | true | |
 
 When comparing arrays, the two arrays must have the same elements and order. The arrays don't need to be assigned to each other.
 

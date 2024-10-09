@@ -3,8 +3,9 @@ title: Store unstructured data using Azure Cosmos DB and Functions
 description: Store unstructured data using Azure Functions and Azure Cosmos DB
 ms.topic: quickstart
 ms.date: 10/01/2020
-ms.devlang: csharp, javascript
-ms.custom: devx-track-csharp, mvc, mode-other, ignite-2022
+ms.devlang: csharp
+# ms.devlang: csharp, javascript
+ms.custom: devx-track-csharp, mvc, mode-other
 ---
 # Store unstructured data using Azure Functions and Azure Cosmos DB
 
@@ -25,7 +26,7 @@ To complete this tutorial:
 
 You must have an Azure Cosmos DB account that uses the SQL API before you create the output binding.
 
-[!INCLUDE [cosmos-db-create-dbaccount](../cosmos-db/includes/cosmos-db-create-dbaccount.md)]
+[!INCLUDE [cosmos-db-create-dbaccount](~/reusable-content/ce-skilling/azure/includes/cosmos-db/includes/cosmos-db-create-dbaccount.md)]
 
 ## Add an output binding
 

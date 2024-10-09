@@ -1,0 +1,365 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/load-balancer/use-existing-lb-vmss-cli.md",
+            "redirect_url": "/azure/load-balancer/configure-vm-scale-set-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/load-balancer-get-started-internet-classic-portal.md",
+            "redirect_url": "/azure/load-balancer/load-balancer-get-started-internet-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/load-balancer-outbound-rules-overview.md",
+            "redirect_url": "/azure/load-balancer/load-balancer-outbound-connections#outboundrules",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/load-balancer-arm.md",
+            "redirect_url": "/azure/load-balancer/load-balancer-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/load-balancer-standard-overview.md",
+            "redirect_url": "/azure/load-balancer/load-balancer-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/load-balancer-internal-overview.md",
+            "redirect_url": "/azure/load-balancer/load-balancer-overview#internalloadbalancer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/load-balancer-internet-overview.md",
+            "redirect_url": "/azure/load-balancer/load-balancer-overview#publicloadbalancer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/load-balancer-security-attributes.md",
+            "redirect_url": "/azure/load-balancer/load-balancer-security-controls",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/update-load-balancer-with-vm-scale-set.md",
+            "redirect_url": "/azure/load-balancer/configure-inbound-nat-rules-vm-scale-set",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/load-balancer-get-started-internet-arm-cli.md",
+            "redirect_url": "/azure/load-balancer/quickstart-create-basic-load-balancer-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/quick-create-load-balancer-basic-cli.md",
+            "redirect_url": "/azure/load-balancer/quickstart-create-basic-load-balancer-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/load-balancer-get-started-internet-portal.md",
+            "redirect_url": "/azure/load-balancer/quickstart-create-basic-load-balancer-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/quick-create-load-balancer-basic-portal.md",
+            "redirect_url": "/azure/load-balancer/quickstart-create-basic-load-balancer-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/load-balancer-get-started-internet-arm-ps.md",
+            "redirect_url": "/azure/load-balancer/quickstart-create-basic-load-balancer-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/load-balancer-get-started-internet-availability-zones-zonal-powershell.md",
+            "redirect_url": "/azure/load-balancer/quickstart-create-standard-load-balancer-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/load-balancer-get-started-internet-az-powershell.md",
+            "redirect_url": "/azure/load-balancer/quickstart-create-standard-load-balancer-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/quickstart-create-basic-load-balancer-powershell.md",
+            "redirect_url": "/azure/load-balancer/quickstart-create-standard-load-balancer-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/configure-load-balancer-outbound-portal.md",
+            "redirect_url": "/azure/load-balancer/quickstart-create-standard-load-balancer-powershell?tabs=option-1-create-load-balancer-standard#create-outbound-rule-configuration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/configure-load-balancer-outbound-powershell.md",
+            "redirect_url": "/azure/load-balancer/quickstart-create-standard-load-balancer-powershell?tabs=option-1-create-load-balancer-standard#create-outbound-rule-configuration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/load-balancer-get-started-ilb-arm-cli.md",
+            "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-internal-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/tutorial-load-balancer-standard-internal-portal.md",
+            "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-internal-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/load-balancer-get-started-ilb-arm-ps.md",
+            "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-internal-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/load-balancer-get-started-ilb-arm-template",
+            "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-internal-template",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/load-balancer-get-started-ilb-arm-template.md",
+            "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-internal-template",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/load-balancer-get-started-internet-availability-zones-zonal-cli.md",
+            "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/load-balancer-get-started-internet-az-cli.md",
+            "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/load-balancer-standard-public-cli.md",
+            "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/load-balancer-standard-public-zonal-cli.md",
+            "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/load-balancer-standard-public-zone-redundant-cli.md",
+            "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/quickstart-create-basic-load-balancer-cli.md",
+            "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/configure-load-balancer-outbound-cli.md",
+            "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-cli?tabs=option-1-create-load-balancer-standard#create-outbound-rule-configuration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/load-balancer-get-started-internet-availability-zones-zonal-portal.md",
+            "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/load-balancer-get-started-internet-az-portal.md",
+            "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/load-balancer-standard-public-portal.md",
+            "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/quickstart-create-basic-load-balancer-portal.md",
+            "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/quickstart-create-standard-load-balancer-powershell.md",
+            "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/load-balancer-get-started-internet-arm-template.md",
+            "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-template",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/load-balancer-security-controls.md",
+            "redirect_url": "/azure/load-balancer/security-baseline",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/load-balancer-get-started-ilb-arm-portal.md",
+            "redirect_url": "/azure/load-balancer/tutorial-load-balancer-basic-internal-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/load-balancer-configure-ha-ports.md",
+            "redirect_url": "/azure/load-balancer/tutorial-load-balancer-standard-internal-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/tutorial-load-balancer-basic-internal-portal.md",
+            "redirect_url": "/azure/load-balancer/tutorial-load-balancer-standard-internal-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/load-balancer-standard-public-availability-zones-portal.md",
+            "redirect_url": "/azure/load-balancer/tutorial-load-balancer-standard-public-zone-redundant-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/scripts/load-balancer-linux-cli-sample-zone-redundant-frontend.md",
+            "redirect_url": "/azure/load-balancer/tutorial-multi-availability-sets-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/scripts/load-balancer-linux-cli-load-balance-multiple-websites-vm.md",
+            "redirect_url": "/azure/load-balancer/load-balancer-multiple-ip",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/scripts/load-balancer-linux-cli-sample-nlb.md",
+            "redirect_url": "/azure/load-balancer/tutorial-multi-availability-sets-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/scripts/load-balancer-linux-cli-sample-zonal-frontend.md",
+            "redirect_url": "/azure/load-balancer/tutorial-load-balancer-standard-public-zonal-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/scripts/load-balancer-windows-powershell-sample-nlb.md",
+            "redirect_url": "/azure/load-balancer/tutorial-multi-availability-sets-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/scripts/load-balancer-windows-powershell-load-balance-multiple-websites-vm.md",
+            "redirect_url": "/azure/load-balancer/load-balancer-multiple-ip",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/cli-samples.md",
+            "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/powershell-samples.md",
+            "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/python-samples.md",
+            "redirect_url": "/samples/azure-samples/azure-samples-python-management/network-python-manage-loadbalancer/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer-windows-powershell-load-balance-multiple-websites-vm.md",
+            "redirect_url": "/azure/load-balancer/load-balancer-multiple-ip-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/configure-vm-scale-set-cli.md",
+            "redirect_url": "/azure/load-balancer/configure-vm-scale-set-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/configure-vm-scale-set-powershell.md",
+            "redirect_url": "/azure/load-balancer/configure-vm-scale-set-portal",
+            "redirect_document_id": true
+        },
+        
+        {
+            "source_path_from_root": "/articles/load-balancer/load-balancer-get-started-ilb-classic-cli.md",
+            "redirect_url": "/previous-versions/azure/load-balancer/load-balancer-get-started-ilb-classic-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/load-balancer-get-started-ilb-classic-cloud.md",
+            "redirect_url": "/previous-versions/azure/load-balancer/load-balancer-get-started-ilb-classic-cloud",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/load-balancer-get-started-ilb-classic-ps.md",
+            "redirect_url": "/previous-versions/azure/load-balancer/load-balancer-get-started-ilb-classic-ps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/load-balancer-get-started-internet-classic-cli.md",
+            "redirect_url": "/previous-versions/azure/load-balancer/load-balancer-get-started-internet-classic-cli",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/load-balancer-get-started-internet-classic-cloud.md",
+            "redirect_url": "/previous-versions/azure/load-balancer/load-balancer-get-started-internet-classic-cloud",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/load-balancer-get-started-internet-classic-ps.md",
+            "redirect_url": "/previous-versions/azure/load-balancer/load-balancer-get-started-internet-classic-ps",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/load-balancer-multivip.md",
+            "redirect_url": "/previous-versions/azure/load-balancer/load-balancer-multivip",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/load-balancer-outbound-connections-classic.md",
+            "redirect_url": "/previous-versions/azure/load-balancer/load-balancer-outbound-connections-classic",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/create-load-balancer-rest-api.md",
+            "redirect_url": "/rest/api/load-balancer/loadbalancers/createorupdate",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/tutorial-load-balancer-standard-manage-portal.md",
+            "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/load-balancer-monitor-log.md",
+            "redirect_url": "/azure/load-balancer/monitor-load-balancer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/tutorial-load-balancer-standard-public-zone-redundant-portal.md",
+            "redirect_url": "/azure/load-balancer/quickstart-load-balancer-standard-public-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/protect-load-balancer-with-ddos-standard.md",
+            "redirect_url": "/azure/load-balancer/tutorial-protect-load-balancer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/tutorial-protect-load-balancer.md",
+            "redirect_url": "/azure/load-balancer/tutorial-protect-load-balancer-ddos",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/load-balancer-standard-availability-zones.md",
+            "redirect_url": "/azure/reliability/reliability-load-balancer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/upgrade-basic-standard-virtual-machine-scale-sets.md",
+            "redirect_url": "/azure/load-balancer/upgrade-basic-standard-with-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/azure-media-player/components-limitations.md",
+            "redirect_url": "/azure/load-balancer/concepts",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/load-balancer-configure-sqlao.md",
+            "redirect_url": "/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener",
+            "redirect_document_id": false
+        }
+    ]
+}

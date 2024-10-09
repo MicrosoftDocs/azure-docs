@@ -80,7 +80,7 @@ Learn how to set display preferences, such as orientation and resolution.
 
 ### Set orientation
 
-You can set the orientation of the Remote Desktop client to landscape, portrait, or auto-adjust, where it will match the orientation of your device. Auto-adjust is supported when your remote session is running Windows 10 and Windows Server 2012 R2 or later. The window will maintain the same scaling and update the resolution to match the new orientation. This setting applies to all workspaces.
+You can set the orientation of the Remote Desktop client to landscape, portrait, or auto-adjust, where it will match the orientation of your device. Auto-adjust is supported when your remote session is running Windows 10 or later. The window will maintain the same scaling and update the resolution to match the new orientation. This setting applies to all workspaces.
 
 To set the orientation:
 
@@ -201,7 +201,33 @@ In addition, the <kbd>Alt</kbd> key to the right of the space bar on a Mac keybo
 
 ### Mouse and trackpad
 
-You can use a mouse or trackpad with the Remote Desktop client. However, support for these devices depends on whether you're using iOS or iPadOS. iPadOS natively supports a mouse and trackpad as an input method, whereas support can only be enabled in iOS with *AssistiveTouch*. For more information, see [Connect a Bluetooth mouse or trackpad to your iPad](https://support.apple.com/HT211009) or [How to use a pointer device with AssistiveTouch on your iPhone, iPad, or iPod touch](https://support.apple.com/HT210546).
+You can use a mouse or trackpad with the Remote Desktop app. However, support for these devices depends on whether you're using iOS or iPadOS. iPadOS natively supports a mouse and trackpad as an input method; for more information, see [Connect a Bluetooth mouse or trackpad to your iPad](https://support.apple.com/HT211009).
+
+On iOS, the only native support for a mouse and trackpad is through *AssistiveTouch*. AssistiveTouch provides a cursor emulating touch input, so it doesn't support right-click actions or external monitor support, so we don't recommend using it with the Remote Desktop app. For iPhone users projecting a remote session to a larger external monitor, we recommend the following options:
+
+1. Use the Remote Desktop app as touchpad, where the iPhone itself can serve as a touchpad for the remote session. The app will automatically convert to a touchpad once connected to external monitor.
+
+1. Use a bluetooth mouse from the SwiftPoint PenGrip Models, which are compatible with the Remote Desktop app. The following models are supported:
+
+   - Swiftpoint ProPoint
+   - Swiftpoint PadPoint
+   - SwiftPoint GT
+   
+   In order to benefit from the Swiftpoint integration, you must connect a Swiftpoint mouse to your iPhone and in the Remote Desktop app:
+
+   1. Put the mouse in pairing mode for bluetooth.
+
+   1. Open the **Settings** app on your iPhone, then select **Bluetooth**.
+
+   1. The mouse should be listed under **Other devices**. Tap the name of the mouse to pair it.
+
+   1. Open the **RD Client** application on your device.
+
+   1. In the top left-hand corner, tap the menu icon (the circle with three dots inside), then tap **Settings**.
+
+   1. Tap **Input Devices**, then in the list of the devices, tap the name of the Swiftpoint mouse you want to use.
+
+   1. Tap the back arrow (**<**), then tap the **X** mark. You're ready to connect to a remote session and use the Swiftpoint mouse.
 
 ## Redirections
 

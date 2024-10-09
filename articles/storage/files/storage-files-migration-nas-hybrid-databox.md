@@ -2,11 +2,10 @@
 title: On-premises NAS migration to Azure File Sync via Data Box
 description: Learn how to migrate files from an on-premises Network Attached Storage (NAS) location to a hybrid cloud deployment by using Azure File Sync via Azure Data Box.
 author: khdownie
-ms.service: storage
+ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 03/5/2021
+ms.date: 05/06/2024
 ms.author: kendownie
-ms.subservice: files
 ---
 
 # Use Data Box to migrate from Network Attached Storage (NAS) to a hybrid cloud deployment by using Azure File Sync
@@ -78,7 +77,7 @@ For a standard migration, choose one or a combination of these Data Box options:
 * **Data Box Disk**.
   Microsoft will send you between one and five SSD disks that have a capacity of 8 TiB each, for a maximum total of 40 TiB. The usable capacity is about 20 percent less because of encryption and file-system overhead. For more information, see [Data Box Disk documentation](../../databox/data-box-disk-overview.md).
 * **Data Box**.
-  This option is the most common one. Microsoft will send you a ruggedized Data Box appliance that works similar to a NAS. It has a usable capacity of 80 TiB. For more information, see [Data Box documentation](../../databox/data-box-overview.md).
+  This option is the most common. Microsoft will send you a ruggedized Data Box appliance that works similar to a NAS. It has a usable capacity of 80 TiB. For more information, see [Data Box documentation](../../databox/data-box-overview.md).
 * **Data Box Heavy**.
   This option features a ruggedized Data Box appliance on wheels that works similar to a NAS. It has a capacity of 1 PiB. The usable capacity is about 20 percent less because of encryption and file-system overhead. For more information, see [Data Box Heavy documentation](../../databox/data-box-heavy-overview.md).
 
@@ -86,8 +85,8 @@ For a standard migration, choose one or a combination of these Data Box options:
 
 While you wait for your Azure Data Box devices to arrive, you can start reviewing the needs of one or more Windows Server instances you'll be using with Azure File Sync.
 
-* Create a Windows Server 2019 instance (at a minimum, Windows Server 2012 R2) as a virtual machine or physical server. A Windows Server failover cluster is also supported.
-* Provision or add Direct Attached Storage. (DAS, as opposed to NAS, which isn't supported.)
+* Create a Windows Server 2022 instance (at a minimum, Windows Server 2012 R2) as a virtual machine or physical server. A Windows Server failover cluster is also supported.
+* Provision or add Direct Attached Storage. NAS isn't supported.
 
 The resource configuration (compute and RAM) of the Windows Server instance you deploy depends mostly on the number of files and folders you'll be syncing. We recommend a higher performance configuration if you have any concerns.
 
@@ -98,7 +97,7 @@ The resource configuration (compute and RAM) of the Windows Server instance you 
 
 ## Phase 5: Copy files onto your Data Box
 
-When your Data Box arrives, you need to set it up in the line of sight to your NAS appliance. Follow the setup documentation for the type of Data Box you ordered:
+When your Data Box arrives, you need to set it up with unimpeded network connectivity to your NAS appliance. Follow the setup documentation for the type of Data Box you ordered:
 
 * [Set up Data Box](../../databox/data-box-quickstart-portal.md).
 * [Set up Data Box Disk](../../databox/data-box-disk-quickstart-portal.md).
@@ -219,16 +218,7 @@ You can try to run a few of these copies in parallel. We recommend that you proc
 
 ## Deprecated option: "offline data transfer"
 
-Before Azure File Sync agent version 13 released, Data Box integration was accomplished through a process called "offline data transfer". This process is deprecated. With agent version 13, it was replaced with the much simpler and faster steps described in this article. If you know you want to use the deprecated "offline data transfer" functionality, you can still do so. It is still available by using a specific, [older AFS PowerShell module](https://www.powershellgallery.com/packages/Az.StorageSync/1.4.0):
-
-```powershell
-Install-Module Az.StorageSync -RequiredVersion 1.4.0
-Import-module Az.StorageSync -RequiredVersion 1.4.0
-# Verify the specific version is loaded:
-Get-module Az.StorageSync
-```
-> [!WARNING]
-> After May 15, 2022 you will no longer be able to create a server endpoint in the "offline data transfer" mode. Migrations in progress with this method must finish before July 15, 2022. If your migration continues to run with an "offline data transfer" enabled server endpoint, the server will begin to upload remaining files from the server on July 15, 2022 and no longer leverage files transferred with Azure Data Box to the staging share.
+Before Azure File Sync agent version 13 released, Data Box integration was accomplished through a process called "offline data transfer". This process is deprecated, and you can no longer create a server endpoint in the "offline data transfer" mode. With agent version 13, it was replaced with the much simpler and faster steps described in this article.
 
 ## Troubleshooting
 
@@ -242,9 +232,9 @@ To troubleshoot Azure File Sync problems, see the article listed in the next sec
 
 ## Next steps
 
-There's more to discover about Azure file shares and Azure File Sync. The following articles will help you understand advanced options and best practices. They also provide help with troubleshooting. These articles contain links to the [Azure file share documentation](storage-files-introduction.md) where appropriate.
+The following articles will help you understand advanced options and best practices for Azure Files and Azure File Sync.
 
 * [Migration overview](storage-files-migration-overview.md)
 * [Planning for an Azure File Sync deployment](../file-sync/file-sync-planning.md)
 * [Create a file share](storage-how-to-create-file-share.md)
-* [Troubleshoot Azure File Sync](../file-sync/file-sync-troubleshoot.md)
+* [Troubleshoot Azure File Sync](/troubleshoot/azure/azure-storage/file-sync-troubleshoot?toc=/azure/storage/file-sync/toc.json)

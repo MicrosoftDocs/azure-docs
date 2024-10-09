@@ -3,7 +3,7 @@ title: "Tutorial: Deploy static-rendered Next.js websites on Azure Static Web Ap
 description: "Generate and deploy Next.js static-rendered sites with Azure Static Web Apps."
 services: static-web-apps
 author: craigshoemaker
-ms.service: static-web-apps
+ms.service: azure-static-web-apps
 ms.topic:  tutorial
 ms.date: 10/12/2022
 ms.author: aapowell
@@ -148,13 +148,13 @@ By default, the application is treated as a hybrid rendered Next.js application,
               api_location: "" # Api source code path - optional
               output_location: "" # Built app content directory - optional
             env: # Add environment variables here
-              is_static_export: true
+              IS_STATIC_EXPORT: true
     ```
 
     ### [Azure Pipelines](#tab/azure-pipelines)
 
     ```yaml
-        - task: AzureStaticWebAppLatest@0
+        - task: AzureStaticWebApp@0
           inputs:
             azure_static_web_apps_api_token: $(AZURE_STATIC_WEB_APPS_TOKEN)
             ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
@@ -190,7 +190,7 @@ If you're not going to continue to use this app, you can delete the Azure Static
 
 ## Related articles
 
-- [Set up authentication and authorization](authentication-authorization.md)
-- [Configure app settings](application-settings.md)
+- [Set up authentication and authorization](authentication-authorization.yml)
+- [Configure app settings](application-settings.yml)
 - [Enable monitoring](monitor.md)
 - [Azure CLI](https://github.com/Azure/static-web-apps-cli)

@@ -1,15 +1,21 @@
 ---
-title: Support matrix for Backup center
+title: Support matrix for Backup center for Azure Backup
 description: This article summarizes the scenarios that Backup center supports for each workload type
-ms.topic: conceptual
-ms.date: 12/08/2022
-author: v-amallick
-ms.service: backup
-ms.author: v-amallick
+ms.topic: reference
+ms.date: 09/24/2024
+ms.service: azure-backup
+author: AbhishekMallick-MS
+ms.author: v-abhmallick
+ms.custom: engagement-fy24
 ---
+
 # Support matrix for Backup center
 
-Backup center helps enterprises to [govern, monitor, operate, and analyze backups at scale](backup-center-overview.md). This article summarizes the scenarios that Backup center supports for each workload type.
+[!INCLUDE [backup-center-deprecation.md ](../../includes/backup-center-deprecation.md )]
+
+This article summarizes the scenarios that Backup center supports for each workload type.
+
+Backup center helps enterprises to [govern, monitor, operate, and analyze backups at scale](backup-center-overview.md).
 
 ## Supported scenarios
 
@@ -33,7 +39,7 @@ The following table lists all supported scenarios:
 | Actions | Execute on-demand backup for a backup instance |  Azure Virtual Machine <br><br>  Azure Database for PostgreSQL server <br><br>  SQL in Azure VM <br><br>  SAP HANA in Azure VM <br><br>  Azure Files<br/><br/> Azure Blobs<br/><br/> Azure Managed Disks | See support matrices for [Azure VM backup](./backup-support-matrix-iaas.md) and [Azure Database for PostgreSQL Server backup](backup-azure-database-postgresql-support-matrix.md) |
 | Actions | Stop backup for a backup instance |  Azure Virtual Machine <br><br>  Azure Database for PostgreSQL server <br><br>  SQL in Azure VM <br><br>  SAP HANA in Azure VM <br><br>  Azure Files<br/><br/> Azure Blobs<br/><br/> Azure Managed Disks | See support matrices for [Azure VM backup](./backup-support-matrix-iaas.md) and [Azure Database for PostgreSQL Server backup](backup-azure-database-postgresql-support-matrix.md) |
 | Actions | Execute cross-region restore job from Backup center |  Azure Virtual Machine <br><br> SQL in Azure VM <br><br>  SAP HANA in Azure VM | See the [cross-region restore](./backup-create-rs-vault.md#set-cross-region-restore) documentation. |
-| Insights | View Backup Reports |  Azure Virtual Machine <br><br>  SQL in Azure Virtual Machine <br><br>  SAP HANA in Azure Virtual Machine <br><br>  Azure Files <br><br>  System Center Data Protection Manager <br><br>  Azure Backup Agent (MARS) <br><br> Azure Backup Server (MABS) | See [supported scenarios for Backup Reports](./configure-reports.md#supported-scenarios). |
+| Insights | View Backup Reports |  Azure Virtual Machine <br><br>  SQL in Azure Virtual Machine <br><br>  SAP HANA in Azure Virtual Machine <br><br>  Azure Files <br><br>  System Center Data Protection Manager <br><br>  Azure Backup Agent (MARS) <br><br> Azure Backup Server (MABS) <br><br> Azure Blobs <br><br> Azure Disks <br><br> Azure Database for PostgreSQL Server | See [supported scenarios for Backup Reports](./configure-reports.md#supported-scenarios). |
 | Governance | View and assign built-in and custom Azure Policies under category _Backup_. | N/A | N/A |
 | Governance | View datasources not configured for backup |  Azure Virtual Machine <br><br>  Azure Database for PostgreSQL server | N/A |
 
@@ -45,6 +51,7 @@ The following table lists all supported scenarios:
 
 ## Next steps
 
+* [About Backup center](backup-center-overview.md)
 * [Review the support matrix for Azure Backup](./backup-support-matrix.md)
 * [Review the support matrix for Azure VM backup](./backup-support-matrix-iaas.md)
 * [Review the support matrix for Azure Database for PostgreSQL Server backup](backup-azure-database-postgresql-support-matrix.md)

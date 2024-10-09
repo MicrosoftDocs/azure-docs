@@ -1,9 +1,9 @@
 ---
 title: Azure IoT Central application administration guide
-description: Azure IoT Central is an IoT application platform that simplifies the creation of IoT solutions. This guide describes how to administer your IoT Central application. Application administration includes users, organization, security, and automated deployments.
+description: How to administer your IoT Central application. Application administration includes users, organization, security, and automated deployments.
 author: dominicbetts 
 ms.author: dobett 
-ms.date: 11/28/2022
+ms.date: 03/04/2024
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -18,8 +18,8 @@ An IoT Central application lets you monitor and manage your devices, letting you
 
 IoT Central application administration includes the following tasks:
 
-- Create applications
-- Manage security
+- Create applications.
+- Manage security.
 - Configure application settings.
 - Upgrade applications.
 - Export and share applications.
@@ -33,10 +33,10 @@ You use an *application template* to create an application. An application templ
 - Sample dashboards
 - Sample device templates
 - Simulated devices producing real-time data
-- Pre-configured rules and jobs
+- Preconfigured rules and jobs
 - Rich documentation including tutorials and how-tos
 
-You choose the application template when you create your application. You can't change the template an application uses after it's created.
+You choose the application template when you create your application. You can't change the template an application uses after you create it.
 
 ### Custom templates
 
@@ -81,7 +81,7 @@ An administrator can configure file uploads of an IoT Central application that l
 
 An administrator can:
 
-- Create a copy of an application if you just need a duplicate copy of your application. For example, you may need a duplicate copy for testing.
+- Create a copy of an application if you just need a duplicate copy of your application. For example, you might need a duplicate copy for testing.
 - Create an application template from an existing application if you plan to create multiple copies.
 
 To learn more, see [Create and use a custom application template](howto-create-iot-central-application.md#create-and-use-a-custom-application-template).
@@ -100,7 +100,7 @@ An administrator can use IoT Central metrics to assess the health of connected d
 
 To view the metrics, an administrator can use charts in the Azure portal, a REST API, or PowerShell or Azure CLI queries.
 
-To learn more, see [Monitor application health](howto-manage-iot-central-from-portal.md#monitor-application-health).
+To learn more, see [Monitor application health](howto-manage-and-monitor-iot-central.md#monitor-application-health).
 
 ## Monitor connected IoT Edge devices
 
@@ -110,8 +110,8 @@ To learn how to monitor your IoT Edge fleet remotely by using Azure Monitor and 
 
 Many of the tools you use as an administrator are available in the **Security** and **Settings** sections of each IoT Central application. You can also use the following tools to complete some administrative tasks:
 
-- [Azure Command-Line Interface (CLI) or PowerShell](howto-manage-iot-central-from-cli.md)
-- [Azure portal](howto-manage-iot-central-from-portal.md)
+- [Azure Command-Line Interface (CLI) or PowerShell](howto-manage-and-monitor-iot-central.md)
+- [Azure portal](howto-manage-and-monitor-iot-central.md)
 
 ## Next steps
 

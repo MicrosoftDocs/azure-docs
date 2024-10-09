@@ -102,7 +102,7 @@ Use the following code to create a method for computing your HMAC signature.
 ```python
 def compute_signature(string_to_sign, secret):
     decoded_secret = base64.b64decode(secret)
-    encoded_string_to_sign = string_to_sign.encode('ascii')
+    encoded_string_to_sign = string_to_sign.encode('utf-8')
     hashed_bytes = hmac.digest(decoded_secret, encoded_string_to_sign, digest=hashlib.sha256)
     encoded_signature = base64.b64encode(hashed_bytes)
     signature = encoded_signature.decode('utf-8')

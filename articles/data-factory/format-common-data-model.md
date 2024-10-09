@@ -3,11 +3,10 @@ title: Common Data Model format
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Transform data using the Common Data Model metadata system in Azure Data Factory and Synapse Analytics pipelines.
 author: kromerm
-ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/05/2022
+ms.date: 01/05/2024
 ms.author: makromer
 ---
 
@@ -155,6 +154,6 @@ CDMSource sink(allowSchemaDrift: true,
 
 ```
 
-## Next steps
+## Related content
 
 Create a [source transformation](data-flow-source.md) in mapping data flow.

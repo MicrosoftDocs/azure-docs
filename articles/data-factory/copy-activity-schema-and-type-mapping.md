@@ -1,19 +1,18 @@
 ---
-title: Schema and data type mapping in copy activity 
+title: Schema and data type mapping in copy activity
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about how copy activity in Azure Data Factory and Azure Synapse Analytics pipelines map schemas and data types from source data to sink data.
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
-ms.custom: synapse, ignite-2022
+ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/25/2022
+ms.date: 09/25/2024
 ms.author: jianleishen
 ---
 # Schema and data type mapping in copy activity
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article describes how the Azure Data Factory copy activity perform schema mapping and data type mapping from source data to sink data.
+This article describes how the Azure Data Factory copy activity performs schema mapping and data type mapping from source data to sink data.
 
 ## Schema mapping
 
@@ -278,17 +277,17 @@ Copy activity currently supports the following interim data types: Boolean, Byte
 
 The following data type conversions are supported between the interim types from source to sink.
 
-| Source\Sink | Boolean | Byte array | Decimal | Date/Time <small>(1)</small> | Float-point <small>(2)</small> | GUID | Integer <small>(3)</small> | String | TimeSpan |
-| ----------- | ------- | ---------- | ------- | ---------------------------- | ------------------------------ | ---- | -------------------------- | ------ | -------- |
-| Boolean     | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
-| Byte array  |         | ✓          |         |                              |                                |      |                            | ✓      |          |
-| Date/Time   |         |            |         | ✓                            |                                |      |                            | ✓      |          |
-| Decimal     | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
-| Float-point | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
-| GUID        |         |            |         |                              |                                | ✓    |                            | ✓      |          |
-| Integer     | ✓       |            | ✓       |                              | ✓                              |      | ✓                          | ✓      |          |
-| String      | ✓       | ✓          | ✓       | ✓                            | ✓                              | ✓    | ✓                          | ✓      | ✓        |
-| TimeSpan    |         |            |         |                              |                                |      |                            | ✓      | ✓        |
+| Source\Sink | Boolean | Byte array | Date/Time | Decimal | Float-point | GUID | Integer | String | TimeSpan |
+| ----------- | ------- | ---------- | ------------- | ------- | --------------- | ---- | ------------ | ------ | -------- |
+| Boolean     | ✓       |            |               | ✓       |                 |      | ✓            | ✓      |          |
+| Byte array  |         | ✓          |               |         |                 |      |              | ✓      |          |
+| Date/Time   |         |            | ✓             |         |                 |      |              | ✓      |          |
+| Decimal     | ✓       |            |               | ✓       |                 |      | ✓            | ✓      |          |
+| Float-point | ✓       |            |               | ✓       |                 |      | ✓            | ✓      |          |
+| GUID        |         |            |               |         |                 | ✓    |              | ✓      |          |
+| Integer     | ✓       |            |               | ✓       |                 |      | ✓            | ✓      |          |
+| String      | ✓       | ✓          | ✓             | ✓       |                 | ✓    | ✓            | ✓      | ✓        |
+| TimeSpan    |         |            |               |         |                 |      |              | ✓      | ✓        |
 
 (1) Date/Time includes DateTime and DateTimeOffset.
 
@@ -382,7 +381,7 @@ In the following example, the input dataset has a structure, and it points to a 
 }
 ```
 
-In this sample, the output dataset has a structure and it points to a table in Salesfoce.
+In this sample, the output dataset has a structure and it points to a table in Salesforce.
 
 ```json
 {
@@ -518,7 +517,7 @@ Configure the schema-mapping rule as the following copy activity JSON sample:
 }
 ```
 
-## Next steps
+## Related content
 See the other Copy Activity articles:
 
 - [Copy activity overview](copy-activity-overview.md)

@@ -1,10 +1,9 @@
 ---
 title: Variables in Bicep
 description: Describes how to define variables in Bicep
-author: mumian
-ms.author: jgao
 ms.topic: conceptual
-ms.date: 09/28/2022
+ms.custom: devx-track-bicep
+ms.date: 09/25/2024
 ---
 
 # Variables in Bicep
@@ -13,13 +12,14 @@ This article describes how to define and use variables in your Bicep file. You u
 
 Resource Manager resolves variables before starting the deployment operations. Wherever the variable is used in the Bicep file, Resource Manager replaces it with the resolved value.
 
-You are limited to 256 variables in a Bicep file. For more information, see [Template limits](../templates/best-practices.md#template-limits).
+You're limited to 512 variables in a Bicep file. For more information, see [Template limits](../templates/best-practices.md#template-limits).
 
-## Define variable
+## Define variables
 
 The syntax for defining a variable is:
 
 ```bicep
+@<decorator>(<argument>)
 var <variable-name> = <variable-value>
 ```
 
@@ -115,11 +115,53 @@ The output returns an array with the following values:
 
 For more information about the types of loops you can use with variables, see [Iterative loops in Bicep](loops.md).
 
-## Use variable
+## Use decorators
+
+Decorators are written in the format `@expression` and are placed above variable declarations. The following table shows the available decorators for variables.
+
+| Decorator | Argument | Description |
+| --------- | ----------- | ------- |
+| [description](#description) | string | Provide descriptions for the variable. |
+| [export](#export) | none | Indicates that the variable is available for import by another Bicep file. |
+
+Decorators are in the [sys namespace](bicep-functions.md#namespaces-for-functions). If you need to differentiate a decorator from another item with the same name, preface the decorator with `sys`. For example, if your Bicep file includes a variable named `description`, you must add the sys namespace when using the **description** decorator.
+
+### Description
+
+To add explanation, add a description to variable declaration. For example:
+
+```bicep
+@description('Create a unique storage account name.')
+var storageAccountName = uniqueString(resourceGroup().id)
+```
+
+Markdown-formatted text can be used for the description text.
+
+### Export
+
+Use `@export()` to share the variable with other Bicep files. For more information, see [Export variables, types, and functions](./bicep-import.md#export-variables-types-and-functions).
+
+## Use variables
 
 The following example shows how to use the variable for a resource property. You reference the value for the variable by providing the variable's name: `storageName`.
 
-:::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/variables/variableswithfunction.bicep" highlight="4,7,15" :::
+```bicep
+param rgLocation string
+param storageNamePrefix string = 'STG'
+
+var storageName = '${toLower(storageNamePrefix)}${uniqueString(resourceGroup().id)}'
+
+resource demoAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+  name: storageName
+  location: rgLocation
+  kind: 'Storage'
+  sku: {
+    name: 'Standard_LRS'
+  }
+}
+
+output stgOutput string = storageName
+```
 
 Because storage account names must use lowercase letters, the `storageName` variable uses the `toLower` function to make the `storageNamePrefix` value lowercase. The `uniqueString` function creates a unique value from the resource group ID. The values are concatenated to a string.
 
@@ -127,7 +169,27 @@ Because storage account names must use lowercase letters, the `storageName` vari
 
 You can define variables that hold related values for configuring an environment. You define the variable as an object with the values. The following example shows an object that holds values for two environments - **test** and **prod**. Pass in one of these values during deployment.
 
-:::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/variables/variablesconfigurations.bicep":::
+```bicep
+@allowed([
+  'test'
+  'prod'
+])
+param environmentName string
+
+var environmentSettings = {
+  test: {
+    instanceSize: 'Small'
+    instanceCount: 1
+  }
+  prod: {
+    instanceSize: 'Large'
+    instanceCount: 4
+  }
+}
+
+output instanceSize string = environmentSettings[environmentName].instanceSize
+output instanceCount int = environmentSettings[environmentName].instanceCount
+```
 
 ## Next steps
 

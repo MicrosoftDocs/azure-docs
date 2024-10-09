@@ -3,27 +3,29 @@ title: Azure API for FHIR access token validation
 description: Walks through token validation and gives tips on how to troubleshoot access issues
 services: healthcare-apis
 author: expekesheth
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 06/02/2022
+ms.date: 09/27/2023
 ms.author: kesheth
 ---
 # Azure API for FHIR access token validation
 
-How Azure API for FHIR validates the access token will depend on implementation and configuration. In this article, we'll walk through the validation steps, which can be helpful when troubleshooting access issues.
+[!INCLUDE[retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 
-## Validate token has no issues with identity provider
+How Azure API for FHIR&reg; validates the access token depends on implementation and configuration. In this article, we walk through the validation steps, which can be helpful when troubleshooting access issues.
 
-The first step in the token validation is to verify that the token was issued by the correct identity provider and that it hasn't been modified. The FHIR server will be configured to use a specific identity provider known as the authority `Authority`. The FHIR server will retrieve information about the identity provider from the `/.well-known/openid-configuration` endpoint. When you use Azure Active Directory (Azure AD), the full URL is:
+## Validate the token has no issues with identity provider
+
+The first step in the token validation is to verify that the token was issued by the correct identity provider and that it hasn't been modified. The FHIR server is configured to use a specific identity provider known as the authority `Authority`. The FHIR server retrieves information about the identity provider from the `/.well-known/openid-configuration` endpoint. When you use Microsoft Entra ID, the full URL is:
 
 ```
 GET https://login.microsoftonline.com/<TENANT-ID>/.well-known/openid-configuration
 ```
 
-where `<TENANT-ID>` is the specific Azure AD tenant (either a tenant ID or a domain name).
+where `<TENANT-ID>` is the specific Microsoft Entra tenant (either a tenant ID or a domain name).
 
-Azure AD will return a document like this one to the FHIR server.
+Microsoft Entra ID returns a document like the following to the FHIR server.
 
 ```json
 {
@@ -88,33 +90,34 @@ Azure AD will return a document like this one to the FHIR server.
     "msgraph_host": "graph.microsoft.com",
     "rbac_url": "https://pas.windows.net"
 }
-``` 
-The important properties for the FHIR server are `jwks_uri`, which tells the server where to fetch the encryption keys needed to validate the token signature and `issuer`, which tells the server what will be in the issuer claim (`iss`) of tokens issued by this server. The FHIR server can use this to validate that it's receiving an authentic token.
+```
+
+The important properties for the FHIR server are `jwks_uri`, which tells the server where to fetch the encryption keys needed to validate the token signature, and `issuer`, which tells the server what will be in the issuer claim (`iss`) of tokens issued by this server. The FHIR server can use this to validate it's receiving an authentic token.
 
 ## Validate claims of the token
 
-Once the server has verified the authenticity of the token, the FHIR server will then proceed to validate that the client has the required claims to access the token.
+Once the server verifies the authenticity of the token, the FHIR server proceeds to validate that the client has the required claims to access the token.
 
-When you use Azure API for FHIR, the server will validate:
+When you use Azure API for FHIR, the server validates:
 
 1. The token has the right `Audience` (`aud` claim).
 1. The user or principal that the token was issued for is allowed to access the FHIR server data plane. The `oid` claim of the token contains an identity object ID, which uniquely identifies the user or principal.
 
-We recommend that the FHIR service be [configured to use Azure RBAC](configure-azure-rbac.md) to manage data plane role assignments. However, you can also [configure local RBAC](configure-local-rbac.md) if your FHIR service uses an external or secondary Azure AD tenant. 
+We recommend that the FHIR service be [configured to use Azure RBAC](configure-azure-rbac.md) to manage data plane role assignments. However, you can also [configure local RBAC](configure-local-rbac.md) if your FHIR service uses an external or secondary Microsoft Entra tenant. 
 
-When you use the OSS Microsoft FHIR server for Azure, the server will validate:
+When you use the OSS Microsoft FHIR server for Azure, the server validates:
 
 1. The token has the right `Audience` (`aud` claim).
 1. The token has a role in the `roles` claim, which is allowed access to the FHIR server.
 
-Consult details on how to [define roles on the FHIR server](https://github.com/microsoft/fhir-server/blob/master/docs/Roles.md).
+For details on how to [define roles on the FHIR server](https://github.com/microsoft/fhir-server/blob/master/docs/Roles.md).
 
 A FHIR server may also validate that an access token has the scopes (in token claim `scp`) to access the part of the FHIR API that a client is trying to access. Currently, Azure API for FHIR and the FHIR server for Azure don't validate token scopes.
 
 ## Next steps
-Now that you know how to walk through token validation, you can complete the tutorial to create a JavaScript application and read Fast Healthcare Interoperability Resources (FHIR&#174;) data.
+Now that you know how to validate tokens, you can complete the tutorial to create a JavaScript application and read Fast Healthcare Interoperability Resources (FHIR&#174;) data.
 
 >[!div class="nextstepaction"]
 >[Web application tutorial](tutorial-web-app-fhir-server.md)
 
-FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
+[!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]

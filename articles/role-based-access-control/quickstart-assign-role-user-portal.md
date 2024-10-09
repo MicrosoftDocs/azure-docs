@@ -2,22 +2,14 @@
 title: "Tutorial: Grant a user access to Azure resources using the Azure portal - Azure RBAC"
 description: In this tutorial, learn how to grant a user access to Azure resources using the Azure portal and Azure role-based access control (Azure RBAC).
 services: role-based-access-control
-documentationCenter: ''
 author: rolyon
 manager: amycolannino
-editor: ''
-
 ms.service: role-based-access-control
-ms.devlang: ''
 ms.topic: tutorial
-ms.tgt_pltfrm: ''
-ms.workload: identity
 ms.date: 10/15/2021
 ms.author: rolyon
 ms.custom: subject-rbac-steps
-
 #Customer intent: As a new user, I want to see how to grant access to resources in the portal, so that I can start granting access to others.
-
 ---
 
 # Tutorial: Grant a user access to Azure resources using the Azure portal
@@ -34,7 +26,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at https://portal.azure.com.
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create a resource group
 
@@ -71,11 +63,11 @@ In Azure RBAC, to grant access, you assign an Azure role.
 
    If you don't have permissions to assign roles, the Add role assignment option will be disabled.
 
-   ![Access control (IAM) page with Add role assignment menu open.](../../includes/role-based-access-control/media/add-role-assignment-menu-generic.png)
+   ![Access control (IAM) page with Add role assignment menu open.](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-menu-generic.png)
 
 1. On the **Role** tab, select the **Virtual Machine Contributor** role.
 
-    ![Add role assignment page with Role tab selected.](../../includes/role-based-access-control/media/add-role-assignment-role-generic.png)
+    ![Add role assignment page with Role tab selected.](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-role-generic.png)
 
 1. On the **Members** tab, select yourself or another user.
 

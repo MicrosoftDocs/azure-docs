@@ -1,14 +1,11 @@
 ---
 title: Understand Azure role definitions - Azure RBAC
 description: Learn about Azure role definitions in Azure role-based access control (Azure RBAC) for fine-grained access management of Azure resources.
-services: active-directory
-documentationcenter: ''
 author: rolyon
 manager: amycolannino
 ms.service: role-based-access-control
 ms.topic: conceptual
-ms.workload: identity
-ms.date: 08/19/2022
+ms.date: 02/12/2024
 ms.author: rolyon
 ms.custom:
 ---
@@ -20,7 +17,7 @@ If you are trying to understand how an Azure role works or if you are creating y
 
 A *role definition* is a collection of permissions. It's sometimes just called a *role*. A role definition lists the actions that can be performed, such as read, write, and delete. It can also list the actions that are excluded from allowed actions or actions related to underlying data.
 
-The following shows an example of the properties in a role definition when displayed using [Azure PowerShell](role-definitions-list.md#azure-powershell):
+The following shows an example of the properties in a role definition when displayed using [Azure PowerShell](role-definitions-list.yml#azure-powershell):
 
 ```
 Name
@@ -32,13 +29,17 @@ NotActions []
 DataActions []
 NotDataActions []
 AssignableScopes []
+Condition
+ConditionVersion
 ```
 
-The following shows an example of the properties in a role definition when displayed using the [Azure portal](role-definitions-list.md#azure-portal), [Azure CLI](role-definitions-list.md#azure-cli), or the [REST API](role-definitions-list.md#rest-api):
+The following shows an example of the properties in a role definition when displayed using the [Azure CLI](role-definitions-list.yml#azure-cli) or [REST API](role-definitions-list.yml#rest-api):
 
 ```
 roleName
 name
+id
+roleType
 type
 description
 actions []
@@ -46,21 +47,35 @@ notActions []
 dataActions []
 notDataActions []
 assignableScopes []
+condition
+conditionVersion
+createdOn
+updatedOn
+createdBy
+updatedBy
 ```
 
 The following table describes what the role properties mean.
 
 | Property | Description |
 | --- | --- |
-| `Name`</br>`roleName` | The display name of the role. |
-| `Id`</br>`name` | The unique ID of the role. Built-in roles have the same role ID across clouds. |
-| `IsCustom`</br>`roleType` | Indicates whether this is a custom role. Set to `true` or `CustomRole` for custom roles. Set to `false` or `BuiltInRole` for built-in roles. |
-| `Description`</br>`description` | The description of the role. |
-| `Actions`</br>`actions` | An array of strings that specifies the control plane actions that the role allows to be performed. |
-| `NotActions`</br>`notActions` | An array of strings that specifies the control plane actions that are excluded from the allowed `Actions`. |
-| `DataActions`</br>`dataActions` | An array of strings that specifies the data plane actions that the role allows to be performed to your data within that object. |
-| `NotDataActions`</br>`notDataActions` | An array of strings that specifies the data plane actions that are excluded from the allowed `DataActions`. |
-| `AssignableScopes`</br>`assignableScopes` | An array of strings that specifies the scopes that the role is available for assignment. |
+| `Name`</br>`roleName` | Display name of the role. |
+| `Id`</br>`name` | Unique ID of the role. Built-in roles have the same role ID across clouds. |
+| `id` | Fully qualified unique ID of the role. Even if the role is renamed, the role ID does not change. It's a best practice to use the role ID in your scripts. |
+| `IsCustom`</br>`roleType` | Indicates whether this role is a custom role. Set to `true` or `CustomRole` for custom roles. Set to `false` or `BuiltInRole` for built-in roles. |
+| `type` | Type of object. Set to `Microsoft.Authorization/roleDefinitions`.  |
+| `Description`</br>`description` | Description of the role. |
+| `Actions`</br>`actions` | Array of strings that specifies the control plane actions that the role allows to be performed. |
+| `NotActions`</br>`notActions` | Array of strings that specifies the control plane actions that are excluded from the allowed `Actions`. |
+| `DataActions`</br>`dataActions` | Array of strings that specifies the data plane actions that the role allows to be performed to your data within that object. |
+| `NotDataActions`</br>`notDataActions` | Array of strings that specifies the data plane actions that are excluded from the allowed `DataActions`. |
+| `AssignableScopes`</br>`assignableScopes` | Array of strings that specifies the scopes that the role is available for assignment. |
+| `Condition`<br/>`condition` | For built-in roles, condition statement based on one or more actions in role definition. |
+| `ConditionVersion`<br/>`conditionVersion` | Condition version number. Defaults to 2.0 and is the only supported version. |
+| `createdOn` | Date and time role was created. |
+| `updatedOn` | Date and time role was last updated. |
+| `createdBy` | For custom roles, principal that created role. |
+| `updatedBy` | For custom roles, principal that updated role. |
 
 ### Actions format
 
@@ -82,14 +97,14 @@ The `{action}` portion of an action string specifies the type of actions you can
 
 Here's the [Contributor](built-in-roles.md#contributor) role definition as displayed in Azure PowerShell and Azure CLI. The wildcard (`*`) actions under `Actions` indicates that the principal assigned to this role can perform all actions, or in other words, it can manage everything. This includes actions defined in the future, as Azure adds new resource types. The actions under `NotActions` are subtracted from `Actions`. In the case of the [Contributor](built-in-roles.md#contributor) role, `NotActions` removes this role's ability to manage access to resources and also manage Azure Blueprints assignments.
 
-Contributor role as displayed in [Azure PowerShell](role-definitions-list.md#azure-powershell):
+Contributor role as displayed in [Azure PowerShell](role-definitions-list.yml#azure-powershell):
 
 ```json
 {
   "Name": "Contributor",
   "Id": "b24988ac-6180-42a0-ab88-20f7382dd24c",
   "IsCustom": false,
-  "Description": "Lets you manage everything except access to resources.",
+  "Description": "Grants full access to manage all resources, but does not allow you to assign roles in Azure RBAC, manage assignments in Azure Blueprints, or share image galleries.",
   "Actions": [
     "*"
   ],
@@ -98,46 +113,62 @@ Contributor role as displayed in [Azure PowerShell](role-definitions-list.md#azu
     "Microsoft.Authorization/*/Write",
     "Microsoft.Authorization/elevateAccess/Action",
     "Microsoft.Blueprint/blueprintAssignments/write",
-    "Microsoft.Blueprint/blueprintAssignments/delete"
+    "Microsoft.Blueprint/blueprintAssignments/delete",
+    "Microsoft.Compute/galleries/share/action",
+    "Microsoft.Purview/consents/write",
+    "Microsoft.Purview/consents/delete"
   ],
   "DataActions": [],
   "NotDataActions": [],
   "AssignableScopes": [
     "/"
-  ]
+  ],
+  "Condition": null,
+  "ConditionVersion": null
 }
 ```
 
-Contributor role as displayed in [Azure CLI](role-definitions-list.md#azure-cli):
+Contributor role as displayed in [Azure CLI](role-definitions-list.yml#azure-cli):
 
 ```json
-{
-  "assignableScopes": [
-    "/"
-  ],
-  "description": "Lets you manage everything except access to resources.",
-  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c",
-  "name": "b24988ac-6180-42a0-ab88-20f7382dd24c",
-  "permissions": [
-    {
-      "actions": [
-        "*"
-      ],
-      "notActions": [
-        "Microsoft.Authorization/*/Delete",
-        "Microsoft.Authorization/*/Write",
-        "Microsoft.Authorization/elevateAccess/Action",
-        "Microsoft.Blueprint/blueprintAssignments/write",
-        "Microsoft.Blueprint/blueprintAssignments/delete"
-      ],
-      "dataActions": [],
-      "notDataActions": []
-    }
-  ],
-  "roleName": "Contributor",
-  "roleType": "BuiltInRole",
-  "type": "Microsoft.Authorization/roleDefinitions"
-}
+[
+  {
+    "assignableScopes": [
+      "/"
+    ],
+    "createdBy": null,
+    "createdOn": "2015-02-02T21:55:09.880642+00:00",
+    "description": "Grants full access to manage all resources, but does not allow you to assign roles in Azure RBAC, manage assignments in Azure Blueprints, or share image galleries.",
+    "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c",
+    "name": "b24988ac-6180-42a0-ab88-20f7382dd24c",
+    "permissions": [
+      {
+        "actions": [
+          "*"
+        ],
+        "condition": null,
+        "conditionVersion": null,
+        "dataActions": [],
+        "notActions": [
+          "Microsoft.Authorization/*/Delete",
+          "Microsoft.Authorization/*/Write",
+          "Microsoft.Authorization/elevateAccess/Action",
+          "Microsoft.Blueprint/blueprintAssignments/write",
+          "Microsoft.Blueprint/blueprintAssignments/delete",
+          "Microsoft.Compute/galleries/share/action",
+          "Microsoft.Purview/consents/write",
+          "Microsoft.Purview/consents/delete"
+        ],
+        "notDataActions": []
+      }
+    ],
+    "roleName": "Contributor",
+    "roleType": "BuiltInRole",
+    "type": "Microsoft.Authorization/roleDefinitions",
+    "updatedBy": null,
+    "updatedOn": "2023-07-10T15:10:53.947865+00:00"
+  }
+]
 ```
 
 ## Control and data actions
@@ -148,7 +179,7 @@ Role-based access control for control plane actions is specified in the `Actions
 - Create, update, or delete a blob container
 - Delete a resource group and all of its resources
 
-Control plane access is not inherited to your data plane provided that the container authentication method is set to "Azure AD User Account" and not "Access Key". This separation prevents roles with wildcards (`*`) from having unrestricted access to your data. For example, if a user has a [Reader](built-in-roles.md#reader) role on a subscription, then they can view the storage account, but by default they can't view the underlying data.
+Control plane access is not inherited to your data plane provided that the container authentication method is set to **Microsoft Entra User Account** and not **Access Key**. This separation prevents roles with wildcards (`*`) from having unrestricted access to your data. For example, if a user has a [Reader](built-in-roles.md#reader) role on a subscription, then they can view the storage account, but by default they can't view the underlying data.
 
 Previously, role-based access control was not used for data actions. Authorization for data actions varied across resource providers. The same role-based access control authorization model used for control plane actions has been extended to data plane actions.
 
@@ -179,37 +210,47 @@ Storage Blob Data Reader role as displayed in Azure PowerShell:
   "NotDataActions": [],
   "AssignableScopes": [
     "/"
-  ]
+  ],
+  "Condition": null,
+  "ConditionVersion": null
 }
 ```
 
 Storage Blob Data Reader role as displayed in Azure CLI:
 
 ```json
-{
-  "assignableScopes": [
-    "/"
-  ],
-  "description": "Allows for read access to Azure Storage blob containers and data",
-  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/2a2b9908-6ea1-4ae2-8e65-a410df84e7d1",
-  "name": "2a2b9908-6ea1-4ae2-8e65-a410df84e7d1",
-  "permissions": [
-    {
-      "actions": [
-        "Microsoft.Storage/storageAccounts/blobServices/containers/read",
-        "Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action"
-      ],
-      "notActions": [],
-      "dataActions": [
-        "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read"
-      ],
-      "notDataActions": []
-    }
-  ],
-  "roleName": "Storage Blob Data Reader",
-  "roleType": "BuiltInRole",
-  "type": "Microsoft.Authorization/roleDefinitions"
-}
+[
+  {
+    "assignableScopes": [
+      "/"
+    ],
+    "createdBy": null,
+    "createdOn": "2017-12-21T00:01:24.797231+00:00",
+    "description": "Allows for read access to Azure Storage blob containers and data",
+    "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/2a2b9908-6ea1-4ae2-8e65-a410df84e7d1",
+    "name": "2a2b9908-6ea1-4ae2-8e65-a410df84e7d1",
+    "permissions": [
+      {
+        "actions": [
+          "Microsoft.Storage/storageAccounts/blobServices/containers/read",
+          "Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey/action"
+        ],
+        "condition": null,
+        "conditionVersion": null,
+        "dataActions": [
+          "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read"
+        ],
+        "notActions": [],
+        "notDataActions": []
+      }
+    ],
+    "roleName": "Storage Blob Data Reader",
+    "roleType": "BuiltInRole",
+    "type": "Microsoft.Authorization/roleDefinitions",
+    "updatedBy": null,
+    "updatedOn": "2021-11-11T20:13:55.297507+00:00"
+  }
+]
 ```
 
 Only data plane actions can be added to the `DataActions` and `NotDataActions` properties. Resource providers identify which actions are data actions, by setting the `isDataAction` property to `true`. To see a list of the actions where `isDataAction` is `true`, see [Resource provider operations](resource-provider-operations.md). Roles that do not have data actions are not required to have `DataActions` and `NotDataActions` properties within the role definition.
@@ -239,8 +280,9 @@ Storage Blob Data Contributor
 &nbsp;&nbsp;&nbsp;&nbsp;DataActions<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read`<br>
+&nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write`<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/move/action`<br>
-&nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write`
+&nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action`
 
 Since Alice has a wildcard (`*`) action at a subscription scope, their permissions inherit down to enable them to perform all control plane actions. Alice can read, write, and delete containers. However, Alice cannot perform data plane actions without taking additional steps. For example, by default, Alice cannot read the blobs inside a container. To read the blobs, Alice would have to retrieve the storage access keys and use them to access the blobs.
 
@@ -254,7 +296,7 @@ To view and work with data actions, you must have the correct versions of the to
 
 | Tool  | Version  |
 |---------|---------|
-| [Azure PowerShell](/powershell/azure/install-az-ps) | 1.1.0 or later |
+| [Azure PowerShell](/powershell/azure/install-azure-powershell) | 1.1.0 or later |
 | [Azure CLI](/cli/azure/install-azure-cli) | 2.0.30 or later |
 | [Azure for .NET](/dotnet/azure/) | 2.8.0-preview or later |
 | [Azure SDK for Go](/azure/go/azure-sdk-go-install) | 15.0.0 or later |
@@ -353,11 +395,28 @@ Examples of valid assignable scopes include:
 > | Management group and a subscription | `"/providers/Microsoft.Management/managementGroups/{groupId1}", "/subscriptions/{subscriptionId1}",` |
 > | All scopes (applies only to built-in roles) | `"/"` |
 
-You can define only one management group in `AssignableScopes` of a custom role. Adding a management group to `AssignableScopes` is currently in preview.
+You can define only one management group in `AssignableScopes` of a custom role.
 
-Although it's possible to create a custom role with a resource instance in `AssignableScopes` using the command line, it's not recommended. Each tenant supports a maximum of 5000 custom roles. Using this strategy could potentially exhaust your available custom roles. Ultimately, the level of access is determined by the custom role assignment (scope + role permissions + security principal) and not the `AssignableScopes` listed in the custom role. So, create your custom roles with `AssignableScopes` of management group, subscription, or resource group, but assign the custom roles with narrow scope, such as resource or resource group.
+Although it's possible to create a custom role with a resource instance in `AssignableScopes` using the command line, it's not recommended. Each tenant supports a maximum of 5,000 custom roles. Using this strategy could potentially exhaust your available custom roles. Ultimately, the level of access is determined by the custom role assignment (scope + role permissions + security principal) and not the `AssignableScopes` listed in the custom role. So, create your custom roles with `AssignableScopes` of management group, subscription, or resource group, but assign the custom roles with narrow scope, such as resource or resource group.
 
 For more information about `AssignableScopes` for custom roles, see [Azure custom roles](custom-roles.md).
+
+## Privileged administrator role definition
+
+Privileged administrator roles are roles that grant privileged administrator access, such as the ability to manage Azure resources or assign roles to other users. If a built-in or custom role includes any of the following actions, it is considered privileged. For more information, see [List or manage privileged administrator role assignments](./role-assignments-list-portal.yml#list-or-manage-privileged-administrator-role-assignments).
+
+> [!div class="mx-tableFixed"]
+> | Action string | Description |
+> | --- | --- |
+> | `*` | Create and manage resources of all types. |
+> | `*/delete` | Delete resources of all types. |
+> | `*/write` | Write resources of all types. |
+> | `Microsoft.Authorization/denyAssignments/delete` | Delete a deny assignment at the specified scope. |
+> | `Microsoft.Authorization/denyAssignments/write` | Create a deny assignment at the specified scope. |
+> | `Microsoft.Authorization/roleAssignments/delete` | Delete a role assignment at the specified scope. |
+> | `Microsoft.Authorization/roleAssignments/write` | Create a role assignment at the specified scope. |
+> | `Microsoft.Authorization/roleDefinitions/delete` | Delete the specified custom role definition. |
+> | `Microsoft.Authorization/roleDefinitions/write` | Create or update a custom role definition with specified permissions and assignable scopes. |
 
 ## Next steps
 

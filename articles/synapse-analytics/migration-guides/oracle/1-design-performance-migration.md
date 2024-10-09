@@ -1,15 +1,13 @@
 ---
 title: "Design and performance for Oracle migrations"
 description: Learn how Oracle and Azure Synapse SQL databases differ in their approach to high query performance on exceptionally large data volumes.
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.custom:
-ms.devlang:
 ms.topic: conceptual
 author: ajagadish-24
 ms.author: ajagadish
 ms.reviewer: wiassaf
-ms.date: 08/11/2022
+ms.date: 02/13/2023
 ---
 
 # Design and performance for Oracle migrations
@@ -162,7 +160,7 @@ Microsoft recommends moving your existing data model as-is to Azure and using th
 
 You can automate and orchestrate the migration process by using the capabilities of the Azure environment. This approach minimizes the performance hit on the existing Oracle environment, which may already be running close to capacity.
 
-The [SQL Server Migration Assistant](/sql/ssma/oracle/sql-server-migration-assistant-for-oracle-oracletosql) (SSMA) for Oracle can automate many parts of the migration process, including in some cases functions and procedural code. SSMA supports Azure Synapse as a target environment.
+The [SQL Server Migration Assistant (SSMA)](/sql/ssma/oracle/sql-server-migration-assistant-for-oracle-oracletosql) for Oracle can automate many parts of the migration process, including in some cases functions and procedural code. SSMA supports Azure Synapse as a target environment.
 
 :::image type="content" source="../media/1-design-performance-migration/oracle-sql-server-migration-assistant-1.png" border="true" alt-text="Screenshot showing how SQL Server Migration Assistant for Oracle can automate many parts of the migration process." lightbox="../media/1-design-performance-migration/oracle-sql-server-migration-assistant-1-lrg.png":::
 
@@ -172,7 +170,7 @@ SSMA for Oracle can help you migrate an Oracle data warehouse or data mart to Az
 
 Data Factory can be used to migrate data at source to Azure SQL target. This offline data movement helps to reduce migration downtime significantly.
 
-[Azure Database Migration Services](../../../dms/dms-overview.md) can help you plan and perform a migration from environments like Oracle.
+[Azure Database Migration Services](/azure/dms/dms-overview) can help you plan and perform a migration from environments like Oracle.
 
 When you're planning to use Azure facilities to manage the migration process, create metadata that lists all the data tables to be migrated and their location.
 
@@ -234,9 +232,12 @@ Oracle-specific features can often be replaced by Azure Synapse features. Howeve
 
   - **Clustered columnstore indexes**: when no index options are specified for a table, Azure Synapse by default creates a clustered [columnstore index](/sql/relational-databases/indexes/columnstore-indexes-design-guidance). Clustered columnstore tables offer the highest level of data compression, best overall query performance, and generally outperform clustered index or heap tables. A clustered columnstore index is usually the best choice for large tables. When you [create a table](/sql/t-sql/statements/create-table-azure-sql-data-warehouse), choose clustered columnstore if you're unsure how to index your table. However, there are some scenarios where clustered columnstore indexes aren't the best option:
 
+    - Tables with pre-sort data on a sort key(s) could benefit from the segment elimination enabled by *ordered* clustered columnstore indexes.
     - Tables with varchar(max), nvarchar(max), or varbinary(max) data types, because a clustered columnstore index doesn't support those data types. Instead, consider using a heap or clustered index.
     - Tables with transient data, because columnstore tables might be less efficient than heap or temporary tables.
     - Small tables with less than 100 million rows. Instead, consider using heap tables.
+    
+  - **Ordered clustered columnstore indexes**: By enabling efficient segment elimination, ordered clustered columnstore indexes in Azure Synapse dedicated SQL pools provide much faster performance by skipping large amounts of ordered data that don't match the query predicate. Loading data into an ordered CCI table can take longer than a non-ordered CCI table because of the data sorting operation, however queries can run faster afterwards with ordered CCI. For more information on ordered clustered columnstore indexes, see [Performance tuning with ordered clustered columnstore index](../../sql-data-warehouse/performance-tuning-ordered-cci.md).
 
   - **Clustered and nonclustered indexes**: clustered indexes can outperform clustered columnstore indexes when a single row needs to be quickly retrieved. For queries where a single row lookup, or just a few row lookups, must perform at extreme speed, consider using a cluster index or nonclustered secondary index. The disadvantage of using a clustered index is that only queries with a highly selective filter on the clustered index column will benefit. To improve filtering on other columns, you can add a nonclustered index to the other columns. However, each index that you add to a table uses more space and increases the processing time to load.
   
@@ -258,7 +259,7 @@ Oracle-specific features can often be replaced by Azure Synapse features. Howeve
 
   - A system event, such as startup or shutdown of the Oracle database.
 
-  - A user event, such as sign in or sign out.
+  - A user event, such as sign-in or signout.
 
   You can get a list of the triggers defined in an Oracle database by querying the `ALL_TRIGGERS`, `DBA_TRIGGERS`, or `USER_TRIGGERS` views. The following screenshot shows a `DBA_TRIGGERS` query in Oracle SQL Developer.
 
@@ -297,7 +298,7 @@ Most Oracle data types have a direct equivalent in Azure Synapse. The following 
 | LONG RAW | Not supported. Map to VARBINARY(MAX). |
 | NCHAR | NCHAR |
 | NVARCHAR2 | NVARCHAR |
-| NUMBER | NUMBER |
+| NUMBER | FLOAT |
 | NCLOB | Not directly supported. Replace with NVARCHAR(MAX). |
 | NUMERIC | NUMERIC |
 | ORD media data types | Not supported |
@@ -463,7 +464,7 @@ You can only use one field per table for partitioning. That field is frequently 
 
 - Data retrieval from all files within a folder and subfolders.
 - Data retrieval from multiple locations in the same storage account. You can specify multiple locations by using comma separated paths.
-- [Azure Data Lake Storage](../../../storage/blobs/data-lake-storage-introduction.md) (ADLS) and Azure Blob Storage.
+- [Azure Data Lake Storage (ADLS)](../../../storage/blobs/data-lake-storage-introduction.md) and Azure Blob Storage.
 - CSV, PARQUET, and ORC file formats.
 
 >[!TIP]

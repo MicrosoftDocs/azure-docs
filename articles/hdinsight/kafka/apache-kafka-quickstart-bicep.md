@@ -3,10 +3,10 @@ title: 'Quickstart: Apache Kafka using Bicep - HDInsight'
 description: In this quickstart, you learn how to create an Apache Kafka cluster on Azure HDInsight using Bicep. You also learn about Kafka topics, subscribers, and consumers.
 author: yeturis
 ms.author: sairamyeturi
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: quickstart
-ms.custom: subject-armqs, mode-arm
-ms.date: 07/20/2022
+ms.custom: subject-armqs, mode-arm, devx-track-bicep
+ms.date: 09/06/2024
 #Customer intent: I need to create a Kafka cluster so that I can use it to process streaming data
 ---
 
@@ -14,7 +14,7 @@ ms.date: 07/20/2022
 
 In this quickstart, you use a Bicep to create an [Apache Kafka](./apache-kafka-introduction.md) cluster in Azure HDInsight. Kafka is an open-source, distributed streaming platform. It's often used as a message broker, as it provides functionality similar to a publish-subscribe message queue.
 
-[!INCLUDE [About Bicep](../../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 The Kafka API can only be accessed by resources inside the same virtual network. In this quickstart, you access the cluster directly using SSH. To connect other services, networks, or virtual machines to Kafka, you must first create a virtual network and then create the resources within the network. For more information, see the [Connect to Apache Kafka using a virtual network](apache-kafka-connect-vpn-gateway.md) document.
 
@@ -168,7 +168,7 @@ Kafka stores streams of data in *topics*. You can use the `kafka-topics.sh` util
 
         In regions with three fault domains, a replication factor of 3 allows replicas to be spread across the fault domains. In regions with two fault domains, a replication factor of four spreads the replicas evenly across the domains.
 
-        For information on the number of fault domains in a region, see the [Availability of Linux virtual machines](../../virtual-machines/availability.md) document.
+        For information on the number of fault domains in a region, see the [Availability of Linux virtual machines](/azure/virtual-machines/availability) document.
 
         Kafka isn't aware of Azure fault domains. When creating partition replicas for topics, it may not distribute replicas properly for high availability.
 

@@ -1,13 +1,10 @@
 ---
  title: include file
- description: include file
- services: event-grid
  author: spelluru
- ms.service: event-grid
+ ms.service: azure-service-bus
  ms.topic: include
  ms.date: 12/08/2022
  ms.author: spelluru
- ms.custom: include file
 ---
 
 ## Available event types
@@ -16,8 +13,8 @@ Service Bus emits the following event types:
 
 | Event type | Description |
 | ---------- | ----------- |
-| `Microsoft.ServiceBus.ActiveMessagesAvailableWithNoListeners` | Raised when there are active messages in a queue or subscription and no receivers listening. |
-| `Microsoft.ServiceBus.DeadletterMessagesAvailableWithNoListeners` | Raised when there are active messages in a dead letter queue and no active listeners. |
+| `Microsoft.ServiceBus.ActiveMessagesAvailableWithNoListeners` | Raised when a new active message arrives in a queue or subscription and there are no receivers listening. |
+| `Microsoft.ServiceBus.DeadletterMessagesAvailableWithNoListeners` | Raised when a new active messages arrives in a dead letter queue and there are no active listeners. |
 | `Microsoft.ServiceBus.ActiveMessagesAvailablePeriodicNotifications` | Raised every 30 seconds if there are active messages in a queue or subscription, even if there are active listeners on that specific queue or subscription. It's also raised when the active message count transitions from 0 to a positive value for the queue or subscription. |
 | `Microsoft.ServiceBus.DeadletterMessagesAvailablePeriodicNotifications` | Raised every 30 seconds if there are messages in the dead-letter entity of a queue or subscription, even if there are active listeners on the dead-letter entity of that specific queue or subscription. It's also raised when the dead-letter message count transitions from 0 to a positive value for the dead-letter entity of the queue or subscription. | 
 

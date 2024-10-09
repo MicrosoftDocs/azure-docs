@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 09/01/2022
+ms.date: 01/04/2024
 ---
 
 # Handle content types in Azure Logic Apps
@@ -118,8 +118,7 @@ reference and use those properties more easily in your logic app's workflow.
      }
      ```
 
-  3. In your request, make sure you include a `Content-Type` header 
-  and set the header's value to `application/json`.
+  3. In the HTTP request that your client app sends to Azure Logic Apps, make sure that you include a header named **Content-Type**, and set the header's value to **application/json**.
 
 * **Parse JSON action**
 

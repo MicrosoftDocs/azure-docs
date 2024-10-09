@@ -2,9 +2,8 @@
 title: Troubleshoot pipeline orchestration and triggers in Azure Data Factory
 description: Use different methods to troubleshoot pipeline trigger issues in Azure Data Factory. 
 author: ssabat
-ms.service: data-factory
-ms.date: 08/18/2022
-ms.subservice: troubleshooting
+ms.date: 10/03/2024
+ms.subservice: orchestration
 ms.topic: troubleshooting
 ms.author: susabat
 ms.reviewer: susabat
@@ -22,11 +21,11 @@ Pipeline runs are typically instantiated by passing arguments to parameters that
 
 ### An Azure Functions app pipeline throws an error with private endpoint connectivity
  
-You have Data Factory and a function app running on a private endpoint in Azure. You're trying to run a pipeline that interacts with the function app. You've tried three different methods, but one returns error "Bad Request," and the other two methods return "103 Error Forbidden."
+You have a data factory and a function app running on a private endpoint in Azure. You're trying to run a pipeline that interacts with the function app. You've tried three different methods, but one returns error "Bad Request," and the other two methods return "103 Error Forbidden."
 
 **Cause**
 
-Data Factory currently doesn't support a private endpoint connector for function apps. Azure Functions rejects calls because it's configured to allow only connections from a private link.
+Azure Data Factory currently doesn't support a private endpoint connector for function apps. Azure Functions rejects calls because it's configured to allow only connections from a private link.
 
 **Resolution**
 
@@ -46,7 +45,7 @@ Refresh the browser and apply the correct monitoring filters.
  
  **Cause**
  
-If a folder you're copying contains files with different schemas, such as variable number of columns, different delimiters, quote char settings, or some data issue, the Data Factory pipeline might throw this error:
+If a folder you're copying contains files with different schemas, such as variable number of columns, different delimiters, quote char settings, or some data issue, the pipeline might throw this error:
 
 `
 Operation on target Copy_sks  failed: Failure happened on 'Sink' side.
@@ -58,7 +57,7 @@ Source=Microsoft.DataTransfer.Common,'
 
 **Resolution**
 
-Select the **Binary Copy** option while creating the Copy activity. This way, for bulk copies or migrating your data from one data lake to another, Data Factory won't open the files to read the schema. Instead, Data Factory will treat each file as binary and copy it to the other location.
+Select the **Binary Copy** option while creating the Copy activity. This way, for bulk copies or migrating your data from one data lake to another, Data Factory won't open the files to read the schema. Instead, Azure Data Factory treats each file as binary and copies it to the other location.
 
 ### A pipeline run fails when you reach the capacity limit of the integration runtime for data flow
 
@@ -72,14 +71,14 @@ Type=Microsoft.DataTransfer.Execution.Core.ExecutionException,Message=There are 
 
 **Cause**
 
-You've reached the integration runtime's capacity limit. You might be running a large amount of data flow by using the same integration runtime at the same time. See [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#version-2) for details.
+You've reached the integration runtime's capacity limit. You might be running a large amount of data flow by using the same integration runtime at the same time. See [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-data-factory-limits) for details.
 
 **Resolution**
  
 - Run your pipelines at different trigger times.
 - Create a new integration runtime, and split your pipelines across multiple integration runtimes.
 
-### A pipeline run error while invoking REST api in a Web activity
+### A pipeline run error while invoking REST API in a Web activity
 
 **Issue**
 
@@ -91,11 +90,11 @@ Operation on target Cancel failed: {“error”:{“code”:”AuthorizationFail
 
 **Cause**
 
-Pipelines may use the Web activity to call ADF REST API methods if and only if the Azure Data Factory member is assigned the Contributor role. You must first configure and  add the Azure Data Factory managed identity to the Contributor security role. 
+Pipelines can use the Web activity to call ADF REST API methods if and only if the Azure Data Factory member is assigned the Contributor role. You must first configure and  add the Azure Data Factory managed identity to the Contributor security role. 
 
 **Resolution**
 
-Before using the Azure Data Factory’s REST API in a Web activity’s Settings tab, security must be configured. Azure Data Factory pipelines may use the Web activity to call ADF REST API methods if and only if the Azure Data Factory managed identity is assigned the *Contributor*  role. Begin by opening the Azure portal and clicking the **All resources** link on the left menu. Select **Azure Data Factory**  to add ADF managed identity with Contributor role by clicking the **Add** button in the *Add a role assignment* box.
+Before you use the Azure Data Factory’s REST API in a Web activity’s Settings tab, security must be configured. Azure Data Factory pipelines can use the Web activity to call ADF REST API methods if and only if the Azure Data Factory managed identity is assigned the *Contributor*  role. Begin by opening the Azure portal and clicking the **All resources** link on the left menu. Select **Azure Data Factory**  to add ADF managed identity with Contributor role by clicking the **Add** button in the *Add a role assignment* box.
 
 
 ### How to check and branch on activity-level success and failure in pipelines
@@ -116,7 +115,7 @@ Azure Data Factory evaluates the outcome of all leaf-level activities. Pipeline 
 
 **Cause**
 
-You might need to monitor failed Data Factory pipelines in intervals, say 5 minutes. You can query and filter the pipeline runs from a data factory by using the endpoint. 
+You might need to monitor failed Azure Data Factory pipelines in intervals, say 5 minutes. You can query and filter the pipeline runs from a data factory by using the endpoint.
 
 **Resolution**
 * You can set up an Azure logic app to query all of the failed pipelines every 5 minutes, as described in [Query By Factory](/rest/api/datafactory/pipelineruns/querybyfactory). Then, you can report incidents to your ticketing system.
@@ -124,25 +123,25 @@ You might need to monitor failed Data Factory pipelines in intervals, say 5 minu
 * You can rerun activities if you had canceled activity or had a failure as per  [Rerun from activity failures.](monitor-visually.md#rerun-from-failed-activity)
 * [Visually Monitor Pipeline](monitor-visually.md)
 
-### Degree of parallelism  increase does not result in higher throughput
+### Degree of parallelism  increase doesn't result in higher throughput
 
 **Cause** 
 
-The degree of parallelism in *ForEach* is actually max degree of parallelism. We cannot guarantee a specific number of executions happening at the same time, but this parameter will guarantee that we never go above the value that was set. You should see this as a limit, to be leveraged when controlling concurrent access to your sources and sinks.
+The degree of parallelism in *ForEach* is the max degree of parallelism. We can't guarantee a specific number of executions happening at the same time, but this parameter guarantees that we never go above the value that was set. You should see this as a limit, to be applied when controlling concurrent access to your sources and sinks.
 
 Known Facts about *ForEach*
  * Foreach has a property called batch count(n) where default value is 20 and the max is 50.
  * The batch count, n, is used to construct n queues. 
  * Every queue runs sequentially, but you can have several queues running in parallel.
- * The queues are pre-created. This means there is no rebalancing of the queues during the runtime.
+ * The queues are precreated. This means there's no rebalancing of the queues during the runtime.
  * At any time, you have at most one item being process per queue. This means at most n items being processed at any given time.
  * The foreach total processing time is equal to the processing time of the longest queue. This means that the foreach activity depends on how the queues are constructed.
  
 **Resolution**
 
- * You should not use *SetVariable* activity inside *For Each* that runs in parallel.
- * Taking in consideration the way the queues are constructed, customer can improve the foreach performance by setting multiples of *foreach* where each *foreach* will have items with similar processing time. 
- * This will ensure that long runs are processed in parallel rather sequentially.
+ * You shouldn't use *SetVariable* activity inside *For Each* that runs in parallel.
+ * Taking in consideration the way the queues are constructed, customer can improve the foreach performance by setting multiples of *foreach* where each *foreach* has items with similar processing time. 
+ * This ensures that long runs are processed in parallel rather sequentially.
 
  ### Pipeline status is queued or stuck for a long time
  
@@ -153,9 +152,9 @@ Known Facts about *ForEach*
  **Resolution**
  
 * **Concurrency Limit:**  If your pipeline has a concurrency policy, verify that there are no old pipeline runs in progress. 
-* **Monitoring limits**: Go to the ADF authoring canvas, select your pipeline, and determine if it has a concurrency property  assigned to it. If it does, go to the Monitoring view, and make sure there's nothing in the past 45 days that's in progress. If there is something in progress, you can cancel it and the new pipeline run should  start.
+* **Monitoring limits**: Go to the authoring canvas, select your pipeline, and determine if it has a concurrency property  assigned to it. If it does, go to the Monitoring view, and make sure there's nothing in the past 45 days that's in progress. If there's something in progress, you can cancel it and the new pipeline run should  start.
 
-* **Transient  Issues:** It is possible that your run was impacted by a transient network issue, credential failures, services outages etc.  If this happens, Azure Data Factory has an internal recovery process that monitors all the runs and starts them when it notices something went wrong. You can rerun pipelines and activities as described [here.](monitor-visually.md#rerun-pipelines-and-activities). You can rerun activities if you had canceled activity or had a failure as per [Rerun from activity failures.](monitor-visually.md#rerun-from-failed-activity) This process happens every one  hour, so if your run is stuck for more than an hour, create a support case.
+* **Transient  Issues:** It's possible that your run was impacted by a transient network issue, credential failures, services outages etc.  If this happens, Azure Data Factory has an internal recovery process that monitors all the runs and starts them when it notices something went wrong. You can rerun pipelines and activities as described [here.](monitor-visually.md#rerun-pipelines-and-activities). You can rerun activities if you had canceled activity or had a failure as per [Rerun from activity failures.](monitor-visually.md#rerun-from-failed-activity) This process happens every one  hour, so if your run is stuck for more than an hour, create a support case.
 
 
  
@@ -163,18 +162,18 @@ Known Facts about *ForEach*
 
 **Cause**
 
-This can happen if you have not implemented time to live feature for Data Flow or optimized SHIR.
+This can happen if you haven't implemented time to live feature for Data Flow or optimized SHIR.
 
 **Resolution**
 
-* If each copy activity is taking up to 2 minutes to start, and the problem occurs primarily on a VNet join (vs. Azure IR), this can be a copy performance issue. To review troubleshooting steps, go to [Copy Performance Improvement.](copy-activity-performance-troubleshooting.md)
-* You can use time to live feature to decrease cluster start-up time for data flow activities. Please review [Data Flow Integration Runtime.](control-flow-execute-data-flow-activity.md#data-flow-integration-runtime)
+* If each copy activity is taking up to 2 minutes to start, and the problem occurs primarily on a virtual network join (vs. Azure IR), this can be a copy performance issue. To review troubleshooting steps, go to [Copy Performance Improvement.](copy-activity-performance-troubleshooting.md)
+* You can use time to live feature to decrease cluster start-up time for data flow activities. Review [Data Flow Integration Runtime.](control-flow-execute-data-flow-activity.md#data-flow-integration-runtime)
 
  ### Hitting capacity issues in SHIR(Self-Hosted Integration Runtime)
  
  **Cause**
  
-This can happen if you have not scaled up SHIR as per your workload.
+This can happen if you haven't scaled up SHIR as per your workload.
 
 **Resolution**
 
@@ -192,31 +191,31 @@ Long queue-related error messages can appear for various reasons.
 * If you receive an error message about other activities, such as Databricks, custom activities, or HDI, which can generate a long queue, go to [Activity Troubleshooting Guide.](data-factory-troubleshoot-guide.md)
 * If you receive an error message about running SSIS packages, which can generate a long queue, go to the [Azure-SSIS Package Execution Troubleshooting Guide](ssis-integration-runtime-ssis-activity-faq.md) and [Integration Runtime Management Troubleshooting Guide.](ssis-integration-runtime-management-troubleshoot.md)
 
-### Error message - "code":"BadRequest", "message":"null"
+### Error message - "code":"BadRequest", "message":"Null"
 
 **Cause**
 
-It is a user error because JSON payload that hits management.azure.com is corrupt. No logs will be stored because user call did not reach ADF service layer.
+It's a user error because JSON payload that hits management.azure.com is corrupt. No logs are stored because user call didn't reach ADF service layer.
 
 **Resolution**
 
-Perform network tracing of your API call from ADF portal using Edge/Chrome browser **Developer tools**. You will see offending JSON payload, which could be due to a special character(for example $), spaces and other types of user input. Once you fix the string expression, you will proceed with rest of  ADF usage calls in the browser.
+Perform network tracing of your API call from ADF portal using Microsoft Edge/Chrome browser **Developer tools**. You'll see offending JSON payload, which could be due to a special character (for example, ```$```), spaces, and other types of user input. Once you fix the string expression, you'll proceed with rest of  ADF usage calls in the browser.
 
-### ForEach activities do not run in parallel mode
+### ForEach activities don't run in parallel mode
 
 **Cause**
 
-You are running ADF in debug mode.
+You're running ADF in debug mode.
 
 **Resolution**
 
 Execute the pipeline in trigger mode.
 
-### Cannot publish because account is locked
+### Can't publish because account is locked
 
 **Cause**
 
-You made changes in collaboration branch to remove storage event trigger. You are trying to publish and encounter `Trigger deactivation error` message.
+You made changes in collaboration branch to remove storage event trigger. You're trying to publish and encounter `Trigger deactivation error` message.
 
 **Resolution**
 
@@ -252,7 +251,7 @@ You have not optimized mapping data flow.
 **Resolution**
 
 * Use memory optimized compute when dealing with large amount of data and transformations.
-* Reduce the batch size in case of a for each activity.
+* Reduce the batch size in case of a For Each activity.
 * Scale up your databases and warehouses to match the performance of your ADF. 
 * Use a separate IR(integration runtime) for activities running in parallel.
 * Adjust the partitions at the source and sink accordingly. 
@@ -269,12 +268,12 @@ Failure type is user configuration issue. String of parameters, instead of Array
 Input  **execute pipeline**  activity for pipeline parameter  as  *@createArray('a','b')* for example, if you want to pass parameters 'a' and 'b'. If you want to pass numbers, for example, use *@createArray(1,2,3)*.  Use createArray function to force parameters being passed as an array.
 
 
-## Next steps
+## Related content
 
 For more troubleshooting help, try these resources:
 
-*  [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-*  [Data Factory feature requests](/answers/topics/azure-data-factory.html)
+*  [Azure Data Factory blog](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/bg-p/AzureDataFactoryBlog)
+*  [Azure Data Factory feature requests](/answers/topics/azure-data-factory.html)
 *  [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Microsoft Q&A question page](/answers/topics/azure-data-factory.html)
-*  [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)
+*  [X information about Azure Data Factory](https://x.com/hashtag/DataFactory)

@@ -3,11 +3,10 @@ title: Mapping data flows
 description: An overview of mapping data flows in Azure Data Factory
 author: kromerm
 ms.author: makromer
-ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 01/11/2023
+ms.date: 09/25/2024
 ---
 
 # Mapping data flows in Azure Data Factory
@@ -35,7 +34,7 @@ Mapping data flow has a unique authoring canvas designed to make building transf
 
 ### Graph
 
-The graph displays the transformation stream. It shows the lineage of source data as it flows into one or more sinks. To add a new source, select **Add source**. To add a new transformation, select the plus sign on the lower right of an existing transformation. Learn more on how to [manage the data flow graph](concepts-data-flow-manage-graph.md).
+The graph displays the transformation stream. It shows the lineage of source data as it flows into one or more sinks. Sinks can be any data source destinations where you want to move the results of your transformed data. To add a new source, select **Add source**. To add a new transformation, select the plus sign on the lower right of an existing transformation. Learn more on how to [manage the data flow graph](concepts-data-flow-manage-graph.md).
 
 :::image type="content" source="media/data-flow/canvas-2.png" alt-text="Screenshot shows the graph part of the canvas with a Search text box.":::
 
@@ -61,7 +60,7 @@ The **Inspect** tab provides a view into the metadata of the data stream that yo
 
 :::image type="content" source="media/data-flow/inspect1.png" alt-text="Inspect":::
 
-As you change the shape of your data through transformations, you'll see the metadata changes flow in the **Inspect** pane. If there isn't a defined schema in your source transformation, then metadata won't be visible in the **Inspect** pane. Lack of metadata is common in schema drift scenarios.
+As you change the shape of your data through transformations, you can see the metadata changes flow in the **Inspect** pane. If there isn't a defined schema in your source transformation, then metadata isn't visible in the **Inspect** pane. Lack of metadata is common in schema drift scenarios.
 
 #### Data preview
 
@@ -97,7 +96,7 @@ Mapping data flows are operationalized within ADF pipelines using the [data flow
 
 ## Debug mode
 
-Debug mode allows you to interactively see the results of each transformation step while you build and debug your data flows. The debug session can be used both in when building your data flow logic and running pipeline debug runs with data flow activities. To learn more, see the [debug mode documentation](concepts-data-flow-debug-mode.md).
+Debug mode allows you to interactively see the results of each transformation step while you build and debug your data flows. The debug session can be used both when building your data flow logic and when running pipeline debug runs with data flow activities. To learn more, see the [debug mode documentation](concepts-data-flow-debug-mode.md).
 
 ## Monitoring data flows
 
@@ -105,69 +104,7 @@ Mapping data flow integrates with existing Azure Data Factory monitoring capabil
 
 The Azure Data Factory team has created a [performance tuning guide](concepts-data-flow-performance.md) to help you optimize the execution time of your data flows after building your business logic.
 
-
-## Available regions
-
-Mapping data flows are available in the following regions in ADF:
-
-| Azure region | Data flows in ADF |
-| ------------ | ----------------- |
-| Australia Central | |
-| Australia Central 2 | |
-| Australia East | ✓ |
-| Australia Southeast	| ✓ |
-| Brazil South	| ✓ |
-| Canada Central | ✓ |
-| Central India	| ✓ |
-| Central US	| ✓ |
-| China East |		|
-| China East 2	|	|
-| China Non-Regional | |
-| China North | ✓ |
-| China North 2	| ✓ |
-| East Asia	| ✓ |
-| East US	| ✓ |
-| East US 2	| ✓ |
-| France Central | ✓ |
-| France South	| |
-| Germany Central (Sovereign) | |
-| Germany Non-Regional (Sovereign) | |
-| Germany North (Public) | |
-| Germany Northeast (Sovereign) | |
-| Germany West Central (Public) | ✓ |
-| Japan East | ✓ |
-| Japan West | ✓	|
-| Korea Central	| ✓ |
-| Korea South | |
-| North Central US	| ✓ |
-| North Europe	| ✓ |
-| Norway East | ✓ |
-| Norway West | |
-| South Africa North	| ✓ |
-| South Africa West	|  |
-| South Central US	| |
-| South India | ✓ |
-| Southeast Asia	| ✓ |
-| Switzerland North	| ✓ |
-| Switzerland West | |
-| UAE Central | |
-| UAE North	| ✓ |
-| UK South	| ✓ |
-| UK West |		|
-| US DoD Central | |
-| US DoD East | |
-| US Gov Arizona | ✓ |
-| US Gov Non-Regional | |
-| US Gov Texas | |
-| US Gov Virginia | ✓ |
-| West Central US |		|
-| West Europe	| ✓ |
-| West India | ✓ |
-| West US	| ✓ |
-| West US 2	| ✓ |
-| West US 3	| ✓ |
-
-## Next steps
+## Related content
 
 * Learn how to create a [source transformation](data-flow-source.md).
 * Learn how to build your data flows in [debug mode](concepts-data-flow-debug-mode.md).

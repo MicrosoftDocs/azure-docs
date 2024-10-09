@@ -1,12 +1,14 @@
 ---
-title: 'Call Grafana APIs programmatically with Azure Managed Grafana'
+title: Call Grafana APIs programmatically
 titleSuffix: Azure Managed Grafana
-description: Learn how to call Grafana APIs programmatically with Azure Active Directory and an Azure service principal
+description: Learn how to call Grafana APIs programmatically with Microsoft Entra ID and an Azure service principal
+#customerintent: As a user of Azure Managed Grafana, I want to learn how I can get an access to token and call Grafana APIs.
 author: maud-lv 
 ms.author: malev 
-ms.service: managed-grafana 
+ms.service: azure-managed-grafana
 ms.topic: tutorial
-ms.date: 08/11/2022 
+ms.date: 04/12/2024
+ms.custom: engagement-fy23
 ---
 
 # Tutorial: Call Grafana APIs programmatically
@@ -21,9 +23,9 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
-* An Azure Managed Grafana workspace. [Create an Azure Managed Grafana instance](./quickstart-managed-grafana-portal.md).
-* An Azure Active Directory (Azure AD) application with a service principal. [Create an Azure AD application and service principal](../active-directory/develop/howto-create-service-principal-portal.md). For simplicity, use an application located in the same Azure AD tenant as your Managed Grafana instance.
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
+- An Azure Managed Grafana workspace. [Create an Azure Managed Grafana instance](./quickstart-managed-grafana-portal.md).
+- A Microsoft Entra application with a service principal. [Create a Microsoft Entra application and service principal](../active-directory/develop/howto-create-service-principal-portal.md). For simplicity, use an application located in the same Microsoft Entra tenant as your Azure Managed Grafana instance.
 
 ## Sign in to Azure
 
@@ -46,22 +48,22 @@ Sign in to the Azure portal at [https://portal.azure.com/](https://portal.azure.
 You now need to gather some information, which you'll use to get a Grafana API access token, and call Grafana APIs.
 
 1. Find your tenant ID:
-   1. In the Azure portal, enter *Azure Active Directory* in the **Search resources, services, and docs (G+ /)**.
-   1. Select **Azure Active Directory**.
+   1. In the Azure portal, enter *Microsoft Entra ID* in the **Search resources, services, and docs (G+ /)**.
+   1. Select **Microsoft Entra ID**.
    1. Select **Properties** from the left menu.
    1. Locate the field **Tenant ID** and save its value.
 
     :::image type="content" source="./media/tutorial-api/tenant-id.png" alt-text="Screenshot of the Azure portal, getting tenant ID.":::
 
 1. Find your client ID:
-   1. In the Azure portal, in Azure Active Directory, select **App registrations** from the left menu.
+   1. In the Azure portal, in Microsoft Entra ID, select **App registrations** from the left menu.
    1. Select your app.
    1. In **Overview**, find the **Application (client) ID** field and save its value.
 
     :::image type="content" source="./media/tutorial-api/client-id.png" alt-text="Screenshot of the Azure portal, getting client ID.":::
   
 1. Create an application secret:
-   1. In the Azure portal, in Azure Active Directory, select **App registrations** from the left menu.
+   1. In the Azure portal, in Microsoft Entra ID, select **App registrations** from the left menu.
    1. Select your app.
    1. Select **Certificates & secrets** from the left menu.
    1. Select **New client secret**.
@@ -72,7 +74,7 @@ You now need to gather some information, which you'll use to get a Grafana API a
     > [!NOTE]
     > You can only access a secret's value immediately after creating it. Copy the value before leaving the page to use it in the next step of this tutorial.
 
-1. Find your Grafana endpoint URL:
+1. Find the Grafana endpoint URL:
 
    1. In the Azure portal, enter *Azure Managed Grafana* in the **Search resources, services, and docs (G+ /)** bar.
    1. Select **Azure Managed Grafana** and open your Managed Grafana workspace.
@@ -82,7 +84,34 @@ You now need to gather some information, which you'll use to get a Grafana API a
 
 ## Get an access token
 
-To access Grafana APIs, you need to get an access token. Follow the example below to call Azure AD and retrieve a token. Replace `<tenant-id>`, `<client-id>`, and `<client-secret>` with the tenant ID, application (client) ID, and client secret collected in the previous step.
+To access Grafana APIs, you need to get an access token. You can get the access token using the Azure CLI or making a POST request.
+
+### [Azure CLI](#tab/azure-cli)
+
+Sign in to the Azure CLI by running the [az login](/cli/azure/reference-index#az-login) command and replace `<client-id>`, `<client-secret>`, and `<tenant-id>` with the application (client) ID, client secret, and tenant ID collected in the previous step:
+
+```
+az login --service-principal --username "<client-id>" --password "<client-secret>" --tenant "<tenant-id>"
+```
+
+Use the command [az grafana api-key create](/cli/azure/grafana/api-key#az-grafana-api-key-create) to create a key. Here's an example output:
+
+```
+az grafana api-key create --key keyname --name <name> --resource-group <rg> --role editor --output json
+
+{
+  "id": 3,
+  "key": "<redacted>",
+  "name": "keyname"
+}
+```
+
+> [!NOTE] 
+> You can only view this key here once. Save it in a secure place.
+
+### [POST request](#tab/post)
+
+Follow the example below to call Microsoft Entra ID and retrieve a token. Replace `<tenant-id>`, `<client-id>`, and `<client-secret>` with the tenant ID, application (client) ID, and client secret collected in the previous step.
 
 ```bash
 curl -X POST -H 'Content-Type: application/x-www-form-urlencoded' \
@@ -103,6 +132,8 @@ Here's an example of response:
   "access_token": "eyJ0eXAiOiJ......AARUQ"
 }
 ```
+
+---
 
 ## Call Grafana APIs
 
@@ -125,8 +156,8 @@ If you're not going to continue to use these resources, delete them with the fol
    1. Select **Delete**.
    1. Enter the resource name to confirm deletion and select **Delete**.
 
-1. Delete the Azure AD application:
-   1. In the Azure portal, in Azure Active Directory, select **App registrations** from the left menu.
+1. Delete the Microsoft Entra application:
+   1. In the Azure portal, in Microsoft Entra ID, select **App registrations** from the left menu.
    1. Select your app.
    1. In the **Overview** tab, select **Delete**.
    1. Select **Delete**.

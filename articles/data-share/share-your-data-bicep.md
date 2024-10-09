@@ -3,17 +3,17 @@ title: 'Share outside your org (Bicep) - Azure Data Share quickstart'
 description: Learn how to share data with customers and partners using Azure Data Share and Bicep.
 author: sidontha 
 ms.author: sidontha 
-ms.service: data-share
+ms.service: azure-data-share
 ms.topic: quickstart
-ms.date: 10/27/2022
-ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
+ms.date: 12/19/2023
+ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ---
 
 # Quickstart: Share data using Azure Data Share and Bicep
 
 Learn how to set up a new Azure Data Share from an Azure storage account using Bicep, and start sharing your data with customers and partners outside of your Azure organization. For a list of the supported data stores, see [Supported data stores in Azure Data Share](./supported-data-stores.md).
 
-[!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites
 

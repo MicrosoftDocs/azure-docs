@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: overview
-ms.date: 08/20/2022
+ms.date: 01/04/2024
 ---
 
 # B2B enterprise integration workflows with Azure Logic Apps and Enterprise Integration Pack
@@ -53,7 +53,7 @@ Although organizations use different protocols and formats for B2B communication
 
 * To create, manage, and deploy logic app resources, you can use the Azure portal, [Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md), [Visual Studio](quickstart-create-logic-apps-with-visual-studio.md), or [PowerShell](/powershell/module/az.logicapp).
 
-After you create an integration account and add your artifacts, you can start building B2B workflows by creating a logic app resource. If you're new to logic apps, try [creating an example basic logic app workflow](quickstart-create-first-logic-app-workflow.md).
+After you create an integration account and add your artifacts, you can start building B2B workflows by creating a logic app resource.
 
 > [!IMPORTANT]
 > If you use the **Logic App (Consumption)** resource type, you have to link your integration account 
@@ -80,4 +80,4 @@ To try this [sample](https://github.com/Azure/azure-quickstart-templates/tree/ma
 * [Create agreements](logic-apps-enterprise-integration-agreements.md)
 * [Add schemas](logic-apps-enterprise-integration-schemas.md)
 * [Add maps](logic-apps-enterprise-integration-maps.md)
-* [Migrate from BizTalk Services](logic-apps-move-from-mabs.md)
+* [Migrate from BizTalk Server](biztalk-server-to-azure-integration-services-overview.md)

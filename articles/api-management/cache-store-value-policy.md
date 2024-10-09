@@ -4,13 +4,16 @@ description: Reference for the cache-store-value policy available for use in Azu
 services: api-management
 author: dlepow
 
-ms.service: api-management
-ms.topic: reference
-ms.date: 12/07/2022
+ms.service: azure-api-management
+ms.topic: article
+ms.date: 07/23/2024
 ms.author: danlep
 ---
 
 # Store value in cache
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 The `cache-store-value` performs cache storage by key. The key can have an arbitrary string value and is typically provided using a policy expression.
 
 > [!NOTE]
@@ -31,17 +34,17 @@ The `cache-store-value` performs cache storage by key. The key can have an arbit
 
 | Attribute         | Description                                            | Required | Default |
 |---|--|--|--|
-| caching-type | Choose between the following values of the attribute:<br />- `internal` to use the [built-in API Management cache](api-management-howto-cache.md),<br />- `external` to use the external cache as described in [Use an external Azure Cache for Redis in Azure API Management](api-management-howto-cache-external.md),<br />- `prefer-external` to use external cache if configured or internal cache otherwise. | No       | `prefer-external` |
-| duration         | Value will be cached for the provided duration value, specified in seconds.                                                                                                                                                                                                                                                                                 | Yes      | N/A               |
-| key              | Cache key the value will be stored under.                                                                                                                                                                                                                                                                                                                   | Yes      | N/A               |
-| value            | The value to be cached.                                                                                                                                                                                                                                                                                                                                     | Yes      | N/A               |
+| caching-type | Choose between the following values of the attribute:<br />- `internal` to use the [built-in API Management cache](api-management-howto-cache.md),<br />- `external` to use the external cache as described in [Use an external Azure Cache for Redis in Azure API Management](api-management-howto-cache-external.md),<br />- `prefer-external` to use external cache if configured or internal cache otherwise.<br/><br/>Policy expressions aren't allowed.| No       | `prefer-external` |
+| duration         | Value will be cached for the provided duration value, specified in seconds. Policy expressions are allowed.                                                                                                                                                                                                                                                                                 | Yes      | N/A               |
+| key              | Cache key the value will be stored under. Policy expressions are allowed.                                                                                                                                                                                                                                                                                                                  | Yes      | N/A               |
+| value            | The value to be cached. Policy expressions are allowed.                                                                                                                                                                                                                                                                                                                                    | Yes      | N/A               |
 
 ## Usage
 
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, backend, on-error
-- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
+- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 
 ## Example
 
@@ -55,6 +58,6 @@ For more information and examples of this policy, see [Custom caching in Azure A
 
 ## Related policies
 
-* [API Management caching policies](api-management-caching-policies.md)
+* [Caching](api-management-policies.md#caching)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

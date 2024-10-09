@@ -2,13 +2,12 @@
 title: If Condition activity
 titleSuffix: Azure Data Factory & Azure Synapse
 description: The If Condition activity allows you to control the processing flow based on a condition in an Azure Data Factory or Synapse Analytics pipeline.
-author: chez-charlie
-ms.author: chez
+author: kromerm
+ms.author: makromer
 ms.reviewer: jburchel
-ms.service: data-factory
 ms.subservice: orchestration
 ms.topic: conceptual
-ms.date: 10/26/2022
+ms.date: 09/25/2024
 ms.custom: devx-track-azurepowershell, synapse
 ---
 
@@ -250,7 +249,7 @@ The pipeline sets the **folderPath** to the value of either **outputPath1** or *
 
 ### PowerShell commands
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 These commands assume that you have saved the JSON files into the folder: C:\ADF. 
 
@@ -293,7 +292,7 @@ Write-Host "\nActivity 'Error' section:" -foregroundcolor "Yellow"
 $result.Error -join "`r`n"
 ```
 
-## Next steps
+## Related content
 See other supported control flow activities: 
 
 - [Execute Pipeline Activity](control-flow-execute-pipeline-activity.md)

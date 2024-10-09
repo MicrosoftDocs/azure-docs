@@ -1,46 +1,37 @@
 ---
-title: Quickstart - Add volume indicator to your Web calling app
+ms.author: chengyuanlai
+title: Quickstart - Get audio stream volume in your calling app
 titleSuffix: An Azure Communication Services quickstart
-description: In this quickstart, you'll learn how to check call volume within your Web app when using Azure Communication Services.
+description: In this quickstart, you'll learn how to check call volume within your Calling app when using Azure Communication Services.
 author: sloanster
-
-ms.author: micahvivion
-ms.date: 1/18/2023
+services: azure-communication-services
+ms.date: 03/26/2024
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
+zone_pivot_groups: acs-plat-web-ios-android-windows
 ms.custom: mode-other
 ---
 
-# Accessing call volume level
-As a developer you can have control over checking microphone volume in JavaScript. This quickstart shows examples of how to accomplish this within the ACS WebJS.
+# Quickstart: Access call volume level in your calling app
 
-## Prerequisites
-[!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
+::: zone pivot="platform-windows"
+[!INCLUDE [Access call volume level with Windows](./includes/volume-indicator/volume-indicator-windows.md)]
+::: zone-end
 
->[!IMPORTANT]
-> The quick start examples here are available starting on the public preview version [1.9.1-beta.1](https://www.npmjs.com/package/@azure/communication-calling/v/1.9.1-beta.1) of the calling Web SDK. Make sure to use that SDK version or newer when trying this quickstart.
+::: zone pivot="platform-android"
+[!INCLUDE [Access call volume level with Android](./includes/volume-indicator/volume-indicator-android.md)]
+::: zone-end
 
-## Checking the audio stream volume
-As a developer it can be nice to have the ability to check and display to end users the current local microphone volume or the incoming microphone level. ACS calling API exposes this information using `getVolume`. The `getVolume` value is a number ranging from 0 to 100 (with 0 noting zero audio detected, 100 as the max level detectable). This value is sampled every 200 ms to get near real time value of volume level.
+::: zone pivot="platform-ios"
+[!INCLUDE [Access call volume level with iOS](./includes/volume-indicator/volume-indicator-ios.md)]
+::: zone-end
 
-### Example usage
-This example shows how to generate the volume level by accessing `getVolume` of the local audio stream and of the remote incoming audio stream.
+::: zone pivot="platform-web"
+[!INCLUDE [Access call volume level with JavaScript](./includes/volume-indicator/volume-indicator-javascript.md)]
+::: zone-end
+## Next steps
 
-```javascript
-//Get the volume of the local audio source
-const volumeIndicator = await new SDK.LocalAudioStream(deviceManager.selectedMicrophone).getVolume();
-volumeIndicator.on('levelChanged', ()=>{
-    console.log(`Volume is ${volumeIndicator.level}`)
-})
+For more information, see the following article:
 
-//Get the volume level of the remote incoming audio source
-const remoteAudioStream = call.remoteAudioStreams[0];
-const volumeIndicator = await remoteAudioStream.getVolume();
-volumeIndicator.on('levelChanged', ()=>{
-    console.log(`Volume is ${volumeIndicator.level}`)
-})
-```
-
-For a more detailed code sample on how to create a UI display to show the local and current incominng audio level please see [here](https://github.com/Azure-Samples/communication-services-web-calling-tutorial/blob/2a3548dd4446fa2e06f5f5b2c2096174500397c9/Project/src/MakeCall/VolumeVisualizer.js).
-
+- Learn more about [Calling SDK capabilities](./getting-started-with-calling.md)

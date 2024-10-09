@@ -1,28 +1,25 @@
 ---
-title: Analyze data with Azure Machine Learning 
+title: Analyze data with Azure Machine Learning
 description: Use Azure Machine Learning to build a predictive machine learning model based on data stored in Azure Synapse.
-author: mlee3gsd 
-manager: craigg
-ms.service: synapse-analytics
-ms.topic: conceptual
-ms.subservice: machine-learning 
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 ms.date: 07/15/2020
-ms.author: martinle
-ms.reviewer: wiassaf
-ms.custom: seo-lt-2019
+ms.service: azure-synapse-analytics
+ms.subservice: machine-learning
+ms.topic: conceptual
 tag: azure-Synapse
 ---
 
 # Analyze data with Azure Machine Learning
 
-This tutorial uses [Azure Machine Learning designer](../../machine-learning/concept-designer.md) to build a predictive machine learning model. The model is based on the data stored in Azure Synapse. The scenario for the tutorial is to predict if a customer is likely to buy a bike or not so Adventure Works, the bike shop, can build a targeted marketing campaign.
+This tutorial uses [Azure Machine Learning designer](/azure/machine-learning/concept-designer) to build a predictive machine learning model. The model is based on the data stored in Azure Synapse. The scenario for the tutorial is to predict if a customer is likely to buy a bike or not so Adventure Works, the bike shop, can build a targeted marketing campaign.
 
 ## Prerequisites
 
 To step through this tutorial, you need:
 
 * a SQL pool pre-loaded with AdventureWorksDW sample data. To provision this SQL Pool, see [Create a SQL pool](create-data-warehouse-portal.md) and choose to load the sample data. If you already have a data warehouse but don't have sample data, you can [load sample data manually](./load-data-from-azure-blob-storage-using-copy.md).
-* an Azure Machine learning workspace. Follow [this tutorial](../../machine-learning/how-to-manage-workspace.md) to create a new one.
+* an Azure Machine learning workspace. Follow [this tutorial](/azure/machine-learning/how-to-manage-workspace) to create a new one.
 
 ## Get the data
 
@@ -48,7 +45,7 @@ SELECT [CustomerKey]
 FROM [dbo].[vTargetMail]
 ```
 
-Once the data is available in Azure Data Lake Storage, Datastores in Azure Machine Learning is used to [connect to Azure storage services](../../machine-learning/how-to-access-data.md). Follow the steps below to create a Datastore and a corresponding Dataset:
+Once the data is available in Azure Data Lake Storage, Datastores in Azure Machine Learning is used to [connect to Azure storage services](/azure/machine-learning/how-to-access-data). Follow the steps below to create a Datastore and a corresponding Dataset:
 
 1. Launch Azure Machine Learning studio either from Azure portal or sign in at [Azure Machine Learning studio](https://ml.azure.com/).
 
@@ -149,10 +146,10 @@ You'll see two more columns added to your test dataset.
 * Scored Probabilities: the likelihood that a customer is a bike buyer.
 * Scored Labels: the classification done by the model – bike buyer (1) or not (0). This probability threshold for labeling is set to 50% and can be adjusted.
 
-Compare the column BikeBuyer (actual) with the Scored Labels (prediction), to see how well the model has performed. Next, you can use this model to make predictions for new customers. You can [publish this model as a web service](../../machine-learning/tutorial-designer-automobile-price-deploy.md) or write results back to Azure Synapse.
+Compare the column BikeBuyer (actual) with the Scored Labels (prediction), to see how well the model has performed. Next, you can use this model to make predictions for new customers. You can [publish this model as a web service](/azure/machine-learning/tutorial-designer-automobile-price-deploy) or write results back to Azure Synapse.
 
 ## Next steps
 
-To learn more about Azure Machine Learning, refer to [Introduction to Machine Learning on Azure](../../machine-learning/overview-what-is-azure-machine-learning.md).
+To learn more about Azure Machine Learning, refer to [Introduction to Machine Learning on Azure](/azure/machine-learning/overview-what-is-azure-machine-learning).
 
 Learn about built-in scoring in the data warehouse, [here](/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest&preserve-view=true).

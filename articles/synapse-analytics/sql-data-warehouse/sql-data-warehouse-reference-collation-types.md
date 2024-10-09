@@ -1,105 +1,29 @@
 ---
 title: Data warehouse collation types
 description: Collation types supported for dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics.
-ms.service: synapse-analytics
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: whhender, kecona
+ms.date: 01/22/2024
+ms.service: azure-synapse-analytics
 ms.subservice: sql
 ms.topic: conceptual
-ms.date: 12/04/2019
-author: WilliamDAssafMSFT 
-ms.author: wiassaf
-ms.reviewer: sngun
-ms.custom: seo-lt-2019, azure-synapse
+ms.custom:
+  - azure-synapse
 ---
 
-# Database collation support for dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics 
+# Database collation support for dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics
 
 You can change the default database collation from the Azure portal when you create a new dedicated SQL pool (formerly SQL DW). This capability makes it even easier to create a new database using one of the 3800 supported database collations.
 
-Collations provide the locale, code page, sort order and character sensitivity rules for character-based data types. Once chosen, all columns and expressions requiring collation information inherit the chosen collation from the database setting. The default inheritance can be overridden by explicitly stating a different collation for a character-based data type.
+This article applies to dedicated SQL pools (formerly SQL DW), for more information on dedicated SQL pools in Azure Synapse workspaces, see [Collation types supported for Synapse SQL](../sql/reference-collation-types.md).
+
+Collations provide the locale, code page, sort order, and character sensitivity rules for character-based data types. Once chosen, all columns and expressions requiring collation information inherit the chosen collation from the database setting. The default inheritance can be overridden by explicitly stating a different collation for a character-based data type.
 
 > [!NOTE]
 > In Azure Synapse Analytics, query text (including variables, constants, etc.) is always handled using the database-level collation, and not the server-level collation as in other SQL Server offerings.
 
-## Changing collation
-
-To change the default collation, update to the Collation field in the provisioning experience.
-
-For example, if you wanted to change the default collation to case sensitive, you would simply rename the Collation from SQL_Latin1_General_CP1_CI_AS to SQL_Latin1_General_CP1_CS_AS.
-
-## List of unsupported collation types
-
-* Japanese_Bushu_Kakusu_140_BIN
-* Japanese_Bushu_Kakusu_140_BIN2
-* Japanese_Bushu_Kakusu_140_CI_AI_VSS
-* Japanese_Bushu_Kakusu_140_CI_AI_WS_VSS
-* Japanese_Bushu_Kakusu_140_CI_AI_KS_VSS
-* Japanese_Bushu_Kakusu_140_CI_AI_KS_WS_VSS
-* Japanese_Bushu_Kakusu_140_CI_AS_VSS
-* Japanese_Bushu_Kakusu_140_CI_AS_WS_VSS
-* Japanese_Bushu_Kakusu_140_CI_AS_KS_VSS
-* Japanese_Bushu_Kakusu_140_CI_AS_KS_WS_VSS
-* Japanese_Bushu_Kakusu_140_CS_AI_VSS
-* Japanese_Bushu_Kakusu_140_CS_AI_WS_VSS
-* Japanese_Bushu_Kakusu_140_CS_AI_KS_VSS
-* Japanese_Bushu_Kakusu_140_CS_AI_KS_WS_VSS
-* Japanese_Bushu_Kakusu_140_CS_AS_VSS
-* Japanese_Bushu_Kakusu_140_CS_AS_WS_VSS
-* Japanese_Bushu_Kakusu_140_CS_AS_KS_VSS
-* Japanese_Bushu_Kakusu_140_CS_AS_KS_WS_VSS
-* Japanese_Bushu_Kakusu_140_CI_AI
-* Japanese_Bushu_Kakusu_140_CI_AI_WS
-* Japanese_Bushu_Kakusu_140_CI_AI_KS
-* Japanese_Bushu_Kakusu_140_CI_AI_KS_WS
-* Japanese_Bushu_Kakusu_140_CI_AS
-* Japanese_Bushu_Kakusu_140_CI_AS_WS
-* Japanese_Bushu_Kakusu_140_CI_AS_KS
-* Japanese_Bushu_Kakusu_140_CI_AS_KS_WS
-* Japanese_Bushu_Kakusu_140_CS_AI
-* Japanese_Bushu_Kakusu_140_CS_AI_WS
-* Japanese_Bushu_Kakusu_140_CS_AI_KS
-* Japanese_Bushu_Kakusu_140_CS_AI_KS_WS
-* Japanese_Bushu_Kakusu_140_CS_AS
-* Japanese_Bushu_Kakusu_140_CS_AS_WS
-* Japanese_Bushu_Kakusu_140_CS_AS_KS
-* Japanese_Bushu_Kakusu_140_CS_AS_KS_WS
-* Japanese_XJIS_140_BIN
-* Japanese_XJIS_140_BIN2
-* Japanese_XJIS_140_CI_AI_VSS
-* Japanese_XJIS_140_CI_AI_WS_VSS
-* Japanese_XJIS_140_CI_AI_KS_VSS
-* Japanese_XJIS_140_CI_AI_KS_WS_VSS
-* Japanese_XJIS_140_CI_AS_VSS
-* Japanese_XJIS_140_CI_AS_WS_VSS
-* Japanese_XJIS_140_CI_AS_KS_VSS
-* Japanese_XJIS_140_CI_AS_KS_WS_VSS
-* Japanese_XJIS_140_CS_AI_VSS
-* Japanese_XJIS_140_CS_AI_WS_VSS
-* Japanese_XJIS_140_CS_AI_KS_VSS
-* Japanese_XJIS_140_CS_AI_KS_WS_VSS
-* Japanese_XJIS_140_CS_AS_VSS
-* Japanese_XJIS_140_CS_AS_WS_VSS
-* Japanese_XJIS_140_CS_AS_KS_VSS
-* Japanese_XJIS_140_CS_AS_KS_WS_VSS
-* Japanese_XJIS_140_CI_AI
-* Japanese_XJIS_140_CI_AI_WS
-* Japanese_XJIS_140_CI_AI_KS
-* Japanese_XJIS_140_CI_AI_KS_WS
-* Japanese_XJIS_140_CI_AS
-* Japanese_XJIS_140_CI_AS_WS
-* Japanese_XJIS_140_CI_AS_KS
-* Japanese_XJIS_140_CI_AS_KS_WS
-* Japanese_XJIS_140_CS_AI
-* Japanese_XJIS_140_CS_AI_WS
-* Japanese_XJIS_140_CS_AI_KS
-* Japanese_XJIS_140_CS_AI_KS_WS
-* Japanese_XJIS_140_CS_AS
-* Japanese_XJIS_140_CS_AS_WS
-* Japanese_XJIS_140_CS_AS_KS
-* Japanese_XJIS_140_CS_AS_KS_WS
-* SQL_EBCDIC1141_CP1_CS_AS
-* SQL_EBCDIC277_2_CP1_CS_AS
-
-## Checking the current collation
+## <a id="checking-the-current-collation"></a> Check the current collation
 
 To check the current collation for the database, you can run the following T-SQL snippet:
 
@@ -107,4 +31,31 @@ To check the current collation for the database, you can run the following T-SQL
 SELECT DATABASEPROPERTYEX(DB_NAME(), 'Collation') AS Collation;
 ```
 
-When passed 'Collation' as the property parameter, the DatabasePropertyEx function returns the current collation for the database specified. For more information, see [DatabasePropertyEx](/sql/t-sql/functions/databasepropertyex-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+When passed `'Collation'` as the property parameter, the `DatabasePropertyEx` function returns the current collation for the database specified. For more information, see [DATABASEPROPERTYEX](/sql/t-sql/functions/databasepropertyex-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
+
+## <a id="changing-collation"></a> Choose collation
+
+To change the default collation, update the **Collation** field in the provisioning experience during the SQL pool creation. For example, if you want to change the default collation to be case-sensitive, modify the collation from `SQL_Latin1_General_CP1_CI_AS` to `SQL_Latin1_General_CP1_CS_AS` within the portal provisioning experience. Alternatively, you can modify the collation within your ARM template.
+
+> [!NOTE]
+> Collation cannot be changed on an existing database. If you need to have a different collation at the SQL pool level, create a new SQL pool with the required collation.
+
+## Collation support
+
+The following table shows which collation types are supported by which service.  
+
+| Collation or collation type               | Serverless SQL pool | Dedicated SQL pool - database & column Level | Dedicated SQL pool - external table (native support) | Dedicated SQL pool - external table (Hadoop/PolyBase) |
+|:-----------------------------------------:|:-------------------:|:-----------------------:|:------------------:|:------------------:|
+| Non-UTF-8 Collations                      | Yes                 | Yes                     | Yes                | Yes                |
+| UTF-8                                     | Yes                 | Yes                     | No                 | No                 |
+| `Japanese_Bushu_Kakusu_140_*`               | Yes                 | Yes                     | No                 | No                 |
+| `Japanese_XJIS_140_*`                       | Yes                 | Yes                     | No                 | No                 |
+| `SQL_EBCDIC1141_CP1_CS_AS`                  | No                  | No                      | No                 | No                 |
+| `SQL_EBCDIC277_2_CP1_CS_AS`                 | No                  | No                      | No                 | No                 |
+
+## Related content
+
+Additional information on best practices for dedicated SQL pool and serverless SQL pool can be found in the following articles:
+
+- [Best practices for dedicated SQL pool](../sql/best-practices-dedicated-sql-pool.md)
+- [Best practices for serverless SQL pool](../sql/best-practices-serverless-sql-pool.md)

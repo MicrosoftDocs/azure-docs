@@ -15,7 +15,7 @@ ms.author: domessin
 
 ### Communication user
 
-The `CommunicationUserIdentifier` represents a user identity that was created using the [Identity SDK or REST API](../../../quickstarts/access-tokens.md). It's the only identifier used if your application doesn't use Microsoft Teams interoperability or Telephony features.
+The `CommunicationUserIdentifier` represents a user identity that was created using the [Identity SDK or REST API](../../../quickstarts/identity/access-tokens.md). It's the only identifier used if your application doesn't use Microsoft Teams interoperability or Telephony features.
 
 
 #### Basic usage
@@ -35,7 +35,7 @@ var sameUser = new CommunicationUserIdentifier(newUserId);
 
 ### Microsoft Teams user
 
-The `MicrosoftTeamsUserIdentifier` represents a Teams user with its Azure AD user object ID. You can retrieve the Azure AD user object ID via the [Microsoft Graph REST API /users](/graph/api/user-get) endpoint from the `id` property in the response. For more information on how to work with Microsoft Graph, try the [Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer?request=users%2F%7Buser-mail%7D&method=GET&version=v1.0&GraphUrl=https://graph.microsoft.com) and look into the [Graph SDK](/graph/sdks/sdks-overview). Alternatively, you can find the ID as the `oid` claim in an [Azure AD ID token](../../../../active-directory/develop/id-tokens.md#payload-claims) or [Azure AD access token](../../../../active-directory/develop/access-tokens.md#payload-claims) after your user has signed in and acquired a token.
+The `MicrosoftTeamsUserIdentifier` represents a Teams user with its Microsoft Entra user object ID. You can retrieve the Microsoft Entra user object ID via the [Microsoft Graph REST API /users](/graph/api/user-get) endpoint from the `id` property in the response. For more information on how to work with Microsoft Graph, try the [Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer?request=users%2F%7Buser-mail%7D&method=GET&version=v1.0&GraphUrl=https://graph.microsoft.com) and look into the [Graph SDK](/graph/sdks/sdks-overview). Alternatively, you can find the ID as the `oid` claim in an [Microsoft Entra token](/entra/identity-platform/id-token-claims-reference#payload-claims) or [Microsoft Entra access token](/entra/identity-platform/access-token-claims-reference#payload-claims) after your user has signed in and acquired a token.
 
 #### Basic usage
 
@@ -71,6 +71,34 @@ var phoneNumber = new PhoneNumberIdentifier("+112345556789");
 
 [PhoneNumberIdentifier](/dotnet/api/azure.communication.phonenumberidentifier)
 
+### Microsoft Teams Application
+
+The `MicrosoftTeamsAppIdentifier` interface represents a bot of the Teams Voice applications such as Call Queue and Auto Attendant with its Microsoft Entra bot object ID. The Teams applications should be configured with a resource account. You can retrieve the Microsoft Entra bot object ID via the [Microsoft Graph REST API /users](/graph/api/user-list) endpoint from the `id` property in the response. For more information on how to work with Microsoft Graph, try the [Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer?request=users%2F%7Buser-mail%7D&method=GET&version=v1.0&GraphUrl=https://graph.microsoft.com) and look into the [Graph SDK](/graph/sdks/sdks-overview).
+
+#### Basic usage
+
+```csharp
+// Get the Microsoft Teams App's ID from Graph APIs
+var users = await graphClient.Users.GetAsync((requestConfiguration) =>
+{
+	requestConfiguration.QueryParameters.Select = new string []{ "displayName","id" };
+	requestConfiguration.QueryParameters.Filter = filterConditions;
+});
+
+// Here we assume that you have a function GetBotFromUsers that gets the bot from the returned response
+var bot = GetBotFromUsers(users);
+
+// Create an identifier
+var teamsAppIdentifier = new MicrosoftTeamsAppIdentifier(bot.Id);
+
+// If you're not operating in the public cloud, you must also pass the right Cloud type.
+var gcchTeamsAppIdentifier = new MicrosoftTeamsAppIdentifier(bot.Id, CommunicationCloudEnvironment.Gcch);
+```
+
+#### API reference
+
+[MicrosoftTeamsAppIdentifier](/dotnet/api/azure.communication.microsoftteamsappidentifier)
+
 ### Unknown
 
 The `UnknownIdentifier` exists for future-proofing and you might encounter it when you are on an old version of the SDK and a new identifier type has been introduced recently. Any unknown identifier from the service will be deserialized to the `UnknownIdentifier` in the SDK.
@@ -98,6 +126,9 @@ switch (communicationIdentifier)
         break;
     case MicrosoftTeamsUserIdentifier teamsUser:
         Console.WriteLine($"Teams user: {teamsUser.UserId}");
+        break;
+    case MicrosoftTeamsAppIdentifier teamsApp:
+        Console.WriteLine($"Teams app: {teamsApp.AppId}");
         break;
     case PhoneNumberIdentifier phoneNumber:
         Console.WriteLine($"Phone number: {phoneNumber.PhoneNumber}");

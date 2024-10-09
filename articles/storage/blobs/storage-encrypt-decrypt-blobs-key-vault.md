@@ -3,12 +3,11 @@ title: Encrypt and decrypt blobs using Azure Key Vault
 titleSuffix: Azure Storage
 description: Learn how to encrypt and decrypt a blob using client-side encryption with Azure Key Vault.
 author: pauljewellmsft
-ms.service: storage
+ms.service: azure-blob-storage
 ms.topic: tutorial
 ms.date: 11/2/2022
 ms.author: pauljewell
 ms.reviewer: ozgun
-ms.subservice: blobs
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
@@ -35,10 +34,12 @@ This tutorial shows you how to:
 
 - Azure subscription - [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - Azure storage account - [create a storage account](../common/storage-account-create.md)
-- Key vault - create one using [Azure portal](../../key-vault/general/quick-create-portal.md), [Azure CLI](../../key-vault/general/quick-create-cli.md), or [PowerShell](../../key-vault/general/quick-create-powershell.md)
+- Key vault - create one using [Azure portal](/azure/key-vault/general/quick-create-portal), [Azure CLI](/azure/key-vault/general/quick-create-cli), or [PowerShell](/azure/key-vault/general/quick-create-powershell)
 - [Visual Studio 2022](https://visualstudio.microsoft.com) installed
 
-## Assign a role to your Azure AD user
+<a name='assign-a-role-to-your-azure-ad-user'></a>
+
+## Assign a role to your Microsoft Entra user
 
 When developing locally, make sure that the user account that is accessing the key vault has the correct permissions. You'll need the [Key Vault Crypto Officer role](../../role-based-access-control/built-in-roles.md#key-vault-crypto-officer) to create a key and perform actions on keys in a key vault. You can assign Azure RBAC roles to a user using the Azure portal, Azure CLI, or Azure PowerShell. You can learn more about the available scopes for role assignments on the [scope overview](../../../articles/role-based-access-control/scope-overview.md) page.
 
@@ -65,7 +66,7 @@ The following example shows how to assign the **Key Vault Crypto Officer** role 
 
 6. Under **Assign access to**, select **User, group, or service principal**, and then choose **+ Select members**.
 
-7. In the dialog, search for your Azure AD username (usually your *user@domain* email address) and then choose **Select** at the bottom of the dialog.
+7. In the dialog, search for your Microsoft Entra username (usually your *user@domain* email address) and then choose **Select** at the bottom of the dialog.
 
 8. Select **Review + assign** to go to the final page, and then **Review + assign** again to complete the process.
 
@@ -292,4 +293,4 @@ In this tutorial, you learned how to use .NET client libraries to perform client
 
 For a broad overview of client-side encryption for blobs, including instructions for migrating encrypted data to version 2, see [Client-side encryption for blobs](client-side-encryption.md).
 
-For more information about Azure Key Vault, see the [Azure Key Vault overview page](../../key-vault/general/overview.md)
+For more information about Azure Key Vault, see the [Azure Key Vault overview page](/azure/key-vault/general/overview)

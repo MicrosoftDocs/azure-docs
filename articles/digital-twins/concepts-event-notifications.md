@@ -7,8 +7,7 @@ author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 11/10/2022
 ms.topic: conceptual
-ms.service: digital-twins
-ms.custom: contperf-fy21q4
+ms.service: azure-digital-twins
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -151,7 +150,7 @@ An example message body, populated in AMQP's *data* section:
 ---
 
 >[!NOTE]
-> Azure Digital Twins currently doesn't support [filtering events](how-to-manage-routes.md#filter-events) based on fields within an array. This includes filtering on properties within a `patch` section of a digital twin change notification.
+> Azure Digital Twins currently doesn't support [filtering events](how-to-create-routes.md#filter-events) based on fields within an array. This includes filtering on properties within a `patch` section of a digital twin change notification.
 
 ## Digital twin lifecycle notifications
 
@@ -380,7 +379,7 @@ An example message body, populated in AMQP's *data* section:
 
 ## Digital twin telemetry messages
 
-Digital twins can use the [SendTelemetry API](/rest/api/digital-twins/dataplane/twins/digitaltwins_sendtelemetry) to emit *telemetry messages* and send them to egress endpoints.
+Digital twins can use the [SendTelemetry API](/rest/api/digital-twins/dataplane/twins/digital-twins-send-telemetry) to emit *telemetry messages* and send them to egress endpoints.
 
 ### Properties
 

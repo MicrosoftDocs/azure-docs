@@ -1,18 +1,19 @@
 ---
 title: ISO 27001 Shared Services blueprint sample overview
 description: Overview and architecture of the ISO 27001 Shared Services blueprint sample. This blueprint sample helps customers assess specific ISO 27001 controls.
-ms.date: 09/08/2021
+ms.date: 09/07/2023
 ms.topic: sample
 ---
 # Overview of the ISO 27001 Shared Services blueprint sample
+
+[!INCLUDE [Blueprints deprecation note](../../../../../includes/blueprints-deprecation-note.md)]
 
 The ISO 27001 Shared Services blueprint sample provides a set of compliant infrastructure patterns
 and policy guardrails that help toward ISO 27001 attestation. This blueprint helps customers deploy
 cloud-based architectures that offer solutions to scenarios that have accreditation or compliance
 requirements.
 
-The [ISO 27001 App Service Environment/SQL Database workload](../iso27001-ase-sql-workload/index.md)
-blueprint sample extends this sample.
+The [ISO 27001 App Service Environment/SQL Database workload](../iso27001-ase-sql-workload/index.md) blueprint sample extends this sample.
 
 ## Architecture
 
@@ -38,9 +39,9 @@ composed of:
     [Azure Policy](../../../policy/overview.md) definitions, and other security-related rights
   - SysOps role has the necessary rights to define [Azure Policy](../../../policy/overview.md)
     definitions within the subscription, manage
-    [Log Analytics](../../../../azure-monitor/overview.md) for the entire environment, among other
+    [Log Analytics](/azure/azure-monitor/overview) for the entire environment, among other
     operational rights
-- [Log Analytics](../../../../azure-monitor/overview.md) is deployed as the first Azure service to
+- [Log Analytics](/azure/azure-monitor/overview) is deployed as the first Azure service to
   ensure all actions and services log to a central location from the moment you start your secure
   deployment
 - A virtual network supporting subnets for connectivity back to an on-premises datacenter, an
@@ -54,7 +55,7 @@ composed of:
     by the blueprint)
   - Use of [Azure Net Watcher](../../../../network-watcher/network-watcher-monitoring-overview.md)
     and standard DDoS protection
-- An [Azure Key Vault](../../../../key-vault/general/overview.md) instance used to host secrets used
+- An [Azure Key Vault](/azure/key-vault/general/overview) instance used to host secrets used
   for the VMs deployed in the shared services environment
 
 All these elements abide to the proven practices published in the

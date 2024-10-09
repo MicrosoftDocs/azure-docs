@@ -1,8 +1,8 @@
 ---
 title: Improve throughput performance of Python apps in Azure Functions
-description: Learn how to develop Azure Functions apps using Python that are highly performant and scale well under load. 
+description: Learn how to develop Azure Functions apps using Python that are highly performant and scale well under load.
 ms.topic: article
-ms.date: 10/13/2020
+ms.date: 02/13/2023
 ms.devlang: python
 ms.custom: devx-track-python, py-fresh-zinc
 ---
@@ -28,7 +28,7 @@ As real world function workloads are usually a mix of I/O and CPU bound, you sho
 
 ### Performance-specific configurations
 
-After understanding the workload profile of your function app, the following are configurations that you can use to improve the throughput performance of your functions.
+After you understand the workload profile of your function app, the following are configurations that you can use to improve the throughput performance of your functions.
 
 * [Async](#async)
 * [Multiple language worker](#use-multiple-language-worker-processes)
@@ -84,7 +84,7 @@ Here are a few examples of client libraries that have implemented async patterns
  
 ##### Understanding async in Python worker
 
-When you define `async` in front of a function signature, Python marks the function as a coroutine. When calling the coroutine, it can be scheduled as a task into an event loop. When you call `await` in an async function, it registers a continuation into the event loop, which allows the event loop to process the next task during the wait time.
+When you define `async` in front of a function signature, Python marks the function as a coroutine. When you call the coroutine, it can be scheduled as a task into an event loop. When you call `await` in an async function, it registers a continuation into the event loop, which allows the event loop to process the next task during the wait time.
 
 In our Python Worker, the worker shares the event loop with the customer's `async` function and it's capable for handling multiple requests concurrently. We strongly encourage our customers to make use of asyncio compatible libraries, such as [aiohttp](https://pypi.org/project/aiohttp/) and [pyzmq](https://pypi.org/project/pyzmq/). Following these recommendations increases your function's throughput compared to those libraries when implemented synchronously.
 
@@ -97,12 +97,9 @@ By default, every Functions host instance has a single language worker process. 
 
 For CPU bound apps, you should set the number of language workers to be the same as or higher than the number of cores that are available per function app. To learn more, see [Available instance SKUs](functions-premium-plan.md#available-instance-skus). 
 
-I/O-bound apps may also benefit from increasing the number of worker processes beyond the number of cores available. Keep in mind that setting the number of workers too high can impact overall performance due to the increased number of required context switches. 
+I/O-bound apps may also benefit from increasing the number of worker processes beyond the number of cores available. Keep in mind that setting the number of workers too high can affect overall performance due to the increased number of required context switches. 
 
-The `FUNCTIONS_WORKER_PROCESS_COUNT` applies to each host that Functions creates when scaling out your application to meet demand.
-
-> [!NOTE]
-> Multiple Python workers are not supported by the Python v2 programming model at this time. This means that enabling intelligent concurrency and setting `FUNCTIONS_WORKER_PROCESS_COUNT` greater than 1 is not supported for functions developed using the v2 model. 
+The `FUNCTIONS_WORKER_PROCESS_COUNT` applies to each host that Azure Functions creates when scaling out your application to meet demand.
 
 #### Set up max workers within a language worker process
 
@@ -112,12 +109,12 @@ You can set the value of maximum workers allowed for running sync functions usin
 
 For CPU-bound apps, you should keep the setting to a low number, starting from 1 and increasing as you experiment with your workload. This suggestion is to reduce the time spent on context switches and allowing CPU-bound tasks to finish.
 
-For I/O-bound apps, you should see substantial gains by increasing the number of threads working on each invocation. the recommendation is to start with the Python default (the number of cores) + 4 and then tweak based on the throughput values you're seeing.
+For I/O-bound apps, you should see substantial gains by increasing the number of threads working on each invocation. The recommendation is to start with the Python default (the number of cores) + 4 and then tweak based on the throughput values you're seeing.
 
 For mixed workloads apps, you should balance both `FUNCTIONS_WORKER_PROCESS_COUNT` and `PYTHON_THREADPOOL_THREAD_COUNT` configurations to maximize the throughput. To understand what your function apps spend the most time on, we recommend profiling them and setting the values according to their behaviors. To learn about these application settings, see [Use multiple worker processes](#use-multiple-language-worker-processes).
 
 > [!NOTE]
->  Although these recommendations apply to both HTTP and non-HTTP triggered functions, you might need to adjust other trigger specific configurations for non-HTTP triggered functions to get the expected performance from your function apps. For more information about this, please refer to this [article](functions-best-practices.md).
+>  Although these recommendations apply to both HTTP and non-HTTP triggered functions, you might need to adjust other trigger specific configurations for non-HTTP triggered functions to get the expected performance from your function apps. For more information about this, please refer to this [Best practices for reliable Azure Functions](functions-best-practices.md).
 
 
 #### Managing event loop
@@ -167,7 +164,7 @@ async def main(req: func.HttpRequest) -> func.HttpResponse:
                              mimetype='application/json')
 ```
 #### Vertical scaling
-For more processing units especially in CPU-bound operation, you might be able to get this by upgrading to premium plan with higher specifications. With higher processing units, you can adjust the number of worker processes count according to the number of cores available and achieve higher degree of parallelism. 
+You might be able to get more processing units, especially in CPU-bound operation, by upgrading to premium plan with higher specifications. With higher processing units, you can adjust the number of worker processes count according to the number of cores available and achieve higher degree of parallelism. 
 
 ## Next steps
 

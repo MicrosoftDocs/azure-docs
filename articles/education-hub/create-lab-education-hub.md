@@ -1,22 +1,22 @@
 ---
-title: Create a lab in Azure Education Hub through REST APIs
-description: Learn how to set up a lab in education hub
+title: Create a lab in the Azure Education Hub with REST APIs
+description: Learn how to set up a lab in the Azure Education Hub by using REST APIs.
 author: vinnieangel
 ms.author: vangellotti
 ms.service: azure-education
 ms.topic: how-to 
-ms.date: 12/21/2021
+ms.date: 03/11/2023
 ms.custom: template-how-to
 ---
 
-# Create a lab in Azure Education Hub through REST APIs.
+# Create a lab in the Azure Education Hub with REST APIs
 
-This article will walk you through how to create a lab, add students to that lab and verify that the lab has been created.
+This article walks you through how to create a lab and verify its creation by using REST APIs.
 
 ## Prerequisites
 
-- Know billing account ID, Billing profile ID, and Invoice Section ID
-- Have an Edu approved Azure account
+- Know your billing account ID, billing profile ID, and invoice section ID.
+- Have an education-approved Azure account.
 
 ## Create a lab
 
@@ -24,7 +24,7 @@ This article will walk you through how to create a lab, add students to that lab
 PUT https://management.azure.com/providers/Microsoft.Billing/billingAccounts/<BillingAccountID>/billingProfiles/<BillingProfileID>/invoiceSections/<InvoiceSectionID>/providers/Microsoft.Education/labs/default?api-version=2021-12-01-preview
 ```
 
-Call the above API with the body similar to the one below. Include your details for what the display name will be and how much budget you will allocate for this lab.
+Call the `create lab` API with a body similar to the following example. Include your details for the display name and how much budget you're allocating for this lab.
 
 ```json
 {
@@ -48,7 +48,7 @@ Call the above API with the body similar to the one below. Include your details 
 }
 ```
 
-The API response returns details of the newly created lab. Congratulations, you have created a lab in education hub.
+The API response returns details of the newly created lab. This response verifies that you created the lab successfully.
 
 ```json
 {
@@ -87,79 +87,15 @@ The API response returns details of the newly created lab. Congratulations, you 
 }
 ```
 
-## Add students to the lab
-
-Now that the lab has been successfully created, you can begin to add students to the lab.
-
-Call the endpoint below and make sure to replace the sections that are surrounded by <>.
-
-```json
-PUT https://management.azure.com/providers/Microsoft.Billing/billingAccounts/<BillingAccountID>/billingProfiles/<BillingProfileID>/invoiceSections/<InvoiceSectionID>/providers/Microsoft.Education/labs/default/students/<StudentID>?api-version=2021-12-01-preview
-```
-
-Call the above API with a body similar to the one below. Change the body to include details of the student you want to add to the lab.
-
-```json
-{
-  "properties": {
-    "firstName": "string",
-    "lastName": "string",
-    "email": "string",
-    "role": "Student",
-    "budget": {
-      "currency": "string",
-      "value": 0
-    },
-    "expirationDate": "2021-12-21T23:01:41.943Z",
-    "subscriptionAlias": "string",
-    "subscriptionInviteLastSentDate": "string"
-  }
-}
-```
-
-The API response returns details of the newly added student.
-
-```json
-{
-  "id": "string",
-  "name": "string",
-  "type": "string",
-  "systemData": {
-    "createdBy": "string",
-    "createdByType": "User",
-    "createdAt": "2021-12-21T23:02:20.163Z",
-    "lastModifiedBy": "string",
-    "lastModifiedByType": "User",
-    "lastModifiedAt": "2021-12-21T23:02:20.163Z"
-  },
-  "properties": {
-    "firstName": "string",
-    "lastName": "string",
-    "email": "string",
-    "role": "Student",
-    "budget": {
-      "currency": "string",
-      "value": 0
-    },
-    "subscriptionId": "string",
-    "expirationDate": "2021-12-21T23:02:20.163Z",
-    "status": "Active",
-    "effectiveDate": "2021-12-21T23:02:20.163Z",
-    "subscriptionAlias": "string",
-    "subscriptionInviteLastSentDate": "string"
-  }
-}
-```
-
 ## Check the details of a lab
 
-Now that the lab has been created and a student has been added to the lab, let's get the details for the lab. Getting the lab details will provide you with meta data like when the lab was created and how much budget it has. It will not include information about students in the lab.
+After you create a lab, you can get the details for it anytime to check metadata like when the lab was created and how much budget it has.
 
 ```json
 GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/<BillingAccountID>/billingProfiles/<BillingProfileID>/invoiceSections/<InvoiceSectionID>/providers/Microsoft.Education/labs/default?includeBudget=true&api-version=2021-12-01-preview
 ```
 
-The API response will include information about the lab and budget information (if the include budget flag is set to true)
+The API response shows the details:
 
 ```json
 {
@@ -198,54 +134,8 @@ The API response will include information about the lab and budget information (
 }
 ```
 
-## Check the details of the students in a lab
+## Related content
 
-Calling this API will allow us to see all of the students that are in the specified lab.
-
-```json
-GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/<BillingAccountID/billingProfiles/<BillingProfileID>/invoiceSections/<InvoiceSectionID>/providers/Microsoft.Education/labs/default/students?includeDeleted=true&api-version=2021-12-01-preview
-```
-
-The API response will include information about the students in the lab and will even show student that have been deleted from the lab (if the includeDeleted flag is set to true)
-
-```json
-{
-  "value": [
-    {
-      "id": "string",
-      "name": "string",
-      "type": "string",
-      "systemData": {
-        "createdBy": "string",
-        "createdByType": "User",
-        "createdAt": "2021-12-21T23:15:45.430Z",
-        "lastModifiedBy": "string",
-        "lastModifiedByType": "User",
-        "lastModifiedAt": "2021-12-21T23:15:45.430Z"
-      },
-      "properties": {
-        "firstName": "string",
-        "lastName": "string",
-        "email": "string",
-        "role": "Student",
-        "budget": {
-          "currency": "string",
-          "value": 0
-        },
-        "subscriptionId": "string",
-        "expirationDate": "2021-12-21T23:15:45.430Z",
-        "status": "Active",
-        "effectiveDate": "2021-12-21T23:15:45.430Z",
-        "subscriptionAlias": "string",
-        "subscriptionInviteLastSentDate": "string"
-      }
-    }
-  ],
-  "nextLink": "string"
-}
-```
-
-## Next steps
-- [Manage your Academic Grant using the Overview page](hub-overview-page.md)
-
-- [Support options](educator-service-desk.md)
+- [Add students to a lab](add-student-api.md)
+- [Manage your academic sponsorship by using the Overview page](hub-overview-page.md)
+- [Learn about support options](educator-service-desk.md)

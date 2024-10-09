@@ -4,9 +4,9 @@ titleSuffix: Azure Application Gateway
 description: This article provides instructions to configure TLS Policy on Azure Application Gateway
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 11/14/2019
+ms.date: 06/06/2023
 ms.author: greglin 
 ms.custom: devx-track-azurepowershell
 ---
@@ -15,7 +15,7 @@ ms.custom: devx-track-azurepowershell
 
 Learn how to configure TLS/SSL policy versions and cipher suites on Application Gateway. You can select from a list of predefined policies that contain different configurations of TLS policy versions and enabled cipher suites. You also have the ability to define a [custom TLS policy](#configure-a-custom-tls-policy) based on your requirements.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 > [!NOTE]
 > We recommend using TLS 1.2 as your minimum TLS protocol version for better security on your Application Gateway. 
@@ -23,6 +23,9 @@ Learn how to configure TLS/SSL policy versions and cipher suites on Application 
 ## Get available TLS options
 
 The `Get-AzApplicationGatewayAvailableSslOptions` cmdlet provides a listing of available pre-defined policies, available cipher suites, and protocol versions that can be configured. The following example shows an example output from running the cmdlet.
+
+> [!IMPORTANT]
+> The default TLS policy is set to AppGwSslPolicy20220101 for API versions 2023-02-01 or higher. Visit [TLS policy overview](./application-gateway-ssl-policy-overview.md#default-tls-policy) to know more.
 
 ```
 DefaultPolicy: AppGwSslPolicy20150501

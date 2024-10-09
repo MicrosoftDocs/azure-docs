@@ -3,21 +3,17 @@ title: Azure Government Marketplace images
 description: This article provides an overview of Azure Government Marketplace image gallery
 services: azure-government
 cloud: gov
-documentationcenter: ''
 
 ms.service: azure-government
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: azure-government
-ms.date: 08/31/2021 
-ms.custom: devx-track-azurepowershell
+ms.date: 08/31/2021
 ---
 
 # Azure Government Marketplace images
 
 Microsoft Azure Government Marketplace provides a similar experience as Azure Marketplace. You can choose to deploy prebuilt images from Microsoft and our partners, or upload your own VHDs. This approach gives you the flexibility to deploy your own standardized images if needed.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Images
 
@@ -43,7 +39,7 @@ Some of the prebuilt images include pay-as-you-go licensing for specific softwar
 
 ## Next steps
 
-- [Create a Windows virtual machine with the Azure portal](../virtual-machines/windows/quick-create-portal.md)
-- [Create a Windows virtual machine with PowerShell](../virtual-machines/windows/quick-create-powershell.md)
-- [Create a Windows virtual machine with the Azure CLI](../virtual-machines/windows/quick-create-cli.md)
-- [Create a Linux virtual machine with the Azure portal](../virtual-machines/linux/quick-create-portal.md)
+- [Create a Windows virtual machine with the Azure portal](/azure/virtual-machines/windows/quick-create-portal)
+- [Create a Windows virtual machine with PowerShell](/azure/virtual-machines/windows/quick-create-powershell)
+- [Create a Windows virtual machine with the Azure CLI](/azure/virtual-machines/windows/quick-create-cli)
+- [Create a Linux virtual machine with the Azure portal](/azure/virtual-machines/linux/quick-create-portal)

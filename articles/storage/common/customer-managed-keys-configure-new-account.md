@@ -1,26 +1,29 @@
 ---
-title: Configure customer-managed keys for a new storage account
+title: Configure customer-managed keys in the same tenant for a new storage account
 titleSuffix: Azure Storage
 description: Learn how to configure Azure Storage encryption with customer-managed keys for a new storage account by using the Azure portal, PowerShell, or Azure CLI. Customer-managed keys are stored in an Azure key vault.
 services: storage
-author: tamram
+author: normesta
 
-ms.service: storage
+ms.service: azure-storage
 ms.topic: how-to
-ms.date: 09/29/2022
-ms.author: tamram
+ms.date: 03/23/2023
+ms.author: normesta
 ms.reviewer: ozgun
-ms.subservice: common 
+ms.subservice: storage-common-concepts
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
-# Configure customer-managed keys in an Azure key vault for a new storage account
+# Configure customer-managed keys in the same tenant for a new storage account
 
 Azure Storage encrypts all data in a storage account at rest. By default, data is encrypted with Microsoft-managed keys. For additional control over encryption keys, you can manage your own keys. Customer-managed keys must be stored in an Azure Key Vault or in an Azure Key Vault Managed Hardware Security Model (HSM).
 
 This article shows how to configure encryption with customer-managed keys at the time that you create a new storage account. The customer-managed keys are stored in a key vault.
 
 To learn how to configure customer-managed keys for an existing storage account, see [Configure customer-managed keys in an Azure key vault for an existing storage account](customer-managed-keys-configure-existing-account.md).
+
+> [!NOTE]
+> Azure Key Vault and Azure Key Vault Managed HSM support the same APIs and management interfaces for configuration of customer-managed keys. Any action that is supported for Azure Key Vault is also supported for Azure Key Vault Managed HSM.
 
 [!INCLUDE [storage-customer-managed-keys-key-vault-configure-include](../../../includes/storage-customer-managed-keys-key-vault-configure-include.md)]
 
@@ -34,7 +37,7 @@ To learn how to configure customer-managed keys for an existing storage account,
 
 When you configure encryption with customer-managed keys for a new storage account, you can choose to automatically update the key version used for Azure Storage encryption whenever a new version is available in the associated key vault. Alternately, you can explicitly specify a key version to be used for encryption until the key version is manually updated.
 
-You must use an existing user-assigned managed identity to authorize access to the key vault when you configure customer-managed keys while creating the storage account. The user-assigned managed identity must have appropriate permissions to access the key vault. For more information, see [Authenticate to Azure Key Vault](../../key-vault/general/authentication.md).
+You must use an existing user-assigned managed identity to authorize access to the key vault when you configure customer-managed keys while creating the storage account. The user-assigned managed identity must have appropriate permissions to access the key vault. For more information, see [Authenticate to Azure Key Vault](/azure/key-vault/general/authentication).
 
 ### Configure encryption for automatic updating of key versions
 
@@ -72,6 +75,7 @@ New-AzStorageAccount -ResourceGroupName $rgName `
     -Kind StorageV2 `
     -SkuName Standard_LRS `
     -Location $location `
+    -AllowBlobPublicAccess $false `
     -IdentityType SystemAssignedUserAssigned `
     -UserAssignedIdentityId $userIdentity.Id `
     -KeyVaultUri $keyVault.VaultUri `
@@ -106,7 +110,7 @@ az storage account create \
 
 If you prefer to manually update the key version, then explicitly specify the version when you configure encryption with customer-managed keys while creating the storage account. In this case, Azure Storage won't automatically update the key version when a new version is created in the key vault. To use a new key version, you must manually update the version used for Azure Storage encryption.
 
-You must use an existing user-assigned managed identity to authorize access to the key vault when you configure customer-managed keys while creating the storage account. The user-assigned managed identity must have appropriate permissions to access the key vault. For more information, see [Authenticate to Azure Key Vault](../../key-vault/general/authentication.md).
+You must use an existing user-assigned managed identity to authorize access to the key vault when you configure customer-managed keys while creating the storage account. The user-assigned managed identity must have appropriate permissions to access the key vault. For more information, see [Authenticate to Azure Key Vault](/azure/key-vault/general/authentication).
 
 # [Azure portal](#tab/azure-portal)
 
@@ -143,6 +147,7 @@ New-AzStorageAccount -ResourceGroupName $rgName `
     -Kind StorageV2 `
     -SkuName Standard_LRS `
     -Location $location `
+    -AllowBlobPublicAccess $false `
     -IdentityType SystemAssignedUserAssigned `
     -UserAssignedIdentityId $userIdentity.Id `
     -KeyVaultUri $keyVault.VaultUri `
@@ -180,6 +185,7 @@ az storage account create \
     --location $location \
     --sku Standard_LRS \
     --kind StorageV2 \
+    --allow-blob-public-access false \
     --identity-type SystemAssigned,UserAssigned \
     --user-identity-id $identityResourceId \
     --encryption-key-vault $keyVaultUri \
@@ -195,7 +201,11 @@ When you manually update the key version, you'll need to update the storage acco
 
 [!INCLUDE [storage-customer-managed-keys-change-include](../../../includes/storage-customer-managed-keys-change-include.md)]
 
+If the new key is in a different key vault, you must [grant the managed identity access to the key in the new vault](#use-a-user-assigned-managed-identity-to-authorize-access-to-the-key-vault). If you choose manual updating of the key version, you will also need to [update the key vault URI](#configure-encryption-for-manual-updating-of-key-versions).
+
 [!INCLUDE [storage-customer-managed-keys-revoke-include](../../../includes/storage-customer-managed-keys-revoke-include.md)]
+
+Disabling the key will cause attempts to access data in the storage account to fail with error code 403 (Forbidden). For a list of storage account operations that will be affected by disabling the key, see [Revoke access to a storage account that uses customer-managed keys](customer-managed-keys-overview.md#revoke-access-to-a-storage-account-that-uses-customer-managed-keys).
 
 [!INCLUDE [storage-customer-managed-keys-disable-include](../../../includes/storage-customer-managed-keys-disable-include.md)]
 

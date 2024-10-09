@@ -13,11 +13,17 @@ Integrating with QRadar supports:
 
 - Forwarding Defender for IoT alerts to IBM QRadar for unified IT and OT security monitoring and governance.
 
-- An overview of both IT and OT environments, allowing you to detect, and respond to multi-stage attacks that often cross IT, and OT boundaries.
+- An overview of both IT and OT environments, allowing you to detect and respond to multi-stage attacks that often cross IT and OT boundaries.
 
 - Integrating with existing SOC workflows.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+## Prerequisites
+
+- Access to a Defender for IoT OT sensor as an Admin user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
+
+- Access to a Defender for IoT OT on-premises management console as an Admin user. For more information, see [On-premises users and roles for OT monitoring with Defender for IoT](roles-on-premises.md).
+
+- Access to the QRadar Admin area.
 
 ## Configure Syslog listener for QRadar
 
@@ -25,32 +31,24 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 1. Sign in to QRadar and select **Admin** > **Data Sources**.
 
-1. In the Data Sources window, select **Log Sources**. For example:
+1. In the Data Sources window, select **Log Sources**.
 
-   [:::image type="content" source="media/tutorial-qradar/log.png" alt-text="Screenshot of selecting a log sources from the available options.":::](media/tutorial-qradar/log.png#lightbox)
-
-1. In the **Modal** window, select **Add**. For example:
-
-    [:::image type="content" source="media/tutorial-qradar/modal.png" alt-text="Screenshot of after selecting Syslog the modal window opens.":::](media/tutorial-qradar/modal.png#lightbox)
+1. In the **Modal** window, select **Add**.
 
 1. In the **Add a log source** dialog box, define the following parameters:
 
-   - **Log Source Name**: `<Sensor name>`
-
-   - **Log Source Description**: `<Sensor name>`
-
-   - **Log Source Type**: `Universal LEEF`
-
-   - **Protocol Configuration**: `Syslog`
-
-   - **Log Source Identifier**: `<Sensor name>`
+    | Parameter | Description |
+    |--|--|
+    | **Log Source Name** | `<Sensor name>` |
+    | **Log Source Description** | `<Sensor name>` |
+    | **Log Source Type** | `Universal LEEF` |
+    | **Protocol Configuration** | `Syslog` |
+    | **Log Source Identifier** | `<Sensor name>` |
 
    > [!NOTE]
    > The Log Source Identifier name must not include white spaces. We recommend replacing any white spaces with an underscore.
 
-1. Select **Save** > **Deploy Changes**. For example.
-
-   :::image type="content" source="media/tutorial-qradar/deploy.png" alt-text="Screenshot of the Deploy Changes view":::
+1. Select **Save**, and then **Deploy Changes**.
 
 ## Deploy a Defender for IoT QID
 
@@ -72,36 +70,37 @@ A **QID** is a QRadar event identifier. Since all Defender for IoT reports are t
 
 Create a forwarding rule from your on-premises management console to forward alerts to QRadar.
 
-Forwarding alert rules run only on alerts triggered after the forwarding rule is created. Alerts already in the system from before the forwarding rule was created are not affected by the rule.
+Forwarding alert rules run only on alerts triggered after the forwarding rule is created. The rule doesn't affect any alerts already in the system from before the forwarding rule was created.
 
-**To create a QRadar forwarding rule**:
-
-1. Sign in to the on-premises management console and select **Forwarding** on the left.
-
-1. Select the **+** to create a new rule.
-
-1. Enter values for the rule name and conditions. In the **Actions** area, select **Add**, and then select **Qradar**. For example:
-
-   :::image type="content" source="media/tutorial-qradar/create.png" alt-text="Screenshot of the Create a Forwarding Rule window.":::
-
-1. Define the QRadar IP address and timezone, and then select **Save**.
-
-The following is an example of a payload sent to QRadar:
+The following code is an example of a payload sent to QRadar:
 
 ```sample payload
 <9>May 5 12:29:23 sensor_Agent LEEF:1.0|CyberX|CyberX platform|2.5.0|CyberX platform Alert|devTime=May 05 2019 15:28:54 devTimeFormat=MMM dd yyyy HH:mm:ss sev=2 cat=XSense Alerts title=Device is Suspected to be Disconnected (Unresponsive) score=81 reporter=192.168.219.50 rta=0 alertId=6 engine=Operational senderName=sensor Agent UUID=5-1557059334000 site=Site zone=Zone actions=handle dst=192.168.2.2 dstName=192.168.2.2 msg=Device 192.168.2.2 is suspected to be disconnected (unresponsive).
 ```
 
+When configuring the forwarding rule:
+
+1. In the **Actions** area, select **Qradar**.
+
+1. Enter details for the QRadar host, port, and timezone.
+
+1. Optionally, select to enable encryption, and then configure encryption, and/or select to manage alerts externally. 
+
+For more information, see [Forward on-premises OT alert information](how-to-forward-alert-information-to-partners.md).
+
+
 ## Map notifications to QRadar
 
-1. Sign into your QRadar console, select **QRadar**> **Log Activity** .
+1. Sign into your QRadar console, and select **QRadar**> **Log Activity** .
 
-1. Select **Add Filter** and define the following parameters:
+1. Select **Add Filter**, and define the following parameters:
 
-   - **Parameter**: `Log Sources [Indexed]`
-   - **Operator**: `Equals`
-   - **Log Source Group**: `Other`
-   - **Log Source**: `<Xsense Name>`
+    | Parameter | Description |
+    |--|--|
+    | **Parameter** | `Log Sources [Indexed]` |
+    | **Operator** | `Equals` |
+    | **Log Source Group** | `Other` |
+    | **Log Source** | `<Xsense Name>` |
 
 1. Locate an unknown report detected from your Defender for IoT sensor and double-click it.
 
@@ -145,49 +144,19 @@ For example:
 
 1. Configure the following fields:
 
-   - New Property: _choose from the list below_
-
-      - Sensor Alert Description
-      - Sensor Alert ID
-      - Sensor Alert Score
-      - Sensor Alert Title
-      - Sensor Destination Name
-      - Sensor Direct Redirect
-      - Sensor Sender IP
-      - Sensor Sender Name
-      - Sensor Alert Engine
-      - Sensor Source Device Name
-
-   - Check **Optimize Parsing**
-
-   - Field Type: `AlphaNumeric`
-
-   - Check **Enabled**
-
-   - Log Source Type: `Universal LEAF`
-
-   - Log Source: `<Sensor Name>`
-
-   - Event Name (should be already set as Sensor Alert)
-
-   - Capture Group: 1
-
-   - Regex:
-
-      - Sensor Alert Description RegEx: `msg=(.*)(?=\t)`
-      - Sensor Alert ID RegEx: `alertId=(.*)(?=\t)`
-      - Sensor Alert Score RegEx: `Detected score=(.*)(?=\t)`
-      - Sensor Alert Title RegEx: `title=(.*)(?=\t)`
-      - Sensor Destination Name RegEx: `dstName=(.*)(?=\t)`
-      - Sensor Direct Redirect RegEx: `rta=(.*)(?=\t)`
-      - Sensor Sender IP: RegEx: `reporter=(.*)(?=\t)`
-      - Sensor Sender Name RegEx: `senderName=(.*)(?=\t)`
-      - Sensor Alert Engine RegEx: `engine =(.*)(?=\t)`
-      - Sensor Source Device Name RegEx: `src`
+    | Parameter | Description |
+    |--|--|
+    | **New Property** | One of the following: <br><br> - Sensor Alert Description <br> - Sensor Alert ID <br> - Sensor Alert Score <br> - Sensor Alert Title <br> - Sensor Destination Name <br> - Sensor Direct Redirect <br> - Sensor Sender IP <br> - Sensor Sender Name <br> - Sensor Alert Engine <br> - Sensor Source Device Name |
+   | **Optimize Parsing** | Check on. |
+   | **Field Type** | `AlphaNumeric` |
+   | **Enabled** | Check on. |
+   | **Log Source Type** | `Universal LEAF` |
+   | **Log Source** | `<Sensor Name>` |
+   | **Event Name** | Should be already set as *Sensor Alert* |
+   | Capture Group | 1 |
+   | Regex | Define the following: <br><br> - Sensor Alert Description RegEx: `msg=(.*)(?=\t)` <br> - Sensor Alert ID RegEx: `alertId=(.*)(?=\t)` <br> - Sensor Alert Score RegEx: `Detected score=(.*)(?=\t)` <br> - Sensor Alert Title RegEx: `title=(.*)(?=\t)` <br> - Sensor Destination Name RegEx: `dstName=(.*)(?=\t)` <br> - Sensor Direct Redirect RegEx: `rta=(.*)(?=\t)` <br> - Sensor Sender IP: RegEx: `reporter=(.*)(?=\t)` <br> - Sensor Sender Name RegEx: `senderName=(.*)(?=\t)` <br> - Sensor Alert Engine RegEx: `engine =(.*)(?=\t)` <br> - Sensor Source Device Name RegEx: `src` |
 
 ## Next steps
 
-In this tutorial, you learned how to get started with the QRadar integration. Continue on to learn how to [Integrate ServiceNow with Microsoft Defender for IoT](tutorial-servicenow.md).
-
 > [!div class="nextstepaction"]
-> [Integrate ServiceNow with Microsoft Defender for IoT](tutorial-servicenow.md)
+> [Integrations with Microsoft and partner services](integrate-overview.md)

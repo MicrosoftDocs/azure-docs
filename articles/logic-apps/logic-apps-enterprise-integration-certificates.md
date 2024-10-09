@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/23/2022
+ms.date: 08/27/2024
 ---
 
 # Add certificates to integration accounts for securing messages in workflows with Azure Logic Apps
@@ -40,31 +40,34 @@ If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overvi
 
   * Exists in the same location or Azure region as your logic app resource.
 
-  * If you use the [**Logic App (Consumption)** resource type](logic-apps-overview.md#resource-environment-differences), you have to [link your integration account to your logic app resource](logic-apps-enterprise-integration-create-integration-account.md#link-account) before you can use your artifacts in your workflow.
+  * If you have a [Consumption logic app resource](logic-apps-overview.md#resource-environment-differences), you have to [link your integration account to your logic app resource](logic-apps-enterprise-integration-create-integration-account.md#link-account) before you can use your artifacts in your workflow.
 
     To create and add certificates for use in **Logic App (Consumption)** workflows, you don't need a logic app resource yet. However, when you're ready to use those certificates in your workflows, your logic app resource requires a linked integration account that stores those certificates.
 
-  * If you're using the [**Logic App (Standard)** resource type](logic-apps-overview.md#resource-environment-differences), your integration account doesn't need a link to your logic app resource but is still required to store other artifacts, such as partners, agreements, and certificates, along with using the [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md), and [EDIFACT](logic-apps-enterprise-integration-edifact.md) operations. Your integration account still has to meet other requirements, such as using the same Azure subscription and existing in the same location as your logic app resource.
-
-    > [!NOTE]
-    > Currently, only the **Logic App (Consumption)** resource type supports [RosettaNet](logic-apps-enterprise-integration-rosettanet.md) operations. 
-    > The **Logic App (Standard)** resource type doesn't include [RosettaNet](logic-apps-enterprise-integration-rosettanet.md) operations.
+  * If you have a [Standard logic app resource](logic-apps-overview.md#resource-environment-differences), your integration account doesn't need a link to your logic app resource but is still required to store other artifacts, such as partners, agreements, and certificates, along with using the [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md), and [EDIFACT](logic-apps-enterprise-integration-edifact.md) operations. Your integration account still has to meet other requirements, such as using the same Azure subscription and existing in the same location as your logic app resource.
 
 * For private certificates, you must meet the following prerequisites:
 
-  * Add a private key in [Azure Key Vault](../key-vault/general/overview.md) and have the **Key Name**. For more information, review [Add your private key to Azure Key Vault](../key-vault/certificates/certificate-scenarios.md#import-a-certificate).
+  * Add a private key in [Azure Key Vault](/azure/key-vault/general/overview) and have the **Key Name**. For more information, review [Add your private key to Azure Key Vault](/azure/key-vault/certificates/certificate-scenarios#import-a-certificate).
 
-  * Authorize the Azure Logic Apps service to perform operations on your key vault. To grant access to the Azure Logic Apps service principal, use the PowerShell command, [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy), for example:
+  * Authorize the Azure Logic Apps service to perform operations on your key vault. To grant access to the Azure Logic Apps service principal, use Azure role-based access control to manage access to your key vault. For more information, see [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](/azure/key-vault/general/rbac-guide).
 
-    `Set-AzKeyVaultAccessPolicy -VaultName 'TestcertKeyVault' -ServicePrincipalName '7cd684f4-8a78-49b0-91ec-6a35d38739ba' -PermissionsToKeys decrypt, sign, get, list`
-
-    [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+    > [!NOTE]
+    >
+    > If you're using access policies with your key vault, considering
+    > [migrating to the Azure role-based access control permission model](/azure/key-vault/general/rbac-migration).
+    >
+    > If you receive the error **"Please authorize logic apps to perform operations on key vault by granting access for the logic apps 
+    > service principal '7cd684f4-8a78-49b0-91ec-6a35d38739ba' for 'list', 'get', 'decrypt' and 'sign' operations."**, your 
+    > certificate might not have the **Key Usage** property set to **Data Encipherment**. If not, you might have to recreate the certificate 
+    > with the **Key Usage** property set to **Data Encipherment**. To check your certificate, open the certificate, select the 
+    > **Details** tab, and review the **Key Usage** property.
 
   * [Add the corresponding public certificate](#add-public-certificate) to your key vault. This certificate appears in your [agreement's **Send** and **Receive** settings for signing and encrypting messages](logic-apps-enterprise-integration-agreements.md). For example, review [Reference for AS2 messages settings in Azure Logic Apps](logic-apps-enterprise-integration-as2-message-settings.md).
 
 * At least two [trading partners](logic-apps-enterprise-integration-partners.md) and an [agreement between those partners](logic-apps-enterprise-integration-agreements.md) in your integration account. An agreement requires a host partner and a guest partner. Also, an agreement requires that both partners use the same or compatible *business identity* qualifier that's appropriate for an AS2, X12, EDIFACT, or RosettaNet agreement.
 
-* Optionally, the logic app resource and workflow where you want to use the certificate. The workflow requires any trigger that starts your logic app's workflow. If you haven't created a logic app workflow before, review [Quickstart: Create your first logic app](quickstart-create-first-logic-app-workflow.md).
+* Optionally, the logic app resource and workflow where you want to use the certificate. The workflow requires any trigger that starts your logic app's workflow. If you haven't created a logic app workflow before, review [Quickstart: Create an example Consumption logic app workflow](quickstart-create-example-consumption-workflow.md).
 
 <a name="add-public-certificate"></a>
 

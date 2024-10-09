@@ -1,5 +1,25 @@
 {
-    "redirections": [        
+    "redirections": [                
+        {
+            "source_path_from_root": "/articles/stream-analytics/stream-analytics-managed-identities-adls.md",
+            "redirect_url": "/azure/stream-analytics/blob-output-managed-identity",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/stream-analytics/azure-data-lake-storage-gen1-output.md",
+            "redirect_url": "/azure/stream-analytics/blob-storage-azure-data-lake-gen2-output",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/stream-analytics/app-insights-export-sql-stream-analytics.md",
+            "redirect_url": "/azure/azure-monitor/app/create-workspace-resource#export-telemetry",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/stream-analytics/app-insights-export-stream-analytics.md",
+            "redirect_url": "/azure/azure-monitor/app/create-workspace-resource#export-telemetry",
+            "redirect_document_id": false
+        },
         {
             "source_path_from_root": "/articles/stream-analytics/no-code-filter-ingest-adx.md",
             "redirect_url": "/azure/stream-analytics/no-code-filter-ingest-data-explorer",
@@ -149,6 +169,6 @@
             "source_path_from_root": "/articles/stream-analytics/stream-analytics-job-diagram-with-metrics-new.md",
             "redirect_url": "/azure/stream-analytics/stream-analytics-job-logical-diagram-with-metrics",
             "redirect_document_id": false
-        } 
+        }
     ]
 }

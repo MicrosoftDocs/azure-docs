@@ -2,8 +2,8 @@
 title: Azure Storage Analytics logging
 description: Use Storage Analytics to log details about Azure Storage requests. See what requests are logged, how logs are stored, how to enable Storage logging, and more.
 author: normesta
-ms.service: storage
-ms.subservice: common
+ms.service: azure-storage
+ms.subservice: storage-common-concepts
 ms.topic: conceptual
 ms.date: 01/04/2022
 ms.author: normesta
@@ -80,7 +80,7 @@ Most storage browsing tools enable you to view the metadata of blobs; you can al
      $_.ICloudBlob.Metadata.LogType -match 'write'  
  } |  
  ForEach-Object {  
-     "{0}  {1}  {2}  {3}" –f $_.Name,   
+     "{0}  {1}  {2}  {3}" -f $_.Name,   
      $_.ICloudBlob.Metadata.StartTime,   
      $_.ICloudBlob.Metadata.EndTime,   
      $_.ICloudBlob.Metadata.LogType  
@@ -141,19 +141,19 @@ The following sections show an example log entry for each supported Azure Storag
 
 ##### Example log entry for Blob Storage
 
-`2.0;2022-01-03T20:34:54.4617505Z;PutBlob;SASSuccess;201;7;7;sas;;logsamples;blob;https://logsamples.blob.core.windows.net/container1/1.txt?se=2022-02-02T20:34:54Z&amp;sig=XXXXX&amp;sp=rwl&amp;sr=c&amp;sv=2020-04-08&amp;timeout=901;"/logsamples/container1/1.txt";xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx;0;71.197.193.44:53371;2019-12-12;654;13;337;0;13;"xxxxxxxxxxxxxxxxxxxxx==";"xxxxxxxxxxxxxxxxxxxxx==";"&quot;0x8D9CEF88004E296&quot;";Monday, 03-Jan-22 20:34:54 GMT;;"Microsoft Azure Storage Explorer, 1.20.1, win32, azcopy-node, 2.0.0, win32,  AzCopy/10.11.0 Azure-Storage/0.13 (go1.15; Windows_NT)";;"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx";;;;;;;;`
+`2.0;2022-01-03T20:34:54.4617505Z;PutBlob;SASSuccess;201;7;7;sas;;logsamples;blob;https://logsamples.blob.core.windows.net/container1/1.txt?se=2022-02-02T20:34:54Z&amp;sig=XXXXX&amp;sp=rwl&amp;sr=c&amp;sv=2020-04-08&amp;timeout=901;"/logsamples/container1/1.txt";xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx;0;172.16.0.0:53371;2019-12-12;654;13;337;0;13;"xxxxxxxxxxxxxxxxxxxxx==";"xxxxxxxxxxxxxxxxxxxxx==";"&quot;0x8D9CEF88004E296&quot;";Monday, 03-Jan-22 20:34:54 GMT;;"Microsoft Azure Storage Explorer, 1.20.1, win32, azcopy-node, 2.0.0, win32,  AzCopy/10.11.0 Azure-Storage/0.13 (go1.15; Windows_NT)";;"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx";;;;;;;;`
 
-##### Example log entry for Blob Storage (Data Lake Storage Gen2 enabled)
+##### Example log entry for Blob Storage (Data Lake Storage enabled)
 
-`2.0;2022-01-04T22:50:56.0000775Z;RenamePathFile;Success;201;49;49;authenticated;logsamples;logsamples;blob;"https://logsamples.dfs.core.windows.net/my-container/myfileorig.png?mode=legacy";"/logsamples/my-container/myfilerenamed.png";xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx;0;73.157.16.8;2020-04-08;591;0;224;0;0;;;;Friday, 11-Jun-21 17:58:15 GMT;;"Microsoft Azure Storage Explorer, 1.19.1, win32 azsdk-js-storagedatalake/12.3.1 (NODE-VERSION v12.16.3; Windows_NT 10.0.22000)";;"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx";;;;;;;;`
+`2.0;2022-01-04T22:50:56.0000775Z;RenamePathFile;Success;201;49;49;authenticated;logsamples;logsamples;blob;"https://logsamples.dfs.core.windows.net/my-container/myfileorig.png?mode=legacy";"/logsamples/my-container/myfilerenamed.png";xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx;0;172.16.0.0;2020-04-08;591;0;224;0;0;;;;Friday, 11-Jun-21 17:58:15 GMT;;"Microsoft Azure Storage Explorer, 1.19.1, win32 azsdk-js-storagedatalake/12.3.1 (NODE-VERSION v12.16.3; Windows_NT 10.0.22000)";;"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx";;;;;;;;`
 
 ##### Example log entry for Queue Storage 
 
-`2.0;2022-01-03T20:35:04.6097590Z;PeekMessages;Success;200;5;5;authenticated;logsamples;logsamples;queue;https://logsamples.queue.core.windows.net/queue1/messages?numofmessages=32&amp;peekonly=true&amp;timeout=30;"/logsamples/queue1";xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx;0;71.197.193.44:53385;2020-04-08;536;0;232;62;0;;;;;;"Microsoft Azure Storage Explorer, 1.20.1, win32 azsdk-js-storagequeue/12.3.1 (NODE-VERSION v12.16.3; Windows_NT 10.0.22000)";;"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx";;;;;;;;`
+`2.0;2022-01-03T20:35:04.6097590Z;PeekMessages;Success;200;5;5;authenticated;logsamples;logsamples;queue;https://logsamples.queue.core.windows.net/queue1/messages?numofmessages=32&amp;peekonly=true&amp;timeout=30;"/logsamples/queue1";xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx;0;172.16.0.0:53385;2020-04-08;536;0;232;62;0;;;;;;"Microsoft Azure Storage Explorer, 1.20.1, win32 azsdk-js-storagequeue/12.3.1 (NODE-VERSION v12.16.3; Windows_NT 10.0.22000)";;"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx";;;;;;;;`
 
 ##### Example log entry for Table Storage 
 
-`1.0;2022-01-03T20:35:13.0719766Z;CreateTable;Success;204;30;30;authenticated;logsamples;logsamples;table;https://logsamples.table.core.windows.net/Tables;"/logsamples/Table1";xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx;0;71.197.193.44:53389;2018-03-28;601;22;339;0;22;;;;;;"Microsoft Azure Storage Explorer, 1.20.1, win32, Azure-Storage/2.10.3 (NODE-VERSION v12.16.3; Windows_NT 10.0.22000)";;"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx"`
+`1.0;2022-01-03T20:35:13.0719766Z;CreateTable;Success;204;30;30;authenticated;logsamples;logsamples;table;https://logsamples.table.core.windows.net/Tables;"/logsamples/Table1";xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx;0;172.16.0.0:53389;2018-03-28;601;22;339;0;22;;;;;;"Microsoft Azure Storage Explorer, 1.20.1, win32, Azure-Storage/2.10.3 (NODE-VERSION v12.16.3; Windows_NT 10.0.22000)";;"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx"`
 
 
 ## Next steps

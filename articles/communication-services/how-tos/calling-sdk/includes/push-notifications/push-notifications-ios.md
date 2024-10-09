@@ -7,6 +7,12 @@ ms.author: rifox
 ---
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-ios.md)]
 
+## Overview
+Mobile push notifications are the pop-up notifications you see on mobile devices. For calling, we'll be focusing on VoIP (Voice over Internet Protocol) push notifications. We'll register for push notifications, handle push notifications, and then un-register push notifications. For a guide on CallKit integration in your iOS application, refer here, [CallKit integration with iOS ACS SDK](../../callkit-integration.md).
+
+> [!NOTE]
+> Registering for Push Notifications and handling of the incoming Push Notifications for a Teams user, the APIs are the same. The APIs described here can also be invoked on the `CommonCallAgent` or `TeamsCallAgent` classes.
+
 ## Set up push notifications
 
 A mobile push notification is the pop-up notification that you get in the mobile device. For calling, we'll focus on VoIP (voice over Internet Protocol) push notifications. 
@@ -65,4 +71,17 @@ callAgent.unregisterPushNotification { (error) in
        print("Unregister of push notification failed, please try again")
     }
 }
+```
+
+## Disable internal push for incoming call
+
+There are 2 ways that a push payload of an incoming call can be delivered to the callee.
+  - Using APNS and registering the device token with the API mentioned above, `registerPushNotification` on `CallAgent` or `TeamsCallAgent`.
+  - When a `CallAgent` or `TeamsCallAgent` is created, SDK also registers with an internal service to get the push payload delivered.
+
+Using the property `disableInternalPushForIncomingCall` in `CallAgentOptions` or `TeamsCallAgentOptions` it's possible to instruct the SDK to disable the delivery of the push payload using the internal push service.
+
+```swift
+let options = CallAgentOptions()
+options.disableInternalPushForIncomingCall = true
 ```

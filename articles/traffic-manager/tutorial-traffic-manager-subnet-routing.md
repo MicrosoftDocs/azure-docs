@@ -1,15 +1,13 @@
 ---
-title: Tutorial - Configure subnet traffic routing with Azure Traffic Manager
-description: This tutorial explains how to configure Traffic Manager to route traffic from user subnets to specific endpoints. 
+title: 'Tutorial: Configure subnet traffic routing with Azure Traffic Manager'
+description: This tutorial explains how to configure Traffic Manager to route traffic from user subnets to specific endpoints.
 services: traffic-manager
-documentationcenter: ''
 author: greg-lindsay
-ms.service: traffic-manager
+ms.service: azure-traffic-manager
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/08/2021
+ms.date: 08/08/2024
 ms.author: greglin
+ms.custom: template-tutorial
 ---
 
 # Tutorial: Direct traffic to specific endpoints based on user subnet using Traffic Manager
@@ -41,7 +39,7 @@ The test VMs are used to illustrate how Traffic Manager routes user traffic to t
 
 ### Sign in to Azure
 
-Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ### Create websites
 
@@ -61,7 +59,7 @@ In this section, you create two VMs *myIISVMEastUS* and *myIISVMWestEurope* in t
    - **Instance Details** > **Virtual machine name**: Type *myIISVMEastUS*.
    - **Instance Details** > **Region**:  Select **East US**.
    - **Administrator Account** > **Username**:  Enter a user name of your choosing.
-   - **Administrator Account** > **Password**:  Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).
+   - **Administrator Account** > **Password**:  Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](/azure/virtual-machines/windows/faq?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).
    - **Inbound Port Rules** > **Public inbound ports**: Select **Allow selected ports**.
    - **Inbound Port Rules** > **Select inbound ports**virtual-machines/windows/faq.yml: Select **RDP** and **HTTP** in the pull-down box.
 
@@ -129,7 +127,7 @@ In this section, you create a VM (*myVMEastUS* and *myVMWestEurope*) in each Azu
    - **Instance Details** > **Virtual machine name**: Type *myVMEastUS*.
    - **Instance Details** > **Region**:  Select **East US**.
    - **Administrator Account** > **Username**:  Enter a user name of your choosing.
-   - **Administrator Account** > **Password**:  Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.yml?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).
+   - **Administrator Account** > **Password**:  Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](/azure/virtual-machines/windows/faq?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm-).
    - **Inbound Port Rules** > **Public inbound ports**: Select **Allow selected ports**.
    - **Inbound Port Rules** > **Select inbound ports**: Select **RDP** in the pull-down box.
 

@@ -5,9 +5,9 @@ description: Learn about Virtual WAN any-to-any routing scenarios, where any spo
 services: virtual-wan
 author: cherylmc
 
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: conceptual
-ms.date: 04/27/2021
+ms.date: 08/24/2023
 ms.author: cherylmc
 ms.custom: fasttrack-edit
 

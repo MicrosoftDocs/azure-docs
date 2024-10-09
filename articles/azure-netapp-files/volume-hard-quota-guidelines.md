@@ -1,23 +1,16 @@
 ---
 title: What changing to volume hard quota means for your Azure NetApp Files service | Microsoft Docs
-description: Describes the change to using volume hard quota, how to plan for the change, and how to monitor and manage capacities.   
+description: Describes the change to using volume hard quota, how to plan for the change, and how to monitor and manage capacities.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/30/2022
 ms.author: anfdocs
 ---
 # What changing to volume hard quota means for your Azure NetApp Files service
 
-From the beginning of the service, Azure NetApp Files has been using a capacity-pool provisioning and automatic growth mechanism. Azure NetApp Files volumes are thinly provisioned on an underlaying, customer-provisioned capacity pool of a selected tier and size. Volume sizes (quotas) are used to provide performance and capacity, and the quotas can be adjusted on-the-fly at any time. This behavior means that, currently, the volume quota is a performance lever used to control bandwidth to the volume. Currently, underlaying capacity pools automatically grow when the capacity fills up.   
+From the beginning of the service, Azure NetApp Files has been using a capacity-pool provisioning and automatic growth mechanism. Azure NetApp Files volumes are thinly provisioned on an underlying, customer-provisioned capacity pool of a selected tier and size. Volume sizes (quotas) are used to provide performance and capacity, and the quotas can be adjusted on-the-fly at any time. This behavior means that, currently, the volume quota is a performance lever used to control bandwidth to the volume. Currently, underlaying capacity pools automatically grow when the capacity fills up.   
 
 > [!IMPORTANT] 
 > The Azure NetApp Files behavior of volume and capacity pool provisioning will change to a *manual* and *controllable* mechanism. **Starting from April 30, 2021 (updated), volume sizes (quota) will manage bandwidth performance, as well as provisioned capacity, and underlying capacity pools will no longer grow automatically.** 
@@ -33,29 +26,29 @@ Many customers have requested direct control over provisioned capacity. They wan
 
 ## What is the volume hard quota change   
 
-With the volume hard quota change, Azure NetApp Files volumes will no longer be thin provisioned at (the maximum) 100 TiB. The volumes will be provisioned at the actual configured size (quota). Also, the underlaying capacity pools will no longer automatically grow upon reaching full-capacity consumption. This change will reflect the behavior like Azure managed disks, which are also provisioned as-is, without automatic capacity increase.
+With the volume hard quota change, Azure NetApp Files volumes are no longer thinly provisioned at (the maximum) 100 TiB. The volumes will be provisioned at the actual configured size (quota). Also, the underlying capacity pools will no longer automatically grow upon reaching full-capacity consumption. This change will reflect the behavior like Azure managed disks, which are also provisioned as-is, without automatic capacity increase.
 
 For example, consider an Azure NetApp Files volume configured at 1-TiB size (quota) on a 4-TiB Ultra service level capacity pool. An application is continuously writing data to the volume.
 
 The *initial* behavior:  
 * Expected bandwidth: 128 MiB/s
 * Total usable (and client visible) capacity: 100 TiB   
-    You will not be able to write more data on the volume beyond this size.
+    You aren't able to write more data on the volume beyond this size.
 * Capacity pool: Automatically grows with 1 TiB increments when it is full.
-* Volume quota change: Only changes performance (bandwidth) of the volume. It does not change client visible or usable capacity.
+* Volume quota change: Only changes performance (bandwidth) of the volume. It doesn't change client visible or usable capacity.
 
 The *changed* behavior:  
 * Expected bandwidth: 128 MiB/s
 * Total usable (and client visible) capacity: 1 TiB 
     You will not be able to write more data on the volume beyond this size.
-* Capacity pool: Remains 4 TiB in size and does not automatically grow. 
+* Capacity pool: Remains 4 TiB in size and doesn't automatically grow. 
 * Volume quota change: Changes performance (bandwidth) and client visible or usable capacity of the volume.
 
 You need to proactively monitor the utilization of Azure NetApp Files volumes and capacity pools. You need to purposely change the volume and pool utilization for close-to-full consumption. Azure NetApp Files will continue to allow for [on-the-fly volume and capacity pool resize operations](azure-netapp-files-resize-capacity-pools-or-volumes.md).
 
 ## How to operationalize the volume hard quota change
 
-This section provides guidance on how to operationalize the change to volume hard quota for a smooth transition. It also provides insights for handling currently provisioned volumes and capacity pools, on-going monitoring, and alerting and capacity management options.
+This section provides guidance on how to operationalize the change to volume hard quota for a smooth transition. It also provides insights for handling currently provisioned volumes and capacity pools, ongoing monitoring, and alerting and capacity management options.
 
 ### Currently provisioned volumes and capacity pools
 
@@ -66,13 +59,13 @@ Because of the volume hard quota change, you should change your operating model.
 The volume hard quota change will result in changes in provisioned and available capacity for previously provisioned volumes and pools. As a result, some capacity allocation challenges might happen. To avoid short-term out-of-space situations for customers, the Azure NetApp Files team recommends the following, one-time corrective/preventative measures: 
 
 * **Provisioned volume sizes**:   
-    Resize every provisioned volume to have appropriate buffer based on change rate and alerting or resize turnaround time (for example, 20% based on typical workload considerations), with a maximum of 100 TiB (which is the [volume size limit](azure-netapp-files-resource-limits.md#resource-limits)). This new volume size, including buffer capacity, should be based on the following factors:
+    Resize every provisioned volume to have appropriate buffer based on change rate and alerting or resize turnaround time (for example, 20% based on typical workload considerations), with a maximum of 100 TiB (which is the regular [volume size limit](azure-netapp-files-resource-limits.md#resource-limits). This new volume size, including buffer capacity, should be based on the following factors:
     * **Provisioned** volume capacity, in case the used capacity is less than the provisioned volume quota.
     * **Used** volume capacity, in case the used capacity is more than the provisioned volume quota.  
-    There is no additional charge for volume-level capacity increase if the underlaying capacity pool does not need to be grown. As an effect of this change, you might observe a bandwidth limit *increase* for the volume (in case the [auto QoS capacity pool type](azure-netapp-files-understand-storage-hierarchy.md#qos_types) is used).
+    There's no additional charge for volume-level capacity increase if the underlaying capacity pool doesn't need to be grown. As an effect of this change, you might observe a bandwidth limit *increase* for the volume (in case the [auto QoS capacity pool type](azure-netapp-files-understand-storage-hierarchy.md#qos_types) is used).
 
 * **Provisioned capacity pool sizes**:   
-    After the volume sizes adjustments, if the sum of volumes sizes becomes larger than the size of the hosting capacity pool, the capacity pool will have to be increased to a size equal to or larger than the sum of the volumes, with a maximum of 500 TiB (which is the [capacity pool size limit](azure-netapp-files-resource-limits.md#resource-limits)). Additional capacity pool capacity will be subject to ACR charge as normal.
+    After the volume sizes adjustments, if the sum of volumes sizes becomes larger than the size of the hosting capacity pool, the capacity pool has to be increased to a size equal to or larger than the sum of the volumes, with a maximum of 500 TiB. For information about limits, see [Azure NetApp Files resource limits](azure-netapp-files-resource-limits.md#resource-limits)). Additional capacity pool capacity is subject to ACR charge as normal.
 
 You should work with your Azure NetApp Files specialists to validate your environment, if you need help with setting up monitoring or alerting as described in the sections below.
 
@@ -96,19 +89,19 @@ Windows clients can check the used and available capacity of a volume by using t
 
 The following examples show the volume capacity reporting in Windows *before* the changed behavior:
 
-![Screenshots that show example storage capacity of a volume before behavior change.](../media/azure-netapp-files/hard-quota-windows-capacity-before.png)
+![Screenshots that show example storage capacity of a volume before behavior change.](./media/volume-hard-quota-guidelines/hard-quota-windows-capacity-before.png)
 
 You can also use the `dir` command at the command prompt as shown below:
 
-![Screenshot that shows using a command to display storage capacity for a volume before behavior change.](../media/azure-netapp-files/hard-quota-command-capacity-before.png)
+![Screenshot that shows using a command to display storage capacity for a volume before behavior change.](./media/volume-hard-quota-guidelines/hard-quota-command-capacity-before.png)
 
 The following examples show the volume capacity reporting in Windows *after* the changed behavior:
 
-![Screenshots that show example storage capacity of a volume after behavior change.](../media/azure-netapp-files/hard-quota-windows-capacity-after.png)
+![Screenshots that show example storage capacity of a volume after behavior change.](./media/volume-hard-quota-guidelines/hard-quota-windows-capacity-after.png)
 
 The following example shows the `dir` command output:  
 
-![Screenshot that shows using a command to display storage capacity for a volume after behavior change.](../media/azure-netapp-files/hard-quota-command-capacity-after.png)
+![Screenshot that shows using a command to display storage capacity for a volume after behavior change.](./media/volume-hard-quota-guidelines/hard-quota-command-capacity-after.png)
 
 ##### Linux 
 
@@ -116,11 +109,11 @@ Linux clients can check the used and available capacity of a volume by using the
 
 The following example shows volume capacity reporting in Linux *before* the changed behavior:  
 
-![Screenshot that shows using Linux to display storage capacity for a volume before behavior change.](../media/azure-netapp-files/hard-quota-linux-capacity-before.png)
+![Screenshot that shows using Linux to display storage capacity for a volume before behavior change.](./media/volume-hard-quota-guidelines/hard-quota-linux-capacity-before.png)
 
 The following example shows volume capacity reporting in Linux *after* the changed behavior:  
 
-![Screenshot that shows using Linux to display storage capacity for a volume after behavior change.](../media/azure-netapp-files/hard-quota-linux-capacity-after.png)
+![Screenshot that shows using Linux to display storage capacity for a volume after behavior change.](./media/volume-hard-quota-guidelines/hard-quota-linux-capacity-after.png)
 
 
 ### Configure alerts using ANFCapacityManager
@@ -130,8 +123,8 @@ You can use the community-supported Logic Apps ANFCapacityManager tool to monito
 ANFCapacityManager is an Azure Logic App that manages capacity-based alert rules. It automatically increases volume sizes to prevent your Azure NetApp Files volumes from running out of space. It is easy to deploy and provides the following Alert Management capabilities:
 
 * When an Azure NetApp Files capacity pool or volume is created, ANFCapacityManager creates a metric alert rule based on the specified percent consumed threshold.
-* When an Azure NetApp Files capacity pool or volume is resized, ANFCapacityManager modifies the metric alert rule based on the specified percent capacity consumed threshold. If the alert rule does not exist, it will be created.
-* When an Azure NetApp Files capacity pool or volume is deleted, the corresponding metric alert rule will be deleted.
+* When an Azure NetApp Files capacity pool or volume is resized, ANFCapacityManager modifies the metric alert rule based on the specified percent capacity consumed threshold. If the alert rule doesn't exist, it's created.
+* When an Azure NetApp Files capacity pool or volume is deleted, the corresponding metric alert rule it's deleted.
 
 You can configure the following key alerting settings:  
 
@@ -141,7 +134,7 @@ You can configure the following key alerting settings:
 
 The following illustration shows the alert configuration:  
 
-![Illustration that shows alert configuration by using ANFCapacityManager.](../media/azure-netapp-files/hard-quota-anfcapacitymanager-configuration.png)
+![Illustration that shows alert configuration by using ANFCapacityManager.](./media/volume-hard-quota-guidelines/hard-quota-anfcapacitymanager-configuration.png)
 
 After installing ANFCapacityManager, you can expect the following behavior: When an Azure NetApp Files capacity pool or volume is created, modified, or deleted, the Logic App will automatically create, modify, or delete a capacity-based Metric Alert rule with the name `ANF_Pool_poolname` or `ANF_Volume_poolname_volname`. 
 
@@ -157,23 +150,23 @@ You can use the portal or the CLI to manually increase the volume or capacity po
 
 You can [change the size of a volume](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-volume-using-the-azure-portal) as necessary. A volume's capacity consumption counts against its pool's provisioned capacity.
 
-1. From the Manage NetApp Account blade, select **Volumes**.  
+1. From your NetApp Account, select **Volumes**.  
 2. Right-click the name of the volume that you want to resize or select the `…` icon at the end of the volume's row to display the context menu. 
 3. Use the context menu options to resize or delete the volume.   
 
-   ![Screenshot that shows context menu options for a volume.](../media/azure-netapp-files/hard-quota-volume-options.png) 
+   ![Screenshot that shows context menu options for a volume.](./media/volume-hard-quota-guidelines/hard-quota-volume-options.png) 
 
-   ![Screenshot that shows the Update Volume Quota window.](../media/azure-netapp-files/hard-quota-update-volume-quota.png) 
+   ![Screenshot that shows the Update Volume Quota window.](./media/volume-hard-quota-guidelines/hard-quota-update-volume-quota.png) 
 
-In some cases, the hosting capacity pool does not have sufficient capacity to resize the volumes. However, you can [change the capacity pool size](azure-netapp-files-resize-capacity-pools-or-volumes.md#resizing-the-capacity-pool-or-a-volume-using-azure-cli) in 1-TiB increments or decrements. The capacity pool size cannot be smaller than 4 TiB. *Resizing the capacity pool changes the purchased Azure NetApp Files capacity.*
+In some cases, the hosting capacity pool doesn't have sufficient capacity to resize the volumes. However, you can [change the capacity pool size](azure-netapp-files-resize-capacity-pools-or-volumes.md#resizing-the-capacity-pool-or-a-volume-using-azure-cli) in 1-TiB increments or decrements. The capacity pool size can't be smaller than 4 TiB. *Resizing the capacity pool changes the purchased Azure NetApp Files capacity.*
 
 1. From the Manage NetApp Account blade, select the capacity pool that you want to resize.
 2. Right-click the capacity pool name or select the `…` icon at the end of the capacity pool’s row to display the context menu.
 3. Use the context menu options to resize or delete the capacity pool.    
 
-   ![Screenshot that shows context menu options for a capacity pool.](../media/azure-netapp-files/hard-quota-pool-options.png) 
+   ![Screenshot that shows context menu options for a capacity pool.](./media/volume-hard-quota-guidelines/hard-quota-pool-options.png) 
 
-   ![Screenshot that shows the Resize Pool window.](../media/azure-netapp-files/hard-quota-update-resize-pool.png) 
+   ![Screenshot that shows the Resize Pool window.](./media/volume-hard-quota-guidelines/hard-quota-update-resize-pool.png) 
 
 
 ##### CLI or PowerShell
@@ -185,23 +178,23 @@ You can use the [Azure NetApp Files CLI tools](azure-netapp-files-sdk-cli.md#cli
 
 To manage Azure NetApp Files resources using Azure CLI, you can open the Azure portal and select the Azure **Cloud Shell** link in the top of the menu bar: 
 
-[ ![Screenshot that shows how to access Cloud Shell link.](../media/azure-netapp-files/hard-quota-update-cloud-shell-link.png) ](../media/azure-netapp-files/hard-quota-update-cloud-shell-link.png#lightbox)
+[ ![Screenshot that shows how to access Cloud Shell link.](./media/volume-hard-quota-guidelines/hard-quota-update-cloud-shell-link.png) ](./media/volume-hard-quota-guidelines/hard-quota-update-cloud-shell-link.png#lightbox)
 
 This action will open the Azure Cloud Shell:
 
-[ ![Screenshot that shows Cloud Shell window.](../media/azure-netapp-files/hard-quota-update-cloud-shell-window.png) ](../media/azure-netapp-files/hard-quota-update-cloud-shell-window.png#lightbox)
+[ ![Screenshot that shows Cloud Shell window.](./media/volume-hard-quota-guidelines/hard-quota-update-cloud-shell-window.png) ](./media/volume-hard-quota-guidelines/hard-quota-update-cloud-shell-window.png#lightbox)
 
 The following examples use the commands to [show](/cli/azure/netappfiles/volume#az-netappfiles-volume-show) and [update](/cli/azure/netappfiles/volume#az-netappfiles-volume-update) the size of a volume:
  
-[ ![Screenshot that shows using PowerShell to show volume size.](../media/azure-netapp-files/hard-quota-update-powershell-volume-show.png) ](../media/azure-netapp-files/hard-quota-update-powershell-volume-show.png#lightbox)
+[ ![Screenshot that shows using PowerShell to show volume size.](./media/volume-hard-quota-guidelines/hard-quota-update-powershell-volume-show.png) ](./media/volume-hard-quota-guidelines/hard-quota-update-powershell-volume-show.png#lightbox)
 
-[ ![Screenshot that shows using PowerShell to update volume size.](../media/azure-netapp-files/hard-quota-update-powershell-volume-update.png) ](../media/azure-netapp-files/hard-quota-update-powershell-volume-update.png#lightbox)
+[ ![Screenshot that shows using PowerShell to update volume size.](./media/volume-hard-quota-guidelines/hard-quota-update-powershell-volume-update.png) ](./media/volume-hard-quota-guidelines/hard-quota-update-powershell-volume-update.png#lightbox)
 
 The following examples use the commands to [show](/cli/azure/netappfiles/pool#az-netappfiles-pool-show) and [update](/cli/azure/netappfiles/pool#az-netappfiles-pool-update) the size of a capacity pool:
 
-[ ![Screenshot that shows using PowerShell to show capacity pool size.](../media/azure-netapp-files/hard-quota-update-powershell-pool-show.png) ](../media/azure-netapp-files/hard-quota-update-powershell-pool-show.png#lightbox) 
+[ ![Screenshot that shows using PowerShell to show capacity pool size.](./media/volume-hard-quota-guidelines/hard-quota-update-powershell-pool-show.png) ](./media/volume-hard-quota-guidelines/hard-quota-update-powershell-pool-show.png#lightbox) 
 
-[ ![Screenshot that shows using PowerShell to update capacity pool size.](../media/azure-netapp-files/hard-quota-update-powershell-pool-update.png) ](../media/azure-netapp-files/hard-quota-update-powershell-pool-update.png#lightbox)
+[ ![Screenshot that shows using PowerShell to update capacity pool size.](./media/volume-hard-quota-guidelines/hard-quota-update-powershell-pool-update.png) ](./media/volume-hard-quota-guidelines/hard-quota-update-powershell-pool-update.png#lightbox)
 
 #### Automated  
 
@@ -230,7 +223,7 @@ You can configure the following key capacity management setting:
 
 * **AutoGrow Percent Increase** - Percent of the existing volume size to automatically grow a volume if it reaches the specified **% Full Threshold**. A value of 0 (zero) will disable the AutoGrow feature. A value between 10 and 100 is recommended.
 
-    ![Screenshot that shows Set Volume Auto Growth Percent window.](../media/azure-netapp-files/hard-quota-volume-anfcapacitymanager-auto-grow-percent.png) 
+    ![Screenshot that shows Set Volume Auto Growth Percent window.](./media/volume-hard-quota-guidelines/hard-quota-volume-anfcapacitymanager-auto-grow-percent.png) 
 
 ## FAQ 
 
@@ -249,7 +242,7 @@ A common misconception is that Azure NetApp Files *volumes* would automatically 
 
 ### Does this change have any effect on volumes replicated with cross-region-replication (preview)? 
 
-The hard volume quota is not enforced on replication destination volumes.
+The hard volume quota isn't enforced on replication destination volumes.
 
 ### Does this change have any effect on metrics currently available in Azure Monitor?
 
@@ -265,7 +258,7 @@ Yes. See the [Volume AutoGrow Workflow Example GitHub page](https://github.com/A
 
 ### Is ANFCapacityManager Microsoft supported?  
 
-[The ANFCapacityManager logic app is provided as-is and is not supported by NetApp or Microsoft](https://github.com/ANFTechTeam/ANFCapacityManager#disclaimer). You're encouraged to modify to fit your specific environment or requirements. You should  test the functionality before deploying it to any business critical or production environments.
+[The ANFCapacityManager logic app is provided as-is and isn't supported by NetApp or Microsoft](https://github.com/ANFTechTeam/ANFCapacityManager#disclaimer). You're encouraged to modify to fit your specific environment or requirements. You should  test the functionality before deploying it to any business critical or production environments.
 
 ### How can I report a bug or submit a feature request for ANFCapacityManger?
 You can submit bugs and feature requests by selecting **New Issue** on the [ANFCapacityManager GitHub page](https://github.com/ANFTechTeam/ANFCapacityManager/issues).

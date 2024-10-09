@@ -4,12 +4,9 @@ description: Learn about data storage in Azure Time Series Insights Gen2.
 author: tedvilutis
 ms.author: tvilutis
 manager: diviso
-ms.workload: big-data
 ms.service: time-series-insights
-services: time-series-insights
 ms.topic: conceptual
 ms.date: 01/21/2021
-ms.custom: seodec18
 ---
 
 # Data Storage

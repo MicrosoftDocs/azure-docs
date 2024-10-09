@@ -1,9 +1,9 @@
 ---
 title: Use managed identities to access Azure Data Explorer from an Azure Stream Analytics job
 description: This article describes how to use managed identities to authenticate your Azure Stream Analytics job to an Azure Data Explorer output.
-author: enkrumah
-ms.author: ebnkruma
-ms.service: stream-analytics
+author: AliciaLiMicrosoft 
+ms.author: ali 
+ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 10/27/2022
 ms.custom: subject-rbac-steps
@@ -11,9 +11,9 @@ ms.custom: subject-rbac-steps
 
 # Use managed identities to access Azure Data Explorer from an Azure Stream Analytics job
 
-Azure Stream Analytics supports managed identity authentication for Azure Data Explorer output. Managed identities for Azure resources is a cross-Azure feature that enables you to create a secure identity associated with the deployment under which your application code runs. You can then associate that identity with access-control roles that grant custom permissions for accessing specific Azure resources that your application needs.
+Azure Stream Analytics supports managed identity authentication for Azure Data Explorer output. Managed identity for Azure resources is a cross-Azure feature that enables you to create a secure identity associated with the deployment under which your application code runs. You can then associate that identity with access-control roles that grant custom permissions for accessing specific Azure resources that your application needs.
 
-With managed identities, the Azure platform manages this runtime identity. You do not need to store and protect access keys in your application code or configuration, either for the identity itself, or for the resources you need to access. For more information on managed identities for Azure Stream Analytics, see [Managed identities for Azure Stream Analytics](stream-analytics-managed-identities-overview.md).
+With managed identities, the Azure platform manages this runtime identity. You don't need to store and protect access keys in your application code or configuration, either for the identity itself, or for the resources you need to access. For more information on managed identities for Azure Stream Analytics, see [Managed identities for Azure Stream Analytics](stream-analytics-managed-identities-overview.md).
 
 This article shows you how to enable system-assigned managed identity for an Azure Data Explorer output of a Stream Analytics job through the Azure portal. Before you can enable system-assigned managed identity, you must first have a Stream Analytics job and an Azure Data Explorer resource.
 
@@ -44,22 +44,24 @@ For the Stream Analytics job to access your Azure Data Explorer cluster using ma
 
 | Role          | Permissions                                                                         |
 |---------------|-------------------------------------------------------------------------------------|
-| Data ingestor | Can ingest data into all existing tables in the database, but can't query the data. |
-| Data monitor  | Can execute .show commands in the context of the database and its child entities.   |
+| Ingestor | Can ingest data into all existing tables in the database, but can't query the data. |
+| Monitor  | Can execute `.show` commands in the context of the database and its child entities.   |
+
+For more information about roles supported Azure Data Explorer, see [Role-based access control in Azure Data Explorer](/kusto/access-control/role-based-access-control?view=azure-data-explorer&preserve-view=true#roles-and-permissions).
 
 1. Select **Access control (IAM)**.
 
 2. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
 
-3. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+3. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
     | Setting | Value |
     | --- | --- |
-    | Role | Data ingestor and Data monitor |
+    | Role | Ingestor and Monitor |
     | Assign access to | User, group, or service principal |
     | Members | \<Name of your Stream Analytics job> |
 
-    ![Screenshot that shows Add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
+    ![Screenshot that shows Add role assignment page in Azure portal.](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png)
 
 > [!NOTE]
 > Due to global replication or caching latency, there may be a delay when permissions are revoked or granted. Changes should be reflected within 8 minutes.
@@ -71,7 +73,7 @@ Now that your managed identity is configured, you're ready to add the Azure Data
 
 1. Go to your Stream Analytics job and navigate to the **Outputs** page under **Job Topology**.
 
-1. Select **Add > Azure Data Explorer**. In the output properties window, search and select your Azure Data Explorer (kusto) cluster or type in the URL of your cluster and select **Managed Identity: System assigned** from the *Authentication mode* drop-down menu.
+1. Select **Add > Azure Data Explorer**. In the output properties window, search and select your Azure Data Explorer cluster or type in the URL of your cluster and select **Managed Identity: System assigned** from the *Authentication mode* drop-down menu.
 
 1. Fill out the rest of the properties and select **Save**.
 

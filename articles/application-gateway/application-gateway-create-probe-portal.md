@@ -4,7 +4,7 @@ titleSuffix: Azure Application Gateway
 description: Learn how to create a custom probe for Application Gateway by using the portal
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 06/10/2022
 ms.author: greglin
@@ -50,7 +50,7 @@ Probes are configured in a two-step process through the portal. The first step i
    |**Path**|/ or any valid path|The remainder of the full url for the custom probe. A valid path starts with '/'. For the default path of http:\//contoso.com, just use '/'.  You can also input a server path to a file for a static health check instead of web based.  File paths should be used while using public / private ip, or public ip dns entry as the hostname entry.|
    |**Interval (secs)**|30|How often the probe is run to check for health. It isn't recommended to set the lower than 30 seconds.|
    |**Timeout (secs)**|30|The amount of time the probe waits before timing out. If a valid response isn't received within this time-out period, the probe is marked as failed. The timeout interval needs to be high enough that an http call can be made to ensure the backend health page is available. The time-out value shouldn't be more than the ‘Interval’ value used in this probe setting or the ‘Request timeout’ value in the HTTP setting, which will be associated with this probe.|
-   |**Unhealthy threshold**|3|Number of consecutive failed attempts to be considered unhealthy. The threshold can be set to 1 or more.|
+   |**Unhealthy threshold**|3|Number of consecutive failed attempts to be considered unhealthy. The threshold can be set to 0 or more.|
    |**Use probe matching conditions**|Yes or No|By default, an HTTP(S) response with status code between 200 and 399 is considered healthy. You can change the acceptable range of backend response code or backend response body. [Learn more](./application-gateway-probe-overview.md#probe-matching)|
    |**HTTP Settings**|selection from dropdown|Probe will get associated with the HTTP settings selected here and therefore, will monitor the health of that backend pool, which is associated with the selected HTTP setting. It will use the same port for the probe request as the one being used in the selected HTTP setting. You can only choose those HTTP settings, which aren't associated with any other custom probe. <br>The only HTTP settings that are available for association are those that have the same protocol as the protocol chosen in this probe configuration, and have the same state for the *Pick Host Name From Backend HTTP setting* switch.|
    
@@ -118,7 +118,7 @@ Now that the probe has been created, it's time to add it to the gateway. Probe s
 
 ## Next steps
 
-View the health of the backend resources as determined by the probe using the [backend health view](./application-gateway-diagnostics.md#backend-health).
+View the health of the backend servers as determined by the probe using the [Backend health view](application-gateway-backend-health.md).
 
 [1]: ./media/application-gateway-create-probe-portal/figure1.png
 [2]: ./media/application-gateway-create-probe-portal/figure2.png

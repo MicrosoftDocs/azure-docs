@@ -48,8 +48,6 @@ Before you begin, make sure you have:
 
 2. Search for **Getting started with GPUs**.
 
-    ![Search GPU sample module](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/search-gpu-sample-module-1.png)
-
 3. Select **Get it now**.
 
     ![Get sample module](media/azure-stack-edge-gpu-deploy-sample-module-marketplace/get-sample-module-1.png)

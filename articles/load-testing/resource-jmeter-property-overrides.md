@@ -2,14 +2,14 @@
 title: JMeter property overrides by Azure Load Testing
 description: 'The list of Apache JMeter properties that are overridden by Azure Load Testing. These properties are not available to redefine in your load test.'
 services: load-testing
-ms.service: load-testing
+ms.service: azure-load-testing
 ms.topic: reference
-ms.author: nicktrog
-author: ntrogh
+ms.author: ninallam
+author: ninallam
 ms.date: 01/12/2023
 ---
 
-# JMeter property overriddes by Azure Load Testing
+# JMeter property overrides by Azure Load Testing
 
 Azure Load Testing enables you to specify JMeter configuration settings by [using a user properties file](./how-to-configure-user-properties.md). In this article, you learn which Apache JMeter properties Azure Load Testing already overrides. If you specify any of these properties in your load test, Azure Load Testing ignores your values.
 

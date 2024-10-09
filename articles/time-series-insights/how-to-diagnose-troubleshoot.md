@@ -5,12 +5,9 @@ author: tedvilutis
 ms.author: tvilutis
 manager: cnovak
 ms.reviewer: orspodek
-ms.workload: big-data
 ms.service: time-series-insights
-services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/01/2020
-ms.custom: seodec18
 ---
 
 # Diagnose and troubleshoot an Azure Time Series Insights Gen2 environment
@@ -27,7 +24,7 @@ This problem might occur if you don't have permissions to access the Time Series
 
 ## Problem: No data is seen in the Gen2 Explorer
 
-There are several common reasons why your data might not appear in the [Azure Time Series Insights Gen2 Explorer](https://insights.timeseries.azure.com/preview).
+There are several common reasons why your data might not appear in the Azure Time Series Insights Gen2 Explorer.
 
 - Your event source might not be receiving data.
 

@@ -1,33 +1,35 @@
 ---
 title: Sqoop import/export command fails for some users in ESP clusters - Azure HDInsight
-description: 'Apache Sqoop import/export command fails with "Import Failed: java.io.IOException: The ownership on the staging directory /user/yourusername/.staging is not as expected" error for some users in Azure HDInsight ESP cluster'
-ms.service: hdinsight
+description: Sqoop import/export command fails.
+ms.service: azure-hdinsight
+ms.custom: devx-track-extended-java
 ms.topic: troubleshooting
-ms.date: 04/01/2021
+ms.date: 05/23/2024
 ---
 
 # Scenario: Sqoop import/export command fails for usernames greater than 20 characters in Azure HDInsight ESP clusters
 
 This article describes a known issue and workaround when using Azure HDInsight ESP (Enterprise Security Pack) enabled clusters using ADLS Gen2 (ABFS) storage account.
 
+'Apache Sqoop import/export command fails with "Import Failed: java.io.IOException: The ownership on the staging directory /user/yourusername/.staging isn't as expected" error for some users in Azure HDInsight ESP cluster'
 ## Issue
 
-When running sqoop import/export command, it fails with the error below for some users:
+When you run sqoop import/export command, it fails with the error for some users
 
 ```
 ERROR tool.ImportTool: Import failed: java.io.IOException:
-The ownership on the staging directory /user/yourlongdomainuserna/.staging is not as expected. 
+The ownership on the staging directory /user/yourlongdomainuserna/.staging isn't as expected. 
 It is owned by yourlongdomainusername.
 The directory must be owned by the submitter yourlongdomainuserna or yourlongdomainuserna@AADDS.CONTOSO.COM
 ```
 
-In the example above, `/user/yourlongdomainuserna/.staging` displays the truncated 20 character username for the username `yourlongdomainusername`.
+In the example, `/user/yourlongdomainuserna/.staging` displays the truncated 20 character username for the username `yourlongdomainusername`.
 
 ## Cause
 
 The length of the username exceeds 20 characters in length. 
 
-Refer to [How objects and credentials are synchronized in an Azure Active Directory Domain Services managed domain](../active-directory-domain-services/synchronization.md) for further details.
+Refer to [How objects and credentials are synchronized in a Microsoft Entra Domain Services managed domain](../active-directory-domain-services/synchronization.md) for further details.
 
 ## Workaround
 

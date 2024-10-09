@@ -1,8 +1,8 @@
 ---
 title: Azure Government Security
 description: Customer guidance and best practices for securing Azure workloads.
-author: stevevi
-ms.author: stevevi
+author: EliotSeattle
+ms.author: eliotgra
 ms.service: azure-government
 ms.topic: article
 recommendations: false
@@ -34,13 +34,13 @@ These principles are applicable to both Azure and Azure Government. As described
 Mitigating risk and meeting regulatory obligations are driving the increasing focus and importance of data encryption. Use an effective encryption implementation to enhance current network and application security measures and decrease the overall risk of your cloud environment. Azure has extensive support to safeguard customer data using [data encryption](../security/fundamentals/encryption-overview.md), including various encryption models:
 
 - Server-side encryption that uses service-managed keys, customer-managed keys (CMK) in Azure, or CMK in customer-controlled hardware.
-- Client-side encryption that enables you to manage and store keys on-premises or in another secure location. Client-side encryption is built into the Java and .NET storage client libraries, which can use Azure Key Vault APIs, making the implementation straightforward. You can use Azure Active Directory to provide specific individuals with access to Azure Key Vault secrets.
+- Client-side encryption that enables you to manage and store keys on-premises or in another secure location. Client-side encryption is built into the Java and .NET storage client libraries, which can use Azure Key Vault APIs, making the implementation straightforward. You can use Microsoft Entra ID to provide specific individuals with access to Azure Key Vault secrets.
 
 Data encryption provides isolation assurances that are tied directly to encryption key access. Since Azure uses strong ciphers for data encryption, only entities with access to encryption keys can have access to data. Deleting or revoking encryption keys renders the corresponding data inaccessible. 
 
 ### Encryption at rest
 
-Azure provides extensive options for [encrypting data at rest](../security/fundamentals/encryption-atrest.md) to help you safeguard your data and meet your compliance needs using both Microsoft-managed encryption keys and customer-managed encryption keys. This process relies on multiple encryption keys and services such as Azure Key Vault and Azure Active Directory to ensure secure key access and centralized key management. For more information about Azure Storage service encryption and Azure disk encryption, see [Data encryption at rest](./azure-secure-isolation-guidance.md#data-encryption-at-rest).
+Azure provides extensive options for [encrypting data at rest](../security/fundamentals/encryption-atrest.md) to help you safeguard your data and meet your compliance needs using both Microsoft-managed encryption keys and customer-managed encryption keys. This process relies on multiple encryption keys and services such as Azure Key Vault and Microsoft Entra ID to ensure secure key access and centralized key management. For more information about Azure Storage service encryption and Azure disk encryption, see [Data encryption at rest](./azure-secure-isolation-guidance.md#data-encryption-at-rest).
 
 ### Encryption in transit
 
@@ -55,7 +55,7 @@ The basic encryption available for connectivity to Azure Government supports Tra
 
 ## Managing secrets
 
-Proper protection and management of encryption keys is essential for data security. You should strive to simplify key management and maintain control of keys used by cloud applications and services to encrypt data. [Azure Key Vault](../key-vault/index.yml) is a cloud service for securely storing and managing secrets. Key Vault enables you to store your encryption keys in hardware security modules (HSMs) that are [FIPS 140](/azure/compliance/offerings/offering-fips-140-2) validated. For more information, see [Data encryption key management](./azure-secure-isolation-guidance.md#data-encryption-key-management).
+Proper protection and management of encryption keys is essential for data security. You should strive to simplify key management and maintain control of keys used by cloud applications and services to encrypt data. [Azure Key Vault](/azure/key-vault/) is a cloud service for securely storing and managing secrets. Key Vault enables you to store your encryption keys in hardware security modules (HSMs) that are [FIPS 140](/azure/compliance/offerings/offering-fips-140-2) validated. For more information, see [Data encryption key management](./azure-secure-isolation-guidance.md#data-encryption-key-management).
 
 ### Best practices for managing secrets
 
@@ -143,7 +143,7 @@ Microsoft takes strong measures to protect your data from inappropriate access o
 
 Microsoft engineers can be granted access to customer data using temporary credentials via **Just-in-Time (JIT)** access. There must be an incident logged in the Azure Incident Management system that describes the reason for access, approval record, what data was accessed, etc. This approach ensures that there's appropriate oversight for all access to customer data and that all JIT actions (consent and access) are logged for audit. Evidence that procedures have been established for granting temporary access for Azure personnel to customer data and applications upon appropriate approval for customer support or incident handling purposes is available from the Azure [SOC 2 Type 2 attestation report](/azure/compliance/offerings/offering-soc-2) produced by an independent third-party auditing firm.
 
-JIT access works with multi-factor authentication that requires Microsoft engineers to use a smartcard to confirm their identity. All access to production systems is performed using Secure Admin Workstations (SAWs) that are consistent with published guidance on [securing privileged access](/security/compass/overview). Use of SAWs for access to production systems is required by Microsoft policy and compliance with this policy is closely monitored. These workstations use a fixed image with all software fully managed – only select activities are allowed and users cannot accidentally circumvent the SAW design since they don't have admin privileges on these machines. Access is permitted only with a smartcard and access to each SAW is limited to specific set of users.
+JIT access works with multi-factor authentication that requires Microsoft engineers to use a smartcard to confirm their identity. All access to production systems is performed using Secure Admin Workstations (SAWs) that are consistent with published guidance on securing privileged access. Use of SAWs for access to production systems is required by Microsoft policy and compliance with this policy is closely monitored. These workstations use a fixed image with all software fully managed – only select activities are allowed and users cannot accidentally circumvent the SAW design since they don't have admin privileges on these machines. Access is permitted only with a smartcard and access to each SAW is limited to specific set of users.
 
 ### Customer Lockbox
 
@@ -169,7 +169,7 @@ As a customer, you're [always in control of your customer data](https://www.micr
 
 This section covers essential Azure services that you can use to gain in-depth insight into your provisioned Azure resources and get alerted about suspicious activity, including outside attacks aimed at your applications and data. For a complete list, see the Azure service directory sections for [Management + Governance](https://azure.microsoft.com/services/#management-tools), [Networking](https://azure.microsoft.com/services/#networking), and [Security](https://azure.microsoft.com/services/#security). Moreover, the [Azure Security Benchmark](../security/benchmarks/index.yml) provides security recommendations and implementation details to help you improve your security posture with respect to Azure resources.
 
-**[Microsoft Defender for Cloud](../defender-for-cloud/index.yml)** (formerly Azure Security Center) provides unified security management and advanced threat protection across hybrid cloud workloads. It's an essential service for you to limit your exposure to threats, protect cloud resources, [respond to incidents](../defender-for-cloud/alerts-overview.md), and improve your regulatory compliance posture.
+**[Microsoft Defender for Cloud](/azure/defender-for-cloud/)** (formerly Azure Security Center) provides unified security management and advanced threat protection across hybrid cloud workloads. It's an essential service for you to limit your exposure to threats, protect cloud resources, [respond to incidents](/azure/defender-for-cloud/alerts-overview), and improve your regulatory compliance posture.
 
 With Microsoft Defender for Cloud, you can:
 
@@ -198,7 +198,7 @@ To assist you with Microsoft Defender for Cloud usage, Microsoft has published e
 - [How Microsoft Defender for Cloud helps detect attacks against your Linux machines](https://azure.microsoft.com/blog/how-azure-security-center-helps-detect-attacks-against-your-linux-machines/)
 - [Use Microsoft Defender for Cloud to detect when compromised Linux machines attack](https://azure.microsoft.com/blog/leverage-azure-security-center-to-detect-when-compromised-linux-machines-attack/)
 
-**[Azure Monitor](../azure-monitor/overview.md)** helps you maximize the availability and performance of applications by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from both cloud and on-premises environments. It helps you understand how your applications are performing, and proactively identifies issues affecting deployed applications and resources they depend on. Azure Monitor integrates the capabilities of [Log Analytics](../azure-monitor/logs/data-platform-logs.md) and [Application Insights](../azure-monitor/app/app-insights-overview.md) that were previously branded as standalone services.
+**[Azure Monitor](/azure/azure-monitor/overview)** helps you maximize the availability and performance of applications by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from both cloud and on-premises environments. It helps you understand how your applications are performing, and proactively identifies issues affecting deployed applications and resources they depend on. Azure Monitor integrates the capabilities of [Log Analytics](/azure/azure-monitor/logs/data-platform-logs) and [Application Insights](/azure/azure-monitor/app/app-insights-overview) that were previously branded as standalone services.
 
 Azure Monitor collects data from each of the following tiers:
 
@@ -206,7 +206,7 @@ Azure Monitor collects data from each of the following tiers:
 - **Guest OS monitoring data:** Data about the operating system on which your application is running. The application could be running in Azure, another cloud, or on-premises. 
 - **Azure resource monitoring data:** Data about the operation of an Azure resource.
 - **Azure subscription monitoring data:** Data about the operation and management of an Azure subscription and data about the health and operation of Azure itself. 
-- **Azure tenant monitoring data:** Data about the operation of tenant-level Azure services, such as Azure Active Directory.
+- **Azure tenant monitoring data:** Data about the operation of tenant-level Azure services, such as Microsoft Entra ID.
 
 With Azure Monitor, you can get a 360-degree view of your applications, infrastructure, and network with advanced analytics, dashboards, and visualization maps. Azure Monitor provides intelligent insights and enables better decisions with AI. You can analyze, correlate, and monitor data from various sources using a powerful query language and built-in machine learning constructs. Moreover, Azure Monitor provides out-of-the-box integration with popular DevOps, IT Service Management (ITSM), and Security Information and Event Management (SIEM) tools.
   
@@ -225,7 +225,7 @@ With Azure Monitor, you can get a 360-degree view of your applications, infrastr
 - **Investigate** threats with AI and hunt suspicious activities at scale, tapping into decades of cybersecurity work at Microsoft.
 - **Respond** to incidents rapidly with built-in orchestration and automation of common tasks.
 
-**[Azure Advisor](../advisor/advisor-overview.md)** helps you follow best practices to optimize your Azure deployments. It analyzes resource configurations and usage telemetry and then recommends solutions that can help you improve the cost effectiveness, performance, high availability, and security of Azure resources.
+**[Azure Advisor](/azure/advisor/advisor-overview)** helps you follow best practices to optimize your Azure deployments. It analyzes resource configurations and usage telemetry and then recommends solutions that can help you improve the cost effectiveness, performance, high availability, and security of Azure resources.
 
 ## Next steps
 

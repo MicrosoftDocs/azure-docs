@@ -1,11 +1,11 @@
 ---
 title: Azure HDInsight SDK for Go
 description: Reference material for using Azure HDInsight SDK for Go and Apache Hadoop clusters
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: conceptual
-ms.custom: seodec18, devx-track-azurecli
+ms.custom: devx-track-azurecli, devx-track-go
 ms.devlang: golang
-ms.date: 06/23/2022
+ms.date: 07/12/2024
 ---
 
 # HDInsight SDK for Go (Preview)
@@ -343,7 +343,7 @@ client.Resize(context.Background(), "<Resource Group Name>", "<Cluster Name>", h
 
 ## Cluster monitoring
 
-The HDInsight Management SDK can also be used to manage monitoring on your clusters via the Operations Management Suite (OMS).
+The HDInsight Management SDK can also be used to manage to monitor on your clusters via the Operations Management Suite (OMS).
 
 Similarly to how you created `ClusterClient` to use for management operations, you need to create an `ExtensionClient` to use for monitoring operations. Once you've completed the Authentication section above, you can create an `ExtensionClient` like so:
 
@@ -358,7 +358,7 @@ extClient.Authorizer, _ = credentials.Authorizer()
 ### Enable OMS monitoring
 
 > [!NOTE]  
-> To enable OMS Monitoring, you must have an existing Log Analytics workspace. If you have not already created one, you can learn how to do that here: [Create a Log Analytics workspace in the Azure portal](../azure-monitor/logs/quick-create-workspace.md).
+> To enable OMS Monitoring, you must have an existing Log Analytics workspace. If you have not already created one, you can learn how to do that here: [Create a Log Analytics workspace in the Azure portal](/azure/azure-monitor/logs/quick-create-workspace).
 
 To enable OMS Monitoring on your cluster:
 
@@ -384,7 +384,7 @@ extClient.DisableMonitoring(context.Background(), "<Resource Group Name", "Clust
 
 ## Script actions
 
-HDInsight provides a configuration function called script actions that invokes custom scripts to customize the cluster.
+HDInsight provides a configuration function called script actions that invoke custom scripts to customize the cluster.
 
 > [!NOTE]  
 > More information on how to use script actions can be found here: [Customize Linux-based HDInsight clusters using script actions](./hdinsight-hadoop-customize-cluster-linux.md)

@@ -1,18 +1,16 @@
 ---
 title: Deploy secure applications on Microsoft Azure
 description: This article discusses best practices to consider during the release and response phases of your web application project.
-author: TerryLanfear
-manager: barbkess
-ms.author: terrylan
-ms.date: 06/15/2022
+author: msmbaldwin
+manager: rkarlin
+ms.author: mbaldwin
+ms.date: 09/29/2024
 ms.topic: article
 ms.service: security
 ms.subservice: security-develop
 services: azure
 
 ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
-ms.tgt_pltfrm: na
-ms.workload: na
 ---
 
 # Deploy secure applications on Azure
@@ -34,8 +32,7 @@ Check your application's performance before you launch it or deploy updates to p
 
 Web applications are increasingly targets of malicious attacks that exploit common known vulnerabilities. Common among these exploits are SQL injection attacks and cross-site scripting attacks. Preventing these attacks in application code can be challenging. It might require rigorous maintenance, patching, and monitoring at many layers of the application topology. A centralized WAF helps make security management simpler. A WAF solution can also react to a security threat by patching a known vulnerability at a central location versus securing each individual web application.
 
-The [Azure Application Gateway WAF](../../web-application-firewall/ag/ag-overview.md)
-provides centralized protection of your web applications from common exploits and vulnerabilities. The WAF is based on rules from the [OWASP core rule sets](https://owasp.org/www-project-modsecurity-core-rule-set/) 3.0 or 2.2.9.
+The [Azure Application Gateway WAF](../../web-application-firewall/ag/ag-overview.md) provides centralized protection of your web applications from common exploits and vulnerabilities. The WAF is based on rules from the [OWASP core rule sets](https://owasp.org/www-project-modsecurity-core-rule-set/) 3.0 or 2.2.9.
 
 ### Create an incident response plan
 
@@ -68,14 +65,13 @@ Azure services that assist with application monitoring are:
 
 #### Application Insights
 
-[Application Insights](../../azure-monitor/app/app-insights-overview.md) is an extensible Application Performance Management (APM) service for web developers on multiple platforms. Use it to monitor your live web application. Application Insights automatically detects performance anomalies. It includes powerful analytics tools to help you diagnose issues and understand what users actually do with your app. It's designed to help you continuously improve performance and usability.
+[Application Insights](/azure/azure-monitor/app/app-insights-overview) is an extensible Application Performance Management (APM) service for web developers on multiple platforms. Use it to monitor your live web application. Application Insights automatically detects performance anomalies. It includes powerful analytics tools to help you diagnose issues and understand what users actually do with your app. It's designed to help you continuously improve performance and usability.
 
 #### Microsoft Defender for Cloud
 
 [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md) helps you prevent, detect, and respond to threats with increased visibility into (and control over) the security of your Azure resources, including web applications. Microsoft Defender for Cloud helps detect threats that might otherwise go unnoticed. It works with various security solutions.
 
-Defender for Cloud’s Free tier offers limited security for your Azure resources only. The [Defender for Cloud Standard tier](../../security-center/security-center-get-started.md)
-extends these capabilities to on-premises resources and other clouds.
+Defender for Cloud’s Free tier offers limited security for your Azure resources only. The [Defender for Cloud Standard tier](../../security-center/security-center-get-started.md) extends these capabilities to on-premises resources and other clouds.
 Defender for Cloud Standard helps you:
 
   - Find and fix security vulnerabilities.

@@ -1,9 +1,9 @@
 ---
 title: 'Tutorial: Configure Apache Ambari email notifications in Azure HDInsight'
 description: This article describes how to use SendGrid with Apache Ambari for email notifications.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: tutorial
-ms.date: 04/11/2022
+ms.date: 06/15/2024
 
 #Customer intent: As a HDInsight user, I want to configure Apache Ambari to send email notifications.
 ---
@@ -36,15 +36,15 @@ In this tutorial, you learn how to:
 
 1. From the Overview page, click **Open SaaS Account on publisher’s site**, to go the SendGrid webpage for your account.
 
-    :::image type="content" source="./media/apache-ambari-email/azure-portal-sendgrid-manage.png" alt-text="SendGrid overview in azure portal":::
+    :::image type="content" source="./media/apache-ambari-email/azure-portal-sendgrid-manage.png" alt-text="SendGrid overview in Azure portal.":::
 
 1. From the left menu, navigate to your **Settings** and then **API Keys**.
 
-    :::image type="content" source="./media/apache-ambari-email/sendgrid-dashboard-navigation.png" alt-text="SendGrid dashboard navigation":::
+    :::image type="content" source="./media/apache-ambari-email/sendgrid-dashboard-navigation.png" alt-text="SendGrid dashboard navigation.":::
 
 1. Click **Create API Key** to create an apikey and copy the apikey as smtp password in later use.
 
-    :::image type="content" source="./media/apache-ambari-email/sendgrid-account-details.png" alt-text="SendGrid account details":::
+    :::image type="content" source="./media/apache-ambari-email/sendgrid-account-details.png" alt-text="SendGrid account details.":::
 
 ## Configure Ambari e-mail notification
 
@@ -90,7 +90,7 @@ If you select **Start TLS** from the **Create Alert Notification** page, and you
 1. Go to the Apache Ambari UI.
 2. Go to **Alerts > ManageNotifications > Edit (Edit Notification)**.
 3. Select **Add Property**.
-4. Add the new property, `mail.smtp.ssl.protocol` with a value of `TLSv1.2`.
+4. Add the new property, `mail.smtp.ssl.protocols` with a value of `TLSv1.2`.
 
 
 

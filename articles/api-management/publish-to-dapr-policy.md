@@ -4,17 +4,19 @@ description: Reference for the publish-to-dapr policy available for use in Azure
 services: api-management
 author: dlepow
 
-ms.service: api-management
-ms.topic: reference
-ms.date: 12/07/2022
+ms.service: azure-api-management
+ms.topic: article
+ms.date: 07/23/2024
 ms.author: danlep
 ---
 
 # Send message to Pub/Sub topic
 
+[!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
+
 The `publish-to-dapr` policy instructs API Management gateway to send a message to a Dapr Publish/Subscribe topic. The policy accomplishes that by making an HTTP POST request to `http://localhost:3500/v1.0/publish/{{pubsub-name}}/{{topic}}`, replacing template parameters and adding content specified in the policy statement.
 
-The policy assumes that Dapr runtime is running in a sidecar container in the same pod as the gateway. Dapr runtime implements the Pub/Sub semantics. Learn more about [Dapr integration with API Management](api-management-dapr-policies.md).
+The policy assumes that Dapr runtime is running in a sidecar container in the same pod as the gateway. Dapr runtime implements the Pub/Sub semantics. Learn more about [Dapr integration with API Management](self-hosted-gateway-enable-dapr.md).
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
@@ -31,11 +33,11 @@ The policy assumes that Dapr runtime is running in a sidecar container in the sa
 
 | Attribute        | Description                     | Required | Default |
 |------------------|---------------------------------|----------|---------|
-| pubsub-name      | The name of the target PubSub component. Maps to the [pubsubname](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/pubsub_api.md) parameter in Dapr. If not present, the `topic` attribute value must be in the form of `pubsub-name/topic-name`.    | No       | None    |
-| topic            | The name of the topic. Maps to the [topic](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/pubsub_api.md) parameter in Dapr.               | Yes      | N/A     |
-| ignore-error     | If set to `true`, instructs the policy not to trigger ["on-error"](api-management-error-handling-policies.md) section upon receiving error from Dapr runtime. | No | `false` |
-| response-variable-name | Name of the [Variables](api-management-policy-expressions.md#ContextVariables) collection entry to use for storing response from Dapr runtime. | No | None |
-| timeout | Time (in seconds) to wait for Dapr runtime to respond. Can range from 1 to 240 seconds. | No | 5 |
+| pubsub-name      | The name of the target PubSub component. Maps to the [pubsubname](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/pubsub_api.md) parameter in Dapr. If not present, the `topic` attribute value must be in the form of `pubsub-name/topic-name`. Policy expressions are allowed.   | No       | None    |
+| topic            | The name of the topic. Maps to the [topic](https://github.com/dapr/docs/blob/master/daprdocs/content/en/reference/api/pubsub_api.md) parameter in Dapr. Policy expressions are allowed.              | Yes      | N/A     |
+| ignore-error     | If set to `true`, instructs the policy not to trigger ["on-error"](api-management-error-handling-policies.md) section upon receiving error from Dapr runtime. Policy expressions aren't allowed. | No | `false` |
+| response-variable-name | Name of the [Variables](api-management-policy-expressions.md#ContextVariables) collection entry to use for storing response from Dapr runtime. Policy expressions aren't allowed. | No | None |
+| timeout | Time (in seconds) to wait for Dapr runtime to respond. Can range from 1 to 240 seconds. Policy expressions are allowed. | No | 5 |
 | template | Templating engine to use for transforming the message content. "Liquid" is the only supported value. | No | None |
 | content-type | Type of the message content. "application/json" is the only supported value. | No | None |
 
@@ -47,7 +49,7 @@ The policy assumes that Dapr runtime is running in a sidecar container in the sa
 
 ### Usage notes
 
-Dapr support must be [enabled](api-management-dapr-policies.md#enable-dapr-support-in-the-self-hosted-gateway) in the self-hosted gateway.
+Dapr support must be [enabled](self-hosted-gateway-enable-dapr.md) in the self-hosted gateway.
 
 ## Example
 
@@ -82,6 +84,6 @@ The "backend" section is empty and the request is not forwarded to the backend.
 
 ## Related policies
 
-* [API Management Dapr integration policies](api-management-dapr-policies.md)
+* [Integration and external communication](api-management-policies.md#integration-and-external-communication)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

@@ -5,22 +5,23 @@ description: In this quickstart, learn how to create an Azure Content Delivery N
 services: cdn
 author: duongau
 ms.service: azure-cdn
-ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
-ms.date: 03/14/2022
+ms.custom: subject-armqs, mode-arm, devx-track-bicep
+ms.date: 03/20/2024
 ms.author: duau
 ---
 
-# Quickstart: Create an Azure CDN profile and endpoint - Bicep
+# Quickstart: Create an Azure Content Delivery Network profile and endpoint - Bicep
 
-Get started with Azure Content Delivery Network (CDN) by using a Bicep file. The Bicep file deploys a profile and an endpoint.
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
 
-[!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
+Get started with Azure Content Delivery Network by using a Bicep file. The Bicep file deploys a profile and an endpoint.
+
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Review the Bicep file
 
@@ -28,44 +29,44 @@ The Bicep file used in this quickstart is from [Azure Quickstart Templates](http
 
 This Bicep file is configured to create a:
 
-* Profile
-* Endpoint
+- Profile
+- Endpoint
 
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.cdn/cdn-with-custom-origin/main.bicep":::
 
 One Azure resource is defined in the Bicep file:
 
-* **[Microsoft.Cdn/profiles](/azure/templates/microsoft.cdn/profiles)**
+- **[Microsoft.Cdn/profiles](/azure/templates/microsoft.cdn/profiles)**
 
 ## Deploy the Bicep file
 
 1. Save the Bicep file as **main.bicep** to your local computer.
-1. Deploy the Bicep file using either Azure CLI or Azure PowerShell.
+1. Deploy the Bicep file using either the Azure CLI or Azure PowerShell.
 
     # [CLI](#tab/CLI)
 
     ```azurecli
     az group create --name exampleRG --location eastus
-    az deployment group create --resource-group exampleRG --template-file main.bicep --parameters profileName=<profile-name> endpointName=<endpoint-name> originURL=<origin-url>
+    az deployment group create --resource-group exampleRG --template-file main.bicep --parameters profileName=<profile-name> endpointName=<endpoint-name> originUrl=<origin-url>
     ```
 
     # [PowerShell](#tab/PowerShell)
 
     ```azurepowershell
     New-AzResourceGroup -Name exampleRG -Location eastus
-    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -profileName "<profile-name>" -endpointName "<endpoint-name>" -originURL "<origin-url>"
+    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -profileName "<profile-name>" -endpointName "<endpoint-name>" -originUrl "<origin-url>"
     ```
 
     ---
 
     > [!NOTE]
-    > Replace **\<profile-name\>** with the name of the CDN profile. Replace **\<endpoint-name\>** with a unique CDN Endpoint name. Replace **\<origin-url\>** with the URL of the origin.
+    > Replace **\<profile-name\>** with the name of the content delivery network profile. Replace **\<endpoint-name\>** with a unique content delivery network endpoint name. Replace **\<origin-url\>** with the URL of the origin.
 
     When the deployment finishes, you should see a message indicating the deployment succeeded.
 
 ## Review deployed resources
 
-Use the Azure portal, Azure CLI, or Azure PowerShell to list the deployed resources in the resource group. Verify that an Endpoint and CDN profile were created in the resource group.
+Use the Azure portal, the Azure CLI, or Azure PowerShell to list the deployed resources in the resource group. Verify that an Endpoint and content delivery network profile were created in the resource group.
 
 # [CLI](#tab/CLI)
 
@@ -83,7 +84,7 @@ Get-AzResource -ResourceGroupName exampleRG
 
 ## Clean up resources
 
-When no longer needed, use the Azure portal, Azure CLI, or Azure PowerShell to delete the resource group and its resources.
+When no longer needed, use the Azure portal, the Azure CLI, or Azure PowerShell to delete the resource group and its resources.
 
 # [CLI](#tab/CLI)
 
@@ -103,10 +104,10 @@ Remove-AzResourceGroup -Name exampleRG
 
 In this quickstart, you created a:
 
-* CDN Profile
-* Endpoint
+- Content delivery network Profile
+- Endpoint
 
-To learn more about Azure CDN, continue to the article below.
+To learn more about Azure Content Delivery Network, continue to the article below.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Use CDN to serve static content from a web app](cdn-add-to-web-app.md)
+> [Tutorial: Use content delivery network to serve static content from a web app](cdn-add-to-web-app.md)

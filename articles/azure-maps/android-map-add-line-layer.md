@@ -1,16 +1,23 @@
 ---
 title: Add a line layer to Android maps | Microsoft Azure Maps
 description: Learn how to add lines to maps. See examples that use the Azure Maps Android SDK to add line layers to maps and to customize lines with symbols and color gradients.
-author: stevemunk
-ms.author: v-munksteve
+author: sinnypan
+ms.author: sipa
 ms.date: 2/26/2021
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: android-sdk
+ms.custom: devx-track-java
 zone_pivot_groups: azure-maps-android
 ---
 
 # Add a line layer to the map (Android SDK)
+
+> [!NOTE]
+>
+> **Azure Maps Android SDK retirement**
+>
+> The Azure Maps Native SDK for Android is now deprecated and will be retired on 3/31/25. To avoid service disruptions, migrate to the Azure Maps Web SDK by 3/31/25. For more information, see [The Azure Maps Android SDK migration guide](android-sdk-migration-guide.md).
 
 A line layer can be used to render `LineString` and `MultiLineString` features as paths or routes on the map. A line layer can also be used to render the outline of `Polygon` and `MultiPolygon` features. A data source is connected to a line layer to provide it with data to render.
 
@@ -19,7 +26,7 @@ A line layer can be used to render `LineString` and `MultiLineString` features a
 
 ## Prerequisites
 
-Be sure to complete the steps in the [Quickstart: Create an Android app](quick-android-map.md) document. Code blocks in this article can be inserted into the maps `onReady` event handler.
+Be sure to complete the steps in the [Quickstart: Create an Android app] document. Code blocks in this article can be inserted into the maps `onReady` event handler.
 
 ## Add a line layer
 
@@ -85,7 +92,7 @@ The following screenshot shows the above code rendering a line in a line layer.
 
 ## Data-driven line style
 
-The following code creates two line features and adds a speed limit value as a property to each line. A line layer uses a data-drive style expression color the lines based on the speed limit value. Since the line data overlays along roads, the code below adds the line layer below the label layer so that road labels can still clearly be read.
+The following code creates two line features and adds a speed limit value as a property to each line. A line layer uses a data-drive style expression color the lines based on the speed limit value. Since the line data overlays along roads, the following code adds the line layer below the label layer so that road labels can still clearly be read.
 
 ::: zone pivot="programming-language-java-android"
 
@@ -196,7 +203,7 @@ map.layers.add(layer, "labels")
 
 ::: zone-end
 
-The following screenshot shows the above code rendering two lines in a line layer with their color being retrieved from a data driven style expression based on a property in the line features.
+The following screenshot shows the above code rendering two lines in a line layer, the color retrieved from a data driven style expression based on a property in the line feature.
 
 ![Map with data-drive styled lines rendered in a line layer](media/android-map-add-line-layer/android-line-layer-data-drive-style.png)
 
@@ -323,7 +330,7 @@ The following screenshot shows the above code displaying a line rendered using a
 
 ## Add symbols along a line
 
-This sample shows how to add arrow icons along a line on the map. When using a symbol layer, set the `symbolPlacement` option to `SymbolPlacement.LINE`. This option will render the symbols along the line and rotate the icons (0 degrees = right).
+This sample shows how to add arrow icons along a line on the map. When using a symbol layer, set the `symbolPlacement` option to `SymbolPlacement.LINE`. This renders the symbols along the line and rotates the icons (0 degrees = right).
 
 ::: zone pivot="programming-language-java-android"
 
@@ -451,7 +458,7 @@ For this sample, the following image was loaded into the drawable folder of the 
 |:-----------------------------------------------------------------------:|
 |                           `purple-arrow-right.png`                       |
 
-The screenshot below shows the above code displaying a line with arrow icons displayed along it.
+The following screenshot shows the above code displaying a line with arrow icons displayed along it.
 
 ![Map with data-drive styled lines with arrows rendered in a line layer](media/android-map-add-line-layer/android-symbols-along-line-path.png)
 
@@ -460,10 +467,15 @@ The screenshot below shows the above code displaying a line with arrow icons dis
 See the following articles for more code samples to add to your maps:
 
 > [!div class="nextstepaction"]
-> [Create a data source](create-data-source-android-sdk.md)
+> [Create a data source]
 
 > [!div class="nextstepaction"]
-> [Use data-driven style expressions](data-driven-style-expressions-android-sdk.md)
+> [Use data-driven style expressions]
 
 > [!div class="nextstepaction"]
-> [Add a polygon layer](how-to-add-shapes-to-android-map.md)
+> [Add a polygon layer]
+
+[Add a polygon layer]: how-to-add-shapes-to-android-map.md
+[Create a data source]: create-data-source-android-sdk.md
+[Quickstart: Create an Android app]: quick-android-map.md
+[Use data-driven style expressions]: data-driven-style-expressions-android-sdk.md

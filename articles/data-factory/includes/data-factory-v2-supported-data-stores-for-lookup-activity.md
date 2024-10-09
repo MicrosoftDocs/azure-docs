@@ -1,13 +1,11 @@
 ---
 title: include file
 description: supported connectors for Lookup Activity
-services: data-factory
 author: jianleishen
-ms.service: data-factory
 ms.topic: include
-ms.date: 05/31/2022
+ms.date: 07/12/2024
 ms.author: jianleishen
-ms.custom: include file, ignite-2022
+ms.custom: include file
 ---
 
 | Category | Data store |
@@ -23,14 +21,14 @@ ms.custom: include file, ignite-2022
 | &nbsp; |[Azure Databricks Delta Lake](../connector-azure-databricks-delta-lake.md) |
 | &nbsp; |[Azure Files](../connector-azure-file-storage.md) |
 | &nbsp; |[Azure SQL Database](../connector-azure-sql-database.md) |
-| &nbsp; |[Azure SQL Database Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview) |
+| &nbsp; |[Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview) |
 | &nbsp; |[Azure Synapse Analytics](../connector-azure-sql-data-warehouse.md) |
 | &nbsp; |[Azure Table storage](../connector-azure-table-storage.md) |
 | **Database** |[Amazon RDS for Oracle](../connector-amazon-rds-for-oracle.md) |
 | &nbsp; |[Amazon RDS for SQL Server](../connector-amazon-rds-for-sql-server.md) |
 | &nbsp; |[Amazon Redshift](../connector-amazon-redshift.md) |
 | &nbsp; |[Apache Impala](../connector-impala.md) |
-| &nbsp; |[Azure SQL Database Managed Instance](../connector-azure-sql-managed-instance.md) |
+| &nbsp; |[Azure SQL Managed Instance](../connector-azure-sql-managed-instance.md) |
 | &nbsp; |[DB2](../connector-db2.md) |
 | &nbsp; |[Drill](../connector-drill.md) |
 | &nbsp; |[Google AdWords](../connector-google-adwords.md) |
@@ -65,12 +63,13 @@ ms.custom: include file, ignite-2022
 | &nbsp; |[Google Cloud Storage](../connector-google-cloud-storage.md) |
 | &nbsp; |[HDFS](../connector-hdfs.md) |
 | &nbsp; |[Generic HTTP](../connector-http.md)|
+| &nbsp; |[Microsoft Fabric Lakehouse](../connector-microsoft-fabric-lakehouse.md) |
 | &nbsp; |[Oracle Cloud Storage](../connector-oracle-cloud-storage.md) |
 | &nbsp; |[SFTP](../connector-sftp.md) |
 | **Generic protocol** |[Generic OData](../connector-odata.md) |
 | &nbsp; |[Generic ODBC](../connector-odbc.md) |
 | &nbsp; |[SharePoint Online List](../connector-sharepoint-online-list.md) |
-| **Services and apps** |[Amazon Marketplace Web Service](../connector-amazon-marketplace-web-service.md) |
+| **Services and apps** |[Amazon Marketplace Web Service (Deprecated)](../connector-amazon-marketplace-web-service.md) |
 | &nbsp; |[Concur (Preview)](../connector-concur.md) |
 | &nbsp; |[Dataverse](../connector-dynamics-crm-office-365.md) |
 | &nbsp; |[Dynamics 365](../connector-dynamics-crm-office-365.md) |
@@ -81,7 +80,6 @@ ms.custom: include file, ignite-2022
 | &nbsp; |[Azure Data Explorer (Kusto)](../connector-azure-data-explorer.md) |
 | &nbsp; |[Magento (Preview)](../connector-magento.md) |
 | &nbsp; |[Marketo (Preview)](../connector-marketo.md) |
-| &nbsp; |[Microsoft 365](../connector-office-365.md) |
 | &nbsp; |[Oracle Eloqua (Preview)](../connector-oracle-eloqua.md) |
 | &nbsp; |[Oracle Responsys (Preview)](../connector-oracle-responsys.md) |
 | &nbsp; |[Oracle Service Cloud (Preview)](../connector-oracle-service-cloud.md) |

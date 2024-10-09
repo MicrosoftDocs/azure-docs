@@ -2,18 +2,21 @@
 title: Pass an identity provider access token to your app
 titleSuffix: Azure AD B2C
 description: Learn how to pass an access token for OAuth 2.0 identity providers as a claim in a user flow in Azure Active Directory B2C.
-services: active-directory-b2c
+
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
-ms.workload: identity
+ms.service: azure-active-directory
+
 ms.topic: how-to
-ms.date: 03/10/2022
-ms.custom: project-no-code
+ms.date: 09/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
+
+
+#Customer intent: As a developer integrating Azure Active Directory B2C with my application, I want to pass the access token from an identity provider to my application, so that I can retrieve information about the user and enable seamless sign-up and sign-in experiences.
+
 ---
 
 # Pass an identity provider access token to your application in Azure Active Directory B2C
@@ -46,9 +49,8 @@ The following diagram shows how an identity provider token returns to your app:
 
 ## Enable the claim
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. Sign in to the [Azure portal](https://portal.azure.com/) as the [External ID User Flow Administrator](/entra/identity/role-based-access-control/permissions-reference#external-id-user-flow-administrator) of your Azure AD B2C tenant.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
 1. Select **User flows (policies)**, and then select your user flow. For example, **B2C_1_signupsignin1**.
 1. Select **Application claims**.
@@ -131,8 +133,7 @@ When testing your applications in Azure AD B2C, it can be useful to have the Azu
 ### Upload the files
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directories + subscriptions** icon in the portal toolbar.
-1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
+1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 1. Select **Identity Experience Framework**.
 1. On the Custom Policies page, click **Upload Policy**.
@@ -149,6 +150,77 @@ When testing your applications in Azure AD B2C, it can be useful to have the Azu
     You should see something similar to the following example:
 
     ![Decoded token in jwt.ms with idp_access_token block highlighted](./media/idp-pass-through-user-flow/identity-provider-pass-through-token-custom.png)
+
+## Pass the IDP refresh token (optional)
+
+The access token the identity provider returns is valid for a short period of time. Some identity providers also issue a refresh token along with the access token. Your client application can then exchange the identity provider's refresh token for a new access token when needed. 
+
+Azure AD B2C custom policy supports passing the refresh token of OAuth 2.0 identity providers, which includes [Facebook](https://github.com/azure-ad-b2c/unit-tests/tree/main/Identity-providers#facebook-with-access-token), [Google](https://github.com/azure-ad-b2c/unit-tests/tree/main/Identity-providers#facebook-with-access-token) and [GitHub](https://github.com/azure-ad-b2c/unit-tests/tree/main/Identity-providers#github-with-access-token).
+
+To pass the identity provider's refresh token, follow these steps:
+
+1. Open your *TrustframeworkExtensions.xml* file and add the following **ClaimType** element with an identifier of `identityProviderRefreshToken` to the **ClaimsSchema** element.
+    
+    ```xml
+    <ClaimType Id="identityProviderRefreshToken">
+        <DisplayName>Identity provider refresh token</DisplayName>
+        <DataType>string</DataType>
+    </ClaimType>
+    ```
+    
+1. Add the **OutputClaim** element to the **TechnicalProfile** element for each OAuth 2.0 identity provider that you would like the refresh token for. The following example shows the element added to the Facebook technical profile:
+    
+    ```xml
+    <ClaimsProvider>
+      <DisplayName>Facebook</DisplayName>
+      <TechnicalProfiles>
+        <TechnicalProfile Id="Facebook-OAUTH">
+          <OutputClaims>
+            <OutputClaim ClaimTypeReferenceId="identityProviderRefreshToken" PartnerClaimType="{oauth2:refresh_token}" />
+          </OutputClaims>
+          ...
+        </TechnicalProfile>
+      </TechnicalProfiles>
+    </ClaimsProvider>
+    ```
+
+1. Some identity providers require you to include metadata or scopes to the identity provider's technical profile.
+
+    - For Google identity provider, add two claim types `access_type` and `prompt`. Then add the following input claims to the identity provider's technical profile:
+
+        ```xml
+        <InputClaims>
+            <InputClaim ClaimTypeReferenceId="access_type" PartnerClaimType="access_type" DefaultValue="offline" AlwaysUseDefaultValue="true" />
+    
+            <!-- The refresh_token is return only on the first authorization for a given user. Subsequent authorization request doesn't return the refresh_token.
+                To fix this issue we add the prompt=consent query string parameter to the authorization request-->
+            <InputClaim ClaimTypeReferenceId="prompt" PartnerClaimType="prompt" DefaultValue="consent" AlwaysUseDefaultValue="true" />
+        </InputClaims>
+        ```
+    
+    - Other identity providers may have different methods to issue a refresh token. Follow the identity provider's audience and add the necessary elements to your identity provider's technical profile. 
+
+1. Save the changes you made in your *TrustframeworkExtensions.xml* file.
+1. Open your relying party policy file, such as *SignUpOrSignIn.xml*, and add the **OutputClaim** element to the **TechnicalProfile**:
+
+    ```xml
+    <RelyingParty>
+      <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+      <TechnicalProfile Id="PolicyProfile">
+        <OutputClaims>
+          <OutputClaim ClaimTypeReferenceId="identityProviderRefreshToken" PartnerClaimType="idp_refresh_token"/>
+        </OutputClaims>
+        ...
+      </TechnicalProfile>
+    </RelyingParty>
+    ```
+
+1. Save the changes you made in your policy's relying party policy file.
+1. Upload the *TrustframeworkExtensions.xml* file, and then the relying party policy file.
+1. [Test your policy](#test-your-policy)
+ 
+
+ 
 
 ::: zone-end
 

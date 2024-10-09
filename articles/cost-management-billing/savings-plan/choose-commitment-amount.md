@@ -6,39 +6,39 @@ author: bandersmsft
 ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
-ms.custom: ignite-2022
 ms.topic: how-to
-ms.date: 12/19/2022
+ms.date: 05/14/2024
 ms.author: banders
 ---
 
 # Choose an Azure saving plan commitment amount
 
-You should purchase savings plans based on consistent base usage. Committing to a greater spend than your historical usage could result in an underutilized commitment, which should be avoided when possible. Unused commitment doesn't carry over from one hour to next. Usage exceeding the savings plan commitment is charged using more expensive pay-as-you-go rates.
+Savings plan purchase recommendations are calculated by analyzing your hourly pay-as-you-go usage and cost data. Recommendations are generated for the selected savings plan term (1- or 3-years), [benefit scope](scope-savings-plan.md) (shared, subscription  and look back period (7-, 30-, or 60-days). Azure calculates your potential savings by simulating the total costs you would have under a savings plan. It examines each combination of term, benefit scope, and look back period. It then compares these simulated costs with the actual pay-as-you-go costs you incurred. The commitment amount that returns the greatest savings for each term, benefit scope and look back period combination is highlighted. To learn more about how recommendations are generated, see [How savings plan recommendations are generated](purchase-recommendations.md#how-savings-plan-recommendations-are-generated).
 
-## Savings plan purchase recommendations
+Azure doesn't currently provide savings plan recommendations for management groups. For more information, see [Recommendations for management groups](choose-commitment-amount.md#recommendations-for-management-groups).
 
-Savings plan purchase recommendations are calculated by analyzing your hourly usage data over the last 7, 30, and 60 days. Azure calculates what your costs would have been if you had a savings plan and compares it with your actual pay-as-you-go costs incurred over the time duration. The calculation is performed for every quantity that you used during the time frame. The commitment amount that maximizes your savings is recommended.
+Savings plan recommendations are available in [Azure Advisor](https://portal.azure.com/#view/Microsoft_Azure_Expert/AdvisorMenuBlade/~/Cost), the [Azure portal](https://portal.azure.com/), and the [Savings plan benefit recommendations API](/rest/api/cost-management/benefit-recommendations/list).
 
-For example, you might use 500 VMs most of the time, but sometimes usage spikes to 700 VMs. In this example, Azure calculates your savings for both the 500 and 700 VM quantities. Since the 700 VM usage is sporadic, the recommendation calculation determines that savings are maximized for a savings plan commitment that is sufficient to cover 500 VMs and the recommendation is provided for that commitment.
+## Recommendations in Azure Advisor
+Recommendations for one and three-year savings plans in [Azure Advisor](https://portal.azure.com/#view/Microsoft_Azure_Expert/AdvisorMenuBlade/~/Cost) are currently only available for subscription scopes. These recommendations currently only have a 30-day look back period.
 
-:::image type="content" source="./media/choose-commitment-amount/savings-plan-usage-spikes.png" alt-text="Diagram showing usage spikes exceeding savings plan recommendations that would get payed for at PAYG pricing." lightbox="./media/choose-commitment-amount/savings-plan-usage-spikes.png" :::
+## Recommendations in Azure portal
+Recommendations for one- and three-year savings plans in [Azure portal](https://portal.azure.com/) are available for shared, subscription, and resource group scopes. These recommendations currently only have a 30-day look back period.
 
-Note the following points:
+## Savings plan Recommendations API
+One and tthree-year savings plan recommendations from the [Savings plan benefit recommendations API](/rest/api/cost-management/benefit-recommendations/list) are available for shared, subscription, and resource group scopes. These recommendations are available for 7-, 30-, and 60-day look back periods.
 
-- Savings plan recommendations are calculated using the on-demand usage rates that apply to you.
-- Recommendations are calculated using individual sizes, not for the instance size family.
-- The recommended commitment for a scope is reduced on the same day that you purchase a commitment for the scope.
-  - However, an update for the commitment amount recommendation across scopes can take up to 25 days. For example, if you purchase based on shared scope recommendations, the single subscription scope recommendations can take up to 25 days to adjust down.
-- Currently, Azure doesn't generate recommendations for the management group scope.
+## Recommendations for management groups
+Currently, the Azure portal doesn't provide savings plan recommendations for management groups. As a workaround, you can perform the following steps:
+1. Aggregate the recommended hourly commitments for all subscriptions within the management group.
+2. Purchase up to ~70% of the above value.
+3. Wait at least three days for the newly purchased savings plan to affect your subscription recommendations.
+4. Repeat steps 1-3 until you have your desired coverage levels.
 
-## Recommendations in the Azure portal
 
-Savings plan purchases are calculated by the recommendations engine for the selected term and scope, based on last 30-days of usage. Recommendations are shown in the savings plan purchase experience in the Azure portal.
+## Need help? Contact us
 
-## Need help? Contact us.
-
-If you have Azure savings plan for compute questions, contact your  account team, or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Temporarily, Microsoft will only provide Azure savings plan for compute expert support requests in English.
+If you have Azure savings plan for compute questions, contact your account team, or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Temporarily, Microsoft only provides Azure savings plan for compute expert support requests in English.
 
 ## Next steps
 

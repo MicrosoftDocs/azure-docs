@@ -6,26 +6,27 @@ services: cdn
 author: duongau
 manager: KumudD
 ms.service: azure-cdn
-ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm
-ms.date: 05/10/2021
+ms.custom: subject-armqs, mode-arm, devx-track-arm-template
+ms.date: 03/20/2024
 ms.author: duau
 ---
 
-# Quickstart: Create an Azure CDN profile and endpoint - ARM template
+# Quickstart: Create an Azure Content Delivery Network profile and endpoint - ARM template
 
-Get started with Azure Content Delivery Network (CDN) by using an Azure Resource Manager template (ARM template). The template deploys a profile and an endpoint.
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+Get started with Azure Content Delivery Network by using an Azure Resource Manager template (ARM template). The template deploys a profile and an endpoint.
 
-If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.cdn%2Fcdn-with-custom-origin%2Fazuredeploy.json)
+If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template opens in the Azure portal.
+
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.cdn%2Fcdn-with-custom-origin%2Fazuredeploy.json":::
 
 ## Prerequisites
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Review the template
 
@@ -33,18 +34,20 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 
 This template is configured to create a:
 
-* Profile
-* Endpoint
+- Profile
+- Endpoint
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.cdn/cdn-with-custom-origin/azuredeploy.json":::
 
 One Azure resource is defined in the template:
 
-* **[Microsoft.Cdn/profiles](/azure/templates/microsoft.cdn/profiles)**
+- **[Microsoft.Cdn/profiles](/azure/templates/microsoft.cdn/profiles)**
 
 ## Deploy the template
 
-### Azure CLI
+<a name='azure-cli'></a>
+
+### The Azure CLI
 
 ```azurecli-interactive
 read -p "Enter the location (i.e. eastus): " location
@@ -74,7 +77,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 ### Portal
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.cdn%2Fcdn-with-custom-origin%2Fazuredeploy.json)
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.cdn%2Fcdn-with-custom-origin%2Fazuredeploy.json":::
 
 ## Review deployed resources
 
@@ -86,11 +89,13 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 4. Verify the following resources were created in the resource group:
 
-    :::image type="content" source="media/create-profile-endpoint-template/cdn-profile-template-rg.png" alt-text="Azure CDN resource group" border="true":::
+    :::image type="content" source="media/create-profile-endpoint-template/cdn-profile-template-rg.png" alt-text="Screenshot of Azure Content Delivery Network resource group." border="true":::
 
 ## Clean up resources
 
-### Azure CLI
+<a name='azure-cli'></a>
+
+### The Azure CLI
 
 When no longer needed, you can use the [az group delete](/cli/azure/group#az-group-delete) command to remove the resource group and all resources contained within.
 
@@ -109,16 +114,16 @@ Remove-AzResourceGroup -Name myResourceGroupCDN
 
 ### Portal
 
-When no longer needed, delete the resource group, CDN profile, and all related resources. Select the resource group **myResourceGroupCDN** that contains the CDN profile and endpoint, and then select **Delete**.
+When no longer needed, delete the resource group, content delivery network profile, and all related resources. Select the resource group **myResourceGroupCDN** that contains the content delivery network profile and endpoint, and then select **Delete**.
 
 ## Next steps
 
 In this quickstart, you created a:
 
-* CDN Profile
-* Endpoint
+- Content delivery network Profile
+- Endpoint
 
-To learn more about Azure CDN and Azure Resource Manager, continue to the articles below.
+To learn more about Azure Content Delivery Network and Azure Resource Manager, continue to the next article:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Use CDN to serve static content from a web app](cdn-add-to-web-app.md)
+> [Tutorial: Use content delivery network to serve static content from a web app](cdn-add-to-web-app.md)

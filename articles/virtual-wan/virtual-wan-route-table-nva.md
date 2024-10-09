@@ -4,9 +4,9 @@ description: Virtual WAN virtual hub route table to steer traffic to a network v
 services: virtual-wan
 author: cherylmc
 
-ms.service: virtual-wan
-ms.topic: conceptual
-ms.date: 09/22/2020
+ms.service: azure-virtual-wan
+ms.topic: how-to
+ms.date: 08/14/2024
 ms.author: cherylmc 
 ms.custom: devx-track-azurepowershell
 # Customer intent: As someone with a networking background, I want to work with routing tables for NVA.
@@ -16,7 +16,7 @@ ms.custom: devx-track-azurepowershell
 
 This article shows you how to steer traffic from a Virtual Hub to a Network Virtual Appliance. 
 
-![Virtual WAN diagram](./media/virtual-wan-route-table-nva/vwanroute.png)
+:::image type="content" source="./media/virtual-wan-route-table-nva/vwanroute.png" alt-text="Screenshot of Virtual WAN diagram PowerShell." lightbox="./media/virtual-wan-route-table-nva/vwanroute.png":::
 
 In this article you learn how to:
 
@@ -29,22 +29,22 @@ In this article you learn how to:
 
 ## Before you begin
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 Verify that you have met the following criteria:
 
 * You have a Network Virtual Appliance (NVA). This is a third-party software of your choice that is typically provisioned from Azure Marketplace in a virtual network.
 * You have a private IP assigned to the NVA network interface. 
-* The NVA cannot be deployed in the virtual hub. It must be deployed in a separate VNet. For this article, the NVA VNet is referred to as the 'DMZ VNet'.
+* The NVA can't be deployed in the virtual hub. It must be deployed in a separate VNet. For this article, the NVA VNet is referred to as the 'DMZ VNet'.
 * The ‘DMZ VNet’ may have one or many virtual networks connected to it. In this article, this VNet is referred to as ‘Indirect spoke VNet’. These VNets can be connected to the DMZ VNet using VNet peering.
 * Verify that you have 2 VNets already created. These will be used as spoke VNets. For this article, the VNet spoke address spaces are 10.0.2.0/24 and 10.0.3.0/24. If you need information on how to create a VNet, see [Create a virtual network using PowerShell](../virtual-network/quick-create-powershell.md).
 * Ensure there are no virtual network gateways in any VNets.
 
 ## <a name="signin"></a>1. Sign in
 
-Make sure you install the latest version of the Resource Manager PowerShell cmdlets. For more information about installing PowerShell cmdlets, see [How to install and configure Azure PowerShell](/powershell/azure/install-az-ps). This is important because earlier versions of the cmdlets do not contain the current values that you need for this exercise.
+Make sure you install the latest version of the Resource Manager PowerShell cmdlets. For more information about installing PowerShell cmdlets, see [How to install and configure Azure PowerShell](/powershell/azure/install-azure-powershell). This is important because earlier versions of the cmdlets don't contain the current values that you need for this exercise.
 
-1. Open your PowerShell console with elevated privileges, and sign in to your Azure account. This cmdlet prompts you for the sign-in credentials. After signing in, it downloads your account settings so that they are available to Azure PowerShell.
+1. Open your PowerShell console with elevated privileges, and sign in to your Azure account. This cmdlet prompts you for the sign-in credentials. After signing in, it downloads your account settings so that they're available to Azure PowerShell.
 
    ```powershell
    Connect-AzAccount

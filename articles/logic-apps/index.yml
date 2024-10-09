@@ -3,15 +3,14 @@
 title: Azure Logic Apps documentation # < 60 chars
 summary: Build automated scalable workflows, business processes, and enterprise orchestrations to integrate your apps and data across cloud services and on-premises systems. # < 160 chars
 
-metadata: 
-  title: Azure Logic Apps documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Build automated scalable workflows, business processes, and enterprise orchestrations to integrate your apps and data across cloud services and on-premises systems. # Required; article description that is displayed in search results. < 160 chars.
-  services: logic-apps # service
-  ms.service: logic-apps #Required; service per approved list. service slug assigned to your service by ACOM.
-  ms.topic: landing-page # Required
-  author: ecfan #Required; your GitHub user alias, with correct capitalization.
-  ms.author: estfan; logicappspm #Required; microsoft alias of author; optional team alias.
-  ms.date: 03/24/2021 #Required; mm/dd/yyyy format.
+metadata:
+  title: Azure Logic Apps documentation
+  description: Build automated scalable workflows, business processes, and enterprise orchestrations to integrate your apps and data across cloud services and on-premises systems.
+  ms.service: azure-logic-apps
+  ms.topic: landing-page
+  author: ecfan
+  ms.author: estfan
+  ms.date: 08/23/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -25,20 +24,22 @@ landingContent:
         links:
           - text: What is Azure Logic Apps?
             url: logic-apps-overview.md
-          - text: Single-tenant versus multi-tenant and integration service environment
-            url: single-tenant-overview-compare.md
-          - text: What is Azure Arc-enabled Logic Apps?
-            url: azure-arc-enabled-logic-apps-overview.md
       - linkListType: concept
         links:
-          - text: Connectors overview for Azure Logic Apps
-            url: ../connectors/apis-list.md
           - text: Recurrence schedules for workflows
             url: concepts-schedule-automated-recurring-tasks-workflows.md
-          - text: B2B enterprise integration
-            url: logic-apps-enterprise-integration-overview.md
+          - text: About connectors
+            url: ../connectors/introduction.md
+          - text: Single-tenant versus multitenant
+            url: single-tenant-overview-compare.md
           - text: Resource health for logic apps
             url: healthy-unhealthy-resource.md
+          - text: Business rules engine Integration
+            url: rules-engine/rules-engine-overview.md
+          - text: B2B enterprise integration
+            url: logic-apps-enterprise-integration-overview.md
+          - text: Mainframe modernization
+            url: mainframe-modernization-overview.md
       - linkListType: learn
         links:
           - text: Introduction to Azure Logic Apps
@@ -47,7 +48,7 @@ landingContent:
         links:
           - text: Introducing Azure Logic Apps
             url: /Shows/Azure-Friday/Go-serverless-Enterprise-integration-with-Azure-Logic-Apps/
-          - text: Connect and extend your mainframe to the cloud with Logic Apps
+          - text: Connect and extend your mainframe to the cloud with Azure Logic Apps
             url: /Shows/Azure-Friday/Connect-and-extend-your-mainframe-to-the-cloud-with-Logic-Apps
           - text: Azure Logic Apps - Code & API free integration
             url: https://www.youtube.com/watch?v=Z3qaBQS0w20
@@ -55,20 +56,14 @@ landingContent:
   # Card (optional)
   - title: Get started
     linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Create logic app - Azure portal
-            url: quickstart-create-first-logic-app-workflow.md
-          - text: Create logic app - Visual Studio
-            url: quickstart-create-logic-apps-with-visual-studio.md
       - linkListType: get-started
         links:
-          - text: "Template: Run timer jobs on a schedule"
-            url: https://azure.microsoft.com/resources/templates/logicapps-jobscheduler/
-      - linkListType: learn
-        links:
-          - text: Route and process data automatically
-            url: /training/modules/route-and-process-data-logic-apps
+          - text: Create Consumption workflow - Portal
+            url: quickstart-create-example-consumption-workflow.md
+          - text: Create Standard workflow - Portal
+            url: create-single-tenant-workflows-azure-portal.md
+          - text: Create Standard workflow from template - Portal
+            url: create-single-tenant-workflows-templates.md
       - linkListType: tutorial
         links:
           - text: Create a schedule-based workflow
@@ -77,33 +72,6 @@ landingContent:
             url: tutorial-process-mailing-list-subscriptions-workflow.md
           - text: Create an Azure Functions and Storage workflow
             url: tutorial-process-email-attachments-workflow.md
-      - linkListType: video
-        links:
-          - text: Be the scheduler hero with Azure Logic Apps
-            url: https://azure.microsoft.com/resources/videos/ignite-2018-be-the-scheduler-hero-with-azure-logic-apps
-
-  # Card (optional)
-  - title: Access on-premises data or virtual networks
-    linkLists:
-      - linkListType: concept
-        links:
-          - text: What is an on-premises data gateway?
-            url: /data-integration/gateway/service-gateway-onprem
-          - text: What is an integration service environment?
-            url: connect-virtual-network-vnet-isolated-environment-overview.md
-      - linkListType: how-to-guide
-        links:
-          - text: Install on-premises data gateway
-            url: logic-apps-gateway-install.md
-          - text: Connect to on-premises data sources
-            url: logic-apps-gateway-connection.md
-          - text: Connect to virtual networks
-            url: connect-virtual-network-vnet-isolated-environment-overview.md
-      - linkListType: video
-        links:
-          - text: Introduction to Integration Service Environment
-            url: https://azure.microsoft.com/resources/videos/azure-friday-introduction-to-azure-integration-service-environment-for-logic-apps/
-
   # Card (optional)
   - title: Build B2B enterprise integrations
     linkLists:
@@ -131,13 +99,10 @@ landingContent:
         links:
           - text: Manage logic apps - Visual Studio
             url: manage-logic-apps-with-visual-studio.md
-          - text: Manage integration service environment
-            url: ise-manage-integration-service-environment.md
           - text: Secure access and data
             url: logic-apps-securing-a-logic-app.md
           - text: Authenticate with managed identities
             url: create-managed-service-identity.md
-
   # Card (optional)
   - title: Deploy logic apps
     linkLists:
@@ -147,15 +112,13 @@ landingContent:
             url: logic-apps-azure-resource-manager-templates-overview.md
       - linkListType: how-to-guide
         links:
-          - text: Create logic app templates
+          - text: Create ARM templates for logic apps
             url: logic-apps-create-azure-resource-manager-templates.md
-          - text: Deploy logic app templates
+          - text: Deploy ARM templates for logic apps
             url: logic-apps-deploy-azure-resource-manager-templates.md
-          - text: Call logic apps from Power Automate and Power Apps
-            url: call-from-power-automate-power-apps.md
       - linkListType: learn
         links:
-          - text: Create and deploy with Resource Manager templates
+          - text: Create and deploy with ARM templates
             url: /training/modules/create-deploy-logic-apps-using-arm-templates/
           - text: "Sample: Orchestrate Azure Pipelines by using Azure Logic Apps"
             url: https://github.com/Azure-Samples/azure-logic-apps-pipeline-orchestration
@@ -168,10 +131,10 @@ landingContent:
             url: logic-apps-limits-and-config.md
           - text: Pricing model
             url: logic-apps-pricing.md
-          - text: Available connector reference for Azure Logic Apps
-            url: /connectors/connector-reference/connector-reference-logicapps-connectors
-          - text: Workflow Definition Language schema
-            url: logic-apps-workflow-definition-language.md
+          - text: Azure CLI - Consumption
+            url: /cli/azure/logic
+          - text: Azure CLI - Standard
+            url: /cli/azure/logicapp
           - text: Azure PowerShell
             url: /powershell/module/az.logicapp/
           - text: REST API

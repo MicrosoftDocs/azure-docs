@@ -2,25 +2,24 @@
 title: Using optimize write on Apache Spark to produce more efficient tables
 description: Optimize write is an efficient write feature for Apache Spark
 author: DaniBunny 
-ms.service: synapse-analytics 
+ms.service: azure-synapse-analytics
 ms.topic: reference
 ms.subservice: spark
 ms.date: 08/03/2022
 ms.author: dacoelho 
-ms.reviewer: martinle
+ms.reviewer: whhender
 ---
 
 # The need for optimize write on Apache Spark
 
-Analytical workloads on Big Data processing engines such as Apache Spark perform most efficiently when using standardized larger file sizes. The relation between the file size, the number of files, the number of Spark workers and its configurations, play a critical role on performance. Ingestion workloads into data lake tables may have the inherited characteristic of constantly writing lots of small files; this scenario is commonly known as the "small file problem".
+Analytical workloads on Big Data processing engines such as Apache Spark perform most efficiently when using standardized larger file sizes. The relation between the file size, the number of files, the number of Spark workers and its configurations, play a critical role on performance. Ingestion workloads into data lake tables could have the inherited characteristic of constantly writing lots of small files; this scenario is commonly known as the "small file problem".
 
-Optimize Write is a Delta Lake on Synapse feature that reduces the number of files written and aims to increase individual file size of the written data. It dynamically optimizes partitions while generating files with a default 128 MB size. The target file size may be changed per workload requirements using [configurations](apache-spark-azure-create-spark-configuration.md).
+Optimize Write is a Delta Lake on Synapse feature that reduces the number of files written and aims to increase individual file size of the written data. It dynamically optimizes partitions while generating files with a default 128-MB size. The target file size might be changed per workload requirements using [configurations](apache-spark-azure-create-spark-configuration.md).
 
 This feature achieves the file size by using an extra data shuffle phase over partitions, causing an extra processing cost while writing the data. The small write penalty should be outweighed by read efficiency on the tables.
 
 > [!NOTE]
-> - Optimize write is available as a Preview feature. 
-> - It is available on Synapse Pools for Apache Spark versions 3.1 and 3.2.
+> - It is available on Synapse Pools for Apache Spark versions above 3.1.
 
 ## Benefits of Optimize Writes
 
@@ -35,7 +34,7 @@ This feature achieves the file size by using an extra data shuffle phase over pa
 
 ### When to use it
 
-* Delta lake partitioned tables subject to write patterns that generate suboptimal (less than 128 MB) or non-standardized files sizes (files with different sizes between itself).
+* Delta lake partitioned tables subject to write patterns that generate suboptimal (less than 128 MB) or nonstandardized files sizes (files with different sizes between itself).
 * Repartitioned data frames that will be written to disk with suboptimal files size.
 * Delta lake partitioned tables targeted by small batch SQL commands like UPDATE, DELETE, MERGE, CREATE TABLE AS SELECT, INSERT INTO, etc.
 * Streaming ingestion scenarios with append data patterns to Delta lake partitioned tables where the extra write latency is tolerable.
@@ -48,7 +47,7 @@ This feature achieves the file size by using an extra data shuffle phase over pa
 
 ## How to enable and disable the optimize write feature
 
-The optimize write feature is disabled by default.
+The optimize write feature is disabled by default. In Spark 3.3 Pool, it's enabled by default for partitioned tables.
 
 Once the configuration is set for the pool or session, all Spark write patterns will use the functionality.
 
@@ -66,7 +65,7 @@ spark.conf.set("spark.microsoft.delta.optimizeWrite.enabled", "true")
 SET `spark.microsoft.delta.optimizeWrite.enabled` = true
 ```
 
-To check the current configuration value, use the command as shown below:
+To check the current configuration value, use the command as shown:
 
 1. Scala and PySpark
 
@@ -80,7 +79,7 @@ spark.conf.get("spark.microsoft.delta.optimizeWrite.enabled")
 SET `spark.microsoft.delta.optimizeWrite.enabled`
 ```
 
-To disable the optimize write feature, change the following configuration as shown below:
+To disable the optimize write feature, change the following configuration as shown:
 
 1. Scala and PySpark
 
@@ -106,7 +105,7 @@ CREATE TABLE <table_name> TBLPROPERTIES (delta.autoOptimize.optimizeWrite = true
 
 2. Scala
 
-Using the [DeltaTableBuilder API](https://docs.delta.io/latest/api/scala/io/delta/tables/DeltaTableBuilder.html):
+Using the [DeltaTableBuilder API](https://docs.delta.io/latest/delta-apidoc.html):
 
 ```scala
 val table = DeltaTable.create()
@@ -127,7 +126,7 @@ ALTER TABLE <table_name> SET TBLPROPERTIES (delta.autoOptimize.optimizeWrite = t
 
 2. Scala
 
-Using the [DeltaTableBuilder API](https://docs.delta.io/latest/api/scala/io/delta/tables/DeltaTableBuilder.html)
+Using the [DeltaTableBuilder API](https://docs.delta.io/latest/delta-apidoc.html)
 
 ```scala
 val table = DeltaTable.replace()

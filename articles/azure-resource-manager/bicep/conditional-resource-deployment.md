@@ -1,16 +1,14 @@
 ---
 title: Conditional deployment with Bicep
 description: Describes how to conditionally deploy a resource in Bicep.
-
-author: mumian
-ms.author: jgao
 ms.topic: conceptual
-ms.date: 07/30/2021
+ms.custom: devx-track-bicep
+ms.date: 07/11/2024
 ---
 
-# Conditional deployment in Bicep
+# Conditional deployments in Bicep with the if expression
 
-Sometimes you need to optionally deploy a resource or module in Bicep. Use the `if` keyword to specify whether the resource or module is deployed. The value for the condition resolves to true or false. When the value is true, the resource is created. When the value is false, the resource isn't created. The value can only be applied to the whole resource or module.
+To optionally deploy a resource or module in Bicep, use the `if` expression. An `if` expression includes a condition that resolves to true or false. When the `if` condition is true, the resource is deployed. When the value is false, the resource isn't created. The value can only be applied to the whole resource or module.
 
 > [!NOTE]
 > Conditional deployment doesn't cascade to [child resources](child-resource-name-type.md). If you want to conditionally deploy a resource and its child resources, you must apply the same condition to each resource type.
@@ -19,14 +17,14 @@ Sometimes you need to optionally deploy a resource or module in Bicep. Use the `
 
 If you would rather learn about conditions through step-by-step guidance, see [Build flexible Bicep templates by using conditions and loops](/training/modules/build-flexible-bicep-templates-conditions-loops/).
 
-## Deploy condition
+## Define condition for deployment
 
-You can pass in a parameter value that indicates whether a resource is deployed. The following example conditionally deploys a DNS zone.
+In Bicep, you can conditionally deploy a resource by passing in a parameter that specifies whether the resource is deployed. You test the condition with an `if` expression in the resource declaration. The following example shows the syntax for an `if` expression in a Bicep file. It conditionally deploys a DNS zone. When `deployZone` is `true`, it deploys the DNS zone. When `deployZone` is `false`, it skips deploying the DNS zone.
 
 ```bicep
 param deployZone bool
 
-resource dnsZone 'Microsoft.Network/dnszones@2018-05-01' = if (deployZone) {
+resource dnsZone 'Microsoft.Network/dnsZones@2023-07-01-preview' = if (deployZone) {
   name: 'myZone'
   location: 'global'
 }
@@ -58,21 +56,26 @@ param location string = resourceGroup().location
 ])
 param newOrExisting string = 'new'
 
-resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = if (newOrExisting == 'new') {
+resource saNew 'Microsoft.Storage/storageAccounts@2023-04-01' = if (newOrExisting == 'new') {
   name: storageAccountName
   location: location
   sku: {
     name: 'Standard_LRS'
-    tier: 'Standard'
   }
   kind: 'StorageV2'
-  properties: {
-    accessTier: 'Hot'
-  }
 }
+
+resource saExisting 'Microsoft.Storage/storageAccounts@2023-04-01' existing = if (newOrExisting == 'existing') {
+  name: storageAccountName
+}
+
+output storageAccountId string = ((newOrExisting == 'new') ? saNew.id : saExisting.id)
 ```
 
-When the parameter `newOrExisting` is set to **new**, the condition evaluates to true. The storage account is deployed. However, when `newOrExisting` is set to **existing**, the condition evaluates to false and the storage account isn't deployed.
+When the parameter `newOrExisting` is set to **new**, the condition evaluates to true. The storage account is deployed. Otherwise the existing storage account is used.
+
+> [!WARNING]
+> If you reference a conditionally-deployed resource that is not deployed. You will get an error saying the resource is not defined in the template.
 
 ## Runtime functions
 
@@ -85,7 +88,7 @@ param vmName string
 param location string
 param logAnalytics string = ''
 
-resource vmName_omsOnboarding 'Microsoft.Compute/virtualMachines/extensions@2017-03-30' = if (!empty(logAnalytics)) {
+resource vmName_omsOnboarding 'Microsoft.Compute/virtualMachines/extensions@2024-03-01' = if (!empty(logAnalytics)) {
   name: '${vmName}/omsOnboarding'
   location: location
   properties: {
@@ -94,10 +97,10 @@ resource vmName_omsOnboarding 'Microsoft.Compute/virtualMachines/extensions@2017
     typeHandlerVersion: '1.0'
     autoUpgradeMinorVersion: true
     settings: {
-      workspaceId: ((!empty(logAnalytics)) ? reference(logAnalytics, '2015-11-01-preview').customerId : null)
+      workspaceId: ((!empty(logAnalytics)) ? reference(logAnalytics, '2022-10-01').customerId : null)
     }
     protectedSettings: {
-      workspaceKey: ((!empty(logAnalytics)) ? listKeys(logAnalytics, '2015-11-01-preview').primarySharedKey : null)
+      workspaceKey: ((!empty(logAnalytics)) ? listKeys(logAnalytics, '2022-10-01').primarySharedKey : null)
     }
   }
 }

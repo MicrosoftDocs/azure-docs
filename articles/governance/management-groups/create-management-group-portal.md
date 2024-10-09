@@ -23,16 +23,14 @@ directory. You receive a notification when the process is complete. For more inf
 - If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/)
   account before you begin.
 
-- Any Azure AD user in the tenant can create a management group without the management group write
+- Any Microsoft Entra ID user in the tenant can create a management group without the management group write
   permission assigned to that user if
-  [hierarchy protection](./how-to/protect-resource-hierarchy.md#setting---require-authorization)
+  [hierarchy protection](./how-to/protect-resource-hierarchy.md#setting-require-authorization)
   isn't enabled. This new management group becomes a child of the Root Management Group or the
-  [default management group](./how-to/protect-resource-hierarchy.md#setting---default-management-group)
-  and the creator is given an "Owner" role assignment. Management group service allows this ability
-  so that role assignments aren't needed at the root level. No users have access to the Root
-  Management Group when it's created. To avoid the hurdle of finding the Azure AD Global Admins to
-  start using management groups, we allow the creation of the initial management groups at the root
-  level.
+  [default management group](./how-to/protect-resource-hierarchy.md#setting-define-the-default-management-group)
+  and the creator is given an Owner role assignment. Management group service allows this ability
+  so that role assignments aren't needed at the root level. When the Root
+    Management Group is created, users don't have access to it. To start using management groups, the service allows the creation of the initial management groups at the root level. For more information, see [Root management group for each directory](./overview.md#root-management-group-for-each-directory).
 
 ### Create in portal
 
@@ -52,7 +50,7 @@ directory. You receive a notification when the process is complete. For more inf
      on this management group. This identifier isn't editable after creation as it's used throughout
      the Azure system to identify this group. The
      [root management group](./overview.md#root-management-group-for-each-directory) is
-     automatically created with an ID that is the Azure Active Directory ID. For all other
+     automatically created with an ID that is the Microsoft Entra ID. For all other
      management groups, assign a unique ID.
    - The display name field is the name that is displayed within the Azure portal. A separate
      display name is an optional field when creating the management group and can be changed at any time.

@@ -4,10 +4,9 @@ description: This article describes how to troubleshoot your Azure Stream Analyt
 titleSuffix: Azure Stream Analytics
 author: xujxu
 ms.author: xujiang1
-ms.service: stream-analytics
-ms.custom: ignite-2022
+ms.service: azure-stream-analytics
 ms.topic: how-to
-ms.date: 10/12/2022
+ms.date: 2/17/2023
 ---
 
 # Debug using the physical job diagram (preview) in Azure portal
@@ -26,7 +25,7 @@ Job with parallelization is the scalable scenario in Stream Analytics that can p
 
 :::image type="content" source="./media/job-physical-diagram-debug/1-non-parallel-job-diagram.png" alt-text="Screenshot that shows the non-parallel job in physical diagram." lightbox="./media/job-physical-diagram-debug/1-non-parallel-job-diagram.png":::
 
-You may consider to optimize it to parallel job (as example below) by rewriting your query or updating input/output configurations with the **job diagram simulator** within VSCode ASA extension or query editor in Azure portal. To learn more, see [Optimize query using job diagram simulator (preview)](./optimize-query-using-job-diagram-simulator.md).
+You may consider to optimize it to parallel job (as example below) by rewriting your query or updating input/output configurations with the **job diagram simulator** within Visual Studio Code ASA extension or query editor in Azure portal. To learn more, see [Optimize query using job diagram simulator (preview)](./optimize-query-using-job-diagram-simulator.md).
 
 :::image type="content" source="./media/job-physical-diagram-debug/1-dataskew-overview.png" alt-text="Screenshot that shows data skew view with physical diagram." lightbox="./media/job-physical-diagram-debug/1-dataskew-overview.png":::
 
@@ -38,7 +37,7 @@ The physical job diagram visualizes these key metrics in the diagram together to
 
 :::image type="content" source="./media/job-physical-diagram-debug/1-key-metrics-on-node.png" alt-text="Screenshot that shows the key metrics on a node in physical diagram." lightbox="./media/job-physical-diagram-debug/1-key-metrics-on-node.png":::
 
-For more information about the metrics definition, see [Azure Stream Analytics node name dimension](./stream-analytics-job-metrics-dimensions.md#node-name-dimension).
+For more information about the metrics definition, see [Azure Stream Analytics node name dimension](monitor-azure-stream-analytics-reference.md#metric-dimensions).
 
 
 ## Identify the uneven distributed input events (data-skew)
@@ -104,7 +103,7 @@ What should you do if the watermark delay is still increasing when one streaming
 ## Next steps
 * [Introduction to Stream Analytics](stream-analytics-introduction.md)
 * [Stream Analytics job diagram (preview) in Azure portal](./job-diagram-with-metrics.md)
-* [Azure Stream Analytics job metrics](./stream-analytics-job-metrics.md)
+* [Azure Stream Analytics job metrics](./monitor-azure-stream-analytics-reference.md#metrics)
 * [Scale Stream Analytics jobs](stream-analytics-scale-jobs.md)
 * [Stream Analytics query language reference](/stream-analytics-query/stream-analytics-query-language-reference)
 * [Analyze Stream Analytics job performance by using metrics and dimensions](./stream-analytics-job-analysis-with-metric-dimensions.md)

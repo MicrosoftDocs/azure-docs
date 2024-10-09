@@ -5,10 +5,13 @@ ms.author: rosemalcolm
 author: RoseHJM
 ms.topic: how-to
 ms.date: 06/26/2020
+ms.custom: UpdateFrequency2
 ---
 
 # Connect an environment to your lab's virtual network in Azure DevTest Labs
-Azure DevTest Labs makes it easy to create VMs in a lab with [built-in networking](devtest-lab-configure-vnet.md). It has a great deal of flexibility with the ability to [create multi-VM environments](devtest-lab-test-env.md). This article shows you how to connect VMs in an environment to the lab virtual network. One scenario where you use this feature is setting up an N-tier app with a SQL Server data tier that is connected to the lab VNet allowing test VMs in the lab to access it.  
+Azure DevTest Labs makes it easy to create VMs in a lab with [built-in networking](devtest-lab-configure-vnet.md). It has a great deal of flexibility with the ability to [create multi-VM environments](devtest-lab-test-env.md). This article shows you how to connect VMs in an environment to the lab virtual network. One scenario where you use this feature is setting up an N-tier app with a SQL Server data tier that is connected to the lab VNet allowing test VMs in the lab to access it.
+
+[!INCLUDE [direct-azure-deployment-environments](includes/direct-azure-deployment-environments.md)]  
 
 ## Sample environment that uses lab VNet
 Here is a simple environment template that connects the lab's subnet. In this sample, the `DTLSubnetId` parameter represents the ID of the subnet in which the lab exists. It's assigned to: `$(LabSubnetId)`, which is automatically resolved by DevTest Labs to the ID of the lab's subnet. The **subnet** property of the **network interface** of the VM in this definition is set to `DTLSubnetId` so that it joins the same subnet. 

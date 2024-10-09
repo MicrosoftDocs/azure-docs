@@ -2,9 +2,9 @@
 title: Policy control
 titleSuffix: Azure Private 5G Core
 description: Information on Azure Private 5G Core's policy control configuration, which allows for flexible traffic handling in your private mobile network. 
-author: djrmetaswitch
-ms.author: drichards
-ms.service: private-5g-core
+author: robswain
+ms.author: robswain
+ms.service: azure-private-5g-core
 ms.topic: conceptual
 ms.date: 01/16/2022
 ms.custom: template-concept
@@ -25,6 +25,8 @@ To ensure the correct QoS characteristics are applied, each SDF is bound to a *Q
 A *QoS profile* has two main components.
 
 - A *5G QoS identifier (5QI)*. The 5QI value corresponds to a set of QoS characteristics that should be used for the QoS flow. These characteristics include guaranteed and maximum bitrates, priority levels, and limits on latency, jitter, and error rate. The 5QI is given as a scalar number.
+
+  To allow for packet prioritization on the underlying transport network, Azure Private 5G Core will attempt to configure differentiated services codepoint (DSCP) markings on outbound packets based on the configured 5QI value for standardized GBR and non-GBR values. For more information on the mapping of 5QI to DSCP values, see [5QI to DSCP mapping](differentiated-services-codepoint-5qi-mapping.md).
 
   You can find more information on 5QI values and each of the QoS characteristics in 3GPP TS 23.501. You can also find definitions for standardized (or non-dynamic) 5QI values. 
 
@@ -92,6 +94,8 @@ Each SIM policy includes:
   - A set of QoS characteristics that will be used to form the default QoS flow for PDU sessions (or EPS bearer for PDN connections in 4G networks).
 
 You can create multiple SIM policies to offer different QoS policy settings to separate groups of SIMs on the same data network. For example, you may want to create SIM policies with differing sets of services.
+
+A SIM policy takes effect on a UE when it attaches or re-attaches to the network. Therefore, changes to the policy are not dynamically implemented on existing UE sessions. However, if a SIM policy is removed from a UE's SIM, then Azure Private 5G Core will perform a network-initiated detach, disconnecting the UE from the network.
 
 ## Network slicing
 

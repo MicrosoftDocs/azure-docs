@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 10/01/2022
+ms.date: 01/04/2024
 ---
 
 # Data security and privacy policies for Google connectors in Azure Logic Apps
@@ -53,7 +53,7 @@ Here are some examples that use the Gmail connector with built-in triggers and a
 
   ![Non-compliant logic app - Example 2](./media/connectors-google-data-security-privacy-policy/not-compliant-logic-app-2.png)
 
-* This workflow uses the Gmail connector with the Twitter connector:
+* This workflow uses the Gmail connector with the X connector:
 
   ![Non-compliant logic app - Example 3](./media/connectors-google-data-security-privacy-policy/not-compliant-logic-app-3.png)
 

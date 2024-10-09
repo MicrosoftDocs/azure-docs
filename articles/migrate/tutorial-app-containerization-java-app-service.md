@@ -1,11 +1,12 @@
 ---
 title: Containerization and migration of Java web applications to Azure App Service.
 description: Tutorial:Containerize & migrate Java web applications to Azure App Service.
-author: vijain
-ms.author: vijain
-ms.manager: kmadnani
+author: anraghun
+ms.author: anraghun
 ms.topic: tutorial
-ms.date: 5/2/2022
+ms.service: azure-migrate
+ms.custom: devx-track-extended-java
+ms.date: 09/19/2024
 ---
 # Java web app containerization and migration to Azure App Service
 
@@ -26,7 +27,8 @@ The Azure Migrate: App Containerization tool helps you to:
 - **Deploy to Azure App Service**:  The tool then generates the deployment files needed to deploy the containerized application to Azure App Service.
 
 > [!NOTE]
-> The Azure Migrate: App Containerization tool helps you discover specific application types (ASP.NET and Java web apps on Apache Tomcat) and their components on an application server. To discover servers and the inventory of apps, roles, and features running on on-premises machines, use Azure Migrate: Discovery and assessment capability. [Learn more](./tutorial-discover-vmware.md).
+> - The Azure Migrate: App Containerization tool helps you discover specific application types (ASP.NET and Java web apps on Apache Tomcat) and their components on an application server. To discover servers and the inventory of apps, roles, and features running on on-premises machines, use Azure Migrate: Discovery and assessment capability. [Learn more](./tutorial-discover-vmware.md).
+> - App Containerization Tool skips the discovery of some default Tomcat web apps, such as "docs", "examples", "host-manager", "manager" and "ROOT".
 
 While all applications won't benefit from a straight shift to containers without significant rearchitecting, some of the benefits of moving existing apps to containers without rewriting include:
 
@@ -56,7 +58,7 @@ Before you begin this tutorial, you should:
 --- | ---
 **Identify a machine to install the tool** | A Windows machine to install and run the Azure Migrate: App Containerization tool. The Windows machine could be a server (Windows Server 2016 or later) or client (Windows 10) operating system, meaning that the tool can run on your desktop as well. <br/><br/> The Windows machine running the tool should have network connectivity to the servers/virtual machines hosting the Java web applications to be containerized.<br/><br/> Ensure that 6-GB space is available on the Windows machine running the Azure Migrate: App Containerization tool for storing application artifacts. <br/><br/> The Windows machine should have internet access, directly or via a proxy.
 **Application servers** | Enable Secure Shell (SSH) connection on port 22 on the server(s) running the Java application(s) to be containerized. <br/>
-**Java web application** | The tool currently supports: <br/><br/> - Applications running on Tomcat 8 or later.<br/> - Application servers on Ubuntu Linux 16.04/18.04/20.04, Debian 7/8, CentOS 6/7, Red Hat Enterprise Linux 5/6/7. <br/> - Applications using Java version 7 or later.  <br/><br/> The tool currently doesn't support: <br/><br/> - Application servers running multiple Tomcat instances. <br/>  
+**Java web application** | The tool currently supports: <br/><br/> - Applications running on Tomcat 8 or Tomcat 9.<br/> - Application servers on Ubuntu Linux 16.04/18.04/20.04, Debian 7/8, Red Hat Enterprise Linux 5/6/7. <br/> - Applications using Java 7 or Java 8. <br/> If you have version outside of this,  find an image that supports your required versions and modify the dockerfile to replace image <br/><br/> The tool currently doesn't support: <br/><br/> - Application servers running multiple Tomcat instances <br/>  
 
 
 ## Prepare an Azure user account
@@ -65,7 +67,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Once your subscription is set up, you'll need an Azure user account with:
 - Owner permissions on the Azure subscription.
-- Permissions to register Azure Active Directory apps.
+- Permissions to register Microsoft Entra apps.
 
 If you just created a free Azure account, you're the owner of your subscription. If you're not the subscription owner, work with the owner to assign the permissions as follows:
 
@@ -84,13 +86,15 @@ If you just created a free Azure account, you're the owner of your subscription.
 
     ![Opens the Add Role assignment page to assign a role to the account.](./media/tutorial-discover-vmware/assign-role.png)
 
-  Your Azure account also needs **permissions to register Azure Active Directory apps.**
-8. In the Azure portal, navigate to **Azure Active Directory** > **Users** > **User Settings**.
-9. In **User settings**, verify if Azure AD users can register applications (set to **Yes** by default).
+  Your Azure account also needs **permissions to register Microsoft Entra apps.**
+8. In the Azure portal, navigate to **Microsoft Entra ID** > **Users** > **User Settings**.
+9. In **User settings**, verify if Microsoft Entra users can register applications (set to **Yes** by default).
 
   ![Verify in User Settings that users can register Active Directory apps.](./media/tutorial-discover-vmware/register-apps.png)
 
-10. In case the 'App registrations' setting is set to 'No', request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the **Application Developer** role to an account to allow the registration of Azure Active Directory App. [Learn more](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
+   [!INCLUDE [global-admin-usage.md](includes/global-admin-usage.md)]
+
+10. In case the 'App registrations' setting is set to 'No', request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the **Application Developer** role to an account to allow the registration of Microsoft Entra App. [Learn more](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## Download and install Azure Migrate: App Containerization tool
 
@@ -101,6 +105,9 @@ If you just created a free Azure account, you're the owner of your subscription.
    ```powershell
    .\AppContainerizationInstaller.ps1
    ```
+
+> [!NOTE]
+> For Windows Server 2022, edit line 135 and remove `PowerShell-ISE` from the feature list, as it's no longer supported.
 
 ## Launch the App Containerization tool
 
@@ -187,12 +194,12 @@ Parameterizing the configuration makes it available as a deployment time paramet
 ## Build container image
 
 
-1. **Select Azure Container Registry**: Use the dropdown to select an [Azure Container Registry](../container-registry/index.yml) that will be used to build and store the container images for the apps. You can use an existing Azure Container Registry or choose to create a new one using the Create new registry option.
+1. **Select Azure Container Registry**: Use the dropdown to select an [Azure Container Registry](/azure/container-registry/) that will be used to build and store the container images for the apps. You can use an existing Azure Container Registry or choose to create a new one using the Create new registry option.
 
     ![Screenshot for app ACR selection.](./media/tutorial-containerize-apps-aks/build-java-app.png)
 
 > [!NOTE]
-> Only Azure container registries with admin user enabled are displayed. The admin account is currently required for deploying an image from an Azure container registry to Azure App Service. [Learn more](../container-registry/container-registry-authentication.md#admin-account).
+> Only Azure container registries with admin user enabled are displayed. The admin account is currently required for deploying an image from an Azure container registry to Azure App Service. [Learn more](/azure/container-registry/container-registry-authentication#admin-account).
 
 2. **Review the Dockerfile**: The Dockerfile needed to build the container images for each selected application are generated at the beginning of the build step. Click **Review** to review the Dockerfile. You can also add any necessary customizations to the Dockerfile in the review step and save the changes before starting the build process.
 

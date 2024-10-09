@@ -2,9 +2,10 @@
 title: Deploy nested ARM template environments
 description: Learn how to nest Azure Resource Manager (ARM) templates to deploy Azure DevTest Labs environments.
 ms.topic: how-to
+ms.custom: devx-track-arm-template, UpdateFrequency2
 ms.author: rosemalcolm
 author: RoseHJM
-ms.date: 01/26/2022
+ms.date: 09/30/2023
 ---
 
 # Deploy DevTest Labs environments by using nested templates
@@ -12,6 +13,9 @@ ms.date: 01/26/2022
 A nested deployment runs secondary Azure Resource Manager (ARM) templates from within a main template. This article shows an example of nesting templates to deploy an Azure DevTest Labs environment. DevTest Labs environments contain multiple infrastructure-as-a-service (IaaS) virtual machines (VMs) with platform-as-a-service (PaaS) resources installed. You can provision the PaaS resources and VMs by using ARM templates.
 
 Decomposing a deployment into a set of targeted, purpose-specific templates provides testing, reuse, and readability benefits. For general information about nested templates, including code samples, see [Using linked and nested templates when deploying Azure resources](../azure-resource-manager/templates/linked-templates.md).
+
+
+[!INCLUDE [direct-azure-deployment-environments](includes/direct-azure-deployment-environments.md)]  
 
 ## Deploy nested templates with Visual Studio
 
@@ -75,4 +79,3 @@ The following example shows the main *azuredeploy.json* ARM template file for th
 
 - For more information about DevTest Labs environments, see [Use ARM templates to create DevTest Labs environments](devtest-lab-create-environment-from-arm.md).
 - For more information about using the Visual Studio Azure Resource Group project template, including code samples, see [Creating and deploying Azure resource groups through Visual Studio](../azure-resource-manager/templates/create-visual-studio-deployment-project.md).
-

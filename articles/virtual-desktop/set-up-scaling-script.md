@@ -1,18 +1,18 @@
 ---
 title: Set up scaling of session hosts using Azure Automation and Azure Logic Apps for Azure Virtual Desktop - Azure
 description: How to automatically scale Azure Virtual Desktop session hosts with Azure Automation.
-author: Heidilohr
+author: dknappettmsft
 ms.topic: how-to
-ms.date: 04/29/2022
-ms.author: helohr
-manager: femila
+ms.custom: devx-track-azurepowershell, docs_inherited
+ms.date: 11/01/2023
+ms.author: daknappe
 ---
 # Set up scaling tool using Azure Automation and Azure Logic Apps for Azure Virtual Desktop
 
 In this article, you'll learn about the scaling tool that uses an Azure Automation runbook and Azure Logic App to automatically scale session host VMs in your Azure Virtual Desktop environment. To learn more about the scaling tool, see [Scale session hosts using Azure Automation and Azure Logic Apps](scaling-automation-logic-apps.md).
 
 > [!NOTE]
-> - Autoscale is an alternative way to scale session host VMs and is a native feature of Azure Virtual Desktop. We recommend you use Autoscale instead. For more information, see [Autoscale scaling plans](autoscale-scenarios.md).
+> - Azure Virtual Desktop's native Autoscale solution is generally available for pooled and personal host pool(s) and will automatically scale in or out session host VMs based on scaling schedule. We recommend using Autoscale for easier configuration. For more information, see [Autoscale scaling plans](autoscale-scaling-plan.md).
 >
 > - You can't scale session hosts using Azure Automation and Azure Logic Apps together with [autoscale](autoscale-scaling-plan.md) on the same host pool. You must use one or the other.
 
@@ -22,7 +22,7 @@ Before you start setting up the scaling tool, make sure you have the following t
 
 - An [Azure Virtual Desktop host pool](create-host-pools-azure-marketplace.md).
 - Session host pool VMs configured and registered with the Azure Virtual Desktop service.
-- A user with the [*Contributor*](../role-based-access-control/role-assignments-portal.md) role-based access control (RBAC) role assigned on the Azure subscription to create the resources. You'll also need the *Application administrator* and/or *Owner* RBAC role to create a Run As account.
+- A user with the [*Contributor*](../role-based-access-control/role-assignments-portal.yml) role-based access control (RBAC) role assigned on the Azure subscription to create the resources. You'll also need the *Application administrator* and/or *Owner* RBAC role to create a managed identity.
 - A Log Analytics workspace (optional).
 
 The machine you use to deploy the tool must have:
@@ -90,32 +90,11 @@ First, you'll need an Azure Automation account to run the PowerShell runbook. Th
 
     To check if your webhook is where it should be, select the name of your runbook. Next, go to your runbook's Resources section and select **Webhooks**.
 
-## Create an Azure Automation Run As account
+## Create a managed identity
 
-Now that you have an Azure Automation account, you'll also need to create an Azure Automation Run As account if you don't have one already. This account will let the tool access your Azure resources.
+Now that you have an Azure Automation account, you'll also need to set up a [managed identity](../automation/automation-security-overview.md#managed-identities) if you haven't already. Managed identities will help your runbook access other Microsoft Entra related resources as well as authenticate important automation processes.
 
-> [!IMPORTANT]
-> This scaling tool uses a Run As account with Azure Automation. Azure Automation Run As accounts will retire on September 30, 2023. Microsoft won't provide support beyond that date. From now through September 30, 2023, you can continue to use Azure Automation Run As accounts. This scaling tool won't be updated to create the resources using managed identities, however, you can transition to use [managed identities](../automation/automation-security-overview.md#managed-identities) and will need to before then. For more information, see [Migrate from an existing Run As account to a managed identity](../automation/migrate-run-as-accounts-managed-identity.md). 
->
-> Autoscale is an alternative way to scale session host VMs and is a native feature of Azure Virtual Desktop. We recommend you use Autoscale instead. For more information, see [Autoscale scaling plans](autoscale-scenarios.md).
-
-An [Azure Automation Run As account](../automation/manage-runas-account.md) provides authentication for managing resources in Azure with Azure cmdlets. When you create a Run As account, it creates a new service principal user in Azure Active Directory and assigns the Contributor role to the service principal user at the subscription level. An Azure Run As account is a great way to authenticate securely with certificates and a service principal name without needing to store a username and password in a credential object. To learn more about Run As account authentication, see [Limit Run As account permissions](../automation/manage-runas-account.md#limit-run-as-account-permissions).
-
-Any user who's assigned the *Application administrator* and/or *Owner* RBAC role on the subscription can create a Run As account.
-
-To create a Run As account in your Azure Automation account:
-
-1. In the Azure portal, select **All services**. In the list of resources, enter and select **Automation accounts**.
-
-1. On the **Automation accounts** page, select the name of your Azure Automation account.
-
-1. In the pane on the left side of the window, select **Run As accounts** under the **Account Settings** section.
-
-1. Select **Azure Run As account**. When the **Add Azure Run As account** pane appears, review the overview information, and then select **Create** to start the account creation process.
-
-1. Wait a few minutes for Azure to create the Run As account. You can track the creation progress in the menu under Notifications.
-
-1. When the process finishes, it will create an asset named **AzureRunAsConnection** in the specified Azure Automation account. Select **Azure Run As account**. The connection asset holds the application ID, tenant ID, subscription ID, and certificate thumbprint. You can also find the same information on the **Connections** page. To go to this page, in the pane on the left side of the window, select **Connections** under the **Shared Resources** section and select the connection asset named **AzureRunAsConnection**.
+To set up a managed identity, follow the directions in [Using a system-assigned managed identity for an Azure Automation account](../automation/enable-managed-identity-for-automation.md). Once you've created a managed identity, assign it with appropriate contributor permissions to Azure Virtual Desktop resources such as host pools, VMs, etc. Once you're done, return to this article and [Create the Azure Logic App and execution schedule](#create-the-azure-logic-app-and-execution-schedule) to finish the initial setup process.
 
 ## Create the Azure Logic App and execution schedule
 
@@ -167,9 +146,6 @@ Finally, you'll need to create the Azure Logic App and set up an execution sched
     $LogOffMessageTitle = Read-Host -Prompt "Enter the title of the message sent to the user before they are forced to sign out"
     $LogOffMessageBody = Read-Host -Prompt "Enter the body of the message sent to the user before they are forced to sign out"
     
-    $AutoAccount = Get-AzAutomationAccount | Out-GridView -OutputMode:Single -Title "Select the Azure Automation account"
-    $AutoAccountConnection = Get-AzAutomationConnection -ResourceGroupName $AutoAccount.ResourceGroupName -AutomationAccountName $AutoAccount.AutomationAccountName | Out-GridView -OutputMode:Single -Title "Select the Azure RunAs connection asset"
-    
     $WebhookURI = Read-Host -Prompt "Enter the webhook URI that has already been generated for this Azure Automation account. The URI is stored as encrypted in the above Automation Account variable. To retrieve the value, see https://learn.microsoft.com/azure/automation/shared-resources/variables?tabs=azure-powershell#powershell-cmdlets-to-access-variables"
     
     $Params = @{
@@ -182,7 +158,6 @@ Finally, you'll need to create the Azure Logic App and set up an execution sched
          "HostPoolResourceGroupName"     = $WVDHostPool.ResourceGroupName           # Optional. Default: same as ResourceGroupName param value
          "LogAnalyticsWorkspaceId"       = $LogAnalyticsWorkspaceId                 # Optional. If not specified, script will not log to the Log Analytics
          "LogAnalyticsPrimaryKey"        = $LogAnalyticsPrimaryKey                  # Optional. If not specified, script will not log to the Log Analytics
-         "ConnectionAssetName"           = $AutoAccountConnection.Name              # Optional. Default: "AzureRunAsConnection"
          "RecurrenceInterval"            = $RecurrenceInterval                      # Optional. Default: 15
          "BeginPeakTime"                 = $BeginPeakTime                           # Optional. Default: "09:00"
          "EndPeakTime"                   = $EndPeakTime                             # Optional. Default: "17:00"
@@ -250,8 +225,6 @@ When you report an issue, you'll need to provide the following information to he
     - Az.Automation
     - OMSIngestionAPI
     - Az.DesktopVirtualization
-
-- The expiration date for your [Run As account](#create-an-azure-automation-run-as-account). To find this, open your Azure Automation account, then select **Run As accounts** under **Account Settings** in the pane on the left side of the window. The expiration date should be under **Azure Run As account**.
 
 ### Log Analytics
 

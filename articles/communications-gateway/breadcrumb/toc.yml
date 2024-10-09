@@ -1,0 +1,14 @@
+items:
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - tocHref: /security/benchmark/azure/baselines/
+    name: Communications Gateway
+    topicHref: /azure/communications-gateway/
+  - tocHref: /azure/operator-call-protection/
+    name: Communications Gateway
+    topicHref: /azure/communications-gateway/
+  - tocHref: /azure/communications-gateway/
+    name: Communications Gateway
+    topicHref: /azure/communications-gateway/

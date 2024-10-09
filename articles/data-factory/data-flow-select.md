@@ -4,11 +4,10 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about the mapping data flow Select Transformation in Azure Data Factory and Synapse Analytics pipelines.
 author: kromerm
 ms.author: makromer
-ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/04/2022
+ms.date: 05/15/2024
 ---
 
 # Select transformation in mapping data flow
@@ -131,5 +130,5 @@ DerivedColumn1 select(mapColumn(
     skipDuplicateMapOutputs: true) ~> Select1
 ```
 
-## Next steps
+## Related content
 * After using Select to rename, reorder, and alias columns, use the [Sink transformation](data-flow-sink.md) to land your data into a data store.

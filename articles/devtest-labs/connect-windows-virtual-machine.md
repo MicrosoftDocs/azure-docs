@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 07/17/2020
+ms.custom: UpdateFrequency2
 ---
 
 # Connect to a Windows VM in your lab (Azure DevTest Labs)

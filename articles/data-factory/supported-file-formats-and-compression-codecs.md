@@ -3,11 +3,10 @@ title: Supported file formats by copy activity in Azure Data Factory
 titleSuffix: Azure Data Factory & Azure Synapse
 description: This topic describes the file formats and compression codes that are supported by copy activity in Azure Data Factory and Azure Synapse Analytics.
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 09/22/2022
+ms.date: 05/15/2024
 ms.author: jianleishen
 ---
 
@@ -28,7 +27,7 @@ In addition, you can also parse or generate files of a given format. For example
 * Copy data in Gzip compressed-text (CSV) format from Azure Blob storage and write it to Azure SQL Database.
 * Many more activities that require serialization/deserialization or compression/decompression.
 
-## Next steps
+## Related content
 
 See the other Copy Activity articles:
 

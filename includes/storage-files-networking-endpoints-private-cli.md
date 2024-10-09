@@ -3,7 +3,7 @@
  description: include file
  services: storage
  author: khdownie
- ms.service: storage
+ ms.service: azure-file-storage
  ms.topic: include
  ms.date: 5/11/2020
  ms.author: kendownie
@@ -144,7 +144,7 @@ privateEndpointNIC=$(az network private-endpoint show \
 
 privateEndpointIP=$(az network nic show \
         --ids $privateEndpointNIC \
-        --query "ipConfigurations[0].privateIpAddress" | \
+        --query "ipConfigurations[0].privateIPAddress" | \
     tr -d '"')
 
 az network private-dns record-set a create \

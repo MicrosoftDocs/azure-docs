@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 01/31/2023
+ms.date: 05/15/2023
 ms.author: alkohli
 ---
 
@@ -36,8 +36,28 @@ You can update to the latest version using the following update paths:
 
 The 2301 release has the following new features and enhancements:
 
+- **MSRC fixes** - Critical security fixes for MSRC issues listed in [CVE-2023-21703](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-21703).
 - Starting March 2023, Azure Stack Edge devices will be required to be on the 2301 release or later to create a Kubernetes cluster. In preparation for this requirement, it is highly recommended that you update to the latest version as soon as possible.
 - Beginning this release, you can deploy Azure Kubernetes service (AKS) on an Azure Stack Edge cluster. This feature is supported only for SAP and PMEC customers. For more information, see [Deploy AKS on Azure Stack Edge](azure-stack-edge-deploy-aks-on-azure-stack-edge.md).
+
+## Issues fixed in this release
+
+| No. | Feature | Issue |
+| --- | --- | --- |
+|**1.**|Virtual network |In the earlier versions, virtual switches would get deleted when virtual network was deleted, causing the VM provisioning to time out. This issue was fixed and the virtual switch reference is now checked when the virtual network is deleted. |
+|**2.**|Virtual network |In the previous versions, when the VM network interfaces were deleted, IP address was in use even after the associated network interface was removed. In this release, the IP address reference is removed after the VM network interface is deleted. |
+|**3.**|VM |In earlier releases, change notifications weren't cleaned from the datastore. This resulted in the network resource provider (NRP) becoming unresponsive after the datastore was full. This release fixes this issue by adding a notification manager in the NRP to clean up change notifications. | 
+|**4.**|VM |In this release, reliability improvements have been made for the deployment of VM extensions. |
+
+## Known issues in this release
+
+| No. | Feature | Issue | Workaround/comments |
+| --- | --- | --- | --- |
+|**1.**|AKS on Azure Stack Edge |When you update your AKS on Azure Stack Edge deployment from a previous preview version to 2301 release, there is an additional nodepool rollout. |The update may take longer.  |
+|**2.**|Azure portal |When the Arc deployment fails in this release, you will see a generic *NO PARAM* error code, as all the errors are not propagated in the portal. |There is no workaround for this behavior in this release. |
+|**3.**|AKS on Azure Stack Edge |In this release, you can't modify the virtual networks once the AKS cluster is deployed on your Azure Stack Edge cluster.| To modify the virtual network, you will need to delete the AKS cluster, then modify virtual networks, and then recreate AKS cluster on your Azure Stack Edge. |
+|**4.**|AKS on Azure Stack Edge |In this release, attaching the PVC takes a long time. As a result, some pods that use persistent volumes (PVs) come up slowly after the host reboots. |A workaround is to restart the nodepool VM by connecting via the Windows PowerShell interface of the device. | 
+|**5.**|VM guest log collection on Azure Stack Edge |In this release, VM guest log collection via the local UI has been disabled. |Contact a support engineer to collect VM guest logs from a support session. For detailed steps, see [Collect VM guest logs on an Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-collect-virtual-machine-guest-logs.md).  |
 
 ## Known issues from previous releases
 
@@ -63,7 +83,7 @@ The following table provides a summary of known issues carried over from the pre
 |**16.**|Web proxy |NTLM authentication-based web proxy isn't supported. ||
 |**17.**|Internet Explorer|If enhanced security features are enabled, you may not be able to access local web UI pages. | Disable enhanced security, and restart your browser.|
 |**18.**|Kubernetes |Kubernetes doesn't support ":" in environment variable names that are used by .NET applications. This is also required for Event Grid IoT Edge module to function on Azure Stack Edge device and other applications. For more information, see [ASP.NET core documentation](/aspnet/core/fundamentals/configuration/?tabs=basicconfiguration#environment-variables).|Replace ":" by double underscore. For more information,see [Kubernetes issue](https://github.com/kubernetes/kubernetes/issues/53201)|
-|**19.** |Azure Arc + Kubernetes cluster |By default, when resource `yamls` are deleted from the Git repository, the corresponding resources aren't deleted from the Kubernetes cluster.  |To allow the deletion of resources when they're deleted from the git repository, set `--sync-garbage-collection` in Arc OperatorParams. For more information, see [Delete a configuration](../azure-arc/kubernetes/tutorial-use-gitops-connected-cluster.md#additional-parameters). |
+|**19.** |Azure Arc + Kubernetes cluster |By default, when resource `yamls` are deleted from the Git repository, the corresponding resources aren't deleted from the Kubernetes cluster.  |To allow the deletion of resources when they're deleted from the git repository, set `--sync-garbage-collection` in Arc OperatorParams. For more information, see [Delete a configuration](/azure/azure-arc/kubernetes/tutorial-use-gitops-connected-cluster#additional-parameters). |
 |**20.**|NFS |Applications that use NFS share mounts on your device to write data should use Exclusive write. That ensures the writes are written to the disk.| |
 |**21.**|Compute configuration |Compute configuration fails in network configurations where gateways or switches or routers respond to Address Resolution Protocol (ARP) requests for systems that don't exist on the network.| |
 |**22.**|Compute and Kubernetes |If Kubernetes is set up first on your device, it claims all the available GPUs. Hence, it isn't possible to create Azure Resource Manager VMs using GPUs after setting up the Kubernetes. |If your device has 2 GPUs, then you can create one VM that uses the GPU and then configure Kubernetes. In this case, Kubernetes will use the remaining available one GPU. |

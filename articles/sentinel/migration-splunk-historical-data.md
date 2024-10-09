@@ -1,11 +1,12 @@
 ---
-title: "Microsoft Sentinel migration: Export Splunk data to target platform | Microsoft Docs"
-description: Learn how to export your historical data from Splunk.
+title: Export Splunk data to target platform
+titleSuffix: Microsoft Sentinel
+description: Learn how to export your historical data from Splunk for a Microsoft Sentinel migration of security monitoring use cases.
 author: limwainstein
 ms.author: lwainstein
 ms.topic: how-to
-ms.date: 05/03/2022
-ms.custom: ignite-fall-2021
+ms.date: 03/11/2024
+#customer intent: As a SOC administrator, I want to migrate historical data from Splunk so I have continuity when I migrate to Microsoft Sentinel.
 ---
 
 # Export historical data from Splunk

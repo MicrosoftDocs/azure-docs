@@ -7,16 +7,16 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/23/2022
+ms.date: 02/08/2024
 ---
 
 # Transform XML in workflows with Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-In enterprise integration business-to-business (B2B) scenarios, you might have to convert XML between formats. Your logic app workflow can transform XML by using the **Transform XML** action and a predefined [*map*](logic-apps-enterprise-integration-maps.md). For example, suppose you regularly receive B2B orders or invoices from a customer that uses the YearMonthDay date format (YYYYMMDD). However, your organization uses the MonthDayYear date format (MMDDYYYY). You can create and use a map that transforms the YearMonthDay format to the MonthDayYear format before storing the order or invoice details in your customer activity database.
+In enterprise integration business-to-business (B2B) scenarios, you might have to convert XML between formats. Your logic app workflow can transform XML by using the **Transform XML** action and a predefined [*map*](logic-apps-enterprise-integration-maps.md).
 
-If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overview.md)? For more information about B2B enterprise integration, review [B2B enterprise integration workflows with Azure Logic Apps and Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md).
+For example, suppose you regularly receive B2B orders or invoices from a customer that uses the YearMonthDay date format (YYYYMMDD). However, your organization uses the MonthDayYear date format (MMDDYYYY). You can create and use a map that transforms the YearMonthDay format to the MonthDayYear format before storing the order or invoice details in your customer activity database.
 
 ## Prerequisites
 
@@ -30,68 +30,60 @@ If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overvi
 
   * Exists in the same location or Azure region as your logic app resource where you plan to use the **Transform XML** action.
 
-  * If you're using the [**Logic App (Consumption)** resource type](logic-apps-overview.md#resource-environment-differences), your integration account requires the following items:
+  * If you're working on a [Consumption logic app resource and workflow](logic-apps-overview.md#resource-environment-differences), your integration account requires the following items:
 
     * The [map](logic-apps-enterprise-integration-maps.md) to use for transforming XML content.
 
     * A [link to your logic app resource](logic-apps-enterprise-integration-create-integration-account.md#link-account).
 
-  * If you're using the [**Logic App (Standard)** resource type](logic-apps-overview.md#resource-environment-differences), you don't store maps in your integration account. Instead, you can [directly add maps to your logic app resource](logic-apps-enterprise-integration-maps.md) using either the Azure portal or Visual Studio Code. Only XSLT 1.0 is currently supported. You can then use these maps across multiple workflows within the *same logic app resource*.
+  * If you're working on a [Standard logic app resource and workflow](logic-apps-overview.md#resource-environment-differences), you can link your integration account to your logic app resource, upload maps directly to your logic app resource, or both, based on the following scenarios: 
 
-    You still need an integration account to store other artifacts, such as partners, agreements, and certificates, along with using the [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md), and [EDIFACT](logic-apps-enterprise-integration-edifact.md) operations. However, you don't need to link your logic app resource to your integration account, so the linking capability doesn't exist. Your integration account still has to meet other requirements, such as using the same Azure subscription and existing in the same location as your logic app resource.
+    * If you already have an integration account with the artifacts that you need or want to use, you can link your integration account to multiple Standard logic app resources where you want to use the artifacts. That way, you don't have to upload maps to each individual logic app. For more information, review [Link your logic app resource to your integration account](logic-apps-enterprise-integration-create-integration-account.md?tabs=standard#link-account).
 
-    > [!NOTE]
-    > Currently, only the **Logic App (Consumption)** resource type supports [RosettaNet](logic-apps-enterprise-integration-rosettanet.md) operations. 
-    > The **Logic App (Standard)** resource type doesn't include [RosettaNet](logic-apps-enterprise-integration-rosettanet.md) operations.
+    * If you don't have an integration account or only plan to use your artifacts across multiple workflows within the *same logic app resource*, you can [directly add maps to your logic app resource](logic-apps-enterprise-integration-maps.md) using either the Azure portal or Visual Studio Code.
+
+      > [!NOTE]
+      > 
+      > The Liquid built-in connector lets you select a map that you previously uploaded to your logic app resource or to a linked integration account, but not both.
+
+    So, if you don't have or need an integration account, you can use the upload option. Otherwise, you can use the linking option. Either way, you can use these artifacts across all child workflows within the same logic app resource.
+
+  You still need an integration account to store other artifacts, such as partners, agreements, and certificates, along with using the [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md), and [EDIFACT](logic-apps-enterprise-integration-edifact.md) operations.
 
 ## Add Transform XML action
 
-1. In the [Azure portal](https://portal.azure.com), open your logic app and workflow in designer view.
+### [Standard](#tab/standard)
 
-1. If you have a blank logic app that doesn't have a trigger, add any trigger you want. This example uses the Request trigger. Otherwise, continue to the next step.
+1. In the [Azure portal](https://portal.azure.com), open your Standard logic app and workflow in the designer.
 
-   To add the Request trigger, in the designer search box, enter `HTTP request`, and select the Request trigger named **When an HTTP request is received**.
+1. If you have a blank workflow that doesn't have a trigger, [follow these general steps to add any trigger you want](create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger). Otherwise, continue to the next step.
 
-1. Under the step in your workflow where you want to add the **Transform XML** action, choose one of the following steps:
+   This example uses the **Request** trigger.
 
-   For a Consumption or ISE plan-based logic app, choose a step:
+1. Under the step in your workflow where you want to add the **Transform XML** action, [follow these general steps to add the action named **Transform XML**](create-workflow-with-trigger-or-action.md?tabs=standard#add-action).
 
-   * To add the **Transform XML** action at the end of your workflow, select **New step**.
+1. In the **Content** box, specify the XML content that you want to transform using any XML data that you receive in the HTTP request.
 
-   * To add the **Transform XML** action between existing steps, move your pointer over the arrow that connects those steps so that the plus sign (**+**) appears. Select that plus sign, and then select **Add an action**.
+   1. To select outputs from previous operations in the workflow, in the **Transform XML** action, click inside the **Content** box, and select the dynamic content list option (lightning icon).
 
-   For a Standard plan-based logic app, choose a step:
+   1. From the dynamic content list, select the token for the content that you want to transform.
 
-   * To add the **Transform XML** action at the end of your workflow, select the plus sign (**+**), and then select **Add an action**.
+      ![Screenshot shows Standard workflow with opened dynamic content list.](./media/logic-apps-enterprise-integration-transform/open-dynamic-content-list-standard.png)
 
-   * To add the **Transform XML** action between existing steps, select the plus sign (**+**) that appears between those steps, and then select **Add an action**.
+      This example selects the **Body** token from the trigger.
 
-1. Under **Choose an operation**, select **Built-in**. In the search box, enter `transform xml`. From the actions list, select **Transform XML**.
+      > [!NOTE]
+      >
+      > Make sure that you select XML content. If the content isn't XML or is base64-encoded, 
+      > you must specify an expression that processes the content. For example, you can use 
+      > [expression functions](workflow-definition-language-functions-reference.md), 
+      > such as `base64ToBinary()` to decode content or `xml()` to process the content as XML.
 
-1. To specify the XML content for transformation, you can use any XML data you receive in the HTTP request. Click inside the **Content** box so that the dynamic content list appears.
+1. From the **Map Source** list, select the location where you uploaded your map, either your **LogicApp** resource or your **IntegrationAccount**.
 
-   The dynamic content list shows property tokens that represent the outputs from the previous steps in the workflow. If the list doesn't show an expected property, check the trigger or action heading in the list and whether you can select **See more**.
+1. From the **Map** list, select your map.
 
-   For a Consumption or ISE plan-based logic app, the designer looks like this example:
-
-   ![Screenshot showing multi-tenant designer with opened dynamic content list, cursor in "Content" box, and opened dynamic content list.](./media/logic-apps-enterprise-integration-transform/open-dynamic-content-list-multi-tenant.png)
-
-   For a Standard plan-based logic app, the designer looks like this example:
-
-   ![Screenshot showing single-tenant designer with opened dynamic content list, cursor in "Content" box, and opened dynamic content list](./media/logic-apps-enterprise-integration-transform/open-dynamic-content-list-single-tenant.png)
-
-1. From the dynamic content list, select the property token for the content you want to validate.
-
-   This example selects the **Body** token from the trigger.
-
-   > [!NOTE]
-   > Make sure that the content you select is XML. If the content is not XML or is base64-encoded, you must specify an expression 
-   > that processes the content. For example, you can use [expression functions](workflow-definition-language-functions-reference.md), 
-   > such as `base64ToBinary()` to decode content or `xml()` to process the content as XML.
-
-1. To specify the map to use for transformation, open the **Map** list, and select the map that you previously added.
-
-1. When you're done, make sure to save your logic app workflow.
+1. When you're done, save your workflow.
 
    You're now finished setting up your **Transform XML** action. In a real world app, you might want to store the transformed data in a line-of-business (LOB) app such as SalesForce. To send the transformed output to Salesforce, add a Salesforce action.
 
@@ -99,11 +91,60 @@ If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overvi
 
    The **Transform XML** action runs after your workflow is triggered and when XML content is available for transformation.
 
+### [Consumption](#tab/consumption)
+
+1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app and workflow in the designer.
+
+1. If you have a blank workflow that doesn't have a trigger, [follow these general steps to add any trigger you want](create-workflow-with-trigger-or-action.md?tabs=consumption#add-trigger). Otherwise, continue to the next step.
+
+   This example uses the **Request** trigger.
+
+1. Under the step in your workflow where you want to add the **Transform XML** action, [follow these general steps to add the action named **Transform XML**](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
+
+1. In the **Content** box, specify the XML content that you want to transform using any XML data that you receive in the HTTP request.
+
+   1. To select outputs from previous operations in the workflow, in the **Transform XML** action, click inside the **Content** box, which opens the dynamic content list.
+
+   1. From the dynamic content list, select the token for the content that you want to transform.
+
+   ![Screenshot shows Consumption workflow with opened dynamic content list and cursor in Content box.](./media/logic-apps-enterprise-integration-transform/open-dynamic-content-list-consumption.png)
+
+      This example selects the **Body** token from the trigger.
+
+      > [!NOTE]
+      >
+      > Make sure that you select XML content. If the content isn't XML or is base64-encoded, 
+      > you must specify an expression that processes the content. For example, you can use 
+      > [expression functions](workflow-definition-language-functions-reference.md), 
+      > such as `base64ToBinary()` to decode content or `xml()` to process the content as XML.
+
+1. From the **Map** list, select your map.
+
+1. When you're done, save your workflow.
+
+   You're now finished setting up your **Transform XML** action. In a real world app, you might want to store the transformed data in a line-of-business (LOB) app such as SalesForce. To send the transformed output to Salesforce, add a Salesforce action.
+
+1. To test your transformation action, trigger and run your workflow. For example, for the Request trigger, send a request to the trigger's endpoint URL.
+
+   The **Transform XML** action runs after your workflow is triggered and when XML content is available for transformation.
+
+---
+
 ## Advanced capabilities
 
-### Reference assembly or custom code from maps
+### Reference assemblies or call custom code from maps
 
-In **Logic App (Consumption)** workflows, the **Transform XML** action supports maps that reference an external assembly. For more information, review [Add XSLT maps for workflows in Azure Logic Apps](logic-apps-enterprise-integration-maps.md#add-assembly).
+The **Transform XML** action supports referencing external assemblies from maps, which enable directly calling custom .NET code from XSLT maps. For more information, see [Add XSLT maps for workflows in Azure Logic Apps](logic-apps-enterprise-integration-maps.md).
+
+### Reference extension objects
+
+In Standard workflows, the **Transform XML** action supports specifying an XML extension object to use with your map.
+
+1. In the **Transform XML** action, open the **Advanced parameters** list, and select **XML Extension Object**, which adds the parameter to the action.
+
+1. In the **XML Extension Object** box, specify your extension object, for example:
+
+   :::image type="content" source="media/logic-apps-enterprise-integration-transform/xml-extension-object-standard.png" alt-text="Screenshot shows Transform XML action with XML Extension Object parameter and value." lightbox="media/logic-apps-enterprise-integration-transform/xml-extension-object-standard.png":::
 
 ### Byte order mark
 

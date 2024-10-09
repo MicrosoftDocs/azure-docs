@@ -3,11 +3,9 @@ title: Set up a linked service and dataset for the SAP CDC connector
 titleSuffix: Azure Data Factory
 description: Learn how to set up a linked service and source dataset to use with the SAP CDC (change data capture) connector in Azure Data Factory.
 author: ukchrist
-ms.service: data-factory
 ms.subservice: data-movement
-ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 08/18/2022
+ms.date: 05/15/2024
 ms.author: ulrichchrist
 ---
 
@@ -34,7 +32,7 @@ To set up an SAP CDC linked service:
    1. In **Name**, enter a unique name for the linked service.
    1. In **Connect via integration runtime**, select your self-hosted integration runtime.
    1. In **Server name**, enter the mapped server name for your SAP system.
-   1. In **Subscriber name**, enter a unique name to register and identify this Data Factory connection as a subscriber that consumes data packages that are produced in the Operational Delta Queue (ODQ) by your SAP system. For example, you might name it `<your data factory -name>_<your linked service name>`. Make sure to only use upper case letters.
+   1. In **Subscriber name**, enter a unique name to register and identify this Data Factory connection as a subscriber that consumes data packages that are produced in the Operational Delta Queue (ODQ) by your SAP system. For example, you might name it `<YOUR_DATA_FACTORY_NAME>_<YOUR_LINKED_SERVICE_NAME>`. Make sure to only use upper case letters. Also be sure that the total character count doesn't exceed 32 characters, or SAP will truncate the name. This can be an issue if your factory and linked services both have long names.
 
     Make sure you assign a unique subscriber name to every linked service connecting to the same SAP system. This will make monitoring and trouble shooting on SAP side much easier.
 
@@ -63,7 +61,7 @@ To set up an SAP CDC linked service:
        - To extract ABAP CDS views from S/4HANA, select **ABAP_CDS**.
        - To extract InfoProviders or InfoObjects from SAP BW or BW/4HANA, select **BW**.
        - To extract SAP extractors from SAP ECC, select **SAPI**.
-       - To extract SAP application tables from SAP source systems via SAP LT replication server as a proxy, select **SLT_\<your queue alias\>**.
+       - To extract SAP application tables from SAP source systems via SAP LT replication server as a proxy, select **SLT~\<your queue alias\>**.
 
        If you want to extract SAP application tables, but you don’t want to use SAP Landscape Transformation Replication Server (SLT) as a proxy, you can create SAP extractors by using the RSO2 transaction code or Core Data Services (CDS) views with the tables. Then, extract the tables directly from your SAP source systems by using either an **SAPI** or an **ABAP_CDS** context.
 
@@ -79,6 +77,6 @@ To set up an SAP CDC linked service:
 
 To set up a mapping data flow using the SAP CDC dataset as a source, follow [Transform data with the SAP CDC connector](connector-sap-change-data-capture.md#transform-data-with-the-sap-cdc-connector)
 
-## Next steps
+## Related content
 
 [Debug the SAP CDC connector by sending self-hosted integration runtime logs](sap-change-data-capture-debug-shir-logs.md)

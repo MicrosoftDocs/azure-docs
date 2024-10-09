@@ -3,11 +3,11 @@ title: Configure a cross-tenant connection in Azure Virtual Network Manager Prev
 description: Learn how to connect Azure subscriptions in Azure Virtual Network Manager by using cross-tenant connections for the management of virtual networks across subscriptions.
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network-manager
+ms.service: azure-virtual-network-manager
 ms.topic: how-to 
-ms.date: 11/1/2022
-ms.custom: template-how-to 
-#customerintent: As a cloud admin, I need to manage multiple tenants from a single network manager so that I can easily manage all network resources governed by Azure Virtual Network Manager.
+ms.date: 03/22/2024
+ms.custom: template-how-to, devx-track-azurecli
+# Customer intent: As a cloud admin, I need to manage multiple tenants from a single network manager so that I can easily manage all network resources governed by Azure Virtual Network Manager.
 ---
 
 # Configure a cross-tenant connection in Azure Virtual Network Manager Preview - CLI
@@ -15,9 +15,6 @@ ms.custom: template-how-to
 In this article, you'll learn how to create [cross-tenant connections](concept-cross-tenant.md) in Azure Virtual Network Manager by using the [Azure CLI](/cli/azure/network/manager/scope-connection). Cross-tenant support allows organizations to use a central network manager for managing virtual networks across tenants and subscriptions. 
 
 First, you'll create the scope connection on the central network manager. Then, you'll create the network manager connection on the connecting tenant and verify the connection. Last, you'll add virtual networks from different tenants and verify. After you complete all the tasks, you can centrally manage the resources of other tenants from your network manager.
-
-> [!IMPORTANT]
-> Azure Virtual Network Manager is currently in public preview. We provide this preview version without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
@@ -29,13 +26,13 @@ First, you'll create the scope connection on the central network manager. Then, 
   - The administrator of the central management tenant has a guest account in the target managed tenant.
   - The administrator guest account has *Network Contributor* permissions applied at the appropriate scope level (management group, subscription, or virtual network).
 
-Need help with setting up permissions? Check out how to [add guest users in the Azure portal](../active-directory/external-identities/b2b-quickstart-add-guest-users-portal.md) and how to [assign user roles to resources in the Azure portal](../role-based-access-control/role-assignments-portal.md).
+Need help with setting up permissions? Check out how to [add guest users in the Azure portal](../active-directory/external-identities/b2b-quickstart-add-guest-users-portal.md) and how to [assign user roles to resources in the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
 ## Create a scope connection within a network manager
 
 Creation of the scope connection begins on the central management tenant with a network manager deployed. This is the network manager where you plan to manage all of your resources across tenants. 
 
-In this task, you set up a scope connection to add a subscription from a target tenant. If you want to use a management group, modify the `–resource-id` argument to look like `/providers/Microsoft.Management/managementGroups/{mgId}`.
+In this task, you set up a scope connection to add a subscription from a target tenant. You'll use subscription ID and tenant ID of the target network manager. If you want to use a management group, modify the `–resource-id` argument to look like `/providers/Microsoft.Management/managementGroups/{mgId}`.
 
 ```azurecli
 # Create a scope connection in the network manager in the central management tenant

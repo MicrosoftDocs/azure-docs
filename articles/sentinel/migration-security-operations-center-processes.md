@@ -119,7 +119,7 @@ Use this table to compare the main concepts of your legacy SIEM to Microsoft Sen
 
 After migration, explore Microsoft's Microsoft Sentinel resources to expand your skills and get the most out of Microsoft Sentinel. 
 
-Also consider increasing your threat protection by using Microsoft Sentinel alongside [Microsoft 365 Defender](./microsoft-365-defender-sentinel-integration.md) and [Microsoft Defender for Cloud](../security-center/azure-defender.md) for [integrated threat protection](https://www.microsoft.com/security/business/threat-protection). Benefit from the breadth of visibility that Microsoft Sentinel delivers, while diving deeper into detailed threat analysis.
+Also consider increasing your threat protection by using Microsoft Sentinel alongside [Microsoft Defender XDR](./microsoft-365-defender-sentinel-integration.md) and [Microsoft Defender for Cloud](../security-center/azure-defender.md) for [integrated threat protection](https://www.microsoft.com/security/business/threat-protection). Benefit from the breadth of visibility that Microsoft Sentinel delivers, while diving deeper into detailed threat analysis.
 
 For more information, see:
 

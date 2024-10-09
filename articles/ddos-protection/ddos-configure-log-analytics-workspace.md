@@ -1,22 +1,22 @@
 ---
-title: 'Configure Azure DDoS Protection Log Analytics workspace'
+title: 'Tutorial: Configure Azure DDoS Protection Log Analytics workspace'
 description: Learn how to configure Log Analytics workspace for Azure DDoS Protection.
 services: ddos-protection
-documentationcenter: na
 author: AbdullahBell
-ms.service: ddos-protection
-ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 01/30/2023
+ms.service: azure-ddos-protection
+ms.topic: tutorial
+ms.date: 07/17/2024
 ms.author: abell
 ---
 
-# Configure Azure DDoS Protection Log Analytics workspace
+# Tutorial: Configure Azure DDoS Protection Log Analytics workspace
+
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * Configure a Log Analytics workspace for DDoS Protection.
 
 In order to use diagnostic logging, you'll first need a Log Analytics workspace with diagnostic settings enabled.
-
-In this article, you'll learn how to configure a Log Analytics workspace for Azure DDoS Protection.
 
 ## Prerequisites
 
@@ -48,7 +48,8 @@ In this article, you'll learn how to configure a Log Analytics workspace for Azu
     :::image type="content" source="./media/ddos-log-analytics-workspace/ddos-protection-log-analytics-workspace-settings.png" alt-text="Screenshot of locating log analytics workspace diagnostic setting.":::
 
 1. On the *Diagnostic setting* page, under *Destination details*, select **Send to Log Analytics workspace**, then enter the following information.
-:::image type="content" source="./media/ddos-log-analytics-workspace/ddos-protection-diagnostic-settings.png" alt-text="Screenshot of log analytics workspace diagnostic setting.":::
+
+    :::image type="content" source="./media/ddos-log-analytics-workspace/ddos-protection-diagnostic-settings.png" alt-text="Screenshot of log analytics workspace diagnostic setting.":::
 
     | Setting | Value |
     |--|--|
@@ -61,13 +62,11 @@ In this article, you'll learn how to configure a Log Analytics workspace for Azu
     
 1. Select **Save**.
 
-For more information, see [Log Analytics workspace overview](../azure-monitor/logs/log-analytics-workspace-overview.md).
+For more information, see [Log Analytics workspace overview](/azure/azure-monitor/logs/log-analytics-workspace-overview).
 
 ## Next steps
 
-In this article, you learned how to configure a Log Analytics workspace for Azure DDoS Protection.
-
-To learn how to configure diagnostic logging, see the diagnostic logging guide:
+In this tutorial you learned how to create a Log Analytics workspace for Azure DDoS Protection. To learn how to configure alerts, continue to the next article.
 
 > [!div class="nextstepaction"]
-> [Test through simulations](test-through-simulations.md)
+> [Configure diagnostic logging alerts](ddos-diagnostic-alert-templates.md)

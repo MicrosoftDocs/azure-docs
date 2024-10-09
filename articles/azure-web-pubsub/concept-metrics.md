@@ -9,7 +9,7 @@ ms.author: chenyl
 ---
 # Metrics in Azure Web PubSub Service
 
-Azure Web PubSub service has some built-in metrics and you and sets up [alerts](../azure-monitor/alerts/alerts-overview.md) base on metrics.
+Azure Web PubSub service has some built-in metrics and you and sets up [alerts](/azure/azure-monitor/alerts/alerts-overview) base on metrics.
 
 ## Understand metrics
 
@@ -42,8 +42,8 @@ The dimension available in some metrics:
     - ServiceReload: Triggered when a connection is dropped due to an internal service component reload. This event doesn't indicate a malfunction and is part of normal service operation.
     - Unauthorized: The connection is unauthorized.
 
-Learn more about [multi-dimensional metrics](../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics)
+Learn more about [multi-dimensional metrics](/azure/azure-monitor/essentials/data-platform-metrics#multi-dimensional-metrics)
 
 ## Related resources
 
-- [Aggregation types in Azure Monitor](../azure-monitor/essentials/metrics-supported.md#microsoftsignalrservicewebpubsub )
+- [Aggregation types in Azure Monitor](/azure/azure-monitor/essentials/metrics-supported#microsoftsignalrservicewebpubsub)

@@ -1,19 +1,17 @@
 ---
-title: 'Troubleshoot Point-to-Site connections: Mac OS X clients'
+title: 'Troubleshoot point-to-site connections: macOS X clients'
 titleSuffix: Azure VPN Gateway
-description: Learn how to troubleshoot point-to-site connectivity issues from Mac OS X using the native VPN client and IKEv2.
-services: vpn-gateway
-author: anzaman
-
-ms.service: vpn-gateway
+description: Learn how to troubleshoot point-to-site connectivity issues from macOS X using the native VPN client.
+author: cherylmc
+ms.service: azure-vpn-gateway
 ms.topic: troubleshooting
-ms.date: 02/10/2021
-ms.author: alzam
+ms.date: 09/04/2024
+ms.author: cherylmc
 ---
 
-# Troubleshoot Point-to-Site VPN connections from Mac OS X VPN clients
+# Troubleshoot Point-to-Site VPN connections from macOS X VPN clients
 
-This article helps you troubleshoot Point-to-Site connectivity issues from Mac OS X using the native VPN client and IKEv2. The VPN client in Mac for IKEv2 is very basic and does not allow for much customization. There are only four settings that need to be checked:
+This article helps you troubleshoot point-to-site connectivity issues from macOS X clients that use the native macOS X VPN client and IKEv2. VPN client configuration in macOS X is very basic for IKEv2 connections and doesn't allow for much customization. There are only four settings that need to be checked:
 
 * Server Address
 * Remote ID
@@ -21,43 +19,40 @@ This article helps you troubleshoot Point-to-Site connectivity issues from Mac O
 * Authentication Settings
 * OS Version (10.11 or higher)
 
+## <a name="certificate"></a> Certificate-based authentication
 
-## <a name="VPNClient"></a> Troubleshoot certificate-based authentication
-1. Check the VPN client settings. Go to the **Network Setting** by pressing Command + Shift, and then type "VPN" to check the VPN client settings. From the list, click the VPN entry that needs to be investigated.
+1. Check the VPN client settings. Go to **Settings** and locate **VPN**.
+1. From the list, click the **i** next to the VPN entry that you want to investigate. This opens the settings configuration for the VPN connection.
+1. Verify that the **Server Address** is the complete FQDN and includes the cloudapp.net.
+1. The **Remote ID** should be the same as the Server Address (Gateway FQDN).
+1. The **Local ID** should be the same as the **Subject** of the client certificate.
+1. For **Authentication**, verify that "Certificate" is selected.
+1. Click the **Select** button and verify that the correct certificate is selected.
+1. Click **OK** to save any changes.
 
-   ![IKEv2 certificate-based authentication](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2cert1.jpg)
-2. Verify that the **Server Address** is the complete FQDN and includes the cloudapp.net.
-3. The **Remote ID** should be the same as the Server Address (Gateway FQDN).
-4. The **Local ID** should be the same as the **Subject** of the client certificate.
-5. Click on **Authentication Settings** to open the Authentication Settings page.
+If you're still having issues, see the [IKEv2 packet capture](#packet) section.
 
-   ![Screenshot shows an Authentication Settings dialog box with Certificate selected.](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth2.jpg)
-6. Verify that **Certificate** is selected from the dropdown.
-7. Click the **Select** button and verify that the correct certificate is selected. Click **OK** to save any changes.
+## <a name="ikev2"></a>Username and password authentication
 
-## <a name="ikev2"></a>Troubleshoot username and password authentication
+1. Check the VPN client settings. Go to **Settings** and locate **VPN**.
+1. From the list, click the **i** next to the VPN entry that you want to investigate. This opens the settings configuration for the VPN connection.
+1. Verify that the **Server Address** is the complete FQDN and includes the cloudapp.net.
+1. The **Remote ID** should be the same as the Server Address (Gateway FQDN).
+1. The **Local ID** can be blank.
+1. For **Authentication**, verify that "Username" is selected.
+1. Verify that the correct credentials are entered.
+1. Click **OK** to save any changes.
 
-1. Check the VPN client settings. Go to the **Network Setting** by pressing Command + Shift, and then type "VPN" to check the VPN client settings. From the list, click the VPN entry that needs to be investigated.
+If you're still having issues, see the [IKEv2 packet capture](#packet) section.
 
-   ![IKEv2 username password](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2user3.jpg)
-2. Verify that the **Server Address** is the complete FQDN and includes the cloudapp.net.
-3. The **Remote ID** should be the same as the Server Address (Gateway FQDN).
-4. The **Local ID** can be blank.
-5. Click the **Authentication Setting** button and verify that "Username" is selected from the dropdown.
+## <a name="packet"></a>Packet capture - IKEv2
 
-   ![Screenshot shows an Authentication Settings dialog box with Username selected.](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth4.png)
-6. Verify that the correct credentials are entered.
+Download [Wireshark](https://www.wireshark.org/#download) and perform a packet capture.
 
-## <a name="additional"></a>Additional steps
-
-If you try the previous steps and everything is configured properly, download [Wireshark](https://www.wireshark.org/#download) and perform a packet capture.
-
-1. Filter on *isakmp* and look at the **IKE_SA** packets. You should be able to look at the SA proposal details under the **Payload: Security Association**. 
-2. Verify that the client and the server have a common set.
-
-   ![packet](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/packet5.jpg) 
-  
-3. If there is no server response on the network traces, verify you enabled IKEv2 protocol on the Azure Gateway Configuration page on the Azure portal website.
+1. Filter on *isakmp* and look at the **IKE_SA** packets. You should be able to look at the SA proposal details under the **Payload: Security Association**.
+1. Verify that the client and the server have a common set.
+1. If there's no server response on the network traces, verify you enabled IKEv2 protocol on the Azure VPN gateway. You can check by going to the Azure portal, selecting the VPN gateway, and then selecting **Point-to-site configuration**.
 
 ## Next steps
-For additional help, see [Microsoft Support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+
+For more help, see [Microsoft Support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).

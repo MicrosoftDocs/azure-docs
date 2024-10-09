@@ -1,17 +1,18 @@
 ---
-title: View Azure Maps API usage metrics | Microsoft Azure Maps
+title: View Azure Maps API usage metrics
+titleSuffix: Microsoft Azure Maps
 description: Learn how to view Azure Maps API usage metrics, such as total requests, total errors, and availability. See how to filter data and split results.
-author: stevemunk
-ms.author: v-munksteve
+author: sinnypan
+ms.author: sipa
 ms.date: 08/06/2018
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: general
 ---
 
 # View Azure Maps API usage metrics
 
-This article shows you how to view the API usage metrics, for your Azure Maps account, in the [Azure portal](https://portal.azure.com). The metrics are shown in a convenient graph format along a customizable time duration.
+This article shows you how to view the API usage metrics, for your Azure Maps account, in the [Azure portal]. The metrics are shown in a convenient graph format along a customizable time duration.
 
 ## View metric snapshot
 
@@ -23,11 +24,11 @@ Continue to the next section if you need to customize these graphs for your part
 
 ## View detailed metrics
 
-1. Sign in to your Azure subscription in the [portal](https://portal.azure.com).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. Click the **All resources** menu item on the left-hand side and navigate to your *Azure Maps Account*.
+2. Select the **All resources** menu item on the left-hand side and navigate to your *Azure Maps Account*.
 
-3. Once your Maps account is open, click on the **Metrics** menu on the left.
+3. Once your Maps account is open, select the **Metrics** menu on the left.
 
 4. On the **Metrics** pane, choose one of the following options:
 
@@ -36,7 +37,7 @@ Continue to the next section if you need to customize these graphs for your part
 
       ![Azure Maps usage metrics pane](media/how-to-view-api-usage/portal-metrics.png)
 
-5. Next, you may select the *Time range* by clicking **Last 24 hours (Automatic)**. By default, the time range is set to 24 hours. After clicking, you'll see all selectable time ranges. You can select the *Time granularity* and choose to show the time as *local* or *GMT* in the same drop-down. Click **Apply**.
+5. Next, you may select the *Time range* by selecting **Last 24 hours (Automatic)**. By default, the time range is set to 24 hours. After clicking, you'll see all selectable time ranges. You can select the *Time granularity* and choose to show the time as *local* or *GMT* in the same drop-down. Click **Apply**.
 
     ![Azure Maps metrics time range](media/how-to-view-api-usage/time-range.png)
 
@@ -48,16 +49,21 @@ Continue to the next section if you need to customize these graphs for your part
 
     ![Azure Maps usage metrics splitting](media/how-to-view-api-usage/splitting.png)
 
-8. You may also observe multiple metrics on the same graph, simply by clicking on the **Add metric** button on top.
+8. You may also observe multiple metrics on the same graph, by selecting the **Add metric** button.
 
 ## Next steps
 
 Learn more about the Azure Maps APIs you want to track usage for:
-> [!div class="nextstepaction"]	
-> [Azure Maps Web SDK How-To](how-to-use-map-control.md)
-
-> [!div class="nextstepaction"]	
-> [Azure Maps Android SDK How-To](how-to-use-android-map-control-library.md)
+> [!div class="nextstepaction"]
+> [Azure Maps Web SDK How-To]
 
 > [!div class="nextstepaction"]
-> [Azure Maps REST API documentation](/rest/api/maps)
+> [Azure Maps Android SDK How-To]
+
+> [!div class="nextstepaction"]
+> [Azure Maps REST API documentation]
+
+[Azure portal]: https://portal.azure.com
+[Azure Maps Web SDK How-To]: how-to-use-map-control.md
+[Azure Maps Android SDK How-To]: how-to-use-android-map-control-library.md
+[Azure Maps REST API documentation]: /rest/api/maps

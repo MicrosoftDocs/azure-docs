@@ -1,19 +1,17 @@
 ---
 title: EditableGrid UI element
 description: Describes the Microsoft.Common.EditableGrid UI element for Azure portal. Enables users to gather tabular input.
-author: davidsmatlak
-ms.topic: conceptual
-ms.date: 08/24/2020
-ms.author: davidsmatlak
+ms.topic: reference
+ms.date: 06/24/2024
 ---
 
 # Microsoft.Common.EditableGrid UI element
 
-A control for gathering tabular input. All fields within the grid are editable and the number of rows may vary.
+A control for gathering tabular input. All fields within the grid are editable and the number of rows might vary.
 
 ## UI sample
 
-:::image type="content" source="./media/managed-application-elements/microsoft-common-editablegrid.png" alt-text="Microsoft.Common.EditableGrid":::
+:::image type="content" source="./media/managed-application-elements/microsoft-common-editablegrid.png" alt-text="Screenshot of Microsoft.Common.EditableGrid UI element with editable fields and varying rows.":::
 
 ## Schema
 

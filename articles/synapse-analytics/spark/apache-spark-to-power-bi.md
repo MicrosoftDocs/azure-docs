@@ -3,8 +3,8 @@ title: 'Azure Synapse Studio notebooks'
 description: This tutorial provides an overview on how to create a Power BI dashboard using Apache Spark and a Serverless SQL pool.
 author: midesa
 ms.author: midesa 
-ms.reviewer: sngun 
-ms.service: synapse-analytics
+ms.reviewer: whhender 
+ms.service: azure-synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial
 ms.date: 11/16/2020
@@ -102,7 +102,7 @@ To connect our serverless SQL pool to our Power BI workspace:
    
    :::image type="content" source="../spark/media/apache-spark-power-bi/power-bi-desktop.png" alt-text="Power BI Desktop." border="true":::
 
-2. On the Power BI desktop Home tab, select **Publish** and **Save** changes. Enter a file name and save this report to the the *NycTaxiTutorial Workspace*.
+2. On the Power BI desktop Home tab, select **Publish** and **Save** changes. Enter a file name and save this report to the *NycTaxiTutorial Workspace*.
    
 3. In addition, you can also create Power BI visualizations from within your Azure Synapse Analytics workspace. To do this, navigate to the **Develop** tab in your Azure Synapse workspace and open the Power BI tab. From here, you can select your report and continue building additional visualizations. 
    

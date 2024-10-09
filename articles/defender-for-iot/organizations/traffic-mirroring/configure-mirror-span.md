@@ -2,28 +2,38 @@
 title: Configure mirroring with a switch SPAN port - Microsoft Defender for IoT
 description: This article describes how to configure a SPAN port for traffic mirroring when monitoring OT networks with Microsoft Defender for IoT.
 ms.date: 09/20/2022
-ms.topic: how-to
+ms.topic: install-set-up-deploy
 ---
 
 # Configure mirroring with a switch SPAN port
 
+This article is one in a series of articles describing the [deployment path](../ot-deploy/ot-deploy-path.md) for OT monitoring with Microsoft Defender for IoT.
+
+:::image type="content" source="../media/deployment-paths/progress-network-level-deployment.png" alt-text="Diagram of a progress bar with Network level deployment highlighted." border="false" lightbox="../media/deployment-paths/progress-network-level-deployment.png":::
+
 Configure a SPAN port on your switch to mirror local traffic from interfaces on the switch to a different interface on the same switch.
 
-This article provides sample configuration procedures for configuring a SPAN port, using either the Cisco CLI or GUI, for Cisco 2960 switch with 24 ports running IOS.
+This article provides sample configuration processes and procedures for configuring a SPAN port, using either the Cisco CLI or GUI, for a Cisco 2960 switch with 24 ports running IOS.
 
 > [!IMPORTANT]
-> This article is intended only as sample guidance and not as instructions. Mirror ports on other Cisco operating systems and other switch brands are configured differently.
+> This article is intended only as sample guidance and not as instructions. Mirror ports on other Cisco operating systems and other switch brands are configured differently. For more information, see your switch documentation.
+
+## Prerequisites
+
+Before you start, make sure that you understand your plan for network monitoring with Defender for IoT, and the SPAN ports you want to configure.
+
+For more information, see [Traffic mirroring methods for OT monitoring](../best-practices/traffic-mirroring-methods.md).
 
 ## Sample CLI SPAN port configuration (Cisco 2960)
 
-The following commands show a a sample process for configuring a SPAN port on a Cisco 2960 via CLI:
+The following commands show a sample process for configuring a SPAN port on a Cisco 2960 via CLI:
 
 ```cli
 Cisco2960# configure terminal
 Cisco2960(config)# monitor session 1 source interface fastehernet 0/2 - 23 rx
 Cisco2960(config)# monitor session 1 destination interface fastethernet 0/24
 Cisco2960(config)# end
-Cisco2960# show monitor 1
+Cisco2960# show monitor session 1
 Cisco2960# running-copy startup-config
 ```
 
@@ -62,9 +72,21 @@ switchport trunk encapsulation dot1q
 switchport mode trunk
 ```
 
+[!INCLUDE [validate-traffic-mirroring](../includes/validate-traffic-mirroring.md)]
+
+## Deploy with unidirectional gateways/data diodes
+
+You might deploy Defender for IoT with unidirectional gateways, also known as data diodes. Data diodes provide a secure way to monitor networks as they only allow data to flow in one direction. This means data can be monitored without compromising the security of the network, as data cannot be sent back in the opposite direction. Examples of data diode solutions are [Waterfall](https://waterfall-security.com), [Owl Cyber Defense](https://owlcyberdefense.com/products/data-diode-products/), or [Hirschmann](https://hirschmann.com/en/Hirschmann_Produkte/Hirschmann-News/Rail_Data_Diode/index.phtml).
+
+If unidirectional gateways are needed, we recommend deploying your data diodes on the SPAN traffic going to the sensor monitoring port. For example, use a data diode to monitor traffic from a sensitive system, such as an industrial control system, while keeping the system completely isolated from the monitoring system. 
+
+Place your OT sensors outside the electronic perimeter and have them receive traffic from the diode. In this scenario, you’ll be able to manage your Defender for IoT sensors from the cloud, keeping them automatically updated with the latest threat intelligence packages. 
+
 ## Next steps
 
-For more information, see:
+> [!div class="step-by-step"]
+> [« Onboard OT sensors to Defender for IoT](../onboard-sensors.md)
 
-- [Traffic mirroring methods for OT monitoring](../best-practices/traffic-mirroring-methods.md)
-- [Prepare your OT network for Microsoft Defender for IoT](../how-to-set-up-your-network.md)
+> [!div class="step-by-step"]
+> [Provision OT sensors for cloud management »](../ot-deploy/provision-cloud-management.md)
+

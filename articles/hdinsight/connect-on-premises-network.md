@@ -1,10 +1,10 @@
 ---
 title: Connect Azure HDInsight to your on-premises network
 description: Learn how to create an HDInsight cluster in an Azure Virtual Network, and then connect it to your on-premises network. Learn how to configure name resolution between HDInsight and your on-premises network by using a custom DNS server.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 04/11/2022
+ms.date: 06/15/2024
 ---
 
 # Connect HDInsight to your on-premises network
@@ -32,7 +32,7 @@ These configurations enable the following behavior:
 
 In the following diagram, green lines are requests for resources that end in the DNS suffix of the virtual network. Blue lines are requests for resources in the on-premises network or on the public internet.
 
-:::image type="content" source="./media/connect-on-premises-network/on-premises-to-cloud-dns.png" alt-text="Diagram of how DNS requests are resolved in the configuration" border="false":::
+:::image type="content" source="./media/connect-on-premises-network/on-premises-to-cloud-dns.png" alt-text="Diagram of how DNS requests are resolved in the configuration." border="false":::
 
 ## Prerequisites
 
@@ -53,13 +53,13 @@ Use the following documents to learn how to create an Azure Virtual Network that
 > [!IMPORTANT]  
 > You must create and configure the DNS server before installing HDInsight into the virtual network.
 
-These steps use the [Azure portal](https://portal.azure.com) to create an Azure Virtual Machine. For other ways to create a virtual machine, see [Create VM - Azure CLI](../virtual-machines/linux/quick-create-cli.md) and [Create VM - Azure PowerShell](../virtual-machines/linux/quick-create-powershell.md).  To create a Linux VM that uses the [Bind](https://www.isc.org/downloads/bind/) DNS software, use the following steps:
+These steps use the [Azure portal](https://portal.azure.com) to create an Azure Virtual Machine. For other ways to create a virtual machine, see [Create VM - Azure CLI](/azure/virtual-machines/linux/quick-create-cli) and [Create VM - Azure PowerShell](/azure/virtual-machines/linux/quick-create-powershell).  To create a Linux VM that uses the [Bind](https://www.isc.org/downloads/bind/) DNS software, use the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
   
 1. From the top menu, select **+ Create a resource**.
 
-    :::image type="content" source="./media/connect-on-premises-network/azure-portal-create-resource.png" alt-text="Create an Ubuntu virtual machine":::
+    :::image type="content" source="./media/connect-on-premises-network/azure-portal-create-resource.png" alt-text="Create an Ubuntu virtual machine.":::
 
 1. Select **Compute** > **Virtual machine** to go to the **Create a virtual machine** page.
 
@@ -73,12 +73,12 @@ These steps use the [Azure portal](https://portal.azure.com) to create an Azure 
     |Region | Select the same region as the virtual network created earlier.  Not all VM sizes are available in all regions.  |
     |Availability options |  Select your desired level of availability.  Azure offers a range of options for managing availability and resiliency for your applications.  Architect your solution to use replicated VMs in Availability Zones or Availability Sets to protect your apps and data from datacenter outages and maintenance events. This example uses **No infrastructure redundancy required**. |
     |Image | Leave at **Ubuntu Server 18.04 LTS**. |
-    |Authentication type | __Password__ or __SSH public key__: The authentication method for the SSH account. We recommend using public keys, as they're more secure. This example uses **Password**.  For more information, see the [Create and use SSH keys for Linux VMs](../virtual-machines/linux/mac-create-ssh-keys.md) document.|
+    |Authentication type | __Password__ or __SSH public key__: The authentication method for the SSH account. We recommend using public keys, as they're more secure. This example uses **Password**.  For more information, see the [Create and use SSH keys for Linux VMs](/azure/virtual-machines/linux/mac-create-ssh-keys) document.|
     |User name |Enter the administrator username for the VM.  This example uses **sshuser**.|
     |Password or SSH public key | The available field is determined by your choice for **Authentication type**.  Enter the appropriate value.|
     |Public inbound ports|Select **Allow selected ports**. Then select **SSH (22)** from the **Select inbound ports** drop-down list.|
 
-    :::image type="content" source="./media/connect-on-premises-network/virtual-machine-basics.png" alt-text="Virtual machine basic configuration":::
+    :::image type="content" source="./media/connect-on-premises-network/virtual-machine-basics.png" alt-text="Virtual machine basic configuration.":::
 
     Leave other entries at the default values and then select the **Networking** tab.
 
@@ -90,7 +90,7 @@ These steps use the [Azure portal](https://portal.azure.com) to create an Azure 
     |Subnet | Select the default subnet for the virtual network that you created earlier. Do __not__ select the subnet used by the VPN gateway.|
     |Public IP | Use the autopopulated value.  |
 
-    :::image type="content" source="./media/connect-on-premises-network/virtual-network-settings.png" alt-text="HDInsight Virtual network settings":::
+    :::image type="content" source="./media/connect-on-premises-network/virtual-network-settings.png" alt-text="HDInsight Virtual network settings.":::
 
     Leave other entries at the default values and then select the **Review + create**.
 
@@ -104,7 +104,7 @@ Once the virtual machine has been created, you'll receive a **Deployment succeed
 
 2. Note the values for **PUBLIC IP ADDRESS/DNS NAME LABEL** and **PRIVATE IP ADDRESS** for later use.
 
-   :::image type="content" source="./media/connect-on-premises-network/virtual-machine-ip-addresses.png" alt-text="Public and private IP addresses":::
+   :::image type="content" source="./media/connect-on-premises-network/virtual-machine-ip-addresses.png" alt-text="Public and private IP addresses.":::
 
 ### Install and configure Bind (DNS software)
 
@@ -240,7 +240,7 @@ To configure the virtual network to use the custom DNS server instead of the Azu
 
 5. Select __Save__.  <br />  
 
-    :::image type="content" source="./media/connect-on-premises-network/configure-custom-dns.png" alt-text="Set the custom DNS server for the network":::
+    :::image type="content" source="./media/connect-on-premises-network/configure-custom-dns.png" alt-text="Set the custom DNS server for the network.":::
 
 ## Configure on-premises DNS server
 

@@ -1,10 +1,10 @@
 ---
-title: Understand Device Update for Azure IoT Hub deployments | Microsoft Docs
+title: Understand Device Update for Azure IoT Hub deployments
 description: Understand how updates are deployed.
 author: vimeht
 ms.author: vimeht
 ms.date: 12/07/2021
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: iot-hub-device-update
 ---
 

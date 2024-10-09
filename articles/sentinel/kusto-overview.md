@@ -15,7 +15,7 @@ This article introduces the basics of Kusto Query Language, covering some of the
 
 ## Background - Why Kusto Query Language?
 
-Microsoft Sentinel is built on top of the Azure Monitor service and it uses Azure Monitor’s [Log Analytics](../azure-monitor/logs/log-analytics-overview.md) workspaces to store all of its data. This data includes any of the following:
+Microsoft Sentinel is built on top of the Azure Monitor service and it uses Azure Monitor’s [Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) workspaces to store all of its data. This data includes any of the following:
 - data ingested from external sources into predefined tables using Microsoft Sentinel data connectors.
 - data ingested from external sources into user-defined custom tables, using custom-created data connectors as well as some types of out-of-the-box connectors. 
 - data created by Microsoft Sentinel itself, resulting from the analyses it creates and performs - for example, alerts, incidents, and UEBA-related information.
@@ -62,7 +62,7 @@ A good place to start learning Kusto Query Language is to understand the overall
 
 This concept of passing data down the pipeline makes for a very intuitive structure, as it is easy to create a mental picture of your data at each step.
 
-To illustrate this, let's take a look at the following query, which looks at Azure Active Directory (Azure AD) sign-in logs. As you read through each line, you can see the keywords that indicate what's happening to the data. We've included the relevant stage in the pipeline as a comment in each line.
+To illustrate this, let's take a look at the following query, which looks at Microsoft Entra sign-in logs. As you read through each line, you can see the keywords that indicate what's happening to the data. We've included the relevant stage in the pipeline as a comment in each line.
 
 > [!NOTE]
 > You can add comments to any line in a query by preceding them with a double slash (` // `).
@@ -174,7 +174,7 @@ SigninLogs
 
 ### Sorting data: *sort* / *order*
 
-The [*sort*](/azure/data-explorer/kusto/query/sortoperator) operator (and the identical [order](/azure/data-explorer/kusto/query/orderoperator) operator) is used to sort your data by a specified column. In the following example, we ordered the results by *TimeGenerated* and set the order direction to descending with the *desc* parameter, placing the highest values first; for ascending order we would use *asc*. 
+The [*sort*](/azure/data-explorer/kusto/query/sort-operator) operator (and the identical [order](/azure/data-explorer/kusto/query/orderoperator) operator) is used to sort your data by a specified column. In the following example, we ordered the results by *TimeGenerated* and set the order direction to descending with the *desc* parameter, placing the highest values first; for ascending order we would use *asc*. 
 
 > [!NOTE]
 > The default direction for sorts is descending, so technically you only have to specify if you want to sort in ascending order. However, specifying the sort direction in any case will make your query more readable.

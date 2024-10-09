@@ -1,12 +1,13 @@
 ---
 title: Use the Azure Maps indoor maps module to develop iOS applications with Microsoft Creator services
 description: Learn how to use the Microsoft Azure Maps indoor maps module for the iOS SDK to render maps by embedding the module's JavaScript libraries.
-author: stevemunk
-ms.author: v-munksteve
+author: sinnypan
+ms.author: sipa
 ms.date: 12/10/2021
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: ios-sdk
+ms.custom: devx-track-js
 ---
 
 # Indoor maps in the iOS SDK (Preview)
@@ -14,13 +15,16 @@ services: azure-maps
 The Azure Maps iOS SDK allows you to render indoor maps created in Azure Maps Creator services.
 
 > [!NOTE]
-> The iOS SDK will support *dynamic styling* in a future release, coming soon!
+>
+> **Azure Maps iOS SDK retirement**
+>
+> The Azure Maps Native SDK for iOS is now deprecated and will be retired on 3/31/25. To avoid service disruptions, migrate to the Azure Maps Web SDK by 3/31/25. For more information, see [The Azure Maps iOS SDK migration guide](ios-sdk-migration-guide.md).
 
 ## Prerequisites
 
-1. Be sure to complete the steps in the [Quickstart: Create an iOS app](quick-ios-app.md). Code blocks in this article can be inserted into the  `viewDidLoad` function of `ViewController`.
-1. [Create a Creator resource](how-to-manage-creator.md)
-1. Get a `tilesetId` by completing the [tutorial for creating Indoor maps](tutorial-creator-indoor-maps.md). You'll need to use this identifier to render indoor maps with the Azure Maps iOS SDK.
+1. Complete the steps in the [Quickstart: Create an iOS app]. Code blocks in this article can be inserted into the `viewDidLoad` function of `ViewController`.
+1. A [Creator resource]
+1. A `tilesetId`. The tileset ID is used to render indoor maps with the Azure Maps iOS SDK.
 
 ## Instantiate the indoor manager
 
@@ -74,11 +78,16 @@ func indoorManager(
 
 ## Example
 
-The screenshot below shows the above code displaying an indoor map.
+The following screenshot shows the above code displaying an indoor map.
 
 ![A screenshot that displays an indoor map created using the above sample code.](./media/ios-sdk/indoor-maps/indoor.png)
 
 ## Additional information
 
-- [Creator for indoor maps](creator-indoor-maps.md)
-- [Drawing package requirements](drawing-requirements.md)
+- [Creator for indoor maps]
+- [Drawing package requirements]
+
+[Quickstart: Create an iOS app]: quick-ios-app.md
+[Creator resource]: how-to-manage-creator.md
+[Creator for indoor maps]: creator-indoor-maps.md
+[Drawing package requirements]: drawing-requirements.md
