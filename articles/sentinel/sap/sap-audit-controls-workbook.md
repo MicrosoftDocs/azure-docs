@@ -11,7 +11,7 @@ appliesto:
 ms.collection: usx-security
 ---
 
-# Check compliance for your SAP security controls with the SAP - Security Audit Controls workbook(Preview)
+# Check compliance for your SAP security controls with the SAP - Security Audit Controls workbook
 
 This article describes how you can use the *SAP - Security Audit Controls* workbook to monitor and track security control framework compliance across your SAP systems, including the following functionality:
 
@@ -25,9 +25,6 @@ For example:
 :::image type="content" source="media/sap-audit-controls-workbook/workbook-overview.png" alt-text="Screenshot of the top of the SAP Audit Controls workbook.":::
 
 Content in this article is intended for your **security** team.
-
-> [!IMPORTANT]
-> The Microsoft Sentinel SAP Audit Controls workbook is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Prerequisites
 
