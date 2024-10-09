@@ -212,6 +212,10 @@ Advance to the next tutorial:
 
 :::zone pivot="terraform"
 
+In this article, you use Terraform to create an Azure API Management instance, an API, a product, a group, and associations between the product and the API, and the product and the group. Azure API Management is a fully managed service that helps developers publish, secure, transform, maintain, and monitor APIs. It provides a unified management experience and full observability across all internal and external APIs. The service is scalable and helps protect your APIs from unauthorized access with keys, tokens, IP filtering, and more. It's used to connect applications and services through APIs, allowing different software systems to communicate with each other.
+
+[!INCLUDE [About Terraform](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
+
 > [!div class="checklist"]
 > * Generate a random name for the resource group.
 > * Create a resource group in a specified location with the generated name.
@@ -251,16 +255,16 @@ Advance to the next tutorial:
 1. Create a directory in which to test and run the sample Terraform code and make it the current directory.
 
 1. Create a file named `main.tf` and insert the following code:
-:::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-api-management-create-with-api/main.tf":::
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-api-management-create-with-api/main.tf":::
 
 1. Create a file named `outputs.tf` and insert the following code:
-:::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-api-management-create-with-api/outputs.tf":::
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-api-management-create-with-api/outputs.tf":::
 
 1. Create a file named `providers.tf` and insert the following code:
-:::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-api-management-create-with-api/providers.tf":::
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-api-management-create-with-api/providers.tf":::
 
 1. Create a file named `variables.tf` and insert the following code:
-:::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-api-management-create-with-api/variables.tf":::
+    :::code language="Terraform" source="~/terraform_samples/quickstart/101-azure-api-management-create-with-api/variables.tf":::
 
 ## Initialize Terraform
 
@@ -276,13 +280,9 @@ Advance to the next tutorial:
 
 ## Verify the results
 
-### [Azure CLI](#tab/azure-cli)
-
 Run [`az apim show`](/cli/azure/apim#az-apim-show) to view the Azure API Management.
 
 The placeholders in the code block that must be changed are `<resource_group_name_prefix>`, `<resource_group_location>`, `<open_api_spec_content_format>`, and `<open_api_spec_content_value>`.
-
----
 
 ## Clean up resources
 

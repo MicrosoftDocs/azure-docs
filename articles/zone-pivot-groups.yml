@@ -1686,12 +1686,12 @@ groups:
     title: Azure CLI
   - id: experience-gui
     title: Grafana UI
-    # Owner: danlep
+# Owner: danlep
 - id: api-management-howto-add-products
   title: Interactive or Script
   prompt: Choose Interactive for Azure CLI and Azure Portal instructions, or Terraform
   pivots:
   - id: interactive
-    title: Interactive (Azure portal and Azure CLI)
+    title: Interactive
   - id: terraform
     title: Terraform
