@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 09/28/2023
+ms.date: 10/09/2024
 ms.author: anfdocs
 ---
 # Delegate a subnet to Azure NetApp Files 
@@ -18,7 +18,7 @@ You must delegate a subnet to Azure NetApp Files. When you create a volume, you 
 * In each VNet, only one subnet can be delegated to Azure NetApp Files.   
    Azure enables you to create multiple delegated subnets in a VNet.  However, any attempts to create a new volume would fail if you use more than one delegated subnet.  
    You can have only a single delegated subnet in a VNet. A NetApp account can deploy volumes into multiple VNets, each having its own delegated subnet.  
-* You can't designate a network security group or service endpoint in the delegated subnet. Doing so causes the subnet delegation to fail.
+* If you're using Basic network features, you can't designate a network security group (NSG) or service endpoint in the delegated subnet. Doing so causes the subnet delegation to fail. To designate an NSG or service endpoint, [upgrade to Standard network features](configure-network-features.md).
 * Access to a volume from a globally peered virtual network isn't currently supported using Basic networks features. Global VNet peering is supported with Standard network features. For more information, see [Supported network topologies](azure-netapp-files-network-topologies.md#supported-network-topologies).
 * For Azure NetApp Files support of [User-defined routes](../virtual-network/virtual-networks-udr-overview.md#custom-routes) (UDRs) and Network security groups (NSGs), see [Constraints in Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md#constraints).   
    To establish routing or access control ***to*** the Azure NetApp Files delegated subnet, you can apply UDRs and NSGs to other subnets, even within the same VNet as the subnet delegated to Azure NetApp Files.  
