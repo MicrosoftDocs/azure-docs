@@ -257,7 +257,7 @@ items:
         href: clustering-point-data-web-sdk.md
       - name: Use data-driven style expressions
         href: data-driven-style-expressions-web-sdk.md
-      - name: Add custom protocol
+      - name: Add custom protocol PMTiles
         href: add-custom-protocol-pmtiles.md
       - name: How to use image templates
         href: how-to-use-image-templates-web-sdk.md
