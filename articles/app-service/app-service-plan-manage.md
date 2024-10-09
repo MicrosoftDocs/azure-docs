@@ -52,7 +52,7 @@ You can create an empty App Service plan, or you can create a plan as part of ap
 
 You can move an app to another App Service plan, as long as the source plan and the target plan are in the _same resource group and geographical region and of the same OS type_. Any change in type, such as Windows to Linux or any type that's different from the originating type, isn't supported. 
 
-Any VNET integration configured on the app must be disabled prior to changing App Service Plans. 
+Any VNET integration configured on the app must be disabled prior to changing App Service plans. 
 
 
 > [!NOTE]
