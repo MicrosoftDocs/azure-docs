@@ -486,8 +486,8 @@ USER root
 RUN apt install netbase -y
 ```
 For more information, see [JNR regression in Logstash 7.17.0 (Docker)](https://github.com/elastic/logstash/issues/13703).
- 
-If your environment's event rate is low considering the number of allocated Logstash workers, we recommend increasing the value of *plugin_flush_interval* to 60 or more. This change will allow each worker to batch more events before uploading to the Data Collection Endpoint (DCE). You can monitor the ingestion payload using [DCR metrics](/azure/azure-monitor/essentials/data-collection-monitor#dcr-metrics).
+
+If your environment's event rate is low considering the number of allocated Logstash workers, we recommend increasing the value of *plugin_flush_interval* to 60 or more. This change will allow each worker to batch more events before uploading to the Data Collection Endpoint (DCE).  You can monitor the ingestion payload using [DCR metrics](/azure/azure-monitor/essentials/data-collection-monitor#dcr-metrics).
 For more information on *plugin_flush_interval*, see the [Optional Configuration table](#optional-configuration) mentioned earlier.
 
 ## Limitations
