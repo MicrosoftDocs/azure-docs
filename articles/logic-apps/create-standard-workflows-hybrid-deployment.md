@@ -1,5 +1,5 @@
 ---
-title: Create Standard logic apps for hybrid deployment
+title: Create Standard logic app workflows for hybrid deployment
 description: Create and deploy an example Standard logic app workflow on your own managed infrastructure, which can include on-premises, private cloud, and public cloud environments.
 services: azure-logic-apps
 ms.service: azure-logic-apps

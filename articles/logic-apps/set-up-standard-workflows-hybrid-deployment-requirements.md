@@ -1,5 +1,5 @@
 ---
-title: Set up your own infrastructure for Standard workflows
+title: Set up your own infrastructure for Standard logic app workflows
 description: Set up the requirements for your own managed infrastructure to deploy and host Standard logic app workflows using the hybrid deployment model.
 services: azure-logic-apps
 ms.service: azure-logic-apps
