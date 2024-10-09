@@ -30,7 +30,7 @@ The [Microsoft Azure Storage Explorer](https://azure.microsoft.com/features/stor
 3. Sign in to your Azure Government account and you can see all of your resources. The Storage Explorer should look similar to the screenshot below. Click on your Storage Account to see the blob containers, file shares, Queues, and Tables. 
 
     ![storage2](./media/documentation-government-get-started-connect-with-storage-img2.png)
-   
+
 For more information about Azure Storage Explorer, see [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
 ## Connecting to the Storage API 
