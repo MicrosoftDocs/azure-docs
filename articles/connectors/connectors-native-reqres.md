@@ -360,7 +360,8 @@ The **Request** trigger creates a manually callable endpoint that handles *only*
 
 ### Schema validation for stateless workflows
 
-To enable schema validation in stateless workflows, ensure `host.json` has the following setting:
+To enable schema validation for stateless workflows, make sure that the **host.json** file in the logic app resource or project has the following [host setting](../logic-apps/edit-app-settings-host-settings.md#manage-host-settings---hostjson):
+
 ```json
 "extensions": {
    "workflow": {
