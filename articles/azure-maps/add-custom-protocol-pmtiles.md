@@ -3,27 +3,27 @@ title: Add custom protocol PMTiles in the Web SDK | Microsoft Azure Maps
 description: Learn how to Add custom protocol PMTiles using the Web SDK.
 author: sinnypan
 ms.author: sipa
-ms.date: 10/15/2024
+ms.date: 10/13/2024
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: web-sdk
 ---
 
-# Add custom protocols
+# Add custom protocol PMTiles
 
-The Azure Maps Web SDK supports custom protocols such as [PMTiles], a unique archive format designed to efficiently store and deliver tiled data. Eabling this protocol in the Azure Maps Web SDK alows the compression of an entire tile dataset into a single file, improving portability. This protocol is particularly suitable for cloud-based storage solutions.
+The Azure Maps Web SDK supports custom protocols such as [PMTiles]. The `pmtiles://` protocol is used to reference PMTiles archives, which are single-file formats for storing tiled data such as vector and raster maps. This protocol allows Azure Maps to access specific tiles within a PMTiles archive using an HTTP request, fetching only the necessary data on demand.
 
 ## Add custom protocol
 
 By using the `addProtocol` function, which registers a callback triggered before any AJAX request made by the library, you can intercept, modify, and return the request for further processing and rendering. This enables the implementation of a custom callback function to load resources when a URL starts with the designated custom schema.
 
-To start, add a reference to the protocol. The following example references the `pmtiles` library:
+The first step is to add a reference to the protocol. The following example references the `pmtiles` library:
 
 ```html
   <script src="https://unpkg.com/pmtiles@3.0.5/dist/pmtiles.js"></script>
 ```
 
-Then, initialize the MapLibre PMTiles protocol.
+Next, initialize the MapLibre PMTiles protocol.
 
 ```js
 //Initialize the plugin.
@@ -44,19 +44,16 @@ Then, initialize the MapLibre PMTiles protocol.
 
 ## Add PMTiles Protocol
 
-To add the PMTiles protocal, hook the data source with specified protocol url schema. This sample leverages the [Overture] building dataset to enrich building data on top of the basemap.
+To add the PMTiles protocol, hook the data source with the specified protocol URL schema. The following sample uses the [Overture] building dataset to add building data over the basemap.
 
 ```js
 const PMTILES_URL = "https://overturemaps-tiles-us-west-2-beta.s3.amazonaws.com/2024-07-22/buildings.pmtiles";
 protocol.add(new pmtiles.PMTiles(PMTILES_URL));
 ```
 
-## Add PMTiles as Map Source
+## Add PMTiles as a Map Source
 
-PMTiles are added as a map source during the map event. Once added, the specified URL schema is supported and recognized by the Azure Maps Web SDK. In the following sample, the PMTiles URL is added as a `VectorTileSource`.
-
-> [!NOTE]
-> Using the `pmtiles://` protocol automatically creates a `minzoom` and `maxzoom` property for the source.
+PMTiles are added as a map source during the map event. Once added, the specified URL schema is available to the Azure Maps Web SDK. In the following sample, the PMTiles URL is added as a `VectorTileSource`.
 
 ```js
 //Add the source to the map.
@@ -68,9 +65,14 @@ PMTiles are added as a map source during the map event. Once added, the specifie
         );
 ```
 
+> [!NOTE]
+> Using the `pmtiles://` protocol automatically creates the `minzoom` and `maxzoom` properties for the source.
+
 ## Enrich Map with Overture data
 
-Overture had been provided unified, comprehensive [data schema] with different themes. The following sample leverages the building theme's properties (e.g., building type, building height) to demonstrate building extrusion and differentiate building categories on the basemap, rather than just showing building footprints.
+Overture provides a unified and comprehensive [data schema] designed to organize and structure geospatial data effectively. This schema is divided into different themes, each representing a specific type of geospatial information.
+
+The following sample uses the building theme's properties (for example, building type and height) to demonstrate building extrusion and differentiate between building categories on the basemap, rather than just showing building footprints.
 
 ```js
 //Create a polygon extrusion layer.
@@ -116,7 +118,7 @@ Overture had been provided unified, comprehensive [data schema] with different t
         );
 ```
 
-The following image shows a screenshot displaying the extrusion of buildings by different types near Central Park, New York City.
+The following image shows a screenshot displaying the extrusion of buildings of different types near Central Park in New York City.
 
 :::image type="content" source="media/add-custom-protocol-pmtiles/pmtiles-building.png"  lightbox="media/add-custom-protocol-pmtiles/pmtiles-building.png" alt-text="A screenshot demonstrating the custom protocol pmtiles.":::
 
