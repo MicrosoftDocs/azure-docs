@@ -461,15 +461,15 @@ The following table lists the firewall requirements for scenarios where Azure vi
 
 ## Plugin-versions
 #### 1.1.3
-- Replace the library rest-client used for connecting with Azure to excon.
+-  Replaces the `rest-client` library used for connecting with Azure to `excon`.
  
 #### 1.1.1
-- Support China and US Government Azure sovereign clouds.
+- Adds support for Azure US Government cloud and Microsoft Azure operated by 21Vianet in China.
  
 #### 1.1.0 
-- Allow setting different proxy values for api connections.
-- Upgrade version for ingestion api to 2023-01-01.
-- Rename the plugin to microsoft-sentinel-log-analytics-logstash-output-plugin.
+- Allows setting different proxy values for API connections.
+- Upgrades version for logs ingestion API to 2023-01-01.
+- Renames the plugin to microsoft-sentinel-log-analytics-logstash-output-plugin.
  
 #### 1.0.0
 - Initial release for output plugin for logstash to Microsoft Sentinel. This is done with the Log Analytics DCR based API.
@@ -479,15 +479,16 @@ When using Logstash installed on a docker image of Lite Ubuntu the following war
 ```
 java.lang.RuntimeException: getprotobyname_r failed
 ```
-To resolve it, install netbase within your docker file using the following commands:
+
+To resolve it, use the following commands to install the *netbase* package within your Dockerfile:
 ```bash
 USER root
 RUN apt install netbase -y
 ```
-More information can be found [here.](https://github.com/elastic/logstash/issues/13703)
+For more information, see [JNR regression in Logstash 7.17.0 (Docker)](https://github.com/elastic/logstash/issues/13703).
  
-If your environment's event rate is low  in comparison to the number of allocated Logstash workers, it's recommended to increase the value of plugin_flush_interval to 60 or more. This change will allow each worker to batch more events before uploading to the DCE.  You can monitor the ingestion payload using [DCR metrics.](/azure/azure-monitor/essentials/data-collection-monitor#dcr-metrics)
-More information regarding plugin_flush_interval can be found on the table of Optional Configuration [above.](#optional-configuration)
+If your environment's event rate is low considering the number of allocated Logstash workers, we recommend increasing the value of *plugin_flush_interval* to 60 or more. This change will allow each worker to batch more events before uploading to the Data Collection Endpoint (DCE). You can monitor the ingestion payload using [DCR metrics](/azure/azure-monitor/essentials/data-collection-monitor#dcr-metrics).
+For more information on *plugin_flush_interval*, see the [Optional Configuration table](#optional-configuration) mentioned earlier.
 
 ## Limitations
 
@@ -500,4 +501,4 @@ More information regarding plugin_flush_interval can be found on the table of Op
 
 In this article, you learned how to use Logstash to connect external data sources to Microsoft Sentinel. To learn more about Microsoft Sentinel, see the following articles:
 - Learn how to [get visibility into your data and potential threats](get-visibility.md).
-- Get started [detecting threats with Microsoft Sentinel](detect-threats-built-in.md).
+- Get started [detecting threats with Microsoft Sentinel](detect-threats.md).
