@@ -84,7 +84,7 @@ The [AksEdgeQuickStartForAio.ps1](https://github.com/Azure/AKS-Edge/blob/main/to
 
 1. Open an elevated PowerShell window and change the directory to a working folder.
 
-1. Get the `objectId` of the Microsoft Entra ID application that the Azure Arc service uses in your tenant.
+1. Get the `objectId` of the Microsoft Entra ID application that the Azure Arc service uses in your tenant. Run the following command exactly as written, without changing the GUID value.
 
    ```azurecli
    az ad sp show --id bc313c14-388c-4e7d-a58e-70017303ee3b --query id -o tsv

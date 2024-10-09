@@ -257,7 +257,7 @@ login.microsoftonline.com. 0    IN      A       100.104.0.165
     ```
     > [!TIP]
     > If the `connectedk8s` commands fail, try using the cmdlets in [Connect your AKS Edge Essentials cluster to Arc](/azure/aks/hybrid/aks-edge-howto-connect-to-arc).
-1. Fetch the `objectId` or `id` of the Microsoft Entra ID application that the Azure Arc service uses. The command you use depends on your version of Azure CLI:
+1. Fetch the `objectId` or `id` of the Microsoft Entra ID application that the Azure Arc service uses.  Run the following command exactly as written, without changing the GUID value. The command you use depends on your version of Azure CLI:
     ```powershell
     # If you're using an Azure CLI version lower than 2.37.0, use the following command:
     az ad sp show --id bc313c14-388c-4e7d-a58e-70017303ee3b --query objectId -o tsv
