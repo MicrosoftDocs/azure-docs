@@ -356,33 +356,34 @@
       - name: Metrics
         href: java-metrics.md
         displayName: java
-      - name: Use Eureka Server for Spring
-        href: java-eureka-server-usage.md
-      - name: Use Admin for Spring
-        href: java-admin-for-spring-usage.md
-      - name: Use Config Server for Spring
-        href: java-config-server-usage.md
-        displayName: java
-      - name: Use Gateway for Spring
-        href: java-gateway-for-spring-usage.md
+      - name: Connect to Eureka Server for Spring
+        href: java-eureka-server.md
+      - name: Connect to Admin for Spring
+        href: java-admin.md
+      - name: Connect to Config Server for Spring
+        href: java-config-server.md
+      - name: Connect to Gateway for Spring
+        href: java-gateway-for-spring.md
         displayName: java
       - name: Set dynamic logger level
         href: java-dynamic-log-level.md
         displayName: java
       - name: Tutorials
         items:
-          - name: Connect to Eureka Server for Spring
-            href: java-eureka-server.md
-          - name: Connect to Admin for Spring
-            href: java-admin.md
-          - name: Connect to Config Server for Spring
-            href: java-config-server.md
+          - name: Use Eureka Server for Spring
+            href: java-eureka-server-usage.md
+            displayName: java
+          - name: Use Admin for Spring
+            href: java-admin-for-spring-usage.md
             displayName: java
           - name: Integrate Eureka Server with Admin for Spring
             href: java-admin-eureka-integration.md
             displayName: java
-          - name: Connect to Gateway for Spring
-            href: java-gateway-for-spring.md
+          - name: Use Config Server for Spring
+            href: java-config-server-usage.md
+            displayName: java
+          - name: Use Gateway for Spring
+            href: java-gateway-for-spring-usage.md
             displayName: java
           - name: Query managed component logs
             href: java-component-logs.md
