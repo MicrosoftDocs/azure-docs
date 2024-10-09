@@ -6,7 +6,7 @@ ms.author: johnmarc
 ms.service: azure-redhat-openshift
 keywords: confidential containers, aro, deploy, openshift, red hat
 ms.topic: how-to
-ms.date: 10/03/2024
+ms.date: 10/09/2024
 ms.custom: template-how-to
 ---
 
@@ -16,6 +16,9 @@ ms.custom: template-how-to
 Need introduction here. Describe what confidential containers are, they're benefits, etc. Describe the main components of it. Describe how you need to deploy sandboxed containers first. In other words, describe the basic installation steps required.
 
 -->
+
+## Before you begin/Prerequisites
+
 
 ## Deploy OpenShift sandboxed containers
 

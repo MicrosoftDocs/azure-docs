@@ -36,8 +36,8 @@
           href: howto-large-clusters.md
         - name: Use spot nodes
           href: howto-spot-nodes.md
-        - name: Deploy confidential containers
-          href: howto-confidential-containers.md
+        - name: Use confidential containers
+          href: confidential-containers.md
         - name: Deploy infrastructure nodes
           href: howto-infrastructure-nodes.md
         - name: Use GPU workloads
