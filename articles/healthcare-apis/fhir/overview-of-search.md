@@ -160,6 +160,17 @@ As previously mentioned, the results from a FHIR search are available in paginat
 
 Currently, the FHIR service in Azure Health Data Services only supports the `next` link and doesn’t support `first`, `last`, or `previous` links in bundles returned from a search.
 
+### Recommendation section
+**Is the HL7 FHIR API, specifically the lastN operation for observations, supported by Microsoft?**
+
+This option is not supported. Please refer to the alternative approach provided below:
+
+GET [base]/Observation?_count=N&_sort=-_lastUpdated&patient=Patient/123&category=vital-signs.  
+
+_count=N : This specifies the TOTAL number of records to be returned per page of results. In this example N results will be returned, not N per search parameter.   
+
+_sort=-_lastUpdated : This sorts the results by newest first. This is what gets the behavior to be like $lastn. Combined with _count with would return the most recent X results.
+
 ## Next steps
 
 Now that you've learned about the basics of FHIR search, see the search samples page for details about how to search using search parameters, modifiers, and other FHIR search methods.  

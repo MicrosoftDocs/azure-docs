@@ -225,11 +225,6 @@ sections:
           Yes, Azure API for FHIR allows configuring customer-managed keys, leveraging support from Azure Cosmos DB. For more information about encrypting your data with a personal key, see [Configure customer-managed keys at REST](customer-managed-key.md).
 
       - question: |
-          I am creating a FHIR API with a customer-managed key and using the 'cosmosdb_key_vault_key_versionless_id' as specified in the documentation. The document states it connects to Cosmos DB, but we are unclear if this is a Cosmos DB in our subscriptions or a native Azure-managed Cosmos DB.
-        answer: |
-          It connects to a Cosmos DB that is created in our subscription.
-
-      - question: |
           What should I do if I am unable to delete a FHIR Resource due to its provisioning state?
         answer: |
           Check if disaster recovery is enabled for the FHIR resource. If it is, disable the disaster recovery feature.  

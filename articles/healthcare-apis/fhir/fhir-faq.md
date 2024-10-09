@@ -91,6 +91,11 @@ No. We don't have a way to change the version of an existing database. You'll ne
 
 No. You can't change the URL for the FHIR service. 
 
+### What are the limits associated with Azure FHIR service?
+
+Please refer 
+[Azure FHIR service limits](fhir-features-supported#service-limits)
+
 ## FHIR Implementations and Specifications
 
 ### What is SMART on FHIR?
@@ -143,29 +148,13 @@ If there are errors, you may receive an error response with HTTP status code 404
 To connect FHIR services with Dataverse, we have introduced a new capability known as the Dataverse Health APIs.
 [Dataverse healthcare APIs](https://learn.microsoft.com/en-us/dynamics365/industry/healthcare/dataverse-healthcare-apis-overview)
 
- **The encountered error is: "Resource type XXX with id XXX and version '1' couldn't be found." The same request was working fine until a week ago, but now it only works when the "If-Match" header is removed.**
 
- This is the expected behavior. The If-Match header must match the most recent version of the resource. If the user has already made this request once, the most recent version would be version 2. They need to update the If-Match header each time they make the request to ensure they are looking for the most recent version.
 
-**Cannot create new resources from the Azure Marketplace; it always fails when I enter a name for the account or workspace.**
+**Why can't I create new resources from the Azure Marketplace? It always fails when I enter a name for the account or workspace.**
 
  Check if organizations impose restrictions on the creation of Azure Marketplace services due to their different pricing structures.
 
 Check for standard version of that service available outside the Marketplace.
-
-**Is the HL7 FHIR API, specifically the lastN operation for observations, supported by Microsoft?**
-
-This option is not supported. Please refer to the alternative approach provided below:
-
-GET [base]/Observation?_count=3&_sort=-_lastUpdated&patient=Patient/123&category=vital-signs.  
-
-_count=3 : This specifies the TOTAL number of records to be returned per page of results. In this example 3 results will be returned, not 3 per search parameter.   
-
-_sort=-_lastUpdated : This sorts the results by newest first. This is what gets the behavior to be like $lastn. Combined with _count with would return the most recent X results.
-
-**What should I do if I encounter an authorization failure with the Azure Health Data Services FHIR API using OKTA?**
-
-Check if the FHIR SMART user role has been added. If it has, remove it, as this could introduce an additional authentication layer that may cause the issue.
 
 ## Next steps
 

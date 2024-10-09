@@ -261,7 +261,7 @@ Solution: Reduce the size of your data or consider Azure API for FHIR, which has
 
 Cause: An NDJSON Patient resource was submitted in Blob storage. After a POST request to {{fhirUrl}}/$import, a GET request to the callback link from the Content-Location header resulted in a 500 Internal Server Error.
 
-Solution: Verify the configuration for import and export. The storage account version should be the same for both.
+Solution:  Ensure that the JSON file is imported using a compatible storage account version. If an export is made from storage account v2, it should be imported into a storage account v2 to avoid compatibility issues.
 
 ### 423 Locked
 
@@ -283,26 +283,6 @@ Solution: Verify the configuration for import and export. The storage account ve
 **Cause:** The FHIR Service is configured with Initial import mode which blocked other operations.
 
 **Solution:** Switch off the FHIR service's Initial import mode, or select Incremental mode.
-
-## Frequently asked questions
-
-**Does the FHIR service only allow user to post 500 resource types, or is it possible to increase that number?**
-
-This is caused by a known limit. [Supported FHIR Features](fhir-features-supported.md)
-
-As a solution, it was suggested to utilize a FHIR Loader tool.
-[FHIR-Loader](https://github.com/microsoft/fhir-loader/blob/main/readme.md)
-
-**Is it possible to maximize the DTUs on the FHIR service to handle the increased load, as it is currently returning an out-of-memory error?**
-
-We cannot increase the DTUs for the customer, as DTUs are allocated at the server level and cannot be adjusted for a single customer. We believe the best option is for the customer to reduce the size of their JSON payloads.
-
-**Encountering errors while trying to import data into the storage account**
-
-Check the configuration regrading import [Configure FHIR import settings](configure-import-data.md)
-
-Verify the storage account name and ensure it is spelled correctly.
-
 
 ## Limitations
 - The maximum number of files allowed for each `import` operation is 10,000.
