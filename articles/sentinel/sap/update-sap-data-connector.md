@@ -37,7 +37,7 @@ Configure automatic updates for the connector agent, either for [all existing co
 
 The commands described in this section create a cron job that runs daily, checks for updates, and updates the agent to the lastest GA version. Containers running a preview version of the agent that's newer than the latest GA version aren't updated. Log files for automatic updates are located on the collector machine, at */var/log/sapcon-sentinel-register-autoupdate.log*.
 
-After you configure automatic updates for an agent, any new, subsequent agents that you deploy are also configured for automatic updates. <!--is this true? dvir-->
+After you configure automatic updates for an agent once, it's always configured for automatic updates.
 
 > [!IMPORTANT]
 > Automatically updating the SAP data connector agent is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
