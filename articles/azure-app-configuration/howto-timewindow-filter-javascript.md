@@ -29,13 +29,12 @@ You've added a time window filter for your *Beta* feature flag in the prerequisi
 When you create a feature manager, the built-in feature filters will be automatically added to its feature filter collection.
 
 ``` javascript
-// The Microsoft.TimeWindow and Microsoft.Targeting filters are auto-included, so you can use them directly in your feature flags.
 const fm = new FeatureManager(ffProvider);
 ```
 
 ## Time window filter in action
 
-When you run the application the configuration provider will load the *Beta* feature flag from Azure App Configuration. The result of the `isEnabled("Beta")` method will be printed to the console. If your current time is earlier than the start time set for the time window filter, the *Beta* feature flag will be disabled by the time window filter.
+When you run the application, the configuration provider will load the *Beta* feature flag from Azure App Configuration. The result of the `isEnabled("Beta")` method will be printed to the console. If your current time is earlier than the start time set for the time window filter, the *Beta* feature flag will be disabled by the time window filter.
 
 You will see the following console outputs.
 
