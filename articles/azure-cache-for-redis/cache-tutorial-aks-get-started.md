@@ -9,7 +9,7 @@ ms.date: 10/01/2024
 
 # Tutorial: Connect to Azure Cache for Redis from your application hosted on Azure Kubernetes Service
 
-In this tutorial, you will use this [sample](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/tutorial/connect-from-aks) to connect with an Azure Cache for Redis instance.
+In this tutorial, you use this [sample](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/tutorial/connect-from-aks) to connect with an Azure Cache for Redis instance.
 
 ## Prerequisites
 
@@ -37,16 +37,16 @@ In this tutorial, you will use this [sample](https://github.com/Azure-Samples/az
 
 ## Run sample locally
 
-To run this sample locally, configure your user principal as a Redis User on your Redis instance. The code sample will use your user principal through [DefaultAzureCredential](https://learn.microsoft.com/en-us/dotnet/azure/sdk/authentication/?tabs=command-line#use-defaultazurecredential-in-an-application) to connect to Redis instance. 
+To run this sample locally, configure your user principal as a Redis User on your Redis instance. The code sample will use your user principal through [DefaultAzureCredential](/dotnet/azure/sdk/authentication/?tabs=command-line#use-defaultazurecredential-in-an-application) to connect to Redis instance.
 
 ## Configure your AKS cluster
 
 Follow these [steps](/azure/aks/workload-identity-deploy-cluster) to configure a workload identity for your AKS cluster. Complete the following steps:
 
-  - Enable OIDC issuer and workload identity
-  - Skip the step to create user assigned managed identity if you already created your managed identity. If you create a new managed identity, ensure that you create a new Redis User for your managed identity and assign appropriate data access permissions.
-  - Create a Kubernetes Service account annotated with the client ID of your user assigned managed identity
-  - Create a federated identity credential for your AKS cluster.
+- Enable OIDC issuer and workload identity
+- Skip the step to create user assigned managed identity if you already created your managed identity. If you create a new managed identity, ensure that you create a new Redis User for your managed identity and assign appropriate data access permissions.
+- Create a Kubernetes Service account annotated with the client ID of your user assigned managed identity
+- Create a federated identity credential for your AKS cluster.
 
 ## Configure your workload that connects to Azure Cache for Redis
 
