@@ -5,7 +5,7 @@ description: Learn how to set and retrieve system properties and store custom me
 services: storage
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 08/05/2024
+ms.date: 10/09/2024
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: javascript
@@ -40,30 +40,35 @@ In addition to the data they contain, blobs support system properties and user-d
 >
 > To learn more about this feature, see [Manage and find data on Azure Blob storage with blob index (preview)](storage-manage-find-blobs.md).
 
-## Set blob http headers
+## Set and retrieve properties
 
 The following code example sets blob HTTP  system properties on a blob.
 
 To set the HTTP properties for a blob, create a [BlobClient](storage-blob-javascript-get-started.md#create-a-blobclient-object) then call [BlobClient.setHTTPHeaders](/javascript/api/@azure/storage-blob/blobclient#@azure-storage-blob-blobclient-sethttpheaders). Review the [BlobHTTPHeaders properties](/javascript/api/@azure/storage-blob/blobhttpheaders) to know which HTTP properties you want to set. Any HTTP properties not explicitly set are cleared. 
 
-```javascript
-/*
-properties= {
-      blobContentType: 'text/plain',
-      blobContentLanguage: 'en-us',
-      blobContentEncoding: 'utf-8',
-      // all other http properties are cleared
-    }
-*/
-async function setHTTPHeaders(blobClient, headers) {
+## [JavaScript](#tab/javascript)
 
-  await blobClient.setHTTPHeaders(headers);
+:::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/blob-set-properties-and-metadata.js" id="snippet_setHTTPHeaders":::
 
-  console.log(`headers set successfully`);
-}
-```
+## [TypeScript](#tab/typescript)
 
-## Set metadata
+:::code language="typescript" source="~/azure_storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-set-properties-and-metadata.ts" id="snippet_setHTTPHeaders":::
+
+---
+
+The following code example gets a blob's system properties, including HTTP headers and metadata, and displays those values. 
+
+## [JavaScript](#tab/javascript)
+
+:::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/blob-set-properties-and-metadata.js" id="snippet_getProperties":::
+
+## [TypeScript](#tab/typescript)
+
+:::code language="typescript" source="~/azure_storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-set-properties-and-metadata.ts" id="snippet_getProperties":::
+
+---
+
+## Set and retrieve metadata
 
 You can specify metadata as one or more name-value pairs on a blob or container resource. To set metadata, create a [BlobClient](storage-blob-javascript-get-started.md#create-a-blobclient-object) then send a JSON object of name-value pairs with
 
@@ -71,113 +76,25 @@ You can specify metadata as one or more name-value pairs on a blob or container 
 
 The following code example sets metadata on a blob. 
 
-```javascript
-/*
-metadata= {
-    reviewedBy: 'Bob',
-    releasedBy: 'Jill',
-}
-*/
-async function setBlobMetadata(blobClient, metadata) {
+## [JavaScript](#tab/javascript)
 
-  await blobClient.setMetadata(metadata);
+:::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/blob-set-properties-and-metadata.js" id="snippet_setBlobMetadata":::
 
-  console.log(`metadata set successfully`);
+## [TypeScript](#tab/typescript)
 
-}
-```
+:::code language="typescript" source="~/azure_storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-set-properties-and-metadata.ts" id="snippet_setBlobMetadata":::
+
+---
 
 To read the metadata, get the blob's properties (shown below), specifically referencing the `metadata` property. 
-
-## Get blob properties
-
-The following code example gets a blob's system properties, including HTTP headers and metadata, and displays those values. 
-
-```javascript
-async function getProperties(blobClient) {
-
-  const properties = await blobClient.getProperties();
-  console.log(blobClient.name + ' properties: ');
-
-  for (const property in properties) {
-
-    switch (property) {
-      // nested properties are stringified and returned as strings
-      case 'metadata':
-      case 'objectReplicationRules':
-        console.log(`    ${property}: ${JSON.stringify(properties[property])}`);
-        break;
-      default:
-        console.log(`    ${property}: ${properties[property]}`);
-        break;
-    }
-  }
-}
-```
-
-The output for these console.log lines looks like:
-
-```console
-my-blob.txt properties:
-    lastModified: Thu Apr 21 2022 13:02:53 GMT-0700 (Pacific Daylight Time)
-    createdOn: Thu Apr 21 2022 13:02:53 GMT-0700 (Pacific Daylight Time)
-    metadata: {"releasedby":"Jill","reviewedby":"Bob"}
-    objectReplicationPolicyId: undefined
-    objectReplicationRules: {}
-    blobType: BlockBlob
-    copyCompletedOn: undefined
-    copyStatusDescription: undefined
-    copyId: undefined
-    copyProgress: undefined
-    copySource: undefined
-    copyStatus: undefined
-    isIncrementalCopy: undefined
-    destinationSnapshot: undefined
-    leaseDuration: undefined
-    leaseState: available
-    leaseStatus: unlocked
-    contentLength: 19
-    contentType: text/plain
-    etag: "0x8DA23D1EBA8E607"
-    contentMD5: undefined
-    contentEncoding: utf-8
-    contentDisposition: undefined
-    contentLanguage: en-us
-    cacheControl: undefined
-    blobSequenceNumber: undefined
-    clientRequestId: 58da0441-7224-4837-9b4a-547f9a0c7143
-    requestId: 26acb38a-001e-0046-27ba-55ef22000000
-    version: 2021-04-10
-    date: Thu Apr 21 2022 13:02:52 GMT-0700 (Pacific Daylight Time)
-    acceptRanges: bytes
-    blobCommittedBlockCount: undefined
-    isServerEncrypted: true
-    encryptionKeySha256: undefined
-    encryptionScope: undefined
-    accessTier: Hot
-    accessTierInferred: true
-    archiveStatus: undefined
-    accessTierChangedOn: undefined
-    versionId: undefined
-    isCurrentVersion: undefined
-    tagCount: undefined
-    expiresOn: undefined
-    isSealed: undefined
-    rehydratePriority: undefined
-    lastAccessed: undefined
-    immutabilityPolicyExpiresOn: undefined
-    immutabilityPolicyMode: undefined
-    legalHold: undefined
-    errorCode: undefined
-    body: true
-    _response: [object Object]
-    objectReplicationDestinationPolicyId: undefined
-    objectReplicationSourceProperties:
-```
 
 ## Resources
 
 To learn more about how to manage system properties and user-defined metadata using the Azure Blob Storage client library for JavaScript, see the following resources.
+
+### Code samples
+
+- View [JavaScript](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/blob-set-properties-and-metadata.js) and [TypeScript](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/blob-set-properties-and-metadata.ts) code samples from this article (GitHub)
 
 ### REST API operations
 
@@ -188,8 +105,6 @@ The Azure SDK for JavaScript contains libraries that build on top of the Azure R
 - [Set Blob Metadata](/rest/api/storageservices/set-blob-metadata) (REST API)
 - [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata) (REST API)
 
-### Code samples
-
-- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/blob-set-properties-and-metadata.js)
-
 [!INCLUDE [storage-dev-guide-resources-javascript](../../../includes/storage-dev-guides/storage-dev-guide-resources-javascript.md)]
+
+[!INCLUDE [storage-dev-guide-next-steps-javascript](../../../includes/storage-dev-guides/storage-dev-guide-next-steps-javascript.md)]
