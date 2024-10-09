@@ -26,7 +26,7 @@ The example used in this tutorial is based on the Node.js application introduced
 
 You've added a time window filter for your *Beta* feature flag in the prerequisites. Next, you'll use the feature flag with the time window filter in your Node.js application.
 
-When you create a feature manager, the built-in feature filters will be automatically added to its feature filter collection.
+When you create a feature manager, the built-in feature filters are automatically added to its feature filter collection.
 
 ``` javascript
 const fm = new FeatureManager(ffProvider);
@@ -34,9 +34,9 @@ const fm = new FeatureManager(ffProvider);
 
 ## Time window filter in action
 
-When you run the application, the configuration provider will load the *Beta* feature flag from Azure App Configuration. The result of the `isEnabled("Beta")` method will be printed to the console. If your current time is earlier than the start time set for the time window filter, the *Beta* feature flag will be disabled by the time window filter.
+When you run the application, the configuration provider loads the *Beta* feature flag from Azure App Configuration. The result of the `isEnabled("Beta")` method will be printed to the console. If your current time is earlier than the start time set for the time window filter, the *Beta* feature flag will be disabled by the time window filter.
 
-You will see the following console outputs.
+You'll see the following console outputs.
 
 ``` bash
 Beta is enabled: false
@@ -49,7 +49,7 @@ Beta is enabled: false
 
 Once the start time has passed, you'll notice that the *Beta* feature flag is enabled by the time window filter.
 
-You will see the console outputs change as the *Beta* is enabled.
+You'll see the console outputs change as the *Beta* is enabled.
 
 ``` bash
 Beta is enabled: false
