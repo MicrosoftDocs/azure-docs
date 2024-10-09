@@ -25,7 +25,7 @@ To send data to local storage in Azure IoT Operations Preview, you can configure
 
 ## Create a local storage dataflow endpoint
 
-Use the local storage option to send data to a locally available persistent volume, through which you can upload data via Edge Storage Accelerator edge volumes.
+Use the local storage option to send data to a locally available persistent volume, through which you can upload data via Azure Container Storage enabled by Azure Arc edge volumes.
 
 # [Kubernetes](#tab/kubernetes)
 
