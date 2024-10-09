@@ -86,6 +86,8 @@ Get-AzDnsDnssecConfig -ResourceGroupName "your-resource-group" -ZoneName "adatum
 
 2. Confirm that DNSSEC is not enabled for DNS zone 'adatum.com' is displayed after the last command. The zone is now unsigned.
 
+---
+
 ## Next steps
 
 - Learn how to [sign a DNS zone with DNSSEC](dnssec-how-to.md).
