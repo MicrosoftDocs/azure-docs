@@ -1,6 +1,3 @@
-![image](https://github.com/user-attachments/assets/7db0714e-0c4c-4cd1-b534-086f8d721605)
-![image](https://github.com/user-attachments/assets/d6c5b5c0-8bfb-4a0e-b37d-c9897e9b66c3)
-![image](https://github.com/user-attachments/assets/34599541-81b5-4d84-abe2-b0aff45e2eb7)
 ---
 title: Save costs with Microsoft Azure OpenAI Service Provisioned Reservations
 description: Save costs with Microsoft Azure OpenAI Service Provisioned Reservations by committing to a reservation for your provisioned throughput units.
