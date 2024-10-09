@@ -6,7 +6,7 @@ author: gargi-sinha
 manager: martinco
 ms.service: azure-active-directory
 ms.topic: how-to
-ms.date: 10/03/2024
+ms.date: 10/11/2024
 ms.author: gasinh
 ms.subservice: b2c
 
@@ -74,12 +74,9 @@ Learn more: [Application types that can be used in Active Directory B2C](applica
 
 For testing, you register `https://jwt.ms`, a Microsoft web application with decoded token contents, which don't leave your browser.
 
-### Register a web application and enable ID token implicit grant
+### Register a web application
 
-Complete [Tutorial: Register a web application in Azure AD B2C](tutorial-register-applications.md?tabs=app-reg-ga) 
-
->[!NOTE]
->Enable implicit flow only for testing purposes. Don’t enable implicit flow in production.
+Complete the steps in [Tutorial: Register a web application in Azure Active Directory B2C](tutorial-register-applications.md?tabs=app-reg-ga) article.
 
 <a name='create-a-xid-policy-key'></a>
 
