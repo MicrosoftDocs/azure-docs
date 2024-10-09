@@ -12,7 +12,7 @@ ms.author: wenhaozhang
 
 # Tutorial: Connect to a managed Gateway for Spring in Azure Container Apps (preview)
 
-Gateway for Spring offers an efficient solution to route API requests and address cross-cutting concerns including security, monitoring/metrics, and resiliency. In this article, you will learn how to create a gateway that directs requests to your container apps.
+Gateway for Spring offers an efficient and powerful way to route, manage and handle API requests as part of a microservices architecture. It serves as an API Gateway that routes external requests to different services, adding various capabilities such as filtering, load balancing, and more. In this article, you will learn how to create a gateway that directs requests to your container apps.
 
 In this tutorial, you will learn to:
 

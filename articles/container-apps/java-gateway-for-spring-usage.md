@@ -11,7 +11,7 @@ ms.author: wenhaozhang
 
 # Configure the Gateway for Spring component in Azure Container Apps (preview)
 
-The Gateway for Spring managed component offers an efficient solution to route API requests and address cross-cutting concerns including security, monitoring/metrics, and resiliency. This article shows you how to configure and manage your Gateway for Spring component.
+Gateway for Spring offers an efficient and powerful way to route, manage and handle API requests as part of a microservices architecture. It serves as an API Gateway that routes external requests to different services, adding various capabilities such as filtering, load balancing, and more. This article shows you how to configure and manage your Gateway for Spring component.
 
 ## Show
 
@@ -52,6 +52,27 @@ az containerapp env java-component list \
   --resource-group <RESOURCE_GROUP>
 ```
 
+## Route file format
+
+The Gateway for Spring component supports defining routes through properties with id, uri, predicates, and filters. Following is an example YAML file that demonstrates how to configure these properties.
+
+  ```yaml
+    springCloudGatewayRoutes:
+    - id: "route1"
+      uri: "https://otherjavacomponent.myenvironment.test.net"
+      predicates:
+        - "Path=/v1/{path}"
+        - "After=2024-01-01T00:00:00.000-00:00[America/Denver]"
+      filters:
+        - "SetPath=/{path}"
+    - id: "route2"
+      uri: "https://otherjavacomponent.myenvironment.test.net"
+      predicates:
+        - "Path=/v2/{path}"
+        - "After=2024-01-01T00:00:00.000-00:00[America/Denver]"
+      filters:
+        - "SetPath=/{path}"
+  ```
 
 ## Allowed configuration list for your Gateway for Spring(#configurable-properties)
 
@@ -205,28 +226,6 @@ The following list details the gateway component properties you can configure fo
   - [**logging.level.***](https://docs.spring.io/spring-boot/docs/2.1.13.RELEASE/reference/html/boot-features-logging.html#boot-features-custom-log-levels)
   - [**logging.group.***](https://docs.spring.io/spring-boot/docs/2.1.13.RELEASE/reference/html/boot-features-logging.html#boot-features-custom-log-groups)
   - Any other configurations under `logging.*` namespace should be forbidden. For example, writing log files by using `logging.file` should be forbidden.
-
-## Route file format
-
-The Gateway for Spring component supports defining routes through properties with id, uri, predicates, and filters. Following is an example YAML file that demonstrates how to configure these properties.
-
-  ```yaml
-    springCloudGatewayRoutes:
-    - id: "route1"
-      uri: "https://otherjavacomponent.myenvironment.test.net"
-      predicates:
-        - "Path=/v1/{path}"
-        - "After=2024-01-01T00:00:00.000-00:00[America/Denver]"
-      filters:
-        - "SetPath=/{path}"
-    - id: "route2"
-      uri: "https://otherjavacomponent.myenvironment.test.net"
-      predicates:
-        - "Path=/v2/{path}"
-        - "After=2024-01-01T00:00:00.000-00:00[America/Denver]"
-      filters:
-        - "SetPath=/{path}"
-  ```
 
 ## Next steps
 
