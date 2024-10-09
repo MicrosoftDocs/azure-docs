@@ -218,10 +218,10 @@ This section covers the Azure PowerShell steps in [Tutorial: Enable Azure Contai
    1. Connect your AKS cluster to Azure Arc.
 
       ```azurepowershell
-      $CLUSTER_NAME="${GROUP_NAME}-cluster" # The name for the Azure-Arc connected cluster
+      $CLUSTER_NAME="${GROUP_NAME}-cluster" # The name for the Azure Arc connected cluster
       az connectedk8s connect `
            --resource-group $GROUP_NAME ` # The name for the Azure resource group with your Azure Arc resources
-           --name $CLUSTER_NAME # The name for the Azure-Arc connected cluster
+           --name $CLUSTER_NAME # The name for the Azure Arc connected cluster
       ```
 
       For more information, see [az connectedk8s connect](/cli/azure/connectedk8s?#az-connectedk8s-connect).
@@ -231,7 +231,7 @@ This section covers the Azure PowerShell steps in [Tutorial: Enable Azure Contai
       ```azurepowershell
       az connectedk8s show `
            --resource-group $GROUP_NAME ` # The name for the Azure resource group with your Azure Arc resources
-           --name $CLUSTER_NAME # The name for the Azure-Arc connected cluster
+           --name $CLUSTER_NAME # The name for the Azure Arc connected cluster
       ```
 
       If the **provisioningState** property value isn't set to **Succeeded**, run the command again after one minute.
@@ -301,7 +301,7 @@ This section covers the Azure PowerShell steps in [Tutorial: Enable Azure Contai
           --resource-group $GROUP_NAME ` # The name for the Azure resource group with your Azure Arc resources
           --name $EXTENSION_NAME ` # The name for the Azure Container Apps extension
           --cluster-type connectedClusters `
-          --cluster-name $CLUSTER_NAME ` # The name for the Azure-Arc connected cluster
+          --cluster-name $CLUSTER_NAME ` # The name for the Azure Arc connected cluster
           --extension-type 'Microsoft.App.Environment' `
           --release-train stable `
           --auto-upgrade-minor-version true `
@@ -348,7 +348,7 @@ This section covers the Azure PowerShell steps in [Tutorial: Enable Azure Contai
       ```azurepowershell
       $EXTENSION_ID=$(az k8s-extension show `
            --cluster-type connectedClusters `
-           --cluster-name $CLUSTER_NAME ` # The name for the Azure-Arc connected cluster
+           --cluster-name $CLUSTER_NAME ` # The name for the Azure Arc connected cluster
            --resource-group $GROUP_NAME ` # The name for the Azure resource group with your Azure Arc resources
            --name $EXTENSION_NAME ` # The name for the Azure Container Apps extension
            --query id `
@@ -376,7 +376,7 @@ This section covers the Azure PowerShell steps in [Tutorial: Enable Azure Contai
       $CUSTOM_LOCATION_NAME="my-custom-location" # The name for the custom location
       $CONNECTED_CLUSTER_ID=$(az connectedk8s show `
            --resource-group $GROUP_NAME ` # The name for the Azure resource group with your Azure Arc resources
-           --name $CLUSTER_NAME ` # The name for the Azure-Arc connected cluster
+           --name $CLUSTER_NAME ` # The name for the Azure Arc connected cluster
            --query id `
            --output tsv)
       ```
