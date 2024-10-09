@@ -236,24 +236,24 @@ You should follow the steps to initiate a local Azure Function project.
 
     The key part in the `index.html`:
 
-        ```javascript
-        async function init() {
-            const negotiateResponse = await fetch(`/api/negotiate`);
-            if (!negotiateResponse.ok) {
-                console.log("Failed to negotiate, status code =", negotiateResponse.status);
-                return;
-            }
-            const negotiateJson = await negotiateResponse.json();
-            socket = io(negotiateJson.endpoint, {
-                path: negotiateJson.path,
-                query: { access_token: negotiateJson.token}
-            });
-
-            socket.on('update', (index) => {
-                updateIndexCore(index);
-            });
+    ```javascript
+    async function init() {
+        const negotiateResponse = await fetch(`/api/negotiate`);
+        if (!negotiateResponse.ok) {
+            console.log("Failed to negotiate, status code =", negotiateResponse.status);
+            return;
         }
-        ```
+        const negotiateJson = await negotiateResponse.json();
+        socket = io(negotiateJson.endpoint, {
+            path: negotiateJson.path,
+            query: { access_token: negotiateJson.token}
+        });
+
+        socket.on('update', (index) => {
+            updateIndexCore(index);
+        });
+    }
+    ```
 
     It first negotiates with the Function App to get the Uri and the path to the service. And register a callback to update index.
 
