@@ -44,7 +44,7 @@ Where:
 |**vSwitch_Span** |Newly added SPAN virtual switch name |
 |**Ethernet** |Physical adapter name |
 
-Reference: [Create and configure a virtual switch with Hyper-V](https://learn.microsoft.com/en-us/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines?tabs=powershell#create-a-virtual-switch)
+Learn how to [Create and configure a virtual switch with Hyper-V](https://learn.microsoft.com/en-us/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines?tabs=powershell#create-a-virtual-switch)
 
 ### Create a new virtual switch with Hyper-V Manager
 
@@ -64,7 +64,7 @@ Reference: [Create and configure a virtual switch with Hyper-V](https://learn.mi
 
 ## Attach a SPAN Virtual Interface to the virtual switch
 
-Use Windows PowerShell or Hyper-V Manager to attach a SPAN virtual interface to the virtual switch you'd [created earlier](#configure-a-traffic-mirroring-port-with-hyper-v).
+Use Windows PowerShell or Hyper-V Manager to attach a SPAN virtual interface to the virtual switch you created when you [configured the traffic mirroring port](#configure-a-traffic-mirroring-port-with-hyper-v).
 
 If you use PowerShell, define the name of the newly added adapter hardware as `Monitor`. If you use Hyper-V Manager, the name of the newly added adapter hardware is set to `Network Adapter`.
 
@@ -165,9 +165,9 @@ Get-VMSwitchExtensionPortFeature -FeatureName "Ethernet Switch Port Security Set
 
 ## Configure VLAN settings for the Monitor adapter (if needed)
 
-In case the HYper-V server would sit in a diffeernt VLAN than the VLAN from which the mirrored traffic comes, the Monitor adapter must be set to accpet traffic from the mirrored VLANs
+If the Hyper-V server is located in a different VLAN than the VLAN from which the mirrored traffic originates, set the Monitor adapter to accept traffic from the mirrored VLANs.
 
-Use below PowerShell command to enable the Monitor adapter to accept traffic from the monitored traffic from different VLANs:
+Use this PowerShell command to enable the Monitor adapter to accept the monitored traffic from different VLANs:
 ```PowerShell
 Set-VMNetworkAdapterVlan -VMName VK-C1000V-LongRunning-650 -VMNetworkAdapterName Monitor -Trunk -AllowedVlanIdList 1010-1020 -NativeVlanId 10
 ```
@@ -179,7 +179,7 @@ Where:
 |**1010-1020** |VLAN range from which IoT traffic is mirrored |
 |**10** |tive VLAN ID of the environment |
 
-Reference: [Set-VMNetworkAdapterVlan](https://learn.microsoft.com/en-us/powershell/module/hyper-v/set-vmnetworkadaptervlan?view=windowsserver2022-ps)
+Learn more about the [Set-VMNetworkAdapterVlan](https://learn.microsoft.com/en-us/powershell/module/hyper-v/set-vmnetworkadaptervlan?view=windowsserver2022-ps) PowerShell cmdlet.
 
 [!INCLUDE [validate-traffic-mirroring](../includes/validate-traffic-mirroring.md)]
 
