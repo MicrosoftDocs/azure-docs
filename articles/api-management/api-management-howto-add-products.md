@@ -217,25 +217,15 @@ In this article, you use Terraform to create an Azure API Management instance, a
 [!INCLUDE [About Terraform](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
 
 > [!div class="checklist"]
-> * Generate a random name for the resource group.
-> * Create a resource group in a specified location with the generated name.
-> * Generate a random name for the API Management service.
-> * Create an API Management service with the generated name, in the created resource group.
-> * Generate a random name for the API.
-> * Generate a random content value.
-> * Create an API with the generated name and content value, in the created resource group and API Management service.
-> * Generate a random name for the product.
-> * Create a product with the generated name, in the created resource group and API Management service.
-> * Generate a random name for the group.
-> * Create a group with the generated name, in the created resource group and API Management service.
-> * Associate the created API with the created product.
-> * Associate the created group with the created product.
-> * Output the names of the created resource group, API Management service, API, product, and group.
-> * Output the ID, gateway URL, and public IP addresses of the created API Management service.
-> * Output the IDs, state, and version outputs of the created APIs.
-> * Output the ID of the created product.
-> * Output the ID of the association between the created product and API.
-> * Output the ID of the association between the created product and group.
+>
+> * Create a resource group with a randomized name.
+> * Create an API Management service with a randomized name.
+> * Create an API with a randomized name.
+> * Create a product with a randomized name in the API Management service.
+> * Create a group with a randomized name.
+> * Associate the API with the product.
+> * Associate the group with the product.
+> * Output the randomized values such as the names of the resource group, API Management service, API, product, and group.
 > * Specify the required version of Terraform and the required providers.
 > * Define variables for the resource group name prefix, resource group location, and the content format and value for the API definition import.
 
