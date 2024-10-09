@@ -461,7 +461,7 @@ The following table lists the firewall requirements for scenarios where Azure vi
 
 ## Plugin-versions
 #### 1.1.3
--  Replaces the `rest-client` library used for connecting with Azure to `excon`.
+-  Replaces the `rest-client` library used for connecting to Azure with the `excon` library.
  
 #### 1.1.1
 - Adds support for Azure US Government cloud and Microsoft Azure operated by 21Vianet in China.
