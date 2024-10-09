@@ -39,5 +39,5 @@ Here's a list of legacy Remote Desktop client apps for Windows. See the below do
 
 | Platform | Documentation and download links | Version information |
 |--|--|--|
-| Azure Virtual Desktop Store app | [Connect to Azure Virtual Desktop with the Remote Desktop client for Windows](connect-legacy-windows.md?tabs=avd-store) | [What's new](../whats-new-client-windows.md) |
-|Remote Desktop Store app | [Connect to Azure Virtual Desktop with the Remote Desktop client for Windows](connect-legacy-windows.md?tabs=rd-store) | [What's new](../whats-new-client-windows.md) |
+| Azure Virtual Desktop Store app for Windows | [Connect to Azure Virtual Desktop with the Remote Desktop client for Windows](connect-legacy-windows.md?tabs=avd-store) | [What's new](../whats-new-client-windows.md) |
+| Remote Desktop Store app for Windows | [Connect to Azure Virtual Desktop with the Remote Desktop client for Windows](connect-legacy-windows.md?tabs=rd-store) | [What's new](../whats-new-client-windows.md) |
