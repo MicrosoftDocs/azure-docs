@@ -14,6 +14,10 @@ This article shows you how to sign your DNS zone with [Domain Name System Securi
 
 To remove DNSSEC signing from a zone, see [How to unsign your Azure Public DNS zone](dnssec-unsign.md).
 
+> [!NOTE]
+> DNSSEC zone signing is currently in PREVIEW.<br> 
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 ## Prerequisites
 
 * The DNS zone must be hosted by Azure Public DNS. For more information, see [Manage DNS zones](/azure/dns/dns-operations-dnszones-portal).

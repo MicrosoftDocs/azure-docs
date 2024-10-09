@@ -14,6 +14,10 @@ This article shows you how to remove [Domain Name System Security Extensions (DN
 
 To sign a zone with DNSSEC, see [How to sign your Azure Public DNS zone with DNSSEC](dnssec-how-to.md).
 
+> [!NOTE]
+> DNSSEC zone signing is currently in PREVIEW.<br> 
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
 ## Prerequisites
 
 * The DNS zone must be hosted by Azure Public DNS. For more information, see [Manage DNS zones](/azure/dns/dns-operations-dnszones-portal).
