@@ -1,3 +1,6 @@
+![image](https://github.com/user-attachments/assets/7db0714e-0c4c-4cd1-b534-086f8d721605)
+![image](https://github.com/user-attachments/assets/d6c5b5c0-8bfb-4a0e-b37d-c9897e9b66c3)
+![image](https://github.com/user-attachments/assets/34599541-81b5-4d84-abe2-b0aff45e2eb7)
 ---
 title: Save costs with Microsoft Azure OpenAI Service Provisioned Reservations
 description: Save costs with Microsoft Azure OpenAI Service Provisioned Reservations by committing to a reservation for your provisioned throughput units.
@@ -59,6 +62,7 @@ To buy an Azure OpenAI reservation, follow these steps:
 3. Select a subscription. Use the Subscription list to choose the subscription that gets used to pay for the reservation. The payment method of the subscription is charged the costs for the reservation. The subscription type must be an enterprise agreement (offer numbers: MS-AZR-0017P or MS-AZR-0148P), Microsoft Customer Agreement, or pay-as-you-go (offer numbers: MS-AZR-0003P or MS-AZR-0023P).
     - For an enterprise subscription, the charges are deducted from the enrollment's Azure Prepayment (previously called monetary commitment) balance or charged as overage.
     - For a pay-as-you-go subscription, the charges are billed to the credit card or invoice payment method on the subscription.
+    - The reservation purchase date is processed in UTC.
 4. Select a scope. Use the Scope list to choose a subscription scope. You can change the reservation scope after purchase.
     - **Single resource group scope** - Applies the reservation discount to the matching resources in the selected resource group only.
     - **Single subscription scope** - Applies the reservation discount to the matching resources in the selected subscription.
