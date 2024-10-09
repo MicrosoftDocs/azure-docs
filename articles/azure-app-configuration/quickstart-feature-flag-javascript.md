@@ -16,13 +16,13 @@ ms.custom: quickstart, mode-other, devx-track-js
 
 In this quickstart, you incorporate Azure App Configuration into a Node.js console app to create an end-to-end implementation of feature management. You can use App Configuration to centrally store all your feature flags and control their states.
 
-The JavaScript Feature Management libraries extend the framework with feature flag support. They seamlessly integrate with App Configuration through its JavaScript configuration provider.
-
-The example used in this tutorial is based on the Node.js application introduced in the [quickstart](./quickstart-javascript-provider.md).
+The JavaScript Feature Management libraries extend the framework with feature flag support. They seamlessly integrate with App Configuration through its JavaScript configuration provider. As an example, this tutorial shows how to use the JavaScript Feature Management in a Node.js app.
 
 ## Prerequisites
 
-- Finish the quickstart [Create a JavaScript app with Azure App Configuration](./quickstart-javascript-provider.md).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+- An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
+- [LTS versions of Node.js](https://github.com/nodejs/release#release-schedule). For information about installing Node.js either directly on Windows or using the Windows Subsystem for Linux (WSL), see [Get started with Node.js](/windows/dev-environment/javascript/nodejs-overview)
 
 ## Add a feature flag
 
@@ -31,15 +31,33 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
 > [!div class="mx-imgBorder"]
 > ![Enable feature flag named Beta](media/quickstart-feature-flag-javascript/add-beta-feature-flag.png)
 
-## Use the feature flag
 
-1. Go to the *app-configuration-quickstart* directory that you created in the quickstart and install the Feature Management by using the `npm install` command.
+## Create a Node.js console app
 
-    ``` console
+In this tutorial, you create a Node.js console app and load the feature flag from your App Configuration store.
+
+1. Create a new directory for the project named *feature-management-quickstart*.
+
+    ```console
+    mkdir feature-management-quickstart
+    ```
+
+1. Switch to the newly created *feature-management-quickstart* directory.
+
+    ```console
+    cd app-configuration-quickstart
+    ```
+
+1. Install the Azure App Configuration provider and feature management by using the `npm install` command.
+
+    ```console
+    npm install @azure/app-configuration-provider
     npm install @microsoft/feature-management
     ```
 
-1. Open the file *app.js* and update it with the following code.
+## Use the feature flag
+
+1. Create a file named *app.js* in the *feature-management-quickstart* directory and copy the following code.
 
     ### [Use Azure Credential (Recommended)](#tab/azurecredential)
 
