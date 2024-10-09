@@ -7,7 +7,7 @@ ms.date: 03/30/2022
 ms.author: yelevin
 
 
-#Customer intent: [AI]As a security analyst, I want to integrate Microsoft Sentinel with Microsoft Teams so that I can collaborate efficiently on incident investigations with my team.
+#Customer intent: As a security analyst, I want to take advantage of Microsoft Teams' integration with Microsoft Sentinel to collaborate efficiently on incident investigations with my team.
 
 ---
 

@@ -7,7 +7,7 @@ ms.date: 02/24/2023
 ms.author: yelevin
 
 
-#Customer intent: [AI]As a security analyst, I want to configure anomalous RDP login detection so that I can identify and respond to potential security threats in my network.
+#Customer intent: As a security engineer, I want to enable the detection of anomalous RDP logins, so that analysts can identify and respond to the resulting potential security threats in my network.
 
 ---
 

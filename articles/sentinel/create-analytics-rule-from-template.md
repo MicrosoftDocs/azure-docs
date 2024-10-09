@@ -11,7 +11,7 @@ appliesto:
 ms.collection: usx-security
 
 
-#Customer intent: [AI]As a security analyst, I want to create scheduled analytics rules from templates so that I can efficiently monitor and detect anomalies in my data.
+#Customer intent: [AI]As a security engineer, I want to create scheduled analytics rules from templates so that I can efficiently monitor and detect anomalies in my data.
 
 ---
 # Create scheduled analytics rules from templates

@@ -11,7 +11,7 @@ appliesto:
 ms.collection: usx-security
 
 
-#Customer intent: [AI]As a security analyst, I want to create and customize scheduled analytics rules using Kusto queries so that I can detect and respond to security threats effectively.
+#Customer intent: [AI]As a security engineer, I want to create and customize scheduled analytics rules using Kusto queries so that analysts can detect and respond to security threats effectively.
 
 ---
 

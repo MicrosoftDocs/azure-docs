@@ -8,7 +8,7 @@ ms.custom: linux-related-content
 ms.date: 06/18/2024
 
 
-#Customer intent: [AI]As a security analyst, I want to troubleshoot CEF or Syslog data connectors so that I can ensure my security logs are properly ingested and monitored for potential threats.
+#Customer intent: [AI]As a security engineer, I want to troubleshoot CEF or Syslog data connectors so that I can ensure my security logs are properly ingested and monitored for potential threats.
 
 ---
 
