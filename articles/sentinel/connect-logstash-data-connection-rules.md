@@ -475,7 +475,8 @@ The following table lists the firewall requirements for scenarios where Azure vi
 - Initial release for output plugin for logstash to Microsoft Sentinel. This is done with the Log Analytics DCR based API.
 ## Known issues
  
-When using Logstash installed on a docker image of Lite Ubuntu the following warning may appear:
+When using Logstash installed on a Docker image of Lite Ubuntu, the following warning may appear:
+
 ```
 java.lang.RuntimeException: getprotobyname_r failed
 ```
