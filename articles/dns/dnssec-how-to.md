@@ -10,9 +10,9 @@ ms.author: greglin
 
 # How to sign your Azure Public DNS zone with DNSSEC (Preview)
 
-This article shows you how to sign your DNS zone with Domain Name System Security Extensions (DNSSEC).
+This article shows you how to sign your DNS zone with [Domain Name System Security Extensions (DNSSEC)](dnssec.md). 
 
-Also see: [DNSSEC overview (Preview)](dnssec.md)
+To remove DNSSEC signing from a zone, see [How to unsign your Azure Public DNS zone](dnssec-unsign.md).
 
 ## Prerequisites
 
@@ -52,6 +52,8 @@ To sign your zone with DNSSEC using the Azure portal:
         **Algorithm**: 13<br>
         **Digest Type**: 2<br>
         **Digest**: 7A1C9811A965C46319D94D1D4BC6321762B632133F196F876C65802EC5089001
+
+        When you provide the DS record to your registrar, the registrar adds the DS record to the parent zone, such as the Top Level Domain (TLD) zone.
 
     2. If you own the parent zone, you can add a DS record directly to the parent yourself. The following example shows how to add a DS record to the DNS zone **adatum.com** for the child zone **secure.adatum.com** when both zones are hosted using Azure Public DNS:
 

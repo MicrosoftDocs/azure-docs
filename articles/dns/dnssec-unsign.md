@@ -10,7 +10,9 @@ ms.author: greglin
 
 # How to unsign your Azure Public DNS zone (Preview)
 
-This article shows you how to remove Domain Name System Security Extensions (DNSSEC) from your Azure Public DNS zone.
+This article shows you how to remove [Domain Name System Security Extensions (DNSSEC)](dnssec.md) from your Azure Public DNS zone.
+
+To sign a zone with DNSSEC, see [How to sign your Azure Public DNS zone with DNSSEC](dnssec-how-to.md).
 
 ## Prerequisites
 
@@ -24,9 +26,11 @@ This article shows you how to remove Domain Name System Security Extensions (DNS
 
 ## [Azure portal](#tab/sign-portal)
 
-To unsign your zone using the Azure portal:
+To unsign a zone using the Azure portal:
 
-1. 
+1. On the Azure portal Home page, search for and select **DNS zones**.
+2. Select your DNS zone, and then from the zone's **Overview** page, select **DNSSEC**. You can select **DNSSEC** from the menu at the top, or under **DNS Management**.
+3. If you have successfully removed the DS record at your registrar for this zone, you see that the DNSSEC status is **Signed but not delegated**. Do not proceed until you see this status.
 
 ## [Azure CLI](#tab/sign-cli)
 
