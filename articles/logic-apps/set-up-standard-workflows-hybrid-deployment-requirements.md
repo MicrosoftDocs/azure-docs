@@ -40,6 +40,16 @@ For more information, see the following documentation:
 
 This how-to guide shows how to set up the necessary on-premises resources in your infrastructure so that you can create, deploy, and host a Standard logic app workflow using the hybrid deployment model.
 
+## Limitations
+
+- Hybrid deployment is currently available and supported only for [Azure Arc-enabled Azure Kubernetes Service (AKS) clusters](/azure/azure-arc/kubernetes/overview) and [Azure Arc-enabled Kubernetes clusters on Azure Stack hyperconverged infrastructure (HCI)](/azure-stack/hci/overview).
+
+## Prererquisites
+
+- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+
+
 ## Create an Azure Arc-enabled Kubernetes cluster
 
 To deploy and host your Standard logic app as on-premises resource, create an [Azure Arc-enabled Kubernetes cluster](/azure/azure-arc/kubernetes/overview) or an [Azure Arc-enabled Kubernetes cluster on Azure Stack HCI infrastructure](/azure-stack/hci/overview).

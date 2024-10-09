@@ -27,9 +27,7 @@ This how-to guide shows how to create and deploy a Standard logic app workflow u
 
 ## Limitations
 
-- Hybrid deployment is currently available and supported only for [Azure Arc-enabled Azure Kubernetes Service (AKS) clusters](/azure/azure-arc/kubernetes/overview) and [Azure Arc-enabled Kubernetes clusters on Azure Stack hyperconverged infrastructure (HCI)](/azure-stack/hci/overview).
-
-- Hybrid deployment is available and supported only in the [same regions as Azure Container Apps on Azure Arc-enabled AKS](../container-apps/azure-arc-overview.md#public-preview-limitations).
+- Hybrid deployment for Standard logic apps is available and supported only in the [same regions as Azure Container Apps on Azure Arc-enabled AKS](../container-apps/azure-arc-overview.md#public-preview-limitations).
 
 - The following capabilities currently aren't available in this preview release:
 
@@ -62,7 +60,7 @@ This how-to guide shows how to create and deploy a Standard logic app workflow u
 
   To meet these requirements, [set up these on-premises resources to support hybrid deployment for Standard logic apps](set-up-standard-workflows-hybrid-deployment-requirements.md).
 
-- For Visual Studio Code, you need the Azure Logic Apps (Standard) extension for Visual Studio Code, and [set up the related prerequisites](create-single-tenant-workflows-visual-studio-code.md#prerequisites).
+- To work in Visual Studio Code, you need the Azure Logic Apps (Standard) extension for Visual Studio Code with the [related prerequisites](create-single-tenant-workflows-visual-studio-code.md#prerequisites).
 
   > [!TIP]
   > 
