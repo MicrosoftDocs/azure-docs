@@ -133,7 +133,7 @@ Your amortized reservation cost is based on each calendar month. So, based on ea
 - Month 2: January 30 – February 27 (inclusive) – for a non leap year
 - Month 3: February 28 – March 27 (inclusive), and so on
 
-If your cost for monthly reservation is $200 and:
+If your cost for a monthly reservation is $200 and:
 - The reservation was purchased in May, then you see daily the amortized cost of $200/*31*
 - The reservation was purchased in February, then you see a daily amortized cost of $200/*28*
 
