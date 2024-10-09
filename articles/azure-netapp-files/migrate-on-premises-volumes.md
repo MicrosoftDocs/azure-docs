@@ -16,7 +16,7 @@ Azure NetApp Files enables you to peer and migrate on-premises volumes in NetApp
 
 * On your on-premises storage cluster, you must be running ONTAP 9.8 or later, 
 * SnapMirror license entitlement needs to be obtained and applied to the on-premises cluster. Work with the account team so they can get the Azure Technology Specialist involved in getting this license applied to the cluster, even if you already have the license. 
-* Ensure your [network topology](azure-netapp-files-network-topologies.md). is supported for Azure NetApp Files and that you have established connectivity from your on-premises storage to Azure NetApp Files. 
+* Ensure your [network topology](azure-netapp-files-network-topologies.md) is supported for Azure NetApp Files. Ensure you have established connectivity from your on-premises storage to Azure NetApp Files. 
     * You must be using Standard network features to peer and migrate on-premises volumes to Azure NetApp Files. 
 * The delegated subnet address space for hosting the Azure NetApp Files volumes must have at least seven free IP addresses: six for cluster peering and one for the migration volumes. The delegated subnet address space should be sized appropriately to accommodate more Azure NetApp Files network interfaces. Review [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md) to ensure you meet the requirements for delegated subnet sizing.  
 * After issuing the peering request, it must be accepted within 60 minutes of making the request. If it's not accepted within 60 minutes, the request expires. <!-- check FS --> 
