@@ -14,35 +14,38 @@ ms.author: normesta
 
 # Storage task conditions
 
-This article describes the properties and operators that you can use to compose each storage task condition. To learn how to define conditions and operations, see [Define storage task conditions and operations](storage-task-conditions-operations-edit.md).
+This article describes the format of a storage task and the properties, operators, and operations that you can use to compose each storage task condition. To learn how to define conditions and operations, see [Define storage task conditions and operations](storage-task-conditions-operations-edit.md).
 
 > [!IMPORTANT]
 > Azure Storage Actions is currently in PREVIEW and is available these [regions](../overview.md#supported-regions).
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-## Condition format
-
-A condition is a collection of clauses in a JSON document. The following sample JSON shows a complete condition.
+A storage task contains a set of conditions and operations in a JSON document. A _condition_ a collection of one or more _clauses_. An _operation_ is an action taken on each object that meets the conditions defined in the task. This article describes the format of conditions. To learn more about operations, see [Storage task operations](storage-task-operations.md).
 
 ```json
-{
-Put Json here
+"action": {
+    "if": {
+        "condition": "<clause>",
+        "operations": [
+            {
+                "name": "<operation name>",
+                "onSuccess": "continue",
+                "onFailure": "break"
+            }
+        ]
+    }
 }
 ```
+## Condition format
 
-A condition is a collection of clauses, as described in the following table:
-
-| Parameter name | Parameter type | Notes |
-|----------------|----------------|-------|
-| `field name here`        | Type description | Explanation here.|
-
-## Condition example
-
-Here is an example.
+Each clause clause in a condition contains a _property_, a _value_, and an _operator_. When the storage task runs, it uses the operator to compare a property with a value to determine whether a clause is met by the target object. In a clause, the operator always appears first followed by the property, and then the value. The clause defined in the following JSON allows operations only on Microsoft Word documents. The clause identifies all documents that end with the file extension `.docx`. Therefore, the operator is `endsWith`, the property is `Name`, the value is `.docx`. 
 
 ```json
-{
-Put Json here
+"action": {
+    "if": {
+        "condition": "[[[endsWith(Name, '.docx')]]",
+        "operations": [..]
+    }
 }
 ```
 
@@ -83,23 +86,17 @@ The following table shows the operators that you can use in a clause to evaluate
 | startsWith | addToTime | ||
 | Matches |  | ||
 
-## Example 1
 
-Example here.
+## Multiple clauses in a condition
 
-```json
-{
-Put Json here
-}
-```
-
-## Example 3
-
-Example here.
+A condition can contain multiple clauses separated by a comma along with either the string `and` or `or`. The string `and` targets objects that meet the criteria in all clauses in the condition while `or` targets objects that meet the criterion in any of the clauses in the condition. The following JSON include two clauses along with the `and` string.
 
 ```json
-{
-Put Json here
+"action": {
+    "if": {
+        "condition": "[[[and(endsWith(Name, '.docx'), equals(Tags.Value[readyForLegalHold], 'Yes'))]]",
+        "operations": [..]
+    }
 }
 ```
 

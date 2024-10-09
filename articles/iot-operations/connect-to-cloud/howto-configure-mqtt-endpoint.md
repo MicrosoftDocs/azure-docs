@@ -30,10 +30,10 @@ You can also create new local MQTT broker endpoints with custom settings. For ex
 
 # [Portal](#tab/portal)
 
-1. In the operations experience portal, select the **Dataflow endpoints**.
+1. In the [operations experience](https://iotoperations.azure.com/), select the **Dataflow endpoints**.
 1. Under **Create new dataflow endpoint**, select **Azure IoT Operations Local MQTT** > **New**.
 
-    :::image type="content" source="media/howto-configure-mqtt-endpoint/local-mqtt-endpoint.png" alt-text="Screenshot using operations experience portal to create a new local MQTT dataflow endpoint.":::
+    :::image type="content" source="media/howto-configure-mqtt-endpoint/local-mqtt-endpoint.png" alt-text="Screenshot using operations experience to create a new local MQTT dataflow endpoint.":::
 
     Enter the following settings for the endpoint:
 
@@ -134,10 +134,10 @@ To configure an Azure Event Grid MQTT broker endpoint, we recommend that you use
 
 # [Portal](#tab/portal)
 
-1. In the operations experience portal, select the **Dataflow endpoints** tab.
+1. In the [operations experience](https://iotoperations.azure.com/), select the **Dataflow endpoints** tab.
 1. Under **Create new dataflow endpoint**, select **Azure Event Grid MQTT** > **New**.
 
-    :::image type="content" source="media/howto-configure-mqtt-endpoint/event-grid-endpoint.png" alt-text="Screenshot using operations experience portal to create an Azure Event Grid endpoint.":::
+    :::image type="content" source="media/howto-configure-mqtt-endpoint/event-grid-endpoint.png" alt-text="Screenshot using operations experience to create an Azure Event Grid endpoint.":::
 
     Enter the following settings for the endpoint:
 
@@ -243,10 +243,10 @@ For other MQTT brokers, you can configure the endpoint, TLS, authentication, and
 
 # [Portal](#tab/portal)
 
-1. In the operations experience portal, select the **Dataflow endpoints** tab.
+1. In the [operations experience](https://iotoperations.azure.com/), select the **Dataflow endpoints** tab.
 1. Under **Create new dataflow endpoint**, select **Custom MQTT Broker** > **New**.
 
-    :::image type="content" source="media/howto-configure-mqtt-endpoint/custom-mqtt-broker.png" alt-text="Screenshot using operations experience portal to create a custom MQTT broker endpoint.":::
+    :::image type="content" source="media/howto-configure-mqtt-endpoint/custom-mqtt-broker.png" alt-text="Screenshot using operations experience to create a custom MQTT broker endpoint.":::
 
 1. Enter the following settings for the endpoint:
 
@@ -317,7 +317,7 @@ Once you've configured the endpoint, you can use it in a dataflow as both a sour
 1. Enter the MQTT topic to which the dataflow publishes messages.
 1. Select **Apply** to provision the dataflow.
 
-    :::image type="content" source="media/howto-configure-mqtt-endpoint/create-dataflow-mq-mq.png" alt-text="Screenshot using operations experience portal to create a dataflow with an MQTT source and destination.":::
+    :::image type="content" source="media/howto-configure-mqtt-endpoint/create-dataflow-mq-mq.png" alt-text="Screenshot using operations experience to create a dataflow with an MQTT source and destination.":::
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -399,7 +399,7 @@ kubectl create secret tls my-tls-secret -n azure-iot-operations \
 
 # [Portal](#tab/portal)
 
-In the operations experience portal dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **X509 certificate**.
+In the operations experience dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **X509 certificate**.
 
 Enter the following settings for the endpoint:
 
@@ -443,7 +443,7 @@ Then, configure the endpoint with system-assigned managed identity settings. In 
 
 # [Portal](#tab/portal)
 
-In the operations experience portal dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **System assigned managed identity**.
+In the operations experience dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **System assigned managed identity**.
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -483,7 +483,7 @@ mqttSettings: {
 
 # [Portal](#tab/portal)
 
-In the operations experience portal dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **User assigned managed identity**.
+In the operations experience dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **User assigned managed identity**.
 
 Enter the user assigned managed identity client ID and tenant ID in the appropriate fields.
 
@@ -522,7 +522,7 @@ To use Kubernetes service account token (SAT) for authentication, you don't need
 
 # [Portal](#tab/portal)
 
-In the operations experience portal dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **Service account token**.
+In the operations experience dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **Service account token**.
 
 Enter the service audience.
 
@@ -573,9 +573,9 @@ You can set advanced settings for the MQTT broker dataflow endpoint such as TLS,
 
 # [Portal](#tab/portal)
 
-In the operations experience portal, select the **Advanced** tab for the dataflow endpoint.
+In the operations experience, select the **Advanced** tab for the dataflow endpoint.
 
-:::image type="content" source="media/howto-configure-mqtt-endpoint/mqtt-advanced.png" alt-text="Screenshot using operations experience portal to set Kafka dataflow endpoint advanced settings.":::
+:::image type="content" source="media/howto-configure-mqtt-endpoint/mqtt-advanced.png" alt-text="Screenshot using operations experience to set Kafka dataflow endpoint advanced settings.":::
 
 | Setting                  | Description                                                                                       |
 | ------------------------ | ------------------------------------------------------------------------------------------------- |
