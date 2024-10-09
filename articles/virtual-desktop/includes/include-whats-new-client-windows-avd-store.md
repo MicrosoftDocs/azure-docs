@@ -2,7 +2,7 @@
 ms.topic: include
 author: sipastak
 ms.author: sipastak
-ms.date: 10/08/2024 
+ms.date: 09/17/2024 
 ---
 
 ## Supported client versions
@@ -11,23 +11,8 @@ The following table lists the current versions available for the public and Insi
 
 | Release | Latest version | Download |
 |--|--|--|
-| Public | 1.2.5709  | [Microsoft Store](https://aka.ms/AVDStoreClient) |
-| Insider | 1.2.5797 | Download the public release, then [Enable Insider releases](../users/client-features-windows.md#enable-insider-releases) and check for updates. |
-
-## Updates for version 1.2.5797 (Insider)
-
-*Date published: October 8, 2024*   
-
-- Fixed an issue for [CVE-2024-43533](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fmsrc.microsoft.com%2Fupdate-guide%2Fvulnerability%2FCVE-2024-43533&data=05%7C02%7Chilarybraun%40microsoft.com%7C6d48586f6193430e3eb108dce4ceb271%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C638636823631992751%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C0%7C%7C%7C&sdata=czWxraXOI9L5Azl7ZZULpw7XjqWzEWCIOxD47lM1nkI%3D&reserved=0). 
-- Added list of graphics codecs to the Connection Information dialog. 
-- Fixed an issue where the bottom portion of the Windows Authentication dialog could be cut off when connected to a RemoteApp.  
-- Fixed an issue where the Connection Information dialog showed the lowest RTT instead of average RTT. 
-
-## Updates for version 1.2.5709 
-
-*Date published: October 8, 2024*   
-
-- Fixed an issue for [CVE-2024-43533](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fmsrc.microsoft.com%2Fupdate-guide%2Fvulnerability%2FCVE-2024-43533&data=05%7C02%7Chilarybraun%40microsoft.com%7C6d48586f6193430e3eb108dce4ceb271%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C638636823631992751%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C0%7C%7C%7C&sdata=czWxraXOI9L5Azl7ZZULpw7XjqWzEWCIOxD47lM1nkI%3D&reserved=0).
+| Public | 1.2.5704  | [Microsoft Store](https://aka.ms/AVDStoreClient) |
+| Insider | 1.2.5704 | Download the public release, then [Enable Insider releases](../users/client-features-windows.md#enable-insider-releases) and check for updates. |
 
 ## Updates for version 1.2.5704 
 
