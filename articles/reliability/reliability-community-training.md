@@ -76,7 +76,7 @@ The Microsoft Community Training team manages the entire disaster recovery proce
 
 - In a regional disaster, the **control plane** is manually failed over to the paired region. You should expect some service degradation in the time before the failover completes. After the failover, only read-only operations are supported until the disaster region is back online. The service is manually failed back to the original region once it's back online and all operations resume. Recovery Point Objective (RPO) is expected to be 10 minutes; Recovery Time Objective (RTO), 24 hours.
 
-- For the **data plane**, Community Training offers microsoft managed disaster recovery. To use managed disaster recovery, you need to enable disaster recovery during Community Training instance creation in Azure. Once you enable disaster recovery, Microsoft maintains the backup of storage and database in the paired region. Recovery Point Objective (RPO) is expected to be 12 hours; Recovery Time Objective (RTO), 48 hours.
+- For the **data plane**, Community Training offers microsoft managed disaster recovery. To use managed disaster recovery, you need to [enable disaster recovery]() during Community Training instance creation in Azure. Once you enable disaster recovery, Microsoft maintains the backup of storage and database in the paired region. Recovery Point Objective (RPO) is expected to be 12 hours; Recovery Time Objective (RTO), 48 hours.
 
 
 >[!NOTE]
