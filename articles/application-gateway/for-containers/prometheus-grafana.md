@@ -3,8 +3,7 @@ title: Configure Application Gateway for Containers for Prometheus and Grafana
 description: Configure Application Gateway for Containers metrics to be sent to Prometheus and displayed on Grafana.
 services: application-gateway
 author: greglin
-ms.service: azure-application-gateway
-ms.subservice: appgw-for-containers
+ms.service: azure-appgw-for-containers
 ms.topic: article
 ms.date: 07/09/2024
 ms.author: greglin
