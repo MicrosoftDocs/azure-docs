@@ -11,9 +11,12 @@
 
 # Transport Layer Security (TLS) support in IoT Hub
 
-IoT Hub uses Transport Layer Security (TLS) to secure connections from IoT devices and services. Three versions of the TLS protocol are currently supported, namely versions 1.0, 1.1, and 1.2.
+IoT Hub uses Transport Layer Security (TLS) to secure connections from IoT devices and services. 
 
-TLS 1.0 and 1.1 are considered legacy and are planned for deprecation. For more information, see [Deprecating TLS 1.0 and 1.1 for IoT Hub](iot-hub-tls-deprecating-1-0-and-1-1.md). To avoid future issues, use TLS 1.2 as the only TLS version when connecting to IoT Hub.
+> [!NOTE]
+> Azure IoT Hub will end support for TLS 1.0 and 1.1 on July 1st, 2025. Only TLS 1.2 and later will be supported after this date.
+> To find out the version of TLS your IoT Hub devices are running, please refer to [TLS 1.0 and 1.1 end of support guide](iot-hub-tls-ending-support-for-1-0-and-1-1). 
+> It is therefore essential that you properly test and validate that *all* your IoT devices and services are compatible with TLS 1.2 and the [recommended ciphers](#cipher-suites) in advance.
 
 ## IoT Hub's server TLS certificate
 
