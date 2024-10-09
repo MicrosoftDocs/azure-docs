@@ -94,7 +94,7 @@ No. You can't change the URL for the FHIR service.
 ### What are the limits associated with Azure FHIR service?
 
 Please refer 
-[Azure FHIR service limits](fhir-features-supported#service-limits)
+[Azure FHIR service limits](fhir-features-supported.md#service-limits)
 
 ## FHIR Implementations and Specifications
 
@@ -143,7 +143,7 @@ To perform a health check on a FHIR service, enter `{{fhirurl}}/health/check` in
 
 If there are errors, you may receive an error response with HTTP status code 404 (Not Found) or status code 500 (Internal Server Error), and detailed information in the response body.
 
-**What are the recommended methods for syncing data between Azure FHIR Service and a database?**
+**What are the recommended methods for syncing data between Azure FHIR Service and a Dataverse?**
 
 To connect FHIR services with Dataverse, we have introduced a new capability known as the Dataverse Health APIs.
 [Dataverse healthcare APIs](https://learn.microsoft.com/en-us/dynamics365/industry/healthcare/dataverse-healthcare-apis-overview)
