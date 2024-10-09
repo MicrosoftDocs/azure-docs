@@ -356,7 +356,18 @@ The **Request** trigger creates a manually callable endpoint that handles *only*
    > changes if the storage account changes. For example, with Standard logic apps, if you manually 
    > change your storage account and copy your workflow to the new storage account, the URL for 
    > the **Request** trigger also changes to reflect the new storage account. The same workflow has a different URL.
-
+---
+### Stateless workflows
+To enable schema validation in stateless workflows, ensure `host.json` has the following setting:
+```json
+"extensions": {
+   "workflow": {
+     "Settings": {
+        "Runtime.StatelessFlowEvaluateTriggerCondition" :"true"
+      }
+   }
+}
+```
 ---
 
 Now, continue building your workflow by adding another action as the next step. For example, you can respond to the request by [adding a Response action](#add-response), which you can use to return a customized response and is described later in this article.
