@@ -5,7 +5,7 @@ author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 10/02/2024
+ms.date: 10/08/2024
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to create a dataflow to connect data sources.
@@ -54,9 +54,56 @@ Once you have dataflow endpoints, you can use them to create a dataflow. Recall 
 
 # [Portal](#tab/portal)
 
-To create a dataflow in the operations experience portal, select **Dataflow** > **Create dataflow**.
+To create a dataflow in [operations experience](https://iotoperations.azure.com/), select **Dataflow** > **Create dataflow**.
 
-:::image type="content" source="media/howto-create-dataflow/create-dataflow.png" alt-text="Screenshot using operations experience portal to create a dataflow.":::
+:::image type="content" source="media/howto-create-dataflow/create-dataflow.png" alt-text="Screenshot using operations experience to create a dataflow.":::
+
+# [Bicep](#tab/bicep)
+
+The [Bicep File to create Dataflow](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/dataflow.bicep) deploys the necessary resources for dataflows.
+
+1. Download the template file and replace the values for `customLocationName`, `aioInstanceName`, `schemaRegistryName`, `opcuaSchemaName`, and `persistentVCName`.
+1. Deploy the resources using the [az stack group](/azure/azure-resource-manager/bicep/deployment-stacks?tabs=azure-powershell) command in your terminal:
+
+    ```azurecli
+    az stack group create --name MyDeploymentStack --resource-group $RESOURCE_GROUP --template-file /workspaces/explore-iot-operations/<filename>.bicep --action-on-unmanage 'deleteResources' --deny-settings-mode 'none' --yes
+    ```
+
+ The overall structure of a dataflow configuration for Bicep is as follows:
+
+```bicep
+resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2024-08-15-preview' = {
+  parent: defaultDataflowProfile
+  name: 'my-dataflow'
+  extendedLocation: {
+    name: customLocation.id
+    type: 'CustomLocation'
+  }
+  properties: {
+    mode: 'Enabled'
+    operations: [
+      {
+        operationType: 'Source'
+        sourceSettings: {
+          // See source configuration section
+        }
+      }
+      {
+        operationType: 'BuiltInTransformation'
+        builtInTransformationSettings: {
+          // See transformation configuration section
+        }
+      }
+      {
+        operationType: 'Destination'
+        destinationSettings: {
+          // See destination configuration section
+        }
+      }
+    ]
+  }
+}
+```
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -97,7 +144,7 @@ To configure a source for the dataflow, specify the endpoint reference and data 
 
 ### Use Asset as a source
 
-You can use an [asset](../discover-manage-assets/overview-manage-assets.md) as the source for the dataflow. This is only available in the operations experience portal.
+You can use an [asset](../discover-manage-assets/overview-manage-assets.md) as the source for the dataflow. Using an asset as a source is only available in the operations experience.
 
 1. Under **Source details**, select **Asset**.
 1. Select the asset you want to use as the source endpoint.
@@ -105,13 +152,17 @@ You can use an [asset](../discover-manage-assets/overview-manage-assets.md) as t
 
     A list of datapoints for the selected asset is displayed.
 
-    :::image type="content" source="media/howto-create-dataflow/dataflow-source-asset.png" alt-text="Screenshot using operations experience portal to select an asset as the source endpoint.":::
+    :::image type="content" source="media/howto-create-dataflow/dataflow-source-asset.png" alt-text="Screenshot using operations experience to select an asset as the source endpoint.":::
 
 1. Select **Apply** to use the asset as the source endpoint.
 
+# [Bicep](#tab/bicep)
+
+Configuring an asset as a source is only available in the operations experience.
+
 # [Kubernetes](#tab/kubernetes)
 
-Configuring an asset as a source is only available in the operations experience portal.
+Configuring an asset as a source is only available in the operations experience.
 
 ---
 
@@ -123,9 +174,34 @@ Configuring an asset as a source is only available in the operations experience 
 1. Enter the **MQTT Topic** that you want to listen to for incoming messages.
 1. Choose a **Message schema** from the dropdown list or upload a new schema. If the source data has optional fields or fields with different types, specify a deserialization schema to ensure consistency. For example, the data might have fields that aren't present in all messages. Without the schema, the transformation can't handle these fields as they would have empty values. With the schema, you can specify default values or ignore the fields.
 
-    :::image type="content" source="media/howto-create-dataflow/dataflow-source-mqtt.png" alt-text="Screenshot using operations experience portal to select MQTT as the source endpoint.":::
+    :::image type="content" source="media/howto-create-dataflow/dataflow-source-mqtt.png" alt-text="Screenshot using operations experience to select MQTT as the source endpoint.":::
 
 1. Select **Apply**.
+
+# [Bicep](#tab/bicep)
+
+The MQTT endpoint is configured in the Bicep template file. For example, the following endpoint is a source for the dataflow.
+
+```bicep
+{
+  operationType: 'Source'
+  sourceSettings: {
+    endpointRef: MqttBrokerDataflowEndpoint.name // Reference to the 'mq' endpoint
+    dataSources: [
+        'azure-iot-operations/data/thermostat', // MQTT topic for thermostat temperature data
+        'humidifiers/+/telemetry/humidity/#'  // MQTT topic for humidifier humidity data
+        
+    ]
+  }
+}
+```
+
+The `dataSources` setting is an array of MQTT topics that define the data source. In this example, `azure-iot-operations/data/thermostat` refers to one of the topics in the dataSources array where thermostat data is published.
+
+Datasources allow you to specify multiple MQTT or Kafka topics without needing to modify the endpoint configuration. This means the same endpoint can be reused across multiple dataflows, even if the topics vary. For more information, see [Reuse dataflow endpoints](./howto-configure-dataflow-endpoint.md#reuse-endpoints).
+
+<!-- TODO: Put the right article link here -->
+For more information about creating an MQTT endpoint as a dataflow source, see [MQTT Endpoint](howto-configure-mqtt-endpoint.md).
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -158,14 +234,39 @@ spec:
 
 To specify the schema, create the file and store it in the schema registry.
 
-```yaml
+```json
 {
-  "type": "record",
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "name": "Temperature",
-  "fields": [
-    {"name": "deviceId", "type": "string"},
-    {"name": "temperature", "type": "float"}
-  ]
+  "description": "Schema for representing an asset's key attributes",
+  "type": "object",
+  "required": [ "deviceId", "asset_name"],
+  "properties": {
+    "deviceId": {
+      "type": "string"
+    },
+    "temperature": {
+      "type": "double"
+    },
+    "serial_number": {
+      "type": "string"
+    },
+    "production_date": {
+      "type": "string",
+      "description": "Event duration"
+    },
+    "asset_name": {
+      "type": "string",
+      "description": "Name of asset"
+    },
+    "location": {
+      "type": "string",
+    },
+    "manufacturer": {
+      "type": "string",
+      "description": "Name of manufacturer"
+    }
+  }
 }
 ```
 
@@ -203,9 +304,77 @@ The transformation operation is where you can transform the data from the source
 
 # [Portal](#tab/portal)
 
-In the operations experience portal, select **Dataflow** > **Add transform (optional)**.
+In the operations experience, select **Dataflow** > **Add transform (optional)**.
 
-:::image type="content" source="media/howto-create-dataflow/dataflow-transform.png" alt-text="Screenshot using operations experience portal to add a transform to a dataflow.":::
+:::image type="content" source="media/howto-create-dataflow/dataflow-transform.png" alt-text="Screenshot using operations experience to add a transform to a dataflow.":::
+
+# [Bicep](#tab/bicep)
+
+```bicep
+{
+  operationType: 'BuiltInTransformation'
+  builtInTransformationSettings: {
+    map: [
+      // ...
+    ]
+    filter: [
+      // ...
+    ]
+  }
+}
+```
+
+### Specify output schema to transform data
+
+The following configuration demonstrates how to define an output schema in your Bicep file. In this example, the schema defines fields such as `asset_id`, `asset_name`, `location`, `temperature`, `manufacturer`, `production_date`, and `serial_number`. Each field is assigned a data type and marked as non-nullable. The assignment ensures all incoming messages contain these fields with valid data.
+
+```bicep
+var assetDeltaSchema = '''
+{
+    "$schema": "Delta/1.0",
+    "type": "object",
+    "properties": {
+        "type": "struct",
+        "fields": [
+            { "name": "asset_id", "type": "string", "nullable": false, "metadata": {} },
+            { "name": "asset_name", "type": "string", "nullable": false, "metadata": {} },
+            { "name": "location", "type": "string", "nullable": false, "metadata": {} },
+            { "name": "manufacturer", "type": "string", "nullable": false, "metadata": {} },
+            { "name": "production_date", "type": "string", "nullable": false, "metadata": {} },
+            { "name": "serial_number", "type": "string", "nullable": false, "metadata": {} },
+            { "name": "temperature", "type": "double", "nullable": false, "metadata": {} }
+        ]
+    }
+}
+'''
+```
+
+The following Bicep configuration registers the schema with the Azure Schema Registry. This configuration creates a schema definition and assigns it a version within the schema registry, allowing it to be referenced later in your data transformations.
+
+```bicep
+param opcuaSchemaName string = 'opcua-output-delta'
+param opcuaSchemaVer string = '1'
+
+resource opcSchema 'Microsoft.DeviceRegistry/schemaRegistries/schemas@2024-09-01-preview' = {
+  parent: schemaRegistry
+  name: opcuaSchemaName
+  properties: {
+    displayName: 'OPC UA Delta Schema'
+    description: 'This is a OPC UA delta Schema'
+    format: 'Delta/1.0'
+    schemaType: 'MessageSchema'
+  }
+}
+
+resource opcuaSchemaInstance 'Microsoft.DeviceRegistry/schemaRegistries/schemas/schemaVersions@2024-09-01-preview' = {
+  parent: opcSchema
+  name: opcuaSchemaVer
+  properties: {
+    description: 'Schema version'
+    schemaContent: opcuaSchemaContent
+  }
+}
+```
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -232,7 +401,41 @@ Key names in the distributed state store correspond to a dataset in the dataflow
 
 # [Portal](#tab/portal)
 
-Currently, the enrich operation isn't available in the operations experience portal.
+Currently, the enrich operation isn't available in the operations experience.
+
+# [Bicep](#tab/bicep)
+
+This example shows how you could use the `deviceId` field in the source data to match the `asset` field in the dataset:
+
+```bicep
+builtInTransformationSettings: {
+  datasets: [
+    {
+      key: 'assetDataset'
+      inputs: [
+        '$source.deviceId',                // Reference to the device ID from the source
+        '$context(assetDataset).asset'     // Reference to the asset from the dataset context
+      ]
+      expression: '$1 == $2'                // Expression to evaluate the inputs
+    }
+  ]
+}
+```
+
+### Passthrough operation
+
+For example, you could apply a passthrough operation that takes all the input fields and maps them to the output field, essentially passing through all fields. 
+
+```bicep
+builtInTransformationSettings: {
+  map: [
+    {
+      inputs: array('*')
+      output: '*'
+    }
+  ]
+}
+```
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -278,9 +481,26 @@ To filter the data on a condition, you can use the `filter` stage. The condition
 1. Choose the datapoints to include in the dataset.
 1. Add a filter condition and description.
 
-    :::image type="content" source="media/howto-create-dataflow/dataflow-filter.png" alt-text="Screenshot using operations experience portal to add a filter transform.":::
+    :::image type="content" source="media/howto-create-dataflow/dataflow-filter.png" alt-text="Screenshot using operations experience to add a filter transform.":::
 
 1. Select **Apply**.
+
+# [Bicep](#tab/bicep)
+
+For example, you could use the `temperature` field in the source data to filter the data:
+
+```bicep
+builtInTransformationSettings: {
+  filter: [
+    {
+      inputs: [
+        'temperature ? $last' // Reference to the last temperature value, if available
+      ]
+      expression: '$1 > 20'   // Expression to filter based on the temperature value
+    }
+  ]
+}
+```
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -306,14 +526,38 @@ To map the data to another field with optional conversion, you can use the `map`
 
 # [Portal](#tab/portal)
 
-In the operations experience portal, mapping is currently supported using **Compute** transforms.
+In the operations experience, mapping is currently supported using **Compute** transforms.
 
 1. Under **Transform (optional)**, select **Compute** > **Add**.
 1. Enter the required fields and expressions.
 
-    :::image type="content" source="media/howto-create-dataflow/dataflow-compute.png" alt-text="Screenshot using operations experience portal to add a compute transform.":::
+    :::image type="content" source="media/howto-create-dataflow/dataflow-compute.png" alt-text="Screenshot using operations experience to add a compute transform.":::
 
 1. Select **Apply**.
+
+# [Bicep](#tab/bicep)
+
+For example, you could use the `temperature` field in the source data to convert the temperature to Celsius and store it in the `temperatureCelsius` field. You could also enrich the source data with the `location` field from the contextualization dataset:
+
+```bicep
+builtInTransformationSettings: {
+  map: [
+    {
+      inputs: [
+        'temperature'                     // Reference to the temperature input
+      ]
+      output: 'temperatureCelsius'        // Output variable for the converted temperature
+      expression: '($1 - 32) * 5/9'       // Expression to convert Fahrenheit to Celsius
+    }
+    {
+      inputs: [
+        '$context(assetDataset).location'  // Reference to the location from the dataset context
+      ]
+      output: 'location'                   // Output variable for the location
+    }
+  ]
+}
+```
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -345,6 +589,24 @@ If you want to serialize the data before sending it to the destination, you need
 
 Specify the **Output** schema when you add the destination dataflow endpoint.
 
+# [Bicep](#tab/bicep)
+
+When the dataflow resource is created, it includes a `schemaRef` value that points to the generated schema stored in the schema registry. It can be referenced in transformations which creates a new schema in Delta format. 
+This [Bicep File to create Dataflow](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/dataflow.bicep) provides a streamlined approach to provisioning the dataflow with schema integration.
+
+```bicep
+{
+  operationType: 'BuiltInTransformation'
+  builtInTransformationSettings: {
+    // ..
+    schemaRef: 'aio-sr://${opcuaSchemaName}:${opcuaSchemaVer}'
+    serializationFormat: 'Parquet' 
+  }
+}
+```
+
+For more information about schema registry, see [Understand message schemas](concept-schema-registry.md).
+
 # [Kubernetes](#tab/kubernetes)
 
 
@@ -358,16 +620,39 @@ To specify the schema, you can create a Schema custom resource with the schema d
 
 For more information about schema registry, see [Understand message schemas](concept-schema-registry.md).
 
-
 ```json
 {
-  "type": "record",
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "name": "Temperature",
-  "fields": [
-    {"name": "deviceId", "type": "string"},
-    {"name": "temperatureCelsius", "type": "float"}
-    {"name": "location", "type": "string"}
-  ]
+  "description": "Schema for representing an asset's key attributes",
+  "type": "object",
+  "required": [ "deviceId", "asset_name"],
+  "properties": {
+    "deviceId": {
+      "type": "string"
+    },
+    "temperature": {
+      "type": "double"
+    },
+    "serial_number": {
+      "type": "string"
+    },
+    "production_date": {
+      "type": "string",
+      "description": "Event duration"
+    },
+    "asset_name": {
+      "type": "string",
+      "description": "Name of asset"
+    },
+    "location": {
+      "type": "string",
+    },
+    "manufacturer": {
+      "type": "string",
+      "description": "Name of manufacturer"
+    }
+  }
 }
 ```
 
@@ -377,16 +662,63 @@ Supported serialization formats are JSON, Parquet, and Delta.
 
 ## Configure destination with a dataflow endpoint to send data
 
-To configure a destination for the dataflow, specify the endpoint reference and data destination. You can specify a list of data destinations for the endpoint which are MQTT or Kafka topics.
+To configure a destination for the dataflow, specify the endpoint reference and data destination. You can specify a list of data destinations for the endpoint.
+
+> [!IMPORTANT]
+> Storage endpoints require a schema reference. If you've created storage destination endpoints for Microsoft Fabric OneLake, ADLS Gen 2, Azure Data Explorer and Local Storage, use bicep to specify the schema reference.
 
 # [Portal](#tab/portal)
 
 1. Select the dataflow endpoint to use as the destination.
 
-    :::image type="content" source="media/howto-create-dataflow/dataflow-destination.png" alt-text="Screenshot using operations experience portal to select Event Hubs destination endpoint.":::
+    :::image type="content" source="media/howto-create-dataflow/dataflow-destination.png" alt-text="Screenshot using operations experience to select Event Hubs destination endpoint.":::
 
 1. Select **Proceed** to configure the destination.
 1. Add the mapping details based on the type of destination.
+
+# [Bicep](#tab/bicep)
+
+The following example configures Fabric OneLake as a destination with a static MQTT topic.
+
+```bicep
+resource oneLakeEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
+  parent: aioInstance
+  name: 'onelake-ep'
+  extendedLocation: {
+    name: customLocation.id
+    type: 'CustomLocation'
+  }
+  properties: {
+    endpointType: 'FabricOneLake'
+    fabricOneLakeSettings: {
+      authentication: {
+        method: 'SystemAssignedManagedIdentity'
+        systemAssignedManagedIdentitySettings: {}
+      }
+      oneLakePathType: 'Tables'
+      host: 'https://msit-onelake.dfs.fabric.microsoft.com'
+      names: {
+        lakehouseName: '<EXAMPLE-LAKEHOUSE-NAME>'
+        workspaceName: '<EXAMPLE-WORKSPACE-NAME>'
+      }
+      batching: {
+        latencySeconds: 5
+        maxMessages: 10000
+      }
+    }
+  }
+}
+```
+
+```bicep
+{
+  operationType: 'Destination'
+  destinationSettings: {
+    endpointRef: oneLakeEndpoint.name // oneLake endpoint
+    dataDestination: 'sensorData' // static MQTT topic
+  }
+}
+```
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -396,14 +728,6 @@ For example, to configure a destination using the MQTT endpoint created earlier 
 destinationSettings:
   endpointRef: mq
   dataDestination: factory
-```
-
-If you've created storage endpoints like Microsoft Fabric, use the data destination field to specify the table or container name:
-
-```yaml
-destinationSettings:
-  endpointRef: adls
-  dataDestination: telemetryTable
 ```
 
 ## Example
@@ -460,13 +784,17 @@ Follow [Tutorial: Bi-directional MQTT bridge to Azure Event Grid](tutorial-mqtt-
 
 ### Export dataflow configuration
 
-To export the dataflow configuration, you can use the operations experience portal or by exporting the Dataflow custom resource.
+To export the dataflow configuration, you can use the operations experience or by exporting the Dataflow custom resource.
 
 # [Portal](#tab/portal)
 
 Select the dataflow you want to export and select **Export** from the toolbar.
 
-:::image type="content" source="media/howto-create-dataflow/dataflow-export.png" alt-text="Screenshot using operations experience portal to export a dataflow.":::
+:::image type="content" source="media/howto-create-dataflow/dataflow-export.png" alt-text="Screenshot using operations experience to export a dataflow.":::
+
+# [Bicep](#tab/bicep)
+
+Bicep is infrastructure as code and no export is required. Use the [Bicep template file to create a dataflow](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/dataflow.bicep) to quickly set up and configure dataflows.
 
 # [Kubernetes](#tab/kubernetes)
 
