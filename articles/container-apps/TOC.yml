@@ -358,10 +358,13 @@
         displayName: java
       - name: Connect to Eureka Server for Spring
         href: java-eureka-server.md
+        displayName: java
       - name: Connect to Admin for Spring
         href: java-admin.md
+        displayName: java
       - name: Connect to Config Server for Spring
         href: java-config-server.md
+        displayName: java
       - name: Connect to Gateway for Spring
         href: java-gateway-for-spring.md
         displayName: java
