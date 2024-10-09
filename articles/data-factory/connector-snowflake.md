@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/23/2024
+ms.date: 10/09/2024
 ai-usage: ai-assisted
 ---
 
@@ -682,9 +682,9 @@ By setting the pipeline Logging Level to None, we exclude the transmission of in
 
 For more information about the properties, see [Lookup activity](control-flow-lookup-activity.md).
 
-## Upgrade the Snowflake linked service
+## <a name="upgrade-the-snowflake-linked-service"></a> Upgrade the Snowflake connector
 
-To upgrade the Snowflake linked service, you can do a side-by-side upgrade, or an in-place upgrade.
+To upgrade the Snowflake connector, you can do a side-by-side upgrade, or an in-place upgrade.
 
 ### Side-by-side upgrade
 

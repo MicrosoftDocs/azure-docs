@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 05/22/2024
+ms.date: 10/09/2024
 ms.author: jianleishen
 ---
 
@@ -315,9 +315,9 @@ When copying data from MySQL, the following mappings are used from MySQL data ty
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
-## Upgrade the MySQL driver version
+## <a name="upgrade-the-mysql-driver-version"></a> Upgrade the MySQL connector
 
-Here are steps that help you upgrade your MySQL driver version: 
+Here are steps that help you upgrade your MySQL connector: 
 
 1. In **Edit linked service** page, select **Recommended** under **Driver version** and configure the linked service by referring to [Linked service properties](connector-mysql.md#linked-service-properties).  
 

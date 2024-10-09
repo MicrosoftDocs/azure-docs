@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 05/22/2024
+ms.date: 10/09/2024
 ms.author: jianleishen
 ---
 
@@ -286,9 +286,9 @@ When copying data from MariaDB, the following mappings are used from MariaDB dat
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
-## Upgrade the MariaDB driver version
+## <a name="upgrade-the-mariadb-driver-version"></a> Upgrade the MariaDB connector
 
-Here are steps that help you upgrade your MariaDB driver version: 
+Here are steps that help you upgrade your MariaDB connector: 
 
 1. In **Edit linked service** page, select **Recommended** under **Driver version** and configure the linked service by referring to [Linked service properties](connector-mariadb.md#linked-service-properties).
 
