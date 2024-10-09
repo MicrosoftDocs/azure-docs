@@ -41,7 +41,7 @@ This how-to guide shows how to create and deploy a Standard logic app workflow u
 
 - You must create connections for managed connectors in your workflow through Visual Studio Code, not the Azure portal. To set up authentication for managed connectors, [follow these steps to set up connection authentication](azure-arc-enabled-logic-apps-create-deploy-workflows.md#set-up-connection-authentication).
 
-- Some function-based triggers, such as Azure Blob, Cosmos DB, and Event Hubs require a connection to the Azure storage account assocated with your Standard logic app. If you use any function-based triggers, in your Standard logic app's environment variables in the Azure portal or in your logic app project's **local.settings.json** file in Visual Studio Code, add the following app setting and provide your storage account connection string:
+- Some function-based triggers, such as Azure Blob, Cosmos DB, and Event Hubs require a connection to the Azure storage account associated with your Standard logic app. If you use any function-based triggers, in your Standard logic app's environment variables in the Azure portal or in your logic app project's **local.settings.json** file in Visual Studio Code, add the following app setting and provide your storage account connection string:
 
   ```json
   "Values": {
@@ -72,7 +72,7 @@ This how-to guide shows how to create and deploy a Standard logic app workflow u
 
 ## Create your Standard logic app in the Azure portal
 
-After you meet the prerequisites, create your Standard logic app for hybrid deployent by following these steps:
+After you meet the prerequisites, create your Standard logic app for hybrid deployment by following these steps:
 
 1. In the [Azure portal](https://portal.azure.com) search box, enter **logic apps**, and select **Logic apps**.
 
@@ -115,12 +115,10 @@ After you meet the prerequisites, create your Standard logic app for hybrid depl
 
 ## Create your Standard logic app in Visual Studio Code
 
-After you meet the prerequisites, but before you create your Standard logic app for hybrid deployent in Visual Studio Code, confirm the f
+After you meet the prerequisites, but before you create your Standard logic app for hybrid deployment in Visual Studio Code, confirm that the following conditions are met:
 
-1. Confirm that the following conditions are met:
-
-   - Your SMB file share server is accessible.
-   - Port 445 is open on the computer where you run Visual Studio Code.
+- Your SMB file share server is accessible.
+- Port 445 is open on the computer where you run Visual Studio Code.
 
 1. Run Visual Studio Code as administrator.
 
