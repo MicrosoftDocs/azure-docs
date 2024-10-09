@@ -4063,6 +4063,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/synapse-analytics/whats-new.md",
+      "redirect_url": "/fabric/get-started/whats-new",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/synapse-analytics/whats-new-archive.md",
+      "redirect_url": "/fabric/get-started/whats-new",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/stream-analytics/stream-analytics-job-metrics-dimensions.md",
       "redirect_url": "/azure/stream-analytics/monitor-azure-stream-analytics-reference#metric-dimensions",
       "redirect_document_id": false
