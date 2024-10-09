@@ -359,7 +359,8 @@ The **Request** trigger creates a manually callable endpoint that handles *only*
 
 ---
 
-### Stateless workflows
+### Schema validation for stateless workflows
+
 To enable schema validation in stateless workflows, ensure `host.json` has the following setting:
 ```json
 "extensions": {
