@@ -14,7 +14,7 @@ You must delegate a subnet to Azure NetApp Files. When you create a volume, you 
 
 ## Considerations
 
-* When creating the delegated subnet for Azure NetApp Files, the size of the subnet matters. A subnet with a /28 network mask provides (only) 11 usable IP addresses, which might be insufficient for certain use cases. In that case, you should plan for a larger delegated subnet. For instance, a subnet with a /26 network mask provides 59 and a /24 network mask provides 251 available IP addresses respectively. You should consider even larger subnets (for example, /23 network mask) in scenarios where application volume group for SAP HANA is used and where many volumes and storage endpoints are anticipated. The network mask of the delegated network can't be changed after the initial creation. Make sure to plan your VNet and delegated subnet sizes consciously. 
+* When creating the delegated subnet for Azure NetApp Files, the size of the subnet matters. A subnet with a /28 network mask provides (only) 11 usable IP addresses, which might be insufficient for certain use cases. In that case, you should plan for a larger delegated subnet. For instance, a subnet with a /26 network mask provides 59 and a /24 network mask provides 251 available IP addresses respectively. You should consider even larger subnets (for example, /23 network mask) in scenarios where application volume group for SAP HANA is used and where many volumes and storage endpoints are anticipated. The network mask of the delegated network can't be changed after the initial creation. Make sure to plan your virtual network (VNet) and delegated subnet sizes consciously. 
 * In each VNet, only one subnet can be delegated to Azure NetApp Files.   
    Azure enables you to create multiple delegated subnets in a VNet.  However, any attempts to create a new volume would fail if you use more than one delegated subnet.  
    You can have only a single delegated subnet in a VNet. A NetApp account can deploy volumes into multiple VNets, each having its own delegated subnet.  
@@ -27,7 +27,7 @@ You must delegate a subnet to Azure NetApp Files. When you create a volume, you 
 
 1.	Go to the **Virtual networks** blade in the Azure portal and select the virtual network that you want to use for Azure NetApp Files.    
 
-1. Select **Subnets** from the Virtual network blade and click the **+Subnet** button. 
+1. From the Virtual network blade, select  **Subnets** then the **+Subnet** button. 
 
 1. Create a new subnet to use for Azure NetApp Files by completing the following required fields in the Add Subnet page:
     * **Name**: Specify the subnet name.
