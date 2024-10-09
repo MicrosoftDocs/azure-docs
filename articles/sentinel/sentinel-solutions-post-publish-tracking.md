@@ -3,7 +3,7 @@ title: 'Tracking status of Solutions post publish in Microsoft Partner center'
 description: This article walks you through the details of tracking solutions post publish in Microsoft Partner center.
 author: anilgodavarthy
 ms.author: angodavarthy
-ms.service: sentinel
+ms.service: microsoft-sentinel
 ms.topic: how-to 
 ms.date: 10/09/2024
 
@@ -34,7 +34,7 @@ An email is sent to you once the offer is created successfully. At this point, y
 :::image type="content" source="media/sentinel-partner-content/partner-go-live-button.png" alt-text="Screenshot of the go live button activatedn view in partner center":::  
 
 ## Step 4: Certification
-Offers submitted to the commercial marketplace must be certified before being published. Offers undergo a series of rigorous automated and manual validations. To learn more, see [commercial marketplace certification policies](https://learn.microsoft.com/en-us/legal/marketplace/certification-policies). As part of the manual validations, we check for publisher business eligibility, content validation (appropriate title, well written descriptions, quality screenshots etc.), and technical validations (Malware scanning, package analysis etc.).
+Offers submitted to the commercial marketplace must be certified before being published. Offers undergo a series of rigorous automated and manual validations. To learn more, see [commercial marketplace certification policies](/legal/marketplace/certification-policies). As part of the manual validations, we check for publisher business eligibility, content validation (appropriate title, well written descriptions, quality screenshots etc.), and technical validations (Malware scanning, package analysis etc.).
 
 If your offer fails any of the checks or if you aren't eligible to submit an offer of that type, a certification failure report is sent to your email address. The errors also show up within Action Center in Partner Center. This report contains descriptions of any policies that failed, along with review notes. Review this report, address any issues, make updates to your offer where needed, and resubmit the offer using the [commercial marketplace portal](https://go.microsoft.com/fwlink/?linkid=2165935) in Partner Center. You can resubmit the offer as many times as needed until passing certification.
 
@@ -50,4 +50,4 @@ In this step, we perform a series of final validation checks to ensure the live 
 ## Step 6: Solution availability in Sentinel content hub
 Once the solution is published in Azure Marketplace, it takes anywhere between 1-2 days before the solution is available in Sentinel content hub. If you published your solution over the weekend, your solution is available by Tuesday. Once your solution is synced to Sentinel, customers are able to find the same in Content hub and can manage the entire lifecycle within Sentinel (install, configure, monitor, uninstall etc.)
 
-:::image type="content" source="media/sentinel-partner-content/partner-solution-content-hub.png" alt-text="Screenshot showing the final validations during publish phase":::  
+:::image type="content" source="media/sentinel-partner-content/partner-solution-content-hub.png" alt-text="Screenshot showing the solution in Sentinel Content hub":::  

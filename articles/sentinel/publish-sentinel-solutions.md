@@ -12,17 +12,17 @@ ms.date: 10/08/2024
 
 # How to publish solutions to Microsoft Sentinel
 
-[Microsoft’s commercial marketplace](https://azuremarketplace.microsoft.com/en-us/home) is an online marketplace for applications and services that lets businesses of all sizes offer solutions to customers around the world. As an independent software vendor (ISV) member of the Partner Program, you can create, publish, and manage your Sentinel solutions in Partner Center. Your solutions are listed together with other Microsoft solutions, connecting you to businesses, organizations, and government agencies around the world. Sentinel solutions published in the marketplace are available to customers in Azure Marketplace and Microsoft Sentinel content hub.
+[Microsoft’s commercial marketplace](https://azuremarketplace.microsoft.com/home) is an online marketplace for applications and services that lets businesses of all sizes offer solutions to customers around the world. As an independent software vendor (ISV) member of the Partner Program, you can create, publish, and manage your Sentinel solutions in Partner Center. Your solutions are listed together with other Microsoft solutions, connecting you to businesses, organizations, and government agencies around the world. Sentinel solutions published in the marketplace are available to customers in Azure Marketplace and Microsoft Sentinel content hub.
 
 This article walks you through the process of publishing your solutions to Microsoft Sentinel.
 
 ## Prerequisites
 
-- **Solution code approved in GitHub**. Ensure that the Microsoft Sentinel team approved your solution and that the code is merged to the main branch of the GitHub repository. Once approved, your solution is available in the GitHub repository for Microsoft Sentinel at "https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/<Your Solution Folder>." If you don't find your solution in the GitHub repository, reach out to the Microsoft Sentinel team for assistance.
+- **Solution code approved in GitHub**. Ensure that the Microsoft Sentinel team approved your solution and that the code is merged to the main branch of the GitHub repository. Once approved, your solution is available in the GitHub repository for Microsoft Sentinel at "https://github.com/Azure/Azure-Sentinel/tree/\<Your branch\>/Solutions/\<Your Solution Folder\>." If you don't find your solution in the GitHub repository, reach out to the Microsoft Sentinel team for assistance.
 
-- **Solution package created**. Your solution package must be created and uploaded to the GitHub repository and should be available at "https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/<Your Solution Folder>/Package" folder with the correct version. The solution package contains the *createUiDefinition.json* and *mainTemplate.json* files which are required for correctly listing solutions in Azure Marketplace and Sentinel content hub.
+- **Solution package created**. Your solution package must be created and uploaded to the GitHub repository and should be available at "https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/\<Your Solution Folder\>/Package" folder with the correct version. The solution package contains the *createUiDefinition.json* and *mainTemplate.json* files which are required for correctly listing solutions in Azure Marketplace and Sentinel content hub.
  
-- **Commercial Marketplace account created**. : If your company already has an account, you don’t need to create a new account. The same account can be used for publishing any solutions, including Sentinel. If your company is a first-time publisher to Microsoft commercial marketplace, you need to go through a onetime registration process. Follow [these steps](https://learn.microsoft.com/en-us/partner-center/account-settings/create-account#create-a-partner-center-account-and-enroll-in-the-commercial-marketplace) to sign up for a commercial marketplace account. 
+- **Commercial Marketplace account created**. : If your company already has an account, you don’t need to create a new account. The same account can be used for publishing any solutions, including Sentinel. If your company is a first-time publisher to Microsoft commercial marketplace, you need to go through a onetime registration process. Follow [these steps](/partner-center/account-settings/create-account#create-a-partner-center-account-and-enroll-in-the-commercial-marketplace) to sign up for a commercial marketplace account. 
 
 Once you successfully sign up for the commercial marketplace account, a unique Publisher ID is generated and you get access to the authoring and publishing experience in partner center. Using partner center, you can create, certify, and publish your solutions for Microsoft customers. 
 
@@ -39,8 +39,8 @@ Follow the below steps to create the offer and configure the top level attribute
 
 :::image type="content" source="media/sentinel-partner-content/partner-center-new-offer.png" alt-text="Screenshot of new offer option in partner center":::   
 
-1. Enter offer ID, offer alias, and select the publisher ID using which you want to publish Sentinel solutions (in case you have multiple accounts). Offer ID and offer alias are only visible to you in your partner center account (not visible to customers). The offer ID is part of the solution URL in Azure Marketplace once your solution is successfully published (ex- https://azuremarketplace.microsoft.com/en-us/marketplace/apps/<*You offer ID*>?tab=Overview)
-    1. **Offer ID entered here should be the same as Offer ID mentioned in the SolutionMetadata.json file in your solution folder in GitHub** - https://github.com/Azure/Azure-Sentinel/blob/<Your Branch>/Solutions/<Your Solution>/SolutionMetadata.json 
+1. Enter offer ID, offer alias, and select the publisher ID using which you want to publish Sentinel solutions (in case you have multiple accounts). Offer ID and offer alias are only visible to you in your partner center account (not visible to customers). The offer ID is part of the solution URL in Azure Marketplace once your solution is successfully published (ex- https://azuremarketplace.microsoft.com/marketplace/apps/\<*You offer ID*\>?tab=Overview)
+    1. **Offer ID entered here should be the same as Offer ID mentioned in the SolutionMetadata.json file in your solution folder in GitHub** - https://github.com/Azure/Azure-Sentinel/blob/\<Your Branch\>/Solutions/\<Your Solution\>/SolutionMetadata.json 
     1. Recommended naming convention for offer ID is azure-sentinel-solution-<your-solution-name> (ex- azure-sentinel-solution-ciscoumbrella). 
     
 [!INCLUDE [reference-to-feature-availability](includes/pre-register.md)]
@@ -53,7 +53,7 @@ Follow the below steps to configure the properties under the *offer setup* tab i
 1. **Alias:** Although the alias name doesn't appear publicly, alias is used by the Sentinel team to locate your solution. Ensure that the alias name matches exactly with the "Offer Listing" name and the "Plan Listing" name. We strongly recommend listing the solution title as follows:
     1. [Company Name] [Product Name] for Microsoft Sentinel. For example: Cisco Umbrella for Microsoft Sentinel
 1. **Test Drive:** Leave "Enable a test drive." unchecked. This feature isn't supported for Sentinel solutions.
-1. **Customer Leads:** You can provide connection details to the CRM system where you would receive customer leads. [Learn more about configuring customer leads](https://learn.microsoft.com/en-us/partner-center/marketplace-offers/partner-center-portal/commercial-marketplace-get-customer-leads#connect-to-your-crm-system). This step is optional and can be done after your solution is public.
+1. **Customer Leads:** You can provide connection details to the CRM system where you would receive customer leads. [Learn more about configuring customer leads](/partner-center/marketplace-offers/partner-center-portal/commercial-marketplace-get-customer-leads#connect-to-your-crm-system). This step is optional and can be done after your solution is public.
 
 ## Offer Properties
 Follow the below steps to configure the properties under the *Properties* tab in Partner Center. 
@@ -76,7 +76,7 @@ Follow the below steps to configure the properties under the *Offer listing* tab
 1. **Search results summary:** A single sentence summarizing the purpose or function of the offer, written in plain text with no line breaks. The summary appears on your offer’s search results page.
 1. **Short description:** Provide a two to three line overview of your solution. This text shows up on the solution detail page in marketplace.
 1. **Description:** Detailed description of your solution which shows up in both marketplace and in Sentinel’s content hub. Use markup appropriately to convey the right information to customers. In addition to detailed solution description, we recommend including the below details – 
-    1. Link to Release notes (in GitHub) which has more details about the current solution. File path - https://github.com/Azure/Azure-Sentinel/blob/<Your branch>/<Your solution>/ReleaseNotes.md
+    1. Link to Release notes (in GitHub) which has more details about the current solution. File path - https://github.com/Azure/Azure-Sentinel/blob/\<Your branch\>/\<Your solution\>/ReleaseNotes.md
     1. Type of content included in your solution. For example, **Data Connectors**: 1, **Parsers**: 1, Workbooks: 1, **Analytic Rules**: 10, **Hunting Queries**: 10. 
 1. **Search keywords** – You can list upto three search keywords that customers can use to find your solution in the Marketplace. 
     1. You must add the GUID *f1de974b-f438-4719-b423-8bf704ba2aef* as one of your search keywords. **If this keyword is not added, your solution would not show up in Sentinel.** 
@@ -115,7 +115,7 @@ A plan defines an offer's scope and limits, and the associated pricing when appl
     1. **Plan visibility:** Set plan visibility to Public if you want the plan to be available for everyone in the Azure portal and Azure Marketplace.
     1. **Hide plan:** Leave the check box unchecked. If you check this box, your solution does now show up in Sentinel content hub.
 1. Technical configuration: 
-    1. **Version:** Enter the version number of the package you're uploading. The version number should be the same as the latest approved package version in GitHub. Package path in GitHub - https://github.com/Azure/Azure-Sentinel/tree/<Your branch>/<Your solution>/Package 
+    1. **Version:** Enter the version number of the package you're uploading. The version number should be the same as the latest approved package version in GitHub. Package path in GitHub - https://github.com/Azure/Azure-Sentinel/tree/\<Your branch\>/\<Your solution\>/Package 
     1. **Package File (zip):** Upload the matching package zip file with the same version number you entered for version. **Make sure that you always upload the latest approved version.**
 
 Select on "Save draft" before you proceed.
