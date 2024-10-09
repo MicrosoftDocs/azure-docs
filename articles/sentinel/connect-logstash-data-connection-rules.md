@@ -41,7 +41,7 @@ The Logstash engine is composed of three components:
 - Output plugins: Customized sending of collected and processed data to various destinations.
 
 > [!NOTE]
-> - Microsoft supports only the Microsoft Sentinel-provided Logstash output plugin discussed here. The current plugin is named **[microsoft-sentinel-log-analytics-logstash-output-plugin](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/microsoft-sentinel-log-analytics-logstash-output-plugin)**, v1.1.0. You can [open a support ticket](https://portal.azure.com/#create/Microsoft.Support) for any issues regarding the output plugin.
+> - Microsoft supports only the Microsoft Sentinel-provided Logstash output plugin discussed here. The current plugin is named **[microsoft-sentinel-log-analytics-logstash-output-plugin](https://github.com/Azure/Azure-Sentinel/tree/master/DataConnectors/microsoft-sentinel-log-analytics-logstash-output-plugin)**, v1.1.3. You can [open a support ticket](https://portal.azure.com/#create/Microsoft.Support) for any issues regarding the output plugin.
 >
 > - Microsoft does not support third-party Logstash output plugins for Microsoft Sentinel, or any other Logstash plugin or component of any type.
 >
@@ -69,7 +69,7 @@ The Microsoft Sentinel output plugin for Logstash sends JSON-formatted data to y
 - Install a supported version of Logstash. The plugin supports the following Logstash versions: 
     - 7.0 - 7.17.13
     - 8.0 - 8.9
-    - 8.11 - 8.13
+    - 8.11 - 8.15
 
     > [!NOTE]
     > If you use Logstash 8, we recommended that you [disable ECS in the pipeline](https://www.elastic.co/guide/en/logstash/8.4/ecs-ls.html).
@@ -458,6 +458,36 @@ The following table lists the firewall requirements for scenarios where Azure vi
 | Azure Government |Replace '.com' above with '.us'	| Data collection Endpoint|Port 443 |Outbound|Yes |
 | Microsoft Azure operated by 21Vianet |https://login.chinacloudapi.cn |Authorization server (the Microsoft identity platform)|Port 443 |Outbound|Yes |
 | Microsoft Azure operated by 21Vianet |Replace '.com' above with '.cn'	| Data collection Endpoint|Port 443 |Outbound|Yes |
+
+## Plugin-versions
+#### 1.1.3
+- Replace the library rest-client used for connecting with Azure to excon.
+ 
+#### 1.1.1
+- Support China and US Government Azure sovereign clouds.
+ 
+#### 1.1.0 
+- Allow setting different proxy values for api connections.
+- Upgrade version for ingestion api to 2023-01-01.
+- Rename the plugin to microsoft-sentinel-log-analytics-logstash-output-plugin.
+ 
+#### 1.0.0
+- Initial release for output plugin for logstash to Microsoft Sentinel. This is done with the Log Analytics DCR based API.
+## Known issues
+ 
+When using Logstash installed on a docker image of Lite Ubuntu the following warning may appear:
+```
+java.lang.RuntimeException: getprotobyname_r failed
+```
+To resolve it, install netbase within your docker file using the following commands:
+```bash
+USER root
+RUN apt install netbase -y
+```
+More information can be found [here.](https://github.com/elastic/logstash/issues/13703)
+ 
+If your environment's event rate is low  in comparison to the number of allocated Logstash workers, it's recommended to increase the value of plugin_flush_interval to 60 or more. This change will allow each worker to batch more events before uploading to the DCE.  You can monitor the ingestion payload using [DCR metrics.](/azure/azure-monitor/essentials/data-collection-monitor#dcr-metrics)
+More information regarding plugin_flush_interval can be found on the table of Optional Configuration [above.](#optional-configuration)
 
 ## Limitations
 
