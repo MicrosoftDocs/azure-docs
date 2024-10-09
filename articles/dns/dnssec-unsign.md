@@ -84,7 +84,7 @@ Remove-AzDnsDnssecConfig -ResourceGroupName "your-resource-group" -ZoneName "ada
 Get-AzDnsDnssecConfig -ResourceGroupName "your-resource-group" -ZoneName "adatum.com"
 ```
 
-2. Confirm that DNSSEC is not enabled for DNS zone 'adatum.com' is displayed after the last command. The zone is now unsigned.
+2. Confirm that **DNSSEC is not enabled for DNS zone 'adatum.com'** is displayed after the last command. The zone is now unsigned.
 
 ---
 
