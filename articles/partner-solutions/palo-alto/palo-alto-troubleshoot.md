@@ -23,7 +23,7 @@ You can get support for your Palo Alto deployment through a **New Support reques
 
 ### Connection errors 
 
-For connection errors, consult [known issues for Azure Virtual WAN](../../virtual-wan/whats-new.md#known-issues).
+For connection errors, see [known issues for Azure Virtual WAN](../../virtual-wan/whats-new.md#known-issues).
 
 #### See also
 
