@@ -212,12 +212,6 @@ Advance to the next tutorial:
 
 :::zone pivot="terraform"
 
-# Quickstart: Use Terraform to configure Azure API Management
-
-In this quickstart, you use Terraform to create an Azure API Management instance, an API, a product, a group, and associations between the product and the API, and the product and the group. Azure API Management is a fully managed service that helps developers publish, secure, transform, maintain, and monitor APIs. It provides a unified management experience and full observability across all internal and external APIs. The service is scalable and helps protect your APIs from unauthorized access with keys, tokens, IP filtering, and more. It's used to connect applications and services through APIs, allowing different software systems to communicate with each other.
-
-[!INCLUDE [About Terraform](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
-
 > [!div class="checklist"]
 > * Generate a random name for the resource group.
 > * Create a resource group in a specified location with the generated name.
