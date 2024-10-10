@@ -58,6 +58,17 @@ This section covers the Microsoft Sentinel capabilities or integrations that are
 | Incidents: Tasks |Azure portal only | Tasks are unavailable in the Defender portal. <br><br>For more information, see [Use tasks to manage incidents in Microsoft Sentinel](incident-tasks.md). |
 |Multiple workspace management for Microsoft Sentinel|Defender portal: Limited to one Microsoft Sentinel workspace per tenant <br><br>Azure portal: Centrally manage multiple Microsoft Sentinel workspaces for tenants  |Only one Microsoft Sentinel workspace per tenant is currently supported in the Defender portal. So, Microsoft Defender multitenant management supports one Microsoft Sentinel workspace per tenant.<br><br> For more information, see the following articles:<br>- Defender portal: [Microsoft Defender multitenant management](/defender-xdr/mto-overview) <br>- Azure portal: [Manage multiple Microsoft Sentinel workspaces with workspace manager](/azure/sentinel/workspace-manager)|
 
+## Limited or unavailable capabilities 
+
+When you onboard Microsoft Sentinel to the Defender portal without Defender XDR or other services enabled, the following features that show in the Defender portal are limited or unavailable.
+
+
+|Capability |Service required  |
+|---------|---------|
+|Exposure management      |   [Microsoft Security Exposure Management](/security-exposure-management/)      |
+|Custom detection rules   |  [Microsoft Defender XDR](/defender-xdr/microsoft-365-defender?view=o365-worldwide)       |
+|Action center  |   [Microsoft Defender XDR](/defender-xdr/microsoft-365-defender?view=o365-worldwide)           |
+
 ## Quick reference
 
 Some Microsoft Sentinel capabilities, like the unified incident queue, are integrated with Microsoft Defender XDR in the unified security operations platform. Many other Microsoft Sentinel capabilities are available in the **Microsoft Sentinel** section of the Defender portal.
