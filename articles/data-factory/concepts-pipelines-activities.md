@@ -66,7 +66,7 @@ Data transformation activity | Compute environment
 [Databricks Notebook](transform-data-databricks-notebook.md) | Azure Databricks
 [Databricks Jar Activity](transform-data-databricks-jar.md) | Azure Databricks
 [Databricks Python Activity](transform-data-databricks-python.md) | Azure Databricks
-[Synapse Notebook Activity](https://learn.microsoft.com/en-us/azure/synapse-analytics/synapse-notebook-activity) | Azure Synapse Analytics
+[Synapse Notebook Activity](../synapse-analytics/synapse-notebook-activity.md) | Azure Synapse Analytics
 
 ## Control flow activities
 
