@@ -98,7 +98,7 @@ The DNSSEC validation process works with trust anchors as follows:
 
 ## Chain of trust
 
- A chain of trust occurs when all the DNS servers involved in sending a response for a DNS query are able to validate that the response wasn't modified during transit. In order for DNSSEC validation to work end-to-end, the chain of trust must be unbroken.
+ A chain of trust occurs when all the DNS servers involved in sending a response for a DNS query are able to validate that the response wasn't modified during transit. In order for DNSSEC validation to work end-to-end, the chain of trust must be unbroken. This chain of trust applies to both authoritative and non-authoritative (recursive) servers.
 
 ### Authoritative servers  
 
