@@ -55,7 +55,44 @@ If you need to override the system-assigned managed identity audience, see the [
 
 # [Bicep](#tab/bicep)
 
-TODO
+1. Get the managed identity of the Azure IoT Operations Preview Arc extension.
+
+1. Assign a role to the managed identity that grants permission to write to the storage account, such as *Storage Blob Data Contributor*. To learn more, see [Authorize access to blobs using Microsoft Entra ID](../../storage/blobs/authorize-access-azure-active-directory.md).
+
+1. Download the template file and replace the values for `customLocationName`, `aioInstanceName`, `schemaRegistryName`, `hostname`, and `opcuaSchemaName`.
+
+1. Deploy the resources using the [az stack group](/azure/azure-resource-manager/bicep/deployment-stacks?tabs=azure-powershell) command in your terminal:
+
+    ```azurecli
+    az stack group create --name MyDeploymentStack --resource-group $RESOURCE_GROUP --template-file /workspaces/explore-iot-operations/<filename>.bicep --action-on-unmanage 'deleteResources' --deny-settings-mode 'none' --yes
+    ```
+
+This endpoint is the destination for the dataflow that receives messages to Azure Data Lake Storage Gen2.
+
+```bicep
+resource adlsGen2Endpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
+  parent: aioInstance
+  name: 'adls-gen2-ep'
+  extendedLocation: {
+    name: customLocation.id
+    type: 'CustomLocation'
+  }
+  properties: {
+    endpointType: 'DataLakeStorage'
+    dataLakeStorageSettings: {
+      authentication: {
+        method: 'SystemAssignedManagedIdentity'
+        systemAssignedManagedIdentitySettings: {}
+      }
+      batching: {
+        latencySeconds: 5
+        maxMessages: 1000
+      }
+      host: hostname
+    }
+  }
+}
+```
 
 ---
 
@@ -83,6 +120,29 @@ TODO
     ```
 
 # [Bicep](#tab/bicep)
+
+1. Follow the steps in the [access token](#access-token) section to get a SAS token for the storage account and store it in a Kubernetes secret.
+
+2. In the Bicep file, set the authentication method to access token in the DataflowEndpoint resource.
+   
+```bicep
+resource adls 'connectivity.iotoperations.azure.com/v1beta1@2024-08-15-preview' = {
+  kind: 'DataflowEndpoint'
+  name: 'adls'
+  properties: {
+    endpointType: 'DataLakeStorage'
+    datalakeStorageSettings: {
+      host: '<account>.blob.core.windows.net'
+      authentication: {
+        method: 'AccessToken'
+        accessTokenSettings: {
+          secretRef: 'my-sas'
+        }
+      }
+    }
+  }
+}
+```
 
 ---
 
@@ -114,14 +174,55 @@ spec:
         dataDestination: telemetryTable
 ```
 
+# [Bicep](#tab/bicep)
+
+```bicep
+resource dataflow_adls 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2024-08-15-preview' = {
+  parent: defaultDataflowProfile
+  name: 'dataflow-adls'
+  extendedLocation: {
+    name: customLocation.id
+    type: 'CustomLocation'
+  }
+  properties: {
+    mode: 'Enabled'
+    operations: [
+      {
+        operationType: 'Source'
+        sourceSettings: {
+          sourceSettings: {
+          endpointRef: defaultDataflowEndpoint.name
+          dataSources: [
+            'thermostats/+/telemetry/temperature/#', 
+            'humidifiers/+/telemetry/humidity/#'
+          ]
+        }
+        }
+      }
+      {
+        operationType: 'BuiltInTransformation'
+        builtInTransformationSettings: {
+          // Transformation configuration
+        }
+      }
+      {
+        operationType: 'Destination'
+        destinationSettings: {
+          endpointRef: adlsGen2Endpoint.name
+          dataDestination: 'aio'
+        }
+      }
+    ]
+  }
+}
+```
+
 For more information about dataflow destination settings, see [Create a dataflow](howto-create-dataflow.md).
 
 > [!NOTE]
 > Using the ADLSv2 endpoint as a source in a dataflow isn't supported. You can use the endpoint as a destination only.
 
 To customize the endpoint settings, see the following sections for more information.
-
-# [Bicep](#tab/bicep)
 
 ---
 
@@ -159,6 +260,38 @@ datalakeStorageSettings:
 ```
 
 # [Bicep](#tab/bicep)
+
+In the *DataflowEndpoint* resource, specify the managed identity authentication method. In most cases, you don't need to specify other settings. Not specifying an audience creates a managed identity with the default audience scoped to your storage account.
+
+```bicep
+properties: {
+    endpointType: 'DataLakeStorage'
+    dataLakeStorageSettings: {
+      authentication: {
+        method: 'SystemAssignedManagedIdentity'
+        systemAssignedManagedIdentitySettings: {}
+      }
+      ...
+    }
+  }
+```
+
+If you need to override the system-assigned managed identity audience, you can specify the `audience` setting.
+
+```bicep
+properties: {
+    endpointType: 'DataLakeStorage'
+    dataLakeStorageSettings: {
+      authentication: {
+        method: 'SystemAssignedManagedIdentity'
+        systemAssignedManagedIdentitySettings: {
+            audience: 'https://<account>.blob.core.windows.net'
+        }
+      }
+      ...
+    }
+  }
+```
 
 ---
 
@@ -198,6 +331,24 @@ datalakeStorageSettings:
 
 # [Bicep](#tab/bicep)
 
+```bicep
+resource adlsGen2Endpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
+  ...
+  properties: {
+    endpointType: 'DataLakeStorage'
+    dataLakeStorageSettings: {
+      authentication: {
+        method: 'AccessToken'
+        accessTokenSettings: {
+            secretRef: 'my-sas'
+        }
+      }
+      ...
+    }
+  }
+}
+```
+
 ---
 
 #### User-assigned managed identity
@@ -216,6 +367,25 @@ datalakeStorageSettings:
 ```
 
 # [Bicep](#tab/bicep)
+
+```bicep
+resource adlsGen2Endpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
+  ...
+  properties: {
+    endpointType: 'DataLakeStorage'
+    dataLakeStorageSettings: {
+      authentication: {
+        method: 'UserAssignedManagedIdentity'
+        userAssignedManagedIdentitySettings: {
+            cliendId: '<ID>'
+            tenantId: '<ID>'
+        }
+      }
+      ...
+    }
+  }
+}
+```
 
 ---
 
@@ -244,5 +414,26 @@ datalakeStorageSettings:
 ```
 
 # [Bicep](#tab/bicep)
+
+Set the values in the dataflow endpoint bicep file.
+
+```bicep
+resource adlsGen2Endpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
+  parent: aioInstance
+  name: 'adls-gen2-ep'
+  ...
+  properties: {
+    endpointType: 'DataLakeStorage'
+    dataLakeStorageSettings: {
+      ...
+      batching: {
+        latencySeconds: 100
+        maxMessages: 1000
+      }
+      ...
+    }
+  }
+}
+```
 
 ---
