@@ -1,5 +1,5 @@
 ---
-title: 'Tracking status of Solutions post publish in Microsoft Partner center'
+title: 'Status of Microsoft Sentinel solution after publishing in the Microsoft Partner center'
 description: This article walks you through the details of tracking solutions post publish in Microsoft Partner center.
 author: anilgodavarthy
 ms.author: angodavarthy
