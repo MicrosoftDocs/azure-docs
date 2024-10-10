@@ -31,7 +31,7 @@ Once you successfully sign up for the commercial marketplace account, a unique P
 ## Create offer in Partner Center
 Complete the following steps to create the offer and configure the top-level attributes for your solution in Partner Center. Once created, the offer ID and offer type can't be changed. If you would like to make any corrections, you must delete and recreate the offer. To delete an offer, you can navigate to the **Offer overview** tab and select on **Delete offer**. This action isn't reversible.
 1. Sign in to [Partner Center](https://partner.microsoft.com/) with your account.
-1. Select "Marketplace offers" -
+1. Select **Marketplace offers**.
  
 :::image type="content" source="media/sentinel-partner-content/partner-center-offers-home.png" alt-text="Screenshot of partner center home page":::   
 
