@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 03/05/2024
+ms.date: 08/27/2024
 ---
 
 # Add certificates to integration accounts for securing messages in workflows with Azure Logic Apps
@@ -56,6 +56,12 @@ If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overvi
     >
     > If you're using access policies with your key vault, considering
     > [migrating to the Azure role-based access control permission model](/azure/key-vault/general/rbac-migration).
+    >
+    > If you receive the error **"Please authorize logic apps to perform operations on key vault by granting access for the logic apps 
+    > service principal '7cd684f4-8a78-49b0-91ec-6a35d38739ba' for 'list', 'get', 'decrypt' and 'sign' operations."**, your 
+    > certificate might not have the **Key Usage** property set to **Data Encipherment**. If not, you might have to recreate the certificate 
+    > with the **Key Usage** property set to **Data Encipherment**. To check your certificate, open the certificate, select the 
+    > **Details** tab, and review the **Key Usage** property.
 
   * [Add the corresponding public certificate](#add-public-certificate) to your key vault. This certificate appears in your [agreement's **Send** and **Receive** settings for signing and encrypting messages](logic-apps-enterprise-integration-agreements.md). For example, review [Reference for AS2 messages settings in Azure Logic Apps](logic-apps-enterprise-integration-as2-message-settings.md).
 

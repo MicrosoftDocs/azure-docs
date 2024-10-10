@@ -6,7 +6,7 @@ metadata:
   author: bandersmsft
   ms.author: banders
   ms.reviewer: judupont
-  ms.date: 08/27/2024
+  ms.date: 09/17/2024
   ms.service: cost-management-billing
   ms.subservice: billing
   ms.topic: how-to
@@ -204,6 +204,8 @@ procedureSection:
   - title: | 
       Change the subscription name
     summary: |
+      To protect Azure subscriptions from misuse, renaming a subscription is monitored for suspicious activity. You can only rename a subscription twice in a five-minute period.
+      
       Follow these steps: 
     steps: 
       - |

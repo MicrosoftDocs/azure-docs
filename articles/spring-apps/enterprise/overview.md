@@ -4,7 +4,7 @@ description: Learn the features and benefits of Azure Spring Apps to deploy and 
 author: KarlErickson
 ms.service: azure-spring-apps
 ms.topic: overview
-ms.date: 05/23/2023
+ms.date: 08/29/2024
 ms.author: karler
 ms.custom: devx-track-java, devx-track-extended-java
 #Customer intent: As an Azure Cloud user, I want to deploy, run, and monitor Spring applications.
@@ -12,8 +12,7 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 # What is Azure Spring Apps?
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 **This article applies to:** ✔️ Enterprise ✔️ Standard consumption and dedicated (Preview) ✔️ Basic/Standard
 
@@ -61,11 +60,6 @@ The following articles help you get started:
 
 * [Deploy your first application to Azure Spring Apps](quickstart.md)
 * [Introduction to the sample app](quickstart-sample-app-introduction.md)
-
-The following articles help you migrate existing Spring Boot apps to Azure Spring Apps:
-
-* [Migrate Spring Boot applications to Azure Spring Apps](/azure/developer/java/migration/migrate-spring-boot-to-azure-spring-apps)
-* [Migrate Spring Cloud applications to Azure Spring Apps](/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-apps?pivots=sc-standard-tier)
 
 The following quickstarts apply to the Basic/Standard plan only. For Enterprise quickstarts, see the [Get started with the Enterprise plan](#get-started-with-the-enterprise-plan) section.
 

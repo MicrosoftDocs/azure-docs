@@ -33,6 +33,8 @@
     href: vpn-gateway-about-vpn-gateway-settings.md
   - name: About gateway SKUs
     href: about-gateway-skus.md
+  - name: About gateway SKU consolidation
+    href: gateway-sku-consolidation.md
   - name: About active-active mode gateways
     href: about-active-active-gateways.md
   - name: About VPN devices
@@ -195,7 +197,7 @@
           href: point-to-site-entra-register-custom-app.md
         - name: Configure access based on users and groups
           href: point-to-site-entra-users-access.md
-        - name: Configure Multi-Factor Authentication (MFA)
+        - name: Configure multifactor authentication (MFA)
           href: openvpn-azure-ad-mfa.md
       - name: VPN client configuration
         items:
@@ -241,6 +243,8 @@
       href: create-custom-policies-p2s-ps.md
     - name: Azure VPN Client - optional settings
       href: azure-vpn-client-optional-configurations.md
+    - name: Azure VPN Client prerequisites check
+      href: azure-vpn-client-prerequisites-check.md
     - name: Azure VPN Client versions
       href: azure-vpn-client-versions.md
     - name: Intune - Deploy VPN client profile
@@ -317,30 +321,32 @@
     items:
     - name: Troubleshoot VPN Gateway
       href: vpn-gateway-troubleshoot.md
-    - name: Troubleshoot Azure VPN Gateway using diagnostic logs
+    - name: Troubleshoot using diagnostic logs
       href: troubleshoot-vpn-with-azure-diagnostics.md
-    - name: Community-suggested VPN or firewall device settings
-      href: vpn-gateway-third-party-settings.md
-    - name: Configure and validate VNet or VPN connections
-      href: https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections
-    - name: Validate VPN throughput to a VNet
-      href: vpn-gateway-validate-throughput-to-vnet.md
-    - name: Point-to-site connection issues
+    - name: Troubleshoot point-to-site connection issues
       items:
-      - name: Connection problems
+      - name: Point-to-site connection problems
         href: vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md
-      - name: macOS VPN Client connection problems
+      - name: macOS - native VPN client connection problems
         href: vpn-gateway-troubleshoot-point-to-site-osx-ikev2.md
-      - name: Microsoft Entra ID authentication connection problems
-        href: troubleshoot-ad-vpn-client.md
-      - name: Report Azure VPN Client problem - Feedback Hub
+      - name: Troubleshoot the Azure VPN Client
+        href: troubleshoot-azure-vpn-client.md
+      - name: Report Azure VPN Client problems - Feedback Hub
         href: feedback-hub-azure-vpn-client.md
-    - name: Site-to-site connection issues
+    - name: Troubleshoot site-to-site connection issues
       items:
-      - name: Site-to-site connections
+      - name: Site-to-site connection problems
         href: vpn-gateway-troubleshoot-site-to-site-cannot-connect.md
+      - name: Site-to-site error codes and solutions
+        href: vpn-gateway-troubleshoot-site-to-site-error-codes.md
       - name: Site-to-site connection disconnects intermittently
         href: vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md
+    - name: Validate VPN throughput to a VNet
+      href: vpn-gateway-validate-throughput-to-vnet.md
+    - name: Configure and validate VNet or VPN connections
+      href: https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections
+    - name: Community-suggested VPN or firewall device settings
+      href: vpn-gateway-third-party-settings.md
 - name: Reference
   items:
   - name: Azure PowerShell

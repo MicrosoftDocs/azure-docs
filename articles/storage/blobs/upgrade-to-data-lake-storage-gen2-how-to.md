@@ -1,5 +1,5 @@
 ---
-title: Upgrade Azure Blob Storage with Azure Data Lake Storage Gen2 capabilities 
+title: Upgrade Azure Blob Storage with Azure Data Lake Storage capabilities 
 description: Shows you how to use Resource Manager templates to upgrade from Azure Blob Storage to Data Lake Storage.
 author: normesta
 ms.service: azure-blob-storage
@@ -9,18 +9,18 @@ ms.date: 01/18/2024
 ms.author: normesta
 ---
 
-# Upgrade Azure Blob Storage with Azure Data Lake Storage Gen2 capabilities
+# Upgrade Azure Blob Storage with Azure Data Lake Storage capabilities
 
-This article helps you to enable a hierarchical namespace and unlock capabilities such as file and directory-level security and faster operations. These capabilities are widely used by big data analytics workloads and are referred to collectively as Azure Data Lake Storage Gen2.
+This article helps you to enable a hierarchical namespace and unlock capabilities such as file and directory-level security and faster operations. These capabilities are widely used by big data analytics workloads and are referred to collectively as Azure Data Lake Storage.
 
-To learn more about these capabilities and evaluate the impact of this upgrade on workloads, applications, costs, service integrations, tools, features, and documentation, see [Upgrading Azure Blob Storage with Azure Data Lake Storage Gen2 capabilities](upgrade-to-data-lake-storage-gen2.md).
+To learn more about these capabilities and evaluate the impact of this upgrade on workloads, applications, costs, service integrations, tools, features, and documentation, see [Upgrading Azure Blob Storage with Azure Data Lake Storage capabilities](upgrade-to-data-lake-storage-gen2.md).
 
 > [!IMPORTANT]
 > An upgrade is one-way. There's no way to revert your account once you've performed the upgrade. We recommend that you validate your upgrade in a nonproduction environment.
 
 ## Prepare to upgrade
 
-To prepare to upgrade your storage account to Data Lake Storage Gen2:
+To prepare to upgrade your storage account to Data Lake Storage:
 
 > [!div class="checklist"]
 > - [Review feature support](#review-feature-support)
@@ -29,9 +29,9 @@ To prepare to upgrade your storage account to Data Lake Storage Gen2:
 
 ### Review feature support
 
-Your storage account might be configured to use features that aren't yet supported in Data Lake Storage Gen2 enabled accounts. If your account is using such features, the upgrade will not pass the validation step. Review the [Blob Storage feature support in Azure Storage accounts](storage-feature-support-in-storage-accounts.md) article to identify unsupported features. If you're using any such features in your account, disable them before you begin the upgrade.
+Your storage account might be configured to use features that aren't yet supported in Data Lake Storage enabled accounts. If your account is using such features, the upgrade will not pass the validation step. Review the [Blob Storage feature support in Azure Storage accounts](storage-feature-support-in-storage-accounts.md) article to identify unsupported features. If you're using any such features in your account, disable them before you begin the upgrade.
 
-The following features are supported for Data Lake Storage Gen2 accounts, but are not supported by the upgrade process:
+The following features are supported for Data Lake Storage accounts, but are not supported by the upgrade process:
 
 - Blob snapshots
 - Encryption scopes
@@ -45,12 +45,16 @@ If your storage account has such features enabled, you must disable them before 
 In some cases, you will have to allow time for clean-up operations after a feature is disabled before upgrading. One example is the [blob soft delete](soft-delete-blob-overview.md) feature. You must disable blob soft delete and then allow all soft-delete blobs to expire before you can upgrade the account.
 
 > [!IMPORTANT]
-> You cannot upgrade a storage account to Data Lake Storage Gen2 that has **ever** had the change feed feature enabled.
+> You cannot upgrade a storage account to Data Lake Storage that has **ever** had the change feed feature enabled.
 > Simply disabling change feed will not allow you to perform an upgrade. Instead, you must create an account with the hierarchical namespace feature enabled on it, and move then transfer your data into that account.
+
+### Remove page blobs from the storage account
+
+You cannot upgrade a storage account that contains page blobs. Make sure to remove page blobs from the storage account before you perform the upgrade. 
 
 ### Ensure the segments of each blob path are named
 
-The migration process creates a directory for each path segment of a blob. Data Lake Storage Gen2 directories must have a name so for migration to succeed, each path segment in a virtual directory must have a name. The same requirement is true for segments that are named only with a space character. If any path segments are either unnamed (`//`) or named only with a space character (`_`), then before you proceed with the migration, you must copy those blobs to a new path that is compatible with these naming requirements.
+The migration process creates a directory for each path segment of a blob. Data Lake Storage directories must have a name so for migration to succeed, each path segment in a virtual directory must have a name. The same requirement is true for segments that are named only with a space character. If any path segments are either unnamed (`//`) or named only with a space character (`_`), then before you proceed with the migration, you must copy those blobs to a new path that is compatible with these naming requirements.
 
 ### Prevent write activity to the storage account
 
@@ -315,13 +319,13 @@ az storage account hns-migration stop -n <storage-account-name> -g <resource-gro
 
 2. Test custom applications to ensure that they work as expected with your upgraded account. 
 
-   [Multi-protocol access on Data Lake Storage](data-lake-storage-multi-protocol-access.md) enables most applications to continue using Blob APIs without modification. If you encounter issues or you want to use APIs to work with directory operations and ACLs, consider moving some of your code to use Data Lake Storage Gen2 APIs. See guides for [.NET](data-lake-storage-directory-file-acl-dotnet.md), [Java](data-lake-storage-directory-file-acl-java.md), [Python](data-lake-storage-directory-file-acl-python.md), [Node.js](data-lake-storage-acl-javascript.md), and [REST](/rest/api/storageservices/data-lake-storage-gen2). 
+   [Multi-protocol access on Data Lake Storage](data-lake-storage-multi-protocol-access.md) enables most applications to continue using Blob APIs without modification. If you encounter issues or you want to use APIs to work with directory operations and ACLs, consider moving some of your code to use Data Lake Storage APIs. See guides for [.NET](data-lake-storage-directory-file-acl-dotnet.md), [Java](data-lake-storage-directory-file-acl-java.md), [Python](data-lake-storage-directory-file-acl-python.md), [Node.js](data-lake-storage-acl-javascript.md), and [REST](/rest/api/storageservices/data-lake-storage-gen2). 
 
 3. Test any custom scripts to ensure that they work as expected with your upgraded account. 
 
-   As is the case with Blob APIs, many of your scripts will likely work without requiring you to modify them. However, if  needed, you can upgrade script files to use Data Lake Storage Gen2 [PowerShell cmdlets](data-lake-storage-directory-file-acl-powershell.md), and [Azure CLI commands](data-lake-storage-directory-file-acl-cli.md).
+   As is the case with Blob APIs, many of your scripts will likely work without requiring you to modify them. However, if  needed, you can upgrade script files to use Data Lake Storage [PowerShell cmdlets](data-lake-storage-directory-file-acl-powershell.md), and [Azure CLI commands](data-lake-storage-directory-file-acl-cli.md).
  
 
 ## See also
 
-[Introduction to Azure Data Lake storage Gen2](data-lake-storage-introduction.md)
+[Introduction to Azure Data Lake storage](data-lake-storage-introduction.md)

@@ -2,8 +2,8 @@
 ms.service: azure-lab-services
 ms.custom: linux-related-content
 ms.topic: include
-author: ntrogh
-ms.author: nicktrog
+author: RoseHJM
+ms.author: rosemalcolm
 ms.date: 05/10/2023
 ---
 

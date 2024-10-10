@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 03/12/2024
+ms.date: 09/06/2024
 ms.author: greglin
 ---
 
@@ -47,6 +47,7 @@ Process flow:
 - A WAF v2 SKU gateway allows the creation of TLS or TCP listeners and backends to support HTTP and non-HTTP traffic through the same resource. However, it does not inspect traffic on TLS and TCP listeners for exploits and vulnerabilities. 
 - The default [draining timeout](configuration-http-settings.md#connection-draining) value for backend servers is 30 seconds. At present, a user-defined draining value is not supported.
 - Client IP preservation is currently not supported.
+- Application Gateway Ingress Controller (AGIC) is not supported and works only with L7 proxy through HTTP(S) listeners.
 
 ## Next steps
 

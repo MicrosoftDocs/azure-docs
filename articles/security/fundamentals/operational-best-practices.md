@@ -4,13 +4,13 @@ title: Security best practices for your Azure assets
 titleSuffix: Azure security
 description: This article provides a set of operational best practices for protecting your data, applications, and other assets in Azure.
 services: security
-author: TerryLanfear
+author: msmbaldwin
 manager: rkarlin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 06/27/2024
-ms.author: terrylan
+ms.author: mbaldwin
 
 ---
 
@@ -153,7 +153,7 @@ The secure score, which is based on Center for Internet Security (CIS) controls,
 **Detail**: Most organizations with a SIEM use it as a central clearinghouse for security alerts that require an analyst response. Processed events produced by Defender for Cloud are published to the Azure Activity Log, one of the logs available through Azure Monitor. Azure Monitor offers a consolidated pipeline for routing any of your monitoring data into a SIEM tool. See [Stream alerts to a SIEM, SOAR, or IT Service Management solution](../../security-center/export-to-siem.md) for instructions. If you’re using Microsoft Sentinel, see [Connect Microsoft Defender for Cloud](../../sentinel/connect-azure-security-center.md).
 
 **Best practice**: Integrate Azure logs with your SIEM.   
-**Detail**: Use [Azure Monitor to gather and export data](../../azure-monitor/overview.md#integrate). This practice is critical for enabling security incident investigation, and online log retention is limited. If you’re using Microsoft Sentinel, see [Connect data sources](../../sentinel/connect-data-sources.md).
+**Detail**: Use [Azure Monitor to gather and export data](/azure/azure-monitor/overview#integrate). This practice is critical for enabling security incident investigation, and online log retention is limited. If you’re using Microsoft Sentinel, see [Connect data sources](../../sentinel/connect-data-sources.md).
 
 **Best practice**: Speed up your investigation and hunting processes and reduce false positives by integrating Endpoint Detection and Response (EDR) capabilities into your attack investigation.   
 **Detail**: [Enable the Microsoft Defender for Endpoint integration](../../security-center/security-center-wdatp.md#enable-the-microsoft-defender-for-endpoint-integration) via your Defender for Cloud security policy. Consider using Microsoft Sentinel for threat hunting and incident response.
@@ -199,7 +199,7 @@ You can use [Azure Resource Manager](../../azure-resource-manager/templates/synt
 [Apache JMeter](https://jmeter.apache.org/) is a free, popular open source tool with a strong community backing.
 
 **Best practice**: Monitor application performance.  
-**Detail**: [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) is an extensible application performance management (APM) service for web developers on multiple platforms. Use Application Insights to monitor your live web application. It automatically detects performance anomalies. It includes analytics tools to help you diagnose issues and to understand what users actually do with your app. It's designed to help you continuously improve performance and usability.
+**Detail**: [Azure Application Insights](/azure/azure-monitor/app/app-insights-overview) is an extensible application performance management (APM) service for web developers on multiple platforms. Use Application Insights to monitor your live web application. It automatically detects performance anomalies. It includes analytics tools to help you diagnose issues and to understand what users actually do with your app. It's designed to help you continuously improve performance and usability.
 
 ## Mitigate and protect against DDoS
 Distributed denial of service (DDoS) is a type of attack that tries to exhaust application resources. The goal is to affect the application’s availability and its ability to handle legitimate requests. These attacks are becoming more sophisticated and larger in size and impact. They can be targeted at any endpoint that is publicly reachable through the internet.

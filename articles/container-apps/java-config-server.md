@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Connect to a managed Config Server for Spring in Azure Container Apps (preview)"
+title: "Tutorial: Connect to a managed Config Server for Spring in Azure Container Apps"
 description: Learn how to connect a Config Server for Spring to your container app.
 services: container-apps
 author: craigshoemaker
@@ -10,7 +10,7 @@ ms.date: 08/13/2024
 ms.author: cshoe
 ---
 
-# Tutorial: Connect to a managed Config Server for Spring in Azure Container Apps (preview)
+# Tutorial: Connect to a managed Config Server for Spring in Azure Container Apps
 
 Config Server for Spring provides a centralized location to make configuration data available to multiple applications. In this article, you learn to connect an app hosted in Azure Container Apps to a Java Config Server for Spring instance.
 
@@ -166,6 +166,8 @@ Now that you have a Container Apps environment, you can create your container ap
       --environment $ENVIRONMENT \
       --resource-group $RESOURCE_GROUP \
       --name $JAVA_COMPONENT_NAME \
+      --min-replicas 1 \
+      --max-replicas 1 \
       --configuration spring.cloud.config.server.git.uri=$URI
     ```
 
@@ -176,6 +178,8 @@ Now that you have a Container Apps environment, you can create your container ap
       --environment $ENVIRONMENT \
       --resource-group $RESOURCE_GROUP \
       --name $JAVA_COMPONENT_NAME \
+      --min-replicas 2 \
+      --max-replicas 2 \
       --configuration spring.cloud.config.server.git.uri=$URI spring.cloud.config.server.git.refresh-rate=60
     ```
 
@@ -285,7 +289,7 @@ If you want to customize your own `SPRING_CONFIG_IMPORT`, you can refer to the e
 
 You can also remove a binding from your application.
 
-## Unbind your container app from the Config Server for Spring Java component
+## (Optional) Unbind your container app from the Config Server for Spring Java component
 
 ### [Azure CLI](#tab/azure-cli)
   To remove a binding from a container app, use the `--unbind` option.

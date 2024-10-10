@@ -1,12 +1,12 @@
 ---
 title: Best practices for customer-managed keys for the DICOM service in Azure Health Data Services
 description: Encrypt your data with customer-managed keys (CMK) in the DICOM service in Azure Health Data Services. Get tips on requirements, best practices, limitations, and troubleshooting.
-author: mmitrik
+author: varunbms
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: overview
 ms.date: 11/20/2023
-ms.author: mmitrik
+ms.author: buchvarun
 ---
 
 # Best practices for using customer-managed keys for the DICOM service

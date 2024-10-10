@@ -5,6 +5,10 @@ author: batamig
 ms.author: bagol
 ms.topic: conceptual
 ms.date: 02/28/2024
+
+
+#Customer intent: As a security operations manager, I want to understand how I can use Microsoft Sentinel to monitor and detect suspicious activities in my Power Platform environment so that I can protect my organization from potential threats and data breaches.
+
 ---
 
 # Microsoft Sentinel solution for Microsoft Power Platform overview

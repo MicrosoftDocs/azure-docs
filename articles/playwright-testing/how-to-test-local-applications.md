@@ -24,25 +24,18 @@ You can specify one or multiple networks by using a list of rules. For example, 
 You can configure the `exposeNetwork` option in `playwright.service.config.ts`. The following example shows how to expose the `localhost` network by using the [`<loopback>`](https://en.wikipedia.org/wiki/Loopback) rule:
 
 ```typescript
-export default defineConfig(config, {
-    workers: 20,
-    use: {
-        // Specify the service endpoint.
-        connectOptions: {
-            wsEndpoint: `${process.env.PLAYWRIGHT_SERVICE_URL}?cap=${JSON.stringify({
-                // Can be 'linux' or 'windows'.
-                os: process.env.PLAYWRIGHT_SERVICE_OS || 'linux',
-                runId: process.env.PLAYWRIGHT_SERVICE_RUN_ID
-            })}`,
-            timeout: 30000,
-            headers: {
-                'x-mpt-access-key': process.env.PLAYWRIGHT_SERVICE_ACCESS_TOKEN!
-            },
-            // Allow service to access the localhost.
-            exposeNetwork: '<loopback>'
-        }
-    }
-});
+import { getServiceConfig, ServiceOS } from "@azure/microsoft-playwright-testing";
+import { defineConfig } from "@playwright/test";
+import { AzureCliCredential } from "@azure/identity";
+import config from "./playwright.config";
+
+export default defineConfig(
+  config,
+  getServiceConfig(config, {
+    exposeNetwork: '<loopback>', // Allow service to access the localhost.
+  }),
+);
+
 ```
 
 You can now reference `localhost` in the Playwright test code, and run the tests on cloud-hosted browsers with Microsoft Playwright Testing:

@@ -19,15 +19,15 @@ When you use Container Apps for your containerized Java applications, you get:
 - **Cost effective scaling**: When you use the [Consumption plan](plans.md#consumption), your Java apps can scale to zero. Scaling in when there's little demand for your app automatically drives costs down for your projects.
 
 - **Deployment options**: Azure Container Apps integrates with [Buildpacks](https://buildpacks.io), which allows you to deploy directly from a Maven build, via artifact files, or with your own Dockerfile.
-    - **JAR deployment**: You can deploy your container app directly from a [JAR file](java-get-started.md?tabs=jar).
+    - **JAR deployment (Preview)**: You can deploy your container app directly from a [JAR file](java-get-started.md?tabs=jar).
 
-    - **WAR deployment**: You can deploy your container app directly from a [WAR file](java-get-started.md?tabs=war).
+    - **WAR deployment (Preview)**: You can deploy your container app directly from a [WAR file](java-get-started.md?tabs=war).
 
     - **IDE support**: You can deploy your container app directly from [IntelliJ](/azure/developer/java/toolkit-for-intellij/create-container-apps-intellij#deploy-the-container-app).
 
-- **Automatic memory fitting**: Container Apps optimizes how the Java Virtual Machine (JVM) [manages memory](java-memory-fit.md), making the most possible memory available to your Java applications.
+- **Automatic memory fitting (Preview)**: Container Apps optimizes how the Java Virtual Machine (JVM) [manages memory](java-memory-fit.md), making the most possible memory available to your Java applications.
 
-- **Build environment variables**: You can configure [custom key-value pairs](java-build-environment-variables.md) to control the Java image build from source code.
+- **Build environment variables (Preview)**: You can configure [custom key-value pairs](java-build-environment-variables.md) to control the Java image build from source code.
 
 This article details the information you need to know as you build Java applications on Azure Container Apps.
 

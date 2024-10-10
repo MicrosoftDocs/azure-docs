@@ -14,14 +14,19 @@ Features released earlier than nine months ago are described in the [What's new 
 
 > [!NOTE]
 > Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>
 
 [!INCLUDE [defender-iot-defender-reference](../includes/defender-for-iot-defender-reference.md)]
 
-## September 2024
+## October 2024
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | - [Added protocol](#added-protocol)<br> - [New sensor setting type Public addresses](#new-sensor-setting-type-public-addresses)  |
+| **OT networks** | - [Add wildcards to allowlist domain names](#add-wildcards-allowlist-domain-names)<br> - [Added protocol](#added-protocol) <br> - [New sensor setting type Public addresses](#New sensor setting type Public addresses) <br> - [Improved OT sensor onboarding](#improved-ot-sensor-onboarding) |
+
+### Add wildcards allowlist domain names
+
+When adding domain names to the FQDN allowlist use the `*` wildcard to include all sub-domains. For more information, see [allow internet connections on an OT network](how-to-accelerate-alert-incident-response.md#allow-internet-connections-on-an-ot-network).
 
 ### Added protocol
 
@@ -31,11 +36,17 @@ We now support the OCPI protocol. See [the updated protocol list](concept-suppor
 
 We're adding the **Public addresses** type to the sensor settings, that allows you to exclude public IP addresses that might have been used for internal use and shouldn't be tracked. For more information, see [add sensor settings](configure-sensor-settings-portal.md#add-sensor-settings).
 
+### Improved OT sensor onboarding
+
+If there are connection problems, during sensor onboarding, between the OT sensor and the Azure portal at the configuration stage, the process can't be completed until the connection problem is solved.
+
+We now support completing the configuration process without the need to solve the communication problem, allowing you to continue the onboarding of your OT sensor quickly and solve the problem at a later time. For more information, see [activate your OT sensor](ot-deploy/activate-deploy-sensor.md#activate-your-ot-sensor).
+
 ## July 2024
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | - [Security update](#security-update)  |
+| **OT networks** | - [Security update](#security-update) |
 
 ### Security update
 

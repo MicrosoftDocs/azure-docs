@@ -18,6 +18,12 @@ ms.service: azure-communication-services
 
 ### You can access the following quickstarts
 
+- [UI Components](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/ui-library-quickstart-ui-components)
+- [Composites](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/ui-library-quickstart-composites)
+- [Stateful Client (Chat)](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/ui-library-starting-with-chat-stateful)
+
+### You can access the following storybooks
+
 - [UI Components](https://azure.github.io/communication-ui-library/?path=/story/quickstarts-uicomponents--page)
 - [Composites](https://azure.github.io/communication-ui-library/?path=/story/quickstarts-composites--page)
 - [Stateful Client (Chat)](https://azure.github.io/communication-ui-library/?path=/story/composites-chat-basicexample--basic-example)

@@ -13,6 +13,12 @@ zone_pivot_groups: drawing-package-version
 
 # Conversion drawing package guide
 
+> [!NOTE]
+>
+> **Azure Maps Creator retirement**
+>
+> The Azure Maps Creator indoor map service is now deprecated and will be retired on 9/30/25. For more information, see [End of Life Announcement of Azure Maps Creator](https://aka.ms/AzureMapsCreatorDeprecation).
+
 :::zone pivot="drawing-package-v1"
 
 This guide shows you how to prepare your Drawing Package for the Azure Maps [Conversion service] using specific CAD commands to correctly prepare your DWG files and manifest file for the Conversion service.

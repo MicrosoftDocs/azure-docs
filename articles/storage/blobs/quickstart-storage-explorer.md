@@ -28,7 +28,7 @@ On first launch, the **Microsoft Azure Storage Explorer - Connect to Azure Stora
 - Subscription
 - Storage account
 - Blob container
-- ADLS Gen2 container or directory
+- Azure Data Lake Storage container or directory
 - File share
 - Queue
 - Table

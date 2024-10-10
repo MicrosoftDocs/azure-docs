@@ -16,7 +16,7 @@ ms.custom:
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-The `llm-emit-token-metric` policy sends metrics to Application Insights about consumption of large language model (LLM) tokens through LLM APIs. Token count metrics include: Total Tokens, Prompt Tokens, and Completion Tokens. 
+The `llm-emit-token-metric` policy sends custom metrics to Application Insights about consumption of large language model (LLM) tokens through LLM APIs. Token count metrics include: Total Tokens, Prompt Tokens, and Completion Tokens. 
 
 > [!NOTE]
 > Currently, this policy is in preview.
@@ -25,6 +25,10 @@ The `llm-emit-token-metric` policy sends metrics to Application Insights about c
 
 [!INCLUDE [api-management-llm-models](../../includes/api-management-llm-models.md)]
 
+
+## Limits for custom metrics
+
+[!INCLUDE [api-management-custom-metrics-limits](../../includes/api-management-custom-metrics-limits.md)]
 
 ## Prerequisites
 
@@ -48,7 +52,6 @@ The `llm-emit-token-metric` policy sends metrics to Application Insights about c
 | Attribute | Description                | Required                | Default value  |
 | --------- | -------------------------- |  ------------------ | -------------- |
 | namespace | A string. Namespace of metric. Policy expressions aren't allowed. | No        | API Management |
-| value     |  Value of metric expressed as a double. Policy expressions are allowed.   | No           | 1              |
 
 
 ## Elements
@@ -89,15 +92,13 @@ The `llm-emit-token-metric` policy sends metrics to Application Insights about c
 
 ## Example
 
-The following example sends LLM token count metrics to Application Insights along with User ID, Client IP, and API ID as dimensions.
+The following example sends LLM token count metrics to Application Insights along with API ID as a custom dimension.
 
 ```xml
 <policies>
   <inbound>
       <llm-emit-token-metric
             namespace="MyLLM">   
-            <dimension name="User ID" />
-            <dimension name="Client IP" value="@(context.Request.IpAddress)" />
             <dimension name="API ID" />
         </llm-emit-token-metric> 
   </inbound>

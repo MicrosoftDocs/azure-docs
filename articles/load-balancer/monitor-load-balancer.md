@@ -42,7 +42,7 @@ For more information about the resource types for Load Balancer, see [Azure Load
 
 [!INCLUDE [horz-monitor-platform-metrics](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
 
-You can analyze metrics for Load Balancer with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Analyze metrics with Azure Monitor metrics explorer](../azure-monitor/essentials/analyze-metrics.md) for details on using this tool.
+You can analyze metrics for Load Balancer with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Analyze metrics with Azure Monitor metrics explorer](/azure/azure-monitor/essentials/analyze-metrics) for details on using this tool.
 
 For a list of available metrics for Load Balancer, see [Azure Load Balancer monitoring data reference](monitor-load-balancer-reference.md#metrics).
 
@@ -54,7 +54,7 @@ For the available resource log categories, their associated Log Analytics tables
 
 Resource logs aren't collected and stored until you create a diagnostic setting and route them to one or more locations. You can create a diagnostic setting with the Azure portal, Azure PowerShell, or the Azure CLI.
 
-To use the Azure portal and for general guidance, see [Create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/essentials/diagnostic-settings.md). To use PowerShell or the Azure CLI, see the following sections.
+To use the Azure portal and for general guidance, see [Create diagnostic setting to collect platform logs and metrics in Azure](/azure/azure-monitor/essentials/diagnostic-settings). To use PowerShell or the Azure CLI, see the following sections.
 
 When you create a diagnostic setting, you specify which categories of logs to collect. The category for Load Balancer is **AllMetrics**.
 
@@ -238,14 +238,30 @@ az monitor diagnostic-settings create \
 
 [!INCLUDE [horz-monitor-external-tools](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-external-tools.md)]
 
-## Analyzing Load Balancer Traffic with NSG flow logs
+## Analyzing Load Balancer Traffic with VNet flow logs
 
-[NSG flow logs](../network-watcher/nsg-flow-logs-overview.md) is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through a network security group. Flow data is sent to Azure Storage from where you can access it and export it to a visualization tool, security information and event management (SIEM) solution, or intrusion detection system (IDS).
+[Virtual network flow logs](../network-watcher/vnet-flow-logs-overview.md) are a feature of Azure Network Watcher that logs information about IP traffic flowing through a virtual network. Flow data from virtual network flow logs is sent to Azure Storage. From there, you can access the data and export it to any visualization tool, security information and event management (SIEM) solution, or intrusion detection system (IDS).
 
-NSG flow logs can be used to analyze traffic flowing through the load balancer.
+For general guidance on creating and managing virtual network flow logs, see [Manage virtual network flow logs](../network-watcher/vnet-flow-logs-portal.md). Once you have created your virtual network flow logs, you can access the data on [Log Analytics workspaces](/azure/azure-monitor/logs/log-analytics-overview) where you can also query and filter the data to identify traffic flowing through your Load Balancer. See [Traffic analytics schema and data aggregation](../network-watcher/traffic-analytics-schema.md) for more details on the virtual network flow logs schema.
 
-> [!NOTE]
-> NSG flow logs don't contain the load balancers frontend IP address. To analyze the traffic flowing into a load balancer, the NSG flow logs would need to be filtered by the private IP addresses of the load balancer’s backend pool members.
+You can also enable [Traffic Analytics](../network-watcher/traffic-analytics.md) when you are creating your virtual network flow logs which provides insights and visualizations on the flow log data such as traffic distribution, traffic pattern, application ports utilized, and top talkers in your virtual network.
+## Log Analytics query for VNet flow logs
+To view logs for inbound flows connected to a specific Load Balancer:
+
+```Kusto
+NTANetAnalytics
+| where DestLoadBalancer == '<Subscription ID>/<Resource Group name>/<Load Balancer name>'
+```
+
+1. Use the query above in your Log Analytics workspace and update the string with the valid values for your Load Balancer. To learn more about using Log Analytics, see [Log Analytics tutorial](/azure/azure-monitor/logs/log-analytics-tutorial).
+
+1. To view the source IP of the connection, either the `SrcIp` or `SrcPublicIps` column will be populated. All traffic originating from public non-malicious or Azure service-owned IP addresses will appear in `SrcPublicIps` and all other source IPs will appear in `SrcIP`. If you want more details on the type of traffic, you can use the `FlowType` column to filter for different types of IP addresses involved in the flow. See  [Traffic analytics schema and data aggregation notes](../network-watcher/traffic-analytics-schema.md#notes) for `FlowType` field definitions.
+
+1. Identify the backend pool instances being used in the inbound connection through any of the following columns: `DestIP`, `MacAddress`, `DestVM`, `TargetResourceID`, `DestNic`.
+
+1. Through these logs, you can gather further information about the connections going through your Load Balancer such as port information, protocol, and traffic size through packet and byte count sent from destination and source. 
+
+
 
 [!INCLUDE [horz-monitor-kusto-queries](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-kusto-queries.md)]
 

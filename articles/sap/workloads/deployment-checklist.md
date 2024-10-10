@@ -92,7 +92,7 @@ Further included in same technical document(s) should be:
   - Security operations for Azure resources and workloads within
 - Security concept for protecting your SAP workload. This should include all aspects – networking and perimeter monitoring, application and database security, operating systems securing, and any infrastructure measures required, such as encryption. Identify the requirements with your compliance and security teams.
 - Microsoft recommends either Professional Direct, Premier or Unified Support contract. Identify your escalation paths and contacts for support with Microsoft. For SAP support requirements, see [SAP note 2015553](https://launchpad.support.sap.com/#/notes/2015553).
-- The number of Azure subscriptions and core quota for the subscriptions. [Open support requests to increase quotas of Azure subscriptions](../../azure-portal/supportability/regional-quota-requests.md) as needed.
+- The number of Azure subscriptions and core quota for the subscriptions. [Open support requests to increase quotas of Azure subscriptions](/azure/azure-portal/supportability/regional-quota-requests) as needed.
 - Data reduction and data migration plan for migrating SAP data into Azure. For SAP NetWeaver systems, SAP has guidelines on how to limit the volume of large amounts of data. See [this SAP guide](https://wiki.scn.sap.com/wiki/download/attachments/247399467/DVM_%20Guide_7.2.pdf?version=1&modificationDate=1549365516000&api=v2) about data management in SAP ERP systems. Some of the content also applies to NetWeaver and S/4HANA systems in general.
 - An automated deployment approach. Many customers start with scripts, using a combination of PowerShell, CLI, Ansible and Terraform. 
 Microsoft developed solutions for SAP deployment automation are:
@@ -263,7 +263,7 @@ Here are some common methods:
 
 During the go-live phase, be sure to follow the playbooks you developed during earlier phases. Execute the steps that you tested and practiced. Don't accept last-minute changes in configurations and processes. Also complete these steps:
 
-- Verify that Azure portal monitoring and other monitoring tools are working. Use Azure tools such as [Azure Monitor](../../azure-monitor/overview.md) for infrastructure monitoring. [Azure Monitor for SAP](../monitor/about-azure-monitor-sap-solutions.md) for a combination of OS and application KPIs, allowing you to integrate all in one dashboard for visibility during and after go-live.  
+- Verify that Azure portal monitoring and other monitoring tools are working. Use Azure tools such as [Azure Monitor](/azure/azure-monitor/overview) for infrastructure monitoring. [Azure Monitor for SAP](../monitor/about-azure-monitor-sap-solutions.md) for a combination of OS and application KPIs, allowing you to integrate all in one dashboard for visibility during and after go-live.  
 For operating system key performance indicators:  
   - [SAP note 1286256 - How-to: Using Windows LogMan tool to collect performance data on Windows Platforms](https://launchpad.support.sap.com/#/notes/1286256)  
   - On Linux ensure sysstat tool is installed and capturing details at regular intervals

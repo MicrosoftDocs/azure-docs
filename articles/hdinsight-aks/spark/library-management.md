@@ -3,12 +3,15 @@ title: Library Management in Azure HDInsight on AKS
 description: Learn how to use Library Management in Azure HDInsight on AKS with Spark 
 ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 08/29/2023
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Library management in Spark
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 The purpose of Library Management is to make open-source or custom code available to notebooks and jobs running on your clusters. You can upload Python libraries from PyPI repositories.
 This article focuses on managing libraries  in the cluster UI. 

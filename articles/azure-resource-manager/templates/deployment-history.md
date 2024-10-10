@@ -17,7 +17,7 @@ For help with resolving particular deployment errors, see [Troubleshoot common A
 
 ## Correlation ID and support
 
-Each deployment has a correlation ID, which is used to track related events. If you [create an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md), support may ask you for the correlation ID. Support uses the correlation ID to identify the operations for the failed deployment.
+Each deployment has a correlation ID, which is used to track related events. If you [create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request), support may ask you for the correlation ID. Support uses the correlation ID to identify the operations for the failed deployment.
 
 The examples in this article show how to retrieve the correlation ID.
 

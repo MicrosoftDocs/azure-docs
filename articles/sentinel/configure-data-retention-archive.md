@@ -16,7 +16,7 @@ In the previous deployment step, you enabled the User and Entity Behavior Analyt
 
 Retention policies define when to remove data, or mark it for long-term retention, in a Log Analytics workspace. Long-term retention lets you keep older, less used data in your workspace at a reduced cost. To set up data retention plans, consult [Log retention plans in Microsoft Sentinel](log-plans.md), and use one or both of these methods, depending on your use case:
 
-- [Configure interactive and long-term data retention for one or more tables](../azure-monitor/logs/data-retention-configure.md) (one table at a time)
+- [Configure interactive and long-term data retention for one or more tables](/azure/azure-monitor/logs/data-retention-configure) (one table at a time)
 - [Configure data retention for multiple tables](https://github.com/Azure/Azure-Sentinel/tree/master/Tools/Archive-Log-Tool) at once
 
 ## Next steps

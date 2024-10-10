@@ -25,6 +25,8 @@ The `llm-semantic-cache-store` policy caches responses to chat completion API an
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
+[!INCLUDE [api-management-llm-models](../../includes/api-management-llm-models.md)]
+
 ## Policy statement
 
 ```xml

@@ -31,7 +31,7 @@ For a list of available metrics for Azure Blob Storage, see [Azure Blob Storage 
 [!INCLUDE [horz-monitor-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
 For the available resource log categories, their associated Log Analytics tables, and the logs schemas for Azure Blob Storage, see [Azure Blob Storage monitoring data reference](monitor-blob-storage-reference.md#resource-logs).
 > [!NOTE]
-> Data Lake Storage Gen2 doesn't appear as a storage type because Data Lake Storage Gen2 is a set of capabilities available to Blob storage.
+> Data Lake Storage doesn't appear as a storage type because Data Lake Storage is a set of capabilities available to Blob storage.
 
 #### Destination limitations
 
@@ -312,7 +312,7 @@ All other failed anonymous requests aren't logged. For a full list of the logged
 
 [!INCLUDE [horz-monitor-kusto-queries](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-kusto-queries.md)]
 
-Here are some queries that you can enter in the **Log search** bar to help you monitor your Blob storage. These queries work with the [new language](../../azure-monitor/logs/log-query-overview.md).
+Here are some queries that you can enter in the **Log search** bar to help you monitor your Blob storage. These queries work with the [new language](/azure/azure-monitor/logs/log-query-overview).
 
 - To list the 10 most common errors over the last three days.
 

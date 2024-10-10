@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 07/12/2024
+ms.date: 09/04/2024
 ms.author: danlep
 
 ---
@@ -31,20 +31,14 @@ Azure Event Hubs is a highly scalable data ingress service that can ingest milli
 
 To log events to the event hub, you need to configure credentials for access from API Management. API Management supports either of the two following access mechanisms:
 
+* A managed identity for your API Management instance (recommended)
 * An Event Hubs connection string
-* A managed identity for your API Management instance.
-
-### Option 1: Configure Event Hubs connection string
-
-To create an Event Hubs connection string, see [Get an Event Hubs connection string](../event-hubs/event-hubs-get-connection-string.md). 
-
-* You can use a connection string for the Event Hubs namespace or for the specific event hub you use for logging from API Management.
-* The shared access policy for the connection string must enable at least **Send** permissions.
-
-### Option 2: Configure API Management managed identity
 
 > [!NOTE]
-> Using an API Management managed identity for logging events to an event hub is supported in API Management REST API version `2022-04-01-preview` or later.
+> Where possible, Microsoft recommends using managed identity credentials for enhanced security. 
+
+
+### Option 1: Configure API Management managed identity
 
 1. Enable a system-assigned or user-assigned [managed identity for API Management](api-management-howto-use-managed-service-identity.md) in your API Management instance.
 
@@ -52,83 +46,37 @@ To create an Event Hubs connection string, see [Get an Event Hubs connection str
 
 1. Assign the identity the **Azure Event Hubs Data sender** role, scoped to the Event Hubs namespace or to the event hub used for logging. To assign the role, use the [Azure portal](../role-based-access-control/role-assignments-portal.yml) or other Azure tools.
 
+
+### Option 2: Configure Event Hubs connection string
+
+To create an Event Hubs connection string, see [Get an Event Hubs connection string](../event-hubs/event-hubs-get-connection-string.md). 
+
+* You can use a connection string for the Event Hubs namespace or for the specific event hub you use for logging from API Management.
+* The shared access policy for the connection string must enable at least **Send** permissions.
+
+
 ## Create an API Management logger
 The next step is to configure a [logger](/rest/api/apimanagement/current-ga/logger) in your API Management service so that it can log events to the event hub.
 
 Create and manage API Management loggers by using the [API Management REST API](/rest/api/apimanagement/current-preview/logger/create-or-update) directly or by using tools including [Azure PowerShell](/powershell/module/az.apimanagement/new-azapimanagementlogger), a Bicep template, or an Azure Resource Management template.
 
-### Logger with connection string credentials
+### Option 1: Logger with managed identity credentials (recommended)
 
-For prerequisites, see [Configure Event Hubs connection string](#option-1-configure-event-hubs-connection-string).
-
-#### [PowerShell](#tab/PowerShell)
-
-The following example uses the [New-AzApiManagementLogger](/powershell/module/az.apimanagement/new-azapimanagementlogger) cmdlet to create a logger to an event hub by configuring a connection string.
-
-```powershell
-# API Management service-specific details
-$apimServiceName = "apim-hello-world"
-$resourceGroupName = "myResourceGroup"
-
-# Create logger
-$context = New-AzApiManagementContext -ResourceGroupName $resourceGroupName -ServiceName $apimServiceName
-New-AzApiManagementLogger -Context $context -LoggerId "ContosoLogger1" -Name "ApimEventHub" -ConnectionString "Endpoint=sb://<EventHubsNamespace>.servicebus.windows.net/;SharedAccessKeyName=<KeyName>;SharedAccessKey=<key>" -Description "Event hub logger with connection string"
-```
-
-#### [Bicep](#tab/bicep)
-
-Include a snippet similar to the following in your Bicep template.
-
-```Bicep
-resource ehLoggerWithConnectionString 'Microsoft.ApiManagement/service/loggers@2022-04-01-preview' = {
-  name: 'ContosoLogger1'
-  parent: '<APIManagementInstanceName>'
-  properties: {
-    loggerType: 'azureEventHub'
-    description: 'Event hub logger with connection string'
-    credentials: {
-      connectionString: 'Endpoint=sb://<EventHubsNamespace>.servicebus.windows.net/;SharedAccessKeyName=<KeyName>;SharedAccessKey=<key>'
-      name: 'ApimEventHub'
-    }
-  }
-}
-```
-
-#### [ARM](#tab/arm)
-
-Include a JSON snippet similar to the following in your Azure Resource Manager template.
-
-```JSON
-{
-  "type": "Microsoft.ApiManagement/service/loggers",
-  "apiVersion": "2022-04-01-preview",
-  "name": "ContosoLogger1",
-  "properties": {
-    "loggerType": "azureEventHub",
-    "description": "Event hub logger with connection string",
-    "resourceId": "<EventHubsResourceID>"
-    "credentials": {
-      "connectionString": "Endpoint=sb://<EventHubsNamespace>/;SharedAccessKeyName=<KeyName>;SharedAccessKey=<key>",
-      "name": "ApimEventHub"
-    },
-  }
-}
-```
----
+You can configure an API Management logger to an event hub using either system-assigned or user-assigned managed identity credentials.
 
 ### Logger with system-assigned managed identity credentials
 
-For prerequisites, see [Configure API Management managed identity](#option-2-configure-api-management-managed-identity).
+For prerequisites, see [Configure API Management managed identity](#option-1-configure-api-management-managed-identity).
 
 #### [REST API](#tab/PowerShell)
 
-Use the API Management [REST API](/rest/api/apimanagement/current-preview/logger/create-or-update) or a Bicep or ARM template to configure a logger to an event hub with system-assigned managed identity credentials.
+Use the API Management [Logger - Create or Update](/rest/api/apimanagement/current-preview/logger/create-or-update) REST API with the following request body.
 
 ```JSON
 {
   "properties": {
     "loggerType": "azureEventHub",
-    "description": "adding a new logger with system assigned managed identity",
+    "description": "Event Hub logger with system-assigned managed identity",
     "credentials": {
          "endpointAddress":"<EventHubsNamespace>.servicebus.windows.net",
          "identityClientId":"SystemAssigned",
@@ -144,7 +92,7 @@ Use the API Management [REST API](/rest/api/apimanagement/current-preview/logger
 Include a snippet similar to the following in your Bicep template.
 
 ```Bicep
-resource ehLoggerWithSystemAssignedIdentity 'Microsoft.ApiManagement/service/loggers@2022-04-01-preview' = {
+resource ehLoggerWithSystemAssignedIdentity 'Microsoft.ApiManagement/service/loggers@2022-08-01' = {
   name: 'ContosoLogger1'
   parent: '<APIManagementInstanceName>'
   properties: {
@@ -166,11 +114,11 @@ Include a JSON snippet similar to the following in your Azure Resource Manager t
 ```JSON
 {
   "type": "Microsoft.ApiManagement/service/loggers",
-  "apiVersion": "2022-04-01-preview",
+  "apiVersion": "2022-08-01",
   "name": "ContosoLogger1",
   "properties": {
     "loggerType": "azureEventHub",
-    "description": "Event hub logger with system-assigned managed identity",
+    "description": "Event Hub logger with system-assigned managed identity",
     "resourceId": "<EventHubsResourceID>",
     "credentials": {
       "endpointAddress": "<EventHubsNamespace>.servicebus.windows.net",
@@ -181,19 +129,20 @@ Include a JSON snippet similar to the following in your Azure Resource Manager t
 }
 ```
 ---
-### Logger with user-assigned managed identity credentials
+#### Logger with user-assigned managed identity credentials
 
-For prerequisites, see [Configure API Management managed identity](#option-2-configure-api-management-managed-identity).
+For prerequisites, see [Configure API Management managed identity](#option-1-configure-api-management-managed-identity).
 
 #### [REST API](#tab/PowerShell)
 
-Use the API Management [REST API](/rest/api/apimanagement/current-preview/logger/create-or-update) or a Bicep or ARM template to configure a logger to an event hub with user-assigned managed identity credentials.
+Use the API Management [Logger - Create or Update](/rest/api/apimanagement/current-preview/logger/create-or-update) REST API with the following request body.
+
 
 ```JSON
 {
   "properties": {
     "loggerType": "azureEventHub",
-    "description": "adding a new logger with user-assigned managed identity",
+    "description": "Event Hub logger with user-assigned managed identity",
     "credentials": {
          "endpointAddress":"<EventHubsNamespace>.servicebus.windows.net",
          "identityClientId":"<ClientID>",
@@ -206,15 +155,15 @@ Use the API Management [REST API](/rest/api/apimanagement/current-preview/logger
 
 #### [Bicep](#tab/bicep)
 
-Include a snippet similar the following in your Bicep template.
+Include a snippet similar to the following in your Bicep template.
 
 ```Bicep
-resource ehLoggerWithUserAssignedIdentity 'Microsoft.ApiManagement/service/loggers@2022-04-01-preview' = {
+resource ehLoggerWithUserAssignedIdentity 'Microsoft.ApiManagement/service/loggers@2022-08-01' = {
   name: 'ContosoLogger1'
   parent: '<APIManagementInstanceName>'
   properties: {
     loggerType: 'azureEventHub'
-    description: 'Event hub logger with user-assigned managed identity'
+    description: 'Event Hub logger with user-assigned managed identity'
     credentials: {
       endpointAddress: '<EventHubsNamespace>.servicebus.windows.net'
       identityClientId: '<ClientID>'
@@ -231,16 +180,79 @@ Include a JSON snippet similar to the following in your Azure Resource Manager t
 ```JSON
 {
   "type": "Microsoft.ApiManagement/service/loggers",
-  "apiVersion": "2022-04-01-preview",
+  "apiVersion": "2022-08-01",
   "name": "ContosoLogger1",
   "properties": {
     "loggerType": "azureEventHub",
-    "description": "Event hub logger with user-assigned managed identity",
+    "description": "Event Hub logger with user-assigned managed identity",
     "resourceId": "<EventHubsResourceID>",
     "credentials": {
       "endpointAddress": "<EventHubsNamespace>.servicebus.windows.net",
       "identityClientId": "<ClientID>",
       "name": "<EventHubName>"
+    },
+  }
+}
+```
+---
+
+
+### Option 2. Logger with connection string credentials
+
+For prerequisites, see [Configure Event Hubs connection string](#option-2-configure-event-hubs-connection-string).
+
+> [!NOTE]
+> Where possible, Microsoft recommends configuring the logger with managed identity credentials. See [Configure logger with managed identity credentials](#option-1-logger-with-managed-identity-credentials-recommended), earlier in this article.
+
+#### [PowerShell](#tab/PowerShell)
+
+The following example uses the [New-AzApiManagementLogger](/powershell/module/az.apimanagement/new-azapimanagementlogger) cmdlet to create a logger to an event hub by configuring a connection string.
+
+```powershell
+# API Management service-specific details
+$apimServiceName = "apim-hello-world"
+$resourceGroupName = "myResourceGroup"
+
+# Create logger
+$context = New-AzApiManagementContext -ResourceGroupName $resourceGroupName -ServiceName $apimServiceName
+New-AzApiManagementLogger -Context $context -LoggerId "ContosoLogger1" -Name "ApimEventHub" -ConnectionString "Endpoint=sb://<EventHubsNamespace>.servicebus.windows.net/;SharedAccessKeyName=<KeyName>;SharedAccessKey=<key>" -Description "Event hub logger with connection string"
+```
+
+#### [Bicep](#tab/bicep)
+
+Include a snippet similar to the following in your Bicep template.
+
+```Bicep
+resource ehLoggerWithConnectionString 'Microsoft.ApiManagement/service/loggers@2022-08-01' = {
+  name: 'ContosoLogger1'
+  parent: '<APIManagementInstanceName>'
+  properties: {
+    loggerType: 'azureEventHub'
+    description: 'Event Hub logger with connection string credentials'
+    credentials: {
+      connectionString: 'Endpoint=sb://<EventHubsNamespace>.servicebus.windows.net/;SharedAccessKeyName=<KeyName>;SharedAccessKey=<key>'
+      name: 'ApimEventHub'
+    }
+  }
+}
+```
+
+#### [ARM](#tab/arm)
+
+Include a JSON snippet similar to the following in your Azure Resource Manager template.
+
+```JSON
+{
+  "type": "Microsoft.ApiManagement/service/loggers",
+  "apiVersion": "2022-08-01",
+  "name": "ContosoLogger1",
+  "properties": {
+    "loggerType": "azureEventHub",
+    "description": "Event Hub logger with connection string credentials",
+    "resourceId": "<EventHubsResourceID>"
+    "credentials": {
+      "connectionString": "Endpoint=sb://<EventHubsNamespace>/;SharedAccessKeyName=<KeyName>;SharedAccessKey=<key>",
+      "name": "ApimEventHub"
     },
   }
 }

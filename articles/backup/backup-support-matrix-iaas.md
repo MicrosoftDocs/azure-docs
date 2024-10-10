@@ -1,8 +1,8 @@
 ---
 title: Support matrix for Azure VM backups
 description: Get a summary of support settings and limitations for backing up Azure VMs by using the Azure Backup service.
-ms.topic: conceptual
-ms.date: 08/09/2024
+ms.topic: reference
+ms.date: 09/11/2024
 ms.custom: references_regions, linux-related-content
 ms.reviewer: nikhilsarode
 ms.service: azure-backup
@@ -170,7 +170,7 @@ Back up VMs that are deployed from [Azure Marketplace](https://azuremarketplace.
 Back up VMs that are deployed from a custom image (third-party) |Supported.<br/><br/> The VMs must be running a supported operating system.<br/><br/> When you're recovering files on VMs, you can restore only to a compatible OS (not an earlier or later OS).
 Back up VMs that are migrated to Azure| Supported.<br/><br/> To back up a VM, make sure that the VM agent is installed on the migrated machine.
 Back up multiple VMs and provide consistency | Azure Backup doesn't provide data and application consistency across multiple VMs.
-Back up a VM with [diagnostic settings](../azure-monitor/essentials/platform-logs-overview.md)  | Not supported. <br/><br/> If the restore of the Azure VM with diagnostic settings is triggered via the [Create new](backup-azure-arm-restore-vms.md#create-a-vm) option, the restore fails.
+Back up a VM with [diagnostic settings](/azure/azure-monitor/essentials/platform-logs-overview)  | Not supported. <br/><br/> If the restore of the Azure VM with diagnostic settings is triggered via the [Create new](backup-azure-arm-restore-vms.md#create-a-vm) option, the restore fails.
 Restore zone-pinned VMs | Supported (where [availability zones](https://azure.microsoft.com/global-infrastructure/availability-zones/) are available).<br/><br/>Azure Backup now supports [restoring Azure VMs to a any availability zones](backup-azure-arm-restore-vms.md#restore-options) other than the zone that's pinned in VMs. This support enables you to restore VMs when the primary zone is unavailable.
 Back up Gen2 VMs | Supported. <br><br/> Azure Backup supports backup and restore of [Gen2 VMs](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/). When these VMs are restored from a recovery point, they're restored as [Gen2 VMs](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/).
 Back up Azure VMs with locks | Supported for managed VMs. <br><br> Not supported for unmanaged VMs.

@@ -57,6 +57,8 @@
   - name: Advanced query samples
     displayName: samples, advanced
     href: ./samples/advanced.md
+  - name: Samples by category
+    href: ./samples/samples-by-category.md
   - name: Alerts samples
     displayName: samples, alerts
     href: ./samples/alerts-samples.md
