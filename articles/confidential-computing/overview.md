@@ -5,7 +5,7 @@ services: virtual-machines
 author: ju-shim
 ms.service: azure-virtual-machines
 ms.subservice: azure-confidential-computing
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 06/09/2023
 ms.author: jushiman #ananyagarg #sgallagher #michamcr
 ms.custom: inspire-july-2022
