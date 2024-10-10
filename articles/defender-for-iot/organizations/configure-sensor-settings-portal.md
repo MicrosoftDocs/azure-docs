@@ -114,7 +114,7 @@ Use the following sections to learn more about the individual OT sensor settings
 
 The **Type** settings are:
 
-- [Active Direcetory](#active-directory)
+- [Active Directory](#active-directory)
 - [Bandwidth cap](#bandwidth-cap)
 - [NTP](#ntp)
 - [Local subnets](#local-subnets)
