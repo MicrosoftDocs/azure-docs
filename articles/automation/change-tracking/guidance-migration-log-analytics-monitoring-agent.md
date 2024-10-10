@@ -66,7 +66,7 @@ To onboard through Azure portal, follow these steps:
 
    :::image type="content" source="media/guidance-migration-log-analytics-monitoring-agent/switch-versions-inline.png" alt-text="Screenshot that shows switching between log analytics and Azure Monitoring Agent after a successful migration." lightbox="media/guidance-migration-log-analytics-monitoring-agent/switch-versions-expanded.png":::
 
-### [Single Azure Arc VM - Azure portal](#tab/ct-single-vm)
+### [Single Azure Arc VM - Azure portal](#tab/ct-single-arcvm)
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Search for and select **Machines-Azure Arc**.
 1. Under **Operations** ,  select **Change tracking**.
