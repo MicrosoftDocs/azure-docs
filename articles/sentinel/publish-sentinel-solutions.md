@@ -107,7 +107,7 @@ Follow the below steps to configure the properties under the *Offer listing* tab
 ## Preview audience
 Add at least one Azure Subscription ID. You can enter your own subscription ID or your customer subscription IDs for whom you would like to enable preview access to your solution. Once you select "Go Live" for this offer, this list is ignored, and your solution would be visible to all customers.
 
-- Previews provide an opportunity to test and validate your solution in a real environment before the solution becomes publicly available to all customers.
+Previews provide an opportunity to test and validate your solution in a real environment before the solution becomes publicly available to all customers.
  
 ## Technical Configuration
 Nothing to add here, you can ignore this section.
