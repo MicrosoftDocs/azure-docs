@@ -298,8 +298,12 @@ While deployment is also supported from the command line, we recommend that you 
 
     To find your VM identity object ID in Azure:
 
-    - For a managed identity, go to **Managed identities** in Azure and select your managed identity. For user-assigned identities, the object ID is displayed on the **Overview** page. For system-assigned managed identities, the object ID is displayed on the **Identity** page.
-    - For a service principal, go to **Enterprise application** in Azure. Select **All applications** and then select your VM. The object ID is displayed on the **Overview** page.<!--check this with Dvir-->
+    - For a managed identity, the object ID is listed on the VM's **Identity** page. Alternately:
+
+        1. Go to **Managed identities** select your managed identity. 
+        1. For user-assigned identities, the object ID is displayed on the **Overview** page. For system-assigned managed identities, the object ID is displayed on the **Identity** page.
+
+    - For a service principal, go to **Enterprise application** in Azure. Select **All applications** and then select your VM. The object ID is displayed on the **Overview** page.
 
     These commands assign the **Microsoft Sentinel Business Applications Agent Operator** and **Reader** Azure roles to your VM's managed or application identity, including only the scope of the specified agent's data in the workspace.
 
@@ -332,10 +336,18 @@ While deployment is also supported from the command line, we recommend that you 
 
     If you need to copy your command again, select **View** :::image type="content" source="media/deploy-data-connector-agent-container/view-icon.png" border="false" alt-text="Screenshot of the View icon next to the Health column."::: to the right of the **Health** column and copy the command next to **Agent deployment command** on the bottom right.
 
-1. In the Microsoft Sentinel solution for SAP application's data connector page, in the **Configuration** area, select **Add new system (Preview)**, and then enter the following details: <!--From Naomi - It is not clear how to connect to an SAP system using ASCS. When selecting ABAP server, the solution will not connect to the SAP system, and there is no indication in the documentation what using the Message Server is, since this does not align to the SAP terminology. Update the documentation to align the terminology with SAP terms, and make it clearer what this configuration is used for - use scenarios and examples here.-->
+1. In the Microsoft Sentinel solution for SAP application's data connector page, in the **Configuration** area, select **Add new system (Preview)** and enter the following details:
 
     - Under **Select an agent**, select the agent you created earlier.
-    - Under **System identifier**, select the server type and provide the server details, including the ABAP Application server IP address/FQDN, the system ID and number, and the client ID.
+    - Under **System identifier**, select the server type:
+
+        - **ABAP Server**
+        - **Message Server** to use a message server as part of an ABAP SAP Central Services (ACSC).
+
+    - Continue by defining related details for your server type:
+
+        - **For an ABAP server**, enter the ABAP Application server IP address/FQDN, the system ID and number, and the client ID.
+        - **For a message server**, enter the message server IP address/FQDN, the port number or service name, and the logon group
 
     When you're done, select  **Next: Authentication**.
 

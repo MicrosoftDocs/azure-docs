@@ -191,11 +191,11 @@ If you get an error message similar to: **..Missing Backend RFC Authorization..*
 
 ### Missing data in your workbooks or alerts
 
-If you find that you're missing data in your Microsoft Sentinel workbooks or alerts, ensure that the **Auditlog** policy is properly enabled on the SAP side, with no errors in the log file.
+If you find that you're missing data in your Microsoft Sentinel workbooks or alerts, ensure that the **Auditlog** policy is properly enabled on the SAP side, with no errors in the container log file.
 
 Use the **RSAU_CONFIG_LOG** transaction for this step.
 
-<!--Can they also not check this somewhere in the logs/table first in sentinel?-->
+For more information, see the [SAP documentation](https://community.sap.com/t5/application-development-blog-posts/analysis-and-recommended-settings-of-the-security-audit-log-sm19-rsau/ba-p/13297094) and [Collect SAP HANA audit logs in Microsoft Sentinel](collect-sap-hana-audit-logs.md).
 
 ### Missing IP address or transaction code fields in the SAP audit log
 
