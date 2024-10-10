@@ -59,7 +59,7 @@ If you need to override the system-assigned managed identity audience, see the [
 
 1. Assign a role to the managed identity that grants permission to write to the storage account, such as *Storage Blob Data Contributor*. To learn more, see [Authorize access to blobs using Microsoft Entra ID](../../storage/blobs/authorize-access-azure-active-directory.md).
 
-1. Download the template file and replace the values for `customLocationName`, `aioInstanceName`, `schemaRegistryName`, `hostname`, and `opcuaSchemaName`.
+1. The [Bicep File to create Dataflow](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/dataflow.bicep) deploys the necessary resources for dataflows. Download the template file and replace the values for `customLocationName`, `aioInstanceName`, `schemaRegistryName`, `hostname`, and `opcuaSchemaName`.
 
 1. Deploy the resources using the [az stack group](/azure/azure-resource-manager/bicep/deployment-stacks?tabs=azure-powershell) command in your terminal:
 
@@ -216,6 +216,8 @@ resource dataflow_adls 'Microsoft.IoTOperations/instances/dataflowProfiles/dataf
   }
 }
 ```
+
+---
 
 For more information about dataflow destination settings, see [Create a dataflow](howto-create-dataflow.md).
 

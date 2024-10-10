@@ -26,8 +26,6 @@ To send data to Azure Data Explorer in Azure IoT Operations Preview, you can con
 
 ## Create an Azure Data Explorer database
 
-# [Kubernetes](#tab/kubernetes)
-
 1. In the Azure portal, create a database in your Azure Data Explorer *full* cluster.
 
 1. Create a table in your database for the data. You can use the Azure portal and create columns manually, or you can use [KQL](/azure/data-explorer/kusto/management/create-table-command) in the query tab. For example, to create a table for sample thermostat data, run the following command:
@@ -55,11 +53,6 @@ To send data to Azure Data Explorer in Azure IoT Operations Preview, you can con
 
 1. In your Azure Data Explorer database, under **Security + networking** select **Permissions** > **Add** > **Ingestor**. Search for the Azure IoT Operations extension name then add it.
 
-# [Bicep](#tab/bicep)
-
-TODO
-
----
 
 ## Create an Azure Data Explorer dataflow endpoint
 
@@ -85,8 +78,44 @@ spec:
 
 # [Bicep](#tab/bicep)
 
-TODO
+1. The [Bicep File to create Dataflow](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/dataflow.bicep) deploys the necessary resources for dataflows. Download the template file and replace the values for `customLocationName`, `aioInstanceName`, `schemaRegistryName`, and `opcuaSchemaName`.
 
+1. Deploy the resources using the [az stack group](/azure/azure-resource-manager/bicep/deployment-stacks?tabs=azure-powershell) command in your terminal:
+
+    ```azurecli
+    az stack group create --name MyDeploymentStack --resource-group $RESOURCE_GROUP --template-file /workspaces/explore-iot-operations/<filename>.bicep --action-on-unmanage 'deleteResources' --deny-settings-mode 'none' --yes
+    ```
+
+This endpoint is the destination for the dataflow that receives messages to Azure Data Explorer.
+
+```bicep
+// ADX Endpoint
+resource adxEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
+  parent: aioInstance
+  name: 'adx-ep'
+  extendedLocation: {
+    name: customLocation.id
+    type: 'CustomLocation'
+  }
+  properties: {
+    endpointType: 'DataExplorer'
+    dataExplorerSettings: {
+      authentication: {
+        method: 'SystemAssignedManagedIdentity'
+        systemAssignedManagedIdentitySettings: {}
+      }
+      host: 'https://adx-aio.westus2.kusto.windows.net'
+      database: 'aio'
+      batching: {
+        latencySeconds: 5
+        maxMessages: 10000
+      }
+    }
+  }
+}
+```
+
+<!-- Add a cmd line to edit values in Bicep file !-->
 ---
 
 ## Configure dataflow destination
@@ -117,16 +146,55 @@ spec:
         dataDestination: database-name
 ```
 
+# [Bicep](#tab/bicep)
+
+```bicep
+resource dataflow_adx 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2024-08-15-preview' = {
+  parent: defaultDataflowProfile
+  name: 'dataflow-adx'
+  extendedLocation: {
+    name: customLocation.id
+    type: 'CustomLocation'
+  }
+  properties: {
+    mode: 'Enabled'
+    operations: [
+      {
+        operationType: 'Source'
+        sourceSettings: {
+          endpointRef: defaultDataflowEndpoint.name
+          dataSources: [
+            'thermostats/+/telemetry/temperature/#', 
+            'humidifiers/+/telemetry/humidity/#'
+          ]
+        }
+      }
+      {
+        operationType: 'BuiltInTransformation'
+        builtInTransformationSettings: {
+          // Transformation configuration
+        }
+      }
+      {
+        operationType: 'Destination'
+        destinationSettings: {
+          endpointRef: adxEndpoint.name
+          dataDestination: 'SensorData'
+        }
+      }
+    ]
+  }
+}
+```
+
+---
+
 For more information about dataflow destination settings, see [Create a dataflow](howto-create-dataflow.md).
 
 > [!NOTE]
 > Using the Azure Data Explorer endpoint as a source in a dataflow isn't supported. You can use the endpoint as a destination only.
 
 To customize the endpoint settings, see the following sections for more information.
-
-# [Bicep](#tab/bicep)
-
-TODO
 
 ---
 
@@ -163,8 +231,41 @@ dataExplorerSettings:
 
 # [Bicep](#tab/bicep)
 
-TODO
+In the *DataflowEndpoint* Bicep file, specify the managed identity authentication method. In most cases, you don't need to specify other settings. This configuration creates a managed identity with the default audience `https://api.kusto.windows.net`.
 
+```bicep
+resource adxEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
+    ...
+   properties: {
+     endpointType: 'DataExplorer'
+     dataExplorerSettings: {
+       authentication: {
+         method: 'SystemAssignedManagedIdentity'
+         systemAssignedManagedIdentitySettings: {}
+       }
+     }
+   }
+}
+```
+
+If you need to override the system-assigned managed identity audience, you can specify the `audience` setting.
+
+```bicep
+resource adxEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
+    ...
+   properties: {
+     endpointType: 'DataExplorer'
+     dataExplorerSettings: {
+       authentication: {
+         method: 'SystemAssignedManagedIdentity'
+         systemAssignedManagedIdentitySettings: {
+            audience: 'https://<audience URL>'    
+        }
+       }
+     }
+   }
+}
+```
 ---
 
 #### User-assigned managed identity
@@ -184,7 +285,23 @@ dataExplorerSettings:
 
 # [Bicep](#tab/bicep)
 
-TODO
+```bicep
+resource adxEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
+    ...
+   properties: {
+     endpointType: 'DataExplorer'
+     dataExplorerSettings: {
+       authentication: {
+         method: 'UserAssignedManagedIdentity'
+         userAssignedManagedIdentitySettings: {
+            clientId: '<ID>'
+            tenantId: '<ID>'
+        }
+       }
+     }
+   }
+}
+```
 
 ---
 
@@ -214,5 +331,22 @@ dataExplorerSettings:
 
 # [Bicep](#tab/bicep)
 
-TODO
+Set the values in the dataflow endpoint bicep file.
+
+```bicep
+resource adxEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
+    ...
+  properties: {
+    endpointType: 'DataExplorer'
+    dataExplorerSettings: {
+      ...
+      batching: {
+        latencySeconds: 5
+        maxMessages: 10000
+      }
+    }
+  }
+}
+```
+
 ---
