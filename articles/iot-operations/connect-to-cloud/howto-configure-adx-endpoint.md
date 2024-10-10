@@ -23,7 +23,10 @@ To send data to Azure Data Explorer in Azure IoT Operations Preview, you can con
 - A [configured dataflow profile](howto-configure-dataflow-profile.md)
 - An **Azure Data Explorer cluster**. Follow the **Full cluster** steps in the [Quickstart: Create an Azure Data Explorer cluster and database](/azure/data-explorer/create-cluster-and-database). The *free cluster* option doesn't work for this scenario.
 
+
 ## Create an Azure Data Explorer database
+
+# [Kubernetes](#tab/kubernetes)
 
 1. In the Azure portal, create a database in your Azure Data Explorer *full* cluster.
 
@@ -52,7 +55,15 @@ To send data to Azure Data Explorer in Azure IoT Operations Preview, you can con
 
 1. In your Azure Data Explorer database, under **Security + networking** select **Permissions** > **Add** > **Ingestor**. Search for the Azure IoT Operations extension name then add it.
 
+# [Bicep](#tab/bicep)
+
+TODO
+
+---
+
 ## Create an Azure Data Explorer dataflow endpoint
+
+# [Kubernetes](#tab/kubernetes)
 
 Create the dataflow endpoint resource with your cluster and database information. We suggest using the managed identity of the Azure Arc-enabled Kubernetes cluster. This approach is secure and eliminates the need for secret management.
 
@@ -72,9 +83,17 @@ spec:
       systemAssignedManagedIdentitySettings: {}
 ```
 
+# [Bicep](#tab/bicep)
+
+TODO
+
+---
+
 ## Configure dataflow destination
 
 Once the endpoint is created, you can use it in a dataflow by specifying the endpoint name in the dataflow's destination settings.
+
+# [Kubernetes](#tab/kubernetes)
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1beta1
@@ -105,6 +124,12 @@ For more information about dataflow destination settings, see [Create a dataflow
 
 To customize the endpoint settings, see the following sections for more information.
 
+# [Bicep](#tab/bicep)
+
+TODO
+
+---
+
 ### Available authentication methods
 
 The following authentication methods are available for Azure Data Explorer endpoints. For more information about enabling secure settings by configuring an Azure Key Vault and enabling workload identities, see [Enable secure settings in Azure IoT Operations Preview deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
@@ -114,6 +139,8 @@ The following authentication methods are available for Azure Data Explorer endpo
 Using the system-assigned managed identity is the recommended authentication method for Azure IoT Operations. Azure IoT Operations creates the managed identity automatically and assigns it to the Azure Arc-enabled Kubernetes cluster. It eliminates the need for secret management and allows for seamless authentication with Azure Data Explorer.
 
 Before you create the dataflow endpoint, assign a role to the managed identity that grants permission to write to the Azure Data Explorer database. For more information on adding permissions, see [Manage Azure Data Explorer cluster permissions](/azure/data-explorer/manage-cluster-permissions).
+
+# [Kubernetes](#tab/kubernetes)
 
 In the *DataflowEndpoint* resource, specify the managed identity authentication method. In most cases, you don't need to specify other settings. This configuration creates a managed identity with the default audience `https://api.kusto.windows.net`.
 
@@ -134,9 +161,17 @@ dataExplorerSettings:
       audience: https://<audience URL>
 ```
 
+# [Bicep](#tab/bicep)
+
+TODO
+
+---
+
 #### User-assigned managed identity
 
 To use a user-assigned managed identity, specify the `UserAssignedManagedIdentity` authentication method and provide the `clientId` and `tenantId` of the managed identity.
+
+# [Kubernetes](#tab/kubernetes)
 
 ```yaml
 dataExplorerSettings:
@@ -146,6 +181,12 @@ dataExplorerSettings:
       clientId: <ID>
       tenantId: <ID>
 ```
+
+# [Bicep](#tab/bicep)
+
+TODO
+
+---
 
 ## Advanced settings
 
@@ -160,6 +201,8 @@ Use the `batching` settings to configure the maximum number of messages and the 
 
 For example, to configure the maximum number of messages to 1000 and the maximum latency to 100 seconds, use the following settings:
 
+# [Kubernetes](#tab/kubernetes)
+
 Set the values in the dataflow endpoint custom resource.
 
 ```yaml
@@ -168,3 +211,8 @@ dataExplorerSettings:
     latencySeconds: 100
     maxMessages: 1000
 ```
+
+# [Bicep](#tab/bicep)
+
+TODO
+---
