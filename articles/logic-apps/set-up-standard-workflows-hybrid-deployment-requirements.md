@@ -57,7 +57,7 @@ This how-to guide shows how to set up the necessary on-premises resources in you
 
 ## Create a Kubernetes cluster
 
-Before you can deploy your Standard logic app as on-premises resource to an Azure Arc-enabled Kubernetes cluster in an Azure Container Apps connected environment, you first need a [Kubernetes cluster](/azure/aks/core-aks-concepts#cluster-components). You'll later connect this cluster to Azure Arc so that you have an [Azure Arc-enabled Kubernetes cluster](/azure/azure-arc/kubernetes/overview). For more information, see [Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using Azure CLI](/azure/aks/learn/quick-kubernetes-deploy-cli).
+Before you can deploy your Standard logic app as on-premises resource to an Azure Arc-enabled Kubernetes cluster in an Azure Container Apps connected environment, you first need a [Kubernetes cluster](/azure/aks/core-aks-concepts#cluster-components). You'll later connect this cluster to Azure Arc so that you have an [Azure Arc-enabled Kubernetes cluster](/azure/azure-arc/kubernetes/overview).
 
 Your Kubernetes cluster requires inbound and outbound connectivity with the [SQL database that you later create as the storage provider](#create-storage-provider) and with the [Server Message Block file share that you later create for artifacts storage](#set-up-smb-file-share). These resources must exist within the same network.
 
@@ -116,8 +116,9 @@ Your Kubernetes cluster requires inbound and outbound connectivity with the [SQL
    | **`max count`** | No | <*max-nodes-value*> | The maximum number of nodes to use for the autoscaler when you include the **`enable-cluster-autoscaler`** option. This value ranges from **1** to **1000**. |
    | **`min count`** | No | <*min-nodes-value*> | The minimum number of nodes to use for the autoscaler when you include the **`enable-cluster-autoscaler`** option. This value ranges from **1** to **1000**. |
 
-   For more information, see the following documentation:
+   For more information, see the following resources:
 
+   - [Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using Azure CLI](/azure/aks/learn/quick-kubernetes-deploy-cli)
    - [**az account set**](/cli/azure/account#az-account-set)
    - [**az group create**](/cli/azure/group#az-group-create)
    - [**az aks create**](/cli/azure/aks#az-aks-create)
