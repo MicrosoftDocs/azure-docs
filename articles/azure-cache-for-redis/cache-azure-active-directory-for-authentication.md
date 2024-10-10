@@ -147,6 +147,7 @@ The following table includes links to code samples. They demonstrate how to conn
 | Client library  | Language   | Link to sample code|
 |----|----|----|
 | StackExchange.Redis | .NET           | [StackExchange.Redis code sample](https://github.com/Azure/Microsoft.Azure.StackExchangeRedis)   |
+| go-redis            | Go             | [go-redis code sample](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#example-package-Redis) |
 | redis-py            | Python         | [redis-py code sample](https://aka.ms/redis/aad/sample-code/python)        |
 | Jedis               | Java           | [Jedis code sample](https://aka.ms/redis/aad/sample-code/java-jedis)    |
 | Lettuce             | Java           | [Lettuce code sample](https://aka.ms/redis/aad/sample-code/java-lettuce)  |
