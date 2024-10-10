@@ -67,7 +67,7 @@ ms.custom: references_regions
   within Azure, including AKS clusters. In some cases, policies may block the creation of Azure Container Storage pods and components. You can find more details 
   on working with Azure Policy for Kubernetes by consulting [Azure Policy for Kubernetes](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/policy-for-kubernetes).
   To resolve this, follow these steps:
-   - [Create your Azure Kubernetes cluster](https://learn.microsoft.com/en-us/azure/storage/container-storage/install-container-storage-aks)
+   - [Create your Azure Kubernetes cluster](install-container-storage-aks.md)
    - Enable Azure Policy for AKS
    - Create a policy that you suspect is blocking the installation of Azure Container Storage
    - Attempt to install Azure Container Storage in the AKS cluster
