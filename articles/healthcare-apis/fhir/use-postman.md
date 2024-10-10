@@ -38,7 +38,7 @@ To access **FHIR service** from **Postman** application, review the steps
 [![Screenshot shows the App registrations menu under the Manage section of Microsoft Entra ID.](media/postman/app-registration-1.png)](media/postman/app-registration-1.png#lightbox)
 3. Select **+ New registrations**.
 
-4. Enter a name for app registration.  Under Supported account types, select **Accounts in this organization directory only**. Leave the other options as they are, and then select **Register**.
+4. Enter a name for app registration.  Under Supported account types, select **Accounts in this organization directory only**. select **Register**.
 [![Screenshot that shows the form to enter a name for the new app registration](media/postman/app-registration-2.png)](media/postman/app-registration-2.png#lightbox)
 
 ### Application ID (client ID)
@@ -81,7 +81,7 @@ After registering a new application, you can find the Application (client) ID an
 This section shows the steps to assign **FHIR Data Contributor** role to a registered application for the FHIR® service in Azure Health Data Services.
 
 1. In the Azure portal, navigate to your FHIR service. 
-2. In the left-hand menu, select the **Access Control (IAM)** blade.Click on + Add and then select Add role assignment.If the option for adding a role assignment is unavailable, ask your Azure administrator to assign you permission to perform this step.
+2. In the left-hand menu, select the **Access Control (IAM)** blade.Click on + Add and then select Add role assignment. If the option for adding a role assignment is unavailable, ask your Azure administrator to assign you permission to perform this step.
 [![Screenshot that shows the Azure portal's FHIR service Access Control (IAM) blade with the option to add a role assignment.](media/postman/FHIR-Service-Access-Control.png)](media/postman/FHIR-Service-Access-Control.png#lightbox)
 3. In **Add** role assignment under the **Role** tab, scroll down in the list and select **FHIR Data Contributor**. Then click **Next**.
 [![Screenshot that shows the "Add role assignment" window, with the list of roles where the "FHIR Data Contributor" role is selected.](media/postman/Add-Role-Assignment.png)](media/postman/Add-Role-Assignment.png#lightbox)
