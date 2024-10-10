@@ -13,30 +13,6 @@ ms.custom: template-concept
 
 This document outlines the requirements and behaviors associated with managing Nexus Network Fabric (NNF) resources in Azure when dealing with multiple subscriptions. It describes various scenarios involving different levels of access permissions that can affect operations across subscriptions. This document also covers the linked access check implementation, which ensures that proper permissions and access controls are enforced when managing Network Fabric (NNF) resources across multiple subscriptions, verifying that the required cross-subscription links have the necessary authorizations in place.
 
-## Scenarios
-
-### Limited access in subscription A
-
-In this scenario, the user has access to two subscriptions: **Subscription A** and **Subscription B**. In **Subscription A**, the user has only `read` access to the Network Fabric (NNF) resources.
-
-**Outcome:** When the user tries to create or manage any NNF resource in **Subscription B** by referencing the NNF resource from **Subscription A**, the operation fails with a `LinkedAuthorizationFailed` error. This failure occurs because the user does not have the necessary `Join` access to the NNF resource.
-
-### Sufficient access in both subscriptions
-
-In this scenario, the user has access to both **Subscription A** and **Subscription B**, with either `Contributor` or `Owner` permissions in both subscriptions.
-
-**Outcome**: When the user tries to create or manage Network Fabric (NNF) resources in **Subscription B** by referencing NNF resources in **Subscription A**, the operation succeeds. This confirms that sufficient permissions enable successful resource management across subscriptions.
-
-### No access to subscription A
-
-In this scenario, the user has no access to **Subscription A**, where the Network Fabric (NNF) resources are deployed, but has Contributor or Owner rights in **Subscription B**.
-
-Outcome:
-When the user tries to create or manage NNF resources in **Subscription B** by referencing NNF resources in **Subscription A**, the operation fails with an AuthorizationFailed error. This occurs because the user lacks either the required Read access to **Subscription A** along with Join access to the referenced resource, or Write access to **Subscription A** along with Join access to the referenced resource.
-
->[!NOTE]
->Network Fabric cannot be created in a different subscription than the referenced Network Fabric Controller (NFC).
-
 ## Permissions overview
 
 To effectively manage NNF resources across Azure subscriptions, users must have the appropriate permissions. The following permissions are essential:
@@ -50,6 +26,37 @@ To effectively manage NNF resources across Azure subscriptions, users must have 
 ### Resource-level permissions
 
 - **Join access:** Users must have Join access to the specific NNF resources they wish to reference. For example, when a user tries to create an L2 or L3 isolation domain in **Subscription B** while referencing an NNF resource in **Subscription A**, the user must have Join access on the NNF resource.
+
+## Subscription context and user permissions
+
+In this document, we consider two Azure subscriptions, **Subscription A** and **Subscription B**, where users interact with NNF resources. The permissions assigned to users in each subscription determine their ability to manage these resources effectively.
+
+**Subscription A:** This subscription hosts the primary NNF resources. Depending on the user’s permissions, access levels can vary from read-only to full control.
+
+**Subscription B:** This subscription is used for creating and managing NNF resources that may reference resources from **Subscription A**.
+
+## Scenarios
+
+### Limited access in subscription
+
+In this scenario, the user has access to two subscriptions: **Subscription A** and **Subscription B**. In **Subscription A**, the user has only `read` access to the Network Fabric (NNF) resources.
+
+**Outcome:** When the user tries to create or manage any NNF resource in **Subscription B** by referencing the NNF resource from **Subscription A**, the operation fails with a `LinkedAuthorizationFailed` error. This failure occurs because the user does not have the necessary `Join` access to the NNF resource.
+
+### Sufficient access in both subscriptions
+
+In this scenario, the user has access to both **Subscription A** and **Subscription B**, with either `Contributor` or `Owner` permissions in both subscriptions.
+
+**Outcome:** When the user tries to create or manage Network Fabric (NNF) resources in **Subscription B** by referencing NNF resources in **Subscription A**, the operation succeeds. This confirms that sufficient permissions enable successful resource management across subscriptions.
+
+### No access to subscription
+
+In this scenario, the user has no access to **Subscription A**, where the Network Fabric (NNF) resources are deployed, but has Contributor or Owner rights in **Subscription B**.
+
+**Outcome:** When the user tries to create or manage NNF resources in **Subscription B** by referencing NNF resources in **Subscription A**, the operation fails with an AuthorizationFailed error. This occurs because the user lacks either the required Read access to **Subscription A** along with Join access to the referenced resource, or Write access to **Subscription A** along with Join access to the referenced resource.
+
+>[!NOTE]
+>Network Fabric cannot be created in a different subscription than the referenced Network Fabric Controller (NFC).
 
 ## Resource management considerations
 
