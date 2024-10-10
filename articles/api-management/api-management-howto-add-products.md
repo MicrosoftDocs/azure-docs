@@ -218,6 +218,8 @@ In this article, you use Terraform to create an Azure API Management instance, a
 
 > [!div class="checklist"]
 >
+> * Specify the required version of Terraform and the required providers.
+> * Define variables for the resource group name prefix, resource group location, and the content format and value for the API definition import.
 > * Create a resource group with a randomized name.
 > * Create an API Management service with a randomized name.
 > * Create an API with a randomized name.
@@ -226,8 +228,6 @@ In this article, you use Terraform to create an Azure API Management instance, a
 > * Associate the API with the product.
 > * Associate the group with the product.
 > * Output the randomized values such as the names of the resource group, API Management service, API, product, and group.
-> * Specify the required version of Terraform and the required providers.
-> * Define variables for the resource group name prefix, resource group location, and the content format and value for the API definition import.
 
 ## Prerequisites
 
@@ -270,9 +270,13 @@ In this article, you use Terraform to create an Azure API Management instance, a
 
 ## Verify the results
 
-Run [`az apim show`](/cli/azure/apim#az-apim-show) to view the Azure API Management.
+Run [`az apim show`](/cli/azure/apim#az-apim-show) to view the Azure API Management:
 
-The placeholders in the code block that must be changed are `<resource_group_name_prefix>`, `<resource_group_location>`, `<open_api_spec_content_format>`, and `<open_api_spec_content_value>`.
+```azurecli
+
+az apim show --<apim_service_name> --<resource_group_name>
+
+```
 
 ## Clean up resources
 
