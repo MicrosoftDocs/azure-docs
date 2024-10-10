@@ -177,7 +177,7 @@ Where:
 |--|--|
 |**VK-C1000V-LongRunning-650** | CPPM VA name |
 |**1010-1020** |VLAN range from which IoT traffic is mirrored |
-|**10** |tive VLAN ID of the environment |
+|**10** |Native VLAN ID of the environment |
 
 Learn more about the [Set-VMNetworkAdapterVlan](https://learn.microsoft.com/powershell/module/hyper-v/set-vmnetworkadaptervlan) PowerShell cmdlet.
 
