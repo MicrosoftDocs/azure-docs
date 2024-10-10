@@ -179,7 +179,7 @@ Where:
 |**1010-1020** |VLAN range from which IoT traffic is mirrored |
 |**10** |tive VLAN ID of the environment |
 
-Learn more about the [Set-VMNetworkAdapterVlan](https://learn.microsoft.com/powershell/module/hyper-v/set-vmnetworkadaptervlan) PowerShell cmdlet.
+Learn more about the [Set-VMNetworkAdapterVlan](docset/winserver2022-ps/hyper-v/Set-VMNetworkAdapterVlan.md) PowerShell cmdlet.
 
 [!INCLUDE [validate-traffic-mirroring](../includes/validate-traffic-mirroring.md)]
 
