@@ -296,7 +296,7 @@ While deployment is also supported from the command line, we recommend that you 
 
     :::image type="content" source="media/deploy-data-connector-agent-container/finish-agent-deployment-role.png" alt-text="Screenshot of the Copy icon for the command from step 1.":::
 
-    To find your VM identity object ID in Azure:
+    To find your VM identity object ID in Azure: <!--confirm this with Dvir-->
 
     - For a managed identity, the object ID is listed on the VM's **Identity** page.
 
@@ -339,7 +339,7 @@ While deployment is also supported from the command line, we recommend that you 
     - Under **System identifier**, select the server type:
 
         - **ABAP Server**
-        - **Message Server** to use a message server as part of an ABAP SAP Central Services (ACSC).
+        - **Message Server** to use a message server as part of an ABAP SAP Central Services (ASCS).
 
     - Continue by defining related details for your server type:
 
