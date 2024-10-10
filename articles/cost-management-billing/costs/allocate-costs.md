@@ -18,7 +18,7 @@ With cost allocation, you can reassign or distribute the costs of shared service
 
 Cost allocation doesn't support purchases, including reservations and savings plans.
 
-Cost allocation doesn't affect your billing invoice. Billing responsibilities don't change. The primary purpose of cost allocation is to help you charge back costs to others. All chargeback processes happen in your organization outside of Azure. Cost allocation helps you charge back costs by showing them as the get reassigned or distributed.
+Cost allocation doesn't affect your billing invoice. Billing responsibilities don't change. The primary purpose of cost allocation is to help you charge back costs to others. All chargeback processes happen in your organization outside of Azure. Cost allocation helps you charge back costs by showing them as they get reassigned or distributed.
 
 Allocated costs appear in cost analysis. They appear as other items associated with the targeted subscriptions, resource groups, or tags that you specify when you create a cost allocation rule.
 
