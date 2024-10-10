@@ -33,7 +33,7 @@ Complete the following steps to create the offer and configure the top-level att
 1. Sign in to [Partner Center](https://partner.microsoft.com/) with your account.
 1. Select **Marketplace offers**.
  
-:::image type="content" source="media/sentinel-partner-content/partner-center-offers-home.png" alt-text="Screenshot of partner center home page":::   
+:::image type="content" source="media/sentinel-partner-content/partner-center-offers-home.png" alt-text="Screenshot of partner center home page." lightbox="media/sentinel-partner-content/partner-center-offers-home.png":::   
 
 1. Select "New offer" and then select "Azure application."
 
