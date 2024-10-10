@@ -51,3 +51,7 @@ In this step, we perform a series of final validation checks to ensure the live 
 Once the solution is published in Azure Marketplace, it takes anywhere between 1-2 days before the solution is available in Sentinel content hub. If you published your solution over the weekend, your solution is available by Tuesday. Once your solution is synced to Sentinel, customers are able to find the same in Content hub and can manage the entire lifecycle within Sentinel (install, configure, monitor, uninstall etc.)
 
 :::image type="content" source="media/sentinel-partner-content/partner-solution-content-hub.png" alt-text="Screenshot showing the solution in Sentinel Content hub":::  
+
+## Related content
+
+[Discover and manage Microsoft Sentinel out-of-the-box content](https://learn.microsoft.com/en-us/azure/sentinel/sentinel-solutions-deploy?tabs=azure-portal#discover-content)
