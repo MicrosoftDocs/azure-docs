@@ -1,7 +1,7 @@
 ---
 title: View and manage alerts on your OT sensor - Microsoft Defender for IoT
 description: Learn about viewing and managing alerts on an OT network sensor.
-ms.date: 12/12/2022
+ms.date: 10/10/2024
 ms.topic: how-to
 ---
 
@@ -53,10 +53,6 @@ For more information, see [On-premises users and roles for OT monitoring with De
 ### Filter alerts displayed
 
 Use the **Search** box, **Time range**, and **Add filter** options to filter the alerts displayed by specific parameters or help locate a specific alert.
-
-For example:
-
-:::image type="content" source="media/how-to-view-alerts/filter-alerts-groups.png" alt-text="Screenshot of an OT sensor Alerts page being filtered by Groups.":::
 
 Filtering alerts by **Groups** uses any custom groups you may have created in the [Device inventory](how-to-investigate-sensor-detections-in-a-device-inventory.md) or the [Device map](how-to-work-with-the-sensor-device-map.md) pages.
 
