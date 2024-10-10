@@ -53,7 +53,7 @@ This how-to guide shows how to set up the necessary on-premises resources in you
 
 - [Technical requirements for working with Azure CLI](/azure/aks/learn/quick-kubernetes-deploy-cli#before-you-begin)
 
-- [Tecnical requirements for Azure Container Apps on Azure Arc-enabled Kubernetes](/azure/container-apps/azure-arc-overview#prerequisites), including access to a public or private container registry, such as the [Azure Container Registry](/azure/container-registry/).
+- [Technical requirements for Azure Container Apps on Azure Arc-enabled Kubernetes](/azure/container-apps/azure-arc-overview#prerequisites), including access to a public or private container registry, such as the [Azure Container Registry](/azure/container-registry/).
 
 ## Create a Kubernetes cluster
 
@@ -299,7 +299,7 @@ To create your Azure Arc-enabled Kubernetes cluster, connect your Kubernetes clu
    - [Create connected cluster](../container-apps/azure-arc-enable-cluster.md?tabs=azure-cli#create-a-connected-cluster)
    - [az connectedk8s show](/cli/azure/connectedk8s?#az-connectedk8s-show)
 
-## Create a Azure Log Analytics workspace
+## Create an Azure Log Analytics workspace
 
 You can create an optional, but recommended, Azure Log Analytics workspace, which provides access to logs for apps that run in your Azure Arc-enabled Kubernetes cluster.
 
@@ -360,7 +360,7 @@ You can create an optional, but recommended, Azure Log Analytics workspace, whic
 
 ## Create and install the Azure Container Apps extension
 
-Now, create and install the Azure Container Apps extension with your Azure Arc-enabled Kubernetes cluster as an on-premies resource.
+Now, create and install the Azure Container Apps extension with your Azure Arc-enabled Kubernetes cluster as an on-premises resource.
 
 > [!IMPORTANT]
 >
