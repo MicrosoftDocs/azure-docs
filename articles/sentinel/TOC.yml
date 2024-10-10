@@ -1039,7 +1039,7 @@
     href: sentinel-service-limits.md
   - name: Microsoft Sentinel REST-API
     href: /rest/api/securityinsights/
-- name: Build and Publish Sentinel solutions
+- name: Build and publish Microsoft Sentinel solutions
   items:
   - name: Pulbish Sentinel solutions
     href: publish-sentinel-solutions.md
