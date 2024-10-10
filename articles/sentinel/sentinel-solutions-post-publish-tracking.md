@@ -15,7 +15,7 @@ ms.date: 10/09/2024
 This document explains what happens once your offer is successfully published. Within partner center, your solution would be referred to as an offer (the terms solution and offer are used interchangeably in the context of this document). Once you publish the offer, the offer goes through a series of validation checks before it becomes live in Azure Marketplace and in the Sentinel content hub. 
 
 
-- **Solution is successfully published**. Ensure that the offer is successfully created and published in Partner Center. If you didn't create an offer yet, follow the steps in the [previous document](publish-sentinel-solutions.md) to create and publish the offer.
+If you didn't create an offer yet, follow the steps in the [Publish solutions to Microsoft Sentinel](publish-sentinel-solutions.md).
 
 ## Step 1: Automated validation phase
 The first step in the publishing process is a set of automated validations to ensure that the offer is set up correctly and can be provisioned successfully. This step can take anywhere between 1-2 hours. Any issues identified in the validation phase should be fixed before offer can proceed to the next stage in its lifecycle.  
