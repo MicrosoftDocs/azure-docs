@@ -64,7 +64,7 @@ ms.custom: references_regions
   
   If you’re experiencing installation issues with Azure Container Storage in your AKS cluster, it might be due to Azure Policy restrictions. To resolve this, 
   you’ll need to add the `acstor` namespace to the exclusion list of your Azure Policy. Azure Policy is used to create and enforce rules for managing resources 
-  within Azure, including AKS clusters. In some cases, policies may block the creation of Azure Container Storage pods and components. You can find more details 
+  within Azure, including AKS clusters. In some cases, policies might block the creation of Azure Container Storage pods and components. You can find more details 
   on working with Azure Policy for Kubernetes by consulting [Azure Policy for Kubernetes](/azure/governance/policy/concepts/policy-for-kubernetes).
   To resolve this, follow these steps:
    - [Create your Azure Kubernetes cluster](install-container-storage-aks.md)
