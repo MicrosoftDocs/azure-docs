@@ -127,7 +127,7 @@ No changes required; you can ignore this section.
 You can opt whether you want to expand the reach of your solution by offering it through Microsoft’s Cloud Solution Providers (CSP) program. Here you can use from three options which define which of the CSP partners can resell your solution. You can choose any partner, specific list of partners, or you can choose to opt out.
 
 ## Review and Publish
-After you enter all the details, select on each of the tabs to review your offer for errors/omissions. When you're ready, select on the "Review and publish" from any of the tabs. The review page shows the status of your submission for each of the tabs (Complete, Incomplete). Publish button is enabled only if all the required details are filled out,  that is, status shows as Complete for all tabs. For the pages with status as Incomplete, select on the page link to fill out the missing details and select "Review and publish" again.
+After you enter all the details, select on each of the tabs to review your offer for errors/omissions. When you're ready, select on the **Review and publish** from any of the tabs. The review page shows the status of your submission for each of the tabs (Complete, Incomplete). The **Publish** button is enabled only if all the required details are filled out,  that is, status shows as **Complete** for all tabs. For the pages with status as **Incomplete**, select on the page link to fill out the missing details and select **Review and publish** again.
 
 In this screenshot, only the Offer setup and Technical configuration pages are fully filled out and the rest have missing details.
 
