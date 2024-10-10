@@ -1041,7 +1041,7 @@
     href: /rest/api/securityinsights/
 - name: Build and publish Microsoft Sentinel solutions
   items:
-  - name: Pulbish Sentinel solutions
+  - name: Publish solutions
     href: publish-sentinel-solutions.md
   - name: Tracking Sentinel solution lifecycle post publish
     href: sentinel-solutions-post-publish-tracking.md
