@@ -18,7 +18,7 @@ This article walks you through the process of publishing your solutions to Micro
 
 ## Prerequisites
 
-- **Solution code approved in GitHub**. Ensure that the Microsoft Sentinel team approved your solution and that the code is merged to the main branch of the GitHub repository. Once approved, your solution is available in the GitHub repository for Microsoft Sentinel at "https://github.com/Azure/Azure-Sentinel/tree/\<Your branch\>/Solutions/\<Your Solution Folder\>." If you don't find your solution in the GitHub repository, reach out to the Microsoft Sentinel team for assistance.
+- **Solution code approved in GitHub**: Ensure that the Microsoft Sentinel team approved your solution and that the code is merged to the main branch of the GitHub repository. Once approved, your solution is available in the GitHub repository for Microsoft Sentinel at "https://github.com/Azure/Azure-Sentinel/tree/\<Your branch\>/Solutions/\<Your Solution Folder\>." If you don't find your solution in the GitHub repository, reach out to the Microsoft Sentinel team for assistance.
 
 - **Solution package created**. Your solution package must be created and uploaded to the GitHub repository and should be available at "https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/\<Your Solution Folder\>/Package" folder with the correct version. The solution package contains the *createUiDefinition.json* and *mainTemplate.json* files which are required for correctly listing solutions in Azure Marketplace and Sentinel content hub.
  
