@@ -1,26 +1,6 @@
 {
   "redirections": [
     {
-      "source_path": "articles/storage/scripts/storage-blobs-container-calculate-billing-size-powershell.md",
-      "redirect_url": "/previous-versions/azure/storage/scripts/storage-blobs-container-calculate-billing-size-powershell",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/storage/scripts/storage-blobs-container-calculate-size-powershell.md",
-      "redirect_url": "/previous-versions/azure/storage/scripts/storage-blobs-container-calculate-size-powershell",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/storage/scripts/storage-blobs-container-delete-by-prefix-powershell.md",
-      "redirect_url": "/previous-versions/azure/storage/scripts/storage-blobs-container-delete-by-prefix-powershell",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/storage/scripts/storage-common-rotate-account-keys-powershell.md",
-      "redirect_url": "/previous-versions/azure/storage/scripts/storage-common-rotate-account-keys-powershell",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/defender-for-iot/organizations/eiot-sensor.md",
       "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/eiot-sensor",
       "redirect_document_id": false
