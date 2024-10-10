@@ -502,4 +502,4 @@ For more information on *plugin_flush_interval*, see the [Optional Configuration
 
 In this article, you learned how to use Logstash to connect external data sources to Microsoft Sentinel. To learn more about Microsoft Sentinel, see the following articles:
 - Learn how to [get visibility into your data and potential threats](get-visibility.md).
-- Get started [detecting threats with Microsoft Sentinel](detect-threats.md).
+- Get started [detecting threats with Microsoft Sentinel](threat-detection.md).
