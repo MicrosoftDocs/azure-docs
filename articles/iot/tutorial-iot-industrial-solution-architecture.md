@@ -180,9 +180,9 @@ Select the **Deploy** button to deploy all required resources on Microsoft Azure
 During deployment, you must provide a password for a Virtual Machine (VM) used to host the production line simulation and for UA Cloud Twin. The password must have three of the following attributes: One lower case character, one upper case character, one number, and one special character. The password must be between 12 and 72 characters long.
 
 > [!NOTE]
-> To save cost, the deployment deploys a single Windows 11 Enterprise VM for both the production line simulation and Edge infrastructure. In production scenarios, the production line simulation isn't required and for the base OS for the Azure Kubernetes Services Edge Essentials instance, we recommend Windows IoT Enterprise Long Term Servicing Channel (LTSC).
+> To save cost, the deployment deploys a single Windows 11 Enterprise VM for both the production line simulation and Edge infrastructure. In production scenarios, the production line simulation isn't required and for the base OS, we recommend Windows IoT Enterprise Long Term Servicing Channel (LTSC).
 
-Once the deployment completes, connect to the deployed Windows VM with an RDP (remote desktop) connection. You can download the RDP file in the [Azure portal](https://portal.azure.com) page for the VM, under the **Connect** options. Sign in using the credentials you provided during deployment, open an **Windows command prompt** and install the Windows Subsystem for Linux (WSL) via:
+Once the deployment completes, connect to the deployed Windows VM with an RDP (remote desktop) connection. You can download the RDP file in the [Azure portal](https://portal.azure.com) page for the VM, under the **Connect** options. Sign in using the credentials you provided during deployment, open a Windows command prompt and install the Windows Subsystem for Linux (WSL) via:
 
 ```     
     wsl --install
@@ -204,7 +204,7 @@ From the deployed VM, run a Windows command prompt, enter *wsl*, and press Enter
     sudo ./StartSimulation.sh "<EventHubsCS>"
 ```
 > [!NOTE]
-> <EventHubCS> is the Event Hubs namespace connection string as described [here](/azure/event-hubs/event-hubs-get-connection-string).
+> `<EventHubCS>` is the Event Hubs namespace connection string as described [here](/azure/event-hubs/event-hubs-get-connection-string).
 
 Example: StartSimulation "Endpoint=sb://ontologies.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=abcdefgh="
 
@@ -217,7 +217,7 @@ Example: StartSimulation "Endpoint=sb://ontologies.servicebus.windows.net/;Share
 
 ## Deploying Azure IoT Operations on the edge
 
-Before you deploy, confirm that you started the production line simulation and enabled K3S in your VM's Windows Subsystem for Linux (WSL). Then, follow these steps as described [here](/azure/iot-operations/deploy-iot-ops/overview-deploy).
+Before you deploy, confirm that you started the production line simulation. Then, follow these steps as described [here](/azure/iot-operations/deploy-iot-ops/overview-deploy).
 
 
 ## Use cases condition monitoring, calculating OEE, detecting anomalies, and making predictions in Azure Data Explorer
