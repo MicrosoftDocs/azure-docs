@@ -104,6 +104,10 @@ kubectl create secret generic cs-secret -n azure-iot-operations \
 > [!TIP]
 > Scoping the connection string to the namespace (as opposed to individual event hubs) allows a dataflow to send and receive messages from multiple different event hubs and Kafka topics.
 
+# [Bicep](#tab/bicep)
+
+Todo
+
 ---
 
 #### Limitations
@@ -162,6 +166,10 @@ spec:
     consumerGroupId: mqConnector
 ```
 
+# [Bicep](#tab/bicep)
+
+Todo
+
 ---
 
 ## Use the endpoint in a dataflow source or destination
@@ -198,6 +206,10 @@ spec:
       destinationSettings:
         endpointRef: kafka
 ```
+
+# [Bicep](#tab/bicep)
+
+Todo
 
 ---
 
@@ -250,6 +262,11 @@ kubectl create secret generic sasl-secret -n azure-iot-operations \
   --from-literal=token='your-sasl-token'
 ```
 
+# [Bicep](#tab/bicep)
+
+Todo
+
+
 ---
 
 #### X.509
@@ -287,6 +304,10 @@ kubectl create secret tls my-tls-secret -n azure-iot-operations \
   --key=path/to/key/file
 ```
 
+# [Bicep](#tab/bicep)
+
+Todo
+
 ---
 
 #### System-assigned managed identity
@@ -319,6 +340,10 @@ kafkaSettings:
       audience: <YOUR-AUDIENCE-OVERRIDE-VALUE>
 ```
 
+# [Bicep](#tab/bicep)
+
+Todo
+
 ---
 
 #### User-assigned managed identity
@@ -343,6 +368,10 @@ kafkaSettings:
 ```
 
 <!-- TODO: Add link to WLIF docs -->
+
+# [Bicep](#tab/bicep)
+
+Todo
 
 ---
 
@@ -708,5 +737,9 @@ CloudEvent properties are passed through for messages that contain the required 
 | `time`            | No       | `ce-time`            | Generated as RFC 3339 in the target client                                    |
 | `datacontenttype` | No       | `ce-datacontenttype` | Changed to the output data content type after the optional transform stage    |
 | `dataschema`      | No       | `ce-dataschema`      | Schema defined in the schema registry                                         |
+
+# [Bicep](#tab/bicep)
+
+Todo
 
 ---

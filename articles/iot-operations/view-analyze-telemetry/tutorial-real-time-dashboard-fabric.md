@@ -34,17 +34,20 @@ This walkthrough uses a virtual Kubernetes environment hosted in a GitHub Codesp
 
 ## Deploy edge and cloud Azure resources
 
-The MQTT broker and north-bound cloud connector components can be deployed as regular Azure resources as they have Azure Resource Provider (RPs) implementations. A single Bicep template file from the *explore-iot-operations* repository deploys all the required edge and cloud resources and Azure role-based access assignments. Run this command in your Codespace terminal:
+<!-- TODO Add deployment for edge and cloud resources using a single bicep file -->
+
+See the following steps to create a workspace and lakehouse in **Microsoft Fabric OneLake**.
+
+1. [Create a workspace](/fabric/get-started/create-workspaces).
+ 
+1. [Create a lakehouse](/fabric/onelake/create-lakehouse-onelake).
+
+1. This [Bicep File to create Dataflow](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/dataflow.bicep) deploys the necessary resources for dataflows to Fabric OneLake. Download the template file and replace the values for `customLocationName`, `aioInstanceName`, `schemaRegistryName`, and `opcuaSchemaName`.
+
+1. Deploy the resources using the [az stack group](/azure/azure-resource-manager/bicep/deployment-stacks?tabs=azure-powershell) command in your terminal:
 
 ```azurecli
-CLUSTER_NAME=<arc-connected-cluster-name>
-TEMPLATE_FILE_NAME='tutorials/mq-realtime-fabric-dashboard/deployEdgeAndCloudResources.bicep'
-
- az deployment group create \ 
-    --name az-resources \
-    --resource-group $RESOURCE_GROUP \
-    --template-file $TEMPLATE_FILE_NAME \
-    --parameters clusterName=$CLUSTER_NAME
+az stack group create --name MyDeploymentStack --resource-group $RESOURCE_GROUP --template-file /workspaces/explore-iot-operations/<filename>.bicep --action-on-unmanage 'deleteResources' --deny-settings-mode 'none' --yes
 ```
 
 > [!IMPORTANT]
