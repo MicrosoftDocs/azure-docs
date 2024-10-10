@@ -39,7 +39,17 @@ Complete the following steps to create the offer and configure the top-level att
 
 :::image type="content" source="media/sentinel-partner-content/partner-center-new-offer.png" alt-text="Screenshot of new offer option in partner center":::   
 
-1. Enter offer ID, offer alias, and select the publisher ID using which you want to publish Sentinel solutions (in case you have multiple accounts). Offer ID and offer alias are only visible to you in your partner center account (not visible to customers). The offer ID is part of the solution URL in Azure Marketplace once your solution is successfully published (ex- https://azuremarketplace.microsoft.com/marketplace/apps/\<*You offer ID*\>?tab=Overview)
+
+1. Enter the following information. 
+
+   |Field| Description|
+   |--|--|
+   |Offer ID| The offer ID should be the same as offer ID mentioned in the SolutionMetadata.json file in your solution folder in GitHub** - https://github.com/Azure/Azure-Sentinel/blob/\<Your Branch\>/Solutions/\<Your Solution\>/SolutionMetadata.json. We recommend using the naming convention for offer ID is "azure-sentinel-solution-\<your-solution-name\>". For example, "azure-sentinel-solution-ciscoumbrella". |
+   |Offer alias| (add description of what this is)|
+   |Publisher ID|Select the publisher ID that you want to use to publish your Microsoft Sentinel solution. |
+
+    Offer ID and offer alias are only visible to you in your partner center account. Those values aren't visible to customers.
+
     1. **Offer ID entered here should be the same as Offer ID mentioned in the SolutionMetadata.json file in your solution folder in GitHub** - https://github.com/Azure/Azure-Sentinel/blob/\<Your Branch\>/Solutions/\<Your Solution\>/SolutionMetadata.json 
     1. Recommended naming convention for offer ID is azure-sentinel-solution-\<your-solution-name\> (ex- azure-sentinel-solution-ciscoumbrella). 
     
