@@ -34,7 +34,7 @@ Information in the following table is updated regularly.
 | East US 2 | ✅ | ✅ | ✅ | ✅ |
 | East Asia | ✅ | ✅ | ✅ | ✅ |
 | France Central  | ✅ | ✅ | ✅ | ✅ |
-| Germany West Central  | ✅ | ✅ | ✅ |  |
+| Germany West Central  | ✅ | ✅ | ✅ | ✅ |
 | Korea Central | ✅ | ✅ | ✅ | | 
 | Japan East | ✅ | ✅ | ✅ | ✅ |
 | North Central US | ✅ | ✅ |  | ✅ |
