@@ -10,7 +10,7 @@ ms.date: 10/08/2024
 #CustomerIntent: As a ISV partner, I want to publish my solutions to Azure Marketplace so that customers can find and install the solutions from Sentinel content hub.
 ---
 
-# How to publish solutions to Microsoft Sentinel
+# Publish solutions to Microsoft Sentinel
 
 [Microsoft’s commercial marketplace](https://azuremarketplace.microsoft.com/home) is an online marketplace for applications and services that lets businesses of all sizes offer solutions to customers around the world. As an independent software vendor (ISV) member of the Partner Program, you can create, publish, and manage your Sentinel solutions in Partner Center. Your solutions are listed together with other Microsoft solutions, connecting you to businesses, organizations, and government agencies around the world. Sentinel solutions published in the marketplace are available to customers in Azure Marketplace and Microsoft Sentinel content hub.
 
