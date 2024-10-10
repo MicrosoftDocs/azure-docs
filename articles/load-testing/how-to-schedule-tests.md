@@ -40,22 +40,26 @@ In this article, you learn how to schedule load tests with Azure Load Testing. S
     | **End**| Select how you want the schedule to end. You can choose to end the schedule after a certain number of occurrences or on a specific date. Alternatively, you can choose not to end the schedule. |
 
     For a hourly recurrence, configure the following settings:
+
     | Field | Details |
     |-------|---------|
     | **Every** | Enter the number of hours between each test run. For example if you provide 6, the schedule will start at the start date and time provided and will run every 6 hours. |
 
     For a daily recurrence, configure the following settings:
+
     | Field | Details |
     |-------|---------|
     | **Every** | Enter the number of days between each test run. For example if you provide 2, the schedule will start at the start date and time provided and will run every 2 days. |
 
     For a weekly recurrence, configure the following settings:
+
     | Field | Details |
     |-------|---------|
     | **Every** | Enter the number of weeks between each test run. |
     | **Days** | Select the days of the week when the test should run. If you provided 2 weeks and selcted Monday, the schedule will start on the Monday after the start date and run every 2 weeks. |
 
     For a monthly recurrence, configure the following settings:
+
     | Field | Details |
     |-------|---------|
     | **Every** | Enter the number of months between each test run. |
@@ -63,6 +67,7 @@ In this article, you learn how to schedule load tests with Azure Load Testing. S
      on a specific day of the week, or on the first Tuesday of the month. |
 
     For a cron recurrence, configure the following settings:
+    
     | Field | Details |
     |-------|---------|
     | **Cron expression** | Enter a cron expression to specify the recurrence pattern. For example, `0 0 12 1/1 * ? *` runs the test every day at 12:00 PM. |
