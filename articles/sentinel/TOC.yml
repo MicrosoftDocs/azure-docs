@@ -1043,7 +1043,7 @@
   items:
   - name: Publish solutions
     href: publish-sentinel-solutions.md
-  - name: Tracking Sentinel solution lifecycle post publish
+  - name: Solution lifecycle post publish
     href: sentinel-solutions-post-publish-tracking.md
   - name: Management references
     items:
