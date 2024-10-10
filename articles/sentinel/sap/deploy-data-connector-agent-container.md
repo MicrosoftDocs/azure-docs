@@ -298,10 +298,7 @@ While deployment is also supported from the command line, we recommend that you 
 
     To find your VM identity object ID in Azure:
 
-    - For a managed identity, the object ID is listed on the VM's **Identity** page. Alternately:
-
-        1. Go to **Managed identities** select your managed identity. 
-        1. For user-assigned identities, the object ID is displayed on the **Overview** page. For system-assigned managed identities, the object ID is displayed on the **Identity** page.
+    - For a managed identity, the object ID is listed on the VM's **Identity** page.
 
     - For a service principal, go to **Enterprise application** in Azure. Select **All applications** and then select your VM. The object ID is displayed on the **Overview** page.
 

@@ -133,9 +133,11 @@ This procedure describes how to create a new agent and connect it to your SAP sy
 
     Replace placeholder values as follows:
 
+    To find your VM identity object ID in Azure:
+
     |Placeholder  |Value  |
     |---------|---------|
-    |`<OBJ_ID>`     | Your VM identity object ID. <br><br>    To find your VM identity object ID in Azure, go to **Enterprise application** > **All applications**, and select your VM or registered application name. Copy the value of the **Object ID** field to use with your copied command.      |
+    |`<OBJ_ID>`     | Your VM identity object ID. <br><br>    To find your VM identity object ID in Azure: For a managed identity, the object ID is listed on the VM's **Identity** page. For a service principal, go to **Enterprise application** in Azure. Select **All applications** and then select your VM. The object ID is displayed on the **Overview** page.  |
     |`<SUB_ID>`     |    Your Microsoft Sentinel workspace subscription ID     |
     |`<RESOURCE_GROUP_NAME>`     |  Your Microsoft Sentinel workspace resource group name       |
     |`<WS_NAME>`     |    Your Microsoft Sentinel workspace name     |
@@ -218,7 +220,7 @@ Azure Key Vault is the recommended method to store your authentication credentia
 
         |Placeholder  |Value  |
         |---------|---------|
-        |`<OBJ_ID>`     | Your VM identity object ID. <br><br>    To find your VM identity object ID in Azure, go to **Enterprise application** > **All applications**, and select your VM or application name, depending on whether you're using a managed identity or a registered application. <br><br>Copy the value of the **Object ID** field to use with your copied command.      |
+        |`<OBJ_ID>`     | Your VM identity object ID. <br><br>    To find your VM identity object ID in Azure: For a managed identity, the object ID is listed on the VM's **Identity** page. For a service principal, go to **Enterprise application** in Azure. Select **All applications** and then select your VM. The object ID is displayed on the **Overview** page.  |
         |`<SUB_ID>`     |    Your Microsoft Sentinel workspace subscription ID     |
         |`<RESOURCE_GROUP_NAME>`     |  Your Microsoft Sentinel workspace resource group name       |
         |`<WS_NAME>`     |    Your Microsoft Sentinel workspace name     |
