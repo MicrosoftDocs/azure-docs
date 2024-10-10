@@ -5,7 +5,7 @@ author: snehasudhirG
 services: automation
 ms.subservice: change-inventory-management
 ms.topic: how-to
-ms.date: 09/27/2024
+ms.date: 10/10/2024
 ms.author: sudhirsneha
 ms.custom:
 ms.service: azure-automation
@@ -29,10 +29,7 @@ Using the Azure portal, you can migrate from Change Tracking & Inventory with LA
 
 ## Onboarding to Change tracking and inventory using Azure Monitoring Agent
 
-### [Using Azure portal - Azure single VM](#tab/ct-single-vm)
-
-> [!NOTE]
-> To onboard Arc-enabled VMs, use the PowerShell Script. For more information, see the steps listed in tab Using PowerShell script - Arc-enabled VMs.
+### [Single Azure VM - Azure portal](#tab/ct-single-vm)
 
 To onboard through Azure portal, follow these steps:
 
@@ -46,14 +43,14 @@ To onboard through Azure portal, follow these steps:
 
    :::image type="content" source="media/guidance-migration-log-analytics-monitoring-agent/switch-versions-inline.png" alt-text="Screenshot that shows switching between log analytics and Azure Monitoring Agent after a successful migration." lightbox="media/guidance-migration-log-analytics-monitoring-agent/switch-versions-expanded.png":::
 
-### [Using Azure portal - Automation account](#tab/ct-at-scale)
+### [Automation account - Azure portal](#tab/ct-at-scale)
 
 1. Sign in to [Azure portal](https://portal.azure.com) and select your Automation account.
 1. Under **Configuration Management**, select **Change tracking** and then select **Configure with AMA**.
 
    :::image type="content" source="media/guidance-migration-log-analytics-monitoring-agent/onboarding-at-scale-inline.png" alt-text="Screenshot of onboarding at scale to Change tracking and inventory using Azure monitoring agent." lightbox="media/guidance-migration-log-analytics-monitoring-agent/onboarding-at-scale-expanded.png":::
 
-1. On the **Onboarding to Change Tracking with Azure Monitoring** page, you can view your automation account and list of machines that are currently on Log Analytics and ready to be onboarded to Azure Monitoring Agent of Change Tracking and inventory.
+1. On the **Onboarding to Change Tracking with Azure Monitoring** page, you can view your automation account and list of both Azure and Azure Arc machines that are currently on Log Analytics and ready to be onboarded to Azure Monitoring Agent of Change Tracking and inventory.
    
    :::image type="content" source="media/guidance-migration-log-analytics-monitoring-agent/onboarding-from-log-analytics-inline.png" alt-text="Screenshot of onboarding multiple virtual machines to Change tracking and inventory from log analytics to Azure monitoring agent." lightbox="media/guidance-migration-log-analytics-monitoring-agent/onboarding-from-log-analytics-expanded.png":::
 
@@ -69,7 +66,20 @@ To onboard through Azure portal, follow these steps:
 
    :::image type="content" source="media/guidance-migration-log-analytics-monitoring-agent/switch-versions-inline.png" alt-text="Screenshot that shows switching between log analytics and Azure Monitoring Agent after a successful migration." lightbox="media/guidance-migration-log-analytics-monitoring-agent/switch-versions-expanded.png":::
 
-### [Using PowerShell script - Arc-enabled VMs](#tab/ps-policy)
+### [Single Azure Arc VM - Azure portal](#tab/ct-single-vm)
+
+1. Sign in to the [Azure portal](https://portal.azure.com). Search for and select **Machines-Azure Arc**.
+1. Under **Operations** ,  select **Change tracking**.
+1. Select **Configure with AMA** and in the **Configure with Azure monitor agent**,  provide the **Log analytics workspace** and select **Migrate** to initiate the deployment.
+
+   :::image type="content" source="media/guidance-migration-log-analytics-monitoring-agent/onboarding-single-vm-inline.png" alt-text="Screenshot of onboarding a single VM to Change tracking and inventory using Azure monitoring agent." lightbox="media/guidance-migration-log-analytics-monitoring-agent/onboarding-single-vm-expanded.png":::
+
+1. Select **Switch to CT&I with AMA** to evaluate the incoming events and logs across LA agent and AMA version.
+
+   :::image type="content" source="media/guidance-migration-log-analytics-monitoring-agent/switch-versions-inline.png" alt-text="Screenshot that shows switching between log analytics and Azure Monitoring Agent after a successful migration." lightbox="media/guidance-migration-log-analytics-monitoring-agent/switch-versions-expanded.png":::
+
+
+### [Arc-enabled VMs - PowerShell script](#tab/ps-policy)
 
 To onboard Arc-enabled VMs, follow the steps:
 
