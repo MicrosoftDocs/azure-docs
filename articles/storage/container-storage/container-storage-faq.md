@@ -62,7 +62,7 @@ ms.custom: references_regions
 * <a id="azure-container-storage-installation"></a>
   **I encountered installation issues due to Azure Policy. What is the recommended approach?**
   
-  If you’re experiencing installation issues with Azure Container Storage in your AKS cluster, it may be due to Azure Policy restrictions. To resolve this, 
+  If you’re experiencing installation issues with Azure Container Storage in your AKS cluster, it might be due to Azure Policy restrictions. To resolve this, 
   you’ll need to add the `acstor` namespace to the exclusion list of your Azure Policy. Azure Policy is used to create and enforce rules for managing resources 
   within Azure, including AKS clusters. In some cases, policies may block the creation of Azure Container Storage pods and components. You can find more details 
   on working with Azure Policy for Kubernetes by consulting [Azure Policy for Kubernetes](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/policy-for-kubernetes).
