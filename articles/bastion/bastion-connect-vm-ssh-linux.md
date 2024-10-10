@@ -61,7 +61,7 @@ In order to connect to the Linux VM via SSH, you must have the following ports o
 
 1. Use the following sections in this article to configure authentication settings and connect to your VM.
 
-   * [Microsoft Entra ID Authentication](#microsoft-entra-id-authentication-preview)
+   * [Microsoft Entra ID Authentication](#microsoft-entra-id-authentication)
    * [Username and password](#password-authentication)
    * [Password - Azure Key Vault](#password-authentication---azure-key-vault)
    * [SSH private key from local file](#ssh-private-key-authentication---local-file)
