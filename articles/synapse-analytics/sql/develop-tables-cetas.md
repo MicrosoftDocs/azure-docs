@@ -147,7 +147,6 @@ CETAS can be used to store result sets with following SQL data types:
 - bit
 - money
 - smallmoney
-- uniqueidentifier
 
 > [!NOTE]
 > LOBs larger than 1MB can't be used with CETAS.
