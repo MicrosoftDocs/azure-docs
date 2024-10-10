@@ -21,7 +21,7 @@ This walkthrough is an example of deploying Azure IoT Operations Preview to a sp
 >[!IMPORTANT]
 > This is an advanced scenario for Azure IoT Operations. You should complete the following quickstarts to get familiar with the basic concepts before you start this advanced scenario.
 > - [Deploy Azure IoT Layered Network Management to an AKS cluster](howto-deploy-aks-layered-network.md)
-> - [Quickstart: Run Azure IoT Operations Preview in Github Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md)
+> - [Quickstart: Run Azure IoT Operations Preview in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md)
 >
 > You can't migrate a previously deployed Azure IoT Operations from its original network to an isolated network. For this scenario, follow the steps to begin with creating new clusters.
 
@@ -77,7 +77,7 @@ Once your level 3 cluster is Arc-enabled, you can deploy IoT Operations to the c
 
 ![Network diagram that shows IoT Operations running on a level 3 cluster.](./media/howto-configure-layered-network/logical-network-segmentation-2.png)
 
-Follow the steps in [Quickstart: Run Azure IoT Operations Preview in Github Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md) to deploy IoT Operations to the level 3 cluster.
+Follow the steps in [Quickstart: Run Azure IoT Operations Preview in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md) to deploy IoT Operations to the level 3 cluster.
 
 - In earlier steps, you completed the [prerequisites](../get-started-end-to-end-sample/quickstart-deploy.md#prerequisites) and [connected your cluster to Azure Arc](../get-started-end-to-end-sample/quickstart-deploy.md#connect-a-kubernetes-cluster-to-azure-arc) for Azure IoT Operations. You can review these steps to make sure nothing is missing. 
 
