@@ -43,7 +43,7 @@ A port is where a listener listens for the client request. You can configure por
 
 | SKU | Supported port range | Exception(s) |
 | ---------- | ---------- | ---------- |
-| V2 | 1 to 64999 | 22 |
+| V2 | 1 to 64999 | 22, 53 |
 | V1 | 1 to 65502 | 3389 |
 
 ### Protocols
