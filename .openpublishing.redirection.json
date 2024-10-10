@@ -2,7 +2,7 @@
   "redirections": [
     {
       "source_path": "articles/confidential-computing/virtual-machine-solutions.md",
-      "redirect_url": "/previous-versions/azure/confidential-computing/virtual-machine-solutions",
+      "redirect_url": "/azure/virtual-machines/",
       "redirect_document_id": false
     },
     {
