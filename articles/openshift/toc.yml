@@ -26,12 +26,6 @@
   items:
     - name: Frequently asked questions
       href: openshift-faq.yml
-    - name: Confidential containers
-      items:
-        - name: Use confidential containers to protect senstive data
-          href: confidential-containers.md
-        - name: Deploy confidential containers
-          href: howto-confidential-containers.md
     - name: Cluster operations
       items:
         - name: Deploy an Azure Red Hat OpenShift cluster with an ARM template or Bicep
@@ -64,7 +58,6 @@
           href: howto-custom-dns.md
         - name: Configure DNS forwarding
           href: dns-forwarding.md
-
         - name: Restrict egress traffic
           href: howto-restrict-egress.md
     - name: Storage
@@ -129,6 +122,13 @@
           href: howto-deploy-java-liberty-app.md
         - name: Deploy a JBoss EAP Java app
           href: howto-deploy-java-jboss-enterprise-application-platform-app.md
+    - name: Confidential Containers
+      items:
+        - name: Use Confidential Containers to protect senstive data
+          href: confidential-containers.md
+        - name: Deploy Confidential Containers
+          href: howto-confidential-containers.md
+
 - name: Concepts
   items:
     - name: Networking

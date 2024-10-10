@@ -1,17 +1,17 @@
 ---
-title: Use confidential containers to protect sensitive data
-description: Discover how to utilize confidential containers to protect sensitive data.
+title: Confidential Containers with Azure Red Hat OpenShift
+description: Discover how to utilize Confidential Containers with Azure Red Hat OpenShift to protect sensitive data.
 author: johnmarco
 ms.author: johnmarc
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 10/09/2024
 ---
-# Use confidential containers to protect sensitive data
+# Confidential Containers with Azure Red Hat OpenShift
 
-Confidential Containers offer a robust solution to protect sensitive data within cloud environments. By leveraging hardware-based trusted execution environments (TEEs), these containers provide a secure enclave within the host system, isolating applications and their data from potential threats. This isolation ensures that even if the host system is compromised, the confidential data remains protected.
+Confidential Containers offer a robust solution to protect sensitive data within cloud environments. By leveraging hardware-based trusted execution environments (TEEs), Confidential Containers provide a secure enclave within the host system, isolating applications and their data from potential threats. This isolation ensures that even if the host system is compromised, the confidential data remains protected.
 
-This articles describes the benefits of using confidential containers to safeguard sensitive data and explains how confidential containers function within Azure Red Hat OpenShift.
+This articles describes the benefits of using Confidential Containers to safeguard sensitive data and explains how Confidential Containers function within Azure Red Hat OpenShift.
 
 
 ## Benefits of Using Confidential Containers
@@ -30,26 +30,26 @@ Confidential Containers offer several key benefits:
 
 ## Typical use cases
 
-The table below describes the most common use cases for deploying confidential containers.
+The table below describes the most common use cases for deploying Confidential Containers.
 
 |Use case  |Industry  |Example  |
 |---------|---------|---------|
-|**Regulator compliance**<br>Meeting strict data protection and privacy regulations. |Government, Finance, Healthcare |A healthcare provider using confidential containers to process and store patient data in compliance with HIPAA regulations. |
-|**Sensitive data processing**<br>Protecting intellectual property, trade secrets, or sensitive business data. |Any dealing with confidential information |A technology company using confidential containers to develop and test new software features without risk of intellectual property theft. |
+|**Regulator compliance**<br>Meeting strict data protection and privacy regulations. |Government, Finance, Healthcare |A healthcare provider using Confidential containers to process and store patient data in compliance with HIPAA regulations. |
+|**Sensitive data processing**<br>Protecting intellectual property, trade secrets, or sensitive business data. |Any dealing with confidential information |A technology company using Confidential Containers to develop and test new software features without risk of intellectual property theft. |
 |**Multi-tenancy environments**<br>Hosting multiple clients' applications and data with strong isolation. |SaaS providers, Cloud service providers |A cloud service provider offering isolated environments for different clients within the same infrastructure. |
 |**Secure collaboration**<br>Enabling secure data sharing and processing between multiple parties. |Research, defense, inter-organizational projects |Multiple research institutions collaborating on a sensitive project, each with their own isolated environment. |
-|**Temporary secure environments**<br>Creating isolated environments for analyzing potential malware or performing security audits. |Cybersecurity, forensics | A cybersecurity firm using confidential containers to safely analyze and reverse-engineer malicious software. |
-|**High-value transactions**<br>Processing high-value financial transactions with enhanced security. |Finance, cryptocurrency |A cryptocurrency exchange using confidential containers to manage wallets and process transactions. |
+|**Temporary secure environments**<br>Creating isolated environments for analyzing potential malware or performing security audits. |Cybersecurity, forensics | A cybersecurity firm using Confidential Containers to safely analyze and reverse-engineer malicious software. |
+|**High-value transactions**<br>Processing high-value financial transactions with enhanced security. |Finance, cryptocurrency |A cryptocurrency exchange using Confidential Containers to manage wallets and process transactions. |
 |**Secure AI/ML model training**<br>Training AI models on sensitive data without exposing the data. |AI/ML, Any industry using sensitive data for AI |A financial institution training fraud detection models on customer transaction data. |
 |**Confidential edge computing**<br>Processing sensitive data at the edge with enhanced security. |IoT, manufacturing, smart cities |A smart city initiative using CoCo for processing citizen data collected from various IoT devices. |
-|**Secure DevOps environments**<br>Creating isolated environments for development, testing, and staging. |Software development, IT |A software company using confidential containers to isolate different stages of their CI/CD pipeline. |
-|**Disaster recovery and business continuity**<br>Creating secure, isolated backup environments for critical systems and data. |Any industry requiring high availability and data protection |A financial institution using confidential containers to maintain an isolated, up-to-date copy of their core banking systems. |
+|**Secure DevOps environments**<br>Creating isolated environments for development, testing, and staging. |Software development, IT |A software company using Confidential Containers to isolate different stages of their CI/CD pipeline. |
+|**Disaster recovery and business continuity**<br>Creating secure, isolated backup environments for critical systems and data. |Any industry requiring high availability and data protection |A financial institution using Confidential Containers to maintain an isolated, up-to-date copy of their core banking systems. |
 
 ## How Confidential Containers work
 
-At the core of Confidential Containers lies the Confidential Virtual Machine (CVM). This specialized virtual machine, operating within a Trusted Execution Environment (TEE), establishes a secure enclave for applications and their associated data. TEEs, hardware-based isolated environments fortified with enhanced security features, ensure that even if the host system is compromised, the data residing within the CVM remains protected.
+Confidential Containers is a feature of Red Hat OpenShift sandboxed containers, which provide an isolated environment for running containerized applications. At the core of Confidential Containers lies the Confidential Virtual Machine (CVM). This specialized virtual machine, operating within a Trusted Execution Environment (TEE), establishes a secure enclave for applications and their associated data. TEEs, hardware-based isolated environments fortified with enhanced security features, ensure that even if the host system is compromised, the data residing within the CVM remains protected.
 
-Azure Red Hat OpenShift serves as the orchestrator, overseeing the sandboxing of workloads (pods) through the utilization of virtual machines. When employing CVMs, Azure Red Hat OpenShift empowers confidential container capabilities for your workloads. This signifies that upon creating a Confidential Containers workload, Azure Red Hat OpenShift deploys it within a CVM executing within the TEE, thereby providing a secure and isolated environment for your sensitive data.
+Azure Red Hat OpenShift serves as the orchestrator, overseeing the sandboxing of workloads (pods) through the utilization of virtual machines. When employing CVMs, Azure Red Hat OpenShift empowers Confidential Container capabilities for your workloads. This signifies that upon creating a Confidential Containers workload, Azure Red Hat OpenShift deploys it within a CVM executing within the TEE, thereby providing a secure and isolated environment for your sensitive data.
 
 ### Attestation
 
@@ -75,4 +75,4 @@ A typical Confidential Containers deployment involves Azure Red Hat OpenShift wo
 
 ## Next steps
 
-Now that you've considered the use cases for confidential containers, check out [Deploy confidential containers in an Azure Red Hat OpenShift (ARO) cluster](howto-confidential-containers.md).
+Now that you've considered the benefits and various use cases for Confidential Containers, check out [Deploy confidential containers in an Azure Red Hat OpenShift (ARO) cluster](howto-confidential-containers.md).

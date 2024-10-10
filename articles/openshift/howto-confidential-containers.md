@@ -1,6 +1,6 @@
 ---
-title: Deploy confidential containers in an Azure Red Hat OpenShift (ARO) cluster
-description: Discover how to deploy confidential containers in Azure Red Hat OpenShift (ARO)
+title: Deploy Confidential Containers in an Azure Red Hat OpenShift (ARO) cluster
+description: Discover how to deploy Confidential Containers in Azure Red Hat OpenShift (ARO)
 author: johnmarco
 ms.author: johnmarc
 ms.service: azure-redhat-openshift
@@ -10,10 +10,10 @@ ms.date: 10/09/2024
 ms.custom: template-how-to
 ---
 
-# Deploy confidential containers in an Azure Red Hat OpenShift (ARO) cluster
+# Deploy Confidential Containers in an Azure Red Hat OpenShift (ARO) cluster
 
 <!--
-Need introduction here. Describe what confidential containers are, they're benefits, etc. Describe the main components of it. Describe how you need to deploy sandboxed containers first. In other words, describe the basic installation steps required.
+Need introduction here. Describe what Confidential Containers are, they're benefits, etc. Describe the main components of it. Describe how you need to deploy sandboxed containers first. In other words, describe the basic installation steps required.
 
 -->
 
