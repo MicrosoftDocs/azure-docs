@@ -43,9 +43,7 @@ In addition to testing templates on an instance of the service, a [Visual Studio
  
 ## Troubleshooting Azure Container Registry
 
-## The AHDS FHIR Service should work with Azure Container Registry (ACR) for custom template storage, but it encounters a "Failed to get access token for Azure Container Registry" error when reading templates.
-
-Check the configuration related to Azure Managed Identity and its role. [Configure settings for $convert-data](convert-data-configuration.md)
+When using Azure Container Registry (ACR) for custom template storage, if you encounter a "Failed to get access token for Azure Container Registry" error when reading templates, check to make sure that the correct role assignments are configured for the managed identity. [Configure settings for $convert-data](convert-data-configuration.md)
 
 ## Next steps
 [Overview of $convert-data](convert-data-overview.md)

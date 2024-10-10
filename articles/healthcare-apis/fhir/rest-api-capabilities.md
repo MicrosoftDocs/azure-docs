@@ -186,12 +186,7 @@ Content-Type: `application/json`
 The $bulk-delete operation allows you to delete resources from the FHIR server asynchronously. You can execute the $bulk-delete operation either at the system level or for specific resource types.
 [Bulk-delete](fhir-bulk-delete.md)
 
-If customers want to delete all resources that reference Patient, they can use a conditional delete. It would still require multiple requests: at least one to delete the linked resources and one to delete the Patient.
- [Conditional delete](rest-api-capabilities.md#conditional-delete)
 
- **The encountered error is: "Resource type Observation with id eaf42d04-1c93-451a-b320-85363155ab49 and version '1' couldn't be found." The same request was working fine until a week ago, but now it only works when the "If-Match" header is removed.**
-
- By design If-match header must match the most recent version of the identified resource. Incase there is no match with the recent version, error will occur.
 
 ## Related content
 

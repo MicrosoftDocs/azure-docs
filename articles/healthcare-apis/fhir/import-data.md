@@ -257,11 +257,6 @@ Cause: You reached the storage limit of the FHIR service.
 
 Solution: Reduce the size of your data or consider Azure API for FHIR, which has a higher storage limit.
 
-**import operation failed for reason: Input string was not in the correct format**
-
-Cause: An NDJSON Patient resource was submitted in Blob storage. After a POST request to {{fhirUrl}}/$import, a GET request to the callback link from the Content-Location header resulted in a 500 Internal Server Error.
-
-Solution:  Ensure that the JSON file is imported using a compatible storage account version. If an export is made from storage account v2, it should be imported into a storage account v2 to avoid compatibility issues.
 
 ### 423 Locked
 

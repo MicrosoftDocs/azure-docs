@@ -63,7 +63,7 @@ If deployed to the wrong subscription, we can move the resource to the desired s
 
 **How can I delete a service and then re-add it with the same settings?**
 
-It is not possible to replicate a service with the exact same settings. 
+To replicate settings between FHIR instance, you can follow below steps 
 
 *	Create standard ARM templates with the configurations.
 

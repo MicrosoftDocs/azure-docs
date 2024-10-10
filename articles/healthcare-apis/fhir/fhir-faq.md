@@ -143,18 +143,11 @@ To perform a health check on a FHIR service, enter `{{fhirurl}}/health/check` in
 
 If there are errors, you may receive an error response with HTTP status code 404 (Not Found) or status code 500 (Internal Server Error), and detailed information in the response body.
 
-**What are the recommended methods for syncing data between Azure FHIR Service and a Dataverse?**
+**What are the recommended methods for syncing data between Azure FHIR Service and Dataverse?**
 
-To connect FHIR services with Dataverse, we have introduced a new capability known as the Dataverse Health APIs.
-[Dataverse healthcare APIs](https://learn.microsoft.com/en-us/dynamics365/industry/healthcare/dataverse-healthcare-apis-overview)
+Please refer to documentation for
+[Dataverse healthcare APIs](https://learn.microsoft.com/dynamics365/industry/healthcare/dataverse-healthcare-apis-overview)
 
-
-
-**Why can't I create new resources from the Azure Marketplace? It always fails when I enter a name for the account or workspace.**
-
- Check if organizations impose restrictions on the creation of Azure Marketplace services due to their different pricing structures.
-
-Check for standard version of that service available outside the Marketplace.
 
 ## Next steps
 
