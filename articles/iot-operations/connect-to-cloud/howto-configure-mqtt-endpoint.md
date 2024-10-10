@@ -59,6 +59,10 @@ metadata:
 spec:
   endpointType: Mqtt
   mqttSettings:
+    host: "aio-broker:18883"
+    tls:
+      mode: Enabled
+      trustedCaCertificateConfigMapRef: azure-iot-operations-aio-ca-trust-bundle
     authentication:
       method: ServiceAccountToken
       serviceAccountTokenSettings:
@@ -77,15 +81,15 @@ This configuration creates a connection to the default MQTT broker with the foll
 
 # [Bicep](#tab/bicep)
 
-This Bicep template file from [Bicep File for MQTT-bridge dataflow Tutorial](https://gist.github.com/david-emakenemi/7a72df52c2e7a51d2424f36143b7da85) deploys the necessary dataflow and dataflow endpoints for MQTT broker and Azure Event Grid.
+The [Bicep File to create Dataflow](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/dataflow.bicep) deploys the necessary resources for dataflows.
 
-Download the file to your local, and make sure to replace the values for `customLocationName`, `aioInstanceName`, `eventGridHostName`.
+1. Download the template file and replace the values for `customLocationName`, `aioInstanceName`, `schemaRegistryName`, `opcuaSchemaName`, `eventGridHostName`, and `persistentVCName`.
+1. Deploy the resources using the [az stack group](/azure/azure-resource-manager/bicep/deployment-stacks?tabs=azure-powershell) command in your terminal:
 
-Next, deploy the resources using the [az stack group](/azure/azure-resource-manager/bicep/deployment-stacks?tabs=azure-powershell) command in your terminal:
+    ```azurecli
+    az stack group create --name MyDeploymentStack --resource-group $RESOURCE_GROUP --template-file /workspaces/explore-iot-operations/<filename>.bicep --action-on-unmanage 'deleteResources' --deny-settings-mode 'none' --yes
+    ```
 
-```azurecli
-az stack group create --name MyDeploymentStack --resource-group $RESOURCE_GROUP --template-file /workspaces/explore-iot-operations/mqtt-bridge.bicep --action-on-unmanage 'deleteResources' --deny-settings-mode 'none' --yes
-```
 This endpoint is the source for the dataflow that sends messages to Azure Event Grid.
 
 ```bicep
@@ -569,7 +573,7 @@ mqttSettings:
 
 ## Advanced settings
 
-You can set advanced settings for the MQTT broker dataflow endpoint such as TLS, trusted CA certificate, MQTT messaging settings, and CloudEvents. You can set these settings in the dataflow endpoint **Advanced** portal tab or within the dataflow endpoint custom resource.
+You can set advanced settings for the MQTT broker dataflow endpoint such as TLS, trusted CA certificate, MQTT messaging settings, and CloudEvents. You can set these settings in the dataflow endpoint **Advanced** portal tab, within the dataflow endpoint custom resource or in the Bicep template file.
 
 # [Portal](#tab/portal)
 

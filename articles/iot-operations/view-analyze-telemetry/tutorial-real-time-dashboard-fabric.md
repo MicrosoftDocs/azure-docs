@@ -104,7 +104,3 @@ In a few seconds, you should see the data being ingested into KQL Database.
     :::image type="content" source="media/tutorial-real-time-dashboard-fabric/powerbi-dash-show.png" alt-text="Screenshot of a Power BI report." lightbox="media/tutorial-real-time-dashboard-fabric/powerbi-dash-show.png":::
 
 In this walkthrough, you learned how to build a real-time dashboard in Microsoft Fabric using simulated MQTT data that is published to the MQTT broker.
-
-## Next steps
-
-[Upload MQTT data to Microsoft Fabric lakehouse](tutorial-upload-mqtt-lakehouse.md)
