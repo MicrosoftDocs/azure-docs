@@ -63,6 +63,7 @@ To create a dataflow in [operations experience](https://iotoperations.azure.com/
 The [Bicep File to create Dataflow](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/dataflow.bicep) deploys the necessary resources for dataflows.
 
 1. Download the template file and replace the values for `customLocationName`, `aioInstanceName`, `schemaRegistryName`, `opcuaSchemaName`, and `persistentVCName`.
+   
 1. Deploy the resources using the [az stack group](/azure/azure-resource-manager/bicep/deployment-stacks?tabs=azure-powershell) command in your terminal:
 
     ```azurecli

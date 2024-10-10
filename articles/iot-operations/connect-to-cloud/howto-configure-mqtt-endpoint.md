@@ -83,8 +83,9 @@ This configuration creates a connection to the default MQTT broker with the foll
 
 The [Bicep File to create Dataflow](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/dataflow.bicep) deploys the necessary resources for dataflows.
 
-1. Download the template file and replace the values for `customLocationName`, `aioInstanceName`, `schemaRegistryName`, `opcuaSchemaName`, `eventGridHostName`, and `persistentVCName`.
-1. Deploy the resources using the [az stack group](/azure/azure-resource-manager/bicep/deployment-stacks?tabs=azure-powershell) command in your terminal:
+1. Download the template file and replace the values for `customLocationName`, `aioInstanceName`, `schemaRegistryName`, `opcuaSchemaName`, and `eventGridHostName`.
+   
+2. Deploy the resources using the [az stack group](/azure/azure-resource-manager/bicep/deployment-stacks?tabs=azure-powershell) command in your terminal:
 
     ```azurecli
     az stack group create --name MyDeploymentStack --resource-group $RESOURCE_GROUP --template-file /workspaces/explore-iot-operations/<filename>.bicep --action-on-unmanage 'deleteResources' --deny-settings-mode 'none' --yes
@@ -895,6 +896,4 @@ CloudEvent properties are passed through for messages that contain the required 
 | `subject`         | No       | The output topic where the message is sent                                    |
 | `time`            | No       | Generated as RFC 3339 in the target client                                    |
 | `datacontenttype` | No       | Changed to the output data content type after the optional transform stage    |
-| `dataschema`      | No       | Schema defined in the schema registry
-
----
+| `dataschema`      | No       | Schema defined in the schema registry                                         |

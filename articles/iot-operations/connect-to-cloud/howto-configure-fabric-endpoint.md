@@ -64,13 +64,21 @@ To configure a dataflow endpoint for Microsoft Fabric OneLake, we suggest using 
 
 The [Bicep File to create Dataflow](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/dataflow.bicep) deploys the necessary resources for dataflows to Fabric OneLake.
 
-1. Download the file to your local, and make sure to replace the values for `customLocationName`, `aioInstanceName`, `schemaRegistryName`, `opcuaSchemaName`, and `persistentVCName`.
+1. Get the managed identity of the Azure IoT Operations Preview Arc extension.
 
-1. Next, deploy the resources using the [az stack group](/azure/azure-resource-manager/bicep/deployment-stacks?tabs=azure-powershell) command in your terminal:
+1. In the Microsoft Fabric workspace you created, select **Manage access** > **+ Add people or groups**.
 
-```azurecli
-az stack group create --name MyDeploymentStack --resource-group $RESOURCE_GROUP --template-file /workspaces/explore-iot-operations/<filename>.bicep --action-on-unmanage 'deleteResources' --deny-settings-mode 'none' --yes
-```
+1. Search for the Azure IoT Operations Preview Arc extension by its name, and select the app ID GUID value that you found in the previous step.
+
+1. Select **Contributor** as the role, then select **Add**.
+   
+1. Download the template file and replace the values for `customLocationName`, `aioInstanceName`, `schemaRegistryName`, and `opcuaSchemaName`.
+
+1. Deploy the resources using the [az stack group](/azure/azure-resource-manager/bicep/deployment-stacks?tabs=azure-powershell) command in your terminal:
+
+    ```azurecli
+    az stack group create --name MyDeploymentStack --resource-group $RESOURCE_GROUP --template-file /workspaces/explore-iot-operations/<filename>.bicep --action-on-unmanage 'deleteResources' --deny-settings-mode 'none' --yes
+    ```
 
 This endpoint is the destination for the dataflow that receives messages to Fabric OneLake.
 
@@ -90,7 +98,7 @@ resource oneLakeEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@20
         systemAssignedManagedIdentitySettings: {}
       }
       oneLakePathType: 'Tables'
-      host: 'https://msit-onelake.dfs.fabric.microsoft.com'
+      host: 'https://onelake.dfs.fabric.microsoft.com'
       names: {
         lakehouseName: '<EXAMPLE-LAKEHOUSE-NAME>'
         workspaceName: '<EXAMPLE-WORKSPACE-NAME>'
@@ -168,6 +176,8 @@ fabricOneLakeSettings:
 
 # [Bicep](#tab/bicep)
 
+ The overall structure of a Fabric OneLake destination configuration for Bicep is as follows:
+
 ```bicep
 resource dataflow_onelake 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2024-08-15-preview' = {
   parent: defaultDataflowProfile
@@ -182,28 +192,20 @@ resource dataflow_onelake 'Microsoft.IoTOperations/instances/dataflowProfiles/da
       {
         operationType: 'Source'
         sourceSettings: {
-          endpointRef: defaultDataflowEndpoint.name
-          dataSources: array('azure-iot-operations/data/thermostat')
+          // Source configuration section
         }
       }
       {
         operationType: 'BuiltInTransformation'
         builtInTransformationSettings: {
-          map: [
-            {
-              inputs: array('*')
-              output: '*'
-            }
-          ]
-          schemaRef: 'aio-sr://${opcuaSchemaName}:${opcuaSchemaVer}'
-          serializationFormat: 'Delta' // Can also be 'Parquet'
+          // Transformation configuration section
         }
       }
       {
         operationType: 'Destination'
         destinationSettings: {
           endpointRef: oneLakeEndpoint.name
-          dataDestination: 'opc'
+          dataDestination: 'opc' 
         }
       }
     ]
@@ -211,18 +213,46 @@ resource dataflow_onelake 'Microsoft.IoTOperations/instances/dataflowProfiles/da
 }
 ```
 
-The `BuiltInTransformation` in this Bicep file transforms the data flowing through the dataflow pipeline. It applies a pass-through operation, mapping all input fields `(inputs: array('*'))` directly to the output `(output: '*')`, without altering the data. 
+To customize the endpoint settings, see the following sections for more information.
 
-It also references the defined OPC-UA schema to ensure the data is structured according to the OPC UA protocol. The transformation then serializes the data in Delta format (or Parquet if specified).
+### Fabric OneLake host URL
 
-This step ensures that the data adheres to the required schema and format before being sent to the destination.
+Use the `host` setting to specify the Fabric OneLake host URL. Usually, it's `https://onelake.dfs.fabric.microsoft.com`.
 
----
+```bicep
+fabricOneLakeSettings: {
+  ... 
+  host: 'https://onelake.dfs.fabric.microsoft.com'
+}
+```
 
-For more information about dataflow destination settings, see [Create a dataflow](howto-create-dataflow.md).
+However, if this host value doesn't work and you're not getting data, try checking for the URL from the Properties of one of the precreated lakehouse folders.
 
-> [!NOTE]
-> Using the Fabric OneLake dataflow endpoint as a source in a dataflow isn't supported. You can use the endpoint as a destination only.
+![Screenshot of properties shortcut menu to get lakehouse URL.](media/howto-configure-fabric-endpoint/lakehouse-name.png)
+
+The host value should look like `https://xyz.dfs.fabric.microsoft.com`.
+
+To learn more, see [Connecting to Microsoft OneLake](/fabric/onelake/onelake-access-api).
+
+### OneLake path type
+
+Use the `oneLakePathType` setting to specify the type of path in the Fabric OneLake. The default value is `Tables`, which is used for the Tables folder in the lakehouse typically in Delta Parquet format.
+
+```bicep
+fabricOneLakeSettings: {
+  ... 
+  oneLakePathType: 'Tables'
+}
+```
+
+Another possible value is `Files`. Use this value for the Files folder in the lakehouse, which is unstructured and can be in any format.
+
+```bicep
+fabricOneLakeSettings: {
+  ...
+  oneLakePathType: 'Files'
+}
+```
 
 ### Available authentication methods
 
@@ -260,14 +290,14 @@ fabricOneLakeSettings:
 
 ```bicep
 fabricOneLakeSettings: {
-      authentication: {
-        method: 'SystemAssignedManagedIdentity'
-        systemAssignedManagedIdentitySettings: {
-            audience: 'https://contoso.onelake.dfs.fabric.microsoft.com'
-        }
-      }
-      ...
+  authentication: {
+    method: 'SystemAssignedManagedIdentity'
+    systemAssignedManagedIdentitySettings: {
+      audience: 'https://contoso.onelake.dfs.fabric.microsoft.com'
     }
+  }
+  ...
+}
 ```
 
 ---
@@ -291,15 +321,15 @@ fabricOneLakeSettings:
 
 ```bicep
 fabricOneLakeSettings: {
-      authentication: {
-        method: 'UserAssignedManagedIdentity'
-        userAssignedManagedIdentitySettings: {
-            clientId: '<clientId>'
-            tenantId: '<tenantId>'
-        }
-      }
-      ...
+  authentication: {
+    method: 'UserAssignedManagedIdentity'
+    userAssignedManagedIdentitySettings: {
+      clientId: '<clientId>'
+      tenantId: '<tenantId>'
     }
+  }
+  ...
+}
 ```
 
 ---
