@@ -7,7 +7,7 @@ ms.author: cephalin
 ms.devlang: csharp
 # ms.devlang: csharp,java,javascript,python
 ms.topic: tutorial
-ms.date: 04/12/2022
+ms.date: 09/30/2024
 ms.custom: mvc, devx-track-azurecli, devx-track-dotnet, devx-track-extended-java, devx-track-python, AppServiceConnectivity, service-connector
 ---
 # Tutorial: Connect to Azure databases from App Service without secrets using a managed identity
@@ -285,10 +285,14 @@ You're now ready to develop and debug your app with the SQL Database as the back
 - [I made changes to App Service authentication or the associated app registration. Why do I still get the old token?](#i-made-changes-to-app-service-authentication-or-the-associated-app-registration-why-do-i-still-get-the-old-token)
 - [How do I add the managed identity to a Microsoft Entra group?](#how-do-i-add-the-managed-identity-to-an-azure-ad-group)
 - [I get the error `SSL connection is required. Please specify SSL options and retry`.](#i-get-the-error-ssl-connection-is-required-please-specify-ssl-options-and-retry)
+- [I created my app with the Web App + Database template, and now I can't configure a managed identity connection with the Service Connector commands.](#i-created-my-app-with-the-web-app--database-template-and-now-i-cant-configure-a-managed-identity-connection-with-the-service-connector-commands)
 
 #### Does managed identity support SQL Server?
 
-Microsoft Entra ID and managed identities aren't supported for on-premises SQL Server. 
+Yes. For more information, see:
+
+- [Microsoft Entra authentication for SQL Server](/sql/relational-databases/security/authentication-access/azure-ad-authentication-sql-server-overview)
+- [Enable Microsoft Entra authentication for SQL Server on Azure VMs](/azure/azure-sql/virtual-machines/windows/configure-azure-ad-authentication-for-sql-vm)
 
 #### I get the error `Login failed for user '<token-identified principal>'.`
 
@@ -320,6 +324,10 @@ Connecting to the Azure database requires additional settings and is beyond the 
 
 [Configure TLS connectivity in Azure Database for PostgreSQL - Single Server](/azure/postgresql/concepts-ssl-connection-security)
 [Configure SSL connectivity in your application to securely connect to Azure Database for MySQL](/azure/mysql/howto-configure-ssl)
+
+#### I created my app with the Web App + Database template, and now I can't configure a managed identity connection with the Service Connector commands.
+
+Service Connector needs network access to the database in order to grant access for the app identity. When you create a secure-by-default app and database architecture in the Azure portal with the Web App + Database template, the architecture locks down network access to the database and only allows connections from within the virtual network. It's also true for Azure Cloud Shell. However, you can [deploy Cloud Shell in the virtual network](../cloud-shell/vnet/deployment.md), then run the Service Connector command in that Cloud Shell.
 
 ## Next steps
 

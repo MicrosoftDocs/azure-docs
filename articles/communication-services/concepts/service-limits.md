@@ -100,6 +100,10 @@ For more information on the SMS SDK and service, see the [SMS SDK overview](./sm
 
 You can send a limited number of email messages. If you exceed the following limits for your subscription, your requests are rejected. You can attempt these requests again, after the Retry-After time passes. Take action before reaching the limit by requesting to raise your sending volume limits if needed.
 
+The Azure Communication Services email service is designed to support high throughput. However, the service imposes initial rate limits to help customers onboard smoothly and avoid some of the issues that can occur when switching to a new email service. We recommend gradually increasing your email volume using Azure Communication Services Email over a period of two to four weeks, while closely monitoring the delivery status of your emails. This gradual increase allows third-party email service providers to adapt to the change in IP for your domain's email traffic, thus protecting your sender reputation and maintaining the reliability of your email delivery.
+
+We approve higher limits for customers based on use case requirements, domain reputation, traffic patterns, and failure rates. To request higher limits, follow the instructions at [Quota increase for email domains](./email/email-quota-increase.md). Note that higher quotas are only available for verified custom domains, not Azure-managed domains.
+
 ### Rate Limits 
 
 [Custom Domains](../quickstarts/email/add-custom-verified-domains.md)

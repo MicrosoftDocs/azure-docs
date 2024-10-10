@@ -4,11 +4,11 @@ titleSuffix: Azure AD B2C
 description: How to set up Application Insights to trace the execution of your custom policies.
 author: kengaderdus
 manager: CelesteDG
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: troubleshooting
 ms.date: 01/22/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
 
 #Customer intent: As a developer working with Azure Active Directory B2C, I want to collect logs from my custom policies using Application Insights, so that I can diagnose and troubleshoot any problems that may occur.

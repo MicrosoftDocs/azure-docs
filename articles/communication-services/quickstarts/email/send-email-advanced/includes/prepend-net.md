@@ -23,7 +23,7 @@ The following classes and interfaces handle some of the major features of the Az
 | Name                | Description                                                                                                                                          |
 | --------------------| -----------------------------------------------------------------------------------------------------------------------------------------------------|
 | EmailAddress        | This class contains an email address and an option for a display name.                                                                               |
-| EmailAttachment     | This class creates an email attachment by accepting a unique ID, email attachment [MIME type](../../../../concepts/email/email-attachment-allowed-mime-types.md) string, and binary data for content.                               |
+| EmailAttachment     | This class creates an email attachment by accepting a unique ID, email attachment [MIME type](../../../../concepts/email/email-attachment-allowed-mime-types.md) string, binary data for content, and an optional content ID to define it as an inline attachment. |
 | EmailClient         | This class is needed for all email functionality. You instantiate it with your connection string and use it to send email messages.                  |
 | EmailClientOptions  | This class can be added to the EmailClient instantiation to target a specific API version.                                                           |
 | EmailContent        | This class contains the subject and the body of the email message. You have to specify at least one of PlainText or Html content   |
@@ -46,7 +46,7 @@ EmailSendResult returns the following status on the email operation performed.
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - The latest version [.NET Core client library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
 - An Azure Email Communication Services Resource created and ready with a provisioned domain [Get started with Creating Email Communication Resource](../../create-email-communication-resource.md)
 - An active Communication Services resource connected with Email Domain and a Connection String. [Get started by Connecting Email Resource with a Communication Resource](../../connect-email-communication-resource.md)

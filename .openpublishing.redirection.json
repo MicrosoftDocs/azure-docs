@@ -1,6 +1,42 @@
 {
   "redirections": [
     {
+      "source_path": "articles/defender-for-iot/organizations/eiot-sensor.md",
+      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/eiot-sensor",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/application-gateway/powershell-samples.md",
+      "redirect_url": "/previous-versions/azure/application-gateway/powershell-samples",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/update-manager/troubleshooter-known-issues.md",
+      "redirect_url": "/azure/update-manager/troubleshoot",
+
+      "redirect_document_id": false
+    },
+    {   
+      "source_path": "articles/storage/blobs/storage-blob-scalable-app-create-vm.md",
+      "redirect_url": "/previous-versions/azure/storage/blobs/storage-blob-scalable-app-create-vm",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/blobs/storage-blob-scalable-app-download-files.md",
+      "redirect_url": "/previous-versions/azure/storage/blobs/storage-blob-scalable-app-download-files",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/blobs/storage-blob-scalable-app-upload-files.md",
+      "redirect_url": "/previous-versions/azure/storage/blobs/storage-blob-scalable-app-upload-files",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/blobs/storage-blob-scalable-app-verify-metrics.md",
+      "redirect_url": "/previous-versions/azure/storage/blobs/storage-blob-scalable-app-verify-metrics",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/api-management/self-hosted-gateway-migration-guide.md",
       "redirect_url": "/previous-versions/azure/api-management/self-hosted-gateway-migration-guide",
       "redirect_document_id": false
@@ -480,6 +516,7 @@
       "redirect_url": "/azure/azure-health-insights/overview",
       "redirect_document_id": false
     },
+    
     {
       "source_path_from_root": "/articles/azure-health-insights/response-info.md",
       "redirect_url": "/azure/azure-health-insights/overview",
@@ -488,7 +525,52 @@
     {
       "source_path_from_root": "/articles/azure-maps/tutorial-iot-hub-maps.md",
       "redirect_url": "/azure/azure-maps",
-      "redirect_document_id": true
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-health-insights/oncophenotype/faq.md",
+      "redirect_url": "/azure/azure-health-insights/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-health-insights/oncophenotype/get-started.md",
+      "redirect_url": "/azure/azure-health-insights/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-health-insights/oncophenotype/inferences.md",
+      "redirect_url": "/azure/azure-health-insights/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-health-insights/oncophenotype/model-configuration.md",
+      "redirect_url": "/azure/azure-health-insights/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-health-insights/oncophenotype/overview.md",
+      "redirect_url": "/azure/azure-health-insights/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-health-insights/oncophenotype/patient-info.md",
+      "redirect_url": "/azure/azure-health-insights/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-health-insights/oncophenotype/support-and-help.md",
+      "redirect_url": "/azure/azure-health-insights/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-health-insights/oncophenotype/transparency-note.md",
+      "redirect_url": "/azure/azure-health-insights/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-health-insights/oncophenotype/index.yml",
+      "redirect_url": "/azure/azure-health-insights/overview",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-maps/about-creator.md",
@@ -2631,6 +2713,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/migrate/migrate-v1.md",
+      "redirect_url": "/azure/migrate/migrate-services-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/mobile-apps/concepts/analytics.md",
       "redirect_url": "/azure/developer/mobile-apps/analytics",
       "redirect_document_id": false
@@ -4646,6 +4733,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/modeling-simulation-workbench/quickstart-create-portal.md",
+      "redirect_url": "/azure/modeling-simulation-workbench/get-started-modeling-simulation-workbench",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/load-balancer/upgrade-basic-standard.md",
       "redirect_url": "/azure/load-balancer/upgrade-basic-standard-with-powershell",
       "redirect_document_id": false
@@ -4678,6 +4770,11 @@
     {
       "source_path_from_root": "/articles/load-balancer/load-balancer-ipv6-internet-cli.md",
       "redirect_url": "/azure/load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/third-party-notices.md",
+      "redirect_url": "https://github.com/MicrosoftDocs/azure-docs/blob/main/ThirdPartyNotices.md",
       "redirect_document_id": false
     }
   ]

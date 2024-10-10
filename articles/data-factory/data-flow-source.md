@@ -6,7 +6,7 @@ author: kromerm
 ms.author: makromer
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.date: 10/20/2023
+ms.date: 09/25/2024
 ---
 
 # Source transformation in mapping data flows
