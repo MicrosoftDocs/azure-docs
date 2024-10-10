@@ -4,7 +4,7 @@ description: This article walks you through the details of tracking solutions po
 author: anilgodavarthy
 ms.author: angodavarthy
 ms.service: microsoft-sentinel
-ms.topic: how-to 
+ms.topic: conceptual 
 ms.date: 10/09/2024
 
 #CustomerIntent: As a ISV partner, I want to track the status of my solution so that I can correct any issues and ensure that my solution is available to customers in Azure Marketplace and in Sentinel Content hub.
