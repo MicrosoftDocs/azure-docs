@@ -76,7 +76,7 @@ You can use the [`az eventgrid event-subscription create`](/cli/azure/eventgrid/
 You can use the [New-AzEventGridSubscription](/powershell/module/az.eventgrid/new-azeventgridsubscription) or [Update-AzEventGridSubscription](/powershell/module/az.eventgrid/update-azeventgridsubscription) cmdlet to configure batch-related settings using the following parameters: `-MaxEventsPerBatch` or `-PreferredBatchSizeInKiloBytes`.
 
 > [!NOTE]
-> When you use Event Grid Trigger, the Event Grid service fetches the client secret for the target Azure function, and uses it to deliver events to the Azure function. If you protect your azure function with a Microsoft Entra application, you have to take the generic web hook approach and use the HTTP Trigger.
+> When you use Event Grid Trigger, the Event Grid service fetches the client secret for the target Azure function, and uses it to deliver events to the Azure function. If you protect your Azure function with a Microsoft Entra application, you have to take the generic web hook approach and use the HTTP Trigger.
 
 ## Next steps
 See the [Event handlers](event-handlers.md) article for a list of supported event handlers.

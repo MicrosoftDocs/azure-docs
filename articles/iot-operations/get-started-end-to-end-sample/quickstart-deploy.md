@@ -88,6 +88,7 @@ To connect your cluster to Azure Arc:
    az provider register -n "Microsoft.KubernetesConfiguration"
    az provider register -n "Microsoft.IoTOperations"
    az provider register -n "Microsoft.DeviceRegistry"
+   az provider register -n "Microsoft.SecretSyncController"
    ```
 
 1. Use the [az group create](/cli/azure/group#az-group-create) command to create a resource group in your Azure subscription to store all the resources:
@@ -105,7 +106,7 @@ To connect your cluster to Azure Arc:
    >[!TIP]
    >The value of `$CLUSTER_NAME` is automatically set to the name of your codespace. Replace the environment variable if you want to use a different name.
 
-1. Get the `objectId` of the Microsoft Entra ID application that the Azure Arc service in your tenant uses and save it as an environment variable.
+1. Get the `objectId` of the Microsoft Entra ID application that the Azure Arc service in your tenant uses and save it as an environment variable. Run the following command exactly as written, without changing the GUID value.
 
    ```azurecli
    export OBJECT_ID=$(az ad sp show --id bc313c14-388c-4e7d-a58e-70017303ee3b --query id -o tsv)
