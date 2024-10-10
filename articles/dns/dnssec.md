@@ -63,9 +63,11 @@ DNSSEC validation of DNS responses can prevent common types of DNS hijacking att
 3. The client device requests a response for **contoso.com** from malicious server.
 4. The malicious server returns a spoofed response to the client.
 
-The type of DNS resource record that is spoofed depends on the type of DNS hijacking attack. An MX record might be spoofed to redirect client emails, or a spoofed A record might send clients to a malicious web server.  
+The type of DNS resource record that is spoofed depends on the type of DNS hijacking attack. An MX record might be spoofed to redirect client emails, or a spoofed A record might send clients to a malicious web server.
 
-DNSSEC works to prevent DNS hijacking by performing validation on DNS responses. Before you sign a zone with DNSSEC, be sure to understand [how DNSSEC works](#how-dnssec-works). When you are ready to sign a zone, see [How to sign your Azure Public DNS zone with DNSSEC (Preview)](dnssec-how-to.md).
+DNSSEC works to prevent DNS hijacking by performing validation on DNS responses. In the DNS hijacking scenario pictured here, the client device can reject non-validated DNS responses if the contoso.com domain is signed with DNSSEC. To reject non-validated DNS responses, the client device must enforce [DNSSEC validation](#dnssec-validation) for contoso.com.
+
+Before you sign a zone with DNSSEC, be sure to understand [how DNSSEC works](#how-dnssec-works). When you are ready to sign a zone, see [How to sign your Azure Public DNS zone with DNSSEC](dnssec-how-to.md).
 
 ## DNSSEC validation
 
@@ -75,9 +77,9 @@ A recursive (non-authoritative) DNS server performs DNSSEC validation on RRSIG r
 
   ![A diagram showing how DNSSEC validation works.](media/dnssec/dnssec-validation.png)
 
-If hash values aren't the same, the recursive DNS server replies with a SERVFAIL message. In this way, DNSSEC-capable resolving DNS servers with a valid trust anchor installed can protect against DNS hijacking. This protection doesn't require DNS client devices to be DNSSEC-aware. 
+If hash values aren't the same, the recursive DNS server replies with a SERVFAIL message. In this way, DNSSEC-capable resolving (or forwarding) DNS servers with a valid trust anchor installed can protect against DNS hijacking in the path between the recursive server and the authoritative server. This protection doesn't require DNS client devices to be DNSSEC-aware or to enforce DNS response validation, provided the local (last hop) recursive DNS server is itself secure from hijacking.
 
-Windows 11 client devices are [nonvalidating security-aware stub resolvers](#dnssec-terminology).
+Windows 10 and Windows 11 client devices are [nonvalidating security-aware stub resolvers](#dnssec-terminology). These client devices don't perform validation, but can enforce DNSSEC validation using Group Policy. [The NRPT](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn593632(v=ws.11)) can be used to create and enforce namespace based DNSSEC validation policy.
 
 ### Trust anchors and DNSSEC validation
 
@@ -247,7 +249,6 @@ This list is provided to help understand some of the common terms used when disc
 | secure entry point (SEP) key | A subset of public keys within the DNSKEY RRSet. A SEP key is used either to generate a DS RR or is distributed to resolvers that use the key as a trust anchor. |
 | Security-aware DNS server | A DNS server that implements the DNS security extensions as defined in RFCs 4033 [5], 4034 [6], and 4035 [7]. In particular, a security-aware DNS server is an entity that receives DNS queries, sends DNS responses, supports the EDNS0 [3] message size extension and the DO bit, and supports the DNSSEC record types and message header bits. |
 | Signed zone | A zone whose records are signed as defined by RFC 4035 [7] Section 2. A signed zone can contain DNSKEY, NSEC, NSEC3, NSEC3PARAM, RRSIG, and DS resource records. These resource records enable DNS data to be validated by resolvers. |
-| Signing key descriptor (SKD) | A collection of cryptographic keys and parameters that describe how to generate and maintain signing keys and signatures. An SKD is not the same as a signing key, but all signing keys are associated to an SKD. The unique identifier for an SKD is displayed as a GUID in DNSSEC properties of a signing key in DNS Manager, and this GUID is the value that must be provided for the KeyId parameter in Windows PowerShell in certain cmdlets, for example: Set-DnsServerSigningKey. |
 | Trust anchor | A preconfigured public key that is associated with a particular zone. A trust anchor enables a DNS resolver to validate signed DNSSEC resource records for that zone and to build authentication chains to child zones. |
 | Unsigned zone | Any DNS zone that has not been signed as defined by RFC 4035 [7] Section 2. |
 | Zone signing | Zone signing is the process of creating and adding DNSSEC-related resource records to a zone, making it compatible with DNSSEC validation. |
