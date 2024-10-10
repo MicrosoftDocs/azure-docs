@@ -44,7 +44,7 @@ Where:
 |**vSwitch_Span** |Newly added SPAN virtual switch name |
 |**Ethernet** |Physical adapter name |
 
-Learn how to [Create and configure a virtual switch with Hyper-V](https://learn.microsoft.com/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines?tabs=powershell#create-a-virtual-switch)
+Learn how to [Create and configure a virtual switch with Hyper-V](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines?tabs=powershell#create-a-virtual-switch)
 
 ### Create a new virtual switch with Hyper-V Manager
 
@@ -179,7 +179,7 @@ Where:
 |**1010-1020** |VLAN range from which IoT traffic is mirrored |
 |**10** |Native VLAN ID of the environment |
 
-Learn more about the [Set-VMNetworkAdapterVlan](https://learn.microsoft.com/powershell/module/hyper-v/set-vmnetworkadaptervlan) PowerShell cmdlet.
+Learn more about the [Set-VMNetworkAdapterVlan](/powershell/module/hyper-v/set-vmnetworkadaptervlan) PowerShell cmdlet.
 
 [!INCLUDE [validate-traffic-mirroring](../includes/validate-traffic-mirroring.md)]
 
