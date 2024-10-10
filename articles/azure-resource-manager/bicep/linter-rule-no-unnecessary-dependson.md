@@ -3,7 +3,7 @@ title: Linter rule - no unnecessary dependsOn entries
 description: Linter rule - no unnecessary dependsOn entries
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 10/09/2024
+ms.date: 10/10/2024
 ---
 
 # Linter rule - no unnecessary dependsOn entries
