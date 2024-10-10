@@ -1,5 +1,5 @@
 ---
-title: Use blob index tags to manage and find data with JavaScript
+title: Use blob index tags to manage and find data with JavaScript/TypeScript
 titleSuffix: Azure Storage
 description: Learn how to categorize, manage, and query for blob objects by using the JavaScript client library.  
 services: storage
@@ -12,7 +12,7 @@ ms.devlang: javascript
 ms.custom: devx-track-js, devguide-js
 ---
 
-# Use blob index tags to manage and find data with JavaScript
+# Use blob index tags to manage and find data with JavaScript/TypeScript
 
 [!INCLUDE [storage-dev-guide-selector-index-tags](../../../includes/storage-dev-guides/storage-dev-guide-selector-index-tags.md)]
 
