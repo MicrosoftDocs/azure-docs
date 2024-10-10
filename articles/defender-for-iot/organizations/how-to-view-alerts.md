@@ -54,6 +54,10 @@ For more information, see [On-premises users and roles for OT monitoring with De
 
 Use the **Search** box, **Time range**, and **Add filter** options to filter the alerts displayed by specific parameters or help locate a specific alert.
 
+For example:
+
+:::image type="content" source="media/how-to-view-alerts/filter-alerts-groups.png" alt-text="Screenshot of an OT sensor Alerts page being filtered by Groups.":::
+
 Filtering alerts by **Groups** uses any custom groups you may have created in the [Device inventory](how-to-investigate-sensor-detections-in-a-device-inventory.md) or the [Device map](how-to-work-with-the-sensor-device-map.md) pages.
 
 ### Group alerts displayed
@@ -74,9 +78,7 @@ For example, while the total number of alerts appears above the grid, you may wa
 
     Use the following tabs to gain more contextual insight:
 
-    - **Map View**. View the source and destination devices in a map view with other devices connected to your sensor. For example:
-
-        :::image type="content" source="media/how-to-view-alerts/map-view.png" alt-text="Screenshot of the Map View tab on an alert details page.":::
+    - **Map View**. View the source and destination devices in a map view with other devices connected to your sensor. 
 
     - **Event Timeline**. View the event together with other recent activity on the related devices. Filter options to customize the data displayed. For example:
 
