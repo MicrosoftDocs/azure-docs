@@ -14,7 +14,7 @@ The policy is used with APIs [added to API Management from the Azure OpenAI Serv
 
 | API type | Supported models |
 |-------|-------------|
-| Chat completion     |  gpt-3.5<br/><br/>gpt-4 |
+| Chat completion     |  gpt-3.5<br/><br/>gpt-4<br/><br/>gpt-4o |
 | Completion | gpt-3.5-turbo-instruct |
 | Embeddings | text-embedding-3-large<br/><br/> text-embedding-3-small<br/><br/>text-embedding-ada-002 |
 
