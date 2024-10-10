@@ -504,7 +504,7 @@ Now, create and install the Azure Container Apps extension with your Azure Arc-e
    > [!NOTE]
    >
    > If you experience issues creating a custom location on your cluster, you might have to 
-   > [enable the custom location feature on your cluster](/azure-arc/kubernetes/custom-locations#enable-custom-locations-on-your-cluster). 
+   > [enable the custom location feature on your cluster](/azure/azure-arc/kubernetes/custom-locations#enable-custom-locations-on-your-cluster). 
    > This step is required if you signed in to Azure CLI using a service principal, or if 
    > you signed in as a Microsoft Entra user with restricted permissions on the cluster resource.
 
