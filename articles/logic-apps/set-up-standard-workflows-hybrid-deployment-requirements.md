@@ -45,7 +45,7 @@ This how-to guide shows how to set up the necessary on-premises resources in you
 
 - Hybrid deployment is currently available and supported only for Azure Arc-enabled Azure Kubernetes Service (AKS) clusters and Azure Arc-enabled Kubernetes clusters on Azure Stack HCI.
 
-## Prererquisites
+## Prerequisites
 
 - An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
@@ -264,7 +264,7 @@ This section is based on the Azure CLI steps in [Tutorial: Enable Azure Containe
       |-----------|----------|-------|-------------|
       | **CONNECTED_CLUSTER_NAME** | Yes | <*Azure-Arc-cluster-resource-group-name*>-**cluster** | The name to use for your Azure Arc-enabled cluster. This name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <br><br>This example uses **Hybrid-Arc-RG-cluster**. |
 
-   1. Connect your previously-created Kubernetes cluster to Azure Arc:
+   1. Connect your previously created Kubernetes cluster to Azure Arc:
 
       ```azurecli
       az connectedk8s connect \
@@ -364,7 +364,7 @@ This section is based on the Azure CLI steps in [Tutorial: Enable Azure Containe
       | Parameter | Required | Value | Description |
       |-----------|----------|-------|-------------|
       | **EXTENSION_NAME** | Yes | **logicapps-aca-extension** | The name for the Azure Container Apps extension. |
-      | **NAMESPACE** | Yes | **logicapps-aca-ns** | The cluster namespace where to provision resources. |
+      | **NAMESPACE** | Yes | **logicapps-aca-ns** | The cluster namespace where you want to provision resources. |
       | **CONNECTED_ENVIRONMENT_NAME** | Yes | <*connected-environment-name*> | The name to use for the Azure Container Apps connected environment. This name becomes part of the domain name for the app that you create, deploy, and host in the Azure Container Apps connected environment. |
 
    1. Install the extension with Log Analytics enabled in your Azure Arc-enabled Kubernetes cluster. You can't later add Log Analytics to the extension.
