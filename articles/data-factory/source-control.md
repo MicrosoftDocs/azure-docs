@@ -154,6 +154,11 @@ For repositories owned by GitHub organization account, the admin has to authoriz
 
 :::image type="content" source="media/author-visually/github-configure-repository-pane.png" alt-text=" Screenshot showing GitHub Configure a repository pane.":::
 
+> [!NOTE]
+> if you recieve this error: ***Failed to list GitHub repositories. Please make sure the account name is correct and you have permission to perform the action.***
+> Ensure that you are using the correct owner name and not the GitHub repository URL. For example, if the repository URL is **https://github.com/contoso/contoso-ads**, the owner is **contoso**, not the full URL.
+
+
 :::image type="content" source="media/author-visually/use-github-enterprise-server-pane.png" alt-text="Screenshot showing GitHub Configure a repository using enterprise server pane.":::
 
 :::image type="content" source="media/author-visually/github-integration-image2.png" alt-text="GitHub repository settings":::
