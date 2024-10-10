@@ -161,7 +161,7 @@ Different from the RESTful API, Engine.IO connection doesn't use the Microsoft E
 POST {endpoint}/api/hubs/{hub}/:generateToken?api-version=2024-01-01
 
 Headers:
-Authorization: Bearer <Entra ID Token>
+Authorization: Bearer <Microsoft Entra ID Token>
 ```
 
 For more optional parameters, see [Generate Client Token](/rest/api/webpubsub/dataplane/web-pub-sub/generate-client-token)

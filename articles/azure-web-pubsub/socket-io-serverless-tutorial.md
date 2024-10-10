@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Use Socket.IO with Azure Function in Serverless Mode'
+title: 'Tutorial: Use Web PubSub for Socket.IO with Azure Function in Serverless Mode'
 description: In this tutorial, you learn how to use Web PubSub for Socket.IO with Azure Function in Serverless Mode.
 keywords: Socket.IO, serverless, azure function, Socket.IO on Azure, multi-node Socket.IO, scaling Socket.IO, socketio, azure socketio
 author: zackliu

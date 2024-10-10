@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Publish data to Web PubSub for Socket.IO clients in Serverless Mode in Python'
+title: 'Tutorial: Publish data to Web PubSub for Socket.IO clients in Serverless Mode in Python with Azure Function'
 description: In this tutorial, you learn how to use Web PubSub for Socket.IO with Azure Function in Serverless Mode to publish data to sockets with a real-time NASDAQ index update application
 keywords: Socket.IO, serverless, azure function, Socket.IO on Azure, multi-node Socket.IO, scaling Socket.IO, socketio, azure socketio
 author: zackliu
