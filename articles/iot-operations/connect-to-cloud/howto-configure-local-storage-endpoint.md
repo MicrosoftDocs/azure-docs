@@ -45,7 +45,7 @@ The PersistentVolumeClaim (PVC) must be in the same namespace as the *DataflowEn
 
 # [Bicep](#tab/bicep)
 
-This Bicep template file from [Bicep File for local storage dataflow Tutorial](https://gist.github.com/david-emakenemi/52377e32af1abd0efe41a5da27190a10) deploys the necessary resources for dataflows to local storage.
+The [Bicep File to create Dataflow](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/dataflow.bicep) deploys the necessary resources for dataflows to local storage.
 
 Download the file to your local, and make sure to replace the values for `customLocationName`, `aioInstanceName`, `schemaRegistryName`, `opcuaSchemaName`, and `persistentVCName`.
 
