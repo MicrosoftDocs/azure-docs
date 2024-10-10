@@ -11,7 +11,7 @@ appliesto:
 ms.collection: usx-security
 
 
-#Customer intent: [AI]As a security analyst, I want to leverage User and Entity Behavior Analytics (UEBA) so that I can efficiently detect and prioritize sophisticated threats within my organization.
+#Customer intent: As a security analyst, I want to leverage User and Entity Behavior Analytics (UEBA) so that I can efficiently detect and prioritize sophisticated threats within my organization.
 
 ---
 

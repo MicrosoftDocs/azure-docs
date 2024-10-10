@@ -10,7 +10,7 @@ appliesto:
 ms.collection: usx-security
 
 
-#Customer intent: [AI]As a security engineer, I want to integrate Microsoft Defender XDR with Microsoft Sentinel so that I can streamline incident management and enhance threat detection across my organization's security operations.
+#Customer intent: As a security engineer, I want to integrate Microsoft Defender XDR with Microsoft Sentinel so that I can streamline incident management and enhance threat detection across my organization's security operations.
 
 ---
 

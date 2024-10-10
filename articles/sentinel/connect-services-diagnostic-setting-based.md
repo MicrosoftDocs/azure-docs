@@ -7,7 +7,7 @@ ms.date: 02/24/2023
 ms.author: yelevin
 
 
-#Customer intent: [AI]As a security engineer, I want to ingest diagnostic data from Azure services to Microsoft Sentinel so that I can monitor logs for enhanced threat detection and response.
+#Customer intent: As a security engineer, I want to ingest diagnostic data from Azure services to Microsoft Sentinel so that analysts can monitor logs for enhanced threat detection and response.
 
 ---
 

@@ -8,7 +8,7 @@ ms.date: 11/09/2021
 ms.author: yelevin
 
 
-#Customer intent: [AI]As a security analyst, I want to manage hunting and livestream queries using REST API so that I can efficiently monitor and respond to security threats in my environment.
+#Customer intent: As a security analyst, I want to manage hunting and livestream queries using REST API so that I can efficiently monitor and respond to security threats in my environment.
 
 ---
 

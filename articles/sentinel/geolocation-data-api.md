@@ -7,7 +7,7 @@ ms.date: 01/09/2023
 ms.author: yelevin
 
 
-#Customer intent: [AI]As a security analyst, I want to enrich IP address data with geolocation information via a REST API so that I can enhance threat detection and response in Microsoft Sentinel.
+#Customer intent: As a security analyst, I want to enrich IP address data with geolocation information via a REST API so that I can enhance threat detection and response in Microsoft Sentinel.
 
 ---
 

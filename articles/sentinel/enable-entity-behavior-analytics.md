@@ -11,7 +11,7 @@ appliesto:
 ms.collection: usx-security
 
 
-#Customer intent: [AI]As a security analyst, I want to configure User and Entity Behavior Analytics (UEBA) in Microsoft Sentinel so that I can detect and analyze anomalous activities more effectively.
+#Customer intent: As a security analyst, I want to configure User and Entity Behavior Analytics (UEBA) in Microsoft Sentinel so that I can detect and analyze anomalous activities more effectively.
 
 ---
 

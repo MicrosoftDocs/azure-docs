@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 01/17/2023
 
 
-#Customer intent: [AI]As a security analyst, I want to efficiently investigate security incidents using a comprehensive case management platform so that I can reduce the mean time to resolve (MTTR) and ensure effective incident response.
+#Customer intent: As a security analyst, I want to efficiently investigate security incidents using a comprehensive case management platform so that I can reduce the mean time to resolve (MTTR) and ensure effective incident response.
 
 ---
 

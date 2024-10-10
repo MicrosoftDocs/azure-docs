@@ -7,7 +7,7 @@ ms.date: 11/09/2021
 ms.author: yelevin
 
 
-#Customer intent: [AI]As a security analyst, I want to understand the scenarios detected by the Fusion engine so that I can effectively monitor and respond to advanced multistage attacks.
+#Customer intent: As a security analyst, I want to understand the scenarios detected by the Fusion engine so that I can effectively monitor and respond to advanced multistage attacks.
 
 ---
 # Scenarios detected by the Microsoft Sentinel Fusion engine

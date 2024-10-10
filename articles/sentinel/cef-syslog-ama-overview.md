@@ -8,7 +8,7 @@ ms.custom: linux-related-content
 ms.date: 07/12/2024
 
 
-#Customer intent: [AI]As a security engineer, I want to collect Syslog and CEF messages from various devices, either directly or using a centralized log forwarder, so that I can efficiently monitor and respond to security threats.
+#Customer intent: As a security engineer, I want to collect Syslog and CEF messages from various devices, either directly or using a centralized log forwarder, so that I can efficiently monitor and respond to security threats.
 
 ---
 

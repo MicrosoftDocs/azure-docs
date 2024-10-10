@@ -11,7 +11,7 @@ appliesto:
 ms.collection: usx-security
 
 
-#Customer intent: [AI]As a security analyst, I want to customize alert details in my analytics rules so that I can ensure alerts are more relevant and actionable based on specific query results.
+#Customer intent: As a security analyst, I want to customize alert details in my analytics rules so that I can ensure alerts are more relevant and actionable based on specific query results.
 
 ---
 

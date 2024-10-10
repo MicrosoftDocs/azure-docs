@@ -12,7 +12,7 @@ appliesto:
 ms.collection: usx-security
 
 
-#Customer intent: [AI]As a security engineer, I want to ingest and filter syslog and CEF messages from Linux machines and from network and security devices and appliances to my Microsoft Sentinel workspace, so that I can enhance threat detection and incident response capabilities.
+#Customer intent: As a security engineer, I want to ingest and filter syslog and CEF messages from Linux machines and from network and security devices and appliances to my workspace, so that I can enhance threat detection and incident response capabilities.
 
 ---
 

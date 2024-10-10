@@ -11,7 +11,7 @@ appliesto:
 ms.collection: usx-security
 
 
-#Customer intent: [AI]As a security analyst, I want to customize and tune anomaly detection rules so that I can improve the accuracy and relevance of alerts in my environment.
+#Customer intent: As a security analyst, I want to customize and tune anomaly detection rules so that I can improve the accuracy and relevance of alerts in my environment.
 
 ---
 

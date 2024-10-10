@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 06/19/2023
 
 
-#Customer intent: [AI]As a security analyst, I want to monitor and rerun analytics rules so that I can optimize threat detection and ensure comprehensive incident coverage.
+#Customer intent: As a security analyst, I want to monitor and rerun analytics rules so that I can optimize threat detection and ensure comprehensive incident coverage.
 
 ---
 

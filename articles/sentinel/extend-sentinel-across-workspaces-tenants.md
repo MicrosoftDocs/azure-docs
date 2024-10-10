@@ -7,7 +7,7 @@ ms.date: 06/28/2023
 ms.author: yelevin
 
 
-#Customer intent: [AI]As a security analyst, I want to query data across multiple workspaces and tenants so that I can centralize incident management and enhance threat detection capabilities.
+#Customer intent: As a security analyst, I want to query data across multiple workspaces and tenants so that I can centralize incident management and enhance threat detection capabilities.
 
 ---
 

@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 05/08/2023
 
 
-#Customer intent: [AI]As a SOC manager, I want to audit and track changes to incident tasks so that I can evaluate the effectiveness of task assignments and improve SOC efficiency.
+#Customer intent: As a SOC manager, I want to audit and track changes to incident tasks so that I can evaluate the effectiveness of task assignments and improve SOC efficiency.
 
 ---
 

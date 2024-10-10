@@ -9,7 +9,7 @@ appliesto:
     - Microsoft Sentinel
 
 
-#Customer intent: [AI]As a security administrator, I want to configure a customer-managed key for Microsoft Sentinel so that I can enhance data protection with my own encryption key.
+#Customer intent: As a security administrator, I want to configure a customer-managed key for Microsoft Sentinel so that I can enhance data protection with my own encryption key.
 
 ---
 

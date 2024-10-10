@@ -11,7 +11,7 @@ appliesto:
 ms.collection: usx-security
 
 
-#Customer intent: [AI]As a security analyst, I want to create and customize workbooks in Microsoft Sentinel so that I can visualize and monitor security data effectively.
+#Customer intent: As a security analyst, I want to create and customize workbooks in Microsoft Sentinel so that I can visualize and monitor security data effectively.
 
 ---
 

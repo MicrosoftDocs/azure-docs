@@ -7,7 +7,7 @@ ms.date: 01/09/2023
 ms.author: yelevin
 
 
-#Customer intent: [AI]As a security analyst, I want to deploy and monitor Azure Key Vault honeytokens using Microsoft Sentinel so that I can detect and respond to potential security threats effectively.
+#Customer intent: As a security analyst, I want to deploy and monitor Azure Key Vault honeytokens using Microsoft Sentinel so that I can detect and respond to potential security threats effectively.
 
 ---
 

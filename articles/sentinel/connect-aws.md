@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 01/31/2024
 
 
-#Customer intent: [AI]As a security engineer, I want to connect AWS service logs to Microsoft Sentinel so that analysts can centralize log management and enhance threat detection capabilities.
+#Customer intent: As a security engineer, I want to connect AWS service logs to Microsoft Sentinel so that analysts can centralize log management and enhance threat detection capabilities.
 
 ---
 

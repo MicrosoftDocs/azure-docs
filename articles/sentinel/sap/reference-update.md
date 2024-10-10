@@ -7,7 +7,7 @@ ms.topic: reference
 ms.date: 05/24/2023
 
 
-#Customer intent: [AI]As an advanced SAP BASIS team member, I want to customize the SAP data collector agent container update script so that I can streamline the update process and ensure compatibility with my SAP system.
+#Customer intent: As an advanced SAP BASIS team member, I want to customize the SAP data collector agent container update script so that I can streamline the update process and ensure compatibility with my SAP system.
 
 ---
 

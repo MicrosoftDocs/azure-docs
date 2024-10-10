@@ -8,7 +8,7 @@ ms.date: 05/29/2024
 ms.author: yelevin
 
 
-#Customer intent: [AI]As a security analyst, I want to automatically create incidents from security alerts so that I can streamline incident management and improve response times.
+#Customer intent: As a security analyst, I want to automatically create incidents from security alerts so that I can streamline incident management and improve response times.
 
 ---
 

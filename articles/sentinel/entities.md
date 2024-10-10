@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 03/11/2024
 
 
-#Customer intent: [AI]As a security analyst, I want to understand how Microsoft Sentinel identifies and manages entities so that I can effectively correlate alerts and investigate security threats.
+#Customer intent: As a security analyst, I want to understand how Microsoft Sentinel identifies and manages entities so that I can effectively correlate alerts and investigate security threats.
 
 ---
 

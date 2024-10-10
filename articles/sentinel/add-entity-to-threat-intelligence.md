@@ -10,7 +10,7 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
 
-#Customer intent: [AI]As a security analyst, I want to add entities to threat intelligence so that I can track and manage indicators of compromise effectively during incident investigations.
+#Customer intent: As a security analyst, I want to add entities to threat intelligence so that I can track and manage indicators of compromise effectively during incident investigations.
 ---
 
 # Add entities to threat intelligence in Microsoft Sentinel

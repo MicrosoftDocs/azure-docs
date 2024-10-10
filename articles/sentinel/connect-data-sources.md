@@ -11,7 +11,7 @@ appliesto:
 ms.collection: usx-security
 
 
-#Customer intent: [AI]As a security analyst, I want to use data connectors to integrate various data sources into Microsoft Sentinel so that I can enhance threat detection and response capabilities.
+#Customer intent: As a security eningeer, I want to use data connectors to integrate various data sources into Microsoft Sentinel so that I can enhance threat detection and response capabilities.
 
 ---
 

@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 01/17/2023
 
 
-#Customer intent: [AI]As a security analyst, I want to run playbooks on identified threats during investigations or threat hunts so that I can take immediate remediation actions without disrupting my workflow.
+#Customer intent: As a security analyst, I want to run playbooks on identified threats during investigations or threat hunts so that I can take immediate remediation actions without disrupting my workflow.
 
 ---
 

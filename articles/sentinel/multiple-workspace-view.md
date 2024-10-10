@@ -7,7 +7,7 @@ ms.date: 01/11/2022
 ms.author: yelevin
 
 
-#Customer intent: [AI]As a security analyst, I want to manage and investigate incidents across multiple workspaces and tenants so that I can maintain comprehensive visibility and control over my organization's security posture.
+#Customer intent: As a security analyst, I want to manage and investigate incidents across multiple workspaces and tenants so that I can maintain comprehensive visibility and control over my organization's security posture.
 
 ---
 

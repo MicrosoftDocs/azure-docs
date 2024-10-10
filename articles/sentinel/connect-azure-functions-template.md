@@ -7,7 +7,7 @@ ms.date: 06/05/2023
 ms.author: yelevin
 
 
-#Customer intent: [AI]As a security analyst, I want to use Azure Functions to connect Microsoft Sentinel to my data sources so that I can automate the ingestion of logs and enhance threat detection capabilities.
+#Customer intent: As a security engineer, I want to use Azure Functions to connect Microsoft Sentinel to my data sources so that I can automate the ingestion of logs and enhance threat detection capabilities.
 
 ---
 

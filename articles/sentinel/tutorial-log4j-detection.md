@@ -7,7 +7,7 @@ ms.topic: tutorial
 ms.date: 06/21/2023
 
 
-#Customer intent: [AI]As a security analyst, I want to create and customize analytics rules to detect and respond to security threats, so that I can protect my organization from vulnerabilities like the Apache Log4j exploit.
+#Customer intent: As a security analyst, I want to create and customize analytics rules to detect and respond to security threats, so that I can protect my organization from vulnerabilities like the Apache Log4j exploit.
 
 ---
 
