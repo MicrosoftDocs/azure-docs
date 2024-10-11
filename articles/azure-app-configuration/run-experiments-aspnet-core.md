@@ -3,14 +3,14 @@ title: 'Tutorial:  Run experiments with variant feature flags in Azure App Confi
 titleSuffix: Azure App configuration
 description: In this tutorial, you learn how to set up experiments in an App Configuration store using Split Experimentation Workspace.
 #customerintent: As a user of Azure App Configuration, I want to learn how I can run experiments with variant feature flags, using Split Experimentation Workspace and Application Insights.
-author: maud-lv
-ms.author: malev
+author: rossgrambo
+ms.author: rossgrambo
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom:
   - build-2024
 ms.topic: tutorial
-ms.date: 05/07/2024
+ms.date: 10/10/2024
 ---
 
 # Tutorial: Run experiments with variant feature flags (preview)
