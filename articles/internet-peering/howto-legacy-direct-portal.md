@@ -33,13 +33,13 @@ As an Internet Service Provider, you can convert a legacy direct peering connect
 
 1. On the **Peerings** page, select **+ Create**.
 
-1. On the **Basics** tab of **Create a Peering** page, enter or select the following values:
+1. On the **Basics** tab of **Create a Peering** page, enter, or select the following values:
 
     | Setting | Value |
     | --- | --- |
     | **Project Details** |  |
     | Subscription | Select your Azure subscription. |
-    | Resource Group | Select  a resource gourp or create a new one. |
+    | Resource Group | Select a resource group or create a new one. |
     | **Instance details** |  |
     | Name | Enter a name for the peering you're creating. |
     | Peer ASN | Select your ASN. |
@@ -58,7 +58,7 @@ As an Internet Service Provider, you can convert a legacy direct peering connect
     | Peering type | Select **Direct**. |
     | Microsoft network | Select **AS8075**. |
     | SKU | Select **Basic Free**. Don't select **Premium Free** as it's reserved for special applications. |
-    | Metro | Select the metro location where you want to convert a peering to an Azure resource. If you have peering connections with Microsoft in the selected location that aren't converted, these connections will be listed in the **Peering connections**. |
+    | Metro | Select the metro location where you want to convert a peering to an Azure resource. If you have peering connections with Microsoft in the selected location that aren't converted, you can see them listed in the **Peering connections**. |
 
     :::image type="content" source="./media/howto-legacy-direct-portal/peering-configuration.png" alt-text="Screenshot that shows the Configuration tab of creating a peering in the Azure portal." lightbox="./media/howto-legacy-direct-portal/peering-configuration.png":::
 
