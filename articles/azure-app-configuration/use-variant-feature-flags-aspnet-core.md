@@ -314,12 +314,7 @@ In this example, you create an ASP.NET web app named _Quote of the Day_. When th
 
     *usera@contoso.com* sees the long message.
 
-## Next step
-
-To run an experiment using this variant flag, refer to the following document.
-
-> [!div class="nextstepaction"]
-> [Experimentation Tutorial](./run-experiments-aspnet-core.md)
+## Next steps
 
 To learn more about the experimentation concepts, refer to the following document.
 
