@@ -14,6 +14,8 @@ There are some caveats to the customer managed key for service side encryption.
 
 You can use Azure Key Vault (including Azure Key Vault Managed HSM) to manage your keys and audit your key usage. You can either create your own keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate keys. For more information about Azure Key Vault, see [What is Azure Key Vault?](/azure/key-vault/general/overview)
 
+If you only need to encrypt certain properties of your messages, consider using a library like [NServiceBus](https://docs.particular.net/nservicebus/security/property-encryption) for that.
+
 ## Enable customer-managed keys (Azure portal)
 
 To enable customer-managed keys in the Azure portal, follow these steps:
