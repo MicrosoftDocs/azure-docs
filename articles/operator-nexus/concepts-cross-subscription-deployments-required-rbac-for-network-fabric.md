@@ -9,7 +9,7 @@ ms.date: 09/17/2024
 ms.custom: template-concept
 ---
 
-# Managing Azure Network Fabric resources across subscriptions
+# Cross-subscription deployments and required permissions for Network Fabric
 
 This document outlines the requirements and behaviors associated with managing Nexus Network Fabric (NNF) resources in Azure when dealing with multiple subscriptions. It describes various scenarios involving different levels of access permissions that can affect operations across subscriptions. This document also covers the linked access check implementation, which ensures that proper permissions and access controls are enforced when managing Network Fabric (NNF) resources across multiple subscriptions, verifying that the required cross-subscription links have the necessary authorizations in place.
 
