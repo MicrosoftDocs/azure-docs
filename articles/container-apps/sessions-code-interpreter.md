@@ -1,22 +1,19 @@
 ---
-title: Serverless code interpreter sessions in Azure Container Apps (preview)
+title: Serverless code interpreter sessions in Azure Container Apps
 description: Learn to run a serverless code interpreter session in Azure Container Apps.
 services: container-apps
 author: anthonychu
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 05/06/2024
+ms.date: 10/11/2024
 ms.author: antchu
 ms.custom: references_regions
 ms.collection: ce-skilling-ai-copilot
 ---
 
-# Serverless code interpreter sessions in Azure Container Apps (preview)
+# Serverless code interpreter sessions in Azure Container Apps
 
 Azure Container Apps [dynamic sessions](sessions.md) provides fast and scalable access to a code interpreter. Each code interpreter session is fully isolated by a Hyper-V boundary and is designed to run untrusted code.
-
-> [!NOTE]
-> The Azure Container Apps dynamic sessions feature is currently in preview. See [preview limitations](sessions.md#preview-limitations) for more information.
 
 ## Uses for code interpreter sessions
 
@@ -46,7 +43,7 @@ To create a code interpreter session pool using the Azure CLI, ensure you have t
 az upgrade
 
 # Install or upgrade the Azure Container Apps extension
-az extension add --name containerapp --upgrade --allow-preview true -y
+az extension add --name containerapp --upgrade
 ```
 
 Use the `az containerapps sessionpool create` command to create the pool. The following example creates a Python code interpreter session pool named `my-session-pool`. Make sure to replace `<RESOURCE_GROUP>` with your resource group name before you run the command.

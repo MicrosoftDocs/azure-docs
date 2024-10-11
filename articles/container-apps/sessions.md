@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 04/04/2024
+ms.date: 10/11/2024
 ms.author: cshoe
 ms.custom: references_regions
 ---
@@ -25,9 +25,6 @@ Sessions have the following attributes:
 * **Fast startup**: A new session is allocated in milliseconds. Rapid start-ups are achieved by automatically maintaining a pool of ready but unallocated sessions.
 
 * **Scalable**: Sessions can run at a high scale. You can run hundreds or thousands of sessions concurrently.
-
-> [!NOTE]
-> Azure Container Apps dynamic sessions is currently in preview.
 
 ## Session types
 
