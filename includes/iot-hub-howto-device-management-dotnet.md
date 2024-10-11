@@ -23,7 +23,7 @@ This section describes how to use device application code to:
 * Trigger a simulated device reboot
 * Use the reported properties to enable device twin queries to identify devices and when they were last rebooted
 
-[!INCLUDE [iot-authentication-device-connection-string.md](../../includes/iot-authentication-device-connection-string.md)]
+[!INCLUDE [iot-authentication-device-connection-string.md](iot-authentication-device-connection-string.md)]
 
 ### Required device NuGet package
 
@@ -134,7 +134,7 @@ The Azure IoT SDK for .NET provides working samples of device apps that handle d
 
 ## Get the IoT hub connection string
 
-[!INCLUDE [iot-hub-howto-device-management-shared-access-policy-text](../../includes/iot-hub-howto-device-management-shared-access-policy-text.md)]
+[!INCLUDE [iot-hub-howto-device-management-shared-access-policy-text](iot-hub-howto-device-management-shared-access-policy-text.md)]
 
 ## Create a backend application
 
@@ -163,7 +163,7 @@ To invoke a direct method on a device through IoT Hub, your service needs the **
 
 As a parameter to `CreateFromConnectionString`, supply the **service** shared access policy. For more information about shared access policies, see [Control access to IoT Hub with shared access signatures](/azure/iot-hub/authenticate-authorize-sas).
 
-[!INCLUDE [iot-authentication-service-connection-string.md](../../includes/iot-authentication-service-connection-string.md)]
+[!INCLUDE [iot-authentication-service-connection-string.md](iot-authentication-service-connection-string.md)]
 
 ```csharp
 using Microsoft.Azure.Devices;
