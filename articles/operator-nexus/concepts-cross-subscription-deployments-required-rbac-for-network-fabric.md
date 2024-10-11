@@ -25,7 +25,7 @@ Consider two Azure subscriptions, **Subscription A** and **Subscription B**, whe
 
 ### Limited access in subscription
 
-In this scenario, the user has access to two subscriptions: **Subscription A** and **Subscription B**. In **Subscription A**, the user has only `read` access to the Network Fabric (NNF) resources.
+In this scenario, the user has access to two subscriptions: **Subscription A** and **Subscription B**. In **Subscription A**, the user has only `Read` access to the Network Fabric (NNF) resources.
 
 **Outcome:** When the user tries to create or manage any NNF resource in **Subscription B** by referencing the NNF resource from **Subscription A**, the operation fails with a `LinkedAuthorizationFailed` error. This failure occurs because the user does not have the necessary `Join` access to the NNF resource.
 
