@@ -14,7 +14,7 @@ This article describes how you can integrate the Azure Communication Services Ca
 
 ## Problem
 
-With versions of the Calling SDK earlier than 2.11.0, building an Android application with both the Calling and Chat SDKs resulted in the following errors:
+With versions of the Calling SDK earlier than `2.11.0`, building an Android application with both the Calling and Chat SDKs resulted in the following errors:
 
 ```
 Duplicate class com.skype.rt.XXX found in modules jetified-azure-communication-calling-1.2.0-runtime (com.azure.android:azure-communication-calling:1.2.0) and jetified-trouter-client-android-0.1.1-runtime (com.microsoft:trouter-client-android:0.1.1)
@@ -29,10 +29,10 @@ This problem had two causes:
 
 ## Solution
 
-From Calling SDK version 2.11.0 onward, you can integrate both the Calling and Chat SDKs within the same Android application. The 2.11.0 version solved the problem by:
+From Calling SDK version `2.11.0` onward, you can integrate both the Calling and Chat SDKs within the same Android application. The `2.11.0` version solved the problem by:
 
 - Eliminating the conflicting `.jar` and `.so` files.
-- Making the Calling SDK rely on `com.microsoft:trouter-client-android`, similar to the Chat SDK's dependency on the Trouter package.
+- Making the Calling SDK rely on the `com.microsoft:trouter-client-android` package, similar to the Chat SDK's dependency on the Trouter package.
 
 ## Implementation
 
