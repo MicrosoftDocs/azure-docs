@@ -10,7 +10,7 @@ ms.author: jefmarti
 
 # Configure error pages on App Service (preview)
 
-This article explains how to configure custom error pages on your web app. You can configure an error page for specific errors that will be presented to users instead of the default error page. 
+This article explains how to configure custom error pages on your web app. With App Service you can configure an error page for specific errors that will be presented to users instead of the default error page. 
 
 ### Prerequisite
 In this tutorial, we're adding a custom 403 error page to our web app hosted on App Service and test it with an IP restriction. To do so, you need the following:
