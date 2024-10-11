@@ -64,7 +64,7 @@ Yes, you can deploy AZ SKUs in all regions. If a region doesn't currently suppor
 
 ### Can I migrate my Gen 1 gateway to Gen 2 gateway?
 
-* As part of the Basic IP to Standard IP migration, the gateways will be upgraded to Gen2. This upgrade will occur automatically when you initiate the migration.
+* For gateways using Basic IP, you will need to migrate your gateway to use Standard IP when the migration tool becomes available. As part of the Basic IP to Standard IP migration, the gateways will be upgraded to Gen2 with no further action needed. 
 * For gateways already using Standard IP, we will migrate them to Gen2 separately before Sep 30, 2026. This will be done seamlessly during regular updates, with no downtime involved. 
 
 ### Will there be downtime during migrating my Non-AZ gateways?
