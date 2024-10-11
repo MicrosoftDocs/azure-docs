@@ -79,7 +79,7 @@ Modeling and Simulation Workbench creates three private domain name service (DNS
 
 ### Ports and protocols
 
-The Azure Modeling and Simulation Workbench require certain ports to be accessible from users workstation. Firewalls and VPNs might block access on these ports to certain destinations, when accessed from certain applications, or when connected to different networks. Check with your system administrator to ensure your client can access the service from all your work locations. When using the private networking connector, all traffic will be through the virtual network gateway or peer. Administrators can choose to implement a firewall or network security group to restrict traffic.
+The Azure Modeling and Simulation Workbench require certain ports to be accessible from users workstation. Firewalls and VPNs might block access on these ports to certain destinations, when accessed from certain applications, or when connected to different networks. Check with your system administrator to ensure your client can access the service from all your work locations. All traffic to the chamber passes through the connector and the virtual network gateway or peer. Administrators can choose to implement a firewall or network security group to restrict traffic.
 
 * **53/TCP** and **53/UDP**: DNS queries.
 * **443/TCP**: Standard https port for accessing the VM dashboard and any Azure portal page.
@@ -88,7 +88,7 @@ The Azure Modeling and Simulation Workbench require certain ports to be accessib
 
 ### IP addresses
 
-The private network connector does not deploy any public IP network interfaces. You create your own gateway interface if connecting directly from the internet. Your choice of which region you deploy your gateway to determines which pool of Azure public IP addresses your gateway will be. Azure IP addresses are taken from Azure's IP ranges for the location in which the Workbench was deployed. A list of all Azure IP addresses and Service tags is available at [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519&msockid=1b155eb894cc6c3600a84ac5959a6d3f).
+The private network connector doesn't deploy any public IP network interfaces. You create your own gateway interface if connecting directly from the internet. Your choice of which region you deploy your gateway to determines from which pool of Azure public IP addresses your gateway is chosen. Azure IP addresses are taken from Azure's IP ranges for the location in which the Workbench was deployed. A list of all Azure IP addresses and Service tags is available at [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519&msockid=1b155eb894cc6c3600a84ac5959a6d3f).
 
 The private IP addresses for the private networking connector are visible private network interface connections on the virtual network's subnet you specified during deployment.
 

@@ -12,15 +12,15 @@ ms.date: 10/11/2024
 
 # Set up a public IP network connector
 
-In Azure Modeling and Simulation Workbench, you can deploy a [connector](./concept-connector.md) that is accessible directly from the internet. The public IP connector uses publicly facing IP addresses. By default, access is denied to all incoming IP addresses and must be explictly granted through a specifying an address or address ranges. Public connectors are useful for training sessions, workforce development scenarios, or other open work environments with stable or very shortterm access requirements. All acccess to a chamber occurs through a connector, both the desktop session and the file transfers through the [data pipeline](./concept-data-pipeline.md) are controlled.
+In Azure Modeling and Simulation Workbench, you can deploy a [connector](./concept-connector.md) that is accessible directly from the internet. The public IP connector uses publicly facing IP addresses. By default, access is denied to all incoming IP addresses and must be explictly granted through a specifying an address or address ranges. Public connectors are useful for training sessions, conferences, or other open work environments with stable or short-term requirements. All access to a chamber occurs through a connector, both the desktop session and the file transfers through the [data pipeline](./concept-data-pipeline.md) are controlled.
 
-Public connectors are not recommended for use in organzations that:
+Public connectors aren't recommended for use in organizations that:
 
 * Have complex network infrastructure
 * Use proxies
 * Require users to access resources through managed VPN user endpoints
-* Have requirements to individually catalog cloud service endpoings
-* Have restrictions on the use of non-standard destination ports
+* Have requirements to individually catalog cloud service endpoints
+* Have restrictions on the use of nonstandard destination ports
 
 ## Prerequisites
 
@@ -46,22 +46,22 @@ Each chamber can have only one connector. If you have a private connector or oth
 
 IP addresses can be allowlisted in the Azure portal to allow connections to a chamber. Only one IP address can be specified for a Public IP connector when creating a new Workbench. After the connector is created, you can specify other IP addresses. Standard [CIDR (Classless Inter-Domain Routing)](/azure/virtual-network/virtual-networks-faq) mask notation can be used to allow ranges of IP addresses across a subnet.
 
-Addresses and address ranges must not overlap. The CIDR mask is limited at a /24 address space. If larger address spaces are required, you will need to create that address space using /24 subnets.
+Addresses and address ranges must not overlap. The CIDR mask is limited at a /24 address space. If larger address spaces are required, you'll need to create that address space using /24 subnets.
 
 Workbench Owners and Chamber Admins can add to and edit the allowlisted public addresses for a connector after the connector object is created.
 
-### Add, edit or delete IP addresses or ranges
+### Add, edit, or delete IP addresses or ranges
 
 IP addresses and ranges must be explicitly added in order to allow access to the chamber. To edit the list of allowed IP addresses:
 
 1. Navigate to the connector where the changes will occur.
-1. In the left pane, select the **Networking** option under the **Settings** section. The list of current IP addresses will appear.
+1. In the left pane, select the **Networking** option under the **Settings** section. The list of current IP addresses appear.
 1. Select **Edit allowed IP**. From here, you can delete existing IP addresses or add new ones.
     :::image type="content" source="media/howtoguide-public-network/edit-allowlist.png" alt-text="Screenshot of public connector overview with Networking settings and Edit buttons highlighted in red.":::
 1. Add, edit, or delete operations can be done from the flyout menu.
     * To add an IP address or range, select the **Add** button and enter a single address.
     * To delete an IP entry, first select the record, then select **Delete**.
-    * To edit an IP entry, select the pencil icon on the right, then edit the entry.
+    * To edit an IP entry, select the pencil icon at right, then edit the entry.
         :::image type="content" source="media/howtoguide-public-network/edit-allowed-ip.png" alt-text="Screenshot of edit allowed IP page with Add, Delete, select box, edit icon and Save button highlighted in red.":::
 1. Select **Save** to save your changes.
 1. Select **Submit** to submit the updated allowlist to the connector.
@@ -85,12 +85,14 @@ In the portal, scroll down to the *networkAcls* section of the JSON and select t
 
 #### [PowerShell](#tab/powershell)
 
-If you want to export the JSON using PowerShell, you need to have the Resource ID of the connector. In the JSON view, select the copy icon in the right-hand side of the Resource ID textbox. Assign the Resource Id to a variable.
+If you want to export the JSON using PowerShell, you need to have the Resource ID of the connector. In the JSON view, select the copy icon in the right-hand side of the Resource ID textbox. Assign the Resource ID to a variable.
 
 In a PowerShell client, retrieve the connector's property bundle.
 
 ```powershell
-(Get-AzResource -ResourceId $ResourceId | Select-Object -ExpandProperty properties).networkAcls
+> $ResourceId = <yourResourceId>
+> $connectorProperties = Get-AzResource -ResourceId $ResourceId | Select-Object -ExpandProperty properties
+> $connectorProperties.networkAcls
 ```
 
 ---
@@ -101,7 +103,7 @@ Deleting an IP address from the connector allowlist doesn't terminate active ses
 
 ## Idle the connector
 
-Idle mode sets the chambers into a preserved, but inactive state. Costs are significantly reduced while still maintaining your configuration and settings. Learn more about idle mode in the [Manage chamber idle mode](how-to-guide-chamber-idle.md) article.
+Idle mode sets the chambers into a preserved, but inactive state. Costs are reduced while still maintaining your configuration and settings. Learn more about idle mode in the [Manage chamber idle mode](how-to-guide-chamber-idle.md) article.
 
 ## Start, stop, or restart a connector
 
@@ -143,7 +145,7 @@ Modeling and Simulation Workbench creates three private domain name service (DNS
 
 ## Delete a connector
 
-If you wish to delete the workbench, chamber, or change the connector type, you must first delete the connector. You do not need to delete the IP addresses before deleting a connector, nor does the connector need to be stopped.
+If you wish to delete the workbench, chamber, or change the connector type, you must first delete the connector. You don't need to delete the IP addresses before deleting a connector, nor does the connector need to be stopped.
 
 1. Navigate to the connector to be deleted.
 1. Select **Delete** from the action bar.
