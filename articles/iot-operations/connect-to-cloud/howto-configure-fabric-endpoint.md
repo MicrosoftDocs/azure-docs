@@ -62,8 +62,6 @@ To configure a dataflow endpoint for Microsoft Fabric OneLake, we suggest using 
 
 # [Bicep](#tab/bicep)
 
-The [Bicep File to create Dataflow](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/dataflow.bicep) deploys the necessary resources for dataflows to Fabric OneLake.
-
 1. Get the managed identity of the Azure IoT Operations Preview Arc extension.
 
 1. In the Microsoft Fabric workspace you created, select **Manage access** > **+ Add people or groups**.
@@ -72,7 +70,7 @@ The [Bicep File to create Dataflow](https://github.com/Azure-Samples/explore-iot
 
 1. Select **Contributor** as the role, then select **Add**.
    
-1. Download the template file and replace the values for `customLocationName`, `aioInstanceName`, `schemaRegistryName`, and `opcuaSchemaName`.
+1. The [Bicep File to create Dataflow](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/dataflow.bicep) deploys the necessary resources for dataflows to Fabric OneLake. Download the template file and replace the values for `customLocationName`, `aioInstanceName`, `schemaRegistryName`, and `opcuaSchemaName`.
 
 1. Deploy the resources using the [az stack group](/azure/azure-resource-manager/bicep/deployment-stacks?tabs=azure-powershell) command in your terminal:
 

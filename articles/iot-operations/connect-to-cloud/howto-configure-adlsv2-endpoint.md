@@ -51,8 +51,6 @@ To configure a dataflow endpoint for Azure Data Lake Storage Gen2, we suggest us
           systemAssignedManagedIdentitySettings: {}
     ```
 
-If you need to override the system-assigned managed identity audience, see the [System-assigned managed identity](#system-assigned-managed-identity) section.
-
 # [Bicep](#tab/bicep)
 
 1. Get the managed identity of the Azure IoT Operations Preview Arc extension.
@@ -93,6 +91,10 @@ resource adlsGen2Endpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2
   }
 }
 ```
+
+---
+
+If you need to override the system-assigned managed identity audience, see the [System-assigned managed identity](#system-assigned-managed-identity) section.
 
 ---
 

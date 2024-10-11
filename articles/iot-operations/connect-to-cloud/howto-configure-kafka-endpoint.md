@@ -94,7 +94,86 @@ spec:
       mode: Enabled
 ```
 
-In the example, the `secretRef` is the name of the secret that contains the connection string. The secret must be in the same namespace as the Kafka dataflow resource. The secret must have both the username and password as key-value pairs. For example:
+# [Bicep](#tab/bicep)
+
+1. Get the managed identity of the Azure IoT Operations Arc extension.
+1. Assign the managed identity to the Event Hubs namespace with the `Azure Event Hubs Data Sender` or `Azure Event Hubs Data Receiver` role.
+1. The [Bicep File to create Dataflow](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/dataflow.bicep) deploys the necessary resources for dataflows to Fabric OneLake. Download the template file and replace the values for `customLocationName`, `aioInstanceName`, `schemaRegistryName`, and `opcuaSchemaName`.
+1. Deploy the resources using the [az stack group](/azure/azure-resource-manager/bicep/deployment-stacks?tabs=azure-powershell) command in your terminal:
+
+    ```azurecli
+    az stack group create --name MyDeploymentStack --resource-group $RESOURCE_GROUP --template-file /workspaces/explore-iot-operations/<filename>.bicep --action-on-unmanage 'deleteResources' --deny-settings-mode 'none' --yes
+    ```
+
+ The overall structure of a Kafka *DataflowEndpoint* resource with managed identity authentication method for Bicep is as follows:
+
+```bicep
+resource kafkaEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
+  parent: aioInstance
+  name: 'eventhubs'
+  extendedLocation: {
+    name: customLocation.id
+    type: 'CustomLocation'
+  }
+  properties: {
+    endpointType: 'Kafka'
+    kafkaSettings: {
+      host: '<HOST>.servicebus.windows.net:9093'
+      authentication: {
+        method: 'SystemAssignedManagedIdentity'
+        systemAssignedManagedIdentitySettings: {}
+      }
+      tls: {
+        mode: 'Enabled'
+      }
+      consumerGroupId: 'mqConnector'
+    }
+  }
+}
+```
+
+The Kafka topic, or individual event hub, is configured later when you create the dataflow. The Kafka topic is the destination for the dataflow messages.
+
+#### Use connection string for authentication to Event Hubs
+
+To use connection string for authentication to Event Hubs, update the `authentication` section of the Kafka settings to use the `Sasl` method and configure the `saslSettings` with the `saslType` as `Plain` and the `secretRef` with the name of the secret that contains the connection string.
+
+```yaml
+spec:
+  kafkaSettings:
+    authentication:
+      method: Sasl
+      saslSettings:
+        saslType: Plain
+        secretRef: <YOUR-TOKEN-SECRET-NAME>
+    tls:
+      mode: Enabled
+
+```bicep
+resource kafkaEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
+ ...
+  properties: {
+    endpointType: 'Kafka'
+    kafkaSettings: {
+      authentication: {
+        method: 'Sasl'
+        SaslSettings: {
+            saslType: 'Plain'
+            secretRef: '<YOUR-TOKEN-SECRET-NAME>'
+        }
+      }
+      tls: {
+        mode: 'Enabled'
+      }
+      ...
+    }
+  }
+}
+```
+
+---
+
+In the examples above, the `secretRef` is the name of the secret that contains the connection string. The secret must be in the same namespace as the Kafka dataflow resource. The secret must have both the username and password as key-value pairs. For example:
 
 ```bash
 kubectl create secret generic cs-secret -n azure-iot-operations \
@@ -103,10 +182,6 @@ kubectl create secret generic cs-secret -n azure-iot-operations \
 ```
 > [!TIP]
 > Scoping the connection string to the namespace (as opposed to individual event hubs) allows a dataflow to send and receive messages from multiple different event hubs and Kafka topics.
-
-# [Bicep](#tab/bicep)
-
-Todo
 
 ---
 
@@ -142,7 +217,7 @@ To configure a dataflow endpoint for non-Event-Hub Kafka brokers, set the host, 
 1. Select **Apply** to provision the endpoint.
 
 > [!NOTE]
-> Currently, the operations experience doesn't support using a Kafka dataflow endpoint as a source. You can create a dataflow with a source Kafka dataflow endpoint using the Kubernetes or Bicep.
+> Currently, the operations experience doesn't support using a Kafka dataflow endpoint as a source. You can create a dataflow with a source Kafka dataflow endpoint using Kubernetes or Bicep.
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -168,7 +243,33 @@ spec:
 
 # [Bicep](#tab/bicep)
 
-Todo
+```bicep
+resource kafkaEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
+ parent: aioInstance
+  name: 'eventhubs'
+  extendedLocation: {
+    name: customLocation.id
+    type: 'CustomLocation'
+  }
+  properties: {
+    endpointType: 'Kafka'
+    host: '<KAFKA-HOST>:<PORT>'
+    kafkaSettings: {
+      authentication: {
+        method: 'Sasl'
+        SaslSettings: {
+            saslType: 'Plain'
+            secretRef: '<YOUR-TOKEN-SECRET-NAME>'
+        }
+      }
+      tls: {
+        mode: 'Enabled'
+      }
+      consumerGroupId: mqConnector
+    }
+  }
+}
+```
 
 ---
 
@@ -209,13 +310,40 @@ spec:
 
 # [Bicep](#tab/bicep)
 
-Todo
+```bicep
+{
+  parent: defaultDataflowProfile
+  name: 'remote-to-local'
+  extendedLocation: {
+    name: customLocation.id
+    type: 'CustomLocation'
+  }
+  properties: {
+    mode: 'Enabled'
+    operations: [
+      {
+        operationType: 'Source'
+        destinationSettings: {
+          endpointRef: mqEndpoint.name
+          dataSources: array('*')
+        }
+      }
+      {
+        operationType: 'Destination'
+        destinationSettings: {
+          endpointRef: kafkaEndpoint.name
+        }
+      }
+  }
+}
+```
 
 ---
 
 For more information about dataflow destination settings, see [Create a dataflow](howto-create-dataflow.md).
 
 To customize the endpoint settings, see the following sections for more information.
+
 
 ### Available authentication methods
 
@@ -249,6 +377,30 @@ kafkaSettings:
       secretRef: <YOUR-TOKEN-SECRET-NAME>
 ```
 
+# [Bicep](#tab/bicep)
+
+To use SASL for authentication, update the `authentication` section of the Kafka settings to use the `Sasl` method and configure the `saslSettings` with the `saslType` and the `secretRef` with the name of the secret that contains the SASL token.
+
+```bicep
+resource kafkaEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
+ ...
+  properties: {
+    ...
+    kafkaSettings: {
+      authentication: {
+        method: 'Sasl'
+        SaslSettings: {
+            saslType: 'Plain'
+            secretRef: '<YOUR-TOKEN-SECRET-NAME>'
+        }
+      }
+      ...
+    }
+  }
+}
+```
+
+---
 The supported SASL types are:
 
 - `Plain`
@@ -261,11 +413,6 @@ The secret must be in the same namespace as the Kafka dataflow resource. The sec
 kubectl create secret generic sasl-secret -n azure-iot-operations \
   --from-literal=token='your-sasl-token'
 ```
-
-# [Bicep](#tab/bicep)
-
-Todo
-
 
 ---
 
@@ -296,6 +443,29 @@ kafkaSettings:
       secretRef: <YOUR-TOKEN-SECRET-NAME>
 ```
 
+# [Bicep](#tab/bicep)
+
+To use X.509 for authentication, update the `authentication` section of the Kafka settings to use the `X509Certificate` method and configure the `x509CertificateSettings` with the `secretRef` with the name of the secret that contains the X.509 certificate.
+
+```bicep
+resource kafkaEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
+ ...
+  properties: {
+    ...
+    kafkaSettings: {
+      authentication: {
+        method: 'X509Certificate'
+        x509CertificateSettings: {
+            secretRef: '<YOUR-TOKEN-SECRET-NAME>'
+        }
+      }
+      ...
+    }
+  }
+}
+```
+
+---
 The secret must be in the same namespace as the Kafka dataflow resource. Use Kubernetes TLS secret containing the public certificate and private key. For example:
 
 ```bash
@@ -303,10 +473,6 @@ kubectl create secret tls my-tls-secret -n azure-iot-operations \
   --cert=path/to/cert/file \
   --key=path/to/key/file
 ```
-
-# [Bicep](#tab/bicep)
-
-Todo
 
 ---
 
@@ -342,7 +508,43 @@ kafkaSettings:
 
 # [Bicep](#tab/bicep)
 
-Todo
+Update the `authentication` section of the DataflowEndpoint Kafka settings to use the `SystemAssignedManagedIdentity` method. In most cases, you can set the `systemAssignedManagedIdentitySettings` with an empty object.
+
+```bicep
+resource kafkaEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
+ ...
+  properties: {
+    ...
+    kafkaSettings: {
+      authentication: {
+        method: 'SystemAssignedManagedIdentity'
+        systemAssignedManagedIdentitySettings: {}
+      }
+      ...
+    }
+  }
+}
+```
+
+This sets the audience to the default value, which is the same as the Event Hubs namespace host value in the form of `https://<NAMESPACE>.servicebus.windows.net`. However, if you need to override the default audience, you can set the `audience` field to the desired value. The audience is the resource that the managed identity is requesting access to. For example:
+
+```bicep
+resource kafkaEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
+ ...
+  properties: {
+    ...
+    kafkaSettings: {
+      authentication: {
+        method: 'SystemAssignedManagedIdentity'
+        systemAssignedManagedIdentitySettings: {
+            audience: '<YOUR-AUDIENCE-OVERRIDE-VALUE>'
+        }
+      }
+      ...
+    }
+  }
+}
+```
 
 ---
 
@@ -371,7 +573,21 @@ kafkaSettings:
 
 # [Bicep](#tab/bicep)
 
-Todo
+```bicep
+resource kafkaEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
+ ...
+  properties: {
+    ...
+    kafkaSettings: {
+      authentication: {
+        method: 'UserAssignedManagedIdentity'
+        UserAssignedManagedIdentitySettings: {}
+      }
+      ...
+    }
+  }
+}
+```
 
 ---
 
