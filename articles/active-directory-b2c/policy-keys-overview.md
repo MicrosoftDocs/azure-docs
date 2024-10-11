@@ -79,9 +79,11 @@ If an Azure AD B2C keyset has multiple keys, only one of the keys is active at a
 
 ## Key caching
 
-When a key is uploaded, the activation flag on the key is set to false by default. The new key will then be updated on all nodes. Only when the new key has been updated on all cache nodes will the activation flag set to true.  
+When a key is uploaded, the activation flag on the key is set to false by default. You can then set the state of this key to **Enabled**. If a key enabled and valid (current time is between NBF and EXP), then the key will be used.
 
-The activation flag property is modifiable within the Azure Portal UX allowing admins to disable a key and take it out of rotation. An active key can be an expired key. 
+### Key state
+
+The activation flag property is modifiable within the Azure Portal UX allowing admins to disable a key and take it out of rotation. 
 
 ## Policy key management
 
