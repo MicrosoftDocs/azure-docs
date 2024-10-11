@@ -119,6 +119,7 @@ You can enable Azure NetApp Files storage with cool access during the creation o
 
     * **Enable Cool Access**: This option specifies whether the volume supports cool access.
     * **Coolness Period**: This option specifies the period (in days) after which infrequently accessed data blocks (cold data blocks) are moved to the Azure storage account. The default value is 31 days. The supported values are between 2 and 183 days.
+
     * **Cool Access Retrieval Policy**: This option specifies under which conditions data moves back to the hot tier. You can set this option to **Default**, **On-Read**, or **Never**.
 
         The following list describes the data retrieval behavior with the **Cool Access Retrieval Policy** settings:
@@ -148,6 +149,8 @@ In a capacity pool enabled for cool access, you can enable an existing volume to
 1. On the **Edit** window that appears, set the following options for the volume:
     * **Enable Cool Access**: This option specifies whether the volume supports cool access.
     * **Coolness Period**: This option specifies the period (in days) after which infrequently accessed data blocks (cold data blocks) are moved to the Azure storage account. The default value is 31 days. The supported values are between 2 and 183 days.
+    >[!NOTE]
+    > The coolness period is calculated from the time of volume creation. If any existing volumes are enabled with cool access, the coolness period is applied retroactively on those volumes. This means if certain data blocks on the volumes have been infrequently accessed for the number of days specified in the coolness period, those blocks move to the cool tier once the feature is enabled. 
     * **Cool Access Retrieval Policy**: This option specifies under which conditions data moves back to the hot tier. You can set this option to **Default**, **On-Read**, or **Never**.
 
         The following list describes the data retrieval behavior with the **Cool Access Retrieval Policy** settings:
