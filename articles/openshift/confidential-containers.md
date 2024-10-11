@@ -5,7 +5,7 @@ author: johnmarco
 ms.author: johnmarc
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
-ms.date: 10/09/2024
+ms.date: 10/11/2024
 ---
 # Confidential Containers with Azure Red Hat OpenShift
 
@@ -35,15 +35,10 @@ The table below describes the most common use cases for deploying Confidential C
 |Use case  |Industry  |Example  |
 |---------|---------|---------|
 |**Regulator compliance**<br>Meeting strict data protection and privacy regulations. |Government, Finance, Healthcare |A healthcare provider using Confidential containers to process and store patient data in compliance with HIPAA regulations. |
-|**Sensitive data processing**<br>Protecting intellectual property, trade secrets, or sensitive business data. |Any dealing with confidential information |A technology company using Confidential Containers to develop and test new software features without risk of intellectual property theft. |
 |**Multi-tenancy environments**<br>Hosting multiple clients' applications and data with strong isolation. |SaaS providers, Cloud service providers |A cloud service provider offering isolated environments for different clients within the same infrastructure. |
-|**Secure collaboration**<br>Enabling secure data sharing and processing between multiple parties. |Research, defense, inter-organizational projects |Multiple research institutions collaborating on a sensitive project, each with their own isolated environment. |
 |**Temporary secure environments**<br>Creating isolated environments for analyzing potential malware or performing security audits. |Cybersecurity, forensics | A cybersecurity firm using Confidential Containers to safely analyze and reverse-engineer malicious software. |
-|**High-value transactions**<br>Processing high-value financial transactions with enhanced security. |Finance, cryptocurrency |A cryptocurrency exchange using Confidential Containers to manage wallets and process transactions. |
 |**Secure AI/ML model training**<br>Training AI models on sensitive data without exposing the data. |AI/ML, Any industry using sensitive data for AI |A financial institution training fraud detection models on customer transaction data. |
-|**Confidential edge computing**<br>Processing sensitive data at the edge with enhanced security. |IoT, manufacturing, smart cities |A smart city initiative using CoCo for processing citizen data collected from various IoT devices. |
 |**Secure DevOps environments**<br>Creating isolated environments for development, testing, and staging. |Software development, IT |A software company using Confidential Containers to isolate different stages of their CI/CD pipeline. |
-|**Disaster recovery and business continuity**<br>Creating secure, isolated backup environments for critical systems and data. |Any industry requiring high availability and data protection |A financial institution using Confidential Containers to maintain an isolated, up-to-date copy of their core banking systems. |
 
 ## How Confidential Containers work
 
