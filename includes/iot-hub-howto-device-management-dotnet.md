@@ -43,8 +43,7 @@ The `CreateFromConnectionString` [TransportType](/dotnet/api/microsoft.azure.dev
 * `Amqp`
 * `Amqp_WebSocket_Only`
 * `Amqp_Tcp_Only`
-
-The `Http1` protocol is not supported for device twin updates.
+* `Http1`
 
 This example connects to a device using the `Mqtt` transport protocol.
 
@@ -61,9 +60,9 @@ deviceClient = DeviceClient.CreateFromConnectionString(DeviceConnectionString,
 
 ### Create a direct method callback
 
-Use [SetMethodHandlerAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.setmethodhandlerasync) to initialize a callback listener method.
+Use [SetMethodHandlerAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.setmethodhandlerasync) to initialize a direct method callback listener. The listener is associated with a method name keyword, such as "reboot". The method name can be used in an IoT Hub or backend application to trigger the callback method on the device.
 
-This example sets up a callback listener named `onReboot`.
+This example sets up a callback listener named `onReboot` that will trigger when the "reboot" direct method name is called.
 
 ```csharp
 try
@@ -86,7 +85,7 @@ catch (Exception ex)
 }
 ```
 
-In this example, the `onReboot` callback method implements the direct method on the device:
+In this example, the `onReboot` callback method implements the direct method on the device. This code updates reported properties related to a simulated device reboot. The reported properties can be read and verified by an IoT Hub or backend application, as demonstrated in the **Create a backend application** section of this article.
 
 ```csharp
 static Task<MethodResponse> onReboot(MethodRequest methodRequest, object userContext)
@@ -132,15 +131,11 @@ The Azure IoT SDK for .NET provides working samples of device apps that handle d
 * [Temperature Controller](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/device/samples/solutions/PnpDeviceSamples/TemperatureController)
 * [Thermostat Sample](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/device/samples/solutions/PnpDeviceSamples/Thermostat)
 
-## Get the IoT hub connection string
-
-[!INCLUDE [iot-hub-howto-device-management-shared-access-policy-text](iot-hub-howto-device-management-shared-access-policy-text.md)]
-
 ## Create a backend application
 
 This section describes how to initiate a remote reboot on a device using a direct method. The app uses device twin queries to discover the last reboot time for that device.
 
-The [ServiceManager](/dotnet/api/microsoft.azure.devices.serviceclient) class exposes all methods required to create a backend application to send messages to devices.
+The [ServiceClient](/dotnet/api/microsoft.azure.devices.serviceclient) class exposes all methods required to create a backend application to send messages to devices.
 
 ### Required service NuGet package
 
@@ -179,7 +174,7 @@ To invoke a method on a device:
 1. Create a [CloudToDeviceMethod](/dotnet/api/microsoft.azure.devices.cloudtodevicemethod) object. Pass the device direct method name as a parameter.
 1. Call [InvokeDeviceMethodAsync](/dotnet/api/microsoft.azure.devices.serviceclient.invokedevicemethodasync?#microsoft-azure-devices-serviceclient-invokedevicemethodasync(system-string-microsoft-azure-devices-cloudtodevicemethod-system-threading-cancellationtoken)) to invoke the method on the device.
 
-This example calls the "reboot" method to initiate a reboot on the device. The "reboot" method is mapped to a listener on the device as described in the **Create a direct method callback** section above.
+This example calls the "reboot" method to initiate a reboot on the device. The "reboot" method is mapped to a listener on the device as described in the **Create a direct method callback** section of this article.
 
 ```csharp
 CloudToDeviceMethod method = new CloudToDeviceMethod("reboot");
@@ -193,7 +188,7 @@ client.InvokeDeviceMethodAsync(targetDevice, method);
 Console.WriteLine("Invoked firmware update on device.");
 ```
 
-This example gets the device twin for the rebooting device and outputs the reported properties. This output shows that the `onReboot` method callback has updated the `lastReboot`, `Reboot`, and `iothubDM` reported properties.
+This example gets the device twin for the rebooting device and outputs the reported properties. This output shows that the `onReboot` callback method updated the `lastReboot`, `Reboot`, and `iothubDM` reported properties.
 
 ```csharp
 public static async Task QueryTwinRebootReported()
