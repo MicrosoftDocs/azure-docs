@@ -17,7 +17,7 @@ ms.date: 10/02/2024
 An Azure Arc-enabled Kubernetes cluster is a prerequisite for deploying Azure IoT Operations Preview. This article describes how to prepare a cluster before you [Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](howto-deploy-iot-operations.md). This article includes guidance for both Ubuntu and Windows.
 
 > [!TIP]
-> The steps in this article prepare your cluster for a secure settings deployment, which is a longer but production-ready process. If you want to deploy Azure IoT Operations quickly and run a sample workload with only test settings, see the [Quickstart: Run Azure IoT Operations Preview in Github Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md) instead.
+> The steps in this article prepare your cluster for a secure settings deployment, which is a longer but production-ready process. If you want to deploy Azure IoT Operations quickly and run a sample workload with only test settings, see the [Quickstart: Run Azure IoT Operations Preview in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md) instead.
 >
 > For more information about test settings and secure settings, see [Deployment details > Choose your features](./overview-deploy.md#choose-your-features).
 
@@ -37,10 +37,11 @@ To prepare your Azure Arc-enabled Kubernetes cluster, you need:
 
 * Azure CLI version 2.64.0 or newer installed on your development machine. Use `az --version` to check your version and `az upgrade` to update if necessary. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
-* The latest version of the Azure IoT Operations extension for Azure CLI. Use the following command to add the extension or update it to the latest version:
+* The latest version of the following extensions for Azure CLI:
 
   ```bash
   az extension add --upgrade --name azure-iot-ops
+  az extension add --upgrade --name connectedk8s
   ```
 
 * Hardware that meets the system requirements:
@@ -245,17 +246,6 @@ To connect your cluster to Azure Arc:
 
    ```azurecli
    az group create --location $LOCATION --resource-group $RESOURCE_GROUP --subscription $SUBSCRIPTION_ID
-   ```
-1. Remove the existing connected k8s cli if any
-   ```azurecli
-   az extension remove --name connectedk8s 
-   ```
-
-1. Download and install a preview version of the `connectedk8s` extension for Azure CLI.
-
-   ```azurecli
-   curl -L -o connectedk8s-1.10.0-py2.py3-none-any.whl https://github.com/AzureArcForKubernetes/azure-cli-extensions/raw/refs/heads/connectedk8s/public/cli-extensions/connectedk8s-1.10.0-py2.py3-none-any.whl   
-   az extension add --upgrade --source connectedk8s-1.10.0-py2.py3-none-any.whl
    ```
 
 1. Use the [az connectedk8s connect](/cli/azure/connectedk8s#az-connectedk8s-connect) command to Arc-enable your Kubernetes cluster and manage it as part of your Azure resource group:
