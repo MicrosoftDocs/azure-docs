@@ -138,17 +138,6 @@ The Kafka topic, or individual event hub, is configured later when you create th
 
 To use connection string for authentication to Event Hubs, update the `authentication` section of the Kafka settings to use the `Sasl` method and configure the `saslSettings` with the `saslType` as `Plain` and the `secretRef` with the name of the secret that contains the connection string.
 
-```yaml
-spec:
-  kafkaSettings:
-    authentication:
-      method: Sasl
-      saslSettings:
-        saslType: Plain
-        secretRef: <YOUR-TOKEN-SECRET-NAME>
-    tls:
-      mode: Enabled
-
 ```bicep
 resource kafkaEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
  ...
@@ -313,7 +302,7 @@ spec:
 ```bicep
 {
   parent: defaultDataflowProfile
-  name: 'remote-to-local'
+  name: 'local-to-remote'
   extendedLocation: {
     name: customLocation.id
     type: 'CustomLocation'
@@ -572,6 +561,8 @@ kafkaSettings:
 <!-- TODO: Add link to WLIF docs -->
 
 # [Bicep](#tab/bicep)
+
+To use a user-assigned managed identity, specify the `UserAssignedManagedIdentity` authentication method.
 
 ```bicep
 resource kafkaEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
