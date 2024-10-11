@@ -33,7 +33,7 @@ In this tutorial, you:
 
 Create a variant feature flag called *Greeting* with three variants, *None*, *Simple*, and *Long*. Creating variant flags is described in the [Feature Flag quickstart](./manage-feature-flags.md#create-a-variant-feature-flag-preview).
 
-| Variant Name | Variant Value | Percentage | 
+| Variant Name | Variant Value | Allocation| 
 |---|---|---|
 | None *(Default)* | null | 50% |
 | Simple | "Hello!" | 25% |
