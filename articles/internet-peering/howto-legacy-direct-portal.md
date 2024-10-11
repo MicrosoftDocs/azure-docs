@@ -63,7 +63,7 @@ As an Internet Service Provider, you can convert a legacy direct peering connect
     :::image type="content" source="./media/howto-legacy-direct-portal/peering-configuration.png" alt-text="Screenshot that shows the Configuration tab of creating a peering in the Azure portal." lightbox="./media/howto-legacy-direct-portal/peering-configuration.png":::
 
     > [!NOTE]
-    > If you want to add additional peering connections with Microsoft in the selected **Metro** location, select **Create new**. For more information, see [Create or modify a Direct peering by using the portal](../howto-direct-portal.md).
+    > If you want to add additional peering connections with Microsoft in the selected **Metro** location, select **Create new**. For more information, see [Create or modify a Direct peering by using the portal](howto-direct-portal.md).
 
 1. Select **Review + create**. 
 
@@ -77,10 +77,10 @@ As an Internet Service Provider, you can convert a legacy direct peering connect
 
     :::image type="content" source="./media/howto-legacy-direct-portal/peering-connections.png" alt-text="Screenshot that shows the peering connections in the Azure portal." lightbox="./media/howto-legacy-direct-portal/peering-connections.png":::
 
-    - **Connection State** corresponds to the state of the peering connection setup. The states displayed in this field follow the state diagram shown in the [Direct peering walkthrough](../walkthrough-direct-all.md).
+    - **Connection State** corresponds to the state of the peering connection setup. The states displayed in this field follow the state diagram shown in the [Direct peering walkthrough](walkthrough-direct-all.md).
     - **IPv4 Session State** and **IPv6 Session State** correspond to the IPv4 and IPv6 BGP session states, respectively. 
 
 ## Related content
 
-- [Create or modify a Direct peering by using the portal](howto-direct-portal.md).
-- [Internet peering frequently asked questions (FAQ)](faqs.md).
+- [Create or modify a Direct peering by using the portal](howto-direct-portal.md)
+- [Internet peering frequently asked questions (FAQ)](faqs.md)
