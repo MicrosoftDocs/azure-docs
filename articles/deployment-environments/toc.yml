@@ -72,10 +72,10 @@ items:
 - name: Use Azure Developer CLI with ADE
   expanded: false
   items:
-    - name: Use Azure Developer CLI with ADE
+    - name: Use Azure Developer CLI (azd) with ADE
       displayName: AZD, setup AZD, template, AZD compatible, AZD admin
       href: concept-azure-developer-cli-with-deployment-environments.md
-    - name: Create environments with Azure Developer CLI (AZD)
+    - name: Create environments with Azure Developer CLI (azd)
       href: how-to-create-environment-with-azure-developer.md 
 - name: Manage costs
   expanded: false
