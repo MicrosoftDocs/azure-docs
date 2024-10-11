@@ -163,9 +163,9 @@ After you meet the prerequisites, but before you create your Standard logic app 
 
 <a name="authenticate-managed-api-connections"></a>
 
-## Set up managed API connections
+## Set up authentication for managed API connections
 
-To authenticate managed API connections in Standard logic app workflows hosted on Azure Arc-enabled Kubernetes clusters, you must create your own app registration using Microsoft Entra ID. You can then use this app registration's values as an identity with your Standard logic app resource to authenticate your API connections instead.
+To authenticate managed API connections in Standard logic app workflows hosted on Azure Arc-enabled Kubernetes clusters, you must create your own app registration using Microsoft Entra ID. You can then add this app registration's values as environment variables in your Standard logic app resource to authenticate your API connections instead.
 
 ### Create an app registration with Microsoft Entra ID
 
@@ -182,6 +182,8 @@ To authenticate managed API connections in Standard logic app workflows hosted o
    - Tenant ID
    - Client secret
 
+1. Now, [add these values as environment variables](#add-environment-variables) to your Standard logic app resource.
+
 #### [Azure CLI](#tab/azure-cli)
 
 1. To create the app registration, use the [**az ad sp create** command](/cli/azure/ad/sp#az-ad-sp-create).
@@ -195,9 +197,13 @@ To authenticate managed API connections in Standard logic app workflows hosted o
    - Tenant ID
    - Client secret
 
+1. Now, [add these values as environment variables](#add-environment-variables) to your Standard logic app resource.
+
 ---
 
-### Add environment variable values to your Standard logic app 
+<a name="add-environment-variables"></a>
+
+### Add environment variable values to your Standard logic app
 
 1. In the [Azure portal](https://portal.azure.com), go to your Standard logic app resource.
 
