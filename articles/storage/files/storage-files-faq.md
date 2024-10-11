@@ -6,7 +6,7 @@ ms.service: azure-file-storage
 ms.custom: linux-related-content
 ms.date: 06/24/2024
 ms.author: kendownie
-ms.topic: conceptual
+ms.topic: faq
 ---
 
 # Frequently asked questions (FAQ) about Azure Files and Azure File Sync
