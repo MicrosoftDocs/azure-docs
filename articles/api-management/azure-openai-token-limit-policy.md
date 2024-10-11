@@ -17,7 +17,7 @@ ms.author: danlep
 
 [!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
 
-The `azure-openai-token-limit` policy prevents Azure OpenAI Service API usage spikes on a per key basis by limiting consumption of language model tokens to either a specified rate (number per minute) or a quota over a specified period. When a specified token rate limit is exceeded, the caller receives a `429 Too Many Requests` response status code. When a specified quota is exceeded, the caller receives a `403 Forbidden` response status code.
+The `azure-openai-token-limit` policy prevents Azure OpenAI Service API usage spikes on a per key basis by limiting consumption of language model tokens to a specified rate (number per minute), a quota over a specified period, or both. When a specified token rate limit is exceeded, the caller receives a `429 Too Many Requests` response status code. When a specified quota is exceeded, the caller receives a `403 Forbidden` response status code.
 
 By relying on token usage metrics returned from the OpenAI endpoint, the policy can accurately monitor and enforce limits in real time. The policy also enables precalculation of prompt tokens by API Management, minimizing unnecessary requests to the OpenAI backend if the limit is already exceeded.
 
@@ -47,9 +47,9 @@ By relying on token usage metrics returned from the OpenAI endpoint, the policy 
 | Attribute           | Description                                                                                           | Required | Default |
 | -------------- | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
 | counter-key          | The key to use for the token limit policy. For each key value, a single counter is used for all scopes at which the policy is configured. Policy expressions are allowed.| Yes      | N/A     |
-| tokens-per-minute | The maximum number of tokens consumed by prompt and completion per minute.         | Either `tokens-per-minute` or both `token-quota` and `token-quota-period` must be specified.      | N/A     |
-| token-quota | The maximum number of tokens allowed during the time interval specified in the `token-quota-period`. Policy expressions aren't allowed. | Either `tokens-per-minute` or both `token-quota` and `token-quota-period` must be specified. | N/A |
-| token-quota-period | The length of the fixed window after which the `token-quota` resets. The value must be one of the following: `Hourly`,`Daily`, `Weekly`, `Monthly`, `Yearly` | Either `tokens-per-minute` or both `token-quota` and `token-quota-period` must be specified.     | N/A |
+| tokens-per-minute | The maximum number of tokens consumed by prompt and completion per minute.         | Either a rate limit (`tokens-per-minute`), a quota (`token-quota` over a `token-quota-period`), or both must be specified.      | N/A     |
+| token-quota | The maximum number of tokens allowed during the time interval specified in the `token-quota-period`. Policy expressions aren't allowed. | Either a rate limit (`tokens-per-minute`), a quota (`token-quota` over a `token-quota-period`), or both must be specified. | N/A |
+| token-quota-period | The length of the fixed window after which the `token-quota` resets. The value must be one of the following: `Hourly`,`Daily`, `Weekly`, `Monthly`, `Yearly` | Either a rate limit (`tokens-per-minute`), a quota (`token-quota` over a `token-quota-period`), or both must be specified.     | N/A |
 | estimate-prompt-tokens | Boolean value that determines whether to estimate the number of tokens required for a prompt: <br> - `true`: estimate the number of tokens based on prompt schema in API; may reduce performance. <br> - `false`: don't estimate prompt tokens. <br><br>When set to `false`, the remaining tokens per `counter-key` are calculated using the actual token usage from the response of the model. This could result in prompts being sent to the model that exceed the token limit. In such case, this will be detected in the response, and all succeeding requests will be blocked by the policy until the token limit frees up again.  | Yes       | N/A     |
 | retry-after-header-name    | The name of a custom response header whose value is the recommended retry interval in seconds after the specified `tokens-per-minute` or `token-quota` is exceeded. Policy expressions aren't allowed. |  No | `Retry-After`  |
 | retry-after-variable-name    | The name of a variable that stores the recommended retry interval in seconds after the specified `tokens-per-minute` or `token-quota` is exceeded. Policy expressions aren't allowed. |  No | N/A  |
@@ -72,6 +72,7 @@ By relying on token usage metrics returned from the OpenAI endpoint, the policy 
 * This policy can optionally be configured when adding an API from the Azure OpenAI Service using the portal.
 * Where available when `estimate-prompt-tokens` is set to `false`, values in the usage section of the response from the Azure OpenAI Service API are used to determine token usage.
 * Certain Azure OpenAI endpoints support streaming of responses. When `stream` is set to `true` in the API request to enable streaming, prompt tokens are always estimated, regardless of the value of the `estimate-prompt-tokens` attribute. Completion tokens are also estimated when responses are streamed.
+* For models that accept image input, image tokens are generally counted by the backend language model and included in limit and quota calculations. However, when streaming is used or `estimate-prompt-tokens` is set to `true`, the policy currently over-counts each image as a maximum count of 1200 tokens.
 * [!INCLUDE [api-management-rate-limit-key-scope](../../includes/api-management-rate-limit-key-scope.md)]
 
 ## Examples
