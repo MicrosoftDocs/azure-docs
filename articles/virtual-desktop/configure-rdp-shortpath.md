@@ -4,7 +4,7 @@ description: Learn how to configure RDP Shortpath for Azure Virtual Desktop, whi
 ms.topic: how-to
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 06/18/2024
+ms.date: 10/03/2024
 ---
 
 # Configure RDP Shortpath for Azure Virtual Desktop
@@ -24,7 +24,7 @@ There are four options for RDP Shortpath that provide flexibility for how you wa
 
 - **RDP Shortpath for public networks with ICE/STUN**: A *direct* UDP connection between a client device and session host using a public connection. ICE/STUN is used to discover available IP addresses and a dynamic port that can be used for a connection. The RDP Shortpath listener and an inbound port aren't required. The port range is configurable.
  
-- **RDP Shortpath for public networks via TURN**: An *indirect* UDP connection between a client device and session host using a public connection where TURN relays traffic through an intermediate server between a client and session host. An example of when you use this option is if a connection uses Symmetric NAT. A dynamic port is used for a connection; the port range is configurable. For a list of Azure regions that TURN is available, see [supported Azure regions with TURN availability](rdp-shortpath.md?tabs=public-networks#turn-availability). The connection from the client device must also be within a supported location. The RDP Shortpath listener and an inbound port aren't required.
+- **RDP Shortpath for public networks via TURN**: A *relayed* UDP connection between a client device and session host using a public connection where TURN relays traffic through an intermediate server between a client and session host. An example of when you use this option is if a connection uses Symmetric NAT. A dynamic port is used for a connection; the port range is configurable. For a list of Azure regions that TURN is available, see [supported Azure regions with TURN availability](rdp-shortpath.md?tabs=public-networks#turn-relay-availability). The connection from the client device must also be within a supported location. The RDP Shortpath listener and an inbound port aren't required.
 
 Which of the four options your client devices can use is also dependent on their network configuration. To learn more about how RDP Shortpath works, together with some example scenarios, see [RDP Shortpath](rdp-shortpath.md).
 
@@ -54,17 +54,22 @@ Before you enable RDP Shortpath, you need:
    - [Windows App](/windows-app/get-started-connect-devices-desktops-apps?pivots=azure-virtual-desktop) on the following platforms:
       - Windows
       - macOS
-      - iOS and iPadOS
+      - iOS/iPadOS
+      - Android/Chrome OS (preview)
    
    - [Remote Desktop app](users/remote-desktop-clients-overview.md) on the following platforms:
       - Windows, version 1.2.3488 or later
       - macOS
-      - iOS and iPadOS
-      - Android (preview only)
+      - iOS/iPadOS
+      - Android/Chrome OS
 
 - For **RDP Shortpath for managed networks**, you need direct connectivity between the client and the session host. This means that the client can connect directly to the session host on port 3390 (default) and isn't blocked by firewalls (including the Windows Firewall) or a Network Security Group. Examples of a managed network are [ExpressRoute private peering](../expressroute/expressroute-circuit-peerings.md) or a site-to-site or point-to-site VPN (IPsec), such as [Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
-- Internet access for both clients and session hosts. Session hosts require outbound UDP connectivity from your session hosts to the internet or connections to STUN and TURN servers. To reduce the number of ports required, you can [limit the port range used with STUN and TURN](configure-rdp-shortpath.md#limit-the-port-range-used-with-stun-and-turn).
+- For **RDP Shortpath for public networks**, you need:
+
+   - Internet access for both clients and session hosts. Session hosts require outbound UDP connectivity from your session hosts to the internet or connections to STUN and TURN servers. To reduce the number of ports required, you can [limit the port range used with STUN and TURN](configure-rdp-shortpath.md#limit-the-port-range-used-with-stun-and-turn).
+
+   - Make sure session hosts and clients can connect to the STUN and TURN servers. You can find details of the IP subnets, ports, and protocols used by the STUN and TURN servers at [Network configuration](rdp-shortpath.md#network-configuration).
 
 - If you want to use Azure PowerShell locally, see [Use Azure CLI and Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module installed. Alternatively, use the [Azure Cloud Shell](../cloud-shell/overview.md).
 
@@ -230,10 +235,10 @@ Here's how to configure RDP Shortpath in the host pool networking settings using
 
    | PowerShell Parameter | RDP Shortpath option | 'Default' meaning |
    |--|--|--|
-   | ManagedPrivateUdp | RDP Shortpath for managed networks | Enabled |
-   | DirectUdp | RDP Shortpath for managed networks with ICE/STUN | Enabled |
-   | PublicUdp | RDP Shortpath for public networks with ICE/STUN | Enabled |
-   | RelayUdp | RDP Shortpath for public networks via TURN | Enabled |
+   | `ManagedPrivateUdp` | RDP Shortpath for managed networks | Enabled |
+   | `DirectUdp` | RDP Shortpath for managed networks with ICE/STUN | Enabled |
+   | `PublicUdp` | RDP Shortpath for public networks with ICE/STUN | Enabled |
+   | `RelayUdp` | RDP Shortpath for public networks via TURN | Enabled |
 
 3. Use the `Update-AzWvdHostPool` cmdlet with the following examples to configure RDP Shortpath. 
 
@@ -285,8 +290,6 @@ Here's how to configure RDP Shortpath in the host pool networking settings using
 4. Once you make changes, run the commands in step 2 again to verify the settings are applied as you expect.
 
 ---
-
-
 
 ## Check that UDP is enabled on Windows client devices
 
@@ -344,7 +347,7 @@ You have access to TURN servers and your NAT type appears to be 'cone shaped'.
 Shortpath for public networks is very likely to work on this host.
 ```
 
-If your environment uses Symmetric NAT, then you can use an indirect connection with TURN. For more information you can use to configure firewalls and Network Security Groups, see [Network configurations for RDP Shortpath](rdp-shortpath.md?tabs=public-networks#network-configuration).
+If your environment uses Symmetric NAT, then you can use a relayed connection with TURN. For more information you can use to configure firewalls and Network Security Groups, see [Network configurations for RDP Shortpath](rdp-shortpath.md?tabs=public-networks#network-configuration).
 
 ## Optional: Enable Teredo support
 
@@ -472,7 +475,7 @@ The possible values are:
 
 - **2** - The connection is using RDP Shortpath for public networks directly using STUN.
 
-- **4** - The connection is using RDP Shortpath for public networks indirectly using TURN.
+- **4** - The connection is using RDP Shortpath for public networks and relayed using TURN.
 
 For any other value, the connection isn't using UDP and is connected using TCP instead.
 

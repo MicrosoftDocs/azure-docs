@@ -22,6 +22,7 @@ To send data to Azure Data Lake Storage Gen2 in Azure IoT Operations Preview, yo
 - An instance of [Azure IoT Operations Preview](../deploy-iot-ops/howto-deploy-iot-operations.md)
 - A [configured dataflow profile](howto-configure-dataflow-profile.md)
 - A [Azure Data Lake Storage Gen2 account](../../storage/blobs/create-data-lake-storage-account.md)
+- A pre-created storage container in the storage account
 
 ## Create an Azure Data Lake Storage Gen2 dataflow endpoint
 
@@ -42,8 +43,8 @@ To configure a dataflow endpoint for Azure Data Lake Storage Gen2, we suggest us
       name: adls
     spec:
       endpointType: DataLakeStorage
-      datalakeStorageSettings:
-        host: <account>.blob.core.windows.net
+      dataLakeStorageSettings:
+        host: https://<account>.blob.core.windows.net
         authentication:
           method: SystemAssignedManagedIdentity
           systemAssignedManagedIdentitySettings: {}
@@ -64,8 +65,8 @@ If you need to override the system-assigned managed identity audience, see the [
       name: adls
     spec:
       endpointType: DataLakeStorage
-      datalakeStorageSettings:
-        host: <account>.blob.core.windows.net
+      dataLakeStorageSettings:
+        host: https://<account>.blob.core.windows.net
         authentication:
           method: AccessToken
           accessTokenSettings:
@@ -95,6 +96,7 @@ spec:
     - operationType: Destination
       destinationSettings:
         endpointRef: adls
+        # dataDestination should be the storage container name
         dataDestination: telemetryTable
 ```
 
@@ -120,7 +122,7 @@ Before creating the dataflow endpoint, assign a role to the managed identity tha
 In the *DataflowEndpoint* resource, specify the managed identity authentication method. In most cases, you don't need to specify other settings. Not specifying an audience creates a managed identity with the default audience scoped to your storage account.
 
 ```yaml
-datalakeStorageSettings:
+dataLakeStorageSettings:
   authentication:
     method: SystemAssignedManagedIdentity
     systemAssignedManagedIdentitySettings: {}
@@ -129,7 +131,7 @@ datalakeStorageSettings:
 If you need to override the system-assigned managed identity audience, you can specify the `audience` setting.
 
 ```yaml
-datalakeStorageSettings:
+dataLakeStorageSettings:
   authentication:
     method: SystemAssignedManagedIdentity
     systemAssignedManagedIdentitySettings:
@@ -161,7 +163,7 @@ kubectl create secret generic my-sas \
 Create the *DataflowEndpoint* resource with the secret reference.
 
 ```yaml
-datalakeStorageSettings:
+dataLakeStorageSettings:
   authentication:
     method: AccessToken
     accessTokenSettings:
@@ -173,7 +175,7 @@ datalakeStorageSettings:
 To use a user-assigned managed identity, specify the `UserAssignedManagedIdentity` authentication method and provide the `clientId` and `tenantId` of the managed identity.
 
 ```yaml
-datalakeStorageSettings:
+dataLakeStorageSettings:
   authentication:
     method: UserAssignedManagedIdentity
     userAssignedManagedIdentitySettings:
@@ -197,7 +199,7 @@ For example, to configure the maximum number of messages to 1000 and the maximum
 Set the values in the dataflow endpoint custom resource.
 
 ```yaml
-datalakeStorageSettings:
+dataLakeStorageSettings:
   batching:
     latencySeconds: 100
     maxMessages: 1000
