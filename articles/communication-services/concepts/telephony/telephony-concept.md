@@ -18,7 +18,7 @@ ms.subservice: pstn
 
 Azure Communication Services Calling SDKs enable you to add telephony and Public Switched Telephone Network (PSTN) access to your applications. This page summarizes key telephony concepts and capabilities. See the [calling library](../../quickstarts/voice-video-calling/getting-started-with-calling.md) to learn more about specific SDK languages and capabilities.
 
-[!INCLUDE [Survey Request](../../includes/survey-request.md)]
+<!-- [!INCLUDE [Survey Request](./includes/survey-request.md)] -->
 
 ## Telephony overview
 Whenever your users interact with a traditional telephone number, the Public Switched Telephone Network (PSTN) voice calling handles the call. To make and receive PSTN calls, you need to add telephony capabilities to your Azure Communication Services resource. In this case, signaling and media use a combination of IP-based and PSTN-based technologies to connect your users. Communication Services provides two discrete ways to reach the PSTN network: Voice Calling (PSTN) and Azure direct routing.
