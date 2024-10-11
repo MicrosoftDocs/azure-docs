@@ -11,11 +11,11 @@ ms.custom: template-concept
 
 # Cross-subscription deployments and required permissions for Network Fabric
 
-This article outlines the requirements and behaviors associated with managing Nexus Network Fabric (NNF) resources in Azure when dealing with multiple subscriptions. It describes various scenarios involving different levels of access permissions that can affect operations across subscriptions. This article also covers the linked access check implementation, which ensures that proper permissions and access controls are enforced when managing Network Fabric (NNF) resources across multiple subscriptions, verifying that the required cross-subscription links have the necessary authorizations in place.
+This article outlines the requirements and behaviors associated with managing Nexus Network Fabric (NNF) resources in Azure across multiple subscriptions, along with the implementation of the linked access check. This check ensures that the necessary permissions and access controls are in place when managing resources across different subscriptions.
 
 ## Subscription context and user permissions
 
-In this article, we consider two Azure subscriptions, **Subscription A** and **Subscription B**, where users interact with NNF resources. The permissions assigned to users in each subscription determine their ability to manage these resources effectively.
+Consider two Azure subscriptions, **Subscription A** and **Subscription B**, where users interact with NNF resources. The permissions assigned to users in each subscription determine their ability to manage these resources effectively.
 
 **Subscription A:** This subscription hosts the primary NNF resources. Depending on the user’s permissions, access levels can vary from read-only to full control.
 
