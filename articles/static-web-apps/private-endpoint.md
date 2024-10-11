@@ -51,18 +51,18 @@ In this section, you create a private endpoint for your static web app.
 
 2. Select **Add**.
 
-3. In the "Add Private Endpoint" dialog, enter this information:
+1. In the "Add Private Endpoint" dialog, enter this information:
 
-   | Setting                         | Value                         |
-   | ------------------------------- | ----------------------------- |
-   | Name                            | Enter **myPrivateEndpoint**.  |
-   | Subscription                    | Select your subscription.     |
-   | Virtual Network                 | Select your virtual network.  |
-   | Subnet                          | Select your subnet.           |
-   | Integrate with private DNS zone | Leave the default of **Yes**. |
+| Setting                         | Value                         |
+| ------------------------------- | ----------------------------- |
+| Name                            | Enter **myPrivateEndpoint**.  |
+| Subscription                    | Select your subscription.     |
+| Virtual Network                 | Select your virtual network.  |
+| Subnet                          | Select your subnet.           |
+| Integrate with private DNS zone | Leave the default of **Yes**. |
 
-   :::image type="content" source="media/create-private-link-dialog.png" alt-text="./media/create-private-link-dialog.png":::
-
+   :::image type="content" source="media/create-private-link-dialog.png" alt-text="Screenshot of the Add Private Endpoint dialog in the Azure portal.":::
+   
 4. Select **Ok**.
 
 > [!NOTE]
