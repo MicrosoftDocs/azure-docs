@@ -83,7 +83,7 @@ To run the code in Jupyter Notebook, install packages at the project level by fo
 1. Under **Environment Setup Steps**, do the following:
     a. In the first drop-down list, select **Requirements.txt**.  
     b. In the second drop-down list, select your *requirements.txt* file.  
-    c. In the third drop-down list, select the version of Python. Note that version 3.11 was used when creating this tutorial.
+    c. In the third drop-down list, select the version of Python. Version 3.11 was used when creating this tutorial.
 1. Select **Save**.
 
     ![Install packages](./media/tutorial-ev-routing/install-packages.png)
@@ -237,7 +237,7 @@ closestChargeLoc = ",".join(str(i) for i in minDistLoc)
 
 ## Calculate the route to the closest charging station
 
-Once you've located the nearest charging station, use the [Get Route Directions] API to obtain detailed directions from the EV's current location. Run the script in the next cell to generate and parse a GeoJSON object representing the route.
+After locating the nearest charging station, use the [Get Route Directions] API to obtain detailed directions from the vehicles current location. Run the script in the next cell to generate and parse a GeoJSON object representing the route.
 
 ```python
 # Get the route from the electric vehicle's current location to the closest charging station. 
