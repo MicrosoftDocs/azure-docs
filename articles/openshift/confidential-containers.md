@@ -36,9 +36,7 @@ The table below describes the most common use cases for deploying Confidential C
 |---------|---------|---------|
 |**Regulator compliance**<br>Meeting strict data protection and privacy regulations. |Government, Finance, Healthcare |A healthcare provider using Confidential containers to process and store patient data in compliance with HIPAA regulations. |
 |**Multi-tenancy environments**<br>Hosting multiple clients' applications and data with strong isolation. |SaaS providers, Cloud service providers |A cloud service provider offering isolated environments for different clients within the same infrastructure. |
-|**Temporary secure environments**<br>Creating isolated environments for analyzing potential malware or performing security audits. |Cybersecurity, forensics | A cybersecurity firm using Confidential Containers to safely analyze and reverse-engineer malicious software. |
 |**Secure AI/ML model training**<br>Training AI models on sensitive data without exposing the data. |AI/ML, Any industry using sensitive data for AI |A financial institution training fraud detection models on customer transaction data. |
-|**Secure DevOps environments**<br>Creating isolated environments for development, testing, and staging. |Software development, IT |A software company using Confidential Containers to isolate different stages of their CI/CD pipeline. |
 
 ## How Confidential Containers work
 
