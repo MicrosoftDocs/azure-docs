@@ -190,7 +190,7 @@ var kernel = builder.Build();
 
 ### Secure your app with managed identity
 
-If you�re using Azure OpenAI, it's highly recommended to secure your application using [managed identity](../../overview-managed-identity.md) to authenticate your app to your Azure OpenAI resource. This enables your application to access the Azure OpenAI resource without needing to manage API keys. If you're not using Azure OpenAI, your secrets can remain secure using Azure Key Vault outlined above.
+If you're using Azure OpenAI, it's highly recommended to secure your application using [managed identity](../../overview-managed-identity.md) to authenticate your app to your Azure OpenAI resource. This enables your application to access the Azure OpenAI resource without needing to manage API keys. If you're not using Azure OpenAI, your secrets can remain secure using Azure Key Vault outlined above.
 
 Follow the steps below to secure your application with managed identity:
 
