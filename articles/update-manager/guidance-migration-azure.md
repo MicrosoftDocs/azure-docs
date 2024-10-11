@@ -58,7 +58,7 @@ As a first step in MCM user's journey towards Azure Update Manager, you need to 
 
 - Ensure that the Auto updates are disabled on the machine. For more information, see [Manage additional Windows Update settings - Configuring Automatic Updates by editing the registry](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry).
   
-    Ensure that the NoAutoUpdate registry key is set to 1 in the following registry path: `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU`
+    Ensure that the **NoAutoUpdate** registry key is set to 1 in the following registry path: `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU`
 
 - Azure Update Manager can get updates from WSUS server and for this, ensure to configure WSUS server as part of SCCM.
 
