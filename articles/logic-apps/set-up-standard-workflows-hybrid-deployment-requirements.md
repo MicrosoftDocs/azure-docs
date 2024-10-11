@@ -74,10 +74,10 @@ Your Kubernetes cluster requires inbound and outbound connectivity with the [SQL
 1. Set the following environment variables for the Kubernetes cluster that you want to create:
 
    ```azurecli
-   $SUBSCRIPTION="<Azure-subscription-ID>"
-   $AKS_CLUSTER_GROUP_NAME="<aks-cluster-resource-group-name>"
-   $AKS_NAME="<aks-cluster-name>"
-   $LOCATION="eastus"
+   SUBSCRIPTION="<Azure-subscription-ID>"
+   AKS_CLUSTER_GROUP_NAME="<aks-cluster-resource-group-name>"
+   AKS_NAME="<aks-cluster-name>"
+   LOCATION="eastus"
    ```
 
    | Parameter | Required | Value | Description |
@@ -241,12 +241,12 @@ To create your Azure Arc-enabled Kubernetes cluster, connect your Kubernetes clu
 1. Based on your Kubernetes cluster deployment, set the following environment variable to provide a name to use for the Azure resource group that contains your Azure Arc-enabled cluster and resources:
 
    ```azurecli
-   $GROUP_NAME="<Azure-Arc-cluster-resource-group-name>"
+   GROUP_NAME="<Azure-Arc-cluster-resource-group-name>"
    ```
 
    | Parameter | Required | Value | Description |
    |-----------|----------|-------|-------------|
-   | **GROUP_NAME** | Yes | <*Azure-Arc-cluster-resource-group-name*> | The name for the Azure resource group to use with your Azure Arc-enabled cluster and resources. This name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <br><br>This example uses **Hybrid-Arc-RG**. |
+   | **GROUP_NAME** | Yes | <*Azure-Arc-cluster-resource-group-name*> | The name for the Azure resource group to use with your Azure Arc-enabled cluster and other resources, such as your Azure Container Apps extension, custom location, and Azure Container Apps connected environment. This name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <br><br>This example uses **Hybrid-Arc-RG**. |
 
 1. Create the Azure resource group for your Azure Arc-enabled cluster and resources:
 
@@ -264,7 +264,7 @@ To create your Azure Arc-enabled Kubernetes cluster, connect your Kubernetes clu
 1. Set the following environment variable to provide a name for your Azure Arc-enabled Kubernetes cluster:
 
    ```azurecli
-   $CONNECTED_CLUSTER_NAME="$GROUP_NAME-cluster"
+   CONNECTED_CLUSTER_NAME="$GROUP_NAME-cluster"
    ```
 
    | Parameter | Required | Value | Description |
@@ -306,7 +306,7 @@ You can create an optional, but recommended, Azure Log Analytics workspace, whic
 1. Set the following environment variable to provide a name your Log Analytics workspace:
 
    ```azurecli
-   $WORKSPACE_NAME="$GROUP_NAME-workspace"
+   WORKSPACE_NAME="$GROUP_NAME-workspace"
    ```
 
    | Parameter | Required | Value | Description |
@@ -329,21 +329,21 @@ You can create an optional, but recommended, Azure Log Analytics workspace, whic
 1. Get the base64-encoded ID and shared key for your Log Analytics workspace. You need these values for a later step.
 
    ```azurecli
-   $LOG_ANALYTICS_WORKSPACE_ID=$(az monitor log-analytics workspace show \
+   LOG_ANALYTICS_WORKSPACE_ID=$(az monitor log-analytics workspace show \
       --resource-group $GROUP_NAME \
       --workspace-name $WORKSPACE_NAME \
       --query customerId \
       --output tsv)
 
-   $LOG_ANALYTICS_WORKSPACE_ID_ENC=[Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($LOG_ANALYTICS_WORKSPACE_ID))
+   LOG_ANALYTICS_WORKSPACE_ID_ENC=[Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($LOG_ANALYTICS_WORKSPACE_ID))
 
-   $LOG_ANALYTICS_KEY=$(az monitor log-analytics workspace get-shared-keys \
+   LOG_ANALYTICS_KEY=$(az monitor log-analytics workspace get-shared-keys \
       --resource-group $GROUP_NAME \
       --workspace-name $WORKSPACE_NAME \
       --query primarySharedKey \
       --output tsv)
 
-   $LOG_ANALYTICS_KEY_ENC=[Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($LOG_ANALYTICS_KEY))
+   LOG_ANALYTICS_KEY_ENC=[Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($LOG_ANALYTICS_KEY))
    ```
 
    | Parameter | Required | Value | Description |
@@ -370,9 +370,9 @@ Now, create and install the Azure Container Apps extension with your Azure Arc-e
 1. Set the following environment variables to the following values:
    
    ```azurecli
-   $EXTENSION_NAME="logicapps-aca-extension"
-   $NAMESPACE="logicapps-aca-ns"
-   $CONNECTED_ENVIRONMENT_NAME="<connected-environment-name>"
+   EXTENSION_NAME="logicapps-aca-extension"
+   NAMESPACE="logicapps-aca-ns"
+   CONNECTED_ENVIRONMENT_NAME="<connected-environment-name>"
    ```
 
    | Parameter | Required | Value | Description |
@@ -433,7 +433,7 @@ Now, create and install the Azure Container Apps extension with your Azure Arc-e
 1. Save the **ID** value for the Azure Container Apps extension to use later:
 
    ```azurecli
-   $EXTENSION_ID=$(az k8s-extension show \
+   EXTENSION_ID=$(az k8s-extension show \
       --cluster-type connectedClusters \
       --cluster-name $CONNECTED_CLUSTER_NAME \
       --resource-group $GROUP_NAME \
@@ -470,9 +470,9 @@ Now, create and install the Azure Container Apps extension with your Azure Arc-e
 1. Set the following environment variables to the specified values:
 
    ```azurecli
-   $CUSTOM_LOCATION_NAME="my-custom-location"
+   CUSTOM_LOCATION_NAME="my-custom-location"
 
-   $CONNECTED_CLUSTER_ID=$(az connectedk8s show \
+   CONNECTED_CLUSTER_ID=$(az connectedk8s show \
       --resource-group $GROUP_NAME \
       --name $CONNECTED_CLUSTER_NAME \
       --query id \
@@ -526,7 +526,7 @@ Now, create and install the Azure Container Apps extension with your Azure Arc-e
 1. Save the custom location ID for use in a later step:
 
    ```azurecli
-   $CUSTOM_LOCATION_ID=$(az customlocation show \
+   CUSTOM_LOCATION_ID=$(az customlocation show \
       --resource-group $GROUP_NAME \
       --name $CUSTOM_LOCATION_NAME \
       --query id \

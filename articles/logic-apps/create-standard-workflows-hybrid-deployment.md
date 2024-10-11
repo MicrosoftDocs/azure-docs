@@ -37,7 +37,7 @@ This how-to guide shows how to create and deploy a Standard logic app workflow u
   - Managed identity authentication
   - File System connector
 
-- Although you can create connections for managed connectors in your workflow through Azure portal and Visual Studio Code, to set up authentication for managed connectors, [follow these steps to set up authentication in Visual Studio Code](azure-arc-enabled-logic-apps-create-deploy-workflows.md#set-up-connection-authentication).
+- Azure Arc-enabled Kubernetes clusters currently don't support managed identity authentication for managed API connections. Instead, you must create your own app registration using Microsoft Entra ID. For more information, [follow these steps later in this guide](#authenticate-managed-api-connections).
 
 - Some function-based triggers, such as Azure Blob, Cosmos DB, and Event Hubs require a connection to the Azure storage account associated with your Standard logic app. If you use any function-based triggers, in your Standard logic app's environment variables in the Azure portal or in your logic app project's **local.settings.json** file in Visual Studio Code, add the following app setting and provide your storage account connection string:
 
@@ -160,6 +160,78 @@ After you meet the prerequisites, but before you create your Standard logic app 
 1. In the **Explorer** window, open the shortcut menu for the **workflow.json** file, and select **Open Designer**.
 
 1. Build your workflow as usual by adding a trigger and actions. For more information, see [Build a workflow with a trigger and actions](create-workflow-with-trigger-or-action.md).
+
+<a name="authenticate-managed-api-connections"></a>
+
+## Set up managed API connections
+
+To authenticate managed API connections in Standard logic app workflows hosted on Azure Arc-enabled Kubernetes clusters, you must create your own app registration using Microsoft Entra ID. You can then use this app registration's values as an identity with your Standard logic app resource to authenticate your API connections instead.
+
+### Create an app registration with Microsoft Entra ID
+
+#### [Portal](#tab/azure-portal)
+
+1. In the [Azure portal](https://portal.azure.com), follow [Quickstart: Register an application with the Microsoft identity platform](/entra/identity-platform/quickstart-register-app) to create an app registration.
+
+1. After creation completes, find your new app registration in the portal.
+
+1. On the resource menu, select **Overview**, and save the following values, which you need later for connection authentication:
+
+   - Client ID
+   - Object ID
+   - Tenant ID
+   - Client secret
+
+#### [Azure CLI](#tab/azure-cli)
+
+1. To create the app registration, use the [**az ad sp create** command](/cli/azure/ad/sp#az-ad-sp-create).
+
+1. To review all the properties, use the [**az ad sp show** command](/cli/azure/ad/sp#az-ad-sp-show).
+
+1. In the output from both commands, find and save the the following values, which you need later for connection authentication:
+
+   - Client ID
+   - Object ID
+   - Tenant ID
+   - Client secret
+
+---
+
+### Add environment variable values to your Standard logic app 
+
+1. In the [Azure portal](https://portal.azure.com), go to your Standard logic app resource.
+
+1. On the resource menu, under **Settings**, select **Containers**, and then select the **Environment variables** tab.
+
+1. On the toolbar, select **Edit and deploy**.
+
+1. On the **Edit a container** pane, select **Environment variables**, and then select **Add**.
+
+1. From the following table, add each environment variable with the specified value:
+
+   | Environment variable | Value |
+   |----------------------|-------|
+   | **WORKFLOWAPP_AAD_CLIENTID** | <*my-client-ID*> |
+   | **WORKFLOWAPP_AAD_OBJECTID** | <*my-object-ID*> |
+   | **WORKFLOWAPP_AAD_TENANTID** | <*my-tenant-ID*> |
+   | **WORKFLOWAPP_AAD_CLIENTSECRET** | <*my-client-secret*> |
+
+1. When you finish, select **Save**.
+
+1. To create secrets instead to store these values and reference them from the **Environment variables** tab, follow these steps:
+
+   1. On the resource menu, under **Settings**, select **Secrets**.
+
+   1. On the toolbar, select **Add**.
+
+   1. On the **Add secret** pane, provide the following information for each secret, and then select **Add**:
+
+      | Key | Value |
+      |-----|-------|
+      | **WORKFLOWAPP_AAD_CLIENTID** | <*my-client-ID*> |
+      | **WORKFLOWAPP_AAD_OBJECTID** | <*my-object-ID*> |
+      | **WORKFLOWAPP_AAD_TENANTID** | <*my-tenant-ID*> |
+      | **WORKFLOWAPP_AAD_CLIENTSECRET** | <*my-client-secret*> |
 
 ## Deploy your logic app from Visual Studio Code
 
