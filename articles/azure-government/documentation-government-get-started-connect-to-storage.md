@@ -138,39 +138,6 @@ These endpoint differences must be taken into account when you connect to storag
         print("\t Blob name: " + blob.name)
     ```
 
-#### PHP
-1. Download the [Azure Storage SDK for PHP](https://github.com/Azure/azure-sdk-for-php).
-2. The code below accesses Azure Table Storage using the Azure Storage API.
-   In the `connectionString` variable, you'll notice that there's a `TableEndpoint` parameter. 
-   Depending on which service you're using, you must define the parameter and set it to the endpoint for that service:
-   
-   - BlobEndpoint= //ends with 'blob.core.usgovcloudapi.net'
-   - QueueEndpoint= //ends with 'queue.core.usgovcloudapi.net'
-   - TableEndpoint= //ends with 'table.core.usgovcloudapi.net'
-     >[!Note]
-     > You can find these endpoints by navigating to your Storage Account from the [portal](https://portal.azure.us). 
-     > **Paste** in your storage account name, key, and service endpoint in the `connectionString` variable. 
-     >
-    
-     ```php
-     <?php
-     require_once "vendor/autoload.php";
-     use WindowsAzure\Common\ServicesBuilder;
-     use MicrosoftAzure\Storage\Common\ServiceException; 
-     $connectionString = 'DefaultEndpointsProtocol=http;AccountName=<accountname>;AccountKey=<accountkey>;TableEndpoint=http://<storageaccountname>.table.core.usgovcloudapi.net/';
-
-     $tableRestProxy = ServicesBuilder::getInstance()->createTableService($connectionString);
-     try {
-     // Create table.
-     $tableRestProxy->createTable("test");
-     }
-     catch(ServiceException $e){
-     $code = $e->getCode();
-     $error_message = $e->getMessage();
-     }
-     ?>
-     ```
-
 ## Next steps
 
 - Read more about [Azure Storage](../storage/index.yml). 

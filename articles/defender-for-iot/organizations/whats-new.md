@@ -22,7 +22,7 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | - [Add wildcards to allowlist domain names](#add-wildcards-allowlist-domain-names)<br> - [Added protocol](#added-protocol) <br> - [Improved OT sensor onboarding](#improved-ot-sensor-onboarding) |
+| **OT networks** | - [Add wildcards to allowlist domain names](#add-wildcards-allowlist-domain-names)<br> - [Added protocol](#added-protocol) <br> - [New sensor setting type Public addresses](#new-sensor-setting-type-public-addresses) <br>  - [Improved OT sensor onboarding](#improved-ot-sensor-onboarding) |
 
 ### Add wildcards allowlist domain names
 
@@ -31,6 +31,10 @@ When adding domain names to the FQDN allowlist use the `*` wildcard to include a
 ### Added protocol
 
 We now support the OCPI protocol. See [the updated protocol list](concept-supported-protocols.md#supported-protocols-for-ot-device-discovery).
+
+### New sensor setting type Public addresses
+
+We're adding the **Public addresses** type to the sensor settings, that allows you to exclude public IP addresses that might have been used for internal use and shouldn't be tracked. For more information, see [add sensor settings](configure-sensor-settings-portal.md#add-sensor-settings).
 
 ### Improved OT sensor onboarding
 
@@ -480,7 +484,7 @@ For more information, see:
 
 Now you can configure Active Directory and NTP settings for your OT sensors remotely from the **Sites and sensors** page in the Azure portal. These settings are available for OT sensor versions 22.3.x and higher.
 
-For more information, see [Sensor setting reference](configure-sensor-settings-portal.md#sensor-setting-reference).
+For more information, see [Sensor setting reference](configure-sensor-settings-portal.md#add-sensor-settings).
 
 ## April 2023
 
