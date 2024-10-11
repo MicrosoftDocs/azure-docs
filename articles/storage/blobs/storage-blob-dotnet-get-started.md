@@ -8,7 +8,7 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 07/12/2023
+ms.date: 10/02/2024
 ms.devlang: csharp
 ms.custom: template-how-to, devguide-csharp, devx-track-dotnet
 ---
@@ -54,7 +54,7 @@ Blob client library information:
 
 ## Authorize access and connect to Blob Storage
 
-To connect an application to Blob Storage, create an instance of the [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) class. This object is your starting point to interact with data resources at the storage account level. You can use it to operate on the storage account and its containers. You can also use the service client to create container clients or blob clients, depending on the resource you need to work with.
+To connect an app to Blob Storage, create an instance of the [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) class. This object is your starting point to interact with data resources at the storage account level. You can use it to operate on the storage account and its containers. You can also use the service client to create container clients or blob clients, depending on the resource you need to work with.
 
 To learn more about creating and managing client objects, see [Create and manage client objects that interact with data resources](storage-blob-client-management.md).
 
@@ -64,9 +64,9 @@ You can authorize a `BlobServiceClient` object by using a Microsoft Entra author
 
 ## [Microsoft Entra ID (recommended)](#tab/azure-ad)
 
-To authorize with Microsoft Entra ID, you'll need to use a security principal. The type of security principal you need depends on where your application runs. Use this table as a guide.
+To authorize with Microsoft Entra ID, you'll need to use a security principal. The type of security principal you need depends on where your app runs. Use this table as a guide.
 
-| Where the application runs | Security principal | Guidance |
+| Where the app runs | Security principal | Guidance |
 | --- | --- | --- |
 | Local machine (developing and testing) | Service principal | To learn how to register the app, set up a Microsoft Entra group, assign roles, and configure environment variables, see [Authorize access using developer service principals](/dotnet/azure/sdk/authentication-local-development-service-principal?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json) | 
 | Local machine (developing and testing) | User identity | To learn how to set up a Microsoft Entra group, assign roles, and sign in to Azure, see [Authorize access using developer credentials](/dotnet/azure/sdk/authentication-local-development-dev-accounts?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json) |
@@ -111,10 +111,8 @@ To learn more about generating and managing SAS tokens, see the following articl
 
 - [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md?toc=/azure/storage/blobs/toc.json)
 - [Create an account SAS with .NET](../common/storage-account-sas-create-dotnet.md)
-- [Create a service SAS for a container with .NET](sas-service-create-dotnet-container.md)
-- [Create a service SAS for a blob with .NET](sas-service-create-dotnet.md)
-- [Create a user delegation SAS for a container with .NET](storage-blob-container-user-delegation-sas-create-dotnet.md)
-- [Create a user delegation SAS for a blob with .NET](storage-blob-user-delegation-sas-create-dotnet.md)
+- [Create a service SAS with .NET](sas-service-create-dotnet.md)
+- [Create a user delegation SAS with .NET](storage-blob-user-delegation-sas-create-dotnet.md)
 
 > [!NOTE]
 > For scenarios where shared access signatures (SAS) are used, Microsoft recommends using a user delegation SAS. A user delegation SAS is secured with Microsoft Entra credentials instead of the account key.
@@ -152,34 +150,30 @@ For information about how to obtain account keys and best practice guidelines fo
 
 To learn more about each of these authorization mechanisms, see [Authorize access to data in Azure Storage](../common/authorize-data-access.md).
 
-## Build your application
+## Build your app
 
-As you build applications to work with data resources in Azure Blob Storage, your code primarily interacts with three resource types: storage accounts, containers, and blobs. To learn more about these resource types, how they relate to one another, and how apps interact with resources, see [Understand how apps interact with Blob Storage data resources](storage-blob-object-model.md).
+As you build apps to work with data resources in Azure Blob Storage, your code primarily interacts with three resource types: storage accounts, containers, and blobs. To learn more about these resource types, how they relate to one another, and how apps interact with resources, see [Understand how apps interact with Blob Storage data resources](storage-blob-object-model.md).
 
-The following guides show you how to work with data resources and perform specific actions using the Azure Storage client library for .NET:
+The following guides show you how to access data and perform specific actions using the Azure Storage client library for .NET:
 
 | Guide | Description |
-|--|---|
-| [Create a container](storage-blob-container-create.md) | Create containers. |
-| [Delete and restore containers](storage-blob-container-delete.md) | Delete containers, and if soft-delete is enabled, restore deleted containers.  |
-| [List containers](storage-blob-containers-list.md) | List containers in an account and the various options available to customize a listing. |
-| [Manage properties and metadata](storage-blob-container-properties-metadata.md) | Get and set properties and metadata for containers. |
-| [Create and manage container leases](storage-blob-container-lease.md) | Establish and manage a lock on a container. |
-| [Create and manage blob leases](storage-blob-lease.md) | Establish and manage a lock on a blob. |
+| --- | --- |
 | [Append data to blobs](storage-blob-append.md) | Learn how to create an append blob and then append data to that blob. |
-| [Upload blobs](storage-blob-upload.md) | Learn how to upload blobs by using strings, streams, file paths, and other methods. |
-| [Download blobs](storage-blob-download.md) | Download blobs by using strings, streams, and file paths. |
+| [Configure a retry policy](storage-retry-policy.md) | Implement retry policies for client operations. |
 | [Copy blobs](storage-blob-copy.md) | Copy a blob from one location to another. |
-| [List blobs](storage-blobs-list.md) | List blobs in different ways. |
-| [Delete and restore](storage-blob-delete.md) | Delete blobs, and if soft-delete is enabled, restore deleted blobs.  |
+| [Create a container](storage-blob-container-create.md) | Create containers. |
+| [Create a user delegation SAS](storage-blob-user-delegation-sas-create-dotnet.md) | Create a user delegation SAS for a container or blob. |
+| [Create and manage blob leases](storage-blob-lease.md) | Establish and manage a lock on a blob. |
+| [Create and manage container leases](storage-blob-container-lease.md) | Establish and manage a lock on a container. |
+| [Delete and restore blobs](storage-blob-delete.md) | Delete blobs, and if soft-delete is enabled, restore deleted blobs. |
+| [Delete and restore containers](storage-blob-container-delete.md) | Delete containers, and if soft-delete is enabled, restore deleted containers. |
+| [Download blobs](storage-blob-download.md) | Download blobs by using strings, streams, and file paths. |
 | [Find blobs using tags](storage-blob-tags.md) | Set and retrieve tags, and use tags to find blobs. |
+| [List blobs](storage-blobs-list.md) | List blobs in different ways. |
+| [List containers](storage-blob-containers-list.md) | List containers in an account and the various options available to customize a listing. |
 | [Manage properties and metadata](storage-blob-properties-metadata.md) | Get and set properties and metadata for blobs. |
+| [Manage properties and metadata](storage-blob-container-properties-metadata.md) | Get and set properties and metadata for containers. |
+| [Performance tuning for data transfers](storage-blobs-tune-upload-download.md) | Optimize performance for data transfer operations. |
 | [Set or change a blob's access tier](storage-blob-use-access-tier-dotnet.md) | Set or change the access tier for a block blob. |
+| [Upload blobs](storage-blob-upload.md) | Learn how to upload blobs by using strings, streams, file paths, and other methods. |
 
-## See also
-
-- [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs)
-- [Samples](../common/storage-samples-dotnet.md?toc=/azure/storage/blobs/toc.json#blob-samples)
-- [API reference](/dotnet/api/azure.storage.blobs)
-- [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs)
-- [Give Feedback](https://github.com/Azure/azure-sdk-for-net/issues)

@@ -57,7 +57,7 @@ https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refres
 All calls must be authenticated with a valid Microsoft Entra ID (OAuth 2) token in the Authorization header and must meet the following requirements:
 
 - The token must be either a user token or an application service principal.
-- The token must have the audience set to exactly `https://*.asazure.windows.net`. Note that `*` isn't a placeholder or a wildcard, and the audience must have the `*` character as the subdomain. Specifying an invalid audience results in authentication failure.
+- The token must have the audience set to exactly `https://*.asazure.windows.net`. Note that `*` isn't a placeholder or a wildcard, and the audience must have the `*` character as the subdomain. Custom audiences, such as `https://customersubdomain.asazure.windows.net`, are not supported. Specifying an invalid audience results in authentication failure.
 - The user or application must have sufficient permissions on the server or model to make the requested call. The permission level is determined by roles within the model or the admin group on the server.
 
     > [!IMPORTANT]

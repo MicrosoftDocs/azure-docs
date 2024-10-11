@@ -3,7 +3,7 @@ title: 'Configure OpenVPN clients for Azure Virtual WAN'
 description: Learn how to configure OpenVPN clients for Azure Virtual WAN. This article includes Windows, Mac, iOS, and Linux client configuration steps.
 author: cherylmc
 
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 05/04/2023

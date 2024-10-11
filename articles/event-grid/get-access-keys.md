@@ -13,9 +13,9 @@ Access keys are used to authenticate an application publishing events to Azure E
 This article describes how to get access keys for an Event Grid resource (topic or domain) using Azure portal, PowerShell, or CLI. 
 
 > [!IMPORTANT]
-> From August 5, 2024 to August 15, 2024, Azure Event Grid will rollout a security improvement which will increase the SAS key size from 44 to 84 characters. This change is being made to strengthen the security of your data in Event Grid resources. The change doesn't impact any application or service that currently publishes events to Event Grid with the old SAS key but it may impact only if you regenerate the SAS key of your Event Grid topics, domains, namespaces, and partner topics, after the update.
+> From August 20, 2024 to August 31, 2024, Azure Event Grid will rollout a security improvement which will increase the SAS key size from 44 to 84 characters. This change is being made to strengthen the security of your data in Event Grid resources. The change doesn't impact any application or service that currently publishes events to Event Grid with the old SAS key but it may impact only if you regenerate the SAS key of your Event Grid topics, domains, namespaces, and partner topics, after the update.
 > 
-> We recommend that you regenerate your SAS key on or after August 15, 2024. After regenerating the key, update any event publishing applications or services that use the old key to use the enhanced SAS key.
+> We recommend that you regenerate your SAS key on or after August 31, 2024. After regenerating the key, update any event publishing applications or services that use the old key to use the enhanced SAS key.
 
 
 ## Azure portal

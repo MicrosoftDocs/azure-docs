@@ -4,7 +4,7 @@ description: This article contains important reference material you need when yo
 ms.date: 03/28/2024
 ms.custom: horz-monitor
 ms.topic: reference
-ms.service: batch
+ms.service: azure-batch
 ---
 
 # Azure Batch monitoring data reference
@@ -19,7 +19,8 @@ See [Monitor Azure Batch](monitor-batch.md) for details on the data you can coll
 ### Supported metrics for Microsoft.Batch/batchaccounts
 The following table lists the metrics available for the Microsoft.Batch/batchaccounts resource type.
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
-[!INCLUDE [Microsoft.Batch/batchaccounts](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-batch-batchaccounts-metrics-include.md)]
+[!INCLUDE [Microsoft.Batch/batchaccounts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-batch-batchaccounts-metrics-include.md)]  
+
 
 [!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
 
@@ -31,7 +32,7 @@ The following table lists the metrics available for the Microsoft.Batch/batchacc
 [!INCLUDE [horz-monitor-ref-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
 
 ### Supported resource logs for Microsoft.Batch/batchaccounts
-[!INCLUDE [Microsoft.Batch/batchaccounts](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-batch-batchaccounts-logs-include.md)]
+[!INCLUDE [Microsoft.Batch/batchaccounts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-batch-batchaccounts-logs-include.md)]
 
 ### Service log events
 

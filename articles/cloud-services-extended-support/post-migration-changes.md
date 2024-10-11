@@ -2,7 +2,7 @@
 title: Azure Cloud Services (extended support) post-migration changes
 description: Overview of post migration changes after migrating to Cloud Services (extended support)
 ms.topic: how-to
-ms.service: cloud-services-extended-support
+ms.service: azure-cloud-services-extended-support
 ms.subservice: classic-to-arm-migration
 author: tanmaygore
 ms.author: tagore
@@ -39,7 +39,7 @@ Customers need to update their tooling and automation to start using the new API
 - Recreate rules and policies required to manage and scale cloud services 
     - [Auto Scale rules](configure-scaling.md) aren't migrated. After migration, recreate the auto scale rules.  
     - [Alerts](enable-alerts.md) aren't migrated. After migration, recreate the alerts.
-    - The Key Vault is created without any access policies. To view or manage your certificates, [create appropriate policies](../key-vault/general/assign-access-policy-portal.md) on the Key Vault. Certificates are visible under settings on the tab called secrets.
+    - The Key Vault is created without any access policies. To view or manage your certificates, [create appropriate policies](/azure/key-vault/general/assign-access-policy-portal) on the Key Vault. Certificates are visible under settings on the tab called secrets.
 
 
 ## Changes to Certificate Management Post Migration 
@@ -54,6 +54,6 @@ If you published updates via Visual Studio directly, then you would need to firs
 
 
 ## Next steps
-- [Overview of Platform-supported migration of IaaS resources from classic to Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-overview.md)
+- [Overview of Platform-supported migration of IaaS resources from classic to Azure Resource Manager](/azure/virtual-machines/migration-classic-resource-manager-overview)
 - Migrate to Cloud Services (extended support) using the [Azure portal](in-place-migration-portal.md)
 - Migrate to Cloud Services (extended support) using [PowerShell](in-place-migration-powershell.md)

@@ -1,7 +1,7 @@
 ---
 author: baanders
 description: include file for cleaning up an Azure Digital Twins instance
-ms.service: digital-twins
+ms.service: azure-digital-twins
 ms.topic: include
 ms.date: 2/4/2021
 ms.author: baanders

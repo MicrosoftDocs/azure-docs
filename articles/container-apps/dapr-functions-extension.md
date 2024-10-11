@@ -5,9 +5,9 @@ description: Learn how to use and deploy the Azure Functions with Dapr extension
 author: hhunter-ms
 ms.author: hannahhunter
 ms.reviewer: paulyuk
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 10/30/2023
+ms.date: 08/05/2024
 ms.custom: references_regions
 # Customer Intent: I'm a developer who wants to use the Dapr extension for Azure Functions in my Dapr-enabled container app
 ---
@@ -30,7 +30,7 @@ The [Dapr extension for Azure Functions](../azure-functions/functions-bindings-d
 
 ## Set up the environment
 
-1. In the terminal, log into your Azure subscription.
+1. In the terminal, log in to your Azure subscription.
 
    ```azurecli
    az login

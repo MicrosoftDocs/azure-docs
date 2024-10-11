@@ -4,7 +4,7 @@ description: Learn how to renew a certificate associated with an application gat
 services: application-gateway
 author: greg-lindsay
 
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 01/25/2022
 ms.author: greglin 

@@ -1,9 +1,9 @@
 ---
 title: Cache ASP.NET Session State Provider
 description: Learn how to store ASP.NET Session State in-memory using Azure Cache for Redis. 
-author: flang-msft
-ms.author: franlanglois
-ms.service: cache
+
+
+
 ms.topic: conceptual
 ms.devlang: csharp
 ms.custom: devx-track-csharp

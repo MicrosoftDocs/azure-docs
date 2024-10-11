@@ -3,7 +3,7 @@ title: Lab deployments for Azure Communications Gateway
 description: Learn about the benefits of lab deployments for Azure Communications Gateway
 author: rcdun
 ms.author: rdunstan
-ms.service: communications-gateway
+ms.service: azure-communications-gateway
 ms.topic: concept-article
 ms.date: 01/08/2024
 

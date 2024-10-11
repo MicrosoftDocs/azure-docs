@@ -12,11 +12,13 @@ ms.topic: article
 App Service Environment has three versions. App Service Environment v3 is the latest version and provides advantages and feature differences over earlier versions.
 
 > [!IMPORTANT]
-> App Service Environment v1 and v2 [will be retired on 31 August 2024](https://azure.microsoft.com/updates/app-service-environment-version-1-and-version-2-will-be-retired-on-31-august-2024-4/). After that date, those versions will no longer be supported and any remaining App Service Environment v1 and v2s and the applications running on them will be deleted. 
-
-There's a new version of App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version, start with the [Introduction to the App Service Environment](overview.md). If you're currently using App Service Environment v1 or v2, please follow the steps in [this article](upgrade-to-asev3.md) to migrate to the new version.
+> This article includes information about about App Service Environment v1 and v2. [App Service Environment v1 and v2 are retired as of 31 August 2024](https://aka.ms/postEOL/ASE). There's a new version of App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version, start with the [Introduction to the App Service Environment](overview.md). If you're currently using App Service Environment v1, please follow the steps in [this article](upgrade-to-asev3.md) to migrate to the new version.
 >
-> As of 29 January 2024, you can no longer create new App Service Environment v1 or v2 resources using any of the available methods including ARM/Bicep templates, Azure Portal, Azure CLI, or REST API. You must [migrate to App Service Environment v3](upgrade-to-asev3.md) before 31 August 2024 to prevent resource deletion and data loss.
+> As of 31 August 2024, [Service Level Agreement (SLA) and Service Credits](https://aka.ms/postEOL/ASE/SLA) no longer apply for App Service Environment v1 and v2 workloads that continue to be in production since they are retired products. Decommissioning of the App Service Environment v1 and v2 hardware has begun, and this may affect the availability and performance of your apps and data.
+>
+> You must complete migration to App Service Environment v3 immediately or your apps and resources may be deleted. We will attempt to auto-migrate any remaining App Service Environment v1 and v2 on a best-effort basis using the [in-place migration feature](migrate.md), but Microsoft makes no claim or guarantees about application availability after auto-migration. You may need to perform manual configuration to complete the migration and to optimize your App Service plan SKU choice to meet your needs. If auto-migration isn't feasible, your resources and associated app data will be deleted. We strongly urge you to act now to avoid either of these extreme scenarios.
+>
+> If you need additional time, we can offer a one-time 30-day grace period for you to complete your migration. For more information and to request this grace period, review the [grace period overview](./auto-migration.md#grace-period), and then go to [Azure portal](https://portal.azure.com) and visit the Migration blade for each of your App Service Environments.
 >
 > For the most up-to-date information on the App Service Environment v1/v2 retirement, see the [App Service Environment v1 and v2 retirement update](https://github.com/Azure/app-service-announcements/issues/469).
 >
@@ -27,7 +29,7 @@ There's a new version of App Service Environment that is easier to use and runs 
 
 |Feature  |[App Service Environment v1](app-service-app-service-environment-intro.md)  |[App Service Environment v2](intro.md)  |[App Service Environment v3](overview.md)  |
 |---------|---------|---------|---------|
-|Hardware     |[Cloud Services (classic)](../../cloud-services/cloud-services-choose-me.md)  |[Cloud Services (classic)](../../cloud-services/cloud-services-choose-me.md)  |[Virtual Machine Scale Sets](../../virtual-machine-scale-sets/overview.md)  |
+|Hardware     |[Cloud Services (classic)](../../cloud-services/cloud-services-choose-me.md)  |[Cloud Services (classic)](../../cloud-services/cloud-services-choose-me.md)  |[Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview)  |
 |[Available SKUs](https://azure.microsoft.com/pricing/details/app-service/windows/)  |P1, P2, P3, P4         |I1, I2, I3         |I1v2, I2v2, I3v2, I4v2, I5v2, I6v2        |
 |CPU|Physical cores|Physical cores|Virtual CPu (vCPU)|
 |Maximum instance count     |55 hosts (default front-ends + workers)         |100 instances per App Service plan. Maximum of 200 instances across all plans.         |100 instances per App Service plan. Maximum of 200 instances across all plans.         |
@@ -38,7 +40,6 @@ There's a new version of App Service Environment that is easier to use and runs 
 |FTPS endpoint structure     |ftps://APP-NAME.ASE-NAME.appserviceenvironment.net        |ftps://APP-NAME.ASE-NAME.appserviceenvironment.net - Custom domain suffix is supported if you have one configured by replacing the App Service Environment name and the default domain suffix with your custom domain suffix.        |ftps://ASE-NAME.ftp.appserviceenvironment.net/site/wwwroot - Custom domain suffix isn't supported. Each app on the same App Service Environment v3 uses the same FTPS endpoint but has its own unique application scope credentials for authentication.        |
 |Remote debugging     |Yes         |Yes         |Yes, [must be explicitly enabled](configure-network-settings.md#remote-debugging-access)         |
 |[Azure virtual network (classic)](../../virtual-network/create-virtual-network-classic.md) support    |Yes         |No         |No         |
-
 
 ### Networking
 
@@ -55,7 +56,7 @@ There's a new version of App Service Environment that is easier to use and runs 
 
 ### Scaling
 
-App Service Environment v3 runs on the latest [Virtual Machine Scale Sets](../../virtual-machine-scale-sets/overview.md) infrastructure while App Service Environment v1 and v2 run on [Cloud Services (classic)](../../cloud-services/cloud-services-choose-me.md). Because of this, App Service Environment v3 has the best performing and fastest scaling times across all versions. 
+App Service Environment v3 runs on the latest [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview) infrastructure while App Service Environment v1 and v2 run on [Cloud Services (classic)](../../cloud-services/cloud-services-choose-me.md). Because of this, App Service Environment v3 has the best performing and fastest scaling times across all versions.
 
 |Feature  |[App Service Environment v1](app-service-app-service-environment-intro.md)  |[App Service Environment v2](intro.md)  |[App Service Environment v3](overview.md)  |
 |---------|---------|---------|---------|
@@ -148,16 +149,16 @@ For more information on App Service Environment v3 networking dependencies, see 
 On App Service Environment v2, there are many inbound and outbound requirements that have to you have to manage. Modifying these rules can cause the environment to go into an unhealthy state.
 
 - Inbound
-    - TCP from the IP service tag AppServiceManagement on ports 454, 455
-    - TCP from the load balancer on port 16001
-    - From the App Service Environment subnet to the App Service Environment subnet on all ports
+  - TCP from the IP service tag AppServiceManagement on ports 454, 455
+  - TCP from the load balancer on port 16001
+  - From the App Service Environment subnet to the App Service Environment subnet on all ports
 - Outbound
-    - UDP to all IPs on port 53
-    - UDP to all IPs on port 123
-    - TCP to all IPs on port 80, 443
-    - TCP to the IPs service tag Sql on ports 1433
-    - TCP to all IPs on port 12000
-    - To the App Service Environment subnet on all ports 
+  - UDP to all IPs on port 53
+  - UDP to all IPs on port 123
+  - TCP to all IPs on port 80, 443
+  - TCP to the IPs service tag Sql on ports 1433
+  - TCP to all IPs on port 12000
+  - To the App Service Environment subnet on all ports
 
 For more information on App Service Environment v2 networking dependencies, see [inbound and outbound dependencies](network-info.md#inbound-and-outbound-dependencies).
 
@@ -167,7 +168,7 @@ This limitation is a result of the underlying infrastructure change that was imp
 
 #### What does custom domain suffix refer to?
 
-The custom domain suffix is for the App Service Environment. It's available on App Service Environment v1 and v3, but was removed from App Service Environment v2. 
+The custom domain suffix is for the App Service Environment. It's available on App Service Environment v1 and v3, but was removed from App Service Environment v2.
 
 It's different from a custom domain binding on App Service. The custom domain suffix defines a root domain that can be used by the App Service Environment. In the public variation of Azure App Service, the default root domain for all web apps is azurewebsites.net. For ILB App Service Environments, the default root domain is appserviceenvironment.net. However, since an ILB App Service Environment is internal to a customer's virtual network, customers can use a root domain in addition to the default one that makes sense for use within a company's internal virtual network. For example, a hypothetical Contoso Corporation might use a default root domain of internal.contoso.com for apps that are intended to only be resolvable and accessible within Contoso's virtual network. An app in this virtual network could be reached by accessing APP-NAME.internal.contoso.com.
 

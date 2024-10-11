@@ -3,7 +3,7 @@ title: Tune Azure Web Application Firewall for Azure Front Door
 description: In this article, you learn how to tune Azure Web Application Firewall for Azure Front Door.
 services: web-application-firewall
 author: mohitkusecurity
-ms.service: web-application-firewall
+ms.service: azure-web-application-firewall
 ms.topic: conceptual
 ms.date: 08/28/2022
 ms.author: mohitku

@@ -108,7 +108,7 @@ You can also use this approach to store secrets in a key vault.
 
 ## Use Key Vault
 
-[Azure Key Vault](../../key-vault/general/overview.md) is designed to store and manage secure data. Use a key vault to manage your secrets, certificates, keys, and other data that needs to be protected and shared.
+[Azure Key Vault](/azure/key-vault/general/overview) is designed to store and manage secure data. Use a key vault to manage your secrets, certificates, keys, and other data that needs to be protected and shared.
 
 You can create and manage vaults and secrets by using Bicep. Define your vaults by creating a resource with the type [`Microsoft.KeyVault/vaults`](/azure/templates/microsoft.keyvault/vaults?tabs=bicep).
 
@@ -201,7 +201,7 @@ When you deploy your Azure resources by using a pipeline, you need to take care 
   - [`Microsoft.KeyVault/vaults/secrets`](/azure/templates/microsoft.keyvault/vaults/secrets?tabs=bicep)
 - Azure features
   - [Managed identities](../../active-directory/managed-identities-azure-resources/overview.md)
-  - [Azure Key Vault](../../key-vault/general/overview.md)
+  - [Azure Key Vault](/azure/key-vault/general/overview)
 - Bicep features
   - [Secure parameters](parameters.md#secure-parameters)
   - [Referencing existing resources](existing-resource.md)

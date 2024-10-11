@@ -1,10 +1,11 @@
 ---
 title: Scale session hosts using Azure Automation and Azure Logic Apps for Azure Virtual Desktop - Azure
 description: Learn about scaling Azure Virtual Desktop session hosts with Azure Automation and Azure Logic Apps.
-author: Heidilohr
+author: dknappettmsft
 ms.topic: how-to
 ms.date: 11/01/2023
-ms.author: helohr
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
 # Scale session hosts using Azure Automation and Azure Logic Apps for Azure Virtual Desktop
 

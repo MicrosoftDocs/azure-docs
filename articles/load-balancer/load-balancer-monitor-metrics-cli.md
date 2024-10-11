@@ -5,7 +5,7 @@ description: In this article, get started using the Azure Monitor CLI to collect
 services: load-balancer
 author: mbender-ms
 ms.author: mbender
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: how-to 
 ms.date: 06/27/2024
 ms.custom: template-how-to, engagement-fy23, devx-track-azurecli
@@ -72,12 +72,12 @@ user@Azure:~$ az monitor metrics list --resource <resource_id> --metric DipAvail
       "displayDescription": "Average Load Balancer health probe status per time duration",
       "errorCode": "Success",
       "errorMessage": null,
-      "id": "/subscriptions/6a5f35e9-6951-499d-a36b-83c6c6eed44a/resourceGroups/myResourceGroup2/providers/Microsoft.Network/loadBalancers/myLoadBalancer/providers/Microsoft.Insights/metrics/DipAvailability",
+      "id": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/myResourceGroup/providers/Microsoft.Network/loadBalancers/myLoadBalancer/providers/Microsoft.Insights/metrics/DipAvailability",
       "name": {
         "localizedValue": "Health Probe Status",
         "value": "DipAvailability"
       },
-      "resourceGroup": "myResourceGroup2",
+      "resourceGroup": "myResourceGroup",
       "timeseries": [],
       "type": "Microsoft.Insights/metrics",
       "unit": "Count"
@@ -140,4 +140,4 @@ az monitor metrics list --resource <resource_id> --metric DipAvailability --filt
 ## Next steps
 * [Review the metric definitions to better understand how each is generated](./load-balancer-standard-diagnostics.md#multi-dimensional-metrics)
 * [Create Connection Monitors for your Load Balancer](./load-balancer-standard-diagnostics.md)
-* [Create your own workbooks](../azure-monitor/visualize/workbooks-overview.md), you can take inspiration by clicking on the edit button in your detailed metrics dashboard
+* [Create your own workbooks](/azure/azure-monitor/visualize/workbooks-overview), you can take inspiration by clicking on the edit button in your detailed metrics dashboard

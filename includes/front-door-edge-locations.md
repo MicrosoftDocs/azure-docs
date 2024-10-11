@@ -3,7 +3,7 @@
  description: include file
  services: frontdoor
  author: duongau
- ms.service: frontdoor
+ ms.service: azure-frontdoor
  ms.topic: include
  ms.date: 10/16/2023
  ms.author: duau

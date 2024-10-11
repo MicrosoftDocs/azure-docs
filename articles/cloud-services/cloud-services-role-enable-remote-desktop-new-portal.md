@@ -2,7 +2,7 @@
 title: Use the portal to enable Remote Desktop for a Role
 description: How to configure your Azure cloud service application to allow remote desktop connections through the Azure portal.
 ms.topic: article
-ms.service: cloud-services
+ms.service: azure-cloud-services-classic
 ms.date: 07/23/2024
 author: hirenshah1
 ms.author: hirshah

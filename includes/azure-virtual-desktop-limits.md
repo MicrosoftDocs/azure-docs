@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 01/25/2021
 author: thhickli
 ms.author: thhickli
-ms.service: virtual-desktop
+ms.service: azure-virtual-desktop
 ---
 
 <!-- Used in /azure/azure-resource-manager/management/azure-subscription-service-limits.md -->

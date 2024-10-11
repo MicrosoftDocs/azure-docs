@@ -187,7 +187,7 @@ Azure Marketplace products, which are available for subscriptions that are manag
 
 Access for existing users, groups, or service principals that was assigned using [Azure role-based access control (Azure RBAC role)](../../role-based-access-control/overview.md) isn't affected during the transition. The partner won’t get any new Azure RBAC role access to the subscriptions.
 
-The partners should work with the customer to get access to subscriptions. The partners need to get either Admin on Behalf Of - AOBO or [Azure Lighthouse](../../lighthouse/concepts/cloud-solution-provider.md) access open support tickets.
+The partners should work with the customer to get access to subscriptions. The partners need to get either Admin on Behalf Of - AOBO or [Azure Lighthouse](/azure/lighthouse/concepts/cloud-solution-provider) access open support tickets.
 
 ### Power BI connectivity
 

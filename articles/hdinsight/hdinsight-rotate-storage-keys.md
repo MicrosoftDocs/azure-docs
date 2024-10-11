@@ -1,7 +1,7 @@
 ---
 title: Update Azure Storage account access key in Azure HDInsight 
 description: Learn how to update Azure Storage account access key in Azure HDInsight cluster.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.date: 05/23/2024
 ---
@@ -23,7 +23,7 @@ In this article, you learn how to rotate Azure Storage account access keys for t
     1. Set up rotation policy for access key1 every N/2 day. As part of this rotation update, HDInsight to use access key2 and then rotate access key1 on storage account.
     1. With approach access key1 will be rotated N/2, 3N/2 etc. days and access key2 will be rotated N, 2N, 3N etc. days.
 
-* To set up periodic rotation of storage account keys, see [Automate the rotation of a secret](../key-vault/secrets/tutorial-rotation-dual.md).
+* To set up periodic rotation of storage account keys, see [Automate the rotation of a secret](/azure/key-vault/secrets/tutorial-rotation-dual).
 
 ## Update storage account access keys
 

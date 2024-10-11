@@ -2,7 +2,7 @@
 title: Migrate Azure Firewall configurations to Azure Firewall policy using PowerShell
 description: Learn How to migrate Azure Firewall configurations to Azure Firewall policy
 author: vhorne
-ms.service: firewall-manager
+ms.service: azure-firewall-manager
 services: firewall-manager
 ms.topic: how-to
 ms.date: 09/12/2022

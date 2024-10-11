@@ -3,7 +3,7 @@ title: Azure DDoS Protection Plan permissions
 description: Learn how to manage permission in a DDoS Protection plan.
 services: ddos-protection
 author: AbdullahBell
-ms.service: ddos-protection
+ms.service: azure-ddos-protection
 ms.topic: how-to
 ms.date: 07/17/2024
 ms.author: abell

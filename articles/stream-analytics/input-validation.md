@@ -1,7 +1,7 @@
 ---
 title: Input validation for better Azure Stream Analytics job resiliency
 description: "This article describes how to improve the resiliency of Azure Stream Analytics jobs with input validation"
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.custom: "asaql"
 ms.date: 12/10/2021

@@ -2,7 +2,7 @@
 title: SDK Overview
 description: Get started with the Automanage SDKs.
 author: andrsmith
-ms.service: automanage
+ms.service: azure-automanage
 ms.topic: reference
 ms.date: 11/17/2022
 ms.author: andrsmith

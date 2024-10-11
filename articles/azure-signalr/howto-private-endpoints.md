@@ -4,7 +4,7 @@ titleSuffix: Azure SignalR Service
 description: Overview of private endpoints for secure access to Azure SignalR Service from virtual networks.
 services: signalr
 author: vicancy
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 12/09/2022

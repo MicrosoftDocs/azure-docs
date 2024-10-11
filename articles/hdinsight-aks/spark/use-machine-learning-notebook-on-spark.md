@@ -1,14 +1,17 @@
 ---
 title: How to use Azure Machine Learning Notebook on Spark
 description: Learn how to Azure Machine Learning notebook on Spark
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 08/29/2023
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # How to use Azure Machine Learning Notebook on Spark
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 Machine learning is a growing technology, which enables computers to learn automatically from past data. Machine learning uses various algorithms for building mathematical models and making predictions use historical data or information. We have a model defined up to some parameters, and learning is the execution of a computer program to optimize the parameters of the model using the training data or experience. The model may be predictive to make predictions in the future, or descriptive to gain knowledge from data.
 
@@ -19,8 +22,6 @@ The following tutorial notebook shows an example of training machine learning mo
 1. Find your storage and container name in the portal JSON view
 
    :::image type="content" source="./media/use-machine-learning-notebook-on-spark/json-view.png" alt-text="Screenshot showing JSON view." lightbox="./media/use-machine-learning-notebook-on-spark/json-view.png":::
-   
-   :::image type="content" source="./media/use-machine-learning-notebook-on-spark/resource-json.png" alt-text="Screenshot showing resource JSON view." lightbox="./media/use-machine-learning-notebook-on-spark/resource-json.png":::
         
 1. Navigate into your primary HDI storage>container>base folder> upload the [CSV](https://github.com/Azure-Samples/hdinsight-aks/blob/main/spark/iris_csv.csv)
 

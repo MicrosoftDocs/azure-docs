@@ -3,7 +3,7 @@ title: 'Link a VNet to an ExpressRoute circuit - Azure CLI'
 description: This article shows you how to link virtual networks (VNets) to ExpressRoute circuits by using the Resource Manager deployment model and Azure CLI.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 09/15/2023
 ms.author: duau
@@ -110,9 +110,9 @@ The Circuit Owner can review all authorizations that are issued on a particular 
 az network express-route auth list --circuit-name MyCircuit -g ExpressRouteResourceGroup
 ```
 
-**To add authorizations**
+**To create an authorization**
 
-The Circuit Owner can add authorizations by using the following example:
+The Circuit Owner can create an authorization by using the following example:
 
 ```azurecli-interactive
 az network express-route auth create --circuit-name MyCircuit -g ExpressRouteResourceGroup -n MyAuthorization1
@@ -177,16 +177,6 @@ az network vpn-connection update --name ERConnection --resource-group ExpressRou
 > [!NOTE]
 > You can use [Connection Monitor](how-to-configure-connection-monitor.md) to verify that your traffic is reaching the destination using FastPath.
 >
-
-## Enroll in ExpressRoute FastPath features (preview)
-
-FastPath support for virtual network peering is now in Public preview. Enrollment is only available through Azure PowerShell. For instructions on how to enroll, see [FastPath preview features](expressroute-howto-linkvnet-arm.md#fastpath-virtual-network-peering-user-defined-routes-udrs-and-private-link-support-for-expressroute-direct-connections).
-
-> [!NOTE] 
-> Any connections configured for FastPath in the target subscription will be enrolled in this preview. We do not advise enabling this preview in production subscriptions.
-> If you already have FastPath configured and want to enroll in the preview feature, you need to do the following:
-> 1. Enroll in the FastPath preview feature with the Azure PowerShell command above.
-> 1. Disable and then re-enable FastPath on the target connection.
 
 ## Clean up resources
 

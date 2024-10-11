@@ -3,7 +3,7 @@ title: Geo-code mapping
 description: Learn about geo-codes mapped with the respective regions.
 ms.topic: sample
 ms.date: 03/07/2022
-ms.service: backup
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -49,7 +49,7 @@ This sample XML provides you an insight about the geo-codes mapped with the resp
   <GeoCodeRegionNameMap GeoCode="gec" RegionName="Germany Central" />
   <GeoCodeRegionNameMap GeoCode="gne" RegionName="Germany Northeast" />
   <GeoCodeRegionNameMap GeoCode="krc" RegionName="Korea Central" />
-  <GeoCodeRegionNameMap GeoCode="frc" RegionName="France Central" />
+  <GeoCodeRegionNameMap GeoCode="fc" RegionName="France Central" />
   <GeoCodeRegionNameMap GeoCode="frs" RegionName="France South" />
   <GeoCodeRegionNameMap GeoCode="krs" RegionName="Korea South" />
   <GeoCodeRegionNameMap GeoCode="ugt" RegionName="USGov Texas" />

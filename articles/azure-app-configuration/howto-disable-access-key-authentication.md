@@ -1,28 +1,25 @@
 ---
-title: Manage access key authentication for an Azure App Configuration instance
+title: Access Azure App Configuration using access keys
 titleSuffix: Azure App Configuration
 description: Learn how to manage access key authentication for an Azure App Configuration instance.
 ms.service: azure-app-configuration
 author: maud-lv
 ms.author: malev
 ms.topic: how-to
-ms.date: 04/05/2024
+ms.date: 10/05/2024
 ---
 
-# Manage access key authentication for an Azure App Configuration instance
+# Access Azure App Configuration using access keys
 
-Every request to an Azure App Configuration resource must be authenticated. By default, requests can be authenticated with either Microsoft Entra credentials, or by using an access key. Of these two types of authentication schemes, Microsoft Entra ID provides superior security and ease of use over access keys, and is recommended by Microsoft. To require clients to use Microsoft Entra ID to authenticate requests, you can disable the usage of access keys for an Azure App Configuration resource. If you want to use access keys to authenticate the request, it's recommended to rotate access keys every 90 days to enhance security.
+Every request to an Azure App Configuration resource must be authenticated. By default, requests can be authenticated with either Microsoft Entra credentials, or by using an access key. Of these two types of authentication schemes, Microsoft Entra ID provides superior security and ease of use over access keys, and is recommended by Microsoft. To require clients to use Microsoft Entra ID to authenticate requests, you can disable the usage of access keys for an Azure App Configuration resource. If you want to use access keys to authenticate the request, it's recommended to rotate access keys periodically to enhance security. See [recommendations for protecting application secrets](/azure/well-architected/security/application-secrets) to learn more.
 
 ## Enable access key authentication
 
-Access key is enabled by default, you can use access keys in your code to authenticate requests.
-
-> [!WARNING]
-> If any clients are currently accessing data in your Azure App Configuration resource with access keys, then Microsoft recommends that you migrate those clients to [Microsoft Entra ID](./concept-enable-rbac.md) before disabling access key authentication.
+Access key is enabled by default. You can use access keys in your code to authenticate requests.
 
 # [Azure portal](#tab/portal)
 
-To allow/disallow access key authentication for an Azure App Configuration resource in the Azure portal, follow these steps:
+To allow access key authentication for an Azure App Configuration resource in the Azure portal, follow these steps:
 
 1. Navigate to your Azure App Configuration resource in the Azure portal.
 1. Locate the **Access settings** setting under **Settings**.
@@ -35,7 +32,7 @@ To allow/disallow access key authentication for an Azure App Configuration resou
 
 # [Azure CLI](#tab/azure-cli)
 
-To enable access keys for Azure App configuration resource, use the following command. The `--disable-local-auth` option is set to "false" for enable local auth. 
+To enable access keys for Azure App configuration resource, use the following command. The `--disable-local-auth` option is set to `false` to enable access key-based authentication. 
 
 ```azurecli-interactive
 az appconfig update \
@@ -48,7 +45,7 @@ az appconfig update \
 
 ### Verify that access key authentication is enabled
 
-To verify if access key authentication is enabled, check if you're able to get a list of read and read-write access keys. This list will only exist if access key authentication is enabled.
+To verify if access key authentication is enabled, check if you're able to get a list of read-only and read-write access keys. This list will only exist if access key authentication is enabled.
 
 # [Azure portal](#tab/portal)
 
@@ -65,8 +62,8 @@ To check if access key authentication is enabled for an Azure App Configuration 
 
 # [Azure CLI](#tab/azure-cli)
 
-To check if access key authentication is enabled for an Azure App Configuration resource, use the following command. The command will list the access keys for an Azure App Configuration resource.
-If access key authentication is enabled, then read access keys and read-write access keys will be returned.
+To check if access key authentication is enabled for an Azure App Configuration resource, use the following command. The command lists the access keys for an Azure App Configuration resource.
+If access key authentication is enabled, then read-only access keys and read-write access keys are returned.
 
 ```azurecli-interactive
 az appconfig credential list \
@@ -78,7 +75,10 @@ az appconfig credential list \
 
 ## Disable access key authentication
 
-Disabling access key authentication will delete all access keys. If any running applications are using access keys for authentication, they will begin to fail once access key authentication is disabled. Only requests that are authenticated using Microsoft Entra ID will succeed. For more information about using Microsoft Entra ID, see [Authorize access to Azure App Configuration using Microsoft Entra ID](./concept-enable-rbac.md). Enabling access key authentication again will generate a new set of access keys and any applications attempting to use the old access keys will still fail.
+Disabling access key authentication deletes all access keys. If any running applications are using access keys for authentication, they'll begin to fail once access key authentication is disabled. Only requests that are authenticated using Microsoft Entra ID will succeed. For more information about using Microsoft Entra ID, see [Authorize access to Azure App Configuration using Microsoft Entra ID](./concept-enable-rbac.md). Enabling access key authentication again generates a new set of access keys and any applications attempting to use the old access keys will still fail.
+
+> [!WARNING]
+> If any clients are currently accessing data in your Azure App Configuration resource with access keys, then Microsoft recommends that you migrate those clients to [Microsoft Entra ID](./concept-enable-rbac.md) before disabling access key authentication.
 
 # [Azure portal](#tab/portal)
 
@@ -95,7 +95,7 @@ To disallow access key authentication for an Azure App Configuration resource in
 
 # [Azure CLI](#tab/azure-cli)
 
-To disable access keys for Azure App configuration resource, use the following command. The `--disable-local-auth` option is set to "true" for disable local auth. 
+To disable access keys for Azure App configuration resource, use the following command. The `--disable-local-auth` option is set to `true` to disable access key-based authentication. 
 
 ```azurecli-interactive
 az appconfig update \
@@ -125,7 +125,7 @@ To verify access key authentication is disabled for an Azure App Configuration r
 
 # [Azure CLI](#tab/azure-cli)
 
-To verify access key authentication is disabled for an Azure App Configuration resource, use the following command. The command will list the access keys for an Azure App Configuration resource and if access key authentication is disabled the list will be empty.
+To verify access key authentication is disabled for an Azure App Configuration resource, use the following command. The command lists the access keys for an Azure App Configuration resource and if access key authentication is disabled the list will be empty.
 
 ```azurecli-interactive
 az appconfig credential list \
@@ -142,7 +142,7 @@ To modify the state of access key authentication for an Azure App Configuration 
 - The Azure Resource Manager [Owner](../role-based-access-control/built-in-roles.md#owner) role
 - The Azure Resource Manager [Contributor](../role-based-access-control/built-in-roles.md#contributor) role
 
-These roles do not provide access to data in an Azure App Configuration resource via Microsoft Entra ID. However, they include the **Microsoft.AppConfiguration/configurationStores/listKeys/action** action permission, which grants access to the resource's access keys. With this permission, a user can use the access keys to access all the data in the resource.
+These roles don't provide access to data in an Azure App Configuration resource via Microsoft Entra ID. However, they include the **Microsoft.AppConfiguration/configurationStores/listKeys/action** action permission, which grants access to the resource's access keys. With this permission, a user can use the access keys to access all the data in the resource.
 
 Role assignments must be scoped to the level of the Azure App Configuration resource or higher to permit a user to allow or disallow access key authentication for the resource. For more information about role scope, see [Understand scope for Azure RBAC](../role-based-access-control/scope-overview.md).
 
@@ -154,24 +154,39 @@ Be careful to restrict assignment of these roles only to those users who require
 > [!NOTE]
 > When access key authentication is disabled and [ARM authentication mode](./quickstart-deployment-overview.md#azure-resource-manager-authentication-mode) of App Configuration store is local, the capability to read/write key-values in an [ARM template](./quickstart-resource-manager.md) will be disabled as well. This is because access to the Microsoft.AppConfiguration/configurationStores/keyValues resource used in ARM templates requires access key authentication with local ARM authentication mode. It's recommended to use pass-through ARM authentication mode. For more information, see [Deployment overview](./quickstart-deployment-overview.md).
 
-## Rotate access key
-Microsoft recommends that you rotate your access keys periodically to help keep your resource secure. If possible, use Azure Key Vault to manage your access keys. If you are not using Key Vault, you will need to rotate your keys manually.
-
-Each Azure App Configuration resource has two access keys to enable secret rotation. This is a security precaution that lets you regularly change the keys that can access your service, protecting the privacy of your resource if a key gets leaked. The recommended rotation cycle is 90 days.
+## Access key rotation
+Microsoft recommends periodic rotation of access keys to mitigate the risk of attack vectors from leaked secrets. Each Azure App Configuration resource includes two read-only access keys and two read-write access keys, designated as primary and secondary keys, to facilitate seamless secret rotation. This setup enables you to alternate access keys in your applications without causing any downtime.
 
 You can rotate keys using the following procedure:
 
 1. If you're using both keys in production, change your code so that only one access key is in use. In this example, let's say you decide to keep using your store's primary key.
-You must have only one key in your code, because when you regenerate your secondary key, the older version of that key will stop working immediately, causing clients using the older key to get 401 access denied errors.
+You must have only one key in your code, because when you regenerate your secondary key, the older version of that key stops working immediately, causing clients using the older key to get 401 access denied errors.
 
-1. Once the primary key is the only key in use, you can regenerate the secondary key. Go to your resource's page on the Azure portal, open the **Settings** > **Access settings** menu, and select **Regenerate** under **Secondary key**.
+1. Once the primary key is the only key in use, you can regenerate the secondary key. 
+
+    ### [Azure portal](#tab/portal)
+
+    Go to your resource's page on the Azure portal, open the **Settings** > **Access settings** menu, and select **Regenerate** under **Secondary key**.
+
+    :::image type="content" border="true" source="./media/regenerate-secondary-key.png" alt-text="Screenshot showing regenerate secondary key.":::
+
+    ### [Azure CLI](#tab/azure-cli)
+
+    To regenerate an access key for an App Configuration store, use the following command. 
+
+    ```azurecli-interactive
+    az appconfig credential regenerate  \
+        --name <app-configuration-name> \
+        --resource-group <resource-group> \
+        --id <key-to-be-regenerated>
+    ```
+
+    ---
 
 1. Next, update your code to use the newly generated secondary key.
-It helps to have logs or availability to check that users of the key have successfully swapped from using the primary key to the secondary key before you proceed.
+It's advisable to review your application logs to confirm that all instances of your application have transitioned from using the primary key to the secondary key before proceeding to the next step.
 
-1. Now you can regenerate the primary key using the same process.
-
-1. Finally, update your code to use the new primary key.
+1. Finally, you can invalidate the primary keys by regenerating them. Next time, you can alternate access keys between the secondary and primary keys using the same process.
 
 ## Next steps
 

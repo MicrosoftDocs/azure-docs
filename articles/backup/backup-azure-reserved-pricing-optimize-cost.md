@@ -2,7 +2,7 @@
 title: Optimize costs for Azure Backup Storage with reserved capacity
 description: This article explains about how to optimize costs for Azure Backup Storage with reserved capacity.
 ms.topic: how-to
-ms.service: backup
+ms.service: azure-backup
 ms.date: 11/01/2023
 ms.custom: engagement-fy24
 author: AbhishekMallick-MS

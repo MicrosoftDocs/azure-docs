@@ -1,14 +1,11 @@
 ---
 title: include file
 description: include file
-services: service-bus-messaging
 author: spelluru
-ms.service: service-bus-messaging
+ms.service: azure-service-bus
 ms.topic: include
 ms.date: 08/14/2023
 ms.author: spelluru
-ms.custom: "include file"
-
 ---
 
 The following table lists quota information specific to Azure Service Bus messaging. For information about pricing and other quotas for Service Bus, see [Service Bus pricing](https://azure.microsoft.com/pricing/details/service-bus/).

@@ -5,7 +5,7 @@ description: Protect a serverless API with OAuth 2.0 by using Azure Active Direc
 services: api-management, azure-ad-b2c, app-service
 author: WillEastbury
 manager: alberts
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 02/18/2021
 ms.author: wieastbu

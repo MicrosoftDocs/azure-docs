@@ -3,9 +3,9 @@ title: 'Configure P2S VPN clients - certificate authentication - macOS native cl
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure the VPN client for VPN Gateway P2S configurations that use certificate authentication. This article applies to macOS native client.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 06/18/2024
+ms.date: 10/07/2024
 ms.author: cherylmc
 ---
 
@@ -41,7 +41,7 @@ The workflow for this article is as follows:
 
 For certificate authentication, a client certificate must be installed on each client computer. The client certificate you want to use must be exported with the private key, and must contain all certificates in the certification path. Additionally, for some configurations, you'll also need to install root certificate information.
 
-For information about working with certificates, see [Point-to site: Generate certificates - Linux](vpn-gateway-certificates-point-to-site.md).
+For information about working with certificates, see [Generate and export certificates](vpn-gateway-certificates-point-to-site.md).
 
 ## View the VPN client profile configuration files
 
@@ -49,10 +49,10 @@ All of the necessary configuration settings for the VPN clients are contained in
 
 The VPN client profile configuration files are specific to the P2S VPN gateway configuration for the virtual network. If there are any changes to the P2S VPN configuration after you generate the files, such as changes to the VPN protocol type or authentication type, you need to generate new VPN client profile configuration files and apply the new configuration to all of the VPN clients that you want to connect.
 
-Unzip the file to view the folders. When you configure macOS native clients, you use the files in the **Generic** folder. The Generic folder is present if IKEv2 was configured on the gateway. You can find all the information that you need to configure the native VPN client in the **Generic** folder. If you don't see the Generic folder, check the following items, then generate the zip file again.
+Unzip the file to view the folders. When you configure macOS native clients, you use the files in the **Generic** folder. The Generic folder is present if IKEv2 was configured on the gateway. If you don't see the Generic folder, check the following items, then generate the zip file again.
 
 * Check the tunnel type for your configuration. It's likely that IKEv2 wasn’t selected as a tunnel type.
-* On the VPN gateway, verify that the SKU isn’t Basic. The VPN Gateway Basic SKU doesn’t support IKEv2. You'll have to rebuild the gateway with the appropriate SKU and tunnel type if you want macOS clients to connect.
+* Verify that the gateway isn't configured with the Basic SKU. The VPN Gateway Basic SKU doesn’t support IKEv2. You'll have to rebuild the gateway with the appropriate SKU and tunnel type if you want macOS clients to connect.
 
 The **Generic** folder contains the following files.
 
@@ -61,17 +61,19 @@ The **Generic** folder contains the following files.
 
 ## Install certificates
 
+You'll need both the root certificate and the child certificate installed on your Mac. The child certificate must be exported with the private key and must contain all certificates in the certification path.
+
 ### Root certificate
 
-1. Copy the root certificate file - **VpnServerRoot.cer** - to your Mac. Double-click the certificate. Depending on your operating system, the certificate will either automatically install, or you'll see the **Add Certificates** page.
+1. Copy the root certificate file (the .cer file) - to your Mac. Double-click the certificate. Depending on your operating system, the certificate will either automatically install, or you'll see the **Add Certificates** page.
 1. If you see the **Add Certificates** page, for **Keychain:** click the arrows and select **login** from the dropdown.
 1. Click **Add** to import the file.
 
 ### Client certificate
 
-The client certificate is used for authentication and is required. Typically, you can just click the client certificate to install. For more information about how to install a client certificate, see [Install a client certificate](point-to-site-how-to-vpn-client-install-azure-cert.md).
+The client certificate (.pfx file) is used for authentication and is required. Typically, you can just click the client certificate to install. For more information about how to install a client certificate, see [Install a client certificate](point-to-site-how-to-vpn-client-install-azure-cert.md).
 
-### Verify certificate install
+### Verify certificates are installed
 
 Verify that both the client and the root certificate are installed.
 
@@ -81,63 +83,25 @@ Verify that both the client and the root certificate are installed.
 
 ## Configure VPN client profile
 
-1. Go to **System Preferences -> Network**. On the Network page, click **'+'** to create a new VPN client connection profile for a P2S connection to the Azure virtual network.
+Use the steps in the [Mac User Guide](https://support.apple.com/guide/mac-help/set-up-a-vpn-connection-on-mac-mchlp2963/mac) that are appropriate for your operating system version  to add a VPN client profile configuration with the following settings.
 
-   :::image type="content" source="./media/point-to-site-vpn-client-cert-mac/mac/new.png" alt-text="Screenshot shows the Network window to click on +." lightbox="./media/point-to-site-vpn-client-cert-mac/mac/new.png":::
+* Select **IKEv2** as the VPN type.
+* For **Display Name**, select a friendly name for the profile.
+* For both **Server Address** and **Remote ID**, use the value from the **VpnServer** tag in the **VpnSettings.xml** file.
 
-1. On the **Select the interface** page, click the arrows next to **Interface:**. From the dropdown, click **VPN**.
+   :::image type="content" source="./media/point-to-site-vpn-client-cert-mac/vpn-server.png" alt-text="Screenshot to click Select." lightbox="./media/point-to-site-vpn-client-cert-mac/vpn-server.png":::
 
-   :::image type="content" source="./media/point-to-site-vpn-client-cert-mac/mac/vpn.png" alt-text="Screenshot shows the Network window with the option to select an interface, VPN is selected." lightbox="./media/point-to-site-vpn-client-cert-mac/mac/vpn.png":::
+* For **Authentication** settings, select **Certificate**.
+* For the **Certificate**, choose the child certificate you want to use for authentication. If you have multiple certificates, you can select **Show Certificate** to see more information about each certificate.
+* For **Local ID**, type the name of the child certificate that you selected.
 
-1. For **VPN Type**, from the dropdown, click **IKEv2**. In the **Service Name** field, specify a friendly name for the profile, then click **Create**.
-
-   :::image type="content" source="./media/point-to-site-vpn-client-cert-mac/mac/service-name.png" alt-text="Screenshot shows the Network window with the option to select an interface, select VPN type, and enter a service name." lightbox="./media/point-to-site-vpn-client-cert-mac/mac/service-name.png":::
-
-1. Go to the VPN client profile that you downloaded. In the **Generic** folder, open the **VpnSettings.xml** file using a text editor. In the example, you can see information about the tunnel type and the server address. Even though there are two VPN types listed, this VPN client will connect over IKEv2. Copy the **VpnServer** tag value.
-
-   :::image type="content" source="./media/point-to-site-vpn-client-cert-mac/mac/vpn-server.png" alt-text="Screenshot shows the VpnSettings.xml file open with the VpnServer tag highlighted." lightbox="./media/point-to-site-vpn-client-cert-mac/mac/vpn-server.png":::
-
-1. Paste the **VpnServer** tag value in both the **Server Address** and **Remote ID** fields of the profile. Leave **Local ID** blank. Then, click **Authentication Settings...**.
-
-   :::image type="content" source="./media/point-to-site-vpn-client-cert-mac/mac/server-address.png" alt-text="Screenshot shows server info pasted to fields." lightbox="./media/point-to-site-vpn-client-cert-mac/mac/server-address.png":::
-
-## Configure authentication settings
-
-Configure authentication settings.
-
-1. On the **Authentication Settings** page, for the Authentication settings field, click the arrows to select **Certificate**.
-
-   :::image type="content" source="./media/point-to-site-vpn-client-cert-mac/monterey/certificate.png" alt-text="Screenshot shows authentication settings with certificate selected." lightbox="./media/point-to-site-vpn-client-cert-mac/monterey/certificate.png":::
-
-1. Click **Select** to open the **Choose An Identity** page.
-
-   :::image type="content" source="./media/point-to-site-vpn-client-cert-mac/monterey/select.png" alt-text="Screenshot to click Select." lightbox="./media/point-to-site-vpn-client-cert-mac/monterey/select.png":::
-
-1. The **Choose An Identity** page displays a list of certificates for you to choose from. If you’re unsure which certificate to use, you can select **Show Certificate** to see more information about each certificate. Click the proper certificate, then click **Continue**.
-
-   :::image type="content" source="./media/point-to-site-vpn-client-cert-mac/monterey/choose-identity.png" alt-text="Screenshot shows certificate properties." lightbox="./media/point-to-site-vpn-client-cert-mac/monterey/choose-identity.png":::
-
-1. On the **Authentication Settings** page, verify that the correct certificate is shown, then click **OK**.
-
-   :::image type="content" source="./media/point-to-site-vpn-client-cert-mac/monterey/verify.png" alt-text="Screenshot shows the Choose An Identity dialog box where you can select the proper certificate." lightbox="./media/point-to-site-vpn-client-cert-mac/monterey/verify.png":::
-
-## Specify certificate
-
-1. In the **Local ID** field, specify the name of the certificate. In this example, it’s **P2SChildCertMac**.
-
-   :::image type="content" source="./media/point-to-site-vpn-client-cert-mac/monterey/local-id.png" alt-text="Screenshot shows local ID value." lightbox="./media/point-to-site-vpn-client-cert-mac/monterey/local-id.png":::
-
-1. Click **Apply** to save all changes.
+Once you finished configuring the VPN client profile, save the profile.
 
 ## Connect
 
-1. Click **Connect** to start the P2S connection to the Azure virtual network. You might need to enter your "login" keychain password.
+The steps to connect are specific to the macOS operating system version. Refer to the [Mac User Guide](https://support.apple.com/guide/mac-help/set-up-a-vpn-connection-on-mac-mchlp2963/mac). Select the operating system version that you're using and follow the steps to connect.
 
-   :::image type="content" source="./media/point-to-site-vpn-client-cert-mac/mac/select-connect.png" alt-text="Screenshot shows connect button." lightbox="./media/point-to-site-vpn-client-cert-mac/mac/select-connect.png":::
-
-1. Once the connection has been established, the status shows as **Connected** and you can view the IP address that was pulled from the VPN client address pool.
-
-   :::image type="content" source="./media/point-to-site-vpn-client-cert-mac/mac/connected.png" alt-text="Screenshot shows Connected." lightbox="./media/point-to-site-vpn-client-cert-mac/mac/connected.png":::
+Once the connection has been established, the status shows as **Connected**. The IP address is allocated from the VPN client address pool.
 
 ## Next steps
 

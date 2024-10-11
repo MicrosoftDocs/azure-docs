@@ -2,18 +2,17 @@
 title: 'Troubleshoot failover to Azure failures | Microsoft Docs'
 description: This article describes ways to troubleshoot common errors in failing over to Azure
 author: ankitaduttaMSFT
-manager: abhemraj
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.custom: linux-related-content
 services: site-recovery
 ms.topic: article
-ms.date: 03/07/2024
+ms.date: 09/10/2024
 ms.author: ankitadutta
 ---
 # Troubleshoot errors when failing over VMware VM or physical machine to Azure
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 You may receive one of the following errors while doing failover of a virtual machine to Azure. To troubleshoot, use the described steps for each error condition.
 
@@ -149,8 +148,7 @@ To resolve the issue:
 
 Manually create the Master target in the vCenter that manages your source machine. The datastore will be available after the next vCenter discovery and refresh fabric operations.
 
-> [!Note]
-> 
+> [!NOTE] 
 > The discovery and refresh fabric operations can take up to 30 minutes to complete. 
 
 ## Linux Master Target registration with CS fails with a TLS error 35 
@@ -187,6 +185,7 @@ To resolve the issue:
 
 
 ## Next steps
+
 - Troubleshoot [RDP connection to Windows VM](/troubleshoot/azure/virtual-machines/troubleshoot-rdp-connection)
 - Troubleshoot [SSH connection to Linux VM](/troubleshoot/azure/virtual-machines/detailed-troubleshoot-ssh-connection)
 

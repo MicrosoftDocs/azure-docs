@@ -2,7 +2,7 @@
 title: Terminology - Azure Synapse Analytics
 description: Reference guide walking user through Azure Synapse Analytics
 author: whhender
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: overview
 ms.subservice: overview
 ms.date: 08/19/2022

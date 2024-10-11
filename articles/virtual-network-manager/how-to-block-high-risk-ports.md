@@ -3,7 +3,7 @@ title: 'Protect high-risk network ports with Security Admin Rules in Azure Virtu
 description: Learn to deploy security admin rules to protect high-risk security ports and create exceptions for management traffic with Azure Virtual Network Manager.
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network-manager
+ms.service: azure-virtual-network-manager
 ms.topic: how-to 
 ms.date: 03/15/2024
 ms.custom: template-how-to

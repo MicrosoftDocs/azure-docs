@@ -33,7 +33,7 @@ When you design a disaster recovery plan, you should keep the following three th
 - Business continuity: how an organization can keep operating during outages of any size.
 - Disaster recovery: the process of getting back to operation after a full outage.
 
-Azure Virtual Desktop doesn't have any native features for managing disaster recovery scenarios, but you can use many other Azure services for each scenario depending on your requirements, such as [Availability sets](../virtual-machines/availability-set-overview.md), [availability zones](../availability-zones/az-region.md), Azure Site Recovery, and [Azure Files data redundancy](../storage/files/files-redundancy.md) options for user profiles and data.
+Azure Virtual Desktop doesn't have any native features for managing disaster recovery scenarios, but you can use many other Azure services for each scenario depending on your requirements, such as [Availability sets](/azure/virtual-machines/availability-set-overview), [availability zones](../availability-zones/az-region.md), Azure Site Recovery, and [Azure Files data redundancy](../storage/files/files-redundancy.md) options for user profiles and data.
 
 You can also distribute session hosts across multiple [Azure regions](../best-practices-availability-paired-regions.md) provides even more geographical distribution, which further reduces outage impact. All these and other Azure features provide a certain level of protection within Azure Virtual Desktop, and you should carefully consider them along with any cost implications.
 

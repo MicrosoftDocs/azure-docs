@@ -1,9 +1,0 @@
-{
-    "redirections": [
-        {
-            "source_path_from_root": "/articles/virtual-machines/security-recommendations.md",
-            "redirect_url": "/security/benchmark/azure/baselines/virtual-machines-windows-virtual-machines-security-baseline",
-            "redirect_document_id": false
-        }
-    ]
-}

@@ -5,10 +5,9 @@ description: Learn about key factors that affect the performance of mapping data
 author: kromerm
 ms.topic: conceptual
 ms.author: makromer
-ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
-ms.date: 10/20/2023
+ms.date: 09/26/2024
 ---
 
 # Mapping data flows performance and tuning guide

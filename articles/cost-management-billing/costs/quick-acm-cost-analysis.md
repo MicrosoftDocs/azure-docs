@@ -3,7 +3,7 @@ title: Quickstart - Start using Cost analysis
 description: This quickstart helps you use cost analysis to explore and analyze your Azure organizational costs.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/10/2023
+ms.date: 08/24/2024
 ms.topic: quickstart
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -85,6 +85,14 @@ This view is where you spend most of your time in Cost analysis. To explore furt
 
 >[!NOTE]
 >If you want to visualize and monitor daily trends within the period, enable the [chart preview feature](enable-preview-features-cost-management-labs.md#chartsfeature) in Cost Management Labs, available from the **Try preview** command.
+
+Data sources for smart views are as follows:
+
+- Reservations – Source data is from amortized usage and charges.
+- Resource groups – Source data is from actual usage and charges.
+- Services – Source data is from actual usage and charges.
+- Subscriptions – Source data is from actual usage and charges.
+- Resources – Source data is from actual usage and charges.
 
 ## Analyze costs with customizable views
 

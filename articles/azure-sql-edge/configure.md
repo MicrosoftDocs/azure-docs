@@ -3,14 +3,16 @@ title: Configure Azure SQL Edge
 description: Learn about configuring Azure SQL Edge.
 author: rwestMSFT
 ms.author: randolphwest
-ms.date: 09/14/2023
-ms.service: sql-edge
+ms.date: 09/21/2024
+ms.service: azure-sql-edge
 ms.topic: conceptual
 ms.custom:
 ---
 # Configure Azure SQL Edge
 
-> [!IMPORTANT]
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
+
+> [!NOTE]  
 > Azure SQL Edge no longer supports the ARM64 platform.
 
 Azure SQL Edge supports configuration through one of the following two options:
@@ -19,7 +21,7 @@ Azure SQL Edge supports configuration through one of the following two options:
 - An mssql.conf file placed in the /var/opt/mssql folder
 
 > [!NOTE]
-> Setting environment variables overrides the settings specified in the mssql.conf file.
+> Setting environment variables overrides the settings specified in the `mssql.conf` file.
 
 ## Configure by using environment variables
 
@@ -226,7 +228,7 @@ To remove a data volume container, use the `docker volume rm` command.
 > [!WARNING]
 > If you delete the data volume container, any Azure SQL Edge data in the container is *permanently* deleted.
 
-## Next steps
+## Related content
 
 - [Connect to Azure SQL Edge](connect.md)
 - [Build an end-to-end IoT solution with SQL Edge](tutorial-deploy-azure-resources.md)

@@ -4,7 +4,7 @@ description: This article provides information about the general practice integr
 author: vicancy
 ms.author: lianwei
 ms.date: 06/16/2023
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.topic: how-to
 ---
 

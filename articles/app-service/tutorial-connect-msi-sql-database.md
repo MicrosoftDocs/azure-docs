@@ -227,8 +227,8 @@ Here's an example of the output:
 <pre>
 {
   "additionalProperties": {},
-  "principalId": "21dfa71c-9e6f-4d17-9e90-1d28801c9735",
-  "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+  "principalId": "aaaaaaaa-bbbb-cccc-1111-222222222222",
+  "tenantId": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
   "type": "SystemAssigned"
 }
 </pre>

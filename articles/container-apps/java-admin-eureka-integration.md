@@ -3,7 +3,7 @@ title: "Tutorial: Integrate Admin for Spring with Eureka Server for Spring in Az
 description: Learn to integrate Admin for Spring with Eureka Server for Spring in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: devx-track-extended-java
 ms.topic: conceptual
 ms.date: 07/15/2024
@@ -110,6 +110,8 @@ az containerapp env java-component admin-for-spring create \
   --environment $ENVIRONMENT \
   --resource-group $RESOURCE_GROUP \
   --name $ADMIN_COMPONENT_NAME \
+  --min-replicas 1 \
+  --max-replicas 1 \
   --bind $EUREKA_COMPONENT_NAME
 ```
 

@@ -4,7 +4,7 @@ description: Find links and best practices to quickly build your dedicated SQL p
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.date: 11/04/2019
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: overview
 ---

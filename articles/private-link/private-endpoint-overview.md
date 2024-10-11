@@ -4,7 +4,7 @@ titleSuffix: Azure Private Link
 description: In this article, you learn how to use the Private Endpoint feature of Azure Private Link.
 services: private-link
 author: abell
-ms.service: private-link
+ms.service: azure-private-link
 ms.topic: conceptual
 ms.date: 10/13/2023
 ms.author: abell
@@ -67,6 +67,7 @@ A private-link resource is the destination target of a specified private endpoin
 | Private-link resource name | Resource type | Sub-resources |
 | ---------------------------| ------------- | ------------- |
 | Application Gateway | Microsoft.Network/applicationgateways |Frontend IP Configuration name|
+| Azure AI Search | Microsoft.Search/searchServices | searchService |
 | Azure AI services | Microsoft.CognitiveServices/accounts | account |
 | Azure API for FHIR (Fast Healthcare Interoperability Resources) | Microsoft.HealthcareApis/services | fhir |
 | Azure API Management | Microsoft.ApiManagement/service | Gateway |
@@ -79,18 +80,17 @@ A private-link resource is the destination target of a specified private endpoin
 | Azure Batch | Microsoft.Batch/batchAccounts | batchAccount, nodeManagement |
 | Azure Cache for Redis | Microsoft.Cache/Redis | redisCache |
 | Azure Cache for Redis Enterprise | Microsoft.Cache/redisEnterprise | redisEnterprise |
-| Azure AI Search | Microsoft.Search/searchServices | searchService |
 | Azure Container Registry | Microsoft.ContainerRegistry/registries | registry |
 | Azure Cosmos DB | Microsoft.AzureCosmosDB/databaseAccounts | SQL, MongoDB, Cassandra, Gremlin, Table |
-| Azure Cosmos DB for PostgreSQL | Microsoft.DBforPostgreSQL/serverGroupsv2 | coordinator |
 | Azure Cosmos DB for MongoDB vCore | Microsoft.DocumentDb/mongoClusters | mongoCluster |
+| Azure Cosmos DB for PostgreSQL | Microsoft.DBforPostgreSQL/serverGroupsv2 | coordinator |
 | Azure Data Explorer | Microsoft.Kusto/clusters | cluster |
 | Azure Data Factory | Microsoft.DataFactory/factories | dataFactory |
 | Azure Database for MariaDB | Microsoft.DBforMariaDB/servers | mariadbServer |
+| Azure Database for MySQL - Flexible Server | Microsoft.DBforMySQL/flexibleServers | mysqlServer |
 | Azure Database for MySQL - Single Server | Microsoft.DBforMySQL/servers | mysqlServer |
-| Azure Database for MySQL- Flexible Server | Microsoft.DBforMySQL/flexibleServers | mysqlServer |
-| Azure Database for PostgreSQL - Single server | Microsoft.DBforPostgreSQL/servers | postgresqlServer |
 | Azure Database for PostgreSQL - Flexible server | Microsoft.DBforPostgreSQL/flexibleServers | postgresqlServer |
+| Azure Database for PostgreSQL - Single server | Microsoft.DBforPostgreSQL/servers | postgresqlServer |
 | Azure Databricks | Microsoft.Databricks/workspaces | databricks_ui_api, browser_authentication |
 | Azure Device Provisioning Service | Microsoft.Devices/provisioningServices | iotDps |
 | Azure Digital Twins | Microsoft.DigitalTwins/digitalTwinsInstances | API |
@@ -123,6 +123,7 @@ A private-link resource is the destination target of a specified private endpoin
 | Azure Virtual Desktop - host pools | Microsoft.DesktopVirtualization/hostpools | connection |
 | Azure Virtual Desktop - workspaces | Microsoft.DesktopVirtualization/workspaces | feed<br />global |
 | Device Update for IoT Hub | Microsoft.DeviceUpdate/accounts | DeviceUpdate |
+| Integration Account (Premium) | Microsoft.Logic/integrationAccounts | integrationAccount |
 | Microsoft Purview | Microsoft.Purview/accounts | account |
 | Microsoft Purview | Microsoft.Purview/accounts | portal |
 | Power BI | Microsoft.PowerBI/privateLinkServicesForPowerBI | Power BI |
@@ -207,7 +208,7 @@ The following information lists the known limitations to the use of private endp
 
 - The following services may require all destination ports to be open when using a private endpoint and adding NSG security filters:
 
-    - Azure Cosmos DB - For more information, see [Service port ranges](../cosmos-db/sql/sql-sdk-connection-modes.md#service-port-ranges).
+    - Azure Cosmos DB - For more information, see [Service port ranges](/azure/cosmos-db/sql/sql-sdk-connection-modes#service-port-ranges).
 
 ### UDR
 

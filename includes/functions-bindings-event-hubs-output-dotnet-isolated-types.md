@@ -20,6 +20,7 @@ When you want the function to write multiple events, the Event Hubs output bindi
 | --- | --- |
 | `T[]` where `T` is one of the single event types | An array containing multiple events. Each entry represents one event. | 
 
-For other output scenarios, create and use types from [Microsoft.Azure.EventHubs] directly.
+For other output scenarios, create and use an [EventHubProducerClient] with other types from [Azure.Messaging.EventHubs] directly. See [Register Azure clients](../articles/azure-functions/dotnet-isolated-process-guide.md#register-azure-clients) for an example of using dependency injection to create a client type from the Azure SDK.
 
-[Microsoft.Azure.EventHubs]: /dotnet/api/microsoft.azure.eventhubs
+[Azure.Messaging.EventHubs]: /dotnet/api/azure.messaging.eventhubs
+[EventHubProducerClient]: /dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient

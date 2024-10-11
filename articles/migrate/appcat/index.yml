@@ -34,7 +34,7 @@ landingContent:
         links:
           - text: FAQ
             url: faq.yml
-          - text: CLI usage guide
+          - text: CLI usage guide for Java
             url: https://azure.github.io/appcat-docs/cli/
-          - text: Rules development guide
+          - text: Rules development guide for Java
             url: https://azure.github.io/appcat-docs/rules-development-guide/

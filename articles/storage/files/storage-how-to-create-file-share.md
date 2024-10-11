@@ -190,7 +190,7 @@ Follow these instructions to create a new Azure file share using the Azure porta
 
    - **Tier**: The selected tier for a standard file share. This field is only available in a **general purpose (GPv2)** storage account type. You can choose transaction optimized, hot, or cool. You can change the share's tier at any time. We recommend picking the **Transaction optimized** tier possible during a migration, to minimize transaction expenses, and then switching to a lower tier if desired after the migration is complete.
    
-   - **Provisioned capacity**: For premium file shares only, the provisioned capacity is the amount that you'll be billed for regardless of actual usage. This field is only available in a **FileStorage** storage account type. The IOPS and throughput available on a premium file share are based on the provisioned capacity, so you can provision more capacity to get more performance. The minimum size for a premium file share is 100 GiB. For more information on how to plan for a premium file share, see [provisioning premium file shares](understanding-billing.md#provisioned-model).
+   - **Provisioned capacity**: For premium file shares only, the provisioned capacity is the amount that you'll be billed for regardless of actual usage. This field is only available in a **FileStorage** storage account type. The IOPS and throughput available on a premium file share are based on the provisioned capacity, so you can provision more capacity to get more performance. The minimum size for a premium file share is 100 GiB. For more information on how to plan for a premium file share, see [provisioning premium file shares](understanding-billing.md#provisioned-v1-model).
    
 1. Select the **Backup** tab. By default, [backup is enabled](../../backup/backup-azure-files.md) when you create an Azure file share using the Azure portal. If you want to disable backup for the file share, uncheck the **Enable backup** checkbox. If you want backup enabled, you can either leave the defaults or create a new Recovery Services Vault in the same region and subscription as the storage account. To create a new backup policy, select **Create a new policy**.
 
@@ -338,27 +338,23 @@ To delete an Azure file share, you can use the Azure portal, Azure PowerShell, o
 :::image type="content" source="media/storage-how-to-create-file-share/delete-file-share.png" alt-text="Screen shot of the Azure portal procedure for deleting a file share." border="true" lightbox="media/storage-how-to-create-file-share/delete-file-share.png":::
 
 # [PowerShell](#tab/azure-powershell)
-1. Log in to your Azure account. To use multi-factor authentication, you'll need to supply your Azure tenant ID.
+1. Run the following script. Replace `<ResourceGroup>`, `<StorageAccount>`, and `<FileShare>` with your information.
 
    ```azurepowershell
-   Login-AzAccount -TenantId <YourTenantID>
-   ```
-
-1. Run the following script. Replace `<YourStorageAccountName>`, `<YourStorageAccountKey>`, and `<FileShareName>` with your information. You can find your storage account key in the Azure portal by navigating to the storage account and selecting **Security + networking** > **Access keys**, or you can use the `Get-AzStorageAccountKey` cmdlet.
-
-   ```azurepowershell
-   $context = New-AzStorageContext -StorageAccountName <YourStorageAccountName> -StorageAccountKey <YourStorageAccountKey>
-   Remove-AzStorageShare -Context $context -Name "<FileShareName>"
+    Remove-AzRmStorageShare `
+            -ResourceGroupName <ResourceGroup> `
+            -StorageAccountName <StorageAccount> `
+            -Name <FileShare>
    ```
 
 # [Azure CLI](#tab/azure-cli)
-You can delete an Azure file share with the [`az storage share delete`](/cli/azure/storage/share#az-storage-share-delete) command. Replace `<yourFileShareName>` and `<yourStorageAccountName>` with your information.
+You can delete an Azure file share with the [`az storage share delete`](/cli/azure/storage/share#az-storage-share-delete) command. Replace `<ResourceGroup>`, `<StorageAccount>`, and `<FileShare>` with your information.
 
 ```azurecli
-
-az storage share delete \
-    --name <yourFileShareName> \
-    --account-name <yourStorageAccountName>
+az storage share-rm delete \
+    --resource-group <ResourceGroup> \
+    --storage-account <StorageAccount> \
+    --name <FileShare>
 ```
 
 ---

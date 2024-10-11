@@ -1,7 +1,7 @@
 ---
 title: Azure Stream Analytics integration with Machine Learning Studio (classic)
 description: This article describes how to quickly set up a simple Azure Stream Analytics job that integrates Azure Machine Learning Studio (classic), using a user-defined function.
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 author: ajetasin
 ms.author: ajetasi
 ms.topic: how-to
@@ -19,7 +19,7 @@ This article shows you how to set up a simple Azure Stream Analytics job that us
 
 You can apply what you learn from this article to scenarios such as these:
 
-* Analyzing real-time sentiment on streaming Twitter data.
+* Analyzing real-time sentiment on streaming X data.
 * Analyzing records of customer chats with support staff.
 * Evaluating comments on forums, blogs, and videos.
 * Many other real-time, predictive scoring scenarios.
@@ -32,7 +32,7 @@ Before you start, make sure you have the following:
 
 * An active Azure subscription.
 
-* A CSV file with some Twitter data in it. You can download a sample file from [GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/sampleinput.csv), or you can create your own file. In a real-world scenario, you would get the data directly from a Twitter data stream.
+* A CSV file with some X data in it. You can download a sample file from [GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/sampleinput.csv), or you can create your own file. In a real-world scenario, you would get the data directly from a X data stream.
 
 ## Create a storage container and upload the CSV input file
 

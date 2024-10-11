@@ -2,7 +2,7 @@
 title: Avere vFXT for Azure
 description: Learn about Avere vFXT for Azure, a cloud-based filesystem caching solution for data-intensive high-performance computing tasks.
 author: ekpgh
-ms.service: avere-vfxt
+ms.service: azure-avere-vfxt
 ms.topic: overview
 ms.date: 03/15/2024
 ms.author: rohogue

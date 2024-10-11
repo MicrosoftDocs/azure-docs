@@ -4,7 +4,7 @@ description: Learn how to create an Apache Spark configuration for your synapse 
 author: jejiang
 ms.author: jejiang
 ms.reviewer: whhender 
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 04/21/2022

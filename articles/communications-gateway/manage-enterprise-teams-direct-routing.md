@@ -3,7 +3,7 @@ title: Manage Microsoft Teams Direct Routing customers on Azure Communications G
 description: Learn how to configure Azure Communications Gateway and Microsoft 365 for a Microsoft Teams Direct Routing customer.
 author: rcdun
 ms.author: rdunstan
-ms.service: communications-gateway
+ms.service: azure-communications-gateway
 ms.topic: how-to
 ms.date: 03/31/2024
 

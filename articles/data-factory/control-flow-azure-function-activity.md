@@ -5,11 +5,10 @@ description: Learn how to use the Azure Function activity to run an Azure Functi
 author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
-ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/20/2023
+ms.date: 09/25/2024
 
 ---
 

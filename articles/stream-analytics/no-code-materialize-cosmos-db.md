@@ -3,7 +3,7 @@ title: Materialize data in Azure Cosmos DB using no code editor
 description: Learn how to use the no code editor in Stream Analytics to materialize data from Event Hubs to Azure Cosmos DB.
 author: xujxu
 ms.author: xujiang1
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.custom: mvc
 ms.date: 05/12/2022
@@ -41,9 +41,11 @@ To start the job, you must specify:
     - **Output data error handling** allows you to specify the behavior you want when a job’s output to your destination fails due to data errors. By default, your job retries until the write operation succeeds. You can also choose to drop  output events.
 9.	After you select **Start**, the job starts running within two minutes. View the job under the **Process Data** section in the Stream Analytics jobs tab. You can explore job metrics and stop and restart it as needed.
 
+[!INCLUDE [geo-replication-stream-analytics-job](./includes/geo-replication-stream-analytics-job.md)]
+
 ## Next steps
 
-Now you know how to use the Stream Analytics no code editor to develop a job that reads from Event Hubs and calculates aggregates such as counts, averages and writes it to your Azure Cosmos DB resource.
+Now you know how to use the Stream Analytics no code editor to develop a job that reads from Event Hubs and calculates aggregates such as counts, averages, and writes it to your Azure Cosmos DB resource.
 
 * [Introduction to Azure Stream Analytics](stream-analytics-introduction.md)
 * [Monitor Stream Analytics job with Azure portal](./stream-analytics-monitoring.md)

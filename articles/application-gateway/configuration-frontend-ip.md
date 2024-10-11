@@ -3,7 +3,7 @@ title: Azure Application Gateway frontend IP address configuration
 description: This article describes how to configure the Azure Application Gateway frontend IP address.
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: conceptual
 ms.date: 06/27/2024
 ms.author: greglin
@@ -37,9 +37,6 @@ Only one public IP address and one private IP address are supported per IP proto
 A frontend IP address is associated to a *listener*, which checks for incoming requests on the frontend IP.
 
 You can create private and public listeners with the same port number. However, be aware of any network security group (NSG) associated with the Application Gateway subnet. Depending on your NSG's configuration, you might need an allow-inbound rule with **Destination IP addresses** as your application gateway's public and private frontend IPs. When you use the same port, your application gateway changes the **Destination** of the inbound flow to the frontend IPs of your gateway.
-
-> [!NOTE]
-> Currently, the use of the same port number for public and private TCP/TLS protocol or IPv6 listeners is not supported.
 
  **Inbound rule**:
 

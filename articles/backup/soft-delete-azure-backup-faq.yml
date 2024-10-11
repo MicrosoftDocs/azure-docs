@@ -3,7 +3,7 @@ metadata:
   title: FAQ - Answers to common questions about soft delete in Azure Backup
   description: Answers to common questions about the security feature - soft delete.
   ms.topic: faq
-  ms.service: backup
+  ms.service: azure-backup
   ms.date: 01/05/2024
   author: AbhishekMallick-MS
   ms.author: v-abhmallick

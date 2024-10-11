@@ -35,7 +35,7 @@ While there are tools specifically for [monitoring devices](iot-overview-device-
 | IoT Central | [Use audit logs to track activity in your IoT Central application](../iot-central/core/howto-use-audit-logs.md) </br> [Use Azure Monitor to monitor your IoT Central application](../iot-central/core/howto-manage-and-monitor-iot-central.md#monitor-application-health) |
 | Azure Digital Twins | [Use Azure Monitor to monitor Azure Digital Twins resources](../digital-twins/how-to-monitor.md) |
 
-To learn more about the Azure Monitor service, see [Azure Monitor overview](../azure-monitor/overview.md).
+To learn more about the Azure Monitor service, see [Azure Monitor overview](/azure/azure-monitor/overview).
 
 ## Azure portal
 

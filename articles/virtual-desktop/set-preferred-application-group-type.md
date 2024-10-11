@@ -57,7 +57,7 @@ Here's how to set the preferred application group type for a host pool using the
 
 # [Azure PowerShell](#tab/powershell)
 
-Here's how to set the preferred application group type for a host pool using the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module. In the following examples, you need to change the `<placeholder>` values for your own.
+Here's how to set the preferred application group type for a host pool using the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module. Be sure to change the `<placeholder>` values for your own.
 
 [!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
 

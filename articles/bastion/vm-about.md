@@ -3,7 +3,7 @@ title: 'About VM connections and features'
 titleSuffix: Azure Bastion
 description: Learn about VM connections and features when connecting using Azure Bastion.
 author: cherylmc
-ms.service: bastion
+ms.service: azure-bastion
 ms.topic: conceptual
 ms.date: 06/08/2023
 ms.author: cherylmc

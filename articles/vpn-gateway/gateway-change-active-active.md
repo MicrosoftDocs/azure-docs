@@ -3,20 +3,20 @@ title: 'Change a gateway to active-active mode'
 titleSuffix: Azure VPN Gateway
 description: Learn how to change a VPN gateway from active-standby to active-active.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 07/19/2024
+ms.date: 07/29/2024
 ms.author: cherylmc
 
 ---
 
 # Change a VPN gateway to active-active
 
-The steps in this article help you change active-standby VPN gateways to active-active. You can also change an active-active gateway to active-standby. For more information about active-active gateways, see [About active-active gateways](vpn-gateway-about-vpn-gateway-settings.md#active) and [About highly-available gateway connections](vpn-gateway-highlyavailable.md).
+The steps in this article help you change active-standby VPN gateways to active-active. You can also change an active-active gateway to active-standby. For more information about active-active gateways, see [About active-active gateways](about-active-active-gateways.md) and [Design highly available gateway connectivity for cross-premises and VNet-to-VNet connections](vpn-gateway-highlyavailable.md).
 
 ## Change active-standby to active-active
 
-Use the following steps to convert active-standby mode gateway to active-active mode. If your gateway was created using the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md), you can also upgrade the SKU on this page.
+Use the following steps to convert active-standby mode gateway to active-active mode.
 
 1. Navigate to the page for your virtual network gateway.
 

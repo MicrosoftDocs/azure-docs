@@ -22,7 +22,9 @@ In order to use Private Link with Azure Virtual Desktop, you need the following 
 
 - The [required Azure role-based access control permissions to create private endpoints](../private-link/rbac-permissions.md).
 
-- If you're using the [Remote Desktop client for Windows](./users/connect-windows.md), you must use version 1.2.4066 or later to connect using a private endpoint.
+- A supported app on a local device to access a remote session:
+   - Remote Desktop app on any platform. If you're using the [Remote Desktop client for Windows](./users/connect-windows.md), you must use version 1.2.4066 or later to connect using a private endpoint.
+   - Windows App on macOS or iOS/iPadOS.
 
 - If you want to use Azure CLI or Azure PowerShell locally, see [Use Azure CLI and Azure PowerShell with Azure Virtual Desktop](cli-powershell.md) to make sure you have the [desktopvirtualization](/cli/azure/desktopvirtualization) Azure CLI extension or the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module installed. Alternatively, use the [Azure Cloud Shell](../cloud-shell/overview.md).
 
@@ -142,10 +144,7 @@ Here's how to create a private endpoint for the *connection* sub-resource for co
 
 # [Azure PowerShell](#tab/powershell)
 
-Here's how to create a private endpoint for the *connection* sub-resource used for connections to a host pool using the [Az.Network](/powershell/module/az.network/) and [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization/) PowerShell modules.
-
-> [!IMPORTANT]
-> In the following examples, you'll need to change the `<placeholder>` values for your own.
+Here's how to create a private endpoint for the *connection* sub-resource used for connections to a host pool using the [Az.Network](/powershell/module/az.network/) and [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization/) PowerShell modules. Be sure to change the `<placeholder>` values for your own.
 
 [!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
 
@@ -1012,6 +1011,6 @@ To test that your users can connect to their remote resources:
 
 - For general troubleshooting guides for Private Link, see [Troubleshoot Azure Private Endpoint connectivity problems](../private-link/troubleshoot-private-endpoint-connectivity.md).
 
-- Understand how connectivity for the Azure Virtual Desktop service works at[Azure Virtual Desktop network connectivity](network-connectivity.md).
+- Understand how connectivity for the Azure Virtual Desktop service works at [Azure Virtual Desktop network connectivity](network-connectivity.md).
 
 - See the [Required URL list](safe-url-list.md) for the list of URLs you need to unblock to ensure network access to the Azure Virtual Desktop service.

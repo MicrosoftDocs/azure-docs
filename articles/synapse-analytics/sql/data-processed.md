@@ -3,7 +3,7 @@ title: Cost management for serverless SQL pool
 description: This document describes how to manage cost of serverless SQL pool and how data processed is calculated when querying data in Azure storage.
 services: synapse analytics 
 author: filippopovic 
-ms.service: synapse-analytics 
+ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
 ms.date: 11/05/2020

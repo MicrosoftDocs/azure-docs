@@ -3,7 +3,7 @@ title: Secure authentication secrets in Azure Key Vault for Azure Static Web App
 description: Use managed identity to secure authentication secrets in Azure Key Vault for Azure Static Web Apps.
 services: static-web-apps
 author: craigshoemaker
-ms.service: static-web-apps
+ms.service: azure-static-web-apps
 ms.topic: how-to
 ms.date: 06/25/2024
 ms.author: cshoe

@@ -3,9 +3,9 @@ title: 'Migrate manually registered Azure VPN client to Microsoft-registered for
 titleSuffix: Azure VPN Gateway
 description: Learn how to update Audience values for P2S VPN gateway connections that use Microsoft Entra ID authentication.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 07/24/2024
+ms.date: 08/06/2024
 ms.author: cherylmc
 
 # Customer intent: As an VPN Gateway administrator, I want to update point-to-site Audience values for Microsoft Entra ID authentication.
@@ -13,13 +13,13 @@ ms.author: cherylmc
 
 # Migrate a manually registered Azure VPN Client to the Microsoft-registered client
 
-This article helps you migrate from a manually registered Azure VPN Client to the Microsoft-registered Azure VPN Client for point-to-site (P2S) Microsoft Entra ID authentication. The Microsoft-registered Azure VPN client uses a different Audience value. When you update an Audience value, you must make the change on both the P2S VPN gateway, and on any previously configured VPN clients.
-
-For more information about Audience values, see [About point-to-site VPN - Microsoft Entra ID authentication](point-to-site-about.md#entra-id). The examples in this article use the new Audience value for Azure Public.
+This article helps you migrate from a manually registered Azure VPN Client to the Microsoft-registered Azure VPN Client for point-to-site (P2S) Microsoft Entra ID authentication. The Microsoft-registered Azure VPN client uses a different Audience value. When you update an Audience value, you must make the change on both the P2S VPN gateway, and on any previously configured VPN clients. For more information about Audience values, see [About point-to-site VPN - Microsoft Entra ID authentication](point-to-site-about.md#entra-id).
 
 The following table shows the available supported Audience values.
 
 [!INCLUDE [Audience values](../../includes/vpn-gateway-entra-audience-values.md)]
+
+The examples in this article use the new Audience value for Azure Public. This article doesn't apply to **custom Audience** value configurations. To modify a custom audience app ID, see [Create or modify a custom audience app ID for P2S VPN Microsoft Entra ID authentication](point-to-site-entra-register-custom-app.md#change).
 
 ## Workflow
 

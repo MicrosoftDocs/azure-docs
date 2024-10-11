@@ -3,7 +3,7 @@ title: 'Scenario: Route traffic through a Network Virtual Appliance (NVA)'
 titleSuffix: Azure Virtual WAN
 description: Learn about Virtual WAN routing scenarios to route traffic through a Network Virtual Appliance (NVA).
 author: cherylmc
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: conceptual
 ms.date: 02/13/2023
 ms.author: cherylmc

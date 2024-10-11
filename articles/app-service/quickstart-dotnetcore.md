@@ -74,7 +74,7 @@ If you already installed Visual Studio 2022:
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
 - <a href="https://www.visualstudio.com/downloads" target="_blank">Visual Studio Code</a>.
 - The <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack" target="_blank">Azure Tools</a> extension.
-- <a href="https://dotnet.microsoft.com/download/dotnet/7.0" target="_blank">The latest .NET 8.0 SDK.</a>
+- <a href="https://dotnet.microsoft.com/download/dotnet/8.0" target="_blank">The latest .NET 8.0 SDK.</a>
 - **(Optional)** To try GitHub Copilot, a [GitHub Copilot account](https://docs.github.com/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor). A 30-day free trial is available.
 
 :::zone-end
@@ -96,7 +96,7 @@ If you already installed Visual Studio 2022:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
 - The <a href="/powershell/azure/install-az-ps" target="_blank">Azure PowerShell</a>.
-- <a href="https://dotnet.microsoft.com/download/dotnet/7.0" target="_blank">The latest .NET 8.0 SDK.</a>
+- <a href="https://dotnet.microsoft.com/download/dotnet/8.0" target="_blank">The latest .NET 8.0 SDK.</a>
 
 :::zone-end
 
@@ -111,7 +111,7 @@ If you already installed Visual Studio 2022:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet).
 - The [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd)
-- [The latest .NET 8.0 SDK.](https://dotnet.microsoft.com/download/dotnet/7.0)
+- [The latest .NET 8.0 SDK.](https://dotnet.microsoft.com/download/dotnet/8.0)
 
 :::zone-end
 

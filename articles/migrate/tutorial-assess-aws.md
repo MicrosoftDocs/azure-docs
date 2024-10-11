@@ -192,3 +192,4 @@ Confidence ratings are as follows.
 
 - Find server dependencies using [dependency mapping](concepts-dependency-visualization.md).
 - Set up [agent-based](how-to-create-group-machine-dependencies.md) dependency mapping.
+- Migrate [AWS VMs](tutorial-migrate-aws-virtual-machines.md) to Azure.

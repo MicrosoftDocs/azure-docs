@@ -3,7 +3,7 @@ title: 'Configure peering for ExpressRoute circuit - Azure portal'
 description: This guide shows you how to create and provision ExpressRoute private and Microsoft peering using the Azure portal.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 04/22/2024
 ms.author: duau

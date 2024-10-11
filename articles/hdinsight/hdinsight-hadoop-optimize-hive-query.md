@@ -1,7 +1,7 @@
 ---
 title: Optimize Hive queries in Azure HDInsight 
 description: This article describes how to optimize your Apache Hive queries in Azure HDInsight.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 10/16/2023
@@ -199,4 +199,4 @@ In this article, you have learned several common Hive query optimization methods
 
 * [Optimize Apache Hive](./optimize-hive-ambari.md)
 * [Analyze flight delay data by using Interactive Query in HDInsight](./interactive-query/interactive-query-tutorial-analyze-flight-data.md)
-* [Analyze Twitter data using Apache Hive in HDInsight](hdinsight-analyze-twitter-data-linux.md)
+* [Analyze X data using Apache Hive in HDInsight](hdinsight-analyze-twitter-data-linux.md)

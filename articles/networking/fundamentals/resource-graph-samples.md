@@ -5,7 +5,7 @@ ms.date: 05/28/2023
 ms.topic: sample
 author: asudbring
 ms.author: allensu
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.custom: subject-resourcegraph-sample
 ---
 

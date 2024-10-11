@@ -1,7 +1,6 @@
 ---
 title: Enforce a minimum TLS version for requests to an Azure Event Grid topic, domain, or subscription
 description: Configure an Azure Event Grid topic or domain to require a minimum version of Transport Layer Security (TLS) for clients making requests against the topic, domain, or subscription.
-ms.service: event-grid
 ms.topic: how-to
 ms.date: 01/22/2024
 ms.author: spelluru

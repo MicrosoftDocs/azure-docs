@@ -3,7 +3,7 @@ title: 'Azure ExpressRoute: Configure S2S VPN over Microsoft peering'
 description: Learn how to set up IPsec/IKE connectivity to Azure over an ExpressRoute Microsoft peering circuit using a site-to-site VPN gateway.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 03/31/2024
 ms.author: duau
@@ -212,7 +212,7 @@ Assign a public IP address for each instance of a VPN gateway.
     "name": "[variables('gatewayPublicIPName1')]",
     "location": "[resourceGroup().location]",
     "properties": {
-      "publicIPAllocationMethod": "Dynamic"
+      "publicIPAllocationMethod": "Static"
     },
     "comments": "Public IP for the first instance of the VPN gateway"
   },
@@ -222,7 +222,7 @@ Assign a public IP address for each instance of a VPN gateway.
     "name": "[variables('gatewayPublicIPName2')]",
     "location": "[resourceGroup().location]",
     "properties": {
-      "publicIPAllocationMethod": "Dynamic"
+      "publicIPAllocationMethod": "Static"
     },
     "comments": "Public IP for the second instance of the VPN gateway"
   },
@@ -276,7 +276,7 @@ This section of the template configures the VPN gateway with the required settin
   "ipConfigurations": [
     {
       "properties": {
-        "privateIPAllocationMethod": "Dynamic",
+        "privateIPAllocationMethod": "Static",
         "subnet": {
           "id": "[variables('gatewaySubnetRef')]"
         },
@@ -288,7 +288,7 @@ This section of the template configures the VPN gateway with the required settin
     },
     {
       "properties": {
-        "privateIPAllocationMethod": "Dynamic",
+        "privateIPAllocationMethod": "Static",
         "subnet": {
           "id": "[variables('gatewaySubnetRef')]"
         },

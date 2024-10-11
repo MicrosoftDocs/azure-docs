@@ -5,7 +5,7 @@ description: Learn how to create a public IP address prefix using the Azure CLI.
 services: virtual-network
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: quickstart
 ms.date: 08/24/2023

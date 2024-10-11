@@ -87,7 +87,7 @@ Here's how the example now appears in the Azure portal.
 
 :::image type="content" source="./media/direct-ea-azure-usage-charges-invoices/new-view-usage-charges.png" alt-text="Screenshot showing the new view for Usage + charges." lightbox="./media/direct-ea-azure-usage-charges-invoices/new-view-usage-charges.png" :::
 
-- After the reservation return in August 2022, you're entitled to $400 credits. You receive the credit note for the refund amount. There's no change to the process.
+- After the reservation return in August 2022, you get entitled to $400 credits. You receive the credit note for the refund amount. There's no change to the process.
 - There are no changes to the February 2022 service overage or total charges after the refund. You're able to reconcile the refund as you review the usage details file and your invoice.
 - Return line items continue to appear in the month of return. For example August 2022, because there's no behavior or process change.
 
@@ -101,7 +101,7 @@ Refunds use the same payment methods used for the purchase. In July 2022, your m
 
 :::image type="content" source="./media/direct-ea-azure-usage-charges-invoices/credit-commitments-changes-old.png" alt-text="Screenshot showing changes for the old refund process on the Credits + commitments page." lightbox="./media/direct-ea-azure-usage-charges-invoices/credit-commitments-changes-old.png" :::
 
-- After the reservation return was completed for July 2022, you're entitled to $200 of credits. You receive the credit note for the refund amount of $100. The other $100 goes back to monetary credit under **Adjustments**.
+- After the reservation return was completed for July 2022, you get entitled to $200 of credits. You receive the credit note for the refund amount of $100. The other $100 goes back to monetary credit under **Adjustments**.
 - The adjustment changes the service overage for June 2022. The adjustment also changes the total charges. They no longer reconcile with the invoice received for June 2022. And, it changes the credits applied for charges in June 2022.
 - The return line items are shown for the return month (July 2022) in the usage details file.
 
@@ -111,7 +111,7 @@ In the current refund process, totals in the purchase month overage, total charg
 
 :::image type="content" source="./media/direct-ea-azure-usage-charges-invoices/credit-commitments-changes-new.png" alt-text="Screenshot showing changes for the new refund process on the Credits + commitments page." lightbox="./media/direct-ea-azure-usage-charges-invoices/credit-commitments-changes-new.png" :::
 
-- After the reservation return completed for July 2022, you're entitled to $100 credit. You receive the credit note for the refund amount. You can view it on the **Invoices** page. The same credit appears under **Refunded overage credits** on the **Usage & Charges** page. The $100 of adjustments are shown on the **Credits + Commitments** page. There's no change for adjustments shown on the **Credits + Commitments** page.
+- After the reservation return completed for July 2022, you get entitled to $100 credit. You receive the credit note for the refund amount. You can view it on the **Invoices** page. The same credit appears under **Refunded overage credits** on the **Usage & Charges** page. The $100 of adjustments are shown on the **Credits + Commitments** page. There's no change for adjustments shown on the **Credits + Commitments** page.
 - There are no changes to the June 2022 service overage, total charges, and Credits applied towards charges after as refund. You can reconcile your totals with the usage details file and with the invoice.
 - The return line items continue to appear for the month of return (for example, July 2022) in the usage details file. There's no behavior or process change.
 
@@ -139,7 +139,7 @@ Answer: If the refund happened before the purchase is invoiced, then it appears 
 Question: How do I reconcile the amount shown in **Refunded Overage Credits**?<br>
 Answer:
 1. In the Azure portal, navigate to **Reservation Transactions**.
-2. Sum all the refunds. They're shown as an overage for the month.  
+2. Sum all the refunds. They get shown as an overage for the month.  
     :::image type="content" source="./media/direct-ea-azure-usage-charges-invoices/reservation-transactions.png" alt-text="Screenshot showing the Reservation transactions page with refund amounts." lightbox="./media/direct-ea-azure-usage-charges-invoices/reservation-transactions.png" :::
 3. Navigate to **Usage + charges** look at the value shown in **Refunded Overage Credits**. The value is sum of all reservation and savings plan refunds that happened in the month.  
     :::image type="content" source="./media/direct-ea-azure-usage-charges-invoices/refunded-overage-credits.png" alt-text="Screenshot showing the refunded overage credits values." lightbox="./media/direct-ea-azure-usage-charges-invoices/refunded-overage-credits.png" :::
@@ -157,7 +157,7 @@ Answer:
 
 Enterprise administrators and partner administrators use the Download Usage + Charges page to download the following reports as CSV files.
 
-- **Usage Details** - Depending on your selection, the CSV file provides all charges (usage and purchases) including RI (reservation) purchases. Or, amortized charges (usage and purchases) including reservation purchases.
+- **Usage Details** - Depending on your selection, the CSV file provides all charges (usage and purchases) including reservation (RI) purchases. Or, amortized charges (usage and purchases) including reservation purchases.
 - **Marketplace Store Charge** - The Marketplace Store Charge CSV file contains the usage-based Marketplace charges breakdown by day for the specified billing period.
 - **Price sheet** - The Price Sheet CSV file contains the applicable rate for each meter for the given Enrollment and Billing Period.
 - **Balance and Summary** - The Balance and Summary CSV file contains a monthly summary of information for balances, new purchases, Marketplace service charges, adjustments, and overage charges.
@@ -184,7 +184,7 @@ Only an Enterprise Administrator has permission to view and download the billing
 You receive an Azure invoice when any of the following events occur during your billing cycle:
 
 - **Service overage** - Your organization's usage charges exceed your credit balance.
-- **Charges billed separately** - The services your organization used aren't covered by the credit. You're invoiced for the following services despite your credit balance:
+- **Charges billed separately** - The services your organization used aren't covered by the credit. You get invoiced for the following services despite your credit balance:
   - Canonical
   - Citrix XenApp Essentials
   - Citrix XenDesktop
@@ -196,7 +196,7 @@ You receive an Azure invoice when any of the following events occur during your 
   - Visual Studio Enterprise (Annual)
   - Visual Studio Professional (Monthly)
   - Visual Studio Professional (Annual)
-- **Marketplace charges** - Azure Marketplace purchases and usage aren't covered by your organization's credit. So, you're invoiced for Marketplace charges despite your credit balance. In the Azure portal, an Enterprise Administrator can enable and disable Marketplace purchases.
+- **Marketplace charges** - Azure Marketplace purchases and usage aren't covered by your organization's credit. So, you get invoiced for Marketplace charges despite your credit balance. In the Azure portal, an Enterprise Administrator can enable and disable Marketplace purchases.
 
 Your invoice displays Azure usage charges with costs associated to them first, followed by any Marketplace charges. If you have a credit balance, it gets applied to Azure usage. Your invoice shows Azure usage and Marketplace usage without any cost last.
 
@@ -269,7 +269,7 @@ For a new enrollment, the default PO number is the enrollment number.
 
 If you don’t change the PO number, then the same PO number is used for all upcoming invoices. The PO number doesn't automatically increment. If you want to get new PO number for each month, then update it from Azure portal.
 
-The EA admin receives an invoice notification email after the end of billing period to update PO number. You can update the PO number up to seven days after receiving email notification.
+The EA admin receives an invoice notification email after the end of billing period to update PO number. You can update the PO number within five days of receiving the email notification or before receiving the final invoice, whichever comes first.
 
 If you want to update the PO number after your invoice is generated, then contact Azure support in the Azure portal.
 

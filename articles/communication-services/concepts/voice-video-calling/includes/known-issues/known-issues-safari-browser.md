@@ -83,6 +83,12 @@ ___
 **Description:** Users may experience an issue where the camera preview is shown in an incorrect resolution and appears cropped when iOS user joins a call using iOS Safari mobile  with the camera enabled. The issue is not observed anymore if user re-enables camera during the call. The issue has been fixed with iOS 17.4+.<br>
 **Recommended workaround:** Users are advised to update to the latest iOS and Safari version (at least iOS 17.4) where this issue has been resolved.<br>
 
+### Telemetry data for *audioInputLevel* and *frameRateInput* missing in video calls on iOS 16 to iOS 17.4
+**iOS version:** iOS versions from 16.0 up to 17.4.<br>
+**Azure Communication Service calling SDK version:** All.<br>
+**Description:** `audioInputLevel` and `frameRateInput` telemetry data are not captured during video calls on iOS versions 16 to 17.4, affecting the ability to monitor and optimize audio and video settings in real-time. This issue has been fixed with iOS 17.5+.<br>
+**Recommended workaround:** Users are advised to update to the latest iOS and Safari version (at least iOS 17.5) where this issue has been resolved.<br>
+
 ### Audio and video recovery issue on iOS 16 to 16.3.1 during web calls with incoming Third-party or PSTN calls
 **iOS version:** iOS versions 16 up to 16.3.1.<br>
 **Azure Communication Service calling SDK version:** All.<br>

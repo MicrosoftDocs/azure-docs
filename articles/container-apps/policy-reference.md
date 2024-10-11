@@ -5,7 +5,7 @@ author: v-jaswel
 ms.author: v-wellsjason
 ms.date: 02/06/2024
 ms.topic: reference
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: subject-policy-reference
 ---
 # Azure Policy built-in definitions for Azure Container Apps

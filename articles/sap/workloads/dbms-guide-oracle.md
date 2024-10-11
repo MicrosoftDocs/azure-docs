@@ -79,7 +79,7 @@ There are two recommended storage deployment patterns for SAP on Oracle on Azure
 
 Customers currently running Oracle databases on EXT4 or XFS file systems with Logical Volume Manager (LVM) are encouraged to move to ASM. There are considerable performance, administration, and reliability advantages to running on ASM compared to LVM. ASM reduces complexity, improves supportability, and makes administration tasks simpler. This documentation contains links for Oracle Database Administrators (DBAs) to learn how to install and manage ASM.
 
-Azure provides [multiple storage solutions](../../virtual-machines/disks-types.md). The table below details the support status 
+Azure provides [multiple storage solutions](/azure/virtual-machines/disks-types). The table below details the support status 
 
 | Storage type  | Oracle support    | Sector Size     | Oracle Linux 8.x or higher | Windows Server 2019 |
 |--------|------------|--------| ------| -----|
@@ -343,11 +343,11 @@ The disk selection for hosting Oracle's online redo logs is driven by IOPS requi
 ### Oracle Automatic Storage Management (ASM)## can evaluate these storage technologies:
 
 1.  Azure Premium Storage – currently the default choice
-3.  Managed Disk Bursting - [Managed disk bursting - Azure Virtual Machines \| Microsoft  Docs](../../virtual-machines/disk-bursting.md)
+3.  Managed Disk Bursting - [Managed disk bursting - Azure Virtual Machines \| Microsoft  Docs](/azure/virtual-machines/disk-bursting)
 4.  Azure Write Accelerator
 5.  Online disk extension for Azure Premium SSD storage is still in progress
 
-Log write times can be improved on Azure M-Series VMs by enabling Write Accelerator. Enable Azure Write Accelerator for the Azure Premium Storage disks used by the ASM Disk Group for <u>online redo log files</u>. For more information, see [<u>Write Accelerator</u>](../../virtual-machines/how-to-enable-write-accelerator.md).
+Log write times can be improved on Azure M-Series VMs by enabling Write Accelerator. Enable Azure Write Accelerator for the Azure Premium Storage disks used by the ASM Disk Group for <u>online redo log files</u>. For more information, see [<u>Write Accelerator</u>](/azure/virtual-machines/how-to-enable-write-accelerator).
 
 Using Write Accelerator is optional but can be enabled if the AWR report indicates higher than expected log write times.
 
@@ -361,25 +361,25 @@ The following recommendations should be followed when selecting a VM type:
 2.  Consider enabling paid **bursting** especially for Redo Log disk(s)
 3.  For ANF, the Network throughput is important as all storage traffic is counted as "Network" rather than Disk throughput
 4.  Review this blog for Network tuning for M-series [Optimizing Network Throughput on Azure M-series VMs HCMT (microsoft.com)](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/optimizing-network-throughput-on-azure-m-series-vms/ba-p/3581129)
-5.  Review this [link](../../virtual-machines/workloads/oracle/oracle-design.md) that describes how to use an AWR report to select the correct Azure VM
-6.  Azure Intel Ev5 [Edv5 and Edsv5-series - Azure Virtual Machines \|Microsoft Docs](../../virtual-machines/easv5-eadsv5-series.md)
-7.  Azure AMD Eadsv5 [Easv5 and Eadsv5-series - Azure Virtual Machines \|Microsoft Docs](../../virtual-machines/easv5-eadsv5-series.md#eadsv5-series)
-8.  Azure M-series/Msv2-series [M-series - Azure Virtual Machines \|Microsoft Docs](../../virtual-machines/m-series.md) and [Msv2/Mdsv2 Medium Memory Series - Azure Virtual Machines \| Microsoft Docs](../../virtual-machines/msv2-mdsv2-series.md) 
-9.  Azure Mv2 [Mv2-series - Azure Virtual Machines \| Microsoft Docs](../../virtual-machines/mv2-series.md)
+5.  Review this [link](/azure/virtual-machines/workloads/oracle/oracle-design) that describes how to use an AWR report to select the correct Azure VM
+6.  Azure Intel Ev5 [Edv5 and Edsv5-series - Azure Virtual Machines \|Microsoft Docs](/azure/virtual-machines/easv5-eadsv5-series)
+7.  Azure AMD Eadsv5 [Easv5 and Eadsv5-series - Azure Virtual Machines \|Microsoft Docs](/azure/virtual-machines/easv5-eadsv5-series#eadsv5-series)
+8.  Azure M-series/Msv2-series [M-series - Azure Virtual Machines \|Microsoft Docs](/azure/virtual-machines/m-series) and [Msv2/Mdsv2 Medium Memory Series - Azure Virtual Machines \| Microsoft Docs](/azure/virtual-machines/msv2-mdsv2-series) 
+9.  Azure Mv2 [Mv2-series - Azure Virtual Machines \| Microsoft Docs](/azure/virtual-machines/mv2-series)
 
 ## Backup/restore
 
 For backup/restore functionality, the SAP BR\*Tools for Oracle are supported in the same way as they are on bare metal and Hyper-V. Oracle Recovery Manager (RMAN) is also supported for backups to disk and restores from disk.
 
 For more information about how you can use Azure Backup and Recovery services for Oracle databases, see:
-- [<u>Back up and recover an Oracle Database 12c database on an Azure Linux virtual machine</u>](../../virtual-machines/workloads/oracle/oracle-overview.md)
-- [<u>Azure Backup service</u>](../../backup/backup-overview.md) is also supporting Oracle backups as described in the article [<u>Back up and recover an Oracle Database 19c database on an Azure Linux VM using Azure Backup</u>](../../virtual-machines/workloads/oracle/oracle-database-backup-azure-backup.md).
+- [<u>Back up and recover an Oracle Database 12c database on an Azure Linux virtual machine</u>](/azure/virtual-machines/workloads/oracle/oracle-overview)
+- [<u>Azure Backup service</u>](../../backup/backup-overview.md) is also supporting Oracle backups as described in the article [<u>Back up and recover an Oracle Database 19c database on an Azure Linux VM using Azure Backup</u>](/azure/virtual-machines/workloads/oracle/oracle-database-backup-azure-backup).
 
 ## High availability
 
-Oracle Data Guard is supported for high availability and disaster recovery purposes. To achieve automatic failover in Data Guard, you need to use Fast-Start Failover (FSFA). The Observer functionality (FSFA) triggers the failover. If you don't use FSFA, you can only use a manual failover configuration. For more information, see [<u>Implement Oracle Data Guard on an Azure Linux virtual machine</u>](../../virtual-machines/workloads/oracle/configure-oracle-dataguard.md).
+Oracle Data Guard is supported for high availability and disaster recovery purposes. To achieve automatic failover in Data Guard, you need to use Fast-Start Failover (FSFA). The Observer functionality (FSFA) triggers the failover. If you don't use FSFA, you can only use a manual failover configuration. For more information, see [<u>Implement Oracle Data Guard on an Azure Linux virtual machine</u>](/azure/virtual-machines/workloads/oracle/configure-oracle-dataguard).
 
-Disaster Recovery aspects for Oracle databases in Azure are presented in the article [<u>Disaster recovery for an Oracle Database 12c database in an Azure environment</u>](../../virtual-machines/workloads/oracle/oracle-disaster-recovery.md).
+Disaster Recovery aspects for Oracle databases in Azure are presented in the article [<u>Disaster recovery for an Oracle Database 12c database in an Azure environment</u>](/azure/virtual-machines/workloads/oracle/oracle-disaster-recovery).
 
 Another good Oracle whitepaper [Setting up Oracle 12c Data Guard for SAP Customers](https://www.sap.com/documents/2016/12/a67bac51-9a7c-0010-82c7-eda71af511fa.html)
 
@@ -416,7 +416,7 @@ Information on UDEV Log Corruption issue [Oracle Redolog corruption on Azure \| 
 
 [Data corruption on Hyper-V or Azure when running Oracle ASM - Red Hat Customer Portal](https://access.redhat.com/solutions/3114361)
 
-[Set up Oracle ASM on an Azure Linux virtual machine - Azure Virtual Machines \| Microsoft Docs](../../virtual-machines/workloads/oracle/configure-oracle-asm.md)
+[Set up Oracle ASM on an Azure Linux virtual machine - Azure Virtual Machines \| Microsoft Docs](/azure/virtual-machines/workloads/oracle/configure-oracle-asm)
 
 ### Oracle Configuration guidelines for SAP installations in Azure VMs on Windows
 

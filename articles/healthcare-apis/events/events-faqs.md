@@ -3,7 +3,7 @@ title: Events FAQ for Azure Health Data Services
 description: Get answers to common questions about the events capability in the FHIR and DICOM services in Azure Health Data Services. Find out how events work, what types of events are supported, and how to subscribe to events by using Azure Event Grid.
 services: healthcare-apis
 author: chachachachami
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: events
 ms.topic: reference
 ms.date: 01/31/2024
