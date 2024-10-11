@@ -22,6 +22,7 @@ To send data to Azure Data Lake Storage Gen2 in Azure IoT Operations Preview, yo
 - An instance of [Azure IoT Operations Preview](../deploy-iot-ops/howto-deploy-iot-operations.md)
 - A [configured dataflow profile](howto-configure-dataflow-profile.md)
 - A [Azure Data Lake Storage Gen2 account](../../storage/blobs/create-data-lake-storage-account.md)
+- A pre-created storage container in the storage account
 
 ## Create an Azure Data Lake Storage Gen2 dataflow endpoint
 
@@ -42,8 +43,8 @@ To configure a dataflow endpoint for Azure Data Lake Storage Gen2, we suggest us
       name: adls
     spec:
       endpointType: DataLakeStorage
-      datalakeStorageSettings:
-        host: <account>.blob.core.windows.net
+      dataLakeStorageSettings:
+        host: https://<account>.blob.core.windows.net
         authentication:
           method: SystemAssignedManagedIdentity
           systemAssignedManagedIdentitySettings: {}
@@ -64,8 +65,8 @@ If you need to override the system-assigned managed identity audience, see the [
       name: adls
     spec:
       endpointType: DataLakeStorage
-      datalakeStorageSettings:
-        host: <account>.blob.core.windows.net
+      dataLakeStorageSettings:
+        host: https://<account>.blob.core.windows.net
         authentication:
           method: AccessToken
           accessTokenSettings:
@@ -95,6 +96,7 @@ spec:
     - operationType: Destination
       destinationSettings:
         endpointRef: adls
+        # dataDestination should be the storage container name
         dataDestination: telemetryTable
 ```
 
