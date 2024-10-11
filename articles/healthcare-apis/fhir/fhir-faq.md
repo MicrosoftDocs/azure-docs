@@ -146,7 +146,7 @@ If there are errors, you may receive an error response with HTTP status code 404
 **What are the recommended methods for syncing data between Azure FHIR Service and Dataverse?**
 
 Please refer to documentation for
-[Dataverse healthcare APIs](https://learn.microsoft.com/dynamics365/industry/healthcare/dataverse-healthcare-apis-overview)
+[Dataverse healthcare APIs](/dynamics365/industry/healthcare/dataverse-healthcare-apis-overview)
 
 
 ## Next steps
