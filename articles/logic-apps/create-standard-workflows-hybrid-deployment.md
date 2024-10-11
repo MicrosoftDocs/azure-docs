@@ -188,7 +188,7 @@ To authenticate managed API connections in Standard logic app workflows hosted o
 
 1. To review all the properties, use the [**az ad sp show** command](/cli/azure/ad/sp#az-ad-sp-show).
 
-1. In the output from both commands, find and save the the following values, which you need later for connection authentication:
+1. In the output from both commands, find and save the following values, which you need later for connection authentication:
 
    - Client ID
    - Object ID
