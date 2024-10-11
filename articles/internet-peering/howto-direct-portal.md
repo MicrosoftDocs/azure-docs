@@ -87,7 +87,7 @@ As an Internet Service Provider or Internet Exchange Provider, you can create a 
     - **Connection State** corresponds to the state of the peering connection setup. The states displayed in this field follow the state diagram shown in the [Direct peering walkthrough](walkthrough-direct-all.md).
     - **IPv4 Session State** and **IPv6 Session State** correspond to the IPv4 and IPv6 BGP session states, respectively.
 
-## Modify a Direct peering conneciton
+## Modify a Direct peering connection
 
 1. Go to the **Peering** resource that you want to modify.
 
