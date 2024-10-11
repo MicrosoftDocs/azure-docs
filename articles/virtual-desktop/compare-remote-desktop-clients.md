@@ -5,7 +5,7 @@ ms.topic: concept-article
 zone_pivot_groups: remote-desktop-clients
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 07/16/2024
+ms.date: 10/08/2024
 ---
 
 # Compare Remote Desktop app features across platforms and devices
