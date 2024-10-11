@@ -13,7 +13,7 @@ ms.custom: template-concept, references_regions
 
 Use this article to stay updated on new features and other useful information related to Azure Communication Services.
 
-[!INCLUDE [Survey Request](./includes/survey-request.md)]
+<!-- [!INCLUDE [Survey Request](./includes/survey-request.md)] -->
 
 ## May 2024
 
