@@ -26,7 +26,7 @@ In this tutorial, you will:
 > * Create and run a Jupyter Notebook file on [Azure Notebooks] in the cloud.
 > * Call Azure Maps REST APIs in Python.
 > * Search for a reachable range based on the electric vehicle's consumption model.
-> * Search for electric vehicle charging stations within the reachable range, or isochrone.
+> * Search for electric vehicle charging stations within the reachable range, or [isochrone].
 > * Render the reachable range boundary and charging stations on a map.
 > * Find and visualize a route to the closest electric vehicle charging station based on drive time.
 
@@ -103,7 +103,7 @@ from IPython.display import Image, display
 
 A package delivery company operates a fleet that includes some electric vehicles. These vehicles need to be recharged during the day without returning to the warehouse. When the remaining charge drops below an hour, a search is conducted to find charging stations within a reachable range. The boundary information for the range of these charging stations is then obtained.
 
-The requested routeType is eco to balance economy and speed. The following script calls the [Get Route Range API] of the Azure Maps routing service, using parameters related to the vehicle's consumption model. The script then parses the response to create a polygon object in GeoJSON format, representing the car's maximum reachable range.
+The requested routeType is eco to balance economy and speed. The following script calls the [Get Route Range] API of the Azure Maps routing service, using parameters related to the vehicle's consumption model. The script then parses the response to create a polygon object in GeoJSON format, representing the car's maximum reachable range.
 
 ```python
 subscriptionKey = "Your Azure Maps key"
@@ -146,9 +146,9 @@ boundsData = {
 
 ## Search for electric vehicle charging stations within the reachable range
 
-After determining the electric vehicle's reachable range (isochrone), you can search for charging stations within that area.
+After determining the electric vehicle's reachable range ([isochrone]), you can search for charging stations within that area.
 
-The following script uses the Azure Maps [Post Search Inside Geometry API] to find charging stations within the vehicle’s maximum reachable range. It then parses the response into an array of reachable locations.
+The following script uses the Azure Maps [Post Search Inside Geometry] API to find charging stations within the vehicle’s maximum reachable range. It then parses the response into an array of reachable locations.
 
 ```python
 # Search for electric vehicle stations within reachable range.
@@ -208,7 +208,7 @@ display(Image(poiRangeMap))
 
 First, identify all the potential charging stations within the vehicle’s reachable range. Next, determine which of these stations can be accessed in the shortest possible time.
 
-The following script calls the Azure Maps [Matrix Routing API]. It returns the vehicle's location, travel time, and distance to each charging station. The subsequent script parses this response to identify the closest charging station that can be reached in the least amount of time.
+The following script calls the Azure Maps [Matrix Routing] API. It returns the vehicle's location, travel time, and distance to each charging station. The subsequent script parses this response to identify the closest charging station that can be reached in the least amount of time.
 
 ```python
 locationData = {
@@ -237,7 +237,7 @@ closestChargeLoc = ",".join(str(i) for i in minDistLoc)
 
 ## Calculate the route to the closest charging station
 
-Once you've located the nearest charging station, use the [Get Route Directions API] to obtain detailed directions from the EV's current location. Run the script in the next cell to generate and parse a GeoJSON object representing the route.
+Once you've located the nearest charging station, use the [Get Route Directions] API to obtain detailed directions from the EV's current location. Run the script in the next cell to generate and parse a GeoJSON object representing the route.
 
 ```python
 # Get the route from the electric vehicle's current location to the closest charging station. 
@@ -257,7 +257,7 @@ routeData = {
 
 ## Visualize the route
 
-To visualize the route, use the [Get Map Image API] to render it on the map.
+To visualize the route, use the [Get Map Image] API to render it on the map.
 
 ```python
 destination = route[-1]
@@ -315,17 +315,15 @@ To learn more about Azure Notebooks, see
 [Azure Maps Jupyter Notebook repository]: https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook
 [Azure Maps REST APIs]: /rest/api/maps
 [Azure Notebooks]: https://notebooks.azure.com
-[Get Map Image API]: /rest/api/maps/render/get-map-static-image
+[Get Map Image]: /rest/api/maps/render/get-map-static-image
 [Get Map Image service]: /rest/api/maps/render/get-map-static-image
-[Get Route Directions API]: /rest/api/maps/route/getroutedirections
 [Get Route Directions]: /rest/api/maps/route/getroutedirections
-[Get Route Range API]: /rest/api/maps/route/getrouterange
 [Get Route Range]: /rest/api/maps/route/getrouterange
+[isochrone]: glossary.md#isochrone
 [Jupyter Notebook document file]: https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/EVrouting.ipynb
 [manage authentication in Azure Maps]: how-to-manage-authentication.md
-[Matrix Routing API]: /rest/api/maps/route/postroutematrix
+[Matrix Routing]: /rest/api/maps/route/postroutematrix
 [Post Route Matrix]: /rest/api/maps/route/postroutematrix
-[Post Search Inside Geometry API]: /rest/api/maps/search/postsearchinsidegeometry?view=rest-maps-1.0&preserve-view=true
 [Post Search Inside Geometry]: /rest/api/maps/search/postsearchinsidegeometry?view=rest-maps-1.0&preserve-view=true
 [Render - Get Map Image]: /rest/api/maps/render/get-map-static-image
 [*requirements.txt*]: https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/requirements.txt
