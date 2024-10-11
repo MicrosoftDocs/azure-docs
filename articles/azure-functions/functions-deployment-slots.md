@@ -6,7 +6,7 @@ ms.date: 02/27/2024
 ---
 # Azure Functions deployment slots
 
-Azure Functions deployment slots allow your function app to run different instances called _slots_. Slots are different environments exposed via a publicly available endpoint. One app instance is always mapped to the production slot, and you can swap instances assigned to a slot on demand. Function apps running in a [Consumption plan](./consumption-plan.md) have a single extra slot for staging. You can obtain more staging slots by running your app in a [Premium plan](./functions-premium-plan.md) or [Dedicated (App Service) plan](./dedicated-plan.md). For more information, see [Service limits](./functions-scale.md#service-limits). 
+Azure Functions deployment slots allow your function app to run different instances called _slots_. Slots are different environments exposed via a publicly available endpoint. One app instance is always mapped to the production slot, and you can swap instances assigned to a slot on demand. Function apps running in a [Consumption plan](./consumption-plan.md) have a single extra slot for staging. You can obtain more staging slots by running your app in a [Premium plan](./functions-premium-plan.md) or [Dedicated (App Service) plan](./dedicated-plan.md). Slots are not supported for apps running in the [Flex Consumption](./flex-consumption-plan.md) or [Container Apps](./functions-container-apps-hosting.md) plans. For more information, see [Service limits](./functions-scale.md#service-limits). 
 
 The following reflect how functions are affected by swapping slots:
 

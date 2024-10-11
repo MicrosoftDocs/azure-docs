@@ -110,3 +110,4 @@ Keep in mind the following considerations when deploying your function app conta
 ## Next steps
 
 + [Hosting and scale](./functions-scale.md)
++ [Create your first containerized functions on Container Apps](./functions-deploy-container-apps.md)

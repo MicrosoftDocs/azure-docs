@@ -28,25 +28,26 @@ Specific deployments should use the best technology based on the specific scenar
 
 The deployment method also depends on the hosting plan and operating system on which you run your function app.  
 
-Currently, Functions offers four hosting plans:
+Currently, Functions offers five hosting plans:
 
 + [Flex Consumption](flex-consumption-plan.md)
 + [Consumption](consumption-plan.md)
-+ [Premium](functions-premium-plan.md)
++ [Elastic Premium](functions-premium-plan.md)
 + [Dedicated (App Service)](dedicated-plan.md)
++ [Container Apps](functions-container-apps-hosting.md)
 
 Each plan has different behaviors. Not all deployment technologies are available for each hosting plan and operating system. This chart provides information on the supported deployment technologies:
 
-| Deployment technology | Flex Consumption| Windows Consumption | Windows Premium | Windows Dedicated  | Linux Consumption | Linux Premium | Linux Dedicated |
-|-----------------------|:-------------------:|:-------------------:|:-------------------------:|:------------------:|:---------------------------:|:-------------:|:---------------:|
-| [OneDeploy](#one-deploy) |✔| | | | | | |
-| [Zip deploy](#zip-deploy) | |✔|✔|✔|✔|✔|✔|
-| [External package URL](#external-package-url)<sup>1</sup> | |✔|✔|✔|✔|✔|✔|
-| [Docker container](#docker-container) | | | | | |✔|✔|
-| [Source control](#source-control) | |✔|✔|✔| |✔|✔|
-| [Local Git](#local-git)<sup>1</sup> | |✔|✔|✔| |✔|✔|
-| [FTPS](#ftps)<sup>1</sup> | |✔|✔|✔| |✔|✔|
-| [In-portal editing](#portal-editing)<sup>2</sup> | |✔|✔|✔|✔|✔|✔|
+| Deployment technology | Flex Consumption| Consumption | Elastic Premium | Dedicated | Container Apps |
+|-----------------------|:-------------------:|:-------------------------:|:------------------:|:---------------------------:|:-------------:|
+| [OneDeploy](#one-deploy) |✔| | | | |
+| [Zip deploy](#zip-deploy) | |Windows: ✔<br/>Linux: ✔|Windows: ✔<br/>Linux: ✔|Windows: ✔<br/>Linux: ✔| |
+| [External package URL](#external-package-url)<sup>1</sup> | |Windows: ✔<br/>Linux: ✔|Windows: ✔<br/>Linux: ✔|Windows: ✔<br/>Linux: ✔| |
+| [Docker container](#docker-container) | |Windows: X<br/>Linux: ✔|Windows: X<br/>Linux: ✔|Windows: X<br/>Linux: ✔|✔|
+| [Source control](#source-control) | |Windows: ✔<br/>Linux: X|Windows: ✔<br/>Linux: ✔|Windows: ✔<br/>Linux: ✔| |
+| [Local Git](#local-git)<sup>1</sup> | |Windows: ✔<br/>Linux: X|Windows: ✔<br/>Linux: ✔|Windows: ✔<br/>Linux: ✔| |
+| [FTPS](#ftps)<sup>1</sup> | |Windows: ✔<br/>Linux: X|Windows: ✔<br/>Linux: ✔|Windows: ✔<br/>Linux: ✔| |
+| [In-portal editing](#portal-editing)<sup>2</sup> | |Windows: ✔<br/>Linux: ✔|Windows: ✔<br/>Linux: ✔|Windows: ✔<br/>Linux: ✔| |
 
 <sup>1</sup> Deployment technologies that require you to [manually sync triggers](#trigger-syncing) aren't recommended.   
 <sup>2</sup> In-portal editing is disabled when code is deployed to your function app from outside the portal. For more information, including language support details for in-portal editing, see [Language support details](supported-languages.md#language-support-details).    
@@ -131,21 +132,21 @@ Several deployment methods store the deployed or built app content on the storag
 The following deployment methods are available in Azure Functions.
 
 ### One deploy
-One deploy is the only deployment technology supported for apps on the Flex Consumption plan. The end result a ready-to-run .zip package that your function app runs on.
+One deploy is the only deployment technology supported for apps on the Flex Consumption plan. The end result is a ready-to-run .zip package that your function app runs on.
 
->__How to use it:__ Deploy with the [Visual Studio Code](functions-develop-vs-code.md#publish-to-azure) publish feature, or from the command line using [Azure Functions Core Tools](functions-run-local.md#project-file-deployment) or [Azure CLI](https://learn.microsoft.com/cli/azure/functionapp/deployment/source?view=azure-cli-latest#az-functionapp-deployment-source-config-zip). Our [Azure Dev Ops Task](functions-how-to-azure-devops.md#deploy-your-app-1) and [GitHub Action](functions-how-to-github-actions.md) similarly leverage one deploy when they detect that a Flex Consumption app is being deployed to.
+>__How to use it:__ Deploy with the [Visual Studio Code](functions-develop-vs-code.md#publish-to-azure) publish feature, or from the command line using [Azure Functions Core Tools](functions-run-local.md#project-file-deployment) or [Azure CLI](https://learn.microsoft.com/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip). Our [Azure Dev Ops Task](functions-how-to-azure-devops.md#deploy-your-app-1) and [GitHub Action](functions-how-to-github-actions.md) similarly leverage one deploy when they detect that a Flex Consumption app is being deployed to.
 >
 > When you create a Flex Consumption app, you will need to specify a deployment storage (blob) container as well as an authentication method to it. By default the same storage account as the `AzureWebJobsStorage` connection is used, with a connection string as the authentication method. Thus, your [deployment settings](flex-consumption-how-to.md#configure-deployment-settings) are configured during app create time without any need of application settings.
 
 >__When to use it:__ One deploy is the only deployment technology available for function apps running on the Flex Consumption plan. 
 
->__Where app content is stored:__ When you create a Flex Consumption function app, you specify a deployment storage container. This is a blob container where the platform will upload the app content you deployed. To change the location, you can visit the Deployment Settings blade in the Azure portal or use the [Azure CLI](flex-consumption-how-to.md#configure-deployment-settings).
+>__Where app content is stored:__ When you create a Flex Consumption function app, you specify a [deployment storage container](functions-infrastructure-as-code.md?pivots=flex-consumption-plan#deployment-sources). This is a blob container where the platform will upload the app content you deployed. To change the location, you can visit the Deployment Settings blade in the Azure portal or use the [Azure CLI](flex-consumption-how-to.md#configure-deployment-settings).
 
 ### Zip deploy
 
 Zip deploy is the default and recommended deployment technology for function apps on the Consumption, Elastic Premium, and App Service (Dedicated) plans. The end result a ready-to-run .zip package that your function app runs on. It differs from [external package URL](#external-package-url) in that our platform is responsible for remote building and storing your app content.
 
->__How to use it:__ Deploy by using your favorite client tool: [Visual Studio Code](functions-develop-vs-code.md#publish-to-azure), [Visual Studio](functions-develop-vs.md#publish-to-azure), or from the command line using [Azure Functions Core Tools](functions-run-local.md#project-file-deployment) or [Azure CLI](https://learn.microsoft.com/cli/azure/functionapp/deployment/source?view=azure-cli-latest#az-functionapp-deployment-source-config-zip). Our [Azure Dev Ops Task](functions-how-to-azure-devops.md#deploy-your-app-1) and [GitHub Action](functions-how-to-github-actions.md) similarly leverage zip deploy. 
+>__How to use it:__ Deploy by using your favorite client tool: [Visual Studio Code](functions-develop-vs-code.md#publish-to-azure), [Visual Studio](functions-develop-vs.md#publish-to-azure), or from the command line using [Azure Functions Core Tools](functions-run-local.md#project-file-deployment) or [Azure CLI](https://learn.microsoft.com/cli/azure/functionapp/deployment/source#az-functionapp-deployment-source-config-zip). Our [Azure Dev Ops Task](functions-how-to-azure-devops.md#deploy-your-app-1) and [GitHub Action](functions-how-to-github-actions.md) similarly leverage zip deploy. 
 
 >When you deploy by using zip deploy, you can set your app to [run from package](run-functions-from-deployment-package.md). To run from package, set the [`WEBSITE_RUN_FROM_PACKAGE`](functions-app-settings.md#website_run_from_package) application setting value to `1`. We recommend zip deployment. It yields faster loading times for your applications, and it's the default for VS Code, Visual Studio, and the Azure CLI.
 
