@@ -15,7 +15,7 @@ ms.date: 10/11/2024
 
 In this article, you learn about Azure Developer CLI (`azd`) and how it works with Azure Deployment Environments (ADE) to provision application infrastructure and deploy application code to the new infrastructure.
 
-The `azd` is an open-source command-line tool that provides developer-friendly commands that map to key stages in your workflow. You can install `azd` locally on your machine or use it in other environments.
+`azd` is an open-source command-line tool that provides developer-friendly commands that map to key stages in your workflow. You can install `azd` locally on your machine or use it in other environments.
 
 With ADE, you can create environments from an environment definition in a catalog attached to your dev center. By adding `azd`, you can deploy your application code to the new infrastructure.
 
