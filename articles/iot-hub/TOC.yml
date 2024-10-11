@@ -302,21 +302,9 @@
               href: module-twins-node.md
         - name: Get started with device management
           items:
-            - name: CLI
+            - name: New version
               displayName: device management, status updates, device maintenance windows
-              href: device-management-cli.md
-            - name: .NET
-              displayName: device management, status updates, device maintenance windows
-              href: device-management-dotnet.md
-            - name: Python
-              displayName: device management, status updates, device maintenance windows
-              href: device-management-python.md
-            - name: Node.js
-              displayName: device management, status updates, device maintenance windows
-              href: device-management-node.md
-            - name: Java
-              displayName: device management, status updates, device maintenance windows
-              href: device-management-java.md
+              href: how-to-device-management.md
         - name: Schedule and broadcast jobs
           items:
             - name: CLI
