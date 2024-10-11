@@ -14,31 +14,31 @@ ms.author: normesta
 
 # Storage task conditions
 
-This article describes the format of a storage task and the properties, operators, and operations that you can use to compose each storage task condition. To learn how to define conditions and operations, see [Define storage task conditions and operations](storage-task-conditions-operations-edit.md).
+This article describes the format of a storage task condition and the properties and operators that you can use to compose the clauses of each storage task condition. 
 
 > [!IMPORTANT]
 > Azure Storage Actions is currently in PREVIEW and is available these [regions](../overview.md#supported-regions).
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
+A storage task is stored as a resource in JSON format. 
+
 A storage task contains a set of conditions and operations in a JSON document. A _condition_ a collection of one or more _clauses_. An _operation_ is an action taken on each object that meets the conditions defined in the task. This article describes the format of conditions. To learn more about operations, see [Storage task operations](storage-task-operations.md).
 
+Show an example here of the entire JSON of a storage task with the highlighted part of the code snippet, the condition area.
+
 ```json
-"action": {
-    "if": {
-        "condition": "<clause>",
-        "operations": [
-            {
-                "name": "<operation name>",
-                "onSuccess": "continue",
-                "onFailure": "break"
-            }
-        ]
-    }
-}
+JSON goes here.
 ```
+
 ## Condition format
 
-Each clause clause in a condition contains a _property_, a _value_, and an _operator_. When the storage task runs, it uses the operator to compare a property with a value to determine whether a clause is met by the target object. In a clause, the operator always appears first followed by the property, and then the value. The clause defined in the following JSON allows operations only on Microsoft Word documents. The clause identifies all documents that end with the file extension `.docx`. Therefore, the operator is `endsWith`, the property is `Name`, the value is `.docx`. 
+Each clause clause in a condition contains a _property_, a _value_, and an _operator_. When the storage task runs, it uses the operator to compare a property with a value to determine whether a clause is met by the target object. In a clause, the operator always appears first followed by the property, and then the value. 
+
+The following image shows the parts of a conditional clause
+
+Put image here that highlights each section property, value, and operator.
+
+The clause defined in the following JSON allows operations only on Microsoft Word documents. The clause identifies all documents that end with the file extension `.docx`. Therefore, the operator is `endsWith`, the property is `Name`, the value is `.docx`. 
 
 ```json
 "action": {
@@ -49,7 +49,45 @@ Each clause clause in a condition contains a _property_, a _value_, and an _oper
 }
 ```
 
-## Supported properties and operators in a clause
+You will use this format to structure conditions when you define a storage task by using tools other than the Azure portal (Such as Azure PowerShell or the Azure CLI). The following example shows this format being used as input to the PowerShell command for creating a task.
+
+
+```powershell
+$conditions = "[[endsWith(Name, '.docx')]]"
+$tagoperation = <operation-definition-goes-here>
+    
+$task = New-AzStorageActionTask `
+    -Name mystoragetask `
+    -ResourceGroupName mystoragetaskresourcegroup `
+    -Location westus `
+    -Enabled `
+    -Description 'my powershell storage task' `
+    -IfCondition $conditions `
+    -IfOperation $operation `
+    -EnableSystemAssignedIdentity:$true
+```
+
+Azure CLI is very similar but includes escape sequences as required by the shell.
+
+```azurecli
+conditionclause="[[endsWith(Name,'/.docx'/)]]"
+operation="{<operation-definition-goes-here>}"
+
+az storage-actions task create \
+    -g mystoragetaskresourcegroup \
+    -n mystoragetask \
+    --identity "{type:SystemAssigned}" \ 
+    --action "{if:{condition:'"${conditionclause}"',operations:["${operation}"]}}" \
+    --description "My storage task" --enabled true
+```
+
+If you define conditions by using the Azure portal, you can see this JSON structure by opening the **Code** tab of the visual designer.
+
+> [!div class="mx-imgBorder"]
+> ![Screenshot of the condition JSON as it appears in the Code tab of the visual designer.](../media/storage-tasks/storage-task-conditions/storage-task-conditions-code-tab.png)
+
+
+## Supported properties
 
 The following table shows the properties that you can use to compose each clause of a condition. A clause can contain string, boolean, numeric, as well as date and time properties.
 
@@ -72,7 +110,7 @@ The following table shows the properties that you can use to compose each clause
 
 <sup>3</sup>    Can be set to a specific time or to a metadata value dynamically obtained from objects. See [Reference a value from object metadata](storage-task-conditions-operations-edit.md#reference-a-value-from-object-metadata).
 
-## Supported operators in a clause
+## Supported operators
 
 The following table shows the operators that you can use in a clause to evaluate the value of each type of property.
 
@@ -87,9 +125,15 @@ The following table shows the operators that you can use in a clause to evaluate
 | Matches |  | ||
 
 
-## Multiple clauses in a condition
+### Multiple clauses in a condition
 
-A condition can contain multiple clauses separated by a comma along with either the string `and` or `or`. The string `and` targets objects that meet the criteria in all clauses in the condition while `or` targets objects that meet the criterion in any of the clauses in the condition. The following JSON include two clauses along with the `and` string.
+A condition can contain multiple clauses separated by a comma along with either the string `and` or `or`. The string `and` targets objects that meet the criteria in all clauses in the condition while `or` targets objects that meet the criterion in any of the clauses in the condition. 
+
+The following image shows the location of the and / or operator in the condition
+
+Put image here.
+
+The following JSON include two clauses along with the `and` string.
 
 ```json
 "action": {
@@ -99,6 +143,11 @@ A condition can contain multiple clauses separated by a comma along with either 
     }
 }
 ```
+
+### Groups of clauses
+
+Something here about how groups look
+
 
 ## See also
 
