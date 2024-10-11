@@ -13,20 +13,6 @@ ms.custom: template-concept
 
 This document outlines the requirements and behaviors associated with managing Nexus Network Fabric (NNF) resources in Azure when dealing with multiple subscriptions. It describes various scenarios involving different levels of access permissions that can affect operations across subscriptions. This document also covers the linked access check implementation, which ensures that proper permissions and access controls are enforced when managing Network Fabric (NNF) resources across multiple subscriptions, verifying that the required cross-subscription links have the necessary authorizations in place.
 
-## Permissions overview
-
-To effectively manage NNF resources across Azure subscriptions, users must have the appropriate permissions. The following permissions are essential:
-
-### Subscription-level permissions
-
-- **Read access:** Users must have read access to view NNF resources within the subscription.
-- **Contributor access:** Users can create and manage resources, including configuring settings and deleting resources.
-- **Owner access:** Users have full control over the subscription, including the ability to manage permissions for other users.
-
-### Resource-level permissions
-
-- **Join access:** Users must have Join access to the specific NNF resources they wish to reference. For example, when a user tries to create an L2 or L3 isolation domain in **Subscription B** while referencing an NNF resource in **Subscription A**, the user must have Join access on the NNF resource.
-
 ## Subscription context and user permissions
 
 In this document, we consider two Azure subscriptions, **Subscription A** and **Subscription B**, where users interact with NNF resources. The permissions assigned to users in each subscription determine their ability to manage these resources effectively.
@@ -58,19 +44,37 @@ In this scenario, the user has no access to **Subscription A**, where the Networ
 >[!NOTE]
 >Network Fabric cannot be created in a different subscription than the referenced Network Fabric Controller (NFC).
 
-## Resource management considerations
+## Key considerations
 
-### Resource creation
+To effectively manage NNF resources across Azure subscriptions, users must have the appropriate permissions. The following permissions are essential:
+
+### Permission management 
+
+#### Subscription-level permissions
+
+- **Read access:** Users must have read access to view NNF resources within the subscription.
+
+- **Contributor access:** Users can create and manage resources, including configuring settings and deleting resources.
+
+- **Owner access:** Users have full control over the subscription, including the ability to manage permissions for other users.
+
+#### Resource-level permissions
+
+- **Join access:** Users must have Join access to the specific NNF resources they wish to reference. For example, when a user tries to create an L2 or L3 isolation domain in **Subscription B** while referencing an NNF resource in **Subscription A**, the user must have Join access on the NNF resource.
+
+### Resource management
+
+#### Resource creation
 
 - Ensure that users have the necessary subscription-level permissions before attempting to create NNF resources.
 
 - When referencing resources from another subscription, confirm that the user has both read access to that subscription and Join access to the specific NNF resource.
 
-### Resource configuration
+#### Resource configuration
 
 - Users with 'Contributor` or `Owner` access can configure NNF resources. However, they must have the appropriate permissions for each specific configuration action.
 
-### Resource deletion
+#### Resource deletion
 
 - Deleting NNF resources typically requires `Contributor`, `Owner` or `Delete` access on the resource. Users should be aware of any dependencies that may prevent deletion.
 
