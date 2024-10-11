@@ -60,9 +60,9 @@ az stack group create --name MyDeploymentStack --resource-group $RESOURCE_GROUP 
     kubectl apply -f tutorials/mq-realtime-fabric-dashboard/simulate-data.yaml
     ```
 
-1. The Kafka north-bound connector is [preconfigured in the deployment](https://github.com/Azure-Samples/explore-iot-operations/blob/e4bf8375e933c29c49bfd905090b37caef644135/tutorials/mq-realtime-fabric-dashboard/deployEdgeAndCloudResources.bicep#L331) to pick up messages from the MQTT topic where messages are being published to Event Hubs in the cloud.
+2. The Kafka north-bound connector is [preconfigured in the deployment](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/dataflow.bicep) to pick up messages from the MQTT topic where messages are being published to Event Hubs in the cloud.
 
-1. After about a minute, confirm the message delivery in Event Hubs metrics.
+3. After about a minute, confirm the message delivery in Event Hubs metrics.
 
     :::image type="content" source="media/tutorial-real-time-dashboard-fabric/event-hub-messages.png" alt-text="Screenshot of confirming Event Hubs messages." lightbox="media/tutorial-real-time-dashboard-fabric/event-hub-messages.png":::
 
