@@ -45,6 +45,8 @@ items:
         href: ./how-to-guide-set-up-networking.md
       - name: Create a private network connector for VPN
         href: ./how-to-guide-private-network.md
+      - name: Create a public network connector
+        href: ./how-to-guide-public-network.md
       - name: Manage license service
         href: ./how-to-guide-licenses.md
       - name: Import data
