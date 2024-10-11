@@ -122,7 +122,7 @@ Before creating the dataflow endpoint, assign a role to the managed identity tha
 In the *DataflowEndpoint* resource, specify the managed identity authentication method. In most cases, you don't need to specify other settings. Not specifying an audience creates a managed identity with the default audience scoped to your storage account.
 
 ```yaml
-datalakeStorageSettings:
+dataLakeStorageSettings:
   authentication:
     method: SystemAssignedManagedIdentity
     systemAssignedManagedIdentitySettings: {}
@@ -131,7 +131,7 @@ datalakeStorageSettings:
 If you need to override the system-assigned managed identity audience, you can specify the `audience` setting.
 
 ```yaml
-datalakeStorageSettings:
+dataLakeStorageSettings:
   authentication:
     method: SystemAssignedManagedIdentity
     systemAssignedManagedIdentitySettings:
@@ -163,7 +163,7 @@ kubectl create secret generic my-sas \
 Create the *DataflowEndpoint* resource with the secret reference.
 
 ```yaml
-datalakeStorageSettings:
+dataLakeStorageSettings:
   authentication:
     method: AccessToken
     accessTokenSettings:
@@ -175,7 +175,7 @@ datalakeStorageSettings:
 To use a user-assigned managed identity, specify the `UserAssignedManagedIdentity` authentication method and provide the `clientId` and `tenantId` of the managed identity.
 
 ```yaml
-datalakeStorageSettings:
+dataLakeStorageSettings:
   authentication:
     method: UserAssignedManagedIdentity
     userAssignedManagedIdentitySettings:
@@ -199,7 +199,7 @@ For example, to configure the maximum number of messages to 1000 and the maximum
 Set the values in the dataflow endpoint custom resource.
 
 ```yaml
-datalakeStorageSettings:
+dataLakeStorageSettings:
   batching:
     latencySeconds: 100
     maxMessages: 1000
