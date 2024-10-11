@@ -40,7 +40,7 @@ For more information on tagging resources, see [Tagging resources for Azure Depl
 
    :::image type="content" source="media/how-to-configure-azure-developer-cli-deployment-environments/catalog-url.png" alt-text="Screenshot of Azure portal showing the catalogs attached to a dev center, with clone URL highlighted." lightbox="media/how-to-configure-azure-developer-cli-deployment-environments/catalog-url.png":::
 
-1. To view the quick start catalog in GitHub, paste the **Clone URL** into the address bar and press Enter.
+1. To view the quick start catalog in GitHub, paste the **Clone URL** into the address bar and press Enter. Or, you can use the following URL: [Microsoft quick start catalog](https://aka.ms/deployment-environments/quickstart-catalog).
 
 1. In the GitHub repository, navigate to the **Environment-Definitions/ARMTemplates/Function-App-with-Cosmos_AZD-template** folder.
 
