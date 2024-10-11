@@ -133,6 +133,6 @@ As an Internet Service Provider or Internet Exchange Provider, you can create a 
 
 ## Related content
 
-- [Create or modify Exchange peering by using the portal](howto-exchange-portal.md).
-- [Convert a legacy Exchange peering to an Azure resource by using the portal](howto-legacy-exchange-portal.md).
-- [Internet peering frequently asked questions (FAQ)](faqs.md).
+- [Create or modify Exchange peering by using the portal](howto-exchange-portal.md)
+- [Convert a legacy Exchange peering to an Azure resource by using the portal](howto-legacy-exchange-portal.md)
+- [Internet peering frequently asked questions (FAQ)](faqs.md)
