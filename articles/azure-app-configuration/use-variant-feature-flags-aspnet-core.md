@@ -31,7 +31,7 @@ In this tutorial, you:
 
 ## Create a variant feature flag
 
-Create a variant feature flag called *Greeting* with three variants, *None*, *Simple*, and *Long*. Creating variant flags is described in the [Feature Flag quickstart](./manage-feature-flags.md#create-a-variant-feature-flag-preview).
+Create a variant feature flag called *Greeting* with no label with three variants, *None*, *Simple*, and *Long*. Creating variant flags is described in the [Feature Flag quickstart](./manage-feature-flags.md#create-a-variant-feature-flag-preview).
 
 | Variant Name | Variant Value | Allocation| 
 |---|---|---|
@@ -41,7 +41,7 @@ Create a variant feature flag called *Greeting* with three variants, *None*, *Si
 
 ## Set up an app to use the variants
 
-In this example, you create an ASP.NET web app named _Quote of the Day_. When the app is loaded, it displays a quote. Users can hit the heart button to like it. To improve user engagement, you want to explore whether a personalized greeting message will increase the number of users who like the quote. You create the _Greeting_ feature flag in Azure App Configuration with three variants, _None_, _Simple_, and _Long_. Users who receive the _None_ variant will see no greeting. Users who receive the _Simple_ variant will get a simple greeting message. Users who receive the _Long_ variant will get a slightly longer greeting. 
+In this example, you create an ASP.NET web app named _Quote of the Day_. When the app is loaded, it displays a quote. Users can interact with the heart button to like it. To improve user engagement, you want to explore whether a personalized greeting message will increase the number of users who like the quote. You create the _Greeting_ feature flag in Azure App Configuration with three variants, _None_, _Simple_, and _Long_. Users who receive the _None_ variant will see no greeting. Users who receive the _Simple_ variant will get a simple greeting message. Users who receive the _Long_ variant will get a slightly longer greeting. 
 
 ### Create an app and add user secrets
 
@@ -170,7 +170,7 @@ In this example, you create an ASP.NET web app named _Quote of the Day_. When th
     }
     ```
 
-    This `PageModel` picks a random quote, uses `GetVariantAsync` to get the variant for the current user, and sets a variable called "Greeting" to the variant's value. The `PageModel` also handles likes, which are sent as Post requests. 
+    This `PageModel` picks a random quote, uses `GetVariantAsync` to get the variant for the current user, and sets a variable called "Greeting" to the variant's value. The `PageModel` also handles likes, which are sent as post requests. 
 
 1. Open *index.cshtml* and overwrite the content for the quote app.
 

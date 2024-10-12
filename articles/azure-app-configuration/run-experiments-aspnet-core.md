@@ -123,7 +123,7 @@ In the [variants tutorial](./use-variant-feature-flags-aspnet-core.md), you crea
     using Microsoft.FeatureManagement.Telemetry;
     ```
 
-1. Under the line `.AddFeatureManagement()` or under `.WithTargeting()`, add telemetry handling for Application Insights with the `IFeatureManagementBuilder.AddApplicationInsightsTelemetry()`.
+1. Under the line `.AddFeatureManagement()` or under `.WithTargeting()`, call the `IFeatureManagementBuilder.AddApplicationInsightsTelemetry()` method. This causes feature evaluation events to be sent to the connected Application Insights.
 
     ```csharp
     // Add Azure App Configuration and feature management services to the container.
@@ -171,7 +171,7 @@ In the [variants tutorial](./use-variant-feature-flags-aspnet-core.md), you crea
     }
     ```
 
-    Now, when the `PageModel` handles Post requests, you're calling `_telemetryClient.TrackEvent("Like");`. This sends an event to Application Insights with the name *Like*. This event is automatically tied to the user and variant, and can be tracked by metrics.
+    Now, when the `PageModel` handles post requests, you're calling `_telemetryClient.TrackEvent("Like");`. This sends an event to Application Insights with the name *Like*. This event is automatically tied to the user and variant, and can be tracked by metrics.
 
 ### Build and run the app
 
