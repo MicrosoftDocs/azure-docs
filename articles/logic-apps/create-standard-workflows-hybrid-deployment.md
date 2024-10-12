@@ -183,11 +183,11 @@ To authenticate managed API connections in Standard logic app workflows hosted o
 
 1. For the object ID, follow these steps:
 
-   1. On the **Overview** page, select **Managed application in local directory**.
+   1. On the **Overview** page, select **Managed application in local directory**:
 
       :::image type="content" source="media/create-standard-workflows-hybrid-deployment/managed-application-link.png" alt-text="Screenshot shows app registration with selected link for managed application in local directory.":::
 
-   1. On the page that opens, copy the **Object ID** value.
+   1. On the page that opens, copy and save the **Object ID** value:
 
       :::image type="content" source="media/create-standard-workflows-hybrid-deployment/app-registration-object-id.png" alt-text="Screenshot shows app registration with selected object ID.":::
 
