@@ -291,7 +291,7 @@ After deployment completes, you can go to the Azure portal to view your logic ap
 
 ## Known issues and troubleshooting
 
-<a name="known-issues-portal">
+<a name="known-issues-portal"></a>
 
 ### Azure portal
 
