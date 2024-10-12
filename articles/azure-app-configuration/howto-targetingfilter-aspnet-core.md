@@ -136,7 +136,7 @@ In this section, you will create a web application that allows users to sign in 
 
 The targeting filter evaluates a user's feature state based on the user's targeting context, which comprises the user ID and the groups the user belongs to. In this example, you can use the signed-in user's email address as the user ID and the domain name of the email address as the group.
 
-There's two options for adding Targeting to your application:
+There are two options for adding targeting to your application:
 
 ### Default Targeting Accessor
 
