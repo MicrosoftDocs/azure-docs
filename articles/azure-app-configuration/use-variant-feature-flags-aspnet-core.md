@@ -13,7 +13,7 @@ ms.date: 10/10/2024
 
 # Tutorial: Use variant feature flags in Azure App Configuration
 
-Variants enable your application to support multiple states or variations. Variants can be allocated to specific users, groups, or percentile buckets. These can be particularly useful for feature rollouts, configuration rollouts, and feature experimentation (also known as A/B testing).
+Variant feature flags enable your application to support multiple variants of a feature. The variants of your feature can be assigned to specific users, groups, or percentile buckets. These can be particularly useful for feature rollouts, configuration rollouts, and feature experimentation (also known as A/B testing).
 
 > [!NOTE]
 > A quicker way to start your variant journey is to run the [Quote of the Day AZD sample.](https://github.com/Azure-Samples/quote-of-the-day-dotnet/)- This repository provides a comprehensive example, complete with variants, Azure resource provisioning, and a first experiment. This shows how to integrate Azure App Configuration with your .NET applications to run experiments.
@@ -33,7 +33,7 @@ In this tutorial, you:
 
 Create a variant feature flag called *Greeting* with three variants, *None*, *Simple*, and *Long*. Creating variant flags is described in the [Feature Flag quickstart](./manage-feature-flags.md#create-a-variant-feature-flag-preview).
 
-| Variant Name | Variant Value | Percentage | 
+| Variant Name | Variant Value | Allocation| 
 |---|---|---|
 | None *(Default)* | null | 50% |
 | Simple | "Hello!" | 25% |
