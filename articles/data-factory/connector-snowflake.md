@@ -699,9 +699,9 @@ To perform a side-by-side upgrade, complete the following steps:
 To perform an in-place upgrade, you need to edit the existing linked service payload and update dataset to use the new linked service.
 
 1. Update the type from **Snowflake** to **SnowflakeV2**.
-1. Modify the linked service payload from its legacy format to the new pattern. You can either fill in each field from the user interface after changing the type mentioned above, or update the payload directly through the JSON Editor. Refer to the [Linked service properties](#linked-service-properties) section in this article for the supported connection properties. The following examples show the differences in payload for the legacy and new Snowflake connectors:
+1. Modify the linked service payload from its legacy format to the new pattern. You can either fill in each field from the user interface after changing the type mentioned above, or update the payload directly through the JSON Editor. Refer to the [Linked service properties](#linked-service-properties) section in this article for the supported connection properties. The following examples show the differences in payload for the legacy and new Snowflake linked services:
 
-   **Legacy Snowflake connector JSON payload:**
+   **Legacy Snowflake linked service JSON payload:**
    ```json
      {
         "name": "Snowflake1",
@@ -722,7 +722,7 @@ To perform an in-place upgrade, you need to edit the existing linked service pay
     }
    ```
 
-   **New Snowflake connector JSON payload:**
+   **New Snowflake linked service JSON payload:**
    ```json
     {
         "name": "Snowflake2",
