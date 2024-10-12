@@ -34,7 +34,7 @@ Here are some of the benefits of using .NET feature management library:
   * Configuration values can change in real-time; feature flags can be consistent across the entire request
 * Simple to Complex Scenarios Covered
   * Toggle on/off features through declarative configuration file
-  * Service different variations of a feature to different users
+  * Service different variants of a feature to different users
   * Dynamically evaluate state of feature based on call to server
 * API extensions for ASP.NET Core and MVC framework
   * Routing
