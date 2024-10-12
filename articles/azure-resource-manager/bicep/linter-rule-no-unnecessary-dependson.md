@@ -71,7 +71,7 @@ resource webApplication 'Microsoft.Web/sites@2023-12-01' = {
 
 Use **Quick Fix** to remove the unnecessary dependsOn entry:
 
-:::image type="content" source="./media/linter-rule-no-unnecessary-dependson/linter-rule-no-unnecessary-dependson-quick-fix.png" alt-text="A screenshot of using Quick Fix for the no-unnecessary-dependson linter rule":::
+:::image type="content" source="./media/linter-rule-no-unnecessary-dependson/linter-rule-no-unnecessary-dependson-quick-fix.png" alt-text="A screenshot of using Quick Fix for the no-unnecessary-dependson linter rule.":::
 
 ## Next steps
 
