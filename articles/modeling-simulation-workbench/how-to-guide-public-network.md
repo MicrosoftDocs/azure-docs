@@ -12,15 +12,22 @@ ms.date: 10/11/2024
 
 # Set up a public IP network connector
 
-In Azure Modeling and Simulation Workbench, you can deploy a [connector](./concept-connector.md) that is accessible directly from the internet. The public IP connector uses publicly facing IP addresses. By default, access is denied to all incoming IP addresses and must be explictly granted through a specifying an address or address ranges. Public connectors are useful for training sessions, conferences, or other open work environments with stable or short-term requirements. All access to a chamber occurs through a connector, both the desktop session and the file transfers through the [data pipeline](./concept-data-pipeline.md) are controlled.
+In Azure Modeling and Simulation Workbench, you can deploy a [connector](./concept-connector.md) that is accessible directly from the internet. The public IP connector uses publicly facing IP addresses. By default, access is denied to all incoming IP addresses and must be explictly granted through a specifying an address or address ranges. Public connectors are useful for training sessions, conferences, or other open work environments with stable or short-term requirements. Both desktop and [data pipeline](./concept-data-pipeline.md) access are managed through the connector's allowlist.
 
-Public connectors aren't recommended for use in organizations that:
+## Suitability
 
-* Have complex network infrastructure
-* Use proxies
-* Require users to access resources through managed VPN user endpoints
-* Have requirements to individually catalog cloud service endpoints
-* Have restrictions on the use of nonstandard destination ports
+Public connectors aren't recommended for use in scenarios in which the organization:
+
+* Has complex network and security infrastructure
+* Uses proxies, especially
+* Requires users to access corporate resources through managed VPN user endpoints before accessing internet accessible zones
+* Has requirements to individually catalog cloud provider endpoints
+* Has restrictions on the use of nonstandard destination ports
+* Frequently rotates externally facing IP addresses, either via intentionally short DHCP leases or rotating exit IPs
+* Requires firewalls or custom network security at the permiter
+* Requires all cloud services to be connected to a virtual network
+
+If the above situations apply, a [private networking connector](how-to-guide-private-network.md) is recommended instead.
 
 ## Prerequisites
 
@@ -30,51 +37,49 @@ Public connectors aren't recommended for use in organizations that:
 
 ## Create the public IP connector
 
-Each chamber can have only one connector. If you have a private connector or other type connector already associated with the target chamber, you must first [delete the connector](#delete-a-connector). In the chamber where you want to create a public network connector:
+A chamber can have only one connector. If you have another type of connector already associated with the target chamber, you must first [delete the connector](#delete-a-connector) before creating a public connector. In the chamber where you want to create a public network connector:
 
 1. Select the **Connector** option in the **Settings** at the left.
     :::image type="content" source="media/howtoguide-private-network/chamber-select-connector.png" alt-text="Screenshot of chamber overview with Connector option outlined in red rectangle.":::
 1. In the **Connector** list screen, select **Create** from the action bar along the top.
     :::image type="content" source="media/howtoguide-private-network/connector-create.png" alt-text="Screenshot of Connector overview page with Create button highlighted in red.":::
-1. On the **Create chamber connector** page, on **Chamber Connector** tab, enter a **Name** for the connector.
-1. Choose whether the copy/paste permission should be enabled for the chamber. You can learn about security boundary implications copy and paste in the [Enable copy/paste in Azure Modeling and Simulation Workbench](how-to-guide-enable-copy-paste.md) article.
+1. On the **Create chamber connector** page, on the **Chamber Connector** tab, enter a **Name** for the connector.
+1. Choose whether the copy/paste permission should be enabled for this chamber. You can learn about security implications from enabling copy and paste in the [Enable copy/paste in Azure Modeling and Simulation Workbench](how-to-guide-enable-copy-paste.md) article.
 1. Under **Network Access**, select **None** in **Connect on-premises network**.
 1. Select **Review + create**.
-1. If validation passes, select **Create**. Private networking connectors take approximately 30 minutes to deploy.
+1. If validation passes, select **Create**. Public network connectors take approximately 30 minutes to deploy.
 
 ## Manage allowed public IP addresses
 
-IP addresses can be allowlisted in the Azure portal to allow connections to a chamber. Only one IP address can be specified for a Public IP connector when creating a new Workbench. After the connector is created, you can specify other IP addresses. Standard [CIDR (Classless Inter-Domain Routing)](/azure/virtual-network/virtual-networks-faq) mask notation can be used to allow ranges of IP addresses across a subnet.
+IP addresses can be allowlisted in the Azure portal to allow connections to a chamber from public IPs. During workbench creation, only a single IP address or range can be specified. After the connector is created, workbench owners and Chamber Admins can add, delete, or edit the allowlist. Standard [CIDR (Classless Inter-Domain Routing)](/azure/virtual-network/virtual-networks-faq) mask notation is used to define subnet ranges.
 
-Addresses and address ranges must not overlap. The CIDR mask is limited at a /24 address space. If larger address spaces are required, you'll need to create that address space using /24 subnets.
-
-Workbench Owners and Chamber Admins can add to and edit the allowlisted public addresses for a connector after the connector object is created.
+Addresses or address ranges must not overlap. The CIDR mask has a maximum size of a /24 address space. If larger address spaces are required, create that address space using a series of /24 subnets.
 
 ### Add, edit, or delete IP addresses or ranges
 
-IP addresses and ranges must be explicitly added in order to allow access to the chamber. To edit the list of allowed IP addresses:
+IP addresses and ranges must be explicitly added in order to allow access to the chamber. To add to, delete from, or edit the allowlist:
 
-1. Navigate to the connector where the changes will occur.
+1. Navigate to the connector.
 1. In the left pane, select the **Networking** option under the **Settings** section. The list of current IP addresses appear.
-1. Select **Edit allowed IP**. From here, you can delete existing IP addresses or add new ones.
+1. Select **Edit allowed IP**.
     :::image type="content" source="media/howtoguide-public-network/edit-allowlist.png" alt-text="Screenshot of public connector overview with Networking settings and Edit buttons highlighted in red.":::
-1. Add, edit, or delete operations can be done from the flyout menu.
+1. Add, edit, or delete operations are done from the flyout menu.
     * To add an IP address or range, select the **Add** button and enter a single address.
     * To delete an IP entry, first select the record, then select **Delete**.
     * To edit an IP entry, select the pencil icon at right, then edit the entry.
-        :::image type="content" source="media/howtoguide-public-network/edit-allowed-ip.png" alt-text="Screenshot of edit allowed IP page with Add, Delete, select box, edit icon and Save button highlighted in red.":::
-1. Select **Save** to save your changes.
+        :::image type="content" source="media/howtoguide-public-network/edit-allowed-ip.png" alt-text="Screenshot of edit allowed IP page with Add, Delete, select checkbox, edit icon and Save button highlighted in red.":::
+1. Select **Save** to save your changes and stage for processing.
 1. Select **Submit** to submit the updated allowlist to the connector.
-1. Refresh the view for connector networking and confirm that your changes appear.
+1. Refresh the view for connector networking to confirm your changes.
 
 > [!TIP]
 > Use the smallest address range possible to limit access only to IP addresses you intend. Frequently review the list of IP addresses you have given access to and review logs to determine list management activity.
 
 ### Export the allowlist
 
-The allowlist for a public connector is saved as part of the properties bundle in JSON format. If you would like to export the allowlist for later reference or to recreate the same list in a new connector, you need to access the connector's JSON template. You need to be on the connector overview page in the portal before proceeding.
+The allowlist for a public connector is a component of the properties bundle in the Azure object. If you would like to export the allowlist for later reference or to recreate the same list, you need to access the connector's JSON template. Navigate to the connector overview page in the portal before proceeding.
 
-1. Select the **JSON View** text on the right of the **Essentials** pane.
+1. Select the **JSON View** text from the **Essentials** pane.
     :::image type="content" source="media/howtoguide-public-network/connector-overview-json.png" alt-text="Screenshot of connector essentials pane with JSON View link highlighted in red.":::
 
 #### [Azure portal](#tab/portal)
@@ -89,21 +94,21 @@ If you want to export the JSON using PowerShell, you need to have the Resource I
 
 In a PowerShell client, retrieve the connector's property bundle.
 
-```powershell
-> $ResourceId = <yourResourceId>
-> $connectorProperties = Get-AzResource -ResourceId $ResourceId | Select-Object -ExpandProperty properties
-> $connectorProperties.networkAcls
+```azurepowershell
+$ResourceId = <yourResourceId>
+$connectorProperties = Get-AzResource -ResourceId $ResourceId | Select-Object -ExpandProperty properties
+$connectorProperties.networkAcls
 ```
 
 ---
 
 ## Immediately terminate access
 
-Deleting an IP address from the connector allowlist doesn't terminate active sessions. Only new sessions, unestablished are denied. To immediately terminate a session from an address or range, [delete](#add-edit-or-delete-ip-addresses-or-ranges) the address entry from the allowlist, submit the changes, then [stop or restart the connector](./how-to-guide-start-stop-restart.md).
+Deleting an IP address from the connector allowlist doesn't terminate active sessions. Only new, previously unestablished sessions are denied. To immediately terminate a session from an IP address or range, [delete](#add-edit-or-delete-ip-addresses-or-ranges) the address entry from the allowlist, submit the changes, then [restart the connector](./how-to-guide-start-stop-restart.md#restart-a-chamber-connector-or-vm).
 
 ## Idle the connector
 
-Idle mode sets the chambers into a preserved, but inactive state. Costs are reduced while still maintaining your configuration and settings. Learn more about idle mode in the [Manage chamber idle mode](how-to-guide-chamber-idle.md) article.
+Idle mode places a chamber into an inactive, low-cost state without having to delete resources or move data. Costs are reduced while still maintaining your configuration, data, and settings. Learn more about idle mode in the [Manage chamber idle mode](how-to-guide-chamber-idle.md) article.
 
 ## Start, stop, or restart a connector
 
@@ -129,13 +134,13 @@ For the Public IP connector, Azure IP addresses are taken from Azure's IP ranges
 > [!CAUTION]
 > The pool of IP addresses can increase not only by adding VMs, but users as well. Connection nodes are scaled up or down when users are added to or removed from the chamber. Any discovery of endpoint IP addresses will be incomplete if the userbase changes.
 
-For more control over destination IP addresses and to minimize changes to corporate firewalls, a [private networking connector](how-to-guide-private-network.md) is recommended. When using a VPN Gateway, the access point of the workbench is limited only to the gateway IP address or directly from a peered virtual network.
+For more control over destination IP addresses and to minimize changes to corporate firewalls, a [private networking connector](how-to-guide-private-network.md) is recommended. A VPN Gateway and the private networking connector allow greater control of the ingress, egress, and name server operations of the workbench.  The access point to the workbench is the single gateway IP address or a peered virtual network.
 
-Network interfaces aren't deployed to the user's subscription and are therefore not visible. User's can't attach network security groups (NSG) nor can they apply other Azure networking services such as firewalls to these interfaces.
+Network interfaces aren't deployed into the user's subscription and aren't accessible to users. Users can't associate network security groups (NSG) nor can they apply other Azure networking services such as firewalls to these interfaces.
 
 ## DNS zones
 
-Modeling and Simulation Workbench creates three private domain name service (DNS) zones for a private network deployment. Each zone corresponds to one of the workbench services for file uploading, file downloading, and desktop connections. No DNS server is created. Administrators must join the zones to their own services.
+The public connector option uses Azure public DNS servers and creates a CNAME entry for each of your named endpoints. The subdomain zone and its corresponding service are listed in the following table. There are three zones for public cloud and two for Azure Government (US) cloud.
 
 | Service                               | Public cloud DNS zone | Azure Gov cloud DNS Zone    |
 |:--------------------------------------|:----------------------|-----------------------------|
@@ -150,10 +155,11 @@ If you wish to delete the workbench, chamber, or change the connector type, you 
 1. Navigate to the connector to be deleted.
 1. Select **Delete** from the action bar.
 
-The delete operation takes approximately eight minutes. Connections are immediately terminated and all allowed addresses are deleted.
+The delete operation takes approximately eight minutes. Connections are immediately terminated and all allowed addresses are deleted. If you need to save the addresses, see the [Export the allowlist](#export-the-allowlist) section.
 
 ## Related content
 
 * [Manage chamber idle mode](how-to-guide-chamber-idle.md)
+* [Quickstart: Connect to desktop](quickstart-connect-desktop.md)
 * [Export data from Azure Modeling and Simulation Workbench](how-to-guide-download-data.md)
 * [Import data into Azure Modeling and Simulation Workbench](how-to-guide-upload-data.md)

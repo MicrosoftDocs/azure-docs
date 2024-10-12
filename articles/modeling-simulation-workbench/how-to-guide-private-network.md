@@ -90,7 +90,9 @@ The Azure Modeling and Simulation Workbench require certain ports to be accessib
 
 The private network connector doesn't deploy any public IP network interfaces. You create your own gateway interface if connecting directly from the internet. Your choice of which region you deploy your gateway to determines from which pool of Azure public IP addresses your gateway is chosen. Azure IP addresses are taken from Azure's IP ranges for the location in which the Workbench was deployed. A list of all Azure IP addresses and Service tags is available at [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519&msockid=1b155eb894cc6c3600a84ac5959a6d3f).
 
-The private IP addresses for the private networking connector are visible private network interface connections on the virtual network's subnet you specified during deployment.
+The private IP addresses for the private networking connector are implemented as private network interface connections (NIC) on the virtual network's subnet you specified during initial deployment.
+
+Unlike the public connector, the network interfaces are deployed into your customer subscription and you can associate a network security group (NSG) with the interfaces, the virtual network, or configure a firewall on the virtual network or gateway.
 
 ## Immediately terminate access
 
@@ -98,7 +100,7 @@ Access to the chambers can be immediately terminated by [stopping the connector]
 
 ## Idle the connector
 
-Idle mode sets the chambers into a preserved, but inactive state. Costs are significantly reduced while still maintaining your configuration and settings. Learn more about idle mode in the [Manage chamber idle mode](how-to-guide-chamber-idle.md) article.
+Idle mode sets the chambers into a preserved, but inactive state. Costs are reduced while still maintaining your configuration and settings. Learn more about idle mode in the [Manage chamber idle mode](how-to-guide-chamber-idle.md) article.
 
 ## Start, stop, or restart a connector
 
