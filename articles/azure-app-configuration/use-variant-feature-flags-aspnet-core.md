@@ -8,7 +8,7 @@ ms.author: rossgrambo
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 10/02/2024
+ms.date: 10/10/2024
 ---
 
 # Tutorial: Use variant feature flags in Azure App Configuration
@@ -66,15 +66,15 @@ In this example, you create an ASP.NET web app named _Quote of the Day_. When th
     <PackageReference Include="Microsoft.FeatureManagement.AspNetCore" Version="4.0.0" />
     ```
 
-1. In *Program.cs*, under the line `var builder = WebApplication.CreateBuilder(args);`, add the App Configuration provider, which pulls down the configuration from Azure when the application starts. By default, the UseFeatureFlags method includes all feature flags with no label and sets a cache expiration time of 30 seconds.
+1. In *Program.cs*, under the line `var builder = WebApplication.CreateBuilder(args);`, add the App Configuration provider, which pulls down the configuration from Azure when the application starts. By default, the UseFeatureFlags method includes all feature flags with no label.
 
     ```csharp
     builder.Configuration
-        .AddAzureAppConfiguration(o =>
+        .AddAzureAppConfiguration(options =>
         {
-            o.Connect(builder.Configuration.GetConnectionString("AppConfiguration"));
+            options.Connect(builder.Configuration.GetConnectionString("AppConfiguration"));
     
-            o.UseFeatureFlags();
+            options.UseFeatureFlags();
         });
     ```
 
@@ -170,7 +170,7 @@ In this example, you create an ASP.NET web app named _Quote of the Day_. When th
     }
     ```
 
-    This `PageModel` picks a random quote, uses `GetVariantAsync` to get the variant for the current user, and sets a variable called "Greeting" to the variant's value. The `PageModel` also handles Post requests. For now- this event only succeeds or fails depending if the user is logged in.
+    This `PageModel` picks a random quote, uses `GetVariantAsync` to get the variant for the current user, and sets a variable called "Greeting" to the variant's value. The `PageModel` also handles likes, which are sent as Post requests. 
 
 1. Open *index.cshtml* and overwrite the content for the quote app.
 

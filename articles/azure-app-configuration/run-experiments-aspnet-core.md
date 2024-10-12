@@ -76,7 +76,7 @@ Now that you’ve connected the Application Insights (preview) resource to the A
 
 In the [variants tutorial](./use-variant-feature-flags-aspnet-core.md), you created an ASP.NET web app named _Quote of the Day_ which used three variants, _None_, _Simple_, and _Long_. Now, we will enable the app to collect and save the telemetry of your user interactions in Application Insights. With Split Experimentation Workspace, you can analyze the effectiveness of your experiment.
 
-### Create an app and add user secrets
+### Navigate to the Quote of the Day app and add user secret
 
 1. In the command prompt, navigate to the *QuoteOfTheDay* folder and run the following command to create a [user secret](/aspnet/core/security/app-secrets) for the application. This secret holds the connection string for App Insights
 
@@ -225,7 +225,7 @@ The app we created only specifies one event, but you can have multiple events an
 
 ## Get experimentation results
 
-To put your newly setup experiment to the test and generate results for you to analyze, simulate some traffic to your application and wait a 10 to 15 minutes. 
+To put your newly setup experiment to the test and generate results for you to analyze, simulate some traffic to your application and wait a 10 to 15 minutes.
 
 To view the results of your experiment, navigate to **Feature Manager** and on the list of variant feature flags, click on **...** > **Experiment**, or select the **Active** link in the **Experiment** column. This column isn't displayed by default. To show it, in **Feature manager**, select **Manage view** > **Edit Columns** > **Add Column** > **Experiment** and  **Apply**.
 

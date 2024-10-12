@@ -150,6 +150,10 @@
         href: howto-targetingfilter.md
       - name: ASP.NET Core
         href: howto-targetingfilter-aspnet-core.md
+    - name: Use variant feature flags
+      items:
+      - name: ASP.NET Core
+        href: use-variant-feature-flags-aspnet-core.md
     - name: Run experiments with variant feature flags
       items:
       - name: ASP.NET Core
