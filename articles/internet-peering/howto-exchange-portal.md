@@ -79,9 +79,8 @@ As an Internet Exchange Provider, you can create an exchange peering request usi
 
     :::image type="content" source="./media/howto-exchange-portal/peering-connections.png" alt-text="Screenshot that shows the peering connections in the Azure portal." lightbox="./media/howto-exchange-portal/peering-connections.png":::
 
-    - **Connection State** corresponds to the state of the peering connection setup. The states displayed in this field follow the state diagram shown in the [Exchange peering walkthrough](../walkthrough-exchange-all.md).
+    - **Connection State** corresponds to the state of the peering connection setup. The states displayed in this field follow the state diagram shown in the [Exchange peering walkthrough](walkthrough-exchange-all.md).
     - **IPv4 Session State** and **IPv6 Session State** correspond to the IPv4 and IPv6 BGP session states, respectively. 
-
 
 ## Modify an Exchange peering
 
