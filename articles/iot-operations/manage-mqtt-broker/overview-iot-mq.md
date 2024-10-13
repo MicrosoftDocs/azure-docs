@@ -21,7 +21,7 @@ MQTT broker features an enterprise-grade, standards-compliant MQTT broker that i
 
 ## MQTT compliant
 
-MQTT broker features a standards-compliant MQTT broker that supports both MQTT v3.1.1 and MQTT v5. 
+IoT Operations features a standards-compliant MQTT broker that supports both MQTT v3.1.1 and MQTT v5. 
 
 Message Queue Telemetry Transport (MQTT) has emerged as the *lingua franca* among protocols in the IoT space. MQTT's simple design allows a single broker to serve tens of thousands of clients simultaneously, with a lightweight publish-subscribe topic creation and management. Many IoT devices support MQTT natively out-of-the-box, with the long tail of IoT protocols being rationalized into MQTT by downstream translation gateways.
 
