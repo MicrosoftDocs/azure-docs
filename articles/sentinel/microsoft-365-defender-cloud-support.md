@@ -7,7 +7,7 @@ ms.topic: reference
 ms.date: 02/01/2023
 
 
-#Customer intent: [AI]As a security analyst, I want to understand the support for Microsoft Defender XDR connector data types in different cloud environments so that I can effectively monitor and respond to security incidents using Microsoft Sentinel.
+#Customer intent: As a security analyst, I want to understand the support for Microsoft Defender XDR connector data types in different cloud environments so that I can effectively monitor and respond to security incidents using Microsoft Sentinel.
 
 ---
 

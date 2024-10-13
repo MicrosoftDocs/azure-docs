@@ -7,7 +7,7 @@ ms.date: 01/09/2023
 ms.author: yelevin
 
 
-#Customer intent: [AI]As a security analyst, I want to handle data ingestion delays in scheduled analytics rules so that I can ensure accurate and timely threat detection.
+#Customer intent: As a security analyst, I want to handle data ingestion delays in scheduled analytics rules so that I can ensure accurate and timely threat detection.
 
 ---
 

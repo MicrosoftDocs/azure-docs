@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 05/03/2022
 
 
-#Customer intent: [AI]As a data engineer, I want to compare Azure target platforms for historical data migration so that I can select the most suitable option based on performance, cost, usability, and management overhead.
+#Customer intent: As a data engineer, I want to compare Azure target platforms for historical data migration so that I can select the most suitable option based on performance, cost, usability, and management overhead.
 
 ---
 

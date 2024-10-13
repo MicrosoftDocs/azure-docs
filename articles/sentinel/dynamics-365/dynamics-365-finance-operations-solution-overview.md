@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 05/14/2023
 
 
-#Customer intent: [AI]As a security administrator, I want to monitor and protect Dynamics 365 Finance and Operations so that I can detect and respond to threats and suspicious activities effectively.
+#Customer intent: As a security administrator, I want to monitor and protect Dynamics 365 Finance and Operations so that I can detect and respond to threats and suspicious activities effectively.
 
 ---
 

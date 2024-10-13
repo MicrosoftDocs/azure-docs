@@ -7,7 +7,7 @@ ms.date: 08/02/2021
 ms.author: ofshezaf
 
 
-#Customer intent: [AI]As a security analyst, I want to understand the known issues and limitations of the Advanced Security Information Model (ASIM) so that I can effectively troubleshoot and optimize my queries in Microsoft Sentinel.
+#Customer intent: As a security analyst, I want to understand the known issues and limitations of the Advanced Security Information Model (ASIM) so that I can effectively troubleshoot and optimize my queries in Microsoft Sentinel.
 
 ---
 

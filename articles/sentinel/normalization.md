@@ -7,7 +7,7 @@ ms.date: 11/09/2021
 ms.author: ofshezaf
 
 
-#Customer intent: [AI]As a security analyst, I want to use the Advanced Security Information Model (ASIM) so that I can normalize and correlate data from diverse sources for more efficient threat detection and investigation.
+#Customer intent: As a security analyst, I want to use the Advanced Security Information Model (ASIM) so that I can normalize and correlate data from diverse sources for more efficient threat detection and investigation.
 
 ---
 

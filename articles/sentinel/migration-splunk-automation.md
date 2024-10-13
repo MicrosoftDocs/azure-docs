@@ -5,7 +5,7 @@ author: austinmccollum
 ms.author: austinmc
 ms.topic: how-to
 ms.date: 09/11/2024
-#Customer intent: [AI]As a security engineer, I want to migrate my Splunk SOAR automation to Microsoft Sentinel so that I can leverage Sentinel's advanced orchestration and automation capabilities for incident response.
+#Customer intent: As a security engineer, I want to migrate my Splunk SOAR automation to Microsoft Sentinel so that I can leverage Sentinel's advanced orchestration and automation capabilities for incident response.
 ---
 
 # Migrate Splunk SOAR automation to Microsoft Sentinel

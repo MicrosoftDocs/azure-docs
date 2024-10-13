@@ -7,7 +7,7 @@ ms.date: 11/09/2021
 ms.author: yelevin
 
 
-#Customer intent: [AI]As a security analyst, I want to understand the ASIM DHCP normalization schema so that I can effectively analyze DHCP server events and enhance network security.
+#Customer intent: As a security analyst, I want to understand the ASIM DHCP normalization schema so that I can effectively analyze DHCP server events and enhance network security.
 
 ---
 

@@ -7,7 +7,7 @@ ms.date: 11/09/2021
 ms.author: ofshezaf
 
 
-#Customer intent: [AI]As a security analyst, I want to use ASIM parsers to normalize and query security data so that I can efficiently analyze and correlate information from various sources.
+#Customer intent: As a security analyst, I want to use ASIM parsers to normalize and query security data so that I can efficiently analyze and correlate information from various sources.
 
 --- 
 

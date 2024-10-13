@@ -7,7 +7,7 @@ ms.date: 05/02/2022
 ms.author: ofshezaf
 
 
-#Customer intent: [AI]As a security analyst, I want to deploy and use ASIM parsers so that I can normalize and analyze security event data from various sources effectively.
+#Customer intent: As a security analyst, I want to deploy and use ASIM parsers so that I can normalize and analyze security event data from various sources effectively.
 
 --- 
 

@@ -8,7 +8,7 @@ ms.author: ofshezaf
 
 
 
-#Customer intent: [AI]As a security analyst, I want to understand the common schema fields in the Advanced Security Information Model (ASIM) so that I can accurately interpret and normalize event data across different sources.
+#Customer intent: As a security analyst, I want to understand the common schema fields in the Advanced Security Information Model (ASIM) so that I can accurately interpret and normalize event data across different sources.
 
 ---
 

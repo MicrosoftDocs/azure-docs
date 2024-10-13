@@ -9,7 +9,7 @@ ms.service: microsoft-sentinel
 #Customer intent: As a SOC architect, I want to learn about how Microsoft Sentinel can extend across workspaces so I can determine whether I need this capability and prepare accordingly.
 
 
-#Customer intent: [AI]As a security operations center (SOC) manager, I want to understand how to extend and manage Microsoft Sentinel across multiple workspaces and tenants so that I can ensure compliance, data ownership, and efficient monitoring for my organization.
+#Customer intent: As a security operations center (SOC) manager, I want to understand how to extend and manage Microsoft Sentinel across multiple workspaces and tenants so that I can ensure compliance, data ownership, and efficient monitoring for my organization.
 
 ---
 

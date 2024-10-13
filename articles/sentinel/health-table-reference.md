@@ -8,7 +8,7 @@ ms.date: 01/17/2023
 ms.service: microsoft-sentinel
 
 
-#Customer intent: [AI]As a security operations analyst, I want to understand the fields in the SentinelHealth table so that I can monitor the health and performance of my SIEM resources effectively.
+#Customer intent: As a security operations analyst, I want to understand the fields in the SentinelHealth table so that I can monitor the health and performance of my SIEM resources effectively.
 
 ---
 

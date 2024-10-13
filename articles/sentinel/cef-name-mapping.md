@@ -7,7 +7,7 @@ ms.topic: reference
 ms.date: 08/12/2024
 
 
-#Customer intent: [AI]As a security analyst, I want to understand the mapping between CEF fields and CommonSecurityLog fields so that I can accurately interpret and analyze security events in my SIEM system.
+#Customer intent: As a security analyst, I want to understand the mapping between CEF fields and CommonSecurityLog fields so that I can accurately interpret and analyze security events in my SIEM system.
 
 ---
 

@@ -7,7 +7,7 @@ ms.date: 01/09/2023
 ms.author: yelevin
 
 
-#Customer intent: [AI]As a security analyst, I want to monitor Azure Virtual Desktop environments using Microsoft Sentinel so that I can enhance remote work capabilities while maintaining security.
+#Customer intent: As a security analyst, I want to monitor Azure Virtual Desktop environments using Microsoft Sentinel so that I can enhance remote work capabilities while maintaining security.
 
 ---
 

@@ -7,7 +7,7 @@ ms.date: 11/09/2021
 ms.author: ofshezaf
 
 
-#Customer intent: [AI]As a security analyst, I want to understand the ASIM DNS normalization schema so that I can effectively analyze DNS events across different sources.
+#Customer intent: As a security analyst, I want to understand the ASIM DNS normalization schema so that I can effectively analyze DNS events across different sources.
 
 ---
 

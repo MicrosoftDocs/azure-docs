@@ -7,7 +7,7 @@ ms.date: 11/09/2021
 ms.author: ofshezaf
 
 
-#Customer intent: [AI]As a security analyst, I want to understand the ASIM File Event normalization schema so that I can effectively monitor and analyze file activity across different systems.
+#Customer intent: As a security analyst, I want to understand the ASIM File Event normalization schema so that I can effectively monitor and analyze file activity across different systems.
 
 ---
 

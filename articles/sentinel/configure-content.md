@@ -7,7 +7,7 @@ ms.date: 07/05/2023
 ms.author: cwatson
 
 
-#Customer intent: [AI]As a security operations analyst, I want to configure Microsoft Sentinel security content so that I can detect, monitor, and respond to security threats effectively.
+#Customer intent: As a security operations analyst, I want to configure Microsoft Sentinel security content so that I can detect, monitor, and respond to security threats effectively.
 
 ---
 

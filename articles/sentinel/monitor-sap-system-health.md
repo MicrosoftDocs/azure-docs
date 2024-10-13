@@ -8,7 +8,7 @@ ms.date: 11/09/2022
 ms.service: microsoft-sentinel
 
 
-#Customer intent: [AI]As an SAP administrator, I want to monitor the health and performance of my SAP systems using Microsoft Sentinel so that I can ensure their proper functioning and quickly address any issues.
+#Customer intent: As an SAP administrator, I want to monitor the health and performance of my SAP systems using Microsoft Sentinel so that I can ensure their proper functioning and quickly address any issues.
 
 ---
 

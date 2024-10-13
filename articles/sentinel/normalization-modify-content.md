@@ -7,7 +7,7 @@ ms.date: 11/09/2021
 ms.author: ofshezaf
 
 
-#Customer intent: [AI]As a security analyst, I want to modify custom analytics rules to use the Advanced Security Information Model (ASIM) so that I can leverage normalized data for more efficient and consistent threat detection.
+#Customer intent: As a security analyst, I want to modify custom analytics rules to use the Advanced Security Information Model (ASIM) so that I can leverage normalized data for more efficient and consistent threat detection.
 
 ---
 

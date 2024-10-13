@@ -7,7 +7,7 @@ ms.date: 07/05/2023
 ms.author: cwatson
 
 
-#Customer intent: [AI]As a security architect, I want to use Microsoft Sentinel across multiple workspaces so that I can efficiently monitor and analyze security data across my entire organization.
+#Customer intent: As a security architect, I want to use Microsoft Sentinel across multiple workspaces so that I can efficiently monitor and analyze security data across my entire organization.
 
 ---
 

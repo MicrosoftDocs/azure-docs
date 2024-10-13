@@ -10,7 +10,7 @@ ms.author: ofshezaf
 
 
 
-#Customer intent: [AI]As a security analyst, I want to understand the Web Session normalization schema so that I can accurately interpret and analyze HTTP network session data for threat detection and response.
+#Customer intent: As a security analyst, I want to understand the Web Session normalization schema so that I can accurately interpret and analyze HTTP network session data for threat detection and response.
 
 ---
 

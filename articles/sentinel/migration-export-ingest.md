@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 05/03/2022
 
 
-#Customer intent: [AI]As a data engineer, I want to ingest historical data into my target platform so that I can ensure seamless data migration and integration for analysis and reporting.
+#Customer intent: As a data engineer, I want to ingest historical data into my target platform so that I can ensure seamless data migration and integration for analysis and reporting.
 
 ---
 

@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 05/03/2022
 
 
-#Customer intent: [AI]As a security operations manager, I want to update our SOC processes and analyst workflows for Microsoft Sentinel so that we can effectively manage and respond to cybersecurity incidents using the new toolsets and features.
+#Customer intent: As a security operations manager, I want to update our SOC processes and analyst workflows for Microsoft Sentinel so that we can effectively manage and respond to cybersecurity incidents using the new toolsets and features.
 
 ---
 

@@ -7,7 +7,7 @@ ms.topic: troubleshooting
 ms.date: 09/08/2022
 
 
-#Customer intent: [AI]As a cloud security engineer, I want to troubleshoot AWS S3 connector issues so that I can ensure seamless log ingestion into my SIEM system.
+#Customer intent: As a cloud security engineer, I want to troubleshoot AWS S3 connector issues so that I can ensure seamless log ingestion into my SIEM system.
 
 ---
 

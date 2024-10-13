@@ -8,7 +8,7 @@ ms.author: ofshezaf
 
 
 
-#Customer intent: [AI]As a security analyst, I want to understand the ASIM Network Session normalization schema so that I can effectively analyze and correlate network session data from various sources.
+#Customer intent: As a security analyst, I want to understand the ASIM Network Session normalization schema so that I can effectively analyze and correlate network session data from various sources.
 
 ---
 

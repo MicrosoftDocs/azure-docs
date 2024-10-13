@@ -7,7 +7,7 @@ ms.date: 11/09/2021
 ms.author: ofshezaf
 
 
-#Customer intent: [AI]As a security analyst, I want to use the Registry Event normalization schema so that I can standardize and analyze Windows Registry activity across different monitoring systems.
+#Customer intent: As a security analyst, I want to use the Registry Event normalization schema so that I can standardize and analyze Windows Registry activity across different monitoring systems.
 
 ---
 

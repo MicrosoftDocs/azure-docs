@@ -7,7 +7,7 @@ ms.date: 07/24/2024
 ms.author: cwatson
 
 
-#Customer intent: [AI]As a SOC manager, I want to deploy Microsoft Sentinel alongside my existing, on-premises SIEM so that I can transition to a more flexible and cost-effective security solution without disrupting current operations.
+#Customer intent: As a SOC manager, I want to deploy Microsoft Sentinel alongside my existing, on-premises SIEM so that I can transition to a more flexible and cost-effective security solution without disrupting current operations.
 
 ---
 
