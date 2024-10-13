@@ -41,6 +41,8 @@ items:
     items:
       - name: About connectors
         href: ./concept-connector.md
+      - name: Networking overview
+        href: ./concept-network.md
       - name: Set up networking
         href: ./how-to-guide-set-up-networking.md
       - name: Create a private network connector for VPN
