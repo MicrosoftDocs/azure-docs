@@ -5,12 +5,14 @@ services: cdn
 author: duongau
 manager: kumudd
 ms.service: azure-cdn
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/20/2024
 ms.author: duau
 ---
 
 # Understanding Azure Content Delivery Network billing
+
+[!INCLUDE [Azure CDN from Microsoft (classic) retirement notice](../../includes/cdn-classic-retirement.md)]
 
 This FAQ describes the billing structure for content hosted by Azure Content Delivery Network.
 

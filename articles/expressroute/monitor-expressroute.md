@@ -24,7 +24,7 @@ For more information about the resource types for ExpressRoute, see [Azure Expre
 
 Resource Logs aren't collected and stored until you create a diagnostic setting and route them to one or more locations.
 
-See [Create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/essentials/diagnostic-settings.md) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for *Azure ExpressRoute* are listed in [Azure ExpressRoute monitoring data reference](monitor-expressroute-reference.md#resource-logs).
+See [Create diagnostic setting to collect platform logs and metrics in Azure](/azure/azure-monitor/essentials/diagnostic-settings) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for *Azure ExpressRoute* are listed in [Azure ExpressRoute monitoring data reference](monitor-expressroute-reference.md#resource-logs).
 
 > [!IMPORTANT]
 > Enabling these settings requires additional Azure services (storage account, event hub, or Log Analytics), which may increase your cost. To calculate an estimated cost, visit the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
@@ -39,11 +39,11 @@ For a list of available metrics for ExpressRoute, see [Azure ExpressRoute monito
 
 ## Analyzing metrics
 
-You can analyze metrics for *Azure ExpressRoute* with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Analyze metrics with Azure Monitor metrics explorer](../azure-monitor/essentials/analyze-metrics.md) for details on using this tool.
+You can analyze metrics for *Azure ExpressRoute* with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Analyze metrics with Azure Monitor metrics explorer](/azure/azure-monitor/essentials/analyze-metrics) for details on using this tool.
 
 :::image type="content" source="./media/expressroute-monitoring-metrics-alerts/metrics-page.png" alt-text="Screenshot of the metrics dashboard for ExpressRoute.":::
 
-For reference, you can see a list of [all resource metrics supported in Azure Monitor](../azure-monitor/essentials/metrics-supported.md).
+For reference, you can see a list of [all resource metrics supported in Azure Monitor](/azure/azure-monitor/essentials/metrics-supported).
 
 - To view **ExpressRoute** metrics, filter by Resource Type *ExpressRoute circuits*. 
 - To view **Global Reach** metrics, filter by Resource Type *ExpressRoute circuits* and select an ExpressRoute circuit resource that has Global Reach enabled. 
@@ -66,7 +66,7 @@ For the ExpressRoute metrics, see [Azure ExpressRoute monitoring data reference]
 
 ### Aggregation Types
 
-Metrics explorer supports sum, maximum, minimum, average and count as [aggregation types](../azure-monitor/essentials/metrics-charts.md#aggregation). You should use the recommended Aggregation type when reviewing the insights for each ExpressRoute metric.
+Metrics explorer supports sum, maximum, minimum, average and count as [aggregation types](/azure/azure-monitor/essentials/metrics-charts#aggregation). You should use the recommended Aggregation type when reviewing the insights for each ExpressRoute metric.
 
 - Sum: The sum of all values captured during the aggregation interval.
 - Count: The number of measurements captured during the aggregation interval.
@@ -99,9 +99,9 @@ You can also view ExpressRoute metrics by going to your ExpressRoute circuit res
 
 Data in Azure Monitor Logs is stored in tables where each table has its own set of unique properties.  
 
-All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](../azure-monitor/essentials/resource-logs-schema.md#top-level-common-schema). The schema for ExpressRoute resource logs is found in the [Azure ExpressRoute Data Reference](monitor-expressroute-reference.md#schemas).
+All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](/azure/azure-monitor/essentials/resource-logs-schema#top-level-common-schema). The schema for ExpressRoute resource logs is found in the [Azure ExpressRoute Data Reference](monitor-expressroute-reference.md#schemas).
 
-The [Activity log](../azure-monitor/essentials/activity-log.md) is a platform logging that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.
+The [Activity log](/azure/azure-monitor/essentials/activity-log) is a platform logging that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.
 
 ExpressRoute stores data in the following tables.
 
@@ -123,7 +123,7 @@ To view these tables, navigate to your ExpressRoute circuit resource and select 
 
 ### Sample Kusto queries
 
-These queries work with the [new language](../azure-monitor/logs/log-query-overview.md).
+These queries work with the [new language](/azure/azure-monitor/logs/log-query-overview).
 
 - Query for Border Gateway Protocol (BGP) route table learned over the last 12 hours.
 

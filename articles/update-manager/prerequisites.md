@@ -5,7 +5,7 @@ ms.service: azure-update-manager
 ms.custom: linux-related-content
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 07/14/2024
+ms.date: 09/24/2024
 ms.topic: overview
 ---
 
@@ -16,6 +16,8 @@ This article summarizes the prerequisites, the extensions for Azure VM extension
 ## Prerequisites
 
 Azure Update Manager is an out of the box, zero onboarding service. Before you start using this service, consider the following list: 
+
+**Linux Machines** - Python (version 2.7 or later) must be installed on Linux machines.
 
 ### Arc-enabled servers
 Arc-enabled servers must be connected to Azure Arc to use Azure Update Manager. For more information, see [how to enable Arc on non-Azure machines](https://aka.ms/onboard-to-arc-aum-migration).
@@ -33,7 +35,7 @@ Azure VM extensions and Azure Arc-enabled VM extensions are required to run on t
 
 ### Network planning
 
-To prepare your network to support Update Manager, you might need to configure some infrastructure components. For more information, see the [network requirements for Arc-enabled servers](../azure-arc/servers/network-requirements.md).
+To prepare your network to support Update Manager, you might need to configure some infrastructure components. For more information, see the [network requirements for Arc-enabled servers](/azure/azure-arc/servers/network-requirements).
 
 For Windows machines, you must allow traffic to any endpoints required by the Windows Update agent. You can find an updated list of required endpoints in [issues related to HTTP Proxy](/troubleshoot/windows-client/installing-updates-features-roles/windows-update-issues-troubleshooting?toc=%2Fwindows%2Fdeployment%2Ftoc.json&bc=%2Fwindows%2Fdeployment%2Fbreadcrumb%2Ftoc.json#issues-related-to-httpproxy). If you have a local [WSUS](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment) deployment, you must allow traffic to the server specified in your [WSUS key](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry).
 

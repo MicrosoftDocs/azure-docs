@@ -4,7 +4,7 @@ description: Azure Firewall includes a built-in rule collection for infrastructu
 services: firewall
 author: vhorne
 ms.service: azure-firewall
-ms.topic: article
+ms.topic: concept-article
 ms.date: 11/19/2019
 ms.author: victorh
 ---

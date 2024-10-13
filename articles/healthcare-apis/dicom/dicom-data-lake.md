@@ -1,12 +1,12 @@
 ---
 title: Manage medical imaging data with the DICOM service and Azure Data Lake Storage
 description: Learn how to use the DICOM service in Azure Health Data Services to store, access, and analyze medical imaging data in the cloud. Explore the benefits, architecture, and data contracts of the integration of the DICOM service with Azure Data Lake Storage.
-author: mmitrik
+author: varunbms
 ms.service: azure-health-data-services
 ms.subservice: dicom-service
 ms.topic: how-to
 ms.date: 03/11/2024
-ms.author: mmitrik
+ms.author: buchvarun
 ms.custom: mode-api
 ---
 
@@ -62,7 +62,7 @@ To learn more about access tiers, including cost tradeoffs and best practices, s
 ## Health check
 
 The DICOM service writes a small file to the data lake every 30 seconds, following the [Data Contract](#data-contracts) to ensure it maintains access. Making any changes to files stored under the `healthCheck` subdirectory might result in incorrect status of the health check.
-If there's an issue with access, status and details are displayed by [Azure Resource Health](../../service-health/overview.md). Azure Resource Health specifies if any action is required to restore access, for example reinstating a role to the DICOM service's identity.
+If there's an issue with access, status and details are displayed by [Azure Resource Health](/azure/service-health/overview). Azure Resource Health specifies if any action is required to restore access, for example reinstating a role to the DICOM service's identity.
 
 ## Limitations
 

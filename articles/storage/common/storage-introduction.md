@@ -6,7 +6,7 @@ author: akashdubey-ms
 
 ms.service: azure-storage
 ms.topic: conceptual
-ms.date: 12/07/2023
+ms.date: 09/03/2024
 ms.author: akashdubey
 ms.subservice: storage-common-concepts
 ---

@@ -1,22 +1,25 @@
 ---
-title: 'Tutorial: Log network traffic flow to and from a virtual machine'
+title: 'Tutorial: Log network traffic flow to and from a VM'
 titleSuffix: Azure Network Watcher
-description: In this tutorial, you learn how to log network traffic flow to and from a virtual machine (VM) using Network Watcher NSG flow logs capability.
+description: In this tutorial, you learn how to log network traffic flow to and from a virtual machine (VM) using Network Watcher NSG flow logs.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: tutorial
-ms.date: 09/26/2023
+ms.date: 09/30/2024
+
 # CustomerIntent: As an Azure administrator, I need to log the network traffic to and from a virtual machine (VM) so I can analyze the data for anomalies.
 ---
 
 # Tutorial: Log network traffic to and from a virtual machine using the Azure portal
 
+[!INCLUDE [NSG flow logs retirement](../../includes/network-watcher-nsg-flow-logs-retirement.md)]
+
 Network security group flow logging is a feature of Azure Network Watcher that allows you to log information about IP traffic flowing through a network security group. For more information about network security group flow logging, see [NSG flow logs overview](nsg-flow-logs-overview.md).
 
 This tutorial helps you use NSG flow logs to log a virtual machine's network traffic that flows through the [network security group](../virtual-network/network-security-groups-overview.md) associated to its network interface.
 
-:::image type="content" source="./media/nsg-flow-logs-tutorial/nsg-flow-logs-tutorial-diagram.png" alt-text="Diagram shows the resources created during the tutorial." lightbox="./media/nsg-flow-logs-tutorial/nsg-flow-logs-tutorial-diagram.png":::
+:::image type="content" source="./media/nsg-flow-logs-tutorial/nsg-flow-logs-tutorial-diagram.png" alt-text="Diagram shows the resources created during the tutorial.":::
 
 In this tutorial, you learn how to:
 
@@ -40,7 +43,7 @@ In this section, you create **myVNet** virtual network with one subnet for the v
 
 1. In the search box at the top of the portal, enter ***virtual networks***. Select **Virtual networks** from the search results.
 
-    :::image type="content" source="./media/nsg-flow-logs-tutorial/virtual-network-azure-portal.png" alt-text="Screenshot shows searching for virtual networks in the Azure portal.":::
+    :::image type="content" source="./media/nsg-flow-logs-tutorial/virtual-network-azure-portal.png" alt-text="Screenshot shows searching for virtual networks in the Azure portal." lightbox="./media/nsg-flow-logs-tutorial/virtual-network-azure-portal.png":::
 
 1. Select **+ Create**. In **Create virtual network**, enter or select the following values in the **Basics** tab:
 
@@ -127,7 +130,7 @@ NSG flow logging requires the **Microsoft.Insights** provider. To check its stat
 
 1. Confirm the status of the provider displayed is **Registered**. If the status is **NotRegistered**, select the **Microsoft.Insights** provider then select **Register**.
 
-    :::image type="content" source="./media/nsg-flow-logs-tutorial/register-microsoft-insights.png" alt-text="Screenshot of registering Microsoft Insights provider in the Azure portal.":::
+    :::image type="content" source="./media/nsg-flow-logs-tutorial/register-microsoft-insights.png" alt-text="Screenshot of registering Microsoft Insights provider in the Azure portal." lightbox="./media/nsg-flow-logs-tutorial/register-microsoft-insights.png":::
 
 ## Create a storage account
 
@@ -214,7 +217,7 @@ In this section, you go to the storage account you previously selected and downl
 
 6. Select the ellipsis **...** to the right of the PT1H.json file, then select **Download**.
 
-   :::image type="content" source="./media/nsg-flow-logs-tutorial/nsg-log-file.png" alt-text="Screenshot showing how to download nsg flow log from the storage account container in the Azure portal.":::
+   :::image type="content" source="./media/nsg-flow-logs-tutorial/nsg-log-file.png" alt-text="Screenshot showing how to download nsg flow log from the storage account container in the Azure portal." lightbox="./media/nsg-flow-logs-tutorial/nsg-log-file.png":::
 
 > [!NOTE]
 > You can use Azure Storage Explorer to access and download flow logs from your storage account. Fore more information, see [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).

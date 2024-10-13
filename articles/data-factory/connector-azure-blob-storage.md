@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/29/2023
+ms.date: 09/25/2024
 ---
 
 # Copy and transform data in Azure Blob Storage by using Azure Data Factory or Azure Synapse Analytics

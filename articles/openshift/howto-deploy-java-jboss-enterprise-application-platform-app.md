@@ -343,7 +343,7 @@ Use the following steps to deploy the app to the cluster. The app is hosted in t
    ```bash
    git clone https://github.com/Azure/rhel-jboss-templates.git
    cd rhel-jboss-templates
-   git checkout 20230615
+   git checkout 20240904
    cd ..
    oc new-project ${PROJECT_NAME}
    oc adm policy add-scc-to-user privileged -z default --namespace ${PROJECT_NAME}

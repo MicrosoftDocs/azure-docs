@@ -78,6 +78,9 @@ Create a connection from Azure Spring Apps using a managed identity or an access
 
 ### [Access key](#tab/Using-access-key)
 
+> [!WARNING]
+> Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
+
 1. Run the `az spring connection create` command to create a service connection between Azure Spring Apps and an Azure Blob Storage using an access key.
 
     ```azurecli

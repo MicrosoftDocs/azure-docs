@@ -16,7 +16,7 @@ ms.date: 08/30/2024
 # Quickstart: Create and connect to a dev box by using the Microsoft Dev Box developer portal
 
 
-In this quickstart, you get started with Microsoft Dev Box by creating a dev box through the developer portal. After you create the dev box, you can connect to it with a Remote Desktop session through a browser or through a Remote Desktop app.
+In this quickstart, you get started with Microsoft Dev Box by creating a dev box through the developer portal. After you create the dev box, you can connect to it through a browser or through a Remote Desktop client like Windows App.
 
 You can create and manage multiple dev boxes as a dev box user. Create a dev box for each task that you're working on, and create multiple dev boxes within a single project to help streamline your workflow. For example, you might switch to another dev box to fix a bug in a previous version, or if you need to work on a different part of the application.
 
@@ -77,7 +77,7 @@ To create a dev box in the Microsoft Dev Box developer portal:
 After you create a dev box, you can connect remotely to the developer virtual machine. You can connect from your desktop, laptop, tablet, or phone. Microsoft Dev Box supports connecting to a dev box in the following ways:
 
 - Connect through the browser from within the developer portal
-- Connect by using a remote desktop client application
+- Connect by using a Remote Desktop client application
 
 To connect to a dev box by using the browser:
 
@@ -89,8 +89,7 @@ To connect to a dev box by using the browser:
 
 A new tab opens with a Remote Desktop session through which you can use your dev box. Use a work or school account to sign in to your dev box, not a personal Microsoft account.
 
-> [!TIP]
-> A Remote Desktop client provides best performance and advanced features like multiple monitor support. For more information, see [Connect to a dev box by using a Remote Desktop app](./tutorial-connect-to-dev-box-with-remote-desktop-app.md).
+[!INCLUDE [note-windows-app](includes/note-windows-app.md)]
 
 ## Clean up resources
 

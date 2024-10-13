@@ -4,7 +4,7 @@ description: This article provides instructions on how to migrate from AGIC depl
 services: application-gateway
 author: greg-lindsay
 ms.service: azure-application-gateway
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/01/2024
 ms.author: greglin
 ---
