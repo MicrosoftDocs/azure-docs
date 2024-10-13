@@ -4,8 +4,7 @@ description: In this tutorial, learn how to connect to Azure Data Box Blob stora
 services: databox
 author: stevenmatthew
 
-ms.service: databox
-ms.subservice: heavy
+ms.service: azure-data-box-heavy
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: shaas
