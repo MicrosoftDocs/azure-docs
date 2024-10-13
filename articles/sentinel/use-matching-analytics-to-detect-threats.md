@@ -12,7 +12,7 @@ appliesto:
 ms.collection: usx-security
 
 
-#Customer intent: [AI]As a security analyst, I want to match my security data with Microsoft threat intelligence so that I can generate high fidelity alerts and incidents from various data sources.
+#Customer intent: As a security operations analyst, I want to match my security data with Microsoft threat intelligence so I can generate high fidelity alerts and incidents.
 
 ---
 

@@ -13,7 +13,7 @@ appliesto:
 ms.collection: usx-security
 
 
-#Customer intent: [AI]As a security analyst, I want to enable the data connector for Microsoft Defender Threat Intelligence so that I can ingest high fidelity indicators of compromise into my Microsoft Sentinel workspace for enhanced threat monitoring and response.
+#Customer intent: As a security administrator, I want to enable the data connector for Microsoft Defender Threat Intelligence so that I can ingest high fidelity indicators of compromise into my Microsoft Sentinel workspace for enhanced threat monitoring and response.
 
 ---
 

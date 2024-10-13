@@ -13,7 +13,7 @@ appliesto:
 ms.collection: usx-security
 
 
-#Customer intent: [AI]As a security analyst, I want to import threat indicators in bulk from CSV or JSON files so that I can quickly integrate and analyze emerging threats within my threat intelligence platform.
+#Customer intent: As a security analyst, I want to import threat indicators in bulk from CSV or JSON files so that I can quickly integrate and analyze emerging threats within my threat intelligence platform.
 
 ---
 

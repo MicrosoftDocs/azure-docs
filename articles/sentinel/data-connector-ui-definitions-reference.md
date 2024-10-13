@@ -10,7 +10,7 @@ ms.author: austinmc
 
 
 
-#Customer intent: [AI]As a developer, I want to create and customize data connectors using a codeless platform so that I can integrate various data sources into Microsoft Sentinel without writing custom code.
+#Customer intent: As a developer, I want to reference user interface options to create and customize data connectors using a codeless platform so that I can integrate various data sources into Microsoft Sentinel without writing custom code.
 
 ---
 

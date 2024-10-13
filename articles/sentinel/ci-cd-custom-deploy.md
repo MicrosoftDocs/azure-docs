@@ -8,7 +8,7 @@ ms.date: 3/13/2024
 ms.author: austinmc
 
 
-#Customer intent: [AI]As a DevOps engineer, I want to customize repository deployment workflows and pipelines so that I can control deployment triggers, paths, and parameter mappings for efficient and tailored content deployment to cloud workspaces.
+#Customer intent: As a SOC collaborator or MSSP analyst, I want to customize repository deployment workflows and pipelines so that I can control deployment triggers, paths, and parameter mappings for efficient and tailored content deployment to cloud workspaces.
 
 ---
 

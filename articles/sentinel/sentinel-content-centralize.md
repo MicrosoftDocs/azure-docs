@@ -8,7 +8,7 @@ ms.date: 06/22/2023
 ms.author: austinmc
 
 
-#Customer intent: [AI]As a security operations center (SOC) admin, I want to centralize and update out-of-the-box (OOTB) content in Microsoft Sentinel so that I can ensure all security tools and templates are current and managed efficiently.
+#Customer intent: As a security operations center (SOC) admin, I want to centralize and update out-of-the-box (OOTB) content in Microsoft Sentinel so that I can ensure all security tools and templates are current and centrally manage content efficiently.
 
 ---
 

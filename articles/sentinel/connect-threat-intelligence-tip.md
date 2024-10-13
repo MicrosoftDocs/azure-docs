@@ -12,7 +12,7 @@ appliesto:
 ms.collection: usx-security
 
 
-#Customer intent: [AI]As a security admin, I want to integrate my threat intelligence platform with Microsoft Sentinel so that I can centralize and enhance threat detection and response.
+#Customer intent: As a security admin, I want to integrate my threat intelligence platform with Microsoft Sentinel to ingest threat intelligence, generating alerts and incidents so that I can centralize and enhance threat detection and response.
 
 ---
 

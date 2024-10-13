@@ -8,7 +8,7 @@ ms.date: 04/24/2023
 ms.custom: template-how-to
 
 
-#Customer intent: [AI]As a Managed Security Services Provider (MSSP) or global enterprise, I want to centrally manage multiple security workspaces so that I can efficiently operate at scale across one or more Azure tenants.
+#Customer intent: As a Managed Security Services Provider (MSSP) or global enterprise, I want to centrally manage multiple security workspaces so that I can efficiently operate at scale across one or more Azure tenants.
 
 ---
 

@@ -12,7 +12,7 @@ appliesto:
 ms.collection: usx-security
 
 
-#Customer intent: [AI]As a security admin, I want to integrate STIX/TAXII threat intelligence feeds into Microsoft Sentinel so that I can enhance threat detection and response capabilities.
+#Customer intent: As a security admin, I want to integrate STIX/TAXII feeds into Microsoft Sentinel to ingest threat intelligence, generating alerts and incidents to enhance threat detection and response capabilities.
 
 ---
 

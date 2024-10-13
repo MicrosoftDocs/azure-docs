@@ -11,7 +11,7 @@ appliesto:
 ms.collection: usx-security
 
 
-#Customer intent: [AI]As a security analyst, I want to use advanced threat hunting tools and queries so that I can proactively identify and mitigate security threats across my organization's data sources.
+#Customer intent: As a security analyst, I want to use advanced threat hunting tools and queries so that I can proactively identify and mitigate security threats across my organization's data sources.
 
 ---
 

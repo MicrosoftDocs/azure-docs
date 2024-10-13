@@ -12,7 +12,7 @@ appliesto:
 ms.collection: usx-security
 
 
-#Customer intent: [AI]As a security analyst, I want to configure analytics rules using threat indicators so that I can automatically generate and investigate security alerts based on integrated threat intelligence.
+#Customer intent: As a security analyst, I want to configure analytics rules using threat indicators so that I can automatically generate and investigate security alerts based on integrated threat intelligence from various data sources.
 
 ---
 

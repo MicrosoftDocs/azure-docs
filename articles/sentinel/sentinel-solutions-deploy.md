@@ -10,7 +10,7 @@ appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal.
 
 
-#Customer intent: [AI]As a security operations analyst, I want to discover, install, and manage out-of-the-box content in a centralized hub so that I can efficiently enhance and maintain my security monitoring capabilities.
+#Customer intent: As a security operations administrator, I want to discover, install, and centrally manage out-of-the-box content so that I can efficiently enhance and maintain my security monitoring capabilities.
 
 ---
 

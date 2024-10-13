@@ -12,7 +12,7 @@ appliesto:
 ms.collection: usx-security
 
 
-#Customer intent: [AI]As a security analyst, I want to create and edit custom hunting queries so that I can proactively identify and mitigate security threats specific to my organization's environment.
+#Customer intent: As a security analyst, I want to create and edit custom hunting queries so that I can proactively identify and mitigate security threats specific to my organization's environment.
 
 ---
 

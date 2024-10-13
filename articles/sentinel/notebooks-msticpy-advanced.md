@@ -8,7 +8,7 @@ ms.custom: devx-track-python
 ms.date: 01/09/2023
 
 
-#Customer intent: [AI]As a security analyst, I want to configure advanced settings for Jupyter notebooks and MSTICPy in Microsoft Sentinel so that I can efficiently hunt for security threats and automate my workflows.
+#Customer intent: As a security analyst, I want to configure advanced settings for Jupyter notebooks and MSTICPy in Microsoft Sentinel so that I can efficiently hunt for security threats and automate my workflows.
 
 ---
 

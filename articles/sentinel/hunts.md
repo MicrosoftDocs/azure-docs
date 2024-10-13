@@ -12,7 +12,7 @@ appliesto:
 ms.collection: usx-security
 
 
-#Customer intent: [AI]As a security analyst, I want to conduct end-to-end proactive threat hunting so that I can identify and mitigate undetected threats and malicious behaviors in my environment.
+#Customer intent: As a security analyst, I want to conduct end-to-end threat hunting so that I can identify and mitigate undetected threats and malicious behaviors in my environment while managing all components of the hunting process.
 
 ---
 

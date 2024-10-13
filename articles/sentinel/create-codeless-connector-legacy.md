@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 11/22/2023
 
 
-#Customer intent: [AI]As a security engineer, I want to deploy a custom data connector for Microsoft Sentinel so that I can ingest and monitor data from various sources without writing code.
+#Customer intent: As a security engineer, I want to deploy a custom data connector for Microsoft Sentinel so that I can ingest and monitor data from various sources without writing code.
 
 ---
 # Create a legacy codeless connector for Microsoft Sentinel

@@ -7,7 +7,7 @@ ms.date: 04/25/2024
 ms.author: austinmc
 
 
-#Customer intent: [AI]As a cloud administrator, I want to switch to simplified pricing tiers for Microsoft Sentinel so that I can streamline billing and potentially reduce costs.
+#Customer intent: As a billing administrator, I want to switch to simplified pricing tiers for Microsoft Sentinel so that I can streamline billing and potentially reduce costs.
 
 ---
 
