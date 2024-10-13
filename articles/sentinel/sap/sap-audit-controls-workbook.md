@@ -9,6 +9,9 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
+
+#Customer intent: As a security compliance officer, I want to use the SAP Audit Controls workbook to monitor and report on my SAP environment's compliance with various control frameworks, so that I can ensure adherence to regulatory requirements and improve security posture.
+
 ---
 
 # Check compliance for your SAP security controls with the SAP - Security Audit Controls workbook

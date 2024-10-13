@@ -9,6 +9,9 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
+
+#Customer intent: As an advanced SAP BASIS team member, I want to customize the SAP data collector agent container update script so that I can streamline the update process and ensure compatibility with my SAP system.
+
 ---
 
 # Microsoft Sentinel solution for SAP applications data connector agent update file reference
