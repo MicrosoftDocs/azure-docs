@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
-ms.date: 10/11/2024
+ms.date: 10/13/2024
 ---
 
 # Create or modify a Direct peering using the Azure portal
@@ -32,8 +32,6 @@ As an Internet Service Provider or Internet Exchange Provider, you can create a 
 1. In the search box at the top of the portal, enter ***peering***. Select **Peerings** from the search results.
 
 1. On the **Peerings** page, select **+ Create**.
-
-1. On the **Create a Peering** page, on the **Basics** tab, fill in the boxes as shown here:
 
 1. On the **Basics** tab of **Create a Peering** page, enter, or select the following values:
 
