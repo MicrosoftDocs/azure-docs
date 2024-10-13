@@ -6,6 +6,10 @@ ms.topic: conceptual
 ms.date: 05/16/2024
 ms.author: raynew
 ms.custom: fasttrack-edit
+
+
+#Customer intent: As a security operations team member, I want to complete advanced training on Microsoft Sentinel so that I can enhance my skills in threat detection, incident response, and security automation.
+
 ---
 
 # Microsoft Sentinel skill-up training 
