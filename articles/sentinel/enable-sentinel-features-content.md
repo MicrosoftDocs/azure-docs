@@ -7,7 +7,7 @@ ms.date: 06/18/2024
 ms.author: cwatson
 
 
-#Customer intent: As a security operations analyst, I want to enable and configure Microsoft Sentinel and its key features so that I can monitor and secure my organization's environment effectively.
+#Customer intent: [AI]As a security operations analyst, I want to enable and configure Microsoft Sentinel and its key features so that I can monitor and secure my organization's environment effectively.
 
 ---
 

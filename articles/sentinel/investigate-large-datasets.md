@@ -11,7 +11,7 @@ appliesto:
 ms.collection: usx-security
 
 
-#Customer intent: As a security analyst, I want to search and restore archived log data so that I can conduct thorough investigations on historical events.
+#Customer intent: [AI]As a security analyst, I want to search and restore archived log data so that I can conduct thorough investigations on historical events.
 
 ---
 

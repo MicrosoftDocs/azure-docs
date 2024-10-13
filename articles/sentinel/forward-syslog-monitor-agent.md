@@ -9,7 +9,7 @@ ms.date: 05/16/2024
 ms.custom: template-tutorial, linux-related-content
 
 
-#Customer intent: As a security engineer or system administrator, I want to forward Syslog data from Linux-based devices to a Log Analytics workspace so that I can detect attacks, view, hunt, and respond to threats, or monitor my Linux-based devices.
+#Customer intent: [AI]As a security engineer or system administrator, I want to forward Syslog data from Linux-based devices to a Log Analytics workspace so that I can detect attacks, view, hunt, and respond to threats, or monitor my Linux-based devices.
 
 ---
 

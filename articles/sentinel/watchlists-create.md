@@ -12,7 +12,7 @@ appliesto:
 ms.collection: usx-security
 
 
-#Customer intent: As a security analyst, I want to manage watchlists in my SIEM platform so that I can correlate critical data with security events and enhance threat detection.
+#Customer intent: [AI]As a security analyst, I want to manage watchlists in my SIEM platform so that I can correlate critical data with security events and enhance threat detection.
 
 ---
 

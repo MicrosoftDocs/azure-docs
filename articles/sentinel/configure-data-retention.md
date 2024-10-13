@@ -9,7 +9,7 @@ ms.date: 01/05/2023
 ms.custom: template-tutorial
 
 
-#Customer intent: As a system administrator, I want to configure data retention policies for tables in a Log Analytics workspace so that I can manage Microsoft Sentinel storage costs and ensure compliance with data retention requirements.
+#Customer intent: [AI]As a system administrator, I want to configure data retention policies for tables in a Log Analytics workspace so that I can manage Microsoft Sentinel storage costs and ensure compliance with data retention requirements.
 
 ---
 

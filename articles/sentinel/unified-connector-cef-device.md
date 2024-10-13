@@ -8,7 +8,7 @@ ms.custom: linux-related-content
 ms.date: 06/27/2024
 
 
-#Customer intent: As a security administrator, I want to configure various security appliances to forward syslog messages in CEF format to Microsoft Sentinel, so that I can ensure comprehensive security event management and analysis.
+#Customer intent: [AI]As a security administrator, I want to configure various security appliances to forward syslog messages in CEF format to Microsoft Sentinel, so that I can ensure comprehensive security event management and analysis.
 
 ---
 

@@ -7,7 +7,7 @@ ms.topic: reference
 ms.date: 12/15/2023
 
 
-#Customer intent: As a security analyst, I want to understand the schema of built-in watchlist templates in Microsoft Sentinel so that I can effectively manage and monitor high-value assets, VIP users, and service accounts.
+#Customer intent: [AI]As a security analyst, I want to understand the schema of built-in watchlist templates in Microsoft Sentinel so that I can effectively manage and monitor high-value assets, VIP users, and service accounts.
 
 ---
 

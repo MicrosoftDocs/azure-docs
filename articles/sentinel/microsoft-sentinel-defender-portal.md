@@ -10,7 +10,7 @@ appliesto:
 ms.collection: usx-security
 
 
-#Customer intent: As a security operations analyst, I want to understand the integration of Microsoft Sentinel within the Microsoft Defender portal so that I can effectively navigate and utilize the new and improved security capabilities.
+#Customer intent: [AI]As a security operations analyst, I want to understand the integration of Microsoft Sentinel within the Microsoft Defender portal so that I can effectively navigate and utilize the new and improved security capabilities.
 
 ---
 
