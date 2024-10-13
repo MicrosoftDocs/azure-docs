@@ -132,7 +132,7 @@ The Azure Modeling and Simulation Workbench require certain ports to be accessib
 For the Public IP connector, Azure IP addresses are taken from Azure's IP ranges for the location in which the Workbench was deployed. A list of all Azure IP addresses and Service tags is available at [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519&msockid=1b155eb894cc6c3600a84ac5959a6d3f). It's not possible to list all Workbench IP addresses when the public IP connector is implemented.
 
 > [!CAUTION]
-> The pool of IP addresses can increase not only by adding VMs, but users as well. Connection nodes are scaled up or down when users are added to or removed from the chamber. Any discovery of endpoint IP addresses will be incomplete if the userbase changes.
+> The pool of IP addresses can increase not only by adding VMs, but adding users as well. Connection nodes are scaled up or down when users are added to or removed from the chamber. Any discovery of endpoint IP addresses will be incomplete if the userbase changes.
 
 For more control over destination IP addresses and to minimize changes to corporate firewalls, a [private networking connector](how-to-guide-private-network.md) is recommended. A VPN Gateway and the private networking connector allow greater control of the ingress, egress, and name server operations of the workbench.  The access point to the workbench is the single gateway IP address or a peered virtual network.
 
@@ -140,7 +140,7 @@ Network interfaces aren't deployed into the user's subscription and aren't acces
 
 ## DNS zones
 
-The public connector option uses Azure public DNS servers and creates a CNAME entry for each of your named endpoints. The subdomain zone and its corresponding service are listed in the following table. There are three zones for public cloud and two for Azure Government (US) cloud.
+The public connector option uses Azure public DNS servers and creates a CNAME entry for each of your named endpoints in the corresponding zone. The subdomain zone and its corresponding service are listed in the following table. There are three zones for public cloud and two for Azure Government (US) cloud.
 
 | Service                               | Public cloud DNS zone | Azure Gov cloud DNS Zone    |
 |:--------------------------------------|:----------------------|-----------------------------|

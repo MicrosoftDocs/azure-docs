@@ -72,8 +72,8 @@ Modeling and Simulation Workbench creates three private domain name service (DNS
 | Service                               | Public cloud DNS zone             | Azure Gov cloud DNS Zone                |
 |:--------------------------------------|:----------------------------------|-----------------------------------------|
 | Connector desktop dashboard and nodes | mswb.azure.com                    | mswb.azure.us                           |
-| Data in pipeline endpoint             | privateLink.blob.core.windows.net | privatelink.blob.core.usgovcloudapi.net |
-| Data out pipeline endpoint            | privateLink.file.core.windows.net | privatelink.blob.core.usgovcloudapi.net |
+| Data in pipeline endpoint             | privatelink.blob.core.windows.net | privatelink.blob.core.usgovcloudapi.net |
+| Data out pipeline endpoint            | privatelink.file.core.windows.net | privatelink.blob.core.usgovcloudapi.net |
 
 ## Ports and IP addresses
 
@@ -88,7 +88,7 @@ The Azure Modeling and Simulation Workbench require certain ports to be accessib
 
 ### IP addresses
 
-The private network connector doesn't deploy any public IP network interfaces. You create your own gateway interface if connecting directly from the internet. Your choice of which region you deploy your gateway to determines from which pool of Azure public IP addresses your gateway is chosen. Azure IP addresses are taken from Azure's IP ranges for the location in which the Workbench was deployed. A list of all Azure IP addresses and Service tags is available at [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519&msockid=1b155eb894cc6c3600a84ac5959a6d3f).
+The private network connector doesn't deploy any public IP network interfaces or gateways. You must create your own gateway interface if connecting directly from the internet or peer the virtual network to another. The region you deploy your gateway interface to determines from which pool of Azure public IP addresses your gateway IP is chosen. Azure IP addresses are taken from Azure's IP ranges for the location in which the Workbench was deployed. A list of all Azure IP addresses and Service tags is available at [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519&msockid=1b155eb894cc6c3600a84ac5959a6d3f).
 
 The private IP addresses for the private networking connector are implemented as private network interface connections (NIC) on the virtual network's subnet you specified during initial deployment.
 
