@@ -7,7 +7,7 @@ ms.date: 12/21/2021
 ms.author: austinmc
 
 
-#Customer intent: [AI]As a security analyst, I want to use the MITRE ATT&CK framework in my SIEM tool so that I can assess and enhance my organization's threat detection and response capabilities.
+#Customer intent: As a security analyst, I want to use the MITRE ATT&CK framework in my SIEM tool so that I can assess and enhance my organization's threat detection and response capabilities.
 
 ---
 

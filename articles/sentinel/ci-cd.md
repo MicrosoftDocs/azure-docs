@@ -13,7 +13,7 @@ ms.collection: usx-security
 #Customer intent: As a SOC collaborator or MSSP analyst, I want to know how to connect my source control repositories for continuous integration and continuous delivery (CI/CD). Specifically as an MSSP content manager, I want to know how to deploy one solution to many customer workspaces and still be able to tailor custom content for their environments.
 
 
-#Customer intent: [AI]As a security operations analyst, I want to deploy and manage custom content from my source control repository to my SIEM platform so that I can streamline updates and maintain consistency across my security monitoring environment.
+#Customer intent: As a security operations analyst, I want to deploy and manage custom content from my source control repository to my SIEM platform so that I can streamline updates and maintain consistency across my security monitoring environment.
 
 ---
 

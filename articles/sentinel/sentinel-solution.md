@@ -9,7 +9,7 @@ ms.collection:
   -       zerotrust-services
 
 
-#Customer intent: [AI]As a security governance professional, I want to monitor and respond to Zero Trust (TIC 3.0) requirements using automated tools, so that I can ensure compliance and improve our security posture.
+#Customer intent: As a security governance professional, I want to monitor and respond to Zero Trust (TIC 3.0) requirements using automated tools, so that I can ensure compliance and improve our security posture.
 
 ---
 

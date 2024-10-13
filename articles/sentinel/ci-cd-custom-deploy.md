@@ -9,7 +9,7 @@ ms.author: austinmc
 #Customer intent: As a SOC collaborator or MSSP analyst, I want to know how to optimize my source control repositories for continuous integration and continuous delivery (CI/CD). Specifically as an MSSP content manager, I want to know how to deploy one solution to many customer workspaces and still be able to tailor custom content for their environments.
 
 
-#Customer intent: [AI]As a DevOps engineer, I want to customize repository deployment workflows and pipelines so that I can control deployment triggers, paths, and parameter mappings for efficient and tailored content deployment to cloud workspaces.
+#Customer intent: As a DevOps engineer, I want to customize repository deployment workflows and pipelines so that I can control deployment triggers, paths, and parameter mappings for efficient and tailored content deployment to cloud workspaces.
 
 ---
 

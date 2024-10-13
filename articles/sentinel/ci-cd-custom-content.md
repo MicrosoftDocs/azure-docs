@@ -11,7 +11,7 @@ ms.custom: template-concept
 #Customer intent: As a SOC collaborator or MSSP analyst, I want to manage dynamic Sentinel workspace content based on source control repositories for continuous integration and continuous delivery (CI/CD). Specifically as an MSSP content manager, I want to deploy one solution to many customer workspaces and still be able to tailor custom content for their environments.
 
 
-#Customer intent: [AI]As a security operations engineer, I want to manage and deploy Microsoft Sentinel content as code using CI/CD pipelines so that I can automate updates and ensure consistent configurations across workspaces.
+#Customer intent: As a security operations engineer, I want to manage and deploy Microsoft Sentinel content as code using CI/CD pipelines so that I can automate updates and ensure consistent configurations across workspaces.
 
 ---
 

@@ -11,7 +11,7 @@ appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
 
 
-#Customer intent: [AI]As a security analyst, I want to create and manage hunting livestream sessions so that I can detect and respond to threats in real-time.
+#Customer intent: As a security analyst, I want to create and manage hunting livestream sessions so that I can detect and respond to threats in real-time.
 
 ---
 

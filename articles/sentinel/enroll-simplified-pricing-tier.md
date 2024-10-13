@@ -8,7 +8,7 @@ ms.author: austinmc
 #customerintent: As a SOC administrator or a billing specialist, I want to know how to switch to simplified pricing and whether it will benefit us financially or simplify our administration of Microsoft Sentinel and log analytics workspaces.
 
 
-#Customer intent: [AI]As a cloud administrator, I want to switch to simplified pricing tiers for Microsoft Sentinel so that I can streamline billing and potentially reduce costs.
+#Customer intent: As a cloud administrator, I want to switch to simplified pricing tiers for Microsoft Sentinel so that I can streamline billing and potentially reduce costs.
 
 ---
 

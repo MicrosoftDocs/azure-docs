@@ -9,7 +9,7 @@ ms.author: austinmc
 #Customer intent: As a SIEM decision maker or implementer, I want to know about changes to out-of-the-box content, and how to centralize the management, discovery, and inventory of content in Microsoft Sentinel.
 
 
-#Customer intent: [AI]As a security operations center (SOC) analyst, I want to centralize and update out-of-the-box (OOTB) content in Microsoft Sentinel so that I can ensure all security tools and templates are current and managed efficiently.
+#Customer intent: As a security operations center (SOC) analyst, I want to centralize and update out-of-the-box (OOTB) content in Microsoft Sentinel so that I can ensure all security tools and templates are current and managed efficiently.
 
 ---
 

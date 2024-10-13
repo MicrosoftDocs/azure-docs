@@ -12,7 +12,7 @@ appliesto:
 ms.collection: usx-security
 
 
-#Customer intent: [AI]As a security analyst, I want to integrate and manage threat intelligence in my SIEM solution so that I can detect, investigate, and respond to potential security threats effectively.
+#Customer intent: As a security analyst, I want to integrate and manage threat intelligence in my SIEM solution so that I can detect, investigate, and respond to potential security threats effectively.
 
 ---
 

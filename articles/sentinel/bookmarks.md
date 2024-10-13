@@ -11,7 +11,7 @@ appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
 
 
-#Customer intent: [AI]As a security analyst, I want to create and manage hunting bookmarks so that I can preserve and collaborate on relevant threat investigation data.
+#Customer intent: As a security analyst, I want to create and manage hunting bookmarks so that I can preserve and collaborate on relevant threat investigation data.
 
 ---
 

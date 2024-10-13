@@ -10,7 +10,7 @@ ms.author: austinmc
 
 
 
-#Customer intent: [AI]As a security engineer, I want to create and configure data connectors using the Codeless Connector Platform so that I can integrate various data sources into my security monitoring system without writing custom code.
+#Customer intent: As a security engineer, I want to create and configure data connectors using the Codeless Connector Platform so that I can integrate various data sources into my security monitoring system without writing custom code.
 
 ---
 

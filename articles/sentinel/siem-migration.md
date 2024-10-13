@@ -12,7 +12,7 @@ appliesto:
 #customer intent: As an SOC administrator, I want to use the SIEM migration experience so I can migrate to Microsoft Sentinel.
 
 
-#Customer intent: [AI]As a security operations manager, I want to migrate my SIEM from Splunk to Microsoft Sentinel so that I can streamline and enhance my security monitoring capabilities.
+#Customer intent: As a security operations manager, I want to migrate my SIEM from Splunk to Microsoft Sentinel so that I can streamline and enhance my security monitoring capabilities.
 
 ---
 
