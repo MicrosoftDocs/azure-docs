@@ -12,7 +12,7 @@ appliesto:
 ms.collection: usx-security
 
 
-#Customer intent: [AI]As a security analyst, I want to understand the capabilities of Jupyter notebooks so that I can decide if they'll enhance my threat hunting and investigation processes.
+#Customer intent: As a security analyst, I want to understand the capabilities of Jupyter notebooks so that I can decide if they'll enhance my threat hunting and investigation processes.
 
 ---
 

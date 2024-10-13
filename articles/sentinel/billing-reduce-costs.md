@@ -12,7 +12,7 @@ appliesto:
 ms.collection: usx-security
 
 
-#Customer intent: [AI]As a cloud security administrator, I want to optimize the cost of using Microsoft Sentinel so that I can manage my organization's security operations within budget constraints.
+#Customer intent: As a cloud security administrator, I want to optimize the cost of using Microsoft Sentinel so that I can manage my organization's security operations within budget constraints.
 
 ---
 

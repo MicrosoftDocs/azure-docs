@@ -10,7 +10,7 @@ appliesto:
 ms.collection: usx-security
 
 
-#Customer intent: [AI]As a security operations center (SOC) manager, I want to manage the migration to Microsoft Sentinel so that I can ensure a smooth transition and maintain security monitoring effectiveness.
+#Customer intent: As a security operations center (SOC) manager, I want to manage the migration to Microsoft Sentinel so that I can ensure a smooth transition and maintain security monitoring effectiveness.
 
 ---
 

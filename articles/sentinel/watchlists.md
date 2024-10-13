@@ -12,7 +12,7 @@ appliesto:
 ms.collection: usx-security
 
 
-#Customer intent: [AI]As a security analyst, I want to understand how to use watchlists in Microsoft Sentinel so that I can efficiently correlate and enrich event data, reduce alert fatigue, and quickly respond to threats.
+#Customer intent: As a security analyst, I want to understand how to use watchlists in Microsoft Sentinel so that I can efficiently correlate and enrich event data, reduce alert fatigue, and quickly respond to threats.
 
 ---
 

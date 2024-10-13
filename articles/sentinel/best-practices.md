@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 06/28/2024
 
 
-#Customer intent: [AI]As a security operations center (SOC) analyst, I want to implement best practices for deploying and managing a cloud-based SIEM solution so that I can enhance threat detection, incident response, and overall security posture.
+#Customer intent: As a security operations center (SOC) analyst, I want to implement best practices for deploying and managing a cloud-based SIEM solution so that I can enhance threat detection, incident response, and overall security posture.
 
 ---
 

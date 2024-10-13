@@ -10,7 +10,7 @@ appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal.
 
 
-#Customer intent: [AI]As a security operations analyst, I want to deploy domain-specific security solutions in Microsoft Sentinel so that I can enhance threat detection and compliance capabilities efficiently.
+#Customer intent: As a security operations analyst, I want to deploy domain-specific security solutions in Microsoft Sentinel so that I can enhance threat detection and compliance capabilities efficiently.
 
 ---
 

@@ -11,7 +11,7 @@ appliesto:
 ms.collection: usx-security
 
 
-#Customer intent: [AI]As a security analyst, I want to use watchlists in my queries and detection rules so that I can efficiently correlate and analyze data to detect potential threats.
+#Customer intent: As a security analyst, I want to use watchlists in my queries and detection rules so that I can efficiently correlate and analyze data to detect potential threats.
 
 ---
 
