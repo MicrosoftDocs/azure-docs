@@ -8,7 +8,7 @@ ms.author: cwatson
 ms.service: microsoft-sentinel
 
 
-#Customer intent: As a security operations manager, I want to identify which data connectors to configure for my SIEM deployment so that I can ensure efficient and cost-effective data ingestion.
+#Customer intent: As a security operations manager, I want to identify which data connectors to configure for my Microsoft Sentinel deployment so that I can ensure efficient and cost-effective data ingestion.
 
 ---
 

@@ -8,7 +8,7 @@ ms.author: raynew
 ms.custom: fasttrack-edit
 
 
-#Customer intent: As a security operations analyst, I want to complete advanced training on a cloud-native SIEM and SOAR solution so that I can enhance my skills in threat detection, incident response, and security automation.
+#Customer intent: As a security operations team member, I want to complete advanced training on Microsoft Sentinel so that I can enhance my skills in threat detection, incident response, and security automation.
 
 ---
 

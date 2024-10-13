@@ -7,7 +7,7 @@ ms.date: 04/25/2023
 ms.author: yelevin
 
 
-#Customer intent: As a security analyst, I want to integrate data governance logs with Microsoft Sentinel so that I can prioritize and investigate critical security incidents involving sensitive information.
+#Customer intent: As a security engineer, I want to integrate data governance logs with Microsoft Sentinel so that analysts can prioritize and investigate critical security incidents involving sensitive information.
 
 ---
 

@@ -7,7 +7,7 @@ ms.date: 01/09/2023
 ms.author: bagol
 
 
-#Customer intent: As a security operations analyst, I want to audit queries and activities in my SOC environment so that I can ensure compliance and monitor security operations effectively.
+#Customer intent: As a security analyst, I want to audit queries and activities in my SOC environment so that I can ensure compliance and monitor security operations effectively.
 
 ---
 

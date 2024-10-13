@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 08/01/2024
 
 
-#Customer intent: As a security operations analyst, I want to configure auditing and health monitoring for my Microsoft Sentinel resources so that I can ensure the integrity and health of my security infrastructure.
+#Customer intent: As a security engineer, I want to configure auditing and health monitoring for my Microsoft Sentinel resources so that I can ensure the integrity and health of our security infrastructure.
 
 ---
 
