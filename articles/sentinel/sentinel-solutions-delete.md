@@ -10,7 +10,7 @@ appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal.
 
 
-#Customer intent: [AI]As a security operations center (SOC) analyst, I want to delete or restore Microsoft Sentinel out-of-the-box content and solutions so that I can manage and customize my security monitoring environment effectively.
+#Customer intent: [AI]As a security operations center (SOC) analyst, I want to delete Microsoft Sentinel out-of-the-box content and solutions so that I can manage and customize my security monitoring environment effectively.
 
 ---
 

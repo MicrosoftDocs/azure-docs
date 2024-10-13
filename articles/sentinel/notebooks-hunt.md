@@ -12,7 +12,6 @@ ms.collection: usx-security
 #Customer intent: As a security analyst, I want to deploy and launch a Jupyter notebook to hunt for security threats.
 
 
-#Customer intent: [AI]As a security analyst, I want to use Jupyter notebooks in Microsoft Sentinel so that I can programmatically analyze and hunt for security threats efficiently.
 
 ---
 
