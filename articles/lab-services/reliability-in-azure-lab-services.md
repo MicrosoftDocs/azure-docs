@@ -123,7 +123,7 @@ Azure Lab Services does not provide regional failover support. If you want to pr
 
 ### Outage detection, notification, and management
 
-Azure Lab Services does not provide any service-specific signals about an outage, but is dependent on Azure communications that inform customers about outages. For more information on service health, see [Resource health overview](../service-health/resource-health-overview.md).
+Azure Lab Services does not provide any service-specific signals about an outage, but is dependent on Azure communications that inform customers about outages. For more information on service health, see [Resource health overview](/azure/service-health/resource-health-overview).
 
 ## Next steps
 

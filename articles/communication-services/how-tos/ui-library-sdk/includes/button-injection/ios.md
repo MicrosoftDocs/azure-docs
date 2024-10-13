@@ -9,12 +9,12 @@ ms.service: azure-communication-services
 ---
 
 
-## Remove buttons
+## Remove or disable buttons
 
-`CallScreenControlBarOptions`, allow the flexibility to customize the button bar by removing specific buttons such as camera, microphone, and audio controls. This API allows you to tailor the user interface according to their specific application requirements and user experience design. Just set the visibility to `false` to hide, the default behavior is  for `ButtonOptions` object.
+`CallScreenControlBarOptions`, allow the flexibility to customize the button bar by removing specific buttons such as camera, microphone, and audio controls. This API allows you to tailor the user interface according to their specific application requirements and user experience design. Just set the `visible` or `enabled` to `false` for the `ButtonViewData` to hide or disable button.
 
 ```swift
-let cameraButton = ButtonOptions(visible: false)
+let cameraButton = ButtonViewData(visible: false)
 
 let callScreenControlBarOptions = CallScreenControlBarOptions(
     cameraButton: cameraButton
@@ -26,6 +26,13 @@ let localOptions = LocalOptions(callScreenOptions: callScreenOptions)
 let callComposite = CallComposite(credential: credential)
 callComposite.launch(locator: .roomCall(roomId: "..."), localOptions: localOptions)
 ```
+
+Button can be updated after launching call composite.
+
+```swift
+cameraButton.visible = true
+```
+
 
 ## Add custom actions
 
@@ -46,4 +53,10 @@ let localOptions = LocalOptions(callScreenOptions: callScreenOptions)
 
 let callComposite = CallComposite(credential: credential)
 callComposite.launch(locator: .roomCall(roomId: "..."), localOptions: localOptions)
+```
+
+Similar to `Call composite` provided buttons, custom buttons are updatable after the launch.
+
+```swift
+customButton.enabled = true
 ```

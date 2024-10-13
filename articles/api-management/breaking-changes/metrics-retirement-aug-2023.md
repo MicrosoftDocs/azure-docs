@@ -38,7 +38,7 @@ The five legacy metrics will no longer be available after 31 August 2023.
 Update any tools that use the five legacy metrics to use equivalent functionality that is provided through the Requests metric filtered on one or more dimensions. For example, filter Requests on the **GatewayResponseCode** or **GatewayResponseCodeCategory** dimension.
 
 > [!NOTE]
-> Configure filters on the Requests metric to meet your monitoring and alerting needs. For available dimensions, see [Azure Monitor metrics for API Management](../../azure-monitor/essentials/metrics-supported.md#microsoftapimanagementservice).
+> Configure filters on the Requests metric to meet your monitoring and alerting needs. For available dimensions, see [Azure Monitor metrics for API Management](/azure/azure-monitor/essentials/metrics-supported#microsoftapimanagementservice).
 
 
 |Legacy metric  |Example replacement with Requests metric|

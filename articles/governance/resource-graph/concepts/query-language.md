@@ -181,7 +181,7 @@ This query first uses the shared query, and then uses `limit` to further restric
 Resource Graph supports a subset of KQL [data types](/azure/data-explorer/kusto/query/scalar-data-types/),
 [scalar functions](/azure/data-explorer/kusto/query/scalarfunctions),
 [scalar operators](/azure/data-explorer/kusto/query/binoperators), and
-[aggregation functions](/azure/data-explorer/kusto/query/any-aggfunction). Specific
+[aggregation functions](/kusto/query/aggregation-functions). Specific
 [tabular operators](/azure/data-explorer/kusto/query/queries) are supported by Resource Graph, some of which have different behaviors.
 
 ### Supported tabular/top level operators
@@ -220,7 +220,7 @@ To support the _Open Query_ portal experience, Azure Resource Graph Explorer has
 The scope of the subscriptions or [management groups](../../management-groups/overview.md) from
 which resources are returned by a query defaults to a list of subscriptions based on the context of
 the authorized user. If a management group or a subscription list isn't defined, the query scope is
-all resources, and includes [Azure Lighthouse](../../../lighthouse/overview.md) delegated
+all resources, and includes [Azure Lighthouse](/azure/lighthouse/overview) delegated
 resources.
 
 The list of subscriptions or management groups to query can be manually defined to change the scope

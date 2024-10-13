@@ -26,7 +26,7 @@ The procedures that are described in the article use the following resources:
 
 ### Azure portal
 
-This article uses the Azure portal to work with IoT Hub and other Azure services. To learn more about how to use the Azure portal, see [What is the Azure portal?](../azure-portal/azure-portal-overview.md).
+This article uses the Azure portal to work with IoT Hub and other Azure services. To learn more about how to use the Azure portal, see [What is the Azure portal?](/azure/azure-portal/azure-portal-overview).
 
 ### IoT hub
 

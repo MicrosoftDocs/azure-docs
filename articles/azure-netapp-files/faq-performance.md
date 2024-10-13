@@ -5,7 +5,7 @@ ms.service: azure-netapp-files
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
-ms.date: 08/20/2024
+ms.date: 09/10/2024
 ---
 # Performance FAQs for Azure NetApp Files
 
@@ -14,20 +14,20 @@ This article answers frequently asked questions (FAQs) about Azure NetApp Files 
 ## What should I do to optimize or tune Azure NetApp Files performance?
 
 You can take the following actions per the performance requirements: 
-- Ensure that the Virtual Machine is sized appropriately.
+- Ensure the virtual machine (VM) is sized appropriately.
 - Enable Accelerated Networking for the VM.
 - Select the desired service level and size for the capacity pool.
 - Create a volume with the desired quota size for the capacity and performance.
 
-There is no need to set accelerated networking for the network interface cards (NICs) in the dedicated subnet of Azure NetApp Files. [Accelerated networking](../virtual-network/virtual-machine-network-throughput.md) is a capability that only applies to Azure virtual machines. Azure NetApp Files NICs are optimized by design.
+There is no need to set accelerated networking for the network interface cards (NICs) in the dedicated subnet of Azure NetApp Files. [Accelerated networking](../virtual-network/virtual-machine-network-throughput.md) is a capability that only applies to Azure VMs. Azure NetApp Files NICs are optimized by design.
 
 ## How do I monitor Azure NetApp Files volume performance 
 
 Azure NetApp Files volumes performance can be monitored through [available metrics](azure-netapp-files-metrics.md). 
 
-## How do I convert throughput-based service levels of Azure NetApp Files to IOPS?
+## How do I convert throughput-based service levels of Azure NetApp Files to input/output operations per second (IOPS)?
 
-You can convert MB/s to IOPS by using the following formula:  
+You can convert megabytes per seconds (MBps) to IOPS with this formula:  
 
 `IOPS = (MBps Throughput / KB per IO) * 1024`
 
@@ -78,7 +78,7 @@ Jumbo frames aren't supported with Azure virtual machines.
 - [Performance benchmark test recommendations for Azure NetApp Files](azure-netapp-files-performance-metrics-volumes.md)
 - [Performance benchmarks for Linux](performance-benchmarks-linux.md)
 - [Performance impact of Kerberos on NFSv4.1 volumes](performance-impact-kerberos.md)
-- [How to create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md)
+- [How to create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request)
 - [Networking FAQs](faq-networking.md)
 - [Security FAQs](faq-security.md)
 - [NFS FAQs](faq-nfs.md)

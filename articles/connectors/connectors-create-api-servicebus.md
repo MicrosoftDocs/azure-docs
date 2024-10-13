@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/26/2024
+ms.date: 09/03/2024
 ms.custom: engagement-fy23
 ---
 
@@ -580,23 +580,37 @@ In Standard workflows, to read a message from a dead-letter queue in a queue or 
 
 If a Service Bus trigger's polling interval is small, such as 10 seconds, updates to your workflow might not take effect for up to 10 minutes. To work around this problem, you can disable the logic app resource, make the changes, and then enable the logic app resource again.
 
-### No session available
+### No session available or might be locked by another receiver
 
 Occasionally, operations such as completing a message or renewing a session produce the following error:
 
 ``` json
 {
   "status": 400,
-  "message": "No session available to complete the message with the lock token 'ce440818-f26f-4a04-aca8-555555555555'. clientRequestId: facae905-9ba4-44f4-a42a-888888888888",
   "error": {
     "message": "No session available to complete the message with the lock token 'ce440818-f26f-4a04-aca8-555555555555'."
   }
 }
 ```
 
+Occasionally, a session-based trigger might fail with the following error:
+
+``` json
+{
+  "status": 400,
+  "error": {
+    "message": "Communication with the Service Bus namespace 'xxxx' and 'yyyy' entity failed. The requested session 'zzzz' cannot be accepted. It may be locked by another receiver."
+  }
+}
+```
+
 The Service Bus connector uses in-memory cache to support all operations associated with the sessions. The Service Bus message receiver is cached in the memory of the role instance (virtual machine) that receives the messages. To process all requests, all calls for the connection get routed to this same role instance. This behavior is required because all the Service Bus operations in a session require the same receiver that receives the messages for a specific session.
 
-The chance exists that requests might not get routed to the same role instance, due to reasons such as an infrastructure update, connector deployment, and so on. If this event happens, requests fail because the receiver that performs the operations in the session isn't available in the role instance that serves the request.
+Due to reasons such as an infrastructure update, connector deployment, and so on, the possibility exists for requests to not get routed to the same role instance. If this event happens, requests fail for one of the following reasons:
+
+- The receiver that performs the operations in the session isn't available in the role instance that serves the request.
+
+ - The new role instance tries to obtain the session, which either timed out in the old role instance or wasn't closed.
 
 As long as this error happens only occasionally, the error is expected. When the error happens, the message is still preserved in the service bus. The next trigger or workflow run tries to process the message again.
 

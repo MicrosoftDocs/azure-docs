@@ -151,12 +151,6 @@ You can configure more settings for your connection, if necessary. Otherwise, sk
 
 ## Optional steps
 
-### <a name="resize"></a>Resize a gateway SKU
-
-There are specific rules about resizing versus changing a gateway SKU. In this section, you resize the SKU. For more information, see [Resize or change gateway SKUs](about-gateway-skus.md#resizechange).
-
-[!INCLUDE [resize a gateway](../../includes/vpn-gateway-resize-gw-portal-include.md)]
-
 ### <a name="reset"></a>Reset a gateway
 
 Resetting an Azure VPN gateway is helpful if you lose cross-premises VPN connectivity on one or more site-to-site VPN tunnels. In this situation, your on-premises VPN devices are all working correctly but aren't able to establish IPsec tunnels with the Azure VPN gateways. If you need to reset an active-active gateway, you can reset both instances using the portal. You can also use PowerShell or CLI to reset each gateway instance separately using instance VIPs. For more information, see [Reset a connection or a gateway](reset-gateway.md#reset-a-gateway).
@@ -174,7 +168,16 @@ A gateway can have multiple connections. If you want to configure connections to
 
 ### Update a connection shared key
 
-You can specify a different shared key for your connection. In the portal, go to the connection. Change the shared key on the **Authentication** page.
+You can specify a different shared key for your connection.
+
+1. In the portal, go to the connection.
+1. Change the shared key on the **Authentication** page.
+1. Save your changes.
+1. Update your VPN device with the new shared key as necessary.
+
+### <a name="resize"></a>Resize or change a gateway SKU
+
+You can resize a gateway SKU, or you can change the gateway SKU. There are specific rules regarding which option is available, depending on the SKU your gateway is currently using. For more information, see [Resize or change gateway SKUs](about-gateway-skus.md#resizechange).
 
 ### <a name="additional"></a>More configuration considerations
 

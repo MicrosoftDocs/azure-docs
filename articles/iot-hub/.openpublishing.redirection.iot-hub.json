@@ -1519,6 +1519,26 @@
       "source_path_from_root": "/articles/iot-hub/file-upload-python.md",
       "redirect_url": "/azure/iot-hub/how-to-file-upload",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/device-twins-dotnet.md",
+      "redirect_url": "/azure/iot-hub/how-to-device-twins",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/device-twins-java.md",
+      "redirect_url": "/azure/iot-hub/how-to-device-twins",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/device-twins-python.md",
+      "redirect_url": "/azure/iot-hub/how-to-device-twins",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub/device-twins-node.md",
+      "redirect_url": "/azure/iot-hub/how-to-device-twins",
+      "redirect_document_id": false
     }
   ]
 }

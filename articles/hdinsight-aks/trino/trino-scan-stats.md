@@ -3,12 +3,15 @@ title: Use scan statistics
 description: How to enable, understand and query scan statistics using  query log tables for Trino clusters for HDInsight on AKS.
 ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 10/19/2023
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Enable scan statistics for queries
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 Often data teams are required to investigate performance or optimize queries to improve resource utilization or meet business requirements. 
 

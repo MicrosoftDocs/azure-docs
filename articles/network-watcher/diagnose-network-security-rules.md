@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 08/15/2023
+ms.date: 09/18/2024
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -135,7 +135,7 @@ In this section, you create a virtual network with two subnets and an Azure Bast
 
     ```azurepowershell-interactive
     # Create an Azure Bastion host.
-    New-AzBastion -ResourceGroupName 'myResourceGroup' -Name 'myVNet-Bastion' --PublicIpAddressRgName 'myResourceGroup' -PublicIpAddressName 'myBastionIp' -VirtualNetwork $vnet
+    New-AzBastion -ResourceGroupName 'myResourceGroup' -Name 'myVNet-Bastion' -PublicIpAddressRgName 'myResourceGroup' -PublicIpAddressName 'myBastionIp' -VirtualNetwork $vnet
     ```
 
 # [**Azure CLI**](#tab/cli)

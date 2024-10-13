@@ -85,9 +85,7 @@ To monitor deployed resources and deploy new connectors, in the **Microsoft Sent
 - Current ingestion trends
 - Tables ingesting data
 - How much data each table is reporting
-- Endpoints reporting with Microsoft Monitoring Agent (MMA)
-- Endpoints reporting with Azure Monitoring Agent (AMA)
-- Endpoints reporting with both the MMA and AMA agents
+- Endpoints reporting with Azure Monitor Agent (AMA)
 - Data collection rules in the resource group and the devices linked to the rules
 - Data connector health (changes and failures)
 - Health logs within the specified time range
@@ -192,7 +190,7 @@ The **ArchiveRetention** value is calculated by subtracting the **TotalRetention
 
 If you prefer to make changes in the UI, select **Update Retention in UI** to open the relevant page.
 
-Learn about [data lifecycle management](../azure-monitor/logs/data-retention-configure.md). 
+Learn about [data lifecycle management](/azure/azure-monitor/logs/data-retention-configure). 
 
 ## Enable migration tips and instructions
 

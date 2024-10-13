@@ -7,7 +7,6 @@ author: sethmanheim
 manager: femila
 editor: jwargo
 
-ms.assetid: f41beea1-0d62-4418-9ffc-c9d70607a1b7
 ms.service: azure-notification-hubs
 ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: csharp
@@ -158,7 +157,7 @@ In this tutorial, you take the following steps:
     }
     ```
 
-    To learn more about getting the user's location in UWP apps, see[Get the user's location](/windows/uwp/maps-and-location/get-location).
+    To learn more about getting the user's location in UWP apps, see [Get the user's location](/windows/uwp/maps-and-location/get-location).
 5. To check that the location acquisition is actually working, open the code side of your main page (`MainPage.xaml.cs`). Create a new event handler for the `Loaded` event in the `MainPage` constructor.
 
     ```csharp

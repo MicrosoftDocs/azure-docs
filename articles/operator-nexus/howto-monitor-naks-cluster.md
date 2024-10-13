@@ -22,7 +22,7 @@ Each Nexus Kubernetes cluster consists of multiple layers:
 
 Figure: Sample Nexus Kubernetes cluster
 
-On an instance, Nexus Kubernetes clusters are delivered with an _optional_ [Container Insights](../azure-monitor/containers/container-insights-overview.md) observability solution.
+On an instance, Nexus Kubernetes clusters are delivered with an _optional_ [Container Insights](/azure/azure-monitor/containers/container-insights-overview) observability solution.
 Container Insights captures the logs and metrics from Nexus Kubernetes clusters and workloads.
 It's solely your discretion whether to enable this tooling or deploy your own telemetry stack.
 
@@ -42,7 +42,7 @@ Install latest version of the
 
 ## Monitor Nexus Kubernetes cluster – VM layer
 
-This how-to guide provides steps and utility scripts to [Arc connect](../azure-arc/servers/overview.md) the Nexus Kubernetes cluster Virtual Machines to Azure and enable monitoring agents for the collection of System logs from these VMs using [Azure Monitoring Agent](../azure-monitor/agents/agents-overview.md).
+This how-to guide provides steps and utility scripts to [Arc connect](/azure/azure-arc/servers/overview) the Nexus Kubernetes cluster Virtual Machines to Azure and enable monitoring agents for the collection of System logs from these VMs using [Azure Monitoring Agent](/azure/azure-monitor/agents/agents-overview).
 The instructions further capture details on how to set up log data collection into a Log Analytics workspace.
 
 The following resources provide you with support:
@@ -80,7 +80,7 @@ Assign the service principal to the Azure resource group that has the machines t
 | Role | Needed to |
 |----------------------------------------------------------|----------------------------------------------- |
 | [Azure Connected Machine Resource Administrator](../role-based-access-control/built-in-roles.md#azure-connected-machine-resource-administrator)  or [Contributor](../role-based-access-control/built-in-roles.md#contributor) | Connect Arc-enabled Nexus Kubernetes cluster VM server in the resource group and install the Azure Monitoring Agent (AMA)|
-| [Monitoring Contributor](../role-based-access-control/built-in-roles.md#user-access-administrator) or [Contributor](../role-based-access-control/built-in-roles.md#contributor) | Create a [Data Collection Rule (DCR)](../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md) in the resource group and associate Arc-enabled servers to it |
+| [Monitoring Contributor](../role-based-access-control/built-in-roles.md#user-access-administrator) or [Contributor](../role-based-access-control/built-in-roles.md#contributor) | Create a [Data Collection Rule (DCR)](/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent) in the resource group and associate Arc-enabled servers to it |
 | [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator), and [Resource Policy Contributor](../role-based-access-control/built-in-roles.md#resource-policy-contributor) or [Contributor](../role-based-access-control/built-in-roles.md#contributor) | Needed if you want to use Azure policy assignment(s) to ensure that a DCR is associated with [Arc-enabled machines](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd5c37ce1-5f52-4523-b949-f19bf945b73a) |
 | [Kubernetes Extension Contributor](../role-based-access-control/built-in-roles.md#kubernetes-extension-contributor) | Needed to deploy the K8s extension for Container Insights |
 
@@ -114,7 +114,7 @@ For convenience, you can modify the template file, `arc-connect.env`, to set the
 
 Associate the Arc-enabled servers with a DCR to enable the collection of log data into a Log Analytics workspace.
 You can create the DCR via the Azure portal or CLI.
-Information on creating a DCR to collect data from the VMs is available [here](../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md).
+Information on creating a DCR to collect data from the VMs is available [here](/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent).
 
 The included **`dcr.sh`** script creates a DCR, in the specified resource group, that will configure log collection.
 
@@ -162,7 +162,7 @@ In the Azure portal, select the `Assign` button from the [policy definition](htt
 For convenience, the provided **`assign.sh`** script assigns the built-in policy to the specified resource group and DCR created with the **`dcr.sh`** script.
 
 1. Ensure proper [environment setup](#environment-setup) and role [prerequisites](#prerequisites-vm) for the service principal to do policy and role assignments.
-2. Create the DCR, in the resource group, using **`dcr.sh`** script as described in [Adding a Data Collection Rule](../azure-monitor/essentials/data-collection-endpoint-overview.md?tabs=portal#create-a-data-collection-endpoint) section.
+2. Create the DCR, in the resource group, using **`dcr.sh`** script as described in [Adding a Data Collection Rule](/azure/azure-monitor/essentials/data-collection-endpoint-overview?tabs=portal#create-a-data-collection-endpoint) section.
 3. Run the **`assign.sh`** script. It creates the policy assignment and necessary role assignments.
 
 ```bash
@@ -203,7 +203,7 @@ After you configure a policy, there may be some delay to observe the logs in Azu
 
 There are certain prerequisites the operator should ensure to configure the monitoring tools on Nexus Kubernetes Clusters.
 
-Container Insights stores its data in a [Log Analytics workspace](../azure-monitor/logs/log-analytics-workspace-overview.md).
+Container Insights stores its data in a [Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-workspace-overview).
 Log data flows into the workspace whose Resource ID you provided during the initial scripts covered in the ["Add a data collection rule (DCR)"](#add-a-data-collection-rule-dcr) section.
 Else, data funnels into a default workspace in the Resource group associated with your subscription (based on Azure location).
 
@@ -229,8 +229,8 @@ Container Insights and view data in the applicable Log Analytics workspace requi
 For example, the "Contributor" role assignment.
 See the instructions for [assigning required roles](../role-based-access-control/role-assignments-steps.md#step-5-assign-role):
 
-- [Log Analytics Contributor](../azure-monitor/logs/manage-access.md?tabs=portal#azure-rbac) role: necessary permissions to enable container monitoring on a CNF (provisioned) cluster.
-- [Log Analytics Reader](../azure-monitor/logs/manage-access.md?tabs=portal#azure-rbac) role: non-members of the Log Analytics Contributor role, receive permissions to view data in the Log Analytics workspace once you enable container monitoring.
+- [Log Analytics Contributor](/azure/azure-monitor/logs/manage-access?tabs=portal#azure-rbac) role: necessary permissions to enable container monitoring on a CNF (provisioned) cluster.
+- [Log Analytics Reader](/azure/azure-monitor/logs/manage-access?tabs=portal#azure-rbac) role: non-members of the Log Analytics Contributor role, receive permissions to view data in the Log Analytics workspace once you enable container monitoring.
 
 #### Install the cluster extension
 
@@ -284,9 +284,9 @@ Look for a Provisioning State of "Succeeded" for the extension. The "k8s-extensi
 
 #### Customize logs & metrics collection
 
-Container Insights provides end-users functionality to fine-tune the collection of logs and metrics from Nexus Kubernetes Clusters--[Configure Container insights agent data collection](../azure-monitor/containers/container-insights-data-collection-configmap.md).
+Container Insights provides end-users functionality to fine-tune the collection of logs and metrics from Nexus Kubernetes Clusters--[Configure Container insights agent data collection](/azure/azure-monitor/containers/container-insights-data-collection-configmap).
 
 ## Extra resources
 
-- Review [workbooks documentation](../azure-monitor/visualize/workbooks-overview.md) and then you may use Operator Nexus telemetry sample Operator Nexus workbooks.
-- Review [Azure Monitor Alerts](../azure-monitor/alerts/alerts-overview.md), how to create [Azure Monitor Alert rules](../azure-monitor/alerts/alerts-create-new-alert-rule.md?tabs=metric), and use sample Operator Nexus Alert templates.
+- Review [workbooks documentation](/azure/azure-monitor/visualize/workbooks-overview) and then you may use Operator Nexus telemetry sample Operator Nexus workbooks.
+- Review [Azure Monitor Alerts](/azure/azure-monitor/alerts/alerts-overview), how to create [Azure Monitor Alert rules](/azure/azure-monitor/alerts/alerts-create-new-alert-rule?tabs=metric), and use sample Operator Nexus Alert templates.

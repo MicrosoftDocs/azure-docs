@@ -5,13 +5,16 @@ services: application-gateway
 author: greg-lindsay
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 06/10/2022
+ms.date: 9/17/2024
 ms.author: greglin
 ---
 
 # Add Health Probes to your service
-By default, Ingress controller will provision an HTTP GET probe for the exposed pods.
+By default, Ingress controller provisions an HTTP GET probe for the exposed pods.
 The probe properties can be customized by adding a [Readiness or Liveness Probe](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/) to your `deployment`/`pod` spec.
+
+> [!TIP]
+> Also see [What is Application Gateway for Containers](for-containers/overview.md).
 
 ## With `readinessProbe` or `livenessProbe`
 ```yaml

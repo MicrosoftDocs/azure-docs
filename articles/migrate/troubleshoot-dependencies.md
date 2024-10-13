@@ -332,8 +332,8 @@ For Linux VMs, make sure that the installation commands for MMA and the dependen
 
 ## Supported operating systems for agent-based dependency analysis
 
-- **MMS agent**: The supported [Windows](../azure-monitor/agents/agents-overview.md#supported-operating-systems) and [Linux](../azure-monitor/agents/agents-overview.md#supported-operating-systems) operating systems.
-- **Dependency agent**: The supported [Windows and Linux](../azure-monitor/vm/vminsights-enable-overview.md#supported-operating-systems) operating systems.
+- **MMS agent**: The supported [Windows](/azure/azure-monitor/agents/agents-overview#supported-operating-systems) and [Linux](/azure/azure-monitor/agents/agents-overview#supported-operating-systems) operating systems.
+- **Dependency agent**: The supported [Windows and Linux](/azure/azure-monitor/vm/vminsights-enable-overview#supported-operating-systems) operating systems.
 
 ## Visualize dependencies for >1 hour with agent-based dependency analysis
 

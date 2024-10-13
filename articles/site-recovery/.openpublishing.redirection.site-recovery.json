@@ -336,6 +336,21 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/site-recovery/site-recovery-capacity-planner.md" ,
+            "redirect_url": "site-recovery-deployment-planner-history",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/site-recovery/physical-azure-set-up-target.md" ,
+            "redirect_url": "site-recovery-deployment-planner-history",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/site-recovery/move-azure-VMs-cross-region.md" ,
+            "redirect_url": "site-recovery-deployment-planner-history",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/site-recovery/hyper-v-site-walkthrough-replication.md",
             "redirect_url": "hyper-v-azure-tutorial",
             "redirect_document_id": false
