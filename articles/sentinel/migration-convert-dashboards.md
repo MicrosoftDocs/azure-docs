@@ -10,7 +10,7 @@ appliesto:
 ms.collection: usx-security
 
 
-#Customer intent: [AI]As a security analyst, I want to convert my SIEM dashboards to Azure Workbooks so that I can use advanced visualization and interactivity features in Microsoft Sentinel.
+#Customer intent: As a security analyst, I want to convert my SIEM dashboards to Azure Workbooks so that I can use advanced visualization and interactivity features in Microsoft Sentinel.
 
 ---
 

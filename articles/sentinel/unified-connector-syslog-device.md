@@ -8,7 +8,7 @@ ms.custom: linux-related-content
 ms.date: 06/27/2024
 
 
-#Customer intent: [AI]As a security administrator, I want to configure various security appliances and devices to forward logs via Syslog to Microsoft Sentinel so that I can ensure comprehensive security event monitoring and analysis.
+#Customer intent: As a security administrator, I want to configure various security appliances and devices to forward logs via Syslog to Microsoft Sentinel so that I can ensure comprehensive security event monitoring and analysis.
 
 ---
 

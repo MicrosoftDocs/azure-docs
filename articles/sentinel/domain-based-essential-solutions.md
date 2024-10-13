@@ -11,7 +11,7 @@ appliesto:
 ms.collection: usx-security
 
 
-#Customer intent: [AI]As a security analyst, I want to use ASIM-based domain solutions in Microsoft Sentinel so that I can efficiently normalize and analyze security data across multiple products and reduce alert fatigue.
+#Customer intent: As a security analyst, I want to use ASIM-based domain solutions in Microsoft Sentinel so that I can efficiently normalize and analyze security data across multiple products and reduce alert fatigue.
 
 ---
 

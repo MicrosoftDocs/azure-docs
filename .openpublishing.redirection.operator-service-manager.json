@@ -1,9 +1,0 @@
-{
-    "redirections": [
-        {
-            "source_path_from_root": "/articles/operator-service-manager/how-to-use-azure-operator-service-manager-cli-extension.md",
-            "redirect_url": "/azure/operator-service-manager/concepts-about-azure-operator-service-manager-cli",
-            "redirect_document_id": false
-        }
-    ]
-}
