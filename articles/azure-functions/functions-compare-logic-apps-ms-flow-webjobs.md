@@ -48,7 +48,9 @@ The following table helps you determine whether Power Automate or Logic Apps is 
 
 Functions and Logic Apps are Azure services that enable serverless workloads. Azure Functions is a serverless compute service, whereas Azure Logic Apps is a serverless workflow integration platform. Both can create complex *orchestrations*. An orchestration is a collection of functions, or *actions* in Azure Logic Apps, that you can run to complete a complex task. For example, to process a batch of orders, you might execute many instances of a function in parallel, wait for all instances to finish, and then execute a function that computes a result on the aggregate.
 
-For Azure Functions, you develop orchestrations by writing code and using the [Durable Functions extension](durable/durable-functions-overview.md). For Azure Logic Apps, you create orchestrations by using a GUI or editing configuration files.
+For Azure Functions, you develop orchestrations by writing code and using the [Durable Functions extension](durable/durable-functions-overview.md). For Azure Logic Apps, you create orchestrations by using a GUI or editing configuration files. 
+
+Azure Functions are fit for simple workflows or when you need to optimize for cost. Azure Logic Apps are fit for complex or business-critical workflows where reliability and ease of debugging are important.
 
 You can mix and match services when you build an orchestration, such as calling functions from logic app workflows and calling logic app workflows from functions. Choose how to build each orchestration based on the services' capabilities or your personal preference. The following table lists some key differences between these services:
 
@@ -60,6 +62,11 @@ You can mix and match services when you build an orchestration, such as calling 
 | **Monitoring** | [Azure Application Insights](/azure/azure-monitor/app/app-insights-overview) | [Azure portal](../logic-apps/quickstart-create-example-consumption-workflow.md), [Azure Monitor Logs](../logic-apps/monitor-workflows-collect-diagnostic-data.md), [Microsoft Defender for Cloud](../logic-apps/healthy-unhealthy-resource.md) |
 | **Management** | [REST API](durable/durable-functions-http-api.md), [Visual Studio](/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer) | [Azure portal](../logic-apps/quickstart-create-example-consumption-workflow.md), [REST API](/rest/api/logic/), [PowerShell](/powershell/module/az.logicapp), [Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md) |
 | **Execution context** | Can run [locally](./functions-kubernetes-keda.md) or in the cloud | Runs in Azure, locally, or on premises. For more information, see [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md#resource-environment-differences). |
+| **Error handling** | Manual implementation by writing code | Built-in capabilities such as resubmission and retry |
+| **Flow control** | Manual implementation by writing code |  Built-in capabilities such as conditional statements |
+| **Workflow support** | Manually implementation by using orchestrator functions and entity functions | Built-in workflow capabilities based on consumption, schedule and events |
+| **Pricing model** | Per-second resource consumption and executions | Based on triggers and actions |
+| **Cold start** | Has to be taken into account | There is no cold start |
 
 <a name="function"></a>
 
