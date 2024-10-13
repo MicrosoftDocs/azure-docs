@@ -205,6 +205,9 @@ cd quarkus-quickstarts/hibernate-orm-panache-quickstart
        --target-port 8080 \
        --min-replicas 1
    ```
+   
+   > [!NOTE]
+   > The options `--registry-username` and `--registry-password` are still supported but are not recommended because using the identity system is more secure.
 
 ## 5. Create and connect a PostgreSQL database with identity connectivity
 
@@ -224,6 +227,9 @@ Next, create a PostgreSQL Database and configure your container app to connect t
        --tier Burstable \
        --active-directory-auth Enabled
    ```
+   
+   > [!NOTE]
+   > The options `--admin-user` and `--admin-password` are still supported but are not recommended because using the identity system is more secure.
 
    The following parameters are used in the above Azure CLI command:
 
