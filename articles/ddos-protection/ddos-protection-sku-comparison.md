@@ -21,7 +21,7 @@ Azure DDoS Protection supports two tier types, DDoS IP Protection and DDoS Netwo
 
 The following table shows features and corresponding tiers.
 
-| Feature | DDoS IP Protection | DDoS Network Protection |
+| Feature | DDoS Network Protection | DDoS IP Protection |
 |---|---|---|
 | Active traffic monitoring & always on detection |  Yes| Yes |
 | L3/L4 Automatic attack mitigation  | Yes | Yes |
