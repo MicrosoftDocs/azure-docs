@@ -13,7 +13,7 @@ appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
 
 
-#Customer intent: As a financial planner for cloud security solutions, I want to understand Microsoft Sentinel's pricing and billing models so that I can optimize costs and accurately forecast expenses.
+#Customer intent: As a SOC manager, I want to understand Microsoft Sentinel's pricing and billing models so that I can optimize costs and accurately forecast expenses.
 
 ---
 
