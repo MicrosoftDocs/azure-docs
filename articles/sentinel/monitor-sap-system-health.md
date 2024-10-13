@@ -13,7 +13,7 @@ ms.collection: usx-security
 #Customer intent: As a security engineer, I want to monitor the health of my deploy and configure a monitoring solution for SAP applications so that I can detect and respond to security threats within my SAP environment.
 ---
 
-# Monitor the health of the connection between Microsoft Sentinel and your SAP system
+# Monitor the health of the connection between Microsoft Sentinel and your SAP system (Preview)
 
 After you [deploy the SAP solution](sap/deployment-overview.md), you want to ensure proper functioning and performance of your SAP systems, and keep track of your system health, connectivity, and performance. This article describes how you can check the connectivity health manually on the data connector page and use a dedicated alert rule template to monitor the health of your SAP systems.
 
