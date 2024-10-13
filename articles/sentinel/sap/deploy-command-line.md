@@ -133,11 +133,9 @@ This procedure describes how to create a new agent and connect it to your SAP sy
 
     Replace placeholder values as follows:
 
-    To find your VM identity object ID in Azure:
-
     |Placeholder  |Value  |
     |---------|---------|
-    |`<OBJ_ID>`     | Your VM identity object ID. <br><br>    To find your VM identity object ID in Azure: For a managed identity, the object ID is listed on the VM's **Identity** page. For a service principal, go to **Enterprise application** in Azure. Select **All applications** and then select your VM. The object ID is displayed on the **Overview** page.  |
+    |`<OBJ_ID>`     | Your VM identity object ID. <br><br>    To find your VM identity object ID in Azure: <br>- **For a managed identity**, the object ID is listed on the VM's **Identity** page. <br>- **For a service principal**, go to **Enterprise application** in Azure. Select **All applications** and then select your VM. The object ID is displayed on the **Overview** page.  |
     |`<SUB_ID>`     |    Your Microsoft Sentinel workspace subscription ID     |
     |`<RESOURCE_GROUP_NAME>`     |  Your Microsoft Sentinel workspace resource group name       |
     |`<WS_NAME>`     |    Your Microsoft Sentinel workspace name     |
