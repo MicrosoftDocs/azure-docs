@@ -8,11 +8,9 @@ ms.date: 9/23/2024
 ms.author: austinmc
 appliesto: 
 - Microsoft Sentinel in the Azure portal
-- Microsoft Sentinel in the Defender portal
-#customer intent: As an SOC administrator, I want to use the SIEM migration experience so I can migrate to Microsoft Sentinel.
+#Customer intent: As an security operations administrator, I want to use the SIEM migration experience so I can streamline a migration to Microsoft Sentinel to enhance my security monitoring capabilities.
 
 
-#Customer intent: As a security operations manager, I want to migrate my SIEM from Splunk to Microsoft Sentinel so that I can streamline and enhance my security monitoring capabilities.
 
 ---
 
