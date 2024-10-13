@@ -315,6 +315,8 @@
     href: https://pypi.org/project/azure-mgmt-labservices/
 - name: Resources
   items:
+  - name: Transition to Azure DevTest Labs
+    href: transition-devtest-labs-guidance.md
   - name: Azure Lab Services Blog
     href: https://aka.ms/azlabs-blog
   - name: Azure updates

@@ -11,7 +11,7 @@ ms.custom: engagement-fy25
 
 # Assessment overview (migrate to Azure Spring Apps) (preview)
 
-This article provides an overview of assessments for migrating on-premises Spring Boot apps to Azure Spring Apps using the [Azure Migrate: Discovery and assessment tool](./migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool).
+This article provides an overview of assessments for migrating on-premises Spring Boot apps to Azure Spring Apps using the [Azure Migrate: Discovery and assessment tool](./migrate-services-overview.md).
 
 ## What's an assessment?
 An assessment with the Discovery and assessment tool is a point in time snapshot of data and measures the readiness and provides cost details to host on-premises servers, databases, and web apps to Azure.

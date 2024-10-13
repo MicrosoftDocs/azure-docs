@@ -110,6 +110,7 @@ Decorators are written in the format `@expression` and are placed above function
 | --------- | ----------- | ------- |
 | [description](#description) | string | Provide descriptions for the function. |
 | [export](#export) | none | Indicates that the function is available for import by another Bicep file. |
+| [metadata](#metadata) | object | Custom properties to apply to the function. Can include a description property that is equivalent to the description decorator. |
 
 Decorators are in the [sys namespace](bicep-functions.md#namespaces-for-functions). If you need to differentiate a decorator from another item with the same name, preface the decorator with `sys`. For example, if your Bicep file includes a variable named `description`, you must add the sys namespace when using the **description** decorator.
 
@@ -127,6 +128,23 @@ Markdown-formatted text can be used for the description text.
 ### Export
 
 Use `@export()` to share the function with other Bicep files. For more information, see [Export variables, types, and functions](./bicep-import.md#export-variables-types-and-functions).
+
+### Metadata
+
+If you have custom properties that you want to apply to a user-defined function, add a metadata decorator. Within the metadata, define an object with the custom names and values. The object you define for the metadata can contain properties of any name and type.
+
+You might use this decorator to track information about the function that doesn't make sense to add to the [description](#description).
+
+```bicep
+@description('Configuration values that are applied when the application starts.')
+@metadata({
+  source: 'database'
+  contact: 'Web team'
+})
+type settings object
+```
+
+When you provide a `@metadata()` decorator with a property that conflicts with another decorator, that decorator always takes precedence over anything in the `@metadata()` decorator. So, the conflicting property within the `@metadata()` value is redundant and will be replaced. For more information, see [No conflicting metadata](./linter-rule-no-conflicting-metadata.md).
 
 ## Next steps
 

@@ -1,8 +1,8 @@
 ---
 title: What's new in the Azure Backup service
 description: Learn about the new features in the Azure Backup service.
-ms.topic: conceptual
-ms.date: 07/24/2024
+ms.topic: release-notes
+ms.date: 09/11/2024
 ms.service: azure-backup
 ms.custom:
   - ignite-2023
@@ -422,7 +422,7 @@ For more information, see [how to configure multiple backups per day via backup 
 
 ## Azure Backup metrics and metrics alerts (in preview)
 
-Azure Backup now provides a set of built-in metrics via [Azure Monitor](../azure-monitor/essentials/data-platform-metrics.md) that allows you to monitor the health of your backups. You can also configure alert rules that trigger alerts when metrics exceed the defined thresholds.
+Azure Backup now provides a set of built-in metrics via [Azure Monitor](/azure/azure-monitor/essentials/data-platform-metrics) that allows you to monitor the health of your backups. You can also configure alert rules that trigger alerts when metrics exceed the defined thresholds.
 
 Azure Backup offers the following key capabilities:
  

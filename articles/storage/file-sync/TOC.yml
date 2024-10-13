@@ -150,7 +150,7 @@
   - name: Disaster recovery best practices
     href: file-sync-disaster-recovery-best-practices.md
   - name: Change the redundancy configuration
-    href: ../common/redundancy-migration.md?toc=/azure/storage/file-sync/toc.json
+    href: ../files/files-change-redundancy-configuration.md?toc=/azure/storage/file-sync/toc.json
   - name: Initiate an account failover
     href: ../common/storage-initiate-account-failover.md?toc=/azure/storage/file-sync/toc.json
   - name: Recover from a server failure

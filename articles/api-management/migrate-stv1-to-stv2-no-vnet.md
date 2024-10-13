@@ -45,11 +45,16 @@ API Management platform migration from `stv1` to `stv2` involves updating the un
 
 ## Migrate the instance to stv2 platform
 
+### Public IP address options 
 You can choose whether the virtual IP address of API Management will change, or whether the original VIP address is preserved.
 
 * **New virtual IP address** - If you choose this mode, API requests remain responsive during migration. Infrastructure configuration (such as custom domains, locations, and CA certificates) will be locked for 30 minutes. After migration, you'll need to update any network dependencies including DNS, firewall rules, and VNets to use the new VIP address. 
 
 * **Preserve IP address** - If you preserve the VIP address, API requests will be unresponsive for approximately 15 minutes while the IP address is migrated to the new infrastructure. Infrastructure configuration (such as custom domains, locations, and CA certificates) will be locked for 45 minutes. No further configuration is required after migration.
+
+[!INCLUDE [api-management-migration-precreated-ip](../../includes/api-management-migration-precreated-ip.md)]
+
+### Migration steps
 
 #### [Portal](#tab/portal)
 

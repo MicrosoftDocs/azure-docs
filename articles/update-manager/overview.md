@@ -5,14 +5,14 @@ ms.service: azure-update-manager
 ms.custom: linux-related-content
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 07/14/2024
+ms.date: 08/30/2024
 ms.topic: overview
 ---
 
 # About Azure Update Manager
 
 > [!Important]
-> On 31 August 2024, both Azure Automation Update Management and the Log Analytics agent it uses [will be retired](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). Therefore, if you are using the Automation Update Management solution, we recommend that you move to Azure Update Manager for your software update needs. Follow the [guidance](guidance-migration-automation-update-management-azure-update-manager.md#migration-scripts) to move your machines and schedules from Automation Update Management to Azure Update Manager.
+> Both Azure Automation Update Management and the Log Analytics agent it uses [has been retired on 31st August 2024](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). Therefore, if you are using the Automation Update Management solution, we recommend that you move to Azure Update Manager for your software update needs. Follow the [guidance](guidance-migration-automation-update-management-azure-update-manager.md#migration-scripts) to move your machines and schedules from Automation Update Management to Azure Update Manager.
 > For more information, see the [FAQs on retirement](update-manager-faq.md#impact-of-log-analytics-agent-retirement). You can [sign up](https://developer.microsoft.com/reactor/?search=Azure+Update+Manager&page=1) for monthly live sessions on migration including Q&A sessions.
 
 

@@ -7,6 +7,9 @@ items:
     - name: What is Microsoft Dev Box?
       displayName: DevBox, VDI
       href: overview-what-is-microsoft-dev-box.md
+    - name: Roadmap for Microsoft Dev Box
+      displayName: roadmap, future, features, enhancements, coming soon, in development
+      href: dev-box-roadmap.md
 - name: Quickstarts
   expanded: true
   items:
@@ -75,10 +78,10 @@ items:
   - name: Manage a dev box through developer portal
     href: how-to-create-dev-boxes-developer-portal.md
   - name: Connect with Windows App
-    displayName: connect, access dev box, RDP, iPad 
+    displayName: Windows App, connect, access dev box, RDP, iPad 
     href: /windows-app/get-started-connect-devices-desktops-apps?context=/azure/dev-box/context/context&pivots=dev-box
   - name: Connect with Remote Desktop
-    displayName: connect, access dev box, RDP, iPad 
+    displayName: Windows App, connect, access dev box, RDP, iPad 
     href: tutorial-connect-to-dev-box-with-remote-desktop-app.md
   - name: Use multiple monitors
     href: tutorial-configure-multiple-monitors.md

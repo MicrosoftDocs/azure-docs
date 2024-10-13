@@ -4,7 +4,7 @@ description: Learn how to configure an Azure Web Application Firewall rule to re
 services: web-application-firewall
 author: vhorne
 ms.service: azure-web-application-firewall
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/29/2024
 ms.author: victorh 
 ms.custom: devx-track-azurepowershell, devx-track-azurecli

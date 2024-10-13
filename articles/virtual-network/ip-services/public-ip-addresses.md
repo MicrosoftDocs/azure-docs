@@ -8,7 +8,7 @@ ms.subservice: ip-services
 ms.topic: conceptual
 author: mbender-ms
 ms.author: mbender
-ms.date: 08/15/2024
+ms.date: 09/27/2024
 ---
 
 # Public IP addresses
@@ -70,7 +70,6 @@ Full details are listed in the table below:
 | [Routing preference](routing-preference-overview.md)| Supported to enable more granular control of how traffic is routed between Azure and the Internet. | Not supported.| 
 | Global tier | Supported via [cross-region load balancers](../../load-balancer/cross-region-overview.md).| Not supported. |
 
-
 Virtual machines attached to a backend pool do not need a public IP address to be attached to a public load balancer. But if they do, matching SKUs are required for load balancer and public IP resources. You can't have a mixture of basic SKU resources and standard SKU resources. You can't attach standalone virtual machines, virtual machines in an availability set resource, or a virtual machine scale set resources to both SKUs simultaneously.  New designs should consider using Standard SKU resources. For more information about a standard load balancer, see [Standard Load Balancer](../../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## IP address assignment
@@ -93,6 +92,23 @@ Static public IP addresses are commonly used in the following scenarios:
 | Standard public IPv6 | :white_check_mark: | x |
 | Basic public IPv4 | :white_check_mark: | :white_check_mark: |
 | Basic public IPv6 | x | :white_check_mark: |
+
+## Availability Zone
+> [!IMPORTANT]
+> We are updating Standard non-zonal IPs to be zone-redundant by default on a region by region basis. This means that in the following regions, all IPs created (except zonal) are zone-redundant.
+> Region availability: Central Canada, Central Poland, Central Israel, Central France, Central Qatar, East Asia, East US 2, East Norway, Italy North, Sweden Central, South Africa North, South Brazil, West Central Germany, West US 2, Central Spain
+> 
+
+Standard SKU Public IPs can be created as non-zonal, zonal, or zone-redundant in [regions that support availability zones](../../availability-zones/az-region.md). Basic SKU Public IPs do not have any zones and are created as non-zonal.
+A public IP's availability zone can't be changed after the public IP's creation.
+
+| Value | Behavior |
+| --- | --- |
+| Non-zonal |  A non-zonal public IP address is placed into a zone for you by Azure and doesn't give a guarantee of redundancy. |
+| Zonal  |	 A zonal IP is tied to a specific availability zone, and shares fate with the health of the zone. |
+| Zone-redundant	| A zone-redundant IP is created in all zones for a region and can survive any single zone failure. |
+
+In regions without availability zones, all public IP addresses are created as nonzonal. Public IP addresses created in a region that is later upgraded to have availability zones remain non-zonal.  
 
 ## Domain Name Label
 
@@ -127,23 +143,6 @@ The value of the **Domain Name Label Scope** must match one of the options below
 | NoReuse | Object with the same name will receive a new Domain Label for each new instance |
 
 For example, if **SubscriptionReuse** is selected as the option, and a customer who has the example domain name label **contoso.fjdng2acavhkevd8.westus.cloudapp.Azure.com** deletes and re-deploys a public IP address using the same template as before, the domain name label will remain the same.  If the customer deploys a public IP address using this same template under a different subscription, the domain name label would change (e.g. **contoso.c9ghbqhhbxevhzg9.westus.cloudapp.Azure.com**).
-
-## Availability Zone
-
-Standard SKU Public IPs can be created as non-zonal, zonal, or zone-redundant in [regions that support availability zones](../../availability-zones/az-region.md). Basic SKU Public IPs do not have any zones and are created as non-zonal.
-A public IP's availability zone can't be changed after the public IP's creation.
-
-| Value | Behavior |
-| --- | --- |
-| Non-zonal |  A non-zonal public IP address is placed into a zone for you by Azure and doesn't give a guarantee of redundancy. |
-| Zonal  |	 A zonal IP is tied to a specific availability zone, and shares fate with the health of the zone. |
-| Zone-redundant	| A zone-redundant IP is created in all zones for a region and can survive any single zone failure. |
-
-In regions without availability zones, all public IP addresses are created as nonzonal. Public IP addresses created in a region that is later upgraded to have availability zones remain non-zonal.  
-
-> [!IMPORTANT]
-> We are updating Standard non-zonal IPs to be zone-redundant by default on a region by region basis. This means that in the following 12 regions, all IPs created (except zonal) are zone-redundant.
-> Region availability: Central Canada, Central Poland, Central Israel, Central France, Central Qatar, East Norway, Italy North, Sweden Central, South Africa North, South Brazil, West Central Germany, West US 2.
 
 ## Other public IP address features
 

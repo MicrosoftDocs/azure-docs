@@ -26,6 +26,8 @@ Use the `llm-semantic-cache-lookup` policy to perform cache lookup of responses 
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
+[!INCLUDE [api-management-llm-models](../../includes/api-management-llm-models.md)]
+
 ## Policy statement
 
 ```xml

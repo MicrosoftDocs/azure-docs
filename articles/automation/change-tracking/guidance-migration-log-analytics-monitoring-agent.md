@@ -4,8 +4,8 @@ description: An overview on how to migrate from Change Tracking and inventory us
 author: snehasudhirG
 services: automation
 ms.subservice: change-inventory-management
-ms.topic: conceptual
-ms.date: 05/01/2024
+ms.topic: how-to
+ms.date: 09/27/2024
 ms.author: sudhirsneha
 ms.custom:
 ms.service: azure-automation
@@ -21,6 +21,11 @@ Using the Azure portal, you can migrate from Change Tracking & Inventory with LA
 
 - Migrate single/multiple VMs from the Virtual Machines page.
 - Migrate multiples VMs on LA version solution within a particular Automation Account.
+
+> [!NOTE]
+> File Integrity Monitoring (FIM) using [Microsoft Defender for Endpoint (MDE)](https://learn.microsoft.com/azure/defender-for-cloud/file-integrity-monitoring-enable-defender-endpoint) is now currently available. Follow the guidance to migrate from:
+> - [FIM with Change Tracking and Inventory using AMA](https://learn.microsoft.com/azure/defender-for-cloud/migrate-file-integrity-monitoring#migrate-from-fim-over-ama).
+> - [FIM with Change Tracking and Inventory using MMA](https://learn.microsoft.com/azure/defender-for-cloud/migrate-file-integrity-monitoring#migrate-from-fim-over-mma).
 
 ## Onboarding to Change tracking and inventory using Azure Monitoring Agent
 

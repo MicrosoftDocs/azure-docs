@@ -21,7 +21,7 @@ Azure DDoS Protection monitors actual traffic utilization and constantly compare
 During mitigation, traffic sent to the protected resource is redirected by the DDoS protection service and several checks are performed, such as:
 
 - Ensure packets conform to internet specifications and aren't malformed.
-- Interact with the client to determine if the traffic is potentially a spoofed packet (e.g: SYN Auth or SYN Cookie or by dropping a packet for the source to retransmit it).
+- Interact with the client to determine if the traffic is potentially a spoofed packet (for example: SYN Auth or SYN Cookie or by dropping a packet for the source to retransmit it).
 - Rate-limit packets, if no other enforcement method can be performed.
 
 Azure DDoS Protection drops attack traffic and forwards the remaining traffic to its intended destination. Within a few minutes of attack detection, you're notified using Azure Monitor metrics. By configuring logging on DDoS Protection telemetry, you can write the logs to available options for future analysis. Metric data in Azure Monitor for DDoS Protection is retained for 30 days.
@@ -38,7 +38,7 @@ The complexity of attacks (for example, multi-vector DDoS attacks) and the appli
 
 ## DDoS Protection telemetry, monitoring, and alerting
 
-Azure DDoS Protection exposes rich telemetry via [Azure Monitor](../azure-monitor/overview.md). You can configure alerts for any of the Azure Monitor metrics that DDoS Protection uses. You can integrate logging with Splunk (Azure Event Hubs), Azure Monitor logs, and Azure Storage for advanced analysis via the Azure Monitor Diagnostics interface.
+Azure DDoS Protection exposes rich telemetry via [Azure Monitor](/azure/azure-monitor/overview). You can configure alerts for any of the Azure Monitor metrics that DDoS Protection uses. You can integrate logging with Splunk (Azure Event Hubs), Azure Monitor logs, and Azure Storage for advanced analysis via the Azure Monitor Diagnostics interface.
 
 ### Azure DDoS Protection mitigation policies
 

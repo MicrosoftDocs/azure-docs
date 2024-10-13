@@ -4,12 +4,15 @@ description: Add catalogs to an existing Trino cluster in HDInsight on AKS
 ms.service: azure-hdinsight-on-aks
 ms.custom: devx-track-arm-template
 ms.topic: how-to 
-ms.date: 10/19/2023
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Configure catalogs
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 Every Trino cluster comes by default with few catalogs - system, tpcds, `tpch`. You can add your own catalogs same way you would do with OSS Trino. 
 In addition, Trino with HDInsight on AKS allows storing secrets in Key Vault so you don’t have to specify them explicitly in ARM template. 

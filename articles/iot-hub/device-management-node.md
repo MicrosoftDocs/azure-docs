@@ -44,6 +44,8 @@ In this section, you:
 
 * Use the reported properties to enable device twin queries to identify devices and when they last rebooted.
 
+[!INCLUDE [iot-authentication-device-connection-string.md](../../includes/iot-authentication-device-connection-string.md)]
+
 1. Create an empty folder called **managed-device**.  In the **managed-device** folder, create a package.json file using the following command at your command prompt.  Accept all the defaults:
 
     ```cmd/sh
@@ -143,6 +145,8 @@ In this section, you:
 ## Create a service app to trigger a reboot
 
 In this section, you create a Node.js console app that initiates a remote reboot on a device using a direct method. The app uses device twin queries to discover the last reboot time for that device.
+
+[!INCLUDE [iot-authentication-service-connection-string.md](../../includes/iot-authentication-service-connection-string.md)]
 
 1. Create an empty folder called **trigger-reboot-on-device**. In the **trigger-reboot-on-device** folder, create a package.json file using the following command at your command prompt. Accept all the defaults:
 

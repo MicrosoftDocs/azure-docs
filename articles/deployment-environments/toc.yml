@@ -7,6 +7,9 @@ items:
     - name: What is Azure Deployment Environments?
       displayName: Azure Deployment Environments overview
       href: overview-what-is-azure-deployment-environments.md
+    - name: Roadmap for Azure Deployment Environments
+      displayName: roadmap, future, features, enhancements, coming soon, in development
+      href: ade-roadmap.md
 - name: Quickstarts
   displayName: Quickstarts
   expanded: true
@@ -27,9 +30,6 @@ items:
       href: concept-environment-yaml.md  
     - name: Best practices for designing catalogs
       href: best-practice-catalog-structure.md
-    - name: Use Azure Developer CLI with ADE
-      displayName: AZD, setup AZD, template, AZD compatible, AZD admin
-      href: concept-azure-developer-cli-with-deployment-environments.md  
     - name: Reliability in Azure Deployment Environments
       href: ../reliability/reliability-deployment-environments.md?toc=/azure/deployment-environments/toc.json&bc=/azure/deployment-environments/breadcrumb/toc.json
     - name: Azure role-based access control
@@ -53,30 +53,30 @@ items:
       href: how-to-create-configure-projects.md
     - name: Configure AZD-compatible templates
       href: how-to-configure-azure-developer-cli-deployment-environments.md
-- name: Configure the ADE extensibility model
-  expanded: false
-  items:
-    - name: Configure container image to execute deployments
-      href: how-to-configure-extensibility-generic-container-image.md
-      displayName: custom image, custom runner, extensibility 
-    - name: Configure ARM/Bicep container image to execute deployments
-      href: how-to-configure-extensibility-bicep-container-image.md
-      displayName: custom image, custom runner, extensibility
-    - name: Configure Terraform container image to execute deployments
-      href: how-to-configure-extensibility-terraform-container-image.md
-      displayName: custom image, custom runner, extensibility  
-    - name: Configure Pulumi container image to execute deployments
-      href: how-to-configure-extensibility-pulumi-container-image.md
-      displayName: custom image, custom runner, extensibility  
 - name: Create and manage environments
   expanded: false
   items: 
-    - name: Create environments with Azure Developer CLI (AZD)
-      href: how-to-create-environment-with-azure-developer.md 
     - name: Manage environments in the developer portal
       href: how-to-manage-environments.md
     - name: Create environments with Azure CLI
       href: how-to-create-access-environments.md
+- name: Configure the ADE extensibility model
+  expanded: false
+  items:
+    - name: Configure container image to execute deployments
+      href: how-to-configure-extensibility-model-custom-image.md
+      displayName: custom image, container, custom runner, extensibility, ARM, Bicep, Terraform, Pulumi 
+    - name: Troubleshoot custom image errors and warnings
+      displayName: custom image, container, custom runner, extensibility, ARM, Bicep, Terraform, Pulumi
+      href: troubleshoot-custom-image-logs-errors.md 
+- name: Use Azure Developer CLI with ADE
+  expanded: false
+  items:
+    - name: Use Azure Developer CLI (azd) with ADE
+      displayName: AZD, setup AZD, template, AZD compatible, AZD admin
+      href: concept-azure-developer-cli-with-deployment-environments.md
+    - name: Create environments with Azure Developer CLI (azd)
+      href: how-to-create-environment-with-azure-developer.md 
 - name: Manage costs
   expanded: false
   items:

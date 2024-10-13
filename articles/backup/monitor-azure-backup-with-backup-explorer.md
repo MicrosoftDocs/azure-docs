@@ -1,8 +1,8 @@
 ---
 title: Monitor your backups with Backup Explorer
 description: This article describes how to use Backup Explorer to perform real-time monitoring of backups across vaults, subscriptions, regions, and tenants.
-ms.topic: conceptual
-ms.date: 02/03/2020
+ms.topic: how-to
+ms.date: 09/11/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -90,7 +90,7 @@ You can select the "pin" icon at the top of each table or chart to pin it to you
 
 ## Cross-tenant views
 
-If you're an Azure Lighthouse user with delegated access to subscriptions across multiple tenant environments, you can use the default subscription filter. You display the subscriptions that you want to see data for by selecting the "filter" icon at the top right of the Azure portal. When you use this feature, Backup Explorer aggregates information about all the vaults across your selected subscriptions. To learn more, see [What is Azure Lighthouse?](../lighthouse/overview.md).
+If you're an Azure Lighthouse user with delegated access to subscriptions across multiple tenant environments, you can use the default subscription filter. You display the subscriptions that you want to see data for by selecting the "filter" icon at the top right of the Azure portal. When you use this feature, Backup Explorer aggregates information about all the vaults across your selected subscriptions. To learn more, see [What is Azure Lighthouse?](/azure/lighthouse/overview).
 
 ## Next steps
 

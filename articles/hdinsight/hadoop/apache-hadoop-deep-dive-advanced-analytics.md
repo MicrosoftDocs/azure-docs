@@ -4,7 +4,7 @@ description: Learn how advanced analytics uses algorithms to process big data in
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 08/13/2023
+ms.date: 09/06/2024
 ---
 
 # Deep dive - advanced analytics
@@ -57,7 +57,7 @@ HDInsight has several machine learning options for an advanced analytics workflo
 There are three scalable machine learning libraries that bring algorithmic modeling capabilities to this distributed environment:
 
 * [**MLlib**](https://spark.apache.org/docs/latest/ml-guide.html) - MLlib contains the original API built on top of Spark RDDs.
-* [**SparkML**](https://spark.apache.org/docs/1.2.2/ml-guide.html) - SparkML is a newer package that provides a higher-level API built on top of Spark DataFrames for constructing ML pipelines.
+* **SparkML** - SparkML is a newer package that provides a higher-level API built on top of Spark DataFrames for constructing ML pipelines.
 * [**MMLSpark**](https://github.com/Azure/mmlspark)  - The Microsoft Machine Learning library for Apache Spark (MMLSpark) is designed to make data scientists more productive on Spark, to increase the rate of experimentation, and to leverage cutting-edge machine learning techniques, including deep learning, on large datasets. The MMLSpark library simplifies common modeling tasks for building models in PySpark.
 
 ### Azure Machine Learning and Apache Hive
@@ -116,5 +116,5 @@ Apache Spark and MLLib
 
 Deep Learning, Cognitive Toolkit, and others
 
-* [Data Science Azure Virtual Machine](../../machine-learning/data-science-virtual-machine/overview.md)
+* [Data Science Azure Virtual Machine](/azure/machine-learning/data-science-virtual-machine/overview)
 * [Introducing H2O.ai on Azure HDInsight](https://azure.microsoft.com/blog/introducing-h2o-ai-with-on-azure-hdinsight-to-bring-the-most-robust-ai-platform-for-enterprises/)

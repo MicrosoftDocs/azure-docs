@@ -88,16 +88,17 @@ Manage gateway capacity by manually adding or removing scale units, similar to t
 
 ### Regional availability
 
-Workspace gateways need to be in the same Azure region and subscription as the API Management service. 
+Workspace gateways are currently available in the following regions:
 
 > [!NOTE]
-> Starting in August 2024, workspace gateway support will be rolled out in the following regions. These regions are a subset of those where API Management is available.
+> These regions are a subset of those where API Management is available.
 
 * West US
 * North Central US
 * East US 2
 * UK South
-* France Central 
+* France Central
+* Germany West Central
 * North Europe
 * East Asia
 * Southeast Asia
@@ -107,6 +108,7 @@ Workspace gateways need to be in the same Azure region and subscription as the A
 ### Gateway constraints
 The following constraints currently apply to workspace gateways:
 
+* A workspace gateway needs to be in the same region as the API Management instance's primary Azure region and in the same subscription. 
 * A gateway can be associated only with one workspace
 * A workspace can't be associated with a self-hosted gateway
 * Workspace gateways don't support inbound private endpoints
@@ -115,7 +117,7 @@ The following constraints currently apply to workspace gateways:
 * Workspace gateways don't support the API Management service's credential manager
 * Workspace gateways support only internal cache; external cache isn't supported 
 * Workspace gateways don't support synthetic GraphQL APIs and WebSocket APIs
-* Workspace gateways don't support APIs created from Azure resources such as Azure OpenAI Service, App Service, Function Apps, and so on
+* Workspace gateways don't support creating APIs directly from Azure resources such as Azure OpenAI Service, App Service, Function Apps, and so on
 * Request metrics can't be split by workspace in Azure Monitor; all workspace metrics are aggregated at the service level
 * Azure Monitor logs are aggregated at the service level; workspace-level logs aren't available
 * Workspace gateways don't support CA certificates

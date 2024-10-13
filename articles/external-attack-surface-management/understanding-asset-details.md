@@ -222,7 +222,12 @@ The **Observation** tab displays any insights from the Attack Surface Priorities
 
 For more information on observations, see [Understanding dashboards](understanding-dashboards.md). For each observation, Defender EASM provides the name of the observation, categorizes it by type, assigns a priority, and lists both CVSS v2 and v3 scores where applicable.
 
-![Screenshot that shows the Observation tab.](media/Inventory-15.png)
+The Observations tab features two tables: Observations and Non-appliable observations. All active observations determined to be "recent" within your attack surface will be in the Observations table, whereas the Non-applicable observations table lists any observations that have either been manually marked as non-applicable or were determined by the system to no longer be applicable. To mark observations as non-applicable and therefore exclude that particular observation from dashboard counts, simply select the desired observations and click "Set as non-applicable."  The observation(s) will immediately disappear from the active Observations table and will instead appear on the "Non-applicable observations" table. You can revert this change at any time by selection the relevant observation(s) from this table and selecting "Set as applicable." 
+
+
+   ![Screenshot that shows the Observations tab with multiple CVEs selected to be marked as non-applicable.](media/cves-3.png)
+
+
 
 
 ### Connected assets 

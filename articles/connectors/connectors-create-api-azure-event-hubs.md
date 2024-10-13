@@ -188,10 +188,6 @@ In Azure Logic Apps, an [action](../logic-apps/logic-apps-overview.md#logic-app-
 
 For all the operations and other technical information, such as properties, limits, and so on, review the [Event Hubs connector's reference page](/connectors/eventhubs/).
 
-> [!NOTE]
-> For logic apps hosted in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
-> the connector's ISE version uses the [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) instead.
-
 ## Next steps
 
 * [Managed connectors for Azure Logic Apps](managed.md)

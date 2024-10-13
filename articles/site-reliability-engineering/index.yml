@@ -136,29 +136,29 @@ conceptualContent:
     # Card
     - title: Monitoring
       links:
-        - url: ../azure-monitor/overview.md
+        - url: /azure/azure-monitor/overview
           itemType: get-started
           text: Azure Monitor overview
 
-        - url: ../azure-monitor/essentials/data-platform-metrics.md
+        - url: /azure/azure-monitor/essentials/data-platform-metrics
           itemType: get-started
           text: Metrics with Azure Monitor
 
-        - url: ../azure-monitor/logs/data-platform-logs.md
+        - url: /azure/azure-monitor/logs/data-platform-logs
           itemType: get-started
           text: Logs with Azure Monitor
 
-        - url: ../azure-monitor/app/app-insights-overview.md
+        - url: /azure/azure-monitor/app/app-insights-overview
           itemType: get-started
           text: Application Performance Management with Application Insights
 
-        - url: ../azure-monitor/app/distributed-tracing-telemetry-correlation.md
+        - url: /azure/azure-monitor/app/distributed-tracing-telemetry-correlation
           itemType: get-started
           text: Distributed Tracing with Azure Monitor
           
       # footerLink (optional)
       footerLink:
-        url: ../azure-monitor/index.yml
+        url: /azure/azure-monitor/
         text: See more about Azure Monitor
     # Card
     - title: Provisioning and Delivery
@@ -179,7 +179,7 @@ conceptualContent:
     # Card
     - title: Scaling
       links:
-        - url: ../azure-monitor/autoscale/autoscale-overview.md
+        - url: /azure/azure-monitor/autoscale/autoscale-overview
           itemType: get-started
           text: Overview of autoscale
 

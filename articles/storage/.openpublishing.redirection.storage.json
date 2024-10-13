@@ -11,6 +11,26 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/storage/scripts/storage-blobs-container-calculate-billing-size-powershell.md",
+            "redirect_url": "/previous-versions/azure/storage/scripts/storage-blobs-container-calculate-billing-size-powershell",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/storage/scripts/storage-blobs-container-calculate-size-powershell.md",
+            "redirect_url": "/previous-versions/azure/storage/scripts/storage-blobs-container-calculate-size-powershell",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/storage/scripts/storage-blobs-container-delete-by-prefix-powershell.md",
+            "redirect_url": "/previous-versions/azure/storage/scripts/storage-blobs-container-delete-by-prefix-powershell",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/storage/scripts/storage-common-rotate-account-keys-powershell.md",
+            "redirect_url": "/previous-versions/azure/storage/scripts/storage-common-rotate-account-keys-powershell",
+            "redirect_document_id": false
+          },
+        {
             "source_path_from_root": "/articles/storage/queues/storage-dotnet-how-to-use-queues.md",
             "redirect_url": "/azure/storage/queues/storage-quickstart-queues-dotnet",
             "redirect_document_id": false
@@ -488,6 +508,36 @@
         {
             "source_path_from_root": "/articles/storage/blobs/storage-xamarin-blob-storage.md",
             "redirect_url": "/azure/storage/blobs/storage-quickstart-blobs-xamarin",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/sas-service-create-dotnet-container.md",
+            "redirect_url": "/azure/storage/blobs/sas-service-create-dotnet",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-blob-container-user-delegation-sas-create-dotnet.md",
+            "redirect_url": "/azure/storage/blobs/storage-blob-user-delegation-sas-create-dotnet",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/sas-service-create-java-container.md",
+            "redirect_url": "/azure/storage/blobs/sas-service-create-java",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-blob-container-user-delegation-sas-create-java.md",
+            "redirect_url": "/azure/storage/blobs/storage-blob-user-delegation-sas-create-java",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/sas-service-create-python-container.md",
+            "redirect_url": "/azure/storage/blobs/sas-service-create-python",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-blob-container-user-delegation-sas-create-python.md",
+            "redirect_url": "/azure/storage/blobs/storage-blob-user-delegation-sas-create-python",
             "redirect_document_id": false
         },
         {

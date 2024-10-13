@@ -1,8 +1,8 @@
 ---
 title: Manage and monitor SQL Server DBs on an Azure VM
 description: This article describes how to manage and monitor SQL Server databases that are running on an Azure VM.
-ms.topic: conceptual
-ms.date: 03/05/2024
+ms.topic: how-to
+ms.date: 09/11/2024
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick

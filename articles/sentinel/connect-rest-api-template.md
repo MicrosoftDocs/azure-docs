@@ -5,11 +5,15 @@ author: yelevin
 ms.topic: how-to
 ms.date: 06/05/2023
 ms.author: yelevin
+
+
+#Customer intent: As a security engineer, I want to connect my data source to the Microsoft Sentinel API so that we can ingest and analyze security data from third-party products.
+
 ---
 
 # Connect your data source to the Microsoft Sentinel Data Collector API to ingest data
 
-API integrations built by third-party vendors pull data from their products' data sources and connect to Microsoft Sentinel's [Azure Monitor Data Collector API](../azure-monitor/logs/data-collector-api.md) to push the data into custom log tables in your Microsoft Sentinel workspace.
+API integrations built by third-party vendors pull data from their products' data sources and connect to Microsoft Sentinel's [Azure Monitor Data Collector API](/azure/azure-monitor/logs/data-collector-api) to push the data into custom log tables in your Microsoft Sentinel workspace.
 
 For the most part, you can find all the information you need to configure these data sources to connect to Microsoft Sentinel in each vendor's documentation.
 
@@ -23,7 +27,7 @@ Data will be stored in the geographic location of the workspace on which you are
 
 - You must have read and write permissions on the Microsoft Sentinel workspace.
 
-- You must have read permissions to shared keys for the workspace. [Learn more about workspace keys](../azure-monitor/agents/agent-windows.md).
+- You must have read permissions to shared keys for the workspace. [Learn more about workspace keys](/azure/azure-monitor/agents/agent-windows).
 - Install the product's solution from the **Content Hub** in Microsoft Sentinel. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
 
 ## Configure and connect your data source

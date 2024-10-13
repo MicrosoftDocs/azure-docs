@@ -35,7 +35,7 @@ The diagram above illustrates the migration process from an existing ExpressRout
 
 ## Deploy new circuit in isolation
 
-Follow the steps in [Create a circuit with ExpressRoute](expressroute-howto-circuit-portal-resource-manager.md), to create your new ExpressRoute circuit (Circuit B) in the desired peering location. Then, follow the steps in [Tutorial: Configure peering for ExpressRoute circuit](expressroute-howto-routing-portal-resource-manager.md) to configure the required peering types: private and Microsoft. 
+For a one-to-one replacement of the existing circuit, select the **Standard Resiliency** option and follow the steps outlined in the [Create a circuit with ExpressRoute](expressroute-howto-circuit-portal-resource-manager.md) guide to create your new ExpressRoute circuit (Circuit B) in the desired peering location. Then, follow the steps in [Configure peering for ExpressRoute circuit](expressroute-howto-routing-portal-resource-manager.md) to configure the required peering types: private and Microsoft.
 
 To prevent the private peering production traffic from using Circuit B before testing and validating it, don't link virtual network gateway that has production deployment to Circuit B. Similarly to avoid Microsoft peering production traffic from using Circuit B, don't associate a route filter to Circuit B. 
 

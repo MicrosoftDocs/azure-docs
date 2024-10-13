@@ -6,7 +6,7 @@ author: greg-lindsay
 ms.service: azure-application-gateway
 ms.custom:
 ms.topic: how-to
-ms.date: 10/26/2023
+ms.date: 9/17/2024
 ms.author: greglin
 ---
 
@@ -24,6 +24,9 @@ Use following two components:
 > [!NOTE]
 > The Azure Kubernetes Metrics Adapter is no longer maintained. Kubernetes Event-driven Autoscaling (KEDA) is an alternative.<br>
 > Also see [Application Gateway for Containers](for-containers/overview.md).
+
+> [!TIP]
+> Also see [What is Application Gateway for Containers](for-containers/overview.md).
 
 ## Setting up Azure Kubernetes Metric Adapter
 

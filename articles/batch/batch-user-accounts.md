@@ -2,7 +2,7 @@
 title: Run tasks under user accounts
 description: Learn the types of user accounts and how to configure them.
 ms.topic: how-to
-ms.date: 05/16/2023
+ms.date: 08/27/2024
 ms.custom:
 ms.devlang: csharp
 # ms.devlang: csharp, java, python
@@ -159,8 +159,8 @@ pool = batchClient.PoolOperations.CreatePool(
 // Add named user accounts.
 pool.UserAccounts = new List<UserAccount>
 {
-    new UserAccount("adminUser", "xyz123", ElevationLevel.Admin),
-    new UserAccount("nonAdminUser", "123xyz", ElevationLevel.NonAdmin),
+    new UserAccount("adminUser", "A1bC2d", ElevationLevel.Admin),
+    new UserAccount("nonAdminUser", "A1bC2d", ElevationLevel.NonAdmin),
 };
 
 // Commit the pool.
@@ -208,7 +208,7 @@ pool.UserAccounts = new List<UserAccount>
 {
     new UserAccount(
         name: "adminUser",
-        password: "xyz123",
+        password: "A1bC2d",
         elevationLevel: ElevationLevel.Admin,
         linuxUserConfiguration: new LinuxUserConfiguration(
             uid: 12345,
@@ -217,7 +217,7 @@ pool.UserAccounts = new List<UserAccount>
             )),
     new UserAccount(
         name: "nonAdminUser",
-        password: "123xyz",
+        password: "A1bC2d",
         elevationLevel: ElevationLevel.NonAdmin,
         linuxUserConfiguration: new LinuxUserConfiguration(
             uid: 45678,
@@ -251,11 +251,11 @@ batchClient.poolOperations().createPool(addParameter);
 users = [
     batchmodels.UserAccount(
         name='pool-admin',
-        password='******',
+        password='A1bC2d',
         elevation_level=batchmodels.ElevationLevel.admin)
     batchmodels.UserAccount(
         name='pool-nonadmin',
-        password='******',
+        password='A1bC2d',
         elevation_level=batchmodels.ElevationLevel.non_admin)
 ]
 pool = batchmodels.PoolAddParameter(

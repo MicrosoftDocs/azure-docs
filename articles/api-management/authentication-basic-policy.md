@@ -16,6 +16,8 @@ ms.author: danlep
 
 Use the `authentication-basic` policy to authenticate with a backend service using Basic authentication. This policy effectively sets the HTTP Authorization header to the value corresponding to the credentials provided in the policy.
 
+[!INCLUDE [api-management-credentials-caution](../../includes/api-management-credentials-caution.md)]
+
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
 

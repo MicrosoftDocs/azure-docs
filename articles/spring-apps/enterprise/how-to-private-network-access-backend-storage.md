@@ -1,5 +1,5 @@
 ---
-title: Configure private network access for backend storage in your virtual network (Preview)
+title: Configure private network access for backend storage in your virtual network
 description: Learn how to configure private network access to backend storage in your virtual network.
 author: KarlErickson
 ms.author: haozhan
@@ -9,10 +9,9 @@ ms.date: 07/25/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 
-# Configure private network access for backend storage in your virtual network (Preview)
+# Configure private network access for backend storage in your virtual network
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 **This article applies to:** ✔️ Standard ✔️ Enterprise
 
