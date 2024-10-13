@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 01/09/2023
 
 
-#Customer intent: [AI]As a security software partner, I want to create a integrate my product with Microsoft Sentinel using a Content Hub solution so that SOC teams can leverage my data, detections, and automation for enhanced threat detection and response.
+#Customer intent: As a security partner, I want to create a content hub solution to integrate my product with Microsoft Sentinel so that SOC teams can leverage my data source types, detections, and automation for enhanced threat detection and response.
 
 ---
 

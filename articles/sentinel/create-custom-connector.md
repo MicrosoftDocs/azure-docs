@@ -7,7 +7,7 @@ ms.date: 01/09/2023
 ms.author: austinmc
 
 
-#Customer intent: [AI]As a security analyst, I want to create custom data connectors for Microsoft Sentinel so that I can ingest and analyze data from unsupported sources to enhance my organization's security monitoring and threat detection capabilities.
+#Customer intent: As a security engineer, I want to know which Microsoft Sentinel custom data connector would be most appropriate to build for ingesting data from sources with no out-of-the-box solution.
 
 ---
 

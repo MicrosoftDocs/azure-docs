@@ -7,7 +7,7 @@ ms.date: 07/21/2024
 ms.author: cwatson
 
 
-#Customer intent: [AI]As a security analyst, I want to configure data retention and archiving policies so that I can ensure long-term storage of important data at a reduced cost.
+#Customer intent: As a security architect or SOC manager, I want to configure data retention and archiving policies so that I can ensure long-term storage of important data at a reduced cost.
 
 ---
 

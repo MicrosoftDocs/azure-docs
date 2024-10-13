@@ -7,7 +7,7 @@ ms.topic: reference
 ms.date: 09/01/2022
 
 
-#Customer intent: [AI]As a security analyst, I want to filter and normalize DNS log data using the AMA connector so that I can efficiently monitor and detect potential threats in my network.
+#Customer intent: [AI]As a security analyst, I want to filter and normalize DNS log data collected by the Windows DNS Events via AMA connector so that I can efficiently monitor and detect potential threats in my network.
 
 ---
 
