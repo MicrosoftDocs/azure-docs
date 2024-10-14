@@ -35,8 +35,6 @@ Make sure that you also review the [prerequisites for deploying Microsoft Sentin
 
 Installing the Microsoft Sentinel solution for SAP applications makes the Microsoft Sentinel for SAP data connector available for you in as a Microsoft Sentinel data connector. The solution also deploys security content, such as the **SAP - System Applications and Products** workbook and SAP-related analytics rules.
 
-This procedure describes how to configure the data connector agent on your virtual machine before starting to configure the solution components.
-
 1. In the Microsoft Sentinel **Content hub**, search for the **SAP applications** solution and install it on your Microsoft Sentinel workspace. 
 
 1. On the **Microsoft Sentinel solution for SAP applications** page, select **Create** to define deployment settings. For example:
