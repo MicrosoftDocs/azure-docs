@@ -318,5 +318,6 @@ Learn more about:
 * [Authentication and authorization in API Management](authentication-authorization-overview.md)
 * [Security baseline for API Management](/security/benchmark/azure/baselines/api-management-security-baseline)
 * [Security controls by Azure policy](security-controls-policy.md)
+* [Building a comprehensive API security strategy](https://aka.ms/API-Security-EBook)
 * [Landing zone accelerator for API Management](/azure/cloud-adoption-framework/scenarios/app-platform/api-management/landing-zone-accelerator)
 * [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction)
