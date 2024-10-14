@@ -6,16 +6,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/defender-for-iot/organizations/eiot-sensor.md",
-      "redirect_url": "/previous-versions/azure/defender-for-iot/organizations/eiot-sensor",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/application-gateway/powershell-samples.md",
-      "redirect_url": "/previous-versions/azure/application-gateway/powershell-samples",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/update-manager/troubleshooter-known-issues.md",
       "redirect_url": "/azure/update-manager/troubleshoot",
       "redirect_document_id": false
