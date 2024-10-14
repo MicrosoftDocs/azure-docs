@@ -69,6 +69,9 @@ The following classes and interfaces handle some of the major features of the Az
 | TemplateNotificationContent | This class defines the "who" and the "what" of the template message you intend to send.                |
 | TextNotificationContent     | This class defines the "who" and the "what" of the text message you intend to send.                    |
 | ImageNotificationContent    | This class defines the "who" and the "what" of the image media message you intend to send.             |
+| DocumentNotificationContent | This class defines the "who" and the "what" of the Document media message you intend to send.             |
+| VideoNotificationContent    | This class defines the "who" and the "what" of the Video media message you intend to send.             |
+| AudioNotificationContent    | This class defines the "who" and the "what" of the Audio media message you intend to send.             |
 
 ## Code examples
 
@@ -335,7 +338,7 @@ Update the [main method](#basic-program-structure) to run send_text_message()
     messages.send_text_message()
 ```
 
-### Send a media message to a WhatsApp user
+### Send a Image media message to a WhatsApp user
 
 Messages SDK allows Contoso to send Image WhatsApp messages to WhatsApp users. To send Image embedded messages below details are required:
 - [WhatsApp Channel ID](#set-channel-registration-id)
@@ -369,6 +372,143 @@ input_media_uri: str = "https://aka.ms/acsicon1"
         
         if (response is not None):
             print("WhatsApp Image containing Message with message id {} was successfully sent to {}"
+            .format(response.message_id, response.to))
+        else:
+            print("Message failed to send")
+```
+
+Update the [main method](#basic-program-structure) to run send_image_message()
+```python
+    # Calling send_image_message()
+    messages.send_image_message()
+```
+
+### Send a Document media message to a WhatsApp user
+
+Messages SDK allows Contoso to send Image WhatsApp messages to WhatsApp users. To send Image embedded messages below details are required:
+- [WhatsApp Channel ID](#set-channel-registration-id)
+- [Recipient Phone Number in E16 format](#set-recipient-list)
+- MediaUri of the document
+
+> [!IMPORTANT]
+> To send a document message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
+
+An example of media_uri used in sending media WhatsApp message.
+
+input_media_uri: str = "https://aka.ms/acsicon1"
+
+```python
+    def send_document_message(self):
+        from azure.communication.messages import NotificationMessagesClient
+        from azure.communication.messages.models import ( DocumentNotificationContent)
+
+        # Create NotificationMessagesClient Client
+        messaging_client = NotificationMessagesClient.from_connection_string(self.connection_string)
+        input_media_uri: str = "##Placeholder##"
+        documents_options = DocumentNotificationContent(
+            channel_registration_id=self.channelRegistrationId,
+            to=[self.phone_number],
+            caption="Hello World via Advanced Messaging SDK.This is document message",
+            file_name="Product roadmap timeline.pptx",
+            media_uri=input_media_uri,
+        )
+
+        # calling send() with whatsapp image message
+        message_responses = messaging_client.send(documents_options)
+        response = message_responses.receipts[0]
+        
+        if (response is not None):
+            print("WhatsApp Document containing Message with message id {} was successfully sent to {}"
+            .format(response.message_id, response.to))
+        else:
+            print("Message failed to send")
+```
+
+Update the [main method](#basic-program-structure) to run send_image_message()
+```python
+    # Calling send_image_message()
+    messages.send_image_message()
+```
+
+### Send a Audio media message to a WhatsApp user
+
+Messages SDK allows Contoso to send Image WhatsApp messages to WhatsApp users. To send Image embedded messages below details are required:
+- [WhatsApp Channel ID](#set-channel-registration-id)
+- [Recipient Phone Number in E16 format](#set-recipient-list)
+- MediaUri of the Audio
+
+> [!IMPORTANT]
+> To send a audio message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
+
+An example of media_uri used in sending media WhatsApp message.
+
+input_media_uri: str = "https://aka.ms/acsicon1"
+
+```python
+    def send_audio_message(self):
+        from azure.communication.messages import NotificationMessagesClient
+        from azure.communication.messages.models import ( AudioNotificationContent)
+
+        # Create NotificationMessagesClient Client
+        messaging_client = NotificationMessagesClient.from_connection_string(self.connection_string)
+        input_media_uri: str = "##Placeholder##"
+        audio_options = AudioNotificationContent(
+            channel_registration_id=self.channelRegistrationId,
+            to=[self.phone_number],
+            media_uri=input_media_uri,
+        )
+
+        # calling send() with whatsapp image message
+        message_responses = messaging_client.send(audio_options)
+        response = message_responses.receipts[0]
+        
+        if (response is not None):
+            print("WhatsApp Audio containing Message with message id {} was successfully sent to {}"
+            .format(response.message_id, response.to))
+        else:
+            print("Message failed to send")
+```
+
+Update the [main method](#basic-program-structure) to run send_image_message()
+```python
+    # Calling send_image_message()
+    messages.send_image_message()
+```
+
+### Send a Video media message to a WhatsApp user
+
+Messages SDK allows Contoso to send Image WhatsApp messages to WhatsApp users. To send Image embedded messages below details are required:
+- [WhatsApp Channel ID](#set-channel-registration-id)
+- [Recipient Phone Number in E16 format](#set-recipient-list)
+- MediaUri of the Video
+
+> [!IMPORTANT]
+> To send a video message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
+
+An example of media_uri used in sending media WhatsApp message.
+
+input_media_uri: str = "https://aka.ms/acsicon1"
+
+```python
+    def send_video_message(self):
+        from azure.communication.messages import NotificationMessagesClient
+        from azure.communication.messages.models import ( VideoNotificationContent)
+
+        # Create NotificationMessagesClient Client
+        messaging_client = NotificationMessagesClient.from_connection_string(self.connection_string)
+        input_media_uri: str = "##Placeholder##"
+        video_options = VideoNotificationContent(
+            channel_registration_id=self.channelRegistrationId,
+            to=[self.phone_number],
+            media_uri=input_media_uri,
+        )
+
+        # calling send() with whatsapp image message
+        message_responses = messaging_client.send(image_message_options)
+        response = message_responses.receipts[0]
+        
+        if (response is not None):
+            print("WhatsApp Video containing Message with message id {} was successfully sent to {}"
             .format(response.message_id, response.to))
         else:
             print("Message failed to send")
@@ -479,12 +619,86 @@ class MessagesQuickstart(object):
             .format(response.message_id, response.to))
         else:
             print("Message failed to send")
+    
+    def send_document_message(self):
+        from azure.communication.messages import NotificationMessagesClient
+        from azure.communication.messages.models import ( DocumentNotificationContent)
+
+        # Create NotificationMessagesClient Client
+        messaging_client = NotificationMessagesClient.from_connection_string(self.connection_string)
+        input_media_uri: str = "##PlaceHolder##"
+        documents_options = DocumentNotificationContent(
+            channel_registration_id=self.channelRegistrationId,
+            to=[self.phone_number],
+            caption="Hello World via Advanced Messaging SDK.This is document message",
+            file_name="Product roadmap timeline.pptx",
+            media_uri=input_media_uri,
+        )
+
+        # calling send() with whatsapp image message
+        message_responses = messaging_client.send(documents_options)
+        response = message_responses.receipts[0]
+        
+        if (response is not None):
+            print("WhatsApp Document containing Message with message id {} was successfully sent to {}"
+            .format(response.message_id, response.to))
+        else:
+            print("Message failed to send")
+
+    def send_audio_message(self):
+        from azure.communication.messages import NotificationMessagesClient
+        from azure.communication.messages.models import ( AudioNotificationContent)
+
+        # Create NotificationMessagesClient Client
+        messaging_client = NotificationMessagesClient.from_connection_string(self.connection_string)
+        input_media_uri: str = "##Placeholder##"
+        audio_options = AudioNotificationContent(
+            channel_registration_id=self.channelRegistrationId,
+            to=[self.phone_number],
+            media_uri=input_media_uri,
+        )
+
+        # calling send() with whatsapp image message
+        message_responses = messaging_client.send(audio_options)
+        response = message_responses.receipts[0]
+        
+        if (response is not None):
+            print("WhatsApp Audio containing Message with message id {} was successfully sent to {}"
+            .format(response.message_id, response.to))
+        else:
+            print("Message failed to send")
+
+    def send_video_message(self):
+        from azure.communication.messages import NotificationMessagesClient
+        from azure.communication.messages.models import ( VideoNotificationContent)
+
+        # Create NotificationMessagesClient Client
+        messaging_client = NotificationMessagesClient.from_connection_string(self.connection_string)
+        input_media_uri: str = "##Placeholder##"
+        video_options = VideoNotificationContent(
+            channel_registration_id=self.channelRegistrationId,
+            to=[self.phone_number],
+            media_uri=input_media_uri,
+        )
+
+        # calling send() with whatsapp image message
+        message_responses = messaging_client.send(image_message_options)
+        response = message_responses.receipts[0]
+        
+        if (response is not None):
+            print("WhatsApp Video containing Message with message id {} was successfully sent to {}"
+            .format(response.message_id, response.to))
+        else:
+            print("Message failed to send")
 
 if __name__ == '__main__':
     messages = MessagesQuickstart()
     messages.send_template_message()
     messages.send_text_message()
     messages.send_image_message()
+    messages.send_document_message()
+    messages.send_audio_message()
+    messages.send_video_message()
 ```
 
 ### Other Samples
