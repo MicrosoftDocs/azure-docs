@@ -10,6 +10,10 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
+
+
+#Customer intent: As a security analyst, I want to find and deploy the appropriate data connectors for Microsoft Sentinel so that I can integrate and monitor various security data sources effectively.
+
 ---
 
 # Find your Microsoft Sentinel data connector

@@ -4,7 +4,7 @@ description: Learn about available regions for Oracle Database@Azure.
 author: jjaygbay1
 ms.service: oracle-on-azure
 ms.collection: linux
-ms.topic: article
+ms.topic: concept-article
 ms.date: 9/24/2024
 ms.custom: references-regions
 ms.author: jacobjaygbay
@@ -21,6 +21,7 @@ Learn what Azure regions offer Oracle Database@Azure.
 | Australia East | Australia East (Sydney)  | ✓  |             ✓                    |
 
 
+
 ## Europe, Middle East, Africa (EMEA) 
 
 
@@ -29,7 +30,8 @@ Learn what Azure regions offer Oracle Database@Azure.
 | France Central       |France central (Paris) | ✓   | ✓ |
 | Germany West Central |Germany Central (Frankfurt) |  ✓  | ✓ |
 | UK South             | UK South (London)   | ✓   | ✓    |
-| Italy North          | Italy North (Milan)   | ✓   | ✓    |
+| Italy North          | Italy North (Milan)   | ✓   |     |
+
 
 
 ## North America (NA) 
