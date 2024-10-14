@@ -6,6 +6,10 @@ ms.topic: reference
 ms.date: 11/17/2021
 ms.author: ofshezaf
 
+
+
+#Customer intent: As a security analyst, I want to understand the ASIM Network Session normalization schema so that I can effectively analyze and correlate network session data from various sources.
+
 ---
 
 # The Advanced Security Information Model (ASIM) Network Session normalization schema reference (Public preview)

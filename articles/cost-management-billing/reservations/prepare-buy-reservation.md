@@ -70,7 +70,7 @@ Resources that run in a subscription with other offer types don't receive the re
 
 ## Purchase reservations
 
-When you by a reservation, the current UTC date and time is used to record the transaction.
+When you by a reservation, the current UTC date and time are used to record the transaction.
 
 You can purchase reservations from Azure portal, APIs, PowerShell, CLI. Read the following articles that apply to you when you're ready to make a reservation purchase:
 

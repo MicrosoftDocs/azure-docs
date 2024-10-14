@@ -5,7 +5,7 @@ author: khdownie
 ms.service: azure-container-storage
 ms.date: 07/24/2024
 ms.author: kendownie
-ms.topic: conceptual
+ms.topic: faq
 ms.custom: references_regions
 ---
 
