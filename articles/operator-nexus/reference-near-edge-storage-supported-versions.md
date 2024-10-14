@@ -47,7 +47,7 @@ Each number in the version indicates general compatibility with the previous ver
     - Introduction of a new LTS release may, in rare cases, require a specific upgrade ordering and a timeline.
     - Depending on severity of Common Vulnerabilities & Exposures (CVE) fixes or blocker issues, a Purity version may be verified and introduced outside of a runtime release.
 
-## Supported Storage Software Versions (Purity)
+## Supported Purity Software Versions
 
 |  PurityOS version | Support added in | End of support | Remarks |
 |-------------------|------------------|----------------|---------|
@@ -64,8 +64,23 @@ Each number in the version indicates general compatibility with the previous ver
 
 | Pure HW Controller version | Support added in |
 |----------|-------------|
-| R3	| Year 2021 |
-| R4	| Nexus 2404.x |
+| R3  | Year 2021 |
+| R4  | Nexus 2404.x |
+
+## Upgrade process
+
+> [!NOTE]
+> Make sure you are upgrading to one of the Purity versions listed in [Supported Purity Software Versions](#supported-purity-software-versions).
+
+Azure Operator Nexus software does not trigger or manage Purity upgrades. Purity upgrades are supported by Pure Storage and can be triggered either through a Pure engineer assisted process or through a self-service process in the Pure1 management portal.
+
+Full details of both upgrade processes, including the procedures for enabling and using self-service upgrade, are available in [Pure's documentation](https://support.purestorage.com/) (login required). Please contact your Pure support representative for further questions about Purity upgrades.
+
+## Upgrade requirements
+
+The following Purity configuration settings must be set over upgrade.
+
+* Safe Mode: Disabled
 
 ## Supported Pure FlashArray Expansion Shelf firmware versions
 
