@@ -57,7 +57,7 @@ As an Internet Exchange Provider, you can convert a legacy exchange peering to a
     | --- | --- |
     | Peering type | Select **Exchange**. |
     | SKU | Select **Basic Free**. |
-    | Metro | Select the metro location where you want to convert peering to an Azure resource. If you have peering connections with Microsoft in the selected metro location that aren't converted to an Azure resource, these connections will be listed in the **Peering connections** section. |
+    | Metro | Select the metro location where you want to convert peering to an Azure resource. If you have peering connections with Microsoft in the selected metro location that aren't converted to an Azure resource, they'll be listed in the **Peering connections** section. |
 
     :::image type="content" source="./media/howto-legacy-exchange-portal/peering-configuration-exchange.png" alt-text="Screenshot that shows the Configuration tab of creating an Exchange peering in the Azure portal." lightbox="./media/howto-legacy-exchange-portal/peering-configuration-exchange.png":::
 
