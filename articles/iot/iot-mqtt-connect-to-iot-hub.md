@@ -82,6 +82,8 @@ from azure.iot.device.aio import IoTHubDeviceClient
 device_client = IoTHubDeviceClient.create_from_connection_string(deviceConnectionString, websockets=True)
 ```
 
+[!INCLUDE [iot-authentication-device-connection-string](../../includes/iot-authentication-device-connection-string.md)]
+
 ### Default keep-alive timeout
 
 In order to ensure a client/IoT Hub connection stays alive, both the service and the client regularly send a *keep-alive* ping to each other. The client using IoT SDK sends a keep-alive at the interval defined in the following table:

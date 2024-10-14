@@ -1,10 +1,14 @@
 ---
 title: "Microsoft Sentinel migration: Export QRadar data to target platform | Microsoft Docs"
 description: Learn how to export your historical data from QRadar.
-author: limwainstein
-ms.author: lwainstein
+author: cwatson-cat
+ms.author: cwatson
 ms.topic: how-to
 ms.date: 05/03/2022
+
+
+#Customer intent: As a security engineer, I want to export historical data from QRadar using AQL queries and the QRadar REST API so that I can migrate it to a new platform for analysis and compliance purposes.
+
 ---
 
 # Export historical data from QRadar
