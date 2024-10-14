@@ -57,7 +57,7 @@ This discovery process is agentless that is, nothing is installed on the target 
     You can leverage the automatic credential-mapping feature of the appliance, as highlighted [here](./tutorial-discover-vmware.md#start-continuous-discovery).    
 
 > [!Note]
-> For WebApp discovery you may  need to add credentials in DLL format (netbiosdomain\user) for the discovery to complete successfully
+> For WebApp discovery you may  need to add credentials in DLL format (netbiosdomain\user) for the discovery to complete successfully.
 
 Some points to note:
 
