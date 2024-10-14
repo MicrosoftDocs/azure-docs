@@ -19,15 +19,15 @@ In Azure Modeling and Simulation Workbench, you can deploy a [connector](./conce
 Public connectors aren't recommended for use in scenarios in which the organization:
 
 * Has complex network and security infrastructure
-* Uses proxies, especially
-* Requires users to access corporate resources through managed VPN user endpoints before accessing internet accessible zones
-* Has requirements to individually catalog cloud provider endpoints
+* Uses proxies, especially managed services with large number of exit nodes shared with other customers
+* Requires users to access corporate resources through managed VPN before accessing the internet or cloud services
+* Has requirements to individually catalog cloud service IP addresses
 * Has restrictions on the use of nonstandard destination ports
-* Frequently rotates externally facing IP addresses, either via intentionally short DHCP leases or rotating exit IPs
-* Requires firewalls or custom network security at the permiter
+* Frequently rotates externally facing IP exit addresses, either through intentionally short DHCP leases or random exit IPs
+* Requires firewalls or custom network security at the permiter for cloud services
 * Requires all cloud services to be connected to a virtual network
 
-If the above situations apply, a [private networking connector](how-to-guide-private-network.md) is recommended instead.
+If these situations apply, a [private networking connector](how-to-guide-private-network.md) is recommended instead.
 
 ## Prerequisites
 
@@ -104,7 +104,7 @@ $connectorProperties.networkAcls
 
 ## Immediately terminate access
 
-Deleting an IP address from the connector allowlist doesn't terminate active sessions. Only new, previously unestablished sessions are denied. To immediately terminate a session from an IP address or range, [delete](#add-edit-or-delete-ip-addresses-or-ranges) the address entry from the allowlist, submit the changes, then [restart the connector](./how-to-guide-start-stop-restart.md#restart-a-chamber-connector-or-vm).
+Deleting an IP address from the connector allowlist doesn't terminate active sessions. Only new, unestablished sessions are denied. To immediately terminate a session from an IP address or range, [delete](#add-edit-or-delete-ip-addresses-or-ranges) the address entry from the allowlist, submit the changes, then [restart the connector](./how-to-guide-start-stop-restart.md#restart-a-chamber-connector-or-vm).
 
 ## Idle the connector
 
