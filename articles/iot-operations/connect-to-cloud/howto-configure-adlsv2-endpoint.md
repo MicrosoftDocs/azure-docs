@@ -69,24 +69,20 @@ This endpoint is the destination for the dataflow that receives messages to Azur
 
 ```bicep
 resource adlsGen2Endpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
-  parent: aioInstance
-  name: 'adls-gen2-ep'
+  parent: <AIO INSTANCE RESOURCE>
+  name: '<ENDPOINT NAME>'
   extendedLocation: {
-    name: customLocation.id
+    name: '<CUSTOM LOCATION ID>'
     type: 'CustomLocation'
   }
   properties: {
     endpointType: 'DataLakeStorage'
     dataLakeStorageSettings: {
+      host: 'https://<account>.blob.core.windows.net'
       authentication: {
         method: 'SystemAssignedManagedIdentity'
         systemAssignedManagedIdentitySettings: {}
       }
-      batching: {
-        latencySeconds: 5
-        maxMessages: 1000
-      }
-      host: hostname
     }
   }
 }
