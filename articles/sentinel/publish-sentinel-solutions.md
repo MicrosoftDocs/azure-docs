@@ -30,11 +30,13 @@ Once you successfully sign up for the commercial marketplace account, a unique P
 Complete the following steps to create the offer and configure the top-level attributes for your solution in Partner Center. Once created, the offer ID and offer type can't be changed. If you would like to make any corrections, you must delete and recreate the offer. To delete an offer, you can navigate to the **Offer overview** tab and select on **Delete offer**. This action isn't reversible.
 1. Sign in to [Microsoft Partner Center](https://partner.microsoft.com/) with your account.
 1. Select **Marketplace offers**.
- 
-:::image type="content" source="media/publish-sentinel-solutions/partner-center-offers-home.png" alt-text="Screenshot of partner center home page." lightbox="media/publish-sentinel-solutions/partner-center-offers-home.png":::   
+
+   :::image type="content" source="media/publish-sentinel-solutions/partner-center-offers-home.png" alt-text="Screenshot of partner center home page." lightbox="media/publish-sentinel-solutions/partner-center-offers-home.png":::   
 
 1. Select **New offer** and then select **Azure application.**
-:::image type="content" source="media/publish-sentinel-solutions/partner-center-new-offer.png" alt-text="Screenshot of new offer option in partner center" lightbox="media/publish-sentinel-solutions/partner-center-new-offer.png" :::   
+
+   :::image type="content" source="media/publish-sentinel-solutions/partner-center-new-offer.png" alt-text="Screenshot of new offer option in partner center" lightbox="media/publish-sentinel-solutions/partner-center-new-offer.png" :::   
+
 1. Enter the following information. 
 
    |Field| Description|
@@ -45,7 +47,7 @@ Complete the following steps to create the offer and configure the top-level att
     
 **Note**: To make any changes to the Offer ID, Offer type, or publisher ID, you must delete the offer and recreate it. To delete an offer, you can navigate to the "Offer overview" tab and select on "Delete offer." This action isn't reversible.
 
-:::image type="content" source="media/publish-sentinel-solutions/partner-center-new-azure-application.png" alt-text="Screenshot of offer id and offer name configuration"  lightbox="media/publish-sentinel-solutions/partner-center-new-azure-application.png" :::   
+   :::image type="content" source="media/publish-sentinel-solutions/partner-center-new-azure-application.png" alt-text="Screenshot of offer id and offer name configuration"  lightbox="media/publish-sentinel-solutions/partner-center-new-azure-application.png" :::   
 
 ## Offer setup
 Complete the following steps to configure the properties under the **Offer setup** tab in Partner Center. This screen shows the selections made during initial offer creation. You can change the offer alias from this page (if needed). 
@@ -66,7 +68,7 @@ Complete the following steps to configure the properties under the **Properties*
 |**Application type**| Leave application type as *Default (Azure Application)*. Make no changes.|
 |**Legal**| Here you have three options to choose from - (1) Use the standard contract (2) Provide terms and conditions link (3) Provide terms and conditions text. Choose the option that works best for you. If you select the standard contract, the options to share Terms & Conditions are hidden.|
 
-:::image type="content" source="media/publish-sentinel-solutions/partner-center-offer-properties.png" alt-text="Screenshot of offer properies tab in partner center"  lightbox="media/publish-sentinel-solutions/partner-center-offer-properties.png" :::  
+   :::image type="content" source="media/publish-sentinel-solutions/partner-center-offer-properties.png" alt-text="Screenshot of offer properies tab in partner center"  lightbox="media/publish-sentinel-solutions/partner-center-offer-properties.png" :::  
 
 ## Offer Listing
 Complete the following steps to configure the properties under the **Offer listing** tab in Microsoft Partner Center. The parameters that you set in this tab define how customers can find your solution and what information they see for your solution. 
@@ -112,9 +114,9 @@ You can opt whether you want to expand the reach of your solution by offering it
 ## Review and Publish
 After you enter all the details, select on each of the tabs to review your offer for errors/omissions. When you're ready, select on the **Review and publish** from any of the tabs. The review page shows the status of your submission for each of the tabs (Complete, Incomplete). The **Publish** button is enabled only if all the required details are filled out,  that is, status shows as **Complete** for all tabs. For the pages with status as **Incomplete**, select on the page link to fill out the missing details and select **Review and publish** again.
 
-In this screenshot, only the Offer setup and Technical configuration pages are fully filled out and the rest have missing details.
+In this screenshot, only the **Offer setup**, **Properties**, and **Technical Configuration** tabs are fully filled out and the rest have missing details.
 
-:::image type="content" source="media/publish-sentinel-solutions/partner-center-offers-missing-details.png" alt-text="Screenshot of Review and publish page in Partner center showing missing details"  lightbox="media/publish-sentinel-solutions/partner-center-offers-missing-details.png" :::  
+   :::image type="content" source="media/publish-sentinel-solutions/partner-center-offers-missing-details.png" alt-text="Screenshot of Review and publish page in Partner center showing missing details"  lightbox="media/publish-sentinel-solutions/partner-center-offers-missing-details.png" :::  
 
 Once you fill out all the details and publish the solution, your solution goes through a series of checks before it goes live in Azure Marketplace and Microsoft Sentinel content hub.
 
