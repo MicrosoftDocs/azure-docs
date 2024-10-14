@@ -3,7 +3,7 @@ title: Linter rule - use recent API versions
 description: Linter rule - use recent API versions
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 10/11/2024
+ms.date: 10/14/2024
 ---
 
 # Linter rule - use recent API versions
@@ -27,7 +27,7 @@ Use the most recent API version or one that isn't older than 730 days.
 
 Use **Quick Fix** to use the latest API version:
 
-:::image type="content" source="./media/linter-rule-use-recent-api-versions/linter-rule-use-recent-api-versions-quick-fix.png" alt-text="A screenshot of using Quick Fix for the use-recent-api-versions linter rule":::
+:::image type="content" source="./media/linter-rule-use-recent-api-versions/linter-rule-use-recent-api-versions-quick-fix.png" alt-text="A screenshot of using Quick Fix for the use-recent-api-versions linter rule.":::
 
 ## Next steps
 

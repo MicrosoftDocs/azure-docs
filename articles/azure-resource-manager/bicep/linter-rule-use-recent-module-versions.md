@@ -3,7 +3,7 @@ title: Linter rule - use recent module versions
 description: Linter rule - use recent module versions
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 10/11/2024
+ms.date: 10/14/2024
 ---
 
 # Linter rule - use recent module versions
@@ -34,7 +34,7 @@ module storage 'br/public:avm/res/storage/storage-account:0.6.0' = {
 
 Use **Quick Fix** to use the latest module version:
 
-:::image type="content" source="./media/linter-rule-use-recent-module-versions/linter-rule-use-recent-module-versions-quick-fix.png" alt-text="A screenshot of using Quick fix for the use-recent-module-versions linter rule":::
+:::image type="content" source="./media/linter-rule-use-recent-module-versions/linter-rule-use-recent-module-versions-quick-fix.png" alt-text="A screenshot of using Quick fix for the use-recent-module-versions linter rule.":::
 
 ## Next steps
 

@@ -3,7 +3,7 @@ title: What is Bicep?
 description: Understand the Bicep language for deploying infrastructure to Azure. Gain an improved authoring experience over one with JSON to develop templates.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 10/11/2024
+ms.date: 10/14/2024
 ---
 
 # What is Bicep?
@@ -130,7 +130,7 @@ Bicep provides the following advantages:
   
 - **Orchestration**: You don't have to worry about the complexities of ordering operations. Resource Manager orchestrates the deployment of interdependent resources so that they're created in the correct order. When possible, Resource Manager deploys resources in parallel, which helps your deployments to finish faster than serial deployments. You deploy the file through one rather than multiple imperative commands.
 
-   :::image type="content" source="./media/overview/bicep-processing.png" alt-text="A diagram comparing deployment between a Bicep file and infrastructure as code not in a template" border="false":::
+   :::image type="content" source="./media/overview/bicep-processing.png" alt-text="A diagram comparing deployment between a Bicep file and infrastructure as code not in a template." border="false":::
 
 - **Modularity**: You can use [modules](./modules.md) to segment your Bicep code into manageable parts. Modules help you to reuse code and simplify development. A module deploys a set of related resources. Add a module to a Bicep file any time you need to deploy those resources.
 - **Integration with Azure services**: Bicep integrates with Azure services such as Azure Policy, template specs, and Azure Blueprints.
