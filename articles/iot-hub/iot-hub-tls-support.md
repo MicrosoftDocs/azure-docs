@@ -15,7 +15,7 @@ IoT Hub uses Transport Layer Security (TLS) to secure connections from IoT devic
 
 > [!NOTE]
 > Azure IoT Hub will end support for TLS 1.0 and 1.1 on July 1st, 2025. Only TLS 1.2 and later will be supported after this date.
-> To find out the version of TLS your IoT Hub devices are running, please refer to [TLS 1.0 and 1.1 end of support guide](iot-hub-tls-ending-support-for-1-0-and-1-1). 
+> To find out the version of TLS your IoT Hub devices are running, please refer to [TLS 1.0 and 1.1 end of support guide](#iot-hub-tls-ending-support-for-1-0-and-1-1). 
 > It is therefore essential that you properly test and validate that *all* your IoT devices and services are compatible with TLS 1.2 and the [recommended ciphers](#cipher-suites) in advance.
 
 ## IoT Hub's server TLS certificate
@@ -30,7 +30,7 @@ Although root CA migrations are rare, for resilience in the modern security land
 
 For links to download these certificates, see [Azure Certificate Authority details](../security/fundamentals/azure-CA-details.md).
 
-### Elliptic Curve Cryptography (ECC) server TLS certificate (preview)
+#### Elliptic Curve Cryptography (ECC) server TLS certificate (preview)
 
 IoT Hub ECC server TLS certificate is available for public preview. While offering similar security to RSA certificates, ECC certificate validation (with ECC-only cipher suites) uses up to 40% less compute, memory, and bandwidth. These savings are important for IoT devices because of their smaller profiles and memory, and to support use cases in network bandwidth limited environments.
 
@@ -44,14 +44,14 @@ For links to download these certificates, see [Azure Certificate Authority detai
 To preview IoT Hub's ECC server certificate:
 
 1. [Create a new IoT hub with preview mode on](iot-hub-preview-mode.md).
-1. [Configure your client](#tls-configuration-for-sdk-and-iot-edge) to include *only* ECDSA cipher suites and *exclude* any RSA ones. These are the supported cipher suites for the ECC certificate public preview:
+2. [Configure your client](#tls-configuration-for-sdk-and-iot-edge) to include *only* ECDSA cipher suites and *exclude* any RSA ones. These are the supported cipher suites for the ECC certificate public preview:
    * `TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256`
    * `TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384`
    * `TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256`
    * `TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384`
-1. Connect your client to the preview IoT hub.
+3. Connect your client to the preview IoT hub.
 
-## TLS 1.2 enforcement available in select regions
+## Enforce IoT Hub to use TLS 1.2 in select regions
 
 For added security, configure your IoT Hubs to *only* allow client connections that use TLS version 1.2 and to enforce the use of [cipher suites](#cipher-suites). This feature is only supported in these regions:
 
@@ -109,7 +109,7 @@ IoT Hubs that are configured to accept only TLS 1.2 will also enforce the use of
 * `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`
 * `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`
 
-For IoT Hubs not configured for TLS 1.2 enforcement, TLS 1.2 still works with the following cipher suites:
+For IoT Hubs not configured for TLS 1.2 enforcement, TLS 1.2 still works with the following cipher suites, however support for these cipher will end by July 1st, 2025. 
 
 * `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`
 * `TLS_DHE_RSA_WITH_AES_256_GCM_SHA384`
