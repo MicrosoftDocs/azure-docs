@@ -4,7 +4,7 @@ description: Learn about available regions for Oracle Database@Azure.
 author: jjaygbay1
 ms.service: oracle-on-azure
 ms.collection: linux
-ms.topic: article
+ms.topic: concept-article
 ms.date: 9/24/2024
 ms.custom: references-regions
 ms.author: jacobjaygbay

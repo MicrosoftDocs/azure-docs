@@ -4,7 +4,7 @@ description: Learn about known issues for Oracle Database@Azure.
 author: jjaygbay1
 ms.service: oracle-on-azure
 ms.collection: linux
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 08/29/2024
 ms.author: jacobjaygbay
 ---

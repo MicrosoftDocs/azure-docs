@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 05/22/2024
+ms.date: 10/09/2024
 ms.author: jianleishen
 ---
 
@@ -16,7 +16,7 @@ ms.author: jianleishen
 This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from MariaDB. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 >[!IMPORTANT]
->MariaDB connector using the recommended driver version provides improved native MariaDB support. If you are using it with the legacy driver version, please [upgrade your driver version](#upgrade-the-mariadb-driver-version) before **October 31, 2024**. Refer to this [section](#differences-between-the-recommended-and-the-legacy-driver-version) for details on the difference between the legacy and recommended version.  
+>MariaDB connector using the recommended driver version provides improved native MariaDB support. If you are using the connector with the legacy driver version, please [upgrade it](#upgrade-the-mariadb-driver-version) before **October 31, 2024**. Refer to this [section](#differences-between-the-recommended-and-the-legacy-driver-version) for details on the difference between the legacy and recommended version.  
 
 ## Supported capabilities
 
@@ -286,9 +286,9 @@ When copying data from MariaDB, the following mappings are used from MariaDB dat
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
-## Upgrade the MariaDB driver version
+## <a name="upgrade-the-mariadb-driver-version"></a> Upgrade the MariaDB connector
 
-Here are steps that help you upgrade your MariaDB driver version: 
+Here are steps that help you upgrade your MariaDB connector: 
 
 1. In **Edit linked service** page, select **Recommended** under **Driver version** and configure the linked service by referring to [Linked service properties](connector-mariadb.md#linked-service-properties).
 

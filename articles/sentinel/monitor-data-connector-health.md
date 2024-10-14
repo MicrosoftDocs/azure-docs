@@ -6,6 +6,10 @@ ms.author: yelevin
 ms.topic: how-to
 ms.date: 02/11/2024
 ms.service: microsoft-sentinel
+
+
+#Customer intent: As a security analyst, I want to monitor the health and performance of my data connectors so that I can ensure uninterrupted data ingestion and quickly address any issues.
+
 ---
 
 # Monitor the health of your data connectors

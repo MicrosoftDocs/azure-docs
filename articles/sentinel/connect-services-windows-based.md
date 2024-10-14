@@ -5,6 +5,10 @@ author: yelevin
 ms.topic: how-to
 ms.date: 10/06/2024
 ms.author: yelevin
+
+
+#Customer intent: As a security engineer, I want to connect Microsoft Sentinel to various data sources using Windows agent-based connectors so that I can efficiently ingest and manage security event data for comprehensive threat detection and response.
+
 ---
 
 # Connect Microsoft Sentinel to other Microsoft services with a Windows agent-based data connector
