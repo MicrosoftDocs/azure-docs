@@ -109,7 +109,7 @@ The **Blob storage** section applies only to Azure Blob storage use, even in Fil
 | Field name | Input type | Values | Applicable to Azure Files | Meaning |
 |-|-|-|-|-|
 | Allow cross-tenant replication | Checkbox | Checked/unchecked | No | This is an Azure Blob storage only setting. This setting is always available, even for FileStorage storage accounts which cannot contain Azure Blob storage. Checking this checkbox has no impact on Azure Files. |
-| Access tier | Radio button group | *Blob storage access tiers* | No | This is an Azure Blob storage only setting. This setting is always available, even for FileStorage storage accounts which cannot contain Azure Blob storage. In pay-as-you-go storage accounts, the access tier of a file share is determined by the access tier property on the file share, and is not impacted by the storage account level setting. Selecting an option has no impact on Azure Files. |
+| Access tier | Radio button group | *Blob storage access tiers* | No | This is an Azure Blob storage only setting. This setting is always available, even for FileStorage storage accounts which cannot contain Azure Blob storage. Selecting an option has no impact on Azure Files. |
 
 ### Networking
 The networking section allows you to configure networking options. These settings are optional for the creation of the storage account and can be configured later if desired. For more information on these options, see [Azure Files networking considerations](storage-files-networking-overview.md).
@@ -158,7 +158,7 @@ The **Encryption** tab controls settings related to encryption at rest.
 Tags are name/value pairs that enable you to categorize resources and view consolidated billing by applying the same tag to multiple resources and resource groups. These are optional and can be applied after storage account creation.
 
 ### Review + create
-The final step to create the storage account is to select the **Create** button on the **Review + create** tab. This button isn't be available until all the required fields for a storage account have been populated.
+The final step to create the storage account is to select the **Create** button on the **Review + create** tab. This button isn't be available until all the required fields for a storage account are completed.
 
 # [PowerShell](#tab/azure-powershell)
 ### Create a provisioned v2 storage account (PowerShell)
@@ -304,7 +304,7 @@ Follow these instructions to create a new Azure file share using the Azure porta
 
     ![A screenshot of the file shares item underneath the data storage node in the table of contents for the storage account.](./media/storage-how-to-create-file-share/create-file-share-provisioned-v2-0.png)
 
-2. In the file share listing, you should see any previously created file shares in this storage account or an empty table if no file shares have been created yet. Select **+ File share** to create a new file share.
+2. In the file share listing, you should see any previously created file shares in this storage account or an empty table if no file shares exist. Select **+ File share** to create a new file share.
 
 3. Complete the field in the **Basics** tab of the new file share blade:
 
@@ -316,9 +316,9 @@ Follow these instructions to create a new Azure file share using the Azure porta
 
     - **Provisioned IOPS and throughput**: A radio button group that lets you select between *Recommended provisioning* and *Manually specify IOPS and throughput*. The IOPS and throughput recommendation is based on typical customer usage for that amount of provisioned storage for that media tier, so if you don't know specifically what your IOPS and throughput requirements are, we recommend you stick with the recommendations and adjust later as needed.
 
-        - **IOPS**: If you select *Manually specify IOPS and throughput*, this textbox will allow you to enter the amount of IOPS you want to provision on this file share.
+        - **IOPS**: If you select *Manually specify IOPS and throughput*, this textbox enables you to enter the amount of IOPS you want to provision on this file share.
 
-        - **Throughput (MiB/sec)**: If you select *Manually specify IOPS and throughput*, this textbox will allow you to enter the amount of throughput you want to provision on this file share.
+        - **Throughput (MiB/sec)**: If you select *Manually specify IOPS and throughput*, this textbox enables you to enter the amount of throughput you want to provision on this file share.
 
 4. Select the **Backup** tab. By default, [backup is enabled](../../backup/backup-azure-files.md) when you create an Azure file share using the Azure portal. If you want to disable backup for the file share, uncheck the **Enable backup** checkbox. If you want backup enabled, you can either leave the defaults or create a new Recovery Services Vault in the same region and subscription as the storage account. To create a new backup policy, select **Create a new policy**.
 
@@ -425,7 +425,7 @@ az resource create \
 ---
 
 ### Create an SSD provisioned v1 file share
-When you create a file share using the provisioned v1 billing model, you specify how much storage your share needs, and IOPS and throughput capacity are computed for you based on how much storage provisioned. Depending on your individual file share requirements, you may find that you require more or less IOPS or throughput than our recommendations. In this case, you will need to provision more storage to get the required IOPS or throughput. To learn more about the provisioned v1 model, see [Understanding the provisioned v1 billing model](./understanding-billing.md#provisioned-v1-model).
+When you create a file share using the provisioned v1 billing model, you specify how much storage your share needs, and IOPS and throughput capacity are computed for you based on how much storage provisioned. Depending on your individual file share requirements, you may find that you require more IOPS or throughput than our recommendations. In this case, you need to provision more storage to get the required IOPS or throughput. To learn more about the provisioned v1 model, see [Understanding the provisioned v1 billing model](./understanding-billing.md#provisioned-v1-model).
 
 # [Portal](#tab/azure-portal)
 Follow these instructions to create a new Azure file share using the Azure portal.
@@ -434,7 +434,7 @@ Follow these instructions to create a new Azure file share using the Azure porta
 
     ![A screenshot of the file shares item underneath the data storage node in the table of contents for the storage account.](./media/storage-how-to-create-file-share/create-file-share-provisioned-v2-0.png)
 
-2. In the file share listing, you should see any previously created file shares in this storage account or an empty table if no file shares have been created yet. Select **+ File share** to create a new file share.
+2. In the file share listing, you should see any previously created file shares in this storage account or an empty table if no file shares exist. Select **+ File share** to create a new file share.
 
 3. Complete the fields in the **Basics** tab of new file share blade:
 
@@ -512,7 +512,7 @@ Follow these instructions to create a new Azure file share using the Azure porta
 
     ![A screenshot of the file shares item under the data storage group in a pay-as-you-go storage account.](./media/storage-how-to-create-file-share/create-file-share-paygo-0.png)
 
-1. In the file share listing, you should see any previously created file shares in this storage account or an empty table if no file shares have been created yet. Select **+ File share** to create a new file share.
+1. In the file share listing, you should see any previously created file shares in this storage account or an empty table if no file shares exist. Select **+ File share** to create a new file share.
 
 1. Complete the fields in the **Basics** tab of new file share blade:
 
@@ -547,7 +547,7 @@ New-AzRmStorageShare `
 ```
 
 # [Azure CLI](#tab/azure-cli)
-You can create an Azure file share with the [`az storage share-rm create`](/cli/azure/storage/share-rm#az-storage-share-rm-create) command. The following Azure CLI commands assume you set the variables `$resourceGroupName` and `$storageAccountName` as defined above in the creating a storage account with Azure CLI section.
+You can create an Azure file share with the [`az storage share-rm create`](/cli/azure/storage/share-rm#az-storage-share-rm-create) command. The following Azure CLI commands assume you set the variables `$resourceGroupName` and `$storageAccountName` as defined in the creating a storage account with Azure CLI section.
 
 To create a pay-as-you-go file share, use the following command. Remember to replace the values for the variables `shareName` and `accessTier` with the desired selections for your file share deployment.
 
@@ -569,7 +569,7 @@ az storage share-rm create \
 ---
 
 ## Change the cost and performance characteristics of a file share
-After you've created your file share, you may need to adjust the provisioning (provisioned models) or access tier (pay-as-you-go model) of the share. The following sections show you how to adjust the relevant properties for your share.
+After creating your file share, you may need to adjust the provisioning (provisioned models) or access tier (pay-as-you-go model) of the share. The following sections show you how to adjust the relevant properties for your share.
 
 ### Change the cost and performance characteristics of a provisioned v2 file share
 After creating your provisioned v2 file share, you can change one or all three of the provisioned quantities of your file share.
