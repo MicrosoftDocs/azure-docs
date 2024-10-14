@@ -608,6 +608,9 @@ kafkaSettings:
 
 You can set advanced settings for the Kafka dataflow endpoint such as TLS, trusted CA certificate, Kafka messaging settings, batching, and CloudEvents. You can set these settings in the dataflow endpoint **Advanced** portal tab or within the dataflow endpoint custom resource.
 
+> [!NOTE]
+> There's a known issue when using Event Hubs endpoint as a dataflow source where Kafka header gets corrupted as its translated to MQTT. This only happens if using Event Hub though the Event Hub client which uses AMQP under the covers. For for instance "foo"="bar", the "foo" is translated, but the value becomes"\xa1\x03bar".
+
 # [Portal](#tab/portal)
 
 In the operations experience, select the **Advanced** tab for the dataflow endpoint.
@@ -834,9 +837,6 @@ Examples:
 
 ##### Kafka endpoint is a dataflow source
 
-> [!NOTE]
-> There's a known issue when using Event Hubs endpoint as a dataflow source where Kafka header gets corrupted as its translated to MQTT. This only happens if using Event Hub though the Event Hub client which uses AMQP under the covers. For for instance "foo"="bar", the "foo" is translated, but the value becomes"\xa1\x03bar".
-
 When a Kafka endpoint is a dataflow source, Kafka user headers are translated to MQTT v5 properties. The following table describes how Kafka user headers are translated to MQTT v5 properties.
 
 
@@ -957,6 +957,193 @@ CloudEvent properties are passed through for messages that contain the required 
 
 # [Bicep](#tab/bicep)
 
-Todo
+Under `kafkaSettings.tls`, you can configure additional settings for the TLS connection to the Kafka broker.
+
+#### TLS mode
+
+To enable or disable TLS for the Kafka endpoint, update the `mode` setting in the TLS settings. For example:
+
+```bicep
+kafkaSettings:{
+  tls: {
+    mode: Enabled
+  }  
+}
+```
+
+The TLS mode can be set to `Enabled` or `Disabled`. If the mode is set to `Enabled`, the dataflow uses a secure connection to the Kafka broker. If the mode is set to `Disabled`, the dataflow uses an insecure connection to the Kafka broker.
+
+#### Trusted CA certificate
+
+To configure the trusted CA certificate for the Kafka endpoint, update the `trustedCaCertificateConfigMapRef` setting in the TLS settings. For example:
+
+```bicep
+kafkaSettings: {
+  tls: {
+    trustedCaCertificateConfigMapRef: <YOUR-CA-CERTIFICATE>
+  }   
+}
+```
+
+This ConfigMap should contain the CA certificate in PEM format. The ConfigMap must be in the same namespace as the Kafka dataflow resource. For example:
+
+```bash
+kubectl create configmap client-ca-configmap --from-file root_ca.crt -n azure-iot-operations
+```
+
+This setting is important if the Kafka broker uses a self-signed certificate or a certificate signed by a custom CA that isn't trusted by default.
+
+However in the case of Azure Event Hubs, the CA certificate isn't required because the Event Hubs service uses a certificate signed by a public CA that is trusted by default.
+
+### Kafka messaging settings
+
+Under `kafkaSettings`, you can configure additional settings for the Kafka endpoint.
+
+#### Consumer group ID
+
+To configure the consumer group ID for the Kafka endpoint, update the `consumerGroupId` setting in the Kafka settings. For example:
+
+```bicep
+spec: {
+  kafkaSettings: {
+    consumerGroupId: fromMq
+  }
+}
+```
+
+The consumer group ID is used to identify the consumer group that the dataflow uses to read messages from the Kafka topic. The consumer group ID must be unique within the Kafka broker.
+
+<!-- TODO: check for accuracy -->
+
+This setting takes effect only if the endpoint is used as a source (that is, the dataflow is a consumer).
+
+#### Compression
+
+To configure the compression type for the Kafka endpoint, update the `compression` setting in the Kafka settings. For example:
+
+```bicep
+kafkaSettings:{
+  compression: Gzip
+}
+```
+
+The compression field enables compression for the messages sent to Kafka topics. Compression helps to reduce the network bandwidth and storage space required for data transfer. However, compression also adds some overhead and latency to the process. The supported compression types are listed in the following table.
+
+| Value | Description |
+| ----- | ----------- |
+| `None` | No compression or batching is applied. None is the default value if no compression is specified. |
+| `Gzip` | GZIP compression and batching are applied. GZIP is a general-purpose compression algorithm that offers a good balance between compression ratio and speed. Only [GZIP compression is supported in Azure Event Hubs premium and dedicated tiers](../../event-hubs/azure-event-hubs-kafka-overview.md#compression) currently. |
+| `Snappy` | Snappy compression and batching are applied. Snappy is a fast compression algorithm that offers moderate compression ratio and speed. |
+| `Lz4` | LZ4 compression and batching are applied. LZ4 is a fast compression algorithm that offers low compression ratio and high speed. |
+
+This setting takes effect only if the endpoint is used as a destination where the dataflow is a producer.
+
+#### Batching
+
+Aside from compression, you can also configure batching for messages before sending them to Kafka topics. Batching allows you to group multiple messages together and compress them as a single unit, which can improve the compression efficiency and reduce the network overhead.
+
+| Field | Description | Required |
+| ----- | ----------- | -------- |
+| `mode` | Enable batching or not. If not set, the default value is Enabled because Kafka doesn't have a notion of *unbatched* messaging. If set to Disabled, the batching is minimized to create a batch with a single message each time. | No |
+| `latencyMs` | The maximum time interval in milliseconds that messages can be buffered before being sent. If this interval is reached, then all buffered messages are sent as a batch, regardless of how many or how large they are. If not set, the default value is 5. | No |
+| `maxMessages` | The maximum number of messages that can be buffered before being sent. If this number is reached, then all buffered messages are sent as a batch, regardless of how large they are or how long they are buffered. If not set, the default value is 100000.  | No |
+| `maxBytes` | The maximum size in bytes that can be buffered before being sent. If this size is reached, then all buffered messages are sent as a batch, regardless of how many they are or how long they are buffered. The default value is 1000000 (1 MB). | No |
+
+An example of using batching is:
+
+```bicep
+kafkaSettings: {
+  batching: {
+    enabled: true
+    latencyMs: 1000
+    maxMessages: 100
+    maxBytes: 1024
+  }   
+}
+```
+
+In the example, messages are sent either when there are 100 messages in the buffer, or when there are 1,024 bytes in the buffer, or when 1,000 milliseconds elapse since the last send, whichever comes first.
+
+This setting takes effect only if the endpoint is used as a destination where the dataflow is a producer.
+
+#### Partition handling strategy
+
+The partition handling strategy controls how messages are assigned to Kafka partitions when sending them to Kafka topics. Kafka partitions are logical segments of a Kafka topic that enable parallel processing and fault tolerance. Each message in a Kafka topic has a partition and an offset, which are used to identify and order the messages.
+
+This setting takes effect only if the endpoint is used as a destination where the dataflow is a producer.
+
+<!-- TODO: double check for accuracy -->
+
+By default, a dataflow assigns messages to random partitions, using a round-robin algorithm. However, you can use different strategies to assign messages to partitions based on some criteria, such as the MQTT topic name or an MQTT message property. This can help you to achieve better load balancing, data locality, or message ordering.
+
+| Value | Description |
+| ----- | ----------- |
+| `Default` | Assigns messages to random partitions, using a round-robin algorithm. This is the default value if no strategy is specified. |
+| `Static` | Assigns messages to a fixed partition number that is derived from the instance ID of the dataflow. This means that each dataflow instance sends messages to a different partition. This can help to achieve better load balancing and data locality. |
+| `Topic` | Uses the MQTT topic name from the dataflow source as the key for partitioning. This means that messages with the same MQTT topic name are sent to the same partition. This can help to achieve better message ordering and data locality. |
+| `Property` | Uses an MQTT message property from the dataflow source as the key for partitioning. Specify the name of the property in the `partitionKeyProperty` field. This means that messages with the same property value are sent to the same partition. This can help to achieve better message ordering and data locality based on a custom criterion. |
+
+An example of using partition handling strategy is:
+
+```bicep
+kafkaSettings: {
+  partitionStrategy: Property
+  partitionKeyProperty: device-id
+}
+```
+
+This means that messages with the same "device-id" property are sent to the same partition.
+
+#### Kafka acknowledgements
+
+Kafka acknowledgements (acks) are used to control the durability and consistency of messages sent to Kafka topics. When a producer sends a message to a Kafka topic, it can request different levels of acknowledgements from the Kafka broker to ensure that the message is successfully written to the topic and replicated across the Kafka cluster.
+
+This setting takes effect only if the endpoint is used as a destination (that is, the dataflow is a producer).
+
+| Value | Description |
+| ----- | ----------- |
+| `None` | The dataflow doesn't wait for any acknowledgements from the Kafka broker. This is the fastest but least durable option. |
+| `All` | The dataflow waits for the message to be written to the leader partition and all follower partitions. This is the slowest but most durable option. This is also the default option|
+| `One` | The dataflow waits for the message to be written to the leader partition and at least one follower partition. |
+| `Zero` | The dataflow waits for the message to be written to the leader partition but doesn't wait for any acknowledgements from the followers. This is faster than `One` but less durable. |
+
+<!-- TODO: double check for accuracy -->
+
+An example of using Kafka acknowledgements is:
+
+```bicep
+kafkaSettings: {
+  kafkaAcks: All
+}
+```
+
+This means that the dataflow waits for the message to be written to the leader partition and all follower partitions.
+
+#### Copy MQTT properties
+
+By default, the copy MQTT properties setting is enabled. These user properties include values such as `subject` that stores the name of the asset sending the message. 
+
+```bicep
+kafkaSettings: {
+  copyMqttProperties: Enabled
+}
+```
+
+To disable copying MQTT properties, set the value to `Disabled`.
+
+The following sections describe how MQTT properties are translated to Kafka user headers and vice versa when the setting is enabled.
+
+### CloudEvents
+
+[CloudEvents](https://cloudevents.io/) are a way to describe event data in a common way. The CloudEvents settings are used to send or receive messages in the CloudEvents format. You can use CloudEvents for event-driven architectures where different services need to communicate with each other in the same or different cloud providers.
+
+The `CloudEventAttributes` options are `Propagate` or`CreateOrRemap`. For example:
+
+```bicep
+mqttSettings: {
+    CloudEventAttributes: Propagate // or CreateOrRemap
+}
+```
+
 
 ---
