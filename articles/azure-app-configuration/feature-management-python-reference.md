@@ -54,7 +54,7 @@ As an example, a Microsoft Edge browser feature filter could be designed. This f
 
 ### Feature flag configuration
 
-A Python dictionary is used to define feature flags. The dictionary is composed of feature names as keys and feature flag objects as values. The feature flag object is a dictionary that contains an `EnabledFor` key. The `EnabledFor` key is a list of feature filters that are used to determine if the feature should be enabled.
+A Python dictionary is used to define feature flags. The dictionary is composed of feature names as keys and feature flag objects as values. The feature flag object is a dictionary that contains a `conditions` key, which itself contains the `client_filters` key. The `client_filters` key is a list of feature filters that are used to determine if the feature should be enabled.
 
 ### Feature flag declaration
 
