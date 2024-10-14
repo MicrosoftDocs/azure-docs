@@ -77,6 +77,8 @@ sections:
 
           For HTTP/2 connections to the frontend IP address on Application Gateway v2 SKU, the idle timeout is set to 180 seconds and is nonconfigurable.
           
+          When Keep-Alive timeout and TCP idle timeout are working together, the connection idle timeout in combination will be the value of the TCP idle timeout. This is because closing the TCP idle timeout will knock off the http connection. However, closing the http connection will not affect the TCP connection. 
+          
       - question: Does Application Gateway reuse the TCP connection that's established with a backend server?
         answer: Yes. Application Gateway reuses the existing TCP connections with a backend server.
  
