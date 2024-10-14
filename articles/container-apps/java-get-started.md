@@ -1,5 +1,5 @@
 ---
-title: Launch your first Java application in Azure Container Apps
+title: Launch your first Java microservice applications with managed Java components in Azure Container Apps
 description: Learn how to deploy a java project in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
@@ -11,15 +11,24 @@ ms.author: cshoe
 zone_pivot_groups: container-apps-java-artifacts
 ---
 
-# Quickstart: Launch your first Java application in Azure Container Apps
+# Quickstart: Launch your first Java microservice applications with managed Java components in Azure Container Apps
 
-This article shows you how to deploy the Spring PetClinic sample application to run on Azure Container Apps. Rather than manually creating a Dockerfile and directly using a container registry, you can deploy your Java application directly from a Java Archive (JAR) file or a web application archive (WAR) file.
+This article shows you how to deploy the Spring PetClinic Microservices sample to run on Azure Container Apps, and leverage the build-in Java components provided by Azure Container Apps to support your microservice applications without deploying them manually. Rather than manually creating a Dockerfile and directly using a container registry, you can deploy your Java applications directly from Java Archive (JAR) files or web application archive (WAR) files.
 
-By the end of this tutorial you deploy a web application, which you can manage through the Azure portal.
+The Pet Clinic sample demonstrates the microservice architecture pattern. The following diagram shows the architecture of the PetClinic application on the Azure Container Apps.
 
-The following image is a screenshot of how your application looks once deployed to Azure.
+The diagram shows the following architectural flows and relationships of the Pet Clinic sample:
 
-:::image type="content" source="media/java-deploy-war-file/azure-container-apps-petclinic-warfile.png" alt-text="Screenshot of petclinic app.":::
+- Uses Azure Container Apps to manage the frontend and backend apps. The backend apps are built with Spring Boot and each app uses HSQLDB as the persistent store. The reforged frontend app builds upon Pet Clinic API Gateway App with Node.js serving as a standalone frontend web application.
+- Uses the managed Java components on Azure Container Apps, including Service Registry, Config Server, and Admin Server. The Application Configuration Service reads the Git repository configuration.
+- Exposes the URL of Spring Cloud Gateway to route request to backend service apps.
+- Exposes the URL of the Admin Server to monitor the backend apps.
+- Exposes the URL of the Service Registry to discover the backend apps.
+- Analyzes logs using the Log Analytics workspace.
+
+:::image type="content" source="media/java-deploy-war-file/azure-container-apps-petclinic-arch.png" alt-text="Architecture of petclinic app.":::
+
+By the end of this tutorial you deploy 1 web application and 3 backend applications, and configure 3 Java components in total, which you can manage through the Azure portal.
 
 ## Prerequisites
 
@@ -35,125 +44,163 @@ The following image is a screenshot of how your application looks once deployed 
 
 ## Prepare the project
 
-Clone the Spring PetClinic sample application to your machine.
-
-::: zone pivot="jar"
+Clone the Spring PetClinic Microservices sample to your machine and change into the *spring-petclinic-microservices* folder.
 
 ```bash
-git clone https://github.com/spring-projects/spring-petclinic.git
+git clone https://github.com/yiliuTo/spring-petclinic-microservices & cd spring-petclinic-microservices
 ```
 
-::: zone-end
-
-::: zone pivot="war"
+Create a bash script with environment variables by making a copy of the supplied template:
 
 ```bash
-git clone https://github.com/spring-petclinic/spring-framework-petclinic.git
+cp .scripts/setup-env-variables-azure-template.sh .scripts/setup-env-variables-azure.sh
 ```
 
-::: zone-end
-
-## Build the project
-
-::: zone pivot="jar"
-
-
-Change into the *spring-petclinic* folder.
+Open `.scripts/setup-env-variables-azure.sh` and customize the following 3 variables as you need:
 
 ```bash
-cd spring-petclinic
+# ==== Resource Group ====
+export RESOURCE_GROUP=rg-petclinic # customize this
+export LOCATION=eastus # customize this
+
+# ==== Environment and App Instances ====
+export CONTAINER_APP_ENVIRONMENT=petclinic-env # customize this
+...
 ```
 
-Clean the Maven build area, compile the project's code, and create a JAR file, all while skipping any tests.
+Then, set the environment variables:
 
 ```bash
-mvn clean verify
+source .scripts/setup-env-variables-azure.sh
 ```
 
-After you execute the build command, a file named *petclinic.jar* is generated in the */target* folder.
+## Prepare the Container App Environment
 
-::: zone-end
+Login to the Azure CLI and choose your active subscription.
 
-::: zone pivot="war"
+```azurecli
+az login
+```
 
-> [!NOTE]
-> If necessary, you can specify the Tomcat version in the [Java build environment variables](java-build-environment-variables.md).
+Create a resource group to contain your Azure Container App services.
 
-Change into the *spring-framework-petclinic* folder.
+```azurecli
+az group create --name $RESOURCE_GROUP --location $LOCATION
+```
+
+Create your container apps environment, this environment is used to host both Java components and your container apps.
+
+```azurecli
+az containerapp env create --name $CONTAINER_APP_ENVIRONMENT --resource-group $RESOURCE_GROUP --location $LOCATION
+```
+
+# Create the Java components
+
+Create the Config Server for Java component.
+
+```azurecli
+az containerapp env java-component config-server-for-spring create \
+  --environment $CONTAINER_APP_ENVIRONMENT \
+  --resource-group $RESOURCE_GROUP \
+  --name $CONFIG_SERVER_COMPONENT \
+  --configuration spring.cloud.config.server.git.uri=$CONFIG_SERVER_URI spring.cloud.config.server.git.default-label=$CONFIG_SERVER_LABEL
+```
+
+Create the Eureka Server for Java component.
+
+```azurecli
+az containerapp env java-component eureka-server-for-spring create \
+  --environment $CONTAINER_APP_ENVIRONMENT \
+  --resource-group $RESOURCE_GROUP \
+  --name $EUREKA_SERVER_COMPONENT
+```
+
+Create the Admin Server for Java component.
+
+```azurecli
+az containerapp env java-component admin-for-spring create \
+  --environment $CONTAINER_APP_ENVIRONMENT \
+  --resource-group $RESOURCE_GROUP \
+  --name $ADMIN_SERVER_COMPONENT \
+  --bind $EUREKA_SERVER_COMPONENT
+```
+
+## Build and deploy the project to Azure Container Apps
+
+Clean the Maven build area, compile the project's code, and create JAR files, all while skipping any tests.
 
 ```bash
-cd spring-framework-petclinic
+mvn clean package -DskipTests
 ```
 
-Clean the Maven build area, compile the project's code, and create a WAR file, all while skipping any tests.
-
-```bash
-mvn clean verify
-```
-
-After you execute the build command, a file named *petclinic.war* is generated in the */target* folder.
-
-::: zone-end
-
-## Deploy the project
-
-::: zone pivot="jar"
-
-Deploy the JAR package to Azure Container Apps.
+Deploy the JAR packages to Azure Container Apps.
 
 > [!NOTE]
 > If necessary, you can specify the JDK version in the [Java build environment variables](java-build-environment-variables.md).
 
-Now you can deploy your WAR file with the `az containerapp up` CLI command.
+Now you can deploy your JAR files with the `az containerapp up` CLI command.
 
 ```azurecli
 az containerapp up \
-  --name <CONTAINER_APP_NAME> \
-  --resource-group <RESOURCE_GROUP> \
-  --subscription <SUBSCRIPTION_ID>\
-  --location <LOCATION> \
-  --environment <ENVIRONMENT_NAME> \
-  --artifact <JAR_FILE_PATH_AND_NAME> \
+  --name $CUSTOMERS_SERVICE \
+  --resource-group $RESOURCE_GROUP \
+  --location $LOCATION \
+  --environment $CONTAINER_APP_ENVIRONMENT \
+  --artifact $CUSTOMERS_SERVICE_JAR
+
+az containerapp up \
+  --name $VETS_SERVICE \
+  --resource-group $RESOURCE_GROUP \
+  --location $LOCATION \
+  --environment $CONTAINER_APP_ENVIRONMENT \
+  --artifact $VETS_SERVICE_JAR
+
+az containerapp up \
+  --name $VISITS_SERVICE \
+  --resource-group $RESOURCE_GROUP \
+  --location $LOCATION \
+  --environment $CONTAINER_APP_ENVIRONMENT \
+  --artifact $VISITS_SERVICE_JAR
+
+az containerapp up \
+  --name $API_GATEWAY \
+  --resource-group $RESOURCE_GROUP \
+  --location $LOCATION \
+  --environment $CONTAINER_APP_ENVIRONMENT \
+  --artifact $API_GATEWAY_JAR \
   --ingress external \
   --target-port 8080 \
-  --query properties.configuration.ingress.fqdn
+  --query properties.configuration.ingress.fqdn 
 ```
 
 > [!NOTE]
 > The default JDK version is 17. If you need to change the JDK version for compatibility with your application, you can use the `--build-env-vars BP_JVM_VERSION=<YOUR_JDK_VERSION>` argument to adjust the version number.
+>
+> You can find more applicable build environment variables in [Java build environment variables](java-build-environment-variables.md).
 
-You can find more applicable build environment variables in [Java build environment variables](java-build-environment-variables.md).
-
-::: zone-end
-
-::: zone pivot="war"
-
-Deploy the WAR package to Azure Container Apps.
-
-Now you can deploy your WAR file with the `az containerapp up` CLI command.
+Bind the Java components to the container apps
 
 ```azurecli
-az containerapp up \
-  --name <CONTAINER_APP_NAME> \
-  --resource-group <RESOURCE_GROUP> \
-  --subscription <SUBSCRIPTION>\
-  --location <LOCATION> \
-  --environment <ENVIRONMENT_NAME> \
-  --artifact <WAR_FILE_PATH_AND_NAME> \
-  --build-env-vars BP_TOMCAT_VERSION=10.* \
-  --ingress external \
-  --target-port 8080 \
-  --query properties.configuration.ingress.fqdn
+az containerapp update \
+  --name $CUSTOMERS_SERVICE \
+  --resource-group $RESOURCE_GROUP \
+  --bind $CONFIG_SERVER_COMPONENT $EUREKA_SERVER_COMPONENT
+
+az containerapp update \
+  --name $VETS_SERVICE \
+  --resource-group $RESOURCE_GROUP \
+  --bind $CONFIG_SERVER_COMPONENT $EUREKA_SERVER_COMPONENT
+
+az containerapp update \
+  --name $VISITS_SERVICE \
+  --resource-group $RESOURCE_GROUP \
+  --bind $CONFIG_SERVER_COMPONENT $EUREKA_SERVER_COMPONENT
+
+az containerapp update \
+  --name $API_GATEWAY \
+  --resource-group $RESOURCE_GROUP \
+  --bind $CONFIG_SERVER_COMPONENT $EUREKA_SERVER_COMPONENT
 ```
-
-> [!NOTE]
-> The default Tomcat version is 9. If you need to change the Tomcat version for compatibility with your application, you can use the `--build-env-vars BP_TOMCAT_VERSION=<YOUR_TOMCAT_VERSION>` argument to adjust the version number.
-
-In this example, the Tomcat version is set to `10` (including any minor versions) by setting the `BP_TOMCAT_VERSION=10.*` environment variable.
-
-You can find more applicable build environment variables in [Java build environment variables](java-build-environment-variables.md).
-
-::: zone-end
 
 ## Verify app status
 
@@ -166,4 +213,7 @@ View the application by pasting this URL into a browser. Your app should resembl
 ## Next steps
 
 > [!div class="nextstepaction"]
+> [Config server for Java component](java-config-server-usage.md)
+> [Eureka server for Java component](java-eureka-server-usage.md)
+> [Admin for Java component](java-admin-for-spring-usage.md)
 > [Java build environment variables](java-build-environment-variables.md)
