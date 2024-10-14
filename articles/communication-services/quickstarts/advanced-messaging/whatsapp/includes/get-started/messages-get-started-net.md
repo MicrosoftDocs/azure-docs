@@ -274,12 +274,97 @@ The Messages SDK allows Contoso to send WhatsApp media messages to WhatsApp user
 - [Authenticated NotificationMessagesClient](#authenticate-the-client)
 - [WhatsApp channel ID](#set-channel-registration-id)
 - [Recipient phone number in E16 format](#set-recipient-list)
-- MediaUri of the Image
+- Uri of the Media
 
 > [!IMPORTANT]
 > To send a text message to a WhatsApp user, the WhatsApp user must first send a message to the WhatsApp Business Account. For more information, see [Start sending messages between business and WhatsApp user](#start-sending-messages-between-a-business-and-a-whatsapp-user).
 
-As an example, create a URI:
+> [!IMPORTANT]
+> As of SDK version 1.1.0, `MediaNotificationContent` is being deprecated for images. We encourage you to use `ImageNotificationContent` for sending images and explore other content-specific classes for other media types like `DocumentNotificationContent`, `VideoNotificationContent`, and `AudioNotificationContent`.
+
+Below are example code snippets for sending different types of media messages, including images, documents, videos, and audio files.
+
+#### Sending an Image
+
+Assemble the image message:  
+```csharp
+var imageLink = new Uri("https://example.com/image.jpg");
+var imageNotificationContent = new ImageNotificationContent(channelRegistrationId, recipientList, imageLink)  
+{  
+    Caption = "Check out this image."  
+};
+```
+
+Send the image message:  
+```csharp
+var imageResponse = await notificationMessagesClient.SendAsync(imageNotificationContent);
+```
+
+#### Sending a Document
+
+Assemble the document message:  
+```csharp
+var documentLink = new Uri("https://example.com/document.pdf");
+var documentNotificationContent = new DocumentNotificationContent(channelRegistrationId, recipientList, documentLink)  
+{  
+    Caption = "Check out this document.",  
+    FileName = "document.pdf"  
+};
+```
+
+Send the document message:  
+```csharp
+var documentResponse = await notificationMessagesClient.SendAsync(documentNotificationContent);
+```
+
+#### Sending a Video
+
+Assemble the video message:  
+```csharp
+var videoLink = new Uri("https://example.com/video.mp4");
+var videoNotificationContent = new VideoNotificationContent(channelRegistrationId, recipientList, videoLink)  
+{  
+    Caption = "Check out this video."  
+};
+```
+
+Send the video message:  
+```csharp
+var videoResponse = await notificationMessagesClient.SendAsync(videoNotificationContent);
+```
+
+#### Sending an Audio File
+
+
+Assemble the audio message:  
+```csharp
+var audioLink = new Uri("https://example.com/audio.mp3");
+var audioNotificationContent = new AudioNotificationContent(channelRegistrationId, recipientList, audioLink);
+```
+
+Send the audio message:  
+```csharp
+var audioResponse = await notificationMessagesClient.SendAsync(audioNotificationContent);
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ```csharp
 var uri = new Uri("https://aka.ms/acsicon1");
 ```
@@ -288,10 +373,10 @@ Assemble then send the media message:
 ```csharp
 // Assemble media message
 var mediaContent = 
-    new MediaNotificationContent(channelRegistrationId, recipientList, uri);
+    new ImageNotificationContent(channelRegistrationId, recipientList, uri);
 
 // Send media message
-Response<SendMessageResult> sendMediaMessageResult = 
+Response<SendMessageResult> sendImageMessageResult = 
     await notificationMessagesClient.SendAsync(mediaContent);
 ```
 
