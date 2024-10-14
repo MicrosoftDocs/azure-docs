@@ -80,7 +80,7 @@ This endpoint is the destination for the dataflow that receives messages to Azur
 
 ```bicep
 resource adlsGen2Endpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
-  parent: <AIO INSTANCE RESOURCE>
+  parent: aioInstance
   name: '<ENDPOINT NAME>'
   extendedLocation: {
     name: '<CUSTOM LOCATION ID>'
