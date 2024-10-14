@@ -190,7 +190,7 @@ cd quarkus-quickstarts/hibernate-orm-panache-quickstart
        --location $LOCATION
    ```
 
-1. Create a container app with your app image by running the following command.
+1. Create a container app with your app image by running the following command:
 
    ```azurecli-interactive
    APP_NAME=my-container-app
@@ -207,7 +207,7 @@ cd quarkus-quickstarts/hibernate-orm-panache-quickstart
    ```
    
    > [!NOTE]
-   > The options `--registry-username` and `--registry-password` are still supported but are not recommended because using the identity system is more secure.
+   > The options `--registry-username` and `--registry-password` are still supported but aren't recommended because using the identity system is more secure.
 
 ## 5. Create and connect a PostgreSQL database with identity connectivity
 
@@ -229,7 +229,7 @@ Next, create a PostgreSQL Database and configure your container app to connect t
    ```
    
    > [!NOTE]
-   > The options `--admin-user` and `--admin-password` are still supported but are not recommended because using the identity system is more secure.
+   > The options `--admin-user` and `--admin-password` are still supported but aren't recommended because using the identity system is more secure.
 
    The following parameters are used in the above Azure CLI command:
 
@@ -279,7 +279,7 @@ echo https://$(az containerapp show \
     --name $APP_NAME \
     --resource-group $RESOURCE_GROUP \
     --query properties.configuration.ingress.fqdn \
-    -o tsv)
+    --output tsv)
 ```
 
 When the new webpage shows your list of fruits, your app is connecting to the database using the managed identity. You should now be able to edit fruit list as before.
