@@ -448,9 +448,9 @@
       href: reference-x509-certificates.md
     - name: Feature and API retirement
       items:
-        - name: TLS 1.0 and 1.1 deprecation
+        - name: TLS 1.0 and 1.1 end of support
           displayName: Transport Layer Security 
-          href: iot-hub-tls-deprecating-1-0-and-1-1.md
+          href: iot-hub-tls-ending-support-for-1-0-and-1-1.md
     - name: Monitoring data reference
       href: monitor-iot-hub-reference.md
 - name: Resources
