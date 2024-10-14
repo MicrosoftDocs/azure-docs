@@ -35,7 +35,7 @@ In this article, you learn how to schedule load tests with Azure Load Testing. S
     |-------|---------|
     | **Schedule Name** | Enter a name for the schedule. |
     | **Start date** | Select the date and time when the test should start. |
-    | **Time zone** | Select the time zone in which the test should run. |
+    | **Time zone** | Select the time zone for the start date time above. |
     | **Recurrence** | Select the frequency at which the test should run. You can choose to run the test once, hourly, daily, weekly, or monthly. Choose cron to specify a custom recurrence pattern. Refer to more settings for each recurrence in the below tables. |
     | **End**| Select how you want the schedule to end. You can choose to end the schedule after a certain number of occurrences or on a specific date. Alternatively, you can choose not to end the schedule. |
 
@@ -43,28 +43,27 @@ In this article, you learn how to schedule load tests with Azure Load Testing. S
 
     | Field | Details |
     |-------|---------|
-    | **Every** | Enter the number of hours between each test run. For example if you provide 6, the schedule will start at the start date and time provided and will run every 6 hours. |
+    | **Every** | Enter the number of hours between each test run. For example if you provide six, the schedule will run every six hours at the time specified in start time. |
 
     For a daily recurrence, configure the following settings:
 
     | Field | Details |
     |-------|---------|
-    | **Every** | Enter the number of days between each test run. For example if you provide 2, the schedule will start at the start date and time provided and will run every 2 days. |
+    | **Every** | Enter the number of days between each test run. For example if you provide two, the schedule will run every 2 days at the time specified in start time. |
 
     For a weekly recurrence, configure the following settings:
 
     | Field | Details |
     |-------|---------|
     | **Every** | Enter the number of weeks between each test run. |
-    | **Days** | Select the days of the week when the test should run. If you provided 2 weeks and selcted Monday, the schedule will start on the Monday after the start date and run every 2 weeks. |
+    | **Days** | Select the days of the week when the test should run. If you provided 2 weeks and selected Monday, the schedule will start on the Monday after the start date and run every 2 weeks at the time specified in start time. |
 
     For a monthly recurrence, configure the following settings:
 
     | Field | Details |
     |-------|---------|
     | **Every** | Enter the number of months between each test run. |
-    | **Pattern** | Select the pattern for the test to run. You can choose **Date** to run the test on a specific date of the month, for example, on every 10th of the month. You can choose **Day** to run the test on a specific day of the week, for example, on the last day of the month. |
-     on a specific day of the week, or on the first Tuesday of the month. |
+    | **Pattern** | Select the pattern for the test to run. You can choose **Date** to run the test on a specific date of the month, for example, on every 10th of the month. You can choose **Day** to run the test on a specific day of the week, for example, on the first Friday of the month. |
 
     For a cron recurrence, configure the following settings:
     
@@ -79,14 +78,17 @@ In this article, you learn how to schedule load tests with Azure Load Testing. S
 
 ## View schedules
 
-You can view the schedule in the Schedule pane of the test. The schedule shows the next run time and the status of the schedule. You can have only one schedule in an active , paused or disabled state. You can add another shedule after the current schedule is completed.
+You can view the schedule in the Schedule pane of the test. The schedule shows the next run time and the status of the schedule. You can have only one schedule in an active , paused or disabled state. You can add another shedule after the current schedule is completed or deleted.
 
 You can view the trigger for a test run in the **Test runs** grid of the test. The trigger shows as Scheduled for a scheduled test run. You can filter the test runs grid to view only the scheduled test runs.
 
 
 ## Modify a schedule
 
-You can modify the schedule of a test after you've added it. You can also pause or resume a schedule. A schedule is disabled if three consecutive test runs of a schedule fail. You can resolve the issues with the test and enable the schedule again  from the Schedule pane of the test.
+You can modify the schedule of a test after you've added it. You can also pause or resume a schedule.
+
+> [!NOTE]
+> A schedule is disabled if three consecutive test runs of a schedule fail. You can resolve the issues with the test and enable the schedule again  from the Schedule pane of the test.
 
 ## Next steps
 
