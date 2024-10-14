@@ -6,7 +6,7 @@ services: dev-box
 ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 01/12/2024
+ms.date: 10/14/2024
 ms.topic: how-to
 #Customer intent: As a platform engineer, I want to be able to manage dev centers so that I can manage my Microsoft Dev Box implementation.
 ---
@@ -35,7 +35,7 @@ You can create as many or as few dev centers as you need, depending on how you o
 
 To create a dev center in the Azure portal: 
 
-[!INCLUDE [create-dev-center-ama-mhn-steps](includes/create-dev-center-ama-mhn-steps.md)]
+[!INCLUDE [create-dev-center-steps](includes/create-dev-center-steps.md)]
 
 ## Delete a dev center
 

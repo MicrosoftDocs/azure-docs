@@ -6,7 +6,7 @@ ms.service: dev-box
 ms.topic: quickstart
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 12/15/2023
+ms.date: 10/14/2024
 #Customer intent: As an enterprise admin, I want to understand how to create and configure dev box components so that I can provide dev box projects for my users.
 ---
 
@@ -49,7 +49,7 @@ To get started with Microsoft Dev Box, you first create a dev center. A dev cent
 
 Use the following steps to create a dev center so you can manage your dev box resources: 
 
-[!INCLUDE [create-dev-center-ama-mhn-steps](includes/create-dev-center-ama-mhn-steps.md)]
+[!INCLUDE [create-dev-center-steps](includes/create-dev-center-steps.md)]
 
 ### Create a project
 
