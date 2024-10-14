@@ -14,7 +14,7 @@ ms.custom: mode-ui, devx-track-dotnet
 
 Azure Container Apps enables you to run microservices and containerized applications on a serverless platform. With Container Apps, you enjoy the benefits of running containers while leaving behind the concerns of manually configuring cloud infrastructure and complex container orchestrators.
 
-In this tutorial, you deploy a containerized ASP.NET Core 6.0 (or higher as lates ASP.NET Core 8.0 is available) application to Azure Container Apps using Visual Studio. The steps below also apply to earlier versions of ASP.NET Core.
+In this tutorial, you deploy a containerized ASP.NET Core 8.0 application to Azure Container Apps using Visual Studio. The steps below also apply to earlier versions of ASP.NET Core.
 
 ## Prerequisites
 
@@ -23,7 +23,7 @@ In this tutorial, you deploy a containerized ASP.NET Core 6.0 (or higher as late
 
 ## Create the project
 
-For deployment to Azure, begin by creating the containerized ASP.NET Core application 
+Begin by creating the containerized ASP.NET Core application.  
 
 1) In Visual Studio, select **File** and then choose **New => Project**.
 
@@ -39,7 +39,7 @@ For deployment to Azure, begin by creating the containerized ASP.NET Core applic
 
 ## Deploy to Azure Container Apps
 
-The application includes a Dockerfile because the Enable Docker setting was selected in the project template. Visual Studio uses the Dockerfile to build the container image that the Azure Container Apps run.
+The application includes a Dockerfile because the project template had the *Enable Docker* setting selected. Visual Studio uses the Dockerfile to build the container image that the Azure Container Apps run.
 
 Refer to [How Visual Studio builds containerized apps](/visualstudio/containers/container-build) if you'd like to learn more about the specifics of this process.
 
@@ -47,7 +47,7 @@ You're now ready to deploy to the application to Azure Containers Apps.
 
 ### Create the resources
 
-The Visual Studio publish dialogs help you choose existing Azure resources, or create new ones to be used to deploy your applications to. It also builds the container image using the Dockerfile in the project, push this image to Azure Container Registry (ACR), and finally deploy the new image to the container app selected.
+The publish dialog windows in Visual Studio help you choose existing Azure resources, or allow you to create new ones for deployment. This process also builds the container image, pushes the image to Azure Container Registry (ACR), and deploys the new container app image.
 
 1) Right-click the **MyContainerApp** project node and select **Publish**.
 
@@ -75,7 +75,7 @@ The Visual Studio publish dialogs help you choose existing Azure resources, or c
 
     :::image type="content" source="media/visual-studio/container-apps-select-resource.png" alt-text="A screenshot showing how to select the created resource.":::
 
-8) On the **Registry** screen, you can either select an existing Registry if you have one, or create a new one. To create a new one, click the green **+** icon on the right. On the **Create new** registry screen, fill in the following values:
+8) On the **Registry** screen, you can either select an existing Registry if you have one, or create a new one. To create a new one, click the green **+** icon on the right. On the *Create new* registry screen, fill in the following values:
 
     - **DNS prefix**: Enter a value of `msdocscontainerregistry` or a name of your choosing.
     - **Subscription Name**: Select the subscription you want to use - you might only have one to choose from.
