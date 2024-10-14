@@ -24,9 +24,9 @@ The command produces an output file containing its results. Users should configu
 
 ## Create and configure storage resources (customer-managed storage)
 
-1. Create a storage account, or identify an existing storage account that you want to use. See [Create an Azure storage account](https://learn.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal).
-2. In the storage account, create a blob storage container. See [Create a container](https://learn.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container).
-3. Assign the "Storage Blob Data Contributor" role to users and managed identities which need access to the run-read-command output. See [Assign an Azure role for access to blob data](https://learn.microsoft.com/azure/storage/blobs/assign-azure-role-data-access?tabs=portal). The role must also be assigned to either a user-assigned managed identity or the cluster's own system-assigned managed identity. For more information on managed identities, see [Managed identities for Azure resources](https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/overview).
+1. Create a storage account, or identify an existing storage account that you want to use. See [Create an Azure storage account](../storage/common/storage-account-create?tabs=azure-portal).
+2. In the storage account, create a blob storage container. See [Create a container](../storage/blobs/storage-quickstart-blobs-portal#create-a-container).
+3. Assign the "Storage Blob Data Contributor" role to users and managed identities which need access to the run-read-command output. See [Assign an Azure role for access to blob data](../storage/blobs/assign-azure-role-data-access?tabs=portal). The role must also be assigned to either a user-assigned managed identity or the cluster's own system-assigned managed identity. For more information on managed identities, see [Managed identities for Azure resources](../../entra/identity/managed-identities-azure-resources/overview).
 
 When assigning a role to the cluster's system-assigned identity, make sure you select the resource with the type "Cluster (Operator Nexus)."
 
@@ -345,7 +345,7 @@ This guide walks you through accessing the output file that is created in the Cl
 
 1. Select the baremetal-run-command-output blob container.
 
-1. Storage Account could be locked resulting in `403 This request is not authorized to perform this operation.` due to networking or firewall restrictions. Refer [Verify Storage Account access](#verify-storage-account-access) for procedure to verify/request access.
+1. Storage Account could be locked resulting in `403 This request is not authorized to perform this operation.` due to networking or firewall restrictions. Refer to the [customer-managed storage](#create-and-configure-storage-resources-customer-managed-storage) or [cluster manager storage](#verify-storage-account-access-cluster-manager-storage) sections for procedures to verify access.
 
 1. Select the output file from the run-read command. The file name can be identified from the `az rest --method get` command. Additionally, the **Last modified** timestamp aligns with when the command was executed.
 
