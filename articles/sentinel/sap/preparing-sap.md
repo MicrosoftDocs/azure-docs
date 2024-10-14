@@ -16,7 +16,6 @@ ms.collection: usx-security
 
 # Configure your SAP system for the Microsoft Sentinel solution
 
-<!--doublecheck all sap links before merging-->
 This article describes how to prepare your SAP environment for connecting to the SAP data connector agent. Preparation includes configuring required SAP authorizations and, optionally, deploying extra SAP change requests (CRs).
 
 This article is part of the second step in deploying the Microsoft Sentinel solution for SAP applications.
@@ -65,7 +64,7 @@ Some installations of SAP systems might not have audit logging enabled by defaul
 
 We recommend that you configure auditing for all messages from the audit log, as this data is useful for Microsoft Sentinel detections and in post-compromise investigations and hunting.
 
-For more information, see the [SAP documentation](https://community.sap.com/t5/application-development-blog-posts/analysis-and-recommended-settings-of-the-security-audit-log-sm19-rsau/ba-p/13297094) and [Collect SAP HANA audit logs in Microsoft Sentinel](collect-sap-hana-audit-logs.md).
+For more information, see the [SAP community](https://community.sap.com/t5/application-development-blog-posts/analysis-and-recommended-settings-of-the-security-audit-log-sm19-rsau/ba-p/13297094) and [Collect SAP HANA audit logs in Microsoft Sentinel](collect-sap-hana-audit-logs.md).
 
 ## Configure support for extra data retrieval (recommended)
 
@@ -103,7 +102,8 @@ By default, the SAP data connector agent connects to an SAP server using a remot
 
 However, you might need to make the connection on an encrypted channel or use client certificates for authentication. In these cases, use Smart Network Communications (SNC) from SAP to secure your data connections, as described in this section.
 
-In a production environment, we strongly recommend that your consult with SAP administrators to create a deployment plan for configuring SNC. For more information, see the [SAP documentation](https://help.sap.com/docs/ABAP_PLATFORM_NEW/e73bba71770e4c0ca5fb2a3c17e8e229/e656f466e99a11d1a5b00000e835363f.html).
+In a production environment, we strongly recommend that your consult with SAP administrators to create a deployment plan for configuring SNC. For more information, see the [SAP documentation](https://help.sap.com/docs/ABAP_PLATFORM_NEW/e73bba71770e4c0ca5fb2a3c17e8e229/e656f466e99a11d1a5b00000e835363f.html). 
+
 When configuring SNC:
 
 - If the client certificate was issued by an enterprise certification authority, transfer the issuing CA and root CA certificates to the system where you plan to create the data connector agent.

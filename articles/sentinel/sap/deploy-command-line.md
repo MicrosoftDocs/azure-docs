@@ -26,7 +26,7 @@ While you can run multiple data connector agents on a single machine, we recomme
 
 - If you're using SNC for secure connections, make sure that your SAP system is configured properly, and then [prepare the kickstart script for secure communication with SNC](#prepare-the-kickstart-script-for-secure-communication-with-snc) before deploying the data connector agent.
 
-    For more information, see [SAP documentation](https://help.sap.com/docs/ABAP_PLATFORM_NEW/e73bba71770e4c0ca5fb2a3c17e8e229/e656f466e99a11d1a5b00000e835363f.html).
+    For more information, see the [SAP documentation](https://help.sap.com/docs/ABAP_PLATFORM_NEW/e73bba71770e4c0ca5fb2a3c17e8e229/e656f466e99a11d1a5b00000e835363f.html).
 
 ## Deploy the data connector agent using a managed identity or registered application
 
