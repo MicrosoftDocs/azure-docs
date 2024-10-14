@@ -6,7 +6,7 @@ manager: patfilot
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.date: 11/30/2022
+ms.date: 10/34/2024
 ms.author: juergent
 ms.custom: H1Hack27Feb2017, linux-related-content
 ---
@@ -53,6 +53,9 @@ Typical VM types used for medium size SAP ASE database servers include Esv3.  La
 
 The SAP ASE transaction log disk write performance may be improved by enabling the M-series Write Accelerator. Write Accelerator should be tested carefully with SAP ASE due to the way that SAP ASE performs Log Writes.  Review [SAP support note #2816580](/azure/virtual-machines/how-to-enable-write-accelerator) and consider running a performance test.  
 Write Accelerator is designed for transaction log disk only. The disk level cache should be set to NONE. Don't be surprised if Azure Write Accelerator doesn't show similar improvements as with other DBMS. Based on the way, SAP ASE writes into the transaction log, it could be that there's little to no acceleration by Azure Write Accelerator.
+
+> [!NOTE]
+> With some of the new M(b)v3 VM types, the usage of read cached Premium SSD v1 storage could result in lower read and write IOPS rates and throughput than you would get if you don't use read cache. 
 
 Separate disks are recommended for Data devices and Log Devices.  The system databases sybsecurity and `saptools` don't require dedicated disks and can be placed on the disks containing the SAP database data and log devices 
 
