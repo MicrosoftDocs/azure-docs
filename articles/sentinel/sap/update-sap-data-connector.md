@@ -115,7 +115,7 @@ To verify your current agent version, run the following query from the Microsoft
 
 ### Check for required Azure roles
 
-Attack disruption for SAP requires that you grant your agent's VM identity with specific permissions to the Microsoft Sentinel workspace, using the **Microsoft Sentinel Business Applications Agent Operator** and **Reader** roles.
+Attack disruption for SAP requires that you grant your agent's VM identity with specific permissions to the Log Analytics workspace enabled for Microsoft Sentinel, using the **Microsoft Sentinel Business Applications Agent Operator** and **Reader** roles.
 
 First check to see if your roles are already assigned:
 
@@ -136,7 +136,7 @@ First check to see if your roles are already assigned:
 
 If the **Microsoft Sentinel Business Applications Agent Operator** and **Reader** roles aren't yet assigned to your agent's VM identity, use the following steps to assign them manually. Select the tab for the Azure portal or the command line, depending on how your agent is deployed. Agents deployed from the command line aren't shown in the Azure portal, and you must use the command line to assign the roles.
 
-To perform this procedure, you must be a resource group owner on your Microsoft Sentinel workspace.
+To perform this procedure, you must be a resource group owner on your Log Analytics workspace enabled for Microsoft Sentinel.
 
 #### [Portal](#tab/portal)
 
@@ -151,7 +151,7 @@ To perform this procedure, you must be a resource group owner on your Microsoft 
 > [!IMPORTANT]
 > Assigning the **Microsoft Sentinel Business Applications Agent Operator** and **Reader** roles via the CLI assigns the roles only on the scope of the specified agent's data in the workspace. This is the most secure, and therefore recommended option.
 >
-> If you must assign the roles [via the Azure portal](/azure/role-based-access-control/role-assignments-portal?tabs=delegate-condition), we recommend assigning the roles on a small scope, such as only on the Microsoft Sentinel workspace.
+> If you must assign the roles [via the Azure portal](/azure/role-based-access-control/role-assignments-portal?tabs=delegate-condition), we recommend assigning the roles on a small scope, such as only on the Log Analytics workspace enabled for Microsoft Sentinel.
 
 #### [Command line](#tab/cli)
 
@@ -176,9 +176,9 @@ To perform this procedure, you must be a resource group owner on your Microsoft 
     |Placeholder  |Value  |
     |---------|---------|
     |`<OBJ_ID>`     | Your VM identity object ID.     |
-    |`<SUB_ID>`     |    Your Microsoft Sentinel workspace subscription ID     |
-    |`<RESOURCE_GROUP_NAME>`     |  Your Microsoft Sentinel workspace resource group name       |
-    |`<WS_NAME>`     |    Your Microsoft Sentinel workspace name     |
+    |`<SUB_ID>`     |    The subscription ID for your Log Analytics workspace enabled for Microsoft Sentinel   |
+    |`<RESOURCE_GROUP_NAME>`     |  The resource group name for your Log Analytics workspace enabled for Microsoft Sentinel      |
+    |`<WS_NAME>`     |    The name of your Log Analytics workspace enabled for Microsoft Sentinel  |
     |`<AGENT_IDENTIFIER>`     |   The agent ID displayed after running the command in the [previous step](#step1).      |
 
 ---

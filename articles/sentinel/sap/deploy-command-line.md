@@ -109,9 +109,9 @@ This procedure describes how to create a new agent and connect it to your SAP sy
 
     You'll use the name of the docker container in the next step.
 
-1. Deploying the SAP data connector agent requires that you grant your agent's VM identity with specific permissions to the Microsoft Sentinel workspace, using the **Microsoft Sentinel Business Applications Agent Operator** and **Reader** roles.
+1. Deploying the SAP data connector agent requires that you grant your agent's VM identity with specific permissions to the Log Analytics workspace enabled for Microsoft Sentinel, using the **Microsoft Sentinel Business Applications Agent Operator** and **Reader** roles.
 
-    To run the command in this step, you must be a resource group owner on your Microsoft Sentinel workspace. If you aren't a resource group owner on your workspace, this procedure can also be performed later on.
+    To run the command in this step, you must be a resource group owner on the Log Analytics workspace enabled for Microsoft Sentinel. If you aren't a resource group owner on your workspace, this procedure can also be performed later on.
 
     Assign the **Microsoft Sentinel Business Applications Agent Operator** and **Reader** roles to the VM's identity:
 
@@ -136,9 +136,9 @@ This procedure describes how to create a new agent and connect it to your SAP sy
     |Placeholder  |Value  |
     |---------|---------|
     |`<OBJ_ID>`     | Your VM identity object ID. <br><br>    To find your VM identity object ID in Azure: <br>- **For a managed identity**, the object ID is listed on the VM's **Identity** page. <br>- **For a service principal**, go to **Enterprise application** in Azure. Select **All applications** and then select your VM. The object ID is displayed on the **Overview** page.  |
-    |`<SUB_ID>`     |    Your Microsoft Sentinel workspace subscription ID     |
-    |`<RESOURCE_GROUP_NAME>`     |  Your Microsoft Sentinel workspace resource group name       |
-    |`<WS_NAME>`     |    Your Microsoft Sentinel workspace name     |
+    |`<SUB_ID>`     |    The subscription ID for you Log Analytics workspace enabled for Microsoft Sentinel    |
+    |`<RESOURCE_GROUP_NAME>`     |  The resource group name for your Log Analytics workspace enabled for Microsoft Sentinel      |
+    |`<WS_NAME>`     |    The name of your Log Analytics workspace enabled for Microsoft Sentinel     |
     |`<AGENT_IDENTIFIER>`     |   The agent ID displayed after running the command in the [previous step](#agent-id-managed).      |
 
 1. To configure the Docker container to start automatically, run the following command, replacing the `<container-name>` placeholder with the name of your container:
@@ -192,9 +192,9 @@ Azure Key Vault is the recommended method to store your authentication credentia
 
     You'll use the name of the docker container in the next step.
 
-1. Deploying the SAP data connector agent requires that you grant your agent's VM identity with specific permissions to the Microsoft Sentinel workspace, using the **Microsoft Sentinel Business Applications Agent Operator** and **Reader** roles.
+1. Deploying the SAP data connector agent requires that you grant your agent's VM identity with specific permissions to the Log Analytics workspace enabled for Microsoft Sentinel, using the **Microsoft Sentinel Business Applications Agent Operator** and **Reader** roles.
 
-    To run the commands in this step, you must be a resource group owner on your Microsoft Sentinel workspace. If you aren't a resource group owner on your workspace, this step can also be performed later on.
+    To run the commands in this step, you must be a resource group owner on your workspace. If you aren't a resource group owner on your workspace, this step can also be performed later on.
 
     Assign the **Microsoft Sentinel Business Applications Agent Operator** and **Reader** roles to the VM's identity:
 
@@ -219,9 +219,9 @@ Azure Key Vault is the recommended method to store your authentication credentia
         |Placeholder  |Value  |
         |---------|---------|
         |`<OBJ_ID>`     | Your VM identity object ID. <br><br>    To find your VM identity object ID in Azure: For a managed identity, the object ID is listed on the VM's **Identity** page. For a service principal, go to **Enterprise application** in Azure. Select **All applications** and then select your VM. The object ID is displayed on the **Overview** page.  |
-        |`<SUB_ID>`     |    Your Microsoft Sentinel workspace subscription ID     |
-        |`<RESOURCE_GROUP_NAME>`     |  Your Microsoft Sentinel workspace resource group name       |
-        |`<WS_NAME>`     |    Your Microsoft Sentinel workspace name     |
+        |`<SUB_ID>`     |   The subscription ID for your Log Analytics workspace enabled for Microsoft Sentinel    |
+        |`<RESOURCE_GROUP_NAME>`     |  The resource group name for your Log Analytics workspace enabled for Microsoft Sentinel       |
+        |`<WS_NAME>`     |    The name of your Log Analytics workspace enabled for Microsoft Sentinel   |
         |`<AGENT_IDENTIFIER>`     |   The agent ID displayed after running the command in the [previous step](#agent-id-file).      |
 
 1. Run the following command to configure the Docker container to start automatically.

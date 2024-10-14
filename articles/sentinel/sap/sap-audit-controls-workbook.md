@@ -35,9 +35,9 @@ Before you can start using the **SAP - Security Audit log and Initial Access** w
 
 - The Microsoft Sentinel solution for SAP applications solution installed and a data connector agent deployed. For more information, see [Deploy Microsoft Sentinel solution for SAP applications](deployment-overview.md).
 
-- The **SAP Audit Controls** workbook installed in your Microsoft Sentinel workspace. For more information, see and [Visualize and monitor your data by using workbooks in Microsoft Sentinel](../monitor-your-data.md).
+- The **SAP Audit Controls** workbook installed in your Log Analytics workspace enabled for Microsoft Sentinel. For more information, see and [Visualize and monitor your data by using workbooks in Microsoft Sentinel](../monitor-your-data.md).
 
-- At least one incident in your Microsoft Sentinel workspace, with at least one entry available in the `SecurityIncident` table. This doesn't need to be an SAP incident, and you can generate a demo incident using a basic analytics rule if you don't have another one.
+- At least one incident in your workspace, with at least one entry available in the `SecurityIncident` table. This doesn't need to be an SAP incident, and you can generate a demo incident using a basic analytics rule if you don't have another one.
 
 ## View a demo
 

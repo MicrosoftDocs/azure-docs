@@ -152,7 +152,7 @@ The change takes effect approximately two minutes after you save the file. You d
 1. Verify whether messages arrive and exist in the SAP **SM20** or **RSAU_READ_LOG**, without any special errors appearing on the connector log.
 
 
-### Incorrect Microsoft Sentinel workspace ID or key in key vault
+### Incorrect workspace ID or key in key vault
 
 If you realize that you've entered an incorrect workspace ID or key in your deployment script, update the credentials stored in Azure key vault.
 

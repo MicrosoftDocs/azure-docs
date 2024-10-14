@@ -32,7 +32,7 @@ Before you can start using the **SAP - Security Audit log and Initial Access** w
 
 - The Microsoft Sentinel solution for SAP applications solution installed and a data connector agent deployed. For more information, see [Deploy Microsoft Sentinel solution for SAP applications](deployment-overview.md).
 
-- The **SAP - Security Audit log and Initial Access** workbook installed in your Microsoft Sentinel workspace. For more information, see [Visualize and monitor your data by using workbooks in Microsoft Sentinel](../monitor-your-data.md).
+- The **SAP - Security Audit log and Initial Access** workbook installed in your Log Analytics workspace enabled for Microsoft Sentinel. For more information, see [Visualize and monitor your data by using workbooks in Microsoft Sentinel](../monitor-your-data.md).
 
     > [!IMPORTANT]
     > The **SAP - Security Audit log and Initial Access** workbook is hosted by the workspace where the Microsoft Sentinel solution for SAP applications were installed. By default, both the SAP and the SOC data is assumed to be on the workspace that hosts the workbook.

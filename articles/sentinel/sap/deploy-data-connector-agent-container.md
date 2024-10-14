@@ -296,7 +296,7 @@ While deployment is also supported from the command line, we recommend that you 
 
     :::image type="content" source="media/deploy-data-connector-agent-container/finish-agent-deployment-role.png" alt-text="Screenshot of the Copy icon for the command from step 1.":::
 
-    To find your VM identity object ID in Azure: <!--confirm this with Dvir-->
+    To find your VM identity object ID in Azure:
 
     - For a managed identity, the object ID is listed on the VM's **Identity** page.
 
@@ -348,7 +348,7 @@ While deployment is also supported from the command line, we recommend that you 
 
     When you're done, select  **Next: Authentication**.
 
-    For example: <!--can we get a screenshot with an example?-->
+    For example:
 
     :::image type="content" source="media/deploy-data-connector-agent-container/create-system.png" alt-text="Screenshot of the Add new system area's System settings tab.":::
 

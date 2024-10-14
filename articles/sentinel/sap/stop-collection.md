@@ -18,7 +18,7 @@ ms.collection: usx-security
 
 There may be instances where you need to halt the data collection from your SAP applications by Microsoft Sentinel, whether for maintenance, troubleshooting, or other administrative reasons.
 
-This article provides step-by-step instructions on how to stop the ingestion of SAP logs into your Microsoft Sentinel workspace and disable the data connector. 
+This article provides step-by-step instructions on how to stop the ingestion of SAP logs into Microsoft Sentinel and disable the data connector.
 
 ## Prerequisites
 
@@ -27,19 +27,15 @@ Before you stop the data collection from your SAP applications, ensure you have 
 - The Log Analytics workspace that's enabled for Microsoft Sentinel. For more information, see [Roles and permissions in Microsoft Sentinel](../roles.md).
 - The SAP data connector agent machine or container.
 
-<!--
-We recommend that you back up your current configuration and logs before making any changes. <!--is this correct?-->
-
-
 ## Stop log ingestion and disable the connector
 
-To stop ingesting SAP logs into the Microsoft Sentinel workspace, and to stop the data stream from the Docker container, sign into your data connector agent machine and run:
+To stop ingesting SAP logs into Microsoft and to stop the data stream from the Docker container, sign into your data connector agent machine and run:
 
 ```bash
 docker stop sapcon-[SID/agent-name]
 ```
 
-The Docker container stops and doesn't send any more SAP logs to the Microsoft Sentinel workspace. This stops both the ingestion and billing for the SAP system related to the connector.
+The Docker container stops and doesn't send any more SAP logs to Microsoft Sentinel. This stops both the ingestion and billing for the SAP system related to the connector.
 
 If you need to reenable the Docker container, sign into the data connector agent machine and run:
 
@@ -51,10 +47,7 @@ To stop ingesting a specific SID for a multi-SID container, make sure that you a
 
 1. In Microsoft Sentinel, select **Configuration > Data connectors** and search for **Microsoft Sentinel for SAP**.
 1. Select the data connector row and then select **Open connector page** in the side pane.
-1. In the **Configuration** area on the **Microsoft Sentinel for SAP** data connector page, locate the SID agent you want to remove and select **Delete**. <!--need validation for this-->
-
-
-
+1. In the **Configuration** area on the **Microsoft Sentinel for SAP** data connector page, locate the SID agent you want to remove and select **Delete**.
 
 ## Remove the user role and any optional CR installed on your ABAP system
 

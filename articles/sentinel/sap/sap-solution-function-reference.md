@@ -172,7 +172,7 @@ The **SAPSystems** function returns the following data:
 
 ## SAPAuditLogConfiguration
 
-The **SAPAuditLogConfiguration** function returns the local configuration of the SAP audit log alerting of the Microsoft Sentinel workspace, to be used for the different SAP audit log related alerts.
+The **SAPAuditLogConfiguration** function returns the local configuration of the SAP audit log alerts to the Log Analytics workspace enabled for Microsoft Sentinel. This configuration is used for SAP audit log-related alerts.
 
 The **SAPAuditLogConfiguration** function joins the data in the *SAP Dynamic Audit Log Monitor Configuration* and *SAP - Systems* watchlists to provide a per-system configuration at a per-system-role effort.
 
