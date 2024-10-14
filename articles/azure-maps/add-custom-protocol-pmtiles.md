@@ -122,11 +122,11 @@ The following image shows a screenshot displaying the extrusion of buildings of 
 
 :::image type="content" source="media/add-custom-protocol-pmtiles/pmtiles-building.png"  lightbox="media/add-custom-protocol-pmtiles/pmtiles-building.png" alt-text="A screenshot demonstrating the custom protocol pmtiles.":::
 
-<!--
 For a fully functional sample with source code, see [Azure Maps Samples GitHub Repo].
+
+<!--
 For more PMTiles samples, see [Azure Maps Samples].
 [Azure Maps Samples]: https://samples.azuremaps.com/?search=pmtiles
-[Azure Maps Samples GitHub Repo]: https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/main/Samples
 -->
 
 ## Next Steps
@@ -139,6 +139,7 @@ The following articles are related to custom protocol PMTiles:
 > [!div class="nextstepaction"]
 > [Data Driven Style Expressions](data-driven-style-expressions-web-sdk.md)
 
-[PMTiles]: https://docs.protomaps.com/pmtiles
+[Azure Maps Samples GitHub Repo]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/PMTiles/Overture%20Building%20Theme/Buildings.html
 [data schema]: https://docs.overturemaps.org/schema
 [Overture]: https://overturemaps.org
+[PMTiles]: https://docs.protomaps.com/pmtiles
