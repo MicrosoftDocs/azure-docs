@@ -4,8 +4,7 @@ description: This guide contains instructions to migrate workloads from an Azure
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: tutorial
 ms.date: 02/27/2024
 ms.author: alkohli  

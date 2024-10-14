@@ -1,7 +1,7 @@
 ---
 title: View and manage OT alerts on the on-premises management console - Microsoft Defender for IoT
 description: Learn how to view and manage OT alerts collected from all connected OT network sensors on a Microsoft Defender for IoT on-premises management console.
-ms.date: 08/07/2023
+ms.date: 10/10/2024
 ms.topic: how-to
 ---
 
@@ -33,9 +33,7 @@ Before performing the procedures in this article, make sure that you have:
 
     Alerts are shown in a simple table, showing the sensor that triggered the alert and alert details in two columns.
 
-1. Select an alert row to expand its full details. For example:
-
-    :::image type="content" source="../media/alerts/alerts-cm-expand.png" alt-text="Screenshot of the Alerts page on the on-premises management console with one alert expanded for details.":::
+1. Select an alert row to expand its full details.
 
 1. In an expanded alert row, do any of the following to view more context about the alert:
 

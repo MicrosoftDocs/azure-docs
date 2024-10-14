@@ -4,8 +4,7 @@ description: Describes how to troubleshoot issues with the Azure Resource Manage
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: troubleshooting
 ms.date: 06/10/2021
 ms.author: alkohli
