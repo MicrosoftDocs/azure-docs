@@ -48,7 +48,7 @@ By the end of this tutorial, you will have deployed one web application and thre
 Clone the Spring PetClinic Microservices sample to your machine and change into the *spring-petclinic-microservices* folder.
 
 ```bash
-git clone https://github.com/yiliuTo/spring-petclinic-microservices & cd spring-petclinic-microservices
+git clone https://github.com/yiliuTo/spring-petclinic-microservices && cd spring-petclinic-microservices
 ```
 
 Create a bash script with environment variables by making a copy of the supplied template:
@@ -94,6 +94,7 @@ Create your Container Apps Environment, this environment is used to host both Ja
 ```azurecli
 az containerapp env create --name $CONTAINER_APP_ENVIRONMENT --resource-group $RESOURCE_GROUP --location $LOCATION
 ```
+
 
 ## Create the Java components
 
@@ -200,7 +201,8 @@ az containerapp update \
 az containerapp update \
   --name $API_GATEWAY \
   --resource-group $RESOURCE_GROUP \
-  --bind $CONFIG_SERVER_COMPONENT $EUREKA_SERVER_COMPONENT
+  --bind $CONFIG_SERVER_COMPONENT $EUREKA_SERVER_COMPONENT \
+  --query properties.configuration.ingress.fqdn 
 ```
 
 ## Verify app status
@@ -210,6 +212,37 @@ In this example, `containerapp up` command includes the `--query properties.conf
 View the application by pasting this URL into a browser. Your app should resemble the following screenshot.
 
 :::image type="content" source="media/java-deploy-war-file/azure-container-apps-petclinic-warfile.png" alt-text="Screenshot of petclinic application.":::
+
+You can also get the URL of the Eureka Server and Admin for Spring dashboard and view your apps' status.
+
+```azurecli
+az containerapp env java-component eureka-server-for-spring show \
+  --environment $CONTAINER_APP_ENVIRONMENT \
+  --resource-group $RESOURCE_GROUP \
+  --name $EUREKA_SERVER_COMPONENT \
+  --query properties.ingress.fqdn
+
+az containerapp env java-component admin-for-spring show \
+  --environment $CONTAINER_APP_ENVIRONMENT \
+  --resource-group $RESOURCE_GROUP \
+  --name $ADMIN_SERVER_COMPONENT \
+  --query properties.ingress.fqdn
+```
+
+The dashboard of your Eureka and Admin servers should resemble the following screenshots.
+
+:::image type="content" source="media/java-deploy-war-file/azure-container-apps-petclinic-eureka.png" alt-text="Screenshot of petclinic application eureka server.":::
+
+:::image type="content" source="media/java-deploy-war-file/azure-container-apps-petclinic-admin.png" alt-text="Screenshot of petclinic application admin.":::
+
+## Clean up resources
+
+The resources created in this tutorial have an effect on your Azure bill. If you aren't going to use these services long-term, run the following command to remove everything created in this tutorial.
+
+```azurecli
+az group delete \
+  --resource-group $RESOURCE_GROUP
+```
 
 ## Related content
 
