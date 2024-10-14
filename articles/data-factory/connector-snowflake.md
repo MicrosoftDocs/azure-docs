@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/23/2024
+ms.date: 10/09/2024
 ai-usage: ai-assisted
 ---
 
@@ -682,9 +682,9 @@ By setting the pipeline Logging Level to None, we exclude the transmission of in
 
 For more information about the properties, see [Lookup activity](control-flow-lookup-activity.md).
 
-## Upgrade the Snowflake linked service
+## <a name="upgrade-the-snowflake-linked-service"></a> Upgrade the Snowflake connector
 
-To upgrade the Snowflake linked service, you can do a side-by-side upgrade, or an in-place upgrade.
+To upgrade the Snowflake connector, you can do a side-by-side upgrade, or an in-place upgrade.
 
 ### Side-by-side upgrade
 
@@ -696,63 +696,63 @@ To perform a side-by-side upgrade, complete the following steps:
 
 ### In-place upgrade
 
-To perform an in-place upgrade, you need to edit the existing linked service payload.
+To perform an in-place upgrade, you need to edit the existing linked service payload and update dataset to use the new linked service.
 
-1. Update the type from ‘Snowflake’ to ‘SnowflakeV2’.
-1. Modify the linked service payload from its legacy format to the new pattern. You can either fill in each field from the user interface after changing the type mentioned above, or update the payload directly through the JSON Editor. Refer to the [Linked service properties](#linked-service-properties) section in this article for the supported connection properties.  The following examples show the differences in payload for the legacy and new Snowflake connectors:
+1. Update the type from **Snowflake** to **SnowflakeV2**.
+1. Modify the linked service payload from its legacy format to the new pattern. You can either fill in each field from the user interface after changing the type mentioned above, or update the payload directly through the JSON Editor. Refer to the [Linked service properties](#linked-service-properties) section in this article for the supported connection properties. The following examples show the differences in payload for the legacy and new Snowflake linked services:
 
-   **Legacy Snowflake connector JSON payload:**
+   **Legacy Snowflake linked service JSON payload:**
    ```json
-   { 
-       "name": "Snowflake1", 
-       "type": "Microsoft.DataFactory/factories/linkedservices", 
-       "properties": { 
-           "annotations": [], 
-           "type": "Snowflake", 
-           "typeProperties": { 
-               "authenticationType": "Basic", 
-               "connectionString": "jdbc:snowflake://<fake_account>.snowflakecomputing.com/?user=FAKE_USER&db=FAKE_DB&warehouse=FAKE_DW&schema=PUBLIC", 
-               "encryptedCredential": "<your_encrypted_credential_value>" 
-           }, 
-           "connectVia": { 
-               "referenceName": "AzureIntegrationRuntime", 
-               "type": "IntegrationRuntimeReference" 
-           } 
-       }
-   } 
+     {
+        "name": "Snowflake1",
+        "type": "Microsoft.DataFactory/factories/linkedservices",
+        "properties": {
+            "annotations": [],
+            "type": "Snowflake",
+            "typeProperties": {
+                "authenticationType": "Basic",
+                "connectionString": "jdbc:snowflake://<fake_account>.snowflakecomputing.com/?user=FAKE_USER&db=FAKE_DB&warehouse=FAKE_DW&schema=PUBLIC",
+                "encryptedCredential": "<your_encrypted_credential_value>"
+            },
+            "connectVia": {
+                "referenceName": "AzureIntegrationRuntime",
+                "type": "IntegrationRuntimeReference"
+            }
+        }
+    }
    ```
 
-   **New Snowflake connector JSON payload:**
+   **New Snowflake linked service JSON payload:**
    ```json
-   { 
-       "name": "Snowflake2", 
-       "type": "Microsoft.DataFactory/factories/linkedservices", 
-       "properties": { 
-           "parameters": { 
-              "schema": { 
-                   "type": "string", 
-                   "defaultValue": "PUBLIC" 
-               } 
-           }, 
-           "annotations": [], 
-           "type": "SnowflakeV2", 
-           "typeProperties": { 
-               "authenticationType": "Basic", 
-               "accountIdentifier": "<FAKE_Account", 
-               "user": "FAKE_USER", 
-               "database": "FAKE_DB", 
-               "warehouse": "FAKE_DW", 
-               "encryptedCredential": "<placeholder>" 
-           }, 
-           "connectVia": { 
-               "referenceName": "AutoResolveIntegrationRuntime", 
-               "type": "IntegrationRuntimeReference" 
-           } 
-       } 
-   } 
+    {
+        "name": "Snowflake2",
+        "type": "Microsoft.DataFactory/factories/linkedservices",
+        "properties": {
+            "parameters": {
+                "schema": {
+                    "type": "string",
+                    "defaultValue": "PUBLIC"
+                }
+            },
+            "annotations": [],
+            "type": "SnowflakeV2",
+            "typeProperties": {
+                "authenticationType": "Basic",
+                "accountIdentifier": "<FAKE_Account>",
+                "user": "FAKE_USER",
+                "database": "FAKE_DB",
+                "warehouse": "FAKE_DW",
+                "encryptedCredential": "<placeholder>"
+            },
+            "connectVia": {
+                "referenceName": "AutoResolveIntegrationRuntime",
+                "type": "IntegrationRuntimeReference"
+            }
+        }
+    }
    ```
 
-   1. Update dataset to use the new linked service. You can either create a new dataset based on the newly created linked service, or update an existing dataset's type property from _SnowflakeTable_ to _SnowflakeV2Table_. 
+1. Update dataset to use the new linked service. You can either create a new dataset based on the newly created linked service, or update an existing dataset's type property from **SnowflakeTable** to **SnowflakeV2Table**. 
 
 ## Differences between Snowflake and Snowflake (legacy)
 
