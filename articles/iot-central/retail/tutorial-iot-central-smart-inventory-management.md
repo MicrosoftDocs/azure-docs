@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.service: iot-central
 ms.topic: tutorial
-ms.date: 06/12/2023
+ms.date: 10/14/2024
 ---
 
 # Tutorial: Deploy a smart inventory-management application template

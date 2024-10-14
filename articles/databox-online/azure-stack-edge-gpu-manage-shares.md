@@ -4,8 +4,7 @@ description: Describes how to use the Azure portal to manage shares on your Azur
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 06/29/2022
 ms.author: alkohli

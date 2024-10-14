@@ -377,9 +377,7 @@ For more information, see [Install and set up your OT sensor](ot-deploy/install-
 
 ### Analyze and fine tune your deployment
 
-After completing the installation and initial setup, analyze the traffic that the sensor detects by default from the sensor settings. On the sensor, select **Sensor settings** > **Basic** > **Deployment** to analyze the current detections. For example:
-
-:::image type="content" source="media/how-to-control-what-traffic-is-monitored/deployment-settings.png" alt-text="Screenshot of the Deployment settings page." lightbox="media/how-to-control-what-traffic-is-monitored/deployment-settings.png":::
+After completing the installation and initial setup, analyze the traffic that the sensor detects by default from the sensor settings. On the sensor, select **Sensor settings** > **Basic** > **Deployment** to analyze the current detections.
 
 You might find that you need to fine tune your deployment, such as changing the sensor's location in the network, or verifying that your monitoring interfaces are connected correctly. Select **Analyze** again after making any changes to see the updated monitoring state. 
 
