@@ -91,14 +91,14 @@ spec:
 
 1. Deploy the resources using the [az stack group](/azure/azure-resource-manager/bicep/deployment-stacks?tabs=azure-powershell) command in your terminal:
 
-    ```azurecli
+    ```console
     az stack group create --name MyDeploymentStack \
-    --resource-group $RESOURCE_GROUP --template-file /workspaces/explore-iot-operations/<filename>.bicep \
-    --parameters customLocationName=$CUSTOM_LOCATION_NAME \
-    --parameters schemaRegistryName=$SCHEMA_REGISTRY_NAME \
-    --parameters aioInstanceName=$AIO_INSTANCE_NAME \
-    --parameters opcuaSchemaName=$OPCUA_SCHEMA_NAME \
-    --action-on-unmanage 'deleteResources' --deny-settings-mode 'none' --yes
+        --resource-group $RESOURCE_GROUP --template-file /workspaces/explore-iot-operations/<filename>.bicep \
+        --parameters customLocationName=$CUSTOM_LOCATION_NAME \
+        --parameters schemaRegistryName=$SCHEMA_REGISTRY_NAME \
+        --parameters aioInstanceName=$AIO_INSTANCE_NAME \
+        --parameters opcuaSchemaName=$OPCUA_SCHEMA_NAME \
+        --action-on-unmanage 'deleteResources' --deny-settings-mode 'none' --yes
     ```
 
 This endpoint is the destination for the dataflow that receives messages to Azure Data Explorer.
@@ -162,7 +162,7 @@ spec:
 ```bicep
 resource dataflow_adx 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2024-08-15-preview' = {
   parent: defaultDataflowProfile
-  name: '<DATAFLOW NAME>'
+  name: '<ENDPOIDADNT NAME>'
   extendedLocation: {
     name: '<CUSTOM LOCATION NAME>'
     type: 'CustomLocation'
@@ -219,15 +219,25 @@ Using the system-assigned managed identity is the recommended authentication met
 
 Before you create the dataflow endpoint, assign a role to the managed identity that grants permission to write to the Azure Data Explorer database. For more information on adding permissions, see [Manage Azure Data Explorer cluster permissions](/azure/data-explorer/manage-cluster-permissions).
 
-In the *DataflowEndpoint* resource, specify the managed identity authentication method. In most cases, you don't need to specify other settings. This configuration creates a managed identity with the default audience `https://api.kusto.windows.net`.
-
 # [Kubernetes](#tab/kubernetes)
+
+In the *DataflowEndpoint* resource, specify the managed identity authentication method. In most cases, you don't need to specify other settings. This configuration creates a managed identity with the default audience `https://api.kusto.windows.net`.
 
 ```yaml
 dataExplorerSettings:
   authentication:
     method: SystemAssignedManagedIdentity
     systemAssignedManagedIdentitySettings: {}
+```
+
+If you need to override the system-assigned managed identity audience, you can specify the `audience` setting.
+
+```yaml
+dataExplorerSettings:
+  authentication:
+    method: SystemAssignedManagedIdentity
+    systemAssignedManagedIdentitySettings:
+      audience: https://<audience URL>
 ```
 
 # [Bicep](#tab/bicep)
@@ -248,18 +258,6 @@ resource adxEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-0
 ```
 
 If you need to override the system-assigned managed identity audience, you can specify the `audience` setting.
-
-# [Kubernetes](#tab/kubernetes)
-
-```yaml
-dataExplorerSettings:
-  authentication:
-    method: SystemAssignedManagedIdentity
-    systemAssignedManagedIdentitySettings:
-      audience: https://<audience URL>
-```
-
-# [Bicep](#tab/bicep)
 
 ```bicep
 resource adxEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
