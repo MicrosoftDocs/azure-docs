@@ -53,4 +53,3 @@ ms.service: dev-box
    :::image type="content" source="../media/create-dev-center-steps/notifications-pane.png" alt-text="Screenshot that shows the Notifications pane in the Azure portal." lightbox="../media/create-dev-center-steps/notifications-pane.png":::
 
 1. When the deployment completes, select **Go to resource**. Confirm that the dev center page appears.
-1. 
