@@ -47,6 +47,19 @@ This article shows you how to develop two types of applications:
 * Language SDK requirements:
   * **.NET SDK** - Requires Visual Studio.
   * **Python SDK** - [Python version 3.7 or later](https://www.python.org/downloads/) is recommended. Make sure to use the 32-bit or 64-bit installation as required by your setup. When prompted during the installation, make sure to add Python to your platform-specific environment variable.
+
+    * Device applications require the **azure-iot-device** package. You can install the package using this command:
+
+      ```cmd/sh
+        pip install azure-iot-device
+      ```
+
+    * Service applications require the **azure-iot-hub** package. You can install the package using this command:
+
+      ```cmd/sh
+        pip install azure-iot-hub
+      ```
+
   * **Java** - Requires [Java SE Development Kit 8](/azure/developer/java/fundamentals/). Make sure you select **Java 8** under **Long-term support** to navigate to downloads for JDK 8.
   * **Node.js** - Requires Node.js version 10.0.x or later.
 
