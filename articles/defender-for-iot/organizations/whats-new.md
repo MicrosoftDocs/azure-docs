@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article describes new features available in Microsoft Defender for IoT, including both OT and Enterprise IoT networks, and both on-premises and in the Azure portal.
 ms.topic: whats-new
-ms.date: 03/07/2024
+ms.date: 10/14/2024
 ms.custom: enterprise-iot
 ---
 
@@ -329,9 +329,7 @@ For more information, see [Check sensor - cloud connectivity issues](how-to-trou
 
 ### Event timeline access for OT sensor Read Only users
 
-Starting in version 23.1.3, *Read Only* users on the OT sensor can view the **Event Timeline** page. For example:
-
-:::image type="content" source="media/track-sensor-activity/event-timeline-view-events.png" alt-text="Screenshot of events on the event timeline." lightbox="media/track-sensor-activity/event-timeline-view-events.png":::
+Starting in version 23.1.3, *Read Only* users on the OT sensor can view the **Event Timeline** page.
 
 For more information, see:
 
