@@ -5,6 +5,10 @@ author: oshezaf
 ms.topic: reference
 ms.date: 06/07/2021
 ms.author: ofshezaf
+
+
+#Customer intent: As a security analyst, I want to use ASIM helper functions to translate and enrich numeric codes in my data queries so that I can improve the readability and accuracy of my security event analysis.
+
 ---
 
 # Advanced Security Information Model (ASIM) helper functions (Public preview)
