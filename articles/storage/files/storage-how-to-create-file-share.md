@@ -56,14 +56,14 @@ If you're creating an HDD file share, you can choose between the provisioned v2 
 # [Portal](#tab/azure-portal)
 To create a storage account via the Azure portal, use the search box at the top of the Azure portal to search for **storage accounts** and select the matching result. 
 
-![A screenshot of the Azure portal search box with results for "storage accounts"](./media/storage-how-to-create-file-share/create-storage-account-0.png)
+![A screenshot of the Azure portal search box with results for "storage accounts".](./media/storage-how-to-create-file-share/create-storage-account-0.png)
 
 This shows a list of all existing storage accounts available in your visible subscriptions. Click **+ Create** to create a new storage account.
 
 ### Basics
 The first tab to complete to create a storage account is labeled **Basics**, which contains the required fields to create a storage account.
 
-![A screenshot of the instance details section of the basics tab](./media/storage-how-to-create-file-share/create-storage-account-1.png)
+![A screenshot of the instance details section of the basics tab.](./media/storage-how-to-create-file-share/create-storage-account-1.png)
 
 | Field name | Input type | Values | Applicable to Azure Files | Meaning |
 |-|-|-|-|-|
@@ -80,7 +80,7 @@ The first tab to complete to create a storage account is labeled **Basics**, whi
 ### Advanced
 The **Advanced** tab is optional, but provides more granular settings for the storage account. The first section relates to **Security** settings.
 
-![A screenshot of the security section of the advanced tab](./media/storage-how-to-create-file-share/create-storage-account-2.png)
+![A screenshot of the security section of the advanced tab.](./media/storage-how-to-create-file-share/create-storage-account-2.png)
 
 | Field name | Input type | Values | Applicable to Azure Files | Meaning |
 |-|-|-|-|-|
@@ -117,7 +117,7 @@ The networking section allows you to configure networking options. These setting
 ### Data protection
 The **Data protection** tab contains ability to enable or disable soft-delete. The soft-delete option for Azure Files is under the **Recovery** section.
 
-![A screenshot of the recovery section in the data protection tab](./media/storage-how-to-create-file-share/create-storage-account-3.png)
+![A screenshot of the recovery section in the data protection tab.](./media/storage-how-to-create-file-share/create-storage-account-3.png)
 
 | Field name | Input type | Values | Applicable to Azure Files | Meaning |
 |-|-|-|-|-|
@@ -146,7 +146,7 @@ The **Access control** section applies only to Azure Blob storage use, even in F
 ### Encryption
 The **Encryption** tab controls settings related to encryption at rest.
 
-![A screenshot of the encryption tab](./media/storage-how-to-create-file-share/create-storage-account-4.png)
+![A screenshot of the encryption tab.](./media/storage-how-to-create-file-share/create-storage-account-4.png)
 
 | Field name | Input type | Values | Applicable to Azure Files | Meaning |
 |-|-|-|-|-|
