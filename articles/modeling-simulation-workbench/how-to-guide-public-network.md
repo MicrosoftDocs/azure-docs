@@ -24,7 +24,7 @@ Public connectors aren't recommended for use in scenarios in which the organizat
 * Has requirements to individually catalog cloud service IP addresses
 * Has restrictions on the use of nonstandard destination ports
 * Frequently rotates externally facing IP exit addresses, either through intentionally short DHCP leases or random exit IPs
-* Requires firewalls or custom network security at the permiter for cloud services
+* Requires firewalls or custom network security at the perimeter for cloud services
 * Requires all cloud services to be connected to a virtual network
 
 If these situations apply, a [private networking connector](how-to-guide-private-network.md) is recommended instead.
@@ -80,13 +80,13 @@ IP addresses and ranges must be explicitly added in order to allow access to the
 The allowlist for a public connector is a component of the properties bundle in the Azure object. If you would like to export the allowlist for later reference or to recreate the same list, you need to access the connector's JSON template. Navigate to the connector overview page in the portal before proceeding.
 
 1. Select the **JSON View** text from the **Essentials** pane.
-    :::image type="content" source="media/howtoguide-public-network/connector-overview-json.png" alt-text="Screenshot of connector essentials pane with JSON View link highlighted in red.":::
+    :::image type="content" source="media/howtoguide-public-network/connector-overview.png" alt-text="Screenshot of connector essentials pane with JSON View link highlighted in red." lightbox="media/howtoguide-public-network/connector-overview-json-zoom.png":::
 
 #### [Azure portal](#tab/portal)
 
 In the portal, scroll down to the *networkAcls* section of the JSON and select the *allowedAddressSpaces* section and copy it to a safe location.
 
-:::image type="content" source="media/howtoguide-public-network/resource-json-networkAcls.png" alt-text="Screenshot of resource JSON page of the connector with the networkAcls clause highlighted in red.":::
+:::image type="content" source="media/howtoguide-public-network/resource-json-network-acls.png" alt-text="Screenshot of resource JSON page of the connector with the networkAcls clause highlighted in red.":::
 
 #### [PowerShell](#tab/powershell)
 
@@ -134,7 +134,7 @@ For the Public IP connector, Azure IP addresses are taken from Azure's IP ranges
 > [!CAUTION]
 > The pool of IP addresses can increase not only by adding VMs, but adding users as well. Connection nodes are scaled up or down when users are added to or removed from the chamber. Any discovery of endpoint IP addresses will be incomplete if the userbase changes.
 
-For more control over destination IP addresses and to minimize changes to corporate firewalls, a [private networking connector](how-to-guide-private-network.md) is recommended. A VPN Gateway and the private networking connector allow greater control of the ingress, egress, and name server operations of the workbench.  The access point to the workbench is the single gateway IP address or a peered virtual network.
+For more control over destination IP addresses and to minimize changes to corporate firewalls, a [private networking connector](how-to-guide-private-network.md) is recommended. A VPN Gateway and the private networking connector allow greater control of the ingress, egress, and name server operations of the workbench. The access point to the workbench is the single gateway IP address or a peered virtual network.
 
 Network interfaces aren't deployed into the user's subscription and aren't accessible to users. Users can't associate network security groups (NSG) nor can they apply other Azure networking services such as firewalls to these interfaces.
 
