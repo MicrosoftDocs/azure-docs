@@ -5,7 +5,7 @@ description: Inline attachments enable you to embed images directly within the e
 author: mansha
 manager: koagbakp
 services: azure-communication-services
-ms.author: manishmsfte
+ms.author: maniss
 ms.date: 09/30/2024
 ms.topic: conceptual
 ms.service: azure-communication-services
@@ -40,7 +40,7 @@ Using CID for inline attachments is considered the best approach for the followi
 - Compatibility: CID supported by most email clients, ensuring that your inline images are displayed correctly for most recipients.
 - Security: Using CID avoids the need to host images on external servers, which can pose security risks. Instead, the images are included as part of the email, reducing the risk of external content being blocked or flagged as suspicious.
 
-# Related articles
+## Related articles
 
-- [Quickstart - Send email with attachments using Azure Communication Service](../../quickstarts/email/send-email-advanced/send-email-with-attachments)
-- [Quickstart - Send email with inline attachments using Azure Communication Services](../../quickstarts/email/send-email-advanced/send-email-with-inline-attachments)
+- [Quickstart - Send email with attachments using Azure Communication Service](../../quickstarts/email/send-email-advanced/send-email-with-attachments.md)
+- [Quickstart - Send email with inline attachments using Azure Communication Services](../../quickstarts/email/send-email-advanced/send-email-with-inline-attachments.md)
