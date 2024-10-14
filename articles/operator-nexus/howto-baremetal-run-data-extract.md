@@ -13,7 +13,7 @@ ms.custom: template-how-to, devx-track-azurecli
 
 There might be situations where a user needs to investigate and resolve issues with an on-premises bare metal machine. Azure Operator Nexus provides a prescribed set of data extract commands via `az networkcloud baremetalmachine run-data-extract`. These commands enable users to get diagnostic data from a bare metal machine.
 
-The command produces an output file containing the results of the data extract. The cluster can be configured to either send this output to the cluster manager's Azure storage account, or a separate storage account set up by the customer. The cluster manager's storage account will be disabled in a future release, as using a separate storage account is more secure.
+The command produces an output file containing the results of the data extract. Users should configure the Cluster resource with a storage account and identity that has access to the storage account to receive the output. There is a deprecated method of sending data to the Cluster Manager storage account if a storage account has not been provided on the Cluster. The Cluster Manager's storage account will be disabled in a future release as using a separate storage account is more secure.
 
 ## Prerequisites
 
@@ -21,16 +21,6 @@ The command produces an output file containing the results of the data extract. 
 - The target bare metal machine is on and ready.
 - The syntax for these commands is based on the 0.3.0+ version of the `az networkcloud` CLI.
 - Get the Cluster Managed Resource group name (cluster_MRG) that you created for Cluster resource.
-
-## Verify Storage Account access (cluster manager storage)
-
-Verify you have access to the Cluster Manager's storage account
-
-1. From Azure portal, navigate to Cluster Manager's Storage account.
-1. In the Storage account details, select **Storage browser** from the navigation menu on the left side.
-1. In the Storage browser details, select on **Blob containers**.
-1. If you encounter a `403 This request is not authorized to perform this operation.` while accessing the storage account, storage account’s firewall settings need to be updated to include the public IP address.
-1. Request access by creating a support ticket via Portal on the Cluster Manager resource. Provide the public IP address that requires access.
 
 ## Create and configure storage resources (customer-managed storage)
 
@@ -84,6 +74,16 @@ az rest --method patch \
   --url  "https://management.azure.com/subscriptions/<subscription>/resourceGroups/<cluster-resource-group>/providers/Microsoft.NetworkCloud/clusters/<cluster-name>?api-version=2024-08-01-preview" \
   --body '{"properties": {"commandOutputSettings":null}}'
 ```
+
+## Verify Storage Account access (cluster manager storage)
+
+If using the deprecated Cluster Manager storage method, verify you have access to the Cluster Manager's storage account
+
+1. From Azure portal, navigate to Cluster Manager's Storage account.
+1. In the Storage account details, select **Storage browser** from the navigation menu on the left side.
+1. In the Storage browser details, select on **Blob containers**.
+1. If you encounter a `403 This request is not authorized to perform this operation.` while accessing the storage account, storage account’s firewall settings need to be updated to include the public IP address.
+1. Request access by creating a support ticket via Portal on the Cluster Manager resource. Provide the public IP address that requires access.
 
 ## Executing a run command
 

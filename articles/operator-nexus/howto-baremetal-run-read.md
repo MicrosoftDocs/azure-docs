@@ -13,7 +13,7 @@ ms.custom: template-how-to
 
 There might be situations where a user needs to investigate & resolve issues with an on-premises BMM. Operator Nexus provides the `az networkcloud baremetalmachine run-read-command` so users can run a curated list of read only commands to get information from a BMM.
 
-The command produces an output file containing its results. The cluster can be configured to either send this output to the cluster manager's Azure storage account, or a separate storage account set up by the customer. The cluster manager's storage account will be disabled in a future release, as using a separate storage account is more secure.
+The command produces an output file containing its results. Users should configure the Cluster resource with a storage account and identity that has access to the storage account to receive the output. There is a deprecated method of sending data to the Cluster Manager storage account if a storage account has not been provided on the Cluster. The Cluster Manager's storage account will be disabled in a future release as using a separate storage account is more secure.
 
 ## Prerequisites
 
@@ -21,16 +21,6 @@ The command produces an output file containing its results. The cluster can be c
    [appropriate CLI extensions](./howto-install-cli-extensions.md)
 1. Ensure that the target BMM must have its `poweredState` set to `On` and have its `readyState` set to `True`
 1. Get the Managed Resource group name (cluster_MRG) that you created for `Cluster` resource
-
-## Verify Storage Account access (cluster manager storage)
-
-Verify you have access to the Cluster Manager's storage account
-
-1. From Azure portal, navigate to Cluster Manager's Storage account.
-1. In the Storage account details, select **Storage browser** from the navigation menu on the left side.
-1. In the Storage browser details, select on **Blob containers**.
-1. If you encounter a `403 This request is not authorized to perform this operation.` while accessing the storage account, storage account’s firewall settings need to be updated to include the public IP address.
-1. Request access by creating a support ticket via Portal on the Cluster Manager resource. Provide the public IP address that requires access.
 
 ## Create and configure storage resources (customer-managed storage)
 
@@ -84,6 +74,16 @@ az rest --method patch \
   --url  "https://management.azure.com/subscriptions/<subscription>/resourceGroups/<cluster-resource-group>/providers/Microsoft.NetworkCloud/clusters/<cluster-name>?api-version=2024-08-01-preview" \
   --body '{"properties": {"commandOutputSettings":null}}'
 ```
+
+## Verify Storage Account access (cluster manager storage)
+
+If using the deprecated Cluster Manager storage method, verify you have access to the Cluster Manager's storage account
+
+1. From Azure portal, navigate to Cluster Manager's Storage account.
+1. In the Storage account details, select **Storage browser** from the navigation menu on the left side.
+1. In the Storage browser details, select on **Blob containers**.
+1. If you encounter a `403 This request is not authorized to perform this operation.` while accessing the storage account, storage account’s firewall settings need to be updated to include the public IP address.
+1. Request access by creating a support ticket via Portal on the Cluster Manager resource. Provide the public IP address that requires access.
 
 ## Executing a run-read command
 
