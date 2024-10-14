@@ -95,7 +95,7 @@ Create your Container Apps Environment, this environment is used to host both Ja
 az containerapp env create --name $CONTAINER_APP_ENVIRONMENT --resource-group $RESOURCE_GROUP --location $LOCATION
 ```
 
-# Create the Java components
+## Create the Java components
 
 Create the Config Server for Java component.
 
