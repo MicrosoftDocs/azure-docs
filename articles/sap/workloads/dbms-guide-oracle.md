@@ -384,8 +384,6 @@ Oracle Data Guard is supported for high availability and disaster recovery purpo
 
 Disaster Recovery aspects for Oracle databases in Azure are presented in the article [<u>Disaster recovery for an Oracle Database 12c database in an Azure environment</u>](/azure/virtual-machines/workloads/oracle/oracle-disaster-recovery).
 
-Another good Oracle whitepaper [Setting up Oracle 12c Data Guard for SAP Customers](https://www.sap.com/documents/2016/12/a67bac51-9a7c-0010-82c7-eda71af511fa.html)
-
 ## Huge Pages & Large Oracle SGA Configurations
 
 VLDB SAP on Oracle on Azure deployments apply SGA sizes in excess of 3TB. Modern versions of Oracle handle large SGA sizes well and significantly reduce IO. Review the AWR report and increase the SGA size to reduce read IO. 
