@@ -39,12 +39,10 @@ items:
         href: ./tutorial-install-slurm.md
   - name: Networking
     items:
-      - name: About connectors
-        href: ./concept-connector.md
       - name: Networking overview
         href: ./concept-network.md
-      - name: Set up networking
-        href: ./how-to-guide-set-up-networking.md
+      - name: Connectors
+        href: ./concept-connector.md
       - name: Create a private network connector for VPN
         href: ./how-to-guide-private-network.md
       - name: Create a public network connector
