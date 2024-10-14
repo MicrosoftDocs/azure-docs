@@ -4,8 +4,7 @@ description: In this tutorial, learn how to copy data from your host computer to
 services: databox
 author: stevenmatthew
 
-ms.service: databox
-ms.subservice: disk
+ms.service: azure-data-box-disk
 ms.topic: tutorial
 ms.date: 03/26/2024
 ms.author: shaas

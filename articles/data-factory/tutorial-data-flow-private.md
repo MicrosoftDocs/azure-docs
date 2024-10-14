@@ -5,7 +5,8 @@ author: ssabat
 ms.author: susabat
 ms.reviewer: makromer
 ms.topic: conceptual
-ms.date: 05/15/2024
+ms.date: 10/03/2024
+ms.subservice: data-flows
 ---
 
 # Transform data securely by using mapping data flow

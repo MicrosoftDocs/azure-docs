@@ -566,10 +566,6 @@
       href: data-connectors/sailpoint-identitynow.md
     - name: Salesforce Service Cloud (using Azure Functions)
       href: data-connectors/salesforce-service-cloud.md
-    - name: Security Events via Legacy Agent
-      href: data-connectors/security-events-via-legacy-agent.md
-    - name: SecurityBridge Threat Detection for SAP
-      href: data-connectors/securitybridge-threat-detection-for-sap.md
     - name: SenservaPro (Preview)
       href: data-connectors/senservapro.md
     - name: SentinelOne (using Azure Functions)
@@ -1043,6 +1039,12 @@
     href: sentinel-service-limits.md
   - name: Microsoft Sentinel REST-API
     href: /rest/api/securityinsights/
+  - name: Build and publish Microsoft Sentinel solutions
+    items:
+    - name: Publish solutions
+      href: publish-sentinel-solutions.md
+    - name: Solution lifecycle post publish
+      href: sentinel-solutions-post-publish-tracking.md
   - name: Management references
     items:
     - name: Microsoft Sentinel Logic Apps connector

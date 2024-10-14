@@ -52,6 +52,9 @@ To integrate an application or service with Microsoft Entra ID, first [register 
 * Mobile or desktop application, add **Mobile and desktop applications** platform with `https://login.microsoftonline.com/common/oauth2/nativeclient` for the Redirect URI.
 * Website with implicit sign-on, add **Web** platform and select **Access tokens (used for implicit flows)**.
 
+>[!NOTE]
+>Microsoft recommends that you use the most secure authentication flow available. Implicit flow authentication requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
+
 ### Configure permissions
 
 Next, add permissions for calling Device Update to your app:

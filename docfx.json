@@ -905,7 +905,7 @@
         "articles/devtest-labs/**/*.md": "azure-devtest-labs",
         "articles/event-grid/**/*": "azure-event-grid",
         "articles/event-hubs/**/*": "azure-event-hubs",
-        "articles/governance/*.md": "governance",
+        "articles/governance/*.md": "azure-policy",
         "articles/governance/blueprints/**/*.md": "azure-blueprints",
         "articles/governance/machine-configuration/**/*.md": "machine-configuration",
         "articles/governance/management-groups/**/*.md": "governance",

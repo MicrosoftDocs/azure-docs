@@ -169,6 +169,16 @@
             "source_path_from_root": "/articles/stream-analytics/stream-analytics-job-diagram-with-metrics-new.md",
             "redirect_url": "/azure/stream-analytics/stream-analytics-job-logical-diagram-with-metrics",
             "redirect_document_id": false
-        }
+        },
+        {
+            "source_path_from_root": "/articles/stream-analytics/stream-analytics-job-metrics-dimensions.md",
+            "redirect_url": "/azure/stream-analytics/monitor-azure-stream-analytics-reference#metric-dimensions",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/stream-analytics/stream-analytics-job-metrics.md",
+            "redirect_url": "/azure/stream-analytics/monitor-azure-stream-analytics-reference#metrics",
+            "redirect_document_id": false
+          }
     ]
 }
