@@ -107,7 +107,7 @@ The initial backup runs in accordance with the schedule in the Backup policy. Ho
 
 ## Monitor the backup job
 
-Monitor the portal notifications.To  monitor the job progress, go to **Backup center** > **Backup Jobs** and filter the list for **In progress** jobs. Depending on the size of your VM, creating the initial backup may take a while.
+Monitor the portal notifications. To  monitor the job progress, go to **Backup center** > **Backup Jobs** and filter the list for **In progress** jobs. Depending on the size of your VM, creating the initial backup may take a while.
 
 The Backup job details for each VM backup consist of two phases, the **Snapshot** phase followed by the **Transfer data to vault** phase.
 
@@ -152,7 +152,7 @@ However, if you create a custom VM or migrate an on-premises machine, you might 
 
 When no longer needed, you can disable protection on the VM, remove the restore points and Recovery Services vault, then delete the resource group and associated VM resources.
 
-If you want to restore the VM using the recovery points , skip the steps in this section and go to [Next steps](#next-steps).
+If you want to restore the VM using the recovery points, skip the steps in this section and go to [Next steps](#next-steps).
 
 1. Select the **Backup** option for your VM.
 
