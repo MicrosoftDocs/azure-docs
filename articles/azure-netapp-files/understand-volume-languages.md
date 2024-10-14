@@ -25,7 +25,7 @@ For best practices, see [Character set best practices](#character-set-best-pract
 
 ## Character encoding in Azure NetApp Files NFS and SMB volumes 
 
-In an Azure NetApp Files file sharing environment, file and folder names are represented by a series of characters that end users read and interpret. The way those characters are displayed depends on how the client sends and receives encoding of those characters. For instance, if a client is sending legacy [ASCII (American Standard Code for Information Interchange)](https://www.ascii-code.com/) encoding to the Azure NetApp Files volume when accessing it, then it's limited to displaying only characters that are supported in the ASCII format. 
+In an Azure NetApp Files file sharing environment, file and folder names are represented by a series of characters that end users read and interpret. The way those characters are displayed depends on how the client sends and receives encoding of those characters. For instance, if a client is sending legacy [American Standard Code for Information Interchange (ASCII)](https://www.ascii-code.com/) encoding to the Azure NetApp Files volume when accessing it, then it's limited to displaying only characters that are supported in the ASCII format. 
 
 For instance, the Japanese character for data is 資. Since this character can't be represented in ASCII, a client using ASCII encoding show a “?” instead of 資.
 
@@ -49,7 +49,7 @@ Unicode uses [Unicode Transformation Format](https://unicode.org/faq/utf_bom.htm
 
 Unicode leverages 17 planes of 65,536 characters (256 code points multiplied by 256 boxes in the plane), with Plane 0 as the [Basic Multilingual Plane (BMP)](https://en.wikipedia.org/wiki/Plane_%28Unicode%29#Basic_Multilingual_Plane). This plane contains the most commonly used characters across multiple languages. Because the world's languages and character sets exceed 65536 characters, more planes are needed to support less commonly used character sets.
 
-For instance, Plane 1 (the [Supplementary Multilingual Planes (SMP)](https://unicodeplus.com/plane/1)) includes historic scripts like cuneiform and Egyptian hieroglyphs as well as some [Osage](https://en.wikipedia.org/wiki/Osage_script), [Warang Citi](https://en.wikipedia.org/wiki/Warang_Citi), [Adlam](https://en.wikipedia.org/wiki/Adlam_script), [Wancho](https://en.wikipedia.org/wiki/Wancho_language#Orthography) and [Toto](https://en.wikipedia.org/wiki/Toto_language#Writing_system). Plane 1 also includes some symbols and [emoticon](https://en.wikipedia.org/wiki/Emoticons_(Unicode_block)) characters.
+For instance, Plane 1 (the [Supplementary Multilingual Planes (SMP)](https://unicodeplus.com/plane/1)) includes historic scripts like cuneiform and Egyptian hieroglyphs as well as some [Osage](https://en.wikipedia.org/wiki/Osage_script), [Warang Citi](https://en.wikipedia.org/wiki/Warang_Citi), [Adlam](https://en.wikipedia.org/wiki/Adlam_script), [Wancho](https://en.wikipedia.org/wiki/Wancho_language#Orthography), and [Toto](https://en.wikipedia.org/wiki/Toto_language#Writing_system). Plane 1 also includes some symbols and [emoticon](https://en.wikipedia.org/wiki/Emoticons_(Unicode_block)) characters.
 
 Plane 2 – the [Supplementary Ideographic Plane (SIP)](https://unicodeplus.com/plane/2) – contains Chinese/Japanese/Korean (CJK) Unified Ideographs. Characters in planes 1 and 2 generally are 4 bytes in size.
 
@@ -88,7 +88,7 @@ Azure NetApp Files supports most UTF-16 characters, including surrogate pairs. I
 
 ## Character set handling over remote clients
 
-Remote connections to clients that mount Azure NetApp Files volumes (such as SSH connections to Linux clients to access NFS mounts) can be configured to send and receive specific volume language encodings. The language encoding sent to the client via the remote connection utility controls how character sets are created and viewed. As a result, a remote connection that uses a different language encoding than another remote connection (such as two different PuTTY windows) may show different results for characters when listing file and folder names in the Azure NetApp Files volume. In most cases, this won't create discrepancies (such as for Latin/English characters), but in the cases of special characters, such as emojis, results can vary.
+Remote connections to clients that mount Azure NetApp Files volumes (such as SSH connections to Linux clients to access NFS mounts) can be configured to send and receive specific volume language encodings. The language encoding sent to the client via the remote connection utility controls how character sets are created and viewed. As a result, a remote connection that uses a different language encoding than another remote connection (such as two different PuTTY windows) can show different results for characters when listing file and folder names in the Azure NetApp Files volume. In most cases, this won't create discrepancies (such as for Latin/English characters), but in the cases of special characters, such as emojis, results can vary.
 
 For instance, using an encoding of UTF-8 for the remote connection shows predictable results for characters in Azure NetApp Files volumes since C.UTF-8 is the volume language. The Japanese character for "data" (資) displays differently depending on the encoding being sent by the terminal.
 
@@ -154,7 +154,7 @@ When using SMB with Azure NetApp Files volumes, characters that exceed 3 bytes u
 
 How the characters display on the client depends on the system font and the language and locale settings. In general, characters that fall into the BMP are supported across all protocols, regardless if the encoding is UTF-8 or UTF-16.
 
-When using either CMD or [PowerShell](/powershell/scripting/dev-cross-plat/vscode/understanding-file-encoding), the character set view may depend on the font settings. These utilities have limited font choices by default. CMD uses Consolas as the default font. 
+When using either CMD or [PowerShell](/powershell/scripting/dev-cross-plat/vscode/understanding-file-encoding), the character set display depends on the font settings. These utilities have limited font choices by default. CMD uses Consolas as the default font. 
 
 :::image type="content" source="./media/understand-volume-languages/command-prompt-font.png" alt-text="Screenshot of command prompt font options.":::
 
@@ -178,7 +178,7 @@ If the volume is enabled for dual-protocol (both NFS and SMB), you might observe
 
 ## NFS behaviors
 
-How NFS displays special characters depends on the version of NFS used, the client's locale settings, installed fonts, and the settings of the remote connection client in use. For instance, using Bastion to access an Ubuntu client may handle character displays differently than a PuTTY client set to a different locale on the same VM. The ensuing NFS examples rely on these locale settings for the Ubuntu VM:
+How NFS displays special characters depends on the version of NFS used, the client's locale settings, installed fonts, and the settings of the remote connection client in use. For instance, using Bastion to access an Ubuntu client handles character displays differently than a PuTTY client set to a different locale on the same VM. The ensuing NFS examples rely on these locale settings for the Ubuntu VM:
 
 ```
 ~$ locale
@@ -201,7 +201,7 @@ LC\_ALL=
 
 ### NFSv3 behavior
 
-NFSv3 doesn't enforce UTF encoding on files and folders. In most cases, special character sets should have no issues. However, the connection client being used can affect how characters are sent and received. For instance, using Unicode characters outside of the BMP for a folder name in the Azure connection client Bastion can result in some unexpected behavior due to how the client encoding works.
+NFSv3 doesn't enforce UTF encoding on files and folders. In most cases, special character sets should have no issues. However, the connection client used can affect how characters are sent and received. For instance, using Unicode characters outside of the BMP for a folder name in the Azure connection client Bastion can result in some unexpected behavior due to how the client encoding works.
 
 In the following screenshot, Bastion is unable to copy and paste the values to the CLI prompt from outside of the browser when naming a directory over NFSv3. When attempting to copy and paste the value of `NFSv3Bastion𓀀𫝁😃𐒸`, the special characters display as quotation marks in the input.
 
@@ -227,7 +227,7 @@ NFSv4.x enforces UTF-8 encoding in file and folder names  per the [RFC-8881 inte
 
 As a result, if a special character is sent with non-UTF-8 encoding, NFSv4.x might not allow the value.
 
-In some cases, a command may be allowed using a character outside of the [Basic Multilingual Plane (BMP)](https://en.wikipedia.org/wiki/Plane_%28Unicode%29#Basic_Multilingual_Plane), but it might not display the value after it's created.
+In some cases, a command can be allowed using a character outside of the [Basic Multilingual Plane (BMP)](https://en.wikipedia.org/wiki/Plane_%28Unicode%29#Basic_Multilingual_Plane), but it might not display the value after it's created.
 
 For instance, issuing `mkdir` with a folder name including the characters "𓀀𫝁😃𐒸" (characters in the [Supplementary Multilingual Planes (SMP)](https://unicodeplus.com/plane/1) and the [Supplementary Ideographic Plane (SIP)](https://unicodeplus.com/plane/2)) seems to succeed in NFSv4.x. The folder won't be visible when running the `ls` command. 
 
@@ -390,7 +390,7 @@ Windows clients are the primary type of clients that are used to access SMB shar
 
 :::image type="content" source="./media/understand-volume-languages/region-settings.png" alt-text="Screenshot of region settings window.":::
 
-When a file or folder is created over an SMB share in Azure NetApp Files, the character set in use encode as UTF-16. As a result, clients using UTF-8 encoding (such as Linux-based NFS clients) may not be able to translate some character sets properly – particularly characters that fall outside of the [Basic Multilingual Plane (BMP)](https://en.wikipedia.org/wiki/Plane_%28Unicode%29#Basic_Multilingual_Plane).
+When a file or folder is created over an SMB share in Azure NetApp Files, the character set encodes as UTF-16. As a result, clients using UTF-8 encoding (such as Linux-based NFS clients) might not be able to translate some character sets properly – particularly characters that fall outside of the [Basic Multilingual Plane (BMP)](https://en.wikipedia.org/wiki/Plane_%28Unicode%29#Basic_Multilingual_Plane).
 
 ##### Unsupported character behavior
 

@@ -2,7 +2,7 @@
 title: 'Azure Virtual WAN: Configure Destination NAT for Network Virtual Appliance (NVA) in the hub'
 description: Learn how to use Destination NAT with a Network Virtual Appliance in the Virtual WAN hub.
 author: wellee
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 01/04/2023
 ms.author: cherylmc

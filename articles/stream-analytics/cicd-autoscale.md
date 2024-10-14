@@ -3,7 +3,7 @@ title: Configure autoscale settings for a Stream Analytics job by using the CI/C
 description: This article shows how to configure autoscale settings for a Stream Analytics job by using the CI/CD tool.
 author: ahartoon
 ms.author: anboisve
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 02/08/2023
 ---
@@ -95,7 +95,7 @@ If you have a working Stream Analytics project on the local machine, follow thes
 
     ![Screenshot that shows how to set the metric threshold in a parameter file.](./media/cicd-autoscale/set-metric-threshold.png)
 
-    To learn more about defining autoscale rules, see [Understand autoscale settings](../azure-monitor/autoscale/autoscale-understanding-settings.md).
+    To learn more about defining autoscale rules, see [Understand autoscale settings](/azure/azure-monitor/autoscale/autoscale-understanding-settings).
 
 5. Deploy to Azure.
 

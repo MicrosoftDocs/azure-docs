@@ -14,6 +14,8 @@ ms.service: iot
 
 This tutorial shows you how to connect a generic IoT Plug and Play [module](../iot-hub/iot-hub-devguide-module-twins.md).
 
+[!INCLUDE [iot-authentication-device-connection-string](../../includes/iot-authentication-device-connection-string.md)]
+
 A device is an IoT Plug and Play device if it:
 
 * Publishes its model ID when it connects to an IoT hub.
@@ -35,7 +37,7 @@ To demonstrate how to implement an IoT Plug and Play module, this tutorial shows
 To complete this tutorial, install the following software in your local development environment:
 
 * Install the latest .NET for your operating system from [https://dot.net](https://dot.net).
-* [Git](https://git-scm.com/download/).
+* [Git](https://git-scm.com/downloads/).
 
 Use the Azure IoT explorer tool to add a new device called **my-module-device** to your IoT hub.
 

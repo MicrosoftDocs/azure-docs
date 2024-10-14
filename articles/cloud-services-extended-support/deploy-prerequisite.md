@@ -2,7 +2,7 @@
 title: Prerequisites for deploying Cloud Services (extended support)
 description: Learn about the prerequisites for deploying Azure Cloud Services (extended support).
 ms.topic: article
-ms.service: cloud-services-extended-support
+ms.service: azure-cloud-services-extended-support
 author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
@@ -128,7 +128,7 @@ The subscription that contains networking resources must have the [Network Contr
 
 ## Key vault creation
 
-Azure Key Vault stores certificates that are associated with Cloud Services (extended support). Add the certificates to a key vault, and then reference the certificate thumbprints in the configuration (.cscfg) file for your deployment. You also must enable the key vault access policy (in the portal) for **Azure Virtual Machines for deployment** so that the Cloud Services (extended support) resource can retrieve the certificate stored as secrets in the key vault. You can create a key vault in the [Azure portal](../key-vault/general/quick-create-portal.md) or by using [PowerShell](../key-vault/general/quick-create-powershell.md). You must create the key vault in the same region and subscription as the cloud service. For more information, see [Use certificates with Cloud Services (extended support)](certificates-and-key-vault.md).
+Azure Key Vault stores certificates that are associated with Cloud Services (extended support). Add the certificates to a key vault, and then reference the certificate thumbprints in the configuration (.cscfg) file for your deployment. You also must enable the key vault access policy (in the portal) for **Azure Virtual Machines for deployment** so that the Cloud Services (extended support) resource can retrieve the certificate stored as secrets in the key vault. You can create a key vault in the [Azure portal](/azure/key-vault/general/quick-create-portal) or by using [PowerShell](/azure/key-vault/general/quick-create-powershell). You must create the key vault in the same region and subscription as the cloud service. For more information, see [Use certificates with Cloud Services (extended support)](certificates-and-key-vault.md).
 
 ## Related content
 

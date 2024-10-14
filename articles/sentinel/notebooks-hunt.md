@@ -10,6 +10,9 @@ appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
 #Customer intent: As a security analyst, I want to deploy and launch a Jupyter notebook to hunt for security threats.
+
+
+
 ---
 
 # Hunt for security threats with Jupyter notebooks
@@ -31,7 +34,7 @@ To use Microsoft Sentinel notebooks, you must have the following roles and permi
 |Type  |Details  |
 |---------|---------|
 |**Microsoft Sentinel**     |- The **Microsoft Sentinel Contributor** role, in order to save and launch notebooks from Microsoft Sentinel         |
-|**Azure Machine Learning**     |- A resource group-level **Owner** or **Contributor** role, to create a new Azure Machine Learning workspace if needed. <br>- A **Contributor** role on the Azure Machine Learning workspace where you run your Microsoft Sentinel notebooks.    <br><br>For more information, see [Manage access to an Azure Machine Learning workspace](../machine-learning/how-to-assign-roles.md).     |
+|**Azure Machine Learning**     |- A resource group-level **Owner** or **Contributor** role, to create a new Azure Machine Learning workspace if needed. <br>- A **Contributor** role on the Azure Machine Learning workspace where you run your Microsoft Sentinel notebooks.    <br><br>For more information, see [Manage access to an Azure Machine Learning workspace](/azure/machine-learning/how-to-assign-roles).     |
 
 ## Create an Azure Machine Learning workspace from Microsoft Sentinel
 
@@ -72,7 +75,7 @@ To create your workspace, select one of the following tabs, depending on whether
 
 # [Private endpoint](#tab/private-endpoint)
 
-The steps in this procedure reference specific articles in the Azure Machine Learning documentation when relevant. For more information, see [How to create a secure Azure Machine Learning workspace](../machine-learning/tutorial-create-secure-workspace.md).
+The steps in this procedure reference specific articles in the Azure Machine Learning documentation when relevant. For more information, see [How to create a secure Azure Machine Learning workspace](/azure/machine-learning/tutorial-create-secure-workspace).
 
 1. Create a virtual machine (VM) jump box within a virtual network. Since the virtual network restricts access from the public internet, the jump box is used as a way to connect to resources behind the virtual network.
 
@@ -107,9 +110,9 @@ The steps in this procedure reference specific articles in the Azure Machine Lea
 
     It can take several minutes to create your workspace in the cloud. During this time, the workspace **Overview** page shows the current deployment status, and updates when the deployment is complete.
 
-1.	In the Azure Machine Learning studio, on the **Compute** page, create a new compute. On the **Advanced Settings** tab, make sure to select the same virtual network that you'd used for your VM jump box. For more information, see [Create and manage an Azure Machine Learning compute instance](../machine-learning/how-to-create-compute-instance.md?tabs=python).
+1.	In the Azure Machine Learning studio, on the **Compute** page, create a new compute. On the **Advanced Settings** tab, make sure to select the same virtual network that you'd used for your VM jump box. For more information, see [Create and manage an Azure Machine Learning compute instance](/azure/machine-learning/how-to-create-compute-instance?tabs=python).
 
-1.	Configure your network traffic to access Azure Machine Learning from behind a firewall. For more information, see [Configure inbound and outbound network traffic](../machine-learning/how-to-access-azureml-behind-firewall.md?tabs=ipaddress%2cpublic).
+1.	Configure your network traffic to access Azure Machine Learning from behind a firewall. For more information, see [Configure inbound and outbound network traffic](/azure/machine-learning/how-to-access-azureml-behind-firewall?tabs=ipaddress%2cpublic).
 
 Continue with one of the following sets of steps:
 
@@ -131,8 +134,8 @@ Continue with one of the following sets of steps:
 
 For more information, see:
 
-- [Network traffic flow when using a secured workspace](../machine-learning/concept-secure-network-traffic-flow.md)
-- [Secure Azure Machine Learning workspace resources using virtual networks (VNets)](../machine-learning/how-to-network-security-overview.md)
+- [Network traffic flow when using a secured workspace](/azure/machine-learning/concept-secure-network-traffic-flow)
+- [Secure Azure Machine Learning workspace resources using virtual networks (VNets)](/azure/machine-learning/how-to-network-security-overview)
 
 ---
 
@@ -167,7 +170,7 @@ To launch your Microsoft Sentinel notebook in your Azure Machine Learning worksp
 
 1. At the top of the page, select a **Compute** instance to use for your notebook server.
 
-    If you don't have a compute instance, [create a new one](../machine-learning/how-to-create-compute-instance.md?tabs=#create). If your compute instance is stopped, make sure to start it. For more information, see [Run a notebook in the Azure Machine Learning studio](../machine-learning/how-to-run-jupyter-notebooks.md).
+    If you don't have a compute instance, [create a new one](/azure/machine-learning/how-to-create-compute-instance?tabs=#create). If your compute instance is stopped, make sure to start it. For more information, see [Run a notebook in the Azure Machine Learning studio](/azure/machine-learning/how-to-run-jupyter-notebooks).
 
     Only you can see and use the compute instances you create. Your user files are stored separately from the VM and are shared among all compute instances in the workspace.
 
@@ -178,7 +181,7 @@ To launch your Microsoft Sentinel notebook in your Azure Machine Learning worksp
 
 1. Once your notebook server is created and started, run your notebook cells. In each cell, select the **Run** icon to run your notebook code.
 
-    For more information, see [Command mode shortcuts.](../machine-learning/how-to-run-jupyter-notebooks.md)
+    For more information, see [Command mode shortcuts.](/azure/machine-learning/how-to-run-jupyter-notebooks)
 
 1. If your notebook hangs or you want to start over, you can restart the kernel and rerun the notebook cells from the beginning. If you restart the kernel, variables and other state are deleted. Rerun any initialization and authentication cells after you restart.
 

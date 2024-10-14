@@ -9,7 +9,7 @@ ms.date: 01/24/2024
 
 # Use custom image templates to create custom images in Azure Virtual Desktop
 
-Custom image templates in Azure Virtual Desktop enable you to easily create a custom image that you can use when deploying session host virtual machines (VMs). Using custom images helps you to standardize the configuration of your session host VMs for your organization. Custom image templates are built on [Azure Image Builder](../virtual-machines/image-builder-overview.md) and tailored for Azure Virtual Desktop.
+Custom image templates in Azure Virtual Desktop enable you to easily create a custom image that you can use when deploying session host virtual machines (VMs). Using custom images helps you to standardize the configuration of your session host VMs for your organization. Custom image templates are built on [Azure Image Builder](/azure/virtual-machines/image-builder-overview) and tailored for Azure Virtual Desktop.
 
 This article shows you how to create a custom image template, then create a custom image using that template. For more information, see [Custom image templates](custom-image-templates.md).
 
@@ -45,11 +45,11 @@ Before you can create a custom image template, you need to meet the following pr
 
 - [Assign the custom role to the managed identity](../role-based-access-control/role-assignments-portal-managed-identity.yml#user-assigned-managed-identity). This should be scoped appropriately for your deployment, ideally to the resource group you use store custom image templates.
 
-- *Optional*: If you want to distribute your image to Azure Compute Gallery, [create an Azure Compute Gallery](../virtual-machines/create-gallery.md), then [create a VM image definition](../virtual-machines/image-version.md). When you create a VM image definition in the gallery you need to specify the *generation* of the image you intend to create, either *generation 1* or *generation 2*. The generation of the image you want to use as the source image needs to match the generation specified in the VM image definition. Don't create a *VM image version* at this stage. This will be done by Azure Virtual Desktop.
+- *Optional*: If you want to distribute your image to Azure Compute Gallery, [create an Azure Compute Gallery](/azure/virtual-machines/create-gallery), then [create a VM image definition](/azure/virtual-machines/image-version). When you create a VM image definition in the gallery you need to specify the *generation* of the image you intend to create, either *generation 1* or *generation 2*. The generation of the image you want to use as the source image needs to match the generation specified in the VM image definition. Don't create a *VM image version* at this stage. This will be done by Azure Virtual Desktop.
 
-- *Optional*: You can use an existing virtual network when building an image. If you do, the managed identity you're using needs access to the virtual network, or the resource group it's contained within. For more information, see [Permission to customize images on your virtual networks](../virtual-machines/linux/image-builder-permissions-powershell.md#permission-to-customize-images-on-your-virtual-networks).
+- *Optional*: You can use an existing virtual network when building an image. If you do, the managed identity you're using needs access to the virtual network, or the resource group it's contained within. For more information, see [Permission to customize images on your virtual networks](/azure/virtual-machines/linux/image-builder-permissions-powershell#permission-to-customize-images-on-your-virtual-networks).
 
-   If this virtual network is using a *private service policy*, it needs to be disabled for Azure Image Builder to work correctly. For more information, see [Disable private service policy on the subnet](../virtual-machines/windows/image-builder-vnet.md#disable-private-service-policy-on-the-subnet).
+   If this virtual network is using a *private service policy*, it needs to be disabled for Azure Image Builder to work correctly. For more information, see [Disable private service policy on the subnet](/azure/virtual-machines/windows/image-builder-vnet#disable-private-service-policy-on-the-subnet).
 
 ## Create a custom image
 
@@ -78,7 +78,7 @@ To create a custom image using the Azure portal:
 
    Once you've completed this tab, select **Next**.
 
-1. On the **Source image** tab, for **Source type** select the source of your template from one of the options, then complete the other fields for that source type. Confidential VM and Trusted Launch support is inherited from Azure VM Image Builder. For more information, see [Confidential VM and Trusted Launch support](../virtual-machines/image-builder-overview.md#confidential-vm-and-trusted-launch-support).
+1. On the **Source image** tab, for **Source type** select the source of your template from one of the options, then complete the other fields for that source type. Confidential VM and Trusted Launch support is inherited from Azure VM Image Builder. For more information, see [Confidential VM and Trusted Launch support](/azure/virtual-machines/image-builder-overview#confidential-vm-and-trusted-launch-support).
 
    - **Platform image (marketplace)** provides a list of the available images in the Azure Marketplace for Azure Virtual Desktop.
 
@@ -122,7 +122,7 @@ To create a custom image using the Azure portal:
       | Gallery image version | *Optional* Enter a version number for the image. If you don't Enter a value, one is generated automatically. |
       | Run output name | Enter a run output name for the image. This is a free text field. |
       | Replicated regions | Select which Azure regions to store and replicate the image. The region you selected for the custom image template is automatically selected. |
-      | Excluded from latest | Select **Yes** to prevent this image version from being used where you specify `latest` as the version of the [*ImageReference* element](/azure/templates/microsoft.compute/virtualmachines?pivots=deployment-language-arm-template#imagereference-1) when you create a VM. Otherwise, select **No**.<br /><br />To change this later, see [List, update, and delete gallery resources](../virtual-machines/update-image-resources.md). |
+      | Excluded from latest | Select **Yes** to prevent this image version from being used where you specify `latest` as the version of the [*ImageReference* element](/azure/templates/microsoft.compute/virtualmachines?pivots=deployment-language-arm-template#imagereference-1) when you create a VM. Otherwise, select **No**.<br /><br />To change this later, see [List, update, and delete gallery resources](/azure/virtual-machines/update-image-resources). |
       | Storage account type | Select the storage account [type](../storage/common/storage-account-overview.md) and [redundancy](../storage/common/storage-redundancy.md) from the list. |
 
    Once you've completed this tab, select **Next**.
@@ -131,11 +131,11 @@ To create a custom image using the Azure portal:
 
    | Parameter | Value/Description |
    |--|--|
-   | Build timeout (minutes) | Enter the [maximum duration to wait](../virtual-machines/linux/image-builder-json.md#properties-buildtimeoutinminutes) while building the image template (includes all customizations, validations, and distributions). <br /><br />Customizations like Language Pack installation or Configure Windows Optimization require Windows Update and we recommend a higher build timeout. Windows Update is automatically triggered for those built-in scripts. |
-   | Build VM size | Select a size for the temporary VM created and used to build the template. You need to select a [VM size that matches the generation](../virtual-machines/generation-2.md) of your source image. |
+   | Build timeout (minutes) | Enter the [maximum duration to wait](/azure/virtual-machines/linux/image-builder-json#properties-buildtimeoutinminutes) while building the image template (includes all customizations, validations, and distributions). <br /><br />Customizations like Language Pack installation or Configure Windows Optimization require Windows Update and we recommend a higher build timeout. Windows Update is automatically triggered for those built-in scripts. |
+   | Build VM size | Select a size for the temporary VM created and used to build the template. You need to select a [VM size that matches the generation](/azure/virtual-machines/generation-2) of your source image. |
    | OS disk size (GB) | Select the resource group you assigned the managed identity to.<br /><br />Alternatively, if you assigned the managed identity to the subscription, you can create a new resource group here. |
    | Staging group | Enter a name for a new resource group you want Azure Image Builder to use to create the Azure resources it needs to create the image. If you leave this blank Azure Image Builder creates its own default resource group. |
-   | Build VM managed identity | Select a user-assigned managed identity if you want the build VM to authenticate with other Azure services. For more information, see [User-assigned identity for the Image Builder Build VM](../virtual-machines/linux/image-builder-json.md#user-assigned-identity-for-the-image-builder-build-vm). |
+   | Build VM managed identity | Select a user-assigned managed identity if you want the build VM to authenticate with other Azure services. For more information, see [User-assigned identity for the Image Builder Build VM](/azure/virtual-machines/linux/image-builder-json#user-assigned-identity-for-the-image-builder-build-vm). |
    | Virtual network | Select an existing virtual network for the VM used to build the template. If you don't select an existing virtual network, a temporary one is created, along with a public IP address for the temporary VM. |
    | Subnet | If you selected an existing virtual network, select a subnet from the list. |
 
@@ -191,7 +191,7 @@ Now you've created a custom image, you can use it when creating session host VMs
 1. Select **My Images** to see a list of managed images, or select **Shared Images** to see a list of images in Azure Compute Gallery. 
 
    > [!IMPORTANT]
-   > When selecting a virtual machine size, you will need to select a [size that matches the generation](../virtual-machines/generation-2.md) of your source image.
+   > When selecting a virtual machine size, you will need to select a [size that matches the generation](/azure/virtual-machines/generation-2) of your source image.
 
 1. Complete the steps to create a host pool and session hosts from your custom image.
 

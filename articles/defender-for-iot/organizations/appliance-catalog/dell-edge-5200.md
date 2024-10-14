@@ -36,7 +36,7 @@ The following image shows the hardware elements on the Dell Edge 5200 that are u
 |Device access|	6x USB 3.0|
 |Power|	DC Input 12–24 V (±10% tolerance) <br>AC Input Optional: 180 W / 220 W, 60 W (for PoE) external AC/DC adapter|
 
-## Appliance BOM
+## Dell Edge 5200 Bill of materials
 
 |Quantity|PN|Description|
 |:----|:----|:----|

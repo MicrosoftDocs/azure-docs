@@ -4,7 +4,7 @@ description: This article covers the event log  options for Azure Virtual Networ
 author: mbender-ms
 ms.author: mbender
 ms.topic: conceptual
-ms.service: virtual-network-manager
+ms.service: azure-virtual-network-manager
 ms.date: 04/13/2024
 ---
 
@@ -125,7 +125,7 @@ Within the `AppliedConnectivityConfigurations` attribute are several nested attr
 ## Accessing logs
 
 Depending on how you consume event logs, you need to set up a Log Analytics workspace or a storage account for storing your log events. 
-- Learn to [create a Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md).
+- Learn to [create a Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace).
 - Learn to [create a storage account](../storage/common/storage-account-create.md).
 
 When setting up a Log Analytics workspace or a storage account, you need to select a region. If you’re using a storage account, it needs to be in the same region of the virtual network manager you’re accessing logs from. If you’re using a Log Analytics workspace, it can be in any region. 

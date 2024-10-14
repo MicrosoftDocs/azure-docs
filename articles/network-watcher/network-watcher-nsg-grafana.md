@@ -3,14 +3,16 @@ title: Manage NSG Flow Logs using Grafana
 titleSuffix: Azure Network Watcher
 description: Manage and analyze Network Security Group Flow Logs in Azure using Network Watcher and Grafana.
 author: halkazwini
-ms.service: network-watcher
-ms.topic: how-to
-ms.date: 05/31/2024
 ms.author: halkazwini
+ms.service: azure-network-watcher
+ms.topic: how-to
+ms.date: 09/26/2024
 ms.custom: linux-related-content
 ---
 
 # Manage and analyze network security group flow logs using Network Watcher and Grafana
+
+[!INCLUDE [NSG flow logs retirement](../../includes/network-watcher-nsg-flow-logs-retirement.md)]
 
 [Network Security Group (NSG) flow logs](nsg-flow-logs-overview.md) provide information that can be used to understand ingress and egress IP traffic on network interfaces. These flow logs show outbound and inbound flows on a per NSG rule basis, the NIC the flow applies to, 5-tuple information about the flow (Source/Destination IP, Source/Destination Port, Protocol), and if the traffic was allowed or denied.
 

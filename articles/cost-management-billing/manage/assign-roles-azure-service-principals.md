@@ -6,7 +6,7 @@ ms.reviewer: sapnakeshari
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 02/15/2024
+ms.date: 08/13/2024
 ms.author: banders
 ---
 
@@ -64,7 +64,7 @@ You need the service principal's object ID and the tenant ID. You need this info
    :::image type="content" source="./media/assign-roles-azure-service-principals/tenant-id.png" alt-text="Screenshot showing the tenant ID." lightbox="./media/assign-roles-azure-service-principals/tenant-id.png" :::
 
 > [!NOTE]
-> The value of your Microsoft Entra tenant ID looks like a GUID with the following format: `11111111-1111-1111-1111-111111111111`.
+> The value of your Microsoft Entra tenant ID looks like a GUID with the following format: `aaaabbbb-0000-cccc-1111-dddd2222eeee`.
 
 ## Permissions that can be assigned to the service principal
 

@@ -49,7 +49,8 @@ To complete this quickstart, you need:
 * [Azure Functions Core Tools](../functions-run-local.md) version 4.0.5382 or later installed.
 
 ::: zone-end
-
+* An HTTP test tool that keeps your data secure. For more information, see [HTTP test tools](../functions-develop-local.md#http-test-tools).
+ 
 * An Azure subscription. To use Durable Functions, you must have an Azure Storage account.
 
 ::: zone pivot="nodejs-model-v3"
@@ -263,7 +264,9 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
 
 ::: zone pivot="nodejs-model-v3"
 
-5. Use a tool like [Postman](https://www.getpostman.com/) or [cURL](https://curl.haxx.se/) to send an HTTP POST request to the URL endpoint. Replace the last segment with the name of the orchestrator function (`HelloOrchestrator`). The URL should be similar to `http://localhost:7071/api/orchestrators/HelloOrchestrator`.
+5. Use your browser or an HTTP test tool to send an HTTP POST request to the URL endpoint.
+
+   Replace the last segment with the name of the orchestrator function (`HelloOrchestrator`). The URL should be similar to `http://localhost:7071/api/orchestrators/HelloOrchestrator`.
 
    The response is the HTTP function's initial result. It lets you know that the durable orchestration started successfully. It doesn't yet display the end result of the orchestration. The response includes a few useful URLs. For now, query the status of the orchestration.
 
@@ -271,7 +274,9 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
 
 ::: zone pivot="nodejs-model-v4"
 
-5. Use a tool like [Postman](https://www.getpostman.com/) or [cURL](https://curl.haxx.se/) to send an HTTP POST request to the URL endpoint. Replace the last segment with the name of the orchestrator function (`helloOrchestrator`). The URL should be similar to `http://localhost:7071/api/orchestrators/helloOrchestrator`.
+5. Use your browser or an HTTP test tool to send an HTTP POST request to the URL endpoint.
+
+   Replace the last segment with the name of the orchestrator function (`HelloOrchestrator`). The URL should be similar to `http://localhost:7071/api/orchestrators/HelloOrchestrator`.
 
    The response is the HTTP function's initial result. It lets you know that the durable orchestration started successfully. It doesn't yet display the end result of the orchestration. The response includes a few useful URLs. For now, query the status of the orchestration.
 
@@ -279,7 +284,7 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
 
 ::: zone pivot="nodejs-model-v3"
 
-6. Copy the URL value for `statusQueryGetUri`, paste it in your browser's address bar, and execute the request. Alternatively, you can also continue to use Postman to issue the GET request.
+6. Copy the URL value for `statusQueryGetUri`, paste it in your browser's address bar, and execute the request. You can also continue to use your HTTP test tool to issue the GET request.
 
    The request queries the orchestration instance for the status. You should see that the instance finished and that it includes the outputs or results of the durable function. It looks similar to this example:
 
@@ -304,7 +309,7 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
 
 ::: zone pivot="nodejs-model-v4"
 
-6. Copy the URL value for `statusQueryGetUri`, paste it in your browser's address bar, and execute the request. Alternatively, you can also continue to use Postman to issue the GET request.
+6. Copy the URL value for `statusQueryGetUri`, paste it in your browser's address bar, and execute the request. You can also continue to use your HTTP test tool to issue the GET request.
 
    The request queries the orchestration instance for the status. You should see that the instance finished and that it includes the outputs or results of the Durable Functions app. It looks similar to this example:
 

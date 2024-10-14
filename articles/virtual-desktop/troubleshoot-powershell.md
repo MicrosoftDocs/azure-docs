@@ -1,11 +1,11 @@
 ---
 title: Azure Virtual Desktop PowerShell - Azure
 description: How to troubleshoot issues with PowerShell when you set up an Azure Virtual Desktop environment.
-author: Heidilohr
+author: dknappettmsft
 ms.topic: troubleshooting
 ms.date: 06/05/2020
-ms.author: helohr 
-ms.custom: devx-track-azurepowershell
+ms.author: daknappe
+ms.custom: devx-track-azurepowershell, docs_inherited
 ---
 # Azure Virtual Desktop PowerShell
 
@@ -74,5 +74,5 @@ New-AzWvdApplicationGroup_CreateExpanded: ActivityId: e5fe6c1d-5f2c-4db9-817d-e4
 - To troubleshoot issues with Azure Virtual Desktop client connections, see [Azure Virtual Desktop service connections](troubleshoot-service-connection.md).
 - To troubleshoot issues with Remote Desktop clients, see [Troubleshoot the Remote Desktop client](troubleshoot-client-windows.md)
 - To learn more about the service, see [Azure Virtual Desktop environment](environment-setup.md).
-- To learn about auditing actions, see [Audit operations with Resource Manager](../azure-monitor/essentials/activity-log.md).
+- To learn about auditing actions, see [Audit operations with Resource Manager](/azure/azure-monitor/essentials/activity-log).
 - To learn about actions to determine the errors during deployment, see [View deployment operations](../azure-resource-manager/templates/deployment-history.md).

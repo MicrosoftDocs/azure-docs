@@ -18,7 +18,7 @@ This tutorial shows you how to build a GPU-enabled virtual machine (VM). From th
 
 We'll use the Azure portal, the Azure Cloud Shell, and your VM's command line to:
 * Build a GPU-capable VM
-* Install the [NVIDIA driver extension](../virtual-machines/extensions/hpccompute-gpu-linux.md) on the VM
+* Install the [NVIDIA driver extension](/azure/virtual-machines/extensions/hpccompute-gpu-linux) on the VM
 * Configure a module on an IoT Edge device to allocate work to a GPU
 
 ## Prerequisites
@@ -39,7 +39,7 @@ We'll use the Azure portal, the Azure Cloud Shell, and your VM's command line to
 
 ## Create a GPU-optimized virtual machine
 
-To create a GPU-optimized virtual machine (VM), choosing the right size is important. Not all VM sizes accommodate GPU processing. In addition, there are different VM sizes for different workloads. For more information, see [GPU optimized virtual machine sizes](../virtual-machines/sizes-gpu.md) or try the [Virtual machines selector](https://azure.microsoft.com/pricing/vm-selector/).
+To create a GPU-optimized virtual machine (VM), choosing the right size is important. Not all VM sizes accommodate GPU processing. In addition, there are different VM sizes for different workloads. For more information, see [GPU optimized virtual machine sizes](/azure/virtual-machines/sizes-gpu) or try the [Virtual machines selector](https://azure.microsoft.com/pricing/vm-selector/).
 
 Let's create an IoT Edge VM with the [Azure Resource Manager (ARM)](../azure-resource-manager/management/overview.md) template in GitHub, then configure it to be GPU-optimized.
 
@@ -72,7 +72,7 @@ Let's create an IoT Edge VM with the [Azure Resource Manager (ARM)](../azure-res
 1. Select the **Review + create** button at the bottom, then the **Create** button. Deployment can take up one minute to complete.
 
 ## Install the NVIDIA extension
-Now that we have a GPU-optimized VM, let's install the [NVIDIA extension](../virtual-machines/extensions/hpccompute-gpu-linux.md) on the VM using the Azure portal. 
+Now that we have a GPU-optimized VM, let's install the [NVIDIA extension](/azure/virtual-machines/extensions/hpccompute-gpu-linux) on the VM using the Azure portal. 
 
 1. Open your VM in the Azure portal and select **Extensions + applications** from the left menu.
 
@@ -111,7 +111,7 @@ Now that we have a GPU-optimized VM, let's install the [NVIDIA extension](../vir
    :::image type="content" source="media/configure-connect-verify-gpu/nvidia-driver-installed.png" alt-text="Screenshot of the NVIDIA driver table.":::
 
 > [!NOTE]
-> The NVIDIA extension is a simplified way to install the NVIDIA drivers, but you may need more customization. For more information about custom installations on N-series VMs, see [Install NVIDIA GPU drivers on N-series VMs running Linux](../virtual-machines/linux/n-series-driver-setup.md).
+> The NVIDIA extension is a simplified way to install the NVIDIA drivers, but you may need more customization. For more information about custom installations on N-series VMs, see [Install NVIDIA GPU drivers on N-series VMs running Linux](/azure/virtual-machines/linux/n-series-driver-setup).
 
 ## Enable a module with GPU acceleration
 

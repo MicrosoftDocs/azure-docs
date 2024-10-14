@@ -2,7 +2,7 @@
 title: Available States for Azure Cloud Services (extended support)
 description: Available Power and Provisioning States for Azure Cloud Services (extended support)
 ms.topic: article
-ms.service: cloud-services-extended-support
+ms.service: azure-cloud-services-extended-support
 author: surbhijain
 ms.author: surbhijain
 ms.date: 07/24/2024

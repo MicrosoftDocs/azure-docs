@@ -8,7 +8,7 @@ ms.custom: cc996988-fb4f-47
 ---
 # Create a function triggered by Azure Cosmos DB
 
-Learn how to create a function in the Azure portal that is triggered when data is added to or changed in Azure Cosmos DB. To learn more about Azure Cosmos DB, see [Azure Cosmos DB: Serverless database computing using Azure Functions](../cosmos-db/serverless-computing-database.md).
+Learn how to create a function in the Azure portal that is triggered when data is added to or changed in Azure Cosmos DB. To learn more about Azure Cosmos DB, see [Azure Cosmos DB: Serverless database computing using Azure Functions](/azure/cosmos-db/serverless-computing-database).
 
 [!INCLUDE [functions-in-portal-editing-note](../../includes/functions-in-portal-editing-note.md)]
 
@@ -88,7 +88,7 @@ Next, you connect to your Azure Cosmos DB account and create the `Items` contain
     | ---|---|--- |
     | **Database ID** | Tasks |The name for your new database. This must match the name defined in your function binding. |
     | **Container ID** | Items | The name for the new container. This must match the name defined in your function binding.  |
-    | **[Partition key](../cosmos-db/partitioning-overview.md)** | /category|A partition key that distributes data evenly to each partition. Selecting the correct partition key is important in creating a performant container. | 
+    | **[Partition key](/azure/cosmos-db/partitioning-overview)** | /category|A partition key that distributes data evenly to each partition. Selecting the correct partition key is important in creating a performant container. | 
     | **Throughput** |400 RU| Use the default value. If you want to reduce latency, you can scale up the throughput later. |    
 
 1. Click **OK** to create the Items container. It may take a short time for the container to get created.

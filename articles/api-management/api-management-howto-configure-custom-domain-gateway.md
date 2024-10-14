@@ -5,7 +5,7 @@ description: This topic describes the steps for configuring a custom domain name
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: danlep

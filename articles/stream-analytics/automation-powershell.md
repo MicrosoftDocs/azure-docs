@@ -1,7 +1,7 @@
 ---
 title: Automatically pause an Azure Stream Analytics with PowerShell
 description: This article describes how to automatically pause an Azure Stream Analytics job on a schedule by using PowerShell.
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 11/03/2021
@@ -63,7 +63,7 @@ This article anticipates the need to interact with Stream Analytics on the follo
 
 For Stream Analytics resource management, you can use the [REST API](/rest/api/streamanalytics/), the [.NET SDK](/dotnet/api/microsoft.azure.management.streamanalytics), or one of the CLI libraries ([Azure CLI](/cli/azure/stream-analytics) or [PowerShell](/powershell/module/az.streamanalytics)).
 
-For metrics and logs, everything in Azure is centralized under [Azure Monitor](../azure-monitor/overview.md), with a similar choice of API surfaces. Logs and metrics are always 1 to 3 minutes behind when you're querying the APIs. So setting *N* at 5 usually means the job runs 6 to 8 minutes in reality.
+For metrics and logs, everything in Azure is centralized under [Azure Monitor](/azure/azure-monitor/overview), with a similar choice of API surfaces. Logs and metrics are always 1 to 3 minutes behind when you're querying the APIs. So setting *N* at 5 usually means the job runs 6 to 8 minutes in reality.
 
 Another consideration is that metrics are always emitted. When the job is stopped, the API returns empty records. You have to clean up the output of your API calls to focus on relevant values.
 
@@ -75,7 +75,7 @@ In PowerShell, use the [Az PowerShell](/powershell/azure/new-azureps-module-az) 
 
 - [Get-AzStreamAnalyticsJob](/powershell/module/az.streamanalytics/get-azstreamanalyticsjob) for the current job status
 - [Start-AzStreamAnalyticsJob](/powershell/module/az.streamanalytics/start-azstreamanalyticsjob) or [Stop-AzStreamAnalyticsJob](/powershell/module/az.streamanalytics/stop-azstreamanalyticsjob)
-- [Get-AzMetric](/powershell/module/az.monitor/get-azmetric) with `InputEventsSourcesBacklogged` (from [Stream Analytics metrics](../azure-monitor/essentials/metrics-supported.md#microsoftstreamanalyticsstreamingjobs))
+- [Get-AzMetric](/powershell/module/az.monitor/get-azmetric) with `InputEventsSourcesBacklogged` (from [Stream Analytics metrics](/azure/azure-monitor/essentials/metrics-supported#microsoftstreamanalyticsstreamingjobs))
 - [Get-AzActivityLog](/powershell/module/az.monitor/get-azactivitylog) for event names that begin with `Stop Job`
 
 ### Hosting service
@@ -358,7 +358,7 @@ Next, set up **Alert logic** as follows:
 - Threshold value: **0**
 - Frequency of evaluation: **5 minutes**
 
-From there, reuse or create a new [action group](../azure-monitor/alerts/action-groups.md?WT.mc_id=Portal-Microsoft_Azure_Monitoring). Then complete the configuration.
+From there, reuse or create a new [action group](/azure/azure-monitor/alerts/action-groups?WT.mc_id=Portal-Microsoft_Azure_Monitoring). Then complete the configuration.
 
 To check that you set up the alert properly, you can add `throw "Testing the alert"` anywhere in the PowerShell script and then wait 5 minutes to receive an email.
 
@@ -428,7 +428,7 @@ You can check that everything is wired properly in **Test pane**.
 
 After that, you need to publish the job (by selecting **Publish**) so that you can link the runbook to a schedule. Creating and linking the schedule is a straightforward process. Now is a good time to remember that there are [workarounds](../automation/shared-resources/schedules.md#schedule-runbooks-to-run-more-frequently) to achieve schedule intervals under 1 hour.
 
-Finally, you can set up an alert. The first step is to enable logs by using the [diagnostic settings](../azure-monitor/essentials/create-diagnostic-settings.md?tabs=cli) of the Automation account. The second step is to capture errors by using a query like you did for Functions.
+Finally, you can set up an alert. The first step is to enable logs by using the [diagnostic settings](/azure/azure-monitor/essentials/create-diagnostic-settings?tabs=cli) of the Automation account. The second step is to capture errors by using a query like you did for Functions.
 
 ## Outcome
 

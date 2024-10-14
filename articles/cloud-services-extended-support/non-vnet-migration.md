@@ -2,7 +2,7 @@
 title: Migrate cloud services not in a virtual network to a virtual network
 description: How to migrate nonvnet cloud services to a virtual network
 ms.topic: how-to
-ms.service: cloud-services-extended-support
+ms.service: azure-cloud-services-extended-support
 author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mattmcinnes
@@ -43,6 +43,6 @@ This operation swaps both the deployments. After swapping, you'll find staging d
 
 
 ## Next steps
-- [Overview of Platform-supported migration of IaaS resources from classic to Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-overview.md)
+- [Overview of Platform-supported migration of IaaS resources from classic to Azure Resource Manager](/azure/virtual-machines/migration-classic-resource-manager-overview)
 - Migrate to Cloud Services (extended support) using the [Azure portal](in-place-migration-portal.md)
 - Migrate to Cloud Services (extended support) using [PowerShell](in-place-migration-powershell.md)

@@ -2,7 +2,7 @@
 title: Set up disaster recovery when creating a VM 
 description: Learn how to set up disaster recovery for Virtual machines on Azure Public MEC using VM Flow.
 author: ankitaduttaMSFT
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: tutorial
 ms.date: 04/19/2023
 ms.author: ankitadutta

@@ -20,8 +20,10 @@ landingContent:
     linkLists:
       - linkListType: deploy
         links:
-          - text: HPE ProLiant DL360
-            url: hpe-proliant-dl360.md
+        - text: Dell PowerEdge R660
+          url: dell-poweredge-r660.md
+        - text: HPE ProLiant DL360
+          url: hpe-proliant-dl360.md
 
   # Card
   - title: Large enterprises
@@ -42,11 +44,13 @@ landingContent:
         links:
           - text: HPE ProLiant DL20 Gen11 Plus (NHP 2LFF)
             url: hpe-proliant-dl20-gen-11-nhp-2lff.md
-          - text: YS-techsystems YS-FIT2 (Rugged MIL-STD-810G)
-            url: ys-techsystems-ys-fit2.md
           - text: Dell XE4 SFF
             url: dell-xe4-sff.md
-
+          - text: YS-techsystems YS-FIT2 (Rugged MIL-STD-810G)
+            url: ys-techsystems-ys-fit2.md
+          - text: Dell Edge Gateway 3200
+            url: dell-edge-3200.md
+  
   # Card
   - title: Virtual appliances
     linkLists:

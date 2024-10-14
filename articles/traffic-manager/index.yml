@@ -6,7 +6,7 @@ summary: Learn how to use Azure Traffic Manager. Quickstarts, tutorials, samples
 metadata:
   title:  Traffic Manager documentation
   description: Learn how to use Traffic Manager to route incoming traffic for optimal application performance and reliability. Quickstarts, tutorials, samples, and more, show how to manage traffic to Azure or external service endpoints.
-  ms.service: traffic-manager
+  ms.service: azure-traffic-manager
   ms.topic: landing-page
   author: greg-lindsay
   ms.author: greglin

@@ -1,7 +1,7 @@
 ---
 author: robswain
 ms.author: robswain
-ms.service: private-5g-core
+ms.service: azure-private-5g-core
 ms.topic: include
 ms.date: 10/26/2023
 ---

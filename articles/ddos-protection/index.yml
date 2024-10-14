@@ -8,7 +8,7 @@ metadata:
   author: AbdullahBell
   ms.author: abell
   ms.date: 10/06/2023
-  ms.service: ddos-protection
+  ms.service: azure-ddos-protection
   ms.topic: landing-page
   ms.custom: azure-ddos-protection
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstarts | reference | tutorial | whats-new

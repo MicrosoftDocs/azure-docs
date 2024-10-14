@@ -5,11 +5,11 @@ description: Learn how to integrate Azure AD B2C authentication with Onfido for 
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: how-to
 ms.date: 01/26/2024
 ms.author: gasinh
-ms.subservice: B2C
+ms.subservice: b2c
 
 # Customer intent: I'm a developer integrating Azure Active Directory B2C with Onfido. I need to configure the Onfido service to verify identity in the sign-up or sign-in flow. My goal is to meet Know Your Customer and identity requirements and provide a reliable onboarding experience, while reducing fraud.
 ---
@@ -111,7 +111,7 @@ REST API settings:
 #### Upload your files
 
 1. Store the UI folder files in your blob container.
-2. [Use Azure Storage Explorer to manage Azure managed disks](../virtual-machines/disks-use-storage-explorer-managed-disks.md) and access permissions.
+2. [Use Azure Storage Explorer to manage Azure managed disks](/azure/virtual-machines/disks-use-storage-explorer-managed-disks) and access permissions.
 
 ### Configure Azure AD B2C
 

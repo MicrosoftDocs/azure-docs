@@ -3,7 +3,7 @@
  description: include file
  services: bastion
  author: cherylmc
- ms.service: bastion
+ ms.service: azure-bastion
  ms.topic: include
  ms.date: 03/25/2020
  ms.author: cherylmc

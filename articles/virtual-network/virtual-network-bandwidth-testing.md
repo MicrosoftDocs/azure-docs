@@ -3,7 +3,7 @@ title: Test VM network throughput by using NTTTCP
 description: Use the NTTTCP tool to test network bandwidth and throughput performance for Windows and Linux VMs on a virtual network.
 services: virtual-network
 author: asudbring
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 11/01/2023
@@ -13,7 +13,7 @@ ms.author: allensu
 # Test VM network throughput by using NTTTCP
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 This article describes how to use the free NTTTCP tool from Microsoft to test network bandwidth and throughput performance on Azure Windows or Linux virtual machines (VMs). A tool like NTTTCP targets the network for testing and minimizes the use of other resources that could affect performance.
 
@@ -25,7 +25,7 @@ This article describes how to use the free NTTTCP tool from Microsoft to test ne
     - Note the number of VM cores and the receiver VM IP address to use in the commands. Both the sender and receiver commands use the receiver's IP address.
 
 >[!NOTE]
->Testing by using a virtual IP (VIP) is possible, but is beyond the scope of this article.
+>Testing by using a virtual IP is possible, but is beyond the scope of this article.
 
 **Examples used in this article**
 

@@ -3,7 +3,7 @@ title: Back up SQL server databases in Azure VMs using Azure Backup via REST API
 description: Learn how to use REST API to back up SQL server databases in Azure VMs in the Recovery Services vault
 ms.topic: how-to
 ms.date: 07/30/2024
-ms.service: backup
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---

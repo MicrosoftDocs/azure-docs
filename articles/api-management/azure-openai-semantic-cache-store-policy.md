@@ -4,7 +4,7 @@ description: Reference for the azure-openai-semantic-cache-store policy availabl
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.collection: ce-skilling-ai-copilot
 ms.custom:
   - build-2024
@@ -26,6 +26,8 @@ The `azure-openai-semantic-cache-store` policy caches responses to Azure OpenAI 
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
+[!INCLUDE [api-management-azure-openai-models](../../includes/api-management-azure-openai-models.md)]
+
 ## Policy statement
 
 ```xml
@@ -43,7 +45,7 @@ The `azure-openai-semantic-cache-store` policy caches responses to Azure OpenAI 
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) outbound
-- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
+- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) v2
 
 ### Usage notes

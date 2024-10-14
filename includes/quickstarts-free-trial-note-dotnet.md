@@ -1,6 +1,6 @@
 ---
 author: IEvangelist
-ms.service: cloud-services
+ms.service: azure-cloud-services-classic
 ms.topic: include
 ms.date: 09/28/2020
 ms.author: dapine

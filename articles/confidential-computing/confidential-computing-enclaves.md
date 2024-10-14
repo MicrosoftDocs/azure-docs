@@ -20,9 +20,9 @@ Enclaves are secured portions of the hardware's processor and memory. You can't 
 Think of an enclave as a secured lockbox. You put encrypted code and data inside the lockbox. From the outside, you can't see anything. You give the enclave a key to decrypt the data. The enclave processes and re-encrypts the data, before sending the data back out.
 
 
-Azure confidential computing offers [DCsv2-series](../virtual-machines/dcv2-series.md) and [DCsv3/DCdsv3-series](../virtual-machines/dcv3-series.md) virtual machines (VMs). These VMs have support for [Intel® Software Guard Extensions (SGX)](https://intel.com/sgx). 
+Azure confidential computing offers [DCsv2-series](/azure/virtual-machines/dcv2-series) and [DCsv3/DCdsv3-series](/azure/virtual-machines/dcv3-series) virtual machines (VMs). These VMs have support for [Intel® Software Guard Extensions (SGX)](https://intel.com/sgx). 
 
-Each enclave has an encrypted page cache (EPC) with a set size. The EPC determines the amount of memory that an enclave can hold. [DCsv2-series](../virtual-machines/dcv2-series.md) VMs hold up to 168 MiB. [DCsv3/DCdsv3-series](../virtual-machines/dcv3-series.md) VMs hold up to 256 GB for more memory-intensive workloads.
+Each enclave has an encrypted page cache (EPC) with a set size. The EPC determines the amount of memory that an enclave can hold. [DCsv2-series](/azure/virtual-machines/dcv2-series) VMs hold up to 168 MiB. [DCsv3/DCdsv3-series](/azure/virtual-machines/dcv3-series) VMs hold up to 256 GB for more memory-intensive workloads.
 
 
 ## Developing for enclaves

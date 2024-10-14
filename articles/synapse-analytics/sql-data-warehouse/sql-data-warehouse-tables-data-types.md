@@ -5,7 +5,7 @@ author: filippopovic
 ms.author: fipopovi
 ms.reviewer: whhender
 ms.date: 01/06/2020
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 ---

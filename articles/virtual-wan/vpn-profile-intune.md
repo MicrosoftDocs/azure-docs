@@ -4,7 +4,7 @@ titleSuffix: Azure Virtual WAN
 description: Learn how to create an Intune custom profile to deploy Azure Virtual WAN VPN client profiles
 author: cherylmc
 
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 08/24/2023
 ms.author: cherylmc

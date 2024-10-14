@@ -12,12 +12,12 @@ ms.custom: engagement-fy23
 
 # Migrate servers to Azure using Private Link
 
-This article describes how to use Azure Migrate to migrate servers over a private network by using [Azure Private Link](../private-link/private-endpoint-overview.md). You can use the [Migration and modernization](migrate-services-overview.md#migration-and-modernization-tool) tool to connect privately and securely to Azure Migrate over an Azure ExpressRoute private peering or a site-to-site (S2S) VPN connection by using Private Link. 
+This article describes how to use Azure Migrate to migrate servers over a private network by using [Azure Private Link](../private-link/private-endpoint-overview.md). You can use the [Migration and modernization](migrate-services-overview.md) tool to connect privately and securely to Azure Migrate over an Azure ExpressRoute private peering or a site-to-site (S2S) VPN connection by using Private Link. 
 
 ::: zone pivot="agentlessvmware"
 
 
-This article shows how to migrate on-premises VMware VMs to Azure, using the [Migration and modernization tool](migrate-services-overview.md#migration-and-modernization-tool), with agentless migration.
+This article shows how to migrate on-premises VMware VMs to Azure, using the [Migration and modernization tool](migrate-services-overview.md), with agentless migration.
 
 ## Set up the Azure Migrate appliance
 
@@ -84,7 +84,7 @@ Enable replication as follows:
     - Double encryption with platform-managed and customer-managed keys 
 
     >[!Note] 
-    > To replicate VMs with CMK, you'll need to [create a disk encryption set](../virtual-machines/disks-enable-customer-managed-keys-portal.yml) under the target Resource Group. A disk encryption set object maps Managed Disks to a Key Vault that contains the CMK to use for SSE. 
+    > To replicate VMs with CMK, you'll need to [create a disk encryption set](/azure/virtual-machines/disks-enable-customer-managed-keys-portal) under the target Resource Group. A disk encryption set object maps Managed Disks to a Key Vault that contains the CMK to use for SSE. 
 1. In **Azure Hybrid Benefit**: 
 
     - Select **No** if you don't want to apply Azure Hybrid Benefit and select **Next**. 
@@ -142,7 +142,7 @@ Ensure that the on-premises appliance has network connectivity to the storage ac
 
 
 
-This article shows you how to [migrate on-premises Hyper-V VMs to Azure](tutorial-migrate-hyper-v.md), using the [Migration and modernization](migrate-services-overview.md#migration-and-modernization-tool) tool, with agentless migration. You can also migrate using agent-based migration.  
+This article shows you how to [migrate on-premises Hyper-V VMs to Azure](tutorial-migrate-hyper-v.md), using the [Migration and modernization](migrate-services-overview.md) tool, with agentless migration. You can also migrate using agent-based migration.  
 
 ## Set up the replication provider for migration 
 
@@ -366,7 +366,7 @@ Now, select machines for replication and migration.
     - Encryption-at-rest with customer-managed key 
     - Double encryption with platform-managed and customer-managed keys 
     > [!Note]
-    > To replicate VMs with CMK, you'll need to [create a disk encryption set](../virtual-machines/disks-enable-customer-managed-keys-portal.yml) under the target Resource Group. A disk encryption set object maps Managed Disks to a Key Vault that contains the CMK to use for SSE. 
+    > To replicate VMs with CMK, you'll need to [create a disk encryption set](/azure/virtual-machines/disks-enable-customer-managed-keys-portal) under the target Resource Group. A disk encryption set object maps Managed Disks to a Key Vault that contains the CMK to use for SSE. 
 1. In **Azure Hybrid Benefit**: 
     - Select **No** if you don't want to apply Azure Hybrid Benefit and select **Next**. 
     - Select **Yes** if you have Windows Server machines that are covered with active Software Assurance or Windows Server subscriptions, and you want to apply the benefit to the machines you're migrating. Then select **Next**.    

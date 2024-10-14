@@ -189,13 +189,13 @@ Next, deploy the NFS shares in the storage account that you created. In this exa
    3. Select **NFS** as the protocol.
    4. Select **No root Squash**.  Otherwise, when you mount the shares on your VMs, you can't see the file owner or group.
 
-The SAP file systems that don't need to be mounted via NFS can also be deployed on [Azure disk storage](../../virtual-machines/disks-types.md#premium-ssds). In this example, you can deploy `/usr/sap/NW1/D02` and `/usr/sap/NW1/D03` on Azure disk storage.
+The SAP file systems that don't need to be mounted via NFS can also be deployed on [Azure disk storage](/azure/virtual-machines/disks-types#premium-ssds). In this example, you can deploy `/usr/sap/NW1/D02` and `/usr/sap/NW1/D03` on Azure disk storage.
 
 #### Important considerations for NFS on Azure Files shares
 
 When you plan your deployment with NFS on Azure Files, consider the following important points:  
 
-* The minimum share size is 100 gibibytes (GiB). You pay for only the [capacity of the provisioned shares](../../storage/files/understanding-billing.md#provisioned-model).
+* The minimum share size is 100 GiB. You pay for only the [capacity of the provisioned shares](../../storage/files/understanding-billing.md#provisioned-v1-model).
 * Size your NFS shares not only based on capacity requirements, but also on IOPS and throughput requirements. For details, see [Azure file share targets](../../storage/files/storage-files-scale-targets.md#azure-file-share-scale-targets).
 * Test the workload to validate your sizing and ensure that it meets your performance targets. To learn how to troubleshoot performance issues with NFS on Azure Files, consult [Troubleshoot Azure file share performance](../../storage/files/files-troubleshoot-performance.md).
 * For SAP J2EE systems, placing `/usr/sap/<SID>/J<nr>` on NFS on Azure Files isn't supported.
@@ -227,7 +227,7 @@ When you plan your deployment with NFS on Azure Files, consider the following im
    * Volume `sapnw1` (`nfs://10.27.1.5/sapnw1/usrsapNW1`)
    * Volume `trans` (`nfs://10.27.1.5/trans`)
 
-The SAP file systems that don't need to be shared can also be deployed on  [Azure disk storage](../../virtual-machines/disks-types.md#premium-ssds). For example, `/usr/sap/NW1/D02` and `/usr/sap/NW1/D03` could be deployed as Azure disk storage.  
+The SAP file systems that don't need to be shared can also be deployed on  [Azure disk storage](/azure/virtual-machines/disks-types#premium-ssds). For example, `/usr/sap/NW1/D02` and `/usr/sap/NW1/D03` could be deployed as Azure disk storage.  
 
 #### Important considerations for NFS on Azure NetApp Files
 

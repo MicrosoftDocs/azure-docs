@@ -2,7 +2,7 @@
 title: Check app's API calls for minimal permissions with Dev Proxy
 description: Learn how to use Dev Proxy to check if your app is calling APIs using minimal permissions defined in Azure API Center.
 author: waldekmastykarz
-ms.service: api-center
+ms.service: azure-api-center
 ms.topic: how-to
 ms.date: 07/17/2024
 ms.author: wmastyka 

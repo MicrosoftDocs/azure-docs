@@ -3,9 +3,9 @@ title: Configure Mobility Service Proxy Settings for Azure to Azure Disaster Rec
 description: Provides details on how to configure mobility service when customers use a proxy in their source environment.
 author: ankitaduttaMSFT
 manager: rochakm
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: tutorial
-ms.date: 09/21/2023
+ms.date: 07/10/2024
 ms.author: ankitadutta
 
 ---
@@ -16,6 +16,9 @@ This article provides guidance on customizing networking configurations on the t
 The purpose of this document is to provide steps to configure Proxy Settings for Azure Site Recovery Mobility Service in the Azure to Azure Disaster Recovery scenario. 
 
 Proxies are network gateways that allow/disallow network connections to endpoints. Typically a proxy is a machine outside the client machine that tries to access network endpoints. A bypass list allows the client to make connections directly to the endpoints without going through the proxy. A username and password may be optionally set for a proxy by network admins so that only authenticated clients can use proxy. 
+
+> [!NOTE]
+> Azure Site Recovery doesn't support PAC files as a proxy.
 
 ## Before you start
 

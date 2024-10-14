@@ -1,7 +1,7 @@
 ---
 title: Hadoop stack trace error messages - Azure HDInsight 
 description: Index of Hadoop stack trace error messages in Azure HDInsight. Find the error in the list to see troubleshooting information.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: troubleshooting
 ms.custom: hdinsightactive
 ms.date: 07/12/2024

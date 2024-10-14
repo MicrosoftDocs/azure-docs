@@ -2,7 +2,7 @@
 title: Management and monitoring security features - Microsoft Azure | Microsoft Docs
 description: This article provides an overview of the security features and services that Azure provides to aid in the management and monitoring of Azure cloud services and virtual machines.
 services: security
-author: TerryLanfear
+author: msmbaldwin
 manager: rkarlin
 
 ms.assetid: 5cf2827b-6cd3-434d-9100-d7411f7ed424
@@ -10,7 +10,7 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 06/20/2024
-ms.author: terrylan
+ms.author: mbaldwin
 
 ---
 # Azure security management and monitoring overview
@@ -117,8 +117,8 @@ Defender for Cloud helps you optimize and monitor the security of your Azure res
 
 Learn more:
 
-* [Introduction to Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md)
-* [Improve your secure score in Microsoft Defender for Cloud](../../defender-for-cloud/secure-score-security-controls.md)
+* [Introduction to Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction)
+* [Improve your secure score in Microsoft Defender for Cloud](/azure/defender-for-cloud/secure-score-security-controls)
 
 ## Next Steps
 Learn about the [shared responsibility model](shared-responsibility.md) and which security tasks are handled by Microsoft and which tasks are handled by you.

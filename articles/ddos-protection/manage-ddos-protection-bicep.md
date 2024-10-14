@@ -3,7 +3,7 @@ title: 'QuickStart: Create and configure Azure DDoS Network Protection - Bicep'
 description: Learn how to create and enable an Azure DDoS Protection plan using Bicep.
 services: ddos-protection
 author: AbdullahBell
-ms.service: ddos-protection
+ms.service: azure-ddos-protection
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ms.author: abell

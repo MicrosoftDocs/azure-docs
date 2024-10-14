@@ -3,7 +3,7 @@ title: Grant permissions to users and applications by using CLI and REST API in 
 description: Learn to configure Azure RBAC roles using CLI and REST API for secure access to Azure Health Data Services. See how to make role assignments with detailed scripts and examples. 
 services: healthcare-apis
 author: chachachachami
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.custom: devx-track-azurecli
 ms.topic: tutorial
 ms.date: 06/06/2022

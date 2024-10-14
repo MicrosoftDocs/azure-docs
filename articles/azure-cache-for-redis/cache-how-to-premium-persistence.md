@@ -1,10 +1,10 @@
 ---
 title: Configure data persistence - Premium Azure Cache for Redis
 description: Learn how to configure and manage data persistence your Premium tier Azure Cache for Redis instances
-author: flang-msft
 
-ms.author: franlanglois
-ms.service: cache
+
+
+
 ms.custom: devx-track-azurecli
 ms.topic: conceptual
 ms.date: 04/10/2023
@@ -355,7 +355,9 @@ After a rewrite, two sets of AOF files exist in storage. Rewrites occur in the b
 
 ### Will having firewall exceptions on the storage account affect persistence?
 
-Using managed identity adds the cache instance to the [trusted services list](../storage/common/storage-network-security.md?tabs=azure-portal), making firewall exceptions easier to carry out. If you aren't using managed identity and instead authorizing to a storage account using a key, then having firewall exceptions on the storage account tends to break the persistence process. This only applies to persistence in the Premium tier.
+Yes. Using [firewall settings on the storage account](../storage/common/storage-network-security.md) can prevent the persistence feature from working. You can see if there are errors in persisting data by viewing the [Errors metric](monitor-cache-reference.md#azure-cache-for-redis-metrics). This metric will indicate if the cache is unable to persist data due to firewall restrictions on the storage account or other problems.
+
+In order to use data persistence with a storage account that has a firewall set up, use [managed identity based authentication](cache-managed-identity.md) to connect to storage. Using managed identity adds the cache instance to the [trusted services list](../storage/common/storage-network-security.md?tabs=azure-portal), making firewall exceptions easier to carry out. If you aren't using managed identity and instead authorizing to a storage account using a key, then having firewall exceptions on the storage account tends to break the persistence process. This only applies to persistence in the Premium tier.
 
 ### Can I have AOF persistence enabled if I have more than one replica?
 

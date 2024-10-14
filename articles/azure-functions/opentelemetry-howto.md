@@ -148,6 +148,7 @@ Java worker optimizations aren't yet available for OpenTelemetry, so there's not
     npm install @opentelemetry/api 
     npm install @opentelemetry/auto-instrumentations-node 
     npm install @azure/monitor-opentelemetry-exporter 
+    npm install @azure/functions-opentelemetry-instrumentation
     ```
     ### [OTLP Exporter](#tab/otlp-export) 
 
@@ -155,6 +156,7 @@ Java worker optimizations aren't yet available for OpenTelemetry, so there's not
     npm install @opentelemetry/api 
     npm install @opentelemetry/auto-instrumentations-node 
     npm install @opentelemetry/exporter-logs-otlp-http 
+    npm install @azure/functions-opentelemetry-instrumentation
     ```
     ---
 

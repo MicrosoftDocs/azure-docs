@@ -2,7 +2,7 @@
 title: Quickstart - Create Azure API Management instance - CLI
 description: Use this quickstart to create a new Azure API Management instance by using the Azure CLI.
 author: dlepow
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: quickstart
 ms.custom: mode-api, devx-track-azurecli, devdivchpfy22
 ms.date: 12/11/2023

@@ -112,11 +112,11 @@ ManagedUserName="ManagedUserName"
 
 ## Configure the key vault
 
-You can use a new or existing key vault to store customer-managed keys. The encrypted resource and the key vault can be in different regions or subscriptions in the same Microsoft Entra ID tenant. To learn more about Azure Key Vault, see [Azure Key Vault Overview](../../key-vault/general/overview.md) and [What is Azure Key Vault?](../../key-vault/general/basic-concepts.md).
+You can use a new or existing key vault to store customer-managed keys. The encrypted resource and the key vault can be in different regions or subscriptions in the same Microsoft Entra ID tenant. To learn more about Azure Key Vault, see [Azure Key Vault Overview](/azure/key-vault/general/overview) and [What is Azure Key Vault?](/azure/key-vault/general/basic-concepts).
 
 Using customer-managed keys with encryption requires that both soft delete and purge protection are enabled for the key vault. Soft delete is enabled by default when you create a new key vault and can't be disabled. You can enable purge protection either when you create the key vault or after it's created. Azure Elastic SAN encryption supports RSA keys of sizes 2048, 3072 and 4096.
 
-Azure Key Vault supports authorization with Azure RBAC via an Azure RBAC permission model. Microsoft recommends using the Azure RBAC permission model over key vault access policies. For more information, see [Grant permission to applications to access an Azure key vault using Azure RBAC](../../key-vault/general/rbac-guide.md).
+Azure Key Vault supports authorization with Azure RBAC via an Azure RBAC permission model. Microsoft recommends using the Azure RBAC permission model over key vault access policies. For more information, see [Grant permission to applications to access an Azure key vault using Azure RBAC](/azure/key-vault/general/rbac-guide).
 
 There are two steps involved in preparing a key vault as a store for your volume group KEKs:
 
@@ -162,7 +162,7 @@ $CrptoOfficerRoleArguments = @{
 New-AzRoleAssignment @CrptoOfficerRoleArguments
 ```
 
-To learn how to enable purge protection on an existing key vault with PowerShell, see [Azure Key Vault recovery overview](../../key-vault/general/key-vault-recovery.md?tabs=azure-powershell).
+To learn how to enable purge protection on an existing key vault with PowerShell, see [Azure Key Vault recovery overview](/azure/key-vault/general/key-vault-recovery?tabs=azure-powershell).
 
 For more information on how to assign an RBAC role with PowerShell, see [Assign Azure roles using Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
@@ -175,7 +175,7 @@ To create a new key vault using Azure CLI, call [az keyvault create](/cli/azure/
 az keyvault create --name $KvName --resource-group $RgName --location $Location --enable-purge-protection --retention-days 7
 ```
 
-To learn how to enable purge protection on an existing key vault with Azure CLI, see [Azure Key Vault recovery overview](../../key-vault/general/key-vault-recovery.md?tabs=azure-cli).
+To learn how to enable purge protection on an existing key vault with Azure CLI, see [Azure Key Vault recovery overview](/azure/key-vault/general/key-vault-recovery?tabs=azure-cli).
 
 ---
 
@@ -183,7 +183,7 @@ To learn how to enable purge protection on an existing key vault with Azure CLI,
 
 Next, add a key to the key vault. Before you add the key, make sure that you have assigned to yourself the **Key Vault Crypto Officer** role.
 
-Azure Storage and Elastic SAN encryption support RSA keys of sizes 2048, 3072 and 4096. For more information about supported key types, see [About keys](../../key-vault/keys/about-keys.md).
+Azure Storage and Elastic SAN encryption support RSA keys of sizes 2048, 3072 and 4096. For more information about supported key types, see [About keys](/azure/key-vault/keys/about-keys).
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -225,7 +225,7 @@ az keyvault key create --vault-name $KvName -n $KeyName --protection software
 
 ## Choose a key rotation strategy
 
-Following cryptographic best practices means rotating the key that is protecting your Elastic SAN volume group on a regular schedule, typically at least every two years. Azure Elastic SAN never modifies the key in the key vault, but you can configure a key rotation policy to rotate the key according to your compliance requirements. For more information, see [Configure cryptographic key auto-rotation in Azure Key Vault](../../key-vault/keys/how-to-configure-key-rotation.md).
+Following cryptographic best practices means rotating the key that is protecting your Elastic SAN volume group on a regular schedule, typically at least every two years. Azure Elastic SAN never modifies the key in the key vault, but you can configure a key rotation policy to rotate the key according to your compliance requirements. For more information, see [Configure cryptographic key auto-rotation in Azure Key Vault](/azure/key-vault/keys/how-to-configure-key-rotation).
 
 After the key is rotated in the key vault, the encryption configuration for your Elastic SAN volume group must be updated to use the new key version. Customer-managed keys support both automatic and manual updating of the KEK version. Decide which approach you want to use before you configure customer-managed keys for a new or existing volume group.
 

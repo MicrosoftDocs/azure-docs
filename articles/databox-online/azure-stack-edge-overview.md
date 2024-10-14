@@ -4,8 +4,7 @@ description: Describes Azure Stack Edge Pro FPGA, a storage solution that uses a
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: overview
 ms.date: 07/01/2021
 ms.author: alkohli
@@ -26,7 +25,7 @@ Azure Data Box Edge is rebranded as Azure Stack Edge.
 Here are the various scenarios where Azure Stack Edge Pro FPGA can be used for rapid Machine Learning (ML) inferencing at the edge and preprocessing data before sending it to Azure.
 
 - **Inference with Azure Machine Learning** - With Azure Stack Edge Pro FPGA, you can run ML models to get quick results that can be acted on before the data is sent to the cloud. The full data set can optionally be transferred to continue to retrain and improve your ML models. For more information on how to use the Azure ML hardware accelerated models on the Azure Stack Edge Pro FPGA device, see 
-[Deploy Azure ML hardware accelerated models on Azure Stack Edge Pro FPGA](../machine-learning/how-to-deploy-fpga-web-service.md#deploy-to-a-local-edge-server).
+[Deploy Azure ML hardware accelerated models on Azure Stack Edge Pro FPGA](/azure/machine-learning/how-to-deploy-fpga-web-service#deploy-to-a-local-edge-server).
 
 - **Preprocess data** - Transform data before sending it to Azure to create a more actionable dataset. Preprocessing can be used to: 
 

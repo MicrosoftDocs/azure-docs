@@ -6,7 +6,7 @@ summary: Learn how to use ExpressRoute to set up a fast, private connection to M
 metadata:
   title: ExpressRoute documentation 
   description: Learn about ExpressRoute
-  ms.service: expressroute 
+  ms.service: azure-expressroute
   ms.topic: landing-page 
   author: duongau 
   ms.author: duau 

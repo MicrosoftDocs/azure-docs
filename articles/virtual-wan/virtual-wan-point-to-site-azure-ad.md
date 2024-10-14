@@ -5,10 +5,12 @@ description: Learn how to configure Microsoft Entra authentication for Virtual W
 services: virtual-wan
 author: cherylmc
 
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: how-to
-ms.date: 11/21/2023
+ms.date: 09/24/2024
 ms.author: cherylmc 
+
+#Audience ID values are not sensitive data.
 
 ---
 # Create a P2S User VPN connection using Azure Virtual WAN - Microsoft Entra authentication
@@ -68,14 +70,14 @@ A User VPN configuration defines the parameters for connecting remote clients. I
 
     Toggle **Microsoft Entra ID** to **Yes** and supply the following values based on your tenant details. You can view the necessary values on the Microsoft Entra ID page for Enterprise applications in the portal.
    * **Authentication method** - Select Microsoft Entra ID.
-   * **Audience** - Type in the Application ID of the [Azure VPN](openvpn-azure-ad-tenant.md) Enterprise Application registered in your Microsoft Entra tenant.
+   * **Audience** - Type the Application ID of the Azure VPN Client Enterprise Application registered in your Microsoft Entra tenant. For values, see: [Azure VPN Client Audience values](openvpn-azure-ad-tenant.md)
    * **Issuer** - `https://sts.windows.net/<your Directory ID>/`
-   * **Microsoft Entra tenant:** TenantID for the Microsoft Entra tenant. Make sure there is no `/` at the end of the Microsoft Entra tenant URL. 
+   * **Microsoft Entra tenant:** TenantID for the Microsoft Entra tenant. Make sure there is no `/` at the end of the Microsoft Entra tenant URL.
 
-     * Enter `https://login.microsoftonline.com/{AzureAD TenantID}` for Azure Public AD
-     * Enter `https://login.microsoftonline.us/{AzureAD TenantID}` for Azure Government AD
-     * Enter `https://login-us.microsoftonline.de/{AzureAD TenantID}` for Azure Germany AD
-     * Enter `https://login.chinacloudapi.cn/{AzureAD TenantID}` for China 21Vianet AD
+     * Enter `https://login.microsoftonline.com/<your Directory Tenant ID>` for Azure Public AD
+     * Enter `https://login.microsoftonline.us/<your Directory Tenant ID>` for Azure Government AD
+     * Enter `https://login-us.microsoftonline.de/<your Directory Tenant ID>` for Azure Germany AD
+     * Enter `https://login.chinacloudapi.cn/<your Directory Tenant ID>` for China 21Vianet AD
 
 1. Click **Create** to create the User VPN configuration. You'll select this configuration later in the exercise.
 

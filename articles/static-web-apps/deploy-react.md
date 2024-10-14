@@ -3,7 +3,7 @@ title: 'Deploy a React app on Azure Static Web Apps'
 description: Learn to deploy a React app to Azure Static Web Apps with the Azure portal.
 services: static-web-apps
 author: craigshoemaker
-ms.service: static-web-apps
+ms.service: azure-static-web-apps
 ms.topic:  how-to
 ms.date: 05/23/2024
 ms.author: cshoe

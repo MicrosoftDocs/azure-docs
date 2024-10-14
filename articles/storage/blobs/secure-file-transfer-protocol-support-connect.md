@@ -73,7 +73,7 @@ After the transfer is complete, you can view and manage the file in the Azure po
 > ![Screenshot of the uploaded file appearing in storage account.](./media/secure-file-transfer-protocol-support-connect/uploaded-file-in-storage-account.png)
 
 > [!NOTE]
-> The Azure portal uses the Blob REST API and Data Lake Storage Gen2 REST API. Being able to interact with an uploaded file in the Azure portal demonstrates the interoperability between SFTP and REST.
+> The Azure portal uses the Blob REST API and Data Lake Storage REST API. Being able to interact with an uploaded file in the Azure portal demonstrates the interoperability between SFTP and REST.
 
 See the documentation of your SFTP client for guidance about how to connect and transfer files.
 

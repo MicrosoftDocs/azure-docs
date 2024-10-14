@@ -3,7 +3,7 @@ title: Scaling in Azure Container Apps
 description: Learn how applications scale in and out in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: conceptual
 ms.date: 12/08/2022

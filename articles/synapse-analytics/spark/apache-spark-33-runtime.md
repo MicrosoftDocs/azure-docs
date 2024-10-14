@@ -4,7 +4,7 @@ description: New runtime is GA and ready for production workloads. Spark 3.3.1, 
 author: ekote
 ms.author: eskot
 ms.reviewer: whhender, whhender
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: reference
 ms.subservice: spark
 ms.date: 11/17/2022
@@ -16,11 +16,11 @@ ms.custom: has-adal-ref, devx-track-python
 Azure Synapse Analytics supports multiple runtimes for Apache Spark. This document covers the runtime components and versions for the Azure Synapse Runtime for Apache Spark 3.3. 
 
 > [!Warning]
-> End of support announced for Azure Synapse Runtime for Apache Spark 3.3 July 12th, 2024.
->
-> We strongly recommend you upgrade your Apache Spark 3.3 based workloads to [Azure Synapse Runtime for Apache Spark 3.4 (GA)](./apache-spark-34-runtime.md).
-> For up-to-date information, a detailed list of changes, and specific release notes for Spark runtimes, check and subscribe to [Spark Runtimes Releases and Updates](https://github.com/microsoft/synapse-spark-runtime).
-
+> End of support notification for Azure Synapse Runtime for Apache Spark 3.3 
+> * On July 12th, 2024, end of support was announced for Azure Synapse Runtime for Apache Spark 3.3.
+> * Effective March 31, 2025, Azure Synapse will discontinue official support for Spark 3.3 Runtimes.
+> * **We strongly recommend you upgrade your Apache Spark 3.3 based workloads to [Azure Synapse Runtime for Apache Spark 3.4 (GA)](./apache-spark-34-runtime.md).**
+> * For up-to-date information, a detailed list of changes, and specific release notes for Spark runtimes, check and subscribe to [Spark Runtimes Releases and Updates](https://github.com/microsoft/synapse-spark-runtime).
 ## Component versions
 |  Component   | Version      |  
 | ----- |--------------|

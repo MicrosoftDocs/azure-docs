@@ -300,7 +300,7 @@ The following errors occur when VMware snapshot-related operations – create, d
 
 ### Error Message: An internal error occurred. [Another task is already in progress]
 
-This issue occurs when there are conflicting virtual machine tasks running in the background, or when a task within the vCenter Server times out. Follow the resolution provided in the following [VMware KB](https://go.microsoft.com/fwlink/?linkid=2138891).
+This issue occurs when there are conflicting virtual machine tasks running in the background, or when a task within the vCenter Server times out.
 
 ### Error Message: An internal error occurred. [Operation not allowed in current state]
 

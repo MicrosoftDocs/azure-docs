@@ -7,7 +7,7 @@ ms.author: sipa
 ms.date: 11/18/2021
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: ios-sdk
 ---
 
 # Data-driven style expressions in the iOS SDK (Preview)

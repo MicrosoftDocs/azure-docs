@@ -3,7 +3,7 @@
  description: include file
  services: load-balancer
  author: mbender-ms
- ms.service: load-balancer
+ ms.service: azure-load-balancer
  ms.topic: include
  ms.date: 11/29/2023
  ms.author: mbender

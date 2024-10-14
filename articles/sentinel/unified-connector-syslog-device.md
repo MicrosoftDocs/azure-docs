@@ -6,6 +6,10 @@ ms.author: cwatson
 ms.topic: reference
 ms.custom: linux-related-content
 ms.date: 06/27/2024
+
+
+#Customer intent: As a security administrator, I want to configure various security appliances and devices to forward logs via Syslog to Microsoft Sentinel so that I can ensure comprehensive security event monitoring and analysis.
+
 ---
 
 # Syslog via AMA data connector - Configure specific appliance or device for Microsoft Sentinel data ingestion
@@ -62,7 +66,7 @@ This data connector was developed using Cisco Stealthwatch version 7.3.2
 > [!NOTE]
 > The functionality of this data connector is reliant on a Kusto Function-based parser, which is integral to its operation. This parser is deployed  as part of the solution installation.
 >
-> Update the parser and specify the hostname of the source machines transmitting the logs in the parser's second line.
+> Update the parser and specify the hostname of the source machines transmitting the logs in the parser's first line.
 >
 > To access the function code within Log Analytics, navigate to the Log Analytics/Microsoft Sentinel Logs section, select Functions, and search for the alias **CiscoUCS**. Alternatively, directly load the [function code](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Cisco%20UCS/Parsers/CiscoUCS.txt). It might take about 15-minutes post-installation to update.
 
@@ -240,7 +244,7 @@ Complete the following steps.
 > [!NOTE]
 > The functionality of this data connector is reliant on a Kusto Function-based parser, which is integral to its operation. This parser is deployed  as part of the solution installation.
 >
-> Update the parser and specify the hostname of the source machines transmitting the logs in the parser's second line.
+> Update the parser and specify the hostname of the source machines transmitting the logs in the parser's first line.
 > 
 > To access the function code within Log Analytics, navigate to the Log Analytics/Microsoft Sentinel Logs section, select Functions, and search for the alias **PulseConnectSecure**. Alternatively, directly load the [function code](https://aka.ms/sentinel-PulseConnectSecure-parser). It might take about 15 minutes post-installation to update.
 
@@ -252,7 +256,7 @@ Complete the following steps to get RSA® SecurID Authentication Manager logs in
 > [!NOTE]
 > The functionality of this data connector is reliant on a Kusto Function-based parser, which is integral to its operation. This parser is deployed  as part of the solution installation.
 >
-> Update the parser and specify the hostname of the source machines transmitting the logs in the parser's second line.
+> Update the parser and specify the hostname of the source machines transmitting the logs in the parser's first line.
 >
 > To access the function code within Log Analytics, navigate to the Log Analytics/Microsoft Sentinel Logs section, select Functions, and search for the alias **RSASecurIDAMEvent**. Alternatively, you can directly load the [function code](https://aka.ms/sentinel-rsasecuridam-parser). It might take about 15 minutes post-installation to update.
 
@@ -266,7 +270,7 @@ This data connector was developed using RSA SecurID Authentication Manager versi
 > [!NOTE]
 > The functionality of this data connector is reliant on a Kusto Function-based parser, which is integral to its operation. This parser is deployed  as part of the solution installation.
 >
-> Update the parser and specify the hostname of the source machines transmitting the logs in the parser's second line. 
+> Update the parser and specify the hostname of the source machines transmitting the logs in the parser's first line. 
 > To access the function code within Log Analytics, navigate to the Log Analytics/Microsoft Sentinel Logs section, select Functions, and search for the alias **SophosXGFirewall**. Alternatively, directly load the [function code](https://aka.ms/sentinel-SophosXG-parser). It might take about 15 minutes post-installation to update.
 
 
@@ -278,7 +282,7 @@ This data connector was developed using RSA SecurID Authentication Manager versi
 > [!NOTE]
 > The functionality of this data connector is reliant on a Kusto Function-based parser, which is integral to its operation. This parser is deployed  as part of the solution installation.
 >
-> Update the parser and specify the hostname of the source machines transmitting the logs in the parser's second line. 
+> Update the parser and specify the hostname of the source machines transmitting the logs in the parser's first line. 
 > To access the function code within Log Analytics, navigate to the Log Analytics/Microsoft Sentinel Logs section, select Functions, and search for the alias **SymantecEndpointProtection**. Alternatively, you can directly load the [function code](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/Symantec%20Endpoint%20Protection/Parsers/SymantecEndpointProtection.yaml). It might take about 15 minutes post-installation to update.
 
 ## Symantec ProxySG
@@ -298,7 +302,7 @@ This data connector was developed using RSA SecurID Authentication Manager versi
 > [!NOTE]
 > The functionality of this data connector is reliant on a Kusto Function-based parser, which is integral to its operation. This parser is deployed  as part of the solution installation.
 >
-> Update the parser and specify the hostname of the source machines transmitting the logs in the parser's second line.
+> Update the parser and specify the hostname of the source machines transmitting the logs in the parser's first line.
 > 
 > To access the function code within Log Analytics, navigate to the Log Analytics/Microsoft Sentinel Logs section, select Functions, and search for the alias **SymantecProxySG**. Alternatively, directly load the [function code](https://aka.ms/sentinel-SymantecProxySG-parser). It might take about 15 minutes post-installation to update.
 
@@ -309,7 +313,7 @@ This data connector was developed using RSA SecurID Authentication Manager versi
 > [!NOTE]
 > The functionality of this data connector is reliant on a Kusto Function-based parser, which is integral to its operation. This parser is deployed  as part of the solution installation.
 >
-> Update the parser and specify the hostname of the source machines transmitting the logs in the parser's second line. 
+> Update the parser and specify the hostname of the source machines transmitting the logs in the parser's first line. 
 >
 > To access the function code within Log Analytics, navigate to the Log Analytics/Microsoft Sentinel Logs section, select Functions, and search for the alias **SymantecVIP**. Alternatively, directly load the [function code](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Symantec%20VIP/Parsers/SymantecVIP.txt). It might take about 15 minutes post-installation to update.
 
@@ -325,7 +329,7 @@ This data connector was developed using RSA SecurID Authentication Manager versi
 > [!NOTE]
 > The functionality of this data connector is reliant on a Kusto Function-based parser, which is integral to its operation. This parser is deployed  as part of the solution installation.
 >
-> Update the parser and specify the hostname of the source machines transmitting the logs in the parser's second line.
+> Update the parser and specify the hostname of the source machines transmitting the logs in the parser's first line.
 >
 > To access the function code within Log Analytics, navigate to the Log Analytics/Microsoft Sentinel Logs section, select Functions, and search for the alias VMwareESXi. Alternatively, directly load the [function code](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/VMWareESXi/Parsers/VMwareESXi.yaml). It might take about 15 minutes post-installation to update.
 

@@ -179,7 +179,7 @@ The same problem can occur if you're resizing VMs. If you try to move a VM out o
 
 ### Virtual machine scale sets with flexible orchestration
 
-[Virtual machine scale sets](../../virtual-machine-scale-sets/overview.md) with flexible orchestration provide a logical grouping of platform-managed virtual machines. You have an option to create scale set within region or span it across availability zones. On creating, the flexible scale set within a region with platformFaultDomainCount>1 (FD>1), the VMs deployed in the scale set would be distributed across specified number of fault domains in the same region. On the other hand, creating the flexible scale set across availability zones with platformFaultDomainCount=1 (FD=1) would distribute VMs across specified zone and the scale set would also distribute VMs across different fault domains within the zone on a best effort basis.
+[Virtual machine scale sets](/azure/virtual-machine-scale-sets/overview) with flexible orchestration provide a logical grouping of platform-managed virtual machines. You have an option to create scale set within region or span it across availability zones. On creating, the flexible scale set within a region with platformFaultDomainCount>1 (FD>1), the VMs deployed in the scale set would be distributed across specified number of fault domains in the same region. On the other hand, creating the flexible scale set across availability zones with platformFaultDomainCount=1 (FD=1) would distribute VMs across specified zone and the scale set would also distribute VMs across different fault domains within the zone on a best effort basis.
 
 **For SAP workload only flexible scale set with FD=1 is supported.** The advantage of using flexible scale sets with FD=1 for cross zonal deployment, instead of traditional availability zone deployment is that the VMs deployed with the scale set would be distributed across different fault domains within the zone in a best-effort manner. To learn more about SAP workload deployment with scale set, see [flexible virtual machine scale deployment guide](sap-high-availability-architecture-scenarios.md).
 
@@ -351,16 +351,16 @@ To learn about the pricing and flexibility of one-year and three-year savings pl
 
 - [What are Azure savings plans for compute?](../../cost-management-billing/savings-plan/savings-plan-compute-overview.md)
 - [What are Azure Reservations?](../../cost-management-billing/reservations/save-compute-costs-reservations.md)
-- [Virtual machine size flexibility with Reserved VM Instances](../../virtual-machines/reserved-vm-instance-size-flexibility.md)
+- [Virtual machine size flexibility with Reserved VM Instances](/azure/virtual-machines/reserved-vm-instance-size-flexibility)
 - [How the Azure reservation discount is applied to virtual machines](../../cost-management-billing/manage/understand-vm-reservation-charges.md)
 
 For more information about spot pricing, see [Azure Spot Virtual Machines](https://azure.microsoft.com/pricing/spot/).
 
 Pricing for the same VM type might vary between Azure regions. Some customers benefit from deploying to a less expensive Azure region, so information about pricing by region can be helpful as you plan.
 
-Azure also offers the option to use a dedicated host. Using a dedicated host gives you more control of patching cycles for Azure services. You can schedule patching to support your own schedule and cycles. This offer is specifically for customers who have a workload that doesn't follow the normal cycle of a workload. For more information, see [Azure dedicated hosts](../../virtual-machines/dedicated-hosts.md).
+Azure also offers the option to use a dedicated host. Using a dedicated host gives you more control of patching cycles for Azure services. You can schedule patching to support your own schedule and cycles. This offer is specifically for customers who have a workload that doesn't follow the normal cycle of a workload. For more information, see [Azure dedicated hosts](/azure/virtual-machines/dedicated-hosts).
 
-Using an Azure dedicated host is supported for an SAP workload. Several SAP customers who want to have more control over infrastructure patching and maintenance plans use Azure dedicated hosts. For more information about how Microsoft maintains and patches the Azure infrastructure that hosts VMs, see [Maintenance for virtual machines in Azure](../../virtual-machines/maintenance-and-updates.md).
+Using an Azure dedicated host is supported for an SAP workload. Several SAP customers who want to have more control over infrastructure patching and maintenance plans use Azure dedicated hosts. For more information about how Microsoft maintains and patches the Azure infrastructure that hosts VMs, see [Maintenance for virtual machines in Azure](/azure/virtual-machines/maintenance-and-updates).
 
 ### Operating system for VMs
 
@@ -376,7 +376,7 @@ Plan for an operating system update infrastructure and its dependencies for your
 
 ### Generation 1 and generation 2 VMs
 
-In Azure, you can deploy a VM as either generation 1 or generation 2. [Support for generation 2 VMs in Azure](../../virtual-machines/generation-2.md) lists the Azure VM families that you can deploy as generation 2. The article also lists functional differences between generation 1 and generation 2 VMs in Azure.
+In Azure, you can deploy a VM as either generation 1 or generation 2. [Support for generation 2 VMs in Azure](/azure/virtual-machines/generation-2) lists the Azure VM families that you can deploy as generation 2. The article also lists functional differences between generation 1 and generation 2 VMs in Azure.
 
 When you deploy a VM, the operating system image that you choose determines whether the VM will be a generation 1 or a generation 2 VM. The latest versions of all operating system images for SAP that are available in Azure (Red Hat Enterprise Linux, SuSE Enterprise Linux, and Windows or Oracle Enterprise Linux) are available in both generation 1 and generation 2. It's important to carefully select an image based on the image description to deploy the correct generation of VM. Similarly, you can create custom operating system images as generation 1 or generation 2, and they affect the VM's generation when the VM is deployment.  
 
@@ -387,7 +387,7 @@ When you deploy a VM, the operating system image that you choose determines whet
 
 Changing a deployed VM from generation 1 to generation 2 isn't possible in Azure. To change the VM generation, you must deploy a new VM that is the generation that you want and reinstall your software on the new generation of VM. This change affects only the base VHD image of the VM and has no impact on the data disks or attached Network File System (NFS) or Server Message Block (SMB) shares. Data disks, NFS shares, or SMB shares that originally were assigned to a generation 1 VM can be attached to a new generation 2 VM.
 
-Some VM families, like the [Mv2-series](../../virtual-machines/mv2-series.md), support only generation 2. The same requirement might be true for new VM families in the future. In that scenario, an existing generation 1 VM can't be resized to work with the new VM family. In addition to the Azure platform's generation 2 requirements, your SAP components might have requirements that are related to a VM's generation. To learn about any generation 2 requirements for the VM family you choose, see SAP Note [1928533].
+Some VM families, like the [Mv2-series](/azure/virtual-machines/mv2-series), support only generation 2. The same requirement might be true for new VM families in the future. In that scenario, an existing generation 1 VM can't be resized to work with the new VM family. In addition to the Azure platform's generation 2 requirements, your SAP components might have requirements that are related to a VM's generation. To learn about any generation 2 requirements for the VM family you choose, see SAP Note [1928533].
 
 ### Performance limits for Azure VMs
 
@@ -522,7 +522,7 @@ Encryption on the SAP level can be separated into two layers:
 - DBMS encryption
 - Transport encryption
 
-For DBMS encryption, each database that's supported for an SAP NetWeaver or an SAP S/4HANA deployment supports native encryption. Transparent database encryption is entirely independent of any infrastructure encryption that's in place in Azure. You can use [SSE](../../virtual-machines/disk-encryption.md) and database encryption at the same time. When you use encryption, the location, storage, and safekeeping of encryption keys is critically important. Any loss of encryption keys leads to data loss because you won't be able to start or recover your database.
+For DBMS encryption, each database that's supported for an SAP NetWeaver or an SAP S/4HANA deployment supports native encryption. Transparent database encryption is entirely independent of any infrastructure encryption that's in place in Azure. You can use [SSE](/azure/virtual-machines/disk-encryption) and database encryption at the same time. When you use encryption, the location, storage, and safekeeping of encryption keys is critically important. Any loss of encryption keys leads to data loss because you won't be able to start or recover your database.
 
 Some databases might not have a database encryption method or might not require a dedicated setting to enable. For other databases, DBMS backups might be encrypted implicitly when database encryption is activated. See the following SAP documentation to learn how to enable and use transparent database encryption:
 

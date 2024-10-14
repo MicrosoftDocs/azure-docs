@@ -1,7 +1,7 @@
 ---
 author: duongau
 ms.date: 07/16/2024
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: include
 ms.author: duau
 ---

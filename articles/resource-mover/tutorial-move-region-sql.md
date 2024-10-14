@@ -2,7 +2,7 @@
 title: Move Azure SQL resources between regions with Azure Resource Mover
 description: Learn how to move Azure SQL resources to another region with Azure Resource Mover
 author: ankitaduttaMSFT
-ms.service: resource-mover
+ms.service: azure-resource-mover
 ms.topic: tutorial
 ms.date: 03/29/2024
 ms.author: ankitadutta
@@ -42,7 +42,7 @@ To check the SQL requirements before the move:
 
 1. [Check](support-matrix-move-region-sql.md) which database/elastic pool features are supported for moving to another region.
 2. In the target region, create a target server for each source server and ensure proper user access. [Learn more about how to configure logins and users](/azure/azure-sql/database/active-geo-replication-security-configure#how-to-configure-logins-and-users).
-4. Check if the databases are encrypted with transparent data encryption (TDE). If databases are encrypted with transparent data encryption and you use your own encryption key in Azure Key Vault, [learn how to move key vaults to another region](../key-vault/general/move-region.md).
+4. Check if the databases are encrypted with transparent data encryption (TDE). If databases are encrypted with transparent data encryption and you use your own encryption key in Azure Key Vault, [learn how to move key vaults to another region](/azure/key-vault/general/move-region).
 5. If SQL data sync is enabled, moving the member databases is supported. After the move, you need to set up SQL data sync to the new target database.
 6. Remove advanced data security settings before the move. After the move, [configure the settings](/azure/azure-sql/database/azure-defender-for-sql) at the SQL Server level in the target region.
 7. If auditing is enabled, the policies reset to default after the move. [Set up auditing](/azure/azure-sql/database/auditing-overview) again after moving.

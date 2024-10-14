@@ -314,9 +314,9 @@ Microsoft and Red Hat are responsible for enabling changes to the cluster infras
 
 <li>Set up public cloud load balancers
 
-<li>Set up native OpenShift router service. Provide the ability to set the router as private and add up to one additional router shard.
+<li>Set up the OpenShift Ingress cluster operator and the default IngressController. Provide the ability to add additional customer-managed IngressControllers and set the default IngressController as private.
 
-<li>Install, configure, and maintain OpenShift SDN components for default internal pod traffic.
+<li>Install, configure, and maintain the OVN-Kubernetes network plugin and related components for default internal pod traffic.
 </li>
 </ul>
    </td>

@@ -111,7 +111,8 @@ Hash value is:
 
 **Hash** |  **Value**
 --- | ---
-SHA256 | [!INCLUDE [security-hash-value.md](includes/security-hash-value.md)]
+SHA256 | [!INCLUDE [hyper-v-vhd.md](includes/hyper-v-vhd.md)] 
+
 
 ### Create an account to access servers
 

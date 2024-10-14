@@ -3,7 +3,7 @@ title: 'Deploy a Vue app on Azure Static Web Apps'
 description: Learn to deploy a Vue app to Azure Static Web Apps with the Azure portal.
 services: static-web-apps
 author: craigshoemaker
-ms.service: static-web-apps
+ms.service: azure-static-web-apps
 ms.topic:  how-to
 ms.date: 08/02/2023
 ms.author: cshoe

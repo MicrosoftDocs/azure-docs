@@ -6,12 +6,12 @@ description: Learn how to enable event logs in Application Insights from Azure A
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: azure-active-directory
 ms.topic: how-to
 
 ms.date: 01/26/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
 
 
@@ -31,7 +31,7 @@ zone_pivot_groups: b2c-policy-type
 
 ::: zone pivot="b2c-custom-policy"
 
-In Azure Active Directory B2C (Azure AD B2C), you can send event data directly to [Application Insights](../azure-monitor/app/app-insights-overview.md) by using the instrumentation key provided to Azure AD B2C. With an Application Insights technical profile, you can get detailed and customized event logs for your user journeys to:
+In Azure Active Directory B2C (Azure AD B2C), you can send event data directly to [Application Insights](/azure/azure-monitor/app/app-insights-overview) by using the instrumentation key provided to Azure AD B2C. With an Application Insights technical profile, you can get detailed and customized event logs for your user journeys to:
 
 - Gain insights on user behavior.
 - Troubleshoot your own policies in development or in production.
@@ -334,6 +334,6 @@ To disable Application Insights logs, change the `DisableTelemetry` metadata to 
 
 ## Next steps
 
-Learn how to [create custom KPI dashboards using Azure Application Insights](../azure-monitor/app/overview-dashboard.md#create-custom-kpi-dashboards-using-application-insights).
+Learn how to [create custom KPI dashboards using Azure Application Insights](/azure/azure-monitor/app/overview-dashboard#create-custom-kpi-dashboards-using-application-insights).
 
 ::: zone-end

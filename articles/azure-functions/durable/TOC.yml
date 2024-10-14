@@ -39,8 +39,8 @@
     href: quickstart-netherite.md
   - name: Configure a storage provider - MSSQL
     href: quickstart-mssql.md
-  - name: Authenticate a Durable Functions app
-    href: durable-functions-configure-durable-functions-with-credentials.md   
+  - name: Configure Durable Functions app with managed identity
+    href: durable-functions-configure-managed-identity.md   
 - name: Tutorials
   items:
   - name: Function chaining

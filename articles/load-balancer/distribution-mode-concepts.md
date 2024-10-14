@@ -3,9 +3,9 @@ title: Azure Load Balancer distribution modes
 description: Get started learning about the different distribution modes of Azure Load Balancer.
 author: mbender-ms
 ms.author: mbender
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: conceptual 
-ms.date: 06/26/2024
+ms.date: 09/25/2024
 ms.custom: template-concept 
 #Customer intent: As a administrator, I want to learn about the different distribution modes of Azure Load Balancer so that I can configure the distribution mode for my application.
 ---
@@ -35,11 +35,10 @@ The five-tuple consists of:
 * **Protocol type**
 
 The hash is used to route traffic to healthy backend instances within the backend pool. The algorithm provides stickiness only within a transport session. When the client starts a new session from the same source IP, the source port changes and causes the traffic to go to a different backend instance.
+
 In order to configure hash based distribution, you must select session persistence to be **None** in the Azure portal. This specifies that successive requests from the same client can be handled by any virtual machine.
 
-![Hash-based distribution](./media/load-balancer-overview/load-balancer-distribution.png)
-
-*Figure: Default five-tuple hash based distribution*
+:::image type="content" source="media/load-balancer-overview/load-balancer-distribution.png" alt-text="Diagram illustrating the default five-tuple hash based distribution mode with virtual machines.":::
 
 
 ## Session persistence 

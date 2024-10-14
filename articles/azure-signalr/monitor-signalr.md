@@ -6,7 +6,7 @@ ms.custom: horz-monitor
 ms.topic: conceptual
 author: vicancy
 ms.author: lianwei
-ms.service: signalr
+ms.service: azure-signalr-service
 ---
 
 # Monitor Azure SignalR Service

@@ -1,14 +1,17 @@
 ---
 title: Configure fault-tolerance
 description: Learn how to configure fault-tolerance in Trino with HDInsight on AKS.
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to 
-ms.date: 10/19/2023
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Fault-tolerant execution
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 Trino supports [fault-tolerant execution](https://trino.io/docs/current/admin/fault-tolerant-execution.html) to mitigate query failures and increase resilience.
 This article describes how you can enable fault tolerance for your Trino cluster with HDInsight on AKS.

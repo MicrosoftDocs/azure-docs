@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Prerequisites for Azure AI services in Azure Synapse Analytics'
 description: Learn how to configure the prerequisites for using Azure AI services in Azure Synapse.
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: machine-learning
 ms.topic: quickstart
 ms.reviewer: whhender, garye
@@ -34,7 +34,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create an Azure AI services resource
 
-[Azure AI services](../../ai-services/index.yml) includes many types of services. Follow services are examples used in the Azure Synapse tutorials.
+[Azure AI services](/azure/ai-services/) includes many types of services. Follow services are examples used in the Azure Synapse tutorials.
 
 You can create a [Text Analytics](https://portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) resource in the Azure portal:
 

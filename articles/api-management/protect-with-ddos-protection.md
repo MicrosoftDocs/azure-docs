@@ -4,7 +4,7 @@ description: Learn how to protect your API Management instance in an external vi
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 01/24/2023
 ms.author: danlep

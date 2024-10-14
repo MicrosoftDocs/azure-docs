@@ -30,7 +30,7 @@ az aks update -n <cluster-name> -g <resource-group> --enable-azure-container-sto
 
 If you try to install Azure Container Storage with Ephemeral Disk, specifically with local NVMe on a cluster where the virtual machine (VM) SKU doesn't have NVMe drives, you get the following error message: *Cannot set --storage-pool-option as NVMe as none of the node pools can support ephemeral NVMe disk*.
 
-To remediate, create a node pool with a VM SKU that has NVMe drives and try again. See [storage optimized VMs](../../virtual-machines/sizes-storage.md).
+To remediate, create a node pool with a VM SKU that has NVMe drives and try again. See [storage optimized VMs](/azure/virtual-machines/sizes-storage).
 
 ## Troubleshoot storage pool issues
 
@@ -52,7 +52,7 @@ If you're trying to create an Elastic SAN storage pool, you might see the messag
 
 If you see this message, you're likely trying to create an Ephemeral Disk storage pool on a cluster where the VM SKU doesn't have NVMe drives.
 
-To remediate, create a node pool with a VM SKU that has NVMe drives and try again. See [storage optimized VMs](../../virtual-machines/sizes-storage.md).
+To remediate, create a node pool with a VM SKU that has NVMe drives and try again. See [storage optimized VMs](/azure/virtual-machines/sizes-storage).
 
 ### Storage pool type already enabled
 

@@ -4,7 +4,7 @@ description: Tips for securing a dedicated SQL pool (formerly SQL DW) and develo
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.date: 04/17/2018
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 ---

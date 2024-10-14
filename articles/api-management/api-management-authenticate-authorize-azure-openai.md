@@ -3,7 +3,7 @@ title: Authenticate to Azure OpenAI API - Azure API Management
 titleSuffix: Azure API Management
 description: Options to authenticate and authorize to Azure OpenAI APIs using Azure API Management. Includes API key, managed identity, and OAuth 2.0 authorization.
 author: dlepow
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
 ms.date: 02/20/2024
 ms.author: danlep
@@ -79,13 +79,13 @@ In this example, the named value in API Management is *openai-api-key*.
 ## Authenticate with managed identity
 
 An alternative way to authenticate to an Azure OpenAI API by using a managed identity in Microsoft Entra ID. For background, see
-[How to configure Azure OpenAI Service with managed identity](../ai-services/openai/how-to/managed-identity.md).
+[How to configure Azure OpenAI Service with managed identity](/azure/ai-services/openai/how-to/managed-identity).
 
 Following are steps to configure your API Management instance to use a managed identity to authenticate requests to an Azure OpenAI API. 
 
 1. [Enable](api-management-howto-use-managed-service-identity.md) a system-assigned or user-assigned managed identity for your API Management instance. The following example assumes that you've enabled the instance's system-assigned managed identity.
 
-1. Assign the managed identity the **Cognitive Services OpenAI User** role, scoped to the appropriate resource. For example, assign the system-assigned managed identity the **Cognitive Services OpenAI User** role on the Azure OpenAI resource. For detailed steps, see [Role-based access control for Azure OpenAI service](../ai-services/openai/how-to/role-based-access-control.md).
+1. Assign the managed identity the **Cognitive Services OpenAI User** role, scoped to the appropriate resource. For example, assign the system-assigned managed identity the **Cognitive Services OpenAI User** role on the Azure OpenAI resource. For detailed steps, see [Role-based access control for Azure OpenAI service](/azure/ai-services/openai/how-to/role-based-access-control).
 
 1. Add the following policy snippet in the `inbound` policy section to authenticate requests to the Azure OpenAI API using the managed identity. 
 
@@ -160,5 +160,5 @@ Following are high level steps to restrict API access to users or apps that are 
 ## Related content
 
 * Learn more about [Microsoft Entra ID and OAuth2.0](../active-directory/develop/authentication-vs-authorization.md).  
-* [Authenticate requests to Azure AI services](../ai-services/authentication.md)
+* [Authenticate requests to Azure AI services](/azure/ai-services/authentication)
 * [Protect Azure OpenAI keys with API Management](/semantic-kernel/deploy/use-ai-apis-with-api-management?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)

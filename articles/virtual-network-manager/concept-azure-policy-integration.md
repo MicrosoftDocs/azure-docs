@@ -3,7 +3,7 @@ title: "Configuring network groups with Azure Policy in Azure Virtual Network Ma
 description: Learn how to configure network groups with Azure Policy in Azure Virtual Network Manager to create scalable and dynamic virtual network environments. Optimize your network group membership control with policy definitions and assignments.
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network-manager
+ms.service: azure-virtual-network-manager
 ms.topic: concept-article
 ms.date: 06/10/2024
 ms.custom: template-concept, engagement-fy23, seo-fy24

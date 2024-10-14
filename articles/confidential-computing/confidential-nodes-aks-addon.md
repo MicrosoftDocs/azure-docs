@@ -2,8 +2,8 @@
 title: Azure Kubernetes Service plugin for confidential VMs
 description: How to use the Intel SGX device plugin and Intel SGX quote helper daemon sets for confidential VMs with Azure Kubernetes Service.
 author: angarg05
-ms.service: virtual-machines
-ms.subservice: confidential-computing
+ms.service: azure-virtual-machines
+ms.subservice: azure-confidential-computing
 ms.topic: article
 ms.date: 11/01/2021
 ms.author: ananyagarg
@@ -148,7 +148,7 @@ The deployment should succeed and allow your apps to perform remote attestation 
 
 - [Set up Confidential Nodes (DCsv2/DCsv3-Series) on AKS](./confidential-enclave-nodes-aks-get-started.md)
 - [Quick starter samples for confidential containers](https://github.com/Azure-Samples/confidential-container-samples)
-- [DCsv2 SKU List](../virtual-machines/dcv2-series.md)
-- [DCSv3 SKU List](../virtual-machines/dcv3-series.md)
-- [Azure Attestation](../attestation/index.yml)
+- [DCsv2 SKU List](/azure/virtual-machines/dcv2-series)
+- [DCSv3 SKU List](/azure/virtual-machines/dcv3-series)
+- [Azure Attestation](/azure/attestation/)
 - [Intel SGX Confidential Virtual Machines on Azure](./virtual-machine-solutions-sgx.md)

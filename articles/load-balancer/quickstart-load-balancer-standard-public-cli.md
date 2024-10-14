@@ -3,9 +3,9 @@ title: "Quickstart: Create a public load balancer - Azure CLI"
 titleSuffix: Azure Load Balancer
 description: This quickstart shows how to create a public load balancer using the Azure CLI.
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: quickstart
-ms.date: 09/25/2023
+ms.date: 09/30/2024
 ms.author: mbender
 ms.custom: mvc, devx-track-azurecli, mode-api, template-quickstart, engagement-fy23
 #Customer intent: I want to create a load balancer so that I can load balance internet traffic to VMs.

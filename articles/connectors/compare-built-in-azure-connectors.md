@@ -34,7 +34,7 @@ Authentication considerations for built-in and Azure connectors differ based on 
 
 For an Azure connector to work, your backend service, such as Office 365 or SQL Server, has to allow traffic through the [outbound IP addresses for managed connectors](/connectors/common/outbound-ip-addresses) in the region where you created your logic app.
 
-For a built-in connector to work, your backend service has to allow traffic from the Azure Logic Apps engine instead. You can find the outbound IP addresses for the Azure Logic Apps enine by using the following steps:
+For a built-in connector to work, your backend service has to allow traffic from the Azure Logic Apps engine instead. You can find the outbound IP addresses for the Azure Logic Apps engine by using the following steps:
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 

@@ -9,6 +9,7 @@ ms.author: shamkh
 ms.date: 02/29/2024
 ms.topic: quickstart
 ms.service: azure-communication-services
+ms.subservice: advanced-messaging
 ---
 
 # Quickstart: Try Advanced Messaging for WhatsApp sandbox

@@ -3,7 +3,7 @@ title: Azure Load Balancer components
 description: Overview of Azure Load Balancer components.
 services: load-balancer
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: conceptual
 ms.date: 06/18/2024
 ms.author: mbender
@@ -94,8 +94,6 @@ An inbound NAT rule forwards incoming traffic sent to frontend IP address and po
 :::image type="content" source="./media/load-balancer-components/inboundnatrules.png" alt-text="Inbound NAT rule reference diagram" border="false":::
 
 *Figure: Inbound NAT rules*
-
-Inbound NAT rules in the context of Virtual Machine Scale Sets are inbound NAT pools. Learn more about [Load Balancer components and virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#azure-virtual-machine-scale-sets-with-azure-load-balancer).
 
 ## Outbound rules
 

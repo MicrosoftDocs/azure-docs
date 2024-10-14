@@ -2,7 +2,7 @@
 title: Tutorial - Start your API inventory 
 description: In this tutorial, start the API inventory in your API center by registering APIs using the Azure portal.
 author: dlepow
-ms.service: api-center
+ms.service: azure-api-center
 ms.topic: tutorial
 ms.date: 04/19/2024
 ms.author: danlep 
@@ -139,7 +139,7 @@ In this tutorial, you learned how to use the portal to:
 > * Register one or more APIs
 > * Add an API version with an API definition
 
-As you build out your API inventory, take advantage of automated tools to register APIs, such as the [Azure API Center extension for Visual Studio Code](use-vscode-extension.md) and the [Azure CLI](manage-apis-azure-cli.md).
+As you build out your API inventory, take advantage of automated tools to register APIs, such as the [Azure API Center extension for Visual Studio Code](build-register-apis-vscode-extension.md) and the [Azure CLI](manage-apis-azure-cli.md).
 
 ## Next steps
 

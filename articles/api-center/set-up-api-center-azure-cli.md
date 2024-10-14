@@ -2,7 +2,7 @@
 title: Quickstart - Create your Azure API center - Azure CLI
 description: In this quickstart, use the Azure CLI to set up an API center for API discovery, reuse, and governance. 
 author: dlepow
-ms.service: api-center
+ms.service: azure-api-center
 ms.custom: devx-track-azurecli
 ms.topic: quickstart
 ms.daate: 06/27/2024

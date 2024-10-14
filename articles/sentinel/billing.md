@@ -11,7 +11,10 @@ ms.collection: usx-security
 appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
-#Customer intent: As a SOC manager, plan Microsoft Sentinel costs so I can understand and optimize the costs of my SIEM.
+
+
+#Customer intent: As a SOC manager, I want to understand Microsoft Sentinel's pricing and billing models so that I can optimize costs and accurately forecast expenses.
+
 ---
 
 # Plan costs and understand Microsoft Sentinel pricing and billing
@@ -85,7 +88,7 @@ These two log types are best suited for use in playbook automation, ad-hoc query
 - [Log retention plans in Microsoft Sentinel](log-plans.md)
 - [Log sources to use for Auxiliary Logs ingestion](basic-logs-use-cases.md)
 
-To learn more about the difference between **interactive retention** and **long-term retention** (formerly known as archive), see [Manage data retention in a Log Analytics workspace](../azure-monitor/logs/data-retention-archive.md).
+To learn more about the difference between **interactive retention** and **long-term retention** (formerly known as archive), see [Manage data retention in a Log Analytics workspace](/azure/azure-monitor/logs/data-retention-archive).
 
 > [!IMPORTANT]
 >
@@ -99,7 +102,7 @@ Simplified pricing tiers combine the data analysis costs for Microsoft Sentinel 
 
 Switch any workspace configured with classic pricing tiers to the simplified pricing tiers. For more information on how to **Switch to new pricing**, see [Enroll in a simplified pricing tier](enroll-simplified-pricing-tier.md).
 
-Combining the pricing tiers offers a simplification to the overall billing and cost management experience, including visualization in the pricing page, and fewer steps estimating costs in the Azure calculator. To add further value to the new simplified tiers, the current Microsoft Defender for Servers P2 benefit granting 500 MB of security data ingestion into Log Analytics is extended to the simplified pricing tiers. This change greatly increases the financial benefit of bringing eligible data ingested into Microsoft Sentinel for each virtual machine (VM) protected in this manner. For more information, see [FAQ - Microsoft Defender for Servers P2 benefit granting 500 MB](../defender-for-cloud/faq-defender-for-servers.yml#is-the-500-mb-of-free-data-ingestion-allowance-applied-per-workspace-or-per-machine-).
+Combining the pricing tiers offers a simplification to the overall billing and cost management experience, including visualization in the pricing page, and fewer steps estimating costs in the Azure calculator. To add further value to the new simplified tiers, the current Microsoft Defender for Servers P2 benefit granting 500 MB of security data ingestion into Log Analytics is extended to the simplified pricing tiers. This change greatly increases the financial benefit of bringing eligible data ingested into Microsoft Sentinel for each virtual machine (VM) protected in this manner. For more information, see [FAQ - Microsoft Defender for Servers P2 benefit granting 500 MB](/azure/defender-for-cloud/faq-defender-for-servers#is-the-500-mb-of-free-data-ingestion-allowance-applied-per-workspace-or-per-machine-).
 
 ### Understand your Microsoft Sentinel bill
 
@@ -168,7 +171,7 @@ If you're billed at classic pay-as-you-go rate, this table shows how Microsoft S
 
 # [Free data meters](#tab/free-data-meters/simplified)
 
-This table shows how Microsoft Sentinel and Log Analytics no charge costs appear in the **Service name** and **Meter** columns of your Azure bill for free data services when billing is at a simplified pricing tier. For more information, see [View Data Allocation Benefits](../azure-monitor/cost-usage.md#view-data-allocation-benefits).
+This table shows how Microsoft Sentinel and Log Analytics no charge costs appear in the **Service name** and **Meter** columns of your Azure bill for free data services when billing is at a simplified pricing tier. For more information, see [View Data Allocation Benefits](/azure/azure-monitor/cost-usage#view-data-allocation-benefits).
 
 | Cost description | Service name | Meter |
 |--|--|--|
@@ -178,7 +181,7 @@ This table shows how Microsoft Sentinel and Log Analytics no charge costs appear
 
 # [Free data meters](#tab/free-data-meters/classic)
 
-This table shows how Microsoft Sentinel and Log Analytics no charge costs appear in the **Service name** and **Meter** columns of your Azure bill for free data services when billing is at a classic pricing tier. For more information, see [View Data Allocation Benefits](../azure-monitor/cost-usage.md#view-data-allocation-benefits).
+This table shows how Microsoft Sentinel and Log Analytics no charge costs appear in the **Service name** and **Meter** columns of your Azure bill for free data services when billing is at a classic pricing tier. For more information, see [View Data Allocation Benefits](/azure/azure-monitor/cost-usage#view-data-allocation-benefits).
 
 | Cost description | Service name | Meter |
 |--|--|--|
@@ -209,8 +212,8 @@ Any other services you use might have associated costs.
 After you enable Microsoft Sentinel on a Log Analytics workspace, consider these configuration options: 
 
 - Retain all data ingested into the workspace at no charge for the first 90 days. Retention beyond 90 days is charged per the standard [Log Analytics retention prices](https://azure.microsoft.com/pricing/details/monitor/).
-- Specify different retention settings for individual data types. Learn about [retention by data type](../azure-monitor/logs/data-retention-configure.md#configure-table-level-retention). 
-- Enable long-term retention for your data so you have access to historical logs. Long-term retention is a low-cost retention state for the preservation of data for such things as regulatory compliance. It's charged based on the volume of data stored and scanned. Learn how to [configure interactive and long-term data retention policies in Azure Monitor Logs](../azure-monitor/logs/data-retention-configure.md). 
+- Specify different retention settings for individual data types. Learn about [retention by data type](/azure/azure-monitor/logs/data-retention-configure#configure-table-level-retention). 
+- Enable long-term retention for your data so you have access to historical logs. Long-term retention is a low-cost retention state for the preservation of data for such things as regulatory compliance. It's charged based on the volume of data stored and scanned. Learn how to [configure interactive and long-term data retention policies in Azure Monitor Logs](/azure/azure-monitor/logs/data-retention-configure). 
 - Enroll tables that contain secondary security data in the **Auxiliary logs** plan. This plan allows you to store high-volume, low-value logs at a low price, with a lower-cost 30-day interactive retention period at the beginning to allow for summarization and basic querying. To learn more about the Auxiliary logs plan and other plans, see [Log retention plans in Microsoft Sentinel](log-plans.md).
 
 ## Other CEF ingestion costs
@@ -230,7 +233,6 @@ The following data sources are free with Microsoft Sentinel:
 - Azure Activity Logs
 - Microsoft Sentinel Health 
 - Office 365 Audit Logs, including all SharePoint activity, Exchange admin activity, and Teams
-- Microsoft Entra ID sign-in logs
 - Security alerts, including alerts from the following sources:
   - Microsoft Defender XDR
   - Microsoft Defender for Cloud
@@ -244,7 +246,7 @@ The following data sources are free with Microsoft Sentinel:
 
 Although alerts are free, the raw logs for some Microsoft Defender XDR, Defender for Endpoint/Identity/Office 365/Cloud Apps, Microsoft Entra ID, and Azure Information Protection (AIP) data types are paid.
 
-The following table lists the data sources in Microsoft Sentinel and Log Analytics that aren't charged. For more information, see [excluded tables](../azure-monitor/logs/cost-logs.md#excluded-tables).
+The following table lists the data sources in Microsoft Sentinel and Log Analytics that aren't charged. For more information, see [excluded tables](/azure/azure-monitor/logs/cost-logs#excluded-tables).
 
 | Microsoft Sentinel data connector     | Free data type                          |
 | ------------------------------------- | --------------------------------------- |
@@ -278,7 +280,7 @@ Learn more about how to [connect data sources](connect-data-sources.md), includi
 - Learn more about managing costs with [cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Learn about how to [prevent unexpected costs](../cost-management-billing/understand/analyze-unexpected-charges.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Take the [Cost Management](/training/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guided learning course.
-- For more tips on reducing Log Analytics data volume, see [Azure Monitor best practices - Cost management](../azure-monitor/best-practices-cost.md).
+- For more tips on reducing Log Analytics data volume, see [Azure Monitor best practices - Cost management](/azure/azure-monitor/best-practices-cost).
 
 ## Next steps
 

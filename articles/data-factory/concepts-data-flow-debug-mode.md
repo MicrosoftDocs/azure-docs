@@ -4,7 +4,6 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Start an interactive debug session when building data flows with Azure Data Factory or Synapse Analytics.
 ms.author: makromer
 author: kromerm
-ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse

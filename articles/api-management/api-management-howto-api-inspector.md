@@ -3,7 +3,7 @@ title: Tutorial - Debug APIs in Azure API Management using request tracing
 description: Follow the steps of this tutorial to enable tracing and inspect request processing steps in Azure API Management.
 services: api-management
 author: dlepow
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: tutorial
 ms.date: 05/05/2024
 ms.author: danlep

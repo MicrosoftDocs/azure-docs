@@ -2,7 +2,7 @@
 title: Enable diagnostics in Azure Cloud Services (classic) using PowerShell | Microsoft Docs
 description: Learn how to use PowerShell to enable collecting diagnostic data from an Azure Cloud Service with the Azure Diagnostics extension.
 ms.topic: article
-ms.service: cloud-services
+ms.service: azure-cloud-services-classic
 ms.date: 07/23/2024
 author: hirenshah1
 ms.author: hirshah
@@ -128,5 +128,5 @@ Remove-AzureServiceDiagnosticsExtension -ServiceName "MyService" -Role "WebRole"
 
 ## Next Steps
 * For more information on using Azure diagnostics and other techniques to troubleshoot problems, see [Enabling Diagnostics in Azure Cloud Services and Virtual Machines](cloud-services-dotnet-diagnostics.md).
-* The [Diagnostics Configuration Schema](../azure-monitor/agents/diagnostics-extension-schema-windows.md) explains the various xml configurations options for the diagnostics extension.
-* To learn how to enable the diagnostics extension for Virtual Machines, see [Create a Windows Virtual machine with monitoring and diagnostics using Azure Resource Manager Template](../virtual-machines/extensions/diagnostics-template.md)
+* The [Diagnostics Configuration Schema](/azure/azure-monitor/agents/diagnostics-extension-schema-windows) explains the various xml configurations options for the diagnostics extension.
+* To learn how to enable the diagnostics extension for Virtual Machines, see [Create a Windows Virtual machine with monitoring and diagnostics using Azure Resource Manager Template](/azure/virtual-machines/extensions/diagnostics-template)

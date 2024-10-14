@@ -7,7 +7,7 @@ ms.service: azure-government
 ms.topic: article
 ms.custom: references_regions
 recommendations: false
-ms.date: 05/09/2023
+ms.date: 08/15/2024
 ---
 
 # Department of Defense (DoD) in Azure Government
@@ -92,14 +92,14 @@ The following services are in scope for DoD IL5 PA in US DoD regions (US DoD Cen
 - [Microsoft Stream](/stream/overview)
 - [Network Watcher](https://azure.microsoft.com/services/network-watcher/)
 - [Power Apps](/powerapps/powerapps-overview)
-- [Power Apps portal](https://powerapps.microsoft.com/portals/)
+- [Power Pages](https://powerapps.microsoft.com/portals/)
 - [Power Automate](/power-automate/getting-started) (formerly Microsoft Flow)
 - [Power BI](https://powerbi.microsoft.com/)
 - [Power BI Embedded](https://azure.microsoft.com/services/power-bi-embedded/)
 - [Service Bus](https://azure.microsoft.com/services/service-bus/)
 - [SQL Server Stretch Database](https://azure.microsoft.com/services/sql-server-stretch-database/)
 - [Storage: Blobs](https://azure.microsoft.com/services/storage/blobs/) (incl. [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md))
-- [Storage: Disks](https://azure.microsoft.com/services/storage/disks/) (incl. [managed disks](../virtual-machines/managed-disks-overview.md))
+- [Storage: Disks](https://azure.microsoft.com/services/storage/disks/) (incl. [managed disks](/azure/virtual-machines/managed-disks-overview))
 - [Storage: Files](https://azure.microsoft.com/services/storage/files/)
 - [Storage: Queues](https://azure.microsoft.com/services/storage/queues/)
 - [Storage: Tables](https://azure.microsoft.com/services/storage/tables/)

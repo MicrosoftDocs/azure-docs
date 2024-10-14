@@ -63,7 +63,7 @@ In order to use MSIX app attach in Azure Virtual Desktop, you need to meet the p
 ::: zone pivot="app-attach"
 - An SMB file share in the same Azure region as your session hosts. All session hosts in the host pool must have *read* access with their computer account. This file share is used to store your application images. For more information on the requirements for the file share, see [File share](app-attach-overview.md#file-share).
 
-   To use Azure Files when your session hosts joined to Microsoft Entra ID, you need to assign the [Reader and Data Access](../role-based-access-control/built-in-roles.md#reader-and-data-access) Azure role-based access control (RBAC) role to both the **Azure Virtual Desktop** and **Azure Virtual Desktop ARM Provider** service principals. To learn how to assign an Azure RBAC role to the Azure Virtual Desktop service principals, see [Assign RBAC roles to the Azure Virtual Desktop service principals](service-principal-assign-roles.md). In a future update of the preview, you won't need to assign the **Azure Virtual Desktop ARM Provider** service principal.
+   To use Azure Files when your session hosts joined to Microsoft Entra ID, you need to assign the [Reader and Data Access](../role-based-access-control/built-in-roles.md#reader-and-data-access) Azure role-based access control (RBAC) role to both the **Azure Virtual Desktop** and **Azure Virtual Desktop ARM Provider** service principals. To learn how to assign an Azure RBAC role to the Azure Virtual Desktop service principals, see [Assign RBAC roles to the Azure Virtual Desktop service principals](service-principal-assign-roles.md). 
 ::: zone-end
 
 ::: zone pivot="msix-app-attach"
@@ -164,10 +164,7 @@ Here's how to add an MSIX or Appx image as an app attach package using the Azure
 
 # [Azure PowerShell](#tab/powershell)
 
-Here's how to add an MSIX or Appx image as an app attach package using the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization/) PowerShell module.
-
-> [!IMPORTANT]
-> In the following examples, you'll need to change the `<placeholder>` values for your own.
+Here's how to add an MSIX or Appx image as an app attach package using the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization/) PowerShell module. Be sure to change the `<placeholder>` values for your own.
 
 [!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
 
@@ -254,7 +251,7 @@ Here's how to add an MSIX or Appx image as an app attach package using the [Az.D
    Get-AzWvdAppAttachPackage @parameters | FL Name, ImagePackageApplication, ImagePackageFamilyName, ImagePath, ImageVersion, ImageIsActive, ImageIsRegularRegistration, SystemDataCreatedAt
    ```
 
-   The output should be similar to the following output:
+   The output should be similar to the following example:
 
    ```output
    Name                       : My App
@@ -698,10 +695,7 @@ Here's how to add an MSIX image using the Azure portal:
 
 # [Azure PowerShell](#tab/powershell)
 
-Here's how to add an MSIX package using the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization/) PowerShell module.
-
-> [!IMPORTANT]
-> In the following examples, you'll need to change the `<placeholder>` values for your own.
+Here's how to add an MSIX package using the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization/) PowerShell module. Be sure to change the `<placeholder>` values for your own.
 
 [!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
 
@@ -718,7 +712,7 @@ Here's how to add an MSIX package using the [Az.DesktopVirtualization](/powershe
    $app = Expand-AzWvdMsixImage @parameters
    ```
 
-   The output should be similar to the following output:
+   The output should be similar to the following example:
 
    ```output
    Name
@@ -776,7 +770,7 @@ Here's how to add an MSIX package using the [Az.DesktopVirtualization](/powershe
    Get-AzWvdMsixPackage @parameters | ? PackageFamilyName -eq $app.PackageFamilyName | FL *
    ```
 
-   The output should be similar to the following output:
+   The output should be similar to the following example:
 
    ```output
    DisplayName                  : My App
@@ -836,7 +830,7 @@ Here's how to change a package's registration type and state using the [Az.Deskt
    Get-AzWvdMsixPackage @parameters | Select-Object DisplayName, ImagePath, Name, Version, IsRegularRegistration, IsActive
    ```
 
-   The output should be similar to the following output:
+   The output should be similar to the following example:
 
    ```output
    DisplayName ImagePath                        Name                                      Version IsRegularRegistration IsActive
@@ -1011,7 +1005,7 @@ Here's how to remove applications using the [Az.DesktopVirtualization](/powershe
    Get-AzWvdMsixPackage @parameters | Select-Object DisplayName, ImagePath, PackageFamilyName, Version
    ```
 
-   The output should be similar to the following output:
+   The output should be similar to the following example:
 
    ```output
    DisplayName ImagePath                        Name                                      Version

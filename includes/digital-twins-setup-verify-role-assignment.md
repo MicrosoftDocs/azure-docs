@@ -1,7 +1,7 @@
 ---
 author: baanders
 description: include file for verifying role assignment in Azure Digital Twins setup
-ms.service: digital-twins
+ms.service: azure-digital-twins
 ms.topic: include
 ms.date: 1/24/2022
 ms.author: baanders

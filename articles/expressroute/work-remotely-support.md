@@ -3,7 +3,7 @@ title: 'Using Azure ExpressRoute to support remote users'
 description: This page describes how you can use Azure ExpressRoute to enable working remotely due to the COVID-19 pandemic.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 12/28/2023
 ms.author: duau

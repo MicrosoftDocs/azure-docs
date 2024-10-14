@@ -17,7 +17,7 @@ This article describes how to create an Azure Time Series Insights Gen2 environm
 
 The environment provisioning tutorial will walk you through the process. You'll learn about selecting the correct Time Series ID and view examples from two JSON payloads.</br>
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWzk3P]
+> [!VIDEO 5876a3d5-5867-4d41-95c8-004539622c7f]
 
 ## Overview
 

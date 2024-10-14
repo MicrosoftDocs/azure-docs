@@ -2,7 +2,7 @@
 title: Azure CLI Script Sample - Create a SignalR Service
 description: Learn by following the sample script to create a new Azure SignalR Service in a new resource group, with a random name.
 author: vicancy
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 03/30/2022

@@ -3,7 +3,7 @@ metadata:
   title: FAQ - Protect backups from Ransomware with Azure Backup
   description: In this article, discover answers to protect backups from ransomware with Azure Backup.
   ms.topic: faq
-  ms.service: backup
+  ms.service: azure-backup
   ms.date: 03/14/2022
   author: AbhishekMallick-MS
   ms.author: v-abhmallick

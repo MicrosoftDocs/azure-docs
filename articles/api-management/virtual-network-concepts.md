@@ -3,7 +3,7 @@ title: Azure API Management with an Azure virtual network
 description: Learn about scenarios and requirements to secure inbound or outbound traffic for your API Management instance using an Azure virtual network.
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: conceptual
 ms.date: 03/26/2024
 ms.author: danlep

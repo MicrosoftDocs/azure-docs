@@ -7,6 +7,7 @@ ms.author: sipa
 ms.date: 02/20/2024
 ms.topic: how-to
 ms.service: azure-maps
+ms.subservice: android-sdk
 ---
 
 # The Azure Maps Android SDK migration guide

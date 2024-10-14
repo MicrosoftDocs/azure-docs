@@ -5,7 +5,7 @@ description: Learn about the developer portal in API Management - a customizable
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: conceptual
 ms.date: 03/29/2024
 ms.author: danlep 

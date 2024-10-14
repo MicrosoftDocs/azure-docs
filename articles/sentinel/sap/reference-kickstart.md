@@ -5,6 +5,10 @@ author: batamig
 ms.author: bagol
 ms.topic: reference
 ms.date: 04/03/2024
+
+
+#Customer intent: As an SAP BASIS team member, I want to understand the options in the kickstart script used to deploy and configure a container hosting the SAP data connector, so that I can streamline the setup process and manage secrets storage and network configurations efficiently.
+
 ---
 
 # Kickstart script reference

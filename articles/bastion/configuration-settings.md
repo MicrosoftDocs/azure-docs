@@ -3,9 +3,9 @@ title: 'About Azure Bastion configuration settings'
 description: Learn about the available configuration settings for Azure Bastion.
 author: cherylmc
 ms.author: cherylmc
-ms.service: bastion
+ms.service: azure-bastion
 ms.topic: conceptual
-ms.date: 05/13/2024
+ms.date: 09/17/2024
 ms.custom: references_regions
 ---
 
@@ -30,7 +30,7 @@ A SKU is also known as a Tier. Azure Bastion supports multiple SKU tiers. When y
 
 ### <a name="premium"></a>Premium SKU (Preview)
 
-The Premium SKU is a new SKU that supports Bastion features such as Session Recording and Private-Only Bastion. When you deploy bastion, only select the Premium SKU if you need the features that it supports.
+The Premium SKU is a new SKU that supports Bastion features such as [Session Recording](session-recording.md) and [Private-Only Bastion](private-only-deployment.md). When you deploy Bastion, we recommend that you select the Premium SKU only if you need the features that it supports.
 
 ### Specify SKU
 

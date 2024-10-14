@@ -3,7 +3,7 @@ title: Integrate Azure Firewall with Azure Standard Load Balancer
 description: You can integrate an Azure Firewall into a virtual network with an Azure Standard Load Balancer (either public or internal).
 services: firewall
 author: vhorne
-ms.service: firewall
+ms.service: azure-firewall
 ms.topic: how-to
 ms.date: 06/14/2024
 ms.author: victorh
@@ -35,14 +35,14 @@ To avoid this problem, create another host route for the firewall's public IP ad
 :::image type="content" source="media/integrate-lb/Firewall-LB-asymmetric.png" alt-text="Diagram of asymmetric routing." lightbox="media/integrate-lb/Firewall-LB-asymmetric.png":::
 ### Route table example
 
-For example, the following routes are for a firewall at public IP address 20.185.97.136, and private IP address 10.0.1.4.
+For example, the following routes are for a firewall at public IP address 203.0.113.136, and private IP address 10.0.1.4.
 
-:::image type="content" source="media/integrate-lb/route-table.png" alt-text="Screenshot of route table." lightbox="media/integrate-lb/route-table.png":::
+:::image type="content" source="media/integrate-lb/route-table.png" lightbox="media/integrate-lb/route-table.png" alt-text="Screenshot of route table.":::
 ### NAT rule example
 
-In the following example, a NAT rule translates RDP traffic to the firewall at 20.185.97.136 over to the load balancer at 20.42.98.220:
+In the following example, a NAT rule translates RDP traffic to the firewall at 203.0.113.136 over to the load balancer at 203.0.113.220:
 
-:::image type="content" source="media/integrate-lb/nat-rule-02.png" alt-text="Screenshot of NAT rule." lightbox="media/integrate-lb/nat-rule-02.png":::
+:::image type="content" source="media/integrate-lb/nat-rule-02.png" lightbox="media/integrate-lb/nat-rule-02.png" alt-text="Screenshot of NAT rule.":::
 ### Health probes
 
 Remember, you need to have a web service running on the hosts in the load balancer pool if you use TCP health probes to port 80, or HTTP/HTTPS probes.

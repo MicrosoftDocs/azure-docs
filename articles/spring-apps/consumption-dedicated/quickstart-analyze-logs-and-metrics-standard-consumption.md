@@ -3,16 +3,15 @@ title: Quickstart - Analyze logs and metrics in the Azure Spring Apps Standard c
 description: Learn how to analyze logs and metrics in the Azure Spring Apps Standard consumption and dedicated plan.
 author: KarlErickson
 ms.author: shiqiu
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: quickstart
-ms.date: 06/21/2023
+ms.date: 08/29/2024
 ms.custom: devx-track-java
 ---
 
 # Quickstart: Analyze logs and metrics in the Azure Spring Apps Standard consumption and dedicated plan
 
-> [!NOTE]
-> Azure Spring Apps is the new name for the Azure Spring Cloud service. Although the service has a new name, you'll see the old name in some places for a while as we work to update assets such as screenshots, videos, and diagrams.
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
 
 **This article applies to:** ✔️ Standard consumption and dedicated (Preview) ❌ Basic/Standard ❌ Enterprise
 
@@ -123,7 +122,7 @@ Azure Spring Apps provides the metrics described in the following table:
 
 The Azure Monitor metrics explorer enables you to create charts from metric data to help you analyze your Azure Spring Apps resource and network usage over time. You can pin charts to a dashboard or in a shared workbook.
 
-1. Open the metrics explorer in the Azure portal by selecting **Metrics** in the navigation pane on the overview page of your Azure Spring Apps instance. To learn more about metrics explorer, see [Analyze metrics with Azure Monitor metrics explorer](../../azure-monitor/essentials/analyze-metrics.md).
+1. Open the metrics explorer in the Azure portal by selecting **Metrics** in the navigation pane on the overview page of your Azure Spring Apps instance. To learn more about metrics explorer, see [Analyze metrics with Azure Monitor metrics explorer](/azure/azure-monitor/essentials/analyze-metrics).
 
 1. Create a chart by selecting a metric in the **Metric** dropdown menu. You can modify the chart by changing the aggregation, adding more metrics, changing time ranges and intervals, adding filters, and applying splitting.
 

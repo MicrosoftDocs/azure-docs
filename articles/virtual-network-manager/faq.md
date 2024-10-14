@@ -3,8 +3,8 @@ title: Frequently asked questions about Azure Virtual Network Manager
 description: Find answers to frequently asked questions about Azure Virtual Network Manager.
 services: virtual-network-manager
 author: mbender-ms
-ms.service: virtual-network-manager
-ms.topic: article
+ms.service: azure-virtual-network-manager
+ms.topic: faq
 ms.date: 01/30/2024
 ms.author: mbender
 ms.custom:
@@ -116,6 +116,11 @@ Yes. Migrating existing virtual networks to the hub-and-spoke topology in Azure 
 In Azure, virtual network peering and connected groups are two methods of establishing connectivity between virtual networks. Peering works by creating a one-to-one mapping between virtual networks, whereas connected groups use a new construct that establishes connectivity without such a mapping.
 
 In a connected group, all virtual networks are connected without individual peering relationships. For example, if three virtual networks are part of the same connected group, connectivity is enabled between each virtual network without the need for individual peering relationships.
+
+### When managing virtual networks that currently use VNet peering, does this result in paying VNet peering charges twice with Azure Virtual Network Manager?
+
+There is no second or double charge for peering. Your virtual network manager respects all previously created VNet peerings, and migrates those connections. All peering resources, whether created inside a virtual network manager or outside, with incur a single peering charge.
+
 
 ### Can I create exceptions to security admin rules?
 

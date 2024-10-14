@@ -31,4 +31,4 @@ To learn about the Bicep syntax and properties for App Services resources, see [
 | [App with a database, managed identity, and monitoring](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/web-app-managed-identity-sql-db)| Deploys an App Service App with a database, managed identity, and monitoring. |
 | [Two apps in separate regions with Azure Front Door](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/webapp-multi-region-front-door) | Deploys two identical web apps in separate regions with Azure Front Door to direct traffic. |
 |**App Service Environment**| **Description** |
-| [Create an App Service environment v2](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/web-app-asev2-create) | Creates an App Service environment v2 in your virtual network. |
+| [Create an App Service environment v3](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/web-app-asp-app-on-asev3-create) | Creates an App Service environment v3, App Service plan, App Service, and all associated networking resources. |

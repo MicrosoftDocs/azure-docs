@@ -3,7 +3,7 @@ title: .NET on Azure Container Apps overview
 description: Learn about the tools and resources needed to run .NET and ASP.NET Core applications on Azure Container Apps.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: conceptual
 ms.date: 06/13/2024
 ms.author: cshoe

@@ -22,17 +22,17 @@ This article focuses on how to move from a single SAP ASCS/SCS installation to c
 
 You can use Azure Premium SSD disks as Azure shared disks for the SAP ASCS/SCS instance. The following limitations are currently in place:
 
-- [Azure Ultra Disk Storage disks](../../virtual-machines/disks-types.md#ultra-disks) and [Azure Standard SSD disks](../../virtual-machines/disks-types.md#standard-ssds) aren't supported as Azure shared disks for SAP workloads.
-- [Azure shared disks](../../virtual-machines/disks-shared.md) with [Premium SSD disks](../../virtual-machines/disks-types.md#premium-ssds) are supported for SAP deployment in availability sets and availability zones.
+- [Azure Ultra Disk Storage disks](/azure/virtual-machines/disks-types#ultra-disks) and [Azure Standard SSD disks](/azure/virtual-machines/disks-types#standard-ssds) aren't supported as Azure shared disks for SAP workloads.
+- [Azure shared disks](/azure/virtual-machines/disks-shared) with [Premium SSD disks](/azure/virtual-machines/disks-types#premium-ssds) are supported for SAP deployment in availability sets and availability zones.
 - Azure shared disks with Premium SSD disks come with two storage options:
   - Locally redundant storage (LRS) for Premium SSD shared disks (`skuName` value of `Premium_LRS`) is supported with deployment in availability sets.
   - Zone-redundant storage (ZRS) for Premium SSD shared disks (`skuName` value of `Premium_ZRS`) is supported with deployment in availability zones.
-- The Azure shared disk value [maxShares](../../virtual-machines/disks-shared-enable.md?tabs=azure-cli#disk-sizes) determines how many cluster nodes can use the shared disk. For an SAP ASCS/SCS instance, you typically configure two nodes in WSFC. You then set the value for `maxShares` to `2`.
-- An [Azure proximity placement group (PPG)](../../virtual-machines/windows/proximity-placement-groups.md) isn't required for Azure shared disks. But for SAP deployment with PPGs, follow these guidelines:
+- The Azure shared disk value [maxShares](/azure/virtual-machines/disks-shared-enable?tabs=azure-cli#disk-sizes) determines how many cluster nodes can use the shared disk. For an SAP ASCS/SCS instance, you typically configure two nodes in WSFC. You then set the value for `maxShares` to `2`.
+- An [Azure proximity placement group (PPG)](/azure/virtual-machines/windows/proximity-placement-groups) isn't required for Azure shared disks. But for SAP deployment with PPGs, follow these guidelines:
   - If you're using PPGs for an SAP system deployed in a region, all virtual machines that share a disk must be part of the same PPG.
   - If you're using PPGs for an SAP system deployed across zones, as described in [Proximity placement groups with zonal deployments](proximity-placement-scenarios.md#proximity-placement-groups-with-zonal-deployments), you can attach `Premium_ZRS` storage to virtual machines that share a disk.
 
-For more information, review the [Limitations](../../virtual-machines/disks-shared.md#limitations) section of the documentation for Azure shared disks.
+For more information, review the [Limitations](/azure/virtual-machines/disks-shared#limitations) section of the documentation for Azure shared disks.
 
 ### Important considerations for Premium SSD shared disks
 
@@ -43,9 +43,9 @@ Consider these important points about Azure Premium SSD shared disks:
 
 - ZRS for Premium SSD shared disks:
   - Write latency for ZRS is higher than that of LRS because cross-zonal copying of data.
-  - The distance between availability zones in different regions varies, and so does ZRS disk latency across availability zones. [Benchmark your disks](../../virtual-machines/disks-benchmarks.md) to identify the latency of ZRS disks in your region.
+  - The distance between availability zones in different regions varies, and so does ZRS disk latency across availability zones. [Benchmark your disks](/azure/virtual-machines/disks-benchmarks) to identify the latency of ZRS disks in your region.
   - ZRS for Premium SSD shared disks synchronously replicates data across three availability zones in the region. If there's a problem in one of the storage clusters, your SAP ASCS/SCS instance continues to run because storage failover is transparent to the application layer.
-  - For more information, review the [Limitations](../../virtual-machines/disks-redundancy.md#limitations) section of the documentation about ZRS for managed disks.
+  - For more information, review the [Limitations](/azure/virtual-machines/disks-redundancy#limitations) section of the documentation about ZRS for managed disks.
 
 > [!IMPORTANT]
 > The setup must meet the following conditions:

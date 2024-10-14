@@ -357,6 +357,20 @@ The **Request** trigger creates a manually callable endpoint that handles *only*
    > change your storage account and copy your workflow to the new storage account, the URL for 
    > the **Request** trigger also changes to reflect the new storage account. The same workflow has a different URL.
 
+
+### Schema validation for stateless workflows
+
+To enable schema validation for stateless workflows, make sure that the **host.json** file in the logic app resource or project has the following [host setting](../logic-apps/edit-app-settings-host-settings.md#manage-host-settings---hostjson):
+
+```json
+"extensions": {
+   "workflow": {
+      "Settings": {
+         "Runtime.StatelessFlowEvaluateTriggerCondition": "true"
+      }
+   }
+}
+```
 ---
 
 Now, continue building your workflow by adding another action as the next step. For example, you can respond to the request by [adding a Response action](#add-response), which you can use to return a customized response and is described later in this article.
@@ -368,7 +382,7 @@ Now, continue building your workflow by adding another action as the next step. 
 > after this time expires, your workflow returns the **504 GATEWAY TIMEOUT** status to the caller. If your workflow 
 > doesn't include a Response action, your workflow immediately returns the **202 ACCEPTED** status to the caller.
 
-For information about security, authorization, and encryption for inbound calls to your workflow, such as [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), previously known as Secure Sockets Layer (SSL), [Microsoft Entra ID Open Authentication (Microsoft Entra ID OAuth)](../active-directory/develop/index.yml), exposing your logic app resource with Azure API Management, or restricting the IP addresses that originate inbound calls, see [Secure access and data - Access for inbound calls to request-based triggers](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
+For information about security, authentication, and encryption for inbound calls to your workflow, such as [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), previously known as Secure Sockets Layer (SSL), [OAuth with Microsoft Entra ID](/entra/architecture/auth-oauth2), [Shared Access Signatures (SAS)](../logic-apps/logic-apps-securing-a-logic-app.md#sas), exposing your logic app resource with Azure API Management, or restricting the IP addresses that originate inbound calls, see [Secure access and data - Access for inbound calls to request-based triggers](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
 
 ## Trigger outputs
 

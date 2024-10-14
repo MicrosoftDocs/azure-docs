@@ -5,7 +5,7 @@ ms.topic: release-notes
 ms.custom: references_regions
 author: sipastak
 ms.author: sipastak
-ms.date: 07/12/2024
+ms.date: 10/03/2024
 ---
 
 # What's new in Azure Virtual Desktop?
@@ -21,6 +21,84 @@ Make sure to check back here often to keep up with new updates.
 
 > [!TIP]
 > See [What's new in documentation](whats-new-documentation.md), where we highlight new and updated articles for Azure Virtual Desktop.
+
+## October 2024
+
+Here's what changed in October 2024:
+
+### Windows 11, version 24H2 images are now available in Azure Marketplace
+
+Windows 11 Enterprise and Windows 11 Enterprise multi-session are now available in the Azure Marketplace.  The following updated images are available Windows 11 + Windows 365 apps and Windows 11. The portal will be updated later this month to allow the convenient selection of 24H2 images.  
+
+For additional information to configure languages other than English, see [Install language packs on Windows 11 Enterprise VMs in Azure Virtual Desktop](windows-11-language-packs.md). 
+
+## September 2024
+
+Here's what changed in September 2024:
+
+### Relayed RDP Shortpath (TURN) for public networks is now available 
+
+This enhancement allows UDP connections via relays using the Traversal Using Relays around NAT (TURN) protocol, extending the functionality of RDP Shortpath on public networks for everyone. 
+
+For detailed configuration guidance, including prerequisites and default configurations, see [Configure RDP Shortpath for Azure Virtual Desktop](configure-rdp-shortpath.md).
+
+### Windows App is now available
+
+Windows App is now generally available on Windows, macOS, iOS, iPadOS, and web browsers, and in preview on Android. You can use it to connect to Azure Virtual Desktop, Windows 365, Microsoft Dev Box, Remote Desktop Services, and remote PCs, securely connecting you to Windows devices and apps. To learn more about what each platform supports, see [Compare Windows App features across platforms and devices](/windows-app/compare-platforms-features?toc=admins%2Ftoc.json&pivots=azure-virtual-desktop). Windows App is now available through the appropriate store for each client platform, ensuring a smooth update process.  
+
+For more information, see [What is Windows App?](/windows-app/overview) and [Windows App get started](/windows-app/get-started-connect-devices-desktops-apps?tabs=windows-avd%2Cwindows-w365%2Cwindows-devbox%2Cmacos-rds%2Cmacos-pc&pivots=azure-virtual-desktop).  
+
+
+### Enabling HEVC GPU acceleration for Azure Virtual Desktop is now in preview 
+
+High Efficiency Video Coding (H.265) hardware acceleration is currently in preview. Azure Virtual Desktop supports graphics processing unit (GPU) acceleration for frame encoding which will result in improved graphical experience when using the Remote Desktop Protocol (RDP) with a GPU-enabled Virtual Machine. GPU acceleration is crucial for delivering high-fidelity graphical experiences in graphics-intensive applications, such as those used by graphic designers, video editors, and 3D modelers. 
+
+For more information, see [Enable GPU acceleration for Azure Virtual Desktop](graphics-enable-gpu-acceleration.md).
+
+
+## August 2024
+
+Here's what changed in August 2024:
+
+### Configure the session lock behavior for Azure Virtual Desktop is now available 
+
+You can choose whether the session is disconnected or the remote lock screen is shown when a remote session is locked, either by the user or by policy. When the session lock behavior is set to disconnect, a dialog is shown to let users know they were disconnected. Users can choose the **Reconnect** option from the dialog when they're ready to connect again.
+
+For more information, see [Configure the session lock behavior for Azure Virtual Desktop](configure-session-lock-behavior.md). 
+
+### Configuring the clipboard transfer direction in Azure Virtual Desktop is now available 
+
+Clipboard redirection in Azure Virtual Desktop allows users to copy and paste content between the user's local device and the remote session in either direction. You might want to limit the direction of the clipboard for users, to help prevent data exfiltration or malicious files being copied to a session host. You can configure whether users can use the clipboard from session host to client, or client to session host, and the types of data that can be copied. 
+
+For more information see [Configure the clipboard transfer direction in Azure Virtual Desktop](clipboard-transfer-direction-data-types.md). 
+
+### Microsoft Purview forensic evidence is now compatible with Azure Virtual Desktop 
+
+Forensic evidence is an opt-in add-on feature in Insider Risk Management that gives security teams visual insights into potential insider data security incidents, with user privacy built in. Microsoft Purview Insider Risk Management correlates various signals to identify potential malicious or inadvertent insider risks, such as IP theft, data leakage and security violations. Insider risk management enables customers to create policies to manage security and compliance.  
+
+For more information see [Learn about insider risk management forensic evidence](purview-forensic-evidence.md). 
+
+### Support for FIDO devices and passkeys on macOS and iOS is now available 
+
+Windows App and the Remote Desktop app now support FIDO devices and passkeys for Microsoft Entra ID sign in on macOS and iOS. 
+
+For more information see [Azure Virtual Desktop identities and authentication](authentication.md). 
+
+### New Microsoft Teams can be installed on an image using custom image templates 
+
+New Teams has replaced classic Teams when using [custom image templates](custom-image-templates.md). When updating an existing template, classic Teams is replaced by new Teams. No action is required. When reusing an existing template which references classic Teams, it's updated to new Teams by Microsoft. 
+
+For more information see [End of availability for classic Teams client](/microsoftteams/teams-classic-client-end-of-availability). 
+
+## July 2024 
+
+Here's what changed in July 2024: 
+
+### New Teams available on Windows Enterprise multi-session images with M365 apps pre-installed 
+
+Our Windows Enterprise multi-session images + Microsoft M365 apps are updated with the new Teams app pre-installed. Users accessing newly provisioned session hosts with the latest images, updated late July, enjoy the new experience. Learn more about [What's changing in the new Microsoft Teams](/microsoftteams/new-teams-whats-changing).  
+
+Learn more about Windows Enterprise multi-session in our [FAQ](windows-multisession-faq.yml). 
 
 ## June 2024 
 
@@ -86,17 +164,17 @@ For more information, see [Configure client device redirection settings for Wind
 
 ### Hibernate support for session hosts in a personal host pool is generally available
 
-Deploying session hosts in a personal host pool with hibernate support is now generally available. With hibernate support, you can pause session hosts you aren't using. For more information, see [Hibernating Windows virtual machines](../virtual-machines/windows/hibernate-resume-windows.md).
+Deploying session hosts in a personal host pool with hibernate support is now generally available. With hibernate support, you can pause session hosts you aren't using. For more information, see [Hibernating Windows virtual machines](/azure/virtual-machines/windows/hibernate-resume-windows).
 
 ### Hibernate support for autoscale is generally available
 
-Autoscale support for virtual machines that use hibernate is generally available, enabling session hosts to be scaled automatically while preserving their state. For more information, see [Autoscale scaling plans and example scenarios in Azure Virtual Desktop](autoscale-scenarios.md) and [Hibernating virtual machines](../virtual-machines/hibernate-resume.md).
+Autoscale support for virtual machines that use hibernate is generally available, enabling session hosts to be scaled automatically while preserving their state. For more information, see [Autoscale scaling plans and example scenarios in Azure Virtual Desktop](autoscale-scenarios.md) and [Hibernating virtual machines](/azure/virtual-machines/hibernate-resume).
 
 ### Support for Trusted Launch virtual machines support in Azure Government and Azure operated by 21Vianet 
 
 Trusted Launch virtual machines are now available in Azure Government and Azure operated by 21Vianet. Deploying Trusted Launch virtual machines in your Azure Virtual Desktop environment improves the security posture of your session hosts by helping protect against advanced and persistent attack techniques. You can select Trusted Launch when you create a new host pool with machines or add a new virtual machine to an existing host pool.
 
-For more information about the benefits of Trusted Launch, see our [Trusted Launch documentation](../virtual-machines/trusted-launch.md).
+For more information about the benefits of Trusted Launch, see our [Trusted Launch documentation](/azure/virtual-machines/trusted-launch).
 
 ## April 2024 
 
@@ -190,7 +268,7 @@ You can now select community images and directed shared images to use for your s
 
 Community images and associated publisher information aren't verified or tested by Microsoft, so make sure to verify any custom images you deploy using this method. 
 
-For more information on preparing, storing and sharing images to be used to create virtual machines, see [Store and share VM images in a compute gallery](../virtual-machines/shared-image-galleries.md).
+For more information on preparing, storing and sharing images to be used to create virtual machines, see [Store and share VM images in a compute gallery](/azure/virtual-machines/shared-image-galleries).
 
 ### Windows 11 version 23H2 and 22H2 images added to the Azure Marketplace 
 
@@ -204,7 +282,7 @@ For more information, see [Autoscale scaling plans and example scenarios in Azur
 
 ### Hibernate support for autoscale is in preview
 
-Autoscale can now use the hibernate feature in preview, which can pause session hosts you aren't using. For more information, see [Autoscale scaling plans and example scenarios in Azure Virtual Desktop](autoscale-scenarios.md) and [Hibernating virtual machines](../virtual-machines/hibernate-resume.md).
+Autoscale can now use the hibernate feature in preview, which can pause session hosts you aren't using. For more information, see [Autoscale scaling plans and example scenarios in Azure Virtual Desktop](autoscale-scenarios.md) and [Hibernating virtual machines](/azure/virtual-machines/hibernate-resume).
 
 ### Updated preview of Azure Virtual Desktop on Azure Stack HCI
 
@@ -270,7 +348,7 @@ For more information about what's new in FSLogix, see the [FSLogix Release Notes
 
 Azure Virtual Desktop Insights is a dashboard built on Azure Monitor workbooks that helps you understand your Azure Virtual Desktop environments. Azure Virtual Desktop Insights support for the Azure Monitor agent is now generally available. For more information, see [Use Azure Virtual Desktop Insights to monitor your deployment](insights.md?tabs=monitor).
 
-The Log Analytics agent for Azure Monitor is deprecating on August 31, 2024. We recommend you migrate monitoring your virtual machines (VMs) and servers to Azure Monitor Agent before that date. For more information about how to migrate, see [Migrate to Azure Monitor Agent from Log Analytics agent](../azure-monitor/agents/azure-monitor-agent-migration.md).
+The Log Analytics agent for Azure Monitor is deprecating on August 31, 2024. We recommend you migrate monitoring your virtual machines (VMs) and servers to Azure Monitor Agent before that date. For more information about how to migrate, see [Migrate to Azure Monitor Agent from Log Analytics agent](/azure/azure-monitor/agents/azure-monitor-agent-migration).
 
 ### Custom Image Template feature is now generally available
 
@@ -290,7 +368,7 @@ For more information about FSLogix Group Policy Template Files, see [How to Use 
 
 We've updated the text, tooltips, and links for custom image templates in the Azure portal to make them easier to use. You can also now go to the built-in customization settings and remove Clipchamp in the Remove AppX package list.
 
-We built the custom image templates feature using [Azure Image Builder](../virtual-machines/image-builder-overview.md) for you to use with Azure Virtual Desktop. For more information, see [Custom image templates](custom-image-templates.md).
+We built the custom image templates feature using [Azure Image Builder](/azure/virtual-machines/image-builder-overview) for you to use with Azure Virtual Desktop. For more information, see [Custom image templates](custom-image-templates.md).
 
 ## July 2023
 
@@ -318,7 +396,7 @@ Confidential virtual machines and Trusted Launch virtual machines for Azure Virt
 
 Azure confidential virtual machines (VMs) offer VM memory encryption with integrity protection, which strengthens guest protections to deny the hypervisor and other host management components code access to the VM memory and state. For more information about the security benefits of confidential VMs, see our [confidential computing documentation](../confidential-computing/confidential-vm-overview.md).  
 
-Trusted Launch protects against advanced and persistent attack techniques. This feature allows you to securely deploy your VMs with verified boot loaders, OS kernels, and drivers. Trusted Launch also protects keys, certificates, and secrets in VMs. For more information about the benefits of Trusted Launch, see our [Trusted Launch documentation](../virtual-machines/trusted-launch.md). Trusted Launch is now enabled by default for all Windows images used with Azure Virtual Desktop.
+Trusted Launch protects against advanced and persistent attack techniques. This feature allows you to securely deploy your VMs with verified boot loaders, OS kernels, and drivers. Trusted Launch also protects keys, certificates, and secrets in VMs. For more information about the benefits of Trusted Launch, see our [Trusted Launch documentation](/azure/virtual-machines/trusted-launch). Trusted Launch is now enabled by default for all Windows images used with Azure Virtual Desktop.
 
 For more information about this announcement, see [Announcing General Availability of confidential VMs in Azure Virtual Desktop](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-general-availability-of-confidential-vms-in-azure/ba-p/3857974). 
 
@@ -350,7 +428,7 @@ Here's what changed in May 2023:
 
 ### Custom image templates is now in preview 
 
-Custom image templates is now in preview. Custom image templates help you easily create a custom image that you can use when deploying session host VMs. With custom images, you can standardize the configuration of your session host VMs for your organization. Custom image templates is built on [Azure Image Builder](../virtual-machines/image-builder-overview.md) and tailored for Azure Virtual Desktop. For more information about the preview, check out [Custom image templates](custom-image-templates.md) or read [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-the-public-preview-of-azure-virtual-desktop-custom/ba-p/3784361).
+Custom image templates is now in preview. Custom image templates help you easily create a custom image that you can use when deploying session host VMs. With custom images, you can standardize the configuration of your session host VMs for your organization. Custom image templates is built on [Azure Image Builder](/azure/virtual-machines/image-builder-overview) and tailored for Azure Virtual Desktop. For more information about the preview, check out [Custom image templates](custom-image-templates.md) or read [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-the-public-preview-of-azure-virtual-desktop-custom/ba-p/3784361).
 
 ## April 2023
 
@@ -704,7 +782,7 @@ Here's what changed in December 2021:
 
 ### Azure portal updates
 
-You can now automatically create Trusted Launch virtual machines through the host pool creation process instead of having to manually create and add them to a host pool after deployment. To access this feature, select the **Virtual machines** tab while creating a host pool. Learn more at [Trusted Launch for Azure virtual machines](../virtual-machines/trusted-launch.md).
+You can now automatically create Trusted Launch virtual machines through the host pool creation process instead of having to manually create and add them to a host pool after deployment. To access this feature, select the **Virtual machines** tab while creating a host pool. Learn more at [Trusted Launch for Azure virtual machines](/azure/virtual-machines/trusted-launch).
  
 ### Azure Active Directory Join VMs with FSLogix profiles on Azure Files
 
@@ -1004,7 +1082,7 @@ We've made the following updates to Azure Virtual Desktop for the Azure portal:
 
 ### Generation 2 images and Trusted Launch
 
-The Azure Marketplace now has Generation 2 images for Windows 10 Enterprise and Windows 10 Enterprise multi-session. These images enable you to use Trusted Launch VMs. Learn more about Generation 2 VMs at [Should I create a generation 1 or 2 virtual machine](../virtual-machines/generation-2.md). To learn how to provision Azure Virtual Desktop Trusted Launch VMs, see [our TechCommunity post](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/windows-virtual-desktop-support-for-trusted-launch/m-p/2206170).
+The Azure Marketplace now has Generation 2 images for Windows 10 Enterprise and Windows 10 Enterprise multi-session. These images enable you to use Trusted Launch VMs. Learn more about Generation 2 VMs at [Should I create a generation 1 or 2 virtual machine](/azure/virtual-machines/generation-2). To learn how to provision Azure Virtual Desktop Trusted Launch VMs, see [our TechCommunity post](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/windows-virtual-desktop-support-for-trusted-launch/m-p/2206170).
 
 ### FSLogix is now preinstalled on Windows 10 Enterprise multi-session images
 
@@ -1215,7 +1293,7 @@ Here's what changed in August 2020:
 
 - We fixed an issue in the Teams Desktop client (version 1.3.00.21759) where the client only showed the UTC time zone in the chat, channels, and calendar. The updated client now shows the remote session's time zone instead.
 
-- Azure Advisor is now a part of Azure Virtual Desktop. When you access Azure Virtual Desktop through the Azure portal, you can see recommendations for optimizing your Azure Virtual Desktop environment. Learn more at [Introduction to Azure Advisor](../advisor/advisor-overview.md).
+- Azure Advisor is now a part of Azure Virtual Desktop. When you access Azure Virtual Desktop through the Azure portal, you can see recommendations for optimizing your Azure Virtual Desktop environment. Learn more at [Introduction to Azure Advisor](/azure/advisor/advisor-overview).
 
 - Azure CLI now supports Azure Virtual Desktop (`az desktopvirtualization`) to help you automate your Azure Virtual Desktop deployments. Check out [desktopvirtualization](/cli/azure/desktopvirtualization) for a list of extension commands.
 
@@ -1276,7 +1354,7 @@ Here's what this change does for you:
 
 - In this update, you no longer need to run Azure Marketplace or the GitHub template repeatedly to expand a host pool. All you need to expand a host pool is to go to your host pool in the Azure portal and select **+ Add** to deploy additional session hosts.
 
-- Host pool deployment is now fully integrated with the [Azure Shared Image Gallery](../virtual-machines/shared-image-galleries.md). Shared Image Gallery is a separate Azure service that stores VM image definitions, including image versioning. You can also use global replication to copy and send your images to other Azure regions for local deployment.
+- Host pool deployment is now fully integrated with the [Azure Shared Image Gallery](/azure/virtual-machines/shared-image-galleries). Shared Image Gallery is a separate Azure service that stores VM image definitions, including image versioning. You can also use global replication to copy and send your images to other Azure regions for local deployment.
 
 - Monitoring functions that used to be done through PowerShell or the Diagnostics Service web app have now moved to Log Analytics in the Azure portal. You also now have two options to visualize your reports. You can run Kusto queries and use Workbooks to create visual reports.
 

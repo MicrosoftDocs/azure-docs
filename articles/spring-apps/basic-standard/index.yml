@@ -7,7 +7,7 @@ metadata:
   title: Azure Spring Apps Basic/Standard plan
   description: Azure Spring Apps is a fully managed service for building and running Spring Boot and Steeltoe apps without needing to manage infrastructure.
   services: spring-cloud
-  ms.service: spring-apps
+  ms.service: azure-spring-apps
   ms.custom: devx-track-java
   ms.topic: landing-page
   author: KarlErickson
@@ -18,6 +18,14 @@ metadata:
 landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
+
+  # Card (optional)
+  - title: Retirement
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Azure Spring Apps retirement announcement
+            url: retirement-announcement.md
 
   # Card (optional)
   - title: Documentation for other plans
@@ -100,13 +108,3 @@ landingContent:
             url: how-to-elastic-apm-java-agent-monitor.md
           - text: Use Circuit Breaker Dashboard
             url: ../enterprise/tutorial-circuit-breaker.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
-
-  # Card (optional)
-  - title: Migrate apps
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: Migrate Spring Boot to Azure Spring Apps
-            url: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-apps?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
-          - text: Migrate Spring Cloud to Azure Spring Apps
-            url: /azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-apps?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json

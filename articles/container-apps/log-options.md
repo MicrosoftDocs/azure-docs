@@ -3,7 +3,7 @@ title: Log storage and monitoring options in Azure Container Apps
 description: Description of logging options in Azure Container Apps
 services: container-apps
 author: v-jaswel
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: conceptual
 ms.date: 09/29/2022
@@ -72,7 +72,7 @@ To create a new *diagnostic setting*:
     - **Send to a partner solution**: Select from Azure partner solutions.  
 1. Select **Save**.
 
-For more information about Diagnostic settings, see [Diagnostic settings in Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md).
+For more information about Diagnostic settings, see [Diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings).
 
 ## Configure options using the Azure CLI
 
@@ -100,11 +100,22 @@ Replace \<PLACEHOLDERS\> with your values:
 az containerapp env update \
   --name <ENVIRONMENT_NAME> \
   --resource-group <RESOURCE_GROUP> \
-  --logs-destination azure-monitor 
-  
+  --logs-destination azure-monitor
 ```
 
 When  `--logs-destination` is set to `azure-monitor`, create diagnostic settings to configure the destination details for the log categories with the `az monitor diagnostics-settings` command.  
+
+To send app-level metrics to Log Analytics:
+
+Replace \<PLACEHOLDERS\> with your values:
+
+```azurecli
+az monitor diagnostic-settings create \
+--name "AllMetricsToLogAnalytics" \
+--resource <APP_ARM_RESOURCE_ID> \
+--metrics '[{"category": "AllMetrics","enabled": true}]' \
+--workspace <LOG_ANALYTICS_ARM_RESOURCE_ID>
+```
 
 For more information about Azure Monitor diagnostic settings commands, see [az monitor diagnostic-settings](/cli/azure/monitor/diagnostic-settings).  Container Apps log categories are `ContainerAppConsoleLogs` and `ContainerAppSystemLogs`.
 

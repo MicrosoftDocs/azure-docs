@@ -5,7 +5,7 @@ services: signalr
 author: sffamily
 manager: cfowler
 
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.topic: include
 ms.date: 12/20/2023
 ms.author: zhshang

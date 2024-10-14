@@ -74,7 +74,7 @@ This command creates a parameter file in the same folder as the Bicep file. You 
 
 ### Import Kubernetes manifest (Preview)
 
-This command imports a [Kubernetes manifest file](../../aks/concepts-clusters-workloads.md#deployments-and-yaml-manifests), and creates a [Bicep module](./modules.md). For more information, see [Bicep extensibility Kubernetes provider](./bicep-extensibility-kubernetes-provider.md), and [Quickstart: Deploy Azure applications to Azure Kubernetes Service (AKS) cluster using Bicep Kubernetes provider (Preview)](../../aks/learn/quick-kubernetes-deploy-bicep-extensibility-kubernetes-provider.md).
+This command imports a [Kubernetes manifest file](/azure/aks/concepts-clusters-workloads#deployments-and-yaml-manifests), and creates a [Bicep module](./modules.md). For more information, see [Bicep extensibility Kubernetes provider](./bicep-extensibility-kubernetes-provider.md), and [Quickstart: Deploy Azure applications to Azure Kubernetes Service (AKS) cluster using Bicep Kubernetes provider (Preview)](/azure/aks/learn/quick-kubernetes-deploy-bicep-extensibility-kubernetes-provider).
 
 ### Insert resource
 

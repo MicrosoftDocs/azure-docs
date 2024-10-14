@@ -3,7 +3,7 @@ title: 'Azure ExpressRoute: Configure ExpressRoute Direct'
 description: Learn how to use Azure PowerShell to configure Azure ExpressRoute Direct to connect directly to the Microsoft global network.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.custom:
   - devx-track-azurepowershell
   - ignite-2023

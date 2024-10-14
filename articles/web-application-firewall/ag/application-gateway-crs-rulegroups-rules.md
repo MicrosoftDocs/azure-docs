@@ -4,7 +4,7 @@ titleSuffix: Azure Web Application Firewall
 description: This page provides information on web application firewall CRS rule groups and rules.
 services: web-application-firewall
 author: vhorne
-ms.service: web-application-firewall
+ms.service: azure-web-application-firewall
 ms.date: 05/30/2024
 ms.author: victorh
 ms.topic: conceptual
@@ -105,7 +105,7 @@ For example, a single *Critical* rule match is enough for the WAF to block a req
 
 DRS 2.1 rules offer better protection than earlier versions of the DRS. It includes more rules developed by the Microsoft Threat Intelligence team and updates to signatures to reduce false positives. It also supports transformations beyond just URL decoding.
 
-DRS 2.1 includes 17 rule groups, as shown in the following table. Each group contains multiple rules, and you can customize behavior for individual rules, rule groups, or entire rule set.
+DRS 2.1 includes 17 rule groups, as shown in the following table. Each group contains multiple rules, and you can customize behavior for individual rules, rule groups, or entire rule set. DRS 2.1 is baselined off the Open Web Application Security Project (OWASP) Core Rule Set (CRS) 3.3.2 and includes additional proprietary protections rules developed by Microsoft Threat Intelligence team. 
 
 |Rule group|ruleGroupName|Description|
 |---|---|---|
@@ -202,7 +202,7 @@ CRS 3.0 includes 13 rule groups, as shown in the following table. Each group con
 CRS 2.2.9 includes 10 rule groups, as shown in the following table. Each group contains multiple rules, which can be disabled.
 
 > [!NOTE]
-> CRS 2.2.9 is no longer supported for new WAF policies. We recommend you upgrade to the latest CRS version. CRS 2.2.9 can't be used along with CRS 3.2/DRS 2.1 and greater versions. 
+> CRS 2.2.9 is no longer supported for new WAF policies. We recommend you upgrade to the latest CRS 3.2/DRS 2.1 and greater versions.  
 
 |Rule group name|Description|
 |---|---|
@@ -392,6 +392,7 @@ The following rule groups and rules are available when using Web Application Fir
 |942100|SQL Injection Attack Detected via libinjection|
 |942110|SQL Injection Attack: Common Injection Testing Detected|
 |942120|SQL Injection Attack: SQL Operator Detected|
+|942130|SQL Injection Attack: SQL Tautology Detected.|
 |942140|SQL Injection Attack: Common DB Names Detected|
 |942150|SQL Injection Attack|
 |942160|Detects blind sqli tests using sleep() or benchmark().|

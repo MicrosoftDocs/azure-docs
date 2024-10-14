@@ -7,10 +7,16 @@ ms.author: aterceros
 ms.date: 06/14/2023
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: creator
 ---
 
 # Work with datasets using the QGIS plugin
+
+> [!NOTE]
+>
+> **Azure Maps Creator retirement**
+>
+> The Azure Maps Creator indoor map service is now deprecated and will be retired on 9/30/25. For more information, see [End of Life Announcement of Azure Maps Creator](https://aka.ms/AzureMapsCreatorDeprecation).
 
 [QGIS] is an open-source [geographic information system (GIS)] application that supports viewing, editing, and analysis of geospatial data.
 

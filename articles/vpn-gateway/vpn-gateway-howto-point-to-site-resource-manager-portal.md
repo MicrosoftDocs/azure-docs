@@ -3,19 +3,21 @@ title: 'Configure P2S server configuration - certificate authentication: Azure p
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure VPN Gateway server settings for P2S configurations - certificate authentication.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 06/20/2024
+ms.date: 09/06/2024
 ms.author: cherylmc
 ---
 # Configure server settings for P2S VPN Gateway certificate authentication
 
-This article helps you configure the necessary VPN Gateway point-to-site (P2S) server settings to let you securely connect individual clients running Windows, Linux, or macOS to an Azure virtual network (VNet). P2S VPN connections are useful when you want to connect to your VNet from a remote location, such as when you're telecommuting from home or a conference. You can also use P2S instead of a site-to-site (S2S) VPN when you have only a few clients that need to connect to a virtual network (VNet). P2S connections don't require a VPN device or a public-facing IP address.
+This article helps you configure the necessary VPN Gateway point-to-site (P2S) server settings to let you securely connect individual clients running Windows, Linux, or macOS to an Azure virtual network (VNet). P2S VPN connections are useful when you want to connect to your VNet from a remote location, such as when you're telecommuting from home or a conference. You can also use P2S instead of a site-to-site (S2S) VPN when you have only a few clients that need to connect to a virtual network (VNet).
+
+P2S connections don't require a VPN device or a public-facing IP address. There are various different configuration options available for P2S. For more information about point-to-site VPN, see [About point-to-site VPN](point-to-site-about.md).
 
 :::image type="content" source="./media/vpn-gateway-howto-point-to-site-rm-ps/point-to-site-diagram.png" alt-text="Diagram of point-to-site connection showing how to connect from a computer to an Azure VNet." lightbox="./media/vpn-gateway-howto-point-to-site-rm-ps/point-to-site-diagram.png":::
 
-There are various different configuration options available for P2S. For more information about point-to-site VPN, see [About point-to-site VPN](point-to-site-about.md). This article helps you create a P2S configuration that uses **certificate authentication** and the Azure portal. To create this configuration using the Azure PowerShell, see the [Configure P2S - Certificate - PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md) article. For RADIUS authentication, see the [P2S RADIUS](point-to-site-how-to-radius-ps.md) article. For Microsoft Entra authentication, see the [P2S Microsoft Entra ID](openvpn-azure-ad-tenant.md) article.
+The steps in this article create a P2S configuration that uses **certificate authentication** and the Azure portal. To create this configuration using the Azure PowerShell, see the [Configure P2S - Certificate - PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md) article. For RADIUS authentication, see the [P2S RADIUS](point-to-site-how-to-radius-ps.md) article. For Microsoft Entra authentication, see the [P2S Microsoft Entra ID](openvpn-azure-ad-tenant.md) article.
 
 [!INCLUDE [P2S basic architecture](../../includes/vpn-gateway-p2s-architecture.md)]
 
@@ -46,6 +48,7 @@ You can use the following values to create a test environment, or refer to these
 * **Generation:** Generation2
 * **Gateway subnet address range:** 10.1.255.0/27
 * **Public IP address name:** VNet1GWpip
+* **Public IP address name 2:** VNet1GWpip2 - for active-active mode gateways.
 
 **Connection type and client address pool**
 
@@ -111,7 +114,7 @@ The client address pool is a range of private IP addresses that you specify. The
 
 1. On the **Point-to-site configuration** page, in the **Address pool** box, add the private IP address range that you want to use. VPN clients dynamically receive an IP address from the range that you specify. The minimum subnet mask is 29 bit for active/passive and 28 bit for active/active configuration.
 
-1. Next, configure the tunnel and authentication type.
+If your VPN gateway is configured with an availability zone SKU (AZ) and is in active-active mode, point-to-site VPN configurations require three public IP addresses. You can use the example value **VNet1GWpip3**.
 
 ## <a name="type"></a>Specify tunnel and authentication type
 
@@ -145,17 +148,19 @@ As you can tell, planning the tunnel type and authentication type is important w
   * The Azure VPN Client for Linux supports the OpenVPN tunnel type.
   * The strongSwan client on Android and Linux can use only the IKEv2 tunnel type to connect.
 
-### <a name="tunneltype"></a>Tunnel type
+### Tunnel and authentication type
 
-On the **Point-to-site configuration** page, select the **Tunnel type**. For this exercise, from the dropdown, select **IKEv2 and OpenVPN(SSL)**.
+:::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/authentication.png" alt-text="Screenshot of Point-to-site configuration page - authentication type." lightbox="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/authentication.png":::
 
-:::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configuration-tunnel-type.png" alt-text="Screenshot of Point-to-site configuration page - tunnel type." lightbox="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configuration-tunnel-type.png":::
+1. For **Tunnel type**, select the tunnel type that you want to use. For this exercise, from the dropdown, select **IKEv2 and OpenVPN(SSL)**.
 
-### <a name="authenticationtype"></a>Authentication type
+1. For **Authentication type**, select the authentication type that you want to use. For this exercise, from the dropdown, select **Azure certificate**. If you're interested in other authentication types, see the articles for [Microsoft Entra ID](openvpn-azure-ad-tenant.md) and [RADIUS](point-to-site-how-to-radius-ps.md).
 
-For this exercise, select **Azure certificate** for the authentication type. If you're interested in other authentication types, see the articles for [Microsoft Entra ID](openvpn-azure-ad-tenant.md) and [RADIUS](point-to-site-how-to-radius-ps.md).
+## <a name="publicip3"></a>Additional IP address
 
-:::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configuration-authentication-type.png" alt-text="Screenshot of Point-to-site configuration page - authentication type." lightbox="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/configuration-authentication-type.png":::
+If you have an active-active mode gateway that uses an availability zone SKU (AZ SKU), you need a third public IP address. If this setting doesn't apply to your gateway, you don't need to add an additional IP address.
+
+:::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/public-ip.png" alt-text="Screenshot of Point-to-site configuration page - public IP address." lightbox="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/public-ip.png":::
 
 ## <a name="uploadfile"></a>Upload root certificate public key information
 
@@ -163,20 +168,19 @@ In this section, you upload public root certificate data to Azure. Once the publ
 
 1. Make sure that you exported the root certificate as a **Base-64 encoded X.509 (.CER)** file in the previous steps. You need to export the certificate in this format so you can open the certificate with text editor. You don't need to export the private key.
 
-1. Open the certificate with a text editor, such as Notepad. When copying the certificate data, make sure that you copy the text as one continuous line without carriage returns or line feeds. You might need to modify your view in the text editor to 'Show Symbol/Show all characters' to see the carriage returns and line feeds. Copy only the following section as one continuous line:
+1. Open the certificate with a text editor, such as Notepad. When copying the certificate data, make sure that you copy the text as one continuous line:
 
-   :::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/notepad-root-cert.png" alt-text="Screenshot showing root certificate information in Notepad." lightbox="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/notepad-root-cert-expand.png":::
-1. Navigate to your **Virtual network gateway -> Point-to-site configuration** page in the **Root certificate** section. This section is only visible if you have selected **Azure certificate** for the authentication type.
+   :::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/certificate.png" alt-text="Screenshot of data in the certificate." lightbox="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/certificate-expand.png":::
+1. Go to your **Virtual network gateway -> Point-to-site configuration** page in the **Root certificate** section. This section is only visible if you have selected **Azure certificate** for the authentication type.
 1. In the **Root certificate** section, you can add up to 20 trusted root certificates.
 
    * Paste the certificate data into the **Public certificate data** field.
    * **Name** the certificate.
 
-   :::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/root-certificate.png" alt-text="Screenshot of certificate data field." lightbox="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/root-certificate.png":::
+   :::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/public-certificate-data.png" alt-text="Screenshot of certificate data field." lightbox="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/public-certificate-data.png":::
+
 1. Additional routes aren't necessary for this exercise. For more information about the custom routing feature, see [Advertise custom routes](vpn-gateway-p2s-advertise-custom-routes.md).
 1. Select **Save** at the top of the page to save all of the configuration settings.
-
-   :::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/save-configuration.png" alt-text="Screenshot of P2S configuration with Save selected." lightbox="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/save-configuration.png" :::
 
 ## <a name="profile-files"></a>Generate VPN client profile configuration files
 

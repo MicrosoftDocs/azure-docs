@@ -7,9 +7,9 @@ ms.date: 05/08/2024
 ms.author: robece
 ---
 
-# Authenticate Azure Event Grid clients using access keys or shared access signatures (Preview)
+# Authenticate Azure Event Grid clients using access keys or shared access signatures
 
-This article provides information on authenticating clients to Azure Event Namespace Topics, custom topics, domains, and partner namespaces using **access key** or **Shared Access Signature (SAS)** token.
+This article provides information on authenticating clients to Azure Event Grid namespace topics, custom topics, domains, and partner namespaces using **access key** or **Shared Access Signature (SAS)** token.
 
 > [!IMPORTANT]
 > - Authenticating and authorizing users or applications using Microsoft Entra identities provides superior security and ease of use over key-based and shared access signatures (SAS) authentication. With Microsoft Entra ID, there is no need to store secrets used for authentication in your code and risk potential security vulnerabilities. We strongly recommend using Microsoft Entra ID with your applications.

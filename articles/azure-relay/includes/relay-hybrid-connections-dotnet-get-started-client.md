@@ -1,6 +1,6 @@
 ---
 author: clemensv
-ms.service: service-bus-relay
+ms.service: azure-relay
 ms.topic: include
 ms.date: 08/10/2023
 ms.author: samurp
@@ -192,3 +192,5 @@ In Visual Studio, create a new **Console App (.NET Framework)** project.
     }
     ```
 
+> [!NOTE]
+> The sample code in this article uses a connection string to authenticate to an Azure Relay namespace to keep the tutorial simple. We recommend that you use Microsoft Entra ID authentication in production environments, rather than using connection strings or shared access signatures, which can be more easily compromised. For detailed information and sample code for using the Microsoft Entra ID authentication, see [Authenticate and authorize an application with Microsoft Entra ID to access Azure Relay entities](../authenticate-application.md) and [Authenticate a managed identity with Microsoft Entra ID to access Azure Relay resources](../authenticate-managed-identity.md).

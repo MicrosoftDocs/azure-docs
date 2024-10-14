@@ -2,7 +2,7 @@
 title: Managed identities
 description: Learn how managed identities work in Azure App Service and Azure Functions, how to configure a managed identity and generate a token for a back-end resource.
 ms.topic: article
-ms.date: 06/27/2023
+ms.date: 09/30/2024
 ms.reviewer: yevbronsh,mahender
 author: cephalin
 ms.author: cephalin
@@ -288,7 +288,7 @@ Content-Type: application/json
     "expires_on": "1586984735",
     "resource": "https://vault.azure.net",
     "token_type": "Bearer",
-    "client_id": "5E29463D-71DA-4FE0-8E69-999B57DB23B0"
+    "client_id": "00001111-aaaa-2222-bbbb-3333cccc4444"
 }
 ```
 

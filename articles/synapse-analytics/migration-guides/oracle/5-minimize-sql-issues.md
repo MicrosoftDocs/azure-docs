@@ -1,7 +1,7 @@
 ---
 title: "Minimize SQL issues for Oracle migrations"
 description: Learn how to minimize the risk of SQL issues when migrating from Oracle to Azure Synapse Analytics. 
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 author: ajagadish-24
@@ -40,7 +40,7 @@ You can automate and orchestrate the migration process by using the capabilities
 
 [Azure Data Factory](../../../data-factory/introduction.md) is a cloud-based data integration service that supports creating data-driven workflows in the cloud to orchestrate and automate data movement and data transformation. You can use Data Factory to create and schedule data-driven workflows (pipelines) that ingest data from disparate data stores. Data Factory can process and transform data by using compute services such as [Azure HDInsight Hadoop](../../../hdinsight/hadoop/apache-hadoop-introduction.md), Spark, Azure Data Lake Analytics, and Azure Machine Learning.
 
-Azure also includes [Azure Database Migration Services](../../../dms/dms-overview.md) to help you plan and perform a migration from environments such as Oracle. [SQL Server Migration Assistant (SSMA)](/sql/ssma/oracle/sql-server-migration-assistant-for-oracle-oracletosql) for Oracle can automate migration of Oracle databases, including in some cases functions and procedural code.
+Azure also includes [Azure Database Migration Services](/azure/dms/dms-overview) to help you plan and perform a migration from environments such as Oracle. [SQL Server Migration Assistant (SSMA)](/sql/ssma/oracle/sql-server-migration-assistant-for-oracle-oracletosql) for Oracle can automate migration of Oracle databases, including in some cases functions and procedural code.
 
 >[!TIP]
 >Automate the migration process by using Azure Data Factory capabilities.

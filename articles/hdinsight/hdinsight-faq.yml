@@ -5,7 +5,7 @@ metadata:
   keywords: frequently asked questions, faq
   author: reachnijel
   ms.author: nijelsf
-  ms.service: hdinsight
+  ms.service: azure-hdinsight
   ms.custom: hdinsightactive
   ms.topic: faq
   ms.date: 02/21/2024
@@ -94,7 +94,7 @@ sections:
       - question: |
           How can I migrate from the existing metastore to Azure SQL Database? 
         answer: |
-          To migrate from SQL Server to Azure SQL Database, see [Tutorial: Migrate SQL Server to a single database or pooled database in Azure SQL Database offline using DMS](../dms/tutorial-sql-server-to-azure-sql.md).
+          To migrate from SQL Server to Azure SQL Database, see [Tutorial: Migrate SQL Server to a single database or pooled database in Azure SQL Database offline using DMS](/azure/dms/tutorial-sql-server-to-azure-sql).
           
       - question: |
           Is the Hive metastore deleted when the cluster is deleted?

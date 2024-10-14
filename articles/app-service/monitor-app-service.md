@@ -6,7 +6,7 @@ ms.custom: horz-monitor
 ms.topic: conceptual
 author: msangapu-msft
 ms.author: msangapu
-ms.service: app-service
+ms.service: azure-app-service
 ---
 
 # Monitor Azure App Service

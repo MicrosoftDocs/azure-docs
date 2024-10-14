@@ -2,11 +2,9 @@
 title: Data redundancy in Azure Data Factory | Microsoft Docs
 description: 'Learn about meta-data redundancy mechanisms in Azure Data Factory'
 author: nabhishek
-ms.reviewer: abnarain
-ms.service: data-factory
-ms.subservice: concepts
 ms.topic: conceptual
-ms.date: 01/05/2024
+ms.date: 10/03/2024
+ms.subservice: data-movement
 ms.author: abnarain
 ---
 

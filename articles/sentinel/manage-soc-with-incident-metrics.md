@@ -6,6 +6,10 @@ ms.topic: how-to
 ms.custom: mvc
 ms.date: 11/09/2021
 ms.author: yelevin
+
+
+#Customer intent: As a security operations manager, I want to analyze incident metrics using customizable workbooks and queries so that I can monitor and improve my team's performance and efficiency.
+
 ---
 
 # Manage your SOC better with incident metrics

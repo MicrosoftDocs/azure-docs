@@ -4,7 +4,7 @@ description: Follow this tutorial to learn how to customize the API Management d
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: tutorial
 ms.date: 03/29/2024
 ms.author: danlep

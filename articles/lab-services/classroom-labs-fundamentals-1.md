@@ -3,7 +3,7 @@ title: Architecture fundamentals with lab accounts in Azure Lab Services | Micro
 description: This article will cover the fundamental resources used by Lab Services and basic architecture of a lab that using lab accounts.  
 ms.topic: overview
 ms.date: 05/30/2022
-ms.service: lab-services
+ms.service: azure-lab-services
 ---
 
 # Architecture Fundamentals in Azure Lab Services when using lab accounts

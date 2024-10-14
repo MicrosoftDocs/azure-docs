@@ -28,7 +28,6 @@ zone_pivot_groups: feature-management
 [![Microsoft.FeatureManagement](https://img.shields.io/nuget/vpre/Microsoft.FeatureManagement?label=Microsoft.FeatureManagement)](https://www.nuget.org/packages/Microsoft.FeatureManagement/4.0.0-preview3)<br>
 [![Microsoft.FeatureManagement.AspNetCore](https://img.shields.io/nuget/vpre/Microsoft.FeatureManagement.AspNetCore?label=Microsoft.FeatureManagement.AspNetCore)](https://www.nuget.org/packages/Microsoft.FeatureManagement.AspNetCore/4.0.0-preview3)<br>
 [![Microsoft.FeatureManagement.Telemetry.ApplicationInsights](https://img.shields.io/nuget/v/Microsoft.FeatureManagement.Telemetry.ApplicationInsights?label=Microsoft.FeatureManagement.Telemetry.ApplicationInsights)](https://www.nuget.org/packages/Microsoft.FeatureManagement.Telemetry.ApplicationInsights/4.0.0-preview3)<br>
-[![Microsoft.FeatureManagement.Telemetry.ApplicationInsights.AspNetCore](https://img.shields.io/nuget/v/Microsoft.FeatureManagement.Telemetry.ApplicationInsights.AspNetCore?label=Microsoft.FeatureManagement.Telemetry.ApplicationInsights.AspNetCore)](https://www.nuget.org/packages/Microsoft.FeatureManagement.Telemetry.ApplicationInsights.AspNetCore/4.0.0-preview3)<br>
 
 :::zone-end
 
@@ -1131,7 +1130,7 @@ Compared to normal feature flags, variant feature flags have two additional prop
 
 #### Defining Variants
 
-Each variant has two properties: a name and a configuration. The name is used to refer to a specific variant, and the configuration is the value of that variant. The configuration can be set using either the `configuration_reference` or `configuration_value` properties. `configuration_reference` is a string path that references a section of the current configuration that contains the feature flag declaration. `configuration_value` is an inline configuration that can be a string, number, boolean, or configuration object. If both are specified, `configuration_value` is used. If neither are specified, the returned variant's `Configuration` property will be null.
+Each variant has two properties: a name and a configuration. The name is used to refer to a specific variant, and the configuration is the value of that variant. The configuration can be set using `configuration_value` property. `configuration_value` is an inline configuration that can be a string, number, boolean, or configuration object. If `configuration_value` is not specified, the returned variant's `Configuration` property will be null.
 
 A list of all possible variants is defined for each feature under the `variants` property.
 
@@ -1144,7 +1143,9 @@ A list of all possible variants is defined for each feature under the `variants`
                 "variants": [
                     { 
                         "name": "Big", 
-                        "configuration_reference": "ShoppingCart:Big" 
+                        "configuration_value": {
+                            "Size": 500
+                        }
                     },  
                     { 
                         "name": "Small", 
@@ -1155,17 +1156,6 @@ A list of all possible variants is defined for each feature under the `variants`
                 ]
             }
         ]
-    },
-
-    "ShoppingCart": {
-        "Big": {
-            "Size": 600,
-            "Color": "green"
-        },
-        "Small": {
-            "Size": 300,
-            "Color": "gray"
-        }
     }
 }
 ```
@@ -1206,7 +1196,7 @@ The process of allocating a feature's variants is determined by the `allocation`
 "variants": [
     { 
         "name": "Big", 
-        "configuration_reference": "ShoppingCart:Big" 
+        "configuration_value": "500px"
     },  
     { 
         "name": "Small", 
@@ -1237,7 +1227,7 @@ Allocation logic is similar to the [Microsoft.Targeting](#microsofttargeting) fe
 
 ### Overriding Enabled State with a Variant
 
-You can use variants to override the enabled state of a feature flag. This gives variants an opportunity to extend the evaluation of a feature flag. If a caller is checking whether a flag that has variants is enabled, the feature manager will check if the variant assigned to the current user is set up to override the result. This is done using the optional variant property `status_override`. By default, this property is set to `None`, which means the variant doesn't affect whether the flag is considered enabled or disabled. Setting `status_override` to `Enabled` allows the variant, when chosen, to override a flag to be enabled. Setting `status_override` to `Disabled` provides the opposite functionality, therefore disabling the flag when the variant is chosen. A feature with an `enabled` state of `false` can't be overridden.
+You can use variants to override the enabled state of a feature flag. This gives variants an opportunity to extend the evaluation of a feature flag. When calling `IsEnabled` on a flag with variants, the feature manager will check if the variant assigned to the current user is configured to override the result. This is done using the optional variant property `status_override`. By default, this property is set to `None`, which means the variant doesn't affect whether the flag is considered enabled or disabled. Setting `status_override` to `Enabled` allows the variant, when chosen, to override a flag to be enabled. Setting `status_override` to `Disabled` provides the opposite functionality, therefore disabling the flag when the variant is chosen. A feature with an `enabled` state of `false` can't be overridden.
 
 If you're using a feature flag with binary variants, the `status_override` property can be very helpful. It allows you to continue using APIs like `IsEnabledAsync` and `FeatureGateAttribute` in your application, all while benefiting from the new features that come with variants, such as percentile allocation and seed.
 
@@ -1360,19 +1350,11 @@ The `telemetry` section of a feature flag has the following properties:
 | Property | Description |
 | ---------------- | ---------------- |
 | `enabled` | Specifies whether telemetry should be published for the feature flag. |
-| `metadata` | A collection of key-value pairs, modeled as a dictionary, that can be used to attach custom metadata about the feature flag to evaluation events. |
+| `metadata` | A collection of key-value pairs, modeled as a dictionary, which can be used to attach custom metadata about the feature flag to evaluation events. |
 
 ### Custom Telemetry Publishing
 
-The feature manager has its own `ActivitySource` named "Microsoft.FeatureManagement". If `telemetry` is enabled for a feature flag, whenever the evaluation of the feature flag is started, the feature manager will start an `Activity`. When the feature flag evaluation is finished, the feature manager will add an `ActivityEvent` named `"FeatureFlag"` to the current activity. The `"FeatureFlag"` event will have tags which include the information about the feature flag evaluation. Specifically, the tags will include the following fields:
-
-| Tag | Description |
-| ---------------- | ---------------- |
-| `FeatureName` | The feature flag name. |
-| `Enabled` | Whether the feature flag is evaluated as enabled. |
-| `Variant` | The assigned variant. |
-| `VariantAssignmentReason` | The reason why the variant is assigned. |
-| `TargetingId` | The user id used for targeting. |
+The feature manager has its own `ActivitySource` named "Microsoft.FeatureManagement". If `telemetry` is enabled for a feature flag, whenever the evaluation of the feature flag is started, the feature manager will start an `Activity`. When the feature flag evaluation is finished, the feature manager will add an `ActivityEvent` named `FeatureFlag` to the current activity. The `FeatureFlag` event will have tags which include the information about the feature flag evaluation, following the fields defined in the [FeatureEvaluationEvent](https://github.com/microsoft/FeatureManagement/tree/main/Schema/FeatureEvaluationEvent) schema.
 
 > [!NOTE]
 > All key value pairs specified in `telemetry.metadata` of the feature flag will also be included in the tags.

@@ -4,7 +4,7 @@ description: Learn how to plan for and manage costs for Azure API Management by 
 author: dlepow
 ms.author: danlep
 ms.custom: subject-cost-optimization
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 06/11/2021
 ---

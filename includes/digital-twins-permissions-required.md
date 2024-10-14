@@ -1,7 +1,7 @@
 ---
 author: baanders
 description: include file describing elevated permissions needed for some management steps
-ms.service: digital-twins
+ms.service: azure-digital-twins
 ms.topic: include
 ms.date: 2/23/2021
 ms.author: baanders
