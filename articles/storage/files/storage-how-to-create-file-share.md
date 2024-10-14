@@ -51,12 +51,12 @@ Storage accounts have two properties, kind and SKU, which dictate the billing mo
 | HDD | [Pay-as-you-go](./understanding-billing.md#pay-as-you-go-model) | StorageV2 | <ul><li>Standard_LRS</li><li>Standard_ZRS</li><li>Standard_GRS</li><li>Standard_GZRS</li></ul> |
 | SSD | [Provisioned v1](./understanding-billing.md#provisioned-v1-model) | FileStorage | <ul><li>Premium_LRS</li><li>Premium_ZRS</li></ul> |
 
-If you are creating an HDD file share, you can choose between the provisioned v2 and pay-as-you-go billing models. Both models are fully supported, however, we recommend provisioned v2 for new file share deployments. Provisioned v2 file shares are currently available in a limited subset of regions; see [provisioned v2 availability](./understanding-billing.md#provisioned-v2-availability) for more information.
+If you're creating an HDD file share, you can choose between the provisioned v2 and pay-as-you-go billing models. Both models are fully supported, however, we recommend provisioned v2 for new file share deployments. Provisioned v2 file shares are currently available in a limited subset of regions; see [provisioned v2 availability](./understanding-billing.md#provisioned-v2-availability) for more information.
 
 # [Portal](#tab/azure-portal)
-To create a storage account via the Azure portal, use the search box at the top of the Azure Portal to search for **storage accounts** and select the matching result. 
+To create a storage account via the Azure portal, use the search box at the top of the Azure portal to search for **storage accounts** and select the matching result. 
 
-![A screenshot of the Azure Portal search box with results for "storage accounts"](./media/storage-how-to-create-file-share/create-storage-account-0.png)
+![A screenshot of the Azure portal search box with results for "storage accounts"](./media/storage-how-to-create-file-share/create-storage-account-0.png)
 
 This shows a list of all existing storage accounts available in your visible subscriptions. Click **+ Create** to create a new storage account.
 
@@ -67,15 +67,15 @@ The first tab to complete to create a storage account is labeled **Basics**, whi
 
 | Field name | Input type | Values | Applicable to Azure Files | Meaning |
 |-|-|-|-|-|
-| Subscription | Drop down list | *Available Azure subscriptions* | Yes | The selected subscription in which to deploy the storage account. The number of storage accounts per subscription is limited, so to deploy a new storage account into a selected subscription, it have fewer storage accounts deployed than the subscription limit. See [storage account scale targets](./storage-files-scale-targets.md#storage-account-scale-targets) for more information. |
-| Resource group | Drop down list | *Available resource groups in selected subscription* | Yes | The resource group in which to deploy the storage account. A resource group is a logical container for organizing for Azure resources, including storage accounts. |
+| Subscription | Drop-down list | *Available Azure subscriptions* | Yes | The selected subscription in which to deploy the storage account. The number of storage accounts per subscription is limited, so to deploy a new storage account into a selected subscription, if it has fewer storage accounts deployed than the subscription limit. See [storage account scale targets](./storage-files-scale-targets.md#storage-account-scale-targets) for more information. |
+| Resource group | Drop-down list | *Available resource groups in selected subscription* | Yes | The resource group in which to deploy the storage account. A resource group is a logical container for organizing for Azure resources, including storage accounts. |
 | Storage account name | Text box | -- | Yes | The name of the storage account resource to be created. This name must be globally unique. The storage account name is used as the server name when you mount an Azure file share via SMB. Storage account names must be between 3 and 24 characters in length. They may contain numbers and lowercase letters only. |
-| Region | Drop down list | *Available Azure regions* | Yes | The region for the storage account to be deployed into. This can be the region associated with the resource group, or any other available region. Note: HDD provisioned v2 file shares are only available in a subset of regions. See [provisioned v2 availability](./understanding-billing.md#provisioned-v2-availability) for more information. |
-| Primary service | Drop down list | <ul><li>Azure Blob Storage or Azure Data Lake Storage Gen 2</li><li>**Azure Files**</li><li>Other (tables and queues)</li></ul> | Only unpopulated and **Azure Files** | The service for which you are creating the storage account, in this case **Azure Files**. This field is optional, however, you can't select the provisioned v2 billing model unless you select **Azure Files** from the list. |
+| Region | Drop-down list | *Available Azure regions* | Yes | The region for the storage account to be deployed into. This can be the region associated with the resource group, or any other available region. Note: HDD provisioned v2 file shares are only available in a subset of regions. See [provisioned v2 availability](./understanding-billing.md#provisioned-v2-availability) for more information. |
+| Primary service | Drop-down list | <ul><li>Azure Blob Storage or Azure Data Lake Storage Gen 2</li><li>**Azure Files**</li><li>Other (tables and queues)</li></ul> | Only unpopulated and **Azure Files** | The service for which you're creating the storage account, in this case **Azure Files**. This field is optional, however, you can't select the provisioned v2 billing model unless you select **Azure Files** from the list. |
 | Performance | Radio button group | <ul><li>Standard</li><li>Premium</li></ul> | Yes | The media tier of the storage account. Select **Standard** for an HDD storage account and **Premium** for an SSD storage account. |
 | File share billing | Radio button group | <ul><li>Standard<ul><li>Pay-as-you-go</li><li>Provisioned v2</li></ul></li><li>Premium<ul><li>Provisioned v1</li></ul></li></ul> | Yes | The billing model desired for your scenario. For HDD file shares, we recommend provisioned v2 for new deployments, although the pay-as-you-go billing model is still supported. For SSD file shares, the provisioned v1 is the only available billing option. Note: HDD provisioned v2 file shares are only available in a subset of regions. See [provisioned v2 availability](./understanding-billing.md#provisioned-v2-availability) for more information. |
-| Redundancy | Drop down list | <ul><li>Locally-redundant storage (LRS)</li><li>Geo-redundant storage (GRS)</li><li>Zone-redundant storage (ZRS)</li><li>Geo-zone-redundant storage (GZRS)</li></ul> | Yes | The redundancy choice for the storage account. See [Azure Files redundacy](./files-redundancy.md) for more information. |
-| Make read access to data available in the event of region unavailability | Checkbox | Checked/unchecked | No | This setting only appears if you select the pay-as-you-go billing model with the Geo or GeoZone redundancy types. Azure Files does not support read access to data in the secondary region without a failover regardless of the status of this setting. |
+| Redundancy | Drop-down list | <ul><li>Locally-redundant storage (LRS)</li><li>Geo-redundant storage (GRS)</li><li>Zone-redundant storage (ZRS)</li><li>Geo-zone-redundant storage (GZRS)</li></ul> | Yes | The redundancy choice for the storage account. See [Azure Files redundacy](./files-redundancy.md) for more information. |
+| Make read access to data available in the event of region unavailability | Checkbox | Checked/unchecked | No | This setting only appears if you select the pay-as-you-go billing model with the Geo or GeoZone redundancy types. Azure Files doesn't support read access to data in the secondary region without a failover regardless of the status of this setting. |
 
 ### Advanced
 The **Advanced** tab is optional, but provides more granular settings for the storage account. The first section relates to **Security** settings.
@@ -84,12 +84,12 @@ The **Advanced** tab is optional, but provides more granular settings for the st
 
 | Field name | Input type | Values | Applicable to Azure Files | Meaning |
 |-|-|-|-|-|
-| Require secure transfer for REST API operations | Checkbox | Checked/Unchecked | Yes | This setting indicates that this applies to REST API operations, but it applies to SMB and NFS for Azure Files as well. If you plan to deploy NFS file shares in your storage account, or you have clients that need access to unencrypted SMB (such as SMB 2.1), uncheck this checkbox. |
-| Allow enabling anonymous access on individual containers | Checkbox | Checked/Unchecked | No | This setting controls whether Azure Blob storage containers are allowed to be accessed with anonymous access. This setting does not apply to Azure Files. This setting is available for FileStorage storage accounts containing provisioned v1 or provisioned v2 file shares even though it is not possible to create Azure Blob storage containers in FileStorage storage accounts. |
-| Enable storage account key access | Checkbox | Checked/Unchecked | Yes | This setting controls whether the storage account keys (also referred to as shared keys) are enabled. When enabled, storage account keys can be used to mount the file share using SMB or to access the share using the FileREST API. |
-| Default to Microsoft Entra authorization in the Azure portal | Checkbox | Checked/Unchecked | Yes | This setting controls whether the user's Microsoft Entra (formerly Azure AD) identity is used when browsing the file share in the Azure portal. |
-| Minimum TLS version | Drop down list | *Supported TLS versions* | Yes | This setting controls the minimum allowed TLS version that's used for protocols which use TLS. For Azure Files, only the FileREST protocol uses TLS (as part of HTTPS). |
-| Permitted scope for copy operations | Drop down list | *Scopes for copy operations* | Yes | This setting controls the scope of storage account to storage account copy operations using the FileREST API, usually facilitated through tools like AzCopy. |
+| Require secure transfer for REST API operations | Checkbox | Checked/unchecked | Yes | This setting indicates that this applies to REST API operations, but it applies to SMB and NFS for Azure Files as well. If you plan to deploy NFS file shares in your storage account, or you have clients that need access to unencrypted SMB (such as SMB 2.1), uncheck this checkbox. |
+| Allow enabling anonymous access on individual containers | Checkbox | Checked/unchecked | No | This setting controls whether Azure Blob storage containers are allowed to be accessed with anonymous access. This setting doesn't apply to Azure Files. This setting is available for FileStorage storage accounts containing provisioned v1 or provisioned v2 file shares even though it isn't possible to create Azure Blob storage containers in FileStorage storage accounts. |
+| Enable storage account key access | Checkbox | Checked/unchecked | Yes | This setting controls whether the storage account keys (also referred to as shared keys) are enabled. When enabled, storage account keys can be used to mount the file share using SMB or to access the share using the FileREST API. |
+| Default to Microsoft Entra authorization in the Azure portal | Checkbox | Checked/unchecked | Yes | This setting controls whether the user's Microsoft Entra (formerly Azure AD) identity is used when browsing the file share in the Azure portal. |
+| Minimum TLS version | Drop-down list | *Supported TLS versions* | Yes | This setting controls the minimum allowed TLS version that's used for protocols which use TLS. For Azure Files, only the FileREST protocol uses TLS (as part of HTTPS). |
+| Permitted scope for copy operations | Drop-down list | *Scopes for copy operations* | Yes | This setting controls the scope of storage account to storage account copy operations using the FileREST API, usually facilitated through tools like AzCopy. |
 
 The **Hierarchical Namespace** section applies only to Azure Blob storage use, even in FileStorage storage accounts using the provisioned v1 or provisioned v2 billing models which can only contain Azure Files. Azure file shares support a hierarchical namespace regardless of the value of these settings.
 
@@ -108,8 +108,8 @@ The **Blob storage** section applies only to Azure Blob storage use, even in Fil
 
 | Field name | Input type | Values | Applicable to Azure Files | Meaning |
 |-|-|-|-|-|
-| Allow cross-tenant replication | Checkbox | Checked/unchecked | No | This is an Azure Blob storage only setting. This setting is always available, even for FileStorage storage accounts which cannot contain Azure Blob storage. Checking this checkbox has no impact on Azure Files. |
-| Access tier | Radio button group | *Blob storage access tiers* | No | This is an Azure Blob storage only setting. This setting is always available, even for FileStorage storage accounts which cannot contain Azure Blob storage. Selecting an option has no impact on Azure Files. |
+| Allow cross-tenant replication | Checkbox | Checked/unchecked | No | This is an Azure Blob storage only setting. This setting is always available, even for FileStorage storage accounts which can't contain Azure Blob storage. Checking this checkbox has no impact on Azure Files. |
+| Access tier | Radio button group | *Blob storage access tiers* | No | This is an Azure Blob storage only setting. This setting is always available, even for FileStorage storage accounts which can't contain Azure Blob storage. Selecting an option has no impact on Azure Files. |
 
 ### Networking
 The networking section allows you to configure networking options. These settings are optional for the creation of the storage account and can be configured later if desired. For more information on these options, see [Azure Files networking considerations](storage-files-networking-overview.md).
@@ -121,27 +121,27 @@ The **Data protection** tab contains ability to enable or disable soft-delete. T
 
 | Field name | Input type | Values | Applicable to Azure Files | Meaning |
 |-|-|-|-|-|
-| Enable point-in-time restore for containers | Checkbox | Checked/unchecked | No | This is an Azure Blob storage only setting. This setting is always available, even for FileStorage storage accounts which cannot contain Azure Blob storage, although checking this box for FileStorage storage accounts does result in a validation error message. For pay-as-you-go storage accounts, the selection for this setting does not apply to Azure Files. |
-| Maximum restore point (days ago) | Textbox | *Days (number)* | No | When *Enable point-in-time restore for containers* is selected, this textbox is available. The value chosen does not apply to Azure Files. |
-| Enable soft delete for blobs | Checkbox | Checked/unchecked | No | This is an Azure Blob storage only setting. This setting is always available, even for FileStorage storage accounts which cannot contain Azure Blob storage, although checking this box for FileStorage storage accounts does result in a validation error message. For pay-as-you-go storage accounts, the selection for this setting does not apply to Azure Files. |
-| Days to retain deleted blobs | Textbox | *Days (number)* | No | When *Enable soft delete for blobs* is selected, this textbox is available. The value chosen does not apply to Azure Files. |
-| Enable soft delete for containers | Checkbox | Checked/unchecked | No | This is an Azure Blob storage only setting. This setting is always available, even for FileStorage storage accounts which cannot contain Azure Blob storage, although checking this box for FileStorage storage account does result in a validation error message. For pay-as-you-go storage accounts, the selection for this setting does not apply to Azure Files. |
-| Days to retain deleted containers | Textbox | *Days (number)* | No | When *Enable soft delete for containers* is selected, this textbox is available. The value chose does not apply to Azure Files. |
+| Enable point-in-time restore for containers | Checkbox | Checked/unchecked | No | This is an Azure Blob storage only setting. This setting is always available, even for FileStorage storage accounts which can't contain Azure Blob storage, although checking this box for FileStorage storage accounts does result in a validation error message. For pay-as-you-go storage accounts, the selection for this setting doesn't apply to Azure Files. |
+| Maximum restore point (days ago) | Textbox | *Days (number)* | No | When *Enable point-in-time restore for containers* is selected, this textbox is available. The value chosen doesn't apply to Azure Files. |
+| Enable soft delete for blobs | Checkbox | Checked/unchecked | No | This is an Azure Blob storage only setting. This setting is always available, even for FileStorage storage accounts which can't contain Azure Blob storage, although checking this box for FileStorage storage accounts does result in a validation error message. For pay-as-you-go storage accounts, the selection for this setting doesn't apply to Azure Files. |
+| Days to retain deleted blobs | Textbox | *Days (number)* | No | When *Enable soft delete for blobs* is selected, this textbox is available. The value chosen doesn't apply to Azure Files. |
+| Enable soft delete for containers | Checkbox | Checked/unchecked | No | This is an Azure Blob storage only setting. This setting is always available, even for FileStorage storage accounts which can't contain Azure Blob storage, although checking this box for FileStorage storage account does result in a validation error message. For pay-as-you-go storage accounts, the selection for this setting doesn't apply to Azure Files. |
+| Days to retain deleted containers | Textbox | *Days (number)* | No | When *Enable soft delete for containers* is selected, this textbox is available. The value chose doesn't apply to Azure Files. |
 | Enable soft delete for file shares | Checkbox | Checked/unchecked | Yes | Enable the [soft delete](./storage-files-enable-soft-delete.md) feature to protect against the accidental deletion of file shares. Soft delete is enabled by default, but you may choose to disable this setting if shares are frequently created and deleted as part of a business workflow. Soft deleted file shares are billed for their used capacity, even in provisioned models. |
-| Days to retain deleted file shares | Textbox | *Days (number)* | No | When *Enable soft delete for file shares* is selected, this textbox is available. By default, file shares are retianed for 7 days before being purged, however you may choose to increase or decrease this number depending on your requirements. Soft deleted file shares are billed for their used capacity, even in provisioned file shares, so retaining for a longer period of time can result in greater expenses due to soft-delete. |
+| Days to retain deleted file shares | Textbox | *Days (number)* | No | When *Enable soft delete for file shares* is selected, this textbox is available. By default, file shares are retained for 7 days before being purged, however you may choose to increase or decrease this number depending on your requirements. Soft deleted file shares are billed for their used capacity, even in provisioned file shares, so retaining for a longer period of time can result in greater expenses due to soft-delete. |
 
 The **Tracking** section applies only to Azure Blob storage use, even in FileStorage storage accounts using the provisioned v1 or provisioned v2 billing models which can only contain Azure Files.
 
 | Field name | Input type | Values | Applicable to Azure Files | Meaning |
 |-|-|-|-|-|
-| Enable versioning for blobs | Checkbox | Checked/unchecked | No | This is an Azure Blob storage only setting. This setting is always available, even for FileStorage storage accounts which cannot contain Azure Blob storage, although checking this box for FileStorage storage accounts does result in a validation error message. For pay-as-you-go storage accounts, the selection for this setting does not apply to Azure Files. |
-| Enable blob change feed | Checkbox | Checked/unchecked | No | This is an Azure Blob storage only setting. This setting is always available, even for FileStorage storage accounts which cannot contain Azure Blob storage, although checking this box for FileStorage storage accounts does result in a validation error message. For pay-as-you-go storage accounts, the selection for this setting does not apply to Azure Files. |
+| Enable versioning for blobs | Checkbox | Checked/unchecked | No | This is an Azure Blob storage only setting. This setting is always available, even for FileStorage storage accounts which can't contain Azure Blob storage, although checking this box for FileStorage storage accounts does result in a validation error message. For pay-as-you-go storage accounts, the selection for this setting doesn't apply to Azure Files. |
+| Enable blob change feed | Checkbox | Checked/unchecked | No | This is an Azure Blob storage only setting. This setting is always available, even for FileStorage storage accounts which can't contain Azure Blob storage, although checking this box for FileStorage storage accounts does result in a validation error message. For pay-as-you-go storage accounts, the selection for this setting doesn't apply to Azure Files. |
 
 The **Access control** section applies only to Azure Blob storage use, even in FileStorage storage accounts using the provisioned v1 or provisioned v2 billing models which can only contain Azure Files.
 
 | Field name | Input type | Values | Applicable to Azure Files | Meaning |
 |-|-|-|-|-|
-| Enable version-level immutability support | Checkbox | Checked/unchecked | No | This is an Azure Blob storage only setting. This setting is always available, even for FileStorage storage accounts which cannot contain Azure Blob storage, although checking this box for FileStorage storage accounts does result in a validation error message. For pay-as-you-go storage accounts, the selection for this setting does not apply to Azure Files. |
+| Enable version-level immutability support | Checkbox | Checked/unchecked | No | This is an Azure Blob storage only setting. This setting is always available, even for FileStorage storage accounts which can't contain Azure Blob storage, although checking this box for FileStorage storage accounts does result in a validation error message. For pay-as-you-go storage accounts, the selection for this setting doesn't apply to Azure Files. |
 
 ### Encryption
 The **Encryption** tab controls settings related to encryption at rest.
@@ -152,17 +152,17 @@ The **Encryption** tab controls settings related to encryption at rest.
 |-|-|-|-|-|
 | Encryption type | Radio button group | <ul><li>Microsoft-managed keys</li><li>Customer-managed keys</li></ul> | Yes | This setting controls who holds the encryption key for the data placed in this storage account. See [Encryption for data at rest](../common/storage-service-encryption.md?toc=%2Fazure%2Fstorage%2Ffiles%2Ftoc.json) for more information. |
 | Enable support for customer-managed keys | Radio button group | <ul><li>Blobs and files only</li><li>All service types (blobs, files, tables, and queues)</li></ul> | No | All kind/SKU combinations Azure file shares can exist in can support customer-managed keys regardless of this setting. |
-| Enable infrastructure encryption | Checkbox | Checked/unchecked | Yes | Storage accounts can optional use a secondary layer of encryption for data stored in the system to guard against one of the keys being compromised. See [Enable infrastructure encryption](../common/infrastructure-encryption-enable.md?toc=%2Fazure%2Fstorage%2Ffiles%2Ftoc.json) for more information. |
+| Enable infrastructure encryption | Checkbox | Checked/unchecked | Yes | Storage accounts can optionally use a secondary layer of encryption for data stored in the system to guard against one of the keys being compromised. See [Enable infrastructure encryption](../common/infrastructure-encryption-enable.md?toc=%2Fazure%2Fstorage%2Ffiles%2Ftoc.json) for more information. |
 
 ### Tags
 Tags are name/value pairs that enable you to categorize resources and view consolidated billing by applying the same tag to multiple resources and resource groups. These are optional and can be applied after storage account creation.
 
 ### Review + create
-The final step to create the storage account is to select the **Create** button on the **Review + create** tab. This button isn't be available until all the required fields for a storage account are completed.
+The final step to create the storage account is to select the **Create** button on the **Review + create** tab. This button isn't available until all the required fields for a storage account are completed.
 
 # [PowerShell](#tab/azure-powershell)
 ### Create a provisioned v2 storage account (PowerShell)
-The Az.Storage PowerShell module does not currently support creating provisioned v2 storage accounts. To create a provisioned v2 storage account using PowerShell, use the `New-AzResource` cmdlet. Storage account properties can be set using the `-Properties` parameter of the `New-AzResource` cmdlet. See [Microsoft.Storage resource provider REST API documentation](/rest/api/storagerp/storage-accounts/create#request-body) to learn more about the possible property names.
+The Az.Storage PowerShell module doesn't currently support creating provisioned v2 storage accounts. To create a provisioned v2 storage account using PowerShell, use the `New-AzResource` cmdlet. Storage account properties can be set using the `-Properties` parameter of the `New-AzResource` cmdlet. See [Microsoft.Storage resource provider REST API documentation](/rest/api/storagerp/storage-accounts/create#request-body) to learn more about the possible property names.
 
 To create a storage account for provisioned v2 file shares, use the following command. Remember to replace the values for the variables `$resourceGroupName`, `$storageAccountName`, `$region`, and `$storageAccountSku` with the desired values for your storage account deployment.
 
@@ -224,7 +224,7 @@ $storageAccount = New-AzStorageAccount `
 
 # [Azure CLI](#tab/azure-cli)
 ### Create a provisioned v2 storage account (Azure CLI)
-The Azure CLI storage command group does not currently support creating provisioned v2 storage accounts. To create a provisioned v2 storage account using Azure CLI, use the `az resource create` command. Storage account properties can be set using the `--properties` parameter of the command. See [Microsoft.Storage resource provider REST API documentation](/rest/api/storagerp/storage-accounts/create#request-body) to learn more about the possible property names.
+The Azure CLI storage command group doesn't currently support creating provisioned v2 storage accounts. To create a provisioned v2 storage account using Azure CLI, use the `az resource create` command. Storage account properties can be set using the `--properties` parameter of the command. See [Microsoft.Storage resource provider REST API documentation](/rest/api/storagerp/storage-accounts/create#request-body) to learn more about the possible property names.
 
 To create a storage account for provisioned v2 file shares, use the following command. Remember to replace the values for the variables `resourceGroupName`, `storageAccountName`, `region`, and `storageAccountSku` with the desired values for your storage account deployment.
 
@@ -312,9 +312,9 @@ Follow these instructions to create a new Azure file share using the Azure porta
 
     - **Name**: The name of the file share to be created.
 
-    - **Provisioned storage (GiB)**: The amount of storage to provision on the share. The actual provisioned storage capacity is the amount that you are billed for regardless of actual usage.
+    - **Provisioned storage (GiB)**: The amount of storage to provision on the share. The actual provisioned storage capacity is the amount that you're billed for regardless of actual usage.
 
-    - **Provisioned IOPS and throughput**: A radio button group that lets you select between *Recommended provisioning* and *Manually specify IOPS and throughput*. The IOPS and throughput recommendation is based on typical customer usage for that amount of provisioned storage for that media tier, so if you don't know specifically what your IOPS and throughput requirements are, we recommend you stick with the recommendations and adjust later as needed.
+    - **Provisioned IOPS and throughput**: A radio button group that lets you select between *Recommended provisioning* and *Manually specify IOPS and throughput*. The IOPS and throughput recommendations are based on typical customer usage for that amount of provisioned storage for that media tier, so if you don't know specifically what your IOPS and throughput requirements are, we recommend you stick with the recommendations and adjust later as needed.
 
         - **IOPS**: If you select *Manually specify IOPS and throughput*, this textbox enables you to enter the amount of IOPS you want to provision on this file share.
 
@@ -442,7 +442,7 @@ Follow these instructions to create a new Azure file share using the Azure porta
 
     - **Name**: The name of the file share to be created.
 
-    - **Provisioned storage (GiB)**: The amount of storage to provision on the share. The provisioned storage capacity is the amount that you are billed for regardless of actual usage. 
+    - **Provisioned storage (GiB)**: The amount of storage to provision on the share. The provisioned storage capacity is the amount that you're billed for regardless of actual usage. 
 
     - **Protocol**: The file sharing protocol to use on the share. By default, new shares use the SMB protocol. Select the NFS protocol for NFS v4.1 shares.
 
@@ -503,7 +503,7 @@ az storage share-rm create \
 ---
 
 ### Create an HDD pay-as-you-go file share
-HDD pay-as-you-go file shares have a property called access tier. All three access tiers are stored on the exact same storage hardware. The main difference for these three access tiers is their data at-rest storage prices, which are lower in cooler tiers, and the transaction prices, which are higher in the cooler tiers. To learn more about the differences between tiers, see [diffences in access tiers](./understanding-billing.md#differences-in-access-tiers). 
+HDD pay-as-you-go file shares have a property called access tier. All three access tiers are stored on the exact same storage hardware. The main difference for these three access tiers is their data at-rest storage prices, which are lower in cooler tiers, and the transaction prices, which are higher in the cooler tiers. To learn more about the differences between tiers, see [differences in access tiers](./understanding-billing.md#differences-in-access-tiers). 
 
 # [Portal](#tab/azure-portal)
 Follow these instructions to create a new Azure file share using the Azure portal.
@@ -529,7 +529,7 @@ Follow these instructions to create a new Azure file share using the Azure porta
 # [PowerShell](#tab/azure-powershell)
 You can create an Azure file share with the [`New-AzRmStorageShare`](/powershell/module/az.storage/New-AzRmStorageShare) cmdlet. The following PowerShell commands assume you set the variables `$resourceGroupName` and `$storageAccountName` as defined in the creating a storage account with Azure PowerShell section. 
 
-The create a pay-as-you-go file share, use the following command. Remember to replace the values for the variables `$shareName` and `$accessTier` with the desired selections for your file share deployment.
+To create a pay-as-you-go file share, use the following command. Remember to replace the values for the variables `$shareName` and `$accessTier` with the desired selections for your file share deployment.
 
 ```powershell
 $shareName = "<file-share>"
@@ -799,7 +799,7 @@ Follow these instructions to update the access tier of your file share.
 
 3. In the file share overview, select **Change tier**.
 
-4. Select the desired **Access tier** from the provided drop down list.
+4. Select the desired **Access tier** from the provided drop-down list.
 
 5. Select **Apply** to save the access tier change.
 
@@ -885,7 +885,7 @@ Follow these instructions to delete a file share.
 
 3. Select **Delete share** from the context menu.
 
-4. The **Delete** pop-out contains a survey about why you are deleting the file share. You can skip this, but we appreciate any feedback you have on Azure Files, particularly if something isn't working properly for you.
+4. The **Delete** pop-out contains a survey about why you're deleting the file share. You can skip this, but we appreciate any feedback you have on Azure Files, particularly if something isn't working properly for you.
 
 5. Enter the file share name to confirm deletion and select **Delete**.
 
