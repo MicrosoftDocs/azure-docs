@@ -4,8 +4,7 @@ description: Describes Azure Stack Edge Pro 2, a storage solution that uses a ph
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: overview
 ms.date: 10/09/2024
 ms.author: alkohli

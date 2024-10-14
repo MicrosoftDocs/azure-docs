@@ -9,6 +9,10 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
+
+
+#Customer intent: As a security analyst, I want to understand the data sources and enrichments used by the User and Entity Behavior Analytics service so that I can effectively detect and investigate anomalies in user and entity behavior.
+
 ---
 
 # Microsoft Sentinel UEBA reference
