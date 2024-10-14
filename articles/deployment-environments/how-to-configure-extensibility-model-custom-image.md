@@ -27,22 +27,6 @@ In this article, you learn how to build custom Terraform container images to dep
 In this article, you learn how to utilize [Pulumi](https://pulumi.com) for deployments in Azure Deployment Environments (ADE). You learn how to use a sample image provided by Pulumi or how to configure a custom image to provision infrastructure using the Pulumi Infrastructure-as-Code (IaC) framework.
 ::: zone-end
 
-ADE supports an extensibility model that enables you to create custom images that you can use in your environment definitions. To use this extensibility model, create your own custom images and store them in a container registry like Azure Container Registry (ACR) or Docker Hub. You can then reference these images in your environment definitions to deploy your environments. 
-
-::: zone pivot="arm-bicep"
-An [environment definition](configure-environment-definition.md) comprises at least two files: a template file, like *azuredeploy.json* or *main.bicep*, and a manifest file named *environment.yaml*. ADE uses containers to deploy environment definitions. 
-
-The ADE team provides a selection of images to get you started, including a core image, and an Azure Resource Manager (ARM)-Bicep image. You can access these sample images in the [Runner-Images](https://aka.ms/deployment-environments/runner-images) folder.
-::: zone-end
-
-::: zone pivot="terraform"
-An [environment definition](configure-environment-definition.md) comprises at least two files: a template file, like *main.tf*, and a manifest file named *environment.yaml*. You use a container to deploy environment definition that uses Terraform.
-::: zone-end
-
-::: zone pivot="pulumi"
-An [environment definition](configure-environment-definition.md) comprises at least two files: a Pulumi project file, *Pulumi.yaml*, and a manifest file named *environment.yaml*. It might also contain a user program written in your preferred programming language: C#, TypeScript, Python, etc. ADE uses containers to deploy environment definitions.
-::: zone-end
-
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
