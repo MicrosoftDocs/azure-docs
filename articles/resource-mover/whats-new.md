@@ -16,9 +16,11 @@ You can learn more about the new releases by bookmarking this page or by subscri
 
 ## Updates (March-2024)
 
+### Capability to move Azure VMs to another subscription and region in one attempt is in private preview
 
-Azure Resource Mover now supports moving resources from one subscription to another, in addition to moving Azure VMs across regions. This helps you consolidate, organize, manage, and bill your resources more effectively. You can use the "Edit target subscription" option on the move resources blade, along with options to add/remove resources, prepare, initiate move, discard, and commit move. After adding resources, click **Edit target subscription** to move them to a different subscription from the source.
+Azure Resource Mover now supports moving resources from one subscription to another, in addition to moving Azure VMs across regions in private preview. This feature helps consolidate, organize, manage, and bill resources more effectively. The **Edit target subscription** option is available on the move resources blade, along with options to add or remove resources, prepare, initiate, discard, and commit the move. After adding resources, you can select **Edit target subscription** to move resources to a different subscription than the source. 
 
+For more information, see [Move Azure VMs to another subscription and region](./move-region-within-resource-group.md).
 
 
 ### Capability to move Azure virtual machines to another subscription and region in one attempt is in private preview
