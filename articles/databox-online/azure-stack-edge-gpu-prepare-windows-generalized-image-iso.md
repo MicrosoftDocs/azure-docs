@@ -4,8 +4,7 @@ description: Describes how to create a generalized Windows VM image starting fro
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 06/25/2021
 ms.author: alkohli

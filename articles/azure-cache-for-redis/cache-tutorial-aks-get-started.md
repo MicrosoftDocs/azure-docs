@@ -9,7 +9,7 @@ ms.date: 10/01/2024
 
 # Tutorial: Connect to Azure Cache for Redis from your application hosted on Azure Kubernetes Service
 
-In this tutorial, you adapt the [AKS sample voting application](https://github.com/Azure-Samples/azure-voting-app-redis/tree/master) to use with an Azure Cache for Redis instance instead. The original sample uses a Redis cache deployed as a container to your AKS cluster. Following some simple steps, you can configure the AKS sample voting application to connect to your Azure Cache for Redis instance.
+In this tutorial, you use this [sample](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/tutorial/connect-from-aks) to connect with an Azure Cache for Redis instance.
 
 ## Prerequisites
 
@@ -37,16 +37,18 @@ In this tutorial, you adapt the [AKS sample voting application](https://github.c
 
 ## Run sample locally
 
-To run this sample locally, configure your user principal as a Redis User on your Redis instance. The code sample will use your user principal through (DefaultAzureCredential)[https://learn.microsoft.com/en-us/dotnet/azure/sdk/authentication/?tabs=command-line#use-defaultazurecredential-in-an-application] to connect to Redis instance. 
+To run this sample locally, configure your user principal as a Redis User on your Redis instance. The code sample uses your user principal through [DefaultAzureCredential](/dotnet/azure/sdk/authentication/?tabs=command-line#use-defaultazurecredential-in-an-application) to connect to Redis instance.
 
 ## Configure your AKS cluster
 
-Follow these [steps](/azure/aks/workload-identity-deploy-cluster) to configure a workload identity for your AKS cluster. Complete the following steps:
+Follow these [steps](/azure/aks/workload-identity-deploy-cluster) to configure a workload identity for your AKS cluster.
 
-  - Enable OIDC issuer and workload identity
-  - Skip the step to create user assigned managed identity if you already created your managed identity. If you create a new managed identity, ensure that you create a new Redis User for your managed identity and assign appropriate data access permissions.
-  - Create a Kubernetes Service account annotated with the client ID of your user assigned managed identity
-  - Create a federated identity credential for your AKS cluster.
+Then, complete the following steps:
+
+- Enable OIDC issuer and workload identity
+- Skip the step to create user assigned managed identity if you already created your managed identity. If you create a new managed identity, ensure that you create a new Redis User for your managed identity and assign appropriate data access permissions.
+- Create a Kubernetes Service account annotated with the client ID of your user assigned managed identity
+- Create a federated identity credential for your AKS cluster.
 
 ## Configure your workload that connects to Azure Cache for Redis
 
@@ -194,4 +196,4 @@ kubectl delete pod entrademo-pod
 
 - [Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using the Azure portal](/azure/aks/learn/quick-kubernetes-deploy-portal)
 - [Quickstart: Deploy and configure workload identity on an Azure Kubernetes Service (AKS) cluster](/azure/aks/workload-identity-deploy-cluster)
-- [Azure Cache for Redis Entra ID Authentication](/azure/azure-cache-for-redis/cache-azure-active-directory-for-authentication)
+- [Azure Cache for Redis Microsoft Entra ID Authentication](/azure/azure-cache-for-redis/cache-azure-active-directory-for-authentication)

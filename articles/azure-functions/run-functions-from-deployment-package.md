@@ -54,7 +54,7 @@ The following table indicates the recommended `WEBSITE_RUN_FROM_PACKAGE` values 
 + If your project needs to use remote build, don't use the `WEBSITE_RUN_FROM_PACKAGE` app setting. Instead, add the `SCM_DO_BUILD_DURING_DEPLOYMENT=true` deployment customization app setting. For Linux, also add the `ENABLE_ORYX_BUILD=true` setting. For more information, see [Remote build](functions-deployment-technologies.md#remote-build).
 
 > [!NOTE]
-> The `WEBSITE_RUN_FROM_PACKAGE` app setting does not work with MSDeploy as described in [MSDeploy VS. ZipDeploy](https://github.com/projectkudu/kudu/wiki/MSDeploy-VS.-ZipDeploy). You will receive an error during deployment, such as `ARM-MSDeploy Deploy Failed`. To resolve this error, hange `/MSDeploy` to `/ZipDeploy`.
+> The `WEBSITE_RUN_FROM_PACKAGE` app setting does not work with MSDeploy as described in [MSDeploy VS. ZipDeploy](https://github.com/projectkudu/kudu/wiki/MSDeploy-VS.-ZipDeploy). You will receive an error during deployment, such as `ARM-MSDeploy Deploy Failed`. To resolve this error, change `/MSDeploy` to `/ZipDeploy`.
 
 ### Add the WEBSITE_RUN_FROM_PACKAGE setting
 

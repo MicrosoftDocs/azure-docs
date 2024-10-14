@@ -6,7 +6,7 @@ author: gargi-sinha
 manager: martinco
 ms.service: azure-active-directory
 ms.topic: how-to
-ms.date: 10/03/2024
+ms.date: 10/11/2024
 ms.author: gasinh
 ms.reviewer: kengaderdus
 ms.subservice: b2c
@@ -95,12 +95,10 @@ Learn more: [Application types that can be used in Active Directory B2C](applica
 
 For this tutorial, you're registering  `https://jwt.ms`, a Microsoft web application with decoded token contents that don't leave your browser.
 
-### Register a web application and enable ID token implicit grant
+### Register a web application
 
-Complete [Tutorial: Register a web application in Azure Active Directory B2C](tutorial-register-applications.md?tabs=app-reg-ga)
+Complete the steps in [Tutorial: Register a web application in Azure Active Directory B2C](tutorial-register-applications.md?tabs=app-reg-ga) article.
 
->[!NOTE]
->Enable implicit flow only for testing purposes. Don’t enable implicit flow in production.
 
 ## Configure Asignio as an identity provider in Azure AD B2C
 

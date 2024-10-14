@@ -36,17 +36,17 @@ To configure a dataflow endpoint for a Kafka endpoint, we suggest using the mana
 
 # [Portal](#tab/portal)
 
-1. In the operations experience portal, select the **Dataflow endpoints** tab.
+1. In the [operations experience](https://iotoperations.azure.com/), select the **Dataflow endpoints** tab.
 1. Under **Create new dataflow endpoint**, select **Azure Event Hubs** > **New**.
 
-    :::image type="content" source="media/howto-configure-kafka-endpoint/create-event-hubs-endpoint.png" alt-text="Screenshot using operations experience portal to create an Azure Event Hubs dataflow endpoint.":::
+    :::image type="content" source="media/howto-configure-kafka-endpoint/create-event-hubs-endpoint.png" alt-text="Screenshot using operations experience to create an Azure Event Hubs dataflow endpoint.":::
 
 1. Enter the following settings for the endpoint:
 
     | Setting              | Description                                                                                       |
     | -------------------- | ------------------------------------------------------------------------------------------------- |
     | Name                 | The name of the dataflow endpoint.                                     |
-    | Host                 | The hostname of the Kafka broker in the format `<HOST>.servicebus.windows.net`. |
+    | Host                 | The hostname of the Kafka broker in the format `<HOST>.servicebus.windows.net:9093`. Include port number `9093` in the host setting for Event Hubs. |
     | Authentication method| The method used for authentication. Choose *System assigned managed identity*, *User assigned managed identity*, or *SASL*. |
     | SASL type            | The type of SASL authentication. Choose *Plain*, *ScramSha256*, or *ScramSha512*. Required if using *SASL*. |
     | Synced secret name   | The name of the secret. Required if using *SASL* or *X509*. |
@@ -116,17 +116,17 @@ To configure a dataflow endpoint for non-Event-Hub Kafka brokers, set the host, 
 
 # [Portal](#tab/portal)
 
-1. In the operations experience portal, select the **Dataflow endpoints** tab.
+1. In the [operations experience](https://iotoperations.azure.com/), select the **Dataflow endpoints** tab.
 1. Under **Create new dataflow endpoint**, select **Custom Kafka Broker** > **New**.
 
-    :::image type="content" source="media/howto-configure-kafka-endpoint/create-kafka-endpoint.png" alt-text="Screenshot using operations experience portal to create a Kafka dataflow endpoint.":::
+    :::image type="content" source="media/howto-configure-kafka-endpoint/create-kafka-endpoint.png" alt-text="Screenshot using operations experience to create a Kafka dataflow endpoint.":::
 
 1. Enter the following settings for the endpoint:
 
     | Setting              | Description                                                                                       |
     | -------------------- | ------------------------------------------------------------------------------------------------- |
     | Name                 | The name of the dataflow endpoint.                                     |
-    | Host                 | The hostname of the Kafka broker in the format `<HOST>.servicebus.windows.net`. |
+    | Host                 | The hostname of the Kafka broker in the format `<Kafa-broker-host>:xxxx`. Include port number in the host setting. |
     | Authentication method| The method used for authentication. Choose *System assigned managed identity*, *User assigned managed identity*, *SASL*, or *X509 certificate*. |
     | SASL type            | The type of SASL authentication. Choose *Plain*, *ScramSha256*, or *ScramSha512*. Required if using *SASL*. |
     | Synced secret name   | The name of the secret. Required if using *SASL* or *X509*. |
@@ -138,7 +138,7 @@ To configure a dataflow endpoint for non-Event-Hub Kafka brokers, set the host, 
 1. Select **Apply** to provision the endpoint.
 
 > [!NOTE]
-> Currently, the operations experience portal doesn't support using a Kafka dataflow endpoint as a source. You can create a dataflow with a source Kafka dataflow endpoint using the Kubernetes or Bicep.
+> Currently, the operations experience doesn't support using a Kafka dataflow endpoint as a source. You can create a dataflow with a source Kafka dataflow endpoint using the Kubernetes or Bicep.
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -175,7 +175,7 @@ Once the endpoint is created, you can use it in a dataflow by specifying the end
 1. Choose the Kafka dataflow endpoint that you created previously.
 1. Specify the Kafka topic where messages are sent.
 
-    :::image type="content" source="media/howto-configure-kafka-endpoint/dataflow-mq-kafka.png" alt-text="Screenshot using operations experience portal to create a dataflow with an MQTT source and Azure Event Hubs destination.":::
+    :::image type="content" source="media/howto-configure-kafka-endpoint/dataflow-mq-kafka.png" alt-text="Screenshot using operations experience to create a dataflow with an MQTT source and Azure Event Hubs destination.":::
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -213,7 +213,7 @@ The following authentication methods are available for Kafka broker dataflow end
 
 # [Portal](#tab/portal)
 
-In the operations experience portal dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **SASL**.
+In the operations experience dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **SASL**.
 
 Enter the following settings for the endpoint:
 
@@ -256,7 +256,7 @@ kubectl create secret generic sasl-secret -n azure-iot-operations \
 
 # [Portal](#tab/portal)
 
-In the operations experience portal dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **X509 certificate**.
+In the operations experience dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **X509 certificate**.
 
 Enter the following settings for the endpoint:
 
@@ -295,7 +295,7 @@ To use system-assigned managed identity for authentication, first assign a role 
 
 # [Portal](#tab/portal)
 
-In the operations experience portal dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **System assigned managed identity**.
+In the operations experience dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **System assigned managed identity**.
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -325,7 +325,7 @@ kafkaSettings:
 
 # [Portal](#tab/portal)
 
-In the operations experience portal dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **User assigned managed identity**.
+In the operations experience dataflow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **User assigned managed identity**.
 
 Enter the user assigned managed identity client ID and tenant ID in the appropriate fields.
 
@@ -364,9 +364,9 @@ You can set advanced settings for the Kafka dataflow endpoint such as TLS, trust
 
 # [Portal](#tab/portal)
 
-In the operations experience portal, select the **Advanced** tab for the dataflow endpoint.
+In the operations experience, select the **Advanced** tab for the dataflow endpoint.
 
-:::image type="content" source="media/howto-configure-kafka-endpoint/kafka-advanced.png" alt-text="Screenshot using operations experience portal to set Kafka dataflow endpoint advanced settings.":::
+:::image type="content" source="media/howto-configure-kafka-endpoint/kafka-advanced.png" alt-text="Screenshot using operations experience to set Kafka dataflow endpoint advanced settings.":::
 
 | Setting                        | Description                                                                                       |
 | ------------------------------ | ------------------------------------------------------------------------------------------------- |

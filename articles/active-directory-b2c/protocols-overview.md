@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: azure-active-directory
 
 ms.topic: concept-article
-ms.date: 01/11/2024
+ms.date: 10/11/2024
 ms.author: kengaderdus
 ms.subservice: b2c
 
@@ -85,5 +85,3 @@ When you're ready to review some example requests, you can start with one of the
 
 * [Build mobile and native applications by using OAuth 2.0](authorization-code-flow.md)
 * [Build web apps by using OpenID Connect](openid-connect.md)
-* [Build single-page apps using the OAuth 2.0 implicit flow](implicit-flow-single-page-application.md)
-
