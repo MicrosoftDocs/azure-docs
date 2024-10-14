@@ -13,22 +13,23 @@ zone_pivot_groups: container-apps-java-artifacts
 
 # Quickstart: Launch your first Java microservice applications with managed Java components in Azure Container Apps
 
-This article shows you how to deploy the Spring PetClinic Microservices sample to run on Azure Container Apps, and leverage the build-in Java components provided by Azure Container Apps to support your microservice applications without deploying them manually. Rather than manually creating a Dockerfile and directly using a container registry, you can deploy your Java applications directly from Java Archive (JAR) files or web application archive (WAR) files.
+This guide demonstrates how to deploy the Spring PetClinic Microservices sample on Azure Container Apps. It leverages the built-in Java components provided by Azure Container Apps to support your microservice applications, eliminating the need for manual deployment. Instead of manually creating a Dockerfile and using a container registry, you can deploy your Java applications directly from Java Archive (JAR) or Web Application Archive (WAR) files.
 
-The Pet Clinic sample demonstrates the microservice architecture pattern. The following diagram shows the architecture of the PetClinic application on the Azure Container Apps.
+The PetClinic sample illustrates the microservice architecture pattern. The following diagram depicts the architecture of the PetClinic application on Azure Container Apps.
 
-The diagram shows the following architectural flows and relationships of the Pet Clinic sample:
+The diagram illustrates the architectural flows and relationships of the PetClinic sample:
 
-- Uses Azure Container Apps to manage the frontend and backend apps. The backend apps are built with Spring Boot and each app uses HSQLDB as the persistent store. The reforged frontend app builds upon Pet Clinic API Gateway App with Node.js serving as a standalone frontend web application.
-- Uses the managed Java components on Azure Container Apps, including Service Registry, Config Server, and Admin Server. The Application Configuration Service reads the Git repository configuration.
-- Exposes the URL of Spring Cloud Gateway to route request to backend service apps.
-- Exposes the URL of the Admin Server to monitor the backend apps.
-- Exposes the URL of the Service Registry to discover the backend apps.
+- Manages the frontend and backend apps using Azure Container Apps. The backend apps are built with Spring Boot, each utilizing HSQLDB as the persistent store.
+- The frontend app is a standalone web application built on the API Gateway App with Node.js, exposing the URL of the API Gateway to route requests to backend service apps.
+- Leverages managed Java components on Azure Container Apps, including Service Registry, Config Server, and Admin Server.
+- The Config Server reads configurations from a Git repository.
+- Exposes the URL of the Admin Server to monitor backend apps.
+- Exposes the URL of the Service Registry to discover backend apps.
 - Analyzes logs using the Log Analytics workspace.
 
 :::image type="content" source="media/java-deploy-war-file/azure-container-apps-petclinic-arch.png" alt-text="Architecture of petclinic app.":::
 
-By the end of this tutorial you deploy 1 web application and 3 backend applications, and configure 3 Java components in total, which you can manage through the Azure portal.
+By the end of this tutorial, you will have deployed one web application and three backend applications, and configured three Java components. These components can be managed through the Azure portal.
 
 ## Prerequisites
 
@@ -88,7 +89,7 @@ Create a resource group to contain your Azure Container App services.
 az group create --name $RESOURCE_GROUP --location $LOCATION
 ```
 
-Create your container apps environment, this environment is used to host both Java components and your container apps.
+Create your Container Apps Environment, this environment is used to host both Java components and your Container Apps.
 
 ```azurecli
 az containerapp env create --name $CONTAINER_APP_ENVIRONMENT --resource-group $RESOURCE_GROUP --location $LOCATION
@@ -210,10 +211,12 @@ View the application by pasting this URL into a browser. Your app should resembl
 
 :::image type="content" source="media/java-deploy-war-file/azure-container-apps-petclinic-warfile.png" alt-text="Screenshot of petclinic application.":::
 
-## Next steps
+## Related content
 
-> [!div class="nextstepaction"]
-> [Config server for Java component](java-config-server-usage.md)
-> [Eureka server for Java component](java-eureka-server-usage.md)
-> [Admin for Java component](java-admin-for-spring-usage.md)
-> [Java build environment variables](java-build-environment-variables.md)
+- [Config server for Java component](java-config-server-usage.md)
+
+- [Eureka server for Java component](java-eureka-server-usage.md)
+
+- [Admin for Java component](java-admin-for-spring-usage.md)
+
+- [Java build environment variables](java-build-environment-variables.md)
