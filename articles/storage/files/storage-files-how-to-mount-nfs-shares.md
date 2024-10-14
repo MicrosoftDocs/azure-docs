@@ -38,15 +38,13 @@ If you haven't already done so, [create an NFS Azure file share](storage-files-h
 NFS shares can only be accessed from trusted networks. Currently, the only way to secure the data in your storage account is by using a virtual network and other network security settings. Any other tools used to secure data, including account key authorization, Microsoft Entra security, and access control lists (ACLs) can't be used to authorize an NFSv4.1 request.
 
 > [!IMPORTANT]
-> The NFSv4.1 protocol runs on port 2049. If you're connecting from an on-premises network, make sure that your client allows outgoing communication through those ports. If you've granted access to specific VNets, make sure that any network security groups associated with those VNets don't contain security rules that block incoming communication through those ports.
+> The NFSv4.1 protocol runs on port 2049. If you're connecting from an on-premises network, make sure that your client allows outgoing communication through port 2049. If you've granted access to specific VNets, make sure that any network security groups associated with those VNets don't contain security rules that block incoming communication through port 2049.
+
+### Create a private endpoint or service endpoint
 
 To use NFS Azure file shares, you must either [create a private endpoint](storage-files-networking-endpoints.md#create-a-private-endpoint) (recommended) or [restrict access to your public endpoint](storage-files-networking-endpoints.md#restrict-public-endpoint-access).
 
-To enable hybrid access to an NFS Azure file share, use one of the following networking solutions:
-
-- [Configure a Point-to-Site (P2S) VPN](storage-files-configure-p2s-vpn-linux.md).
-- [Configure a Site-to-Site VPN](storage-files-configure-s2s-vpn.md).
-- Configure [ExpressRoute](../../expressroute/expressroute-introduction.md).
+### Disable secure transfer
 
 Azure Files doesn't currently support encryption-in-transit with the NFS protocol and relies instead on network-level security. Therefore, you'll need to disable secure transfer on your storage account.
 
@@ -56,6 +54,14 @@ Azure Files doesn't currently support encryption-in-transit with the NFS protoco
 1. Select **Save**.
 
     :::image type="content" source="media/storage-files-how-to-mount-nfs-shares/disable-secure-transfer.png" alt-text="Screenshot of storage account configuration screen with secure transfer disabled." lightbox="media/storage-files-how-to-mount-nfs-shares/disable-secure-transfer.png":::
+
+### Enable hybrid access through VPN or ExpressRoute (optional)
+
+To enable hybrid access to an NFS Azure file share, use one of the following networking solutions:
+
+- [Configure a Point-to-Site (P2S) VPN](storage-files-configure-p2s-vpn-linux.md).
+- [Configure a Site-to-Site (S2S) VPN](storage-files-configure-s2s-vpn.md).
+- Configure [ExpressRoute](../../expressroute/expressroute-introduction.md).
 
 ## Step 3: Mount an NFS Azure file share
 
@@ -99,7 +105,7 @@ The following mount options are recommended or required when mounting NFS Azure 
 
 ## Step 4: Validate connectivity
 
-If your mount failed, it's possible that your private endpoint wasn't set up correctly or isn't accessible. For details on confirming connectivity, see [Verify connectivity](storage-files-networking-endpoints.md#verify-connectivity).
+If your mount fails, it's possible that your private endpoint wasn't set up correctly or isn't accessible. For details on confirming connectivity, see [Verify connectivity](storage-files-networking-endpoints.md#verify-connectivity).
 
 ## NFS file share snapshots
 
