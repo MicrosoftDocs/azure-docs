@@ -150,9 +150,9 @@ The **Encryption** tab controls settings related to encryption at rest.
 
 | Field name | Input type | Values | Applicable to Azure Files | Meaning |
 |-|-|-|-|-|
-| Encryption type | Radio button group | <ul><li>Microsoft-managed keys</li><li>Customer-managed keys</li></ul> | Yes | This setting controls who holds the encryption key for the data placed in this storage account. See [Encryption for data at rest](../common/storage-service-encryption?toc=%2Fazure%2Fstorage%2Ffiles%2Ftoc.json) for more information. |
+| Encryption type | Radio button group | <ul><li>Microsoft-managed keys</li><li>Customer-managed keys</li></ul> | Yes | This setting controls who holds the encryption key for the data placed in this storage account. See [Encryption for data at rest](../common/storage-service-encryption.md?toc=%2Fazure%2Fstorage%2Ffiles%2Ftoc.json) for more information. |
 | Enable support for customer-managed keys | Radio button group | <ul><li>Blobs and files only</li><li>All service types (blobs, files, tables, and queues)</li></ul> | No | All kind/SKU combinations Azure file shares can exist in can support customer-managed keys regardless of this setting. |
-| Enable infrastructure encryption | Checkbox | Checked/unchecked | Yes | Storage accounts can optional use a secondary layer of encryption for data stored in the system to guard against one of the keys being compromised. See [Enable infrastructure encryption](../common/infrastructure-encryption-enable?toc=%2Fazure%2Fstorage%2Ffiles%2Ftoc.json&tabs=portal) for more information. |
+| Enable infrastructure encryption | Checkbox | Checked/unchecked | Yes | Storage accounts can optional use a secondary layer of encryption for data stored in the system to guard against one of the keys being compromised. See [Enable infrastructure encryption](../common/infrastructure-encryption-enable.md?toc=%2Fazure%2Fstorage%2Ffiles%2Ftoc.json) for more information. |
 
 ### Tags
 Tags are name/value pairs that enable you to categorize resources and view consolidated billing by applying the same tag to multiple resources and resource groups. These are optional and can be applied after storage account creation.
@@ -308,7 +308,7 @@ Follow these instructions to create a new Azure file share using the Azure porta
 
 3. Complete the field in the **Basics** tab of the new file share blade:
 
-    ![A screenshot of the basics tab in the new file share blade.](./media/storage-how-to-create-file-share/create-file-share-provisioned-v2-1.png)
+    ![A screenshot of the basics tab in the new file share blade (provisioned v2).](./media/storage-how-to-create-file-share/create-file-share-provisioned-v2-1.png)
 
     - **Name**: The name of the file share to be created.
 
@@ -438,7 +438,7 @@ Follow these instructions to create a new Azure file share using the Azure porta
 
 3. Complete the fields in the **Basics** tab of new file share blade:
 
-    ![A screenshot of the basics tab in the new file share blade.](./media/storage-how-to-create-file-share/create-file-share-provisioned-v1-0.png)
+    ![A screenshot of the basics tab in the new file share blade (provisioned v1).](./media/storage-how-to-create-file-share/create-file-share-provisioned-v1-0.png)
 
     - **Name**: The name of the file share to be created.
 
@@ -571,7 +571,7 @@ az storage share-rm create \
 ## Change the cost and performance characteristics of a file share
 After you've created your file share, you may need to adjust the provisioning (provisioned models) or access tier (pay-as-you-go model) of the share. The following sections show you how to adjust the relevant properties for your share.
 
-### Provisioned v2 file shares
+### Change the cost and performance characteristics of a provisioned v2 file share
 After creating your provisioned v2 file share, you can change one or all three of the provisioned quantities of your file share.
 
 # [Portal](#tab/azure-portal)
@@ -721,7 +721,7 @@ az resource patch \
 
 ---
 
-### Provisioned v1 file shares
+### Change the cost and performance characteristics of a provisioned v1 file share
 After creating your provisioned v1 file share, you can change the provisioned storage size of the file share. Changing the provisioned storage of the share will also change the amount of provisioned IOPS and provisioned throughput. For more information, see [provisioned v1 provisioning detail](./understanding-billing.md#provisioned-v1-provisioning-detail).
 
 # [Portal](#tab/azure-portal)
@@ -783,7 +783,7 @@ az storage share-rm update \
 
 ---
 
-### Pay-as-you-go file shares
+### Change the cost and performance characteristics of a pay-as-you-go file share
 After you've created your pay-as-you-go file share, there are two properties you may want to change:
 
 - **Access tier**: The access tier of the file share dictates to the ratio of storage to IOPS/throughput costs (in the form of transactions). There are three access tiers: *transaction optimized*, *hot*, and *cool*. Changing the tier of the Azure file share results in transaction costs for the movement to the new access tier. For more information, see [switching between access tiers](./understanding-billing.md#switching-between-access-tiers).
