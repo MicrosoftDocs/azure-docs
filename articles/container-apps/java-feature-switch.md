@@ -30,7 +30,7 @@ To turn on Java virtual machine (JVM) metrics on CLI, refer to [Java metrics for
 ::: zone-end
 
 ## Automatic memory fitting
-By default, the JVM manages memory conservatively, but Java automatic memory fitting fine-tunes how memory is managed for your Java application. Automatic memory fitting makes more memory available to you Java app, which may potentially boost performance by 10-20% without requiring code changes.
+By default, the JVM manages memory conservatively, but Java automatic memory fitting fine-tunes how memory is managed for your Java application. Automatic memory fitting makes more memory available to your Java app, which may potentially boost performance by 10-20% without requiring code changes.
 
 Automatic memory fitting is **enabled by default**, but you can disable manually.
 
@@ -98,7 +98,7 @@ To use Admin for Spring on portal, refer to [Use the component on Portal](java-a
 ::: zone-end
 
 ::: zone pivot="azure-cli"
-To use Admin for Spring on CLI, refer to [Use the componentt on CLI](java-admin.md?tabs=azure-cli).
+To use Admin for Spring on CLI, refer to [Use the component on CLI](java-admin.md?tabs=azure-cli).
 
 ::: zone-end
 
