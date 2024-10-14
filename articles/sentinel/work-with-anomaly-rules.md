@@ -9,6 +9,10 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
+
+
+#Customer intent: As a security analyst, I want to customize and tune anomaly detection rules so that I can improve the accuracy and relevance of alerts in my environment.
+
 ---
 
 # Work with anomaly detection analytics rules in Microsoft Sentinel

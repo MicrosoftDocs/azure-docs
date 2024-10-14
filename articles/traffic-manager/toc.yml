@@ -60,7 +60,7 @@
     href: traffic-manager-traffic-view-overview.md
   - name: Metrics and alerts
     href: traffic-manager-metrics-alerts.md
-  - name: Disaster recovery using Azure DNS and Traffic Manager
+  - name: Reliability and disaster recovery
     href: ../networking/disaster-recovery-dns-traffic-manager.md
   - name: How Traffic Manager works
     href: traffic-manager-how-it-works.md

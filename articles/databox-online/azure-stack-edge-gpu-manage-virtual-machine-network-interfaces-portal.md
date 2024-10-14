@@ -4,8 +4,7 @@ description: Learn how to manage network interfaces on VMs that are deployed on 
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 01/12/2023
 ms.author: alkohli

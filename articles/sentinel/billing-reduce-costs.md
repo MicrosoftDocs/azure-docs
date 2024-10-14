@@ -10,6 +10,10 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
+
+
+#Customer intent: As a cloud security administrator, I want to optimize the cost of using Microsoft Sentinel so that I can manage my organization's security operations within budget constraints.
+
 ---
 
 # Reduce costs for Microsoft Sentinel

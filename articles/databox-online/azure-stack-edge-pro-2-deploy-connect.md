@@ -4,8 +4,7 @@ description: Learn how you can connect to your Azure Stack Edge Pro 2 device by 
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: tutorial
 ms.date: 03/21/2022
 ms.author: alkohli

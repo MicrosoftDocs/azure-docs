@@ -4,8 +4,7 @@ description: Learn how to add and connect to shares on Azure Stack Edge Pro GPU 
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: tutorial
 ms.date: 05/09/2022
 ms.author: alkohli
