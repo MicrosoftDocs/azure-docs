@@ -201,7 +201,7 @@ breakoutRoomsFeature.off('breakoutRoomsUpdated', breakoutRoomsUpdatedListener);
 
 Breakout rooms have the following properties:
 
-> [Note:]
+> [!Note:]
 > The following sample code efficiently displays all breakout room properties. It is not intended to be reused as shown. In practice you only use the properties needed for your breakout room scenario.
 
 ```js
