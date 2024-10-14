@@ -8,7 +8,6 @@ ms.custom: devx-track-extended-java
 ms.topic: quickstart
 ms.date: 05/07/2024
 ms.author: cshoe
-zone_pivot_groups: container-apps-java-artifacts
 ---
 
 # Quickstart: Launch your first Java microservice applications with managed Java components in Azure Container Apps
