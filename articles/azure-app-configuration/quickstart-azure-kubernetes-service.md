@@ -372,6 +372,12 @@ Ensure that you specify the correct key-value selectors to match the expected da
 
 You can customize the installation by providing additional Helm values when installing the Azure App Configuration Kubernetes Provider. For example, you can set the log level, configure the provider to run on a specific node, or disable the workload identity. Refer to the [installation guide](./reference-kubernetes-provider.md#installation) for more information.
 
+#### How can I refresh ConfigMap on demand rather than waiting for the periodic refresh?
+
+If you make any changes to the `spec` of the `AzureAppConfigurationProvider` resource, the Azure App Configuration provider will reconcile and update the configMap with the most recent data from the Azure App Configuration store.
+
+If you don’t modify your `AzureAppConfigurationProvider` resource, since the Azure App Configuration provider controller reconciles all `AzureAppConfigurationProvider` resources on each time it starts, you just need to restart the deployment of the Azure App Configuration provider controller to trigger an on demand refresh. Please note that this will cause all `AzureAppConfigurationProvider` resources on the cluster to be reconciled to resynchronizing with Azure App Configuration stores.
+
 #### Why am I unable to authenticate with Azure App Configuration using workload identity after upgrading the provider to version 2.0.0?
 
 Starting with version 2.0.0, a user-provided service account is required for authenticating with Azure App Configuration [using workload identity](./reference-kubernetes-provider.md#use-workload-identity). This change enhances security through namespace isolation. Previously, a Kubernetes provider’s service account was used for all namespaces. For updated instructions, see the documentation on using workload identity. If you need time to migrate when upgrading to version 2.0.0, you can temporarily set `workloadIdentity.globalServiceAccountEnabled=true` during provider installation. Please note that support for using the provider’s service account will be deprecated in a future release.
