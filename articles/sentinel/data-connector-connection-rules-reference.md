@@ -8,6 +8,10 @@ ms.topic: reference
 ms.date: 9/30/2024
 ms.author: austinmc
 
+
+
+#Customer intent: As a security engineer, I want to reference paging, authentication and payload options to create and configure RestApiPoller data connectors using the Codeless Connector Platform so that I can integrate a specific data source into Microsoft Sentinel without writing custom code.
+
 ---
 
 # RestApiPoller data connector reference for the Codeless Connector Platform

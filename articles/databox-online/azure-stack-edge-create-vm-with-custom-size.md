@@ -4,8 +4,7 @@ description: Learn how to update a VM with custom size for Azure Stack Edge.
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 06/06/2024
 ms.author: alkohli

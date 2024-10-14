@@ -4,8 +4,7 @@ description: Learn how to deploy and configure Azure Kubernetes service on Azure
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 11/29/2023
 ms.author: alkohli
