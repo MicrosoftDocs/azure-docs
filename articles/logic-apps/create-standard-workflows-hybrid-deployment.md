@@ -183,7 +183,7 @@ To authenticate managed API connections in Standard logic app workflows hosted o
 
 1. For the object ID, follow these steps:
 
-   1. On the **Overview** page, select **Managed application in local directory**:
+   1. On the **Overview** page, select **Managed application in local directory** link for your app registration as shown:
 
       :::image type="content" source="media/create-standard-workflows-hybrid-deployment/managed-application-link.png" alt-text="Screenshot shows app registration with selected link for managed application in local directory.":::
 
@@ -191,7 +191,7 @@ To authenticate managed API connections in Standard logic app workflows hosted o
 
       :::image type="content" source="media/create-standard-workflows-hybrid-deployment/app-registration-object-id.png" alt-text="Screenshot shows app registration with selected object ID.":::
 
-1. Now, [add these values as environment variables](#add-environment-variables) to your Standard logic app resource.
+1. Now, [add the saved values as environment variables](#add-environment-variables) to your Standard logic app resource.
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -206,7 +206,7 @@ To authenticate managed API connections in Standard logic app workflows hosted o
    - Tenant ID
    - Client secret
 
-1. Now, [add these values as environment variables](#add-environment-variables) to your Standard logic app resource.
+1. Now, [add the saved values as environment variables](#add-environment-variables) to your Standard logic app resource.
 
 ---
 
@@ -233,20 +233,20 @@ To authenticate managed API connections in Standard logic app workflows hosted o
 
 1. When you finish, select **Save**.
 
-1. To create secrets instead to store these values and reference them from the **Environment variables** tab, follow these steps:
+### Store and reference client ID and client secret
 
-   1. On the resource menu, under **Settings**, select **Secrets**.
+You can store the client ID and client secret values in your logic app resource as secrets and then reference those values on the **Environment variables** tab instead.
 
-   1. On the toolbar, select **Add**.
+1. On the resource menu, under **Settings**, select **Secrets**.
 
-   1. On the **Add secret** pane, provide the following information for each secret, and then select **Add**:
+1. On the toolbar, select **Add**.
 
-      | Key | Value |
-      |-----|-------|
-      | **WORKFLOWAPP_AAD_CLIENTID** | <*my-client-ID*> |
-      | **WORKFLOWAPP_AAD_OBJECTID** | <*my-object-ID*> |
-      | **WORKFLOWAPP_AAD_TENANTID** | <*my-tenant-ID*> |
-      | **WORKFLOWAPP_AAD_CLIENTSECRET** | <*my-client-secret*> |
+1. On the **Add secret** pane, provide the following information for each secret, and then select **Add**:
+
+   | Key | Value |
+   |-----|-------|
+   | **WORKFLOWAPP_AAD_CLIENTID** | <*my-client-ID*> |
+   | **WORKFLOWAPP_AAD_CLIENTSECRET** | <*my-client-secret*> |
 
 ## Deploy your logic app from Visual Studio Code
 
