@@ -119,9 +119,9 @@ This transition is done in line with the announcement of retirement of Azure bas
          :::image type="content" source="./media/load-balancer-migration-guidelines/virtual-network.png" alt-text="Screenshot showing virtual network." border="true" lightbox="./media/load-balancer-migration-guidelines/virtual-network.png":::
 
    
-          * **Approach 2:** Select option other than **Associate a NAT gateway to the subnet** provided in [Use Source Network Address Translation (SNAT) for outbound connections](/azure/load-balancer/load-balancer-outbound-connections), and follow the instruction for the selected option.
+   * **Approach 2:** Select option other than **Associate a NAT gateway to the subnet** provided in [Use Source Network Address Translation (SNAT) for outbound connections](/azure/load-balancer/load-balancer-outbound-connections), and follow the instruction for the selected option.
 
-          * **Approach 3:** Create a new subnet and then create the cluster with the new subnet.
+   * **Approach 3:** Create a new subnet and then create the cluster with the new subnet.
 
 ## Next steps
 
