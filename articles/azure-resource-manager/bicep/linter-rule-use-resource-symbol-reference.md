@@ -3,7 +3,7 @@ title: Linter rule - use resource symbol reference
 description: Linter rule - use resource symbol reference
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 10/11/2024
+ms.date: 10/14/2024
 ---
 
 # Linter rule - use resource symbol reference
@@ -126,7 +126,7 @@ resource cluster 'Microsoft.HDInsight/clusters@2024-08-01-preview' = {
 
 Use **Quick Fix** to simplify the syntax:
 
-:::image type="content" source="./media/linter-rule-use-resource-symbol-reference/bicep-linter-rule-use-resource-symbol-reference-quick-fix.png" alt-text="A screenshot of using Quick fix for the use-resource-symbol-reference linter rule" lightbox="./media/linter-rule-use-resource-symbol-reference/bicep-linter-rule-use-resource-symbol-reference-quick-fix.png":::
+:::image type="content" source="./media/linter-rule-use-resource-symbol-reference/bicep-linter-rule-use-resource-symbol-reference-quick-fix.png" alt-text="A screenshot of using Quick fix for the use-resource-symbol-reference linter rule." lightbox="./media/linter-rule-use-resource-symbol-reference/bicep-linter-rule-use-resource-symbol-reference-quick-fix.png":::
 
 ## Next steps
 

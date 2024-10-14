@@ -3,7 +3,7 @@ title: Linter rule - use parent property
 description: Linter rule - use parent property
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 10/11/2024
+ms.date: 10/14/2024
 ---
 
 # Linter rule - use parent property
@@ -74,7 +74,7 @@ resource share 'Microsoft.Storage/storageAccounts/fileServices/shares@2023-05-01
 
 Use **Quick Fix** to simplify the syntax:
 
-:::image type="content" source="./media/linter-rule-use-parent-property/bicep-linter-rule-use-parent-property-quick-fix.png" alt-text="A screenshot of using Quick Fix for the use-parent-property linter rule":::
+:::image type="content" source="./media/linter-rule-use-parent-property/bicep-linter-rule-use-parent-property-quick-fix.png" alt-text="A screenshot of using Quick Fix for the use-parent-property linter rule.":::
 
 ## Next steps
 

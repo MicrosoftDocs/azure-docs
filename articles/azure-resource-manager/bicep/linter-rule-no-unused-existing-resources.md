@@ -3,7 +3,7 @@ title: Linter rule - no unused existing resources
 description: Linter rule - no unused existing resources
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 10/11/2024
+ms.date: 10/14/2024
 ---
 
 # Linter rule - no unused existing resources
@@ -30,7 +30,7 @@ resource stg 'Microsoft.Storage/storageAccounts@2023-05-01' existing = {
 
 Use **Quick Fix** to remove the unused existing resource:
 
-:::image type="content" source="./media/linter-rule-no-unused-existing-resources/linter-rule-no-unused-existing-resources-quick-fix.png" alt-text="A screenshot using Quick Fix for the no-unused-existing-resources linter rule":::
+:::image type="content" source="./media/linter-rule-no-unused-existing-resources/linter-rule-no-unused-existing-resources-quick-fix.png" alt-text="A screenshot using Quick Fix for the no-unused-existing-resources linter rule.":::
 
 ## Next steps
 

@@ -3,7 +3,7 @@ title: Linter rule - no unused variables
 description: Linter rule - no unused variables
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 10/11/2024
+ms.date: 10/14/2024
 ---
 
 # Linter rule - no unused variables
@@ -22,7 +22,7 @@ To reduce confusion in your template, delete any variables that are defined but 
 
 Use **Quick Fix** to remove the unused variables:
 
-:::image type="content" source="./media/linter-rule-no-unused-variables/linter-rule-no-unused-variables-quick-fix.png" alt-text="A screenshot of using Quick Fix for the no-unused-variables linter rule":::
+:::image type="content" source="./media/linter-rule-no-unused-variables/linter-rule-no-unused-variables-quick-fix.png" alt-text="A screenshot of using Quick Fix for the no-unused-variables linter rule.":::
 
 ## Next steps
 
