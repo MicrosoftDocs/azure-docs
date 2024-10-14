@@ -42,5 +42,5 @@ Using CID for inline attachments is considered the best approach for the followi
 
 ## Related articles
 
-- [Quickstart - Send email with attachments using Azure Communication Service](../../quickstarts/email/send-email-advanced/send-email-with-attachments.md)
+- [Quickstart - Send email with attachments using Azure Communication Services](../../quickstarts/email/send-email-advanced/send-email-with-attachments.md)
 - [Quickstart - Send email with inline attachments using Azure Communication Services](../../quickstarts/email/send-email-advanced/send-email-with-inline-attachments.md)
