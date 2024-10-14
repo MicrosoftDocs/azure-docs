@@ -24,9 +24,9 @@ The command produces an output file containing the results of the data extract. 
 
 ## Create and configure storage resources (customer-managed storage)
 
-1. Create a storage account, or identify an existing storage account that you want to use. See [Create an Azure storage account](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-create?tabs=azure-portal).
-2. In the storage account, create a blob storage container. See [Create a container](https://learn.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container).
-3. Assign the "Storage Blob Data Contributor" role to users and managed identities which need access to the run-data-extract output. See [Assign an Azure role for access to blob data](https://learn.microsoft.com/en-us/azure/storage/blobs/assign-azure-role-data-access?tabs=portal). The role must also be assigned to either a user-assigned managed identity or the cluster's own system-assigned managed identity. For more information on managed identities, see [Managed identities for Azure resources](https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/overview).
+1. Create a storage account, or identify an existing storage account that you want to use. See [Create an Azure storage account](https://learn.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal).
+2. In the storage account, create a blob storage container. See [Create a container](https://learn.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container).
+3. Assign the "Storage Blob Data Contributor" role to users and managed identities which need access to the run-data-extract output. See [Assign an Azure role for access to blob data](https://learn.microsoft.com/azure/storage/blobs/assign-azure-role-data-access?tabs=portal). The role must also be assigned to either a user-assigned managed identity or the cluster's own system-assigned managed identity. For more information on managed identities, see [Managed identities for Azure resources](https://learn.microsoft.com/entra/identity/managed-identities-azure-resources/overview).
 
 When assigning a role to the cluster's system-assigned identity, make sure you select the resource with the type "Cluster (Operator Nexus)."
 
