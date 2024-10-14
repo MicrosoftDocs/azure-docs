@@ -70,12 +70,27 @@ To configure a dataflow endpoint for Microsoft Fabric OneLake, we suggest using 
 
 1. Select **Contributor** as the role, then select **Add**.
    
-1. A single Bicep template file from the *explore-iot-operations* repository deploys all the required dataflows and dataflow endpoints resources [Bicep File to create Dataflow](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/dataflow.bicep). Download the template file and replace the values for `customLocationName`, `aioInstanceName`, `schemaRegistryName`, `opcuaSchemaName`, `eventGridHostName`, and `persistentVCName`.
+1. A single Bicep template file from the *explore-iot-operations* repository deploys all the required dataflows and dataflow endpoints resources [Bicep File to create Dataflow](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/dataflow.bicep). Download the template file
+
+1. Set environment variables for the resources you create in this section.
+
+   ```azurecli
+   export CUSTOM_LOCATION_NAME=<CUSTOM_LOCATION_NAME>
+   export SCHEMA_REGISTRY_NAME=<SCHEMA_REGISTRY_NAME>
+   export AIO_INSTANCE_NAME=<AIO_INSTANCE_NAME>
+   export OPCUA_SCHEMA_NAME=<OPCUA_SCHEMA_NAME>
+   ```
 
 1. Deploy the resources using the [az stack group](/azure/azure-resource-manager/bicep/deployment-stacks?tabs=azure-powershell) command in your terminal:
 
     ```azurecli
-    az stack group create --name MyDeploymentStack --resource-group $RESOURCE_GROUP --template-file /workspaces/explore-iot-operations/<filename>.bicep --action-on-unmanage 'deleteResources' --deny-settings-mode 'none' --yes
+    az stack group create --name MyDeploymentStack \
+    --resource-group $RESOURCE_GROUP --template-file /workspaces/explore-iot-operations/<filename>.bicep \
+    --parameters customLocationName=$CUSTOM_LOCATION_NAME \
+    --parameters schemaRegistryName=$SCHEMA_REGISTRY_NAME \
+    --parameters aioInstanceName=$AIO_INSTANCE_NAME \
+    --parameters opcuaSchemaName=$OPCUA_SCHEMA_NAME \
+    --action-on-unmanage 'deleteResources' --deny-settings-mode 'none' --yes
     ```
 
 This endpoint is the destination for the dataflow that receives messages to Fabric OneLake.
@@ -83,9 +98,9 @@ This endpoint is the destination for the dataflow that receives messages to Fabr
 ```bicep
 resource oneLakeEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
   parent: aioInstance
-  name: 'onelake-ep'
+  name: '<ENDPOINT NAME>'
   extendedLocation: {
-    name: customLocation.id
+    name: '<CUSTOM_LOCATION_NAME>'
     type: 'CustomLocation'
   }
   properties: {
@@ -101,10 +116,7 @@ resource oneLakeEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@20
         lakehouseName: '<EXAMPLE-LAKEHOUSE-NAME>'
         workspaceName: '<EXAMPLE-WORKSPACE-NAME>'
       }
-      batching: {
-        latencySeconds: 5
-        maxMessages: 10000
-      }
+      ...
     }
   }
 }
@@ -179,9 +191,9 @@ fabricOneLakeSettings:
 ```bicep
 resource dataflow_onelake 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2024-08-15-preview' = {
   parent: defaultDataflowProfile
-  name: 'dataflow-onelake3'
+  name: '<DATAFLOW NAME>'
   extendedLocation: {
-    name: customLocation.id
+    name: '<CUSTOM_LOCATION_NAME>'
     type: 'CustomLocation'
   }
   properties: {
@@ -202,8 +214,8 @@ resource dataflow_onelake 'Microsoft.IoTOperations/instances/dataflowProfiles/da
       {
         operationType: 'Destination'
         destinationSettings: {
-          endpointRef: oneLakeEndpoint.name
-          dataDestination: 'opc' 
+          endpointRef: '<DESTINATION ENDPOINT NAME>'
+          dataDestination: '<DESTINATION TOPIC>' 
         }
       }
     ]

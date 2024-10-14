@@ -96,23 +96,37 @@ spec:
 
 # [Bicep](#tab/bicep)
 
-1. Get the managed identity of the Azure IoT Operations Arc extension.
-1. Assign the managed identity to the Event Hubs namespace with the `Azure Event Hubs Data Sender` or `Azure Event Hubs Data Receiver` role.
-1. A single Bicep template file from the *explore-iot-operations* repository deploys all the required dataflows and dataflow endpoints resources [Bicep File to create Dataflow](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/dataflow.bicep). Download the template file and replace the values for `customLocationName`, `aioInstanceName`, `schemaRegistryName`, `opcuaSchemaName`, `eventGridHostName`, and `persistentVCName`.
-2. Deploy the resources using the [az stack group](/azure/azure-resource-manager/bicep/deployment-stacks?tabs=azure-powershell) command in your terminal:
+1. A single Bicep template file from the *explore-iot-operations* repository deploys all the required dataflows and dataflow endpoints resources [Bicep File to create Dataflow](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/dataflow.bicep). Download the template file
+
+1. Set environment variables for the resources you create in this section.
+
+   ```azurecli
+   export CUSTOM_LOCATION_NAME=<CUSTOM_LOCATION_NAME>
+   export SCHEMA_REGISTRY_NAME=<SCHEMA_REGISTRY_NAME>
+   export AIO_INSTANCE_NAME=<AIO_INSTANCE_NAME>
+   export OPCUA_SCHEMA_NAME=<OPCUA_SCHEMA_NAME>
+   ```
+
+1. Deploy the resources using the [az stack group](/azure/azure-resource-manager/bicep/deployment-stacks?tabs=azure-powershell) command in your terminal:
 
     ```azurecli
-    az stack group create --name MyDeploymentStack --resource-group $RESOURCE_GROUP --template-file /workspaces/explore-iot-operations/<filename>.bicep --action-on-unmanage 'deleteResources' --deny-settings-mode 'none' --yes
+    az stack group create --name MyDeploymentStack \
+    --resource-group $RESOURCE_GROUP --template-file /workspaces/explore-iot-operations/<filename>.bicep \
+    --parameters customLocationName=$CUSTOM_LOCATION_NAME \
+    --parameters schemaRegistryName=$SCHEMA_REGISTRY_NAME \
+    --parameters aioInstanceName=$AIO_INSTANCE_NAME \
+    --parameters opcuaSchemaName=$OPCUA_SCHEMA_NAME \
+    --action-on-unmanage 'deleteResources' --deny-settings-mode 'none' --yes
     ```
-
+ 
  The overall structure of a Kafka *DataflowEndpoint* resource with managed identity authentication method for Bicep is as follows:
 
 ```bicep
 resource kafkaEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
   parent: aioInstance
-  name: 'eventhubs'
+  name: '<ENDPOINT NAME>'
   extendedLocation: {
-    name: customLocation.id
+    name: '<CUSTOM_LOCATION_NAME>'
     type: 'CustomLocation'
   }
   properties: {
@@ -123,10 +137,6 @@ resource kafkaEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024
         method: 'SystemAssignedManagedIdentity'
         systemAssignedManagedIdentitySettings: {}
       }
-      tls: {
-        mode: 'Enabled'
-      }
-      consumerGroupId: 'mqConnector'
     }
   }
 }
@@ -235,9 +245,9 @@ spec:
 ```bicep
 resource kafkaEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
  parent: aioInstance
-  name: 'eventhubs'
+  name: '<ENDPOINT NAME>'
   extendedLocation: {
-    name: customLocation.id
+    name: '<CUSTOM_LOCATION_NAME>'
     type: 'CustomLocation'
   }
   properties: {
@@ -302,9 +312,9 @@ spec:
 ```bicep
 {
   parent: defaultDataflowProfile
-  name: 'local-to-remote'
+  name: '<DATAFLOW NAME>'
   extendedLocation: {
-    name: customLocation.id
+    name: '<CUSTOM_LOCATION_NAME>'
     type: 'CustomLocation'
   }
   properties: {
@@ -313,14 +323,14 @@ spec:
       {
         operationType: 'Source'
         destinationSettings: {
-          endpointRef: mqEndpoint.name
+          endpointRef: '<SOURCE ENDPOINT NAME>'
           dataSources: array('*')
         }
       }
       {
         operationType: 'Destination'
         destinationSettings: {
-          endpointRef: kafkaEndpoint.name
+          endpointRef: '<DESTINATION ENDPOINT NAME>'
         }
       }
   }
