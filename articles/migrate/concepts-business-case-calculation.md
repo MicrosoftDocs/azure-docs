@@ -19,6 +19,8 @@ This article provides an overview of assessments in the [Azure Migrate: Discover
 The Business case capability helps you build a business proposal to understand how Azure can bring the most value to your business. It highlights:
 
 - On-premises vs Azure total cost of ownership.
+- (Optional) Current on-premises vs On-premises with Arc total cost of ownership.
+- (Optional) the cost savings and other benefits of using Azure security (Microsoft Defender for Cloud) and management (Azure Monitor and Update Management) via Arc, as well ESUs enabled by Arc for your on-premises servers.
 - Year on year cashflow analysis.
 - Resource utilization based insights to identify servers and workloads that are ideal for cloud.
 - Quick wins for migration and modernization including end of support Windows OS and SQL versions.
@@ -114,7 +116,8 @@ There are four major reports that you need to review:
     - Savings from unique Azure benefits like Azure Hybrid Benefit.
     - Savings from Security and Management capabilities.
     - Discovery insights covering the scope of the Business case.
-- **On-premises vs Azure**: This report covers the breakdown of the total cost of ownership by cost categories and insights on savings.
+- **Current on-premises vs Future**: This report covers the breakdown of the total cost of ownership by cost categories and insights on savings.
+- **On-premises with Azure Arc**: This report covers the breakdown of the total cost of ownership for your on-premises estate with and without Arc.
 - **Azure IaaS**: This report covers the Azure and on-premises footprint of the servers and workloads recommended for migrating to Azure IaaS.
 - **Azure PaaS**: This report covers the Azure and on-premises footprint of the workloads recommended for migrating to Azure PaaS.
 
