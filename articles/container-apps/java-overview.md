@@ -14,7 +14,7 @@ ms.author: cshoe
 
 Azure Container Apps can run any containerized Java application in the cloud while giving flexible options for how you deploy your applications.
 
-<br><br><iframe width="560" height="315" src="https://www.youtube.com/embed/-T90dC2CCPA?si=jROrYbUn5atDwi1E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+> [!VIDEO https://www.youtube.com/embed/-T90dC2CCPA?si=juf9xooDv-KEpMdk]
 
 When you use Container Apps for your containerized Java applications, you get:
 
