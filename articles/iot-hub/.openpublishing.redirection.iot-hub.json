@@ -1536,6 +1536,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/iot-hub-tls-deprecating-1-0-and-1-1.md",
+      "redirect_url": "/azure/iot-hub/iot-hub-tls-ending-support-for-1-0-and-1-1",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/iot-hub/device-twins-node.md",
       "redirect_url": "/azure/iot-hub/how-to-device-twins",
       "redirect_document_id": false
