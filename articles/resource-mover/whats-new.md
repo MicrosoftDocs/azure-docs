@@ -16,16 +16,16 @@ You can learn more about the new releases by bookmarking this page or by subscri
 
 ## Updates (March-2024)
 
-### Capability to move Azure VMs to another subscription and region in one attempt is in private preview
+### Capability to move Azure VMs to another subscription and region
 
-Azure Resource Mover now supports moving resources from one subscription to another, in addition to moving Azure VMs across regions in private preview. This feature helps consolidate, organize, manage, and bill resources more effectively. The **Edit target subscription** option is available on the move resources blade, along with options to add or remove resources, prepare, initiate, discard, and commit the move. After adding resources, you can select **Edit target subscription** to move resources to a different subscription than the source. 
+Azure Resource Mover now supports moving resources from one subscription to another, in addition to moving Azure VMs across regions. This feature helps consolidate, organize, manage, and bill resources more effectively. The **Edit target subscription** option is available on the move resources blade, along with options to add or remove resources, prepare, initiate, discard, and commit the move. After adding resources, you can select **Edit target subscription** to move resources to a different subscription than the source. 
 
 For more information, see [Move Azure VMs to another subscription and region](./move-region-within-resource-group.md).
 
 
-### Capability to move Azure virtual machines to another subscription and region in one attempt is in private preview
+### Capability to move Azure virtual machines to another subscription and region (private preview)
 
-Azure Resource Mover now lets you move resources from one subscription to another and across regions in private preview. This helps you consolidate, organize, manage, and bill your resources more effectively. You can use the "Edit target subscription" option on the move resources blade, along with options to add/remove resources, prepare, initiate move, discard, and commit move. After adding resources, select **Edit target subscription** to move them to a different subscription from the source.
+Azure Resource Mover now lets you move resources from one subscription to another and across regions (in private preview). This helps you consolidate, organize, manage, and bill your resources more effectively. You can use the "Edit target subscription" option on the move resources blade, along with options to add/remove resources, prepare, initiate move, discard, and commit move. After adding resources, select **Edit target subscription** to move them to a different subscription from the source.
 
 To try out this feature, please sign up by filling out [this form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR85jvyZFzJ9Fij7HO6nPfn5UNlVBMzBON1ZWUEhTTjYwRDRCOUMzV09BMy4u).
 
