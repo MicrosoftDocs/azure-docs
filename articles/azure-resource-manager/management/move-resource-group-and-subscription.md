@@ -479,6 +479,10 @@ When you receive this error, you have two options. Either move your resources to
 
 No, you can't move a resource group to a new subscription. But, you can move all of the resources in the resource group to a resource group in another subscription. Settings such as tags, role assignments, and policies aren't automatically transferred from the original resource group to the destination resource group. You need to reapply these settings to the new resource group. For more information, see [Move resources to new resource group or subscription](./move-support-resources.md).
 
+### Unsupported scenarios?
+
+If resources from Subscription A is migrated to Subscription B and At Same time if resources from Subscription B is migrated to Subscription C then platform blocks this kind of migration. This is by design.
+
 ## Next steps
 
 For a list of which resources support move, see [Move operation support for resources](move-support-resources.md).
