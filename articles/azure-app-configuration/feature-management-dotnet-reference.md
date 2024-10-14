@@ -54,9 +54,11 @@ Here are some of the benefits of using .NET feature management library:
   The .NET feature management library is open source. For more information, visit the [GitHub repo](https://github.com/microsoft/FeatureManagement-Dotnet).
 
 ## Feature Flags
+
 Feature flags are composed of two parts, a name and a list of feature-filters that are used to turn on the feature.
 
 ### Feature Filters
+
 Feature filters define a scenario for when a feature should be enabled. When a feature is evaluated for whether it is on or off, its list of feature filters is traversed until one of the filters decides the feature should be enabled. At this point, the feature is considered enabled and traversal through the feature filters stops. If no feature filter indicates that the feature should be enabled, it's considered disabled.
 
 As an example, a Microsoft Edge browser feature filter could be designed. This feature filter would activate any features it's attached to as long as an HTTP request is coming from Microsoft Edge.
@@ -246,7 +248,7 @@ The `feature_management` section of the json document is used by convention to l
 
 **Advanced:** The usage of colon ':' is forbidden in feature flag names.
 
-#### RequirementType
+#### Requirement type
 
 The `requirement_type` property of `conditions` is used to determine if the filters should use `Any` or `All` logic when evaluating the state of a feature. If `requirement_type` isn't specified, the default value is `Any`.
 
@@ -1031,7 +1033,7 @@ When defining an Audience, users and groups can be excluded from the audience. T
             "RolloutPercentage": 100
         }
     ],
-    "DefaultRolloutPercentage": 0
+    "DefaultRolloutPercentage": 0,
     "Exclusion": {
         "Users": [
             "Mark"
@@ -1073,7 +1075,7 @@ For each feature, a variant can be retrieved using the `IVariantFeatureManager`'
 …
 IVariantFeatureManager featureManager;
 …
-Variant variant = await featureManager.GetVariantAsync(MyFeatureFlags.FeatureU, CancellationToken.None);
+Variant variant = await featureManager.GetVariantAsync("MyVariantFeatureFlag", CancellationToken.None);
 
 IConfigurationSection variantConfiguration = variant.Configuration;
 
@@ -1380,8 +1382,6 @@ ActivitySource.AddActivityListener(new ActivityListener()
 
 For more information, please go to [Collect a distributed trace](/dotnet/core/diagnostics/distributed-tracing-collection-walkthroughs).
 
-
-
 ### Application Insights Telemetry Publisher
 
 The `Microsoft.FeatureManagement.Telemetry.ApplicationInsights` package provides a built-in telemetry publisher that sends feature flag evaluation data to [Application Insights](/azure/azure-monitor/app/app-insights-overview). To take advantage of this, add a reference to the package and register the Application Insights telemetry publisher as shown below.
@@ -1472,4 +1472,4 @@ To learn how to use feature filters, continue to the following tutorials.
 To learn how to run experiments with variant feature flags, continue to the following tutorial.
 
 > [!div class="nextstepaction"]
-> [Run experiments with variant feature flags](./howto-feature-filters.md)
+> [Run experiments with variant feature flags](./run-experiments-aspnet-core.md)

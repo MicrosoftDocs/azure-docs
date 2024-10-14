@@ -1,48 +1,40 @@
 ---
-title: Python feature flag management
+title: JavaScript feature flag management
 titleSuffix: Azure App Configuration
-description: Learn to implement feature flags in your Python applications using feature management and Azure App Configuration. Dynamically manage feature rollouts, conduct A/B testing, and control feature visibility without redeploying the app.
+description: Learn to implement feature flags in your JavaScript applications using feature management and Azure App Configuration. Dynamically manage feature rollouts, conduct A/B testing, and control feature visibility without redeploying the app.
 services: azure-app-configuration
-author: mrm9084
-ms.author: mametcal
+author: zhiyuanliang-ms
+ms.author: zhiyuanliang
 ms.service: azure-app-configuration
-ms.devlang: python
-ms.custom: devx-track-python
+ms.devlang: javascript
+ms.custom: devx-track-javascript
 ms.topic: tutorial
-ms.date: 09/10/2024
+ms.date: 10/15/2024
 zone_pivot_groups: feature-management
 #Customer intent: I want to control feature availability in my app by using the Feature Management library.
 ---
 
-# Python feature management
+# JavaScript feature management
 
-:::zone target="docs" pivot="stable-version"
+[![feature-management](https://img.shields.io/npm/v/@microsoft/feature-management?label=@microsoft/feature-management)](https://www.npmjs.com/package/@microsoft/feature-management)
 
-[![Feature Management](https://img.shields.io/pypi/v/FeatureManagement?color=blue)](https://pypi.org/project/FeatureManagement/)<br>
-:::zone-end
+JavaScript feature management library provides a way to develop and expose application functionality based on feature flags. Once a new feature is developed, many applications have special requirements, such as when the feature should be enabled and under what conditions. This library provides a way to define these relationships, and also integrates into common JavaScript code patterns to make exposing these features possible.
 
-:::zone target="docs" pivot="preview-version"
+Feature flags provide a way for JavaScript applications to turn features on or off dynamically. Developers can use feature flags in simple use cases like conditional statements.
 
-[![Feature Management](https://img.shields.io/pypi/v/FeatureManagement/2.0.0b1?color=blue)](https://pypi.org/project/FeatureManagement/2.0.0b1/)<br>
-
-:::zone-end
-
-Python feature management library provides a way to develop and expose application functionality based on feature flags. Once a new feature is developed, many applications have special requirements, such as when the feature should be enabled and under what conditions. This library provides a way to define these relationships, and also integrates into common Python code patterns to make exposing these features possible.
-
-Feature flags provide a way for Python applications to turn features on or off dynamically. Developers can use feature flags in simple use cases like conditional statements.
-
-Here are some of the benefits of using Python feature management library:
+Here are some of the benefits of using JavaScript feature management library:
 
 * A common convention for feature management
 * Low barrier to entry
-  * Supports JSON feature flag setup
-* Feature flag lifetime management
-  * Configuration values can change in real-time; feature flags can be consistent across the entire request
-* Simple to complex scenarios covered
+  * Supports both JSON objects and map-based feature flag sources
+  * Supports usage in both Node.js and browser environments
+* Feature Flag lifetime management with Azure App Configuration
+  * Configuration values can change in real-time
+* Simple to Complex Scenarios Covered
   * Toggle on/off features through declarative configuration file
   * Dynamically evaluate state of feature based on call to server
 
-  The Python feature management library is open source. For more information, visit the [GitHub repo](https://github.com/microsoft/FeatureManagement-Python).
+  The JavaScript feature management library is open source. For more information, visit the [GitHub repo](https://github.com/microsoft/FeatureManagement-JavaScript).
 
 ## Feature flags
 
@@ -54,17 +46,15 @@ Feature filters define a scenario for when a feature should be enabled. When a f
 
 As an example, a Microsoft Edge browser feature filter could be designed. This feature filter would activate any features attached to it, as long as an HTTP request is coming from Microsoft Edge.
 
-### Feature flag configuration
+## Feature flag configuration
 
-A Python dictionary is used to define feature flags. The dictionary is composed of feature names as keys and feature flag objects as values. The feature flag object is a dictionary that contains an `EnabledFor` key. The `EnabledFor` key is a list of feature filters that are used to determine if the feature should be enabled.
+In JavaScript, developers commonly use objects or maps as the primary data structures to represent configurations. The JavaScript feature management library supports both of the configuration approaches, providing developers with the flexibility to choose the option that best fits their needs. The `FeatureManager` can read feature flags from different types of configuration using the built-in `ConfigurationObjectFeatureFlagProvider` and `ConfigurationMapFeatureFlagProvider`.
 
-### Feature flag declaration
+### [Use Map Configuration](#tab/map-configuration)
 
-The feature management library supports json as a feature flag source. Below we have an example of the format used to set up feature flags in a JSON file.
-
-```json
-{
-    "feature_management": {
+``` javascript
+const config = new Map([
+    ["feature_management", {
         "feature_flags": [
             {
                 "id": "FeatureT",
@@ -73,10 +63,83 @@ The feature management library supports json as a feature flag source. Below we 
             {
                 "id": "FeatureU",
                 "enabled": false
+            }
+        ]
+    }],
+    ["some other configuration", " some value"]
+]);
+
+import { ConfigurationMapFeatureFlagProvider, FeatureManager } from "@microsoft/feature-management";
+const featureProvider = new ConfigurationMapFeatureFlagProvider(config);
+const featureManager = new FeatureManager(featureProvider);
+```
+
+The object can also be parsed from a JSON file:
+
+``` javascript
+const config = JSON.parse(await fs.readFile("path/to/config.json"));
+const featureProvider = new ConfigurationObjectFeatureFlagProvider(config);
+const featureManager = new FeatureManager(featureProvider);
+```
+
+### [Use object Configuration](#tab/object-configuration)
+
+``` javascript
+const config = {
+    "feature_management": {
+        "feature_flags": [
+            {
+                "id": "FeatureT",
+                "enabled": "true"
+            },
+            {
+                "id": "FeatureX",
+                "enabled": "false"
+            }
+        ]
+    },
+    "some pther configuration": " some value"
+}
+
+import { ConfigurationObjectFeatureFlagProvider, FeatureManager } from "@microsoft/feature-management";
+const featureProvider = new ConfigurationObjectFeatureFlagProvider(config);
+const featureManager = new FeatureManager(featureProvider);
+```
+
+---
+
+### Use feature flags from Azure App Configuration
+
+The App Configuration JavaScript provider provides feature flags in as a `Map` object. The built-in `ConfigurationMapFeatureFlagProvider` helps to load feature flags in this case.
+
+``` javascript
+const appConfig = await load(connectionString, {featureFlagOptions: { enabled: true }}); // load feature flags from Azure App Configuration service
+const featureProvider = new ConfigurationMapFeatureFlagProvider(appConfig);
+const featureManager = new FeatureManager(featureProvider);
+```
+
+> [!NOTE]
+> For more information about how to use feature management library with Azure App Configuration, pelase go to the [quickstart](./quickstart-javascript.md).
+
+### Feature flag declaration
+
+Below we have an example of the format used to set up feature flags in a JSON file.
+
+```json
+{
+    "feature_management": {
+        "feature_flags": [
+            {
+                "id": "FeatureT",
+                "enabled": "true"
+            },
+            {
+                "id": "FeatureU",
+                "enabled": "false"
             },
             {
                 "id": "FeatureV",
-                "enabled": true,
+                "enabled": "true",
                 "conditions": {
                     "client_filters": [
                         {
@@ -94,32 +157,11 @@ The feature management library supports json as a feature flag source. Below we 
 }
 ```
 
-The `feature_management` section of the json document is used by convention to load feature flag settings. The `feature_flags` section is a list of the feature flags that are loaded into the library. In the section above, we see three different features. Features define their feature filters using the `client_filters` property, inside of `conditions`. In the feature filters for `FeatureT`, we see `enabled` is on with no filters defined, resulting in `FeatureT` always returning `true` . `FeatureU` is the same as `FeatureT` but with `enabled` is `false` resulting in the feature always returning `false`. `FeatureV` specifies a feature filter named `Microsoft.TimeWindow`. `FeatureV` is an example of a configurable feature filter. We can see in the example that the filter has a `parameters` property. The `parameters` property is used to configure the filter. In this case, the start and end times for the feature to be active are configured.
+The `feature_management` section is used by convention to load feature flag settings. The `feature_flags` section is a list of the feature flags that are loaded into the library. In the section above, we see three different features. Features define their feature filters using the `client_filters` property, inside of `conditions`. In the feature filters for `FeatureT`, we see `enabled` is on with no filters defined, resulting in `FeatureT` always returning `true` . `FeatureU` is the same as `FeatureT` but with `enabled` is `false` resulting in the feature always returning `false`. `FeatureV` specifies a feature filter named `Microsoft.TimeWindow`. `FeatureV` is an example of a configurable feature filter. We can see in the example that the filter has a `parameters` property. The `parameters` property is used to configure the filter. In this case, the start and end times for the feature to be active are configured.
 
 The detailed schema of the `feature_management` section can be found [here](https://github.com/microsoft/FeatureManagement/blob/main/Schema/FeatureManagement.v2.0.0.schema.json).
 
 **Advanced:** The usage of colon ':' is forbidden in feature flag names.
-
-#### On/off declaration
- 
-The following snippet demonstrates an alternative way to define a feature that can be used for on/off features. 
-
-``` json
-{
-    "feature_management": {
-        "feature_flags": [
-            {
-                "id": "FeatureT",
-                "enabled": "true"
-            },
-            {
-                "id": "FeatureX",
-                "enabled": "false"
-            }
-        ]
-    }
-}
-```
 
 #### Requirement type
 
@@ -165,39 +207,91 @@ In the above example, `FeatureW` specifies a `requirement_type` of `All`, meanin
 
 ## Consumption
 
-The basic form of feature management is checking if a feature flag is enabled and then performing actions based on the result. Checking the state of a feature flag is done through `FeatureManager`'s `is_enabled` method.
+The basic form of feature management is checking if a feature flag is enabled and then performing actions based on the result. Checking the state of a feature flag is done through `FeatureManager`'s `isEnabled` method.
 
-```python
-…
-feature_manager = FeatureManager(feature_flags)
-…
-if feature_manager.is_enabled("FeatureX"):
-    # Do something
+### [Use Map Configuration](#tab/map-configuration)
+
+``` javascript
+import { ConfigurationMapFeatureFlagProvider, FeatureManager } from "@microsoft/feature-management";
+const featureProvider = new ConfigurationMapFeatureFlagProvider(config);
+const featureManager = new FeatureManager(featureProvider);
+
+const isBetaEnabled = await featureManager.isEnabled("Beta");
+if (isBetaEnabled) {
+    // Do something
+}
 ```
 
-The `feature_flags` provided to `FeatureManager` can either be the `AzureAppConfigurationProvider` or a dictionary of feature flags.
+### [Use object Configuration](#tab/object-configuration)
+
+``` javascript
+import { ConfigurationObjectFeatureFlagProvider, FeatureManager } from "@microsoft/feature-management";
+const featureProvider = new ConfigurationObjectFeatureFlagProvider(config);
+const featureManager = new FeatureManager(featureProvider);
+
+const isBetaEnabled = await featureManager.isEnabled("Beta");
+if (isBetaEnabled) {
+    // Do something
+}
+```
+
+---
 
 ## Implementing a feature filter
 
-Creating a feature filter provides a way to enable features based on criteria that you define. To implement a feature filter, the `FeatureFilter` interface must be implemented. `FeatureFilter` has a single method named `evaluate`. When a feature specifies that it can be enabled for a feature filter, the `evaluate` method is called. If `evaluate` returns `true`, it means the feature should be enabled.
+Creating a feature filter provides a way to enable features based on criteria that you define. To implement a feature filter, the `IFeatureFilter` interface must be implemented. `IFeatureFilter` has a `name` property and a method named `evaluate`. The `name` should be used in configuration to reference the feature filter within a feature flag. When a feature specifies that it can be enabled for a feature filter, the `evaluate` method is called. If `evaluate` returns `true`, it means the feature should be enabled.
 
-The following snippet demonstrates how to add a customized feature filter `MyCriteriaFilter`.
-
-```python
-feature_manager = FeatureManager(feature_flags, feature_filters=[MyCustomFilter()])
+``` typescript
+interface IFeatureFilter {
+    name: string;
+    evaluate(context: IFeatureFilterEvaluationContext, appContext?: unknown): boolean | Promise<boolean>;
+}
 ```
 
-Feature filters are registered by providing them to the property `feature_filters` when creating `FeatureManager`. If a custom feature filter needs any context, they can be passed in when calling `is_enabled` using `kwargs`.
+The following snippet demonstrates how to implement a customized feature filter with name `MyCriteria`.
 
-### Filter alias attribute
+``` javascript
+    class MyCriteriaFilter {
+        name = "MyCriteria";
+        evaluate(context, appContext) {
+            if (satisfyCriteria()) {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+    }
+```
 
-When a feature filter is registered for a feature flag, the name of the filter is used as the alias by default.
+You need to register the custom filter when creating the `FeatureManager`.
 
-The identifier for the feature filter can be overridden by using the `@FeatureFilter.alias("MyFilter")`. A feature filter can be decorated with this attribute to declare the name that should be used in configuration to reference this feature filter within a feature flag.
+``` javascript
+const featureManager = new FeatureManager(ffProvider, {customFilters: [new MyCriteriaFilter()]});
+```
 
-### Missing feature filters
+### Parameterized feature filters
 
-If a feature is configured to be enabled for a specific feature filter and that feature filter isn't registered, a `ValueError` exception is raised when the feature is evaluated.
+Some feature filters require parameters to decide whether a feature should be turned on or not. For example, a browser feature filter may turn on a feature for a certain set of browsers. It may be desired that Edge and Chrome browsers enable a feature, while Firefox does not. To do this, a feature filter can be designed to expect parameters. These parameters would be specified in the feature configuration, and in code would be accessible via the `IFeatureFilterEvaluationContext` parameter of `IFeatureFilter.Evaluate`.
+
+``` typescript
+interface IFeatureFilterEvaluationContext {
+    featureName: string;
+    parameters?: unknown;
+}
+```
+
+`IFeatureFilterEvaluationContext` has a property named `parameters`. These parameters represent a raw configuration that the feature filter can use to decide how to evaluate whether the feature should be enabled or not. To use the browser feature filter as an example once again, the filter could use `parameters` to extract a set of allowed browsers that would be specified for the feature and then check if the request is being sent from one of those browsers.
+
+### Use application context For feature evaluation
+
+A feature filter may need runtime application context to evaluate a feature flag. You can pass in the context as a parameter when calling `isEnabled`.
+
+``` javascript
+featureManager.isEnabled("Beta", { userId : "Sam" })
+```
+
+The feature filter can take advantage of the context that is passed in when `isEnabled` is called. The application context will be passed in as the second parameter of `IFeatureFilter.Evaluate`.
 
 ## Built-in feature filters
 
@@ -275,23 +369,19 @@ The following steps demonstrate an example of a progressive rollout for a new 'B
 
 This strategy for rolling out a feature is built in to the library through the included [Microsoft.Targeting](#microsofttargeting) feature filter.
 
-### Targeting a user
+### Targeting a user with targeting context
 
-Either a user can be specified directly in the `is_enabled` call or a `TargetingContxt` can be used to specify the user and optional group.
+The targeting filter relies on a targeting context to evaluate whether a feature should be turned on. This targeting context contains information such as what user is currently being evaluated, and what groups the user in. The targeting context must be passed directly when `isEnabled` is called.
 
-```python
-# Directly specifying the user
-feature_manager = FeatureManager(feature_flags, "test_user")
-
-# Using a TargetingContext
-feature_manager = FeatureManager(feature_flags, TargetingContext(user_id="test_user", groups=["Ring1"]))
+``` javascript
+featureManager.isEnabled("Beta", { userId: "Aiden", groups: ["Ring1"] })
 ```
 
 ### Targeting exclusion
 
 When defining an audience, users and groups can be excluded from the audience. Exclusions are useful for when a feature is being rolled out to a group of users, but a few users or groups need to be excluded from the rollout. Exclusion is defined by adding a list of users and groups to the `Exclusion` property of the audience.
 
-```json
+``` json
 "Audience": {
     "Users": [
         "Jeff",
@@ -314,57 +404,36 @@ When defining an audience, users and groups can be excluded from the audience. E
 
 In the above example, the feature is enabled for users named `Jeff` and `Alicia`. It's also enabled for users in the group named `Ring0`. However, if the user is named `Mark`, the feature is disabled, regardless of if they are in the group `Ring0` or not. Exclusions take priority over the rest of the targeting filter.
 
+:::zone target="docs" pivot="stable-version"
+:::zone-end
+
 :::zone target="docs" pivot="preview-version"
 
 ## Variants
 
-When new features are added to an application, there may come a time when a feature has multiple different proposed design options. A common solution for deciding on a design is some form of A/B testing. A/B testing involves providing a different version of the feature to different segments of the user base and choosing a version based on user interaction. In this library, this functionality is enabled by representing different configurations of a feature with variants.
+When new features are added to an application, there may come a time when a feature has multiple different proposed design options. A common solution for deciding on a design is some form of A/B testing, which involves providing a different version of the feature to different segments of the user base and choosing a version based on user interaction. In this library, this functionality is enabled by representing different configurations of a feature with variants.
 
 Variants enable a feature flag to become more than a simple on/off flag. A variant represents a value of a feature flag that can be a string, a number, a boolean, or even a configuration object. A feature flag that declares variants should define under what circumstances each variant should be used, which is covered in greater detail in the [Allocating variants](#allocating-variants) section.
 
-```python
-class Variant:
-    def __init__(self, name: str, configuration: Any):
-        self._name = name
-        self._configuration = configuration
+### Getting a variant with targeting context
 
-    @property
-    def name(self) -> str:
-        """
-        The name of the variant.
-        :rtype: str
-        """
-        return self._name
+For each feature, a variant can be retrieved using the `FeatureManager`'s `getVariant` method. The variant assignment is dependent on the user currently being evaluated, and that information is obtained from the targeting context you passed in.
 
-    @property
-    def configuration(self) -> Any:
-        """
-        The configuration of the variant.
-        :rtype: Any
-        """
-        return self._configuration
-```
+``` javascript
+const variant = await featureManager.getVariant("MyVariantFeatureFlag", { userId: "Sam" });
 
-### Getting variants
-
-For each feature, a variant can be retrieved using the `FeatureManager`'s `get_variant` method.
-
-```python
-…
-variant = print(feature_manager.get_variant("TestVariants", TargetingContext(user_id="Adam"))
-
-variantConfiguration = variant.configuration;
+const variantName = variant.name;
+const variantConfiguration = variant.configuration;
 
 // Do something with the resulting variant and its configuration
 ```
 
-The variant returned is dependent on the user currently being evaluated, and that information is obtained from an instance of `TargetingContext`. 
 
 ### Variant feature flag declaration
 
 Compared to normal feature flags, variant feature flags have two more properties: `variants` and `allocation`. The `variants` property is an array that contains the variants defined for this feature. The `allocation` property defines how these variants should be allocated for the feature. Just like declaring normal feature flags, you can set up variant feature flags in a JSON file. Here's an example of a variant feature flag.
 
-```json
+``` json
 {
     "feature_management": {
         "feature_flags": [
@@ -398,7 +467,7 @@ Compared to normal feature flags, variant feature flags have two more properties
 
 #### Defining variants
 
-Each variant has two properties: a name and a configuration. The name is used to refer to a specific variant, and the configuration is the value of that variant. The configuration can be set using `configuration_value` property. `configuration_value` is an inline configuration that can be a string, number, boolean, or configuration object. If `configuration_value` isn't specified, the returned variant's `Configuration` property is `None`.
+Each variant has two properties: a name and a configuration. The name is used to refer to a specific variant, and the configuration is the value of that variant. The configuration can be set using `configuration_value` property. `configuration_value` is an inline configuration that can be a string, number, boolean, or configuration object. If `configuration_value` isn't specified, the returned variant's `configuration` property is `undefined`.
 
 A list of all possible variants is defined for each feature under the `variants` property.
 
@@ -535,7 +604,7 @@ When a feature flag change is deployed, it's often important to analyze its effe
 * Which variant is a particular user seeing?
 
 
-These types of questions can be answered through the emission and analysis of feature flag evaluation events. This library optionally enables `AzureMonitor` produce tracing telemetry during feature flag evaluation via `OpenTelemetry`.
+These types of questions can be answered through the emission and analysis of feature flag evaluation events.
 
 ### Enabling telemetry
 
@@ -568,40 +637,46 @@ The `telemetry` section of a feature flag has the following properties:
 | `enabled` | Specifies whether telemetry should be published for the feature flag. |
 | `metadata` | A collection of key-value pairs, modeled as a dictionary, that can be used to attach custom metadata about the feature flag to evaluation events. |
 
-In addition, when creating `FeatureManager`, a callback must be registered to handle telemetry events. This callback is called whenever a feature flag is evaluated and telemetry is enabled for that flag.
-
-```python
-feature_manager = FeatureManager(feature_flags, on_feature_evaluated=publish_telemetry)
-```
-
-### Application Insights telemetry
-
-The feature management library provides a built-in telemetry publisher that sends feature flag evaluation data to [Application Insights](/azure/azure-monitor/app/app-insights-overview). To enable Application Insights, the feature management library can be installed with Azure Monitor via `pip install FeatureManagement[AzureMonitor]`. This command installs the `azure-monitor-events-extension` package, which is used to style telemetry to Application Insights using OpenTelemetry.
-
-> [!NOTE]
-> The `azure-monitor-events-extension` package only adds the telemetry to the Open Telemetry pipeline. Registering Application Insights is still required.
-
-```python
-from azure.monitor.opentelemetry import configure_azure_monitor
-
-configure_azure_monitor(
-        connection_string="InstrumentationKey=00000000-0000-0000-0000-000000000000"
-    )
-```
-
 ### Custom telemetry publishing
 
-Because the telemetry callback is a function, it can be customized to publish telemetry to any desired destination. For example, telemetry could be published to a logging service, a database, or a custom telemetry service.
+You can register an `onFeatureEvaluated` callback function when creating `FeatureManager`. This callback is called whenever a feature flag is evaluated and telemetry is enabled for that flag. The callback function will take the feature evaluation result as the parameter.
 
-When a feature flag is evaluated and telemetry is enabled, the feature manager calls the telemetry callback with an `EvaluationEvent` parameter. `EvaluationEvent` contains the following properties:
+The following example shows how to implement a custom callback function to send telemetry with the information extracted from the feature evaluation result and register it to the feature manager.
 
-| Tag | Description |
-| ---------------- | ---------------- |
-| `feature` | The feature flag used. |
-| `user` | The user ID used for targeting. |
-| `enabled` | Whether the feature flag is evaluated as enabled. |
-| `Variant` | The assigned variant. |
-| `VariantAssignmentReason` | The reason why the variant is assigned. |
+``` javascript
+const sendTelemetry = (evaluationResult) => {
+    const featureId = evaluationResult.feature.id;
+    const featureEnabled = evaluationResult.enabled;
+    const targetingId = evaluationResult.targetingId;
+    const variantName = evaluationResult.variant?.name;
+    const variantAssignmentReason = evaluationResult.variantAssignmentReason;
+    // custom code to send the telemetry
+    // ...
+}
+const featureManager = new FeatureManager(featureProvider, { onFeatureEvaluated :  sendTelemtry});
+```
+
+### Application Insights integration
+
+The JavaScript feature management library provide extension packages that integration with [Application Insights](/azure/azure-monitor/app/app-insights-overview) sdks.
+
+If your application runs in the browser, install the `"@microsoft/feature-management-applicationinsights-browser"` package. The following example shows how you can create a built-in Application Insights telemetry publisher and register it to the feature manager.
+
+``` javascript
+import { ApplicationInsights } from "@microsoft/applicationinsights-web"
+import { createTelemetryPublisher } from "@microsoft/feature-management-applicationinsights-browser"
+
+const appInsights = new ApplicationInsights({ config: {
+  connectionString: "<your-connection-string>"
+}});
+appInsights.loadAppInsights();
+
+...
+const telemetryPublisher = createTelemetryPublisher(appInsights);
+const featureManager = new FeatureManager(ffProvider, { onFeatureEvaluated: telemetryPublisher});
+```
+
+The telemetry publisher sends `FeatureEvaluation` custom events to the Application Insights when a feature flag enabled with telemetry is evaluated. The custom event follows the [FeatureEvaluationEvent](https://github.com/microsoft/FeatureManagement/tree/main/Schema/FeatureEvaluationEvent) schema.
 
 :::zone-end
 
@@ -610,7 +685,7 @@ When a feature flag is evaluated and telemetry is enabled, the feature manager c
 To learn how to use feature flags in your applications, continue to the following quickstarts.
 
 > [!div class="nextstepaction"]
-> [Python](./quickstart-feature-flag-python.md)
+> [Python](./quickstart-feature-flag-javascript.md)
 
 To learn how to use feature filters, continue to the following tutorials.
 
