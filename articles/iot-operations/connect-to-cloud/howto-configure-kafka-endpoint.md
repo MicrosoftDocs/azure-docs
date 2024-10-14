@@ -111,12 +111,12 @@ spec:
 
     ```azurecli
     az stack group create --name MyDeploymentStack \
-    --resource-group $RESOURCE_GROUP --template-file /workspaces/explore-iot-operations/<filename>.bicep \
-    --parameters customLocationName=$CUSTOM_LOCATION_NAME \
-    --parameters schemaRegistryName=$SCHEMA_REGISTRY_NAME \
-    --parameters aioInstanceName=$AIO_INSTANCE_NAME \
-    --parameters opcuaSchemaName=$OPCUA_SCHEMA_NAME \
-    --action-on-unmanage 'deleteResources' --deny-settings-mode 'none' --yes
+        --resource-group $RESOURCE_GROUP --template-file /workspaces/explore-iot-operations/<filename>.bicep \
+        --parameters customLocationName=$CUSTOM_LOCATION_NAME \
+        --parameters schemaRegistryName=$SCHEMA_REGISTRY_NAME \
+        --parameters aioInstanceName=$AIO_INSTANCE_NAME \
+        --parameters opcuaSchemaName=$OPCUA_SCHEMA_NAME \
+        --action-on-unmanage 'deleteResources' --deny-settings-mode 'none' --yes
     ```
  
  The overall structure of a Kafka *DataflowEndpoint* resource with managed identity authentication method for Bicep is as follows:
