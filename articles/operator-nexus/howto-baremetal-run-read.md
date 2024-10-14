@@ -13,7 +13,7 @@ ms.custom: template-how-to
 
 There might be situations where a user needs to investigate & resolve issues with an on-premises BMM. Operator Nexus provides the `az networkcloud baremetalmachine run-read-command` so users can run a curated list of read only commands to get information from a BMM.
 
-The command produces an output file containing its results. Users should configure the Cluster resource with a storage account and identity that has access to the storage account to receive the output. There is a deprecated method of sending data to the Cluster Manager storage account if a storage account has not been provided on the Cluster. The Cluster Manager's storage account will be disabled in a future release as using a separate storage account is more secure.
+The command produces an output file containing its results. Users should configure the Cluster resource with a storage account and identity that has access to the storage account to receive the output. There's a deprecated method of sending data to the Cluster Manager storage account if a storage account hasn't been provided on the Cluster. The Cluster Manager's storage account will be disabled in a future release as using a separate storage account is more secure.
 
 ## Prerequisites
 

@@ -13,7 +13,7 @@ ms.custom: template-how-to, devx-track-azurecli
 
 There might be situations where a user needs to investigate and resolve issues with an on-premises bare metal machine. Azure Operator Nexus provides a prescribed set of data extract commands via `az networkcloud baremetalmachine run-data-extract`. These commands enable users to get diagnostic data from a bare metal machine.
 
-The command produces an output file containing the results of the data extract. Users should configure the Cluster resource with a storage account and identity that has access to the storage account to receive the output. There is a deprecated method of sending data to the Cluster Manager storage account if a storage account has not been provided on the Cluster. The Cluster Manager's storage account will be disabled in a future release as using a separate storage account is more secure.
+The command produces an output file containing the results of the data extract. Users should configure the Cluster resource with a storage account and identity that has access to the storage account to receive the output. There's a deprecated method of sending data to the Cluster Manager storage account if a storage account hasn't been provided on the Cluster. The Cluster Manager's storage account will be disabled in a future release as using a separate storage account is more secure.
 
 ## Prerequisites
 
