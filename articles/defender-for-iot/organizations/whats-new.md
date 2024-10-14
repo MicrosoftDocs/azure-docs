@@ -329,7 +329,9 @@ For more information, see [Check sensor - cloud connectivity issues](how-to-trou
 
 ### Event timeline access for OT sensor Read Only users
 
-Starting in version 23.1.3, *Read Only* users on the OT sensor can view the **Event Timeline** page.
+Starting in version 23.1.3, *Read Only* users on the OT sensor can view the **Event Timeline** page. For example:
+
+:::image type="content" source="media/track-sensor-activity/event-timeline-view-events.png" alt-text="Screenshot of events on the event timeline." lightbox="media/track-sensor-activity/event-timeline-view-events.png":::
 
 For more information, see:
 
@@ -1263,8 +1265,6 @@ These features are now Generally Available (GA). Updates include the general loo
 **Simplified workflows include**:
 
 - The **Device inventory** page now includes detailed device pages. Select a device in the table and then select **View full details** on the right.
-
-    :::image type="content" source="media/release-notes/device-inventory-details.png" alt-text="Screenshot of the View full details button." lightbox="media/release-notes/device-inventory-details.png":::
 
 - Properties updated from the sensor's inventory are now automatically updated in the cloud device inventory.
 
