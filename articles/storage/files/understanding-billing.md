@@ -373,7 +373,7 @@ To see previous transactions:
 ### Pay-as-you-go snapshots
 Azure Files supports snapshots, which are similar to volume shadow copies (VSS) on Windows File Server. For more information on share snapshots, see [Overview of snapshots for Azure Files](storage-snapshots-files.md).
 
-Snapshots are always differential from the live share and from each other. In the pay-as-you-go billing model,the total differential size is billed against the normal used storage meter. This means that you won't see a separate line item on your bill representing snapshots for your pay-as-you-go storage account. This also means that differential snapshot usage counts against reservations that are purchased for pay-as-you-go file shares.
+Snapshots are always differential from the live share and from each other. In the pay-as-you-go billing model, the total differential size is billed against the normal used storage meter. This means that you won't see a separate line item on your bill representing snapshots for your pay-as-you-go storage account. This also means that differential snapshot usage counts against reservations that are purchased for pay-as-you-go file shares.
 
 ### Pay-as-you-go soft-delete
 Deleted file shares in storage accounts with soft-delete enabled are billed based on the used storage capacity of the deleted file share for the duration of the soft-delete period. The soft-deleted used storage capacity is emitted against the normal used storage meter. This means that you won't see a separate line item on your bill representing soft-deleted file shares for your pay-as-you-go storage account. This also means that soft-deleted file share usage counts against reservations that are purchased for pay-as-you-go file shares.
