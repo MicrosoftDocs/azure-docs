@@ -408,7 +408,6 @@ The Azure Maps Routing service (preview) contains different levels of geographic
 | Central African Republic               | Major Roads Only    |                       | ✓                 |                            |
 | Chad                                   | Major Roads Only    |                       | ✓                 |                            |
 | Chile                                  | Good                | ✓                     | ✓                 | ✓                         |
-| China                                  | Good                | ✓                     |                   |                           |
 | Christmas Island                       | Good                |                       | ✓                 |                            |
 | Cocos (Keeling) Islands                | Major Roads Only    |                       | ✓                 |                            |
 | Colombia                               | Good                | ✓                     | ✓                 | ✓                         |
