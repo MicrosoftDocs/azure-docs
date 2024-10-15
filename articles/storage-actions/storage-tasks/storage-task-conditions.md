@@ -39,12 +39,12 @@ A storage task contains a set of conditions and operations in a JSON document. T
 }
 ```
 
-A condition a collection of one or more _clauses_. Each clause contains a _property_, a _value_, and an _operator_. When the storage task runs, it uses the operator to compare a property with a value to determine whether a clause is met by the target object. In a clause, the operator always appears first followed by the property, and then the value. The following image shows how each element is positioned in the expression.
+A condition a collection of one or more _clauses_. Each clause contains a _property_, a _value_, and an _operator_. When the storage task runs, it uses the operator to compare a property with a value to determine whether a clause is met by the target object. In a clause, the **operator** always appears first followed by the **property**, and then the **value**. The following image shows how each element is positioned in the expression.
 
 > [!div class="mx-imgBorder"]
 > ![Format of a simple condition with an operator, property, and value.](../media/storage-tasks/storage-task-conditions/storage-task-conditions-condition-format-basic.png)
 
-The following snippet shows an example clause that allows operations only on Microsoft Word documents. This clause targets all documents that end with the file extension `.docx`. Therefore, the operator is `endsWith`, the property is `Name`, the value is `.docx`. 
+The following clause allows operations only on Microsoft Word documents. This clause targets all documents that end with the file extension `.docx`. Therefore, the operator is `endsWith`, the property is `Name`, the value is `.docx`. 
 
 ```json
 {
@@ -63,7 +63,7 @@ A condition can contain multiple clauses separated by a comma along with either 
 > [!div class="mx-imgBorder"]
 > ![Format of a condition that contains two clauses.](../media/storage-tasks/storage-task-conditions/storage-task-conditions-condition-format-multiple.png)
 
-The following JSON shows an example of two clauses. Because the `and` string appears at the beginning, both clauses must evaluate to `true`. 
+The following JSON shows a condition that contains two clauses. Because the `and` string is used in this expression, both clauses must evaluate to `true` before an operation is performed on the object. 
 
 ```json
 {
@@ -80,11 +80,11 @@ Grouped clauses operate as a single unit separate from the rest of the clauses. 
 > [!div class="mx-imgBorder"]
 > ![Format of a condition that contains two clauses grouped together.](../media/storage-tasks/storage-task-conditions/storage-task-conditions-condition-format-groups.png)
 
-The following JSON shows an example two clauses grouped together. 
+The following condition allows operations only on Microsoft Word documents where the `readyForLegalHold` tag of the document is set to a value of `Yes`. Operations are also performed on objects that are greater than 100 bytes even if the other two conditions are not true.
 
 ```json
 {
-"condition": "[[[or(and(endsWith(Name, '.docx'), equals(Tags.Value[readyForLegalHold], 'Yes')), greater(Content-Length, '0'))]]"
+"condition": "[[[or(and(endsWith(Name, '.docx'), equals(Tags.Value[readyForLegalHold], 'Yes')), greater(Content-Length, '100'))]]"
 }
 ```
 
