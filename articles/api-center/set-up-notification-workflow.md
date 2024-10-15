@@ -126,6 +126,7 @@ Add a step to make an HTTP GET request to get API details from the API center.
 1. In the **HTTP** pane:
     1. In **URI**, enter `https://management.azure.com/` (including the trailing forward slash). After the forward slash, enter `/`, select **Insert dynamic content**, and then select the variables *subjectvar* and *versionvar*, in that order.
     1. In **Method**, select **GET**.
+
         :::image type="content" source="media/set-up-notification-workflow/http-request-get.png" alt-text="Screenshot of HTTP request action in the portal.":::
 
     1. Under **Advanced parameters**, select **Authentication**.
