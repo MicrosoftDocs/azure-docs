@@ -99,7 +99,7 @@ At this point, we can interact with Storage as we normally would. The following 
 
 ```csharp
 var tableClient = tableServiceClient.GetTableClient("Contacts");
-ContactEntity contact = tableClient.GetEntity<ContactEntity>("gov-partition1", "0fb52a6c-3784-4dc5-aa6d-ecda4426dbda");
+ContactEntity contact = tableClient.GetEntity<ContactEntity>("gov-partition-test", "0abc123e-1111-1a2b-3c4d-fghi5678j9k0");
 Console.WriteLine($"Contact: {contact.FirstName} {contact.LastName}");
 ```
 
