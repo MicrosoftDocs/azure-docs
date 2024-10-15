@@ -132,7 +132,7 @@ Add a step to make an HTTP request to get API details from the API center.
         1. In **Audience**, enter `https://management.azure.com/`.
 
       
-### Step 5. Parse JSON action
+### Workflow step 5. Parse JSON action
 
 Add a step to parse the JSON output of the preceding HTTP request. 
 
@@ -338,15 +338,17 @@ Test the event subscription by registering an API in your API center:
     :::image type="content" source="media/set-up-notification-workflow/teams-adaptive-card.png" alt-text="Screenshot of adaptive card in Microsoft Teams.":::
     
     The logic app workflow updates the *api-status* property in the API registration in your API center.
-1. In your API center, view the API details to see the updated custom metadata value for the *api-status* property.
+1. In your API center, view the API details to see the updated value for the custom *api-status* property.
 
     :::image type="content" source="media/set-up-notification-workflow/view-api-custom-property.png" alt-text="Screenshot of updated API registration in the portal.":::
 
 ## View the logic app run history
 
+To get details about the logic app run and troubleshoot any issues:
+
 1. In the [Azure portal](https://portal.azure.com), navigate to your logic app.
 1. In the left menu, under **Developer Tools**, select **Run History**.
-1. Select the run to see the details of each step and to troubleshoot any errors.
+1. Select the run to see the details of each step.
 
 ## Related content
 
