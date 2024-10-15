@@ -23,138 +23,138 @@ Follow these guidelines to optimize your sensor performance and achieve accurate
 
 These are the following 4 deployment steps
 
-### Network architecture review
+1. Network architecture review
 
-Before the sensor can be applied to the network, it is crucial to review the network architecture. These steps include:
+    Before the sensor can be applied to the network, it is crucial to review the network architecture. These steps include:
 
-- Reviewing the network diagram.
+    - Reviewing the network diagram.
 
-- Estimating the total number of devices to be monitored.
+    - Estimating the total number of devices to be monitored.
 
-- Identifying VLANs that contain OT networks.
+    - Identifying VLANs that contain OT networks.
 
-- Determining the OT protocols expected to be monitored (Profinet, S7, Modbus etc..).
+    - Determining the OT protocols expected to be monitored (Profinet, S7, Modbus etc..).
 
-### Sensor location
+1. Sensor location
 
-The next step involves identifying the best location to install the sensor in the network. The sensor provides discovery and security value based on the traffic monitored and therefore it's important to identify the ideal place to locate the sensor. The location should give the sensor access to the following 3 important types of network traffic:
+    The next step involves identifying the best location to install the sensor in the network. The sensor provides discovery and security value based on the traffic monitored and therefore it's important to identify the ideal place to locate the sensor. The location should give the sensor access to the following 3 important types of network traffic:
 
-1. Layer 2 (L2) Traffic
+    1. Layer 2 (L2) Traffic
 
-    L2 traffic, which includes protocols such as ARP and DHCP, is a critical indicator of the sensor's placement. When a sensor is correctly positioned, it accurately captures the MAC addresses of devices. This vital information provides vendor indicators, which in turn enhances the sensor's ability to classify devices more effectively. Ensuring that the sensor can receive L2 traffic means that it is in a location where it can gather precise and valuable data about the network's devices.<!-- sentence seems repetative? -->
+        L2 traffic, which includes protocols such as ARP and DHCP, is a critical indicator of the sensor's placement. When a sensor is correctly positioned, it accurately captures the MAC addresses of devices. This vital information provides vendor indicators, which in turn enhances the sensor's ability to classify devices more effectively. Ensuring that the sensor can receive L2 traffic means that it is in a location where it can gather precise and valuable data about the network's devices.<!-- sentence seems repetative? -->
 
-1. OT Protocols
+    1. OT Protocols
 
-    OT protocols are essential for extracting detailed information about devices within the network. These protocols provide crucial data that leads to high classification coverage. By analyzing OT protocol traffic, the sensor can gather comprehensive details about each device, such as its model, firmware version, and other relevant characteristics. This level of detail is necessary for maintaining an accurate and up-to-date inventory of all devices, which is crucial for network management and security.
+        OT protocols are essential for extracting detailed information about devices within the network. These protocols provide crucial data that leads to high classification coverage. By analyzing OT protocol traffic, the sensor can gather comprehensive details about each device, such as its model, firmware version, and other relevant characteristics. This level of detail is necessary for maintaining an accurate and up-to-date inventory of all devices, which is crucial for network management and security.
 
-1. Inner Subnet Communication
+    1. Inner Subnet Communication
 
-    In OT networks, devices primarily communicate within the same subnet. This inner subnet communication contains most of the information needed to ensure the quality of the data collected by the sensors. Placing sensors where they can capture this type of communication is vital. It allows the sensors to monitor the interactions between devices, which often include critical data. By capturing these packets, the sensors can provide a detailed and accurate picture of the network.
+        In OT networks, devices primarily communicate within the same subnet. This inner subnet communication contains most of the information needed to ensure the quality of the data collected by the sensors. Placing sensors where they can capture this type of communication is vital. It allows the sensors to monitor the interactions between devices, which often include critical data. By capturing these packets, the sensors can provide a detailed and accurate picture of the network.
 
-**Validation of the sensor location**
+    **Validation of the sensor location**
 
-After deciding on a potential location for the sensor, users should validate the presence of L2 and OT protocols. It's recommended to use tools like Wireshark to verify these protocols at the potential sensor location. For example:
+    After deciding on a potential location for the sensor, users should validate the presence of L2 and OT protocols. It's recommended to use tools like Wireshark to verify these protocols at the potential sensor location. For example:
 
-:::image type="content" source="media/guide/deployment-guide-analyzer.png" alt-text="Screenshot of the wireshark program used to confirm and validate OT sensor set up and network protocols communicating with the newly deployed OT sensor":::
+    :::image type="content" source="media/guide/deployment-guide-analyzer.png" alt-text="Screenshot of the wireshark program used to confirm and validate OT sensor set up and network protocols communicating with the newly deployed OT sensor":::
 
-Wireshark displays the list of protocols identified by the sensor and the amount of data being monitored, thereby validating the location of your sensor. If protocols don't appear or don't detect any data, this indicates that the sensor is incorrectly placed or set up in the network. For example:
+    Wireshark displays the list of protocols identified by the sensor and the amount of data being monitored, thereby validating the location of your sensor. If protocols don't appear or don't detect any data, this indicates that the sensor is incorrectly placed or set up in the network. For example:
 
-:::image type="content" source="media/guide/deployment-guide-protocols.png" alt-text="Screenshot of the wireshark program protocol output used to confirm and validate OT sensor set up and network protocols communicating with the newly deployed OT sensor":::
+    :::image type="content" source="media/guide/deployment-guide-protocols.png" alt-text="Screenshot of the wireshark program protocol output used to confirm and validate OT sensor set up and network protocols communicating with the newly deployed OT sensor":::
 
-This step is crucial to ensure effective monitoring of OT networks.
+    This step is crucial to ensure effective monitoring of OT networks.
 
-### Traffic Mirroring Methods
+1. Traffic Mirroring Methods
 
-There are 3 types of traffic mirroring methods, that are designed for specific usage scenarios. Choose the best method based on your the usage and size of your network.
+    There are 3 types of traffic mirroring methods, that are designed for specific usage scenarios. Choose the best method based on your the usage and size of your network.
 
-1. Switched Port Analyzer (SPAN)
+    1. Switched Port Analyzer (SPAN)
 
-    SPAN is a local traffic mirroring technique used within a single switch or a switch stack. It allows network administrators to duplicate traffic from specified source ports or VLANs to a destination port where the monitoring device, such as a network sensor or analyzer, is connected. For example:
+        SPAN is a local traffic mirroring technique used within a single switch or a switch stack. It allows network administrators to duplicate traffic from specified source ports or VLANs to a destination port where the monitoring device, such as a network sensor or analyzer, is connected. For example:
 
-    **How It Works:**  Set up:
-    Source Ports/VLANs: Configure the switch to mirror traffic from selected ports or VLANs.
+        **How It Works:**  Set up:
+        Source Ports/VLANs: Configure the switch to mirror traffic from selected ports or VLANs.
 
-    Destination Port: The mirrored traffic is sent to a designated port on the same switch. This port is connected to your monitoring device.
+        Destination Port: The mirrored traffic is sent to a designated port on the same switch. This port is connected to your monitoring device.
 
-    :::image type="content" source="media/guide/deployment-guide-SPAN.png" alt-text="Diagram to explain the set up of the local SPAN traffic mirroring between the OT network and the sensor.":::
+        :::image type="content" source="media/guide/deployment-guide-SPAN.png" alt-text="Diagram to explain the set up of the local SPAN traffic mirroring between the OT network and the sensor.":::
 
-    |**Usage Scenario:** |Ideal for monitoring and analyzing traffic within a single switch or a small network segment.|
-    |---|---|
-    | Benefits | - Simplicity: Easy to configure and manage. <br> - Low Latency: Since it’s confined to a single switch, it introduces minimal delay.|
-    | Limitations | Local Scope: Limited to monitoring within the same switch, which might not be sufficient for larger networks.|
+        |**Usage Scenario:** |Ideal for monitoring and analyzing traffic within a single switch or a small network segment.|
+        |---|---|
+        | Benefits | - Simplicity: Easy to configure and manage. <br> - Low Latency: Since it’s confined to a single switch, it introduces minimal delay.|
+        | Limitations | Local Scope: Limited to monitoring within the same switch, which might not be sufficient for larger networks.|
 
-1. Remote SPAN (RSPAN)
+    1. Remote SPAN (RSPAN)
 
-    RSPAN extends the capabilities of SPAN by allowing traffic to be mirrored across multiple switches. It is designed for environments where monitoring needs to occur over different switches or switch stacks.
+        RSPAN extends the capabilities of SPAN by allowing traffic to be mirrored across multiple switches. It is designed for environments where monitoring needs to occur over different switches or switch stacks.
 
-    How It Works:
+        How It Works:
 
-    Source Ports/VLANs: Traffic is mirrored from specified source ports or VLANs on a source switch.
+        Source Ports/VLANs: Traffic is mirrored from specified source ports or VLANs on a source switch.
 
-    RSPAN VLAN: The mirrored traffic is sent to a special RSPAN VLAN that spans multiple switches.
+        RSPAN VLAN: The mirrored traffic is sent to a special RSPAN VLAN that spans multiple switches.
 
-    Destination Port: The traffic is then extracted from this RSPAN VLAN at a designated port on a remote switch where the monitoring device is connected.
+        Destination Port: The traffic is then extracted from this RSPAN VLAN at a designated port on a remote switch where the monitoring device is connected.
 
-    :::image type="content" source="media/guide/deployment-guide-RSPAN.png" alt-text="Diagram to explain the set up of the remote SPAN (RSPAN) traffic mirroring between the OT network and the sensor":::
+        :::image type="content" source="media/guide/deployment-guide-RSPAN.png" alt-text="Diagram to explain the set up of the remote SPAN (RSPAN) traffic mirroring between the OT network and the sensor":::
 
-    |Usage Scenario | Suitable for larger networks or scenarios where traffic needs to be monitored across different network segments.|
-    |---|---|
-    |Benefits: | - Extended Coverage: Allows for monitoring across multiple switches.<br> - Flexibility: Can be used to monitor traffic from different parts of the network. |
-    |Complexity | Network Load: Potentially increases the load on the network due to the RSPAN VLAN traffic.|
+        |Usage Scenario | Suitable for larger networks or scenarios where traffic needs to be monitored across different network segments.|
+        |---|---|
+        |Benefits: | - Extended Coverage: Allows for monitoring across multiple switches.<br> - Flexibility: Can be used to monitor traffic from different parts of the network. |
+        |Complexity | Network Load: Potentially increases the load on the network due to the RSPAN VLAN traffic.|
 
-1. Encapsulated Remote SPAN (ERSPAN)
+    1. Encapsulated Remote SPAN (ERSPAN)
 
-    ERSPAN takes RSPAN a step further by encapsulating mirrored traffic in Generic Routing Encapsulation (GRE) packets. This method enables traffic mirroring across different network segments or even across the internet.
+        ERSPAN takes RSPAN a step further by encapsulating mirrored traffic in Generic Routing Encapsulation (GRE) packets. This method enables traffic mirroring across different network segments or even across the internet.
 
-    :::image type="content" source="media/guide/deployment-guide-ERSPAN.png" alt-text="Diagram to explain the set up of the encapuslated remote SPAN (ERSPAN) traffic mirroring between the OT network and the sensor":::
+        :::image type="content" source="media/guide/deployment-guide-ERSPAN.png" alt-text="Diagram to explain the set up of the encapuslated remote SPAN (ERSPAN) traffic mirroring between the OT network and the sensor":::
 
-    How It Works:
+        How It Works:
 
-    Source Ports/VLANs: Similar to SPAN and RSPAN, traffic is mirrored from specified source ports or VLANs.
+        Source Ports/VLANs: Similar to SPAN and RSPAN, traffic is mirrored from specified source ports or VLANs.
 
-    Encapsulation: The mirrored traffic is encapsulated in GRE packets, which can then be routed across IP networks. <!-- where does the encaplusation occur?? -->
+        Encapsulation: The mirrored traffic is encapsulated in GRE packets, which can then be routed across IP networks. <!-- where does the encaplusation occur?? -->
 
-    Destination Port: The encapsulated traffic is sent to a monitoring device connected to a destination port where the GRE packets are decapsulated and analyzed.
+        Destination Port: The encapsulated traffic is sent to a monitoring device connected to a destination port where the GRE packets are decapsulated and analyzed.
 
-    |Usage Scenario | Ideal for monitoring traffic over diverse or geographically dispersed networks, including remote sites.|
-    |---|---|
-    | Benefits | - Broad Coverage: Enables monitoring across different IP networks and locations. <br> - Flexibility: Can be used in scenarios where traffic needs to be monitored over long distances or through complex network paths.|
+        |Usage Scenario | Ideal for monitoring traffic over diverse or geographically dispersed networks, including remote sites.|
+        |---|---|
+        | Benefits | - Broad Coverage: Enables monitoring across different IP networks and locations. <br> - Flexibility: Can be used in scenarios where traffic needs to be monitored over long distances or through complex network paths.|
 
-**Choosing the Right Method**
+    **Choosing the Right Method**
 
-When selecting a mirroring method, consider the following factors:
+    When selecting a mirroring method, consider the following factors:
 
-Network Size and Layout: SPAN is suitable for local monitoring, RSPAN for larger, multi-switch environments, and ERSPAN for geographically dispersed or complex networks.
+    Network Size and Layout: SPAN is suitable for local monitoring, RSPAN for larger, multi-switch environments, and ERSPAN for geographically dispersed or complex networks.
 
-Traffic Volume: Ensure that the chosen method can handle the volume of traffic without introducing significant latency or network load.
+    Traffic Volume: Ensure that the chosen method can handle the volume of traffic without introducing significant latency or network load.
 
-Monitoring Needs: Determine if you need to capture traffic locally or across different network segments and choose the method that best meets those needs.
+    Monitoring Needs: Determine if you need to capture traffic locally or across different network segments and choose the method that best meets those needs.
 
-By selecting the appropriate mirroring method, you can ensure that your network sensor captures the necessary Layer 2 (L2) traffic, providing high-quality data for accurate inventory and traffic analysis.
+    By selecting the appropriate mirroring method, you can ensure that your network sensor captures the necessary Layer 2 (L2) traffic, providing high-quality data for accurate inventory and traffic analysis.
 
-### Deploy the sensor
+1. Deploy the sensor
 
-After choosing the sensor location and the mirroring method the user can move forward and install the sensors.
+    After choosing the sensor location and the mirroring method the user can move forward and install the sensors.
 
-### Post depolyment validation
+1. Post depolyment validation
 
-It is essential to validate the monitoring interfaces and activate them. We recommend using the Deployment tool in the sensor system setting to monitor the current networks being sent to the sensor.  
+    It is essential to validate the monitoring interfaces and activate them. We recommend using the Deployment tool in the sensor system setting to monitor the current networks being sent to the sensor.  
 
-:::image type="content" source="media/guide/deployment-guide-post-deployment-system-settings.png" alt-text="Screenshot of the OT sensor systems settings screen, highlighting the Deployment box to be used to help validate the post OT sensor deployment.":::
+    :::image type="content" source="media/guide/deployment-guide-post-deployment-system-settings.png" alt-text="Screenshot of the OT sensor systems settings screen, highlighting the Deployment box to be used to help validate the post OT sensor deployment.":::
 
-Key steps include:
+    Key steps include:
 
-- Verifying that the number of devices in the inventory is reasonable.
+    - Verifying that the number of devices in the inventory is reasonable.
 
-- Ensuring type classification for devices listed in the inventory.
+    - Ensuring type classification for devices listed in the inventory.
 
-- Confirming the visibility of OT protocol names on the device’s inventory.
+    - Confirming the visibility of OT protocol names on the device’s inventory.
 
-- Assure L2 protocols are monitored by seeing MAC addresses in the inventory.
+    - Assure L2 protocols are monitored by seeing MAC addresses in the inventory.
 
-If information is lacking, review the SPAN configuration and recheck the deployment tool in the sensor which provides visibility of the subnets monitored and the status of the OT protocols, for example:
+    If information is lacking, review the SPAN configuration and recheck the deployment tool in the sensor which provides visibility of the subnets monitored and the status of the OT protocols, for example:
 
-:::image type="content" source="media/guide/deployment-guide-post-deployment-analyze.png" alt-text="Screenshot of the OT sensor Analyze feature screen used to help validate the post OT sensor deployment.":::
+    :::image type="content" source="media/guide/deployment-guide-post-deployment-analyze.png" alt-text="Screenshot of the OT sensor Analyze feature screen used to help validate the post OT sensor deployment.":::
 
 ### Network diagram examples
 
