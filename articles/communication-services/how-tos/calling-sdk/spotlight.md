@@ -2,31 +2,33 @@
 title: Spotlight states
 titleSuffix: An Azure Communication Services how-to guide
 description: Use Azure Communication Services SDKs to send spotlight state.
-author: cnwankwo
-ms.author: cnwankwo
+author: sloanster
+ms.author: micahvivion
 ms.service: azure-communication-services
 ms.subservice: teams-interop
 ms.topic: how-to 
-ms.date: 03/01/2023
+ms.date: 10/15/2024
 ms.custom: template-how-to
 zone_pivot_groups: acs-plat-web-ios-android-windows
 ---
 
 # Spotlight states
 
-This article describes how to implement Microsoft Teams spotlight capability with Azure Communication Services Calling SDKs. This capability enables users in the call or meeting to pin and unpin videos for everyone. The maximum limit of pinned videos is seven.
-
-Since the video stream resolution of a participant is increased when spotlighted, it should be noted that the settings done on [Video Constraints](../../concepts/voice-video-calling/video-constraints.md) also apply to spotlight.
+This article describes how to implement spotlight capability with Azure Communication Services Calling SDKs. This capability enables users in the call or meeting to signal to other participants that selected user should be "in the spotlight" - it's a feature that enables users to tag other users in the call and notify all the participants about it.
 
 ## Overview
 
-Spotlighting a video is like pinning it for everyone in the meeting. The organizer, co-organizer, or presenter can choose up to seven people's video feeds (including their own) to highlight for everyone else.
+Spotlight is a signaling feature rather than a media capability, application must decide how to handle spotligted participant, usually it means it will highligt spotligted user, put them in the center of UI layout, make their video renderer bigger, while keeping other participants and their video's smaller.
+The maximum limit of spotlited participants in a call is seven, meaning in a single call a total number of distinct users that are spotlighted is 7.
 
-The two different ways to spotlight are your own video and someone else's video (up to seven people).
+Spotlighting a participant is possible in both ACS calls and in Teams meetings. In Teams meetings The organizer, co-organizer, or presenter can choose up to seven user's (including themselfs) to highlight for everyone else.
+In Teams meeting scenario - remind participants that they can't spotlight a video if their view is set to Large gallery or Together mode.
 
-When a user spotlights or pins someone in the meeting, this increases the height or width of the participant grid depending on the orientation.
+To enable higher resolution of the video for spotligted user, an application must ensure that a video (renderer) of a spotligted user is bigger than the video (renderer's) of all other users.
+Only by doing that, application can inform ACS SDK to request and subscribe to higher resolution stream, ACS SDK will try to request resolution that is close to the size of the renderer itself, assuming hardware and network capabilities of local endpoint allow for it, if they are not optimal, ACS SDK will degrade resolution to best possible to enable smooth video playback.
 
-Remind participants that they can't spotlight a video if their view is set to Large gallery or Together mode.
+Video stream resolution of a participant can be also controlled via [Video Constraints](../../concepts/voice-video-calling/video-constraints.md), and it will override default behavior of ACS SDK that is mentioned above.
+
 
 ## Prerequisites
 
