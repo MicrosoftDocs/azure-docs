@@ -83,8 +83,8 @@ It covers which servers are ideal for cloud, servers that can be decommissioned 
 - These servers were on but don't have adequate metrics available:
     - Unknown: Many servers can land in this section if the discovery is still ongoing or has some unaddressed discovery issues.
     
-## On-premises vs Azure report 
-It covers cost components for on-premises and Azure, savings, and insights to understand the savings better.
+## Current on-premises vs future report 
+This report covers the breakdown of the total cost of ownership by cost categories and insights on savings.
 
 :::image type="content" source="./media/how-to-view-a-business-case/comparison-inline.png" alt-text="Screenshot of on-premises and Azure comparison." lightbox="./media/how-to-view-a-business-case/comparison-expanded.png":::
 
@@ -168,6 +168,21 @@ This section contains the cost estimate by recommended target (Annual cost inclu
 - Distribution by support status of OS licenses and OS versions. 
 
 ---
+
+## On-premises with Azure Arc report 
+This section contains the cost and savings estimate by Arc-enabling your on-premises estate: 
+
+- Arc cost estimate
+   - **Compute and license cost**: Estimated as a sum of total server hardware acquisition cost on-premises, software cost (Windows license ,SQL license , Virtualization software cost) and maintenance cost, SQL license cost is assumed to be using PAY-GO model via Arc enabled SQL Server. ESU licenses for Windows Server and SQL Server are also assumed to paid via Azure through ESUs enabled by Azure Arc
+   - **Security and Management Cost**: Security cost is estimated as sum of total protection cost for general servers and SQL workloads using MDC via Azure Arc and management cost is estimated as sum of total management cost  for general servers .
+   - **Storage, Network and facilities cost** : Storage cost is Cost per GB,  defaulted to $2 per GB per month and can be customized in the assumptions. Network and facilties cost is taken same as current on-premises costs.
+- Arc savings
+   - **Estimated ESU savings**: This report includes the savings by paying ESUs monthly instead of annual licensing and deploy them seamlessly to your on-premises servers.
+   - **IT Productivity Savings**: Azure Arc improves IT productivity by reducing the time they spend on routine activities. This report includes that as well as management savings.
+   - **Threat protection and Savings by using MDC**: The report also includes  the savings by using Microsoft Defender for Cloud to secure your on-premises server. You can mitigate threats 50% faster and improve your security posture with Microsoft Defender for cloud.
+
+:::image type="content" source="./media/how-to-view-a-business-case/azure-arc-inline.png" alt-text="Screenshot of on-premises and Azure comparison." lightbox="./media/how-to-view-a-business-case/azure-arc-expanded.png":::
+
 
 ## Next steps
 - [Learn more](concepts-business-case-calculation.md) about how business cases are calculated.
