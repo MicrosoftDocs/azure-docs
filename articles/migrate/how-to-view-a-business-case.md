@@ -31,7 +31,8 @@ There are four major reports that you need to review:
     - Savings from Security and Management capabilities.
     - Discovery insights covering the scope of the business case.
     - Support status of the operating system and database licenses.
-- **On-premises vs Azure**: This report covers the breakdown of the total cost of ownership by cost categories and insights on savings.
+- **Current on-premises vs Future**: This report covers the breakdown of the total cost of ownership by cost categories and insights on savings.
+- **On-premises with Azure Arc**: This report covers the breakdown of the total cost of ownership for your on-premises estate with and without Arc.
 - **Azure IaaS**: This report covers the Azure and on-premises footprint of the servers and workloads recommended for migrating to Azure IaaS.
 - **On-premises vs AVS (Azure VMware Solution)**: In case you build a business case to “Migrate to AVS”, you’ll see this report which covers the AVS and on-premises footprint of the workloads for migrating to AVS.
 - **Azure PaaS**: This report covers the Azure and on-premises footprint of the workloads recommended for migrating to Azure PaaS.
