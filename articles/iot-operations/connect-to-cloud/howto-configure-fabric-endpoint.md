@@ -64,37 +64,30 @@ To configure a dataflow endpoint for Microsoft Fabric OneLake, we suggest using 
 
 # [Bicep](#tab/bicep)
    
-1. A single Bicep template file from the *explore-iot-operations* repository deploys all the required dataflows and dataflow endpoints resources [Bicep File to create Dataflow](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/dataflow.bicep). Download the template file and customize it according to your environment.
-
-1. Set environment variables for the resources you create in this section.
-
-   ```azurecli
-   export CUSTOM_LOCATION_NAME=<CUSTOM_LOCATION_NAME>
-   export SCHEMA_REGISTRY_NAME=<SCHEMA_REGISTRY_NAME>
-   export AIO_INSTANCE_NAME=<AIO_INSTANCE_NAME>
-   export OPCUA_SCHEMA_NAME=<OPCUA_SCHEMA_NAME>
-   ```
+1. This single Bicep template file from the *explore-iot-operations* repository deploys a sample dataflow and dataflow endpoint resources [Bicep File to create Dataflow](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/fabric-onelake-df.bicep) for Microsoft Fabric OneLake. Download the template file and customize it according to your environment.
 
 1. Deploy the resources using the [az stack group](/azure/azure-resource-manager/bicep/deployment-stacks?tabs=azure-powershell) command in your terminal:
 
     ```console
     az stack group create --name MyDeploymentStack \
-    --resource-group $RESOURCE_GROUP --template-file /workspaces/explore-iot-operations/<filename>.bicep \
-    --parameters customLocationName=$CUSTOM_LOCATION_NAME \
-    --parameters schemaRegistryName=$SCHEMA_REGISTRY_NAME \
-    --parameters aioInstanceName=$AIO_INSTANCE_NAME \
-    --parameters opcuaSchemaName=$OPCUA_SCHEMA_NAME \
+    --resource-group <RESOURCE_GROUP> --template-file <filename>.bicep \
     --action-on-unmanage 'deleteResources' --deny-settings-mode 'none' --yes
     ```
 
 This endpoint is the destination for the dataflow that receives messages to Fabric OneLake.
 
 ```bicep
+param aioInstanceName string = '<AIO_INSTANCE_NAME>'
+param customLocationName string = '<CUSTOM_LOCATION_NAME>'
+param endpointName string = '<ENDPOINT_NAME>'
+param lakehouseName string = '<EXAMPLE-LAKEHOUSE-NAME>'
+param workspaceName string = '<EXAMPLE-WORKSPACE-NAME>'
+
 resource oneLakeEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
   parent: aioInstance
-  name: '<ENDPOINT NAME>'
+  name: endpointName
   extendedLocation: {
-    name: '<CUSTOM_LOCATION_NAME>'
+    name: customLocationName
     type: 'CustomLocation'
   }
   properties: {
@@ -107,8 +100,8 @@ resource oneLakeEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@20
       oneLakePathType: 'Tables'
       host: 'https://onelake.dfs.fabric.microsoft.com'
       names: {
-        lakehouseName: '<EXAMPLE-LAKEHOUSE-NAME>'
-        workspaceName: '<EXAMPLE-WORKSPACE-NAME>'
+        lakehouseName: lakehouseName
+        workspaceName: workspaceName
       }
       ...
     }

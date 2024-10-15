@@ -69,49 +69,20 @@ spec:
         audience: aio-internal
 ```
 
-This configuration creates a connection to the default MQTT broker with the following settings:
-
-- Host: `aio-broker:18883` through the [default MQTT broker listener](../manage-mqtt-broker/howto-configure-brokerlistener.md#default-brokerlistener)
-- Authentication: service account token (SAT) through the [default BrokerAuthentication resource](../manage-mqtt-broker/howto-configure-authentication.md#default-brokerauthentication-resource)
-- TLS: Enabled
-- Trusted CA certificate: The default CA certificate `aio-ca-key-pair-test-only` from the [Default root CA](../manage-mqtt-broker/howto-configure-tls-auto.md#default-root-ca-and-issuer)
-
-> [!IMPORTANT]
-> If any of these default MQTT broker settings change, the dataflow endpoint must be updated to reflect the new settings. For example, if the default MQTT broker listener changes to use a different service name `my-mqtt-broker` and port 8885, you must update the endpoint to use the new host `host: my-mqtt-broker:8885`. Same applies to other settings like authentication and TLS.
-
 # [Bicep](#tab/bicep)
 
-1. A single Bicep template file from the *explore-iot-operations* repository deploys all the required dataflows and dataflow endpoints resources [Bicep File to create Dataflow](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/dataflow.bicep). Download the template file and customize it according to your environment.
-
-1. Set environment variables for the resources you create in this section.
-
-   ```azurecli
-   export CUSTOM_LOCATION_NAME=<CUSTOM_LOCATION_NAME>
-   export SCHEMA_REGISTRY_NAME=<SCHEMA_REGISTRY_NAME>
-   export AIO_INSTANCE_NAME=<AIO_INSTANCE_NAME>
-   export OPCUA_SCHEMA_NAME=<OPCUA_SCHEMA_NAME>
-   ```
-
-1. Deploy the resources using the [az stack group](/azure/azure-resource-manager/bicep/deployment-stacks?tabs=azure-powershell) command in your terminal:
-
-    ```console
-    az stack group create --name MyDeploymentStack \
-    --resource-group $RESOURCE_GROUP --template-file /workspaces/explore-iot-operations/<filename>.bicep \
-    --parameters customLocationName=$CUSTOM_LOCATION_NAME \
-    --parameters schemaRegistryName=$SCHEMA_REGISTRY_NAME \
-    --parameters aioInstanceName=$AIO_INSTANCE_NAME \
-    --parameters opcuaSchemaName=$OPCUA_SCHEMA_NAME \
-    --action-on-unmanage 'deleteResources' --deny-settings-mode 'none' --yes
-    ```
-
-This endpoint is the source for the dataflow that sends messages to Azure Event Grid.
-
 ```bicep
+param aioInstanceName string = '<AIO_INSTANCE_NAME>'
+param customLocationName string = '<CUSTOM_LOCATION_NAME>'
+param endpointName string = '<ENDPOINT_NAME>'
+param aioBrokerHostName string = 'aio-broker:18883'
+param trustedCA string = 'azure-iot-operations-aio-ca-trust-bundle'
+
 resource MqttBrokerDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
-  parent: aioInstance
-  name: '<ENDPOINT NAME>'
+  parent: aioInstanceName
+  name: endpointName
   extendedLocation: {
-    name: '<CUSTOM_LOCATION_NAME>'
+    name: customLocationName
     type: 'CustomLocation'
   }
   properties: {
@@ -123,20 +94,25 @@ resource MqttBrokerDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowE
           audience: 'aio-internal'
         }
       }
-      host: 'aio-broker:18883'
+      host: aioBrokerHostName
       tls: {
         mode: 'Enabled'
-        trustedCaCertificateConfigMapRef: 'azure-iot-operations-aio-ca-trust-bundle'
+        trustedCaCertificateConfigMapRef: trustedCA
       }
     }
   }
 }
 ```
 
+This configuration creates a connection to the default MQTT broker with the following settings:
+
 - Host: `aio-broker:18883` through the [default MQTT broker listener](../manage-mqtt-broker/howto-configure-brokerlistener.md#default-brokerlistener)
 - Authentication: service account token (SAT) through the [default BrokerAuthentication resource](../manage-mqtt-broker/howto-configure-authentication.md#default-brokerauthentication-resource)
 - TLS: Enabled
-- Trusted CA certificate: The default CA certificate `azure-iot-operations-aio-ca-trust-bundle` from the [Default root CA](../manage-mqtt-broker/howto-configure-tls-auto.md#default-root-ca-and-issuer)
+- Trusted CA certificate: The default CA certificate `aio-ca-key-pair-test-only` from the [Default root CA](../manage-mqtt-broker/howto-configure-tls-auto.md#default-root-ca-and-issuer)
+
+> [!IMPORTANT]
+> If any of these default MQTT broker settings change, the dataflow endpoint must be updated to reflect the new settings. For example, if the default MQTT broker listener changes to use a different service name `my-mqtt-broker` and port 8885, you must update the endpoint to use the new host `host: my-mqtt-broker:8885`. Same applies to other settings like authentication and TLS.
 
 ---
 
@@ -208,14 +184,29 @@ spec:
 
 1. Assign the managed identity to the Event Grid namespace or topic space with an appropriate role like `EventGrid TopicSpaces Publisher` or `EventGrid TopicSpaces Subscriber`.
 
-1. This endpoint is the destination for the dataflow that receives messages from the default MQTT broker.
+1. This single Bicep template file from the *explore-iot-operations* repository deploys a sample dataflow and dataflow endpoint resources [Bicep File to create Dataflow](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/mqtt-bridge.bicep) to Azure Event Grid. Download the template file and customize it according to your environment.
+
+1. Deploy the resources using the [az stack group](/azure/azure-resource-manager/bicep/deployment-stacks?tabs=azure-powershell) command in your terminal:
+
+    ```console
+    az stack group create --name MyDeploymentStack \
+    --resource-group <RESOURCE_GROUP> --template-file <filename>.bicep \
+    --action-on-unmanage 'deleteResources' --deny-settings-mode 'none' --yes
+    ```
+
+This endpoint is the source for the dataflow that sends messages to Azure Event Grid.
 
 ```bicep
+param aioInstanceName string = '<AIO_INSTANCE_NAME>'
+param customLocationName string = '<CUSTOM_LOCATION_NAME>'
+param endpointName string = '<ENDPOINT_NAME>'
+param eventGridHostName string = '<EVENTGRID_HOSTNAME>'
+
 resource remoteMqttBrokerDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
   parent: aioInstance
-  name: '<ENDPOINT NAME>'
+  name: endpointName
   extendedLocation: {
-    name: '<CUSTOM_LOCATION_NAME>'
+    name: customLocationName
     type: 'CustomLocation'
   }
   properties: {
@@ -233,6 +224,8 @@ resource remoteMqttBrokerDataflowEndpoint 'Microsoft.IoTOperations/instances/dat
   }
 }
 ```
+
+This endpoint is the destination for the dataflow that receives messages from the default MQTT broker.
 
 ---
 

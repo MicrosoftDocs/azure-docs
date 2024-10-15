@@ -54,43 +54,37 @@ To configure a dataflow endpoint for Azure Data Lake Storage Gen2, we suggest us
 
 # [Bicep](#tab/bicep)
 
-1. A single Bicep template file from the *explore-iot-operations* repository deploys all the required dataflows and dataflow endpoints resources [Bicep File to create Dataflow](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/dataflow.bicep). Download the template file and customize it according to your environment.
+1. This single Bicep template file from the *explore-iot-operations* repository deploys a sample dataflow and dataflow endpoint resources [Bicep File to create Dataflow](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/adls-df.bicep) for Azure Data Lake Storage Gen2. Download the template file and customize it according to your environment.
 
-1. Set environment variables for the resources you create in this section.
-
-   ```azurecli
-   export CUSTOM_LOCATION_NAME=<CUSTOM_LOCATION_NAME>
-   export SCHEMA_REGISTRY_NAME=<SCHEMA_REGISTRY_NAME>
-   export AIO_INSTANCE_NAME=<AIO_INSTANCE_NAME>
-   export OPCUA_SCHEMA_NAME=<OPCUA_SCHEMA_NAME>
-   ```
 
 1. Deploy the resources using the [az stack group](/azure/azure-resource-manager/bicep/deployment-stacks?tabs=azure-powershell) command in your terminal:
 
     ```console
     az stack group create --name MyDeploymentStack \
-    --resource-group $RESOURCE_GROUP --template-file /workspaces/explore-iot-operations/<filename>.bicep \
-    --parameters customLocationName=$CUSTOM_LOCATION_NAME \
-    --parameters schemaRegistryName=$SCHEMA_REGISTRY_NAME \
-    --parameters aioInstanceName=$AIO_INSTANCE_NAME \
-    --parameters opcuaSchemaName=$OPCUA_SCHEMA_NAME \
+    --resource-group <RESOURCE_GROUP> --template-file <filename>.bicep \
     --action-on-unmanage 'deleteResources' --deny-settings-mode 'none' --yes
     ```
 
 This endpoint is the destination for the dataflow that receives messages to Azure Data Lake Storage Gen2.
 
 ```bicep
+
+param aioInstanceName string = '<AIO_INSTANCE_NAME>'
+param customLocationName string = '<CUSTOM_LOCATION_NAME>'
+param endpointName string = '<ENDPOINT_NAME>'
+param host string = 'https://<ACCOUNT>.blob.core.windows.net'
+
 resource adlsGen2Endpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
   parent: aioInstance
-  name: '<ENDPOINT NAME>'
+  name: endpointName
   extendedLocation: {
-    name: '<CUSTOM LOCATION ID>'
+    name: customLocationName
     type: 'CustomLocation'
   }
   properties: {
     endpointType: 'DataLakeStorage'
     dataLakeStorageSettings: {
-      host: 'https://<account>.blob.core.windows.net'
+      host: host
       authentication: {
         method: 'SystemAssignedManagedIdentity'
         systemAssignedManagedIdentitySettings: {}
