@@ -1,6 +1,6 @@
 ---
 title: Microsoft Sentinel solution for SAP applications deployment troubleshooting
-description: Learn how to troubleshoot specific issues that may occur in your Microsoft Sentinel solution for SAP applications deployment.
+description: Learn how to troubleshoot specific issues that might occur in your Microsoft Sentinel solution for SAP applications deployment.
 author: batamig
 ms.author: bagol
 ms.topic: troubleshooting
@@ -18,11 +18,11 @@ ms.collection: usx-security
 
 This article includes troubleshooting steps to help you ensure accurate and timely data ingestion and monitoring for your SAP environment with Microsoft Sentinel.
 
-In this article, we refer to the [**systemconfig.json**](reference-systemconfig-json.md) file, which is used for agent versions released on or after June 22, 2023. If you're using the an earlier version of the agent, refer to the [**systemconfig.ini**](reference-systemconfig.md) file instead.
+In this article, we refer to the [**systemconfig.json**](reference-systemconfig-json.md) file, which is used for agent versions released on or after June 22, 2023. If you're using an earlier version of the agent, refer to the [**systemconfig.ini**](reference-systemconfig.md) file instead.
 
 ## Useful Docker commands
 
-When troubleshooting your Microsoft Sentinel for SAP data connector, you may find the following commands useful:
+When troubleshooting your Microsoft Sentinel for SAP data connector, you might find the following commands useful:
 
 | Function  | Command  |
 | --------- | -------- |
@@ -46,7 +46,7 @@ docker logs -f sapcon-[SID]
 
 ## Enable/disable debug mode printing
 
-1. On your VM, edit the [**/opt/sapcon/[SID]/systemconfig.json**](reference-systemconfig-json.md) file.
+1. On your data collector agent container virtual machine, edit the [**/opt/sapcon/[SID]/systemconfig.json**](reference-systemconfig-json.md) file.
 
 1. Define the **General** section if it wasn't previously defined. In this section, define `logging_debug = True` to enable debug mode printing, or `logging_debug = False` to disable it.
 
@@ -63,11 +63,11 @@ The change takes effect approximately two minutes after you save the file. You d
 
 ## View all container execution logs
 
-Connector execution logs for your Microsoft Sentinel solution for SAP applications data connector deployment are stored on your VM in **/opt/sapcon/[SID]/log/**. Log filename is **OmniLog.log**. A history of logfiles is kept, suffixed with *.[number]* such as **OmniLog.log.1**, **OmniLog.log.2** etc
+Connector execution logs for your Microsoft Sentinel solution for SAP applications data connector deployment are stored on your VM in **/opt/sapcon/[SID]/log/**. Log filename is **OmniLog.log**. A history of logfiles is kept, suffixed with *.[number]* such as **OmniLog.log.1**, **OmniLog.log.2**, and so on.
 
 ## Review and update the Microsoft Sentinel for SAP agent connector configuration file
 
-If you've [deployed your agent via the portal](deploy-data-connector-agent-container.md#deploy-the-data-connector-agent-from-the-portal-preview), you can continue to maintain and change configuration settings via the portal.
+If you [deployed your agent via the portal](deploy-data-connector-agent-container.md#deploy-the-data-connector-agent-from-the-portal-preview), you can continue to maintain and change configuration settings via the portal.
 
 If you deployed via the command line, or want to make manual updates directly to the configuration file, perform the following steps:
 
@@ -107,11 +107,11 @@ Make sure to [Review system logs](#review-system-logs) when you're done.
 
 ## Common issues
 
-After having deployed both the Microsoft Sentinel for SAP data connector and security content, you may experience the following errors or issues:
+After having deployed both the Microsoft Sentinel for SAP data connector and security content, you might experience the following errors or issues:
 
 ### Corrupt or missing SAP SDK file
 
-This error may occur when the connector fails to boot with PyRfc, or zip-related error messages are shown.
+This error might occur when the connector fails to boot with PyRfc, or zip-related error messages are shown.
 
 1. Reinstall the SAP SDK.
 1. Verify that you're the correct Linux 64-bit version, such as **nwrfc750P_8-70002752.zip**.
@@ -154,7 +154,7 @@ The change takes effect approximately two minutes after you save the file. You d
 
 ### Incorrect workspace ID or key in key vault
 
-If you realize that you've entered an incorrect workspace ID or key in your deployment script, update the credentials stored in Azure key vault.
+If you realize that you entered an incorrect workspace ID or key in your deployment script, update the credentials stored in Azure key vault.
 
 After verifying your credentials in Azure KeyVault, restart the container:
 
@@ -216,9 +216,9 @@ If no data is showing in the `ABAPTableDataLog_CL` table, verify that the SAP sy
 
 ### No records / late records
 
-The agent relies on time zone information to be correct. If you see that there are no records in the SAP audit and change logs, or if records are constantly a few hours behind, check if SAP report TZCUSTHELP presents any errors. For more information, see [SAP note 481835](<https://me.sap.com/notes/481835/E>).
-Additionally, there can be issues with the clock on the VM where the Microsoft Sentinel solution for SAP applications agent is hosted. Any deviation of the VM's clock from UTC will impact data collection. More importantly, the SAP VM's clock and the Sentinel agent's VM's clock should match.
+The data collector agent relies on time zone information to be correct. If you see that there are no records in the SAP audit and change logs, or if records are constantly a few hours behind, check whether the SAP *TZCUSTHELP* report presents any errors. For more information, see [SAP note 481835](<https://me.sap.com/notes/481835/E>).
 
+There might also be issues with the clock on the virtual machine where the data collector agent container is hosted, and any deviation from the clock on the VM from UTC impacts data collection. Even more importantly, the clocks on both the SAP system machines and the data collector agent machines must match.
 
 ### Network connectivity issues
 
@@ -226,7 +226,7 @@ If you're having network connectivity issues to the SAP environment or to Micros
 
 Common issues include:
 
-- Firewalls between the docker container and the SAP hosts may be blocking traffic. The SAP host receives communication via the following TCP ports, which must be open: **32xx**, **5xx13**, and **33xx**, where **xx** is the SAP instance number.
+- Firewalls between the docker container and the SAP hosts might be blocking traffic. The SAP host receives communication via the following TCP ports, which must be open: **32xx**, **5xx13**, and **33xx**, where **xx** is the SAP instance number.
 
 - Outbound communication from your SAP agent host to Microsoft Container Registry or Azure requires proxy configuration. This typically impacts the installation and requires you to configure the `HTTP_PROXY` and `HTTPS_PROXY` environmental variables. You can also ingest environment variables into the docker container when you create the container, by adding the `-e` flag to the docker `create` / `run` command.
 
@@ -238,7 +238,7 @@ If you attempt to retrieve an audit log without the [required configurations](pr
 - Using a version not recently patched
 - Without any changes made for connecting to the Microsoft Sentinel data connector agent. For more information, see [Configure your SAP system for the Microsoft Sentinel solution](preparing-sap.md).
 
-While your system should automatically switch to compatibility mode if needed, you may need to switch it manually. To switch to compatibility mode manually:
+While your system should automatically switch to compatibility mode if needed, you might need to switch it manually. To switch to compatibility mode manually:
 
 1. Edit the [**/opt/sapcon/[SID]/systemconfig.json**](reference-systemconfig-json.md) file.
 
@@ -271,7 +271,7 @@ For example, use `javatz = GMT+12` or `abaptz = GMT-3**`.
 
 ### Audit log data not ingested past initial load
 
-If the SAP audit log data, visible in either the **RSAU_READ_LOAD** or **SM200** transactions, isn't ingested into Microsoft Sentinel past the initial load, you may have a misconfiguration of the SAP system and the SAP host operating system.
+If the SAP audit log data, visible in either the **RSAU_READ_LOAD** or **SM200** transactions, isn't ingested into Microsoft Sentinel past the initial load, you might have a misconfiguration of the SAP system and the SAP host operating system.
 
 - Initial loads are ingested after a fresh installation of the Microsoft Sentinel for SAP data connector, or after the **metadata.db** file is deleted.
 - A sample misconfiguration might be when your SAP system timezone is set to **CET** in the **STZAC** transaction, but the SAP host operating system time zone is set to **UTC**.
@@ -290,7 +290,7 @@ To check for misconfigurations, run the **RSDBTIME** report in transaction **SE3
     rm /opt/sapcon/[SID]/metadata.db
     ```
 
-1. Update the SAP system and the SAP host operating system to have matching settings, such as the same time zone. For more information, see the [SAP Community Wiki](https://wiki.scn.sap.com/wiki/display/Basis/Time+zone+settings%2C+SAP+vs.+OS+level).
+1. Update the SAP system and the SAP host operating system so that they have matching settings, such as the same time zone. For more information, see the [SAP Community Wiki](https://wiki.scn.sap.com/wiki/display/Basis/Time+zone+settings%2C+SAP+vs.+OS+level).
 
 1. Start the container again. Run:
 

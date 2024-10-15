@@ -17,7 +17,7 @@ ms.collection: usx-security
 
 This article shows you how to update an already existing Microsoft Sentinel for SAP data connector to its latest version so that you can use the latest features and improvements.
 
-During the data connector agent update process, there might be a brief downtime of approximately 10 seconds. To ensure data integrity, a database entry stores the timestamp of the last fetched log. After the update is complete, the data fetching process resumes from the last log fetched, preventing duplicates and ensuring a seameless data flow.
+During the data connector agent update process, there might be a brief downtime of approximately 10 seconds. To ensure data integrity, a database entry stores the timestamp of the last fetched log. After the update is complete, the data fetching process resumes from the last log fetched, preventing duplicates and ensuring a seamless data flow.
 
 The automatic or manual updates described in this article are relevant to the SAP connector agent only, and not to the Microsoft Sentinel solution for SAP applications. To successfully update the solution, your agent needs to be up to date. The solution is updated separately, as you would any other [Microsoft Sentinel solution](../sentinel-solutions-deploy.md#install-or-update-content).
 
@@ -35,7 +35,7 @@ Before you start:
 
 Configure automatic updates for the connector agent, either for [all existing containers](#configure-automatic-updates-for-all-existing-containers) or a [specific container](#configure-automatic-updates-on-a-specific-container).
 
-The commands described in this section create a cron job that runs daily, checks for updates, and updates the agent to the lastest GA version. Containers running a preview version of the agent that's newer than the latest GA version aren't updated. Log files for automatic updates are located on the collector machine, at */var/log/sapcon-sentinel-register-autoupdate.log*.
+The commands described in this section create a cron job that runs daily, checks for updates, and updates the agent to the latest GA version. Containers running a preview version of the agent that's newer than the latest GA version aren't updated. Log files for automatic updates are located on the collector machine, at */var/log/sapcon-sentinel-register-autoupdate.log*.
 
 After you configure automatic updates for an agent once, it's always configured for automatic updates.
 
@@ -50,11 +50,11 @@ To turn on automatic updates for all existing containers with a connected SAP ag
 wget -O sapcon-sentinel-auto-update.sh https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-sentinel-auto-update.sh && bash ./sapcon-sentinel-auto-update.sh 
 ```
 
-When working with multiple containers, the cron job updates the agent on all containers that existed at the time when you ran the original command. If you add containers after you create the initial cron job, the new containers aren't updated automatically. To update these containers, [run an extra command to add them](#configure-automatic-updates-on-a-specific-container).
+If you're working with multiple containers, the cron job updates the agent on all containers that existed at the time when you ran the original command. If you add containers after you create the initial cron job, the new containers aren't updated automatically. To update these containers, [run an extra command to add them](#configure-automatic-updates-on-a-specific-container).
 
 ### Configure automatic updates on a specific container
 
-To configure automatic updates for a specific container or containers, such as if you've added containers after running the [original automation command](#configure-automatic-updates-for-all-existing-containers), run the following command on the collector machine:
+To configure automatic updates for a specific container or containers, such as if you added containers after running the [original automation command](#configure-automatic-updates-for-all-existing-containers), run the following command on the collector machine:
 
 ```bash
 wget -O sapcon-sentinel-auto-update.sh https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-sentinel-auto-update.sh && bash ./sapcon-sentinel-auto-update.sh --containername <containername> [--containername <containername>]...

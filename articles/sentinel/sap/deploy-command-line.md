@@ -12,9 +12,9 @@ ms.collection: usx-security
 
 ---
 
-# Deploy a SAP data connector agent from the command line
+# Deploy an SAP data connector agent from the command line
 
-This article provides command line options for deploying a SAP data connector agent. For typical deployments we recommend that you use the [portal](deploy-data-connector-agent-container.md#deploy-the-data-connector-agent-from-the-portal-preview) instead of the command line, as data connector agents installed via the command line can be managed only via the command line.
+This article provides command line options for deploying an SAP data connector agent. For typical deployments we recommend that you use the [portal](deploy-data-connector-agent-container.md#deploy-the-data-connector-agent-from-the-portal-preview) instead of the command line, as data connector agents installed via the command line can be managed only via the command line.
 
 However, if you're using a configuration file to store your credentials instead of Azure Key Vault, or if you're an advanced user who wants to deploy the data connector manually, such as in a Kubernetes cluster, use the procedures in this article instead.
 
@@ -101,7 +101,7 @@ This procedure describes how to create a new agent and connect it to your SAP sy
     The process has been successfully completed, thank you!
     ```
 
-   Note the Docker container name in the script output. To see the list of docker containers on your VM, run:
+   Make a note of the Docker container name in the script output. To see the list of docker containers on your VM, run:
 
     ```bash
     docker ps -a
@@ -151,7 +151,7 @@ The deployment procedure generates a **systemconfig.json** file that contains th
 
 ## Deploy the data connector using a configuration file
 
-Azure Key Vault is the recommended method to store your authentication credentials and configuration data. If you are prevented from using Azure Key Vault, this procedure describes how you can deploy the data connector agent container using a configuration file instead.
+Azure Key Vault is the recommended method to store your authentication credentials and configuration data. If you're prevented from using Azure Key Vault, this procedure describes how you can deploy the data connector agent container using a configuration file instead.
 
 - If you're using SNC, make sure that you've completed [Prepare the kickstart script for secure communication with SNC](#prepare-the-kickstart-script-for-secure-communication-with-snc) first.
 
@@ -176,7 +176,7 @@ Azure Key Vault is the recommended method to store your authentication credentia
     ./sapcon-sentinel-kickstart.sh --keymode cfgf
     ```
 
-    The script updates the OS components, installs the Azure CLI and Docker software and other required utilities (jq, netcat, curl), and prompts you for configuration parameter values. Supply additional parameters to the script as needed to minimize the number of prompts or to customize the container deployment. For more information, see the [Kickstart script reference](reference-kickstart.md).
+    The script updates the OS components, installs the Azure CLI and Docker software and other required utilities (jq, netcat, curl), and prompts you for configuration parameter values. Supply extra parameters to the script as needed to minimize the number of prompts or to customize the container deployment. For more information, see the [Kickstart script reference](reference-kickstart.md).
 
 1. **Follow the on-screen instructions** to enter the requested details and complete the deployment. When the deployment is complete, a confirmation message is displayed:
 
@@ -184,7 +184,7 @@ Azure Key Vault is the recommended method to store your authentication credentia
     The process has been successfully completed, thank you!
     ```
 
-   Note the Docker container name in the script output. To see the list of docker containers on your VM, run:
+   Make a note of the Docker container name in the script output. To see the list of docker containers on your VM, run:
 
     ```bash
     docker ps -a
@@ -198,7 +198,7 @@ Azure Key Vault is the recommended method to store your authentication credentia
 
     Assign the **Microsoft Sentinel Business Applications Agent Operator** and **Reader** roles to the VM's identity:
 
-    1. <a name=agent-id-file></a>Get the agent ID by running the following command, replacing the `<container_name>` placeholder with the name of the docker container that you'd created with the Kickstart script:
+    1. <a name=agent-id-file></a>Get the agent ID by running the following command, replacing the `<container_name>` placeholder with the name of the docker container that you created with the Kickstart script:
 
         ```bash
         docker inspect <container_name> | grep -oP '"SENTINEL_AGENT_GUID=\K[^"]+'

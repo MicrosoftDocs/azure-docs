@@ -72,7 +72,7 @@ While the Microsoft Sentinel for SAP solutions are free to install, there's an e
 - The extra hourly charge applies to connected, active  production systems only. Inactive systems aren't subject to charges. If a system's status is unknown to Microsoft Sentinel, such as because of permission issues, it's counted as a production system.
 - Microsoft Sentinel identifies a production system by looking at the configuration on the SAP system. 
 
-Microsoft Sentinel ingestion costs may vary and are influenced by the volume of SAP logs ingested. For more information, see:
+Microsoft Sentinel ingestion costs might vary and are influenced by the volume of SAP logs ingested. For more information, see:
 
 - [Plan costs and understand Microsoft Sentinel pricing and billing](../billing.md)
 - [Reduce costs for Microsoft Sentinel](../billing-reduce-costs.md)

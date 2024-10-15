@@ -18,7 +18,7 @@ ms.collection: usx-security
 
 This article describes the logs and tables available as part of the Microsoft Sentinel solution for SAP applications and its data connector.
 
-Some logs, noted in this article, are not sent to Microsoft Sentinel by default, but you can manually add them as needed. For more information, see [Define the SAP logs that are sent to Microsoft Sentinel](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel)
+Some logs, noted in this article, aren't sent to Microsoft Sentinel by default, but you can manually add them as needed. For more information, see [Define the SAP logs that are sent to Microsoft Sentinel](sap-solution-deploy-alternate.md#define-the-sap-logs-that-are-sent-to-microsoft-sentinel)
 
 Content in this article is intended for your **SAP BASIS** teams.
 
@@ -36,7 +36,7 @@ For more information, see [Microsoft Sentinel solution for SAP applications - fu
 
 ## Log coverage
 
-The Microsoft Sentinel solution for SAP applications collects logs from the application, OS, and data layers, providing comprehsive protection for your SAP system:
+The Microsoft Sentinel solution for SAP applications collects logs from the application, OS, and data layers, providing comprehensive protection for your SAP system:
 
 - **Application layer**: Microsoft Sentinel monitors activities within the ABAP layer, which is the primary application layer in SAP systems, responsible for executing business logic and processing transactions. For example, Microsoft Sentinel collects logs that include user actions like sign-ins, password changes, and access to reports or files.
 
@@ -50,11 +50,11 @@ The Microsoft Sentinel solution for SAP applications collects logs from the appl
 
 All logs collected by the data connector agent are stored first on the data collector agent machine, at `/opt/sapcon/<sid>/log` folder in the container instance. The logs are then forwarded to your Log Analytics workspace, where you can view, audit, and query them from Microsoft Sentinel.
 
-Audit logs are collected and ingested every minute, while other logs may be ingested less frequently. Microsoft Sentinel also monitors the data connector agent heartbeat to ensure that logs are being collected and sent to the Log Analytics workspace.
+Audit logs are collected and ingested every minute, while other logs might be ingested less frequently. Microsoft Sentinel also monitors the data connector agent heartbeat to ensure that logs are being collected and sent to the Log Analytics workspace.
 
 ## Log reference
 
-The following sections describes the SAP logs available from the Microsoft Sentinel solution for SAP applications data connector, including the table names in Microsoft Sentinel, the log purposes, and detailed log schemas.
+The following sections describe the SAP logs available from the Microsoft Sentinel solution for SAP applications data connector, including the table names in Microsoft Sentinel, the log purposes, and detailed log schemas.
 
 Schema field descriptions are based on the field descriptions in the relevant [SAP documentation](https://help.sap.com/).
 
@@ -585,7 +585,7 @@ Collecting the HANA DB Audit Trail log is an example of how Microsoft Sentinel c
 
 - **Log purpose**: Records user actions, or attempted actions in the SAP HANA database. For example, enables you to log and monitor read access to sensitive data.
 
-    Available by the Sentinel Linux Agent for Syslog. This log is generated with data across all clients.
+    Available by the Microsoft Sentinel Linux Agent for Syslog. This log is generated with data across all clients.
 
 #### Syslog log schema
 

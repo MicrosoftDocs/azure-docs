@@ -51,7 +51,7 @@ For the Microsoft Sentinel solution for SAP applications to successfully monitor
 | --------- | --------- |
 | icm/accept_remote_trace_level | Medium <br><br>Allowing remote trace level changes can provide valuable diagnostic information to attackers and potentially compromise system security. |
 
-### Login parameters
+### Sign-in parameters
 
 | Parameter | Security value/considerations |
 | --------- | --------- |

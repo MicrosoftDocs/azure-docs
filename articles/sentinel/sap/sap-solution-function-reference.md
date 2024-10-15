@@ -139,7 +139,7 @@ The **SAPUsersEmail** function allows for a performance oriented lookup of an SA
 
 The **SAPUsersEmail** function uses data extracted from SAP tables USR21 (User Name/Address Key Assignment) and ADR6 (E-Mail Addresses) to look for an email address. In case no email address is found, the user ID is returned instead.
 
-This behavior ensures that SAP service accounts, such as DDIC, which often aren't associated with an email addresses, are logged as pseudo AD accounts. This also opens up some UEBA features, aiding in the investigation of incidents and hunting activities.
+This behavior ensures that SAP service accounts such as DDIC, which often aren't associated with an email addresses, are logged as pseudo AD accounts. This also opens up some UEBA features, aiding in the investigation of incidents and hunting activities.
 
 The **SAPUsersEmail** function returns the following data:
 
@@ -212,7 +212,7 @@ For more information, see [Available watchlists](sap-solution-security-content.m
 
 The **SAPAuditLogAnomalies** function uses Microsoft Sentinel's underlying Kusto database's built-in machine learning capabilities to help detect anomalous events observed on the SAP audit log.
 
-The **SAPAuditLogAnomalies** function was developed for the *SAP - (Experimental) Dynamic Anomaly based Audit Log Monitor Alerts* analytics rule. While it's original design is to alert on recent anomalies, it can also help to highlight historical anomalies. For more information, see [Sample uses](#sample).
+The **SAPAuditLogAnomalies** function was developed for the *SAP - (Experimental) Dynamic Anomaly based Audit Log Monitor Alerts* analytics rule. While its original design is to alert on recent anomalies, it can also help to highlight historical anomalies. For more information, see [Sample uses](#sample).
 
 The **SAPAuditLogAnomalies** function learns the slice of the history defined by the different input parameters, at the following levels:
 
@@ -243,7 +243,7 @@ The **SAPAuditLogAnomalies** function returns the following data:
 | Field           | Description |
 | --------------- | ----------- |
 | **Multiple fields from SAPAuditLog** | Key fields from the SAP Audit log |
-| **Multiple fields from SAPAuditLogConfiguration** | Key fields from the Sentinel for SAP audit log configuration |
+| **Multiple fields from SAPAuditLogConfiguration** | Key fields from the Microsoft Sentinel for SAP audit log configuration |
 | DiscoveredOn | The rounded hour on which the anomaly was observed on |
 | EventCount | Number of events counted per row returned|
 | AnomalCount | Number of events observed within relevant sliding window|

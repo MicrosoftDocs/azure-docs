@@ -41,6 +41,8 @@ Before you can start using the **SAP - Security Audit log and Initial Access** w
 
 - At least one incident in your Microsoft Sentinel workspace, with at least one entry available in the `SecurityIncident` table. This doesn't need to be an SAP incident, and you can generate a demo incident using a basic analytics rule if you don't have another one.
 
+- If your Microsoft Entra data is in a different Log Analytics workspace, make sure you select the relevant subscriptions and workspaces at the top of the workbook, under **Azure audit and activities**.  
+
 ## Supported filters
 
 The **SAP - Security Audit log and Initial Access** workbook supports the following filters to help you focus on the data you need:
@@ -93,7 +95,7 @@ The following table describes each metric in the **Anomaly detection** area:
 |Area  |Description  |
 |---------|---------|
 | **Logon failure rate** > **Logon failure anomalies** > **Unique User failed logons per SAP system**     |  Shows the number of unique failed sign ins for each SAP system.       |
-|**SAP and Active Directory are better together**     |    The **Anomalous login failures** table shows a combination of Microsoft Sentinel and Microsoft Entra data, listing users according to risk, with the most risky users at the top. <br><br>For each user, the table shows: <br>- A timeline of failed sign-in attempts<br>- A timeline showing at which point an anomalous failed attempt occurred<br>- The type of anomaly<br>- The user's email address<br>- The Microsoft Entra risk indicator<br>- The number of incidents and alerts in Microsoft Sentinel  <br><br> Select a user's row to see a list of related alerts and incidents. Microsft Entra risk events are listed under **Azure audit and signin risks for user**.<br><br>**Note**: If your Microsoft Entra data is in a different Log Analytics workspace, make sure you select the relevant subscriptions and workspaces at the top of the workbook, under **Azure audit and activities**.     |
+|**SAP and Active Directory are better together**     |    The **Anomalous login failures** table shows a combination of Microsoft Sentinel and Microsoft Entra data, listing users according to risk, with the most risky users at the top. <br><br>For each user, the table shows: <br>- A timeline of failed sign-in attempts<br>- A timeline showing at which point an anomalous failed attempt occurred<br>- The type of anomaly<br>- The user's email address<br>- The Microsoft Entra risk indicator<br>- The number of incidents and alerts in Microsoft Sentinel  <br><br> Select a user's row to see a list of related alerts and incidents. Microsoft Entra risk events are listed under **Azure audit and signin risks for user**.   |
 |**Logon failure rate per system**     |  Shows the selected SAP systems, grouped by type, with the number of failures in the selected period. <br><br>The system's color indicates the number of failed attempts: Green for a few suspicious sign-in attempts, and red for more.<br><br>Select a system to see a list of failed sign-ins, with details about the failures.      |
 
 In the following screenshot, note the data shown when the first line is selected in the **Anomalous login failures** table. The specific alerts and incident URLs are shown in the **Incidents/alerts overview for user** table.

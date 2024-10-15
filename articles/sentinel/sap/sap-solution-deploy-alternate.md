@@ -120,7 +120,7 @@ This procedure describes how to deploy the Microsoft Sentinel for SAP data conne
 
     For more information, see [Manually configure the Microsoft Sentinel for SAP data connector](#manually-configure-the-microsoft-sentinel-for-sap-data-connector) and [Define the SAP logs that are sent to Microsoft Sentinel](#define-the-sap-logs-that-are-sent-to-microsoft-sentinel).
 
-    To test your configuration, you may want to add the user and password directly to the **systemconfig.json** configuration file. While we recommend that you use Azure Key vault to store your credentials, you can also use an **env.list** file, [Docker secrets](#manually-configure-the-microsoft-sentinel-for-sap-data-connector), or you can add your credentials directly to the **systemconfig.json** file.
+    To test your configuration, you might want to add the user and password directly to the **systemconfig.json** configuration file. While we recommend that you use Azure Key vault to store your credentials, you can also use an **env.list** file, [Docker secrets](#manually-configure-the-microsoft-sentinel-for-sap-data-connector), or you can add your credentials directly to the **systemconfig.json** file.
 
     For more information, see [SAL logs connector configurations](#sal-logs-connector-settings).
 
@@ -157,7 +157,7 @@ This procedure describes how to deploy the Microsoft Sentinel for SAP data conne
     ##############################################################
     ```
 
-1. Download and run the pre-defined Docker image with the SAP data connector installed.  Run:
+1. Download and run the predefined Docker image with the SAP data connector installed. Run:
 
     ```bash
     docker pull mcr.microsoft.com/azure-sentinel/solutions/sapcon:latest-preview
@@ -362,7 +362,7 @@ To ingest all ABAP logs into Microsoft Sentinel, including both NW RFC and SAP C
 |**javaappserver**     |Enter your SAP Control ABAP server host. <br>For example: `contoso-erp.appserver.com`         |
 |**javainstance**     |Enter your SAP Control ABAP instance number. <br>For example: `00`         |
 |**abaptz**     |Enter the time zone configured on your SAP Control ABAP server, in GMT format. <br>For example: `GMT+3`         |
-|**abapseverity**     |Enter the lowest, inclusive, severity level for which you want to ingest ABAP logs into Microsoft Sentinel.  Values include: <br><br>- **0** = All logs <br>- **1** = Warning <br>- **2** = Error     |
+|**abapseverity**     |Enter the lowest, inclusive, severity level for which you want to ingest ABAP logs into Microsoft Sentinel. Values include: <br><br>- **0** = All logs <br>- **1** = Warning <br>- **2** = Error     |
 
 ### Configuring a Java SAP Control instance
 
@@ -373,7 +373,7 @@ To ingest SAP Control Web Service logs into Microsoft Sentinel, configure the fo
 |**javaappserver**     |Enter your SAP Control Java server host. <br>For example: `contoso-java.server.com`         |
 |**javainstance**     |Enter your SAP Control ABAP instance number. <br>For example: `10`         |
 |**javatz**     |Enter the time zone configured on your SAP Control Java server, in GMT format. <br>For example: `GMT+3`         |
-|**javaseverity**     |Enter the lowest, inclusive, severity level for which you want to ingest Web Service logs into Microsoft Sentinel.  Values include: <br><br>- **0** = All logs <br>- **1** = Warning <br>- **2** = Error     |
+|**javaseverity**     |Enter the lowest, inclusive, severity level for which you want to ingest Web Service logs into Microsoft Sentinel. Values include: <br><br>- **0** = All logs <br>- **1** = Warning <br>- **2** = Error     |
 
 ### Configuring User Master data collection
 

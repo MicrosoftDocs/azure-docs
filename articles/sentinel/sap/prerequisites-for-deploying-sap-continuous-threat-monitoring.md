@@ -61,7 +61,7 @@ We recommend that your **SAP BASIS** team verify and ensure SAP system prerequis
 
 ## Plan your ingestion
 
-We recommend that you test your systems to determine the number of logs that each of your SAP systems will send to Microsoft Sentinel. Microsoft Sentinel billing depends on log ingestion size, which in turn depends on factors such as system usage, modules deployed, number of users, running use cases, network traffic, and log types.
+We recommend that you test your systems to determine the number of logs that each of your SAP systems sends to Microsoft Sentinel. Microsoft Sentinel billing depends on log ingestion size, which in turn depends on factors such as system usage, modules deployed, number of users, running use cases, network traffic, and log types.
 
 For more information, see:
 

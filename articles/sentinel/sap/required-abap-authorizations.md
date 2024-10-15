@@ -1,6 +1,6 @@
 ---
-title: Required ABAP authoriazations for the Microsoft Sentinel solution for SAP applications
-description: Understand the ABAP authorizations required if you want to manually define roles based on the SAP logs you want to ingest to Microsoft Sentinel and the actitivies you want to run.
+title: Required ABAP authorizations for the Microsoft Sentinel solution for SAP applications
+description: Understand the ABAP authorizations required if you want to manually define roles based on the SAP logs you want to ingest to Microsoft Sentinel and the activities you want to run.
 author: batamig
 ms.author: bagol
 ms.topic: how-to

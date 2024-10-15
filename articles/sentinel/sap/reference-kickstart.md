@@ -45,7 +45,7 @@ If set to `cfgf`, the configuration file stored locally is used to store secrets
 
 **Required:** No. If not specified, the default is `abap`.
 
-**Description:** Defines whether the data collector agent should connect to the  ABAP server directly, or through a message server. Use `abap` to have the agent connect directly to the ABAP server, whose name you can define using the `--abapserver` parameter. If you don't define the name ahead of time, the script prompts you for it.  Use `mserv` to connect through a message server, in which case you **must** specify the `--messageserverhost`, `--messageserverport`, and `--logongroup` parameters.
+**Description:** Defines whether the data collector agent should connect to the  ABAP server directly, or through a message server. Use `abap` to have the agent connect directly to the ABAP server, whose name you can define using the `--abapserver` parameter. If you don't define the name ahead of time, the script prompts you for it. Use `mserv` to connect through a message server, in which case you **must** specify the `--messageserverhost`, `--messageserverport`, and `--logongroup` parameters.
 
 ## Configuration folder location
 

@@ -128,7 +128,7 @@ Your virtual machine is typically created by your **infrastructure** team. Confi
     }
     ```
 
-    For more information, see the [Azure CLI reference documenation](/cli/azure/ad/sp#az-ad-sp-create-for-rbac).
+    For more information, see the [Azure CLI reference documentation](/cli/azure/ad/sp#az-ad-sp-create-for-rbac).
 
 1. Copy the **appId**, **tenant**, and **password** from the output. You need these for assigning the key vault access policy and running the deployment script in the coming steps.
 
@@ -227,11 +227,11 @@ This procedure describes how to create a key vault to store your agent configura
 
 ## Deploy the data connector agent from the portal (Preview)
 
-Now that you've created a VM and a Key Vault, your next step is to create a new agent and connect to one of your SAP systems. While you can run multiple data connector agents on a single machine, we recommend that you start with one only, monitor the performance, and then increase the number of connectors slowly.
+Now that you created a VM and a Key Vault, your next step is to create a new agent and connect to one of your SAP systems. While you can run multiple data connector agents on a single machine, we recommend that you start with one only, monitor the performance, and then increase the number of connectors slowly.
 
 This procedure describes how to create a new agent and connect it to your SAP system using the Azure or Defender portals. We recommend that your **security** team perform this procedure with help from the **SAP BASIS** team.
 
-Deploying the data connector agent from the portal is supported from both the Azure portal, and the Defender portal if you've onboarded your workspace to the unified security operations platform.
+Deploying the data connector agent from the portal is supported from both the Azure portal, and the Defender portal if you onboarded your workspace to the unified security operations platform.
 
 While deployment is also supported from the command line, we recommend that you use the portal for typical deployments. Data connector agents deployed using the command line can be managed only via the command line, and not via the portal. For more information, see [Deploy a SAP data connector agent from the command line](deploy-command-line.md).
 
@@ -242,7 +242,7 @@ While deployment is also supported from the command line, we recommend that you 
 
 - To deploy your data connector agent via the portal, you need:
 
-    - Authentication via a managed identitiy or a registered application
+    - Authentication via a managed identity or a registered application
     - Credentials stored in an Azure Key Vault
 
     If you don't have these prerequisites, [deploy the SAP data connector agent from the command line](deploy-command-line.md) instead.
@@ -274,11 +274,11 @@ While deployment is also supported from the command line, we recommend that you 
 
     |Name |Description  |
     |---------|---------|
-    |**Agent name**     |  Enter an meaningful agent name for your organization. We don't recommend any specific naming convention, except that the name can include only the following types of characters: <ul><li> a-z<li> A-Z<li>0-9<li>_ (underscore)<li>. (period)<li>- (dash)</ul>       |
+    |**Agent name**     |  Enter a meaningful agent name for your organization. We don't recommend any specific naming convention, except that the name can include only the following types of characters: <ul><li> a-z<li> A-Z<li>0-9<li>_ (underscore)<li>. (period)<li>- (dash)</ul>       |
     |**Subscription** / **Key vault**     |   Select the **Subscription** and **Key vault** from their respective drop-downs.      |
     |**NWRFC SDK zip file path on the agent VM**     |  Enter the path in your VM that contains the SAP NetWeaver Remote Function Call (RFC) Software Development Kit (SDK) archive (.zip file). <br><br>Make sure that this path includes the SDK version number in the following syntax: `<path>/NWRFC<version number>.zip`. For example: `/src/test/nwrfc750P_12-70002726.zip`.       |
-    |**Enable SNC connection support**     |Select to ingest NetWeaver/ABAP logs over a [secure connection using SNC](preparing-sap.md#configure-your-system-to-use-snc-for-secure-connections).  <br><br>If you select this option, enter the path that contains the `sapgenpse` binary and `libsapcrypto.so` library, under **SAP Cryptographic Library path on the agent VM**.     <br><br>If you want to use an SNC connection, make sure to select **Enable SNC connection support** at this stage as you can't go back and enable an SNC connection after you finish deploying the agent.  If you want to change this setting afterwards, we recommend that you create a new agent instead.  |
-    |**Authentication to Azure Key Vault**     |   To authenticate to your key vault using a managed identity, leave the default **Managed Identity** option selected.  To authenticate to your key vault using a registered application, select **Application Identity**. <br><br>You must have the managed identity or registered application set up ahead of time. For more information, see [Create a virtual machine and configure access to your credentials](#create-a-virtual-machine-and-configure-access-to-your-credentials).     |
+    |**Enable SNC connection support**     |Select to ingest NetWeaver/ABAP logs over a [secure connection using SNC](preparing-sap.md#configure-your-system-to-use-snc-for-secure-connections).  <br><br>If you select this option, enter the path that contains the `sapgenpse` binary and `libsapcrypto.so` library, under **SAP Cryptographic Library path on the agent VM**.     <br><br>If you want to use an SNC connection, make sure to select **Enable SNC connection support** at this stage as you can't go back and enable an SNC connection after you finish deploying the agent. If you want to change this setting afterwards, we recommend that you create a new agent instead.  |
+    |**Authentication to Azure Key Vault**     |   To authenticate to your key vault using a managed identity, leave the default **Managed Identity** option selected. To authenticate to your key vault using a registered application, select **Application Identity**. <br><br>You must have the managed identity or registered application set up ahead of time. For more information, see [Create a virtual machine and configure access to your credentials](#create-a-virtual-machine-and-configure-access-to-your-credentials).     |
 
     For example:
 
@@ -325,7 +325,7 @@ While deployment is also supported from the command line, we recommend that you 
     > The table displays the agent name and health status for only those agents you deploy via the Azure portal. Agents deployed using the command line aren't displayed here. For more information, see the [**Command line** tab](deploy-data-connector-agent-container.md?tabs=command-line) instead.
     >
 
-1. On the VM where you plan to install the agent, open a terminal and run the **Agent deployment command** that you'd copied in the previous step. This step requires sudo or root privileges on the data connector agent machine.
+1. On the VM where you plan to install the agent, open a terminal and run the **Agent deployment command** that you copied in the previous step. This step requires sudo or root privileges on the data connector agent machine.
 
     The script updates the OS components and installs the Azure CLI,  Docker software, and other required utilities, such as jq, netcat, and curl.
 

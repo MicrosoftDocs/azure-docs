@@ -16,7 +16,7 @@ ms.collection: usx-security
 
 # Stop SAP data collection
 
-There may be instances where you need to halt the data collection from your SAP applications by Microsoft Sentinel, whether for maintenance, troubleshooting, or other administrative reasons.
+There might be instances where you need to halt the data collection from your SAP applications by Microsoft Sentinel, whether for maintenance, troubleshooting, or other administrative reasons.
 
 This article provides step-by-step instructions on how to stop the ingestion of SAP logs into Microsoft Sentinel and disable the data connector.
 
