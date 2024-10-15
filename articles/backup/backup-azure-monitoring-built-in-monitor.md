@@ -130,27 +130,22 @@ To manage monitoring settings for a Backup vault, follow these steps:
 
 ### Viewing fired alerts in the Azure portal 
 
-Once an alert is fired for a vault, you can go to **Backup center** to view the alert in the Azure portal. On the **Overview** tab, you can see a summary of active alerts split by severity. There are two types of alerts displayed:
+To view the fired alerts, follow these steps:
 
-* **Datasource Alerts**: Alerts that are tied to a specific datasource being backed-up (for example, back up or restore failure for a VM, deleting backup data for a database, and so on) appear under the **Datasource Alerts** section.
-* **Global Alerts**: Alerts that aren't tied to a specific datasource (for example, disabling soft-delete functionality for a vault) appear under the **Global Alerts** section.
 
-Each of the above types of alerts is further split into **Security** and **Configured** alerts. Currently, Security alerts include the scenarios of deleting backup data, or disabling soft-delete for vault (for the applicable workloads as detailed in the above section). Configured alerts include backup failure and restore failure, because these alerts are fired only when alerts aren't disabled for these scenarios.
 
-:::image type="content" source="media/backup-azure-monitoring-laworkspace/backup-center-azure-monitor-alerts.png" alt-text="Screenshot for viewing alerts in Backup center.":::
+1. In the [Azure portal](https://portal.azure.com/), go to **Recovery Services vault**.
 
-Selecting any number (or the **Alerts** menu item) opens a list of all active alerts fired with the relevant filters applied. You can filter on a range of properties, such as subscription, resource group, vault, severity, state, and so on. You can select any alert to view more details about the alert, such as the affected datasource, alert description and recommended action, and so on.
+2. Select the **Alerts** section and filter for Monitor Service = Azure Site Recovery to see Azure Site Recovery specific alerts. A list a summary of active alerts split by severity. There are two types of alerts displayed:
 
-:::image type="content" source="media/backup-azure-monitoring-laworkspace/backup-center-alert-details.png" alt-text="Screenshot for viewing details of the alert.":::
+   - **Datasource Alerts**: Alerts that are tied to a specific datasource being backed-up (for example, back up or restore failure for a VM, deleting backup data for a database, and so on) appear under the **Datasource Alerts** section.
+   - **Global Alerts**: Alerts that aren't tied to a specific datasource (for example, disabling soft-delete functionality for a vault) appear under the **Global Alerts** section.
 
-You can change the state of an alert to **Acknowledged** or **Closed** by selecting on **Change Alert State**.
+   Each of the above types of alerts is further split into **Security** and **Configured** alerts. Currently, Security alerts include the scenarios of deleting backup data, or disabling soft-delete for vault (for the applicable workloads as detailed in the above section). Configured alerts include backup failure and restore failure, because these alerts are fired only when alerts aren't disabled for these scenarios.
 
-:::image type="content" source="media/backup-azure-monitoring-laworkspace/backup-center-change-alert-state.png" alt-text="Screenshot for changing state of the alert."::: 
+3. Select any number (or the **Alerts** menu item) to open a list of all active alerts fired with the relevant filters applied. You can select any alert to view more details about the alert, such as the affected datasource, alert description and recommended action, and so on.
 
-> [!NOTE]
-> - In Backup center, only alerts for Azure-based workloads currently appear. To view alerts for on-premises resources, go to the Recovery Services vault and select the **Alerts** menu item.
-> - Only Azure Monitor alerts appear in Backup center. Alerts raised by the older alerting solution (accessed via the [Backup Alerts](#backup-alerts-in-recovery-services-vault) tab in Recovery Services vault) don't appear in Backup center. For more information about Azure Monitor alerts, see [Overview of alerts in Azure](/azure/azure-monitor/alerts/alerts-overview).
-> - Currently, for blob restore alerts, alerts appear under datasource alerts only if you select both the dimensions - *datasourceId* and *datasourceType* while creating the alert rule. If any dimensions aren't selected, the alerts appear under global alerts.
+4. Once the event is mitigated, change the state of an alert to **Acknowledged** or **Closed** by selecting **Change Alert State**.
 
 ### Configuring notifications for alerts
 
