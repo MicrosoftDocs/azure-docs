@@ -14,9 +14,11 @@ zone_pivot_groups: iot-hub-howto-c2d-1
 
 # Get started with device management
 
-Back-end apps can use Azure IoT Hub primitives, such as [device twins](iot-hub-devguide-device-twins.md) and [direct methods](iot-hub-devguide-direct-methods.md), to remotely start and monitor device management actions on devices. This article shows you how a back-end app and a device app can work together to initiate and monitor a remote device reboot using IoT Hub.
+Back-end apps can use Azure IoT Hub primitives, such as [device twins](iot-hub-devguide-device-twins.md) and [direct methods](iot-hub-devguide-direct-methods.md), to remotely start and monitor device management actions on devices.
 
-Use a direct method to initiate device management actions (such as reboot, factory reset, and firmware update) from a back-end app in the cloud. The device is responsible for:
+Use a direct method to initiate device management actions (such as reboot, factory reset, and firmware update) from a back-end app in the cloud.
+
+The device is responsible for:
 
 * Handling the method request sent from IoT Hub.
 
@@ -24,12 +26,12 @@ Use a direct method to initiate device management actions (such as reboot, facto
 
 * Providing status updates through *reported properties* to IoT Hub.
 
-You can use a back-end app in the cloud to run device twin queries to report on the progress of your device management actions.
+The back-end app can run device twin queries to report on the progress of the device management actions.
 
-This article shows you how to develop two types of applications:
+This article shows you how a back-end app and a device app can work together to initiate and monitor a remote device reboot using IoT Hub:
 
-* Device apps can call a direct method to reboot a device and report the last reboot time. Direct methods are invoked from the cloud.
-* Service apps can call a direct method in a device app through an IoT hub. The service app can display the response and updated reported properties.
+* A service app calls a direct method to reboot in a device app through an IoT hub. The service app then displays the response and updated reported properties.
+* A device app handles a direct method to reboot a device and updates the last reboot time.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 

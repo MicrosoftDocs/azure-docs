@@ -25,37 +25,33 @@ This section describes how to use device application code to:
 
 [!INCLUDE [iot-authentication-device-connection-string.md](iot-authentication-device-connection-string.md)]
 
-### Import statements
+### Device import statements
 
-These import statements are required by `IoTHubDeviceClient`.
+Add import statements for `IoTHubDeviceClient`.
 
 ```python
 # import the device client library
-import asyncio
-from azure.iot.device.aio import IoTHubDeviceClient
+import time
+import datetime
+from azure.iot.device import IoTHubDeviceClient, MethodResponse
 ```
 
 ### Connect to a device
 
 The [IoTHubDeviceClient](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient) class contains methods that can be used to work with direct methods.
 
-To connect an application to a device:
-1. Call [create_from_connection_string](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient?#azure-iot-device-iothubdeviceclient-create-from-connection-string) to add the device connection string
-1. Call [connect](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient?#azure-iot-device-iothubdeviceclient-connect) to connect the device client to an Azure IoT hub
+Call [create_from_connection_string](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient?#azure-iot-device-iothubdeviceclient-create-from-connection-string) to connect an application to a device using a device connection string.
 
 ```python
 # substitute the device connection string in conn_str
 # and add it to the IoTHubDeviceClient object
 conn_str = "{IOT hub device connection string}"
 device_client = IoTHubDeviceClient.create_from_connection_string(conn_str)
-
-# connect the application to the device
-await device_client.connect()
 ```
 
 ### Create a direct method callback
 
-Call [on_method_request_received](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient?view=azure-python&branch=main#azure-iot-device-iothubdeviceclient-on-method-request-received) to create a handler function or coroutine that is called when a direct method is received. The listener is associated with a method name keyword, such as "reboot". The method name can be used in an IoT Hub or backend application to trigger the callback method on the device.
+Call [on_method_request_received](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient?#azure-iot-device-iothubdeviceclient-on-method-request-received) to create a handler function or coroutine that is called when a direct method is received. The listener is associated with a method name keyword, such as "reboot". The method name can be used in an IoT Hub or backend application to trigger the callback method on the device.
 
 This example sets up a desired properties patch handler named `method_request_handler`.
 
@@ -114,7 +110,7 @@ This section describes how to initiate a remote reboot on a device using a direc
 
 The [IoTHubRegistryManager](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager) class exposes all methods required to create a backend application to send messages to a device.
 
-### Import statements
+### Service import statements
 
 Add these import statements to connect to Iot Hub, receive cloud-to-device methods, and call device twin methods.
 
