@@ -15,7 +15,7 @@ You can check the expiration date of your Identity Validation on the Identity Va
 
 >[!Note]
 >Failure to renew Identity Validation before the expiration date will stop certificate renewal, effectively halting the signing process associated with those specific certificate profiles.
->EKU does not change when renew Identity Validation. 
+>EKU does not change when you renew Identity Validation. 
 
 1. Navigate to your Trusted Signing account in the [Azure portal](https://portal.azure.com/).
 2. Confirm you have the **Trusted Signing Identity Verifier role**.
@@ -23,7 +23,7 @@ You can check the expiration date of your Identity Validation on the Identity Va
 3. From either the Trusted Signing account overview page or from Objects, select **Identity Validation**.
 4. Select the Identity Validation request that needs to be renewed. Select **Renew** on the top. 
 
-:::image type="content" source="media/trusted-signing-renew-identity-validation.png" alt-text="Screenshot of trusted-signing-renew-identity-validation.png." lightbox="media/trusted-signing-renew-identity-validation.png":::
+:::image type="content" source="media/trusted-signing-renew-identity-validation.png" alt-text="Screenshot of trusted signing renew identity-validation button.png." lightbox="media/trusted-signing-renew-identity-validation.png":::
 
 5. If you encounter validation errors while renewing through the renew button or if Identity Validation is Expired, you need to create a new Identity Validation. 
     - To learn more about creating new Identity Validation, see [Quickstart](quickstart.md). 
