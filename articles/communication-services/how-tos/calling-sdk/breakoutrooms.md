@@ -19,10 +19,10 @@ This article describes how to implement Microsoft Teams breakout rooms with Azur
 
 ## Prerequisites
 
-- An Azure account with an active subscription, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
-- A deployed Communication Services resource, see [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
+- An Azure account with an active subscription. See [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
+- A deployed Communication Services resource. See [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
 - A user access token to enable the calling client. For more information, see [Create and manage access tokens](../../quickstarts/identity/access-tokens.md).
-- Teams meeting organizer needs to assign Teams meeting policy that enables breakout rooms, see[Teams meeting policy](/powershell/module/teams/set-csteamsmeetingpolicy?view=teams-ps&preserve-view=true).
+- Teams meeting organizer needs to assign Teams meeting policy that enables breakout rooms. See [Teams meeting policy](/powershell/module/teams/set-csteamsmeetingpolicy?view=teams-ps&preserve-view=true).
 - Optional: Complete the quickstart to [add voice calling to your application](../../quickstarts/voice-video-calling/getting-started-with-calling.md).
 
 Only Microsoft 365 Users with Organizer, Co-Organizer, or Breakout Room manager roles can manage the breakout rooms.
