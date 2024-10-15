@@ -71,3 +71,5 @@ More information can be found at [Create an Azure support request](/azure/azur
 
 > [!NOTE]
 > Currently the availability zone feature is being provided to customers at no additional charge. In the future, charges will be incurred with the Availability zone feature.
+
+[!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]
