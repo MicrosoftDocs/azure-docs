@@ -52,7 +52,7 @@ To create a custom *api-status* property in your API center:
 1. In the **Assignments** tab, next to **APIs**, select **Optional**. 
 1. Optionally make assignments to **Deployments** and **Environments**. Select **Next**.
 1. Review the configuration and select **Create**.
-
+git
 ## Enable a managed identity in your logic app
 
 For this scenario, the logic app uses a managed identity to access the Azure API center. Depending on your needs, enable either a system-assigned or user-assigned managed identity. For configuration steps, see [Authenticate access and connections to Azure resources with managed identities in Azure Logic Apps](../logic-apps/authenticate-with-managed-identity.md).
@@ -316,7 +316,7 @@ Add a step to make an HTTP request to update the API properties in your API cent
 
 **Save** the workflow in the **Logic app designer**. When the workflow is complete, it should look similar to the following image:
 
-:::image type="content" source="media/set-up-notification-workflow/logic-app-designer-workflow.png" lightbox="media/set-up-notification-workflow/logic-app-designer-workflow.png" alt-text="Screenshot of complete workflow in Logic app designer in the portal.":::
+:::image type="content" source="media/set-up-notification-workflow/logic-app-designer-workflow.png" lightbox="media/set-up-notification-workflow/logic-app-designer-workflow-large.png" alt-text="Screenshot of complete workflow in Logic app designer in the portal.":::
 
 Confirm that the event subscription is provisioned successfully in your API center. It might take a few minutes for the event subscription to be provisioned.
 
