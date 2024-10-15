@@ -129,6 +129,9 @@ If you need to override the system-assigned managed identity audience, see the [
             secretRef: my-sas
     ```
 
+# [Bicep](#tab/bicep)
+
+Todo
 ---
 
 ### Available authentication methods
