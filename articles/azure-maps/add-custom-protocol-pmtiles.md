@@ -44,7 +44,7 @@ Next, initialize the MapLibre PMTiles protocol.
 
 ## Add PMTiles protocol
 
-To add the PMTiles protocol, hook the data source with the specified protocol URL schema. The following sample uses the [Overture] building dataset to add building data over the basemap.
+To add the PMTiles protocol, hook the data source with the specified protocol URI scheme. The following sample uses the [Overture] building dataset to add building data over the basemap.
 
 ```js
 const PMTILES_URL = "https://overturemaps-tiles-us-west-2-beta.s3.amazonaws.com/2024-07-22/buildings.pmtiles";
@@ -53,7 +53,7 @@ protocol.add(new pmtiles.PMTiles(PMTILES_URL));
 
 ## Add PMTiles as a map source
 
-PMTiles are added as a map source during the map event. Once added, the specified URL schema is available to the Azure Maps Web SDK. In the following sample, the PMTiles URL is added as a `VectorTileSource`.
+PMTiles are added as a map source during the map event. Once added, the specified URI scheme is available to the Azure Maps Web SDK. In the following sample, the PMTiles URL is added as a `VectorTileSource`.
 
 ```js
 //Add the source to the map.
