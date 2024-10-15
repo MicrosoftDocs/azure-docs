@@ -6,6 +6,10 @@ ms.topic: conceptual
 ms.date: 05/16/2024
 ms.author: raynew
 ms.custom: fasttrack-edit
+
+
+#Customer intent: As a security operations team member, I want to complete advanced training on Microsoft Sentinel so that I can enhance my skills in threat detection, incident response, and security automation.
+
 ---
 
 # Microsoft Sentinel skill-up training 
@@ -171,7 +175,7 @@ The first piece of information you see for each connector is its *data ingestion
 | Microsoft Sentinel Data Collector API | [Connect your data source to the Microsoft Sentinel Data Collector API to ingest data](connect-rest-api-template.md) |
 | Azure Functions and the REST API | [Use Azure Functions to connect Microsoft Sentinel to your data source](connect-azure-functions-template.md) |
 | Syslog | [Ingest Syslog and CEF messages to Microsoft Sentinel with the Azure Monitor Agent](connect-cef-syslog-ama.md) |
-| Custom logs | [Collect data in custom log formats to Microsoft Sentinel with the Log Analytics agent](connect-custom-logs.md) |
+| Custom logs | [Custom Logs via AMA data connector - Configure data ingestion to Microsoft Sentinel from specific applications](unified-connector-custom-device.md) |
 
 If your source isn't available, you can [create a custom connector](create-custom-connector.md). Custom connectors use the ingestion API and therefore are similar to direct sources. You most often implement custom connectors by using Azure Logic Apps, which offers a codeless option, or Azure Functions.
 
@@ -276,9 +280,8 @@ Microsoft Sentinel supports two new features for data ingestion and transformati
 - [**Logs ingestion API**](/azure/azure-monitor/logs/logs-ingestion-api-overview): Use it to send custom-format logs from any data source to your Log Analytics workspace and then store those logs either in certain specific standard tables, or in custom-formatted tables that you create. You can perform the actual ingestion of these logs by using direct API calls. You can use Azure Monitor [data collection rules](/azure/azure-monitor/essentials/data-collection-rule-overview) to define and configure these workflows.
 
 - [**Workspace data transformations for standard logs**](/azure/azure-monitor/essentials/data-collection-transformations-workspace): It uses [data collection rules](/azure/azure-monitor/essentials/data-collection-rule-overview) to filter out irrelevant data, to enrich or tag your data, or to hide sensitive or personal information. You can configure data transformation at ingestion time for the following types of built-in data connectors:
-    - Azure Monitor agent (AMA)-based data connectors (based on the new Azure Monitor agent)
-    - Microsoft Monitoring agent (MMA)-based data connectors (based on the legacy Azure Monitor Logs Agent)
-    - Data connectors that use diagnostics settings
+    - Azure Monitor Agent (AMA)-based data connectors ([Syslog and CEF](connect-cef-syslog-ama.md) | [Windows DNS](connect-dns-ama.md) | [Custom](connect-custom-logs-ama.md))
+    - [Data connectors that use diagnostics settings](connect-services-diagnostic-setting-based.md)
     - [Service-to-service data connectors](data-connectors-reference.md)
 
 For more information, see: 

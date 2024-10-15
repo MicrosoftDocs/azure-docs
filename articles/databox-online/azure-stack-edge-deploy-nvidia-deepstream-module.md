@@ -4,8 +4,7 @@ description: Learn how to deploy the Nvidia Deepstream module on an Ubuntu virtu
 services: databox
 author: alkohli
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 06/28/2022
 ms.author: alkohli

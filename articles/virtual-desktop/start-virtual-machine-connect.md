@@ -4,13 +4,10 @@ description: Learn how to enable or disable Start VM on Connect for Azure Virtua
 ms.topic: how-to
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 06/04/2024
+ms.date: 10/07/2024
 ---
 
 # Configure Start VM on Connect
-
-> [!IMPORTANT]
-> Start VM on Connect for Azure Stack HCI with Azure Virtual Desktop is currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Start VM on Connect lets you reduce costs by enabling end users to power on the virtual machines (VMs) used as session hosts only when they're needed. You can then power off VMs when they're not needed.
 
