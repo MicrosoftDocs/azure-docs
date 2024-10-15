@@ -108,13 +108,13 @@ If you need to override the system-assigned managed identity audience, see the [
 
 ### Use access token authentication
 
-1. Follow the steps in the [access token](#access-token) section to get a SAS token for the storage account and store it in a Kubernetes secret.
+Follow the steps in the [access token](#access-token) section to get a SAS token for the storage account and store it in a Kubernetes secret.
 
 # [Kubernetes](#tab/kubernetes)
 
-1. Create the *DataflowEndpoint* resource and specify the access token authentication method.
+Create the *DataflowEndpoint* resource and specify the access token authentication method.
 
-    ```yaml
+  ```yaml
     apiVersion: connectivity.iotoperations.azure.com/v1beta1
     kind: DataflowEndpoint
     metadata:
@@ -127,11 +127,11 @@ If you need to override the system-assigned managed identity audience, see the [
           method: AccessToken
           accessTokenSettings:
             secretRef: my-sas
-    ```
+  ```
 
 # [Bicep](#tab/bicep)
 
-    ```bicep
+  ```bicep
     resource adlsGen2Endpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
       parent: aioInstance
       name: '<ENDPOINT NAME>'
@@ -152,7 +152,7 @@ If you need to override the system-assigned managed identity audience, see the [
         }
       }
     }
-    ```
+  ```
 
 ---
 
