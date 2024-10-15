@@ -130,7 +130,7 @@ The following items are currently unsupported by cost allocation:
 - [Cost Management Power BI App](https://appsource.microsoft.com/product/power-bi/costmanagement.azurecostmanagementapp)
 - [Power BI Desktop connector](/power-bi/connect-data/desktop-connect-azure-cost-management)
 
-The [Usage Details](/rest/api/consumption/usagedetails/list) API version `2021-10-01` and later supports  cost allocation data.
+The [Cost Details](/rest/api/cost-management/generate-cost-details-report/create-operation?view=rest-cost-management-2023-11-01&tabs=HTTP) API and [Exports](/rest/api/cost-management/exports/create-or-update?view=rest-cost-management-2023-11-01&tabs=HTTP) support cost allocation data. However, the [Usage Details](/rest/api/consumption/usagedetails/list) API doesn't support cost allocation data.  
 
 However, cost allocation data results might be empty if you're using an unsupported API or if you don't have any cost allocation rules.
 
