@@ -186,34 +186,34 @@ spec:
 
 1. Create a bicep file `deployment.bicep`. Replace the placeholder values like `<AIO_INSTANCE_NAME>` with your own.
 
-```bicep
-param aioInstanceName string = '<AIO_INSTANCE_NAME>'
-param customLocationName string = '<CUSTOM_LOCATION_NAME>'
-param endpointName string = '<ENDPOINT_NAME>'
-param eventGridHostName string = '<EVENTGRID_HOSTNAME>'
-
-resource remoteMqttBrokerDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
-  parent: aioInstance
-  name: endpointName
-  extendedLocation: {
-    name: customLocationName
-    type: 'CustomLocation'
-  }
-  properties: {
-    endpointType: 'Mqtt'
-    mqttSettings: {
-      authentication: {
-        method: 'SystemAssignedManagedIdentity'
-        systemAssignedManagedIdentitySettings: {}
-      }
-      host: eventGridHostName
-      tls: {
-        mode: 'Enabled'
-      }
-    }
-  }
-}
-```
+    ```bicep
+        param aioInstanceName string = '<AIO_INSTANCE_NAME>'
+        param customLocationName string = '<CUSTOM_LOCATION_NAME>'
+        param endpointName string = '<ENDPOINT_NAME>'
+        param eventGridHostName string = '<EVENTGRID_HOSTNAME>'
+        
+        resource remoteMqttBrokerDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
+          parent: aioInstance
+          name: endpointName
+          extendedLocation: {
+            name: customLocationName
+            type: 'CustomLocation'
+          }
+          properties: {
+            endpointType: 'Mqtt'
+            mqttSettings: {
+              authentication: {
+                method: 'SystemAssignedManagedIdentity'
+                systemAssignedManagedIdentitySettings: {}
+              }
+              host: eventGridHostName
+              tls: {
+                mode: 'Enabled'
+              }
+            }
+          }
+        }
+    ```
 
 1. Deploy via Azure CLI
 

@@ -66,38 +66,38 @@ To configure a dataflow endpoint for Microsoft Fabric OneLake, we suggest using 
    
 1. Create a bicep file `deployment.bicep`. Replace the placeholder values like `<AIO_INSTANCE_NAME>` with your own.
 
-```bicep
-param aioInstanceName string = '<AIO_INSTANCE_NAME>'
-param customLocationName string = '<CUSTOM_LOCATION_NAME>'
-param endpointName string = '<ENDPOINT_NAME>'
-param lakehouseName string = '<EXAMPLE-LAKEHOUSE-NAME>'
-param workspaceName string = '<EXAMPLE-WORKSPACE-NAME>'
-
-resource oneLakeEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
-  parent: aioInstance
-  name: endpointName
-  extendedLocation: {
-    name: customLocationName
-    type: 'CustomLocation'
-  }
-  properties: {
-    endpointType: 'FabricOneLake'
-    fabricOneLakeSettings: {
-      authentication: {
-        method: 'SystemAssignedManagedIdentity'
-        systemAssignedManagedIdentitySettings: {}
-      }
-      oneLakePathType: 'Tables'
-      host: 'https://onelake.dfs.fabric.microsoft.com'
-      names: {
-        lakehouseName: lakehouseName
-        workspaceName: workspaceName
-      }
-      ...
-    }
-  }
-}
-```
+    ```bicep
+        param aioInstanceName string = '<AIO_INSTANCE_NAME>'
+        param customLocationName string = '<CUSTOM_LOCATION_NAME>'
+        param endpointName string = '<ENDPOINT_NAME>'
+        param lakehouseName string = '<EXAMPLE-LAKEHOUSE-NAME>'
+        param workspaceName string = '<EXAMPLE-WORKSPACE-NAME>'
+        
+        resource oneLakeEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
+          parent: aioInstance
+          name: endpointName
+          extendedLocation: {
+            name: customLocationName
+            type: 'CustomLocation'
+          }
+          properties: {
+            endpointType: 'FabricOneLake'
+            fabricOneLakeSettings: {
+              authentication: {
+                method: 'SystemAssignedManagedIdentity'
+                systemAssignedManagedIdentitySettings: {}
+              }
+              oneLakePathType: 'Tables'
+              host: 'https://onelake.dfs.fabric.microsoft.com'
+              names: {
+                lakehouseName: lakehouseName
+                workspaceName: workspaceName
+              }
+              ...
+            }
+          }
+        }
+    ```
 
 1. Deploy via Azure CLI
 

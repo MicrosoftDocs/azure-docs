@@ -80,33 +80,34 @@ spec:
 
 1. Create a bicep file `deployment.bicep`. Replace the placeholder values like `<AIO_INSTANCE_NAME>` with your own.
 
-```bicep
-// ADX Endpoint
-param aioInstanceName string = '<AIO_INSTANCE_NAME>'
-param customLocationName string = '<CUSTOM_LOCATION_NAME>'
-param endpointName string = '<ENDPOINT_NAME>'
-param hostName string = 'https://<cluster>.<region>.kusto.windows.net'
-param databaseName string = '<DATABASE_NAME>'
-
-resource adxEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
-  parent: aioInstance
-  name: endpointName
-  extendedLocation: {
-    name: customLocationName
-    type: 'CustomLocation'
-  }
-  properties: {
-    endpointType: 'DataExplorer'
-    dataExplorerSettings: {
-      authentication: {
-        method: 'SystemAssignedManagedIdentity'
-        systemAssignedManagedIdentitySettings: {}
-      }
-      host: hostName
-      database: databaseName
-    }
-  }
-}
+    ```bicep
+        // ADX Endpoint
+        param aioInstanceName string = '<AIO_INSTANCE_NAME>'
+        param customLocationName string = '<CUSTOM_LOCATION_NAME>'
+        param endpointName string = '<ENDPOINT_NAME>'
+        param hostName string = 'https://<cluster>.<region>.kusto.windows.net'
+        param databaseName string = '<DATABASE_NAME>'
+        
+        resource adxEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
+          parent: aioInstance
+          name: endpointName
+          extendedLocation: {
+            name: customLocationName
+            type: 'CustomLocation'
+          }
+          properties: {
+            endpointType: 'DataExplorer'
+            dataExplorerSettings: {
+              authentication: {
+                method: 'SystemAssignedManagedIdentity'
+                systemAssignedManagedIdentitySettings: {}
+              }
+              host: hostName
+              database: databaseName
+            }
+          }
+        }
+    ```
 
 1. Deploy via Azure CLI
 

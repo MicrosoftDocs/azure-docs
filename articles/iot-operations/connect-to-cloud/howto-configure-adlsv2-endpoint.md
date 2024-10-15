@@ -56,7 +56,7 @@ To configure a dataflow endpoint for Azure Data Lake Storage Gen2, we suggest us
 
 1.  Create a bicep file `deployment.bicep`. Replace the placeholder values like `<AIO_INSTANCE_NAME>` with your own.
     
-  ```bicep
+    ```bicep
         param aioInstanceName string = '<AIO_INSTANCE_NAME>'
         param customLocationName string = '<CUSTOM_LOCATION_NAME>'
         param endpointName string = '<ENDPOINT_NAME>'
@@ -86,7 +86,7 @@ To configure a dataflow endpoint for Azure Data Lake Storage Gen2, we suggest us
             }
           }
         }
-  ```
+    ```
 
 1. Deploy via Azure CLI
 

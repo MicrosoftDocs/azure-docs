@@ -47,27 +47,27 @@ The PersistentVolumeClaim (PVC) must be in the same namespace as the *DataflowEn
 
 1. Create a bicep file `deployment.bicep`. Replace the placeholder values like `<AIO_INSTANCE_NAME>` with your own.
 
-```bicep
-param aioInstanceName string = '<AIO_INSTANCE_NAME>'
-param customLocationName string = '<CUSTOM_LOCATION_NAME>'
-param endpointName string = '<ENDPOINT_NAME>'
-param persistentVCName string = '<PERSISTENT_VC_NAME>'
-
-resource localStorageDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
-  parent: aioInstance
-  name: endpointName
-  extendedLocation: {
-    name: customLocationName
-    type: 'CustomLocation'
-  }
-  properties: {
-    endpointType: 'LocalStorage'
-    localStorageSettings: {
-      persistentVolumeClaimRef: persistentVCName
-    }
-  }
-}
-```
+    ```bicep
+        param aioInstanceName string = '<AIO_INSTANCE_NAME>'
+        param customLocationName string = '<CUSTOM_LOCATION_NAME>'
+        param endpointName string = '<ENDPOINT_NAME>'
+        param persistentVCName string = '<PERSISTENT_VC_NAME>'
+        
+        resource localStorageDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
+          parent: aioInstance
+          name: endpointName
+          extendedLocation: {
+            name: customLocationName
+            type: 'CustomLocation'
+          }
+          properties: {
+            endpointType: 'LocalStorage'
+            localStorageSettings: {
+              persistentVolumeClaimRef: persistentVCName
+            }
+          }
+        }
+    ```
 
 1. Deploy via Azure CLI
 

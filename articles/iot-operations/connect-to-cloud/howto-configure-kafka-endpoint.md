@@ -98,32 +98,32 @@ spec:
 
 1. Create a bicep file `deployment.bicep`. Replace the placeholder values like `<AIO_INSTANCE_NAME>` with your own.
 
-```bicep
-param aioInstanceName string = '<AIO_INSTANCE_NAME>'
-param customLocationName string = '<CUSTOM_LOCATION_NAME>'
-param endpointName string = '<ENDPOINT_NAME>'
-param schemaRegistryName string = '<SCHEMA_REGISTRY_NAME>'
-param hostName string = '<HOST>.servicebus.windows.net:9093'
-
-resource kafkaEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
-  parent: aioInstanceName
-  name: endpointName
-  extendedLocation: {
-    name: customLocationName
-    type: 'CustomLocation'
-  }
-  properties: {
-    endpointType: 'Kafka'
-    kafkaSettings: {
-      host: hostName
-      authentication: {
-        method: 'SystemAssignedManagedIdentity'
-        systemAssignedManagedIdentitySettings: {}
-      }
-    }
-  }
-}
-```
+    ```bicep
+        param aioInstanceName string = '<AIO_INSTANCE_NAME>'
+        param customLocationName string = '<CUSTOM_LOCATION_NAME>'
+        param endpointName string = '<ENDPOINT_NAME>'
+        param schemaRegistryName string = '<SCHEMA_REGISTRY_NAME>'
+        param hostName string = '<HOST>.servicebus.windows.net:9093'
+        
+        resource kafkaEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
+          parent: aioInstanceName
+          name: endpointName
+          extendedLocation: {
+            name: customLocationName
+            type: 'CustomLocation'
+          }
+          properties: {
+            endpointType: 'Kafka'
+            kafkaSettings: {
+              host: hostName
+              authentication: {
+                method: 'SystemAssignedManagedIdentity'
+                systemAssignedManagedIdentitySettings: {}
+              }
+            }
+          }
+        }
+    ```
 
 1. Deploy via Azure CLI
 
