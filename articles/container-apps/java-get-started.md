@@ -12,23 +12,23 @@ ms.author: cshoe
 
 # Quickstart: Launch your first Java microservice applications with managed Java components in Azure Container Apps
 
-This guide demonstrates how to deploy the Spring PetClinic Microservices sample on Azure Container Apps. It leverages the built-in Java components provided by Azure Container Apps to support your microservice applications, eliminating the need for manual deployment. Instead of manually creating a Dockerfile and using a container registry, you can deploy your Java applications directly from Java Archive (JAR) or Web Application Archive (WAR) files.
+This guide demonstrates how to deploy the Spring PetClinic Microservices sample on Azure Container Apps. It uses the built-in Java components provided by Azure Container Apps to support your microservice applications, eliminating the need for manual deployment. Instead of manually creating a Dockerfile and using a container registry, you can deploy your Java applications directly from Java Archive (JAR) or Web Application Archive (WAR) files.
 
 The PetClinic sample illustrates the microservice architecture pattern. The following diagram depicts the architecture of the PetClinic application on Azure Container Apps.
 
 The diagram illustrates the architectural flows and relationships of the PetClinic sample:
 
-- Manages the frontend and backend apps using Azure Container Apps. The backend apps are built with Spring Boot, each utilizing HSQLDB as the persistent store.
-- The frontend app is a standalone web application built on the API Gateway App with Node.js, exposing the URL of the API Gateway to route requests to backend service apps.
-- Leverages managed Java components on Azure Container Apps, including Service Registry, Config Server, and Admin Server.
-- The Config Server reads configurations from a Git repository.
+- Builds the frontend app as a standalone web application on the API Gateway App with Node.js, exposing the URL of the API Gateway to route requests to backend service apps.
+- Builds the backend apps with Spring Boot, each utilizing HSQLDB as the persistent store.
+- Uses managed Java components on Azure Container Apps, including Service Registry, Config Server, and Admin Server.
+- Reads configurations of the config server from a Git repository.
 - Exposes the URL of the Admin Server to monitor backend apps.
 - Exposes the URL of the Service Registry to discover backend apps.
 - Analyzes logs using the Log Analytics workspace.
 
-:::image type="content" source="media/java-deploy-war-file/azure-container-apps-petclinic-arch.png" alt-text="Architecture of petclinic app.":::
+:::image type="content" source="media/java-deploy-war-file/azure-container-apps-petclinic-arch.png" alt-text="Architecture of pet clinic app.":::
 
-By the end of this tutorial, you will have deployed one web application and three backend applications, and configured three Java components. These components can be managed through the Azure portal.
+By the end of this tutorial, you will deploy one web application and three backend applications, and configure three Java components. These components can be managed through the Azure portal.
 
 ## Prerequisites
 
@@ -76,7 +76,7 @@ source .scripts/setup-env-variables-azure.sh
 
 ## Prepare the Container App Environment
 
-Login to the Azure CLI and choose your active subscription.
+Log in to the Azure CLI and choose your active subscription.
 
 ```azurecli
 az login
@@ -210,7 +210,7 @@ In this example, `containerapp up` command includes the `--query properties.conf
 
 View the application by pasting this URL into a browser. Your app should resemble the following screenshot.
 
-:::image type="content" source="media/java-deploy-war-file/azure-container-apps-petclinic-warfile.png" alt-text="Screenshot of petclinic application.":::
+:::image type="content" source="media/java-deploy-war-file/azure-container-apps-petclinic-warfile.png" alt-text="Screenshot of pet clinic application.":::
 
 You can also get the URL of the Eureka Server and Admin for Spring dashboard and view your apps' status.
 
@@ -230,9 +230,9 @@ az containerapp env java-component admin-for-spring show \
 
 The dashboard of your Eureka and Admin servers should resemble the following screenshots.
 
-:::image type="content" source="media/java-deploy-war-file/azure-container-apps-petclinic-eureka.png" alt-text="Screenshot of petclinic application eureka server.":::
+:::image type="content" source="media/java-deploy-war-file/azure-container-apps-petclinic-eureka.png" alt-text="Screenshot of pet clinic application Eureka Server.":::
 
-:::image type="content" source="media/java-deploy-war-file/azure-container-apps-petclinic-admin.png" alt-text="Screenshot of petclinic application admin.":::
+:::image type="content" source="media/java-deploy-war-file/azure-container-apps-petclinic-admin.png" alt-text="Screenshot of pet clinic application Admin.":::
 
 ## Clean up resources
 
