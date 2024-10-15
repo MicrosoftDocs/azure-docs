@@ -82,8 +82,6 @@ Apple, and also register for push notifications.
    - **Description**: Type a descriptive name for your app.
    - **Bundle ID**: Enter a Bundle ID of the form **Organization Identifier.Product Name** as mentioned in the [App Distribution Guide](https://help.apple.com/xcode/mac/current/#/dev91fe7130a). The **Organization Identifier** and **Product Name** values must match the organization identifier and product name you use when you create your Xcode project. In the following screenshot, the **NotificationHubs** value is used as an organization identifier and the **GetStarted** value is used as the product name. Make sure the **Bundle Identifier** value matches the value in your Xcode project, so that Xcode uses the correct publishing profile.
 
-      :::image type="content" source="media/ios-sdk-get-started/image6.png" alt-text="Register app ID":::
-
    - **Push Notifications**: Check the **Push Notifications** option in the **Capabilities** section.
 
       :::image type="content" source="media/ios-sdk-get-started/image7.png" alt-text="Register new app ID":::
