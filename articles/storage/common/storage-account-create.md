@@ -15,7 +15,7 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell, engagement-fy23, dev
 
 # Create an Azure storage account
 
-An Azure storage account contains all of your Azure Storage data objects: blobs, files, queues, and tables. The storage account provides a unique namespace for your Azure Storage data that is accessible from anywhere in the world over HTTP or HTTPS. For more information about Azure storage accounts, see [Storage account overview](storage-account-overview.md). To create a storage account specifically for use with Azure Files, see [Create an SMB file share](../files/storage-how-to-create-file-share?tabs=azure-portal#create-a-storage-account).
+An Azure storage account contains all of your Azure Storage data objects: blobs, files, queues, and tables. The storage account provides a unique namespace for your Azure Storage data that is accessible from anywhere in the world over HTTP or HTTPS. For more information about Azure storage accounts, see [Storage account overview](storage-account-overview.md). To create a storage account specifically for use with Azure Files, see [Create an SMB file share](../files/storage-how-to-create-file-share.md?tabs=azure-portal#create-a-storage-account).
 
 In this how-to article, you learn to create a storage account using the [Azure portal](https://portal.azure.com/), [Azure PowerShell](/powershell/azure/), [Azure CLI](/cli/azure), or an [Azure Resource Manager template](../../azure-resource-manager/management/overview.md).
 
