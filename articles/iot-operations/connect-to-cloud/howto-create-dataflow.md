@@ -62,7 +62,7 @@ To create a dataflow in [operations experience](https://iotoperations.azure.com/
 
 1. Create a dataflow bicep file `dataflow.bicep`. Replace the placeholder values like `<SCHEMA_REGISTRY_NAME>` with your own.
 
-        ```bicep
+    ```bicep
         var opcuaSchemaContent = '''
         {
           "$schema": "Delta/1.0",
@@ -150,7 +150,7 @@ To create a dataflow in [operations experience](https://iotoperations.azure.com/
             ]
           }
         }
-        ```
+    ```
 
 1. Deploy via Azure CLI
 

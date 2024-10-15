@@ -56,37 +56,37 @@ To configure a dataflow endpoint for Azure Data Lake Storage Gen2, we suggest us
 
 1.  Create a bicep file `deployment.bicep`. Replace the placeholder values like `<AIO_INSTANCE_NAME>` with your own.
     
-```bicep
-    param aioInstanceName string = '<AIO_INSTANCE_NAME>'
-    param customLocationName string = '<CUSTOM_LOCATION_NAME>'
-    param endpointName string = '<ENDPOINT_NAME>'
-    param host string = 'https://<ACCOUNT>.blob.core.windows.net'
-
-    resource aioInstance 'Microsoft.IoTOperations/instances@2024-08-15-preview' existing = {
-      name: aioInstanceName
-    }
-    resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
-      name: customLocationName
-    }
-    resource adlsGen2Endpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
-      parent: aioInstance
-      name: endpointName
-      extendedLocation: {
-        name: customLocation.id
-        type: 'CustomLocation'
-      }
-      properties: {
-        endpointType: 'DataLakeStorage'
-        dataLakeStorageSettings: {
-          host: host
-          authentication: {
-            method: 'SystemAssignedManagedIdentity'
-            systemAssignedManagedIdentitySettings: {}
+  ```bicep
+        param aioInstanceName string = '<AIO_INSTANCE_NAME>'
+        param customLocationName string = '<CUSTOM_LOCATION_NAME>'
+        param endpointName string = '<ENDPOINT_NAME>'
+        param host string = 'https://<ACCOUNT>.blob.core.windows.net'
+    
+        resource aioInstance 'Microsoft.IoTOperations/instances@2024-08-15-preview' existing = {
+          name: aioInstanceName
+        }
+        resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
+          name: customLocationName
+        }
+        resource adlsGen2Endpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
+          parent: aioInstance
+          name: endpointName
+          extendedLocation: {
+            name: customLocation.id
+            type: 'CustomLocation'
+          }
+          properties: {
+            endpointType: 'DataLakeStorage'
+            dataLakeStorageSettings: {
+              host: host
+              authentication: {
+                method: 'SystemAssignedManagedIdentity'
+                systemAssignedManagedIdentitySettings: {}
+              }
+            }
           }
         }
-      }
-    }
-```
+  ```
 
 1. Deploy via Azure CLI
 
