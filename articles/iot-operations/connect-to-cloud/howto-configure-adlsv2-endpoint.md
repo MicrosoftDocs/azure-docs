@@ -54,7 +54,7 @@ To configure a dataflow endpoint for Azure Data Lake Storage Gen2, we suggest us
 
 # [Bicep](#tab/bicep)
 
-11. A single Bicep template file from the *explore-iot-operations* repository deploys all the required dataflows and dataflow endpoints resources [Bicep File to create Dataflow](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/dataflow.bicep). Download the template file
+1. A single Bicep template file from the *explore-iot-operations* repository deploys all the required dataflows and dataflow endpoints resources [Bicep File to create Dataflow](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/quickstarts/dataflow.bicep). Download the template file and customize it according to your environment.
 
 1. Set environment variables for the resources you create in this section.
 
@@ -131,28 +131,29 @@ If you need to override the system-assigned managed identity audience, see the [
 
 # [Bicep](#tab/bicep)
 
-```bicep
-resource adlsGen2Endpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
-  parent: aioInstance
-  name: '<ENDPOINT NAME>'
-  extendedLocation: {
-    name: '<CUSTOM LOCATION NAME>'
-    type: 'CustomLocation'
-  }
-  properties: {
-    endpointType: 'DataLakeStorage'
-    dataLakeStorageSettings: {
-      authentication: {
-        method: 'AccessToken'
-        accessTokenSettings: {
-            secretRef: 'my-sas'
+    ```bicep
+    resource adlsGen2Endpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-08-15-preview' = {
+      parent: aioInstance
+      name: '<ENDPOINT NAME>'
+      extendedLocation: {
+        name: '<CUSTOM LOCATION NAME>'
+        type: 'CustomLocation'
+      }
+      properties: {
+        endpointType: 'DataLakeStorage'
+        dataLakeStorageSettings: {
+          authentication: {
+            method: 'AccessToken'
+            accessTokenSettings: {
+                secretRef: 'my-sas'
+            }
+          }
+          host: 'https://<account>.blob.core.windows.net'
         }
       }
-      host: 'https://<account>.blob.core.windows.net'
     }
-  }
-}
-```
+    ```
+
 ---
 
 ### Available authentication methods
