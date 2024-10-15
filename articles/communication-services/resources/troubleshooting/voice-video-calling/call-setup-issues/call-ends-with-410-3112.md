@@ -97,12 +97,12 @@ In this query, we analyze the data based on the user identifiers, assuming that 
 ACSCallSummary
 | summarize Total = count(), SuccessCount = countif(ParticipantEndSubCode == 0), SubCode3112Count = countif(ParticipantEndSubCode == 3112) by Identifier
 | where SubCode3112Count > 0
-| order by ErrorCount desc
+| order by SubCode3112Count desc
 ```
 
 :::image type="content" source="./media/log-query-results-3112-for-each-user-identifer.png" alt-text="Screenshot of log query results showing the number of calls ending with subcode 3112 for each user identifier" lightbox="./media/log-query-results-3112-for-each-user-identifer.png":::
 
-In this example, one user had a total of 196 calls, of which 175 calls were successful and only two calls failed with subcode 3112.
+In this example, one user had a total of 180 calls, of which 160 calls were successful and only two calls failed with subcode 3112.
 This pattern suggests a transient network issue, which may be resolved by retrying.
 On the other hand, another user had a total of six calls, all of which failed with subcode 3112.
 This consistency in subcode value indicates a likely network configuration issue for that user, where retrying is unlikely to help.
